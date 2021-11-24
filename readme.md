@@ -1,7 +1,6 @@
 
-<div style='text-align: center'>
-   <h1>AMAUI</h1>
+<h1 align='center'>AMAUI</h1>
 
-   Open source library of web UI components for various libraries and standards: react, vue and web components.
+<div align='center'>
+   Open source library of web UI components, with a support for various frameworks and standards: react, vue and web components.
 </div>
-
