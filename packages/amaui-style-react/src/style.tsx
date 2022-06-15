@@ -58,7 +58,7 @@ export default function style(value: TValue, options_: IOptions = {}) {
       // Clean up
       return () => {
         // Unsubscribe
-        amauiTheme.subscriptions.update.unsubscribe(method);
+        if (amauiTheme) amauiTheme.subscriptions.update.unsubscribe(method);
 
         // Remove
         response.remove(addValues.ids?.dynamic);
@@ -67,7 +67,7 @@ export default function style(value: TValue, options_: IOptions = {}) {
 
     // Update props
     useEffect(() => {
-      if (response.props !== undefined) response.props = props;
+      if (response !== undefined && values.ids) response.props = { ids: values.ids.dynamic, props };
     }, [hash(props)]);
 
     return values;

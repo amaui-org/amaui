@@ -1,7 +1,7 @@
 /* tslint:disable: no-shadowed-variable */
 import { assert } from '@amaui/test';
 
-import { startBrowsers, IBrowsers, evaluate, closeBrowsers, reset } from '../../../utils/js/test/utils';
+import { startBrowsers, IBrowsers, evaluate, closeBrowsers } from '../../../utils/js/test/utils';
 
 group('@amaui/style-react/AmauiStyleProvider', () => {
   let browsers: IBrowsers;
@@ -10,8 +10,6 @@ group('@amaui/style-react/AmauiStyleProvider', () => {
 
   post(async () => {
     await closeBrowsers(browsers);
-
-    reset();
   });
 
   preEveryTo(async () => {
