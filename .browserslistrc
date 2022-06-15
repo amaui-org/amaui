@@ -1,0 +1,10 @@
+
+[esm]
+> 0.5%
+last 2 versions
+Firefox ESR
+not dead
+not IE 9-11
+
+[node]
+node 12.0

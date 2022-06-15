@@ -1,0 +1,16 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "declaration": true
+  },
+  "include": [
+    "src/**/*.js",
+    "src/**/*.jsx",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "test/**/*.test.js",
+    "test/**/*.test.jsx",
+    "test/**/*.test.ts",
+    "test/**/*.test.tsx"
+  ]
+}

@@ -1,0 +1,17 @@
+# dev
+node_modules
+
+# build
+build
+
+# env
+.env.prod
+*.prod
+.env.production
+*.production
+
+# yarn
+yarn.lock
+
+# other
+size-snapshot.json

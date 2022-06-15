@@ -1,0 +1,60 @@
+{
+  "name": "@amaui/babel-plugin-vue",
+  "version": "1.0.0",
+  "description": "Babel plugin vue",
+  "repository": "https://github.com/amaui-org/amaui.git",
+  "author": "Lazar <lazareric.com@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "main": "./src/index.ts",
+  "keywords": [
+    "vue",
+    "vue-style",
+    "vue-styling",
+    "css",
+    "css-in-js",
+    "babel",
+    "babel-plugin",
+    "style",
+    "styling",
+    "cascading-style-sheets",
+    "frontend",
+    "front-end",
+    "backend",
+    "back-end",
+    "web",
+    "browser",
+    "javascript",
+    "js",
+    "typescript",
+    "node",
+    "nodejs",
+    "library",
+    "amaui",
+    "utils"
+  ],
+  "scripts": {
+    "prebuild": "rimraf build",
+    "build": "cross-env ENV=babel node ../../utils/js/build.js",
+    "release": "yarn test && yarn build && npm publish ./build",
+    "lint": "tslint -c ../../tslint.json -p tsconfig.json",
+    "type": "tsc --noEmit -p tsconfig.json",
+    "cov": "cross-env NODE_ENV=test amaui-test",
+    "test": "yarn lint && yarn type && yarn build && yarn cov"
+  },
+  "peerDependencies": {
+    "@babel/core": "^7.18.5"
+  },
+  "devDependencies": {
+    "@types/babel__core": "^7.1.19"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "sideEffects": false,
+  "engines": {
+    "node": ">=12.0.0",
+    "yarn": ">=1.22"
+  }
+}
