@@ -44,27 +44,25 @@ group('@amaui/style-react/style', () => {
       const A = (props) => {
         const styles = useStyle(props);
 
-        return window.React.createElement(
-          'a',
-          { className: styles.class },
-          props.children
+        return (
+          eval(window.Babel.transform(`
+            <a className={styles.class}>
+                {props.children}
+            </a>
+          `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
         );
       };
 
       const App = () => {
-        return window.React.createElement(
-          'div',
-          null,
-          window.React.createElement(
-            A,
-            { a: 1 },
-            'a'
-          ),
-          window.React.createElement(
-            A,
-            { a: 14 },
-            'a1'
-          )
+
+        return (
+          eval(window.Babel.transform(`
+            <div>
+                <A a={1}>a</A>
+
+                <A a={14}>a1</A>
+            </div>
+          `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
         );
       };
 
@@ -118,27 +116,25 @@ group('@amaui/style-react/style', () => {
         const A = (props) => {
           const styles = useStyle(props);
 
-          return window.React.createElement(
-            'a',
-            { className: styles.class },
-            props.children
+          return (
+            eval(window.Babel.transform(`
+              <a className={styles.class}>
+                  {props.children}
+              </a>
+          `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
           );
         };
 
         const App = () => {
-          return window.React.createElement(
-            'div',
-            null,
-            window.React.createElement(
-              A,
-              { a: 1 },
-              'a'
-            ),
-            window.React.createElement(
-              A,
-              { a: 14 },
-              'a1'
-            )
+
+          return (
+            eval(window.Babel.transform(`
+              <div>
+                  <A a={1}>a</A>
+
+                  <A a={14}>a1</A>
+              </div>
+          `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
           );
         };
 
@@ -192,7 +188,12 @@ group('@amaui/style-react/style', () => {
         const A = props => {
           const styles = useStyle(props);
           const theme = useAmauiTheme();
+
           window.React.useEffect(() => {
+            setTimeout(() => {
+              window.value.push(window.document.styleSheets.length, Array.from(window.document.styleSheets).map((sheet: any) => Array.from(sheet.cssRules).map((rule: any) => rule.cssText)), window.document.getElementById('app').innerHTML);
+            });
+
             setTimeout(() => {
               theme.update({
                 palette: {
@@ -201,18 +202,25 @@ group('@amaui/style-react/style', () => {
               });
             }, 1400);
           }, []);
-          window.React.useEffect(() => {
-            setTimeout(() => {
-              window.value.push(window.document.styleSheets.length, Array.from(window.document.styleSheets).map((sheet: any) => Array.from(sheet.cssRules).map((rule: any) => rule.cssText)), window.document.getElementById('app').innerHTML);
-            });
-          }, [theme.hash]);
-          return /*#__PURE__*/window.React.createElement("a", {
-            className: styles.class
-          }, props.children);
+
+          return (
+            eval(window.Babel.transform(`
+              <a className={styles.class}>
+                  {props.children}
+              </a>
+          `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
+          );
         };
 
         const App = () => {
-          return /*#__PURE__*/window.React.createElement(AmauiThemeProvider, null, /*#__PURE__*/window.React.createElement(A, null, "a"));
+
+          return (
+            eval(window.Babel.transform(`
+              <AmauiThemeProvider>
+                  <A>a</A>
+              </AmauiThemeProvider>
+          `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
+          );
         };
 
         // Add to DOM
@@ -266,9 +274,13 @@ group('@amaui/style-react/style', () => {
         const A = props => {
           const styles = useStyle(props);
 
-          return /*#__PURE__*/window.React.createElement("a", {
-            className: styles.class
-          }, 'a');
+          return (
+            eval(window.Babel.transform(`
+              <a className={styles.class}>
+                  {props.children}
+              </a>
+          `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
+          );
         };
 
         const App = () => {
@@ -286,7 +298,14 @@ group('@amaui/style-react/style', () => {
             });
           }, [a]);
 
-          return /*#__PURE__*/window.React.createElement("div", null, window.React.createElement(A, { a }), /*#__PURE__*/window.React.createElement(A, null));
+          return (
+            eval(window.Babel.transform(`
+              <div>
+                  <A a={a}>a</A>
+                  <A>a</A>
+              </div>
+          `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
+          );
         };
 
         // Add to DOM
@@ -348,9 +367,13 @@ group('@amaui/style-react/style', () => {
         const A = props => {
           const styles = useStyle(props);
 
-          return /*#__PURE__*/window.React.createElement("a", {
-            className: styles.class
-          }, 'a');
+          return (
+            eval(window.Babel.transform(`
+              <a className={styles.class}>
+                  {props.children}
+              </a>
+          `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
+          );
         };
 
         const App = () => {
@@ -368,7 +391,18 @@ group('@amaui/style-react/style', () => {
             });
           }, [elements]);
 
-          return /*#__PURE__*/window.React.createElement("div", null, elements && /*#__PURE__*/window.React.createElement(window.React.Fragment, null, /*#__PURE__*/window.React.createElement(A, null), /*#__PURE__*/window.React.createElement(A, null)));
+          return (
+            eval(window.Babel.transform(`
+              <div>
+                  {elements && (
+                    <window.React.Fragment>
+                      <A>a</A>
+                      <A>a</A>
+                    </window.React.Fragment>
+                  )}
+              </div>
+          `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
+          );
         };
 
         // Add to DOM
@@ -426,28 +460,37 @@ group('@amaui/style-react/style', () => {
 
       const A = props => {
         const styles = useStyle(props);
-        return /*#__PURE__*/React.createElement("a", {
-          className: styles.class
-        }, props.children);
+
+        return (
+          <a className={styles.class}>
+            {props.children}
+          </a>
+        );
       };
 
       const App = () => {
-        return /*#__PURE__*/React.createElement(AmauiStyleProvider, {
-          value: amauiStyle
-        }, /*#__PURE__*/React.createElement(AmauiThemeProvider, null, /*#__PURE__*/React.createElement(A, null, "a")));
+        return (
+          <AmauiStyleProvider value={amauiStyle}>
+            <AmauiThemeProvider>
+              <A>
+                a
+              </A>
+            </AmauiThemeProvider>
+          </AmauiStyleProvider>
+        );
       };
 
       const value = ReactDOMServer.renderToString(React.createElement(App, null));
 
-      assert(value).eq('<a class="a-0 a1-1">a</a>');
+      assert(value).eq('<a class="a-2 a1-3">a</a>');
 
       assert(amauiStyle.css).eq(`
 
-.a-0 {
+.a-2 {
 width: 100px;
 }
 
-.a1-1 {
+.a1-3 {
 color: rgba(0, 0, 0, 0.87);
 }
 

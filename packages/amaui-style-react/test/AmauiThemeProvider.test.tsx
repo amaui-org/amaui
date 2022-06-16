@@ -45,10 +45,12 @@ group('@amaui/style-react/AmauiThemeProvider', () => {
 
         value.push(theme);
 
-        return window.React.createElement(
-          'div',
-          null,
-          props.children
+        return (
+          eval(window.Babel.transform(`
+            <div>
+              {props.children}
+            </div>
+          `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
         );
       };
 
@@ -57,23 +59,20 @@ group('@amaui/style-react/AmauiThemeProvider', () => {
 
         const a1 = new AmauiTheme();
 
-        return window.React.createElement(
-          AmauiThemeProvider,
-          { value: a },
-          window.React.createElement(
-            A,
-            null,
-            'a',
-            window.React.createElement(
-              AmauiThemeProvider,
-              { value: a1 },
-              window.React.createElement(
-                A,
-                null,
-                'a1'
-              )
-            )
-          )
+        return (
+          eval(window.Babel.transform(`
+            <AmauiThemeProvider value={a}>
+                <A>
+                  a
+
+                  <AmauiThemeProvider value={a1}>
+                    <A>
+                      a1
+                    </A>
+                  </AmauiThemeProvider>
+                </A>
+            </AmauiThemeProvider>
+          `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
         );
       };
 
@@ -105,10 +104,12 @@ group('@amaui/style-react/AmauiThemeProvider', () => {
 
         value.push(theme);
 
-        return window.React.createElement(
-          'div',
-          null,
-          props.children
+        return (
+          eval(window.Babel.transform(`
+            <div>
+              {props.children}
+            </div>
+          `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
         );
       };
 
@@ -117,23 +118,20 @@ group('@amaui/style-react/AmauiThemeProvider', () => {
 
         const a1 = new AmauiTheme();
 
-        return window.React.createElement(
-          AmauiThemeProvider,
-          { value: a },
-          window.React.createElement(
-            A,
-            null,
-            'a',
-            window.React.createElement(
-              AmauiThemeProvider,
-              { value: a1 },
-              window.React.createElement(
-                A,
-                null,
-                'a1'
-              )
-            )
-          )
+        return (
+          eval(window.Babel.transform(`
+            <AmauiThemeProvider value={a}>
+                <A>
+                  a
+
+                  <AmauiThemeProvider value={a1}>
+                    <A>
+                      a1
+                    </A>
+                  </AmauiThemeProvider>
+                </A>
+            </AmauiThemeProvider>
+          `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
         );
       };
 

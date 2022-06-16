@@ -45,14 +45,16 @@ group('@amaui/style-react/AmauiStyleProvider', () => {
 
         value.push(style);
 
-        return window.React.createElement(
-          'div',
-          null,
-          props.children
+        return (
+          eval(window.Babel.transform(`
+            <a>
+                {props.children}
+            </a>
+          `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
         );
       };
 
-      const App: any = () => {
+      const App = () => {
         const a = new AmauiStyle();
 
         a.a = 'a';
@@ -61,23 +63,20 @@ group('@amaui/style-react/AmauiStyleProvider', () => {
 
         a1.a = 'a1';
 
-        return window.React.createElement(
-          AmauiStyleProvider,
-          { value: a },
-          window.React.createElement(
-            A,
-            null,
-            'a',
-            window.React.createElement(
-              AmauiStyleProvider,
-              { value: a1 },
-              window.React.createElement(
-                A,
-                null,
-                'a1'
-              )
-            )
-          )
+        return (
+          eval(window.Babel.transform(`
+            <AmauiStyleProvider value={a}>
+                <A>
+                  a
+
+                  <AmauiStyleProvider value={a1}>
+                    <A>
+                      a1
+                    </A>
+                  </AmauiStyleProvider>
+                </A>
+            </AmauiStyleProvider>
+          `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
         );
       };
 
@@ -110,14 +109,16 @@ group('@amaui/style-react/AmauiStyleProvider', () => {
 
         value.push(style);
 
-        return window.React.createElement(
-          'div',
-          null,
-          props.children
+        return (
+          eval(window.Babel.transform(`
+            <a>
+                {props.children}
+            </a>
+          `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
         );
       };
 
-      const App: any = () => {
+      const App = () => {
         const a = new AmauiStyle();
 
         a.a = 'a';
@@ -126,23 +127,20 @@ group('@amaui/style-react/AmauiStyleProvider', () => {
 
         a1.a = 'a1';
 
-        return window.React.createElement(
-          AmauiStyleProvider,
-          { value: a },
-          window.React.createElement(
-            A,
-            null,
-            'a',
-            window.React.createElement(
-              AmauiStyleProvider,
-              { value: a1 },
-              window.React.createElement(
-                A,
-                null,
-                'a1'
-              )
-            )
-          )
+        return (
+          eval(window.Babel.transform(`
+            <AmauiStyleProvider value={a}>
+                <A>
+                  a
+
+                  <AmauiStyleProvider value={a1}>
+                    <A>
+                      a1
+                    </A>
+                  </AmauiStyleProvider>
+                </A>
+            </AmauiStyleProvider>
+          `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
         );
       };
 
