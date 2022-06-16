@@ -1,6 +1,5 @@
-import { createContext } from 'react';
+import React from 'react';
 
-// UMD bundle fix
-const AmauiThemeContext: any = createContext(undefined);
+const AmauiThemeContext: any = React.createContext(undefined);
 
 export default AmauiThemeContext;

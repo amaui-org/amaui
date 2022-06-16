@@ -1,11 +1,11 @@
-import { useContext } from 'react';
+import React from 'react';
 
 import { AmauiStyle } from '@amaui/style';
 
 import AmauiStyleContext from './AmauiStyleContext';
 
 export default function useAmauiStyle(): AmauiStyle {
-  const value = useContext(AmauiStyleContext) as AmauiStyle;
+  const value = React.useContext(AmauiStyleContext) as AmauiStyle;
 
   return value;
 }

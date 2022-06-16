@@ -1,5 +1,5 @@
-import { createContext } from 'react';
+import React from 'react';
 
-const AmauiStyleContext: any = createContext(undefined);
+const AmauiStyleContext: any = React.createContext(undefined);
 
 export default AmauiStyleContext;

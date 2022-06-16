@@ -16,7 +16,7 @@ const DefaultElement = {
     return {
       element,
       className: classNames([classProp, values.class]),
-    }
+    };
   },
   render() {
     return (

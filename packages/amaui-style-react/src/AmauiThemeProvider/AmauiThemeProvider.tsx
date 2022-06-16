@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import React from 'react';
 
 import { merge } from '@amaui/utils';
 import { AmauiTheme } from '@amaui/style';
@@ -11,7 +11,7 @@ export default function AmauiThemeProvider(props) {
 
   const valueParent = useAmauiTheme() || new AmauiTheme();
 
-  const value = useMemo(() => {
+  const value = React.useMemo(() => {
     const valueNew = merge(valueLocal, valueParent);
 
     return new AmauiTheme(valueNew);

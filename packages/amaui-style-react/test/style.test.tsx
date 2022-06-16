@@ -1,7 +1,12 @@
 /* tslint:disable: no-shadowed-variable */
+import ReactDOMServer from 'react-dom/server';
+import React from 'react';
+
 import { assert } from '@amaui/test';
 
 import { startBrowsers, IBrowsers, evaluate, closeBrowsers } from '../../../utils/js/test/utils';
+
+import * as AmauiStyleReact from '../src';
 
 group('@amaui/style-react/style', () => {
   let browsers: IBrowsers;
@@ -168,6 +173,80 @@ group('@amaui/style-react/style', () => {
       ]));
     });
 
+    to('update', async () => {
+      const valueBrowsers = await evaluate(async (window: any) => {
+        window.value = [];
+
+        const { style, useAmauiTheme, AmauiThemeProvider } = window.AmauiStyleReact;
+
+        const useStyle = style(theme => ({
+          a: {
+            width: '100px',
+          },
+
+          a1: {
+            color: theme.palette.text.default.primary
+          }
+        }));
+
+        const A = props => {
+          const styles = useStyle(props);
+          const theme = useAmauiTheme();
+          window.React.useEffect(() => {
+            setTimeout(() => {
+              theme.update({
+                palette: {
+                  light: false
+                }
+              });
+            }, 1400);
+          }, []);
+          window.React.useEffect(() => {
+            setTimeout(() => {
+              window.value.push(window.document.styleSheets.length, Array.from(window.document.styleSheets).map((sheet: any) => Array.from(sheet.cssRules).map((rule: any) => rule.cssText)), window.document.getElementById('app').innerHTML);
+            });
+          }, [theme.hash]);
+          return /*#__PURE__*/window.React.createElement("a", {
+            className: styles.class
+          }, props.children);
+        };
+
+        const App = () => {
+          return /*#__PURE__*/window.React.createElement(AmauiThemeProvider, null, /*#__PURE__*/window.React.createElement(A, null, "a"));
+        };
+
+        // Add to DOM
+        window.ReactDOM.render(window.React.createElement(App, null), window.document.getElementById('app'));
+
+        await window.AmauiUtils.wait(1440);
+
+        window.value.push(window.document.styleSheets.length, Array.from(window.document.styleSheets).map((sheet: any) => Array.from(sheet.cssRules).map((rule: any) => rule.cssText)), window.document.getElementById('app').innerHTML);
+
+        return window.value;
+      }, { browsers });
+
+      const values = [...valueBrowsers];
+
+      values.forEach(value => assert(value).eql([
+        1,
+        [
+          [
+            ".a-6 { width: 100px; }",
+            ".a1-7 { color: rgba(0, 0, 0, 0.87); }"
+          ]
+        ],
+        "<a class=\"a-6 a1-7\">a</a>",
+        1,
+        [
+          [
+            ".a-6 { width: 100px; }",
+            ".a1-7 { color: rgba(255, 255, 255, 0.87); }"
+          ]
+        ],
+        "<a class=\"a-6 a1-7\">a</a>"
+      ]));
+    });
+
     to('updateProps', async () => {
       const valueBrowsers = await evaluate(async (window: any) => {
         window.value = [];
@@ -224,29 +303,29 @@ group('@amaui/style-react/style', () => {
         3,
         [
           [
-            ".a-6 { width: 100px; }"
+            ".a-8 { width: 100px; }"
           ],
           [
-            ".a1-7 { color: yellow; }"
+            ".a1-9 { color: yellow; }"
           ],
           [
-            ".a1-8 { color: orange; }"
+            ".a1-10 { color: orange; }"
           ]
         ],
-        "<div><a class=\"a-6 a1-7\">a</a><a class=\"a-6 a1-8\">a</a></div>",
+        "<div><a class=\"a-8 a1-9\">a</a><a class=\"a-8 a1-10\">a</a></div>",
         3,
         [
           [
-            ".a-6 { width: 100px; }"
+            ".a-8 { width: 100px; }"
           ],
           [
-            ".a1-7 { color: orange; }"
+            ".a1-9 { color: orange; }"
           ],
           [
-            ".a1-8 { color: orange; }"
+            ".a1-10 { color: orange; }"
           ]
         ],
-        "<div><a class=\"a-6 a1-7\">a</a><a class=\"a-6 a1-8\">a</a></div>"
+        "<div><a class=\"a-8 a1-9\">a</a><a class=\"a-8 a1-10\">a</a></div>"
       ]));
     });
 
@@ -306,20 +385,73 @@ group('@amaui/style-react/style', () => {
         3,
         [
           [
-            ".a-9 { width: 100px; }"
+            ".a-11 { width: 100px; }"
           ],
           [
-            ".a1-10 { color: orange; }"
+            ".a1-12 { color: orange; }"
           ],
           [
-            ".a1-11 { color: orange; }"
+            ".a1-13 { color: orange; }"
           ]
         ],
-        "<div><a class=\"a-9 a1-10\">a</a><a class=\"a-9 a1-11\">a</a></div>",
+        "<div><a class=\"a-11 a1-12\">a</a><a class=\"a-11 a1-13\">a</a></div>",
         0,
         [],
         "<div></div>"
       ]));
+    });
+
+  });
+
+  group('ssr', () => {
+
+    to('renderToString', async () => {
+      const { AmauiStyle, AmauiStyleProvider, AmauiThemeProvider, style } = AmauiStyleReact;
+
+      const amauiStyle = new AmauiStyle();
+
+      const useStyle = style(theme => ({
+        a: {
+          width: '100px',
+        },
+
+        a1: {
+          color: theme.palette.text.default.primary
+        },
+
+        a4: {
+          background: props => props.a === 1 ? 'yellow' : 'orange'
+        }
+      }));
+
+      const A = props => {
+        const styles = useStyle(props);
+        return /*#__PURE__*/React.createElement("a", {
+          className: styles.class
+        }, props.children);
+      };
+
+      const App = () => {
+        return /*#__PURE__*/React.createElement(AmauiStyleProvider, {
+          value: amauiStyle
+        }, /*#__PURE__*/React.createElement(AmauiThemeProvider, null, /*#__PURE__*/React.createElement(A, null, "a")));
+      };
+
+      const value = ReactDOMServer.renderToString(React.createElement(App, null));
+
+      assert(value).eq('<a class="a-0 a1-1">a</a>');
+
+      assert(amauiStyle.css).eq(`
+
+.a-0 {
+width: 100px;
+}
+
+.a1-1 {
+color: rgba(0, 0, 0, 0.87);
+}
+
+`);
     });
 
   });

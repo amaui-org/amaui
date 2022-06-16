@@ -16,7 +16,7 @@ const run = async () => {
 
   app.use(cors({ origin: '*' }));
 
-  const root = path.join(__dirname, '../../../../../');
+  const root = path.join(__dirname, '../../../');
 
   app.use(express.static(root));
 

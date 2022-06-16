@@ -1,4 +1,4 @@
-import { forwardRef } from 'react';
+import React from 'react';
 
 import { TValue } from '@amaui/style';
 import { IOptions } from '@amaui/style/style';
@@ -10,15 +10,15 @@ const withStyle = (value: TValue, options_: IOptions = {}) => (Element: any) => 
   const useStyle = style(value, options_);
 
   // Element
-  const element = forwardRef((ref, props) => {
-    const value = useStyle(props);
+  const element = React.forwardRef((ref, props) => {
+    const styles = useStyle(props);
 
     return (
-      <Element ref={ref} style={value} />
+      <Element ref={ref} style={styles} />
     );
   });
 
   return element;
-}
+};
 
 export default withStyle;
