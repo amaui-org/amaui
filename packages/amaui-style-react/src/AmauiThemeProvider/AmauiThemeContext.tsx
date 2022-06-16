@@ -1,5 +1,5 @@
 import React from 'react';
 
-const AmauiThemeContext: any = React.createContext(undefined);
+const AmauiThemeContext: any = React.createContext([]);
 
 export default AmauiThemeContext;

@@ -18,8 +18,8 @@ export default function style(value: TValue, options_: IOptions = {}) {
       styles: () => { },
     } as IResponse);
 
-    const amauiStyle = useAmauiStyle();
-    const amauiTheme = useAmauiTheme();
+    const [amauiStyle] = useAmauiStyle();
+    const [amauiTheme] = useAmauiTheme();
 
     // Init only once
     // it has to be in body of method
@@ -55,7 +55,7 @@ export default function style(value: TValue, options_: IOptions = {}) {
           const valueNew = (value as TValueMethod)(amauiTheme);
 
           // Update
-          if (response.update !== undefined) response.update(valueNew);
+          if (response?.update !== undefined) response.update(valueNew);
         }
       };
 

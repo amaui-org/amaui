@@ -1,3 +1,6 @@
+import React from 'react';
+
+import { merge } from '@amaui/utils';
 import { AmauiStyle, makeClassName, unit, rtl, sort, valueObject } from '@amaui/style';
 
 import AmauiStyleContext from './AmauiStyleContext';
@@ -20,13 +23,25 @@ function makeAmauiStyle() {
 export default function AmauiStyleProvider(props) {
   const { children, value: value_ } = props;
 
-  let value: AmauiStyle = value_;
+  const [value, setValue] = React.useState(() => {
+    if (value_ === undefined || !(value_ instanceof AmauiStyle)) return makeAmauiStyle();
 
-  if (value_ === undefined || !(value_ instanceof AmauiStyle)) value = makeAmauiStyle();
+    return value_;
+  });
+
+  const update = (updateValue: any, override = false) => {
+    if (updateValue !== undefined) {
+      const valueNew = override ? updateValue : merge(updateValue, value);
+
+      setValue(valueNew);
+
+      return valueNew;
+    }
+  };
 
   return (
     <AmauiStyleContext.Provider
-      value={value}
+      value={[value, update]}
     >
       {children}
     </AmauiStyleContext.Provider>

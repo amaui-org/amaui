@@ -10,8 +10,8 @@ import { useAmauiStyle, useAmauiTheme } from '.';
 export default function inline(value_: TValue, options_: IOptions = {}) {
   const [value, setValue] = React.useState('');
 
-  const amauiStyle = useAmauiStyle();
-  const amauiTheme = useAmauiTheme();
+  const [amauiStyle] = useAmauiStyle();
+  const [amauiTheme] = useAmauiTheme();
 
   React.useEffect(() => {
     const options = merge(options_, { amaui_style: { value: amauiStyle }, amaui_theme: { value: amauiTheme } }, { copy: true });

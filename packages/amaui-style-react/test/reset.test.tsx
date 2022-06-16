@@ -438,7 +438,7 @@ group('@amaui/style-react/reset', () => {
         const A = props => {
           useReset();
 
-          const theme = useAmauiTheme();
+          const [theme] = useAmauiTheme();
 
           window.React.useEffect(() => {
             setTimeout(() => {
@@ -449,7 +449,7 @@ group('@amaui/style-react/reset', () => {
                   light: false
                 }
               });
-            }, 1400);
+            }, 140);
           }, []);
 
           return (
@@ -474,7 +474,7 @@ group('@amaui/style-react/reset', () => {
         // Add to DOM
         window.ReactDOM.render(window.React.createElement(App, null), window.document.getElementById('app'));
 
-        await window.AmauiUtils.wait(1440);
+        await window.AmauiUtils.wait(170);
 
         window.value.push(window.document.styleSheets.length, Array.from(window.document.styleSheets).map((sheet: any) => Array.from(sheet.cssRules).map((rule: any) => rule.cssText)), window.document.getElementById('app').innerHTML);
 
@@ -795,7 +795,7 @@ group('@amaui/style-react/reset', () => {
           window.React.useEffect(() => {
             setTimeout(() => {
               setA(14);
-            }, 1400);
+            }, 140);
           }, []);
 
           window.React.useEffect(() => {
@@ -816,7 +816,7 @@ group('@amaui/style-react/reset', () => {
         // Add to DOM
         window.ReactDOM.render(window.React.createElement(App, null), window.document.getElementById('app'));
 
-        await window.AmauiUtils.wait(1440);
+        await window.AmauiUtils.wait(170);
 
         return window.value;
       }, { browsers });
@@ -1157,7 +1157,7 @@ group('@amaui/style-react/reset', () => {
               window.value.push(window.document.styleSheets.length, Array.from(window.document.styleSheets).map((sheet: any) => Array.from(sheet.cssRules).map((rule: any) => rule.cssText)), window.document.getElementById('app').innerHTML);
 
               setElements(false);
-            }, 1400);
+            }, 140);
           }, []);
 
           return (
@@ -1176,7 +1176,7 @@ group('@amaui/style-react/reset', () => {
         // Add to DOM
         window.ReactDOM.render(window.React.createElement(App, null), window.document.getElementById('app'));
 
-        await window.AmauiUtils.wait(1440);
+        await window.AmauiUtils.wait(170);
 
         window.value.push(window.document.styleSheets.length, Array.from(window.document.styleSheets).map((sheet: any) => Array.from(sheet.cssRules).map((rule: any) => rule.cssText)), window.document.getElementById('app').innerHTML);
 
@@ -1399,7 +1399,7 @@ group('@amaui/style-react/reset', () => {
 
       const value = ReactDOMServer.renderToString(React.createElement(App, null));
 
-      assert(value).eq('<a class="a-0 a1-1">a</a>');
+      assert(value).eq('<a class="a-1 a1-2">a</a>');
 
       assert(amauiStyle.css).eq(`
 
@@ -1608,11 +1608,11 @@ white-space: pre-wrap;
 
 
 
-.a-0 {
+.a-1 {
 width: 100px;
 }
 
-.a1-1 {
+.a1-2 {
 color: rgba(0, 0, 0, 0.87);
 }
 

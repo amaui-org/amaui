@@ -41,9 +41,9 @@ group('@amaui/style-react/AmauiThemeProvider', () => {
       const { AmauiTheme, useAmauiTheme, AmauiThemeProvider } = window.AmauiStyleReact;
 
       const A = (props) => {
-        const theme = useAmauiTheme();
+        const [amauiTheme] = useAmauiTheme();
 
-        value.push(theme);
+        value.push(amauiTheme);
 
         return (
           eval(window.Babel.transform(`
@@ -100,9 +100,9 @@ group('@amaui/style-react/AmauiThemeProvider', () => {
       const { AmauiTheme, useAmauiTheme, AmauiThemeProvider } = window.AmauiStyleReact;
 
       const A = (props) => {
-        const theme = useAmauiTheme();
+        const [amauiTheme] = useAmauiTheme();
 
-        value.push(theme);
+        value.push(amauiTheme);
 
         return (
           eval(window.Babel.transform(`
