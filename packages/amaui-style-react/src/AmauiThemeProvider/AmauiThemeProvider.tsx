@@ -9,6 +9,8 @@ import useAmauiTheme from './useAmauiTheme';
 export default function AmauiThemeProvider(props) {
   const { children, value: valueLocal } = props;
 
+  const ref = React.useRef();
+
   const valueParentTheme = (useAmauiTheme() || [])[0];
 
   const valueParent = React.useMemo(() => {
@@ -18,12 +20,19 @@ export default function AmauiThemeProvider(props) {
   const [value, setValue] = React.useState(new AmauiTheme(merge(valueLocal, { ...valueParent }, { copy: true })));
 
   React.useEffect(() => {
-    setValue(new AmauiTheme(merge(valueLocal, { ...valueParent }, { copy: true })));
+    if (ref.current) setValue(new AmauiTheme(value, ref.current));
+  }, []);
+
+  React.useEffect(() => {
+    // Update
+    value.update(merge(valueLocal, { ...valueParent }, { copy: true }));
+
+    setValue(value);
   }, [hash(valueLocal), hash(valueParent)]);
 
   const update = (updateValue: any) => {
     if (updateValue !== undefined) {
-      // Update the theme instance
+      // Update
       value.update(updateValue);
 
       // Update the state with updated instance
@@ -36,6 +45,8 @@ export default function AmauiThemeProvider(props) {
   return (
     <AmauiThemeContext.Provider
       value={[value, update]}
+
+      ref={ref}
     >
       {children}
     </AmauiThemeContext.Provider>

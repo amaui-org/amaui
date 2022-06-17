@@ -5,8 +5,8 @@ import { AmauiStyle, makeClassName, unit, rtl, sort, valueObject } from '@amaui/
 
 import AmauiStyleContext from './AmauiStyleContext';
 
-function makeAmauiStyle() {
-  const amauiStyle = new AmauiStyle();
+function makeAmauiStyle(element?: Element) {
+  const amauiStyle = new AmauiStyle(element);
 
   // Add all the plugins
   amauiStyle.plugins.add = [
@@ -23,11 +23,24 @@ function makeAmauiStyle() {
 export default function AmauiStyleProvider(props) {
   const { children, value: value_ } = props;
 
+  const ref = React.useRef();
+
   const [value, setValue] = React.useState(() => {
     if (value_ === undefined || !(value_ instanceof AmauiStyle)) return makeAmauiStyle();
 
     return value_;
   });
+
+  React.useEffect(() => {
+    if (ref.current) {
+      value.element = ref.current;
+
+      // Init
+      value.init();
+
+      setValue(value);
+    }
+  }, []);
 
   const update = (updateValue: any, override = false) => {
     if (updateValue !== undefined) {
