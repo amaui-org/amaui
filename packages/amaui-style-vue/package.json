@@ -46,7 +46,7 @@
     "vue": "^3.2.37"
   },
   "dependencies": {
-    "@amaui/style": "^1.0.11"
+    "@amaui/style": "^1.0.1144"
   },
   "publishConfig": {
     "access": "public",

@@ -1,5 +1,6 @@
 /* tslint:disable: no-shadowed-variable */
 import playwright, { chromium, webkit, firefox } from 'playwright';
+import fg from 'fast-glob';
 
 import { TMethod } from '@amaui/models';
 
@@ -107,6 +108,18 @@ export const evaluate = async (
     const browser: IBrowser = options.browsers && options.browsers[key];
 
     const window = await browser.page?.evaluateHandle(() => window);
+
+    // Remove prod scripts
+    await browser.page.evaluateHandle((window: Window) => {
+      const scripts = window.document.getElementsByTagName('script');
+
+      Array.from(scripts).filter(script => script.src.indexOf('localhost') > -1).forEach(script => script.parentElement.removeChild(script));
+    }, window);
+
+    // Add prod scripts
+    const paths = (await fg('build/umd/*.dev.js', { onlyFiles: true }));
+
+    for (const value of paths) await browser.page.addScriptTag({ url: value });
 
     const args = options.arguments?.length ? [window, ...options.arguments] : window;
 
