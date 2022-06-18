@@ -21,15 +21,16 @@ function makeAmauiStyle(element?: Element) {
 }
 
 export default function AmauiStyleProvider(props) {
-  const { children, value: value_ } = props;
+  const { children, value: value_, ...other } = props;
 
   const ref = React.useRef();
 
   const [value, setValue] = React.useState(() => {
     if (value_ === undefined || !(value_ instanceof AmauiStyle)) return makeAmauiStyle();
 
-    return value_;
+    return value_ as AmauiStyle;
   });
+  const setId = React.useState(undefined)[1];
 
   React.useEffect(() => {
     if (ref.current) {
@@ -38,7 +39,7 @@ export default function AmauiStyleProvider(props) {
       // Init
       value.init();
 
-      setValue(value);
+      setId(value.hash);
     }
   }, []);
 
@@ -53,10 +54,10 @@ export default function AmauiStyleProvider(props) {
   };
 
   return (
-    <AmauiStyleContext.Provider
-      value={[value, update]}
-    >
-      {children}
+    <AmauiStyleContext.Provider value={[value, update]} >
+      <div ref={ref} {...other}>
+        {children}
+      </div>
     </AmauiStyleContext.Provider>
   );
 }

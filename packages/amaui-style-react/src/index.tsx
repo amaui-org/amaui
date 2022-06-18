@@ -32,9 +32,9 @@ export { default as className } from './className';
 export { default as c } from './className';
 export { default as cs } from './className';
 
-export { default as withStyle } from '../../amaui-style-vue/src/withStyle';
+export { default as withStyle } from './withStyle';
 // Alias
-export { default as w } from '../../amaui-style-vue/src/withStyle';
+export { default as w } from './withStyle';
 
 export { default as styled } from './styled';
 // Alias

@@ -8,7 +8,7 @@ import { startBrowsers, IBrowsers, evaluate, closeBrowsers } from '../../../util
 
 import * as AmauiStyleReact from '../src';
 
-group('@amaui/style-react/inline', () => {
+group('@amaui/style-react/withStyle', () => {
   let browsers: IBrowsers;
 
   pre(async () => browsers = await startBrowsers());
@@ -17,33 +17,40 @@ group('@amaui/style-react/inline', () => {
     await closeBrowsers(browsers);
   });
 
-  to('inline', async () => {
+  to('withStyle', async () => {
     const valueBrowsers = await evaluate(async (window: any) => {
-      const { inline } = window.AmauiStyleReact;
+      const { withStyle } = window.AmauiStyleReact;
 
-      const A = (props) => {
-        const style = inline(theme => ({
-          color: 'yellow',
-          backgroundColor: 'orange'
-        }));
+      const A1 = (props) => {
+        const styles = props.styles;
 
         return (
           eval(window.Babel.transform(`
-            <a style={style}>
+            <a className={styles.class}>
                 {props.children}
             </a>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
         );
       };
 
+      const A = withStyle(A1)(theme => ({
+        a: {
+          width: '100px',
+        },
+
+        a1: {
+          color: props => props.a === 1 ? 'yellow' : 'orange',
+        }
+      }));
+
       const App = () => {
 
         return (
           eval(window.Babel.transform(`
             <div>
-                <A>a</A>
+                <A a={1}>a</A>
 
-                <A>a1</A>
+                <A a={14}>a1</A>
             </div>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
         );
@@ -55,6 +62,8 @@ group('@amaui/style-react/inline', () => {
       await window.AmauiUtils.wait(140);
 
       return [
+        window.document.styleSheets.length,
+        Array.from(window.document.styleSheets).map((sheet: any) => Array.from(sheet.cssRules).map((rule: any) => rule.cssText)),
         window.document.getElementById('app').innerHTML
       ];
     }, { browsers });
@@ -62,37 +71,56 @@ group('@amaui/style-react/inline', () => {
     const values = [...valueBrowsers];
 
     values.forEach(value => assert(value).eql([
-      '<div><a style="color: yellow; background-color: orange;">a</a><a style="color: yellow; background-color: orange;">a1</a></div>'
+      3,
+      [
+        [
+          ".a-0 { width: 100px; }"
+        ],
+        [
+          ".a1-1 { color: yellow; }"
+        ],
+        [
+          ".a1-2 { color: orange; }"
+        ]
+      ],
+      "<div><a class=\"a-0 a1-1\">a</a><a class=\"a-0 a1-2\">a1</a></div>"
     ]));
   });
 
-  to('i', async () => {
+  to('w', async () => {
     const valueBrowsers = await evaluate(async (window: any) => {
-      const { i } = window.AmauiStyleReact;
+      const { w } = window.AmauiStyleReact;
 
-      const A = (props) => {
-        const style = i(theme => ({
-          color: 'yellow',
-          backgroundColor: 'orange'
-        }));
+      const A1 = (props) => {
+        const styles = props.styles;
 
         return (
           eval(window.Babel.transform(`
-            <a style={style}>
+            <a className={styles.class}>
                 {props.children}
             </a>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
         );
       };
 
+      const A = w(A1)(theme => ({
+        a: {
+          width: '100px',
+        },
+
+        a1: {
+          color: props => props.a === 1 ? 'yellow' : 'orange',
+        }
+      }));
+
       const App = () => {
 
         return (
           eval(window.Babel.transform(`
             <div>
-                <A>a</A>
+                <A a={1}>a</A>
 
-                <A>a1</A>
+                <A a={14}>a1</A>
             </div>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
         );
@@ -104,6 +132,8 @@ group('@amaui/style-react/inline', () => {
       await window.AmauiUtils.wait(140);
 
       return [
+        window.document.styleSheets.length,
+        Array.from(window.document.styleSheets).map((sheet: any) => Array.from(sheet.cssRules).map((rule: any) => rule.cssText)),
         window.document.getElementById('app').innerHTML
       ];
     }, { browsers });
@@ -111,7 +141,19 @@ group('@amaui/style-react/inline', () => {
     const values = [...valueBrowsers];
 
     values.forEach(value => assert(value).eql([
-      '<div><a style="color: yellow; background-color: orange;">a</a><a style="color: yellow; background-color: orange;">a1</a></div>'
+      3,
+      [
+        [
+          ".a-0 { width: 100px; }"
+        ],
+        [
+          ".a1-1 { color: yellow; }"
+        ],
+        [
+          ".a1-2 { color: orange; }"
+        ]
+      ],
+      "<div><a class=\"a-0 a1-1\">a</a><a class=\"a-0 a1-2\">a1</a></div>"
     ]));
   });
 
@@ -119,32 +161,39 @@ group('@amaui/style-react/inline', () => {
 
     to('add', async () => {
       const valueBrowsers = await evaluate(async (window: any) => {
-        const { inline } = window.AmauiStyleReact;
+        const { withStyle } = window.AmauiStyleReact;
 
-        const A = (props) => {
-          const style = inline(theme => ({
-            color: 'yellow',
-            backgroundColor: 'orange'
-          }));
+        const A1 = (props) => {
+          const styles = props.styles;
 
           return (
             eval(window.Babel.transform(`
-              <a style={style}>
-                  {props.children}
-              </a>
+            <a className={styles.class}>
+                {props.children}
+            </a>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
           );
         };
+
+        const A = withStyle(A1)(theme => ({
+          a: {
+            width: '100px',
+          },
+
+          a1: {
+            color: props => props.a === 1 ? 'yellow' : 'orange',
+          }
+        }));
 
         const App = () => {
 
           return (
             eval(window.Babel.transform(`
-            <div>
-                <A>a</A>
+              <div>
+                  <A a={1}>a</A>
 
-                <A>a1</A>
-            </div>
+                  <A a={14}>a1</A>
+              </div>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
           );
         };
@@ -155,6 +204,8 @@ group('@amaui/style-react/inline', () => {
         await window.AmauiUtils.wait(140);
 
         return [
+          window.document.styleSheets.length,
+          Array.from(window.document.styleSheets).map((sheet: any) => Array.from(sheet.cssRules).map((rule: any) => rule.cssText)),
           window.document.getElementById('app').innerHTML
         ];
       }, { browsers });
@@ -162,7 +213,19 @@ group('@amaui/style-react/inline', () => {
       const values = [...valueBrowsers];
 
       values.forEach(value => assert(value).eql([
-        '<div><a style="color: yellow; background-color: orange;">a</a><a style="color: yellow; background-color: orange;">a1</a></div>'
+        3,
+        [
+          [
+            ".a-0 { width: 100px; }"
+          ],
+          [
+            ".a1-1 { color: yellow; }"
+          ],
+          [
+            ".a1-2 { color: orange; }"
+          ]
+        ],
+        "<div><a class=\"a-0 a1-1\">a</a><a class=\"a-0 a1-2\">a1</a></div>"
       ]));
     });
 
@@ -170,23 +233,20 @@ group('@amaui/style-react/inline', () => {
       const valueBrowsers = await evaluate(async (window: any) => {
         window.value = [];
 
-        const { inline, useAmauiTheme, AmauiThemeProvider } = window.AmauiStyleReact;
+        const { withStyle, useAmauiTheme, AmauiThemeProvider } = window.AmauiStyleReact;
 
-        const A = (props) => {
-          const style = inline(theme => ({
-            color: theme.palette.text.default.primary,
-            backgroundColor: 'orange'
-          }));
+        const A1 = (props) => {
+          const styles = props.styles;
 
-          const [theme, setTheme] = useAmauiTheme();
+          const [theme] = useAmauiTheme();
 
           window.React.useEffect(() => {
             setTimeout(() => {
-              window.value.push(window.document.getElementById('app').innerHTML);
+              window.value.push(window.document.styleSheets.length, Array.from(window.document.styleSheets).map((sheet: any) => Array.from(sheet.cssRules).map((rule: any) => rule.cssText)), window.document.getElementById('app').innerHTML);
             });
 
             setTimeout(() => {
-              setTheme({
+              theme.update({
                 palette: {
                   light: false
                 }
@@ -196,20 +256,28 @@ group('@amaui/style-react/inline', () => {
 
           return (
             eval(window.Babel.transform(`
-              <a style={style}>
+              <a className={styles.class}>
                   {props.children}
               </a>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
           );
         };
 
+        const A = withStyle(A1)(theme => ({
+          a: {
+            width: '100px',
+          },
+
+          a1: {
+            color: theme.palette.text.default.primary
+          }
+        }));
+
         const App = () => {
 
           return (
             eval(window.Babel.transform(`
               <AmauiThemeProvider>
-                  <A>a</A>
-
                   <A>a</A>
               </AmauiThemeProvider>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
@@ -221,7 +289,7 @@ group('@amaui/style-react/inline', () => {
 
         await window.AmauiUtils.wait(440);
 
-        window.value.push(window.document.getElementById('app').innerHTML);
+        window.value.push(window.document.styleSheets.length, Array.from(window.document.styleSheets).map((sheet: any) => Array.from(sheet.cssRules).map((rule: any) => rule.cssText)), window.document.getElementById('app').innerHTML);
 
         return window.value;
       }, { browsers });
@@ -229,9 +297,22 @@ group('@amaui/style-react/inline', () => {
       const values = [...valueBrowsers];
 
       values.forEach(value => assert(value).eql([
-        "<div data-amaui-theme=\"true\"><a style=\"color: rgba(0, 0, 0, 0.87); background-color: orange;\">a</a><a style=\"color: rgba(0, 0, 0, 0.87); background-color: orange;\">a</a></div>",
-        "<div data-amaui-theme=\"true\"><a style=\"color: rgba(0, 0, 0, 0.87); background-color: orange;\">a</a><a style=\"color: rgba(0, 0, 0, 0.87); background-color: orange;\">a</a></div>",
-        "<div data-amaui-theme=\"true\"><a style=\"color: rgba(255, 255, 255, 0.87); background-color: orange;\">a</a><a style=\"color: rgba(255, 255, 255, 0.87); background-color: orange;\">a</a></div>"
+        1,
+        [
+          [
+            ".a-0 { width: 100px; }",
+            ".a1-1 { color: rgba(0, 0, 0, 0.87); }"
+          ]
+        ],
+        "<div data-amaui-theme=\"true\"><a class=\"a-0 a1-1\">a</a></div>",
+        1,
+        [
+          [
+            ".a-0 { width: 100px; }",
+            ".a1-1 { color: rgba(255, 255, 255, 0.87); }"
+          ]
+        ],
+        "<div data-amaui-theme=\"true\"><a class=\"a-0 a1-1\">a</a></div>"
       ]));
     });
 
@@ -239,39 +320,49 @@ group('@amaui/style-react/inline', () => {
       const valueBrowsers = await evaluate(async (window: any) => {
         window.value = [];
 
-        const { inline } = window.AmauiStyleReact;
+        const { withStyle } = window.AmauiStyleReact;
 
-        const A = (props) => {
-          const style = inline(theme => ({
-            color: props => props.a === 14 ? 'yellow' : 'orange',
-            backgroundColor: 'orange'
-          }), props);
+        const A1 = (props) => {
+          const styles = props.styles;
 
           return (
             eval(window.Babel.transform(`
-              <a style={style}>
+              <a className={styles.class}>
                   {props.children}
               </a>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
           );
         };
 
+        const A = withStyle(A1)(theme => ({
+          a: {
+            width: '100px',
+          },
+
+          a1: {
+            color: props => props.a === 1 ? 'yellow' : 'orange'
+          }
+        }));
+
         const App = () => {
           const [a, setA] = window.React.useState(1);
 
           window.React.useEffect(() => {
             setTimeout(() => {
-              window.value.push(window.document.getElementById('app').innerHTML);
-
               setA(14);
             }, 140);
           }, []);
+
+          window.React.useEffect(() => {
+            setTimeout(() => {
+              window.value.push(window.document.styleSheets.length, Array.from(window.document.styleSheets).map((sheet: any) => Array.from(sheet.cssRules).map((rule: any) => rule.cssText)), window.document.getElementById('app').innerHTML);
+            });
+          }, [a]);
 
           return (
             eval(window.Babel.transform(`
               <div>
                   <A a={a}>a</A>
-
                   <A>a</A>
               </div>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
@@ -283,16 +374,38 @@ group('@amaui/style-react/inline', () => {
 
         await window.AmauiUtils.wait(440);
 
-        window.value.push(window.document.getElementById('app').innerHTML);
-
         return window.value;
       }, { browsers });
 
       const values = [...valueBrowsers];
 
       values.forEach(value => assert(value).eql([
-        "<div><a style=\"background-color: orange; color: orange;\">a</a><a style=\"background-color: orange; color: orange;\">a</a></div>",
-        "<div><a style=\"background-color: orange; color: yellow;\">a</a><a style=\"background-color: orange; color: orange;\">a</a></div>"
+        3,
+        [
+          [
+            ".a-0 { width: 100px; }"
+          ],
+          [
+            ".a1-1 { color: yellow; }"
+          ],
+          [
+            ".a1-2 { color: orange; }"
+          ]
+        ],
+        "<div><a class=\"a-0 a1-1\">a</a><a class=\"a-0 a1-2\">a</a></div>",
+        3,
+        [
+          [
+            ".a-0 { width: 100px; }"
+          ],
+          [
+            ".a1-1 { color: orange; }"
+          ],
+          [
+            ".a1-2 { color: orange; }"
+          ]
+        ],
+        "<div><a class=\"a-0 a1-1\">a</a><a class=\"a-0 a1-2\">a</a></div>"
       ]));
     });
 
@@ -300,21 +413,29 @@ group('@amaui/style-react/inline', () => {
       const valueBrowsers = await evaluate(async (window: any) => {
         window.value = [];
 
-        const { inline } = window.AmauiStyleReact;
+        const { withStyle } = window.AmauiStyleReact;
 
-        const A = (props) => {
-          const style = inline(theme => ({
-            color: props => props.a === 1 ? 'yellow' : 'orange'
-          }), props);
+        const A1 = (props) => {
+          const styles = props.styles;
 
           return (
             eval(window.Babel.transform(`
-              <a style={style}>
+              <a className={styles.class}>
                   {props.children}
               </a>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
           );
         };
+
+        const A = withStyle(A1)(theme => ({
+          a: {
+            width: '100px',
+          },
+
+          a1: {
+            color: props => props.a === 1 ? 'yellow' : 'orange'
+          }
+        }));
 
         const App = () => {
           const [elements, setElements] = window.React.useState(true);
@@ -327,7 +448,7 @@ group('@amaui/style-react/inline', () => {
 
           window.React.useEffect(() => {
             setTimeout(() => {
-              window.value.push(window.document.getElementById('app').innerHTML);
+              window.value.push(window.document.styleSheets.length, Array.from(window.document.styleSheets).map((sheet: any) => Array.from(sheet.cssRules).map((rule: any) => rule.cssText)), window.document.getElementById('app').innerHTML);
             });
           }, [elements]);
 
@@ -336,8 +457,7 @@ group('@amaui/style-react/inline', () => {
               <div>
                   {elements && (
                     <window.React.Fragment>
-                      <A a={1}>a</A>
-
+                      <A>a</A>
                       <A>a</A>
                     </window.React.Fragment>
                   )}
@@ -357,7 +477,21 @@ group('@amaui/style-react/inline', () => {
       const values = [...valueBrowsers];
 
       values.forEach(value => assert(value).eql([
-        "<div><a style=\"color: yellow;\">a</a><a style=\"color: orange;\">a</a></div>",
+        3,
+        [
+          [
+            ".a-0 { width: 100px; }"
+          ],
+          [
+            ".a1-1 { color: orange; }"
+          ],
+          [
+            ".a1-2 { color: orange; }"
+          ]
+        ],
+        "<div><a class=\"a-0 a1-1\">a</a><a class=\"a-0 a1-2\">a</a></div>",
+        0,
+        [],
         "<div></div>"
       ]));
     });
@@ -367,30 +501,41 @@ group('@amaui/style-react/inline', () => {
   group('ssr', () => {
 
     to('renderToString', async () => {
-      const { AmauiStyle, AmauiStyleProvider, AmauiThemeProvider, inline } = AmauiStyleReact;
+      const { AmauiStyle, AmauiStyleProvider, AmauiThemeProvider, withStyle } = AmauiStyleReact;
 
       const amauiStyle = new AmauiStyle();
 
-      const A = (props) => {
-        const style = inline(theme => ({
-          color: props => props.a === 1 ? 'yellow' : 'orange',
-          backgroundColor: 'orange'
-        }), props);
+      const A1 = (props) => {
+        const styles = props.styles;
 
         return (
-          <a style={style}>
+          <a className={styles.class}>
             {props.children}
           </a>
         );
       };
 
+      const A = withStyle(A1)(theme => ({
+        a: {
+          width: '100px',
+        },
+
+        a1: {
+          color: theme.palette.text.default.primary
+        },
+
+        a4: {
+          background: props => props.a === 1 ? 'yellow' : 'orange'
+        }
+      }));
+
       const App = () => {
         return (
           <AmauiStyleProvider value={amauiStyle}>
             <AmauiThemeProvider>
-              <A a={1}>a</A>
-
-              <A>a1</A>
+              <A>
+                a
+              </A>
             </AmauiThemeProvider>
           </AmauiStyleProvider>
         );
@@ -398,9 +543,19 @@ group('@amaui/style-react/inline', () => {
 
       const value = ReactDOMServer.renderToString(React.createElement(App, null));
 
-      assert(value).eq('<div><div><a style="background-color:orange;color:yellow">a</a><a style="background-color:orange;color:orange">a1</a></div></div>');
+      assert(value).eq('<div><div><a class="a-0 a1-1">a</a></div></div>');
 
-      assert(amauiStyle.css).eq(``);
+      assert(amauiStyle.css).eq(`
+
+.a-0 {
+width: 100px;
+}
+
+.a1-1 {
+color: rgba(0, 0, 0, 0.87);
+}
+
+`);
     });
 
   });

@@ -5,12 +5,12 @@ import { IOptions } from '@amaui/style/style';
 
 import { style } from '.';
 
-const styled = (Element: any) => (value: TValue, options_: IOptions = {}) => {
+const styled = (Element: any) => (value: TValue, options_: IOptions = {}): React.ElementType => {
   // Use styles
   const useStyle = style(value, options_);
 
   // Element
-  const element = React.forwardRef((ref, props: any) => {
+  const element = React.forwardRef((props: any, ref) => {
     const {
       children,
       className: classNameProp,

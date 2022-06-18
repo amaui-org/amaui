@@ -7,27 +7,35 @@ import AmauiThemeContext from './AmauiThemeContext';
 import useAmauiTheme from './useAmauiTheme';
 
 export default function AmauiThemeProvider(props) {
-  const { children, value: valueLocal } = props;
+  const { children, value: valueLocal, ...other } = props;
 
   const ref = React.useRef();
 
   const valueParentTheme = (useAmauiTheme() || [])[0];
 
   const valueParent = React.useMemo(() => {
-    return valueParentTheme || new AmauiTheme();
-  }, [valueParentTheme?.hash]);
+    return valueParentTheme || {};
+  }, [(valueParentTheme as AmauiTheme)?.hash]);
 
-  const [value, setValue] = React.useState(new AmauiTheme(merge(valueLocal, { ...valueParent }, { copy: true })));
+  const [value] = React.useState(new AmauiTheme(merge({ ...valueLocal }, { ...valueParent }, { copy: true })));
+  const setId = React.useState(undefined)[1];
 
   React.useEffect(() => {
-    if (ref.current) setValue(new AmauiTheme(value, ref.current));
+    if (ref.current) {
+      value.element = ref.current;
+
+      // Init
+      value.init();
+
+      setId(value.hash);
+    }
   }, []);
 
   React.useEffect(() => {
     // Update
-    value.update(merge(valueLocal, { ...valueParent }, { copy: true }));
+    value.update(merge({ ...valueLocal }, { ...valueParent }, { copy: true }));
 
-    setValue(value);
+    setId(value.hash);
   }, [hash(valueLocal), hash(valueParent)]);
 
   const update = (updateValue: any) => {
@@ -35,20 +43,17 @@ export default function AmauiThemeProvider(props) {
       // Update
       value.update(updateValue);
 
-      // Update the state with updated instance
-      setValue(value);
+      setId(value.hash);
 
       return value;
     }
   };
 
   return (
-    <AmauiThemeContext.Provider
-      value={[value, update]}
-
-      ref={ref}
-    >
-      {children}
+    <AmauiThemeContext.Provider value={[value, update]}>
+      <div ref={ref} {...other}>
+        {children}
+      </div>
     </AmauiThemeContext.Provider>
   );
 }

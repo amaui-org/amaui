@@ -12,13 +12,6 @@ group('@amaui/style-react/AmauiThemeProvider', () => {
     await closeBrowsers(browsers);
   });
 
-  preEveryTo(async () => {
-    await evaluate((window: any) => {
-      window.document.body.innerHTML = `<div id='app'></div>`;
-      window.value = [];
-    }, { browsers });
-  });
-
   to('AmauiThemeContext', async () => {
     const valueBrowsers = await evaluate((window: any) => {
       return [
@@ -35,15 +28,17 @@ group('@amaui/style-react/AmauiThemeProvider', () => {
   });
 
   to('AmauiThemeProvider', async () => {
-    const valueBrowsers = await evaluate((window: any) => {
-      const value = [];
+    const valueBrowsers = await evaluate(async (window: any) => {
+      const value: any = [];
 
       const { AmauiTheme, useAmauiTheme, AmauiThemeProvider } = window.AmauiStyleReact;
 
       const A = (props) => {
         const [amauiTheme] = useAmauiTheme();
 
-        value.push(amauiTheme);
+        window.React.useEffect(() => {
+          value.push(amauiTheme);
+        }, []);
 
         return (
           eval(window.Babel.transform(`
@@ -55,9 +50,25 @@ group('@amaui/style-react/AmauiThemeProvider', () => {
       };
 
       const App: any = () => {
-        const a = new AmauiTheme();
+        const a = {
+          palette: {
+            color: {
+              primary: {
+                main: '#ffa500'
+              }
+            }
+          }
+        };
 
-        const a1 = new AmauiTheme();
+        const a1 = {
+          palette: {
+            color: {
+              secondary: {
+                main: '#008000'
+              }
+            }
+          }
+        };
 
         return (
           eval(window.Babel.transform(`
@@ -65,11 +76,13 @@ group('@amaui/style-react/AmauiThemeProvider', () => {
                 <A>
                   a
 
-                  <AmauiThemeProvider value={a1}>
-                    <A>
-                      a1
-                    </A>
-                  </AmauiThemeProvider>
+                  <div dir='rtl'>
+                    <AmauiThemeProvider value={a1}>
+                      <A>
+                        a1
+                      </A>
+                    </AmauiThemeProvider>
+                  </div>
                 </A>
             </AmauiThemeProvider>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
@@ -79,77 +92,249 @@ group('@amaui/style-react/AmauiThemeProvider', () => {
       // Add to DOM
       window.ReactDOM.render(window.React.createElement(App, null), window.document.getElementById('app'));
 
+      await window.AmauiUtils.wait(140);
+
       return [
         value.length === 2,
         value.every(item => item instanceof AmauiTheme),
-        value[0].id !== value[1].id
+        value[0].id !== value[1].id,
+        value[0].direction,
+        value[0].options.rule,
+        value[0].palette.color.primary.main,
+        value[0].palette.color.secondary.main,
+        value[1].direction,
+        value[1].options.rule,
+        value[1].palette.color.primary.main,
+        value[1].palette.color.secondary.main,
       ];
     }, { browsers });
 
     const values = [...valueBrowsers];
 
     values.forEach(value => assert(value).eql([
-      ...new Array(3).fill(true)
+      ...new Array(3).fill(true),
+      "rtl",
+      {
+        "sort": true,
+        "prefix": false,
+        "rtl": true
+      },
+      "#ffa500",
+      "#008000",
+      "ltr",
+      {
+        "sort": true,
+        "prefix": false,
+        "rtl": false
+      },
+      "#ffa500",
+      "#8BC34A"
     ]));
   });
 
-  to('useAmauiTheme', async () => {
-    const valueBrowsers = await evaluate((window: any) => {
-      const value = [];
+  group('useAmauiTheme', () => {
 
-      const { AmauiTheme, useAmauiTheme, AmauiThemeProvider } = window.AmauiStyleReact;
+    to('useAmauiTheme', async () => {
+      const valueBrowsers = await evaluate(async (window: any) => {
+        const value: any = [];
 
-      const A = (props) => {
-        const [amauiTheme] = useAmauiTheme();
+        const { AmauiTheme, useAmauiTheme, AmauiThemeProvider } = window.AmauiStyleReact;
 
-        value.push(amauiTheme);
+        const A = (props) => {
+          const [amauiTheme] = useAmauiTheme();
 
-        return (
-          eval(window.Babel.transform(`
+          window.React.useEffect(() => {
+            value.push(amauiTheme);
+          }, []);
+
+          return (
+            eval(window.Babel.transform(`
             <div>
               {props.children}
             </div>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
-        );
-      };
+          );
+        };
 
-      const App: any = () => {
-        const a = new AmauiTheme();
+        const App: any = () => {
+          const a = {
+            palette: {
+              color: {
+                primary: {
+                  main: '#ffa500'
+                }
+              }
+            }
+          };
 
-        const a1 = new AmauiTheme();
+          const a1 = {
+            palette: {
+              color: {
+                secondary: {
+                  main: '#008000'
+                }
+              }
+            }
+          };
 
-        return (
-          eval(window.Babel.transform(`
+          return (
+            eval(window.Babel.transform(`
             <AmauiThemeProvider value={a}>
                 <A>
                   a
 
-                  <AmauiThemeProvider value={a1}>
-                    <A>
-                      a1
-                    </A>
-                  </AmauiThemeProvider>
+                  <div dir='rtl'>
+                    <AmauiThemeProvider value={a1}>
+                      <A>
+                        a1
+                      </A>
+                    </AmauiThemeProvider>
+                  </div>
                 </A>
             </AmauiThemeProvider>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
-        );
-      };
+          );
+        };
 
-      // Add to DOM
-      window.ReactDOM.render(window.React.createElement(App, null), window.document.getElementById('app'));
+        // Add to DOM
+        window.ReactDOM.render(window.React.createElement(App, null), window.document.getElementById('app'));
 
-      return [
-        value.length === 2,
-        value.every(item => item instanceof AmauiTheme),
-        value[0].id !== value[1].id
-      ];
-    }, { browsers });
+        await window.AmauiUtils.wait(140);
 
-    const values = [...valueBrowsers];
+        return [
+          value.length === 2,
+          value.every(item => item instanceof AmauiTheme),
+          value[0].id !== value[1].id,
+          value[0].direction,
+          value[0].options.rule,
+          value[0].palette.color.primary.main,
+          value[0].palette.color.secondary.main,
+          value[1].direction,
+          value[1].options.rule,
+          value[1].palette.color.primary.main,
+          value[1].palette.color.secondary.main,
+        ];
+      }, { browsers });
 
-    values.forEach(value => assert(value).eql([
-      ...new Array(3).fill(true)
-    ]));
+      const values = [...valueBrowsers];
+
+      values.forEach(value => assert(value).eql([
+        ...new Array(3).fill(true),
+        "rtl",
+        {
+          "sort": true,
+          "prefix": false,
+          "rtl": true
+        },
+        "#ffa500",
+        "#008000",
+        "ltr",
+        {
+          "sort": true,
+          "prefix": false,
+          "rtl": false
+        },
+        "#ffa500",
+        "#8BC34A"
+      ]));
+    });
+
+    to('update', async () => {
+      const valueBrowsers = await evaluate(async (window: any) => {
+        const value: any = [];
+
+        const { AmauiTheme, useAmauiTheme, AmauiThemeProvider } = window.AmauiStyleReact;
+
+        const A = (props) => {
+          const [amauiTheme, setAmauiTheme] = useAmauiTheme();
+
+          window.React.useEffect(() => {
+            value.push(amauiTheme.palette.light);
+
+            setTimeout(() => {
+              setAmauiTheme({
+                palette: {
+                  light: false
+                }
+              });
+            });
+          }, []);
+
+          window.React.useEffect(() => {
+            if (!amauiTheme.palette.light) value.push(amauiTheme.palette.light);
+          }, [amauiTheme.hash]);
+
+          return (
+            eval(window.Babel.transform(`
+            <div>
+              {props.children}
+            </div>
+          `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
+          );
+        };
+
+        const App: any = () => {
+          const a = {
+            palette: {
+              color: {
+                primary: {
+                  main: '#ffa500'
+                }
+              }
+            }
+          };
+
+          const a1 = {
+            palette: {
+              color: {
+                secondary: {
+                  main: '#008000'
+                }
+              }
+            }
+          };
+
+          return (
+            eval(window.Babel.transform(`
+            <AmauiThemeProvider value={a}>
+                <A>
+                  a
+
+                  <div dir='rtl'>
+                    <AmauiThemeProvider value={a1}>
+                      <A>
+                        a1
+                      </A>
+                    </AmauiThemeProvider>
+                  </div>
+                </A>
+            </AmauiThemeProvider>
+          `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
+          );
+        };
+
+        // Add to DOM
+        window.ReactDOM.render(window.React.createElement(App, null), window.document.getElementById('app'));
+
+        await window.AmauiUtils.wait(140);
+
+        return value;
+      }, { browsers });
+
+      const values = [...valueBrowsers];
+
+      values.forEach(value => assert(value).any.eql([
+        [
+          ...new Array(2).fill(true),
+          ...new Array(2).fill(false)
+        ],
+        [
+          ...new Array(2).fill(true),
+          ...new Array(3).fill(false)
+        ]
+      ]));
+    });
+
   });
 
 });

@@ -37,7 +37,7 @@
     "release": "yarn test && yarn build && npm publish ./build",
     "lint": "tslint -c ../../tslint.json -p tsconfig.json",
     "type": "tsc --noEmit -p tsconfig.json",
-    "cov": "cross-env NODE_ENV=test amaui-test 'test/inline.test.tsx'",
+    "cov": "cross-env NODE_ENV=test amaui-test",
     "test:pre": "pm2 update && pm2 delete all && pm2 start ../../utils/js/test/app.js && wait-on http://localhost:4000",
     "test:post": "pm2 delete all",
     "test": "yarn lint && yarn type && yarn build && yarn test:pre && yarn cov && yarn test:post"
@@ -46,7 +46,7 @@
     "react": "^18.1.0"
   },
   "dependencies": {
-    "@amaui/style": "^1.0.1171"
+    "@amaui/style": "^1.0.1177"
   },
   "publishConfig": {
     "access": "public",

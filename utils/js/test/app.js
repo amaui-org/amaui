@@ -22,7 +22,7 @@ const run = async () => {
 
   app.get('*', async (req, res) => {
     const paths =
-      (await fg(path.resolve(root, 'packages/**/', 'build/umd/*.dev.js'), { onlyFiles: true }))
+      (await fg(path.resolve(root, 'packages/**/', 'build/umd/*.prod.min.js'), { onlyFiles: true }))
         .map(path_ => path.relative(root, path_));
 
     paths.unshift(

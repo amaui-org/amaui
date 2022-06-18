@@ -17,21 +17,69 @@ group('@amaui/style-react/pure', () => {
     await closeBrowsers(browsers);
   });
 
-  preEveryTo(async () => {
-    await evaluate((window: any) => {
-      Array.from(window.document.styleSheets).forEach((sheet: StyleSheet) => sheet.ownerNode.remove());
-
-      window.document.body.innerHTML = `<div id='app'></div>`;
-
-      window.value = [];
-    }, { browsers });
-  });
-
   to('pure', async () => {
     const valueBrowsers = await evaluate(async (window: any) => {
       const { pure } = window.AmauiStyleReact;
 
       const usePure = pure(theme => ({
+        a: {
+          color: 'yellow'
+        }
+      }));
+
+      const A = (props) => {
+        usePure(props);
+
+        return (
+          eval(window.Babel.transform(`
+            <a>
+                {props.children}
+            </a>
+          `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
+        );
+      };
+
+      const App = () => {
+
+        return (
+          eval(window.Babel.transform(`
+            <div>
+                <A>a</A>
+            </div>
+          `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
+        );
+      };
+
+      // Add to DOM
+      window.ReactDOM.render(window.React.createElement(App, null), window.document.getElementById('app'));
+
+      await window.AmauiUtils.wait(140);
+
+      return [
+        window.document.styleSheets.length,
+        Array.from(window.document.styleSheets).map((sheet: any) => Array.from(sheet.cssRules).map((rule: any) => rule.cssText)),
+        window.document.getElementById('app').innerHTML
+      ];
+    }, { browsers });
+
+    const values = [...valueBrowsers];
+
+    values.forEach(value => assert(value).eql([
+      1,
+      [
+        [
+          "a { color: yellow; }"
+        ]
+      ],
+      "<div><a>a</a></div>"
+    ]));
+  });
+
+  to('p', async () => {
+    const valueBrowsers = await evaluate(async (window: any) => {
+      const { p } = window.AmauiStyleReact;
+
+      const usePure = p(theme => ({
         a: {
           color: 'yellow'
         }
@@ -199,7 +247,7 @@ group('@amaui/style-react/pure', () => {
         // Add to DOM
         window.ReactDOM.render(window.React.createElement(App, null), window.document.getElementById('app'));
 
-        await window.AmauiUtils.wait(170);
+        await window.AmauiUtils.wait(440);
 
         window.value.push(window.document.styleSheets.length, Array.from(window.document.styleSheets).map((sheet: any) => Array.from(sheet.cssRules).map((rule: any) => rule.cssText)), window.document.getElementById('app').innerHTML);
 
@@ -215,14 +263,14 @@ group('@amaui/style-react/pure', () => {
             "a { color: rgba(0, 0, 0, 0.87); }"
           ]
         ],
-        "<a>a</a>",
+        "<div data-amaui-theme=\"true\"><a>a</a></div>",
         1,
         [
           [
             "a { color: rgba(255, 255, 255, 0.87); }"
           ]
         ],
-        "<a>a</a>"
+        "<div data-amaui-theme=\"true\"><a>a</a></div>"
       ]));
     });
 
@@ -277,7 +325,7 @@ group('@amaui/style-react/pure', () => {
         // Add to DOM
         window.ReactDOM.render(window.React.createElement(App, null), window.document.getElementById('app'));
 
-        await window.AmauiUtils.wait(170);
+        await window.AmauiUtils.wait(440);
 
         return window.value;
       }, { browsers });
@@ -357,7 +405,7 @@ group('@amaui/style-react/pure', () => {
         // Add to DOM
         window.ReactDOM.render(window.React.createElement(App, null), window.document.getElementById('app'));
 
-        await window.AmauiUtils.wait(170);
+        await window.AmauiUtils.wait(440);
 
         return window.value;
       }, { browsers });
@@ -417,7 +465,7 @@ group('@amaui/style-react/pure', () => {
 
       const value = ReactDOMServer.renderToString(React.createElement(App, null));
 
-      assert(value).eq('<a>a</a>');
+      assert(value).eq('<div><div><a>a</a></div></div>');
 
       assert(amauiStyle.css).eq(`
 

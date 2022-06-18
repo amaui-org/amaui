@@ -1,7 +1,14 @@
 /* tslint:disable: no-shadowed-variable */
 import { assert } from '@amaui/test';
+import { counter } from '@amaui/style/amaui-style-rule';
 
 import { startBrowsers, IBrowsers, evaluate, closeBrowsers } from '../../../utils/js/test/utils';
+
+preEveryTo(async () => {
+  // Reset
+  counter.className = 0;
+  counter.keyframesName = 0;
+});
 
 group('@amaui/style-react/AmauiStyleProvider', () => {
   let browsers: IBrowsers;
@@ -10,13 +17,6 @@ group('@amaui/style-react/AmauiStyleProvider', () => {
 
   post(async () => {
     await closeBrowsers(browsers);
-  });
-
-  preEveryTo(async () => {
-    await evaluate((window: any) => {
-      window.document.body.innerHTML = `<div id='app'></div>`;
-      window.value = [];
-    }, { browsers });
   });
 
   to('AmauiStyleContext', async () => {

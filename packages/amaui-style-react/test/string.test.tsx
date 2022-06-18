@@ -17,22 +17,71 @@ group('@amaui/style-react/string', () => {
     await closeBrowsers(browsers);
   });
 
-  preEveryTo(async () => {
-    await evaluate((window: any) => {
-      Array.from(window.document.styleSheets).forEach((sheet: StyleSheet) => sheet.ownerNode.remove());
-
-      window.document.body.innerHTML = `<div id='app'></div>`;
-
-      window.value = [];
-    }, { browsers });
-  });
-
   to('string', async () => {
     const valueBrowsers = await evaluate(async (window: any) => {
       const { string } = window.AmauiStyleReact;
 
       const A = (props) => {
         const classNameProp = string`
+            color: yellow;
+        `;
+
+        return (
+          eval(window.Babel.transform(`
+            <a className={classNameProp}>
+                {props.children}
+            </a>
+          `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
+        );
+      };
+
+      const App = () => {
+
+        return (
+          eval(window.Babel.transform(`
+            <div>
+                <A>a</A>
+
+                <A>a1</A>
+            </div>
+          `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
+        );
+      };
+
+      // Add to DOM
+      window.ReactDOM.render(window.React.createElement(App, null), window.document.getElementById('app'));
+
+      await window.AmauiUtils.wait(140);
+
+      return [
+        window.document.styleSheets.length,
+        Array.from(window.document.styleSheets).map((sheet: any) => Array.from(sheet.cssRules).map((rule: any) => rule.cssText)),
+        window.document.getElementById('app').innerHTML
+      ];
+    }, { browsers });
+
+    const values = [...valueBrowsers];
+
+    values.forEach(value => assert(value).eql([
+      2,
+      [
+        [
+          ".a-0 { color: yellow; }"
+        ],
+        [
+          ".a-1 { color: yellow; }"
+        ]
+      ],
+      "<div><a class=\"a-0\">a</a><a class=\"a-1\">a1</a></div>"
+    ]));
+  });
+
+  to('sr', async () => {
+    const valueBrowsers = await evaluate(async (window: any) => {
+      const { sr } = window.AmauiStyleReact;
+
+      const A = (props) => {
+        const classNameProp = sr`
             color: yellow;
         `;
 
@@ -137,13 +186,13 @@ group('@amaui/style-react/string', () => {
         2,
         [
           [
-            ".a-2 { color: yellow; }"
+            ".a-0 { color: yellow; }"
           ],
           [
-            ".a-3 { color: yellow; }"
+            ".a-1 { color: yellow; }"
           ]
         ],
-        "<div><a class=\"a-2\">a</a><a class=\"a-3\">a1</a></div>"
+        "<div><a class=\"a-0\">a</a><a class=\"a-1\">a1</a></div>"
       ]));
     });
 
@@ -188,6 +237,7 @@ group('@amaui/style-react/string', () => {
             eval(window.Babel.transform(`
               <AmauiThemeProvider>
                   <A>a</A>
+
                   <A>a</A>
               </AmauiThemeProvider>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
@@ -197,7 +247,7 @@ group('@amaui/style-react/string', () => {
         // Add to DOM
         window.ReactDOM.render(window.React.createElement(App, null), window.document.getElementById('app'));
 
-        await window.AmauiUtils.wait(170);
+        await window.AmauiUtils.wait(440);
 
         window.value.push(window.document.styleSheets.length, Array.from(window.document.styleSheets).map((sheet: any) => Array.from(sheet.cssRules).map((rule: any) => rule.cssText)), window.document.getElementById('app').innerHTML);
 
@@ -210,33 +260,33 @@ group('@amaui/style-react/string', () => {
         2,
         [
           [
-            ".a-4 { color: rgba(0, 0, 0, 0.87); }"
+            ".a-0 { color: rgba(0, 0, 0, 0.87); }"
           ],
           [
-            ".a-5 { color: rgba(0, 0, 0, 0.87); }"
+            ".a-1 { color: rgba(0, 0, 0, 0.87); }"
           ]
         ],
-        "<a class=\"a-4\">a</a><a class=\"a-5\">a</a>",
+        "<div data-amaui-theme=\"true\"><a class=\"a-0\">a</a><a class=\"a-1\">a</a></div>",
         2,
         [
           [
-            ".a-4 { color: rgba(0, 0, 0, 0.87); }"
+            ".a-0 { color: rgba(0, 0, 0, 0.87); }"
           ],
           [
-            ".a-5 { color: rgba(0, 0, 0, 0.87); }"
+            ".a-1 { color: rgba(0, 0, 0, 0.87); }"
           ]
         ],
-        "<a class=\"a-4\">a</a><a class=\"a-5\">a</a>",
+        "<div data-amaui-theme=\"true\"><a class=\"a-0\">a</a><a class=\"a-1\">a</a></div>",
         2,
         [
           [
-            ".a-4 { color: rgba(255, 255, 255, 0.87); }"
+            ".a-0 { color: rgba(255, 255, 255, 0.87); }"
           ],
           [
-            ".a-5 { color: rgba(255, 255, 255, 0.87); }"
+            ".a-1 { color: rgba(255, 255, 255, 0.87); }"
           ]
         ],
-        "<a class=\"a-4\">a</a><a class=\"a-5\">a</a>"
+        "<div data-amaui-theme=\"true\"><a class=\"a-0\">a</a><a class=\"a-1\">a</a></div>"
       ]));
     });
 
@@ -288,7 +338,7 @@ group('@amaui/style-react/string', () => {
         // Add to DOM
         window.ReactDOM.render(window.React.createElement(App, null), window.document.getElementById('app'));
 
-        await window.AmauiUtils.wait(170);
+        await window.AmauiUtils.wait(440);
 
         return window.value;
       }, { browsers });
@@ -299,23 +349,23 @@ group('@amaui/style-react/string', () => {
         2,
         [
           [
-            ".a-6 { color: orange; }"
+            ".a-0 { color: orange; }"
           ],
           [
-            ".a-7 { color: orange; }"
+            ".a-1 { color: orange; }"
           ]
         ],
-        "<div><a class=\"a-6\">a</a><a class=\"a-7\">a</a></div>",
+        "<div><a class=\"a-0\">a</a><a class=\"a-1\">a</a></div>",
         2,
         [
           [
-            ".a-6 { color: yellow; }"
+            ".a-0 { color: yellow; }"
           ],
           [
-            ".a-7 { color: orange; }"
+            ".a-1 { color: orange; }"
           ]
         ],
-        "<div><a class=\"a-6\">a</a><a class=\"a-7\">a</a></div>"
+        "<div><a class=\"a-0\">a</a><a class=\"a-1\">a</a></div>"
       ]));
     });
 
@@ -371,7 +421,7 @@ group('@amaui/style-react/string', () => {
         // Add to DOM
         window.ReactDOM.render(window.React.createElement(App, null), window.document.getElementById('app'));
 
-        await window.AmauiUtils.wait(170);
+        await window.AmauiUtils.wait(440);
 
         return window.value;
       }, { browsers });
@@ -382,13 +432,13 @@ group('@amaui/style-react/string', () => {
         2,
         [
           [
-            ".a-8 { color: yellow; }"
+            ".a-0 { color: yellow; }"
           ],
           [
-            ".a-9 { color: yellow; }"
+            ".a-1 { color: yellow; }"
           ]
         ],
-        "<div><a class=\"a-8\">a</a><a class=\"a-9\">a</a></div>",
+        "<div><a class=\"a-0\">a</a><a class=\"a-1\">a</a></div>",
         0,
         [],
         "<div></div>"
@@ -429,11 +479,11 @@ group('@amaui/style-react/string', () => {
 
       const value = ReactDOMServer.renderToString(React.createElement(App, null));
 
-      assert(value).eq('<a class="a-3">a</a><a class="a-3">a1</a>');
+      assert(value).eq('<div><div><a class="a-0">a</a><a class="a-0">a1</a></div></div>');
 
       assert(amauiStyle.css).eq(`
 
-.a-3 {
+.a-0 {
 color: yellow;
 }
 

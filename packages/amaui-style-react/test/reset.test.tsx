@@ -17,21 +17,208 @@ group('@amaui/style-react/reset', () => {
     await closeBrowsers(browsers);
   });
 
-  preEveryTo(async () => {
-    await evaluate((window: any) => {
-      Array.from(window.document.styleSheets).forEach((sheet: StyleSheet) => sheet.ownerNode.remove());
-
-      window.document.body.innerHTML = `<div id='app'></div>`;
-
-      window.value = [];
-    }, { browsers });
-  });
-
   to('reset', async () => {
     const valueBrowsers = await evaluate(async (window: any) => {
       const { reset } = window.AmauiStyleReact;
 
       const useReset = reset(theme => ({
+        a: {
+          color: 'yellow'
+        },
+      }));
+
+      const A = (props) => {
+        useReset();
+
+        return (
+          eval(window.Babel.transform(`
+            <a>
+                {props.children}
+            </a>
+          `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
+        );
+      };
+
+      const App = () => {
+
+        return (
+          eval(window.Babel.transform(`
+            <div>
+                <A>a</A>
+            </div>
+          `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
+        );
+      };
+
+      // Add to DOM
+      window.ReactDOM.render(window.React.createElement(App, null), window.document.getElementById('app'));
+
+      await window.AmauiUtils.wait(140);
+
+      return [
+        window.document.styleSheets.length,
+        Array.from(window.document.styleSheets).map((sheet: any) => Array.from(sheet.cssRules).map((rule: any) => rule.cssText)),
+        window.document.getElementById('app').innerHTML
+      ];
+    }, { browsers });
+
+    const values = [...valueBrowsers];
+
+    assert(values).eql([
+      [
+        1,
+        [
+          [
+            "a { color: yellow; text-decoration: none; cursor: pointer; background-color: transparent; }",
+            "[contenteditable] { user-select: text; }",
+            "* { outline: none; font-size: 100%; background: transparent; box-sizing: border-box; touch-action: manipulation; }",
+            "body { font-family: Roboto, Helvetica, \"Helvetica Neue\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Arial, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", sans-serif; font-weight: normal; font-style: normal; position: relative; overflow-x: hidden; background-color: rgb(255, 255, 255); }",
+            "img, embed, object, video { max-width: 100%; height: auto; }",
+            "form { width: 100%; }",
+            "span { overflow-wrap: break-word; }",
+            "hr { height: 1px; background: rgb(221, 221, 221); width: 100%; margin: 24px 0px; box-sizing: content-box; overflow: visible; }",
+            "pre, code, kbd, samp { font-family: \"Roboto Mono\", monospace; }",
+            "code span { white-space: pre-wrap; }",
+            ":focus { outline: none; }",
+            "html { line-height: 1.15; text-size-adjust: 100%; }",
+            "main { display: block; }",
+            "h1 { font-size: 2em; margin: 0.67em 0px; }",
+            "pre { font-family: monospace, monospace; font-size: 1em; }",
+            "abbr[title] { border-bottom: none; text-decoration: underline; }",
+            "b, strong { font-weight: bolder; }",
+            "code, kbd, samp { font-family: monospace, monospace; font-size: 1em; }",
+            "small { font-size: 80%; }",
+            "sub, sup { font-size: 75%; position: relative; vertical-align: baseline; }",
+            "sub { bottom: -0.25em; }",
+            "sup { top: -0.5em; }",
+            "img { border-style: none; }",
+            "button, input, optgroup, select, textarea { font-family: inherit; font-size: 100%; line-height: 1.15; }",
+            "button, input { overflow: visible; }",
+            "button, select { text-transform: none; }",
+            "button, [type=\"button\"], [type=\"reset\"], [type=\"submit\"] { appearance: button; }",
+            "fieldset { padding: 0.35em 0.75em 0.625em; }",
+            "legend { box-sizing: border-box; color: inherit; display: table; max-width: 100%; white-space: normal; }",
+            "progress { vertical-align: baseline; }",
+            "textarea { overflow: auto; }",
+            "[type=\"checkbox\"], [type=\"radio\"] { box-sizing: border-box; }",
+            "[type=\"number\"]::-webkit-inner-spin-button, [type=\"number\"]::-webkit-outer-spin-button { height: auto; }",
+            "[type=\"search\"] { appearance: textfield; }",
+            "[type=\"search\"]::-webkit-search-decoration { appearance: none; }",
+            "::-webkit-file-upload-button { appearance: button; font: inherit; }",
+            "details { display: block; }",
+            "summary { display: list-item; }",
+            "template { display: none; }",
+            "[hidden] { display: none; }"
+          ]
+        ],
+        "<div><a>a</a></div>"
+      ],
+      [
+        1,
+        [
+          [
+            "a { color: yellow; text-decoration: none; cursor: pointer; background-color: transparent; }",
+            "[contenteditable] { user-select: text; }",
+            "* { outline: currentcolor none medium; font-size: 100%; background: transparent none repeat scroll 0% 0%; box-sizing: border-box; touch-action: manipulation; }",
+            "body { font-family: Roboto, Helvetica, \"Helvetica Neue\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Arial, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", sans-serif; font-weight: normal; font-style: normal; position: relative; overflow-x: hidden; background-color: rgb(255, 255, 255); }",
+            "img, embed, object, video { max-width: 100%; height: auto; }",
+            "form { width: 100%; }",
+            "span { overflow-wrap: break-word; }",
+            "hr { height: 1px; background: rgb(221, 221, 221) none repeat scroll 0% 0%; width: 100%; margin: 24px 0px; box-sizing: content-box; overflow: visible; }",
+            "pre, code, kbd, samp { font-family: Roboto Mono, monospace; }",
+            "code span { white-space: pre-wrap; }",
+            ":focus { outline: currentcolor none medium; }",
+            "html { line-height: 1.15; }",
+            "main { display: block; }",
+            "h1 { font-size: 2em; margin: 0.67em 0px; }",
+            "pre { font-family: monospace, monospace; font-size: 1em; }",
+            "abbr[title] { border-bottom: medium none; text-decoration: underline; }",
+            "b, strong { font-weight: bolder; }",
+            "code, kbd, samp { font-family: monospace, monospace; font-size: 1em; }",
+            "small { font-size: 80%; }",
+            "sub, sup { font-size: 75%; position: relative; vertical-align: baseline; }",
+            "sub { bottom: -0.25em; }",
+            "sup { top: -0.5em; }",
+            "img { border-style: none; }",
+            "button, input, optgroup, select, textarea { font-family: inherit; font-size: 100%; line-height: 1.15; }",
+            "button, input { overflow: visible; }",
+            "button, select { text-transform: none; }",
+            "button, [type=\"button\"], [type=\"reset\"], [type=\"submit\"] { appearance: button; }",
+            "button::-moz-focus-inner, [type=\"button\"]::-moz-focus-inner, [type=\"reset\"]::-moz-focus-inner, [type=\"submit\"]::-moz-focus-inner { border-style: none; }",
+            "button:focus-visible, [type=\"button\"]:focus-visible, [type=\"reset\"]:focus-visible, [type=\"submit\"]:focus-visible { outline: buttontext dotted 1px; }",
+            "fieldset { padding: 0.35em 0.75em 0.625em; }",
+            "legend { box-sizing: border-box; color: inherit; display: table; max-width: 100%; white-space: normal; }",
+            "progress { vertical-align: baseline; }",
+            "textarea { overflow: auto; }",
+            "[type=\"checkbox\"], [type=\"radio\"] { box-sizing: border-box; }",
+            "[type=\"number\"]::-webkit-inner-spin-button, [type=\"number\"]::-webkit-outer-spin-button { height: auto; }",
+            "[type=\"search\"] { appearance: textfield; }",
+            "[type=\"search\"]::-webkit-search-decoration { appearance: none; }",
+            "::-webkit-file-upload-button { appearance: button; font: inherit; }",
+            "details { display: block; }",
+            "summary { display: list-item; }",
+            "template { display: none; }",
+            "[hidden] { display: none; }"
+          ]
+        ],
+        "<div><a>a</a></div>"
+      ],
+      [
+        1,
+        [
+          [
+            "a { color: yellow; text-decoration: none; cursor: pointer; background-color: transparent; }",
+            "[contenteditable] { }",
+            "* { outline: none; font-size: 100%; background-color: transparent; box-sizing: border-box; touch-action: manipulation; }",
+            "body { font-family: Roboto, Helvetica, \"Helvetica Neue\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Arial, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", sans-serif; font-weight: normal; font-style: normal; position: relative; overflow-x: hidden; background-color: rgb(255, 255, 255); }",
+            "img, embed, object, video { max-width: 100%; height: auto; }",
+            "form { width: 100%; }",
+            "span { word-wrap: break-word; }",
+            "hr { height: 1px; background-color: rgb(221, 221, 221); width: 100%; margin: 24px 0px; box-sizing: content-box; overflow: visible; }",
+            "pre, code, kbd, samp { font-family: \"Roboto Mono\", monospace; }",
+            "code span { white-space: pre-wrap; }",
+            ":focus { outline: none; }",
+            "html { line-height: 1.15; }",
+            "main { display: block; }",
+            "h1 { font-size: 2em; margin: 0.67em 0px; }",
+            "pre { font-family: monospace, monospace; font-size: 1em; }",
+            "abbr[title] { border-bottom-style: none; text-decoration: underline; }",
+            "b, strong { font-weight: bolder; }",
+            "code, kbd, samp { font-family: monospace, monospace; font-size: 1em; }",
+            "small { font-size: 80%; }",
+            "sub, sup { font-size: 75%; position: relative; vertical-align: baseline; }",
+            "sub { bottom: -0.25em; }",
+            "sup { top: -0.5em; }",
+            "img { border-style: none; }",
+            "button, input, optgroup, select, textarea { font-family: inherit; font-size: 100%; line-height: 1.15; }",
+            "button, input { overflow: visible; }",
+            "button, select { text-transform: none; }",
+            "button, [type=\"button\"], [type=\"reset\"], [type=\"submit\"] { appearance: button; }",
+            "fieldset { padding: 0.35em 0.75em 0.625em; }",
+            "legend { box-sizing: border-box; color: inherit; display: table; max-width: 100%; white-space: normal; }",
+            "progress { vertical-align: baseline; }",
+            "textarea { overflow: auto; }",
+            "[type=\"checkbox\"], [type=\"radio\"] { box-sizing: border-box; }",
+            "[type=\"number\"]::-webkit-inner-spin-button, [type=\"number\"]::-webkit-outer-spin-button { height: auto; }",
+            "[type=\"search\"] { appearance: textfield; }",
+            "[type=\"search\"]::-webkit-search-decoration { appearance: none; }",
+            "::-webkit-file-upload-button { appearance: button; font-family: inherit; font-size: inherit; font-style: inherit; font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; }",
+            "details { display: block; }",
+            "summary { display: list-item; }",
+            "template { display: none; }",
+            "[hidden] { display: none; }"
+          ]
+        ],
+        "<div><a>a</a></div>"
+      ]
+    ]);
+  });
+
+  to('r', async () => {
+    const valueBrowsers = await evaluate(async (window: any) => {
+      const { r } = window.AmauiStyleReact;
+
+      const useReset = r(theme => ({
         a: {
           color: 'yellow'
         },
@@ -474,7 +661,7 @@ group('@amaui/style-react/reset', () => {
         // Add to DOM
         window.ReactDOM.render(window.React.createElement(App, null), window.document.getElementById('app'));
 
-        await window.AmauiUtils.wait(170);
+        await window.AmauiUtils.wait(440);
 
         window.value.push(window.document.styleSheets.length, Array.from(window.document.styleSheets).map((sheet: any) => Array.from(sheet.cssRules).map((rule: any) => rule.cssText)), window.document.getElementById('app').innerHTML);
 
@@ -488,8 +675,7 @@ group('@amaui/style-react/reset', () => {
           1,
           [
             [
-              "a { color: rgba(0, 0, 0, 0.87); text-decoration: none; cursor: pointer; background-color: transparent; }",
-              "[contenteditable] { user-select: text; }",
+              "a { color: rgba(0, 0, 0, 0.87); }",
               "* { outline: none; font-size: 100%; background: transparent; box-sizing: border-box; touch-action: manipulation; }",
               "body { font-family: Roboto, Helvetica, \"Helvetica Neue\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Arial, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", sans-serif; font-weight: normal; font-style: normal; position: relative; overflow-x: hidden; background-color: rgb(255, 255, 255); }",
               "img, embed, object, video { max-width: 100%; height: auto; }",
@@ -497,7 +683,6 @@ group('@amaui/style-react/reset', () => {
               "span { overflow-wrap: break-word; }",
               "hr { height: 1px; background: rgb(221, 221, 221); width: 100%; margin: 24px 0px; box-sizing: content-box; overflow: visible; }",
               "pre, code, kbd, samp { font-family: \"Roboto Mono\", monospace; }",
-              "code span { white-space: pre-wrap; }",
               ":focus { outline: none; }",
               "html { line-height: 1.15; text-size-adjust: 100%; }",
               "main { display: block; }",
@@ -530,7 +715,7 @@ group('@amaui/style-react/reset', () => {
               "[hidden] { display: none; }"
             ]
           ],
-          "<a>a</a>",
+          "<div data-amaui-theme=\"true\"><a>a</a></div>",
           1,
           [
             [
@@ -574,61 +759,13 @@ group('@amaui/style-react/reset', () => {
               "[hidden] { display: none; }"
             ]
           ],
-          "<a>a</a>"
+          "<div data-amaui-theme=\"true\"><a>a</a></div>"
         ],
         [
           1,
           [
             [
-              "a { color: rgba(0, 0, 0, 0.87); text-decoration: none; cursor: pointer; background-color: transparent; }",
-              "[contenteditable] { user-select: text; }",
-              "* { outline: currentcolor none medium; font-size: 100%; background: transparent none repeat scroll 0% 0%; box-sizing: border-box; touch-action: manipulation; }",
-              "body { font-family: Roboto, Helvetica, \"Helvetica Neue\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Arial, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", sans-serif; font-weight: normal; font-style: normal; position: relative; overflow-x: hidden; background-color: rgb(255, 255, 255); }",
-              "img, embed, object, video { max-width: 100%; height: auto; }",
-              "form { width: 100%; }",
-              "span { overflow-wrap: break-word; }",
-              "hr { height: 1px; background: rgb(221, 221, 221) none repeat scroll 0% 0%; width: 100%; margin: 24px 0px; box-sizing: content-box; overflow: visible; }",
-              "pre, code, kbd, samp { font-family: Roboto Mono, monospace; }",
-              "code span { white-space: pre-wrap; }",
-              ":focus { outline: currentcolor none medium; }",
-              "html { line-height: 1.15; }",
-              "main { display: block; }",
-              "h1 { font-size: 2em; margin: 0.67em 0px; }",
-              "pre { font-family: monospace, monospace; font-size: 1em; }",
-              "abbr[title] { border-bottom: medium none; text-decoration: underline; }",
-              "b, strong { font-weight: bolder; }",
-              "code, kbd, samp { font-family: monospace, monospace; font-size: 1em; }",
-              "small { font-size: 80%; }",
-              "sub, sup { font-size: 75%; position: relative; vertical-align: baseline; }",
-              "sub { bottom: -0.25em; }",
-              "sup { top: -0.5em; }",
-              "img { border-style: none; }",
-              "button, input, optgroup, select, textarea { font-family: inherit; font-size: 100%; line-height: 1.15; }",
-              "button, input { overflow: visible; }",
-              "button, select { text-transform: none; }",
-              "button, [type=\"button\"], [type=\"reset\"], [type=\"submit\"] { appearance: button; }",
-              "button::-moz-focus-inner, [type=\"button\"]::-moz-focus-inner, [type=\"reset\"]::-moz-focus-inner, [type=\"submit\"]::-moz-focus-inner { border-style: none; }",
-              "button:focus-visible, [type=\"button\"]:focus-visible, [type=\"reset\"]:focus-visible, [type=\"submit\"]:focus-visible { outline: buttontext dotted 1px; }",
-              "fieldset { padding: 0.35em 0.75em 0.625em; }",
-              "legend { box-sizing: border-box; color: inherit; display: table; max-width: 100%; white-space: normal; }",
-              "progress { vertical-align: baseline; }",
-              "textarea { overflow: auto; }",
-              "[type=\"checkbox\"], [type=\"radio\"] { box-sizing: border-box; }",
-              "[type=\"number\"]::-webkit-inner-spin-button, [type=\"number\"]::-webkit-outer-spin-button { height: auto; }",
-              "[type=\"search\"] { appearance: textfield; }",
-              "[type=\"search\"]::-webkit-search-decoration { appearance: none; }",
-              "::-webkit-file-upload-button { appearance: button; font: inherit; }",
-              "details { display: block; }",
-              "summary { display: list-item; }",
-              "template { display: none; }",
-              "[hidden] { display: none; }"
-            ]
-          ],
-          "<a>a</a>",
-          1,
-          [
-            [
-              "a { color: rgba(255, 255, 255, 0.87); }",
+              "a { color: rgba(0, 0, 0, 0.87); }",
               "* { outline: currentcolor none medium; font-size: 100%; background: transparent none repeat scroll 0% 0%; box-sizing: border-box; touch-action: manipulation; }",
               "body { font-family: Roboto, Helvetica, \"Helvetica Neue\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Arial, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", sans-serif; font-weight: normal; font-style: normal; position: relative; overflow-x: hidden; background-color: rgb(255, 255, 255); }",
               "img, embed, object, video { max-width: 100%; height: auto; }",
@@ -670,14 +807,59 @@ group('@amaui/style-react/reset', () => {
               "[hidden] { display: none; }"
             ]
           ],
-          "<a>a</a>"
+          "<div data-amaui-theme=\"true\"><a>a</a></div>",
+          1,
+          [
+            [
+              "a { color: rgba(255, 255, 255, 0.87); }",
+              "* { outline: currentcolor none medium; font-size: 100%; background: transparent none repeat scroll 0% 0%; box-sizing: border-box; touch-action: manipulation; }",
+              "body { font-family: Roboto, Helvetica, \"Helvetica Neue\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Arial, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", sans-serif; font-weight: normal; font-style: normal; position: relative; overflow-x: hidden; background-color: rgb(255, 255, 255); }",
+              "img, embed, object, video { max-width: 100%; height: auto; }",
+              "form { width: 100%; }",
+              "span { overflow-wrap: break-word; }",
+              "hr { height: 1px; background: rgb(221, 221, 221) none repeat scroll 0% 0%; width: 100%; margin: 24px 0px; box-sizing: content-box; overflow: visible; }",
+              "pre, code, kbd, samp { font-family: Roboto Mono, monospace; }",
+              ":focus { outline: currentcolor none medium; }",
+              "html { line-height: 1.15; }",
+              "main { display: block; }",
+              "h1 { font-size: 2em; margin: 0.67em 0px; }",
+              "pre { font-family: monospace, monospace; font-size: 1em; }",
+              "abbr[title] { border-bottom: medium none; text-decoration: underline; }",
+              "b, strong { font-weight: bolder; }",
+              "code, kbd, samp { font-family: monospace, monospace; font-size: 1em; }",
+              "small { font-size: 80%; }",
+              "sub, sup { font-size: 75%; position: relative; vertical-align: baseline; }",
+              "sub { bottom: -0.25em; }",
+              "sup { top: -0.5em; }",
+              "img { border-style: none; }",
+              "button, input, optgroup, select, textarea { font-family: inherit; font-size: 100%; line-height: 1.15; }",
+              "button, input { overflow: visible; }",
+              "button, select { text-transform: none; }",
+              "button, [type=\"button\"], [type=\"reset\"], [type=\"submit\"] { appearance: button; }",
+              "button::-moz-focus-inner, [type=\"button\"]::-moz-focus-inner, [type=\"reset\"]::-moz-focus-inner, [type=\"submit\"]::-moz-focus-inner { border-style: none; }",
+              "button:focus-visible, [type=\"button\"]:focus-visible, [type=\"reset\"]:focus-visible, [type=\"submit\"]:focus-visible { outline: buttontext dotted 1px; }",
+              "fieldset { padding: 0.35em 0.75em 0.625em; }",
+              "legend { box-sizing: border-box; color: inherit; display: table; max-width: 100%; white-space: normal; }",
+              "progress { vertical-align: baseline; }",
+              "textarea { overflow: auto; }",
+              "[type=\"checkbox\"], [type=\"radio\"] { box-sizing: border-box; }",
+              "[type=\"number\"]::-webkit-inner-spin-button, [type=\"number\"]::-webkit-outer-spin-button { height: auto; }",
+              "[type=\"search\"] { appearance: textfield; }",
+              "[type=\"search\"]::-webkit-search-decoration { appearance: none; }",
+              "::-webkit-file-upload-button { appearance: button; font: inherit; }",
+              "details { display: block; }",
+              "summary { display: list-item; }",
+              "template { display: none; }",
+              "[hidden] { display: none; }"
+            ]
+          ],
+          "<div data-amaui-theme=\"true\"><a>a</a></div>"
         ],
         [
           1,
           [
             [
-              "a { color: rgba(0, 0, 0, 0.87); text-decoration: none; cursor: pointer; background-color: transparent; }",
-              "[contenteditable] { }",
+              "a { color: rgba(0, 0, 0, 0.87); }",
               "* { outline: none; font-size: 100%; background-color: transparent; box-sizing: border-box; touch-action: manipulation; }",
               "body { font-family: Roboto, Helvetica, \"Helvetica Neue\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Arial, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", sans-serif; font-weight: normal; font-style: normal; position: relative; overflow-x: hidden; background-color: rgb(255, 255, 255); }",
               "img, embed, object, video { max-width: 100%; height: auto; }",
@@ -685,7 +867,6 @@ group('@amaui/style-react/reset', () => {
               "span { word-wrap: break-word; }",
               "hr { height: 1px; background-color: rgb(221, 221, 221); width: 100%; margin: 24px 0px; box-sizing: content-box; overflow: visible; }",
               "pre, code, kbd, samp { font-family: \"Roboto Mono\", monospace; }",
-              "code span { white-space: pre-wrap; }",
               ":focus { outline: none; }",
               "html { line-height: 1.15; }",
               "main { display: block; }",
@@ -718,7 +899,7 @@ group('@amaui/style-react/reset', () => {
               "[hidden] { display: none; }"
             ]
           ],
-          "<a>a</a>",
+          "<div data-amaui-theme=\"true\"><a>a</a></div>",
           1,
           [
             [
@@ -762,13 +943,15 @@ group('@amaui/style-react/reset', () => {
               "[hidden] { display: none; }"
             ]
           ],
-          "<a>a</a>"
+          "<div data-amaui-theme=\"true\"><a>a</a></div>"
         ]
       ]);
     });
 
     to('updateProps', async () => {
       const valueBrowsers = await evaluate(async (window: any) => {
+        window.value = [];
+
         const { reset } = window.AmauiStyleReact;
 
         const useReset = reset(theme => ({
@@ -816,7 +999,7 @@ group('@amaui/style-react/reset', () => {
         // Add to DOM
         window.ReactDOM.render(window.React.createElement(App, null), window.document.getElementById('app'));
 
-        await window.AmauiUtils.wait(170);
+        await window.AmauiUtils.wait(440);
 
         return window.value;
       }, { browsers });
@@ -1176,7 +1359,7 @@ group('@amaui/style-react/reset', () => {
         // Add to DOM
         window.ReactDOM.render(window.React.createElement(App, null), window.document.getElementById('app'));
 
-        await window.AmauiUtils.wait(170);
+        await window.AmauiUtils.wait(440);
 
         window.value.push(window.document.styleSheets.length, Array.from(window.document.styleSheets).map((sheet: any) => Array.from(sheet.cssRules).map((rule: any) => rule.cssText)), window.document.getElementById('app').innerHTML);
 
@@ -1399,7 +1582,7 @@ group('@amaui/style-react/reset', () => {
 
       const value = ReactDOMServer.renderToString(React.createElement(App, null));
 
-      assert(value).eq('<a class="a-1 a1-2">a</a>');
+      assert(value).eq('<div><div><a class="a-0 a1-1">a</a></div></div>');
 
       assert(amauiStyle.css).eq(`
 
@@ -1608,11 +1791,11 @@ white-space: pre-wrap;
 
 
 
-.a-1 {
+.a-0 {
 width: 100px;
 }
 
-.a1-2 {
+.a1-1 {
 color: rgba(0, 0, 0, 0.87);
 }
 
