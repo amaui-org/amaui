@@ -5,7 +5,7 @@ import { IOptions } from '@amaui/style/style';
 
 import { style } from '.';
 
-const withStyle = (value: TValue, options_: IOptions = {}) => (Element: any) => {
+const withStyle = (Element: any) => (value: TValue, options_: IOptions = {}) =>  {
   // Use styles
   const useStyle = style(value, options_);
 
