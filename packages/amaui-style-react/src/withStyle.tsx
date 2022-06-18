@@ -10,7 +10,7 @@ const withStyle = (value: TValue, options_: IOptions = {}) => (Element: any) => 
   const useStyle = style(value, options_);
 
   // Element
-  const element = React.forwardRef((ref, props) => {
+  const element = React.forwardRef((props, ref) => {
     const styles = useStyle(props);
 
     return (
