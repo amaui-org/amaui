@@ -14,7 +14,7 @@ const withStyle = (value: TValue, options_: IOptions = {}) => (Element: any) => 
     const styles = useStyle(props);
 
     return (
-      <Element ref={ref} style={styles} />
+      <Element ref={ref} styles={styles} />
     );
   });
 
