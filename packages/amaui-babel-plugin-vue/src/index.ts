@@ -43,7 +43,7 @@ export default function () {
 
         const value = path.node.value;
 
-        const classIndex = parent.node.attributes.findIndex(path => path.name.name === 'class');
+        const classIndex = parent.node.attributes.findIndex(path_ => path_.name.name === 'class');
 
         const classProp = parent.node.attributes[classIndex];
 

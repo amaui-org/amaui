@@ -34,7 +34,9 @@ const run = async () => {
 
       'https://unpkg.com/vue@3',
 
-      'https://unpkg.com/@amaui/utils@latest/umd/amaui-utils.prod.min.js'
+      'https://unpkg.com/@amaui/utils@latest/umd/amaui-utils.prod.min.js',
+
+      'https://unpkg.com/@amaui/style@latest/umd/amaui-style.prod.min.js'
     );
 
     let value = `<!DOCTYPE html>

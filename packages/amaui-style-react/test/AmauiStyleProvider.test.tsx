@@ -1,23 +1,9 @@
 /* tslint:disable: no-shadowed-variable */
 import { assert } from '@amaui/test';
-import { counter } from '@amaui/style/amaui-style-rule';
 
-import { startBrowsers, IBrowsers, evaluate, closeBrowsers } from '../../../utils/js/test/utils';
-
-preEveryTo(async () => {
-  // Reset
-  counter.className = 0;
-  counter.keyframesName = 0;
-});
+import { evaluate } from '../../../utils/js/test/utils';
 
 group('@amaui/style-react/AmauiStyleProvider', () => {
-  let browsers: IBrowsers;
-
-  pre(async () => browsers = await startBrowsers());
-
-  post(async () => {
-    await closeBrowsers(browsers);
-  });
 
   to('AmauiStyleContext', async () => {
     const valueBrowsers = await evaluate((window: any) => {
@@ -25,7 +11,7 @@ group('@amaui/style-react/AmauiStyleProvider', () => {
         !!window.AmauiStyleReact.AmauiStyleContext.Provider,
         !!window.AmauiStyleReact.AmauiStyleContext.Consumer
       ];
-    }, { browsers });
+    });
 
     const values = [...valueBrowsers];
 
@@ -89,7 +75,7 @@ group('@amaui/style-react/AmauiStyleProvider', () => {
         value[0].a === 'a',
         value[1].a === 'a1'
       ];
-    }, { browsers });
+    });
 
     const values = [...valueBrowsers];
 
@@ -153,7 +139,7 @@ group('@amaui/style-react/AmauiStyleProvider', () => {
         value[0].a === 'a',
         value[1].a === 'a1'
       ];
-    }, { browsers });
+    });
 
     const values = [...valueBrowsers];
 

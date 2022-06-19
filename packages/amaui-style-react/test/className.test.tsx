@@ -4,18 +4,11 @@ import React from 'react';
 
 import { assert } from '@amaui/test';
 
-import { startBrowsers, IBrowsers, evaluate, closeBrowsers } from '../../../utils/js/test/utils';
+import { evaluate } from '../../../utils/js/test/utils';
 
 import * as AmauiStyleReact from '../src';
 
 group('@amaui/style-react/className', () => {
-  let browsers: IBrowsers;
-
-  pre(async () => browsers = await startBrowsers());
-
-  post(async () => {
-    await closeBrowsers(browsers);
-  });
 
   to('className', async () => {
     const valueBrowsers = await evaluate(async (window: any) => {
@@ -60,7 +53,7 @@ group('@amaui/style-react/className', () => {
         Array.from(window.document.styleSheets).map((sheet: any) => Array.from(sheet.cssRules).map((rule: any) => rule.cssText)),
         window.document.getElementById('app').innerHTML
       ];
-    }, { browsers });
+    });
 
     const values = [...valueBrowsers];
 
@@ -121,7 +114,7 @@ group('@amaui/style-react/className', () => {
         Array.from(window.document.styleSheets).map((sheet: any) => Array.from(sheet.cssRules).map((rule: any) => rule.cssText)),
         window.document.getElementById('app').innerHTML
       ];
-    }, { browsers });
+    });
 
     const values = [...valueBrowsers];
 
@@ -182,7 +175,7 @@ group('@amaui/style-react/className', () => {
         Array.from(window.document.styleSheets).map((sheet: any) => Array.from(sheet.cssRules).map((rule: any) => rule.cssText)),
         window.document.getElementById('app').innerHTML
       ];
-    }, { browsers });
+    });
 
     const values = [...valueBrowsers];
 
@@ -245,7 +238,7 @@ group('@amaui/style-react/className', () => {
           Array.from(window.document.styleSheets).map((sheet: any) => Array.from(sheet.cssRules).map((rule: any) => rule.cssText)),
           window.document.getElementById('app').innerHTML
         ];
-      }, { browsers });
+      });
 
       const values = [...valueBrowsers];
 
@@ -321,7 +314,7 @@ group('@amaui/style-react/className', () => {
         window.value.push(window.document.styleSheets.length, Array.from(window.document.styleSheets).map((sheet: any) => Array.from(sheet.cssRules).map((rule: any) => rule.cssText)), window.document.getElementById('app').innerHTML);
 
         return window.value;
-      }, { browsers });
+      });
 
       const values = [...valueBrowsers];
 
@@ -412,7 +405,7 @@ group('@amaui/style-react/className', () => {
         await window.AmauiUtils.wait(440);
 
         return window.value;
-      }, { browsers });
+      });
 
       const values = [...valueBrowsers];
 
@@ -497,7 +490,7 @@ group('@amaui/style-react/className', () => {
         await window.AmauiUtils.wait(440);
 
         return window.value;
-      }, { browsers });
+      });
 
       const values = [...valueBrowsers];
 

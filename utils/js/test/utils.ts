@@ -1,6 +1,5 @@
 /* tslint:disable: no-shadowed-variable */
 import playwright, { chromium, webkit, firefox } from 'playwright';
-import fg from 'fast-glob';
 
 import { TMethod } from '@amaui/models';
 
@@ -104,15 +103,34 @@ export const evaluate = async (
 ): Promise<any> => {
   const responses: any = [];
 
+  if (!options.browsers) options.browsers = utils.browsers;
+
   for (const key of Object.keys(options.browsers || {})) {
     const browser: IBrowser = options.browsers && options.browsers[key];
-
-    // Resets the entire  page
-    await browser.page.goto(`http://localhost:4000?q=a`);
 
     const window = await browser.page?.evaluateHandle(() => window);
 
     const args = options.arguments?.length ? [window, ...options.arguments] : window;
+
+    // Reset
+    await browser.page?.evaluateHandle((window: any) => {
+      // Style sheets
+      const styleSheets: any = Array.from(window.document.styleSheets);
+
+      styleSheets.forEach(sheet => sheet.ownerNode.remove());
+
+      // Counter
+      window.amaui_counter.className = 0;
+      window.amaui_counter.keyframesName = 0;
+
+      window.amaui_methods.makeName = window.AmauiStyle.makeName();
+
+      // Body
+      window.document.body.dir = 'ltr';
+
+      // Html
+      window.document.documentElement.dir = 'ltr';
+    }, args);
 
     if (options.pre) await browser.page?.evaluateHandle(options.pre, args);
 
@@ -149,3 +167,21 @@ export const closeBrowser = async (browser: IBrowser, name?: string): Promise<vo
 export const closeBrowsers = async (browsers: IBrowsers): Promise<void> => {
   if (browsers) for (const browser of Object.keys(browsers)) await closeBrowser(browsers[browser], browser);
 };
+
+interface IUtils {
+  browsers?: IBrowsers;
+}
+
+export const utils: IUtils = {};
+
+preAll(async () => utils.browsers = await startBrowsers());
+
+preEveryTo(async () => {
+  // Counter
+  global.amaui_counter.className = 0;
+  global.amaui_counter.keyframesName = 0;
+
+  // global.amaui_methods.makeName = makeName();
+});
+
+postAll(async () => await closeBrowsers(utils.browsers as IBrowsers));

@@ -4,18 +4,11 @@ import React from 'react';
 
 import { assert } from '@amaui/test';
 
-import { startBrowsers, IBrowsers, evaluate, closeBrowsers } from '../../../utils/js/test/utils';
+import { evaluate } from '../../../utils/js/test/utils';
 
 import * as AmauiStyleReact from '../src';
 
 group('@amaui/style-react/inline', () => {
-  let browsers: IBrowsers;
-
-  pre(async () => browsers = await startBrowsers());
-
-  post(async () => {
-    await closeBrowsers(browsers);
-  });
 
   to('inline', async () => {
     const valueBrowsers = await evaluate(async (window: any) => {
@@ -57,7 +50,7 @@ group('@amaui/style-react/inline', () => {
       return [
         window.document.getElementById('app').innerHTML
       ];
-    }, { browsers });
+    });
 
     const values = [...valueBrowsers];
 
@@ -106,7 +99,7 @@ group('@amaui/style-react/inline', () => {
       return [
         window.document.getElementById('app').innerHTML
       ];
-    }, { browsers });
+    });
 
     const values = [...valueBrowsers];
 
@@ -157,7 +150,7 @@ group('@amaui/style-react/inline', () => {
         return [
           window.document.getElementById('app').innerHTML
         ];
-      }, { browsers });
+      });
 
       const values = [...valueBrowsers];
 
@@ -224,7 +217,7 @@ group('@amaui/style-react/inline', () => {
         window.value.push(window.document.getElementById('app').innerHTML);
 
         return window.value;
-      }, { browsers });
+      });
 
       const values = [...valueBrowsers];
 
@@ -286,7 +279,7 @@ group('@amaui/style-react/inline', () => {
         window.value.push(window.document.getElementById('app').innerHTML);
 
         return window.value;
-      }, { browsers });
+      });
 
       const values = [...valueBrowsers];
 
@@ -352,7 +345,7 @@ group('@amaui/style-react/inline', () => {
         await window.AmauiUtils.wait(440);
 
         return window.value;
-      }, { browsers });
+      });
 
       const values = [...valueBrowsers];
 
