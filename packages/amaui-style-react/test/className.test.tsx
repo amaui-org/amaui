@@ -287,9 +287,9 @@ group('@amaui/style-react/className', () => {
 
           return (
             eval(window.Babel.transform(`
-            <a className={classNameProp}>
-                {props.children}
-            </a>
+              <a className={classNameProp}>
+                  {props.children}
+              </a>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
           );
         };
@@ -300,6 +300,7 @@ group('@amaui/style-react/className', () => {
             eval(window.Babel.transform(`
               <AmauiThemeProvider>
                   <A>a</A>
+
                   <A>a</A>
               </AmauiThemeProvider>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
@@ -393,6 +394,7 @@ group('@amaui/style-react/className', () => {
             eval(window.Babel.transform(`
               <div>
                   <A a={a}>a</A>
+
                   <A>a</A>
               </div>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
@@ -476,6 +478,7 @@ group('@amaui/style-react/className', () => {
                   {elements && (
                     <window.React.Fragment>
                       <A>a</A>
+
                       <A>a</A>
                     </window.React.Fragment>
                   )}
@@ -524,6 +527,9 @@ group('@amaui/style-react/className', () => {
         const classNameProp = className(theme => ({
           a: {
             color: 'yellow'
+          },
+          a1: {
+            background: 'orange'
           }
         }), props);
 
@@ -539,6 +545,7 @@ group('@amaui/style-react/className', () => {
           <AmauiStyleProvider value={amauiStyle}>
             <AmauiThemeProvider>
               <A>a</A>
+
               <A>a1</A>
             </AmauiThemeProvider>
           </AmauiStyleProvider>
@@ -547,12 +554,16 @@ group('@amaui/style-react/className', () => {
 
       const value = ReactDOMServer.renderToString(React.createElement(App, null));
 
-      assert(value).eq('<div><div><a class="a-0">a</a><a class="a-0">a1</a></div></div>');
+      assert(value).eq('<div><div><a class="a-0 a1-1">a</a><a class="a-0 a1-1">a1</a></div></div>');
 
       assert(amauiStyle.css).eq(`
 
 .a-0 {
   color: yellow;
+}
+
+.a1-1 {
+  background: orange;
 }
 
 `);

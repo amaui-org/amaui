@@ -291,14 +291,14 @@ group('@amaui/style-react/string', () => {
 
         const A = (props) => {
           const classNameProp = string`
-            color: ${props.a === 14 ? 'yellow' : 'orange'}
+            color: ${props.a === 1 ? 'yellow' : 'orange'}
           `;
 
           return (
             eval(window.Babel.transform(`
-            <a className={classNameProp}>
-                {props.children}
-            </a>
+              <a className={classNameProp}>
+                  {props.children}
+              </a>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
           );
         };
@@ -322,6 +322,7 @@ group('@amaui/style-react/string', () => {
             eval(window.Babel.transform(`
               <div>
                   <A a={a}>a</A>
+
                   <A>a</A>
               </div>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
@@ -342,7 +343,7 @@ group('@amaui/style-react/string', () => {
         2,
         [
           [
-            ".a-0 { color: orange; }"
+            ".a-0 { color: yellow; }"
           ],
           [
             ".a-1 { color: orange; }"
@@ -352,7 +353,7 @@ group('@amaui/style-react/string', () => {
         2,
         [
           [
-            ".a-0 { color: yellow; }"
+            ".a-0 { color: orange; }"
           ],
           [
             ".a-1 { color: orange; }"
@@ -375,9 +376,9 @@ group('@amaui/style-react/string', () => {
 
           return (
             eval(window.Babel.transform(`
-            <a className={classNameProp}>
-                {props.children}
-            </a>
+              <a className={classNameProp}>
+                  {props.children}
+              </a>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
           );
         };
@@ -403,6 +404,7 @@ group('@amaui/style-react/string', () => {
                   {elements && (
                     <window.React.Fragment>
                       <A>a</A>
+
                       <A>a</A>
                     </window.React.Fragment>
                   )}

@@ -320,6 +320,10 @@ group('@amaui/style-react/AmauiThemeProvider', () => {
         [
           ...new Array(2).fill(true),
           ...new Array(2).fill(false)
+        ],
+        [
+          ...new Array(2).fill(true),
+          ...new Array(3).fill(false)
         ]
       ]));
     });

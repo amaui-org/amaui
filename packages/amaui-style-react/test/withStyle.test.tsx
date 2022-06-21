@@ -161,9 +161,9 @@ group('@amaui/style-react/withStyle', () => {
 
           return (
             eval(window.Babel.transform(`
-            <a className={styles.class}>
-                {props.children}
-            </a>
+              <a className={styles.class}>
+                  {props.children}
+              </a>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
           );
         };
@@ -183,9 +183,9 @@ group('@amaui/style-react/withStyle', () => {
           return (
             eval(window.Babel.transform(`
               <div>
-                  <A a={1}>a</A>
+                <A a={1}>a</A>
 
-                  <A a={14}>a1</A>
+                <A a={14}>a1</A>
               </div>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
           );
@@ -231,7 +231,7 @@ group('@amaui/style-react/withStyle', () => {
         const A1 = (props) => {
           const styles = props.styles;
 
-          const [theme] = useAmauiTheme();
+          const [theme, setTheme] = useAmauiTheme();
 
           window.React.useEffect(() => {
             setTimeout(() => {
@@ -239,7 +239,7 @@ group('@amaui/style-react/withStyle', () => {
             });
 
             setTimeout(() => {
-              theme.update({
+              setTheme({
                 palette: {
                   light: false
                 }
@@ -250,7 +250,7 @@ group('@amaui/style-react/withStyle', () => {
           return (
             eval(window.Babel.transform(`
               <a className={styles.class}>
-                  {props.children}
+                {props.children}
               </a>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
           );
@@ -271,7 +271,7 @@ group('@amaui/style-react/withStyle', () => {
           return (
             eval(window.Babel.transform(`
               <AmauiThemeProvider>
-                  <A>a</A>
+                <A>a</A>
               </AmauiThemeProvider>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
           );
@@ -355,8 +355,9 @@ group('@amaui/style-react/withStyle', () => {
           return (
             eval(window.Babel.transform(`
               <div>
-                  <A a={a}>a</A>
-                  <A>a</A>
+                <A a={a}>a</A>
+
+                <A>a</A>
               </div>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
           );
@@ -451,6 +452,7 @@ group('@amaui/style-react/withStyle', () => {
                   {elements && (
                     <window.React.Fragment>
                       <A>a</A>
+
                       <A>a</A>
                     </window.React.Fragment>
                   )}

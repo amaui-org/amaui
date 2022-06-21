@@ -308,6 +308,7 @@ group('@amaui/style-react/styled', () => {
             eval(window.Babel.transform(`
               <div>
                   <A a={a}>a</A>
+
                   <A>a</A>
               </div>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
@@ -391,6 +392,7 @@ group('@amaui/style-react/styled', () => {
                   {elements && (
                     <window.React.Fragment>
                       <A>a</A>
+
                       <A>a</A>
                     </window.React.Fragment>
                   )}

@@ -241,7 +241,7 @@ group('@amaui/style-react/style', () => {
         const A = props => {
           const styles = useStyle(props);
 
-          const [theme] = useAmauiTheme();
+          const [theme, setTheme] = useAmauiTheme();
 
           window.React.useEffect(() => {
             setTimeout(() => {
@@ -249,7 +249,7 @@ group('@amaui/style-react/style', () => {
             });
 
             setTimeout(() => {
-              theme.update({
+              setTheme({
                 palette: {
                   light: false
                 }
@@ -356,6 +356,7 @@ group('@amaui/style-react/style', () => {
             eval(window.Babel.transform(`
               <div>
                   <A a={a}>a</A>
+
                   <A>a</A>
               </div>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
@@ -451,6 +452,7 @@ group('@amaui/style-react/style', () => {
                   {elements && (
                     <window.React.Fragment>
                       <A>a</A>
+
                       <A>a</A>
                     </window.React.Fragment>
                   )}

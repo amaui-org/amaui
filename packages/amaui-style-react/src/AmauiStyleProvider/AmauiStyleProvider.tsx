@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { hash, merge } from '@amaui/utils';
+import { hash, is } from '@amaui/utils';
 import { AmauiStyle, makeClassName, unit, rtl, sort, valueObject } from '@amaui/style';
 
 import AmauiStyleContext from './AmauiStyleContext';
@@ -45,9 +45,13 @@ export default function AmauiStyleProvider(props) {
 
   const update = (updateValue: any, override = false) => {
     if (updateValue !== undefined) {
-      const valueNew = override ? updateValue : merge(updateValue, value);
+      const valueNew = override ? updateValue : value;
+
+      if (!override) is('object', updateValue) && Object.keys(updateValue).forEach(prop => value[prop] = updateValue[prop]);
 
       setValue(valueNew);
+
+      setId(hash(valueNew));
 
       return valueNew;
     }
