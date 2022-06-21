@@ -1,7 +1,7 @@
 {
   "name": "@amaui/style-web-components",
   "version": "1.0.0",
-  "description": "Web components CSS in JS styling solution",
+  "description": " CSS in JS styling solution for web components",
   "repository": "https://github.com/amaui-org/amaui.git",
   "author": "Lazar <lazareric.com@gmail.com>",
   "license": "MIT",
@@ -42,11 +42,9 @@
     "test:post": "pm2 delete all",
     "test": "yarn lint && yarn type && yarn build && yarn test:pre && yarn cov && yarn test:post"
   },
-  "peerDependencies": {
-    "react": "^18.1.0"
-  },
   "dependencies": {
-    "@amaui/style": "^1.0.11111"
+    "@amaui/style": "^1.0.11117",
+    "@amaui/utils": "^1.0.11114"
   },
   "publishConfig": {
     "access": "public",

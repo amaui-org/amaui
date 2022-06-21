@@ -1,7 +1,7 @@
 {
   "name": "@amaui/style-vue",
   "version": "1.0.0",
-  "description": "Vue CSS in JS styling solution",
+  "description": "CSS in JS styling solution for Vue",
   "repository": "https://github.com/amaui-org/amaui.git",
   "author": "Lazar <lazareric.com@gmail.com>",
   "license": "MIT",
@@ -46,7 +46,8 @@
     "vue": "^3.2.37"
   },
   "dependencies": {
-    "@amaui/style": "^1.0.11111"
+    "@amaui/style": "^1.0.11117",
+    "@amaui/utils": "^1.0.11114"
   },
   "publishConfig": {
     "access": "public",

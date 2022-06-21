@@ -234,7 +234,7 @@ group('@amaui/style-react/AmauiThemeProvider', () => {
 
     to('update', async () => {
       const valueBrowsers = await evaluate(async (window: any) => {
-        const value: any = [];
+        const value = [];
 
         const { AmauiTheme, useAmauiTheme, AmauiThemeProvider } = window.AmauiStyleReact;
 
@@ -255,7 +255,7 @@ group('@amaui/style-react/AmauiThemeProvider', () => {
 
           window.React.useEffect(() => {
             if (!amauiTheme.palette.light) value.push(amauiTheme.palette.light);
-          }, [amauiTheme.hash]);
+          });
 
           return (
             eval(window.Babel.transform(`
@@ -266,7 +266,7 @@ group('@amaui/style-react/AmauiThemeProvider', () => {
           );
         };
 
-        const App: any = () => {
+        const App = () => {
           const a = {
             palette: {
               color: {
@@ -320,10 +320,6 @@ group('@amaui/style-react/AmauiThemeProvider', () => {
         [
           ...new Array(2).fill(true),
           ...new Array(2).fill(false)
-        ],
-        [
-          ...new Array(2).fill(true),
-          ...new Array(3).fill(false)
         ]
       ]));
     });

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { merge } from '@amaui/utils';
+import { hash, merge } from '@amaui/utils';
 import { AmauiStyle, makeClassName, unit, rtl, sort, valueObject } from '@amaui/style';
 
 import AmauiStyleContext from './AmauiStyleContext';
@@ -39,7 +39,7 @@ export default function AmauiStyleProvider(props) {
       // Init
       value.init();
 
-      setId(value.hash);
+      setId(hash(value));
     }
   }, []);
 

@@ -27,7 +27,7 @@ export default function AmauiThemeProvider(props) {
       // Init
       value.init();
 
-      setId(value.hash);
+      setId(hash(value));
     }
   }, []);
 
@@ -35,7 +35,7 @@ export default function AmauiThemeProvider(props) {
     // Update
     value.update(merge({ ...valueLocal }, { ...valueParent }, { copy: true }));
 
-    setId(value.hash);
+    setId(hash(value));
   }, [hash(valueLocal), hash(valueParent)]);
 
   const update = (updateValue: any) => {
@@ -43,7 +43,7 @@ export default function AmauiThemeProvider(props) {
       // Update
       value.update(updateValue);
 
-      setId(value.hash);
+      setId(hash(value));
 
       return value;
     }

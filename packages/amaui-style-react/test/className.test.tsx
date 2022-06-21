@@ -552,7 +552,7 @@ group('@amaui/style-react/className', () => {
       assert(amauiStyle.css).eq(`
 
 .a-0 {
-color: yellow;
+  color: yellow;
 }
 
 `);

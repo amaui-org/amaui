@@ -2,10 +2,12 @@ import React from 'react';
 
 import { hash, merge } from '@amaui/utils';
 
-import { inline as amauiInlineMethod, TValue } from '@amaui/style';
+import { AmauiStyle, inline as amauiInlineMethod, TValue } from '@amaui/style';
 import { IOptions } from '@amaui/style/inline';
 
 import { useAmauiStyle, useAmauiTheme } from '.';
+
+const amauiStyleDefault = new AmauiStyle();
 
 export default function inline(value_: TValue, props?: any, options_: IOptions = { response: 'json' }) {
   const [value, setValue] = React.useState(undefined);
@@ -14,14 +16,14 @@ export default function inline(value_: TValue, props?: any, options_: IOptions =
   const [amauiTheme] = useAmauiTheme();
 
   const update = (updateState = true) => {
-    const options = merge(options_, { amaui_style: { value: amauiStyle }, amaui_theme: { value: amauiTheme } }, { copy: true });
+    const options = merge(options_, { amaui_style: { value: amauiStyle || amauiStyleDefault }, amaui_theme: { value: amauiTheme } }, { copy: true });
 
     // Options response value
     options.response = 'json';
 
     const valueNew = amauiInlineMethod(value_, props, options);
 
-    if (updateState) return setValue(valueNew as Record<string, any>);
+    if (updateState) setValue(valueNew as Record<string, any>);
 
     return valueNew;
   };

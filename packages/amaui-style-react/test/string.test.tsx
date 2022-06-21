@@ -477,7 +477,7 @@ group('@amaui/style-react/string', () => {
       assert(amauiStyle.css).eq(`
 
 .a-0 {
-color: yellow;
+  color: yellow;
 }
 
 `);

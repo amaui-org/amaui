@@ -541,11 +541,11 @@ group('@amaui/style-react/withStyle', () => {
       assert(amauiStyle.css).eq(`
 
 .a-0 {
-width: 100px;
+  width: 100px;
 }
 
 .a1-1 {
-color: rgba(0, 0, 0, 0.87);
+  color: rgba(0, 0, 0, 0.87);
 }
 
 `);

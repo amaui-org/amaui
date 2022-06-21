@@ -63,7 +63,6 @@ group('@amaui/style-react/reset', () => {
         [
           [
             "a { color: yellow; text-decoration: none; cursor: pointer; background-color: transparent; }",
-            "[contenteditable] { user-select: text; }",
             "* { outline: none; font-size: 100%; background: transparent; box-sizing: border-box; touch-action: manipulation; }",
             "body { font-family: Roboto, Helvetica, \"Helvetica Neue\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Arial, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", sans-serif; font-weight: normal; font-style: normal; position: relative; overflow-x: hidden; background-color: rgb(255, 255, 255); }",
             "img, embed, object, video { max-width: 100%; height: auto; }",
@@ -71,7 +70,6 @@ group('@amaui/style-react/reset', () => {
             "span { overflow-wrap: break-word; }",
             "hr { height: 1px; background: rgb(221, 221, 221); width: 100%; margin: 24px 0px; box-sizing: content-box; overflow: visible; }",
             "pre, code, kbd, samp { font-family: \"Roboto Mono\", monospace; }",
-            "code span { white-space: pre-wrap; }",
             ":focus { outline: none; }",
             "html { line-height: 1.15; text-size-adjust: 100%; }",
             "main { display: block; }",
@@ -101,7 +99,9 @@ group('@amaui/style-react/reset', () => {
             "details { display: block; }",
             "summary { display: list-item; }",
             "template { display: none; }",
-            "[hidden] { display: none; }"
+            "[hidden] { display: none; }",
+            "[contenteditable] { user-select: text; }",
+            "code span { white-space: pre-wrap; }"
           ]
         ],
         "<div><a>a</a></div>"
@@ -111,7 +111,6 @@ group('@amaui/style-react/reset', () => {
         [
           [
             "a { color: yellow; text-decoration: none; cursor: pointer; background-color: transparent; }",
-            "[contenteditable] { user-select: text; }",
             "* { outline: currentcolor none medium; font-size: 100%; background: transparent none repeat scroll 0% 0%; box-sizing: border-box; touch-action: manipulation; }",
             "body { font-family: Roboto, Helvetica, \"Helvetica Neue\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Arial, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", sans-serif; font-weight: normal; font-style: normal; position: relative; overflow-x: hidden; background-color: rgb(255, 255, 255); }",
             "img, embed, object, video { max-width: 100%; height: auto; }",
@@ -119,7 +118,6 @@ group('@amaui/style-react/reset', () => {
             "span { overflow-wrap: break-word; }",
             "hr { height: 1px; background: rgb(221, 221, 221) none repeat scroll 0% 0%; width: 100%; margin: 24px 0px; box-sizing: content-box; overflow: visible; }",
             "pre, code, kbd, samp { font-family: Roboto Mono, monospace; }",
-            "code span { white-space: pre-wrap; }",
             ":focus { outline: currentcolor none medium; }",
             "html { line-height: 1.15; }",
             "main { display: block; }",
@@ -151,7 +149,9 @@ group('@amaui/style-react/reset', () => {
             "details { display: block; }",
             "summary { display: list-item; }",
             "template { display: none; }",
-            "[hidden] { display: none; }"
+            "[hidden] { display: none; }",
+            "[contenteditable] { user-select: text; }",
+            "code span { white-space: pre-wrap; }"
           ]
         ],
         "<div><a>a</a></div>"
@@ -161,7 +161,6 @@ group('@amaui/style-react/reset', () => {
         [
           [
             "a { color: yellow; text-decoration: none; cursor: pointer; background-color: transparent; }",
-            "[contenteditable] { }",
             "* { outline: none; font-size: 100%; background-color: transparent; box-sizing: border-box; touch-action: manipulation; }",
             "body { font-family: Roboto, Helvetica, \"Helvetica Neue\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Arial, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", sans-serif; font-weight: normal; font-style: normal; position: relative; overflow-x: hidden; background-color: rgb(255, 255, 255); }",
             "img, embed, object, video { max-width: 100%; height: auto; }",
@@ -169,7 +168,6 @@ group('@amaui/style-react/reset', () => {
             "span { word-wrap: break-word; }",
             "hr { height: 1px; background-color: rgb(221, 221, 221); width: 100%; margin: 24px 0px; box-sizing: content-box; overflow: visible; }",
             "pre, code, kbd, samp { font-family: \"Roboto Mono\", monospace; }",
-            "code span { white-space: pre-wrap; }",
             ":focus { outline: none; }",
             "html { line-height: 1.15; }",
             "main { display: block; }",
@@ -199,7 +197,9 @@ group('@amaui/style-react/reset', () => {
             "details { display: block; }",
             "summary { display: list-item; }",
             "template { display: none; }",
-            "[hidden] { display: none; }"
+            "[hidden] { display: none; }",
+            "[contenteditable] { }",
+            "code span { white-space: pre-wrap; }"
           ]
         ],
         "<div><a>a</a></div>"
@@ -260,7 +260,6 @@ group('@amaui/style-react/reset', () => {
         [
           [
             "a { color: yellow; text-decoration: none; cursor: pointer; background-color: transparent; }",
-            "[contenteditable] { user-select: text; }",
             "* { outline: none; font-size: 100%; background: transparent; box-sizing: border-box; touch-action: manipulation; }",
             "body { font-family: Roboto, Helvetica, \"Helvetica Neue\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Arial, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", sans-serif; font-weight: normal; font-style: normal; position: relative; overflow-x: hidden; background-color: rgb(255, 255, 255); }",
             "img, embed, object, video { max-width: 100%; height: auto; }",
@@ -268,7 +267,6 @@ group('@amaui/style-react/reset', () => {
             "span { overflow-wrap: break-word; }",
             "hr { height: 1px; background: rgb(221, 221, 221); width: 100%; margin: 24px 0px; box-sizing: content-box; overflow: visible; }",
             "pre, code, kbd, samp { font-family: \"Roboto Mono\", monospace; }",
-            "code span { white-space: pre-wrap; }",
             ":focus { outline: none; }",
             "html { line-height: 1.15; text-size-adjust: 100%; }",
             "main { display: block; }",
@@ -298,7 +296,9 @@ group('@amaui/style-react/reset', () => {
             "details { display: block; }",
             "summary { display: list-item; }",
             "template { display: none; }",
-            "[hidden] { display: none; }"
+            "[hidden] { display: none; }",
+            "[contenteditable] { user-select: text; }",
+            "code span { white-space: pre-wrap; }"
           ]
         ],
         "<div><a>a</a></div>"
@@ -308,7 +308,6 @@ group('@amaui/style-react/reset', () => {
         [
           [
             "a { color: yellow; text-decoration: none; cursor: pointer; background-color: transparent; }",
-            "[contenteditable] { user-select: text; }",
             "* { outline: currentcolor none medium; font-size: 100%; background: transparent none repeat scroll 0% 0%; box-sizing: border-box; touch-action: manipulation; }",
             "body { font-family: Roboto, Helvetica, \"Helvetica Neue\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Arial, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", sans-serif; font-weight: normal; font-style: normal; position: relative; overflow-x: hidden; background-color: rgb(255, 255, 255); }",
             "img, embed, object, video { max-width: 100%; height: auto; }",
@@ -316,7 +315,6 @@ group('@amaui/style-react/reset', () => {
             "span { overflow-wrap: break-word; }",
             "hr { height: 1px; background: rgb(221, 221, 221) none repeat scroll 0% 0%; width: 100%; margin: 24px 0px; box-sizing: content-box; overflow: visible; }",
             "pre, code, kbd, samp { font-family: Roboto Mono, monospace; }",
-            "code span { white-space: pre-wrap; }",
             ":focus { outline: currentcolor none medium; }",
             "html { line-height: 1.15; }",
             "main { display: block; }",
@@ -348,7 +346,9 @@ group('@amaui/style-react/reset', () => {
             "details { display: block; }",
             "summary { display: list-item; }",
             "template { display: none; }",
-            "[hidden] { display: none; }"
+            "[hidden] { display: none; }",
+            "[contenteditable] { user-select: text; }",
+            "code span { white-space: pre-wrap; }"
           ]
         ],
         "<div><a>a</a></div>"
@@ -358,7 +358,6 @@ group('@amaui/style-react/reset', () => {
         [
           [
             "a { color: yellow; text-decoration: none; cursor: pointer; background-color: transparent; }",
-            "[contenteditable] { }",
             "* { outline: none; font-size: 100%; background-color: transparent; box-sizing: border-box; touch-action: manipulation; }",
             "body { font-family: Roboto, Helvetica, \"Helvetica Neue\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Arial, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", sans-serif; font-weight: normal; font-style: normal; position: relative; overflow-x: hidden; background-color: rgb(255, 255, 255); }",
             "img, embed, object, video { max-width: 100%; height: auto; }",
@@ -366,7 +365,6 @@ group('@amaui/style-react/reset', () => {
             "span { word-wrap: break-word; }",
             "hr { height: 1px; background-color: rgb(221, 221, 221); width: 100%; margin: 24px 0px; box-sizing: content-box; overflow: visible; }",
             "pre, code, kbd, samp { font-family: \"Roboto Mono\", monospace; }",
-            "code span { white-space: pre-wrap; }",
             ":focus { outline: none; }",
             "html { line-height: 1.15; }",
             "main { display: block; }",
@@ -396,7 +394,9 @@ group('@amaui/style-react/reset', () => {
             "details { display: block; }",
             "summary { display: list-item; }",
             "template { display: none; }",
-            "[hidden] { display: none; }"
+            "[hidden] { display: none; }",
+            "[contenteditable] { }",
+            "code span { white-space: pre-wrap; }"
           ]
         ],
         "<div><a>a</a></div>"
@@ -459,7 +459,6 @@ group('@amaui/style-react/reset', () => {
           [
             [
               "a { color: yellow; text-decoration: none; cursor: pointer; background-color: transparent; }",
-              "[contenteditable] { user-select: text; }",
               "* { outline: none; font-size: 100%; background: transparent; box-sizing: border-box; touch-action: manipulation; }",
               "body { font-family: Roboto, Helvetica, \"Helvetica Neue\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Arial, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", sans-serif; font-weight: normal; font-style: normal; position: relative; overflow-x: hidden; background-color: rgb(255, 255, 255); }",
               "img, embed, object, video { max-width: 100%; height: auto; }",
@@ -467,7 +466,6 @@ group('@amaui/style-react/reset', () => {
               "span { overflow-wrap: break-word; }",
               "hr { height: 1px; background: rgb(221, 221, 221); width: 100%; margin: 24px 0px; box-sizing: content-box; overflow: visible; }",
               "pre, code, kbd, samp { font-family: \"Roboto Mono\", monospace; }",
-              "code span { white-space: pre-wrap; }",
               ":focus { outline: none; }",
               "html { line-height: 1.15; text-size-adjust: 100%; }",
               "main { display: block; }",
@@ -497,7 +495,9 @@ group('@amaui/style-react/reset', () => {
               "details { display: block; }",
               "summary { display: list-item; }",
               "template { display: none; }",
-              "[hidden] { display: none; }"
+              "[hidden] { display: none; }",
+              "[contenteditable] { user-select: text; }",
+              "code span { white-space: pre-wrap; }"
             ]
           ],
           "<div><a>a</a></div>"
@@ -507,7 +507,6 @@ group('@amaui/style-react/reset', () => {
           [
             [
               "a { color: yellow; text-decoration: none; cursor: pointer; background-color: transparent; }",
-              "[contenteditable] { user-select: text; }",
               "* { outline: currentcolor none medium; font-size: 100%; background: transparent none repeat scroll 0% 0%; box-sizing: border-box; touch-action: manipulation; }",
               "body { font-family: Roboto, Helvetica, \"Helvetica Neue\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Arial, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", sans-serif; font-weight: normal; font-style: normal; position: relative; overflow-x: hidden; background-color: rgb(255, 255, 255); }",
               "img, embed, object, video { max-width: 100%; height: auto; }",
@@ -515,7 +514,6 @@ group('@amaui/style-react/reset', () => {
               "span { overflow-wrap: break-word; }",
               "hr { height: 1px; background: rgb(221, 221, 221) none repeat scroll 0% 0%; width: 100%; margin: 24px 0px; box-sizing: content-box; overflow: visible; }",
               "pre, code, kbd, samp { font-family: Roboto Mono, monospace; }",
-              "code span { white-space: pre-wrap; }",
               ":focus { outline: currentcolor none medium; }",
               "html { line-height: 1.15; }",
               "main { display: block; }",
@@ -547,7 +545,9 @@ group('@amaui/style-react/reset', () => {
               "details { display: block; }",
               "summary { display: list-item; }",
               "template { display: none; }",
-              "[hidden] { display: none; }"
+              "[hidden] { display: none; }",
+              "[contenteditable] { user-select: text; }",
+              "code span { white-space: pre-wrap; }"
             ]
           ],
           "<div><a>a</a></div>"
@@ -557,7 +557,6 @@ group('@amaui/style-react/reset', () => {
           [
             [
               "a { color: yellow; text-decoration: none; cursor: pointer; background-color: transparent; }",
-              "[contenteditable] { }",
               "* { outline: none; font-size: 100%; background-color: transparent; box-sizing: border-box; touch-action: manipulation; }",
               "body { font-family: Roboto, Helvetica, \"Helvetica Neue\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Arial, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", sans-serif; font-weight: normal; font-style: normal; position: relative; overflow-x: hidden; background-color: rgb(255, 255, 255); }",
               "img, embed, object, video { max-width: 100%; height: auto; }",
@@ -565,7 +564,6 @@ group('@amaui/style-react/reset', () => {
               "span { word-wrap: break-word; }",
               "hr { height: 1px; background-color: rgb(221, 221, 221); width: 100%; margin: 24px 0px; box-sizing: content-box; overflow: visible; }",
               "pre, code, kbd, samp { font-family: \"Roboto Mono\", monospace; }",
-              "code span { white-space: pre-wrap; }",
               ":focus { outline: none; }",
               "html { line-height: 1.15; }",
               "main { display: block; }",
@@ -595,7 +593,9 @@ group('@amaui/style-react/reset', () => {
               "details { display: block; }",
               "summary { display: list-item; }",
               "template { display: none; }",
-              "[hidden] { display: none; }"
+              "[hidden] { display: none; }",
+              "[contenteditable] { }",
+              "code span { white-space: pre-wrap; }"
             ]
           ],
           "<div><a>a</a></div>"
@@ -705,7 +705,8 @@ group('@amaui/style-react/reset', () => {
               "details { display: block; }",
               "summary { display: list-item; }",
               "template { display: none; }",
-              "[hidden] { display: none; }"
+              "[hidden] { display: none; }",
+              "[contenteditable] { user-select: text; }"
             ]
           ],
           "<div data-amaui-theme=\"true\"><a>a</a></div>",
@@ -749,7 +750,8 @@ group('@amaui/style-react/reset', () => {
               "details { display: block; }",
               "summary { display: list-item; }",
               "template { display: none; }",
-              "[hidden] { display: none; }"
+              "[hidden] { display: none; }",
+              "[contenteditable] { user-select: text; }"
             ]
           ],
           "<div data-amaui-theme=\"true\"><a>a</a></div>"
@@ -797,7 +799,8 @@ group('@amaui/style-react/reset', () => {
               "details { display: block; }",
               "summary { display: list-item; }",
               "template { display: none; }",
-              "[hidden] { display: none; }"
+              "[hidden] { display: none; }",
+              "[contenteditable] { user-select: text; }"
             ]
           ],
           "<div data-amaui-theme=\"true\"><a>a</a></div>",
@@ -843,7 +846,8 @@ group('@amaui/style-react/reset', () => {
               "details { display: block; }",
               "summary { display: list-item; }",
               "template { display: none; }",
-              "[hidden] { display: none; }"
+              "[hidden] { display: none; }",
+              "[contenteditable] { user-select: text; }"
             ]
           ],
           "<div data-amaui-theme=\"true\"><a>a</a></div>"
@@ -889,7 +893,8 @@ group('@amaui/style-react/reset', () => {
               "details { display: block; }",
               "summary { display: list-item; }",
               "template { display: none; }",
-              "[hidden] { display: none; }"
+              "[hidden] { display: none; }",
+              "[contenteditable] { }"
             ]
           ],
           "<div data-amaui-theme=\"true\"><a>a</a></div>",
@@ -933,7 +938,8 @@ group('@amaui/style-react/reset', () => {
               "details { display: block; }",
               "summary { display: list-item; }",
               "template { display: none; }",
-              "[hidden] { display: none; }"
+              "[hidden] { display: none; }",
+              "[contenteditable] { }"
             ]
           ],
           "<div data-amaui-theme=\"true\"><a>a</a></div>"
@@ -1007,7 +1013,6 @@ group('@amaui/style-react/reset', () => {
               "a { color: yellow; text-decoration: none; cursor: pointer; background-color: transparent; }"
             ],
             [
-              "[contenteditable] { user-select: text; }",
               "* { outline: none; font-size: 100%; background: transparent; box-sizing: border-box; touch-action: manipulation; }",
               "body { font-family: Roboto, Helvetica, \"Helvetica Neue\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Arial, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", sans-serif; font-weight: normal; font-style: normal; position: relative; overflow-x: hidden; background-color: rgb(255, 255, 255); }",
               "img, embed, object, video { max-width: 100%; height: auto; }",
@@ -1015,7 +1020,6 @@ group('@amaui/style-react/reset', () => {
               "span { overflow-wrap: break-word; }",
               "hr { height: 1px; background: rgb(221, 221, 221); width: 100%; margin: 24px 0px; box-sizing: content-box; overflow: visible; }",
               "pre, code, kbd, samp { font-family: \"Roboto Mono\", monospace; }",
-              "code span { white-space: pre-wrap; }",
               ":focus { outline: none; }",
               "html { line-height: 1.15; text-size-adjust: 100%; }",
               "main { display: block; }",
@@ -1045,7 +1049,9 @@ group('@amaui/style-react/reset', () => {
               "details { display: block; }",
               "summary { display: list-item; }",
               "template { display: none; }",
-              "[hidden] { display: none; }"
+              "[hidden] { display: none; }",
+              "[contenteditable] { user-select: text; }",
+              "code span { white-space: pre-wrap; }"
             ]
           ],
           "<div><a>a</a></div>",
@@ -1055,7 +1061,6 @@ group('@amaui/style-react/reset', () => {
               "a { color: orange; text-decoration: none; cursor: pointer; background-color: transparent; }"
             ],
             [
-              "[contenteditable] { user-select: text; }",
               "* { outline: none; font-size: 100%; background: transparent; box-sizing: border-box; touch-action: manipulation; }",
               "body { font-family: Roboto, Helvetica, \"Helvetica Neue\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Arial, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", sans-serif; font-weight: normal; font-style: normal; position: relative; overflow-x: hidden; background-color: rgb(255, 255, 255); }",
               "img, embed, object, video { max-width: 100%; height: auto; }",
@@ -1063,7 +1068,6 @@ group('@amaui/style-react/reset', () => {
               "span { overflow-wrap: break-word; }",
               "hr { height: 1px; background: rgb(221, 221, 221); width: 100%; margin: 24px 0px; box-sizing: content-box; overflow: visible; }",
               "pre, code, kbd, samp { font-family: \"Roboto Mono\", monospace; }",
-              "code span { white-space: pre-wrap; }",
               ":focus { outline: none; }",
               "html { line-height: 1.15; text-size-adjust: 100%; }",
               "main { display: block; }",
@@ -1093,7 +1097,9 @@ group('@amaui/style-react/reset', () => {
               "details { display: block; }",
               "summary { display: list-item; }",
               "template { display: none; }",
-              "[hidden] { display: none; }"
+              "[hidden] { display: none; }",
+              "[contenteditable] { user-select: text; }",
+              "code span { white-space: pre-wrap; }"
             ]
           ],
           "<div><a>a</a></div>"
@@ -1105,7 +1111,6 @@ group('@amaui/style-react/reset', () => {
               "a { color: yellow; text-decoration: none; cursor: pointer; background-color: transparent; }"
             ],
             [
-              "[contenteditable] { user-select: text; }",
               "* { outline: currentcolor none medium; font-size: 100%; background: transparent none repeat scroll 0% 0%; box-sizing: border-box; touch-action: manipulation; }",
               "body { font-family: Roboto, Helvetica, \"Helvetica Neue\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Arial, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", sans-serif; font-weight: normal; font-style: normal; position: relative; overflow-x: hidden; background-color: rgb(255, 255, 255); }",
               "img, embed, object, video { max-width: 100%; height: auto; }",
@@ -1113,7 +1118,6 @@ group('@amaui/style-react/reset', () => {
               "span { overflow-wrap: break-word; }",
               "hr { height: 1px; background: rgb(221, 221, 221) none repeat scroll 0% 0%; width: 100%; margin: 24px 0px; box-sizing: content-box; overflow: visible; }",
               "pre, code, kbd, samp { font-family: Roboto Mono, monospace; }",
-              "code span { white-space: pre-wrap; }",
               ":focus { outline: currentcolor none medium; }",
               "html { line-height: 1.15; }",
               "main { display: block; }",
@@ -1145,7 +1149,9 @@ group('@amaui/style-react/reset', () => {
               "details { display: block; }",
               "summary { display: list-item; }",
               "template { display: none; }",
-              "[hidden] { display: none; }"
+              "[hidden] { display: none; }",
+              "[contenteditable] { user-select: text; }",
+              "code span { white-space: pre-wrap; }"
             ]
           ],
           "<div><a>a</a></div>",
@@ -1155,7 +1161,6 @@ group('@amaui/style-react/reset', () => {
               "a { color: orange; text-decoration: none; cursor: pointer; background-color: transparent; }"
             ],
             [
-              "[contenteditable] { user-select: text; }",
               "* { outline: currentcolor none medium; font-size: 100%; background: transparent none repeat scroll 0% 0%; box-sizing: border-box; touch-action: manipulation; }",
               "body { font-family: Roboto, Helvetica, \"Helvetica Neue\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Arial, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", sans-serif; font-weight: normal; font-style: normal; position: relative; overflow-x: hidden; background-color: rgb(255, 255, 255); }",
               "img, embed, object, video { max-width: 100%; height: auto; }",
@@ -1163,7 +1168,6 @@ group('@amaui/style-react/reset', () => {
               "span { overflow-wrap: break-word; }",
               "hr { height: 1px; background: rgb(221, 221, 221) none repeat scroll 0% 0%; width: 100%; margin: 24px 0px; box-sizing: content-box; overflow: visible; }",
               "pre, code, kbd, samp { font-family: Roboto Mono, monospace; }",
-              "code span { white-space: pre-wrap; }",
               ":focus { outline: currentcolor none medium; }",
               "html { line-height: 1.15; }",
               "main { display: block; }",
@@ -1195,7 +1199,9 @@ group('@amaui/style-react/reset', () => {
               "details { display: block; }",
               "summary { display: list-item; }",
               "template { display: none; }",
-              "[hidden] { display: none; }"
+              "[hidden] { display: none; }",
+              "[contenteditable] { user-select: text; }",
+              "code span { white-space: pre-wrap; }"
             ]
           ],
           "<div><a>a</a></div>"
@@ -1207,7 +1213,6 @@ group('@amaui/style-react/reset', () => {
               "a { color: yellow; text-decoration: none; cursor: pointer; background-color: transparent; }"
             ],
             [
-              "[contenteditable] { }",
               "* { outline: none; font-size: 100%; background-color: transparent; box-sizing: border-box; touch-action: manipulation; }",
               "body { font-family: Roboto, Helvetica, \"Helvetica Neue\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Arial, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", sans-serif; font-weight: normal; font-style: normal; position: relative; overflow-x: hidden; background-color: rgb(255, 255, 255); }",
               "img, embed, object, video { max-width: 100%; height: auto; }",
@@ -1215,7 +1220,6 @@ group('@amaui/style-react/reset', () => {
               "span { word-wrap: break-word; }",
               "hr { height: 1px; background-color: rgb(221, 221, 221); width: 100%; margin: 24px 0px; box-sizing: content-box; overflow: visible; }",
               "pre, code, kbd, samp { font-family: \"Roboto Mono\", monospace; }",
-              "code span { white-space: pre-wrap; }",
               ":focus { outline: none; }",
               "html { line-height: 1.15; }",
               "main { display: block; }",
@@ -1245,7 +1249,9 @@ group('@amaui/style-react/reset', () => {
               "details { display: block; }",
               "summary { display: list-item; }",
               "template { display: none; }",
-              "[hidden] { display: none; }"
+              "[hidden] { display: none; }",
+              "[contenteditable] { }",
+              "code span { white-space: pre-wrap; }"
             ]
           ],
           "<div><a>a</a></div>",
@@ -1255,7 +1261,6 @@ group('@amaui/style-react/reset', () => {
               "a { color: orange; text-decoration: none; cursor: pointer; background-color: transparent; }"
             ],
             [
-              "[contenteditable] { }",
               "* { outline: none; font-size: 100%; background-color: transparent; box-sizing: border-box; touch-action: manipulation; }",
               "body { font-family: Roboto, Helvetica, \"Helvetica Neue\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Arial, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", sans-serif; font-weight: normal; font-style: normal; position: relative; overflow-x: hidden; background-color: rgb(255, 255, 255); }",
               "img, embed, object, video { max-width: 100%; height: auto; }",
@@ -1263,7 +1268,6 @@ group('@amaui/style-react/reset', () => {
               "span { word-wrap: break-word; }",
               "hr { height: 1px; background-color: rgb(221, 221, 221); width: 100%; margin: 24px 0px; box-sizing: content-box; overflow: visible; }",
               "pre, code, kbd, samp { font-family: \"Roboto Mono\", monospace; }",
-              "code span { white-space: pre-wrap; }",
               ":focus { outline: none; }",
               "html { line-height: 1.15; }",
               "main { display: block; }",
@@ -1293,7 +1297,9 @@ group('@amaui/style-react/reset', () => {
               "details { display: block; }",
               "summary { display: list-item; }",
               "template { display: none; }",
-              "[hidden] { display: none; }"
+              "[hidden] { display: none; }",
+              "[contenteditable] { }",
+              "code span { white-space: pre-wrap; }"
             ]
           ],
           "<div><a>a</a></div>"
@@ -1367,7 +1373,6 @@ group('@amaui/style-react/reset', () => {
           [
             [
               "a { color: yellow; text-decoration: none; cursor: pointer; background-color: transparent; }",
-              "[contenteditable] { user-select: text; }",
               "* { outline: none; font-size: 100%; background: transparent; box-sizing: border-box; touch-action: manipulation; }",
               "body { font-family: Roboto, Helvetica, \"Helvetica Neue\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Arial, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", sans-serif; font-weight: normal; font-style: normal; position: relative; overflow-x: hidden; background-color: rgb(255, 255, 255); }",
               "img, embed, object, video { max-width: 100%; height: auto; }",
@@ -1375,7 +1380,6 @@ group('@amaui/style-react/reset', () => {
               "span { overflow-wrap: break-word; }",
               "hr { height: 1px; background: rgb(221, 221, 221); width: 100%; margin: 24px 0px; box-sizing: content-box; overflow: visible; }",
               "pre, code, kbd, samp { font-family: \"Roboto Mono\", monospace; }",
-              "code span { white-space: pre-wrap; }",
               ":focus { outline: none; }",
               "html { line-height: 1.15; text-size-adjust: 100%; }",
               "main { display: block; }",
@@ -1405,7 +1409,9 @@ group('@amaui/style-react/reset', () => {
               "details { display: block; }",
               "summary { display: list-item; }",
               "template { display: none; }",
-              "[hidden] { display: none; }"
+              "[hidden] { display: none; }",
+              "[contenteditable] { user-select: text; }",
+              "code span { white-space: pre-wrap; }"
             ]
           ],
           "<div><a>a</a></div>",
@@ -1418,7 +1424,6 @@ group('@amaui/style-react/reset', () => {
           [
             [
               "a { color: yellow; text-decoration: none; cursor: pointer; background-color: transparent; }",
-              "[contenteditable] { user-select: text; }",
               "* { outline: currentcolor none medium; font-size: 100%; background: transparent none repeat scroll 0% 0%; box-sizing: border-box; touch-action: manipulation; }",
               "body { font-family: Roboto, Helvetica, \"Helvetica Neue\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Arial, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", sans-serif; font-weight: normal; font-style: normal; position: relative; overflow-x: hidden; background-color: rgb(255, 255, 255); }",
               "img, embed, object, video { max-width: 100%; height: auto; }",
@@ -1426,7 +1431,6 @@ group('@amaui/style-react/reset', () => {
               "span { overflow-wrap: break-word; }",
               "hr { height: 1px; background: rgb(221, 221, 221) none repeat scroll 0% 0%; width: 100%; margin: 24px 0px; box-sizing: content-box; overflow: visible; }",
               "pre, code, kbd, samp { font-family: Roboto Mono, monospace; }",
-              "code span { white-space: pre-wrap; }",
               ":focus { outline: currentcolor none medium; }",
               "html { line-height: 1.15; }",
               "main { display: block; }",
@@ -1458,7 +1462,9 @@ group('@amaui/style-react/reset', () => {
               "details { display: block; }",
               "summary { display: list-item; }",
               "template { display: none; }",
-              "[hidden] { display: none; }"
+              "[hidden] { display: none; }",
+              "[contenteditable] { user-select: text; }",
+              "code span { white-space: pre-wrap; }"
             ]
           ],
           "<div><a>a</a></div>",
@@ -1471,7 +1477,6 @@ group('@amaui/style-react/reset', () => {
           [
             [
               "a { color: yellow; text-decoration: none; cursor: pointer; background-color: transparent; }",
-              "[contenteditable] { }",
               "* { outline: none; font-size: 100%; background-color: transparent; box-sizing: border-box; touch-action: manipulation; }",
               "body { font-family: Roboto, Helvetica, \"Helvetica Neue\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Arial, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", sans-serif; font-weight: normal; font-style: normal; position: relative; overflow-x: hidden; background-color: rgb(255, 255, 255); }",
               "img, embed, object, video { max-width: 100%; height: auto; }",
@@ -1479,7 +1484,6 @@ group('@amaui/style-react/reset', () => {
               "span { word-wrap: break-word; }",
               "hr { height: 1px; background-color: rgb(221, 221, 221); width: 100%; margin: 24px 0px; box-sizing: content-box; overflow: visible; }",
               "pre, code, kbd, samp { font-family: \"Roboto Mono\", monospace; }",
-              "code span { white-space: pre-wrap; }",
               ":focus { outline: none; }",
               "html { line-height: 1.15; }",
               "main { display: block; }",
@@ -1509,7 +1513,9 @@ group('@amaui/style-react/reset', () => {
               "details { display: block; }",
               "summary { display: list-item; }",
               "template { display: none; }",
-              "[hidden] { display: none; }"
+              "[hidden] { display: none; }",
+              "[contenteditable] { }",
+              "code span { white-space: pre-wrap; }"
             ]
           ],
           "<div><a>a</a></div>",
@@ -1580,216 +1586,216 @@ group('@amaui/style-react/reset', () => {
       assert(amauiStyle.css).eq(`
 
 a {
-color: yellow;
-text-decoration: none;
-cursor: pointer;
-background-color: transparent;
+  color: yellow;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: transparent;
 }
 
 * {
-outline: none;
-font-size: 100%;
-background: transparent;
-box-sizing: border-box;
-touch-action: manipulation;
+  outline: none;
+  font-size: 100%;
+  background: transparent;
+  box-sizing: border-box;
+  touch-action: manipulation;
 }
 
 body {
-font-size: 14;
-font-family: Roboto, Helvetica, "Helvetica Neue", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
-font-weight: normal;
-font-style: normal;
-position: relative;
-overflow-x: hidden;
-background-color: #fff;
+  font-size: 14;
+  font-family: Roboto, Helvetica, "Helvetica Neue", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  position: relative;
+  overflow-x: hidden;
+  background-color: #fff;
 }
 
 img, embed, object, video {
-max-width: 100%;
-height: auto;
+  max-width: 100%;
+  height: auto;
 }
 
 form {
-width: 100%;
+  width: 100%;
 }
 
 span {
-word-wrap: break-word;
+  word-wrap: break-word;
 }
 
 hr {
-height: 1px;
-background: #ddd;
-width: 100%;
-margin: 24px 0;
-box-sizing: content-box;
-overflow: visible;
+  height: 1px;
+  background: #ddd;
+  width: 100%;
+  margin: 24px 0;
+  box-sizing: content-box;
+  overflow: visible;
 }
 
 pre, code, kbd, samp {
-font-family: Roboto Mono, monospace;
+  font-family: Roboto Mono, monospace;
 }
 
 :focus {
-outline: none;
+  outline: none;
 }
 
 html {
-line-height: 1.15;
--webkit-text-size-adjust: 100%;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
 }
 
 main {
-display: block;
+  display: block;
 }
 
 h1 {
-font-size: 2em;
-margin: 0.67em 0;
+  font-size: 2em;
+  margin: 0.67em 0;
 }
 
 pre {
-font-family: monospace, monospace;
-font-size: 1em;
+  font-family: monospace, monospace;
+  font-size: 1em;
 }
 
 abbr[title] {
-border-bottom: none;
-text-decoration: underline dotted;
-text-decoration: underline;
+  border-bottom: none;
+  text-decoration: underline dotted;
+  text-decoration: underline;
 }
 
 b, strong {
-font-weight: bolder;
+  font-weight: bolder;
 }
 
 code, kbd, samp {
-font-family: monospace, monospace;
-font-size: 1em;
+  font-family: monospace, monospace;
+  font-size: 1em;
 }
 
 small {
-font-size: 80%;
+  font-size: 80%;
 }
 
 sub, sup {
-font-size: 75%;
-position: relative;
-vertical-align: baseline;
+  font-size: 75%;
+  position: relative;
+  vertical-align: baseline;
 }
 
 sub {
-bottom: -0.25em;
+  bottom: -0.25em;
 }
 
 sup {
-top: -0.5em;
+  top: -0.5em;
 }
 
 img {
-border-style: none;
+  border-style: none;
 }
 
 button, input, optgroup, select, textarea {
-font-family: inherit;
-font-size: 100%;
-line-height: 1.15;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
 }
 
 button, input {
-overflow: visible;
+  overflow: visible;
 }
 
 button, select {
-text-transform: none;
+  text-transform: none;
 }
 
 button, [type="button"], [type="reset"], [type="submit"] {
--webkit-appearance: button;
+  -webkit-appearance: button;
 }
 
 button::-moz-focus-inner, [type="button"]::-moz-focus-inner, [type="reset"]::-moz-focus-inner, [type="submit"]::-moz-focus-inner {
-border-style: none;
+  border-style: none;
 }
 
 button:-moz-focusring, [type="button"]:-moz-focusring, [type="reset"]:-moz-focusring, [type="submit"]:-moz-focusring {
-outline: 1px dotted ButtonText;
+  outline: 1px dotted ButtonText;
 }
 
 fieldset {
-padding: 0.35em 0.75em 0.625em;
+  padding: 0.35em 0.75em 0.625em;
 }
 
 legend {
-box-sizing: border-box;
-color: inherit;
-display: table;
-max-width: 100%;
-white-space: normal;
+  box-sizing: border-box;
+  color: inherit;
+  display: table;
+  max-width: 100%;
+  white-space: normal;
 }
 
 progress {
-vertical-align: baseline;
+  vertical-align: baseline;
 }
 
 textarea {
-overflow: auto;
+  overflow: auto;
 }
 
 [type="checkbox"], [type="radio"] {
-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 [type="number"]::-webkit-inner-spin-button, [type="number"]::-webkit-outer-spin-button {
-height: auto;
+  height: auto;
 }
 
 [type="search"] {
--webkit-appearance: textfield;
-outline-offset: -2;
+  -webkit-appearance: textfield;
+  outline-offset: -2;
 }
 
 [type="search"]::-webkit-search-decoration {
--webkit-appearance: none;
+  -webkit-appearance: none;
 }
 
 ::-webkit-file-upload-button {
--webkit-appearance: button;
-font: inherit;
+  -webkit-appearance: button;
+  font: inherit;
 }
 
 details {
-display: block;
+  display: block;
 }
 
 summary {
-display: list-item;
+  display: list-item;
 }
 
 template {
-display: none;
+  display: none;
 }
 
 [hidden] {
-display: none;
+  display: none;
 }
 
-[contenteditable] {
-user-select: text;
+*[contenteditable] {
+  user-select: text;
 }
 
- span {
-white-space: pre-wrap;
+code span {
+  white-space: pre-wrap;
 }
 
 
 
 .a-0 {
-width: 100px;
+  width: 100px;
 }
 
 .a1-1 {
-color: rgba(0, 0, 0, 0.87);
+  color: rgba(0, 0, 0, 0.87);
 }
 
 `);

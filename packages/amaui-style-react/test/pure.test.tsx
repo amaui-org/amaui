@@ -463,7 +463,7 @@ group('@amaui/style-react/pure', () => {
       assert(amauiStyle.css).eq(`
 
 a {
-color: yellow;
+  color: yellow;
 }
 
 `);
