@@ -1,7 +1,12 @@
 /* tslint:disable: no-shadowed-variable */
+import ReactDOMServer from 'react-dom/server';
+import React from 'react';
+
 import { assert } from '@amaui/test';
 
 import { evaluate } from '../../../utils/js/test/utils';
+
+import * as AmauiStyleReact from '../src';
 
 group('@amaui/style-react/AmauiThemeProvider', () => {
 
@@ -326,6 +331,28 @@ group('@amaui/style-react/AmauiThemeProvider', () => {
           ...new Array(3).fill(false)
         ]
       ]));
+    });
+
+  });
+
+  group('ssr', () => {
+
+    to('renderToString', async () => {
+      const { AmauiTheme, AmauiThemeProvider } = AmauiStyleReact;
+
+      const amauiTheme = new AmauiTheme();
+
+      const App = () => {
+        return (
+          <AmauiThemeProvider value={amauiTheme}>
+            a
+          </AmauiThemeProvider>
+        );
+      };
+
+      const value = ReactDOMServer.renderToString(React.createElement(App, null));
+
+      assert(value).eq('<div>a</div>');
     });
 
   });
