@@ -58,7 +58,7 @@ export default function AmauiStyleProvider(props) {
   };
 
   return (
-    <AmauiStyleContext.Provider value={[value, update]} >
+    <AmauiStyleContext.Provider value={[value, update]}>
       <div ref={ref} {...other}>
         {children}
       </div>

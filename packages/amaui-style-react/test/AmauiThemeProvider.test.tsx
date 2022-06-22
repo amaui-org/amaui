@@ -1,6 +1,6 @@
 /* tslint:disable: no-shadowed-variable */
-import ReactDOMServer from 'react-dom/server';
 import React from 'react';
+import ReactDOMServer from 'react-dom/server';
 
 import { assert } from '@amaui/test';
 

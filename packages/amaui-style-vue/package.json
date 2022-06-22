@@ -42,9 +42,7 @@
     "test:post": "pm2 delete all",
     "test": "yarn lint && yarn type && yarn build && yarn test:pre && yarn cov && yarn test:post"
   },
-  "peerDependencies": {
-    "vue": "^3.2.37"
-  },
+  "peerDependencies": {},
   "dependencies": {
     "@amaui/style": "^1.0.11117",
     "@amaui/utils": "^1.0.11114"

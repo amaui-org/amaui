@@ -1,22 +1,22 @@
-import Vue from 'vue';
+// import Vue from 'vue';
 
-import { TValue } from '@amaui/style';
-import { IOptions } from '@amaui/style/style';
+// import { TValue } from '@amaui/style';
+// import { IOptions } from '@amaui/style/style';
 
-import { style } from '.';
+// import { style } from '.';
 
-const withStyle = (Element: Vue.VueElement) => (value: TValue, options: IOptions = {}) => {
-  // Use styles
-  const useStyle = style(value, options);
+// const withStyle = (Element: Vue.VueElement) => (value: TValue, options: IOptions = {}) => {
+//   // Use styles
+//   const useStyle = style(value, options);
 
-  return {
-    extends: Element,
-    created() {
-      const values = useStyle(this.$props);
+//   return {
+//     extends: Element,
+//     created() {
+//       const values = useStyle(this.$props);
 
-      this.style = values;
-    },
-  };
-};
+//       this.style = values;
+//     },
+//   };
+// };
 
-export default withStyle;
+// export default withStyle;

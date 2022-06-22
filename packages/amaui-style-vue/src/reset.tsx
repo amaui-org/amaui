@@ -1,80 +1,80 @@
-import Vue from 'vue';
+// import Vue from 'vue';
 
-import { merge, is } from '@amaui/utils';
+// import { merge, is } from '@amaui/utils';
 
-import { AmauiStyle, AmauiTheme, IMethodResponse, IResponse, reset as amauiResetMethod, TValue, TValueMethod } from '@amaui/style';
-import { IOptions } from '@amaui/style/reset';
+// import { AmauiStyle, AmauiTheme, IMethodResponse, IResponse, reset as amauiResetMethod, TValue, TValueMethod } from '@amaui/style';
+// import { IOptions } from '@amaui/style/reset';
 
-export default function reset(value: TValue, options_: IOptions = {}) {
-  let response: IMethodResponse;
+// export default function reset(value: TValue, options_: IOptions = {}) {
+//   let response: IMethodResponse;
 
-  function useStyle(props?: any): IResponse {
-    const values = Vue.ref({
-      classes: {},
-      classNames: {},
-      keyframes: {},
-      styles: () => { },
-    }) as Vue.Ref<IResponse>;
+//   function useStyle(props?: any): IResponse {
+//     const values = Vue.ref({
+//       classes: {},
+//       classNames: {},
+//       keyframes: {},
+//       styles: () => { },
+//     }) as Vue.Ref<IResponse>;
 
-    const amauiStyle: AmauiStyle = Vue.inject('amauiStyle');
-    const amauiTheme: AmauiTheme = Vue.inject('amauiTheme');
+//     const amauiStyle: AmauiStyle = Vue.inject('amauiStyle');
+//     const amauiTheme: AmauiTheme = Vue.inject('amauiTheme');
 
-    // Init
-    // Add
-    // Updates for amauiTheme
-    const method = () => {
-      if (is('function', value)) {
-        const valueNew = (value as TValueMethod)(amauiTheme);
+//     // Init
+//     // Add
+//     // Updates for amauiTheme
+//     const method = () => {
+//       if (is('function', value)) {
+//         const valueNew = (value as TValueMethod)(amauiTheme);
 
-        // Update
-        if (response.update !== undefined) response.update(valueNew);
-      }
-    };
+//         // Update
+//         if (response.update !== undefined) response.update(valueNew);
+//       }
+//     };
 
-    Vue.onMounted(() => {
-      // Init only once
-      const options = {
-        amaui_style: { value: undefined },
-        amaui_theme: { value: undefined },
-      };
+//     Vue.onMounted(() => {
+//       // Init only once
+//       const options = {
+//         amaui_style: { value: undefined },
+//         amaui_theme: { value: undefined },
+//       };
 
-      // AmauiStyle
-      if (amauiStyle === undefined) options.amaui_style.value = amauiStyle;
+//       // AmauiStyle
+//       if (amauiStyle === undefined) options.amaui_style.value = amauiStyle;
 
-      // AmauiTheme
-      if (amauiTheme === undefined) options.amaui_theme.value = amauiTheme;
+//       // AmauiTheme
+//       if (amauiTheme === undefined) options.amaui_theme.value = amauiTheme;
 
-      if (response === undefined) response = amauiResetMethod(value, merge(options, options_, { copy: true }));
+//       if (response === undefined) response = amauiResetMethod(value, merge(options, options_, { copy: true }));
 
-      // Add
-      values.value = response.add(props);
+//       // Add
+//       values.value = response.add(props);
 
-      if (amauiTheme) amauiTheme.subscriptions.update.subscribe(method);
+//       if (amauiTheme) amauiTheme.subscriptions.update.subscribe(method);
 
-    });
+//     });
 
-    // Clean up
-    Vue.onUnmounted(() => {
-      amauiTheme.subscriptions.update.unsubscribe(method);
+//     // Clean up
+//     Vue.onUnmounted(() => {
+//       amauiTheme.subscriptions.update.unsubscribe(method);
 
-      // Remove
-      response.remove(values.value.ids?.dynamic);
-    });
+//       // Remove
+//       response.remove(values.value.ids?.dynamic);
+//     });
 
-    // Update props
-    Vue.watch(
-      () => props,
-      () => {
-        if (response.props !== undefined) response.props = props;
-      },
-      {
-        deep: true,
-        immediate: true
-      }
-    );
+//     // Update props
+//     Vue.watch(
+//       () => props,
+//       () => {
+//         if (response.props !== undefined) response.props = props;
+//       },
+//       {
+//         deep: true,
+//         immediate: true
+//       }
+//     );
 
-    return values.value;
-  }
+//     return values.value;
+//   }
 
-  return useStyle;
-}
+//   return useStyle;
+// }
