@@ -1,6 +1,6 @@
 import * as Vue from 'vue';
 
-import { merge } from '@amaui/utils';
+import { copy, merge } from '@amaui/utils';
 import { AmauiTheme } from '@amaui/style';
 
 export default {
@@ -13,16 +13,16 @@ export default {
 
     const valueParent = Vue.inject<AmauiTheme>('amauiTheme').value || {};
 
-    const value = Vue.ref(new AmauiTheme(merge({ ...valueLocal }, { ...valueParent }, { copy: true })));
+    const value = Vue.ref(new AmauiTheme(merge({ ...copy(valueLocal) }, { ...valueParent }, { copy: true })));
 
     // Value local
     Vue.watch(valueLocal, valueNew => {
-      value.value.update(merge({ ...valueNew }, { ...valueParent }, { copy: true }));
+      value.value.update(merge({ ...copy(valueNew) }, { ...valueParent }, { copy: true }));
     });
 
     // Value parent
     Vue.watch(valueParent, valueNew => {
-      value.value.update(merge({ ...valueLocal }, { ...valueNew }, { copy: true }));
+      value.value.update(merge({ ...copy(valueLocal) }, { ...valueNew }, { copy: true }));
     });
 
     Vue.provide('amauiTheme', value);
@@ -40,16 +40,10 @@ export default {
   },
 
   render() {
-    const slots = Vue.useSlots();
-
     return (
-      Vue.h(
-        'div',
-        {
-          ref: 'root'
-        },
-        slots.default && slots.default()
-      )
+      <div ref='root'>
+        {this.$slots.default}
+      </div>
     );
   }
 };

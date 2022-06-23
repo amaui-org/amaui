@@ -14,8 +14,8 @@ module.exports = function (api) {
       ]
     },
     vue: {
-      presets: [
-        '@vue/babel-preset-jsx'
+      plugins: [
+        '@vue/babel-plugin-jsx'
       ]
     },
     'web-components': { presets: [] },

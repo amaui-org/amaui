@@ -1,5 +1,6 @@
 import * as Vue from 'vue';
 
+import { is } from '@amaui/utils';
 import { AmauiStyle, makeClassName, unit, rtl, sort, valueObject, } from '@amaui/style';
 
 function makeAmauiStyle() {
@@ -13,7 +14,7 @@ function makeAmauiStyle() {
 
 export default {
   props: {
-    value: AmauiStyle,
+    value: AmauiStyle
   },
 
   setup(props: any) {
@@ -21,6 +22,7 @@ export default {
 
     const value = Vue.ref<AmauiStyle>(value_ === undefined || !(value_ instanceof AmauiStyle) ? makeAmauiStyle() : value_);
 
+    // Provide
     Vue.provide('amauiStyle', value);
 
     return {
@@ -32,20 +34,16 @@ export default {
     if (this.value.hasOwnProperty('element')) this.value.element = this.$refs.root;
 
     // Init
-    this.value.init && this.value.init();
+    is('function', this.value.init) && this.value.init();
   },
 
   render() {
-    const slots = Vue.useSlots();
+    const { value, ...other } = this.$props;
 
     return (
-      Vue.h(
-        'div',
-        {
-          ref: 'root'
-        },
-        slots.default && slots.default()
-      )
+      <div ref='root' {...other}>
+        {this.$slots.default}
+      </div>
     );
   }
 };

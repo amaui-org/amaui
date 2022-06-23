@@ -419,9 +419,15 @@ group('@amaui/style-react/AmauiThemeProvider', () => {
 
         const values = [...valueBrowsers];
 
-        values.forEach(value => assert(value).eql([
-          ...new Array(2).fill(true),
-          ...new Array(4).fill(false)
+        values.forEach(value => assert(value).any.eql([
+          [
+            ...new Array(2).fill(true),
+            ...new Array(3).fill(false)
+          ],
+          [
+            ...new Array(2).fill(true),
+            ...new Array(4).fill(false)
+          ]
         ]));
       });
 
@@ -658,6 +664,95 @@ group('@amaui/style-react/AmauiThemeProvider', () => {
 
     });
 
+  });
+
+  to('root props', async () => {
+    const valueBrowsers = await evaluate(async (window: any) => {
+      const value = [];
+
+      const { AmauiTheme, useAmauiTheme, AmauiThemeProvider } = window.AmauiStyleReact;
+
+      const A = (props) => {
+        const amauiTheme = useAmauiTheme();
+
+        window.React.useEffect(() => {
+          value.push(amauiTheme);
+        }, []);
+
+        return (
+          eval(window.Babel.transform(`
+            <a>
+                {props.children}
+            </a>
+          `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
+        );
+      };
+
+      const App = () => {
+        const a = new AmauiTheme();
+
+        a.a = 'a';
+
+        const a1 = new AmauiTheme();
+
+        a1.a = 'a1';
+
+        return (
+          eval(window.Babel.transform(`
+            <AmauiThemeProvider value={a} dir='ltr'>
+                <A>
+                  a
+
+                  <AmauiThemeProvider value={a1} dir='rtl'>
+                    <A>
+                      a1
+                    </A>
+                  </AmauiThemeProvider>
+                </A>
+            </AmauiThemeProvider>
+          `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
+        );
+      };
+
+      // Add to DOM
+      window.ReactDOM.render(window.React.createElement(App, null), window.document.getElementById('app'));
+
+      await window.AmauiUtils.wait(140);
+
+      return [
+        value.length === 2,
+        value.every(item => item instanceof AmauiTheme),
+        value[0].a === 'a1',
+        value[0].direction,
+        value[0].options,
+        value[1].a === 'a',
+        value[1].direction,
+        value[1].options,
+      ];
+    });
+
+    const values = [...valueBrowsers];
+
+    values.forEach(value => assert(value).eql([
+      ...new Array(3).fill(true),
+      'rtl',
+      {
+        'rule': {
+          'sort': true,
+          'prefix': false,
+          'rtl': true
+        }
+      },
+      true,
+      'ltr',
+      {
+        'rule': {
+          'sort': true,
+          'prefix': false,
+          'rtl': false
+        }
+      }
+    ]));
   });
 
   group('ssr', () => {

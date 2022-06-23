@@ -245,6 +245,95 @@ group('@amaui/style-react/AmauiStyleProvider', () => {
 
   });
 
+  to('root props', async () => {
+    const valueBrowsers = await evaluate(async (window: any) => {
+      const value = [];
+
+      const { AmauiStyle, useAmauiStyle, AmauiStyleProvider } = window.AmauiStyleReact;
+
+      const A = (props) => {
+        const amauiStyle = useAmauiStyle();
+
+        window.React.useEffect(() => {
+          value.push(amauiStyle);
+        }, []);
+
+        return (
+          eval(window.Babel.transform(`
+            <a>
+                {props.children}
+            </a>
+          `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
+        );
+      };
+
+      const App = () => {
+        const a = new AmauiStyle();
+
+        a.a = 'a';
+
+        const a1 = new AmauiStyle();
+
+        a1.a = 'a1';
+
+        return (
+          eval(window.Babel.transform(`
+            <AmauiStyleProvider value={a} dir='ltr'>
+                <A>
+                  a
+
+                  <AmauiStyleProvider value={a1} dir='rtl'>
+                    <A>
+                      a1
+                    </A>
+                  </AmauiStyleProvider>
+                </A>
+            </AmauiStyleProvider>
+          `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
+        );
+      };
+
+      // Add to DOM
+      window.ReactDOM.render(window.React.createElement(App, null), window.document.getElementById('app'));
+
+      await window.AmauiUtils.wait(140);
+
+      return [
+        value.length === 2,
+        value.every(item => item instanceof AmauiStyle),
+        value[0].a === 'a1',
+        value[0].direction,
+        value[0].options,
+        value[1].a === 'a',
+        value[1].direction,
+        value[1].options,
+      ];
+    });
+
+    const values = [...valueBrowsers];
+
+    values.forEach(value => assert(value).eql([
+      ...new Array(3).fill(true),
+      'rtl',
+      {
+        'rule': {
+          'sort': true,
+          'prefix': false,
+          'rtl': true
+        }
+      },
+      true,
+      'ltr',
+      {
+        'rule': {
+          'sort': true,
+          'prefix': false,
+          'rtl': false
+        }
+      }
+    ]));
+  });
+
   group('ssr', () => {
 
     to('renderToString', async () => {

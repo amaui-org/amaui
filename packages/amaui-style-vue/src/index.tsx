@@ -18,7 +18,7 @@ export const valueObject = AllAmauiStyle.valueObject;
 
 // Export all other
 
-export { default as AmauiStyleProvider } from './AmauiStyleProvider';
+export { default as AmauiStyleProvider } from './AmauiStyleProvider/AmauiStyleProvider';
 
 // export { default as AmauiThemeProvider } from './AmauiThemeProvider';
 

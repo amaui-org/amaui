@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { hash, is } from '@amaui/utils';
+import { is } from '@amaui/utils';
 import { AmauiStyle, makeClassName, unit, rtl, sort, valueObject } from '@amaui/style';
 
 import AmauiStyleContext from './AmauiStyleContext';

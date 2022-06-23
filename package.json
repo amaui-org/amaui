@@ -30,7 +30,7 @@
     "@types/react": "^18.0.13",
     "@types/react-dom": "^18.0.5",
     "@types/vue": "^2.0.0",
-    "@vue/babel-preset-jsx": "^1.2.4",
+    "@vue/babel-plugin-jsx": "^1.1.1",
     "cors": "^2.8.5",
     "cross-env": "^7.0.3",
     "dotenv": "^10.0.0",
