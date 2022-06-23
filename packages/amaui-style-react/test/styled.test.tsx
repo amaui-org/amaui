@@ -203,7 +203,7 @@ group('@amaui/style-react/styled', () => {
         }));
 
         const Ad = props => {
-          const [theme] = useAmauiTheme();
+          const amauiTheme = useAmauiTheme();
 
           window.React.useEffect(() => {
             setTimeout(() => {
@@ -211,7 +211,7 @@ group('@amaui/style-react/styled', () => {
             });
 
             setTimeout(() => {
-              theme.update({
+              amauiTheme.update({
                 palette: {
                   light: false
                 }

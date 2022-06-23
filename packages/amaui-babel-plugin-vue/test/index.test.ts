@@ -13,7 +13,7 @@ group('@amaui/babel-plugin-vue', () => {
 
   to('babel-plugin-vue', () => {
     const value = `
-import Vue from 'vue';
+import * as Vue from 'vue';
 import { style, useTheme } from '@amaui/style-react';
 
 export default {

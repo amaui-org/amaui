@@ -201,7 +201,7 @@ group('@amaui/style-react/pure', () => {
         const A = props => {
           usePure(props);
 
-          const [theme] = useAmauiTheme();
+          const amauiTheme = useAmauiTheme();
 
           window.React.useEffect(() => {
             setTimeout(() => {
@@ -209,7 +209,7 @@ group('@amaui/style-react/pure', () => {
             });
 
             setTimeout(() => {
-              theme.update({
+              amauiTheme.update({
                 palette: {
                   light: false
                 }

@@ -171,7 +171,7 @@ group('@amaui/style-react/inline', () => {
             backgroundColor: 'orange'
           }));
 
-          const [theme, setTheme] = useAmauiTheme();
+          const amauiTheme = useAmauiTheme();
 
           window.React.useEffect(() => {
             setTimeout(() => {
@@ -179,7 +179,7 @@ group('@amaui/style-react/inline', () => {
             });
 
             setTimeout(() => {
-              setTheme({
+              amauiTheme.updateWithRerender({
                 palette: {
                   light: false
                 }

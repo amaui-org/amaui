@@ -231,7 +231,7 @@ group('@amaui/style-react/withStyle', () => {
         const A1 = (props) => {
           const styles = props.styles;
 
-          const [theme, setTheme] = useAmauiTheme();
+          const amauiTheme = useAmauiTheme();
 
           window.React.useEffect(() => {
             setTimeout(() => {
@@ -239,7 +239,7 @@ group('@amaui/style-react/withStyle', () => {
             });
 
             setTimeout(() => {
-              setTheme({
+              amauiTheme.updateWithRerender({
                 palette: {
                   light: false
                 }

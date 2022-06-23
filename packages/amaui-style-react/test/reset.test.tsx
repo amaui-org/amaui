@@ -618,13 +618,13 @@ group('@amaui/style-react/reset', () => {
         const A = props => {
           useReset();
 
-          const [theme] = useAmauiTheme();
+          const amauiTheme = useAmauiTheme();
 
           window.React.useEffect(() => {
             setTimeout(() => {
               window.value.push(window.document.styleSheets.length, Array.from(window.document.styleSheets).map((sheet: any) => Array.from(sheet.cssRules).map((rule: any) => rule.cssText)), window.document.getElementById('app').innerHTML);
 
-              theme.update({
+              amauiTheme.update({
                 palette: {
                   light: false
                 }
@@ -1787,8 +1787,6 @@ template {
 code span {
   white-space: pre-wrap;
 }
-
-
 
 .a-0 {
   width: 100px;

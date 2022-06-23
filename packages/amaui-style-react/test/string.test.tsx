@@ -61,11 +61,9 @@ group('@amaui/style-react/string', () => {
         [
           ".a-0 { color: yellow; }"
         ],
-        [
-          ".a-1 { color: yellow; }"
-        ]
+        []
       ],
-      "<div><a class=\"a-0\">a</a><a class=\"a-1\">a1</a></div>"
+      "<div><a class=\"a-0\">a</a><a class=\"a-0\">a1</a></div>"
     ]));
   });
 
@@ -120,11 +118,9 @@ group('@amaui/style-react/string', () => {
         [
           ".a-0 { color: yellow; }"
         ],
-        [
-          ".a-1 { color: yellow; }"
-        ]
+        []
       ],
-      "<div><a class=\"a-0\">a</a><a class=\"a-1\">a1</a></div>"
+      "<div><a class=\"a-0\">a</a><a class=\"a-0\">a1</a></div>"
     ]));
   });
 
@@ -181,11 +177,9 @@ group('@amaui/style-react/string', () => {
           [
             ".a-0 { color: yellow; }"
           ],
-          [
-            ".a-1 { color: yellow; }"
-          ]
+          []
         ],
-        "<div><a class=\"a-0\">a</a><a class=\"a-1\">a1</a></div>"
+        "<div><a class=\"a-0\">a</a><a class=\"a-0\">a1</a></div>"
       ]));
     });
 
@@ -196,10 +190,10 @@ group('@amaui/style-react/string', () => {
         const { string, useAmauiTheme, AmauiThemeProvider } = window.AmauiStyleReact;
 
         const A = (props) => {
-          const [theme, setTheme] = useAmauiTheme();
+          const amauiTheme = useAmauiTheme();
 
           const classNameProp = string`
-            color: ${theme.palette.text.default.primary}
+            color: ${amauiTheme.palette.text.default.primary}
           `;
 
           window.React.useEffect(() => {
@@ -208,7 +202,7 @@ group('@amaui/style-react/string', () => {
             });
 
             setTimeout(() => {
-              setTheme({
+              amauiTheme.updateWithRerender({
                 palette: {
                   light: false
                 }
@@ -255,31 +249,25 @@ group('@amaui/style-react/string', () => {
           [
             ".a-0 { color: rgba(0, 0, 0, 0.87); }"
           ],
-          [
-            ".a-1 { color: rgba(0, 0, 0, 0.87); }"
-          ]
+          []
         ],
-        "<div data-amaui-theme=\"true\"><a class=\"a-0\">a</a><a class=\"a-1\">a</a></div>",
+        "<div data-amaui-theme=\"true\"><a class=\"a-0\">a</a><a class=\"a-0\">a</a></div>",
         2,
         [
           [
             ".a-0 { color: rgba(0, 0, 0, 0.87); }"
           ],
-          [
-            ".a-1 { color: rgba(0, 0, 0, 0.87); }"
-          ]
+          []
         ],
-        "<div data-amaui-theme=\"true\"><a class=\"a-0\">a</a><a class=\"a-1\">a</a></div>",
+        "<div data-amaui-theme=\"true\"><a class=\"a-0\">a</a><a class=\"a-0\">a</a></div>",
         2,
         [
           [
             ".a-0 { color: rgba(255, 255, 255, 0.87); }"
           ],
-          [
-            ".a-1 { color: rgba(255, 255, 255, 0.87); }"
-          ]
+          []
         ],
-        "<div data-amaui-theme=\"true\"><a class=\"a-0\">a</a><a class=\"a-1\">a</a></div>"
+        "<div data-amaui-theme=\"true\"><a class=\"a-0\">a</a><a class=\"a-0\">a</a></div>"
       ]));
     });
 
@@ -429,11 +417,9 @@ group('@amaui/style-react/string', () => {
           [
             ".a-0 { color: yellow; }"
           ],
-          [
-            ".a-1 { color: yellow; }"
-          ]
+          []
         ],
-        "<div><a class=\"a-0\">a</a><a class=\"a-1\">a</a></div>",
+        "<div><a class=\"a-0\">a</a><a class=\"a-0\">a</a></div>",
         0,
         [],
         "<div></div>"

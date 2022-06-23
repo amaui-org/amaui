@@ -20,6 +20,10 @@ function makeAmauiStyle(element?: Element) {
   return amauiStyle;
 }
 
+export interface IAmauiStyleProvider extends AmauiStyle {
+  updateWithRerender?: (value: any) => AmauiStyle;
+}
+
 export default function AmauiStyleProvider(props) {
   const { children, value: value_, ...other } = props;
 
@@ -30,7 +34,6 @@ export default function AmauiStyleProvider(props) {
 
     return value_ as AmauiStyle;
   });
-  const setId = React.useState(undefined)[1];
 
   React.useEffect(() => {
     if (ref.current) {
@@ -39,26 +42,33 @@ export default function AmauiStyleProvider(props) {
       // Init
       value.init();
 
-      setId(hash(value));
+      const valueNew = new AmauiStyle();
+
+      is('object', value) && Object.keys(value).forEach(prop => valueNew[prop] = value[prop]);
+
+      setValue(valueNew);
     }
   }, []);
 
-  const update = (updateValue: any, override = false) => {
+  const update = (updateValue: any) => {
     if (updateValue !== undefined) {
-      const valueNew = override ? updateValue : value;
+      const valueNew = new AmauiStyle();
 
-      if (!override) is('object', updateValue) && Object.keys(updateValue).forEach(prop => value[prop] = updateValue[prop]);
+      is('object', value) && Object.keys(value).forEach(prop => valueNew[prop] = value[prop]);
+
+      is('object', updateValue) && Object.keys(updateValue).forEach(prop => valueNew[prop] = updateValue[prop]);
 
       setValue(valueNew);
-
-      setId(hash(valueNew));
 
       return valueNew;
     }
   };
 
+  // Update method
+  value.updateWithRerender = update;
+
   return (
-    <AmauiStyleContext.Provider value={[value, update]}>
+    <AmauiStyleContext.Provider value={value}>
       <div ref={ref} {...other}>
         {children}
       </div>

@@ -16,8 +16,8 @@ export default function className(value_: string | TValue, props: any = {}, clas
     styles: () => { },
   } as IResponse);
 
-  const [amauiStyle] = useAmauiStyle();
-  const [amauiTheme] = useAmauiTheme();
+  const amauiStyle = useAmauiStyle();
+  const amauiTheme = useAmauiTheme();
 
   let value: any = value_;
 

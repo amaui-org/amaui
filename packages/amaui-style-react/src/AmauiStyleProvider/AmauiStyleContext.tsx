@@ -1,5 +1,7 @@
 import React from 'react';
 
-const AmauiStyleContext: any = React.createContext([]);
+import { AmauiStyle } from '@amaui/style';
+
+const AmauiStyleContext: any = React.createContext(new AmauiStyle());
 
 export default AmauiStyleContext;

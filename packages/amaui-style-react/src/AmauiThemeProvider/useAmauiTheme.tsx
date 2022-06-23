@@ -1,10 +1,9 @@
 import React from 'react';
 
-import { AmauiTheme } from '@amaui/style';
-
+import { IAmauiThemeProvider } from './AmauiThemeProvider';
 import AmauiThemeContext from './AmauiThemeContext';
 
-export default function useAmauiTheme(): [AmauiTheme?, ((amauiTheme: AmauiTheme, override: boolean) => AmauiTheme)?] {
+export default function useAmauiTheme(): IAmauiThemeProvider {
   const value = React.useContext(AmauiThemeContext) as any;
 
   return value;

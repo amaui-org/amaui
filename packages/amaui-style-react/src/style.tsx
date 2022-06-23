@@ -9,17 +9,13 @@ import { useAmauiStyle, useAmauiTheme } from './';
 
 export default function style(value: TValue, options_: IOptions = {}) {
   let response: IMethodResponse;
+  let values_: IResponse;
 
   function useStyle(props?: any) {
-    const [values, setValues] = React.useState({
-      classes: {},
-      classNames: {},
-      keyframes: {},
-      styles: () => { },
-    } as IResponse);
+    const [values, setValues] = React.useState(undefined);
 
-    const [amauiStyle] = useAmauiStyle();
-    const [amauiTheme] = useAmauiTheme();
+    const amauiStyle = useAmauiStyle();
+    const amauiTheme = useAmauiTheme();
 
     // Init only once
     // it has to be in body of method
@@ -40,7 +36,9 @@ export default function style(value: TValue, options_: IOptions = {}) {
       if (response === undefined) response = amauiStyleMethod(value, merge(options, options_, { copy: true }));
 
       // Update values for ssr as a priorty
-      setValues(names(response.amaui_style_sheet_manager.names));
+      values_ = names(response.amaui_style_sheet_manager.names)
+
+      setValues(values_);
     }
 
     // Add
@@ -73,10 +71,10 @@ export default function style(value: TValue, options_: IOptions = {}) {
 
     // Update props
     React.useEffect(() => {
-      if (response !== undefined && values.ids) response.props = { ids: values.ids.dynamic, props };
+      if (response !== undefined && values?.ids) response.props = { ids: values.ids.dynamic, props };
     }, [hash(props)]);
 
-    return values;
+    return values || values_;
   }
 
   return useStyle;

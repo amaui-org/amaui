@@ -14,8 +14,8 @@ export default function string(value_: TemplateStringsArray, ...args: any[]): st
     styles: () => { },
   } as IResponse);
 
-  const [amauiStyle] = useAmauiStyle();
-  const [amauiTheme] = useAmauiTheme();
+  const amauiStyle = useAmauiStyle();
+  const amauiTheme = useAmauiTheme();
 
   const method = () => value_.reduce((result, item, index) => result += `${item}${args[index] || ''}`, '');
 
@@ -66,7 +66,7 @@ export default function string(value_: TemplateStringsArray, ...args: any[]): st
 
   // Update
   // if values update based on
-  // ui props or useTheme update
+  // ui props or useAmauiTheme update
   React.useEffect(() => {
     if (response?.update !== undefined) response.update(value);
   }, [value.a]);

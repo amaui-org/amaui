@@ -18,8 +18,8 @@ export default function pure(value: TValue, options_: IOptions = {}) {
       styles: () => { },
     } as IResponse);
 
-    const [amauiStyle] = useAmauiStyle();
-    const [amauiTheme] = useAmauiTheme();
+    const amauiStyle = useAmauiStyle();
+    const amauiTheme = useAmauiTheme();
 
     // Init only once
     // it has to be in body of method
