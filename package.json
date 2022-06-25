@@ -12,7 +12,7 @@
   },
   "devDependencies": {
     "@amaui/models": "^1.0.111",
-    "@amaui/test": "^1.0.1141",
+    "@amaui/test": "^1.0.1147",
     "@amaui/utils": "^1.0.11114",
     "@babel/cli": "^7.16.0",
     "@babel/core": "^7.16.0",

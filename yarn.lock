@@ -127,10 +127,10 @@
     "@amaui/utils" "^1.0.11114"
     "@babel/runtime" "^7.18.3"
 
-"@amaui/test@^1.0.1141":
-  version "1.0.1141"
-  resolved "https://registry.yarnpkg.com/@amaui/test/-/test-1.0.1141.tgz#1df8f0694df7aafebdaeb76e75199d83415593a1"
-  integrity sha512-j4GmLJtYlhIMlXYNdr4o/qQweFGyoIiwLuZTwpxVqHWtVYkFG6CzYNsjBdXtsLxNIveRGkOJG13Hd2wLUfAQcg==
+"@amaui/test@^1.0.1147":
+  version "1.0.1147"
+  resolved "https://registry.yarnpkg.com/@amaui/test/-/test-1.0.1147.tgz#aa08ba106fbce036037fc41ecc25d788faed6929"
+  integrity sha512-zlW0P7bJqbp9nirPJD5XXl58lgBcqjzPW9a2f3OOKvv281sjL7gqY4LumrptF3v+SflCuqBf+BFPSQ0WBnaPPQ==
   dependencies:
     "@amaui/date" "^1.0.1111"
     "@amaui/diff" "^1.0.1111"
