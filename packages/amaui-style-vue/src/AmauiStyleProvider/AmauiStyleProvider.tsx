@@ -42,7 +42,7 @@ export default {
 
     return (
       <div ref='root' {...other}>
-        {this.$slots.default}
+        {this.$slots.default && this.$slots.default()}
       </div>
     );
   }

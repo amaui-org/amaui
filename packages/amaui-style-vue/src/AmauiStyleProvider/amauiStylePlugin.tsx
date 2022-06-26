@@ -17,7 +17,7 @@ interface IOptions {
 
 export default {
 
-  install(app: Vue.App, options: IOptions) {
+  install(app: Vue.App, options: IOptions = {}) {
     const { value: value_ } = options;
 
     const value = Vue.ref<AmauiStyle>(value_ === undefined || !(value_ instanceof AmauiStyle) ? makeAmauiStyle() : value_);

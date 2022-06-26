@@ -1,7 +1,9 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "declaration": true
+    "declaration": true,
+    "jsx": "react",
+    "jsxFactory": "Vue.h"
   },
   "include": [
     "src/**/*.vue",

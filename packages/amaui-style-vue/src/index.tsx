@@ -1,26 +1,11 @@
-import * as AllAmauiStyle from '@amaui/style';
-
-// Export amauiStyle methods as lvl 1 variables
-export const AmauiStyle = AllAmauiStyle.AmauiStyle;
-export const AmauiTheme = AllAmauiStyle.AmauiTheme;
+export { AmauiStyle, AmauiTheme, colors, classNames, makeClassName, prefix, rtl, sort, unit, valueObject } from '@amaui/style';
 
 export * from '@amaui/style/utils';
 
-export const colors = AllAmauiStyle.colors;
-export const classNames = AllAmauiStyle.classNames;
-
-export const makeClassName = AllAmauiStyle.makeClassName;
-export const prefix = AllAmauiStyle.prefix;
-export const rtl = AllAmauiStyle.rtl;
-export const sort = AllAmauiStyle.sort;
-export const unit = AllAmauiStyle.unit;
-export const valueObject = AllAmauiStyle.valueObject;
-
 // Export all other
+export * from './AmauiStyleProvider';
 
-export { default as AmauiStyleProvider } from './AmauiStyleProvider/AmauiStyleProvider';
-
-// export { default as AmauiThemeProvider } from './AmauiThemeProvider';
+export * from './AmauiThemeProvider';
 
 // export { default as reset } from './reset';
 // // Alias

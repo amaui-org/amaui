@@ -89,39 +89,37 @@ group('@amaui/style-react/AmauiStyleProvider', () => {
     ]));
   });
 
-  group('useAmauiStyle', () => {
+  to('useAmauiStyle', async () => {
+    const valueBrowsers = await evaluate((window: any) => {
+      const value = [];
 
-    to('useAmauiStyle', async () => {
-      const valueBrowsers = await evaluate((window: any) => {
-        const value = [];
+      const { AmauiStyle, useAmauiStyle, AmauiStyleProvider } = window.AmauiStyleReact;
 
-        const { AmauiStyle, useAmauiStyle, AmauiStyleProvider } = window.AmauiStyleReact;
+      const A = (props) => {
+        const amauiStyle = useAmauiStyle();
 
-        const A = (props) => {
-          const amauiStyle = useAmauiStyle();
+        value.push(amauiStyle);
 
-          value.push(amauiStyle);
-
-          return (
-            eval(window.Babel.transform(`
+        return (
+          eval(window.Babel.transform(`
             <a>
                 {props.children}
             </a>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
-          );
-        };
+        );
+      };
 
-        const App = () => {
-          const a = new AmauiStyle();
+      const App = () => {
+        const a = new AmauiStyle();
 
-          a.a = 'a';
+        a.a = 'a';
 
-          const a1 = new AmauiStyle();
+        const a1 = new AmauiStyle();
 
-          a1.a = 'a1';
+        a1.a = 'a1';
 
-          return (
-            eval(window.Babel.transform(`
+        return (
+          eval(window.Babel.transform(`
             <AmauiStyleProvider value={a}>
                 <A>
                   a
@@ -134,72 +132,70 @@ group('@amaui/style-react/AmauiStyleProvider', () => {
                 </A>
             </AmauiStyleProvider>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
-          );
-        };
+        );
+      };
 
-        // Add to DOM
-        window.ReactDOM.render(window.React.createElement(App, null), window.document.getElementById('app'));
+      // Add to DOM
+      window.ReactDOM.render(window.React.createElement(App, null), window.document.getElementById('app'));
 
-        return [
-          value.length === 2,
-          value.every(item => item instanceof AmauiStyle),
-          value[0].a === 'a',
-          value[1].a === 'a1'
-        ];
-      });
-
-      const values = [...valueBrowsers];
-
-      values.forEach(value => assert(value).eql([
-        ...new Array(4).fill(true)
-      ]));
+      return [
+        value.length === 2,
+        value.every(item => item instanceof AmauiStyle),
+        value[0].a === 'a',
+        value[1].a === 'a1'
+      ];
     });
 
-    group('update', () => {
+    const values = [...valueBrowsers];
 
-      to('update', async () => {
-        const valueBrowsers = await evaluate(async (window: any) => {
-          const value = [];
+    values.forEach(value => assert(value).eql([
+      ...new Array(4).fill(true)
+    ]));
+  });
 
-          const { AmauiStyle, useAmauiStyle, AmauiStyleProvider } = window.AmauiStyleReact;
+  to('update', async () => {
+    const valueBrowsers = await evaluate(async (window: any) => {
+      const value = [];
 
-          const A = (props) => {
-            const amauiStyle = useAmauiStyle();
+      const { AmauiStyle, useAmauiStyle, AmauiStyleProvider } = window.AmauiStyleReact;
 
-            window.React.useEffect(() => {
-              value.push(amauiStyle.a);
+      const A = (props) => {
+        const amauiStyle = useAmauiStyle();
 
-              setTimeout(() => {
-                amauiStyle.updateWithRerender({
-                  a: 14
-                });
-              });
-            }, []);
+        window.React.useEffect(() => {
+          value.push(amauiStyle.a);
 
-            window.React.useEffect(() => {
-              if (amauiStyle?.a === 14) value.push(amauiStyle.a);
+          setTimeout(() => {
+            amauiStyle.updateWithRerender({
+              a: 14
             });
+          });
+        }, []);
 
-            return (
-              eval(window.Babel.transform(`
+        window.React.useEffect(() => {
+          if (amauiStyle?.a === 14) value.push(amauiStyle.a);
+        });
+
+        return (
+          eval(window.Babel.transform(`
                 <div>
                   {props.children}
                 </div>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
-            );
-          };
+        );
+      };
 
-          const App = () => {
-            const a = new AmauiStyle();
+      const App = () => {
+        const a = new AmauiStyle();
 
-            a.a = 'a';
+        a.a = 'a';
 
-            const a1 = new AmauiStyle();
+        const a1 = new AmauiStyle();
 
-            a1.a = 'a1';
+        a1.a = 'a1';
 
-            return (
-              eval(window.Babel.transform(`
+        return (
+          eval(window.Babel.transform(`
               <AmauiStyleProvider value={a}>
                   <A>
                     a
@@ -214,35 +210,31 @@ group('@amaui/style-react/AmauiStyleProvider', () => {
                   </A>
               </AmauiStyleProvider>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
-            );
-          };
+        );
+      };
 
-          // Add to DOM
-          window.ReactDOM.render(window.React.createElement(App, null), window.document.getElementById('app'));
+      // Add to DOM
+      window.ReactDOM.render(window.React.createElement(App, null), window.document.getElementById('app'));
 
-          await window.AmauiUtils.wait(140);
+      await window.AmauiUtils.wait(140);
 
-          return value;
-        });
-
-        const values = [...valueBrowsers];
-
-        values.forEach(value => assert(value).any.eql([
-          [
-            'a1',
-            'a',
-            ...new Array(2).fill(14)
-          ],
-          [
-            'a1',
-            'a',
-            ...new Array(3).fill(14)
-          ]
-        ]));
-      });
-
+      return value;
     });
 
+    const values = [...valueBrowsers];
+
+    values.forEach(value => assert(value).any.eql([
+      [
+        'a1',
+        'a',
+        ...new Array(2).fill(14)
+      ],
+      [
+        'a1',
+        'a',
+        ...new Array(3).fill(14)
+      ]
+    ]));
   });
 
   to('root props', async () => {
@@ -316,20 +308,22 @@ group('@amaui/style-react/AmauiStyleProvider', () => {
       ...new Array(3).fill(true),
       'rtl',
       {
-        'rule': {
-          'sort': true,
-          'prefix': false,
-          'rtl': true
-        }
+        rule: {
+          sort: true,
+          prefix: false,
+          rtl: true
+        },
+        optimize: true
       },
       true,
       'ltr',
       {
-        'rule': {
-          'sort': true,
-          'prefix': false,
-          'rtl': false
-        }
+        rule: {
+          sort: true,
+          prefix: false,
+          rtl: false
+        },
+        optimize: true
       }
     ]));
   });

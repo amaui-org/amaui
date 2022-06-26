@@ -5,24 +5,24 @@ import { AmauiTheme } from '@amaui/style';
 
 export default {
   props: {
-    value: AmauiTheme,
+    value: [Object, AmauiTheme],
   },
 
   setup(props: any) {
-    const { value: valueLocal = {} } = props;
+    const { value: valueLocal } = Vue.toRefs(props);
 
-    const valueParent = Vue.inject<AmauiTheme>('amauiTheme').value || {};
+    const valueParent = Vue.inject<AmauiTheme>('amauiTheme');
 
-    const value = Vue.ref(new AmauiTheme(merge({ ...copy(valueLocal) }, { ...valueParent }, { copy: true })));
+    const value = Vue.ref(new AmauiTheme(merge({ ...copy(valueLocal.value) }, { ...(valueParent?.value || {}) }, { copy: true })));
 
     // Value local
-    Vue.watch(valueLocal, valueNew => {
-      value.value.update(merge({ ...copy(valueNew) }, { ...valueParent }, { copy: true }));
+    Vue.watch(valueLocal.value, valueNew => {
+      value.value.update(merge({ ...copy(valueNew) }, { ...(valueParent?.value || {}) }, { copy: true }));
     });
 
     // Value parent
-    Vue.watch(valueParent, valueNew => {
-      value.value.update(merge({ ...copy(valueLocal) }, { ...valueNew }, { copy: true }));
+    if (valueParent) Vue.watch(valueParent.value, valueNew => {
+      value.value.update(merge({ ...copy(valueLocal.value) }, { ...valueNew }, { copy: true }));
     });
 
     Vue.provide('amauiTheme', value);
@@ -33,16 +33,18 @@ export default {
   },
 
   mounted() {
-    if (this.value.hasOwnProperty('element')) this.value.element = this.$refs.root;
+    this.value.element = this.$refs.root;
 
     // Init
     this.value.init && this.value.init();
   },
 
   render() {
+    const { value, ...other } = this.$props;
+
     return (
-      <div ref='root'>
-        {this.$slots.default}
+      <div ref='root' {...other}>
+        {this.$slots.default && this.$slots.default()}
       </div>
     );
   }

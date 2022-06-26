@@ -431,7 +431,7 @@ group('@amaui/style-react/AmauiThemeProvider', () => {
         ]));
       });
 
-      to('valueLocal', async () => {
+      to('value local', async () => {
         const valueBrowsers = await evaluate(async (window: any) => {
           const value = [];
 
@@ -458,9 +458,9 @@ group('@amaui/style-react/AmauiThemeProvider', () => {
 
             return (
               eval(window.Babel.transform(`
-              <div>
-                {props.children}
-              </div>
+                <a>
+                  {props.children}
+                </a>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
             );
           };
@@ -544,7 +544,7 @@ group('@amaui/style-react/AmauiThemeProvider', () => {
         ]));
       });
 
-      to('valueParent', async () => {
+      to('value parent', async () => {
         const valueBrowsers = await evaluate(async (window: any) => {
           const value = [];
 
