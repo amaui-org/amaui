@@ -44,7 +44,8 @@ export default function AmauiStyleProvider(props) {
 
       const valueNew = new AmauiStyle();
 
-      is('object', value) && Object.keys(value).forEach(prop => valueNew[prop] = value[prop]);
+      // Copy over from value
+      Object.keys(value).forEach(prop => valueNew[prop] = value[prop]);
 
       setValue(valueNew);
     }
@@ -54,7 +55,7 @@ export default function AmauiStyleProvider(props) {
     if (updateValue !== undefined) {
       const valueNew = new AmauiStyle();
 
-      is('object', value) && Object.keys(value).forEach(prop => valueNew[prop] = value[prop]);
+      Object.keys(value).forEach(prop => valueNew[prop] = value[prop]);
 
       is('object', updateValue) && Object.keys(updateValue).forEach(prop => valueNew[prop] = updateValue[prop]);
 
