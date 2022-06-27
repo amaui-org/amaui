@@ -1,22 +1,36 @@
-// import * as Vue from 'vue';
+import * as Vue from 'vue';
 
-// import { TValue } from '@amaui/style';
-// import { IOptions } from '@amaui/style/style';
+import { TValue } from '@amaui/style';
+import { IOptions } from '@amaui/style/style';
 
-// import { style } from '.';
+import { style } from '.';
 
-// const withStyle = (Element: Vue.VueElement) => (value: TValue, options: IOptions = {}) => {
-//   // Use styles
-//   const useStyle = style(value, options);
+const withStyle = (Element: any) => (value: TValue, options: IOptions = {}) => {
+  // Use styles
+  const useStyle = style(value, options);
 
-//   return {
-//     extends: Element,
-//     created() {
-//       const values = useStyle(this.$props);
+  // Element
+  const element = Vue.defineComponent({
 
-//       this.style = values;
-//     },
-//   };
-// };
+    setup(props: any, { slots, attrs }) {
+      const attrs_ = Vue.ref(attrs);
 
-// export default withStyle;
+      const styles = useStyle(attrs_);
+
+      return () => (
+        <Element
+          styles={styles}
+
+          {...attrs}
+        >
+          {slots.default && slots.default()}
+        </Element>
+      );
+    }
+
+  });
+
+  return element;
+};
+
+export default withStyle;

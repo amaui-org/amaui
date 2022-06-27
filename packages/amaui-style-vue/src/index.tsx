@@ -32,9 +32,9 @@ export { default as s } from './style';
 // export { default as c } from './className';
 // export { default as cs } from './className';
 
-// export { default as withStyle } from './withStyle';
-// // Alias
-// export { default as w } from './withStyle';
+export { default as withStyle } from './withStyle';
+// Alias
+export { default as w } from './withStyle';
 
 export { default as styled } from './styled';
 // Alias

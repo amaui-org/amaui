@@ -90,9 +90,9 @@ group('@amaui/style-vue/styled', () => {
 
   to('sy', async () => {
     const valueBrowsers = await evaluate(async (window: any) => {
-      const { styled, AmauiStyle, amauiStylePlugin, amauiThemePlugin } = window.AmauiStyleVue;
+      const { sy, AmauiStyle, amauiStylePlugin, amauiThemePlugin } = window.AmauiStyleVue;
 
-      const A = styled('a')(theme => ({
+      const A = sy('a')(theme => ({
         a: {
           width: '100px',
         },
