@@ -9,7 +9,7 @@ import { useAmauiStyle, useAmauiTheme } from './';
 
 export default function style(value: TValue, options_: IOptions = {}) {
   let response: IMethodResponse;
-  let values_: IResponse;
+  let values_: IResponse = {};
 
   function useStyle(props?: any) {
     const [values, setValues] = React.useState(values_);

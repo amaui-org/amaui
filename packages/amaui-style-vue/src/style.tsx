@@ -9,11 +9,13 @@ export default function style(value: TValue, options_: IOptions = {}) {
   let response: IMethodResponse;
   let values_: IResponse;
 
-  function useStyle(props?: Vue.Ref<any>) {
+  function useStyle(props_?: Vue.Ref<any>) {
     const styles = Vue.ref<IResponse>(values_);
 
     const amauiStyle = Vue.inject<AmauiStyle>('amauiStyle')?.value;
     const amauiTheme = Vue.inject<AmauiTheme>('amauiTheme')?.value;
+
+    const props = Vue.ref(props_);
 
     // Init only once
     // it has to be in body of method

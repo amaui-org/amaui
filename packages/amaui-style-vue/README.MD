@@ -19,7 +19,7 @@
 <h3 align='center'>
   <sub>MIT license&nbsp;&nbsp;&nbsp;&nbsp;</sub>
   <sub>Production ready&nbsp;&nbsp;&nbsp;&nbsp;</sub>
-  <sub>UMD (all methods + @amaui/style) 32.1kb gzipped&nbsp;&nbsp;&nbsp;&nbsp;</sub>
+  <sub>UMD (all methods + @amaui/style) 30kb gzipped&nbsp;&nbsp;&nbsp;&nbsp;</sub>
   <sub>100% test cov&nbsp;&nbsp;&nbsp;&nbsp;</sub>
   <sub>Browser and Nodejs</sub>
 </h3>

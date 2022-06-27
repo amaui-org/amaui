@@ -1,16 +1,16 @@
-// import { style } from '.';
+import { style } from '.';
 
-// export default function string(values: Array<string>, ...args: any[]) {
-//   const method = () => values.reduce((result, item, index) => result += `${item}${args[index] || ''}`, '');
+export default function string(values: TemplateStringsArray, ...args: any[]) {
+  const method = () => values.reduce((result, item, index) => result += `${item}${args[index] || ''}`, '');
 
-//   const value = {
-//     a: method(),
-//   };
+  const value = {
+    a: method(),
+  };
 
-//   // Use styles
-//   const useStyle = style(value);
+  // Use styles
+  const useStyle = style(value);
 
-//   const styles = useStyle();
+  const styles = useStyle();
 
-//   return styles.class;
-// }
+  return styles.value.class;
+}

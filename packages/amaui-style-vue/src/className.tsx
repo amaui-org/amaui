@@ -1,19 +1,25 @@
-// import { classNames, TValue } from '@amaui/style';
-// import { IOptions } from '@amaui/style/style';
-// import { is } from '@amaui/utils';
+import * as Vue from 'vue';
 
-// import { style } from '.';
+import { classNames, TValue } from '@amaui/style';
+import { IOptions } from '@amaui/style/style';
+import { is } from '@amaui/utils';
 
-// // May be TValue or a string  as a string value literal
-// export default function className(value_: string | TValue, className_: string = '', props: any = {}, options_: IOptions = {}) {
-//   let value = value_;
+import { style } from '.';
 
-//   if (is('string', value_)) value = { a: value_ };
+// May be TValue or a string  as a string value literal
+export default function className(value_: string | TValue, props_: any = {}, className_: string = '', options: IOptions = {}) {
+  let value = value_;
 
-//   // Use styles
-//   const useStyle = style(value as TValue, options_);
+  if (is('string', value_)) value = { a: value_ };
 
-//   const styles = useStyle(props);
+  const props = Vue.ref(props_);
 
-//   return classNames([className_, styles.class]);
-// }
+  // Use styles
+  const useStyle = style(value as TValue, options);
+
+  const styles = useStyle(props);
+
+  const classProp = Vue.computed(() => classNames([className_, styles.value.class]))
+
+  return classProp;
+}

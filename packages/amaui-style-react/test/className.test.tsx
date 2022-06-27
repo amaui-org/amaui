@@ -348,7 +348,7 @@ group('@amaui/style-react/className', () => {
         const A = (props) => {
           const classNameProp = className(theme => ({
             a: {
-              color: props => props.a === 1 ? 'yellow' : 'orange',
+              color: props => props.a === 1 ? 'yellow' : 'orange'
             }
           }), props);
 

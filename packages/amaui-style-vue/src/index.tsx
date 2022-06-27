@@ -23,14 +23,14 @@ export { default as s } from './style';
 // // Alias
 // export { default as i } from './inline';
 
-// export { default as string } from './string';
-// // Alias
-// export { default as sr } from './string';
+export { default as string } from './string';
+// Alias
+export { default as sr } from './string';
 
-// export { default as className } from './className';
-// // Alias
-// export { default as c } from './className';
-// export { default as cs } from './className';
+export { default as className } from './className';
+// Alias
+export { default as c } from './className';
+export { default as cs } from './className';
 
 export { default as withStyle } from './withStyle';
 // Alias
