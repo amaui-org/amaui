@@ -1,49 +1,38 @@
-// import { classNames, TValue } from '@amaui/style';
-// import { IOptions } from '@amaui/style/style';
+import * as Vue from 'vue';
 
-// import { style } from '.';
+import { classNames, TValue } from '@amaui/style';
+import { IOptions } from '@amaui/style/style';
 
-// const DefaultElement = {
-//   props: ['element', 'value', 'options', 'class'],
-//   setup(props: any) {
-//     const { element = 'span', value, options: options_, class: classProp } = props;
+import { style } from '.';
 
-//     // Use styles
-//     const useStyle = style(value, options_);
+const styled = (Element: any) => (value: TValue, options: IOptions = {}) => {
+  // Use styles
+  const useStyle = style(value, options);
 
-//     const values = useStyle(props);
+  // Element
+  const element = Vue.defineComponent({
+    props: ['ref', 'class'],
 
-//     return {
-//       element,
-//       className: classNames([classProp, values.class]),
-//     };
-//   },
-//   render() {
-//     return (
-//       <component
-//         is={this.element}
+    setup(props: any, { slots, attrs }) {
+      const attrs_ = Vue.ref(attrs);
 
-//         class={this.className}
-//       >
-//         <slot />
-//       </component>
-//     );
-//   }
-// };
+      const { ref, class: classProp } = props;
 
-// const styled = (element: any) => (value: TValue, options: IOptions = {}) => ({
-//   extends: DefaultElement,
-//   props: {
-//     element: {
-//       default: element,
-//     },
-//     value: {
-//       default: value,
-//     },
-//     options: {
-//       default: options,
-//     }
-//   }
-// });
+      const styles = useStyle(attrs_);
 
-// export default styled;
+      return () => (
+        <Element
+          ref={ref}
+
+          class={classNames([classProp, styles.value.class])}
+        >
+          {slots.default && slots.default()}
+        </Element>
+      );
+    }
+  });
+
+  return element;
+};
+
+export default styled;

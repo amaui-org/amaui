@@ -36,6 +36,6 @@ export { default as s } from './style';
 // // Alias
 // export { default as w } from './withStyle';
 
-// export { default as styled } from './styled';
-// // Alias
-// export { default as sy } from './styled';
+export { default as styled } from './styled';
+// Alias
+export { default as sy } from './styled';
