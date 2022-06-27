@@ -15,9 +15,9 @@ export * from './AmauiThemeProvider';
 // // Alias
 // export { default as p } from './pure';
 
-// export { default as style } from './style';
-// // Alias
-// export { default as s } from './style';
+export { default as style } from './style';
+// Alias
+export { default as s } from './style';
 
 // export { default as inline } from './inline';
 // // Alias

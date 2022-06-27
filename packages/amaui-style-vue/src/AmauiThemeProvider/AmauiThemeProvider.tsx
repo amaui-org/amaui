@@ -16,7 +16,7 @@ export default {
     const value = Vue.ref(new AmauiTheme(merge({ ...copy(valueLocal.value) }, { ...(valueParent?.value || {}) }, { copy: true })));
 
     // Value local
-    Vue.watch(valueLocal.value, valueNew => {
+    if (valueLocal.value) Vue.watch(valueLocal.value, valueNew => {
       value.value.update(merge({ ...copy(valueNew) }, { ...(valueParent?.value || {}) }, { copy: true }));
     });
 

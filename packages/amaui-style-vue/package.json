@@ -44,7 +44,7 @@
   },
   "peerDependencies": {},
   "dependencies": {
-    "@amaui/style": "^1.0.11441",
+    "@amaui/style": "^1.0.11444",
     "@amaui/utils": "^1.0.11114"
   },
   "publishConfig": {
