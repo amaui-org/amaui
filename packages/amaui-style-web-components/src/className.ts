@@ -12,7 +12,7 @@ interface IMethod {
   };
 }
 
-type TResponse = (value_: string | TValue, className_: string, props: any, options_: IOptions) => IMethod
+type TResponse = (value_: string | TValue, className_: string, props: any, options_: IOptions) => IMethod;
 
 export default function (Element: Element, props?: any): TResponse {
 

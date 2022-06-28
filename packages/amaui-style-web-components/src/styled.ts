@@ -39,6 +39,6 @@ const styled = (tag: string) => (value: TValue, options_: IOptions = {}): Custom
       this.useStyle.remove();
     }
   };
-}
+};
 
 export default styled;

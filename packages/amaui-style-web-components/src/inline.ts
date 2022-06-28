@@ -16,7 +16,7 @@ export default function (Element: Element) {
 
     return {
       inline
-    }
+    };
   };
 
   return useInline;

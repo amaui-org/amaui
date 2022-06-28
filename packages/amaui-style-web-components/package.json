@@ -33,7 +33,7 @@
   ],
   "scripts": {
     "prebuild": "rimraf build",
-    "build": "cross-env ENV=react node ../../utils/js/build.js",
+    "build": "cross-env ENV=web-components node ../../utils/js/build.js",
     "release": "yarn test && yarn build && npm publish ./build",
     "lint": "tslint -c ../../tslint.json -p tsconfig.json",
     "type": "tsc --noEmit -p tsconfig.json",
@@ -43,7 +43,7 @@
     "test": "yarn lint && yarn type && yarn build && yarn test:pre && yarn cov && yarn test:post"
   },
   "dependencies": {
-    "@amaui/style": "^1.0.11441",
+    "@amaui/style": "^1.0.11447",
     "@amaui/utils": "^1.0.11114"
   },
   "publishConfig": {

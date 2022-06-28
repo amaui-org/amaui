@@ -8,15 +8,15 @@ interface IMethod {
   };
 }
 
-type TResponse = (values: Array<string>, ...args: any[]) => IMethod
+type TResponse = (values: Array<string>, ...args: any[]) => IMethod;
 
 export default function (Element: Element, props?: any): TResponse {
 
   const method = (values: Array<string>, ...args: any[]) => {
-    const method = () => values.reduce((result, item, index) => result += `${item}${args[index] || ''}`, '');
+    const method_ = () => values.reduce((result, item, index) => result += `${item}${args[index] || ''}`, '');
 
     const value = {
-      a: method(),
+      a: method_(),
     };
 
     const useStyle = style(value);

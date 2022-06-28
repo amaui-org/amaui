@@ -11,6 +11,6 @@ const withStyle = (value: TValue, options_: IOptions = {}) => (Element: any) => 
   Element.prototype.useStyle = useStyle;
 
   return Element;
-}
+};
 
 export default withStyle;
