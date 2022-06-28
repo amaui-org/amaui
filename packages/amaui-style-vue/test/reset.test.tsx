@@ -787,11 +787,11 @@ group('@amaui/style-vue/reset', () => {
               "code span { white-space: pre-wrap; }"
             ]
           ],
-          "<div data-amaui-theme=\"true\"><a>a</a></div>",
+          "<div><a>a</a></div>",
           1,
           [
             [
-              "a { color: rgba(0, 0, 0, 0.87); text-decoration: none; cursor: pointer; background-color: transparent; }",
+              "a { color: rgba(255, 255, 255, 0.87); }",
               "* { outline: none; font-size: 100%; background: transparent; box-sizing: border-box; touch-action: manipulation; }",
               "body { font-family: Roboto, Helvetica, \"Helvetica Neue\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Arial, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", sans-serif; font-weight: normal; font-style: normal; position: relative; overflow-x: hidden; background-color: rgb(255, 255, 255); }",
               "img, embed, object, video { max-width: 100%; height: auto; }",
@@ -882,11 +882,11 @@ group('@amaui/style-vue/reset', () => {
               "code span { white-space: pre-wrap; }"
             ]
           ],
-          "<div data-amaui-theme=\"true\"><a>a</a></div>",
+          "<div><a>a</a></div>",
           1,
           [
             [
-              "a { color: rgba(0, 0, 0, 0.87); text-decoration: none; cursor: pointer; background-color: transparent; }",
+              "a { color: rgba(255, 255, 255, 0.87); }",
               "* { outline: currentcolor none medium; font-size: 100%; background: transparent none repeat scroll 0% 0%; box-sizing: border-box; touch-action: manipulation; }",
               "body { font-family: Roboto, Helvetica, \"Helvetica Neue\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Arial, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", sans-serif; font-weight: normal; font-style: normal; position: relative; overflow-x: hidden; background-color: rgb(255, 255, 255); }",
               "img, embed, object, video { max-width: 100%; height: auto; }",
@@ -977,11 +977,11 @@ group('@amaui/style-vue/reset', () => {
               "code span { white-space: pre-wrap; }"
             ]
           ],
-          "<div data-amaui-theme=\"true\"><a>a</a></div>",
+          "<div><a>a</a></div>",
           1,
           [
             [
-              "a { color: rgba(0, 0, 0, 0.87); text-decoration: none; cursor: pointer; background-color: transparent; }",
+              "a { color: rgba(255, 255, 255, 0.87); }",
               "* { outline: none; font-size: 100%; background-color: transparent; box-sizing: border-box; touch-action: manipulation; }",
               "body { font-family: Roboto, Helvetica, \"Helvetica Neue\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Arial, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", sans-serif; font-weight: normal; font-style: normal; position: relative; overflow-x: hidden; background-color: rgb(255, 255, 255); }",
               "img, embed, object, video { max-width: 100%; height: auto; }",

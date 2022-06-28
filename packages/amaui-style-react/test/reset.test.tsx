@@ -621,9 +621,9 @@ group('@amaui/style-react/reset', () => {
           const amauiTheme = useAmauiTheme();
 
           window.React.useEffect(() => {
-            setTimeout(() => {
-              window.value.push(window.document.styleSheets.length, Array.from(window.document.styleSheets).map((sheet: any) => Array.from(sheet.cssRules).map((rule: any) => rule.cssText)), window.document.getElementById('app').innerHTML);
+            window.value.push(window.document.styleSheets.length, Array.from(window.document.styleSheets).map((sheet: any) => Array.from(sheet.cssRules).map((rule: any) => rule.cssText)), window.document.getElementById('app').innerHTML);
 
+            setTimeout(() => {
               amauiTheme.update({
                 palette: {
                   light: false
@@ -710,7 +710,7 @@ group('@amaui/style-react/reset', () => {
               "code span { white-space: pre-wrap; }"
             ]
           ],
-          "<div data-amaui-theme=\"true\"><a>a</a></div>",
+          "<div><a>a</a></div>",
           1,
           [
             [
@@ -805,7 +805,7 @@ group('@amaui/style-react/reset', () => {
               "code span { white-space: pre-wrap; }"
             ]
           ],
-          "<div data-amaui-theme=\"true\"><a>a</a></div>",
+          "<div><a>a</a></div>",
           1,
           [
             [
@@ -900,7 +900,7 @@ group('@amaui/style-react/reset', () => {
               "code span { white-space: pre-wrap; }"
             ]
           ],
-          "<div data-amaui-theme=\"true\"><a>a</a></div>",
+          "<div><a>a</a></div>",
           1,
           [
             [
