@@ -8,7 +8,7 @@ import { evaluate } from '../../../utils/js/test/utils';
 
 import * as AmauiStyleReact from '../src';
 
-group('@amaui/style-react/style', () => {
+group('use cases', () => {
 
   group('AmauiStyle optimize', () => {
 
@@ -31,9 +31,9 @@ group('@amaui/style-react/style', () => {
 
           return (
             eval(window.Babel.transform(`
-            <a className={styles.class}>
-                {props.children}
-            </a>
+              <a className={styles.class}>
+                  {props.children}
+              </a>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
           );
         };
@@ -53,9 +53,9 @@ group('@amaui/style-react/style', () => {
 
           return (
             eval(window.Babel.transform(`
-            <a className={styles.class}>
-                {props.children}
-            </a>
+              <a className={styles.class}>
+                  {props.children}
+              </a>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
           );
         };
@@ -65,11 +65,11 @@ group('@amaui/style-react/style', () => {
 
           return (
             eval(window.Babel.transform(`
-            <AmauiStyleProvider value={amauiStyle}>
-                <A a={1}>a</A>
+              <AmauiStyleProvider value={amauiStyle}>
+                  <A a={1}>a</A>
 
-                <A1 a={14}>a1</A1>
-            </AmauiStyleProvider>
+                  <A1 a={14}>a1</A1>
+              </AmauiStyleProvider>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
           );
         };

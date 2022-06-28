@@ -694,9 +694,7 @@ group('@amaui/style-vue/className', () => {
           a: Number,
         },
 
-        setup(props_, { slots }) {
-          const props = Vue.ref(props_);
-
+        setup(props, { slots }) {
           const classNameProp = className(theme => ({
             a: {
               color: 'yellow'

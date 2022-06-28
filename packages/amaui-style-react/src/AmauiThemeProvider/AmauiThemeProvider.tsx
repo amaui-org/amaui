@@ -18,6 +18,7 @@ export default function AmauiThemeProvider(props) {
   const valueParent = useAmauiTheme() as any || {};
 
   const [value, setValue] = React.useState<IAmauiThemeProvider>(() => new AmauiTheme(merge({ ...copy(valueLocal) }, { ...valueParent }, { copy: true })));
+  const [init, setInit] = React.useState(false);
 
   React.useEffect(() => {
     if (ref.current) {
@@ -29,10 +30,13 @@ export default function AmauiThemeProvider(props) {
   }, []);
 
   React.useEffect(() => {
-    value.update(merge({ ...copy(valueLocal) }, { ...valueParent }, { copy: true }));
+    if (init) {
+      value.update(merge({ ...copy(valueLocal) }, { ...valueParent }, { copy: true }));
 
-    // Init
-    setValue(new AmauiTheme(value));
+      // Init
+      setValue(new AmauiTheme(value));
+    }
+    else setInit(true);
   }, [hash(valueLocal), hash(valueParent)]);
 
   const update = (updateValue: any) => {

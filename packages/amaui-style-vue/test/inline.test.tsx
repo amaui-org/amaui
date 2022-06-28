@@ -8,21 +8,11 @@ import { evaluate } from '../../../utils/js/test/utils';
 
 import * as AmauiStyleVue from '../src';
 
-group('@amaui/style-vue/style', () => {
+group('@amaui/style-vue/inline', () => {
 
-  to('style', async () => {
+  to('inline', async () => {
     const valueBrowsers = await evaluate(async (window: any) => {
-      const { style, AmauiStyle, amauiStylePlugin, amauiThemePlugin } = window.AmauiStyleVue;
-
-      const useStyle = style(theme => ({
-        a: {
-          width: '100px',
-        },
-
-        a1: {
-          color: props => props.a === 1 ? 'yellow' : 'orange',
-        }
-      }));
+      const { inline, AmauiStyle, amauiStylePlugin, amauiThemePlugin } = window.AmauiStyleVue;
 
       const A = {
         props: {
@@ -30,19 +20,21 @@ group('@amaui/style-vue/style', () => {
         },
 
         setup(props, { slots }) {
-          const styles = useStyle(props);
 
           return () => (
             window.Vue.h(
               'a',
               {
-                class: styles.value.class
+                style: inline(theme => ({
+                  color: 'yellow',
+                  backgroundColor: 'orange'
+                }), props)
               },
               slots.default && slots.default()
             )
           );
         }
-      }
+      };
 
       const App = {
         setup() {
@@ -83,8 +75,6 @@ group('@amaui/style-vue/style', () => {
       await window.AmauiUtils.wait(140);
 
       return [
-        window.document.styleSheets.length,
-        Array.from(window.document.styleSheets).map((sheet: any) => Array.from(sheet.cssRules).map((rule: any) => rule.cssText)),
         window.document.getElementById('app').innerHTML
       ];
     });
@@ -92,35 +82,13 @@ group('@amaui/style-vue/style', () => {
     const values = [...valueBrowsers];
 
     values.forEach(value => assert(value).eql([
-      3,
-      [
-        [
-          ".a-0 { width: 100px; }"
-        ],
-        [
-          ".a1-1 { color: yellow; }"
-        ],
-        [
-          ".a1-2 { color: orange; }"
-        ]
-      ],
-      "<div><a class=\"a-0 a1-1\">a</a><a class=\"a-0 a1-2\">a1</a></div>"
+      "<div><a style=\"color: yellow; background-color: orange;\">a</a><a style=\"color: yellow; background-color: orange;\">a1</a></div>"
     ]));
   });
 
-  to('s', async () => {
+  to('i', async () => {
     const valueBrowsers = await evaluate(async (window: any) => {
-      const { s, AmauiStyle, amauiStylePlugin, amauiThemePlugin } = window.AmauiStyleVue;
-
-      const useStyle = s(theme => ({
-        a: {
-          width: '100px',
-        },
-
-        a1: {
-          color: props => props.a === 1 ? 'yellow' : 'orange',
-        }
-      }));
+      const { i, AmauiStyle, amauiStylePlugin, amauiThemePlugin } = window.AmauiStyleVue;
 
       const A = {
         props: {
@@ -128,19 +96,21 @@ group('@amaui/style-vue/style', () => {
         },
 
         setup(props, { slots }) {
-          const styles = useStyle(props);
 
           return () => (
             window.Vue.h(
               'a',
               {
-                class: styles.value.class
+                style: i(theme => ({
+                  color: 'yellow',
+                  backgroundColor: 'orange'
+                }), props)
               },
               slots.default && slots.default()
             )
           );
         }
-      }
+      };
 
       const App = {
         setup() {
@@ -181,8 +151,6 @@ group('@amaui/style-vue/style', () => {
       await window.AmauiUtils.wait(140);
 
       return [
-        window.document.styleSheets.length,
-        Array.from(window.document.styleSheets).map((sheet: any) => Array.from(sheet.cssRules).map((rule: any) => rule.cssText)),
         window.document.getElementById('app').innerHTML
       ];
     });
@@ -190,19 +158,7 @@ group('@amaui/style-vue/style', () => {
     const values = [...valueBrowsers];
 
     values.forEach(value => assert(value).eql([
-      3,
-      [
-        [
-          ".a-0 { width: 100px; }"
-        ],
-        [
-          ".a1-1 { color: yellow; }"
-        ],
-        [
-          ".a1-2 { color: orange; }"
-        ]
-      ],
-      "<div><a class=\"a-0 a1-1\">a</a><a class=\"a-0 a1-2\">a1</a></div>"
+      "<div><a style=\"color: yellow; background-color: orange;\">a</a><a style=\"color: yellow; background-color: orange;\">a1</a></div>"
     ]));
   });
 
@@ -210,17 +166,7 @@ group('@amaui/style-vue/style', () => {
 
     to('add', async () => {
       const valueBrowsers = await evaluate(async (window: any) => {
-        const { style, AmauiStyle, amauiStylePlugin, amauiThemePlugin } = window.AmauiStyleVue;
-
-        const useStyle = style(theme => ({
-          a: {
-            width: '100px',
-          },
-
-          a1: {
-            color: props => props.a === 1 ? 'yellow' : 'orange',
-          }
-        }));
+        const { inline, AmauiStyle, amauiStylePlugin, amauiThemePlugin } = window.AmauiStyleVue;
 
         const A = {
           props: {
@@ -228,19 +174,21 @@ group('@amaui/style-vue/style', () => {
           },
 
           setup(props, { slots }) {
-            const styles = useStyle(props);
 
             return () => (
               window.Vue.h(
                 'a',
                 {
-                  class: styles.value.class
+                  style: inline(theme => ({
+                    color: 'yellow',
+                    backgroundColor: 'orange'
+                  }), props)
                 },
                 slots.default && slots.default()
               )
             );
           }
-        }
+        };
 
         const App = {
           setup() {
@@ -281,8 +229,6 @@ group('@amaui/style-vue/style', () => {
         await window.AmauiUtils.wait(140);
 
         return [
-          window.document.styleSheets.length,
-          Array.from(window.document.styleSheets).map((sheet: any) => Array.from(sheet.cssRules).map((rule: any) => rule.cssText)),
           window.document.getElementById('app').innerHTML
         ];
       });
@@ -290,19 +236,7 @@ group('@amaui/style-vue/style', () => {
       const values = [...valueBrowsers];
 
       values.forEach(value => assert(value).eql([
-        3,
-        [
-          [
-            ".a-0 { width: 100px; }"
-          ],
-          [
-            ".a1-1 { color: yellow; }"
-          ],
-          [
-            ".a1-2 { color: orange; }"
-          ]
-        ],
-        "<div><a class=\"a-0 a1-1\">a</a><a class=\"a-0 a1-2\">a1</a></div>"
+        "<div><a style=\"color: yellow; background-color: orange;\">a</a><a style=\"color: yellow; background-color: orange;\">a1</a></div>"
       ]));
     });
 
@@ -310,17 +244,7 @@ group('@amaui/style-vue/style', () => {
       const valueBrowsers = await evaluate(async (window: any) => {
         window.value = [];
 
-        const { style, AmauiStyle, AmauiThemeProvider, amauiStylePlugin, amauiThemePlugin } = window.AmauiStyleVue;
-
-        const useStyle = style(theme => ({
-          a: {
-            width: '100px',
-          },
-
-          a1: {
-            color: theme.palette.text.default.primary
-          }
-        }));
+        const { inline, AmauiStyle, AmauiThemeProvider, amauiStylePlugin, amauiThemePlugin } = window.AmauiStyleVue;
 
         const A = {
           props: {
@@ -328,13 +252,14 @@ group('@amaui/style-vue/style', () => {
           },
 
           setup(props, { slots }) {
-            const styles = useStyle(props);
-
             return () => (
               window.Vue.h(
                 'a',
                 {
-                  class: styles.value.class
+                  style: inline(theme => ({
+                    color: theme?.palette.text.default.primary,
+                    backgroundColor: 'orange'
+                  }), props)
                 },
                 slots.default && slots.default()
               )
@@ -345,7 +270,7 @@ group('@amaui/style-vue/style', () => {
             const amauiTheme = window.Vue.inject('amauiTheme');
 
             setTimeout(() => {
-              window.value.push(window.document.styleSheets.length, Array.from(window.document.styleSheets).map((sheet: any) => Array.from(sheet.cssRules).map((rule: any) => rule.cssText)), window.document.getElementById('app').innerHTML);
+              window.value.push(window.document.getElementById('app').innerHTML);
             });
 
             setTimeout(() => {
@@ -385,7 +310,7 @@ group('@amaui/style-vue/style', () => {
 
         await window.AmauiUtils.wait(440);
 
-        window.value.push(window.document.styleSheets.length, Array.from(window.document.styleSheets).map((sheet: any) => Array.from(sheet.cssRules).map((rule: any) => rule.cssText)), window.document.getElementById('app').innerHTML);
+        window.value.push(window.document.getElementById('app').innerHTML);
 
         return window.value;
       });
@@ -393,22 +318,8 @@ group('@amaui/style-vue/style', () => {
       const values = [...valueBrowsers];
 
       values.forEach(value => assert(value).eql([
-        1,
-        [
-          [
-            ".a-0 { width: 100px; }",
-            ".a1-1 { color: rgba(0, 0, 0, 0.87); }"
-          ]
-        ],
-        "<div data-amaui-theme=\"true\"><a class=\"a-0 a1-1\">a</a></div>",
-        1,
-        [
-          [
-            ".a-0 { width: 100px; }",
-            ".a1-1 { color: rgba(255, 255, 255, 0.87); }"
-          ]
-        ],
-        "<div data-amaui-theme=\"true\"><a class=\"a-0 a1-1\">a</a></div>"
+        "<div data-amaui-theme=\"true\"><a style=\"color: rgba(0, 0, 0, 0.87); background-color: orange;\">a</a></div>",
+        "<div data-amaui-theme=\"true\"><a style=\"color: rgba(255, 255, 255, 0.87); background-color: orange;\">a</a></div>"
       ]));
     });
 
@@ -416,17 +327,7 @@ group('@amaui/style-vue/style', () => {
       const valueBrowsers = await evaluate(async (window: any) => {
         window.value = [];
 
-        const { style, AmauiStyle, AmauiThemeProvider, amauiStylePlugin, amauiThemePlugin } = window.AmauiStyleVue;
-
-        const useStyle = style(theme => ({
-          a: {
-            width: '100px',
-          },
-
-          a1: {
-            color: props => props.a === 1 ? 'yellow' : 'orange',
-          }
-        }));
+        const { inline, AmauiStyle, AmauiThemeProvider, amauiStylePlugin, amauiThemePlugin } = window.AmauiStyleVue;
 
         const A = {
           props: {
@@ -434,13 +335,14 @@ group('@amaui/style-vue/style', () => {
           },
 
           setup(props, { slots }) {
-            const styles = useStyle(props);
-
             return () => (
               window.Vue.h(
                 'a',
                 {
-                  class: styles.value.class
+                  style: inline(theme => ({
+                    color: props => props.a === 1 ? 'yellow' : 'orange',
+                    backgroundColor: 'orange'
+                  }), props)
                 },
                 slots.default && slots.default()
               )
@@ -453,7 +355,7 @@ group('@amaui/style-vue/style', () => {
             const a = window.Vue.ref(1);
 
             window.Vue.watch(a, () => {
-              window.value.push(window.document.styleSheets.length, Array.from(window.document.styleSheets).map((sheet: any) => Array.from(sheet.cssRules).map((rule: any) => rule.cssText)), window.document.getElementById('app').innerHTML);
+              window.value.push(window.document.getElementById('app').innerHTML);
             });
 
             return {
@@ -501,7 +403,7 @@ group('@amaui/style-vue/style', () => {
 
         await window.AmauiUtils.wait(440);
 
-        window.value.push(window.document.styleSheets.length, Array.from(window.document.styleSheets).map((sheet: any) => Array.from(sheet.cssRules).map((rule: any) => rule.cssText)), window.document.getElementById('app').innerHTML);
+        window.value.push(window.document.getElementById('app').innerHTML);
 
         return window.value;
       });
@@ -509,32 +411,8 @@ group('@amaui/style-vue/style', () => {
       const values = [...valueBrowsers];
 
       values.forEach(value => assert(value).eql([
-        3,
-        [
-          [
-            ".a-0 { width: 100px; }"
-          ],
-          [
-            ".a1-1 { color: yellow; }"
-          ],
-          [
-            ".a1-2 { color: orange; }"
-          ]
-        ],
-        "<div data-amaui-theme=\"true\"><a class=\"a-0 a1-1\">a</a><a class=\"a-0 a1-2\">a</a></div>",
-        3,
-        [
-          [
-            ".a-0 { width: 100px; }"
-          ],
-          [
-            ".a1-1 { color: orange; }"
-          ],
-          [
-            ".a1-2 { color: orange; }"
-          ]
-        ],
-        "<div data-amaui-theme=\"true\"><a class=\"a-0 a1-1\">a</a><a class=\"a-0 a1-2\">a</a></div>"
+        "<div data-amaui-theme=\"true\"><a style=\"background-color: orange; color: yellow;\">a</a><a style=\"background-color: orange; color: orange;\">a</a></div>",
+        "<div data-amaui-theme=\"true\"><a style=\"background-color: orange; color: orange;\">a</a><a style=\"background-color: orange; color: orange;\">a</a></div>"
       ]));
     });
 
@@ -542,17 +420,7 @@ group('@amaui/style-vue/style', () => {
       const valueBrowsers = await evaluate(async (window: any) => {
         window.value = [];
 
-        const { style, AmauiStyle, amauiStylePlugin, amauiThemePlugin } = window.AmauiStyleVue;
-
-        const useStyle = style(theme => ({
-          a: {
-            width: '100px',
-          },
-
-          a1: {
-            color: props => props.a === 1 ? 'yellow' : 'orange',
-          }
-        }));
+        const { inline, AmauiStyle, amauiStylePlugin, amauiThemePlugin } = window.AmauiStyleVue;
 
         const A = {
           props: {
@@ -560,13 +428,13 @@ group('@amaui/style-vue/style', () => {
           },
 
           setup(props, { slots }) {
-            const styles = useStyle(props);
-
             return () => (
               window.Vue.h(
                 'a',
                 {
-                  class: styles.value.class
+                  style: inline(theme => ({
+                    color: props => props.a === 1 ? 'yellow' : 'orange'
+                  }), props)
                 },
                 slots.default && slots.default()
               )
@@ -579,7 +447,7 @@ group('@amaui/style-vue/style', () => {
             const elements = window.Vue.ref(true);
 
             window.Vue.watch(elements, () => {
-              window.value.push(window.document.styleSheets.length, Array.from(window.document.styleSheets).map((sheet: any) => Array.from(sheet.cssRules).map((rule: any) => rule.cssText)), window.document.getElementById('app').innerHTML);
+              window.value.push(window.document.getElementById('app').innerHTML);
             });
 
             return {
@@ -630,7 +498,7 @@ group('@amaui/style-vue/style', () => {
 
         await window.AmauiUtils.wait(440);
 
-        window.value.push(window.document.styleSheets.length, Array.from(window.document.styleSheets).map((sheet: any) => Array.from(sheet.cssRules).map((rule: any) => rule.cssText)), window.document.getElementById('app').innerHTML);
+        window.value.push(window.document.getElementById('app').innerHTML);
 
         return window.value;
       });
@@ -638,21 +506,7 @@ group('@amaui/style-vue/style', () => {
       const values = [...valueBrowsers];
 
       values.forEach(value => assert(value).eql([
-        3,
-        [
-          [
-            ".a-0 { width: 100px; }"
-          ],
-          [
-            ".a1-1 { color: yellow; }"
-          ],
-          [
-            ".a1-2 { color: orange; }"
-          ]
-        ],
-        "<div><a class=\"a-0 a1-1\">a</a><a class=\"a-0 a1-2\">a1</a></div>",
-        0,
-        [],
+        "<div><a style=\"color: yellow;\">a</a><a style=\"color: orange;\">a1</a></div>",
         "<div></div>"
       ]));
     });
@@ -662,23 +516,9 @@ group('@amaui/style-vue/style', () => {
   group('ssr', () => {
 
     to('renderToString', async () => {
-      const { AmauiStyle, AmauiStyleProvider, AmauiThemeProvider, style } = AmauiStyleVue;
+      const { AmauiStyle, AmauiStyleProvider, AmauiThemeProvider, inline } = AmauiStyleVue;
 
       const amauiStyle = new AmauiStyle();
-
-      const useStyle = style(theme => ({
-        a: {
-          width: '100px',
-        },
-
-        a1: {
-          color: theme.palette.text.default.primary
-        },
-
-        a4: {
-          background: props => props.a === 1 ? 'yellow' : 'orange'
-        }
-      }));
 
       const A = {
         props: {
@@ -686,13 +526,14 @@ group('@amaui/style-vue/style', () => {
         },
 
         setup(props, { slots }) {
-          const styles = useStyle(props);
-
           return () => (
             Vue.h(
               'a',
               {
-                class: styles.value.class
+                style: inline(theme => ({
+                  color: props => props.a === 1 ? 'yellow' : 'orange',
+                  backgroundColor: 'orange'
+                }), props)
               },
               slots.default && slots.default()
             )
@@ -711,12 +552,19 @@ group('@amaui/style-vue/style', () => {
               () => (
                 Vue.h(
                   AmauiThemeProvider,
-                  () => (
+                  () => [
                     Vue.h(
                       A,
+                      {
+                        a: 1
+                      },
                       () => 'a'
+                    ),
+                    Vue.h(
+                      A,
+                      () => 'a1'
                     )
-                  )
+                  ]
                 )
               )
             )
@@ -726,19 +574,9 @@ group('@amaui/style-vue/style', () => {
 
       const value = await VueRenderer.renderToString(Vue.createSSRApp(App));
 
-      assert(value).eq('<div><div><a class="a-0 a1-1">a</a></div></div>');
+      assert(value).eq('<div><div><a style="background-color: orange; color: yellow;">a</a><a style="background-color: orange; color: orange;">a1</a></div></div>');
 
-      assert(amauiStyle.css).eq(`
-
-.a-0 {
-  width: 100px;
-}
-
-.a1-1 {
-  color: rgba(0, 0, 0, 0.87);
-}
-
-`);
+      assert(amauiStyle.css).eq(``);
     });
 
   });

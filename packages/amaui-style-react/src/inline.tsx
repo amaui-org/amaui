@@ -13,7 +13,7 @@ export default function inline(value_: TValue, props?: any, options_: IOptions =
   const amauiStyle = useAmauiStyle();
   const amauiTheme = useAmauiTheme();
 
-  const update = (updateState = true) => {
+  const update = (update_ = true) => {
     const options = merge(options_, { amaui_style: { value: amauiStyle }, amaui_theme: { value: amauiTheme } }, { copy: true });
 
     // Options response value
@@ -21,7 +21,7 @@ export default function inline(value_: TValue, props?: any, options_: IOptions =
 
     const valueNew = amauiInlineMethod(value_, props, options);
 
-    if (updateState) setValue(valueNew as Record<string, any>);
+    if (update_) setValue(valueNew as Record<string, any>);
 
     return valueNew;
   };

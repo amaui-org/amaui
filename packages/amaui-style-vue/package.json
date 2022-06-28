@@ -37,14 +37,16 @@
     "release": "yarn test && yarn build && npm publish ./build",
     "lint": "tslint -c ../../tslint.json -p tsconfig.json",
     "type": "tsc --noEmit -p tsconfig.json",
-    "cov": "cross-env NODE_ENV=test amaui-test",
+    "cov": "cross-env NODE_ENV=test amaui-test 'test/use-cases.test.tsx'",
     "test:pre": "pm2 update && pm2 delete all && pm2 start ../../utils/js/test/app.js && wait-on http://localhost:4000",
     "test:post": "pm2 delete all",
     "test": "yarn lint && yarn type && yarn build && yarn test:pre && yarn cov && yarn test:post"
   },
-  "peerDependencies": {},
+  "peerDependencies": {
+    "vue": "^3.2.37"
+  },
   "dependencies": {
-    "@amaui/style": "^1.0.11444",
+    "@amaui/style": "^1.0.11447",
     "@amaui/utils": "^1.0.11114"
   },
   "publishConfig": {

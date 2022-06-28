@@ -1,29 +1,47 @@
-// import * as Vue from 'vue';
+import * as Vue from 'vue';
 
-// import { merge } from '@amaui/utils';
+import { copy, merge } from '@amaui/utils';
 
-// import { AmauiStyle, AmauiTheme, inline as amauiInlineMethod, TValue } from '@amaui/style';
-// import { IOptions } from '@amaui/style/inline';
+import { AmauiStyle, AmauiTheme, inline as amauiInlineMethod, TValue } from '@amaui/style';
+import { IOptions } from '@amaui/style/inline';
 
-// export default function inline(value_: TValue, options_: IOptions = {}) {
-//   const value = Vue.ref('');
+export default function inline(value_: TValue, props_?: any, options_: IOptions = { response: 'css' }) {
+  const value = Vue.ref('');
+  const props = Vue.ref(props_);
 
-//   const amauiStyle: AmauiStyle = Vue.inject('amauiStyle');
-//   const amauiTheme: AmauiTheme = Vue.inject('amauiTheme');
+  const amauiStyle = Vue.inject<AmauiStyle>('amauiStyle');
+  const amauiTheme = Vue.inject<AmauiTheme>('amauiTheme');
 
-//   Vue.watch(
-//     () => value_,
-//     () => {
-//       const options = merge(options_, { amaui_style: { value: amauiStyle }, amaui_theme: { value: amauiTheme } }, { copy: true });
+  const update = (update_ = true) => {
+    // AmauiStyle has to be a new copy of the injected amauiStyle
+    // as it updates amauiStyle props which causes a rerender and update
+    const options = merge(options_, { amaui_style: { value: copy({ ...amauiStyle.value }) }, amaui_theme: { value: amauiTheme.value } }, { copy: true });
 
-//       const valueNew = amauiInlineMethod(value_, options);
+    // Options response css
+    options.response = 'css';
 
-//       value.value = valueNew;
-//     },
-//     {
-//       deep: true
-//     }
-//   );
+    const valueNew = amauiInlineMethod(value_, props.value, options);
 
-//   return value;
-// }
+    if (update_) value.value = valueNew;
+
+    return valueNew;
+  };
+
+  Vue.watch(
+    value_,
+    () => update(),
+    {
+      deep: true
+    }
+  );
+
+  Vue.watch(
+    props,
+    () => update(),
+    {
+      deep: true
+    }
+  );
+
+  return value.value || update(false);
+}

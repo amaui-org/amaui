@@ -11,8 +11,8 @@
     "test": "lerna run test"
   },
   "devDependencies": {
-    "@amaui/models": "^1.0.111",
-    "@amaui/test": "^1.0.1147",
+    "@amaui/models": "^1.0.1111",
+    "@amaui/test": "^1.0.11111",
     "@amaui/utils": "^1.0.11114",
     "@babel/cli": "^7.16.0",
     "@babel/core": "^7.16.0",

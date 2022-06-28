@@ -236,7 +236,7 @@ group('@amaui/style-react/inline', () => {
 
         const A = (props) => {
           const style = inline(theme => ({
-            color: props => props.a === 14 ? 'yellow' : 'orange',
+            color: props => props.a === 1 ? 'yellow' : 'orange',
             backgroundColor: 'orange'
           }), props);
 
@@ -284,8 +284,8 @@ group('@amaui/style-react/inline', () => {
       const values = [...valueBrowsers];
 
       values.forEach(value => assert(value).eql([
-        "<div><a style=\"background-color: orange; color: orange;\">a</a><a style=\"background-color: orange; color: orange;\">a</a></div>",
-        "<div><a style=\"background-color: orange; color: yellow;\">a</a><a style=\"background-color: orange; color: orange;\">a</a></div>"
+        "<div><a style=\"background-color: orange; color: orange;\">a</a><a style=\"background-color: orange; color: yellow;\">a</a></div>",
+        "<div><a style=\"background-color: orange; color: orange;\">a</a><a style=\"background-color: orange; color: orange;\">a</a></div>"
       ]));
     });
 

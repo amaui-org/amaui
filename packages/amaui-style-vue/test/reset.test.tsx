@@ -1,18 +1,18 @@
 /* tslint:disable: no-shadowed-variable */
-import ReactDOMServer from 'react-dom/server';
-import React from 'react';
+import * as Vue from 'vue';
+import * as VueRenderer from 'vue/server-renderer';
 
 import { assert } from '@amaui/test';
 
 import { evaluate } from '../../../utils/js/test/utils';
 
-import * as AmauiStyleReact from '../src';
+import * as AmauiStyleVue from '../src';
 
-group('@amaui/style-react/reset', () => {
+group('@amaui/style-vue/reset', () => {
 
   to('reset', async () => {
     const valueBrowsers = await evaluate(async (window: any) => {
-      const { reset } = window.AmauiStyleReact;
+      const { reset, AmauiStyle, amauiStylePlugin, amauiThemePlugin } = window.AmauiStyleVue;
 
       const useReset = reset(theme => ({
         a: {
@@ -20,31 +20,51 @@ group('@amaui/style-react/reset', () => {
         }
       }));
 
-      const A = (props) => {
-        useReset();
+      const A = {
+        props: {
+          a: Number,
+        },
 
-        return (
-          eval(window.Babel.transform(`
-            <a>
-                {props.children}
-            </a>
-          `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
-        );
-      };
+        setup(props, { slots }) {
+          useReset(props);
 
-      const App = () => {
+          return () => (
+            window.Vue.h(
+              'a',
+              slots.default && slots.default()
+            )
+          );
+        }
+      }
 
-        return (
-          eval(window.Babel.transform(`
-            <div>
-                <A>a</A>
-            </div>
-          `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
-        );
-      };
+      const App = {
+        setup() {
+          return () => (
+            window.Vue.h(
+              'div',
+              [
+                window.Vue.h(
+                  A,
+                  {
+                    a: 1
+                  },
+                  () => 'a'
+                )
+              ]
+            )
+          )
+        },
+      }
 
       // Add to DOM
-      window.ReactDOM.render(window.React.createElement(App, null), window.document.getElementById('app'));
+      const app = window.Vue.createApp(App);
+
+      // Use plugins
+      app.use(amauiStylePlugin, { value: new AmauiStyle() });
+
+      app.use(amauiThemePlugin);
+
+      app.mount('#app');
 
       await window.AmauiUtils.wait(140);
 
@@ -209,39 +229,59 @@ group('@amaui/style-react/reset', () => {
 
   to('r', async () => {
     const valueBrowsers = await evaluate(async (window: any) => {
-      const { r } = window.AmauiStyleReact;
+      const { r, AmauiStyle, amauiStylePlugin, amauiThemePlugin } = window.AmauiStyleVue;
 
       const useReset = r(theme => ({
         a: {
           color: 'yellow'
-        },
+        }
       }));
 
-      const A = (props) => {
-        useReset();
+      const A = {
+        props: {
+          a: Number,
+        },
 
-        return (
-          eval(window.Babel.transform(`
-            <a>
-                {props.children}
-            </a>
-          `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
-        );
-      };
+        setup(props, { slots }) {
+          useReset(props);
 
-      const App = () => {
+          return () => (
+            window.Vue.h(
+              'a',
+              slots.default && slots.default()
+            )
+          );
+        }
+      }
 
-        return (
-          eval(window.Babel.transform(`
-            <div>
-                <A>a</A>
-            </div>
-          `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
-        );
-      };
+      const App = {
+        setup() {
+          return () => (
+            window.Vue.h(
+              'div',
+              [
+                window.Vue.h(
+                  A,
+                  {
+                    a: 1
+                  },
+                  () => 'a'
+                )
+              ]
+            )
+          )
+        },
+      }
 
       // Add to DOM
-      window.ReactDOM.render(window.React.createElement(App, null), window.document.getElementById('app'));
+      const app = window.Vue.createApp(App);
+
+      // Use plugins
+      app.use(amauiStylePlugin, { value: new AmauiStyle() });
+
+      app.use(amauiThemePlugin);
+
+      app.mount('#app');
 
       await window.AmauiUtils.wait(140);
 
@@ -408,39 +448,59 @@ group('@amaui/style-react/reset', () => {
 
     to('add', async () => {
       const valueBrowsers = await evaluate(async (window: any) => {
-        const { reset } = window.AmauiStyleReact;
+        const { reset, AmauiStyle, amauiStylePlugin, amauiThemePlugin } = window.AmauiStyleVue;
 
         const useReset = reset(theme => ({
           a: {
             color: 'yellow'
-          },
+          }
         }));
 
-        const A = (props) => {
-          useReset();
+        const A = {
+          props: {
+            a: Number,
+          },
 
-          return (
-            eval(window.Babel.transform(`
-            <a>
-                {props.children}
-            </a>
-          `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
-          );
-        };
+          setup(props, { slots }) {
+            useReset(props);
 
-        const App = () => {
+            return () => (
+              window.Vue.h(
+                'a',
+                slots.default && slots.default()
+              )
+            );
+          }
+        }
 
-          return (
-            eval(window.Babel.transform(`
-            <div>
-                <A>a</A>
-            </div>
-          `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
-          );
-        };
+        const App = {
+          setup() {
+            return () => (
+              window.Vue.h(
+                'div',
+                [
+                  window.Vue.h(
+                    A,
+                    {
+                      a: 1
+                    },
+                    () => 'a'
+                  )
+                ]
+              )
+            )
+          },
+        }
 
         // Add to DOM
-        window.ReactDOM.render(window.React.createElement(App, null), window.document.getElementById('app'));
+        const app = window.Vue.createApp(App);
+
+        // Use plugins
+        app.use(amauiStylePlugin, { value: new AmauiStyle() });
+
+        app.use(amauiThemePlugin);
+
+        app.mount('#app');
 
         await window.AmauiUtils.wait(140);
 
@@ -607,7 +667,7 @@ group('@amaui/style-react/reset', () => {
       const valueBrowsers = await evaluate(async (window: any) => {
         window.value = [];
 
-        const { reset, useAmauiTheme, AmauiThemeProvider } = window.AmauiStyleReact;
+        const { reset, AmauiStyle, AmauiThemeProvider, amauiStylePlugin, amauiThemePlugin } = window.AmauiStyleVue;
 
         const useReset = reset(theme => ({
           a: {
@@ -615,44 +675,63 @@ group('@amaui/style-react/reset', () => {
           }
         }));
 
-        const A = props => {
-          useReset();
+        const A = {
+          props: {
+            a: Number,
+          },
 
-          const amauiTheme = useAmauiTheme();
+          setup(props, { slots }) {
+            useReset(props);
 
-          window.React.useEffect(() => {
+            return () => (
+              window.Vue.h(
+                'a',
+                slots.default && slots.default()
+              )
+            );
+          },
+
+          mounted() {
+            const amauiTheme = window.Vue.inject('amauiTheme');
+
             setTimeout(() => {
               window.value.push(window.document.styleSheets.length, Array.from(window.document.styleSheets).map((sheet: any) => Array.from(sheet.cssRules).map((rule: any) => rule.cssText)), window.document.getElementById('app').innerHTML);
+            });
 
-              amauiTheme.update({
-                palette: {
-                  light: false
-                }
-              });
+            setTimeout(() => {
+              amauiTheme.value.update({ palette: { light: false } });
             }, 140);
-          }, []);
+          }
+        }
 
-          return (
-            eval(window.Babel.transform(`
-              <a>
-                  {props.children}
-              </a>
-          `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
-          );
-        };
-
-        const App = () => {
-          return (
-            eval(window.Babel.transform(`
-              <AmauiThemeProvider>
-                  <A>a</A>
-              </AmauiThemeProvider>
-          `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
-          );
-        };
+        const App = {
+          setup() {
+            return () => (
+              window.Vue.h(
+                AmauiThemeProvider,
+                () => [
+                  window.Vue.h(
+                    A,
+                    {
+                      a: 1
+                    },
+                    () => 'a'
+                  )
+                ]
+              )
+            )
+          },
+        }
 
         // Add to DOM
-        window.ReactDOM.render(window.React.createElement(App, null), window.document.getElementById('app'));
+        const app = window.Vue.createApp(App);
+
+        // Use plugins
+        app.use(amauiStylePlugin, { value: new AmauiStyle() });
+
+        app.use(amauiThemePlugin);
+
+        app.mount('#app');
 
         await window.AmauiUtils.wait(440);
 
@@ -950,11 +1029,11 @@ group('@amaui/style-react/reset', () => {
       ]);
     });
 
-    to('updateProps', async () => {
+    to('update props', async () => {
       const valueBrowsers = await evaluate(async (window: any) => {
         window.value = [];
 
-        const { reset } = window.AmauiStyleReact;
+        const { reset, AmauiStyle, AmauiThemeProvider, amauiStylePlugin, amauiThemePlugin } = window.AmauiStyleVue;
 
         const useReset = reset(theme => ({
           a: {
@@ -962,46 +1041,73 @@ group('@amaui/style-react/reset', () => {
           }
         }));
 
-        const A = props => {
-          useReset(props);
+        const A = {
+          props: {
+            a: Number,
+          },
 
-          return (
-            eval(window.Babel.transform(`
-              <a>
-                  {props.children}
-              </a>
-          `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
-          );
-        };
+          setup(props, { slots }) {
+            useReset(props);
 
-        const App = () => {
-          const [a, setA] = window.React.useState(1);
+            return () => (
+              window.Vue.h(
+                'a',
+                slots.default && slots.default()
+              )
+            );
+          }
+        }
 
-          window.React.useEffect(() => {
-            setTimeout(() => {
-              setA(14);
-            }, 140);
-          }, []);
+        const App = {
+          setup() {
+            const a = window.Vue.ref(1);
 
-          window.React.useEffect(() => {
-            setTimeout(() => {
+            window.Vue.watch(a, () => {
               window.value.push(window.document.styleSheets.length, Array.from(window.document.styleSheets).map((sheet: any) => Array.from(sheet.cssRules).map((rule: any) => rule.cssText)), window.document.getElementById('app').innerHTML);
             });
-          }, [a]);
 
-          return (
-            eval(window.Babel.transform(`
-              <div>
-                  <A a={a}>a</A>
-              </div>
-          `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
-          );
-        };
+            return {
+              a
+            }
+          },
+
+          mounted() {
+            setTimeout(() => {
+              this.a = 14;
+            }, 140);
+          },
+
+          render() {
+            return (
+              window.Vue.h(
+                AmauiThemeProvider,
+                () => [
+                  window.Vue.h(
+                    A,
+                    {
+                      a: this.a
+                    },
+                    () => 'a'
+                  )
+                ]
+              )
+            );
+          }
+        }
 
         // Add to DOM
-        window.ReactDOM.render(window.React.createElement(App, null), window.document.getElementById('app'));
+        const app = window.Vue.createApp(App);
+
+        // Use plugins
+        app.use(amauiStylePlugin, { value: new AmauiStyle() });
+
+        app.use(amauiThemePlugin);
+
+        app.mount('#app');
 
         await window.AmauiUtils.wait(440);
+
+        window.value.push(window.document.styleSheets.length, Array.from(window.document.styleSheets).map((sheet: any) => Array.from(sheet.cssRules).map((rule: any) => rule.cssText)), window.document.getElementById('app').innerHTML);
 
         return window.value;
       });
@@ -1057,7 +1163,7 @@ group('@amaui/style-react/reset', () => {
               "code span { white-space: pre-wrap; }"
             ]
           ],
-          "<div><a>a</a></div>",
+          "<div data-amaui-theme=\"true\"><a>a</a></div>",
           2,
           [
             [
@@ -1105,7 +1211,7 @@ group('@amaui/style-react/reset', () => {
               "code span { white-space: pre-wrap; }"
             ]
           ],
-          "<div><a>a</a></div>"
+          "<div data-amaui-theme=\"true\"><a>a</a></div>"
         ],
         [
           2,
@@ -1157,7 +1263,7 @@ group('@amaui/style-react/reset', () => {
               "code span { white-space: pre-wrap; }"
             ]
           ],
-          "<div><a>a</a></div>",
+          "<div data-amaui-theme=\"true\"><a>a</a></div>",
           2,
           [
             [
@@ -1207,7 +1313,7 @@ group('@amaui/style-react/reset', () => {
               "code span { white-space: pre-wrap; }"
             ]
           ],
-          "<div><a>a</a></div>"
+          "<div data-amaui-theme=\"true\"><a>a</a></div>"
         ],
         [
           2,
@@ -1257,7 +1363,7 @@ group('@amaui/style-react/reset', () => {
               "code span { white-space: pre-wrap; }"
             ]
           ],
-          "<div><a>a</a></div>",
+          "<div data-amaui-theme=\"true\"><a>a</a></div>",
           2,
           [
             [
@@ -1305,7 +1411,7 @@ group('@amaui/style-react/reset', () => {
               "code span { white-space: pre-wrap; }"
             ]
           ],
-          "<div><a>a</a></div>"
+          "<div data-amaui-theme=\"true\"><a>a</a></div>"
         ]
       ]);
     });
@@ -1314,7 +1420,7 @@ group('@amaui/style-react/reset', () => {
       const valueBrowsers = await evaluate(async (window: any) => {
         window.value = [];
 
-        const { reset } = window.AmauiStyleReact;
+        const { reset, AmauiStyle, amauiStylePlugin, amauiThemePlugin } = window.AmauiStyleVue;
 
         const useReset = reset(theme => ({
           a: {
@@ -1322,44 +1428,69 @@ group('@amaui/style-react/reset', () => {
           }
         }));
 
-        const A = props => {
-          useReset(props);
+        const A = {
+          props: {
+            a: Number,
+          },
 
-          return (
-            eval(window.Babel.transform(`
-              <a>
-                  {props.children}
-              </a>
-          `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
-          );
+          setup(props, { slots }) {
+            useReset(props);
+
+            return () => (
+              window.Vue.h(
+                'a',
+                slots.default && slots.default()
+              )
+            );
+          }
         };
 
-        const App = () => {
-          const [elements, setElements] = window.React.useState(true);
+        const App = {
+          setup() {
+            const elements = window.Vue.ref(true);
 
-          window.React.useEffect(() => {
-            setTimeout(() => {
+            window.Vue.watch(elements, () => {
               window.value.push(window.document.styleSheets.length, Array.from(window.document.styleSheets).map((sheet: any) => Array.from(sheet.cssRules).map((rule: any) => rule.cssText)), window.document.getElementById('app').innerHTML);
+            });
 
-              setElements(false);
+            return {
+              elements
+            };
+          },
+
+          mounted() {
+            setTimeout(() => {
+              this.elements = false;
             }, 140);
-          }, []);
+          },
 
-          return (
-            eval(window.Babel.transform(`
-              <div>
-                  {elements && (
-                    <window.React.Fragment>
-                      <A>a</A>
-                    </window.React.Fragment>
-                  )}
-              </div>
-          `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
-          );
-        };
+          render() {
+            return (
+              window.Vue.h(
+                'div',
+                this.elements ? [
+                  window.Vue.h(
+                    A,
+                    {
+                      a: 1
+                    },
+                    () => 'a'
+                  )
+                ] : null
+              )
+            );
+          }
+        }
 
         // Add to DOM
-        window.ReactDOM.render(window.React.createElement(App, null), window.document.getElementById('app'));
+        const app = window.Vue.createApp(App);
+
+        // Use plugins
+        app.use(amauiStylePlugin, { value: new AmauiStyle() });
+
+        app.use(amauiThemePlugin);
+
+        app.mount('#app');
 
         await window.AmauiUtils.wait(440);
 
@@ -1534,7 +1665,7 @@ group('@amaui/style-react/reset', () => {
   group('ssr', () => {
 
     to('renderToString', async () => {
-      const { AmauiStyle, AmauiStyleProvider, AmauiThemeProvider, style, reset } = AmauiStyleReact;
+      const { AmauiStyle, AmauiStyleProvider, AmauiThemeProvider, style, reset } = AmauiStyleVue;
 
       const amauiStyle = new AmauiStyle();
 
@@ -1558,31 +1689,53 @@ group('@amaui/style-react/reset', () => {
         }
       }));
 
-      const A = props => {
-        useReset();
+      const A = {
+        props: {
+          a: Number,
+        },
 
-        const styles = useStyle(props);
+        setup(props, { slots }) {
+          useReset();
 
-        return (
-          <a className={styles.class}>
-            {props.children}
-          </a>
-        );
+          const styles = useStyle(props);
+
+          return () => (
+            Vue.h(
+              'a',
+              {
+                class: styles.value.class
+              },
+              slots.default && slots.default()
+            )
+          );
+        }
       };
 
-      const App = () => {
-        return (
-          <AmauiStyleProvider value={amauiStyle}>
-            <AmauiThemeProvider>
-              <A>
-                a
-              </A>
-            </AmauiThemeProvider>
-          </AmauiStyleProvider>
-        );
+      const App = {
+        render() {
+          return (
+            Vue.h(
+              AmauiStyleProvider,
+              {
+                value: amauiStyle
+              },
+              () => (
+                Vue.h(
+                  AmauiThemeProvider,
+                  () => (
+                    Vue.h(
+                      A,
+                      () => 'a'
+                    )
+                  )
+                )
+              )
+            )
+          );
+        }
       };
 
-      const value = ReactDOMServer.renderToString(React.createElement(App, null));
+      const value = await VueRenderer.renderToString(Vue.createSSRApp(App));
 
       assert(value).eq('<div><div><a class="a-0 a1-1">a</a></div></div>');
 

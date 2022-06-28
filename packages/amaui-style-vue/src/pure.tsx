@@ -1,80 +1,86 @@
-// import * as Vue from 'vue';
+import * as Vue from 'vue';
 
-// import { merge, is } from '@amaui/utils';
+import { merge, is } from '@amaui/utils';
 
-// import { AmauiStyle, AmauiTheme, IMethodResponse, IResponse, pure as amauiPureMethod, TValue, TValueMethod } from '@amaui/style';
-// import { IOptions } from '@amaui/style/pure';
+import { AmauiStyle, AmauiTheme, IMethodResponse, IResponse, names, pure as amauiPureMethod, TValue, TValueMethod } from '@amaui/style';
+import { IOptions } from '@amaui/style/pure';
 
-// export default function pure(value: TValue, options_: IOptions = {}) {
-//   let response: IMethodResponse;
+export default function pure(value: TValue, options_: IOptions = {}) {
+  let response: IMethodResponse;
+  let values_: IResponse;
 
-//   function useStyle(props?: any): IResponse {
-//     const values = Vue.ref({
-//       classes: {},
-//       classNames: {},
-//       keyframes: {},
-//       styles: () => { },
-//     }) as Vue.Ref<IResponse>;
+  function useStyle(props_?: Vue.Ref<any>) {
+    const styles = Vue.ref<IResponse>(values_);
 
-//     const amauiStyle: AmauiStyle = Vue.inject('amauiStyle');
-//     const amauiTheme: AmauiTheme = Vue.inject('amauiTheme');
+    const amauiStyle = Vue.inject<AmauiStyle>('amauiStyle')?.value;
+    const amauiTheme = Vue.inject<AmauiTheme>('amauiTheme')?.value;
 
-//     // Init
-//     // Add
-//     // Updates for amauiTheme
-//     const method = () => {
-//       if (is('function', value)) {
-//         const valueNew = (value as TValueMethod)(amauiTheme);
+    const props = Vue.ref(props_);
 
-//         // Update
-//         if (response.update !== undefined) response.update(valueNew);
-//       }
-//     };
+    // Init only once
+    // it has to be in body of method
+    // as for ssr it actually calls the method
+    // and it doesn't use hooks on ssr
+    if (response === undefined) {
+      const options = {
+        amaui_style: { value: undefined },
+        amaui_theme: { value: undefined },
+      };
 
-//     Vue.onMounted(() => {
-//       // Init only once
-//       const options = {
-//         amaui_style: { value: undefined },
-//         amaui_theme: { value: undefined },
-//       };
+      // AmauiStyle
+      if (amauiStyle !== undefined) options.amaui_style.value = amauiStyle;
 
-//       // AmauiStyle
-//       if (amauiStyle === undefined) options.amaui_style.value = amauiStyle;
+      // AmauiTheme
+      if (amauiTheme !== undefined) options.amaui_theme.value = amauiTheme;
 
-//       // AmauiTheme
-//       if (amauiTheme === undefined) options.amaui_theme.value = amauiTheme;
+      if (response === undefined) response = amauiPureMethod(value, merge(options_, options, { copy: true }));
 
-//       if (response === undefined) response = amauiPureMethod(value, merge(options, options_, { copy: true }));
+      // Update values for ssr as a priorty
+      values_ = names(response.amaui_style_sheet_manager.names);
 
-//       // Add
-//       values.value = response.add(props);
+      styles.value = values_;
+    }
 
-//       if (amauiTheme) amauiTheme.subscriptions.update.subscribe(method);
+    // Updates for amauiTheme
+    const method = () => {
+      if (is('function', value)) {
+        const valueNew = (value as TValueMethod)(amauiTheme);
 
-//     });
+        // Update
+        if (response?.update !== undefined) response.update(valueNew);
+      }
+    };
 
-//     // Clean up
-//     Vue.onUnmounted(() => {
-//       amauiTheme.subscriptions.update.unsubscribe(method);
+    // Add
+    Vue.onMounted(() => {
+      // Add
+      styles.value = response.add(props.value);
 
-//       // Remove
-//       response.remove(values.value.ids?.dynamic);
-//     });
+      if (amauiTheme) amauiTheme.subscriptions.update.subscribe(method);
+    });
 
-//     // Update props
-//     Vue.watch(
-//       () => props,
-//       () => {
-//         if (response.props !== undefined) response.props = props;
-//       },
-//       {
-//         deep: true,
-//         immediate: true
-//       }
-//     );
+    // Clean up
+    Vue.onUnmounted(() => {
+      if (amauiTheme) amauiTheme.subscriptions.update.unsubscribe(method);
 
-//     return values.value;
-//   }
+      // Remove
+      response.remove(styles.value?.ids?.dynamic);
+    });
 
-//   return useStyle;
-// }
+    // Update props
+    Vue.watch(
+      props,
+      valueNew => {
+        if (response !== undefined && styles.value?.ids) response.props = { ids: styles.value.ids.dynamic, props: valueNew };
+      },
+      {
+        deep: true,
+        immediate: true
+      }
+    );
+
+    return styles;
+  }
+
+  return useStyle;
+}

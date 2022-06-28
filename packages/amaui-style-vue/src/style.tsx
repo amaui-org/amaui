@@ -33,7 +33,7 @@ export default function style(value: TValue, options_: IOptions = {}) {
       // AmauiTheme
       if (amauiTheme !== undefined) options.amaui_theme.value = amauiTheme;
 
-      if (response === undefined) response = amauiStyleMethod(value, merge(options, options_, { copy: true }));
+      if (response === undefined) response = amauiStyleMethod(value, merge(options_, options, { copy: true }));
 
       // Update values for ssr as a priorty
       values_ = names(response.amaui_style_sheet_manager.names);

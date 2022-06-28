@@ -7,21 +7,21 @@ export * from './AmauiStyleProvider';
 
 export * from './AmauiThemeProvider';
 
-// export { default as reset } from './reset';
-// // Alias
-// export { default as r } from './reset';
+export { default as reset } from './reset';
+// Alias
+export { default as r } from './reset';
 
-// export { default as pure } from './pure';
-// // Alias
-// export { default as p } from './pure';
+export { default as pure } from './pure';
+// Alias
+export { default as p } from './pure';
 
 export { default as style } from './style';
 // Alias
 export { default as s } from './style';
 
-// export { default as inline } from './inline';
-// // Alias
-// export { default as i } from './inline';
+export { default as inline } from './inline';
+// Alias
+export { default as i } from './inline';
 
 export { default as string } from './string';
 // Alias
