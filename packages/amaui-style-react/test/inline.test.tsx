@@ -284,7 +284,7 @@ group('@amaui/style-react/inline', () => {
       const values = [...valueBrowsers];
 
       values.forEach(value => assert(value).eql([
-        "<div><a style=\"background-color: orange; color: orange;\">a</a><a style=\"background-color: orange; color: yellow;\">a</a></div>",
+        "<div><a style=\"background-color: orange; color: yellow;\">a</a><a style=\"background-color: orange; color: orange;\">a</a></div>",
         "<div><a style=\"background-color: orange; color: orange;\">a</a><a style=\"background-color: orange; color: orange;\">a</a></div>"
       ]));
     });

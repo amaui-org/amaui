@@ -35,7 +35,7 @@ group('@amaui/style-vue/reset', () => {
             )
           );
         }
-      }
+      };
 
       const App = {
         setup() {
@@ -52,9 +52,9 @@ group('@amaui/style-vue/reset', () => {
                 )
               ]
             )
-          )
+          );
         },
-      }
+      };
 
       // Add to DOM
       const app = window.Vue.createApp(App);
@@ -252,7 +252,7 @@ group('@amaui/style-vue/reset', () => {
             )
           );
         }
-      }
+      };
 
       const App = {
         setup() {
@@ -269,9 +269,9 @@ group('@amaui/style-vue/reset', () => {
                 )
               ]
             )
-          )
+          );
         },
-      }
+      };
 
       // Add to DOM
       const app = window.Vue.createApp(App);
@@ -471,7 +471,7 @@ group('@amaui/style-vue/reset', () => {
               )
             );
           }
-        }
+        };
 
         const App = {
           setup() {
@@ -488,9 +488,9 @@ group('@amaui/style-vue/reset', () => {
                   )
                 ]
               )
-            )
+            );
           },
-        }
+        };
 
         // Add to DOM
         const app = window.Vue.createApp(App);
@@ -702,7 +702,7 @@ group('@amaui/style-vue/reset', () => {
               amauiTheme.value.update({ palette: { light: false } });
             }, 140);
           }
-        }
+        };
 
         const App = {
           setup() {
@@ -719,9 +719,9 @@ group('@amaui/style-vue/reset', () => {
                   )
                 ]
               )
-            )
+            );
           },
-        }
+        };
 
         // Add to DOM
         const app = window.Vue.createApp(App);
@@ -793,7 +793,7 @@ group('@amaui/style-vue/reset', () => {
           1,
           [
             [
-              "a { color: rgba(255, 255, 255, 0.87); }",
+              "a { color: rgba(0, 0, 0, 0.87); text-decoration: none; cursor: pointer; background-color: transparent; }",
               "* { outline: none; font-size: 100%; background: transparent; box-sizing: border-box; touch-action: manipulation; }",
               "body { font-family: Roboto, Helvetica, \"Helvetica Neue\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Arial, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", sans-serif; font-weight: normal; font-style: normal; position: relative; overflow-x: hidden; background-color: rgb(255, 255, 255); }",
               "img, embed, object, video { max-width: 100%; height: auto; }",
@@ -888,7 +888,7 @@ group('@amaui/style-vue/reset', () => {
           1,
           [
             [
-              "a { color: rgba(255, 255, 255, 0.87); }",
+              "a { color: rgba(0, 0, 0, 0.87); text-decoration: none; cursor: pointer; background-color: transparent; }",
               "* { outline: currentcolor none medium; font-size: 100%; background: transparent none repeat scroll 0% 0%; box-sizing: border-box; touch-action: manipulation; }",
               "body { font-family: Roboto, Helvetica, \"Helvetica Neue\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Arial, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", sans-serif; font-weight: normal; font-style: normal; position: relative; overflow-x: hidden; background-color: rgb(255, 255, 255); }",
               "img, embed, object, video { max-width: 100%; height: auto; }",
@@ -983,7 +983,7 @@ group('@amaui/style-vue/reset', () => {
           1,
           [
             [
-              "a { color: rgba(255, 255, 255, 0.87); }",
+              "a { color: rgba(0, 0, 0, 0.87); text-decoration: none; cursor: pointer; background-color: transparent; }",
               "* { outline: none; font-size: 100%; background-color: transparent; box-sizing: border-box; touch-action: manipulation; }",
               "body { font-family: Roboto, Helvetica, \"Helvetica Neue\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Arial, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", sans-serif; font-weight: normal; font-style: normal; position: relative; overflow-x: hidden; background-color: rgb(255, 255, 255); }",
               "img, embed, object, video { max-width: 100%; height: auto; }",
@@ -1056,7 +1056,7 @@ group('@amaui/style-vue/reset', () => {
               )
             );
           }
-        }
+        };
 
         const App = {
           setup() {
@@ -1068,7 +1068,7 @@ group('@amaui/style-vue/reset', () => {
 
             return {
               a
-            }
+            };
           },
 
           mounted() {
@@ -1093,7 +1093,7 @@ group('@amaui/style-vue/reset', () => {
               )
             );
           }
-        }
+        };
 
         // Add to DOM
         const app = window.Vue.createApp(App);
@@ -1480,7 +1480,7 @@ group('@amaui/style-vue/reset', () => {
               )
             );
           }
-        }
+        };
 
         // Add to DOM
         const app = window.Vue.createApp(App);

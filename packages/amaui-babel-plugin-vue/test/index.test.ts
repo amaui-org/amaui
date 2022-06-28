@@ -1,7 +1,7 @@
 import * as babel from '@babel/core';
 
 import presetEnv from '@babel/preset-env';
-import presetVue from '@vue/babel-preset-jsx';
+import pluginVue from '@vue/babel-plugin-jsx';
 
 import pluginRuntimeTransform from '@babel/plugin-transform-runtime';
 
@@ -99,8 +99,8 @@ export default {
 `;
 
     const { code } = babel.transform(value, {
-      presets: [presetEnv, presetVue],
-      plugins: [pluginRuntimeTransform, AmauiBabelPluginVue]
+      presets: [presetEnv],
+      plugins: [pluginRuntimeTransform, pluginVue, AmauiBabelPluginVue]
     });
 
     const valueAsserted = `"use strict";

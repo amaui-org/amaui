@@ -27,183 +27,9 @@ group('@amaui/style-vue/AmauiStyleProvider', () => {
               'a',
               slots.default()
             )
-          )
+          );
         }
-      }
-
-      const App = {
-        setup() {
-          const a = new AmauiStyle();
-
-          a.a = 'a';
-
-          const a1 = new AmauiStyle();
-
-          a1.a = 'a1';
-
-          return () => (
-            window.Vue.h(
-              AmauiStyleProvider,
-              {
-                value: a
-              },
-              () => [
-                window.Vue.h(
-                  A,
-                  () => [
-                    'a',
-                    window.Vue.h(
-                      AmauiStyleProvider,
-                      {
-                        value: a1
-                      },
-                      () => [
-                        window.Vue.h(
-                          A,
-                          () => 'a'
-                        )
-                      ]
-                    )
-                  ]
-                )
-              ]
-            )
-          )
-        },
-      }
-
-      // Add to DOM
-      const app = window.Vue.createApp(App);
-
-      app.mount('#app');
-
-      return [
-        value.length === 2,
-        value.every(item => item instanceof AmauiStyle),
-        value[0].a === 'a',
-        value[1].a === 'a1'
-      ];
-    });
-
-    const values = [...valueBrowsers];
-
-    values.forEach(value => assert(value).eql([
-      ...new Array(4).fill(true)
-    ]));
-  });
-
-  to('inject', async () => {
-    const valueBrowsers = await evaluate((window: any) => {
-      const value = [];
-
-      const { AmauiStyle, AmauiStyleProvider } = window.AmauiStyleVue;
-
-      const A = {
-        setup(props, { slots }) {
-          const amauiStyle = window.Vue.inject('amauiStyle');
-
-          value.push(amauiStyle.value);
-
-          return () => (
-            window.Vue.h(
-              'a',
-              slots.default()
-            )
-          )
-        }
-      }
-
-      const App = {
-        setup() {
-          const a = new AmauiStyle();
-
-          a.a = 'a';
-
-          const a1 = new AmauiStyle();
-
-          a1.a = 'a1';
-
-          return () => (
-            window.Vue.h(
-              AmauiStyleProvider,
-              {
-                value: a
-              },
-              () => [
-                window.Vue.h(
-                  A,
-                  () => [
-                    'a',
-                    window.Vue.h(
-                      AmauiStyleProvider,
-                      {
-                        value: a1
-                      },
-                      () => [
-                        window.Vue.h(
-                          A,
-                          () => 'a'
-                        )
-                      ]
-                    )
-                  ]
-                )
-              ]
-            )
-          )
-        },
-      }
-
-      // Add to DOM
-      const app = window.Vue.createApp(App);
-
-      app.mount('#app');
-
-      return [
-        value.length === 2,
-        value.every(item => item instanceof AmauiStyle),
-        value[0].a === 'a',
-        value[1].a === 'a1'
-      ];
-    });
-
-    const values = [...valueBrowsers];
-
-    values.forEach(value => assert(value).eql([
-      ...new Array(4).fill(true)
-    ]));
-  });
-
-  to('update', async () => {
-    const valueBrowsers = await evaluate(async (window: any) => {
-      const value = [];
-
-      const { AmauiStyle, AmauiStyleProvider } = window.AmauiStyleVue;
-
-      const A = {
-        setup(props, { slots }) {
-          const amauiStyle = window.Vue.inject('amauiStyle');
-
-          window.Vue.watch(amauiStyle.value, (valueNew) => {
-            if (valueNew?.a === 14) value.push(valueNew.a);
-          });
-
-          return () => (
-            window.Vue.h(
-              'a',
-              slots.default()
-            )
-          )
-        },
-
-        mounted() {
-          const amauiStyle = window.Vue.inject('amauiStyle');
-
-          value.push(amauiStyle.value.a);
-
-          amauiStyle.value.a = 14;
-        }
-      }
+      };
 
       const App = {
         setup() {
@@ -244,7 +70,181 @@ group('@amaui/style-vue/AmauiStyleProvider', () => {
             )
           );
         },
-      }
+      };
+
+      // Add to DOM
+      const app = window.Vue.createApp(App);
+
+      app.mount('#app');
+
+      return [
+        value.length === 2,
+        value.every(item => item instanceof AmauiStyle),
+        value[0].a === 'a',
+        value[1].a === 'a1'
+      ];
+    });
+
+    const values = [...valueBrowsers];
+
+    values.forEach(value => assert(value).eql([
+      ...new Array(4).fill(true)
+    ]));
+  });
+
+  to('inject', async () => {
+    const valueBrowsers = await evaluate((window: any) => {
+      const value = [];
+
+      const { AmauiStyle, AmauiStyleProvider } = window.AmauiStyleVue;
+
+      const A = {
+        setup(props, { slots }) {
+          const amauiStyle = window.Vue.inject('amauiStyle');
+
+          value.push(amauiStyle.value);
+
+          return () => (
+            window.Vue.h(
+              'a',
+              slots.default()
+            )
+          );
+        }
+      };
+
+      const App = {
+        setup() {
+          const a = new AmauiStyle();
+
+          a.a = 'a';
+
+          const a1 = new AmauiStyle();
+
+          a1.a = 'a1';
+
+          return () => (
+            window.Vue.h(
+              AmauiStyleProvider,
+              {
+                value: a
+              },
+              () => [
+                window.Vue.h(
+                  A,
+                  () => [
+                    'a',
+                    window.Vue.h(
+                      AmauiStyleProvider,
+                      {
+                        value: a1
+                      },
+                      () => [
+                        window.Vue.h(
+                          A,
+                          () => 'a'
+                        )
+                      ]
+                    )
+                  ]
+                )
+              ]
+            )
+          );
+        },
+      };
+
+      // Add to DOM
+      const app = window.Vue.createApp(App);
+
+      app.mount('#app');
+
+      return [
+        value.length === 2,
+        value.every(item => item instanceof AmauiStyle),
+        value[0].a === 'a',
+        value[1].a === 'a1'
+      ];
+    });
+
+    const values = [...valueBrowsers];
+
+    values.forEach(value => assert(value).eql([
+      ...new Array(4).fill(true)
+    ]));
+  });
+
+  to('update', async () => {
+    const valueBrowsers = await evaluate(async (window: any) => {
+      const value = [];
+
+      const { AmauiStyle, AmauiStyleProvider } = window.AmauiStyleVue;
+
+      const A = {
+        setup(props, { slots }) {
+          const amauiStyle = window.Vue.inject('amauiStyle');
+
+          window.Vue.watch(amauiStyle.value, (valueNew) => {
+            if (valueNew?.a === 14) value.push(valueNew.a);
+          });
+
+          return () => (
+            window.Vue.h(
+              'a',
+              slots.default()
+            )
+          );
+        },
+
+        mounted() {
+          const amauiStyle = window.Vue.inject('amauiStyle');
+
+          value.push(amauiStyle.value.a);
+
+          amauiStyle.value.a = 14;
+        }
+      };
+
+      const App = {
+        setup() {
+          const a = new AmauiStyle();
+
+          a.a = 'a';
+
+          const a1 = new AmauiStyle();
+
+          a1.a = 'a1';
+
+          return () => (
+            window.Vue.h(
+              AmauiStyleProvider,
+              {
+                value: a
+              },
+              () => [
+                window.Vue.h(
+                  A,
+                  () => [
+                    'a',
+                    window.Vue.h(
+                      AmauiStyleProvider,
+                      {
+                        value: a1
+                      },
+                      () => [
+                        window.Vue.h(
+                          A,
+                          () => 'a'
+                        )
+                      ]
+                    )
+                  ]
+                )
+              ]
+            )
+          );
+        },
+      };
 
       // Add to DOM
       const app = window.Vue.createApp(App);
@@ -287,9 +287,9 @@ group('@amaui/style-vue/AmauiStyleProvider', () => {
               'a',
               slots.default()
             )
-          )
+          );
         }
-      }
+      };
 
       const App = {
         setup() {
@@ -330,9 +330,9 @@ group('@amaui/style-vue/AmauiStyleProvider', () => {
                 )
               ]
             )
-          )
+          );
         },
-      }
+      };
 
       // Add to DOM
       const app = window.Vue.createApp(App);
@@ -396,9 +396,9 @@ group('@amaui/style-vue/AmauiStyleProvider', () => {
                 'a',
                 slots.default()
               )
-            )
+            );
           }
-        }
+        };
 
         const App = {
           setup() {
@@ -407,9 +407,9 @@ group('@amaui/style-vue/AmauiStyleProvider', () => {
                 A,
                 'a',
               )
-            )
+            );
           },
-        }
+        };
 
         // Add to DOM
         const app = window.Vue.createApp(App);
@@ -451,9 +451,9 @@ group('@amaui/style-vue/AmauiStyleProvider', () => {
                   'a',
                   slots.default()
                 )
-              )
+              );
             }
-          }
+          };
 
           const App = {
             setup() {
@@ -462,9 +462,9 @@ group('@amaui/style-vue/AmauiStyleProvider', () => {
                   A,
                   'a',
                 )
-              )
+              );
             },
-          }
+          };
 
           // Add to DOM
           const app = window.Vue.createApp(App);
@@ -509,7 +509,7 @@ group('@amaui/style-vue/AmauiStyleProvider', () => {
 
           return {
             value
-          }
+          };
         },
 
         render() {

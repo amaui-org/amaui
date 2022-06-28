@@ -35,14 +35,14 @@ group('@amaui/style-react/AmauiThemeProvider', () => {
         const amauiTheme = useAmauiTheme();
 
         window.React.useEffect(() => {
-          value.push(amauiTheme);
-        }, []);
+          if (amauiTheme.element) value.push(amauiTheme);
+        });
 
         return (
           eval(window.Babel.transform(`
-            <div>
+            <a>
               {props.children}
-            </div>
+            </a>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
         );
       };
@@ -144,8 +144,8 @@ group('@amaui/style-react/AmauiThemeProvider', () => {
           const amauiTheme = useAmauiTheme();
 
           window.React.useEffect(() => {
-            value.push(amauiTheme);
-          }, []);
+            if (amauiTheme.element) value.push(amauiTheme);
+          });
 
           return (
             eval(window.Babel.transform(`
@@ -482,7 +482,7 @@ group('@amaui/style-react/AmauiThemeProvider', () => {
                   palette: {
                     light: false
                   }
-                })
+                });
               }, 140);
             }, []);
 
@@ -595,7 +595,7 @@ group('@amaui/style-react/AmauiThemeProvider', () => {
                   palette: {
                     light: false
                   }
-                })
+                });
               }, 140);
             }, []);
 
@@ -676,8 +676,8 @@ group('@amaui/style-react/AmauiThemeProvider', () => {
         const amauiTheme = useAmauiTheme();
 
         window.React.useEffect(() => {
-          value.push(amauiTheme);
-        }, []);
+          if (amauiTheme.element) value.push(amauiTheme);
+        });
 
         return (
           eval(window.Babel.transform(`

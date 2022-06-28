@@ -42,7 +42,7 @@ group('@amaui/style-vue/style', () => {
             )
           );
         }
-      }
+      };
 
       const App = {
         setup() {
@@ -66,9 +66,9 @@ group('@amaui/style-vue/style', () => {
                 )
               ]
             )
-          )
+          );
         },
-      }
+      };
 
       // Add to DOM
       const app = window.Vue.createApp(App);
@@ -140,7 +140,7 @@ group('@amaui/style-vue/style', () => {
             )
           );
         }
-      }
+      };
 
       const App = {
         setup() {
@@ -164,9 +164,9 @@ group('@amaui/style-vue/style', () => {
                 )
               ]
             )
-          )
+          );
         },
-      }
+      };
 
       // Add to DOM
       const app = window.Vue.createApp(App);
@@ -240,7 +240,7 @@ group('@amaui/style-vue/style', () => {
               )
             );
           }
-        }
+        };
 
         const App = {
           setup() {
@@ -264,9 +264,9 @@ group('@amaui/style-vue/style', () => {
                   )
                 ]
               )
-            )
+            );
           },
-        }
+        };
 
         // Add to DOM
         const app = window.Vue.createApp(App);
@@ -352,7 +352,7 @@ group('@amaui/style-vue/style', () => {
               amauiTheme.value.update({ palette: { light: false } });
             }, 140);
           }
-        }
+        };
 
         const App = {
           setup() {
@@ -369,9 +369,9 @@ group('@amaui/style-vue/style', () => {
                   )
                 ]
               )
-            )
+            );
           },
-        }
+        };
 
         // Add to DOM
         const app = window.Vue.createApp(App);
@@ -446,7 +446,7 @@ group('@amaui/style-vue/style', () => {
               )
             );
           }
-        }
+        };
 
         const App = {
           setup() {
@@ -458,7 +458,7 @@ group('@amaui/style-vue/style', () => {
 
             return {
               a
-            }
+            };
           },
 
           mounted() {
@@ -487,7 +487,7 @@ group('@amaui/style-vue/style', () => {
               )
             );
           }
-        }
+        };
 
         // Add to DOM
         const app = window.Vue.createApp(App);
@@ -616,7 +616,7 @@ group('@amaui/style-vue/style', () => {
               )
             );
           }
-        }
+        };
 
         // Add to DOM
         const app = window.Vue.createApp(App);

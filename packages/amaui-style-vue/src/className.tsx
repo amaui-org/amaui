@@ -19,7 +19,7 @@ export default function className(value_: string | TValue, props_: any = {}, cla
 
   const styles = useStyle(props);
 
-  const classProp = Vue.computed(() => classNames([className_, styles.value.class]))
+  const classProp = Vue.computed(() => classNames([className_, styles.value.class]));
 
   return classProp;
 }

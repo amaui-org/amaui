@@ -98,9 +98,9 @@ group('use cases', () => {
                   )
                 ]
               )
-            )
+            );
           },
-        }
+        };
 
         // Add to DOM
         const app = window.Vue.createApp(App);
@@ -227,9 +227,9 @@ group('use cases', () => {
                   )
                 ]
               )
-            )
+            );
           },
-        }
+        };
 
         // Add to DOM
         const app = window.Vue.createApp(App);
@@ -356,9 +356,9 @@ group('use cases', () => {
                   )
                 ]
               )
-            )
+            );
           },
-        }
+        };
 
         // Add to DOM
         const app = window.Vue.createApp(App);
@@ -458,9 +458,9 @@ group('use cases', () => {
                   )
                 ]
               )
-            )
+            );
           },
-        }
+        };
 
         // Add to DOM
         const app = window.Vue.createApp(App);

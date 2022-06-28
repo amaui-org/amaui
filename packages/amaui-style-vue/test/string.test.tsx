@@ -34,7 +34,7 @@ group('@amaui/style-vue/string', () => {
             )
           );
         }
-      }
+      };
 
       const App = {
         setup() {
@@ -58,9 +58,9 @@ group('@amaui/style-vue/string', () => {
                 )
               ]
             )
-          )
+          );
         },
-      }
+      };
 
       // Add to DOM
       const app = window.Vue.createApp(App);
@@ -119,7 +119,7 @@ group('@amaui/style-vue/string', () => {
             )
           );
         }
-      }
+      };
 
       const App = {
         setup() {
@@ -143,9 +143,9 @@ group('@amaui/style-vue/string', () => {
                 )
               ]
             )
-          )
+          );
         },
-      }
+      };
 
       // Add to DOM
       const app = window.Vue.createApp(App);
@@ -206,7 +206,7 @@ group('@amaui/style-vue/string', () => {
               )
             );
           }
-        }
+        };
 
         const App = {
           setup() {
@@ -230,9 +230,9 @@ group('@amaui/style-vue/string', () => {
                   )
                 ]
               )
-            )
+            );
           },
-        }
+        };
 
         // Add to DOM
         const app = window.Vue.createApp(App);
@@ -337,7 +337,7 @@ group('@amaui/style-vue/string', () => {
               )
             );
           }
-        }
+        };
 
         // Add to DOM
         const app = window.Vue.createApp(App);

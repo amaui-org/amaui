@@ -10,6 +10,16 @@ export interface IAmauiThemeProvider extends AmauiTheme {
   updateWithRerender?: (value: any) => AmauiTheme;
 }
 
+const resolveValue = (value: AmauiTheme) => {
+  const toFilterOut = ['id', 'element'];
+
+  const valueNew = {};
+
+  Object.keys(value).filter(item => toFilterOut.indexOf(item) === -1).forEach(item => valueNew[item] = value[item]);
+
+  return valueNew;
+};
+
 export default function AmauiThemeProvider(props) {
   const { children, value: valueLocal = {}, ...other } = props;
 
@@ -17,34 +27,41 @@ export default function AmauiThemeProvider(props) {
 
   const valueParent = useAmauiTheme() as any || {};
 
-  const [value, setValue] = React.useState<IAmauiThemeProvider>(() => new AmauiTheme(merge({ ...copy(valueLocal) }, { ...valueParent }, { copy: true })));
-  const [init, setInit] = React.useState(false);
+  const [value, setValue] = React.useState<IAmauiThemeProvider>(() => new AmauiTheme(merge(copy(resolveValue({ ...valueLocal })), copy(resolveValue({ ...valueParent })), { copy: true })));
 
   React.useEffect(() => {
     if (ref.current) {
-      value.element = ref.current;
+      const amauiTheme = new AmauiTheme(value, ref.current);
+
+      amauiTheme.id = value.id;
 
       // Init
-      setValue(new AmauiTheme(value));
+      setValue(amauiTheme);
     }
   }, []);
 
   React.useEffect(() => {
-    if (init) {
-      value.update(merge({ ...copy(valueLocal) }, { ...valueParent }, { copy: true }));
+    value.update(merge(copy(resolveValue({ ...valueLocal })), copy(resolveValue({ ...valueParent })), { copy: true }));
 
-      // Init
-      setValue(new AmauiTheme(value));
-    }
-    else setInit(true);
-  }, [hash(valueLocal), hash(valueParent)]);
+    const amauiTheme = new AmauiTheme(value, ref.current);
+
+    amauiTheme.id = value.id;
+
+    // Init
+    setValue(amauiTheme);
+  }, [hash(resolveValue(valueLocal)), hash(resolveValue(valueParent))]);
 
   const update = (updateValue: any) => {
     if (updateValue !== undefined) {
       // Update
       value.update(updateValue);
 
-      setValue(new AmauiTheme(value));
+      const amauiTheme = new AmauiTheme(value, ref.current);
+
+      amauiTheme.id = value.id;
+
+      // Init
+      setValue(amauiTheme);
 
       return value;
     }

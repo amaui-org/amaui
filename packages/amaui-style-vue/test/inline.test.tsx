@@ -58,9 +58,9 @@ group('@amaui/style-vue/inline', () => {
                 )
               ]
             )
-          )
+          );
         },
-      }
+      };
 
       // Add to DOM
       const app = window.Vue.createApp(App);
@@ -134,9 +134,9 @@ group('@amaui/style-vue/inline', () => {
                 )
               ]
             )
-          )
+          );
         },
-      }
+      };
 
       // Add to DOM
       const app = window.Vue.createApp(App);
@@ -212,9 +212,9 @@ group('@amaui/style-vue/inline', () => {
                   )
                 ]
               )
-            )
+            );
           },
-        }
+        };
 
         // Add to DOM
         const app = window.Vue.createApp(App);
@@ -277,7 +277,7 @@ group('@amaui/style-vue/inline', () => {
               amauiTheme.value.update({ palette: { light: false } });
             }, 140);
           }
-        }
+        };
 
         const App = {
           setup() {
@@ -294,9 +294,9 @@ group('@amaui/style-vue/inline', () => {
                   )
                 ]
               )
-            )
+            );
           },
-        }
+        };
 
         // Add to DOM
         const app = window.Vue.createApp(App);
@@ -348,7 +348,7 @@ group('@amaui/style-vue/inline', () => {
               )
             );
           }
-        }
+        };
 
         const App = {
           setup() {
@@ -360,7 +360,7 @@ group('@amaui/style-vue/inline', () => {
 
             return {
               a
-            }
+            };
           },
 
           mounted() {
@@ -389,7 +389,7 @@ group('@amaui/style-vue/inline', () => {
               )
             );
           }
-        }
+        };
 
         // Add to DOM
         const app = window.Vue.createApp(App);
@@ -484,7 +484,7 @@ group('@amaui/style-vue/inline', () => {
               )
             );
           }
-        }
+        };
 
         // Add to DOM
         const app = window.Vue.createApp(App);

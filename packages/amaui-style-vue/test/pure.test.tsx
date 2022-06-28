@@ -35,7 +35,7 @@ group('@amaui/style-vue/pure', () => {
             )
           );
         }
-      }
+      };
 
       const App = {
         setup() {
@@ -49,9 +49,9 @@ group('@amaui/style-vue/pure', () => {
                 )
               ]
             )
-          )
+          );
         },
-      }
+      };
 
       // Add to DOM
       const app = window.Vue.createApp(App);
@@ -110,7 +110,7 @@ group('@amaui/style-vue/pure', () => {
             )
           );
         }
-      }
+      };
 
       const App = {
         setup() {
@@ -124,9 +124,9 @@ group('@amaui/style-vue/pure', () => {
                 )
               ]
             )
-          )
+          );
         },
-      }
+      };
 
       // Add to DOM
       const app = window.Vue.createApp(App);
@@ -187,7 +187,7 @@ group('@amaui/style-vue/pure', () => {
               )
             );
           }
-        }
+        };
 
         const App = {
           setup() {
@@ -201,9 +201,9 @@ group('@amaui/style-vue/pure', () => {
                   )
                 ]
               )
-            )
+            );
           },
-        }
+        };
 
         // Add to DOM
         const app = window.Vue.createApp(App);
@@ -276,7 +276,7 @@ group('@amaui/style-vue/pure', () => {
               amauiTheme.value.update({ palette: { light: false } });
             }, 140);
           }
-        }
+        };
 
         const App = {
           setup() {
@@ -293,9 +293,9 @@ group('@amaui/style-vue/pure', () => {
                   )
                 ]
               )
-            )
+            );
           },
-        }
+        };
 
         // Add to DOM
         const app = window.Vue.createApp(App);
@@ -361,7 +361,7 @@ group('@amaui/style-vue/pure', () => {
               )
             );
           }
-        }
+        };
 
         const App = {
           setup() {
@@ -373,7 +373,7 @@ group('@amaui/style-vue/pure', () => {
 
             return {
               a
-            }
+            };
           },
 
           mounted() {
@@ -398,7 +398,7 @@ group('@amaui/style-vue/pure', () => {
               )
             );
           }
-        }
+        };
 
         // Add to DOM
         const app = window.Vue.createApp(App);
@@ -498,7 +498,7 @@ group('@amaui/style-vue/pure', () => {
               )
             );
           }
-        }
+        };
 
         // Add to DOM
         const app = window.Vue.createApp(App);

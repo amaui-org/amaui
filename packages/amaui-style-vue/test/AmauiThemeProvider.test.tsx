@@ -27,9 +27,9 @@ group('@amaui/style-vue/AmauiThemeProvider', () => {
               'a',
               slots.default()
             )
-          )
+          );
         }
-      }
+      };
 
       const App = {
         setup() {
@@ -81,9 +81,9 @@ group('@amaui/style-vue/AmauiThemeProvider', () => {
                 )
               ]
             )
-          )
+          );
         },
-      }
+      };
 
       // Add to DOM
       const app = window.Vue.createApp(App);
@@ -147,9 +147,9 @@ group('@amaui/style-vue/AmauiThemeProvider', () => {
               'a',
               slots.default()
             )
-          )
+          );
         }
-      }
+      };
 
       const App = {
         setup() {
@@ -201,9 +201,9 @@ group('@amaui/style-vue/AmauiThemeProvider', () => {
                 )
               ]
             )
-          )
+          );
         },
-      }
+      };
 
       // Add to DOM
       const app = window.Vue.createApp(App);
@@ -271,7 +271,7 @@ group('@amaui/style-vue/AmauiThemeProvider', () => {
                 'a',
                 slots.default()
               )
-            )
+            );
           },
 
           mounted() {
@@ -287,7 +287,7 @@ group('@amaui/style-vue/AmauiThemeProvider', () => {
 
             value.push(amauiTheme.value.palette.light);
           }
-        }
+        };
 
         const App = {
           setup() {
@@ -340,7 +340,7 @@ group('@amaui/style-vue/AmauiThemeProvider', () => {
               )
             );
           },
-        }
+        };
 
         // Add to DOM
         const app = window.Vue.createApp(App);
@@ -379,7 +379,7 @@ group('@amaui/style-vue/AmauiThemeProvider', () => {
                 'a',
                 slots.default()
               )
-            )
+            );
           },
 
           mounted() {
@@ -392,7 +392,7 @@ group('@amaui/style-vue/AmauiThemeProvider', () => {
 
             value.push(amauiTheme.value.palette.light);
           }
-        }
+        };
 
         const App = {
           setup() {
@@ -445,7 +445,7 @@ group('@amaui/style-vue/AmauiThemeProvider', () => {
               )
             );
           },
-        }
+        };
 
         // Add to DOM
         const app = window.Vue.createApp(App);
@@ -488,7 +488,7 @@ group('@amaui/style-vue/AmauiThemeProvider', () => {
                 'a',
                 slots.default()
               )
-            )
+            );
           },
 
           mounted() {
@@ -500,7 +500,7 @@ group('@amaui/style-vue/AmauiThemeProvider', () => {
               amauiTheme.value.palette.color.secondary.main
             ]);
           }
-        }
+        };
 
         const App = {
           setup() {
@@ -564,7 +564,7 @@ group('@amaui/style-vue/AmauiThemeProvider', () => {
               )
             );
           }
-        }
+        };
 
         // Add to DOM
         const app = window.Vue.createApp(App);
@@ -618,7 +618,7 @@ group('@amaui/style-vue/AmauiThemeProvider', () => {
                 'a',
                 slots.default()
               )
-            )
+            );
           },
 
           mounted() {
@@ -630,7 +630,7 @@ group('@amaui/style-vue/AmauiThemeProvider', () => {
               amauiTheme.value.palette.color.secondary.main
             ]);
           }
-        }
+        };
 
         const App = {
           setup() {
@@ -694,7 +694,7 @@ group('@amaui/style-vue/AmauiThemeProvider', () => {
               )
             );
           }
-        }
+        };
 
         // Add to DOM
         const app = window.Vue.createApp(App);
@@ -749,9 +749,9 @@ group('@amaui/style-vue/AmauiThemeProvider', () => {
               'a',
               slots.default()
             )
-          )
+          );
         }
-      }
+      };
 
       const App = {
         setup() {
@@ -792,9 +792,9 @@ group('@amaui/style-vue/AmauiThemeProvider', () => {
                 )
               ]
             )
-          )
+          );
         },
-      }
+      };
 
       // Add to DOM
       const app = window.Vue.createApp(App);
@@ -856,7 +856,7 @@ group('@amaui/style-vue/AmauiThemeProvider', () => {
                 'a',
                 slots.default()
               )
-            )
+            );
           }
         };
 
@@ -867,7 +867,7 @@ group('@amaui/style-vue/AmauiThemeProvider', () => {
                 A,
                 'a',
               )
-            )
+            );
           },
         };
 
@@ -911,9 +911,9 @@ group('@amaui/style-vue/AmauiThemeProvider', () => {
                   'a',
                   slots.default()
                 )
-              )
+              );
             }
-          }
+          };
 
           const App = {
             setup() {
@@ -922,9 +922,9 @@ group('@amaui/style-vue/AmauiThemeProvider', () => {
                   A,
                   'a',
                 )
-              )
+              );
             },
-          }
+          };
 
           // Add to DOM
           const app = window.Vue.createApp(App);
@@ -967,7 +967,7 @@ group('@amaui/style-vue/AmauiThemeProvider', () => {
 
           return {
             value
-          }
+          };
         },
 
         render() {

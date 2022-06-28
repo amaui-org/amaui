@@ -36,7 +36,7 @@ export default function style(value: TValue, options_: IOptions = {}) {
       if (response === undefined) response = amauiStyleMethod(value, merge(options, options_, { copy: true }));
 
       // Update values for ssr as a priorty
-      values_ = names(response.amaui_style_sheet_manager.names)
+      values_ = names(response.amaui_style_sheet_manager.names);
 
       setValues(values_);
     }

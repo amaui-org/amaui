@@ -13,16 +13,16 @@ export default {
 
     const valueParent = Vue.inject<AmauiTheme>('amauiTheme');
 
-    const value = Vue.ref(new AmauiTheme(merge({ ...copy(valueLocal.value) }, { ...(valueParent?.value || {}) }, { copy: true })));
+    const value = Vue.ref(new AmauiTheme(merge(copy({ ...valueLocal.value }), copy({ ...(valueParent?.value || {}) }), { copy: true })));
 
     // Value local
     if (valueLocal.value) Vue.watch(valueLocal.value, valueNew => {
-      value.value.update(merge({ ...copy(valueNew) }, { ...(valueParent?.value || {}) }, { copy: true }));
+      value.value.update(merge(copy({ ...valueNew }), copy({ ...(valueParent?.value || {}) }), { copy: true }));
     });
 
     // Value parent
     if (valueParent) Vue.watch(valueParent.value, valueNew => {
-      value.value.update(merge({ ...copy(valueLocal.value) }, { ...valueNew }, { copy: true }));
+      value.value.update(merge(copy({ ...valueNew }), copy({ ...(valueNew || {}) }), { copy: true }));
     });
 
     Vue.provide('amauiTheme', value);
