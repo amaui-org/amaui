@@ -22,7 +22,7 @@ export default {
 
     // Value parent
     if (valueParent) Vue.watch(valueParent.value, valueNew => {
-      value.value.update(merge(copy({ ...valueNew }), copy({ ...(valueNew || {}) }), { copy: true }));
+      value.value.update(merge(copy({ ...valueLocal.value }), copy({ ...(valueNew || {}) }), { copy: true }));
     });
 
     Vue.provide('amauiTheme', value);

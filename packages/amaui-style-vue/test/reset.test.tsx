@@ -694,9 +694,7 @@ group('@amaui/style-vue/reset', () => {
           mounted() {
             const amauiTheme = window.Vue.inject('amauiTheme');
 
-            setTimeout(() => {
-              window.value.push(window.document.styleSheets.length, Array.from(window.document.styleSheets).map((sheet: any) => Array.from(sheet.cssRules).map((rule: any) => rule.cssText)), window.document.getElementById('app').innerHTML);
-            });
+            window.value.push(window.document.styleSheets.length, Array.from(window.document.styleSheets).map((sheet: any) => Array.from(sheet.cssRules).map((rule: any) => rule.cssText)), window.document.getElementById('app').innerHTML);
 
             setTimeout(() => {
               amauiTheme.value.update({ palette: { light: false } });
