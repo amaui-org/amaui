@@ -356,7 +356,7 @@ group('@amaui/style-vue/AmauiThemeProvider', () => {
         true,
         false,
         true,
-        ...new Array(4).fill(false)
+        ...new Array(3).fill(false)
       ]));
     });
 
@@ -461,7 +461,7 @@ group('@amaui/style-vue/AmauiThemeProvider', () => {
         true,
         false,
         true,
-        ...new Array(4).fill(false)
+        ...new Array(3).fill(false)
       ]));
     });
 
