@@ -27,25 +27,31 @@ export default class AmauiThemeElement extends HTMLElement {
     this.amaui_theme = value;
   }
 
-  public static get observedAttributes() {
-    return ['id'];
-  }
-
   public connectedCallback() {
-    this.update(undefined, false);
+    this.init();
   }
 
-  public update(value_?: any, rerender = true) {
+  public init() {
+    const valueLocal = parse(this.getAttribute('value'));
+
+    const valueParent = useAmauiTheme(this, true);
+
+    this.value = new AmauiTheme(merge(copy(resolveValue({ ...valueLocal })), copy(resolveValue({ ...valueParent })), { copy: true }), this);
+
+    return this.value;
+  }
+
+  public update(value_?: any) {
     const valueLocal = value_ || parse(this.getAttribute('value'));
 
-    const valueParent = useAmauiTheme(this);
+    const valueParent = useAmauiTheme(this, true);
 
     // Make a amauiTheme
     const value = merge(copy(resolveValue({ ...valueLocal })), copy(resolveValue({ ...valueParent })), { copy: true });
 
     this.value.update(value);
 
-    if (rerender) this.rerender();
+    this.rerender();
 
     return this.value;
   }
@@ -57,5 +63,5 @@ export default class AmauiThemeElement extends HTMLElement {
 
 // Register in window
 if (isEnvironment('browser')) {
-  if (!window.customElements.get('amaui-style')) window.customElements.define('amaui-theme', AmauiThemeElement);
+  if (!window.customElements.get('amaui-theme')) window.customElements.define('amaui-theme', AmauiThemeElement);
 }
