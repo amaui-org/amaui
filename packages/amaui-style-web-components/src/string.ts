@@ -1,6 +1,6 @@
 import { style } from '.';
 
-interface IMethod {
+export interface IStringMethod {
   value: string;
   methods: {
     remove?: () => void;
@@ -8,9 +8,9 @@ interface IMethod {
   };
 }
 
-type TResponse = (values: Array<string>, ...args: any[]) => IMethod;
+type TResponse = (values: Array<string>, ...args: any[]) => IStringMethod;
 
-export default function (Element: Element, props?: any): TResponse {
+export default function (Element: HTMLElement, props?: any): TResponse {
 
   const method = (values: Array<string>, ...args: any[]) => {
     const method_ = () => values.reduce((result, item, index) => result += `${item}${args[index] || ''}`, '');

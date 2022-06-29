@@ -1,30 +1,44 @@
 import { merge, is } from '@amaui/utils';
+import { IMethodResponse, IResponse, names, pure as amauiPureMethod, TValue, TValueMethod } from '@amaui/style';
+import { IOptions } from '@amaui/style/style';
 
-import { AmauiStyle, AmauiTheme, IMethodResponse, IResponse, pure as amauiPureMethod, TValue, TValueMethod } from '@amaui/style';
-import { IOptions } from '@amaui/style/pure';
+import { useAmauiStyle } from './AmauiStyleProvider';
+import { useAmauiTheme } from './AmauiThemeProvider';
+import { IStyleResponse } from './style';
 
 export default function pure(value: TValue, options_: IOptions = {}) {
   let response: IMethodResponse;
+  let values_: IResponse = {};
 
-  function useStyle(Element: Element, props?: any) {
-    let values: IResponse;
+  function usePure(Element: HTMLElement, props?: any): IStyleResponse {
+    let values: IResponse = values_;
 
-    const amauiStyle = AmauiStyle.nearest(Element);
-    const amauiTheme = AmauiTheme.nearest(Element);
+    const amauiStyle = useAmauiStyle(Element);
+    const amauiTheme = useAmauiTheme(Element);
 
-    // Init
-    const options = {
-      amaui_style: { value: undefined },
-      amaui_theme: { value: undefined },
-    };
+    // Init only once
+    // it has to be in body of method
+    // as for ssr it actually calls the method
+    // and it doesn't use hooks on ssr
+    if (response === undefined) {
+      const options = {
+        amaui_style: { value: undefined },
+        amaui_theme: { value: undefined },
+      };
 
-    // AmauiStyle
-    if (amauiStyle === undefined) options.amaui_style.value = amauiStyle;
+      // AmauiStyle
+      if (amauiStyle !== undefined) options.amaui_style.value = amauiStyle;
 
-    // AmauiTheme
-    if (amauiTheme === undefined) options.amaui_theme.value = amauiTheme;
+      // AmauiTheme
+      if (amauiTheme !== undefined) options.amaui_theme.value = amauiTheme;
 
-    if (response === undefined) response = amauiPureMethod(value, merge(options, options_, { copy: true }));
+      response = amauiPureMethod(value, merge(options, options_, { copy: true }));
+
+      // Update values for ssr as a priorty
+      values_ = names(response.amaui_style_sheet_manager.names);
+
+      values = values_;
+    }
 
     // Add
     const add = () => {
@@ -39,7 +53,7 @@ export default function pure(value: TValue, options_: IOptions = {}) {
         const valueNew = (value as TValueMethod)(amauiTheme);
 
         // Update
-        if (response.update !== undefined) response.update(valueNew);
+        if (response?.update !== undefined) response.update(valueNew);
       }
     };
 
@@ -48,7 +62,7 @@ export default function pure(value: TValue, options_: IOptions = {}) {
     // Remove
     const remove = () => {
       // Unsubscribe
-      amauiTheme.subscriptions.update.unsubscribe(method);
+      if (amauiTheme) amauiTheme.subscriptions.update.unsubscribe(method);
 
       // Remove
       response.remove(values.ids?.dynamic);
@@ -56,7 +70,7 @@ export default function pure(value: TValue, options_: IOptions = {}) {
 
     // Update props
     const updateProps = (props_: any) => {
-      if (response.props !== undefined) response.props = props_;
+      if (response !== undefined && values?.ids) response.props = { ids: values.ids.dynamic, props };
     };
 
     return {
@@ -66,5 +80,5 @@ export default function pure(value: TValue, options_: IOptions = {}) {
     };
   }
 
-  return useStyle;
+  return usePure;
 }

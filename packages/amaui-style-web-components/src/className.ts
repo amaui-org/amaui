@@ -3,18 +3,11 @@ import { IOptions } from '@amaui/style/style';
 import { is } from '@amaui/utils';
 
 import { style } from '.';
+import { IStringMethod } from './string';
 
-interface IMethod {
-  value: string;
-  methods: {
-    remove?: () => void;
-    updateProps?: (props: any) => void;
-  };
-}
+type TResponse = (value_: string | TValue, className_: string, options_: IOptions) => IStringMethod;
 
-type TResponse = (value_: string | TValue, className_: string, props: any, options_: IOptions) => IMethod;
-
-export default function (Element: Element, props?: any): TResponse {
+export default function (Element: HTMLElement, props?: any): TResponse {
 
   const className = (value_: string | TValue, className_: string = '', options: IOptions = {}) => {
     let value = value_;

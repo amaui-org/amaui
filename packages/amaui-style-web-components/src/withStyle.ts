@@ -3,12 +3,12 @@ import { IOptions } from '@amaui/style/style';
 
 import { style } from '.';
 
-const withStyle = (value: TValue, options_: IOptions = {}) => (Element: any) => {
+const withStyle = (Element: any) => (value: TValue, options: IOptions = {}) => {
   // Use styles
-  const useStyle = style(value, options_);
+  const useStyle = style(value, options);
 
   // Element
-  Element.prototype.useStyle = useStyle;
+  if (Element?.prototype) Element.prototype.useStyle = useStyle;
 
   return Element;
 };

@@ -9,7 +9,7 @@ export default function pure(value: TValue, options_: IOptions = {}) {
   let response: IMethodResponse;
   let values_: IResponse;
 
-  function useStyle(props_?: Vue.Ref<any>) {
+  function usePure(props_?: Vue.Ref<any>) {
     const styles = Vue.ref<IResponse>(values_);
 
     const amauiStyle = Vue.inject<AmauiStyle>('amauiStyle')?.value;
@@ -82,5 +82,5 @@ export default function pure(value: TValue, options_: IOptions = {}) {
     return styles;
   }
 
-  return useStyle;
+  return usePure;
 }

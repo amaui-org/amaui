@@ -1,23 +1,20 @@
 import { merge } from '@amaui/utils';
+import { inline as amauiInlineMethod, TValue } from '@amaui/style';
 
-import { AmauiStyle, AmauiTheme, inline as amauiInlineMethod, TValue } from '@amaui/style';
 import { IOptions } from '@amaui/style/inline';
+import { useAmauiStyle } from './AmauiStyleProvider';
+import { useAmauiTheme } from './AmauiThemeProvider';
 
-export default function (Element: Element) {
-  const amauiStyle = AmauiStyle.nearest(Element);
-  const amauiTheme = AmauiTheme.nearest(Element);
+export default function (Element: HTMLElement) {
+  return (value_: TValue, props?: any, options_: IOptions = { response: 'css' }) => {
+    const amauiStyle = useAmauiStyle(Element);
+    const amauiTheme = useAmauiTheme(Element);
 
-  const useInline = (value_: TValue, options_: IOptions = {}) => {
-    const inline = () => {
-      const options = merge(options_, { amaui_style: { value: amauiStyle }, amaui_theme: { value: amauiTheme } }, { copy: true });
+    const options = merge(options_, { amaui_style: { value: amauiStyle }, amaui_theme: { value: amauiTheme } }, { copy: true });
 
-      return amauiInlineMethod(value_, options);
-    };
+    // Options response value
+    options.response = 'css';
 
-    return {
-      inline
-    };
+    return amauiInlineMethod(value_, props, options);
   };
-
-  return useInline;
 }
