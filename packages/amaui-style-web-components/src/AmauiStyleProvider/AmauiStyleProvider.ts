@@ -1,6 +1,9 @@
 import { isEnvironment } from '@amaui/utils';
 
-import { AmauiStyle, makeClassName, unit, rtl, sort, valueObject, is } from '@amaui/style';
+import { AmauiStyle, makeClassName, unit, rtl, sort, valueObject } from '@amaui/style';
+
+// Fix for testing ssr
+if (isEnvironment('nodejs')) (global as any).HTMLElement = class HTMLElement { }
 
 function makeAmauiStyle(element?: Element) {
   const amauiStyle = new AmauiStyle(element);
@@ -31,23 +34,13 @@ export default class AmauiStyleElement extends HTMLElement {
     this.amaui_style = value;
   }
 
-  public constructor() {
-    super();
-
-    this.attachShadow({ mode: 'open' });
-
-    this.shadowRoot.innerHTML = `<div><slot /></div>`;
-  }
-
   public connectedCallback() {
-    if (!this.isConnected) {
-      this.value = this.props.value || makeAmauiStyle(this);
+    this.value = this.props.value || makeAmauiStyle(this);
 
-      if (this.props.value) this.value.element = this;
+    if (this.props.value) this.value.element = this;
 
-      // Init
-      this.value.init();
-    }
+    // Init
+    this.value.init();
   }
 
   public update(updateValue) {
@@ -56,14 +49,26 @@ export default class AmauiStyleElement extends HTMLElement {
 
       Object.keys(this.value).forEach(prop => valueNew[prop] = this.value[prop]);
 
-      is('object', updateValue) && Object.keys(updateValue).forEach(prop => valueNew[prop] = updateValue[prop]);
+      Object.keys(updateValue).forEach(prop => valueNew[prop] = updateValue[prop]);
 
       this.value = valueNew;
+
+      this.value.element = this;
+
+      this.value.init();
+
+      // Update method
+      if ((this.value as any).update === undefined) (this.value as any).update = this.update.bind(this);
+
+      this.rerender();
 
       return valueNew;
     }
   }
 
+  public rerender() {
+    this.replaceChildren(...this.children);
+  }
 }
 
 // Register in window

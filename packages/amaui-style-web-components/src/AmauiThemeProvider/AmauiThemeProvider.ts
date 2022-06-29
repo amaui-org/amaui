@@ -1,4 +1,4 @@
-import { isEnvironment, merge, hash, copy } from '@amaui/utils';
+import { isEnvironment, merge, copy, parse } from '@amaui/utils';
 
 import { AmauiTheme } from '@amaui/style';
 import useAmauiTheme from './useAmauiTheme';
@@ -31,54 +31,28 @@ export default class AmauiThemeElement extends HTMLElement {
     return ['id'];
   }
 
-  public constructor() {
-    super();
-
-    this.attachShadow({ mode: 'open' });
-
-    this.shadowRoot.innerHTML = `<slot />`;
-  }
-
   public connectedCallback() {
-    if (!this.isConnected) {
-      this.init();
-    }
+    this.update(undefined, false);
   }
 
-  public attributeChangedCallback(name: string, previous: any, value: any) {
-    if (hash(previous) !== hash(value)) {
-      switch (name) {
-        case 'id':
-          this.init();
-
-          break;
-
-        default:
-          break;
-      }
-    }
-  }
-
-  public update(updateValue: any) {
-    if (updateValue !== undefined) {
-      // Update
-      this.value.update(updateValue);
-
-      return this.value;
-    }
-  }
-
-  private init() {
-    const { value: valueLocal } = this.props;
+  public update(value_?: any, rerender = true) {
+    const valueLocal = value_ || parse(this.getAttribute('value'));
 
     const valueParent = useAmauiTheme(this);
 
     // Make a amauiTheme
     const value = merge(copy(resolveValue({ ...valueLocal })), copy(resolveValue({ ...valueParent })), { copy: true });
 
-    this.value = new AmauiTheme(value);
+    this.value.update(value);
+
+    if (rerender) this.rerender();
+
+    return this.value;
   }
 
+  public rerender() {
+    this.replaceChildren(...this.children);
+  }
 }
 
 // Register in window

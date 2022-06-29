@@ -178,9 +178,9 @@ group('@amaui/style-react/AmauiStyleProvider', () => {
 
         return (
           eval(window.Babel.transform(`
-                <div>
-                  {props.children}
-                </div>
+            <div>
+              {props.children}
+            </div>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
         );
       };

@@ -5,6 +5,6 @@ module.exports = {
   ],
   files: [
     '../../utils/js/test/utils.ts',
-    'test/**/*.test.ts'
+    'test/**/*.test.{ts,tsx}'
   ]
 };

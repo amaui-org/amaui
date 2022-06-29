@@ -41,3 +41,14 @@ export { default as w } from './withStyle';
 export { default as styled } from './styled';
 // Alias
 export { default as sy } from './styled';
+
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      'amaui-style': any;
+
+      'amaui-theme': any;
+    }
+  }
+}
+
