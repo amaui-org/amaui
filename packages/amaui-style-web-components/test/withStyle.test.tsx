@@ -1,43 +1,44 @@
 /* tslint:disable: no-shadowed-variable */
-import ReactDOMServer from 'react-dom/server';
-import React from 'react';
-
 import { assert } from '@amaui/test';
 
 import { evaluate } from '../../../utils/js/test/utils';
 
-import * as AmauiStyleReact from '../src';
+group('@amaui/style-web-components/withStyle', () => {
 
-group('@amaui/style-react/pure', () => {
-
-  to('pure', async () => {
+  to('withStyle', async () => {
     const valueBrowsers = await evaluate(async (window: any) => {
-      const { pure } = window.AmauiStyleReact;
+      const { withStyle } = window.AmauiStyleWebComponents;
 
-      const usePure = pure(theme => ({
-        a: {
-          color: 'yellow'
-        }
-      }));
-
-      const A = (props) => {
-        usePure(props);
+      const A1 = (props) => {
+        const styles = props.styles;
 
         return (
           eval(window.Babel.transform(`
-            <a>
+            <a className={styles.class}>
                 {props.children}
             </a>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
         );
       };
 
+      const A = withStyle(A1)(theme => ({
+        a: {
+          width: '100px',
+        },
+
+        a1: {
+          color: props => props.a === 1 ? 'yellow' : 'orange',
+        }
+      }));
+
       const App = () => {
 
         return (
           eval(window.Babel.transform(`
             <div>
-                <A>a</A>
+                <A a={1}>a</A>
+
+                <A a={14}>a1</A>
             </div>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
         );
@@ -58,44 +59,56 @@ group('@amaui/style-react/pure', () => {
     const values = [...valueBrowsers];
 
     values.forEach(value => assert(value).eql([
-      1,
+      3,
       [
         [
-          "a { color: yellow; }"
+          ".a-0 { width: 100px; }"
+        ],
+        [
+          ".a1-1 { color: yellow; }"
+        ],
+        [
+          ".a1-2 { color: orange; }"
         ]
       ],
-      "<div><a>a</a></div>"
+      "<div><a class=\"a-0 a1-1\">a</a><a class=\"a-0 a1-2\">a1</a></div>"
     ]));
   });
 
-  to('p', async () => {
+  to('w', async () => {
     const valueBrowsers = await evaluate(async (window: any) => {
-      const { p } = window.AmauiStyleReact;
+      const { w } = window.AmauiStyleWebComponents;
 
-      const usePure = p(theme => ({
-        a: {
-          color: 'yellow'
-        }
-      }));
-
-      const A = (props) => {
-        usePure(props);
+      const A1 = (props) => {
+        const styles = props.styles;
 
         return (
           eval(window.Babel.transform(`
-            <a>
+            <a className={styles.class}>
                 {props.children}
             </a>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
         );
       };
 
+      const A = w(A1)(theme => ({
+        a: {
+          width: '100px',
+        },
+
+        a1: {
+          color: props => props.a === 1 ? 'yellow' : 'orange',
+        }
+      }));
+
       const App = () => {
 
         return (
           eval(window.Babel.transform(`
             <div>
-                <A>a</A>
+                <A a={1}>a</A>
+
+                <A a={14}>a1</A>
             </div>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
         );
@@ -116,13 +129,19 @@ group('@amaui/style-react/pure', () => {
     const values = [...valueBrowsers];
 
     values.forEach(value => assert(value).eql([
-      1,
+      3,
       [
         [
-          "a { color: yellow; }"
+          ".a-0 { width: 100px; }"
+        ],
+        [
+          ".a1-1 { color: yellow; }"
+        ],
+        [
+          ".a1-2 { color: orange; }"
         ]
       ],
-      "<div><a>a</a></div>"
+      "<div><a class=\"a-0 a1-1\">a</a><a class=\"a-0 a1-2\">a1</a></div>"
     ]));
   });
 
@@ -130,33 +149,39 @@ group('@amaui/style-react/pure', () => {
 
     to('add', async () => {
       const valueBrowsers = await evaluate(async (window: any) => {
-        const { pure } = window.AmauiStyleReact;
+        const { withStyle } = window.AmauiStyleWebComponents;
 
-        const usePure = pure(theme => ({
-          a: {
-            color: 'yellow'
-          }
-        }));
-
-        const A = (props) => {
-          usePure(props);
+        const A1 = (props) => {
+          const styles = props.styles;
 
           return (
             eval(window.Babel.transform(`
-            <a>
-                {props.children}
-            </a>
+              <a className={styles.class}>
+                  {props.children}
+              </a>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
           );
         };
+
+        const A = withStyle(A1)(theme => ({
+          a: {
+            width: '100px',
+          },
+
+          a1: {
+            color: props => props.a === 1 ? 'yellow' : 'orange',
+          }
+        }));
 
         const App = () => {
 
           return (
             eval(window.Babel.transform(`
-            <div>
-                <A>a</A>
-            </div>
+              <div>
+                <A a={1}>a</A>
+
+                <A a={14}>a1</A>
+              </div>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
           );
         };
@@ -176,13 +201,19 @@ group('@amaui/style-react/pure', () => {
       const values = [...valueBrowsers];
 
       values.forEach(value => assert(value).eql([
-        1,
+        3,
         [
           [
-            "a { color: yellow; }"
+            ".a-0 { width: 100px; }"
+          ],
+          [
+            ".a1-1 { color: yellow; }"
+          ],
+          [
+            ".a1-2 { color: orange; }"
           ]
         ],
-        "<div><a>a</a></div>"
+        "<div><a class=\"a-0 a1-1\">a</a><a class=\"a-0 a1-2\">a1</a></div>"
       ]));
     });
 
@@ -190,16 +221,10 @@ group('@amaui/style-react/pure', () => {
       const valueBrowsers = await evaluate(async (window: any) => {
         window.value = [];
 
-        const { pure, useAmauiTheme, AmauiThemeProvider } = window.AmauiStyleReact;
+        const { withStyle, useAmauiTheme, AmauiThemeProvider } = window.AmauiStyleWebComponents;
 
-        const usePure = pure(theme => ({
-          a: {
-            color: theme.palette.text.default.primary
-          }
-        }));
-
-        const A = props => {
-          usePure(props);
+        const A1 = (props) => {
+          const styles = props.styles;
 
           const amauiTheme = useAmauiTheme();
 
@@ -209,7 +234,7 @@ group('@amaui/style-react/pure', () => {
             });
 
             setTimeout(() => {
-              amauiTheme.update({
+              amauiTheme.updateWithRerender({
                 palette: {
                   light: false
                 }
@@ -219,19 +244,29 @@ group('@amaui/style-react/pure', () => {
 
           return (
             eval(window.Babel.transform(`
-              <a>
-                  {props.children}
+              <a className={styles.class}>
+                {props.children}
               </a>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
           );
         };
+
+        const A = withStyle(A1)(theme => ({
+          a: {
+            width: '100px',
+          },
+
+          a1: {
+            color: theme.palette.text.default.primary
+          }
+        }));
 
         const App = () => {
 
           return (
             eval(window.Babel.transform(`
               <AmauiThemeProvider>
-                  <A>a</A>
+                <A>a</A>
               </AmauiThemeProvider>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
           );
@@ -253,17 +288,19 @@ group('@amaui/style-react/pure', () => {
         1,
         [
           [
-            "a { color: rgba(0, 0, 0, 0.87); }"
+            ".a-0 { width: 100px; }",
+            ".a1-1 { color: rgba(0, 0, 0, 0.87); }"
           ]
         ],
-        "<div data-amaui-theme=\"true\"><a>a</a></div>",
+        "<div data-amaui-theme=\"true\"><a class=\"a-0 a1-1\">a</a></div>",
         1,
         [
           [
-            "a { color: rgba(255, 255, 255, 0.87); }"
+            ".a-0 { width: 100px; }",
+            ".a1-1 { color: rgba(255, 255, 255, 0.87); }"
           ]
         ],
-        "<div data-amaui-theme=\"true\"><a>a</a></div>"
+        "<div data-amaui-theme=\"true\"><a class=\"a-0 a1-1\">a</a></div>"
       ]));
     });
 
@@ -271,25 +308,29 @@ group('@amaui/style-react/pure', () => {
       const valueBrowsers = await evaluate(async (window: any) => {
         window.value = [];
 
-        const { pure } = window.AmauiStyleReact;
+        const { withStyle } = window.AmauiStyleWebComponents;
 
-        const usePure = pure(theme => ({
-          a: {
-            color: props => props.a === 1 ? 'yellow' : 'orange'
-          }
-        }));
-
-        const A = props => {
-          usePure(props);
+        const A1 = (props) => {
+          const styles = props.styles;
 
           return (
             eval(window.Babel.transform(`
-              <a>
+              <a className={styles.class}>
                   {props.children}
               </a>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
           );
         };
+
+        const A = withStyle(A1)(theme => ({
+          a: {
+            width: '100px',
+          },
+
+          a1: {
+            color: props => props.a === 1 ? 'yellow' : 'orange'
+          }
+        }));
 
         const App = () => {
           const [a, setA] = window.React.useState(1);
@@ -309,7 +350,9 @@ group('@amaui/style-react/pure', () => {
           return (
             eval(window.Babel.transform(`
               <div>
-                  <A a={a}>a</A>
+                <A a={a}>a</A>
+
+                <A>a</A>
               </div>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
           );
@@ -326,20 +369,32 @@ group('@amaui/style-react/pure', () => {
       const values = [...valueBrowsers];
 
       values.forEach(value => assert(value).eql([
-        1,
+        3,
         [
           [
-            "a { color: yellow; }"
+            ".a-0 { width: 100px; }"
+          ],
+          [
+            ".a1-1 { color: yellow; }"
+          ],
+          [
+            ".a1-2 { color: orange; }"
           ]
         ],
-        "<div><a>a</a></div>",
-        1,
+        "<div><a class=\"a-0 a1-1\">a</a><a class=\"a-0 a1-2\">a</a></div>",
+        3,
         [
           [
-            "a { color: orange; }"
+            ".a-0 { width: 100px; }"
+          ],
+          [
+            ".a1-1 { color: orange; }"
+          ],
+          [
+            ".a1-2 { color: orange; }"
           ]
         ],
-        "<div><a>a</a></div>"
+        "<div><a class=\"a-0 a1-1\">a</a><a class=\"a-0 a1-2\">a</a></div>"
       ]));
     });
 
@@ -347,25 +402,29 @@ group('@amaui/style-react/pure', () => {
       const valueBrowsers = await evaluate(async (window: any) => {
         window.value = [];
 
-        const { pure } = window.AmauiStyleReact;
+        const { withStyle } = window.AmauiStyleWebComponents;
 
-        const usePure = pure(theme => ({
-          a: {
-            color: 'yellow'
-          }
-        }));
-
-        const A = props => {
-          usePure(props);
+        const A1 = (props) => {
+          const styles = props.styles;
 
           return (
             eval(window.Babel.transform(`
-              <a>
+              <a className={styles.class}>
                   {props.children}
               </a>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
           );
         };
+
+        const A = withStyle(A1)(theme => ({
+          a: {
+            width: '100px',
+          },
+
+          a1: {
+            color: props => props.a === 1 ? 'yellow' : 'orange'
+          }
+        }));
 
         const App = () => {
           const [elements, setElements] = window.React.useState(true);
@@ -388,6 +447,8 @@ group('@amaui/style-react/pure', () => {
                   {elements && (
                     <window.React.Fragment>
                       <A>a</A>
+
+                      <A>a</A>
                     </window.React.Fragment>
                   )}
               </div>
@@ -406,13 +467,19 @@ group('@amaui/style-react/pure', () => {
       const values = [...valueBrowsers];
 
       values.forEach(value => assert(value).eql([
-        1,
+        3,
         [
           [
-            "a { color: yellow; }"
+            ".a-0 { width: 100px; }"
+          ],
+          [
+            ".a1-1 { color: orange; }"
+          ],
+          [
+            ".a1-2 { color: orange; }"
           ]
         ],
-        "<div><a>a</a></div>",
+        "<div><a class=\"a-0 a1-1\">a</a><a class=\"a-0 a1-2\">a</a></div>",
         0,
         [],
         "<div></div>"
@@ -423,51 +490,63 @@ group('@amaui/style-react/pure', () => {
 
   group('ssr', () => {
 
-    to('renderToString', async () => {
-      const { AmauiStyle, AmauiStyleProvider, AmauiThemeProvider, pure } = AmauiStyleReact;
+    //     to('renderToString', async () => {
+    //       const { AmauiStyle, AmauiStyleProvider, AmauiThemeProvider, withStyle } = AmauiStyleReact;
 
-      const amauiStyle = new AmauiStyle();
+    //       const amauiStyle = new AmauiStyle();
 
-      const usePure = pure(theme => ({
-        a: {
-          color: 'yellow'
-        }
-      }));
+    //       const A1 = (props) => {
+    //         const styles = props.styles;
 
-      const A = props => {
-        usePure(props);
+    //         return (
+    //           <a className={styles.class}>
+    //             {props.children}
+    //           </a>
+    //         );
+    //       };
 
-        return (
-          <a>
-            {props.children}
-          </a>
-        );
-      };
+    //       const A = withStyle(A1)(theme => ({
+    //         a: {
+    //           width: '100px',
+    //         },
 
-      const App = () => {
-        return (
-          <AmauiStyleProvider value={amauiStyle}>
-            <AmauiThemeProvider>
-              <A>
-                a
-              </A>
-            </AmauiThemeProvider>
-          </AmauiStyleProvider>
-        );
-      };
+    //         a1: {
+    //           color: theme.palette.text.default.primary
+    //         },
 
-      const value = ReactDOMServer.renderToString(React.createElement(App, null));
+    //         a4: {
+    //           background: props => props.a === 1 ? 'yellow' : 'orange'
+    //         }
+    //       }));
 
-      assert(value).eq('<div><div><a>a</a></div></div>');
+    //       const App = () => {
+    //         return (
+    //           <AmauiStyleProvider value={amauiStyle}>
+    //             <AmauiThemeProvider>
+    //               <A>
+    //                 a
+    //               </A>
+    //             </AmauiThemeProvider>
+    //           </AmauiStyleProvider>
+    //         );
+    //       };
 
-      assert(amauiStyle.css).eq(`
+    //       const value = ReactDOMServer.renderToString(React.createElement(App, null));
 
-a {
-  color: yellow;
-}
+    //       assert(value).eq('<div><div><a class="a-0 a1-1">a</a></div></div>');
 
-`);
-    });
+    //       assert(amauiStyle.css).eq(`
+
+    // .a-0 {
+    //   width: 100px;
+    // }
+
+    // .a1-1 {
+    //   color: rgba(0, 0, 0, 0.87);
+    // }
+
+    // `);
+    //     });
 
   });
 

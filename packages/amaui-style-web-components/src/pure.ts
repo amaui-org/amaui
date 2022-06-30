@@ -70,7 +70,7 @@ export default function pure(value: TValue, options_: IOptions = {}) {
 
     // Update props
     const updateProps = (props_: any) => {
-      if (response !== undefined && values?.ids) response.props = { ids: values.ids.dynamic, props };
+      if (response !== undefined && values?.ids) response.props = { ids: values.ids.dynamic, props: props_ };
     };
 
     return {
