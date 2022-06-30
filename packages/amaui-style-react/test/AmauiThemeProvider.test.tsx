@@ -664,7 +664,7 @@ group('@amaui/style-react/AmauiThemeProvider', () => {
 
   to('root props', async () => {
     const valueBrowsers = await evaluate(async (window: any) => {
-      const value = [];
+      window.value = [];
 
       const { AmauiTheme, useAmauiTheme, AmauiThemeProvider } = window.AmauiStyleReact;
 
@@ -672,7 +672,7 @@ group('@amaui/style-react/AmauiThemeProvider', () => {
         const amauiTheme = useAmauiTheme();
 
         window.React.useEffect(() => {
-          if (amauiTheme.element) value.push(amauiTheme);
+          if (amauiTheme.element) window.value.push(amauiTheme);
         });
 
         return (
@@ -716,14 +716,14 @@ group('@amaui/style-react/AmauiThemeProvider', () => {
       await window.AmauiUtils.wait(140);
 
       return [
-        value.length === 2,
-        value.every(item => item instanceof AmauiTheme),
-        value[0].a === 'a1',
-        value[0].direction,
-        value[0].options,
-        value[1].a === 'a',
-        value[1].direction,
-        value[1].options,
+        window.value.length === 2,
+        window.value.every(item => item instanceof AmauiTheme),
+        window.value[0].a === 'a1',
+        window.value[0].direction,
+        window.value[0].options,
+        window.value[1].a === 'a',
+        window.value[1].direction,
+        window.value[1].options,
       ];
     });
 
