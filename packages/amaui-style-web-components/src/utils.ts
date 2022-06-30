@@ -10,4 +10,4 @@ export const getAttributeValues = (value: HTMLElement) => {
   }
 
   return values;
-}
+};

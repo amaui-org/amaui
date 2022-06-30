@@ -2,10 +2,8 @@ import { style } from '.';
 
 export interface IStringMethod {
   value: string;
-  methods: {
-    remove?: () => void;
-    updateProps?: (props: any) => void;
-  };
+  remove?: () => void;
+  updateProps?: (props: any) => void;
 }
 
 type TResponse = (values: Array<string>, ...args: any[]) => IStringMethod;
@@ -28,10 +26,7 @@ export default function (Element: HTMLElement, props?: any): TResponse {
 
     return {
       value: styles.class,
-      methods: {
-        remove: useStyleValue.remove,
-        updateProps: useStyleValue.updateProps,
-      }
+      remove: useStyleValue.remove
     };
   };
 

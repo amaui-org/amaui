@@ -3,7 +3,7 @@ import { isEnvironment } from '@amaui/utils';
 import { AmauiStyle, makeClassName, unit, rtl, sort, valueObject } from '@amaui/style';
 
 // Fix for testing ssr
-if (isEnvironment('nodejs')) (global as any).HTMLElement = class HTMLElement { }
+if (isEnvironment('nodejs')) (global as any).HTMLElement = class HTMLElement { };
 
 function makeAmauiStyle(element?: Element) {
   const amauiStyle = new AmauiStyle(element);
@@ -35,9 +35,10 @@ export default class AmauiStyleElement extends HTMLElement {
   }
 
   public connectedCallback() {
-    this.value = this.props.value || makeAmauiStyle(this);
+    // protoValue is for testing mostly
+    this.value = (this as any).protoValue || this.props.value || makeAmauiStyle(this);
 
-    if (this.props.value) this.value.element = this;
+    if ((this as any).protoValue || this.props.value) this.value.element = this;
 
     // Init
     this.value.init();

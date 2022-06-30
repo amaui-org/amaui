@@ -11,7 +11,7 @@ const styled = (tag: string, name: string, attributes: Array<string> = []) => (v
   const useStyle = style(value, options);
 
   class StyledElement extends HTMLElement {
-    public props: any = {};
+    public props: any;
     private useStyle: IStyleResponse;
     private styles: IResponse;
 
@@ -26,25 +26,23 @@ const styled = (tag: string, name: string, attributes: Array<string> = []) => (v
     }
 
     public connectedCallback() {
-      if (!this.isConnected) {
-        // On mount as useStyle needs element in the DOM
-        // to use useAmauiTheme and useAmauiStyle
-        this.useStyle = useStyle(this, this.props);
+      // On mount as useStyle needs element in the DOM
+      // to use useAmauiTheme and useAmauiStyle
+      this.useStyle = useStyle(this, this.props || getAttributeValues(this));
 
-        // Add
-        this.styles = this.useStyle.add();
+      // Add
+      this.styles = this.useStyle.add();
 
-        // Update the root className
-        this.className = classNames([this.className, this.styles.class]) as string;
-      }
+      // Update the root className
+      this.className = classNames([this.className, this.styles.class]) as string;
     }
 
     public attributeChangedCallback() {
       // Update props
-      this.useStyle.updateProps(this.props || getAttributeValues(this));
+      this.useStyle?.updateProps(this.props || getAttributeValues(this));
     }
 
-    public disconnectCallback() {
+    public disconnectedCallback() {
       // Remove
       this.useStyle.remove();
     }

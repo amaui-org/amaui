@@ -61,7 +61,7 @@ group('use cases', () => {
         };
 
         const App = () => {
-          const amauiStyle = new AmauiStyle(undefined, undefined, undefined);
+          const amauiStyle = new AmauiStyle();
 
           return (
             eval(window.Babel.transform(`

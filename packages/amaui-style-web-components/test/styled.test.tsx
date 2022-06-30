@@ -9,7 +9,7 @@ group('@amaui/style-web-components/styled', () => {
     const valueBrowsers = await evaluate(async (window: any) => {
       const { styled } = window.AmauiStyleWebComponents;
 
-      const A = styled('a')(theme => ({
+      const A = styled('a', 'a-a')(theme => ({
         a: {
           width: '100px',
         },
@@ -24,9 +24,9 @@ group('@amaui/style-web-components/styled', () => {
         return (
           eval(window.Babel.transform(`
             <div>
-                <A a={1}>a</A>
+                <a-a a={1}>a</a-a>
 
-                <A a={14}>a1</A>
+                <a-a a={14}>a1</a-a>
             </div>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
         );
@@ -59,7 +59,7 @@ group('@amaui/style-web-components/styled', () => {
           ".a1-2 { color: orange; }"
         ]
       ],
-      "<div><a class=\"a-0 a1-1\" a=\"1\">a</a><a class=\"a-0 a1-2\" a=\"14\">a1</a></div>"
+      "<div><a-a a=\"1\" class=\"a-0 a1-1\">a</a-a><a-a a=\"14\" class=\"a-0 a1-2\">a1</a-a></div>"
     ]));
   });
 
@@ -67,7 +67,7 @@ group('@amaui/style-web-components/styled', () => {
     const valueBrowsers = await evaluate(async (window: any) => {
       const { sy } = window.AmauiStyleWebComponents;
 
-      const A = sy('a')(theme => ({
+      const A = sy('a', 'a-a')(theme => ({
         a: {
           width: '100px',
         },
@@ -82,9 +82,9 @@ group('@amaui/style-web-components/styled', () => {
         return (
           eval(window.Babel.transform(`
             <div>
-                <A a={1}>a</A>
+                <a-a a={1}>a</a-a>
 
-                <A a={14}>a1</A>
+                <a-a a={14}>a1</a-a>
             </div>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
         );
@@ -117,7 +117,7 @@ group('@amaui/style-web-components/styled', () => {
           ".a1-2 { color: orange; }"
         ]
       ],
-      "<div><a class=\"a-0 a1-1\" a=\"1\">a</a><a class=\"a-0 a1-2\" a=\"14\">a1</a></div>"
+      "<div><a-a a=\"1\" class=\"a-0 a1-1\">a</a-a><a-a a=\"14\" class=\"a-0 a1-2\">a1</a-a></div>"
     ]));
   });
 
@@ -127,13 +127,13 @@ group('@amaui/style-web-components/styled', () => {
       const valueBrowsers = await evaluate(async (window: any) => {
         const { styled } = window.AmauiStyleWebComponents;
 
-        const A = styled('a')(theme => ({
+        styled('a', 'a-a')(theme => ({
           a: {
             width: '100px',
           },
 
           a1: {
-            color: props => props.a === 1 ? 'yellow' : 'orange',
+            color: props => props.a === 1 ? 'yellow' : 'orange'
           }
         }));
 
@@ -142,9 +142,9 @@ group('@amaui/style-web-components/styled', () => {
           return (
             eval(window.Babel.transform(`
               <div>
-                  <A a={1}>a</A>
+                  <a-a a={1}>a</a-a>
 
-                  <A a={14}>a1</A>
+                  <a-a a={14}>a1</a-a>
               </div>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
           );
@@ -177,7 +177,7 @@ group('@amaui/style-web-components/styled', () => {
             ".a1-2 { color: orange; }"
           ]
         ],
-        "<div><a class=\"a-0 a1-1\" a=\"1\">a</a><a class=\"a-0 a1-2\" a=\"14\">a1</a></div>"
+        "<div><a-a a=\"1\" class=\"a-0 a1-1\">a</a-a><a-a a=\"14\" class=\"a-0 a1-2\">a1</a-a></div>"
       ]));
     });
 
@@ -187,7 +187,7 @@ group('@amaui/style-web-components/styled', () => {
 
         const { styled, useAmauiTheme, AmauiThemeProvider } = window.AmauiStyleWebComponents;
 
-        const A = styled('a')(theme => ({
+        styled('a', 'a-a')(theme => ({
           a: {
             width: '100px',
           },
@@ -197,41 +197,30 @@ group('@amaui/style-web-components/styled', () => {
           }
         }));
 
-        const Ad = props => {
-          const amauiTheme = useAmauiTheme();
+        class Ad extends HTMLElement {
 
-          window.React.useEffect(() => {
-            setTimeout(() => {
-              window.value.push(window.document.styleSheets.length, Array.from(window.document.styleSheets).map((sheet: any) => Array.from(sheet.cssRules).map((rule: any) => rule.cssText)), window.document.getElementById('app').innerHTML);
-            });
+          connectedCallback() {
+            window.value.push(window.document.styleSheets.length, Array.from(window.document.styleSheets).map((sheet: any) => Array.from(sheet.cssRules).map((rule: any) => rule.cssText)), window.document.getElementById('app').innerHTML);
 
-            setTimeout(() => {
-              amauiTheme.update({
-                palette: {
-                  light: false
-                }
-              });
-            }, 140);
-          }, []);
+            const amauiTheme = useAmauiTheme(this);
 
-          return (
-            eval(window.Babel.transform(`
-              <div>
-                  {props.children}
-              </div>
-          `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
-          );
-        };
+            amauiTheme.update({ palette: { light: false } });
+          }
+
+        }
+
+        // Add element
+        if (!window.customElements.get('a-ad')) window.customElements.define('a-ad', Ad);
 
         const App = () => {
 
           return (
             eval(window.Babel.transform(`
-              <AmauiThemeProvider>
-                  <Ad>
-                    <A>a</A>
-                  </Ad>
-              </AmauiThemeProvider>
+              <amaui-theme>
+                  <a-ad>
+                    <a-a>a</a-a>
+                  </a-ad>
+              </amaui-theme>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
           );
         };
@@ -249,14 +238,9 @@ group('@amaui/style-web-components/styled', () => {
       const values = [...valueBrowsers];
 
       values.forEach(value => assert(value).eql([
-        1,
-        [
-          [
-            ".a-0 { width: 100px; }",
-            ".a1-1 { color: rgba(0, 0, 0, 0.87); }"
-          ]
-        ],
-        "<div data-amaui-theme=\"true\"><div><a class=\"a-0 a1-1\">a</a></div></div>",
+        0,
+        [],
+        "<amaui-theme data-amaui-theme=\"true\"><a-ad><a-a>a</a-a></a-ad></amaui-theme>",
         1,
         [
           [
@@ -264,7 +248,7 @@ group('@amaui/style-web-components/styled', () => {
             ".a1-1 { color: rgba(255, 255, 255, 0.87); }"
           ]
         ],
-        "<div data-amaui-theme=\"true\"><div><a class=\"a-0 a1-1\">a</a></div></div>"
+        "<amaui-theme data-amaui-theme=\"true\"><a-ad><a-a class=\"a-0 a1-1\">a</a-a></a-ad></amaui-theme>"
       ]));
     });
 
@@ -274,7 +258,7 @@ group('@amaui/style-web-components/styled', () => {
 
         const { styled } = window.AmauiStyleWebComponents;
 
-        const A = styled('a')(theme => ({
+        styled('a', 'a-a', ['a'])(theme => ({
           a: {
             width: '100px',
           },
@@ -302,9 +286,9 @@ group('@amaui/style-web-components/styled', () => {
           return (
             eval(window.Babel.transform(`
               <div>
-                  <A a={a}>a</A>
+                  <a-a a={a}>a</a-a>
 
-                  <A>a</A>
+                  <a-a>a</a-a>
               </div>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
           );
@@ -333,7 +317,7 @@ group('@amaui/style-web-components/styled', () => {
             ".a1-2 { color: orange; }"
           ]
         ],
-        "<div><a class=\"a-0 a1-1\" a=\"1\">a</a><a class=\"a-0 a1-2\">a</a></div>",
+        "<div><a-a a=\"1\" class=\"a-0 a1-1\">a</a-a><a-a class=\"a-0 a1-2\">a</a-a></div>",
         3,
         [
           [
@@ -346,7 +330,7 @@ group('@amaui/style-web-components/styled', () => {
             ".a1-2 { color: orange; }"
           ]
         ],
-        "<div><a class=\"a-0 a1-1\" a=\"14\">a</a><a class=\"a-0 a1-2\">a</a></div>"
+        "<div><a-a a=\"14\" class=\"a-0 a1-1\">a</a-a><a-a class=\"a-0 a1-2\">a</a-a></div>"
       ]));
     });
 
@@ -356,7 +340,7 @@ group('@amaui/style-web-components/styled', () => {
 
         const { styled } = window.AmauiStyleWebComponents;
 
-        const A = styled('a')(theme => ({
+        styled('a', 'a-a')(theme => ({
           a: {
             width: '100px',
           },
@@ -386,9 +370,9 @@ group('@amaui/style-web-components/styled', () => {
               <div>
                   {elements && (
                     <window.React.Fragment>
-                      <A>a</A>
+                      <a-a a={1}>a</a-a>
 
-                      <A>a</A>
+                      <a-a>a</a-a>
                     </window.React.Fragment>
                   )}
               </div>
@@ -413,13 +397,13 @@ group('@amaui/style-web-components/styled', () => {
             ".a-0 { width: 100px; }"
           ],
           [
-            ".a1-1 { color: orange; }"
+            ".a1-1 { color: yellow; }"
           ],
           [
             ".a1-2 { color: orange; }"
           ]
         ],
-        "<div><a class=\"a-0 a1-1\">a</a><a class=\"a-0 a1-2\">a</a></div>",
+        "<div><a-a a=\"1\" class=\"a-0 a1-1\">a</a-a><a-a class=\"a-0 a1-2\">a</a-a></div>",
         0,
         [],
         "<div></div>"
@@ -453,9 +437,9 @@ group('@amaui/style-web-components/styled', () => {
     //         return (
     //           <AmauiStyleProvider value={amauiStyle}>
     //             <AmauiThemeProvider>
-    //               <A>
+    //               <a-a>
     //                 a
-    //               </A>
+    //               </a-a>
     //             </AmauiThemeProvider>
     //           </AmauiStyleProvider>
     //         );

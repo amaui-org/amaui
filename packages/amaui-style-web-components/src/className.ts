@@ -23,10 +23,8 @@ export default function (Element: HTMLElement, props?: any): TResponse {
 
     return {
       value: classNames([className_, styles.class]) as string,
-      methods: {
-        remove: useStyleValue.remove,
-        updateProps: useStyleValue.updateProps,
-      }
+      remove: useStyleValue.remove,
+      updateProps: useStyleValue.updateProps
     };
   };
 

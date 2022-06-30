@@ -12,7 +12,7 @@ group('@amaui/style-web-components/AmauiThemeProvider', () => {
 
   to('AmauiThemeProvider', async () => {
     const valueBrowsers = await evaluate(async (window: any) => {
-      let value = [];
+      const value = [];
 
       const { AmauiTheme, useAmauiTheme } = window.AmauiStyleWebComponents;
 
@@ -112,7 +112,7 @@ group('@amaui/style-web-components/AmauiThemeProvider', () => {
 
   to('useAmauiStyle', async () => {
     const valueBrowsers = await evaluate(async (window: any) => {
-      let value = [];
+      const value = [];
 
       const { AmauiTheme, useAmauiTheme } = window.AmauiStyleWebComponents;
 
@@ -214,7 +214,7 @@ group('@amaui/style-web-components/AmauiThemeProvider', () => {
 
     to('update', async () => {
       const valueBrowsers = await evaluate(async (window: any) => {
-        let value = [];
+        const value = [];
 
         const { AmauiTheme, useAmauiTheme } = window.AmauiStyleWebComponents;
 
@@ -289,7 +289,7 @@ group('@amaui/style-web-components/AmauiThemeProvider', () => {
 
     to('update local', async () => {
       const valueBrowsers = await evaluate(async (window: any) => {
-        let value = [];
+        const value = [];
 
         const { AmauiTheme, useAmauiTheme } = window.AmauiStyleWebComponents;
 
@@ -383,7 +383,7 @@ group('@amaui/style-web-components/AmauiThemeProvider', () => {
 
     to('update parent', async () => {
       const valueBrowsers = await evaluate(async (window: any) => {
-        let value = [];
+        const value = [];
 
         const { AmauiTheme, useAmauiTheme } = window.AmauiStyleWebComponents;
 
@@ -484,7 +484,7 @@ group('@amaui/style-web-components/AmauiThemeProvider', () => {
 
   to('root props', async () => {
     const valueBrowsers = await evaluate(async (window: any) => {
-      let value = [];
+      const value = [];
 
       const { AmauiTheme, useAmauiTheme } = window.AmauiStyleWebComponents;
 

@@ -9,30 +9,36 @@ group('@amaui/style-web-components/className', () => {
     const valueBrowsers = await evaluate(async (window: any) => {
       const { className } = window.AmauiStyleWebComponents;
 
-      const A = (props) => {
-        const classNameProp = className(theme => ({
-          a: {
-            color: 'yellow'
-          }
-        }), props);
+      class A extends HTMLElement {
+        useStyle;
 
-        return (
-          eval(window.Babel.transform(`
-            <a className={classNameProp}>
-                {props.children}
-            </a>
-          `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
-        );
-      };
+        connectedCallback() {
+          this.useStyle = className(this, window.AmauiStyleWebComponents.getAttributeValues(this))(theme => ({
+            a: {
+              color: 'yellow'
+            }
+          }));
+
+          this.className = this.useStyle.value;
+        }
+
+        disconnectedCallback() {
+          this.useStyle.remove();
+        }
+
+      }
+
+      // Add element
+      if (!window.customElements.get('a-a')) window.customElements.define('a-a', A);
 
       const App = () => {
 
         return (
           eval(window.Babel.transform(`
             <div>
-                <A>a</A>
+                <a-a>a</a-a>
 
-                <A>a1</A>
+                <a-a>a1</a-a>
             </div>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
         );
@@ -60,7 +66,7 @@ group('@amaui/style-web-components/className', () => {
         ],
         []
       ],
-      "<div><a class=\"a-0\">a</a><a class=\"a-0\">a1</a></div>"
+      "<div><a-a class=\"a-0\">a</a-a><a-a class=\"a-0\">a1</a-a></div>"
     ]));
   });
 
@@ -68,30 +74,36 @@ group('@amaui/style-web-components/className', () => {
     const valueBrowsers = await evaluate(async (window: any) => {
       const { c } = window.AmauiStyleWebComponents;
 
-      const A = (props) => {
-        const classNameProp = c(theme => ({
-          a: {
-            color: 'yellow'
-          }
-        }), props);
+      class A extends HTMLElement {
+        useStyle;
 
-        return (
-          eval(window.Babel.transform(`
-            <a className={classNameProp}>
-                {props.children}
-            </a>
-          `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
-        );
-      };
+        connectedCallback() {
+          this.useStyle = c(this, window.AmauiStyleWebComponents.getAttributeValues(this))(theme => ({
+            a: {
+              color: 'yellow'
+            }
+          }));
+
+          this.className = this.useStyle.value;
+        }
+
+        disconnectedCallback() {
+          this.useStyle.remove();
+        }
+
+      }
+
+      // Add element
+      if (!window.customElements.get('a-a')) window.customElements.define('a-a', A);
 
       const App = () => {
 
         return (
           eval(window.Babel.transform(`
             <div>
-                <A>a</A>
+                <a-a>a</a-a>
 
-                <A>a1</A>
+                <a-a>a1</a-a>
             </div>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
         );
@@ -119,7 +131,7 @@ group('@amaui/style-web-components/className', () => {
         ],
         []
       ],
-      "<div><a class=\"a-0\">a</a><a class=\"a-0\">a1</a></div>"
+      "<div><a-a class=\"a-0\">a</a-a><a-a class=\"a-0\">a1</a-a></div>"
     ]));
   });
 
@@ -127,30 +139,36 @@ group('@amaui/style-web-components/className', () => {
     const valueBrowsers = await evaluate(async (window: any) => {
       const { cs } = window.AmauiStyleWebComponents;
 
-      const A = (props) => {
-        const classNameProp = cs(theme => ({
-          a: {
-            color: 'yellow'
-          }
-        }), props);
+      class A extends HTMLElement {
+        useStyle;
 
-        return (
-          eval(window.Babel.transform(`
-            <a className={classNameProp}>
-                {props.children}
-            </a>
-          `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
-        );
-      };
+        connectedCallback() {
+          this.useStyle = cs(this, window.AmauiStyleWebComponents.getAttributeValues(this))(theme => ({
+            a: {
+              color: 'yellow'
+            }
+          }));
+
+          this.className = this.useStyle.value;
+        }
+
+        disconnectedCallback() {
+          this.useStyle.remove();
+        }
+
+      }
+
+      // Add element
+      if (!window.customElements.get('a-a')) window.customElements.define('a-a', A);
 
       const App = () => {
 
         return (
           eval(window.Babel.transform(`
             <div>
-                <A>a</A>
+                <a-a>a</a-a>
 
-                <A>a1</A>
+                <a-a>a1</a-a>
             </div>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
         );
@@ -178,7 +196,7 @@ group('@amaui/style-web-components/className', () => {
         ],
         []
       ],
-      "<div><a class=\"a-0\">a</a><a class=\"a-0\">a1</a></div>"
+      "<div><a-a class=\"a-0\">a</a-a><a-a class=\"a-0\">a1</a-a></div>"
     ]));
   });
 
@@ -188,31 +206,37 @@ group('@amaui/style-web-components/className', () => {
       const valueBrowsers = await evaluate(async (window: any) => {
         const { className } = window.AmauiStyleWebComponents;
 
-        const A = (props) => {
-          const classNameProp = className(theme => ({
-            a: {
-              color: 'yellow'
-            }
-          }), props);
+        class A extends HTMLElement {
+          useStyle;
 
-          return (
-            eval(window.Babel.transform(`
-              <a className={classNameProp}>
-                  {props.children}
-              </a>
-          `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
-          );
-        };
+          connectedCallback() {
+            this.useStyle = className(this, window.AmauiStyleWebComponents.getAttributeValues(this))(theme => ({
+              a: {
+                color: 'yellow'
+              }
+            }));
+
+            this.className = this.useStyle.value;
+          }
+
+          disconnectedCallback() {
+            this.useStyle.remove();
+          }
+
+        }
+
+        // Add element
+        if (!window.customElements.get('a-a')) window.customElements.define('a-a', A);
 
         const App = () => {
 
           return (
             eval(window.Babel.transform(`
-              <div>
-                  <A>a</A>
+            <div>
+                <a-a>a</a-a>
 
-                  <A>a1</A>
-              </div>
+                <a-a>a1</a-a>
+            </div>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
           );
         };
@@ -239,7 +263,7 @@ group('@amaui/style-web-components/className', () => {
           ],
           []
         ],
-        "<div><a class=\"a-0\">a</a><a class=\"a-0\">a1</a></div>"
+        "<div><a-a class=\"a-0\">a</a-a><a-a class=\"a-0\">a1</a-a></div>"
       ]));
     });
 
@@ -247,49 +271,44 @@ group('@amaui/style-web-components/className', () => {
       const valueBrowsers = await evaluate(async (window: any) => {
         window.value = [];
 
-        const { className, useAmauiTheme, AmauiThemeProvider } = window.AmauiStyleWebComponents;
+        const { className, useAmauiTheme } = window.AmauiStyleWebComponents;
 
-        const A = (props) => {
-          const classNameProp = className(theme => ({
-            a: {
-              color: theme.palette.text.default.primary
-            }
-          }), props);
+        class A extends HTMLElement {
+          useStyle;
+          styles;
 
-          const amauiTheme = useAmauiTheme();
+          connectedCallback() {
+            this.useStyle = className(this, window.AmauiStyleWebComponents.getAttributeValues(this))(theme => ({
+              a: {
+                color: theme.palette.text.default.primary
+              }
+            }));
 
-          window.React.useEffect(() => {
-            setTimeout(() => {
-              window.value.push(window.document.styleSheets.length, Array.from(window.document.styleSheets).map((sheet: any) => Array.from(sheet.cssRules).map((rule: any) => rule.cssText)), window.document.getElementById('app').innerHTML);
-            });
+            this.className = this.useStyle.value;
 
-            setTimeout(() => {
-              amauiTheme.update({
-                palette: {
-                  light: false
-                }
-              });
-            }, 140);
-          }, []);
+            window.value.push(window.document.styleSheets.length, Array.from(window.document.styleSheets).map((sheet: any) => Array.from(sheet.cssRules).map((rule: any) => rule.cssText)), window.document.getElementById('app').innerHTML);
 
-          return (
-            eval(window.Babel.transform(`
-              <a className={classNameProp}>
-                  {props.children}
-              </a>
-          `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
-          );
-        };
+            const amauiTheme = useAmauiTheme(this);
+
+            amauiTheme.update({ palette: { light: false } });
+          }
+
+          disconnectedCallback() {
+            this.useStyle.remove();
+          }
+
+        }
+
+        // Add element
+        if (!window.customElements.get('a-a')) window.customElements.define('a-a', A);
 
         const App = () => {
 
           return (
             eval(window.Babel.transform(`
-              <AmauiThemeProvider>
-                  <A>a</A>
-
-                  <A>a</A>
-              </AmauiThemeProvider>
+              <amaui-theme>
+                  <a-a>a</a-a>
+              </amaui-theme>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
           );
         };
@@ -307,30 +326,20 @@ group('@amaui/style-web-components/className', () => {
       const values = [...valueBrowsers];
 
       values.forEach(value => assert(value).eql([
-        2,
+        1,
         [
           [
             ".a-0 { color: rgba(0, 0, 0, 0.87); }"
-          ],
-          []
+          ]
         ],
-        "<div data-amaui-theme=\"true\"><a class=\"a-0\">a</a><a class=\"a-0\">a</a></div>",
-        2,
-        [
-          [
-            ".a-0 { color: rgba(0, 0, 0, 0.87); }"
-          ],
-          []
-        ],
-        "<div data-amaui-theme=\"true\"><a class=\"a-0\">a</a><a class=\"a-0\">a</a></div>",
-        2,
+        "<amaui-theme data-amaui-theme=\"true\"><a-a class=\"a-0\">a</a-a></amaui-theme>",
+        1,
         [
           [
             ".a-0 { color: rgba(255, 255, 255, 0.87); }"
-          ],
-          []
+          ]
         ],
-        "<div data-amaui-theme=\"true\"><a class=\"a-0\">a</a><a class=\"a-0\">a</a></div>"
+        "<amaui-theme data-amaui-theme=\"true\"><a-a class=\"a-0\">a</a-a></amaui-theme>"
       ]));
     });
 
@@ -340,21 +349,35 @@ group('@amaui/style-web-components/className', () => {
 
         const { className } = window.AmauiStyleWebComponents;
 
-        const A = (props) => {
-          const classNameProp = className(theme => ({
-            a: {
-              color: props => props.a === 1 ? 'yellow' : 'orange'
-            }
-          }), props);
+        class A extends HTMLElement {
+          useStyle;
 
-          return (
-            eval(window.Babel.transform(`
-            <a className={classNameProp}>
-                {props.children}
-            </a>
-          `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
-          );
-        };
+          static get observedAttributes() {
+            return ['a'];
+          }
+
+          connectedCallback() {
+            this.useStyle = className(this, window.AmauiStyleWebComponents.getAttributeValues(this))(theme => ({
+              a: {
+                color: props => props.a === 1 ? 'yellow' : 'orange'
+              }
+            }));
+
+            this.className = this.useStyle.value;
+          }
+
+          attributeChangedCallback(name, oldValue, newValue) {
+            this.useStyle?.updateProps(window.AmauiStyleWebComponents.getAttributeValues(this));
+          }
+
+          disconnectedCallback() {
+            this.useStyle.remove();
+          }
+
+        }
+
+        // Add element
+        if (!window.customElements.get('a-a')) window.customElements.define('a-a', A);
 
         const App = () => {
           const [a, setA] = window.React.useState(1);
@@ -374,9 +397,9 @@ group('@amaui/style-web-components/className', () => {
           return (
             eval(window.Babel.transform(`
               <div>
-                  <A a={a}>a</A>
+                  <a-a a={a}>a</a-a>
 
-                  <A>a</A>
+                  <a-a>a</a-a>
               </div>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
           );
@@ -402,7 +425,7 @@ group('@amaui/style-web-components/className', () => {
             ".a-1 { color: orange; }"
           ]
         ],
-        "<div><a class=\"a-0\">a</a><a class=\"a-1\">a</a></div>",
+        "<div><a-a a=\"1\" class=\"a-0\">a</a-a><a-a class=\"a-1\">a</a-a></div>",
         2,
         [
           [
@@ -412,7 +435,7 @@ group('@amaui/style-web-components/className', () => {
             ".a-1 { color: orange; }"
           ]
         ],
-        "<div><a class=\"a-0\">a</a><a class=\"a-1\">a</a></div>"
+        "<div><a-a a=\"14\" class=\"a-0\">a</a-a><a-a class=\"a-1\">a</a-a></div>"
       ]));
     });
 
@@ -422,21 +445,27 @@ group('@amaui/style-web-components/className', () => {
 
         const { className } = window.AmauiStyleWebComponents;
 
-        const A = (props) => {
-          const classNameProp = className(theme => ({
-            a: {
-              color: props => props.a === 1 ? 'yellow' : 'orange',
-            }
-          }), props);
+        class A extends HTMLElement {
+          useStyle;
 
-          return (
-            eval(window.Babel.transform(`
-            <a className={classNameProp}>
-                {props.children}
-            </a>
-          `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
-          );
-        };
+          connectedCallback() {
+            this.useStyle = className(this, window.AmauiStyleWebComponents.getAttributeValues(this))(theme => ({
+              a: {
+                color: 'yellow'
+              }
+            }));
+
+            this.className = this.useStyle.value;
+          }
+
+          disconnectedCallback() {
+            this.useStyle.remove();
+          }
+
+        }
+
+        // Add element
+        if (!window.customElements.get('a-a')) window.customElements.define('a-a', A);
 
         const App = () => {
           const [elements, setElements] = window.React.useState(true);
@@ -458,9 +487,9 @@ group('@amaui/style-web-components/className', () => {
               <div>
                   {elements && (
                     <window.React.Fragment>
-                      <A>a</A>
+                      <a-a>a</a-a>
 
-                      <A>a</A>
+                      <a-a>a</a-a>
                     </window.React.Fragment>
                   )}
               </div>
@@ -482,13 +511,11 @@ group('@amaui/style-web-components/className', () => {
         2,
         [
           [
-            ".a-0 { color: orange; }"
+            ".a-0 { color: yellow; }"
           ],
-          [
-            ".a-1 { color: orange; }"
-          ]
+          []
         ],
-        "<div><a class=\"a-0\">a</a><a class=\"a-1\">a</a></div>",
+        "<div><a-a class=\"a-0\">a</a-a><a-a class=\"a-0\">a</a-a></div>",
         0,
         [],
         "<div></div>"
@@ -525,9 +552,9 @@ group('@amaui/style-web-components/className', () => {
     //         return (
     //           <AmauiStyleProvider value={amauiStyle}>
     //             <AmauiThemeProvider>
-    //               <A>a</A>
+    //               <a-a>a</a-a>
 
-    //               <A>a1</A>
+    //               <a-a>a1</a-a>
     //             </AmauiThemeProvider>
     //           </AmauiStyleProvider>
     //         );
