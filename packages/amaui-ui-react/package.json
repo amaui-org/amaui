@@ -1,7 +1,7 @@
 {
   "name": "@amaui/ui-react",
   "version": "1.0.0",
-  "description": "CSS in JS styling solution for React",
+  "description": "UI for React",
   "repository": "https://github.com/amaui-org/amaui.git",
   "author": "Lazar <lazareric.com@gmail.com>",
   "license": "MIT",
