@@ -7,7 +7,7 @@ import { IOptions } from '@amaui/style/reset';
 
 import { useAmauiStyle, useAmauiTheme } from '.';
 
-export default function reset(value: TValue, options_: IOptions = {}) {
+export default function reset(value: TValue = {}, options_: IOptions = {}) {
   let response: IMethodResponse;
 
   function useReset(props?: any) {

@@ -6,15 +6,7 @@
     "jsxFactory": "Vue.h"
   },
   "include": [
-    "src/**/*.vue",
-    "src/**/*.js",
-    "src/**/*.jsx",
-    "src/**/*.ts",
     "src/**/*.tsx",
-    "test/**/*.test.vue",
-    "test/**/*.test.js",
-    "test/**/*.test.jsx",
-    "test/**/*.test.ts",
     "test/**/*.test.tsx",
   ]
 }

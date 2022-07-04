@@ -172,7 +172,7 @@ postAll(async () => await closeBrowsers(utils.browsers as IBrowsers));
 declare global {
   namespace JSX {
     interface IntrinsicElements {
-      'a-a': any;
+      [p: string]: any;
     }
   }
 }

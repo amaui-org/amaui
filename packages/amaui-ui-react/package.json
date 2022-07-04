@@ -1,21 +1,17 @@
 {
-  "name": "@amaui/style-react",
+  "name": "@amaui/ui-react",
   "version": "1.0.0",
   "description": "CSS in JS styling solution for React",
   "repository": "https://github.com/amaui-org/amaui.git",
   "author": "Lazar <lazareric.com@gmail.com>",
   "license": "MIT",
   "private": false,
-  "main": "./src/index.tsx",
+  "main": "./build/index.js",
   "keywords": [
+    "ui",
     "react",
-    "react-style",
-    "react-styling",
-    "css",
-    "css-in-js",
-    "style",
-    "styling",
-    "cascading-style-sheets",
+    "react-ui",
+    "user-interface",
     "frontend",
     "front-end",
     "backend",
@@ -46,7 +42,7 @@
     "react": "^18.1.0"
   },
   "dependencies": {
-    "@amaui/style": "^1.0.11441",
+    "@amaui/style-react": "^1.0.0",
     "@amaui/utils": "^1.0.11114"
   },
   "publishConfig": {

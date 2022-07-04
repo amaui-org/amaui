@@ -215,7 +215,7 @@ async function types() {
 
   if (log) console.log(`🌱 Types\n`);
 
-  const ts = path.resolve(wd, 'tsconfig.json');
+  const ts = path.resolve(wd, 'tsconfig.build.json');
 
   const arguments = [
     '-b',
