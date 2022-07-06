@@ -9,7 +9,7 @@ export type TTransitionStatus = 'add' | 'added' | 'enter' | 'entered' | 'exit' |
 
 export type TMode = 'in-out' | 'out-in';
 
-const STATUS: Record<TTransitionStatus, TTransitionStatus> = {
+export const STATUS: Record<TTransitionStatus, TTransitionStatus> = {
   add: 'add',
   added: 'added',
 
