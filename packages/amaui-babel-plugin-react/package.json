@@ -56,8 +56,5 @@
   "engines": {
     "node": ">=12.0.0",
     "yarn": ">=1.22"
-  },
-  "dependencies": {
-    "@amaui/style-react": "^1.0.0"
   }
 }

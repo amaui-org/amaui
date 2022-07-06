@@ -6,7 +6,7 @@
   "author": "Lazar <lazareric.com@gmail.com>",
   "license": "MIT",
   "private": false,
-  "main": "./build/index.js",
+  "main": "./src/index.tsx",
   "keywords": [
     "ui",
     "react",
@@ -42,7 +42,7 @@
     "react": "^18.1.0"
   },
   "dependencies": {
-    "@amaui/style-react": "^1.0.0",
+    "@amaui/style-react": "^1.0.1",
     "@amaui/utils": "^1.0.11114"
   },
   "publishConfig": {
