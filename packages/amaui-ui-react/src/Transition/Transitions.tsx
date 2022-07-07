@@ -16,9 +16,13 @@ export interface IProps {
 
 const TransitionsContext = React.createContext(undefined);
 
+const other = {
+  className: true
+};
+
 function Transitions(props: IProps) {
   const [status, setStatus] = React.useState<TTransitionStatus>(STATUS.entered);
-  const [element, setElement] = React.useState(React.cloneElement(props.children, { in: true }));
+  const [element, setElement] = React.useState(React.cloneElement(props.children, { in: true, ...other }));
   const [children, setChildren] = React.useState(is('array', props.children) ? props.children : [props.children]);
   const [init, setInit] = React.useState(false);
 
@@ -39,9 +43,9 @@ function Transitions(props: IProps) {
           const next = newChildren.find(item_ => item_.key === item.key);
           const isExiting = !prev.props.in;
 
-          if (next && (!prev || isExiting)) return React.cloneElement(item, { in: true, onExited: onExited(item) });
+          if (next && (!prev || isExiting)) return React.cloneElement(item, { in: true, onExited: onExited(item), ...other });
 
-          if (!next && prev && !isExiting) return React.cloneElement(item, { in: false });
+          if (!next && prev && !isExiting) return React.cloneElement(item, { in: false, ...other });
 
           return item;
         });
@@ -81,9 +85,9 @@ function Transitions(props: IProps) {
 
   // Init
   if (!init && !props.switch) {
-    children_ = children_.map(item => React.cloneElement(item, { in: true, onExited: onExited(item) }))
+    children_ = children_.map(item => React.cloneElement(item, { in: true, onExited: onExited(item), ...other }))
   }
-
+  console.log('s 0', status);
   // Switch
   if (props.switch) {
     children_ = element;
@@ -91,18 +95,26 @@ function Transitions(props: IProps) {
     switch (status) {
       case STATUS.enter:
         if (props.mode === 'in-out') {
+          const newElement = React.cloneElement(props.children, { in: true, ...other });
+
           children_ = [
-            React.cloneElement(props.children, {
+            React.cloneElement(children_, {
               in: false,
 
               onExited: () => {
                 if (props.children.props?.onExited) props.children.props?.onExited();
 
-                setStatus(STATUS.enter);
-                setElement(React.cloneElement(props.children, { in: true }));
+                setStatus(STATUS.entered);
+                setElement(newElement);
               },
+
+              exitOnAdd: true,
+              removeOnExit: true,
+
+              ...other
             }),
-            React.cloneElement(props.children, { in: true })
+
+            newElement
           ];
         }
         else if (props.mode === 'out-in') {
@@ -114,8 +126,12 @@ function Transitions(props: IProps) {
                 if (props.children.props?.onEntered) props.children.props?.onEntered();
 
                 setStatus(STATUS.entered);
-                setElement(React.cloneElement(props.children, { in: true }));
+                setElement(React.cloneElement(props.children, { in: true, ...other }));
               },
+
+              enterOnAdd: true,
+
+              ...other
             })
           );
         }
@@ -126,6 +142,7 @@ function Transitions(props: IProps) {
         if (props.mode === 'in-out') {
           children_ = [
             element,
+
             React.cloneElement(props.children, {
               in: true,
 
@@ -134,12 +151,16 @@ function Transitions(props: IProps) {
 
                 setStatus(STATUS.enter);
               },
+
+              enterOnAdd: true,
+
+              ...other
             })
           ];
         }
         else if (props.mode === 'out-in') {
           children_ = (
-            React.cloneElement(props.children, {
+            React.cloneElement(children_, {
               in: false,
 
               onExited: () => {
@@ -147,6 +168,10 @@ function Transitions(props: IProps) {
 
                 setStatus(STATUS.enter);
               },
+
+              exitOnAdd: true,
+
+              ...other
             })
           );
         }

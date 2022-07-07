@@ -4,8 +4,9 @@ import { classNames, useAmauiTheme } from '@amaui/style-react';
 import { is, wait } from '@amaui/utils';
 
 import TransitionContext from './TransitionContext';
+import { reflow } from '../utils';
 
-export type TTransitionStatus = 'add' | 'added' | 'enter' | 'entered' | 'exit' | 'exited' | 'removed';
+export type TTransitionStatus = 'add' | 'added' | 'enter' | 'entering' | 'entered' | 'exit' | 'exiting' | 'exited' | 'removed';
 
 export type TMode = 'in-out' | 'out-in';
 
@@ -14,9 +15,11 @@ export const STATUS: Record<TTransitionStatus, TTransitionStatus> = {
   added: 'added',
 
   enter: 'enter',
+  entering: 'entering',
   entered: 'entered',
 
   exit: 'exit',
+  exiting: 'exiting',
   exited: 'exited',
 
   removed: 'removed'
@@ -54,9 +57,11 @@ export interface IProps {
   onAdded?: (element: HTMLElement) => void;
 
   onEnter?: (element: HTMLElement) => void;
+  onEntering?: (element: HTMLElement) => void;
   onEntered?: (element: HTMLElement) => void;
 
   onExit?: (element: HTMLElement) => void;
+  onExiting?: (element: HTMLElement) => void;
   onExited?: (element: HTMLElement) => void;
 
   [p: string]: any;
@@ -64,6 +69,7 @@ export interface IProps {
 
 function Transition(props: IProps) {
   const [status, setStatus] = React.useState<TTransitionStatus>();
+  const setAdded = React.useState(false)[1];
   const ref = React.useRef<HTMLElement>();
   const statusRef = React.useRef(status);
 
@@ -74,9 +80,13 @@ function Transition(props: IProps) {
 
     if (props.in) {
       statusNew = props.add ? STATUS.add : STATUS.entered;
+
+      if (props.enterOnAdd) statusNew = STATUS.enter;
     }
     else {
       statusNew = (props.addOnEnter || props.removeOnExit) ? STATUS.removed : STATUS.exited;
+
+      if (props.exitOnAdd) statusNew = STATUS.exit;
     }
 
     // Update
@@ -84,7 +94,10 @@ function Transition(props: IProps) {
   }, []);
 
   React.useEffect(() => {
-    if (status !== undefined) {
+    if (
+      status !== undefined ||
+      (!ref.current || (ref.current && ref.current.className.indexOf('removed') > -1))
+    ) {
       let statusNew: TTransitionStatus;
 
       if (props.in) {
@@ -94,18 +107,29 @@ function Transition(props: IProps) {
         if ([STATUS.exit, STATUS.exited].indexOf(status) === -1) statusNew = STATUS.exit;
       }
 
-      update(statusNew);
+      if (status !== statusNew) {
+        // Added
+        if (props.in && (!ref.current || (ref.current && ref.current.className.indexOf('removed') > -1))) {
+          // We re add the element and get the ref value
+          // for update below to use it for enter
+          setAdded(added => !added);
+
+          setTimeout(() => update(statusNew));
+        }
+        else update(statusNew);
+      }
     }
   }, [props.in]);
+
+  React.useEffect(() => {
+    if (status === STATUS.exited && props.removeOnExit) setStatus('removed');
+  }, [status]);
 
   const update = async (status_: TTransitionStatus) => {
     statusRef.current = status_;
 
     if (status_ !== status) {
       switch (status_) {
-        case 'removed':
-          return;
-
         case 'add':
           return await add(status_);
 
@@ -115,8 +139,11 @@ function Transition(props: IProps) {
         case 'exit':
           return await exit(status_);
 
+        case 'exited':
+          return setStatus(props.removeOnExit ? 'removed' : status_);
+
         default:
-          return;
+          return updateStatus(status_);
       }
     }
   };
@@ -142,11 +169,20 @@ function Transition(props: IProps) {
   const enter = async (status_: TTransitionStatus) => {
     if (statusRef.current !== status_) return;
 
+    // Re add / add element for ref value
     updateStatus('enter');
 
-    if (props.enter) await timeout('enter');
+    // Reflow
+    reflow(ref.current);
 
-    if (statusRef.current === status_) updateStatus('entered');
+    // Add exiting class for animation
+    updateStatus('entering');
+
+    console.time('a');
+    if (props.enter) await timeout('enter');
+    console.timeEnd('a');
+
+    if (statusRef.current.indexOf('exit') === -1) updateStatus('entered');
   };
 
   const exit = async (status_: TTransitionStatus) => {
@@ -154,9 +190,15 @@ function Transition(props: IProps) {
 
     updateStatus('exit');
 
+    // Reflow
+    reflow(ref.current);
+
+    // Prevent update batches
+    setTimeout(() => updateStatus('exiting'));
+
     if (props.exit) await timeout('exit');
 
-    if (statusRef.current === status_) updateStatus('exited');
+    if (statusRef.current.indexOf('enter') === -1) updateStatus('exited');
   };
 
   const updateStatus = (status_: TTransitionStatus) => {
@@ -166,6 +208,7 @@ function Transition(props: IProps) {
 
         if (is('function', props.onTransition)) props.onTransition(ref.current, 'add');
         if (is('function', props.onAdd)) props.onAdd(ref.current);
+
         break;
 
       case 'added':
@@ -173,6 +216,7 @@ function Transition(props: IProps) {
 
         if (is('function', props.onTransition)) props.onTransition(ref.current, 'added');
         if (is('function', props.onAdded)) props.onAdded(ref.current);
+
         break;
 
       case 'enter':
@@ -180,6 +224,15 @@ function Transition(props: IProps) {
 
         if (is('function', props.onTransition)) props.onTransition(ref.current, 'enter');
         if (is('function', props.onEnter)) props.onEnter(ref.current);
+
+        break;
+
+      case 'entering':
+        setStatus('entering');
+
+        if (is('function', props.onTransition)) props.onTransition(ref.current, 'entering');
+        if (is('function', props.onEnter)) props.onEntering(ref.current);
+
         break;
 
       case 'entered':
@@ -187,6 +240,7 @@ function Transition(props: IProps) {
 
         if (is('function', props.onTransition)) props.onTransition(ref.current, 'entered');
         if (is('function', props.onEntered)) props.onEntered(ref.current);
+
         break;
 
       case 'exit':
@@ -194,6 +248,15 @@ function Transition(props: IProps) {
 
         if (is('function', props.onTransition)) props.onTransition(ref.current, 'exit');
         if (is('function', props.onExit)) props.onExit(ref.current);
+
+        break;
+
+      case 'exiting':
+        setStatus('exiting');
+
+        if (is('function', props.onTransition)) props.onTransition(ref.current, 'exiting');
+        if (is('function', props.onExit)) props.onExiting(ref.current);
+
         break;
 
       case 'exited':
@@ -201,6 +264,7 @@ function Transition(props: IProps) {
 
         if (is('function', props.onTransition)) props.onTransition(ref.current, 'exited');
         if (is('function', props.onExited)) props.onExited(ref.current);
+
         break;
 
       default:
@@ -209,26 +273,20 @@ function Transition(props: IProps) {
 
     // Add className
     if (props.className && is('element', ref.current)) {
-      let className = classNames([ref.current.className.split(' '), `${props.prefix || ''}${status_}`]) as string;
+      let className = classNames([ref.current.className.split(' ')]) as string;
 
-      // enter remove any exit classes
-      if (status_ === 'enter') className = className.replace(new RegExp(`${props.prefix || ''}exit(ed)?`, 'g'), '');
+      // Remove all previous classes
+      className = className.replace(new RegExp(`${props.prefix || ''}(add|enter|exit)(ed|ing)?`, 'g'), '');
 
-      // entered remove enter class
-      if (status_ === 'entered') className = className.replace(new RegExp(`${props.prefix || ''}enter`, 'g'), '');
-
-      // exit remove any enter classes
-      if (status_ === 'exit') className = className.replace(new RegExp(`${props.prefix || ''}enter(ed)?`, 'g'), '');
-
-      // exited remove exit class
-      if (status_ === 'exited') className = className.replace(new RegExp(`${props.prefix || ''}exit`, 'g'), '');
+      // Add
+      className += ` ${props.prefix || ''}${status_}`;
 
       className = className.replace(/ +/g, ' ').trim();
-
+      console.log(123, props.children.props.children, className);
       ref.current.className = className;
     }
   };
-
+  console.log(0, status);
   if (status === 'removed') return null;
 
   const value = {
@@ -237,16 +295,14 @@ function Transition(props: IProps) {
 
   return (
     <TransitionContext.Provider value={value}>
-      {is('function', props.children) ? props.children(status) : React.cloneElement(props.children, { ref })}
+      {is('function', props.children) ? props.children(status, ref) : React.cloneElement(props.children, { ref })}
     </TransitionContext.Provider>
   );
 };
 
 Transition.defaultProps = {
   enter: true,
-  exit: true,
-
-  mode: 'out-in'
+  exit: true
 } as IProps;
 
 export default Transition;
