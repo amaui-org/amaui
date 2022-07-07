@@ -6,45 +6,49 @@ import { Transition } from '../Transition';
 import { TTransitionStatus } from '../Transition/Transition';
 import { is } from '@amaui/utils';
 
-const Grow = React.forwardRef((props: any, ref: React.MutableRefObject<any>) => {
+const Expand = React.forwardRef((props: any, ref: React.MutableRefObject<any>) => {
   const amauiTheme = useAmauiTheme();
+  const rootRef = React.useRef<HTMLElement>();
+  const [rect, setRect] = React.useState<DOMRect>(undefined);
+
+  React.useEffect(() => {
+    setTimeout(() => setRect(rootRef.current.getBoundingClientRect()));
+  }, []);
 
   const styles = {
     entering: {
-      opacity: 1,
-      transform: `scale(1)`,
-    },
-    entered: {
-      opacity: 1,
-      transform: 'none',
+      height: `${rect?.height || 0}px`
     },
     exiting: {
-      opacity: 0,
-      transform: `scale(0.74)`
+      height: '0',
+      overflow: 'hidden'
     },
     exited: {
-      opacity: 0,
-      transform: `scale(0.74)`
-    },
+      height: '0',
+      overflow: 'hidden'
+    }
   };
 
   const timeout = (status: TTransitionStatus, property: string = 'opacity') => {
     const properties = {
-      opacity: amauiTheme.transitions.duration.small,
-      transform: amauiTheme.transitions.duration.smaller
+      height: amauiTheme.transitions.duration.regular
     };
 
-    return `${(is('simple', props.timeout) ? props.timeout : props.timeout[status]) || properties[property]}ms`;
+    return `${((is('simple', props.timeout) ? props.timeout : props.timeout[status]) || properties[property] - (status === 'exiting' ? 30 : 0))}ms`;
   };
 
   const timingFunction = (is('simple', props.timing_function) ? props.timing_function : props.timing_function[status]) || amauiTheme.transitions.timing_function.standard;
-
+  console.log(1114, styles);
   return (
     <Transition
       {...props}
+
+      enterOnAdd={!!rootRef.current}
     >
       {(status: TTransitionStatus, ref_) => React.cloneElement(props.children, {
         ref: item => {
+          rootRef.current = item;
+
           if (ref) ref.current = item;
 
           if (ref_) ref_.current = item;
@@ -53,12 +57,9 @@ const Grow = React.forwardRef((props: any, ref: React.MutableRefObject<any>) => 
         style: {
           ...(props.children.style || {}),
 
-          opacity: '0',
-          transform: 'scale(0.74)',
+          transition: `height ${timeout(status, 'height')} ${timingFunction}`,
 
           visibility: status === 'exited' && !props.in ? 'hidden' : undefined,
-
-          transition: `opacity ${timeout(status)} ${timingFunction}, transform ${timeout(status, 'transform')} ${timingFunction} ${status === 'exiting' ? '74ms' : '0ms'}`,
 
           ...(styles[status] || {}),
         }
@@ -67,4 +68,4 @@ const Grow = React.forwardRef((props: any, ref: React.MutableRefObject<any>) => 
   );
 });
 
-export default Grow;
+export default Expand;

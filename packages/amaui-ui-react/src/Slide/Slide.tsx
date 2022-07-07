@@ -58,6 +58,7 @@ const Slide = React.forwardRef((props: any, ref: React.MutableRefObject<any>) =>
       {...props}
 
       enterOnAdd={!!rootRef.current}
+
       removeOnExit
     >
       {(status: TTransitionStatus, ref_) => React.cloneElement(props.children, {
@@ -73,7 +74,6 @@ const Slide = React.forwardRef((props: any, ref: React.MutableRefObject<any>) =>
           ...(props.children.style || {}),
 
           transform: 'scale(0)',
-          visibility: status === 'exited' && !props.in ? 'hidden' : undefined,
 
           transition: `transform ${timeout(status, 'transform')} ${timingFunction}`,
 

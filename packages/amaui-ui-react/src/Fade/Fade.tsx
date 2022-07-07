@@ -49,6 +49,7 @@ const Fade = React.forwardRef((props: any, ref: React.MutableRefObject<any>) => 
           ...(props.children.style || {}),
 
           opacity: '0',
+
           visibility: status === 'exited' && !props.in ? 'hidden' : undefined,
 
           transition: `opacity ${timeout(status)} ${timingFunction}`,

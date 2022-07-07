@@ -49,6 +49,7 @@ const Zoom = React.forwardRef((props: any, ref: React.MutableRefObject<any>) => 
           ...(props.children.style || {}),
 
           transform: 'scale(0)',
+
           visibility: status === 'exited' && !props.in ? 'hidden' : undefined,
 
           transition: `transform ${timeout(status, 'transform')} ${timingFunction}`,
