@@ -40,6 +40,9 @@ export interface IProps {
 
   mode?: TMode;
 
+  enterOnAdd?: boolean;
+  exitOnAdd?: boolean;
+
   addOnEnter?: boolean;
   removeOnExit?: boolean;
 
@@ -64,11 +67,29 @@ export interface IProps {
   onExiting?: (element: HTMLElement) => void;
   onExited?: (element: HTMLElement) => void;
 
+  onRemoved?: (element: HTMLElement) => void;
+
   [p: string]: any;
 }
 
 function Transition(props: IProps) {
-  const [status, setStatus] = React.useState<TTransitionStatus>();
+  const [init, setInit] = React.useState(false);
+  const [status, setStatus] = React.useState<TTransitionStatus>(() => {
+    let statusNew: TTransitionStatus;
+
+    if (props.in) {
+      statusNew = props.add ? STATUS.add : STATUS.entered;
+
+      if (props.enterOnAdd) statusNew = STATUS.enter;
+    }
+    else {
+      statusNew = (props.addOnEnter || props.removeOnExit) ? STATUS.removed : STATUS.exited;
+
+      if (props.exitOnAdd) statusNew = STATUS.exit;
+    }
+
+    return statusNew;
+  });
   const setAdded = React.useState(false)[1];
   const ref = React.useRef<HTMLElement>();
   const statusRef = React.useRef(status);
@@ -91,13 +112,12 @@ function Transition(props: IProps) {
 
     // Update
     update(statusNew);
+
+    setInit(true);
   }, []);
 
   React.useEffect(() => {
-    if (
-      status !== undefined ||
-      (!ref.current || (ref.current && ref.current.className.indexOf('removed') > -1))
-    ) {
+    if (init) {
       let statusNew: TTransitionStatus;
 
       if (props.in) {
@@ -128,23 +148,21 @@ function Transition(props: IProps) {
   const update = async (status_: TTransitionStatus) => {
     statusRef.current = status_;
 
-    if (status_ !== status) {
-      switch (status_) {
-        case 'add':
-          return await add(status_);
+    switch (status_) {
+      case 'add':
+        return await add(status_);
 
-        case 'enter':
-          return await enter(status_);
+      case 'enter':
+        return await enter(status_);
 
-        case 'exit':
-          return await exit(status_);
+      case 'exit':
+        return await exit(status_);
 
-        case 'exited':
-          return setStatus(props.removeOnExit ? 'removed' : status_);
+      case 'exited':
+        return updateStatus(props.removeOnExit ? 'removed' : status_);
 
-        default:
-          return updateStatus(status_);
-      }
+      default:
+        return updateStatus(status_);
     }
   };
 
@@ -178,9 +196,7 @@ function Transition(props: IProps) {
     // Add exiting class for animation
     updateStatus('entering');
 
-    console.time('a');
     if (props.enter) await timeout('enter');
-    console.timeEnd('a');
 
     if (statusRef.current.indexOf('exit') === -1) updateStatus('entered');
   };
@@ -231,7 +247,7 @@ function Transition(props: IProps) {
         setStatus('entering');
 
         if (is('function', props.onTransition)) props.onTransition(ref.current, 'entering');
-        if (is('function', props.onEnter)) props.onEntering(ref.current);
+        if (is('function', props.onEntering)) props.onEntering(ref.current);
 
         break;
 
@@ -255,7 +271,7 @@ function Transition(props: IProps) {
         setStatus('exiting');
 
         if (is('function', props.onTransition)) props.onTransition(ref.current, 'exiting');
-        if (is('function', props.onExit)) props.onExiting(ref.current);
+        if (is('function', props.onExiting)) props.onExiting(ref.current);
 
         break;
 
@@ -264,6 +280,14 @@ function Transition(props: IProps) {
 
         if (is('function', props.onTransition)) props.onTransition(ref.current, 'exited');
         if (is('function', props.onExited)) props.onExited(ref.current);
+
+        break;
+
+      case 'removed':
+        setStatus('removed');
+
+        if (is('function', props.onTransition)) props.onTransition(ref.current, 'removed');
+        if (is('function', props.onRemoved)) props.onRemoved(ref.current);
 
         break;
 
@@ -282,11 +306,11 @@ function Transition(props: IProps) {
       className += ` ${props.prefix || ''}${status_}`;
 
       className = className.replace(/ +/g, ' ').trim();
-      console.log(123, props.children.props.children, className);
+
       ref.current.className = className;
     }
   };
-  console.log(0, status);
+
   if (status === 'removed') return null;
 
   const value = {
