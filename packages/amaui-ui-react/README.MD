@@ -8,7 +8,7 @@
   </a>
 </p>
 
-<h1 align='center'>AMAUI Style React</h1>
+<h1 align='center'>AMAUI UI React</h1>
 
 <p align='center'>
   Amaui UI for React
@@ -50,7 +50,7 @@
 
 ```javascript
   // Import any of the ui
-  import { Button  } from '@amaui/ui-react';
+  import { Button } from '@amaui/ui-react';
 
   function A(props) {
 
