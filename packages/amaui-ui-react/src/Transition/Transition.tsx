@@ -43,7 +43,6 @@ export interface IProps {
   enterOnAdd?: boolean;
   exitOnAdd?: boolean;
 
-  addOnEnter?: boolean;
   removeOnExit?: boolean;
 
   timeout?: number | {
@@ -83,7 +82,7 @@ function Transition(props: IProps) {
       if (props.enterOnAdd) statusNew = STATUS.enter;
     }
     else {
-      statusNew = (props.addOnEnter || props.removeOnExit) ? STATUS.removed : STATUS.exited;
+      statusNew = (props.enterOnAdd || props.removeOnExit) ? STATUS.removed : STATUS.exited;
 
       if (props.exitOnAdd) statusNew = STATUS.exit;
     }
@@ -105,7 +104,7 @@ function Transition(props: IProps) {
       if (props.enterOnAdd) statusNew = STATUS.enter;
     }
     else {
-      statusNew = (props.addOnEnter || props.removeOnExit) ? STATUS.removed : STATUS.exited;
+      statusNew = (props.enterOnAdd || props.removeOnExit) ? STATUS.removed : STATUS.exited;
 
       if (props.exitOnAdd) statusNew = STATUS.exit;
     }
@@ -319,7 +318,18 @@ function Transition(props: IProps) {
 
   return (
     <TransitionContext.Provider value={value}>
-      {is('function', props.children) ? props.children(status, ref) : React.cloneElement(props.children, { ref })}
+      {
+        is('function', props.children) ?
+          props.children(status, ref) :
+
+          React.cloneElement(props.children, {
+            ref: item => {
+              ref.current = item;
+
+              if (props.ref) props.ref.current = item;
+            }
+          })
+      }
     </TransitionContext.Provider>
   );
 };

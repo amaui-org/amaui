@@ -41,9 +41,9 @@ function Transitions(props: IProps) {
         newItems = newItems.map(item => {
           const prev = items.find(item_ => item_.key === item.key);
           const next = newChildren.find(item_ => item_.key === item.key);
-          const isExiting = !prev.props.in;
+          const isExiting = !prev?.props.in;
 
-          if (next && (!prev || isExiting)) return React.cloneElement(item, { in: true, onExited: onExited(item), ...other });
+          if (next && (!prev || isExiting)) return React.cloneElement(item, { in: true, onExited: onExited(item), enterOnAdd: true, ...other });
 
           if (!next && prev && !isExiting) return React.cloneElement(item, { in: false, ...other });
 
@@ -87,7 +87,7 @@ function Transitions(props: IProps) {
   if (!init && !props.switch) {
     children_ = children_.map(item => React.cloneElement(item, { in: true, onExited: onExited(item), ...other }))
   }
-  console.log('s 0', status);
+
   // Switch
   if (props.switch) {
     children_ = element;
