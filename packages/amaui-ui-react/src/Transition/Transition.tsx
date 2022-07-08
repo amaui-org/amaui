@@ -8,8 +8,6 @@ import { reflow } from '../utils';
 
 export type TTransitionStatus = 'add' | 'added' | 'enter' | 'entering' | 'entered' | 'exit' | 'exiting' | 'exited' | 'removed';
 
-export type TMode = 'in-out' | 'out-in';
-
 export const STATUS: Record<TTransitionStatus, TTransitionStatus> = {
   add: 'add',
   added: 'added',
@@ -35,11 +33,7 @@ export interface IProps {
   add?: boolean;
   enter?: boolean;
   exit?: boolean;
-
-  switch?: boolean;
-
-  mode?: TMode;
-
+ 
   enterOnAdd?: boolean;
   exitOnAdd?: boolean;
 
