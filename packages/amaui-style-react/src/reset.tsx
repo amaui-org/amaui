@@ -9,14 +9,10 @@ import { useAmauiStyle, useAmauiTheme } from '.';
 
 export default function reset(value: TValue = {}, options_: IOptions = {}) {
   let response: IMethodResponse;
+  let values_: IResponse = {};
 
   function useReset(props?: any) {
-    const [values, setValues] = React.useState({
-      classes: {},
-      classNames: {},
-      keyframes: {},
-      styles: () => { },
-    } as IResponse);
+    const [values, setValues] = React.useState<IResponse>(values_);
 
     const amauiStyle = useAmauiStyle();
     const amauiTheme = useAmauiTheme();
@@ -40,7 +36,9 @@ export default function reset(value: TValue = {}, options_: IOptions = {}) {
       if (response === undefined) response = amauiResetMethod(value, merge(options, options_, { copy: true }));
 
       // Update values for ssr as a priorty
-      setValues(names(response.amaui_style_sheet_manager.names));
+      values_ = names(response.amaui_style_sheet_manager.names);
+
+      setValues(values_);
     }
 
     // Add
@@ -76,7 +74,7 @@ export default function reset(value: TValue = {}, options_: IOptions = {}) {
       if (response !== undefined && values.ids) response.props = { ids: values.ids.dynamic, props };
     }, [hash(props)]);
 
-    return values;
+    return Object.keys(values).length ? values : values_;
   }
 
   return useReset;

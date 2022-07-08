@@ -109,7 +109,7 @@ function Transitions(props: IProps) {
               },
 
               exitOnAdd: true,
-              removeOnExit: true,
+              removeOnExited: true,
 
               ...other
             }),

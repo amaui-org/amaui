@@ -12,7 +12,7 @@ export default function style(value: TValue, options_: IOptions = {}) {
   let values_: IResponse = {};
 
   function useStyle(props?: any) {
-    const [values, setValues] = React.useState(values_);
+    const [values, setValues] = React.useState<IResponse>(values_);
 
     const amauiStyle = useAmauiStyle();
     const amauiTheme = useAmauiTheme();
@@ -74,7 +74,7 @@ export default function style(value: TValue, options_: IOptions = {}) {
       if (response !== undefined && values?.ids) response.props = { ids: values.ids.dynamic, props };
     }, [hash(props)]);
 
-    return values;
+    return Object.keys(values).length ? values : values_;
   }
 
   return useStyle;

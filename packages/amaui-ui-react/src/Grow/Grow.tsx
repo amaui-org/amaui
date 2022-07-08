@@ -7,7 +7,7 @@ import { TTransitionStatus } from '../Transition/Transition';
 import { is } from '@amaui/utils';
 
 const Grow = React.forwardRef((props: any, ref: React.MutableRefObject<any>) => {
-  const amauiTheme = useAmauiTheme();
+  const theme = useAmauiTheme();
 
   const styles = {
     entering: {
@@ -30,14 +30,14 @@ const Grow = React.forwardRef((props: any, ref: React.MutableRefObject<any>) => 
 
   const timeout = (status: TTransitionStatus, property: string = 'opacity') => {
     const properties = {
-      opacity: amauiTheme.transitions.duration.small,
-      transform: amauiTheme.transitions.duration.smaller
+      opacity: theme.transitions.duration.small,
+      transform: theme.transitions.duration.smaller
     };
 
     return `${(is('simple', props.timeout) ? props.timeout : props.timeout[status]) || properties[property]}ms`;
   };
 
-  const timingFunction = (is('simple', props.timing_function) ? props.timing_function : props.timing_function[status]) || amauiTheme.transitions.timing_function.standard;
+  const timingFunction = (is('simple', props.timing_function) ? props.timing_function : props.timing_function[status]) || theme.transitions.timing_function.standard;
 
   return (
     <Transition

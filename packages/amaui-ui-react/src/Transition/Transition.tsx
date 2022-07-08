@@ -33,11 +33,11 @@ export interface IProps {
   add?: boolean;
   enter?: boolean;
   exit?: boolean;
- 
+
   enterOnAdd?: boolean;
   exitOnAdd?: boolean;
 
-  removeOnExit?: boolean;
+  removeOnExited?: boolean;
 
   timeout?: number | {
     default?: number;
@@ -76,7 +76,7 @@ function Transition(props: IProps) {
       if (props.enterOnAdd) statusNew = STATUS.enter;
     }
     else {
-      statusNew = (props.enterOnAdd || props.removeOnExit) ? STATUS.removed : STATUS.exited;
+      statusNew = (props.enterOnAdd || props.removeOnExited) ? STATUS.removed : STATUS.exited;
 
       if (props.exitOnAdd) statusNew = STATUS.exit;
     }
@@ -87,7 +87,7 @@ function Transition(props: IProps) {
   const ref = React.useRef<HTMLElement>();
   const statusRef = React.useRef(status);
 
-  const amauiTheme = useAmauiTheme();
+  const theme = useAmauiTheme();
 
   React.useEffect(() => {
     let statusNew: TTransitionStatus;
@@ -98,7 +98,7 @@ function Transition(props: IProps) {
       if (props.enterOnAdd) statusNew = STATUS.enter;
     }
     else {
-      statusNew = (props.enterOnAdd || props.removeOnExit) ? STATUS.removed : STATUS.exited;
+      statusNew = (props.enterOnAdd || props.removeOnExited) ? STATUS.removed : STATUS.exited;
 
       if (props.exitOnAdd) statusNew = STATUS.exit;
     }
@@ -135,7 +135,7 @@ function Transition(props: IProps) {
   }, [props.in]);
 
   React.useEffect(() => {
-    if (status === STATUS.exited && props.removeOnExit) setStatus('removed');
+    if (status === STATUS.exited && props.removeOnExited) setStatus('removed');
   }, [status]);
 
   const update = async (status_: TTransitionStatus) => {
@@ -152,7 +152,7 @@ function Transition(props: IProps) {
         return await exit(status_);
 
       case 'exited':
-        return updateStatus(props.removeOnExit ? 'removed' : status_);
+        return updateStatus(props.removeOnExited ? 'removed' : status_);
 
       default:
         return updateStatus(status_);
@@ -162,7 +162,7 @@ function Transition(props: IProps) {
   const timeout = async (status_: TTransitionStatus) => {
     let duration = is('number', props.timeout) ? props.timeout : is('object', props.timeout) ? props.timeout[status_] !== undefined ? props.timeout[status_] : (props.timeout as any).default : undefined;
 
-    if (!is('number', duration)) duration = amauiTheme.transitions.duration.regular;
+    if (!is('number', duration)) duration = theme.transitions.duration.regular;
 
     await wait(duration);
   };
