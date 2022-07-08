@@ -20,6 +20,7 @@ const input = path.resolve(wd, inputRelative);
 const module = path.basename(wd);
 
 const globals = {
+  crypto: 'crypto',
   react: 'React',
   vue: 'Vue',
 };

@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { debounce } from '@amaui/utils';
+import { getID, debounce } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
-import { Transition } from '../Transition';
+import { Transition, Transitions } from '../Transition';
 import { TTransitionStatus } from '../Transition/Transition';
 
 const other = {
@@ -19,6 +19,18 @@ const other = {
 };
 
 const useStyle = style(theme => ({
+  '@keyframes pulse': {
+    '0%': {
+      transform: 'scale(0.74)'
+    },
+    '50%': {
+      transform: 'scale(0.57)'
+    },
+    '100%': {
+      transform: 'scale(0.74)'
+    }
+  },
+
   root: {
     ...other,
     overflow: 'hidden',
@@ -40,29 +52,127 @@ const useStyle = style(theme => ({
     boxShadow: 'inset 0 0 0 2px currentColor'
   },
 
-  waves: {
+  wave: {
+    ...other,
+    opacity: '0',
+    transform: 'scale(0)',
+    backgroundColor: 'currentcolor',
+    transition: theme.methods.transitions.make(['opacity', 'transform'], { duration: 'complex', timing_function: 'decelerated' }),
+    borderRadius: '50%',
 
+    '&.entering': {
+      opacity: `${theme.palette.visual_contrast.default.opacity.quaternary}`,
+      transform: 'scale(1)',
+    },
+
+    '&$pulse.entering': {
+      opacity: `${theme.palette.visual_contrast.default.opacity.quaternary}`,
+      transform: 'scale(0.74)',
+    },
+
+    '&.entered': {
+      opacity: `${theme.palette.visual_contrast.default.opacity.quaternary}`,
+      transform: 'scale(1)',
+    },
+
+    '&$pulse.entered': {
+      opacity: `${theme.palette.visual_contrast.default.opacity.quaternary}`,
+      transform: 'scale(0.74)',
+      animation: `$pulse 2400ms ${theme.transitions.timing_function.emphasized} 240ms infinite`,
+    },
+
+    '&.exit': {
+      opacity: `${theme.palette.visual_contrast.default.opacity.quaternary}`,
+      transform: 'scale(1)',
+    },
+
+    '&$pulse.exit': {
+      opacity: `${theme.palette.visual_contrast.default.opacity.quaternary}`,
+      transform: 'scale(0.74)'
+    },
+
+    '&.exiting': {
+      opacity: '0',
+      transform: 'scale(1)',
+    },
+
+    '&$pulse.exiting': {
+      opacity: '0',
+      transform: 'scale(0.74)'
+    },
+
+    '&.exited': {
+      opacity: '0',
+      transform: 'scale(1)',
+    },
+
+    '&$pulse.exited': {
+      opacity: '0',
+      transform: 'scale(0.74)'
+    },
+  },
+
+  waveSimple: {
+    ...other,
+    opacity: '0',
+    backgroundColor: 'currentcolor',
+    transition: theme.methods.transitions.make(['opacity'], { duration: 'complex', timing_function: 'decelerated' }),
+
+    '&.entering': {
+      opacity: `${theme.palette.visual_contrast.default.opacity.quaternary}`,
+    },
+
+    '&.entered': {
+      opacity: `${theme.palette.visual_contrast.default.opacity.quaternary}`,
+    },
+
+    '&.exit': {
+      opacity: `${theme.palette.visual_contrast.default.opacity.quaternary}`,
+    },
+
+    '&.exiting': {
+      opacity: '0',
+    },
+
+    '&.exited': {
+      opacity: '0',
+    }
   }
 }));
 
-// Versions: simple (ie youtube), wave, pulse
-
-export default function Interaction(props: any) {
+const Interaction = (props: any) => {
   const [interactions, setInteractions] = React.useState([]);
   const [border, setBorder] = React.useState(false);
-  const theme = useAmauiTheme();
+  const [waves, setWaves] = React.useState([]);
+  const [disabled, setDisabled] = React.useState(props.disabled);
   const refs = {
     root: React.useRef<HTMLElement>()
   };
+
+  const theme = useAmauiTheme();
 
   const { classes } = useStyle();
 
   React.useEffect(() => {
     const parent = refs.root.current.parentNode;
 
-    const onMouseIn = () => add('mouse-in');
-    const onMouseOut = () => remove('mouse-in');
-    const onMouseDown = () => add('mouse-down');
+    const onMouseIn = () => {
+      add('mouse-in');
+
+      removeWave();
+    };
+
+    const onMouseOut = () => {
+      remove('mouse-in');
+
+      removeWave();
+    };
+
+    const onMouseDown = (event: MouseEvent) => {
+      add('mouse-down');
+
+      addWave(event);
+    };
 
     const updateBorder = debounce(() => setBorder(false), theme.transitions.duration.small);
 
@@ -79,6 +189,8 @@ export default function Interaction(props: any) {
       });
 
       remove('mouse-down');
+
+      removeWave();
     };
 
     if (parent) {
@@ -110,42 +222,175 @@ export default function Interaction(props: any) {
     }
   }, []);
 
-  const add = value => setInteractions(items => {
-    const newItems = [...items];
+  React.useEffect(() => {
+    if (props.pulse) setTimeout(() => addWavePulse());
+  }, [props.pulse]);
 
-    if (newItems.indexOf(value) === -1) newItems.push(value);
+  React.useEffect(() => {
+    if (props.disabled !== disabled) setDisabled(props.disabled);
+  }, [props.disabled]);
 
-    return newItems;
-  });
+  const addWave = (event: MouseEvent) => {
+    if (props.wave && !disabled) {
+      let top = 0;
+      let left = 0;
+      let width: any = '100%';
+
+      if (props.wave_version !== 'simple') {
+        const root = ((event?.currentTarget || refs.root.current.parentNode) as any).getBoundingClientRect() as DOMRect;
+        const w = root.width;
+        const h = root.height;
+        const x = event?.offsetX || w / 2;
+        const y = event?.offsetY || h / 2;
+
+        width = Math.round(
+          Math.sqrt(
+            // Largest sub rectangle in value
+            Math.max(
+              x ** 2 + y ** 2,
+              Math.abs(w - x) ** 2 + y ** 2,
+              x ** 2 + Math.abs(h - y) ** 2,
+              Math.abs(w - x) ** 2 + Math.abs(h - y) ** 2
+            )
+          )
+          * 2
+        );
+
+        top = y - width / 2;
+        left = x - width / 2;
+      }
+
+      setWaves(items => [
+        ...items,
+        (
+          <Transition
+            key={getID()}
+
+            enterOnAdd
+            className
+          >
+            <span
+              className={props.wave_version === 'simple' ? classes.waveSimple : classes.wave}
+
+              style={{
+                top: `${top}px`,
+                left: `${left}px`,
+                width: `${width}px`,
+                height: `${width}px`
+              }}
+            />
+          </Transition>
+        )
+      ]
+      );
+    }
+  };
+
+  const addWavePulse = () => {
+    if (props.pulse && !disabled) {
+      const root = (refs.root.current.parentNode as any).getBoundingClientRect() as DOMRect;
+      const w = root.width;
+      const h = root.height;
+      const x = w / 2;
+      const y = h / 2;
+
+      const width = Math.round(
+        Math.sqrt(
+          x ** 2 + y ** 2
+        )
+        * 2
+      );
+
+      const top = y - width / 2;
+      const left = x - width / 2;
+
+      setWaves(items => [
+        ...items,
+        (
+          <Transition
+            key={getID()}
+
+            enterOnAdd
+            className
+          >
+            <span
+              className={classNames([classes.wave, classes.pulse]) as string}
+
+              style={{
+                top: `${top}px`,
+                left: `${left}px`,
+                width: `${width}px`,
+                height: `${width}px`
+              }}
+            />
+          </Transition>
+        )
+      ]
+      );
+    }
+  };
+
+  const removeWave = () => setWaves([]);
+
+  const add = value => {
+    if (!disabled) {
+      setInteractions(items => {
+        const newItems = [...items];
+
+        if (newItems.indexOf(value) === -1) newItems.push(value);
+
+        return newItems;
+      });
+    }
+  };
+
+  const has = value => interactions.indexOf(value) > -1;
 
   const remove = value => setInteractions(items => items.filter(item => item !== value));
 
-  const has = value => interactions.indexOf(value) > -1;
-  console.log(1, interactions);
   return (
     <span
       ref={refs.root}
 
       className={classes.root}
     >
-      <span
-        className={classNames([classes.background, has('mouse-in') && classes.active]) as string}
-      />
+      {/* Background */}
+      {props.background && (
+        <span
+          className={classNames([classes.background, has('mouse-in') && classes.active]) as string}
+        />
+      )}
 
-      <Transition in={border}>
-        {(status: TTransitionStatus) => (
-          <span
-            className={classes.border}
+      {/* Waves */}
+      <Transitions>
+        {waves}
+      </Transitions>
 
-            style={{
-              opacity: status.indexOf('enter') > -1 ? theme.palette.visual_contrast.default.opacity.quaternary : 0,
+      {/* Border */}
+      {props.border && (
+        <Transition in={border}>
+          {(status: TTransitionStatus) => (
+            <span
+              className={classes.border}
 
-              transition: status.indexOf('exit') > -1 ? theme.methods.transitions.make('opacity', { duration: 'regular', timing_function: 'standard' }) : undefined
-            }}
-          />
-        )}
-      </Transition>
+              style={{
+                opacity: status.indexOf('enter') > -1 ? theme.palette.visual_contrast.default.opacity.quaternary : 0,
+
+                transition: status.indexOf('exit') > -1 ? theme.methods.transitions.make('opacity', { duration: 'regular', timing_function: 'standard' }) : undefined
+              }}
+            />
+          )}
+        </Transition>
+      )}
     </span>
   );
 }
 
+// Default props
+Interaction.defaultProps = {
+  wave: true,
+  background: true,
+  border: true
+};
+
+export default Interaction;

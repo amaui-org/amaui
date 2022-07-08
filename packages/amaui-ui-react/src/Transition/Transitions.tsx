@@ -43,8 +43,10 @@ function Transitions(props: IProps) {
           const next = newChildren.find(item_ => item_.key === item.key);
           const isExiting = !prev?.props.in;
 
+          // New or readded previous add it
           if (next && (!prev || isExiting)) return React.cloneElement(item, { in: true, onExited: onExited(item), enterOnAdd: true, ...other });
 
+          // No prev in new and it's not already exiting exit it
           if (!next && prev && !isExiting) return React.cloneElement(item, { in: false, ...other });
 
           return item;

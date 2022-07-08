@@ -46,7 +46,7 @@
     "vue": "^3.2.37"
   },
   "dependencies": {
-    "@amaui/style": "^1.0.11447",
+    "@amaui/style": "^1.0.11454",
     "@amaui/style-react": "^1.0.0",
     "@amaui/utils": "^1.0.11114"
   },

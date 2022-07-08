@@ -1,6 +1,6 @@
 {
   "name": "@amaui/style-react",
-  "version": "1.0.111",
+  "version": "1.0.11111",
   "description": "CSS in JS styling solution for React",
   "repository": "https://github.com/amaui-org/amaui.git",
   "author": "Lazar <lazareric.com@gmail.com>",
@@ -46,8 +46,8 @@
     "react": "^18.1.0"
   },
   "dependencies": {
-    "@amaui/style": "^1.0.11451",
-    "@amaui/utils": "^1.0.11114"
+    "@amaui/style": "^1.0.11457",
+    "@amaui/utils": "^1.0.11117"
   },
   "publishConfig": {
     "access": "public",
@@ -57,5 +57,6 @@
   "engines": {
     "node": ">=12.0.0",
     "yarn": ">=1.22"
-  }
+  },
+  "devDependencies": {}
 }
