@@ -290,7 +290,7 @@ const Interaction = (props: any) => {
     if (props.pulse && !disabled) {
       // Remove previous wave
       // if there is one
-      removeWave();
+      if (!!waves.length) removeWave();
 
       const root = (refs.root.current.parentNode as any).getBoundingClientRect() as DOMRect;
       const w = root.width;
