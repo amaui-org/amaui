@@ -20,11 +20,10 @@ const input = path.resolve(wd, inputRelative);
 const module = path.basename(wd);
 
 const globals = {
-  crypto: 'crypto',
   react: 'React',
   vue: 'Vue',
 };
-const extensions = ['.vue', '.js', '.jsx', '.ts', '.tsx'];
+const extensions = ['.js', '.jsx', '.ts', '.tsx'];
 
 const options = {
   babel: {
