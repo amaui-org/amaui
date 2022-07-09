@@ -380,7 +380,7 @@ const Interaction = (props: any) => {
               style={{
                 opacity: status.indexOf('enter') > -1 ? theme.palette.visual_contrast.default.opacity.quaternary : 0,
 
-                transition: status.indexOf('exit') > -1 ? theme.methods.transitions.make('opacity', { duration: 'regular', timing_function: 'standard' }) : undefined
+                transition: status.indexOf('exit') > -1 ? theme.methods.transitions.make('opacity', { duration: 'complex', timing_function: 'standard' }) : undefined
               }}
             />
           )}
