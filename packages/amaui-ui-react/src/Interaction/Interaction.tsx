@@ -289,6 +289,7 @@ const Interaction = (props: any) => {
   const addWavePulse = () => {
     if (props.pulse && !disabled) {
       // Remove previous wave
+      // if there is one
       removeWave();
 
       const root = (refs.root.current.parentNode as any).getBoundingClientRect() as DOMRect;
