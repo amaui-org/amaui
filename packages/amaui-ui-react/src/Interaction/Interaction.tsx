@@ -21,13 +21,13 @@ const other = {
 const useStyle = style(theme => ({
   '@keyframes pulse': {
     '0%': {
-      transform: 'scale(0.74)'
+      transform: 'scale(0.77)'
     },
     '50%': {
-      transform: 'scale(0.57)'
+      transform: 'scale(0.7)'
     },
     '100%': {
-      transform: 'scale(0.74)'
+      transform: 'scale(0.77)'
     }
   },
 
@@ -67,7 +67,7 @@ const useStyle = style(theme => ({
 
     '&$pulse.entering': {
       opacity: `${theme.palette.visual_contrast.default.opacity.quaternary}`,
-      transform: 'scale(0.74)',
+      transform: 'scale(0.77)',
     },
 
     '&.entered': {
@@ -77,7 +77,7 @@ const useStyle = style(theme => ({
 
     '&$pulse.entered': {
       opacity: `${theme.palette.visual_contrast.default.opacity.quaternary}`,
-      transform: 'scale(0.74)',
+      transform: 'scale(0.77)',
       animation: `$pulse 2400ms ${theme.transitions.timing_function.emphasized} 240ms infinite`,
     },
 
@@ -88,7 +88,7 @@ const useStyle = style(theme => ({
 
     '&$pulse.exit': {
       opacity: `${theme.palette.visual_contrast.default.opacity.quaternary}`,
-      transform: 'scale(0.74)'
+      transform: 'scale(0.77)',
     },
 
     '&.exiting': {
@@ -98,7 +98,7 @@ const useStyle = style(theme => ({
 
     '&$pulse.exiting': {
       opacity: '0',
-      transform: 'scale(0.74)'
+      transform: 'scale(0.77)',
     },
 
     '&.exited': {
@@ -108,7 +108,7 @@ const useStyle = style(theme => ({
 
     '&$pulse.exited': {
       opacity: '0',
-      transform: 'scale(0.74)'
+      transform: 'scale(0.77)',
     },
   },
 
