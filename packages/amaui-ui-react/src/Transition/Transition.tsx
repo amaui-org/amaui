@@ -40,6 +40,8 @@ export interface IProps {
   enterOnAdd?: boolean;
   exitOnAdd?: boolean;
 
+  noAbruption?: boolean;
+
   removeOnExited?: boolean;
 
   timeout?: number | {
