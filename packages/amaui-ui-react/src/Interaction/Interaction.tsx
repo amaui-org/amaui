@@ -159,13 +159,13 @@ const Interaction = (props: any) => {
     const onMouseIn = () => {
       add('mouse-in');
 
-      removeWave();
+      removeWaves();
     };
 
     const onMouseOut = () => {
       remove('mouse-in');
 
-      removeWave();
+      removeWaves();
     };
 
     const onMouseDown = (event: MouseEvent) => {
@@ -190,7 +190,7 @@ const Interaction = (props: any) => {
 
       remove('mouse-down');
 
-      removeWave();
+      removeWaves();
     };
 
     if (parent) {
@@ -290,7 +290,7 @@ const Interaction = (props: any) => {
     if (props.pulse && !disabled) {
       // Remove previous wave
       // if there is one
-      if (!!waves.length) removeWave();
+      if (!!waves.length) removeWaves();
 
       const root = (refs.root.current.parentNode as any).getBoundingClientRect() as DOMRect;
       const w = root.width;
@@ -334,7 +334,7 @@ const Interaction = (props: any) => {
     }
   };
 
-  const removeWave = () => setWaves([]);
+  const removeWaves = () => setWaves([]);
 
   const add = value => {
     if (!disabled) {
