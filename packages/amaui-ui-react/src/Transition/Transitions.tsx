@@ -16,15 +16,17 @@ export interface IProps {
 
 const TransitionsContext = React.createContext(undefined);
 
-const other = {
-  className: true
-};
-
 function Transitions(props: IProps) {
-  const [status, setStatus] = React.useState<TTransitionStatus>(STATUS.entered);
-  const [element, setElement] = React.useState(React.cloneElement(props.children, { in: true, ...other }));
-  const [children, setChildren] = React.useState(is('array', props.children) ? props.children : [props.children]);
   const [init, setInit] = React.useState(false);
+  const [status, setStatus] = React.useState<TTransitionStatus>(STATUS.entered);
+  const [children, setChildren] = React.useState(is('array', props.children) ? props.children : [props.children]);
+
+  const other = {
+    className: true,
+    ...(props.TransitionProps || {})
+  };
+
+  const [element, setElement] = React.useState(React.cloneElement(props.children, { in: true, ...other }));
 
   React.useEffect(() => {
     setInit(true);

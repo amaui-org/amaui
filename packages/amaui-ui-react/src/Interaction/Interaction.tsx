@@ -240,8 +240,8 @@ const Interaction = (props: any) => {
         const root = ((event?.currentTarget || refs.root.current.parentNode) as any).getBoundingClientRect() as DOMRect;
         const w = root.width;
         const h = root.height;
-        const x = event?.offsetX || w / 2;
-        const y = event?.offsetY || h / 2;
+        const x = (props.origin === 'center' || !event) ? w / 2 : event?.offsetX;
+        const y = (props.origin === 'center' || !event) ? h / 2 : event?.offsetY;
 
         width = Math.round(
           Math.sqrt(
@@ -362,7 +362,11 @@ const Interaction = (props: any) => {
       )}
 
       {/* Waves */}
-      <Transitions>
+      <Transitions
+        TransitionProps={{
+          noAbruption: true
+        }}
+      >
         {waves}
       </Transitions>
 
