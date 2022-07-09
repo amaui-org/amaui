@@ -155,7 +155,16 @@ function Transition(props: IProps) {
   React.useEffect(() => {
     if (!props.in && props.noAbruption && ['enter', 'entering'].indexOf(status) > -1) {
       const method = (item: TTransitionStatus) => {
-        if (item === 'entered') setInProp(false);
+        if (item === 'entered') setInProp(props.in);
+
+        subs.current.status.unsubscribe(method);
+      };
+
+      subs.current.status.subscribe(method);
+    }
+    else if (props.in && props.noAbruption && ['exit', 'exiting'].indexOf(status) > -1) {
+      const method = (item: TTransitionStatus) => {
+        if (item === 'exited') setInProp(props.in);
 
         subs.current.status.unsubscribe(method);
       };
