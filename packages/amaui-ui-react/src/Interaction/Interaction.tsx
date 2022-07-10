@@ -61,81 +61,81 @@ const useStyle = style(theme => ({
     borderRadius: '50%',
 
     '&.entering': {
-      opacity: `${theme.palette.visual_contrast.default.opacity.quaternary}`,
+      opacity: theme.palette.visual_contrast.default.opacity.quaternary,
       transform: 'scale(1)',
     },
 
     '&$pulse.entering': {
-      opacity: `${theme.palette.visual_contrast.default.opacity.quaternary}`,
+      opacity: theme.palette.visual_contrast.default.opacity.quaternary,
       transform: 'scale(0.77)',
     },
 
     '&.entered': {
-      opacity: `${theme.palette.visual_contrast.default.opacity.quaternary}`,
+      opacity: theme.palette.visual_contrast.default.opacity.quaternary,
       transform: 'scale(1)',
     },
 
     '&$pulse.entered': {
-      opacity: `${theme.palette.visual_contrast.default.opacity.quaternary}`,
+      opacity: theme.palette.visual_contrast.default.opacity.quaternary,
       transform: 'scale(0.77)',
       animation: `$pulse 2400ms ${theme.transitions.timing_function.emphasized} 240ms infinite`,
     },
 
     '&.exit': {
-      opacity: `${theme.palette.visual_contrast.default.opacity.quaternary}`,
+      opacity: theme.palette.visual_contrast.default.opacity.quaternary,
       transform: 'scale(1)',
     },
 
     '&$pulse.exit': {
-      opacity: `${theme.palette.visual_contrast.default.opacity.quaternary}`,
+      opacity: theme.palette.visual_contrast.default.opacity.quaternary,
       transform: 'scale(0.77)',
     },
 
     '&.exiting': {
-      opacity: '0',
+      opacity: 0,
       transform: 'scale(1)',
     },
 
     '&$pulse.exiting': {
-      opacity: '0',
+      opacity: 0,
       transform: 'scale(0.77)',
     },
 
     '&.exited': {
-      opacity: '0',
+      opacity: 0,
       transform: 'scale(1)',
     },
 
     '&$pulse.exited': {
-      opacity: '0',
+      opacity: 0,
       transform: 'scale(0.77)',
     },
   },
 
   waveSimple: {
     ...other,
-    opacity: '0',
+    opacity: 0,
     backgroundColor: 'currentcolor',
     transition: theme.methods.transitions.make(['opacity'], { duration: 'complex', timing_function: 'decelerated' }),
 
     '&.entering': {
-      opacity: `${theme.palette.visual_contrast.default.opacity.quaternary}`,
+      opacity: theme.palette.visual_contrast.default.opacity.quaternary,
     },
 
     '&.entered': {
-      opacity: `${theme.palette.visual_contrast.default.opacity.quaternary}`,
+      opacity: theme.palette.visual_contrast.default.opacity.quaternary,
     },
 
     '&.exit': {
-      opacity: `${theme.palette.visual_contrast.default.opacity.quaternary}`,
+      opacity: theme.palette.visual_contrast.default.opacity.quaternary,
     },
 
     '&.exiting': {
-      opacity: '0',
+      opacity: 0,
     },
 
     '&.exited': {
-      opacity: '0',
+      opacity: 0,
     }
   }
 }));
