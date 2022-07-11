@@ -7,7 +7,6 @@ module.exports = function (api) {
   const env = process.env.ENV;
 
   const envs = {
-    babel: { presets: [] },
     react: {
       presets: [
         '@babel/preset-react'
@@ -17,8 +16,7 @@ module.exports = function (api) {
       plugins: [
         '@vue/babel-plugin-jsx'
       ]
-    },
-    'web-components': { presets: [] },
+    }
   };
 
   const presets = [

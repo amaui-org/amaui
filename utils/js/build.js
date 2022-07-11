@@ -2,6 +2,7 @@ const path = require('path');
 const childProcess = require('child_process');
 const yargs = require('yargs');
 const fse = require('fs-extra');
+const fg = require('fast-glob');
 
 const { promisify } = require('@amaui/utils');
 
@@ -134,7 +135,7 @@ async function makePackage() {
   cache['package'] = newPackage;
 
   if (log) console.log(`🌱 Main package.json added to build`);
-};
+}
 
 const capitalize = value => `${value[0].toUpperCase()}${value.slice(1).toLowerCase()}`;
 
@@ -173,14 +174,14 @@ async function addLicense() {
   );
 
   if (log) console.log(`🌱 Appended LICENSE to important build files`);
-};
+}
 
 async function moveFile(value) {
   const source = path.resolve(wd, value);
   const target = path.resolve(to, path.basename(value));
 
   await fse.copy(source, target);
-};
+}
 
 async function moveFiles() {
   const { log } = cache;
@@ -193,7 +194,7 @@ async function moveFiles() {
   if (log) console.log(`🌱 Adding ${toMoveFiles.join(', ')} files to build\n`);
 
   await Promise.all(toMoveFiles.map(value => moveFile(value)));
-};
+}
 
 async function move() {
   const { log } = cache;
@@ -237,6 +238,32 @@ async function types() {
   if (log) console.log(`🌱 Types done\n`);
 }
 
+// Add to modules
+async function addToModules() {
+  const { log } = cache;
+
+  const folders = (await fg(path.join(path.resolve('build'), '/**'), { onlyDirectories: true, deep: 1 })).filter(item => ['esm', 'umd'].every(item_ => item.indexOf(item_) === -1));
+
+  if (folders.length) {
+    if (log) console.log(`\n🌱 Adding to modules\n`);
+
+    await Promise.all(folders.map(item => {
+      const name = path.basename(item);
+
+      const newPackage = {
+        sideEffects: false,
+        main: './index.js',
+        module: `../esm/${name}/index.js`,
+        types: './index.d.ts',
+      };
+
+      return fse.writeFile(path.resolve(wd, 'build', name, './package.json'), JSON.stringify(newPackage, null, 2), 'utf8');
+    }));
+
+    if (log) console.log(`🌱 Made package.json in modules`);
+  }
+}
+
 async function run(argv) {
   // Use argvs in methods
   Object.assign(cache, argv);
@@ -252,6 +279,9 @@ async function run(argv) {
 
   // Types
   await types();
+
+  // Add to modules
+  await addToModules();
 }
 
 yargs

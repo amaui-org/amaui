@@ -88,7 +88,7 @@ const useStyle = style(theme => ({
 
     '&$pulse.exit': {
       opacity: theme.palette.visual_contrast.default.opacity.quaternary,
-      transform: 'scale(0.77)',
+      transform: 'scale(0.7)'
     },
 
     '&.exiting': {
@@ -98,7 +98,7 @@ const useStyle = style(theme => ({
 
     '&$pulse.exiting': {
       opacity: 0,
-      transform: 'scale(0.77)',
+      transform: 'scale(0.7)'
     },
 
     '&.exited': {
@@ -108,7 +108,7 @@ const useStyle = style(theme => ({
 
     '&$pulse.exited': {
       opacity: 0,
-      transform: 'scale(0.77)',
+      transform: 'scale(0.7)'
     },
   },
 
@@ -127,7 +127,7 @@ const useStyle = style(theme => ({
     },
 
     '&.exit': {
-      opacity: theme.palette.visual_contrast.default.opacity.quaternary,
+      opacity: theme.palette.visual_contrast.default.opacity.quaternary
     },
 
     '&.exiting': {
