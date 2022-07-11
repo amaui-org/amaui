@@ -318,7 +318,7 @@ const Interaction = (props: any) => {
             className
           >
             <span
-              className={classNames([classes.wave, classes.pulse]) as string}
+              className={classNames([classes.wave, classes.pulse])}
 
               style={{
                 top: `${top}px`,
@@ -361,7 +361,7 @@ const Interaction = (props: any) => {
       {/* Background */}
       {props.background && (
         <span
-          className={classNames([classes.background, has('mouse-in') && classes.active]) as string}
+          className={classNames([classes.background, has('mouse-in') && classes.active])}
         />
       )}
 

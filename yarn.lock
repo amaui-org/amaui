@@ -79,13 +79,6 @@
     "@amaui/utils" "^1.0.11117"
     "@babel/runtime" "^7.18.3"
 
-"@amaui/node@^1.0.11111":
-  version "1.0.11111"
-  resolved "https://registry.yarnpkg.com/@amaui/node/-/node-1.0.11111.tgz#b3785ad8a0ac98b3f1e2dfe6b36cb3bf0430a45b"
-  integrity sha512-IwIUQSXbw+YFuSQA8UiSSjLPutQljlegQ35V+zkpXZdwzDWN6lZ/SDRXkobXs/+zDGxuH71g7rIFycmhAKRn3g==
-  dependencies:
-    "@babel/runtime" "^7.18.3"
-
 "@amaui/node@^1.0.11114":
   version "1.0.11114"
   resolved "https://registry.yarnpkg.com/@amaui/node/-/node-1.0.11114.tgz#57e6a35109a8c7cd870de73e3366bbf30420b6f4"
@@ -105,20 +98,6 @@
     "@amaui/utils" "^1.0.11117"
     "@amaui/zip" "^1.0.11117"
     "@babel/runtime" "^7.18.3"
-
-"@amaui/style@^1.0.11454":
-  version "1.0.11454"
-  resolved "https://registry.yarnpkg.com/@amaui/style/-/style-1.0.11454.tgz#ffcea186b623c29b488317d6ca2e3e3af3254eeb"
-  integrity sha512-vL809byVcT5gdUooo4dQMYbYteqHxJAdM/OemXSRjaxdiGvhvq+zxdmQKil8VFJkoaXKcYJjniKBw7bGwI3/Zw==
-  dependencies:
-    "@amaui/meta" "^1.0.11114"
-    "@amaui/node" "^1.0.11111"
-    "@amaui/subscription" "^1.0.11117"
-    "@amaui/utils" "^1.0.11117"
-    "@babel/runtime" "^7.18.3"
-    csstype "^3.1.0"
-    fast-glob "^3.2.11"
-    fs-extra "^10.1.0"
 
 "@amaui/style@^1.0.11471":
   version "1.0.11471"
