@@ -1,2 +1,2 @@
 
-export { default as Grow } from './Grow';
+export { default } from './Grow';

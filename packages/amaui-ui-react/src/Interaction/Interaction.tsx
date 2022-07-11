@@ -3,8 +3,7 @@ import React from 'react';
 import { getID, debounce } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
-import { Transition, Transitions } from '../Transition';
-import { TTransitionStatus } from '../Transition/Transition';
+import { Transition, Transitions, TTransitionStatus } from '..';
 
 const other = {
   pointerEvents: 'none',

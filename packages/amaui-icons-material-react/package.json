@@ -1,17 +1,16 @@
 {
-  "name": "@amaui/ui-react",
-  "version": "1.0.111",
-  "description": "UI for React",
+  "name": "@amaui/icons-material-react",
+  "version": "1.0.0",
+  "description": "Icons material for React",
   "repository": "https://github.com/amaui-org/amaui.git",
   "author": "Lazar <lazareric.com@gmail.com>",
   "license": "MIT",
   "private": false,
   "main": "./src/index.tsx",
   "keywords": [
-    "ui",
+    "icons",
+    "material-design",
     "react",
-    "react-ui",
-    "user-interface",
     "frontend",
     "front-end",
     "backend",
@@ -36,15 +35,15 @@
     "cov": "cross-env NODE_ENV=test amaui-test",
     "test:pre": "pm2 update && pm2 delete all && pm2 start ../../utils/js/test/app.js && wait-on http://localhost:4000",
     "test:post": "pm2 delete all",
-    "test": "yarn lint && yarn type && yarn build && yarn test:pre && yarn cov && yarn test:post"
+    "test": "yarn lint && yarn type && yarn build && yarn test:pre && yarn cov && yarn test:post",
+    "premake": "rimraf src",
+    "make": "mkdir src && node utils/js/make"
   },
   "peerDependencies": {
     "react": "^18.1.0"
   },
   "dependencies": {
-    "@amaui/style-react": "^1.0.11114",
-    "@amaui/subscription": "^1.0.11117",
-    "@amaui/utils": "^1.0.11117"
+    "@amaui/ui-react": "^1.0.111"
   },
   "publishConfig": {
     "access": "public",

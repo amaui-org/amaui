@@ -1,2 +1,2 @@
 
-export { default as Zoom } from './Zoom';
+export { default } from './Zoom';

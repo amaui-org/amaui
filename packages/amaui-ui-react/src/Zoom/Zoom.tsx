@@ -1,10 +1,9 @@
 import React from 'react';
 
+import { is } from '@amaui/utils';
 import { useAmauiTheme } from '@amaui/style-react';
 
-import { Transition } from '../Transition';
-import { TTransitionStatus } from '../Transition/Transition';
-import { is } from '@amaui/utils';
+import { Transition, TTransitionStatus } from '..';
 
 const Zoom = React.forwardRef((props: any, ref: React.MutableRefObject<any>) => {
   const theme = useAmauiTheme();

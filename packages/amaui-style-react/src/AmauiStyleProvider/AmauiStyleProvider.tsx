@@ -24,10 +24,10 @@ export interface IAmauiStyleProvider extends AmauiStyle {
   updateWithRerender?: (value: any) => AmauiStyle;
 }
 
-export default function AmauiStyleProvider(props) {
+const AmauiStyleProvider = React.forwardRef((props: any, ref: any) => {
   const { children, value: value_, ...other } = props;
 
-  const ref = React.useRef();
+  const rootRef = React.useRef<HTMLElement>();
 
   const [value, setValue] = React.useState(() => {
     if (value_ === undefined || !(value_ instanceof AmauiStyle)) return makeAmauiStyle();
@@ -36,8 +36,8 @@ export default function AmauiStyleProvider(props) {
   });
 
   React.useEffect(() => {
-    if (ref.current) {
-      value.element = ref.current;
+    if (rootRef.current) {
+      value.element = rootRef.current;
 
       // Init
       value.init();
@@ -70,9 +70,15 @@ export default function AmauiStyleProvider(props) {
 
   return (
     <AmauiStyleContext.Provider value={value}>
-      <div ref={ref} {...other}>
+      <div
+        ref={item => rootRef.current = ref.current = item}
+
+        {...other}
+      >
         {children}
       </div>
     </AmauiStyleContext.Provider>
   );
-}
+});
+
+export default AmauiStyleProvider;

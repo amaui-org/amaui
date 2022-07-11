@@ -1,2 +1,2 @@
 
-export { default as Interaction } from './Interaction';
+export { default } from './Interaction';

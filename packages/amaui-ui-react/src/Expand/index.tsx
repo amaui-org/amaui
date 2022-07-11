@@ -1,2 +1,2 @@
 
-export { default as Expand } from './Expand';
+export { default } from './Expand';
