@@ -5,6 +5,7 @@ module.exports = function (api) {
   api.cache(true);
 
   const env = process.env.ENV;
+  const variant = process.env.VARIANT;
 
   const envs = {
     react: {
@@ -33,6 +34,13 @@ module.exports = function (api) {
     '@babel/preset-typescript'
   ];
 
+  const other = {};
+
+  if (variant === 'icons') {
+    other['sourceMaps'] = false;
+    other['minified'] = true;
+  }
+
   const plugins = [
     '@babel/plugin-transform-runtime',
     '@babel/proposal-class-properties',
@@ -44,5 +52,6 @@ module.exports = function (api) {
   return {
     presets,
     plugins,
+    ...other
   };
 };

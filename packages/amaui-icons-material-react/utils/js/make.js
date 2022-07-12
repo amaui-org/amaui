@@ -13,6 +13,8 @@ const src = path.resolve(wd, './src');
 
 const prefix = 'IconMaterial';
 
+let made = 0;
+
 const valueMake = async (url, name, short_name) => {
   let value = (await AmauiNode.file.get(url, false)).match(/<svg[^>]+?>([^$]+?)<\/svg>/)[1];
 
@@ -45,6 +47,8 @@ export default ${prefix}${name};
     .replace(/xmlns:xlink/g, 'xmlnsXlink');
 
   await AmauiNode.file.add(path.join(src, `${prefix}${name}.tsx`), value);
+
+  made++;
 };
 
 async function method() {
@@ -74,27 +78,27 @@ async function method() {
       const files = (await fs(path.join(rootIcon, item, '/**/*_24px.svg'), { onlyFiles: true }));
 
       for (const url of files) {
-        if (iconDefault === undefined) iconDefault = url;
+        if (iconDefault === undefined && url.indexOf(`${icon}_24px.svg`) > -1) iconDefault = url;
 
         const file = path.basename(url);
 
-        let weight = file.match(/wght.{3}/g);
+        let weight = file.match(/wght(100|200|300|500|600|700)/g);
 
         weight = weight && weight[0].slice(4);
 
-        let grad = file.match(/grad.{3}/g);
+        let grad = file.match(/grad(N25|200)/g);
 
         grad = grad && grad[0].slice(4);
 
-        const fill = file.indexOf('fill') > -1;
+        const fill = file.indexOf('fill1_') > -1;
 
         const name = `${iconName}${variant}${weight ? `W${weight}` : ''}${grad ? `G${grad}` : ''}${fill ? 'Filled' : ''}`;
 
         if (
-          // Grad only regular
-          [null].includes(grad) &&
-          // Weights only 100, 400, 700 and regular
-          ['100', '400', '700', null].includes(weight)
+          // Without grad, only regular
+          [undefined, null].includes(grad) &&
+          // Weights only 100, regular (400) and 700
+          ['100', '700', undefined, null].includes(weight)
         ) await valueMake(url, name, iconName);
       }
     }
@@ -103,6 +107,8 @@ async function method() {
     const twoTone = (await fs(path.join(rootSrc, `/**/${icon}/materialiconstwotone/24px.svg`), { onlyFiles: true }))[0];
 
     await valueMake(twoTone || iconDefault, `${iconName}TwoTone`, iconName);
+
+    console.log('Made', made);
   }
 
   for (const icon of icons) await makeIcon(icon);

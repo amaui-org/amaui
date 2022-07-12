@@ -272,7 +272,7 @@ async function run(argv) {
   console.log();
 
   // Build
-  // await build();
+  await build();
 
   // Move
   await move();
