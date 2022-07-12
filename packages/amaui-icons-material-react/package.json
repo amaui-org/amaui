@@ -29,9 +29,6 @@
   ],
   "scripts": {
     "prebuild": "",
-    "build": "cross-env ENV=react node ../../utils/js/build.js",
-    "release": "yarn test && yarn build && npm publish ./build",
-    "lint": "tslint -c ../../tslint.json -p tsconfig.json",
     "type": "tsc --noEmit -p tsconfig.json",
     "cov": "cross-env NODE_ENV=test amaui-test",
     "test:pre": "pm2 update && pm2 delete all && pm2 start ../../utils/js/test/app.js && wait-on http://localhost:4000",
