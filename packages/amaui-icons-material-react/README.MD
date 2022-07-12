@@ -14,10 +14,6 @@
   Amaui Icons Material for React <br />
   Almost 40.000 icon versions including outlined, rounded, sharp and two tone <br />
   with 100, 400 and 700 weights, with and without fill
-<h1 align='center'>AMAUI UI React</h1>
-
-<p align='center'>
-  Amaui Icons Material for React
 </p>
 
 <br />

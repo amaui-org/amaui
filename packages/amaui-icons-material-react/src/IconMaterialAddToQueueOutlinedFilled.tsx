@@ -1,0 +1,21 @@
+import React from 'react';
+
+import { Icon } from '@amaui/ui-react';
+
+const IconMaterialAddToQueueOutlinedFilled = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='AddToQueueOutlinedFilled'
+      short_name='AddToQueue'
+
+      {...props}
+    >
+      <path d="M11 15H13V12H16V10H13V7H11V10H8V12H11ZM16 19V21H8V19H4Q3.175 19 2.588 18.413Q2 17.825 2 17V5Q2 4.175 2.588 3.587Q3.175 3 4 3H20Q20.825 3 21.413 3.587Q22 4.175 22 5V17Q22 17.825 21.413 18.413Q20.825 19 20 19Z"/>
+    </Icon>
+  )
+});
+
+export default IconMaterialAddToQueueOutlinedFilled;

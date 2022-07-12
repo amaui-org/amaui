@@ -34,7 +34,6 @@
     "test:pre": "pm2 update && pm2 delete all && pm2 start ../../utils/js/test/app.js && wait-on http://localhost:4000",
     "test:post": "pm2 delete all",
     "test": "yarn lint && yarn type && yarn build && yarn test:pre && yarn cov && yarn test:post",
-    "premake": "",
     "make": " node utils/js/make"
   },
   "peerDependencies": {
