@@ -13,7 +13,7 @@ const IconMaterialCheckIndeterminateSmallTwoTone = React.forwardRef((props: any,
 
       {...props}
     >
-      <path d="M6.5 13.5v-3.025h11.025V13.5Z"/>
+      <path d="M8 13.5q-.6 0-1.05-.45Q6.5 12.6 6.5 12q0-.625.45-1.075.45-.45 1.05-.45h8q.625 0 1.075.45.45.45.45 1.075 0 .6-.45 1.05-.45.45-1.075.45Z"/>
     </Icon>
   )
 });

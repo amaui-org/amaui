@@ -54,8 +54,8 @@ async function method() {
   const icons = (await fs(path.join(root, '/**'), { onlyDirectories: true, deep: 1 })).map(item => path.basename(item));
 
   const variants = {
-    materialsymbolsoutlined: 'Outlined',
-    // materialsymbolsrounded: 'Rounded',
+    // materialsymbolsoutlined: 'Outlined',
+    materialsymbolsrounded: 'Rounded',
     // materialsymbolssharp: 'Sharp'
   };
 
