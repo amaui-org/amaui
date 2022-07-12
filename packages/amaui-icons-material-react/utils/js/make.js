@@ -110,7 +110,7 @@ async function method() {
   // Make index.tsx
   const allIcons = (await fs(path.join(src, `/**`), { onlyFiles: true }));
 
-  let index = `\n`;
+  let index = await AmauiNode.file.get(path.join(src, `index.tsx`), false) || `\n`;
 
   for (const url of allIcons) {
     const name = path.basename(url).slice(0, -4);

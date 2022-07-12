@@ -26,5 +26,5 @@ export * from './Slide';
 export { default as Expand } from './Expand';
 export * from './Expand';
 
-export { default as Svg } from './Svg';
-export * from './Svg';
+export { default as Icon } from './Icon';
+export * from './Icon';
