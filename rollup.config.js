@@ -10,6 +10,7 @@ import json from '@rollup/plugin-json';
 
 const wd = process.cwd();
 const env = process.env.ENV;
+const variant = process.env.VARIANT;
 
 let ext = 'ts';
 
@@ -65,6 +66,10 @@ const capitalize = value => `${value[0].toUpperCase()}${value.slice(1).toLowerCa
 
 const name = module.split('-').map(item => capitalize(item)).join('');
 
+const other = {};
+
+if (variant === 'icons') other['sourcemap'] = false;
+
 export default [
   {
     input,
@@ -74,6 +79,7 @@ export default [
       format: 'umd',
       name,
       globals,
+      ...other
     },
     external: Object.keys(globals),
     plugins: [
@@ -89,6 +95,7 @@ export default [
       format: 'umd',
       name,
       globals,
+      ...other
     },
     external: Object.keys(globals),
     plugins: [

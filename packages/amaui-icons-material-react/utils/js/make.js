@@ -39,7 +39,7 @@ const ${prefix}${name} = React.forwardRef((props: any, ref) => {
 export default ${prefix}${name};
 `;
 
-  value
+  value = value
     .replace(/xlink:href/g, 'xlinkHref')
     .replace(/sketch:type/g, 'sketchType')
     .replace(/xmlns:xlink/g, 'xmlnsXlink');
