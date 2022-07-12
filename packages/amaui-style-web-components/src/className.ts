@@ -22,7 +22,7 @@ export default function (Element: HTMLElement, props?: any): TResponse {
     const styles = useStyleValue.add();
 
     return {
-      value: classNames([className_, styles.class]) as string,
+      value: classNames([className_, styles.class]),
       remove: useStyleValue.remove,
       updateProps: useStyleValue.updateProps
     };

@@ -3,8 +3,7 @@ import React from 'react';
 import { getID, debounce } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
-import { Transition, Transitions } from '../Transition';
-import { TTransitionStatus } from '../Transition/Transition';
+import { Transition, Transitions, TTransitionStatus } from '..';
 
 const other = {
   pointerEvents: 'none',
@@ -318,7 +317,7 @@ const Interaction = (props: any) => {
             className
           >
             <span
-              className={classNames([classes.wave, classes.pulse]) as string}
+              className={classNames([classes.wave, classes.pulse])}
 
               style={{
                 top: `${top}px`,
@@ -361,7 +360,7 @@ const Interaction = (props: any) => {
       {/* Background */}
       {props.background && (
         <span
-          className={classNames([classes.background, has('mouse-in') && classes.active]) as string}
+          className={classNames([classes.background, has('mouse-in') && classes.active])}
         />
       )}
 

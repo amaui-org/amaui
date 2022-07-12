@@ -2,7 +2,7 @@ import React from 'react';
 
 import { is, unique } from '@amaui/utils';
 
-import { STATUS, TTransitionStatus } from './Transition';
+import { STATUS, TTransitionStatus } from '..';
 
 export type TMode = 'in-out' | 'out-in';
 

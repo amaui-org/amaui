@@ -324,7 +324,7 @@ function Transition(props: IProps) {
 
     // Add className
     if (props.className && is('element', ref.current)) {
-      let className = classNames([ref.current.className.split(' ')]) as string;
+      let className = classNames([ref.current.className.split(' ')]);
 
       // Remove all previous classes
       className = className.replace(new RegExp(`${props.prefix || ''}(add|enter|exit)(ed|ing)?`, 'g'), '');

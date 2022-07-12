@@ -12,34 +12,34 @@ export default function reset(value: TValue = {}, options_: IOptions = {}) {
   let values_: IResponse = {};
 
   function useReset(props?: any) {
-    const [values, setValues] = React.useState<IResponse>(values_);
-
     const amauiStyle = useAmauiStyle();
     const amauiTheme = useAmauiTheme();
 
-    // Init only once
-    // it has to be in body of method
-    // as for ssr it actually calls the method
-    // and it doesn't use hooks on ssr
-    if (response === undefined) {
-      const options = {
-        amaui_style: { value: undefined },
-        amaui_theme: { value: undefined },
-      };
+    const [values, setValues] = React.useState<IResponse>(() => {
+      // Init only once
+      // it has to be in body of method
+      // as for ssr it actually calls the method
+      // and it doesn't use hooks on ssr
+      if (response === undefined) {
+        const options = {
+          amaui_style: { value: undefined },
+          amaui_theme: { value: undefined },
+        };
 
-      // AmauiStyle
-      if (amauiStyle !== undefined) options.amaui_style.value = amauiStyle;
+        // AmauiStyle
+        if (amauiStyle !== undefined) options.amaui_style.value = amauiStyle;
 
-      // AmauiTheme
-      if (amauiTheme !== undefined) options.amaui_theme.value = amauiTheme;
+        // AmauiTheme
+        if (amauiTheme !== undefined) options.amaui_theme.value = amauiTheme;
 
-      if (response === undefined) response = amauiResetMethod(value, merge(options, options_, { copy: true }));
+        if (response === undefined) response = amauiResetMethod(value, merge(options, options_, { copy: true }));
 
-      // Update values for ssr as a priorty
-      values_ = names(response.amaui_style_sheet_manager.names);
+        // Update values for ssr as a priorty
+        values_ = names(response.amaui_style_sheet_manager.names);
+      }
 
-      setValues(values_);
-    }
+      return values_;
+    });
 
     // Add
     React.useEffect(() => {
@@ -74,7 +74,7 @@ export default function reset(value: TValue = {}, options_: IOptions = {}) {
       if (response !== undefined && values.ids) response.props = { ids: values.ids.dynamic, props };
     }, [hash(props)]);
 
-    return Object.keys(values).length ? values : values_;
+    return values;
   }
 
   return useReset;

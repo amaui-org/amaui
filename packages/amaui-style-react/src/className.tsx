@@ -84,5 +84,5 @@ export default function className(value_: string | TValue, props: any = {}, clas
     if (response !== undefined && values.ids) response.props = { ids: values.ids.dynamic, props };
   }, [hash(props)]);
 
-  return ((values_.class && classNames([className_, values_.class])) || '') as string;
+  return ((values_.class && classNames([className_, values_.class])) || '');
 }

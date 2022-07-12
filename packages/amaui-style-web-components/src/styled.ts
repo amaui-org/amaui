@@ -34,7 +34,7 @@ const styled = (tag: string, name: string, attributes: Array<string> = []) => (v
       this.styles = this.useStyle.add();
 
       // Update the root className
-      this.className = classNames([this.className, this.styles.class]) as string;
+      this.className = classNames([this.className, this.styles.class]);
     }
 
     public attributeChangedCallback() {

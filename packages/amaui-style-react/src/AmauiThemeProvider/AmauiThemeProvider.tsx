@@ -20,10 +20,10 @@ const resolveValue = (value: AmauiTheme) => {
   return valueNew;
 };
 
-export default function AmauiThemeProvider(props) {
+const AmauiThemeProvider = React.forwardRef((props: any, ref: any) => {
   const { children, value: valueLocal = {}, ...other } = props;
 
-  const ref = React.useRef();
+  const rootRef = React.useRef<HTMLElement>();
 
   const valueParent = useAmauiTheme() as any || {};
 
@@ -72,9 +72,15 @@ export default function AmauiThemeProvider(props) {
 
   return (
     <AmauiThemeContext.Provider value={value}>
-      <div ref={ref} {...other}>
+      <div
+        ref={item => rootRef.current = ref.current = item}
+
+        {...other}
+      >
         {children}
       </div>
     </AmauiThemeContext.Provider>
   );
-}
+});
+
+export default AmauiThemeProvider;
