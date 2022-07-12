@@ -13,7 +13,7 @@ const IconMaterialMoreUpTwoTone = React.forwardRef((props: any, ref) => {
 
       {...props}
     >
-      <path d="M16.875 16.125v-9h-9V4.1H19.9v12.025ZM11.5 21.5v-9h-9V9.475h12.025V21.5Z"/>
+      <path d="M17 16V7H8V5h11v11Zm-5 5v-9H3v-2h11v11Z"/>
     </Icon>
   )
 });

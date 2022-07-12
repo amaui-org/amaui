@@ -13,7 +13,7 @@ const IconMaterialExclamationTwoTone = React.forwardRef((props: any, ref) => {
 
       {...props}
     >
-      <path d="M10.5 14.3V4.275H13.525V14.3ZM10.5 19.7V16.675H13.525V19.7Z"/>
+      <path d="M11 14V5H13V14ZM11 19V17H13V19Z"/>
     </Icon>
   )
 });

@@ -54,9 +54,9 @@ async function method() {
   const icons = (await fs(path.join(root, '/**'), { onlyDirectories: true, deep: 1 })).map(item => path.basename(item));
 
   const variants = {
-    // materialsymbolsoutlined: 'Outlined',
+    materialsymbolsoutlined: 'Outlined',
     materialsymbolsrounded: 'Rounded',
-    // materialsymbolssharp: 'Sharp'
+    materialsymbolssharp: 'Sharp'
   };
 
   async function makeIcon(icon) {
@@ -74,7 +74,7 @@ async function method() {
       const files = (await fs(path.join(rootIcon, item, '/**/*_24px.svg'), { onlyFiles: true }));
 
       for (const url of files) {
-        iconDefault = url;
+        if (iconDefault === undefined) iconDefault = url;
 
         const file = path.basename(url);
 
@@ -110,7 +110,7 @@ async function method() {
   // Make index.tsx
   const allIcons = (await fs(path.join(src, `/**`), { onlyFiles: true }));
 
-  let index = await AmauiNode.file.get(path.join(src, `/index.tsx`), false) || `\n`;
+  let index = `\n`;
 
   for (const url of allIcons) {
     const name = path.basename(url).slice(0, -4);

@@ -13,7 +13,7 @@ const IconMaterialWindowClosedTwoTone = React.forwardRef((props: any, ref) => {
 
       {...props}
     >
-      <path d="M3.5 21.5V2.475h17.025V21.5Zm3.95-11.025h2.975v-1h3.15v1h2.975V6.45h-9.1Zm0 7.075h9.1V13.5h-9.1Zm-.925.925H17.5V5.5H6.525Z"/>
+      <path d="M4 21V3h16v18Zm2-10h5v-1h2v1h5V5H6Zm0 8h12v-6H6Zm0 0h12H6Z"/>
     </Icon>
   )
 });

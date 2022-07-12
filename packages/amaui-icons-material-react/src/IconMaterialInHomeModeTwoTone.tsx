@@ -13,7 +13,7 @@ const IconMaterialInHomeModeTwoTone = React.forwardRef((props: any, ref) => {
 
       {...props}
     >
-      <path d="M3.675 20.5V9.8H.4L12 .325 23.6 9.8h-3.275v1.7H17.3V8.575L12 4.225l-5.3 4.35v8.9h2.175V20.5Zm11.3 2.2-4.6-4.575L12.5 16l2.475 2.475L20.3 13.15l2.1 2.125Z"/>
+      <path d="M4 20V10H1l11-9 11 9h-3v1h-2V8.475l-6-4.9-6 4.9V18h2v2Zm10.2 2L10 17.8l1.4-1.4 2.8 2.8 5.9-5.9 1.4 1.4Z"/>
     </Icon>
   )
 });

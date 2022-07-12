@@ -13,7 +13,7 @@ const IconMaterialNestMultiRoomTwoTone = React.forwardRef((props: any, ref) => {
 
       {...props}
     >
-      <path d="M3.575 8.775 12 2.45l8.45 6.325Zm0 12.65h9.5V16.95h-9.5Zm11.375 0h5.5V16.95h-5.5Zm-11.375-6.35h5.5v-4.5h-5.5Zm7.375 0h9.5v-4.5h-9.5Z"/>
+      <path d="M4 21V9l8-6 8 6v12Zm2-2h7v-3H6Zm9 0h3v-3h-3Zm-9-5h3v-2.975H6Zm5 0h7v-2.975h-7ZM7.3 9.025h9.4L12 5.5Z"/>
     </Icon>
   )
 });

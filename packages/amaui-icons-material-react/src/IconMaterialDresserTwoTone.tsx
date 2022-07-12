@@ -13,7 +13,7 @@ const IconMaterialDresserTwoTone = React.forwardRef((props: any, ref) => {
 
       {...props}
     >
-      <path d="M3.125 21.875V5.125q0-1.25.875-2.138.875-.887 2.15-.887h11.725q1.25 0 2.138.887.887.888.887 2.138v16.75h-3.025v-2H6.15v2Zm3.025-11.2h4.65v-5.55H6.15Zm7.1-4h4.625v-1.55H13.25Zm0 4h4.625v-1.55H13.25ZM9.5 16.5h5.025v-2.45H9.5Z"/>
+      <path d="M4 21V5q0-.825.588-1.413Q5.175 3 6 3h12q.825 0 1.413.587Q20 4.175 20 5v16h-2v-2H6v2Zm2-10h5V5H6Zm7-4h5V5h-5Zm0 4h5V9h-5Zm-3 5h4v-2h-4Zm-4-3v4h12v-4Zm0 4v-4 4Z"/>
     </Icon>
   )
 });

@@ -13,7 +13,7 @@ const IconMaterialValveTwoTone = React.forwardRef((props: any, ref) => {
 
       {...props}
     >
-      <path d="M10.5 7.725v-3h-4V1.7h11.025v3.025h-4v3Zm-7.775 15.3V12.85H5.75v1h1.975v-1.975h-1V8.85h10.55v3.025h-1v1.975h1.975v-1h3.025v10.175H18.25v-1H5.75v1Z"/>
+      <path d="M11 8V5H7V3h10v2h-4v3ZM4 21v-8h2v1h3v-3H8V9h8v2h-1v3h3v-1h2v8h-2v-1H6v1Zm2-3h12v-2h-5v-5h-2v5H6Zm6 0Z"/>
     </Icon>
   )
 });

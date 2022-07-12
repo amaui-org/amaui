@@ -39,6 +39,7 @@ const options = {
   commonjs: {
     ignoreGlobal: true,
     include: /node_modules/,
+    sourceMap: false
   },
 };
 

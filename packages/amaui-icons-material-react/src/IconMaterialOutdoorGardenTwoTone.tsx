@@ -13,7 +13,7 @@ const IconMaterialOutdoorGardenTwoTone = React.forwardRef((props: any, ref) => {
 
       {...props}
     >
-      <path d="M1.3 21.7V5.225l3.1-3.1 3.125 3.1V21.7Zm7.6 0V5.225l3.1-3.1 3.125 3.1V21.7Zm7.6 0V5.225l3.1-3.1 3.125 3.1V21.7Z"/>
+      <path d="M2 21V6l4-3 3 2.25L12 3l3 2.25L18 3l4 3v15Zm2-2h4V7L6 5.5 4 7Zm6 0h4V7l-2-1.5L10 7Zm6 0h4V7l-2-1.5L16 7Z"/>
     </Icon>
   )
 });

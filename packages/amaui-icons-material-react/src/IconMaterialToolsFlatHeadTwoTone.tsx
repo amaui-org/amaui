@@ -13,7 +13,7 @@ const IconMaterialToolsFlatHeadTwoTone = React.forwardRef((props: any, ref) => {
 
       {...props}
     >
-      <path d="M7.5 22.25v-3.025h9.025v3.025Zm0-4.125-1.05-7.9 2.1-8.55h6.875l2.15 8.55-1.075 7.9Zm-.6-8.65 8.125 2.5-.375-7.4-3.2-2.5Z"/>
+      <path d="M8 21v-2h8v2Zm0-3-1-7 2-8h6l2 8-1 7Zm1.725-2h4.55l.55-4H9.15Zm4.975-6-1.25-5h-2.9L9.3 10Zm-.425 6h-4.55 4.55Z"/>
     </Icon>
   )
 });

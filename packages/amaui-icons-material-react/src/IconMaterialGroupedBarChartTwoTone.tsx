@@ -13,7 +13,7 @@ const IconMaterialGroupedBarChartTwoTone = React.forwardRef((props: any, ref) =>
 
       {...props}
     >
-      <path d="M1.55 20.5V7.475H5.575V20.5ZM6.7 20.5V14.475H10.725V20.5ZM13.3 20.5V4.475H17.325V20.5ZM18.45 20.5V9.475H22.475V20.5Z"/>
+      <path d="M3 20V8H6V20ZM7 20V15H10V20ZM14 20V5H17V20ZM18 20V10H21V20Z"/>
     </Icon>
   )
 });

@@ -13,7 +13,7 @@ const IconMaterialBarcodeTwoTone = React.forwardRef((props: any, ref) => {
 
       {...props}
     >
-      <path d="M.575 4.75H2.65v14.525H.575Zm6.225 0h1.05v14.525H6.8Zm-3.125 0h2.1v14.525h-2.1Zm16.675 0h3.1v14.525h-3.1Zm-10.425 0H12v14.525H9.925Zm7.3 0h1.025v14.525h-1.025Zm-4.175 0h3.125v14.525H13.05Z"/>
+      <path d="M1 5h2v14H1Zm6 0h1v14H7ZM4 5h2v14H4Zm16 0h3v14h-3ZM10 5h2v14h-2Zm7 0h1v14h-1Zm-4 0h3v14h-3Z"/>
     </Icon>
   )
 });

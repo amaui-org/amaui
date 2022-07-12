@@ -13,7 +13,7 @@ const IconMaterialToolsPhillipsTwoTone = React.forwardRef((props: any, ref) => {
 
       {...props}
     >
-      <path d="M6.325 22.25v-3.025H17.7v3.025Zm0-4.15V7.2l4.1-5.475H13.6L17.7 7.2v10.9Zm3.025-7.55 1.275-1.275V6.5L9.35 8.2Zm5.325 0V8.2L13.4 6.5v2.775Z"/>
+      <path d="M7 21v-2h10v2Zm0-3V8l3.75-5h2.5L17 8v10Zm2-2h6v-2.175l-3-3-3 3Zm0-5 2-2V6L9 8.675Zm6 0V8.675L13 6v3Zm0 5H9h6Z"/>
     </Icon>
   )
 });
