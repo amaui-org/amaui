@@ -42,10 +42,10 @@
 
 ```sh
   // yarn
-  yarn add @amaui/icons-material-react
+  yarn add @amaui-org/icons-material-react
 
   // npm
-  npm install @amaui/icons-material-react
+  npm install @amaui-org/icons-material-react
 ```
 
 ### Use
@@ -53,7 +53,7 @@
 ```javascript
   // Import any of the ui and icons
   import { IconButton } from '@amaui/ui-react';
-  import { IconMaterialPottedPlantOutlined } from '@amaui/icons-material-react';
+  import { IconMaterialPottedPlantOutlined } from '@amaui-org/icons-material-react';
 
   function A(props) {
 
