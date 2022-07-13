@@ -58,7 +58,6 @@ async function method() {
   const icons = (await fs(path.join(root, '/**'), { onlyDirectories: true, deep: 1 })).map(item => path.basename(item));
 
   const variants = {
-    materialsymbolsoutlined: 'Outlined',
     materialsymbolsrounded: 'Rounded',
     materialsymbolssharp: 'Sharp'
   };
@@ -98,7 +97,7 @@ async function method() {
           // Without grad, only regular
           [undefined, null].includes(grad) &&
           // Weights only 100, regular (400) and 700
-          ['100', '700', undefined, null].includes(weight)
+          ['100', undefined, null].includes(weight)
         ) await valueMake(url, name, iconName);
       }
     }

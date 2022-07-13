@@ -12,8 +12,8 @@
 
 <p align='center'>
   Amaui Icons Material for React <br />
-  Almost 40.000 icon versions including outlined, rounded, sharp and two tone <br />
-  with 100, 400 and 700 weights, with and without fill
+  Almost 18k+ icon versions including rounded, sharp and two tone <br />
+  with 100 and 400 weights, with and without fill
 </p>
 
 <br />
@@ -21,7 +21,7 @@
 <h3 align='center'>
   <sub>MIT license&nbsp;&nbsp;&nbsp;&nbsp;</sub>
   <sub>Production ready&nbsp;&nbsp;&nbsp;&nbsp;</sub>
-  <sub>UMD (all almost 40.000 icons) 44mb gzipped&nbsp;&nbsp;&nbsp;&nbsp;</sub>
+  <sub>UMD (all 18k+ icons) 2.24mb gzipped&nbsp;&nbsp;&nbsp;&nbsp;</sub>
   <sub>100% test cov&nbsp;&nbsp;&nbsp;&nbsp;</sub>
   <sub>Browser and Nodejs</sub>
 </h3>
@@ -42,10 +42,10 @@
 
 ```sh
   // yarn
-  yarn add @amaui-org/icons-material-react
+  yarn add @amaui/icons-material-react
 
   // npm
-  npm install @amaui-org/icons-material-react
+  npm install @amaui/icons-material-react
 ```
 
 ### Use
@@ -53,14 +53,14 @@
 ```javascript
   // Import any of the ui and icons
   import { IconButton } from '@amaui/ui-react';
-  import { IconMaterialPottedPlantOutlined } from '@amaui-org/icons-material-react';
+  import { IconMaterialPottedPlantRounded } from '@amaui/icons-material-react';
 
   function A(props) {
 
     return (
       <IconButton>
         // 🪴
-        <IconMaterialPottedPlantOutlined />
+        <IconMaterialPottedPlantRounded />
       </IconButton>
     );
   }
