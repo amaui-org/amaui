@@ -11,7 +11,7 @@ import { useAmauiStyle, useAmauiTheme } from '.';
 
 export default function pure(value: TValue, options_: IOptions = {}) {
   let response: IMethodResponse;
-  let values_: IResponse = {};
+  let values_: IResponse = {} as any;
 
   function usePure(props?: any) {
     const amauiStyle = useAmauiStyle();
