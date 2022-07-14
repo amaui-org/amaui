@@ -13,10 +13,6 @@ const Grow = React.forwardRef((props: any, ref: React.MutableRefObject<any>) => 
       opacity: 1,
       transform: `scale(1)`,
     },
-    entered: {
-      opacity: 1,
-      transform: 'none',
-    },
     exiting: {
       opacity: 0,
       transform: `scale(0.74)`
@@ -29,14 +25,14 @@ const Grow = React.forwardRef((props: any, ref: React.MutableRefObject<any>) => 
 
   const timeout = (status: TTransitionStatus, property: string = 'opacity') => {
     const properties = {
-      opacity: theme.transitions.duration.small,
-      transform: theme.transitions.duration.smaller
+      opacity: theme.transitions.duration.sm,
+      transform: theme.transitions.duration.xs
     };
 
     return `${(is('simple', props.timeout) ? props.timeout : props.timeout[status]) || properties[property]}ms`;
   };
 
-  const timingFunction = (is('simple', props.timing_function) ? props.timing_function : props.timing_function[status]) || theme.transitions.timing_function.standard;
+  const timingFunction = status => (is('simple', props.timing_function) ? props.timing_function : props.timing_function[status]) || theme.transitions.timing_function.standard;
 
   return (
     <Transition
@@ -52,12 +48,9 @@ const Grow = React.forwardRef((props: any, ref: React.MutableRefObject<any>) => 
         style: {
           ...(props.children.style || {}),
 
-          opacity: '0',
-          transform: 'scale(0.74)',
-
           visibility: status === 'exited' && !props.in ? 'hidden' : undefined,
 
-          transition: `opacity ${timeout(status)} ${timingFunction}, transform ${timeout(status, 'transform')} ${timingFunction} ${status === 'exiting' ? '74ms' : '0ms'}`,
+          transition: `opacity ${timeout(status)} ${timingFunction(status)}, transform ${timeout(status, 'transform')} ${timingFunction(status)} ${status === 'exiting' ? '74ms' : '0ms'}`,
 
           ...(styles[status] || {}),
         }

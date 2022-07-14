@@ -12,9 +12,6 @@ const Fade = React.forwardRef((props: any, ref: React.MutableRefObject<any>) => 
     entering: {
       opacity: 1
     },
-    entered: {
-      opacity: 1
-    },
     exiting: {
       opacity: 0
     },
@@ -25,13 +22,13 @@ const Fade = React.forwardRef((props: any, ref: React.MutableRefObject<any>) => 
 
   const timeout = (status: TTransitionStatus, property: string = 'opacity') => {
     const properties = {
-      opacity: theme.transitions.duration.small
+      opacity: theme.transitions.duration.sm
     };
 
     return `${(is('simple', props.timeout) ? props.timeout : props.timeout[status]) || properties[property]}ms`;
   };
 
-  const timingFunction = (is('simple', props.timing_function) ? props.timing_function : props.timing_function[status]) || theme.transitions.timing_function.standard;
+  const timingFunction = status => (is('simple', props.timing_function) ? props.timing_function : props.timing_function[status]) || theme.transitions.timing_function.standard;
 
   return (
     <Transition
@@ -47,11 +44,9 @@ const Fade = React.forwardRef((props: any, ref: React.MutableRefObject<any>) => 
         style: {
           ...(props.children.style || {}),
 
-          opacity: '0',
-
           visibility: status === 'exited' && !props.in ? 'hidden' : undefined,
 
-          transition: `opacity ${timeout(status)} ${timingFunction}`,
+          transition: `opacity ${timeout(status)} ${timingFunction(status)}`,
 
           ...(styles[status] || {}),
         }

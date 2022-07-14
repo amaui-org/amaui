@@ -30,14 +30,14 @@ const Expand = React.forwardRef((props: any, ref: React.MutableRefObject<any>) =
 
   const timeout = (status: TTransitionStatus, property: string = 'opacity') => {
     const properties = {
-      height: theme.transitions.duration.regular
+      height: theme.transitions.duration.rg
     };
 
     return `${((is('simple', props.timeout) ? props.timeout : props.timeout[status]) || properties[property] - (status === 'exiting' ? 30 : 0))}ms`;
   };
 
-  const timingFunction = (is('simple', props.timing_function) ? props.timing_function : props.timing_function[status]) || theme.transitions.timing_function.standard;
-  console.log(1114, styles);
+  const timingFunction = status => (is('simple', props.timing_function) ? props.timing_function : props.timing_function[status]) || theme.transitions.timing_function.standard;
+
   return (
     <Transition
       {...props}
@@ -56,7 +56,7 @@ const Expand = React.forwardRef((props: any, ref: React.MutableRefObject<any>) =
         style: {
           ...(props.children.style || {}),
 
-          transition: `height ${timeout(status, 'height')} ${timingFunction}`,
+          transition: `height ${timeout(status, 'height')} ${timingFunction(status)}`,
 
           visibility: status === 'exited' && !props.in ? 'hidden' : undefined,
 

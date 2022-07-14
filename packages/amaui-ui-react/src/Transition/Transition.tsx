@@ -203,7 +203,7 @@ function Transition(props: IProps) {
   const timeout = async (status_: TTransitionStatus) => {
     let duration = is('number', props.timeout) ? props.timeout : is('object', props.timeout) ? props.timeout[status_] !== undefined ? props.timeout[status_] : (props.timeout as any).default : undefined;
 
-    if (!is('number', duration)) duration = theme.transitions.duration.regular;
+    if (!is('number', duration)) duration = theme.transitions.duration.rg;
 
     await wait(duration);
   };
@@ -228,7 +228,7 @@ function Transition(props: IProps) {
     reflow(ref.current);
 
     // Add exiting class for animation
-    updateStatus('entering');
+    setTimeout(() => updateStatus('entering'));
 
     if (props.enter) await timeout('enter');
 

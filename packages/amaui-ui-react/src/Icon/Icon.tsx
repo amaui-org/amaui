@@ -34,7 +34,7 @@ const useStyle = style(theme => ({
 const Icon = React.forwardRef((props: any, ref) => {
   const [rtl, setRtl] = React.useState(props.rtl);
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   const amauiTheme = useAmauiTheme();
 
@@ -84,7 +84,7 @@ const Icon = React.forwardRef((props: any, ref) => {
   const isRtlIcon = rtl_icons.includes(short_name);
 
   return (
-    <Component
+    <svg
       ref={ref}
 
       className={classNames([classes.root, className, disabled && classes.disabled, rtl && isRtlIcon && classes.rtl])}
@@ -110,7 +110,7 @@ const Icon = React.forwardRef((props: any, ref) => {
       {...other}
     >
       {children}
-    </Component>
+    </svg>
   );
 });
 

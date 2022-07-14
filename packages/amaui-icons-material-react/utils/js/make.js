@@ -35,7 +35,7 @@ const ${prefix}${name} = React.forwardRef((props: any, ref) => {
     >
       ${value}
     </Icon>
-  )
+  );
 });
 
 export default ${prefix}${name};
@@ -110,7 +110,11 @@ async function method() {
     console.log('Made', made);
   }
 
-  for (const icon of icons) await makeIcon(icon);
+  for (const icon of icons) {
+    await makeIcon(icon);
+
+    if (made > 14) break;
+  }
 
   // Make index.tsx
   const allIcons = (await fs(path.join(src, `/**`), { onlyFiles: true }));

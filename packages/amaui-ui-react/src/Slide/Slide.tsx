@@ -25,13 +25,7 @@ const Slide = React.forwardRef((props: any, ref: React.MutableRefObject<any>) =>
   };
 
   const styles = {
-    enter: {
-      transform: translate()
-    },
     entering: {
-      transform: 'translate(0, 0)',
-    },
-    entered: {
       transform: 'translate(0, 0)',
     },
     exiting: {
@@ -44,21 +38,19 @@ const Slide = React.forwardRef((props: any, ref: React.MutableRefObject<any>) =>
 
   const timeout = (status: TTransitionStatus, property: string = 'opacity') => {
     const properties = {
-      transform: theme.transitions.duration.smaller
+      transform: theme.transitions.duration.xs
     };
 
     return `${((is('simple', props.timeout) ? props.timeout : props.timeout[status]) || properties[property] - (status === 'exiting' ? 30 : 0))}ms`;
   };
 
-  const timingFunction = (is('simple', props.timing_function) ? props.timing_function : props.timing_function[status]) || theme.transitions.timing_function.standard;
+  const timingFunction = status => (is('simple', props.timing_function) ? props.timing_function : props.timing_function[status]) || theme.transitions.timing_function.standard;
 
   return (
     <Transition
       {...props}
 
       enterOnAdd={!!rootRef.current}
-
-      removeOnExited
     >
       {(status: TTransitionStatus, ref_) => React.cloneElement(props.children, {
         ref: item => {
@@ -72,9 +64,7 @@ const Slide = React.forwardRef((props: any, ref: React.MutableRefObject<any>) =>
         style: {
           ...(props.children.style || {}),
 
-          transform: 'scale(0)',
-
-          transition: `transform ${timeout(status, 'transform')} ${timingFunction}`,
+          transition: `transform ${timeout(status, 'transform')} ${timingFunction(status)}`,
 
           ...(styles[status] || {}),
         }

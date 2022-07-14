@@ -174,7 +174,7 @@ const Interaction = (props: any) => {
       addWave(event);
     };
 
-    const updateBorder = debounce(() => setBorder(false), theme.transitions.duration.small);
+    const updateBorder = debounce(() => setBorder(false), theme.transitions.duration.sm);
 
     const onMouseUp = () => {
       setInteractions(items => {
