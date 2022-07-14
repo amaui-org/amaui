@@ -10,8 +10,8 @@ function makeAmauiStyle(element?: Element) {
 
   // Add all the plugins
   amauiStyle.plugins.add = [
-    makeClassName,
     unit,
+    makeClassName,
     rtl,
     sort,
     valueObject
@@ -71,7 +71,11 @@ const AmauiStyleProvider = React.forwardRef((props: any, ref: any) => {
   return (
     <AmauiStyleContext.Provider value={value}>
       <div
-        ref={item => rootRef.current = ref.current = item}
+        ref={item => {
+          rootRef.current = item;
+
+          if (ref?.current) ref.current = item;
+        }}
 
         {...other}
       >

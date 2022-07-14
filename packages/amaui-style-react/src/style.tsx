@@ -17,11 +17,7 @@ export default function style(value: TValue, options_: IOptions = {}) {
     const amauiStyle = useAmauiStyle();
     const amauiTheme = useAmauiTheme();
 
-    const [values, setValues] = React.useState<IResponse>(() => {
-      // Init only once
-      // it has to be in body of method
-      // as for ssr it actually calls the method
-      // and it doesn't use hooks on ssr
+    const makeResponse = () => {
       if (response === undefined) {
         const options = {
           amaui_style: { value: undefined },
@@ -39,12 +35,23 @@ export default function style(value: TValue, options_: IOptions = {}) {
         // Update values for ssr as a priorty
         values_ = names(response.amaui_style_sheet_manager.names);
       }
+    };
+
+    const [values, setValues] = React.useState<IResponse>(() => {
+      // Init only once
+      // it has to be in body of method
+      // as for ssr it actually calls the method
+      // and it doesn't use hooks on ssr
+      makeResponse();
 
       return values_;
     });
 
     // Add
     React.useEffect(() => {
+      // Weird fix in react, for create react app fast refresh new engine
+      makeResponse();
+
       const addValues = response.add(props);
 
       setValues(addValues);
@@ -67,9 +74,25 @@ export default function style(value: TValue, options_: IOptions = {}) {
         if (amauiTheme) amauiTheme.subscriptions.update.unsubscribe(method);
 
         // Remove
-        response.remove(addValues.ids?.dynamic);
+        response?.remove(addValues.ids?.dynamic);
       };
     }, []);
+
+    // Weird fix in react, for create react app fast refresh new engine
+    React.useEffect(() => {
+      const status = response?.amaui_style_sheet_manager?.status;
+
+      if (status !== 'active') {
+        values_ = response.add(props);
+
+        setValues(values_);
+      }
+    });
+
+    // Weird fix in react, for create react app fast refresh new engine
+    React.useEffect(() => {
+      if (values_?.class !== values.class) setValues(values_);
+    }, [values_?.class]);
 
     // Update props
     React.useEffect(() => {

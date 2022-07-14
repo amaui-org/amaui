@@ -75,7 +75,11 @@ const AmauiThemeProvider = React.forwardRef((props: any, ref: any) => {
   return (
     <AmauiThemeContext.Provider value={value}>
       <div
-        ref={item => rootRef.current = ref.current = item}
+        ref={item => {
+          rootRef.current = item;
+
+          if (ref?.current) ref.current = item;
+        }}
 
         {...other}
       >
