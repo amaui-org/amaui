@@ -99,10 +99,10 @@
     "@amaui/zip" "^1.0.11141"
     "@babel/runtime" "^7.18.3"
 
-"@amaui/style@^1.0.11711":
-  version "1.0.11711"
-  resolved "https://registry.yarnpkg.com/@amaui/style/-/style-1.0.11711.tgz#ea3255950918d85e32c8b977d0043463696f21a9"
-  integrity sha512-1UfPhZK4lkVwe6w5UrQyy6jXfIyf+q78s0lFSRHoydl9/74yIlSipTki423RCRO949kJm8Iy2UOaywe/LR+XHQ==
+"@amaui/style@^1.0.11714":
+  version "1.0.11714"
+  resolved "https://registry.yarnpkg.com/@amaui/style/-/style-1.0.11714.tgz#f9253d4e82bd92d4517d0c4ae58e0eccc94b1226"
+  integrity sha512-Zh00H+bW9h9y3VjFYjrcg20TvnTFQDbSiYpiouD7ZMRlYJvV8BkDFKBb1TsyI64v/9PcHdRl3DdpDfAfIdAiZw==
   dependencies:
     "@amaui/meta" "^1.0.11141"
     "@amaui/node" "^1.0.11117"
