@@ -6,7 +6,7 @@
   "author": "Lazar <lazareric.com@gmail.com>",
   "license": "MIT",
   "private": false,
-  "main": "./srx/index.tsx",
+  "main": "./src/index.tsx",
   "keywords": [
     "icons",
     "material",
