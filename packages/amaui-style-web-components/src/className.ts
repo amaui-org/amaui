@@ -1,6 +1,7 @@
+import is from '@amaui/utils/is';
+
 import { TValue, classNames } from '@amaui/style';
 import { IOptions } from '@amaui/style/style';
-import { is } from '@amaui/utils';
 
 import { style } from '.';
 import { IStringMethod } from './string';

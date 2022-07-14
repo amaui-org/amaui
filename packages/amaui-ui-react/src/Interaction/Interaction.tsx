@@ -38,7 +38,7 @@ const useStyle = style(theme => ({
   background: {
     ...other,
     opacity: theme.palette.visual_contrast.default.opacity.hover,
-    transition: theme.methods.transitions.make('background', { duration: 'regular', timing_function: 'standard' }),
+    transition: theme.methods.transitions.make('background', { duration: 'rg', timing_function: 'standard' }),
 
     '&$active': {
       backgroundColor: 'currentcolor'

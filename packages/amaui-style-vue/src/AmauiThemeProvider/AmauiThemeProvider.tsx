@@ -1,6 +1,7 @@
 import * as Vue from 'vue';
 
-import { copy, merge } from '@amaui/utils';
+import copy from '@amaui/utils/copy';
+import merge from '@amaui/utils/merge';
 import { AmauiTheme } from '@amaui/style';
 
 export default {

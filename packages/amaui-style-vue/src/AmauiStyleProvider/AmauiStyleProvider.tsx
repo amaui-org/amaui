@@ -1,6 +1,6 @@
 import * as Vue from 'vue';
 
-import { is } from '@amaui/utils';
+import is from '@amaui/utils/is';
 import { AmauiStyle, makeClassName, unit, rtl, sort, valueObject, } from '@amaui/style';
 
 function makeAmauiStyle() {

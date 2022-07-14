@@ -1,6 +1,8 @@
 import React from 'react';
 
-import { merge, hash, is } from '@amaui/utils';
+import is from '@amaui/utils/is';
+import hash from '@amaui/utils/hash';
+import merge from '@amaui/utils/merge';
 
 import { IMethodResponse, IResponse, reset as amauiResetMethod, TValue, TValueMethod, names } from '@amaui/style';
 import { IOptions } from '@amaui/style/reset';

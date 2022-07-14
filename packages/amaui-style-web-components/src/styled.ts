@@ -1,6 +1,7 @@
+import isEnvironment from '@amaui/utils/isEnvironment';
+
 import { classNames, IResponse, TValue } from '@amaui/style';
 import { IOptions } from '@amaui/style/style';
-import { isEnvironment } from '@amaui/utils';
 
 import { style } from '.';
 import { IStyleResponse } from './style';

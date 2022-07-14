@@ -46,12 +46,12 @@
     "vue": "^3.2.37"
   },
   "dependencies": {
-    "@amaui/style": "^1.0.11471",
-    "@amaui/utils": "^1.0.11117"
+    "@amaui/style": "^1.0.11477",
+    "@amaui/utils": "^1.0.11411"
   },
   "publishConfig": {
     "access": "public",
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://registry.npmjs.org"
   },
   "sideEffects": false,
   "engines": {

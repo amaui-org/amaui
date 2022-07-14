@@ -1,4 +1,4 @@
-import { isEnvironment } from '@amaui/utils';
+import isEnvironment from '@amaui/utils/isEnvironment';
 
 import { AmauiStyle, makeClassName, unit, rtl, sort, valueObject } from '@amaui/style';
 

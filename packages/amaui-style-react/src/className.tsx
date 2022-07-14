@@ -1,6 +1,8 @@
 import React from 'react';
 
-import { hash, is, merge } from '@amaui/utils';
+import is from '@amaui/utils/is';
+import hash from '@amaui/utils/hash';
+import merge from '@amaui/utils/merge';
 import { classNames, IResponse, TValue, IMethodResponse, style, names, TValueMethod } from '@amaui/style';
 import { IOptions } from '@amaui/style/style';
 

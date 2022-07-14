@@ -1,4 +1,5 @@
-import { merge, is } from '@amaui/utils';
+import is from '@amaui/utils/is';
+import merge from '@amaui/utils/merge';
 import { IMethodResponse, IResponse, names, reset as amauiResetMethod, TValue, TValueMethod } from '@amaui/style';
 import { IOptions } from '@amaui/style/style';
 

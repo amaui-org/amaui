@@ -1,6 +1,5 @@
 import * as Vue from 'vue';
 
-import { copy, merge } from '@amaui/utils';
 import { AmauiTheme } from '@amaui/style';
 
 interface IOptions {

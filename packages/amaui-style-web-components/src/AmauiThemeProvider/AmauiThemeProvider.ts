@@ -1,4 +1,7 @@
-import { isEnvironment, merge, copy, parse } from '@amaui/utils';
+import isEnvironment from '@amaui/utils/isEnvironment';
+import copy from '@amaui/utils/copy';
+import parse from '@amaui/utils/parse';
+import merge from '@amaui/utils/merge';
 
 import { AmauiTheme } from '@amaui/style';
 import useAmauiTheme from './useAmauiTheme';

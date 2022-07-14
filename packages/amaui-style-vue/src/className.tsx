@@ -1,8 +1,8 @@
 import * as Vue from 'vue';
 
+import is from '@amaui/utils/is';
 import { classNames, TValue } from '@amaui/style';
 import { IOptions } from '@amaui/style/style';
-import { is } from '@amaui/utils';
 
 import { style } from '.';
 

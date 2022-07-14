@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { hash, merge } from '@amaui/utils';
+import hash from '@amaui/utils/hash';
+import merge from '@amaui/utils/merge';
 
 import { inline as amauiInlineMethod, TValue } from '@amaui/style';
 import { IOptions } from '@amaui/style/inline';

@@ -1,4 +1,4 @@
-import { castParam } from '@amaui/utils';
+import castParam from '@amaui/utils/castParam';
 
 export const getAttributeValues = (value: HTMLElement) => {
   const values = {};

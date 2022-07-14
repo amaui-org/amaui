@@ -1,6 +1,7 @@
 import * as Vue from 'vue';
 
-import { merge, is } from '@amaui/utils';
+import is from '@amaui/utils/is';
+import merge from '@amaui/utils/merge';
 
 import { AmauiStyle, AmauiTheme, IMethodResponse, IResponse, names, pure as amauiPureMethod, TValue, TValueMethod } from '@amaui/style';
 import { IOptions } from '@amaui/style/pure';

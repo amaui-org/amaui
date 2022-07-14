@@ -20,7 +20,7 @@ const useStyle = style(theme => ({
     width: '1em',
     height: '1em',
 
-    transition: theme.methods.transitions.make(['fill', 'transform', 'filter'], { duration: 'small', timing_function: 'standard' })
+    transition: theme.methods.transitions.make(['fill', 'transform', 'filter'], { duration: 'sm', timing_function: 'standard' })
   },
   rtl: {
     transform: 'scaleX(-1)',

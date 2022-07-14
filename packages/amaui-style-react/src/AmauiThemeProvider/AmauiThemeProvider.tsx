@@ -1,6 +1,8 @@
 import React from 'react';
 
-import { merge, copy, hash } from '@amaui/utils';
+import hash from '@amaui/utils/hash';
+import copy from '@amaui/utils/copy';
+import merge from '@amaui/utils/merge';
 import { AmauiTheme } from '@amaui/style';
 
 import AmauiThemeContext from './AmauiThemeContext';
