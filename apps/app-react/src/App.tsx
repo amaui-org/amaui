@@ -2,7 +2,7 @@ import React from 'react';
 
 import { style } from '@amaui/style-react';
 import { Interaction } from '@amaui/ui-react';
-import IconMaterialPottedPlantRounded from '@amaui/icons-material-react/IconMaterialPottedPlantRounded';
+import IconMaterialPottedPlantRounded from '@amaui/icons-material-react/build/IconMaterialPottedPlantRounded';
 
 const useStyle = style(theme => ({
   a: {

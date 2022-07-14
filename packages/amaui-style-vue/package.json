@@ -6,7 +6,7 @@
   "author": "Lazar <lazareric.com@gmail.com>",
   "license": "MIT",
   "private": false,
-  "main": "./src/index.ts",
+  "main": "./src/index.tsx",
   "keywords": [
     "vue",
     "vue-style",
@@ -49,6 +49,9 @@
     "@amaui/style": "^1.0.11714",
     "@amaui/utils": "^1.0.11411"
   },
+  "devDependencies": {
+    "@types/vue": "^2.0.0"
+  },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
@@ -58,7 +61,7 @@
     "node": ">=12.0.0",
     "yarn": ">=1.22"
   },
-  "devDependencies": {
-    "@types/vue": "^2.0.0"
+  "exports": {
+    ".": "./build/index.js"
   }
 }

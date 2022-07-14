@@ -3,7 +3,6 @@
     "baseUrl": ".",
     "outDir": "./build",
     "target": "ES2017",
-    "allowJs": true,
     "module": "commonjs",
     "esModuleInterop": true,
     "resolveJsonModule": true,
@@ -11,7 +10,8 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "skipLibCheck": true,
-    "declaration": false
+    "declaration": false,
+    "allowJs": true
   },
   "exclude": [
     "**/build",
