@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { getID, debounce } from '@amaui/utils';
+import getID from '@amaui/utils/getID';
+import debounce from '@amaui/utils/debounce';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import { Transition, Transitions, TTransitionStatus } from '..';

@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { is, wait } from '@amaui/utils';
+import is from '@amaui/utils/is';
+import wait from '@amaui/utils/wait';
 import AmauiSubscription from '@amaui/subscription';
 import { classNames, useAmauiTheme } from '@amaui/style-react';
 
