@@ -13,9 +13,21 @@ export default function pure(value: TValue, options_: IOptions = {}) {
   let response: IMethodResponse;
   let values_: IResponse = {} as any;
 
-  function usePure(props?: any) {
+  function usePure(props_?: any) {
     const amauiStyle = useAmauiStyle();
     const amauiTheme = useAmauiTheme();
+
+    let props = props_;
+
+    if (is('object', props)) {
+      const newProps = {};
+
+      const allowed = Object.keys(props).filter(prop => is('array', props[prop]) ? !(props[prop].some(item => React.isValidElement(item))) : !React.isValidElement(props[prop]));
+
+      allowed.forEach(prop => newProps[prop] = props[prop]);
+
+      props = newProps;
+    }
 
     const makeResponse = () => {
       if (response === undefined) {

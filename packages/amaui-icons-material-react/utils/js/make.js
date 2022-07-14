@@ -110,11 +110,7 @@ async function method() {
     console.log('Made', made);
   }
 
-  for (const icon of icons) {
-    await makeIcon(icon);
-
-    if (made > 14) break;
-  }
+  for (const icon of icons) await makeIcon(icon);
 
   // Make index.tsx
   const allIcons = (await fs(path.join(src, `/**`), { onlyFiles: true }));

@@ -34,7 +34,7 @@ const useStyle = style(theme => ({
 const Icon = React.forwardRef((props: any, ref) => {
   const [rtl, setRtl] = React.useState(props.rtl);
 
-  const { classes } = useStyle();
+  const { classes } = useStyle(props);
 
   const amauiTheme = useAmauiTheme();
 
