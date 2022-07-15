@@ -7,21 +7,28 @@ import { Transition, TTransitionStatus } from '..';
 
 const Slide = React.forwardRef((props: any, ref: React.MutableRefObject<any>) => {
   const theme = useAmauiTheme();
-  const rootRef = React.useRef<HTMLElement>();
-  const [rect, setRect] = React.useState<DOMRect>(undefined);
-
-  React.useEffect(() => {
-    setTimeout(() => setRect(rootRef.current.getBoundingClientRect()));
-  }, []);
+  const refs = {
+    root: React.useRef<HTMLElement>()
+  };
 
   const translate = () => {
-    if (props.direction === 'up') return `translate(0, -${rect?.bottom ? rect?.bottom + 'px' : '100vh'})`;
+    const rect = refs.root?.current?.getBoundingClientRect();
 
-    if (props.direction === 'down') return `translate(0, ${rect?.top ? (window.innerHeight - rect.top) + 'px' : '100vh'})`;
+    const h = props.root ? props.root.offsetHeight : window.innerHeight;
+    const w = props.root ? props.root.offsetWidth : window.innerWidth;
 
-    if (props.direction === 'left') return `translate(-${rect?.right ? rect?.right + 'px' : '100vw'}, 0)`;
+    const top = props.root ? refs.root?.current?.offsetTop : rect?.top;
+    const left = props.root ? refs.root?.current?.offsetLeft : rect?.left;
+    const right = props.root ? refs.root?.current?.offsetLeft + refs.root?.current?.offsetWidth : rect?.right;
+    const bottom = props.root ? refs.root?.current?.offsetTop + refs.root?.current?.offsetHeight : rect?.bottom;
 
-    if (props.direction === 'right') return `translate(${rect?.left ? (window.innerWidth - rect.left) + 'px' : '100vw'}, 0)`;
+    if (props.direction === 'up') return `translate(0, -${bottom !== undefined ? bottom + 'px' : '100vh'})`;
+
+    if (props.direction === 'down') return `translate(0, ${top !== undefined ? Math.abs(h - top) + 'px' : '100vh'})`;
+
+    if (props.direction === 'left') return `translate(-${right !== undefined ? right + 'px' : '100vw'}, 0)`;
+
+    if (props.direction === 'right') return `translate(${left !== undefined ? w - left + 'px' : '100vw'}, 0)`;
   };
 
   const styles = {
@@ -50,11 +57,11 @@ const Slide = React.forwardRef((props: any, ref: React.MutableRefObject<any>) =>
     <Transition
       {...props}
 
-      enterOnAdd={!!rootRef.current}
+      enterOnAdd={!!refs.root.current}
     >
       {(status: TTransitionStatus, ref_) => React.cloneElement(props.children, {
         ref: item => {
-          rootRef.current = item;
+          refs.root.current = item;
 
           if (ref) ref.current = item;
 
@@ -62,11 +69,11 @@ const Slide = React.forwardRef((props: any, ref: React.MutableRefObject<any>) =>
         },
 
         style: {
-          ...(props.children.style || {}),
-
           transition: `transform ${timeout(status, 'transform')} ${timingFunction(status)}`,
 
           ...(styles[status] || {}),
+
+          ...(props.children?.props?.style || {}),
         }
       })}
     </Transition>

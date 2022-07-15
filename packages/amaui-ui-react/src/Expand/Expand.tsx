@@ -7,11 +7,13 @@ import { Transition, TTransitionStatus } from '..';
 
 const Expand = React.forwardRef((props: any, ref: React.MutableRefObject<any>) => {
   const theme = useAmauiTheme();
-  const rootRef = React.useRef<HTMLElement>();
+  const refs = {
+    root: React.useRef<HTMLElement>()
+  };
   const [rect, setRect] = React.useState<DOMRect>(undefined);
 
   React.useEffect(() => {
-    setTimeout(() => setRect(rootRef.current.getBoundingClientRect()));
+    setTimeout(() => setRect(refs.root.current.getBoundingClientRect()));
   }, []);
 
   const styles = {
@@ -42,11 +44,11 @@ const Expand = React.forwardRef((props: any, ref: React.MutableRefObject<any>) =
     <Transition
       {...props}
 
-      enterOnAdd={!!rootRef.current}
+      enterOnAdd={!!refs.root.current}
     >
       {(status: TTransitionStatus, ref_) => React.cloneElement(props.children, {
         ref: item => {
-          rootRef.current = item;
+          refs.root.current = item;
 
           if (ref) ref.current = item;
 
@@ -54,13 +56,13 @@ const Expand = React.forwardRef((props: any, ref: React.MutableRefObject<any>) =
         },
 
         style: {
-          ...(props.children.style || {}),
-
           transition: `height ${timeout(status, 'height')} ${timingFunction(status)}`,
 
           visibility: status === 'exited' && !props.in ? 'hidden' : undefined,
 
           ...(styles[status] || {}),
+
+          ...(props.children?.props?.style || {}),
         }
       })}
     </Transition>

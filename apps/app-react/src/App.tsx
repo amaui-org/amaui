@@ -12,7 +12,7 @@ const useStyleA = style(theme => ({
 
     '&.a-entering': {
       opacity: 1,
-      transition: .4,
+      transition: theme?.methods.transitions.make(['opacity'], { duration: 'rg', timing_function: 'standard' }),
     },
 
     '&.a-exit': {
@@ -21,12 +21,12 @@ const useStyleA = style(theme => ({
 
     '&.a-exiting': {
       opacity: 0,
-      transition: .4,
+      transition: theme?.methods.transitions.make(['opacity'], { duration: 'rg', timing_function: 'standard' }),
     },
 
     '&.a-exited': {
       opacity: 0,
-      transition: .4,
+      transition: theme?.methods.transitions.make(['opacity'], { duration: 'rg', timing_function: 'standard' }),
     },
   }
 }));
@@ -48,7 +48,7 @@ const useStyle = style(theme => ({
     display: 'flex',
     flexDirection: 'column',
     gap: 40,
-    padding: '240px 140px'
+    padding: '271px 140px'
   },
   group: {
     display: 'flex',
@@ -59,7 +59,8 @@ const useStyle = style(theme => ({
     flexDirection: 'column'
   },
   item: {
-    display: 'block'
+    display: 'block',
+    position: 'relative'
   },
   btn: {
     padding: '7px 24px',
@@ -78,7 +79,7 @@ const useStyle = style(theme => ({
   div: {
     width: 140,
     height: 140,
-    background: 'orange'
+    background: '#fbeecd'
   },
   h1: {
     fontSize: 15,
@@ -101,7 +102,7 @@ const useStyle = style(theme => ({
     '&.entering': {
       opacity: '1',
       transform: 'translateX(0%)',
-      transition: '.5s',
+      transition: theme?.methods.transitions.make(['opacity', 'transform'], { duration: 'rg', timing_function: 'standard' }),
     },
 
     '&.exit': {
@@ -112,7 +113,7 @@ const useStyle = style(theme => ({
     '&.exiting': {
       opacity: '0',
       transform: 'translateX(100%)',
-      transition: '.5s',
+      transition: theme?.methods.transitions.make(['opacity', 'transform'], { duration: 'rg', timing_function: 'standard' }),
     },
   }
 }));
@@ -132,6 +133,12 @@ function App() {
   const { classes } = useStyle();
   const refs = {
     transitions: React.useRef<any>(),
+    slides: {
+      up: React.useRef<any>(),
+      left: React.useRef<any>(),
+      right: React.useRef<any>(),
+      down: React.useRef<any>()
+    }
   };
 
   const update = (item: any) => {
@@ -169,7 +176,9 @@ function App() {
             <span style={{ position: 'relative' }}>a</span>
           </div>
         </section>
+      </div>
 
+      <div className={classes.group}>
         <section className={classes.item}>
           <h1 className={classes.h1}>Fade</h1>
 
@@ -181,7 +190,9 @@ function App() {
             </div>
           </Fade>
         </section>
+      </div>
 
+      <div className={classes.group}>
         <section className={classes.item}>
           <h1 className={classes.h1}>Grow</h1>
 
@@ -195,6 +206,20 @@ function App() {
         </section>
 
         <section className={classes.item}>
+          <h1 className={classes.h1}>Grow with transform origin</h1>
+
+          <button className={classes.btn} onClick={() => update('grow')}>a</button>
+
+          <Grow in={a.grow}>
+            <div className={classes.div} style={{ transformOrigin: '0 0' }}>
+              a {String(a.grow)}
+            </div>
+          </Grow>
+        </section>
+      </div>
+
+      <div className={classes.group}>
+        <section className={classes.item}>
           <h1 className={classes.h1}>Zoom</h1>
 
           <button className={classes.btn} onClick={() => update('zoom')}>a</button>
@@ -205,6 +230,21 @@ function App() {
             </div>
           </Zoom>
         </section>
+
+        <section className={classes.item}>
+          <h1 className={classes.h1}>Zoom with transform origin</h1>
+
+          <button className={classes.btn} onClick={() => update('zoom')}>a</button>
+
+          <Zoom in={a.zoom}>
+            <div className={classes.div} style={{ transformOrigin: '0 0' }}>
+              a {String(a.zoom)}
+            </div>
+          </Zoom>
+        </section>
+      </div>
+
+      <div className={classes.group}>
 
         <section className={classes.item}>
           <h1 className={classes.h1}>Expand</h1>
@@ -218,17 +258,110 @@ function App() {
           </Expand>
         </section>
 
+      </div>
+
+      <div className={classes.group}>
+
         <section className={classes.item}>
-          <h1 className={classes.h1}>Slide</h1>
+          <h1 className={classes.h1}>Slide up</h1>
 
           <button className={classes.btn} onClick={() => update('slide')}>a</button>
 
-          <Slide in={a.slide}>
+          <Slide in={a.slide} direction='up'>
             <div className={classes.div}>
               a {String(a.slide)}
             </div>
           </Slide>
         </section>
+
+        <section className={classes.item}>
+          <h1 className={classes.h1}>Slide left</h1>
+
+          <button className={classes.btn} onClick={() => update('slide')}>a</button>
+
+          <Slide in={a.slide} direction='left'>
+            <div className={classes.div}>
+              a {String(a.slide)}
+            </div>
+          </Slide>
+        </section>
+
+        <section className={classes.item}>
+          <h1 className={classes.h1}>Slide right</h1>
+
+          <button className={classes.btn} onClick={() => update('slide')}>a</button>
+
+          <Slide in={a.slide} direction='right'>
+            <div className={classes.div}>
+              a {String(a.slide)}
+            </div>
+          </Slide>
+        </section>
+
+        <section className={classes.item}>
+          <h1 className={classes.h1}>Slide down</h1>
+
+          <button className={classes.btn} onClick={() => update('slide')}>a</button>
+
+          <Slide in={a.slide} direction='down'>
+            <div className={classes.div}>
+              a {String(a.slide)}
+            </div>
+          </Slide>
+        </section>
+
+      </div>
+
+      <div className={classes.group}>
+
+        <section className={classes.item} ref={refs.slides.up} style={{ overflow: 'hidden', height: 400 }}>
+          <h1 className={classes.h1}>Slide up relative to root ref</h1>
+
+          <button className={classes.btn} onClick={() => update('slide')}>a</button>
+
+          <Slide in={a.slide} direction='up' root={refs.slides.up?.current}>
+            <div className={classes.div}>
+              a {String(a.slide)}
+            </div>
+          </Slide>
+        </section>
+
+        <section className={classes.item} ref={refs.slides.left} style={{ overflow: 'hidden', height: 400 }}>
+          <h1 className={classes.h1}>Slide left relative to root ref</h1>
+
+          <button className={classes.btn} onClick={() => update('slide')}>a</button>
+
+          <Slide in={a.slide} direction='left' root={refs.slides.left?.current}>
+            <div className={classes.div}>
+              a {String(a.slide)}
+            </div>
+          </Slide>
+        </section>
+
+        <section className={classes.item} ref={refs.slides.right} style={{ overflow: 'hidden', height: 400 }}>
+          <h1 className={classes.h1}>Slide right relative to root ref</h1>
+
+          <button className={classes.btn} onClick={() => update('slide')}>a</button>
+
+          <Slide in={a.slide} direction='right' root={refs.slides.right?.current}>
+            <div className={classes.div}>
+              a {String(a.slide)}
+            </div>
+          </Slide>
+        </section>
+
+        <section className={classes.item} ref={refs.slides.down} style={{ overflow: 'hidden', height: 400 }}>
+          <h1 className={classes.h1}>Slide down relative to root ref</h1>
+
+          <button className={classes.btn} onClick={() => update('slide')}>a</button>
+
+          <Slide in={a.slide} direction='down' root={refs.slides.down?.current}>
+            <div className={classes.div}>
+              a {String(a.slide)}
+            </div>
+          </Slide>
+        </section>
+
       </div>
 
       <div className={classes.group}>

@@ -91,11 +91,13 @@ function Transition(props: IProps) {
     return statusNew;
   });
   const setAdded = React.useState(false)[1];
-  const ref = React.useRef<HTMLElement>();
-  const statusRef = React.useRef(status);
   const subs = React.useRef({
     status: new AmauiSubscription()
   });
+  const refs = {
+    root: React.useRef<HTMLElement>(),
+    status: React.useRef(status)
+  };
 
   const theme = useAmauiTheme();
 
@@ -132,7 +134,7 @@ function Transition(props: IProps) {
 
       if (status !== statusNew) {
         // Added
-        if (inProp && (!ref.current || (ref.current && ref.current.className.indexOf('removed') > -1))) {
+        if (inProp && (!refs.root.current || (refs.root.current && refs.root.current.className.indexOf('removed') > -1))) {
           // We re add the element and get the ref value
           // for update below to use it for enter
           setAdded(added => !added);
@@ -180,7 +182,7 @@ function Transition(props: IProps) {
   }, [props.in]);
 
   const update = async (status_: TTransitionStatus) => {
-    statusRef.current = status_;
+    refs.status.current = status_;
 
     switch (status_) {
       case 'add':
@@ -209,46 +211,46 @@ function Transition(props: IProps) {
   };
 
   const add = async (status_: TTransitionStatus) => {
-    if (statusRef.current !== status_) return;
+    if (refs.status.current !== status_) return;
 
     updateStatus('add');
 
     if (props.add) await timeout('add');
 
-    if (statusRef.current === status_) updateStatus('added');
+    if (refs.status.current === status_) updateStatus('added');
   };
 
   const enter = async (status_: TTransitionStatus) => {
-    if (statusRef.current !== status_) return;
+    if (refs.status.current !== status_) return;
 
     // Re add / add element for ref value
     updateStatus('enter');
 
     // Reflow
-    reflow(ref.current);
+    reflow(refs.root.current);
 
     // Add exiting class for animation
     setTimeout(() => updateStatus('entering'));
 
     if (props.enter) await timeout('enter');
 
-    if (statusRef.current.indexOf('exit') === -1) updateStatus('entered');
+    if (refs.status.current.indexOf('exit') === -1) updateStatus('entered');
   };
 
   const exit = async (status_: TTransitionStatus) => {
-    if (statusRef.current !== status_) return;
+    if (refs.status.current !== status_) return;
 
     updateStatus('exit');
 
     // Reflow
-    reflow(ref.current);
+    reflow(refs.root.current);
 
     // Prevent update batches
     setTimeout(() => updateStatus('exiting'));
 
     if (props.exit) await timeout('exit');
 
-    if (statusRef.current.indexOf('enter') === -1) updateStatus('exited');
+    if (refs.status.current.indexOf('enter') === -1) updateStatus('exited');
   };
 
   const onEntered = (element: HTMLElement) => {
@@ -265,57 +267,57 @@ function Transition(props: IProps) {
 
     switch (status_) {
       case 'add':
-        if (is('function', props.onTransition)) props.onTransition(ref.current, status_);
-        if (is('function', props.onAdd)) props.onAdd(ref.current);
+        if (is('function', props.onTransition)) props.onTransition(refs.root.current, status_);
+        if (is('function', props.onAdd)) props.onAdd(refs.root.current);
 
         break;
 
       case 'added':
-        if (is('function', props.onTransition)) props.onTransition(ref.current, status_);
-        if (is('function', props.onAdded)) props.onAdded(ref.current);
+        if (is('function', props.onTransition)) props.onTransition(refs.root.current, status_);
+        if (is('function', props.onAdded)) props.onAdded(refs.root.current);
 
         break;
 
       case 'enter':
-        if (is('function', props.onTransition)) props.onTransition(ref.current, status_);
-        if (is('function', props.onEnter)) props.onEnter(ref.current);
+        if (is('function', props.onTransition)) props.onTransition(refs.root.current, status_);
+        if (is('function', props.onEnter)) props.onEnter(refs.root.current);
 
         break;
 
       case 'entering':
-        if (is('function', props.onTransition)) props.onTransition(ref.current, status_);
-        if (is('function', props.onEntering)) props.onEntering(ref.current);
+        if (is('function', props.onTransition)) props.onTransition(refs.root.current, status_);
+        if (is('function', props.onEntering)) props.onEntering(refs.root.current);
 
         break;
 
       case 'entered':
-        if (is('function', props.onTransition)) props.onTransition(ref.current, status_);
+        if (is('function', props.onTransition)) props.onTransition(refs.root.current, status_);
 
-        onEntered(ref.current);
+        onEntered(refs.root.current);
 
         break;
 
       case 'exit':
-        if (is('function', props.onTransition)) props.onTransition(ref.current, status_);
-        if (is('function', props.onExit)) props.onExit(ref.current);
+        if (is('function', props.onTransition)) props.onTransition(refs.root.current, status_);
+        if (is('function', props.onExit)) props.onExit(refs.root.current);
 
         break;
 
       case 'exiting':
-        if (is('function', props.onTransition)) props.onTransition(ref.current, status_);
-        if (is('function', props.onExiting)) props.onExiting(ref.current);
+        if (is('function', props.onTransition)) props.onTransition(refs.root.current, status_);
+        if (is('function', props.onExiting)) props.onExiting(refs.root.current);
 
         break;
 
       case 'exited':
-        if (is('function', props.onTransition)) props.onTransition(ref.current, status_);
-        if (is('function', props.onExited)) props.onExited(ref.current);
+        if (is('function', props.onTransition)) props.onTransition(refs.root.current, status_);
+        if (is('function', props.onExited)) props.onExited(refs.root.current);
 
         break;
 
       case 'removed':
-        if (is('function', props.onTransition)) props.onTransition(ref.current, status_);
-        if (is('function', props.onRemoved)) props.onRemoved(ref.current);
+        if (is('function', props.onTransition)) props.onTransition(refs.root.current, status_);
+        if (is('function', props.onRemoved)) props.onRemoved(refs.root.current);
 
         break;
 
@@ -324,8 +326,8 @@ function Transition(props: IProps) {
     }
 
     // Add className
-    if (props.className && is('element', ref.current)) {
-      let className = classNames([ref.current.className.split(' ')]);
+    if (props.className && is('element', refs.root.current)) {
+      let className = classNames([refs.root.current.className.split(' ')]);
 
       // Remove all previous classes
       className = className.replace(new RegExp(`${props.prefix || ''}(add|enter|exit)(ed|ing)?`, 'g'), '');
@@ -335,7 +337,7 @@ function Transition(props: IProps) {
 
       className = className.replace(/ +/g, ' ').trim();
 
-      ref.current.className = className;
+      refs.root.current.className = className;
     }
   };
 
@@ -349,11 +351,11 @@ function Transition(props: IProps) {
     <TransitionContext.Provider value={value}>
       {
         is('function', props.children) ?
-          props.children(status, ref) :
+          props.children(status, refs.root) :
 
           React.cloneElement(props.children, {
             ref: item => {
-              ref.current = item;
+              refs.root.current = item;
 
               if (props.ref) props.ref.current = item;
             }

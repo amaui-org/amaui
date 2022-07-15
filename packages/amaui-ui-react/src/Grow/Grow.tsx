@@ -46,13 +46,13 @@ const Grow = React.forwardRef((props: any, ref: React.MutableRefObject<any>) => 
         },
 
         style: {
-          ...(props.children.style || {}),
-
           visibility: status === 'exited' && !props.in ? 'hidden' : undefined,
 
           transition: `opacity ${timeout(status)} ${timingFunction(status)}, transform ${timeout(status, 'transform')} ${timingFunction(status)} ${status === 'exiting' ? '74ms' : '0ms'}`,
 
           ...(styles[status] || {}),
+
+          ...(props.children?.props?.style || {}),
         }
       })}
     </Transition>
