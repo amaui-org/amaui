@@ -16,23 +16,27 @@ const Expand = React.forwardRef((props: any, ref: React.MutableRefObject<any>) =
     setTimeout(() => setRect(refs.root.current.getBoundingClientRect()));
   }, []);
 
+  let prop = 'height';
+
+  if (props.orientation === 'horizontal') prop = 'width';
+
   const styles = {
     entering: {
-      height: `${rect?.height || 0}px`
+      [prop]: `${rect && rect[prop] || 0}px`
     },
     exiting: {
-      height: '0',
+      [prop]: props.expandSize !== undefined ? props.expandSize : '0',
       overflow: 'hidden'
     },
     exited: {
-      height: '0',
+      [prop]: props.expandSize !== undefined ? props.expandSize : '0',
       overflow: 'hidden'
     }
   };
 
   const timeout = (status: TTransitionStatus, property: string = 'opacity') => {
     const properties = {
-      height: theme.transitions.duration.rg
+      [prop]: theme.transitions.duration.rg
     };
 
     return `${((is('simple', props.timeout) ? props.timeout : props.timeout[status]) || properties[property] - (status === 'exiting' ? 30 : 0))}ms`;
@@ -56,9 +60,9 @@ const Expand = React.forwardRef((props: any, ref: React.MutableRefObject<any>) =
         },
 
         style: {
-          transition: `height ${timeout(status, 'height')} ${timingFunction(status)}`,
+          transition: `${prop} ${timeout(status, prop)} ${timingFunction(status)}`,
 
-          visibility: status === 'exited' && !props.in ? 'hidden' : undefined,
+          visibility: status === 'exited' && !props.in && props.expandSize === undefined ? 'hidden' : undefined,
 
           ...(styles[status] || {}),
 

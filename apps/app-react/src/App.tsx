@@ -160,8 +160,10 @@ function App() {
 
   return (
     <div className={classes.root}>
+      {/* Reset */}
       <Reset />
 
+      {/* Interaction */}
       <div className={classes.group}>
         <section className={classes.item}>
           <h1 className={classes.h1}>Interaction</h1>
@@ -178,6 +180,7 @@ function App() {
         </section>
       </div>
 
+      {/* Fade */}
       <div className={classes.group}>
         <section className={classes.item}>
           <h1 className={classes.h1}>Fade</h1>
@@ -192,6 +195,7 @@ function App() {
         </section>
       </div>
 
+      {/* Grow */}
       <div className={classes.group}>
         <section className={classes.item}>
           <h1 className={classes.h1}>Grow</h1>
@@ -218,6 +222,7 @@ function App() {
         </section>
       </div>
 
+      {/* Zoom */}
       <div className={classes.group}>
         <section className={classes.item}>
           <h1 className={classes.h1}>Zoom</h1>
@@ -244,6 +249,7 @@ function App() {
         </section>
       </div>
 
+      {/* Expand */}
       <div className={classes.group}>
 
         <section className={classes.item}>
@@ -258,8 +264,45 @@ function App() {
           </Expand>
         </section>
 
+        <section className={classes.item}>
+          <h1 className={classes.h1}>Expand with expandSize</h1>
+
+          <button className={classes.btn} onClick={() => update('expand')}>a</button>
+
+          <Expand in={a.expand} expandSize='70px'>
+            <div className={classes.div}>
+              a {String(a.expand)}
+            </div>
+          </Expand>
+        </section>
+
+        <section className={classes.item}>
+          <h1 className={classes.h1}>Expand with orientation horizontal</h1>
+
+          <button className={classes.btn} onClick={() => update('expand')}>a</button>
+
+          <Expand in={a.expand} orientation='horizontal'>
+            <div className={classes.div}>
+              a {String(a.expand)}
+            </div>
+          </Expand>
+        </section>
+
+        <section className={classes.item}>
+          <h1 className={classes.h1}>Expand with orientation horizontal and expandSize</h1>
+
+          <button className={classes.btn} onClick={() => update('expand')}>a</button>
+
+          <Expand in={a.expand} orientation='horizontal' expandSize='70px'>
+            <div className={classes.div}>
+              a {String(a.expand)}
+            </div>
+          </Expand>
+        </section>
+
       </div>
 
+      {/* Slide */}
       <div className={classes.group}>
 
         <section className={classes.item}>
@@ -312,6 +355,7 @@ function App() {
 
       </div>
 
+      {/* Slide relative to root ref */}
       <div className={classes.group}>
 
         <section className={classes.item} ref={refs.slides.up} style={{ overflow: 'hidden', height: 400 }}>
@@ -364,6 +408,7 @@ function App() {
 
       </div>
 
+      {/* Transition */}
       <div className={classes.group}>
         <section className={classes.item}>
           <h1 className={classes.h1}>Transition</h1>
@@ -376,6 +421,7 @@ function App() {
         </section>
       </div>
 
+      {/* Transitions with switch */}
       <div className={classNames([classes.group, classes.column])}>
         <section className={classes.item}>
           <h1 className={classes.h1}>Transitions mode switch</h1>
@@ -406,6 +452,7 @@ function App() {
         </section>
       </div>
 
+      {/* Transitions */}
       <div className={classes.group} ref={refs.transitions}>
         <section className={classes.item}>
           <h1 className={classes.h1}>Transitions</h1>
