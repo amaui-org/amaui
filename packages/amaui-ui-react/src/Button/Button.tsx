@@ -1,9 +1,9 @@
 import React from 'react';
 
+import { is } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Interaction from '../Interaction';
-import { is } from '@amaui/utils';
 
 const other = {
   pointerEvents: 'none',
@@ -31,6 +31,7 @@ const useStyle = style(theme => ({
     textDecoration: 'none',
     overflow: 'hidden',
     verticalAlign: 'middle',
+    userSelect: 'none',
 
     // Reset
     '-webkit-appearance': 'none',
@@ -68,6 +69,10 @@ const useStyle = style(theme => ({
     },
     '&$endIcon': {
       paddingRight: '0'
+    },
+
+    '&$disabled': {
+      cursor: 'default'
     }
   },
 
@@ -114,42 +119,35 @@ const useStyle = style(theme => ({
 
     '&$start': {
       '&$small': {
-        padding: `0 ${(theme.methods.space.value('rg') as number / 3) - 3}px 0 ${(theme.methods.space.value('rg') as number / 2) + 3}px`
+        padding: `0 ${theme.methods.space.value('xs')}px 0 ${theme.methods.space.value('sm')}px`
       },
 
       '&$regular': {
-        padding: `0 5px 0 13px`
+        padding: `0 ${theme.methods.space.value('sm')}px 0 ${theme.methods.space.value('rg')}px`
       },
 
       '&$large': {
-        padding: `0 ${(theme.methods.space.value('lg') as number / 3) - 3}px 0 ${(theme.methods.space.value('lg') as number / 2) + 3}px`
+        padding: `0 ${theme.methods.space.value('rg')}px 0 ${theme.methods.space.value('md')}px`
       }
     },
 
     '&$end': {
       '&$small': {
-        ...theme.typography.values.b3,
-        lineHeight: 1
+        padding: `0 ${theme.methods.space.value('sm')}px 0 ${theme.methods.space.value('xs')}px`
       },
 
       '&$regular': {
-        padding: '0 13px 0 5px'
+        padding: `0 ${theme.methods.space.value('rg')}px 0 ${theme.methods.space.value('sm')}px`
       },
 
       '&$large': {
-        ...theme.typography.values.b1,
+        padding: `0 ${theme.methods.space.value('md')}px 0 ${theme.methods.space.value('rg')}px`
       }
-    }
-  },
-
-  disabled: {
-    cursor: 'default'
-  },
+    },
+  }
 }));
 
 // To do
-// Start icon
-// End icon
 // Elevated
 // Loading
 
@@ -178,7 +176,8 @@ const Button = React.forwardRef((props: any, ref) => {
   const styles: any = {
     root: {},
     background: {},
-    border: {}
+    border: {},
+    icon: { fontSize: '20px' }
   };
 
   let newColor = false;
@@ -216,6 +215,9 @@ const Button = React.forwardRef((props: any, ref) => {
       styles.root.color = theme.methods.palette.color.value(color, 10);
     }
   }
+
+  if (size === 'small') styles.icon.fontSize = '16px';
+  if (size === 'large') styles.icon.fontSize = '24px';
 
   return (
     <Component
@@ -270,7 +272,7 @@ const Button = React.forwardRef((props: any, ref) => {
 
       {startIcon && (
         <span className={classNames([classes.icon, classes.start, classes[size]])}>
-          {startIcon}
+          {React.cloneElement(startIcon, { style: styles.icon })}
         </span>
       )}
 
@@ -282,7 +284,7 @@ const Button = React.forwardRef((props: any, ref) => {
 
       {endIcon && (
         <span className={classNames([classes.icon, classes.end, classes[size]])}>
-          {endIcon}
+          {React.cloneElement(endIcon, { style: styles.icon })}
         </span>
       )}
     </Component>
