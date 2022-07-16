@@ -84,7 +84,7 @@ const Icon = React.forwardRef((props: any, ref) => {
   const isRtlIcon = rtl_icons.includes(short_name);
 
   return (
-    <svg
+    <Component
       ref={ref}
 
       className={classNames([classes.root, className, disabled && classes.disabled, rtl && isRtlIcon && classes.rtl])}
@@ -110,7 +110,7 @@ const Icon = React.forwardRef((props: any, ref) => {
       {...other}
     >
       {children}
-    </svg>
+    </Component>
   );
 });
 

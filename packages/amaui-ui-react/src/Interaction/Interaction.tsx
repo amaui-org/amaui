@@ -266,6 +266,8 @@ const Interaction = (props: any) => {
           <Transition
             key={getID()}
 
+            timeout={500}
+
             enterOnAdd
             className
           >
@@ -313,6 +315,8 @@ const Interaction = (props: any) => {
         (
           <Transition
             key={getID()}
+
+            duration={500}
 
             enterOnAdd
             className

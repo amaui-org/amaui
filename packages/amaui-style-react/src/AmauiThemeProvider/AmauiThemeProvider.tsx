@@ -9,7 +9,7 @@ import AmauiThemeContext from './AmauiThemeContext';
 import useAmauiTheme from './useAmauiTheme';
 
 export interface IAmauiThemeProvider extends AmauiTheme {
-  updateWithRerender?: (value: any) => AmauiTheme;
+  updateWithRerender: (value: any) => AmauiTheme;
 }
 
 const resolveValue = (value: AmauiTheme) => {
@@ -25,17 +25,20 @@ const resolveValue = (value: AmauiTheme) => {
 const AmauiThemeProvider = React.forwardRef((props: any, ref: any) => {
   const { children, value: valueLocal = {}, ...other } = props;
 
-  const rootRef = React.useRef<HTMLElement>();
+  const refs = {
+    root: React.useRef<HTMLElement>()
+  };
 
   const valueParent = useAmauiTheme() as any || {};
 
-  const [value, setValue] = React.useState<IAmauiThemeProvider>(() => new AmauiTheme(merge(copy(resolveValue({ ...valueLocal })), copy(resolveValue({ ...valueParent })), { copy: true })));
+  const [value, setValue] = React.useState<IAmauiThemeProvider>(() => new AmauiTheme(merge(copy(resolveValue({ ...valueLocal })), copy(resolveValue({ ...valueParent })), { copy: true })) as any);
 
   React.useEffect(() => {
-    if (ref.current) {
-      const amauiTheme = new AmauiTheme(value, ref.current);
+    if (refs.root.current) {
+      const amauiTheme = new AmauiTheme(value, refs.root.current) as any;
 
       amauiTheme.id = value.id;
+      amauiTheme.subscriptions = value.subscriptions;
 
       // Init
       setValue(amauiTheme);
@@ -45,9 +48,10 @@ const AmauiThemeProvider = React.forwardRef((props: any, ref: any) => {
   React.useEffect(() => {
     value.update(merge(copy(resolveValue({ ...valueLocal })), copy(resolveValue({ ...valueParent })), { copy: true }));
 
-    const amauiTheme = new AmauiTheme(value, ref.current);
+    const amauiTheme = new AmauiTheme(value, refs.root?.current) as any;
 
     amauiTheme.id = value.id;
+    amauiTheme.subscriptions = value.subscriptions;
 
     // Init
     setValue(amauiTheme);
@@ -58,9 +62,10 @@ const AmauiThemeProvider = React.forwardRef((props: any, ref: any) => {
       // Update
       value.update(updateValue);
 
-      const amauiTheme = new AmauiTheme(value, ref.current);
+      const amauiTheme = new AmauiTheme(value, refs.root?.current) as any;
 
       amauiTheme.id = value.id;
+      amauiTheme.subscriptions = value.subscriptions;
 
       // Init
       setValue(amauiTheme);
@@ -76,7 +81,7 @@ const AmauiThemeProvider = React.forwardRef((props: any, ref: any) => {
     <AmauiThemeContext.Provider value={value}>
       <div
         ref={item => {
-          rootRef.current = item;
+          refs.root.current = item;
 
           if (ref?.current) ref.current = item;
         }}

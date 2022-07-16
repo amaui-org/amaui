@@ -3,6 +3,7 @@ import React from 'react';
 import is from '@amaui/utils/is';
 import hash from '@amaui/utils/hash';
 import merge from '@amaui/utils/merge';
+import equalDeep from '@amaui/utils/equalDeep';
 
 import { IMethodResponse, IResponse, pure as amauiPureMethod, TValue, TValueMethod, names } from '@amaui/style';
 import { IOptions } from '@amaui/style/pure';
@@ -29,6 +30,16 @@ export default function pure(value: TValue, options_: IOptions = {}) {
       props = newProps;
     }
 
+    // Updates for amauiTheme
+    const method = () => {
+      if (is('function', value)) {
+        const valueNew = (value as TValueMethod)(amauiTheme);
+
+        // Update
+        if (response?.update !== undefined) response.update(valueNew);
+      }
+    };
+
     const makeResponse = () => {
       if (response === undefined) {
         const options = {
@@ -46,6 +57,9 @@ export default function pure(value: TValue, options_: IOptions = {}) {
 
         // Update values for ssr as a priorty
         values_ = names(response.amaui_style_sheet_manager.names);
+
+        // Update
+        if (amauiTheme) amauiTheme.subscriptions.update.subscribe(method);
       }
     };
 
@@ -68,18 +82,6 @@ export default function pure(value: TValue, options_: IOptions = {}) {
 
       setValues(addValues);
 
-      // Updates for amauiTheme
-      const method = () => {
-        if (is('function', value)) {
-          const valueNew = (value as TValueMethod)(amauiTheme);
-
-          // Update
-          if (response?.update !== undefined) response.update(valueNew);
-        }
-      };
-
-      if (amauiTheme) amauiTheme.subscriptions.update.subscribe(method);
-
       // Clean up
       return () => {
         // Unsubscribe
@@ -90,7 +92,7 @@ export default function pure(value: TValue, options_: IOptions = {}) {
       };
     }, []);
 
-    // Weird fix in react, for create react app fast refresh new engine
+    // Weird fix in react, for create react app new fast refresh engine
     React.useEffect(() => {
       const status = response?.amaui_style_sheet_manager?.status;
 
@@ -101,10 +103,17 @@ export default function pure(value: TValue, options_: IOptions = {}) {
       }
     });
 
-    // Weird fix in react, for create react app fast refresh new engine
+    // Weird fix in react, for create react app new fast refresh engine
     React.useEffect(() => {
-      if (values_?.class !== values.class) setValues(values_);
-    }, [values_?.class]);
+      if (response && !equalDeep(values_?.ids?.static, values?.ids?.static)) {
+        const ids = [...values.ids.dynamic];
+
+        setValues(response.add(props));
+
+        // Remove previous ids
+        response?.remove(ids);
+      }
+    }, [hash(values_?.ids?.static)]);
 
     // Update props
     React.useEffect(() => {
