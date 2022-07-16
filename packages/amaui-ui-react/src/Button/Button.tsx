@@ -92,14 +92,10 @@ const useStyle = style(theme => ({
 }));
 
 // To do
-// Version
-
-// Tonal
-
 // In focus Interaction focus
-// Shadows
 // Disabled
 // Full width
+// Shadows
 // Loading
 
 const Button = React.forwardRef((props: any, ref) => {

@@ -386,9 +386,9 @@ const Interaction = (props: any) => {
               className={classes.border}
 
               style={{
-                opacity: status.indexOf('enter') > -1 ? theme.palette.visual_contrast.default.opacity.quaternary : 0,
+                opacity: status?.indexOf('enter') > -1 ? theme.palette.visual_contrast.default.opacity.quaternary : 0,
 
-                transition: status.indexOf('exit') > -1 ? theme.methods.transitions.make('opacity', { duration: 'complex', timing_function: 'standard' }) : undefined
+                transition: status?.indexOf('exit') > -1 ? theme.methods.transitions.make('opacity', { duration: 'complex', timing_function: 'standard' }) : undefined
               }}
             />
           )}

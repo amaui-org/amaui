@@ -75,7 +75,7 @@ function Transition(props: IProps) {
   const [init, setInit] = React.useState(false);
   const [inProp, setInProp] = React.useState(props.in);
   const [status, setStatus] = React.useState<TTransitionStatus>(() => {
-    let statusNew: TTransitionStatus;
+    let statusNew: TTransitionStatus = '' as any;
 
     if (inProp) {
       statusNew = props.add ? STATUS.add : STATUS.entered;
