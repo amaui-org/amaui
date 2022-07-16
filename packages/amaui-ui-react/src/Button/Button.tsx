@@ -72,7 +72,7 @@ const useStyle = style(theme => ({
     boxShadow: 'inset 0 0 0 1px currentColor'
   },
 
-  // Other
+  // Text
   text: {
     textTransform: 'capitalize',
     pointerEvents: 'none',
@@ -88,18 +88,22 @@ const useStyle = style(theme => ({
   },
   text_large: {
     ...theme.typography.values.b1,
-  }
+  },
+
+  // Other
+  disabled: {
+    cursor: 'default'
+  },
 }));
 
 // To do
-// In focus Interaction focus
-// Disabled
 // Full width
 // Shadows
 // Loading
 
 const Button = React.forwardRef((props: any, ref) => {
   const { classes } = useStyle(props);
+  const [focus, setFocus] = React.useState(false);
 
   const theme = useAmauiTheme();
 
@@ -118,7 +122,8 @@ const Button = React.forwardRef((props: any, ref) => {
 
   const styles: any = {
     root: {},
-    background: {}
+    background: {},
+    border: {}
   };
 
   let newColor = false;
@@ -129,15 +134,32 @@ const Button = React.forwardRef((props: any, ref) => {
     styles.root.color = color;
   }
 
-  if (version === 'filled') {
-    styles.background.background = color === 'neutral' ? theme.palette.text.default.primary : theme.palette.color[color] ? theme.methods.palette.color.value(color, 50) : color;
+  if (props.disabled) {
+    const opacity = theme.palette.light ? 'disabled' : 'active';
 
-    styles.root.color = theme.methods.palette.color.text(styles.background.background, true, prefer);
+    if (['filled', 'tonal'].includes(version)) {
+      styles.background.background = theme.palette.light ? theme.palette.text.divider : theme.palette.text.neutral.quaternary;
+
+      styles.root.color = theme.palette.text.neutral.primary;
+      styles.root.opacity = theme.palette.visual_contrast.default.opacity[opacity];
+    }
+    else {
+      styles.root.color = theme.palette.text.disabled;
+    }
+
+    if (version === 'outlined') styles.border.opacity = theme.palette.visual_contrast.default.opacity.divider;
   }
-  else if (version === 'tonal') {
-    styles.background.background = theme.methods.palette.color.value(color, 90);
+  else {
+    if (version === 'filled') {
+      styles.background.background = color === 'neutral' ? theme.palette.text.default.primary : theme.palette.color[color] ? theme.methods.palette.color.value(color, 50) : color;
 
-    styles.root.color = theme.methods.palette.color.value(color, 10);
+      styles.root.color = theme.methods.palette.color.text(styles.background.background, true, prefer);
+    }
+    else if (version === 'tonal') {
+      styles.background.background = theme.methods.palette.color.value(color, 90);
+
+      styles.root.color = theme.methods.palette.color.value(color, 10);
+    }
   }
 
   return (
@@ -148,6 +170,7 @@ const Button = React.forwardRef((props: any, ref) => {
         classes.root,
         className, classes[size || 'regular'],
         classes[color || 'neutral'],
+        props.disabled && classes.disabled,
         newColor && 'amaui-color-new'
       ])}
 
@@ -158,6 +181,9 @@ const Button = React.forwardRef((props: any, ref) => {
       }}
 
       {...other}
+
+      onFocus={() => setFocus(true)}
+      onBlur={() => setFocus(false)}
     >
       {['filled', 'tonal'].includes(version) && (
         <span
@@ -170,12 +196,16 @@ const Button = React.forwardRef((props: any, ref) => {
       <Interaction
         border={false}
 
+        pulse={focus}
+
         {...InteractionProps}
       />
 
       {version === 'outlined' && (
         <span
           className={classes.border}
+
+          style={styles.border}
         />
       )}
 

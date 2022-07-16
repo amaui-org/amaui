@@ -281,6 +281,18 @@ function App() {
         </div>
       </div>
 
+      <div>
+        {/* Buttons versions */}
+        <h1 className={classes.h1} style={{ marginBottom: 24 }}>Button disabled</h1>
+
+        <div className={classNames([classes.group, classes.center])}>
+          <Button version='text' color='primary' size='small' disabled>Small</Button>
+          <Button version='outlined' color='secondary' size='regular' disabled>Regular</Button>
+          <Button version='filled' color='secondary' size='regular' disabled>Regular</Button>
+          <Button version='tonal' color='tertiary' size='large' disabled>Large</Button>
+        </div>
+      </div>
+
       {/* Fade */}
       <div className={classes.group}>
         <section className={classes.item}>

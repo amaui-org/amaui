@@ -232,6 +232,7 @@ const Interaction = (props: any) => {
 
   React.useEffect(() => {
     if (props.pulse) setTimeout(() => addWavePulse());
+    else removeWaves();
   }, [props.pulse]);
 
   React.useEffect(() => {
