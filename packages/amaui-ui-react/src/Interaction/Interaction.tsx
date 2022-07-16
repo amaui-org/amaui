@@ -57,7 +57,7 @@ const useStyle = style(theme => ({
     opacity: 0.1,
     transform: 'scale(0)',
     backgroundColor: 'currentcolor',
-    transition: theme.methods.transitions.make(['opacity', 'transform'], { duration: 'complex', timing_function: 'standard' }),
+    transition: theme.methods.transitions.make(['opacity', 'transform'], { duration: 'complex', timing_function: 'decelerated' }),
     borderRadius: '50%',
 
     '&.entering': {
@@ -164,17 +164,20 @@ const Interaction = (props: any) => {
     };
 
     const onMouseOut = () => {
+      refs.mouse.current.up = new Date().getTime();
+      refs.mouse.current.press = refs.mouse.current.down ? Math.round(refs.mouse.current.up - refs.mouse.current.down) : 0;
+
       remove('mouse-in');
 
       removeWaves();
     };
 
     const onMouseDown = (event: MouseEvent) => {
-      add('mouse-down');
-
       refs.mouse.current.down = new Date().getTime();
       refs.mouse.current.up = 0;
       refs.mouse.current.press = 0;
+
+      add('mouse-down');
 
       addWave(event);
     };
@@ -385,7 +388,11 @@ const Interaction = (props: any) => {
 
           timeout: {
             enter: 'complex',
-            exit: refs.mouse.current.press < 500 ? 300 : 500
+            exit: refs.mouse.current.press < 500 ? 250 : 500
+          },
+
+          style: {
+            transitionDuration: refs.mouse.current.press < 500 ? 240 : 500
           }
         }}
       >

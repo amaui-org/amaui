@@ -147,7 +147,7 @@ const Button = React.forwardRef((props: any, ref) => {
       styles.root.color = theme.palette.text.disabled;
     }
 
-    if (version === 'outlined') styles.border.opacity = theme.palette.visual_contrast.default.opacity.divider;
+    if (version === 'outlined') styles.border.opacity = theme.palette.visual_contrast.default.opacity[theme.palette.light ? 'quaternary' : 'secondary'];
   }
   else {
     if (version === 'filled') {
