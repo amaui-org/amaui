@@ -123,6 +123,28 @@ const useStyle = style(theme => ({
       transform: 'translateX(100%)',
       transition: theme?.methods.transitions.make(['opacity', 'transform'], { duration: 'rg', timing_function: 'standard' }),
     },
+  },
+  a14: {
+    '&.enter': {
+      opacity: '0',
+      transform: 'translateX(-100%)',
+    },
+
+    '&.entering': {
+      opacity: '1',
+      transition: theme?.methods.transitions.make(['opacity', 'transform'], { duration: 'rg', timing_function: 'standard' }),
+    },
+
+    '&.exit': {
+      opacity: '1',
+      transform: 'translateX(0%)',
+    },
+
+    '&.exiting': {
+      opacity: '0',
+      transform: 'translateX(100%)',
+      transition: theme?.methods.transitions.make(['opacity', 'transform'], { duration: 'rg', timing_function: 'standard' }),
+    },
   }
 }));
 
@@ -502,28 +524,42 @@ function App() {
 
       {/* Transitions with switch */}
       <div className={classNames([classes.group, classes.column])}>
-        <section className={classes.item}>
+        <section className={classes.item} style={{ height: 224 }}>
           <h1 className={classes.h1}>Transitions mode switch</h1>
 
           <Button size='small' color='secondary' className={classes.btn} onClick={() => update('transitions')}>a</Button>
 
           <Transitions switch>
             <Transition key={a.transitions}>
-              <div className={classNames([classes.div, classes.a1])}>
+              <div className={classNames([classes.div, classes.a1])} style={{ position: 'absolute' }}>
                 a {String(a.transitions)}
               </div>
             </Transition>
           </Transitions>
         </section>
 
-        <section className={classes.item}>
+        <section className={classes.item} style={{ height: 224 }}>
+          <h1 className={classes.h1}>Transitions mode switch out-in-follow</h1>
+
+          <Button size='small' color='secondary' className={classes.btn} onClick={() => update('transitions')}>a</Button>
+
+          <Transitions switch mode='in-out-follow'>
+            <Transition key={a.transitions}>
+              <div className={classNames([classes.div, classes.a14])} style={{ position: 'absolute' }}>
+                a {String(a.transitions)}
+              </div>
+            </Transition>
+          </Transitions>
+        </section>
+
+        <section className={classes.item} style={{ height: 224 }}>
           <h1 className={classes.h1}>Transitions mode switch in-out</h1>
 
           <Button size='small' color='secondary' className={classes.btn} onClick={() => update('transitions')}>a</Button>
 
           <Transitions switch mode='in-out'>
             <Transition key={a.transitions}>
-              <div className={classNames([classes.div, classes.a1])}>
+              <div className={classNames([classes.div, classes.a1])} style={{ position: 'absolute' }}>
                 a {String(a.transitions)}
               </div>
             </Transition>

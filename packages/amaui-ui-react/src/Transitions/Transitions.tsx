@@ -5,7 +5,7 @@ import unique from '@amaui/utils/unique';
 
 import { STATUS, TTransitionStatus } from '..';
 
-export type TMode = 'in-out' | 'out-in';
+export type TMode = 'in-out' | 'in-out-follow' | 'out-in';
 
 export interface IProps {
   switch?: boolean;
@@ -64,7 +64,9 @@ function Transitions(props: IProps) {
   React.useEffect(() => {
     if (
       element !== props.children &&
-      element.key !== props.children.key
+      element.key !== props.children.key &&
+      // Lets transition run properly
+      status === 'entered'
     ) {
       setStatus(STATUS.exit);
     }
@@ -179,6 +181,34 @@ function Transitions(props: IProps) {
               ...other
             })
           );
+        }
+        else if (props.mode === 'in-out-follow') {
+          if (props.children.key === children_.key) return children_;
+
+          children_ = [
+            React.cloneElement(props.children, {
+              in: true,
+
+              onEntered: () => {
+                if (props.children.props?.onEntered) props.children.props?.onEntered();
+
+                setElement(React.cloneElement(props.children, { in: true, ...other }));
+                setStatus(STATUS.entered);
+              },
+
+              enterOnAdd: true,
+
+              ...other
+            }),
+
+            React.cloneElement(children_, {
+              in: false,
+
+              exitOnAdd: true,
+
+              ...other
+            })
+          ];
         }
 
         break;

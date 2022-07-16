@@ -1,4 +1,4 @@
-import { AmauiStyleProvider, AmauiThemeProvider } from '@amaui/style-react';
+import { AmauiStyle, AmauiStyleProvider, AmauiThemeProvider, makeClassName, prefix, rtl, unit } from '@amaui/style-react';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
@@ -8,9 +8,13 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
+const amauiStyle = new AmauiStyle(undefined, undefined, undefined, { optimize: false });
+
+amauiStyle.plugins.add = [unit, makeClassName, prefix, rtl];
+
 root.render(
   <React.StrictMode>
-    <AmauiStyleProvider>
+    <AmauiStyleProvider value={amauiStyle}>
       <AmauiThemeProvider>
         <App />
       </AmauiThemeProvider>
