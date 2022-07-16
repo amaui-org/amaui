@@ -3,7 +3,7 @@ import React from 'react';
 import is from '@amaui/utils/is';
 import wait from '@amaui/utils/wait';
 import AmauiSubscription from '@amaui/subscription';
-import { classNames, useAmauiTheme } from '@amaui/style-react';
+import { classNames, useAmauiTheme, TTransitionsDurationProperties } from '@amaui/style-react';
 
 import TransitionContext from './TransitionContext';
 import { reflow } from '../utils';
@@ -45,7 +45,7 @@ export interface IProps {
 
   removeOnExited?: boolean;
 
-  timeout?: number | {
+  timeout?: TTransitionsDurationProperties | number | {
     default?: number;
     add?: number;
     enter?: number;
@@ -203,7 +203,14 @@ function Transition(props: IProps) {
   };
 
   const timeout = async (status_: TTransitionStatus) => {
-    let duration = is('number', props.timeout) ? props.timeout : is('object', props.timeout) ? props.timeout[status_] !== undefined ? props.timeout[status_] : (props.timeout as any).default : undefined;
+    let duration: any = props.timeout;
+
+    if (
+      is('string', props.timeout) &&
+      theme.transitions.duration[props.timeout as TTransitionsDurationProperties] !== undefined
+    ) duration = theme.transitions.duration[props.timeout as TTransitionsDurationProperties];
+
+    if (is('object', props.timeout)) duration = props.timeout[status_] !== undefined ? props.timeout[status_] : (props.timeout as any).default;
 
     if (!is('number', duration)) duration = theme.transitions.duration.rg;
 

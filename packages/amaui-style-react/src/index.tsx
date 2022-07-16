@@ -1,5 +1,7 @@
 export { AmauiStyle, AmauiTheme, colors, classNames, makeClassName, prefix, rtl, sort, unit, valueObject } from '@amaui/style';
 
+export * from '@amaui/style/amaui-theme';
+
 export * from '@amaui/style/utils';
 
 // Export all other

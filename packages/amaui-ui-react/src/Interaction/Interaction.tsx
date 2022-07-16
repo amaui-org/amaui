@@ -54,10 +54,10 @@ const useStyle = style(theme => ({
 
   wave: {
     ...other,
-    opacity: '0',
+    opacity: 0.1,
     transform: 'scale(0)',
     backgroundColor: 'currentcolor',
-    transition: theme.methods.transitions.make(['opacity', 'transform'], { duration: 'complex', timing_function: 'decelerated' }),
+    transition: theme.methods.transitions.make(['opacity', 'transform'], { duration: 'complex', timing_function: 'standard' }),
     borderRadius: '50%',
 
     '&.entering': {
@@ -114,9 +114,9 @@ const useStyle = style(theme => ({
 
   waveSimple: {
     ...other,
-    opacity: 0,
+    opacity: 0.1,
     backgroundColor: 'currentcolor',
-    transition: theme.methods.transitions.make(['opacity'], { duration: 'complex', timing_function: 'decelerated' }),
+    transition: theme.methods.transitions.make(['opacity'], { duration: 'complex', timing_function: 'standard' }),
 
     '&.entering': {
       opacity: theme.palette.visual_contrast.default.opacity.quaternary,
@@ -146,7 +146,8 @@ const Interaction = (props: any) => {
   const [waves, setWaves] = React.useState([]);
   const [disabled, setDisabled] = React.useState(props.disabled);
   const refs = {
-    root: React.useRef<HTMLElement>()
+    root: React.useRef<HTMLElement>(),
+    mouse: React.useRef({ down: 0, up: 0, press: 0 })
   };
 
   const theme = useAmauiTheme();
@@ -171,12 +172,19 @@ const Interaction = (props: any) => {
     const onMouseDown = (event: MouseEvent) => {
       add('mouse-down');
 
+      refs.mouse.current.down = new Date().getTime();
+      refs.mouse.current.up = 0;
+      refs.mouse.current.press = 0;
+
       addWave(event);
     };
 
     const updateBorder = debounce(() => setBorder(false), theme.transitions.duration.sm);
 
     const onMouseUp = () => {
+      refs.mouse.current.up = new Date().getTime();
+      refs.mouse.current.press = refs.mouse.current.down ? Math.round(refs.mouse.current.up - refs.mouse.current.down) : 0;
+
       setInteractions(items => {
         if (items.indexOf('mouse-down') > -1) {
           // Border
@@ -266,7 +274,7 @@ const Interaction = (props: any) => {
           <Transition
             key={getID()}
 
-            timeout={500}
+            timeout='complex'
 
             enterOnAdd
             className
@@ -316,7 +324,7 @@ const Interaction = (props: any) => {
           <Transition
             key={getID()}
 
-            duration={500}
+            timeout='complex'
 
             enterOnAdd
             className
@@ -372,7 +380,12 @@ const Interaction = (props: any) => {
       {/* Waves */}
       <Transitions
         TransitionProps={{
-          noAbruption: true
+          noAbruption: true,
+
+          timeout: {
+            enter: 'complex',
+            exit: refs.mouse.current.press < 500 ? 300 : 500
+          }
         }}
       >
         {waves}
