@@ -3,6 +3,7 @@ import React from 'react';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 import { Button, Expand, Fade, Grow, Interaction, Reset, Slide, Transition, Transitions, Zoom } from '@amaui/ui-react';
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
+import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
 
 const useStyleA = style(theme => ({
   a: {
@@ -278,6 +279,7 @@ function App() {
           <Button color='secondary' size='small'>Small</Button>
           <Button color='secondary' size='regular'>Regular</Button>
           <Button color='secondary' size='large'>Large</Button>
+          <Button color='secondary' size='large' fullWidth>Full width</Button>
         </div>
       </div>
 
@@ -290,6 +292,17 @@ function App() {
           <Button version='outlined' color='secondary' size='regular' disabled>Regular</Button>
           <Button version='filled' color='secondary' size='regular' disabled>Regular</Button>
           <Button version='tonal' color='tertiary' size='large' disabled>Large</Button>
+        </div>
+      </div>
+
+      <div>
+        {/* Buttons icons  */}
+        <h1 className={classes.h1} style={{ marginBottom: 24 }}>Button with icons</h1>
+
+        <div className={classNames([classes.group, classes.center])}>
+          <Button version='text' color='secondary' size='small' startIcon={<IconMaterialAddRounded />}>Start icon</Button>
+          <Button version='filled' color='warning' size='regular' startIcon={<IconMaterialAddRounded />} endIcon={<IconMaterialAddRounded />}>Start and end icon</Button>
+          <Button version='outlined' color='secondary' size='large' endIcon={<IconMaterialAddRounded />}>End icon</Button>
         </div>
       </div>
 

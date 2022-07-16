@@ -6,7 +6,7 @@
   "author": "Lazar <lazareric.com@gmail.com>",
   "license": "MIT",
   "private": false,
-  "main": "./src/index.tsx",
+  "main": "./build/index.js",
   "keywords": [
     "icons",
     "material",
@@ -54,8 +54,5 @@
   "engines": {
     "node": ">=12.0.0",
     "yarn": ">=1.22"
-  },
-  "exports": {
-    ".": "./build/index.js"
   }
 }

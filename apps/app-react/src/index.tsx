@@ -10,7 +10,7 @@ const root = ReactDOM.createRoot(
 
 const amauiStyle = new AmauiStyle(undefined, undefined, undefined, { optimize: false });
 
-amauiStyle.plugins.add = [unit, makeClassName, prefix, rtl];
+amauiStyle.plugins.add = [unit, prefix, rtl];
 
 root.render(
   <React.StrictMode>

@@ -57,7 +57,7 @@ const useStyle = style(theme => ({
     opacity: 0.1,
     transform: 'scale(0)',
     backgroundColor: 'currentcolor',
-    transition: theme.methods.transitions.make(['opacity', 'transform'], { duration: 'complex', timing_function: 'decelerated' }),
+    transition: theme.methods.transitions.make(['opacity', 'transform'], { duration: 'complex', timing_function: 'standard' }),
     borderRadius: '50%',
 
     '&.entering': {
@@ -388,11 +388,11 @@ const Interaction = (props: any) => {
 
           timeout: {
             enter: 'complex',
-            exit: refs.mouse.current.press < 500 ? 250 : 500
+            exit: refs.mouse.current.press < 500 ? 350 : 500
           },
 
           style: {
-            transitionDuration: refs.mouse.current.press < 500 ? 240 : 500
+            transitionDuration: refs.mouse.current.press < 500 ? 340 : 500
           }
         }}
       >

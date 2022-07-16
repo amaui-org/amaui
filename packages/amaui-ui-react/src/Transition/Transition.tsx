@@ -241,7 +241,7 @@ function Transition(props: IProps) {
 
     if (props.enter) await timeout('enter');
 
-    if (refs.status.current.indexOf('exit') === -1) updateStatus('entered');
+    if (refs.status.current?.indexOf('exit') === -1) updateStatus('entered');
   };
 
   const exit = async (status_: TTransitionStatus) => {
@@ -257,7 +257,7 @@ function Transition(props: IProps) {
 
     if (props.exit) await timeout('exit');
 
-    if (refs.status.current.indexOf('enter') === -1) updateStatus('exited');
+    if (refs.status.current?.indexOf('enter') === -1) updateStatus('exited');
   };
 
   const onEntered = (element: HTMLElement) => {

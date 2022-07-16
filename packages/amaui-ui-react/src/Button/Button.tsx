@@ -36,31 +36,43 @@ const useStyle = style(theme => ({
     '-webkit-appearance': 'none',
     appearance: 'none',
     border: 'none',
-    background: 'transparent'
+    background: 'transparent',
+
+    // Size
+    '&$small': {
+      padding: `${theme.methods.space.value('sm')}px ${theme.methods.space.value('rg')}px`
+    },
+
+    '&$regular': {
+      padding: `${theme.methods.space.value('sm') as number + 2}px ${theme.methods.space.value('md')}px`
+    },
+
+    '&$large': {
+      padding: `${theme.methods.space.value('rg')}px ${theme.methods.space.value('lg')}px`
+    },
+
+    // Color
+    '&$neutral': { color: theme.palette.text.default.primary },
+    '&$primary': { color: theme.methods.palette.color.value('primary', 50) },
+    '&$secondary': { color: theme.methods.palette.color.value('secondary', 50) },
+    '&$tertiary': { color: theme.methods.palette.color.value('tertiary', 50) },
+    '&$quaternary': { color: theme.methods.palette.color.value('quaternary', 50) },
+    '&$info': { color: theme.methods.palette.color.value('info', 50) },
+    '&$success': { color: theme.methods.palette.color.value('success', 50) },
+    '&$warning': { color: theme.methods.palette.color.value('warning', 50) },
+    '&$error': { color: theme.methods.palette.color.value('error', 50) },
+
+    // Other
+    '&$startIcon': {
+      paddingLeft: '0'
+    },
+    '&$endIcon': {
+      paddingRight: '0'
+    }
   },
 
-  // Version
-
-  // Color
-  neutral: { color: theme.palette.text.default.primary },
-  primary: { color: theme.methods.palette.color.value('primary', 50) },
-  secondary: { color: theme.methods.palette.color.value('secondary', 50) },
-  tertiary: { color: theme.methods.palette.color.value('tertiary', 50) },
-  quaternary: { color: theme.methods.palette.color.value('quaternary', 50) },
-  info: { color: theme.methods.palette.color.value('info', 50) },
-  success: { color: theme.methods.palette.color.value('success', 50) },
-  warning: { color: theme.methods.palette.color.value('warning', 50) },
-  error: { color: theme.methods.palette.color.value('error', 50) },
-
-  // Size
-  small: {
-    padding: `${theme.methods.space.value('sm')}px ${theme.methods.space.value('rg')}px`
-  },
-  regular: {
-    padding: `${theme.methods.space.value('sm') as number + 2}px ${theme.methods.space.value('md')}px`
-  },
-  large: {
-    padding: `${theme.methods.space.value('rg')}px ${theme.methods.space.value('lg')}px`
+  fullWidth: {
+    width: '100%'
   },
 
   background: {
@@ -78,27 +90,67 @@ const useStyle = style(theme => ({
     pointerEvents: 'none',
     whiteSpace: 'nowrap',
     position: 'relative',
-  },
-  text_small: {
-    ...theme.typography.values.b3,
-    lineHeight: 1
-  },
-  text_regular: {
-    ...theme.typography.values.b2,
-  },
-  text_large: {
-    ...theme.typography.values.b1,
+
+    // Size
+    '&$small': {
+      ...theme.typography.values.b3,
+      lineHeight: 1
+    },
+
+    '&$regular': {
+      ...theme.typography.values.b2,
+    },
+
+    '&$large': {
+      ...theme.typography.values.b1,
+    }
   },
 
   // Other
+  icon: {
+    position: 'relative',
+    pointerEvents: 'none',
+    lineHeight: 0,
+
+    '&$start': {
+      '&$small': {
+        padding: `0 ${(theme.methods.space.value('rg') as number / 3) - 3}px 0 ${(theme.methods.space.value('rg') as number / 2) + 3}px`
+      },
+
+      '&$regular': {
+        padding: `0 5px 0 13px`
+      },
+
+      '&$large': {
+        padding: `0 ${(theme.methods.space.value('lg') as number / 3) - 3}px 0 ${(theme.methods.space.value('lg') as number / 2) + 3}px`
+      }
+    },
+
+    '&$end': {
+      '&$small': {
+        ...theme.typography.values.b3,
+        lineHeight: 1
+      },
+
+      '&$regular': {
+        padding: '0 13px 0 5px'
+      },
+
+      '&$large': {
+        ...theme.typography.values.b1,
+      }
+    }
+  },
+
   disabled: {
     cursor: 'default'
   },
 }));
 
 // To do
-// Full width
-// Shadows
+// Start icon
+// End icon
+// Elevated
 // Loading
 
 const Button = React.forwardRef((props: any, ref) => {
@@ -115,7 +167,10 @@ const Button = React.forwardRef((props: any, ref) => {
     Component = 'button',
     prefer = 'light',
     style,
+    fullWidth,
     InteractionProps = {},
+    startIcon,
+    endIcon,
     children,
     ...other
   } = props;
@@ -168,8 +223,12 @@ const Button = React.forwardRef((props: any, ref) => {
 
       className={classNames([
         classes.root,
-        className, classes[size || 'regular'],
-        classes[color || 'neutral'],
+        className,
+        classes[size],
+        classes[color],
+        startIcon && classes.startIcon,
+        endIcon && classes.endIcon,
+        fullWidth && classes.fullWidth,
         props.disabled && classes.disabled,
         newColor && 'amaui-color-new'
       ])}
@@ -209,11 +268,23 @@ const Button = React.forwardRef((props: any, ref) => {
         />
       )}
 
+      {startIcon && (
+        <span className={classNames([classes.icon, classes.start, classes[size]])}>
+          {startIcon}
+        </span>
+      )}
+
       <span
-        className={classNames([classes.text, classes[`text_${size}`]])}
+        className={classNames([classes.text, classes[size]])}
       >
         {children}
       </span>
+
+      {endIcon && (
+        <span className={classNames([classes.icon, classes.end, classes[size]])}>
+          {endIcon}
+        </span>
+      )}
     </Component>
   );
 });
