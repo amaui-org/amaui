@@ -138,7 +138,7 @@ const useStyle = style(theme => ({
       opacity: 0,
     }
   }
-}));
+}), { name: 'AmauiInteraction' });
 
 const Interaction = (props: any) => {
   const [interactions, setInteractions] = React.useState([]);

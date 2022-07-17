@@ -29,7 +29,7 @@ const useStyle = style(theme => ({
   disabled: {
     opacity: theme.palette.visual_contrast.default.opacity.disabled
   }
-}));
+}), { name: 'AmauiIcon' });
 
 const Icon = React.forwardRef((props: any, ref) => {
   const [rtl, setRtl] = React.useState(props.rtl);

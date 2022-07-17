@@ -30,7 +30,7 @@ const useStyleA = style(theme => ({
       transition: theme?.methods.transitions.make(['opacity'], { duration: 'rg', timing_function: 'standard' }),
     },
   }
-}));
+}), { name: 'A' });
 
 const A = (props: any) => {
   const { classes } = useStyleA(props);
@@ -147,7 +147,7 @@ const useStyle = style(theme => ({
       transition: theme?.methods.transitions.make(['opacity', 'transform'], { duration: 'rg', timing_function: 'standard' }),
     },
   }
-}));
+}), { name: 'App' });
 
 function App() {
   const [a, setA] = React.useState<any>({
