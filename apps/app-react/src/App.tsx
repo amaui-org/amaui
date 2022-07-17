@@ -232,12 +232,6 @@ function App() {
           <Button version='filled' color='secondary' size='small'>Filled</Button>
           <Button version='filled' color='secondary' size='regular'>Filled</Button>
           <Button version='filled' color='secondary' size='large'>Filled</Button>
-        </div>
-
-        <div className={classNames([classes.group, classes.center])}>
-          <Button version='filled' color='secondary' size='small'>Filled</Button>
-          <Button version='filled' color='secondary' size='regular'>Filled</Button>
-          <Button version='filled' color='secondary' size='large'>Filled</Button>
           <Button version='filled' color='secondary' size='large' elevation={false}>No elevation</Button>
         </div>
 
