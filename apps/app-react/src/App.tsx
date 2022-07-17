@@ -48,6 +48,7 @@ const useStyle = style(theme => ({
   body: {
     '@p': true,
 
+    color: theme?.palette.text?.default?.primary,
     background: theme?.palette.background?.default?.primary
   },
 
@@ -146,6 +147,9 @@ const useStyle = style(theme => ({
       transform: 'translateX(100%)',
       transition: theme?.methods.transitions.make(['opacity', 'transform'], { duration: 'rg', timing_function: 'standard' }),
     },
+  },
+  pathBackground: {
+    stroke: theme?.palette?.text?.selected
   }
 }), { name: 'App' });
 
@@ -161,6 +165,7 @@ function App() {
     slide: true,
     loading: true
   });
+  const [roundedProgress, setRoundedProgress] = React.useState(0);
   const [items, setItems] = React.useState([0]);
   const { classes } = useStyle();
   const refs = {
@@ -190,6 +195,14 @@ function App() {
       return newValues;
     });
   };
+
+  React.useEffect(() => {
+    const id = setInterval(() => setRoundedProgress(item => item >= 100 ? 0 : item + 10), 1000);
+
+    return () => {
+      clearInterval(id);
+    }
+  }, []);
 
   // React.useEffect(() => {
   //   const rect = refs.transitions.current.getBoundingClientRect();
@@ -397,11 +410,57 @@ function App() {
         <h1 className={classes.h1} style={{ marginBottom: 24 }}>Thickness</h1>
 
         <div className={classNames([classes.group, classes.center])}>
-          <RoundProgress size='extra_small' thickness={3} />
-          <RoundProgress size={20} thickness={3} />
-          <RoundProgress size='small' thickness={3} />
-          <RoundProgress size='regular' thickness={3} />
-          <RoundProgress size='large' thickness={3} />
+          <RoundProgress size='extra_small' thickness={1.4} />
+          <RoundProgress size={20} thickness={1.4} />
+          <RoundProgress size='small' thickness={1.4} />
+          <RoundProgress size='regular' thickness={1.4} />
+          <RoundProgress size='large' thickness={1.4} />
+        </div>
+      </div>
+
+      <div>
+        <h1 className={classes.h1} style={{ marginBottom: 24 }}>Rounded</h1>
+
+        <div className={classNames([classes.group, classes.center])}>
+          <RoundProgress size='extra_small' rounded={false} />
+          <RoundProgress size={20} rounded={false} />
+          <RoundProgress size='small' rounded={false} />
+          <RoundProgress size='regular' rounded={false} />
+          <RoundProgress size='large' rounded={false} />
+        </div>
+      </div>
+
+      <div>
+        <h1 className={classes.h1} style={{ marginBottom: 24 }}>Deteminate with pathBackgroundProps as well</h1>
+
+        <div className={classNames([classes.group, classes.center])}>
+          <RoundProgress size='small' version='determinate' value={0} pathBackgroundProps={{ className: classes.pathBackground }} />
+          <RoundProgress size='small' version='determinate' value={1} pathBackgroundProps={{ className: classes.pathBackground }} />
+          <RoundProgress size='small' version='determinate' value={40} pathBackgroundProps={{ className: classes.pathBackground }} />
+          <RoundProgress size='small' version='determinate' value={99} pathBackgroundProps={{ className: classes.pathBackground }} />
+          <RoundProgress size='small' version='determinate' value={100} pathBackgroundProps={{ className: classes.pathBackground }} />
+
+          <RoundProgress size='small' version='determinate' value={roundedProgress} pathBackgroundProps={{ className: classes.pathBackground }} />
+        </div>
+
+        <div className={classNames([classes.group, classes.center])}>
+          <RoundProgress size='regular' version='determinate' value={0} pathBackgroundProps={{ className: classes.pathBackground }} />
+          <RoundProgress size='regular' version='determinate' value={1} pathBackgroundProps={{ className: classes.pathBackground }} />
+          <RoundProgress size='regular' version='determinate' value={40} pathBackgroundProps={{ className: classes.pathBackground }} />
+          <RoundProgress size='regular' version='determinate' value={99} pathBackgroundProps={{ className: classes.pathBackground }} />
+          <RoundProgress size='regular' version='determinate' value={100} pathBackgroundProps={{ className: classes.pathBackground }} />
+
+          <RoundProgress size='regular' version='determinate' value={roundedProgress} pathBackgroundProps={{ className: classes.pathBackground }} />
+        </div>
+
+        <div className={classNames([classes.group, classes.center])}>
+          <RoundProgress size='large' version='determinate' value={0} pathBackgroundProps={{ className: classes.pathBackground }} />
+          <RoundProgress size='large' version='determinate' value={1} pathBackgroundProps={{ className: classes.pathBackground }} />
+          <RoundProgress size='large' version='determinate' value={40} pathBackgroundProps={{ className: classes.pathBackground }} />
+          <RoundProgress size='large' version='determinate' value={99} pathBackgroundProps={{ className: classes.pathBackground }} />
+          <RoundProgress size='large' version='determinate' value={100} pathBackgroundProps={{ className: classes.pathBackground }} />
+
+          <RoundProgress size='large' version='determinate' value={roundedProgress} pathBackgroundProps={{ className: classes.pathBackground }} />
         </div>
       </div>
 

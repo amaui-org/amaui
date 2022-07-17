@@ -48,7 +48,7 @@ const useStyle = style(theme => ({
     },
 
     '&$regular': {
-      padding: `${theme.methods.space.value('sm') as number + 3, 'px'} ${theme.methods.space.value('md', 'px')}`
+      padding: `${theme.methods.space.value('sm') as number + 3}px ${theme.methods.space.value('md', 'px')}`
     },
 
     '&$large': {

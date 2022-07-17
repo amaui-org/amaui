@@ -38,7 +38,15 @@ const useStyle = style(theme => ({
     alignItems: 'center',
     pointerEvents: 'none',
     fontSize: '48px',
-    animation: `$spin 1.4s linear infinite`,
+
+    // Version
+    '&$indeterminate': {
+      animation: `$spin 1.4s linear infinite`
+    },
+
+    '&$determinate': {
+      transform: 'rotate(-90deg)'
+    },
 
     // Size
     '&$extra_small': { fontSize: theme.methods.space.value('rg', 'px') },
@@ -79,18 +87,33 @@ const useStyle = style(theme => ({
   circle: {
     transformOrigin: 'center',
     strokeDasharray: '240px',
-    animation: `$shrink 1.4s ease-in-out infinite`,
+    strokeDashoffset: '0px',
 
-    '&$noShrink': {
-      strokeDashoffset: `${noShrinkStrokeDashOffset}px`,
-      animation: 'none'
+    // Version
+    '&$indeterminate': {
+      animation: `$shrink 1.4s ease-in-out infinite`,
+
+      '&$noShrink': {
+        strokeDashoffset: `${noShrinkStrokeDashOffset}px`,
+        animation: 'none'
+      }
+    },
+
+    '&$determinate': {
+      strokeDasharray: '101',
+      strokeDashoffset: '0',
+      transition: theme.methods.transitions.make('stroke-dashoffset')
     }
+  },
+
+  circleBackground: {
+    strokeDasharray: '240px',
+    strokeDashoffset: '0px',
+    stroke: 'transparent'
   }
 }), { name: 'AmauiRoundProgress' });
 
 // version determinate + value
-// noShrink
-// thickness
 
 const RoundProgress = React.forwardRef((props: any, ref: any) => {
   const { classes } = useStyle();
@@ -101,19 +124,37 @@ const RoundProgress = React.forwardRef((props: any, ref: any) => {
     className,
     style,
     pathProps = {},
+    pathBackgroundProps = {},
     noShrink,
     thickness = 2,
+    rounded: rounded_ = true,
+    version = 'indeterminate',
+    value,
 
     ...other
   } = props;
 
+  let rounded = rounded_;
+
   const styles: any = {
-    root: {}
+    root: {},
+    circle: {}
   };
 
   if (!classes[size]) styles.root.fontSize = is('number', size) ? `${size}px` : size;
 
   if (!classes[color]) styles.root.color = color;
+
+  if (version === 'determinate') {
+    rounded = false;
+
+    pathProps['pathLength'] = 100;
+
+    styles.circle.strokeDashoffset = 101 - value;
+
+    // 0%
+    if (styles.circle.strokeDashoffset === 1) styles.circle.strokeDashoffset = 0;
+  }
 
   return (
     <span
@@ -124,6 +165,7 @@ const RoundProgress = React.forwardRef((props: any, ref: any) => {
         className,
         classes[size],
         classes[color],
+        classes[version],
         !noShrink && classes.shrink,
       ])}
     >
@@ -143,15 +185,35 @@ const RoundProgress = React.forwardRef((props: any, ref: any) => {
         <circle
           fill='none'
           strokeWidth={thickness}
-          strokeLinecap='round'
+          strokeLinecap={rounded ? 'round' : 'butt'}
+          cx='12'
+          cy='12'
+          r='10'
+
+          {...pathBackgroundProps}
+
+          className={classNames([
+            classes.circleBackground,
+            classes[version],
+            pathBackgroundProps.className
+          ])}
+        />
+
+        <circle
+          fill='none'
+          strokeWidth={thickness}
+          strokeLinecap={rounded ? 'round' : 'butt'}
           cx='12'
           cy='12'
           r='10'
 
           className={classNames([
             classes.circle,
+            classes[version],
             noShrink && classes.noShrink
           ])}
+
+          style={styles.circle}
 
           {...pathProps}
         />

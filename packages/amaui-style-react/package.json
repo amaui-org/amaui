@@ -46,7 +46,7 @@
     "react": "^18.1.0"
   },
   "dependencies": {
-    "@amaui/style": "^1.0.14144",
+    "@amaui/style": "^1.0.14147",
     "@amaui/utils": "^1.0.11411"
   },
   "publishConfig": {
