@@ -5,7 +5,7 @@ import hash from '@amaui/utils/hash';
 import merge from '@amaui/utils/merge';
 import equalDeep from '@amaui/utils/equalDeep';
 
-import { IMethodResponse, IResponse, style as amauiStyleMethod, TValue, TValueMethod, names } from '@amaui/style';
+import { IMethodResponse, IResponse, style as amauiStyleMethod, TValue, TValueMethod, names, AmauiTheme } from '@amaui/style';
 import { IOptions } from '@amaui/style/style';
 
 import { useAmauiStyle, useAmauiTheme } from './';
@@ -31,9 +31,9 @@ export default function style(value: TValue, options_: IOptions = {}) {
     }
 
     // Updates for amauiTheme
-    const method = () => {
+    const method = (updateValue: any, updatedTheme: AmauiTheme) => {
       if (is('function', value)) {
-        const valueNew = (value as TValueMethod)(amauiTheme);
+        const valueNew = (value as TValueMethod)(updatedTheme);
 
         // Update
         if (response?.update !== undefined) response.update(valueNew);

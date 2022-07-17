@@ -235,9 +235,17 @@ function App() {
         </div>
 
         <div className={classNames([classes.group, classes.center])}>
+          <Button version='filled' color='secondary' size='small'>Filled</Button>
+          <Button version='filled' color='secondary' size='regular'>Filled</Button>
+          <Button version='filled' color='secondary' size='large'>Filled</Button>
+          <Button version='filled' color='secondary' size='large' elevation={false}>No elevation</Button>
+        </div>
+
+        <div className={classNames([classes.group, classes.center])}>
           <Button version='tonal' color='secondary' size='small'>Tonal</Button>
           <Button version='tonal' color='secondary' size='regular'>Tonal</Button>
           <Button version='tonal' color='secondary' size='large'>Tonal</Button>
+          <Button version='tonal' color='secondary' size='large' elevation={false}>No elevation</Button>
         </div>
 
         <div className={classNames([classes.group, classes.center])}>

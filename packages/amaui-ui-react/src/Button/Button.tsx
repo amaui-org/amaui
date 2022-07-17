@@ -63,16 +63,46 @@ const useStyle = style(theme => ({
     '&$warning': { color: theme.methods.palette.color.value('warning', 50) },
     '&$error': { color: theme.methods.palette.color.value('error', 50) },
 
-    // Other
+    // Icons
     '&$startIcon': {
       paddingLeft: '0'
     },
+
     '&$endIcon': {
       paddingRight: '0'
     },
 
+    // Shadows
+    '&$elevation': {
+      boxShadow: theme.shadows.values.neutral[1],
+      transition: theme.methods.transitions.make('box-shadow'),
+
+      '&:hover': {
+        boxShadow: theme.shadows.values.neutral[3]
+      }
+    },
+
+    // Disabled
     '&$disabled': {
-      cursor: 'default'
+      cursor: 'default',
+
+      '&$filled': {
+        color: [theme.palette.text.neutral.primary, '!important'],
+        opacity: theme.palette.visual_contrast.default.opacity[theme.palette.light ? 'disabled' : 'active']
+      },
+
+      '&$tonal': {
+        color: [theme.palette.text.neutral.primary, '!important'],
+        opacity: theme.palette.visual_contrast.default.opacity[theme.palette.light ? 'disabled' : 'active']
+      },
+
+      '&$outlined': {
+        color: theme.palette.text.disabled
+      },
+
+      '&$text': {
+        color: theme.palette.text.disabled
+      }
     }
   },
 
@@ -81,16 +111,32 @@ const useStyle = style(theme => ({
   },
 
   background: {
-    ...other
+    ...other,
+
+    '&$disabled': {
+      '&$filled': {
+        background: [theme.palette.light ? theme.palette.text.divider : theme.palette.text.neutral.quaternary, '!important']
+      },
+
+      '&$tonal': {
+        background: [theme.palette.light ? theme.palette.text.divider : theme.palette.text.neutral.quaternary, '!important']
+      }
+    }
   },
 
   border: {
     ...other,
-    boxShadow: 'inset 0 0 0 1px currentColor'
+    boxShadow: 'inset 0 0 0 1px currentColor',
+
+    '&$disabled': {
+      '&$outlined': {
+        opacity: theme.palette.visual_contrast.default.opacity[theme.palette.light ? 'quaternary' : 'secondary']
+      }
+    }
   },
 
-  // Text
-  text: {
+  // Label
+  label: {
     textTransform: 'capitalize',
     pointerEvents: 'none',
     whiteSpace: 'nowrap',
@@ -127,7 +173,7 @@ const useStyle = style(theme => ({
       },
 
       '&$large': {
-        padding: `0 ${theme.methods.space.value('rg')}px 0 ${theme.methods.space.value('md')}px`
+        padding: `0 ${theme.methods.space.value('sm')}px 0 ${theme.methods.space.value('rg')}px`
       }
     },
 
@@ -141,15 +187,11 @@ const useStyle = style(theme => ({
       },
 
       '&$large': {
-        padding: `0 ${theme.methods.space.value('md')}px 0 ${theme.methods.space.value('rg')}px`
+        padding: `0 ${theme.methods.space.value('rg')}px 0 ${theme.methods.space.value('sm')}px`
       }
     },
   }
 }));
-
-// To do
-// Elevated
-// Loading
 
 const Button = React.forwardRef((props: any, ref) => {
   const { classes } = useStyle(props);
@@ -169,6 +211,7 @@ const Button = React.forwardRef((props: any, ref) => {
     InteractionProps = {},
     startIcon,
     endIcon,
+    elevation = true,
     children,
     ...other
   } = props;
@@ -176,7 +219,6 @@ const Button = React.forwardRef((props: any, ref) => {
   const styles: any = {
     root: {},
     background: {},
-    border: {},
     icon: { fontSize: '20px' }
   };
 
@@ -188,35 +230,19 @@ const Button = React.forwardRef((props: any, ref) => {
     styles.root.color = color;
   }
 
-  if (props.disabled) {
-    const opacity = theme.palette.light ? 'disabled' : 'active';
+  if (version === 'filled') {
+    styles.background.background = color === 'neutral' ? theme.palette.text.default.primary : theme.palette.color[color] ? theme.methods.palette.color.value(color, 50) : color;
 
-    if (['filled', 'tonal'].includes(version)) {
-      styles.background.background = theme.palette.light ? theme.palette.text.divider : theme.palette.text.neutral.quaternary;
-
-      styles.root.color = theme.palette.text.neutral.primary;
-      styles.root.opacity = theme.palette.visual_contrast.default.opacity[opacity];
-    }
-    else {
-      styles.root.color = theme.palette.text.disabled;
-    }
-
-    if (version === 'outlined') styles.border.opacity = theme.palette.visual_contrast.default.opacity[theme.palette.light ? 'quaternary' : 'secondary'];
+    styles.root.color = theme.methods.palette.color.text(styles.background.background, true, prefer);
   }
-  else {
-    if (version === 'filled') {
-      styles.background.background = color === 'neutral' ? theme.palette.text.default.primary : theme.palette.color[color] ? theme.methods.palette.color.value(color, 50) : color;
+  else if (version === 'tonal') {
+    styles.background.background = theme.methods.palette.color.value(color, 90);
 
-      styles.root.color = theme.methods.palette.color.text(styles.background.background, true, prefer);
-    }
-    else if (version === 'tonal') {
-      styles.background.background = theme.methods.palette.color.value(color, 90);
-
-      styles.root.color = theme.methods.palette.color.value(color, 10);
-    }
+    styles.root.color = theme.methods.palette.color.value(color, 10);
   }
 
   if (size === 'small') styles.icon.fontSize = '16px';
+
   if (size === 'large') styles.icon.fontSize = '24px';
 
   return (
@@ -228,9 +254,11 @@ const Button = React.forwardRef((props: any, ref) => {
         className,
         classes[size],
         classes[color],
+        classes[version],
         startIcon && classes.startIcon,
         endIcon && classes.endIcon,
         fullWidth && classes.fullWidth,
+        elevation && !props.disabled && ['filled', 'tonal'].includes(version) && classes.elevation,
         props.disabled && classes.disabled,
         newColor && 'amaui-color-new'
       ])}
@@ -248,7 +276,11 @@ const Button = React.forwardRef((props: any, ref) => {
     >
       {['filled', 'tonal'].includes(version) && (
         <span
-          className={classes.background}
+          className={classNames([
+            classes.background,
+            classes[version],
+            props.disabled && classes.disabled
+          ])}
 
           style={styles.background}
         />
@@ -264,7 +296,11 @@ const Button = React.forwardRef((props: any, ref) => {
 
       {version === 'outlined' && (
         <span
-          className={classes.border}
+          className={classNames([
+            classes.border,
+            classes[version],
+            props.disabled && classes.disabled
+          ])}
 
           style={styles.border}
         />
@@ -277,7 +313,7 @@ const Button = React.forwardRef((props: any, ref) => {
       )}
 
       <span
-        className={classNames([classes.text, classes[size]])}
+        className={classNames([classes.label, classes[size]])}
       >
         {children}
       </span>
