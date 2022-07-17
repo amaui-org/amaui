@@ -3,7 +3,6 @@ import React from 'react';
 import is from '@amaui/utils/is';
 import hash from '@amaui/utils/hash';
 import merge from '@amaui/utils/merge';
-import equalDeep from '@amaui/utils/equalDeep';
 
 import { IMethodResponse, IResponse, reset as amauiResetMethod, TValue, TValueMethod, names, AmauiTheme } from '@amaui/style';
 import { IOptions } from '@amaui/style/reset';
@@ -75,9 +74,6 @@ export default function reset(value: TValue = {}, options_: IOptions = {}) {
 
     // Add
     React.useEffect(() => {
-      // Weird fix in react, for create react app fast refresh new engine
-      makeResponse();
-
       const addValues = response.add(props);
 
       setValues(addValues);
@@ -91,29 +87,6 @@ export default function reset(value: TValue = {}, options_: IOptions = {}) {
         response.remove(addValues.ids?.dynamic);
       };
     }, []);
-
-    // Weird fix in react, for create react app new fast refresh engine
-    React.useEffect(() => {
-      const status = response?.amaui_style_sheet_manager?.status;
-
-      if (status !== 'active') {
-        values_ = response.add(props);
-
-        setValues(values_);
-      }
-    });
-
-    // Weird fix in react, for create react app new fast refresh engine
-    React.useEffect(() => {
-      if (response && !equalDeep(values_?.ids?.static, values?.ids?.static)) {
-        const ids = [...values.ids.dynamic];
-
-        setValues(response.add(props));
-
-        // Remove previous ids
-        response?.remove(ids);
-      }
-    }, [hash(values_?.ids?.static)]);
 
     // Update props
     React.useEffect(() => {
