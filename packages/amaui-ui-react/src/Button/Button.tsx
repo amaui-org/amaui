@@ -4,6 +4,7 @@ import { is } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Interaction from '../Interaction';
+import RoundProgress from '../RoundProgress';
 
 const other = {
   pointerEvents: 'none',
@@ -26,12 +27,14 @@ const useStyle = style(theme => ({
     alignItems: 'center',
     position: 'relative',
     cursor: 'pointer',
-    borderRadius: `${theme.methods.space.value('xl')}px`,
+    borderRadius: theme.methods.space.value('xl', 'px'),
     textAlign: 'center',
     textDecoration: 'none',
     overflow: 'hidden',
     verticalAlign: 'middle',
     userSelect: 'none',
+
+    transition: theme.methods.transitions.make(['color']),
 
     // Reset
     '-webkit-appearance': 'none',
@@ -41,26 +44,34 @@ const useStyle = style(theme => ({
 
     // Size
     '&$small': {
-      padding: `${theme.methods.space.value('sm')}px ${theme.methods.space.value('rg')}px`
+      padding: `${theme.methods.space.value('sm', 'px')} ${theme.methods.space.value('rg', 'px')}`
     },
 
     '&$regular': {
-      padding: `${theme.methods.space.value('sm') as number + 2}px ${theme.methods.space.value('md')}px`
+      padding: `${theme.methods.space.value('sm') as number + 3, 'px'} ${theme.methods.space.value('md', 'px')}`
     },
 
     '&$large': {
-      padding: `${theme.methods.space.value('rg')}px ${theme.methods.space.value('lg')}px`
+      padding: `${theme.methods.space.value('rg', 'px')} ${theme.methods.space.value('lg', 'px')}`
     },
 
     // Color
     '&$neutral': { color: theme.palette.text.default.primary },
+
     '&$primary': { color: theme.methods.palette.color.value('primary', 50) },
+
     '&$secondary': { color: theme.methods.palette.color.value('secondary', 50) },
+
     '&$tertiary': { color: theme.methods.palette.color.value('tertiary', 50) },
+
     '&$quaternary': { color: theme.methods.palette.color.value('quaternary', 50) },
+
     '&$info': { color: theme.methods.palette.color.value('info', 50) },
+
     '&$success': { color: theme.methods.palette.color.value('success', 50) },
+
     '&$warning': { color: theme.methods.palette.color.value('warning', 50) },
+
     '&$error': { color: theme.methods.palette.color.value('error', 50) },
 
     // Icons
@@ -113,6 +124,8 @@ const useStyle = style(theme => ({
   background: {
     ...other,
 
+    transition: theme.methods.transitions.make(['background']),
+
     '&$disabled': {
       '&$filled': {
         background: [theme.palette.light ? theme.palette.text.divider : theme.palette.text.neutral.quaternary, '!important']
@@ -127,6 +140,8 @@ const useStyle = style(theme => ({
   border: {
     ...other,
     boxShadow: 'inset 0 0 0 1px currentColor',
+
+    transition: theme.methods.transitions.make(['boxShadow']),
 
     '&$disabled': {
       '&$outlined': {
@@ -144,16 +159,16 @@ const useStyle = style(theme => ({
 
     // Size
     '&$small': {
-      ...theme.typography.values.b3,
+      ...theme.typography.values.l3,
       lineHeight: 1
     },
 
     '&$regular': {
-      ...theme.typography.values.b2,
+      ...theme.typography.values.l2,
     },
 
     '&$large': {
-      ...theme.typography.values.b1,
+      ...theme.typography.values.l1,
     }
   },
 
@@ -165,29 +180,29 @@ const useStyle = style(theme => ({
 
     '&$start': {
       '&$small': {
-        padding: `0 ${theme.methods.space.value('xs')}px 0 ${theme.methods.space.value('sm')}px`
+        padding: `0 ${theme.methods.space.value('xs', 'px')} 0 ${theme.methods.space.value('sm', 'px')}`
       },
 
       '&$regular': {
-        padding: `0 ${theme.methods.space.value('sm')}px 0 ${theme.methods.space.value('rg')}px`
+        padding: `0 ${theme.methods.space.value('sm', 'px')} 0 ${theme.methods.space.value('rg', 'px')}`
       },
 
       '&$large': {
-        padding: `0 ${theme.methods.space.value('sm')}px 0 ${theme.methods.space.value('rg')}px`
+        padding: `0 ${theme.methods.space.value('sm', 'px')} 0 ${theme.methods.space.value('rg', 'px')}`
       }
     },
 
     '&$end': {
       '&$small': {
-        padding: `0 ${theme.methods.space.value('sm')}px 0 ${theme.methods.space.value('xs')}px`
+        padding: `0 ${theme.methods.space.value('sm', 'px')} 0 ${theme.methods.space.value('xs', 'px')}`
       },
 
       '&$regular': {
-        padding: `0 ${theme.methods.space.value('rg')}px 0 ${theme.methods.space.value('sm')}px`
+        padding: `0 ${theme.methods.space.value('rg', 'px')} 0 ${theme.methods.space.value('sm', 'px')}`
       },
 
       '&$large': {
-        padding: `0 ${theme.methods.space.value('rg')}px 0 ${theme.methods.space.value('sm')}px`
+        padding: `0 ${theme.methods.space.value('rg', 'px')} 0 ${theme.methods.space.value('sm', 'px')}`
       }
     },
   }
@@ -209,17 +224,27 @@ const Button = React.forwardRef((props: any, ref) => {
     style,
     fullWidth,
     InteractionProps = {},
-    startIcon,
-    endIcon,
+    startIcon: startIcon_,
+    endIcon: endIcon_,
     elevation = true,
+    loading,
+    loadingLabel,
+    loadingIcon = <RoundProgress size='small' />,
+    loadingIconPosition = 'center',
+    disabled: disabled_,
     children,
     ...other
   } = props;
 
+  let startIcon = startIcon_;
+  let endIcon = endIcon_;
+  let disabled = disabled_ || loading;
+
   const styles: any = {
     root: {},
+    label: {},
     background: {},
-    icon: { fontSize: '20px' }
+    icon: { fontSize: '17px' }
   };
 
   let newColor = false;
@@ -243,7 +268,21 @@ const Button = React.forwardRef((props: any, ref) => {
 
   if (size === 'small') styles.icon.fontSize = '16px';
 
-  if (size === 'large') styles.icon.fontSize = '24px';
+  if (size === 'large') styles.icon.fontSize = '23px';
+
+  let children_ = children;
+
+  if (loading) {
+    if (loadingLabel) children_ = loadingLabel;
+    else if (loadingIconPosition === 'center') {
+      children_ = loadingIcon;
+
+      styles.label.lineHeight = 0;
+    }
+
+    if (loadingIconPosition === 'start') startIcon = loadingIcon;
+    else if (loadingIconPosition === 'end') endIcon = loadingIcon;
+  }
 
   return (
     <Component
@@ -258,8 +297,8 @@ const Button = React.forwardRef((props: any, ref) => {
         startIcon && classes.startIcon,
         endIcon && classes.endIcon,
         fullWidth && classes.fullWidth,
-        elevation && !props.disabled && ['filled', 'tonal'].includes(version) && classes.elevation,
-        props.disabled && classes.disabled,
+        elevation && !disabled && ['filled', 'tonal'].includes(version) && classes.elevation,
+        disabled && classes.disabled,
         newColor && 'amaui-color-new'
       ])}
 
@@ -273,13 +312,15 @@ const Button = React.forwardRef((props: any, ref) => {
 
       onFocus={() => setFocus(true)}
       onBlur={() => setFocus(false)}
+
+      disabled={disabled}
     >
       {['filled', 'tonal'].includes(version) && (
         <span
           className={classNames([
             classes.background,
             classes[version],
-            props.disabled && classes.disabled
+            disabled && classes.disabled
           ])}
 
           style={styles.background}
@@ -299,7 +340,7 @@ const Button = React.forwardRef((props: any, ref) => {
           className={classNames([
             classes.border,
             classes[version],
-            props.disabled && classes.disabled
+            disabled && classes.disabled
           ])}
 
           style={styles.border}
@@ -314,8 +355,10 @@ const Button = React.forwardRef((props: any, ref) => {
 
       <span
         className={classNames([classes.label, classes[size]])}
+
+        style={styles.label}
       >
-        {children}
+        {children_}
       </span>
 
       {endIcon && (

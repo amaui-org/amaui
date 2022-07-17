@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
-import { Button, Expand, Fade, Grow, Interaction, Reset, Slide, Transition, Transitions, Zoom } from '@amaui/ui-react';
+import { Button, Expand, Fade, Grow, Interaction, Reset, RoundProgress, Slide, Transition, Transitions, Zoom } from '@amaui/ui-react';
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
 
@@ -158,7 +158,8 @@ function App() {
     grow: true,
     zoom: true,
     expand: true,
-    slide: true
+    slide: true,
+    loading: true
   });
   const [items, setItems] = React.useState([0]);
   const { classes } = useStyle();
@@ -286,7 +287,42 @@ function App() {
       </div>
 
       <div>
-        {/* Buttons versions */}
+        {/* Buttons loading */}
+        <h1 className={classes.h1} style={{ marginBottom: 24 }}>Button loading</h1>
+
+        <Button size='small' color='secondary' className={classes.btn} onClick={() => update('loading')}>a</Button>
+
+        <div className={classNames([classes.group, classes.center])}>
+          <Button version='text' color='primary' size='small' loading={a.loading}>Small</Button>
+          <Button version='outlined' color='secondary' size='regular' loading={a.loading}>Regular</Button>
+          <Button version='filled' color='secondary' size='regular' loading={a.loading}>Regular</Button>
+          <Button version='tonal' color='tertiary' size='large' loading={a.loading}>Large</Button>
+        </div>
+
+        <div className={classNames([classes.group, classes.center])}>
+          <Button version='text' color='primary' size='small' loading={a.loading} loadingLabel='Loading...'>Loading label</Button>
+          <Button version='outlined' color='secondary' size='regular' loading={a.loading} loadingLabel='Loading...'>Loading label</Button>
+          <Button version='filled' color='secondary' size='regular' loading={a.loading} loadingLabel='Loading...'>Loading label</Button>
+          <Button version='tonal' color='tertiary' size='large' loading={a.loading} loadingLabel='Loading...'>Loading label</Button>
+        </div>
+
+        <div className={classNames([classes.group, classes.center])}>
+          <Button version='text' color='primary' size='small' loading={a.loading} loadingIconPosition='start'>Loading start</Button>
+          <Button version='outlined' color='secondary' size='regular' loading={a.loading} loadingIconPosition='start'>Loading start</Button>
+          <Button version='filled' color='secondary' size='regular' loading={a.loading} loadingIconPosition='start'>Loading start</Button>
+          <Button version='tonal' color='tertiary' size='large' loading={a.loading} loadingIconPosition='start'>Loading start</Button>
+        </div>
+
+        <div className={classNames([classes.group, classes.center])}>
+          <Button version='text' color='primary' size='small' loading={a.loading} loadingIconPosition='end'>Loading end</Button>
+          <Button version='outlined' color='secondary' size='regular' loading={a.loading} loadingIconPosition='end'>Loading end</Button>
+          <Button version='filled' color='secondary' size='regular' loading={a.loading} loadingIconPosition='end'>Loading end</Button>
+          <Button version='tonal' color='tertiary' size='large' loading={a.loading} loadingIconPosition='end'>Loading end</Button>
+        </div>
+      </div>
+
+      <div>
+        {/* Buttons disabled */}
         <h1 className={classes.h1} style={{ marginBottom: 24 }}>Button disabled</h1>
 
         <div className={classNames([classes.group, classes.center])}>
@@ -313,6 +349,59 @@ function App() {
           <Button version='outlined' color='warning' size='small' startIcon={<IconMaterialAddRounded />} endIcon={<IconMaterialAddRounded />}>Start and end icon</Button>
           <Button version='tonal' color='warning' size='regular' startIcon={<IconMaterialAddRounded />} endIcon={<IconMaterialAddRounded />}>Start and end icon</Button>
           <Button version='text' color='warning' size='large' startIcon={<IconMaterialAddRounded />} endIcon={<IconMaterialAddRounded />}>Start and end icon</Button>
+        </div>
+      </div>
+
+      <div>
+        <h1 className={classes.h1} style={{ marginBottom: 24 }}>Round progress size</h1>
+
+        <div className={classNames([classes.group, classes.center])}>
+          <RoundProgress size='extra_small' />
+          <RoundProgress size={20} />
+          <RoundProgress size='small' />
+          <RoundProgress size='regular' />
+          <RoundProgress size='large' />
+        </div>
+      </div>
+
+      <div>
+        <h1 className={classes.h1} style={{ marginBottom: 24 }}>Round progress color</h1>
+
+        <div className={classNames([classes.group, classes.center])}>
+          <RoundProgress color='primary' />
+          <RoundProgress color='secondary' />
+          <RoundProgress color='tertiary' />
+          <RoundProgress color='quaternary' />
+          <RoundProgress color='info' />
+          <RoundProgress color='success' />
+          <RoundProgress color='error' />
+          <RoundProgress color='warning' />
+          <RoundProgress color='neutral' />
+          <RoundProgress color='#f5d758' />
+        </div>
+      </div>
+
+      <div>
+        <h1 className={classes.h1} style={{ marginBottom: 24 }}>No shrink</h1>
+
+        <div className={classNames([classes.group, classes.center])}>
+          <RoundProgress size='extra_small' noShrink />
+          <RoundProgress size={20} noShrink />
+          <RoundProgress size='small' noShrink />
+          <RoundProgress size='regular' noShrink />
+          <RoundProgress size='large' noShrink />
+        </div>
+      </div>
+
+      <div>
+        <h1 className={classes.h1} style={{ marginBottom: 24 }}>Thickness</h1>
+
+        <div className={classNames([classes.group, classes.center])}>
+          <RoundProgress size='extra_small' thickness={3} />
+          <RoundProgress size={20} thickness={3} />
+          <RoundProgress size='small' thickness={3} />
+          <RoundProgress size='regular' thickness={3} />
+          <RoundProgress size='large' thickness={3} />
         </div>
       </div>
 
