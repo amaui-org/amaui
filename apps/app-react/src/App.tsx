@@ -170,7 +170,7 @@ const useStyle = style(theme => ({
 
 const Accordion = (props: any) => {
   const { classes } = useStyle();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(props.open);
 
   return (
     <div className={classes.section}>
