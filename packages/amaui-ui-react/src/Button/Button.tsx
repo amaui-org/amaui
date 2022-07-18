@@ -22,11 +22,10 @@ const useStyle = style(theme => ({
   root: {
     '@cs': ['amaui-button'],
 
-    display: 'flex',
+    display: 'inline-flex',
     justifyContent: 'space-around',
     alignItems: 'center',
     position: 'relative',
-    flex: '0 0 auto',
     cursor: 'pointer',
     borderRadius: theme.methods.space.value('xl', 'px'),
     textAlign: 'center',

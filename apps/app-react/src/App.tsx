@@ -80,11 +80,13 @@ const useStyle = style(theme => ({
   row: {
     display: 'flex',
     flexDirection: 'row',
+    width: '100%',
     gap: 24
   },
   column: {
     display: 'flex',
     flexDirection: 'column',
+    width: '100%',
     gap: 24
   },
   center: {
@@ -168,7 +170,7 @@ const useStyle = style(theme => ({
 
 const Accordion = (props: any) => {
   const { classes } = useStyle();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(true);
 
   return (
     <div className={classes.section}>
@@ -227,13 +229,13 @@ function App() {
     });
   };
 
-  React.useEffect(() => {
-    const id = setInterval(() => setRoundedProgress(item => item >= 100 ? 0 : item + 10), 1000);
+  // React.useEffect(() => {
+  //   const id = setInterval(() => setRoundedProgress(item => item >= 100 ? 0 : item + 10), 1000);
 
-    return () => {
-      clearInterval(id);
-    }
-  }, []);
+  //   return () => {
+  //     clearInterval(id);
+  //   }
+  // }, []);
 
   // React.useEffect(() => {
   //   const rect = refs.transitions.current.getBoundingClientRect();
