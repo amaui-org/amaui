@@ -6,7 +6,6 @@ import AmauiSubscription from '@amaui/subscription';
 import { classNames, useAmauiTheme, TTransitionsDurationProperties } from '@amaui/style-react';
 
 import TransitionContext from './TransitionContext';
-import { reflow } from '../utils';
 
 export type TTransitionStatus = 'add' | 'added' | 'enter' | 'entering' | 'entered' | 'exit' | 'exiting' | 'exited' | 'removed';
 
@@ -90,7 +89,6 @@ function Transition(props: IProps) {
 
     return statusNew;
   });
-  const setAdded = React.useState(false)[1];
   const subs = React.useRef({
     status: new AmauiSubscription()
   });
@@ -135,9 +133,9 @@ function Transition(props: IProps) {
       if (status !== statusNew) {
         // Added
         if (inProp && (!refs.root.current || (refs.root.current && refs.root.current.className.indexOf('removed') > -1))) {
-          // We re add the element and get the ref value
+          // We add the element and get the ref value
           // for update below to use it for enter
-          setAdded(added => !added);
+          setStatus(undefined);
 
           setTimeout(() => update(statusNew));
         }
@@ -233,9 +231,6 @@ function Transition(props: IProps) {
     // Re add / add element for ref value
     updateStatus('enter');
 
-    // Reflow
-    reflow(refs.root.current);
-
     // Add exiting class for animation
     setTimeout(() => updateStatus('entering'));
 
@@ -248,9 +243,6 @@ function Transition(props: IProps) {
     if (refs.status.current !== status_) return;
 
     updateStatus('exit');
-
-    // Reflow
-    reflow(refs.root.current);
 
     // Prevent update batches
     setTimeout(() => updateStatus('exiting'));

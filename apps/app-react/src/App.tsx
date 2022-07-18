@@ -16,10 +16,6 @@ const useStyleA = style(theme => ({
       transition: theme?.methods.transitions.make(['opacity'], { duration: 'rg', timing_function: 'standard' }),
     },
 
-    '&.a-exit': {
-      opacity: 1,
-    },
-
     '&.a-exiting': {
       opacity: 0,
       transition: theme?.methods.transitions.make(['opacity'], { duration: 'rg', timing_function: 'standard' }),
@@ -55,30 +51,46 @@ const useStyle = style(theme => ({
   root: {
     display: 'flex',
     flexDirection: 'column',
+    alignItems: 'flex-start',
     gap: 40,
     padding: '271px 140px',
   },
-  group: {
+  section: {
     display: 'flex',
-    flexDirection: 'row',
-    gap: 40,
-    marginBottom: 24
+    flexDirection: 'column',
+    width: '100%'
+  },
+  h1: {
+    fontSize: 15,
+    fontWeight: 300,
+    color: theme?.palette.text?.default?.primary,
+    cursor: 'pointer',
+    margin: 0,
+    userSelect: 'none'
+  },
+  item: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+    paddingTop: 24,
+    gap: 24,
+    position: 'relative'
   },
   row: {
-    flexDirection: 'row'
+    display: 'flex',
+    flexDirection: 'row',
+    gap: 24
   },
   column: {
-    flexDirection: 'column'
+    display: 'flex',
+    flexDirection: 'column',
+    gap: 24
   },
   center: {
     alignItems: 'center'
   },
-  item: {
-    display: 'block',
-    position: 'relative'
-  },
   btn: {
-    marginBottom: 11,
     transition: 'transform .4s ease',
 
     '&:active': {
@@ -89,12 +101,6 @@ const useStyle = style(theme => ({
     width: 140,
     height: 140,
     background: '#fff5dc'
-  },
-  h1: {
-    fontSize: 15,
-    marginBottom: 15,
-    fontWeight: 300,
-    color: theme?.palette.text?.default?.primary
   },
   a: {
     position: 'relative',
@@ -150,8 +156,32 @@ const useStyle = style(theme => ({
   },
   pathBackground: {
     stroke: theme?.palette?.text?.selected
-  }
+  },
+
+  group: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: 24
+  },
+
 }), { name: 'App' });
+
+const Accordion = (props: any) => {
+  const { classes } = useStyle();
+  const [open, setOpen] = React.useState(false);
+
+  return (
+    <div className={classes.section}>
+      <h1 className={classes.h1} onClick={() => setOpen(!open)}>{props.label}</h1>
+
+      <Expand in={open}>
+        <section className={classNames([classes.item, props.className])}>
+          {props.children}
+        </section>
+      </Expand>
+    </div>
+  );
+};
 
 function App() {
   const [a, setA] = React.useState<any>({
@@ -163,6 +193,7 @@ function App() {
     zoom: true,
     expand: true,
     slide: true,
+    slideRef: true,
     loading: true
   });
   const [roundedProgress, setRoundedProgress] = React.useState(0);
@@ -196,13 +227,13 @@ function App() {
     });
   };
 
-  React.useEffect(() => {
-    const id = setInterval(() => setRoundedProgress(item => item >= 100 ? 0 : item + 10), 1000);
+  // React.useEffect(() => {
+  //   const id = setInterval(() => setRoundedProgress(item => item>= 100 ? 0 : item + 10), 1000);
 
-    return () => {
-      clearInterval(id);
-    }
-  }, []);
+  //   return () => {
+  //     clearInterval(id);
+  //   }
+  // }, []);
 
   // React.useEffect(() => {
   //   const rect = refs.transitions.current.getBoundingClientRect();
@@ -216,64 +247,52 @@ function App() {
       {/* Reset */}
       <Reset />
 
-      {/* Interaction */}
-      <div className={classes.group}>
+      <div className={classes.row}>
         <Button size='small' color='secondary' className={classes.btn} onClick={() => updateTheme()}>{amauiTheme.palette.light ? 'dark' : 'light'}</Button>
       </div>
 
-      {/* Interaction */}
-      <div className={classes.group}>
-        <section className={classes.item}>
-          <h1 className={classes.h1}>Interaction</h1>
+      <Accordion label='Interaction'>
+        <Button size='small' color='secondary' className={classes.btn} onClick={() => update('pulse')}>a</Button>
 
-          <Button size='small' color='secondary' className={classes.btn} onClick={() => update('pulse')}>a</Button>
+        <div className={classes.a} style={{ color: 'orange' }}>
+          <Interaction pulse={a.pulse} />
 
-          <div className={classes.a} style={{ color: 'orange' }}>
-            <Interaction pulse={a.pulse} />
+          <IconMaterial10kRounded />
 
-            <IconMaterial10kRounded />
+          <span style={{ position: 'relative' }}>a</span>
+        </div>
+      </Accordion>
 
-            <span style={{ position: 'relative' }}>a</span>
-          </div>
-        </section>
-      </div>
-
-      <div>
-        {/* Buttons versions */}
-        <h1 className={classes.h1} style={{ marginBottom: 24 }}>Button versions</h1>
-
-        <div className={classNames([classes.group, classes.center])}>
+      <Accordion label='Button versions'>
+        <div className={classNames([classes.row, classes.center])}>
           <Button version='filled' color='secondary' size='small'>Filled</Button>
           <Button version='filled' color='secondary' size='regular'>Filled</Button>
           <Button version='filled' color='secondary' size='large'>Filled</Button>
           <Button version='filled' color='secondary' size='large' elevation={false}>No elevation</Button>
         </div>
 
-        <div className={classNames([classes.group, classes.center])}>
+        <div className={classNames([classes.row, classes.center])}>
           <Button version='tonal' color='secondary' size='small'>Tonal</Button>
           <Button version='tonal' color='secondary' size='regular'>Tonal</Button>
           <Button version='tonal' color='secondary' size='large'>Tonal</Button>
           <Button version='tonal' color='secondary' size='large' elevation={false}>No elevation</Button>
         </div>
 
-        <div className={classNames([classes.group, classes.center])}>
+        <div className={classNames([classes.row, classes.center])}>
           <Button version='outlined' color='secondary' size='small'>Outlined</Button>
           <Button version='outlined' color='secondary' size='regular'>Outlined</Button>
           <Button version='outlined' color='secondary' size='large'>Outlined</Button>
         </div>
 
-        <div className={classNames([classes.group, classes.center])}>
+        <div className={classNames([classes.row, classes.center])}>
           <Button version='text' color='secondary' size='small'>Text</Button>
           <Button version='text' color='secondary' size='regular'>Text</Button>
           <Button version='text' color='secondary' size='large'>Text</Button>
         </div>
-      </div>
+      </Accordion>
 
-      <div>
-        {/* Buttons color */}
-        <h1 className={classes.h1} style={{ marginBottom: 24 }}>Button colors</h1>
-
-        <div className={classNames([classes.group, classes.center])}>
+      <Accordion label='Button color'>
+        <div className={classNames([classes.row, classes.center])}>
           <Button color='primary'>Primary</Button>
           <Button color='secondary'>Secondary</Button>
           <Button color='tertiary'>Tertiary</Button>
@@ -286,72 +305,60 @@ function App() {
           <Button color='#f5d758'>Other</Button>
           <Button version='tonal' color='#f5d758'>Tonal with new color</Button>
         </div>
-      </div>
+      </Accordion>
 
-      <div>
-        {/* Buttons size */}
-        <h1 className={classes.h1} style={{ marginBottom: 24 }}>Button sizes</h1>
-
-        <div className={classNames([classes.group, classes.center])}>
+      <Accordion label='Button size'>
+        <div className={classNames([classes.row, classes.center])}>
           <Button color='secondary' size='small'>Small</Button>
           <Button color='secondary' size='regular'>Regular</Button>
           <Button color='secondary' size='large'>Large</Button>
           <Button color='secondary' size='large' fullWidth>Full width</Button>
         </div>
-      </div>
+      </Accordion>
 
-      <div>
-        {/* Buttons loading */}
-        <h1 className={classes.h1} style={{ marginBottom: 24 }}>Button loading</h1>
-
+      <Accordion label='Button loading'>
         <Button size='small' color='secondary' className={classes.btn} onClick={() => update('loading')}>a</Button>
 
-        <div className={classNames([classes.group, classes.center])}>
+        <div className={classNames([classes.row, classes.center])}>
           <Button version='text' color='primary' size='small' loading={a.loading}>Small</Button>
           <Button version='outlined' color='secondary' size='regular' loading={a.loading}>Regular</Button>
           <Button version='filled' color='secondary' size='regular' loading={a.loading}>Regular</Button>
           <Button version='tonal' color='tertiary' size='large' loading={a.loading}>Large</Button>
         </div>
 
-        <div className={classNames([classes.group, classes.center])}>
+        <div className={classNames([classes.row, classes.center])}>
           <Button version='text' color='primary' size='small' loading={a.loading} loadingLabel='Loading...'>Loading label</Button>
           <Button version='outlined' color='secondary' size='regular' loading={a.loading} loadingLabel='Loading...'>Loading label</Button>
           <Button version='filled' color='secondary' size='regular' loading={a.loading} loadingLabel='Loading...'>Loading label</Button>
           <Button version='tonal' color='tertiary' size='large' loading={a.loading} loadingLabel='Loading...'>Loading label</Button>
         </div>
 
-        <div className={classNames([classes.group, classes.center])}>
+        <div className={classNames([classes.row, classes.center])}>
           <Button version='text' color='primary' size='small' loading={a.loading} loadingIconPosition='start'>Loading start</Button>
           <Button version='outlined' color='secondary' size='regular' loading={a.loading} loadingIconPosition='start'>Loading start</Button>
           <Button version='filled' color='secondary' size='regular' loading={a.loading} loadingIconPosition='start'>Loading start</Button>
           <Button version='tonal' color='tertiary' size='large' loading={a.loading} loadingIconPosition='start'>Loading start</Button>
         </div>
 
-        <div className={classNames([classes.group, classes.center])}>
+        <div className={classNames([classes.row, classes.center])}>
           <Button version='text' color='primary' size='small' loading={a.loading} loadingIconPosition='end'>Loading end</Button>
           <Button version='outlined' color='secondary' size='regular' loading={a.loading} loadingIconPosition='end'>Loading end</Button>
           <Button version='filled' color='secondary' size='regular' loading={a.loading} loadingIconPosition='end'>Loading end</Button>
           <Button version='tonal' color='tertiary' size='large' loading={a.loading} loadingIconPosition='end'>Loading end</Button>
         </div>
-      </div>
+      </Accordion>
 
-      <div>
-        {/* Buttons disabled */}
-        <h1 className={classes.h1} style={{ marginBottom: 24 }}>Button disabled</h1>
-
-        <div className={classNames([classes.group, classes.center])}>
+      <Accordion label='Button disabled'>
+        <div className={classNames([classes.row, classes.center])}>
           <Button version='text' color='primary' size='small' disabled>Small</Button>
           <Button version='outlined' color='secondary' size='regular' disabled>Regular</Button>
           <Button version='filled' color='secondary' size='regular' disabled>Regular</Button>
           <Button version='tonal' color='tertiary' size='large' disabled>Large</Button>
         </div>
-      </div>
+      </Accordion>
 
-      <div>
-        {/* Buttons icons  */}
-        <h1 className={classes.h1} style={{ marginBottom: 24 }}>Button with icons</h1>
-
-        <div className={classNames([classes.group, classes.center])}>
+      <Accordion label='Button icons'>
+        <div className={classNames([classes.row, classes.center])}>
           <Button version='text' color='secondary' size='small' startIcon={<IconMaterialAddRounded />}>Start icon</Button>
           <Button version='filled' color='warning' size='regular' startIcon={<IconMaterialAddRounded />}>Start icon</Button>
           <Button version='outlined' color='secondary' size='large' startIcon={<IconMaterialAddRounded />}>Start icon</Button>
@@ -364,24 +371,20 @@ function App() {
           <Button version='tonal' color='warning' size='regular' startIcon={<IconMaterialAddRounded />} endIcon={<IconMaterialAddRounded />}>Start and end icon</Button>
           <Button version='text' color='warning' size='large' startIcon={<IconMaterialAddRounded />} endIcon={<IconMaterialAddRounded />}>Start and end icon</Button>
         </div>
-      </div>
+      </Accordion>
 
-      <div>
-        <h1 className={classes.h1} style={{ marginBottom: 24 }}>Round progress size</h1>
-
-        <div className={classNames([classes.group, classes.center])}>
+      <Accordion label='Round progress size'>
+        <div className={classNames([classes.row, classes.center])}>
           <RoundProgress size='extra_small' />
           <RoundProgress size={20} />
           <RoundProgress size='small' />
           <RoundProgress size='regular' />
           <RoundProgress size='large' />
         </div>
-      </div>
+      </Accordion>
 
-      <div>
-        <h1 className={classes.h1} style={{ marginBottom: 24 }}>Round progress color</h1>
-
-        <div className={classNames([classes.group, classes.center])}>
+      <Accordion label='Round progress color'>
+        <div className={classNames([classes.row, classes.center])}>
           <RoundProgress color='primary' />
           <RoundProgress color='secondary' />
           <RoundProgress color='tertiary' />
@@ -393,48 +396,40 @@ function App() {
           <RoundProgress color='neutral' />
           <RoundProgress color='#f5d758' />
         </div>
-      </div>
+      </Accordion>
 
-      <div>
-        <h1 className={classes.h1} style={{ marginBottom: 24 }}>No shrink</h1>
-
-        <div className={classNames([classes.group, classes.center])}>
+      <Accordion label='Round progress no shrink'>
+        <div className={classNames([classes.row, classes.center])}>
           <RoundProgress size='extra_small' noShrink />
           <RoundProgress size={20} noShrink />
           <RoundProgress size='small' noShrink />
           <RoundProgress size='regular' noShrink />
           <RoundProgress size='large' noShrink />
         </div>
-      </div>
+      </Accordion>
 
-      <div>
-        <h1 className={classes.h1} style={{ marginBottom: 24 }}>Thickness</h1>
-
-        <div className={classNames([classes.group, classes.center])}>
+      <Accordion label='Round progress thickness'>
+        <div className={classNames([classes.row, classes.center])}>
           <RoundProgress size='extra_small' thickness={1.4} />
           <RoundProgress size={20} thickness={1.4} />
           <RoundProgress size='small' thickness={1.4} />
           <RoundProgress size='regular' thickness={1.4} />
           <RoundProgress size='large' thickness={1.4} />
         </div>
-      </div>
+      </Accordion>
 
-      <div>
-        <h1 className={classes.h1} style={{ marginBottom: 24 }}>Rounded</h1>
-
-        <div className={classNames([classes.group, classes.center])}>
+      <Accordion label='Rounded progress rounded'>
+        <div className={classNames([classes.row, classes.center])}>
           <RoundProgress size='extra_small' rounded={false} />
           <RoundProgress size={20} rounded={false} />
           <RoundProgress size='small' rounded={false} />
           <RoundProgress size='regular' rounded={false} />
           <RoundProgress size='large' rounded={false} />
         </div>
-      </div>
+      </Accordion>
 
-      <div>
-        <h1 className={classes.h1} style={{ marginBottom: 24 }}>Deteminate with pathBackgroundProps as well</h1>
-
-        <div className={classNames([classes.group, classes.center])}>
+      <Accordion label='Rounded progress deteminate with pathBackgroundProps as well'>
+        <div className={classNames([classes.row, classes.center])}>
           <RoundProgress size='small' version='determinate' value={0} pathBackgroundProps={{ className: classes.pathBackground }} />
           <RoundProgress size='small' version='determinate' value={1} pathBackgroundProps={{ className: classes.pathBackground }} />
           <RoundProgress size='small' version='determinate' value={40} pathBackgroundProps={{ className: classes.pathBackground }} />
@@ -444,7 +439,7 @@ function App() {
           <RoundProgress size='small' version='determinate' value={roundedProgress} pathBackgroundProps={{ className: classes.pathBackground }} />
         </div>
 
-        <div className={classNames([classes.group, classes.center])}>
+        <div className={classNames([classes.row, classes.center])}>
           <RoundProgress size='regular' version='determinate' value={0} pathBackgroundProps={{ className: classes.pathBackground }} />
           <RoundProgress size='regular' version='determinate' value={1} pathBackgroundProps={{ className: classes.pathBackground }} />
           <RoundProgress size='regular' version='determinate' value={40} pathBackgroundProps={{ className: classes.pathBackground }} />
@@ -454,7 +449,7 @@ function App() {
           <RoundProgress size='regular' version='determinate' value={roundedProgress} pathBackgroundProps={{ className: classes.pathBackground }} />
         </div>
 
-        <div className={classNames([classes.group, classes.center])}>
+        <div className={classNames([classes.row, classes.center])}>
           <RoundProgress size='large' version='determinate' value={0} pathBackgroundProps={{ className: classes.pathBackground }} />
           <RoundProgress size='large' version='determinate' value={1} pathBackgroundProps={{ className: classes.pathBackground }} />
           <RoundProgress size='large' version='determinate' value={40} pathBackgroundProps={{ className: classes.pathBackground }} />
@@ -463,256 +458,168 @@ function App() {
 
           <RoundProgress size='large' version='determinate' value={roundedProgress} pathBackgroundProps={{ className: classes.pathBackground }} />
         </div>
-      </div>
+      </Accordion>
 
-      {/* Fade */}
-      <div className={classes.group}>
-        <section className={classes.item}>
-          <h1 className={classes.h1}>Fade</h1>
+      <Accordion label='Fade'>
+        <Button size='small' color='secondary' className={classes.btn} onClick={() => { update('fade'); }}>a</Button>
 
-          <Button size='small' color='secondary' className={classes.btn} onClick={() => { update('fade'); }}>a</Button>
+        <Fade in={a.fade}>
+          <div className={classes.div}>
+            a {String(a.fade)}
+          </div>
+        </Fade>
+      </Accordion>
 
-          <Fade in={a.fade}>
+      <Accordion label='Grow'>
+        <Button size='small' color='secondary' className={classes.btn} onClick={() => update('grow')}>a</Button>
+
+        <Grow in={a.grow}>
+          <div className={classes.div}>
+            a {String(a.grow)}
+          </div>
+        </Grow>
+
+        <Grow in={a.grow}>
+          <div className={classes.div} style={{ transformOrigin: '0 0' }}>
+            with transform origin {String(a.grow)}
+          </div>
+        </Grow>
+      </Accordion>
+
+      <Accordion label='Zoom'>
+        <Button size='small' color='secondary' className={classes.btn} onClick={() => update('zoom')}>a</Button>
+
+        <Zoom in={a.zoom}>
+          <div className={classes.div}>
+            a {String(a.zoom)}
+          </div>
+        </Zoom>
+
+        <Zoom in={a.zoom}>
+          <div className={classes.div} style={{ transformOrigin: '0 0' }}>
+            with transform origin {String(a.zoom)}
+          </div>
+        </Zoom>
+      </Accordion>
+
+      <Accordion label='Expand'>
+        <Button size='small' color='secondary' className={classes.btn} onClick={() => update('expand')}>a</Button>
+
+        <Expand in={a.expand}>
+          <div className={classes.div}>
+            vertical {String(a.expand)}
+          </div>
+        </Expand>
+
+        <Expand in={a.expand} expandSize='70px'>
+          <div className={classes.div}>
+            vertical expand size {String(a.expand)}
+          </div>
+        </Expand>
+
+        <Expand in={a.expand} orientation='horizontal'>
+          <div className={classes.div}>
+            horizontal {String(a.expand)}
+          </div>
+        </Expand>
+
+        <Expand in={a.expand} orientation='horizontal' expandSize='70px'>
+          <div className={classes.div}>
+            horizontal expand size {String(a.expand)}
+          </div>
+        </Expand>
+      </Accordion>
+
+      <Accordion label='Slide'>
+        <Button size='small' color='secondary' className={classes.btn} onClick={() => update('slide')}>a</Button>
+
+        <Slide in={a.slide} direction='up'>
+          <div className={classes.div}>
+            up {String(a.slide)}
+          </div>
+        </Slide>
+
+        <Slide in={a.slide} direction='left'>
+          <div className={classes.div}>
+            left {String(a.slide)}
+          </div>
+        </Slide>
+
+        <Slide in={a.slide} direction='right'>
+          <div className={classes.div}>
+            right {String(a.slide)}
+          </div>
+        </Slide>
+
+        <Slide in={a.slide} direction='down'>
+          <div className={classes.div}>
+            down {String(a.slide)}
+          </div>
+        </Slide>
+
+        <Slide in={a.slide} direction='down' removeOnExited={false}>
+          <div className={classes.div}>
+            down without removeOnExited {String(a.slide)}
+          </div>
+        </Slide>
+      </Accordion>
+
+      <Accordion label='Slide relative to root ref' className={classes.row}>
+        <Button size='small' color='secondary' className={classes.btn} onClick={() => update('slideRef')}>a</Button>
+
+        <div className={classes.item} ref={refs.slides.up} style={{ overflow: 'hidden', height: 140 }}>
+          <Slide in={a.slideRef} direction='up' root={refs.slides.up?.current}>
             <div className={classes.div}>
-              a {String(a.fade)}
-            </div>
-          </Fade>
-        </section>
-      </div>
-
-      {/* Grow */}
-      <div className={classes.group}>
-        <section className={classes.item}>
-          <h1 className={classes.h1}>Grow</h1>
-
-          <Button size='small' color='secondary' className={classes.btn} onClick={() => update('grow')}>a</Button>
-
-          <Grow in={a.grow}>
-            <div className={classes.div}>
-              a {String(a.grow)}
-            </div>
-          </Grow>
-        </section>
-
-        <section className={classes.item}>
-          <h1 className={classes.h1}>Grow with transform origin</h1>
-
-          <Button size='small' color='secondary' className={classes.btn} onClick={() => update('grow')}>a</Button>
-
-          <Grow in={a.grow}>
-            <div className={classes.div} style={{ transformOrigin: '0 0' }}>
-              a {String(a.grow)}
-            </div>
-          </Grow>
-        </section>
-      </div>
-
-      {/* Zoom */}
-      <div className={classes.group}>
-        <section className={classes.item}>
-          <h1 className={classes.h1}>Zoom</h1>
-
-          <Button size='small' color='secondary' className={classes.btn} onClick={() => update('zoom')}>a</Button>
-
-          <Zoom in={a.zoom}>
-            <div className={classes.div}>
-              a {String(a.zoom)}
-            </div>
-          </Zoom>
-        </section>
-
-        <section className={classes.item}>
-          <h1 className={classes.h1}>Zoom with transform origin</h1>
-
-          <Button size='small' color='secondary' className={classes.btn} onClick={() => update('zoom')}>a</Button>
-
-          <Zoom in={a.zoom}>
-            <div className={classes.div} style={{ transformOrigin: '0 0' }}>
-              a {String(a.zoom)}
-            </div>
-          </Zoom>
-        </section>
-      </div>
-
-      {/* Expand */}
-      <div className={classes.group}>
-
-        <section className={classes.item}>
-          <h1 className={classes.h1}>Expand</h1>
-
-          <Button size='small' color='secondary' className={classes.btn} onClick={() => update('expand')}>a</Button>
-
-          <Expand in={a.expand}>
-            <div className={classes.div}>
-              a {String(a.expand)}
-            </div>
-          </Expand>
-        </section>
-
-        <section className={classes.item}>
-          <h1 className={classes.h1}>Expand with expandSize</h1>
-
-          <Button size='small' color='secondary' className={classes.btn} onClick={() => update('expand')}>a</Button>
-
-          <Expand in={a.expand} expandSize='70px'>
-            <div className={classes.div}>
-              a {String(a.expand)}
-            </div>
-          </Expand>
-        </section>
-
-        <section className={classes.item}>
-          <h1 className={classes.h1}>Expand with orientation horizontal</h1>
-
-          <Button size='small' color='secondary' className={classes.btn} onClick={() => update('expand')}>a</Button>
-
-          <Expand in={a.expand} orientation='horizontal'>
-            <div className={classes.div}>
-              a {String(a.expand)}
-            </div>
-          </Expand>
-        </section>
-
-        <section className={classes.item}>
-          <h1 className={classes.h1}>Expand with orientation horizontal and expandSize</h1>
-
-          <Button size='small' color='secondary' className={classes.btn} onClick={() => update('expand')}>a</Button>
-
-          <Expand in={a.expand} orientation='horizontal' expandSize='70px'>
-            <div className={classes.div}>
-              a {String(a.expand)}
-            </div>
-          </Expand>
-        </section>
-
-      </div>
-
-      {/* Slide */}
-      <div className={classes.group}>
-
-        <section className={classes.item}>
-          <h1 className={classes.h1}>Slide up</h1>
-
-          <Button size='small' color='secondary' className={classes.btn} onClick={() => update('slide')}>a</Button>
-
-          <Slide in={a.slide} direction='up'>
-            <div className={classes.div}>
-              a {String(a.slide)}
+              up {String(a.slideRef)}
             </div>
           </Slide>
-        </section>
+        </div>
 
-        <section className={classes.item}>
-          <h1 className={classes.h1}>Slide left</h1>
-
-          <Button size='small' color='secondary' className={classes.btn} onClick={() => update('slide')}>a</Button>
-
-          <Slide in={a.slide} direction='left'>
+        <div className={classes.item} ref={refs.slides.left} style={{ overflow: 'hidden', height: 140 }}>
+          <Slide in={a.slideRef} direction='left' root={refs.slides.left?.current}>
             <div className={classes.div}>
-              a {String(a.slide)}
+              left {String(a.slideRef)}
             </div>
           </Slide>
-        </section>
+        </div>
 
-        <section className={classes.item}>
-          <h1 className={classes.h1}>Slide right</h1>
-
-          <Button size='small' color='secondary' className={classes.btn} onClick={() => update('slide')}>a</Button>
-
-          <Slide in={a.slide} direction='right'>
+        <div className={classes.item} ref={refs.slides.right} style={{ overflow: 'hidden', height: 140 }}>
+          <Slide in={a.slideRef} direction='right' root={refs.slides.right?.current}>
             <div className={classes.div}>
-              a {String(a.slide)}
+              right {String(a.slideRef)}
             </div>
           </Slide>
-        </section>
+        </div>
 
-        <section className={classes.item}>
-          <h1 className={classes.h1}>Slide down</h1>
-
-          <Button size='small' color='secondary' className={classes.btn} onClick={() => update('slide')}>a</Button>
-
-          <Slide in={a.slide} direction='down'>
+        <div className={classes.item} ref={refs.slides.down} style={{ overflow: 'hidden', height: 140 }}>
+          <Slide in={a.slideRef} direction='down' root={refs.slides.down?.current}>
             <div className={classes.div}>
-              a {String(a.slide)}
+              down {String(a.slideRef)}
             </div>
           </Slide>
-        </section>
+        </div>
 
-      </div>
-
-      {/* Slide relative to root ref */}
-      <div className={classes.group}>
-
-        <section className={classes.item} ref={refs.slides.up} style={{ overflow: 'hidden', height: 400 }}>
-          <h1 className={classes.h1}>Slide up relative to root ref</h1>
-
-          <Button size='small' color='secondary' className={classes.btn} onClick={() => update('slide')}>a</Button>
-
-          <Slide in={a.slide} direction='up' root={refs.slides.up?.current}>
+        <div className={classes.item} ref={refs.slides.down} style={{ overflow: 'hidden', height: 140 }}>
+          <Slide in={a.slideRef} direction='down' root={refs.slides.down?.current} removeOnExited={false}>
             <div className={classes.div}>
-              a {String(a.slide)}
+              down without onRemoveExited {String(a.slideRef)}
             </div>
           </Slide>
-        </section>
+        </div>
+      </Accordion>
 
-        <section className={classes.item} ref={refs.slides.left} style={{ overflow: 'hidden', height: 400 }}>
-          <h1 className={classes.h1}>Slide left relative to root ref</h1>
+      <Accordion label='Transition'>
+        <Button size='small' color='secondary' className={classes.btn} onClick={() => update('a')}>a</Button>
 
-          <Button size='small' color='secondary' className={classes.btn} onClick={() => update('slide')}>a</Button>
+        <A in={a.a}>
+          <div className={classes.div} />
+        </A>
+      </Accordion>
 
-          <Slide in={a.slide} direction='left' root={refs.slides.left?.current}>
-            <div className={classes.div}>
-              a {String(a.slide)}
-            </div>
-          </Slide>
-        </section>
+      <Accordion label='Transition with switch'>
+        <Button size='small' color='secondary' className={classes.btn} onClick={() => update('transitions')}>a</Button>
 
-        <section className={classes.item} ref={refs.slides.right} style={{ overflow: 'hidden', height: 400 }}>
-          <h1 className={classes.h1}>Slide right relative to root ref</h1>
-
-          <Button size='small' color='secondary' className={classes.btn} onClick={() => update('slide')}>a</Button>
-
-          <Slide in={a.slide} direction='right' root={refs.slides.right?.current}>
-            <div className={classes.div}>
-              a {String(a.slide)}
-            </div>
-          </Slide>
-        </section>
-
-        <section className={classes.item} ref={refs.slides.down} style={{ overflow: 'hidden', height: 400 }}>
-          <h1 className={classes.h1}>Slide down relative to root ref</h1>
-
-          <Button size='small' color='secondary' className={classes.btn} onClick={() => update('slide')}>a</Button>
-
-          <Slide in={a.slide} direction='down' root={refs.slides.down?.current}>
-            <div className={classes.div}>
-              a {String(a.slide)}
-            </div>
-          </Slide>
-        </section>
-
-      </div>
-
-      {/* Transition */}
-      <div className={classes.group}>
-        <section className={classes.item}>
-          <h1 className={classes.h1}>Transition</h1>
-
-          <Button size='small' color='secondary' className={classes.btn} onClick={() => update('a')}>a</Button>
-
-          <A in={a.a}>
-            <div className={classes.div} />
-          </A>
-        </section>
-      </div>
-
-      {/* Transitions with switch */}
-      <div className={classNames([classes.group, classes.column])}>
-        <section className={classes.item} style={{ height: 224 }}>
-          <h1 className={classes.h1}>Transitions mode switch</h1>
-
-          <Button size='small' color='secondary' className={classes.btn} onClick={() => update('transitions')}>a</Button>
-
+        <div className={classes.item} style={{ height: 140 }}>
           <Transitions switch>
             <Transition key={a.transitions}>
               <div className={classNames([classes.div, classes.a1])} style={{ position: 'absolute' }}>
@@ -720,59 +627,46 @@ function App() {
               </div>
             </Transition>
           </Transitions>
-        </section>
+        </div>
 
-        <section className={classes.item} style={{ height: 224 }}>
-          <h1 className={classes.h1}>Transitions mode switch out-in-follow</h1>
-
-          <Button size='small' color='secondary' className={classes.btn} onClick={() => update('transitions')}>a</Button>
-
+        <div className={classes.item} style={{ height: 140 }}>
           <Transitions switch mode='in-out-follow'>
             <Transition key={a.transitions}>
               <div className={classNames([classes.div, classes.a14])} style={{ position: 'absolute' }}>
-                a {String(a.transitions)}
+                in-out-follow {String(a.transitions)}
               </div>
             </Transition>
           </Transitions>
-        </section>
+        </div>
 
-        <section className={classes.item} style={{ height: 224 }}>
-          <h1 className={classes.h1}>Transitions mode switch in-out</h1>
-
-          <Button size='small' color='secondary' className={classes.btn} onClick={() => update('transitions')}>a</Button>
-
+        <div className={classes.item} style={{ height: 140 }}>
           <Transitions switch mode='in-out'>
             <Transition key={a.transitions}>
               <div className={classNames([classes.div, classes.a1])} style={{ position: 'absolute' }}>
-                a {String(a.transitions)}
+                in-out {String(a.transitions)}
               </div>
             </Transition>
           </Transitions>
-        </section>
-      </div>
+        </div>
+      </Accordion>
 
-      {/* Transitions */}
-      <div className={classes.group} ref={refs.transitions}>
-        <section className={classes.item}>
-          <h1 className={classes.h1}>Transitions</h1>
+      <Accordion label='Transitions' className={classes.row}>
+        <Button size='small' color='secondary' className={classes.btn} onClick={() => setItems(items_ => [...items_, new Date().getTime()])}>a</Button>
 
-          <Button size='small' color='secondary' className={classes.btn} onClick={() => setItems(items_ => [...items_, new Date().getTime()])}>a</Button>
-
-          <Transitions>
-            {items.map((item, index) => (
-              <Transition key={item}>
-                <div className={classNames([classes.div, classes.a1])} onClick={() => {
-                  setItems(items =>
-                    items.filter(i => i !== item)
-                  );
-                }}>
-                  {item}
-                </div>
-              </Transition>
-            ))}
-          </Transitions>
-        </section>
-      </div>
+        <Transitions>
+          {items.map((item, index) => (
+            <Transition key={item}>
+              <div className={classNames([classes.div, classes.a1])} onClick={() => {
+                setItems(items =>
+                  items.filter(i => i !== item)
+                );
+              }}>
+                {item}
+              </div>
+            </Transition>
+          ))}
+        </Transitions>
+      </Accordion>
     </div>
   );
 }

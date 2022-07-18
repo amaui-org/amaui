@@ -84,7 +84,7 @@ const useStyle = style(theme => ({
     stroke: 'currentcolor',
   },
 
-  circle: {
+  path: {
     transformOrigin: 'center',
     strokeDasharray: '240px',
     strokeDashoffset: '0px',
@@ -106,7 +106,7 @@ const useStyle = style(theme => ({
     }
   },
 
-  circleBackground: {
+  pathBackground: {
     strokeDasharray: '240px',
     strokeDashoffset: '0px',
     stroke: 'transparent'
@@ -193,7 +193,7 @@ const RoundProgress = React.forwardRef((props: any, ref: any) => {
           {...pathBackgroundProps}
 
           className={classNames([
-            classes.circleBackground,
+            classes.pathBackground,
             classes[version],
             pathBackgroundProps.className
           ])}
@@ -208,7 +208,7 @@ const RoundProgress = React.forwardRef((props: any, ref: any) => {
           r='10'
 
           className={classNames([
-            classes.circle,
+            classes.path,
             classes[version],
             noShrink && classes.noShrink
           ])}

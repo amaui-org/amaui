@@ -5,6 +5,24 @@ import { useAmauiTheme } from '@amaui/style-react';
 
 import { Transition, TTransitionStatus } from '..';
 
+const Wrapper = React.forwardRef((props: any, ref: any) => {
+  const {
+    children,
+
+    ...other
+  } = props;
+
+  return (
+    <div
+      ref={ref}
+
+      {...other}
+    >
+      {props.children}
+    </div>
+  );
+});
+
 const Expand = React.forwardRef((props: any, ref: React.MutableRefObject<any>) => {
   const theme = useAmauiTheme();
   const refs = {
@@ -21,8 +39,20 @@ const Expand = React.forwardRef((props: any, ref: React.MutableRefObject<any>) =
   if (props.orientation === 'horizontal') prop = 'width';
 
   const styles = {
+    enter: {
+      [prop]: rect && `${rect[prop]}px`,
+      overflow: 'hidden'
+    },
     entering: {
-      [prop]: `${rect && rect[prop] || 0}px`
+      [prop]: rect && `${rect[prop]}px`,
+      overflow: 'hidden'
+    },
+    entered: {
+      [prop]: rect && `${rect[prop]}px`
+    },
+    exit: {
+      [prop]: props.expandSize !== undefined ? props.expandSize : '0',
+      overflow: 'hidden'
     },
     exiting: {
       [prop]: props.expandSize !== undefined ? props.expandSize : '0',
@@ -50,7 +80,7 @@ const Expand = React.forwardRef((props: any, ref: React.MutableRefObject<any>) =
 
       enterOnAdd={!!refs.root.current}
     >
-      {(status: TTransitionStatus, ref_) => React.cloneElement(props.children, {
+      {(status: TTransitionStatus, ref_) => React.cloneElement(<Wrapper children={props.children} />, {
         ref: item => {
           refs.root.current = item;
 
@@ -60,11 +90,13 @@ const Expand = React.forwardRef((props: any, ref: React.MutableRefObject<any>) =
         },
 
         style: {
+          position: 'relative',
+
           transition: `${prop} ${timeout(status, prop)} ${timingFunction(status)}`,
 
           visibility: status === 'exited' && !props.in && props.expandSize === undefined ? 'hidden' : undefined,
 
-          ...(styles[status] || {}),
+          ...(rect && styles[status] || {}),
 
           ...(props.children?.props?.style || {}),
         }

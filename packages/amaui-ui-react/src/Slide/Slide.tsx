@@ -17,30 +17,50 @@ const Slide = React.forwardRef((props: any, ref: React.MutableRefObject<any>) =>
     const h = props.root ? props.root.offsetHeight : window.innerHeight;
     const w = props.root ? props.root.offsetWidth : window.innerWidth;
 
-    const top = props.root ? refs.root?.current?.offsetTop : rect?.top;
-    const left = props.root ? refs.root?.current?.offsetLeft : rect?.left;
-    const right = props.root ? refs.root?.current?.offsetLeft + refs.root?.current?.offsetWidth : rect?.right;
-    const bottom = props.root ? refs.root?.current?.offsetTop + refs.root?.current?.offsetHeight : rect?.bottom;
+    const top = props.root ? refs.root.current?.offsetTop : rect?.top;
+    const left = props.root ? refs.root.current?.offsetLeft : rect?.left;
+    const right = props.root ? refs.root.current?.offsetLeft + refs.root.current?.offsetWidth : rect?.right;
+    const bottom = props.root ? refs.root.current?.offsetTop + refs.root.current?.offsetHeight : rect?.bottom;
 
     if (props.direction === 'up') return `translate(0, -${bottom !== undefined ? bottom + 'px' : '100vh'})`;
-
-    if (props.direction === 'down') return `translate(0, ${top !== undefined ? Math.abs(h - top) + 'px' : '100vh'})`;
 
     if (props.direction === 'left') return `translate(-${right !== undefined ? right + 'px' : '100vw'}, 0)`;
 
     if (props.direction === 'right') return `translate(${left !== undefined ? w - left + 'px' : '100vw'}, 0)`;
+
+    if (props.direction === 'down') return `translate(0, ${top !== undefined ? Math.abs(h - top) + 'px' : '100vh'})`;
   };
 
-  const styles = {
-    entering: {
-      transform: 'translate(0, 0)',
-    },
-    exiting: {
-      transform: translate()
-    },
-    exited: {
-      transform: translate()
-    }
+  const styles = (status: TTransitionStatus) => {
+    if (!status) return { visibility: 'hidden' };
+
+    const transform = refs.root.current && window.getComputedStyle(refs.root?.current).transform;
+
+    const translateValue = translate();
+
+    const allStyles = {
+      enter: {
+        transition: 'none',
+        visibility: 'hidden',
+
+        transform: translateValue
+      },
+      entering: {
+        transform: 'translate(0, 0)',
+      },
+      entered: {
+        transform: 'none'
+      },
+      exiting: {
+        transform: translateValue
+      },
+      exited: {
+        transform,
+        visibility: 'hidden'
+      }
+    };
+
+    return allStyles[status];
   };
 
   const timeout = (status: TTransitionStatus, property: string = 'opacity') => {
@@ -55,9 +75,9 @@ const Slide = React.forwardRef((props: any, ref: React.MutableRefObject<any>) =>
 
   return (
     <Transition
-      {...props}
+      removeOnExited
 
-      enterOnAdd={!!refs.root.current}
+      {...props}
     >
       {(status: TTransitionStatus, ref_) => React.cloneElement(props.children, {
         ref: item => {
@@ -71,7 +91,7 @@ const Slide = React.forwardRef((props: any, ref: React.MutableRefObject<any>) =>
         style: {
           transition: `transform ${timeout(status, 'transform')} ${timingFunction(status)}`,
 
-          ...(styles[status] || {}),
+          ...(styles(status) || {}),
 
           ...(props.children?.props?.style || {}),
         }
