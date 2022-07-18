@@ -155,7 +155,7 @@ const useStyle = style(theme => ({
     },
   },
   pathBackground: {
-    stroke: theme?.palette?.text?.selected
+    stroke: [theme?.palette?.text?.selected, '!important']
   },
 
   group: {
@@ -227,13 +227,13 @@ function App() {
     });
   };
 
-  // React.useEffect(() => {
-  //   const id = setInterval(() => setRoundedProgress(item => item>= 100 ? 0 : item + 10), 1000);
+  React.useEffect(() => {
+    const id = setInterval(() => setRoundedProgress(item => item >= 100 ? 0 : item + 10), 1000);
 
-  //   return () => {
-  //     clearInterval(id);
-  //   }
-  // }, []);
+    return () => {
+      clearInterval(id);
+    }
+  }, []);
 
   // React.useEffect(() => {
   //   const rect = refs.transitions.current.getBoundingClientRect();
