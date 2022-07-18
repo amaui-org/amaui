@@ -6,6 +6,7 @@ import AmauiSubscription from '@amaui/subscription';
 import { classNames, useAmauiTheme, TTransitionsDurationProperties } from '@amaui/style-react';
 
 import TransitionContext from './TransitionContext';
+import { reflow } from '../utils';
 
 export type TTransitionStatus = 'add' | 'added' | 'enter' | 'entering' | 'entered' | 'exit' | 'exiting' | 'exited' | 'removed';
 
@@ -231,6 +232,9 @@ function Transition(props: IProps) {
     // Re add / add element for ref value
     updateStatus('enter');
 
+    // Reflow
+    reflow(refs.root.current);
+
     // Add exiting class for animation
     setTimeout(() => updateStatus('entering'));
 
@@ -243,6 +247,9 @@ function Transition(props: IProps) {
     if (refs.status.current !== status_) return;
 
     updateStatus('exit');
+
+    // Reflow
+    reflow(refs.root.current);
 
     // Prevent update batches
     setTimeout(() => updateStatus('exiting'));
