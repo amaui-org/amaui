@@ -211,6 +211,9 @@ const useStyle = style(theme => ({
 const Button = React.forwardRef((props: any, ref) => {
   const { classes } = useStyle(props);
   const [focus, setFocus] = React.useState(false);
+  const refs = {
+    color: React.useRef<any>()
+  };
 
   const theme = useAmauiTheme();
 
@@ -236,6 +239,12 @@ const Button = React.forwardRef((props: any, ref) => {
     ...other
   } = props;
 
+  React.useEffect(() => {
+    if (classes[color] === undefined && is('string', color)) {
+      refs.color.current = theme.methods.color(color);
+    }
+  }, [color]);
+
   let startIcon = startIcon_;
   let endIcon = endIcon_;
   let disabled = disabled_ || loading;
@@ -247,9 +256,11 @@ const Button = React.forwardRef((props: any, ref) => {
     icon: { fontSize: '17px' }
   };
 
-  let newColor = false;
+  let newColor: any;
 
   if (classes[color] === undefined && is('string', color)) {
+    if (!refs.color.current) refs.color.current = theme.methods.color(color);
+
     newColor = true;
 
     styles.root.color = color;
@@ -261,9 +272,9 @@ const Button = React.forwardRef((props: any, ref) => {
     styles.root.color = theme.methods.palette.color.text(styles.background.background, true, prefer);
   }
   else if (version === 'tonal') {
-    styles.background.background = theme.methods.palette.color.value(color, 90);
+    styles.background.background = theme.methods.palette.color.value(color, 90, true, refs.color.current);
 
-    styles.root.color = theme.methods.palette.color.value(color, 10);
+    styles.root.color = theme.methods.palette.color.value(color, 10, true, refs.color.current);
   }
 
   if (size === 'small') styles.icon.fontSize = '16px';

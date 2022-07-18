@@ -284,6 +284,7 @@ function App() {
           <Button color='warning'>Warning</Button>
           <Button color='neutral'>Neutral</Button>
           <Button color='#f5d758'>Other</Button>
+          <Button version='tonal' color='#f5d758'>Tonal with new color</Button>
         </div>
       </div>
 
