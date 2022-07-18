@@ -77,8 +77,6 @@ const Expand = React.forwardRef((props: any, ref: React.MutableRefObject<any>) =
   return (
     <Transition
       {...props}
-
-      enterOnAdd={!!refs.root.current}
     >
       {(status: TTransitionStatus, ref_) => React.cloneElement(<Wrapper children={props.children} />, {
         ref: item => {
