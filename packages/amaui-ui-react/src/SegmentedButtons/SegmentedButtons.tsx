@@ -60,7 +60,6 @@ const IconMaterialDoneSharp = React.forwardRef((props: any, ref) => {
   const {
     className,
 
-
     ...other
   } = props;
 
