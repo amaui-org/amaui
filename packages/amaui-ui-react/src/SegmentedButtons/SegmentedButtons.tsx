@@ -26,9 +26,13 @@ const useStyle = style(theme => ({
     '&:not(:first-of-type)': {
       borderTopLeftRadius: '0px',
       borderBottomLeftRadius: '0px',
-      borderLeftColor: 'transparent',
+
+      '&$border': {
+        borderLeft: '1px solid currentColor',
+      },
 
       '&$outlined': {
+        borderLeft: 'none',
         marginLeft: '-1px'
       }
     }
@@ -36,8 +40,7 @@ const useStyle = style(theme => ({
   right: {
     '&:not(:last-of-type)': {
       borderTopRightRadius: '0px',
-      borderBottomRightRadius: '0px',
-      borderRightColor: 'transparent'
+      borderBottomRightRadius: '0px'
     }
   },
   path: {
@@ -147,6 +150,7 @@ const SegmentedButtons = React.forwardRef((props: any, ref: any) => {
     tonal,
 
     elevation = true,
+    border = true,
 
     children: children_,
 
@@ -205,7 +209,8 @@ const SegmentedButtons = React.forwardRef((props: any, ref: any) => {
         classes.item,
         classes[version],
         classes.left,
-        classes.right
+        classes.right,
+        border && classes.border
       ]),
 
       key: index,

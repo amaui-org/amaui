@@ -564,6 +564,50 @@ function App() {
 
       </Accordion>
 
+      <Accordion label='Segmented buttons no border'>
+
+        <div className={classNames([classes.row, classes.center])}>
+          <SegmentedButtons size='small' color='secondary' version='text' border={false}>
+            <Button>Button one</Button>
+            <Button>Button two</Button>
+            <Button>Button three</Button>
+            <Button>Button four</Button>
+            <Button>Button five</Button>
+          </SegmentedButtons>
+        </div>
+
+        <div className={classNames([classes.row, classes.center])}>
+          <SegmentedButtons size='regular' color='secondary' version='outlined' border={false}>
+            <Button>Button one</Button>
+            <Button>Button two</Button>
+            <Button>Button three</Button>
+            <Button>Button four</Button>
+            <Button>Button five</Button>
+          </SegmentedButtons>
+        </div>
+
+        <div className={classNames([classes.row, classes.center])}>
+          <SegmentedButtons size='large' color='secondary' version='filled' border={false}>
+            <Button>Button one</Button>
+            <Button>Button two</Button>
+            <Button>Button three</Button>
+            <Button>Button four</Button>
+            <Button>Button five</Button>
+          </SegmentedButtons>
+        </div>
+
+        <div className={classNames([classes.row, classes.center])}>
+          <SegmentedButtons size='regular' color='secondary' version='filled' border={false} tonal>
+            <Button>Button one</Button>
+            <Button>Button two</Button>
+            <Button>Button three</Button>
+            <Button>Button four</Button>
+            <Button>Button five</Button>
+          </SegmentedButtons>
+        </div>
+
+      </Accordion>
+
       <Accordion label='Segmented buttons with icons'>
 
         <div className={classNames([classes.row, classes.center])}>
