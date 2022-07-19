@@ -8,11 +8,12 @@ import { classNames, useAmauiTheme, TTransitionsDurationProperties } from '@amau
 import TransitionContext from './TransitionContext';
 import { reflow } from '../utils';
 
-export type TTransitionStatus = 'add' | 'added' | 'enter' | 'entering' | 'entered' | 'exit' | 'exiting' | 'exited' | 'removed';
+export type TTransitionStatus = 'add' | 'adding' | 'added' | 'enter' | 'entering' | 'entered' | 'exit' | 'exiting' | 'exited' | 'removed';
 
 export const STATUS: Record<TTransitionStatus, TTransitionStatus> = {
   add: 'add',
   added: 'added',
+  adding: 'adding',
 
   enter: 'enter',
   entering: 'entering',
@@ -56,6 +57,7 @@ export interface IProps {
   onTransition?: (element: HTMLElement, status: TTransitionStatus,) => void;
 
   onAdd?: (element: HTMLElement) => void;
+  onAdding?: (element: HTMLElement) => void;
   onAdded?: (element: HTMLElement) => void;
 
   onEnter?: (element: HTMLElement) => void;
@@ -217,13 +219,21 @@ function Transition(props: IProps) {
   };
 
   const add = async (status_: TTransitionStatus) => {
-    if (refs.status.current !== status_) return;
+    if (props.add) {
+      if (refs.status.current !== status_) return;
 
-    updateStatus('add');
+      updateStatus('add');
 
-    if (props.add) await timeout('add');
+      // Reflow
+      if (refs.root.current) reflow(refs.root.current);
 
-    if (refs.status.current === status_) updateStatus('added');
+      // Add adding class for animation
+      setTimeout(() => updateStatus('adding'));
+
+      await timeout('add');
+
+      if (refs.status.current === status_) updateStatus('added');
+    }
   };
 
   const enter = async (status_: TTransitionStatus) => {
@@ -235,7 +245,7 @@ function Transition(props: IProps) {
     // Reflow
     reflow(refs.root.current);
 
-    // Add exiting class for animation
+    // Add entering class for animation
     setTimeout(() => updateStatus('entering'));
 
     if (props.enter) await timeout('enter');
@@ -275,6 +285,12 @@ function Transition(props: IProps) {
       case 'add':
         if (is('function', props.onTransition)) props.onTransition(refs.root.current, status_);
         if (is('function', props.onAdd)) props.onAdd(refs.root.current);
+
+        break;
+
+      case 'adding':
+        if (is('function', props.onTransition)) props.onTransition(refs.root.current, status_);
+        if (is('function', props.onAdding)) props.onAdding(refs.root.current);
 
         break;
 

@@ -113,10 +113,10 @@
     fast-glob "^3.2.11"
     fs-extra "^10.1.0"
 
-"@amaui/style@^1.0.14157":
-  version "1.0.14157"
-  resolved "https://registry.yarnpkg.com/@amaui/style/-/style-1.0.14157.tgz#d9de92d3cb8c358d65887983c23ad0630a81e529"
-  integrity sha512-tNkmH8s9vL8MDiaGHaxRfUSRcvmAoCsOH4jvOprV9t+QntXYjI9ZOlFkUCY1bl2M3NQxsty0wjW1KL61aeTxqw==
+"@amaui/style@^1.0.14174":
+  version "1.0.14174"
+  resolved "https://registry.yarnpkg.com/@amaui/style/-/style-1.0.14174.tgz#8bb3953ab7d6a47b3eb0eb724abd66d0d10e6807"
+  integrity sha512-ETRrIHn++8u6mvBNDM9b8kRJebLfw2VYYUFmTK5RExWNsjUlcWAoJ4ipsG8m11PnP97zA8HX4dWSEea3t/KbTA==
   dependencies:
     "@amaui/meta" "^1.0.11141"
     "@amaui/node" "^1.0.11117"

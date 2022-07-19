@@ -32,5 +32,8 @@ export * from './Icon';
 export { default as Button } from './Button';
 export * from './Button';
 
+export { default as SegmentedButtons } from './SegmentedButtons';
+export * from './SegmentedButtons';
+
 export { default as RoundProgress } from './RoundProgress';
 export * from './RoundProgress';

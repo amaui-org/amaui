@@ -160,7 +160,7 @@ const useStyle = style(theme => ({
     // Size
     '&$small': {
       ...theme.typography.values.l3,
-      lineHeight: 1
+      lineHeight: 1.455
     },
 
     '&$regular': {
@@ -180,7 +180,7 @@ const useStyle = style(theme => ({
 
     '&$start': {
       '&$small': {
-        padding: `0 ${theme.methods.space.value('xs', 'px')} 0 ${theme.methods.space.value('sm', 'px')}`
+        padding: `0 ${theme.methods.space.value('sm') - 3}px 0 ${theme.methods.space.value('sm') + 3}px`
       },
 
       '&$regular': {
@@ -188,13 +188,13 @@ const useStyle = style(theme => ({
       },
 
       '&$large': {
-        padding: `0 ${theme.methods.space.value('sm', 'px')} 0 ${theme.methods.space.value('rg', 'px')}`
+        padding: `0 ${theme.methods.space.value('sm') + 2}px 0 ${theme.methods.space.value('md') - 2}px`
       }
     },
 
     '&$end': {
       '&$small': {
-        padding: `0 ${theme.methods.space.value('sm', 'px')} 0 ${theme.methods.space.value('xs', 'px')}`
+        padding: `0 ${theme.methods.space.value('sm') + 3}px 0 ${theme.methods.space.value('sm') - 3}px`
       },
 
       '&$regular': {
@@ -202,7 +202,7 @@ const useStyle = style(theme => ({
       },
 
       '&$large': {
-        padding: `0 ${theme.methods.space.value('rg', 'px')} 0 ${theme.methods.space.value('sm', 'px')}`
+        padding: `0 ${theme.methods.space.value('md') - 2}px 0 ${theme.methods.space.value('sm') + 2}px`
       }
     },
   }
@@ -219,23 +219,31 @@ const Button = React.forwardRef((props: any, ref) => {
 
   const {
     className,
+
     version = 'outlined',
     size = 'regular',
     color = 'neutral',
+    tonal,
+
     Component = 'button',
     prefer = 'light',
+
     style,
     fullWidth,
+
     InteractionProps = {},
     startIcon: startIcon_,
     endIcon: endIcon_,
     elevation = true,
+
     loading,
     loadingLabel,
     loadingIcon = <RoundProgress size='small' />,
     loadingIconPosition = 'center',
     disabled: disabled_,
+
     children,
+
     ...other
   } = props;
 
@@ -253,6 +261,7 @@ const Button = React.forwardRef((props: any, ref) => {
     root: {},
     label: {},
     background: {},
+    border: {},
     icon: { fontSize: '17px' }
   };
 
@@ -271,22 +280,40 @@ const Button = React.forwardRef((props: any, ref) => {
 
     styles.root.color = theme.methods.palette.color.text(styles.background.background, true, prefer);
   }
-  else if (version === 'tonal') {
-    styles.background.background = theme.methods.palette.color.value(color, 90, true, refs.color.current);
 
-    styles.root.color = theme.methods.palette.color.value(color, 10, true, refs.color.current);
+  if (tonal) {
+    // Text
+    if (version === 'text') {
+      styles.root.color = theme.methods.palette.color.value(color, 30, true, refs.color.current);
+    }
+
+    // Outlined
+    if (version === 'outlined') {
+      styles.root.color = theme.methods.palette.color.value(color, 50, true, refs.color.current);
+
+      styles.label.color = theme.methods.palette.color.value(color, 10, true, refs.color.current);
+
+      styles.border.boxShadow = `inset 0 0 0 1px ${theme.methods.palette.color.value(color, 30, true, refs.color.current)}`;
+    }
+
+    // Filled
+    if (version === 'filled') {
+      styles.root.color = theme.methods.palette.color.value(color, 10, true, refs.color.current);
+
+      styles.background.background = theme.methods.palette.color.value(color, 90, true, refs.color.current);
+    }
   }
 
   if (size === 'small') styles.icon.fontSize = '16px';
 
-  if (size === 'large') styles.icon.fontSize = '23px';
+  if (size === 'large') styles.icon.fontSize = '22px';
 
   let children_ = children;
 
   if (loading) {
     if (loadingLabel) children_ = loadingLabel;
     else if (loadingIconPosition === 'center') {
-      children_ = loadingIcon;
+      children_ = React.cloneElement(loadingIcon, { style: styles.icon });
 
       styles.label.lineHeight = 0;
     }
@@ -294,6 +321,8 @@ const Button = React.forwardRef((props: any, ref) => {
     if (loadingIconPosition === 'start') startIcon = loadingIcon;
     else if (loadingIconPosition === 'end') endIcon = loadingIcon;
   }
+
+  if (props.selected) InteractionProps.selected = props.selected;
 
   return (
     <Component
@@ -305,6 +334,7 @@ const Button = React.forwardRef((props: any, ref) => {
         classes[size],
         classes[color],
         classes[version],
+        tonal && classes.tonal,
         startIcon && classes.startIcon,
         endIcon && classes.endIcon,
         fullWidth && classes.fullWidth,
@@ -319,18 +349,19 @@ const Button = React.forwardRef((props: any, ref) => {
         ...styles.root
       }}
 
-      {...other}
-
       onFocus={() => setFocus(true)}
       onBlur={() => setFocus(false)}
 
       disabled={disabled}
+
+      {...other}
     >
       {['filled', 'tonal'].includes(version) && (
         <span
           className={classNames([
             classes.background,
             classes[version],
+            tonal && classes.tonal,
             disabled && classes.disabled
           ])}
 
@@ -351,6 +382,7 @@ const Button = React.forwardRef((props: any, ref) => {
           className={classNames([
             classes.border,
             classes[version],
+            tonal && classes.tonal,
             disabled && classes.disabled
           ])}
 

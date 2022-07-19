@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
-import { Button, Expand, Fade, Grow, Interaction, Reset, RoundProgress, Slide, Transition, Transitions, Zoom } from '@amaui/ui-react';
+import { Button, Expand, Fade, Grow, Interaction, Reset, RoundProgress, SegmentedButtons, Slide, Transition, Transitions, Zoom } from '@amaui/ui-react';
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
 
@@ -229,13 +229,13 @@ function App() {
     });
   };
 
-  React.useEffect(() => {
-    const id = setInterval(() => setRoundedProgress(item => item >= 100 ? 0 : item + 10), 1000);
+  // React.useEffect(() => {
+  //   const id = setInterval(() => setRoundedProgress(item => item >= 100 ? 0 : item + 10), 1000);
 
-    return () => {
-      clearInterval(id);
-    }
-  }, []);
+  //   return () => {
+  //     clearInterval(id);
+  //   }
+  // }, []);
 
   // React.useEffect(() => {
   //   const rect = refs.transitions.current.getBoundingClientRect();
@@ -253,7 +253,7 @@ function App() {
         <Button size='small' color='secondary' className={classes.btn} onClick={() => updateTheme()}>{amauiTheme.palette.light ? 'dark' : 'light'}</Button>
       </div>
 
-      <Accordion label='Interaction'>
+      <Accordion label='Interaction' open>
         <Button size='small' color='secondary' className={classes.btn} onClick={() => update('pulse')}>a</Button>
 
         <div className={classes.a} style={{ color: 'orange' }}>
@@ -274,10 +274,10 @@ function App() {
         </div>
 
         <div className={classNames([classes.row, classes.center])}>
-          <Button version='tonal' color='secondary' size='small'>Tonal</Button>
-          <Button version='tonal' color='secondary' size='regular'>Tonal</Button>
-          <Button version='tonal' color='secondary' size='large'>Tonal</Button>
-          <Button version='tonal' color='secondary' size='large' elevation={false}>No elevation</Button>
+          <Button tonal version='filled' color='secondary' size='small'>Tonal</Button>
+          <Button tonal version='filled' color='secondary' size='regular'>Tonal</Button>
+          <Button tonal version='filled' color='secondary' size='large'>Tonal</Button>
+          <Button tonal version='filled' color='secondary' size='large' elevation={false}>No elevation</Button>
         </div>
 
         <div className={classNames([classes.row, classes.center])}>
@@ -295,17 +295,83 @@ function App() {
 
       <Accordion label='Button color'>
         <div className={classNames([classes.row, classes.center])}>
-          <Button color='primary'>Primary</Button>
-          <Button color='secondary'>Secondary</Button>
-          <Button color='tertiary'>Tertiary</Button>
-          <Button color='quaternary'>Quaternary</Button>
-          <Button color='info'>Info</Button>
-          <Button color='success'>Success</Button>
-          <Button color='error'>Error</Button>
-          <Button color='warning'>Warning</Button>
-          <Button color='neutral'>Neutral</Button>
-          <Button color='#f5d758'>Other</Button>
-          <Button version='tonal' color='#f5d758'>Tonal with new color</Button>
+          <Button version='text' color='primary'>Primary</Button>
+          <Button version='text' color='secondary'>Secondary</Button>
+          <Button version='text' color='tertiary'>Tertiary</Button>
+          <Button version='text' color='quaternary'>Quaternary</Button>
+          <Button version='text' color='info'>Info</Button>
+          <Button version='text' color='success'>Success</Button>
+          <Button version='text' color='error'>Error</Button>
+          <Button version='text' color='warning'>Warning</Button>
+          <Button version='text' color='neutral'>Neutral</Button>
+          <Button version='text' color='#f5d758'>Other</Button>
+        </div>
+
+        <div className={classNames([classes.row, classes.center])}>
+          <Button version='outlined' color='primary'>Primary</Button>
+          <Button version='outlined' color='secondary'>Secondary</Button>
+          <Button version='outlined' color='tertiary'>Tertiary</Button>
+          <Button version='outlined' color='quaternary'>Quaternary</Button>
+          <Button version='outlined' color='info'>Info</Button>
+          <Button version='outlined' color='success'>Success</Button>
+          <Button version='outlined' color='error'>Error</Button>
+          <Button version='outlined' color='warning'>Warning</Button>
+          <Button version='outlined' color='neutral'>Neutral</Button>
+          <Button version='outlined' color='#f5d758'>Other</Button>
+        </div>
+
+        <div className={classNames([classes.row, classes.center])}>
+          <Button version='filled' color='primary'>Primary</Button>
+          <Button version='filled' color='secondary'>Secondary</Button>
+          <Button version='filled' color='tertiary'>Tertiary</Button>
+          <Button version='filled' color='quaternary'>Quaternary</Button>
+          <Button version='filled' color='info'>Info</Button>
+          <Button version='filled' color='success'>Success</Button>
+          <Button version='filled' color='error'>Error</Button>
+          <Button version='filled' color='warning'>Warning</Button>
+          <Button version='filled' color='neutral'>Neutral</Button>
+          <Button version='filled' color='#f5d758'>Other</Button>
+        </div>
+      </Accordion>
+
+      <Accordion label='Button color tonal'>
+        <div className={classNames([classes.row, classes.center])}>
+          <Button tonal version='text' color='primary'>Primary</Button>
+          <Button tonal version='text' color='secondary'>Secondary</Button>
+          <Button tonal version='text' color='tertiary'>Tertiary</Button>
+          <Button tonal version='text' color='quaternary'>Quaternary</Button>
+          <Button tonal version='text' color='info'>Info</Button>
+          <Button tonal version='text' color='success'>Success</Button>
+          <Button tonal version='text' color='error'>Error</Button>
+          <Button tonal version='text' color='warning'>Warning</Button>
+          <Button tonal version='text' color='neutral'>Neutral</Button>
+          <Button tonal version='text' color='#f5d758'>Other</Button>
+        </div>
+
+        <div className={classNames([classes.row, classes.center])}>
+          <Button tonal version='outlined' color='primary'>Primary</Button>
+          <Button tonal version='outlined' color='secondary'>Secondary</Button>
+          <Button tonal version='outlined' color='tertiary'>Tertiary</Button>
+          <Button tonal version='outlined' color='quaternary'>Quaternary</Button>
+          <Button tonal version='outlined' color='info'>Info</Button>
+          <Button tonal version='outlined' color='success'>Success</Button>
+          <Button tonal version='outlined' color='error'>Error</Button>
+          <Button tonal version='outlined' color='warning'>Warning</Button>
+          <Button tonal version='outlined' color='neutral'>Neutral</Button>
+          <Button tonal version='outlined' color='#f5d758'>Other</Button>
+        </div>
+
+        <div className={classNames([classes.row, classes.center])}>
+          <Button tonal version='filled' color='primary'>Primary</Button>
+          <Button tonal version='filled' color='secondary'>Secondary</Button>
+          <Button tonal version='filled' color='tertiary'>Tertiary</Button>
+          <Button tonal version='filled' color='quaternary'>Quaternary</Button>
+          <Button tonal version='filled' color='info'>Info</Button>
+          <Button tonal version='filled' color='success'>Success</Button>
+          <Button tonal version='filled' color='error'>Error</Button>
+          <Button tonal version='filled' color='warning'>Warning</Button>
+          <Button tonal version='filled' color='neutral'>Neutral</Button>
+          <Button tonal version='filled' color='#f5d758'>Other</Button>
         </div>
       </Accordion>
 
@@ -325,28 +391,28 @@ function App() {
           <Button version='text' color='primary' size='small' loading={a.loading}>Small</Button>
           <Button version='outlined' color='secondary' size='regular' loading={a.loading}>Regular</Button>
           <Button version='filled' color='secondary' size='regular' loading={a.loading}>Regular</Button>
-          <Button version='tonal' color='tertiary' size='large' loading={a.loading}>Large</Button>
+          <Button version='filled' tonal color='tertiary' size='large' loading={a.loading}>Large</Button>
         </div>
 
         <div className={classNames([classes.row, classes.center])}>
           <Button version='text' color='primary' size='small' loading={a.loading} loadingLabel='Loading...'>Loading label</Button>
           <Button version='outlined' color='secondary' size='regular' loading={a.loading} loadingLabel='Loading...'>Loading label</Button>
           <Button version='filled' color='secondary' size='regular' loading={a.loading} loadingLabel='Loading...'>Loading label</Button>
-          <Button version='tonal' color='tertiary' size='large' loading={a.loading} loadingLabel='Loading...'>Loading label</Button>
+          <Button version='filled' tonal color='tertiary' size='large' loading={a.loading} loadingLabel='Loading...'>Loading label</Button>
         </div>
 
         <div className={classNames([classes.row, classes.center])}>
           <Button version='text' color='primary' size='small' loading={a.loading} loadingIconPosition='start'>Loading start</Button>
           <Button version='outlined' color='secondary' size='regular' loading={a.loading} loadingIconPosition='start'>Loading start</Button>
           <Button version='filled' color='secondary' size='regular' loading={a.loading} loadingIconPosition='start'>Loading start</Button>
-          <Button version='tonal' color='tertiary' size='large' loading={a.loading} loadingIconPosition='start'>Loading start</Button>
+          <Button version='filled' tonal color='tertiary' size='large' loading={a.loading} loadingIconPosition='start'>Loading start</Button>
         </div>
 
         <div className={classNames([classes.row, classes.center])}>
           <Button version='text' color='primary' size='small' loading={a.loading} loadingIconPosition='end'>Loading end</Button>
           <Button version='outlined' color='secondary' size='regular' loading={a.loading} loadingIconPosition='end'>Loading end</Button>
           <Button version='filled' color='secondary' size='regular' loading={a.loading} loadingIconPosition='end'>Loading end</Button>
-          <Button version='tonal' color='tertiary' size='large' loading={a.loading} loadingIconPosition='end'>Loading end</Button>
+          <Button version='filled' tonal color='tertiary' size='large' loading={a.loading} loadingIconPosition='end'>Loading end</Button>
         </div>
       </Accordion>
 
@@ -355,7 +421,7 @@ function App() {
           <Button version='text' color='primary' size='small' disabled>Small</Button>
           <Button version='outlined' color='secondary' size='regular' disabled>Regular</Button>
           <Button version='filled' color='secondary' size='regular' disabled>Regular</Button>
-          <Button version='tonal' color='tertiary' size='large' disabled>Large</Button>
+          <Button version='filled' tonal color='tertiary' size='large' disabled>Large</Button>
         </div>
       </Accordion>
 
@@ -370,8 +436,193 @@ function App() {
           <Button version='outlined' color='secondary' size='large' endIcon={<IconMaterialAddRounded />}>End icon</Button>
 
           <Button version='outlined' color='warning' size='small' startIcon={<IconMaterialAddRounded />} endIcon={<IconMaterialAddRounded />}>Start and end icon</Button>
-          <Button version='tonal' color='warning' size='regular' startIcon={<IconMaterialAddRounded />} endIcon={<IconMaterialAddRounded />}>Start and end icon</Button>
+          <Button version='filled' tonal color='warning' size='regular' startIcon={<IconMaterialAddRounded />} endIcon={<IconMaterialAddRounded />}>Start and end icon</Button>
           <Button version='text' color='warning' size='large' startIcon={<IconMaterialAddRounded />} endIcon={<IconMaterialAddRounded />}>Start and end icon</Button>
+        </div>
+      </Accordion>
+
+      <Accordion label='Segmented buttons'>
+
+        <div className={classNames([classes.row, classes.center])}>
+          <SegmentedButtons color='secondary' tonal>
+            <Button>Button one</Button>
+          </SegmentedButtons>
+        </div>
+
+        <div className={classNames([classes.row, classes.center])}>
+          <SegmentedButtons color='secondary' tonal>
+            <Button>Button one</Button>
+            <Button>Button two</Button>
+          </SegmentedButtons>
+        </div>
+
+        <div className={classNames([classes.row, classes.center])}>
+          <SegmentedButtons color='secondary' tonal>
+            <Button>Button one</Button>
+            <Button>Button two</Button>
+            <Button>Button three</Button>
+          </SegmentedButtons>
+        </div>
+
+        <div className={classNames([classes.row, classes.center])}>
+          <SegmentedButtons color='secondary' tonal>
+            <Button>Button one</Button>
+            <Button>Button two</Button>
+            <Button>Button three</Button>
+            <Button>Button four</Button>
+          </SegmentedButtons>
+        </div>
+
+        <div className={classNames([classes.row, classes.center])}>
+          <SegmentedButtons color='secondary' tonal>
+            <Button>Button one</Button>
+            <Button>Button two</Button>
+            <Button>Button three</Button>
+            <Button>Button four</Button>
+            <Button>Button five</Button>
+            <Button>Button seven</Button>
+            <Button>Button fourteen</Button>
+          </SegmentedButtons>
+        </div>
+      </Accordion>
+
+      <Accordion label='Segmented buttons sizes'>
+
+        <div className={classNames([classes.row, classes.center])}>
+          <SegmentedButtons size='small' color='secondary' tonal>
+            <Button>Button one</Button>
+            <Button>Button two</Button>
+            <Button>Button three</Button>
+            <Button>Button four</Button>
+            <Button>Button five</Button>
+          </SegmentedButtons>
+        </div>
+
+        <div className={classNames([classes.row, classes.center])}>
+          <SegmentedButtons size='regular' color='secondary' tonal>
+            <Button>Button one</Button>
+            <Button>Button two</Button>
+            <Button>Button three</Button>
+            <Button>Button four</Button>
+            <Button>Button five</Button>
+          </SegmentedButtons>
+        </div>
+
+        <div className={classNames([classes.row, classes.center])}>
+          <SegmentedButtons size='large' color='secondary' tonal>
+            <Button>Button one</Button>
+            <Button>Button two</Button>
+            <Button>Button three</Button>
+            <Button>Button four</Button>
+            <Button>Button five</Button>
+          </SegmentedButtons>
+        </div>
+
+      </Accordion>
+
+      <Accordion label='Segmented buttons versions'>
+
+        <div className={classNames([classes.row, classes.center])}>
+          <SegmentedButtons size='small' color='secondary' version='text'>
+            <Button>Button one</Button>
+            <Button>Button two</Button>
+            <Button>Button three</Button>
+            <Button>Button four</Button>
+            <Button>Button five</Button>
+          </SegmentedButtons>
+        </div>
+
+        <div className={classNames([classes.row, classes.center])}>
+          <SegmentedButtons size='regular' color='secondary' version='outlined'>
+            <Button>Button one</Button>
+            <Button>Button two</Button>
+            <Button>Button three</Button>
+            <Button>Button four</Button>
+            <Button>Button five</Button>
+          </SegmentedButtons>
+        </div>
+
+        <div className={classNames([classes.row, classes.center])}>
+          <SegmentedButtons size='large' color='secondary' version='filled'>
+            <Button>Button one</Button>
+            <Button>Button two</Button>
+            <Button>Button three</Button>
+            <Button>Button four</Button>
+            <Button>Button five</Button>
+          </SegmentedButtons>
+        </div>
+
+        <div className={classNames([classes.row, classes.center])}>
+          <SegmentedButtons size='regular' color='secondary' version='filled' tonal>
+            <Button>Button one</Button>
+            <Button>Button two</Button>
+            <Button>Button three</Button>
+            <Button>Button four</Button>
+            <Button>Button five</Button>
+          </SegmentedButtons>
+        </div>
+
+      </Accordion>
+
+      <Accordion label='Segmented buttons with icons'>
+
+        <div className={classNames([classes.row, classes.center])}>
+          <SegmentedButtons select='single' size='small' color='secondary' version='text'>
+            <Button startIcon={<IconMaterialAddRounded />}>Button one</Button>
+            <Button startIcon={<IconMaterialAddRounded />}>Button two</Button>
+            <Button startIcon={<IconMaterialAddRounded />}>Button three</Button>
+            <Button startIcon={<IconMaterialAddRounded />}>Button four</Button>
+            <Button startIcon={<IconMaterialAddRounded />}>Button five</Button>
+          </SegmentedButtons>
+        </div>
+
+        <div className={classNames([classes.row, classes.center])}>
+          <SegmentedButtons select='single' size='regular' color='secondary' version='outlined'>
+            <Button endIcon={<IconMaterialAddRounded />}>Button one</Button>
+            <Button endIcon={<IconMaterialAddRounded />}>Button two</Button>
+            <Button endIcon={<IconMaterialAddRounded />}>Button three</Button>
+            <Button endIcon={<IconMaterialAddRounded />}>Button four</Button>
+            <Button endIcon={<IconMaterialAddRounded />}>Button five</Button>
+          </SegmentedButtons>
+        </div >
+
+        <div className={classNames([classes.row, classes.center])}>
+          <SegmentedButtons select='single' size='large' color='secondary' version='filled' tonal>
+            <Button startIcon={<IconMaterialAddRounded />} endIcon={<IconMaterialAddRounded />}>Button one</Button>
+            <Button startIcon={<IconMaterialAddRounded />} endIcon={<IconMaterialAddRounded />}>Button two</Button>
+            <Button startIcon={<IconMaterialAddRounded />} endIcon={<IconMaterialAddRounded />}>Button three</Button>
+            <Button startIcon={<IconMaterialAddRounded />} endIcon={<IconMaterialAddRounded />}>Button four</Button>
+            <Button startIcon={<IconMaterialAddRounded />} endIcon={<IconMaterialAddRounded />}>Button five</Button>
+          </SegmentedButtons>
+        </div >
+
+      </Accordion >
+
+      <Accordion label='Segmented buttons select single'>
+        <div className={classNames([classes.row, classes.center])}>
+          <SegmentedButtons color='secondary' version='filled' select='single' tonal>
+            <Button>Button one</Button>
+            <Button>Button two</Button>
+            <Button>Button three</Button>
+            <Button>Button four</Button>
+            <Button>Button five</Button>
+            <Button>Button seven</Button>
+            <Button>Button fourteen</Button>
+          </SegmentedButtons>
+        </div>
+      </Accordion>
+
+      <Accordion label='Segmented buttons select multi'>
+        <div className={classNames([classes.row, classes.center])}>
+          <SegmentedButtons version='filled' size='large' select='multi'>
+            <Button>Button one</Button>
+            <Button>Button two</Button>
+            <Button>Button three</Button>
+            <Button>Button four</Button>
+            <Button>Button five</Button>
+            <Button>Button seven</Button>
+            <Button>Button fourteen</Button>
+          </SegmentedButtons>
         </div>
       </Accordion>
 
@@ -669,7 +920,7 @@ function App() {
           ))}
         </Transitions>
       </Accordion>
-    </div>
+    </div >
   );
 }
 

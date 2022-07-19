@@ -39,10 +39,15 @@ const useStyle = style(theme => ({
   background: {
     ...other,
     opacity: theme.palette.visual_contrast.default.opacity.hover,
-    transition: theme.methods.transitions.make('background', { duration: 'rg', timing_function: 'standard' }),
+    transition: theme.methods.transitions.make(['opacity', 'background'], { duration: 'rg', timing_function: 'standard' }),
 
-    '&$active': {
-      backgroundColor: 'currentcolor'
+    '&$hovered': {
+      background: 'currentcolor'
+    },
+
+    '&$selected': {
+      opacity: theme.palette.visual_contrast.default.opacity.selected,
+      background: 'currentcolor'
     }
   },
 
@@ -377,7 +382,11 @@ const Interaction = (props: any) => {
       {/* Background */}
       {props.background && (
         <span
-          className={classNames([classes.background, has('mouse-in') && classes.active])}
+          className={classNames([
+            classes.background,
+            has('mouse-in') && classes.hovered,
+            props.selected && classes.selected
+          ])}
         />
       )}
 
