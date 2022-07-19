@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is, unique } from '@amaui/utils';
-import { className, classNames, style, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Icon from '../Icon';
 import Transition, { TTransitionStatus } from '../Transition';
@@ -57,6 +57,7 @@ const IconMaterialDoneSharp = React.forwardRef((props: any, ref) => {
   const {
     className,
 
+
     ...other
   } = props;
 
@@ -87,6 +88,8 @@ const IconDoneAnimated = (props: any) => {
 
   const {
     in: inProp,
+    simple,
+
     onExited,
 
     ...other
@@ -106,27 +109,23 @@ const IconDoneAnimated = (props: any) => {
       in={inProp}
 
       onExited={() => {
-        if (is('function', onExited) && !props.simple) onExited();
+        if (is('function', onExited) && !simple) onExited();
       }}
 
       add
     >
-      {(status: TTransitionStatus) => {
-        console.log(11, status);
+      {(status: TTransitionStatus) => React.cloneElement(<span><IconMaterialDoneSharp className={classNames([classes.path, ['adding', 'added', 'enter', 'entering', 'entered'].includes(status) && classes.pathIn])} {...other} /></span>, {
+        style: {
+          display: 'inline-flex',
+          overflow: 'hidden',
 
-        return React.cloneElement(<span><IconMaterialDoneSharp className={classNames([classes.path, ['adding', 'added', 'enter', 'entering', 'entered'].includes(status) && classes.pathIn])} {...other} /></span>, {
-          style: {
-            display: 'inline-flex',
-            overflow: 'hidden',
+          ...(!simple ? { width: 0 } : {}),
 
-            ...(!props.simple ? { width: 0 } : {}),
+          transition: theme.methods.transitions.make('width', { duration: 'xs', timing_function: 'accelerated' }),
 
-            transition: theme.methods.transitions.make('width', { duration: 'xs', timing_function: 'accelerated' }),
-
-            ...styles[status]
-          }
-        })
-      }}
+          ...styles[status]
+        }
+      })}
     </Transition>
   );
 };
