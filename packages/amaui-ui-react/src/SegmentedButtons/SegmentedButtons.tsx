@@ -27,15 +27,14 @@ const useStyle = style(theme => ({
       borderTopLeftRadius: '0px',
       borderBottomLeftRadius: '0px',
 
-      '&$border': {
-        borderLeft: '1px solid currentColor',
+      '&$outlined': {
+        marginLeft: '-1px'
       },
 
-      '&$outlined': {
-        borderLeft: 'none',
-        marginLeft: '-1px'
+      '&$border:not($outlined)': {
+        borderLeft: '1px solid currentColor'
       }
-    }
+    },
   },
   right: {
     '&:not(:last-of-type)': {
