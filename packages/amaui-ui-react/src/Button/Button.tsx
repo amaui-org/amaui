@@ -314,15 +314,17 @@ const Button = React.forwardRef((props: any, ref) => {
   let children_ = children;
 
   if (loading) {
+    const iconLoading = React.cloneElement(loadingIcon, { color: 'inherit', style: styles.icon });
+
     if (loadingLabel) children_ = loadingLabel;
     else if (loadingIconPosition === 'center') {
-      children_ = React.cloneElement(loadingIcon, { color: 'inherit', style: styles.icon });
+      children_ = iconLoading;
 
       styles.label.lineHeight = 0;
     }
 
-    if (loadingIconPosition === 'start') startIcon = loadingIcon;
-    else if (loadingIconPosition === 'end') endIcon = loadingIcon;
+    if (loadingIconPosition === 'start') startIcon = iconLoading;
+    else if (loadingIconPosition === 'end') endIcon = iconLoading;
   }
 
   if (props.selected) InteractionProps.selected = props.selected;
