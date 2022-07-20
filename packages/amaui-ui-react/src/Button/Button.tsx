@@ -316,7 +316,7 @@ const Button = React.forwardRef((props: any, ref) => {
   if (loading) {
     if (loadingLabel) children_ = loadingLabel;
     else if (loadingIconPosition === 'center') {
-      children_ = React.cloneElement(loadingIcon, { color, style: styles.icon });
+      children_ = React.cloneElement(loadingIcon, { color: 'inherit', style: styles.icon });
 
       styles.label.lineHeight = 0;
     }
