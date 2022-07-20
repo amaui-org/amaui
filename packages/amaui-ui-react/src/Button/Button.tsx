@@ -55,6 +55,23 @@ const useStyle = style(theme => ({
       padding: `${theme.methods.space.value('rg', 'px')} ${theme.methods.space.value('lg', 'px')}`
     },
 
+    // Label icon
+    '&$iconLabel': {
+      borderRadius: '50%',
+
+      '&$small': {
+        padding: `${theme.methods.space.value('xs') + 2}px`
+      },
+
+      '&$regular': {
+        padding: theme.methods.space.value('sm', 'px')
+      },
+
+      '&$large': {
+        padding: `${theme.methods.space.value('rg') - 4}px`
+      },
+    },
+
     // Color
     '&$neutral': { color: theme.palette.text.default.primary },
 
@@ -172,6 +189,13 @@ const useStyle = style(theme => ({
     }
   },
 
+  // Label icon
+  labelIcon: {
+    pointerEvents: 'none',
+    position: 'relative',
+    lineHeight: 0
+  },
+
   // Other
   icon: {
     position: 'relative',
@@ -241,6 +265,8 @@ const Button = React.forwardRef((props: any, ref) => {
     loadingIcon = <RoundProgress size='small' />,
     loadingIconPosition = 'center',
     disabled: disabled_,
+
+    icon,
 
     children,
 
@@ -313,12 +339,14 @@ const Button = React.forwardRef((props: any, ref) => {
 
   let children_ = children;
 
+  if (icon) children_ = React.cloneElement(children_, { size: size === 'large' ? 'medium' : size });
+
   if (loading) {
     const iconLoading = React.cloneElement(loadingIcon, { color: 'inherit', style: styles.icon });
 
     if (loadingLabel) children_ = loadingLabel;
     else if (loadingIconPosition === 'center') {
-      children_ = iconLoading;
+      children_ = icon ? React.cloneElement(loadingIcon, { color: 'inherit', size: size === 'small' ? 18 : size === 'regular' ? 24 : 36 }) : iconLoading;
 
       styles.label.lineHeight = 0;
     }
@@ -340,6 +368,7 @@ const Button = React.forwardRef((props: any, ref) => {
         classes[color],
         classes[version],
         tonal && classes.tonal,
+        icon && classes.iconLabel,
         startIcon && classes.startIcon,
         endIcon && classes.endIcon,
         fullWidth && classes.fullWidth,
@@ -401,13 +430,23 @@ const Button = React.forwardRef((props: any, ref) => {
         </span>
       )}
 
-      <span
-        className={classNames([classes.label, classes[size]])}
+      {icon ? (
+        <span
+          className={classes.labelIcon}
 
-        style={styles.label}
-      >
-        {children_}
-      </span>
+          style={styles.labelIcon}
+        >
+          {children_}
+        </span>
+      ) : (
+        <span
+          className={classNames([classes.label, classes[size]])}
+
+          style={styles.label}
+        >
+          {children_}
+        </span>
+      )}
 
       {endIcon && (
         <span className={classNames([classes.icon, classes.end, classes[size]])}>

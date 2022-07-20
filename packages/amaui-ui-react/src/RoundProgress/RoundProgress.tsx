@@ -113,8 +113,6 @@ const useStyle = style(theme => ({
   }
 }), { name: 'AmauiRoundProgress' });
 
-// version determinate + value
-
 const RoundProgress = React.forwardRef((props: any, ref: any) => {
   const { classes } = useStyle();
 

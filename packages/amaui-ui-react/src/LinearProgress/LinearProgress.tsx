@@ -219,6 +219,8 @@ const LinearProgress = React.forwardRef((props: any, ref) => {
 
   return (
     <div
+      ref={ref}
+
       className={classNames([
         classes.root,
         classes[color],

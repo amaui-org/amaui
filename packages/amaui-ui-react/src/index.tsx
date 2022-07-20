@@ -40,3 +40,6 @@ export * from './RoundProgress';
 
 export { default as LinearProgress } from './LinearProgress';
 export * from './LinearProgress';
+
+export { default as IconButton } from './IconButton';
+export * from './IconButton';
