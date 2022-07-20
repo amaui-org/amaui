@@ -37,3 +37,6 @@ export * from './SegmentedButtons';
 
 export { default as RoundProgress } from './RoundProgress';
 export * from './RoundProgress';
+
+export { default as LinearProgress } from './LinearProgress';
+export * from './LinearProgress';

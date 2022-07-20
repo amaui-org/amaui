@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
-import { Button, Expand, Fade, Grow, Interaction, Reset, RoundProgress, SegmentedButtons, Slide, Transition, Transitions, Zoom } from '@amaui/ui-react';
+import { Button, Expand, Fade, Grow, Interaction, LinearProgress, Reset, RoundProgress, SegmentedButtons, Slide, Transition, Transitions, Zoom } from '@amaui/ui-react';
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
 
@@ -198,7 +198,7 @@ function App() {
     slideRef: true,
     loading: true
   });
-  const [roundedProgress, setRoundedProgress] = React.useState(0);
+  const [progress, setProgress] = React.useState(0);
   const [items, setItems] = React.useState([0]);
   const { classes } = useStyle();
   const refs = {
@@ -229,13 +229,13 @@ function App() {
     });
   };
 
-  // React.useEffect(() => {
-  //   const id = setInterval(() => setRoundedProgress(item => item >= 100 ? 0 : item + 10), 1000);
+  React.useEffect(() => {
+    const id = setInterval(() => setProgress(item => item >= 100 ? 0 : item + 10), 1000);
 
-  //   return () => {
-  //     clearInterval(id);
-  //   }
-  // }, []);
+    return () => {
+      clearInterval(id);
+    }
+  }, []);
 
   // React.useEffect(() => {
   //   const rect = refs.transitions.current.getBoundingClientRect();
@@ -253,7 +253,46 @@ function App() {
         <Button size='small' color='secondary' className={classes.btn} onClick={() => updateTheme()}>{amauiTheme.palette.light ? 'dark' : 'light'}</Button>
       </div>
 
-      <Accordion label='Interaction' open>
+      <Accordion label='Linear progress versions' open>
+        <div className={classNames([classes.column, classes.center])}>
+          <LinearProgress />
+          {/* <LinearProgress version='indeterminate' />
+          <LinearProgress version='determinate' value={progress} />
+          <LinearProgress version='determinate' value={{ progress: 24, buffer: 40 }} buffer /> */}
+        </div>
+      </Accordion>
+
+      <Accordion label='Linear progress colors'>
+        <div className={classNames([classes.column, classes.center])}>
+          <LinearProgress color='primary' version='determinate' value={{ buffer: 40, progress: 24 }} buffer />
+          <LinearProgress color='secondary' version='determinate' value={{ buffer: 40, progress: 24 }} buffer />
+          <LinearProgress color='tertiary' version='determinate' value={{ buffer: 40, progress: 24 }} buffer />
+          <LinearProgress color='quaternary' version='determinate' value={{ buffer: 40, progress: 24 }} buffer />
+          <LinearProgress color='info' version='determinate' value={{ buffer: 40, progress: 24 }} buffer />
+          <LinearProgress color='success' version='determinate' value={{ buffer: 40, progress: 24 }} buffer />
+          <LinearProgress color='error' version='determinate' value={{ buffer: 40, progress: 24 }} buffer />
+          <LinearProgress color='warning' version='determinate' value={{ buffer: 40, progress: 24 }} buffer />
+          <LinearProgress color='neutral' version='determinate' value={{ buffer: 40, progress: 24 }} buffer />
+          <LinearProgress color='#f5d758' version='determinate' value={{ buffer: 40, progress: 24 }} buffer />
+        </div>
+      </Accordion>
+
+      <Accordion label='Linear progress determinate with buffer'>
+        <div className={classNames([classes.column, classes.center])}>
+          <LinearProgress version='determinate' value={{ buffer: progress + 20, progress: progress }} buffer />
+        </div>
+      </Accordion>
+
+      <Accordion label='Linear progress reverse'>
+        <div className={classNames([classes.column, classes.center])}>
+          <LinearProgress />
+          <LinearProgress version='indeterminate' reverse />
+          <LinearProgress version='determinate' value={{ progress: 24 }} reverse />
+          <LinearProgress version='determinate' value={{ progress: 24, buffer: 40 }} buffer reverse />
+        </div>
+      </Accordion>
+
+      <Accordion label='Interaction'>
         <Button size='small' color='secondary' className={classes.btn} onClick={() => update('pulse')}>a</Button>
 
         <div className={classes.a} style={{ color: 'orange' }}>
@@ -733,7 +772,7 @@ function App() {
           <RoundProgress size='small' version='determinate' value={99} pathBackgroundProps={{ className: classes.pathBackground }} />
           <RoundProgress size='small' version='determinate' value={100} pathBackgroundProps={{ className: classes.pathBackground }} />
 
-          <RoundProgress size='small' version='determinate' value={roundedProgress} pathBackgroundProps={{ className: classes.pathBackground }} />
+          <RoundProgress size='small' version='determinate' value={progress} pathBackgroundProps={{ className: classes.pathBackground }} />
         </div>
 
         <div className={classNames([classes.row, classes.center])}>
@@ -743,7 +782,7 @@ function App() {
           <RoundProgress size='regular' version='determinate' value={99} pathBackgroundProps={{ className: classes.pathBackground }} />
           <RoundProgress size='regular' version='determinate' value={100} pathBackgroundProps={{ className: classes.pathBackground }} />
 
-          <RoundProgress size='regular' version='determinate' value={roundedProgress} pathBackgroundProps={{ className: classes.pathBackground }} />
+          <RoundProgress size='regular' version='determinate' value={progress} pathBackgroundProps={{ className: classes.pathBackground }} />
         </div>
 
         <div className={classNames([classes.row, classes.center])}>
@@ -753,7 +792,7 @@ function App() {
           <RoundProgress size='large' version='determinate' value={99} pathBackgroundProps={{ className: classes.pathBackground }} />
           <RoundProgress size='large' version='determinate' value={100} pathBackgroundProps={{ className: classes.pathBackground }} />
 
-          <RoundProgress size='large' version='determinate' value={roundedProgress} pathBackgroundProps={{ className: classes.pathBackground }} />
+          <RoundProgress size='large' version='determinate' value={progress} pathBackgroundProps={{ className: classes.pathBackground }} />
         </div>
       </Accordion>
 
