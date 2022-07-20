@@ -13,35 +13,73 @@ const other = {
   transformOrigin: 'inherit'
 };
 
+// @keyframes's for line, line1, inner and inner1 source: https://github.com/material-components/material-components-web/blob/master/packages/mdc-linear-progress/_keyframes.scss
 const useStyle = style(theme => ({
   '@keyframes line': {
     '0%': {
-      transform: 'translateX(-100%) scaleX(1)'
+      transform: 'translateX(0)'
     },
-    '40%': {
-      transform: 'translateX(15%) scaleX(0.7)'
+    '20%': {
+      'animation-timing-function': 'cubic-bezier(0.5, 0, 0.701732, 0.495819)',
+      transform: 'translateX(0)',
     },
-    '70%': {
-      transform: 'translateX(100%) scaleX(0.07)',
-      animationTimingFunction: 'cubic-bezier(.5,0,.701732,.495819)'
+    '59.15%': {
+      'animation-timing-function': 'cubic-bezier(0.302435, 0.381352, 0.55, 0.956352)',
+      transform: 'translateX(83.67142%)',
     },
     '100%': {
-      transform: 'translateX(200%) scaleX(0.07)'
+      transform: 'translateX(200.611057%)'
+    }
+  },
+  '@keyframes inner': {
+    '0%': {
+      transform: 'scaleX(0.08)'
+    },
+    '36.65%': {
+      'animation-timing-function': 'cubic-bezier(0.334731, 0.12482, 0.785844, 1)',
+      transform: 'scaleX(0.08)'
+    },
+    '69.15%': {
+      'animation-timing-function': 'cubic-bezier(0.06, 0.11, 0.6, 1)',
+      transform: 'scaleX(0.661479)',
+    },
+    '100%': {
+      transform: 'scaleX(0.08)',
     }
   },
 
   '@keyframes line1': {
     '0%': {
-      transform: 'translateX(-100%) scaleX(0.7)'
+      'animation-timing-function': 'cubic-bezier(0.15, 0, 0.515058, 0.409685)',
+      transform: 'translateX(0)'
     },
-    '30%': {
-      transform: 'translateX(0%) scaleX(0.07)'
+    '25%': {
+      'animation-timing-function': 'cubic-bezier(0.31033, 0.284058, 0.8, 0.733712)',
+      transform: 'translateX(37.651913%)'
     },
-    '70%': {
-      transform: 'translateX(70%) scaleX(0.07)'
+    '48.35%': {
+      'animation-timing-function': 'cubic-bezier(0.4, 0.627035, 0.6, 0.902026)',
+      transform: 'translateX(84.386165%)'
     },
     '100%': {
-      transform: 'translateX(200%) scaleX(0.07)'
+      transform: 'translateX(160.277782%)'
+    }
+  },
+  '@keyframes inner1': {
+    '0%': {
+      'animation-timing-function': 'cubic-bezier(0.205028, 0.057051, 0.57661, 0.453971)',
+      transform: 'scaleX(0.08)'
+    },
+    '19.15%': {
+      'animation-timing-function': 'cubic-bezier(0.152313, 0.196432, 0.648374, 1.004315)',
+      transform: 'scaleX(0.457104)'
+    },
+    '44.15%': {
+      'animation-timing-function': 'cubic-bezier(0.257759, -0.003163, 0.211762, 1.38179)',
+      transform: 'scaleX(0.72796)'
+    },
+    '100%': {
+      transform: 'scaleX(0.08)'
     }
   },
 
@@ -96,17 +134,28 @@ const useStyle = style(theme => ({
   lineIndeterminate: {
     ...other,
     width: '100%',
-    transformOrigin: 'right',
-    background: 'currentColor',
-    transform: 'translateX(-100%)',
+    left: '-145.166611%',
+    transformOrigin: 'initial',
     animation: '$line 2s infinite linear'
+  },
+  inner: {
+    ...other,
+    width: '100%',
+    background: 'currentColor',
+    animation: '$inner 2s infinite linear'
   },
   lineIndeterminate1: {
     ...other,
-    transformOrigin: 'right',
+    width: '100%',
+    left: '-54.888891%',
+    transformOrigin: 'initial',
+    animation: '$line1 2s infinite linear'
+  },
+  inner1: {
+    ...other,
+    width: '100%',
     background: 'currentColor',
-    transform: 'translateX(-100%)',
-    animation: '$line1 2s infinite linear 1.15s'
+    animation: '$inner1 2s infinite linear'
   },
   buffer: {
     ...other,
@@ -131,7 +180,7 @@ const LinearProgress = React.forwardRef((props: any, ref) => {
 
   const {
     className,
-    color = 'neutral',
+    color = 'primary',
     version = 'indeterminate',
     buffer,
     value,
@@ -198,9 +247,13 @@ const LinearProgress = React.forwardRef((props: any, ref) => {
 
       {version === 'indeterminate' ? (
         <>
-          <div className={classes.lineIndeterminate} />
+          <div className={classes.lineIndeterminate}>
+            <div className={classes.inner} />
+          </div>
 
-          <div className={classes.lineIndeterminate1} />
+          <div className={classes.lineIndeterminate1}>
+            <div className={classes.inner1} />
+          </div>
         </>
       ) : (
         <div

@@ -253,12 +253,18 @@ function App() {
         <Button size='small' color='secondary' className={classes.btn} onClick={() => updateTheme()}>{amauiTheme.palette.light ? 'dark' : 'light'}</Button>
       </div>
 
-      <Accordion label='Linear progress versions' open>
+      <Accordion label='Linear progress'>
         <div className={classNames([classes.column, classes.center])}>
           <LinearProgress />
-          {/* <LinearProgress version='indeterminate' />
+        </div>
+      </Accordion>
+
+      <Accordion label='Linear progress versions'>
+        <div className={classNames([classes.column, classes.center])}>
+          <LinearProgress />
+          <LinearProgress version='indeterminate' />
           <LinearProgress version='determinate' value={progress} />
-          <LinearProgress version='determinate' value={{ progress: 24, buffer: 40 }} buffer /> */}
+          <LinearProgress version='determinate' value={{ progress: 24, buffer: 40 }} buffer />
         </div>
       </Accordion>
 
@@ -301,6 +307,12 @@ function App() {
           <IconMaterial10kRounded />
 
           <span style={{ position: 'relative' }}>a</span>
+        </div>
+      </Accordion>
+
+      <Accordion label='Button'>
+        <div className={classNames([classes.row, classes.center])}>
+          <Button>Button</Button>
         </div>
       </Accordion>
 
@@ -483,20 +495,20 @@ function App() {
       <Accordion label='Segmented buttons'>
 
         <div className={classNames([classes.row, classes.center])}>
-          <SegmentedButtons color='secondary' tonal>
+          <SegmentedButtons>
             <Button>Button one</Button>
           </SegmentedButtons>
         </div>
 
         <div className={classNames([classes.row, classes.center])}>
-          <SegmentedButtons color='secondary' tonal>
+          <SegmentedButtons>
             <Button>Button one</Button>
             <Button>Button two</Button>
           </SegmentedButtons>
         </div>
 
         <div className={classNames([classes.row, classes.center])}>
-          <SegmentedButtons color='secondary' tonal>
+          <SegmentedButtons>
             <Button>Button one</Button>
             <Button>Button two</Button>
             <Button>Button three</Button>
@@ -504,7 +516,7 @@ function App() {
         </div>
 
         <div className={classNames([classes.row, classes.center])}>
-          <SegmentedButtons color='secondary' tonal>
+          <SegmentedButtons>
             <Button>Button one</Button>
             <Button>Button two</Button>
             <Button>Button three</Button>
@@ -513,7 +525,7 @@ function App() {
         </div>
 
         <div className={classNames([classes.row, classes.center])}>
-          <SegmentedButtons color='secondary' tonal>
+          <SegmentedButtons>
             <Button>Button one</Button>
             <Button>Button two</Button>
             <Button>Button three</Button>
@@ -706,6 +718,12 @@ function App() {
             <Button>Button seven</Button>
             <Button>Button fourteen</Button>
           </SegmentedButtons>
+        </div>
+      </Accordion>
+
+      <Accordion label='Round progress'>
+        <div className={classNames([classes.row, classes.center])}>
+          <RoundProgress />
         </div>
       </Accordion>
 

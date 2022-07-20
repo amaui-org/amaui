@@ -120,7 +120,7 @@ const RoundProgress = React.forwardRef((props: any, ref: any) => {
 
   const {
     size = 'regular',
-    color,
+    color = 'primary',
     className,
     style,
     pathProps = {},

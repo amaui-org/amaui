@@ -143,7 +143,7 @@ const SegmentedButtons = React.forwardRef((props: any, ref: any) => {
     select,
 
     version = 'outlined',
-    color = 'neutral',
+    color = 'primary',
     size = 'regular',
     tonal,
 

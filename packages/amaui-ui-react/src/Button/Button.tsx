@@ -222,7 +222,7 @@ const Button = React.forwardRef((props: any, ref) => {
 
     version = 'outlined',
     size = 'regular',
-    color = 'neutral',
+    color = 'primary',
     tonal,
 
     Component = 'button',
