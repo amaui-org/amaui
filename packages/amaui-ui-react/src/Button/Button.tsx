@@ -56,6 +56,30 @@ const useStyle = style(theme => ({
     },
 
     // Label icon
+    '&$fab': {
+      '&$small': {
+        height: `${theme.methods.space.value('sm') * 5}px`,
+        minWidth: `${theme.methods.space.value('sm') * 8}px`,
+        borderRadius: `${theme.methods.shape.radius.value('rg') - 4}px`,
+        padding: `${theme.methods.shape.radius.value('sm') + 4}px`,
+      },
+
+      '&$regular': {
+        height: `${theme.methods.space.value('sm') * 7}px`,
+        minWidth: `${theme.methods.space.value('sm') * 10}px`,
+        borderRadius: theme.methods.shape.radius.value('rg'),
+        padding: theme.methods.space.value('rg', 'px')
+      },
+
+      '&$large': {
+        height: `${theme.methods.space.value('sm') * 9}px`,
+        minWidth: `${theme.methods.space.value('sm') * 12}px`,
+        borderRadius: `${theme.methods.shape.radius.value('rg') + 4}px`,
+        padding: theme.methods.space.value('md', 'px')
+      },
+    },
+
+    // Label icon
     '&$iconLabel': {
       borderRadius: '50%',
 
@@ -169,23 +193,29 @@ const useStyle = style(theme => ({
 
   // Label
   label: {
+    display: 'inline-flex',
+    position: 'relative',
     textTransform: 'capitalize',
     pointerEvents: 'none',
     whiteSpace: 'nowrap',
-    position: 'relative',
+    alignItems: 'center',
+    gap: theme.methods.space.value('sm', 'px'),
 
     // Size
     '&$small': {
       ...theme.typography.values.l3,
+      gap: `${theme.methods.space.value('sm') - 2}px`,
       lineHeight: 1.455
     },
 
     '&$regular': {
       ...theme.typography.values.l2,
+      gap: theme.methods.space.value('sm', 'px'),
     },
 
     '&$large': {
       ...theme.typography.values.l1,
+      gap: `${theme.methods.space.value('sm') + 2}px`,
     }
   },
 
@@ -266,6 +296,7 @@ const Button = React.forwardRef((props: any, ref) => {
     loadingIconPosition = 'center',
     disabled: disabled_,
 
+    fab,
     icon,
 
     children,
@@ -357,6 +388,16 @@ const Button = React.forwardRef((props: any, ref) => {
 
   if (props.selected) InteractionProps.selected = props.selected;
 
+  if (fab) {
+    if (React.Children.count(children_) === 1 && !is('string', children_) && size !== 'large') styles.root.minWidth = 'initial';
+
+    if (size === 'small') styles.icon.fontSize = 18;
+    if (size === 'regular') styles.icon.fontSize = 24;
+    if (size === 'large') styles.icon.fontSize = 30;
+
+    children_ = React.Children.toArray(children_).map(item => React.isValidElement(item) ? React.cloneElement(item, { style: styles.icon }) : item);
+  }
+
   return (
     <Component
       ref={ref}
@@ -374,6 +415,7 @@ const Button = React.forwardRef((props: any, ref) => {
         fullWidth && classes.fullWidth,
         elevation && !disabled && ['filled', 'tonal'].includes(version) && classes.elevation,
         disabled && classes.disabled,
+        fab && classes.fab,
         newColor && 'amaui-color-new'
       ])}
 

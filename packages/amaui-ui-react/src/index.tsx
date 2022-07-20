@@ -43,3 +43,6 @@ export * from './LinearProgress';
 
 export { default as IconButton } from './IconButton';
 export * from './IconButton';
+
+export { default as Fab } from './Fab';
+export * from './Fab';

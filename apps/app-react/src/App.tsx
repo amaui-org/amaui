@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
-import { Button, Expand, Fade, Grow, IconButton, Interaction, LinearProgress, Reset, RoundProgress, SegmentedButtons, Slide, Transition, Transitions, Zoom } from '@amaui/ui-react';
+import { Button, Expand, Fab, Fade, Grow, IconButton, Interaction, LinearProgress, Reset, RoundProgress, SegmentedButtons, Slide, Transition, Transitions, Zoom } from '@amaui/ui-react';
 
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
@@ -254,6 +254,162 @@ function App() {
       <div className={classes.row}>
         <Button size='small' color='secondary' className={classes.btn} onClick={() => updateTheme()}>{amauiTheme.palette.light ? 'dark' : 'light'}</Button>
       </div>
+
+      <Accordion label='Fab'>
+        <Accordion label='Fab' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Fab><IconMaterialPottedPlantRounded /> Filled</Fab>
+            <Fab><IconMaterialPottedPlantRounded /></Fab>
+            <Fab>Filled</Fab>
+          </div>
+        </Accordion>
+
+        <Accordion label='Fab versions' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Fab tonal={false} color='secondary' version='filled' size='small'><IconMaterialPottedPlantRounded /> Small</Fab>
+            <Fab tonal={false} color='secondary' version='filled' size='regular'><IconMaterialPottedPlantRounded /></Fab>
+            <Fab tonal={false} color='secondary' version='filled' size='large'>Large</Fab>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Fab color='secondary' tonal version='filled' size='small'><IconMaterialPottedPlantRounded /> Small</Fab>
+            <Fab color='secondary' tonal version='filled' size='regular'><IconMaterialPottedPlantRounded /></Fab>
+            <Fab color='secondary' tonal version='filled' size='large'>Large</Fab>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Fab color='secondary' version='outlined' size='small'><IconMaterialPottedPlantRounded /> Small</Fab>
+            <Fab color='secondary' version='outlined' size='regular'><IconMaterialPottedPlantRounded /></Fab>
+            <Fab color='secondary' version='outlined' size='large'>Large</Fab>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Fab color='secondary' version='text' size='small'><IconMaterialPottedPlantRounded /> Small</Fab>
+            <Fab color='secondary' version='text' size='regular'><IconMaterialPottedPlantRounded /></Fab>
+            <Fab color='secondary' version='text' size='large'>Large</Fab>
+          </div>
+        </Accordion>
+
+        <Accordion label='Fab color' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Fab tonal={false} version='text' color='primary'><IconMaterialPottedPlantRounded /> Text</Fab>
+            <Fab tonal={false} version='text' color='secondary'><IconMaterialPottedPlantRounded /> Text</Fab>
+            <Fab tonal={false} version='text' color='tertiary'><IconMaterialPottedPlantRounded /> Text</Fab>
+            <Fab tonal={false} version='text' color='quaternary'><IconMaterialPottedPlantRounded /> Text</Fab>
+            <Fab tonal={false} version='text' color='info'><IconMaterialPottedPlantRounded /> Text</Fab>
+            <Fab tonal={false} version='text' color='success'><IconMaterialPottedPlantRounded /> Text</Fab>
+            <Fab tonal={false} version='text' color='error'><IconMaterialPottedPlantRounded /> Text</Fab>
+            <Fab tonal={false} version='text' color='warning'><IconMaterialPottedPlantRounded /> Text</Fab>
+            <Fab tonal={false} version='text' color='neutral'><IconMaterialPottedPlantRounded /> Text</Fab>
+            <Fab tonal={false} version='text' color='#f5d758'><IconMaterialPottedPlantRounded /> Text</Fab>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Fab tonal={false} version='outlined' color='primary'><IconMaterialPottedPlantRounded /> Outlined</Fab>
+            <Fab tonal={false} version='outlined' color='secondary'><IconMaterialPottedPlantRounded /> Outlined</Fab>
+            <Fab tonal={false} version='outlined' color='tertiary'><IconMaterialPottedPlantRounded /> Outlined</Fab>
+            <Fab tonal={false} version='outlined' color='quaternary'><IconMaterialPottedPlantRounded /> Outlined</Fab>
+            <Fab tonal={false} version='outlined' color='info'><IconMaterialPottedPlantRounded /> Outlined</Fab>
+            <Fab tonal={false} version='outlined' color='success'><IconMaterialPottedPlantRounded /> Outlined</Fab>
+            <Fab tonal={false} version='outlined' color='error'><IconMaterialPottedPlantRounded /> Outlined</Fab>
+            <Fab tonal={false} version='outlined' color='warning'><IconMaterialPottedPlantRounded /> Outlined</Fab>
+            <Fab tonal={false} version='outlined' color='neutral'><IconMaterialPottedPlantRounded /> Outlined</Fab>
+            <Fab tonal={false} version='outlined' color='#f5d758'><IconMaterialPottedPlantRounded /> Outlined</Fab>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Fab tonal={false} version='filled' color='primary'><IconMaterialPottedPlantRounded /> Filled</Fab>
+            <Fab tonal={false} version='filled' color='secondary'><IconMaterialPottedPlantRounded /> Filled</Fab>
+            <Fab tonal={false} version='filled' color='tertiary'><IconMaterialPottedPlantRounded /> Filled</Fab>
+            <Fab tonal={false} version='filled' color='quaternary'><IconMaterialPottedPlantRounded /> Filled</Fab>
+            <Fab tonal={false} version='filled' color='info'><IconMaterialPottedPlantRounded /> Filled</Fab>
+            <Fab tonal={false} version='filled' color='success'><IconMaterialPottedPlantRounded /> Filled</Fab>
+            <Fab tonal={false} version='filled' color='error'><IconMaterialPottedPlantRounded /> Filled</Fab>
+            <Fab tonal={false} version='filled' color='warning'><IconMaterialPottedPlantRounded /> Filled</Fab>
+            <Fab tonal={false} version='filled' color='neutral'><IconMaterialPottedPlantRounded /> Filled</Fab>
+            <Fab tonal={false} version='filled' color='#f5d758'><IconMaterialPottedPlantRounded /> Filled</Fab>
+          </div>
+        </Accordion>
+
+        <Accordion label='Fab color tonal' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Fab version='text' color='primary'><IconMaterialPottedPlantRounded /> Text</Fab>
+            <Fab version='text' color='secondary'><IconMaterialPottedPlantRounded /> Text</Fab>
+            <Fab version='text' color='tertiary'><IconMaterialPottedPlantRounded /> Text</Fab>
+            <Fab version='text' color='quaternary'><IconMaterialPottedPlantRounded /> Text</Fab>
+            <Fab version='text' color='info'><IconMaterialPottedPlantRounded /> Text</Fab>
+            <Fab version='text' color='success'><IconMaterialPottedPlantRounded /> Text</Fab>
+            <Fab version='text' color='error'><IconMaterialPottedPlantRounded /> Text</Fab>
+            <Fab version='text' color='warning'><IconMaterialPottedPlantRounded /> Text</Fab>
+            <Fab version='text' color='neutral'><IconMaterialPottedPlantRounded /> Text</Fab>
+            <Fab version='text' color='#f5d758'><IconMaterialPottedPlantRounded /> Text</Fab>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Fab version='outlined' color='primary'><IconMaterialPottedPlantRounded /> Outlined</Fab>
+            <Fab version='outlined' color='secondary'><IconMaterialPottedPlantRounded /> Outlined</Fab>
+            <Fab version='outlined' color='tertiary'><IconMaterialPottedPlantRounded /> Outlined</Fab>
+            <Fab version='outlined' color='quaternary'><IconMaterialPottedPlantRounded /> Outlined</Fab>
+            <Fab version='outlined' color='info'><IconMaterialPottedPlantRounded /> Outlined</Fab>
+            <Fab version='outlined' color='success'><IconMaterialPottedPlantRounded /> Outlined</Fab>
+            <Fab version='outlined' color='error'><IconMaterialPottedPlantRounded /> Outlined</Fab>
+            <Fab version='outlined' color='warning'><IconMaterialPottedPlantRounded /> Outlined</Fab>
+            <Fab version='outlined' color='neutral'><IconMaterialPottedPlantRounded /> Outlined</Fab>
+            <Fab version='outlined' color='#f5d758'><IconMaterialPottedPlantRounded /> Outlined</Fab>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Fab version='filled' color='primary'><IconMaterialPottedPlantRounded /> Filled</Fab>
+            <Fab version='filled' color='secondary'><IconMaterialPottedPlantRounded /> Filled</Fab>
+            <Fab version='filled' color='tertiary'><IconMaterialPottedPlantRounded /> Filled</Fab>
+            <Fab version='filled' color='quaternary'><IconMaterialPottedPlantRounded /> Filled</Fab>
+            <Fab version='filled' color='info'><IconMaterialPottedPlantRounded /> Filled</Fab>
+            <Fab version='filled' color='success'><IconMaterialPottedPlantRounded /> Filled</Fab>
+            <Fab version='filled' color='error'><IconMaterialPottedPlantRounded /> Filled</Fab>
+            <Fab version='filled' color='warning'><IconMaterialPottedPlantRounded /> Filled</Fab>
+            <Fab version='filled' color='neutral'><IconMaterialPottedPlantRounded /> Filled</Fab>
+            <Fab version='filled' color='#f5d758'><IconMaterialPottedPlantRounded /> Filled</Fab>
+          </div>
+        </Accordion>
+
+        <Accordion label='Fab size' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Fab size='small'><IconMaterialPottedPlantRounded /> Small</Fab>
+            <Fab size='small'><IconMaterialPottedPlantRounded /></Fab>
+            <Fab size='small'>Small</Fab>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Fab size='regular'><IconMaterialPottedPlantRounded /> Regular</Fab>
+            <Fab size='regular'><IconMaterialPottedPlantRounded /></Fab>
+            <Fab size='regular'>Regular</Fab>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Fab size='large'><IconMaterialPottedPlantRounded /> Large</Fab>
+            <Fab size='large'><IconMaterialPottedPlantRounded /></Fab>
+            <Fab size='large'>Large</Fab>
+          </div>
+        </Accordion>
+
+        <Accordion label='Fab loading' open>
+          <Button size='small' color='secondary' className={classes.btn} onClick={() => update('loading')}>a</Button>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Fab version='text' size='small' loading={a.loading}><IconMaterialPottedPlantRounded /> Small</Fab>
+            <Fab version='outlined' size='regular' loading={a.loading}><IconMaterialPottedPlantRounded /></Fab>
+            <Fab version='filled' size='large' loading={a.loading}>Large</Fab>
+          </div>
+        </Accordion>
+
+        <Accordion label='Fab disabled' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Fab version='text' size='small' disabled><IconMaterialPottedPlantRounded /> Small</Fab>
+            <Fab version='outlined' size='regular' disabled><IconMaterialPottedPlantRounded /></Fab>
+            <Fab version='filled' size='large' disabled>Large</Fab>
+          </div>
+        </Accordion>
+      </Accordion>
 
       <Accordion label='Icon button'>
         <Accordion label='Icon button' open>
