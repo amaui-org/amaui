@@ -222,7 +222,7 @@ const Button = React.forwardRef((props: any, ref) => {
 
     version = 'outlined',
     size = 'regular',
-    color = 'primary',
+    color: color_ = 'primary',
     tonal,
 
     Component = 'button',
@@ -247,15 +247,18 @@ const Button = React.forwardRef((props: any, ref) => {
     ...other
   } = props;
 
+  let color = color_;
+  let startIcon = startIcon_;
+  let endIcon = endIcon_;
+  let disabled = disabled_ || loading;
+
+  if (disabled) color = 'neutral';
+
   React.useEffect(() => {
     if (classes[color] === undefined && is('string', color)) {
       refs.color.current = theme.methods.color(color);
     }
   }, [color]);
-
-  let startIcon = startIcon_;
-  let endIcon = endIcon_;
-  let disabled = disabled_ || loading;
 
   const styles: any = {
     root: {},
@@ -313,7 +316,7 @@ const Button = React.forwardRef((props: any, ref) => {
   if (loading) {
     if (loadingLabel) children_ = loadingLabel;
     else if (loadingIconPosition === 'center') {
-      children_ = React.cloneElement(loadingIcon, { style: styles.icon });
+      children_ = React.cloneElement(loadingIcon, { color, style: styles.icon });
 
       styles.label.lineHeight = 0;
     }
