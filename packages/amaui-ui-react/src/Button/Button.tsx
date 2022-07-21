@@ -60,8 +60,8 @@ const useStyle = style(theme => ({
       '&$small': {
         height: `${theme.methods.space.value('sm') * 5}px`,
         minWidth: `${theme.methods.space.value('sm') * 8}px`,
-        borderRadius: `${theme.methods.shape.radius.value('rg') - 4}px`,
-        padding: `${theme.methods.shape.radius.value('sm') + 4}px`,
+        borderRadius: `${theme.methods.shape.radius.value('rg') as number - 4}px`,
+        padding: `${theme.methods.shape.radius.value('sm') as number + 4}px`,
       },
 
       '&$regular': {
@@ -74,7 +74,7 @@ const useStyle = style(theme => ({
       '&$large': {
         height: `${theme.methods.space.value('sm') * 9}px`,
         minWidth: `${theme.methods.space.value('sm') * 12}px`,
-        borderRadius: `${theme.methods.shape.radius.value('rg') + 4}px`,
+        borderRadius: `${theme.methods.shape.radius.value('rg') as number + 4}px`,
         padding: theme.methods.space.value('md', 'px')
       },
     },

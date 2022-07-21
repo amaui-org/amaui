@@ -46,3 +46,9 @@ export * from './IconButton';
 
 export { default as Fab } from './Fab';
 export * from './Fab';
+
+export { default as Type } from './Type';
+export * from './Type';
+
+export { default as Link } from './Link';
+export * from './Link';

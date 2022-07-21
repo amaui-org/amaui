@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
-import { Button, Expand, Fab, Fade, Grow, IconButton, Interaction, LinearProgress, Reset, RoundProgress, SegmentedButtons, Slide, Transition, Transitions, Zoom } from '@amaui/ui-react';
+import { Button, Expand, Fab, Fade, Grow, IconButton, Interaction, LinearProgress, Link, Reset, RoundProgress, SegmentedButtons, Slide, Transition, Transitions, Type, Zoom } from '@amaui/ui-react';
 
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
@@ -55,7 +55,7 @@ const useStyle = style(theme => ({
     flexDirection: 'column',
     alignItems: 'flex-start',
     gap: 40,
-    padding: '271px 140px',
+    padding: '24vw 14vw',
   },
   section: {
     display: 'flex',
@@ -88,6 +88,7 @@ const useStyle = style(theme => ({
   column: {
     display: 'flex',
     flexDirection: 'column',
+    alignItems: 'flex-start',
     width: '100%',
     gap: 24
   },
@@ -231,13 +232,13 @@ function App() {
     });
   };
 
-  React.useEffect(() => {
-    const id = setInterval(() => setProgress(item => item >= 100 ? 0 : item + 10), 1000);
+  // React.useEffect(() => {
+  //   const id = setInterval(() => setProgress(item => item >= 100 ? 0 : item + 10), 1000);
 
-    return () => {
-      clearInterval(id);
-    }
-  }, []);
+  //   return () => {
+  //     clearInterval(id);
+  //   }
+  // }, []);
 
   // React.useEffect(() => {
   //   const rect = refs.transitions.current.getBoundingClientRect();
@@ -254,6 +255,111 @@ function App() {
       <div className={classes.row}>
         <Button size='small' color='secondary' className={classes.btn} onClick={() => updateTheme()}>{amauiTheme.palette.light ? 'dark' : 'light'}</Button>
       </div>
+
+      <Accordion label='Link'>
+        <Accordion label='Link' open>
+          <div className={classNames([classes.column])}>
+            <Link>Link</Link>
+          </div>
+        </Accordion>
+
+        <Accordion label='Link underline' open>
+          <div className={classNames([classes.column])}>
+            <Link underline>Link</Link>
+            <Link underline={false}>Link</Link>
+            <Link underline='hover'>Link</Link>
+          </div>
+        </Accordion>
+
+        <Accordion label='Link versions' open>
+          <div className={classNames([classes.column])} style={{ gap: 0 }}>
+            <Link version='d1'>Display 1</Link>
+            <Link version='d2'>Display 2</Link>
+            <Link version='d3'>Display 3</Link>
+
+            <Link version='h1'>Heading 1</Link>
+            <Link version='h2'>Heading 2</Link>
+            <Link version='h3'>Heading 3</Link>
+
+            <Link version='t1'>Title 1</Link>
+            <Link version='t2'>Title 2</Link>
+            <Link version='t3'>Title 3</Link>
+
+            <Link version='l1'>Label 1</Link>
+            <Link version='l2'>Label 2</Link>
+            <Link version='l3'>Label 3</Link>
+
+            <Link version='b1'>
+              It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+            </Link>
+
+            <Link version='b2'>
+              It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+            </Link>
+
+            <Link version='b3'>
+              It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+            </Link>
+          </div>
+        </Accordion>
+
+        <Accordion label='Link colors' open>
+          <div className={classNames([classes.column])}>
+            <Link color='primary'>Primary</Link>
+            <Link color='secondary'>Secondary</Link>
+            <Link color='tertiary'>Tertiary</Link>
+            <Link color='quaternary'>Quaternary</Link>
+            <Link color='info'>Info</Link>
+            <Link color='success'>Success</Link>
+            <Link color='error'>Error</Link>
+            <Link color='warning'>Warning</Link>
+            <Link color='neutral'>Neutral</Link>
+            <Link color='#f5d758'>Other</Link>
+          </div>
+        </Accordion>
+      </Accordion>
+
+      <Accordion label='Type'>
+        <Accordion label='Type' open>
+          <div className={classNames([classes.column])}>
+            <Type>
+              It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+            </Type>
+          </div>
+        </Accordion>
+
+        <Accordion label='Type versions' open>
+          <div className={classNames([classes.column])} style={{ gap: 0 }}>
+            <Type version='d1'>Display 1</Type>
+            <Type version='d2'>Display 2</Type>
+            <Type version='d3'>Display 3</Type>
+
+            <Type version='h1'>Heading 1</Type>
+            <Type version='h2'>Heading 2</Type>
+            <Type version='h3'>Heading 3</Type>
+
+            <Type version='t1'>Title 1</Type>
+            <Type version='t2'>Title 2</Type>
+            <Type version='t3'>Title 3</Type>
+
+            <Type version='l1'>Label 1</Type>
+            <Type version='l2'>Label 2</Type>
+            <Type version='l3'>Label 3</Type>
+
+            <Type version='b1'>
+              It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+            </Type>
+
+            <Type version='b2'>
+              It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+            </Type>
+
+            <Type version='b3'>
+              It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+            </Type>
+          </div>
+        </Accordion>
+      </Accordion>
 
       <Accordion label='Fab'>
         <Accordion label='Fab' open>
