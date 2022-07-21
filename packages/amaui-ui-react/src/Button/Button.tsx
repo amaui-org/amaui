@@ -5,6 +5,7 @@ import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Interaction from '../Interaction';
 import RoundProgress from '../RoundProgress';
+import Type from '../Type';
 
 const other = {
   pointerEvents: 'none',
@@ -30,7 +31,6 @@ const useStyle = style(theme => ({
     borderRadius: theme.methods.space.value('xl', 'px'),
     textAlign: 'center',
     textDecoration: 'none',
-    overflow: 'hidden',
     verticalAlign: 'middle',
     userSelect: 'none',
 
@@ -203,18 +203,15 @@ const useStyle = style(theme => ({
 
     // Size
     '&$small': {
-      ...theme.typography.values.l3,
       gap: `${theme.methods.space.value('sm') - 2}px`,
       lineHeight: 1.455
     },
 
     '&$regular': {
-      ...theme.typography.values.l2,
       gap: theme.methods.space.value('sm', 'px'),
     },
 
     '&$large': {
-      ...theme.typography.values.l1,
       gap: `${theme.methods.space.value('sm') + 2}px`,
     }
   },
@@ -308,6 +305,7 @@ const Button = React.forwardRef((props: any, ref) => {
   let startIcon = startIcon_;
   let endIcon = endIcon_;
   let disabled = disabled_ || loading;
+  let TypeProps = { version: 'l2' };
 
   if (disabled) color = 'neutral';
 
@@ -319,9 +317,9 @@ const Button = React.forwardRef((props: any, ref) => {
 
   const styles: any = {
     root: {},
-    label: {},
     background: {},
     border: {},
+    label: { margin: 0 },
     icon: { fontSize: '17px' }
   };
 
@@ -364,9 +362,17 @@ const Button = React.forwardRef((props: any, ref) => {
     }
   }
 
-  if (size === 'small') styles.icon.fontSize = '16px';
+  if (size === 'small') {
+    styles.icon.fontSize = '16px';
 
-  if (size === 'large') styles.icon.fontSize = '22px';
+    TypeProps.version = 'l3';
+  }
+
+  if (size === 'large') {
+    styles.icon.fontSize = '22px';
+
+    TypeProps.version = 'l1';
+  }
 
   let children_ = children;
 
@@ -481,13 +487,17 @@ const Button = React.forwardRef((props: any, ref) => {
           {children_}
         </span>
       ) : (
-        <span
+        <Type
           className={classNames([classes.label, classes[size]])}
 
+          Component='span'
+
           style={styles.label}
+
+          {...TypeProps}
         >
           {children_}
-        </span>
+        </Type>
       )}
 
       {endIcon && (
