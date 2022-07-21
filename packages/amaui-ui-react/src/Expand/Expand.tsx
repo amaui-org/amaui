@@ -31,7 +31,7 @@ const Expand = React.forwardRef((props: any, ref: React.MutableRefObject<any>) =
   const [rect, setRect] = React.useState<DOMRect>(undefined);
 
   React.useEffect(() => {
-    setTimeout(() => setRect(refs.root.current.getBoundingClientRect()));
+    setRect(refs.root.current.getBoundingClientRect());
   }, []);
 
   let prop = 'height';

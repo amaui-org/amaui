@@ -55,7 +55,7 @@ const useStyle = style(theme => ({
     flexDirection: 'column',
     alignItems: 'flex-start',
     gap: 40,
-    padding: '24vw 14vw',
+    padding: '14vw',
   },
   section: {
     display: 'flex',
@@ -96,7 +96,7 @@ const useStyle = style(theme => ({
     alignItems: 'center'
   },
   btn: {
-    transition: 'transform .4s ease',
+    transition: ['transform .4s ease', '!important'],
 
     '&:active': {
       transform: 'scale(0.91)'
@@ -214,11 +214,11 @@ function App() {
     }
   };
 
-  const amauiTheme = useAmauiTheme();
+  const theme = useAmauiTheme();
 
-  const updateTheme = () => amauiTheme.updateWithRerender({
+  const updateTheme = () => theme.updateWithRerender({
     palette: {
-      light: !amauiTheme.palette.light
+      light: !theme.palette.light
     }
   });
 
@@ -253,7 +253,7 @@ function App() {
       <Reset />
 
       <div className={classes.row}>
-        <Button size='small' color='secondary' className={classes.btn} onClick={() => updateTheme()}>{amauiTheme.palette.light ? 'dark' : 'light'}</Button>
+        <Button size='small' color='secondary' className={classes.btn} onClick={() => updateTheme()}>{theme.palette.light ? 'dark' : 'light'}</Button>
       </div>
 
       <Accordion label='Link'>

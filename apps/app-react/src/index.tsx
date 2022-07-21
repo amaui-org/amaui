@@ -8,7 +8,7 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
-const amauiStyle = new AmauiStyle(undefined, undefined, undefined, { optimize: false });
+const amauiStyle = new AmauiStyle();
 
 amauiStyle.plugins.add = [unit, prefix, rtl, valueObject];
 

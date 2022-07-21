@@ -135,7 +135,7 @@ const SegmentedButtons = React.forwardRef((props: any, ref: any) => {
   const [preSelected, setPreSelected] = React.useState([]);
   const [selected, setSelected] = React.useState([]);
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   const {
     className,

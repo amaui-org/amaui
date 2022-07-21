@@ -204,7 +204,7 @@ const useStyle = style(theme => ({
     // Size
     '&$small': {
       gap: `${theme.methods.space.value('sm') - 2}px`,
-      lineHeight: 1.455
+      lineHeight: [1.455, '!important']
     },
 
     '&$regular': {
@@ -260,7 +260,7 @@ const useStyle = style(theme => ({
 }), { name: 'AmauiButton' });
 
 const Button = React.forwardRef((props: any, ref) => {
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
   const [focus, setFocus] = React.useState(false);
   const refs = {
     color: React.useRef<any>()
