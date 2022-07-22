@@ -52,3 +52,9 @@ export * from './Type';
 
 export { default as Link } from './Link';
 export * from './Link';
+
+export { default as Surface } from './Surface';
+export * from './Surface';
+
+export { default as Focus } from './Focus';
+export * from './Focus';

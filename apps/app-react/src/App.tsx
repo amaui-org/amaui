@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
-import { Button, Expand, Fab, Fade, Grow, IconButton, Interaction, LinearProgress, Link, Reset, RoundProgress, SegmentedButtons, Slide, Transition, Transitions, Type, Zoom } from '@amaui/ui-react';
+import { Button, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Reset, RoundProgress, SegmentedButtons, Slide, Surface, Transition, Transitions, Type, Zoom } from '@amaui/ui-react';
 
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
@@ -255,6 +255,86 @@ function App() {
       <div className={classes.row}>
         <Button size='small' color='secondary' className={classes.btn} onClick={() => updateTheme()}>{theme.palette.light ? 'dark' : 'light'}</Button>
       </div>
+
+      <Accordion label='Focus'>
+        <Accordion label='Focus' open>
+          <div className={classNames([classes.column])}>
+            <Focus>
+              <Button color='secondary'>a</Button>
+              <Button color='secondary'>a1</Button>
+              <Button color='secondary'>a14</Button>
+            </Focus>
+          </div>
+        </Accordion>
+      </Accordion>
+
+      <Accordion label='Surface'>
+        <Accordion label='Surface' open>
+          <div className={classNames([classes.column])}>
+            <Surface>Surface</Surface>
+          </div>
+        </Accordion>
+
+        <Accordion label='Surface noBorderRadius' open>
+          <div className={classNames([classes.column])}>
+            <Surface elevation='1' noBorderRadius>Surface</Surface>
+          </div>
+        </Accordion>
+
+        <Accordion label='Surface sizes' open>
+          <div className={classNames([classes.column])}>
+            <Surface size='small' elevation='1'>Small</Surface>
+            <Surface size='regular' elevation='1'>Regular</Surface>
+            <Surface size='large' elevation='1'>Large</Surface>
+          </div>
+        </Accordion>
+
+        <Accordion label='Surface elevations' open>
+          <div className={classNames([classes.column])}>
+            <Surface elevation='0'>0</Surface>
+            <Surface elevation='1'>1</Surface>
+            <Surface elevation='2'>2</Surface>
+            <Surface elevation='3'>3</Surface>
+            <Surface elevation='4'>4</Surface>
+            <Surface elevation='6'>6</Surface>
+            <Surface elevation='8'>8</Surface>
+            <Surface elevation='9'>9</Surface>
+            <Surface elevation='12'>12</Surface>
+            <Surface elevation='16'>16</Surface>
+            <Surface elevation='24'>24</Surface>
+          </div>
+        </Accordion>
+
+        <Accordion label='Surface colors' open>
+          <div className={classNames([classes.column])}>
+            <Surface color='primary'>Primary</Surface>
+            <Surface color='secondary'>Secondary</Surface>
+            <Surface color='tertiary'>Tertiary</Surface>
+            <Surface color='quaternary'>Quaternary</Surface>
+            <Surface color='info'>Info</Surface>
+            <Surface color='success'>Success</Surface>
+            <Surface color='error'>Error</Surface>
+            <Surface color='warning'>Warning</Surface>
+            <Surface color='neutral'>Neutral</Surface>
+            <Surface color='#f5d758'>Other</Surface>
+          </div>
+        </Accordion>
+
+        <Accordion label='Surface tonal' open>
+          <div className={classNames([classes.column])}>
+            <Surface color='primary' tonal={false}>Primary</Surface>
+            <Surface color='secondary' tonal={false}>Secondary</Surface>
+            <Surface color='tertiary' tonal={false}>Tertiary</Surface>
+            <Surface color='quaternary' tonal={false}>Quaternary</Surface>
+            <Surface color='info' tonal={false}>Info</Surface>
+            <Surface color='success' tonal={false}>Success</Surface>
+            <Surface color='error' tonal={false}>Error</Surface>
+            <Surface color='warning' tonal={false}>Warning</Surface>
+            <Surface color='neutral' tonal={false}>Neutral</Surface>
+            <Surface color='#f5d758' tonal={false}>Other</Surface>
+          </div>
+        </Accordion>
+      </Accordion>
 
       <Accordion label='Link'>
         <Accordion label='Link' open>
