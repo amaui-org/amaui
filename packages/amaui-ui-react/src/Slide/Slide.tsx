@@ -39,6 +39,23 @@ const Slide = React.forwardRef((props: any, ref: React.MutableRefObject<any>) =>
     const translateValue = translate();
 
     const allStyles = {
+      appended: {
+        visibility: 'hidden'
+      },
+
+      add: {
+        transition: 'none',
+        visibility: 'hidden',
+
+        transform: translateValue
+      },
+      adding: {
+        transform: 'translate(0, 0)'
+      },
+      added: {
+        transform: 'none'
+      },
+
       enter: {
         transition: 'none',
         visibility: 'hidden',
@@ -49,6 +66,10 @@ const Slide = React.forwardRef((props: any, ref: React.MutableRefObject<any>) =>
         transform: 'translate(0, 0)',
       },
       entered: {
+        transform: 'none'
+      },
+
+      exit: {
         transform: 'none'
       },
       exiting: {
@@ -75,6 +96,7 @@ const Slide = React.forwardRef((props: any, ref: React.MutableRefObject<any>) =>
 
   return (
     <Transition
+      append
       removeOnExited
 
       {...props}

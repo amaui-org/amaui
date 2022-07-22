@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
-import { Button, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, SegmentedButtons, Slide, Surface, Transition, Transitions, Type, Zoom } from '@amaui/ui-react';
+import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, SegmentedButtons, Slide, Surface, Transition, Transitions, Type, Zoom } from '@amaui/ui-react';
 
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
@@ -200,7 +200,8 @@ function App() {
     slide: true,
     slideRef: true,
     loading: true,
-    portal: false
+    portal: false,
+    modal: false
   });
   const [progress, setProgress] = React.useState(0);
   const [items, setItems] = React.useState([0]);
@@ -256,6 +257,22 @@ function App() {
       <div className={classes.row}>
         <Button size='small' color='secondary' className={classes.btn} onClick={() => updateTheme()}>{theme.palette.light ? 'dark' : 'light'}</Button>
       </div>
+
+      <Accordion label='Modal'>
+        <Accordion label='Modal' open>
+          <div className={classNames([classes.column])}>
+            <Button size='small' color='secondary' className={classes.btn} onClick={() => update('modal')}>a</Button>
+
+            <Modal
+              open={a.modal}
+
+              onClose={() => update('modal')}
+            >
+              a
+            </Modal>
+          </div>
+        </Accordion>
+      </Accordion>
 
       <Accordion label='Portal'>
         <Accordion label='Portal' open>

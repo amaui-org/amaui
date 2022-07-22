@@ -9,8 +9,28 @@ const Zoom = React.forwardRef((props: any, ref: React.MutableRefObject<any>) => 
   const theme = useAmauiTheme();
 
   const styles = {
+    add: {
+      transform: `scale(0)`
+    },
+    adding: {
+      transform: `scale(1)`
+    },
+    added: {
+      transform: `scale(1)`
+    },
+
+    enter: {
+      transform: `scale(0)`
+    },
     entering: {
-      transform: `scale(1)`,
+      transform: `scale(1)`
+    },
+    entered: {
+      transform: `scale(1)`
+    },
+
+    exit: {
+      transform: `scale(1)`
     },
     exiting: {
       transform: `scale(0)`

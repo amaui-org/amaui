@@ -8,9 +8,11 @@ import { classNames, useAmauiTheme, TTransitionsDurationProperties } from '@amau
 import TransitionContext from './TransitionContext';
 import { reflow } from '../utils';
 
-export type TTransitionStatus = 'add' | 'adding' | 'added' | 'enter' | 'entering' | 'entered' | 'exit' | 'exiting' | 'exited' | 'removed';
+export type TTransitionStatus = 'appended' | 'add' | 'adding' | 'added' | 'enter' | 'entering' | 'entered' | 'exit' | 'exiting' | 'exited' | 'removed';
 
 export const STATUS: Record<TTransitionStatus, TTransitionStatus> = {
+  appended: 'appended',
+
   add: 'add',
   added: 'added',
   adding: 'adding',
@@ -35,6 +37,7 @@ export interface IProps {
 
   run?: boolean;
 
+  append?: boolean;
   add?: boolean;
   enter?: boolean;
   exit?: boolean;
@@ -55,6 +58,8 @@ export interface IProps {
 
   // An all in one method
   onTransition?: (element: HTMLElement, status: TTransitionStatus,) => void;
+
+  onAppended?: (element: HTMLElement) => void;
 
   onAdd?: (element: HTMLElement) => void;
   onAdding?: (element: HTMLElement) => void;
@@ -89,6 +94,8 @@ function Transition(props: IProps) {
 
       if (props.exitOnAdd) statusNew = STATUS.exit;
     }
+
+    if (props.append) statusNew = 'appended';
 
     return statusNew;
   });
@@ -138,7 +145,7 @@ function Transition(props: IProps) {
         if (inProp && (!refs.root.current || (refs.root.current && refs.root.current.className.indexOf('removed') > -1))) {
           // We add the element and get the ref value
           // for update below to use it for enter
-          setStatus(undefined);
+          setStatus('appended');
 
           setTimeout(() => update(statusNew));
         }
@@ -225,7 +232,7 @@ function Transition(props: IProps) {
       updateStatus('add');
 
       // Reflow
-      if (refs.root.current) reflow(refs.root.current);
+      reflow(refs.root.current);
 
       // Add adding class for animation
       setTimeout(() => updateStatus('adding'));
@@ -282,6 +289,12 @@ function Transition(props: IProps) {
     subs.current.status.emit(status_);
 
     switch (status_) {
+      case 'appended':
+        if (is('function', props.onTransition)) props.onTransition(refs.root.current, status_);
+        if (is('function', props.onAppended)) props.onAppended(refs.root.current);
+
+        break;
+
       case 'add':
         if (is('function', props.onTransition)) props.onTransition(refs.root.current, status_);
         if (is('function', props.onAdd)) props.onAdd(refs.root.current);

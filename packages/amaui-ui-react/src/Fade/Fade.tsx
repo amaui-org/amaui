@@ -9,7 +9,27 @@ const Fade = React.forwardRef((props: any, ref: React.MutableRefObject<any>) => 
   const theme = useAmauiTheme();
 
   const styles = {
+    add: {
+      opacity: 0
+    },
+    adding: {
+      opacity: 1
+    },
+    added: {
+      opacity: 1
+    },
+
+    enter: {
+      opacity: 0
+    },
     entering: {
+      opacity: 1
+    },
+    entered: {
+      opacity: 1
+    },
+
+    exit: {
       opacity: 1
     },
     exiting: {

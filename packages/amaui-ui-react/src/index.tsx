@@ -61,3 +61,6 @@ export * from './Focus';
 
 export { default as Portal } from './Portal';
 export * from './Portal';
+
+export { default as Modal } from './Modal';
+export * from './Modal';

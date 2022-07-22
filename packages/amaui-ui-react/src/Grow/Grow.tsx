@@ -9,9 +9,35 @@ const Grow = React.forwardRef((props: any, ref: React.MutableRefObject<any>) => 
   const theme = useAmauiTheme();
 
   const styles = {
+    add: {
+      opacity: 0,
+      transform: `scale(0.74)`
+    },
+    adding: {
+      opacity: 1,
+      transform: `scale(1)`
+    },
+    added: {
+      opacity: 1,
+      transform: `scale(1)`
+    },
+
+    enter: {
+      opacity: 0,
+      transform: `scale(0.74)`
+    },
     entering: {
       opacity: 1,
-      transform: `scale(1)`,
+      transform: `scale(1)`
+    },
+    entered: {
+      opacity: 1,
+      transform: `scale(1)`
+    },
+
+    exit: {
+      opacity: 1,
+      transform: `scale(1)`
     },
     exiting: {
       opacity: 0,
