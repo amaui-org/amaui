@@ -58,3 +58,6 @@ export * from './Surface';
 
 export { default as Focus } from './Focus';
 export * from './Focus';
+
+export { default as Portal } from './Portal';
+export * from './Portal';
