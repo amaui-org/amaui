@@ -64,3 +64,21 @@ export * from './Portal';
 
 export { default as Modal } from './Modal';
 export * from './Modal';
+
+export { default as ModalHeader } from './ModalHeader';
+export * from './ModalHeader';
+
+export { default as ModalMain } from './ModalMain';
+export * from './ModalMain';
+
+export { default as ModalFooter } from './ModalFooter';
+export * from './ModalFooter';
+
+export { default as ModalTitle } from './ModalTitle';
+export * from './ModalTitle';
+
+export { default as ModalText } from './ModalText';
+export * from './ModalText';
+
+export { default as ModalIcon } from './ModalIcon';
+export * from './ModalIcon';

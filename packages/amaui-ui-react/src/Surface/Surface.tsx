@@ -190,14 +190,18 @@ const Surface = React.forwardRef((props: any, ref: any) => {
 
   const {
     className,
+
     size = 'regular',
     color = 'default',
     tonal = true,
     elevation = 0,
+
     noBorderRadius,
     Component = 'div',
-    children,
+
     style,
+
+    children,
 
     ...other
   } = props;

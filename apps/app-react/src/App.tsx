@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
-import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, SegmentedButtons, Slide, Surface, Transition, Transitions, Type, Zoom } from '@amaui/ui-react';
+import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, SegmentedButtons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon } from '@amaui/ui-react';
 
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
@@ -234,6 +234,17 @@ function App() {
     });
   };
 
+  const updateModal = (item?: any) => {
+    setA((values: any) => {
+      const newValues = { ...values };
+
+      if (!newValues.modal) newValues.modal = item;
+      else newValues.modal = false;
+
+      return newValues;
+    });
+  };
+
   // React.useEffect(() => {
   //   const id = setInterval(() => setProgress(item => item >= 100 ? 0 : item + 10), 1000);
 
@@ -261,14 +272,317 @@ function App() {
       <Accordion label='Modal'>
         <Accordion label='Modal' open>
           <div className={classNames([classes.column])}>
-            <Button size='small' color='secondary' className={classes.btn} onClick={() => update('modal')}>a</Button>
+            <Button size='small' color='secondary' className={classes.btn} onClick={() => updateModal(1)}>a</Button>
 
             <Modal
-              open={a.modal}
+              open={a.modal === 1}
 
-              onClose={() => update('modal')}
+              onClose={() => updateModal()}
             >
-              a
+              <ModalHeader>
+                <ModalTitle>Basic modal title</ModalTitle>
+              </ModalHeader>
+
+              <ModalMain>
+                <ModalText>
+                  A modal is type of window that appears in front of app content to provide critical information, or ask for a decision.
+                </ModalText>
+              </ModalMain>
+
+              <ModalFooter>
+                <Button
+                  version='text'
+
+                  tonal
+                >
+                  Enabled
+                </Button>
+
+                <Button
+                  version='text'
+
+                  tonal
+                >
+                  Enabled
+                </Button>
+              </ModalFooter>
+            </Modal>
+          </div>
+        </Accordion>
+
+        <Accordion label='Modal with icon' open>
+          <div className={classNames([classes.column])}>
+            <Button size='small' color='secondary' className={classes.btn} onClick={() => updateModal(2)}>a</Button>
+
+            <Modal
+              open={a.modal === 2}
+
+              onClose={() => updateModal()}
+            >
+              <ModalHeader>
+                <ModalIcon><IconMaterialPottedPlantRounded /></ModalIcon>
+                <ModalTitle>Basic modal title</ModalTitle>
+              </ModalHeader>
+
+              <ModalMain>
+                <ModalText>
+                  A modal is type of window that appears in front of app content to provide critical information, or ask for a decision.
+                </ModalText>
+              </ModalMain>
+
+              <ModalFooter>
+                <Button
+                  version='text'
+
+                  tonal
+                >
+                  Enabled
+                </Button>
+
+                <Button
+                  version='text'
+
+                  tonal
+                >
+                  Enabled
+                </Button>
+              </ModalFooter>
+            </Modal>
+          </div>
+        </Accordion>
+
+        <Accordion label='Modal with overflow text' open>
+          <div className={classNames([classes.column])}>
+            <Button size='small' color='secondary' className={classes.btn} onClick={() => updateModal(3)}>a</Button>
+
+            <Modal
+              open={a.modal === 3}
+
+              onClose={() => updateModal()}
+            >
+              <ModalHeader>
+                <ModalIcon><IconMaterialPottedPlantRounded /></ModalIcon>
+                <ModalTitle>Basic modal title</ModalTitle>
+              </ModalHeader>
+
+              <ModalMain>
+                <ModalText>
+                  A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision.
+
+                  A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision.
+
+                  A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision.
+                </ModalText>
+              </ModalMain>
+
+              <ModalFooter>
+                <Button
+                  version='text'
+
+                  tonal
+                >
+                  Enabled
+                </Button>
+
+                <Button
+                  version='text'
+
+                  tonal
+                >
+                  Enabled
+                </Button>
+              </ModalFooter>
+            </Modal>
+          </div>
+        </Accordion>
+
+        <Accordion label='Modal modal component' open>
+          <div className={classNames([classes.column])}>
+            <Button size='small' color='secondary' className={classes.btn} onClick={() => updateModal(5)}>a</Button>
+
+            <Modal
+              open={a.modal === 5}
+
+              ModalComponent={Slide}
+
+              onClose={() => updateModal()}
+            >
+              <ModalHeader>
+                <ModalTitle>Basic modal title</ModalTitle>
+              </ModalHeader>
+
+              <ModalMain>
+                <ModalText>
+                  A modal is type of window that appears in front of app content to provide critical information, or ask for a decision.
+                </ModalText>
+              </ModalMain>
+
+              <ModalFooter>
+                <Button
+                  version='text'
+
+                  tonal
+                >
+                  Enabled
+                </Button>
+
+                <Button
+                  version='text'
+
+                  tonal
+                >
+                  Enabled
+                </Button>
+              </ModalFooter>
+            </Modal>
+          </div>
+        </Accordion>
+
+        <Accordion label='Modal max width' open>
+          <div className={classNames([classes.column])}>
+            <Button size='small' color='secondary' className={classes.btn} onClick={() => updateModal('xxs')}>xxs</Button>
+            <Button size='small' color='secondary' className={classes.btn} onClick={() => updateModal('xs')}>xs</Button>
+            <Button size='small' color='secondary' className={classes.btn} onClick={() => updateModal('sm')}>sm</Button>
+            <Button size='small' color='secondary' className={classes.btn} onClick={() => updateModal('rg')}>rg</Button>
+            <Button size='small' color='secondary' className={classes.btn} onClick={() => updateModal('lg')}>lg</Button>
+            <Button size='small' color='secondary' className={classes.btn} onClick={() => updateModal('xl')}>xl</Button>
+            <Button size='small' color='secondary' className={classes.btn} onClick={() => updateModal('xxl')}>xxl</Button>
+
+            <Modal
+              open={['xxs', 'xs', 'sm', 'rg', 'lg', 'xl', 'xxl'].indexOf(a.modal) > -1}
+
+              maxWidth={a.modal}
+
+              onClose={() => updateModal()}
+            >
+              <ModalHeader>
+                <ModalIcon><IconMaterialPottedPlantRounded /></ModalIcon>
+                <ModalTitle>Basic modal title</ModalTitle>
+              </ModalHeader>
+
+              <ModalMain>
+                <ModalText>
+                  A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision.
+
+                  A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision.
+
+                  A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision.
+                </ModalText>
+              </ModalMain>
+
+              <ModalFooter>
+                <Button
+                  version='text'
+
+                  tonal
+                >
+                  Enabled
+                </Button>
+
+                <Button
+                  version='text'
+
+                  tonal
+                >
+                  Enabled
+                </Button>
+              </ModalFooter>
+            </Modal>
+          </div>
+        </Accordion>
+
+        <Accordion label='Modal full width' open>
+          <div className={classNames([classes.column])}>
+            <Button size='small' color='secondary' className={classes.btn} onClick={() => updateModal(4)}>a</Button>
+
+            <Modal
+              open={a.modal === 4}
+
+              fullWidth
+
+              onClose={() => updateModal()}
+            >
+              <ModalHeader>
+                <ModalIcon><IconMaterialPottedPlantRounded /></ModalIcon>
+                <ModalTitle>Basic modal title</ModalTitle>
+              </ModalHeader>
+
+              <ModalMain>
+                <ModalText>
+                  A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision.
+
+                  A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision.
+
+                  A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision.
+                </ModalText>
+              </ModalMain>
+
+              <ModalFooter>
+                <Button
+                  version='text'
+
+                  tonal
+                >
+                  Enabled
+                </Button>
+
+                <Button
+                  version='text'
+
+                  tonal
+                >
+                  Enabled
+                </Button>
+              </ModalFooter>
+            </Modal>
+          </div>
+        </Accordion>
+
+        <Accordion label='Modal full screen' open>
+          <div className={classNames([classes.column])}>
+            <Button size='small' color='secondary' className={classes.btn} onClick={() => updateModal(7)}>a</Button>
+
+            <Modal
+              open={a.modal === 7}
+
+              ModalComponent={Slide}
+
+              fullScreen
+
+              onClose={() => updateModal()}
+            >
+              <ModalHeader>
+                <ModalIcon><IconMaterialPottedPlantRounded /></ModalIcon>
+                <ModalTitle>Basic modal title</ModalTitle>
+              </ModalHeader>
+
+              <ModalMain>
+                <ModalText>
+                  A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision.
+
+                  A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision.
+
+                  A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision. A modal is type of window that appears in front of app content to provide critical information, or ask for a decision.
+                </ModalText>
+              </ModalMain>
+
+              <ModalFooter>
+                <Button
+                  version='text'
+
+                  tonal
+                >
+                  Enabled
+                </Button>
+
+                <Button
+                  version='text'
+
+                  tonal
+                >
+                  Enabled
+                </Button>
+              </ModalFooter>
             </Modal>
           </div>
         </Accordion>

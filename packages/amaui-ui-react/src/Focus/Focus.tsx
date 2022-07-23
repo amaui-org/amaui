@@ -1,17 +1,7 @@
 import React from 'react';
 
-import { is } from '@amaui/utils';
-
 const KEYCODES = {
   tab: 'Tab'
-};
-
-const matches = (value: Element) => {
-  const method = is('element', value) && (value.matches || value['webkitMatchesSelector'] || value['mozMatchesSelector'] || value['oMatchesSelector'] || value['msMatchesSelector']);
-
-  if (!method) return () => false;
-
-  return method.bind(value);
 };
 
 const queryMatchFocusable = 'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"]):not([disabled]), details:not([disabled]), summary:not(:disabled)';
@@ -22,7 +12,13 @@ const Focus = React.forwardRef((props: any, ref: any) => {
     focusEnd: React.useRef<HTMLDivElement>()
   };
 
-  const getElements = (value: Element = refs.focusStart.current) => {
+  const {
+    children,
+
+    ...other
+  } = props;
+
+  const getElements = (value: Element = refs.focusStart.current): any[] => {
     // Setup siblings array and get the first sibling
     const allElements = [];
     let element = value.parentNode.firstChild;
@@ -36,7 +32,7 @@ const Focus = React.forwardRef((props: any, ref: any) => {
 
     const focusEndIndex = allElements.findIndex(item => item === refs.focusEnd.current);
 
-    return allElements.slice(0, focusEndIndex).filter(item => matches(item)(queryMatchFocusable));
+    return allElements.slice(0, focusEndIndex).flatMap(item => Array.from(item.querySelectorAll(queryMatchFocusable)));
   };
 
   const onKeyDownUp = (event: any): any => {
@@ -54,7 +50,7 @@ const Focus = React.forwardRef((props: any, ref: any) => {
       }
     }
     else {
-      if (document.activeElement === refs.focusEnd.current) {
+      if (document.activeElement === refs.focusEnd.current || document.activeElement === refs.focusStart.current) {
         const elements = getElements();
 
         if (elements.length) elements[0].focus();
@@ -77,12 +73,18 @@ const Focus = React.forwardRef((props: any, ref: any) => {
   return (
     <React.Fragment>
       <div
-        ref={refs.focusStart}
+        ref={item => {
+          if (ref) ref.current = item;
+
+          refs.focusStart.current = item;
+        }}
 
         tabIndex={0}
+
+        {...other}
       />
 
-      {props.children}
+      {children}
 
       <div
         ref={refs.focusEnd}

@@ -27,7 +27,52 @@ const useStyle = style(theme => ({
     height: '100%',
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    pointerEvents: 'none'
+  },
+  surface: {
+    display: 'flex',
+    flexDirection: 'column',
+    minWidth: `${theme.space.unit * 35}px`,
+    maxHeight: `calc(100% - ${theme.methods.space.value('xl') * 2}px)`,
+    margin: theme.methods.space.value('xl', 'px'),
+    pointerEvents: 'all',
+
+    '&$fullScreen': {
+      width: ['100%', '!important'],
+      height: ['100%', '!important'],
+      borderRadius: [0, '!important'],
+      maxWidth: ['unset', '!important'],
+      maxHeight: ['unset', '!important'],
+      margin: [0, '!important']
+    },
+
+    '&$fullWidth': {
+      width: `calc(100% - ${theme.methods.space.value('xl') * 2}px)`
+    },
+
+    // maxWidth
+    '&$xxs': {
+      maxWidth: `${theme.space.unit * 40}px`,
+    },
+    '&$xs': {
+      maxWidth: `${theme.space.unit * 50}px`,
+    },
+    '&$sm': {
+      maxWidth: `${theme.space.unit * 60}px`,
+    },
+    '&$rg': {
+      maxWidth: `${theme.space.unit * 70}px`,
+    },
+    '&$lg': {
+      maxWidth: `${theme.space.unit * 100}px`,
+    },
+    '&$xl': {
+      maxWidth: `${theme.space.unit * 140}px`,
+    },
+    '&$xxl': {
+      maxWidth: `${theme.space.unit * 170}px`,
+    },
   }
 }), { name: 'AmauiModal' });
 
@@ -44,23 +89,51 @@ const modal = {
 
     if (!MODALS_OPEN) window.document.body.style.removeProperty('overflow');
   }
-}
+};
 
 const Modal = React.forwardRef((props: any, ref: any) => {
   const [open, setOpen] = React.useState(props.open);
   const [inProp, setInProp] = React.useState(props.open);
   const { classes } = useStyle();
+  const refs = {
+    focus: React.useRef<HTMLDivElement>()
+  };
 
   const {
     open: open_,
     className,
+
+    fullScreen,
+    fullWidth,
+    maxWidth: maxWidth_ = 'rg',
+
+    disableKeyboardClose,
+    disableBackgroundClose,
+
     BackgroundComponent = Fade,
     BackgroundProps = {},
+
     ModalComponent = Fade,
     ModalProps = {},
 
+    SurfaceProps = {},
+
+    children,
+
     ...other
   } = props;
+
+  let maxWidth = maxWidth_;
+
+  if (fullWidth) maxWidth = undefined;
+
+  const onClose = () => {
+    if (is('function', props.onClose) && open) props.onClose();
+  };
+
+  const onKeyDown = (event: KeyboardEvent) => {
+    if (event.key === 'Escape' && !disableKeyboardClose) onClose();
+  };
 
   React.useEffect(() => {
     if (open) modal.open();
@@ -80,9 +153,9 @@ const Modal = React.forwardRef((props: any, ref: any) => {
     else if (!open_ && open) setInProp(false);
   }, [open_]);
 
-  const onClose = () => {
-    if (is('function', props.onClose)) props.onClose();
-  };
+  React.useEffect(() => {
+    if (open) refs.focus.current.focus();
+  }, [open]);
 
   const onExited = () => {
     setOpen(false);
@@ -104,7 +177,11 @@ const Modal = React.forwardRef((props: any, ref: any) => {
 
         {...other}
       >
-        <Focus>
+        <Focus
+          ref={refs.focus}
+
+          onKeyDown={onKeyDown}
+        >
           {/* Background */}
           <BackgroundComponent
             in={inProp}
@@ -116,15 +193,13 @@ const Modal = React.forwardRef((props: any, ref: any) => {
             <div
               className={classes.background}
 
-              onClick={onClose}
+              onClick={() => !disableBackgroundClose && onClose()}
             />
           </BackgroundComponent>
 
           {/* Modal */}
           <div
             className={classes.modalRoot}
-
-            onClick={onClose}
           >
             <ModalComponent
               in={inProp}
@@ -135,8 +210,26 @@ const Modal = React.forwardRef((props: any, ref: any) => {
 
               {...ModalProps}
             >
-              <Surface>
-                a
+              <Surface
+                className={classNames([
+                  classes.surface,
+
+                  fullScreen && classes.fullScreen,
+                  fullWidth && classes.fullWidth,
+                  classes[maxWidth],
+
+                  SurfaceProps.className
+                ])}
+
+                color='primary'
+
+                tabIndex='-1'
+
+                onKeyDown={onKeyDown}
+
+                {...SurfaceProps}
+              >
+                {children}
               </Surface>
             </ModalComponent>
           </div>
