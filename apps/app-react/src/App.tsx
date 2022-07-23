@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
-import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, SegmentedButtons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon } from '@amaui/ui-react';
+import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, SegmentedButtons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider } from '@amaui/ui-react';
 
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
@@ -269,6 +269,173 @@ function App() {
       <div className={classes.row}>
         <Button size='small' color='secondary' className={classes.btn} onClick={() => updateTheme()}>{theme.palette.light ? 'dark' : 'light'}</Button>
       </div>
+
+      <Accordion label='Divider'>
+        <Accordion label='Divider' open>
+          <div className={classNames([classes.column])}>
+            <Divider />
+          </div>
+        </Accordion>
+
+        <Accordion label='Divider color' open>
+          <div className={classNames([classes.column, classes.center])} style={{ gap: 24 }}>
+            <Divider color='primary' tonal={false} />
+            <Divider color='secondary' tonal={false} />
+            <Divider color='tertiary' tonal={false} />
+            <Divider color='quaternary' tonal={false} />
+            <Divider color='info' tonal={false} />
+            <Divider color='success' tonal={false} />
+            <Divider color='error' tonal={false} />
+            <Divider color='warning' tonal={false} />
+            <Divider color='neutral' tonal={false} />
+            <Divider color='#f5d758' tonal={false} />
+          </div>
+        </Accordion>
+
+        <Accordion label='Divider color tonal' open>
+          <div className={classNames([classes.column, classes.center])} style={{ gap: 24 }}>
+            <Divider color='primary' tonal />
+            <Divider color='secondary' tonal />
+            <Divider color='tertiary' tonal />
+            <Divider color='quaternary' tonal />
+            <Divider color='info' tonal />
+            <Divider color='success' tonal />
+            <Divider color='error' tonal />
+            <Divider color='warning' tonal />
+            <Divider color='neutral' tonal />
+            <Divider color='#f5d758' tonal />
+          </div>
+        </Accordion>
+
+        <Accordion label='Divider color opacity' open>
+          <div className={classNames([classes.column, classes.center])} style={{ gap: 24 }}>
+            <Divider color='primary' opacity={0.7} />
+            <Divider color='secondary' opacity={0.7} />
+            <Divider color='tertiary' opacity={0.7} />
+            <Divider color='quaternary' opacity={0.7} />
+            <Divider color='info' opacity={0.7} />
+            <Divider color='success' opacity={0.7} />
+            <Divider color='error' opacity={0.7} />
+            <Divider color='warning' opacity={0.7} />
+            <Divider color='neutral' opacity={0.7} />
+            <Divider color='#f5d758' opacity={0.7} />
+          </div>
+        </Accordion>
+
+        <Accordion label='Divider inset' open>
+          <div className={classNames([classes.column])}>
+            <Divider inset />
+          </div>
+        </Accordion>
+
+        <Accordion label='Divider orientation' open>
+          <div className={classNames([classes.column])}>
+            <Divider orientation='horizontal' />
+          </div>
+
+          <div className={classNames([classes.row])} style={{ height: 140, width: 140 }}>
+            a
+
+            <Divider orientation='vertical' />
+
+            a14
+          </div>
+        </Accordion>
+
+        <Accordion label='Divider middle' open>
+          <div className={classNames([classes.column])}>
+            <Divider middle />
+          </div>
+
+          <div className={classNames([classes.row])} style={{ height: 140, width: 140 }}>
+            a
+
+            <Divider orientation='vertical' middle />
+
+            a14
+          </div>
+        </Accordion>
+
+        <Accordion label='Divider with text' open>
+          <div className={classNames([classes.column])}>
+            <Divider>
+              Text
+            </Divider>
+          </div>
+
+          <div className={classNames([classes.column])}>
+            <Divider middle>
+              Text
+            </Divider>
+          </div>
+
+          <div className={classNames([classes.row])} style={{ height: 140, width: 140 }}>
+            a
+
+            <Divider orientation='vertical'>
+              Text
+            </Divider>
+
+            a14
+          </div>
+
+          <div className={classNames([classes.row])} style={{ height: 140, width: 140 }}>
+            a
+
+            <Divider orientation='vertical' middle>
+              Text
+            </Divider>
+
+            a14
+          </div>
+        </Accordion>
+
+        <Accordion label='Divider with text alignment' open>
+          <div className={classNames([classes.column, classes.center])} style={{ gap: 24 }}>
+            <Divider alignment='start'>
+              Text
+            </Divider>
+
+            <Divider alignment='center'>
+              Text
+            </Divider>
+
+            <Divider alignment='end'>
+              Text
+            </Divider>
+          </div>
+
+          <div className={classNames([classes.row])} style={{ height: 140, width: 140 }}>
+            a
+
+            <Divider orientation='vertical' alignment='start'>
+              Text
+            </Divider>
+
+            a14
+          </div>
+
+          <div className={classNames([classes.row])} style={{ height: 140, width: 140 }}>
+            a
+
+            <Divider orientation='vertical' alignment='center'>
+              Text
+            </Divider>
+
+            a14
+          </div>
+
+          <div className={classNames([classes.row])} style={{ height: 140, width: 140 }}>
+            a
+
+            <Divider orientation='vertical' alignment='end'>
+              Text
+            </Divider>
+
+            a14
+          </div>
+        </Accordion>
+      </Accordion>
 
       <Accordion label='Modal'>
         <Accordion label='Modal' open>

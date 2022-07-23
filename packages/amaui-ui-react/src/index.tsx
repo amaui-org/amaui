@@ -82,3 +82,6 @@ export * from './ModalText';
 
 export { default as ModalIcon } from './ModalIcon';
 export * from './ModalIcon';
+
+export { default as Divider } from './Divider';
+export * from './Divider';
