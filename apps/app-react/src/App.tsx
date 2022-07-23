@@ -203,6 +203,7 @@ function App() {
     portal: false,
     modal: false
   });
+  // eslint-disable-next-line
   const [progress, setProgress] = React.useState(0);
   const [items, setItems] = React.useState([0]);
   const { classes } = useStyle();
