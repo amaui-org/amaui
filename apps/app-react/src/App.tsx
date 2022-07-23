@@ -1680,6 +1680,56 @@ function App() {
         </Accordion>
       </Accordion>
 
+      <Accordion label='Icon'>
+        <Accordion label='Icon' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <IconMaterialPottedPlantRounded />
+          </div>
+        </Accordion>
+
+        <Accordion label='Icon color' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <IconMaterialPottedPlantRounded color='primary' />
+            <IconMaterialPottedPlantRounded color='secondary' />
+            <IconMaterialPottedPlantRounded color='tertiary' />
+            <IconMaterialPottedPlantRounded color='quaternary' />
+            <IconMaterialPottedPlantRounded color='info' />
+            <IconMaterialPottedPlantRounded color='success' />
+            <IconMaterialPottedPlantRounded color='error' />
+            <IconMaterialPottedPlantRounded color='warning' />
+            <IconMaterialPottedPlantRounded color='neutral' />
+            <IconMaterialPottedPlantRounded color='#f5d758' />
+          </div>
+        </Accordion>
+
+        <Accordion label='Icon color tonal' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <IconMaterialPottedPlantRounded color='primary' tonal />
+            <IconMaterialPottedPlantRounded color='secondary' tonal />
+            <IconMaterialPottedPlantRounded color='tertiary' tonal />
+            <IconMaterialPottedPlantRounded color='quaternary' tonal />
+            <IconMaterialPottedPlantRounded color='info' tonal />
+            <IconMaterialPottedPlantRounded color='success' tonal />
+            <IconMaterialPottedPlantRounded color='error' tonal />
+            <IconMaterialPottedPlantRounded color='warning' tonal />
+            <IconMaterialPottedPlantRounded color='neutral' tonal />
+            <IconMaterialPottedPlantRounded color='#f5d758' tonal />
+          </div>
+        </Accordion>
+
+        <Accordion label='Icon size' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <IconMaterialPottedPlantRounded size='very small' color='primary' tonal />
+            <IconMaterialPottedPlantRounded size='small' color='primary' tonal />
+            <IconMaterialPottedPlantRounded size='regular' color='primary' tonal />
+            <IconMaterialPottedPlantRounded size='medium' color='primary' tonal />
+            <IconMaterialPottedPlantRounded size='large' color='primary' tonal />
+            <IconMaterialPottedPlantRounded size='very large' color='primary' tonal />
+            <IconMaterialPottedPlantRounded size={70} color='primary' tonal />
+          </div>
+        </Accordion>
+      </Accordion>
+
       <Accordion label='Transitions / Transition'>
         <Accordion label='Fade' open>
           <Button size='small' color='secondary' className={classes.btn} onClick={() => { update('fade'); }}>a</Button>

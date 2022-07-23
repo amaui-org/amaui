@@ -36,7 +36,7 @@ const Icon = React.forwardRef((props: any, ref) => {
 
   const { classes } = useStyle();
 
-  const amauiTheme = useAmauiTheme();
+  const theme = useAmauiTheme();
 
   const {
     className,
@@ -44,32 +44,34 @@ const Icon = React.forwardRef((props: any, ref) => {
     size: size_,
     name,
     short_name,
-    color: color_,
+    color: color_ = 'inherit',
+    tonal,
+    tone = '30',
     style,
     Component = 'svg',
     disabled,
+
     children,
+
     ...other
   } = props;
 
   React.useEffect(() => {
-    // Update rtl based on amauiTheme value
-    const method = (update, amauiTheme_: AmauiTheme) => {
-      if (amauiTheme_.options.rule.rtl !== rtl) setRtl(!rtl);
+    // Update rtl based on theme value
+    const method = (update, theme_: AmauiTheme) => {
+      if (theme_.options.rule.rtl !== rtl) setRtl(!rtl);
     };
 
-    amauiTheme.subscriptions.update.subscribe(method);
+    theme.subscriptions.update.subscribe(method);
 
     return () => {
-      amauiTheme.subscriptions.update.unsubscribe(method);
+      theme.subscriptions.update.unsubscribe(method);
     };
   }, []);
 
   React.useEffect(() => {
     if (props.rtl !== rtl) setRtl(props.rtl);
   }, [props.rtl]);
-
-  const color = (amauiTheme.palette.color[color_] as any)?.main || color_ || 'inherit';
 
   let fontSize = '24px';
 
@@ -82,6 +84,15 @@ const Icon = React.forwardRef((props: any, ref) => {
   else if (size_ !== undefined) fontSize = size_;
 
   const isRtlIcon = rtl_icons.includes(short_name);
+
+  let color = color_;
+
+  if (tonal) {
+    const palette = theme.palette.color[color_] && theme.methods.color(color_);
+
+    color = theme.methods.palette.color.value(color_, tone, true, palette);
+  }
+  else color = (theme.palette.color[color_] as any)?.main || color_;
 
   return (
     <Component
