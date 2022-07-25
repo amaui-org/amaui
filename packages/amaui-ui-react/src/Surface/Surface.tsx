@@ -14,48 +14,48 @@ const useStyle = style(theme => ({
     },
 
     '&$neutral': {
-      color: theme.methods.palette.color.text(theme.methods.palette.color.value('neutral', 50), true),
-      backgroundColor: theme.methods.palette.color.value('neutral', 50),
+      color: theme.methods.palette.color.text(theme.palette.color.neutral.main, true, 'light'),
+      backgroundColor: theme.palette.color.neutral.main,
     },
 
     '&$primary': {
-      color: theme.methods.palette.color.text(theme.methods.palette.color.value('primary', 50), true),
-      backgroundColor: theme.methods.palette.color.value('primary', 50),
+      color: theme.methods.palette.color.text(theme.palette.color.primary.main, true, 'light'),
+      backgroundColor: theme.palette.color.primary.main,
     },
 
     '&$secondary': {
-      color: theme.methods.palette.color.text(theme.methods.palette.color.value('secondary', 50), true),
-      backgroundColor: theme.methods.palette.color.value('secondary', 50),
+      color: theme.methods.palette.color.text(theme.palette.color.secondary.main, true, 'light'),
+      backgroundColor: theme.palette.color.secondary.main,
     },
 
     '&$tertiary': {
-      color: theme.methods.palette.color.text(theme.methods.palette.color.value('tertiary', 50), true),
-      backgroundColor: theme.methods.palette.color.value('tertiary', 50),
+      color: theme.methods.palette.color.text(theme.palette.color.tertiary.main, true, 'light'),
+      backgroundColor: theme.palette.color.tertiary.main,
     },
 
     '&$quaternary': {
-      color: theme.methods.palette.color.text(theme.methods.palette.color.value('quaternary', 50), true),
-      backgroundColor: theme.methods.palette.color.value('quaternary', 50),
+      color: theme.methods.palette.color.text(theme.palette.color.quaternary.main, true, 'light'),
+      backgroundColor: theme.palette.color.quaternary.main,
     },
 
     '&$info': {
-      color: theme.methods.palette.color.text(theme.methods.palette.color.value('info', 50), true),
-      backgroundColor: theme.methods.palette.color.value('info', 50),
+      color: theme.methods.palette.color.text(theme.palette.color.info.main, true, 'light'),
+      backgroundColor: theme.palette.color.info.main,
     },
 
     '&$success': {
-      color: theme.methods.palette.color.text(theme.methods.palette.color.value('success', 50), true),
-      backgroundColor: theme.methods.palette.color.value('success', 50),
+      color: theme.methods.palette.color.text(theme.palette.color.success.main, true, 'light'),
+      backgroundColor: theme.palette.color.success.main,
     },
 
     '&$warning': {
-      color: theme.methods.palette.color.text(theme.methods.palette.color.value('warning', 50), true),
-      backgroundColor: theme.methods.palette.color.value('warning', 50),
+      color: theme.methods.palette.color.text(theme.palette.color.warning.main, true, 'light'),
+      backgroundColor: theme.palette.color.warning.main,
     },
 
     '&$error': {
-      color: theme.methods.palette.color.text(theme.methods.palette.color.value('error', 50), true),
-      backgroundColor: theme.methods.palette.color.value('error', 50),
+      color: theme.methods.palette.color.text(theme.palette.color.error.main, true, 'light'),
+      backgroundColor: theme.palette.color.error.main,
     },
 
     '&$tonal': {
@@ -218,8 +218,8 @@ const Surface = React.forwardRef((props: any, ref: any) => {
       styles.root.backgroundColor = theme.methods.palette.color.value(undefined, 95, true, palette);
     }
     else {
-      styles.root.color = theme.methods.palette.color.text(theme.methods.palette.color.value(undefined, 50, true, palette), true);
-      styles.root.backgroundColor = theme.methods.palette.color.value(undefined, 50, true, palette);
+      styles.root.color = theme.methods.palette.color.text(palette.main, true);
+      styles.root.backgroundColor = palette.main;
     }
   }
 

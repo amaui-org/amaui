@@ -85,3 +85,6 @@ export * from './ModalIcon';
 
 export { default as Divider } from './Divider';
 export * from './Divider';
+
+export { default as Badge } from './Badge';
+export * from './Badge';

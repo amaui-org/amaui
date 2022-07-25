@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
-import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, SegmentedButtons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider } from '@amaui/ui-react';
+import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, SegmentedButtons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge } from '@amaui/ui-react';
 
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
@@ -269,6 +269,238 @@ function App() {
       <div className={classes.row}>
         <Button size='small' color='secondary' className={classes.btn} onClick={() => updateTheme()}>{theme.palette.light ? 'dark' : 'light'}</Button>
       </div>
+
+      <Accordion label='Badge'>
+        <Accordion label='Badge' open>
+          <div className={classNames([classes.column])}>
+            <Badge indicator>
+              <IconMaterialPottedPlantRounded />
+            </Badge>
+          </div>
+        </Accordion>
+
+        <Accordion label='Badge with value' open>
+          <div className={classNames([classes.column])}>
+            <Badge value='1'>
+              <IconMaterialPottedPlantRounded />
+            </Badge>
+
+            <Badge value='14'>
+              <IconMaterialPottedPlantRounded />
+            </Badge>
+
+            <Badge value='114'>
+              <IconMaterialPottedPlantRounded />
+            </Badge>
+
+            <Badge value='1114'>
+              <IconMaterialPottedPlantRounded />
+            </Badge>
+          </div>
+        </Accordion>
+
+        <Accordion label='Divider color' open>
+          <div className={classNames([classes.column])} style={{ gap: 24 }}>
+            <Badge value='14' color='primary' tonal={false}>
+              <IconMaterialPottedPlantRounded />
+            </Badge>
+            <Badge value='14' color='secondary' tonal={false}>
+              <IconMaterialPottedPlantRounded />
+            </Badge>
+            <Badge value='14' color='tertiary' tonal={false}>
+              <IconMaterialPottedPlantRounded />
+            </Badge>
+            <Badge value='14' color='quaternary' tonal={false}>
+              <IconMaterialPottedPlantRounded />
+            </Badge>
+            <Badge value='14' color='info' tonal={false}>
+              <IconMaterialPottedPlantRounded />
+            </Badge>
+            <Badge value='14' color='success' tonal={false}>
+              <IconMaterialPottedPlantRounded />
+            </Badge>
+            <Badge value='14' color='error' tonal={false}>
+              <IconMaterialPottedPlantRounded />
+            </Badge>
+            <Badge value='14' color='warning' tonal={false}>
+              <IconMaterialPottedPlantRounded />
+            </Badge>
+            <Badge value='14' color='neutral' tonal={false}>
+              <IconMaterialPottedPlantRounded />
+            </Badge>
+            <Badge value='14' color='#f5d758' tonal={false}>
+              <IconMaterialPottedPlantRounded />
+            </Badge>
+          </div>
+        </Accordion>
+
+        <Accordion label='Divider color tonal' open>
+          <div className={classNames([classes.column])} style={{ gap: 24 }}>
+            <Badge value='14' color='primary' tonal>
+              <IconMaterialPottedPlantRounded />
+            </Badge>
+            <Badge value='14' color='secondary' tonal>
+              <IconMaterialPottedPlantRounded />
+            </Badge>
+            <Badge value='14' color='tertiary' tonal>
+              <IconMaterialPottedPlantRounded />
+            </Badge>
+            <Badge value='14' color='quaternary' tonal>
+              <IconMaterialPottedPlantRounded />
+            </Badge>
+            <Badge value='14' color='info' tonal>
+              <IconMaterialPottedPlantRounded />
+            </Badge>
+            <Badge value='14' color='success' tonal>
+              <IconMaterialPottedPlantRounded />
+            </Badge>
+            <Badge value='14' color='error' tonal>
+              <IconMaterialPottedPlantRounded />
+            </Badge>
+            <Badge value='14' color='warning' tonal>
+              <IconMaterialPottedPlantRounded />
+            </Badge>
+            <Badge value='14' color='neutral' tonal>
+              <IconMaterialPottedPlantRounded />
+            </Badge>
+            <Badge value='14' color='#f5d758' tonal>
+              <IconMaterialPottedPlantRounded />
+            </Badge>
+          </div>
+        </Accordion>
+
+        <Accordion label='Vertical top, horizontal right' open>
+          <div className={classNames([classes.column])}>
+            <Badge indicator vertical='top' horizontal='right'>
+              <IconMaterialPottedPlantRounded />
+            </Badge>
+
+            <Badge value='1' vertical='top' horizontal='right'>
+              <IconMaterialPottedPlantRounded />
+            </Badge>
+
+            <Badge value='14' vertical='top' horizontal='right'>
+              <IconMaterialPottedPlantRounded />
+            </Badge>
+
+            <Badge value='114' vertical='top' horizontal='right'>
+              <IconMaterialPottedPlantRounded />
+            </Badge>
+
+            <Badge value='1114' vertical='top' horizontal='right'>
+              <IconMaterialPottedPlantRounded />
+            </Badge>
+          </div>
+        </Accordion>
+
+        <Accordion label='Vertical top, horizontal left' open>
+          <div className={classNames([classes.column])}>
+            <Badge indicator vertical='top' horizontal='left'>
+              <IconMaterialPottedPlantRounded />
+            </Badge>
+
+            <Badge value='1' vertical='top' horizontal='left'>
+              <IconMaterialPottedPlantRounded />
+            </Badge>
+
+            <Badge value='14' vertical='top' horizontal='left'>
+              <IconMaterialPottedPlantRounded />
+            </Badge>
+
+            <Badge value='114' vertical='top' horizontal='left'>
+              <IconMaterialPottedPlantRounded />
+            </Badge>
+
+            <Badge value='1114' vertical='top' horizontal='left'>
+              <IconMaterialPottedPlantRounded />
+            </Badge>
+          </div>
+        </Accordion>
+
+        <Accordion label='Vertical bottom, horizontal right' open>
+          <div className={classNames([classes.column])}>
+            <Badge indicator vertical='bottom' horizontal='right'>
+              <IconMaterialPottedPlantRounded />
+            </Badge>
+
+            <Badge value='1' vertical='bottom' horizontal='right'>
+              <IconMaterialPottedPlantRounded />
+            </Badge>
+
+            <Badge value='14' vertical='bottom' horizontal='right'>
+              <IconMaterialPottedPlantRounded />
+            </Badge>
+
+            <Badge value='114' vertical='bottom' horizontal='right'>
+              <IconMaterialPottedPlantRounded />
+            </Badge>
+
+            <Badge value='1114' vertical='bottom' horizontal='right'>
+              <IconMaterialPottedPlantRounded />
+            </Badge>
+          </div>
+        </Accordion>
+
+        <Accordion label='Vertical bottom, horizontal left' open>
+          <div className={classNames([classes.column])}>
+            <Badge indicator vertical='bottom' horizontal='left'>
+              <IconMaterialPottedPlantRounded />
+            </Badge>
+
+            <Badge value='1' vertical='bottom' horizontal='left'>
+              <IconMaterialPottedPlantRounded />
+            </Badge>
+
+            <Badge value='14' vertical='bottom' horizontal='left'>
+              <IconMaterialPottedPlantRounded />
+            </Badge>
+
+            <Badge value='114' vertical='bottom' horizontal='left'>
+              <IconMaterialPottedPlantRounded />
+            </Badge>
+
+            <Badge value='1114' vertical='bottom' horizontal='left'>
+              <IconMaterialPottedPlantRounded />
+            </Badge>
+          </div>
+        </Accordion>
+
+        <Accordion label='Badge with value with max' open>
+          <div className={classNames([classes.column])}>
+            <Badge value={1114} max={114}>
+              <IconMaterialPottedPlantRounded />
+            </Badge>
+          </div>
+        </Accordion>
+
+        <Accordion label='Badge with Icon button' open>
+          <div className={classNames([classes.column])}>
+            <Badge value={1}>
+              <IconButton color='secondary'>
+                <IconMaterialPottedPlantRounded />
+              </IconButton>
+            </Badge>
+
+            <Badge value={14}>
+              <IconButton color='secondary'>
+                <IconMaterialPottedPlantRounded />
+              </IconButton>
+            </Badge>
+
+            <Badge value={114}>
+              <IconButton color='secondary'>
+                <IconMaterialPottedPlantRounded />
+              </IconButton>
+            </Badge>
+
+            <Badge value={1114} max={114}>
+              <IconButton color='secondary'>
+                <IconMaterialPottedPlantRounded />
+              </IconButton>
+            </Badge>
+          </div>
+        </Accordion>
+      </Accordion>
 
       <Accordion label='Divider'>
         <Accordion label='Divider' open>
