@@ -53,7 +53,8 @@
 ```javascript
   // Import any of the ui and icons
   import { IconButton } from '@amaui/ui-react';
-  import { IconMaterialPottedPlantRounded } from '@amaui/icons-material-react';
+  
+  import IconMaterialPottedPlantRounded from '@amaui/icons-material-react/IconMaterialPottedPlantRounded';
 
   function A(props) {
 
