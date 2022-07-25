@@ -844,6 +844,14 @@ function App() {
             <Avatar version='filled' tonal color='tertiary' size='large' disabled image='/avatar.jpeg' />
           </div>
         </Accordion>
+
+        <Accordion label='Avatar square' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Avatar square>
+              <IconMaterialPottedPlantRounded />
+            </Avatar>
+          </div>
+        </Accordion>
       </Accordion>
 
       <Accordion label='Badge'>

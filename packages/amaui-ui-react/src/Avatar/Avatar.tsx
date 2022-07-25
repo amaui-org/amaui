@@ -8,7 +8,11 @@ import Type from '../Type';
 const useStyle = style(theme => ({
   root: {
     cursor: 'default',
-    overflow: 'hidden'
+    overflow: 'hidden',
+
+    '&$square': {
+      borderRadius: [0, '!important']
+    }
   },
 
   image: {
@@ -26,6 +30,7 @@ const Avatar = React.forwardRef((props: any, ref) => {
   const {
     image,
     alt,
+    square,
 
     TypeProps = {},
 
@@ -83,7 +88,8 @@ const Avatar = React.forwardRef((props: any, ref) => {
 
       className={classNames([
         props.className,
-        classes.root
+        classes.root,
+        square && classes.square
       ])}
 
       Component={props.Component || 'span'}
