@@ -14,7 +14,7 @@ const useStyle = style(theme => ({
     outline: `2px solid ${theme.palette.background.default.primary}`,
 
     '&:not(:last-child)': {
-      marginLeft: `-${theme.methods.space.value('sm', 'px')}`
+      marginLeft: `-0.4em`
     }
   }
 }), { name: 'AmauiAvatarGroup' });
@@ -28,6 +28,7 @@ const AvatarGroup = React.forwardRef((props: any, ref: any) => {
     className,
     AdditionalAvatar,
     AdditionalAvatarProps = { color: 'neutral', tonal: true },
+    style,
 
     children: children_,
 
@@ -35,6 +36,7 @@ const AvatarGroup = React.forwardRef((props: any, ref: any) => {
   } = props;
 
   const styles: any = {
+    root: {},
     item: {}
   };
 
@@ -59,10 +61,10 @@ const AvatarGroup = React.forwardRef((props: any, ref: any) => {
       ...(AdditionalAvatarProps.TypeProps || {})
     };
 
-    if (props.size === 'small') AdditionalAvatarProps.TypeProps.size = `${(30 * 0.34) / 16}rem`;
-    else if (props.size === undefined || props.size === 'regular') AdditionalAvatarProps.TypeProps.size = `${(40 * 0.34) / 16}rem`;
-    else if (props.size === 'large') AdditionalAvatarProps.TypeProps.size = `${(60 * 0.34) / 16}rem`;
-    else if (!['small', 'regular', 'large'].includes(props.size)) AdditionalAvatarProps.TypeProps.size = `${(props.size * 0.34) / 16}rem`;
+    if (props.size === 'small') AdditionalAvatarProps.TypeProps.size = `${(30 * 0.3) / 16}rem`;
+    else if (props.size === undefined || props.size === 'regular') AdditionalAvatarProps.TypeProps.size = `${(40 * 0.3) / 16}rem`;
+    else if (props.size === 'large') AdditionalAvatarProps.TypeProps.size = `${(60 * 0.3) / 16}rem`;
+    else if (!['small', 'regular', 'large'].includes(props.size)) AdditionalAvatarProps.TypeProps.size = `${(props.size * 0.3) / 16}rem`;
 
     children.unshift(
       AdditionalAvatar ||
@@ -77,6 +79,8 @@ const AvatarGroup = React.forwardRef((props: any, ref: any) => {
     );
   }
 
+  if (AdditionalAvatarProps.TypeProps?.size !== undefined) styles.root.fontSize = AdditionalAvatarProps.TypeProps.size;
+
   return (
     <div
       ref={ref}
@@ -85,6 +89,12 @@ const AvatarGroup = React.forwardRef((props: any, ref: any) => {
         className,
         classes.root
       ])}
+
+      style={{
+        ...style,
+
+        ...styles.root
+      }}
     >
       {children.map((item: any) => React.cloneElement(item, {
         className: classes.item,
