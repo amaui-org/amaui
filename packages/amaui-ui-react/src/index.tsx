@@ -86,5 +86,11 @@ export * from './ModalIcon';
 export { default as Divider } from './Divider';
 export * from './Divider';
 
+export { default as Avatar } from './Avatar';
+export * from './Avatar';
+
+export { default as AvatarGroup } from './AvatarGroup';
+export * from './AvatarGroup';
+
 export { default as Badge } from './Badge';
 export * from './Badge';

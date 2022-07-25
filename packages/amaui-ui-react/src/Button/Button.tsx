@@ -48,7 +48,7 @@ const useStyle = style(theme => ({
     },
 
     '&$regular': {
-      padding: `${theme.methods.space.value('sm') as number + 3}px ${theme.methods.space.value('md', 'px')}`
+      padding: `${theme.methods.space.value('sm', 'px', 3)} ${theme.methods.space.value('md', 'px')}`
     },
 
     '&$large': {
@@ -58,23 +58,23 @@ const useStyle = style(theme => ({
     // Label icon
     '&$fab': {
       '&$small': {
-        height: `${theme.methods.space.value('sm') * 5}px`,
-        minWidth: `${theme.methods.space.value('sm') * 8}px`,
-        borderRadius: `${theme.methods.shape.radius.value('rg') as number - 4}px`,
-        padding: `${theme.methods.shape.radius.value('sm') as number + 4}px`,
+        height: `${theme.space.unit * 5}px`,
+        minWidth: `${theme.space.unit * 8}px`,
+        borderRadius: theme.methods.shape.radius.value('rg', 'px', -4),
+        padding: theme.methods.shape.radius.value('sm', 'px', 4),
       },
 
       '&$regular': {
-        height: `${theme.methods.space.value('sm') * 7}px`,
-        minWidth: `${theme.methods.space.value('sm') * 10}px`,
+        height: `${theme.space.unit * 7}px`,
+        minWidth: `${theme.space.unit * 10}px`,
         borderRadius: theme.methods.shape.radius.value('rg'),
         padding: theme.methods.space.value('rg', 'px')
       },
 
       '&$large': {
-        height: `${theme.methods.space.value('sm') * 9}px`,
-        minWidth: `${theme.methods.space.value('sm') * 12}px`,
-        borderRadius: `${theme.methods.shape.radius.value('rg') as number + 4}px`,
+        height: `${theme.space.unit * 9}px`,
+        minWidth: `${theme.space.unit * 12}px`,
+        borderRadius: theme.methods.shape.radius.value('rg', 'px', 4),
         padding: theme.methods.space.value('md', 'px')
       },
     },
@@ -82,17 +82,21 @@ const useStyle = style(theme => ({
     // Label icon
     '&$iconLabel': {
       borderRadius: '50%',
+      padding: '0',
 
       '&$small': {
-        padding: `${theme.methods.space.value('xs') + 2}px`
+        width: theme.methods.space.value('lg', 'px', -2),
+        height: theme.methods.space.value('lg', 'px', -2)
       },
 
       '&$regular': {
-        padding: theme.methods.space.value('sm', 'px')
+        width: theme.methods.space.value('xl', 'px'),
+        height: theme.methods.space.value('xl', 'px')
       },
 
       '&$large': {
-        padding: `${theme.methods.space.value('rg') - 4}px`
+        width: theme.methods.space.value('xxxl', 'px', 4),
+        height: theme.methods.space.value('xxxl', 'px', 4)
       },
     },
 
@@ -203,7 +207,7 @@ const useStyle = style(theme => ({
 
     // Size
     '&$small': {
-      gap: `${theme.methods.space.value('sm') - 2}px`,
+      gap: theme.methods.space.value('sm', 'px', -2),
       lineHeight: [1.455, '!important']
     },
 
@@ -212,12 +216,15 @@ const useStyle = style(theme => ({
     },
 
     '&$large': {
-      gap: `${theme.methods.space.value('sm') + 2}px`,
+      gap: theme.methods.space.value('sm', 'px', 2),
     }
   },
 
   // Label icon
   labelIcon: {
+    display: 'inline-flex',
+    alignItems: 'center',
+    justifyContent: 'center',
     pointerEvents: 'none',
     position: 'relative',
     lineHeight: 0
@@ -231,7 +238,7 @@ const useStyle = style(theme => ({
 
     '&$start': {
       '&$small': {
-        padding: `0 ${theme.methods.space.value('sm') - 3}px 0 ${theme.methods.space.value('sm') + 3}px`
+        padding: `0 ${theme.methods.space.value('sm', 'px', -3)} 0 ${theme.methods.space.value('sm', 'px', 3)}`
       },
 
       '&$regular': {
@@ -239,13 +246,13 @@ const useStyle = style(theme => ({
       },
 
       '&$large': {
-        padding: `0 ${theme.methods.space.value('sm') + 2}px 0 ${theme.methods.space.value('md') - 2}px`
+        padding: `0 ${theme.methods.space.value('sm', 'px', 2)} 0 ${theme.methods.space.value('md', 'px', -2)}`
       }
     },
 
     '&$end': {
       '&$small': {
-        padding: `0 ${theme.methods.space.value('sm') + 3}px 0 ${theme.methods.space.value('sm') - 3}px`
+        padding: `0 ${theme.methods.space.value('sm', 'px', 3)} 0 ${theme.methods.space.value('sm', 'px', -3)}`
       },
 
       '&$regular': {
@@ -253,7 +260,7 @@ const useStyle = style(theme => ({
       },
 
       '&$large': {
-        padding: `0 ${theme.methods.space.value('md') - 2}px 0 ${theme.methods.space.value('sm') + 2}px`
+        padding: `0 ${theme.methods.space.value('md', 'px', -2)} 0 ${theme.methods.space.value('sm', 'px', 2)}`
       }
     },
   }
@@ -319,6 +326,7 @@ const Button = React.forwardRef((props: any, ref) => {
     root: {},
     background: {},
     border: {},
+    labelIcon: {},
     label: { margin: 0 },
     icon: { fontSize: '17px' }
   };
@@ -376,7 +384,15 @@ const Button = React.forwardRef((props: any, ref) => {
 
   let children_ = children;
 
-  if (icon) children_ = React.cloneElement(children_, { size: size === 'large' ? 'medium' : size });
+  if (icon) {
+    if (!['small', 'regular', 'large'].includes(size)) {
+      children_ = React.cloneElement(children_, { size: children_.props?.size !== undefined ? children_.props.size : size * 0.6 });
+
+      styles.labelIcon.width = size;
+      styles.labelIcon.height = size;
+    }
+    else children_ = React.cloneElement(children_, { size: children_.props?.size !== undefined ? children_.props?.size : (size === 'large' ? 'medium' : size) });
+  }
 
   if (loading) {
     const iconLoading = React.cloneElement(loadingIcon, { color: 'inherit', style: styles.icon });
@@ -459,19 +475,6 @@ const Button = React.forwardRef((props: any, ref) => {
         {...InteractionProps}
       />
 
-      {version === 'outlined' && (
-        <span
-          className={classNames([
-            classes.border,
-            classes[version],
-            tonal && classes.tonal,
-            disabled && classes.disabled
-          ])}
-
-          style={styles.border}
-        />
-      )}
-
       {startIcon && (
         <span className={classNames([classes.icon, classes.start, classes[size]])}>
           {React.cloneElement(startIcon, { style: styles.icon })}
@@ -504,6 +507,19 @@ const Button = React.forwardRef((props: any, ref) => {
         <span className={classNames([classes.icon, classes.end, classes[size]])}>
           {React.cloneElement(endIcon, { style: styles.icon })}
         </span>
+      )}
+
+      {version === 'outlined' && (
+        <span
+          className={classNames([
+            classes.border,
+            classes[version],
+            tonal && classes.tonal,
+            disabled && classes.disabled
+          ])}
+
+          style={styles.border}
+        />
       )}
     </Component>
   );

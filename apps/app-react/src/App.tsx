@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
-import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, SegmentedButtons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge } from '@amaui/ui-react';
+import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, SegmentedButtons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup } from '@amaui/ui-react';
 
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
@@ -269,6 +269,582 @@ function App() {
       <div className={classes.row}>
         <Button size='small' color='secondary' className={classes.btn} onClick={() => updateTheme()}>{theme.palette.light ? 'dark' : 'light'}</Button>
       </div>
+
+      <Accordion label='Avatar group'>
+        <Accordion label='Avatar group' open>
+          <div className={classNames([classes.column])}>
+            <AvatarGroup>
+              <Avatar>1</Avatar>
+              <Avatar>2</Avatar>
+              <Avatar>3</Avatar>
+              <Avatar>4</Avatar>
+              <Avatar>5</Avatar>
+            </AvatarGroup>
+          </div>
+        </Accordion>
+
+        <Accordion label='Avatar group with image' open>
+          <div className={classNames([classes.column])}>
+            <AvatarGroup total={29} size='small'>
+              <Avatar image='/avatar.jpeg' />
+              <Avatar image='/avatar.jpeg' />
+              <Avatar image='/avatar.jpeg' />
+              <Avatar image='/avatar.jpeg' />
+              <Avatar image='/avatar.jpeg' />
+            </AvatarGroup>
+
+            <AvatarGroup total={29} size='regular'>
+              <Avatar image='/avatar.jpeg' />
+              <Avatar image='/avatar.jpeg' />
+              <Avatar image='/avatar.jpeg' />
+              <Avatar image='/avatar.jpeg' />
+              <Avatar image='/avatar.jpeg' />
+            </AvatarGroup>
+
+            <AvatarGroup total={29} size='large'>
+              <Avatar image='/avatar.jpeg' />
+              <Avatar image='/avatar.jpeg' />
+              <Avatar image='/avatar.jpeg' />
+              <Avatar image='/avatar.jpeg' />
+              <Avatar image='/avatar.jpeg' />
+            </AvatarGroup>
+
+            <AvatarGroup total={29} size={70}>
+              <Avatar image='/avatar.jpeg' />
+              <Avatar image='/avatar.jpeg' />
+              <Avatar image='/avatar.jpeg' />
+              <Avatar image='/avatar.jpeg' />
+              <Avatar image='/avatar.jpeg' />
+            </AvatarGroup>
+          </div>
+        </Accordion>
+
+        <Accordion label='Avatar group size' open>
+          <div className={classNames([classes.column])}>
+            <AvatarGroup size='small'>
+              <Avatar>1</Avatar>
+              <Avatar>2</Avatar>
+              <Avatar>3</Avatar>
+              <Avatar>4</Avatar>
+              <Avatar>5</Avatar>
+            </AvatarGroup>
+          </div>
+
+          <div className={classNames([classes.column])}>
+            <AvatarGroup size='regular'>
+              <Avatar>1</Avatar>
+              <Avatar>2</Avatar>
+              <Avatar>3</Avatar>
+              <Avatar>4</Avatar>
+              <Avatar>5</Avatar>
+            </AvatarGroup>
+          </div>
+
+          <div className={classNames([classes.column])}>
+            <AvatarGroup size='large'>
+              <Avatar>1</Avatar>
+              <Avatar>2</Avatar>
+              <Avatar>3</Avatar>
+              <Avatar>4</Avatar>
+              <Avatar>5</Avatar>
+            </AvatarGroup>
+          </div>
+
+          <div className={classNames([classes.column])}>
+            <AvatarGroup size={70}>
+              <Avatar>1</Avatar>
+              <Avatar>2</Avatar>
+              <Avatar>3</Avatar>
+              <Avatar>4</Avatar>
+              <Avatar>5</Avatar>
+            </AvatarGroup>
+          </div>
+        </Accordion>
+
+        <Accordion label='Avatar group color' open>
+          <div className={classNames([classes.column])}>
+            <AvatarGroup color='secondary'>
+              <Avatar>1</Avatar>
+              <Avatar>2</Avatar>
+              <Avatar>3</Avatar>
+              <Avatar>4</Avatar>
+              <Avatar>5</Avatar>
+            </AvatarGroup>
+          </div>
+        </Accordion>
+
+        <Accordion label='Avatar group Avatar override' open>
+          <div className={classNames([classes.column])}>
+            <AvatarGroup color='secondary'>
+              <Avatar color='primary'>1</Avatar>
+              <Avatar>2</Avatar>
+              <Avatar>3</Avatar>
+              <Avatar>4</Avatar>
+              <Avatar>5</Avatar>
+            </AvatarGroup>
+          </div>
+        </Accordion>
+
+        <Accordion label='Avatar group max' open>
+          <div className={classNames([classes.column])}>
+            <AvatarGroup max={4}>
+              <Avatar>1</Avatar>
+              <Avatar>2</Avatar>
+              <Avatar>3</Avatar>
+              <Avatar>4</Avatar>
+              <Avatar>5</Avatar>
+            </AvatarGroup>
+          </div>
+        </Accordion>
+
+        <Accordion label='Avatar group total' open>
+          <div className={classNames([classes.column])}>
+            <AvatarGroup total={29}>
+              <Avatar>1</Avatar>
+              <Avatar>2</Avatar>
+              <Avatar>3</Avatar>
+              <Avatar>4</Avatar>
+              <Avatar>5</Avatar>
+            </AvatarGroup>
+          </div>
+        </Accordion>
+
+        <Accordion label='Avatar group additional' open>
+          <div className={classNames([classes.column])}>
+            <AvatarGroup total={29} size='small'>
+              <Avatar>1</Avatar>
+              <Avatar>2</Avatar>
+              <Avatar>3</Avatar>
+              <Avatar>4</Avatar>
+              <Avatar>5</Avatar>
+            </AvatarGroup>
+
+            <AvatarGroup total={29} size='regular'>
+              <Avatar>1</Avatar>
+              <Avatar>2</Avatar>
+              <Avatar>3</Avatar>
+              <Avatar>4</Avatar>
+              <Avatar>5</Avatar>
+            </AvatarGroup>
+
+            <AvatarGroup total={29} size='large'>
+              <Avatar>1</Avatar>
+              <Avatar>2</Avatar>
+              <Avatar>3</Avatar>
+              <Avatar>4</Avatar>
+              <Avatar>5</Avatar>
+            </AvatarGroup>
+
+            <AvatarGroup total={29} size={70}>
+              <Avatar>1</Avatar>
+              <Avatar>2</Avatar>
+              <Avatar>3</Avatar>
+              <Avatar>4</Avatar>
+              <Avatar>5</Avatar>
+            </AvatarGroup>
+          </div>
+        </Accordion>
+      </Accordion>
+
+      <Accordion label='Avatar'>
+        <Accordion label='Avatar' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Avatar>
+              <IconMaterialPottedPlantRounded />
+            </Avatar>
+          </div>
+        </Accordion>
+
+        <Accordion label='Avatar with text' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Avatar>
+              a
+            </Avatar>
+
+            <Avatar>
+              Aa
+            </Avatar>
+
+            <Avatar>
+              Asda
+            </Avatar>
+          </div>
+        </Accordion>
+
+        <Accordion label='Avatar with image' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Avatar image='/avatar.jpeg' />
+          </div>
+        </Accordion>
+
+        <Accordion label='Avatar versions' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Avatar version='filled' color='secondary' size='small'>
+              <IconMaterialPottedPlantRounded />
+            </Avatar>
+            <Avatar version='filled' color='secondary' size='regular'>
+              <IconMaterialPottedPlantRounded />
+            </Avatar>
+            <Avatar version='filled' color='secondary' size='large'>
+              <IconMaterialPottedPlantRounded />
+            </Avatar>
+            <Avatar version='filled' color='secondary' size='large' elevation={false}>
+              <IconMaterialPottedPlantRounded />
+            </Avatar>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Avatar tonal version='filled' color='secondary' size='small'>
+              <IconMaterialPottedPlantRounded />
+            </Avatar>
+            <Avatar tonal version='filled' color='secondary' size='regular'>
+              <IconMaterialPottedPlantRounded />
+            </Avatar>
+            <Avatar tonal version='filled' color='secondary' size='large'>
+              <IconMaterialPottedPlantRounded />
+            </Avatar>
+            <Avatar tonal version='filled' color='secondary' size='large' elevation={false}>
+              <IconMaterialPottedPlantRounded />
+            </Avatar>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Avatar version='outlined' color='secondary' size='small'>
+              <IconMaterialPottedPlantRounded />
+            </Avatar>
+            <Avatar version='outlined' color='secondary' size='regular'>
+              <IconMaterialPottedPlantRounded />
+            </Avatar>
+            <Avatar version='outlined' color='secondary' size='large'>
+              <IconMaterialPottedPlantRounded />
+            </Avatar>
+            <Avatar version='outlined' color='secondary' size='large' elevation={false}>
+              <IconMaterialPottedPlantRounded />
+            </Avatar>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Avatar version='text' color='secondary' size='small'>
+              <IconMaterialPottedPlantRounded />
+            </Avatar>
+            <Avatar version='text' color='secondary' size='regular'>
+              <IconMaterialPottedPlantRounded />
+            </Avatar>
+            <Avatar version='text' color='secondary' size='large'>
+              <IconMaterialPottedPlantRounded />
+            </Avatar>
+          </div>
+        </Accordion>
+
+        <Accordion label='Avatar versions text' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Avatar version='filled' color='secondary' size='small'>
+              Aa
+            </Avatar>
+            <Avatar version='filled' color='secondary' size='regular'>
+              Aa
+            </Avatar>
+            <Avatar version='filled' color='secondary' size='large'>
+              Aa
+            </Avatar>
+            <Avatar version='filled' color='secondary' size='large' elevation={false}>
+              Aa
+            </Avatar>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Avatar tonal version='filled' color='secondary' size='small'>
+              Aa
+            </Avatar>
+            <Avatar tonal version='filled' color='secondary' size='regular'>
+              Aa
+            </Avatar>
+            <Avatar tonal version='filled' color='secondary' size='large'>
+              Aa
+            </Avatar>
+            <Avatar tonal version='filled' color='secondary' size='large' elevation={false}>
+              Aa
+            </Avatar>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Avatar version='outlined' color='secondary' size='small'>
+              Aa
+            </Avatar>
+            <Avatar version='outlined' color='secondary' size='regular'>
+              Aa
+            </Avatar>
+            <Avatar version='outlined' color='secondary' size='large'>
+              Aa
+            </Avatar>
+            <Avatar version='outlined' color='secondary' size='large' elevation={false}>
+              Aa
+            </Avatar>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Avatar version='text' color='secondary' size='small'>
+              Aa
+            </Avatar>
+            <Avatar version='text' color='secondary' size='regular'>
+              Aa
+            </Avatar>
+            <Avatar version='text' color='secondary' size='large'>
+              Aa
+            </Avatar>
+          </div>
+        </Accordion>
+
+        <Accordion label='Avatar versions image' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Avatar version='filled' color='secondary' size='small' image='/avatar.jpeg' />
+            <Avatar version='filled' color='secondary' size='regular' image='/avatar.jpeg' />
+            <Avatar version='filled' color='secondary' size='large' image='/avatar.jpeg' />
+            <Avatar version='filled' color='secondary' size='large' elevation={false} image='/avatar.jpeg' />
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Avatar tonal version='filled' color='secondary' size='small' image='/avatar.jpeg' />
+            <Avatar tonal version='filled' color='secondary' size='regular' image='/avatar.jpeg' />
+            <Avatar tonal version='filled' color='secondary' size='large' image='/avatar.jpeg' />
+            <Avatar tonal version='filled' color='secondary' size='large' elevation={false} image='/avatar.jpeg' />
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Avatar version='outlined' color='secondary' size='small' image='/avatar.jpeg' />
+            <Avatar version='outlined' color='secondary' size='regular' image='/avatar.jpeg' />
+            <Avatar version='outlined' color='secondary' size='large' image='/avatar.jpeg' />
+            <Avatar version='outlined' color='secondary' size='large' elevation={false} image='/avatar.jpeg' />
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Avatar version='text' color='secondary' size='small' image='/avatar.jpeg' />
+            <Avatar version='text' color='secondary' size='regular' image='/avatar.jpeg' />
+            <Avatar version='text' color='secondary' size='large' image='/avatar.jpeg' />
+          </div>
+        </Accordion>
+
+        <Accordion label='Avatar color' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Avatar version='text' color='primary'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar version='text' color='secondary'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar version='text' color='tertiary'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar version='text' color='quaternary'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar version='text' color='info'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar version='text' color='success'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar version='text' color='error'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar version='text' color='warning'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar version='text' color='neutral'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar version='text' color='#f5d758'><IconMaterialPottedPlantRounded /></Avatar>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Avatar version='outlined' color='primary'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar version='outlined' color='secondary'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar version='outlined' color='tertiary'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar version='outlined' color='quaternary'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar version='outlined' color='info'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar version='outlined' color='success'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar version='outlined' color='error'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar version='outlined' color='warning'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar version='outlined' color='neutral'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar version='outlined' color='#f5d758'><IconMaterialPottedPlantRounded /></Avatar>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Avatar version='filled' color='primary'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar version='filled' color='secondary'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar version='filled' color='tertiary'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar version='filled' color='quaternary'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar version='filled' color='info'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar version='filled' color='success'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar version='filled' color='error'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar version='filled' color='warning'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar version='filled' color='neutral'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar version='filled' color='#f5d758'><IconMaterialPottedPlantRounded /></Avatar>
+          </div>
+        </Accordion>
+
+        <Accordion label='Avatar color text' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Avatar version='text' color='primary'>Aa</Avatar>
+            <Avatar version='text' color='secondary'>Aa</Avatar>
+            <Avatar version='text' color='tertiary'>Aa</Avatar>
+            <Avatar version='text' color='quaternary'>Aa</Avatar>
+            <Avatar version='text' color='info'>Aa</Avatar>
+            <Avatar version='text' color='success'>Aa</Avatar>
+            <Avatar version='text' color='error'>Aa</Avatar>
+            <Avatar version='text' color='warning'>Aa</Avatar>
+            <Avatar version='text' color='neutral'>Aa</Avatar>
+            <Avatar version='text' color='#f5d758'>Aa</Avatar>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Avatar version='outlined' color='primary'>Aa</Avatar>
+            <Avatar version='outlined' color='secondary'>Aa</Avatar>
+            <Avatar version='outlined' color='tertiary'>Aa</Avatar>
+            <Avatar version='outlined' color='quaternary'>Aa</Avatar>
+            <Avatar version='outlined' color='info'>Aa</Avatar>
+            <Avatar version='outlined' color='success'>Aa</Avatar>
+            <Avatar version='outlined' color='error'>Aa</Avatar>
+            <Avatar version='outlined' color='warning'>Aa</Avatar>
+            <Avatar version='outlined' color='neutral'>Aa</Avatar>
+            <Avatar version='outlined' color='#f5d758'>Aa</Avatar>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Avatar version='filled' color='primary'>Aa</Avatar>
+            <Avatar version='filled' color='secondary'>Aa</Avatar>
+            <Avatar version='filled' color='tertiary'>Aa</Avatar>
+            <Avatar version='filled' color='quaternary'>Aa</Avatar>
+            <Avatar version='filled' color='info'>Aa</Avatar>
+            <Avatar version='filled' color='success'>Aa</Avatar>
+            <Avatar version='filled' color='error'>Aa</Avatar>
+            <Avatar version='filled' color='warning'>Aa</Avatar>
+            <Avatar version='filled' color='neutral'>Aa</Avatar>
+            <Avatar version='filled' color='#f5d758'>Aa</Avatar>
+          </div>
+        </Accordion>
+
+        <Accordion label='Avatar color tonal' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Avatar tonal version='text' color='primary'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar tonal version='text' color='secondary'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar tonal version='text' color='tertiary'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar tonal version='text' color='quaternary'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar tonal version='text' color='info'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar tonal version='text' color='success'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar tonal version='text' color='error'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar tonal version='text' color='warning'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar tonal version='text' color='neutral'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar tonal version='text' color='#f5d758'><IconMaterialPottedPlantRounded /></Avatar>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Avatar tonal version='outlined' color='primary'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar tonal version='outlined' color='secondary'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar tonal version='outlined' color='tertiary'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar tonal version='outlined' color='quaternary'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar tonal version='outlined' color='info'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar tonal version='outlined' color='success'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar tonal version='outlined' color='error'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar tonal version='outlined' color='warning'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar tonal version='outlined' color='neutral'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar tonal version='outlined' color='#f5d758'><IconMaterialPottedPlantRounded /></Avatar>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Avatar tonal version='filled' color='primary'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar tonal version='filled' color='secondary'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar tonal version='filled' color='tertiary'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar tonal version='filled' color='quaternary'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar tonal version='filled' color='info'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar tonal version='filled' color='success'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar tonal version='filled' color='error'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar tonal version='filled' color='warning'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar tonal version='filled' color='neutral'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar tonal version='filled' color='#f5d758'><IconMaterialPottedPlantRounded /></Avatar>
+          </div>
+        </Accordion>
+
+        <Accordion label='Avatar color tonal text' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Avatar tonal version='text' color='primary'>Aa</Avatar>
+            <Avatar tonal version='text' color='secondary'>Aa</Avatar>
+            <Avatar tonal version='text' color='tertiary'>Aa</Avatar>
+            <Avatar tonal version='text' color='quaternary'>Aa</Avatar>
+            <Avatar tonal version='text' color='info'>Aa</Avatar>
+            <Avatar tonal version='text' color='success'>Aa</Avatar>
+            <Avatar tonal version='text' color='error'>Aa</Avatar>
+            <Avatar tonal version='text' color='warning'>Aa</Avatar>
+            <Avatar tonal version='text' color='neutral'>Aa</Avatar>
+            <Avatar tonal version='text' color='#f5d758'>Aa</Avatar>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Avatar tonal version='outlined' color='primary'>Aa</Avatar>
+            <Avatar tonal version='outlined' color='secondary'>Aa</Avatar>
+            <Avatar tonal version='outlined' color='tertiary'>Aa</Avatar>
+            <Avatar tonal version='outlined' color='quaternary'>Aa</Avatar>
+            <Avatar tonal version='outlined' color='info'>Aa</Avatar>
+            <Avatar tonal version='outlined' color='success'>Aa</Avatar>
+            <Avatar tonal version='outlined' color='error'>Aa</Avatar>
+            <Avatar tonal version='outlined' color='warning'>Aa</Avatar>
+            <Avatar tonal version='outlined' color='neutral'>Aa</Avatar>
+            <Avatar tonal version='outlined' color='#f5d758'>Aa</Avatar>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Avatar tonal version='filled' color='primary'>Aa</Avatar>
+            <Avatar tonal version='filled' color='secondary'>Aa</Avatar>
+            <Avatar tonal version='filled' color='tertiary'>Aa</Avatar>
+            <Avatar tonal version='filled' color='quaternary'>Aa</Avatar>
+            <Avatar tonal version='filled' color='info'>Aa</Avatar>
+            <Avatar tonal version='filled' color='success'>Aa</Avatar>
+            <Avatar tonal version='filled' color='error'>Aa</Avatar>
+            <Avatar tonal version='filled' color='warning'>Aa</Avatar>
+            <Avatar tonal version='filled' color='neutral'>Aa</Avatar>
+            <Avatar tonal version='filled' color='#f5d758'>Aa</Avatar>
+          </div>
+        </Accordion>
+
+        <Accordion label='Avatar size' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Avatar color='secondary' size='small'>Aa</Avatar>
+            <Avatar color='secondary' size='regular'>Aa</Avatar>
+            <Avatar color='secondary' size='large'>Aa</Avatar>
+            <Avatar color='secondary' size={70}>Aa</Avatar>
+
+            <Avatar color='secondary' size='small'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar color='secondary' size='regular'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar color='secondary' size='large'><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar color='secondary' size={70}><IconMaterialPottedPlantRounded /></Avatar>
+
+            <Avatar color='secondary' size='small' image='/avatar.jpeg' />
+            <Avatar color='secondary' size='regular' image='/avatar.jpeg' />
+            <Avatar color='secondary' size='large' image='/avatar.jpeg' />
+            <Avatar color='secondary' size={70} image='/avatar.jpeg' />
+          </div>
+        </Accordion>
+
+        <Accordion label='Avatar loading' open>
+          <Button size='small' color='secondary' className={classes.btn} onClick={() => update('loading')}>a</Button>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Avatar version='text' color='primary' size='small' loading={a.loading}><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar version='outlined' color='secondary' size='regular' loading={a.loading}><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar version='filled' color='secondary' size='regular' loading={a.loading}><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar version='filled' tonal color='tertiary' size='large' loading={a.loading}><IconMaterialPottedPlantRounded /></Avatar>
+          </div>
+        </Accordion>
+
+        <Accordion label='Avatar disabled' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Avatar version='text' color='primary' size='small' disabled><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar version='outlined' color='secondary' size='regular' disabled><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar version='filled' color='secondary' size='regular' disabled><IconMaterialPottedPlantRounded /></Avatar>
+            <Avatar version='filled' tonal color='tertiary' size='large' disabled><IconMaterialPottedPlantRounded /></Avatar>
+          </div>
+        </Accordion>
+
+        <Accordion label='Avatar disabled text' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Avatar version='text' color='primary' size='small' disabled>Aa</Avatar>
+            <Avatar version='outlined' color='secondary' size='regular' disabled>Aa</Avatar>
+            <Avatar version='filled' color='secondary' size='regular' disabled>Aa</Avatar>
+            <Avatar version='filled' tonal color='tertiary' size='large' disabled>Aa</Avatar>
+          </div>
+        </Accordion>
+
+        <Accordion label='Avatar disabled image' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Avatar version='text' color='primary' size='small' disabled image='/avatar.jpeg' />
+            <Avatar version='outlined' color='secondary' size='regular' disabled image='/avatar.jpeg' />
+            <Avatar version='filled' color='secondary' size='regular' disabled image='/avatar.jpeg' />
+            <Avatar version='filled' tonal color='tertiary' size='large' disabled image='/avatar.jpeg' />
+          </div>
+        </Accordion>
+      </Accordion>
 
       <Accordion label='Badge'>
         <Accordion label='Badge' open>
@@ -1352,7 +1928,7 @@ function App() {
           </div>
         </Accordion>
 
-        <Accordion label='Button versions' open>
+        <Accordion label='Icon button versions' open>
           <div className={classNames([classes.row, classes.center])}>
             <IconButton version='filled' color='secondary' size='small'>
               <IconMaterialPottedPlantRounded />
@@ -1493,15 +2069,16 @@ function App() {
           </div>
         </Accordion>
 
-        <Accordion label='Button size' open>
+        <Accordion label='Icon button size' open>
           <div className={classNames([classes.row, classes.center])}>
             <IconButton color='secondary' size='small'><IconMaterialPottedPlantRounded /></IconButton>
             <IconButton color='secondary' size='regular'><IconMaterialPottedPlantRounded /></IconButton>
             <IconButton color='secondary' size='large'><IconMaterialPottedPlantRounded /></IconButton>
+            <IconButton color='secondary' size={70}><IconMaterialPottedPlantRounded /></IconButton>
           </div>
         </Accordion>
 
-        <Accordion label='Button loading' open>
+        <Accordion label='Icon button loading' open>
           <Button size='small' color='secondary' className={classes.btn} onClick={() => update('loading')}>a</Button>
 
           <div className={classNames([classes.row, classes.center])}>
@@ -1512,7 +2089,7 @@ function App() {
           </div>
         </Accordion>
 
-        <Accordion label='Button disabled' open>
+        <Accordion label='Icon button disabled' open>
           <div className={classNames([classes.row, classes.center])}>
             <IconButton version='text' color='primary' size='small' disabled><IconMaterialPottedPlantRounded /></IconButton>
             <IconButton version='outlined' color='secondary' size='regular' disabled><IconMaterialPottedPlantRounded /></IconButton>

@@ -65,12 +65,18 @@ const Type = React.forwardRef((props: any, ref) => {
 
   const {
     version = 'b2',
+    size,
     className,
     Component: Component_,
     children,
+    style = {},
 
     ...other
   } = props;
+
+  const styles: any = {
+    root: {}
+  };
 
   let Component: any = Component_;
 
@@ -89,6 +95,8 @@ const Type = React.forwardRef((props: any, ref) => {
 
   if (!Component) Component = 'p';
 
+  if (size !== undefined) styles.root.fontSize = size;
+
   return (
     <Component
       ref={ref}
@@ -98,6 +106,12 @@ const Type = React.forwardRef((props: any, ref) => {
         className,
         classes[version]
       ])}
+
+      style={{
+        ...style,
+
+        ...styles.root
+      }}
 
       {...other}
     >
