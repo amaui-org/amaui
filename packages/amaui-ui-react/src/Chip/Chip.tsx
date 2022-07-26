@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is } from '@amaui/utils';
-import { classNames, style, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style } from '@amaui/style-react';
 
 import Button from '../Button';
 import Icon from '../Icon';
@@ -34,8 +34,6 @@ const Chip = React.forwardRef((props: any, ref) => {
   const [selected, setSelected] = React.useState(false);
 
   const { classes } = useStyle();
-
-  const theme = useAmauiTheme();
 
   const {
     input,
@@ -79,6 +77,8 @@ const Chip = React.forwardRef((props: any, ref) => {
         // Unselect
         if (selected) {
           setPreSelected(false);
+
+          if (is('function', onUnselected)) onUnselected();
         }
         else {
           setPreSelected(true);
@@ -94,8 +94,6 @@ const Chip = React.forwardRef((props: any, ref) => {
   const updateSelected = () => {
     if (filter) {
       setSelected(false);
-
-      if (is('function', onUnselected)) onUnselected();
     }
   };
 

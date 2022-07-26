@@ -173,6 +173,8 @@ const SegmentedButtons = React.forwardRef((props: any, ref: any) => {
       // Unselect
       if (selected.includes(index)) {
         setPreSelected(items => items.filter(item => item !== index));
+
+        if (is('function', itemProps.onUnselected)) itemProps.onUnselected();
       }
       else {
         if (select === 'single') {
@@ -193,8 +195,6 @@ const SegmentedButtons = React.forwardRef((props: any, ref: any) => {
 
   const updateSelected = (index: number, itemProps: any) => {
     setSelected(items => items.filter(item => item !== index));
-
-    if (is('function', itemProps.onUnselected)) itemProps.onUnselected();
   };
 
   const children = React.Children
