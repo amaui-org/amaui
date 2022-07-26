@@ -192,7 +192,7 @@ const Surface = React.forwardRef((props: any, ref: any) => {
     className,
 
     size = 'regular',
-    color = 'default',
+    color = props.tonal ? 'neutral' : 'default',
     tonal = true,
     elevation = 0,
 

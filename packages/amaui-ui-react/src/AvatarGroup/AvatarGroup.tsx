@@ -27,7 +27,7 @@ const AvatarGroup = React.forwardRef((props: any, ref: any) => {
     total,
     className,
     AdditionalAvatar,
-    AdditionalAvatarProps = { color: 'neutral', tonal: true },
+    AdditionalAvatarProps = { color: 'default', tonal: true },
     style,
 
     children: children_,

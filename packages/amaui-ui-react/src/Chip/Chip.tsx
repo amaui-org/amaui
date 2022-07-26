@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { is } from '@amaui/utils';
-import { classNames, style } from '@amaui/style-react';
 
 import Button from '../Button';
 import Icon from '../Icon';
@@ -23,17 +22,9 @@ const IconMaterialCloseSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
-const useStyle = style(theme => ({
-  root: {
-
-  }
-}), { name: 'AmauiAvater' });
-
 const Chip = React.forwardRef((props: any, ref) => {
   const [preSelected, setPreSelected] = React.useState(false);
   const [selected, setSelected] = React.useState(false);
-
-  const { classes } = useStyle();
 
   const {
     input,
@@ -130,16 +121,9 @@ const Chip = React.forwardRef((props: any, ref) => {
 
       selected={selected}
 
-      className={
-        classNames([
-          props.className,
-          classes.root
-        ])
-      }
-
       version={props.version || 'outlined'}
 
-      color={props.color || 'neutral'}
+      color={props.color || (props.tonal ? 'neutral' : 'default')}
 
       tonal={props.tonal !== undefined ? props.tonal : false}
 

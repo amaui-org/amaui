@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is } from '@amaui/utils';
-import { classNames, style } from '@amaui/style-react';
+import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 const noShrinkStrokeDashOffset = 194;
 
@@ -58,23 +58,45 @@ const useStyle = style(theme => ({
     '&$large': { fontSize: theme.methods.space.value('xxxl', 'px') },
 
     // Color
-    '&$neutral': { color: theme.palette.text.default.primary },
+    '&$default': { color: theme.palette.text.default.primary },
 
-    '&$primary': { color: theme.methods.palette.color.value('primary', 50) },
+    '&$neutral': { color: theme.palette.color.neutral.main },
 
-    '&$secondary': { color: theme.methods.palette.color.value('secondary', 50) },
+    '&$primary': { color: theme.palette.color.primary.main },
 
-    '&$tertiary': { color: theme.methods.palette.color.value('tertiary', 50) },
+    '&$secondary': { color: theme.palette.color.secondary.main },
 
-    '&$quaternary': { color: theme.methods.palette.color.value('quaternary', 50) },
+    '&$tertiary': { color: theme.palette.color.tertiary.main },
 
-    '&$info': { color: theme.methods.palette.color.value('info', 50) },
+    '&$quaternary': { color: theme.palette.color.quaternary.main },
 
-    '&$success': { color: theme.methods.palette.color.value('success', 50) },
+    '&$info': { color: theme.palette.color.info.main },
 
-    '&$warning': { color: theme.methods.palette.color.value('warning', 50) },
+    '&$success': { color: theme.palette.color.success.main },
 
-    '&$error': { color: theme.methods.palette.color.value('error', 50) },
+    '&$warning': { color: theme.palette.color.warning.main },
+
+    '&$error': { color: theme.palette.color.error.main },
+
+    '&$tonal': {
+      '&$neutral': { color: theme.methods.palette.color.value('neutral', 70) },
+
+      '&$primary': { color: theme.methods.palette.color.value('primary', 70) },
+
+      '&$secondary': { color: theme.methods.palette.color.value('secondary', 70) },
+
+      '&$tertiary': { color: theme.methods.palette.color.value('tertiary', 70) },
+
+      '&$quaternary': { color: theme.methods.palette.color.value('quaternary', 70) },
+
+      '&$info': { color: theme.methods.palette.color.value('info', 70) },
+
+      '&$success': { color: theme.methods.palette.color.value('success', 70) },
+
+      '&$warning': { color: theme.methods.palette.color.value('warning', 70) },
+
+      '&$error': { color: theme.methods.palette.color.value('error', 70) }
+    }
   },
 
   svg: {
@@ -116,8 +138,11 @@ const useStyle = style(theme => ({
 const RoundProgress = React.forwardRef((props: any, ref: any) => {
   const { classes } = useStyle();
 
+  const theme = useAmauiTheme();
+
   const {
     size = 'regular',
+    tonal,
     color = 'primary',
     className,
     style,
@@ -141,7 +166,15 @@ const RoundProgress = React.forwardRef((props: any, ref: any) => {
 
   if (!classes[size]) styles.root.fontSize = is('number', size) ? `${size}px` : size;
 
-  if (!classes[color]) styles.root.color = color;
+  if (!classes[color]) {
+    styles.root.color = color;
+
+    if (tonal) {
+      const palette = theme.methods.color(color);
+
+      styles.root.color = theme.methods.palette.color.value(undefined, 70, true, palette);
+    }
+  }
 
   if (version === 'determinate') {
     rounded = false;
@@ -164,6 +197,7 @@ const RoundProgress = React.forwardRef((props: any, ref: any) => {
         classes[size],
         classes[color],
         classes[version],
+        tonal && classes.tonal,
         !noShrink && classes.shrink,
       ])}
     >

@@ -111,8 +111,8 @@ const Divider = React.forwardRef((props: any, ref: any) => {
     className,
     inset,
     middle,
-    color = 'neutral',
-    tonal = true,
+    color = props.tonal ? 'neutral' : 'default',
+    tonal,
     opacity = theme.palette.visual_contrast.default.opacity.divider,
     alignment = 'center',
     orientation = 'horizontal',
@@ -142,10 +142,16 @@ const Divider = React.forwardRef((props: any, ref: any) => {
     else styles.divider.background = theme.methods.palette.color.colorToRgb(theme.methods.palette.color.value(color, 30, true, palette), opacity);
   }
   else {
-    const palette: any = theme.palette.color[color] || theme.methods.color(color);
+    if (color === 'default') {
+      if (!children) styles.root.background = theme.methods.palette.color.colorToRgb(theme.palette.text.default.primary, opacity);
+      else styles.divider.background = theme.methods.palette.color.colorToRgb(theme.palette.text.default.primary, opacity);
+    }
+    else {
+      const palette: any = theme.palette.color[color] || theme.methods.color(color);
 
-    if (!children) styles.root.background = theme.methods.palette.color.colorToRgb(palette.main, opacity);
-    else styles.divider.background = theme.methods.palette.color.colorToRgb(palette.main, opacity);
+      if (!children) styles.root.background = theme.methods.palette.color.colorToRgb(palette.main, opacity);
+      else styles.divider.background = theme.methods.palette.color.colorToRgb(palette.main, opacity);
+    }
   }
 
   if (alignment === 'start') styles.start.flexBasis = '15%';

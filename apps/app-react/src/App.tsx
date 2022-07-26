@@ -82,6 +82,7 @@ const useStyle = style(theme => ({
   row: {
     display: 'flex',
     flexDirection: 'row',
+    flexWrap: 'wrap',
     width: '100%',
     gap: 24
   },
@@ -459,7 +460,7 @@ function App() {
           </div>
         </Accordion>
 
-        <Accordion label='Button versions' open>
+        <Accordion label='Chip versions' open>
           <div className={classNames([classes.row, classes.center])}>
             <Chip version='filled' color='secondary' size='small'>Filled</Chip>
             <Chip version='filled' color='secondary' size='regular'>Filled</Chip>
@@ -489,6 +490,7 @@ function App() {
 
         <Accordion label='Chip color' open>
           <div className={classNames([classes.row, classes.center])}>
+            <Chip version='text' color='default'>Default</Chip>
             <Chip version='text' color='primary'>Primary</Chip>
             <Chip version='text' color='secondary'>Secondary</Chip>
             <Chip version='text' color='tertiary'>Tertiary</Chip>
@@ -502,6 +504,7 @@ function App() {
           </div>
 
           <div className={classNames([classes.row, classes.center])}>
+            <Chip version='outlined' color='default'>Default</Chip>
             <Chip version='outlined' color='primary'>Primary</Chip>
             <Chip version='outlined' color='secondary'>Secondary</Chip>
             <Chip version='outlined' color='tertiary'>Tertiary</Chip>
@@ -515,6 +518,7 @@ function App() {
           </div>
 
           <div className={classNames([classes.row, classes.center])}>
+            <Chip version='filled' color='default'>Default</Chip>
             <Chip version='filled' color='primary'>Primary</Chip>
             <Chip version='filled' color='secondary'>Secondary</Chip>
             <Chip version='filled' color='tertiary'>Tertiary</Chip>
@@ -579,7 +583,7 @@ function App() {
         </Accordion>
 
         <Accordion label='Chip loading' open>
-          <Chip size='small' color='secondary' className={classes.btn} onClick={() => update('loading')}>a</Chip>
+          <Button size='small' color='secondary' className={classes.btn} onClick={() => update('loading')}>a</Button>
 
           <div className={classNames([classes.row, classes.center])}>
             <Chip version='text' color='primary' size='small' loading={a.loading}>Small</Chip>
@@ -1019,6 +1023,7 @@ function App() {
 
         <Accordion label='Avatar color' open>
           <div className={classNames([classes.row, classes.center])}>
+            <Avatar version='text' color='default'><IconMaterialPottedPlantRounded /></Avatar>
             <Avatar version='text' color='primary'><IconMaterialPottedPlantRounded /></Avatar>
             <Avatar version='text' color='secondary'><IconMaterialPottedPlantRounded /></Avatar>
             <Avatar version='text' color='tertiary'><IconMaterialPottedPlantRounded /></Avatar>
@@ -1032,6 +1037,7 @@ function App() {
           </div>
 
           <div className={classNames([classes.row, classes.center])}>
+            <Avatar version='outlined' color='default'><IconMaterialPottedPlantRounded /></Avatar>
             <Avatar version='outlined' color='primary'><IconMaterialPottedPlantRounded /></Avatar>
             <Avatar version='outlined' color='secondary'><IconMaterialPottedPlantRounded /></Avatar>
             <Avatar version='outlined' color='tertiary'><IconMaterialPottedPlantRounded /></Avatar>
@@ -1045,6 +1051,7 @@ function App() {
           </div>
 
           <div className={classNames([classes.row, classes.center])}>
+            <Avatar version='filled' color='default'><IconMaterialPottedPlantRounded /></Avatar>
             <Avatar version='filled' color='primary'><IconMaterialPottedPlantRounded /></Avatar>
             <Avatar version='filled' color='secondary'><IconMaterialPottedPlantRounded /></Avatar>
             <Avatar version='filled' color='tertiary'><IconMaterialPottedPlantRounded /></Avatar>
@@ -1060,6 +1067,7 @@ function App() {
 
         <Accordion label='Avatar color text' open>
           <div className={classNames([classes.row, classes.center])}>
+            <Avatar version='text' color='default'>Aa</Avatar>
             <Avatar version='text' color='primary'>Aa</Avatar>
             <Avatar version='text' color='secondary'>Aa</Avatar>
             <Avatar version='text' color='tertiary'>Aa</Avatar>
@@ -1073,6 +1081,7 @@ function App() {
           </div>
 
           <div className={classNames([classes.row, classes.center])}>
+            <Avatar version='outlined' color='default'>Aa</Avatar>
             <Avatar version='outlined' color='primary'>Aa</Avatar>
             <Avatar version='outlined' color='secondary'>Aa</Avatar>
             <Avatar version='outlined' color='tertiary'>Aa</Avatar>
@@ -1086,6 +1095,7 @@ function App() {
           </div>
 
           <div className={classNames([classes.row, classes.center])}>
+            <Avatar version='filled' color='default'>Aa</Avatar>
             <Avatar version='filled' color='primary'>Aa</Avatar>
             <Avatar version='filled' color='secondary'>Aa</Avatar>
             <Avatar version='filled' color='tertiary'>Aa</Avatar>
@@ -1276,8 +1286,11 @@ function App() {
           </div>
         </Accordion>
 
-        <Accordion label='Divider color' open>
+        <Accordion label='Badge color' open>
           <div className={classNames([classes.column])} style={{ gap: 24 }}>
+            <Badge value='14' color='default' tonal={false}>
+              <IconMaterialPottedPlantRounded />
+            </Badge>
             <Badge value='14' color='primary' tonal={false}>
               <IconMaterialPottedPlantRounded />
             </Badge>
@@ -1311,7 +1324,7 @@ function App() {
           </div>
         </Accordion>
 
-        <Accordion label='Divider color tonal' open>
+        <Accordion label='Badge color tonal' open>
           <div className={classNames([classes.column])} style={{ gap: 24 }}>
             <Badge value='14' color='primary' tonal>
               <IconMaterialPottedPlantRounded />
@@ -1488,16 +1501,17 @@ function App() {
 
         <Accordion label='Divider color' open>
           <div className={classNames([classes.column, classes.center])} style={{ gap: 24 }}>
-            <Divider color='primary' tonal={false} />
-            <Divider color='secondary' tonal={false} />
-            <Divider color='tertiary' tonal={false} />
-            <Divider color='quaternary' tonal={false} />
-            <Divider color='info' tonal={false} />
-            <Divider color='success' tonal={false} />
-            <Divider color='error' tonal={false} />
-            <Divider color='warning' tonal={false} />
-            <Divider color='neutral' tonal={false} />
-            <Divider color='#f5d758' tonal={false} />
+            <Divider color='default' />
+            <Divider color='primary' />
+            <Divider color='secondary' />
+            <Divider color='tertiary' />
+            <Divider color='quaternary' />
+            <Divider color='info' />
+            <Divider color='success' />
+            <Divider color='error' />
+            <Divider color='warning' />
+            <Divider color='neutral' />
+            <Divider color='#f5d758' />
           </div>
         </Accordion>
 
@@ -2030,21 +2044,7 @@ function App() {
 
         <Accordion label='Surface colors' open>
           <div className={classNames([classes.column])}>
-            <Surface color='primary'>Primary</Surface>
-            <Surface color='secondary'>Secondary</Surface>
-            <Surface color='tertiary'>Tertiary</Surface>
-            <Surface color='quaternary'>Quaternary</Surface>
-            <Surface color='info'>Info</Surface>
-            <Surface color='success'>Success</Surface>
-            <Surface color='error'>Error</Surface>
-            <Surface color='warning'>Warning</Surface>
-            <Surface color='neutral'>Neutral</Surface>
-            <Surface color='#f5d758'>Other</Surface>
-          </div>
-        </Accordion>
-
-        <Accordion label='Surface tonal' open>
-          <div className={classNames([classes.column])}>
+            <Surface color='default' tonal={false}>Default</Surface>
             <Surface color='primary' tonal={false}>Primary</Surface>
             <Surface color='secondary' tonal={false}>Secondary</Surface>
             <Surface color='tertiary' tonal={false}>Tertiary</Surface>
@@ -2055,6 +2055,21 @@ function App() {
             <Surface color='warning' tonal={false}>Warning</Surface>
             <Surface color='neutral' tonal={false}>Neutral</Surface>
             <Surface color='#f5d758' tonal={false}>Other</Surface>
+          </div>
+        </Accordion>
+
+        <Accordion label='Surface tonal' open>
+          <div className={classNames([classes.column])}>
+            <Surface color='primary' tonal>Primary</Surface>
+            <Surface color='secondary' tonal>Secondary</Surface>
+            <Surface color='tertiary' tonal>Tertiary</Surface>
+            <Surface color='quaternary' tonal>Quaternary</Surface>
+            <Surface color='info' tonal>Info</Surface>
+            <Surface color='success' tonal>Success</Surface>
+            <Surface color='error' tonal>Error</Surface>
+            <Surface color='warning' tonal>Warning</Surface>
+            <Surface color='neutral' tonal>Neutral</Surface>
+            <Surface color='#f5d758' tonal>Other</Surface>
           </div>
         </Accordion>
       </Accordion>
@@ -2107,7 +2122,8 @@ function App() {
         </Accordion>
 
         <Accordion label='Link colors' open>
-          <div className={classNames([classes.column])}>
+          <div className={classNames([classes.row])}>
+            <Link color='default'>Default</Link>
             <Link color='primary'>Primary</Link>
             <Link color='secondary'>Secondary</Link>
             <Link color='tertiary'>Tertiary</Link>
@@ -2118,6 +2134,21 @@ function App() {
             <Link color='warning'>Warning</Link>
             <Link color='neutral'>Neutral</Link>
             <Link color='#f5d758'>Other</Link>
+          </div>
+        </Accordion>
+
+        <Accordion label='Link colors tonal' open>
+          <div className={classNames([classes.row])}>
+            <Link color='primary' tonal>Primary</Link>
+            <Link color='secondary' tonal>Secondary</Link>
+            <Link color='tertiary' tonal>Tertiary</Link>
+            <Link color='quaternary' tonal>Quaternary</Link>
+            <Link color='info' tonal>Info</Link>
+            <Link color='success' tonal>Success</Link>
+            <Link color='error' tonal>Error</Link>
+            <Link color='warning' tonal>Warning</Link>
+            <Link color='neutral' tonal>Neutral</Link>
+            <Link color='#f5d758' tonal>Other</Link>
           </div>
         </Accordion>
       </Accordion>
@@ -2201,6 +2232,7 @@ function App() {
 
         <Accordion label='Fab color' open>
           <div className={classNames([classes.row, classes.center])}>
+            <Fab tonal={false} version='text' color='default'><IconMaterialPottedPlantRounded /> Text</Fab>
             <Fab tonal={false} version='text' color='primary'><IconMaterialPottedPlantRounded /> Text</Fab>
             <Fab tonal={false} version='text' color='secondary'><IconMaterialPottedPlantRounded /> Text</Fab>
             <Fab tonal={false} version='text' color='tertiary'><IconMaterialPottedPlantRounded /> Text</Fab>
@@ -2214,6 +2246,7 @@ function App() {
           </div>
 
           <div className={classNames([classes.row, classes.center])}>
+            <Fab tonal={false} version='outlined' color='default'><IconMaterialPottedPlantRounded /> Outlined</Fab>
             <Fab tonal={false} version='outlined' color='primary'><IconMaterialPottedPlantRounded /> Outlined</Fab>
             <Fab tonal={false} version='outlined' color='secondary'><IconMaterialPottedPlantRounded /> Outlined</Fab>
             <Fab tonal={false} version='outlined' color='tertiary'><IconMaterialPottedPlantRounded /> Outlined</Fab>
@@ -2227,6 +2260,7 @@ function App() {
           </div>
 
           <div className={classNames([classes.row, classes.center])}>
+            <Fab tonal={false} version='filled' color='default'><IconMaterialPottedPlantRounded /> Filled</Fab>
             <Fab tonal={false} version='filled' color='primary'><IconMaterialPottedPlantRounded /> Filled</Fab>
             <Fab tonal={false} version='filled' color='secondary'><IconMaterialPottedPlantRounded /> Filled</Fab>
             <Fab tonal={false} version='filled' color='tertiary'><IconMaterialPottedPlantRounded /> Filled</Fab>
@@ -2398,6 +2432,7 @@ function App() {
 
         <Accordion label='Icon button color' open>
           <div className={classNames([classes.row, classes.center])}>
+            <IconButton version='text' color='default'><IconMaterialPottedPlantRounded /></IconButton>
             <IconButton version='text' color='primary'><IconMaterialPottedPlantRounded /></IconButton>
             <IconButton version='text' color='secondary'><IconMaterialPottedPlantRounded /></IconButton>
             <IconButton version='text' color='tertiary'><IconMaterialPottedPlantRounded /></IconButton>
@@ -2411,6 +2446,7 @@ function App() {
           </div>
 
           <div className={classNames([classes.row, classes.center])}>
+            <IconButton version='outlined' color='default'><IconMaterialPottedPlantRounded /></IconButton>
             <IconButton version='outlined' color='primary'><IconMaterialPottedPlantRounded /></IconButton>
             <IconButton version='outlined' color='secondary'><IconMaterialPottedPlantRounded /></IconButton>
             <IconButton version='outlined' color='tertiary'><IconMaterialPottedPlantRounded /></IconButton>
@@ -2424,6 +2460,7 @@ function App() {
           </div>
 
           <div className={classNames([classes.row, classes.center])}>
+            <IconButton version='filled' color='default'><IconMaterialPottedPlantRounded /></IconButton>
             <IconButton version='filled' color='primary'><IconMaterialPottedPlantRounded /></IconButton>
             <IconButton version='filled' color='secondary'><IconMaterialPottedPlantRounded /></IconButton>
             <IconButton version='filled' color='tertiary'><IconMaterialPottedPlantRounded /></IconButton>
@@ -2535,6 +2572,7 @@ function App() {
 
         <Accordion label='Linear progress colors' open>
           <div className={classNames([classes.column, classes.center])}>
+            <LinearProgress color='default' version='determinate' value={{ buffer: 40, progress: 24 }} buffer />
             <LinearProgress color='primary' version='determinate' value={{ buffer: 40, progress: 24 }} buffer />
             <LinearProgress color='secondary' version='determinate' value={{ buffer: 40, progress: 24 }} buffer />
             <LinearProgress color='tertiary' version='determinate' value={{ buffer: 40, progress: 24 }} buffer />
@@ -2545,6 +2583,21 @@ function App() {
             <LinearProgress color='warning' version='determinate' value={{ buffer: 40, progress: 24 }} buffer />
             <LinearProgress color='neutral' version='determinate' value={{ buffer: 40, progress: 24 }} buffer />
             <LinearProgress color='#f5d758' version='determinate' value={{ buffer: 40, progress: 24 }} buffer />
+          </div>
+        </Accordion>
+
+        <Accordion label='Linear progress colors tonal' open>
+          <div className={classNames([classes.column, classes.center])}>
+            <LinearProgress color='primary' version='determinate' value={{ buffer: 40, progress: 24 }} buffer tonal />
+            <LinearProgress color='secondary' version='determinate' value={{ buffer: 40, progress: 24 }} buffer tonal />
+            <LinearProgress color='tertiary' version='determinate' value={{ buffer: 40, progress: 24 }} buffer tonal />
+            <LinearProgress color='quaternary' version='determinate' value={{ buffer: 40, progress: 24 }} buffer tonal />
+            <LinearProgress color='info' version='determinate' value={{ buffer: 40, progress: 24 }} buffer tonal />
+            <LinearProgress color='success' version='determinate' value={{ buffer: 40, progress: 24 }} buffer tonal />
+            <LinearProgress color='error' version='determinate' value={{ buffer: 40, progress: 24 }} buffer tonal />
+            <LinearProgress color='warning' version='determinate' value={{ buffer: 40, progress: 24 }} buffer tonal />
+            <LinearProgress color='neutral' version='determinate' value={{ buffer: 40, progress: 24 }} buffer tonal />
+            <LinearProgress color='#f5d758' version='determinate' value={{ buffer: 40, progress: 24 }} buffer tonal />
           </div>
         </Accordion>
 
@@ -2814,6 +2867,7 @@ function App() {
 
         <Accordion label='Round progress color' open>
           <div className={classNames([classes.row, classes.center])}>
+            <RoundProgress color='default' />
             <RoundProgress color='primary' />
             <RoundProgress color='secondary' />
             <RoundProgress color='tertiary' />
@@ -2824,6 +2878,21 @@ function App() {
             <RoundProgress color='warning' />
             <RoundProgress color='neutral' />
             <RoundProgress color='#f5d758' />
+          </div>
+        </Accordion>
+
+        <Accordion label='Round progress color tonal' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <RoundProgress color='primary' tonal />
+            <RoundProgress color='secondary' tonal />
+            <RoundProgress color='tertiary' tonal />
+            <RoundProgress color='quaternary' tonal />
+            <RoundProgress color='info' tonal />
+            <RoundProgress color='success' tonal />
+            <RoundProgress color='error' tonal />
+            <RoundProgress color='warning' tonal />
+            <RoundProgress color='neutral' tonal />
+            <RoundProgress color='#f5d758' tonal />
           </div>
         </Accordion>
 
@@ -2927,6 +2996,7 @@ function App() {
 
         <Accordion label='Button color' open>
           <div className={classNames([classes.row, classes.center])}>
+            <Button version='text' color='default'>Default</Button>
             <Button version='text' color='primary'>Primary</Button>
             <Button version='text' color='secondary'>Secondary</Button>
             <Button version='text' color='tertiary'>Tertiary</Button>
@@ -2940,6 +3010,7 @@ function App() {
           </div>
 
           <div className={classNames([classes.row, classes.center])}>
+            <Button version='outlined' color='default'>Default</Button>
             <Button version='outlined' color='primary'>Primary</Button>
             <Button version='outlined' color='secondary'>Secondary</Button>
             <Button version='outlined' color='tertiary'>Tertiary</Button>
@@ -2953,6 +3024,7 @@ function App() {
           </div>
 
           <div className={classNames([classes.row, classes.center])}>
+            <Button version='filled' color='default'>Default</Button>
             <Button version='filled' color='primary'>Primary</Button>
             <Button version='filled' color='secondary'>Secondary</Button>
             <Button version='filled' color='tertiary'>Tertiary</Button>
@@ -3092,6 +3164,7 @@ function App() {
 
         <Accordion label='Icon color' open>
           <div className={classNames([classes.row, classes.center])}>
+            <IconMaterialPottedPlantRounded color='default' />
             <IconMaterialPottedPlantRounded color='primary' />
             <IconMaterialPottedPlantRounded color='secondary' />
             <IconMaterialPottedPlantRounded color='tertiary' />

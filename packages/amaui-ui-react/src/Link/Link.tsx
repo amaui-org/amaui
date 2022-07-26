@@ -20,37 +20,62 @@ const useStyle = style(theme => ({
     },
 
     // Color
-    '&$neutral': { color: theme.palette.text.default.primary },
+    '&$default': { color: theme.palette.text.default.primary },
 
-    '&$primary': { color: theme.methods.palette.color.value('primary', 50) },
+    '&$neutral': { color: theme.palette.color.neutral.main },
 
-    '&$secondary': { color: theme.methods.palette.color.value('secondary', 50) },
+    '&$primary': { color: theme.palette.color.primary.main },
 
-    '&$tertiary': { color: theme.methods.palette.color.value('tertiary', 50) },
+    '&$secondary': { color: theme.palette.color.secondary.main },
 
-    '&$quaternary': { color: theme.methods.palette.color.value('quaternary', 50) },
+    '&$tertiary': { color: theme.palette.color.tertiary.main },
 
-    '&$info': { color: theme.methods.palette.color.value('info', 50) },
+    '&$quaternary': { color: theme.palette.color.quaternary.main },
 
-    '&$success': { color: theme.methods.palette.color.value('success', 50) },
+    '&$info': { color: theme.palette.color.info.main },
 
-    '&$warning': { color: theme.methods.palette.color.value('warning', 50) },
+    '&$success': { color: theme.palette.color.success.main },
 
-    '&$error': { color: theme.methods.palette.color.value('error', 50) },
+    '&$warning': { color: theme.palette.color.warning.main },
+
+    '&$error': { color: theme.palette.color.error.main },
+
+    '&$tonal': {
+      '&$neutral': { color: theme.methods.palette.color.value('neutral', 30) },
+
+      '&$primary': { color: theme.methods.palette.color.value('primary', 30) },
+
+      '&$secondary': { color: theme.methods.palette.color.value('secondary', 30) },
+
+      '&$tertiary': { color: theme.methods.palette.color.value('tertiary', 30) },
+
+      '&$quaternary': { color: theme.methods.palette.color.value('quaternary', 30) },
+
+      '&$info': { color: theme.methods.palette.color.value('info', 30) },
+
+      '&$success': { color: theme.methods.palette.color.value('success', 30) },
+
+      '&$warning': { color: theme.methods.palette.color.value('warning', 30) },
+
+      '&$error': { color: theme.methods.palette.color.value('error', 30) }
+    }
   }
 }), { name: 'AmauiLink' });
 
 const Link = React.forwardRef((props: any, ref) => {
-  const { classes } = useStyle();
   const [hovered, setHovered] = React.useState(false);
+
+  const { classes } = useStyle();
 
   const theme = useAmauiTheme();
 
   const {
     className,
+    tonal,
     color: color_ = 'primary',
     underline = true,
     style,
+
     children,
 
     ...other
@@ -67,6 +92,8 @@ const Link = React.forwardRef((props: any, ref) => {
     styles.root.color = color;
 
     palette = theme.methods.color(color);
+
+    if (tonal) styles.root.color = theme.methods.palette.color.value(undefined, 30, true, palette);
   }
 
   if (underline === true && !hovered) {
@@ -85,6 +112,7 @@ const Link = React.forwardRef((props: any, ref) => {
         classes.root,
         className,
         classes[color],
+        tonal && classes.tonal,
         underline === true && classes.underline,
         underline === 'hover' && classes.underline_hover,
       ])}

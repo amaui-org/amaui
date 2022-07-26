@@ -19,8 +19,8 @@ const useStyle = style(theme => ({
 
     // Color
     '&$default': {
-      color: theme.palette.text.default.primary,
-      backgroundColor: theme.palette.background.default.primary,
+      color: theme.palette.background.default.primary,
+      backgroundColor: theme.palette.text.default.primary,
     },
 
     '&$neutral': {

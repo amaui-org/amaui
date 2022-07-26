@@ -116,23 +116,25 @@ const useStyle = style(theme => ({
     },
 
     // Color
-    '&$neutral': { color: theme.palette.text.default.primary },
+    '&$default': { color: theme.palette.text.default.primary },
 
-    '&$primary': { color: theme.methods.palette.color.value('primary', 50) },
+    '&$neutral': { color: theme.palette.color.neutral.main },
 
-    '&$secondary': { color: theme.methods.palette.color.value('secondary', 50) },
+    '&$primary': { color: theme.palette.color.primary.main },
 
-    '&$tertiary': { color: theme.methods.palette.color.value('tertiary', 50) },
+    '&$secondary': { color: theme.palette.color.secondary.main },
 
-    '&$quaternary': { color: theme.methods.palette.color.value('quaternary', 50) },
+    '&$tertiary': { color: theme.palette.color.tertiary.main },
 
-    '&$info': { color: theme.methods.palette.color.value('info', 50) },
+    '&$quaternary': { color: theme.palette.color.quaternary.main },
 
-    '&$success': { color: theme.methods.palette.color.value('success', 50) },
+    '&$info': { color: theme.palette.color.info.main },
 
-    '&$warning': { color: theme.methods.palette.color.value('warning', 50) },
+    '&$success': { color: theme.palette.color.success.main },
 
-    '&$error': { color: theme.methods.palette.color.value('error', 50) },
+    '&$warning': { color: theme.palette.color.warning.main },
+
+    '&$error': { color: theme.palette.color.error.main },
 
     // Icons
     '&$startIcon': {
@@ -351,7 +353,7 @@ const Button = React.forwardRef((props: any, ref) => {
   let disabled = disabled_ || loading;
   let TypeProps = { version: 'l2' };
 
-  if (disabled) color = 'neutral';
+  if (disabled) color = 'default';
 
   React.useEffect(() => {
     if (classes[color] === undefined && is('string', color)) {
@@ -380,7 +382,7 @@ const Button = React.forwardRef((props: any, ref) => {
   }
 
   if (version === 'filled') {
-    styles.background.background = color === 'neutral' ? theme.palette.text.default.primary : theme.palette.color[color] ? theme.methods.palette.color.value(color, 50) : color;
+    styles.background.background = color === 'default' ? theme.palette.text.default.primary : theme.palette.color[color] ? (theme.palette.color[color] as any).main : color;
 
     styles.root.color = theme.methods.palette.color.text(styles.background.background, true, prefer);
   }
