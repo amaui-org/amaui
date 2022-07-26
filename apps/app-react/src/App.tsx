@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
-import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, SegmentedButtons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener } from '@amaui/ui-react';
+import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, SegmentedButtons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip } from '@amaui/ui-react';
 
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
@@ -270,13 +270,388 @@ function App() {
         <Button size='small' color='secondary' className={classes.btn} onClick={() => updateTheme()}>{theme.palette.light ? 'dark' : 'light'}</Button>
       </div>
 
+      <Accordion label='Chip'>
+        <Accordion label='Chip' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Chip>Enabled</Chip>
+          </div>
+        </Accordion>
+
+        <Accordion label='Assistive' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Chip size='small' version='text' startIcon={<IconMaterialPottedPlantRounded />}>Assistive</Chip>
+            <Chip size='regular' version='text' startIcon={<IconMaterialPottedPlantRounded />}>Assistive</Chip>
+            <Chip size='large' version='text' startIcon={<IconMaterialPottedPlantRounded />}>Assistive</Chip>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Chip size='small' version='outlined' startIcon={<IconMaterialPottedPlantRounded />}>Assistive</Chip>
+            <Chip size='regular' version='outlined' startIcon={<IconMaterialPottedPlantRounded />}>Assistive</Chip>
+            <Chip size='large' version='outlined' startIcon={<IconMaterialPottedPlantRounded />}>Assistive</Chip>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Chip size='small' version='filled' startIcon={<IconMaterialPottedPlantRounded />}>Assistive</Chip>
+            <Chip size='regular' version='filled' startIcon={<IconMaterialPottedPlantRounded />}>Assistive</Chip>
+            <Chip size='large' version='filled' startIcon={<IconMaterialPottedPlantRounded />}>Assistive</Chip>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Chip size='small' version='filled' startIcon={<IconMaterialPottedPlantRounded />} tonal>Assistive</Chip>
+            <Chip size='regular' version='filled' startIcon={<IconMaterialPottedPlantRounded />} tonal>Assistive</Chip>
+            <Chip size='large' version='filled' startIcon={<IconMaterialPottedPlantRounded />} tonal>Assistive</Chip>
+          </div>
+        </Accordion>
+
+        <Accordion label='Input' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Chip size='small' version='text' input>Input</Chip>
+            <Chip size='regular' version='text' onRemove={() => console.log('removed')} input>Input</Chip>
+            <Chip size='large' version='text' input>Input</Chip>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Chip size='small' version='outlined' input>Input</Chip>
+            <Chip size='regular' version='outlined' input>Input</Chip>
+            <Chip size='large' version='outlined' input>Input</Chip>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Chip size='small' version='filled' input>Input</Chip>
+            <Chip size='regular' version='filled' input>Input</Chip>
+            <Chip size='large' version='filled' input>Input</Chip>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Chip size='small' version='filled' tonal input>Input</Chip>
+            <Chip size='regular' version='filled' tonal input>Input</Chip>
+            <Chip size='large' version='filled' tonal input>Input</Chip>
+          </div>
+        </Accordion>
+
+        <Accordion label='Filter' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Chip size='small' version='text' filter>Filter</Chip>
+            <Chip size='regular' version='text' filter>Filter</Chip>
+            <Chip size='large' version='text' filter>Filter</Chip>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Chip size='small' version='outlined' filter>Filter</Chip>
+            <Chip size='regular' version='outlined' onSelected={() => console.log('selected')} onUnselected={() => console.log('unselected')} filter>Filter</Chip>
+            <Chip size='large' version='outlined' filter>Filter</Chip>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Chip size='small' version='filled' filter>Filter</Chip>
+            <Chip size='regular' version='filled' filter>Filter</Chip>
+            <Chip size='large' version='filled' filter>Filter</Chip>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Chip size='small' version='filled' tonal filter>Filter</Chip>
+            <Chip size='regular' version='filled' tonal filter>Filter</Chip>
+            <Chip size='large' version='filled' tonal filter>Filter</Chip>
+          </div>
+        </Accordion>
+
+        <Accordion label='Filter start icon' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Chip size='small' version='text' filter startIcon={<IconMaterialPottedPlantRounded />}>Filter</Chip>
+            <Chip size='regular' version='text' filter startIcon={<IconMaterialPottedPlantRounded />}>Filter</Chip>
+            <Chip size='large' version='text' filter startIcon={<IconMaterialPottedPlantRounded />}>Filter</Chip>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Chip size='small' version='outlined' filter startIcon={<IconMaterialPottedPlantRounded />}>Filter</Chip>
+            <Chip size='regular' version='outlined' filter startIcon={<IconMaterialPottedPlantRounded />}>Filter</Chip>
+            <Chip size='large' version='outlined' filter startIcon={<IconMaterialPottedPlantRounded />}>Filter</Chip>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Chip size='small' version='filled' filter startIcon={<IconMaterialPottedPlantRounded />}>Filter</Chip>
+            <Chip size='regular' version='filled' filter startIcon={<IconMaterialPottedPlantRounded />}>Filter</Chip>
+            <Chip size='large' version='filled' filter startIcon={<IconMaterialPottedPlantRounded />}>Filter</Chip>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Chip size='small' version='filled' tonal filter startIcon={<IconMaterialPottedPlantRounded />}>Filter</Chip>
+            <Chip size='regular' version='filled' tonal filter startIcon={<IconMaterialPottedPlantRounded />}>Filter</Chip>
+            <Chip size='large' version='filled' tonal filter startIcon={<IconMaterialPottedPlantRounded />}>Filter</Chip>
+          </div>
+        </Accordion>
+
+        <Accordion label='Filter start end icon' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Chip size='small' version='text' filter startIcon={<IconMaterialPottedPlantRounded />} endIcon={<IconMaterialPottedPlantRounded />}>Filter</Chip>
+            <Chip size='regular' version='text' filter startIcon={<IconMaterialPottedPlantRounded />} endIcon={<IconMaterialPottedPlantRounded />}>Filter</Chip>
+            <Chip size='large' version='text' filter startIcon={<IconMaterialPottedPlantRounded />} endIcon={<IconMaterialPottedPlantRounded />}>Filter</Chip>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Chip size='small' version='outlined' filter startIcon={<IconMaterialPottedPlantRounded />} endIcon={<IconMaterialPottedPlantRounded />}>Filter</Chip>
+            <Chip size='regular' version='outlined' filter startIcon={<IconMaterialPottedPlantRounded />} endIcon={<IconMaterialPottedPlantRounded />}>Filter</Chip>
+            <Chip size='large' version='outlined' filter startIcon={<IconMaterialPottedPlantRounded />} endIcon={<IconMaterialPottedPlantRounded />}>Filter</Chip>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Chip size='small' version='filled' filter startIcon={<IconMaterialPottedPlantRounded />} endIcon={<IconMaterialPottedPlantRounded />}>Filter</Chip>
+            <Chip size='regular' version='filled' filter startIcon={<IconMaterialPottedPlantRounded />} endIcon={<IconMaterialPottedPlantRounded />}>Filter</Chip>
+            <Chip size='large' version='filled' filter startIcon={<IconMaterialPottedPlantRounded />} endIcon={<IconMaterialPottedPlantRounded />}>Filter</Chip>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Chip size='small' version='filled' tonal filter startIcon={<IconMaterialPottedPlantRounded />} endIcon={<IconMaterialPottedPlantRounded />}>Filter</Chip>
+            <Chip size='regular' version='filled' tonal filter startIcon={<IconMaterialPottedPlantRounded />} endIcon={<IconMaterialPottedPlantRounded />}>Filter</Chip>
+            <Chip size='large' version='filled' tonal filter startIcon={<IconMaterialPottedPlantRounded />} endIcon={<IconMaterialPottedPlantRounded />}>Filter</Chip>
+          </div>
+        </Accordion>
+
+        <Accordion label='Suggestion' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Chip size='small' version='text'>Suggestion</Chip>
+            <Chip size='regular' version='text'>Suggestion</Chip>
+            <Chip size='large' version='text'>Suggestion</Chip>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Chip size='small' version='outlined'>Suggestion</Chip>
+            <Chip size='regular' version='outlined'>Suggestion</Chip>
+            <Chip size='large' version='outlined'>Suggestion</Chip>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Chip size='small' version='filled'>Suggestion</Chip>
+            <Chip size='regular' version='filled'>Suggestion</Chip>
+            <Chip size='large' version='filled'>Suggestion</Chip>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Chip size='small' version='filled' tonal>Suggestion</Chip>
+            <Chip size='regular' version='filled' tonal>Suggestion</Chip>
+            <Chip size='large' version='filled' tonal>Suggestion</Chip>
+          </div>
+        </Accordion>
+
+        <Accordion label='Chip icon only' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Chip size='small' version='text' icon><IconMaterialPottedPlantRounded /></Chip>
+            <Chip size='regular' version='text' icon><IconMaterialPottedPlantRounded /></Chip>
+            <Chip size='large' version='text' icon><IconMaterialPottedPlantRounded /></Chip>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Chip size='small' version='outlined' icon><IconMaterialPottedPlantRounded /></Chip>
+            <Chip size='regular' version='outlined' icon><IconMaterialPottedPlantRounded /></Chip>
+            <Chip size='large' version='outlined' icon><IconMaterialPottedPlantRounded /></Chip>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Chip size='small' version='filled' icon><IconMaterialPottedPlantRounded /></Chip>
+            <Chip size='regular' version='filled' icon><IconMaterialPottedPlantRounded /></Chip>
+            <Chip size='large' version='filled' icon><IconMaterialPottedPlantRounded /></Chip>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Chip size='small' version='filled' icon tonal><IconMaterialPottedPlantRounded /></Chip>
+            <Chip size='regular' version='filled' icon tonal><IconMaterialPottedPlantRounded /></Chip>
+            <Chip size='large' version='filled' icon tonal><IconMaterialPottedPlantRounded /></Chip>
+          </div>
+        </Accordion>
+
+        <Accordion label='Button versions' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Chip version='filled' color='secondary' size='small'>Filled</Chip>
+            <Chip version='filled' color='secondary' size='regular'>Filled</Chip>
+            <Chip version='filled' color='secondary' size='large'>Filled</Chip>
+            <Chip version='filled' color='secondary' size='large' elevation={false}>No elevation</Chip>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Chip tonal version='filled' color='secondary' size='small'>Tonal</Chip>
+            <Chip tonal version='filled' color='secondary' size='regular'>Tonal</Chip>
+            <Chip tonal version='filled' color='secondary' size='large'>Tonal</Chip>
+            <Chip tonal version='filled' color='secondary' size='large' elevation={false}>No elevation</Chip>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Chip version='outlined' color='secondary' size='small'>Outlined</Chip>
+            <Chip version='outlined' color='secondary' size='regular'>Outlined</Chip>
+            <Chip version='outlined' color='secondary' size='large'>Outlined</Chip>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Chip version='text' color='secondary' size='small'>Text</Chip>
+            <Chip version='text' color='secondary' size='regular'>Text</Chip>
+            <Chip version='text' color='secondary' size='large'>Text</Chip>
+          </div>
+        </Accordion>
+
+        <Accordion label='Chip color' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Chip version='text' color='primary'>Primary</Chip>
+            <Chip version='text' color='secondary'>Secondary</Chip>
+            <Chip version='text' color='tertiary'>Tertiary</Chip>
+            <Chip version='text' color='quaternary'>Quaternary</Chip>
+            <Chip version='text' color='info'>Info</Chip>
+            <Chip version='text' color='success'>Success</Chip>
+            <Chip version='text' color='error'>Error</Chip>
+            <Chip version='text' color='warning'>Warning</Chip>
+            <Chip version='text' color='neutral'>Neutral</Chip>
+            <Chip version='text' color='#f5d758'>Other</Chip>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Chip version='outlined' color='primary'>Primary</Chip>
+            <Chip version='outlined' color='secondary'>Secondary</Chip>
+            <Chip version='outlined' color='tertiary'>Tertiary</Chip>
+            <Chip version='outlined' color='quaternary'>Quaternary</Chip>
+            <Chip version='outlined' color='info'>Info</Chip>
+            <Chip version='outlined' color='success'>Success</Chip>
+            <Chip version='outlined' color='error'>Error</Chip>
+            <Chip version='outlined' color='warning'>Warning</Chip>
+            <Chip version='outlined' color='neutral'>Neutral</Chip>
+            <Chip version='outlined' color='#f5d758'>Other</Chip>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Chip version='filled' color='primary'>Primary</Chip>
+            <Chip version='filled' color='secondary'>Secondary</Chip>
+            <Chip version='filled' color='tertiary'>Tertiary</Chip>
+            <Chip version='filled' color='quaternary'>Quaternary</Chip>
+            <Chip version='filled' color='info'>Info</Chip>
+            <Chip version='filled' color='success'>Success</Chip>
+            <Chip version='filled' color='error'>Error</Chip>
+            <Chip version='filled' color='warning'>Warning</Chip>
+            <Chip version='filled' color='neutral'>Neutral</Chip>
+            <Chip version='filled' color='#f5d758'>Other</Chip>
+          </div>
+        </Accordion>
+
+        <Accordion label='Chip color tonal' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Chip tonal version='text' color='primary'>Primary</Chip>
+            <Chip tonal version='text' color='secondary'>Secondary</Chip>
+            <Chip tonal version='text' color='tertiary'>Tertiary</Chip>
+            <Chip tonal version='text' color='quaternary'>Quaternary</Chip>
+            <Chip tonal version='text' color='info'>Info</Chip>
+            <Chip tonal version='text' color='success'>Success</Chip>
+            <Chip tonal version='text' color='error'>Error</Chip>
+            <Chip tonal version='text' color='warning'>Warning</Chip>
+            <Chip tonal version='text' color='neutral'>Neutral</Chip>
+            <Chip tonal version='text' color='#f5d758'>Other</Chip>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Chip tonal version='outlined' color='primary'>Primary</Chip>
+            <Chip tonal version='outlined' color='secondary'>Secondary</Chip>
+            <Chip tonal version='outlined' color='tertiary'>Tertiary</Chip>
+            <Chip tonal version='outlined' color='quaternary'>Quaternary</Chip>
+            <Chip tonal version='outlined' color='info'>Info</Chip>
+            <Chip tonal version='outlined' color='success'>Success</Chip>
+            <Chip tonal version='outlined' color='error'>Error</Chip>
+            <Chip tonal version='outlined' color='warning'>Warning</Chip>
+            <Chip tonal version='outlined' color='neutral'>Neutral</Chip>
+            <Chip tonal version='outlined' color='#f5d758'>Other</Chip>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Chip tonal version='filled' color='primary'>Primary</Chip>
+            <Chip tonal version='filled' color='secondary'>Secondary</Chip>
+            <Chip tonal version='filled' color='tertiary'>Tertiary</Chip>
+            <Chip tonal version='filled' color='quaternary'>Quaternary</Chip>
+            <Chip tonal version='filled' color='info'>Info</Chip>
+            <Chip tonal version='filled' color='success'>Success</Chip>
+            <Chip tonal version='filled' color='error'>Error</Chip>
+            <Chip tonal version='filled' color='warning'>Warning</Chip>
+            <Chip tonal version='filled' color='neutral'>Neutral</Chip>
+            <Chip tonal version='filled' color='#f5d758'>Other</Chip>
+          </div>
+        </Accordion>
+
+        <Accordion label='Chip size' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Chip color='secondary' size='small'>Small</Chip>
+            <Chip color='secondary' size='regular'>Regular</Chip>
+            <Chip color='secondary' size='large'>Large</Chip>
+            <Chip color='secondary' size='large' fullWidth>Full width</Chip>
+          </div>
+        </Accordion>
+
+        <Accordion label='Chip loading' open>
+          <Chip size='small' color='secondary' className={classes.btn} onClick={() => update('loading')}>a</Chip>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Chip version='text' color='primary' size='small' loading={a.loading}>Small</Chip>
+            <Chip version='outlined' color='secondary' size='regular' loading={a.loading}>Regular</Chip>
+            <Chip version='filled' color='secondary' size='regular' loading={a.loading}>Regular</Chip>
+            <Chip version='filled' tonal color='tertiary' size='large' loading={a.loading}>Large</Chip>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Chip version='text' color='primary' size='small' loading={a.loading} loadingLabel='Loading...'>Loading label</Chip>
+            <Chip version='outlined' color='secondary' size='regular' loading={a.loading} loadingLabel='Loading...'>Loading label</Chip>
+            <Chip version='filled' color='secondary' size='regular' loading={a.loading} loadingLabel='Loading...'>Loading label</Chip>
+            <Chip version='filled' tonal color='tertiary' size='large' loading={a.loading} loadingLabel='Loading...'>Loading label</Chip>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Chip version='text' color='primary' size='small' loading={a.loading} loadingIconPosition='start'>Loading start</Chip>
+            <Chip version='outlined' color='secondary' size='regular' loading={a.loading} loadingIconPosition='start'>Loading start</Chip>
+            <Chip version='filled' color='secondary' size='regular' loading={a.loading} loadingIconPosition='start'>Loading start</Chip>
+            <Chip version='filled' tonal color='tertiary' size='large' loading={a.loading} loadingIconPosition='start'>Loading start</Chip>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Chip version='text' color='primary' size='small' loading={a.loading} loadingIconPosition='end'>Loading end</Chip>
+            <Chip version='outlined' color='secondary' size='regular' loading={a.loading} loadingIconPosition='end'>Loading end</Chip>
+            <Chip version='filled' color='secondary' size='regular' loading={a.loading} loadingIconPosition='end'>Loading end</Chip>
+            <Chip version='filled' tonal color='tertiary' size='large' loading={a.loading} loadingIconPosition='end'>Loading end</Chip>
+          </div>
+        </Accordion>
+
+        <Accordion label='Chip disabled' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Chip version='text' color='primary' size='small' disabled>Small</Chip>
+            <Chip version='outlined' color='secondary' size='regular' disabled>Regular</Chip>
+            <Chip version='filled' color='secondary' size='regular' disabled>Regular</Chip>
+            <Chip version='filled' tonal color='tertiary' size='large' disabled>Large</Chip>
+          </div>
+        </Accordion>
+
+        <Accordion label='Chip icons' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Chip version='text' color='secondary' size='small' startIcon={<IconMaterialAddRounded />}>Start icon</Chip>
+            <Chip version='filled' color='warning' size='regular' startIcon={<IconMaterialAddRounded />}>Start icon</Chip>
+            <Chip version='outlined' color='secondary' size='large' startIcon={<IconMaterialAddRounded />}>Start icon</Chip>
+
+            <Chip version='text' color='secondary' size='small' endIcon={<IconMaterialAddRounded />}>End icon</Chip>
+            <Chip version='filled' color='warning' size='regular' endIcon={<IconMaterialAddRounded />}>End end icon</Chip>
+            <Chip version='outlined' color='secondary' size='large' endIcon={<IconMaterialAddRounded />}>End icon</Chip>
+
+            <Chip version='outlined' color='warning' size='small' startIcon={<IconMaterialAddRounded />} endIcon={<IconMaterialAddRounded />}>Start and end icon</Chip>
+            <Chip version='filled' tonal color='warning' size='regular' startIcon={<IconMaterialAddRounded />} endIcon={<IconMaterialAddRounded />}>Start and end icon</Chip>
+            <Chip version='text' color='warning' size='large' startIcon={<IconMaterialAddRounded />} endIcon={<IconMaterialAddRounded />}>Start and end icon</Chip>
+          </div>
+        </Accordion>
+
+        <Accordion label='Chip selected' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Chip version='text' color='primary' size='small' selected>Small</Chip>
+            <Chip version='outlined' color='secondary' size='regular' selected>Regular</Chip>
+            <Chip version='filled' color='secondary' size='regular' selected>Regular</Chip>
+            <Chip version='filled' tonal color='tertiary' size='large' selected>Large</Chip>
+          </div>
+        </Accordion>
+      </Accordion>
+
       <Accordion label='ClickListener'>
         <Accordion label='ClickListener' open>
           <div className={classNames([classes.column])}>
             <ClickListener
-              onClickInside={() => console.log('inside')}
+            // onClickInside={() => console.log('inside')}
 
-              onClickOutside={() => console.log('outside')}
+            // onClickOutside={() => console.log('outside')}
             >
               <div style={{ background: 'yellow', padding: 40 }}>
                 <div>
@@ -303,7 +678,7 @@ function App() {
 
         <Accordion label='Avatar group with image' open>
           <div className={classNames([classes.column])}>
-            <AvatarGroup total={29} size='small'>
+            <AvatarGroup total={6} size='small'>
               <Avatar image='/avatar.jpeg' />
               <Avatar image='/avatar.jpeg' />
               <Avatar image='/avatar.jpeg' />
@@ -319,7 +694,7 @@ function App() {
               <Avatar image='/avatar.jpeg' />
             </AvatarGroup>
 
-            <AvatarGroup total={29} size='large'>
+            <AvatarGroup total={149} size='large'>
               <Avatar image='/avatar.jpeg' />
               <Avatar image='/avatar.jpeg' />
               <Avatar image='/avatar.jpeg' />
@@ -327,7 +702,7 @@ function App() {
               <Avatar image='/avatar.jpeg' />
             </AvatarGroup>
 
-            <AvatarGroup total={29} size={70}>
+            <AvatarGroup total={449} size={70}>
               <Avatar image='/avatar.jpeg' />
               <Avatar image='/avatar.jpeg' />
               <Avatar image='/avatar.jpeg' />
@@ -1943,6 +2318,14 @@ function App() {
             <Fab version='filled' size='large' disabled>Large</Fab>
           </div>
         </Accordion>
+
+        <Accordion label='Fab selected' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Fab version='text' size='small' selected><IconMaterialPottedPlantRounded /> Small</Fab>
+            <Fab version='outlined' size='regular' selected><IconMaterialPottedPlantRounded /></Fab>
+            <Fab version='filled' size='large' selected>Large</Fab>
+          </div>
+        </Accordion>
       </Accordion>
 
       <Accordion label='Icon button'>
@@ -2121,6 +2504,15 @@ function App() {
             <IconButton version='outlined' color='secondary' size='regular' disabled><IconMaterialPottedPlantRounded /></IconButton>
             <IconButton version='filled' color='secondary' size='regular' disabled><IconMaterialPottedPlantRounded /></IconButton>
             <IconButton version='filled' tonal color='tertiary' size='large' disabled><IconMaterialPottedPlantRounded /></IconButton>
+          </div>
+        </Accordion>
+
+        <Accordion label='Icon button selected' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <IconButton version='text' color='primary' size='small' selected><IconMaterialPottedPlantRounded /></IconButton>
+            <IconButton version='outlined' color='secondary' size='regular' selected><IconMaterialPottedPlantRounded /></IconButton>
+            <IconButton version='filled' color='secondary' size='regular' selected><IconMaterialPottedPlantRounded /></IconButton>
+            <IconButton version='filled' tonal color='tertiary' size='large' selected><IconMaterialPottedPlantRounded /></IconButton>
           </div>
         </Accordion>
       </Accordion>
@@ -2678,6 +3070,15 @@ function App() {
             <Button version='outlined' color='warning' size='small' startIcon={<IconMaterialAddRounded />} endIcon={<IconMaterialAddRounded />}>Start and end icon</Button>
             <Button version='filled' tonal color='warning' size='regular' startIcon={<IconMaterialAddRounded />} endIcon={<IconMaterialAddRounded />}>Start and end icon</Button>
             <Button version='text' color='warning' size='large' startIcon={<IconMaterialAddRounded />} endIcon={<IconMaterialAddRounded />}>Start and end icon</Button>
+          </div>
+        </Accordion>
+
+        <Accordion label='Button selected' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Button version='text' color='primary' size='small' selected>Small</Button>
+            <Button version='outlined' color='secondary' size='regular' selected>Regular</Button>
+            <Button version='filled' color='secondary' size='regular' selected>Regular</Button>
+            <Button version='filled' tonal color='tertiary' size='large' selected>Large</Button>
           </div>
         </Accordion>
       </Accordion>

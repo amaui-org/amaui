@@ -1,7 +1,17 @@
 import React from 'react';
 
+import { is } from '@amaui/utils';
+
 const KEYCODES = {
   tab: 'Tab'
+};
+
+const matches = (value: Element) => {
+  const method = is('element', value) && (value.matches || value['webkitMatchesSelector'] || value['mozMatchesSelector'] || value['oMatchesSelector'] || value['msMatchesSelector']);
+
+  if (!method) return () => false;
+
+  return method.bind(value);
 };
 
 const queryMatchFocusable = 'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"]):not([disabled]), details:not([disabled]), summary:not(:disabled)';
@@ -32,7 +42,7 @@ const Focus = React.forwardRef((props: any, ref: any) => {
 
     const focusEndIndex = allElements.findIndex(item => item === refs.focusEnd.current);
 
-    return allElements.slice(0, focusEndIndex).flatMap(item => Array.from(item.querySelectorAll(queryMatchFocusable)));
+    return allElements.slice(0, focusEndIndex).flatMap(item => [matches(item)(queryMatchFocusable) ? item : undefined, ...Array.from(item.querySelectorAll(queryMatchFocusable))].filter(Boolean));
   };
 
   const onKeyDownUp = (event: any): any => {

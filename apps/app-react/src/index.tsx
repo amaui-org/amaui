@@ -1,6 +1,8 @@
-import { AmauiStyle, AmauiStyleProvider, AmauiThemeProvider, valueObject, prefix, rtl, unit } from '@amaui/style-react';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+
+import { AmauiStyle, AmauiStyleProvider, AmauiThemeProvider, valueObject, prefix, rtl, unit } from '@amaui/style-react';
+
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 

@@ -55,7 +55,7 @@ const useStyle = style(theme => ({
   }
 }), { name: 'AmauiSegmentedButtons' });
 
-const IconMaterialDoneSharp = React.forwardRef((props: any, ref) => {
+export const IconMaterialDoneSharp = React.forwardRef((props: any, ref) => {
   const {
     className,
 
@@ -82,7 +82,7 @@ const IconMaterialDoneSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
-const IconDoneAnimated = (props: any) => {
+export const IconDoneAnimated = (props: any) => {
   const { classes } = useStyle();
 
   const theme = useAmauiTheme();

@@ -254,11 +254,12 @@ const Interaction = (props: any) => {
       let width: any = '100%';
 
       if (props.wave_version !== 'simple') {
+        const rect = (event.currentTarget as any)?.getBoundingClientRect();
         const root = ((event?.currentTarget || refs.root.current.parentNode) as any).getBoundingClientRect() as DOMRect;
         const w = root.width;
         const h = root.height;
-        const x = (props.origin === 'center' || !event) ? w / 2 : event?.offsetX;
-        const y = (props.origin === 'center' || !event) ? h / 2 : event?.offsetY;
+        const x = (props.origin === 'center' || !event) ? w / 2 : rect ? event.x - rect.left : event.offsetX;
+        const y = (props.origin === 'center' || !event) ? h / 2 : rect ? event.y - rect.top : event.offsetY;
 
         width = Math.round(
           Math.sqrt(

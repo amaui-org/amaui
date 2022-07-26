@@ -97,3 +97,6 @@ export * from './Badge';
 
 export { default as ClickListener } from './ClickListener';
 export * from './ClickListener';
+
+export { default as Chip } from './Chip';
+export * from './Chip';

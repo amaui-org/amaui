@@ -44,18 +44,33 @@ const useStyle = style(theme => ({
 
     // Size
     '&$small': {
-      padding: `${theme.methods.space.value('sm', 'px')} ${theme.methods.space.value('rg', 'px')}`
+      padding: `${theme.methods.space.value('sm', 'px')} ${theme.methods.space.value('rg', 'px')}`,
+
+      '&$chip': {
+        padding: `${theme.methods.space.value('sm', 'px', -4)} ${theme.methods.space.value('sm', 'px', 4)}`,
+        borderRadius: theme.methods.space.value('sm', 'px', -2)
+      }
     },
 
     '&$regular': {
-      padding: `${theme.methods.space.value('sm', 'px', 3)} ${theme.methods.space.value('md', 'px')}`
+      padding: `${theme.methods.space.value('sm', 'px', 3)} ${theme.methods.space.value('md', 'px')}`,
+
+      '&$chip': {
+        padding: `${theme.methods.space.value('sm', 'px')} ${theme.methods.space.value('rg', 'px')}`,
+        borderRadius: theme.methods.space.value('sm', 'px')
+      }
     },
 
     '&$large': {
-      padding: `${theme.methods.space.value('rg', 'px')} ${theme.methods.space.value('lg', 'px')}`
+      padding: `${theme.methods.space.value('rg', 'px')} ${theme.methods.space.value('lg', 'px')}`,
+
+      '&$chip': {
+        padding: `${theme.methods.space.value('sm', 'px', 1)} ${theme.methods.space.value('rg', 'px', 4)}`,
+        borderRadius: theme.methods.space.value('sm', 'px', 2)
+      }
     },
 
-    // Label icon
+    // fab
     '&$fab': {
       '&$small': {
         height: `${theme.space.unit * 5}px`,
@@ -79,8 +94,8 @@ const useStyle = style(theme => ({
       },
     },
 
-    // Label icon
-    '&$iconLabel': {
+    // icon
+    '&$icon': {
       borderRadius: '50%',
       padding: '0',
 
@@ -121,11 +136,11 @@ const useStyle = style(theme => ({
 
     // Icons
     '&$startIcon': {
-      paddingLeft: '0'
+      paddingLeft: [0, '!important']
     },
 
     '&$endIcon': {
-      paddingRight: '0'
+      paddingRight: [0, '!important']
     },
 
     // Shadows
@@ -200,7 +215,6 @@ const useStyle = style(theme => ({
     display: 'inline-flex',
     position: 'relative',
     textTransform: 'capitalize',
-    pointerEvents: 'none',
     whiteSpace: 'nowrap',
     alignItems: 'center',
     gap: theme.methods.space.value('sm', 'px'),
@@ -212,55 +226,77 @@ const useStyle = style(theme => ({
     },
 
     '&$regular': {
-      gap: theme.methods.space.value('sm', 'px'),
+      gap: theme.methods.space.value('sm', 'px')
     },
 
     '&$large': {
-      gap: theme.methods.space.value('sm', 'px', 2),
+      gap: theme.methods.space.value('sm', 'px', 2)
     }
   },
 
-  // Label icon
-  labelIcon: {
+  // icon
+  iconRoot: {
     display: 'inline-flex',
     alignItems: 'center',
     justifyContent: 'center',
-    pointerEvents: 'none',
     position: 'relative',
     lineHeight: 0
   },
 
-  // Other
-  icon: {
+  // Icon element
+  Icon: {
     position: 'relative',
-    pointerEvents: 'none',
     lineHeight: 0,
 
     '&$start': {
       '&$small': {
-        padding: `0 ${theme.methods.space.value('sm', 'px', -3)} 0 ${theme.methods.space.value('sm', 'px', 3)}`
+        padding: `0 ${theme.methods.space.value('sm', 'px', -3)} 0 ${theme.methods.space.value('sm', 'px', 3)}`,
+
+        '&$chip': {
+          padding: `0 ${theme.methods.space.value('sm', 'px', -2)}`,
+        }
       },
 
       '&$regular': {
-        padding: `0 ${theme.methods.space.value('sm', 'px')} 0 ${theme.methods.space.value('rg', 'px')}`
+        padding: `0 ${theme.methods.space.value('sm', 'px')} 0 ${theme.methods.space.value('rg', 'px')}`,
+
+        '&$chip': {
+          padding: `0 ${theme.methods.space.value('sm', 'px')}`,
+        }
       },
 
       '&$large': {
-        padding: `0 ${theme.methods.space.value('sm', 'px', 2)} 0 ${theme.methods.space.value('md', 'px', -2)}`
+        padding: `0 ${theme.methods.space.value('sm', 'px', 2)} 0 ${theme.methods.space.value('md', 'px', -2)}`,
+
+        '&$chip': {
+          padding: `0 ${theme.methods.space.value('sm', 'px', 2)}`,
+        }
       }
     },
 
     '&$end': {
       '&$small': {
-        padding: `0 ${theme.methods.space.value('sm', 'px', 3)} 0 ${theme.methods.space.value('sm', 'px', -3)}`
+        padding: `0 ${theme.methods.space.value('sm', 'px', 3)} 0 ${theme.methods.space.value('sm', 'px', -3)}`,
+
+        '&$chip': {
+          padding: `0 ${theme.methods.space.value('sm', 'px', -2)}`,
+        }
       },
 
       '&$regular': {
-        padding: `0 ${theme.methods.space.value('rg', 'px')} 0 ${theme.methods.space.value('sm', 'px')}`
+        padding: `0 ${theme.methods.space.value('rg', 'px')} 0 ${theme.methods.space.value('sm', 'px')}`,
+
+        '&$chip': {
+          padding: `0 ${theme.methods.space.value('sm', 'px')}`,
+        }
       },
 
       '&$large': {
-        padding: `0 ${theme.methods.space.value('md', 'px', -2)} 0 ${theme.methods.space.value('sm', 'px', 2)}`
+        padding: `0 ${theme.methods.space.value('md', 'px', -2)} 0 ${theme.methods.space.value('sm', 'px', 2)}`,
+
+        '&$chip': {
+          padding: `0 ${theme.methods.space.value('sm', 'px', 2)}`,
+        }
       }
     },
   }
@@ -301,6 +337,7 @@ const Button = React.forwardRef((props: any, ref) => {
     disabled: disabled_,
 
     fab,
+    chip,
     icon,
 
     children,
@@ -326,13 +363,14 @@ const Button = React.forwardRef((props: any, ref) => {
     root: {},
     background: {},
     border: {},
-    labelIcon: {},
+    icon: {},
     label: { margin: 0 },
-    icon: { fontSize: '17px' }
+    Icon: { fontSize: '17px' }
   };
 
   let newColor: any;
 
+  // color
   if (classes[color] === undefined && is('string', color)) {
     if (!refs.color.current) refs.color.current = theme.methods.color(color);
 
@@ -370,32 +408,46 @@ const Button = React.forwardRef((props: any, ref) => {
     }
   }
 
+  // size
   if (size === 'small') {
-    styles.icon.fontSize = '16px';
+    styles.Icon.fontSize = '16px';
 
     TypeProps.version = 'l3';
   }
 
   if (size === 'large') {
-    styles.icon.fontSize = '22px';
+    styles.Icon.fontSize = '22px';
 
     TypeProps.version = 'l1';
   }
 
   let children_ = children;
 
+  // icon
   if (icon) {
     if (!['small', 'regular', 'large'].includes(size)) {
       children_ = React.cloneElement(children_, { size: children_.props?.size !== undefined ? children_.props.size : size * 0.6 });
 
-      styles.labelIcon.width = size;
-      styles.labelIcon.height = size;
+      styles.icon.width = size;
+      styles.icon.height = size;
     }
     else children_ = React.cloneElement(children_, { size: children_.props?.size !== undefined ? children_.props?.size : (size === 'large' ? 'medium' : size) });
   }
 
+  // fab
+  if (fab) {
+    if (React.Children.count(children_) === 1 && !is('string', children_) && size !== 'large') styles.root.minWidth = 'initial';
+
+    if (size === 'small') styles.Icon.fontSize = 18;
+    if (size === 'regular') styles.Icon.fontSize = 24;
+    if (size === 'large') styles.Icon.fontSize = 30;
+
+    children_ = React.Children.toArray(children_).map(item => React.isValidElement(item) ? React.cloneElement(item, { style: styles.Icon }) : item);
+  }
+
+  // loading
   if (loading) {
-    const iconLoading = React.cloneElement(loadingIcon, { color: 'inherit', style: styles.icon });
+    const iconLoading = React.cloneElement(loadingIcon, { color: 'inherit', style: styles.Icon });
 
     if (loadingLabel) children_ = loadingLabel;
     else if (loadingIconPosition === 'center') {
@@ -410,16 +462,6 @@ const Button = React.forwardRef((props: any, ref) => {
 
   if (props.selected) InteractionProps.selected = props.selected;
 
-  if (fab) {
-    if (React.Children.count(children_) === 1 && !is('string', children_) && size !== 'large') styles.root.minWidth = 'initial';
-
-    if (size === 'small') styles.icon.fontSize = 18;
-    if (size === 'regular') styles.icon.fontSize = 24;
-    if (size === 'large') styles.icon.fontSize = 30;
-
-    children_ = React.Children.toArray(children_).map(item => React.isValidElement(item) ? React.cloneElement(item, { style: styles.icon }) : item);
-  }
-
   return (
     <Component
       ref={ref}
@@ -431,13 +473,14 @@ const Button = React.forwardRef((props: any, ref) => {
         classes[color],
         classes[version],
         tonal && classes.tonal,
-        icon && classes.iconLabel,
+        icon && classes.icon,
         startIcon && classes.startIcon,
         endIcon && classes.endIcon,
         fullWidth && classes.fullWidth,
         elevation && !disabled && ['filled', 'tonal'].includes(version) && classes.elevation,
         disabled && classes.disabled,
         fab && classes.fab,
+        chip && classes.chip,
         newColor && 'amaui-color-new'
       ])}
 
@@ -476,22 +519,31 @@ const Button = React.forwardRef((props: any, ref) => {
       />
 
       {startIcon && (
-        <span className={classNames([classes.icon, classes.start, classes[size]])}>
-          {React.cloneElement(startIcon, { style: styles.icon })}
+        <span className={classNames([
+          classes.Icon,
+          classes.start,
+          classes[size],
+          chip && classes.chip
+        ])}>
+          {React.cloneElement(startIcon, { style: styles.Icon })}
         </span>
       )}
 
       {icon ? (
         <span
-          className={classes.labelIcon}
+          className={classes.iconRoot}
 
-          style={styles.labelIcon}
+          style={styles.icon}
         >
           {children_}
         </span>
       ) : (
         <Type
-          className={classNames([classes.label, classes[size]])}
+          className={classNames([
+            classes.label,
+            classes[size],
+            chip && classes.chip
+          ])}
 
           Component='span'
 
@@ -504,8 +556,13 @@ const Button = React.forwardRef((props: any, ref) => {
       )}
 
       {endIcon && (
-        <span className={classNames([classes.icon, classes.end, classes[size]])}>
-          {React.cloneElement(endIcon, { style: styles.icon })}
+        <span className={classNames([
+          classes.Icon,
+          classes.end,
+          classes[size],
+          chip && classes.chip
+        ])}>
+          {React.cloneElement(endIcon, { style: styles.Icon })}
         </span>
       )}
 

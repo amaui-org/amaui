@@ -96,7 +96,9 @@ const AvatarGroup = React.forwardRef((props: any, ref: any) => {
         ...styles.root
       }}
     >
-      {children.map((item: any) => React.cloneElement(item, {
+      {children.map((item: any, index: number) => React.cloneElement(item, {
+        key: index,
+
         className: classes.item,
 
         ...other,
