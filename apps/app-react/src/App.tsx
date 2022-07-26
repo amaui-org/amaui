@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
-import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, SegmentedButtons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip } from '@amaui/ui-react';
+import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, SegmentedButtons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, ChipGroup } from '@amaui/ui-react';
 
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
@@ -270,6 +270,128 @@ function App() {
       <div className={classes.row}>
         <Button size='small' color='secondary' className={classes.btn} onClick={() => updateTheme()}>{theme.palette.light ? 'dark' : 'light'}</Button>
       </div>
+
+      <Accordion label='ChipGroup'>
+        <Accordion label='ChipGroup' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <ChipGroup startIcon={<IconMaterialPottedPlantRounded />}>
+              <Chip>Assistive</Chip>
+              <Chip>Assistive 1</Chip>
+              <Chip>Assistive 3</Chip>
+              <Chip>Assistive 4</Chip>
+              <Chip>Assistive 14</Chip>
+              <Chip>Assistive 114</Chip>
+              <Chip>Assistive 1114</Chip>
+            </ChipGroup>
+          </div>
+        </Accordion>
+
+        <Accordion label='ChipGroup color' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <ChipGroup color='secondary' tonal>
+              <Chip>Assistive</Chip>
+              <Chip>Assistive 1</Chip>
+              <Chip>Assistive 3</Chip>
+              <Chip>Assistive 4</Chip>
+              <Chip>Assistive 14</Chip>
+              <Chip>Assistive 114</Chip>
+              <Chip>Assistive 1114</Chip>
+            </ChipGroup>
+          </div>
+        </Accordion>
+
+        <Accordion label='ChipGroup color Chip override' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <ChipGroup color='secondary' tonal>
+              <Chip>Assistive</Chip>
+              <Chip color='primary'>Assistive 1</Chip>
+              <Chip>Assistive 3</Chip>
+              <Chip>Assistive 4</Chip>
+              <Chip>Assistive 14</Chip>
+              <Chip>Assistive 114</Chip>
+              <Chip>Assistive 1114</Chip>
+            </ChipGroup>
+          </div>
+        </Accordion>
+
+        <Accordion label='ChipGroup wrap' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <ChipGroup wrap>
+              <Chip>Assistive</Chip>
+              <Chip>Assistive 1</Chip>
+              <Chip>Assistive 3</Chip>
+              <Chip>Assistive 4</Chip>
+              <Chip>Assistive 14</Chip>
+              <Chip>Assistive 114</Chip>
+              <Chip>Assistive 1114</Chip>
+            </ChipGroup>
+          </div>
+        </Accordion>
+
+        <Accordion label='ChipGroup size' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <ChipGroup size='small' >
+              <Chip>Assistive</Chip>
+              <Chip>Assistive 1</Chip>
+              <Chip>Assistive 3</Chip>
+              <Chip>Assistive 4</Chip>
+              <Chip>Assistive 14</Chip>
+              <Chip>Assistive 114</Chip>
+              <Chip>Assistive 1114</Chip>
+            </ChipGroup>
+
+            <ChipGroup size='small' wrap>
+              <Chip>Assistive</Chip>
+              <Chip>Assistive 1</Chip>
+              <Chip>Assistive 3</Chip>
+              <Chip>Assistive 4</Chip>
+              <Chip>Assistive 14</Chip>
+              <Chip>Assistive 114</Chip>
+              <Chip>Assistive 1114</Chip>
+            </ChipGroup>
+
+            <ChipGroup size='regular' >
+              <Chip>Assistive</Chip>
+              <Chip>Assistive 1</Chip>
+              <Chip>Assistive 3</Chip>
+              <Chip>Assistive 4</Chip>
+              <Chip>Assistive 14</Chip>
+              <Chip>Assistive 114</Chip>
+              <Chip>Assistive 1114</Chip>
+            </ChipGroup>
+
+            <ChipGroup size='regular' wrap>
+              <Chip>Assistive</Chip>
+              <Chip>Assistive 1</Chip>
+              <Chip>Assistive 3</Chip>
+              <Chip>Assistive 4</Chip>
+              <Chip>Assistive 14</Chip>
+              <Chip>Assistive 114</Chip>
+              <Chip>Assistive 1114</Chip>
+            </ChipGroup>
+
+            <ChipGroup size='large' >
+              <Chip>Assistive</Chip>
+              <Chip>Assistive 1</Chip>
+              <Chip>Assistive 3</Chip>
+              <Chip>Assistive 4</Chip>
+              <Chip>Assistive 14</Chip>
+              <Chip>Assistive 114</Chip>
+              <Chip>Assistive 1114</Chip>
+            </ChipGroup>
+
+            <ChipGroup size='large' wrap>
+              <Chip>Assistive</Chip>
+              <Chip>Assistive 1</Chip>
+              <Chip>Assistive 3</Chip>
+              <Chip>Assistive 4</Chip>
+              <Chip>Assistive 14</Chip>
+              <Chip>Assistive 114</Chip>
+              <Chip>Assistive 1114</Chip>
+            </ChipGroup>
+          </div>
+        </Accordion>
+      </Accordion>
 
       <Accordion label='Chip'>
         <Accordion label='Chip' open>

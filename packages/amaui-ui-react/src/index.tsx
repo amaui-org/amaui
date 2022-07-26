@@ -100,3 +100,6 @@ export * from './ClickListener';
 
 export { default as Chip } from './Chip';
 export * from './Chip';
+
+export { default as ChipGroup } from './ChipGroup';
+export * from './ChipGroup';
