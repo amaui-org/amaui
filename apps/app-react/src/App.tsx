@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
-import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, SegmentedButtons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, ChipGroup } from '@amaui/ui-react';
+import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, SegmentedButtons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, ChipGroup, Backdrop } from '@amaui/ui-react';
 
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
@@ -236,12 +236,12 @@ function App() {
     });
   };
 
-  const updateModal = (item?: any) => {
+  const updateValue = (item?: any, property: string = 'modal') => {
     setA((values: any) => {
       const newValues = { ...values };
 
-      if (!newValues.modal) newValues.modal = item;
-      else newValues.modal = false;
+      if (!newValues[property]) newValues[property] = item;
+      else newValues[property] = false;
 
       return newValues;
     });
@@ -270,6 +270,38 @@ function App() {
       <div className={classes.row}>
         <Button size='small' color='secondary' className={classes.btn} onClick={() => updateTheme()}>{theme.palette.light ? 'dark' : 'light'}</Button>
       </div>
+
+      <Accordion label='Backdrop'>
+        <Accordion label='Backdrop' open>
+          <div className={classNames([classes.column])}>
+            <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue('b-1', 'backdrop')}>a</Button>
+
+            <Backdrop
+              open={a.backdrop === 'b-1'}
+
+              onClose={() => updateValue('b-1', 'backdrop')}
+            >
+              <RoundProgress />
+            </Backdrop>
+          </div>
+        </Accordion>
+
+        <Accordion label='Backdrop invisible' open>
+          <div className={classNames([classes.column])}>
+            <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue('b-i', 'backdrop')}>a</Button>
+
+            <Backdrop
+              open={a.backdrop === 'b-i'}
+
+              onClose={() => updateValue('b-i', 'backdrop')}
+
+              invisible
+            >
+              <RoundProgress />
+            </Backdrop>
+          </div>
+        </Accordion>
+      </Accordion>
 
       <Accordion label='ChipGroup'>
         <Accordion label='ChipGroup' open>
@@ -1785,12 +1817,12 @@ function App() {
       <Accordion label='Modal'>
         <Accordion label='Modal' open>
           <div className={classNames([classes.column])}>
-            <Button size='small' color='secondary' className={classes.btn} onClick={() => updateModal(1)}>a</Button>
+            <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue(1)}>a</Button>
 
             <Modal
               open={a.modal === 1}
 
-              onClose={() => updateModal()}
+              onClose={() => updateValue()}
             >
               <ModalHeader>
                 <ModalTitle>Basic modal title</ModalTitle>
@@ -1825,12 +1857,12 @@ function App() {
 
         <Accordion label='Modal with icon' open>
           <div className={classNames([classes.column])}>
-            <Button size='small' color='secondary' className={classes.btn} onClick={() => updateModal(2)}>a</Button>
+            <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue(2)}>a</Button>
 
             <Modal
               open={a.modal === 2}
 
-              onClose={() => updateModal()}
+              onClose={() => updateValue()}
             >
               <ModalHeader>
                 <ModalIcon><IconMaterialPottedPlantRounded /></ModalIcon>
@@ -1866,12 +1898,12 @@ function App() {
 
         <Accordion label='Modal with overflow text' open>
           <div className={classNames([classes.column])}>
-            <Button size='small' color='secondary' className={classes.btn} onClick={() => updateModal(3)}>a</Button>
+            <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue(3)}>a</Button>
 
             <Modal
               open={a.modal === 3}
 
-              onClose={() => updateModal()}
+              onClose={() => updateValue()}
             >
               <ModalHeader>
                 <ModalIcon><IconMaterialPottedPlantRounded /></ModalIcon>
@@ -1911,14 +1943,14 @@ function App() {
 
         <Accordion label='Modal modal component' open>
           <div className={classNames([classes.column])}>
-            <Button size='small' color='secondary' className={classes.btn} onClick={() => updateModal(5)}>a</Button>
+            <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue(5)}>a</Button>
 
             <Modal
               open={a.modal === 5}
 
               ModalComponent={Slide}
 
-              onClose={() => updateModal()}
+              onClose={() => updateValue()}
             >
               <ModalHeader>
                 <ModalTitle>Basic modal title</ModalTitle>
@@ -1953,20 +1985,20 @@ function App() {
 
         <Accordion label='Modal max width' open>
           <div className={classNames([classes.column])}>
-            <Button size='small' color='secondary' className={classes.btn} onClick={() => updateModal('xxs')}>xxs</Button>
-            <Button size='small' color='secondary' className={classes.btn} onClick={() => updateModal('xs')}>xs</Button>
-            <Button size='small' color='secondary' className={classes.btn} onClick={() => updateModal('sm')}>sm</Button>
-            <Button size='small' color='secondary' className={classes.btn} onClick={() => updateModal('rg')}>rg</Button>
-            <Button size='small' color='secondary' className={classes.btn} onClick={() => updateModal('lg')}>lg</Button>
-            <Button size='small' color='secondary' className={classes.btn} onClick={() => updateModal('xl')}>xl</Button>
-            <Button size='small' color='secondary' className={classes.btn} onClick={() => updateModal('xxl')}>xxl</Button>
+            <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue('xxs')}>xxs</Button>
+            <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue('xs')}>xs</Button>
+            <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue('sm')}>sm</Button>
+            <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue('rg')}>rg</Button>
+            <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue('lg')}>lg</Button>
+            <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue('xl')}>xl</Button>
+            <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue('xxl')}>xxl</Button>
 
             <Modal
               open={['xxs', 'xs', 'sm', 'rg', 'lg', 'xl', 'xxl'].indexOf(a.modal) > -1}
 
               maxWidth={a.modal}
 
-              onClose={() => updateModal()}
+              onClose={() => updateValue()}
             >
               <ModalHeader>
                 <ModalIcon><IconMaterialPottedPlantRounded /></ModalIcon>
@@ -2006,14 +2038,14 @@ function App() {
 
         <Accordion label='Modal full width' open>
           <div className={classNames([classes.column])}>
-            <Button size='small' color='secondary' className={classes.btn} onClick={() => updateModal(4)}>a</Button>
+            <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue(4)}>a</Button>
 
             <Modal
               open={a.modal === 4}
 
               fullWidth
 
-              onClose={() => updateModal()}
+              onClose={() => updateValue()}
             >
               <ModalHeader>
                 <ModalIcon><IconMaterialPottedPlantRounded /></ModalIcon>
@@ -2053,7 +2085,7 @@ function App() {
 
         <Accordion label='Modal full screen' open>
           <div className={classNames([classes.column])}>
-            <Button size='small' color='secondary' className={classes.btn} onClick={() => updateModal(7)}>a</Button>
+            <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue(7)}>a</Button>
 
             <Modal
               open={a.modal === 7}
@@ -2062,7 +2094,7 @@ function App() {
 
               fullScreen
 
-              onClose={() => updateModal()}
+              onClose={() => updateValue()}
             >
               <ModalHeader>
                 <ModalIcon><IconMaterialPottedPlantRounded /></ModalIcon>

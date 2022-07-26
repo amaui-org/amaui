@@ -103,3 +103,6 @@ export * from './Chip';
 
 export { default as ChipGroup } from './ChipGroup';
 export * from './ChipGroup';
+
+export { default as Backdrop } from './Backdrop';
+export * from './Backdrop';
