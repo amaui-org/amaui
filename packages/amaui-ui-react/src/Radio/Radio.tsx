@@ -3,9 +3,7 @@ import React, { ChangeEvent } from 'react';
 import { is } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
-import Icon from '../Icon';
 import IconButton from '../IconButton';
-import { IconDoneAnimated } from '../SegmentedButtons/SegmentedButtons';
 
 const useStyle = style(theme => ({
   icon: {
@@ -17,10 +15,10 @@ const useStyle = style(theme => ({
     height: '1em',
     border: '0.125em solid currentColor',
     background: 'transparent',
-    transition: theme.methods.transitions.make('background', { duration: 0, delay: 'xxs' }),
-    borderRadius: '0.11em',
+    transition: theme.methods.transitions.make('background', { duration: 0, delay: 'xs' }),
+    borderRadius: '50%',
 
-    '&$checked, &$indeterminate': {
+    '&$checked': {
       background: 'currentColor',
       transition: theme.methods.transitions.make('background', { duration: 0 }),
 
@@ -29,20 +27,37 @@ const useStyle = style(theme => ({
       }
     },
 
-    '&$checked$disabled, &$indeterminate$disabled': {
+    '&$checked$disabled': {
       background: 'currentColor',
       border: 'none'
     }
   },
   iconItem: {
     position: 'absolute',
-    width: 'calc(100% - 0.3em)',
-    height: 'calc(100% - 0.3em)',
     inset: 0,
-    left: '0.16em',
-    top: '0.15em',
     zIndex: 2,
     pointerEvents: 'none',
+
+    '&$small': {
+      width: 'calc(100% - 0.2em)',
+      height: 'calc(100% - 0.2em)',
+      left: '0.125em',
+      top: '0.125em'
+    },
+
+    '&$regular': {
+      width: 'calc(100% - 0.25em)',
+      height: 'calc(100% - 0.25em)',
+      left: '0.125em',
+      top: '0.125em'
+    },
+
+    '&:not($small):not($regular)': {
+      width: 'calc(100% - 0.23em)',
+      height: 'calc(100% - 0.23em)',
+      left: '0.12em',
+      top: '0.12em'
+    },
 
     '&:before': {
       content: "''",
@@ -54,10 +69,11 @@ const useStyle = style(theme => ({
       background: 'currentColor',
       transform: 'scale(1)',
       opacity: 0,
-      transition: `${theme.methods.transitions.make('transform', { duration: 'xxs' })}, ${theme.methods.transitions.make('opacity', { duration: 0, delay: 'xxs' })}`
+      transition: `${theme.methods.transitions.make('transform', { duration: 'xxs', delay: 'xxs' })}, ${theme.methods.transitions.make('opacity', { duration: 0, delay: 'xs' })}`,
+      borderRadius: '50%'
     },
 
-    '&$checked:before, &$indeterminate:before': {
+    '&$checked:before': {
       transform: 'scale(0)',
       opacity: 1,
       transition: `${theme.methods.transitions.make('transform', { duration: 'xxs' })}, ${theme.methods.transitions.make('opacity', { duration: 0 })}`,
@@ -67,38 +83,28 @@ const useStyle = style(theme => ({
       display: 'none'
     }
   },
-  iconDone: {
+  iconDot: {
     display: 'inline-flex',
     justifyContent: 'center',
     alignItems: 'center',
     position: 'absolute',
     inset: 0,
-    width: ['100%', '!important'],
-    height: '100%',
+    width: '50%',
+    height: '50%',
+    top: '25%',
+    left: '25%',
+    background: 'currentColor',
+    borderRadius: '50%',
     zIndex: 3,
+    transform: 'scale(0)',
+    transition: theme.methods.transitions.make('transform', { duration: 'xxs' }),
 
-    '&:not($indeterminate) > svg': {
-      padding: '0.14em'
+    '&$checked': {
+      transform: 'scale(1)',
+      transition: theme.methods.transitions.make('transform', { duration: 'xxs', delay: 'xxs' })
     }
   }
-}), { name: 'AmauiCheckbox' });
-
-// Indeterminate
-const IconMaterialIndeterminateCheckBoxSharp = React.forwardRef((props: any, ref) => {
-
-  return (
-    <Icon
-      ref={ref}
-
-      name='IndeterminateCheckBoxSharp'
-      short_name='IndeterminateCheckBox'
-
-      {...props}
-    >
-      <path d='M7 13H17V11H7V13Z' />
-    </Icon>
-  );
-});
+}), { name: 'AmauiRadio' });
 
 const IconItem = (props: any) => {
   const {
@@ -126,7 +132,7 @@ const IconItem = (props: any) => {
   else if (props.size === 'very large') fontSize = '60px';
   else if (props.size !== undefined) fontSize = `${props.size}${!String(props.size).includes('px') ? 'px' : ''}`;
 
-  styles.root.fontSize = `calc(${fontSize} * 0.75)`;
+  styles.root.fontSize = `calc(${fontSize} * 0.834)`;
 
   return (
     <Component
@@ -143,15 +149,13 @@ const IconItem = (props: any) => {
   );
 };
 
-const Checkbox = React.forwardRef((props: any, ref: any) => {
+const Radio = React.forwardRef((props: any, ref: any) => {
   const {
     color = 'primary',
-    colorIndeterminate = props.color,
     colorUnchecked = 'default',
     valueDefault,
     value,
     onChange,
-    indeterminate: indeterminate_,
     Component = 'span',
 
     children,
@@ -159,7 +163,6 @@ const Checkbox = React.forwardRef((props: any, ref: any) => {
     ...other
   } = props;
   const [checked, setChecked] = React.useState(valueDefault !== undefined ? valueDefault : value);
-  const [indeterminate, setIndeterminate] = React.useState(!checked && indeterminate_);
 
   const { classes } = useStyle();
 
@@ -168,15 +171,11 @@ const Checkbox = React.forwardRef((props: any, ref: any) => {
   const styles: any = {
     iconItem: {},
     iconBox: {},
-    iconDone: {}
+    iconDot: {}
   };
 
   React.useEffect(() => {
-    if (value !== undefined && checked !== value) {
-      setChecked(value);
-
-      if (indeterminate) setIndeterminate(false);
-    }
+    if (value !== undefined && checked !== value) setChecked(value);
   }, [value]);
 
   const onUpdate = (event: ChangeEvent<HTMLInputElement>) => {
@@ -184,51 +183,44 @@ const Checkbox = React.forwardRef((props: any, ref: any) => {
       if (is('function', onChange)) onChange(!checked, event);
 
       // Inner controlled checkbox
-      if (!props.hasOwnProperty('value')) {
-        setChecked(!checked);
-
-        if (indeterminate) setIndeterminate(false);
-      }
+      if (!props.hasOwnProperty('value')) setChecked(!checked);
     }
   };
 
-  let color_ = indeterminate ? colorIndeterminate : color;
   let palette: any;
 
-  if (!theme.palette.color[color]) palette = theme.methods.color(color_);
+  if (!theme.palette.color[color]) palette = theme.methods.color(color);
 
   if (props.tonal) {
     // Text
     // Outlined
     if (['text', 'outlined', undefined].includes(props.version)) {
-      styles.iconBox.color = styles.iconBox.color = theme.methods.palette.color.value(color_, 30, true, palette);
+      styles.iconBox.color = styles.iconBox.color = theme.methods.palette.color.value(color, 30, true, palette);
 
-      styles.iconDone.color = styles.iconDone.color = theme.methods.palette.color.value(color_, 90, true, palette);
+      styles.iconDot.color = styles.iconDot.color = theme.methods.palette.color.value(color, 90, true, palette);
     }
 
     // Outlined
-    if (props.version === 'outlined') styles.iconBox.color = styles.iconBox.color = theme.methods.palette.color.value(color_, 50, true, palette);
+    if (props.version === 'outlined') styles.iconBox.color = styles.iconBox.color = theme.methods.palette.color.value(color, 50, true, palette);
 
     // Filled
-    if (props.version === 'filled') styles.iconDone.color = theme.methods.palette.color.value(color_, 90, true, palette);
+    if (props.version === 'filled') styles.iconDot.color = theme.methods.palette.color.value(color, 90, true, palette);
   }
   else {
-    if (!theme.palette.light && props.disabled) styles.iconDone.color = theme.palette.background.default.primary;
+    if (!theme.palette.light && props.disabled) styles.iconDot.color = theme.palette.background.default.primary;
     else {
-      if (props.version === 'filled') styles.iconDone.color = color_ === 'default' ? theme.palette.text.default.primary : (palette || theme.palette.color[color_])?.main;
-      else styles.iconDone.color = theme.methods.palette.color.text(color_ === 'default' ? theme.palette.text.default.primary : (palette || theme.palette.color[color_])?.main, true, 'light');
+      if (props.version === 'filled') styles.iconDot.color = color === 'default' ? theme.palette.text.default.primary : (palette || theme.palette.color[color])?.main;
+      else styles.iconDot.color = theme.methods.palette.color.text(color === 'default' ? theme.palette.text.default.primary : (palette || theme.palette.color[color])?.main, true, 'light');
     }
   }
 
-  styles.iconItem.color = styles.iconDone.color;
+  styles.iconItem.color = styles.iconDot.color;
 
   if (['text', 'outlined', undefined].includes(props.version)) styles.iconItem.color = theme.palette.background.default.primary;
 
   let colorValue = color;
 
   if (!checked) colorValue = colorUnchecked;
-
-  if (indeterminate) colorValue = colorIndeterminate;
 
   return (
     <IconButton
@@ -243,9 +235,9 @@ const Checkbox = React.forwardRef((props: any, ref: any) => {
       <IconItem
         className={classNames([
           classes.iconItem,
+          classes[props.size],
           props.disabled && classes.disabled,
-          checked && classes.checked,
-          indeterminate && classes.indeterminate
+          checked && classes.checked
         ])}
 
         style={styles.iconItem}
@@ -259,41 +251,25 @@ const Checkbox = React.forwardRef((props: any, ref: any) => {
           classes.iconBox,
           classes[props.version],
           props.disabled && classes.disabled,
-          checked && classes.checked,
-          indeterminate && classes.indeterminate
+          checked && classes.checked
         ])}
 
         style={styles.iconBox}
       />
 
-      {indeterminate && (
-        <IconItem
-          className={classNames([
-            classes.icon,
-            classes.iconDone,
-            indeterminate && classes.indeterminate
-          ])}
+      <IconItem
+        Component='div'
 
-          style={styles.iconDone}
-        >
-          <IconMaterialIndeterminateCheckBoxSharp />
-        </IconItem>
-      )}
+        className={classNames([
+          classes.icon,
+          classes.iconDot,
+          checked && classes.checked
+        ])}
 
-      {checked && (
-        <IconDoneAnimated
-          className={classNames([
-            classes.icon,
-            classes.iconDone
-          ])}
-
-          style={styles.iconDone}
-
-          in
-        />
-      )}
+        style={styles.iconDot}
+      />
     </IconButton>
   );
 });
 
-export default Checkbox;
+export default Radio;

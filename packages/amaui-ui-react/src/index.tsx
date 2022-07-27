@@ -109,3 +109,6 @@ export * from './Backdrop';
 
 export { default as Checkbox } from './Checkbox';
 export * from './Checkbox';
+
+export { default as Radio } from './Radio';
+export * from './Radio';
