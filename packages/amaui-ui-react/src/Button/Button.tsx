@@ -437,8 +437,8 @@ const Button = React.forwardRef((props: any, ref) => {
         ) :
         React.cloneElement(children_, { size: children_.props?.size !== undefined ? children_.props.size : size * 0.6 });
 
-      styles.icon.width = size;
-      styles.icon.height = size;
+      styles.root.width = size;
+      styles.root.height = size;
     }
     else children_ = is('array', children_) ?
       children_.filter(Boolean).map(

@@ -18,6 +18,7 @@ const useStyle = style(theme => ({
     border: '0.125em solid currentColor',
     background: 'transparent',
     transition: theme.methods.transitions.make('background', { duration: 0, delay: 'xxs' }),
+    borderRadius: '0.11em',
 
     '&$checked, &$indeterminate': {
       background: 'currentColor',
@@ -53,7 +54,8 @@ const useStyle = style(theme => ({
       background: 'currentColor',
       transform: 'scale(1)',
       opacity: 0,
-      transition: `${theme.methods.transitions.make('transform', { duration: 'xxs' })}, ${theme.methods.transitions.make('opacity', { duration: 0, delay: 'xxs' })}`
+      transition: `${theme.methods.transitions.make('transform', { duration: 'xxs' })}, ${theme.methods.transitions.make('opacity', { duration: 0, delay: 'xxs' })}`,
+      borderRadius: '0.11em',
     },
 
     '&$checked:before, &$indeterminate:before': {
@@ -199,7 +201,7 @@ const Checkbox = React.forwardRef((props: any, ref: any) => {
   if (props.tonal) {
     // Text
     // Outlined
-    if (['text', 'outlined'].includes(props.version)) {
+    if (['text', 'outlined', undefined].includes(props.version)) {
       styles.iconBox.color = styles.iconBox.color = theme.methods.palette.color.value(color_, 30, true, palette);
 
       styles.iconDone.color = styles.iconDone.color = theme.methods.palette.color.value(color_, 90, true, palette);
@@ -220,6 +222,8 @@ const Checkbox = React.forwardRef((props: any, ref: any) => {
   }
 
   styles.iconItem.color = styles.iconDone.color;
+
+  if (['text', 'outlined', undefined].includes(props.version)) styles.iconItem.color = theme.palette.background.default.primary;
 
   let colorValue = color;
 
