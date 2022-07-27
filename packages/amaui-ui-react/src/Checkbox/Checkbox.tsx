@@ -1,7 +1,7 @@
 import React, { ChangeEvent } from 'react';
 
 import { is } from '@amaui/utils';
-import { style, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Icon from '../Icon';
 import IconButton from '../IconButton';
@@ -19,6 +19,13 @@ const useStyle = style(theme => ({
     zIndex: 1
   },
   icon: {
+    zIndex: 1,
+    pointerEvents: 'none'
+  },
+  iconBox: {
+
+  },
+  iconDone: {
     display: 'inline-flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -27,8 +34,8 @@ const useStyle = style(theme => ({
     width: ['100%', '!important'],
     height: '100%',
 
-    '& > svg': {
-      padding: '2px'
+    '&:not($indeterminate) > svg': {
+      padding: '3px'
     }
   }
 }), { name: 'AmauiCheckbox' });
@@ -62,7 +69,7 @@ const IconMaterialIndeterminateCheckBoxSharp = React.forwardRef((props: any, ref
 
       {...props}
     >
-      <path d='M7 13H17V11H7ZM3 21V3H21V21Z' />
+      <path d='M7 13H17V11H7V13Z' />
     </Icon>
   );
 });
@@ -110,7 +117,8 @@ const Checkbox = React.forwardRef((props: any, ref: any) => {
   const theme = useAmauiTheme();
 
   const styles: any = {
-    icon: {}
+    iconBox: {},
+    iconDone: {}
   };
 
   React.useEffect(() => {
@@ -136,27 +144,40 @@ const Checkbox = React.forwardRef((props: any, ref: any) => {
     }
   };
 
-  if (checked) {
-    let palette: any;
+  let color_ = indeterminate ? colorIndeterminate : color;
+  let palette: any;
 
-    if (!theme.palette.color[color]) palette = theme.methods.color(color);
+  if (!theme.palette.color[color]) palette = theme.methods.color(color_);
 
-    styles.icon.color = theme.methods.palette.color.text((palette || theme.palette.color[color])?.main, true, 'light');
+  if (props.tonal) {
+    // Text
+    // Outlined
+    if (['text', 'outlined'].includes(props.version)) {
+      styles.iconBox.color = styles.iconBox.color = theme.methods.palette.color.value(color_, 10, true, palette);
+
+      styles.iconDone.color = styles.iconDone.color = theme.methods.palette.color.value(color_, 90, true, palette);
+    }
+
+    // Filled
+    if (props.version === 'filled') styles.iconDone.color = theme.methods.palette.color.value(color_, 90, true, palette);
+  }
+  else {
+    if (!theme.palette.light && props.disabled) styles.iconDone.color = theme.palette.background.default.primary;
+    else {
+      if (props.version === 'filled') styles.iconDone.color = color_ === 'default' ? theme.palette.text.default.primary : (palette || theme.palette.color[color_])?.main;
+      else styles.iconDone.color = theme.methods.palette.color.text(color_ === 'default' ? theme.palette.text.default.primary : (palette || theme.palette.color[color_])?.main, true, 'light');
+    }
   }
 
   let Icon = IconMaterialCheckBoxOutlineBlankSharp;
 
-  if (checked) Icon = IconMaterialFilledCheckBoxSharp;
+  if (checked || indeterminate) Icon = IconMaterialFilledCheckBoxSharp;
 
   let colorValue = color;
 
   if (!checked) colorValue = colorUnchecked;
 
-  if (indeterminate) {
-    Icon = IconMaterialIndeterminateCheckBoxSharp;
-
-    colorValue = colorIndeterminate;
-  }
+  if (indeterminate) colorValue = colorIndeterminate;
 
   return (
     <IconButton
@@ -174,20 +195,46 @@ const Checkbox = React.forwardRef((props: any, ref: any) => {
         onChange={onUpdate}
 
         type='checkbox'
+
+        disabled={props.disabled}
       />
 
       <Fade
         add
         in
       >
-        <Icon />
+        <Icon
+          className={classNames([
+            classes.icon,
+            classes.iconBox
+          ])}
+
+          style={styles.iconBox}
+        />
       </Fade>
+
+      {indeterminate && (
+        <span
+          className={classNames([
+            classes.icon,
+            classes.iconDone,
+            indeterminate && classes.indeterminate
+          ])}
+
+          style={styles.iconDone}
+        >
+          <IconMaterialIndeterminateCheckBoxSharp />
+        </span>
+      )}
 
       {checked && (
         <IconDoneAnimated
-          className={classes.icon}
+          className={classNames([
+            classes.icon,
+            classes.iconDone
+          ])}
 
-          style={styles.icon}
+          style={styles.iconDone}
 
           in
         />

@@ -476,6 +476,12 @@ const Button = React.forwardRef((props: any, ref) => {
 
   if (props.selected) InteractionProps.selected = props.selected;
 
+  if (disabled) {
+    InteractionProps.wave = false;
+    InteractionProps.border = false;
+    InteractionProps.background = false;
+  }
+
   return (
     <Component
       ref={ref}

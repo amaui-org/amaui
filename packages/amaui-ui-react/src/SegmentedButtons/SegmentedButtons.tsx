@@ -43,7 +43,7 @@ const useStyle = style(theme => ({
     }
   },
   path: {
-    strokeWidth: '2px',
+    strokeWidth: '2.5px',
     strokeDasharray: 30,
     strokeDashoffset: 30,
     stroke: 'currentcolor',
@@ -93,6 +93,7 @@ export const IconDoneAnimated = (props: any) => {
 
     size,
     onExited,
+    noExitAnimation,
 
     className,
     style,
@@ -128,7 +129,7 @@ export const IconDoneAnimated = (props: any) => {
           <IconMaterialDoneSharp
             className={classNames([
               classes.path,
-              ['adding', 'added', 'enter', 'entering', 'entered'].includes(status) && classes.pathIn
+              (['adding', 'added', 'enter', 'entering', 'entered'].includes(status) || noExitAnimation) && classes.pathIn
             ])}
 
             size={size}

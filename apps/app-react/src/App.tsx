@@ -278,12 +278,191 @@ function App() {
           </div>
         </Accordion>
 
+        <Accordion label='Checkbox versions' open>
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+            <Checkbox size='regular' version='text' color='secondary' valueDefault />
+            <Checkbox size='regular' version='outlined' color='secondary' valueDefault />
+            <Checkbox size='regular' version='filled' color='secondary' valueDefault />
+            <Checkbox size='regular' version='filled' tonal color='secondary' valueDefault />
+          </div>
+        </Accordion>
+
         <Accordion label='Checkbox sizes' open>
           <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
             <Checkbox size='small' color='secondary' />
             <Checkbox size='regular' color='secondary' />
             <Checkbox size='large' color='secondary' />
             <Checkbox size={70} color='secondary' />
+          </div>
+        </Accordion>
+
+        <Accordion label='Chip color' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Checkbox version='text' color='default' valueDefault />
+            <Checkbox version='text' color='primary' valueDefault />
+            <Checkbox version='text' color='secondary' valueDefault />
+            <Checkbox version='text' color='tertiary' valueDefault />
+            <Checkbox version='text' color='quaternary' valueDefault />
+            <Checkbox version='text' color='info' valueDefault />
+            <Checkbox version='text' color='success' valueDefault />
+            <Checkbox version='text' color='error' valueDefault />
+            <Checkbox version='text' color='warning' valueDefault />
+            <Checkbox version='text' color='neutral' valueDefault />
+            <Checkbox version='text' color='#f5d758' valueDefault />
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Checkbox version='outlined' color='default' valueDefault />
+            <Checkbox version='outlined' color='primary' valueDefault />
+            <Checkbox version='outlined' color='secondary' valueDefault />
+            <Checkbox version='outlined' color='tertiary' valueDefault />
+            <Checkbox version='outlined' color='quaternary' valueDefault />
+            <Checkbox version='outlined' color='info' valueDefault />
+            <Checkbox version='outlined' color='success' valueDefault />
+            <Checkbox version='outlined' color='error' valueDefault />
+            <Checkbox version='outlined' color='warning' valueDefault />
+            <Checkbox version='outlined' color='neutral' valueDefault />
+            <Checkbox version='outlined' color='#f5d758' valueDefault />
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Checkbox version='filled' color='default' valueDefault />
+            <Checkbox version='filled' color='primary' valueDefault />
+            <Checkbox version='filled' color='secondary' valueDefault />
+            <Checkbox version='filled' color='tertiary' valueDefault />
+            <Checkbox version='filled' color='quaternary' valueDefault />
+            <Checkbox version='filled' color='info' valueDefault />
+            <Checkbox version='filled' color='success' valueDefault />
+            <Checkbox version='filled' color='error' valueDefault />
+            <Checkbox version='filled' color='warning' valueDefault />
+            <Checkbox version='filled' color='neutral' valueDefault />
+            <Checkbox version='filled' color='#f5d758' valueDefault />
+          </div>
+        </Accordion>
+
+        <Accordion label='Chip color indeterminate' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Checkbox version='text' color='default' indeterminate />
+            <Checkbox version='text' color='primary' indeterminate />
+            <Checkbox version='text' color='secondary' indeterminate />
+            <Checkbox version='text' color='tertiary' indeterminate />
+            <Checkbox version='text' color='quaternary' indeterminate />
+            <Checkbox version='text' color='info' indeterminate />
+            <Checkbox version='text' color='success' indeterminate />
+            <Checkbox version='text' color='error' indeterminate />
+            <Checkbox version='text' color='warning' indeterminate />
+            <Checkbox version='text' color='neutral' indeterminate />
+            <Checkbox version='text' color='#f5d758' indeterminate />
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Checkbox version='outlined' color='default' indeterminate />
+            <Checkbox version='outlined' color='primary' indeterminate />
+            <Checkbox version='outlined' color='secondary' indeterminate />
+            <Checkbox version='outlined' color='tertiary' indeterminate />
+            <Checkbox version='outlined' color='quaternary' indeterminate />
+            <Checkbox version='outlined' color='info' indeterminate />
+            <Checkbox version='outlined' color='success' indeterminate />
+            <Checkbox version='outlined' color='error' indeterminate />
+            <Checkbox version='outlined' color='warning' indeterminate />
+            <Checkbox version='outlined' color='neutral' indeterminate />
+            <Checkbox version='outlined' color='#f5d758' indeterminate />
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Checkbox version='filled' color='default' indeterminate />
+            <Checkbox version='filled' color='primary' indeterminate />
+            <Checkbox version='filled' color='secondary' indeterminate />
+            <Checkbox version='filled' color='tertiary' indeterminate />
+            <Checkbox version='filled' color='quaternary' indeterminate />
+            <Checkbox version='filled' color='info' indeterminate />
+            <Checkbox version='filled' color='success' indeterminate />
+            <Checkbox version='filled' color='error' indeterminate />
+            <Checkbox version='filled' color='warning' indeterminate />
+            <Checkbox version='filled' color='neutral' indeterminate />
+            <Checkbox version='filled' color='#f5d758' indeterminate />
+          </div>
+        </Accordion>
+
+        <Accordion label='Chip color tonal' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Checkbox tonal version='text' color='primary' valueDefault />
+            <Checkbox tonal version='text' color='secondary' valueDefault />
+            <Checkbox tonal version='text' color='tertiary' valueDefault />
+            <Checkbox tonal version='text' color='quaternary' valueDefault />
+            <Checkbox tonal version='text' color='info' valueDefault />
+            <Checkbox tonal version='text' color='success' valueDefault />
+            <Checkbox tonal version='text' color='error' valueDefault />
+            <Checkbox tonal version='text' color='warning' valueDefault />
+            <Checkbox tonal version='text' color='neutral' valueDefault />
+            <Checkbox tonal version='text' color='#f5d758' valueDefault />
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Checkbox tonal version='outlined' color='primary' valueDefault />
+            <Checkbox tonal version='outlined' color='secondary' valueDefault />
+            <Checkbox tonal version='outlined' color='tertiary' valueDefault />
+            <Checkbox tonal version='outlined' color='quaternary' valueDefault />
+            <Checkbox tonal version='outlined' color='info' valueDefault />
+            <Checkbox tonal version='outlined' color='success' valueDefault />
+            <Checkbox tonal version='outlined' color='error' valueDefault />
+            <Checkbox tonal version='outlined' color='warning' valueDefault />
+            <Checkbox tonal version='outlined' color='neutral' valueDefault />
+            <Checkbox tonal version='outlined' color='#f5d758' valueDefault />
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Checkbox tonal version='filled' color='primary' valueDefault />
+            <Checkbox tonal version='filled' color='secondary' valueDefault />
+            <Checkbox tonal version='filled' color='tertiary' valueDefault />
+            <Checkbox tonal version='filled' color='quaternary' valueDefault />
+            <Checkbox tonal version='filled' color='info' valueDefault />
+            <Checkbox tonal version='filled' color='success' valueDefault />
+            <Checkbox tonal version='filled' color='error' valueDefault />
+            <Checkbox tonal version='filled' color='warning' valueDefault />
+            <Checkbox tonal version='filled' color='neutral' valueDefault />
+            <Checkbox tonal version='filled' color='#f5d758' valueDefault />
+          </div>
+        </Accordion>
+
+        <Accordion label='Chip color tonal indeterminate' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Checkbox tonal version='text' color='primary' indeterminate />
+            <Checkbox tonal version='text' color='secondary' indeterminate />
+            <Checkbox tonal version='text' color='tertiary' indeterminate />
+            <Checkbox tonal version='text' color='quaternary' indeterminate />
+            <Checkbox tonal version='text' color='info' indeterminate />
+            <Checkbox tonal version='text' color='success' indeterminate />
+            <Checkbox tonal version='text' color='error' indeterminate />
+            <Checkbox tonal version='text' color='warning' indeterminate />
+            <Checkbox tonal version='text' color='neutral' indeterminate />
+            <Checkbox tonal version='text' color='#f5d758' indeterminate />
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Checkbox tonal version='outlined' color='primary' indeterminate />
+            <Checkbox tonal version='outlined' color='secondary' indeterminate />
+            <Checkbox tonal version='outlined' color='tertiary' indeterminate />
+            <Checkbox tonal version='outlined' color='quaternary' indeterminate />
+            <Checkbox tonal version='outlined' color='info' indeterminate />
+            <Checkbox tonal version='outlined' color='success' indeterminate />
+            <Checkbox tonal version='outlined' color='error' indeterminate />
+            <Checkbox tonal version='outlined' color='warning' indeterminate />
+            <Checkbox tonal version='outlined' color='neutral' indeterminate />
+            <Checkbox tonal version='outlined' color='#f5d758' indeterminate />
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Checkbox tonal version='filled' color='primary' indeterminate />
+            <Checkbox tonal version='filled' color='secondary' indeterminate />
+            <Checkbox tonal version='filled' color='tertiary' indeterminate />
+            <Checkbox tonal version='filled' color='quaternary' indeterminate />
+            <Checkbox tonal version='filled' color='info' indeterminate />
+            <Checkbox tonal version='filled' color='success' indeterminate />
+            <Checkbox tonal version='filled' color='error' indeterminate />
+            <Checkbox tonal version='filled' color='warning' indeterminate />
+            <Checkbox tonal version='filled' color='neutral' indeterminate />
+            <Checkbox tonal version='filled' color='#f5d758' indeterminate />
           </div>
         </Accordion>
 
@@ -333,6 +512,14 @@ function App() {
 
               indeterminate
             />
+          </div>
+        </Accordion>
+
+        <Accordion label='Checkbox disabled' open>
+          <div className={classNames([classes.column])}>
+            <Checkbox color='secondary' disabled />
+            <Checkbox color='secondary' indeterminate disabled />
+            <Checkbox color='secondary' valueDefault disabled />
           </div>
         </Accordion>
       </Accordion>
