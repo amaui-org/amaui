@@ -54,8 +54,7 @@ const useStyle = style(theme => ({
       background: 'currentColor',
       transform: 'scale(1)',
       opacity: 0,
-      transition: `${theme.methods.transitions.make('transform', { duration: 'xxs' })}, ${theme.methods.transitions.make('opacity', { duration: 0, delay: 'xxs' })}`,
-      borderRadius: '0.11em',
+      transition: `${theme.methods.transitions.make('transform', { duration: 'xxs' })}, ${theme.methods.transitions.make('opacity', { duration: 0, delay: 'xxs' })}`
     },
 
     '&$checked:before, &$indeterminate:before': {
