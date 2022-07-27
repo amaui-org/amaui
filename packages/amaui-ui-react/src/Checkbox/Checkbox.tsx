@@ -5,25 +5,66 @@ import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Icon from '../Icon';
 import IconButton from '../IconButton';
-import Fade from '../Fade';
 import { IconDoneAnimated } from '../SegmentedButtons/SegmentedButtons';
 
 const useStyle = style(theme => ({
-  input: {
-    cursor: 'inherit',
-    margin: 0,
-    padding: 0,
-    position: 'absolute',
-    inset: 0,
-    opacity: 0,
-    zIndex: 1
-  },
   icon: {
     zIndex: 1,
     pointerEvents: 'none'
   },
   iconBox: {
+    width: '1em',
+    height: '1em',
+    border: '0.125em solid currentColor',
+    background: 'transparent',
+    transition: theme.methods.transitions.make('background', { duration: 0, delay: 'xxs' }),
 
+    '&$checked, &$indeterminate': {
+      background: 'currentColor',
+      transition: theme.methods.transitions.make('background', { duration: 0 }),
+
+      '&$filled, &$outlined': {
+        border: 'none'
+      }
+    },
+
+    '&$checked$disabled, &$indeterminate$disabled': {
+      background: 'currentColor',
+      border: 'none'
+    }
+  },
+  iconItem: {
+    position: 'absolute',
+    width: 'calc(100% - 0.3em)',
+    height: 'calc(100% - 0.3em)',
+    inset: 0,
+    left: '0.16em',
+    top: '0.15em',
+    zIndex: 2,
+    pointerEvents: 'none',
+
+    '&:before': {
+      content: "''",
+      display: 'inline-flex',
+      width: '100%',
+      height: '100%',
+      position: 'absolute',
+      inset: 0,
+      background: 'currentColor',
+      transform: 'scale(1)',
+      opacity: 0,
+      transition: `${theme.methods.transitions.make('transform', { duration: 'xxs' })}, ${theme.methods.transitions.make('opacity', { duration: 0, delay: 'xxs' })}`
+    },
+
+    '&$checked:before, &$indeterminate:before': {
+      transform: 'scale(0)',
+      opacity: 1,
+      transition: `${theme.methods.transitions.make('transform', { duration: 'xxs' })}, ${theme.methods.transitions.make('opacity', { duration: 0 })}`,
+    },
+
+    '&$checked$disabled:before': {
+      display: 'none'
+    }
   },
   iconDone: {
     display: 'inline-flex',
@@ -33,29 +74,13 @@ const useStyle = style(theme => ({
     inset: 0,
     width: ['100%', '!important'],
     height: '100%',
+    zIndex: 3,
 
     '&:not($indeterminate) > svg': {
-      padding: '3px'
+      padding: '0.14em'
     }
   }
 }), { name: 'AmauiCheckbox' });
-
-// Outline
-const IconMaterialCheckBoxOutlineBlankSharp = React.forwardRef((props: any, ref) => {
-
-  return (
-    <Icon
-      ref={ref}
-
-      name='CheckBoxOutlineBlankSharp'
-      short_name='CheckBoxOutlineBlank'
-
-      {...props}
-    >
-      <path d='M3 21V3H21V21ZM5 19H19V5H5Z' />
-    </Icon>
-  );
-});
 
 // Indeterminate
 const IconMaterialIndeterminateCheckBoxSharp = React.forwardRef((props: any, ref) => {
@@ -74,22 +99,48 @@ const IconMaterialIndeterminateCheckBoxSharp = React.forwardRef((props: any, ref
   );
 });
 
-// Filled
-const IconMaterialFilledCheckBoxSharp = React.forwardRef((props: any, ref) => {
+const IconItem = (props: any) => {
+  const {
+    className,
+    style,
+
+    Component = 'span',
+
+    children,
+
+    ...other
+  } = props;
+
+  const styles: any = {
+    root: {}
+  };
+
+  let fontSize = '24px';
+
+  if (props.size === 'very small') fontSize = '12px';
+  else if (props.size === 'small') fontSize = '18px';
+  else if (props.size === 'regular') fontSize = '24px';
+  else if (props.size === 'medium') fontSize = '36px';
+  else if (props.size === 'large') fontSize = '48px';
+  else if (props.size === 'very large') fontSize = '60px';
+  else if (props.size !== undefined) fontSize = `${props.size}${!String(props.size).includes('px') ? 'px' : ''}`;
+
+  styles.root.fontSize = `calc(${fontSize} - (${fontSize} * 0.25))`;
 
   return (
-    <Icon
-      ref={ref}
+    <span
+      className={className}
 
-      name='FilledCheckBoxSharp'
-      short_name='FilledCheckBox'
+      style={{
+        ...style,
 
-      {...props}
+        ...styles.root
+      }}
     >
-      <path d='M3 21V3H21V21H3Z ' />
-    </Icon>
+      {children && React.cloneElement(children, { ...other })}
+    </span>
   );
-});
+};
 
 const Checkbox = React.forwardRef((props: any, ref: any) => {
   const {
@@ -108,22 +159,16 @@ const Checkbox = React.forwardRef((props: any, ref: any) => {
   } = props;
   const [checked, setChecked] = React.useState(valueDefault !== undefined ? valueDefault : value);
   const [indeterminate, setIndeterminate] = React.useState(!checked && indeterminate_);
-  const refs = {
-    input: React.useRef<HTMLInputElement>()
-  };
 
   const { classes } = useStyle();
 
   const theme = useAmauiTheme();
 
   const styles: any = {
+    iconItem: {},
     iconBox: {},
     iconDone: {}
   };
-
-  React.useEffect(() => {
-    if (valueDefault !== undefined) refs.input.current.checked = valueDefault;
-  }, []);
 
   React.useEffect(() => {
     if (value !== undefined && checked !== value) {
@@ -134,13 +179,15 @@ const Checkbox = React.forwardRef((props: any, ref: any) => {
   }, [value]);
 
   const onUpdate = (event: ChangeEvent<HTMLInputElement>) => {
-    if (is('function', onChange)) onChange(event);
+    if (!props.disabled) {
+      if (is('function', onChange)) onChange(!checked, event);
 
-    // Inner controlled checkbox
-    if (!props.hasOwnProperty('value')) {
-      setChecked(event.target.checked);
+      // Inner controlled checkbox
+      if (!props.hasOwnProperty('value')) {
+        setChecked(!checked);
 
-      if (indeterminate) setIndeterminate(false);
+        if (indeterminate) setIndeterminate(false);
+      }
     }
   };
 
@@ -153,10 +200,13 @@ const Checkbox = React.forwardRef((props: any, ref: any) => {
     // Text
     // Outlined
     if (['text', 'outlined'].includes(props.version)) {
-      styles.iconBox.color = styles.iconBox.color = theme.methods.palette.color.value(color_, 10, true, palette);
+      styles.iconBox.color = styles.iconBox.color = theme.methods.palette.color.value(color_, 30, true, palette);
 
       styles.iconDone.color = styles.iconDone.color = theme.methods.palette.color.value(color_, 90, true, palette);
     }
+
+    // Outlined
+    if (props.version === 'outlined') styles.iconBox.color = styles.iconBox.color = theme.methods.palette.color.value(color_, 50, true, palette);
 
     // Filled
     if (props.version === 'filled') styles.iconDone.color = theme.methods.palette.color.value(color_, 90, true, palette);
@@ -169,9 +219,7 @@ const Checkbox = React.forwardRef((props: any, ref: any) => {
     }
   }
 
-  let Icon = IconMaterialCheckBoxOutlineBlankSharp;
-
-  if (checked || indeterminate) Icon = IconMaterialFilledCheckBoxSharp;
+  styles.iconItem.color = styles.iconDone.color;
 
   let colorValue = color;
 
@@ -183,38 +231,40 @@ const Checkbox = React.forwardRef((props: any, ref: any) => {
     <IconButton
       color={colorValue}
 
+      onClick={onUpdate}
+
       Component={Component}
 
       {...other}
     >
-      <input
-        ref={refs.input}
+      <IconItem
+        className={classNames([
+          classes.iconItem,
+          props.disabled && classes.disabled,
+          checked && classes.checked,
+          indeterminate && classes.indeterminate
+        ])}
 
-        className={classes.input}
-
-        onChange={onUpdate}
-
-        type='checkbox'
-
-        disabled={props.disabled}
+        style={styles.iconItem}
       />
 
-      <Fade
-        add
-        in
-      >
-        <Icon
-          className={classNames([
-            classes.icon,
-            classes.iconBox
-          ])}
+      <IconItem
+        Component='div'
 
-          style={styles.iconBox}
-        />
-      </Fade>
+        className={classNames([
+          classes.icon,
+          classes.iconBox,
+          classes[props.version],
+          props.disabled && classes.disabled,
+          checked && classes.checked,
+          indeterminate && classes.indeterminate
+        ])}
+
+        style={styles.iconBox}
+      />
 
       {indeterminate && (
-        <span
+        <IconItem
           className={classNames([
             classes.icon,
             classes.iconDone,
@@ -224,7 +274,7 @@ const Checkbox = React.forwardRef((props: any, ref: any) => {
           style={styles.iconDone}
         >
           <IconMaterialIndeterminateCheckBoxSharp />
-        </span>
+        </IconItem>
       )}
 
       {checked && (

@@ -238,6 +238,7 @@ const useStyle = style(theme => ({
 
   // icon
   iconRoot: {
+    position: 'relative',
     display: 'inline-flex',
     alignItems: 'center',
     justifyContent: 'center',

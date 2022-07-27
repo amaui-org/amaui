@@ -46,8 +46,8 @@ const useStyle = style(theme => ({
   body: {
     '@p': true,
 
-    color: theme?.palette.text?.default?.primary,
-    background: theme?.palette.background?.default?.primary
+    color: theme?.palette.text?.default?.secondary,
+    background: theme?.palette.background?.default?.secondary
   },
 
   root: {
@@ -294,6 +294,20 @@ function App() {
             <Checkbox size='large' color='secondary' />
             <Checkbox size={70} color='secondary' />
           </div>
+
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+            <Checkbox size='small' color='secondary' indeterminate />
+            <Checkbox size='regular' color='secondary' indeterminate />
+            <Checkbox size='large' color='secondary' indeterminate />
+            <Checkbox size={70} color='secondary' indeterminate />
+          </div>
+
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+            <Checkbox size='small' color='secondary' valueDefault />
+            <Checkbox size='regular' color='secondary' valueDefault />
+            <Checkbox size='large' color='secondary' valueDefault />
+            <Checkbox size={70} color='secondary' valueDefault />
+          </div>
         </Accordion>
 
         <Accordion label='Chip color' open>
@@ -495,7 +509,7 @@ function App() {
             <Checkbox
               color='secondary'
 
-              onChange={(event: any) => updateValue(event.target.checked, 'checkbox')}
+              onChange={(value: boolean) => updateValue(value, 'checkbox')}
               value={!!a.checkbox}
 
             />
@@ -507,7 +521,7 @@ function App() {
             <Checkbox
               color='secondary'
 
-              onChange={(event: any) => updateValue(event.target.checked, 'checkbox')}
+              onChange={(value: boolean) => updateValue(value, 'checkbox')}
               value={!!a.checkbox}
 
               indeterminate
