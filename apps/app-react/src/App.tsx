@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
-import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, SegmentedButtons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, ChipGroup, Backdrop } from '@amaui/ui-react';
+import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, SegmentedButtons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, ChipGroup, Backdrop, Checkbox } from '@amaui/ui-react';
 
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
@@ -270,6 +270,72 @@ function App() {
       <div className={classes.row}>
         <Button size='small' color='secondary' className={classes.btn} onClick={() => updateTheme()}>{theme.palette.light ? 'dark' : 'light'}</Button>
       </div>
+
+      <Accordion label='Checkbox'>
+        <Accordion label='Checkbox' open>
+          <div className={classNames([classes.column])}>
+            <Checkbox color='secondary' />
+          </div>
+        </Accordion>
+
+        <Accordion label='Checkbox sizes' open>
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+            <Checkbox size='small' color='secondary' />
+            <Checkbox size='regular' color='secondary' />
+            <Checkbox size='large' color='secondary' />
+            <Checkbox size={70} color='secondary' />
+          </div>
+        </Accordion>
+
+        <Accordion label='Checkbox indeterminate' open>
+          <div className={classNames([classes.column])}>
+            <Checkbox color='secondary' indeterminate />
+          </div>
+        </Accordion>
+
+        <Accordion label='Checkbox valueDefault' open>
+          <div className={classNames([classes.column])}>
+            <Checkbox color='secondary' valueDefault />
+          </div>
+        </Accordion>
+
+        <Accordion label='Checkbox colorUnchecked' open>
+          <div className={classNames([classes.column])}>
+            <Checkbox color='secondary' colorUnchecked='primary' />
+          </div>
+        </Accordion>
+
+        <Accordion label='Checkbox colorIndeterminate' open>
+          <div className={classNames([classes.column])}>
+            <Checkbox color='secondary' colorIndeterminate='primary' indeterminate />
+          </div>
+        </Accordion>
+
+        <Accordion label='Checkbox controlled value' open>
+          <div className={classNames([classes.column])}>
+            <Checkbox
+              color='secondary'
+
+              onChange={(event: any) => updateValue(event.target.checked, 'checkbox')}
+              value={!!a.checkbox}
+
+            />
+          </div>
+        </Accordion>
+
+        <Accordion label='Checkbox indeterminate controlled value' open>
+          <div className={classNames([classes.column])}>
+            <Checkbox
+              color='secondary'
+
+              onChange={(event: any) => updateValue(event.target.checked, 'checkbox')}
+              value={!!a.checkbox}
+
+              indeterminate
+            />
+          </div>
+        </Accordion>
+      </Accordion>
 
       <Accordion label='Backdrop'>
         <Accordion label='Backdrop' open>
@@ -3581,7 +3647,7 @@ function App() {
           <span style={{ position: 'relative' }}>a</span>
         </div>
       </Accordion>
-    </div>
+    </div >
   );
 }
 

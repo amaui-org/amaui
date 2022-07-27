@@ -11,6 +11,36 @@ const Slide = React.forwardRef((props: any, ref: React.MutableRefObject<any>) =>
     root: React.useRef<HTMLElement>()
   };
 
+  const {
+    in: inProp,
+    className,
+    prefix,
+    run,
+    append,
+    add,
+    enter,
+    exit,
+    enterOnAdd,
+    exitOnAdd,
+    noAbruption,
+    removeOnExited,
+    timeout: timeout_,
+    onTransition,
+    onAppended,
+    onAdd,
+    onAdding,
+    onAdded,
+    onEnter,
+    onEntering,
+    onEntered,
+    onExit,
+    onExiting,
+    onExited,
+    onRemoved,
+
+    ...other
+  } = props;
+
   const translate = () => {
     const rect = refs.root?.current?.getBoundingClientRect();
 
@@ -102,6 +132,8 @@ const Slide = React.forwardRef((props: any, ref: React.MutableRefObject<any>) =>
       {...props}
     >
       {(status: TTransitionStatus, ref_) => React.cloneElement(props.children, {
+        ...other,
+
         ref: item => {
           refs.root.current = item;
 

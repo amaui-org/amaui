@@ -80,8 +80,6 @@ const ChipGroup = React.forwardRef((props: any, ref: any) => {
       ])}
 
       style={style}
-
-      {...other}
     >
       {children.map((item: any, index: number) => React.cloneElement(item, {
         key: index,

@@ -30,6 +30,38 @@ const Expand = React.forwardRef((props: any, ref: React.MutableRefObject<any>) =
   };
   const [rect, setRect] = React.useState<DOMRect>(undefined);
 
+  const {
+    in: inProp,
+    className,
+    prefix,
+    run,
+    append,
+    add,
+    enter,
+    exit,
+    enterOnAdd,
+    exitOnAdd,
+    noAbruption,
+    removeOnExited,
+    timeout: timeout_,
+    onTransition,
+    onAppended,
+    onAdd,
+    onAdding,
+    onAdded,
+    onEnter,
+    onEntering,
+    onEntered,
+    onExit,
+    onExiting,
+    onExited,
+    onRemoved,
+    expandSize,
+
+    ...other
+  } = props;
+
+
   React.useEffect(() => {
     setRect(refs.root.current.getBoundingClientRect());
   }, []);
@@ -79,6 +111,8 @@ const Expand = React.forwardRef((props: any, ref: React.MutableRefObject<any>) =
       {...props}
     >
       {(status: TTransitionStatus, ref_) => React.cloneElement(<Wrapper children={props.children} />, {
+        ...other,
+
         ref: item => {
           refs.root.current = item;
 

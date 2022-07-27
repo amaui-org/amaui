@@ -91,7 +91,11 @@ export const IconDoneAnimated = (props: any) => {
     in: inProp,
     simple,
 
+    size,
     onExited,
+
+    className,
+    style,
 
     ...other
   } = props;
@@ -115,18 +119,38 @@ export const IconDoneAnimated = (props: any) => {
 
       add
     >
-      {(status: TTransitionStatus) => React.cloneElement(<span><IconMaterialDoneSharp className={classNames([classes.path, ['adding', 'added', 'enter', 'entering', 'entered'].includes(status) && classes.pathIn])} {...other} /></span>, {
-        style: {
-          display: 'inline-flex',
-          overflow: 'hidden',
+      {(status: TTransitionStatus) => React.cloneElement(
+        <span
+          className={className}
 
-          ...(!simple ? { width: 0 } : {}),
+          style={style}
+        >
+          <IconMaterialDoneSharp
+            className={classNames([
+              classes.path,
+              ['adding', 'added', 'enter', 'entering', 'entered'].includes(status) && classes.pathIn
+            ])}
 
-          transition: theme.methods.transitions.make('width', { duration: 'xs', timing_function: 'accelerated' }),
+            size={size}
 
-          ...styles[status]
+            {...other}
+          />
+        </span>,
+        {
+          style: {
+            display: 'inline-flex',
+            overflow: 'hidden',
+
+            ...(!simple ? { width: 0 } : {}),
+
+            transition: theme.methods.transitions.make('width', { duration: 'xs', timing_function: 'accelerated' }),
+
+            ...styles[status],
+
+            ...style
+          }
         }
-      })}
+      )}
     </Transition>
   );
 };

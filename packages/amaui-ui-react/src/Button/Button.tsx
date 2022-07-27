@@ -241,7 +241,6 @@ const useStyle = style(theme => ({
     display: 'inline-flex',
     alignItems: 'center',
     justifyContent: 'center',
-    position: 'relative',
     lineHeight: 0
   },
 
@@ -428,12 +427,25 @@ const Button = React.forwardRef((props: any, ref) => {
   // icon
   if (icon) {
     if (!['small', 'regular', 'large'].includes(size)) {
-      children_ = React.cloneElement(children_, { size: children_.props?.size !== undefined ? children_.props.size : size * 0.6 });
+      children_ = is('array', children_) ?
+        children_.filter(Boolean).map(
+          (item: any, index: number) => is('string', item.type) ?
+            React.cloneElement(item, { key: index }) :
+            React.cloneElement(item, { key: index, size: (item.props as any).size !== undefined ? (item.props as any).size : size * 0.6 } as any)
+
+        ) :
+        React.cloneElement(children_, { size: children_.props?.size !== undefined ? children_.props.size : size * 0.6 });
 
       styles.icon.width = size;
       styles.icon.height = size;
     }
-    else children_ = React.cloneElement(children_, { size: children_.props?.size !== undefined ? children_.props?.size : (size === 'large' ? 'medium' : size) });
+    else children_ = is('array', children_) ?
+      children_.filter(Boolean).map(
+        (item: any, index, number) => is('string', item.type) ?
+          React.cloneElement(item, { key: index }) :
+          React.cloneElement(item, { key: index, size: children_.props?.size !== undefined ? children_.props?.size : (size === 'large' ? 'medium' : size) } as any)
+      ) :
+      React.cloneElement(children_, { size: children_.props?.size !== undefined ? children_.props?.size : (size === 'large' ? 'medium' : size) });
   }
 
   // fab

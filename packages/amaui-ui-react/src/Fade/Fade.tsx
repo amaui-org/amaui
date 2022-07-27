@@ -8,6 +8,36 @@ import { Transition, TTransitionStatus } from '..';
 const Fade = React.forwardRef((props: any, ref: React.MutableRefObject<any>) => {
   const theme = useAmauiTheme();
 
+  const {
+    in: inProp,
+    className,
+    prefix,
+    run,
+    append,
+    add,
+    enter,
+    exit,
+    enterOnAdd,
+    exitOnAdd,
+    noAbruption,
+    removeOnExited,
+    timeout: timeout_,
+    onTransition,
+    onAppended,
+    onAdd,
+    onAdding,
+    onAdded,
+    onEnter,
+    onEntering,
+    onEntered,
+    onExit,
+    onExiting,
+    onExited,
+    onRemoved,
+
+    ...other
+  } = props;
+
   const styles = {
     add: {
       opacity: 0
@@ -55,6 +85,8 @@ const Fade = React.forwardRef((props: any, ref: React.MutableRefObject<any>) => 
       {...props}
     >
       {(status: TTransitionStatus, ref_) => React.cloneElement(props.children, {
+        ...other,
+
         ref: item => {
           if (ref) ref.current = item;
 

@@ -106,3 +106,6 @@ export * from './ChipGroup';
 
 export { default as Backdrop } from './Backdrop';
 export * from './Backdrop';
+
+export { default as Checkbox } from './Checkbox';
+export * from './Checkbox';
