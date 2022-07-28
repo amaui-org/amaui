@@ -311,35 +311,30 @@ function App() {
         <Accordion label='Keyframes' open>
           <Button size='small' color='secondary' className={classes.btn} onClick={() => update('keyframes')}>a</Button>
 
-          <div style={{ height: 440 }}>
+          <div style={{ height: 140 }}>
             {a.keyframes && (
               <Keyframes
                 keyframes={[
                   { name: 'grow', timeout: 400 },
                   { name: 'move', timeout: 400 },
-                  { name: 'shrink', timeout: 1100 },
-                  { name: 'exit', timeout: 400 }
+                  { name: 'shrink', timeout: 1100 }
                 ]}
 
                 append
                 add
               >
-                {(status: any, element: any) => {
-                  console.log(1, status, element);
+                {(status: any, element: any) => (
+                  <div
+                    ref={element}
 
-                  return (
-                    <div
-                      ref={element}
+                    className={classes.div}
 
-                      className={classes.div}
-
-                      style={{
-                        transformOrigin: 'center',
-                        ...keyframes[status]
-                      }}
-                    />
-                  );
-                }}
+                    style={{
+                      transformOrigin: 'center',
+                      ...keyframes[status]
+                    }}
+                  />
+                )}
               </Keyframes>
             )}
           </div>
