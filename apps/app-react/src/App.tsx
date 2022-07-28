@@ -262,6 +262,45 @@ function App() {
   //   // eslint-disable-next-line react-hooks/exhaustive-deps
   // }, [items.length]);
 
+  const keyframes: any = {
+    appended: {
+      opacity: 0
+    },
+
+    add: {
+      opacity: 0
+    },
+    adding: {
+      transition: 'opacity .3s',
+      opacity: 1
+    },
+    added: {
+
+    },
+
+    grow: {
+      transition: 'all .4s',
+      borderRadius: '50%',
+      transform: 'scale(1.4)'
+    },
+    move: {
+      transition: 'all .4s',
+      borderRadius: '50%',
+      transform: 'scale(1.4) translateX(440px)'
+    },
+    shrink: {
+      transition: 'all 1.1s',
+      borderRadius: '0',
+      transform: 'scale(1) translateX(440px)'
+    },
+
+    exited: {
+      transition: 'all .4s',
+      background: 'yellow',
+      transform: 'scale(1) translateX(440px)'
+    }
+  };
+
   return (
     <div className={classes.root}>
       {/* Reset */}
@@ -279,7 +318,7 @@ function App() {
             {a.keyframes && (
               <Keyframes
                 keyframes={[
-                  { name: 'grow', timeout: 1400 },
+                  { name: 'grow', timeout: 400 },
                   { name: 'move', timeout: 400 },
                   { name: 'shrink', timeout: 1100 }
                 ]}
@@ -295,6 +334,11 @@ function App() {
                       ref={element}
 
                       className={classes.div}
+
+                      style={{
+                        transformOrigin: 'center',
+                        ...keyframes[status]
+                      }}
                     />
                   );
                 }}
