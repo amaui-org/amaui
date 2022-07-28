@@ -57,6 +57,7 @@ const Expand = React.forwardRef((props: any, ref: React.MutableRefObject<any>) =
     onExited,
     onRemoved,
     expandSize,
+    children,
 
     ...other
   } = props;

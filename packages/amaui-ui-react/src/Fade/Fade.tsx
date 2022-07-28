@@ -34,6 +34,7 @@ const Fade = React.forwardRef((props: any, ref: React.MutableRefObject<any>) => 
     onExiting,
     onExited,
     onRemoved,
+    children,
 
     ...other
   } = props;

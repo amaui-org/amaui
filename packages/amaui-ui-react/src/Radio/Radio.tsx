@@ -13,75 +13,8 @@ const useStyle = style(theme => ({
   iconBox: {
     width: '1em',
     height: '1em',
-    border: '0.125em solid currentColor',
-    background: 'transparent',
-    transition: theme.methods.transitions.make('background', { duration: 0, delay: 'xs' }),
-    borderRadius: '50%',
-
-    '&$checked': {
-      background: 'currentColor',
-      transition: theme.methods.transitions.make('background', { duration: 0 }),
-
-      '&$filled, &$outlined': {
-        border: 'none'
-      }
-    },
-
-    '&$checked$disabled': {
-      background: 'currentColor',
-      border: 'none'
-    }
-  },
-  iconItem: {
-    position: 'absolute',
-    inset: 0,
-    zIndex: 2,
-    pointerEvents: 'none',
-
-    '&$small': {
-      width: 'calc(100% - 0.2em)',
-      height: 'calc(100% - 0.2em)',
-      left: '0.125em',
-      top: '0.125em'
-    },
-
-    '&$regular': {
-      width: 'calc(100% - 0.25em)',
-      height: 'calc(100% - 0.25em)',
-      left: '0.125em',
-      top: '0.125em'
-    },
-
-    '&:not($small):not($regular)': {
-      width: 'calc(100% - 0.23em)',
-      height: 'calc(100% - 0.23em)',
-      left: '0.12em',
-      top: '0.12em'
-    },
-
-    '&:before': {
-      content: "''",
-      display: 'inline-flex',
-      width: '100%',
-      height: '100%',
-      position: 'absolute',
-      inset: 0,
-      background: 'currentColor',
-      transform: 'scale(1)',
-      opacity: 0,
-      transition: `${theme.methods.transitions.make('transform', { duration: 'xxs', delay: 'xxs' })}, ${theme.methods.transitions.make('opacity', { duration: 0, delay: 'xs' })}`,
-      borderRadius: '50%'
-    },
-
-    '&$checked:before': {
-      transform: 'scale(0)',
-      opacity: 1,
-      transition: `${theme.methods.transitions.make('transform', { duration: 'xxs' })}, ${theme.methods.transitions.make('opacity', { duration: 0 })}`,
-    },
-
-    '&$checked$disabled:before': {
-      display: 'none'
-    }
+    border: '0.12em solid currentColor',
+    borderRadius: '50%'
   },
   iconDot: {
     display: 'inline-flex',
@@ -89,10 +22,8 @@ const useStyle = style(theme => ({
     alignItems: 'center',
     position: 'absolute',
     inset: 0,
-    width: '50%',
-    height: '50%',
-    top: '25%',
-    left: '25%',
+    width: '100%',
+    height: '100%',
     background: 'currentColor',
     borderRadius: '50%',
     zIndex: 3,
@@ -100,8 +31,7 @@ const useStyle = style(theme => ({
     transition: theme.methods.transitions.make('transform', { duration: 'xxs' }),
 
     '&$checked': {
-      transform: 'scale(1)',
-      transition: theme.methods.transitions.make('transform', { duration: 'xxs', delay: 'xxs' })
+      transform: 'scale(0.5)'
     }
   }
 }), { name: 'AmauiRadio' });
@@ -132,7 +62,7 @@ const IconItem = (props: any) => {
   else if (props.size === 'very large') fontSize = '60px';
   else if (props.size !== undefined) fontSize = `${props.size}${!String(props.size).includes('px') ? 'px' : ''}`;
 
-  styles.root.fontSize = `calc(${fontSize} * 0.834)`;
+  styles.root.fontSize = `calc(${fontSize} / 1.2)`;
 
   return (
     <Component
@@ -169,9 +99,7 @@ const Radio = React.forwardRef((props: any, ref: any) => {
   const theme = useAmauiTheme();
 
   const styles: any = {
-    iconItem: {},
-    iconBox: {},
-    iconDot: {}
+    iconBox: {}
   };
 
   React.useEffect(() => {
@@ -196,27 +124,11 @@ const Radio = React.forwardRef((props: any, ref: any) => {
     // Outlined
     if (['text', 'outlined', undefined].includes(props.version)) {
       styles.iconBox.color = styles.iconBox.color = theme.methods.palette.color.value(color, 30, true, palette);
-
-      styles.iconDot.color = styles.iconDot.color = theme.methods.palette.color.value(color, 90, true, palette);
     }
 
     // Outlined
     if (props.version === 'outlined') styles.iconBox.color = styles.iconBox.color = theme.methods.palette.color.value(color, 50, true, palette);
-
-    // Filled
-    if (props.version === 'filled') styles.iconDot.color = theme.methods.palette.color.value(color, 90, true, palette);
   }
-  else {
-    if (!theme.palette.light && props.disabled) styles.iconDot.color = theme.palette.background.default.primary;
-    else {
-      if (props.version === 'filled') styles.iconDot.color = color === 'default' ? theme.palette.text.default.primary : (palette || theme.palette.color[color])?.main;
-      else styles.iconDot.color = theme.methods.palette.color.text(color === 'default' ? theme.palette.text.default.primary : (palette || theme.palette.color[color])?.main, true, 'light');
-    }
-  }
-
-  styles.iconItem.color = styles.iconDot.color;
-
-  if (['text', 'outlined', undefined].includes(props.version)) styles.iconItem.color = theme.palette.background.default.primary;
 
   let colorValue = color;
 
@@ -232,17 +144,6 @@ const Radio = React.forwardRef((props: any, ref: any) => {
 
       {...other}
     >
-      <IconItem
-        className={classNames([
-          classes.iconItem,
-          classes[props.size],
-          props.disabled && classes.disabled,
-          checked && classes.checked
-        ])}
-
-        style={styles.iconItem}
-      />
-
       <IconItem
         Component='div'
 
@@ -265,8 +166,6 @@ const Radio = React.forwardRef((props: any, ref: any) => {
           classes.iconDot,
           checked && classes.checked
         ])}
-
-        style={styles.iconDot}
       />
     </IconButton>
   );

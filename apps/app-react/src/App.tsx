@@ -296,13 +296,6 @@ function App() {
           </div>
 
           <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
-            <Radio size='small' color='secondary' indeterminate />
-            <Radio size='regular' color='secondary' indeterminate />
-            <Radio size='large' color='secondary' indeterminate />
-            <Radio size={70} color='secondary' indeterminate />
-          </div>
-
-          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
             <Radio size='small' color='secondary' valueDefault />
             <Radio size='regular' color='secondary' valueDefault />
             <Radio size='large' color='secondary' valueDefault />
