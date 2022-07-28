@@ -274,9 +274,7 @@ function App() {
       transition: 'opacity .3s',
       opacity: 1
     },
-    added: {
-
-    },
+    added: {},
 
     grow: {
       transition: 'all .4s',
@@ -295,8 +293,7 @@ function App() {
     },
 
     exited: {
-      transition: 'all .4s',
-      background: 'yellow',
+      borderRadius: '0',
       transform: 'scale(1) translateX(440px)'
     }
   };
@@ -320,7 +317,8 @@ function App() {
                 keyframes={[
                   { name: 'grow', timeout: 400 },
                   { name: 'move', timeout: 400 },
-                  { name: 'shrink', timeout: 1100 }
+                  { name: 'shrink', timeout: 1100 },
+                  { name: 'exit', timeout: 400 }
                 ]}
 
                 append

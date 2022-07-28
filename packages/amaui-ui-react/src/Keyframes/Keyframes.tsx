@@ -86,6 +86,8 @@ function Keyframes(props: IProps) {
 
   React.useEffect(() => {
     if (status === STATUS.exited && props.removeOnExited) {
+      // So exited status has
+      // enough time to apply some value
       setStatus('removed');
 
       // Subscriptions
