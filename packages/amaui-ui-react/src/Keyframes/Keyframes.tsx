@@ -35,6 +35,9 @@ interface IProps {
   append?: boolean;
   add?: boolean;
 
+  update?: boolean;
+
+  runOnEnter?: boolean;
   removeOnExited?: boolean;
 
   keyframes?: Array<IKeyframe>;
@@ -61,6 +64,7 @@ interface IProps {
 }
 
 function Keyframes(props: IProps) {
+  const [init, setInit] = React.useState(false);
   const [status, setStatus] = React.useState<TKeyframesStatus>(() => {
     let statusNew: TKeyframesStatus = '' as any;
 
@@ -79,10 +83,19 @@ function Keyframes(props: IProps) {
   const theme = useAmauiTheme();
 
   React.useEffect(() => {
-    // Run the method
-    // to run the keyframes
-    run();
+    initMethod();
   }, []);
+
+  // Anytime update updates
+  // keyframes are ran
+  // meaning you can update
+  // keyframes between reruns
+  // and have any version of
+  // animation based on those points
+  // ie. Switch ui on and off animation
+  React.useEffect(() => {
+    if (init) run();
+  }, [props.update]);
 
   React.useEffect(() => {
     if (status === STATUS.exited && props.removeOnExited) {
@@ -95,13 +108,33 @@ function Keyframes(props: IProps) {
     }
   }, [status]);
 
-  const run = async () => {
+  React.useEffect(() => {
+    if (status === STATUS.exited && props.removeOnExited) {
+      // So exited status has
+      // enough time to apply some value
+      setStatus('removed');
+
+      // Subscriptions
+      subs.current.status.emit('removed');
+    }
+  }, [status]);
+
+  const initMethod = async () => {
     // Appended
     if (status === 'appended') updateStatus();
 
     // Add
     if (props.add || status === 'add') await add();
 
+    // Run the method
+    // to run the keyframes
+    if (props.runOnEnter) await run();
+
+    // Init
+    setInit(true);
+  };
+
+  const run = async () => {
     // Run all keyframes
     if (is('array', props.keyframes)) for (const keyframe of props.keyframes) await runKeyframe(keyframe);
 

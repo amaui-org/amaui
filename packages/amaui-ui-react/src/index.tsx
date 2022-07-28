@@ -115,3 +115,6 @@ export * from './Radio';
 
 export { default as Keyframes } from './Keyframes';
 export * from './Keyframes';
+
+export { default as Switch } from './Switch';
+export * from './Switch';

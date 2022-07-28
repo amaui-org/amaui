@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
-import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, SegmentedButtons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, ChipGroup, Backdrop, Checkbox, Radio, Keyframes } from '@amaui/ui-react';
+import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, SegmentedButtons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, ChipGroup, Backdrop, Checkbox, Radio, Keyframes, Switch } from '@amaui/ui-react';
 
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
@@ -306,6 +306,84 @@ function App() {
       <div className={classes.row}>
         <Button size='small' color='secondary' className={classes.btn} onClick={() => updateTheme()}>{theme.palette.light ? 'dark' : 'light'}</Button>
       </div>
+
+      <Accordion label='Switch'>
+        <Accordion label='Switch' open>
+          <div className={classNames([classes.column])}>
+            <Switch color='secondary' />
+          </div>
+        </Accordion>
+
+        <Accordion label='Switch versions' open>
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+            <Switch size='regular' version='filled' color='secondary' valueDefault />
+            <Switch size='regular' version='filled' tonal color='secondary' valueDefault />
+          </div>
+        </Accordion>
+
+        <Accordion label='Switch sizes' open>
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+            <Switch size='small' color='secondary' valueDefault />
+            <Switch size='regular' color='secondary' valueDefault />
+            <Switch size='large' color='secondary' valueDefault />
+          </div>
+        </Accordion>
+
+        <Accordion label='Switch color' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Switch color='default' valueDefault />
+            <Switch color='primary' valueDefault />
+            <Switch color='secondary' valueDefault />
+            <Switch color='tertiary' valueDefault />
+            <Switch color='quaternary' valueDefault />
+            <Switch color='info' valueDefault />
+            <Switch color='success' valueDefault />
+            <Switch color='error' valueDefault />
+            <Switch color='warning' valueDefault />
+            <Switch color='neutral' valueDefault />
+            <Switch color='#f5d758' valueDefault />
+          </div>
+        </Accordion>
+
+        <Accordion label='Switch color tonal' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Switch tonal color='primary' valueDefault />
+            <Switch tonal color='secondary' valueDefault />
+            <Switch tonal color='tertiary' valueDefault />
+            <Switch tonal color='quaternary' valueDefault />
+            <Switch tonal color='info' valueDefault />
+            <Switch tonal color='success' valueDefault />
+            <Switch tonal color='error' valueDefault />
+            <Switch tonal color='warning' valueDefault />
+            <Switch tonal color='neutral' valueDefault />
+            <Switch tonal color='#f5d758' valueDefault />
+          </div>
+        </Accordion>
+
+        <Accordion label='Switch valueDefault' open>
+          <div className={classNames([classes.column])}>
+            <Switch color='secondary' valueDefault />
+          </div>
+        </Accordion>
+
+        <Accordion label='Switch controlled value' open>
+          <div className={classNames([classes.column])}>
+            <Switch
+              color='secondary'
+
+              onChange={(value: boolean) => updateValue(value, 'checkbox')}
+              value={!!a.checkbox}
+            />
+          </div>
+        </Accordion>
+
+        <Accordion label='Switch disabled' open>
+          <div className={classNames([classes.column])}>
+            <Switch color='secondary' disabled />
+            <Switch color='secondary' valueDefault disabled />
+          </div>
+        </Accordion>
+      </Accordion>
 
       <Accordion label='Keyframes'>
         <Accordion label='Keyframes' open>
