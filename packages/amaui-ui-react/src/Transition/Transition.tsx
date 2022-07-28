@@ -57,7 +57,7 @@ export interface IProps {
   };
 
   // An all in one method
-  onTransition?: (element: HTMLElement, status: TTransitionStatus,) => void;
+  onTransition?: (element: HTMLElement, status: TTransitionStatus) => void;
 
   onAppended?: (element: HTMLElement) => void;
 
