@@ -37,7 +37,7 @@ interface IProps {
 
   removeOnExited?: boolean;
 
-  keyframes: Array<IKeyframe>;
+  keyframes?: Array<IKeyframe>;
 
   timeout?: TTransitionsDurationProperties | number | {
     default?: number;
@@ -98,12 +98,10 @@ function Keyframes(props: IProps) {
     if (status === 'appended') updateStatus();
 
     // Add
-    if (status === 'add') await add();
+    if (props.add || status === 'add') await add();
 
     // Run all keyframes
-    if (is('array', props.keyframes)) {
-      for (const keyframe of props.keyframes) await runKeyframe(keyframe);
-    }
+    if (is('array', props.keyframes)) for (const keyframe of props.keyframes) await runKeyframe(keyframe);
 
     // Exited
     updateStatus('exited');
@@ -146,6 +144,8 @@ function Keyframes(props: IProps) {
     await timeout('add');
 
     updateStatus('added');
+
+    await wait(0);
   };
 
   const updateStatus = (status_: TKeyframesStatus = status) => {
