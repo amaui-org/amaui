@@ -280,18 +280,16 @@ const Checkbox = React.forwardRef((props: any, ref: any) => {
         </IconItem>
       )}
 
-      {checked && (
-        <IconDoneAnimated
-          className={classNames([
-            classes.icon,
-            classes.iconDone
-          ])}
+      <IconDoneAnimated
+        className={classNames([
+          classes.icon,
+          classes.iconDone
+        ])}
 
-          style={styles.iconDone}
+        style={styles.iconDone}
 
-          in
-        />
-      )}
+        in={checked}
+      />
     </IconButton>
   );
 });

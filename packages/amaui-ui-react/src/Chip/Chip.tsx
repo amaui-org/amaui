@@ -105,7 +105,7 @@ const Chip = React.forwardRef((props: any, ref) => {
 
       {...(props.startIcon && selected ? {
         startIcon: (
-          <IconDoneAnimated simple in />
+          <IconDoneAnimated simple in add />
         )
       } : {})}
 
@@ -115,6 +115,8 @@ const Chip = React.forwardRef((props: any, ref) => {
             in={(props.startIcon ? selected : preSelected)}
 
             onExited={() => updateSelected()}
+
+            add
           />
         )
       } : {})}

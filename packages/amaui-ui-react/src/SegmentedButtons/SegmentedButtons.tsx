@@ -91,9 +91,9 @@ export const IconDoneAnimated = (props: any) => {
     in: inProp,
     simple,
 
-    size,
     onExited,
     noExitAnimation,
+    add,
 
     className,
     style,
@@ -103,10 +103,10 @@ export const IconDoneAnimated = (props: any) => {
 
   const styles = props.simple ? {} : {
     adding: {
-      width: props.style?.fontSize
+      width: style?.fontSize
     },
     added: {
-      width: props.style?.fontSize
+      width: style?.fontSize
     }
   };
 
@@ -118,7 +118,7 @@ export const IconDoneAnimated = (props: any) => {
         if (is('function', onExited) && !simple) onExited();
       }}
 
-      add
+      add={add}
     >
       {(status: TTransitionStatus) => React.cloneElement(
         <span
@@ -132,7 +132,7 @@ export const IconDoneAnimated = (props: any) => {
               (['adding', 'added', 'enter', 'entering', 'entered'].includes(status) || noExitAnimation) && classes.pathIn
             ])}
 
-            size={size}
+            size='inherit'
 
             {...other}
           />
@@ -247,7 +247,7 @@ const SegmentedButtons = React.forwardRef((props: any, ref: any) => {
 
       ...(item.props.startIcon && selected.includes(index) ? {
         startIcon: (
-          <IconDoneAnimated simple in />
+          <IconDoneAnimated simple in add />
         )
       } : {}),
 
@@ -257,6 +257,8 @@ const SegmentedButtons = React.forwardRef((props: any, ref: any) => {
             in={(item.props.startIcon ? selected : preSelected).includes(index)}
 
             onExited={() => updateSelected(index, item.props)}
+
+            add
           />
         )
       } : {}),
