@@ -110,8 +110,8 @@ const useStyle = style(theme => ({
       },
 
       '&$large': {
-        width: theme.methods.space.value('xxxl', 'px', 4),
-        height: theme.methods.space.value('xxxl', 'px', 4)
+        width: theme.methods.space.value('xxl', 'px', 2),
+        height: theme.methods.space.value('xxl', 'px', 2)
       },
     },
 
@@ -432,10 +432,10 @@ const Button = React.forwardRef((props: any, ref) => {
         children_.filter(Boolean).map(
           (item: any, index: number) => is('string', item.type) ?
             React.cloneElement(item, { key: index }) :
-            React.cloneElement(item, { key: index, size: (item.props as any).size !== undefined ? (item.props as any).size : size * 0.6 } as any)
+            React.cloneElement(item, { key: index, size: (item.props as any).size !== undefined ? (item.props as any).size : size / 1.667 } as any)
 
         ) :
-        React.cloneElement(children_, { size: children_.props?.size !== undefined ? children_.props.size : size * 0.6 });
+        React.cloneElement(children_, { size: children_.props?.size !== undefined ? children_.props.size : size / 1.667 });
 
       styles.root.width = size;
       styles.root.height = size;

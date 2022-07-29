@@ -78,9 +78,9 @@ const Icon = React.forwardRef((props: any, ref) => {
   if (size_ === 'very small') fontSize = '12px';
   else if (size_ === 'small') fontSize = '18px';
   else if (size_ === 'regular') fontSize = '24px';
-  else if (size_ === 'medium') fontSize = '36px';
-  else if (size_ === 'large') fontSize = '48px';
-  else if (size_ === 'very large') fontSize = '60px';
+  else if (size_ === 'medium') fontSize = '30px';
+  else if (size_ === 'large') fontSize = '36px';
+  else if (size_ === 'very large') fontSize = '42px';
   else if (size_ !== undefined) fontSize = size_;
 
   const isRtlIcon = rtl_icons.includes(short_name);
