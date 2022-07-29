@@ -6,6 +6,8 @@ import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction,
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
 import IconMaterialPottedPlantRounded from '@amaui/icons-material-react/build/IconMaterialPottedPlantRounded';
+import IconMaterialCheckRounded from '@amaui/icons-material-react/build/IconMaterialCheckRounded';
+import IconMaterialCloseRounded from '@amaui/icons-material-react/build/IconMaterialCloseRounded';
 
 const useStyleA = style(theme => ({
   a: {
@@ -365,6 +367,51 @@ function App() {
           </div>
         </Accordion>
 
+        <Accordion label='Switch OnIcon' open>
+          <div className={classNames([classes.column])}>
+            <Switch color='secondary' OnIcon={<IconMaterialCheckRounded />} />
+            <Switch color='secondary' tonal OnIcon={<IconMaterialCheckRounded />} />
+          </div>
+        </Accordion>
+
+        <Accordion label='Switch OffIcon' open>
+          <div className={classNames([classes.column])}>
+            <Switch color='secondary' OffIcon={<IconMaterialCloseRounded />} />
+            <Switch color='secondary' tonal OffIcon={<IconMaterialCloseRounded />} />
+          </div>
+        </Accordion>
+
+        <Accordion label='Switch OnIcon & OffIcon' open>
+          <div className={classNames([classes.column])}>
+            <Switch color='secondary' OnIcon={<IconMaterialCheckRounded />} OffIcon={<IconMaterialCloseRounded />} />
+            <Switch color='secondary' tonal OnIcon={<IconMaterialCheckRounded />} OffIcon={<IconMaterialCloseRounded />} />
+          </div>
+        </Accordion>
+
+        <Accordion label='Switch sizes with icons' open>
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+            <Switch size='small' color='secondary' OnIcon={<IconMaterialCheckRounded />} OffIcon={<IconMaterialCloseRounded />} valueDefault />
+            <Switch size='regular' color='secondary' OnIcon={<IconMaterialCheckRounded />} OffIcon={<IconMaterialCloseRounded />} valueDefault />
+            <Switch size='large' color='secondary' OnIcon={<IconMaterialCheckRounded />} OffIcon={<IconMaterialCloseRounded />} valueDefault />
+          </div>
+        </Accordion>
+
+        <Accordion label='Switch color with icons' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Switch color='default' OnIcon={<IconMaterialCheckRounded />} OffIcon={<IconMaterialCloseRounded />} valueDefault />
+            <Switch color='primary' OnIcon={<IconMaterialCheckRounded />} OffIcon={<IconMaterialCloseRounded />} valueDefault />
+            <Switch color='secondary' OnIcon={<IconMaterialCheckRounded />} OffIcon={<IconMaterialCloseRounded />} valueDefault />
+            <Switch color='tertiary' OnIcon={<IconMaterialCheckRounded />} OffIcon={<IconMaterialCloseRounded />} valueDefault />
+            <Switch color='quaternary' OnIcon={<IconMaterialCheckRounded />} OffIcon={<IconMaterialCloseRounded />} valueDefault />
+            <Switch color='info' OnIcon={<IconMaterialCheckRounded />} OffIcon={<IconMaterialCloseRounded />} valueDefault />
+            <Switch color='success' OnIcon={<IconMaterialCheckRounded />} OffIcon={<IconMaterialCloseRounded />} valueDefault />
+            <Switch color='error' OnIcon={<IconMaterialCheckRounded />} OffIcon={<IconMaterialCloseRounded />} valueDefault />
+            <Switch color='warning' OnIcon={<IconMaterialCheckRounded />} OffIcon={<IconMaterialCloseRounded />} valueDefault />
+            <Switch color='neutral' OnIcon={<IconMaterialCheckRounded />} OffIcon={<IconMaterialCloseRounded />} valueDefault />
+            <Switch color='#f5d758' OnIcon={<IconMaterialCheckRounded />} OffIcon={<IconMaterialCloseRounded />} valueDefault />
+          </div>
+        </Accordion>
+
         <Accordion label='Switch valueDefault' open>
           <div className={classNames([classes.column])}>
             <Switch color='secondary' valueDefault />
@@ -384,8 +431,8 @@ function App() {
 
         <Accordion label='Switch disabled' open>
           <div className={classNames([classes.column])}>
-            <Switch color='secondary' disabled />
-            <Switch color='secondary' valueDefault disabled />
+            <Switch color='secondary' OffIcon={<IconMaterialCloseRounded />} disabled />
+            <Switch color='secondary' OnIcon={<IconMaterialCheckRounded />} valueDefault disabled />
           </div>
         </Accordion>
       </Accordion>

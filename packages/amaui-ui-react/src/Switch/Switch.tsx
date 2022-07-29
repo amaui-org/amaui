@@ -124,6 +124,9 @@ const useStyle = style(theme => ({
   },
 
   icon: {
+    display: 'inline-flex',
+    alignItems: 'center',
+    justifyContent: 'center',
     width: '1em',
     height: '1em',
     background: 'currentColor',
@@ -137,17 +140,19 @@ const Icon = (props: any) => {
 
     style,
 
+    children,
+
     ...other
   } = props;
 
-  let fontSize = '24px';
+  let fontSize = 24;
 
-  if (size === 'very small') fontSize = '12px';
-  else if (size === 'small') fontSize = '18px';
-  else if (size === 'regular') fontSize = '24px';
-  else if (size === 'medium') fontSize = '30px';
-  else if (size === 'large') fontSize = '38px';
-  else if (size === 'very large') fontSize = '42px';
+  if (size === 'very small') fontSize = 12;
+  else if (size === 'small') fontSize = 18;
+  else if (size === 'regular') fontSize = 24;
+  else if (size === 'medium') fontSize = 30;
+  else if (size === 'large') fontSize = 38;
+  else if (size === 'very large') fontSize = 42;
   else if (size !== undefined) fontSize = size;
 
   return (
@@ -159,7 +164,9 @@ const Icon = (props: any) => {
       }}
 
       {...other}
-    />
+    >
+      {children && React.cloneElement(children, { size: fontSize / 1.5 })}
+    </span>
   );
 };
 
@@ -173,6 +180,8 @@ const Switch = React.forwardRef((props: any, ref: any) => {
     onChange,
     Component = 'span',
     disabled,
+    OnIcon,
+    OffIcon,
 
     className,
     style,
@@ -291,6 +300,14 @@ const Switch = React.forwardRef((props: any, ref: any) => {
     else {
       switch (version) {
         case 'unchecked':
+          if (OffIcon) {
+            if (size === 'small') return 'scale(1)';
+
+            if (size === 'large') return 'scale(1)';
+
+            return 'scale(1)';
+          }
+
           if (size === 'small') return 'scale(0.6665)';
 
           if (size === 'large') return 'scale(0.6665)';
@@ -400,147 +417,159 @@ const Switch = React.forwardRef((props: any, ref: any) => {
     }
   };
 
-  const styleKeyframes = () => ({
-    background: {
-      growEnd: {
-        ...initial.background.checked,
-      },
-      waitEnd: {
-        ...initial.background.checked,
-      },
-      moveStart: {
-        ...initial.background.unchecked,
-        transition: theme.methods.transitions.make(['opacity', 'background'], { duration: 35, delay: 35 })
-      },
-      doneStart: {
-        ...initial.background.unchecked,
-      },
-      growStart: {
-        ...initial.background.unchecked,
-      },
-      waitStart: {
-        ...initial.background.checked,
-      },
-      moveEnd: {
-        ...initial.background.checked,
-        transition: theme.methods.transitions.make(['opacity', 'background'], { duration: 35, delay: 35 })
-      },
-      doneEnd: {
-        ...initial.background.checked,
-      }
-    },
+  const styleKeyframes = () => {
+    const dynamicBackgroundColor = tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 95 : 10] : theme.methods.palette.color.text(color === 'default' ? theme.palette.color.neutral.main : (palette || theme.palette.color[color]).main, true, 'light');
 
-    border: {
-      growEnd: {
-        ...initial.border.checked,
+    return {
+      background: {
+        growEnd: {
+          ...initial.background.checked,
+        },
+        waitEnd: {
+          ...initial.background.checked,
+        },
+        moveStart: {
+          ...initial.background.unchecked,
+          transition: theme.methods.transitions.make(['opacity', 'background'], { duration: 35, delay: 35 })
+        },
+        doneStart: {
+          ...initial.background.unchecked,
+        },
+        growStart: {
+          ...initial.background.unchecked,
+        },
+        waitStart: {
+          ...initial.background.checked,
+        },
+        moveEnd: {
+          ...initial.background.checked,
+          transition: theme.methods.transitions.make(['opacity', 'background'], { duration: 35, delay: 35 })
+        },
+        doneEnd: {
+          ...initial.background.checked,
+        }
       },
-      waitEnd: {
-        ...initial.border.checked,
-      },
-      moveStart: {
-        ...initial.border.unchecked,
-        transition: theme.methods.transitions.make(['opacity'], { duration: 35, delay: 35 })
-      },
-      doneStart: {
-        ...initial.border.unchecked,
-      },
-      growStart: {
-        ...initial.border.unchecked,
-      },
-      waitStart: {
-        ...initial.border.checked,
-      },
-      moveEnd: {
-        ...initial.border.checked,
-        transition: theme.methods.transitions.make(['opacity'], { duration: 35, delay: 35 })
-      },
-      doneEnd: {
-        ...initial.border.checked,
-      }
-    },
 
-    iconButton: {
-      growStart: {
-        transform: sizes('grow-start', 'iconButton'),
-        color: color === 'default' ? theme.palette.color.neutral.main : !tonal ? theme.palette.text.default.secondary : (theme.palette.color[color] || palette)[theme.palette.light ? 40 : 20],
-        transition: theme.methods.transitions.make('transform', { duration: 240, timing_function: 'decelerated' })
+      border: {
+        growEnd: {
+          ...initial.border.checked,
+        },
+        waitEnd: {
+          ...initial.border.checked,
+        },
+        moveStart: {
+          ...initial.border.unchecked,
+          transition: theme.methods.transitions.make(['opacity'], { duration: 35, delay: 35 })
+        },
+        doneStart: {
+          ...initial.border.unchecked,
+        },
+        growStart: {
+          ...initial.border.unchecked,
+        },
+        waitStart: {
+          ...initial.border.checked,
+        },
+        moveEnd: {
+          ...initial.border.checked,
+          transition: theme.methods.transitions.make(['opacity'], { duration: 35, delay: 35 })
+        },
+        doneEnd: {
+          ...initial.border.checked,
+        }
       },
-      waitStart: {
-        transform: sizes('grow-start', 'iconButton'),
-        color: color === 'default' ? theme.palette.color.neutral.main : !tonal ? theme.palette.text.default.secondary : (theme.palette.color[color] || palette)[theme.palette.light ? 40 : 20]
-      },
-      moveEnd: {
-        transform: sizes('move-end', 'iconButton'),
-        color: color === 'default' ? theme.palette.color.neutral.main : !tonal ? (theme.palette.color[color] || palette).main : 'currentColor',
-        transition: `${theme.methods.transitions.make('width', { duration: 70 })}, ${theme.methods.transitions.make('transform', { duration: 70 })}, ${theme.methods.transitions.make('background', { duration: 35, delay: 35 })}`
-      },
-      doneEnd: {
-        ...initial.iconButton.checked,
-        color: color === 'default' ? theme.palette.color.neutral.main : !tonal ? (theme.palette.color[color] || palette).main : 'currentColor',
-        transition: `${theme.methods.transitions.make('width', { duration: 100 })}, , ${theme.methods.transitions.make('transform', { duration: 100 })}`
-      },
-      growEnd: {
-        transform: sizes('grow-end', 'iconButton'),
-        color: color === 'default' ? theme.palette.color.neutral.main : !tonal ? (theme.palette.color[color] || palette).main : 'currentColor',
-        transition: theme.methods.transitions.make('transform', { duration: 240, timing_function: 'decelerated' })
-      },
-      waitEnd: {
-        transform: sizes('grow-end', 'iconButton'),
-        color: color === 'default' ? theme.palette.color.neutral.main : !tonal ? (theme.palette.color[color] || palette).main : 'currentColor'
-      },
-      moveStart: {
-        transform: sizes('move-start', 'iconButton'),
-        color: color === 'default' ? theme.palette.color.neutral.main : !tonal ? theme.palette.text.default.secondary : (theme.palette.color[color] || palette)[theme.palette.light ? 40 : 20],
-        transition: `${theme.methods.transitions.make('width', { duration: 70 })}, ${theme.methods.transitions.make('transform', { duration: 70 })}, ${theme.methods.transitions.make('background', { duration: 35, delay: 35 })}`
-      },
-      doneStart: {
-        ...initial.iconButton.unchecked,
-        color: color === 'default' ? theme.palette.color.neutral.main : !tonal ? theme.palette.text.default.secondary : (theme.palette.color[color] || palette)[theme.palette.light ? 40 : 20],
-        transition: `${theme.methods.transitions.make('width', { duration: 100 })}, , ${theme.methods.transitions.make('transform', { duration: 100 })}`
-      }
-    },
 
-    icon: {
-      growStart: {
-        transform: sizes('grow-start', 'icon'),
-        background: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 40 : 20] : theme.palette.text.default.secondary,
-        transition: theme.methods.transitions.make('transform', { duration: 240, timing_function: 'decelerated' })
+      iconButton: {
+        growStart: {
+          transform: sizes('grow-start', 'iconButton'),
+          color: color === 'default' ? theme.palette.color.neutral.main : !tonal ? theme.palette.text.default.secondary : (theme.palette.color[color] || palette)[theme.palette.light ? 40 : 20],
+          transition: theme.methods.transitions.make('transform', { duration: 240, timing_function: 'decelerated' })
+        },
+        waitStart: {
+          transform: sizes('grow-start', 'iconButton'),
+          color: color === 'default' ? theme.palette.color.neutral.main : !tonal ? theme.palette.text.default.secondary : (theme.palette.color[color] || palette)[theme.palette.light ? 40 : 20]
+        },
+        moveEnd: {
+          transform: sizes('move-end', 'iconButton'),
+          color: color === 'default' ? theme.palette.color.neutral.main : !tonal ? (theme.palette.color[color] || palette).main : 'currentColor',
+          transition: `${theme.methods.transitions.make('width', { duration: 70 })}, ${theme.methods.transitions.make('transform', { duration: 70 })}, ${theme.methods.transitions.make('background', { duration: 35, delay: 35 })}`
+        },
+        doneEnd: {
+          ...initial.iconButton.checked,
+          color: color === 'default' ? theme.palette.color.neutral.main : !tonal ? (theme.palette.color[color] || palette).main : 'currentColor',
+          transition: `${theme.methods.transitions.make('width', { duration: 100 })}, , ${theme.methods.transitions.make('transform', { duration: 100 })}`
+        },
+        growEnd: {
+          transform: sizes('grow-end', 'iconButton'),
+          color: color === 'default' ? theme.palette.color.neutral.main : !tonal ? (theme.palette.color[color] || palette).main : 'currentColor',
+          transition: theme.methods.transitions.make('transform', { duration: 240, timing_function: 'decelerated' })
+        },
+        waitEnd: {
+          transform: sizes('grow-end', 'iconButton'),
+          color: color === 'default' ? theme.palette.color.neutral.main : !tonal ? (theme.palette.color[color] || palette).main : 'currentColor'
+        },
+        moveStart: {
+          transform: sizes('move-start', 'iconButton'),
+          color: color === 'default' ? theme.palette.color.neutral.main : !tonal ? theme.palette.text.default.secondary : (theme.palette.color[color] || palette)[theme.palette.light ? 40 : 20],
+          transition: `${theme.methods.transitions.make('width', { duration: 70 })}, ${theme.methods.transitions.make('transform', { duration: 70 })}, ${theme.methods.transitions.make('background', { duration: 35, delay: 35 })}`
+        },
+        doneStart: {
+          ...initial.iconButton.unchecked,
+          color: color === 'default' ? theme.palette.color.neutral.main : !tonal ? theme.palette.text.default.secondary : (theme.palette.color[color] || palette)[theme.palette.light ? 40 : 20],
+          transition: `${theme.methods.transitions.make('width', { duration: 100 })}, , ${theme.methods.transitions.make('transform', { duration: 100 })}`
+        }
       },
-      waitStart: {
-        transform: sizes('grow-start', 'icon'),
-        background: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 40 : 20] : theme.palette.text.default.secondary
-      },
-      moveEnd: {
-        transform: sizes('move-end', 'icon'),
-        background: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 99 : 10] : theme.palette.background.default.primary,
-        transition: `${theme.methods.transitions.make('width', { duration: 70 })}, ${theme.methods.transitions.make('transform', { duration: 70 })}, ${theme.methods.transitions.make('background', { duration: 35, delay: 35 })}`
-      },
-      doneEnd: {
-        ...initial.icon.checked,
-        background: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 99 : 10] : theme.palette.background.default.primary,
-        transition: `${theme.methods.transitions.make('width', { duration: 100 })}, , ${theme.methods.transitions.make('transform', { duration: 100 })}`
-      },
-      growEnd: {
-        transform: sizes('grow-end', 'icon'),
-        background: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 99 : 10] : theme.palette.background.default.primary,
-        transition: theme.methods.transitions.make('transform', { duration: 240, timing_function: 'decelerated' })
-      },
-      waitEnd: {
-        transform: sizes('grow-end', 'icon'),
-        background: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 99 : 10] : theme.palette.background.default.primary
-      },
-      moveStart: {
-        transform: sizes('move-start', 'icon'),
-        background: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 40 : 20] : theme.palette.text.default.secondary,
-        transition: `${theme.methods.transitions.make('width', { duration: 70 })}, ${theme.methods.transitions.make('transform', { duration: 70 })}, ${theme.methods.transitions.make('background', { duration: 35, delay: 35 })}`
-      },
-      doneStart: {
-        ...initial.icon.unchecked,
-        background: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 40 : 20] : theme.palette.text.default.secondary,
-        transition: `${theme.methods.transitions.make('width', { duration: 100 })}, , ${theme.methods.transitions.make('transform', { duration: 100 })}`
+
+      icon: {
+        growStart: {
+          transform: sizes('grow-start', 'icon'),
+          background: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 40 : 20] : theme.palette.text.default.secondary,
+          color: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 90 : 10] : theme.palette.background.default.quaternary,
+          transition: theme.methods.transitions.make('transform', { duration: 240, timing_function: 'decelerated' })
+        },
+        waitStart: {
+          transform: sizes('grow-start', 'icon'),
+          background: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 40 : 20] : theme.palette.text.default.secondary,
+          color: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 90 : 10] : theme.palette.background.default.quaternary
+        },
+        moveEnd: {
+          transform: sizes('move-end', 'icon'),
+          background: dynamicBackgroundColor,
+          color: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 30 : 80] : theme.methods.palette.color.text(dynamicBackgroundColor, true, 'light'),
+          transition: `${theme.methods.transitions.make('width', { duration: 70 })}, ${theme.methods.transitions.make('transform', { duration: 70 })}, ${theme.methods.transitions.make('background', { duration: 35, delay: 35 })}`
+        },
+        doneEnd: {
+          ...initial.icon.checked,
+          background: dynamicBackgroundColor,
+          color: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 30 : 80] : theme.methods.palette.color.text(dynamicBackgroundColor, true, 'light'),
+          transition: `${theme.methods.transitions.make('width', { duration: 100 })}, , ${theme.methods.transitions.make('transform', { duration: 100 })}`
+        },
+        growEnd: {
+          transform: sizes('grow-end', 'icon'),
+          background: dynamicBackgroundColor,
+          color: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 30 : 80] : theme.methods.palette.color.text(dynamicBackgroundColor, true, 'light'),
+          transition: theme.methods.transitions.make('transform', { duration: 240, timing_function: 'decelerated' })
+        },
+        waitEnd: {
+          transform: sizes('grow-end', 'icon'),
+          background: dynamicBackgroundColor,
+          color: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 30 : 80] : theme.methods.palette.color.text(dynamicBackgroundColor, true, 'light'),
+        },
+        moveStart: {
+          transform: sizes('move-start', 'icon'),
+          background: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 40 : 20] : theme.palette.text.default.secondary,
+          color: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 90 : 0] : theme.palette.background.default.quaternary,
+          transition: `${theme.methods.transitions.make('width', { duration: 70 })}, ${theme.methods.transitions.make('transform', { duration: 70 })}, ${theme.methods.transitions.make('background', { duration: 35, delay: 35 })}`
+        },
+        doneStart: {
+          ...initial.icon.unchecked,
+          background: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 40 : 20] : theme.palette.text.default.secondary,
+          color: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 90 : 0] : theme.palette.background.default.quaternary,
+          transition: `${theme.methods.transitions.make('width', { duration: 100 })}, , ${theme.methods.transitions.make('transform', { duration: 100 })}`
+        }
       }
-    }
-  });
+    };
+  };
 
   return (
     <Component
@@ -643,7 +672,12 @@ const Switch = React.forwardRef((props: any, ref: any) => {
 
                   ...styleKeyframes().icon[status]
                 }}
-              />
+              >
+                {
+                  (['growEnd', 'doneEnd'].includes(status) && OnIcon) ||
+                  (['growStart', 'doneStart'].includes(status) && OffIcon)
+                }
+              </Icon>
             </IconButton>
           </>;
         }}
