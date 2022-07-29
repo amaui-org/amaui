@@ -2,12 +2,13 @@ import React, { ChangeEvent } from 'react';
 
 import { is } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
+
+import IconButton from '../IconButton';
 import Keyframes from '../Keyframes';
 
 const useStyle = style(theme => ({
   root: {
     position: 'relative',
-    cursor: 'pointer',
     borderRadius: theme.methods.space.value('lg'),
 
     // Color
@@ -118,28 +119,49 @@ const useStyle = style(theme => ({
     }
   },
 
-  dot: {
-    display: 'inline-flex',
-    position: 'relative',
-    borderRadius: theme.methods.space.value('lg', 'px'),
-    transition: theme.methods.transitions.make('transform', { duration: 'sm' }),
+  iconButton: {
+    top: '50%'
+  },
 
-    '&$small': {
-      width: theme.methods.space.value('rg', 'px', -4),
-      height: theme.methods.space.value('rg', 'px', -4)
-    },
-
-    '&$regular': {
-      width: theme.methods.space.value('rg', 'px'),
-      height: theme.methods.space.value('rg', 'px')
-    },
-
-    '&$large': {
-      width: theme.methods.space.value('rg', 'px', 4),
-      height: theme.methods.space.value('rg', 'px', 4)
-    },
+  icon: {
+    width: '1em',
+    height: '1em',
+    background: 'currentColor',
+    borderRadius: theme.methods.space.value('rg', 'px')
   }
 }), { name: 'AmauiSwitch' });
+
+const Icon = (props: any) => {
+  const {
+    size,
+
+    style,
+
+    ...other
+  } = props;
+
+  let fontSize = '24px';
+
+  if (size === 'very small') fontSize = '12px';
+  else if (size === 'small') fontSize = '18px';
+  else if (size === 'regular') fontSize = '24px';
+  else if (size === 'medium') fontSize = '36px';
+  else if (size === 'large') fontSize = '48px';
+  else if (size === 'very large') fontSize = '60px';
+  else if (size !== undefined) fontSize = size;
+
+  return (
+    <span
+      style={{
+        ...style,
+
+        fontSize
+      }}
+
+      {...other}
+    />
+  );
+};
 
 const Switch = React.forwardRef((props: any, ref: any) => {
   const {
@@ -170,7 +192,7 @@ const Switch = React.forwardRef((props: any, ref: any) => {
     root: {},
     background: {},
     border: {},
-    dot: {}
+    iconButton: {}
   };
 
   React.useEffect(() => {
@@ -202,12 +224,6 @@ const Switch = React.forwardRef((props: any, ref: any) => {
     styles.root.color = color;
   }
 
-  if (props.tonal) {
-    if (palette) {
-      styles.dot.background = styles.border.borderColor = palette[theme.palette.light ? 40 : 20];
-    }
-  }
-
   const keyframes = {
     checked: [
       { name: 'growStart', timeout: 240 },
@@ -223,77 +239,136 @@ const Switch = React.forwardRef((props: any, ref: any) => {
     ]
   };
 
-  const sizes = (version): any => {
-    switch (version) {
-      case 'unchecked':
-        if (size === 'small') return 'translate(6px, 5.5px) scale(1)';
+  const sizes = (version, element): any => {
+    if (element === 'iconButton') {
+      switch (version) {
+        case 'unchecked':
+          if (size === 'small') return 'translate(6px, 5.5px) scale(1)';
 
-        if (size === 'large') return 'translate(10px, 10px) scale(1)';
+          if (size === 'large') return 'translate(10px, 10px) scale(1)';
 
-        return 'translate(8px, 8px) scale(1)';
+          return 'translate(-5px, -50%)';
 
-      case 'grow-start':
-        if (size === 'small') return 'translate(6px, 5.5px) scale(1.674)';
+        case 'grow-start':
+          if (size === 'small') return 'translate(6px, 5.5px) scale(1.674)';
 
-        if (size === 'large') return 'translate(10px, 10px) scale(1.802)';
+          if (size === 'large') return 'translate(10px, 10px) scale(1.802)';
 
-        return 'translate(8px, 8px) scale(1.753)';
+          return 'translate(-4px, -50%)';
 
-      case 'move-end':
-        if (size === 'small') return {
-          transform: 'translate(21px, 5.5px) scale(1.5)',
-          width: 16
-        };
+        case 'move-end':
+          if (size === 'small') return {
+            transform: 'translate(21px, 5.5px) scale(1.5)',
+            width: 16
+          };
 
-        if (size === 'large') return {
-          transform: 'translate(21px, 10px) scale(1.5)',
-          width: 28
-        };
+          if (size === 'large') return {
+            transform: 'translate(21px, 10px) scale(1.5)',
+            width: 28
+          };
 
-        return {
-          transform: 'translate(21px, 8px) scale(1.5)',
-          width: 22
-        };
+          return {
+            transform: 'translate(11px, -50%)'
+          };
 
-      case 'grow-end':
-        if (size === 'small') return 'translate(26px, 5.5px) scale(1.674)';
+        case 'grow-end':
+          if (size === 'small') return 'translate(26px, 5.5px) scale(1.674)';
 
-        if (size === 'large') return 'translate(30px, 10px) scale(1.802)';
+          if (size === 'large') return 'translate(30px, 10px) scale(1.802)';
 
-        return 'translate(28px, 8px) scale(1.753)';
+          return 'translate(16px, -50%)';
 
-      case 'move-start':
-        if (size === 'small') return {
-          transform: 'translate(6px, 5.5px) scale(1)',
-          width: 16
-        };
+        case 'move-start':
+          if (size === 'small') return {
+            transform: 'translate(6px, 5.5px) scale(1)',
+            width: 16
+          };
 
-        if (size === 'large') return {
-          transform: 'translate(8px, 8px) scale(1)',
-          width: 28
-        };
+          if (size === 'large') return {
+            transform: 'translate(8px, 8px) scale(1)',
+            width: 28
+          };
 
-        return {
-          transform: 'translate(10px, 10px) scale(1)',
-          width: 22
-        };
+          return {
+            transform: 'translate(-5px, -50%)'
+          };
 
-      case 'checked':
-        if (size === 'small') return 'translate(26.5px, 5.5px) scale(1.5)';
+        case 'checked':
+          if (size === 'small') return 'translate(26.5px, 5.5px) scale(1.5)';
 
-        if (size === 'large') return 'translate(32px, 10px) scale(1.5)';
+          if (size === 'large') return 'translate(32px, 10px) scale(1.5)';
 
-        return 'translate(29px, 8px) scale(1.5)';
+          return 'translate(16px, -50%)';
 
-      case 'done':
-        if (size === 'small') return 12;
+        default:
+          break;
+      }
+    }
+    else {
+      switch (version) {
+        case 'unchecked':
+          if (size === 'small') return 'translate(6px, 5.5px) scale(1)';
 
-        if (size === 'large') return 20;
+          if (size === 'large') return 'translate(10px, 10px) scale(1)';
 
-        return 16;
+          return 'scale(0.6665)';
 
-      default:
-        break;
+        case 'grow-start':
+          if (size === 'small') return 'translate(6px, 5.5px) scale(1.674)';
+
+          if (size === 'large') return 'translate(10px, 10px) scale(1.802)';
+
+          return 'scale(1.1665)';
+
+        case 'move-end':
+          if (size === 'small') return {
+            transform: 'translate(21px, 5.5px) scale(1.5)',
+            width: 16
+          };
+
+          if (size === 'large') return {
+            transform: 'translate(21px, 10px) scale(1.5)',
+            width: 28
+          };
+
+          return {
+            transform: 'scale(1)',
+            width: 33
+          };
+
+        case 'grow-end':
+          if (size === 'small') return 'translate(26px, 5.5px) scale(1.674)';
+
+          if (size === 'large') return 'translate(30px, 10px) scale(1.802)';
+
+          return 'scale(1.1665)';
+
+        case 'move-start':
+          if (size === 'small') return {
+            transform: 'translate(6px, 5.5px) scale(1)',
+            width: 16
+          };
+
+          if (size === 'large') return {
+            transform: 'translate(8px, 8px) scale(1)',
+            width: 28
+          };
+
+          return {
+            transform: 'scale(0.6665)',
+            width: 33
+          };
+
+        case 'checked':
+          if (size === 'small') return 'translate(26.5px, 5.5px) scale(1.5)';
+
+          if (size === 'large') return 'translate(32px, 10px) scale(1.5)';
+
+          return 'scale(1)';
+
+        default:
+          break;
+      }
     }
   };
 
@@ -308,6 +383,7 @@ const Switch = React.forwardRef((props: any, ref: any) => {
         background: tonal ? 'currentColor' : theme.palette.text.default.primary
       }
     },
+
     border: {
       checked: {
         opacity: 0
@@ -316,13 +392,25 @@ const Switch = React.forwardRef((props: any, ref: any) => {
         opacity: 1
       }
     },
-    dot: {
+
+    iconButton: {
       checked: {
-        transform: sizes('checked'),
+        transform: sizes('checked', 'iconButton'),
+        color: color === 'default' ? theme.palette.color.neutral.main : !tonal ? (theme.palette.color[color] || palette).main : 'currentColor'
+      },
+      unchecked: {
+        transform: sizes('unchecked', 'iconButton'),
+        color: color === 'default' ? theme.palette.color.neutral.main : !tonal ? theme.palette.text.default.secondary : (theme.palette.color[color] || palette)[theme.palette.light ? 40 : 20]
+      }
+    },
+
+    icon: {
+      checked: {
+        transform: sizes('checked', 'icon'),
         background: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 99 : 10] : theme.palette.background.default.primary
       },
       unchecked: {
-        transform: sizes('unchecked'),
+        transform: sizes('unchecked', 'icon'),
         background: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 40 : 20] : theme.palette.text.default.secondary
       }
     }
@@ -357,6 +445,7 @@ const Switch = React.forwardRef((props: any, ref: any) => {
         ...initial.background.checked,
       }
     },
+
     border: {
       growEnd: {
         ...initial.border.checked,
@@ -385,42 +474,85 @@ const Switch = React.forwardRef((props: any, ref: any) => {
         ...initial.border.checked,
       }
     },
-    dot: {
+
+    iconButton: {
       growStart: {
-        transform: sizes('grow-start'),
+        transform: sizes('grow-start', 'iconButton'),
+        color: color === 'default' ? theme.palette.color.neutral.main : !tonal ? theme.palette.text.default.secondary : (theme.palette.color[color] || palette)[theme.palette.light ? 40 : 20],
+        transition: theme.methods.transitions.make('transform', { duration: 240, timing_function: 'decelerated' })
+      },
+      waitStart: {
+        transform: sizes('grow-start', 'iconButton'),
+        color: color === 'default' ? theme.palette.color.neutral.main : !tonal ? theme.palette.text.default.secondary : (theme.palette.color[color] || palette)[theme.palette.light ? 40 : 20]
+      },
+      moveEnd: {
+        ...sizes('move-end', 'iconButton'),
+        color: color === 'default' ? theme.palette.color.neutral.main : !tonal ? (theme.palette.color[color] || palette).main : 'currentColor',
+        transition: `${theme.methods.transitions.make('width', { duration: 70 })}, ${theme.methods.transitions.make('transform', { duration: 70 })}, ${theme.methods.transitions.make('background', { duration: 35, delay: 35 })}`
+      },
+      doneEnd: {
+        ...initial.iconButton.checked,
+        color: color === 'default' ? theme.palette.color.neutral.main : !tonal ? (theme.palette.color[color] || palette).main : 'currentColor',
+        transition: `${theme.methods.transitions.make('width', { duration: 100 })}, , ${theme.methods.transitions.make('transform', { duration: 100 })}`
+      },
+      growEnd: {
+        transform: sizes('grow-end', 'iconButton'),
+        color: color === 'default' ? theme.palette.color.neutral.main : !tonal ? (theme.palette.color[color] || palette).main : 'currentColor',
+        transition: theme.methods.transitions.make('transform', { duration: 240, timing_function: 'decelerated' })
+      },
+      waitEnd: {
+        transform: sizes('grow-end', 'iconButton'),
+        color: color === 'default' ? theme.palette.color.neutral.main : !tonal ? (theme.palette.color[color] || palette).main : 'currentColor'
+      },
+      moveStart: {
+        ...sizes('move-start', 'iconButton'),
+        color: color === 'default' ? theme.palette.color.neutral.main : !tonal ? theme.palette.text.default.secondary : (theme.palette.color[color] || palette)[theme.palette.light ? 40 : 20],
+        transition: `${theme.methods.transitions.make('width', { duration: 70 })}, ${theme.methods.transitions.make('transform', { duration: 70 })}, ${theme.methods.transitions.make('background', { duration: 35, delay: 35 })}`
+      },
+      doneStart: {
+        ...initial.iconButton.unchecked,
+        color: color === 'default' ? theme.palette.color.neutral.main : !tonal ? theme.palette.text.default.secondary : (theme.palette.color[color] || palette)[theme.palette.light ? 40 : 20],
+        transition: `${theme.methods.transitions.make('width', { duration: 100 })}, , ${theme.methods.transitions.make('transform', { duration: 100 })}`
+      }
+    },
+
+    icon: {
+      growStart: {
+        transform: sizes('grow-start', 'icon'),
         background: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 40 : 20] : theme.palette.text.default.secondary,
         transition: theme.methods.transitions.make('transform', { duration: 240, timing_function: 'decelerated' })
       },
       waitStart: {
-        transform: sizes('grow-start'),
+        transform: sizes('grow-start', 'icon'),
         background: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 40 : 20] : theme.palette.text.default.secondary
       },
       moveEnd: {
-        ...sizes('move-end'),
+        ...sizes('move-end', 'icon'),
         background: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 99 : 10] : theme.palette.background.default.primary,
         transition: `${theme.methods.transitions.make('width', { duration: 70 })}, ${theme.methods.transitions.make('transform', { duration: 70 })}, ${theme.methods.transitions.make('background', { duration: 35, delay: 35 })}`
       },
       doneEnd: {
-        ...initial.dot.checked,
-        width: sizes('done'),
+        ...initial.icon.checked,
+        background: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 99 : 10] : theme.palette.background.default.primary,
         transition: `${theme.methods.transitions.make('width', { duration: 100 })}, , ${theme.methods.transitions.make('transform', { duration: 100 })}`
       },
       growEnd: {
-        transform: sizes('grow-end'),
+        transform: sizes('grow-end', 'icon'),
         background: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 99 : 10] : theme.palette.background.default.primary,
         transition: theme.methods.transitions.make('transform', { duration: 240, timing_function: 'decelerated' })
       },
       waitEnd: {
-        transform: sizes('grow-end'),
+        transform: sizes('grow-end', 'icon'),
         background: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 99 : 10] : theme.palette.background.default.primary
       },
       moveStart: {
-        ...sizes('move-start'),
+        ...sizes('move-start', 'icon'),
+        background: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 40 : 20] : theme.palette.text.default.secondary,
         transition: `${theme.methods.transitions.make('width', { duration: 70 })}, ${theme.methods.transitions.make('transform', { duration: 70 })}, ${theme.methods.transitions.make('background', { duration: 35, delay: 35 })}`
       },
       doneStart: {
-        ...initial.dot.unchecked,
-        width: sizes('done'),
+        ...initial.icon.unchecked,
+        background: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 40 : 20] : theme.palette.text.default.secondary,
         transition: `${theme.methods.transitions.make('width', { duration: 100 })}, , ${theme.methods.transitions.make('transform', { duration: 100 })}`
       }
     }
@@ -463,7 +595,7 @@ const Switch = React.forwardRef((props: any, ref: any) => {
             (checked && status === 'doneEnd') ||
             (!checked && status === 'doneStart')
           ) animation.current = false;
-          console.log(1, status);
+
           return <>
             <span
               className={classNames([
@@ -497,20 +629,38 @@ const Switch = React.forwardRef((props: any, ref: any) => {
               }}
             />
 
-            <span
+            <IconButton
+              size={size}
+
               className={classNames([
-                classes.dot,
+                classes.iconButton,
                 classes[size],
                 classes[color],
                 tonal && classes.tonal
               ])}
 
               style={{
-                ...(status === 'appended' && initial.dot[checked ? 'checked' : 'unchecked']),
+                ...styles.iconButton,
 
-                ...styleKeyframes().dot[status]
+                ...(status === 'appended' && initial.iconButton[checked ? 'checked' : 'unchecked']),
+
+                ...styleKeyframes().iconButton[status]
               }}
-            />
+
+              disabled={disabled}
+            >
+              <Icon
+                className={classNames([
+                  classes.icon
+                ])}
+
+                style={{
+                  ...(status === 'appended' && initial.icon[checked ? 'checked' : 'unchecked']),
+
+                  ...styleKeyframes().icon[status]
+                }}
+              />
+            </IconButton>
           </>;
         }}
       </Keyframes>
