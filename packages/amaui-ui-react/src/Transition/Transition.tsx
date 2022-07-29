@@ -59,6 +59,8 @@ export interface IProps {
   // An all in one method
   onTransition?: (element: HTMLElement, status: TTransitionStatus) => void;
 
+  onInit?: (element: HTMLElement) => void;
+
   onAppended?: (element: HTMLElement) => void;
 
   onAdd?: (element: HTMLElement) => void;
@@ -127,6 +129,8 @@ function Transition(props: IProps) {
     update(statusNew);
 
     setInit(true);
+
+    if (is('function', props.onInit)) props.onInit(refs.root.current);
   }, []);
 
   React.useEffect(() => {

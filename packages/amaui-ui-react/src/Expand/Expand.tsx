@@ -62,11 +62,6 @@ const Expand = React.forwardRef((props: any, ref: React.MutableRefObject<any>) =
     ...other
   } = props;
 
-
-  React.useEffect(() => {
-    setRect(refs.root.current.getBoundingClientRect());
-  }, []);
-
   let prop = 'height';
 
   if (props.orientation === 'horizontal') prop = 'width';
@@ -110,30 +105,34 @@ const Expand = React.forwardRef((props: any, ref: React.MutableRefObject<any>) =
   return (
     <Transition
       {...props}
+
+      onInit={element => setRect(element?.getBoundingClientRect())}
     >
-      {(status: TTransitionStatus, ref_) => React.cloneElement(<Wrapper children={props.children} />, {
-        ...other,
+      {(status: TTransitionStatus, ref_) => {
+        return React.cloneElement(<Wrapper children={props.children} />, {
+          ...other,
 
-        ref: item => {
-          refs.root.current = item;
+          ref: item => {
+            refs.root.current = item;
 
-          if (ref) ref.current = item;
+            if (ref) ref.current = item;
 
-          if (ref_) ref_.current = item;
-        },
+            if (ref_) ref_.current = item;
+          },
 
-        style: {
-          position: 'relative',
+          style: {
+            position: 'relative',
 
-          transition: `${prop} ${timeout(status, prop)} ${timingFunction(status)}`,
+            transition: `${prop} ${timeout(status, prop)} ${timingFunction(status)}`,
 
-          visibility: status === 'exited' && !props.in && props.expandSize === undefined ? 'hidden' : undefined,
+            visibility: status === 'exited' && !props.in && props.expandSize === undefined ? 'hidden' : undefined,
 
-          ...(rect && styles[status] || {}),
+            ...(rect && styles[status] || {}),
 
-          ...(props.children?.props?.style || {}),
-        }
-      })}
+            ...(props.children?.props?.style || {}),
+          }
+        })
+      }}
     </Transition>
   );
 });

@@ -3,7 +3,6 @@ import React, { ChangeEvent } from 'react';
 import { is } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 import Keyframes from '../Keyframes';
-import { transform } from '@babel/core';
 
 const useStyle = style(theme => ({
   root: {
@@ -77,21 +76,10 @@ const useStyle = style(theme => ({
     display: 'inline-block',
     position: 'absolute',
     inset: 0,
-    opacity: theme.palette.visual_contrast.default.opacity.hover,
     width: '100%',
     height: '100%',
     borderRadius: theme.methods.space.value('lg'),
-    background: theme.palette.text.default.primary,
     transition: theme.methods.transitions.make(['opacity', 'background'], { duration: 'sm' }),
-
-    '&$tonal': {
-      background: 'currentColor'
-    },
-
-    '&$checked': {
-      opacity: 1,
-      background: 'currentColor'
-    },
 
     '&$disabled': {
       background: theme.palette.text.default.secondary
@@ -106,7 +94,6 @@ const useStyle = style(theme => ({
     height: '100%',
     border: `2px solid`,
     borderColor: theme.palette.text.default.secondary,
-    opacity: 1,
     borderRadius: theme.methods.space.value('lg'),
     transition: theme.methods.transitions.make(['opacity'], { duration: 'sm' }),
 
@@ -128,20 +115,29 @@ const useStyle = style(theme => ({
       '&$warning': { borderColor: theme.palette.color['warning'][theme.palette.light ? 40 : 20] },
 
       '&$error': { borderColor: theme.palette.color['error'][theme.palette.light ? 40 : 20] }
-    },
-
-    '&$checked': {
-      opacity: 0
     }
   },
 
   dot: {
     display: 'inline-flex',
     position: 'relative',
-    width: theme.methods.space.value('rg', 'px'),
-    height: theme.methods.space.value('rg', 'px'),
     borderRadius: theme.methods.space.value('lg', 'px'),
-    transition: theme.methods.transitions.make('transform', { duration: 'sm' })
+    transition: theme.methods.transitions.make('transform', { duration: 'sm' }),
+
+    '&$small': {
+      width: theme.methods.space.value('rg', 'px', -4),
+      height: theme.methods.space.value('rg', 'px', -4)
+    },
+
+    '&$regular': {
+      width: theme.methods.space.value('rg', 'px'),
+      height: theme.methods.space.value('rg', 'px')
+    },
+
+    '&$large': {
+      width: theme.methods.space.value('rg', 'px', 4),
+      height: theme.methods.space.value('rg', 'px', 4)
+    },
   }
 }), { name: 'AmauiSwitch' });
 
@@ -186,7 +182,6 @@ const Switch = React.forwardRef((props: any, ref: any) => {
   }, [value]);
 
   const onUpdate = (event: ChangeEvent<HTMLInputElement>) => {
-    console.log(1341, animation.current);
     if (!disabled && !animation.current) {
       if (is('function', onChange)) onChange(!checked, event);
 
@@ -216,61 +211,220 @@ const Switch = React.forwardRef((props: any, ref: any) => {
   const keyframes = {
     checked: [
       { name: 'growStart', timeout: 240 },
-      { name: 'moveEnd', timeout: 170 },
-      { name: 'doneEnd', timeout: 190 }
+      { name: 'waitStart', timeout: 0 },
+      { name: 'moveEnd', timeout: 70 },
+      { name: 'doneEnd', timeout: 100 }
     ],
     unchecked: [
       { name: 'growEnd', timeout: 240 },
-      { name: 'moveStart', timeout: 170 },
-      { name: 'doneStart', timeout: 190 }
+      { name: 'waitEnd', timeout: 0 },
+      { name: 'moveStart', timeout: 70 },
+      { name: 'doneStart', timeout: 100 }
     ]
   };
 
-  const initial = {
-    checked: {
-      transform: 'translate(29px, 8px) scale(1.5)',
-      background: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 99 : 10] : theme.palette.background.default.primary
-    },
-    unchecked: {
-      transform: `translate(${theme.methods.space.value('sm', 'px')}, ${theme.methods.space.value('sm', 'px')})`,
-      background: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 40 : 20] : theme.palette.text.default.secondary
+  const sizes = (version): any => {
+    switch (version) {
+      case 'unchecked':
+        if (size === 'small') return 'translate(6px, 5.5px) scale(1)';
+
+        if (size === 'large') return 'translate(10px, 10px) scale(1)';
+
+        return 'translate(8px, 8px) scale(1)';
+
+      case 'grow-start':
+        if (size === 'small') return 'translate(6px, 5.5px) scale(1.674)';
+
+        if (size === 'large') return 'translate(10px, 10px) scale(1.802)';
+
+        return 'translate(8px, 8px) scale(1.753)';
+
+      case 'move-end':
+        if (size === 'small') return {
+          transform: 'translate(21px, 5.5px) scale(1.5)',
+          width: 16
+        };
+
+        if (size === 'large') return {
+          transform: 'translate(21px, 10px) scale(1.5)',
+          width: 28
+        };
+
+        return {
+          transform: 'translate(21px, 8px) scale(1.5)',
+          width: 22
+        };
+
+      case 'grow-end':
+        if (size === 'small') return 'translate(26px, 5.5px) scale(1.674)';
+
+        if (size === 'large') return 'translate(30px, 10px) scale(1.802)';
+
+        return 'translate(28px, 8px) scale(1.753)';
+
+      case 'move-start':
+        if (size === 'small') return {
+          transform: 'translate(6px, 5.5px) scale(1)',
+          width: 16
+        };
+
+        if (size === 'large') return {
+          transform: 'translate(8px, 8px) scale(1)',
+          width: 28
+        };
+
+        return {
+          transform: 'translate(10px, 10px) scale(1)',
+          width: 22
+        };
+
+      case 'checked':
+        if (size === 'small') return 'translate(26.5px, 5.5px) scale(1.5)';
+
+        if (size === 'large') return 'translate(32px, 10px) scale(1.5)';
+
+        return 'translate(29px, 8px) scale(1.5)';
+
+      case 'done':
+        if (size === 'small') return 12;
+
+        if (size === 'large') return 20;
+
+        return 16;
+
+      default:
+        break;
     }
   };
 
-  const styleKeyframes = {
-    growStart: {
-      transform: 'translate(8px, 8px) scale(1.76)',
-      background: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 40 : 20] : theme.palette.text.default.secondary,
-      transition: theme.methods.transitions.make('transform', { duration: 240 })
+  const initial = {
+    background: {
+      checked: {
+        opacity: 1,
+        background: 'currentColor'
+      },
+      unchecked: {
+        opacity: theme.palette.visual_contrast.default.opacity.hover,
+        background: tonal ? 'currentColor' : theme.palette.text.default.primary
+      }
     },
-    moveEnd: {
-      transform: 'translate(21px, 8px) scale(1.5)',
-      background: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 99 : 10] : theme.palette.background.default.primary,
-      width: 22,
-      transition: `${theme.methods.transitions.make('width', { duration: 170 })}, ${theme.methods.transitions.make('transform', { duration: 170 })}, ${theme.methods.transitions.make('background', { duration: 85, delay: 85 })}`
+    border: {
+      checked: {
+        opacity: 0
+      },
+      unchecked: {
+        opacity: 1
+      }
     },
-    doneEnd: {
-      ...initial.checked,
-      width: 16,
-      transition: `${theme.methods.transitions.make('width', { duration: 190 })}, , ${theme.methods.transitions.make('transform', { duration: 190 })}`
-    },
-    growEnd: {
-      transform: 'translate(28px, 8px) scale(1.76)',
-      background: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 99 : 10] : theme.palette.background.default.primary,
-      transition: theme.methods.transitions.make('transform', { duration: 240 })
-    },
-    moveStart: {
-      transform: 'translate(8px, 8px) scale(1)',
-      background: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 40 : 20] : theme.palette.text.default.secondary,
-      width: 22,
-      transition: `${theme.methods.transitions.make('width', { duration: 170 })}, ${theme.methods.transitions.make('transform', { duration: 170 })}, ${theme.methods.transitions.make('background', { duration: 85, delay: 85 })}`
-    },
-    doneStart: {
-      ...initial.unchecked,
-      width: 16,
-      transition: `${theme.methods.transitions.make('width', { duration: 190 })}, , ${theme.methods.transitions.make('transform', { duration: 190 })}`
+    dot: {
+      checked: {
+        transform: sizes('checked'),
+        background: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 99 : 10] : theme.palette.background.default.primary
+      },
+      unchecked: {
+        transform: sizes('unchecked'),
+        background: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 40 : 20] : theme.palette.text.default.secondary
+      }
     }
   };
+
+  const styleKeyframes = () => ({
+    background: {
+      growEnd: {
+        ...initial.background.checked,
+      },
+      waitEnd: {
+        ...initial.background.checked,
+      },
+      moveStart: {
+        ...initial.background.unchecked,
+        transition: theme.methods.transitions.make(['opacity', 'background'], { duration: 35, delay: 35 })
+      },
+      doneStart: {
+        ...initial.background.unchecked,
+      },
+      growStart: {
+        ...initial.background.unchecked,
+      },
+      waitStart: {
+        ...initial.background.checked,
+      },
+      moveEnd: {
+        ...initial.background.checked,
+        transition: theme.methods.transitions.make(['opacity', 'background'], { duration: 35, delay: 35 })
+      },
+      doneEnd: {
+        ...initial.background.checked,
+      }
+    },
+    border: {
+      growEnd: {
+        ...initial.border.checked,
+      },
+      waitEnd: {
+        ...initial.border.checked,
+      },
+      moveStart: {
+        ...initial.border.unchecked,
+        transition: theme.methods.transitions.make(['opacity'], { duration: 35, delay: 35 })
+      },
+      doneStart: {
+        ...initial.border.unchecked,
+      },
+      growStart: {
+        ...initial.border.unchecked,
+      },
+      waitStart: {
+        ...initial.border.checked,
+      },
+      moveEnd: {
+        ...initial.border.checked,
+        transition: theme.methods.transitions.make(['opacity'], { duration: 35, delay: 35 })
+      },
+      doneEnd: {
+        ...initial.border.checked,
+      }
+    },
+    dot: {
+      growStart: {
+        transform: sizes('grow-start'),
+        background: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 40 : 20] : theme.palette.text.default.secondary,
+        transition: theme.methods.transitions.make('transform', { duration: 240, timing_function: 'decelerated' })
+      },
+      waitStart: {
+        transform: sizes('grow-start'),
+        background: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 40 : 20] : theme.palette.text.default.secondary
+      },
+      moveEnd: {
+        ...sizes('move-end'),
+        background: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 99 : 10] : theme.palette.background.default.primary,
+        transition: `${theme.methods.transitions.make('width', { duration: 70 })}, ${theme.methods.transitions.make('transform', { duration: 70 })}, ${theme.methods.transitions.make('background', { duration: 35, delay: 35 })}`
+      },
+      doneEnd: {
+        ...initial.dot.checked,
+        width: sizes('done'),
+        transition: `${theme.methods.transitions.make('width', { duration: 100 })}, , ${theme.methods.transitions.make('transform', { duration: 100 })}`
+      },
+      growEnd: {
+        transform: sizes('grow-end'),
+        background: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 99 : 10] : theme.palette.background.default.primary,
+        transition: theme.methods.transitions.make('transform', { duration: 240, timing_function: 'decelerated' })
+      },
+      waitEnd: {
+        transform: sizes('grow-end'),
+        background: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 99 : 10] : theme.palette.background.default.primary
+      },
+      moveStart: {
+        ...sizes('move-start'),
+        transition: `${theme.methods.transitions.make('width', { duration: 70 })}, ${theme.methods.transitions.make('transform', { duration: 70 })}, ${theme.methods.transitions.make('background', { duration: 35, delay: 35 })}`
+      },
+      doneStart: {
+        ...initial.dot.unchecked,
+        width: sizes('done'),
+        transition: `${theme.methods.transitions.make('width', { duration: 100 })}, , ${theme.methods.transitions.make('transform', { duration: 100 })}`
+      }
+    }
+  });
 
   return (
     <Component
@@ -295,28 +449,6 @@ const Switch = React.forwardRef((props: any, ref: any) => {
 
       {...other}
     >
-      <span
-        className={classNames([
-          classes.background,
-          tonal && classes.tonal,
-          checked && classes.checked,
-          disabled && classes.disabled
-        ])}
-
-        style={styles.background}
-      />
-
-      <span
-        className={classNames([
-          classes.border,
-          classes[color],
-          tonal && classes.tonal,
-          checked && classes.checked
-        ])}
-
-        style={styles.border}
-      />
-
       <Keyframes
         keyframes={keyframes[checked ? 'checked' : 'unchecked']}
 
@@ -330,21 +462,54 @@ const Switch = React.forwardRef((props: any, ref: any) => {
             (!checked && status === 'doneStart')
           ) animation.current = false;
 
-          return (
+          return <>
             <span
               className={classNames([
-                classes.dot,
+                classes.background,
+                tonal && classes.tonal,
+                disabled && classes.disabled
+              ])}
+
+              style={{
+                ...styles.background,
+
+                ...(status === 'appended' && initial.background[checked ? 'checked' : 'unchecked']),
+
+                ...styleKeyframes().background[status]
+              }}
+            />
+
+            <span
+              className={classNames([
+                classes.border,
                 classes[color],
                 tonal && classes.tonal
               ])}
 
               style={{
-                ...(status === 'appended' && initial[checked ? 'checked' : 'unchecked']),
+                ...styles.border,
 
-                ...styleKeyframes[status]
+                ...(status === 'appended' && initial.border[checked ? 'checked' : 'unchecked']),
+
+                ...styleKeyframes().border[status]
               }}
             />
-          );
+
+            <span
+              className={classNames([
+                classes.dot,
+                classes[size],
+                classes[color],
+                tonal && classes.tonal
+              ])}
+
+              style={{
+                ...(status === 'appended' && initial.dot[checked ? 'checked' : 'unchecked']),
+
+                ...styleKeyframes().dot[status]
+              }}
+            />
+          </>;
         }}
       </Keyframes>
 
