@@ -82,7 +82,7 @@ const useStyle = style(theme => ({
     transition: theme.methods.transitions.make(['opacity', 'background'], { duration: 'sm' }),
 
     '&$disabled': {
-      background: theme.palette.text.default.secondary
+      background: [theme.palette.text.default.secondary, '!important']
     }
   },
 
@@ -454,6 +454,8 @@ const Switch = React.forwardRef((props: any, ref: any) => {
 
         update={checked}
 
+        appendStatusPost={!checked ? 'doneStart' : 'doneEnd'}
+
         append
       >
         {(status: any) => {
@@ -461,7 +463,7 @@ const Switch = React.forwardRef((props: any, ref: any) => {
             (checked && status === 'doneEnd') ||
             (!checked && status === 'doneStart')
           ) animation.current = false;
-
+          console.log(1, status);
           return <>
             <span
               className={classNames([

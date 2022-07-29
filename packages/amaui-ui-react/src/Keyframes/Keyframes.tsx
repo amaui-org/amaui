@@ -28,6 +28,8 @@ interface IProps {
   runOnEnter?: boolean;
   removeOnEnd?: boolean;
 
+  appendStatusPost?: string;
+
   keyframes?: Array<IKeyframe>;
 
   timeout?: TTransitionsDurationProperties | number | {
@@ -87,7 +89,7 @@ function Keyframes(props: IProps) {
 
   const initMethod = async () => {
     // Appended
-    if (status === 'appended') updateStatus();
+    if (status === 'appended') updateStatus(props.appendStatusPost as any);
 
     // Add
     if (props.add || status === 'add') await add();
