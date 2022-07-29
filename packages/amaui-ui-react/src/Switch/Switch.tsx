@@ -3,6 +3,7 @@ import React, { ChangeEvent } from 'react';
 import { is } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 import Keyframes from '../Keyframes';
+import { transform } from '@babel/core';
 
 const useStyle = style(theme => ({
   root: {
@@ -139,31 +140,8 @@ const useStyle = style(theme => ({
     position: 'relative',
     width: theme.methods.space.value('rg', 'px'),
     height: theme.methods.space.value('rg', 'px'),
-    borderRadius: '50%',
-    background: theme.palette.text.default.secondary,
-    left: 0,
-    top: '50%',
-    transform: `translate(${theme.methods.space.value('sm', 'px')}, -50%)`,
-
-    '&$tonal': {
-      '&$neutral': { background: theme.palette.color['neutral'][theme.palette.light ? 40 : 20] },
-
-      '&$primary': { background: theme.palette.color['primary'][theme.palette.light ? 40 : 20] },
-
-      '&$secondary': { background: theme.palette.color['secondary'][theme.palette.light ? 40 : 20] },
-
-      '&$tertiary': { background: theme.palette.color['tertiary'][theme.palette.light ? 40 : 20] },
-
-      '&$quaternary': { background: theme.palette.color['quaternary'][theme.palette.light ? 40 : 20] },
-
-      '&$info': { background: theme.palette.color['info'][theme.palette.light ? 40 : 20] },
-
-      '&$success': { background: theme.palette.color['success'][theme.palette.light ? 40 : 20] },
-
-      '&$warning': { background: theme.palette.color['warning'][theme.palette.light ? 40 : 20] },
-
-      '&$error': { background: theme.palette.color['error'][theme.palette.light ? 40 : 20] }
-    }
+    borderRadius: theme.methods.space.value('lg', 'px'),
+    transition: theme.methods.transitions.make('transform', { duration: 'sm' })
   }
 }), { name: 'AmauiSwitch' });
 
@@ -186,6 +164,7 @@ const Switch = React.forwardRef((props: any, ref: any) => {
     ...other
   } = props;
   const [checked, setChecked] = React.useState(valueDefault !== undefined ? valueDefault : value);
+  const animation = React.useRef(false);
 
   const { classes } = useStyle();
 
@@ -199,15 +178,24 @@ const Switch = React.forwardRef((props: any, ref: any) => {
   };
 
   React.useEffect(() => {
-    if (value !== undefined && checked !== value) setChecked(value);
+    if (value !== undefined && checked !== value) {
+      setChecked(value);
+
+      animation.current = true;
+    }
   }, [value]);
 
   const onUpdate = (event: ChangeEvent<HTMLInputElement>) => {
-    if (!disabled) {
+    console.log(1341, animation.current);
+    if (!disabled && !animation.current) {
       if (is('function', onChange)) onChange(!checked, event);
 
       // Inner controlled checkbox
-      if (!props.hasOwnProperty('value')) setChecked(!checked);
+      if (!props.hasOwnProperty('value')) {
+        setChecked(!checked);
+
+        animation.current = true;
+      }
     }
   };
 
@@ -227,18 +215,68 @@ const Switch = React.forwardRef((props: any, ref: any) => {
 
   const keyframes = {
     checked: [
-
+      { name: 'growStart', timeout: 1400 },
+      { name: 'moveEnd', timeout: 700 },
+      { name: 'doneEnd', timeout: 900 }
     ],
     unchecked: [
-
+      { name: 'growEnd', timeout: 1400 },
+      { name: 'moveStart', timeout: 700 },
+      { name: 'doneStart', timeout: 900 }
     ]
+  };
+
+  const initial = {
+    checked: {
+      transform: 'translate(29px, 8px) scale(1.5)',
+      background: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 99 : 10] : theme.palette.background.default.primary
+    },
+    unchecked: {
+      transform: `translate(${theme.methods.space.value('sm', 'px')}, ${theme.methods.space.value('sm', 'px')})`,
+      background: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 40 : 20] : theme.palette.text.default.secondary
+    }
+  };
+
+  const styleKeyframes = {
+    growStart: {
+      transform: 'translate(8px, 8px) scale(1.76)',
+      background: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 40 : 20] : theme.palette.text.default.secondary,
+      transition: theme.methods.transitions.make('transform', { duration: 1400 })
+    },
+    moveEnd: {
+      transform: 'translate(21px, 8px) scale(1.5)',
+      background: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 99 : 10] : theme.palette.background.default.primary,
+      width: 22,
+      transition: `${theme.methods.transitions.make('width', { duration: 700 })}, ${theme.methods.transitions.make('transform', { duration: 700 })}, ${theme.methods.transitions.make('background', { duration: 350, delay: 350 })}`
+    },
+    doneEnd: {
+      ...initial.checked,
+      width: 16,
+      transition: `${theme.methods.transitions.make('width', { duration: 900 })}, , ${theme.methods.transitions.make('transform', { duration: 900 })}`
+    },
+    growEnd: {
+      transform: 'translate(28px, 8px) scale(1.76)',
+      background: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 99 : 10] : theme.palette.background.default.primary,
+      transition: theme.methods.transitions.make('transform', { duration: 1400 })
+    },
+    moveStart: {
+      transform: 'translate(8px, 8px) scale(1)',
+      background: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 40 : 20] : theme.palette.text.default.secondary,
+      width: 22,
+      transition: `${theme.methods.transitions.make('width', { duration: 700 })}, ${theme.methods.transitions.make('transform', { duration: 700 })}, ${theme.methods.transitions.make('background', { duration: 350, delay: 350 })}`
+    },
+    doneStart: {
+      ...initial.unchecked,
+      width: 16,
+      transition: `${theme.methods.transitions.make('width', { duration: 900 })}, , ${theme.methods.transitions.make('transform', { duration: 900 })}`
+    }
   };
 
   return (
     <Component
       ref={ref}
 
-      onClick={onUpdate}
+      onClick={!animation && onUpdate}
 
       className={classNames([
         className,
@@ -283,14 +321,32 @@ const Switch = React.forwardRef((props: any, ref: any) => {
         keyframes={keyframes[checked ? 'checked' : 'unchecked']}
 
         update={checked}
+
+        append
       >
-        <span
-          className={classNames([
-            classes.dot,
-            classes[color],
-            tonal && classes.tonal
-          ])}
-        />
+        {(status: any) => {
+          if (
+            (checked && status === 'doneEnd') ||
+            (!checked && status === 'doneStart')
+          ) animation.current = false;
+
+          console.log(1, status);
+          return (
+            <span
+              className={classNames([
+                classes.dot,
+                classes[color],
+                tonal && classes.tonal
+              ])}
+
+              style={{
+                ...(status === 'appended' && initial[checked ? 'checked' : 'unchecked']),
+
+                ...styleKeyframes[status]
+              }}
+            />
+          );
+        }}
       </Keyframes>
 
     </Component>

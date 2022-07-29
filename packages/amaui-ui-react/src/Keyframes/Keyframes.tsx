@@ -8,19 +8,7 @@ import { classNames, useAmauiTheme, TTransitionsDurationProperties } from '@amau
 import KeyframesContext from './KeyframesContext';
 import { reflow } from '../utils';
 
-export type TKeyframesStatus = 'appended' | 'add' | 'adding' | 'added' | 'exited' | 'removed';
-
-const STATUS: Record<TKeyframesStatus, TKeyframesStatus> = {
-  appended: 'appended',
-
-  add: 'add',
-  adding: 'adding',
-  added: 'added',
-
-  exited: 'exited',
-
-  removed: 'removed'
-};
+export type TKeyframesStatus = 'appended' | 'add' | 'adding' | 'added' | 'removed';
 
 export interface IKeyframe {
   name: string;
@@ -38,7 +26,7 @@ interface IProps {
   update?: boolean;
 
   runOnEnter?: boolean;
-  removeOnExited?: boolean;
+  removeOnEnd?: boolean;
 
   keyframes?: Array<IKeyframe>;
 
@@ -97,28 +85,6 @@ function Keyframes(props: IProps) {
     if (init) run();
   }, [props.update]);
 
-  React.useEffect(() => {
-    if (status === STATUS.exited && props.removeOnExited) {
-      // So exited status has
-      // enough time to apply some value
-      setStatus('removed');
-
-      // Subscriptions
-      subs.current.status.emit('removed');
-    }
-  }, [status]);
-
-  React.useEffect(() => {
-    if (status === STATUS.exited && props.removeOnExited) {
-      // So exited status has
-      // enough time to apply some value
-      setStatus('removed');
-
-      // Subscriptions
-      subs.current.status.emit('removed');
-    }
-  }, [status]);
-
   const initMethod = async () => {
     // Appended
     if (status === 'appended') updateStatus();
@@ -138,8 +104,14 @@ function Keyframes(props: IProps) {
     // Run all keyframes
     if (is('array', props.keyframes)) for (const keyframe of props.keyframes) await runKeyframe(keyframe);
 
-    // Exited
-    updateStatus('exited');
+    if (props.removeOnEnd) {
+      // So exited status has
+      // enough time to apply some value
+      setStatus('removed');
+
+      // Subscriptions
+      subs.current.status.emit('removed');
+    }
   };
 
   const runKeyframe = async (value: IKeyframe) => {
@@ -185,9 +157,7 @@ function Keyframes(props: IProps) {
 
   const updateStatus = (status_: TKeyframesStatus = status) => {
     // Update
-    if (status !== status_) {
-      setStatus(status_);
-    }
+    setStatus(status_);
 
     // Subscriptions
     subs.current.status.emit(status_);
@@ -217,12 +187,6 @@ function Keyframes(props: IProps) {
 
         break;
 
-      case 'exited':
-        if (is('function', props.onKeyframes)) props.onKeyframes(refs.root.current, status_);
-        if (is('function', props.onExited)) props.onExited(refs.root.current);
-
-        break;
-
       case 'removed':
         if (is('function', props.onKeyframes)) props.onKeyframes(refs.root.current, status_);
         if (is('function', props.onRemoved)) props.onRemoved(refs.root.current);
@@ -240,7 +204,7 @@ function Keyframes(props: IProps) {
       let className = classNames([refs.root.current.className.split(' ')]);
 
       // Remove all previous state classes
-      className = className.replace(new RegExp(`${props.prefix || ''}(add|exit)(ed|ing)?`, 'g'), '');
+      className = className.replace(new RegExp(`${props.prefix || ''}(add)(ed|ing)?`, 'g'), '');
 
       // Remove all previous keyframes classes
       if (is('array', props.keyframes)) {
