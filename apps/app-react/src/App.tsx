@@ -180,7 +180,12 @@ const Accordion = (props: any) => {
     <div className={classes.section}>
       <h1 className={classes.h1} onClick={() => setOpen(!open)}>{props.label}</h1>
 
-      <Expand in={open}>
+      <Expand
+        in={open}
+
+        append
+        removeOnExited
+      >
         <section className={classNames([classes.item, props.className])}>
           {props.children}
         </section>
@@ -371,8 +376,8 @@ function App() {
             <Switch
               color='secondary'
 
-              onChange={(value: boolean) => updateValue(value, 'checkbox')}
-              value={!!a.checkbox}
+              onChange={(value: boolean) => updateValue(value, 'switch')}
+              value={!!a.switch}
             />
           </div>
         </Accordion>
@@ -398,6 +403,7 @@ function App() {
                   { name: 'shrink', timeout: 1100 }
                 ]}
 
+                runOnEnter
                 append
                 add
               >

@@ -215,14 +215,14 @@ const Switch = React.forwardRef((props: any, ref: any) => {
 
   const keyframes = {
     checked: [
-      { name: 'growStart', timeout: 1400 },
-      { name: 'moveEnd', timeout: 700 },
-      { name: 'doneEnd', timeout: 900 }
+      { name: 'growStart', timeout: 240 },
+      { name: 'moveEnd', timeout: 170 },
+      { name: 'doneEnd', timeout: 190 }
     ],
     unchecked: [
-      { name: 'growEnd', timeout: 1400 },
-      { name: 'moveStart', timeout: 700 },
-      { name: 'doneStart', timeout: 900 }
+      { name: 'growEnd', timeout: 240 },
+      { name: 'moveStart', timeout: 170 },
+      { name: 'doneStart', timeout: 190 }
     ]
   };
 
@@ -241,34 +241,34 @@ const Switch = React.forwardRef((props: any, ref: any) => {
     growStart: {
       transform: 'translate(8px, 8px) scale(1.76)',
       background: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 40 : 20] : theme.palette.text.default.secondary,
-      transition: theme.methods.transitions.make('transform', { duration: 1400 })
+      transition: theme.methods.transitions.make('transform', { duration: 240 })
     },
     moveEnd: {
       transform: 'translate(21px, 8px) scale(1.5)',
       background: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 99 : 10] : theme.palette.background.default.primary,
       width: 22,
-      transition: `${theme.methods.transitions.make('width', { duration: 700 })}, ${theme.methods.transitions.make('transform', { duration: 700 })}, ${theme.methods.transitions.make('background', { duration: 350, delay: 350 })}`
+      transition: `${theme.methods.transitions.make('width', { duration: 170 })}, ${theme.methods.transitions.make('transform', { duration: 170 })}, ${theme.methods.transitions.make('background', { duration: 85, delay: 85 })}`
     },
     doneEnd: {
       ...initial.checked,
       width: 16,
-      transition: `${theme.methods.transitions.make('width', { duration: 900 })}, , ${theme.methods.transitions.make('transform', { duration: 900 })}`
+      transition: `${theme.methods.transitions.make('width', { duration: 190 })}, , ${theme.methods.transitions.make('transform', { duration: 190 })}`
     },
     growEnd: {
       transform: 'translate(28px, 8px) scale(1.76)',
       background: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 99 : 10] : theme.palette.background.default.primary,
-      transition: theme.methods.transitions.make('transform', { duration: 1400 })
+      transition: theme.methods.transitions.make('transform', { duration: 240 })
     },
     moveStart: {
       transform: 'translate(8px, 8px) scale(1)',
       background: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 40 : 20] : theme.palette.text.default.secondary,
       width: 22,
-      transition: `${theme.methods.transitions.make('width', { duration: 700 })}, ${theme.methods.transitions.make('transform', { duration: 700 })}, ${theme.methods.transitions.make('background', { duration: 350, delay: 350 })}`
+      transition: `${theme.methods.transitions.make('width', { duration: 170 })}, ${theme.methods.transitions.make('transform', { duration: 170 })}, ${theme.methods.transitions.make('background', { duration: 85, delay: 85 })}`
     },
     doneStart: {
       ...initial.unchecked,
       width: 16,
-      transition: `${theme.methods.transitions.make('width', { duration: 900 })}, , ${theme.methods.transitions.make('transform', { duration: 900 })}`
+      transition: `${theme.methods.transitions.make('width', { duration: 190 })}, , ${theme.methods.transitions.make('transform', { duration: 190 })}`
     }
   };
 
@@ -276,7 +276,7 @@ const Switch = React.forwardRef((props: any, ref: any) => {
     <Component
       ref={ref}
 
-      onClick={!animation && onUpdate}
+      onClick={onUpdate}
 
       className={classNames([
         className,
@@ -330,7 +330,6 @@ const Switch = React.forwardRef((props: any, ref: any) => {
             (!checked && status === 'doneStart')
           ) animation.current = false;
 
-          console.log(1, status);
           return (
             <span
               className={classNames([
