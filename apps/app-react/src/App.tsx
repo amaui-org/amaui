@@ -8,6 +8,8 @@ import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMateri
 import IconMaterialPottedPlantRounded from '@amaui/icons-material-react/build/IconMaterialPottedPlantRounded';
 import IconMaterialCheckRounded from '@amaui/icons-material-react/build/IconMaterialCheckRounded';
 import IconMaterialCloseRounded from '@amaui/icons-material-react/build/IconMaterialCloseRounded';
+import IconMaterialLightModeRounded from '@amaui/icons-material-react/build/IconMaterialLightModeRounded';
+import IconMaterialDarkModeRounded from '@amaui/icons-material-react/build/IconMaterialDarkModeRounded';
 
 const useStyleA = style(theme => ({
   a: {
@@ -385,6 +387,7 @@ function App() {
           <div className={classNames([classes.column])}>
             <Switch color='secondary' OnIcon={<IconMaterialCheckRounded />} OffIcon={<IconMaterialCloseRounded />} />
             <Switch color='secondary' tonal OnIcon={<IconMaterialCheckRounded />} OffIcon={<IconMaterialCloseRounded />} />
+            <Switch color='secondary' tonal OnIcon={<IconMaterialLightModeRounded />} OffIcon={<IconMaterialDarkModeRounded />} />
           </div>
         </Accordion>
 
