@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { IResponse, IMethodResponse, style, names } from '@amaui/style';
+import { IResponse, IMethodResponse, style } from '@amaui/style';
 
 import { useAmauiStyle, useAmauiTheme } from '.';
 
