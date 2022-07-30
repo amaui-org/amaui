@@ -156,7 +156,11 @@ export const IconDoneAnimated = (props: any) => {
   );
 };
 
-const SegmentedButtons = React.forwardRef((props: any, ref: any) => {
+const SegmentedButtons = React.forwardRef((props_: any, ref: any) => {
+  const theme = useAmauiTheme();
+
+  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiSegmentedButtons.props?.default }), [props_]);
+
   const [preSelected, setPreSelected] = React.useState([]);
   const [selected, setSelected] = React.useState([]);
 

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is } from '@amaui/utils';
-import { style, classNames } from '@amaui/style-react';
+import { style, classNames, useAmauiTheme } from '@amaui/style-react';
 
 import Focus from '../Focus';
 import Fade from '../Fade';
@@ -51,7 +51,11 @@ const backdrop = {
   }
 };
 
-const Backdrop = React.forwardRef((props: any, ref: any) => {
+const Backdrop = React.forwardRef((props_: any, ref: any) => {
+  const theme = useAmauiTheme();
+
+  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiBackdrop?.props?.default }), [props_]);
+
   const [open, setOpen] = React.useState(props.open);
   const [inProp, setInProp] = React.useState(props.open);
   const { classes } = useStyle(props);

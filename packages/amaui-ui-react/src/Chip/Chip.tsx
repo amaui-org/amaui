@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { is } from '@amaui/utils';
+import { useAmauiTheme } from '@amaui/style-react';
 
 import Button from '../Button';
 import Icon from '../Icon';
@@ -22,7 +23,11 @@ const IconMaterialCloseSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
-const Chip = React.forwardRef((props: any, ref) => {
+const Chip = React.forwardRef((props_: any, ref: any) => {
+  const theme = useAmauiTheme();
+
+  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiChip?.props?.default }), [props_]);
+
   const [preSelected, setPreSelected] = React.useState(false);
   const [selected, setSelected] = React.useState(false);
 

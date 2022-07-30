@@ -79,7 +79,11 @@ const IconItem = (props: any) => {
   );
 };
 
-const Radio = React.forwardRef((props: any, ref: any) => {
+const Radio = React.forwardRef((props_: any, ref: any) => {
+  const theme = useAmauiTheme();
+
+  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiRadio.props?.default }), [props_]);
+
   const {
     color = 'primary',
     colorUnchecked = 'default',
@@ -95,8 +99,6 @@ const Radio = React.forwardRef((props: any, ref: any) => {
   const [checked, setChecked] = React.useState(valueDefault !== undefined ? valueDefault : value);
 
   const { classes } = useStyle(props);
-
-  const theme = useAmauiTheme();
 
   const styles: any = {
     iconBox: {}
@@ -136,6 +138,8 @@ const Radio = React.forwardRef((props: any, ref: any) => {
 
   return (
     <IconButton
+      ref={ref}
+
       color={colorValue}
 
       onClick={onUpdate}

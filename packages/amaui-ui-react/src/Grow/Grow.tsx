@@ -5,8 +5,10 @@ import { useAmauiTheme } from '@amaui/style-react';
 
 import { Transition, TTransitionStatus } from '..';
 
-const Grow = React.forwardRef((props: any, ref: React.MutableRefObject<any>) => {
+const Grow = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
+
+  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiGrow?.props?.default }), [props_]);
 
   const {
     in: inProp,

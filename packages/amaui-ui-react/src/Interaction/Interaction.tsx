@@ -145,7 +145,11 @@ const useStyle = style(theme => ({
   }
 }), { name: 'AmauiInteraction' });
 
-const Interaction = (props: any) => {
+const Interaction = React.forwardRef((props_: any, ref: any) => {
+  const theme = useAmauiTheme();
+
+  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiInteraction.props?.default }), [props_]);
+
   const [interactions, setInteractions] = React.useState([]);
   const [border, setBorder] = React.useState(false);
   const [waves, setWaves] = React.useState([]);
@@ -155,9 +159,24 @@ const Interaction = (props: any) => {
     mouse: React.useRef({ down: 0, up: 0, press: 0 })
   };
 
-  const theme = useAmauiTheme();
-
   const { classes } = useStyle(props);
+
+  const {
+    wave,
+    background,
+    border: border_,
+    pulse,
+    disabled: disabled_,
+    origin,
+    selected,
+    wave_version,
+
+    className,
+
+    children,
+
+    ...oher
+  } = props;
 
   React.useEffect(() => {
     const parent = refs.root.current.parentNode;
@@ -239,27 +258,27 @@ const Interaction = (props: any) => {
   }, []);
 
   React.useEffect(() => {
-    if (props.pulse) addWavePulse();
+    if (pulse) addWavePulse();
     else removeWaves();
-  }, [props.pulse]);
+  }, [pulse]);
 
   React.useEffect(() => {
-    if (props.disabled !== disabled) setDisabled(props.disabled);
-  }, [props.disabled]);
+    if (disabled_ !== disabled) setDisabled(disabled_);
+  }, [disabled_]);
 
   const addWave = (event: MouseEvent) => {
-    if (props.wave && !disabled) {
+    if (wave && !disabled) {
       let top = 0;
       let left = 0;
       let width: any = '100%';
 
-      if (props.wave_version !== 'simple') {
+      if (wave_version !== 'simple') {
         const rect = (event.currentTarget as any)?.getBoundingClientRect();
         const root = ((event?.currentTarget || refs.root.current.parentNode) as any).getBoundingClientRect() as DOMRect;
         const w = root.width;
         const h = root.height;
-        const x = (props.origin === 'center' || !event) ? w / 2 : rect ? event.x - rect.left : event.offsetX;
-        const y = (props.origin === 'center' || !event) ? h / 2 : rect ? event.y - rect.top : event.offsetY;
+        const x = (origin === 'center' || !event) ? w / 2 : rect ? event.x - rect.left : event.offsetX;
+        const y = (origin === 'center' || !event) ? h / 2 : rect ? event.y - rect.top : event.offsetY;
 
         width = Math.round(
           Math.sqrt(
@@ -290,7 +309,7 @@ const Interaction = (props: any) => {
             className
           >
             <span
-              className={props.wave_version === 'simple' ? classes.waveSimple : classes.wave}
+              className={wave_version === 'simple' ? classes.waveSimple : classes.wave}
 
               style={{
                 top: `${top}px`,
@@ -307,7 +326,7 @@ const Interaction = (props: any) => {
   };
 
   const addWavePulse = () => {
-    if (props.pulse && !disabled) {
+    if (pulse && !disabled) {
       // Remove previous wave
       // if there is one
       if (!!waves.length) removeWaves();
@@ -376,17 +395,26 @@ const Interaction = (props: any) => {
 
   return (
     <span
-      ref={refs.root}
+      ref={item => {
+        if (ref) ref.current = item;
 
-      className={classes.root}
+        refs.root.current = item;
+      }}
+
+      className={classNames([
+        className,
+        classes.root
+      ])}
+
+      {...other}
     >
       {/* Background */}
-      {props.background && (
+      {background && (
         <span
           className={classNames([
             classes.background,
             has('mouse-in') && classes.hovered,
-            props.selected && classes.selected
+            selected && classes.selected
           ])}
         />
       )}
@@ -410,7 +438,7 @@ const Interaction = (props: any) => {
       </Transitions>
 
       {/* Border */}
-      {props.border && (
+      {border_ && (
         <Transition in={border}>
           {(status: TTransitionStatus) => (
             <span
@@ -427,13 +455,6 @@ const Interaction = (props: any) => {
       )}
     </span>
   );
-}
-
-// Default props
-Interaction.defaultProps = {
-  wave: true,
-  background: true,
-  border: true
-};
+});
 
 export default Interaction;

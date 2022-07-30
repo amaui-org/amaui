@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { classNames, style } from '@amaui/style-react';
+import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 const useStyle = style(theme => ({
   root: {
@@ -12,7 +12,11 @@ const useStyle = style(theme => ({
   }
 }), { name: 'AmauiModalHeader' });
 
-const ModalHeader = React.forwardRef((props: any, ref: any) => {
+const ModalHeader = React.forwardRef((props_: any, ref: any) => {
+  const theme = useAmauiTheme();
+
+  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiModalHeader.props?.default }), [props_]);
+
   const { classes } = useStyle(props);
 
   const {

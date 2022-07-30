@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { classNames, style } from '@amaui/style-react';
+import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 const useStyle = style(theme => ({
   root: {
@@ -60,7 +60,11 @@ const useStyle = style(theme => ({
   }
 }), { name: 'AmauiType' });
 
-const Type = React.forwardRef((props: any, ref) => {
+const Type = React.forwardRef((props_: any, ref: any) => {
+  const theme = useAmauiTheme();
+
+  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiType.props?.default }), [props_]);
+
   const { classes } = useStyle(props);
 
   const {

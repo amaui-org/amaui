@@ -304,14 +304,16 @@ const useStyle = style(theme => ({
   }
 }), { name: 'AmauiButton' });
 
-const Button = React.forwardRef((props: any, ref) => {
+const Button = React.forwardRef((props_: any, ref: any) => {
+  const theme = useAmauiTheme();
+
+  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiButton?.props?.default }), [props_]);
+
   const { classes } = useStyle(props);
   const [focus, setFocus] = React.useState(false);
   const refs = {
     color: React.useRef<any>()
   };
-
-  const theme = useAmauiTheme();
 
   const {
     className,

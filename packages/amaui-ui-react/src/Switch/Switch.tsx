@@ -170,7 +170,11 @@ const Icon = (props: any) => {
   );
 };
 
-const Switch = React.forwardRef((props: any, ref: any) => {
+const Switch = React.forwardRef((props_: any, ref: any) => {
+  const theme = useAmauiTheme();
+
+  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiSwitch.props?.default }), [props_]);
+
   const {
     tonal,
     color = 'primary',
@@ -194,8 +198,6 @@ const Switch = React.forwardRef((props: any, ref: any) => {
   const animation = React.useRef(false);
 
   const { classes } = useStyle(props);
-
-  const theme = useAmauiTheme();
 
   const styles: any = {
     root: {},

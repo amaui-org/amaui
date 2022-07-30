@@ -2,6 +2,7 @@ import React from 'react';
 
 import is from '@amaui/utils/is';
 import unique from '@amaui/utils/unique';
+import { useAmauiTheme } from '@amaui/style-react';
 
 import { STATUS, TTransitionStatus } from '..';
 
@@ -17,17 +18,29 @@ export interface IProps {
 
 const TransitionsContext = React.createContext(undefined);
 
-function Transitions(props: IProps) {
+function Transitions(props_: IProps) {
+  const theme = useAmauiTheme();
+
+  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiTransitions.props?.default }), [props_]);
+
+  const {
+    mode = 'out-in',
+    switch: switch_,
+    TransitionProps,
+
+    children: children__
+  } = props;
+
   const [init, setInit] = React.useState(false);
   const [status, setStatus] = React.useState<TTransitionStatus>(STATUS.entered);
-  const [children, setChildren] = React.useState(is('array', props.children) ? props.children : [props.children]);
+  const [children, setChildren] = React.useState(is('array', children__) ? children__ : [children__]);
 
   const other = {
     className: true,
-    ...(props.TransitionProps || {})
+    ...(TransitionProps || {})
   };
 
-  const [element, setElement] = React.useState(React.cloneElement(props.children, { in: true, ...other }));
+  const [element, setElement] = React.useState(React.cloneElement(children__, { in: true, ...other }));
 
   React.useEffect(() => {
     setInit(true);
@@ -35,8 +48,8 @@ function Transitions(props: IProps) {
 
   // Regular
   React.useEffect(() => {
-    if (!props.switch) {
-      const newChildren: Array<React.ReactElement<any>> = is('array', props.children) ? props.children : [props.children];
+    if (!switch_) {
+      const newChildren: Array<React.ReactElement<any>> = is('array', children__) ? children__ : [children__];
 
       setChildren(items => {
         let newItems = unique([...items, ...newChildren], 'key');
@@ -58,19 +71,19 @@ function Transitions(props: IProps) {
         return newItems;
       });
     }
-  }, [props.children.length]);
+  }, [children__.length]);
 
   // Switch
   React.useEffect(() => {
     if (
-      element !== props.children &&
-      element.key !== props.children.key &&
+      element !== children__ &&
+      element.key !== children__.key &&
       // Lets transition run properly
       status === 'entered'
     ) {
       setStatus(STATUS.exit);
     }
-  }, [props.children.key]);
+  }, [children__.key]);
 
   const onExited = (element_: React.ReactElement<any>) => (elementHTML: HTMLElement) => {
     // Invoke a method
@@ -91,25 +104,25 @@ function Transitions(props: IProps) {
   let children_ = children;
 
   // Init
-  if (!init && !props.switch) {
+  if (!init && !switch_) {
     children_ = children_.map(item => React.cloneElement(item, { in: true, onExited: onExited(item), ...other }))
   }
 
   // Switch
-  if (props.switch) {
+  if (switch_) {
     children_ = element;
 
     switch (status) {
       case STATUS.enter:
-        if (props.mode === 'in-out') {
-          const newElement = React.cloneElement(props.children, { in: true, ...other });
+        if (mode === 'in-out') {
+          const newElement = React.cloneElement(children__, { in: true, ...other });
 
           children_ = [
             React.cloneElement(children_, {
               in: false,
 
               onExited: () => {
-                if (props.children.props?.onExited) props.children.props?.onExited();
+                if (children__.props?.onExited) children__.props?.onExited();
 
                 setStatus(STATUS.entered);
                 setElement(newElement);
@@ -124,16 +137,16 @@ function Transitions(props: IProps) {
             newElement
           ];
         }
-        else if (props.mode === 'out-in') {
+        else if (mode === 'out-in') {
           children_ = (
-            React.cloneElement(props.children, {
+            React.cloneElement(children__, {
               in: true,
 
               onEntered: () => {
-                if (props.children.props?.onEntered) props.children.props?.onEntered();
+                if (children__.props?.onEntered) children__.props?.onEntered();
 
                 setStatus(STATUS.entered);
-                setElement(React.cloneElement(props.children, { in: true, ...other }));
+                setElement(React.cloneElement(children__, { in: true, ...other }));
               },
 
               enterOnAdd: true,
@@ -146,15 +159,15 @@ function Transitions(props: IProps) {
         break;
 
       case STATUS.exit:
-        if (props.mode === 'in-out') {
+        if (mode === 'in-out') {
           children_ = [
             element,
 
-            React.cloneElement(props.children, {
+            React.cloneElement(children__, {
               in: true,
 
               onEntered: () => {
-                if (props.children.props?.onEnter) props.children.props?.onEnter();
+                if (children__.props?.onEnter) children__.props?.onEnter();
 
                 setStatus(STATUS.enter);
               },
@@ -165,13 +178,13 @@ function Transitions(props: IProps) {
             })
           ];
         }
-        else if (props.mode === 'out-in') {
+        else if (mode === 'out-in') {
           children_ = (
             React.cloneElement(children_, {
               in: false,
 
               onExited: () => {
-                if (props.children.props?.onExited) props.children.props?.onExited();
+                if (children__.props?.onExited) children__.props?.onExited();
 
                 setStatus(STATUS.enter);
               },
@@ -182,17 +195,17 @@ function Transitions(props: IProps) {
             })
           );
         }
-        else if (props.mode === 'in-out-follow') {
-          if (props.children.key === children_.key) return children_;
+        else if (mode === 'in-out-follow') {
+          if (children__.key === children_.key) return children_;
 
           children_ = [
-            React.cloneElement(props.children, {
+            React.cloneElement(children__, {
               in: true,
 
               onEntered: () => {
-                if (props.children.props?.onEntered) props.children.props?.onEntered();
+                if (children__.props?.onEntered) children__.props?.onEntered();
 
-                setElement(React.cloneElement(props.children, { in: true, ...other }));
+                setElement(React.cloneElement(children__, { in: true, ...other }));
                 setStatus(STATUS.entered);
               },
 
@@ -224,9 +237,5 @@ function Transitions(props: IProps) {
     </TransitionsContext.Provider>
   );
 };
-
-Transitions.defaultProps = {
-  mode: 'out-in'
-} as IProps;
 
 export default Transitions;

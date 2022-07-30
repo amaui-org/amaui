@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is } from '@amaui/utils';
-import { style, classNames } from '@amaui/style-react';
+import { style, classNames, useAmauiTheme } from '@amaui/style-react';
 
 import Portal from '../Portal';
 import Focus from '../Focus';
@@ -91,7 +91,11 @@ const modal = {
   }
 };
 
-const Modal = React.forwardRef((props: any, ref: any) => {
+const Modal = React.forwardRef((props_: any, ref: any) => {
+  const theme = useAmauiTheme();
+
+  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiModal.props?.default }), [props_]);
+
   const [open, setOpen] = React.useState(props.open);
   const [inProp, setInProp] = React.useState(props.open);
   const { classes } = useStyle(props);

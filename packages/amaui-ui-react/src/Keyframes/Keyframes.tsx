@@ -53,7 +53,11 @@ interface IProps {
   [p: string]: any;
 }
 
-function Keyframes(props: IProps) {
+function Keyframes(props_: IProps) {
+  const theme = useAmauiTheme();
+
+  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiKeyframes.props?.default }), [props_]);
+
   const [init, setInit] = React.useState(false);
   const [status, setStatus] = React.useState<TKeyframesStatus>(() => {
     let statusNew: TKeyframesStatus = '' as any;
@@ -69,8 +73,6 @@ function Keyframes(props: IProps) {
     root: React.useRef<HTMLElement>(),
     status: React.useRef(status)
   };
-
-  const theme = useAmauiTheme();
 
   React.useEffect(() => {
     initMethod();
@@ -232,6 +234,7 @@ function Keyframes(props: IProps) {
 
   return (
     <KeyframesContext.Provider value={value}>
+
       {
         is('function', props.children) ?
           props.children(status, refs.root) :
@@ -244,6 +247,7 @@ function Keyframes(props: IProps) {
             }
           })
       }
+
     </KeyframesContext.Provider>
   );
 };

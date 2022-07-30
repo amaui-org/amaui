@@ -157,10 +157,12 @@ const useStyle = style(theme => ({
   }
 }), { name: 'AmauiBadge' });
 
-const Badge = React.forwardRef((props: any, ref) => {
-  const { classes } = useStyle(props);
-
+const Badge = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
+
+  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiBadge?.props?.default }), [props_]);
+
+  const { classes } = useStyle(props);
 
   const {
     className,

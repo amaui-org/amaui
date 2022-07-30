@@ -31,12 +31,14 @@ const useStyle = style(theme => ({
   }
 }), { name: 'AmauiIcon' });
 
-const Icon = React.forwardRef((props: any, ref) => {
+const Icon = React.forwardRef((props_: any, ref: any) => {
+  const theme = useAmauiTheme();
+
+  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiIcon?.props?.default }), [props_]);
+
   const [rtl, setRtl] = React.useState(props.rtl);
 
   const { classes } = useStyle(props);
-
-  const theme = useAmauiTheme();
 
   const {
     className,

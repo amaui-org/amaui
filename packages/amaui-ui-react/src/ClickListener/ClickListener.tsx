@@ -1,10 +1,15 @@
 import React from 'react';
 
 import { is } from '@amaui/utils';
+import { useAmauiTheme } from '@amaui/style-react';
 
 const resolve = value => value.replace(/^on/, '').toLowerCase();
 
-const ClickListener = React.forwardRef((props: any, ref: any) => {
+const ClickListener = React.forwardRef((props_: any, ref: any) => {
+  const theme = useAmauiTheme();
+
+  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiClickListener?.props?.default }), [props_]);
+
   const refs = {
     root: React.useRef<HTMLElement>()
   };
@@ -44,6 +49,7 @@ const ClickListener = React.forwardRef((props: any, ref: any) => {
 
   return (
     <React.Fragment>
+
       {children && React.cloneElement(children, {
         ref: item => {
           if (ref) ref.current = item;
@@ -51,6 +57,7 @@ const ClickListener = React.forwardRef((props: any, ref: any) => {
           refs.root.current = item;
         }
       })}
+
     </React.Fragment>
   );
 });

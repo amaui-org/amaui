@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { classNames, style } from '@amaui/style-react';
+import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Avatar from '../Avatar';
 
@@ -19,7 +19,11 @@ const useStyle = style(theme => ({
   }
 }), { name: 'AmauiAvatarGroup' });
 
-const AvatarGroup = React.forwardRef((props: any, ref: any) => {
+const AvatarGroup = React.forwardRef((props_: any, ref: any) => {
+  const theme = useAmauiTheme();
+
+  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiAvatarGroup?.props?.default }), [props_]);
+
   const { classes } = useStyle(props);
 
   const {

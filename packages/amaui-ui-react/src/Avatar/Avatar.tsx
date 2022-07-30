@@ -20,12 +20,14 @@ const useStyle = style(theme => ({
     height: '100%',
     objectFit: 'cover'
   }
-}), { name: 'AmauiAvater' });
+}), { name: 'AmauiAvatar' });
 
-const Avatar = React.forwardRef((props: any, ref) => {
-  const { classes } = useStyle(props);
-
+const Avatar = React.forwardRef((props_: any, ref) => {
   const theme = useAmauiTheme();
+
+  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiAvatar?.props?.default }), [props_]);
+
+  const { classes } = useStyle(props);
 
   const {
     image,

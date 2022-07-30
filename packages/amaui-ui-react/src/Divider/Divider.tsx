@@ -102,10 +102,12 @@ const useStyle = style(theme => ({
   }
 }), { name: 'AmauiDivider' });
 
-const Divider = React.forwardRef((props: any, ref: any) => {
-  const { classes } = useStyle(props);
-
+const Divider = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
+
+  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiDivider?.props?.default }), [props_]);
+
+  const { classes } = useStyle(props);
 
   const {
     className,

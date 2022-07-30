@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { classNames, style } from '@amaui/style-react';
+import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Type from '../Type';
 
@@ -12,7 +12,11 @@ const useStyle = style(theme => ({
   }
 }), { name: 'AmauiModalText' });
 
-const ModalText = React.forwardRef((props: any, ref: any) => {
+const ModalText = React.forwardRef((props_: any, ref: any) => {
+  const theme = useAmauiTheme();
+
+  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiModalText.props?.default }), [props_]);
+
   const { classes } = useStyle(props);
 
   const {

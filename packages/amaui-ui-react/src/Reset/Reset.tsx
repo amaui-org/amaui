@@ -9,5 +9,9 @@ export default function Reset(props) {
 
   useReset();
 
-  return <React.Fragment>{children}</React.Fragment>
+  return (
+    <React.Fragment>
+      {children}
+    </React.Fragment>
+  );
 }

@@ -143,7 +143,11 @@ const IconItem = (props: any) => {
   );
 };
 
-const Checkbox = React.forwardRef((props: any, ref: any) => {
+const Checkbox = React.forwardRef((props_: any, ref: any) => {
+  const theme = useAmauiTheme();
+
+  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiCheckbox?.props?.default }), [props_]);
+
   const {
     color = 'primary',
     colorIndeterminate = props.color,
@@ -162,8 +166,6 @@ const Checkbox = React.forwardRef((props: any, ref: any) => {
   const [indeterminate, setIndeterminate] = React.useState(!checked && indeterminate_);
 
   const { classes } = useStyle(props);
-
-  const theme = useAmauiTheme();
 
   const styles: any = {
     iconItem: {},
@@ -232,6 +234,8 @@ const Checkbox = React.forwardRef((props: any, ref: any) => {
 
   return (
     <IconButton
+      ref={ref}
+
       color={colorValue}
 
       onClick={onUpdate}

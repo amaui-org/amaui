@@ -1,6 +1,12 @@
 import React from 'react';
 
-const ModalIcon = React.forwardRef((props: any, ref: any) => {
+import { useAmauiTheme } from '@amaui/style-react';
+
+const ModalIcon = React.forwardRef((props_: any, ref: any) => {
+  const theme = useAmauiTheme();
+
+  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiModalIcon.props?.default }), [props_]);
+
   const {
     className,
 

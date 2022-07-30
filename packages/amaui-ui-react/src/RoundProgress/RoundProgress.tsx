@@ -135,10 +135,12 @@ const useStyle = style(theme => ({
   }
 }), { name: 'AmauiRoundProgress' });
 
-const RoundProgress = React.forwardRef((props: any, ref: any) => {
-  const { classes } = useStyle(props);
-
+const RoundProgress = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
+
+  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiRoundProgress.props?.default }), [props_]);
+
+  const { classes } = useStyle(props);
 
   const {
     size = 'regular',

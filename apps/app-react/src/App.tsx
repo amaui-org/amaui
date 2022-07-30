@@ -4256,7 +4256,7 @@ function App() {
           </div>
         </Accordion>
 
-        <Accordion label='AmauiTheme with style override ' open>
+        <Accordion label='AmauiTheme with style override' open>
           <div className={classNames([classes.column])}>
             <Button color='primary'>Primary</Button>
 
@@ -4331,6 +4331,39 @@ function App() {
               <Button color='primary'>Primary nested</Button>
 
               <Button color='secondary'>Secondary nested</Button>
+            </AmauiThemeProvider>
+          </div>
+        </Accordion>
+
+        <Accordion label='AmauiTheme with default props' open>
+          <div className={classNames([classes.column])}>
+            <Avatar color='primary'>a</Avatar>
+
+            <AmauiThemeProvider
+              value={{
+                palette: {
+                  color: {
+                    primary: {
+                      main: '#008000'
+                    }
+                  }
+                },
+                ui: {
+                  elements: {
+                    AmauiAvatar: {
+                      props: {
+                        default: {
+                          square: true
+                        }
+                      }
+                    }
+                  }
+                }
+              }}
+            >
+              <Avatar color='primary'>a</Avatar>
+
+              <Avatar color='secondary'>a</Avatar>
             </AmauiThemeProvider>
           </div>
         </Accordion>

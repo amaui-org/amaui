@@ -5,15 +5,19 @@ import { useAmauiTheme } from '@amaui/style-react';
 
 import { Transition, TTransitionStatus } from '..';
 
-const Slide = React.forwardRef((props: any, ref: React.MutableRefObject<any>) => {
+const Slide = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
+
+  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiSlide.props?.default }), [props_]);
+
   const refs = {
     root: React.useRef<HTMLElement>()
   };
 
   const {
     in: inProp,
-    className,
+    root,
+    direction = 'down',
     prefix,
     run,
     append,
@@ -37,6 +41,10 @@ const Slide = React.forwardRef((props: any, ref: React.MutableRefObject<any>) =>
     onExiting,
     onExited,
     onRemoved,
+    timing_function,
+
+    className,
+
     children,
 
     ...other
@@ -45,21 +53,21 @@ const Slide = React.forwardRef((props: any, ref: React.MutableRefObject<any>) =>
   const translate = () => {
     const rect = refs.root?.current?.getBoundingClientRect();
 
-    const h = props.root ? props.root.offsetHeight : window.innerHeight;
-    const w = props.root ? props.root.offsetWidth : window.innerWidth;
+    const h = root ? root.offsetHeight : window.innerHeight;
+    const w = root ? root.offsetWidth : window.innerWidth;
 
-    const top = props.root ? refs.root.current?.offsetTop : rect?.top;
-    const left = props.root ? refs.root.current?.offsetLeft : rect?.left;
-    const right = props.root ? refs.root.current?.offsetLeft + refs.root.current?.offsetWidth : rect?.right;
-    const bottom = props.root ? refs.root.current?.offsetTop + refs.root.current?.offsetHeight : rect?.bottom;
+    const top = root ? refs.root.current?.offsetTop : rect?.top;
+    const left = root ? refs.root.current?.offsetLeft : rect?.left;
+    const right = root ? refs.root.current?.offsetLeft + refs.root.current?.offsetWidth : rect?.right;
+    const bottom = root ? refs.root.current?.offsetTop + refs.root.current?.offsetHeight : rect?.bottom;
 
-    if (props.direction === 'up') return `translate(0, -${bottom !== undefined ? bottom + 'px' : '100vh'})`;
+    if (direction === 'up') return `translate(0, -${bottom !== undefined ? bottom + 'px' : '100vh'})`;
 
-    if (props.direction === 'left') return `translate(-${right !== undefined ? right + 'px' : '100vw'}, 0)`;
+    if (direction === 'left') return `translate(-${right !== undefined ? right + 'px' : '100vw'}, 0)`;
 
-    if (props.direction === 'right') return `translate(${left !== undefined ? w - left + 'px' : '100vw'}, 0)`;
+    if (direction === 'right') return `translate(${left !== undefined ? w - left + 'px' : '100vw'}, 0)`;
 
-    if (props.direction === 'down') return `translate(0, ${top !== undefined ? Math.abs(h - top) + 'px' : '100vh'})`;
+    if (direction === 'down') return `translate(0, ${top !== undefined ? Math.abs(h - top) + 'px' : '100vh'})`;
   };
 
   const styles = (status: TTransitionStatus) => {
@@ -120,10 +128,10 @@ const Slide = React.forwardRef((props: any, ref: React.MutableRefObject<any>) =>
       transform: theme.transitions.duration.xs
     };
 
-    return `${((is('simple', props.timeout) ? props.timeout : props.timeout[status]) || properties[property] - (status === 'exiting' ? 30 : 0))}ms`;
+    return `${((is('simple', timeout) ? timeout : timeout[status]) || properties[property] - (status === 'exiting' ? 30 : 0))}ms`;
   };
 
-  const timingFunction = status => (is('simple', props.timing_function) ? props.timing_function : props.timing_function[status]) || theme.transitions.timing_function.standard;
+  const timingFunction = status => (is('simple', timing_function) ? timing_function : timing_function[status]) || theme.transitions.timing_function.standard;
 
   return (
     <Transition
@@ -132,7 +140,7 @@ const Slide = React.forwardRef((props: any, ref: React.MutableRefObject<any>) =>
 
       {...props}
     >
-      {(status: TTransitionStatus, ref_) => React.cloneElement(props.children, {
+      {(status: TTransitionStatus, ref_) => React.cloneElement(children, {
         ...other,
 
         ref: item => {
@@ -148,15 +156,11 @@ const Slide = React.forwardRef((props: any, ref: React.MutableRefObject<any>) =>
 
           ...(styles(status) || {}),
 
-          ...(props.children?.props?.style || {}),
+          ...(children?.props?.style || {}),
         }
       })}
     </Transition>
   );
 });
-
-Slide.defaultProps = {
-  direction: 'down'
-};
 
 export default Slide;

@@ -23,8 +23,11 @@ const Wrapper = React.forwardRef((props: any, ref: any) => {
   );
 });
 
-const Expand = React.forwardRef((props: any, ref: React.MutableRefObject<any>) => {
+const Expand = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
+
+  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiExpand?.props?.default }), [props_]);
+
   const refs = {
     root: React.useRef<HTMLElement>()
   };
