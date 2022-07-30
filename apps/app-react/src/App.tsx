@@ -4223,6 +4223,34 @@ function App() {
           </div>
         </Accordion>
 
+        <Accordion label='AmauiTheme nested with value as a method' open>
+          <div className={classNames([classes.column])}>
+            <Button color='primary'>Primary</Button>
+
+            <AmauiThemeProvider
+              value={(theme: any) => ({
+                ...theme,
+
+                palette: {
+                  ...theme.palette,
+
+                  color: {
+                    ...theme.palette.color,
+
+                    primary: {
+                      main: '#008000'
+                    }
+                  }
+                }
+              })}
+            >
+              <Button color='primary'>Primary nested</Button>
+
+              <Button color='secondary'>Primary nested</Button>
+            </AmauiThemeProvider>
+          </div>
+        </Accordion>
+
         <Accordion label='AmauiTheme with style add' open>
           <div className={classNames([classes.column])}>
             <Button color='primary'>Primary</Button>

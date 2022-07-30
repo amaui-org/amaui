@@ -1,8 +1,8 @@
 import React from 'react';
 
-import hash from '@amaui/utils/hash';
-import copy from '@amaui/utils/copy';
+import is from '@amaui/utils/is';
 import merge from '@amaui/utils/merge';
+import hash from '@amaui/utils/hash';
 import { AmauiTheme } from '@amaui/style';
 import { IAmauiTheme } from '@amaui/style/amaui-theme';
 
@@ -38,7 +38,7 @@ const AmauiThemeProvider = React.forwardRef((props: IProps, ref: any) => {
 
   const valueParent = useAmauiTheme() as any || {};
 
-  const [value, setValue] = React.useState<IAmauiThemeProvider>(() => new AmauiTheme(merge(copy(resolveValue({ ...valueLocal })), copy(resolveValue({ ...valueParent })), { copy: true })) as any);
+  const [value, setValue] = React.useState<IAmauiThemeProvider>(() => new AmauiTheme(merge(resolveValue(is('function', valueLocal) ? (valueLocal as any)(valueParent) : valueLocal), resolveValue(valueParent), { copy: true })) as any);
 
   React.useEffect(() => {
     if (refs.root.current) {
@@ -53,7 +53,7 @@ const AmauiThemeProvider = React.forwardRef((props: IProps, ref: any) => {
   }, []);
 
   React.useEffect(() => {
-    value.update(merge(copy(resolveValue({ ...valueLocal })), copy(resolveValue({ ...valueParent })), { copy: true }));
+    value.update(merge(resolveValue(is('function', valueLocal) ? (valueLocal as any)(valueParent) : valueLocal), resolveValue(valueParent), { copy: true }));
 
     const amauiTheme = new AmauiTheme(value, refs.root?.current) as any;
 
