@@ -157,7 +157,7 @@ const Interaction = (props: any) => {
 
   const theme = useAmauiTheme();
 
-  const { classes } = useStyle();
+  const { classes } = useStyle(props);
 
   React.useEffect(() => {
     const parent = refs.root.current.parentNode;

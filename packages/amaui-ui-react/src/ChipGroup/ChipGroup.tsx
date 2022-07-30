@@ -55,7 +55,7 @@ const useStyle = style(theme => ({
 }), { name: 'AmauiChipGroup' });
 
 const ChipGroup = React.forwardRef((props: any, ref: any) => {
-  const { classes } = useStyle();
+  const { classes } = useStyle(props);
 
   const {
     wrap,

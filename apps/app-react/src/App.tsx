@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { classNames, style, useAmauiTheme } from '@amaui/style-react';
+import { AmauiThemeProvider, classNames, style, useAmauiTheme } from '@amaui/style-react';
 import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, SegmentedButtons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, ChipGroup, Backdrop, Checkbox, Radio, Keyframes, Switch } from '@amaui/ui-react';
 
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
@@ -4200,7 +4200,143 @@ function App() {
           <span style={{ position: 'relative' }}>a</span>
         </div>
       </Accordion>
-    </div >
+
+      <Accordion label='AmauiTheme usage values'>
+
+        <Accordion label='AmauiTheme nested' open>
+          <div className={classNames([classes.column])}>
+            <Button color='primary'>Primary</Button>
+
+            <AmauiThemeProvider
+              value={{
+                palette: {
+                  color: {
+                    primary: {
+                      main: '#008000'
+                    }
+                  }
+                }
+              }}
+            >
+              <Button color='primary'>Primary nested</Button>
+            </AmauiThemeProvider>
+          </div>
+        </Accordion>
+
+        <Accordion label='AmauiTheme with style add' open>
+          <div className={classNames([classes.column])}>
+            <Button color='primary'>Primary</Button>
+
+            <AmauiThemeProvider
+              value={{
+                palette: {
+                  color: {
+                    primary: {
+                      main: '#008000'
+                    }
+                  }
+                },
+                ui: {
+                  elements: {
+                    AmauiButton: {
+                      style: {
+                        add: {
+                          root: {
+                            borderRadius: '4px'
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }}
+            >
+              <Button color='primary'>Primary nested</Button>
+            </AmauiThemeProvider>
+          </div>
+        </Accordion>
+
+        <Accordion label='AmauiTheme with style override ' open>
+          <div className={classNames([classes.column])}>
+            <Button color='primary'>Primary</Button>
+
+            <AmauiThemeProvider
+              value={{
+                palette: {
+                  color: {
+                    primary: {
+                      main: '#008000'
+                    }
+                  }
+                },
+                ui: {
+                  elements: {
+                    AmauiButton: {
+                      style: {
+                        override: {
+                          border: {
+                            borderRadius: 4,
+                            boxShadow: 'inset 0px 0px 0px 3px #ffa5003b',
+                            position: 'absolute',
+                            inset: 0,
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }}
+            >
+              <Button color='primary'>Primary nested</Button>
+            </AmauiThemeProvider>
+          </div>
+        </Accordion>
+
+        <Accordion label='AmauiTheme with style override with theme and prop dynamic value' open>
+          <div className={classNames([classes.column])}>
+            <Button color='primary'>Primary</Button>
+
+            <AmauiThemeProvider
+              value={{
+                palette: {
+                  color: {
+                    primary: {
+                      main: '#008000'
+                    }
+                  }
+                },
+                ui: {
+                  elements: {
+                    AmauiButton: {
+                      style: {
+                        add: {
+                          root: {
+                            color: (props: any) => props?.color === 'primary' ? 'yellow' : 'green'
+                          }
+                        },
+                        override: (theme: any) => ({
+                          border: {
+                            borderRadius: (props: any) => props.color === 'primary' ? 4 : 16,
+                            boxShadow: `inset 0px 0px 0px 3px ${theme?.palette.color?.primary?.main}`,
+                            position: 'absolute',
+                            inset: 0
+                          }
+                        })
+                      }
+                    }
+                  }
+                }
+              }}
+            >
+              <Button color='primary'>Primary nested</Button>
+
+              <Button color='secondary'>Secondary nested</Button>
+            </AmauiThemeProvider>
+          </div>
+        </Accordion>
+
+      </Accordion>
+    </div>
   );
 }
 

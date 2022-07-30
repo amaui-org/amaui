@@ -13,7 +13,7 @@ const useStyle = style(theme => ({
 }), { name: 'AmauiModalHeader' });
 
 const ModalHeader = React.forwardRef((props: any, ref: any) => {
-  const { classes } = useStyle();
+  const { classes } = useStyle(props);
 
   const {
     className,

@@ -158,7 +158,7 @@ const useStyle = style(theme => ({
 }), { name: 'AmauiBadge' });
 
 const Badge = React.forwardRef((props: any, ref) => {
-  const { classes } = useStyle();
+  const { classes } = useStyle(props);
 
   const theme = useAmauiTheme();
 

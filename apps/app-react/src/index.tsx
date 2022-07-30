@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 import { AmauiStyle, AmauiStyleProvider, AmauiThemeProvider, valueObject, prefix, rtl, unit } from '@amaui/style-react';
@@ -15,13 +14,11 @@ const amauiStyle = new AmauiStyle();
 amauiStyle.plugins.add = [unit, prefix, rtl, valueObject];
 
 root.render(
-  <React.StrictMode>
-    <AmauiStyleProvider value={amauiStyle}>
-      <AmauiThemeProvider>
-        <App />
-      </AmauiThemeProvider>
-    </AmauiStyleProvider>
-  </React.StrictMode>
+  <AmauiStyleProvider value={amauiStyle}>
+    <AmauiThemeProvider>
+      <App />
+    </AmauiThemeProvider>
+  </AmauiStyleProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

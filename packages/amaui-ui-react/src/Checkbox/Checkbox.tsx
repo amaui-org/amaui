@@ -161,7 +161,7 @@ const Checkbox = React.forwardRef((props: any, ref: any) => {
   const [checked, setChecked] = React.useState(valueDefault !== undefined ? valueDefault : value);
   const [indeterminate, setIndeterminate] = React.useState(!checked && indeterminate_);
 
-  const { classes } = useStyle();
+  const { classes } = useStyle(props);
 
   const theme = useAmauiTheme();
 

@@ -136,7 +136,7 @@ const useStyle = style(theme => ({
 }), { name: 'AmauiRoundProgress' });
 
 const RoundProgress = React.forwardRef((props: any, ref: any) => {
-  const { classes } = useStyle();
+  const { classes } = useStyle(props);
 
   const theme = useAmauiTheme();
 

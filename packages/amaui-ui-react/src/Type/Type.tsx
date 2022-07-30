@@ -61,7 +61,7 @@ const useStyle = style(theme => ({
 }), { name: 'AmauiType' });
 
 const Type = React.forwardRef((props: any, ref) => {
-  const { classes } = useStyle();
+  const { classes } = useStyle(props);
 
   const {
     version = 'b2',

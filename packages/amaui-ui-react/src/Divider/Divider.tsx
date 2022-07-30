@@ -103,7 +103,7 @@ const useStyle = style(theme => ({
 }), { name: 'AmauiDivider' });
 
 const Divider = React.forwardRef((props: any, ref: any) => {
-  const { classes } = useStyle();
+  const { classes } = useStyle(props);
 
   const theme = useAmauiTheme();
 

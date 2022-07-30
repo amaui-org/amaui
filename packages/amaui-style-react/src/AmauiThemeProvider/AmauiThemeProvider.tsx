@@ -4,6 +4,7 @@ import hash from '@amaui/utils/hash';
 import copy from '@amaui/utils/copy';
 import merge from '@amaui/utils/merge';
 import { AmauiTheme } from '@amaui/style';
+import { IAmauiTheme } from '@amaui/style/amaui-theme';
 
 import AmauiThemeContext from './AmauiThemeContext';
 import useAmauiTheme from './useAmauiTheme';
@@ -12,8 +13,8 @@ export interface IAmauiThemeProvider extends AmauiTheme {
   updateWithRerender: (value: any) => AmauiTheme;
 }
 
-const resolveValue = (value: AmauiTheme) => {
-  const toFilterOut = ['id', 'element'];
+const resolveValue = (value: IAmauiTheme) => {
+  const toFilterOut = ['id', 'element', 'subscriptions'];
 
   const valueNew = {};
 
@@ -22,7 +23,13 @@ const resolveValue = (value: AmauiTheme) => {
   return valueNew;
 };
 
-const AmauiThemeProvider = React.forwardRef((props: any, ref: any) => {
+interface IProps {
+  value?: IAmauiTheme;
+
+  children?: any;
+}
+
+const AmauiThemeProvider = React.forwardRef((props: IProps, ref: any) => {
   const { children, value: valueLocal = {}, ...other } = props;
 
   const refs = {

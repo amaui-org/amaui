@@ -94,7 +94,7 @@ const modal = {
 const Modal = React.forwardRef((props: any, ref: any) => {
   const [open, setOpen] = React.useState(props.open);
   const [inProp, setInProp] = React.useState(props.open);
-  const { classes } = useStyle();
+  const { classes } = useStyle(props);
   const refs = {
     focus: React.useRef<HTMLDivElement>()
   };

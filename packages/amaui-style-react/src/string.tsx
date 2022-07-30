@@ -6,30 +6,17 @@ import { useAmauiStyle, useAmauiTheme } from '.';
 
 // May be TValue or a string  as a string value literal
 export default function string(value_: TemplateStringsArray, ...args: any[]): string {
-  const [response, setResponse] = React.useState() as [IMethodResponse, any];
-  const [values, setValues] = React.useState({
-    classes: {},
-    classNames: {},
-    keyframes: {},
-    styles: () => { },
-  } as IResponse);
-
-  const amauiStyle = useAmauiStyle();
-  const amauiTheme = useAmauiTheme();
-
   const method = () => value_.reduce((result, item, index) => result += `${item}${args[index] || ''}`, '');
 
   const value = {
     a: method(),
   };
 
-  let values_ = values;
+  const amauiStyle = useAmauiStyle();
+  const amauiTheme = useAmauiTheme();
 
-  // Init only once
-  // it has to be in body of method
-  // as for ssr it actually calls the method
-  // and it doesn't use hooks on ssr
-  if (response === undefined) {
+  const makeResponse = () => {
+    // If there's not add a new response and use it
     const options = {
       amaui_style: { value: undefined },
       amaui_theme: { value: undefined },
@@ -43,24 +30,22 @@ export default function string(value_: TemplateStringsArray, ...args: any[]): st
 
     const response_ = style(value, options);
 
-    setResponse(response_);
+    // Update
+    if (amauiTheme) amauiTheme.subscriptions.update.subscribe(method);
 
-    // Update values for ssr as a priorty
-    values_ = names(response_.amaui_style_sheet_manager.names);
+    return response_;
+  };
 
-    setValues(values_);
-  }
+  const response = React.useState<IMethodResponse>(makeResponse())[0];
+
+  const values = React.useState<IResponse>(() => response.add())[0];
 
   React.useEffect(() => {
-    // Add
-    const addValues = response.add();
-
-    setValues(addValues);
 
     // Clean up
     return () => {
       // Remove
-      response.remove(addValues.ids?.dynamic);
+      response?.remove(values?.ids?.dynamic);
     };
   }, []);
 
@@ -71,5 +56,5 @@ export default function string(value_: TemplateStringsArray, ...args: any[]): st
     if (response?.update !== undefined) response.update(value);
   }, [value.a]);
 
-  return (values_.class || '') as string;
+  return (values.class || '') as string;
 }

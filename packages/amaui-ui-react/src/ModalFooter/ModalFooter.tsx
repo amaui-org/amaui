@@ -12,7 +12,7 @@ const useStyle = style(theme => ({
 }), { name: 'AmauiModalFooter' });
 
 const ModalFooter = React.forwardRef((props: any, ref: any) => {
-  const { classes } = useStyle();
+  const { classes } = useStyle(props);
 
   const {
     className,

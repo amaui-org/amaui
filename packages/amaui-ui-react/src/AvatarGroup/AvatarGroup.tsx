@@ -20,7 +20,7 @@ const useStyle = style(theme => ({
 }), { name: 'AmauiAvatarGroup' });
 
 const AvatarGroup = React.forwardRef((props: any, ref: any) => {
-  const { classes } = useStyle();
+  const { classes } = useStyle(props);
 
   const {
     max,

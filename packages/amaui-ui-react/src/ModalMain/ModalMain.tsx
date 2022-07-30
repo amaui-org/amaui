@@ -13,7 +13,7 @@ const useStyle = style(theme => ({
 }), { name: 'AmauiModalMain' });
 
 const ModalMain = React.forwardRef((props: any, ref: any) => {
-  const { classes } = useStyle();
+  const { classes } = useStyle(props);
 
   const {
     className,

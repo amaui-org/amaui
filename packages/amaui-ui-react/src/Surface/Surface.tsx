@@ -184,7 +184,7 @@ const useStyle = style(theme => ({
 }), { name: 'AmauiSurface' });
 
 const Surface = React.forwardRef((props: any, ref: any) => {
-  const { classes } = useStyle();
+  const { classes } = useStyle(props);
 
   const theme = useAmauiTheme();
 

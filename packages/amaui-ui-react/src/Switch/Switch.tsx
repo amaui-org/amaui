@@ -193,7 +193,7 @@ const Switch = React.forwardRef((props: any, ref: any) => {
   const [checked, setChecked] = React.useState(valueDefault !== undefined ? valueDefault : value);
   const animation = React.useRef(false);
 
-  const { classes } = useStyle();
+  const { classes } = useStyle(props);
 
   const theme = useAmauiTheme();
 

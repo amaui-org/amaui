@@ -83,7 +83,7 @@ export const IconMaterialDoneSharp = React.forwardRef((props: any, ref) => {
 });
 
 export const IconDoneAnimated = (props: any) => {
-  const { classes } = useStyle();
+  const { classes } = useStyle(props);
 
   const theme = useAmauiTheme();
 
@@ -160,7 +160,7 @@ const SegmentedButtons = React.forwardRef((props: any, ref: any) => {
   const [preSelected, setPreSelected] = React.useState([]);
   const [selected, setSelected] = React.useState([]);
 
-  const { classes } = useStyle();
+  const { classes } = useStyle(props);
 
   const {
     className,

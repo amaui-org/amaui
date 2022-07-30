@@ -198,7 +198,7 @@ const useStyle = style(theme => ({
 }), { name: 'AmauiLinearProgress' });
 
 const LinearProgress = React.forwardRef((props: any, ref) => {
-  const { classes } = useStyle();
+  const { classes } = useStyle(props);
 
   const theme = useAmauiTheme();
 

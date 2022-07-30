@@ -94,7 +94,7 @@ const Radio = React.forwardRef((props: any, ref: any) => {
   } = props;
   const [checked, setChecked] = React.useState(valueDefault !== undefined ? valueDefault : value);
 
-  const { classes } = useStyle();
+  const { classes } = useStyle(props);
 
   const theme = useAmauiTheme();
 

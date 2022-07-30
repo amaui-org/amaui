@@ -34,7 +34,7 @@ const useStyle = style(theme => ({
 const Icon = React.forwardRef((props: any, ref) => {
   const [rtl, setRtl] = React.useState(props.rtl);
 
-  const { classes } = useStyle();
+  const { classes } = useStyle(props);
 
   const theme = useAmauiTheme();
 
@@ -82,7 +82,7 @@ const Icon = React.forwardRef((props: any, ref) => {
   else if (size_ === 'large') fontSize = '36px';
   else if (size_ === 'very large') fontSize = '42px';
   else if (size_ !== undefined) fontSize = size_;
-  console.log(1, size_, fontSize);
+
   const isRtlIcon = rtl_icons.includes(short_name);
 
   let color = color_;
