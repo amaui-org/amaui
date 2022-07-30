@@ -83,7 +83,7 @@ export interface IProps {
 function Transition(props_: IProps) {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiTransition.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiTransition?.props?.default }), [props_]);
 
   const {
     in: in_,

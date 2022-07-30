@@ -15,7 +15,7 @@ const useStyle = style(theme => ({
 const ModalMain = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiModalMain.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiModalMain?.props?.default }), [props_]);
 
   const { classes } = useStyle(props);
 

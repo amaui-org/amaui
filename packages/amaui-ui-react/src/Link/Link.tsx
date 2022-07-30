@@ -65,7 +65,7 @@ const useStyle = style(theme => ({
 const Link = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiLink.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiLink?.props?.default }), [props_]);
 
   const [hovered, setHovered] = React.useState(false);
 

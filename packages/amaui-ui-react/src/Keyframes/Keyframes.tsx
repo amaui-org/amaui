@@ -56,7 +56,7 @@ interface IProps {
 function Keyframes(props_: IProps) {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiKeyframes.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiKeyframes?.props?.default }), [props_]);
 
   const [init, setInit] = React.useState(false);
   const [status, setStatus] = React.useState<TKeyframesStatus>(() => {

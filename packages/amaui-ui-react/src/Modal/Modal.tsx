@@ -94,7 +94,7 @@ const modal = {
 const Modal = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiModal.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiModal?.props?.default }), [props_]);
 
   const [open, setOpen] = React.useState(props.open);
   const [inProp, setInProp] = React.useState(props.open);

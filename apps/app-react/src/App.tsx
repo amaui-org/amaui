@@ -50,7 +50,7 @@ const useStyle = style(theme => ({
   body: {
     '@p': true,
 
-    color: theme?.palette.text?.default?.secondary,
+    color: theme?.palette.text?.default?.primary,
     background: theme?.palette.background?.default?.secondary
   },
 

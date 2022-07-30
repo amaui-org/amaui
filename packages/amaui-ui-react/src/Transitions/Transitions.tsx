@@ -21,7 +21,7 @@ const TransitionsContext = React.createContext(undefined);
 function Transitions(props_: IProps) {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiTransitions.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiTransitions?.props?.default }), [props_]);
 
   const {
     mode = 'out-in',

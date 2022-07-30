@@ -148,7 +148,7 @@ const useStyle = style(theme => ({
 const Interaction = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiInteraction.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiInteraction?.props?.default }), [props_]);
 
   const [interactions, setInteractions] = React.useState([]);
   const [border, setBorder] = React.useState(false);
@@ -162,9 +162,9 @@ const Interaction = React.forwardRef((props_: any, ref: any) => {
   const { classes } = useStyle(props);
 
   const {
-    wave,
-    background,
-    border: border_,
+    wave = true,
+    background = true,
+    border: border_ = true,
     pulse,
     disabled: disabled_,
     origin,
@@ -405,8 +405,6 @@ const Interaction = React.forwardRef((props_: any, ref: any) => {
         className,
         classes.root
       ])}
-
-      {...other}
     >
       {/* Background */}
       {background && (

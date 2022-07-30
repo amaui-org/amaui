@@ -173,7 +173,7 @@ const Icon = (props: any) => {
 const Switch = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiSwitch.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiSwitch?.props?.default }), [props_]);
 
   const {
     tonal,

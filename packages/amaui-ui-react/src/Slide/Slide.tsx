@@ -8,7 +8,7 @@ import { Transition, TTransitionStatus } from '..';
 const Slide = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiSlide.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiSlide?.props?.default }), [props_]);
 
   const refs = {
     root: React.useRef<HTMLElement>()
