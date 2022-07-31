@@ -4,6 +4,8 @@ import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Avatar from '../Avatar';
 
+import { staticClassName } from '../utils';
+
 const useStyle = style(theme => ({
   root: {
     display: 'flex',
@@ -29,9 +31,11 @@ const AvatarGroup = React.forwardRef((props_: any, ref: any) => {
   const {
     max,
     total,
-    className,
+    size,
     AdditionalAvatar,
     AdditionalAvatarProps = { color: 'default', tonal: true },
+
+    className,
     style,
 
     children: children_,
@@ -46,11 +50,11 @@ const AvatarGroup = React.forwardRef((props_: any, ref: any) => {
 
   let children = React.Children.toArray(children_).slice(0, max || children_.length).reverse();
 
-  if (props.size !== undefined) {
-    if (props.size === 'small') styles.item.outlineWidth = 2;
-    else if (props.size === 'regular') styles.item.outlineWidth = 3;
-    else if (props.size === 'large') styles.item.outlineWidth = 4;
-    else styles.item.outlineWidth = Math.ceil(props.size / 20);
+  if (size !== undefined) {
+    if (size === 'small') styles.item.outlineWidth = 2;
+    else if (size === 'regular') styles.item.outlineWidth = 3;
+    else if (size === 'large') styles.item.outlineWidth = 4;
+    else styles.item.outlineWidth = Math.ceil(size / 20);
   }
 
   other.style = styles.item;
@@ -65,10 +69,10 @@ const AvatarGroup = React.forwardRef((props_: any, ref: any) => {
       ...(AdditionalAvatarProps.TypeProps || {})
     };
 
-    if (props.size === 'small') AdditionalAvatarProps.TypeProps.size = `${(30 * 0.3) / 16}rem`;
-    else if (props.size === undefined || props.size === 'regular') AdditionalAvatarProps.TypeProps.size = `${(40 * 0.3) / 16}rem`;
-    else if (props.size === 'large') AdditionalAvatarProps.TypeProps.size = `${(60 * 0.3) / 16}rem`;
-    else if (!['small', 'regular', 'large'].includes(props.size)) AdditionalAvatarProps.TypeProps.size = `${(props.size * 0.3) / 16}rem`;
+    if (size === 'small') AdditionalAvatarProps.TypeProps.size = `${(30 * 0.3) / 16}rem`;
+    else if (size === undefined || size === 'regular') AdditionalAvatarProps.TypeProps.size = `${(40 * 0.3) / 16}rem`;
+    else if (size === 'large') AdditionalAvatarProps.TypeProps.size = `${(60 * 0.3) / 16}rem`;
+    else if (!['small', 'regular', 'large'].includes(size)) AdditionalAvatarProps.TypeProps.size = `${(size * 0.3) / 16}rem`;
 
     children.unshift(
       AdditionalAvatar ||
@@ -90,6 +94,13 @@ const AvatarGroup = React.forwardRef((props_: any, ref: any) => {
       ref={ref}
 
       className={classNames([
+        staticClassName('AvatarGroup', theme) && [
+          'AmauiAvatarGroup-root',
+          `AmauiAvatarGroup-size-${size}`,
+          max !== undefined && 'AmauiAvatarGroup-max',
+          total !== undefined && 'AmauiAvatarGroup-total'
+        ],
+
         className,
         classes.root
       ])}
@@ -104,6 +115,8 @@ const AvatarGroup = React.forwardRef((props_: any, ref: any) => {
         key: index,
 
         className: classes.item,
+
+        size,
 
         ...other,
 

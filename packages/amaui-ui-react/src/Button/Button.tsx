@@ -7,6 +7,8 @@ import Interaction from '../Interaction';
 import RoundProgress from '../RoundProgress';
 import Type from '../Type';
 
+import { staticClassName } from '../utils';
+
 const other = {
   pointerEvents: 'none',
   borderRadius: 'inherit',
@@ -21,8 +23,6 @@ const other = {
 
 const useStyle = style(theme => ({
   root: {
-    '@cs': ['amaui-button'],
-
     display: 'inline-flex',
     justifyContent: 'space-around',
     alignItems: 'center',
@@ -316,18 +316,15 @@ const Button = React.forwardRef((props_: any, ref: any) => {
   };
 
   const {
-    className,
-
     version = 'outlined',
     size = 'regular',
     color: color_ = 'primary',
     tonal,
 
-    Component = 'button',
+    Component = props.href ? 'a' : 'button',
     prefer = 'light',
-
-    style,
     fullWidth,
+    selected,
 
     InteractionProps = {},
     startIcon: startIcon_,
@@ -343,6 +340,9 @@ const Button = React.forwardRef((props_: any, ref: any) => {
     fab,
     chip,
     icon,
+
+    className,
+    style,
 
     children,
 
@@ -372,13 +372,9 @@ const Button = React.forwardRef((props_: any, ref: any) => {
     Icon: { fontSize: '17px' }
   };
 
-  let newColor: any;
-
   // color
   if (classes[color] === undefined && is('string', color)) {
     if (!refs.color.current) refs.color.current = theme.methods.color(color);
-
-    newColor = true;
 
     styles.root.color = color;
   }
@@ -477,7 +473,7 @@ const Button = React.forwardRef((props_: any, ref: any) => {
     else if (loadingIconPosition === 'end') endIcon = iconLoading;
   }
 
-  if (props.selected) InteractionProps.selected = props.selected;
+  if (selected) InteractionProps.selected = selected;
 
   if (disabled) {
     InteractionProps.wave = false;
@@ -490,6 +486,20 @@ const Button = React.forwardRef((props_: any, ref: any) => {
       ref={ref}
 
       className={classNames([
+        staticClassName('Button', theme) && [
+          'AmauiButton-root',
+          `AmauiButton-version-${version}`,
+          `AmauiButton-color-${!theme.palette.color[color] && color !== 'default' ? 'new' : color}`,
+          `AmauiButton-size-${size}`,
+          elevation && !disabled && ['filled', 'tonal'].includes(version) && `AmauiButton-elevation`,
+          tonal && `AmauiButton-tonal`,
+          disabled && `AmauiButton-disabled`,
+          fullWidth && `AmauiButton-fullWidth`,
+          startIcon && `AmauiButton-startIcon`,
+          endIcon && `AmauiButton-endIcon`,
+          selected && `AmauiButton-selected`
+        ],
+
         classes.root,
         className,
         classes[size],
@@ -503,8 +513,7 @@ const Button = React.forwardRef((props_: any, ref: any) => {
         elevation && !disabled && ['filled', 'tonal'].includes(version) && classes.elevation,
         disabled && classes.disabled,
         fab && classes.fab,
-        chip && classes.chip,
-        newColor && 'amaui-color-new'
+        chip && classes.chip
       ])}
 
       style={{
@@ -523,6 +532,13 @@ const Button = React.forwardRef((props_: any, ref: any) => {
       {['filled', 'tonal'].includes(version) && (
         <span
           className={classNames([
+            staticClassName('Button', theme) && [
+              'AmauiButton-backgroud',
+              `AmauiButton-version-${version}`,
+              tonal && `AmauiButton-tonal`,
+              disabled && `AmauiButton-disabled`
+            ],
+
             classes.background,
             classes[version],
             tonal && classes.tonal,
@@ -543,6 +559,12 @@ const Button = React.forwardRef((props_: any, ref: any) => {
 
       {startIcon && (
         <span className={classNames([
+          staticClassName('Button', theme) && [
+            'AmauiButton-icon',
+            'AmauiButton-startIcon',
+            `AmauiButton-size-${size}`
+          ],
+
           classes.Icon,
           classes.start,
           classes[size],
@@ -554,7 +576,13 @@ const Button = React.forwardRef((props_: any, ref: any) => {
 
       {icon ? (
         <span
-          className={classes.iconRoot}
+          className={classNames([
+            staticClassName('Button', theme) && [
+              'AmauiButton-iconRoot'
+            ],
+
+            classes.iconRoot
+          ])}
 
           style={styles.icon}
         >
@@ -563,6 +591,11 @@ const Button = React.forwardRef((props_: any, ref: any) => {
       ) : (
         <Type
           className={classNames([
+            staticClassName('Button', theme) && [
+              'AmauiButton-label',
+              `AmauiButton-size-${size}`
+            ],
+
             classes.label,
             classes[size],
             chip && classes.chip
@@ -580,6 +613,12 @@ const Button = React.forwardRef((props_: any, ref: any) => {
 
       {endIcon && (
         <span className={classNames([
+          staticClassName('Button', theme) && [
+            'AmauiButton-icon',
+            'AmauiButton-endIcon',
+            `AmauiButton-size-${size}`
+          ],
+
           classes.Icon,
           classes.end,
           classes[size],
@@ -592,6 +631,13 @@ const Button = React.forwardRef((props_: any, ref: any) => {
       {version === 'outlined' && (
         <span
           className={classNames([
+            staticClassName('Button', theme) && [
+              'AmauiButton-border',
+              `AmauiButton-version-${version}`,
+              tonal && `AmauiButton-tonal`,
+              disabled && `AmauiButton-disabled`
+            ],
+
             classes.border,
             classes[version],
             tonal && classes.tonal,

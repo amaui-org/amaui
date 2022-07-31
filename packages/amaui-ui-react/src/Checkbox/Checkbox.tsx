@@ -7,6 +7,8 @@ import Icon from '../Icon';
 import IconButton from '../IconButton';
 import { IconDoneAnimated } from '../SegmentedButtons/SegmentedButtons';
 
+import { staticClassName } from '../utils';
+
 const useStyle = style(theme => ({
   icon: {
     zIndex: 1,
@@ -149,6 +151,7 @@ const Checkbox = React.forwardRef((props_: any, ref: any) => {
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiCheckbox?.props?.default }), [props_]);
 
   const {
+    tonal,
     color = 'primary',
     colorIndeterminate = props.color,
     colorUnchecked = 'default',
@@ -157,11 +160,16 @@ const Checkbox = React.forwardRef((props_: any, ref: any) => {
     onChange,
     indeterminate: indeterminate_,
     Component = 'span',
+    version = 'text',
+    disabled,
+
+    className,
 
     children,
 
     ...other
   } = props;
+
   const [checked, setChecked] = React.useState(valueDefault !== undefined ? valueDefault : value);
   const [indeterminate, setIndeterminate] = React.useState(!checked && indeterminate_);
 
@@ -182,7 +190,7 @@ const Checkbox = React.forwardRef((props_: any, ref: any) => {
   }, [value]);
 
   const onUpdate = (event: ChangeEvent<HTMLInputElement>) => {
-    if (!props.disabled) {
+    if (!disabled) {
       if (is('function', onChange)) onChange(!checked, event);
 
       // Inner controlled checkbox
@@ -199,32 +207,32 @@ const Checkbox = React.forwardRef((props_: any, ref: any) => {
 
   if (!theme.palette.color[color]) palette = theme.methods.color(color_);
 
-  if (props.tonal) {
+  if (tonal) {
     // Text
     // Outlined
-    if (['text', 'outlined', undefined].includes(props.version)) {
+    if (['text', 'outlined', undefined].includes(version)) {
       styles.iconBox.color = styles.iconBox.color = theme.methods.palette.color.value(color_, 30, true, palette);
 
       styles.iconDone.color = styles.iconDone.color = theme.methods.palette.color.value(color_, 90, true, palette);
     }
 
     // Outlined
-    if (props.version === 'outlined') styles.iconBox.color = styles.iconBox.color = theme.methods.palette.color.value(color_, 50, true, palette);
+    if (version === 'outlined') styles.iconBox.color = styles.iconBox.color = theme.methods.palette.color.value(color_, 50, true, palette);
 
     // Filled
-    if (props.version === 'filled') styles.iconDone.color = theme.methods.palette.color.value(color_, 90, true, palette);
+    if (version === 'filled') styles.iconDone.color = theme.methods.palette.color.value(color_, 90, true, palette);
   }
   else {
-    if (!theme.palette.light && props.disabled) styles.iconDone.color = theme.palette.background.default.primary;
+    if (!theme.palette.light && disabled) styles.iconDone.color = theme.palette.background.default.primary;
     else {
-      if (props.version === 'filled') styles.iconDone.color = color_ === 'default' ? theme.palette.text.default.primary : (palette || theme.palette.color[color_])?.main;
+      if (version === 'filled') styles.iconDone.color = color_ === 'default' ? theme.palette.text.default.primary : (palette || theme.palette.color[color_])?.main;
       else styles.iconDone.color = theme.methods.palette.color.text(color_ === 'default' ? theme.palette.text.default.primary : (palette || theme.palette.color[color_])?.main, true, 'light');
     }
   }
 
   styles.iconItem.color = styles.iconDone.color;
 
-  if (['text', 'outlined', undefined].includes(props.version)) styles.iconItem.color = theme.palette.background.default.primary;
+  if (['text', 'outlined', undefined].includes(version)) styles.iconItem.color = theme.palette.background.default.primary;
 
   let colorValue = color;
 
@@ -236,18 +244,39 @@ const Checkbox = React.forwardRef((props_: any, ref: any) => {
     <IconButton
       ref={ref}
 
+      className={classNames([
+        staticClassName('Checkbox', theme) && [
+          'AmauiCheckbox-root',
+          `AmauiCheckbox-version-${version}`,
+          `AmauiCheckbox-color-${!theme.palette.color[color] && color !== 'default' ? 'new' : color}`,
+          `AmauiCheckbox-color-indeterminate-${(!theme.palette.color[colorIndeterminate] && colorIndeterminate !== 'default') ? 'new' : colorIndeterminate}`,
+          `AmauiCheckbox-color-unchecked-${!theme.palette.color[colorUnchecked] && colorUnchecked !== 'default' ? 'new' : colorUnchecked}`,
+          indeterminate && `AmauiCheckbox-indeterminate`,
+          tonal && `AmauiCheckbox-tonal`,
+          disabled && `AmauiCheckbox-disabled`
+        ],
+
+        className
+      ])}
+
       color={colorValue}
 
       onClick={onUpdate}
 
       Component={Component}
 
+      tonal={tonal}
+
+      version={version}
+
+      disabled={disabled}
+
       {...other}
     >
       <IconItem
         className={classNames([
           classes.iconItem,
-          props.disabled && classes.disabled,
+          disabled && classes.disabled,
           checked && classes.checked,
           indeterminate && classes.indeterminate
         ])}
@@ -261,8 +290,8 @@ const Checkbox = React.forwardRef((props_: any, ref: any) => {
         className={classNames([
           classes.icon,
           classes.iconBox,
-          classes[props.version],
-          props.disabled && classes.disabled,
+          classes[version],
+          disabled && classes.disabled,
           checked && classes.checked,
           indeterminate && classes.indeterminate
         ])}

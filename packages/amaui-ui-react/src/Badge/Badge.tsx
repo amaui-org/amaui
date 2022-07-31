@@ -3,6 +3,8 @@ import React from 'react';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 import Type from '../Type';
 
+import { staticClassName } from '../utils';
+
 const useStyle = style(theme => ({
   root: {
     position: 'relative'
@@ -165,8 +167,6 @@ const Badge = React.forwardRef((props_: any, ref: any) => {
   const { classes } = useStyle(props);
 
   const {
-    className,
-
     max,
     value: value_,
     color = 'primary',
@@ -177,6 +177,8 @@ const Badge = React.forwardRef((props_: any, ref: any) => {
     Component = 'span',
 
     children,
+
+    className,
 
     ...other
   } = props;
@@ -207,6 +209,16 @@ const Badge = React.forwardRef((props_: any, ref: any) => {
       ref={ref}
 
       className={classNames([
+        staticClassName('Badge', theme) && [
+          'AmauiBadge-root',
+          `AmauiBadge-color-${!theme.palette.color[color] && color !== 'default' ? 'new' : color}`,
+          `AmauiBadge-vertical-${vertical}`,
+          `AmauiBadge-horizontal-${horizontal}`,
+          tonal && `AmauiBadge-tonal`,
+          indicator && `AmauiBadge-indicator`,
+          max !== undefined && `AmauiBadge-max`
+        ],
+
         className,
         classes.root
       ])}
@@ -217,6 +229,15 @@ const Badge = React.forwardRef((props_: any, ref: any) => {
 
       <Type
         className={classNames([
+          staticClassName('Badge', theme) && [
+            'AmauiBadge-badge',
+            `AmauiBadge-color-${!theme.palette.color[color] && color !== 'default' ? 'new' : color}`,
+            `AmauiBadge-vertical-${vertical}`,
+            `AmauiBadge-horizontal-${horizontal}`,
+            tonal && `AmauiBadge-tonal`,
+            indicator && `AmauiBadge-indicator`
+          ],
+
           classes.badge,
           classes[color],
           tonal && classes.tonal,

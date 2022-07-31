@@ -6,6 +6,8 @@ import { style, classNames, useAmauiTheme } from '@amaui/style-react';
 import Focus from '../Focus';
 import Fade from '../Fade';
 
+import { staticClassName } from '../utils';
+
 const useStyle = style(theme => ({
   root: {
     display: 'flex',
@@ -56,18 +58,9 @@ const Backdrop = React.forwardRef((props_: any, ref: any) => {
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiBackdrop?.props?.default }), [props_]);
 
-  const [open, setOpen] = React.useState(props.open);
-  const [inProp, setInProp] = React.useState(props.open);
-  const { classes } = useStyle(props);
-  const refs = {
-    focus: React.useRef<HTMLDivElement>()
-  };
-
   const {
     open: open_,
     invisible,
-
-    className,
 
     disableKeyboardClose,
     disableBackgroundClose,
@@ -78,13 +71,24 @@ const Backdrop = React.forwardRef((props_: any, ref: any) => {
     ModalComponent = Fade,
     ModalProps = {},
 
+    onClose: onClose_,
+
+    className,
+
     children,
 
     ...other
   } = props;
 
+  const [open, setOpen] = React.useState(open_);
+  const [inProp, setInProp] = React.useState(open_);
+  const { classes } = useStyle(props);
+  const refs = {
+    focus: React.useRef<HTMLDivElement>()
+  };
+
   const onClose = () => {
-    if (is('function', props.onClose) && open) props.onClose();
+    if (is('function', onClose_) && open) onClose_();
   };
 
   const onKeyDown = (event: KeyboardEvent) => {
@@ -126,6 +130,10 @@ const Backdrop = React.forwardRef((props_: any, ref: any) => {
       ref={ref}
 
       className={classNames([
+        staticClassName('Backdrop', theme) && [
+          'AmauiBackdrop-root'
+        ],
+
         className,
         classes.root
       ])}
@@ -147,6 +155,10 @@ const Backdrop = React.forwardRef((props_: any, ref: any) => {
         >
           <div
             className={classNames([
+              staticClassName('Backdrop', theme) && [
+                'AmauiBackdrop-background'
+              ],
+
               classes.background,
               invisible && classes.invisible
             ])}
@@ -157,7 +169,13 @@ const Backdrop = React.forwardRef((props_: any, ref: any) => {
 
         {/* Backdrop */}
         <div
-          className={classes.backdropRoot}
+          className={classNames([
+            staticClassName('Backdrop', theme) && [
+              'AmauiBackdrop-backdropRoot'
+            ],
+
+            classes.backdropRoot
+          ])}
         >
           <ModalComponent
             in={inProp}

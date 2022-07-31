@@ -5,6 +5,8 @@ import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 import Button from '../Button';
 import Type from '../Type';
 
+import { staticClassName } from '../utils';
+
 const useStyle = style(theme => ({
   root: {
     cursor: 'default',
@@ -33,8 +35,20 @@ const Avatar = React.forwardRef((props_: any, ref) => {
     image,
     alt,
     square,
+    tonal = false,
+    version = 'filled',
+    size = 'regular',
+    elevation = 0,
+    disabled,
 
+    Component = 'span',
     TypeProps = {},
+    InteractionProps = {
+      background: false,
+      wave: false
+    },
+
+    className,
 
     children: children_,
 
@@ -48,7 +62,7 @@ const Avatar = React.forwardRef((props_: any, ref) => {
       style: {}
     };
 
-    if (['text', 'outlined'].includes(props.version) && props.disabled) {
+    if (['text', 'outlined'].includes(version) && disabled) {
       imageProps.style.opacity = theme.palette.visual_contrast.default.opacity[theme.palette.light ? 'disabled' : 'active'];
     }
 
@@ -66,10 +80,10 @@ const Avatar = React.forwardRef((props_: any, ref) => {
   else if (!React.isValidElement(children)) {
     const typeProps: any = { version: 't1' };
 
-    if (props.size === 'small') typeProps.size = `${(30 * 0.54) / 16}rem`;
-    else if (props.size === undefined || props.size === 'regular') typeProps.size = `${(40 * 0.54) / 16}rem`;
-    else if (props.size === 'large') typeProps.size = `${(60 * 0.54) / 16}rem`;
-    else if (!['small', 'regular', 'large'].includes(props.size)) typeProps.size = `${(props.size * 0.54) / 16}rem`;
+    if (size === 'small') typeProps.size = `${(30 * 0.54) / 16}rem`;
+    else if (size === undefined || size === 'regular') typeProps.size = `${(40 * 0.54) / 16}rem`;
+    else if (size === 'large') typeProps.size = `${(60 * 0.54) / 16}rem`;
+    else if (!['small', 'regular', 'large'].includes(size)) typeProps.size = `${(size * 0.54) / 16}rem`;
 
     children = (
       <Type
@@ -89,23 +103,29 @@ const Avatar = React.forwardRef((props_: any, ref) => {
       {...other}
 
       className={classNames([
-        props.className,
+        staticClassName('Avatar', theme) && [
+          'AmauiAvatar-root',
+          square && 'AmauiAvatar-square'
+        ],
+
+        className,
         classes.root,
         square && classes.square
       ])}
 
-      Component={props.Component || 'span'}
+      Component={Component}
 
-      version={props.version || 'filled'}
+      version={version}
 
-      tonal={props.tonal !== undefined ? props.tonal : false}
+      tonal={tonal}
 
-      elevation={props.elevation !== undefined ? props.elevation : 0}
+      elevation={elevation}
 
-      InteractionProps={props.InteractionProps || {
-        background: false,
-        wave: false
-      }}
+      InteractionProps={InteractionProps}
+
+      size={size}
+
+      disabled={disabled}
 
       icon
     >
