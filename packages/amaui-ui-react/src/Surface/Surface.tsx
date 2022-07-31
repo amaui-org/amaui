@@ -2,6 +2,8 @@ import React from 'react';
 
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
+import { staticClassName } from '../utils';
+
 const useStyle = style(theme => ({
   root: {
     position: 'relative',
@@ -230,6 +232,15 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
       ref={ref}
 
       className={classNames([
+        staticClassName('Surface', theme) && [
+          'AmauiSurface-root',
+          `AmauiSurface-color-${!theme.palette.color[color] && color !== 'default' ? 'new' : color}`,
+          `AmauiSurface-size-${size}`,
+          tonal && `AmauiSurface-tonal`,
+          elevation && `AmauiSurface-elevation-${elevation}`,
+          noBorderRadius && `AmauiSurface-noBorderRadius`
+        ],
+
         classes.root,
         className,
         classes[size],

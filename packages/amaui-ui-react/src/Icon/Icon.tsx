@@ -2,6 +2,8 @@ import React from 'react';
 
 import { AmauiTheme, classNames, style, useAmauiTheme } from '@amaui/style-react';
 
+import { staticClassName } from '../utils';
+
 export const rtl_icons = [
   'arrow_back_ios', 'arrow_left', 'assignment_return', 'call_made', 'call_missed_outgoing', 'chevron_left', 'device_unknown', 'featured_play_list', 'flight_land', 'format_indent_increase', 'functions', 'input', 'label', 'last_page', 'live_help', 'navigate_before', 'note', 'queue_music', 'reply_all', 'short_text', 'star_half', 'toc', 'undo', 'wrap_text'
 ];
@@ -38,11 +40,11 @@ const Icon = React.forwardRef((props_: any, ref: any) => {
 
   const {
     viewBox = '0 0 24 24',
-    size: size_,
+    size,
     name,
     short_name,
-    color: color_ = 'inherit',
     tonal,
+    color: color_ = 'inherit',
     tone = '30',
     Component = 'svg',
     rtl: rtl_,
@@ -79,13 +81,13 @@ const Icon = React.forwardRef((props_: any, ref: any) => {
 
   let fontSize = '24px';
 
-  if (size_ === 'very small') fontSize = '12px';
-  else if (size_ === 'small') fontSize = '18px';
-  else if (size_ === 'regular') fontSize = '24px';
-  else if (size_ === 'medium') fontSize = '30px';
-  else if (size_ === 'large') fontSize = '36px';
-  else if (size_ === 'very large') fontSize = '42px';
-  else if (size_ !== undefined) fontSize = size_;
+  if (size === 'very small') fontSize = '12px';
+  else if (size === 'small') fontSize = '18px';
+  else if (size === 'regular') fontSize = '24px';
+  else if (size === 'medium') fontSize = '30px';
+  else if (size === 'large') fontSize = '36px';
+  else if (size === 'very large') fontSize = '42px';
+  else if (size !== undefined) fontSize = size;
 
   const isRtlIcon = rtl_icons.includes(short_name);
 
@@ -102,7 +104,21 @@ const Icon = React.forwardRef((props_: any, ref: any) => {
     <Component
       ref={ref}
 
-      className={classNames([classes.root, className, disabled && classes.disabled, rtl && isRtlIcon && classes.rtl])}
+      className={classNames([
+        staticClassName('Icon', theme) && [
+          'AmauiIcon-root',
+          `AmauiIcon-color-${!theme.palette.color[color] && color !== 'default' ? 'new' : color}`,
+          `AmauiIcon-size-${size}`,
+          tonal && `AmauiButton-tonal`,
+          (rtl && isRtlIcon) && 'AmauiIcon-rtl',
+          disabled && `AmauiIcon-disabled`
+        ],
+
+        classes.root,
+        className,
+        disabled && classes.disabled,
+        (rtl && isRtlIcon) && classes.rtl
+      ])}
 
       // Default '0 0 24 24' for material icons
       viewBox={viewBox}

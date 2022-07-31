@@ -4,6 +4,8 @@ import { classNames, IColor, style, useAmauiTheme } from '@amaui/style-react';
 
 import Type from '../Type';
 
+import { staticClassName } from '../utils';
+
 const useStyle = style(theme => ({
   root: {
     transition: theme.methods.transitions.make(['color', 'text-decoration'], { duration: 'xxs' }),
@@ -72,10 +74,11 @@ const Link = React.forwardRef((props_: any, ref: any) => {
   const { classes } = useStyle(props);
 
   const {
-    className,
     tonal,
     color: color_ = 'primary',
     underline = true,
+
+    className,
     style,
 
     children,
@@ -111,6 +114,13 @@ const Link = React.forwardRef((props_: any, ref: any) => {
       ref={ref}
 
       className={classNames([
+        staticClassName('Link', theme) && [
+          'AmauiLink-root',
+          `AmauiLink-color-${!theme.palette.color[color] && color !== 'default' ? 'new' : color}`,
+          tonal && `AmauiLink-tonal`,
+          underline && `AmauiLink-underline-${underline}`
+        ],
+
         classes.root,
         className,
         classes[color],

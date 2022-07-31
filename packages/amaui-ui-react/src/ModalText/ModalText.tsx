@@ -4,6 +4,8 @@ import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Type from '../Type';
 
+import { staticClassName } from '../utils';
+
 const useStyle = style(theme => ({
   root: {
     display: 'flex',
@@ -32,6 +34,10 @@ const ModalText = React.forwardRef((props_: any, ref: any) => {
       ref={ref}
 
       className={classNames([
+        staticClassName('ModalText', theme) && [
+          'AmauiModalText-root'
+        ],
+
         className,
         classes.root
       ])}

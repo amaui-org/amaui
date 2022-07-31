@@ -8,6 +8,8 @@ import Focus from '../Focus';
 import Fade from '../Fade';
 import Surface from '../Surface';
 
+import { staticClassName } from '../utils';
+
 const useStyle = style(theme => ({
   root: {
     position: 'fixed',
@@ -178,6 +180,13 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
         ref={ref}
 
         className={classNames([
+          staticClassName('Modal', theme) && [
+            'AmauiModal-root',
+            `AmauiModal-maxWidth-${maxWidth}`,
+            fullScreen && `AmauiButton-fullScreen`,
+            fullWidth && `AmauiButton-fullWidth`
+          ],
+
           className,
           classes.root
         ])}
@@ -198,7 +207,13 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
             {...BackgroundProps}
           >
             <div
-              className={classes.background}
+              className={classNames([
+                staticClassName('Modal', theme) && [
+                  'AmauiModal-backgroud'
+                ],
+
+                classes.backgroud
+              ])}
 
               onClick={() => !disableBackgroundClose && onClose()}
             />
@@ -206,7 +221,13 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
 
           {/* Modal */}
           <div
-            className={classes.modalRoot}
+            className={classNames([
+              staticClassName('Modal', theme) && [
+                'AmauiModal-modalRoot'
+              ],
+
+              classes.modalRoot
+            ])}
           >
             <ModalComponent
               in={inProp}
@@ -219,6 +240,13 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
             >
               <Surface
                 className={classNames([
+                  staticClassName('Modal', theme) && [
+                    'AmauiModal-surface',
+                    `AmauiModal-maxWidth-${maxWidth}`,
+                    fullScreen && `AmauiButton-fullScreen`,
+                    fullWidth && `AmauiButton-fullWidth`
+                  ],
+
                   classes.surface,
 
                   fullScreen && classes.fullScreen,

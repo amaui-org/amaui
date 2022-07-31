@@ -6,6 +6,8 @@ import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 import Icon from '../Icon';
 import Transition, { TTransitionStatus } from '../Transition';
 
+import { staticClassName } from '../utils';
+
 const useStyle = style(theme => ({
   root: {
     display: 'inline-flex',
@@ -53,7 +55,7 @@ const useStyle = style(theme => ({
     strokeDashoffset: 0,
     transition: theme.methods.transitions.make('stroke-dashoffset', { duration: 'xxs', delay: 45, timing_function: 'accelerated' })
   }
-}), { name: 'AmauiSegmentedButtons' });
+}), { name: 'AmauiButtonGroup' });
 
 export const IconMaterialDoneSharp = React.forwardRef((props: any, ref) => {
   const {
@@ -156,10 +158,10 @@ export const IconDoneAnimated = (props: any) => {
   );
 };
 
-const SegmentedButtons = React.forwardRef((props_: any, ref: any) => {
+const ButtonGroup = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiSegmentedButtons?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiButtonGroup?.props?.default }), [props_]);
 
   const [preSelected, setPreSelected] = React.useState([]);
   const [selected, setSelected] = React.useState([]);
@@ -176,6 +178,7 @@ const SegmentedButtons = React.forwardRef((props_: any, ref: any) => {
 
     elevation = true,
     border = true,
+    disabled,
 
     className,
 
@@ -274,7 +277,9 @@ const SegmentedButtons = React.forwardRef((props_: any, ref: any) => {
 
       elevation: false,
 
-      selected: selected.includes(index)
+      selected: selected.includes(index),
+
+      disabled
     }));
 
   return (
@@ -282,9 +287,21 @@ const SegmentedButtons = React.forwardRef((props_: any, ref: any) => {
       ref={ref}
 
       className={classNames([
+        staticClassName('ButtonGroup', theme) && [
+          'AmauiButtonGroup-root',
+          `AmauiButtonGroup-select-${select}`,
+          `AmauiButtonGroup-version-${version}`,
+          `AmauiButtonGroup-color-${!theme.palette.color[color] && color !== 'default' ? 'new' : color}`,
+          `AmauiButtonGroup-size-${size}`,
+          elevation && !disabled && ['filled', 'tonal'].includes(version) && `AmauiButtonGroup-elevation`,
+          tonal && `AmauiButtonGroup-tonal`,
+          border && `AmauiButtonGroup-border`,
+          disabled && `AmauiButtonGroup-disabled`,
+        ],
+
         classes.root,
         className,
-        elevation && ['filled', 'tonal'].includes(version) && classes.elevation,
+        elevation && !disabled && ['filled', 'tonal'].includes(version) && classes.elevation,
       ])}
 
       {...other}
@@ -294,4 +311,4 @@ const SegmentedButtons = React.forwardRef((props_: any, ref: any) => {
   );
 });
 
-export default SegmentedButtons;
+export default ButtonGroup;

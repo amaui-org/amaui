@@ -6,6 +6,8 @@ import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import { Transition, Transitions, TTransitionStatus } from '..';
 
+import { staticClassName } from '../utils';
+
 const other = {
   pointerEvents: 'none',
   borderRadius: 'inherit',
@@ -398,6 +400,10 @@ const Interaction = React.forwardRef((props_: any, ref: any) => {
       }}
 
       className={classNames([
+        staticClassName('Interaction', theme) && [
+          'AmauiInteraction-root'
+        ],
+
         className,
         classes.root
       ])}
@@ -406,6 +412,10 @@ const Interaction = React.forwardRef((props_: any, ref: any) => {
       {background && (
         <span
           className={classNames([
+            staticClassName('Interaction', theme) && [
+              'AmauiInteraction-background'
+            ],
+
             classes.background,
             has('mouse-in') && classes.hovered,
             selected && classes.selected
@@ -436,7 +446,13 @@ const Interaction = React.forwardRef((props_: any, ref: any) => {
         <Transition in={border}>
           {(status: TTransitionStatus) => (
             <span
-              className={classes.border}
+              className={classNames([
+                staticClassName('Interaction', theme) && [
+                  'AmauiInteraction-border'
+                ],
+
+                classes.border
+              ])}
 
               style={{
                 opacity: status?.indexOf('enter') > -1 ? theme.palette.visual_contrast.default.opacity.quaternary : 0,

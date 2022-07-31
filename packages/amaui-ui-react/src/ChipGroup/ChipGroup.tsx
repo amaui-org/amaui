@@ -2,6 +2,8 @@ import React from 'react';
 
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
+import { staticClassName } from '../utils';
+
 const useStyle = style(theme => ({
   root: {
     display: 'flex',
@@ -78,6 +80,12 @@ const ChipGroup = React.forwardRef((props_: any, ref: any) => {
       ref={ref}
 
       className={classNames([
+        staticClassName('ChipGroup', theme) && [
+          'AmauiChipGroup-root',
+          `AmauiChipGroup-size-${size}`,
+          wrap && 'AmauiChipGroup-wrap'
+        ],
+
         className,
         classes.root,
         classes[size],

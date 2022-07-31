@@ -6,6 +6,8 @@ import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 import IconButton from '../IconButton';
 import Keyframes from '../Keyframes';
 
+import { staticClassName } from '../utils';
+
 const useStyle = style(theme => ({
   root: {
     position: 'relative',
@@ -597,6 +599,14 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
       onClick={onUpdate}
 
       className={classNames([
+        staticClassName('Switch', theme) && [
+          'AmauiSwitch-root',
+          `AmauiSwitch-color-${!theme.palette.color[color] && color !== 'default' ? 'new' : color}`,
+          `AmauiSwitch-size-${size}`,
+          tonal && `AmauiSwitch-tonal`,
+          disabled && `AmauiSwitch-disabled`
+        ],
+
         className,
         classes.root,
         classes[color],
@@ -631,6 +641,12 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
           return <>
             <span
               className={classNames([
+                staticClassName('Switch', theme) && [
+                  'AmauiSwitch-background',
+                  tonal && `AmauiSwitch-tonal`,
+                  disabled && `AmauiSwitch-disabled`
+                ],
+
                 classes.background,
                 tonal && classes.tonal,
                 disabled && classes.disabled
@@ -647,6 +663,12 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
 
             <span
               className={classNames([
+                staticClassName('Switch', theme) && [
+                  'AmauiSwitch-border',
+                  `AmauiSwitch-color-${!theme.palette.color[color] && color !== 'default' ? 'new' : color}`,
+                  tonal && `AmauiSwitch-tonal`
+                ],
+
                 classes.border,
                 classes[color],
                 tonal && classes.tonal
@@ -665,6 +687,13 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
               size={size}
 
               className={classNames([
+                staticClassName('Switch', theme) && [
+                  'AmauiSwitch-iconButton',
+                  `AmauiSwitch-color-${!theme.palette.color[color] && color !== 'default' ? 'new' : color}`,
+                  `AmauiSwitch-size-${size}`,
+                  tonal && `AmauiSwitch-tonal`
+                ],
+
                 classes.iconButton,
                 classes[size],
                 classes[color],
@@ -683,6 +712,10 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
             >
               <Icon
                 className={classNames([
+                  staticClassName('Switch', theme) && [
+                    'AmauiSwitch-icon'
+                  ],
+
                   classes.icon
                 ])}
 

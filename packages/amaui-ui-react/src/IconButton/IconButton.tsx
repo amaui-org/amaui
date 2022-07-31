@@ -1,8 +1,10 @@
 import React from 'react';
 
-import { useAmauiTheme } from '@amaui/style-react';
+import { classNames, useAmauiTheme } from '@amaui/style-react';
 
 import Button from '../Button';
+
+import { staticClassName } from '../utils';
 
 const IconButton = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
@@ -12,6 +14,8 @@ const IconButton = React.forwardRef((props_: any, ref: any) => {
   const {
     version = 'text',
 
+    className,
+
     ...other
   } = props;
 
@@ -20,6 +24,14 @@ const IconButton = React.forwardRef((props_: any, ref: any) => {
       ref={ref}
 
       {...other}
+
+      className={classNames([
+        staticClassName('IconButton', theme) && [
+          'AmauiIconButton-root'
+        ],
+
+        className
+      ])}
 
       version={version}
 

@@ -1,11 +1,13 @@
 import React from 'react';
 
 import { is } from '@amaui/utils';
-import { useAmauiTheme } from '@amaui/style-react';
+import { classNames, useAmauiTheme } from '@amaui/style-react';
 
 import Button from '../Button';
 import Icon from '../Icon';
-import { IconDoneAnimated } from '../SegmentedButtons/SegmentedButtons';
+import { IconDoneAnimated } from '../ButtonGroup/ButtonGroup';
+
+import { staticClassName } from '../utils';
 
 const IconMaterialCloseSharp = React.forwardRef((props: any, ref) => {
 
@@ -42,6 +44,8 @@ const Chip = React.forwardRef((props_: any, ref: any) => {
     color = 'default',
     startIcon,
     onClick,
+
+    className,
 
     children: children_,
 
@@ -106,12 +110,25 @@ const Chip = React.forwardRef((props_: any, ref: any) => {
 
       {...OtherProps}
 
+      className={classNames([
+        staticClassName('Chip', theme) && [
+          'AmauiChip-root',
+          input && `AmauiChip-selected`,
+          filter && `AmauiChip-filter`,
+          selected && `AmauiChip-selected`
+        ],
+
+        className
+      ])}
+
       onClick={() => {
         onSelect();
 
         // Invoke items on click method
         if (is('function', onClick)) onClick();
       }}
+
+      startIcon={startIcon}
 
       {...(startIcon && selected ? {
         startIcon: (

@@ -3,6 +3,8 @@ import React from 'react';
 import { is } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
+import { staticClassName } from '../utils';
+
 const other = {
   position: 'absolute',
   top: 0,
@@ -257,6 +259,14 @@ const LinearProgress = React.forwardRef((props_: any, ref: any) => {
       ref={ref}
 
       className={classNames([
+        staticClassName('LinearProgress', theme) && [
+          'AmauiLinearProgress-root',
+          `AmauiLinearProgress-version-${version}`,
+          `AmauiLinearProgress-color-${!theme.palette.color[color] && color !== 'default' ? 'new' : color}`,
+          tonal && `AmauiLinearProgress-tonal`,
+          reverse && `AmauiLinearProgress-reverse`
+        ],
+
         classes.root,
         classes[color],
         tonal && classes.tonal,
@@ -271,6 +281,11 @@ const LinearProgress = React.forwardRef((props_: any, ref: any) => {
       {withBuffer && (
         <div
           className={classNames([
+            staticClassName('LinearProgress', theme) && [
+              'AmauiLinearProgress-bufferDots',
+              reverse && `AmauiLinearProgress-reverse`
+            ],
+
             classes.bufferDots,
             reverse && classes.reverse
           ])}
@@ -278,24 +293,68 @@ const LinearProgress = React.forwardRef((props_: any, ref: any) => {
       )}
 
       <div
-        className={classes.buffer}
+        className={classNames([
+          staticClassName('LinearProgress', theme) && [
+            'AmauiLinearProgress-buffer'
+          ],
+
+          classes.buffer
+        ])}
 
         style={styles.buffer}
       />
 
       {version === 'indeterminate' ? (
         <>
-          <div className={classes.lineIndeterminate}>
-            <div className={classes.inner} />
+          <div
+            className={classNames([
+              staticClassName('LinearProgress', theme) && [
+                'AmauiLinearProgress-lineIndeterminate'
+              ],
+
+              classes.lineIndeterminate
+            ])}
+          >
+            <div
+              className={classNames([
+                staticClassName('LinearProgress', theme) && [
+                  'AmauiLinearProgress-inner'
+                ],
+
+                classes.inner
+              ])}
+            />
           </div>
 
-          <div className={classes.lineIndeterminate1}>
-            <div className={classes.inner1} />
+          <div
+            className={classNames([
+              staticClassName('LinearProgress', theme) && [
+                'AmauiLinearProgress-lineIndeterminate1'
+              ],
+
+              classes.lineIndeterminate1
+            ])}
+          >
+            <div
+              className={classNames([
+                staticClassName('LinearProgress', theme) && [
+                  'AmauiLinearProgress-inner1'
+                ],
+
+                classes.inner1
+              ])}
+            />
           </div>
         </>
       ) : (
         <div
-          className={classes.line}
+          className={classNames([
+            staticClassName('LinearProgress', theme) && [
+              'AmauiLinearProgress-line'
+            ],
+
+            classes.line
+          ])}
 
           style={styles.line}
         />

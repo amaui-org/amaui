@@ -2,6 +2,8 @@ import React from 'react';
 
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
+import { staticClassName } from '../utils';
+
 const useStyle = style(theme => ({
   root: {
     // reset
@@ -70,10 +72,12 @@ const Type = React.forwardRef((props_: any, ref: any) => {
   const {
     version = 'b2',
     size,
-    className,
     Component: Component_,
-    children,
+
+    className,
     style = {},
+
+    children,
 
     ...other
   } = props;
@@ -106,6 +110,12 @@ const Type = React.forwardRef((props_: any, ref: any) => {
       ref={ref}
 
       className={classNames([
+        staticClassName('Type', theme) && [
+          'AmauiType-root',
+          `AmauiType-version-${version}`,
+          `AmauiType-version-${size}`
+        ],
+
         classes.root,
         className,
         classes[version]

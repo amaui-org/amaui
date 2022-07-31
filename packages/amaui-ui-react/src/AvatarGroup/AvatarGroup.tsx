@@ -9,7 +9,12 @@ import { staticClassName } from '../utils';
 const useStyle = style(theme => ({
   root: {
     display: 'flex',
-    flexDirection: 'row-reverse'
+    flexDirection: 'row-reverse',
+
+    '&$disabled': {
+      pointerEvents: 'none',
+      opacity: theme.palette.visual_contrast.default.opacity.disabled
+    }
   },
 
   item: {
@@ -34,6 +39,7 @@ const AvatarGroup = React.forwardRef((props_: any, ref: any) => {
     size,
     AdditionalAvatar,
     AdditionalAvatarProps = { color: 'default', tonal: true },
+    disabled,
 
     className,
     style,
@@ -81,6 +87,8 @@ const AvatarGroup = React.forwardRef((props_: any, ref: any) => {
         {...other}
 
         {...AdditionalAvatarProps}
+
+        color={disabled ? 'default' : AdditionalAvatarProps.color}
       >
         {value}
       </Avatar>
@@ -98,11 +106,13 @@ const AvatarGroup = React.forwardRef((props_: any, ref: any) => {
           'AmauiAvatarGroup-root',
           `AmauiAvatarGroup-size-${size}`,
           max !== undefined && 'AmauiAvatarGroup-max',
-          total !== undefined && 'AmauiAvatarGroup-total'
+          total !== undefined && 'AmauiAvatarGroup-total',
+          disabled && 'AmauiAvatarGroup-disabled'
         ],
 
         className,
-        classes.root
+        classes.root,
+        disabled && classes.disabled
       ])}
 
       style={{
@@ -120,7 +130,9 @@ const AvatarGroup = React.forwardRef((props_: any, ref: any) => {
 
         ...other,
 
-        ...item.props
+        ...item.props,
+
+        color: disabled ? 'default' : item.props.color
       }))}
     </div>
   );

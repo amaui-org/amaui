@@ -5,6 +5,8 @@ import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import IconButton from '../IconButton';
 
+import { staticClassName } from '../utils';
+
 const useStyle = style(theme => ({
   icon: {
     zIndex: 1,
@@ -98,6 +100,8 @@ const Radio = React.forwardRef((props_: any, ref: any) => {
     Component = 'span',
     disabled,
 
+    className,
+
     children,
 
     ...other
@@ -146,6 +150,15 @@ const Radio = React.forwardRef((props_: any, ref: any) => {
     <IconButton
       ref={ref}
 
+      className={classNames([
+        staticClassName('Radio', theme) && [
+          'AmauiRadio-root',
+          `AmauiRadio-color-unchecked-${!theme.palette.color[colorUnchecked] && colorUnchecked !== 'default' ? 'new' : colorUnchecked}`,
+        ],
+
+        className
+      ])}
+
       color={colorValue}
 
       onClick={onUpdate}
@@ -164,6 +177,14 @@ const Radio = React.forwardRef((props_: any, ref: any) => {
         Component='div'
 
         className={classNames([
+          staticClassName('Radio', theme) && [
+            'AmauiRadio-icon',
+            'AmauiRadio-iconBox',
+            `AmauiRadio-version-${version}`,
+            checked && `AmauiRadio-checked`,
+            disabled && `AmauiRadio-disabled`
+          ],
+
           classes.icon,
           classes.iconBox,
           classes[version],
@@ -178,6 +199,12 @@ const Radio = React.forwardRef((props_: any, ref: any) => {
         Component='div'
 
         className={classNames([
+          staticClassName('Radio', theme) && [
+            'AmauiRadio-icon',
+            'AmauiRadio-iconDot',
+            checked && `AmauiRadio-checked`
+          ],
+
           classes.icon,
           classes.iconDot,
           checked && classes.checked

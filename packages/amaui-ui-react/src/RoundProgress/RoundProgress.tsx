@@ -3,6 +3,8 @@ import React from 'react';
 import { is } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
+import { staticClassName } from '../utils';
+
 const noShrinkStrokeDashOffset = 194;
 
 const useStyle = style(theme => ({
@@ -143,11 +145,9 @@ const RoundProgress = React.forwardRef((props_: any, ref: any) => {
   const { classes } = useStyle(props);
 
   const {
-    size = 'regular',
     tonal,
     color = 'primary',
-    className,
-    style,
+    size = 'regular',
     pathProps = {},
     pathBackgroundProps = {},
     noShrink,
@@ -155,6 +155,9 @@ const RoundProgress = React.forwardRef((props_: any, ref: any) => {
     rounded: rounded_ = true,
     version = 'indeterminate',
     value,
+
+    className,
+    style,
 
     ...other
   } = props;
@@ -194,6 +197,16 @@ const RoundProgress = React.forwardRef((props_: any, ref: any) => {
       ref={ref}
 
       className={classNames([
+        staticClassName('RoundedProgress', theme) && [
+          'AmauiRoundedProgress-root',
+          `AmauiRoundedProgress-version-${version}`,
+          `AmauiRoundedProgress-color-${!theme.palette.color[color] && color !== 'default' ? 'new' : color}`,
+          `AmauiRoundedProgress-size-${size}`,
+          tonal && `AmauiRoundedProgress-tonal`,
+          rounded && `AmauiRoundedProgress-rounded`,
+          noShrink ? `AmauiRoundedProgress-noShrink` : `AmauiRoundedProgress-shrink`
+        ],
+
         classes.root,
         className,
         classes[size],
@@ -206,7 +219,13 @@ const RoundProgress = React.forwardRef((props_: any, ref: any) => {
       <svg
         viewBox='0 0 24 24'
 
-        className={classes.svg}
+        className={classNames([
+          staticClassName('RoundedProgress', theme) && [
+            'AmauiRoundedProgress-svg'
+          ],
+
+          classes.svg
+        ])}
 
         style={{
           ...styles.root,
@@ -227,6 +246,11 @@ const RoundProgress = React.forwardRef((props_: any, ref: any) => {
           {...pathBackgroundProps}
 
           className={classNames([
+            staticClassName('RoundedProgress', theme) && [
+              'AmauiRoundedProgress-pathBackground',
+              `AmauiRoundedProgress-version-${version}`
+            ],
+
             classes.pathBackground,
             classes[version],
             pathBackgroundProps.className
@@ -242,6 +266,11 @@ const RoundProgress = React.forwardRef((props_: any, ref: any) => {
           r='10'
 
           className={classNames([
+            staticClassName('RoundedProgress', theme) && [
+              'AmauiRoundedProgress-path',
+              `AmauiRoundedProgress-version-${version}`
+            ],
+
             classes.path,
             classes[version],
             noShrink && classes.noShrink

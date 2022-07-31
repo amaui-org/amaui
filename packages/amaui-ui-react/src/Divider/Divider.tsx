@@ -4,6 +4,8 @@ import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Type from '../Type';
 
+import { staticClassName } from '../utils';
+
 const useStyle = style(theme => ({
   root: {
     // Reset
@@ -110,15 +112,16 @@ const Divider = React.forwardRef((props_: any, ref: any) => {
   const { classes } = useStyle(props);
 
   const {
-    className,
     inset,
     middle,
-    color = props.tonal ? 'neutral' : 'default',
     tonal,
+    color = props.tonal ? 'neutral' : 'default',
     opacity = theme.palette.visual_contrast.default.opacity.divider,
     alignment = 'center',
     orientation = 'horizontal',
     Component: Component_ = 'hr',
+
+    className,
     style,
 
     children,
@@ -165,6 +168,16 @@ const Divider = React.forwardRef((props_: any, ref: any) => {
       ref={ref}
 
       className={classNames([
+        staticClassName('Divider', theme) && [
+          'AmauiDivider-root',
+          `AmauiDivider-alignment-${alignment}`,
+          `AmauiDivider-orientation-${orientation}`,
+          `AmauiDivider-color-${!theme.palette.color[color] && color !== 'default' ? 'new' : color}`,
+          inset && `AmauiDivider-inset`,
+          middle && `AmauiDivider-middle`,
+          tonal && `AmauiDivider-tonal`
+        ],
+
         className,
         classes[children ? 'rootWithChildren' : 'root'],
         classes[color],
@@ -184,6 +197,11 @@ const Divider = React.forwardRef((props_: any, ref: any) => {
       {children && <>
         <div
           className={classNames([
+            staticClassName('Divider', theme) && [
+              'AmauiDivider-divider',
+              `AmauiDivider-orientation-${orientation}`
+            ],
+
             classes.divider,
             classes[orientation]
           ])}
@@ -199,6 +217,11 @@ const Divider = React.forwardRef((props_: any, ref: any) => {
           version='b2'
 
           className={classNames([
+            staticClassName('Divider', theme) && [
+              'AmauiDivider-text',
+              `AmauiDivider-orientation-${orientation}`
+            ],
+
             classes.text,
             classes[orientation]
           ])}
@@ -208,6 +231,11 @@ const Divider = React.forwardRef((props_: any, ref: any) => {
 
         <div
           className={classNames([
+            staticClassName('Divider', theme) && [
+              'AmauiDivider-divider',
+              `AmauiDivider-orientation-${orientation}`
+            ],
+
             classes.divider,
             classes[orientation]
           ])}

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { AmauiThemeProvider, classNames, style, useAmauiTheme } from '@amaui/style-react';
-import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, SegmentedButtons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, ChipGroup, Backdrop, Checkbox, Radio, Keyframes, Switch } from '@amaui/ui-react';
+import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, ButtonGroup, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, ChipGroup, Backdrop, Checkbox, Radio, Keyframes, Switch } from '@amaui/ui-react';
 
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
@@ -1042,6 +1042,20 @@ function App() {
             </ChipGroup>
           </div>
         </Accordion>
+
+        <Accordion label='ChipGroup disabled' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <ChipGroup disabled>
+              <Chip>Assistive</Chip>
+              <Chip>Assistive 1</Chip>
+              <Chip>Assistive 3</Chip>
+              <Chip>Assistive 4</Chip>
+              <Chip>Assistive 14</Chip>
+              <Chip>Assistive 114</Chip>
+              <Chip>Assistive 1114</Chip>
+            </ChipGroup>
+          </div>
+        </Accordion>
       </Accordion>
 
       <Accordion label='Chip'>
@@ -1606,6 +1620,18 @@ function App() {
             </AvatarGroup>
 
             <AvatarGroup total={29} size={70}>
+              <Avatar>1</Avatar>
+              <Avatar>2</Avatar>
+              <Avatar>3</Avatar>
+              <Avatar>4</Avatar>
+              <Avatar>5</Avatar>
+            </AvatarGroup>
+          </div>
+        </Accordion>
+
+        <Accordion label='Avatar group disabled' open>
+          <div className={classNames([classes.column])}>
+            <AvatarGroup max={4} disabled>
               <Avatar>1</Avatar>
               <Avatar>2</Avatar>
               <Avatar>3</Avatar>
@@ -3390,41 +3416,41 @@ function App() {
         </Accordion>
       </Accordion>
 
-      <Accordion label='Segmented buttons'>
-        <Accordion label='Segmented buttons' open>
+      <Accordion label='Button group'>
+        <Accordion label='Button group' open>
 
           <div className={classNames([classes.row, classes.center])}>
-            <SegmentedButtons>
+            <ButtonGroup>
               <Button>Button one</Button>
-            </SegmentedButtons>
+            </ButtonGroup>
           </div>
 
           <div className={classNames([classes.row, classes.center])}>
-            <SegmentedButtons>
+            <ButtonGroup>
               <Button>Button one</Button>
               <Button>Button two</Button>
-            </SegmentedButtons>
+            </ButtonGroup>
           </div>
 
           <div className={classNames([classes.row, classes.center])}>
-            <SegmentedButtons>
+            <ButtonGroup>
               <Button>Button one</Button>
               <Button>Button two</Button>
               <Button>Button three</Button>
-            </SegmentedButtons>
+            </ButtonGroup>
           </div>
 
           <div className={classNames([classes.row, classes.center])}>
-            <SegmentedButtons>
+            <ButtonGroup>
               <Button>Button one</Button>
               <Button>Button two</Button>
               <Button>Button three</Button>
               <Button>Button four</Button>
-            </SegmentedButtons>
+            </ButtonGroup>
           </div>
 
           <div className={classNames([classes.row, classes.center])}>
-            <SegmentedButtons>
+            <ButtonGroup>
               <Button>Button one</Button>
               <Button>Button two</Button>
               <Button>Button three</Button>
@@ -3432,169 +3458,169 @@ function App() {
               <Button>Button five</Button>
               <Button>Button seven</Button>
               <Button>Button fourteen</Button>
-            </SegmentedButtons>
+            </ButtonGroup>
           </div>
         </Accordion>
 
-        <Accordion label='Segmented buttons sizes' open>
+        <Accordion label='Button group sizes' open>
 
           <div className={classNames([classes.row, classes.center])}>
-            <SegmentedButtons size='small' color='secondary' tonal>
+            <ButtonGroup size='small' color='secondary' tonal>
               <Button>Button one</Button>
               <Button>Button two</Button>
               <Button>Button three</Button>
               <Button>Button four</Button>
               <Button>Button five</Button>
-            </SegmentedButtons>
+            </ButtonGroup>
           </div>
 
           <div className={classNames([classes.row, classes.center])}>
-            <SegmentedButtons size='regular' color='secondary' tonal>
+            <ButtonGroup size='regular' color='secondary' tonal>
               <Button>Button one</Button>
               <Button>Button two</Button>
               <Button>Button three</Button>
               <Button>Button four</Button>
               <Button>Button five</Button>
-            </SegmentedButtons>
+            </ButtonGroup>
           </div>
 
           <div className={classNames([classes.row, classes.center])}>
-            <SegmentedButtons size='large' color='secondary' tonal>
+            <ButtonGroup size='large' color='secondary' tonal>
               <Button>Button one</Button>
               <Button>Button two</Button>
               <Button>Button three</Button>
               <Button>Button four</Button>
               <Button>Button five</Button>
-            </SegmentedButtons>
-          </div>
-
-        </Accordion>
-
-        <Accordion label='Segmented buttons versions' open>
-
-          <div className={classNames([classes.row, classes.center])}>
-            <SegmentedButtons size='small' color='secondary' version='text'>
-              <Button>Button one</Button>
-              <Button>Button two</Button>
-              <Button>Button three</Button>
-              <Button>Button four</Button>
-              <Button>Button five</Button>
-            </SegmentedButtons>
-          </div>
-
-          <div className={classNames([classes.row, classes.center])}>
-            <SegmentedButtons size='regular' color='secondary' version='outlined'>
-              <Button>Button one</Button>
-              <Button>Button two</Button>
-              <Button>Button three</Button>
-              <Button>Button four</Button>
-              <Button>Button five</Button>
-            </SegmentedButtons>
-          </div>
-
-          <div className={classNames([classes.row, classes.center])}>
-            <SegmentedButtons size='large' color='secondary' version='filled'>
-              <Button>Button one</Button>
-              <Button>Button two</Button>
-              <Button>Button three</Button>
-              <Button>Button four</Button>
-              <Button>Button five</Button>
-            </SegmentedButtons>
-          </div>
-
-          <div className={classNames([classes.row, classes.center])}>
-            <SegmentedButtons size='regular' color='secondary' version='filled' tonal>
-              <Button>Button one</Button>
-              <Button>Button two</Button>
-              <Button>Button three</Button>
-              <Button>Button four</Button>
-              <Button>Button five</Button>
-            </SegmentedButtons>
+            </ButtonGroup>
           </div>
 
         </Accordion>
 
-        <Accordion label='Segmented buttons no border' open>
+        <Accordion label='Button group versions' open>
 
           <div className={classNames([classes.row, classes.center])}>
-            <SegmentedButtons size='small' color='secondary' version='text' border={false}>
+            <ButtonGroup size='small' color='secondary' version='text'>
               <Button>Button one</Button>
               <Button>Button two</Button>
               <Button>Button three</Button>
               <Button>Button four</Button>
               <Button>Button five</Button>
-            </SegmentedButtons>
+            </ButtonGroup>
           </div>
 
           <div className={classNames([classes.row, classes.center])}>
-            <SegmentedButtons size='regular' color='secondary' version='outlined' border={false}>
+            <ButtonGroup size='regular' color='secondary' version='outlined'>
               <Button>Button one</Button>
               <Button>Button two</Button>
               <Button>Button three</Button>
               <Button>Button four</Button>
               <Button>Button five</Button>
-            </SegmentedButtons>
+            </ButtonGroup>
           </div>
 
           <div className={classNames([classes.row, classes.center])}>
-            <SegmentedButtons size='large' color='secondary' version='filled' border={false}>
+            <ButtonGroup size='large' color='secondary' version='filled'>
               <Button>Button one</Button>
               <Button>Button two</Button>
               <Button>Button three</Button>
               <Button>Button four</Button>
               <Button>Button five</Button>
-            </SegmentedButtons>
+            </ButtonGroup>
           </div>
 
           <div className={classNames([classes.row, classes.center])}>
-            <SegmentedButtons size='regular' color='secondary' version='filled' border={false} tonal>
+            <ButtonGroup size='regular' color='secondary' version='filled' tonal>
               <Button>Button one</Button>
               <Button>Button two</Button>
               <Button>Button three</Button>
               <Button>Button four</Button>
               <Button>Button five</Button>
-            </SegmentedButtons>
+            </ButtonGroup>
           </div>
 
         </Accordion>
 
-        <Accordion label='Segmented buttons with icons' open>
+        <Accordion label='Button group no border' open>
 
           <div className={classNames([classes.row, classes.center])}>
-            <SegmentedButtons select='single' size='small' color='secondary' version='text'>
+            <ButtonGroup size='small' color='secondary' version='text' border={false}>
+              <Button>Button one</Button>
+              <Button>Button two</Button>
+              <Button>Button three</Button>
+              <Button>Button four</Button>
+              <Button>Button five</Button>
+            </ButtonGroup>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <ButtonGroup size='regular' color='secondary' version='outlined' border={false}>
+              <Button>Button one</Button>
+              <Button>Button two</Button>
+              <Button>Button three</Button>
+              <Button>Button four</Button>
+              <Button>Button five</Button>
+            </ButtonGroup>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <ButtonGroup size='large' color='secondary' version='filled' border={false}>
+              <Button>Button one</Button>
+              <Button>Button two</Button>
+              <Button>Button three</Button>
+              <Button>Button four</Button>
+              <Button>Button five</Button>
+            </ButtonGroup>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <ButtonGroup size='regular' color='secondary' version='filled' border={false} tonal>
+              <Button>Button one</Button>
+              <Button>Button two</Button>
+              <Button>Button three</Button>
+              <Button>Button four</Button>
+              <Button>Button five</Button>
+            </ButtonGroup>
+          </div>
+
+        </Accordion>
+
+        <Accordion label='Button group with icons' open>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <ButtonGroup select='single' size='small' color='secondary' version='text'>
               <Button startIcon={<IconMaterialAddRounded />}>Button one</Button>
               <Button startIcon={<IconMaterialAddRounded />}>Button two</Button>
               <Button startIcon={<IconMaterialAddRounded />}>Button three</Button>
               <Button startIcon={<IconMaterialAddRounded />}>Button four</Button>
               <Button startIcon={<IconMaterialAddRounded />}>Button five</Button>
-            </SegmentedButtons>
+            </ButtonGroup>
           </div>
 
           <div className={classNames([classes.row, classes.center])}>
-            <SegmentedButtons select='single' size='regular' color='secondary' version='outlined'>
+            <ButtonGroup select='single' size='regular' color='secondary' version='outlined'>
               <Button endIcon={<IconMaterialAddRounded />}>Button one</Button>
               <Button endIcon={<IconMaterialAddRounded />}>Button two</Button>
               <Button endIcon={<IconMaterialAddRounded />}>Button three</Button>
               <Button endIcon={<IconMaterialAddRounded />}>Button four</Button>
               <Button endIcon={<IconMaterialAddRounded />}>Button five</Button>
-            </SegmentedButtons>
+            </ButtonGroup>
           </div >
 
           <div className={classNames([classes.row, classes.center])}>
-            <SegmentedButtons select='single' size='large' color='secondary' version='filled' tonal>
+            <ButtonGroup select='single' size='large' color='secondary' version='filled' tonal>
               <Button startIcon={<IconMaterialAddRounded />} endIcon={<IconMaterialAddRounded />}>Button one</Button>
               <Button startIcon={<IconMaterialAddRounded />} endIcon={<IconMaterialAddRounded />}>Button two</Button>
               <Button startIcon={<IconMaterialAddRounded />} endIcon={<IconMaterialAddRounded />}>Button three</Button>
               <Button startIcon={<IconMaterialAddRounded />} endIcon={<IconMaterialAddRounded />}>Button four</Button>
               <Button startIcon={<IconMaterialAddRounded />} endIcon={<IconMaterialAddRounded />}>Button five</Button>
-            </SegmentedButtons>
+            </ButtonGroup>
           </div >
 
         </Accordion >
 
-        <Accordion label='Segmented buttons select single' open>
+        <Accordion label='Button group select single' open>
           <div className={classNames([classes.row, classes.center])}>
-            <SegmentedButtons color='secondary' version='filled' select='single' tonal>
+            <ButtonGroup color='secondary' version='filled' select='single' tonal>
               <Button>Button one</Button>
               <Button>Button two</Button>
               <Button>Button three</Button>
@@ -3602,13 +3628,13 @@ function App() {
               <Button>Button five</Button>
               <Button>Button seven</Button>
               <Button>Button fourteen</Button>
-            </SegmentedButtons>
+            </ButtonGroup>
           </div>
         </Accordion>
 
-        <Accordion label='Segmented buttons select multi' open>
+        <Accordion label='Button group select multi' open>
           <div className={classNames([classes.row, classes.center])}>
-            <SegmentedButtons version='filled' size='large' select='multi'>
+            <ButtonGroup version='filled' size='large' select='multi'>
               <Button>Button one</Button>
               <Button>Button two</Button>
               <Button>Button three</Button>
@@ -3616,7 +3642,7 @@ function App() {
               <Button>Button five</Button>
               <Button>Button seven</Button>
               <Button>Button fourteen</Button>
-            </SegmentedButtons>
+            </ButtonGroup>
           </div>
         </Accordion>
       </Accordion>
