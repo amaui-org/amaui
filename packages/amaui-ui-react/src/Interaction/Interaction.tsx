@@ -171,11 +171,7 @@ const Interaction = React.forwardRef((props_: any, ref: any) => {
     selected,
     wave_version,
 
-    className,
-
-    children,
-
-    ...oher
+    className
   } = props;
 
   React.useEffect(() => {

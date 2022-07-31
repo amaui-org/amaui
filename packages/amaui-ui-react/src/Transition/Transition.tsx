@@ -219,7 +219,7 @@ function Transition(props_: IProps) {
   }, [status]);
 
   React.useEffect(() => {
-    if (!in_ && noAbruption && ['enter', 'entering'].indexOf(status) > -1) {
+    if (!in_ && noAbruption && ['enter', 'entering'].indexOf(subs.current.status.value) > -1) {
       const method = (item: TTransitionStatus) => {
         if (item === 'entered') {
           setInProp(in_);
@@ -230,7 +230,7 @@ function Transition(props_: IProps) {
 
       subs.current.status.subscribe(method);
     }
-    else if (in_ && noAbruption && ['exit', 'exiting'].indexOf(status) > -1) {
+    else if (in_ && noAbruption && ['exit', 'exiting'].indexOf(subs.current.status.value) > -1) {
       const method = (item: TTransitionStatus) => {
         if (item === 'exited') {
           setInProp(in_);
@@ -241,7 +241,11 @@ function Transition(props_: IProps) {
 
       subs.current.status.subscribe(method);
     }
-    else if (in_ !== inProp) setInProp(in_);
+    else if (
+      (!in_ && noAbruption && subs.current.status.value === 'entered') ||
+      (in_ && noAbruption && subs.current.status.value === 'exited') ||
+      (in_ !== inProp)
+    ) setInProp(in_);
   }, [in_]);
 
   const update = async (status_: TTransitionStatus) => {
@@ -289,10 +293,10 @@ function Transition(props_: IProps) {
       // Reflow
       reflow(refs.root.current);
 
-      // Add adding class for animation
-      setTimeout(() => updateStatus('adding'));
+      // Prevent update batches
+      await wait(1);
 
-      await timeout('add');
+      updateStatus('adding');
 
       if (refs.status.current === status_) updateStatus('added');
     }
@@ -307,8 +311,10 @@ function Transition(props_: IProps) {
     // Reflow
     reflow(refs.root.current);
 
-    // Add entering class for animation
-    setTimeout(() => updateStatus('entering'));
+    // Prevent update batches
+    await wait(1);
+
+    updateStatus('entering');
 
     if (enter_) await timeout('enter');
 
@@ -324,7 +330,9 @@ function Transition(props_: IProps) {
     reflow(refs.root.current);
 
     // Prevent update batches
-    setTimeout(() => updateStatus('exiting'));
+    await wait(1);
+
+    updateStatus('exiting');
 
     if (exit_) await timeout('exit');
 
