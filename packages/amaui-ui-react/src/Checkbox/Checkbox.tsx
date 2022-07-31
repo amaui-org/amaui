@@ -10,6 +10,12 @@ import { IconDoneAnimated } from '../ButtonGroup/ButtonGroup';
 import { staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
+  root: {
+    '&$disabled': {
+      cursor: 'default'
+    }
+  },
+
   icon: {
     zIndex: 1,
     pointerEvents: 'none'
@@ -78,7 +84,7 @@ const useStyle = style(theme => ({
     alignItems: 'center',
     position: 'absolute',
     inset: 0,
-    width: '100%',
+    width: '100% !important',
     height: '100%',
     zIndex: 3,
 
@@ -259,7 +265,9 @@ const Checkbox = React.forwardRef((props_: any, ref: any) => {
           disabled && `AmauiCheckbox-disabled`
         ],
 
-        className
+        className,
+        classes.root,
+        disabled && classes.disabled
       ])}
 
       color={colorValue}

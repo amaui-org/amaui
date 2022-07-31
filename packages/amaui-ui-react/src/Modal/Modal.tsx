@@ -47,10 +47,10 @@ const useStyle = style(theme => ({
   fullScreen: {
     width: '100%',
     height: '100%',
-    borderRadius: 0,
-    maxWidth: 'unset',
-    maxHeight: 'unset',
-    margin: 0
+    borderRadius: '0 !important',
+    maxWidth: 'unset !important',
+    maxHeight: 'unset !important',
+    margin: '0 !important'
   },
 
   fullWidth: { width: `calc(100% - ${theme.methods.space.value('xl') * 2}px)` },
@@ -202,10 +202,10 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
             <div
               className={classNames([
                 staticClassName('Modal', theme) && [
-                  'AmauiModal-backgroud'
+                  'AmauiModal-background'
                 ],
 
-                classes.backgroud
+                classes.background
               ])}
 
               onClick={() => !disableBackgroundClose && onClose()}

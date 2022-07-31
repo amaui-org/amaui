@@ -45,12 +45,12 @@ const useStyle = style(theme => ({
   },
 
   hovered: {
-    background: 'currentcolor'
+    background: 'currentColor'
   },
 
   selected: {
     opacity: theme.palette.visual_contrast.default.opacity.selected,
-    background: 'currentcolor'
+    background: 'currentColor'
   },
 
   border: {
@@ -63,7 +63,7 @@ const useStyle = style(theme => ({
     ...other,
     opacity: 0.1,
     transform: 'scale(0)',
-    backgroundColor: 'currentcolor',
+    backgroundColor: 'currentColor',
     transition: theme.methods.transitions.make(['opacity', 'transform'], { duration: 'complex', timing_function: 'standard' }),
     borderRadius: '50%',
 

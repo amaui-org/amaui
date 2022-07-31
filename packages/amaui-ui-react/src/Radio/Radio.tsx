@@ -8,6 +8,12 @@ import IconButton from '../IconButton';
 import { staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
+  root: {
+    '&$disabled': {
+      cursor: 'default'
+    }
+  },
+
   icon: {
     zIndex: 1,
     pointerEvents: 'none'
@@ -158,7 +164,9 @@ const Radio = React.forwardRef((props_: any, ref: any) => {
           `AmauiRadio-color-unchecked-${!theme.palette.color[colorUnchecked] && colorUnchecked !== 'default' ? 'new' : colorUnchecked}`,
         ],
 
-        className
+        className,
+        classes.root,
+        disabled && classes.disabled
       ])}
 
       color={colorValue}
@@ -183,15 +191,13 @@ const Radio = React.forwardRef((props_: any, ref: any) => {
             'AmauiRadio-icon',
             'AmauiRadio-iconBox',
             `AmauiRadio-version-${version}`,
-            checked && `AmauiRadio-checked`,
             disabled && `AmauiRadio-disabled`
           ],
 
           classes.icon,
           classes.iconBox,
           classes[version],
-          disabled && classes.disabled,
-          checked && classes.checked
+          disabled && classes.disabled
         ])}
 
         style={styles.iconBox}

@@ -30,9 +30,6 @@ const Chip = React.forwardRef((props_: any, ref: any) => {
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiChip?.props?.default }), [props_]);
 
-  const [preSelected, setPreSelected] = React.useState(false);
-  const [selected, setSelected] = React.useState(false);
-
   const {
     input,
     filter,
@@ -44,6 +41,7 @@ const Chip = React.forwardRef((props_: any, ref: any) => {
     color = 'default',
     startIcon,
     onClick,
+    selected: selected_,
 
     className,
 
@@ -51,6 +49,9 @@ const Chip = React.forwardRef((props_: any, ref: any) => {
 
     ...other
   } = props;
+
+  const [preSelected, setPreSelected] = React.useState(false);
+  const [selected, setSelected] = React.useState(selected_);
 
   let children = children_;
 

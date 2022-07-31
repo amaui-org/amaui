@@ -101,7 +101,7 @@ const useStyle = style(theme => ({
     alignItems: 'center'
   },
   btn: {
-    transition: ['transform .4s ease', '!important'],
+    transition: 'transform .4s ease !important',
 
     '&:active': {
       transform: 'scale(0.91)'

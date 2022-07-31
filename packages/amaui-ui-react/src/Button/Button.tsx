@@ -66,7 +66,7 @@ const useStyle = style(theme => ({
 
   // Size
   small: {
-    padding: `${theme.methods.space.value('sm', 'px')} ${theme.methods.space.value('rg', 'px')}`
+    padding: `${theme.methods.space.value('sm', 'px', 0.5)} ${theme.methods.space.value('rg', 'px')}`
   },
 
   regular: {
@@ -219,8 +219,7 @@ const useStyle = style(theme => ({
 
   // Size
   label_size_small: {
-    gap: theme.methods.space.value('sm', 'px', -2),
-    lineHeight: 1.455
+    gap: theme.methods.space.value('sm', 'px', -2)
   },
 
   label_size_regular: {
@@ -402,7 +401,7 @@ const Button = React.forwardRef((props_: any, ref: any) => {
 
   // size
   if (size === 'small') {
-    styles.Icon.fontSize = '16px';
+    styles.Icon.fontSize = '15px';
 
     TypeProps.version = 'l3';
   }
@@ -465,12 +464,14 @@ const Button = React.forwardRef((props_: any, ref: any) => {
     else if (loadingIconPosition === 'end') endIcon = iconLoading;
   }
 
-  if (selected) InteractionProps.selected = selected;
-
   if (disabled) {
     InteractionProps.wave = false;
     InteractionProps.border = false;
     InteractionProps.background = false;
+
+    delete styles.root.color;
+    delete styles.label.color;
+    delete styles.background.background;
   }
 
   return (
@@ -502,7 +503,10 @@ const Button = React.forwardRef((props_: any, ref: any) => {
         endIcon && classes.endIcon,
         fullWidth && classes.fullWidth,
         elevation && !disabled && ['filled', 'tonal'].includes(version) && classes.elevation,
-        disabled && classes[`disabled_${version}`],
+        disabled && [
+          classes.disabled,
+          classes[`disabled_${version}`]
+        ],
         icon && [
           classes.icon,
           classes[`icon_size_${size}`]
@@ -550,6 +554,8 @@ const Button = React.forwardRef((props_: any, ref: any) => {
         border={false}
 
         pulse={focus}
+
+        selected={selected}
 
         {...InteractionProps}
       />

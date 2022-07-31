@@ -85,7 +85,7 @@ const useStyle = style(theme => ({
   },
 
   background_disabled: {
-    background: theme.palette.text.default.secondary
+    background: [theme.palette.text.default.secondary, '!important']
   },
 
   border: {
