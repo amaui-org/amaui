@@ -14,6 +14,7 @@ const useStyle = style(theme => ({
     zIndex: 1,
     pointerEvents: 'none'
   },
+
   iconBox: {
     width: '1em',
     height: '1em',
@@ -36,6 +37,7 @@ const useStyle = style(theme => ({
       border: 'none'
     }
   },
+
   iconItem: {
     position: 'absolute',
     width: 'calc(100% - 0.3em)',
@@ -69,13 +71,14 @@ const useStyle = style(theme => ({
       display: 'none'
     }
   },
+
   iconDone: {
     display: 'inline-flex',
     justifyContent: 'center',
     alignItems: 'center',
     position: 'absolute',
     inset: 0,
-    width: ['100%', '!important'],
+    width: '100%',
     height: '100%',
     zIndex: 3,
 

@@ -40,176 +40,171 @@ const useStyle = style(theme => ({
     '-webkit-appearance': 'none',
     appearance: 'none',
     border: 'none',
-    background: 'transparent',
+    background: 'transparent'
+  },
 
-    // Size
-    '&$small': {
-      padding: `${theme.methods.space.value('sm', 'px')} ${theme.methods.space.value('rg', 'px')}`,
+  // Color
+  default: { color: theme.palette.text.default.primary },
 
-      '&$chip': {
-        padding: `${theme.methods.space.value('sm', 'px', -4)} ${theme.methods.space.value('sm', 'px', 4)}`,
-        borderRadius: theme.methods.space.value('sm', 'px', -2)
-      }
-    },
+  neutral: { color: theme.palette.color.neutral.main },
 
-    '&$regular': {
-      padding: `${theme.methods.space.value('sm', 'px', 3)} ${theme.methods.space.value('md', 'px')}`,
+  primary: { color: theme.palette.color.primary.main },
 
-      '&$chip': {
-        padding: `${theme.methods.space.value('sm', 'px')} ${theme.methods.space.value('rg', 'px')}`,
-        borderRadius: theme.methods.space.value('sm', 'px')
-      }
-    },
+  secondary: { color: theme.palette.color.secondary.main },
 
-    '&$large': {
-      padding: `${theme.methods.space.value('rg', 'px')} ${theme.methods.space.value('lg', 'px')}`,
+  tertiary: { color: theme.palette.color.tertiary.main },
 
-      '&$chip': {
-        padding: `${theme.methods.space.value('sm', 'px', 1)} ${theme.methods.space.value('rg', 'px', 4)}`,
-        borderRadius: theme.methods.space.value('sm', 'px', 2)
-      }
-    },
+  quaternary: { color: theme.palette.color.quaternary.main },
 
-    // fab
-    '&$fab': {
-      '&$small': {
-        height: `${theme.space.unit * 5}px`,
-        minWidth: `${theme.space.unit * 8}px`,
-        borderRadius: theme.methods.shape.radius.value('rg', 'px', -4),
-        padding: theme.methods.shape.radius.value('sm', 'px', 4),
-      },
+  info: { color: theme.palette.color.info.main },
 
-      '&$regular': {
-        height: `${theme.space.unit * 7}px`,
-        minWidth: `${theme.space.unit * 10}px`,
-        borderRadius: theme.methods.shape.radius.value('rg'),
-        padding: theme.methods.space.value('rg', 'px')
-      },
+  success: { color: theme.palette.color.success.main },
 
-      '&$large': {
-        height: `${theme.space.unit * 9}px`,
-        minWidth: `${theme.space.unit * 12}px`,
-        borderRadius: theme.methods.shape.radius.value('rg', 'px', 4),
-        padding: theme.methods.space.value('md', 'px')
-      },
-    },
+  warning: { color: theme.palette.color.warning.main },
 
-    // icon
-    '&$icon': {
-      borderRadius: '50%',
-      padding: '0',
+  error: { color: theme.palette.color.error.main },
 
-      '&$small': {
-        width: theme.methods.space.value('lg', 'px', -2),
-        height: theme.methods.space.value('lg', 'px', -2)
-      },
+  // Size
+  small: {
+    padding: `${theme.methods.space.value('sm', 'px')} ${theme.methods.space.value('rg', 'px')}`
+  },
 
-      '&$regular': {
-        width: theme.methods.space.value('xl', 'px'),
-        height: theme.methods.space.value('xl', 'px')
-      },
+  regular: {
+    padding: `${theme.methods.space.value('sm', 'px', 3)} ${theme.methods.space.value('md', 'px')}`
+  },
 
-      '&$large': {
-        width: theme.methods.space.value('xxl', 'px', 2),
-        height: theme.methods.space.value('xxl', 'px', 2)
-      },
-    },
+  large: {
+    padding: `${theme.methods.space.value('rg', 'px')} ${theme.methods.space.value('lg', 'px')}`
+  },
 
-    // Color
-    '&$default': { color: theme.palette.text.default.primary },
+  // icon
+  icon: {
+    borderRadius: '50%',
+    padding: '0'
+  },
 
-    '&$neutral': { color: theme.palette.color.neutral.main },
+  icon_size_small: {
+    width: theme.methods.space.value('lg', 'px', -2),
+    height: theme.methods.space.value('lg', 'px', -2)
+  },
 
-    '&$primary': { color: theme.palette.color.primary.main },
+  icon_size_regular: {
+    width: theme.methods.space.value('xl', 'px'),
+    height: theme.methods.space.value('xl', 'px')
+  },
 
-    '&$secondary': { color: theme.palette.color.secondary.main },
+  icon_size_large: {
+    width: theme.methods.space.value('xxl', 'px', 2),
+    height: theme.methods.space.value('xxl', 'px', 2)
+  },
 
-    '&$tertiary': { color: theme.palette.color.tertiary.main },
+  // fab
+  fab_size_small: {
+    height: `${theme.space.unit * 5}px`,
+    minWidth: `${theme.space.unit * 8}px`,
+    borderRadius: theme.methods.shape.radius.value('rg', 'px', -4),
+    padding: theme.methods.shape.radius.value('sm', 'px', 4),
+  },
 
-    '&$quaternary': { color: theme.palette.color.quaternary.main },
+  fab_size_regular: {
+    height: `${theme.space.unit * 7}px`,
+    minWidth: `${theme.space.unit * 10}px`,
+    borderRadius: theme.methods.shape.radius.value('rg'),
+    padding: theme.methods.space.value('rg', 'px')
+  },
 
-    '&$info': { color: theme.palette.color.info.main },
+  fab_size_large: {
+    height: `${theme.space.unit * 9}px`,
+    minWidth: `${theme.space.unit * 12}px`,
+    borderRadius: theme.methods.shape.radius.value('rg', 'px', 4),
+    padding: theme.methods.space.value('md', 'px')
+  },
 
-    '&$success': { color: theme.palette.color.success.main },
+  // Chip
+  chip_size_small: {
+    padding: `${theme.methods.space.value('sm', 'px', -4)} ${theme.methods.space.value('sm', 'px', 4)}`,
+    borderRadius: theme.methods.space.value('sm', 'px', -2)
+  },
 
-    '&$warning': { color: theme.palette.color.warning.main },
+  chip_size_regular: {
+    padding: `${theme.methods.space.value('sm', 'px')} ${theme.methods.space.value('rg', 'px')}`,
+    borderRadius: theme.methods.space.value('sm', 'px')
+  },
 
-    '&$error': { color: theme.palette.color.error.main },
+  chip_size_large: {
+    padding: `${theme.methods.space.value('sm', 'px', 1)} ${theme.methods.space.value('rg', 'px', 4)}`,
+    borderRadius: theme.methods.space.value('sm', 'px', 2)
+  },
 
-    // Icons
-    '&$startIcon': {
-      paddingLeft: [0, '!important']
-    },
+  // Icons
+  startIcon: {
+    paddingLeft: 0
+  },
 
-    '&$endIcon': {
-      paddingRight: [0, '!important']
-    },
-
-    // Shadows
-    '&$elevation': {
-      boxShadow: theme.shadows.values.neutral[1],
-      transition: theme.methods.transitions.make('box-shadow'),
-
-      '&:hover': {
-        boxShadow: theme.shadows.values.neutral[3]
-      }
-    },
-
-    // Disabled
-    '&$disabled': {
-      cursor: 'default',
-
-      '&$filled': {
-        color: [theme.palette.text.neutral.primary, '!important'],
-        opacity: theme.palette.visual_contrast.default.opacity[theme.palette.light ? 'disabled' : 'active']
-      },
-
-      '&$tonal': {
-        color: [theme.palette.text.neutral.primary, '!important'],
-        opacity: theme.palette.visual_contrast.default.opacity[theme.palette.light ? 'disabled' : 'active']
-      },
-
-      '&$outlined': {
-        color: theme.palette.text.disabled
-      },
-
-      '&$text': {
-        color: theme.palette.text.disabled
-      }
-    }
+  endIcon: {
+    paddingRight: 0
   },
 
   fullWidth: {
     width: '100%'
   },
 
+  // Shadows
+  elevation: {
+    boxShadow: theme.shadows.values.neutral[1],
+    transition: theme.methods.transitions.make('box-shadow'),
+
+    '&:hover': {
+      boxShadow: theme.shadows.values.neutral[3]
+    }
+  },
+
+  // Disabled
+  disabled: {
+    cursor: 'default'
+  },
+
+  disabled_filled: {
+    color: theme.palette.text.neutral.primary,
+    opacity: theme.palette.visual_contrast.default.opacity[theme.palette.light ? 'disabled' : 'active']
+  },
+
+  disabled_tonal: {
+    color: theme.palette.text.neutral.primary,
+    opacity: theme.palette.visual_contrast.default.opacity[theme.palette.light ? 'disabled' : 'active']
+  },
+
+  disabled_outlined: {
+    color: theme.palette.text.disabled
+  },
+
+  disabled_text: {
+    color: theme.palette.text.disabled
+  },
+
   background: {
     ...other,
 
-    transition: theme.methods.transitions.make(['background']),
+    transition: theme.methods.transitions.make(['background'])
+  },
 
-    '&$disabled': {
-      '&$filled': {
-        background: [theme.palette.light ? theme.palette.text.divider : theme.palette.text.neutral.quaternary, '!important']
-      },
+  background_disabled_filled: {
+    background: theme.palette.light ? theme.palette.text.divider : theme.palette.text.neutral.quaternary
+  },
 
-      '&$tonal': {
-        background: [theme.palette.light ? theme.palette.text.divider : theme.palette.text.neutral.quaternary, '!important']
-      }
-    }
+  background_disabled_tonal: {
+    background: theme.palette.light ? theme.palette.text.divider : theme.palette.text.neutral.quaternary
   },
 
   border: {
     ...other,
     boxShadow: 'inset 0 0 0 1px currentColor',
 
-    transition: theme.methods.transitions.make(['boxShadow']),
+    transition: theme.methods.transitions.make(['boxShadow'])
+  },
 
-    '&$disabled': {
-      '&$outlined': {
-        opacity: theme.palette.visual_contrast.default.opacity[theme.palette.light ? 'quaternary' : 'secondary']
-      }
-    }
+  border_disabled_outlined: {
+    opacity: theme.palette.visual_contrast.default.opacity[theme.palette.light ? 'quaternary' : 'secondary']
   },
 
   // Label
@@ -219,21 +214,21 @@ const useStyle = style(theme => ({
     textTransform: 'capitalize',
     whiteSpace: 'nowrap',
     alignItems: 'center',
-    gap: theme.methods.space.value('sm', 'px'),
+    gap: theme.methods.space.value('sm', 'px')
+  },
 
-    // Size
-    '&$small': {
-      gap: theme.methods.space.value('sm', 'px', -2),
-      lineHeight: [1.455, '!important']
-    },
+  // Size
+  label_size_small: {
+    gap: theme.methods.space.value('sm', 'px', -2),
+    lineHeight: 1.455
+  },
 
-    '&$regular': {
-      gap: theme.methods.space.value('sm', 'px')
-    },
+  label_size_regular: {
+    gap: theme.methods.space.value('sm', 'px')
+  },
 
-    '&$large': {
-      gap: theme.methods.space.value('sm', 'px', 2)
-    }
+  label_size_large: {
+    gap: theme.methods.space.value('sm', 'px', 2)
   },
 
   // icon
@@ -248,59 +243,56 @@ const useStyle = style(theme => ({
   // Icon element
   Icon: {
     position: 'relative',
-    lineHeight: 0,
+    lineHeight: 0
+  },
 
-    '&$start': {
-      '&$small': {
-        padding: `0 ${theme.methods.space.value('sm', 'px', -3)} 0 ${theme.methods.space.value('sm', 'px', 3)}`,
+  start_size_small: {
+    padding: `0 ${theme.methods.space.value('sm', 'px', -3)} 0 ${theme.methods.space.value('sm', 'px', 3)}`
+  },
 
-        '&$chip': {
-          padding: `0 ${theme.methods.space.value('sm', 'px', -2)}`,
-        }
-      },
+  start_size_regular: {
+    padding: `0 ${theme.methods.space.value('sm', 'px')} 0 ${theme.methods.space.value('rg', 'px')}`
+  },
 
-      '&$regular': {
-        padding: `0 ${theme.methods.space.value('sm', 'px')} 0 ${theme.methods.space.value('rg', 'px')}`,
+  start_size_large: {
+    padding: `0 ${theme.methods.space.value('sm', 'px', 2)} 0 ${theme.methods.space.value('md', 'px', -2)}`
+  },
 
-        '&$chip': {
-          padding: `0 ${theme.methods.space.value('sm', 'px')}`,
-        }
-      },
+  end_size_small: {
+    padding: `0 ${theme.methods.space.value('sm', 'px', 3)} 0 ${theme.methods.space.value('sm', 'px', -3)}`
+  },
 
-      '&$large': {
-        padding: `0 ${theme.methods.space.value('sm', 'px', 2)} 0 ${theme.methods.space.value('md', 'px', -2)}`,
+  end_size_regular: {
+    padding: `0 ${theme.methods.space.value('rg', 'px')} 0 ${theme.methods.space.value('sm', 'px')}`
+  },
 
-        '&$chip': {
-          padding: `0 ${theme.methods.space.value('sm', 'px', 2)}`,
-        }
-      }
-    },
+  end_size_large: {
+    padding: `0 ${theme.methods.space.value('md', 'px', -2)} 0 ${theme.methods.space.value('sm', 'px', 2)}`
+  },
 
-    '&$end': {
-      '&$small': {
-        padding: `0 ${theme.methods.space.value('sm', 'px', 3)} 0 ${theme.methods.space.value('sm', 'px', -3)}`,
+  // Chip
+  chip_start_size_small: {
+    padding: `0 ${theme.methods.space.value('sm', 'px', -2)}`
+  },
 
-        '&$chip': {
-          padding: `0 ${theme.methods.space.value('sm', 'px', -2)}`,
-        }
-      },
+  chip_start_size_regular: {
+    padding: `0 ${theme.methods.space.value('sm', 'px')}`
+  },
 
-      '&$regular': {
-        padding: `0 ${theme.methods.space.value('rg', 'px')} 0 ${theme.methods.space.value('sm', 'px')}`,
+  chip_start_size_large: {
+    padding: `0 ${theme.methods.space.value('sm', 'px', 2)}`
+  },
 
-        '&$chip': {
-          padding: `0 ${theme.methods.space.value('sm', 'px')}`,
-        }
-      },
+  chip_end_size_small: {
+    padding: `0 ${theme.methods.space.value('sm', 'px', -2)}`
+  },
 
-      '&$large': {
-        padding: `0 ${theme.methods.space.value('md', 'px', -2)} 0 ${theme.methods.space.value('sm', 'px', 2)}`,
+  chip_end_size_regular: {
+    padding: `0 ${theme.methods.space.value('sm', 'px')}`
+  },
 
-        '&$chip': {
-          padding: `0 ${theme.methods.space.value('sm', 'px', 2)}`,
-        }
-      }
-    },
+  chip_end_size_large: {
+    padding: `0 ${theme.methods.space.value('sm', 'px', 2)}`
   }
 }), { name: 'AmauiButton' });
 
@@ -506,14 +498,23 @@ const Button = React.forwardRef((props_: any, ref: any) => {
         classes[color],
         classes[version],
         tonal && classes.tonal,
-        icon && classes.icon,
         startIcon && classes.startIcon,
         endIcon && classes.endIcon,
         fullWidth && classes.fullWidth,
         elevation && !disabled && ['filled', 'tonal'].includes(version) && classes.elevation,
-        disabled && classes.disabled,
-        fab && classes.fab,
-        chip && classes.chip
+        disabled && classes[`disabled_${version}`],
+        icon && [
+          classes.icon,
+          classes[`icon_size_${size}`]
+        ],
+        fab && [
+          classes.fab,
+          classes[`fab_size_${size}`]
+        ],
+        chip && [
+          classes.chip,
+          classes[`chip_size_${size}`]
+        ]
       ])}
 
       style={{
@@ -534,15 +535,11 @@ const Button = React.forwardRef((props_: any, ref: any) => {
           className={classNames([
             staticClassName('Button', theme) && [
               'AmauiButton-backgroud',
-              `AmauiButton-version-${version}`,
-              tonal && `AmauiButton-tonal`,
-              disabled && `AmauiButton-disabled`
+              disabled && `AmauiButton-background-disabled`
             ],
 
             classes.background,
-            classes[version],
-            tonal && classes.tonal,
-            disabled && classes.disabled
+            disabled && classes[`background_disabled_${version}`]
           ])}
 
           style={styles.background}
@@ -567,8 +564,8 @@ const Button = React.forwardRef((props_: any, ref: any) => {
 
           classes.Icon,
           classes.start,
-          classes[size],
-          chip && classes.chip
+          classes[`start_size_${size}`],
+          chip && classes[`chip_start_size_${size}`]
         ])}>
           {React.cloneElement(startIcon, { style: styles.Icon })}
         </span>
@@ -597,8 +594,7 @@ const Button = React.forwardRef((props_: any, ref: any) => {
             ],
 
             classes.label,
-            classes[size],
-            chip && classes.chip
+            classes[`label_size_${size}`]
           ])}
 
           Component='span'
@@ -621,8 +617,8 @@ const Button = React.forwardRef((props_: any, ref: any) => {
 
           classes.Icon,
           classes.end,
-          classes[size],
-          chip && classes.chip
+          classes[`end_size_${size}`],
+          chip && classes[`chip_end_size_${size}`]
         ])}>
           {React.cloneElement(endIcon, { style: styles.Icon })}
         </span>
@@ -633,15 +629,11 @@ const Button = React.forwardRef((props_: any, ref: any) => {
           className={classNames([
             staticClassName('Button', theme) && [
               'AmauiButton-border',
-              `AmauiButton-version-${version}`,
-              tonal && `AmauiButton-tonal`,
-              disabled && `AmauiButton-disabled`
+              disabled && `AmauiButton-border-disabled`
             ],
 
             classes.border,
-            classes[version],
-            tonal && classes.tonal,
-            disabled && classes.disabled
+            disabled && classes[`border_disabled_${version}`]
           ])}
 
           style={styles.border}

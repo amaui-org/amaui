@@ -12,18 +12,19 @@ const useStyle = style(theme => ({
   root: {
     display: 'inline-flex',
     position: 'relative',
-    borderRadius: theme.methods.space.value('xl', 'px'),
+    borderRadius: theme.methods.space.value('xl', 'px')
+  },
 
-    // Shadows
-    '&$elevation': {
-      boxShadow: theme.shadows.values.neutral[1],
-      transition: theme.methods.transitions.make('box-shadow'),
+  // Shadows
+  elevation: {
+    boxShadow: theme.shadows.values.neutral[1],
+    transition: theme.methods.transitions.make('box-shadow'),
 
-      '&:hover': {
-        boxShadow: theme.shadows.values.neutral[3]
-      }
+    '&:hover': {
+      boxShadow: theme.shadows.values.neutral[3]
     }
   },
+
   left: {
     '&:not(:first-of-type)': {
       borderTopLeftRadius: '0px',
@@ -38,12 +39,14 @@ const useStyle = style(theme => ({
       }
     },
   },
+
   right: {
     '&:not(:last-of-type)': {
       borderTopRightRadius: '0px',
       borderBottomRightRadius: '0px'
     }
   },
+
   path: {
     strokeWidth: '2.5px',
     strokeDasharray: 30,
@@ -51,6 +54,7 @@ const useStyle = style(theme => ({
     stroke: 'currentcolor',
     transition: theme.methods.transitions.make('stroke-dashoffset', { duration: 'xxs', timing_function: 'accelerated' })
   },
+
   pathIn: {
     strokeDashoffset: 0,
     transition: theme.methods.transitions.make('stroke-dashoffset', { duration: 'xxs', delay: 45, timing_function: 'accelerated' })

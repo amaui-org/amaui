@@ -9,12 +9,12 @@ import { staticClassName } from '../utils';
 const useStyle = style(theme => ({
   root: {
     display: 'flex',
-    flexDirection: 'row-reverse',
+    flexDirection: 'row-reverse'
+  },
 
-    '&$disabled': {
-      pointerEvents: 'none',
-      opacity: theme.palette.visual_contrast.default.opacity.disabled
-    }
+  disabled: {
+    pointerEvents: 'none',
+    opacity: theme.palette.visual_contrast.default.opacity.disabled
   },
 
   item: {

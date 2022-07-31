@@ -41,16 +41,16 @@ const useStyle = style(theme => ({
   background: {
     ...other,
     opacity: theme.palette.visual_contrast.default.opacity.hover,
-    transition: theme.methods.transitions.make(['opacity', 'background'], { duration: 'rg', timing_function: 'standard' }),
+    transition: theme.methods.transitions.make(['opacity', 'background'], { duration: 'rg', timing_function: 'standard' })
+  },
 
-    '&$hovered': {
-      background: 'currentcolor'
-    },
+  hovered: {
+    background: 'currentcolor'
+  },
 
-    '&$selected': {
-      opacity: theme.palette.visual_contrast.default.opacity.selected,
-      background: 'currentcolor'
-    }
+  selected: {
+    opacity: theme.palette.visual_contrast.default.opacity.selected,
+    background: 'currentcolor'
   },
 
   border: {
@@ -72,20 +72,9 @@ const useStyle = style(theme => ({
       transform: 'scale(1)',
     },
 
-    '&$pulse.entering': {
-      opacity: theme.palette.visual_contrast.default.opacity.quaternary,
-      transform: 'scale(0.77)',
-    },
-
     '&.entered': {
       opacity: theme.palette.visual_contrast.default.opacity.quaternary,
       transform: 'scale(1)',
-    },
-
-    '&$pulse.entered': {
-      opacity: theme.palette.visual_contrast.default.opacity.quaternary,
-      transform: 'scale(0.77)',
-      animation: `$pulse 2400ms ${theme.transitions.timing_function.emphasized} 240ms infinite`,
     },
 
     '&.exit': {
@@ -93,30 +82,43 @@ const useStyle = style(theme => ({
       transform: 'scale(1)',
     },
 
-    '&$pulse.exit': {
+    '&.exiting': {
+      opacity: 0,
+      transform: 'scale(1)',
+    },
+
+    '&.exited': {
+      opacity: 0,
+      transform: 'scale(1)',
+    }
+  },
+
+  pulse: {
+    '&.entering': {
+      opacity: theme.palette.visual_contrast.default.opacity.quaternary,
+      transform: 'scale(0.77)',
+    },
+
+    '&.entered': {
+      opacity: theme.palette.visual_contrast.default.opacity.quaternary,
+      transform: 'scale(0.77)',
+      animation: `$pulse 2400ms ${theme.transitions.timing_function.emphasized} 240ms infinite`,
+    },
+
+    '&.exit': {
       opacity: theme.palette.visual_contrast.default.opacity.quaternary,
       transform: 'scale(0.7)'
     },
 
     '&.exiting': {
       opacity: 0,
-      transform: 'scale(1)',
-    },
-
-    '&$pulse.exiting': {
-      opacity: 0,
       transform: 'scale(0.7)'
     },
 
     '&.exited': {
       opacity: 0,
-      transform: 'scale(1)',
-    },
-
-    '&$pulse.exited': {
-      opacity: 0,
       transform: 'scale(0.7)'
-    },
+    }
   },
 
   waveSimple: {

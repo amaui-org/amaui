@@ -12,54 +12,38 @@ const useStyle = style(theme => ({
 
     '&:not(:last-child)': {
       marginBottom: '0.4em'
-    },
-
-    '&$d1': {
-      ...theme.typography.values.d1
-    },
-    '&$d2': {
-      ...theme.typography.values.d2
-    },
-    '&$d3': {
-      ...theme.typography.values.d3
-    },
-    '&$h1': {
-      ...theme.typography.values.h1
-    },
-    '&$h2': {
-      ...theme.typography.values.h2
-    },
-    '&$h3': {
-      ...theme.typography.values.h3
-    },
-    '&$t1': {
-      ...theme.typography.values.t1
-    },
-    '&$t2': {
-      ...theme.typography.values.t2
-    },
-    '&$t3': {
-      ...theme.typography.values.t3
-    },
-    '&$l1': {
-      ...theme.typography.values.l1
-    },
-    '&$l2': {
-      ...theme.typography.values.l2
-    },
-    '&$l3': {
-      ...theme.typography.values.l3
-    },
-    '&$b1': {
-      ...theme.typography.values.b1
-    },
-    '&$b2': {
-      ...theme.typography.values.b2
-    },
-    '&$b3': {
-      ...theme.typography.values.b3
     }
-  }
+  },
+
+  d1: { ...theme.typography.values.d1 },
+
+  d2: { ...theme.typography.values.d2 },
+
+  d3: { ...theme.typography.values.d3 },
+
+  h1: { ...theme.typography.values.h1 },
+
+  h2: { ...theme.typography.values.h2 },
+
+  h3: { ...theme.typography.values.h3 },
+
+  t1: { ...theme.typography.values.t1 },
+
+  t2: { ...theme.typography.values.t2 },
+
+  t3: { ...theme.typography.values.t3 },
+
+  l1: { ...theme.typography.values.l1 },
+
+  l2: { ...theme.typography.values.l2 },
+
+  l3: { ...theme.typography.values.l3 },
+
+  b1: { ...theme.typography.values.b1 },
+
+  b2: { ...theme.typography.values.b2 },
+
+  b3: { ...theme.typography.values.b3 }
 }), { name: 'AmauiType' });
 
 const Type = React.forwardRef((props_: any, ref: any) => {

@@ -12,12 +12,14 @@ const useStyle = style(theme => ({
     zIndex: 1,
     pointerEvents: 'none'
   },
+
   iconBox: {
     width: '1em',
     height: '1em',
     border: '0.12em solid currentColor',
     borderRadius: '50%'
   },
+
   iconDot: {
     display: 'inline-flex',
     justifyContent: 'center',
@@ -30,11 +32,11 @@ const useStyle = style(theme => ({
     borderRadius: '50%',
     zIndex: 3,
     transform: 'scale(0)',
-    transition: theme.methods.transitions.make('transform', { duration: 'xxs' }),
+    transition: theme.methods.transitions.make('transform', { duration: 'xxs' })
+  },
 
-    '&$checked': {
-      transform: 'scale(0.5)'
-    }
+  checked: {
+    transform: 'scale(0.5)'
   }
 }), { name: 'AmauiRadio' });
 

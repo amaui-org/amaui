@@ -24,10 +24,12 @@ const useStyle = style(theme => ({
 
     transition: theme.methods.transitions.make(['fill', 'transform', 'filter'], { duration: 'sm', timing_function: 'standard' })
   },
+
   rtl: {
     transform: 'scaleX(-1)',
     filter: 'FlipH'
   },
+
   disabled: {
     opacity: theme.palette.visual_contrast.default.opacity.disabled
   }

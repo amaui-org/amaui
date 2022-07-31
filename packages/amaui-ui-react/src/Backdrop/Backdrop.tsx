@@ -17,18 +17,20 @@ const useStyle = style(theme => ({
     inset: 0,
     zIndex: theme.z_index.modal
   },
+
   background: {
     position: 'absolute',
     inset: 0,
     width: '100%',
     height: '100%',
     background: 'rgba(0, 0, 0, 0.44)',
-    zIndex: -1,
-
-    '&$invisible': {
-      background: 'transparent'
-    }
+    zIndex: -1
   },
+
+  invisible: {
+    background: 'transparent'
+  },
+
   backdropRoot: {
     position: 'relative',
     height: '100%',

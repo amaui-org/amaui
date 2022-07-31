@@ -13,149 +13,148 @@ const useStyle = style(theme => ({
   badge: {
     position: 'absolute',
     padding: `${theme.space.unit / 2}px ${theme.space.unit - 2}px ${(theme.space.unit / 2) - 1}px`,
-    lineHeight: [1, '!important'],
+    lineHeight: 1,
     borderRadius: theme.methods.space.value('rg', 'px'),
     transition: theme.methods.transitions.make('transform'),
     pointerEvents: 'none',
-    userSelect: 'none',
+    userSelect: 'none'
+  },
 
-    // Color
-    '&$default': {
-      color: theme.palette.background.default.primary,
-      backgroundColor: theme.palette.text.default.primary,
-    },
+  // Color
+  default: {
+    color: theme.palette.background.default.primary,
+    backgroundColor: theme.palette.text.default.primary,
+  },
 
-    '&$neutral': {
-      color: theme.methods.palette.color.text(theme.palette.color.neutral.main, true, 'light'),
-      backgroundColor: theme.palette.color.neutral.main,
-    },
+  neutral: {
+    color: theme.methods.palette.color.text(theme.palette.color.neutral.main, true, 'light'),
+    backgroundColor: theme.palette.color.neutral.main,
+  },
 
-    '&$primary': {
-      color: theme.methods.palette.color.text(theme.palette.color.primary.main, true, 'light'),
-      backgroundColor: theme.palette.color.primary.main,
-    },
+  primary: {
+    color: theme.methods.palette.color.text(theme.palette.color.primary.main, true, 'light'),
+    backgroundColor: theme.palette.color.primary.main,
+  },
 
-    '&$secondary': {
-      color: theme.methods.palette.color.text(theme.palette.color.secondary.main, true, 'light'),
-      backgroundColor: theme.palette.color.secondary.main,
-    },
+  secondary: {
+    color: theme.methods.palette.color.text(theme.palette.color.secondary.main, true, 'light'),
+    backgroundColor: theme.palette.color.secondary.main,
+  },
 
-    '&$tertiary': {
-      color: theme.methods.palette.color.text(theme.palette.color.tertiary.main, true, 'light'),
-      backgroundColor: theme.palette.color.tertiary.main,
-    },
+  tertiary: {
+    color: theme.methods.palette.color.text(theme.palette.color.tertiary.main, true, 'light'),
+    backgroundColor: theme.palette.color.tertiary.main,
+  },
 
-    '&$quaternary': {
-      color: theme.methods.palette.color.text(theme.palette.color.quaternary.main, true, 'light'),
-      backgroundColor: theme.palette.color.quaternary.main,
-    },
+  quaternary: {
+    color: theme.methods.palette.color.text(theme.palette.color.quaternary.main, true, 'light'),
+    backgroundColor: theme.palette.color.quaternary.main,
+  },
 
-    '&$info': {
-      color: theme.methods.palette.color.text(theme.palette.color.info.main, true, 'light'),
-      backgroundColor: theme.palette.color.info.main,
-    },
+  info: {
+    color: theme.methods.palette.color.text(theme.palette.color.info.main, true, 'light'),
+    backgroundColor: theme.palette.color.info.main,
+  },
 
-    '&$success': {
-      color: theme.methods.palette.color.text(theme.palette.color.success.main, true, 'light'),
-      backgroundColor: theme.palette.color.success.main,
-    },
+  success: {
+    color: theme.methods.palette.color.text(theme.palette.color.success.main, true, 'light'),
+    backgroundColor: theme.palette.color.success.main,
+  },
 
-    '&$warning': {
-      color: theme.methods.palette.color.text(theme.palette.color.warning.main, true, 'light'),
-      backgroundColor: theme.palette.color.warning.main,
-    },
+  warning: {
+    color: theme.methods.palette.color.text(theme.palette.color.warning.main, true, 'light'),
+    backgroundColor: theme.palette.color.warning.main,
+  },
 
-    '&$error': {
-      color: theme.methods.palette.color.text(theme.palette.color.error.main, true, 'light'),
-      backgroundColor: theme.palette.color.error.main,
-    },
+  error: {
+    color: theme.methods.palette.color.text(theme.palette.color.error.main, true, 'light'),
+    backgroundColor: theme.palette.color.error.main,
+  },
 
-    '&$tonal': {
-      '&$neutral': {
-        color: theme.methods.palette.color.value('neutral', 90),
-        backgroundColor: theme.methods.palette.color.value('neutral', 30),
-      },
+  // Tonal
+  tonal_neutral: {
+    color: theme.methods.palette.color.value('neutral', 90),
+    backgroundColor: theme.methods.palette.color.value('neutral', 30),
+  },
 
-      '&$primary': {
-        color: theme.methods.palette.color.value('primary', 90),
-        backgroundColor: theme.methods.palette.color.value('primary', 30),
-      },
+  tonal_primary: {
+    color: theme.methods.palette.color.value('primary', 90),
+    backgroundColor: theme.methods.palette.color.value('primary', 30),
+  },
 
-      '&$secondary': {
-        color: theme.methods.palette.color.value('secondary', 90),
-        backgroundColor: theme.methods.palette.color.value('secondary', 30),
-      },
+  tonal_secondary: {
+    color: theme.methods.palette.color.value('secondary', 90),
+    backgroundColor: theme.methods.palette.color.value('secondary', 30),
+  },
 
-      '&$tertiary': {
-        color: theme.methods.palette.color.value('tertiary', 90),
-        backgroundColor: theme.methods.palette.color.value('tertiary', 30),
-      },
+  tonal_tertiary: {
+    color: theme.methods.palette.color.value('tertiary', 90),
+    backgroundColor: theme.methods.palette.color.value('tertiary', 30),
+  },
 
-      '&$quaternary': {
-        color: theme.methods.palette.color.value('quaternary', 90),
-        backgroundColor: theme.methods.palette.color.value('quaternary', 30),
-      },
+  tonal_quaternary: {
+    color: theme.methods.palette.color.value('quaternary', 90),
+    backgroundColor: theme.methods.palette.color.value('quaternary', 30),
+  },
 
-      '&$info': {
-        color: theme.methods.palette.color.value('info', 90),
-        backgroundColor: theme.methods.palette.color.value('info', 30),
-      },
+  tonal_info: {
+    color: theme.methods.palette.color.value('info', 90),
+    backgroundColor: theme.methods.palette.color.value('info', 30),
+  },
 
-      '&$success': {
-        color: theme.methods.palette.color.value('success', 90),
-        backgroundColor: theme.methods.palette.color.value('success', 30),
-      },
+  tonal_success: {
+    color: theme.methods.palette.color.value('success', 90),
+    backgroundColor: theme.methods.palette.color.value('success', 30),
+  },
 
-      '&$warning': {
-        color: theme.methods.palette.color.value('warning', 90),
-        backgroundColor: theme.methods.palette.color.value('warning', 30),
-      },
+  tonal_warning: {
+    color: theme.methods.palette.color.value('warning', 90),
+    backgroundColor: theme.methods.palette.color.value('warning', 30),
+  },
 
-      '&$error': {
-        color: theme.methods.palette.color.value('error', 90),
-        backgroundColor: theme.methods.palette.color.value('error', 30),
-      }
-    },
+  tonal_error: {
+    color: theme.methods.palette.color.value('error', 90),
+    backgroundColor: theme.methods.palette.color.value('error', 30),
+  },
 
-    // Vertical & horizontal
-    '&$left': {
-      left: 0
-    },
+  // Vertical & horizontal
+  left: {
+    left: 0
+  },
 
-    '&$right': {
-      right: 0
-    },
+  right: {
+    right: 0
+  },
 
-    '&$top': {
-      top: 0,
+  top: {
+    top: 0
+  },
 
-      '&$right': {
-        transform: 'translate(50%, -50%)'
-      },
+  top_right: {
+    transform: 'translate(50%, -50%)'
+  },
 
-      '&$left': {
-        transform: 'translate(-50%, -50%)'
-      }
-    },
+  top_left: {
+    transform: 'translate(-50%, -50%)'
+  },
 
-    '&$bottom': {
-      bottom: 0,
+  bottom: {
+    bottom: 0
+  },
 
-      '&$right': {
-        transform: 'translate(50%, 50%)'
-      },
+  bottom_right: {
+    transform: 'translate(50%, 50%)'
+  },
 
-      '&$left': {
-        transform: 'translate(-50%, 50%)'
-      }
-    },
+  bottom_left: {
+    transform: 'translate(-50%, 50%)'
+  },
 
-    '&$indicator': {
-      height: theme.methods.space.value('sm', 'px'),
-      width: theme.methods.space.value('sm', 'px'),
-      padding: '0',
-      borderRadius: '50%'
-    }
+  indicator: {
+    height: theme.methods.space.value('sm', 'px'),
+    width: theme.methods.space.value('sm', 'px'),
+    padding: '0',
+    borderRadius: '50%'
   }
 }), { name: 'AmauiBadge' });
 
@@ -240,10 +239,11 @@ const Badge = React.forwardRef((props_: any, ref: any) => {
 
           classes.badge,
           classes[color],
-          tonal && classes.tonal,
-          indicator && classes.indicator,
           classes[vertical],
-          classes[horizontal]
+          classes[horizontal],
+          classes[`${vertical}_${horizontal}`],
+          tonal && classes[`tonal_${color}`],
+          indicator && classes.indicator
         ])}
 
         Component='span'

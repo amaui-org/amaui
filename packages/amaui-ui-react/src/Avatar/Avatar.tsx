@@ -10,11 +10,11 @@ import { staticClassName } from '../utils';
 const useStyle = style(theme => ({
   root: {
     cursor: 'default',
-    overflow: 'hidden',
+    overflow: 'hidden'
+  },
 
-    '&$square': {
-      borderRadius: [0, '!important']
-    }
+  square: {
+    borderRadius: 0
   },
 
   image: {

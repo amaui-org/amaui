@@ -102,59 +102,59 @@ const useStyle = style(theme => ({
     height: '4px',
     position: 'relative',
     overflow: 'hidden',
-    transformOrigin: '0 0',
-
-    // Reverse
-    '&$reverse': {
-      transformOrigin: '100% 0'
-    },
-
-    // Color
-    '&$default': { color: theme.palette.text.default.primary },
-
-    '&$neutral': { color: theme.palette.color.neutral.main },
-
-    '&$primary': { color: theme.palette.color.primary.main },
-
-    '&$secondary': { color: theme.palette.color.secondary.main },
-
-    '&$tertiary': { color: theme.palette.color.tertiary.main },
-
-    '&$quaternary': { color: theme.palette.color.quaternary.main },
-
-    '&$info': { color: theme.palette.color.info.main },
-
-    '&$success': { color: theme.palette.color.success.main },
-
-    '&$warning': { color: theme.palette.color.warning.main },
-
-    '&$error': { color: theme.palette.color.error.main },
-
-    '&$tonal': {
-      '&$neutral': { color: theme.methods.palette.color.value('neutral', 70) },
-
-      '&$primary': { color: theme.methods.palette.color.value('primary', 70) },
-
-      '&$secondary': { color: theme.methods.palette.color.value('secondary', 70) },
-
-      '&$tertiary': { color: theme.methods.palette.color.value('tertiary', 70) },
-
-      '&$quaternary': { color: theme.methods.palette.color.value('quaternary', 70) },
-
-      '&$info': { color: theme.methods.palette.color.value('info', 70) },
-
-      '&$success': { color: theme.methods.palette.color.value('success', 70) },
-
-      '&$warning': { color: theme.methods.palette.color.value('warning', 70) },
-
-      '&$error': { color: theme.methods.palette.color.value('error', 70) }
-    }
+    transformOrigin: '0 0'
   },
+
+  // Reverse
+  reverse: {
+    transformOrigin: '100% 0'
+  },
+
+  // Color
+  default: { color: theme.palette.text.default.primary },
+
+  neutral: { color: theme.palette.color.neutral.main },
+
+  primary: { color: theme.palette.color.primary.main },
+
+  secondary: { color: theme.palette.color.secondary.main },
+
+  tertiary: { color: theme.palette.color.tertiary.main },
+
+  quaternary: { color: theme.palette.color.quaternary.main },
+
+  info: { color: theme.palette.color.info.main },
+
+  success: { color: theme.palette.color.success.main },
+
+  warning: { color: theme.palette.color.warning.main },
+
+  error: { color: theme.palette.color.error.main },
+
+  tonal_neutral: { color: theme.methods.palette.color.value('neutral', 70) },
+
+  tonal_primary: { color: theme.methods.palette.color.value('primary', 70) },
+
+  tonal_secondary: { color: theme.methods.palette.color.value('secondary', 70) },
+
+  tonal_tertiary: { color: theme.methods.palette.color.value('tertiary', 70) },
+
+  tonal_quaternary: { color: theme.methods.palette.color.value('quaternary', 70) },
+
+  tonal_info: { color: theme.methods.palette.color.value('info', 70) },
+
+  tonal_success: { color: theme.methods.palette.color.value('success', 70) },
+
+  tonal_warning: { color: theme.methods.palette.color.value('warning', 70) },
+
+  tonal_error: { color: theme.methods.palette.color.value('error', 70) },
+
   line: {
     ...other,
     transition: theme.methods.transitions.make('transform'),
     background: 'currentColor'
   },
+
   lineIndeterminate: {
     ...other,
     width: '100%',
@@ -162,12 +162,14 @@ const useStyle = style(theme => ({
     transformOrigin: 'initial',
     animation: '$line 2s infinite linear'
   },
+
   inner: {
     ...other,
     width: '100%',
     background: 'currentColor',
     animation: '$inner 2s infinite linear'
   },
+
   lineIndeterminate1: {
     ...other,
     width: '100%',
@@ -175,27 +177,30 @@ const useStyle = style(theme => ({
     transformOrigin: 'initial',
     animation: '$line1 2s infinite linear'
   },
+
   inner1: {
     ...other,
     width: '100%',
     background: 'currentColor',
     animation: '$inner1 2s infinite linear'
   },
+
   buffer: {
     ...other,
     background: theme.palette.color.neutral[theme.palette.light ? 90 : 20],
     transition: theme.methods.transitions.make('transform')
   },
+
   bufferDots: {
     ...other,
     backgroundImage: `radial-gradient(2px 2px at center, ${theme.palette.color.neutral[theme.palette.light ? 90 : 20]} 4px, transparent 4px)`,
     backgroundSize: '10px 4px',
-    animation: '$bufferDots .3s infinite linear',
+    animation: '$bufferDots .3s infinite linear'
+  },
 
-    // Reverse
-    '&$reverse': {
-      animation: '$bufferDotsInverse .3s infinite linear',
-    }
+  // Reverse
+  bufferDots_reverse: {
+    animation: '$bufferDotsInverse .3s infinite linear',
   }
 }), { name: 'AmauiLinearProgress' });
 
@@ -269,7 +274,7 @@ const LinearProgress = React.forwardRef((props_: any, ref: any) => {
 
         classes.root,
         classes[color],
-        tonal && classes.tonal,
+        tonal && classes[`tonal_${color}`],
         reverse && classes.reverse,
         className
       ])}
@@ -287,7 +292,7 @@ const LinearProgress = React.forwardRef((props_: any, ref: any) => {
             ],
 
             classes.bufferDots,
-            reverse && classes.reverse
+            reverse && classes.bufferDots_reverse
           ])}
         />
       )}

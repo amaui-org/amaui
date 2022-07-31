@@ -15,33 +15,33 @@ const useStyle = style(theme => ({
     display: 'flex',
     flexShrink: 0,
     background: theme.methods.palette.color.colorToRgb(theme.palette.text.default.primary, theme.palette.visual_contrast.default.opacity.divider),
-    transition: theme.methods.transitions.make('background'),
+    transition: theme.methods.transitions.make('background')
+  },
 
-    // Orientation
-    '&$horizontal': {
-      height: '1px',
-      width: '100%',
+  inset: {
+    marginLeft: `${theme.space.unit * 9}px`,
+    width: `calc(100% - ${theme.space.unit * 9}px)`
+  },
 
-      '&$inset': {
-        marginLeft: `${theme.space.unit * 9}px`,
-        width: `calc(100% - ${theme.space.unit * 9}px)`
-      },
+  // Orientation
+  horizontal: {
+    height: '1px',
+    width: '100%'
+  },
 
-      '&$middle': {
-        margin: `0 ${theme.methods.space.value('rg', 'px')}`,
-        width: `calc(100% - ${theme.methods.space.value('rg') * 2}px)`
-      }
-    },
+  horizontal_middle: {
+    margin: `0 ${theme.methods.space.value('rg', 'px')}`,
+    width: `calc(100% - ${theme.methods.space.value('rg') * 2}px)`
+  },
 
-    '&$vertical': {
-      height: '100%',
-      width: '1px',
+  vertical: {
+    height: '100%',
+    width: '1px'
+  },
 
-      '&$middle': {
-        margin: `${theme.methods.space.value('rg', 'px')} 0`,
-        height: `calc(100% - ${theme.methods.space.value('rg') * 2}px)`
-      }
-    }
+  vertical_middle: {
+    margin: `${theme.methods.space.value('rg', 'px')} 0`,
+    height: `calc(100% - ${theme.methods.space.value('rg') * 2}px)`
   },
 
   rootWithChildren: {
@@ -51,56 +51,56 @@ const useStyle = style(theme => ({
     height: 'unset',
     width: 'unset',
     margin: 0,
-    border: 'none',
+    border: 'none'
+  },
 
-    // Orientation
-    '&$horizontal': {
-      flexDirection: 'row',
-      alignItems: 'center',
-      width: '100%',
+  // Orientation
+  rootWithChildren_horizontal: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: '100%'
+  },
 
-      '&$middle': {
-        margin: `0 ${theme.methods.space.value('rg', 'px')}`,
-        width: `calc(100% - ${theme.methods.space.value('rg') * 2}px)`
-      }
-    },
+  rootWithChildren_horizontal_middle: {
+    margin: `0 ${theme.methods.space.value('rg', 'px')}`,
+    width: `calc(100% - ${theme.methods.space.value('rg') * 2}px)`
+  },
 
-    '&$vertical': {
-      flexDirection: 'column',
-      alignItems: 'center',
-      height: '100%',
+  rootWithChildren_vertical: {
+    flexDirection: 'column',
+    alignItems: 'center',
+    height: '100%'
+  },
 
-      '&$middle': {
-        margin: `${theme.methods.space.value('rg', 'px')} 0`,
-        height: `calc(100% - ${theme.methods.space.value('rg') * 2}px)`
-      }
-    }
+  rootWithChildren_vertical_middle: {
+    margin: `${theme.methods.space.value('rg', 'px')} 0`,
+    height: `calc(100% - ${theme.methods.space.value('rg') * 2}px)`
   },
 
   text: {
-    flex: '0 0 auto',
+    flex: '0 0 auto'
+  },
 
-    // Orientation
-    '&$horizontal': {
-      margin: `0 ${theme.methods.space.value('rg', 'px')}`,
-    },
+  // Orientation
+  text_horizontal: {
+    margin: `0 ${theme.methods.space.value('rg', 'px')}`,
+  },
 
-    '&$vertical': {
-      margin: `${theme.methods.space.value('rg', 'px')} 0`,
-    }
+  text_vertical: {
+    margin: `${theme.methods.space.value('rg', 'px')} 0`,
   },
 
   divider: {
-    flex: '0 1 100%',
+    flex: '0 1 100%'
+  },
 
-    // Orientation
-    '&$horizontal': {
-      height: '1px'
-    },
+  // Orientation
+  divider_horizontal: {
+    height: '1px'
+  },
 
-    '&$vertical': {
-      width: '1px'
-    }
+  divider_vertical: {
+    width: '1px'
   }
 }), { name: 'AmauiDivider' });
 
@@ -181,9 +181,9 @@ const Divider = React.forwardRef((props_: any, ref: any) => {
         className,
         classes[children ? 'rootWithChildren' : 'root'],
         classes[color],
-        classes[orientation],
+        classes[`${children ? 'rootWithChildren_' : ''}${orientation}`],
         inset && classes.inset,
-        middle && classes.middle
+        middle && classes[`${children ? `rootWithChildren_` : ''}${orientation}_middle`]
       ])}
 
       style={{
@@ -203,7 +203,7 @@ const Divider = React.forwardRef((props_: any, ref: any) => {
             ],
 
             classes.divider,
-            classes[orientation]
+            classes[`divider_${orientation}`]
           ])}
 
           style={{
@@ -223,7 +223,7 @@ const Divider = React.forwardRef((props_: any, ref: any) => {
             ],
 
             classes.text,
-            classes[orientation]
+            classes[`text_${orientation}`]
           ])}
         >
           {children}
@@ -237,7 +237,7 @@ const Divider = React.forwardRef((props_: any, ref: any) => {
             ],
 
             classes.divider,
-            classes[orientation]
+            classes[`divider_${orientation}`]
           ])}
 
 
