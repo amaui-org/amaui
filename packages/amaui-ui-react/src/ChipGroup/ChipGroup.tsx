@@ -63,6 +63,7 @@ const ChipGroup = React.forwardRef((props_: any, ref: any) => {
 
   const {
     wrap,
+    size = 'regular',
 
     className,
     style,
@@ -79,7 +80,7 @@ const ChipGroup = React.forwardRef((props_: any, ref: any) => {
       className={classNames([
         className,
         classes.root,
-        classes[props.size !== undefined ? props.size : 'regular'],
+        classes[size],
         wrap && classes.wrap
       ])}
 
@@ -87,6 +88,8 @@ const ChipGroup = React.forwardRef((props_: any, ref: any) => {
     >
       {children.map((item: any, index: number) => React.cloneElement(item, {
         key: index,
+
+        size,
 
         ...other,
 

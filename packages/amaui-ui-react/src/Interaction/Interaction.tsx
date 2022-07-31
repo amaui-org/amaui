@@ -150,29 +150,29 @@ const Interaction = React.forwardRef((props_: any, ref: any) => {
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiInteraction?.props?.default }), [props_]);
 
+  const {
+    wave = true,
+    background = true,
+    border: border_ = true,
+    pulse,
+    origin,
+    selected,
+    wave_version,
+    disabled: disabled_,
+
+    className
+  } = props;
+
   const [interactions, setInteractions] = React.useState([]);
   const [border, setBorder] = React.useState(false);
   const [waves, setWaves] = React.useState([]);
-  const [disabled, setDisabled] = React.useState(props.disabled);
+  const [disabled, setDisabled] = React.useState(disabled_);
   const refs = {
     root: React.useRef<HTMLElement>(),
     mouse: React.useRef({ down: 0, up: 0, press: 0 })
   };
 
   const { classes } = useStyle(props);
-
-  const {
-    wave = true,
-    background = true,
-    border: border_ = true,
-    pulse,
-    disabled: disabled_,
-    origin,
-    selected,
-    wave_version,
-
-    className
-  } = props;
 
   React.useEffect(() => {
     const parent = refs.root.current.parentNode;

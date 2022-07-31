@@ -12,7 +12,6 @@ const Fade = React.forwardRef((props_: any, ref: any) => {
 
   const {
     in: inProp,
-    className,
     prefix,
     run,
     append,
@@ -24,6 +23,7 @@ const Fade = React.forwardRef((props_: any, ref: any) => {
     noAbruption,
     removeOnExited,
     timeout: timeout_,
+    timing_function,
     onTransition,
     onAppended,
     onAdd,
@@ -36,6 +36,9 @@ const Fade = React.forwardRef((props_: any, ref: any) => {
     onExiting,
     onExited,
     onRemoved,
+
+    className,
+
     children,
 
     ...other
@@ -78,16 +81,16 @@ const Fade = React.forwardRef((props_: any, ref: any) => {
       opacity: theme.transitions.duration.sm
     };
 
-    return `${(is('simple', props.timeout) ? props.timeout : props.timeout[status]) || properties[property]}ms`;
+    return `${(is('simple', timeout) ? timeout : timeout[status]) || properties[property]}ms`;
   };
 
-  const timingFunction = status => (is('simple', props.timing_function) ? props.timing_function : props.timing_function[status]) || theme.transitions.timing_function.standard;
+  const timingFunction = status => (is('simple', timing_function) ? timing_function : timing_function[status]) || theme.transitions.timing_function.standard;
 
   return (
     <Transition
       {...props}
     >
-      {(status: TTransitionStatus, ref_) => React.cloneElement(props.children, {
+      {(status: TTransitionStatus, ref_) => React.cloneElement(children, {
         ...other,
 
         ref: item => {
@@ -97,13 +100,13 @@ const Fade = React.forwardRef((props_: any, ref: any) => {
         },
 
         style: {
-          visibility: status === 'exited' && !props.in ? 'hidden' : undefined,
+          visibility: status === 'exited' && !inProp ? 'hidden' : undefined,
 
           transition: `opacity ${timeout(status)} ${timingFunction(status)}`,
 
           ...(styles[status] || {}),
 
-          ...(props.children?.props?.style || {}),
+          ...(children?.props?.style || {}),
         }
       })}
     </Transition>

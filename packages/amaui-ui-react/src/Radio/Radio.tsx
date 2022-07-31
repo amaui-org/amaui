@@ -42,6 +42,7 @@ const IconItem = (props: any) => {
     style,
 
     Component = 'span',
+    size,
 
     children,
 
@@ -54,13 +55,13 @@ const IconItem = (props: any) => {
 
   let fontSize = '24px';
 
-  if (props.size === 'very small') fontSize = '12px';
-  else if (props.size === 'small') fontSize = '18px';
-  else if (props.size === 'regular') fontSize = '24px';
-  else if (props.size === 'medium') fontSize = '36px';
-  else if (props.size === 'large') fontSize = '48px';
-  else if (props.size === 'very large') fontSize = '60px';
-  else if (props.size !== undefined) fontSize = `${props.size}${!String(props.size).includes('px') ? 'px' : ''}`;
+  if (size === 'very small') fontSize = '12px';
+  else if (size === 'small') fontSize = '18px';
+  else if (size === 'regular') fontSize = '24px';
+  else if (size === 'medium') fontSize = '36px';
+  else if (size === 'large') fontSize = '48px';
+  else if (size === 'very large') fontSize = '60px';
+  else if (size !== undefined) fontSize = `${size}${!String(size).includes('px') ? 'px' : ''}`;
 
   styles.root.fontSize = `calc(${fontSize} / 1.2)`;
 
@@ -73,6 +74,8 @@ const IconItem = (props: any) => {
 
         ...styles.root
       }}
+
+      size={size}
     >
       {children && React.cloneElement(children, { ...other })}
     </Component>
@@ -85,12 +88,15 @@ const Radio = React.forwardRef((props_: any, ref: any) => {
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiRadio?.props?.default }), [props_]);
 
   const {
+    tonal,
+    version = 'text',
     color = 'primary',
     colorUnchecked = 'default',
     valueDefault,
     value,
     onChange,
     Component = 'span',
+    disabled,
 
     children,
 
@@ -109,7 +115,7 @@ const Radio = React.forwardRef((props_: any, ref: any) => {
   }, [value]);
 
   const onUpdate = (event: ChangeEvent<HTMLInputElement>) => {
-    if (!props.disabled) {
+    if (!disabled) {
       if (is('function', onChange)) onChange(!checked, event);
 
       // Inner controlled checkbox
@@ -121,15 +127,15 @@ const Radio = React.forwardRef((props_: any, ref: any) => {
 
   if (!theme.palette.color[color]) palette = theme.methods.color(color);
 
-  if (props.tonal) {
+  if (tonal) {
     // Text
     // Outlined
-    if (['text', 'outlined', undefined].includes(props.version)) {
+    if (['text', 'outlined', undefined].includes(version)) {
       styles.iconBox.color = styles.iconBox.color = theme.methods.palette.color.value(color, 30, true, palette);
     }
 
     // Outlined
-    if (props.version === 'outlined') styles.iconBox.color = styles.iconBox.color = theme.methods.palette.color.value(color, 50, true, palette);
+    if (version === 'outlined') styles.iconBox.color = styles.iconBox.color = theme.methods.palette.color.value(color, 50, true, palette);
   }
 
   let colorValue = color;
@@ -146,6 +152,12 @@ const Radio = React.forwardRef((props_: any, ref: any) => {
 
       Component={Component}
 
+      tonal={tonal}
+
+      version={version}
+
+      disabled={disabled}
+
       {...other}
     >
       <IconItem
@@ -154,8 +166,8 @@ const Radio = React.forwardRef((props_: any, ref: any) => {
         className={classNames([
           classes.icon,
           classes.iconBox,
-          classes[props.version],
-          props.disabled && classes.disabled,
+          classes[version],
+          disabled && classes.disabled,
           checked && classes.checked
         ])}
 

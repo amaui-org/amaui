@@ -9,15 +9,20 @@ const Fab = React.forwardRef((props_: any, ref: any) => {
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiFab?.props?.default }), [props_]);
 
+  const {
+    tonal = true,
+    version = 'filled'
+  } = props;
+
   return (
     <Button
       ref={ref}
 
       {...props}
 
-      version={props.version || 'filled'}
+      version={version}
 
-      tonal={props.tonal !== undefined ? props.tonal : true}
+      tonal={tonal}
 
       fab
     />

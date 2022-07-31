@@ -36,12 +36,7 @@ const Icon = React.forwardRef((props_: any, ref: any) => {
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiIcon?.props?.default }), [props_]);
 
-  const [rtl, setRtl] = React.useState(props.rtl);
-
-  const { classes } = useStyle(props);
-
   const {
-    className,
     viewBox = '0 0 24 24',
     size: size_,
     name,
@@ -49,14 +44,21 @@ const Icon = React.forwardRef((props_: any, ref: any) => {
     color: color_ = 'inherit',
     tonal,
     tone = '30',
-    style,
     Component = 'svg',
+    rtl: rtl_,
     disabled,
+
+    className,
+    style,
 
     children,
 
     ...other
   } = props;
+
+  const [rtl, setRtl] = React.useState(rtl_);
+
+  const { classes } = useStyle(props);
 
   React.useEffect(() => {
     // Update rtl based on theme value
@@ -72,8 +74,8 @@ const Icon = React.forwardRef((props_: any, ref: any) => {
   }, []);
 
   React.useEffect(() => {
-    if (props.rtl !== rtl) setRtl(props.rtl);
-  }, [props.rtl]);
+    if (rtl_ !== rtl) setRtl(rtl_);
+  }, [rtl_]);
 
   let fontSize = '24px';
 

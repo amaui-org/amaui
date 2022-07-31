@@ -37,6 +37,11 @@ const Chip = React.forwardRef((props_: any, ref: any) => {
     onRemove,
     onSelected,
     onUnselected,
+    tonal = false,
+    version = 'outlined',
+    color = 'default',
+    startIcon,
+    onClick,
 
     children: children_,
 
@@ -57,7 +62,7 @@ const Chip = React.forwardRef((props_: any, ref: any) => {
 
   const onSelect = () => {
     if (filter) {
-      if (props.startIcon) {
+      if (startIcon) {
         if (selected) {
           setSelected(false);
 
@@ -105,19 +110,19 @@ const Chip = React.forwardRef((props_: any, ref: any) => {
         onSelect();
 
         // Invoke items on click method
-        if (is('function', props.onClick)) props.onClick();
+        if (is('function', onClick)) onClick();
       }}
 
-      {...(props.startIcon && selected ? {
+      {...(startIcon && selected ? {
         startIcon: (
           <IconDoneAnimated simple in add />
         )
       } : {})}
 
-      {...(!props.startIcon && (selected || preSelected) ? {
+      {...(!startIcon && (selected || preSelected) ? {
         startIcon: (
           <IconDoneAnimated
-            in={(props.startIcon ? selected : preSelected)}
+            in={(startIcon ? selected : preSelected)}
 
             onExited={() => updateSelected()}
 
@@ -128,11 +133,11 @@ const Chip = React.forwardRef((props_: any, ref: any) => {
 
       selected={selected}
 
-      version={props.version || 'outlined'}
+      version={version}
 
-      color={props.color || (props.tonal ? 'neutral' : 'default')}
+      color={color || (tonal ? 'neutral' : 'default')}
 
-      tonal={props.tonal !== undefined ? props.tonal : false}
+      tonal={tonal}
 
       chip
     >

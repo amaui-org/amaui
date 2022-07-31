@@ -46,8 +46,6 @@ interface IProps {
   onAdding?: (element: HTMLElement) => void;
   onAdded?: (element: HTMLElement) => void;
 
-  onExited?: (element: HTMLElement) => void;
-
   onRemoved?: (element: HTMLElement) => void;
 
   [p: string]: any;
@@ -58,11 +56,35 @@ function Keyframes(props_: IProps) {
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiKeyframes?.props?.default }), [props_]);
 
+  const {
+    ref,
+    append,
+    update,
+    timeout: timeout_,
+    appendStatusPost,
+    add: add_,
+    runOnEnter,
+    removeOnEnd,
+    keyframes,
+    prefix,
+
+    onKeyframes,
+    onAppended,
+    onAdd,
+    onAdding,
+    onAdded,
+    onRemoved,
+
+    className,
+    children,
+
+  } = props;
+
   const [init, setInit] = React.useState(false);
   const [status, setStatus] = React.useState<TKeyframesStatus>(() => {
     let statusNew: TKeyframesStatus = '' as any;
 
-    if (props.append) statusNew = 'appended';
+    if (append) statusNew = 'appended';
 
     return statusNew;
   });
@@ -87,18 +109,18 @@ function Keyframes(props_: IProps) {
   // ie. Switch ui on and off animation
   React.useEffect(() => {
     if (init) run();
-  }, [props.update]);
+  }, [update]);
 
   const initMethod = async () => {
     // Appended
-    if (status === 'appended') updateStatus(props.appendStatusPost as any);
+    if (status === 'appended') updateStatus(appendStatusPost as any);
 
     // Add
-    if (props.add || status === 'add') await add();
+    if (add_ || status === 'add') await add();
 
     // Run the method
     // to run the keyframes
-    if (props.runOnEnter) await run();
+    if (runOnEnter) await run();
 
     // Init
     setInit(true);
@@ -106,9 +128,9 @@ function Keyframes(props_: IProps) {
 
   const run = async () => {
     // Run all keyframes
-    if (is('array', props.keyframes)) for (const keyframe of props.keyframes) await runKeyframe(keyframe);
+    if (is('array', keyframes)) for (const keyframe of keyframes) await runKeyframe(keyframe);
 
-    if (props.removeOnEnd) {
+    if (removeOnEnd) {
       // So exited status has
       // enough time to apply some value
       setStatus('removed');
@@ -120,23 +142,23 @@ function Keyframes(props_: IProps) {
 
   const runKeyframe = async (value: IKeyframe) => {
     if (value) {
-      const { name, timeout } = value;
+      const { name, timeout: timeout__ } = value;
 
       updateStatus(name as any);
 
-      await wait(timeout || 0);
+      await wait(timeout__ || 0);
     }
   };
 
   const timeout = async (status_: TKeyframesStatus) => {
-    let duration: any = props.timeout;
+    let duration: any = timeout_;
 
     if (
-      is('string', props.timeout) &&
-      theme.transitions.duration[props.timeout as TTransitionsDurationProperties] !== undefined
-    ) duration = theme.transitions.duration[props.timeout as TTransitionsDurationProperties];
+      is('string', timeout_) &&
+      theme.transitions.duration[timeout_ as TTransitionsDurationProperties] !== undefined
+    ) duration = theme.transitions.duration[timeout_ as TTransitionsDurationProperties];
 
-    if (is('object', props.timeout)) duration = props.timeout[status_] !== undefined ? props.timeout[status_] : (props.timeout as any).default;
+    if (is('object', timeout_)) duration = timeout_[status_] !== undefined ? timeout_[status_] : (timeout_ as any).default;
 
     if (!is('number', duration)) duration = theme.transitions.duration.rg;
 
@@ -168,57 +190,57 @@ function Keyframes(props_: IProps) {
 
     switch (status_) {
       case 'appended':
-        if (is('function', props.onKeyframes)) props.onKeyframes(refs.root.current, status_);
-        if (is('function', props.onAppended)) props.onAppended(refs.root.current);
+        if (is('function', onKeyframes)) onKeyframes(refs.root.current, status_);
+        if (is('function', onAppended)) onAppended(refs.root.current);
 
         break;
 
       case 'add':
-        if (is('function', props.onKeyframes)) props.onKeyframes(refs.root.current, status_);
-        if (is('function', props.onAdd)) props.onAdd(refs.root.current);
+        if (is('function', onKeyframes)) onKeyframes(refs.root.current, status_);
+        if (is('function', onAdd)) onAdd(refs.root.current);
 
         break;
 
       case 'adding':
-        if (is('function', props.onKeyframes)) props.onKeyframes(refs.root.current, status_);
-        if (is('function', props.onAdding)) props.onAdding(refs.root.current);
+        if (is('function', onKeyframes)) onKeyframes(refs.root.current, status_);
+        if (is('function', onAdding)) onAdding(refs.root.current);
 
         break;
 
       case 'added':
-        if (is('function', props.onKeyframes)) props.onKeyframes(refs.root.current, status_);
-        if (is('function', props.onAdded)) props.onAdded(refs.root.current);
+        if (is('function', onKeyframes)) onKeyframes(refs.root.current, status_);
+        if (is('function', onAdded)) onAdded(refs.root.current);
 
         break;
 
       case 'removed':
-        if (is('function', props.onKeyframes)) props.onKeyframes(refs.root.current, status_);
-        if (is('function', props.onRemoved)) props.onRemoved(refs.root.current);
+        if (is('function', onKeyframes)) onKeyframes(refs.root.current, status_);
+        if (is('function', onRemoved)) onRemoved(refs.root.current);
 
         break;
 
       default:
-        if (is('function', props.onKeyframes)) props.onKeyframes(refs.root.current, status_);
+        if (is('function', onKeyframes)) onKeyframes(refs.root.current, status_);
 
         break;
     }
 
     // Add className
-    if (props.className && is('element', refs.root.current)) {
+    if (className && is('element', refs.root.current)) {
       let className = classNames([refs.root.current.className.split(' ')]);
 
       // Remove all previous state classes
-      className = className.replace(new RegExp(`${props.prefix || ''}(add)(ed|ing)?`, 'g'), '');
+      className = className.replace(new RegExp(`${prefix || ''}(add)(ed|ing)?`, 'g'), '');
 
       // Remove all previous keyframes classes
-      if (is('array', props.keyframes)) {
-        const regex = new RegExp(`${props.keyframes.reduce((result, item, index) => result += `${index !== 0 ? '|' : ''}${item}`, '')}`, 'g');
+      if (is('array', keyframes)) {
+        const regex = new RegExp(`${keyframes.reduce((result, item, index) => result += `${index !== 0 ? '|' : ''}${item}`, '')}`, 'g');
 
         className = className.replace(regex, '');
       }
 
       // Add
-      className += ` ${props.prefix || ''}${status_}`;
+      className += ` ${prefix || ''}${status_}`;
 
       className = className.replace(/ +/g, ' ').trim();
 
@@ -236,14 +258,14 @@ function Keyframes(props_: IProps) {
     <KeyframesContext.Provider value={value}>
 
       {
-        is('function', props.children) ?
-          props.children(status, refs.root) :
+        is('function', children) ?
+          children(status, refs.root) :
 
-          React.cloneElement(props.children, {
+          React.cloneElement(children, {
             ref: item => {
               refs.root.current = item;
 
-              if (props.ref) props.ref.current = item;
+              if (ref) ref.current = item;
             }
           })
       }

@@ -35,7 +35,6 @@ const Expand = React.forwardRef((props_: any, ref: any) => {
 
   const {
     in: inProp,
-    className,
     prefix,
     run,
     append,
@@ -47,6 +46,7 @@ const Expand = React.forwardRef((props_: any, ref: any) => {
     noAbruption,
     removeOnExited,
     timeout: timeout_,
+    timing_function,
     onTransition,
     onAppended,
     onAdd,
@@ -60,6 +60,10 @@ const Expand = React.forwardRef((props_: any, ref: any) => {
     onExited,
     onRemoved,
     expandSize,
+    orientation,
+
+    className,
+
     children,
 
     ...other
@@ -67,7 +71,7 @@ const Expand = React.forwardRef((props_: any, ref: any) => {
 
   let prop = 'height';
 
-  if (props.orientation === 'horizontal') prop = 'width';
+  if (orientation === 'horizontal') prop = 'width';
 
   const styles = {
     enter: {
@@ -82,15 +86,15 @@ const Expand = React.forwardRef((props_: any, ref: any) => {
       [prop]: rect && `${rect[prop]}px`
     },
     exit: {
-      [prop]: props.expandSize !== undefined ? props.expandSize : '0',
+      [prop]: expandSize !== undefined ? expandSize : '0',
       overflow: 'hidden'
     },
     exiting: {
-      [prop]: props.expandSize !== undefined ? props.expandSize : '0',
+      [prop]: expandSize !== undefined ? expandSize : '0',
       overflow: 'hidden'
     },
     exited: {
-      [prop]: props.expandSize !== undefined ? props.expandSize : '0',
+      [prop]: expandSize !== undefined ? expandSize : '0',
       overflow: 'hidden'
     }
   };
@@ -100,10 +104,10 @@ const Expand = React.forwardRef((props_: any, ref: any) => {
       [prop]: theme.transitions.duration.rg
     };
 
-    return `${((is('simple', props.timeout) ? props.timeout : props.timeout[status]) || properties[property] - (status === 'exiting' ? 30 : 0))}ms`;
+    return `${((is('simple', timeout) ? timeout : timeout[status]) || properties[property] - (status === 'exiting' ? 30 : 0))}ms`;
   };
 
-  const timingFunction = status => (is('simple', props.timing_function) ? props.timing_function : props.timing_function[status]) || theme.transitions.timing_function.standard;
+  const timingFunction = status => (is('simple', timing_function) ? timing_function : timing_function[status]) || theme.transitions.timing_function.standard;
 
   return (
     <Transition
@@ -112,7 +116,7 @@ const Expand = React.forwardRef((props_: any, ref: any) => {
       onInit={element => setRect(element?.getBoundingClientRect())}
     >
       {(status: TTransitionStatus, ref_) => {
-        return React.cloneElement(<Wrapper children={props.children} />, {
+        return React.cloneElement(<Wrapper children={children} />, {
           ...other,
 
           ref: item => {
@@ -128,11 +132,11 @@ const Expand = React.forwardRef((props_: any, ref: any) => {
 
             transition: `${prop} ${timeout(status, prop)} ${timingFunction(status)}`,
 
-            visibility: status === 'exited' && !props.in && props.expandSize === undefined ? 'hidden' : undefined,
+            visibility: status === 'exited' && !inProp && expandSize === undefined ? 'hidden' : undefined,
 
             ...(rect && styles[status] || {}),
 
-            ...(props.children?.props?.style || {}),
+            ...(children?.props?.style || {}),
           }
         })
       }}

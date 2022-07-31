@@ -167,17 +167,17 @@ const SegmentedButtons = React.forwardRef((props_: any, ref: any) => {
   const { classes } = useStyle(props);
 
   const {
-    className,
-
     select,
 
+    tonal,
     version = 'outlined',
     color = 'primary',
     size = 'regular',
-    tonal,
 
     elevation = true,
     border = true,
+
+    className,
 
     children: children_,
 

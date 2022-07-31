@@ -96,16 +96,8 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiModal?.props?.default }), [props_]);
 
-  const [open, setOpen] = React.useState(props.open);
-  const [inProp, setInProp] = React.useState(props.open);
-  const { classes } = useStyle(props);
-  const refs = {
-    focus: React.useRef<HTMLDivElement>()
-  };
-
   const {
     open: open_,
-    className,
 
     fullScreen,
     fullWidth,
@@ -122,17 +114,28 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
 
     SurfaceProps = {},
 
+    onClose: onClose_,
+
+    className,
+
     children,
 
     ...other
   } = props;
+
+  const [open, setOpen] = React.useState(open_);
+  const [inProp, setInProp] = React.useState(open_);
+  const { classes } = useStyle(props);
+  const refs = {
+    focus: React.useRef<HTMLDivElement>()
+  };
 
   let maxWidth = maxWidth_;
 
   if (fullWidth) maxWidth = undefined;
 
   const onClose = () => {
-    if (is('function', props.onClose) && open) props.onClose();
+    if (is('function', onClose_) && open) onClose_();
   };
 
   const onKeyDown = (event: KeyboardEvent) => {
