@@ -108,6 +108,7 @@ const useStyle = style(theme => ({
   },
 
   path: {
+    strokeLinecap: 'square',
     transformOrigin: 'center',
     strokeDasharray: '240px',
     strokeDashoffset: '0px'
@@ -130,6 +131,7 @@ const useStyle = style(theme => ({
   },
 
   pathBackground: {
+    strokeLinecap: 'square',
     strokeDasharray: '240px',
     strokeDashoffset: '0px',
     stroke: 'transparent'
@@ -236,10 +238,11 @@ const RoundProgress = React.forwardRef((props_: any, ref: any) => {
         <circle
           fill='none'
           strokeWidth={thickness}
-          strokeLinecap={rounded ? 'round' : 'butt'}
           cx='12'
           cy='12'
           r='10'
+
+          {...(!rounded && { strokeLinecap: 'butt' })}
 
           {...pathBackgroundProps}
 
@@ -258,10 +261,11 @@ const RoundProgress = React.forwardRef((props_: any, ref: any) => {
         <circle
           fill='none'
           strokeWidth={thickness}
-          strokeLinecap={rounded ? 'round' : 'butt'}
           cx='12'
           cy='12'
           r='10'
+
+          {...(!rounded && { strokeLinecap: 'butt' })}
 
           className={classNames([
             staticClassName('RoundedProgress', theme) && [

@@ -187,7 +187,6 @@ const Accordion = (props: any) => {
       <Expand
         in={open}
 
-        append
         removeOnExited
       >
         <section className={classNames([classes.item, props.className])}>
@@ -228,7 +227,7 @@ function App() {
   // eslint-disable-next-line
   const [progress, setProgress] = React.useState(0);
   const [items, setItems] = React.useState([0]);
-  const [density, setDensity] = React.useState(8);
+  const [space, setSpace] = React.useState(8);
   const [radius, setRadius] = React.useState(8);
   const { classes } = useStyle();
   const refs = {
@@ -252,20 +251,16 @@ function App() {
   React.useEffect(() => {
     theme.updateWithRerender({
       space: {
-        unit: density
-      }
-    });
-  }, [density]);
-
-  React.useEffect(() => {
-    theme.updateWithRerender({
+        unit: space
+      },
       shape: {
         radius: {
           unit: radius
         }
       }
     });
-  }, [radius]);
+    // eslint-disable-next-line
+  }, [space, radius]);
 
   const update = (item: any) => {
     setA((values: any) => {
@@ -347,8 +342,8 @@ function App() {
       <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
         <Button size='small' color='secondary' className={classes.btn} onClick={() => updateLight()}>{theme.palette.light ? 'dark' : 'light'}</Button>
 
-        <Button size='small' color='secondary' className={classes.btn} onClick={() => setDensity(item => ++item)}>add density ({density})</Button>
-        <Button size='small' color='secondary' className={classes.btn} onClick={() => setDensity(item => --item)}>remove density({density})</Button>
+        <Button size='small' color='secondary' className={classes.btn} onClick={() => setSpace(item => ++item)}>add space ({space})</Button>
+        <Button size='small' color='secondary' className={classes.btn} onClick={() => setSpace(item => --item)}>remove space({space})</Button>
 
         <Button size='small' color='secondary' className={classes.btn} onClick={() => setRadius(item => ++item)}>add radius ({radius})</Button>
         <Button size='small' color='secondary' className={classes.btn} onClick={() => setRadius(item => --item)}>remove radius({radius})</Button>
@@ -400,7 +395,7 @@ function App() {
         </div>
       </Accordion>
 
-      <Accordion label='Switch'>
+      <Accordion label='Switch' open>
         <Accordion label='Switch' open>
           <div className={classNames([classes.column])}>
             <Switch color='secondary' />
@@ -523,7 +518,7 @@ function App() {
           </div>
         </Accordion>
 
-        <Accordion label='AmauiTheme' open>
+        {/* <Accordion label='AmauiTheme' open>
           <div className={classNames([classes.column])}>
             <Switch color='secondary' />
 
@@ -619,7 +614,7 @@ function App() {
               <styled.Switch />
             </Accordion>
           </div>
-        </Accordion >
+        </Accordion > */}
       </Accordion >
 
       <Accordion label='Keyframes'>

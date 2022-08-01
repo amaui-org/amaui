@@ -30,7 +30,14 @@ interface IProps {
 }
 
 const AmauiThemeProvider = React.forwardRef((props: IProps, ref: any) => {
-  const { children, value: valueLocal = {}, ...other } = props;
+  const [init, setInit] = React.useState(false);
+
+  const {
+    value: valueLocal = {},
+
+    children,
+
+    ...other } = props;
 
   const refs = {
     root: React.useRef<HTMLElement>()
@@ -49,19 +56,23 @@ const AmauiThemeProvider = React.forwardRef((props: IProps, ref: any) => {
 
       // Init
       setValue(amauiTheme);
+
+      setInit(true);
     }
   }, []);
 
   React.useEffect(() => {
-    value.update(merge(resolveValue(is('function', valueLocal) ? (valueLocal as any)(valueParent) : valueLocal), resolveValue(valueParent), { copy: true }));
+    if (init) {
+      value.update(merge(resolveValue(is('function', valueLocal) ? (valueLocal as any)(valueParent) : valueLocal), resolveValue(valueParent), { copy: true }));
 
-    const amauiTheme = new AmauiTheme(value, refs.root?.current) as any;
+      const amauiTheme = new AmauiTheme(value, refs.root?.current) as any;
 
-    amauiTheme.id = value.id;
-    amauiTheme.subscriptions = value.subscriptions;
+      amauiTheme.id = value.id;
+      amauiTheme.subscriptions = value.subscriptions;
 
-    // Init
-    setValue(amauiTheme);
+      // Init
+      setValue(amauiTheme);
+    }
   }, [hash(resolveValue(valueLocal)), hash(resolveValue(valueParent))]);
 
   const update = (updateValue: IAmauiTheme) => {
