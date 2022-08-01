@@ -7161,7 +7161,7 @@ function App() {
         </Accordion>
 
       </Accordion>
-    </div >
+    </div>
   );
 }
 
