@@ -78,7 +78,7 @@ const useStyle = style(theme => ({
   },
 
   background: {
-    display: 'inline-block',
+    display: 'inline-flex',
     position: 'absolute',
     inset: 0,
     width: '100%',
@@ -92,7 +92,7 @@ const useStyle = style(theme => ({
   },
 
   border: {
-    display: 'inline-block',
+    display: 'inline-flex',
     position: 'absolute',
     inset: 0,
     width: '100%',

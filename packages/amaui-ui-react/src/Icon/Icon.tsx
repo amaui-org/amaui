@@ -11,7 +11,7 @@ export const rtl_icons = [
 const useStyle = style(theme => ({
   root: {
     userSelect: 'none',
-    display: 'inline-block',
+    display: 'inline-flex',
     flexShrink: '0',
     color: 'inherit',
     fill: 'currentcolor',
