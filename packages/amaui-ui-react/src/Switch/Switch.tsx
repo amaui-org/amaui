@@ -253,50 +253,56 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
     ]
   };
 
+  const ltrSign = (value: string = '') => {
+    if (theme.direction === 'ltr') return value;
+
+    return !value ? '-' : '';
+  };
+
   const sizes = (version, element): any => {
     if (element === 'iconButton') {
       switch (version) {
         case 'unchecked':
-          if (size === 'small') return 'translate(-3px, -50%)';
+          if (size === 'small') return `translate(${ltrSign('-')}3px, -50%)`;
 
-          if (size === 'large') return 'translate(-5px, -50%)';
+          if (size === 'large') return `translate(${ltrSign('-')}5px, -50%)`;
 
-          return 'translate(-4px, -50%)';
+          return `translate(${ltrSign('-')}4px, -50%)`;
 
         case 'grow-start':
-          if (size === 'small') return 'translate(-3px, -50%)';
+          if (size === 'small') return `translate(${ltrSign('-')}3px, -50%)`;
 
-          if (size === 'large') return 'translate(-5px, -50%)';
+          if (size === 'large') return `translate(${ltrSign('-')}5px, -50%)`;
 
-          return 'translate(-4px, -50%)';
+          return `translate(${ltrSign('-')}4px, -50%)`;
 
         case 'move-end':
-          if (size === 'small') return 'translate(11px, -50%)';
+          if (size === 'small') return `translate(${ltrSign()}11px, -50%)`;
 
-          if (size === 'large') return 'translate(11px, -50%)';
+          if (size === 'large') return `translate(${ltrSign()}11px, -50%)`;
 
-          return 'translate(11px, -50%)';
+          return `translate(${ltrSign()}11px, -50%)`;
 
         case 'grow-end':
-          if (size === 'small') return 'translate(17px, -50%)';
+          if (size === 'small') return `translate(${ltrSign()}17px, -50%)`;
 
-          if (size === 'large') return 'translate(16px, -50%)';
+          if (size === 'large') return `translate(${ltrSign()}16px, -50%)`;
 
-          return 'translate(16px, -50%)';
+          return `translate(${ltrSign()}16px, -50%)`;
 
         case 'move-start':
-          if (size === 'small') return 'translate(1px, -50%)';
+          if (size === 'small') return `translate(${ltrSign()}1px, -50%)`;
 
-          if (size === 'large') return 'translate(1px, -50%)';
+          if (size === 'large') return `translate(${ltrSign()}1px, -50%)`;
 
-          return 'translate(1px, -50%)';
+          return `translate(${ltrSign()}1px, -50%)`;
 
         case 'checked':
-          if (size === 'small') return 'translate(16px, -50%)';
+          if (size === 'small') return `translate(${ltrSign()}16px, -50%)`;
 
-          if (size === 'large') return 'translate(16px, -50%)';;
+          if (size === 'large') return `translate(${ltrSign()}16px, -50%)`;
 
-          return 'translate(16px, -50%)';
+          return `translate(${ltrSign()}16px, -50%)`;
 
         default:
           break;

@@ -251,12 +251,13 @@ function App() {
   });
 
   React.useEffect(() => {
-    if (theme.element) theme.element.dir = !rtl ? 'ltr' : 'rtl';
+    window.document.body.dir = !rtl ? 'ltr' : 'rtl';
 
     theme.updateWithRerender({
       space: {
         unit: space
       },
+
       shape: {
         radius: {
           unit: radius
@@ -367,11 +368,11 @@ function App() {
 
           <Avatar color='secondary'>a</Avatar>
 
-          <Badge color='secondary' indicator>
+          <Badge color='secondary' indicator tonal={false}>
             <IconMaterialPottedPlantRounded />
           </Badge>
 
-          <Badge color='secondary' value='1114'>
+          <Badge color='secondary' value='1114' tonal={false}>
             <IconMaterialPottedPlantRounded />
           </Badge>
 
@@ -3342,6 +3343,13 @@ function App() {
             <Fab version='filled' size='large' selected>Large</Fab>
           </div>
         </Accordion>
+
+        <Accordion label='Fab rtl' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Fab version='text' size='small'><IconMaterialUndoRounded /> Small</Fab>
+            <Fab version='outlined' size='regular'><IconMaterialUndoRounded /></Fab>
+          </div>
+        </Accordion>
       </Accordion>
 
       <Accordion label='Icon button'>
@@ -3532,6 +3540,12 @@ function App() {
             <IconButton version='outlined' color='secondary' size='regular' selected><IconMaterialPottedPlantRounded /></IconButton>
             <IconButton version='filled' color='secondary' size='regular' selected><IconMaterialPottedPlantRounded /></IconButton>
             <IconButton version='filled' tonal color='tertiary' size='large' selected><IconMaterialPottedPlantRounded /></IconButton>
+          </div>
+        </Accordion>
+
+        <Accordion label='Icon button rtl' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <IconButton version='outlined' tonal color='secondary'><IconMaterialUndoRounded /></IconButton>
           </div>
         </Accordion>
       </Accordion>

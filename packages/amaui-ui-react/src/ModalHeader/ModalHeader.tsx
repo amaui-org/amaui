@@ -22,6 +22,8 @@ const ModalHeader = React.forwardRef((props_: any, ref: any) => {
   const { classes } = useStyle(props);
 
   const {
+    align,
+
     className,
     style = {},
 
@@ -34,7 +36,7 @@ const ModalHeader = React.forwardRef((props_: any, ref: any) => {
     root: {}
   };
 
-  if (React.Children.toArray(children).length > 1) styles.root.alignItems = 'center';
+  if (React.Children.toArray(children).length > 1) styles.root.alignItems = align !== undefined ? align : 'center';
 
   return (
     <div

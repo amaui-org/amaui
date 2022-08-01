@@ -81,8 +81,8 @@ const Avatar = React.forwardRef((props_: any, ref) => {
     const typeProps: any = { version: 't1' };
 
     if (size === 'small') typeProps.size = `${(30 * 0.54) / 16}rem`;
-    else if (size === undefined || size === 'regular') typeProps.size = `${(40 * 0.54) / 16}rem`;
-    else if (size === 'large') typeProps.size = `${(60 * 0.54) / 16}rem`;
+    else if (size === 'regular') typeProps.size = `${(40 * 0.54) / 16}rem`;
+    else if (size === 'large') typeProps.size = `${(50 * 0.54) / 16}rem`;
     else if (!['small', 'regular', 'large'].includes(size)) typeProps.size = `${(size * 0.54) / 16}rem`;
 
     children = (

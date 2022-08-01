@@ -14,14 +14,15 @@ const useStyle = style(theme => ({
 
   disabled: {
     pointerEvents: 'none',
-    opacity: theme.palette.visual_contrast.default.opacity.disabled
+    opacity: theme.palette.visual_contrast.default.opacity.disabled,
+    filter: 'grayscale(1)'
   },
 
   item: {
     outline: `2px solid ${theme.palette.background.default.primary}`,
 
     '&:not(:last-child)': {
-      marginLeft: `-0.4em`
+      marginInlineStart: `-0.24em`
     }
   }
 }), { name: 'AmauiAvatarGroup' });
@@ -36,7 +37,7 @@ const AvatarGroup = React.forwardRef((props_: any, ref: any) => {
   const {
     max,
     total,
-    size,
+    size = 'regular',
     AdditionalAvatar,
     AdditionalAvatarProps = { color: 'default', tonal: true },
     disabled,
@@ -75,10 +76,7 @@ const AvatarGroup = React.forwardRef((props_: any, ref: any) => {
       ...(AdditionalAvatarProps.TypeProps || {})
     };
 
-    if (size === 'small') AdditionalAvatarProps.TypeProps.size = `${(30 * 0.3) / 16}rem`;
-    else if (size === undefined || size === 'regular') AdditionalAvatarProps.TypeProps.size = `${(40 * 0.3) / 16}rem`;
-    else if (size === 'large') AdditionalAvatarProps.TypeProps.size = `${(60 * 0.3) / 16}rem`;
-    else if (!['small', 'regular', 'large'].includes(size)) AdditionalAvatarProps.TypeProps.size = `${(size * 0.3) / 16}rem`;
+    AdditionalAvatarProps.TypeProps.size = '0.44em';
 
     children.unshift(
       AdditionalAvatar ||
@@ -88,7 +86,7 @@ const AvatarGroup = React.forwardRef((props_: any, ref: any) => {
 
         {...AdditionalAvatarProps}
 
-        color={disabled ? 'default' : AdditionalAvatarProps.color}
+        color={AdditionalAvatarProps.color}
       >
         {value}
       </Avatar>
@@ -132,7 +130,7 @@ const AvatarGroup = React.forwardRef((props_: any, ref: any) => {
 
         ...item.props,
 
-        color: disabled ? 'default' : item.props.color
+        color: item.props.color
       }))}
     </div>
   );

@@ -119,11 +119,11 @@ const useStyle = style(theme => ({
 
   // Vertical & horizontal
   left: {
-    left: 0
+    insetInlineStart: 0
   },
 
   right: {
-    right: 0
+    insetInlineEnd: 0
   },
 
   top: {
@@ -131,11 +131,11 @@ const useStyle = style(theme => ({
   },
 
   top_right: {
-    transform: 'translate(50%, -50%)'
+    transform: `translate(${theme.direction === 'rtl' ? '-' : ''}50%, -50%)`
   },
 
   top_left: {
-    transform: 'translate(-50%, -50%)'
+    transform: `translate(${theme.direction === 'rtl' ? '' : '-'}50%, -50%)`
   },
 
   bottom: {
@@ -143,11 +143,11 @@ const useStyle = style(theme => ({
   },
 
   bottom_right: {
-    transform: 'translate(50%, 50%)'
+    transform: `translate(${theme.direction === 'rtl' ? '-' : ''}50%, 50%)`
   },
 
   bottom_left: {
-    transform: 'translate(-50%, 50%)'
+    transform: `translate(${theme.direction === 'rtl' ? '' : '-'}50%, 50%)`
   },
 
   indicator: {

@@ -96,8 +96,7 @@ const Type = React.forwardRef((props_: any, ref: any) => {
       className={classNames([
         staticClassName('Type', theme) && [
           'AmauiType-root',
-          `AmauiType-version-${version}`,
-          `AmauiType-version-${size}`
+          `AmauiType-version-${version}`
         ],
 
         classes.root,
