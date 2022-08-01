@@ -14,29 +14,29 @@ const useStyle = style(theme => ({
       overflowX: 'auto',
 
       '&$small': {
-        paddingRight: theme.methods.space.value('sm', 'px', -2)
+        paddingRight: '6px'
       },
 
       '&$regular': {
-        paddingRight: theme.methods.space.value('sm', 'px')
+        paddingRight: '8px'
       },
 
       '&$large': {
-        paddingRight: theme.methods.space.value('sm', 'px', 2)
+        paddingRight: '10px'
       },
     }
   },
 
   small: {
-    columnGap: theme.methods.space.value('sm', 'px', -2)
+    columnGap: '6px'
   },
 
   regular: {
-    columnGap: theme.methods.space.value('sm', 'px')
+    columnGap: '8px'
   },
 
   large: {
-    columnGap: theme.methods.space.value('sm', 'px', 2)
+    columnGap: '10px'
   },
 
   wrap: {
@@ -44,15 +44,15 @@ const useStyle = style(theme => ({
   },
 
   wrap_small: {
-    rowGap: theme.methods.space.value('rg', 'px', -4)
+    rowGap: '12px'
   },
 
   wrap_regular: {
-    rowGap: theme.methods.space.value('rg', 'px')
+    rowGap: '16px'
   },
 
   wrap_large: {
-    rowGap: theme.methods.space.value('rg', 'px', 4)
+    rowGap: '20px'
   }
 }), { name: 'AmauiChipGroup' });
 

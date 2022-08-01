@@ -5,7 +5,7 @@ import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import IconButton from '../IconButton';
 
-import { staticClassName } from '../utils';
+import { iconSizeToFontSize, staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
@@ -23,7 +23,7 @@ const useStyle = style(theme => ({
     width: '1em',
     height: '1em',
     border: '0.12em solid currentColor',
-    borderRadius: '50%'
+    borderRadius: `calc(${theme.shape.radius.unit / 8} * 0.5em)`
   },
 
   iconDot: {
@@ -35,7 +35,7 @@ const useStyle = style(theme => ({
     width: '100%',
     height: '100%',
     background: 'currentColor',
-    borderRadius: '50%',
+    borderRadius: `calc(${theme.shape.radius.unit / 8} * 0.5em)`,
     zIndex: 3,
     transform: 'scale(0)',
     transition: theme.methods.transitions.make('transform', { duration: 'xxs' })
@@ -48,11 +48,11 @@ const useStyle = style(theme => ({
 
 const IconItem = (props: any) => {
   const {
-    className,
-    style,
-
     Component = 'span',
     size,
+
+    className,
+    style,
 
     children,
 
@@ -63,15 +63,7 @@ const IconItem = (props: any) => {
     root: {}
   };
 
-  let fontSize = '24px';
-
-  if (size === 'very small') fontSize = '12px';
-  else if (size === 'small') fontSize = '18px';
-  else if (size === 'regular') fontSize = '24px';
-  else if (size === 'medium') fontSize = '36px';
-  else if (size === 'large') fontSize = '48px';
-  else if (size === 'very large') fontSize = '60px';
-  else if (size !== undefined) fontSize = `${size}${!String(size).includes('px') ? 'px' : ''}`;
+  const fontSize = iconSizeToFontSize(size);
 
   styles.root.fontSize = `calc(${fontSize} / 1.2)`;
 

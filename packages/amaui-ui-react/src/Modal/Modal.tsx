@@ -38,7 +38,7 @@ const useStyle = style(theme => ({
   surface: {
     display: 'flex',
     flexDirection: 'column',
-    minWidth: `${theme.space.unit * 35}px`,
+    minWidth: `280px`,
     maxHeight: `calc(100% - ${theme.methods.space.value('xl') * 2}px)`,
     margin: theme.methods.space.value('xl', 'px'),
     pointerEvents: 'all'
@@ -56,19 +56,19 @@ const useStyle = style(theme => ({
   fullWidth: { width: `calc(100% - ${theme.methods.space.value('xl') * 2}px)` },
 
   // maxWidth
-  xxs: { maxWidth: `${theme.space.unit * 40}px` },
+  xxs: { maxWidth: `320px` },
 
-  xs: { maxWidth: `${theme.space.unit * 50}px` },
+  xs: { maxWidth: `400px` },
 
-  sm: { maxWidth: `${theme.space.unit * 60}px` },
+  sm: { maxWidth: `480px` },
 
-  rg: { maxWidth: `${theme.space.unit * 70}px` },
+  rg: { maxWidth: `560px` },
 
-  lg: { maxWidth: `${theme.space.unit * 100}px` },
+  lg: { maxWidth: `800px` },
 
-  xl: { maxWidth: `${theme.space.unit * 140}px` },
+  xl: { maxWidth: `1120px` },
 
-  xxl: { maxWidth: `${theme.space.unit * 170}px` },
+  xxl: { maxWidth: `1360px` },
 }), { name: 'AmauiModal' });
 
 let MODALS_OPEN = 0;

@@ -12,6 +12,8 @@ export interface IResponseStyle extends IMethodResponse {
   amauiTheme?: AmauiTheme;
 }
 
+export const propsAreNew = (props) => props && Object.keys(props).reduce((result, item) => result += item + String(props[item]), '');
+
 export default function style(value: TValue, options_: IOptions = {}) {
   const responses: Array<IResponseStyle> = [];
 
@@ -54,7 +56,7 @@ export default function style(value: TValue, options_: IOptions = {}) {
     // Updates for amauiTheme
     const method = React.useCallback((updateValue: any, updatedTheme: any) => {
       if (is('function', value)) {
-        const valueNew = resolve(updatedTheme);
+        const valueNew: any = resolve(updatedTheme);
 
         // Update
         if (response?.update !== undefined) response.update(valueNew);
@@ -140,7 +142,8 @@ export default function style(value: TValue, options_: IOptions = {}) {
     // Update props
     React.useEffect(() => {
       if (response !== undefined && values?.ids) response.props = { ids: values.ids.dynamic, props };
-    }, [props]);
+      // Only 1 lvl of values
+    }, [propsAreNew(props)]);
 
     return values;
   }

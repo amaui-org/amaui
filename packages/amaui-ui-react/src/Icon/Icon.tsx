@@ -2,7 +2,7 @@ import React from 'react';
 
 import { AmauiTheme, classNames, style, useAmauiTheme } from '@amaui/style-react';
 
-import { staticClassName } from '../utils';
+import { iconSizeToFontSize, staticClassName } from '../utils';
 
 export const rtl_icons = [
   'arrow_back_ios', 'arrow_left', 'assignment_return', 'call_made', 'call_missed_outgoing', 'chevron_left', 'device_unknown', 'featured_play_list', 'flight_land', 'format_indent_increase', 'functions', 'input', 'label', 'last_page', 'live_help', 'navigate_before', 'note', 'queue_music', 'reply_all', 'short_text', 'star_half', 'toc', 'undo', 'wrap_text'
@@ -81,15 +81,7 @@ const Icon = React.forwardRef((props_: any, ref: any) => {
     if (rtl_ !== rtl) setRtl(rtl_);
   }, [rtl_]);
 
-  let fontSize = '24px';
-
-  if (size === 'very small') fontSize = '12px';
-  else if (size === 'small') fontSize = '18px';
-  else if (size === 'regular') fontSize = '24px';
-  else if (size === 'medium') fontSize = '30px';
-  else if (size === 'large') fontSize = '36px';
-  else if (size === 'very large') fontSize = '42px';
-  else if (size !== undefined) fontSize = size;
+  const fontSize = iconSizeToFontSize(size);
 
   const isRtlIcon = rtl_icons.includes(short_name);
 

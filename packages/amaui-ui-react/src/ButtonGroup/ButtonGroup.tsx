@@ -15,6 +15,19 @@ const useStyle = style(theme => ({
     borderRadius: theme.methods.space.value('xl', 'px')
   },
 
+  // Size
+  small: {
+    borderRadius: `${theme.shape.radius.unit * 2}px`
+  },
+
+  regular: {
+    borderRadius: `${theme.shape.radius.unit * 2.5}px`
+  },
+
+  large: {
+    borderRadius: `${theme.shape.radius.unit * 3.5}px`
+  },
+
   // Shadows
   elevation: {
     boxShadow: theme.shadows.values.neutral[1],
@@ -305,6 +318,7 @@ const ButtonGroup = React.forwardRef((props_: any, ref: any) => {
 
         classes.root,
         className,
+        classes[size],
         elevation && !disabled && ['filled', 'tonal'].includes(version) && classes.elevation,
       ])}
 

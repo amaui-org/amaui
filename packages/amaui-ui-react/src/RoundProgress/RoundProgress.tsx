@@ -52,13 +52,13 @@ const useStyle = style(theme => ({
   },
 
   // Size
-  extra_small: { fontSize: theme.methods.space.value('rg', 'px') },
+  extra_small: { fontSize: '16px' },
 
-  small: { fontSize: theme.methods.space.value('md', 'px') },
+  small: { fontSize: '24px' },
 
-  regular: { fontSize: theme.methods.space.value('xxl', 'px') },
+  regular: { fontSize: '48px' },
 
-  large: { fontSize: theme.methods.space.value('xxxl', 'px') },
+  large: { fontSize: '56px' },
 
   // Color
   default: { color: theme.palette.text.default.primary },

@@ -10,7 +10,7 @@ import AmauiThemeContext from './AmauiThemeContext';
 import useAmauiTheme from './useAmauiTheme';
 
 export interface IAmauiThemeProvider extends AmauiTheme {
-  updateWithRerender: (value: any) => AmauiTheme;
+  updateWithRerender: (value: IAmauiTheme) => AmauiTheme;
 }
 
 const resolveValue = (value: IAmauiTheme) => {
@@ -64,7 +64,7 @@ const AmauiThemeProvider = React.forwardRef((props: IProps, ref: any) => {
     setValue(amauiTheme);
   }, [hash(resolveValue(valueLocal)), hash(resolveValue(valueParent))]);
 
-  const update = (updateValue: any) => {
+  const update = (updateValue: IAmauiTheme) => {
     if (updateValue !== undefined) {
       // Update
       value.update(updateValue);

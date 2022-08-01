@@ -9,8 +9,8 @@ const useStyle = style(theme => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-start',
-    gap: theme.methods.space.value('rg', 'px'),
-    paddingBottom: theme.methods.space.value('rg', 'px')
+    gap: '16px',
+    paddingBottom: '16px'
   }
 }), { name: 'AmauiModalHeader' });
 

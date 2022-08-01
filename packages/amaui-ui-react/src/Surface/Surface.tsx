@@ -109,18 +109,18 @@ const useStyle = style(theme => ({
 
   // Size
   small: {
-    padding: theme.methods.space.value('rg', 'px'),
-    borderRadius: `${theme.methods.shape.radius.value('rg') as number + 4}px`
+    padding: '16px',
+    borderRadius: `${(theme.shape.radius.unit * 2) + (theme.shape.radius.unit / 2)}px`
   },
 
   regular: {
     padding: theme.methods.space.value('md', 'px'),
-    borderRadius: `${theme.methods.shape.radius.value('md') as number + 4}px`
+    borderRadius: `${(theme.shape.radius.unit * 3) + (theme.shape.radius.unit / 2)}px`
   },
 
   large: {
     padding: theme.methods.space.value('lg', 'px'),
-    borderRadius: `${theme.methods.shape.radius.value('lg') as number + 4}px`
+    borderRadius: `${(theme.shape.radius.unit * 4) + (theme.shape.radius.unit / 2)}px`
   },
 
   // Elevation

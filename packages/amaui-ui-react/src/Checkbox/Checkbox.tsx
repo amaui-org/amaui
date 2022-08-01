@@ -7,7 +7,7 @@ import Icon from '../Icon';
 import IconButton from '../IconButton';
 import { IconDoneAnimated } from '../ButtonGroup/ButtonGroup';
 
-import { staticClassName } from '../utils';
+import { iconSizeToFontSize, staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
@@ -27,7 +27,7 @@ const useStyle = style(theme => ({
     border: '0.125em solid currentColor',
     background: 'transparent',
     transition: theme.methods.transitions.make('background', { duration: 0, delay: 'xxs' }),
-    borderRadius: '0.11em',
+    borderRadius: `calc(${theme.shape.radius.unit / 8} * 0.11em)`,
 
     '&$checked, &$indeterminate': {
       background: 'currentColor',
@@ -113,10 +113,11 @@ const IconMaterialIndeterminateCheckBoxSharp = React.forwardRef((props: any, ref
 
 const IconItem = (props: any) => {
   const {
+    Component = 'span',
+    size,
+
     className,
     style,
-
-    Component = 'span',
 
     children,
 
@@ -127,15 +128,7 @@ const IconItem = (props: any) => {
     root: {}
   };
 
-  let fontSize = '24px';
-
-  if (props.size === 'very small') fontSize = '12px';
-  else if (props.size === 'small') fontSize = '18px';
-  else if (props.size === 'regular') fontSize = '24px';
-  else if (props.size === 'medium') fontSize = '36px';
-  else if (props.size === 'large') fontSize = '48px';
-  else if (props.size === 'very large') fontSize = '60px';
-  else if (props.size !== undefined) fontSize = `${props.size}${!String(props.size).includes('px') ? 'px' : ''}`;
+  let fontSize = iconSizeToFontSize(size);
 
   styles.root.fontSize = `calc(${fontSize} * 0.75)`;
 

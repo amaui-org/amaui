@@ -12,9 +12,9 @@ const useStyle = style(theme => ({
 
   badge: {
     position: 'absolute',
-    padding: `${theme.space.unit / 2}px ${theme.space.unit - 2}px ${(theme.space.unit / 2) - 1}px`,
+    padding: `4px 6px 3px`,
     lineHeight: 1,
-    borderRadius: theme.methods.space.value('rg', 'px'),
+    borderRadius: `${theme.shape.radius.unit * 1.25}px`,
     transition: theme.methods.transitions.make('transform'),
     pointerEvents: 'none',
     userSelect: 'none'
@@ -151,10 +151,10 @@ const useStyle = style(theme => ({
   },
 
   indicator: {
-    height: theme.methods.space.value('sm', 'px'),
-    width: theme.methods.space.value('sm', 'px'),
+    height: '8px',
+    width: '8px',
     padding: '0',
-    borderRadius: '50%'
+    borderRadius: `${theme.shape.radius.unit * 0.5}px`,
   }
 }), { name: 'AmauiBadge' });
 

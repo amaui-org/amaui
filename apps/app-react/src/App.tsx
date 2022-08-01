@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { AmauiThemeProvider, classNames, style, useAmauiTheme } from '@amaui/style-react';
+import { AmauiThemeProvider, classNames, style, sy, useAmauiTheme } from '@amaui/style-react';
 import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, ButtonGroup, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, ChipGroup, Backdrop, Checkbox, Radio, Keyframes, Switch } from '@amaui/ui-react';
 
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
@@ -198,6 +198,18 @@ const Accordion = (props: any) => {
   );
 };
 
+const styled = {
+  Switch: sy(Switch)((theme) => ({
+    root: {
+      height: 37,
+
+      '&:hover': {
+        opacity: 0.4
+      }
+    }
+  })),
+};
+
 function App() {
   const [a, setA] = React.useState<any>({
     a: true,
@@ -216,6 +228,8 @@ function App() {
   // eslint-disable-next-line
   const [progress, setProgress] = React.useState(0);
   const [items, setItems] = React.useState([0]);
+  const [density, setDensity] = React.useState(8);
+  const [radius, setRadius] = React.useState(8);
   const { classes } = useStyle();
   const refs = {
     transitions: React.useRef<any>(),
@@ -229,11 +243,29 @@ function App() {
 
   const theme = useAmauiTheme();
 
-  const updateTheme = () => theme.updateWithRerender({
+  const updateLight = () => theme.updateWithRerender({
     palette: {
       light: !theme.palette.light
     }
   });
+
+  React.useEffect(() => {
+    theme.updateWithRerender({
+      space: {
+        unit: density
+      }
+    });
+  }, [density]);
+
+  React.useEffect(() => {
+    theme.updateWithRerender({
+      shape: {
+        radius: {
+          unit: radius
+        }
+      }
+    });
+  }, [radius]);
 
   const update = (item: any) => {
     setA((values: any) => {
@@ -312,9 +344,61 @@ function App() {
       {/* Reset */}
       <Reset />
 
-      <div className={classes.row}>
-        <Button size='small' color='secondary' className={classes.btn} onClick={() => updateTheme()}>{theme.palette.light ? 'dark' : 'light'}</Button>
+      <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+        <Button size='small' color='secondary' className={classes.btn} onClick={() => updateLight()}>{theme.palette.light ? 'dark' : 'light'}</Button>
+
+        <Button size='small' color='secondary' className={classes.btn} onClick={() => setDensity(item => ++item)}>add density ({density})</Button>
+        <Button size='small' color='secondary' className={classes.btn} onClick={() => setDensity(item => --item)}>remove density({density})</Button>
+
+        <Button size='small' color='secondary' className={classes.btn} onClick={() => setRadius(item => ++item)}>add radius ({radius})</Button>
+        <Button size='small' color='secondary' className={classes.btn} onClick={() => setRadius(item => --item)}>remove radius({radius})</Button>
       </div>
+
+      <Accordion label='All'>
+        <div className={classNames([classes.column])}>
+          <Switch color='secondary' />
+
+          <Radio color='secondary' />
+
+          <Checkbox color='secondary' />
+
+          <Chip color='secondary'>Enabled</Chip>
+
+          <Avatar color='secondary'>a</Avatar>
+
+          <Badge color='secondary' indicator>
+            <IconMaterialPottedPlantRounded />
+          </Badge>
+
+          <Badge color='secondary' value='1114'>
+            <IconMaterialPottedPlantRounded />
+          </Badge>
+
+          <Divider color='secondary' />
+
+          <Surface color='secondary' tonal={false}>Surface</Surface>
+
+          <Link color='secondary'>Link</Link>
+
+          <Type>
+            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed.
+          </Type>
+
+          <Fab color='secondary' tonal={false}><IconMaterialPottedPlantRounded /> Filled</Fab>
+
+          <IconButton color='secondary' version='outlined'>
+            <IconMaterialPottedPlantRounded />
+          </IconButton>
+
+          <LinearProgress color='secondary' />
+
+          <RoundProgress color='secondary' />
+
+          <Button version='filled' color='secondary' size='regular'>Filled</Button>
+
+          <IconMaterialPottedPlantRounded color='secondary' />
+        </div>
+      </Accordion>
 
       <Accordion label='Switch'>
         <Accordion label='Switch' open>
@@ -438,7 +522,105 @@ function App() {
             <Switch color='secondary' OnIcon={<IconMaterialCheckRounded />} valueDefault disabled />
           </div>
         </Accordion>
-      </Accordion>
+
+        <Accordion label='AmauiTheme' open>
+          <div className={classNames([classes.column])}>
+            <Switch color='secondary' />
+
+            <Accordion label='AmauiTheme nested value' open>
+              <AmauiThemeProvider
+                value={{
+                  palette: {
+                    color: {
+                      secondary: {
+                        main: '#008000'
+                      }
+                    }
+                  },
+                  space: {
+                    unit: 5
+                  }
+                }}
+              >
+                <Switch color='secondary' />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme add' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiSwitch: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: 0.4
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Switch color='secondary' />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme override' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiSwitch: {
+                        style: {
+                          override: {
+                            root: {
+                              display: 'inline-flex',
+                              position: 'relative',
+                              borderRadius: 32,
+                              height: 37
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Switch color='secondary' />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme props' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiSwitch: {
+                        props: {
+                          default: {
+                            color: 'secondary'
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Switch />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme styled' open>
+              <styled.Switch />
+            </Accordion>
+          </div>
+        </Accordion >
+      </Accordion >
 
       <Accordion label='Keyframes'>
         <Accordion label='Keyframes' open>
@@ -4422,8 +4604,72 @@ function App() {
           </div>
         </Accordion>
 
+        <Accordion label='AmauiTheme with classNames global' open>
+          <div className={classNames([classes.column])}>
+            <Avatar color='primary'>a</Avatar>
+
+            <AmauiThemeProvider
+              value={{
+                ui: {
+                  className: {
+                    static: false
+                  }
+                }
+              }}
+            >
+              <Avatar>a</Avatar>
+            </AmauiThemeProvider>
+          </div>
+        </Accordion>
+
+        <Accordion label='AmauiTheme with classNames global' open>
+          <div className={classNames([classes.column])}>
+            <Avatar>a</Avatar>
+
+            <AmauiThemeProvider
+              value={{
+                ui: {
+                  elements: {
+                    AmauiButton: {
+                      className: {
+                        static: false
+                      }
+                    }
+                  }
+                }
+              }}
+            >
+              <Avatar>a</Avatar>
+
+              <Button>a</Button>
+            </AmauiThemeProvider>
+
+            <AmauiThemeProvider
+              value={{
+                ui: {
+                  className: {
+                    static: false
+                  },
+
+                  elements: {
+                    AmauiAvatar: {
+                      className: {
+                        static: true
+                      }
+                    }
+                  }
+                }
+              }}
+            >
+              <Avatar>a</Avatar>
+
+              <Button>a</Button>
+            </AmauiThemeProvider>
+          </div>
+        </Accordion>
+
       </Accordion>
-    </div>
+    </div >
   );
 }
 

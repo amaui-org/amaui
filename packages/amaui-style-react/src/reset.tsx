@@ -7,7 +7,7 @@ import { IResponse, reset as amauiResetMethod, TValue, TValueMethod } from '@ama
 import { IOptions } from '@amaui/style/reset';
 
 import { useAmauiStyle, useAmauiTheme } from '.';
-import { IResponseStyle } from './style';
+import { IResponseStyle, propsAreNew } from './style';
 
 export default function reset(value: TValue = {}, options_: IOptions = {}) {
   const responses: Array<IResponseStyle> = [];
@@ -137,7 +137,8 @@ export default function reset(value: TValue = {}, options_: IOptions = {}) {
     // Update props
     React.useEffect(() => {
       if (response !== undefined && values?.ids) response.props = { ids: values.ids.dynamic, props };
-    }, [props]);
+      // Only 1 lvl of values
+    }, [propsAreNew(props)]);
 
     return values;
   }

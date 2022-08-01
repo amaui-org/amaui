@@ -19,8 +19,8 @@ const useStyle = style(theme => ({
   },
 
   inset: {
-    marginLeft: `${theme.space.unit * 9}px`,
-    width: `calc(100% - ${theme.space.unit * 9}px)`
+    marginLeft: `72px`,
+    width: `calc(100% - 72px)`
   },
 
   // Orientation
@@ -30,8 +30,8 @@ const useStyle = style(theme => ({
   },
 
   horizontal_middle: {
-    margin: `0 ${theme.methods.space.value('rg', 'px')}`,
-    width: `calc(100% - ${theme.methods.space.value('rg') * 2}px)`
+    margin: `0 16px`,
+    width: `calc(100% - 32px)`
   },
 
   vertical: {
@@ -40,8 +40,8 @@ const useStyle = style(theme => ({
   },
 
   vertical_middle: {
-    margin: `${theme.methods.space.value('rg', 'px')} 0`,
-    height: `calc(100% - ${theme.methods.space.value('rg') * 2}px)`
+    margin: `16px 0`,
+    height: `calc(100% - 32px)`
   },
 
   rootWithChildren: {
@@ -62,8 +62,8 @@ const useStyle = style(theme => ({
   },
 
   rootWithChildren_horizontal_middle: {
-    margin: `0 ${theme.methods.space.value('rg', 'px')}`,
-    width: `calc(100% - ${theme.methods.space.value('rg') * 2}px)`
+    margin: `0 16px`,
+    width: `calc(100% - 32px)`
   },
 
   rootWithChildren_vertical: {
@@ -73,8 +73,8 @@ const useStyle = style(theme => ({
   },
 
   rootWithChildren_vertical_middle: {
-    margin: `${theme.methods.space.value('rg', 'px')} 0`,
-    height: `calc(100% - ${theme.methods.space.value('rg') * 2}px)`
+    margin: `16px 0`,
+    height: `calc(100% - 32px)`
   },
 
   text: {
@@ -83,11 +83,11 @@ const useStyle = style(theme => ({
 
   // Orientation
   text_horizontal: {
-    margin: `0 ${theme.methods.space.value('rg', 'px')}`,
+    margin: `0 16px`,
   },
 
   text_vertical: {
-    margin: `${theme.methods.space.value('rg', 'px')} 0`,
+    margin: `16px 0`,
   },
 
   divider: {

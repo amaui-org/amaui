@@ -10,8 +10,8 @@ import { staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
-    position: 'relative',
-    borderRadius: theme.methods.space.value('lg')
+    display: 'inline-flex',
+    position: 'relative'
   },
 
   // Color
@@ -55,18 +55,21 @@ const useStyle = style(theme => ({
   tonal_error: { color: theme.methods.palette.color.value('error', 60) },
 
   small: {
-    height: theme.methods.space.value('md', 'px'),
-    width: theme.methods.space.value('xxl', 'px', -4)
+    height: '24px',
+    width: '44px',
+    borderRadius: `${theme.shape.radius.unit * 1.5}px`
   },
 
   regular: {
-    height: theme.methods.space.value('lg', 'px'),
-    width: theme.methods.space.value('xxxl', 'px', -4)
+    height: '32px',
+    width: '52px',
+    borderRadius: `${theme.shape.radius.unit * 2}px`
   },
 
   large: {
-    height: theme.methods.space.value('xl', 'px'),
-    width: theme.methods.space.value('xxxl', 'px', 4)
+    height: '40px',
+    width: '60px',
+    borderRadius: `${theme.shape.radius.unit * 2.5}px`
   },
 
   disabled: {
@@ -80,7 +83,7 @@ const useStyle = style(theme => ({
     inset: 0,
     width: '100%',
     height: '100%',
-    borderRadius: theme.methods.space.value('lg'),
+    borderRadius: 'inherit',
     transition: theme.methods.transitions.make(['opacity', 'background'], { duration: 'sm' })
   },
 
@@ -96,7 +99,7 @@ const useStyle = style(theme => ({
     height: '100%',
     border: `2px solid`,
     borderColor: theme.palette.text.default.secondary,
-    borderRadius: theme.methods.space.value('lg'),
+    borderRadius: 'inherit',
     transition: theme.methods.transitions.make(['opacity'], { duration: 'sm' })
   },
 
@@ -130,7 +133,7 @@ const useStyle = style(theme => ({
     width: '1em',
     height: '1em',
     background: 'currentColor',
-    borderRadius: theme.methods.space.value('lg', 'px')
+    borderRadius: `calc(${theme.shape.radius.unit / 8} * 0.5em)`
   }
 }), { name: 'AmauiSwitch' });
 

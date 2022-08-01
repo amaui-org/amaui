@@ -7,7 +7,7 @@ import Interaction from '../Interaction';
 import RoundProgress from '../RoundProgress';
 import Type from '../Type';
 
-import { staticClassName } from '../utils';
+import { iconSizeToFontSize, staticClassName } from '../utils';
 
 const other = {
   pointerEvents: 'none',
@@ -28,7 +28,6 @@ const useStyle = style(theme => ({
     alignItems: 'center',
     position: 'relative',
     cursor: 'pointer',
-    borderRadius: theme.methods.space.value('xl', 'px'),
     textAlign: 'center',
     textDecoration: 'none',
     verticalAlign: 'middle',
@@ -66,74 +65,77 @@ const useStyle = style(theme => ({
 
   // Size
   small: {
-    padding: `${theme.methods.space.value('sm', 'px', 0.5)} ${theme.methods.space.value('rg', 'px')}`
+    padding: `7.5px 16px`,
+    borderRadius: `${theme.shape.radius.unit * 2}px`
   },
 
   regular: {
-    padding: `${theme.methods.space.value('sm', 'px', 3)} ${theme.methods.space.value('md', 'px')}`
+    padding: `11px 24px`,
+    borderRadius: `${theme.shape.radius.unit * 2.5}px`
   },
 
   large: {
-    padding: `${theme.methods.space.value('rg', 'px')} ${theme.methods.space.value('lg', 'px')}`
+    padding: `16px 32px`,
+    borderRadius: `${theme.shape.radius.unit * 3.5}px`
   },
 
   // icon
   icon: {
-    borderRadius: '50%',
+    borderRadius: `calc(${theme.shape.radius.unit / 8} * 1em)`,
     padding: '0'
   },
 
   icon_size_small: {
-    width: theme.methods.space.value('lg', 'px', -2),
-    height: theme.methods.space.value('lg', 'px', -2)
+    width: '30px',
+    height: '30px'
   },
 
   icon_size_regular: {
-    width: theme.methods.space.value('xl', 'px'),
-    height: theme.methods.space.value('xl', 'px')
+    width: '40px',
+    height: '40px'
   },
 
   icon_size_large: {
-    width: theme.methods.space.value('xxl', 'px', 2),
-    height: theme.methods.space.value('xxl', 'px', 2)
+    width: '50px',
+    height: '50px'
   },
 
   // fab
   fab_size_small: {
-    height: `${theme.space.unit * 5}px`,
-    minWidth: `${theme.space.unit * 8}px`,
-    borderRadius: theme.methods.shape.radius.value('rg', 'px', -4),
-    padding: theme.methods.shape.radius.value('sm', 'px', 4),
+    height: `40px`,
+    minWidth: `64px`,
+    borderRadius: `${theme.shape.radius.unit - (theme.shape.radius.unit / 2)}`,
+    padding: '12px',
   },
 
   fab_size_regular: {
-    height: `${theme.space.unit * 7}px`,
-    minWidth: `${theme.space.unit * 10}px`,
-    borderRadius: theme.methods.shape.radius.value('rg'),
-    padding: theme.methods.space.value('rg', 'px')
+    height: `56px`,
+    minWidth: `80px`,
+    borderRadius: `${theme.shape.radius.unit * 2}px`,
+    padding: '16px'
   },
 
   fab_size_large: {
-    height: `${theme.space.unit * 9}px`,
-    minWidth: `${theme.space.unit * 12}px`,
-    borderRadius: theme.methods.shape.radius.value('rg', 'px', 4),
-    padding: theme.methods.space.value('md', 'px')
+    height: `72px`,
+    minWidth: `96px`,
+    borderRadius: `${theme.shape.radius.unit + (theme.shape.radius.unit / 2)}px`,
+    padding: '24px'
   },
 
   // Chip
   chip_size_small: {
-    padding: `${theme.methods.space.value('sm', 'px', -4)} ${theme.methods.space.value('sm', 'px', 4)}`,
-    borderRadius: theme.methods.space.value('sm', 'px', -2)
+    padding: `4px 12px`,
+    borderRadius: `${theme.shape.radius.unit - (theme.shape.radius.unit / 4)}px`
   },
 
   chip_size_regular: {
-    padding: `${theme.methods.space.value('sm', 'px')} ${theme.methods.space.value('rg', 'px')}`,
-    borderRadius: theme.methods.space.value('sm', 'px')
+    padding: `8px 16px`,
+    borderRadius: `${theme.shape.radius.unit * 1}px`,
   },
 
   chip_size_large: {
-    padding: `${theme.methods.space.value('sm', 'px', 1)} ${theme.methods.space.value('rg', 'px', 4)}`,
-    borderRadius: theme.methods.space.value('sm', 'px', 2)
+    padding: `7px 20px`,
+    borderRadius: `${theme.shape.radius.unit + (theme.shape.radius.unit / 4)}px`
   },
 
   // Icons
@@ -214,20 +216,20 @@ const useStyle = style(theme => ({
     textTransform: 'capitalize',
     whiteSpace: 'nowrap',
     alignItems: 'center',
-    gap: theme.methods.space.value('sm', 'px')
+    gap: '8px'
   },
 
   // Size
   label_size_small: {
-    gap: theme.methods.space.value('sm', 'px', -2)
+    gap: '6px'
   },
 
   label_size_regular: {
-    gap: theme.methods.space.value('sm', 'px')
+    gap: '8px'
   },
 
   label_size_large: {
-    gap: theme.methods.space.value('sm', 'px', 2)
+    gap: '10px'
   },
 
   // icon
@@ -246,52 +248,52 @@ const useStyle = style(theme => ({
   },
 
   start_size_small: {
-    padding: `0 ${theme.methods.space.value('sm', 'px', -3)} 0 ${theme.methods.space.value('sm', 'px', 3)}`
+    padding: `0 5px 0 11px`
   },
 
   start_size_regular: {
-    padding: `0 ${theme.methods.space.value('sm', 'px')} 0 ${theme.methods.space.value('rg', 'px')}`
+    padding: `0 8px 0 16px`
   },
 
   start_size_large: {
-    padding: `0 ${theme.methods.space.value('sm', 'px', 2)} 0 ${theme.methods.space.value('md', 'px', -2)}`
+    padding: `0 10px 0 22px`
   },
 
   end_size_small: {
-    padding: `0 ${theme.methods.space.value('sm', 'px', 3)} 0 ${theme.methods.space.value('sm', 'px', -3)}`
+    padding: `0 11px 0 5px`
   },
 
   end_size_regular: {
-    padding: `0 ${theme.methods.space.value('rg', 'px')} 0 ${theme.methods.space.value('sm', 'px')}`
+    padding: `0 16px 0 8px`
   },
 
   end_size_large: {
-    padding: `0 ${theme.methods.space.value('md', 'px', -2)} 0 ${theme.methods.space.value('sm', 'px', 2)}`
+    padding: `0 22px 0 10px`
   },
 
   // Chip
   chip_start_size_small: {
-    padding: `0 ${theme.methods.space.value('sm', 'px', -2)}`
+    padding: `0 6px`
   },
 
   chip_start_size_regular: {
-    padding: `0 ${theme.methods.space.value('sm', 'px')}`
+    padding: `0 8px`
   },
 
   chip_start_size_large: {
-    padding: `0 ${theme.methods.space.value('sm', 'px', 2)}`
+    padding: `0 10px`
   },
 
   chip_end_size_small: {
-    padding: `0 ${theme.methods.space.value('sm', 'px', -2)}`
+    padding: `0 6px`
   },
 
   chip_end_size_regular: {
-    padding: `0 ${theme.methods.space.value('sm', 'px')}`
+    padding: `0 8px`
   },
 
   chip_end_size_large: {
-    padding: `0 ${theme.methods.space.value('sm', 'px', 2)}`
+    padding: `0 10px`
   }
 }), { name: 'AmauiButton' });
 
@@ -428,14 +430,19 @@ const Button = React.forwardRef((props_: any, ref: any) => {
 
       styles.root.width = size;
       styles.root.height = size;
+      styles.root.fontSize = size / 1.667;
     }
-    else children_ = is('array', children_) ?
-      children_.filter(Boolean).map(
-        (item: any, index, number) => is('string', item.type) ?
-          React.cloneElement(item, { key: index }) :
-          React.cloneElement(item, { key: index, size: children_.props?.size !== undefined ? children_.props?.size : (size === 'large' ? 'medium' : size) } as any)
-      ) :
-      React.cloneElement(children_, { size: children_.props?.size !== undefined ? children_.props?.size : (size === 'large' ? 'medium' : size) });
+    else {
+      children_ = is('array', children_) ?
+        children_.filter(Boolean).map(
+          (item: any, index, number) => is('string', item.type) ?
+            React.cloneElement(item, { key: index }) :
+            React.cloneElement(item, { key: index, size: children_.props?.size !== undefined ? children_.props?.size : (size === 'large' ? 'medium' : size) } as any)
+        ) :
+        React.cloneElement(children_, { size: children_.props?.size !== undefined ? children_.props?.size : (size === 'large' ? 'medium' : size) });
+
+      styles.root.fontSize = iconSizeToFontSize(size === 'large' ? 'medium' : size);
+    }
   }
 
   // fab

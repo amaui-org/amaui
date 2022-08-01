@@ -6,6 +6,7 @@ import { classNames, TValue, style, TValueMethod } from '@amaui/style';
 import { IOptions } from '@amaui/style/style';
 
 import { useAmauiStyle, useAmauiTheme } from '.';
+import { propsAreNew } from './style';
 
 // May be TValue or a string  as a string value literal
 export default function className(value_: string | TValue, props_: any = {}, className_: string = '', options_: IOptions = {}): string {
@@ -111,7 +112,8 @@ export default function className(value_: string | TValue, props_: any = {}, cla
   // Update props
   React.useEffect(() => {
     if (response !== undefined && values?.ids) response.props = { ids: values.ids.dynamic, props };
-  }, [props]);
+    // Only 1 lvl of values
+  }, [propsAreNew(props)]);
 
   return ((values.class && classNames([className_, values.class])) || '');
 }
