@@ -12,10 +12,7 @@ const other = {
   pointerEvents: 'none',
   borderRadius: 'inherit',
   position: 'absolute',
-  top: '0',
-  right: '0',
-  bottom: '0',
-  left: '0',
+  inset: 0,
   width: '100%',
   height: '100%'
 };
@@ -61,6 +58,7 @@ const useStyle = style(theme => ({
 
   wave: {
     ...other,
+    inset: 'unset',
     opacity: 0.1,
     transform: 'scale(0)',
     backgroundColor: 'currentColor',

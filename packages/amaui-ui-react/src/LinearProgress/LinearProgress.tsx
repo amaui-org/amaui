@@ -7,10 +7,7 @@ import { staticClassName } from '../utils';
 
 const other = {
   position: 'absolute',
-  top: 0,
-  left: 0,
-  right: 0,
-  bottom: 0,
+  inset: 0,
   height: '100%',
   transformOrigin: 'inherit'
 };
@@ -27,12 +24,30 @@ const useStyle = style(theme => ({
     },
     '59.15%': {
       'animation-timing-function': 'cubic-bezier(0.302435, 0.381352, 0.55, 0.956352)',
-      transform: 'translateX(83.67142%)',
+      transform: `translateX(83.67142%)`,
     },
     '100%': {
-      transform: 'translateX(200.611057%)'
+      transform: `translateX(200.611057%)`
     }
   },
+
+  '@keyframes line_reverse': {
+    '0%': {
+      transform: 'translateX(0)'
+    },
+    '20%': {
+      'animation-timing-function': 'cubic-bezier(0.5, 0, 0.701732, 0.495819)',
+      transform: 'translateX(0)',
+    },
+    '59.15%': {
+      'animation-timing-function': 'cubic-bezier(0.302435, 0.381352, 0.55, 0.956352)',
+      transform: `translateX(-83.67142%)`,
+    },
+    '100%': {
+      transform: `translateX(-200.611057%)`
+    }
+  },
+
   '@keyframes inner': {
     '0%': {
       transform: 'scaleX(0.08)'
@@ -57,16 +72,35 @@ const useStyle = style(theme => ({
     },
     '25%': {
       'animation-timing-function': 'cubic-bezier(0.31033, 0.284058, 0.8, 0.733712)',
-      transform: 'translateX(37.651913%)'
+      transform: `translateX(37.651913%)`
     },
     '48.35%': {
       'animation-timing-function': 'cubic-bezier(0.4, 0.627035, 0.6, 0.902026)',
-      transform: 'translateX(84.386165%)'
+      transform: `translateX(84.386165%)`
     },
     '100%': {
-      transform: 'translateX(160.277782%)'
+      transform: `translateX(160.277782%)`
     }
   },
+
+  '@keyframes line1_reverse': {
+    '0%': {
+      'animation-timing-function': 'cubic-bezier(0.15, 0, 0.515058, 0.409685)',
+      transform: 'translateX(0)'
+    },
+    '25%': {
+      'animation-timing-function': 'cubic-bezier(0.31033, 0.284058, 0.8, 0.733712)',
+      transform: `translateX(-37.651913%)`
+    },
+    '48.35%': {
+      'animation-timing-function': 'cubic-bezier(0.4, 0.627035, 0.6, 0.902026)',
+      transform: `translateX(-84.386165%)`
+    },
+    '100%': {
+      transform: `translateX(-160.277782%)`
+    }
+  },
+
   '@keyframes inner1': {
     '0%': {
       'animation-timing-function': 'cubic-bezier(0.205028, 0.057051, 0.57661, 0.453971)',
@@ -163,6 +197,14 @@ const useStyle = style(theme => ({
     animation: '$line 2s infinite linear'
   },
 
+  lineIndeterminate_reverse: {
+    ...other,
+    width: '100%',
+    right: '-145.166611%',
+    transformOrigin: 'initial',
+    animation: '$line_reverse 2s infinite linear'
+  },
+
   inner: {
     ...other,
     width: '100%',
@@ -176,6 +218,14 @@ const useStyle = style(theme => ({
     left: '-54.888891%',
     transformOrigin: 'initial',
     animation: '$line1 2s infinite linear'
+  },
+
+  lineIndeterminate1_reverse: {
+    ...other,
+    width: '100%',
+    right: '-54.888891%',
+    transformOrigin: 'initial',
+    animation: '$line1_reverse 2s infinite linear'
   },
 
   inner1: {
@@ -218,10 +268,14 @@ const LinearProgress = React.forwardRef((props_: any, ref: any) => {
     version = 'indeterminate',
     buffer,
     value,
-    reverse,
+    reverse: reverse_,
 
     ...other
   } = props;
+
+  let reverse = version === 'indeterminate' ? false : reverse_;
+
+  if (theme.direction === 'rtl' && version === 'indeterminate') reverse = !reverse;
 
   const styles: any = {
     root: {},
@@ -317,7 +371,7 @@ const LinearProgress = React.forwardRef((props_: any, ref: any) => {
                 'AmauiLinearProgress-lineIndeterminate'
               ],
 
-              classes.lineIndeterminate
+              classes[!reverse ? 'lineIndeterminate' : 'lineIndeterminate_reverse']
             ])}
           >
             <div
@@ -337,7 +391,7 @@ const LinearProgress = React.forwardRef((props_: any, ref: any) => {
                 'AmauiLinearProgress-lineIndeterminate1'
               ],
 
-              classes.lineIndeterminate1
+              classes[!reverse ? 'lineIndeterminate1' : 'lineIndeterminate1_reverse']
             ])}
           >
             <div

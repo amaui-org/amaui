@@ -40,23 +40,23 @@ const useStyle = style(theme => ({
 
   left: {
     '&:not(:first-of-type)': {
-      borderTopLeftRadius: '0px',
-      borderBottomLeftRadius: '0px',
+      borderStartStartRadius: '0px',
+      borderEndStartRadius: '0px',
 
       '&$outlined': {
-        marginLeft: '-1px'
+        marginInlineStart: '-1px'
       },
 
       '&$border:not($outlined)': {
-        borderLeft: '1px solid currentColor'
+        borderInlineStart: '1px solid currentColor'
       }
     },
   },
 
   right: {
     '&:not(:last-of-type)': {
-      borderTopRightRadius: '0px',
-      borderBottomRightRadius: '0px'
+      borderStartEndRadius: '0px',
+      borderEndEndRadius: '0px'
     }
   },
 

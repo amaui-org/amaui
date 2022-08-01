@@ -13,10 +13,7 @@ const other = {
   pointerEvents: 'none',
   borderRadius: 'inherit',
   position: 'absolute',
-  top: '0',
-  right: '0',
-  bottom: '0',
-  left: '0',
+  inset: 0,
   width: '100%',
   height: '100%'
 };
@@ -65,17 +62,20 @@ const useStyle = style(theme => ({
 
   // Size
   small: {
-    padding: `7.5px 16px`,
+    paddingBlock: '7.5px',
+    paddingInline: '16px',
     borderRadius: `${theme.shape.radius.unit * 2}px`
   },
 
   regular: {
-    padding: `11px 24px`,
+    paddingBlock: '11px',
+    paddingInline: '24px',
     borderRadius: `${theme.shape.radius.unit * 2.5}px`
   },
 
   large: {
-    padding: `16px 32px`,
+    paddingBlock: '16px',
+    paddingInline: '32px',
     borderRadius: `${theme.shape.radius.unit * 3.5}px`
   },
 
@@ -140,11 +140,11 @@ const useStyle = style(theme => ({
 
   // Icons
   startIcon: {
-    paddingLeft: 0
+    paddingInlineStart: 0
   },
 
   endIcon: {
-    paddingRight: 0
+    paddingInlineEnd: 0
   },
 
   fullWidth: {
@@ -248,27 +248,27 @@ const useStyle = style(theme => ({
   },
 
   start_size_small: {
-    padding: `0 5px 0 11px`
+    paddingInline: '11px 5px'
   },
 
   start_size_regular: {
-    padding: `0 8px 0 16px`
+    paddingInline: '16px 8px'
   },
 
   start_size_large: {
-    padding: `0 10px 0 22px`
+    paddingInline: '22px 10px'
   },
 
   end_size_small: {
-    padding: `0 11px 0 5px`
+    paddingInline: '5px 11px'
   },
 
   end_size_regular: {
-    padding: `0 16px 0 8px`
+    paddingInline: '8px 16px'
   },
 
   end_size_large: {
-    padding: `0 22px 0 10px`
+    paddingInline: '10px 22px'
   },
 
   // Chip

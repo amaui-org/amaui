@@ -5,7 +5,7 @@ import { AmauiTheme, classNames, style, useAmauiTheme } from '@amaui/style-react
 import { iconSizeToFontSize, staticClassName } from '../utils';
 
 export const rtl_icons = [
-  'arrow_back_ios', 'arrow_left', 'assignment_return', 'call_made', 'call_missed_outgoing', 'chevron_left', 'device_unknown', 'featured_play_list', 'flight_land', 'format_indent_increase', 'functions', 'input', 'label', 'last_page', 'live_help', 'navigate_before', 'note', 'queue_music', 'reply_all', 'short_text', 'star_half', 'toc', 'undo', 'wrap_text'
+  'ArrowBackIos', 'ArrowLeft', 'AssignmentReturn', 'CallMade', 'CallMissedOutgoing', 'ChevronLeft', 'DeviceUnknown', 'FeaturedPlayList', 'FlightLand', 'FormatIndentIncrease', 'Functions', 'Input', 'Label', 'LastPage', 'LiveHelp', 'NavigateBefore', 'Note', 'QueueMusic', 'ReplyAll', 'ShortText', 'StarHalf', 'Toc', 'Undo', 'WrapText'
 ];
 
 const useStyle = style(theme => ({
@@ -42,14 +42,13 @@ const Icon = React.forwardRef((props_: any, ref: any) => {
 
   const {
     viewBox = '0 0 24 24',
-    size,
     name,
     short_name,
     tonal,
-    color: color_ = 'inherit',
     tone = '30',
+    color: color_ = 'inherit',
+    size = 'regular',
     Component = 'svg',
-    rtl: rtl_,
     disabled,
 
     className,
@@ -60,14 +59,14 @@ const Icon = React.forwardRef((props_: any, ref: any) => {
     ...other
   } = props;
 
-  const [rtl, setRtl] = React.useState(rtl_);
+  const [rtl, setRtl] = React.useState(theme.direction === 'rtl');
 
   const { classes } = useStyle(props);
 
   React.useEffect(() => {
     // Update rtl based on theme value
-    const method = (update, theme_: AmauiTheme) => {
-      if (theme_.options.rule.rtl !== rtl) setRtl(!rtl);
+    const method = (update, themeNew: AmauiTheme) => {
+      setRtl(themeNew.direction === 'rtl');
     };
 
     theme.subscriptions.update.subscribe(method);
@@ -76,10 +75,6 @@ const Icon = React.forwardRef((props_: any, ref: any) => {
       theme.subscriptions.update.unsubscribe(method);
     };
   }, []);
-
-  React.useEffect(() => {
-    if (rtl_ !== rtl) setRtl(rtl_);
-  }, [rtl_]);
 
   const fontSize = iconSizeToFontSize(size);
 

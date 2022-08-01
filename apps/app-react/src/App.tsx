@@ -10,6 +10,7 @@ import IconMaterialCheckRounded from '@amaui/icons-material-react/build/IconMate
 import IconMaterialCloseRounded from '@amaui/icons-material-react/build/IconMaterialCloseRounded';
 import IconMaterialLightModeRounded from '@amaui/icons-material-react/build/IconMaterialLightModeRounded';
 import IconMaterialDarkModeRounded from '@amaui/icons-material-react/build/IconMaterialDarkModeRounded';
+import IconMaterialUndoRounded from '@amaui/icons-material-react/build/IconMaterialUndoRounded';
 
 const useStyleA = style(theme => ({
   a: {
@@ -227,6 +228,7 @@ function App() {
   // eslint-disable-next-line
   const [progress, setProgress] = React.useState(0);
   const [items, setItems] = React.useState([0]);
+  const [rtl, setRtl] = React.useState(false);
   const [space, setSpace] = React.useState(8);
   const [radius, setRadius] = React.useState(8);
   const { classes } = useStyle();
@@ -249,6 +251,8 @@ function App() {
   });
 
   React.useEffect(() => {
+    if (theme.element) theme.element.dir = !rtl ? 'ltr' : 'rtl';
+
     theme.updateWithRerender({
       space: {
         unit: space
@@ -260,7 +264,7 @@ function App() {
       }
     });
     // eslint-disable-next-line
-  }, [space, radius]);
+  }, [space, radius, rtl]);
 
   const update = (item: any) => {
     setA((values: any) => {
@@ -343,10 +347,12 @@ function App() {
         <Button size='small' color='secondary' className={classes.btn} onClick={() => updateLight()}>{theme.palette.light ? 'dark' : 'light'}</Button>
 
         <Button size='small' color='secondary' className={classes.btn} onClick={() => setSpace(item => ++item)}>add space ({space})</Button>
-        <Button size='small' color='secondary' className={classes.btn} onClick={() => setSpace(item => --item)}>remove space({space})</Button>
+        <Button size='small' color='secondary' className={classes.btn} onClick={() => setSpace(item => --item)}>remove space ({space})</Button>
 
         <Button size='small' color='secondary' className={classes.btn} onClick={() => setRadius(item => ++item)}>add radius ({radius})</Button>
-        <Button size='small' color='secondary' className={classes.btn} onClick={() => setRadius(item => --item)}>remove radius({radius})</Button>
+        <Button size='small' color='secondary' className={classes.btn} onClick={() => setRadius(item => --item)}>remove radius ({radius})</Button>
+
+        <Button size='small' color='secondary' className={classes.btn} onClick={() => setRtl(item => !item)}>rtl {rtl ? ' on' : ''}</Button>
       </div>
 
       <Accordion label='All'>
@@ -3541,7 +3547,7 @@ function App() {
           <div className={classNames([classes.column, classes.center])}>
             <LinearProgress />
             <LinearProgress version='indeterminate' />
-            <LinearProgress version='determinate' value={progress} />
+            <LinearProgress version='determinate' value={{ progress: 24 }} />
             <LinearProgress version='determinate' value={{ progress: 24, buffer: 40 }} buffer />
           </div>
         </Accordion>
@@ -4178,6 +4184,12 @@ function App() {
             <IconMaterialPottedPlantRounded size='large' color='primary' tonal />
             <IconMaterialPottedPlantRounded size='very large' color='primary' tonal />
             <IconMaterialPottedPlantRounded size={70} color='primary' tonal />
+          </div>
+        </Accordion>
+
+        <Accordion label='Icon rtl' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <IconMaterialUndoRounded />
           </div>
         </Accordion>
       </Accordion>
