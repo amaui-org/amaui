@@ -114,6 +114,7 @@ const IconMaterialIndeterminateCheckBoxSharp = React.forwardRef((props: any, ref
 const IconItem = (props: any) => {
   const {
     Component = 'span',
+    noFontSize,
     size,
 
     className,
@@ -128,9 +129,17 @@ const IconItem = (props: any) => {
     root: {}
   };
 
-  let fontSize = iconSizeToFontSize(size);
+  let fontSize = '24px';
 
-  styles.root.fontSize = `calc(${fontSize} * 0.75)`;
+  if (size === 'very small') fontSize = '12px';
+  else if (size === 'small') fontSize = '18px';
+  else if (size === 'regular') fontSize = '24px';
+  else if (size === 'medium') fontSize = '36px';
+  else if (size === 'large') fontSize = '48px';
+  else if (size === 'very large') fontSize = '60px';
+  else if (size !== undefined) fontSize = `${size}${!String(size).includes('px') ? 'px' : ''}`;
+
+  if (!noFontSize) styles.root.fontSize = `calc(${fontSize} * 0.75)`;
 
   return (
     <Component
@@ -312,8 +321,10 @@ const Checkbox = React.forwardRef((props_: any, ref: any) => {
           ])}
 
           style={styles.iconDone}
+
+          noFontSize
         >
-          <IconMaterialIndeterminateCheckBoxSharp />
+          <IconMaterialIndeterminateCheckBoxSharp size='inherit' />
         </IconItem>
       )}
 

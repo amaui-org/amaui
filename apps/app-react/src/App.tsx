@@ -201,8 +201,132 @@ const Accordion = (props: any) => {
 const styled = {
   Switch: sy(Switch)((theme: AmauiTheme) => ({
     root: {
-      height: 37,
-
+      '&:hover': {
+        opacity: 0.4
+      }
+    }
+  })),
+  Radio: sy(Radio)((theme: AmauiTheme) => ({
+    root: {
+      '&:hover': {
+        opacity: 0.4
+      }
+    }
+  })),
+  Checkbox: sy(Checkbox)((theme: AmauiTheme) => ({
+    root: {
+      '&:hover': {
+        opacity: 0.4
+      }
+    }
+  })),
+  ChipGroup: sy(ChipGroup)((theme: AmauiTheme) => ({
+    root: {
+      '&:hover': {
+        opacity: 0.4
+      }
+    }
+  })),
+  Chip: sy(Chip)((theme: AmauiTheme) => ({
+    root: {
+      '&:hover': {
+        opacity: 0.4
+      }
+    }
+  })),
+  Avatar: sy(Avatar)((theme: AmauiTheme) => ({
+    root: {
+      '&:hover': {
+        opacity: 0.4
+      }
+    }
+  })),
+  AvatarGroup: sy(AvatarGroup)((theme: AmauiTheme) => ({
+    root: {
+      '&:hover': {
+        opacity: 0.4
+      }
+    }
+  })),
+  Badge: sy(Badge)((theme: AmauiTheme) => ({
+    root: {
+      '&:hover': {
+        opacity: 0.4
+      }
+    }
+  })),
+  Divider: sy(Divider)((theme: AmauiTheme) => ({
+    root: {
+      '&:hover': {
+        opacity: 0.4
+      }
+    }
+  })),
+  Modal: sy(Modal)((theme: AmauiTheme) => ({
+    root: {
+      '&:hover': {
+        opacity: 0.4
+      }
+    }
+  })),
+  Surface: sy(Surface)((theme: AmauiTheme) => ({
+    root: {
+      '&:hover': {
+        opacity: 0.4
+      }
+    }
+  })),
+  Link: sy(Link)((theme: AmauiTheme) => ({
+    root: {
+      '&:hover': {
+        opacity: 0.4
+      }
+    }
+  })),
+  Type: sy(Type)((theme: AmauiTheme) => ({
+    root: {
+      '&:hover': {
+        opacity: 0.4
+      }
+    }
+  })),
+  Fab: sy(Fab)((theme: AmauiTheme) => ({
+    root: {
+      '&:hover': {
+        opacity: 0.4
+      }
+    }
+  })),
+  IconButton: sy(IconButton)((theme: AmauiTheme) => ({
+    root: {
+      '&:hover': {
+        opacity: 0.4
+      }
+    }
+  })),
+  LinearProgress: sy(LinearProgress)((theme: AmauiTheme) => ({
+    root: {
+      '&:hover': {
+        opacity: 0.4
+      }
+    }
+  })),
+  RoundProgress: sy(RoundProgress)((theme: AmauiTheme) => ({
+    root: {
+      '&:hover': {
+        opacity: 0.4
+      }
+    }
+  })),
+  Button: sy(Button)((theme: AmauiTheme) => ({
+    root: {
+      '&:hover': {
+        opacity: 0.4
+      }
+    }
+  })),
+  IconMaterialPottedPlantRounded: sy(IconMaterialPottedPlantRounded)((theme: AmauiTheme) => ({
+    root: {
       '&:hover': {
         opacity: 0.4
       }
@@ -591,7 +715,6 @@ function App() {
                             root: {
                               display: 'inline-flex',
                               position: 'relative',
-                              borderRadius: 32,
                               height: 37
                             }
                           }
@@ -629,8 +752,8 @@ function App() {
               <styled.Switch />
             </Accordion>
           </div>
-        </Accordion >
-      </Accordion >
+        </Accordion>
+      </Accordion>
 
       <Accordion label='Keyframes'>
         <Accordion label='Keyframes' open>
@@ -811,6 +934,103 @@ function App() {
           <div className={classNames([classes.column])}>
             <Radio color='secondary' disabled />
             <Radio color='secondary' valueDefault disabled />
+          </div>
+        </Accordion>
+
+        <Accordion label='AmauiTheme' open>
+          <div className={classNames([classes.column])}>
+            <Radio color='secondary' />
+
+            <Accordion label='AmauiTheme nested value' open>
+              <AmauiThemeProvider
+                value={{
+                  palette: {
+                    color: {
+                      secondary: {
+                        main: '#008000'
+                      }
+                    }
+                  },
+                  space: {
+                    unit: 5
+                  }
+                }}
+              >
+                <Radio color='secondary' />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme add' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiRadio: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: 0.4
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Radio color='secondary' />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme override' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiRadio: {
+                        style: {
+                          override: {
+                            root: {
+                              display: 'inline-flex',
+                              position: 'relative',
+                              height: 44
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Radio color='secondary' />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme props' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiRadio: {
+                        props: {
+                          default: {
+                            color: 'secondary'
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Radio />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme styled' open>
+              <styled.Radio />
+            </Accordion>
           </div>
         </Accordion>
       </Accordion>
@@ -1080,6 +1300,103 @@ function App() {
             <Checkbox color='secondary' valueDefault disabled />
           </div>
         </Accordion>
+
+        <Accordion label='AmauiTheme' open>
+          <div className={classNames([classes.column])}>
+            <Checkbox color='secondary' />
+
+            <Accordion label='AmauiTheme nested value' open>
+              <AmauiThemeProvider
+                value={{
+                  palette: {
+                    color: {
+                      secondary: {
+                        main: '#008000'
+                      }
+                    }
+                  },
+                  space: {
+                    unit: 5
+                  }
+                }}
+              >
+                <Checkbox color='secondary' />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme add' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiCheckbox: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: 0.4
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Checkbox color='secondary' />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme override' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiCheckbox: {
+                        style: {
+                          override: {
+                            root: {
+                              display: 'inline-flex',
+                              position: 'relative',
+                              height: 44
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Checkbox color='secondary' />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme props' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiCheckbox: {
+                        props: {
+                          default: {
+                            color: 'secondary'
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Checkbox />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme styled' open>
+              <styled.Checkbox />
+            </Accordion>
+          </div>
+        </Accordion>
       </Accordion>
 
       <Accordion label='Backdrop'>
@@ -1246,6 +1563,151 @@ function App() {
               <Chip>Assistive 114</Chip>
               <Chip>Assistive 1114</Chip>
             </ChipGroup>
+          </div>
+        </Accordion>
+
+        <Accordion label='AmauiTheme' open>
+          <div className={classNames([classes.column])}>
+            <ChipGroup color='secondary'>
+              <Chip>Assistive</Chip>
+              <Chip>Assistive 1</Chip>
+              <Chip>Assistive 3</Chip>
+              <Chip>Assistive 4</Chip>
+              <Chip>Assistive 14</Chip>
+              <Chip>Assistive 114</Chip>
+              <Chip>Assistive 1114</Chip>
+            </ChipGroup>
+
+            <Accordion label='AmauiTheme nested value' open>
+              <AmauiThemeProvider
+                value={{
+                  palette: {
+                    color: {
+                      secondary: {
+                        main: '#008000'
+                      }
+                    }
+                  },
+                  space: {
+                    unit: 5
+                  }
+                }}
+              >
+                <ChipGroup color='secondary'>
+                  <Chip>Assistive</Chip>
+                  <Chip>Assistive 1</Chip>
+                  <Chip>Assistive 3</Chip>
+                  <Chip>Assistive 4</Chip>
+                  <Chip>Assistive 14</Chip>
+                  <Chip>Assistive 114</Chip>
+                  <Chip>Assistive 1114</Chip>
+                </ChipGroup>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme add' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiChipGroup: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: 0.4
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <ChipGroup color='secondary'>
+                  <Chip>Assistive</Chip>
+                  <Chip>Assistive 1</Chip>
+                  <Chip>Assistive 3</Chip>
+                  <Chip>Assistive 4</Chip>
+                  <Chip>Assistive 14</Chip>
+                  <Chip>Assistive 114</Chip>
+                  <Chip>Assistive 1114</Chip>
+                </ChipGroup>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme override' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiChipGroup: {
+                        style: {
+                          override: {
+                            root: {
+                              display: 'inline-flex',
+                              position: 'relative',
+                              height: 44
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <ChipGroup color='secondary'>
+                  <Chip>Assistive</Chip>
+                  <Chip>Assistive 1</Chip>
+                  <Chip>Assistive 3</Chip>
+                  <Chip>Assistive 4</Chip>
+                  <Chip>Assistive 14</Chip>
+                  <Chip>Assistive 114</Chip>
+                  <Chip>Assistive 1114</Chip>
+                </ChipGroup>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme props' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiChipGroup: {
+                        props: {
+                          default: {
+                            color: 'secondary'
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <ChipGroup>
+                  <Chip>Assistive</Chip>
+                  <Chip>Assistive 1</Chip>
+                  <Chip>Assistive 3</Chip>
+                  <Chip>Assistive 4</Chip>
+                  <Chip>Assistive 14</Chip>
+                  <Chip>Assistive 114</Chip>
+                  <Chip>Assistive 1114</Chip>
+                </ChipGroup>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme styled' open>
+              <styled.ChipGroup>
+                <Chip>Assistive</Chip>
+                <Chip>Assistive 1</Chip>
+                <Chip>Assistive 3</Chip>
+                <Chip>Assistive 4</Chip>
+                <Chip>Assistive 14</Chip>
+                <Chip>Assistive 114</Chip>
+                <Chip>Assistive 1114</Chip>
+              </styled.ChipGroup>
+            </Accordion>
           </div>
         </Accordion>
       </Accordion>
@@ -1626,6 +2088,103 @@ function App() {
             <Chip version='filled' tonal color='tertiary' size='large' selected>Large</Chip>
           </div>
         </Accordion>
+
+        <Accordion label='AmauiTheme' open>
+          <div className={classNames([classes.column])}>
+            <Chip color='secondary'>Enabled</Chip>
+
+            <Accordion label='AmauiTheme nested value' open>
+              <AmauiThemeProvider
+                value={{
+                  palette: {
+                    color: {
+                      secondary: {
+                        main: '#008000'
+                      }
+                    }
+                  },
+                  space: {
+                    unit: 5
+                  }
+                }}
+              >
+                <Chip color='secondary'>Enabled</Chip>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme add' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiChip: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: 0.4
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Chip color='secondary'>Enabled</Chip>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme override' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiChip: {
+                        style: {
+                          override: {
+                            root: {
+                              display: 'inline-flex',
+                              position: 'relative',
+                              height: 44
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Chip color='secondary'>Enabled</Chip>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme props' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiChip: {
+                        props: {
+                          default: {
+                            color: 'secondary'
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Chip>Enabled</Chip>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme styled' open>
+              <styled.Chip>Enabled</styled.Chip>
+            </Accordion>
+          </div>
+        </Accordion>
       </Accordion>
 
       <Accordion label='ClickListener'>
@@ -1830,6 +2389,139 @@ function App() {
               <Avatar>4</Avatar>
               <Avatar>5</Avatar>
             </AvatarGroup>
+          </div>
+        </Accordion>
+
+        <Accordion label='AmauiTheme' open>
+          <div className={classNames([classes.column])}>
+            <AvatarGroup color='secondary'>
+              <Avatar>1</Avatar>
+              <Avatar>2</Avatar>
+              <Avatar>3</Avatar>
+              <Avatar>4</Avatar>
+              <Avatar>5</Avatar>
+            </AvatarGroup>
+
+            <Accordion label='AmauiTheme nested value' open>
+              <AmauiThemeProvider
+                value={{
+                  palette: {
+                    color: {
+                      secondary: {
+                        main: '#008000'
+                      }
+                    }
+                  },
+                  space: {
+                    unit: 5
+                  }
+                }}
+              >
+                <AvatarGroup color='secondary'>
+                  <Avatar>1</Avatar>
+                  <Avatar>2</Avatar>
+                  <Avatar>3</Avatar>
+                  <Avatar>4</Avatar>
+                  <Avatar>5</Avatar>
+                </AvatarGroup>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme add' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiAvatarGroup: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: 0.4
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <AvatarGroup color='secondary'>
+                  <Avatar>1</Avatar>
+                  <Avatar>2</Avatar>
+                  <Avatar>3</Avatar>
+                  <Avatar>4</Avatar>
+                  <Avatar>5</Avatar>
+                </AvatarGroup>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme override' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiAvatarGroup: {
+                        style: {
+                          override: {
+                            root: {
+                              display: 'inline-flex',
+                              position: 'relative',
+                              height: 44
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <AvatarGroup color='secondary'>
+                  <Avatar>1</Avatar>
+                  <Avatar>2</Avatar>
+                  <Avatar>3</Avatar>
+                  <Avatar>4</Avatar>
+                  <Avatar>5</Avatar>
+                </AvatarGroup>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme props' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiAvatarGroup: {
+                        props: {
+                          default: {
+                            color: 'secondary'
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <AvatarGroup>
+                  <Avatar>1</Avatar>
+                  <Avatar>2</Avatar>
+                  <Avatar>3</Avatar>
+                  <Avatar>4</Avatar>
+                  <Avatar>5</Avatar>
+                </AvatarGroup>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme styled' open>
+              <styled.AvatarGroup color='secondary'>
+                <Avatar>1</Avatar>
+                <Avatar>2</Avatar>
+                <Avatar>3</Avatar>
+                <Avatar>4</Avatar>
+                <Avatar>5</Avatar>
+              </styled.AvatarGroup>
+            </Accordion>
           </div>
         </Accordion>
       </Accordion>
@@ -2246,6 +2938,103 @@ function App() {
             </Avatar>
           </div>
         </Accordion>
+
+        <Accordion label='AmauiTheme' open>
+          <div className={classNames([classes.column])}>
+            <Avatar color='secondary'>a</Avatar>
+
+            <Accordion label='AmauiTheme nested value' open>
+              <AmauiThemeProvider
+                value={{
+                  palette: {
+                    color: {
+                      secondary: {
+                        main: '#008000'
+                      }
+                    }
+                  },
+                  space: {
+                    unit: 5
+                  }
+                }}
+              >
+                <Avatar color='secondary'>a</Avatar>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme add' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiAvatar: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: 0.4
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Avatar color='secondary'>a</Avatar>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme override' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiAvatar: {
+                        style: {
+                          override: {
+                            root: {
+                              display: 'inline-flex',
+                              position: 'relative',
+                              height: 44
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Avatar color='secondary'>a</Avatar>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme props' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiAvatar: {
+                        props: {
+                          default: {
+                            color: 'secondary'
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Avatar>a</Avatar>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme styled' open>
+              <styled.Avatar color='secondary'>a</styled.Avatar>
+            </Accordion>
+          </div>
+        </Accordion>
       </Accordion>
 
       <Accordion label='Badge'>
@@ -2481,6 +3270,115 @@ function App() {
             </Badge>
           </div>
         </Accordion>
+
+        <Accordion label='AmauiTheme' open>
+          <div className={classNames([classes.column])}>
+            <Badge color='secondary' value='1114'>
+              <IconMaterialPottedPlantRounded />
+            </Badge>
+
+            <Accordion label='AmauiTheme nested value' open>
+              <AmauiThemeProvider
+                value={{
+                  palette: {
+                    color: {
+                      secondary: {
+                        main: '#008000'
+                      }
+                    }
+                  },
+                  space: {
+                    unit: 5
+                  }
+                }}
+              >
+                <Badge color='secondary' value='1114'>
+                  <IconMaterialPottedPlantRounded />
+                </Badge>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme add' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiBadge: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: 0.4
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Badge color='secondary' value='1114'>
+                  <IconMaterialPottedPlantRounded />
+                </Badge>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme override' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiBadge: {
+                        style: {
+                          override: {
+                            root: {
+                              display: 'inline-flex',
+                              position: 'relative',
+                              height: 14
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Badge color='secondary' value='1114'>
+                  <IconMaterialPottedPlantRounded />
+                </Badge>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme props' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiBadge: {
+                        props: {
+                          default: {
+                            color: 'secondary'
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Badge value='1114'>
+                  <IconMaterialPottedPlantRounded />
+                </Badge>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme styled' open>
+              <styled.Badge value='1114'>
+                <IconMaterialPottedPlantRounded />
+              </styled.Badge>
+            </Accordion>
+          </div>
+        </Accordion>
       </Accordion>
 
       <Accordion label='Divider'>
@@ -2647,6 +3545,119 @@ function App() {
             </Divider>
 
             a14
+          </div>
+        </Accordion>
+
+        <Accordion label='AmauiTheme' open>
+          <div className={classNames([classes.column])}>
+            <Divider color='secondary' />
+
+            <Accordion label='AmauiTheme nested value' open>
+              <AmauiThemeProvider
+                value={{
+                  palette: {
+                    color: {
+                      secondary: {
+                        main: '#008000'
+                      }
+                    }
+                  },
+                  space: {
+                    unit: 5
+                  }
+                }}
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                <Divider color='secondary' />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme add' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiDivider: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: 0.4
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                <Divider color='secondary' />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme override' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiDivider: {
+                        style: {
+                          override: {
+                            root: {
+                              display: 'inline-flex',
+                              position: 'relative',
+                              height: 4
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                <Divider color='secondary' />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme props' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiDivider: {
+                        props: {
+                          default: {
+                            color: 'secondary'
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                <Divider />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme styled' open>
+              <styled.Divider />
+            </Accordion>
           </div>
         </Accordion>
       </Accordion>
@@ -2968,6 +3979,313 @@ function App() {
             </Modal>
           </div>
         </Accordion>
+
+        <Accordion label='AmauiTheme' open>
+          <div className={classNames([classes.column])}>
+            <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue(11)}>a</Button>
+
+            <Modal
+              open={a.modal === 11}
+
+              onClose={() => updateValue()}
+            >
+              <ModalHeader>
+                <ModalIcon><IconMaterialPottedPlantRounded /></ModalIcon>
+                <ModalTitle>Basic modal title</ModalTitle>
+              </ModalHeader>
+
+              <ModalMain>
+                <ModalText>
+                  A modal is type of window that appears in front of app content to provide critical information, or ask for a decision.
+                </ModalText>
+              </ModalMain>
+
+              <ModalFooter>
+                <Button
+                  version='text'
+
+                  tonal
+                >
+                  Enabled
+                </Button>
+
+                <Button
+                  version='text'
+
+                  tonal
+                >
+                  Enabled
+                </Button>
+              </ModalFooter>
+            </Modal>
+
+            <Accordion label='AmauiTheme nested value' open>
+              <AmauiThemeProvider
+                value={{
+                  palette: {
+                    color: {
+                      primary: {
+                        main: '#008000'
+                      }
+                    }
+                  },
+                  space: {
+                    unit: 5
+                  }
+                }}
+              >
+                <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue(12)}>a</Button>
+
+                <Modal
+                  open={a.modal === 12}
+
+                  onClose={() => updateValue()}
+                >
+                  <ModalHeader>
+                    <ModalIcon><IconMaterialPottedPlantRounded /></ModalIcon>
+                    <ModalTitle>Basic modal title</ModalTitle>
+                  </ModalHeader>
+
+                  <ModalMain>
+                    <ModalText>
+                      A modal is type of window that appears in front of app content to provide critical information, or ask for a decision.
+                    </ModalText>
+                  </ModalMain>
+
+                  <ModalFooter>
+                    <Button
+                      version='text'
+
+                      tonal
+                    >
+                      Enabled
+                    </Button>
+
+                    <Button
+                      version='text'
+
+                      tonal
+                    >
+                      Enabled
+                    </Button>
+                  </ModalFooter>
+                </Modal>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme add' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiModal: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: 0.4
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue(13)}>a</Button>
+
+                <Modal
+                  open={a.modal === 13}
+
+                  onClose={() => updateValue()}
+                >
+                  <ModalHeader>
+                    <ModalIcon><IconMaterialPottedPlantRounded /></ModalIcon>
+                    <ModalTitle>Basic modal title</ModalTitle>
+                  </ModalHeader>
+
+                  <ModalMain>
+                    <ModalText>
+                      A modal is type of window that appears in front of app content to provide critical information, or ask for a decision.
+                    </ModalText>
+                  </ModalMain>
+
+                  <ModalFooter>
+                    <Button
+                      version='text'
+
+                      tonal
+                    >
+                      Enabled
+                    </Button>
+
+                    <Button
+                      version='text'
+
+                      tonal
+                    >
+                      Enabled
+                    </Button>
+                  </ModalFooter>
+                </Modal>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme override' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiModal: {
+                        style: {
+                          override: {
+                            root: {
+                              position: 'fixed',
+                              inset: 0,
+                              zIndex: 4000
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue(14)}>a</Button>
+
+                <Modal
+                  open={a.modal === 14}
+
+                  onClose={() => updateValue()}
+                >
+                  <ModalHeader>
+                    <ModalIcon><IconMaterialPottedPlantRounded /></ModalIcon>
+                    <ModalTitle>Basic modal title</ModalTitle>
+                  </ModalHeader>
+
+                  <ModalMain>
+                    <ModalText>
+                      A modal is type of window that appears in front of app content to provide critical information, or ask for a decision.
+                    </ModalText>
+                  </ModalMain>
+
+                  <ModalFooter>
+                    <Button
+                      version='text'
+
+                      tonal
+                    >
+                      Enabled
+                    </Button>
+
+                    <Button
+                      version='text'
+
+                      tonal
+                    >
+                      Enabled
+                    </Button>
+                  </ModalFooter>
+                </Modal>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme props' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiModal: {
+                        props: {
+                          default: {
+                            fullScreen: true
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue(15)}>a</Button>
+
+                <Modal
+                  open={a.modal === 15}
+
+                  onClose={() => updateValue()}
+                >
+                  <ModalHeader>
+                    <ModalIcon><IconMaterialPottedPlantRounded /></ModalIcon>
+                    <ModalTitle>Basic modal title</ModalTitle>
+                  </ModalHeader>
+
+                  <ModalMain>
+                    <ModalText>
+                      A modal is type of window that appears in front of app content to provide critical information, or ask for a decision.
+                    </ModalText>
+                  </ModalMain>
+
+                  <ModalFooter>
+                    <Button
+                      version='text'
+
+                      tonal
+                    >
+                      Enabled
+                    </Button>
+
+                    <Button
+                      version='text'
+
+                      tonal
+                    >
+                      Enabled
+                    </Button>
+                  </ModalFooter>
+                </Modal>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme styled' open>
+              <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue(17)}>a</Button>
+
+              <styled.Modal
+                open={a.modal === 17}
+
+                onClose={() => updateValue()}
+              >
+                <ModalHeader>
+                  <ModalIcon><IconMaterialPottedPlantRounded /></ModalIcon>
+                  <ModalTitle>Basic modal title</ModalTitle>
+                </ModalHeader>
+
+                <ModalMain>
+                  <ModalText>
+                    A modal is type of window that appears in front of app content to provide critical information, or ask for a decision.
+                  </ModalText>
+                </ModalMain>
+
+                <ModalFooter>
+                  <Button
+                    version='text'
+
+                    tonal
+                  >
+                    Enabled
+                  </Button>
+
+                  <Button
+                    version='text'
+
+                    tonal
+                  >
+                    Enabled
+                  </Button>
+                </ModalFooter>
+              </styled.Modal>
+            </Accordion>
+          </div>
+        </Accordion>
       </Accordion>
 
       <Accordion label='Portal'>
@@ -3063,6 +4381,115 @@ function App() {
             <Surface color='#f5d758' tonal>Other</Surface>
           </div>
         </Accordion>
+
+        <Accordion label='AmauiTheme' open>
+          <div className={classNames([classes.column])}>
+            <Surface color='secondary'>
+              a
+            </Surface>
+
+            <Accordion label='AmauiTheme nested value' open>
+              <AmauiThemeProvider
+                value={{
+                  palette: {
+                    color: {
+                      secondary: {
+                        main: '#008000'
+                      }
+                    }
+                  },
+                  space: {
+                    unit: 5
+                  }
+                }}
+              >
+                <Surface color='secondary'>
+                  a
+                </Surface>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme add' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiSurface: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: 0.4
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Surface color='secondary'>
+                  a
+                </Surface>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme override' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiSurface: {
+                        style: {
+                          override: {
+                            root: {
+                              display: 'inline-flex',
+                              position: 'relative',
+                              width: 74
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Surface color='secondary'>
+                  a
+                </Surface>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme props' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiSurface: {
+                        props: {
+                          default: {
+                            color: 'secondary'
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Surface value='1114'>
+                  a
+                </Surface>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme styled' open>
+              <styled.Surface>
+                a
+              </styled.Surface>
+            </Accordion>
+          </div>
+        </Accordion>
       </Accordion>
 
       <Accordion label='Link'>
@@ -3142,6 +4569,103 @@ function App() {
             <Link color='#f5d758' tonal>Other</Link>
           </div>
         </Accordion>
+
+        <Accordion label='AmauiTheme' open>
+          <div className={classNames([classes.column])}>
+            <Link color='secondary'>Enabled</Link>
+
+            <Accordion label='AmauiTheme nested value' open>
+              <AmauiThemeProvider
+                value={{
+                  palette: {
+                    color: {
+                      secondary: {
+                        main: '#008000'
+                      }
+                    }
+                  },
+                  space: {
+                    unit: 5
+                  }
+                }}
+              >
+                <Link color='secondary'>Enabled</Link>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme add' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiLink: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: 0.4
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Link color='secondary'>Enabled</Link>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme override' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiLink: {
+                        style: {
+                          override: {
+                            root: {
+                              display: 'inline-flex',
+                              position: 'relative',
+                              height: 44
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Link color='secondary'>Enabled</Link>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme props' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiLink: {
+                        props: {
+                          default: {
+                            color: 'secondary'
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Link>Enabled</Link>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme styled' open>
+              <styled.Link>Enabled</styled.Link>
+            </Accordion>
+          </div>
+        </Accordion>
       </Accordion>
 
       <Accordion label='Type'>
@@ -3182,6 +4706,99 @@ function App() {
             <Type version='b3'>
               It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
             </Type>
+          </div>
+        </Accordion>
+
+        <Accordion label='AmauiTheme' open>
+          <div className={classNames([classes.column])}>
+            <Type color='secondary'>Enabled</Type>
+
+            <Accordion label='AmauiTheme nested value' open>
+              <AmauiThemeProvider
+                value={{
+                  typography: {
+                    values: {
+                      b2: {
+                        fontSize: '11px'
+                      }
+                    }
+                  }
+                }}
+              >
+                <Type>Enabled</Type>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme add' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiType: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: 0.4
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Type version='b3'>Enabled</Type>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme override' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiType: {
+                        style: {
+                          override: {
+                            root: {
+                              background: 'beige',
+                              color: 'brown'
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Type version='b3'>Enabled</Type>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme props' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiType: {
+                        props: {
+                          default: {
+                            version: 'b3'
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Type>Enabled</Type>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme styled' open>
+              <styled.Type>Enabled</styled.Type>
+            </Accordion>
           </div>
         </Accordion>
       </Accordion>
@@ -3356,6 +4973,103 @@ function App() {
           <div className={classNames([classes.row, classes.center])}>
             <Fab version='text' size='small'><IconMaterialUndoRounded /> Small</Fab>
             <Fab version='outlined' size='regular'><IconMaterialUndoRounded /></Fab>
+          </div>
+        </Accordion>
+
+        <Accordion label='AmauiTheme' open>
+          <div className={classNames([classes.column])}>
+            <Fab color='secondary' tonal version='filled' size='regular'><IconMaterialPottedPlantRounded /> Regular</Fab>
+
+            <Accordion label='AmauiTheme nested value' open>
+              <AmauiThemeProvider
+                value={{
+                  palette: {
+                    color: {
+                      secondary: {
+                        main: '#008000'
+                      }
+                    }
+                  },
+                  space: {
+                    unit: 5
+                  }
+                }}
+              >
+                <Fab color='secondary' tonal version='filled' size='regular'><IconMaterialPottedPlantRounded /> Regular</Fab>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme add' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiFab: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: 0.4
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Fab color='secondary' tonal version='filled' size='regular'><IconMaterialPottedPlantRounded /> Regular</Fab>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme override' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiFab: {
+                        style: {
+                          override: {
+                            root: {
+                              display: 'inline-flex',
+                              position: 'relative',
+                              height: 44
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Fab color='secondary' tonal version='filled' size='regular'><IconMaterialPottedPlantRounded /> Regular</Fab>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme props' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiFab: {
+                        props: {
+                          default: {
+                            color: 'secondary'
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Fab tonal version='filled' size='regular'><IconMaterialPottedPlantRounded /> Regular</Fab>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme styled' open>
+              <styled.Fab color='secondary' tonal version='filled' size='regular'><IconMaterialPottedPlantRounded /> Regular</styled.Fab>
+            </Accordion>
           </div>
         </Accordion>
       </Accordion>
@@ -3556,6 +5270,115 @@ function App() {
             <IconButton version='outlined' tonal color='secondary'><IconMaterialUndoRounded /></IconButton>
           </div>
         </Accordion>
+
+        <Accordion label='AmauiTheme' open>
+          <div className={classNames([classes.column])}>
+            <IconButton color='secondary'>
+              <IconMaterialPottedPlantRounded />
+            </IconButton>
+
+            <Accordion label='AmauiTheme nested value' open>
+              <AmauiThemeProvider
+                value={{
+                  palette: {
+                    color: {
+                      secondary: {
+                        main: '#008000'
+                      }
+                    }
+                  },
+                  space: {
+                    unit: 5
+                  }
+                }}
+              >
+                <IconButton color='secondary'>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme add' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiIconButton: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: 0.4
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <IconButton color='secondary'>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme override' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiIconButton: {
+                        style: {
+                          override: {
+                            root: {
+                              display: 'inline-flex',
+                              position: 'relative',
+                              height: 44
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <IconButton color='secondary'>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme props' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiIconButton: {
+                        props: {
+                          default: {
+                            color: 'secondary'
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <IconButton>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme styled' open>
+              <styled.IconButton color='secondary'>
+                <IconMaterialPottedPlantRounded />
+              </styled.IconButton>
+            </Accordion>
+          </div>
+        </Accordion>
       </Accordion>
 
       <Accordion label='Linear progress'>
@@ -3617,6 +5440,329 @@ function App() {
             <LinearProgress version='indeterminate' reverse />
             <LinearProgress version='determinate' value={{ progress: 24 }} reverse />
             <LinearProgress version='determinate' value={{ progress: 24, buffer: 40 }} buffer reverse />
+          </div>
+        </Accordion>
+
+        <Accordion label='AmauiTheme' open>
+          <div className={classNames([classes.column])}>
+            <LinearProgress color='secondary' />
+
+            <Accordion label='AmauiTheme nested value' open>
+              <AmauiThemeProvider
+                value={{
+                  palette: {
+                    color: {
+                      secondary: {
+                        main: '#008000'
+                      }
+                    }
+                  },
+                  space: {
+                    unit: 5
+                  }
+                }}
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                <LinearProgress color='secondary' />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme add' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiLinearProgress: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: 0.4
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                <LinearProgress color='secondary' />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme override' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiLinearProgress: {
+                        style: {
+                          override: {
+                            root: {
+                              display: 'inline-flex',
+                              position: 'relative',
+                              overflow: 'hidden',
+                              width: '100%',
+                              height: 4.4
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                <LinearProgress color='secondary' />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme props' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiLinearProgress: {
+                        props: {
+                          default: {
+                            color: 'secondary'
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                <LinearProgress />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme styled' open>
+              <styled.LinearProgress />
+            </Accordion>
+          </div>
+        </Accordion>
+      </Accordion>
+
+      <Accordion label='Round progress'>
+        <Accordion label='Round progress' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <RoundProgress />
+          </div>
+        </Accordion>
+
+        <Accordion label='Round progress size' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <RoundProgress size='extra_small' />
+            <RoundProgress size={20} />
+            <RoundProgress size='small' />
+            <RoundProgress size='regular' />
+            <RoundProgress size='large' />
+          </div>
+        </Accordion>
+
+        <Accordion label='Round progress color' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <RoundProgress color='default' />
+            <RoundProgress color='primary' />
+            <RoundProgress color='secondary' />
+            <RoundProgress color='tertiary' />
+            <RoundProgress color='quaternary' />
+            <RoundProgress color='info' />
+            <RoundProgress color='success' />
+            <RoundProgress color='error' />
+            <RoundProgress color='warning' />
+            <RoundProgress color='neutral' />
+            <RoundProgress color='#f5d758' />
+          </div>
+        </Accordion>
+
+        <Accordion label='Round progress color tonal' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <RoundProgress color='primary' tonal />
+            <RoundProgress color='secondary' tonal />
+            <RoundProgress color='tertiary' tonal />
+            <RoundProgress color='quaternary' tonal />
+            <RoundProgress color='info' tonal />
+            <RoundProgress color='success' tonal />
+            <RoundProgress color='error' tonal />
+            <RoundProgress color='warning' tonal />
+            <RoundProgress color='neutral' tonal />
+            <RoundProgress color='#f5d758' tonal />
+          </div>
+        </Accordion>
+
+        <Accordion label='Round progress no shrink' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <RoundProgress size='extra_small' noShrink />
+            <RoundProgress size={20} noShrink />
+            <RoundProgress size='small' noShrink />
+            <RoundProgress size='regular' noShrink />
+            <RoundProgress size='large' noShrink />
+          </div>
+        </Accordion>
+
+        <Accordion label='Round progress thickness' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <RoundProgress size='extra_small' thickness={1.4} />
+            <RoundProgress size={20} thickness={1.4} />
+            <RoundProgress size='small' thickness={1.4} />
+            <RoundProgress size='regular' thickness={1.4} />
+            <RoundProgress size='large' thickness={1.4} />
+          </div>
+        </Accordion>
+
+        <Accordion label='Rounded progress rounded' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <RoundProgress size='extra_small' rounded={false} />
+            <RoundProgress size={20} rounded={false} />
+            <RoundProgress size='small' rounded={false} />
+            <RoundProgress size='regular' rounded={false} />
+            <RoundProgress size='large' rounded={false} />
+          </div>
+        </Accordion>
+
+        <Accordion label='Rounded progress deteminate with pathBackgroundProps as well' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <RoundProgress size='small' version='determinate' value={0} pathBackgroundProps={{ className: classes.pathBackground }} />
+            <RoundProgress size='small' version='determinate' value={1} pathBackgroundProps={{ className: classes.pathBackground }} />
+            <RoundProgress size='small' version='determinate' value={40} pathBackgroundProps={{ className: classes.pathBackground }} />
+            <RoundProgress size='small' version='determinate' value={99} pathBackgroundProps={{ className: classes.pathBackground }} />
+            <RoundProgress size='small' version='determinate' value={100} pathBackgroundProps={{ className: classes.pathBackground }} />
+
+            <RoundProgress size='small' version='determinate' value={progress} pathBackgroundProps={{ className: classes.pathBackground }} />
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <RoundProgress size='regular' version='determinate' value={0} pathBackgroundProps={{ className: classes.pathBackground }} />
+            <RoundProgress size='regular' version='determinate' value={1} pathBackgroundProps={{ className: classes.pathBackground }} />
+            <RoundProgress size='regular' version='determinate' value={40} pathBackgroundProps={{ className: classes.pathBackground }} />
+            <RoundProgress size='regular' version='determinate' value={99} pathBackgroundProps={{ className: classes.pathBackground }} />
+            <RoundProgress size='regular' version='determinate' value={100} pathBackgroundProps={{ className: classes.pathBackground }} />
+
+            <RoundProgress size='regular' version='determinate' value={progress} pathBackgroundProps={{ className: classes.pathBackground }} />
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <RoundProgress size='large' version='determinate' value={0} pathBackgroundProps={{ className: classes.pathBackground }} />
+            <RoundProgress size='large' version='determinate' value={1} pathBackgroundProps={{ className: classes.pathBackground }} />
+            <RoundProgress size='large' version='determinate' value={40} pathBackgroundProps={{ className: classes.pathBackground }} />
+            <RoundProgress size='large' version='determinate' value={99} pathBackgroundProps={{ className: classes.pathBackground }} />
+            <RoundProgress size='large' version='determinate' value={100} pathBackgroundProps={{ className: classes.pathBackground }} />
+
+            <RoundProgress size='large' version='determinate' value={progress} pathBackgroundProps={{ className: classes.pathBackground }} />
+          </div>
+        </Accordion>
+
+        <Accordion label='AmauiTheme' open>
+          <div className={classNames([classes.column])}>
+            <RoundProgress color='secondary' />
+
+            <Accordion label='AmauiTheme nested value' open>
+              <AmauiThemeProvider
+                value={{
+                  palette: {
+                    color: {
+                      secondary: {
+                        main: '#008000'
+                      }
+                    }
+                  },
+                  space: {
+                    unit: 5
+                  }
+                }}
+              >
+                <RoundProgress color='secondary' />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme add' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiRoundProgress: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: 0.4
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <RoundProgress color='secondary' />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme override' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiRoundProgress: {
+                        style: {
+                          override: {
+                            root: {
+                              display: 'inline-flex',
+                              position: 'relative',
+                              height: 44
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <RoundProgress color='secondary' />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme props' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiRoundProgress: {
+                        props: {
+                          default: {
+                            color: 'secondary'
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <RoundProgress />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme styled' open>
+              <styled.RoundProgress />
+            </Accordion>
           </div>
         </Accordion>
       </Accordion>
@@ -3850,115 +5996,101 @@ function App() {
             </ButtonGroup>
           </div>
         </Accordion>
-      </Accordion>
 
-      <Accordion label='Round progress'>
-        <Accordion label='Round progress' open>
-          <div className={classNames([classes.row, classes.center])}>
-            <RoundProgress />
-          </div>
-        </Accordion>
+        <Accordion label='AmauiTheme' open>
+          <div className={classNames([classes.column])}>
+            <Chip color='secondary'>Enabled</Chip>
 
-        <Accordion label='Round progress size' open>
-          <div className={classNames([classes.row, classes.center])}>
-            <RoundProgress size='extra_small' />
-            <RoundProgress size={20} />
-            <RoundProgress size='small' />
-            <RoundProgress size='regular' />
-            <RoundProgress size='large' />
-          </div>
-        </Accordion>
+            <Accordion label='AmauiTheme nested value' open>
+              <AmauiThemeProvider
+                value={{
+                  palette: {
+                    color: {
+                      secondary: {
+                        main: '#008000'
+                      }
+                    }
+                  },
+                  space: {
+                    unit: 5
+                  }
+                }}
+              >
+                <Chip color='secondary'>Enabled</Chip>
+              </AmauiThemeProvider>
+            </Accordion>
 
-        <Accordion label='Round progress color' open>
-          <div className={classNames([classes.row, classes.center])}>
-            <RoundProgress color='default' />
-            <RoundProgress color='primary' />
-            <RoundProgress color='secondary' />
-            <RoundProgress color='tertiary' />
-            <RoundProgress color='quaternary' />
-            <RoundProgress color='info' />
-            <RoundProgress color='success' />
-            <RoundProgress color='error' />
-            <RoundProgress color='warning' />
-            <RoundProgress color='neutral' />
-            <RoundProgress color='#f5d758' />
-          </div>
-        </Accordion>
+            <Accordion label='AmauiTheme add' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiChip: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: 0.4
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Chip color='secondary'>Enabled</Chip>
+              </AmauiThemeProvider>
+            </Accordion>
 
-        <Accordion label='Round progress color tonal' open>
-          <div className={classNames([classes.row, classes.center])}>
-            <RoundProgress color='primary' tonal />
-            <RoundProgress color='secondary' tonal />
-            <RoundProgress color='tertiary' tonal />
-            <RoundProgress color='quaternary' tonal />
-            <RoundProgress color='info' tonal />
-            <RoundProgress color='success' tonal />
-            <RoundProgress color='error' tonal />
-            <RoundProgress color='warning' tonal />
-            <RoundProgress color='neutral' tonal />
-            <RoundProgress color='#f5d758' tonal />
-          </div>
-        </Accordion>
+            <Accordion label='AmauiTheme override' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiChip: {
+                        style: {
+                          override: {
+                            root: {
+                              display: 'inline-flex',
+                              position: 'relative',
+                              height: 44
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Chip color='secondary'>Enabled</Chip>
+              </AmauiThemeProvider>
+            </Accordion>
 
-        <Accordion label='Round progress no shrink' open>
-          <div className={classNames([classes.row, classes.center])}>
-            <RoundProgress size='extra_small' noShrink />
-            <RoundProgress size={20} noShrink />
-            <RoundProgress size='small' noShrink />
-            <RoundProgress size='regular' noShrink />
-            <RoundProgress size='large' noShrink />
-          </div>
-        </Accordion>
+            <Accordion label='AmauiTheme props' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiChip: {
+                        props: {
+                          default: {
+                            color: 'secondary'
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Chip>Enabled</Chip>
+              </AmauiThemeProvider>
+            </Accordion>
 
-        <Accordion label='Round progress thickness' open>
-          <div className={classNames([classes.row, classes.center])}>
-            <RoundProgress size='extra_small' thickness={1.4} />
-            <RoundProgress size={20} thickness={1.4} />
-            <RoundProgress size='small' thickness={1.4} />
-            <RoundProgress size='regular' thickness={1.4} />
-            <RoundProgress size='large' thickness={1.4} />
-          </div>
-        </Accordion>
-
-        <Accordion label='Rounded progress rounded' open>
-          <div className={classNames([classes.row, classes.center])}>
-            <RoundProgress size='extra_small' rounded={false} />
-            <RoundProgress size={20} rounded={false} />
-            <RoundProgress size='small' rounded={false} />
-            <RoundProgress size='regular' rounded={false} />
-            <RoundProgress size='large' rounded={false} />
-          </div>
-        </Accordion>
-
-        <Accordion label='Rounded progress deteminate with pathBackgroundProps as well' open>
-          <div className={classNames([classes.row, classes.center])}>
-            <RoundProgress size='small' version='determinate' value={0} pathBackgroundProps={{ className: classes.pathBackground }} />
-            <RoundProgress size='small' version='determinate' value={1} pathBackgroundProps={{ className: classes.pathBackground }} />
-            <RoundProgress size='small' version='determinate' value={40} pathBackgroundProps={{ className: classes.pathBackground }} />
-            <RoundProgress size='small' version='determinate' value={99} pathBackgroundProps={{ className: classes.pathBackground }} />
-            <RoundProgress size='small' version='determinate' value={100} pathBackgroundProps={{ className: classes.pathBackground }} />
-
-            <RoundProgress size='small' version='determinate' value={progress} pathBackgroundProps={{ className: classes.pathBackground }} />
-          </div>
-
-          <div className={classNames([classes.row, classes.center])}>
-            <RoundProgress size='regular' version='determinate' value={0} pathBackgroundProps={{ className: classes.pathBackground }} />
-            <RoundProgress size='regular' version='determinate' value={1} pathBackgroundProps={{ className: classes.pathBackground }} />
-            <RoundProgress size='regular' version='determinate' value={40} pathBackgroundProps={{ className: classes.pathBackground }} />
-            <RoundProgress size='regular' version='determinate' value={99} pathBackgroundProps={{ className: classes.pathBackground }} />
-            <RoundProgress size='regular' version='determinate' value={100} pathBackgroundProps={{ className: classes.pathBackground }} />
-
-            <RoundProgress size='regular' version='determinate' value={progress} pathBackgroundProps={{ className: classes.pathBackground }} />
-          </div>
-
-          <div className={classNames([classes.row, classes.center])}>
-            <RoundProgress size='large' version='determinate' value={0} pathBackgroundProps={{ className: classes.pathBackground }} />
-            <RoundProgress size='large' version='determinate' value={1} pathBackgroundProps={{ className: classes.pathBackground }} />
-            <RoundProgress size='large' version='determinate' value={40} pathBackgroundProps={{ className: classes.pathBackground }} />
-            <RoundProgress size='large' version='determinate' value={99} pathBackgroundProps={{ className: classes.pathBackground }} />
-            <RoundProgress size='large' version='determinate' value={100} pathBackgroundProps={{ className: classes.pathBackground }} />
-
-            <RoundProgress size='large' version='determinate' value={progress} pathBackgroundProps={{ className: classes.pathBackground }} />
+            <Accordion label='AmauiTheme styled' open>
+              <styled.Chip>Enabled</styled.Chip>
+            </Accordion>
           </div>
         </Accordion>
       </Accordion>
@@ -4157,6 +6289,103 @@ function App() {
             <Button version='filled' tonal color='tertiary' size='large' selected>Large</Button>
           </div>
         </Accordion>
+
+        <Accordion label='AmauiTheme' open>
+          <div className={classNames([classes.column])}>
+            <Chip color='secondary'>Enabled</Chip>
+
+            <Accordion label='AmauiTheme nested value' open>
+              <AmauiThemeProvider
+                value={{
+                  palette: {
+                    color: {
+                      secondary: {
+                        main: '#008000'
+                      }
+                    }
+                  },
+                  space: {
+                    unit: 5
+                  }
+                }}
+              >
+                <Chip color='secondary'>Enabled</Chip>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme add' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiChip: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: 0.4
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Chip color='secondary'>Enabled</Chip>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme override' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiChip: {
+                        style: {
+                          override: {
+                            root: {
+                              display: 'inline-flex',
+                              position: 'relative',
+                              height: 44
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Chip color='secondary'>Enabled</Chip>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme props' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiChip: {
+                        props: {
+                          default: {
+                            color: 'secondary'
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Chip>Enabled</Chip>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme styled' open>
+              <styled.Chip>Enabled</styled.Chip>
+            </Accordion>
+          </div>
+        </Accordion>
       </Accordion>
 
       <Accordion label='Icon'>
@@ -4212,6 +6441,103 @@ function App() {
         <Accordion label='Icon rtl' open>
           <div className={classNames([classes.row, classes.center])}>
             <IconMaterialUndoRounded />
+          </div>
+        </Accordion>
+
+        <Accordion label='AmauiTheme' open>
+          <div className={classNames([classes.column])}>
+            <Chip color='secondary'>Enabled</Chip>
+
+            <Accordion label='AmauiTheme nested value' open>
+              <AmauiThemeProvider
+                value={{
+                  palette: {
+                    color: {
+                      secondary: {
+                        main: '#008000'
+                      }
+                    }
+                  },
+                  space: {
+                    unit: 5
+                  }
+                }}
+              >
+                <Chip color='secondary'>Enabled</Chip>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme add' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiChip: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: 0.4
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Chip color='secondary'>Enabled</Chip>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme override' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiChip: {
+                        style: {
+                          override: {
+                            root: {
+                              display: 'inline-flex',
+                              position: 'relative',
+                              height: 44
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Chip color='secondary'>Enabled</Chip>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme props' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiChip: {
+                        props: {
+                          default: {
+                            color: 'secondary'
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Chip>Enabled</Chip>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme styled' open>
+              <styled.Chip>Enabled</styled.Chip>
+            </Accordion>
           </div>
         </Accordion>
       </Accordion>
@@ -4436,6 +6762,103 @@ function App() {
 
           <span style={{ position: 'relative' }}>a</span>
         </div>
+
+        <Accordion label='AmauiTheme' open>
+          <div className={classNames([classes.column])}>
+            <Chip color='secondary'>Enabled</Chip>
+
+            <Accordion label='AmauiTheme nested value' open>
+              <AmauiThemeProvider
+                value={{
+                  palette: {
+                    color: {
+                      secondary: {
+                        main: '#008000'
+                      }
+                    }
+                  },
+                  space: {
+                    unit: 5
+                  }
+                }}
+              >
+                <Chip color='secondary'>Enabled</Chip>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme add' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiChip: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: 0.4
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Chip color='secondary'>Enabled</Chip>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme override' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiChip: {
+                        style: {
+                          override: {
+                            root: {
+                              display: 'inline-flex',
+                              position: 'relative',
+                              height: 44
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Chip color='secondary'>Enabled</Chip>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme props' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiChip: {
+                        props: {
+                          default: {
+                            color: 'secondary'
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Chip>Enabled</Chip>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme styled' open>
+              <styled.Chip>Enabled</styled.Chip>
+            </Accordion>
+          </div>
+        </Accordion>
       </Accordion>
 
       <Accordion label='AmauiTheme usage values'>

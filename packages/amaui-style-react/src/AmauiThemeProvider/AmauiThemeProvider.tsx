@@ -23,7 +23,7 @@ const resolveValue = (value: IAmauiTheme) => {
   return valueNew;
 };
 
-interface IProps {
+interface IProps extends React.HTMLAttributes<any> {
   value?: IAmauiTheme;
 
   children?: any;

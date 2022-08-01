@@ -1,13 +1,17 @@
 import React from 'react';
 
 import { is } from '@amaui/utils';
-import { classNames, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Button from '../Button';
 import Icon from '../Icon';
 import { IconDoneAnimated } from '../ButtonGroup/ButtonGroup';
 
 import { staticClassName } from '../utils';
+
+const useStyle = style(theme => ({
+  root: {},
+}), { name: 'AmauiChip' });
 
 const IconMaterialCloseSharp = React.forwardRef((props: any, ref) => {
 
@@ -52,6 +56,8 @@ const Chip = React.forwardRef((props_: any, ref: any) => {
 
   const [preSelected, setPreSelected] = React.useState(false);
   const [selected, setSelected] = React.useState(selected_);
+
+  const { classes } = useStyle(props);
 
   let children = children_;
 
@@ -119,6 +125,7 @@ const Chip = React.forwardRef((props_: any, ref: any) => {
           selected && `AmauiChip-selected`
         ],
 
+        classes.root,
         className
       ])}
 

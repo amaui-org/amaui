@@ -7,6 +7,7 @@ import { staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
+    display: 'inline-flex',
     position: 'relative'
   },
 

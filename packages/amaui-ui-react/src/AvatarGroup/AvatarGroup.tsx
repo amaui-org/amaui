@@ -37,6 +37,7 @@ const AvatarGroup = React.forwardRef((props_: any, ref: any) => {
   const {
     max,
     total,
+    color = 'primary',
     size = 'regular',
     AdditionalAvatar,
     AdditionalAvatarProps = { color: 'default', tonal: true },
@@ -130,7 +131,7 @@ const AvatarGroup = React.forwardRef((props_: any, ref: any) => {
 
         ...item.props,
 
-        color: item.props.color
+        color: item.props.color || color
       }))}
     </div>
   );

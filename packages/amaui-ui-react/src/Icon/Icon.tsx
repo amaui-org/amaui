@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { is } from '@amaui/utils';
 import { AmauiTheme, classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import { iconSizeToFontSize, staticClassName } from '../utils';
@@ -97,7 +98,7 @@ const Icon = React.forwardRef((props_: any, ref: any) => {
         staticClassName('Icon', theme) && [
           'AmauiIcon-root',
           `AmauiIcon-color-${!theme.palette.color[color] && color !== 'default' ? 'new' : color}`,
-          `AmauiIcon-size-${size}`,
+          is('string', size) && `AmauiIcon-size-${size}`,
           tonal && `AmauiButton-tonal`,
           (rtl && isRtlIcon) && 'AmauiIcon-rtl',
           disabled && `AmauiIcon-disabled`
