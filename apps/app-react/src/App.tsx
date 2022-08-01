@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { AmauiThemeProvider, classNames, style, sy, useAmauiTheme } from '@amaui/style-react';
+import { AmauiTheme, AmauiThemeProvider, classNames, style, sy, useAmauiTheme } from '@amaui/style-react';
 import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, ButtonGroup, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, ChipGroup, Backdrop, Checkbox, Radio, Keyframes, Switch } from '@amaui/ui-react';
 
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
@@ -199,7 +199,7 @@ const Accordion = (props: any) => {
 };
 
 const styled = {
-  Switch: sy(Switch)((theme) => ({
+  Switch: sy(Switch)((theme: AmauiTheme) => ({
     root: {
       height: 37,
 
@@ -228,9 +228,10 @@ function App() {
   // eslint-disable-next-line
   const [progress, setProgress] = React.useState(0);
   const [items, setItems] = React.useState([0]);
-  const [rtl, setRtl] = React.useState(false);
   const [space, setSpace] = React.useState(8);
   const [radius, setRadius] = React.useState(8);
+  const [rtl, setRtl] = React.useState(false);
+  const [rootFontSize, setRootFontSize] = React.useState(16);
   const { classes } = useStyle();
   const refs = {
     transitions: React.useRef<any>(),
@@ -266,6 +267,10 @@ function App() {
     });
     // eslint-disable-next-line
   }, [space, radius, rtl]);
+
+  React.useEffect(() => {
+    window.document.documentElement.style.fontSize = `${rootFontSize}px`;
+  }, [rootFontSize]);
 
   const update = (item: any) => {
     setA((values: any) => {
@@ -352,6 +357,9 @@ function App() {
 
         <Button size='small' color='secondary' className={classes.btn} onClick={() => setRadius(item => ++item)}>add radius ({radius})</Button>
         <Button size='small' color='secondary' className={classes.btn} onClick={() => setRadius(item => --item)}>remove radius ({radius})</Button>
+
+        <Button size='small' color='secondary' className={classes.btn} onClick={() => setRootFontSize(item => ++item)}>add root font size ({rootFontSize})</Button>
+        <Button size='small' color='secondary' className={classes.btn} onClick={() => setRootFontSize(item => --item)}>remove root font size ({rootFontSize})</Button>
 
         <Button size='small' color='secondary' className={classes.btn} onClick={() => setRtl(item => !item)}>rtl {rtl ? ' on' : ''}</Button>
       </div>
