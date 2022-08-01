@@ -395,7 +395,7 @@ function App() {
         </div>
       </Accordion>
 
-      <Accordion label='Switch' open>
+      <Accordion label='Switch'>
         <Accordion label='Switch' open>
           <div className={classNames([classes.column])}>
             <Switch color='secondary' />
@@ -518,7 +518,7 @@ function App() {
           </div>
         </Accordion>
 
-        {/* <Accordion label='AmauiTheme' open>
+        <Accordion label='AmauiTheme' open>
           <div className={classNames([classes.column])}>
             <Switch color='secondary' />
 
@@ -614,7 +614,7 @@ function App() {
               <styled.Switch />
             </Accordion>
           </div>
-        </Accordion > */}
+        </Accordion >
       </Accordion >
 
       <Accordion label='Keyframes'>
