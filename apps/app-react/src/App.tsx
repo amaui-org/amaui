@@ -6814,6 +6814,64 @@ function App() {
               <span style={{ position: 'relative' }}>a</span>
             </div>
 
+            <Accordion label='AmauiTheme add' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiInteraction: {
+                        style: {
+                          add: {
+                            wave: {
+                              borderRadius: 0
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <div className={classes.a} style={{ color: 'orange' }}>
+                  <Interaction pulse={a.pulse} />
+
+                  <IconMaterial10kRounded />
+
+                  <span style={{ position: 'relative' }}>a</span>
+                </div>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme override' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiInteraction: {
+                        style: {
+                          override: {
+                            root: {
+                              display: 'inline-flex',
+                              position: 'relative',
+                              height: 44
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <div className={classes.a} style={{ color: 'orange' }}>
+                  <Interaction pulse={a.pulse} />
+
+                  <IconMaterial10kRounded />
+
+                  <span style={{ position: 'relative' }}>a</span>
+                </div>
+              </AmauiThemeProvider>
+            </Accordion>
+
             <Accordion label='AmauiTheme props' open>
               <AmauiThemeProvider
                 value={{
