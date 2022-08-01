@@ -395,48 +395,54 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
     }
   };
 
-  const initial = {
-    background: {
-      checked: {
-        opacity: 1,
-        background: 'currentColor'
-      },
-      unchecked: {
-        opacity: theme.palette.visual_contrast.default.opacity.hover,
-        background: tonal ? 'currentColor' : theme.palette.text.default.primary
-      }
-    },
+  const initial = () => {
+    const dynamicBackgroundColor = tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 95 : 10] : theme.methods.palette.color.text(color === 'default' ? theme.palette.color.neutral.main : (palette || theme.palette.color[color]).main, true, 'light');
 
-    border: {
-      checked: {
-        opacity: 0
+    return ({
+      background: {
+        checked: {
+          opacity: 1,
+          background: 'currentColor'
+        },
+        unchecked: {
+          opacity: theme.palette.visual_contrast.default.opacity.hover,
+          background: tonal ? 'currentColor' : theme.palette.text.default.primary
+        }
       },
-      unchecked: {
-        opacity: 1
-      }
-    },
 
-    iconButton: {
-      checked: {
-        transform: sizes('checked', 'iconButton'),
-        color: color === 'default' ? theme.palette.color.neutral.main : !tonal ? (theme.palette.color[color] || palette).main : 'currentColor'
+      border: {
+        checked: {
+          opacity: 0
+        },
+        unchecked: {
+          opacity: 1
+        }
       },
-      unchecked: {
-        transform: sizes('unchecked', 'iconButton'),
-        color: color === 'default' ? theme.palette.color.neutral.main : !tonal ? theme.palette.text.default.secondary : (theme.palette.color[color] || palette)[theme.palette.light ? 40 : 20]
-      }
-    },
 
-    icon: {
-      checked: {
-        transform: sizes('checked', 'icon'),
-        background: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 99 : 10] : theme.palette.background.default.primary
+      iconButton: {
+        checked: {
+          transform: sizes('checked', 'iconButton'),
+          color: color === 'default' ? theme.palette.color.neutral.main : !tonal ? (theme.palette.color[color] || palette).main : 'currentColor'
+        },
+        unchecked: {
+          transform: sizes('unchecked', 'iconButton'),
+          color: color === 'default' ? theme.palette.color.neutral.main : !tonal ? theme.palette.text.default.secondary : (theme.palette.color[color] || palette)[theme.palette.light ? 40 : 20]
+        }
       },
-      unchecked: {
-        transform: sizes('unchecked', 'icon'),
-        background: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 40 : 20] : theme.palette.text.default.secondary
+
+      icon: {
+        checked: {
+          transform: sizes('checked', 'icon'),
+          background: dynamicBackgroundColor,
+          color: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 30 : 80] : theme.methods.palette.color.text(dynamicBackgroundColor, true, 'light')
+        },
+        unchecked: {
+          transform: sizes('unchecked', 'icon'),
+          background: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 40 : 20] : theme.palette.text.default.secondary,
+          color: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 90 : 0] : theme.palette.background.default.quaternary
+        }
       }
-    }
+    });
   };
 
   const styleKeyframes = () => {
@@ -445,59 +451,59 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
     return {
       background: {
         growEnd: {
-          ...initial.background.checked,
+          ...initial().background.checked,
         },
         waitEnd: {
-          ...initial.background.checked,
+          ...initial().background.checked,
         },
         moveStart: {
-          ...initial.background.unchecked,
+          ...initial().background.unchecked,
           transition: theme.methods.transitions.make(['opacity', 'background'], { duration: 35, delay: 35 })
         },
         doneStart: {
-          ...initial.background.unchecked,
+          ...initial().background.unchecked,
         },
         growStart: {
-          ...initial.background.unchecked,
+          ...initial().background.unchecked,
         },
         waitStart: {
-          ...initial.background.checked,
+          ...initial().background.checked,
         },
         moveEnd: {
-          ...initial.background.checked,
+          ...initial().background.checked,
           transition: theme.methods.transitions.make(['opacity', 'background'], { duration: 35, delay: 35 })
         },
         doneEnd: {
-          ...initial.background.checked,
+          ...initial().background.checked,
         }
       },
 
       border: {
         growEnd: {
-          ...initial.border.checked,
+          ...initial().border.checked,
         },
         waitEnd: {
-          ...initial.border.checked,
+          ...initial().border.checked,
         },
         moveStart: {
-          ...initial.border.unchecked,
+          ...initial().border.unchecked,
           transition: theme.methods.transitions.make(['opacity'], { duration: 35, delay: 35 })
         },
         doneStart: {
-          ...initial.border.unchecked,
+          ...initial().border.unchecked,
         },
         growStart: {
-          ...initial.border.unchecked,
+          ...initial().border.unchecked,
         },
         waitStart: {
-          ...initial.border.checked,
+          ...initial().border.checked,
         },
         moveEnd: {
-          ...initial.border.checked,
+          ...initial().border.checked,
           transition: theme.methods.transitions.make(['opacity'], { duration: 35, delay: 35 })
         },
         doneEnd: {
-          ...initial.border.checked,
+          ...initial().border.checked,
         }
       },
 
@@ -517,8 +523,7 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
           transition: `${theme.methods.transitions.make('width', { duration: 70 })}, ${theme.methods.transitions.make('transform', { duration: 70 })}, ${theme.methods.transitions.make('background', { duration: 35, delay: 35 })}`
         },
         doneEnd: {
-          ...initial.iconButton.checked,
-          color: color === 'default' ? theme.palette.color.neutral.main : !tonal ? (theme.palette.color[color] || palette).main : 'currentColor',
+          ...initial().iconButton.checked,
           transition: `${theme.methods.transitions.make('width', { duration: 100 })}, , ${theme.methods.transitions.make('transform', { duration: 100 })}`
         },
         growEnd: {
@@ -536,8 +541,7 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
           transition: `${theme.methods.transitions.make('width', { duration: 70 })}, ${theme.methods.transitions.make('transform', { duration: 70 })}, ${theme.methods.transitions.make('background', { duration: 35, delay: 35 })}`
         },
         doneStart: {
-          ...initial.iconButton.unchecked,
-          color: color === 'default' ? theme.palette.color.neutral.main : !tonal ? theme.palette.text.default.secondary : (theme.palette.color[color] || palette)[theme.palette.light ? 40 : 20],
+          ...initial().iconButton.unchecked,
           transition: `${theme.methods.transitions.make('width', { duration: 100 })}, , ${theme.methods.transitions.make('transform', { duration: 100 })}`
         }
       },
@@ -561,9 +565,7 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
           transition: `${theme.methods.transitions.make('width', { duration: 70 })}, ${theme.methods.transitions.make('transform', { duration: 70 })}, ${theme.methods.transitions.make('background', { duration: 35, delay: 35 })}`
         },
         doneEnd: {
-          ...initial.icon.checked,
-          background: dynamicBackgroundColor,
-          color: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 30 : 80] : theme.methods.palette.color.text(dynamicBackgroundColor, true, 'light'),
+          ...initial().icon.checked,
           transition: `${theme.methods.transitions.make('width', { duration: 100 })}, , ${theme.methods.transitions.make('transform', { duration: 100 })}`
         },
         growEnd: {
@@ -584,9 +586,7 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
           transition: `${theme.methods.transitions.make('width', { duration: 70 })}, ${theme.methods.transitions.make('transform', { duration: 70 })}, ${theme.methods.transitions.make('background', { duration: 35, delay: 35 })}`
         },
         doneStart: {
-          ...initial.icon.unchecked,
-          background: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 40 : 20] : theme.palette.text.default.secondary,
-          color: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 90 : 0] : theme.palette.background.default.quaternary,
+          ...initial().icon.unchecked,
           transition: `${theme.methods.transitions.make('width', { duration: 100 })}, , ${theme.methods.transitions.make('transform', { duration: 100 })}`
         }
       }
@@ -654,7 +654,7 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
               style={{
                 ...styles.background,
 
-                ...(status === 'appended' && initial.background[checked ? 'checked' : 'unchecked']),
+                ...(status === 'appended' && initial().background[checked ? 'checked' : 'unchecked']),
 
                 ...styleKeyframes().background[status]
               }}
@@ -676,7 +676,7 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
               style={{
                 ...styles.border,
 
-                ...(status === 'appended' && initial.border[checked ? 'checked' : 'unchecked']),
+                ...(status === 'appended' && initial().border[checked ? 'checked' : 'unchecked']),
 
                 ...styleKeyframes().border[status]
               }}
@@ -696,7 +696,7 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
               style={{
                 ...styles.iconButton,
 
-                ...(status === 'appended' && initial.iconButton[checked ? 'checked' : 'unchecked']),
+                ...(status === 'appended' && initial().iconButton[checked ? 'checked' : 'unchecked']),
 
                 ...styleKeyframes().iconButton[status]
               }}
@@ -713,14 +713,14 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
                 ])}
 
                 style={{
-                  ...(status === 'appended' && initial.icon[checked ? 'checked' : 'unchecked']),
+                  ...(status === 'appended' && initial().icon[checked ? 'checked' : 'unchecked']),
 
                   ...styleKeyframes().icon[status]
                 }}
               >
                 {
-                  (['growEnd', 'doneEnd'].includes(status) && OnIcon) ||
-                  (['growStart', 'doneStart'].includes(status) && OffIcon)
+                  (((status === 'appended' && checked) || ['growEnd', 'doneEnd'].includes(status)) && OnIcon) ||
+                  (((status === 'appended' && !checked) || ['growStart', 'doneStart'].includes(status)) && OffIcon)
                 }
               </Icon>
             </IconButton>
