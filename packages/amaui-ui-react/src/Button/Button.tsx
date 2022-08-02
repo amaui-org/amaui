@@ -323,6 +323,7 @@ const Button = React.forwardRef((props_: any, ref: any) => {
     startIcon: startIcon_,
     endIcon: endIcon_,
     elevation = true,
+    backgroundOpacity,
 
     loading,
     loadingLabel,
@@ -470,6 +471,8 @@ const Button = React.forwardRef((props_: any, ref: any) => {
     if (loadingIconPosition === 'start') startIcon = iconLoading;
     else if (loadingIconPosition === 'end') endIcon = iconLoading;
   }
+
+  if (backgroundOpacity !== undefined) styles.background.opacity = backgroundOpacity;
 
   if (disabled) {
     InteractionProps.wave = false;

@@ -5236,6 +5236,50 @@ function App() {
           </div>
         </Accordion>
 
+        <Accordion label='Icon button background opacity' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <IconButton backgroundOpacity='0.4' version='text' color='default'><IconMaterialPottedPlantRounded /></IconButton>
+            <IconButton backgroundOpacity='0.4' version='text' color='primary'><IconMaterialPottedPlantRounded /></IconButton>
+            <IconButton backgroundOpacity='0.4' version='text' color='secondary'><IconMaterialPottedPlantRounded /></IconButton>
+            <IconButton backgroundOpacity='0.4' version='text' color='tertiary'><IconMaterialPottedPlantRounded /></IconButton>
+            <IconButton backgroundOpacity='0.4' version='text' color='quaternary'><IconMaterialPottedPlantRounded /></IconButton>
+            <IconButton backgroundOpacity='0.4' version='text' color='info'><IconMaterialPottedPlantRounded /></IconButton>
+            <IconButton backgroundOpacity='0.4' version='text' color='success'><IconMaterialPottedPlantRounded /></IconButton>
+            <IconButton backgroundOpacity='0.4' version='text' color='error'><IconMaterialPottedPlantRounded /></IconButton>
+            <IconButton backgroundOpacity='0.4' version='text' color='warning'><IconMaterialPottedPlantRounded /></IconButton>
+            <IconButton backgroundOpacity='0.4' version='text' color='neutral'><IconMaterialPottedPlantRounded /></IconButton>
+            <IconButton backgroundOpacity='0.4' version='text' color='#f5d758'><IconMaterialPottedPlantRounded /></IconButton>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <IconButton backgroundOpacity='0.4' version='outlined' color='default'><IconMaterialPottedPlantRounded /></IconButton>
+            <IconButton backgroundOpacity='0.4' version='outlined' color='primary'><IconMaterialPottedPlantRounded /></IconButton>
+            <IconButton backgroundOpacity='0.4' version='outlined' color='secondary'><IconMaterialPottedPlantRounded /></IconButton>
+            <IconButton backgroundOpacity='0.4' version='outlined' color='tertiary'><IconMaterialPottedPlantRounded /></IconButton>
+            <IconButton backgroundOpacity='0.4' version='outlined' color='quaternary'><IconMaterialPottedPlantRounded /></IconButton>
+            <IconButton backgroundOpacity='0.4' version='outlined' color='info'><IconMaterialPottedPlantRounded /></IconButton>
+            <IconButton backgroundOpacity='0.4' version='outlined' color='success'><IconMaterialPottedPlantRounded /></IconButton>
+            <IconButton backgroundOpacity='0.4' version='outlined' color='error'><IconMaterialPottedPlantRounded /></IconButton>
+            <IconButton backgroundOpacity='0.4' version='outlined' color='warning'><IconMaterialPottedPlantRounded /></IconButton>
+            <IconButton backgroundOpacity='0.4' version='outlined' color='neutral'><IconMaterialPottedPlantRounded /></IconButton>
+            <IconButton backgroundOpacity='0.4' version='outlined' color='#f5d758'><IconMaterialPottedPlantRounded /></IconButton>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <IconButton backgroundOpacity='0.4' version='filled' color='default'><IconMaterialPottedPlantRounded /></IconButton>
+            <IconButton backgroundOpacity='0.4' version='filled' color='primary'><IconMaterialPottedPlantRounded /></IconButton>
+            <IconButton backgroundOpacity='0.4' version='filled' color='secondary'><IconMaterialPottedPlantRounded /></IconButton>
+            <IconButton backgroundOpacity='0.4' version='filled' color='tertiary'><IconMaterialPottedPlantRounded /></IconButton>
+            <IconButton backgroundOpacity='0.4' version='filled' color='quaternary'><IconMaterialPottedPlantRounded /></IconButton>
+            <IconButton backgroundOpacity='0.4' version='filled' color='info'><IconMaterialPottedPlantRounded /></IconButton>
+            <IconButton backgroundOpacity='0.4' version='filled' color='success'><IconMaterialPottedPlantRounded /></IconButton>
+            <IconButton backgroundOpacity='0.4' version='filled' color='error'><IconMaterialPottedPlantRounded /></IconButton>
+            <IconButton backgroundOpacity='0.4' version='filled' color='warning'><IconMaterialPottedPlantRounded /></IconButton>
+            <IconButton backgroundOpacity='0.4' version='filled' color='neutral'><IconMaterialPottedPlantRounded /></IconButton>
+            <IconButton backgroundOpacity='0.4' version='filled' color='#f5d758'><IconMaterialPottedPlantRounded /></IconButton>
+          </div>
+        </Accordion>
+
         <Accordion label='Icon button size' open>
           <div className={classNames([classes.row, classes.center])}>
             <IconButton color='secondary' size='small'><IconMaterialPottedPlantRounded /></IconButton>
@@ -6253,6 +6297,50 @@ function App() {
             <Button tonal version='filled' color='warning'>Warning</Button>
             <Button tonal version='filled' color='neutral'>Neutral</Button>
             <Button tonal version='filled' color='#f5d758'>Other</Button>
+          </div>
+        </Accordion>
+
+        <Accordion label='Button backgroundOpacity' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Button backgroundOpacity='0.4' version='text' color='default'>Default</Button>
+            <Button backgroundOpacity='0.4' version='text' color='primary'>Primary</Button>
+            <Button backgroundOpacity='0.4' version='text' color='secondary'>Secondary</Button>
+            <Button backgroundOpacity='0.4' version='text' color='tertiary'>Tertiary</Button>
+            <Button backgroundOpacity='0.4' version='text' color='quaternary'>Quaternary</Button>
+            <Button backgroundOpacity='0.4' version='text' color='info'>Info</Button>
+            <Button backgroundOpacity='0.4' version='text' color='success'>Success</Button>
+            <Button backgroundOpacity='0.4' version='text' color='error'>Error</Button>
+            <Button backgroundOpacity='0.4' version='text' color='warning'>Warning</Button>
+            <Button backgroundOpacity='0.4' version='text' color='neutral'>Neutral</Button>
+            <Button backgroundOpacity='0.4' version='text' color='#f5d758'>Other</Button>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Button backgroundOpacity='0.4' version='outlined' color='default'>Default</Button>
+            <Button backgroundOpacity='0.4' version='outlined' color='primary'>Primary</Button>
+            <Button backgroundOpacity='0.4' version='outlined' color='secondary'>Secondary</Button>
+            <Button backgroundOpacity='0.4' version='outlined' color='tertiary'>Tertiary</Button>
+            <Button backgroundOpacity='0.4' version='outlined' color='quaternary'>Quaternary</Button>
+            <Button backgroundOpacity='0.4' version='outlined' color='info'>Info</Button>
+            <Button backgroundOpacity='0.4' version='outlined' color='success'>Success</Button>
+            <Button backgroundOpacity='0.4' version='outlined' color='error'>Error</Button>
+            <Button backgroundOpacity='0.4' version='outlined' color='warning'>Warning</Button>
+            <Button backgroundOpacity='0.4' version='outlined' color='neutral'>Neutral</Button>
+            <Button backgroundOpacity='0.4' version='outlined' color='#f5d758'>Other</Button>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Button backgroundOpacity='0.4' version='filled' color='default'>Default</Button>
+            <Button backgroundOpacity='0.4' version='filled' color='primary'>Primary</Button>
+            <Button backgroundOpacity='0.4' version='filled' color='secondary'>Secondary</Button>
+            <Button backgroundOpacity='0.4' version='filled' color='tertiary'>Tertiary</Button>
+            <Button backgroundOpacity='0.4' version='filled' color='quaternary'>Quaternary</Button>
+            <Button backgroundOpacity='0.4' version='filled' color='info'>Info</Button>
+            <Button backgroundOpacity='0.4' version='filled' color='success'>Success</Button>
+            <Button backgroundOpacity='0.4' version='filled' color='error'>Error</Button>
+            <Button backgroundOpacity='0.4' version='filled' color='warning'>Warning</Button>
+            <Button backgroundOpacity='0.4' version='filled' color='neutral'>Neutral</Button>
+            <Button backgroundOpacity='0.4' version='filled' color='#f5d758'>Other</Button>
           </div>
         </Accordion>
 
