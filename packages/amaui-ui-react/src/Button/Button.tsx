@@ -104,7 +104,7 @@ const useStyle = style(theme => ({
   fab_size_small: {
     height: `40px`,
     minWidth: `64px`,
-    borderRadius: `${theme.shape.radius.unit - (theme.shape.radius.unit / 2)}`,
+    borderRadius: `${(theme.shape.radius.unit * 2) - (theme.shape.radius.unit / 2)}px`,
     padding: '12px',
   },
 
@@ -118,7 +118,7 @@ const useStyle = style(theme => ({
   fab_size_large: {
     height: `72px`,
     minWidth: `96px`,
-    borderRadius: `${theme.shape.radius.unit + (theme.shape.radius.unit / 2)}px`,
+    borderRadius: `${(theme.shape.radius.unit * 2) + (theme.shape.radius.unit / 2)}px`,
     padding: '24px'
   },
 
@@ -130,7 +130,7 @@ const useStyle = style(theme => ({
 
   chip_size_regular: {
     padding: `8px 16px`,
-    borderRadius: `${theme.shape.radius.unit * 1}px`,
+    borderRadius: `${theme.shape.radius.unit}px`,
   },
 
   chip_size_large: {
