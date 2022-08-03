@@ -54,6 +54,7 @@ const useStyle = style(theme => ({
     // Reset
     margin: 0,
     border: 0,
+    color: theme.palette.text.default.primary,
     background: 'transparent',
     '-webkit-tap-highlight-color': 'transparent',
     opacity: 0,
@@ -79,10 +80,10 @@ const useStyle = style(theme => ({
 
   label: {
     position: 'absolute',
-    top: '8px',
+    top: '10px',
     left: '16px',
     transformOrigin: 'top left',
-    transform: 'translate(0px, 10px) scale(1)',
+    transform: 'translate(0px, 8px) scale(1)',
     transition: theme.methods.transitions.make(['color', 'transform']),
     pointerEvents: 'none',
     userSelect: 'none',
