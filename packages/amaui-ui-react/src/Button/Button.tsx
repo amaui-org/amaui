@@ -190,11 +190,7 @@ const useStyle = style(theme => ({
     transition: theme.methods.transitions.make(['background'])
   },
 
-  background_disabled_filled: {
-    background: theme.palette.light ? theme.palette.text.divider : theme.palette.text.neutral.quaternary
-  },
-
-  background_disabled_tonal: {
+  background_disabled: {
     background: theme.palette.light ? theme.palette.text.divider : theme.palette.text.neutral.quaternary
   },
 
@@ -544,7 +540,7 @@ const Button = React.forwardRef((props_: any, ref: any) => {
 
       {...other}
     >
-      {['filled', 'tonal'].includes(version) && (
+      {['filled'].includes(version) && (
         <span
           className={classNames([
             staticClassName('Button', theme) && [
@@ -553,7 +549,7 @@ const Button = React.forwardRef((props_: any, ref: any) => {
             ],
 
             classes.background,
-            disabled && classes[`background_disabled_${version}`]
+            disabled && classes[`background_disabled`]
           ])}
 
           style={styles.background}

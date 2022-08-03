@@ -1,11 +1,20 @@
 import React from 'react';
 
+import { is } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Type from '../Type';
 
 import { staticClassName } from '../utils';
-import { is } from '@amaui/utils';
+
+const other = {
+  pointerEvents: 'none',
+  borderRadius: 'inherit',
+  position: 'absolute',
+  inset: 0,
+  width: '100%',
+  height: '100%'
+};
 
 const overflow = {
   width: '100%',
@@ -17,8 +26,29 @@ const overflow = {
 const useStyle = style(theme => ({
   root: {
     position: 'relative',
-    border: '1px solid #000'
+    borderRadius: `${theme.shape.radius.unit / 2}px ${theme.shape.radius.unit / 2}px 0 0`
   },
+
+  // Color
+  default: { color: theme.palette.text.default.primary },
+
+  neutral: { color: theme.palette.color.neutral.main },
+
+  primary: { color: theme.palette.color.primary.main },
+
+  secondary: { color: theme.palette.color.secondary.main },
+
+  tertiary: { color: theme.palette.color.tertiary.main },
+
+  quaternary: { color: theme.palette.color.quaternary.main },
+
+  info: { color: theme.palette.color.info.main },
+
+  success: { color: theme.palette.color.success.main },
+
+  warning: { color: theme.palette.color.warning.main },
+
+  error: { color: theme.palette.color.error.main },
 
   input: {
     // Reset
@@ -28,6 +58,7 @@ const useStyle = style(theme => ({
     '-webkit-tap-highlight-color': 'transparent',
     opacity: 0,
     transition: theme.methods.transitions.make('opacity'),
+    borderRadius: `${theme.shape.radius.unit / 2}px ${theme.shape.radius.unit / 2}px 0 0`,
     ...theme.typography.values.b2,
     ...overflow
   },
@@ -52,10 +83,11 @@ const useStyle = style(theme => ({
     left: '16px',
     transformOrigin: 'top left',
     transform: 'translate(0px, 10px) scale(1)',
-    transition: theme.methods.transitions.make('transform'),
+    transition: theme.methods.transitions.make(['color', 'transform']),
     pointerEvents: 'none',
     userSelect: 'none',
-    ...overflow
+    ...overflow,
+    width: 'auto'
   },
 
   label_focus: {
@@ -64,6 +96,40 @@ const useStyle = style(theme => ({
 
   label_value: {
     transform: 'translate(0px, 0px) scale(0.6875)'
+  },
+
+  background: {
+    ...other,
+    background: 'currentColor',
+    borderRadius: `${theme.shape.radius.unit / 2}px ${theme.shape.radius.unit / 2}px 0 0`,
+    opacity: theme.palette.visual_contrast.default.opacity.hover,
+
+    transition: theme.methods.transitions.make(['opacity'])
+  },
+
+  background_value: {
+    opacity: theme.palette.visual_contrast.default.opacity.hover
+  },
+
+  background_hover: {
+    opacity: theme.palette.visual_contrast.default.opacity.focus
+  },
+
+  background_focus: {
+    opacity: theme.palette.visual_contrast.default.opacity.hover
+  },
+
+  border: {
+    ...other,
+    border: 'currentColor',
+    borderRadius: `${theme.shape.radius.unit / 2}px ${theme.shape.radius.unit / 2}px 0 0`,
+    boxShadow: 'inset 0px -1px 0px 0px currentColor',
+
+    transition: theme.methods.transitions.make(['box-shadow'])
+  },
+
+  border_focus: {
+    boxShadow: 'inset 0px -2px 0px 0px currentColor'
   }
 }), { name: 'AmauiTextField' });
 
@@ -89,12 +155,18 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiTextField?.props?.default }), [props_]);
 
   const {
+    tonal,
+    color = 'primary',
     version = 'filled',
     size = 'regular',
     label,
     valueDefault,
     value: value_,
     onChange,
+    onFocus: onFocus_,
+    onBlur: onBlur_,
+    onMouseEnter: onMouseEnter_,
+    onMouseLeave: onMouseLeave_,
     Component = 'div',
     disabled,
 
@@ -108,10 +180,14 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
 
   const [value, setValue] = React.useState((valueDefault !== undefined ? valueDefault : value_) || '');
   const [focus, setFocus] = React.useState(false);
+  const [hover, setHover] = React.useState(false);
   const { classes } = useStyle(props);
 
   const styles: any = {
-    root: {}
+    root: {},
+    background: {
+      color: theme.palette.text.default.secondary
+    }
   };
 
   React.useEffect(() => {
@@ -133,9 +209,36 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
     }
   };
 
-  const onFocus = React.useCallback(() => setFocus(true), []);
+  const onFocus = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
+    setFocus(true);
 
-  const onBlur = React.useCallback(() => setFocus(false), []);
+    if (is('function', onFocus_)) onFocus_(event);
+  }, []);
+
+  const onBlur = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
+    setFocus(false);
+
+    if (is('function', onBlur_)) onBlur_(event);
+  }, []);
+
+  const onMouseEnter = React.useCallback((event: React.MouseEvent<HTMLInputElement>) => {
+    setHover(true);
+
+    if (is('function', onMouseEnter_)) onMouseEnter_(event);
+  }, []);
+
+  const onMouseLeave = React.useCallback((event: React.MouseEvent<HTMLInputElement>) => {
+    setHover(false);
+
+    if (is('function', onMouseLeave_)) onMouseLeave_(event);
+  }, []);
+
+  if (!focus) {
+    styles.root.color = theme.palette.text.default.secondary;
+  }
+  else {
+    styles.root.color = color === 'default' ? theme.palette.text.default.primary : (theme.palette.color[color] as any)?.main || color;
+  }
 
   return (
     <Component
@@ -149,6 +252,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
         ],
 
         classes.root,
+        classes[color],
         classes[version],
         classes[size],
         className
@@ -162,6 +266,46 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
 
       {...other}
     >
+      {['filled'].includes(version) && (
+        <span
+          className={classNames([
+            staticClassName('TextField', theme) && [
+              'AmauiTextField-background',
+              value && 'AmauiTextField-value', ,
+              hover && 'AmauiTextField-hover',
+              focus && 'AmauiTextField-focus',
+              disabled && `AmauiTextField-background-disabled`
+            ],
+
+            classes.background,
+            value && classes.background_value,
+            hover && classes.background_hover,
+            focus && classes.background_focus,
+            disabled && classes[`background_disabled`]
+          ])}
+
+          style={styles.background}
+        />
+      )}
+
+      <span
+        className={classNames([
+          staticClassName('TextField', theme) && [
+            'AmauiTextField-border',
+            value && 'AmauiTextField-value', ,
+            hover && 'AmauiTextField-hover',
+            focus && 'AmauiTextField-focus',
+            disabled && `AmauiTextField-border-disabled`
+          ],
+
+          classes.border,
+          focus && classes.border_focus,
+          disabled && classes[`border_disabled`]
+        ])}
+
+        style={styles.border}
+      />
+
       {label && (
         <Type
           Component='label'
@@ -189,6 +333,9 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
 
         onFocus={onFocus}
         onBlur={onBlur}
+
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
 
         className={classNames([
           staticClassName('TextField', theme) && [
