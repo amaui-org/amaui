@@ -8,11 +8,7 @@ const useStyle = style(theme => ({
   root: {
     // reset
     margin: '0',
-    padding: '0',
-
-    '&:not(:last-child)': {
-      marginBottom: '0.4em'
-    }
+    padding: '0'
   },
 
   d1: { ...theme.typography.values.d1 },

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { AmauiTheme, AmauiThemeProvider, classNames, style, sy, useAmauiTheme } from '@amaui/style-react';
-import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, ButtonGroup, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, ChipGroup, Backdrop, Checkbox, Radio, Keyframes, Switch } from '@amaui/ui-react';
+import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, ButtonGroup, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, ChipGroup, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField } from '@amaui/ui-react';
 
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
@@ -541,6 +541,227 @@ function App() {
 
           <IconMaterialPottedPlantRounded color='secondary' />
         </div>
+      </Accordion>
+
+      <Accordion label='TextField'>
+        <Accordion label='TextField' open>
+          <div className={classNames([classes.column])}>
+            <TextField color='secondary' label='Outlined text' />
+          </div>
+        </Accordion>
+
+        <Accordion label='Switch versions' open>
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+            <Switch size='regular' version='filled' color='secondary' valueDefault />
+            <Switch size='regular' version='filled' tonal color='secondary' valueDefault />
+          </div>
+        </Accordion>
+
+        <Accordion label='Switch sizes' open>
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+            <Switch size='small' color='secondary' valueDefault />
+            <Switch size='regular' color='secondary' valueDefault />
+            <Switch size='large' color='secondary' valueDefault />
+          </div>
+        </Accordion>
+
+        <Accordion label='Switch color' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Switch color='default' valueDefault />
+            <Switch color='primary' valueDefault />
+            <Switch color='secondary' valueDefault />
+            <Switch color='tertiary' valueDefault />
+            <Switch color='quaternary' valueDefault />
+            <Switch color='info' valueDefault />
+            <Switch color='success' valueDefault />
+            <Switch color='error' valueDefault />
+            <Switch color='warning' valueDefault />
+            <Switch color='neutral' valueDefault />
+            <Switch color='#f5d758' valueDefault />
+          </div>
+        </Accordion>
+
+        <Accordion label='Switch color tonal' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Switch tonal color='primary' valueDefault />
+            <Switch tonal color='secondary' valueDefault />
+            <Switch tonal color='tertiary' valueDefault />
+            <Switch tonal color='quaternary' valueDefault />
+            <Switch tonal color='info' valueDefault />
+            <Switch tonal color='success' valueDefault />
+            <Switch tonal color='error' valueDefault />
+            <Switch tonal color='warning' valueDefault />
+            <Switch tonal color='neutral' valueDefault />
+            <Switch tonal color='#f5d758' valueDefault />
+          </div>
+        </Accordion>
+
+        <Accordion label='Switch OnIcon' open>
+          <div className={classNames([classes.column])}>
+            <Switch color='secondary' OnIcon={<IconMaterialCheckRounded />} />
+            <Switch color='secondary' tonal OnIcon={<IconMaterialCheckRounded />} />
+          </div>
+        </Accordion>
+
+        <Accordion label='Switch OffIcon' open>
+          <div className={classNames([classes.column])}>
+            <Switch color='secondary' OffIcon={<IconMaterialCloseRounded />} />
+            <Switch color='secondary' tonal OffIcon={<IconMaterialCloseRounded />} />
+          </div>
+        </Accordion>
+
+        <Accordion label='Switch OnIcon & OffIcon' open>
+          <div className={classNames([classes.column])}>
+            <Switch color='secondary' OnIcon={<IconMaterialCheckRounded />} OffIcon={<IconMaterialCloseRounded />} />
+            <Switch color='secondary' tonal OnIcon={<IconMaterialCheckRounded />} OffIcon={<IconMaterialCloseRounded />} />
+            <Switch color='secondary' tonal OnIcon={<IconMaterialLightModeRounded />} OffIcon={<IconMaterialDarkModeRounded />} />
+          </div>
+        </Accordion>
+
+        <Accordion label='Switch sizes with icons' open>
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+            <Switch size='small' color='secondary' OnIcon={<IconMaterialCheckRounded />} OffIcon={<IconMaterialCloseRounded />} valueDefault />
+            <Switch size='regular' color='secondary' OnIcon={<IconMaterialCheckRounded />} OffIcon={<IconMaterialCloseRounded />} valueDefault />
+            <Switch size='large' color='secondary' OnIcon={<IconMaterialCheckRounded />} OffIcon={<IconMaterialCloseRounded />} valueDefault />
+          </div>
+        </Accordion>
+
+        <Accordion label='Switch color with icons' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Switch color='default' OnIcon={<IconMaterialCheckRounded />} OffIcon={<IconMaterialCloseRounded />} valueDefault />
+            <Switch color='primary' OnIcon={<IconMaterialCheckRounded />} OffIcon={<IconMaterialCloseRounded />} valueDefault />
+            <Switch color='secondary' OnIcon={<IconMaterialCheckRounded />} OffIcon={<IconMaterialCloseRounded />} valueDefault />
+            <Switch color='tertiary' OnIcon={<IconMaterialCheckRounded />} OffIcon={<IconMaterialCloseRounded />} valueDefault />
+            <Switch color='quaternary' OnIcon={<IconMaterialCheckRounded />} OffIcon={<IconMaterialCloseRounded />} valueDefault />
+            <Switch color='info' OnIcon={<IconMaterialCheckRounded />} OffIcon={<IconMaterialCloseRounded />} valueDefault />
+            <Switch color='success' OnIcon={<IconMaterialCheckRounded />} OffIcon={<IconMaterialCloseRounded />} valueDefault />
+            <Switch color='error' OnIcon={<IconMaterialCheckRounded />} OffIcon={<IconMaterialCloseRounded />} valueDefault />
+            <Switch color='warning' OnIcon={<IconMaterialCheckRounded />} OffIcon={<IconMaterialCloseRounded />} valueDefault />
+            <Switch color='neutral' OnIcon={<IconMaterialCheckRounded />} OffIcon={<IconMaterialCloseRounded />} valueDefault />
+            <Switch color='#f5d758' OnIcon={<IconMaterialCheckRounded />} OffIcon={<IconMaterialCloseRounded />} valueDefault />
+          </div>
+        </Accordion>
+
+        <Accordion label='Switch valueDefault' open>
+          <div className={classNames([classes.column])}>
+            <Switch color='secondary' valueDefault />
+          </div>
+        </Accordion>
+
+        <Accordion label='Switch controlled value' open>
+          <div className={classNames([classes.column])}>
+            <Switch
+              color='secondary'
+
+              onChange={(value: boolean) => updateValue(value, 'switch')}
+              value={!!a.switch}
+            />
+          </div>
+        </Accordion>
+
+        <Accordion label='Switch disabled' open>
+          <div className={classNames([classes.column])}>
+            <Switch color='secondary' OffIcon={<IconMaterialCloseRounded />} disabled />
+            <Switch color='secondary' OnIcon={<IconMaterialCheckRounded />} valueDefault disabled />
+          </div>
+        </Accordion>
+
+        <Accordion label='AmauiTheme' open>
+          <div className={classNames([classes.column])}>
+            <Switch color='secondary' />
+
+            <Accordion label='AmauiTheme nested value' open>
+              <AmauiThemeProvider
+                value={{
+                  palette: {
+                    color: {
+                      secondary: {
+                        main: '#008000'
+                      }
+                    }
+                  },
+                  space: {
+                    unit: 5
+                  }
+                }}
+              >
+                <Switch color='secondary' />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme add' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiSwitch: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: 0.4
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Switch color='secondary' />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme override' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiSwitch: {
+                        style: {
+                          override: {
+                            root: {
+                              display: 'inline-flex',
+                              position: 'relative',
+                              height: 37
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Switch color='secondary' />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme props' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiSwitch: {
+                        props: {
+                          default: {
+                            color: 'secondary'
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Switch />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme styled' open>
+              <styled.Switch />
+            </Accordion>
+          </div>
+        </Accordion>
       </Accordion>
 
       <Accordion label='Switch'>

@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from 'react';
+import React from 'react';
 
 import { is } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
@@ -197,6 +197,7 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
 
     ...other
   } = props;
+
   const [checked, setChecked] = React.useState(valueDefault !== undefined ? valueDefault : value);
   const animation = React.useRef(false);
 
@@ -217,11 +218,11 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
     }
   }, [value]);
 
-  const onUpdate = (event: ChangeEvent<HTMLInputElement>) => {
+  const onUpdate = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (!disabled && !animation.current) {
       if (is('function', onChange)) onChange(!checked, event);
 
-      // Inner controlled checkbox
+      // Inner controlled value
       if (!props.hasOwnProperty('value')) {
         setChecked(!checked);
 

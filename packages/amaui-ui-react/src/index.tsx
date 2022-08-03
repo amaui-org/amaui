@@ -118,3 +118,6 @@ export * from './Keyframes';
 
 export { default as Switch } from './Switch';
 export * from './Switch';
+
+export { default as TextField } from './TextField';
+export * from './TextField';

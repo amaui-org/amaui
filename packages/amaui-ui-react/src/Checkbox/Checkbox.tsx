@@ -204,7 +204,7 @@ const Checkbox = React.forwardRef((props_: any, ref: any) => {
     if (!disabled) {
       if (is('function', onChange)) onChange(!checked, event);
 
-      // Inner controlled checkbox
+      // Inner controlled value
       if (!props.hasOwnProperty('value')) {
         setChecked(!checked);
 
