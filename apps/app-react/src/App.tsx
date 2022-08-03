@@ -550,10 +550,11 @@ function App() {
           </div>
         </Accordion>
 
-        <Accordion label='Switch versions' open>
+        <Accordion label='TextField versions' open>
           <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
-            <Switch size='regular' version='filled' color='secondary' valueDefault />
-            <Switch size='regular' version='filled' tonal color='secondary' valueDefault />
+            <TextField version='text' color='secondary' label='Text value' />
+            <TextField version='filled' color='secondary' label='Filled value' />
+            <TextField version='outlined' color='secondary' label='Outlined value' />
           </div>
         </Accordion>
 

@@ -72,6 +72,15 @@ const useStyle = style(theme => ({
     paddingTop: theme.methods.space.value('sm', 'px', 15)
   },
 
+  input_version_text: {
+    paddingLeft: 0,
+    paddingRight: 0
+  },
+
+  input_version_outlined_size_regular: {
+    paddingTop: theme.methods.space.value('sm', 'px')
+  },
+
   input_focus: {
     opacity: 1
   },
@@ -93,12 +102,27 @@ const useStyle = style(theme => ({
     width: 'auto'
   },
 
+  label_version_text: {
+    left: 0,
+    transform: 'translate(0px, 15.5px) scale(1)',
+  },
+
+  // Focus
   label_focus: {
     transform: 'translate(0px, 0px) scale(0.6875)'
   },
 
+  label_version_outlined_focus: {
+    transform: 'translate(-0.5px, -16px) scale(0.667)'
+  },
+
+  // Value
   label_value: {
     transform: 'translate(0px, 0px) scale(0.6875)'
+  },
+
+  label_version_outlined_value: {
+    transform: 'translate(-0.5px, -16px) scale(0.667)'
   },
 
   background: {
@@ -124,7 +148,6 @@ const useStyle = style(theme => ({
 
   border: {
     ...other,
-    border: 'currentColor',
     borderRadius: `${theme.shape.radius.unit / 2}px ${theme.shape.radius.unit / 2}px 0 0`,
     boxShadow: 'inset 0px -1px 0px 0px currentColor',
 
@@ -133,6 +156,46 @@ const useStyle = style(theme => ({
 
   border_focus: {
     boxShadow: 'inset 0px -2px 0px 0px currentColor'
+  },
+
+  fieldset: {
+    ...other,
+    top: '-5px',
+    height: 'calc(100% + 5px)',
+    borderRadius: `${theme.shape.radius.unit / 2}px`,
+    border: '1px solid currentColor',
+    padding: `0 ${theme.methods.space.value('rg', 'px')} 0 ${theme.methods.space.value('rg', 'px', -5)}`,
+
+    transition: theme.methods.transitions.make(['border', 'padding'])
+  },
+
+  fieldset_focus: {
+    borderWidth: '2px',
+    padding: `0 ${theme.methods.space.value('rg', 'px')} 0 ${theme.methods.space.value('rg', 'px', -6)}`,
+  },
+
+  legend: {
+    display: 'inline-flex',
+    height: '11px',
+    width: 'auto',
+    maxWidth: '0.01px',
+    whiteSpace: 'nowrap',
+    visibility: 'hidden',
+    overflow: 'hidden',
+    fontSize: '0.6875em',
+    transition: theme.methods.transitions.make(['max-width', 'padding'], { duration: 'xxs' })
+  },
+
+  legend_focus: {
+    maxWidth: '100%',
+    padding: '0 3.5px 0 4px',
+    transition: theme.methods.transitions.make(['max-width', 'padding'], { duration: 'xs' })
+  },
+
+  legend_value: {
+    maxWidth: '100%',
+    padding: '0 3.5px 0 4px',
+    transition: theme.methods.transitions.make(['max-width', 'padding'], { duration: 'xs' })
   }
 }), { name: 'AmauiTextField' });
 
@@ -274,7 +337,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
           className={classNames([
             staticClassName('TextField', theme) && [
               'AmauiTextField-background',
-              value && 'AmauiTextField-value', ,
+              value && 'AmauiTextField-value',
               hover && 'AmauiTextField-hover',
               focus && 'AmauiTextField-focus',
               disabled && `AmauiTextField-background-disabled`
@@ -291,23 +354,63 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
         />
       )}
 
-      <span
-        className={classNames([
-          staticClassName('TextField', theme) && [
-            'AmauiTextField-border',
-            value && 'AmauiTextField-value', ,
-            hover && 'AmauiTextField-hover',
-            focus && 'AmauiTextField-focus',
-            disabled && `AmauiTextField-border-disabled`
-          ],
+      {['text', 'filled'].includes(version) && (
+        <span
+          className={classNames([
+            staticClassName('TextField', theme) && [
+              'AmauiTextField-border',
+              value && 'AmauiTextField-value', ,
+              hover && 'AmauiTextField-hover',
+              focus && 'AmauiTextField-focus',
+              disabled && `AmauiTextField-border-disabled`
+            ],
 
-          classes.border,
-          focus && classes.border_focus,
-          disabled && classes[`border_disabled`]
-        ])}
+            classes.border,
+            focus && classes.border_focus,
+            disabled && classes[`border_disabled`]
+          ])}
 
-        style={styles.border}
-      />
+          style={styles.border}
+        />
+      )}
+
+      {['outlined'].includes(version) && (
+        <fieldset
+          className={classNames([
+            staticClassName('TextField', theme) && [
+              'AmauiTextField-fieldset',
+              value && 'AmauiTextField-value',
+              hover && 'AmauiTextField-hover',
+              focus && 'AmauiTextField-focus',
+              disabled && `AmauiTextField-fieldset-disabled`
+            ],
+
+            classes.fieldset,
+            focus && classes.fieldset_focus,
+            disabled && classes[`fieldset_disabled`]
+          ])}
+
+          style={styles.fieldset}
+        >
+          <legend
+            className={classNames([
+              staticClassName('TextField', theme) && [
+                'AmauiTextField-legend',
+                value && 'AmauiTextField-value',
+                focus && 'AmauiTextField-focus',
+                disabled && `AmauiTextField-legend-disabled`
+              ],
+
+              classes.legend,
+              value && classes.legend_value,
+              focus && classes.legend_focus,
+              disabled && classes[`legend_disabled`]
+            ])}
+          >
+            {label}
+          </legend>
+        </fieldset>
+      )}
 
       {label && (
         <Type
@@ -316,13 +419,21 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
           className={classNames([
             staticClassName('TextField', theme) && [
               'AmauiTextField-label',
+              `AmauiTextField-version-${version}`,
               focus && 'AmauiTextField-focus',
               value && 'AmauiTextField-value'
             ],
 
             classes.label,
-            focus && classes.label_focus,
-            value && classes.label_value
+            classes[`label_version_${version}`],
+            focus && [
+              classes.label_focus,
+              classes[`label_version_${version}_focus`]
+            ],
+            value && [
+              classes.label_value,
+              classes[`label_version_${version}_value`]
+            ]
           ])}
 
           version='b2'
@@ -343,13 +454,16 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
         className={classNames([
           staticClassName('TextField', theme) && [
             'AmauiTextField-input',
+            `AmauiTextField-version-${version}`,
             `AmauiTextField-size-${size}`,
             focus && 'AmauiTextField-focus',
             value && 'AmauiTextField-value'
           ],
 
           classes.input,
+          classes[`input_version_${version}`],
           classes[`input_size_${size}`],
+          classes[`input_version_${version}_size_${size}`],
           focus && classes.input_focus,
           value && classes.input_value
         ])}
