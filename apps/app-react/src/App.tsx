@@ -546,23 +546,37 @@ function App() {
       <Accordion label='TextField'>
         <Accordion label='TextField' open>
           <div className={classNames([classes.column])}>
-            <TextField color='secondary' label='Outlined text' />
+            <TextField color='secondary' label='Outlined text' placeholder='Outlined text' />
           </div>
         </Accordion>
 
         <Accordion label='TextField versions' open>
           <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
-            <TextField version='text' color='secondary' label='Text value' />
-            <TextField version='filled' color='secondary' label='Filled value' />
-            <TextField version='outlined' color='secondary' label='Outlined value' />
+            <TextField version='text' color='secondary' label='Text value' placeholder='Text value' />
+            <TextField version='filled' color='secondary' label='Filled value' placeholder='Filled value' />
+            <TextField version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' />
           </div>
         </Accordion>
 
         <Accordion label='Switch sizes' open>
-          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
-            <Switch size='small' color='secondary' valueDefault />
-            <Switch size='regular' color='secondary' valueDefault />
-            <Switch size='large' color='secondary' valueDefault />
+          <div className={classNames([classes.column])} style={{ gap: 14 }}>
+            <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+              <TextField size='small' version='text' color='secondary' label='Text value' placeholder='Text value' />
+              <TextField size='small' version='filled' color='secondary' label='Filled value' placeholder='Filled value' />
+              <TextField size='small' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' />
+            </div>
+
+            <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+              <TextField size='regular' version='text' color='secondary' label='Text value' placeholder='Text value' />
+              <TextField size='regular' version='filled' color='secondary' label='Filled value' placeholder='Filled value' />
+              <TextField size='regular' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' />
+            </div>
+
+            <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+              <TextField size='large' version='text' color='secondary' label='Text value' placeholder='Text value' />
+              <TextField size='large' version='filled' color='secondary' label='Filled value' placeholder='Filled value' />
+              <TextField size='large' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' />
+            </div>
           </div>
         </Accordion>
 

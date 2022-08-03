@@ -26,7 +26,7 @@ const overflow = {
 const useStyle = style(theme => ({
   root: {
     display: 'inline-flex',
-    width: '100%',
+    flex: '1 1 auto',
     position: 'relative',
     borderRadius: `${theme.shape.radius.unit / 2}px ${theme.shape.radius.unit / 2}px 0 0`
   },
@@ -66,10 +66,22 @@ const useStyle = style(theme => ({
     ...overflow
   },
 
+  input_size_small: {
+    minHeight: '48px',
+    padding: `${theme.methods.space.value('sm', 'px', -4)} ${theme.methods.space.value('rg', 'px')}`,
+    paddingTop: theme.methods.space.value('sm', 'px', 13)
+  },
+
   input_size_regular: {
     minHeight: '56px',
     padding: `${theme.methods.space.value('sm', 'px')} ${theme.methods.space.value('rg', 'px')}`,
     paddingTop: theme.methods.space.value('sm', 'px', 15)
+  },
+
+  input_size_large: {
+    minHeight: '64px',
+    padding: `${theme.methods.space.value('sm', 'px', 4)} ${theme.methods.space.value('rg', 'px')}`,
+    paddingTop: theme.methods.space.value('sm', 'px', 17)
   },
 
   input_version_text: {
@@ -77,8 +89,16 @@ const useStyle = style(theme => ({
     paddingRight: 0
   },
 
+  input_version_outlined_size_small: {
+    paddingTop: theme.methods.space.value('sm', 'px', -4)
+  },
+
   input_version_outlined_size_regular: {
     paddingTop: theme.methods.space.value('sm', 'px')
+  },
+
+  input_version_outlined_size_large: {
+    paddingTop: theme.methods.space.value('sm', 'px', 4)
   },
 
   input_focus: {
@@ -91,10 +111,10 @@ const useStyle = style(theme => ({
 
   label: {
     position: 'absolute',
-    top: '10px',
+    top: '50%',
     left: '16px',
     transformOrigin: 'top left',
-    transform: 'translate(0px, 8px) scale(1)',
+    transform: 'translate(0px, -50%) scale(1)',
     transition: theme.methods.transitions.make(['color', 'transform']),
     pointerEvents: 'none',
     userSelect: 'none',
@@ -102,40 +122,71 @@ const useStyle = style(theme => ({
     width: 'auto'
   },
 
-  label_version_text: {
+  label_version_text_size_small: {
     left: 0,
-    transform: 'translate(0px, 15.5px) scale(1)',
+    top: '8px',
+    transform: 'translate(0px, 73%) scale(1)',
+  },
+
+  label_version_text_size_regular: {
+    left: 0,
+    top: '10px',
+    transform: 'translate(0px, 78%) scale(1)',
+  },
+
+  label_version_text_size_large: {
+    left: 0,
+    top: '12px',
+    transform: 'translate(0px, 83%) scale(1)',
   },
 
   // Focus
-  label_focus: {
-    transform: 'translate(0px, 0px) scale(0.6875)'
+  label_version_text_size_small_focus: {
+    transform: 'translate(0px, 2px) scale(0.667)'
+  },
+  label_version_text_size_regular_focus: {
+    transform: 'translate(0px, 2px) scale(0.667)'
   },
 
-  label_version_outlined_focus: {
-    transform: 'translate(-0.5px, -16px) scale(0.667)'
+  label_version_text_size_large_focus: {
+    transform: 'translate(0px, 2px) scale(0.667)'
   },
 
-  // Value
-  label_value: {
-    transform: 'translate(0px, 0px) scale(0.6875)'
+  label_version_outlined_size_small_focus: {
+    transform: 'translate(-0.5px, -29.5px) scale(0.667)'
   },
 
-  label_version_outlined_value: {
-    transform: 'translate(-0.5px, -16px) scale(0.667)'
+  label_version_outlined_size_regular_focus: {
+    transform: 'translate(-0.5px, -34px) scale(0.667)'
+  },
+
+  label_version_outlined_size_large_focus: {
+    transform: 'translate(-0.5px, -38.5px) scale(0.667)'
+  },
+
+  label_version_filled_size_small_focus: {
+    transform: 'translate(0px, -74%) scale(0.6875)'
+  },
+
+  label_version_filled_size_regular_focus: {
+    transform: 'translate(0px, -84%) scale(0.6875)'
+  },
+
+  label_version_filled_size_large_focus: {
+    transform: 'translate(0px, -94%) scale(0.6875)'
   },
 
   background: {
     ...other,
     background: 'currentColor',
     borderRadius: `${theme.shape.radius.unit / 2}px ${theme.shape.radius.unit / 2}px 0 0`,
-    opacity: theme.palette.visual_contrast.default.opacity.hover,
+    opacity: theme.palette.light ? theme.palette.visual_contrast.default.opacity.hover : theme.palette.visual_contrast.default.opacity.selected,
 
     transition: theme.methods.transitions.make(['opacity'])
   },
 
   background_value: {
-    opacity: theme.palette.visual_contrast.default.opacity.hover
+    opacity: theme.palette.light ? theme.palette.visual_contrast.default.opacity.hover : theme.palette.visual_contrast.default.opacity.selected
   },
 
   background_hover: {
@@ -143,7 +194,7 @@ const useStyle = style(theme => ({
   },
 
   background_focus: {
-    opacity: theme.palette.visual_contrast.default.opacity.hover
+    opacity: theme.palette.light ? theme.palette.visual_contrast.default.opacity.hover : theme.palette.visual_contrast.default.opacity.selected
   },
 
   border: {
@@ -160,8 +211,8 @@ const useStyle = style(theme => ({
 
   fieldset: {
     ...other,
-    top: '-5px',
-    height: 'calc(100% + 5px)',
+    top: '-8%',
+    height: '109%',
     borderRadius: `${theme.shape.radius.unit / 2}px`,
     border: '1px solid currentColor',
     padding: `0 ${theme.methods.space.value('rg', 'px')} 0 ${theme.methods.space.value('rg', 'px', -5)}`,
@@ -200,7 +251,6 @@ const useStyle = style(theme => ({
 }), { name: 'AmauiTextField' });
 
 // To do
-// Version: filled, outlined and text
 // Color: colors and tonal
 // Error
 // Character counter value
@@ -226,6 +276,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
     version = 'filled',
     size = 'regular',
     label,
+    placeholder,
     valueDefault,
     value: value_,
     onChange,
@@ -420,20 +471,15 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
             staticClassName('TextField', theme) && [
               'AmauiTextField-label',
               `AmauiTextField-version-${version}`,
+              `AmauiTextField-size-${size}`,
               focus && 'AmauiTextField-focus',
               value && 'AmauiTextField-value'
             ],
 
             classes.label,
             classes[`label_version_${version}`],
-            focus && [
-              classes.label_focus,
-              classes[`label_version_${version}_focus`]
-            ],
-            value && [
-              classes.label_value,
-              classes[`label_version_${version}_value`]
-            ]
+            classes[`label_version_${version}_size_${size}`],
+            (value || focus) && classes[`label_version_${version}_size_${size}_focus`]
           ])}
 
           version='b2'
@@ -467,6 +513,8 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
           focus && classes.input_focus,
           value && classes.input_value
         ])}
+
+        placeholder={placeholder}
 
         onChange={onUpdate}
 
