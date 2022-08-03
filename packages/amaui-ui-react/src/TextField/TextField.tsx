@@ -251,19 +251,20 @@ const useStyle = style(theme => ({
 }), { name: 'AmauiTextField' });
 
 // To do
-// Color: colors and tonal
-// Error
+// Helper text
 // Character counter value
+// Start adornment
+// End adornment
+// Sufix
+// Prefix
+// Error
 // Disabled
 // Multiline input
 // Input type (number etc.)
 // Controller value
-// Start icon
-// End icon
-// Sufix
-// Prefix
 // Placeholder
 // Autofill value y
+// Other space, ltr etc.
 
 const TextField = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
@@ -350,12 +351,16 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
     if (is('function', onMouseLeave_)) onMouseLeave_(event);
   }, []);
 
+  const palette: any = color === 'default' ? theme.palette.color.neutral : !theme.palette.color[color] ? theme.methods.color(color) : theme.palette.color[color];
+
   if (!focus) {
     styles.root.color = theme.palette.text.default.secondary;
   }
   else {
-    styles.root.color = color === 'default' ? theme.palette.text.default.primary : (theme.palette.color[color] as any)?.main || color;
+    styles.root.color = tonal ? theme.methods.palette.color.value(color, 30, true, palette) : (color === 'default' ? theme.palette.text.default.primary : (theme.palette.color[color] as any)?.main || color);
   }
+
+  if (tonal) styles.background.color = theme.methods.palette.color.value(color, 20, true, palette);
 
   return (
     <Component

@@ -558,7 +558,7 @@ function App() {
           </div>
         </Accordion>
 
-        <Accordion label='Switch sizes' open>
+        <Accordion label='TextField sizes' open>
           <div className={classNames([classes.column])} style={{ gap: 14 }}>
             <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
               <TextField size='small' version='text' color='secondary' label='Text value' placeholder='Text value' />
@@ -580,34 +580,123 @@ function App() {
           </div>
         </Accordion>
 
-        <Accordion label='Switch color' open>
+        <Accordion label='TextField color' open>
           <div className={classNames([classes.row, classes.center])}>
-            <Switch color='default' valueDefault />
-            <Switch color='primary' valueDefault />
-            <Switch color='secondary' valueDefault />
-            <Switch color='tertiary' valueDefault />
-            <Switch color='quaternary' valueDefault />
-            <Switch color='info' valueDefault />
-            <Switch color='success' valueDefault />
-            <Switch color='error' valueDefault />
-            <Switch color='warning' valueDefault />
-            <Switch color='neutral' valueDefault />
-            <Switch color='#f5d758' valueDefault />
+            <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+              <TextField size='small' version='text' color='default' label='Text value' placeholder='Text value' />
+              <TextField size='small' version='filled' color='default' label='Filled value' placeholder='Filled value' />
+              <TextField size='small' version='outlined' color='default' label='Outlined value' placeholder='Outlined value' />
+            </div>
+            <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+              <TextField size='small' version='text' color='primary' label='Text value' placeholder='Text value' />
+              <TextField size='small' version='filled' color='primary' label='Filled value' placeholder='Filled value' />
+              <TextField size='small' version='outlined' color='primary' label='Outlined value' placeholder='Outlined value' />
+            </div>
+            <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+              <TextField size='small' version='text' color='secondary' label='Text value' placeholder='Text value' />
+              <TextField size='small' version='filled' color='secondary' label='Filled value' placeholder='Filled value' />
+              <TextField size='small' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' />
+            </div>
+            <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+              <TextField size='small' version='text' color='tertiary' label='Text value' placeholder='Text value' />
+              <TextField size='small' version='filled' color='tertiary' label='Filled value' placeholder='Filled value' />
+              <TextField size='small' version='outlined' color='tertiary' label='Outlined value' placeholder='Outlined value' />
+            </div>
+            <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+              <TextField size='small' version='text' color='quaternary' label='Text value' placeholder='Text value' />
+              <TextField size='small' version='filled' color='quaternary' label='Filled value' placeholder='Filled value' />
+              <TextField size='small' version='outlined' color='quaternary' label='Outlined value' placeholder='Outlined value' />
+            </div>
+            <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+              <TextField size='small' version='text' color='info' label='Text value' placeholder='Text value' />
+              <TextField size='small' version='filled' color='info' label='Filled value' placeholder='Filled value' />
+              <TextField size='small' version='outlined' color='info' label='Outlined value' placeholder='Outlined value' />
+            </div>
+            <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+              <TextField size='small' version='text' color='success' label='Text value' placeholder='Text value' />
+              <TextField size='small' version='filled' color='success' label='Filled value' placeholder='Filled value' />
+              <TextField size='small' version='outlined' color='success' label='Outlined value' placeholder='Outlined value' />
+            </div>
+            <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+              <TextField size='small' version='text' color='error' label='Text value' placeholder='Text value' />
+              <TextField size='small' version='filled' color='error' label='Filled value' placeholder='Filled value' />
+              <TextField size='small' version='outlined' color='error' label='Outlined value' placeholder='Outlined value' />
+            </div>
+            <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+              <TextField size='small' version='text' color='warning' label='Text value' placeholder='Text value' />
+              <TextField size='small' version='filled' color='warning' label='Filled value' placeholder='Filled value' />
+              <TextField size='small' version='outlined' color='warning' label='Outlined value' placeholder='Outlined value' />
+            </div>
+            <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+              <TextField size='small' version='text' color='neutral' label='Text value' placeholder='Text value' />
+              <TextField size='small' version='filled' color='neutral' label='Filled value' placeholder='Filled value' />
+              <TextField size='small' version='outlined' color='neutral' label='Outlined value' placeholder='Outlined value' />
+            </div>
+            <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+              <TextField size='small' version='text' color='#f5d758' label='Text value' placeholder='Text value' />
+              <TextField size='small' version='filled' color='#f5d758' label='Filled value' placeholder='Filled value' />
+              <TextField size='small' version='outlined' color='#f5d758' label='Outlined value' placeholder='Outlined value' />
+            </div>
           </div>
         </Accordion>
 
-        <Accordion label='Switch color tonal' open>
+        <Accordion label='TextField color' open>
           <div className={classNames([classes.row, classes.center])}>
-            <Switch tonal color='primary' valueDefault />
-            <Switch tonal color='secondary' valueDefault />
-            <Switch tonal color='tertiary' valueDefault />
-            <Switch tonal color='quaternary' valueDefault />
-            <Switch tonal color='info' valueDefault />
-            <Switch tonal color='success' valueDefault />
-            <Switch tonal color='error' valueDefault />
-            <Switch tonal color='warning' valueDefault />
-            <Switch tonal color='neutral' valueDefault />
-            <Switch tonal color='#f5d758' valueDefault />
+            <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+              <TextField size='small' version='text' color='default' label='Text value' placeholder='Text value' tonal />
+              <TextField size='small' version='filled' color='default' label='Filled value' placeholder='Filled value' tonal />
+              <TextField size='small' version='outlined' color='default' label='Outlined value' placeholder='Outlined value' tonal />
+            </div>
+            <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+              <TextField size='small' version='text' color='primary' label='Text value' placeholder='Text value' tonal />
+              <TextField size='small' version='filled' color='primary' label='Filled value' placeholder='Filled value' tonal />
+              <TextField size='small' version='outlined' color='primary' label='Outlined value' placeholder='Outlined value' tonal />
+            </div>
+            <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+              <TextField size='small' version='text' color='secondary' label='Text value' placeholder='Text value' tonal />
+              <TextField size='small' version='filled' color='secondary' label='Filled value' placeholder='Filled value' tonal />
+              <TextField size='small' version='outlined' color='secondary' label='Outlined value' placeholder='Outlinetonald value' />
+            </div>
+            <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+              <TextField size='small' version='text' color='tertiary' label='Text value' placeholder='Text value' tonal />
+              <TextField size='small' version='filled' color='tertiary' label='Filled value' placeholder='Filled value' tonal />
+              <TextField size='small' version='outlined' color='tertiary' label='Outlined value' placeholder='Outlined value' tonal />
+            </div>
+            <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+              <TextField size='small' version='text' color='quaternary' label='Text value' placeholder='Text value' tonal />
+              <TextField size='small' version='filled' color='quaternary' label='Filled value' placeholder='Filled value' tonal />
+              <TextField size='small' version='outlined' color='quaternary' label='Outlined value' placeholder='Outlinetonald value' />
+            </div>
+            <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+              <TextField size='small' version='text' color='info' label='Text value' placeholder='Text value' tonal />
+              <TextField size='small' version='filled' color='info' label='Filled value' placeholder='Filled value' tonal />
+              <TextField size='small' version='outlined' color='info' label='Outlined value' placeholder='Outlined value' tonal />
+            </div>
+            <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+              <TextField size='small' version='text' color='success' label='Text value' placeholder='Text value' tonal />
+              <TextField size='small' version='filled' color='success' label='Filled value' placeholder='Filled value' tonal />
+              <TextField size='small' version='outlined' color='success' label='Outlined value' placeholder='Outlined value' tonal />
+            </div>
+            <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+              <TextField size='small' version='text' color='error' label='Text value' placeholder='Text value' tonal />
+              <TextField size='small' version='filled' color='error' label='Filled value' placeholder='Filled value' tonal />
+              <TextField size='small' version='outlined' color='error' label='Outlined value' placeholder='Outlined value' tonal />
+            </div>
+            <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+              <TextField size='small' version='text' color='warning' label='Text value' placeholder='Text value' tonal />
+              <TextField size='small' version='filled' color='warning' label='Filled value' placeholder='Filled value' tonal />
+              <TextField size='small' version='outlined' color='warning' label='Outlined value' placeholder='Outlined value' tonal />
+            </div>
+            <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+              <TextField size='small' version='text' color='neutral' label='Text value' placeholder='Text value' tonal />
+              <TextField size='small' version='filled' color='neutral' label='Filled value' placeholder='Filled value' tonal />
+              <TextField size='small' version='outlined' color='neutral' label='Outlined value' placeholder='Outlined value' tonal />
+            </div>
+            <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+              <TextField size='small' version='text' color='#f5d758' label='Text value' placeholder='Text value' tonal />
+              <TextField size='small' version='filled' color='#f5d758' label='Filled value' placeholder='Filled value' tonal />
+              <TextField size='small' version='outlined' color='#f5d758' label='Outlined value' placeholder='Outlined value' tonal />
+            </div>
           </div>
         </Accordion>
 
