@@ -25,6 +25,8 @@ const overflow = {
 
 const useStyle = style(theme => ({
   root: {
+    display: 'inline-flex',
+    width: '100%',
     position: 'relative',
     borderRadius: `${theme.shape.radius.unit / 2}px ${theme.shape.radius.unit / 2}px 0 0`
   },
