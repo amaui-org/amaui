@@ -94,47 +94,46 @@ const useStyle = style(theme => ({
 
   input_size_small: {
     minHeight: '48px',
-    padding: `${theme.methods.space.value('sm', 'px', -4)} ${theme.methods.space.value('rg', 'px')}`,
-    paddingTop: theme.methods.space.value('sm', 'px', 13)
+    padding: '4px 16px',
+    paddingTop: '21px'
   },
 
   input_size_regular: {
     minHeight: '56px',
-    padding: `${theme.methods.space.value('sm', 'px')} ${theme.methods.space.value('rg', 'px')}`,
-    paddingTop: theme.methods.space.value('sm', 'px', 15)
+    padding: '8px 16px',
+    paddingTop: '23px'
   },
 
   input_size_large: {
     minHeight: '64px',
-    padding: `${theme.methods.space.value('sm', 'px', 4)} ${theme.methods.space.value('rg', 'px')}`,
-    paddingTop: theme.methods.space.value('sm', 'px', 17)
+    padding: '12px 16px',
+    paddingTop: '25px'
   },
 
   input_version_text: {
     '&:not($input_start_icon)': {
-      paddingLeft: 0,
-      paddingRight: 0
+      paddingInline: 0
     }
   },
 
   input_start_icon: {
-    paddingLeft: 0
+    paddingInlineStart: 0
   },
 
   input_end_icon: {
-    paddingRight: 0
+    paddingInlineEnd: 0
   },
 
   input_version_outlined_size_small: {
-    paddingTop: theme.methods.space.value('sm', 'px', -4)
+    paddingTop: '4px'
   },
 
   input_version_outlined_size_regular: {
-    paddingTop: theme.methods.space.value('sm', 'px')
+    paddingTop: '8px'
   },
 
   input_version_outlined_size_large: {
-    paddingTop: theme.methods.space.value('sm', 'px', 4)
+    paddingTop: '12px'
   },
 
   input_align_start: {
@@ -148,40 +147,44 @@ const useStyle = style(theme => ({
   label: {
     position: 'absolute',
     top: '50%',
-    left: '16px',
+    insetInlineStart: '16px',
     transformOrigin: 'top left',
     transform: 'translate(0px, -50%) scale(1)',
-    transition: theme.methods.transitions.make(['color', 'left', 'transform']),
+    transition: theme.methods.transitions.make(['color', 'insetInlineStart', 'transform']),
     pointerEvents: 'none',
     userSelect: 'none',
     ...overflow,
     width: 'auto'
   },
 
+  label_rtl: {
+    transformOrigin: 'top right'
+  },
+
   label_version_text_size_small: {
-    left: 0,
+    insetInlineStart: 0,
     top: '8px',
     transform: 'translate(0px, 73%) scale(1)',
   },
 
   label_version_text_size_regular: {
-    left: 0,
+    insetInlineStart: 0,
     top: '10px',
     transform: 'translate(0px, 78%) scale(1)',
   },
 
   label_version_text_size_large: {
-    left: 0,
+    insetInlineStart: 0,
     top: '12px',
     transform: 'translate(0px, 83%) scale(1)',
   },
 
   label_icon_start: {
-    left: '52px'
+    insetInlineStart: '52px'
   },
 
   label_version_text_icon_start: {
-    left: '40px'
+    insetInlineStart: '40px'
   },
 
   // Focus
@@ -197,18 +200,18 @@ const useStyle = style(theme => ({
   },
 
   label_version_outlined_size_small_focus: {
-    transform: 'translate(0.5px, -29.5px) scale(0.667)',
-    left: '16px'
+    transform: 'translate(0, -29.5px) scale(0.667)',
+    insetInlineStart: '16.5px'
   },
 
   label_version_outlined_size_regular_focus: {
-    transform: 'translate(0.5px, -34px) scale(0.667)',
-    left: '16px'
+    transform: 'translate(0, -34px) scale(0.667)',
+    insetInlineStart: '16.5px'
   },
 
   label_version_outlined_size_large_focus: {
-    transform: 'translate(0.5px, -38.5px) scale(0.667)',
-    left: '16px'
+    transform: 'translate(0, -38.5px) scale(0.667)',
+    insetInlineStart: '16.5px'
   },
 
   label_version_filled_size_small_focus: {
@@ -258,14 +261,15 @@ const useStyle = style(theme => ({
     height: '109%',
     borderRadius: `${theme.shape.radius.unit / 2}px`,
     border: '1px solid currentColor',
-    padding: `0 ${theme.methods.space.value('rg', 'px')} 0 ${theme.methods.space.value('rg', 'px', -4)}`,
+    padding: 0,
+    paddingInline: '12px 16px',
 
     transition: theme.methods.transitions.make(['border', 'padding'])
   },
 
   fieldset_focus: {
     borderWidth: '2px',
-    padding: `0 ${theme.methods.space.value('rg', 'px')} 0 ${theme.methods.space.value('rg', 'px', -5)}`,
+    paddingInline: '11px 16px'
   },
 
   legend: {
@@ -289,14 +293,13 @@ const useStyle = style(theme => ({
   footer: {
     display: 'flex',
     justifyContent: 'space-between',
-    gap: theme.methods.space.value('rg', 'px'),
+    gap: '16px',
     marginTop: '4px',
-    padding: `0 ${theme.methods.space.value('rg', 'px')}`
+    padding: `0 16px`
   },
 
   footer_version_text: {
-    paddingLeft: 0,
-    paddingRight: 0
+    paddingInline: 0
   },
 
   helperText: {
@@ -320,18 +323,18 @@ const useStyle = style(theme => ({
   },
 
   icon_start: {
-    paddingInlineEnd: theme.methods.space.value('rg', 'px'),
+    paddingInlineEnd: '16px',
 
     '&:not($icon_version_text)': {
-      marginInlineStart: `${theme.methods.space.value('rg') * 0.75}px`
+      marginInlineStart: '12px'
     }
   },
 
   icon_end: {
-    paddingInlineStart: theme.methods.space.value('rg', 'px'),
+    paddingInlineStart: '16px',
 
     '&:not($icon_version_text)': {
-      marginInlineEnd: `${theme.methods.space.value('rg') * 0.75}px`
+      marginInlineEnd: '12px'
     }
   },
 
@@ -340,30 +343,30 @@ const useStyle = style(theme => ({
   },
 
   addition_size_small: {
-    paddingBottom: theme.methods.space.value('sm', 'px', -4),
-    paddingTop: theme.methods.space.value('sm', 'px', 13)
+    paddingBottom: '4px',
+    paddingTop: '21px'
   },
 
   addition_size_regular: {
-    paddingBottom: theme.methods.space.value('sm', 'px'),
-    paddingTop: theme.methods.space.value('sm', 'px', 15)
+    paddingBottom: '8px',
+    paddingTop: '23px'
   },
 
   addition_size_large: {
-    paddingBottom: theme.methods.space.value('sm', 'px', 4),
-    paddingTop: theme.methods.space.value('sm', 'px', 17)
+    paddingBottom: '12px',
+    paddingTop: '25px'
   },
 
   addition_version_outlined_size_small: {
-    paddingTop: theme.methods.space.value('sm', 'px', -4)
+    paddingTop: '4px'
   },
 
   addition_version_outlined_size_regular: {
-    paddingTop: theme.methods.space.value('sm', 'px')
+    paddingTop: '8px'
   },
 
   addition_version_outlined_size_large: {
-    paddingTop: theme.methods.space.value('sm', 'px', 4)
+    paddingTop: '12px'
   },
 
   prefix: {
@@ -391,8 +394,6 @@ const useStyle = style(theme => ({
   }
 }), { name: 'AmauiTextField' });
 
-// To do:
-// Updates space, ltr etc.
 // Multiline input
 
 const TextField = React.forwardRef((props_: any, ref: any) => {
@@ -657,6 +658,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
                 `AmauiTextField-size-${size}`,
                 focus && 'AmauiTextField-focus',
                 value && 'AmauiTextField-value',
+                theme.direction === 'rtl' && 'AmauiTextField-rtl',
                 startIcon && 'AmauiTextField-icon-start'
               ],
 
@@ -664,6 +666,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
               classes[`label_version_${version}`],
               classes[`label_version_${version}_size_${size}`],
               (enabled || value || focus) && classes[`label_version_${version}_size_${size}_focus`],
+              theme.direction === 'rtl' && classes.label_rtl,
               startIcon && [
                 classes.label_icon_start,
                 classes[`label_version_${version}_icon_start`]
