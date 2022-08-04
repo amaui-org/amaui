@@ -399,6 +399,7 @@ const useStyle = style(theme => ({
 }), { name: 'AmauiTextField' });
 
 // Multiline input
+// with rows, minRows and maxRows
 
 const TextField = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
@@ -432,6 +433,8 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
     noPrefixMargin,
     noSufixMargin,
     enabled,
+    name,
+    autoFocus,
     autoComplete,
     readOnly,
     type = 'text',
@@ -777,6 +780,10 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
             value={value}
 
             type={type}
+
+            name={name}
+
+            autoFocus={autoFocus}
 
             autoComplete={autoComplete}
 
