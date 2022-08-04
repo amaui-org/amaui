@@ -256,7 +256,7 @@ const useStyle = style(theme => ({
   }
 }), { name: 'AmauiTextField' });
 
-// To do
+// To do:
 // Helper text
 // Character counter value
 // Start adornment
@@ -264,11 +264,9 @@ const useStyle = style(theme => ({
 // Sufix
 // Prefix
 // Error
-// Disabled
 // Multiline input
 // Input type (number etc.)
 // Controller value
-// Placeholder
 // Autofill value y
 // Other space, ltr etc.
 
