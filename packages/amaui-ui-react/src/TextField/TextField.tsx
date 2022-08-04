@@ -58,6 +58,14 @@ const useStyle = style(theme => ({
 
   error: { color: theme.palette.color.error.main },
 
+  error_color: {
+    color: [theme.palette.light ? theme.palette.color.error[40] : theme.palette.color.error[80], '!important']
+  },
+
+  error_hover_color: {
+    color: [theme.palette.light ? theme.palette.color.error[20] : theme.palette.color.error[90], '!important']
+  },
+
   inputWrapper: {
     display: 'inline-flex',
     alignItems: 'center',
@@ -384,12 +392,9 @@ const useStyle = style(theme => ({
 }), { name: 'AmauiTextField' });
 
 // To do:
-// No label, input opacity 1
-// Required (adds to the title and label) + adds legend in helperText about *required
-// Error
-// Multiline input
 // Autofill value y
-// Other updates space, ltr etc.
+// Multiline input
+// Updates space, ltr etc.
 
 const TextField = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
@@ -424,6 +429,10 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
     enabled,
     readOnly,
     type = 'text',
+    required,
+    optional,
+    optionalText = 'optional',
+    error,
     disabled,
 
     className,
@@ -507,9 +516,13 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
     styles.root.color = styles.input.caretColor = tonal ? theme.methods.palette.color.value(color, 30, true, palette) : (color === 'default' ? theme.palette.text.default.primary : (theme.palette.color[color] as any)?.main || color);
   }
 
+  if (error) {
+    styles.input.caretColor = theme.palette.light ? theme.palette.color.error[40] : theme.palette.color.error[80];
+  }
+
   if (tonal) styles.background.color = theme.methods.palette.color.value(color, 20, true, palette);
 
-  const footer = (helperText !== undefined || counter !== undefined);
+  const footer = (helperText !== undefined || counter !== undefined || required);
 
   const Wrapper = footer ? WrapperComponent : React.Fragment;
 
@@ -534,11 +547,16 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
       <Component
         ref={ref}
 
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+
         className={classNames([
           staticClassName('TextField', theme) && [
             'AmauiTextField-root',
             `AmauiTextField-version-${version}`,
             `AmauiTextField-size-${size}`,
+            hover && `AmauiTextField-hover`,
+            error && `AmauiTextField-error`,
             !footer && disabled && 'AmauiTextField-disabled'
           ],
 
@@ -547,6 +565,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
           classes[version],
           classes[size],
           className,
+          error && (hover ? classes.error_hover_color : classes.error_color),
           !footer && disabled && classes.disabled
         ])}
 
@@ -619,10 +638,10 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
                 ],
 
                 classes.legend,
-                (enabled || value || focus) && classes.legend_focus
+                (enabled || value || focus) && label !== undefined && classes.legend_focus
               ])}
             >
-              {label}
+              {label}{required ? '*' : ''}{optional ? ` (${optionalText})` : ''}
             </legend>
           </fieldset>
         )}
@@ -653,7 +672,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
 
             version='b2'
           >
-            {label}
+            {label}{required ? '*' : ''}{optional ? ` (${optionalText})` : ''}
           </Type>
         )}
 
@@ -685,7 +704,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
             ],
 
             classes.inputWrapper,
-            (enabled || value || focus) && classes.inputWrapper_focus,
+            (enabled || label === undefined || value || focus) && classes.inputWrapper_focus,
           ])}
         >
           {prefix !== undefined && (
@@ -715,9 +734,6 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
           <input
             onFocus={onFocus}
             onBlur={onBlur}
-
-            onMouseEnter={onMouseEnter}
-            onMouseLeave={onMouseLeave}
 
             className={classNames([
               staticClassName('TextField', theme) && [
@@ -795,7 +811,11 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
               classes[`icon_version_${version}`]
             ])}
           >
-            {React.cloneElement(endIcon, { size: 'regular', color: theme.palette.text.default.secondary, style: styles.icon })}
+            {React.cloneElement(endIcon, {
+              size: 'regular',
+              color: error ? theme.palette.light ? theme.palette.color.error[hover ? 20 : 40] : theme.palette.color.error[hover ? 90 : 80] : theme.palette.text.default.secondary,
+              style: styles.icon
+            })}
           </span>
         )}
       </Component>
@@ -812,19 +832,21 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
             classes[`footer_version_${version}`]
           ])}
         >
-          {helperText && (
+          {(helperText || required) && (
             <Type
               version='b3'
 
               className={classNames([
                 staticClassName('TextField', theme) && [
-                  'AmauiTextField-helperText'
+                  'AmauiTextField-helperText',
+                  error && 'AmauiTextField-error'
                 ],
 
-                classes.helperText
+                classes.helperText,
+                error && classes.error_color
               ])}
             >
-              {helperText}
+              {helperText !== undefined ? helperText : required ? '*required' : ''}
             </Type>
           )}
 
@@ -834,10 +856,12 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
 
               className={classNames([
                 staticClassName('TextField', theme) && [
-                  'AmauiTextField-counter'
+                  'AmauiTextField-counter',
+                  error && 'AmauiTextField-error'
                 ],
 
-                classes.counterText
+                classes.counterText,
+                error && classes.error_color
               ])}
             >
               {value.length}/{counter}

@@ -1048,6 +1048,38 @@ function App() {
           </div>
         </Accordion>
 
+        <Accordion label='TextField without label' open>
+          <div className={classNames([classes.row])}>
+            <TextField version='text' color='secondary' placeholder='Text value' />
+            <TextField version='filled' color='secondary' placeholder='Filled value' />
+            <TextField version='outlined' color='secondary' placeholder='Outlined value' />
+          </div>
+        </Accordion>
+
+        <Accordion label='TextField required' open>
+          <div className={classNames([classes.row])}>
+            <TextField version='text' color='secondary' label='Text value' placeholder='Text value' required />
+            <TextField version='filled' color='secondary' label='Filled value' placeholder='Filled value' required />
+            <TextField version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' required />
+          </div>
+        </Accordion>
+
+        <Accordion label='TextField optional' open>
+          <div className={classNames([classes.row])}>
+            <TextField version='text' color='secondary' label='Text value' placeholder='Text value' optional />
+            <TextField version='filled' color='secondary' label='Filled value' placeholder='Filled value' optional />
+            <TextField version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' optional />
+          </div>
+        </Accordion>
+
+        <Accordion label='TextField error' open>
+          <div className={classNames([classes.row])}>
+            <TextField size='regular' version='text' color='secondary' label='Text value' placeholder='Text value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} helperText='Supporting text' error />
+            <TextField size='regular' version='filled' color='secondary' label='Filled value' placeholder='Filled value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} helperText='Supporting text' error />
+            <TextField size='regular' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} helperText='Supporting text' error />
+          </div>
+        </Accordion>
+
         <Accordion label='TextField disabled' open>
           <div className={classNames([classes.row])}>
             <TextField version='text' color='secondary' label='Text value' placeholder='Text value' valueDefault='Text value' disabled />
