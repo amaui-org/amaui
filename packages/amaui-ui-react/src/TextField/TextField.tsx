@@ -561,8 +561,8 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
 
     setRow({
       scrollHeight,
-      paddingTop,
-      paddingBottom
+      paddingTop: +paddingTop.replace('px', ''),
+      paddingBottom: +paddingBottom.replace('px', '')
     });
   }, []);
 
