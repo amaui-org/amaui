@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is } from '@amaui/utils';
+import { clamp, is } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Type from '../Type';
@@ -287,8 +287,8 @@ const useStyle = style(theme => ({
 
   fieldset: {
     ...other,
-    top: '-7.5%',
-    height: '109%',
+    top: '-5px',
+    height: 'calc(100% + 5px)',
     borderRadius: `${theme.shape.radius.unit / 2}px`,
     border: '1px solid currentColor',
     padding: 0,
@@ -506,6 +506,9 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
     optionalText = 'optional',
     error,
     multiline,
+    rows: rows_,
+    minRows,
+    maxRows,
     disabled,
 
     inputProps = {},
@@ -521,6 +524,12 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
   const [value, setValue] = React.useState((valueDefault !== undefined ? valueDefault : value_) || '');
   const [focus, setFocus] = React.useState(false);
   const [hover, setHover] = React.useState(false);
+  const [row, setRow] = React.useState<any>();
+  const [rows, setRows] = React.useState<any>(1);
+  const refs = {
+    input: React.useRef<HTMLInputElement>()
+  };
+
   const { classes } = useStyle(props);
 
   const styles: any = {
@@ -532,6 +541,32 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
   };
 
   React.useEffect(() => {
+    const previous = {
+      height: refs.input.current.style.height,
+      value: refs.input.current.value
+    };
+
+    // Update
+    refs.input.current.value = 'a';
+    refs.input.current.style.removeProperty('height');
+
+    const scrollHeight = refs.input.current.scrollHeight;
+
+    const { paddingTop, paddingBottom } = window.getComputedStyle(refs.input.current);
+
+    // Revert
+    refs.input.current.value = previous.value;
+
+    if (previous.height !== undefined) refs.input.current.style.height = previous.height;
+
+    setRow({
+      scrollHeight,
+      paddingTop,
+      paddingBottom
+    });
+  }, []);
+
+  React.useEffect(() => {
     if (value_ !== undefined && value_ !== value) {
       setValue(value_);
     }
@@ -539,6 +574,20 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
 
   const onUpdate = (event: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = event.target.value;
+
+    if (multiline && row !== undefined) {
+      const heightValue = refs.input.current.style.height;
+
+      // Get actual height with auto
+      refs.input.current.style.removeProperty('height');
+
+      const scrollHeight = refs.input.current.scrollHeight;
+
+      // Revert back to previous value
+      refs.input.current.style.height = heightValue;
+
+      setRows(Math.ceil((scrollHeight - row.paddingTop - row.paddingBottom) / row.scrollHeight));
+    }
 
     if (!disabled && inputValue !== value) {
       if (is('function', onChange)) onChange(inputValue, event);
@@ -619,7 +668,14 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
 
   let InputComponent = 'input';
 
-  if (multiline) InputComponent = 'textarea';
+  if (multiline) {
+    InputComponent = 'textarea';
+    console.log(rows, row);
+    if (row) {
+      if (rows_) styles.input.height = row.paddingTop + (rows_ * row.scrollHeight) + row.paddingBottom;
+      else styles.input.height = row.paddingTop + (row.scrollHeight * clamp(rows, minRows, maxRows)) + row.paddingBottom;
+    }
+  }
 
   return (
     <Wrapper
@@ -820,7 +876,11 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
           )}
 
           <InputComponent
-            ref={ref}
+            ref={item => {
+              if (ref) ref.current = item;
+
+              refs.input.current = item;
+            }}
 
             onFocus={onFocus}
             onBlur={onBlur}
