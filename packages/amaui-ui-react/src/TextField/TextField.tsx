@@ -392,9 +392,8 @@ const useStyle = style(theme => ({
 }), { name: 'AmauiTextField' });
 
 // To do:
-// Autofill value y
-// Multiline input
 // Updates space, ltr etc.
+// Multiline input
 
 const TextField = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
@@ -427,6 +426,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
     noPrefixMargin,
     noSufixMargin,
     enabled,
+    autoComplete,
     readOnly,
     type = 'text',
     required,
@@ -434,6 +434,8 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
     optionalText = 'optional',
     error,
     disabled,
+
+    inputProps = {},
 
     className,
     style,
@@ -545,8 +547,6 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
       {...WrapperProps}
     >
       <Component
-        ref={ref}
-
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
 
@@ -732,6 +732,8 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
           )}
 
           <input
+            ref={ref}
+
             onFocus={onFocus}
             onBlur={onBlur}
 
@@ -764,11 +766,15 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
 
             type={type}
 
+            autoComplete={autoComplete}
+
             readOnly={readOnly}
 
             disabled={disabled}
 
             style={styles.input}
+
+            {...inputProps}
           />
 
           {sufix !== undefined && (

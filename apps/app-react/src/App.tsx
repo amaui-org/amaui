@@ -1080,6 +1080,14 @@ function App() {
           </div>
         </Accordion>
 
+        <Accordion label='TextField autofill' open>
+          <div className={classNames([classes.row])}>
+            <TextField size='regular' version='text' color='secondary' label='Text value' placeholder='Text value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} helperText='Supporting text' type='email' />
+            <TextField size='regular' version='filled' color='secondary' label='Filled value' placeholder='Filled value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} helperText='Supporting text' type='email' />
+            <TextField size='regular' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} helperText='Supporting text' type='email' />
+          </div>
+        </Accordion>
+
         <Accordion label='TextField disabled' open>
           <div className={classNames([classes.row])}>
             <TextField version='text' color='secondary' label='Text value' placeholder='Text value' valueDefault='Text value' disabled />
