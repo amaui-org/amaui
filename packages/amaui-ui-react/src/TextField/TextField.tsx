@@ -322,6 +322,7 @@ const useStyle = style(theme => ({
   // Other
   disabled: {
     opacity: 0.54,
+    pointerEvents: 'none',
     cursor: 'default'
   }
 }), { name: 'AmauiTextField' });
@@ -329,7 +330,12 @@ const useStyle = style(theme => ({
 // To do:
 // Sufix
 // Prefix
+// Align start and end
+// noSufixMargin
+// noPrefixMargin
 // No label, input opacity 1
+// Title with no label
+// Required (adds to the title and label) + adds legend in helperText about *required
 // Error
 // Multiline input
 // Input type (number etc.)

@@ -834,45 +834,6 @@ function App() {
           </div>
         </Accordion>
 
-        <Accordion label='Switch OffIcon' open>
-          <div className={classNames([classes.column])}>
-            <Switch color='secondary' OffIcon={<IconMaterialCloseRounded />} />
-            <Switch color='secondary' tonal OffIcon={<IconMaterialCloseRounded />} />
-          </div>
-        </Accordion>
-
-        <Accordion label='Switch OnIcon & OffIcon' open>
-          <div className={classNames([classes.column])}>
-            <Switch color='secondary' OnIcon={<IconMaterialCheckRounded />} OffIcon={<IconMaterialCloseRounded />} />
-            <Switch color='secondary' tonal OnIcon={<IconMaterialCheckRounded />} OffIcon={<IconMaterialCloseRounded />} />
-            <Switch color='secondary' tonal OnIcon={<IconMaterialLightModeRounded />} OffIcon={<IconMaterialDarkModeRounded />} />
-          </div>
-        </Accordion>
-
-        <Accordion label='Switch sizes with icons' open>
-          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
-            <Switch size='small' color='secondary' OnIcon={<IconMaterialCheckRounded />} OffIcon={<IconMaterialCloseRounded />} valueDefault />
-            <Switch size='regular' color='secondary' OnIcon={<IconMaterialCheckRounded />} OffIcon={<IconMaterialCloseRounded />} valueDefault />
-            <Switch size='large' color='secondary' OnIcon={<IconMaterialCheckRounded />} OffIcon={<IconMaterialCloseRounded />} valueDefault />
-          </div>
-        </Accordion>
-
-        <Accordion label='Switch color with icons' open>
-          <div className={classNames([classes.row, classes.center])}>
-            <Switch color='default' OnIcon={<IconMaterialCheckRounded />} OffIcon={<IconMaterialCloseRounded />} valueDefault />
-            <Switch color='primary' OnIcon={<IconMaterialCheckRounded />} OffIcon={<IconMaterialCloseRounded />} valueDefault />
-            <Switch color='secondary' OnIcon={<IconMaterialCheckRounded />} OffIcon={<IconMaterialCloseRounded />} valueDefault />
-            <Switch color='tertiary' OnIcon={<IconMaterialCheckRounded />} OffIcon={<IconMaterialCloseRounded />} valueDefault />
-            <Switch color='quaternary' OnIcon={<IconMaterialCheckRounded />} OffIcon={<IconMaterialCloseRounded />} valueDefault />
-            <Switch color='info' OnIcon={<IconMaterialCheckRounded />} OffIcon={<IconMaterialCloseRounded />} valueDefault />
-            <Switch color='success' OnIcon={<IconMaterialCheckRounded />} OffIcon={<IconMaterialCloseRounded />} valueDefault />
-            <Switch color='error' OnIcon={<IconMaterialCheckRounded />} OffIcon={<IconMaterialCloseRounded />} valueDefault />
-            <Switch color='warning' OnIcon={<IconMaterialCheckRounded />} OffIcon={<IconMaterialCloseRounded />} valueDefault />
-            <Switch color='neutral' OnIcon={<IconMaterialCheckRounded />} OffIcon={<IconMaterialCloseRounded />} valueDefault />
-            <Switch color='#f5d758' OnIcon={<IconMaterialCheckRounded />} OffIcon={<IconMaterialCloseRounded />} valueDefault />
-          </div>
-        </Accordion>
-
         <Accordion label='Switch valueDefault' open>
           <div className={classNames([classes.column])}>
             <Switch color='secondary' valueDefault />
@@ -909,6 +870,12 @@ function App() {
             <TextField version='text' color='secondary' label='Text value' placeholder='Text value' valueDefault='Text value' helperText='Helper text' disabled />
             <TextField version='filled' color='secondary' label='Filled value' placeholder='Filled value' valueDefault='Text value' helperText='Helper text' disabled />
             <TextField version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' valueDefault='Text value' helperText='Helper text' disabled />
+          </div>
+
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+            <TextField size='regular' version='text' color='secondary' label='Text value' valueDefault='Text value' placeholder='Text value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} disabled />
+            <TextField size='regular' version='filled' color='secondary' label='Filled value' valueDefault='Text value' placeholder='Filled value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} disabled />
+            <TextField size='regular' version='outlined' color='secondary' label='Outlined value' valueDefault='Text value' placeholder='Outlined value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} disabled />
           </div>
         </Accordion>
 
