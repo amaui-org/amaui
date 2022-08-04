@@ -95,25 +95,24 @@ const useStyle = style(theme => ({
 
   multiline: {
     resize: 'none',
-    overflow: 'auto',
     whiteSpace: 'normal'
   },
 
   input_size_small: {
     height: '48px',
-    padding: '4px 16px',
+    padding: '7px 16px',
     paddingTop: '21px'
   },
 
   input_size_regular: {
     height: '56px',
-    padding: '8px 16px',
+    padding: '13px 16px',
     paddingTop: '23px'
   },
 
   input_size_large: {
     height: '64px',
-    padding: '12px 16px',
+    padding: '19px 16px',
     paddingTop: '25px'
   },
 
@@ -548,22 +547,24 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
 
     // Update
     refs.input.current.value = 'a';
-    refs.input.current.style.removeProperty('height');
+    refs.input.current.style.height = 'auto';
 
-    const scrollHeight = refs.input.current.scrollHeight;
-
-    const { paddingTop, paddingBottom } = window.getComputedStyle(refs.input.current);
+    const { height, paddingTop, paddingBottom } = window.getComputedStyle(refs.input.current);
 
     // Revert
     refs.input.current.value = previous.value;
 
     if (previous.height !== undefined) refs.input.current.style.height = previous.height;
+    else refs.input.current.style.removeProperty('height');
 
-    setRow({
-      scrollHeight,
+    const row_: any = {
       paddingTop: +paddingTop.replace('px', '') || 0,
       paddingBottom: +paddingBottom.replace('px', '') || 0
-    });
+    };
+
+    row_.height = +height.replace('px', '') - row_.paddingTop - row_.paddingBottom;
+
+    setRow(row_);
   }, []);
 
   React.useEffect(() => {
@@ -579,14 +580,14 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
       const heightValue = refs.input.current.style.height;
 
       // Get actual height with auto
-      refs.input.current.style.removeProperty('height');
+      refs.input.current.style.height = 'auto';
 
       const scrollHeight = refs.input.current.scrollHeight;
 
       // Revert back to previous value
       refs.input.current.style.height = heightValue;
 
-      setRows(Math.ceil((scrollHeight - row.paddingTop - row.paddingBottom) / row.scrollHeight));
+      setRows(Math.floor((scrollHeight - row.paddingTop - row.paddingBottom) / row.height));
     }
 
     if (!disabled && inputValue !== value) {
@@ -670,10 +671,12 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
 
   if (multiline) {
     InputComponent = 'textarea';
+    inputProps.rows = 1;
+
     console.log(rows, row);
     if (row) {
-      if (rows_) styles.input.height = row.paddingTop + (rows_ * row.scrollHeight) + row.paddingBottom;
-      else styles.input.height = row.paddingTop + (row.scrollHeight * clamp(rows, minRows, maxRows)) + row.paddingBottom;
+      if (rows_) styles.input.height = row.paddingTop + (rows_ * row.height) + row.paddingBottom;
+      else styles.input.height = row.paddingTop + (row.height * clamp(rows, minRows, maxRows)) + row.paddingBottom;
     }
   }
 
