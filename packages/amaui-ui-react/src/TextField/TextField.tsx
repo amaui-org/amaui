@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is } from '@amaui/utils';
+import { getID, is } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Type from '../Type';
@@ -19,7 +19,7 @@ const other = {
 const overflow = {
   width: '100%',
   overflow: 'hidden',
-  whiteSpace: 'noWrap',
+  whiteSpace: 'nowrap',
   textOverflow: 'ellipsis'
 };
 
@@ -58,6 +58,22 @@ const useStyle = style(theme => ({
 
   error: { color: theme.palette.color.error.main },
 
+  inputWrapper: {
+    display: 'inline-flex',
+    opacity: 0,
+    transition: theme.methods.transitions.make('opacity'),
+    borderRadius: `${theme.shape.radius.unit / 2}px ${theme.shape.radius.unit / 2}px 0 0`,
+    width: '100%'
+  },
+
+  inputWrapper_focus: {
+    opacity: 1
+  },
+
+  inputWrapper_value: {
+    opacity: 1
+  },
+
   input: {
     // Reset
     margin: 0,
@@ -65,8 +81,6 @@ const useStyle = style(theme => ({
     color: theme.palette.text.default.primary,
     background: 'transparent',
     '-webkit-tap-highlight-color': 'transparent',
-    opacity: 0,
-    transition: theme.methods.transitions.make('opacity'),
     borderRadius: `${theme.shape.radius.unit / 2}px ${theme.shape.radius.unit / 2}px 0 0`,
     ...theme.typography.values.b2,
     ...overflow
@@ -107,14 +121,6 @@ const useStyle = style(theme => ({
 
   input_version_outlined_size_large: {
     paddingTop: theme.methods.space.value('sm', 'px', 4)
-  },
-
-  input_focus: {
-    opacity: 1
-  },
-
-  input_value: {
-    opacity: 1
   },
 
   label: {
@@ -323,6 +329,7 @@ const useStyle = style(theme => ({
 // To do:
 // Sufix
 // Prefix
+// No label, input opacity 1
 // Error
 // Multiline input
 // Input type (number etc.)
@@ -609,42 +616,56 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
           </span>
         )}
 
-        <input
-          type='text'
-
-          onFocus={onFocus}
-          onBlur={onBlur}
-
-          onMouseEnter={onMouseEnter}
-          onMouseLeave={onMouseLeave}
-
+        <label
           className={classNames([
             staticClassName('TextField', theme) && [
-              'AmauiTextField-input',
-              `AmauiTextField-version-${version}`,
-              `AmauiTextField-size-${size}`,
+              'AmauiTextField-inputWrapper',
               focus && 'AmauiTextField-focus',
-              value && 'AmauiTextField-value',
-              startIcon && `AmauiTextField-icon-start`
+              value && 'AmauiTextField-value'
             ],
 
-            classes.input,
-            classes[`input_version_${version}`],
-            classes[`input_size_${size}`],
-            classes[`input_version_${version}_size_${size}`],
-            focus && classes.input_focus,
-            value && classes.input_value,
-            startIcon && classes.input_start_icon
+            classes.inputWrapper,
+            focus && classes.inputWrapper_focus,
+            value && classes.inputWrapper_value,
           ])}
+        >
+          <input
+            type='text'
 
-          placeholder={placeholder}
+            onFocus={onFocus}
+            onBlur={onBlur}
 
-          onChange={onUpdate}
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
 
-          value={value}
+            className={classNames([
+              staticClassName('TextField', theme) && [
+                'AmauiTextField-input',
+                `AmauiTextField-version-${version}`,
+                `AmauiTextField-size-${size}`,
+                focus && 'AmauiTextField-focus',
+                value && 'AmauiTextField-value',
+                startIcon && `AmauiTextField-icon-start`
+              ],
 
-          disabled={disabled}
-        />
+              classes.input,
+              classes[`input_version_${version}`],
+              classes[`input_size_${size}`],
+              classes[`input_version_${version}_size_${size}`],
+              focus && classes.input_focus,
+              value && classes.input_value,
+              startIcon && classes.input_start_icon
+            ])}
+
+            placeholder={placeholder}
+
+            onChange={onUpdate}
+
+            value={value}
+
+            disabled={disabled}
+          />
+        </label>
 
         {endIcon && (
           <span
