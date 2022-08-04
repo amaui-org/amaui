@@ -71,10 +71,6 @@ const useStyle = style(theme => ({
     opacity: 1
   },
 
-  inputWrapper_value: {
-    opacity: 1
-  },
-
   input: {
     // Reset
     margin: 0,
@@ -228,10 +224,6 @@ const useStyle = style(theme => ({
     transition: theme.methods.transitions.make(['opacity'])
   },
 
-  background_value: {
-    opacity: theme.palette.light ? theme.palette.visual_contrast.default.opacity.hover : theme.palette.visual_contrast.default.opacity.selected
-  },
-
   background_hover: {
     opacity: theme.palette.visual_contrast.default.opacity.focus
   },
@@ -281,12 +273,6 @@ const useStyle = style(theme => ({
   },
 
   legend_focus: {
-    maxWidth: '100%',
-    padding: '0 4px',
-    transition: theme.methods.transitions.make(['max-width', 'padding'], { duration: 'xs' })
-  },
-
-  legend_value: {
     maxWidth: '100%',
     padding: '0 4px',
     transition: theme.methods.transitions.make(['max-width', 'padding'], { duration: 'xs' })
@@ -398,16 +384,12 @@ const useStyle = style(theme => ({
 }), { name: 'AmauiTextField' });
 
 // To do:
-// Enabled (always up ie. as it has focus and/or value)
-// readOnly
 // No label, input opacity 1
 // Required (adds to the title and label) + adds legend in helperText about *required
 // Error
 // Multiline input
-// Input type (number etc.)
-// Controller value
 // Autofill value y
-// Other space, ltr etc.
+// Other updates space, ltr etc.
 
 const TextField = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
@@ -439,6 +421,9 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
     sufix,
     noPrefixMargin,
     noSufixMargin,
+    enabled,
+    readOnly,
+    type = 'text',
     disabled,
 
     className,
@@ -584,9 +569,8 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
               ],
 
               classes.background,
-              value && classes.background_value,
-              hover && classes.background_hover,
-              focus && classes.background_focus
+              (enabled || value || focus) && classes.background_focus,
+              hover && classes.background_hover
             ])}
 
             style={styles.background}
@@ -598,7 +582,6 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
             className={classNames([
               staticClassName('TextField', theme) && [
                 'AmauiTextField-border',
-                value && 'AmauiTextField-value', ,
                 hover && 'AmauiTextField-hover',
                 focus && 'AmauiTextField-focus'
               ],
@@ -636,8 +619,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
                 ],
 
                 classes.legend,
-                value && classes.legend_value,
-                focus && classes.legend_focus
+                (enabled || value || focus) && classes.legend_focus
               ])}
             >
               {label}
@@ -662,7 +644,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
               classes.label,
               classes[`label_version_${version}`],
               classes[`label_version_${version}_size_${size}`],
-              (value || focus) && classes[`label_version_${version}_size_${size}_focus`],
+              (enabled || value || focus) && classes[`label_version_${version}_size_${size}_focus`],
               startIcon && [
                 classes.label_icon_start,
                 classes[`label_version_${version}_icon_start`]
@@ -703,8 +685,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
             ],
 
             classes.inputWrapper,
-            focus && classes.inputWrapper_focus,
-            value && classes.inputWrapper_value,
+            (enabled || value || focus) && classes.inputWrapper_focus,
           ])}
         >
           {prefix !== undefined && (
@@ -732,8 +713,6 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
           )}
 
           <input
-            type='text'
-
             onFocus={onFocus}
             onBlur={onBlur}
 
@@ -756,8 +735,6 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
               classes[`input_version_${version}`],
               classes[`input_size_${size}`],
               classes[`input_version_${version}_size_${size}`],
-              focus && classes.input_focus,
-              value && classes.input_value,
               align && classes[`input_align_${align}`],
               startIcon && classes.input_start_icon,
               endIcon && classes.input_end_icon,
@@ -768,6 +745,10 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
             onChange={onUpdate}
 
             value={value}
+
+            type={type}
+
+            readOnly={readOnly}
 
             disabled={disabled}
 

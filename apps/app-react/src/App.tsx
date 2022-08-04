@@ -426,6 +426,16 @@ function App() {
     });
   };
 
+  const updatePure = (item?: any, property: string = '') => {
+    setA((values: any) => {
+      const newValues = { ...values };
+
+      newValues[property] = item;
+
+      return newValues;
+    });
+  };
+
   // React.useEffect(() => {
   //   const id = setInterval(() => setProgress(item => item >= 100 ? 0 : item + 10), 1000);
 
@@ -934,20 +944,91 @@ function App() {
           </div>
         </Accordion>
 
-        <Accordion label='Switch valueDefault' open>
-          <div className={classNames([classes.column])}>
-            <Switch color='secondary' valueDefault />
+        <Accordion label='TextField enabled' open>
+          <div className={classNames([classes.column])} style={{ gap: 14 }}>
+            <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+              <TextField enabled size='small' version='text' color='secondary' label='Text value' placeholder='Text value' />
+              <TextField enabled size='small' version='filled' color='secondary' label='Filled value' placeholder='Filled value' />
+              <TextField enabled size='small' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' />
+            </div>
+
+            <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+              <TextField enabled size='regular' version='text' color='secondary' label='Text value' placeholder='Text value' />
+              <TextField enabled size='regular' version='filled' color='secondary' label='Filled value' placeholder='Filled value' />
+              <TextField enabled size='regular' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' />
+            </div>
+
+            <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+              <TextField enabled size='large' version='text' color='secondary' label='Text value' placeholder='Text value' />
+              <TextField enabled size='large' version='filled' color='secondary' label='Filled value' placeholder='Filled value' />
+              <TextField enabled size='large' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' />
+            </div>
           </div>
         </Accordion>
 
-        <Accordion label='Switch controlled value' open>
-          <div className={classNames([classes.column])}>
-            <Switch
-              color='secondary'
+        <Accordion label='TextField readOnly' open>
+          <div className={classNames([classes.column])} style={{ gap: 14 }}>
+            <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+              <TextField readOnly valueDefault='a' size='small' version='text' color='secondary' label='Text value' placeholder='Text value' />
+              <TextField readOnly valueDefault='a' size='small' version='filled' color='secondary' label='Filled value' placeholder='Filled value' />
+              <TextField readOnly valueDefault='a' size='small' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' />
+            </div>
 
-              onChange={(value: boolean) => updateValue(value, 'switch')}
-              value={!!a.switch}
-            />
+            <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+              <TextField readOnly valueDefault='a' size='regular' version='text' color='secondary' label='Text value' placeholder='Text value' />
+              <TextField readOnly valueDefault='a' size='regular' version='filled' color='secondary' label='Filled value' placeholder='Filled value' />
+              <TextField readOnly valueDefault='a' size='regular' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' />
+            </div>
+
+            <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+              <TextField readOnly valueDefault='a' size='large' version='text' color='secondary' label='Text value' placeholder='Text value' />
+              <TextField readOnly valueDefault='a' size='large' version='filled' color='secondary' label='Filled value' placeholder='Filled value' />
+              <TextField readOnly valueDefault='a' size='large' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' />
+            </div>
+          </div>
+        </Accordion>
+
+        <Accordion label='TextField valueDefault' open>
+          <div className={classNames([classes.column])} style={{ gap: 14 }}>
+            <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+              <TextField valueDefault='a' size='small' version='text' color='secondary' label='Text value' placeholder='Text value' />
+              <TextField valueDefault='a' size='small' version='filled' color='secondary' label='Filled value' placeholder='Filled value' />
+              <TextField valueDefault='a' size='small' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' />
+            </div>
+
+            <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+              <TextField valueDefault='a' size='regular' version='text' color='secondary' label='Text value' placeholder='Text value' />
+              <TextField valueDefault='a' size='regular' version='filled' color='secondary' label='Filled value' placeholder='Filled value' />
+              <TextField valueDefault='a' size='regular' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' />
+            </div>
+
+            <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+              <TextField valueDefault='a' size='large' version='text' color='secondary' label='Text value' placeholder='Text value' />
+              <TextField valueDefault='a' size='large' version='filled' color='secondary' label='Filled value' placeholder='Filled value' />
+              <TextField valueDefault='a' size='large' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' />
+            </div>
+          </div>
+        </Accordion>
+
+        <Accordion label='TextField controlled value' open>
+          <div className={classNames([classes.column])} style={{ gap: 14 }}>
+            <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+              <TextField value={a.textfield} onChange={(value: any) => updatePure(value, 'textfield')} size='small' version='text' color='secondary' label='Text value' placeholder='Text value' />
+              <TextField value={a.textfield} onChange={(value: any) => updatePure(value, 'textfield')} size='small' version='filled' color='secondary' label='Filled value' placeholder='Filled value' />
+              <TextField value={a.textfield} onChange={(value: any) => updatePure(value, 'textfield')} size='small' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' />
+            </div>
+
+            <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+              <TextField value={a.textfield} onChange={(value: any) => updatePure(value, 'textfield')} size='regular' version='text' color='secondary' label='Text value' placeholder='Text value' />
+              <TextField value={a.textfield} onChange={(value: any) => updatePure(value, 'textfield')} size='regular' version='filled' color='secondary' label='Filled value' placeholder='Filled value' />
+              <TextField value={a.textfield} onChange={(value: any) => updatePure(value, 'textfield')} size='regular' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' />
+            </div>
+
+            <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+              <TextField value={a.textfield} onChange={(value: any) => updatePure(value, 'textfield')} size='large' version='text' color='secondary' label='Text value' placeholder='Text value' />
+              <TextField value={a.textfield} onChange={(value: any) => updatePure(value, 'textfield')} size='large' version='filled' color='secondary' label='Filled value' placeholder='Filled value' />
+              <TextField value={a.textfield} onChange={(value: any) => updatePure(value, 'textfield')} size='large' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' />
+            </div>
           </div>
         </Accordion>
 
@@ -956,6 +1037,14 @@ function App() {
             <TextField version='text' color='secondary' label='Text value' placeholder='Text value' />
             <TextField version='filled' color='secondary' label='Filled value' placeholder='Filled value' />
             <TextField version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' />
+          </div>
+        </Accordion>
+
+        <Accordion label='TextField type' open>
+          <div className={classNames([classes.row])}>
+            <TextField version='text' color='secondary' label='Text value' placeholder='Text value' type='number' />
+            <TextField version='filled' color='secondary' label='Filled value' placeholder='Filled value' type='number' />
+            <TextField version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' type='number' />
           </div>
         </Accordion>
 
