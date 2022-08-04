@@ -1041,6 +1041,14 @@ function App() {
           </div>
         </Accordion>
 
+        <Accordion label='TextField fullWidth' open>
+          <div className={classNames([classes.row])}>
+            <TextField version='text' color='secondary' label='Text value' placeholder='Text value' fullWidth />
+            <TextField version='filled' color='secondary' label='Filled value' placeholder='Filled value' fullWidth />
+            <TextField version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' fullWidth />
+          </div>
+        </Accordion>
+
         <Accordion label='TextField placeholder' open>
           <div className={classNames([classes.row])}>
             <TextField version='text' color='secondary' label='Text value' placeholder='Text value' />

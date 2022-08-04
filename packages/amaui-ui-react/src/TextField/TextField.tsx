@@ -387,6 +387,10 @@ const useStyle = style(theme => ({
     marginInlineStart: 0
   },
 
+  fullWidth: {
+    width: '100%'
+  },
+
   disabled: {
     opacity: 0.54,
     pointerEvents: 'none',
@@ -418,6 +422,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
     onBlur: onBlur_,
     onMouseEnter: onMouseEnter_,
     onMouseLeave: onMouseLeave_,
+    fullWidth,
     Component = 'div',
     WrapperComponent = 'div',
     helperText,
@@ -535,10 +540,12 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
     WrapperProps['className'] = classNames([
       staticClassName('TextField', theme) && [
         'AmauiTextField-wrapper',
+        fullWidth && 'AmauiTextField-fullWidth',
         disabled && 'AmauiTextField-disabled'
       ],
 
       classes.wrapper,
+      fullWidth && classes.fullWidth,
       disabled && classes.disabled
     ]);
   }
@@ -556,6 +563,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
             'AmauiTextField-root',
             `AmauiTextField-version-${version}`,
             `AmauiTextField-size-${size}`,
+            fullWidth && !footer && 'AmauiTextField-fullWidth',
             hover && `AmauiTextField-hover`,
             error && `AmauiTextField-error`,
             !footer && disabled && 'AmauiTextField-disabled'
@@ -566,6 +574,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
           classes[version],
           classes[size],
           className,
+          fullWidth && !footer && classes.fullWidth,
           error && (hover ? classes.error_hover_color : classes.error_color),
           !footer && disabled && classes.disabled
         ])}
