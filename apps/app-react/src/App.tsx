@@ -199,6 +199,13 @@ const Accordion = (props: any) => {
 };
 
 const styled = {
+  TextField: sy(TextField)((theme: AmauiTheme) => ({
+    root: {
+      '&:hover': {
+        opacity: 0.4
+      }
+    }
+  })),
   Switch: sy(Switch)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
@@ -509,6 +516,8 @@ function App() {
 
       <Accordion label='All'>
         <div className={classNames([classes.column])}>
+          <TextField color='secondary' label='Filled text' placeholder='Filled text' />
+
           <Switch color='secondary' />
 
           <Radio color='secondary' />
@@ -556,7 +565,7 @@ function App() {
       <Accordion label='TextField'>
         <Accordion label='TextField' open>
           <div className={classNames([classes.row])}>
-            <TextField color='secondary' label='Outlined text' placeholder='Outlined text' />
+            <TextField color='secondary' label='Filled text' placeholder='Filled text' />
           </div>
         </Accordion>
 
@@ -1109,8 +1118,14 @@ function App() {
         </Accordion>
 
         <Accordion label='AmauiTheme' open>
-          <div className={classNames([classes.column])}>
-            <Switch color='secondary' />
+          <div
+            className={classNames([classes.column])}
+
+            style={{
+              width: '100%'
+            }}
+          >
+            <TextField color='secondary' label='Value text' />
 
             <Accordion label='AmauiTheme nested value' open>
               <AmauiThemeProvider
@@ -1126,8 +1141,12 @@ function App() {
                     unit: 5
                   }
                 }}
+
+                style={{
+                  width: '100%'
+                }}
               >
-                <Switch color='secondary' />
+                <TextField color='secondary' label='Value text' />
               </AmauiThemeProvider>
             </Accordion>
 
@@ -1136,7 +1155,7 @@ function App() {
                 value={{
                   ui: {
                     elements: {
-                      AmauiSwitch: {
+                      AmauiTextField: {
                         style: {
                           add: {
                             root: {
@@ -1150,8 +1169,12 @@ function App() {
                     }
                   }
                 }}
+
+                style={{
+                  width: '100%'
+                }}
               >
-                <Switch color='secondary' />
+                <TextField color='secondary' label='Value text' />
               </AmauiThemeProvider>
             </Accordion>
 
@@ -1160,7 +1183,7 @@ function App() {
                 value={{
                   ui: {
                     elements: {
-                      AmauiSwitch: {
+                      AmauiTextField: {
                         style: {
                           override: {
                             root: {
@@ -1174,8 +1197,12 @@ function App() {
                     }
                   }
                 }}
+
+                style={{
+                  width: '100%'
+                }}
               >
-                <Switch color='secondary' />
+                <TextField color='secondary' label='Value text' />
               </AmauiThemeProvider>
             </Accordion>
 
@@ -1184,7 +1211,7 @@ function App() {
                 value={{
                   ui: {
                     elements: {
-                      AmauiSwitch: {
+                      AmauiTextField: {
                         props: {
                           default: {
                             color: 'secondary'
@@ -1194,13 +1221,17 @@ function App() {
                     }
                   }
                 }}
+
+                style={{
+                  width: '100%'
+                }}
               >
-                <Switch />
+                <TextField label='Value text' />
               </AmauiThemeProvider>
             </Accordion>
 
             <Accordion label='AmauiTheme styled' open>
-              <styled.Switch />
+              <styled.TextField label='Value text' />
             </Accordion>
           </div>
         </Accordion>
