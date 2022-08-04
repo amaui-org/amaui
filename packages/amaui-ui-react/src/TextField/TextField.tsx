@@ -24,6 +24,12 @@ const overflow = {
 };
 
 const useStyle = style(theme => ({
+  wrapper: {
+    display: 'inline-flex',
+    flex: '1 1 auto',
+    flexDirection: 'column'
+  },
+
   root: {
     display: 'inline-flex',
     flex: '1 1 auto',
@@ -249,6 +255,22 @@ const useStyle = style(theme => ({
     transition: theme.methods.transitions.make(['max-width', 'padding'], { duration: 'xs' })
   },
 
+  footer: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    gap: theme.methods.space.value('rg', 'px'),
+    marginTop: '4px',
+    padding: `0 ${theme.methods.space.value('rg', 'px')}`
+  },
+
+  footer_version_text: {
+    paddingLeft: 0
+  },
+
+  helperText: {
+    color: theme.palette.text.default.secondary
+  },
+
   // Other
   disabled: {
     opacity: 0.54,
@@ -257,7 +279,6 @@ const useStyle = style(theme => ({
 }), { name: 'AmauiTextField' });
 
 // To do:
-// Helper text
 // Character counter value
 // Start adornment
 // End adornment
@@ -290,6 +311,9 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
     onMouseEnter: onMouseEnter_,
     onMouseLeave: onMouseLeave_,
     Component = 'div',
+    WrapperComponent = 'div',
+    helperText,
+    counter,
     disabled,
 
     className,
@@ -374,165 +398,215 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
 
   if (tonal) styles.background.color = theme.methods.palette.color.value(color, 20, true, palette);
 
+  const footer = (helperText !== undefined || counter);
+
+  const Wrapper = footer ? WrapperComponent : React.Fragment;
+
+  const WrapperProps = {};
+
+  if (footer) {
+    WrapperProps['className'] = classNames([
+      staticClassName('TextField', theme) && [
+        'AmauiTextField-wrapper'
+      ],
+
+      classes.wrapper
+    ]);
+  }
+
   return (
-    <Component
-      ref={ref}
-
-      className={classNames([
-        staticClassName('TextField', theme) && [
-          'AmauiTextField-root',
-          `AmauiTextField-version-${version}`,
-          `AmauiTextField-size-${size}`
-        ],
-
-        classes.root,
-        classes[color],
-        classes[version],
-        classes[size],
-        className,
-        disabled && classes.disabled
-      ])}
-
-      style={{
-        ...style,
-
-        ...styles.root
-      }}
-
-      {...other}
+    <Wrapper
+      {...WrapperProps}
     >
-      {['filled'].includes(version) && (
-        <span
-          className={classNames([
-            staticClassName('TextField', theme) && [
-              'AmauiTextField-background',
-              value && 'AmauiTextField-value',
-              hover && 'AmauiTextField-hover',
-              focus && 'AmauiTextField-focus'
-            ],
+      <Component
+        ref={ref}
 
-            classes.background,
-            value && classes.background_value,
-            hover && classes.background_hover,
-            focus && classes.background_focus
-          ])}
+        className={classNames([
+          staticClassName('TextField', theme) && [
+            'AmauiTextField-root',
+            `AmauiTextField-version-${version}`,
+            `AmauiTextField-size-${size}`
+          ],
 
-          style={styles.background}
-        />
-      )}
+          classes.root,
+          classes[color],
+          classes[version],
+          classes[size],
+          className,
+          disabled && classes.disabled
+        ])}
 
-      {['text', 'filled'].includes(version) && (
-        <span
-          className={classNames([
-            staticClassName('TextField', theme) && [
-              'AmauiTextField-border',
-              value && 'AmauiTextField-value', ,
-              hover && 'AmauiTextField-hover',
-              focus && 'AmauiTextField-focus'
-            ],
+        style={{
+          ...style,
 
-            classes.border,
-            focus && classes.border_focus
-          ])}
+          ...styles.root
+        }}
 
-          style={styles.border}
-        />
-      )}
-
-      {['outlined'].includes(version) && (
-        <fieldset
-          className={classNames([
-            staticClassName('TextField', theme) && [
-              'AmauiTextField-fieldset',
-              value && 'AmauiTextField-value',
-              hover && 'AmauiTextField-hover',
-              focus && 'AmauiTextField-focus'
-            ],
-
-            classes.fieldset,
-            focus && classes.fieldset_focus
-          ])}
-
-          style={styles.fieldset}
-        >
-          <legend
+        {...other}
+      >
+        {['filled'].includes(version) && (
+          <span
             className={classNames([
               staticClassName('TextField', theme) && [
-                'AmauiTextField-legend',
+                'AmauiTextField-background',
                 value && 'AmauiTextField-value',
+                hover && 'AmauiTextField-hover',
                 focus && 'AmauiTextField-focus'
               ],
 
-              classes.legend,
-              value && classes.legend_value,
-              focus && classes.legend_focus
+              classes.background,
+              value && classes.background_value,
+              hover && classes.background_hover,
+              focus && classes.background_focus
             ])}
+
+            style={styles.background}
+          />
+        )}
+
+        {['text', 'filled'].includes(version) && (
+          <span
+            className={classNames([
+              staticClassName('TextField', theme) && [
+                'AmauiTextField-border',
+                value && 'AmauiTextField-value', ,
+                hover && 'AmauiTextField-hover',
+                focus && 'AmauiTextField-focus'
+              ],
+
+              classes.border,
+              focus && classes.border_focus
+            ])}
+
+            style={styles.border}
+          />
+        )}
+
+        {['outlined'].includes(version) && (
+          <fieldset
+            className={classNames([
+              staticClassName('TextField', theme) && [
+                'AmauiTextField-fieldset',
+                value && 'AmauiTextField-value',
+                hover && 'AmauiTextField-hover',
+                focus && 'AmauiTextField-focus'
+              ],
+
+              classes.fieldset,
+              focus && classes.fieldset_focus
+            ])}
+
+            style={styles.fieldset}
+          >
+            <legend
+              className={classNames([
+                staticClassName('TextField', theme) && [
+                  'AmauiTextField-legend',
+                  value && 'AmauiTextField-value',
+                  focus && 'AmauiTextField-focus'
+                ],
+
+                classes.legend,
+                value && classes.legend_value,
+                focus && classes.legend_focus
+              ])}
+            >
+              {label}
+            </legend>
+          </fieldset>
+        )}
+
+        {label && (
+          <Type
+            Component='label'
+
+            className={classNames([
+              staticClassName('TextField', theme) && [
+                'AmauiTextField-label',
+                `AmauiTextField-version-${version}`,
+                `AmauiTextField-size-${size}`,
+                focus && 'AmauiTextField-focus',
+                value && 'AmauiTextField-value'
+              ],
+
+              classes.label,
+              classes[`label_version_${version}`],
+              classes[`label_version_${version}_size_${size}`],
+              (value || focus) && classes[`label_version_${version}_size_${size}_focus`]
+            ])}
+
+            version='b2'
           >
             {label}
-          </legend>
-        </fieldset>
-      )}
+          </Type>
+        )}
 
-      {label && (
-        <Type
-          Component='label'
+        <input
+          type='text'
+
+          onFocus={onFocus}
+          onBlur={onBlur}
+
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
 
           className={classNames([
             staticClassName('TextField', theme) && [
-              'AmauiTextField-label',
+              'AmauiTextField-input',
               `AmauiTextField-version-${version}`,
               `AmauiTextField-size-${size}`,
               focus && 'AmauiTextField-focus',
               value && 'AmauiTextField-value'
             ],
 
-            classes.label,
-            classes[`label_version_${version}`],
-            classes[`label_version_${version}_size_${size}`],
-            (value || focus) && classes[`label_version_${version}_size_${size}_focus`]
+            classes.input,
+            classes[`input_version_${version}`],
+            classes[`input_size_${size}`],
+            classes[`input_version_${version}_size_${size}`],
+            focus && classes.input_focus,
+            value && classes.input_value
           ])}
 
-          version='b2'
+          placeholder={placeholder}
+
+          onChange={onUpdate}
+
+          value={value}
+
+          disabled={disabled}
+        />
+      </Component>
+
+      {footer && (
+        <div
+          className={classNames([
+            staticClassName('TextField', theme) && [
+              'AmauiTextField-footer',
+              `AmauiTextField-version-${version}`
+            ],
+
+            classes.footer,
+            classes[`footer_version_${version}`]
+          ])}
         >
-          {label}
-        </Type>
+          {helperText && (
+            <Type
+              version='b3'
+
+              className={classNames([
+                staticClassName('TextField', theme) && [
+                  'AmauiTextField-helperText'
+                ],
+
+                classes.helperText
+              ])}
+            >
+              {helperText}
+            </Type>
+          )}
+        </div>
       )}
-
-      <input
-        type='text'
-
-        onFocus={onFocus}
-        onBlur={onBlur}
-
-        onMouseEnter={onMouseEnter}
-        onMouseLeave={onMouseLeave}
-
-        className={classNames([
-          staticClassName('TextField', theme) && [
-            'AmauiTextField-input',
-            `AmauiTextField-version-${version}`,
-            `AmauiTextField-size-${size}`,
-            focus && 'AmauiTextField-focus',
-            value && 'AmauiTextField-value'
-          ],
-
-          classes.input,
-          classes[`input_version_${version}`],
-          classes[`input_size_${size}`],
-          classes[`input_version_${version}_size_${size}`],
-          focus && classes.input_focus,
-          value && classes.input_value
-        ])}
-
-        placeholder={placeholder}
-
-        onChange={onUpdate}
-
-        value={value}
-
-        disabled={disabled}
-      />
-    </Component>
+    </Wrapper>
   );
 });
 

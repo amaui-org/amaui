@@ -700,6 +700,20 @@ function App() {
           </div>
         </Accordion>
 
+        <Accordion label='TextField helper text' open>
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+            <TextField version='text' color='secondary' label='Text value' placeholder='Text value' helperText='Helper text' />
+            <TextField version='filled' color='secondary' label='Filled value' placeholder='Filled value' helperText='Helper text' />
+            <TextField version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' helperText='Helper text' />
+          </div>
+
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14, flexWrap: 'nowrap' }}>
+            <TextField version='text' color='secondary' label='Text value' placeholder='Text value' helperText='It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more of it.' />
+            <TextField version='filled' color='secondary' label='Filled value' placeholder='Filled value' helperText='It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more of it.' />
+            <TextField version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' helperText='It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more of it.' />
+          </div>
+        </Accordion>
+
         <Accordion label='Switch OnIcon' open>
           <div className={classNames([classes.column])}>
             <Switch color='secondary' OnIcon={<IconMaterialCheckRounded />} />
