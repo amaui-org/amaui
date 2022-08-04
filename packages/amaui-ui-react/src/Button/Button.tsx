@@ -567,18 +567,20 @@ const Button = React.forwardRef((props_: any, ref: any) => {
       />
 
       {startIcon && (
-        <span className={classNames([
-          staticClassName('Button', theme) && [
-            'AmauiButton-icon',
-            'AmauiButton-startIcon',
-            `AmauiButton-size-${size}`
-          ],
+        <span
+          className={classNames([
+            staticClassName('Button', theme) && [
+              'AmauiButton-icon',
+              'AmauiButton-startIcon',
+              `AmauiButton-size-${size}`
+            ],
 
-          classes.Icon,
-          classes.start,
-          classes[`start_size_${size}`],
-          chip && classes[`chip_start_size_${size}`]
-        ])}>
+            classes.Icon,
+            classes.start,
+            classes[`start_size_${size}`],
+            chip && classes[`chip_start_size_${size}`]
+          ])}
+        >
           {React.cloneElement(startIcon, { style: styles.Icon })}
         </span>
       )}
@@ -620,18 +622,20 @@ const Button = React.forwardRef((props_: any, ref: any) => {
       )}
 
       {endIcon && (
-        <span className={classNames([
-          staticClassName('Button', theme) && [
-            'AmauiButton-icon',
-            'AmauiButton-endIcon',
-            `AmauiButton-size-${size}`
-          ],
+        <span
+          className={classNames([
+            staticClassName('Button', theme) && [
+              'AmauiButton-icon',
+              'AmauiButton-endIcon',
+              `AmauiButton-size-${size}`
+            ],
 
-          classes.Icon,
-          classes.end,
-          classes[`end_size_${size}`],
-          chip && classes[`chip_end_size_${size}`]
-        ])}>
+            classes.Icon,
+            classes.end,
+            classes[`end_size_${size}`],
+            chip && classes[`chip_end_size_${size}`]
+          ])}
+        >
           {React.cloneElement(endIcon, { style: styles.Icon })}
         </span>
       )}

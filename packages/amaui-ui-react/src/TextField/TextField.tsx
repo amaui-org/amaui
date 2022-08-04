@@ -91,8 +91,10 @@ const useStyle = style(theme => ({
   },
 
   input_version_text: {
-    paddingLeft: 0,
-    paddingRight: 0
+    '&:not($input_start_icon)': {
+      paddingLeft: 0,
+      paddingRight: 0
+    }
   },
 
   input_version_outlined_size_small: {
@@ -121,7 +123,7 @@ const useStyle = style(theme => ({
     left: '16px',
     transformOrigin: 'top left',
     transform: 'translate(0px, -50%) scale(1)',
-    transition: theme.methods.transitions.make(['color', 'transform']),
+    transition: theme.methods.transitions.make(['color', 'left', 'transform']),
     pointerEvents: 'none',
     userSelect: 'none',
     ...overflow,
@@ -146,6 +148,10 @@ const useStyle = style(theme => ({
     transform: 'translate(0px, 83%) scale(1)',
   },
 
+  label_icon_start: {
+    left: '52px'
+  },
+
   // Focus
   label_version_text_size_small_focus: {
     transform: 'translate(0px, 2px) scale(0.667)'
@@ -159,15 +165,18 @@ const useStyle = style(theme => ({
   },
 
   label_version_outlined_size_small_focus: {
-    transform: 'translate(-0.5px, -29.5px) scale(0.667)'
+    transform: 'translate(0.5px, -29.5px) scale(0.667)',
+    left: '16px'
   },
 
   label_version_outlined_size_regular_focus: {
-    transform: 'translate(-0.5px, -34px) scale(0.667)'
+    transform: 'translate(0.5px, -34px) scale(0.667)',
+    left: '16px'
   },
 
   label_version_outlined_size_large_focus: {
-    transform: 'translate(-0.5px, -38.5px) scale(0.667)'
+    transform: 'translate(0.5px, -38.5px) scale(0.667)',
+    left: '16px'
   },
 
   label_version_filled_size_small_focus: {
@@ -217,18 +226,18 @@ const useStyle = style(theme => ({
 
   fieldset: {
     ...other,
-    top: '-8%',
+    top: '-7.5%',
     height: '109%',
     borderRadius: `${theme.shape.radius.unit / 2}px`,
     border: '1px solid currentColor',
-    padding: `0 ${theme.methods.space.value('rg', 'px')} 0 ${theme.methods.space.value('rg', 'px', -5)}`,
+    padding: `0 ${theme.methods.space.value('rg', 'px')} 0 ${theme.methods.space.value('rg', 'px', -4)}`,
 
     transition: theme.methods.transitions.make(['border', 'padding'])
   },
 
   fieldset_focus: {
     borderWidth: '2px',
-    padding: `0 ${theme.methods.space.value('rg', 'px')} 0 ${theme.methods.space.value('rg', 'px', -6)}`,
+    padding: `0 ${theme.methods.space.value('rg', 'px')} 0 ${theme.methods.space.value('rg', 'px', -5)}`,
   },
 
   legend: {
@@ -245,13 +254,13 @@ const useStyle = style(theme => ({
 
   legend_focus: {
     maxWidth: '100%',
-    padding: '0 3.5px 0 4px',
+    padding: '0 4px',
     transition: theme.methods.transitions.make(['max-width', 'padding'], { duration: 'xs' })
   },
 
   legend_value: {
     maxWidth: '100%',
-    padding: '0 3.5px 0 4px',
+    padding: '0 4px',
     transition: theme.methods.transitions.make(['max-width', 'padding'], { duration: 'xs' })
   },
 
@@ -282,6 +291,20 @@ const useStyle = style(theme => ({
     flex: '1 0 auto'
   },
 
+  // Start and end icon
+  icon: {
+    display: 'inline-flex',
+    alignItems: 'center'
+  },
+
+  icon_start: {
+    marginInlineStart: `${theme.methods.space.value('rg') * 0.75}px`
+  },
+
+  icon_end: {
+    marginInlineEnd: `${theme.methods.space.value('rg') * 0.75}px`
+  },
+
   // Other
   disabled: {
     opacity: 0.54,
@@ -290,8 +313,6 @@ const useStyle = style(theme => ({
 }), { name: 'AmauiTextField' });
 
 // To do:
-// Start adornment
-// End adornment
 // Sufix
 // Prefix
 // Error
@@ -312,6 +333,8 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
     version = 'filled',
     size = 'regular',
     label,
+    startIcon,
+    endIcon,
     placeholder,
     valueDefault,
     value: value_,
@@ -539,19 +562,38 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
                 `AmauiTextField-version-${version}`,
                 `AmauiTextField-size-${size}`,
                 focus && 'AmauiTextField-focus',
-                value && 'AmauiTextField-value'
+                value && 'AmauiTextField-value',
+                startIcon && 'AmauiTextField-icon-start'
               ],
 
               classes.label,
               classes[`label_version_${version}`],
               classes[`label_version_${version}_size_${size}`],
-              (value || focus) && classes[`label_version_${version}_size_${size}_focus`]
+              (value || focus) && classes[`label_version_${version}_size_${size}_focus`],
+              startIcon && classes.label_icon_start
             ])}
 
             version='b2'
           >
             {label}
           </Type>
+        )}
+
+        {startIcon && (
+          <span
+            className={classNames([
+              staticClassName('TextField', theme) && [
+                'AmauiTextField-icon',
+                'AmauiTextField-icon-start',
+                `AmauiTextField-size-${size}`
+              ],
+
+              classes.icon,
+              classes.icon_start
+            ])}
+          >
+            {React.cloneElement(startIcon, { size: 'regular', color: theme.palette.text.default.secondary, style: styles.icon })}
+          </span>
         )}
 
         <input
@@ -569,7 +611,8 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
               `AmauiTextField-version-${version}`,
               `AmauiTextField-size-${size}`,
               focus && 'AmauiTextField-focus',
-              value && 'AmauiTextField-value'
+              value && 'AmauiTextField-value',
+              startIcon && `AmauiTextField-icon-start`
             ],
 
             classes.input,
@@ -577,7 +620,8 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
             classes[`input_size_${size}`],
             classes[`input_version_${version}_size_${size}`],
             focus && classes.input_focus,
-            value && classes.input_value
+            value && classes.input_value,
+            startIcon && classes.input_start_icon
           ])}
 
           placeholder={placeholder}
@@ -588,6 +632,23 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
 
           disabled={disabled}
         />
+
+        {endIcon && (
+          <span
+            className={classNames([
+              staticClassName('TextField', theme) && [
+                'AmauiTextField-icon',
+                'AmauiTextField-icon-end',
+                `AmauiTextField-size-${size}`
+              ],
+
+              classes.icon,
+              classes.icon_end
+            ])}
+          >
+            {React.cloneElement(endIcon, { size: 'regular', color: theme.palette.text.default.secondary, style: styles.icon })}
+          </span>
+        )}
       </Component>
 
       {footer && (

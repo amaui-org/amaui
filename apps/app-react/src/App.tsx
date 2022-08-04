@@ -734,10 +734,53 @@ function App() {
           </div>
         </Accordion>
 
-        <Accordion label='Switch OnIcon' open>
-          <div className={classNames([classes.column])}>
-            <Switch color='secondary' OnIcon={<IconMaterialCheckRounded />} />
-            <Switch color='secondary' tonal OnIcon={<IconMaterialCheckRounded />} />
+        <Accordion label='TextField startIcon and endIcon' open>
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+            <TextField size='small' version='text' color='secondary' label='Text value' placeholder='Text value' startIcon={<IconMaterialCheckRounded />} />
+            <TextField size='small' version='filled' color='secondary' label='Filled value' placeholder='Filled value' startIcon={<IconMaterialCheckRounded />} />
+            <TextField size='small' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' startIcon={<IconMaterialCheckRounded />} />
+          </div>
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+            <TextField size='regular' version='text' color='secondary' label='Text value' placeholder='Text value' startIcon={<IconMaterialCheckRounded />} />
+            <TextField size='regular' version='filled' color='secondary' label='Filled value' placeholder='Filled value' startIcon={<IconMaterialCheckRounded />} />
+            <TextField size='regular' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' startIcon={<IconMaterialCheckRounded />} />
+          </div>
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+            <TextField size='large' version='text' color='secondary' label='Text value' placeholder='Text value' startIcon={<IconMaterialCheckRounded />} />
+            <TextField size='large' version='filled' color='secondary' label='Filled value' placeholder='Filled value' startIcon={<IconMaterialCheckRounded />} />
+            <TextField size='large' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' startIcon={<IconMaterialCheckRounded />} />
+          </div>
+
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+            <TextField size='small' version='text' color='secondary' label='Text value' placeholder='Text value' endIcon={<IconMaterialCheckRounded />} />
+            <TextField size='small' version='filled' color='secondary' label='Filled value' placeholder='Filled value' endIcon={<IconMaterialCheckRounded />} />
+            <TextField size='small' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' endIcon={<IconMaterialCheckRounded />} />
+          </div>
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+            <TextField size='regular' version='text' color='secondary' label='Text value' placeholder='Text value' endIcon={<IconMaterialCheckRounded />} />
+            <TextField size='regular' version='filled' color='secondary' label='Filled value' placeholder='Filled value' endIcon={<IconMaterialCheckRounded />} />
+            <TextField size='regular' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' endIcon={<IconMaterialCheckRounded />} />
+          </div>
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+            <TextField size='large' version='text' color='secondary' label='Text value' placeholder='Text value' endIcon={<IconMaterialCheckRounded />} />
+            <TextField size='large' version='filled' color='secondary' label='Filled value' placeholder='Filled value' endIcon={<IconMaterialCheckRounded />} />
+            <TextField size='large' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' endIcon={<IconMaterialCheckRounded />} />
+          </div>
+
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+            <TextField size='small' version='text' color='secondary' label='Text value' placeholder='Text value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconMaterialCheckRounded />} />
+            <TextField size='small' version='filled' color='secondary' label='Filled value' placeholder='Filled value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconMaterialCheckRounded />} />
+            <TextField size='small' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconMaterialCheckRounded />} />
+          </div>
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+            <TextField size='regular' version='text' color='secondary' label='Text value' placeholder='Text value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconMaterialCheckRounded />} />
+            <TextField size='regular' version='filled' color='secondary' label='Filled value' placeholder='Filled value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconMaterialCheckRounded />} />
+            <TextField size='regular' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconMaterialCheckRounded />} />
+          </div>
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+            <TextField size='large' version='text' color='secondary' label='Text value' placeholder='Text value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconMaterialCheckRounded />} />
+            <TextField size='large' version='filled' color='secondary' label='Filled value' placeholder='Filled value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconMaterialCheckRounded />} />
+            <TextField size='large' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconMaterialCheckRounded />} />
           </div>
         </Accordion>
 

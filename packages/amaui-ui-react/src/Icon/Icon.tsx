@@ -84,11 +84,11 @@ const Icon = React.forwardRef((props_: any, ref: any) => {
   let color = color_;
 
   if (tonal) {
-    const palette = theme.palette.color[color_] && theme.methods.color(color_);
+    const palette: any = color === 'default' ? theme.palette.color.neutral : !theme.palette.color[color] ? theme.methods.color(color) : theme.palette.color[color];
 
-    color = theme.methods.palette.color.value(color_, tone, true, palette);
+    color = theme.methods.palette.color.value(color, tone, true, palette);
   }
-  else color = (theme.palette.color[color_] as any)?.main || color_;
+  else color = (color === 'default' ? theme.palette.text.default.primary : (theme.palette.color[color] as any)?.main || color);
 
   return (
     <Component
