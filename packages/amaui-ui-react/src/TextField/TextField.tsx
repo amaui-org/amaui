@@ -60,6 +60,7 @@ const useStyle = style(theme => ({
 
   inputWrapper: {
     display: 'inline-flex',
+    alignItems: 'center',
     opacity: 0,
     transition: theme.methods.transitions.make('opacity'),
     borderRadius: `${theme.shape.radius.unit / 2}px ${theme.shape.radius.unit / 2}px 0 0`,
@@ -81,6 +82,7 @@ const useStyle = style(theme => ({
     color: theme.palette.text.default.primary,
     background: 'transparent',
     '-webkit-tap-highlight-color': 'transparent',
+    textAlign: 'start',
     borderRadius: `${theme.shape.radius.unit / 2}px ${theme.shape.radius.unit / 2}px 0 0`,
     ...theme.typography.values.b2,
     ...overflow
@@ -111,6 +113,14 @@ const useStyle = style(theme => ({
     }
   },
 
+  input_start_icon: {
+    paddingLeft: 0
+  },
+
+  input_end_icon: {
+    paddingRight: 0
+  },
+
   input_version_outlined_size_small: {
     paddingTop: theme.methods.space.value('sm', 'px', -4)
   },
@@ -121,6 +131,14 @@ const useStyle = style(theme => ({
 
   input_version_outlined_size_large: {
     paddingTop: theme.methods.space.value('sm', 'px', 4)
+  },
+
+  input_align_start: {
+    textAlign: 'start'
+  },
+
+  input_align_end: {
+    textAlign: 'end'
   },
 
   label: {
@@ -308,18 +326,70 @@ const useStyle = style(theme => ({
   },
 
   icon_start: {
+    paddingInlineEnd: theme.methods.space.value('rg', 'px'),
+
     '&:not($icon_version_text)': {
       marginInlineStart: `${theme.methods.space.value('rg') * 0.75}px`
     }
   },
 
   icon_end: {
+    paddingInlineStart: theme.methods.space.value('rg', 'px'),
+
     '&:not($icon_version_text)': {
       marginInlineEnd: `${theme.methods.space.value('rg') * 0.75}px`
     }
   },
 
-  // Other
+  addition: {
+    color: theme.palette.text.default.secondary
+  },
+
+  addition_size_small: {
+    paddingBottom: theme.methods.space.value('sm', 'px', -4),
+    paddingTop: theme.methods.space.value('sm', 'px', 13)
+  },
+
+  addition_size_regular: {
+    paddingBottom: theme.methods.space.value('sm', 'px'),
+    paddingTop: theme.methods.space.value('sm', 'px', 15)
+  },
+
+  addition_size_large: {
+    paddingBottom: theme.methods.space.value('sm', 'px', 4),
+    paddingTop: theme.methods.space.value('sm', 'px', 17)
+  },
+
+  addition_version_outlined_size_small: {
+    paddingTop: theme.methods.space.value('sm', 'px', -4)
+  },
+
+  addition_version_outlined_size_regular: {
+    paddingTop: theme.methods.space.value('sm', 'px')
+  },
+
+  addition_version_outlined_size_large: {
+    paddingTop: theme.methods.space.value('sm', 'px', 4)
+  },
+
+  prefix: {
+    flex: '0 0 auto',
+    marginInlineEnd: '8px'
+  },
+
+  noPrefixMargin: {
+    marginInlineEnd: 0
+  },
+
+  sufix: {
+    flex: '0 0 auto',
+    marginInlineStart: '8px'
+  },
+
+  noSufixMargin: {
+    marginInlineStart: 0
+  },
+
   disabled: {
     opacity: 0.54,
     pointerEvents: 'none',
@@ -328,11 +398,7 @@ const useStyle = style(theme => ({
 }), { name: 'AmauiTextField' });
 
 // To do:
-// Sufix
-// Prefix
-// Align start and end
-// noSufixMargin
-// noPrefixMargin
+// Enabled (always up ie. as it has focus and/or value)
 // readOnly
 // No label, input opacity 1
 // Required (adds to the title and label) + adds legend in helperText about *required
@@ -354,6 +420,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
     version = 'filled',
     size = 'regular',
     label,
+    align,
     startIcon,
     endIcon,
     placeholder,
@@ -368,6 +435,10 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
     WrapperComponent = 'div',
     helperText,
     counter,
+    prefix,
+    sufix,
+    noPrefixMargin,
+    noSufixMargin,
     disabled,
 
     className,
@@ -636,6 +707,30 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
             value && classes.inputWrapper_value,
           ])}
         >
+          {prefix !== undefined && (
+            <Type
+              className={classNames([
+                staticClassName('TextField', theme) && [
+                  'AmauiTextField-addition',
+                  'AmauiTextField-prefix',
+                  `AmauiTextField-version-${version}`,
+                  `AmauiTextField-size-${size}`,
+                  noPrefixMargin && 'AmauiTextField-prefix-no-margin'
+                ],
+
+                classes.addition,
+                classes.prefix,
+                classes[`addition_size_${size}`],
+                classes[`addition_version_${version}_size_${size}`],
+                noPrefixMargin && classes.noPrefixMargin
+              ])}
+
+              version='b2'
+            >
+              {prefix}
+            </Type>
+          )}
+
           <input
             type='text'
 
@@ -652,7 +747,9 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
                 `AmauiTextField-size-${size}`,
                 focus && 'AmauiTextField-focus',
                 value && 'AmauiTextField-value',
-                startIcon && `AmauiTextField-icon-start`
+                startIcon && `AmauiTextField-icon-start`,
+                endIcon && `AmauiTextField-icon-end`,
+                align && `AmauiTextField-align-${align}`
               ],
 
               classes.input,
@@ -661,7 +758,9 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
               classes[`input_version_${version}_size_${size}`],
               focus && classes.input_focus,
               value && classes.input_value,
-              startIcon && classes.input_start_icon
+              align && classes[`input_align_${align}`],
+              startIcon && classes.input_start_icon,
+              endIcon && classes.input_end_icon,
             ])}
 
             placeholder={placeholder}
@@ -674,6 +773,30 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
 
             style={styles.input}
           />
+
+          {sufix !== undefined && (
+            <Type
+              className={classNames([
+                staticClassName('TextField', theme) && [
+                  'AmauiTextField-addition',
+                  'AmauiTextField-sufix',
+                  `AmauiTextField-version-${version}`,
+                  `AmauiTextField-size-${size}`,
+                  noPrefixMargin && 'AmauiTextField-sufix-no-margin'
+                ],
+
+                classes.addition,
+                classes.sufix,
+                classes[`addition_size_${size}`],
+                classes[`addition_version_${version}_size_${size}`],
+                noSufixMargin && classes.noSufixMargin
+              ])}
+
+              version='b2'
+            >
+              {sufix}
+            </Type>
+          )}
         </label>
 
         {endIcon && (

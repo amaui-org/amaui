@@ -834,6 +834,106 @@ function App() {
           </div>
         </Accordion>
 
+        <Accordion label='TextField prefix and sufix' open>
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+            <TextField valueDefault='a' prefix='mm' size='small' version='text' color='secondary' label='Text value' placeholder='Text value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+            <TextField valueDefault='a' prefix='mm' size='small' version='filled' color='secondary' label='Filled value' placeholder='Filled value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+            <TextField valueDefault='a' prefix='mm' size='small' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+          </div>
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+            <TextField valueDefault='a' prefix='mm' size='regular' version='text' color='secondary' label='Text value' placeholder='Text value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+            <TextField valueDefault='a' prefix='mm' size='regular' version='filled' color='secondary' label='Filled value' placeholder='Filled value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+            <TextField valueDefault='a' prefix='mm' size='regular' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+          </div>
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+            <TextField valueDefault='a' prefix='mm' size='large' version='text' color='secondary' label='Text value' placeholder='Text value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+            <TextField valueDefault='a' prefix='mm' size='large' version='filled' color='secondary' label='Filled value' placeholder='Filled value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+            <TextField valueDefault='a' prefix='mm' size='large' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+          </div>
+
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+            <TextField valueDefault='a' sufix='lbs' size='small' version='text' color='secondary' label='Text value' placeholder='Text value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+            <TextField valueDefault='a' sufix='lbs' size='small' version='filled' color='secondary' label='Filled value' placeholder='Filled value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+            <TextField valueDefault='a' sufix='lbs' size='small' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+          </div>
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+            <TextField valueDefault='a' sufix='lbs' size='regular' version='text' color='secondary' label='Text value' placeholder='Text value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+            <TextField valueDefault='a' sufix='lbs' size='regular' version='filled' color='secondary' label='Filled value' placeholder='Filled value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+            <TextField valueDefault='a' sufix='lbs' size='regular' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+          </div>
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+            <TextField valueDefault='a' sufix='lbs' size='large' version='text' color='secondary' label='Text value' placeholder='Text value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+            <TextField valueDefault='a' sufix='lbs' size='large' version='filled' color='secondary' label='Filled value' placeholder='Filled value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+            <TextField valueDefault='a' sufix='lbs' size='large' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+          </div>
+
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+            <TextField valueDefault='a' prefix='mm' sufix='lbs' size='small' version='text' color='secondary' label='Text value' placeholder='Text value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+            <TextField valueDefault='a' prefix='mm' sufix='lbs' size='small' version='filled' color='secondary' label='Filled value' placeholder='Filled value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+            <TextField valueDefault='a' prefix='mm' sufix='lbs' size='small' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+          </div>
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+            <TextField valueDefault='a' prefix='mm' sufix='lbs' size='regular' version='text' color='secondary' label='Text value' placeholder='Text value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+            <TextField valueDefault='a' prefix='mm' sufix='lbs' size='regular' version='filled' color='secondary' label='Filled value' placeholder='Filled value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+            <TextField valueDefault='a' prefix='mm' sufix='lbs' size='regular' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+          </div>
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+            <TextField valueDefault='a' prefix='mm' sufix='lbs' size='large' version='text' color='secondary' label='Text value' placeholder='Text value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+            <TextField valueDefault='a' prefix='mm' sufix='lbs' size='large' version='filled' color='secondary' label='Filled value' placeholder='Filled value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+            <TextField valueDefault='a' prefix='mm' sufix='lbs' size='large' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+          </div>
+        </Accordion>
+
+        <Accordion label='TextField prefix and sufix with align' open>
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+            <TextField valueDefault='14' prefix='€' size='small' version='text' color='secondary' label='Text value' placeholder='Text value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+            <TextField valueDefault='14' prefix='€' size='small' version='filled' color='secondary' label='Filled value' placeholder='Filled value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+            <TextField valueDefault='14' prefix='€' size='small' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+          </div>
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+            <TextField valueDefault='14' prefix='€' size='regular' version='text' color='secondary' label='Text value' placeholder='Text value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+            <TextField valueDefault='14' prefix='€' size='regular' version='filled' color='secondary' label='Filled value' placeholder='Filled value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+            <TextField valueDefault='14' prefix='€' size='regular' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+          </div>
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+            <TextField valueDefault='14' prefix='€' size='large' version='text' color='secondary' label='Text value' placeholder='Text value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+            <TextField valueDefault='14' prefix='€' size='large' version='filled' color='secondary' label='Filled value' placeholder='Filled value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+            <TextField valueDefault='14' prefix='€' size='large' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+          </div>
+
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+            <TextField valueDefault='user' sufix='@gmail.com' align='end' noSufixMargin size='small' version='text' color='secondary' label='Text value' placeholder='Text value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+            <TextField valueDefault='user' sufix='@gmail.com' align='end' noSufixMargin size='small' version='filled' color='secondary' label='Filled value' placeholder='Filled value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+            <TextField valueDefault='user' sufix='@gmail.com' align='end' noSufixMargin size='small' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+          </div>
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+            <TextField valueDefault='user' sufix='@gmail.com' align='end' noSufixMargin size='regular' version='text' color='secondary' label='Text value' placeholder='Text value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+            <TextField valueDefault='user' sufix='@gmail.com' align='end' noSufixMargin size='regular' version='filled' color='secondary' label='Filled value' placeholder='Filled value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+            <TextField valueDefault='user' sufix='@gmail.com' align='end' noSufixMargin size='regular' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+          </div>
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+            <TextField valueDefault='user' sufix='@gmail.com' align='end' noSufixMargin size='large' version='text' color='secondary' label='Text value' placeholder='Text value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+            <TextField valueDefault='user' sufix='@gmail.com' align='end' noSufixMargin size='large' version='filled' color='secondary' label='Filled value' placeholder='Filled value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+            <TextField valueDefault='user' sufix='@gmail.com' align='end' noSufixMargin size='large' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+          </div>
+
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+            <TextField valueDefault='14' sufix='/104' align='end' noSufixMargin size='small' version='text' color='secondary' label='Text value' placeholder='Text value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+            <TextField valueDefault='14' sufix='/104' align='end' noSufixMargin size='small' version='filled' color='secondary' label='Filled value' placeholder='Filled value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+            <TextField valueDefault='14' sufix='/104' align='end' noSufixMargin size='small' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+          </div>
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+            <TextField valueDefault='14' sufix='/104' align='end' noSufixMargin size='regular' version='text' color='secondary' label='Text value' placeholder='Text value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+            <TextField valueDefault='14' sufix='/104' align='end' noSufixMargin size='regular' version='filled' color='secondary' label='Filled value' placeholder='Filled value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+            <TextField valueDefault='14' sufix='/104' align='end' noSufixMargin size='regular' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+          </div>
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+            <TextField valueDefault='14' sufix='/104' align='end' noSufixMargin size='large' version='text' color='secondary' label='Text value' placeholder='Text value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+            <TextField valueDefault='14' sufix='/104' align='end' noSufixMargin size='large' version='filled' color='secondary' label='Filled value' placeholder='Filled value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+            <TextField valueDefault='14' sufix='/104' align='end' noSufixMargin size='large' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+          </div>
+        </Accordion>
+
         <Accordion label='Switch valueDefault' open>
           <div className={classNames([classes.column])}>
             <Switch color='secondary' valueDefault />
