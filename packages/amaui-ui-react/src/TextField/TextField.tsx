@@ -251,7 +251,7 @@ const useStyle = style(theme => ({
 
   // Other
   disabled: {
-    opacity: 0.7,
+    opacity: 0.54,
     cursor: 'pointer'
   }
 }), { name: 'AmauiTextField' });
