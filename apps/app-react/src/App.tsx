@@ -763,10 +763,11 @@ function App() {
           </div>
         </Accordion>
 
-        <Accordion label='Switch disabled' open>
+        <Accordion label='TextField disabled' open>
           <div className={classNames([classes.column])}>
-            <Switch color='secondary' OffIcon={<IconMaterialCloseRounded />} disabled />
-            <Switch color='secondary' OnIcon={<IconMaterialCheckRounded />} valueDefault disabled />
+            <TextField version='text' color='secondary' label='Text value' placeholder='Text value' disabled />
+            <TextField version='filled' color='secondary' label='Filled value' placeholder='Filled value' disabled />
+            <TextField version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' disabled />
           </div>
         </Accordion>
 

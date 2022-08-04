@@ -247,6 +247,12 @@ const useStyle = style(theme => ({
     maxWidth: '100%',
     padding: '0 3.5px 0 4px',
     transition: theme.methods.transitions.make(['max-width', 'padding'], { duration: 'xs' })
+  },
+
+  // Other
+  disabled: {
+    opacity: 0.7,
+    cursor: 'pointer'
   }
 }), { name: 'AmauiTextField' });
 
@@ -328,27 +334,35 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
   };
 
   const onFocus = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
-    setFocus(true);
+    if (!disabled) {
+      setFocus(true);
 
-    if (is('function', onFocus_)) onFocus_(event);
+      if (is('function', onFocus_)) onFocus_(event);
+    }
   }, []);
 
   const onBlur = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
-    setFocus(false);
+    if (!disabled) {
+      setFocus(false);
 
-    if (is('function', onBlur_)) onBlur_(event);
+      if (is('function', onBlur_)) onBlur_(event);
+    }
   }, []);
 
   const onMouseEnter = React.useCallback((event: React.MouseEvent<HTMLInputElement>) => {
-    setHover(true);
+    if (!disabled) {
+      setHover(true);
 
-    if (is('function', onMouseEnter_)) onMouseEnter_(event);
+      if (is('function', onMouseEnter_)) onMouseEnter_(event);
+    }
   }, []);
 
   const onMouseLeave = React.useCallback((event: React.MouseEvent<HTMLInputElement>) => {
-    setHover(false);
+    if (!disabled) {
+      setHover(false);
 
-    if (is('function', onMouseLeave_)) onMouseLeave_(event);
+      if (is('function', onMouseLeave_)) onMouseLeave_(event);
+    }
   }, []);
 
   const palette: any = color === 'default' ? theme.palette.color.neutral : !theme.palette.color[color] ? theme.methods.color(color) : theme.palette.color[color];
@@ -377,7 +391,8 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
         classes[color],
         classes[version],
         classes[size],
-        className
+        className,
+        disabled && classes.disabled
       ])}
 
       style={{
@@ -395,15 +410,13 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
               'AmauiTextField-background',
               value && 'AmauiTextField-value',
               hover && 'AmauiTextField-hover',
-              focus && 'AmauiTextField-focus',
-              disabled && `AmauiTextField-background-disabled`
+              focus && 'AmauiTextField-focus'
             ],
 
             classes.background,
             value && classes.background_value,
             hover && classes.background_hover,
-            focus && classes.background_focus,
-            disabled && classes[`background_disabled`]
+            focus && classes.background_focus
           ])}
 
           style={styles.background}
@@ -417,13 +430,11 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
               'AmauiTextField-border',
               value && 'AmauiTextField-value', ,
               hover && 'AmauiTextField-hover',
-              focus && 'AmauiTextField-focus',
-              disabled && `AmauiTextField-border-disabled`
+              focus && 'AmauiTextField-focus'
             ],
 
             classes.border,
-            focus && classes.border_focus,
-            disabled && classes[`border_disabled`]
+            focus && classes.border_focus
           ])}
 
           style={styles.border}
@@ -437,13 +448,11 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
               'AmauiTextField-fieldset',
               value && 'AmauiTextField-value',
               hover && 'AmauiTextField-hover',
-              focus && 'AmauiTextField-focus',
-              disabled && `AmauiTextField-fieldset-disabled`
+              focus && 'AmauiTextField-focus'
             ],
 
             classes.fieldset,
-            focus && classes.fieldset_focus,
-            disabled && classes[`fieldset_disabled`]
+            focus && classes.fieldset_focus
           ])}
 
           style={styles.fieldset}
@@ -453,14 +462,12 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
               staticClassName('TextField', theme) && [
                 'AmauiTextField-legend',
                 value && 'AmauiTextField-value',
-                focus && 'AmauiTextField-focus',
-                disabled && `AmauiTextField-legend-disabled`
+                focus && 'AmauiTextField-focus'
               ],
 
               classes.legend,
               value && classes.legend_value,
-              focus && classes.legend_focus,
-              disabled && classes[`legend_disabled`]
+              focus && classes.legend_focus
             ])}
           >
             {label}
@@ -524,6 +531,8 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
         onChange={onUpdate}
 
         value={value}
+
+        disabled={disabled}
       />
     </Component>
   );
