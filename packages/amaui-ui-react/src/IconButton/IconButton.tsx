@@ -47,4 +47,6 @@ const IconButton = React.forwardRef((props_: any, ref: any) => {
   );
 });
 
+IconButton.displayName = 'AmauiIconButton';
+
 export default IconButton;

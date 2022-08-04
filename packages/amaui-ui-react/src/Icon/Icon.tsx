@@ -135,4 +135,6 @@ const Icon = React.forwardRef((props_: any, ref: any) => {
   );
 });
 
+Icon.displayName = 'AmauiIcon';
+
 export default Icon;

@@ -577,6 +577,28 @@ function App() {
           </div>
         </Accordion>
 
+        <Accordion label='TextField multiline' open>
+          <div className={classNames([classes.column])} style={{ gap: 14 }}>
+            <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+              <TextField multiline valueDefault='14' prefix='€' size='small' version='text' color='secondary' label='Text value' placeholder='Text value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+              <TextField multiline valueDefault='14' prefix='€' size='small' version='filled' color='secondary' label='Filled value' placeholder='Filled value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+              <TextField multiline valueDefault='14' prefix='€' size='small' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+            </div>
+
+            <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+              <TextField multiline valueDefault='14' prefix='€' size='regular' version='text' color='secondary' label='Text value' placeholder='Text value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+              <TextField multiline valueDefault='14' prefix='€' size='regular' version='filled' color='secondary' label='Filled value' placeholder='Filled value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+              <TextField multiline valueDefault='14' prefix='€' size='regular' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+            </div>
+
+            <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+              <TextField multiline valueDefault='14' prefix='€' size='large' version='text' color='secondary' label='Text value' placeholder='Text value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+              <TextField multiline valueDefault='14' prefix='€' size='large' version='filled' color='secondary' label='Filled value' placeholder='Filled value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+              <TextField multiline valueDefault='14' prefix='€' size='large' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
+            </div>
+          </div>
+        </Accordion>
+
         <Accordion label='TextField sizes' open>
           <div className={classNames([classes.column])} style={{ gap: 14 }}>
             <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>

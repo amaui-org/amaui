@@ -33,6 +33,7 @@ const useStyle = style(theme => ({
   root: {
     display: 'inline-flex',
     flex: '1 1 auto',
+    alignItems: 'flex-start',
     position: 'relative',
     borderRadius: `${theme.shape.radius.unit / 2}px ${theme.shape.radius.unit / 2}px 0 0`
   },
@@ -68,7 +69,7 @@ const useStyle = style(theme => ({
 
   inputWrapper: {
     display: 'inline-flex',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     opacity: 0,
     transition: theme.methods.transitions.make('opacity'),
     borderRadius: `${theme.shape.radius.unit / 2}px ${theme.shape.radius.unit / 2}px 0 0`,
@@ -92,20 +93,26 @@ const useStyle = style(theme => ({
     ...overflow
   },
 
+  multiline: {
+    resize: 'none',
+    overflow: 'auto',
+    whiteSpace: 'normal'
+  },
+
   input_size_small: {
-    minHeight: '48px',
+    height: '48px',
     padding: '4px 16px',
     paddingTop: '21px'
   },
 
   input_size_regular: {
-    minHeight: '56px',
+    height: '56px',
     padding: '8px 16px',
     paddingTop: '23px'
   },
 
   input_size_large: {
-    minHeight: '64px',
+    height: '64px',
     padding: '12px 16px',
     paddingTop: '25px'
   },
@@ -125,15 +132,18 @@ const useStyle = style(theme => ({
   },
 
   input_version_outlined_size_small: {
-    paddingTop: '4px'
+    paddingTop: '14px',
+    paddingBottom: '14px'
   },
 
   input_version_outlined_size_regular: {
-    paddingTop: '8px'
+    paddingTop: '18px',
+    paddingBottom: '18px'
   },
 
   input_version_outlined_size_large: {
-    paddingTop: '12px'
+    paddingTop: '22px',
+    paddingBottom: '22px'
   },
 
   input_align_start: {
@@ -146,10 +156,10 @@ const useStyle = style(theme => ({
 
   label: {
     position: 'absolute',
-    top: '50%',
+    top: 0,
     insetInlineStart: '16px',
     transformOrigin: 'top left',
-    transform: 'translate(0px, -50%) scale(1)',
+    transform: 'translate(0px, 15px) scale(1)',
     transition: theme.methods.transitions.make(['color', 'inset-inline-start', 'transform']),
     pointerEvents: 'none',
     userSelect: 'none',
@@ -179,6 +189,30 @@ const useStyle = style(theme => ({
     transform: 'translate(0px, 83%) scale(1)',
   },
 
+  label_version_outlined_size_small: {
+    transform: 'translate(0px, 14px) scale(1)',
+  },
+
+  label_version_outlined_size_regular: {
+    transform: 'translate(0px, 18px) scale(1)',
+  },
+
+  label_version_outlined_size_large: {
+    transform: 'translate(0px, 22px) scale(1)',
+  },
+
+  label_version_filled_size_small: {
+    transform: 'translate(0px, 14px) scale(1)',
+  },
+
+  label_version_filled_size_regular: {
+    transform: 'translate(0px, 18px) scale(1)',
+  },
+
+  label_version_filled_size_large: {
+    transform: 'translate(0px, 22px) scale(1)',
+  },
+
   label_icon_start: {
     insetInlineStart: '52px'
   },
@@ -196,30 +230,30 @@ const useStyle = style(theme => ({
   },
 
   label_version_outlined_size_small_focus: {
-    transform: 'translate(0, -29.5px) scale(0.667)',
+    transform: 'translate(0, -5.5px) scale(0.667)',
     insetInlineStart: '17px'
   },
 
   label_version_outlined_size_regular_focus: {
-    transform: 'translate(0, -34px) scale(0.667)',
+    transform: 'translate(0, -5.5px) scale(0.667)',
     insetInlineStart: '17px'
   },
 
   label_version_outlined_size_large_focus: {
-    transform: 'translate(0, -38.5px) scale(0.667)',
+    transform: 'translate(0, -6px) scale(0.667)',
     insetInlineStart: '17px'
   },
 
   label_version_filled_size_small_focus: {
-    transform: 'translate(0px, -74%) scale(0.6875)'
+    transform: 'translate(0px, 9px) scale(0.6875)'
   },
 
   label_version_filled_size_regular_focus: {
-    transform: 'translate(0px, -84%) scale(0.6875)'
+    transform: 'translate(0px, 11px) scale(0.6875)'
   },
 
   label_version_filled_size_large_focus: {
-    transform: 'translate(0px, -94%) scale(0.6875)'
+    transform: 'translate(0px, 13px) scale(0.6875)'
   },
 
   background: {
@@ -272,7 +306,7 @@ const useStyle = style(theme => ({
     display: 'inline-flex',
     height: '11px',
     width: 'auto',
-    maxWidth: '0.01px',
+    maxWidth: '0.001px',
     whiteSpace: 'nowrap',
     visibility: 'hidden',
     overflow: 'hidden',
@@ -318,6 +352,36 @@ const useStyle = style(theme => ({
     alignItems: 'center'
   },
 
+  icon_size_small: {
+    paddingTop: '14px',
+    paddingBottom: '0'
+  },
+
+  icon_size_regular: {
+    paddingTop: '18px',
+    paddingBottom: '0'
+  },
+
+  icon_size_large: {
+    paddingTop: '22px',
+    paddingBottom: '0'
+  },
+
+  icon_button_size_small: {
+    paddingTop: '5px',
+    paddingBottom: '0'
+  },
+
+  icon_button_size_regular: {
+    paddingTop: '9px',
+    paddingBottom: '0'
+  },
+
+  icon_button_size_large: {
+    paddingTop: '13px',
+    paddingBottom: '0'
+  },
+
   icon_start: {
     paddingInlineEnd: '16px',
 
@@ -354,15 +418,18 @@ const useStyle = style(theme => ({
   },
 
   addition_version_outlined_size_small: {
-    paddingTop: '4px'
+    paddingTop: '14px',
+    paddingBottom: '14px'
   },
 
   addition_version_outlined_size_regular: {
-    paddingTop: '8px'
+    paddingTop: '18px',
+    paddingBottom: '18px'
   },
 
   addition_version_outlined_size_large: {
-    paddingTop: '12px'
+    paddingTop: '22px',
+    paddingBottom: '22px'
   },
 
   prefix: {
@@ -438,6 +505,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
     optional,
     optionalText = 'optional',
     error,
+    multiline,
     disabled,
 
     inputProps = {},
@@ -548,6 +616,10 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
       disabled && classes.disabled
     ]);
   }
+
+  let InputComponent = 'input';
+
+  if (multiline) InputComponent = 'textarea';
 
   return (
     <Wrapper
@@ -699,10 +771,15 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
 
               classes.icon,
               classes.icon_start,
+              classes[`icon${startIcon?.type?.displayName?.includes('IconButton') ? '_button' : ''}_size_${size}`],
               classes[`icon_version_${version}`]
             ])}
           >
-            {React.cloneElement(startIcon, { size: 'regular', color: theme.palette.text.default.secondary, style: styles.icon })}
+            {React.cloneElement(startIcon, {
+              size: 'regular',
+              color: theme.palette.text.default.secondary,
+              style: styles.icon
+            })}
           </span>
         )}
 
@@ -742,7 +819,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
             </Type>
           )}
 
-          <input
+          <InputComponent
             ref={ref}
 
             onFocus={onFocus}
@@ -764,6 +841,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
               classes[`input_version_${version}`],
               classes[`input_size_${size}`],
               classes[`input_version_${version}_size_${size}`],
+              multiline && classes.multiline,
               align && classes[`input_align_${align}`],
               startIcon && classes.input_start_icon,
               endIcon && classes.input_end_icon,
@@ -829,6 +907,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
 
               classes.icon,
               classes.icon_end,
+              classes[`icon${endIcon?.type?.displayName?.includes('IconButton') ? '_button' : ''}_size_${size}`],
               classes[`icon_version_${version}`]
             ])}
           >
