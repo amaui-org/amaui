@@ -264,22 +264,32 @@ const useStyle = style(theme => ({
   },
 
   footer_version_text: {
-    paddingLeft: 0
+    paddingLeft: 0,
+    paddingRight: 0
   },
 
   helperText: {
-    color: theme.palette.text.default.secondary
+    display: 'inline-flex',
+    color: theme.palette.text.default.secondary,
+    userSelect: 'none'
+  },
+
+  counterText: {
+    display: 'inline-flex',
+    justifyContent: 'flex-end',
+    color: theme.palette.text.default.secondary,
+    userSelect: 'none',
+    flex: '1 0 auto'
   },
 
   // Other
   disabled: {
     opacity: 0.54,
-    cursor: 'pointer'
+    cursor: 'default'
   }
 }), { name: 'AmauiTextField' });
 
 // To do:
-// Character counter value
 // Start adornment
 // End adornment
 // Sufix
@@ -398,7 +408,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
 
   if (tonal) styles.background.color = theme.methods.palette.color.value(color, 20, true, palette);
 
-  const footer = (helperText !== undefined || counter);
+  const footer = (helperText !== undefined || counter !== undefined);
 
   const Wrapper = footer ? WrapperComponent : React.Fragment;
 
@@ -407,10 +417,12 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
   if (footer) {
     WrapperProps['className'] = classNames([
       staticClassName('TextField', theme) && [
-        'AmauiTextField-wrapper'
+        'AmauiTextField-wrapper',
+        disabled && 'AmauiTextField-disabled'
       ],
 
-      classes.wrapper
+      classes.wrapper,
+      disabled && classes.disabled
     ]);
   }
 
@@ -425,7 +437,8 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
           staticClassName('TextField', theme) && [
             'AmauiTextField-root',
             `AmauiTextField-version-${version}`,
-            `AmauiTextField-size-${size}`
+            `AmauiTextField-size-${size}`,
+            !footer && disabled && 'AmauiTextField-disabled'
           ],
 
           classes.root,
@@ -433,7 +446,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
           classes[version],
           classes[size],
           className,
-          disabled && classes.disabled
+          !footer && disabled && classes.disabled
         ])}
 
         style={{
@@ -602,6 +615,22 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
               ])}
             >
               {helperText}
+            </Type>
+          )}
+
+          {counter && (
+            <Type
+              version='b3'
+
+              className={classNames([
+                staticClassName('TextField', theme) && [
+                  'AmauiTextField-counter'
+                ],
+
+                classes.counterText
+              ])}
+            >
+              {value.length}/{counter}
             </Type>
           )}
         </div>
