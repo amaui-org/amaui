@@ -150,7 +150,7 @@ const useStyle = style(theme => ({
     insetInlineStart: '16px',
     transformOrigin: 'top left',
     transform: 'translate(0px, -50%) scale(1)',
-    transition: theme.methods.transitions.make(['color', 'insetInlineStart', 'transform']),
+    transition: theme.methods.transitions.make(['color', 'inset-inline-start', 'transform']),
     pointerEvents: 'none',
     userSelect: 'none',
     ...overflow,
@@ -183,10 +183,6 @@ const useStyle = style(theme => ({
     insetInlineStart: '52px'
   },
 
-  label_version_text_icon_start: {
-    insetInlineStart: '40px'
-  },
-
   // Focus
   label_version_text_size_small_focus: {
     transform: 'translate(0px, 2px) scale(0.667)'
@@ -201,17 +197,17 @@ const useStyle = style(theme => ({
 
   label_version_outlined_size_small_focus: {
     transform: 'translate(0, -29.5px) scale(0.667)',
-    insetInlineStart: '16.5px'
+    insetInlineStart: '17px'
   },
 
   label_version_outlined_size_regular_focus: {
     transform: 'translate(0, -34px) scale(0.667)',
-    insetInlineStart: '16.5px'
+    insetInlineStart: '17px'
   },
 
   label_version_outlined_size_large_focus: {
     transform: 'translate(0, -38.5px) scale(0.667)',
-    insetInlineStart: '16.5px'
+    insetInlineStart: '17px'
   },
 
   label_version_filled_size_small_focus: {
@@ -326,7 +322,7 @@ const useStyle = style(theme => ({
     paddingInlineEnd: '16px',
 
     '&:not($icon_version_text)': {
-      marginInlineStart: '12px'
+      paddingInlineStart: '12px'
     }
   },
 
@@ -334,7 +330,7 @@ const useStyle = style(theme => ({
     paddingInlineStart: '16px',
 
     '&:not($icon_version_text)': {
-      marginInlineEnd: '12px'
+      paddingInlineEnd: '12px'
     }
   },
 

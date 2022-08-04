@@ -1106,13 +1106,13 @@ function App() {
         </Accordion>
 
         <Accordion label='TextField disabled' open>
-          <div className={classNames([classes.row])}>
+          <div className={classNames([classes.row])} style={{ gap: 14 }}>
             <TextField version='text' color='secondary' label='Text value' placeholder='Text value' valueDefault='Text value' disabled />
             <TextField version='filled' color='secondary' label='Filled value' placeholder='Filled value' valueDefault='Filled value' disabled />
             <TextField version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' valueDefault='Outlined value' disabled />
           </div>
 
-          <div className={classNames([classes.row, classes.center])} style={{ gap: 24 }}>
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
             <TextField version='text' color='secondary' label='Text value' placeholder='Text value' valueDefault='Text value' helperText='Helper text' disabled />
             <TextField version='filled' color='secondary' label='Filled value' placeholder='Filled value' valueDefault='Text value' helperText='Helper text' disabled />
             <TextField version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' valueDefault='Text value' helperText='Helper text' disabled />
