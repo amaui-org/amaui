@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { getID, is } from '@amaui/utils';
+import { is } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Type from '../Type';
@@ -333,8 +333,8 @@ const useStyle = style(theme => ({
 // Align start and end
 // noSufixMargin
 // noPrefixMargin
+// readOnly
 // No label, input opacity 1
-// Title with no label
 // Required (adds to the title and label) + adds legend in helperText about *required
 // Error
 // Multiline input
@@ -385,6 +385,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
 
   const styles: any = {
     root: {},
+    input: {},
     background: {
       color: theme.palette.text.default.secondary
     }
@@ -447,7 +448,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
     styles.root.color = theme.palette.text.default.secondary;
   }
   else {
-    styles.root.color = tonal ? theme.methods.palette.color.value(color, 30, true, palette) : (color === 'default' ? theme.palette.text.default.primary : (theme.palette.color[color] as any)?.main || color);
+    styles.root.color = styles.input.caretColor = tonal ? theme.methods.palette.color.value(color, 30, true, palette) : (color === 'default' ? theme.palette.text.default.primary : (theme.palette.color[color] as any)?.main || color);
   }
 
   if (tonal) styles.background.color = theme.methods.palette.color.value(color, 20, true, palette);
@@ -670,6 +671,8 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
             value={value}
 
             disabled={disabled}
+
+            style={styles.input}
           />
         </label>
 

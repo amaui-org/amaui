@@ -640,7 +640,7 @@ function App() {
           </div>
         </Accordion>
 
-        <Accordion label='TextField color' open>
+        <Accordion label='TextField color tonal' open>
           <div className={classNames([classes.row, classes.center])}>
             <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
               <TextField size='small' version='text' color='default' label='Text value' placeholder='Text value' tonal />
@@ -655,7 +655,7 @@ function App() {
             <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
               <TextField size='small' version='text' color='secondary' label='Text value' placeholder='Text value' tonal />
               <TextField size='small' version='filled' color='secondary' label='Filled value' placeholder='Filled value' tonal />
-              <TextField size='small' version='outlined' color='secondary' label='Outlined value' placeholder='Outlinetonald value' />
+              <TextField size='small' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' />
             </div>
             <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
               <TextField size='small' version='text' color='tertiary' label='Text value' placeholder='Text value' tonal />
@@ -665,7 +665,7 @@ function App() {
             <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
               <TextField size='small' version='text' color='quaternary' label='Text value' placeholder='Text value' tonal />
               <TextField size='small' version='filled' color='quaternary' label='Filled value' placeholder='Filled value' tonal />
-              <TextField size='small' version='outlined' color='quaternary' label='Outlined value' placeholder='Outlinetonald value' />
+              <TextField size='small' version='outlined' color='quaternary' label='Outlined value' placeholder='Outlined value' />
             </div>
             <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
               <TextField size='small' version='text' color='info' label='Text value' placeholder='Text value' tonal />
