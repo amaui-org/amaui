@@ -152,6 +152,10 @@ const useStyle = style(theme => ({
     left: '52px'
   },
 
+  label_version_text_icon_start: {
+    left: '40px'
+  },
+
   // Focus
   label_version_text_size_small_focus: {
     transform: 'translate(0px, 2px) scale(0.667)'
@@ -298,11 +302,15 @@ const useStyle = style(theme => ({
   },
 
   icon_start: {
-    marginInlineStart: `${theme.methods.space.value('rg') * 0.75}px`
+    '&:not($icon_version_text)': {
+      marginInlineStart: `${theme.methods.space.value('rg') * 0.75}px`
+    }
   },
 
   icon_end: {
-    marginInlineEnd: `${theme.methods.space.value('rg') * 0.75}px`
+    '&:not($icon_version_text)': {
+      marginInlineEnd: `${theme.methods.space.value('rg') * 0.75}px`
+    }
   },
 
   // Other
@@ -570,7 +578,10 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
               classes[`label_version_${version}`],
               classes[`label_version_${version}_size_${size}`],
               (value || focus) && classes[`label_version_${version}_size_${size}_focus`],
-              startIcon && classes.label_icon_start
+              startIcon && [
+                classes.label_icon_start,
+                classes[`label_version_${version}_icon_start`]
+              ]
             ])}
 
             version='b2'
@@ -584,12 +595,14 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
             className={classNames([
               staticClassName('TextField', theme) && [
                 'AmauiTextField-icon',
+                `AmauiTextField-version-${version}`,
                 'AmauiTextField-icon-start',
                 `AmauiTextField-size-${size}`
               ],
 
               classes.icon,
-              classes.icon_start
+              classes.icon_start,
+              classes[`icon_version_${version}`]
             ])}
           >
             {React.cloneElement(startIcon, { size: 'regular', color: theme.palette.text.default.secondary, style: styles.icon })}
@@ -638,12 +651,14 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
             className={classNames([
               staticClassName('TextField', theme) && [
                 'AmauiTextField-icon',
+                `AmauiTextField-version-${version}`,
                 'AmauiTextField-icon-end',
                 `AmauiTextField-size-${size}`
               ],
 
               classes.icon,
-              classes.icon_end
+              classes.icon_end,
+              classes[`icon_version_${version}`]
             ])}
           >
             {React.cloneElement(endIcon, { size: 'regular', color: theme.palette.text.default.secondary, style: styles.icon })}
