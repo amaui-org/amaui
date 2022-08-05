@@ -568,7 +568,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
     }
   }, [value_]);
 
-  const onUpdate = React.useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+  const onUpdate = (event: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = event.target.value;
 
     if (multiline && row !== undefined) {
@@ -595,7 +595,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
         setValue(inputValue);
       }
     }
-  }, []);
+  };
 
   const onFocus = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
     if (!disabled) {
