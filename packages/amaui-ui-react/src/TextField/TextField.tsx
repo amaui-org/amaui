@@ -368,17 +368,17 @@ const useStyle = style(theme => ({
   },
 
   icon_button_size_small: {
-    paddingTop: '5px',
+    paddingTop: '4px',
     paddingBottom: '0'
   },
 
   icon_button_size_regular: {
-    paddingTop: '9px',
+    paddingTop: '8px',
     paddingBottom: '0'
   },
 
   icon_button_size_large: {
-    paddingTop: '13px',
+    paddingTop: '12px',
     paddingBottom: '0'
   },
 
