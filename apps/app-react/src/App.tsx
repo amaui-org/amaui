@@ -848,16 +848,18 @@ function App() {
           </div>
         </Accordion>
 
-        <Accordion label='List' open>
+        <Accordion label='List with subheader' open>
           <div className={classNames([classes.column])}>
             <List style={{ height: 140, width: 400, overflow: 'auto' }} noPadding>
               {[0, 1, 3, 4].map(item => (
-                <li key={`li-${items}`} style={{ width: '100%' }}>
+                <li key={`li-${item}`} style={{ width: '100%' }}>
                   <List key={`ul-${item}`} noPadding>
                     <ListSubheader>{`List subheader ${item}`}</ListSubheader>
 
                     {[0, 1, 3].map(item_ => (
                       <ListItem
+                        key={`li1-${item_}`}
+
                         primary={`Item ${item_}`}
                       />
                     ))}
@@ -2439,13 +2441,15 @@ function App() {
             <List>
               {[0, 1, 3, 4].map(item => (
                 <ListItem
+                  key={item}
+
                   button
 
                   primary='Primary text'
                   secondary='Secondary text'
                   tertiary='Tertiary text'
 
-                  active={item === 1}
+                  selected={item === 1}
 
                   start={(
                     <IconButton color='secondary'>
