@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { clamp, is } from '@amaui/utils';
+import { clamp, is, isEnvironment } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Type from '../Type';
@@ -521,7 +521,17 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
   const [value, setValue] = React.useState((valueDefault !== undefined ? valueDefault : value_) || '');
   const [focus, setFocus] = React.useState(false);
   const [hover, setHover] = React.useState(false);
-  const [row, setRow] = React.useState<any>();
+  const row = React.useState(() => {
+    const htmlFontSize = isEnvironment('browser') ? +window.getComputedStyle(window.document.documentElement).fontSize.slice(0, -2) : 16;
+    const padding = size === 'small' ? 28 : size === 'regular' ? 36 : 44;
+
+    const row = Math.round(htmlFontSize * 0.875 * 1.4285714285714286);
+
+    return {
+      height: row,
+      padding
+    };
+  })[0];
   const [rows, setRows] = React.useState<any>(1);
   const refs = {
     input: React.useRef<HTMLInputElement>()
@@ -540,40 +550,12 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
   };
 
   React.useEffect(() => {
-    const previous = {
-      height: refs.input.current.style.height,
-      value: refs.input.current.value
-    };
-
-    // Update
-    refs.input.current.value = '';
-    refs.input.current.style.height = 'auto';
-
-    const { height, paddingTop, paddingBottom } = window.getComputedStyle(refs.input.current);
-
-    // Revert
-    refs.input.current.value = previous.value;
-
-    if (previous.height !== undefined) refs.input.current.style.height = previous.height;
-    else refs.input.current.style.removeProperty('height');
-
-    const row_: any = {
-      paddingTop: +paddingTop.replace('px', '') || 0,
-      paddingBottom: +paddingBottom.replace('px', '') || 0
-    };
-
-    row_.height = +height.replace('px', '') - row_.paddingTop - row_.paddingBottom;
-
-    setRow(row_);
-  }, []);
-
-  React.useEffect(() => {
     if (value_ !== undefined && value_ !== value) {
       setValue(value_);
     }
   }, [value_]);
 
-  const onUpdate = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const onUpdate = React.useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = event.target.value;
 
     if (multiline && row !== undefined) {
@@ -587,7 +569,9 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
       // Revert back to previous value
       refs.input.current.style.height = heightValue;
 
-      setRows(Math.floor((scrollHeight - row.paddingTop - row.paddingBottom) / row.height));
+      const rows_ = Math.floor((scrollHeight - row.padding) / row.height);
+
+      if (rows_ !== rows) setRows(rows_);
     }
 
     if (!disabled && inputValue !== value) {
@@ -598,7 +582,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
         setValue(inputValue);
       }
     }
-  };
+  }, []);
 
   const onFocus = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
     if (!disabled) {
@@ -676,8 +660,8 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
     type = undefined;
 
     if (row) {
-      if (rows_) styles.input.height = row.paddingTop + (rows_ * row.height) + row.paddingBottom;
-      else styles.input.height = row.paddingTop + (row.height * clamp(rows, minRows, maxRows)) + row.paddingBottom;
+      if (rows_) styles.input.height = (rows_ * row.height) + row.padding;
+      else styles.input.height = (row.height * clamp(rows, minRows, maxRows)) + row.padding;
     }
   }
 

@@ -372,6 +372,7 @@ function App() {
     portal: false,
     modal: false
   });
+  const [init, setInit] = React.useState(false);
   // eslint-disable-next-line
   const [progress, setProgress] = React.useState(0);
   const [items, setItems] = React.useState([0]);
@@ -399,24 +400,31 @@ function App() {
   });
 
   React.useEffect(() => {
-    window.document.body.dir = !rtl ? 'ltr' : 'rtl';
+    setInit(true);
+  }, []);
 
-    theme.updateWithRerender({
-      space: {
-        unit: space
-      },
+  React.useEffect(() => {
+    if (init) {
+      window.document.body.dir = !rtl ? 'ltr' : 'rtl';
 
-      shape: {
-        radius: {
-          unit: radius
+      theme.updateWithRerender({
+        space: {
+          unit: space
+        },
+
+        shape: {
+          radius: {
+            unit: radius
+          }
         }
-      }
-    });
+      });
+    }
     // eslint-disable-next-line
   }, [space, radius, rtl]);
 
   React.useEffect(() => {
-    window.document.documentElement.style.fontSize = `${rootFontSize}px`;
+    if (init) window.document.documentElement.style.fontSize = `${rootFontSize}px`;
+    // eslint-disable-next-line
   }, [rootFontSize]);
 
   const update = (item: any) => {
