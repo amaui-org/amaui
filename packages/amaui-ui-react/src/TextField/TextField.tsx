@@ -217,6 +217,10 @@ const useStyle = style(theme => ({
     insetInlineStart: '52px'
   },
 
+  label_version_text_icon_start: {
+    insetInlineStart: '40px'
+  },
+
   // Focus
   label_version_text_size_small_focus: {
     transform: 'translate(0px, 2px) scale(0.667)'
@@ -353,17 +357,17 @@ const useStyle = style(theme => ({
   },
 
   icon_size_small: {
-    paddingTop: '14px',
+    paddingTop: '12px',
     paddingBottom: '0'
   },
 
   icon_size_regular: {
-    paddingTop: '18px',
+    paddingTop: '16px',
     paddingBottom: '0'
   },
 
   icon_size_large: {
-    paddingTop: '22px',
+    paddingTop: '20px',
     paddingBottom: '0'
   },
 
@@ -403,18 +407,18 @@ const useStyle = style(theme => ({
   },
 
   addition_size_small: {
-    paddingBottom: '4px',
+    paddingBottom: '7px',
     paddingTop: '21px'
   },
 
   addition_size_regular: {
-    paddingBottom: '8px',
-    paddingTop: '23px'
+    paddingBottom: '11px',
+    paddingTop: '25px'
   },
 
   addition_size_large: {
-    paddingBottom: '12px',
-    paddingTop: '25px'
+    paddingBottom: '16px',
+    paddingTop: '28px'
   },
 
   addition_version_outlined_size_small: {
