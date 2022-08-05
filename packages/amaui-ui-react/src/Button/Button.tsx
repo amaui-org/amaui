@@ -428,6 +428,8 @@ const Button = React.forwardRef((props_: any, ref: any) => {
       styles.root.width = size;
       styles.root.height = size;
       styles.root.fontSize = size / 1.667;
+
+      styles.icon.fontSize = size;
     }
     else {
       children_ = is('array', children_) ?
@@ -439,6 +441,8 @@ const Button = React.forwardRef((props_: any, ref: any) => {
         React.cloneElement(children_, { size: children_.props?.size !== undefined ? children_.props?.size : (size === 'large' ? 'medium' : size) });
 
       styles.root.fontSize = iconSizeToFontSize(size === 'large' ? 'medium' : size);
+
+      styles.icon.fontSize = size === 'small' ? 30 : size === 'regular' ? 40 : 50;
     }
   }
 

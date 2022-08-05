@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { AmauiTheme, AmauiThemeProvider, classNames, style, sy, useAmauiTheme } from '@amaui/style-react';
-import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, ButtonGroup, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, ChipGroup, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField } from '@amaui/ui-react';
+import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, ButtonGroup, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, ChipGroup, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader } from '@amaui/ui-react';
 
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
@@ -202,6 +202,20 @@ const Accordion = (props: any) => {
 };
 
 const styled = {
+  ListItem: sy(ListItem)((theme: AmauiTheme) => ({
+    root: {
+      '&:hover': {
+        opacity: 0.4
+      }
+    }
+  })),
+  List: sy(List)((theme: AmauiTheme) => ({
+    root: {
+      '&:hover': {
+        opacity: 0.4
+      }
+    }
+  })),
   TextField: sy(TextField)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
@@ -571,6 +585,2066 @@ function App() {
 
           <IconMaterialPottedPlantRounded color='secondary' />
         </div>
+      </Accordion>
+
+      <Accordion label='List'>
+        <Accordion label='List' open>
+          <div className={classNames([classes.column])}>
+            <List>
+              {[0, 1, 3, 4].map(item => (
+                <ListItem
+                  primary='Primary text'
+                  secondary='Secondary text'
+                  tertiary='Tertiary text'
+
+                  key={item}
+                />
+              ))}
+            </List>
+          </div>
+        </Accordion>
+
+        <Accordion label='List sizes' open>
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+            <List size='small'>
+              <ListItem
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+
+                end={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+              />
+              <ListItem
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <Avatar version='outlined' color='secondary' image='/avatar.jpeg' />
+                )}
+
+                end={(
+                  <Avatar version='outlined' color='secondary' image='/avatar.jpeg' />
+                )}
+              />
+              <ListItem
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <Avatar version='filled' color='secondary'>
+                    Aa
+                  </Avatar>
+                )}
+
+                end={(
+                  <Avatar version='filled' color='secondary'>
+                    Aa
+                  </Avatar>
+                )}
+              />
+              <ListItem
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <Avatar version='filled' color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </Avatar>
+                )}
+
+                end={(
+                  <Avatar version='filled' color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </Avatar>
+                )}
+              />
+              <ListItem
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+
+                end={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+              />
+            </List>
+
+            <List size='regular'>
+              <ListItem
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+
+                end={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+              />
+              <ListItem
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <Avatar version='outlined' color='secondary' image='/avatar.jpeg' />
+                )}
+
+                end={(
+                  <Avatar version='outlined' color='secondary' image='/avatar.jpeg' />
+                )}
+              />
+              <ListItem
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <Avatar version='filled' color='secondary'>
+                    Aa
+                  </Avatar>
+                )}
+
+                end={(
+                  <Avatar version='filled' color='secondary'>
+                    Aa
+                  </Avatar>
+                )}
+              />
+              <ListItem
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <Avatar version='filled' color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </Avatar>
+                )}
+
+                end={(
+                  <Avatar version='filled' color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </Avatar>
+                )}
+              />
+              <ListItem
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+
+                end={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+              />
+            </List>
+
+            <List size='large'>
+              <ListItem
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+
+                end={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+              />
+              <ListItem
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <Avatar version='outlined' color='secondary' image='/avatar.jpeg' />
+                )}
+
+                end={(
+                  <Avatar version='outlined' color='secondary' image='/avatar.jpeg' />
+                )}
+              />
+              <ListItem
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <Avatar version='filled' color='secondary'>
+                    Aa
+                  </Avatar>
+                )}
+
+                end={(
+                  <Avatar version='filled' color='secondary'>
+                    Aa
+                  </Avatar>
+                )}
+              />
+              <ListItem
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <Avatar version='filled' color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </Avatar>
+                )}
+
+                end={(
+                  <Avatar version='filled' color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </Avatar>
+                )}
+              />
+              <ListItem
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+
+                end={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+              />
+            </List>
+          </div>
+        </Accordion>
+
+        <Accordion label='List' open>
+          <div className={classNames([classes.column])}>
+            <List style={{ height: 140, width: 400, overflow: 'auto' }} noPadding>
+              {[0, 1, 3, 4].map(item => (
+                <li key={`li-${items}`} style={{ width: '100%' }}>
+                  <List key={`ul-${item}`} noPadding>
+                    <ListSubheader>{`List subheader ${item}`}</ListSubheader>
+
+                    {[0, 1, 3].map(item_ => (
+                      <ListItem
+                        primary={`Item ${item_}`}
+                      />
+                    ))}
+                  </List>
+                </li>
+              ))}
+            </List>
+          </div>
+        </Accordion>
+
+        <Accordion label='List align' open>
+          <div className={classNames([classes.column, classes.center])} style={{ gap: 14 }}>
+            <List size='small' startAlign='start' endAlign='start'>
+              <ListItem
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+                start={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+
+                end={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+              />
+              <ListItem
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <Avatar version='outlined' color='secondary' image='/avatar.jpeg' />
+                )}
+
+                end={(
+                  <Avatar version='outlined' color='secondary' image='/avatar.jpeg' />
+                )}
+              />
+              <ListItem
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+                start={(
+                  <Avatar version='filled' color='secondary'>
+                    Aa
+                  </Avatar>
+                )}
+
+                end={(
+                  <Avatar version='filled' color='secondary'>
+                    Aa
+                  </Avatar>
+                )}
+              />
+            </List>
+
+            <List size='small' startAlign='center' endAlign='center'>
+              <ListItem
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+                start={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+
+                end={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+              />
+              <ListItem
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <Avatar version='outlined' color='secondary' image='/avatar.jpeg' />
+                )}
+
+                end={(
+                  <Avatar version='outlined' color='secondary' image='/avatar.jpeg' />
+                )}
+              />
+              <ListItem
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+                start={(
+                  <Avatar version='filled' color='secondary'>
+                    Aa
+                  </Avatar>
+                )}
+
+                end={(
+                  <Avatar version='filled' color='secondary'>
+                    Aa
+                  </Avatar>
+                )}
+              />
+            </List>
+
+            <List size='small' startAlign='end' endAlign='end'>
+              <ListItem
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+                start={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+
+                end={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+              />
+              <ListItem
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <Avatar version='outlined' color='secondary' image='/avatar.jpeg' />
+                )}
+
+                end={(
+                  <Avatar version='outlined' color='secondary' image='/avatar.jpeg' />
+                )}
+              />
+              <ListItem
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+                start={(
+                  <Avatar version='filled' color='secondary'>
+                    Aa
+                  </Avatar>
+                )}
+
+                end={(
+                  <Avatar version='filled' color='secondary'>
+                    Aa
+                  </Avatar>
+                )}
+              />
+            </List>
+          </div>
+
+          <div className={classNames([classes.column, classes.center])} style={{ gap: 14 }}>
+            <List size='regular' startAlign='start' endAlign='start'>
+              <ListItem
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+                start={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+
+                end={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+              />
+              <ListItem
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <Avatar version='outlined' color='secondary' image='/avatar.jpeg' />
+                )}
+
+                end={(
+                  <Avatar version='outlined' color='secondary' image='/avatar.jpeg' />
+                )}
+              />
+              <ListItem
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+                start={(
+                  <Avatar version='filled' color='secondary'>
+                    Aa
+                  </Avatar>
+                )}
+
+                end={(
+                  <Avatar version='filled' color='secondary'>
+                    Aa
+                  </Avatar>
+                )}
+              />
+            </List>
+
+            <List size='regular' startAlign='center' endAlign='center'>
+              <ListItem
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+                start={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+
+                end={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+              />
+              <ListItem
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <Avatar version='outlined' color='secondary' image='/avatar.jpeg' />
+                )}
+
+                end={(
+                  <Avatar version='outlined' color='secondary' image='/avatar.jpeg' />
+                )}
+              />
+              <ListItem
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+                start={(
+                  <Avatar version='filled' color='secondary'>
+                    Aa
+                  </Avatar>
+                )}
+
+                end={(
+                  <Avatar version='filled' color='secondary'>
+                    Aa
+                  </Avatar>
+                )}
+              />
+            </List>
+
+            <List size='regular' startAlign='end' endAlign='end'>
+              <ListItem
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+                start={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+
+                end={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+              />
+              <ListItem
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <Avatar version='outlined' color='secondary' image='/avatar.jpeg' />
+                )}
+
+                end={(
+                  <Avatar version='outlined' color='secondary' image='/avatar.jpeg' />
+                )}
+              />
+              <ListItem
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+                start={(
+                  <Avatar version='filled' color='secondary'>
+                    Aa
+                  </Avatar>
+                )}
+
+                end={(
+                  <Avatar version='filled' color='secondary'>
+                    Aa
+                  </Avatar>
+                )}
+              />
+            </List>
+          </div>
+
+          <div className={classNames([classes.column, classes.center])} style={{ gap: 14 }}>
+            <List size='large' startAlign='start' endAlign='start'>
+              <ListItem
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+                start={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+
+                end={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+              />
+              <ListItem
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <Avatar version='outlined' color='secondary' image='/avatar.jpeg' />
+                )}
+
+                end={(
+                  <Avatar version='outlined' color='secondary' image='/avatar.jpeg' />
+                )}
+              />
+              <ListItem
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+                start={(
+                  <Avatar version='filled' color='secondary'>
+                    Aa
+                  </Avatar>
+                )}
+
+                end={(
+                  <Avatar version='filled' color='secondary'>
+                    Aa
+                  </Avatar>
+                )}
+              />
+            </List>
+
+            <List size='large' startAlign='center' endAlign='center'>
+              <ListItem
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+                start={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+
+                end={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+              />
+              <ListItem
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <Avatar version='outlined' color='secondary' image='/avatar.jpeg' />
+                )}
+
+                end={(
+                  <Avatar version='outlined' color='secondary' image='/avatar.jpeg' />
+                )}
+              />
+              <ListItem
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+                start={(
+                  <Avatar version='filled' color='secondary'>
+                    Aa
+                  </Avatar>
+                )}
+
+                end={(
+                  <Avatar version='filled' color='secondary'>
+                    Aa
+                  </Avatar>
+                )}
+              />
+            </List>
+
+            <List size='large' startAlign='end' endAlign='end'>
+              <ListItem
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+                start={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+
+                end={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+              />
+              <ListItem
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <Avatar version='outlined' color='secondary' image='/avatar.jpeg' />
+                )}
+
+                end={(
+                  <Avatar version='outlined' color='secondary' image='/avatar.jpeg' />
+                )}
+              />
+              <ListItem
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+                start={(
+                  <Avatar version='filled' color='secondary'>
+                    Aa
+                  </Avatar>
+                )}
+
+                end={(
+                  <Avatar version='filled' color='secondary'>
+                    Aa
+                  </Avatar>
+                )}
+              />
+            </List>
+          </div>
+        </Accordion>
+
+        <Accordion label='List button' open>
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+
+            <List size='small'>
+              <ListItem
+                button
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+
+                end={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+              />
+              <ListItem
+                button
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <Avatar version='outlined' color='secondary' image='/avatar.jpeg' />
+                )}
+
+                end={(
+                  <Avatar version='outlined' color='secondary' image='/avatar.jpeg' />
+                )}
+              />
+              <ListItem
+                button
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <Avatar version='filled' color='secondary'>
+                    Aa
+                  </Avatar>
+                )}
+
+                end={(
+                  <Avatar version='filled' color='secondary'>
+                    Aa
+                  </Avatar>
+                )}
+              />
+              <ListItem
+                button
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <Avatar version='filled' color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </Avatar>
+                )}
+
+                end={(
+                  <Avatar version='filled' color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </Avatar>
+                )}
+              />
+              <ListItem
+                button
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+
+                end={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+              />
+              <ListItem
+                button
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+
+                end={(
+                  <Type
+                    version='b3'
+                  >
+                    meta
+                  </Type>
+                )}
+              />
+            </List>
+
+            <List size='regular'>
+              <ListItem
+                button
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+
+                end={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+              />
+              <ListItem
+                button
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <Avatar version='outlined' color='secondary' image='/avatar.jpeg' />
+                )}
+
+                end={(
+                  <Avatar version='outlined' color='secondary' image='/avatar.jpeg' />
+                )}
+              />
+              <ListItem
+                button
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <Avatar version='filled' color='secondary'>
+                    Aa
+                  </Avatar>
+                )}
+
+                end={(
+                  <Avatar version='filled' color='secondary'>
+                    Aa
+                  </Avatar>
+                )}
+              />
+              <ListItem
+                button
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <Avatar version='filled' color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </Avatar>
+                )}
+
+                end={(
+                  <Avatar version='filled' color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </Avatar>
+                )}
+              />
+              <ListItem
+                button
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+
+                end={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+              />
+              <ListItem
+                button
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+
+                end={(
+                  <Type
+                    version='b3'
+                  >
+                    meta
+                  </Type>
+                )}
+              />
+            </List>
+
+            <List size='large'>
+              <ListItem
+                button
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+
+                end={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+              />
+              <ListItem
+                button
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <Avatar version='outlined' color='secondary' image='/avatar.jpeg' />
+                )}
+
+                end={(
+                  <Avatar version='outlined' color='secondary' image='/avatar.jpeg' />
+                )}
+              />
+              <ListItem
+                button
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <Avatar version='filled' color='secondary'>
+                    Aa
+                  </Avatar>
+                )}
+
+                end={(
+                  <Avatar version='filled' color='secondary'>
+                    Aa
+                  </Avatar>
+                )}
+              />
+              <ListItem
+                button
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <Avatar version='filled' color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </Avatar>
+                )}
+
+                end={(
+                  <Avatar version='filled' color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </Avatar>
+                )}
+              />
+              <ListItem
+                button
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+
+                end={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+              />
+              <ListItem
+                button
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+
+                end={(
+                  <Type
+                    version='b3'
+                  >
+                    meta
+                  </Type>
+                )}
+              />
+            </List>
+          </div>
+        </Accordion>
+
+        <Accordion label='List href' open>
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+
+            <List size='small'>
+              <ListItem
+                href='https://google.com'
+                target='_blank'
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+              />
+              <ListItem
+                href='https://google.com'
+                target='_blank'
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <Avatar version='outlined' color='secondary' image='/avatar.jpeg' />
+                )}
+              />
+              <ListItem
+                href='https://google.com'
+                target='_blank'
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <Avatar version='filled' color='secondary'>
+                    Aa
+                  </Avatar>
+                )}
+              />
+              <ListItem
+                href='https://google.com'
+                target='_blank'
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <Avatar version='filled' color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </Avatar>
+                )}
+              />
+              <ListItem
+                href='https://google.com'
+                target='_blank'
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+              />
+            </List>
+
+            <List size='regular'>
+              <ListItem
+                href='https://google.com'
+                target='_blank'
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+              />
+              <ListItem
+                href='https://google.com'
+                target='_blank'
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <Avatar version='outlined' color='secondary' image='/avatar.jpeg' />
+                )}
+              />
+              <ListItem
+                href='https://google.com'
+                target='_blank'
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <Avatar version='filled' color='secondary'>
+                    Aa
+                  </Avatar>
+                )}
+              />
+              <ListItem
+                href='https://google.com'
+                target='_blank'
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <Avatar version='filled' color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </Avatar>
+                )}
+              />
+              <ListItem
+                href='https://google.com'
+                target='_blank'
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+              />
+            </List>
+
+            <List size='large'>
+              <ListItem
+                href='https://google.com'
+                target='_blank'
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+              />
+              <ListItem
+                href='https://google.com'
+                target='_blank'
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <Avatar version='outlined' color='secondary' image='/avatar.jpeg' />
+                )}
+              />
+              <ListItem
+                href='https://google.com'
+                target='_blank'
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <Avatar version='filled' color='secondary'>
+                    Aa
+                  </Avatar>
+                )}
+              />
+              <ListItem
+                href='https://google.com'
+                target='_blank'
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <Avatar version='filled' color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </Avatar>
+                )}
+              />
+              <ListItem
+                href='https://google.com'
+                target='_blank'
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+              />
+            </List>
+          </div>
+        </Accordion>
+
+        <Accordion label='List selected' open>
+          <div className={classNames([classes.column])}>
+            <List>
+              {[0, 1, 3, 4].map(item => item + 1).map(item => (
+                <ListItem
+                  key={item}
+
+                  button
+
+                  primary='Primary text'
+                  secondary='Secondary text'
+                  tertiary='Tertiary text'
+
+                  selected={item === 1}
+
+                  start={(
+                    <IconButton color='secondary'>
+                      <IconMaterialPottedPlantRounded />
+                    </IconButton>
+                  )}
+
+                  end={(
+                    <IconButton color='secondary'>
+                      <IconMaterialPottedPlantRounded />
+                    </IconButton>
+                  )}
+                />
+              ))}
+            </List>
+          </div>
+        </Accordion>
+
+        <Accordion label='List color' open>
+          <div className={classNames([classes.column])}>
+            <List>
+              <ListItem
+                color='default'
+
+                button
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+
+                end={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+              />
+              <ListItem
+                color='primary'
+
+                button
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+
+                end={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+              />
+              <ListItem
+                color='secondary'
+
+                button
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+
+                end={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+              />
+              <ListItem
+                color='tertiary'
+
+                button
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+
+                end={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+              />
+              <ListItem
+                color='quaternary'
+
+                button
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+
+                end={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+              />
+              <ListItem
+                color='info'
+
+                button
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+
+                end={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+              />
+              <ListItem
+                color='success'
+
+                button
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+
+                end={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+              />
+              <ListItem
+                color='warning'
+
+                button
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+
+                end={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+              />
+              <ListItem
+                color='error'
+
+                button
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+
+                end={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+              />
+              <ListItem
+                color='neutral'
+
+                button
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+
+                end={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+              />
+              <ListItem
+                color='#f5d758'
+
+                button
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+
+                end={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+              />
+            </List>
+          </div>
+        </Accordion>
+
+        <Accordion label='List colorSelected' open>
+          <div className={classNames([classes.column])}>
+            <List>
+              <ListItem
+                colorSelected='default'
+
+                selected
+
+                button
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+
+                end={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+              />
+              <ListItem
+                colorSelected='primary'
+
+                selected
+
+                button
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+
+                end={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+              />
+              <ListItem
+                colorSelected='secondary'
+
+                selected
+
+                button
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+
+                end={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+              />
+              <ListItem
+                colorSelected='tertiary'
+
+                selected
+
+                button
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+
+                end={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+              />
+              <ListItem
+                colorSelected='quaternary'
+
+                selected
+
+                button
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+
+                end={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+              />
+              <ListItem
+                colorSelected='info'
+
+                selected
+
+                button
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+
+                end={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+              />
+              <ListItem
+                colorSelected='success'
+
+                selected
+
+                button
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+
+                end={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+              />
+              <ListItem
+                colorSelected='warning'
+
+                selected
+
+                button
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+
+                end={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+              />
+              <ListItem
+                colorSelected='error'
+
+                selected
+
+                button
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+
+                end={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+              />
+              <ListItem
+                colorSelected='neutral'
+
+                selected
+
+                button
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+
+                end={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+              />
+              <ListItem
+                colorSelected='#f5d758'
+
+                selected
+
+                button
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+
+                end={(
+                  <IconButton color='secondary'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+              />
+            </List>
+          </div>
+        </Accordion>
+
+        <Accordion label='List with radio, switch & checkbox' open>
+          <div className={classNames([classes.column])}>
+            <List>
+              <ListItem
+                button
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <Checkbox color='secondary' />
+                )}
+
+                end={(
+                  <Radio color='secondary' />
+                )}
+              />
+              <ListItem
+                button
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <Radio color='secondary' />
+                )}
+
+                end={(
+                  <Checkbox color='secondary' />
+                )}
+              />
+              <ListItem
+                button
+
+                primary='Primary text'
+                secondary='Secondary text'
+                tertiary='Tertiary text'
+
+                start={(
+                  <Switch color='secondary' />
+                )}
+
+                end={(
+                  <Switch color='secondary' />
+                )}
+              />
+            </List>
+          </div>
+        </Accordion>
+
+        <Accordion label='List disabled' open>
+          <div className={classNames([classes.column])}>
+            <List>
+              {[0, 1, 3, 4].map(item => (
+                <ListItem
+                  button
+
+                  primary='Primary text'
+                  secondary='Secondary text'
+                  tertiary='Tertiary text'
+
+                  active={item === 1}
+
+                  start={(
+                    <IconButton color='secondary'>
+                      <IconMaterialPottedPlantRounded />
+                    </IconButton>
+                  )}
+
+                  end={(
+                    <IconButton color='secondary'>
+                      <IconMaterialPottedPlantRounded />
+                    </IconButton>
+                  )}
+
+                  disabled
+                />
+              ))}
+            </List>
+          </div>
+        </Accordion>
+
+        <Accordion label='AmauiTheme' open>
+          <div className={classNames([classes.column])}>
+            <List>
+              {[0, 1, 4].map(item => (
+                <ListItem
+                  primary='Primary text'
+                  secondary='Secondary text'
+                  tertiary='Tertiary text'
+
+                  key={item}
+                />
+              ))}
+            </List>
+
+            <Accordion label='AmauiTheme nested value' open>
+              <AmauiThemeProvider
+                value={{
+                  palette: {
+                    color: {
+                      secondary: {
+                        main: '#008000'
+                      }
+                    }
+                  },
+                  space: {
+                    unit: 5
+                  }
+                }}
+              >
+                <List>
+                  {[0, 1, 4].map(item => (
+                    <ListItem
+                      primary='Primary text'
+                      secondary='Secondary text'
+                      tertiary='Tertiary text'
+
+                      key={item}
+                    />
+                  ))}
+                </List>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme add' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiList: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: 0.4
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <List>
+                  {[0, 1, 4].map(item => (
+                    <ListItem
+                      primary='Primary text'
+                      secondary='Secondary text'
+                      tertiary='Tertiary text'
+
+                      key={item}
+                    />
+                  ))}
+                </List>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme override' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiList: {
+                        style: {
+                          override: {
+                            root: {
+                              margin: 0,
+                              listStyle: 'none',
+
+                              display: 'flex',
+                              flexDirection: 'column-reverse',
+                              alignItems: 'flex-start',
+                              width: '100%',
+                            }
+                          }
+                        }
+                      },
+                      AmauiListItem: {
+                        style: {
+                          override: {
+                            wrapper: {
+                              padding: '14px 0',
+                              width: '100%',
+                            }
+                          }
+                        }
+                      },
+                    }
+                  }
+                }}
+              >
+                <List>
+                  {[0, 1, 4].map(item => (
+                    <ListItem
+                      primary={`Primary text ${item}`}
+                      secondary='Secondary text'
+                      tertiary='Tertiary text'
+
+                      key={item}
+                    />
+                  ))}
+                </List>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme props' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiList: {
+                        props: {
+                          default: {
+                            noPadding: true
+                          }
+                        }
+                      },
+                      AmauiListItem: {
+                        props: {
+                          default: {
+                            color: 'secondary'
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <List>
+                  {[0, 1, 4].map(item => (
+                    <ListItem
+                      button
+
+                      primary='Primary text'
+                      secondary='Secondary text'
+                      tertiary='Tertiary text'
+
+                      key={item}
+                    />
+                  ))}
+                </List>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme styled' open>
+              <styled.List>
+                {[0, 1, 4].map(item => (
+                  <ListItem
+                    primary='Primary text'
+                    secondary='Secondary text'
+                    tertiary='Tertiary text'
+
+                    key={item}
+                  />
+                ))}
+              </styled.List>
+            </Accordion>
+          </div>
+        </Accordion>
       </Accordion>
 
       <Accordion label='TextField'>

@@ -54,7 +54,7 @@ const useStyle = style(theme => ({
     zIndex: 2,
     pointerEvents: 'none',
 
-    '&:before': {
+    '&::before': {
       content: "''",
       display: 'inline-flex',
       width: '100%',
@@ -67,13 +67,13 @@ const useStyle = style(theme => ({
       transition: `${theme.methods.transitions.make('transform', { duration: 'xxs' })}, ${theme.methods.transitions.make('opacity', { duration: 0, delay: 'xxs' })}`
     },
 
-    '&$checked:before, &$indeterminate:before': {
+    '&$checked::before, &$indeterminate::before': {
       transform: 'scale(0)',
       opacity: 1,
       transition: `${theme.methods.transitions.make('transform', { duration: 'xxs' })}, ${theme.methods.transitions.make('opacity', { duration: 0 })}`,
     },
 
-    '&$checked$disabled:before': {
+    '&$checked$disabled::before': {
       display: 'none'
     }
   },
@@ -272,6 +272,8 @@ const Checkbox = React.forwardRef((props_: any, ref: any) => {
         disabled && classes.disabled
       ])}
 
+      {...other}
+
       color={colorValue}
 
       onClick={onUpdate}
@@ -283,8 +285,6 @@ const Checkbox = React.forwardRef((props_: any, ref: any) => {
       version={version}
 
       disabled={disabled}
-
-      {...other}
     >
       <IconItem
         className={classNames([

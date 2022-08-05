@@ -604,6 +604,8 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
     <Component
       ref={ref}
 
+      {...other}
+
       onClick={onUpdate}
 
       className={classNames([
@@ -628,8 +630,6 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
 
         ...styles.root
       }}
-
-      {...other}
     >
       <Keyframes
         keyframes={keyframes[checked ? 'checked' : 'unchecked']}

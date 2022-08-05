@@ -12,7 +12,7 @@ const useStyle = style(theme => ({
     display: 'inline-flex',
     transition: theme.methods.transitions.make(['color', 'text-decoration'], { duration: 'xxs' }),
 
-    '&:before': {
+    '&::before': {
       content: "''",
       display: 'inline-flex',
       position: 'absolute',
@@ -31,7 +31,7 @@ const useStyle = style(theme => ({
   },
 
   focus: {
-    '&:before': {
+    '&::before': {
       opacity: theme.palette.visual_contrast.default.opacity.selected
     }
   },

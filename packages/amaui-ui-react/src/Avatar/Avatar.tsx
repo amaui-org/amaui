@@ -17,10 +17,20 @@ const useStyle = style(theme => ({
     borderRadius: 0
   },
 
+  imageWrapper: {
+    display: 'inline-flex',
+    width: '1em',
+    height: '1em'
+  },
+
   image: {
     width: '100%',
     height: '100%',
-    objectFit: 'cover'
+    objectFit: 'cover',
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)'
   }
 }), { name: 'AmauiAvatar' });
 
@@ -67,14 +77,18 @@ const Avatar = React.forwardRef((props_: any, ref) => {
     }
 
     children = (
-      <img
-        className={classes.image}
+      <span
+        className={classes.imageWrapper}
+      >
+        <img
+          className={classes.image}
 
-        src={image}
-        alt={alt}
+          src={image}
+          alt={alt}
 
-        {...imageProps}
-      />
+          {...imageProps}
+        />
+      </span>
     );
   }
   else if (!React.isValidElement(children)) {

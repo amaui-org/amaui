@@ -6,10 +6,16 @@ import { staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
+    // Reset
+    margin: 0,
+    listStyle: 'none',
+
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-start',
-    padding: `${theme.methods.space.value('sm', 'px')} 0`
+    width: '100%',
+    padding: `${theme.methods.space.value('sm', 'px')} 0`,
+    background: theme.palette.background.default.primary
   },
 
   noPadding: {
@@ -29,6 +35,7 @@ const List = React.forwardRef((props_: any, ref: any) => {
     Component = 'ul',
 
     className,
+    style,
 
     children,
 
@@ -50,9 +57,13 @@ const List = React.forwardRef((props_: any, ref: any) => {
         noPadding && classes.noPadding
       ])}
 
-      {...other}
+      style={style}
     >
-      {children}
+      {React.Children.toArray(children).map((item: any) => React.cloneElement(item, {
+        ...other,
+
+        ...item.props
+      }))}
     </Component>
   );
 });

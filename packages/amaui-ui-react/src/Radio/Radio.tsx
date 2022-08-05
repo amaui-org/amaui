@@ -161,6 +161,8 @@ const Radio = React.forwardRef((props_: any, ref: any) => {
         disabled && classes.disabled
       ])}
 
+      {...other}
+
       color={colorValue}
 
       onClick={onUpdate}
@@ -172,8 +174,6 @@ const Radio = React.forwardRef((props_: any, ref: any) => {
       version={version}
 
       disabled={disabled}
-
-      {...other}
     >
       <IconItem
         Component='div'
