@@ -191,10 +191,6 @@ const Accordion = (props: any) => {
       <Expand
         in={open}
 
-        WrapperProps={{
-          className: classes.auto
-        }}
-
         removeOnExited
       >
         <section className={classNames([classes.item, props.className])}>
