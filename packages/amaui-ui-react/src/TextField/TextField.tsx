@@ -686,6 +686,9 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
 
+        onTouchStart={onMouseEnter}
+        onTouchEnd={onMouseLeave}
+
         className={classNames([
           staticClassName('TextField', theme) && [
             'AmauiTextField-root',

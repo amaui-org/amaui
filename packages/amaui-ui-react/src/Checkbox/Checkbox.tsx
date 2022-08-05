@@ -170,7 +170,7 @@ const Checkbox = React.forwardRef((props_: any, ref: any) => {
     value,
     onChange,
     indeterminate: indeterminate_,
-    Component = 'span',
+    Component = 'button',
     version = 'text',
     disabled,
 

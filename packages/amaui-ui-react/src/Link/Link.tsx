@@ -8,7 +8,32 @@ import { staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
-    transition: theme.methods.transitions.make(['color', 'text-decoration'], { duration: 'xxs' })
+    position: 'relative',
+    display: 'inline-flex',
+    transition: theme.methods.transitions.make(['color', 'text-decoration'], { duration: 'xxs' }),
+
+    '&:before': {
+      content: "''",
+      display: 'inline-flex',
+      position: 'absolute',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+      background: 'currentColor',
+      width: '100%',
+      height: '100%',
+      zIndex: -1,
+      padding: '0.14em 0.77em',
+      borderRadius: `${(theme.shape.radius.unit / 8) * 0.4}ch`,
+      transition: theme.methods.transitions.make(['opacity', 'background']),
+      opacity: 0
+    }
+  },
+
+  focus: {
+    '&:before': {
+      opacity: theme.palette.visual_contrast.default.opacity.selected
+    }
   },
 
   // Underline
@@ -68,7 +93,8 @@ const Link = React.forwardRef((props_: any, ref: any) => {
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiLink?.props?.default }), [props_]);
 
-  const [hovered, setHovered] = React.useState(false);
+  const [focus, setFocus] = React.useState(false);
+  const [hover, setHover] = React.useState(false);
 
   const { classes } = useStyle(props);
 
@@ -89,6 +115,22 @@ const Link = React.forwardRef((props_: any, ref: any) => {
     root: {}
   };
 
+  const onFocus = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
+    setFocus(true);
+  }, []);
+
+  const onBlur = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
+    setFocus(false);
+  }, []);
+
+  const onMouseEnter = React.useCallback((event: React.MouseEvent<HTMLInputElement>) => {
+    setHover(true);
+  }, []);
+
+  const onMouseLeave = React.useCallback((event: React.MouseEvent<HTMLInputElement>) => {
+    setHover(false);
+  }, []);
+
   let color = color_;
   let palette: IColor;
 
@@ -100,11 +142,11 @@ const Link = React.forwardRef((props_: any, ref: any) => {
     if (tonal) styles.root.color = theme.methods.palette.color.value(undefined, 30, true, palette);
   }
 
-  if (underline === true && !hovered) {
+  if (underline === true && !hover) {
     styles.root.textDecorationColor = theme.methods.palette.color.value(color, 70, true, palette);
   }
 
-  if (hovered) {
+  if (hover) {
     styles.root.color = theme.methods.palette.color.value(color, 10, true, palette);
   }
 
@@ -112,12 +154,22 @@ const Link = React.forwardRef((props_: any, ref: any) => {
     <Type
       ref={ref}
 
+      onFocus={onFocus}
+      onBlur={onBlur}
+
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+
+      onTouchStart={onMouseEnter}
+      onTouchEnd={onMouseLeave}
+
       className={classNames([
         staticClassName('Link', theme) && [
           'AmauiLink-root',
           `AmauiLink-color-${!theme.palette.color[color] && color !== 'default' ? 'new' : color}`,
           tonal && `AmauiLink-tonal`,
-          underline && `AmauiLink-underline-${underline}`
+          underline && `AmauiLink-underline-${underline}`,
+          focus && `AmauiLink-focus`
         ],
 
         classes.root,
@@ -126,6 +178,7 @@ const Link = React.forwardRef((props_: any, ref: any) => {
         tonal && classes[`tonal_${color}`],
         underline === true && classes.underline,
         underline === 'hover' && classes.underline_hover,
+        focus && classes.focus
       ])}
 
       style={{
@@ -138,12 +191,6 @@ const Link = React.forwardRef((props_: any, ref: any) => {
 
       version={other.version || 'b2'}
       Component={other.Component || 'a'}
-
-      onMouseEnter={() => setHovered(true)}
-      onTouchStart={() => setHovered(true)}
-
-      onMouseLeave={() => setHovered(false)}
-      onTouchEnd={() => setHovered(false)}
     >
       {children}
     </Type>

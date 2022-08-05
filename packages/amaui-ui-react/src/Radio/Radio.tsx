@@ -97,7 +97,7 @@ const Radio = React.forwardRef((props_: any, ref: any) => {
     valueDefault,
     value,
     onChange,
-    Component = 'span',
+    Component = 'button',
     disabled,
 
     className,

@@ -551,7 +551,7 @@ function App() {
 
           <Surface color='secondary' tonal={false}>Surface</Surface>
 
-          <Link color='secondary'>Link</Link>
+          <Link href='https://google.com' target='_blank' color='secondary'>Link</Link>
 
           <Type>
             It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed.
@@ -5279,45 +5279,45 @@ function App() {
       <Accordion label='Link'>
         <Accordion label='Link' open>
           <div className={classNames([classes.column])}>
-            <Link>Link</Link>
+            <Link href='https://google.com' target='_blank'>Link</Link>
           </div>
         </Accordion>
 
         <Accordion label='Link underline' open>
           <div className={classNames([classes.column])}>
-            <Link underline>Link</Link>
-            <Link underline={false}>Link</Link>
-            <Link underline='hover'>Link</Link>
+            <Link href='https://google.com' target='_blank' underline>Link</Link>
+            <Link href='https://google.com' target='_blank' underline={false}>Link</Link>
+            <Link href='https://google.com' target='_blank' underline='hover'>Link</Link>
           </div>
         </Accordion>
 
         <Accordion label='Link versions' open>
           <div className={classNames([classes.column])} style={{ gap: 0 }}>
-            <Link version='d1'>Display 1</Link>
-            <Link version='d2'>Display 2</Link>
-            <Link version='d3'>Display 3</Link>
+            <Link href='https://google.com' target='_blank' version='d1'>Display 1</Link>
+            <Link href='https://google.com' target='_blank' version='d2'>Display 2</Link>
+            <Link href='https://google.com' target='_blank' version='d3'>Display 3</Link>
 
-            <Link version='h1'>Heading 1</Link>
-            <Link version='h2'>Heading 2</Link>
-            <Link version='h3'>Heading 3</Link>
+            <Link href='https://google.com' target='_blank' version='h1'>Heading 1</Link>
+            <Link href='https://google.com' target='_blank' version='h2'>Heading 2</Link>
+            <Link href='https://google.com' target='_blank' version='h3'>Heading 3</Link>
 
-            <Link version='t1'>Title 1</Link>
-            <Link version='t2'>Title 2</Link>
-            <Link version='t3'>Title 3</Link>
+            <Link href='https://google.com' target='_blank' version='t1'>Title 1</Link>
+            <Link href='https://google.com' target='_blank' version='t2'>Title 2</Link>
+            <Link href='https://google.com' target='_blank' version='t3'>Title 3</Link>
 
-            <Link version='l1'>Label 1</Link>
-            <Link version='l2'>Label 2</Link>
-            <Link version='l3'>Label 3</Link>
+            <Link href='https://google.com' target='_blank' version='l1'>Label 1</Link>
+            <Link href='https://google.com' target='_blank' version='l2'>Label 2</Link>
+            <Link href='https://google.com' target='_blank' version='l3'>Label 3</Link>
 
-            <Link version='b1'>
+            <Link href='https://google.com' target='_blank' version='b1'>
               It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
             </Link>
 
-            <Link version='b2'>
+            <Link href='https://google.com' target='_blank' version='b2'>
               It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
             </Link>
 
-            <Link version='b3'>
+            <Link href='https://google.com' target='_blank' version='b3'>
               It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
             </Link>
           </div>
@@ -5325,38 +5325,38 @@ function App() {
 
         <Accordion label='Link colors' open>
           <div className={classNames([classes.row])}>
-            <Link color='default'>Default</Link>
-            <Link color='primary'>Primary</Link>
-            <Link color='secondary'>Secondary</Link>
-            <Link color='tertiary'>Tertiary</Link>
-            <Link color='quaternary'>Quaternary</Link>
-            <Link color='info'>Info</Link>
-            <Link color='success'>Success</Link>
-            <Link color='error'>Error</Link>
-            <Link color='warning'>Warning</Link>
-            <Link color='neutral'>Neutral</Link>
-            <Link color='#f5d758'>Other</Link>
+            <Link href='https://google.com' target='_blank' color='default'>Default</Link>
+            <Link href='https://google.com' target='_blank' color='primary'>Primary</Link>
+            <Link href='https://google.com' target='_blank' color='secondary'>Secondary</Link>
+            <Link href='https://google.com' target='_blank' color='tertiary'>Tertiary</Link>
+            <Link href='https://google.com' target='_blank' color='quaternary'>Quaternary</Link>
+            <Link href='https://google.com' target='_blank' color='info'>Info</Link>
+            <Link href='https://google.com' target='_blank' color='success'>Success</Link>
+            <Link href='https://google.com' target='_blank' color='error'>Error</Link>
+            <Link href='https://google.com' target='_blank' color='warning'>Warning</Link>
+            <Link href='https://google.com' target='_blank' color='neutral'>Neutral</Link>
+            <Link href='https://google.com' target='_blank' color='#f5d758'>Other</Link>
           </div>
         </Accordion>
 
         <Accordion label='Link colors tonal' open>
           <div className={classNames([classes.row])}>
-            <Link color='primary' tonal>Primary</Link>
-            <Link color='secondary' tonal>Secondary</Link>
-            <Link color='tertiary' tonal>Tertiary</Link>
-            <Link color='quaternary' tonal>Quaternary</Link>
-            <Link color='info' tonal>Info</Link>
-            <Link color='success' tonal>Success</Link>
-            <Link color='error' tonal>Error</Link>
-            <Link color='warning' tonal>Warning</Link>
-            <Link color='neutral' tonal>Neutral</Link>
-            <Link color='#f5d758' tonal>Other</Link>
+            <Link href='https://google.com' target='_blank' color='primary' tonal>Primary</Link>
+            <Link href='https://google.com' target='_blank' color='secondary' tonal>Secondary</Link>
+            <Link href='https://google.com' target='_blank' color='tertiary' tonal>Tertiary</Link>
+            <Link href='https://google.com' target='_blank' color='quaternary' tonal>Quaternary</Link>
+            <Link href='https://google.com' target='_blank' color='info' tonal>Info</Link>
+            <Link href='https://google.com' target='_blank' color='success' tonal>Success</Link>
+            <Link href='https://google.com' target='_blank' color='error' tonal>Error</Link>
+            <Link href='https://google.com' target='_blank' color='warning' tonal>Warning</Link>
+            <Link href='https://google.com' target='_blank' color='neutral' tonal>Neutral</Link>
+            <Link href='https://google.com' target='_blank' color='#f5d758' tonal>Other</Link>
           </div>
         </Accordion>
 
         <Accordion label='AmauiTheme' open>
           <div className={classNames([classes.column])}>
-            <Link color='secondary'>Enabled</Link>
+            <Link href='https://google.com' target='_blank' color='secondary'>Enabled</Link>
 
             <Accordion label='AmauiTheme nested value' open>
               <AmauiThemeProvider
@@ -5373,7 +5373,7 @@ function App() {
                   }
                 }}
               >
-                <Link color='secondary'>Enabled</Link>
+                <Link href='https://google.com' target='_blank' color='secondary'>Enabled</Link>
               </AmauiThemeProvider>
             </Accordion>
 
@@ -5397,7 +5397,7 @@ function App() {
                   }
                 }}
               >
-                <Link color='secondary'>Enabled</Link>
+                <Link href='https://google.com' target='_blank' color='secondary'>Enabled</Link>
               </AmauiThemeProvider>
             </Accordion>
 
@@ -5421,7 +5421,7 @@ function App() {
                   }
                 }}
               >
-                <Link color='secondary'>Enabled</Link>
+                <Link href='https://google.com' target='_blank' color='secondary'>Enabled</Link>
               </AmauiThemeProvider>
             </Accordion>
 
@@ -5441,7 +5441,7 @@ function App() {
                   }
                 }}
               >
-                <Link>Enabled</Link>
+                <Link href='https://google.com' target='_blank'>Enabled</Link>
               </AmauiThemeProvider>
             </Accordion>
 
