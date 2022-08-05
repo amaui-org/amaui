@@ -584,7 +584,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
 
       const rows_ = Math.floor((scrollHeight - row.padding) / row.height);
 
-      if (rows_ !== rows) setRows(rows_);
+      setRows(rows_);
     }
 
     if (!disabled && inputValue !== value) {
