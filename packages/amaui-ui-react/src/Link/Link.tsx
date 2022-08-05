@@ -24,7 +24,7 @@ const useStyle = style(theme => ({
       height: '100%',
       zIndex: -1,
       padding: '0.14em 0.77em',
-      borderRadius: `${(theme.shape.radius.unit / 8) * 0.4}ch`,
+      borderRadius: `${(theme.shape.radius.unit / 8) * 0.4}em`,
       transition: theme.methods.transitions.make(['opacity', 'background']),
       opacity: 0
     }

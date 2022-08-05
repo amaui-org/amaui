@@ -5446,7 +5446,7 @@ function App() {
             </Accordion>
 
             <Accordion label='AmauiTheme styled' open>
-              <styled.Link>Enabled</styled.Link>
+              <styled.Link href='https://google.com' target='_blank'>Enabled</styled.Link>
             </Accordion>
           </div>
         </Accordion>
