@@ -310,7 +310,7 @@ const useStyle = style(theme => ({
     whiteSpace: 'nowrap',
     visibility: 'hidden',
     overflow: 'hidden',
-    fontSize: '0.6875em',
+    fontSize: '0.6rem',
     transition: theme.methods.transitions.make(['max-width', 'padding'], { duration: 'xxs' })
   },
 
@@ -518,10 +518,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
     ...other
   } = props;
 
-  const [value, setValue] = React.useState((valueDefault !== undefined ? valueDefault : value_) || '');
-  const [focus, setFocus] = React.useState(false);
-  const [hover, setHover] = React.useState(false);
-  const row = React.useState(() => {
+  const rowValue = () => {
     const htmlFontSize = isEnvironment('browser') ? +window.getComputedStyle(window.document.documentElement).fontSize.slice(0, -2) : 16;
     const padding = size === 'small' ? 28 : size === 'regular' ? 36 : 44;
 
@@ -531,7 +528,12 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
       height: row,
       padding
     };
-  })[0];
+  };
+
+  const [value, setValue] = React.useState((valueDefault !== undefined ? valueDefault : value_) || '');
+  const [focus, setFocus] = React.useState(false);
+  const [hover, setHover] = React.useState(false);
+  const [row, setRow] = React.useState(rowValue);
   const [rows, setRows] = React.useState<any>(1);
   const refs = {
     input: React.useRef<HTMLInputElement>()
@@ -548,6 +550,17 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
       color: theme.palette.text.default.secondary
     }
   };
+
+  React.useEffect(() => {
+    const htmlObserver = new MutationObserver(() => setRow(rowValue));
+
+    htmlObserver.observe(window.document.documentElement, { attributes: true, attributeFilter: ['style'] });
+
+    return () => {
+      // Clean up
+      htmlObserver.disconnect();
+    };
+  }, []);
 
   React.useEffect(() => {
     if (value_ !== undefined && value_ !== value) {
