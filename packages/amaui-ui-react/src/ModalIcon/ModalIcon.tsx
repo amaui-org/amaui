@@ -26,4 +26,6 @@ const ModalIcon = React.forwardRef((props_: any, ref: any) => {
   );
 });
 
+ModalIcon.displayName = 'AmauiModalIcon';
+
 export default ModalIcon;

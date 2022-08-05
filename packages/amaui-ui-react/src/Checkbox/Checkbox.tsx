@@ -342,4 +342,6 @@ const Checkbox = React.forwardRef((props_: any, ref: any) => {
   );
 });
 
+Checkbox.displayName = 'AmauiCheckbox';
+
 export default Checkbox;

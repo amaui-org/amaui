@@ -238,4 +238,6 @@ function Transitions(props_: IProps) {
   );
 };
 
+Transitions.displayName = 'AmauiTransitions';
+
 export default Transitions;

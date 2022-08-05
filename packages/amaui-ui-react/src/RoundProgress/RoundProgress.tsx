@@ -287,4 +287,6 @@ const RoundProgress = React.forwardRef((props_: any, ref: any) => {
   );
 });
 
+RoundProgress.displayName = 'AmauiRoundProgress';
+
 export default RoundProgress;

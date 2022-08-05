@@ -259,4 +259,6 @@ const Badge = React.forwardRef((props_: any, ref: any) => {
   );
 });
 
+Badge.displayName = 'AmauiBadge';
+
 export default Badge;

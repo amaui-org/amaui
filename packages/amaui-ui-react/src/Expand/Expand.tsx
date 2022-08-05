@@ -61,6 +61,7 @@ const Expand = React.forwardRef((props_: any, ref: any) => {
     onRemoved,
     expandSize,
     orientation,
+    WrapperProps,
 
     className,
 
@@ -116,7 +117,7 @@ const Expand = React.forwardRef((props_: any, ref: any) => {
       onInit={element => setRect(element?.getBoundingClientRect())}
     >
       {(status: TTransitionStatus, ref_) => {
-        return React.cloneElement(<Wrapper children={children} />, {
+        return React.cloneElement(<Wrapper children={children} {...WrapperProps} />, {
           ...other,
 
           ref: item => {
@@ -143,5 +144,7 @@ const Expand = React.forwardRef((props_: any, ref: any) => {
     </Transition>
   );
 });
+
+Expand.displayName = 'AmauiExpand';
 
 export default Expand;

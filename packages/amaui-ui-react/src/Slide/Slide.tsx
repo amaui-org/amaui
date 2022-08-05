@@ -163,4 +163,6 @@ const Slide = React.forwardRef((props_: any, ref: any) => {
   );
 });
 
+Slide.displayName = 'AmauiSlide';
+
 export default Slide;

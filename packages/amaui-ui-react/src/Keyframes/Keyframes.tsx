@@ -274,4 +274,6 @@ function Keyframes(props_: IProps) {
   );
 };
 
+Keyframes.displayName = 'AmauiKeyframes';
+
 export default Keyframes;

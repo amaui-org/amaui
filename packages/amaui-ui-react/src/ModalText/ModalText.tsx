@@ -51,4 +51,6 @@ const ModalText = React.forwardRef((props_: any, ref: any) => {
   );
 });
 
+ModalText.displayName = 'AmauiModalText';
+
 export default ModalText;

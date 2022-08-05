@@ -150,4 +150,6 @@ const Link = React.forwardRef((props_: any, ref: any) => {
   );
 });
 
+Link.displayName = 'AmauiLink';
+
 export default Link;

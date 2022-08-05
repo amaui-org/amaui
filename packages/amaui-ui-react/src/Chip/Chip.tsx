@@ -167,8 +167,10 @@ const Chip = React.forwardRef((props_: any, ref: any) => {
       chip
     >
       {children}
-    </Button >
+    </Button>
   );
 });
+
+Chip.displayName = 'AmauiChip';
 
 export default Chip;

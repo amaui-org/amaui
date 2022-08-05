@@ -739,4 +739,6 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
   );
 });
 
+Switch.displayName = 'AmauiSwitch';
+
 export default Switch;

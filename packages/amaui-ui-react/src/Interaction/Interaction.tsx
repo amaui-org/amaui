@@ -467,4 +467,6 @@ const Interaction = React.forwardRef((props_: any, ref: any) => {
   );
 });
 
+Interaction.displayName = 'AmauiInteraction';
+
 export default Interaction;

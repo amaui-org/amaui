@@ -62,4 +62,6 @@ const ClickListener = React.forwardRef((props_: any, ref: any) => {
   );
 });
 
+ClickListener.displayName = 'AmauiClickListener';
+
 export default ClickListener;

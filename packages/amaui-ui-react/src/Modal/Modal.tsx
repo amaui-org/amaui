@@ -267,4 +267,6 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
   );
 });
 
+Modal.displayName = 'AmauiModal';
+
 export default Modal;

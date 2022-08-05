@@ -51,4 +51,6 @@ const ModalTitle = React.forwardRef((props_: any, ref: any) => {
   );
 });
 
+ModalTitle.displayName = 'AmauiModalTitle';
+
 export default ModalTitle;

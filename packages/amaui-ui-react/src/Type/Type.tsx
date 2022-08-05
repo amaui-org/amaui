@@ -113,4 +113,6 @@ const Type = React.forwardRef((props_: any, ref: any) => {
   );
 });
 
+Type.displayName = 'AmauiType';
+
 export default Type;

@@ -329,4 +329,6 @@ const ButtonGroup = React.forwardRef((props_: any, ref: any) => {
   );
 });
 
+ButtonGroup.displayName = 'AmauiButtonGroup';
+
 export default ButtonGroup;

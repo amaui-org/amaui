@@ -214,4 +214,6 @@ const Radio = React.forwardRef((props_: any, ref: any) => {
   );
 });
 
+Radio.displayName = 'AmauiRadio';
+
 export default Radio;

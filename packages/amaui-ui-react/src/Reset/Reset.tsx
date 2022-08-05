@@ -4,7 +4,7 @@ import { reset } from '@amaui/style-react';
 
 const useReset = reset();
 
-export default function Reset(props) {
+const Reset = (props: any) => {
   const { children } = props;
 
   useReset();
@@ -16,4 +16,8 @@ export default function Reset(props) {
 
     </React.Fragment>
   );
-}
+};
+
+Reset.displayName = 'AmauiReset';
+
+export default Reset;

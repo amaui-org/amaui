@@ -123,4 +123,6 @@ const Grow = React.forwardRef((props_: any, ref: any) => {
   );
 });
 
+Grow.displayName = 'AmauiGrow';
+
 export default Grow;

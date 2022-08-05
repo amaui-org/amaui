@@ -64,4 +64,6 @@ const ModalHeader = React.forwardRef((props_: any, ref: any) => {
   );
 });
 
+ModalHeader.displayName = 'AmauiModalHeader';
+
 export default ModalHeader;

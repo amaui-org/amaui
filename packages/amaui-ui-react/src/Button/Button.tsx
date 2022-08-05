@@ -659,4 +659,6 @@ const Button = React.forwardRef((props_: any, ref: any) => {
   );
 });
 
+Button.displayName = 'AmauiButton';
+
 export default Button;

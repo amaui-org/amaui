@@ -95,6 +95,7 @@ const useStyle = style(theme => ({
 
   multiline: {
     resize: 'none',
+    overflow: 'auto',
     whiteSpace: 'normal'
   },
 
@@ -106,14 +107,14 @@ const useStyle = style(theme => ({
 
   input_size_regular: {
     height: '56px',
-    padding: '13px 16px',
-    paddingTop: '23px'
+    padding: '11px 16px',
+    paddingTop: '25px'
   },
 
   input_size_large: {
     height: '64px',
-    padding: '19px 16px',
-    paddingTop: '25px'
+    padding: '16px 16px',
+    paddingTop: '28px'
   },
 
   input_version_text: {
@@ -460,9 +461,6 @@ const useStyle = style(theme => ({
   }
 }), { name: 'AmauiTextField' });
 
-// Multiline input
-// with rows, minRows and maxRows
-
 const TextField = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 
@@ -499,7 +497,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
     autoFocus,
     autoComplete,
     readOnly,
-    type = 'text',
+    type: type_ = 'text',
     required,
     optional,
     optionalText = 'optional',
@@ -531,6 +529,8 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
 
   const { classes } = useStyle(props);
 
+  let type = type_;
+
   const styles: any = {
     root: {},
     input: {},
@@ -546,7 +546,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
     };
 
     // Update
-    refs.input.current.value = 'a';
+    refs.input.current.value = '';
     refs.input.current.style.height = 'auto';
 
     const { height, paddingTop, paddingBottom } = window.getComputedStyle(refs.input.current);
@@ -673,7 +673,8 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
     InputComponent = 'textarea';
     inputProps.rows = 1;
 
-    console.log(rows, row);
+    type = undefined;
+
     if (row) {
       if (rows_) styles.input.height = row.paddingTop + (rows_ * row.height) + row.paddingBottom;
       else styles.input.height = row.paddingTop + (row.height * clamp(rows, minRows, maxRows)) + row.paddingBottom;
@@ -1035,5 +1036,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
     </Wrapper>
   );
 });
+
+TextField.displayName = 'AmauiTextField';
 
 export default TextField;

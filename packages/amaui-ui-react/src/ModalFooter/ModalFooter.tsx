@@ -61,4 +61,6 @@ const ModalFooter = React.forwardRef((props_: any, ref: any) => {
   );
 });
 
+ModalFooter.displayName = 'AmauiModalFooter';
+
 export default ModalFooter;

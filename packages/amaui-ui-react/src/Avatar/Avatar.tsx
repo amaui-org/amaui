@@ -134,4 +134,6 @@ const Avatar = React.forwardRef((props_: any, ref) => {
   );
 });
 
+Avatar.displayName = 'AmauiAvatar';
+
 export default Avatar;

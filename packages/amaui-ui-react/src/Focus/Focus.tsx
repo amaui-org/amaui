@@ -110,4 +110,6 @@ const Focus = React.forwardRef((props_: any, ref: any) => {
   );
 });
 
+Focus.displayName = 'AmauiFocus';
+
 export default Focus;

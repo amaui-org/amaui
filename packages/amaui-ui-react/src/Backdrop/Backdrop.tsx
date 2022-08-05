@@ -196,4 +196,6 @@ const Backdrop = React.forwardRef((props_: any, ref: any) => {
   );
 });
 
+Backdrop.displayName = 'AmauiBackdrop';
+
 export default Backdrop;

@@ -113,4 +113,6 @@ const Fade = React.forwardRef((props_: any, ref: any) => {
   );
 });
 
+Fade.displayName = 'AmauiFade';
+
 export default Fade;

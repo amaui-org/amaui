@@ -252,4 +252,6 @@ const Divider = React.forwardRef((props_: any, ref: any) => {
   );
 });
 
+Divider.displayName = 'AmauiDivider';
+
 export default Divider;

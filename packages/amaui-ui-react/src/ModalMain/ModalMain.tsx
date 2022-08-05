@@ -62,4 +62,6 @@ const ModalMain = React.forwardRef((props_: any, ref: any) => {
   );
 });
 
+ModalMain.displayName = 'AmauiModalMain';
+
 export default ModalMain;

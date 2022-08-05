@@ -22,4 +22,6 @@ const Portal = (props_: any) => {
   );
 };
 
+Portal.displayName = 'AmauiPortal';
+
 export default Portal;

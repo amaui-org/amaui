@@ -137,4 +137,6 @@ const AvatarGroup = React.forwardRef((props_: any, ref: any) => {
   );
 });
 
+AvatarGroup.displayName = 'AmauiAvatarGroup';
+
 export default AvatarGroup;

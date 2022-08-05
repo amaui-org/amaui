@@ -114,4 +114,6 @@ const Zoom = React.forwardRef((props_: any, ref: any) => {
   );
 });
 
+Zoom.displayName = 'AmauiZoom';
+
 export default Zoom;

@@ -262,4 +262,6 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
   );
 });
 
+Surface.displayName = 'AmauiSurface';
+
 export default Surface;

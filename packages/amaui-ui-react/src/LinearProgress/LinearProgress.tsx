@@ -422,4 +422,6 @@ const LinearProgress = React.forwardRef((props_: any, ref: any) => {
   );
 });
 
+LinearProgress.displayName = 'AmauiLinearProgress';
+
 export default LinearProgress;

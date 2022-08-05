@@ -110,4 +110,6 @@ const ChipGroup = React.forwardRef((props_: any, ref: any) => {
   );
 });
 
+ChipGroup.displayName = 'AmauiChipGroup';
+
 export default ChipGroup;

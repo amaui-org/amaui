@@ -48,4 +48,6 @@ const Fab = React.forwardRef((props_: any, ref: any) => {
   );
 });
 
+Fab.displayName = 'AmauiFab';
+
 export default Fab;
