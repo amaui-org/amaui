@@ -217,10 +217,6 @@ const useStyle = style(theme => ({
     insetInlineStart: '52px'
   },
 
-  label_version_text_icon_start: {
-    insetInlineStart: '40px'
-  },
-
   // Focus
   label_version_text_size_small_focus: {
     transform: 'translate(0px, 2px) scale(0.667)'
