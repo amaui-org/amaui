@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is } from '@amaui/utils';
+import { is, isEnvironment } from '@amaui/utils';
 import { style, classNames, useAmauiTheme } from '@amaui/style-react';
 
 import Portal from '../Portal';
@@ -73,19 +73,6 @@ const useStyle = style(theme => ({
 
 let MODALS_OPEN = 0;
 
-const modal = {
-  open: () => {
-    MODALS_OPEN++;
-
-    window.document.body.style.overflow = 'hidden';
-  },
-  close: () => {
-    MODALS_OPEN--;
-
-    if (!MODALS_OPEN) window.document.body.style.removeProperty('overflow');
-  }
-};
-
 const Modal = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 
@@ -97,7 +84,12 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
     fullScreen,
     fullWidth,
     maxWidth: maxWidth_ = 'rg',
-
+    root = true,
+    background = true,
+    modalWrapper = true,
+    portal = true,
+    focus = true,
+    freezeScroll = true,
     disableKeyboardClose,
     disableBackgroundClose,
 
@@ -108,6 +100,8 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
     ModalProps = {},
 
     SurfaceProps = {},
+
+    PortalProps: PortalProps_ = {},
 
     onClose: onClose_,
 
@@ -123,6 +117,19 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
   const { classes } = useStyle(props);
   const refs = {
     focus: React.useRef<HTMLDivElement>()
+  };
+
+  const modal = {
+    open: () => {
+      MODALS_OPEN++;
+
+      if (freezeScroll) window.document.body.style.overflow = 'hidden';
+    },
+    close: () => {
+      MODALS_OPEN--;
+
+      if (!MODALS_OPEN && freezeScroll) window.document.body.style.removeProperty('overflow');
+    }
   };
 
   let maxWidth = maxWidth_;
@@ -167,8 +174,80 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
 
   if (!open) return null;
 
+  let PortalComponent: any = portal ? Portal : React.Fragment;
+
+  const PortalProps = {
+    ...(portal && PortalProps_)
+  };
+
+  if (portal) {
+    if (isEnvironment('browser')) PortalProps.element = window.document.body;
+  }
+
+  let FocusComponent = focus ? Focus : React.Fragment;
+
+  const FocusProps = focus ? {
+    ref: refs.focus,
+    onKeyDown
+  } : {};
+
+  let Main = children;
+
+  if (modalWrapper) Main = (
+    <div
+      className={classNames([
+        staticClassName('Modal', theme) && [
+          'AmauiModal-modalRoot'
+        ],
+
+        classes.modalRoot
+      ])}
+    >
+      <ModalComponent
+        in={inProp}
+
+        onExited={onExited}
+
+        add
+
+        {...ModalProps}
+      >
+        <Surface
+          className={classNames([
+            staticClassName('Modal', theme) && [
+              'AmauiModal-surface',
+              `AmauiModal-maxWidth-${maxWidth}`,
+              fullScreen && `AmauiButton-fullScreen`,
+              fullWidth && `AmauiButton-fullWidth`
+            ],
+
+            classes.surface,
+
+            fullScreen && classes.fullScreen,
+            fullWidth && classes.fullWidth,
+            classes[maxWidth],
+
+            SurfaceProps.className
+          ])}
+
+          color='primary'
+
+          tabIndex='-1'
+
+          onKeyDown={onKeyDown}
+
+          {...SurfaceProps}
+        >
+          {children}
+        </Surface>
+      </ModalComponent>
+    </div>
+  );
+
   return (
-    <Portal element={window.document.body}>
+    <PortalComponent
+      {...PortalProps}
+    >
       <div
         ref={ref}
 
@@ -186,84 +265,37 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
 
         {...other}
       >
-        <Focus
-          ref={refs.focus}
-
-          onKeyDown={onKeyDown}
+        <FocusComponent
+          {...FocusProps}
         >
           {/* Background */}
-          <BackgroundComponent
-            in={inProp}
-
-            add
-
-            {...BackgroundProps}
-          >
-            <div
-              className={classNames([
-                staticClassName('Modal', theme) && [
-                  'AmauiModal-background'
-                ],
-
-                classes.background
-              ])}
-
-              onClick={() => !disableBackgroundClose && onClose()}
-            />
-          </BackgroundComponent>
-
-          {/* Modal */}
-          <div
-            className={classNames([
-              staticClassName('Modal', theme) && [
-                'AmauiModal-modalRoot'
-              ],
-
-              classes.modalRoot
-            ])}
-          >
-            <ModalComponent
+          {background && (
+            <BackgroundComponent
               in={inProp}
-
-              onExited={onExited}
 
               add
 
-              {...ModalProps}
+              {...BackgroundProps}
             >
-              <Surface
+              <div
                 className={classNames([
                   staticClassName('Modal', theme) && [
-                    'AmauiModal-surface',
-                    `AmauiModal-maxWidth-${maxWidth}`,
-                    fullScreen && `AmauiButton-fullScreen`,
-                    fullWidth && `AmauiButton-fullWidth`
+                    'AmauiModal-background'
                   ],
 
-                  classes.surface,
-
-                  fullScreen && classes.fullScreen,
-                  fullWidth && classes.fullWidth,
-                  classes[maxWidth],
-
-                  SurfaceProps.className
+                  classes.background
                 ])}
 
-                color='primary'
+                onClick={() => !disableBackgroundClose && onClose()}
+              />
+            </BackgroundComponent>
+          )}
 
-                tabIndex='-1'
-
-                onKeyDown={onKeyDown}
-
-                {...SurfaceProps}
-              >
-                {children}
-              </Surface>
-            </ModalComponent>
-          </div>
-        </Focus>
+          {/* Main */}
+          {Main}
+        </FocusComponent>
       </div>
-    </Portal>
+    </PortalComponent>
   );
 });
 
