@@ -7,7 +7,7 @@ import Icon from '../Icon';
 import IconButton from '../IconButton';
 import { IconDoneAnimated } from '../ButtonGroup/ButtonGroup';
 
-import { iconSizeToFontSize, staticClassName } from '../utils';
+import { staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
@@ -114,7 +114,7 @@ const IconMaterialIndeterminateCheckBoxSharp = React.forwardRef((props: any, ref
 const IconItem = (props: any) => {
   const {
     Component = 'span',
-    noFontSize,
+    noFontSizeDownScale,
     size,
 
     className,
@@ -139,7 +139,9 @@ const IconItem = (props: any) => {
   else if (size === 'very large') fontSize = '60px';
   else if (size !== undefined) fontSize = `${size}${!String(size).includes('px') ? 'px' : ''}`;
 
-  if (!noFontSize) styles.root.fontSize = `calc(${fontSize} * 0.75)`;
+  styles.root.fontSize = `calc(${fontSize} * 0.75)`;
+
+  if (noFontSizeDownScale) styles.root.fontSize = fontSize;
 
   return (
     <Component
@@ -322,22 +324,26 @@ const Checkbox = React.forwardRef((props_: any, ref: any) => {
 
           style={styles.iconDone}
 
-          noFontSize
+          noFontSizeDownScale
         >
           <IconMaterialIndeterminateCheckBoxSharp size='inherit' />
         </IconItem>
       )}
 
-      <IconDoneAnimated
-        className={classNames([
-          classes.icon,
-          classes.iconDone
-        ])}
+      {checked && (
+        <IconDoneAnimated
+          className={classNames([
+            classes.icon,
+            classes.iconDone
+          ])}
 
-        style={styles.iconDone}
+          style={styles.iconDone}
 
-        in={checked}
-      />
+          in={checked}
+
+          add
+        />
+      )}
     </IconButton>
   );
 });

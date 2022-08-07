@@ -111,6 +111,7 @@ export const IconDoneAnimated = (props: any) => {
     simple,
 
     onExited,
+
     noExitAnimation,
     add,
 
