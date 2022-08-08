@@ -84,7 +84,8 @@ const useStyle = style(theme => ({
     width: '100%',
     flexDirection: 'column',
     // Fix for white-space: nowrap & flex: 1 1 auto
-    minWidth: 0
+    minWidth: 0,
+    alignSelf: 'center'
   },
 
   text: {
