@@ -37,7 +37,7 @@ const Append = (props_: any) => {
 
   const {
     relativeTo = 'parent',
-    accelerated = true,
+    accelerated = false,
     order = ['center bottom', 'center top', 'right bottom', 'right top', 'left bottom', 'left top', 'left top', 'right top', 'left center', 'right center', 'left bottom', 'right bottom'],
     position = 'bottom',
     alignment = 'right',
@@ -127,7 +127,7 @@ const Append = (props_: any) => {
 
   if (relativeTo === 'window') {
     style.top = 0;
-    style.insetInlineStart = 0;
+    style.left = 0;
   }
 
   if (accelerated) {
@@ -139,7 +139,7 @@ const Append = (props_: any) => {
   }
   else {
     style.top = values.y;
-    style.insetInlineStart = values.x;
+    style.left = values.x;
   }
 
   return (
