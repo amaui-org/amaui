@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is, isEnvironment } from '@amaui/utils';
+import { debounce, is, isEnvironment } from '@amaui/utils';
 import { useAmauiTheme } from '@amaui/style-react';
 
 // 1. Make overflow
@@ -16,6 +16,8 @@ import { useAmauiTheme } from '@amaui/style-react';
 // Make options for offset and unfollowOffset work with it
 // Make it work for selection as well value y
 
+// Events scroll and resize as well value y
+
 const Append = (props_: any) => {
   const theme = useAmauiTheme();
 
@@ -25,6 +27,7 @@ const Append = (props_: any) => {
     x: 0,
     y: 0
   });
+
   const refs = {
     root: React.useRef<HTMLElement>(),
     element: React.useRef<HTMLElement>()
@@ -33,9 +36,49 @@ const Append = (props_: any) => {
   const {
     relativeTo = 'parent',
     accelerated = true,
-    order = ['center bottom', 'center top', 'right bottom', 'right top', 'left bottom', 'left top', 'left top', 'right top', 'left center', 'right center', 'left bottom', 'right bottom'],
-    position = 'bottom',
+    order = [
+      { position: 'bottom', alignment: 'center' },
+      { position: 'top', alignment: 'center' },
+
+      { position: 'bottom', alignment: 'end' },
+      { position: 'top', alignment: 'end' },
+
+      { position: 'bottom', alignment: 'start' },
+      { position: 'top', alignment: 'start' },
+
+      { position: 'left', alignment: 'center' },
+      { position: 'right', alignment: 'center' },
+
+      { position: 'left', alignment: 'start' },
+      { position: 'right', alignment: 'start' },
+
+      { position: 'left', alignment: 'end' },
+      { position: 'right', alignment: 'end' },
+
+      { position: 'bottom', alignment: 'center', inset: true },
+      { position: 'top', alignment: 'center', inset: true },
+
+      { position: 'bottom', alignment: 'end', inset: true },
+      { position: 'top', alignment: 'end', inset: true },
+
+      { position: 'bottom', alignment: 'start', inset: true },
+      { position: 'top', alignment: 'start', inset: true },
+
+      { position: 'left', alignment: 'center', inset: true },
+      { position: 'right', alignment: 'center', inset: true },
+
+      { position: 'left', alignment: 'start', inset: true },
+      { position: 'right', alignment: 'start', inset: true },
+
+      { position: 'left', alignment: 'end', inset: true },
+      { position: 'right', alignment: 'end', inset: true }
+    ],
+    inset: inset_,
+    position: position_ = 'bottom',
     alignment: alignment_ = 'end',
+    switch: switch_ = true,
+    overflow = true,
+    unfollow = false,
 
     element,
 
@@ -44,9 +87,31 @@ const Append = (props_: any) => {
 
   React.useEffect(() => {
     make();
+
+    const onScroll = debounce((event: React.WheelEvent) => {
+      // Only if it's parent's scroll event
+      if (event.currentTarget.contains(refs.root.current)) {
+        if (switch_) {
+          // Make sure to go over all from the order
+          // and leave first one that fits
+
+
+        }
+      }
+
+      // More than 60 frames per second
+    }, 14);
+
+    window.addEventListener('scroll', onScroll, true);
+
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+    };
   }, []);
 
-  const make = () => {
+  const make = (value = { position: position_, alignment: alignment_, inset: inset_ }) => {
+    let { position, alignment, inset } = value;
+
     // We need both root and element refs
     // to make our values for it
     if (refs.root.current && refs.element.current) {
@@ -77,8 +142,6 @@ const Append = (props_: any) => {
       const rootX = relativeTo === 'window' ? rect.root.x : rectOffset.root.x;
       const rootY = relativeTo === 'window' ? rect.root.y : rectOffset.root.y;
 
-      let alignment = alignment_;
-
       if (theme.direction === 'rtl' && ['top', 'bottom'].includes(position)) {
         if (alignment === 'start') alignment = 'end';
         else if (alignment === 'end') alignment = 'start';
@@ -93,6 +156,8 @@ const Append = (props_: any) => {
         if (alignment === 'end') values_.x = rootX + rect.root.width - rect.element.width;
 
         values_.y = position === 'top' ? rootY - rect.element.height : rootY + rect.root.height;
+
+        if (inset) values_.y = position === 'top' ? rootY : rootY + rect.root.height - rect.element.height;
       }
 
       // Left
@@ -104,6 +169,8 @@ const Append = (props_: any) => {
         if (alignment === 'end') values_.y = rootY + rect.root.height - rect.element.height;
 
         values_.x = rootX - rect.element.width;
+
+        if (inset) values_.x = rootX;
       }
 
       // Left
@@ -115,10 +182,30 @@ const Append = (props_: any) => {
         if (alignment === 'end') values_.y = rootY + rect.root.height - rect.element.height;
 
         values_.x = rootX + rect.root.width;
+
+        if (inset) values_.x = rootX + rect.root.width - rect.element.width;
       }
 
-      setValues(values_);
+      let made = false;
+
+      // Overflow
+      if (overflow) {
+        // If x or y is out of bounds of the parent
+        // or window push them to 0 value
+        // only if that value doesn't unfollow them from the element
+        // or unfollow them if unfollow is true
+      }
+
+      if (made) {
+        setValues(values_);
+
+        return true;
+      }
+
+      return false;
     }
+
+    return false;
   };
 
   console.log(1, values, refs.root);

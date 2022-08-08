@@ -73,6 +73,10 @@ const useStyle = style(theme => ({
 
 let MODALS_OPEN = 0;
 
+// To do
+
+// 1. Add padding right for freezeScroll for the scroll bar if it exists and width that it is
+
 const Modal = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 

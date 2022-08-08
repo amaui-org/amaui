@@ -782,6 +782,106 @@ function App() {
           </div>
         </Accordion>
 
+        <Accordion label='Append inset'>
+          <div className={classNames([classes.column])} style={{ gap: 74 }}>
+            <Append position='bottom' alignment='start' inset
+              element={(
+                <span className={classes.tooltip}>a</span>
+              )}
+            >
+              <Button color='secondary'>Append</Button>
+            </Append>
+
+            <Append position='bottom' alignment='center' inset
+              element={(
+                <span className={classes.tooltip}>a</span>
+              )}
+            >
+              <Button color='secondary'>Append</Button>
+            </Append>
+
+            <Append position='bottom' alignment='end' inset
+              element={(
+                <span className={classes.tooltip}>a</span>
+              )}
+            >
+              <Button color='secondary'>Append</Button>
+            </Append>
+
+            <Append position='top' alignment='start' inset
+              element={(
+                <span className={classes.tooltip}>a</span>
+              )}
+            >
+              <Button color='secondary'>Append</Button>
+            </Append>
+
+            <Append position='top' alignment='center' inset
+              element={(
+                <span className={classes.tooltip}>a</span>
+              )}
+            >
+              <Button color='secondary'>Append</Button>
+            </Append>
+
+            <Append position='top' alignment='end' inset
+              element={(
+                <span className={classes.tooltip}>a</span>
+              )}
+            >
+              <Button color='secondary'>Append</Button>
+            </Append>
+
+            <Append position='left' alignment='start' inset
+              element={(
+                <span className={classes.tooltip}>a</span>
+              )}
+            >
+              <Button color='secondary'>Append</Button>
+            </Append>
+
+            <Append position='left' alignment='center' inset
+              element={(
+                <span className={classes.tooltip}>a</span>
+              )}
+            >
+              <Button color='secondary'>Append</Button>
+            </Append>
+
+            <Append position='left' alignment='end' inset
+              element={(
+                <span className={classes.tooltip}>a</span>
+              )}
+            >
+              <Button color='secondary'>Append</Button>
+            </Append>
+
+            <Append position='right' alignment='start' inset
+              element={(
+                <span className={classes.tooltip}>a</span>
+              )}
+            >
+              <Button color='secondary'>Append</Button>
+            </Append>
+
+            <Append position='right' alignment='center' inset
+              element={(
+                <span className={classes.tooltip}>a</span>
+              )}
+            >
+              <Button color='secondary'>Append</Button>
+            </Append>
+
+            <Append position='right' alignment='end' inset
+              element={(
+                <span className={classes.tooltip}>a</span>
+              )}
+            >
+              <Button color='secondary'>Append</Button>
+            </Append>
+          </div>
+        </Accordion>
+
         <Accordion label='Append relativeTo parent'>
           <div className={classNames([classes.column])} style={{ gap: 74 }}>
             <Append position='bottom' alignment='start' relativeTo='parent'
