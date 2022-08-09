@@ -223,7 +223,8 @@ const Append = (props_: any) => {
 
             // top
             if (valueScrollParentY <= 0) {
-              if ((rect.root.height < scrollParentY) || unfollow) values_.y = rect.root.y + rect.root.height;
+              if (unfollow) values_.y = scrollParentRect.y;
+              else if (rect.root.height < scrollParentY) values_.y = rect.root.y + rect.root.height;
               else values_.y -= valueScrollParentY;
             }
 
@@ -258,7 +259,8 @@ const Append = (props_: any) => {
 
             // left
             if (valueScrollParentX <= 0) {
-              if ((rect.root.width < scrollParentX) || unfollow) values_.x = rect.root.x + rect.root.width;
+              if (unfollow) values_.x = scrollParentRect.x;
+              if (rect.root.width < scrollParentX) values_.x = rect.root.x + rect.root.width;
               else values_.x -= valueScrollParentX;
             }
 
@@ -303,7 +305,8 @@ const Append = (props_: any) => {
 
             // top
             if (valueScrollParentY <= 0) {
-              if ((rect.root.height < scrollParentY) || unfollow) values_.y = rectOffset.root.y + rect.root.height;
+              if (unfollow) values_.y = scrollTop;
+              else if (rect.root.height < scrollParentY) values_.y = rectOffset.root.y + rect.root.height;
               else values_.y -= valueScrollParentY;
             }
 
@@ -339,7 +342,8 @@ const Append = (props_: any) => {
 
             // left
             if (valueScrollParentX <= 0) {
-              if ((rect.root.width < scrollParentX) || unfollow) values_.x = rectOffset.root.x + rect.root.width;
+              if (unfollow) values_.x = scrollLeft;
+              else if (rect.root.width < scrollParentX) values_.x = rectOffset.root.x + rect.root.width;
               else values_.x -= valueScrollParentX;
             }
 
