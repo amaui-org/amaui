@@ -1400,7 +1400,7 @@ function App() {
               <Button color='secondary'>Append</Button>
             </Append>
 
-            {/* <Append position='bottom' alignment='center' relativeTo='window' unfollow
+            <Append position='bottom' alignment='center' relativeTo='window' unfollow
               element={(
                 <span className={classes.tooltip}>a</span>
               )}
@@ -1486,7 +1486,7 @@ function App() {
               )}
             >
               <Button color='secondary'>Append</Button>
-            </Append> */}
+            </Append>
           </div>
         </Accordion>
       </Accordion>

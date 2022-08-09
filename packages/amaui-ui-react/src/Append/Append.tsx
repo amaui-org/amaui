@@ -265,7 +265,7 @@ const Append = (props_: any) => {
             // left
             if (valueScrollParentX <= 0) {
               if (unfollow) values_.x = scrollRootRect.x;
-              if (rect.root.width < scrollParentX) values_.x = rect.root.x + rect.root.width;
+              else if (rect.root.width < scrollParentX) values_.x = rect.root.x + rect.root.width;
               else values_.x -= valueScrollParentX;
             }
 
