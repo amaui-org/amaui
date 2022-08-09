@@ -96,7 +96,7 @@ const Append = (props_: any) => {
 
           order_.unshift({ position: position_, alignment: alignment_, inset: inset_ });
 
-          while (!make(order_[0], values) || order_.length) {
+          while (!make(order_[0], values, event.target) || order_.length) {
             order_ = order_.filter(item => !(
               item.position === order_[0].position &&
               item.alignment === order_[0].alignment &&
@@ -104,7 +104,7 @@ const Append = (props_: any) => {
             ));
           }
         }
-        else make(undefined, values);
+        else make(undefined, values, event.target);
       }
 
       // More than 140 frames per second
@@ -148,9 +148,12 @@ const Append = (props_: any) => {
 
   const make = (
     value = { position: position_, alignment: alignment_, inset: inset_ },
-    values = getValues()
+    values = getValues(),
+    scrollRoot_ = window.document
   ) => {
     if (!values) return;
+
+    const scrollRoot = (scrollRoot_ === window.document ? window.document.documentElement : scrollRoot_) as HTMLElement;
 
     const scrollableParents = element_(refs.root.current).parents().filter(item => item.scrollHeight > item.clientHeight);
 
@@ -216,6 +219,7 @@ const Append = (props_: any) => {
         if (['left', 'right'].includes(position)) {
           // All parents that are scrollable
           scrollableParents.forEach((parent: HTMLElement) => {
+            const scrollRootRect = scrollRoot.getBoundingClientRect();
             const scrollParentRect = parent.getBoundingClientRect();
 
             const scrollParentY = scrollParentRect.y - rect.root.y;
@@ -223,7 +227,7 @@ const Append = (props_: any) => {
 
             // top
             if (valueScrollParentY <= 0) {
-              if (unfollow) values_.y = scrollParentRect.y;
+              if (unfollow) values_.y = scrollRootRect.y;
               else if (rect.root.height < scrollParentY) values_.y = rect.root.y + rect.root.height;
               else values_.y -= valueScrollParentY;
             }
@@ -252,6 +256,7 @@ const Append = (props_: any) => {
         if (['top', 'bottom'].includes(position)) {
           // All parents that are scrollable
           scrollableParents.forEach((parent: HTMLElement) => {
+            const scrollRootRect = scrollRoot.getBoundingClientRect();
             const scrollParentRect = parent.getBoundingClientRect();
 
             const scrollParentX = scrollParentRect.x - rect.root.x;
@@ -259,7 +264,7 @@ const Append = (props_: any) => {
 
             // left
             if (valueScrollParentX <= 0) {
-              if (unfollow) values_.x = scrollParentRect.x;
+              if (unfollow) values_.x = scrollRootRect.x;
               if (rect.root.width < scrollParentX) values_.x = rect.root.x + rect.root.width;
               else values_.x -= valueScrollParentX;
             }
