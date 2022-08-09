@@ -1,22 +1,18 @@
 import React from 'react';
 
-import { debounce, is, isEnvironment } from '@amaui/utils';
+import { copy, debounce, equalDeep, is, isEnvironment, element as element_ } from '@amaui/utils';
 import { useAmauiTheme } from '@amaui/style-react';
 
-// 1. Make overflow
-// 2. Make switch work
-// 3. Make unfollow work
-// 4. Make offset value y
+// 1. Make unfollow work
+
+// 2. Make offset value y
+// 3. Make switch work
 
 // Other
 
-// any scroll even and check if it's one of it's parents
-// and only if yes do the math calc value y
-
-// Make options for offset and unfollowOffset work with it
 // Make it work for selection as well value y
-
 // Events scroll and resize as well value y
+// Updating popper element content within, width update value y
 
 const Append = (props_: any) => {
   const theme = useAmauiTheme();
@@ -76,7 +72,7 @@ const Append = (props_: any) => {
     inset: inset_,
     position: position_ = 'bottom',
     alignment: alignment_ = 'end',
-    switch: switch_ = true,
+    switch: switch_ = false,
     overflow = true,
     unfollow = false,
 
@@ -88,19 +84,33 @@ const Append = (props_: any) => {
   React.useEffect(() => {
     make();
 
-    const onScroll = debounce((event: React.WheelEvent) => {
+    const onScroll = debounce((event: any) => {
       // Only if it's parent's scroll event
-      if (event.currentTarget.contains(refs.root.current)) {
+      if (event.target.contains(refs.root.current)) {
+        const values = getValues();
+
         if (switch_) {
           // Make sure to go over all from the order
           // and leave first one that fits
 
+          // Loop through all of the options
+          let order_ = copy(order);
 
+          order_.unshift({ position: position_, alignment: alignment_, inset: inset_ });
+
+          while (!make(order_[0], values) || order_.length) {
+            order_ = order_.filter(item => !(
+              item.position === order_[0].position &&
+              item.alignment === order_[0].alignment &&
+              !!item.inset === !!order_[0].inset
+            ));
+          }
         }
+        else make(undefined, values);
       }
 
-      // More than 60 frames per second
-    }, 14);
+      // More than 140 frames per second
+    }, 7);
 
     window.addEventListener('scroll', onScroll, true);
 
@@ -109,106 +119,279 @@ const Append = (props_: any) => {
     };
   }, []);
 
-  const make = (value = { position: position_, alignment: alignment_, inset: inset_ }) => {
+  const getValues = () => {
+    if (!(refs.root.current && refs.element.current)) return;
+
+    const rect = {
+      root: refs.root.current.getBoundingClientRect(),
+      element: refs.element.current.getBoundingClientRect()
+    };
+
+    const rectOffset = {
+      root: {
+        x: refs.root.current.offsetLeft,
+        y: refs.root.current.offsetTop,
+        width: refs.root.current.offsetLeft + refs.root.current.offsetWidth,
+        height: refs.root.current.offsetTop + refs.root.current.offsetHeight
+      },
+      element: {
+        x: refs.element.current.offsetLeft,
+        y: refs.element.current.offsetTop,
+        width: refs.element.current.offsetLeft + refs.element.current.offsetWidth,
+        height: refs.element.current.offsetTop + refs.element.current.offsetHeight
+      }
+    };
+
+    return {
+      rect,
+      rectOffset
+    };
+  };
+
+  const make = (
+    value = { position: position_, alignment: alignment_, inset: inset_ },
+    values = getValues()
+  ) => {
+    if (!values) return;
+
+    const scrollableParents = element_(refs.root.current).parents().filter(item => item.scrollHeight > item.clientHeight);
+
     let { position, alignment, inset } = value;
+
+    const { rect, rectOffset } = values;
 
     // We need both root and element refs
     // to make our values for it
-    if (refs.root.current && refs.element.current) {
-      const rect = {
-        root: refs.root.current.getBoundingClientRect(),
-        element: refs.element.current.getBoundingClientRect()
-      };
-      const rectOffset = {
-        root: {
-          x: refs.root.current.offsetLeft,
-          y: refs.root.current.offsetTop,
-          width: refs.root.current.offsetLeft + refs.root.current.offsetWidth,
-          height: refs.root.current.offsetTop + refs.root.current.offsetHeight
-        },
-        element: {
-          x: refs.element.current.offsetLeft,
-          y: refs.element.current.offsetTop,
-          width: refs.element.current.offsetLeft + refs.element.current.offsetWidth,
-          height: refs.element.current.offsetTop + refs.element.current.offsetHeight
-        }
-      };
+    const values_ = {
+      x: 0,
+      y: 0
+    };
 
-      const values_ = {
-        x: 0,
-        y: 0
-      };
+    const rootX = relativeTo === 'window' ? rect.root.x : rectOffset.root.x;
+    const rootY = relativeTo === 'window' ? rect.root.y : rectOffset.root.y;
 
-      const rootX = relativeTo === 'window' ? rect.root.x : rectOffset.root.x;
-      const rootY = relativeTo === 'window' ? rect.root.y : rectOffset.root.y;
+    if (theme.direction === 'rtl' && ['top', 'bottom'].includes(position)) {
+      if (alignment === 'start') alignment = 'end';
+      else if (alignment === 'end') alignment = 'start';
+    }
 
-      if (theme.direction === 'rtl' && ['top', 'bottom'].includes(position)) {
-        if (alignment === 'start') alignment = 'end';
-        else if (alignment === 'end') alignment = 'start';
-      }
+    // Top, Bottom
+    if (['top', 'bottom'].includes(position)) {
+      if (alignment === 'start') values_.x = rootX;
 
-      // Top, Bottom
-      if (['top', 'bottom'].includes(position)) {
-        if (alignment === 'start') values_.x = rootX;
+      if (!alignment || alignment === 'center') values_.x = rootX + ((rect.root.width - rect.element.width) / 2);
 
-        if (!alignment || alignment === 'center') values_.x = rootX + ((rect.root.width - rect.element.width) / 2);
+      if (alignment === 'end') values_.x = rootX + rect.root.width - rect.element.width;
 
-        if (alignment === 'end') values_.x = rootX + rect.root.width - rect.element.width;
+      values_.y = position === 'top' ? rootY - rect.element.height : rootY + rect.root.height;
 
-        values_.y = position === 'top' ? rootY - rect.element.height : rootY + rect.root.height;
+      if (inset) values_.y = position === 'top' ? rootY : rootY + rect.root.height - rect.element.height;
+    }
 
-        if (inset) values_.y = position === 'top' ? rootY : rootY + rect.root.height - rect.element.height;
-      }
+    // Left
+    if (['left', 'right'].includes(position)) {
+      if (alignment === 'start') values_.y = rootY;
 
-      // Left
+      if (!alignment || alignment === 'center') values_.y = rootY + ((rect.root.height - rect.element.height) / 2);
+
+      if (alignment === 'end') values_.y = rootY + rect.root.height - rect.element.height;
+
       if (position === 'left') {
-        if (alignment === 'start') values_.y = rootY;
-
-        if (!alignment || alignment === 'center') values_.y = rootY + ((rect.root.height - rect.element.height) / 2);
-
-        if (alignment === 'end') values_.y = rootY + rect.root.height - rect.element.height;
-
         values_.x = rootX - rect.element.width;
 
         if (inset) values_.x = rootX;
       }
-
-      // Left
-      if (position === 'right') {
-        if (alignment === 'start') values_.y = rootY;
-
-        if (!alignment || alignment === 'center') values_.y = rootY + ((rect.root.height - rect.element.height) / 2);
-
-        if (alignment === 'end') values_.y = rootY + rect.root.height - rect.element.height;
-
+      else {
         values_.x = rootX + rect.root.width;
 
         if (inset) values_.x = rootX + rect.root.width - rect.element.width;
       }
+    }
 
-      let made = false;
+    // Overflow
+    if (overflow) {
+      // If x or y is out of bounds of the parent
+      // or window push them to 0 value
+      // only if that value doesn't unfollow them from the element
+      // or unfollow them if unfollow is true
+      if (relativeTo === 'window') {
+        if (['left', 'right'].includes(position)) {
+          // All parents that are scrollable
+          scrollableParents.forEach((parent: HTMLElement) => {
+            const scrollParentRect = parent.getBoundingClientRect();
 
-      // Overflow
-      if (overflow) {
-        // If x or y is out of bounds of the parent
-        // or window push them to 0 value
-        // only if that value doesn't unfollow them from the element
-        // or unfollow them if unfollow is true
+            const scrollParentY = scrollParentRect.y - rect.root.y;
+            const valueScrollParentY = values_.y - scrollParentRect.y;
+
+            // top
+            if (valueScrollParentY <= 0) {
+              if ((rect.root.height < scrollParentY) || unfollow) values_.y = rect.root.y + rect.root.height;
+              else values_.y -= valueScrollParentY;
+            }
+
+            // bottom
+            if (values_.y + rect.element.height >= scrollParentRect.y + scrollParentRect.height) {
+              if ((rect.root.y < scrollParentRect.y + scrollParentRect.height) || unfollow) values_.y = scrollParentRect.y + scrollParentRect.height - rect.element.height;
+              else values_.y = rect.root.y - rect.element.height;
+            }
+          });
+
+          // Window
+          // top
+          if (values_.y <= 0) {
+            if ((rect.root.y + rect.root.height) > 0 || unfollow) values_.y = 0;
+            else values_.y = rect.root.y + rect.root.height;
+          }
+
+          // bottom
+          if (values_.y + rect.element.height >= window.innerHeight) {
+            if (rect.root.y < window.innerHeight || unfollow) values_.y = window.innerHeight - rect.element.height;
+            else values_.y = rect.root.y - rect.element.height;
+          }
+        }
+
+        if (['top', 'bottom'].includes(position)) {
+          // All parents that are scrollable
+          scrollableParents.forEach((parent: HTMLElement) => {
+            const scrollParentRect = parent.getBoundingClientRect();
+
+            const scrollParentX = scrollParentRect.x - rect.root.x;
+            const valueScrollParentX = values_.x - scrollParentRect.x;
+
+            // top
+            if (valueScrollParentX <= 0) {
+              if ((rect.root.width < scrollParentX) || unfollow) values_.x = rect.root.x + rect.root.width;
+              else values_.x -= valueScrollParentX;
+            }
+
+            // bottom
+            if (values_.x + rect.element.width >= scrollParentRect.x + scrollParentRect.width) {
+              if ((rect.root.x < scrollParentRect.x + scrollParentRect.width) || unfollow) values_.x = scrollParentRect.x + scrollParentRect.width - rect.element.width;
+              else values_.x = rect.root.x - rect.element.width;
+            }
+          });
+
+          // Window
+          // top
+          if (values_.x <= 0) {
+            if ((rect.root.x + rect.root.width) > 0 || unfollow) values_.x = 0;
+            else values_.x = rect.root.x + rect.root.width;
+          }
+
+          // bottom
+          if (values_.x + rect.element.width >= window.innerWidth) {
+            if (rect.root.x < window.innerWidth || unfollow) values_.x = window.innerWidth - rect.element.width;
+            else values_.x = rect.root.x - rect.element.width;
+          }
+        }
       }
+      else if (relativeTo === 'parent') {
+        const wrapperRect = refs.root.current.parentElement.getBoundingClientRect();
 
-      if (made) {
+        const rootY = wrapperRect.y + rectOffset.root.y;
+        const valueY = wrapperRect.y + values_.y;
+
+        const rootX = wrapperRect.x + rectOffset.root.x;
+        const valueX = wrapperRect.x + values_.x;
+
+        if (['left', 'right'].includes(position)) {
+          // All parents that are scrollable
+          scrollableParents.forEach((parent: HTMLElement) => {
+            const scrollTop = parent.scrollTop || 0;
+            const scrollParentRect = parent.getBoundingClientRect();
+
+            const scrollParentY = scrollParentRect.y - rect.root.y;
+            const valueScrollParentY = valueY - scrollParentRect.y;
+
+            // top
+            if (valueScrollParentY <= 0) {
+              if ((rect.root.height < scrollParentY) || unfollow) values_.y = rectOffset.root.y + rect.root.height;
+              else values_.y -= valueScrollParentY;
+            }
+
+            // bottom
+            if (values_.y + rect.element.height >= scrollTop + scrollParentRect.height) {
+              if ((rectOffset.root.y < scrollTop + scrollParentRect.height) || unfollow) values_.y = scrollTop + scrollParentRect.height - rect.element.height;
+              else values_.y = rectOffset.root.y - rect.element.height;
+            }
+          });
+
+          // Window
+          // top
+          if (valueY <= 0) {
+            if ((rootY + rect.root.height) > 0 || unfollow) values_.y = Math.max(values_.y, Math.abs(rootY) + rectOffset.root.y);
+            else values_.y = Math.max(values_.y, rectOffset.root.y + rect.root.height);
+          }
+
+          // bottom
+          if (valueY + rect.element.height >= window.innerHeight) {
+            if (rect.root.y < window.innerHeight || unfollow) values_.y = Math.min(values_.y, window.innerHeight - wrapperRect.y - rect.element.height);
+            else values_.y = Math.min(values_.y, rectOffset.root.y - rect.element.height);
+          }
+        }
+
+        if (['top', 'bottom'].includes(position)) {
+          // All parents that are scrollable
+          scrollableParents.forEach((parent: HTMLElement) => {
+            const scrollLeft = parent.scrollLeft || 0;
+            const scrollParentRect = parent.getBoundingClientRect();
+
+            const scrollParentX = scrollParentRect.x - rect.root.x;
+            const valueScrollParentX = valueX - scrollParentRect.x;
+
+            // top
+            if (valueScrollParentX <= 0) {
+              if ((rect.root.width < scrollParentX) || unfollow) values_.x = rectOffset.root.y + rect.root.width;
+              else values_.x -= valueScrollParentX;
+            }
+
+            // bottom
+            if (values_.x + rect.element.width >= scrollLeft + scrollParentRect.width) {
+              if ((rectOffset.root.y < scrollLeft + scrollParentRect.width) || unfollow) values_.x = scrollLeft + scrollParentRect.width - rect.element.width;
+              else values_.x = rectOffset.root.y - rect.element.width;
+            }
+          });
+
+          // Window
+          // top
+          if (valueX <= 0) {
+            if ((rootX + rect.root.width) > 0 || unfollow) values_.x = Math.max(values_.x, Math.abs(rootX) + rectOffset.root.x);
+            else values_.x = Math.max(values_.x, rectOffset.root.x + rect.root.width);
+          }
+
+          // bottom
+          if (valueX + rect.element.width >= window.innerWidth) {
+            if (rect.root.x < window.innerWidth || unfollow) values_.x = Math.min(values_.x, window.innerWidth - wrapperRect.x - rect.element.width);
+            else values_.x = Math.min(values_.x, rectOffset.root.x - rect.element.width);
+          }
+        }
+      }
+    }
+
+    // Switch
+    if (switch_) {
+      if (
+        // Main viewport in window
+        (
+          (position === 'bottom' && window.innerHeight >= values_.y + rect.element.height) &&
+          (position === 'top' && values_.y >= 0) &&
+          (position === 'left' && values_.x >= 0) &&
+          (position === 'right' && values_.x + rect.element.width <= window.innerWidth)
+        )
+      ) {
         setValues(values_);
 
         return true;
       }
-
-      return false;
+      else return;
     }
 
-    return false;
-  };
+    setValues(items => {
+      if (!equalDeep(items, values_)) return values_;
 
-  console.log(1, values, refs.root);
+      return items;
+    });
+  };
 
   const style: React.CSSProperties = {};
 

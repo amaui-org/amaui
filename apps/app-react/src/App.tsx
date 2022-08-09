@@ -882,6 +882,110 @@ function App() {
           </div>
         </Accordion>
 
+        <Accordion label='Append overflow relative to parent'>
+          <div className={classNames([classes.column])} style={{ gap: 74 }}>
+            <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
+              <div style={{ height: 400, width: 400, padding: 340 }}>
+                <Append position='top' relativeTo='parent'
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+              </div>
+            </div>
+
+            <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
+              <div style={{ height: 400, width: 400, padding: 340 }}>
+                <Append position='left' relativeTo='parent'
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+              </div>
+            </div>
+
+            <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
+              <div style={{ height: 400, width: 400, padding: 340 }}>
+                <Append position='right' relativeTo='parent'
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+              </div>
+            </div>
+
+            <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
+              <div style={{ height: 400, width: 400, padding: 340 }}>
+                <Append position='bottom' relativeTo='parent'
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+              </div>
+            </div>
+          </div>
+        </Accordion>
+
+        <Accordion label='Append overflow relative to window'>
+          <div className={classNames([classes.column])} style={{ gap: 74 }}>
+            <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
+              <div style={{ height: 400, width: 400, padding: 340 }}>
+                <Append position='top' relativeTo='window'
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+              </div>
+            </div>
+
+            <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
+              <div style={{ height: 400, width: 400, padding: 340 }}>
+                <Append position='left' relativeTo='window'
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+              </div>
+            </div>
+
+            <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
+              <div style={{ height: 400, width: 400, padding: 340 }}>
+                <Append position='right' relativeTo='window'
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+              </div>
+            </div>
+
+            <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
+              <div style={{ height: 400, width: 400, padding: 340 }}>
+                <Append position='bottom' relativeTo='window'
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+              </div>
+            </div>
+          </div>
+        </Accordion>
+
         <Accordion label='Append relativeTo parent'>
           <div className={classNames([classes.column])} style={{ gap: 74 }}>
             <Append position='bottom' alignment='start' relativeTo='parent'
