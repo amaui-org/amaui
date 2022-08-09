@@ -3,10 +3,8 @@ import React from 'react';
 import { copy, debounce, equalDeep, is, isEnvironment, element as element_ } from '@amaui/utils';
 import { useAmauiTheme } from '@amaui/style-react';
 
-// 1. Make unfollow work
-
-// 2. Make offset value y
-// 3. Make switch work
+// 1. Make offset value y
+// 2. Make switch work
 
 // Other
 
@@ -239,14 +237,14 @@ const Append = (props_: any) => {
           // Window
           // top
           if (values_.y <= 0) {
-            if ((rect.root.y + rect.root.height) > 0 || unfollow) values_.y = 0;
-            else values_.y = rect.root.y + rect.root.height;
+            if ((rect.root.y + rect.root.height) > 0 || unfollow) values_.y = Math.max(values_.y, 0);
+            else values_.y = Math.max(values_.y, rect.root.y + rect.root.height);
           }
 
           // bottom
           if (values_.y + rect.element.height >= window.innerHeight) {
-            if (rect.root.y < window.innerHeight || unfollow) values_.y = window.innerHeight - rect.element.height;
-            else values_.y = rect.root.y - rect.element.height;
+            if (rect.root.y < window.innerHeight || unfollow) values_.y = Math.min(values_.y, window.innerHeight - rect.element.height);
+            else values_.y = Math.min(values_.y, rect.root.y - rect.element.height);
           }
         }
 
@@ -258,13 +256,13 @@ const Append = (props_: any) => {
             const scrollParentX = scrollParentRect.x - rect.root.x;
             const valueScrollParentX = values_.x - scrollParentRect.x;
 
-            // top
+            // left
             if (valueScrollParentX <= 0) {
               if ((rect.root.width < scrollParentX) || unfollow) values_.x = rect.root.x + rect.root.width;
               else values_.x -= valueScrollParentX;
             }
 
-            // bottom
+            // right
             if (values_.x + rect.element.width >= scrollParentRect.x + scrollParentRect.width) {
               if ((rect.root.x < scrollParentRect.x + scrollParentRect.width) || unfollow) values_.x = scrollParentRect.x + scrollParentRect.width - rect.element.width;
               else values_.x = rect.root.x - rect.element.width;
@@ -272,16 +270,16 @@ const Append = (props_: any) => {
           });
 
           // Window
-          // top
+          // left
           if (values_.x <= 0) {
-            if ((rect.root.x + rect.root.width) > 0 || unfollow) values_.x = 0;
-            else values_.x = rect.root.x + rect.root.width;
+            if ((rect.root.x + rect.root.width) > 0 || unfollow) values_.x = Math.max(values_.x, 0);
+            else values_.x = Math.max(values_.x, rect.root.x + rect.root.width);
           }
 
-          // bottom
+          // right
           if (values_.x + rect.element.width >= window.innerWidth) {
-            if (rect.root.x < window.innerWidth || unfollow) values_.x = window.innerWidth - rect.element.width;
-            else values_.x = rect.root.x - rect.element.width;
+            if (rect.root.x < window.innerWidth || unfollow) values_.x = Math.min(values_.x, window.innerWidth - rect.element.width);
+            else values_.x = Math.min(values_.x, rect.root.x - rect.element.width);
           }
         }
       }
@@ -339,30 +337,30 @@ const Append = (props_: any) => {
             const scrollParentX = scrollParentRect.x - rect.root.x;
             const valueScrollParentX = valueX - scrollParentRect.x;
 
-            // top
+            // left
             if (valueScrollParentX <= 0) {
-              if ((rect.root.width < scrollParentX) || unfollow) values_.x = rectOffset.root.y + rect.root.width;
+              if ((rect.root.width < scrollParentX) || unfollow) values_.x = rectOffset.root.x + rect.root.width;
               else values_.x -= valueScrollParentX;
             }
 
-            // bottom
+            // right
             if (values_.x + rect.element.width >= scrollLeft + scrollParentRect.width) {
-              if ((rectOffset.root.y < scrollLeft + scrollParentRect.width) || unfollow) values_.x = scrollLeft + scrollParentRect.width - rect.element.width;
-              else values_.x = rectOffset.root.y - rect.element.width;
+              if ((rectOffset.root.x < scrollLeft + scrollParentRect.width) || unfollow) values_.x = scrollLeft + scrollParentRect.width - rect.element.width;
+              else values_.x = rectOffset.root.x - rect.element.width;
             }
           });
 
           // Window
-          // top
+          // left
           if (valueX <= 0) {
             if ((rootX + rect.root.width) > 0 || unfollow) values_.x = Math.max(values_.x, Math.abs(rootX) + rectOffset.root.x);
-            else values_.x = Math.max(values_.x, rectOffset.root.x + rect.root.width);
+            else values_.x = unfollow ? 0 : Math.max(values_.x, rectOffset.root.x + rect.root.width);
           }
 
-          // bottom
+          // right
           if (valueX + rect.element.width >= window.innerWidth) {
             if (rect.root.x < window.innerWidth || unfollow) values_.x = Math.min(values_.x, window.innerWidth - wrapperRect.x - rect.element.width);
-            else values_.x = Math.min(values_.x, rectOffset.root.x - rect.element.width);
+            else values_.x = unfollow ? window.innerWidth - rect.element.width : Math.min(values_.x, rectOffset.root.x - rect.element.width);
           }
         }
       }

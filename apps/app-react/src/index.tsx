@@ -15,7 +15,7 @@ amauiStyle.plugins.add = [unit, prefix, rtl, valueObject];
 
 root.render(
   <AmauiStyleProvider value={amauiStyle}>
-    <AmauiThemeProvider>
+    <AmauiThemeProvider style={{ width: '50%', overflow: 'auto' }}>
       <App />
     </AmauiThemeProvider>
   </AmauiStyleProvider>
