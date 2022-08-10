@@ -22,6 +22,8 @@ import { useAmauiTheme } from '@amaui/style-react';
 // Events scroll and resize as well value y
 // Updating popper element content within, width update value y
 
+// rtl
+
 const Append = (props_: any) => {
   const theme = useAmauiTheme();
 
@@ -386,6 +388,8 @@ const Append = (props_: any) => {
           // All parents that are scrollable
           const valuesX = [values_.x];
 
+          let result = values_.x;
+
           scrollableParents.forEach((parent: HTMLElement) => {
             const scrollLeft = parent.scrollLeft || 0;
             const scrollParentRect = parent.getBoundingClientRect();
@@ -393,10 +397,8 @@ const Append = (props_: any) => {
             const scrollParentX = scrollParentRect.x - rect.root.x;
             const valueScrollParentX = valueX - scrollParentRect.x;
 
-            console.log(1, values_.x, scrollLeft, scrollParentX, valueScrollParentX, scrollParentRect);
-
             // left
-            if (valueScrollParentX <= 0 + padding[0]) {
+            if (valueScrollParentX <= 0) {
               if ((rootX + rect.root.width) > 0 || unfollow) {
                 values_.x = Math.max(values_.x, scrollParentX, Math.abs(rect.root.x) + Math.abs(rectOffset.root.x));
               }
@@ -404,14 +406,28 @@ const Append = (props_: any) => {
 
               valuesX.push(values_.x);
 
-              // Reset
-              values_.x = valuesX[0];
+              result = Math.max(...valuesX);
             }
+
+            // right
+            if (valueX + rect.element.width >= window.innerWidth) {
+              if (rect.root.x < window.innerWidth || unfollow) {
+                values_.x = Math.min(values_.x, window.innerWidth - wrapperRect.x - rect.element.width);
+              }
+              else values_.x = rectOffset.root.x - rect.element.width;
+
+              valuesX.push(values_.x);
+
+              result = Math.min(...valuesX);
+            }
+
+            // Reset
+            values_.x = valuesX[0];
           });
 
-          console.log(1.4, JSON.stringify(valuesX), scrollableParents);
+          console.log(1.4, result);
 
-          values_.x = Math.max(...valuesX);
+          values_.x = result;
 
           // scrollableParents.forEach((parent: HTMLElement) => {
           //   const scrollLeft = parent.scrollLeft || 0;
