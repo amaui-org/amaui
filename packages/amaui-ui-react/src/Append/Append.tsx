@@ -8,6 +8,7 @@ import { useAmauiTheme } from '@amaui/style-react';
 // relative to window
 // scroll root
 // unfollow
+// add all other examples with and without padding
 
 // 2. Make switch work
 // 3. Padding overflow and switch
@@ -362,7 +363,7 @@ const Append = (props_: any) => {
 
             // right
             if (values_.x + rect.element.width >= scrollLeft + scrollParentRect.width) {
-              if ((rectOffset.root.x < scrollLeft + scrollParentRect.width) || unfollow) values_.x = scrollLeft + scrollParentRect.width - rect.element.width - padding[0];
+              if ((rectOffset.root.x < scrollLeft + scrollParentRect.width) || unfollow) values_.x = scrollLeft + scrollParentRect.width - rect.element.width;
               else values_.x = rectOffset.root.x - rect.element.width;
             }
           });
@@ -382,8 +383,15 @@ const Append = (props_: any) => {
           }
 
           // right
-          if (valueX + rect.element.width >= window.innerWidth) {
-            if (rect.root.x < window.innerWidth || unfollow) values_.x = Math.min(values_.x, window.innerWidth - wrapperRect.x - rect.element.width) - padding[0];
+          if (valueX + rect.element.width >= window.innerWidth - padding[0]) {
+            if (rect.root.x < window.innerWidth || unfollow) {
+              values_.x = Math.min(values_.x, window.innerWidth - wrapperRect.x - rect.element.width);
+
+              // padding
+              values_.x -= clamp(Math.abs(values_.x - (window.innerWidth - wrapperRect.x - rect.element.width - padding[0])), 0, padding[0]);
+
+              if (!unfollow) values_.x = clamp(values_.x, rectOffset.root.x - rect.element.width, Number.MAX_SAFE_INTEGER);
+            }
             else values_.x = unfollow ? window.innerWidth - rect.element.width : Math.min(values_.x, rectOffset.root.x - rect.element.width);
           }
         }
