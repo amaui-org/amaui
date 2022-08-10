@@ -883,8 +883,8 @@ function App() {
         </Accordion>
 
         <Accordion label='Append relativeTo parent'>
-          <div className={classNames([classes.column])} style={{ gap: 74 }}>
-            <Append position='bottom' alignment='start' relativeTo='parent'
+          <div className={classNames([classes.column])} style={{ gap: 74, padding: 40 }}>
+            <Append position='bottom' alignment='start' relativeTo='parent' offset={[14, 14]} padding={[7, 7]}
               element={(
                 <span className={classes.tooltip}>a</span>
               )}
@@ -892,7 +892,7 @@ function App() {
               <Button color='secondary'>Append</Button>
             </Append>
 
-            <Append position='bottom' alignment='center' relativeTo='parent'
+            {/* <Append position='bottom' alignment='center' relativeTo='parent' offset={[14, 14]} padding={[7, 7]}
               element={(
                 <span className={classes.tooltip}>a</span>
               )}
@@ -900,7 +900,7 @@ function App() {
               <Button color='secondary'>Append</Button>
             </Append>
 
-            <Append position='bottom' alignment='end' relativeTo='parent'
+            <Append position='bottom' alignment='end' relativeTo='parent' offset={[14, 14]} padding={[7, 7]}
               element={(
                 <span className={classes.tooltip}>a</span>
               )}
@@ -908,7 +908,7 @@ function App() {
               <Button color='secondary'>Append</Button>
             </Append>
 
-            <Append position='top' alignment='start' relativeTo='parent'
+            <Append position='top' alignment='start' relativeTo='parent' offset={[14, 14]} padding={[7, 7]}
               element={(
                 <span className={classes.tooltip}>a</span>
               )}
@@ -916,7 +916,7 @@ function App() {
               <Button color='secondary'>Append</Button>
             </Append>
 
-            <Append position='top' alignment='center' relativeTo='parent'
+            <Append position='top' alignment='center' relativeTo='parent' offset={[14, 14]} padding={[7, 7]}
               element={(
                 <span className={classes.tooltip}>a</span>
               )}
@@ -924,7 +924,7 @@ function App() {
               <Button color='secondary'>Append</Button>
             </Append>
 
-            <Append position='top' alignment='end' relativeTo='parent'
+            <Append position='top' alignment='end' relativeTo='parent' offset={[14, 14]} padding={[7, 7]}
               element={(
                 <span className={classes.tooltip}>a</span>
               )}
@@ -932,7 +932,7 @@ function App() {
               <Button color='secondary'>Append</Button>
             </Append>
 
-            <Append position='left' alignment='start' relativeTo='parent'
+            <Append position='left' alignment='start' relativeTo='parent' offset={[14, 14]} padding={[7, 7]}
               element={(
                 <span className={classes.tooltip}>a</span>
               )}
@@ -940,7 +940,7 @@ function App() {
               <Button color='secondary'>Append</Button>
             </Append>
 
-            <Append position='left' alignment='center' relativeTo='parent'
+            <Append position='left' alignment='center' relativeTo='parent' offset={[14, 14]} padding={[7, 7]}
               element={(
                 <span className={classes.tooltip}>a</span>
               )}
@@ -948,7 +948,7 @@ function App() {
               <Button color='secondary'>Append</Button>
             </Append>
 
-            <Append position='left' alignment='end' relativeTo='parent'
+            <Append position='left' alignment='end' relativeTo='parent' offset={[14, 14]} padding={[7, 7]}
               element={(
                 <span className={classes.tooltip}>a</span>
               )}
@@ -956,7 +956,7 @@ function App() {
               <Button color='secondary'>Append</Button>
             </Append>
 
-            <Append position='right' alignment='start' relativeTo='parent'
+            <Append position='right' alignment='start' relativeTo='parent' offset={[14, 14]} padding={[7, 7]}
               element={(
                 <span className={classes.tooltip}>a</span>
               )}
@@ -964,7 +964,7 @@ function App() {
               <Button color='secondary'>Append</Button>
             </Append>
 
-            <Append position='right' alignment='center' relativeTo='parent'
+            <Append position='right' alignment='center' relativeTo='parent' offset={[14, 14]} padding={[7, 7]}
               element={(
                 <span className={classes.tooltip}>a</span>
               )}
@@ -972,19 +972,19 @@ function App() {
               <Button color='secondary'>Append</Button>
             </Append>
 
-            <Append position='right' alignment='end' relativeTo='parent'
+            <Append position='right' alignment='end' relativeTo='parent' offset={[14, 14]} padding={[7, 7]}
               element={(
                 <span className={classes.tooltip}>a</span>
               )}
             >
               <Button color='secondary'>Append</Button>
-            </Append>
+            </Append> */}
           </div>
         </Accordion>
 
         <Accordion label='Append relativeTo window'>
           <div className={classNames([classes.column])} style={{ gap: 74 }}>
-            <Append position='bottom' alignment='start' relativeTo='window'
+            <Append position='bottom' alignment='start' relativeTo='window' offset={[14, 14]} padding={[7, 7]}
               element={(
                 <span className={classes.tooltip}>a</span>
               )}
@@ -992,7 +992,7 @@ function App() {
               <Button color='secondary'>Append</Button>
             </Append>
 
-            <Append position='bottom' alignment='center' relativeTo='window'
+            <Append position='bottom' alignment='center' relativeTo='window' offset={[14, 14]} padding={[7, 7]}
               element={(
                 <span className={classes.tooltip}>a</span>
               )}
@@ -1000,7 +1000,7 @@ function App() {
               <Button color='secondary'>Append</Button>
             </Append>
 
-            <Append position='bottom' alignment='end' relativeTo='window'
+            <Append position='bottom' alignment='end' relativeTo='window' offset={[14, 14]} padding={[7, 7]}
               element={(
                 <span className={classes.tooltip}>a</span>
               )}
@@ -1008,7 +1008,7 @@ function App() {
               <Button color='secondary'>Append</Button>
             </Append>
 
-            <Append position='top' alignment='start' relativeTo='window'
+            <Append position='top' alignment='start' relativeTo='window' offset={[14, 14]} padding={[7, 7]}
               element={(
                 <span className={classes.tooltip}>a</span>
               )}
@@ -1016,7 +1016,7 @@ function App() {
               <Button color='secondary'>Append</Button>
             </Append>
 
-            <Append position='top' alignment='center' relativeTo='window'
+            <Append position='top' alignment='center' relativeTo='window' offset={[14, 14]} padding={[7, 7]}
               element={(
                 <span className={classes.tooltip}>a</span>
               )}
@@ -1024,7 +1024,7 @@ function App() {
               <Button color='secondary'>Append</Button>
             </Append>
 
-            <Append position='top' alignment='end' relativeTo='window'
+            <Append position='top' alignment='end' relativeTo='window' offset={[14, 14]} padding={[7, 7]}
               element={(
                 <span className={classes.tooltip}>a</span>
               )}
@@ -1032,7 +1032,7 @@ function App() {
               <Button color='secondary'>Append</Button>
             </Append>
 
-            <Append position='left' alignment='start' relativeTo='window'
+            <Append position='left' alignment='start' relativeTo='window' offset={[14, 14]} padding={[7, 7]}
               element={(
                 <span className={classes.tooltip}>a</span>
               )}
@@ -1040,7 +1040,7 @@ function App() {
               <Button color='secondary'>Append</Button>
             </Append>
 
-            <Append position='left' alignment='center' relativeTo='window'
+            <Append position='left' alignment='center' relativeTo='window' offset={[14, 14]} padding={[7, 7]}
               element={(
                 <span className={classes.tooltip}>a</span>
               )}
@@ -1048,7 +1048,7 @@ function App() {
               <Button color='secondary'>Append</Button>
             </Append>
 
-            <Append position='left' alignment='end' relativeTo='window'
+            <Append position='left' alignment='end' relativeTo='window' offset={[14, 14]} padding={[7, 7]}
               element={(
                 <span className={classes.tooltip}>a</span>
               )}
@@ -1056,7 +1056,7 @@ function App() {
               <Button color='secondary'>Append</Button>
             </Append>
 
-            <Append position='right' alignment='start' relativeTo='window'
+            <Append position='right' alignment='start' relativeTo='window' offset={[14, 14]} padding={[7, 7]}
               element={(
                 <span className={classes.tooltip}>a</span>
               )}
@@ -1064,7 +1064,7 @@ function App() {
               <Button color='secondary'>Append</Button>
             </Append>
 
-            <Append position='right' alignment='center' relativeTo='window'
+            <Append position='right' alignment='center' relativeTo='window' offset={[14, 14]} padding={[7, 7]}
               element={(
                 <span className={classes.tooltip}>a</span>
               )}
@@ -1072,7 +1072,7 @@ function App() {
               <Button color='secondary'>Append</Button>
             </Append>
 
-            <Append position='right' alignment='end' relativeTo='window'
+            <Append position='right' alignment='end' relativeTo='window' offset={[14, 14]} padding={[7, 7]}
               element={(
                 <span className={classes.tooltip}>a</span>
               )}
