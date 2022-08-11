@@ -3,8 +3,6 @@ import React from 'react';
 import { copy, debounce, equalDeep, is, isEnvironment, element as element_, clamp } from '@amaui/utils';
 import { useAmauiTheme } from '@amaui/style-react';
 
-// window
-
 // Switch
 // with padding and offset to take into an account
 
@@ -223,76 +221,158 @@ const Append = (props_: any) => {
       if (relativeTo === 'window') {
         if (['left', 'right'].includes(position)) {
           // All parents that are scrollable
+          const valuesY = [values_.y];
+
+          let result = values_.y;
+
           scrollableParents.forEach((parent: HTMLElement) => {
-            const scrollRootRect = scrollRoot.getBoundingClientRect();
             const scrollParentRect = parent.getBoundingClientRect();
 
             const scrollParentY = scrollParentRect.y - rect.root.y;
             const valueScrollParentY = values_.y - scrollParentRect.y;
 
             // top
-            if (valueScrollParentY <= 0) {
-              if (unfollow) values_.y = scrollRootRect.y;
-              else if (rect.root.height < scrollParentY) values_.y = rect.root.y + rect.root.height;
-              else values_.y -= valueScrollParentY;
+            if (
+              (values_.y <= 0 + padding[1]) ||
+              (valueScrollParentY <= 0 + padding[1])
+            ) {
+              if ((rect.root.y + rect.root.height) > 0 || unfollow) {
+                values_.y = Math.max(
+                  values_.y,
+                  scrollParentY,
+                  scrollParentRect.y,
+                  0
+                );
+
+                // padding
+                const padding_ = values_.y > (rect.root.y + rect.root.height) && unfollow ? paddingUnfollow : padding;
+
+                values_.y += clamp(Math.abs(values_.y - padding_[1]), 0, padding_[1]);
+
+                if (!unfollow) values_.y = clamp(values_.y, Number.MIN_SAFE_INTEGER, rect.root.y + rect.root.height);
+              }
+              else values_.y = rect.root.y + rect.root.height;
+
+              valuesY.push(values_.y);
+
+              result = Math.max(...valuesY);
             }
 
             // bottom
-            if (values_.y + rect.element.height >= scrollParentRect.y + scrollParentRect.height) {
-              if ((rect.root.y < scrollParentRect.y + scrollParentRect.height) || unfollow) values_.y = scrollParentRect.y + scrollParentRect.height - rect.element.height;
+            if (
+              (values_.y + rect.element.height >= window.innerHeight - padding[1]) ||
+              (values_.y + rect.element.height >= scrollParentRect.y + scrollParentRect.height - padding[1])
+            ) {
+              if (
+                (
+                  (rect.root.y < window.innerHeight) ||
+                  (rect.root.y < scrollParentRect.y + scrollParentRect.height)
+                )
+                || unfollow
+              ) {
+                values_.y = Math.abs(Math.min(
+                  values_.y,
+                  window.innerHeight - rect.element.height,
+                  scrollParentRect.y + scrollParentRect.height - rect.element.height
+                ));
+
+                // padding
+                const padding_ = (values_.y < rect.root.y - rect.element.height) && unfollow ? paddingUnfollow : padding;
+
+                values_.y -= clamp(Math.abs(values_.y - (window.innerHeight - rect.element.height - padding_[1])), 0, padding_[1]);
+
+                if (!unfollow) values_.y = clamp(values_.y, rect.root.y - rect.element.height, Number.MAX_SAFE_INTEGER);
+              }
               else values_.y = rect.root.y - rect.element.height;
+
+              valuesY.push(values_.y);
+
+              result = Math.min(...valuesY);
             }
+
+            // Reset
+            values_.y = valuesY[0];
           });
 
-          // Window
-          // top
-          if (values_.y <= 0) {
-            if ((rect.root.y + rect.root.height) > 0 || unfollow) values_.y = Math.max(values_.y, 0) + padding[1];
-            else values_.y = Math.max(values_.y, rect.root.y + rect.root.height);
-          }
-
-          // bottom
-          if (values_.y + rect.element.height >= window.innerHeight) {
-            if (rect.root.y < window.innerHeight || unfollow) values_.y = Math.min(values_.y, window.innerHeight - rect.element.height) - padding[1];
-            else values_.y = Math.min(values_.y, rect.root.y - rect.element.height);
-          }
+          values_.y = result;
         }
 
         if (['top', 'bottom'].includes(position)) {
           // All parents that are scrollable
+          const valuesX = [values_.x];
+
+          let result = values_.x;
+
           scrollableParents.forEach((parent: HTMLElement) => {
-            const scrollRootRect = scrollRoot.getBoundingClientRect();
             const scrollParentRect = parent.getBoundingClientRect();
 
-            const scrollParentX = scrollParentRect.x - rect.root.x;
+            const scrollParentX = scrollParentRect.x - Math.abs(rect.root.x);
             const valueScrollParentX = values_.x - scrollParentRect.x;
 
             // left
-            if (valueScrollParentX <= 0) {
-              if (unfollow) values_.x = scrollRootRect.x;
-              else if (rect.root.width < scrollParentX) values_.x = rect.root.x + rect.root.width;
-              else values_.x -= valueScrollParentX;
+            if (
+              (values_.x <= 0 + padding[0]) ||
+              (valueScrollParentX <= 0 + padding[0])
+            ) {
+              if ((rect.root.x + rect.root.width) > 0 || unfollow) {
+                values_.x = Math.max(
+                  values_.x,
+                  scrollParentX,
+                  scrollParentRect.x,
+                  0
+                );
+
+                // padding
+                const padding_ = (values_.x > rect.root.x + rect.root.width) && unfollow ? paddingUnfollow : padding;
+
+                values_.x += clamp(Math.abs(values_.x - padding_[0]), 0, padding_[0]);
+
+                if (!unfollow) values_.x = clamp(values_.x, Number.MIN_SAFE_INTEGER, rect.root.x + rect.root.width);
+              }
+              else values_.x = rect.root.x + rect.root.width;
+
+              valuesX.push(values_.x);
+
+              result = Math.max(...valuesX);
             }
 
             // right
-            if (values_.x + rect.element.width >= scrollParentRect.x + scrollParentRect.width) {
-              if ((rect.root.x < scrollParentRect.x + scrollParentRect.width) || unfollow) values_.x = scrollParentRect.x + scrollParentRect.width - rect.element.width;
+            if (
+              (values_.x + rect.element.width >= window.innerWidth - padding[0]) ||
+              (values_.x + rect.element.width >= scrollParentRect.x + scrollParentRect.width - padding[0])
+            ) {
+              if (
+                (
+                  (rect.root.x < window.innerWidth) ||
+                  (rect.root.x < scrollParentRect.x + scrollParentRect.width)
+                )
+                || unfollow
+              ) {
+                values_.x = Math.abs(Math.min(
+                  values_.x,
+                  window.innerWidth - rect.element.width,
+                  scrollParentRect.x + scrollParentRect.width - rect.element.width
+                ));
+
+                // padding
+                const padding_ = (values_.x < rect.root.x - rect.element.width) && unfollow ? paddingUnfollow : padding;
+
+                values_.x -= clamp(Math.abs(values_.x - (window.innerWidth - rect.element.width - padding_[0])), 0, padding_[0]);
+
+                if (!unfollow) values_.x = clamp(values_.x, rect.root.x - rect.element.width, Number.MAX_SAFE_INTEGER);
+              }
               else values_.x = rect.root.x - rect.element.width;
+
+              valuesX.push(values_.x);
+
+              result = Math.min(...valuesX);
             }
+
+            // Reset
+            values_.x = valuesX[0];
           });
 
-          // Window
-          // left
-          if (values_.x <= 0) {
-            if ((rect.root.x + rect.root.width) > 0 || unfollow) values_.x = Math.max(values_.x, 0) + padding[0];
-            else values_.x = Math.max(values_.x, rect.root.x + rect.root.width);
-          }
-
-          // right
-          if (values_.x + rect.element.width >= window.innerWidth) {
-            if (rect.root.x < window.innerWidth || unfollow) values_.x = Math.min(values_.x, window.innerWidth - rect.element.width) - padding[0];
-            else values_.x = Math.min(values_.x, rect.root.x - rect.element.width);
-          }
+          values_.x = result;
         }
       }
       else if (relativeTo === 'parent') {
