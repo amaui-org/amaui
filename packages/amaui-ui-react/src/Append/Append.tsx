@@ -260,7 +260,9 @@ const Append = (props_: any) => {
               // padding
               const padding_ = values_.y > (rectOffset.root.y + rect.root.height) && unfollow ? paddingUnfollow : padding;
 
-              values_.y += clamp(Math.abs(values_.y + wrapperRectY - padding_[1]), 0, padding_[1]);
+              const scrollRoot = scrollParentRect.y - wrapperRectY >= 0;
+
+              values_.y += clamp(Math.abs(values_.y - (scrollRoot ? scrollParentRect.y : 0) + wrapperRectY - padding_[1]), 0, padding_[1]);
 
               if (!unfollow) values_.y = clamp(values_.y, Number.MIN_SAFE_INTEGER, rectOffset.root.y + rect.root.height);
             }
@@ -292,7 +294,9 @@ const Append = (props_: any) => {
               // padding
               const padding_ = (values_.y < rectOffset.root.y - rect.element.height) && unfollow ? paddingUnfollow : padding;
 
-              values_.y -= clamp(Math.abs(values_.y - (window.innerHeight - wrapperRectY - rect.element.height - padding_[1])), 0, padding_[1]);
+              const scrollRoot = scrollParentRect.y - wrapperRectY >= 0;
+
+              values_.y -= clamp(Math.abs(values_.y - ((scrollRoot ? scrollParentRect.y + scrollParentRect.height : window.innerHeight) - wrapperRectY - rect.element.height - padding_[1])), 0, padding_[1]);
 
               if (!unfollow) values_.y = clamp(values_.y, rectOffset.root.y - rect.element.height, Number.MAX_SAFE_INTEGER);
             }
@@ -342,7 +346,9 @@ const Append = (props_: any) => {
               // padding
               const padding_ = (values_.x > rectOffset.root.x + rect.root.width) && unfollow ? paddingUnfollow : padding;
 
-              values_.x += clamp(Math.abs(values_.x + wrapperRectX - padding_[0]), 0, padding_[0]);
+              const scrollRoot = scrollParentRect.x - wrapperRectX >= 0;
+
+              values_.x += clamp(Math.abs(values_.x - (scrollRoot ? scrollParentRect.x : 0) + wrapperRectX - padding_[0]), 0, padding_[0]);
 
               if (!unfollow) values_.x = clamp(values_.x, Number.MIN_SAFE_INTEGER, rectOffset.root.x + rect.root.width);
             }
@@ -374,7 +380,9 @@ const Append = (props_: any) => {
               // padding
               const padding_ = (values_.x < rectOffset.root.x - rect.element.width) && unfollow ? paddingUnfollow : padding;
 
-              values_.x -= clamp(Math.abs(values_.x - (window.innerWidth - wrapperRectX - rect.element.width - padding_[0])), 0, padding_[0]);
+              const scrollRoot = scrollParentRect.x - wrapperRectX >= 0;
+
+              values_.x -= clamp(Math.abs(values_.x - ((scrollRoot ? scrollParentRect.x + scrollParentRect.width : window.innerWidth) - wrapperRectX - rect.element.width - padding_[1])), 0, padding_[1]);
 
               if (!unfollow) values_.x = clamp(values_.x, rectOffset.root.x - rect.element.width, Number.MAX_SAFE_INTEGER);
             }
