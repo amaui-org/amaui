@@ -3,15 +3,11 @@ import React from 'react';
 import { copy, debounce, equalDeep, is, isEnvironment, element as element_, clamp } from '@amaui/utils';
 import { useAmauiTheme } from '@amaui/style-react';
 
-// 1. Padding
-// relative to parent
-// scroll root
-// relative to window
-// window
-// scroll root
+// unfollow padding
+
+// Window
+// padding
 // unfollow
-// window
-// scroll root
 
 // 2. Make switch work
 // 3. Padding overflow and switch
