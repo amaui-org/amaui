@@ -99,7 +99,7 @@ const Append = (props_: any) => {
 
           order_.unshift({ position: position_, alignment: alignment_, inset: inset_ });
 
-          while (!make(order_[0], values, event.target) || order_.length) {
+          while (!make(order_[0], values) || order_.length) {
             order_ = order_.filter(item => !(
               item.position === order_[0].position &&
               item.alignment === order_[0].alignment &&
@@ -107,7 +107,7 @@ const Append = (props_: any) => {
             ));
           }
         }
-        else make(undefined, values, event.target);
+        else make(undefined, values);
       }
 
       // More than 140 frames per second
@@ -151,18 +151,15 @@ const Append = (props_: any) => {
 
   const make = (
     value = { position: position_, alignment: alignment_, inset: inset_ },
-    values = getValues(),
-    scrollRoot_ = window.document
+    values = getValues()
   ) => {
     if (!values) return;
-
-    const scrollRoot = (scrollRoot_ === window.document ? window.document.documentElement : scrollRoot_) as HTMLElement;
 
     const scrollableParents = element_(refs.root.current).parents().filter(item => item.scrollHeight - item.clientHeight);
 
     let { position, alignment, inset } = value;
 
-    const { rect, rectOffset } = values;
+    let { rect, rectOffset } = values;
 
     // We need both root and element refs
     // to make our values for it
@@ -218,327 +215,181 @@ const Append = (props_: any) => {
       // or window push them to 0 value
       // only if that value doesn't unfollow them from the element
       // or unfollow them if unfollow is true
-      if (relativeTo === 'window') {
-        if (['left', 'right'].includes(position)) {
-          // All parents that are scrollable
-          const valuesY = [values_.y];
+      const wrapperRect = refs.root.current.parentElement.getBoundingClientRect();
 
-          let result = values_.y;
+      if (relativeTo === 'window') rectOffset = rect;
 
-          scrollableParents.forEach((parent: HTMLElement) => {
-            const scrollParentRect = parent.getBoundingClientRect();
+      const rootY = relativeTo === 'parent' ? wrapperRect.y + rectOffset.root.y : rect.root.y;
+      const valueY = relativeTo === 'parent' ? wrapperRect.y + values_.y : values_.y;
 
-            const scrollParentY = scrollParentRect.y - rect.root.y;
-            const valueScrollParentY = values_.y - scrollParentRect.y;
+      const rootX = relativeTo === 'parent' ? wrapperRect.x + rectOffset.root.x : rect.root.x;
+      const valueX = relativeTo === 'parent' ? wrapperRect.x + values_.x : values_.x;
 
-            // top
-            if (
-              (values_.y <= 0 + padding[1]) ||
-              (valueScrollParentY <= 0 + padding[1])
-            ) {
-              if ((rect.root.y + rect.root.height) > 0 || unfollow) {
-                values_.y = Math.max(
-                  values_.y,
-                  scrollParentY,
-                  scrollParentRect.y,
-                  0
-                );
+      const wrapperRectY = relativeTo === 'parent' ? wrapperRect.y : 0;
+      const wrapperRectX = relativeTo === 'parent' ? wrapperRect.x : 0;
 
-                // padding
-                const padding_ = values_.y > (rect.root.y + rect.root.height) && unfollow ? paddingUnfollow : padding;
+      if (['left', 'right'].includes(position)) {
+        // All parents that are scrollable
+        const valuesY = [values_.y];
 
-                values_.y += clamp(Math.abs(values_.y - padding_[1]), 0, padding_[1]);
+        let result = values_.y;
 
-                if (!unfollow) values_.y = clamp(values_.y, Number.MIN_SAFE_INTEGER, rect.root.y + rect.root.height);
-              }
-              else values_.y = rect.root.y + rect.root.height;
+        scrollableParents.forEach((parent: HTMLElement) => {
+          const scrollParentRect = parent.getBoundingClientRect();
 
-              valuesY.push(values_.y);
+          const scrollParentY = scrollParentRect.y - Math.abs(rect.root.y);
+          const valueScrollParentY = valueY - scrollParentRect.y;
 
-              result = Math.max(...valuesY);
+          // top
+          if (
+            (valueY <= 0 + padding[1]) ||
+            (valueScrollParentY <= 0 + padding[1])
+          ) {
+            if ((rootY + rect.root.height) > 0 || unfollow) {
+              const mathValues = [
+                values_.y,
+                scrollParentY,
+                scrollParentRect.y - wrapperRectY,
+                0
+              ];
+
+              if (relativeTo === 'parent') mathValues.push(rectOffset.root.y - rootY);
+
+              values_.y = Math.max(...mathValues);
+
+              // padding
+              const padding_ = values_.y > (rectOffset.root.y + rect.root.height) && unfollow ? paddingUnfollow : padding;
+
+              values_.y += clamp(Math.abs(values_.y + wrapperRectY - padding_[1]), 0, padding_[1]);
+
+              if (!unfollow) values_.y = clamp(values_.y, Number.MIN_SAFE_INTEGER, rectOffset.root.y + rect.root.height);
             }
+            else values_.y = rectOffset.root.y + rect.root.height;
 
-            // bottom
+            valuesY.push(values_.y);
+
+            result = Math.max(...valuesY);
+          }
+
+          // bottom
+          if (
+            (valueY + rect.element.height >= window.innerHeight - padding[1]) ||
+            (values_.y + rect.element.height >= scrollParentRect.y + scrollParentRect.height - wrapperRectY - padding[1])
+          ) {
             if (
-              (values_.y + rect.element.height >= window.innerHeight - padding[1]) ||
-              (values_.y + rect.element.height >= scrollParentRect.y + scrollParentRect.height - padding[1])
+              (
+                (rect.root.y < window.innerHeight) ||
+                (rectOffset.root.y < scrollParentRect.y + scrollParentRect.height - wrapperRectY)
+              )
+              || unfollow
             ) {
-              if (
-                (
-                  (rect.root.y < window.innerHeight) ||
-                  (rect.root.y < scrollParentRect.y + scrollParentRect.height)
-                )
-                || unfollow
-              ) {
-                values_.y = Math.abs(Math.min(
-                  values_.y,
-                  window.innerHeight - rect.element.height,
-                  scrollParentRect.y + scrollParentRect.height - rect.element.height
-                ));
+              values_.y = Math.abs(Math.min(
+                values_.y,
+                window.innerHeight - wrapperRectY - rect.element.height,
+                scrollParentRect.y + scrollParentRect.height - wrapperRectY - rect.element.height
+              ));
 
-                // padding
-                const padding_ = (values_.y < rect.root.y - rect.element.height) && unfollow ? paddingUnfollow : padding;
+              // padding
+              const padding_ = (values_.y < rectOffset.root.y - rect.element.height) && unfollow ? paddingUnfollow : padding;
 
-                values_.y -= clamp(Math.abs(values_.y - (window.innerHeight - rect.element.height - padding_[1])), 0, padding_[1]);
+              values_.y -= clamp(Math.abs(values_.y - (window.innerHeight - wrapperRectY - rect.element.height - padding_[1])), 0, padding_[1]);
 
-                if (!unfollow) values_.y = clamp(values_.y, rect.root.y - rect.element.height, Number.MAX_SAFE_INTEGER);
-              }
-              else values_.y = rect.root.y - rect.element.height;
-
-              valuesY.push(values_.y);
-
-              result = Math.min(...valuesY);
+              if (!unfollow) values_.y = clamp(values_.y, rectOffset.root.y - rect.element.height, Number.MAX_SAFE_INTEGER);
             }
+            else values_.y = rectOffset.root.y - rect.element.height;
 
-            // Reset
-            values_.y = valuesY[0];
-          });
+            valuesY.push(values_.y);
 
-          values_.y = result;
-        }
+            result = Math.min(...valuesY);
+          }
 
-        if (['top', 'bottom'].includes(position)) {
-          // All parents that are scrollable
-          const valuesX = [values_.x];
+          // Reset
+          values_.y = valuesY[0];
+        });
 
-          let result = values_.x;
-
-          scrollableParents.forEach((parent: HTMLElement) => {
-            const scrollParentRect = parent.getBoundingClientRect();
-
-            const scrollParentX = scrollParentRect.x - Math.abs(rect.root.x);
-            const valueScrollParentX = values_.x - scrollParentRect.x;
-
-            // left
-            if (
-              (values_.x <= 0 + padding[0]) ||
-              (valueScrollParentX <= 0 + padding[0])
-            ) {
-              if ((rect.root.x + rect.root.width) > 0 || unfollow) {
-                values_.x = Math.max(
-                  values_.x,
-                  scrollParentX,
-                  scrollParentRect.x,
-                  0
-                );
-
-                // padding
-                const padding_ = (values_.x > rect.root.x + rect.root.width) && unfollow ? paddingUnfollow : padding;
-
-                values_.x += clamp(Math.abs(values_.x - padding_[0]), 0, padding_[0]);
-
-                if (!unfollow) values_.x = clamp(values_.x, Number.MIN_SAFE_INTEGER, rect.root.x + rect.root.width);
-              }
-              else values_.x = rect.root.x + rect.root.width;
-
-              valuesX.push(values_.x);
-
-              result = Math.max(...valuesX);
-            }
-
-            // right
-            if (
-              (values_.x + rect.element.width >= window.innerWidth - padding[0]) ||
-              (values_.x + rect.element.width >= scrollParentRect.x + scrollParentRect.width - padding[0])
-            ) {
-              if (
-                (
-                  (rect.root.x < window.innerWidth) ||
-                  (rect.root.x < scrollParentRect.x + scrollParentRect.width)
-                )
-                || unfollow
-              ) {
-                values_.x = Math.abs(Math.min(
-                  values_.x,
-                  window.innerWidth - rect.element.width,
-                  scrollParentRect.x + scrollParentRect.width - rect.element.width
-                ));
-
-                // padding
-                const padding_ = (values_.x < rect.root.x - rect.element.width) && unfollow ? paddingUnfollow : padding;
-
-                values_.x -= clamp(Math.abs(values_.x - (window.innerWidth - rect.element.width - padding_[0])), 0, padding_[0]);
-
-                if (!unfollow) values_.x = clamp(values_.x, rect.root.x - rect.element.width, Number.MAX_SAFE_INTEGER);
-              }
-              else values_.x = rect.root.x - rect.element.width;
-
-              valuesX.push(values_.x);
-
-              result = Math.min(...valuesX);
-            }
-
-            // Reset
-            values_.x = valuesX[0];
-          });
-
-          values_.x = result;
-        }
+        values_.y = result;
       }
-      else if (relativeTo === 'parent') {
-        const wrapperRect = refs.root.current.parentElement.getBoundingClientRect();
 
-        const rootY = wrapperRect.y + rectOffset.root.y;
-        const valueY = wrapperRect.y + values_.y;
+      if (['top', 'bottom'].includes(position)) {
+        // All parents that are scrollable
+        const valuesX = [values_.x];
 
-        const rootX = wrapperRect.x + rectOffset.root.x;
-        const valueX = wrapperRect.x + values_.x;
+        let result = values_.x;
 
-        if (['left', 'right'].includes(position)) {
-          // All parents that are scrollable
-          const valuesY = [values_.y];
+        scrollableParents.forEach((parent: HTMLElement) => {
+          const scrollParentRect = parent.getBoundingClientRect();
 
-          let result = values_.y;
+          const scrollParentX = scrollParentRect.x - Math.abs(rect.root.x);
+          const valueScrollParentX = valueX - scrollParentRect.x;
 
-          scrollableParents.forEach((parent: HTMLElement) => {
-            const scrollParentRect = parent.getBoundingClientRect();
+          // left
+          if (
+            (valueX <= 0 + padding[0]) ||
+            (valueScrollParentX <= 0 + padding[0])
+          ) {
+            if ((rootX + rect.root.width) > 0 || unfollow) {
+              const mathValues = [
+                values_.x,
+                scrollParentX,
+                scrollParentRect.x - wrapperRectX,
+                0
+              ];
 
-            const scrollParentY = scrollParentRect.y - rect.root.y;
-            const valueScrollParentY = valueY - scrollParentRect.y;
+              if (relativeTo === 'parent') mathValues.push(rectOffset.root.x - rootX);
 
-            // top
-            if (
-              (valueY <= 0 + padding[1]) ||
-              (valueScrollParentY <= 0 + padding[1])
-            ) {
-              if ((rootY + rect.root.height) > 0 || unfollow) {
-                values_.y = Math.max(
-                  values_.y,
-                  scrollParentY,
-                  scrollParentRect.y - wrapperRect.y,
-                  rectOffset.root.y - rootY
-                );
+              values_.x = Math.max(...mathValues);
 
-                // padding
-                const padding_ = values_.y > (rectOffset.root.y + rect.root.height) && unfollow ? paddingUnfollow : padding;
+              // padding
+              const padding_ = (values_.x > rectOffset.root.x + rect.root.width) && unfollow ? paddingUnfollow : padding;
 
-                values_.y += clamp(Math.abs(values_.y + wrapperRect.y - padding_[1]), 0, padding_[1]);
+              values_.x += clamp(Math.abs(values_.x + wrapperRectX - padding_[0]), 0, padding_[0]);
 
-                if (!unfollow) values_.y = clamp(values_.y, Number.MIN_SAFE_INTEGER, rectOffset.root.y + rect.root.height);
-              }
-              else values_.y = rectOffset.root.y + rect.root.height;
-
-              valuesY.push(values_.y);
-
-              result = Math.max(...valuesY);
+              if (!unfollow) values_.x = clamp(values_.x, Number.MIN_SAFE_INTEGER, rectOffset.root.x + rect.root.width);
             }
+            else values_.x = rectOffset.root.x + rect.root.width;
 
-            // bottom
+            valuesX.push(values_.x);
+
+            result = Math.max(...valuesX);
+          }
+
+          // right
+          if (
+            (valueX + rect.element.width >= window.innerWidth - padding[0]) ||
+            (values_.x + rect.element.width >= scrollParentRect.x + scrollParentRect.width - wrapperRectX - padding[0])
+          ) {
             if (
-              (valueY + rect.element.height >= window.innerHeight - padding[1]) ||
-              (values_.y + rect.element.height >= scrollParentRect.y + scrollParentRect.height - wrapperRect.y - padding[1])
+              (
+                (rect.root.x < window.innerWidth) ||
+                (rectOffset.root.x < scrollParentRect.x + scrollParentRect.width - wrapperRectX)
+              )
+              || unfollow
             ) {
-              if (
-                (
-                  (rect.root.y < window.innerHeight) ||
-                  (rectOffset.root.y < scrollParentRect.y + scrollParentRect.height - wrapperRect.y)
-                )
-                || unfollow
-              ) {
-                values_.y = Math.abs(Math.min(
-                  values_.y,
-                  window.innerHeight - wrapperRect.y - rect.element.height,
-                  scrollParentRect.y + scrollParentRect.height - wrapperRect.y - rect.element.height
-                ));
+              values_.x = Math.abs(Math.min(
+                values_.x,
+                window.innerWidth - wrapperRectX - rect.element.width,
+                scrollParentRect.x + scrollParentRect.width - wrapperRectX - rect.element.width
+              ));
 
-                // padding
-                const padding_ = (values_.y < rectOffset.root.y - rect.element.height) && unfollow ? paddingUnfollow : padding;
+              // padding
+              const padding_ = (values_.x < rectOffset.root.x - rect.element.width) && unfollow ? paddingUnfollow : padding;
 
-                values_.y -= clamp(Math.abs(values_.y - (window.innerHeight - wrapperRect.y - rect.element.height - padding_[1])), 0, padding_[1]);
+              values_.x -= clamp(Math.abs(values_.x - (window.innerWidth - wrapperRectX - rect.element.width - padding_[0])), 0, padding_[0]);
 
-                if (!unfollow) values_.y = clamp(values_.y, rectOffset.root.y - rect.element.height, Number.MAX_SAFE_INTEGER);
-              }
-              else values_.y = rectOffset.root.y - rect.element.height;
-
-              valuesY.push(values_.y);
-
-              result = Math.min(...valuesY);
+              if (!unfollow) values_.x = clamp(values_.x, rectOffset.root.x - rect.element.width, Number.MAX_SAFE_INTEGER);
             }
+            else values_.x = rectOffset.root.x - rect.element.width;
 
-            // Reset
-            values_.y = valuesY[0];
-          });
+            valuesX.push(values_.x);
 
-          values_.y = result;
-        }
+            result = Math.min(...valuesX);
+          }
 
-        if (['top', 'bottom'].includes(position)) {
-          // All parents that are scrollable
-          const valuesX = [values_.x];
+          // Reset
+          values_.x = valuesX[0];
+        });
 
-          let result = values_.x;
-
-          scrollableParents.forEach((parent: HTMLElement) => {
-            const scrollParentRect = parent.getBoundingClientRect();
-
-            const scrollParentX = scrollParentRect.x - rect.root.x;
-            const valueScrollParentX = valueX - scrollParentRect.x;
-
-            // left
-            if (
-              (valueX <= 0 + padding[0]) ||
-              (valueScrollParentX <= 0 + padding[0])
-            ) {
-              if ((rootX + rect.root.width) > 0 || unfollow) {
-                values_.x = Math.max(
-                  values_.x,
-                  scrollParentX,
-                  scrollParentRect.x - wrapperRect.x,
-                  rectOffset.root.x - rootX
-                );
-
-                // padding
-                const padding_ = (values_.x > rectOffset.root.x + rect.root.width) && unfollow ? paddingUnfollow : padding;
-
-                values_.x += clamp(Math.abs(values_.x + wrapperRect.x - padding_[0]), 0, padding_[0]);
-
-                if (!unfollow) values_.x = clamp(values_.x, Number.MIN_SAFE_INTEGER, rectOffset.root.x + rect.root.width);
-              }
-              else values_.x = rectOffset.root.x + rect.root.width;
-
-              valuesX.push(values_.x);
-
-              result = Math.max(...valuesX);
-            }
-
-            // right
-            if (
-              (valueX + rect.element.width >= window.innerWidth - padding[0]) ||
-              (values_.x + rect.element.width >= scrollParentRect.x + scrollParentRect.width - wrapperRect.x - padding[0])
-            ) {
-              if (
-                (
-                  (rect.root.x < window.innerWidth) ||
-                  (rectOffset.root.x < scrollParentRect.x + scrollParentRect.width - wrapperRect.x)
-                )
-                || unfollow
-              ) {
-                values_.x = Math.abs(Math.min(
-                  values_.x,
-                  window.innerWidth - wrapperRect.x - rect.element.width,
-                  scrollParentRect.x + scrollParentRect.width - wrapperRect.x - rect.element.width
-                ));
-
-                // padding
-                const padding_ = (values_.x < rectOffset.root.x - rect.element.width) && unfollow ? paddingUnfollow : padding;
-
-                values_.x -= clamp(Math.abs(values_.x - (window.innerWidth - wrapperRect.x - rect.element.width - padding_[0])), 0, padding_[0]);
-
-                if (!unfollow) values_.x = clamp(values_.x, rectOffset.root.x - rect.element.width, Number.MAX_SAFE_INTEGER);
-              }
-              else values_.x = rectOffset.root.x - rect.element.width;
-
-              valuesX.push(values_.x);
-
-              result = Math.min(...valuesX);
-            }
-
-            // Reset
-            values_.x = valuesX[0];
-          });
-
-          values_.x = result;
-        }
+        values_.x = result;
       }
     }
 
