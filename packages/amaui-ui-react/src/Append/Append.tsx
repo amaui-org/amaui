@@ -318,16 +318,23 @@ const Append = (props_: any) => {
           let result = values_.y;
 
           scrollableParents.forEach((parent: HTMLElement) => {
-            // const scrollLeft = parent.scrollLeft || 0;
             const scrollParentRect = parent.getBoundingClientRect();
 
             const scrollParentY = scrollParentRect.y - rect.root.y;
             const valueScrollParentY = valueY - scrollParentRect.y;
 
             // top
-            if (valueY <= 0 + padding[1]) {
+            if (
+              (valueY <= 0 + padding[1]) ||
+              (valueScrollParentY <= 0 + padding[1])
+            ) {
               if ((rootY + rect.root.height) > 0 || unfollow) {
-                values_.y = Math.max(values_.y, scrollParentY, rectOffset.root.y - rootY);
+                values_.y = Math.max(
+                  values_.y,
+                  scrollParentY,
+                  scrollParentRect.y - wrapperRect.y,
+                  rectOffset.root.y - rootY
+                );
 
                 // padding
                 values_.y += clamp(Math.abs(values_.y + wrapperRect.y - padding[1]), 0, padding[1]);
@@ -342,9 +349,22 @@ const Append = (props_: any) => {
             }
 
             // bottom
-            if (valueY + rect.element.height >= window.innerHeight - padding[1]) {
-              if (rect.root.y < window.innerHeight || unfollow) {
-                values_.y = Math.min(values_.y, window.innerHeight - wrapperRect.y - rect.element.height);
+            if (
+              (valueY + rect.element.height >= window.innerHeight - padding[1]) ||
+              (values_.y + rect.element.height >= scrollParentRect.y + scrollParentRect.height - wrapperRect.y - padding[1])
+            ) {
+              if (
+                (
+                  (rect.root.y < window.innerHeight) ||
+                  (rectOffset.root.y < scrollParentRect.y + scrollParentRect.height - wrapperRect.y)
+                )
+                || unfollow
+              ) {
+                values_.y = Math.abs(Math.min(
+                  values_.y,
+                  window.innerHeight - wrapperRect.y - rect.element.height,
+                  scrollParentRect.y + scrollParentRect.height - wrapperRect.y - rect.element.height
+                ));
 
                 // padding
                 values_.y -= clamp(Math.abs(values_.y - (window.innerHeight - wrapperRect.y - rect.element.height - padding[1])), 0, padding[1]);
@@ -372,7 +392,6 @@ const Append = (props_: any) => {
           let result = values_.x;
 
           scrollableParents.forEach((parent: HTMLElement) => {
-            const scrollLeft = parent.scrollLeft || 0;
             const scrollParentRect = parent.getBoundingClientRect();
 
             const scrollParentX = scrollParentRect.x - rect.root.x;
@@ -388,8 +407,7 @@ const Append = (props_: any) => {
                   values_.x,
                   scrollParentX,
                   scrollParentRect.x - wrapperRect.x,
-                  rectOffset.root.x - rootX,
-                  scrollLeft
+                  rectOffset.root.x - rootX
                 );
 
                 // padding
