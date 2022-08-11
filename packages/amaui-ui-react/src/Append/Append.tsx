@@ -362,8 +362,6 @@ const Append = (props_: any) => {
             values_.y = valuesY[0];
           });
 
-          console.log('Left', JSON.stringify(valuesY), result);
-
           values_.y = result;
         }
 
@@ -394,14 +392,6 @@ const Append = (props_: any) => {
                   scrollLeft
                 );
 
-                console.log(1,
-                  values_.x,
-                  scrollParentX,
-                  scrollParentRect.x - wrapperRect.x,
-                  rectOffset.root.x - rootX,
-                  scrollLeft
-                )
-
                 // padding
                 values_.x += clamp(Math.abs(values_.x + wrapperRect.x - padding[0]), 0, padding[0]);
 
@@ -412,8 +402,6 @@ const Append = (props_: any) => {
               valuesX.push(values_.x);
 
               result = Math.max(...valuesX);
-
-              console.log('Left', JSON.stringify(valuesX));
             }
 
             // right
@@ -424,14 +412,14 @@ const Append = (props_: any) => {
               if (
                 (
                   (rect.root.x < window.innerWidth) ||
-                  (rectOffset.root.x < scrollLeft + scrollParentRect.width)
+                  (rectOffset.root.x < scrollParentRect.x + scrollParentRect.width - wrapperRect.x)
                 )
                 || unfollow
               ) {
                 values_.x = Math.abs(Math.min(
                   values_.x,
                   window.innerWidth - wrapperRect.x - rect.element.width,
-                  scrollLeft + scrollParentRect.width - rect.element.width
+                  scrollParentRect.x + scrollParentRect.width - wrapperRect.x - rect.element.width
                 ));
 
                 // padding
@@ -444,15 +432,11 @@ const Append = (props_: any) => {
               valuesX.push(values_.x);
 
               result = Math.min(...valuesX);
-
-              console.log('Right', JSON.stringify(valuesX));
             }
 
             // Reset
             values_.x = valuesX[0];
           });
-
-          console.log('Top', JSON.stringify(valuesX), result, scrollableParents);
 
           values_.x = result;
         }
