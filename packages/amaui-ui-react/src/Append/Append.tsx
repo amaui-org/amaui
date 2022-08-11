@@ -3,20 +3,16 @@ import React from 'react';
 import { copy, debounce, equalDeep, is, isEnvironment, element as element_, clamp } from '@amaui/utils';
 import { useAmauiTheme } from '@amaui/style-react';
 
-// unfollow padding
+// window
 
-// Window
-// padding
-// unfollow
-
-// 2. Make switch work
-// 3. Padding overflow and switch
+// Switch
+// with padding and offset to take into an account
 
 // Other
 
-// Make it work for selection as well value y
-// Events scroll and resize as well value y
-// Updating popper element content within, width update value y
+// Selection use case
+// Resize event value update
+// Root element content with update, update the appended value
 
 const Append = (props_: any) => {
   const theme = useAmauiTheme();
@@ -75,6 +71,7 @@ const Append = (props_: any) => {
     ],
     offset = [0, 0],
     padding = [0, 0],
+    paddingUnfollow = props.padding,
     inset: inset_,
     position: position_ = 'bottom',
     alignment: alignment_ = 'end',
@@ -333,7 +330,9 @@ const Append = (props_: any) => {
                 );
 
                 // padding
-                values_.y += clamp(Math.abs(values_.y + wrapperRect.y - padding[1]), 0, padding[1]);
+                const padding_ = values_.y > (rectOffset.root.y + rect.root.height) && unfollow ? paddingUnfollow : padding;
+
+                values_.y += clamp(Math.abs(values_.y + wrapperRect.y - padding_[1]), 0, padding_[1]);
 
                 if (!unfollow) values_.y = clamp(values_.y, Number.MIN_SAFE_INTEGER, rectOffset.root.y + rect.root.height);
               }
@@ -363,7 +362,9 @@ const Append = (props_: any) => {
                 ));
 
                 // padding
-                values_.y -= clamp(Math.abs(values_.y - (window.innerHeight - wrapperRect.y - rect.element.height - padding[1])), 0, padding[1]);
+                const padding_ = (values_.y < rectOffset.root.y - rect.element.height) && unfollow ? paddingUnfollow : padding;
+
+                values_.y -= clamp(Math.abs(values_.y - (window.innerHeight - wrapperRect.y - rect.element.height - padding_[1])), 0, padding_[1]);
 
                 if (!unfollow) values_.y = clamp(values_.y, rectOffset.root.y - rect.element.height, Number.MAX_SAFE_INTEGER);
               }
@@ -407,7 +408,9 @@ const Append = (props_: any) => {
                 );
 
                 // padding
-                values_.x += clamp(Math.abs(values_.x + wrapperRect.x - padding[0]), 0, padding[0]);
+                const padding_ = (values_.x > rectOffset.root.x + rect.root.width) && unfollow ? paddingUnfollow : padding;
+
+                values_.x += clamp(Math.abs(values_.x + wrapperRect.x - padding_[0]), 0, padding_[0]);
 
                 if (!unfollow) values_.x = clamp(values_.x, Number.MIN_SAFE_INTEGER, rectOffset.root.x + rect.root.width);
               }
@@ -437,7 +440,9 @@ const Append = (props_: any) => {
                 ));
 
                 // padding
-                values_.x -= clamp(Math.abs(values_.x - (window.innerWidth - wrapperRect.x - rect.element.width - padding[0])), 0, padding[0]);
+                const padding_ = (values_.x < rectOffset.root.x - rect.element.width) && unfollow ? paddingUnfollow : padding;
+
+                values_.x -= clamp(Math.abs(values_.x - (window.innerWidth - wrapperRect.x - rect.element.width - padding_[0])), 0, padding_[0]);
 
                 if (!unfollow) values_.x = clamp(values_.x, rectOffset.root.x - rect.element.width, Number.MAX_SAFE_INTEGER);
               }
