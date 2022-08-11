@@ -3134,7 +3134,7 @@ function App() {
                   </div>
                 </div>
 
-                <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
+                {/* <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
                   <div style={{ height: 400, width: 400, padding: 340 }}>
                     <Append position='left' relativeTo='parent' offset={[14, 14]} padding={[7, 7]}
                       element={(
@@ -3168,7 +3168,7 @@ function App() {
                       <Button color='secondary'>Append</Button>
                     </Append>
                   </div>
-                </div>
+                </div> */}
               </div>
             </Accordion>
 

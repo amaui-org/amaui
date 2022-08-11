@@ -22,8 +22,6 @@ import { useAmauiTheme } from '@amaui/style-react';
 // Events scroll and resize as well value y
 // Updating popper element content within, width update value y
 
-// rtl
-
 const Append = (props_: any) => {
   const theme = useAmauiTheme();
 
@@ -169,13 +167,7 @@ const Append = (props_: any) => {
 
     const scrollRoot = (scrollRoot_ === window.document ? window.document.documentElement : scrollRoot_) as HTMLElement;
 
-    const scrollableParents = element_(refs.root.current).parents().filter(item => {
-      if (item === window.document as any) return false;
-
-      const overflow = window.getComputedStyle(item).overflow;
-
-      return !['visible'].includes(overflow);
-    });
+    const scrollableParents = element_(refs.root.current).parents().filter(item => item.scrollHeight - item.clientHeight);
 
     let { position, alignment, inset } = value;
 
@@ -370,7 +362,7 @@ const Append = (props_: any) => {
             values_.y = valuesY[0];
           });
 
-          console.log(1.4, result);
+          console.log('Left', JSON.stringify(valuesY), result);
 
           values_.y = result;
         }
@@ -382,16 +374,33 @@ const Append = (props_: any) => {
           let result = values_.x;
 
           scrollableParents.forEach((parent: HTMLElement) => {
-            // const scrollLeft = parent.scrollLeft || 0;
+            const scrollLeft = parent.scrollLeft || 0;
             const scrollParentRect = parent.getBoundingClientRect();
 
             const scrollParentX = scrollParentRect.x - rect.root.x;
             const valueScrollParentX = valueX - scrollParentRect.x;
 
             // left
-            if (valueX <= 0 + padding[0]) {
+            if (
+              (valueX <= 0 + padding[0]) ||
+              (valueScrollParentX <= 0 + padding[0])
+            ) {
               if ((rootX + rect.root.width) > 0 || unfollow) {
-                values_.x = Math.max(values_.x, scrollParentX, rectOffset.root.x - rootX);
+                values_.x = Math.max(
+                  values_.x,
+                  scrollParentX,
+                  scrollParentRect.x - wrapperRect.x,
+                  rectOffset.root.x - rootX,
+                  scrollLeft
+                );
+
+                console.log(1,
+                  values_.x,
+                  scrollParentX,
+                  scrollParentRect.x - wrapperRect.x,
+                  rectOffset.root.x - rootX,
+                  scrollLeft
+                )
 
                 // padding
                 values_.x += clamp(Math.abs(values_.x + wrapperRect.x - padding[0]), 0, padding[0]);
@@ -403,12 +412,27 @@ const Append = (props_: any) => {
               valuesX.push(values_.x);
 
               result = Math.max(...valuesX);
+
+              console.log('Left', JSON.stringify(valuesX));
             }
 
             // right
-            if (valueX + rect.element.width >= window.innerWidth - padding[0]) {
-              if (rect.root.x < window.innerWidth || unfollow) {
-                values_.x = Math.min(values_.x, window.innerWidth - wrapperRect.x - rect.element.width);
+            if (
+              (valueX + rect.element.width >= window.innerWidth - padding[0]) ||
+              (values_.x + rect.element.width >= scrollParentRect.x + scrollParentRect.width - wrapperRect.x - padding[0])
+            ) {
+              if (
+                (
+                  (rect.root.x < window.innerWidth) ||
+                  (rectOffset.root.x < scrollLeft + scrollParentRect.width)
+                )
+                || unfollow
+              ) {
+                values_.x = Math.abs(Math.min(
+                  values_.x,
+                  window.innerWidth - wrapperRect.x - rect.element.width,
+                  scrollLeft + scrollParentRect.width - rect.element.width
+                ));
 
                 // padding
                 values_.x -= clamp(Math.abs(values_.x - (window.innerWidth - wrapperRect.x - rect.element.width - padding[0])), 0, padding[0]);
@@ -420,13 +444,15 @@ const Append = (props_: any) => {
               valuesX.push(values_.x);
 
               result = Math.min(...valuesX);
+
+              console.log('Right', JSON.stringify(valuesX));
             }
 
             // Reset
             values_.x = valuesX[0];
           });
 
-          console.log(1.4, result);
+          console.log('Top', JSON.stringify(valuesX), result, scrollableParents);
 
           values_.x = result;
         }
