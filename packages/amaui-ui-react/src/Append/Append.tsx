@@ -3,10 +3,6 @@ import React from 'react';
 import { debounce, equalDeep, is, isEnvironment, element as element_, clamp, stringify } from '@amaui/utils';
 import { useAmauiTheme } from '@amaui/style-react';
 
-// Other
-
-// Follow cursor
-
 const Append = (props_: any) => {
   const theme = useAmauiTheme();
 

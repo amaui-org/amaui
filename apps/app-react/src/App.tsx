@@ -541,6 +541,15 @@ function App() {
     setAnchor(selection.getRangeAt(0).getBoundingClientRect());
   };
 
+  const onMouseMove = (event: MouseEvent) => {
+    setAnchor({
+      x: event.clientX,
+      y: event.clientY,
+      width: 10,
+      height: 20
+    });
+  };
+
   return (
     <div className={classes.root} style={{ width: '100vw' }}>
       {/* Reset */}
@@ -563,6 +572,13 @@ function App() {
 
       <Accordion label='All'>
         <div className={classNames([classes.column])}>
+          <Append position='bottom' alignment='end' relativeTo='parent'
+            element={(
+              <span className={classes.tooltip}>a</span>
+            )}
+          >
+            <Button color='secondary'>Append</Button>
+          </Append>
 
           <List>
             <ListItem
@@ -4934,6 +4950,44 @@ function App() {
             <div className={classNames([classes.column])} style={{ gap: 74 }}>
               <Type
                 onMouseUp={onMouseUp}
+              >
+                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+              </Type>
+
+              <Append position='bottom' alignment='center' relativeTo='window'
+                anchor={anchor}
+
+                element={(
+                  <span className={classes.tooltip}>a</span>
+                )}
+              />
+            </div>
+          </Accordion>
+        </Accordion>
+
+        <Accordion label='Append use case follow pointer value'>
+          <Accordion label='Append relativeTo parent'>
+            <div className={classNames([classes.column])} style={{ gap: 74 }}>
+              <Type
+                onMouseMove={onMouseMove}
+              >
+                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+              </Type>
+
+              <Append position='bottom' alignment='center' relativeTo='parent'
+                anchor={anchor}
+
+                element={(
+                  <span className={classes.tooltip}>a</span>
+                )}
+              />
+            </div>
+          </Accordion>
+
+          <Accordion label='Append relativeTo window'>
+            <div className={classNames([classes.column])} style={{ gap: 74 }}>
+              <Type
+                onMouseMove={onMouseMove}
               >
                 It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
               </Type>
