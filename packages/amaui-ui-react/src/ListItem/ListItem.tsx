@@ -57,8 +57,22 @@ const useStyle = style(theme => ({
 
   error: { color: theme.methods.palette.color.value('error', 70, true) },
 
-  shape_rounded: {
-    borderRadius: '150px'
+  shape_round_position_both: {
+    borderRadius: '114vh'
+  },
+
+  shape_round_position_start: {
+    borderEndStartRadius: '114vh',
+    borderStartStartRadius: '114vh'
+  },
+
+  shape_round_position_end: {
+    borderStartEndRadius: '114vh',
+    borderEndEndRadius: '114vh'
+  },
+
+  shape_round_position_none: {
+    borderRadius: 0
   },
 
   button: {
@@ -184,7 +198,8 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
     size = 'regular',
     href,
     button,
-    shape = 'rounded',
+    shape = 'round',
+    shapePosition = 'none',
     Component = 'li',
     RootComponent: RootComponent_ = 'div',
     InteractionProps = {},
@@ -255,13 +270,14 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
             'AmauiListItem-root',
             `AmauiListItem-size-${size}`,
             `AmauiListItem-color-${!classes[colorToUse] ? 'new' : colorToUse}`,
+            `AmauiListItem-shape-${shape}-position-${shapePosition}`,
             disabled && `AmauiListItem-disabled`
           ],
 
           classes.root,
           classes[size],
           classes[selected ? colorSelected : color],
-          classes[`shape_${shape}`],
+          classes[`shape_${shape}_position_${shapePosition}`],
           (href || button) && classes.button,
           disabled && classes.disabled
         ])}

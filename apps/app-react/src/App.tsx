@@ -551,7 +551,7 @@ function App() {
   };
 
   return (
-    <div className={classes.root} style={{ width: '100vw' }}>
+    <div className={classes.root}>
       {/* Reset */}
       <Reset />
 
@@ -5021,6 +5021,361 @@ function App() {
           </div>
         </Accordion>
 
+        <Accordion label='List padding vertical' open>
+          <div className={classNames([classes.column])} style={{ gap: 14 }}>
+            <List paddingVertical='both'>
+              {[0, 1, 3, 4].map(item => (
+                <ListItem
+                  primary='Primary text'
+                  secondary='Secondary text'
+                  tertiary='Tertiary text'
+
+                  key={item}
+                />
+              ))}
+            </List>
+
+            <List paddingVertical='start'>
+              {[0, 1, 3, 4].map(item => (
+                <ListItem
+                  primary='Primary text'
+                  secondary='Secondary text'
+                  tertiary='Tertiary text'
+
+                  key={item}
+                />
+              ))}
+            </List>
+
+            <List paddingVertical='end'>
+              {[0, 1, 3, 4].map(item => (
+                <ListItem
+                  primary='Primary text'
+                  secondary='Secondary text'
+                  tertiary='Tertiary text'
+
+                  key={item}
+                />
+              ))}
+            </List>
+
+            <List paddingVertical='none'>
+              {[0, 1, 3, 4].map(item => (
+                <ListItem
+                  primary='Primary text'
+                  secondary='Secondary text'
+                  tertiary='Tertiary text'
+
+                  key={item}
+                />
+              ))}
+            </List>
+          </div>
+        </Accordion>
+
+        <Accordion label='List padding horizontal' open>
+          <div className={classNames([classes.column])} style={{ gap: 14 }}>
+            <List paddingHorizontal='both'>
+              {[0, 1, 3, 4].map(item => (
+                <ListItem
+                  primary='Primary text'
+                  secondary='Secondary text'
+                  tertiary='Tertiary text'
+
+                  key={item}
+                />
+              ))}
+            </List>
+
+            <List paddingHorizontal='start'>
+              {[0, 1, 3, 4].map(item => (
+                <ListItem
+                  primary='Primary text'
+                  secondary='Secondary text'
+                  tertiary='Tertiary text'
+
+                  key={item}
+                />
+              ))}
+            </List>
+
+            <List paddingHorizontal='end'>
+              {[0, 1, 3, 4].map(item => (
+                <ListItem
+                  primary='Primary text'
+                  secondary='Secondary text'
+                  tertiary='Tertiary text'
+
+                  key={item}
+                />
+              ))}
+            </List>
+
+            <List paddingHorizontal='none'>
+              {[0, 1, 3, 4].map(item => (
+                <ListItem
+                  primary='Primary text'
+                  secondary='Secondary text'
+                  tertiary='Tertiary text'
+
+                  key={item}
+                />
+              ))}
+            </List>
+          </div>
+        </Accordion>
+
+        <Accordion label='List item shape and shape position' open>
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+            <List size='small'>
+              <ListItem
+                button
+
+                shapePosition='none'
+
+                primary='Primary value'
+
+                start={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+
+                end={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+              />
+              <ListItem
+                button
+
+                shapePosition='end'
+
+                primary='Primary value'
+
+                start={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+
+                end={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+              />
+              <ListItem
+                button
+
+                shapePosition='start'
+
+                primary='Primary value'
+
+                start={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+
+                end={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+              />
+              <ListItem
+                button
+
+                shapePosition='both'
+
+                primary='Primary value'
+
+                start={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+
+                end={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+              />
+            </List>
+
+            <List size='regular'>
+              <ListItem
+                button
+
+                shapePosition='none'
+
+                primary='Primary value'
+
+                start={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+
+                end={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+              />
+              <ListItem
+                button
+
+                shapePosition='end'
+
+                primary='Primary value'
+
+                start={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+
+                end={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+              />
+              <ListItem
+                button
+
+                shapePosition='start'
+
+                primary='Primary value'
+
+                start={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+
+                end={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+              />
+              <ListItem
+                button
+
+                shapePosition='both'
+
+                primary='Primary value'
+
+                start={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+
+                end={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+              />
+            </List>
+
+            <List size='large'>
+              <ListItem
+                button
+
+                shapePosition='none'
+
+                primary='Primary value'
+
+                start={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+
+                end={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+              />
+              <ListItem
+                button
+
+                shapePosition='end'
+
+                primary='Primary value'
+
+                start={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+
+                end={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+              />
+              <ListItem
+                button
+
+                shapePosition='start'
+
+                primary='Primary value'
+
+                start={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+
+                end={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+              />
+              <ListItem
+                button
+
+                shapePosition='both'
+
+                primary='Primary value'
+
+                start={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+
+                end={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+              />
+            </List>
+          </div>
+        </Accordion>
+
+        <Accordion label='List item shape and shape position with list padding' open>
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+            <List size='small' paddingHorizontal='end'>
+              <ListItem
+                button
+
+                shapePosition='end'
+
+                primary='Primary value'
+
+                start={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+
+                end={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+              />
+            </List>
+
+            <List size='regular' paddingHorizontal='end'>
+              <ListItem
+                button
+
+                shapePosition='end'
+
+                primary='Primary value'
+
+                start={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+
+                end={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+              />
+            </List>
+
+            <List size='large' paddingHorizontal='end'>
+              <ListItem
+                button
+
+                shapePosition='end'
+
+                primary='Primary value'
+
+                start={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+
+                end={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+              />
+            </List>
+          </div>
+        </Accordion>
+
         <Accordion label='List sizes' open>
           <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
             <List size='small'>
@@ -5267,10 +5622,10 @@ function App() {
 
         <Accordion label='List with subheader' open>
           <div className={classNames([classes.column])}>
-            <List style={{ height: 140, width: 400, overflow: 'auto' }} noPadding>
+            <List style={{ height: 140, width: 400, overflow: 'auto' }} paddingVertical='none'>
               {[0, 1, 3, 4].map(item => (
                 <li key={`li-${item}`} style={{ width: '100%' }}>
-                  <List key={`ul-${item}`} noPadding>
+                  <List key={`ul-${item}`} paddingVertical='none'>
                     <ListSubheader>{`List subheader ${item}`}</ListSubheader>
 
                     {[0, 1, 3].map(item_ => (
@@ -7020,7 +7375,7 @@ function App() {
                       AmauiList: {
                         props: {
                           default: {
-                            noPadding: true
+                            paddingVertical: 'none'
                           }
                         }
                       },

@@ -14,12 +14,39 @@ const useStyle = style(theme => ({
     flexDirection: 'column',
     alignItems: 'flex-start',
     width: '100%',
-    padding: `${theme.methods.space.value('sm', 'px')} 0`,
     background: theme.palette.background.default.primary
   },
 
-  noPadding: {
-    padding: 0
+  padding_vertical_both: {
+    paddingBlock: theme.methods.space.value('sm', 'px')
+  },
+
+  padding_vertical_start: {
+    paddingBlockStart: theme.methods.space.value('sm', 'px')
+  },
+
+  padding_vertical_end: {
+    paddingBlockEnd: theme.methods.space.value('sm', 'px')
+  },
+
+  padding_vertical_none: {
+    paddingBlock: 0
+  },
+
+  padding_horizontal_both: {
+    paddingInline: theme.methods.space.value('rg', 'px')
+  },
+
+  padding_horizontal_start: {
+    paddingInlineStart: theme.methods.space.value('rg', 'px')
+  },
+
+  padding_horizontal_end: {
+    paddingInlineEnd: theme.methods.space.value('rg', 'px')
+  },
+
+  padding_horizontal_none: {
+    paddingInline: 0
   }
 }), { name: 'AmauiList' });
 
@@ -31,7 +58,8 @@ const List = React.forwardRef((props_: any, ref: any) => {
   const { classes } = useStyle(props);
 
   const {
-    noPadding,
+    paddingHorizontal = 'none',
+    paddingVertical = 'both',
     Component = 'ul',
 
     className,
@@ -49,12 +77,14 @@ const List = React.forwardRef((props_: any, ref: any) => {
       className={classNames([
         staticClassName('List', theme) && [
           'AmauiList-root',
-          noPadding && `AmauiList-noPadding`
+          `AmauiList-padding-horizontal-${paddingHorizontal}`,
+          `AmauiList-padding-vertical-${paddingVertical}`
         ],
 
         className,
         classes.root,
-        noPadding && classes.noPadding
+        classes[`padding_vertical_${paddingVertical}`],
+        classes[`padding_horizontal_${paddingHorizontal}`]
       ])}
 
       style={style}
