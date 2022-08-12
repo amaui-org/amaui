@@ -1,13 +1,11 @@
 import React from 'react';
 
-import { debounce, equalDeep, is, isEnvironment, element as element_, clamp } from '@amaui/utils';
+import { debounce, equalDeep, is, isEnvironment, element as element_, clamp, stringify } from '@amaui/utils';
 import { useAmauiTheme } from '@amaui/style-react';
 
 // Other
 
-// Selection use case
-// Resize event value update
-// Root element content with update, update the appended value
+// Follow cursor
 
 const Append = (props_: any) => {
   const theme = useAmauiTheme();
@@ -28,6 +26,7 @@ const Append = (props_: any) => {
   const {
     relativeTo = 'parent',
     accelerated = true,
+    anchor,
     offset = [0, 0],
     padding = [0, 0],
     paddingUnfollow = props.padding,
@@ -53,15 +52,34 @@ const Append = (props_: any) => {
       // More than 140 frames per second
     }, 7);
 
+    const onResize = debounce(() => {
+      make();
+
+      // More than 140 frames per second
+    }, 7);
+
     // Bug
     if (switch_) setTimeout(() => make());
 
+    // Scroll
     window.addEventListener('scroll', onScroll, true);
+
+    // Resize
+    const observerResize = new ResizeObserver(onResize);
+
+    if (refs.root.current) observerResize.observe(refs.root.current);
 
     return () => {
       window.removeEventListener('scroll', onScroll);
+
+      if (refs.root.current) observerResize.disconnect();
     };
   }, []);
+
+  // Anchor
+  React.useEffect(() => {
+    if (anchor?.x && anchor?.y) make();
+  }, [anchor]);
 
   const updateSwitch = () => {
     // Switch
@@ -103,22 +121,40 @@ const Append = (props_: any) => {
     }
   };
 
+  // Switch
   React.useEffect(updateSwitch, [relativeTo === 'parent' ? values : values.position, values.x, values.y]);
 
   const getValues = () => {
-    if (!(refs.root.current && refs.element.current)) return;
+    if (!((refs.root.current || anchor) && refs.element.current)) return;
+
+    const wrapperRect = (refs.root.current || refs.element.current).parentElement.getBoundingClientRect();
+
+    const resolve = () => {
+      if (!anchor) return;
+
+      if (relativeTo === 'window') return anchor;
+
+      anchor.x = anchor.x - wrapperRect.x;
+
+      anchor.y = anchor.y - wrapperRect.y;
+
+      return anchor;
+    };
+
+    // Anchor relative to parent values
+    const anchor_ = resolve();
 
     const rect = {
-      root: refs.root.current.getBoundingClientRect(),
+      root: anchor_ || refs.root.current.getBoundingClientRect(),
       element: refs.element.current.getBoundingClientRect()
     };
 
     const rectOffset = {
       root: {
-        x: refs.root.current.offsetLeft,
-        y: refs.root.current.offsetTop,
-        width: refs.root.current.offsetLeft + refs.root.current.offsetWidth,
-        height: refs.root.current.offsetTop + refs.root.current.offsetHeight
+        x: refs.root.current ? refs.root.current.offsetLeft : anchor_?.x,
+        y: refs.root.current ? refs.root.current.offsetTop : anchor_?.y,
+        width: refs.root.current ? refs.root.current.offsetLeft + refs.root.current.offsetWidth : anchor_?.x + anchor_?.width,
+        height: refs.root.current ? refs.root.current.offsetTop + refs.root.current.offsetHeight : anchor_?.y + anchor_?.height
       },
       element: {
         x: refs.element.current.offsetLeft,
@@ -140,9 +176,9 @@ const Append = (props_: any) => {
   ) => {
     if (!values) return;
 
-    const wrapperRect = (overflow || switch_) && refs.root.current.parentElement.getBoundingClientRect();
+    const wrapperRect = (overflow || switch_) && (refs.root.current || refs.element.current).parentElement.getBoundingClientRect();
 
-    const scrollableParents = element_(refs.root.current).parents().filter(item => item.scrollHeight - item.clientHeight);
+    const scrollableParents = element_(refs.root.current || refs.element.current).parents().filter(item => item.scrollHeight - item.clientHeight);
 
     let { position, alignment, inset } = value;
 
@@ -413,7 +449,7 @@ const Append = (props_: any) => {
 
   return (
     <React.Fragment>
-      {React.cloneElement(children, { ref: refs.root })}
+      {children && React.cloneElement(children, { ref: refs.root })}
 
       {/* Method or value */}
       {

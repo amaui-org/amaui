@@ -396,6 +396,7 @@ function App() {
     modal: false
   });
   const [init, setInit] = React.useState(false);
+  const [anchor, setAnchor] = React.useState<any>();
   // eslint-disable-next-line
   const [progress, setProgress] = React.useState(0);
   const [items, setItems] = React.useState([0]);
@@ -530,6 +531,14 @@ function App() {
       borderRadius: '0',
       transform: 'scale(1) translateX(440px)'
     }
+  };
+
+  const onMouseUp = () => {
+    const selection = window.getSelection();
+
+    if (!selection || selection.anchorOffset === selection.focusOffset) return;
+
+    setAnchor(selection.getRangeAt(0).getBoundingClientRect());
   };
 
   return (
@@ -4848,6 +4857,96 @@ function App() {
               </div>
             </Accordion>
           </div>
+        </Accordion>
+
+        <Accordion label='Append resize'>
+          <Accordion label='Append relativeTo parent'>
+            <div className={classNames([classes.column])} style={{ gap: 74 }}>
+              <Append position='bottom' alignment='end' relativeTo='parent'
+                element={(
+                  <span className={classes.tooltip}>a</span>
+                )}
+              >
+                <TextField
+                  label='Multiline'
+                  color='secondary'
+
+                  multiline
+                />
+              </Append>
+
+              <Append position='bottom' alignment='end' relativeTo='parent'
+                element={(
+                  <span className={classes.tooltip}>a</span>
+                )}
+              >
+                <textarea defaultValue='a' />
+              </Append>
+            </div>
+          </Accordion>
+
+          <Accordion label='Append relativeTo window'>
+            <div className={classNames([classes.column])} style={{ gap: 74 }}>
+              <Append position='bottom' alignment='end' relativeTo='window'
+                element={(
+                  <span className={classes.tooltip}>a</span>
+                )}
+              >
+                <TextField
+                  label='Multiline'
+                  color='secondary'
+
+                  multiline
+                />
+              </Append>
+
+              <Append position='bottom' alignment='end' relativeTo='parent'
+                element={(
+                  <span className={classes.tooltip}>a</span>
+                )}
+              >
+                <textarea defaultValue='a' />
+              </Append>
+            </div>
+          </Accordion>
+        </Accordion>
+
+        <Accordion label='Append use case text select value'>
+          <Accordion label='Append relativeTo parent'>
+            <div className={classNames([classes.column])} style={{ gap: 74 }}>
+              <Type
+                onMouseUp={onMouseUp}
+              >
+                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+              </Type>
+
+              <Append position='bottom' alignment='center' relativeTo='parent'
+                anchor={anchor}
+
+                element={(
+                  <span className={classes.tooltip}>a</span>
+                )}
+              />
+            </div>
+          </Accordion>
+
+          <Accordion label='Append relativeTo window'>
+            <div className={classNames([classes.column])} style={{ gap: 74 }}>
+              <Type
+                onMouseUp={onMouseUp}
+              >
+                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+              </Type>
+
+              <Append position='bottom' alignment='center' relativeTo='window'
+                anchor={anchor}
+
+                element={(
+                  <span className={classes.tooltip}>a</span>
+                )}
+              />
+            </div>
+          </Accordion>
         </Accordion>
       </Accordion>
 
