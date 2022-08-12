@@ -1,10 +1,7 @@
 import React from 'react';
 
-import { copy, debounce, equalDeep, is, isEnvironment, element as element_, clamp } from '@amaui/utils';
+import { debounce, equalDeep, is, isEnvironment, element as element_, clamp } from '@amaui/utils';
 import { useAmauiTheme } from '@amaui/style-react';
-
-// Switch
-// with padding and offset to take into an account
 
 // Other
 
@@ -18,6 +15,7 @@ const Append = (props_: any) => {
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiAppend?.props?.default }), [props_]);
 
   const [values, setValues] = React.useState({
+    position: props.position,
     x: 0,
     y: 0
   });
@@ -30,48 +28,11 @@ const Append = (props_: any) => {
   const {
     relativeTo = 'parent',
     accelerated = true,
-    order = [
-      { position: 'bottom', alignment: 'center' },
-      { position: 'top', alignment: 'center' },
-
-      { position: 'bottom', alignment: 'end' },
-      { position: 'top', alignment: 'end' },
-
-      { position: 'bottom', alignment: 'start' },
-      { position: 'top', alignment: 'start' },
-
-      { position: 'left', alignment: 'center' },
-      { position: 'right', alignment: 'center' },
-
-      { position: 'left', alignment: 'start' },
-      { position: 'right', alignment: 'start' },
-
-      { position: 'left', alignment: 'end' },
-      { position: 'right', alignment: 'end' },
-
-      { position: 'bottom', alignment: 'center', inset: true },
-      { position: 'top', alignment: 'center', inset: true },
-
-      { position: 'bottom', alignment: 'end', inset: true },
-      { position: 'top', alignment: 'end', inset: true },
-
-      { position: 'bottom', alignment: 'start', inset: true },
-      { position: 'top', alignment: 'start', inset: true },
-
-      { position: 'left', alignment: 'center', inset: true },
-      { position: 'right', alignment: 'center', inset: true },
-
-      { position: 'left', alignment: 'start', inset: true },
-      { position: 'right', alignment: 'start', inset: true },
-
-      { position: 'left', alignment: 'end', inset: true },
-      { position: 'right', alignment: 'end', inset: true }
-    ],
     offset = [0, 0],
     padding = [0, 0],
     paddingUnfollow = props.padding,
     inset: inset_,
-    position: position_ = 'bottom',
+    position: position_,
     alignment: alignment_ = 'end',
     switch: switch_ = false,
     overflow = true,
@@ -87,31 +48,13 @@ const Append = (props_: any) => {
 
     const onScroll = debounce((event: any) => {
       // Only if it's parent's scroll event
-      if (event.target.contains(refs.root.current)) {
-        const values = getValues();
-
-        if (switch_) {
-          // Make sure to go over all from the order
-          // and leave first one that fits
-
-          // Loop through all of the options
-          let order_ = copy(order);
-
-          order_.unshift({ position: position_, alignment: alignment_, inset: inset_ });
-
-          while (!make(order_[0], values) || order_.length) {
-            order_ = order_.filter(item => !(
-              item.position === order_[0].position &&
-              item.alignment === order_[0].alignment &&
-              !!item.inset === !!order_[0].inset
-            ));
-          }
-        }
-        else make(undefined, values);
-      }
+      if (event.target.contains(refs.root.current)) make();
 
       // More than 140 frames per second
     }, 7);
+
+    // Bug
+    if (switch_) setTimeout(() => make());
 
     window.addEventListener('scroll', onScroll, true);
 
@@ -119,6 +62,48 @@ const Append = (props_: any) => {
       window.removeEventListener('scroll', onScroll);
     };
   }, []);
+
+  const updateSwitch = () => {
+    // Switch
+    if (switch_ && values.position === position_ && refs.element.current) {
+      let newPosition = position_;
+
+      const scrollableParents = element_(refs.root.current).parents().filter(item => item.scrollHeight - item.clientHeight);
+
+      const rectElement = refs.element.current.getBoundingClientRect();
+
+      const update = scrollableParents.some(parent => {
+        const rectParent = parent.getBoundingClientRect();
+
+        if (['left', 'right'].includes(position_)) {
+          return !(
+            rectElement.x - (['left', 'right'].includes(position_) ? padding[1] : 0) >= 0 &&
+            rectElement.x - (['left', 'right'].includes(position_) ? padding[1] : 0) >= rectParent.x &&
+            rectElement.x + rectElement.width + (['left', 'right'].includes(position_) ? padding[1] : 0) <= rectParent.x + rectParent.width
+          );
+        }
+
+        if (['top', 'bottom'].includes(position_)) {
+          return !(
+            rectElement.y - (['top', 'bottom'].includes(position_) ? padding[0] : 0) >= 0 &&
+            rectElement.y - (['top', 'bottom'].includes(position_) ? padding[0] : 0) >= rectParent.y &&
+            rectElement.y + rectElement.height + (['top', 'bottom'].includes(position_) ? padding[0] : 0) <= rectParent.y + rectParent.height
+          );
+        }
+      });
+
+      if (update) {
+        if (position_ === 'top') newPosition = 'bottom';
+        if (position_ === 'left') newPosition = 'right';
+        if (position_ === 'right') newPosition = 'left';
+        if (position_ === 'bottom') newPosition = 'top';
+
+        make({ position: newPosition, alignment: alignment_, inset: inset_ });
+      }
+    }
+  };
+
+  React.useEffect(updateSwitch, [relativeTo === 'parent' ? values : values.position, values.x, values.y]);
 
   const getValues = () => {
     if (!(refs.root.current && refs.element.current)) return;
@@ -154,6 +139,8 @@ const Append = (props_: any) => {
     values = getValues()
   ) => {
     if (!values) return;
+
+    const wrapperRect = (overflow || switch_) && refs.root.current.parentElement.getBoundingClientRect();
 
     const scrollableParents = element_(refs.root.current).parents().filter(item => item.scrollHeight - item.clientHeight);
 
@@ -215,8 +202,6 @@ const Append = (props_: any) => {
       // or window push them to 0 value
       // only if that value doesn't unfollow them from the element
       // or unfollow them if unfollow is true
-      const wrapperRect = refs.root.current.parentElement.getBoundingClientRect();
-
       if (relativeTo === 'window') rectOffset = rect;
 
       const rootY = relativeTo === 'parent' ? wrapperRect.y + rectOffset.root.y : rect.root.y;
@@ -401,27 +386,9 @@ const Append = (props_: any) => {
       }
     }
 
-    // take into account offset and padding
-    // Switch
-    if (switch_) {
-      if (
-        // Main viewport in window
-        (
-          (position === 'bottom' && window.innerHeight >= values_.y + rect.element.height) &&
-          (position === 'top' && values_.y >= 0) &&
-          (position === 'left' && values_.x >= 0) &&
-          (position === 'right' && values_.x + rect.element.width <= window.innerWidth)
-        )
-      ) {
-        setValues(values_);
-
-        return true;
-      }
-      else return;
-    }
-
+    // Update
     setValues(items => {
-      if (!equalDeep(items, values_)) return values_;
+      if (!equalDeep(items, values_)) return { position, ...values_ };
 
       return items;
     });

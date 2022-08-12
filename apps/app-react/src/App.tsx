@@ -3833,6 +3833,1022 @@ function App() {
             </Accordion>
           </div>
         </Accordion>
+
+        <Accordion label='Append with container padding and with offset and padding with switch'>
+          <div className={classNames([classes.column])}>
+            <Accordion label='Append inset'>
+              <div className={classNames([classes.column])} style={{ gap: 74, padding: 40 }}>
+                <Append switch position='bottom' alignment='start' inset offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='bottom' alignment='center' inset offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='bottom' alignment='end' inset offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='top' alignment='start' inset offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='top' alignment='center' inset offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='top' alignment='end' inset offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='left' alignment='start' inset offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='left' alignment='center' inset offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='left' alignment='end' inset offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='right' alignment='start' inset offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='right' alignment='center' inset offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='right' alignment='end' inset offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+              </div>
+            </Accordion>
+
+            <Accordion label='Append relativeTo parent'>
+              <div className={classNames([classes.column])} style={{ gap: 74, padding: 40 }}>
+                <Append switch position='bottom' alignment='start' relativeTo='parent' offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='bottom' alignment='center' relativeTo='parent' offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='bottom' alignment='end' relativeTo='parent' offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='top' alignment='start' relativeTo='parent' offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='top' alignment='center' relativeTo='parent' offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='top' alignment='end' relativeTo='parent' offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='left' alignment='start' relativeTo='parent' offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='left' alignment='center' relativeTo='parent' offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='left' alignment='end' relativeTo='parent' offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='right' alignment='start' relativeTo='parent' offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='right' alignment='center' relativeTo='parent' offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='right' alignment='end' relativeTo='parent' offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+              </div>
+            </Accordion>
+
+            <Accordion label='Append relativeTo window'>
+              <div className={classNames([classes.column])} style={{ gap: 74, padding: 40 }}>
+                <Append switch position='bottom' alignment='start' relativeTo='window' offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='bottom' alignment='center' relativeTo='window' offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='bottom' alignment='end' relativeTo='window' offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='top' alignment='start' relativeTo='window' offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='top' alignment='center' relativeTo='window' offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='top' alignment='end' relativeTo='window' offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='left' alignment='start' relativeTo='window' offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='left' alignment='center' relativeTo='window' offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='left' alignment='end' relativeTo='window' offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='right' alignment='start' relativeTo='window' offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='right' alignment='center' relativeTo='window' offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='right' alignment='end' relativeTo='window' offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+              </div>
+            </Accordion>
+
+            <Accordion label='Append scroll container relative to parent'>
+              <div className={classNames([classes.column])} style={{ gap: 74, padding: 40 }}>
+                <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
+                  <div style={{ height: 400, width: 400, padding: 340 }}>
+                    <Append switch position='top' relativeTo='parent' offset={[14, 14]} padding={[7, 7]}
+                      element={(
+                        <span className={classes.tooltip}>a</span>
+                      )}
+                    >
+                      <Button color='secondary'>Append</Button>
+                    </Append>
+                  </div>
+                </div>
+
+                <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
+                  <div style={{ height: 400, width: 400, padding: 340 }}>
+                    <Append switch position='left' relativeTo='parent' offset={[14, 14]} padding={[7, 7]}
+                      element={(
+                        <span className={classes.tooltip}>a</span>
+                      )}
+                    >
+                      <Button color='secondary'>Append</Button>
+                    </Append>
+                  </div>
+                </div>
+
+                <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
+                  <div style={{ height: 400, width: 400, padding: 340 }}>
+                    <Append switch position='right' relativeTo='parent' offset={[14, 14]} padding={[7, 7]}
+                      element={(
+                        <span className={classes.tooltip}>a</span>
+                      )}
+                    >
+                      <Button color='secondary'>Append</Button>
+                    </Append>
+                  </div>
+                </div>
+
+                <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
+                  <div style={{ height: 400, width: 400, padding: 340 }}>
+                    <Append switch position='bottom' relativeTo='parent' offset={[14, 14]} padding={[7, 7]}
+                      element={(
+                        <span className={classes.tooltip}>a</span>
+                      )}
+                    >
+                      <Button color='secondary'>Append</Button>
+                    </Append>
+                  </div>
+                </div>
+              </div>
+            </Accordion>
+
+            <Accordion label='Append scroll container relative to window'>
+              <div className={classNames([classes.column])} style={{ gap: 74, padding: 40 }}>
+                <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
+                  <div style={{ height: 400, width: 400, padding: 340 }}>
+                    <Append switch position='top' relativeTo='window' offset={[14, 14]} padding={[7, 7]}
+                      element={(
+                        <span className={classes.tooltip}>a</span>
+                      )}
+                    >
+                      <Button color='secondary'>Append</Button>
+                    </Append>
+                  </div>
+                </div>
+
+                <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
+                  <div style={{ height: 400, width: 400, padding: 340 }}>
+                    <Append switch position='left' relativeTo='window' offset={[14, 14]} padding={[7, 7]}
+                      element={(
+                        <span className={classes.tooltip}>a</span>
+                      )}
+                    >
+                      <Button color='secondary'>Append</Button>
+                    </Append>
+                  </div>
+                </div>
+
+                <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
+                  <div style={{ height: 400, width: 400, padding: 340 }}>
+                    <Append switch position='right' relativeTo='window' offset={[14, 14]} padding={[7, 7]}
+                      element={(
+                        <span className={classes.tooltip}>a</span>
+                      )}
+                    >
+                      <Button color='secondary'>Append</Button>
+                    </Append>
+                  </div>
+                </div>
+
+                <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
+                  <div style={{ height: 400, width: 400, padding: 340 }}>
+                    <Append switch position='bottom' relativeTo='window' offset={[14, 14]} padding={[7, 7]}
+                      element={(
+                        <span className={classes.tooltip}>a</span>
+                      )}
+                    >
+                      <Button color='secondary'>Append</Button>
+                    </Append>
+                  </div>
+                </div>
+              </div>
+            </Accordion>
+
+            <Accordion label='Append unfollow relativeTo parent'>
+              <div className={classNames([classes.column])} style={{ gap: 74, padding: 40 }}>
+                <Append switch position='bottom' alignment='start' relativeTo='parent' unfollow offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='bottom' alignment='center' relativeTo='parent' unfollow offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='bottom' alignment='end' relativeTo='parent' unfollow offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='top' alignment='start' relativeTo='parent' unfollow offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='top' alignment='center' relativeTo='parent' unfollow offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='top' alignment='end' relativeTo='parent' unfollow offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='left' alignment='start' relativeTo='parent' unfollow offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='left' alignment='center' relativeTo='parent' unfollow offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='left' alignment='end' relativeTo='parent' unfollow offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='right' alignment='start' relativeTo='parent' unfollow offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='right' alignment='center' relativeTo='parent' unfollow offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='right' alignment='end' relativeTo='parent' unfollow offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+              </div>
+            </Accordion>
+
+            <Accordion label='Append unfollow relativeTo parent with paddingUnfollow'>
+              <div className={classNames([classes.column])} style={{ gap: 74, padding: 40 }}>
+                <Append switch position='bottom' alignment='start' relativeTo='parent' unfollow offset={[14, 14]} padding={[7, 7]} paddingUnfollow={[14, 14]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='bottom' alignment='center' relativeTo='parent' unfollow offset={[14, 14]} padding={[7, 7]} paddingUnfollow={[14, 14]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='bottom' alignment='end' relativeTo='parent' unfollow offset={[14, 14]} padding={[7, 7]} paddingUnfollow={[14, 14]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='top' alignment='start' relativeTo='parent' unfollow offset={[14, 14]} padding={[7, 7]} paddingUnfollow={[14, 14]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='top' alignment='center' relativeTo='parent' unfollow offset={[14, 14]} padding={[7, 7]} paddingUnfollow={[14, 14]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='top' alignment='end' relativeTo='parent' unfollow offset={[14, 14]} padding={[7, 7]} paddingUnfollow={[14, 14]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='left' alignment='start' relativeTo='parent' unfollow offset={[14, 14]} padding={[7, 7]} paddingUnfollow={[14, 14]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='left' alignment='center' relativeTo='parent' unfollow offset={[14, 14]} padding={[7, 7]} paddingUnfollow={[14, 14]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='left' alignment='end' relativeTo='parent' unfollow offset={[14, 14]} padding={[7, 7]} paddingUnfollow={[14, 14]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='right' alignment='start' relativeTo='parent' unfollow offset={[14, 14]} padding={[7, 7]} paddingUnfollow={[14, 14]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='right' alignment='center' relativeTo='parent' unfollow offset={[14, 14]} padding={[7, 7]} paddingUnfollow={[14, 14]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='right' alignment='end' relativeTo='parent' unfollow offset={[14, 14]} padding={[7, 7]} paddingUnfollow={[14, 14]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+              </div>
+            </Accordion>
+
+            <Accordion label='Append unfollow relativeTo window'>
+              <div className={classNames([classes.column])} style={{ gap: 74, padding: 40 }}>
+                <Append switch position='bottom' alignment='start' relativeTo='window' unfollow offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='bottom' alignment='center' relativeTo='window' unfollow offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='bottom' alignment='end' relativeTo='window' unfollow offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='top' alignment='start' relativeTo='window' unfollow offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='top' alignment='center' relativeTo='window' unfollow offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='top' alignment='end' relativeTo='window' unfollow offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='left' alignment='start' relativeTo='window' unfollow offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='left' alignment='center' relativeTo='window' unfollow offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='left' alignment='end' relativeTo='window' unfollow offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='right' alignment='start' relativeTo='window' unfollow offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='right' alignment='center' relativeTo='window' unfollow offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='right' alignment='end' relativeTo='window' unfollow offset={[14, 14]} padding={[7, 7]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+              </div>
+            </Accordion>
+
+            <Accordion label='Append unfollow relativeTo window with paddingUnfollow'>
+              <div className={classNames([classes.column])} style={{ gap: 74, padding: 40 }}>
+                <Append switch position='bottom' alignment='start' relativeTo='window' unfollow offset={[14, 14]} padding={[7, 7]} paddingUnfollow={[14, 14]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='bottom' alignment='center' relativeTo='window' unfollow offset={[14, 14]} padding={[7, 7]} paddingUnfollow={[14, 14]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='bottom' alignment='end' relativeTo='window' unfollow offset={[14, 14]} padding={[7, 7]} paddingUnfollow={[14, 14]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='top' alignment='start' relativeTo='window' unfollow offset={[14, 14]} padding={[7, 7]} paddingUnfollow={[14, 14]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='top' alignment='center' relativeTo='window' unfollow offset={[14, 14]} padding={[7, 7]} paddingUnfollow={[14, 14]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='top' alignment='end' relativeTo='window' unfollow offset={[14, 14]} padding={[7, 7]} paddingUnfollow={[14, 14]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='left' alignment='start' relativeTo='window' unfollow offset={[14, 14]} padding={[7, 7]} paddingUnfollow={[14, 14]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='left' alignment='center' relativeTo='window' unfollow offset={[14, 14]} padding={[7, 7]} paddingUnfollow={[14, 14]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='left' alignment='end' relativeTo='window' unfollow offset={[14, 14]} padding={[7, 7]} paddingUnfollow={[14, 14]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='right' alignment='start' relativeTo='window' unfollow offset={[14, 14]} padding={[7, 7]} paddingUnfollow={[14, 14]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='right' alignment='center' relativeTo='window' unfollow offset={[14, 14]} padding={[7, 7]} paddingUnfollow={[14, 14]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+
+                <Append switch position='right' alignment='end' relativeTo='window' unfollow offset={[14, 14]} padding={[7, 7]} paddingUnfollow={[14, 14]}
+                  element={(
+                    <span className={classes.tooltip}>a</span>
+                  )}
+                >
+                  <Button color='secondary'>Append</Button>
+                </Append>
+              </div>
+            </Accordion>
+
+            <Accordion label='Append unfollow scroll container relative to parent'>
+              <div className={classNames([classes.column])} style={{ gap: 74, padding: 40 }}>
+                <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
+                  <div style={{ height: 400, width: 400, padding: 340 }}>
+                    <Append switch position='top' relativeTo='parent' unfollow offset={[14, 14]} padding={[7, 7]}
+                      element={(
+                        <span className={classes.tooltip}>a</span>
+                      )}
+                    >
+                      <Button color='secondary'>Append</Button>
+                    </Append>
+                  </div>
+                </div>
+
+                <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
+                  <div style={{ height: 400, width: 400, padding: 340 }}>
+                    <Append switch position='left' relativeTo='parent' unfollow offset={[14, 14]} padding={[7, 7]}
+                      element={(
+                        <span className={classes.tooltip}>a</span>
+                      )}
+                    >
+                      <Button color='secondary'>Append</Button>
+                    </Append>
+                  </div>
+                </div>
+
+                <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
+                  <div style={{ height: 400, width: 400, padding: 340 }}>
+                    <Append switch position='right' relativeTo='parent' unfollow offset={[14, 14]} padding={[7, 7]}
+                      element={(
+                        <span className={classes.tooltip}>a</span>
+                      )}
+                    >
+                      <Button color='secondary'>Append</Button>
+                    </Append>
+                  </div>
+                </div>
+
+                <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
+                  <div style={{ height: 400, width: 400, padding: 340 }}>
+                    <Append switch position='bottom' relativeTo='parent' unfollow offset={[14, 14]} padding={[7, 7]}
+                      element={(
+                        <span className={classes.tooltip}>a</span>
+                      )}
+                    >
+                      <Button color='secondary'>Append</Button>
+                    </Append>
+                  </div>
+                </div>
+              </div>
+            </Accordion>
+
+            <Accordion label='Append unfollow scroll container relative to parent with paddingUnfollow'>
+              <div className={classNames([classes.column])} style={{ gap: 74, padding: 40 }}>
+                <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
+                  <div style={{ height: 400, width: 400, padding: 340 }}>
+                    <Append switch position='top' relativeTo='parent' unfollow offset={[14, 14]} padding={[7, 7]} paddingUnfollow={[14, 14]}
+                      element={(
+                        <span className={classes.tooltip}>a</span>
+                      )}
+                    >
+                      <Button color='secondary'>Append</Button>
+                    </Append>
+                  </div>
+                </div>
+
+                <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
+                  <div style={{ height: 400, width: 400, padding: 340 }}>
+                    <Append switch position='left' relativeTo='parent' unfollow offset={[14, 14]} padding={[7, 7]} paddingUnfollow={[14, 14]}
+                      element={(
+                        <span className={classes.tooltip}>a</span>
+                      )}
+                    >
+                      <Button color='secondary'>Append</Button>
+                    </Append>
+                  </div>
+                </div>
+
+                <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
+                  <div style={{ height: 400, width: 400, padding: 340 }}>
+                    <Append switch position='right' relativeTo='parent' unfollow offset={[14, 14]} padding={[7, 7]} paddingUnfollow={[14, 14]}
+                      element={(
+                        <span className={classes.tooltip}>a</span>
+                      )}
+                    >
+                      <Button color='secondary'>Append</Button>
+                    </Append>
+                  </div>
+                </div>
+
+                <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
+                  <div style={{ height: 400, width: 400, padding: 340 }}>
+                    <Append switch position='bottom' relativeTo='parent' unfollow offset={[14, 14]} padding={[7, 7]} paddingUnfollow={[14, 14]}
+                      element={(
+                        <span className={classes.tooltip}>a</span>
+                      )}
+                    >
+                      <Button color='secondary'>Append</Button>
+                    </Append>
+                  </div>
+                </div>
+              </div>
+            </Accordion>
+
+            <Accordion label='Append unfollow scroll container relative to window'>
+              <div className={classNames([classes.column])} style={{ gap: 74, padding: 40 }}>
+                <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
+                  <div style={{ height: 400, width: 400, padding: 340 }}>
+                    <Append switch position='top' relativeTo='window' unfollow offset={[14, 14]} padding={[7, 7]}
+                      element={(
+                        <span className={classes.tooltip}>a</span>
+                      )}
+                    >
+                      <Button color='secondary'>Append</Button>
+                    </Append>
+                  </div>
+                </div>
+
+                <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
+                  <div style={{ height: 400, width: 400, padding: 340 }}>
+                    <Append switch position='left' relativeTo='window' unfollow offset={[14, 14]} padding={[7, 7]}
+                      element={(
+                        <span className={classes.tooltip}>a</span>
+                      )}
+                    >
+                      <Button color='secondary'>Append</Button>
+                    </Append>
+                  </div>
+                </div>
+
+                <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
+                  <div style={{ height: 400, width: 400, padding: 340 }}>
+                    <Append switch position='right' relativeTo='window' unfollow offset={[14, 14]} padding={[7, 7]}
+                      element={(
+                        <span className={classes.tooltip}>a</span>
+                      )}
+                    >
+                      <Button color='secondary'>Append</Button>
+                    </Append>
+                  </div>
+                </div>
+
+                <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
+                  <div style={{ height: 400, width: 400, padding: 340 }}>
+                    <Append switch position='bottom' relativeTo='window' unfollow offset={[14, 14]} padding={[7, 7]}
+                      element={(
+                        <span className={classes.tooltip}>a</span>
+                      )}
+                    >
+                      <Button color='secondary'>Append</Button>
+                    </Append>
+                  </div>
+                </div>
+              </div>
+            </Accordion>
+
+            <Accordion label='Append unfollow scroll container relative to window with paddingUnfollow'>
+              <div className={classNames([classes.column])} style={{ gap: 74, padding: 40 }}>
+                <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
+                  <div style={{ height: 400, width: 400, padding: 340 }}>
+                    <Append switch position='top' relativeTo='window' unfollow offset={[14, 14]} padding={[7, 7]} paddingUnfollow={[14, 14]}
+                      element={(
+                        <span className={classes.tooltip}>a</span>
+                      )}
+                    >
+                      <Button color='secondary'>Append</Button>
+                    </Append>
+                  </div>
+                </div>
+
+                <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
+                  <div style={{ height: 400, width: 400, padding: 340 }}>
+                    <Append switch position='left' relativeTo='window' unfollow offset={[14, 14]} padding={[7, 7]} paddingUnfollow={[14, 14]}
+                      element={(
+                        <span className={classes.tooltip}>a</span>
+                      )}
+                    >
+                      <Button color='secondary'>Append</Button>
+                    </Append>
+                  </div>
+                </div>
+
+                <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
+                  <div style={{ height: 400, width: 400, padding: 340 }}>
+                    <Append switch position='right' relativeTo='window' unfollow offset={[14, 14]} padding={[7, 7]} paddingUnfollow={[14, 14]}
+                      element={(
+                        <span className={classes.tooltip}>a</span>
+                      )}
+                    >
+                      <Button color='secondary'>Append</Button>
+                    </Append>
+                  </div>
+                </div>
+
+                <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
+                  <div style={{ height: 400, width: 400, padding: 340 }}>
+                    <Append switch position='bottom' relativeTo='window' unfollow offset={[14, 14]} padding={[7, 7]} paddingUnfollow={[14, 14]}
+                      element={(
+                        <span className={classes.tooltip}>a</span>
+                      )}
+                    >
+                      <Button color='secondary'>Append</Button>
+                    </Append>
+                  </div>
+                </div>
+              </div>
+            </Accordion>
+          </div>
+        </Accordion>
       </Accordion>
 
       <Accordion label='List'>
