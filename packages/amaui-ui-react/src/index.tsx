@@ -133,3 +133,6 @@ export * from './ListSubheader';
 
 export { default as Append } from './Append';
 export * from './Append';
+
+export { default as Tooltip } from './Tooltip';
+export * from './Tooltip';

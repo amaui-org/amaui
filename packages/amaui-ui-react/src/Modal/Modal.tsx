@@ -88,7 +88,6 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
     fullScreen,
     fullWidth,
     maxWidth: maxWidth_ = 'rg',
-    root = true,
     background = true,
     modalWrapper = true,
     portal = true,
@@ -118,10 +117,12 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
 
   const [open, setOpen] = React.useState(open_);
   const [inProp, setInProp] = React.useState(open_);
-  const { classes } = useStyle(props);
+
   const refs = {
     focus: React.useRef<HTMLDivElement>()
   };
+
+  const { classes } = useStyle(props);
 
   const modal = {
     open: () => {
@@ -163,11 +164,11 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
 
       modal.open();
     }
-    else if (!open_ && open) setInProp(false);
+    else if (!open_ && open) modalWrapper ? setInProp(false) : setOpen(false);
   }, [open_]);
 
   React.useEffect(() => {
-    if (open) refs.focus.current.focus();
+    if (open) refs.focus.current?.focus();
   }, [open]);
 
   const onExited = () => {

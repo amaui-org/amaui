@@ -8,6 +8,7 @@ const Append = (props_: any) => {
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiAppend?.props?.default }), [props_]);
 
+  const [init, setInit] = React.useState(false);
   const [values, setValues] = React.useState({
     position: props.position,
     x: 0,
@@ -20,6 +21,7 @@ const Append = (props_: any) => {
   };
 
   const {
+    open,
     relativeTo = 'parent',
     accelerated = true,
     anchor,
@@ -27,7 +29,7 @@ const Append = (props_: any) => {
     padding = [0, 0],
     paddingUnfollow = props.padding,
     inset: inset_,
-    position: position_,
+    position: position_ = 'bottom',
     alignment: alignment_ = 'end',
     switch: switch_ = false,
     overflow = true,
@@ -65,6 +67,9 @@ const Append = (props_: any) => {
 
     if (refs.root.current) observerResize.observe(refs.root.current);
 
+    // Init
+    setInit(true);
+
     return () => {
       window.removeEventListener('scroll', onScroll);
 
@@ -74,7 +79,16 @@ const Append = (props_: any) => {
 
   // Anchor
   React.useEffect(() => {
-    if (anchor?.x && anchor?.y) make();
+    if (init) {
+      if (open) make();
+    }
+  }, [open]);
+
+  // Anchor
+  React.useEffect(() => {
+    if (init) {
+      if (anchor?.x && anchor?.y) make();
+    }
   }, [anchor]);
 
   const updateSwitch = () => {
@@ -448,9 +462,8 @@ const Append = (props_: any) => {
       {children && React.cloneElement(children, { ref: refs.root })}
 
       {/* Method or value */}
-      {
+      {open && (
         is('function', element) ?
-
           element({ ref: refs.element, values }) :
 
           React.cloneElement(element, {
@@ -462,7 +475,7 @@ const Append = (props_: any) => {
               ...style
             }
           })
-      }
+      )}
     </React.Fragment>
   );
 };
