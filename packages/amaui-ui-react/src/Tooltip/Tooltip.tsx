@@ -351,7 +351,8 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
     if (refs.longPress.current) {
       setLongPress(false);
 
-      setInProp(false);
+      if (!inProp) onClose();
+      else setInProp(false);
     }
 
     if (hover_) {
@@ -389,7 +390,8 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
     if (refs.longPress.current) {
       setLongPress(false);
 
-      setInProp(false);
+      if (!inProp) onClose();
+      else setInProp(false);
     }
 
     if (focus_) {
@@ -413,43 +415,48 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
   const onOpen = async () => {
     await wait(enterDelay);
 
-    if (refs.open.current) {
-      if (!open) setOpen(true);
-      if (!inProp) setInProp(true);
+    if (!open) setOpen(true);
+    if (!inProp) setInProp(true);
 
-      if (is('function', onOpen_) && open) onOpen_();
-    }
+    if (is('function', onOpen_) && open) onOpen_();
   };
 
   const onClose = async () => {
     await wait(leaveDelay);
 
-    if (!refs.open.current) {
-      setOpen(false);
+    setOpen(false);
 
-      if (is('function', onClose_)) onClose_();
-    }
+    if (is('function', onClose_)) onClose_();
   };
 
   React.useEffect(() => {
     refs.open.current = open_;
 
     if (open_ && !open) onOpen();
-    else if (!open_ && open) setInProp(false);
+    else if (!open_ && open) {
+      if (!inProp) onClose();
+      else setInProp(false);
+    }
   }, [open_]);
 
   React.useEffect(() => {
     refs.open.current = (touch || hover || longPress);
 
     if (refs.open.current) onOpen();
-    else setInProp(false);
+    else {
+      if (!inProp) onClose();
+      else setInProp(false);
+    }
   }, [touch, hover, longPress]);
 
   React.useEffect(() => {
     refs.open.current = focus;
 
     if (refs.open.current) onOpen();
-    else setInProp(false);
+    else {
+      if (!inProp) onClose();
+      else setInProp(false);
+    }
   }, [focus]);
 
   React.useEffect(() => {

@@ -551,11 +551,12 @@ function App() {
   };
 
   const onOpen = () => {
-    if (!a.tooltip) setA((values_: any) => ({ ...values_, tooltip: true }));
+    setA((values_: any) => ({ ...values_, tooltip: true }));
   };
 
   const onClose = () => {
-    if (a.tooltip) setA((values_: any) => ({ ...values_, tooltip: false }));
+    console.log(1);
+    setA((values_: any) => ({ ...values_, tooltip: false }));
   };
 
   return (
@@ -1288,7 +1289,7 @@ function App() {
 
         <Accordion label='Tooltip controlled' open>
           <div className={classNames([classes.column])} style={{ gap: 24 }}>
-            <Button onClick={() => a.tooltip ? onClose() : onOpen()} version='outlined' color='secondary'>a</Button>
+            <Button onClick={() => update('tooltip')} version='outlined' color='secondary'>a</Button>
 
             <Tooltip
               label='Label'
