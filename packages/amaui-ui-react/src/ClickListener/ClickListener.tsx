@@ -49,15 +49,15 @@ const ClickListener = React.forwardRef((props_: any, ref: any) => {
 
   return (
     <React.Fragment>
+      {children && (
+        React.cloneElement(children, {
+          ref: item => {
+            if (ref) ref.current = item;
 
-      {children && React.cloneElement(children, {
-        ref: item => {
-          if (ref) ref.current = item;
-
-          refs.root.current = item;
-        }
-      })}
-
+            refs.root.current = item;
+          }
+        })
+      )}
     </React.Fragment>
   );
 });

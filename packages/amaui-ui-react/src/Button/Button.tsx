@@ -334,6 +334,9 @@ const Button = React.forwardRef((props_: any, ref: any) => {
     className,
     style,
 
+    onFocus: onFocus_,
+    onBlur: onBlur_,
+
     children,
 
     ...other
@@ -484,6 +487,18 @@ const Button = React.forwardRef((props_: any, ref: any) => {
     delete styles.background.background;
   }
 
+  const onFocus = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
+    setFocus(true);
+
+    if (is('function', onFocus_)) onFocus_(event);
+  }, []);
+
+  const onBlur = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
+    setFocus(false);
+
+    if (is('function', onBlur_)) onBlur_(event);
+  }, []);
+
   return (
     <Component
       ref={ref}
@@ -537,8 +552,8 @@ const Button = React.forwardRef((props_: any, ref: any) => {
         ...styles.root
       }}
 
-      onFocus={() => setFocus(true)}
-      onBlur={() => setFocus(false)}
+      onFocus={onFocus}
+      onBlur={onBlur}
 
       disabled={disabled}
 

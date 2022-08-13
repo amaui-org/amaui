@@ -1,46 +1,71 @@
 import React from 'react';
 
-import { is, isEnvironment, wait } from '@amaui/utils';
+import { is, wait } from '@amaui/utils';
 import { style, classNames, useAmauiTheme } from '@amaui/style-react';
 
-import Portal from '../Portal';
-import Focus from '../Focus';
 import Fade from '../Fade';
-import Surface from '../Surface';
 
 import { staticClassName } from '../utils';
+
 import Modal from '../Modal';
 import Type from '../Type';
 import Append from '../Append';
+import ClickListener from '../ClickListener';
 
 const useStyle = style(theme => ({
-  modal: {
+  root: {
     inset: '0px auto auto 0px !important'
   },
 
-  // fullWidth: { width: `calc(100% - ${theme.methods.space.value('xl') * 2}px)` },
+  labelRoot: {
+    display: 'inline-flex',
+    marginTop: '16px'
+  },
 
-  // // maxWidth
-  // xxs: { maxWidth: `320px` },
+  label: {
+    borderRadius: '4px',
+    padding: '4px 8px',
+    lineHeight: '1.5',
+    background: theme.palette.color.neutral[theme.palette.light ? 40 : 20],
+    color: theme.methods.palette.color.value('neutral', 90, true)
+  },
 
-  // xs: { maxWidth: `400px` },
+  fullWidth: { width: `calc(100% - ${theme.methods.space.value('xl') * 2}px)` },
 
-  // sm: { maxWidth: `480px` },
+  // maxWidth
+  xxs: { maxWidth: `320px` },
 
-  // rg: { maxWidth: `560px` },
+  xs: { maxWidth: `400px` },
 
-  // lg: { maxWidth: `800px` },
+  sm: { maxWidth: `480px` },
 
-  // xl: { maxWidth: `1120px` },
+  rg: { maxWidth: `560px` },
 
-  // xxl: { maxWidth: `1360px` },
+  lg: { maxWidth: `800px` },
+
+  xl: { maxWidth: `1120px` },
+
+  xxl: { maxWidth: `1360px` },
 }), { name: 'AmauiTooltip' });
-
-let MODALS_OPEN = 0;
 
 // To do
 
-// 1. Add padding right for freezeScroll for the scroll bar if it exists and width that it is
+// disable interactive
+// follow cursor
+
+// color
+// tonal
+
+// examples
+// all positions and alignments
+// all transitions
+// max width
+// color
+// tonal
+// disable interactive
+// follow cursor
+// controlled tooltip
+// custom label value y
 
 const Tooltip = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
@@ -58,10 +83,18 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
     alignment = 'center',
     portal = true,
     fullWidth,
-    maxWidth: maxWidth_ = 'rg',
+    maxWidth: maxWidth_ = 'xxs',
+
+    touch: touch_ = false,
+    longPress: longPress_ = false,
+    hover: hover_ = true,
+    focus: focus_ = true,
 
     onOpen: onOpen_,
     onClose: onClose_,
+
+    TransitionComponent = Fade,
+    TransitionComponentProps = {},
 
     AppendProps = {},
     ModalProps = {},
@@ -75,10 +108,15 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
 
   const [open, setOpen] = React.useState(open_);
   const [hover, setHover] = React.useState(false);
+  const [touch, setTouch] = React.useState(false);
+  const [focus, setFocus] = React.useState(false);
+  const [longPress, setLongPress] = React.useState(false);
   const [inProp, setInProp] = React.useState(open_);
 
   const refs = {
-    hover: React.useRef(false)
+    open: React.useRef(false),
+    longPress: React.useRef(false),
+    longPressTimer: React.useRef<any>()
   };
 
   const { classes } = useStyle(props);
@@ -87,22 +125,82 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
 
   if (fullWidth) maxWidth = undefined;
 
-  const onMouseEnter = React.useCallback(() => {
-    setHover(true);
+  const onMouseDown = React.useCallback((event: React.MouseEvent<any>) => {
+    if (longPress_) {
+      refs.longPressTimer.current = setTimeout(() => setLongPress(true), 1400);
 
-    if (is('function', children?.props.onMouseEnter)) children.props.onMouseEnter();
+      if (is('function', children?.props.onMouseDown)) children.props.onMouseDown(event);
+    }
   }, []);
 
-  const onMouseLeave = React.useCallback(() => {
-    setHover(false);
+  const onMouseUp = React.useCallback((event: React.MouseEvent<any>) => {
+    if (longPress_) {
+      clearTimeout(refs.longPressTimer.current);
 
-    if (is('function', children?.props.onMouseLeave)) children.props.onMouseLeave();
+      setLongPress(false);
+
+      if (is('function', children?.props.onMouseUp)) children.props.onMouseUp(event);
+    }
+  }, []);
+
+  const onMouseEnter = React.useCallback((event: React.MouseEvent<any>) => {
+    if (hover_) {
+      setHover(true);
+
+      if (is('function', children?.props.onMouseEnter)) children.props.onMouseEnter(event);
+    }
+  }, []);
+
+  const onMouseLeave = React.useCallback((event: React.MouseEvent<any>) => {
+    if (hover_) {
+      setHover(false);
+
+      if (is('function', children?.props.onMouseLeave)) children.props.onMouseLeave(event);
+    }
+  }, []);
+
+  const onTouchStart = React.useCallback((event: React.MouseEvent<any>) => {
+    if (touch_) {
+      setTouch(true);
+
+      if (is('function', children?.props.onTouchStart)) children.props.onTouchStart(event);
+    }
+  }, []);
+
+  const onTouchEnd = React.useCallback((event: React.MouseEvent<any>) => {
+    if (touch_) {
+      setTouch(false);
+
+      if (is('function', children?.props.onTouchEnd)) children.props.onTouchEnd(event);
+    }
+  }, []);
+
+  const onFocus = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
+    if (focus_) {
+      setFocus(true);
+
+      if (is('function', children?.props.onFocus)) children.props.onFocus(event);
+    }
+  }, []);
+
+  const onBlur = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
+    if (focus_) {
+      setFocus(false);
+
+      if (is('function', children?.props.onBlur)) children.props.onBlur(event);
+    }
+  }, []);
+
+  const onClickOutside = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
+    setLongPress(false);
+
+    setInProp(false);
   }, []);
 
   const onOpen = async () => {
     await wait(enterDelay);
 
-    if (refs.hover.current) {
+    if (refs.open.current) {
       if (!open) setOpen(true);
       if (!inProp) setInProp(true);
 
@@ -113,7 +211,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
   const onClose = async () => {
     await wait(leaveDelay);
 
-    if (!refs.hover.current) {
+    if (!refs.open.current) {
       setOpen(false);
 
       if (is('function', onClose_) && open) onClose_();
@@ -126,13 +224,17 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
   }, [open_]);
 
   React.useEffect(() => {
-    refs.hover.current = hover;
+    refs.open.current = (touch || hover || focus);
 
-    if (hover) onOpen();
-    // Only update inProp,
-    // for transitions
-    else onClose();
-  }, [hover]);
+    if (refs.open.current) onOpen();
+    else setInProp(false);
+  }, [touch, hover, focus]);
+
+  React.useEffect(() => {
+    refs.open.current = longPress;
+
+    if (refs.open.current) onOpen();
+  }, [longPress]);
 
   return (
     <Append
@@ -163,26 +265,83 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
 
           disableKeyboardClose
 
-          {...ModalProps}
-
           className={classNames([
-            classes.modal,
+            staticClassName('Modal', theme) && [
+              'AmauiTooltip-root',
+              `AmauiTooltip-maxWidth-${maxWidth}`,
+              fullWidth && `AmauiButton-fullWidth`
+            ],
+
+            classes.root,
+            className,
             ModalProps?.className
           ])}
+
+          {...ModalProps}
+
+          {...other}
         >
-          <Type>
-            {label}
-          </Type>
+          <TransitionComponent
+            in={inProp}
+
+            onExited={onClose}
+
+            add
+
+            {...TransitionComponentProps}
+          >
+            <span
+              className={classNames([
+                staticClassName('Modal', theme) && [
+                  'AmauiTooltip-labelRoot'
+                ],
+
+                classes.labelRoot,
+                classes[maxWidth],
+                fullWidth && classes[fullWidth]
+              ])}
+            >
+              {is('string', label) ?
+                <Type
+                  className={classNames([
+                    staticClassName('Modal', theme) && [
+                      'AmauiTooltip-label'
+                    ],
+
+                    classes.label
+                  ])}
+
+                  version='b3'
+                >
+                  {label}
+                </Type> :
+
+                label
+              }
+            </span>
+          </TransitionComponent>
         </Modal>
       )}
     >
-      {children && React.cloneElement(children, {
-        onMouseEnter,
-        onTouchStart: onMouseEnter,
+      {children && (
+        <ClickListener
+          onClickOutside={onClickOutside}
+        >
+          {React.cloneElement(children, {
+            onFocus,
+            onBlur,
 
-        onMouseLeave,
-        onTouchEnd: onMouseLeave
-      })}
+            onMouseDown,
+            onMouseUp,
+
+            onMouseEnter,
+            onMouseLeave,
+
+            onTouchStart,
+            onTouchEnd
+          })}
+        </ClickListener>
+      )}
     </Append>
   );
 });

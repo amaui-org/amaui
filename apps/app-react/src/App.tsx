@@ -712,6 +712,12 @@ function App() {
             <Tooltip
               label='Label'
 
+              touch={false}
+              hover={false}
+              focus={false}
+
+              longPress
+
               open
             >
               <Button color='secondary'>Append</Button>
