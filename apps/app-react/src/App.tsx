@@ -712,8 +712,7 @@ function App() {
             <Tooltip
               label='Label'
 
-              color='secondary'
-              tonal
+              open
             >
               <Button color='secondary'>Append</Button>
             </Tooltip>

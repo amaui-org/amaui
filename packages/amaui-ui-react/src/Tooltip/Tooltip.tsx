@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { is, wait } from '@amaui/utils';
+import { clamp, is, wait } from '@amaui/utils';
 import { style, classNames, useAmauiTheme } from '@amaui/style-react';
 
-import Fade from '../Fade';
+import Grow from '../Grow';
 
 import { staticClassName } from '../utils';
 
@@ -17,19 +17,133 @@ const useStyle = style(theme => ({
   },
 
   labelRoot: {
-    display: 'inline-flex',
-    marginTop: '16px'
+    display: 'inline-flex'
   },
 
+  labelRoot_position_top: { marginBottom: '16px' },
+
+  labelRoot_position_bottom: { marginTop: '16px' },
+
+  labelRoot_position_left: { marginRight: '16px' },
+
+  labelRoot_position_right: { marginLeft: '16px' },
+
   label: {
-    borderRadius: '4px',
+    borderRadius: clamp(theme.shape.radius.unit / 2, 0, 8),
     padding: '4px 8px',
     lineHeight: '1.5'
   },
 
+  arrow: {
+    '&::before': {
+      content: "''",
+      width: '8px',
+      height: '8px',
+      background: 'inherit',
+      position: 'absolute',
+      zIndex: -1
+    }
+  },
+
+  arrow_position_top_alignment_start: {
+    '&::before': {
+      bottom: '-4px',
+      right: '20%',
+      transform: 'translate(0, 0) rotate(45deg)'
+    }
+  },
+
+  arrow_position_top_alignment_center: {
+    '&::before': {
+      bottom: '-4px',
+      left: '50%',
+      transform: 'translate(-50%, 0) rotate(45deg)'
+    }
+  },
+
+  arrow_position_top_alignment_end: {
+    '&::before': {
+      bottom: '-4px',
+      left: '20%',
+      transform: 'translate(0, 0) rotate(45deg)'
+    }
+  },
+
+  arrow_position_bottom_alignment_start: {
+    '&::before': {
+      top: '-4px',
+      right: '20%',
+      transform: 'translate(0, 0) rotate(45deg)'
+    }
+  },
+
+  arrow_position_bottom_alignment_center: {
+    '&::before': {
+      top: '-4px',
+      left: '50%',
+      transform: 'translate(-50%, 0) rotate(45deg)'
+    }
+  },
+
+  arrow_position_bottom_alignment_end: {
+    '&::before': {
+      top: '-4px',
+      left: '20%',
+      transform: 'translate(0, 0) rotate(45deg)'
+    }
+  },
+
+  arrow_position_left_alignment_start: {
+    '&::before': {
+      right: '-4px',
+      bottom: '20%',
+      transform: 'translate(0, 0) rotate(45deg)'
+    }
+  },
+
+  arrow_position_left_alignment_center: {
+    '&::before': {
+      right: '-4px',
+      top: '50%',
+      transform: 'translate(0, -50%) rotate(45deg)'
+    }
+  },
+
+  arrow_position_left_alignment_end: {
+    '&::before': {
+      right: '-4px',
+      bottom: '20%',
+      transform: 'translate(0, 0) rotate(45deg)'
+    }
+  },
+
+  arrow_position_right_alignment_start: {
+    '&::before': {
+      left: '-4px',
+      top: '20%',
+      transform: 'translate(0, 0) rotate(45deg)'
+    }
+  },
+
+  arrow_position_right_alignment_center: {
+    '&::before': {
+      left: '-4px',
+      top: '50%',
+      transform: 'translate(0, -50%) rotate(45deg)'
+    }
+  },
+
+  arrow_position_right_alignment_end: {
+    '&::before': {
+      left: '-4px',
+      top: '20%',
+      transform: 'translate(0, 0) rotate(45deg)'
+    }
+  },
+
   // Color
   default: {
-    color: theme.methods.palette.color.value('neutral', 90, true),
+    color: theme.palette.color.neutral[90],
     background: theme.palette.color.neutral[theme.palette.light ? 40 : 20]
   },
 
@@ -144,8 +258,6 @@ const useStyle = style(theme => ({
 
 // To do
 
-// arrow
-
 // examples
 // all positions and alignments
 // all transitions
@@ -177,6 +289,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
     portal = true,
     fullWidth,
     maxWidth: maxWidth_ = 'xxs',
+    arrow,
 
     touch: touch_ = true,
     longPress: longPress_ = false,
@@ -186,7 +299,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
     onOpen: onOpen_,
     onClose: onClose_,
 
-    TransitionComponent = Fade,
+    TransitionComponent = Grow,
     TransitionComponentProps = {},
 
     AppendProps = {},
@@ -411,6 +524,8 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
             staticClassName('Modal', theme) && [
               'AmauiTooltip-root',
               `AmauiTooltip-maxWidth-${maxWidth}`,
+              `AmauiTooltip-position-${position}`,
+              `AmauiTooltip-alignment-${alignment}`,
               fullWidth && `AmauiButton-fullWidth`
             ],
 
@@ -424,7 +539,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
           {...other}
         >
           <TransitionComponent
-            in={inProp}
+            in={true}
 
             onExited={onClose}
 
@@ -439,6 +554,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
                 ],
 
                 classes.labelRoot,
+                classes[`labelRoot_position_${position}`],
                 classes[maxWidth],
                 fullWidth && classes[fullWidth]
               ])}
@@ -454,11 +570,16 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
                       'AmauiTooltip-label',
                       `AmauiTooltip-color-${!theme.palette.color[color] && color !== 'default' ? 'new' : color}`,
                       tonal && `AmauiTooltip-tonal`,
+                      arrow && `AmauiTooltip-arrow`
                     ],
 
                     classes.label,
                     classes[color],
-                    tonal && classes[`tonal_${color}`]
+                    tonal && classes[`tonal_${color}`],
+                    arrow && [
+                      classes.arrow,
+                      classes[`arrow_position_${position}_alignment_${alignment}`]
+                    ]
                   ])}
 
                   version='b3'
@@ -466,7 +587,12 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
                   {label}
                 </Type> :
 
-                label
+                React.cloneElement(label, {
+                  className: classNames([
+                    label?.props?.className,
+                    arrow && classes.arrow
+                  ])
+                })
               }
             </span>
           </TransitionComponent>
