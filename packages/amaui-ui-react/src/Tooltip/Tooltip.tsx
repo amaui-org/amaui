@@ -10,7 +10,6 @@ import { staticClassName } from '../utils';
 import Modal from '../Modal';
 import Type from '../Type';
 import Append from '../Append';
-import ClickListener from '../ClickListener';
 
 const useStyle = style(theme => ({
   root: {
@@ -25,9 +24,104 @@ const useStyle = style(theme => ({
   label: {
     borderRadius: '4px',
     padding: '4px 8px',
-    lineHeight: '1.5',
-    background: theme.palette.color.neutral[theme.palette.light ? 40 : 20],
-    color: theme.methods.palette.color.value('neutral', 90, true)
+    lineHeight: '1.5'
+  },
+
+  // Color
+  default: {
+    color: theme.methods.palette.color.value('neutral', 90, true),
+    background: theme.palette.color.neutral[theme.palette.light ? 40 : 20]
+  },
+
+  neutral: {
+    color: theme.methods.palette.color.text(theme.palette.color.neutral.main, true, 'light'),
+    background: theme.palette.color.neutral.main,
+  },
+
+  primary: {
+    color: theme.methods.palette.color.text(theme.palette.color.primary.main, true, 'light'),
+    background: theme.palette.color.primary.main
+  },
+
+  secondary: {
+    color: theme.methods.palette.color.text(theme.palette.color.secondary.main, true, 'light'),
+    background: theme.palette.color.secondary.main
+  },
+
+  tertiary: {
+    color: theme.methods.palette.color.text(theme.palette.color.tertiary.main, true, 'light'),
+    background: theme.palette.color.tertiary.main
+  },
+
+  quaternary: {
+    color: theme.methods.palette.color.text(theme.palette.color.quaternary.main, true, 'light'),
+    background: theme.palette.color.quaternary.main
+  },
+
+  info: {
+    color: theme.methods.palette.color.text(theme.palette.color.info.main, true, 'light'),
+    background: theme.palette.color.info.main
+  },
+
+  success: {
+    color: theme.methods.palette.color.text(theme.palette.color.success.main, true, 'light'),
+    background: theme.palette.color.success.main
+  },
+
+  warning: {
+    color: theme.methods.palette.color.text(theme.palette.color.warning.main, true, 'light'),
+    background: theme.palette.color.warning.main
+  },
+
+  error: {
+    color: theme.methods.palette.color.text(theme.palette.color.error.main, true, 'light'),
+    background: theme.palette.color.error.main
+  },
+
+  // Tonal
+  tonal_neutral: {
+    color: theme.methods.palette.color.value('neutral', 90),
+    background: theme.methods.palette.color.value('neutral', 30)
+  },
+
+  tonal_primary: {
+    color: theme.methods.palette.color.value('primary', 90),
+    background: theme.methods.palette.color.value('primary', 30)
+  },
+
+  tonal_secondary: {
+    color: theme.methods.palette.color.value('secondary', 90),
+    background: theme.methods.palette.color.value('secondary', 30)
+  },
+
+  tonal_tertiary: {
+    color: theme.methods.palette.color.value('tertiary', 90),
+    background: theme.methods.palette.color.value('tertiary', 30)
+  },
+
+  tonal_quaternary: {
+    color: theme.methods.palette.color.value('quaternary', 90),
+    background: theme.methods.palette.color.value('quaternary', 30)
+  },
+
+  tonal_info: {
+    color: theme.methods.palette.color.value('info', 90),
+    background: theme.methods.palette.color.value('info', 30)
+  },
+
+  tonal_success: {
+    color: theme.methods.palette.color.value('success', 90),
+    background: theme.methods.palette.color.value('success', 30)
+  },
+
+  tonal_warning: {
+    color: theme.methods.palette.color.value('warning', 90),
+    background: theme.methods.palette.color.value('warning', 30)
+  },
+
+  tonal_error: {
+    color: theme.methods.palette.color.value('error', 90),
+    background: theme.methods.palette.color.value('error', 30)
   },
 
   fullWidth: { width: `calc(100% - ${theme.methods.space.value('xl') * 2}px)` },
@@ -50,11 +144,7 @@ const useStyle = style(theme => ({
 
 // To do
 
-// disable interactive
-// follow cursor
-
-// color
-// tonal
+// arrow
 
 // examples
 // all positions and alignments
@@ -77,6 +167,9 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
 
     label,
 
+    tonal,
+    color = 'default',
+    follow,
     leaveDelay = 0,
     enterDelay = 104,
     position = 'bottom',
@@ -85,7 +178,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
     fullWidth,
     maxWidth: maxWidth_ = 'xxs',
 
-    touch: touch_ = false,
+    touch: touch_ = true,
     longPress: longPress_ = false,
     hover: hover_ = true,
     focus: focus_ = true,
@@ -99,6 +192,8 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
     AppendProps = {},
     ModalProps = {},
 
+    disableInteractive,
+
     className,
 
     children,
@@ -111,6 +206,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
   const [touch, setTouch] = React.useState(false);
   const [focus, setFocus] = React.useState(false);
   const [longPress, setLongPress] = React.useState(false);
+  const [anchor, setAnchor] = React.useState<any>();
   const [inProp, setInProp] = React.useState(open_);
 
   const refs = {
@@ -121,13 +217,17 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
 
   const { classes } = useStyle(props);
 
+  const styles: any = {
+    label: {}
+  };
+
   let maxWidth = maxWidth_;
 
   if (fullWidth) maxWidth = undefined;
 
   const onMouseDown = React.useCallback((event: React.MouseEvent<any>) => {
     if (longPress_) {
-      refs.longPressTimer.current = setTimeout(() => setLongPress(true), 1400);
+      refs.longPressTimer.current = setTimeout(() => setLongPress(true), 700);
 
       if (is('function', children?.props.onMouseDown)) children.props.onMouseDown(event);
     }
@@ -152,6 +252,12 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
   }, []);
 
   const onMouseLeave = React.useCallback((event: React.MouseEvent<any>) => {
+    if (refs.longPress.current) {
+      setLongPress(false);
+
+      setInProp(false);
+    }
+
     if (hover_) {
       setHover(false);
 
@@ -184,6 +290,12 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
   }, []);
 
   const onBlur = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
+    if (refs.longPress.current) {
+      setLongPress(false);
+
+      setInProp(false);
+    }
+
     if (focus_) {
       setFocus(false);
 
@@ -191,10 +303,15 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
     }
   }, []);
 
-  const onClickOutside = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
-    setLongPress(false);
-
-    setInProp(false);
+  const onMouseMove = React.useCallback((event: MouseEvent) => {
+    if (follow) {
+      setAnchor({
+        x: event.clientX,
+        y: event.clientY,
+        width: 10,
+        height: 20
+      });
+    }
   }, []);
 
   const onOpen = async () => {
@@ -224,17 +341,39 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
   }, [open_]);
 
   React.useEffect(() => {
-    refs.open.current = (touch || hover || focus);
+    refs.open.current = (touch || hover || longPress);
 
     if (refs.open.current) onOpen();
     else setInProp(false);
-  }, [touch, hover, focus]);
+  }, [touch, hover, longPress]);
 
   React.useEffect(() => {
-    refs.open.current = longPress;
+    refs.open.current = focus;
+
+    if (refs.open.current) onOpen();
+    else setInProp(false);
+  }, [focus]);
+
+  React.useEffect(() => {
+    if (longPress) refs.open.current = longPress;
+
+    refs.longPress.current = longPress;
 
     if (refs.open.current) onOpen();
   }, [longPress]);
+
+  if (!classes[color]) {
+    const palette = theme.methods.color(color);
+
+    if (tonal) {
+      styles.label.color = theme.methods.palette.color.value(undefined, 90, true, palette);
+      styles.label.background = theme.methods.palette.color.value(undefined, 30, true, palette);
+    }
+    else {
+      styles.label.color = theme.methods.palette.color.text(palette.main, true, 'light');
+      styles.label.background = palette.main;
+    }
+  }
 
   return (
     <Append
@@ -242,6 +381,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
 
       relativeTo='window'
 
+      anchor={anchor}
       position={position}
       alignment={alignment}
 
@@ -251,11 +391,13 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
         <Modal
           open={open}
 
-          onMouseEnter={onMouseEnter}
-          onTouchStart={onMouseEnter}
+          {...(!disableInteractive && {
+            onMouseEnter,
+            onTouchStart,
 
-          onMouseLeave={onMouseLeave}
-          onTouchEnd={onMouseLeave}
+            onMouseLeave,
+            onTouchEnd
+          })}
 
           modalWrapper={false}
           portal={portal}
@@ -300,15 +442,23 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
                 classes[maxWidth],
                 fullWidth && classes[fullWidth]
               ])}
+
+              style={{
+                ...styles.label
+              }}
             >
               {is('string', label) ?
                 <Type
                   className={classNames([
                     staticClassName('Modal', theme) && [
-                      'AmauiTooltip-label'
+                      'AmauiTooltip-label',
+                      `AmauiTooltip-color-${!theme.palette.color[color] && color !== 'default' ? 'new' : color}`,
+                      tonal && `AmauiTooltip-tonal`,
                     ],
 
-                    classes.label
+                    classes.label,
+                    classes[color],
+                    tonal && classes[`tonal_${color}`]
                   ])}
 
                   version='b3'
@@ -324,23 +474,21 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
       )}
     >
       {children && (
-        <ClickListener
-          onClickOutside={onClickOutside}
-        >
-          {React.cloneElement(children, {
-            onFocus,
-            onBlur,
+        React.cloneElement(children, {
+          onMouseMove,
 
-            onMouseDown,
-            onMouseUp,
+          onFocus,
+          onBlur,
 
-            onMouseEnter,
-            onMouseLeave,
+          onMouseDown,
+          onMouseUp,
 
-            onTouchStart,
-            onTouchEnd
-          })}
-        </ClickListener>
+          onMouseEnter,
+          onMouseLeave,
+
+          onTouchStart,
+          onTouchEnd
+        })
       )}
     </Append>
   );

@@ -24,98 +24,98 @@ const useStyle = style(theme => ({
   // Color
   default: {
     color: theme.palette.background.default.primary,
-    backgroundColor: theme.palette.text.default.primary,
+    backgroundColor: theme.palette.text.default.primary
   },
 
   neutral: {
     color: theme.methods.palette.color.text(theme.palette.color.neutral.main, true, 'light'),
-    backgroundColor: theme.palette.color.neutral.main,
+    backgroundColor: theme.palette.color.neutral.main
   },
 
   primary: {
     color: theme.methods.palette.color.text(theme.palette.color.primary.main, true, 'light'),
-    backgroundColor: theme.palette.color.primary.main,
+    backgroundColor: theme.palette.color.primary.main
   },
 
   secondary: {
     color: theme.methods.palette.color.text(theme.palette.color.secondary.main, true, 'light'),
-    backgroundColor: theme.palette.color.secondary.main,
+    backgroundColor: theme.palette.color.secondary.main
   },
 
   tertiary: {
     color: theme.methods.palette.color.text(theme.palette.color.tertiary.main, true, 'light'),
-    backgroundColor: theme.palette.color.tertiary.main,
+    backgroundColor: theme.palette.color.tertiary.main
   },
 
   quaternary: {
     color: theme.methods.palette.color.text(theme.palette.color.quaternary.main, true, 'light'),
-    backgroundColor: theme.palette.color.quaternary.main,
+    backgroundColor: theme.palette.color.quaternary.main
   },
 
   info: {
     color: theme.methods.palette.color.text(theme.palette.color.info.main, true, 'light'),
-    backgroundColor: theme.palette.color.info.main,
+    backgroundColor: theme.palette.color.info.main
   },
 
   success: {
     color: theme.methods.palette.color.text(theme.palette.color.success.main, true, 'light'),
-    backgroundColor: theme.palette.color.success.main,
+    backgroundColor: theme.palette.color.success.main
   },
 
   warning: {
     color: theme.methods.palette.color.text(theme.palette.color.warning.main, true, 'light'),
-    backgroundColor: theme.palette.color.warning.main,
+    backgroundColor: theme.palette.color.warning.main
   },
 
   error: {
     color: theme.methods.palette.color.text(theme.palette.color.error.main, true, 'light'),
-    backgroundColor: theme.palette.color.error.main,
+    backgroundColor: theme.palette.color.error.main
   },
 
   // Tonal
   tonal_neutral: {
     color: theme.methods.palette.color.value('neutral', 90),
-    backgroundColor: theme.methods.palette.color.value('neutral', 30),
+    backgroundColor: theme.methods.palette.color.value('neutral', 30)
   },
 
   tonal_primary: {
     color: theme.methods.palette.color.value('primary', 90),
-    backgroundColor: theme.methods.palette.color.value('primary', 30),
+    backgroundColor: theme.methods.palette.color.value('primary', 30)
   },
 
   tonal_secondary: {
     color: theme.methods.palette.color.value('secondary', 90),
-    backgroundColor: theme.methods.palette.color.value('secondary', 30),
+    backgroundColor: theme.methods.palette.color.value('secondary', 30)
   },
 
   tonal_tertiary: {
     color: theme.methods.palette.color.value('tertiary', 90),
-    backgroundColor: theme.methods.palette.color.value('tertiary', 30),
+    backgroundColor: theme.methods.palette.color.value('tertiary', 30)
   },
 
   tonal_quaternary: {
     color: theme.methods.palette.color.value('quaternary', 90),
-    backgroundColor: theme.methods.palette.color.value('quaternary', 30),
+    backgroundColor: theme.methods.palette.color.value('quaternary', 30)
   },
 
   tonal_info: {
     color: theme.methods.palette.color.value('info', 90),
-    backgroundColor: theme.methods.palette.color.value('info', 30),
+    backgroundColor: theme.methods.palette.color.value('info', 30)
   },
 
   tonal_success: {
     color: theme.methods.palette.color.value('success', 90),
-    backgroundColor: theme.methods.palette.color.value('success', 30),
+    backgroundColor: theme.methods.palette.color.value('success', 30)
   },
 
   tonal_warning: {
     color: theme.methods.palette.color.value('warning', 90),
-    backgroundColor: theme.methods.palette.color.value('warning', 30),
+    backgroundColor: theme.methods.palette.color.value('warning', 30)
   },
 
   tonal_error: {
     color: theme.methods.palette.color.value('error', 90),
-    backgroundColor: theme.methods.palette.color.value('error', 30),
+    backgroundColor: theme.methods.palette.color.value('error', 30)
   },
 
   // Vertical & horizontal
