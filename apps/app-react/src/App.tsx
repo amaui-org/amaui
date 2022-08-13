@@ -215,6 +215,13 @@ const Accordion = (props: any) => {
 };
 
 const styled = {
+  Tooltip: sy(Tooltip)((theme: AmauiTheme) => ({
+    root: {
+      '&:hover': {
+        opacity: 0.4
+      }
+    }
+  })),
   ListItem: sy(ListItem)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
@@ -723,7 +730,7 @@ function App() {
         </div>
       </Accordion>
 
-      <Accordion label='Tooltip' open>
+      <Accordion label='Tooltip'>
         <Accordion label='Tooltip' open>
           <div className={classNames([classes.column])}>
             <Tooltip
@@ -1304,7 +1311,7 @@ function App() {
           </div>
         </Accordion>
 
-        <Accordion label='Tooltip' open>
+        <Accordion label='Tooltip label element value y' open>
           <div className={classNames([classes.column])}>
             <Tooltip
               label={(
@@ -1324,6 +1331,135 @@ function App() {
             >
               <Button color='secondary'>Append</Button>
             </Tooltip>
+          </div>
+        </Accordion>
+
+        <Accordion label='AmauiTheme' open>
+          <div className={classNames([classes.column])}>
+            <Tooltip
+              label='Label'
+
+              color='secondary'
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+
+            <Accordion label='AmauiTheme nested value' open>
+              <AmauiThemeProvider
+                value={{
+                  palette: {
+                    color: {
+                      secondary: {
+                        main: '#008000'
+                      }
+                    }
+                  },
+                  space: {
+                    unit: 5
+                  }
+                }}
+              >
+                <Tooltip
+                  label='Label'
+
+                  color='secondary'
+                >
+                  <Button color='secondary'>Append</Button>
+                </Tooltip>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme add' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiTooltip: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: 0.4
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Tooltip
+                  label='Label'
+
+                  color='secondary'
+                >
+                  <Button color='secondary'>Append</Button>
+                </Tooltip>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme override' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiTooltip: {
+                        style: {
+                          override: {
+                            root: {
+                              display: 'inline-flex',
+                              position: 'relative',
+                              height: 37
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Tooltip
+                  label='Label'
+
+                  color='secondary'
+                >
+                  <Button color='secondary'>Append</Button>
+                </Tooltip>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme props' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiTooltip: {
+                        props: {
+                          default: {
+                            color: 'secondary'
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Tooltip
+                  label='Label'
+                >
+                  <Button color='secondary'>Append</Button>
+                </Tooltip>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme styled' open>
+              <styled.Tooltip
+                label='Label'
+              >
+                <Button color='secondary'>Append</Button>
+              </styled.Tooltip>
+            </Accordion>
           </div>
         </Accordion>
       </Accordion>
