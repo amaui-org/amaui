@@ -562,7 +562,6 @@ function App() {
   };
 
   const onClose = () => {
-    console.log(1);
     setA((values_: any) => ({ ...values_, tooltip: false }));
   };
 
