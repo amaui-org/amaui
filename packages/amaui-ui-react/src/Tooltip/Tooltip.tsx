@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { clamp, is, wait } from '@amaui/utils';
+import { clamp, is, isEnvironment, wait } from '@amaui/utils';
 import { style, classNames, useAmauiTheme } from '@amaui/style-react';
 
 import Grow from '../Grow';
@@ -31,7 +31,7 @@ const useStyle = style(theme => ({
   label: {
     borderRadius: clamp(theme.shape.radius.unit / 2, 0, 8),
     padding: '4px 8px',
-    lineHeight: '1.5'
+    lineHeight: 1.455
   },
 
   arrow: {
@@ -112,7 +112,7 @@ const useStyle = style(theme => ({
   arrow_position_left_alignment_end: {
     '&::before': {
       right: '-4px',
-      bottom: '20%',
+      top: '20%',
       transform: 'translate(0, 0) rotate(45deg)'
     }
   },
@@ -120,7 +120,7 @@ const useStyle = style(theme => ({
   arrow_position_right_alignment_start: {
     '&::before': {
       left: '-4px',
-      top: '20%',
+      bottom: '20%',
       transform: 'translate(0, 0) rotate(45deg)'
     }
   },
@@ -195,50 +195,48 @@ const useStyle = style(theme => ({
   // Tonal
   tonal_neutral: {
     color: theme.methods.palette.color.value('neutral', 90),
-    background: theme.methods.palette.color.value('neutral', 30)
+    background: theme.palette.color.neutral[theme.palette.light ? 40 : 80]
   },
 
   tonal_primary: {
     color: theme.methods.palette.color.value('primary', 90),
-    background: theme.methods.palette.color.value('primary', 30)
+    background: theme.palette.color.primary[theme.palette.light ? 40 : 80]
   },
 
   tonal_secondary: {
     color: theme.methods.palette.color.value('secondary', 90),
-    background: theme.methods.palette.color.value('secondary', 30)
+    background: theme.palette.color.secondary[theme.palette.light ? 40 : 80]
   },
 
   tonal_tertiary: {
     color: theme.methods.palette.color.value('tertiary', 90),
-    background: theme.methods.palette.color.value('tertiary', 30)
+    background: theme.palette.color.tertiary[theme.palette.light ? 40 : 80]
   },
 
   tonal_quaternary: {
     color: theme.methods.palette.color.value('quaternary', 90),
-    background: theme.methods.palette.color.value('quaternary', 30)
+    background: theme.palette.color.quaternary[theme.palette.light ? 40 : 80]
   },
 
   tonal_info: {
     color: theme.methods.palette.color.value('info', 90),
-    background: theme.methods.palette.color.value('info', 30)
+    background: theme.palette.color.info[theme.palette.light ? 40 : 80]
   },
 
   tonal_success: {
     color: theme.methods.palette.color.value('success', 90),
-    background: theme.methods.palette.color.value('success', 30)
+    background: theme.palette.color.success[theme.palette.light ? 40 : 80]
   },
 
   tonal_warning: {
     color: theme.methods.palette.color.value('warning', 90),
-    background: theme.methods.palette.color.value('warning', 30)
+    background: theme.palette.color.warning[theme.palette.light ? 40 : 80]
   },
 
   tonal_error: {
     color: theme.methods.palette.color.value('error', 90),
-    background: theme.methods.palette.color.value('error', 30)
+    background: theme.palette.color.error[theme.palette.light ? 40 : 80]
   },
-
-  fullWidth: { width: `calc(100% - ${theme.methods.space.value('xl') * 2}px)` },
 
   // maxWidth
   xxs: { maxWidth: `320px` },
@@ -254,20 +252,9 @@ const useStyle = style(theme => ({
   xl: { maxWidth: `1120px` },
 
   xxl: { maxWidth: `1360px` },
+
+  fullWidth: { maxWidth: `${(isEnvironment('browser') ? window.innerWidth : 1400) - +theme.methods.space.value('rg', '', 1)}px` }
 }), { name: 'AmauiTooltip' });
-
-// To do
-
-// examples
-// all positions and alignments
-// all transitions
-// max width
-// color
-// tonal
-// disable interactive
-// follow cursor
-// controlled tooltip
-// custom label value y
 
 const Tooltip = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
@@ -288,7 +275,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
     alignment = 'center',
     portal = true,
     fullWidth,
-    maxWidth: maxWidth_ = 'xxs',
+    maxWidth = 'xxs',
     arrow,
 
     touch: touch_ = true,
@@ -333,10 +320,6 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
   const styles: any = {
     label: {}
   };
-
-  let maxWidth = maxWidth_;
-
-  if (fullWidth) maxWidth = undefined;
 
   const onMouseDown = React.useCallback((event: React.MouseEvent<any>) => {
     if (longPress_) {
@@ -449,6 +432,8 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
   };
 
   React.useEffect(() => {
+    refs.open.current = open_;
+
     if (open_ && !open) onOpen();
     else if (!open_ && open) setInProp(false);
   }, [open_]);
@@ -480,7 +465,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
 
     if (tonal) {
       styles.label.color = theme.methods.palette.color.value(undefined, 90, true, palette);
-      styles.label.background = theme.methods.palette.color.value(undefined, 30, true, palette);
+      styles.label.background = palette[theme.palette.light ? 40 : 80];
     }
     else {
       styles.label.color = theme.methods.palette.color.text(palette.main, true, 'light');
@@ -497,6 +482,8 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
       anchor={anchor}
       position={position}
       alignment={alignment}
+
+      padding={[8, 8]}
 
       {...AppendProps}
 
@@ -556,12 +543,8 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
                 classes.labelRoot,
                 classes[`labelRoot_position_${position}`],
                 classes[maxWidth],
-                fullWidth && classes[fullWidth]
+                fullWidth && classes.fullWidth
               ])}
-
-              style={{
-                ...styles.label
-              }}
             >
               {is('string', label) ?
                 <Type
@@ -583,6 +566,10 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
                   ])}
 
                   version='b3'
+
+                  style={{
+                    ...styles.label
+                  }}
                 >
                   {label}
                 </Type> :

@@ -550,6 +550,14 @@ function App() {
     });
   };
 
+  const onOpen = () => {
+    if (!a.tooltip) setA((values_: any) => ({ ...values_, tooltip: true }));
+  };
+
+  const onClose = () => {
+    if (a.tooltip) setA((values_: any) => ({ ...values_, tooltip: false }));
+  };
+
   return (
     <div className={classes.root}>
       {/* Reset */}
@@ -572,10 +580,18 @@ function App() {
 
       <Accordion label='All'>
         <div className={classNames([classes.column])}>
+          <Tooltip
+            label='Label'
+          >
+            <Button color='secondary'>Append</Button>
+          </Tooltip>
+
           <Append position='bottom' alignment='end' relativeTo='parent'
             element={(
               <span className={classes.tooltip}>a</span>
             )}
+
+            open
           >
             <Button color='secondary'>Append</Button>
           </Append>
@@ -711,8 +727,599 @@ function App() {
           <div className={classNames([classes.column])}>
             <Tooltip
               label='Label'
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+          </div>
+        </Accordion>
 
-              open
+        <Accordion label='Tooltip positions and alignments'>
+          <div className={classNames([classes.column])} style={{ gap: 24 }}>
+            <Tooltip
+              label='Label'
+
+              position='top'
+              alignment='start'
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+            <Tooltip
+              label='Label'
+
+              position='top'
+              alignment='center'
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+            <Tooltip
+              label='Label'
+
+              position='top'
+              alignment='end'
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+            <Tooltip
+              label='Label'
+
+              position='bottom'
+              alignment='start'
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+            <Tooltip
+              label='Label'
+
+              position='bottom'
+              alignment='center'
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+            <Tooltip
+              label='Label'
+
+              position='bottom'
+              alignment='end'
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+            <Tooltip
+              label='Label'
+
+              position='left'
+              alignment='start'
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+            <Tooltip
+              label='Label'
+
+              position='left'
+              alignment='center'
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+            <Tooltip
+              label='Label'
+
+              position='left'
+              alignment='end'
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+            <Tooltip
+              label='Label'
+
+              position='right'
+              alignment='start'
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+            <Tooltip
+              label='Label'
+
+              position='right'
+              alignment='center'
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+            <Tooltip
+              label='Label'
+
+              position='right'
+              alignment='end'
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+          </div>
+        </Accordion>
+
+        <Accordion label='Tooltip colors'>
+          <div className={classNames([classes.column])} style={{ gap: 24 }}>
+            <Tooltip
+              label='Label'
+
+              color='default'
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+            <Tooltip
+              label='Label'
+
+              color='primary'
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+            <Tooltip
+              label='Label'
+
+              color='secondary'
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+            <Tooltip
+              label='Label'
+
+              color='tertiary'
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+            <Tooltip
+              label='Label'
+
+              color='quaternary'
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+            <Tooltip
+              label='Label'
+
+              color='info'
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+            <Tooltip
+              label='Label'
+
+              color='success'
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+            <Tooltip
+              label='Label'
+
+              color='warning'
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+            <Tooltip
+              label='Label'
+
+              color='error'
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+            <Tooltip
+              label='Label'
+
+              color='neutral'
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+            <Tooltip
+              label='Label'
+
+              color='#f5d758'
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+          </div>
+        </Accordion>
+
+        <Accordion label='Tooltip tonal'>
+          <div className={classNames([classes.column])} style={{ gap: 24 }}>
+            <Tooltip
+              tonal
+
+              label='Label'
+
+              color='primary'
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+            <Tooltip
+              tonal
+
+              label='Label'
+
+              color='secondary'
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+            <Tooltip
+              tonal
+
+              label='Label'
+
+              color='tertiary'
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+            <Tooltip
+              tonal
+
+              label='Label'
+
+              color='quaternary'
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+            <Tooltip
+              tonal
+
+              label='Label'
+
+              color='info'
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+            <Tooltip
+              tonal
+
+              label='Label'
+
+              color='success'
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+            <Tooltip
+              tonal
+
+              label='Label'
+
+              color='warning'
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+            <Tooltip
+              tonal
+
+              label='Label'
+
+              color='error'
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+            <Tooltip
+              tonal
+
+              label='Label'
+
+              color='neutral'
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+            <Tooltip
+              tonal
+
+              label='Label'
+
+              color='#f5d758'
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+          </div>
+        </Accordion>
+
+        <Accordion label='Tooltip transitions' open>
+          <div className={classNames([classes.column])} style={{ gap: 24 }}>
+            <Tooltip
+              label='Label'
+
+              TransitionComponent={Fade}
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+
+            <Tooltip
+              label='Label'
+
+              TransitionComponent={Grow}
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+
+            <Tooltip
+              label='Label'
+
+              TransitionComponent={Zoom}
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+
+            <Tooltip
+              label='Label'
+
+              TransitionComponent={Slide}
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+          </div>
+        </Accordion>
+
+        <Accordion label='Tooltip arrow'>
+          <div className={classNames([classes.column])}>
+            <Tooltip
+              arrow
+
+              label='Label'
+
+              position='top'
+              alignment='start'
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+            <Tooltip
+              arrow
+
+              label='Label'
+
+              position='top'
+              alignment='center'
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+            <Tooltip
+              arrow
+
+              label='Label'
+
+              position='top'
+              alignment='end'
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+            <Tooltip
+              arrow
+
+              label='Label'
+
+              position='bottom'
+              alignment='start'
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+            <Tooltip
+              arrow
+
+              label='Label'
+
+              position='bottom'
+              alignment='center'
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+            <Tooltip
+              arrow
+
+              label='Label'
+
+              position='bottom'
+              alignment='end'
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+            <Tooltip
+              arrow
+
+              label='Label'
+
+              position='left'
+              alignment='start'
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+            <Tooltip
+              arrow
+
+              label='Label'
+
+              position='left'
+              alignment='center'
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+            <Tooltip
+              arrow
+
+              label='Label'
+
+              position='left'
+              alignment='end'
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+            <Tooltip
+              arrow
+
+              label='Label'
+
+              position='right'
+              alignment='start'
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+            <Tooltip
+              arrow
+
+              label='Label'
+
+              position='right'
+              alignment='center'
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+            <Tooltip
+              arrow
+
+              label='Label'
+
+              position='right'
+              alignment='end'
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+          </div>
+        </Accordion>
+
+        <Accordion label='Tooltip follow' open>
+          <div className={classNames([classes.column])}>
+            <Tooltip
+              label='Label'
+
+              follow
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+          </div>
+        </Accordion>
+
+        <Accordion label='Tooltip disableInteractive' open>
+          <div className={classNames([classes.column])}>
+            <Tooltip
+              label='Label'
+
+              disableInteractive
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+          </div>
+        </Accordion>
+
+        <Accordion label='Tooltip maxWidth' open>
+          <div className={classNames([classes.column])} style={{ gap: 24 }}>
+            <Tooltip
+              label={`It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).`}
+
+              position='bottom'
+              alignment='center'
+
+              maxWidth='xxs'
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+            <Tooltip
+              label={`It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).`}
+
+              position='bottom'
+              alignment='center'
+
+              maxWidth='xs'
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+            <Tooltip
+              label={`It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).`}
+
+              position='bottom'
+              alignment='center'
+
+              maxWidth='sm'
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+            <Tooltip
+              label={`It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).`}
+
+              position='bottom'
+              alignment='center'
+
+              maxWidth='rg'
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+            <Tooltip
+              label={`It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).`}
+
+              position='bottom'
+              alignment='center'
+
+              maxWidth='lg'
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+            <Tooltip
+              label={`It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).`}
+
+              position='bottom'
+              alignment='center'
+
+              maxWidth='xl'
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+            <Tooltip
+              label={`It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).`}
+
+              position='bottom'
+              alignment='center'
+
+              maxWidth='xxl'
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+          </div>
+        </Accordion>
+
+        <Accordion label='Tooltip fullWidth' open>
+          <div className={classNames([classes.column])} style={{ gap: 24 }}>
+            <Tooltip
+              label={`It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).`}
+
+              position='bottom'
+              alignment='center'
+
+              fullWidth
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+          </div>
+        </Accordion>
+
+        <Accordion label='Tooltip controlled' open>
+          <div className={classNames([classes.column])} style={{ gap: 24 }}>
+            <Button onClick={() => a.tooltip ? onClose() : onOpen()} version='outlined' color='secondary'>a</Button>
+
+            <Tooltip
+              label='Label'
+
+              open={a.tooltip}
+
+              onOpen={onOpen}
+              onClose={onClose}
+            >
+              <Button color='secondary'>Append</Button>
+            </Tooltip>
+          </div>
+        </Accordion>
+
+        <Accordion label='Tooltip' open>
+          <div className={classNames([classes.column])}>
+            <Tooltip
+              label={(
+                <p
+                  style={{
+                    padding: '4px 8px',
+                    color: 'darkgreen',
+                    background: '#fafafa',
+                    borderRadius: 4,
+                    boxShadow: '0px 3px 7px 0px #ddd',
+                    fontSize: 11.4
+                  }}
+                >
+                  Label
+                </p>
+              )}
             >
               <Button color='secondary'>Append</Button>
             </Tooltip>

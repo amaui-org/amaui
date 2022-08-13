@@ -34,7 +34,7 @@ const Append = (props_: any) => {
     switch: switch_ = false,
     overflow = true,
     unfollow = false,
-
+    style: style_,
     element,
 
     children
@@ -472,7 +472,9 @@ const Append = (props_: any) => {
             style: {
               ...element.props?.style,
 
-              ...style
+              ...style,
+
+              ...style_
             }
           })
       )}
