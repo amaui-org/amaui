@@ -444,7 +444,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
     if (!refs.open.current) {
       setOpen(false);
 
-      if (is('function', onClose_) && open) onClose_();
+      if (is('function', onClose_)) onClose_();
     }
   };
 
@@ -539,7 +539,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
           {...other}
         >
           <TransitionComponent
-            in={true}
+            in={inProp}
 
             onExited={onClose}
 
