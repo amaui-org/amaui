@@ -16,8 +16,7 @@ const overflow = {
 
 const useStyle = style(theme => ({
   wrapper: {
-    width: '100%',
-    background: theme.palette.background.default.primary
+    width: '100%'
   },
 
   root: {
@@ -37,7 +36,47 @@ const useStyle = style(theme => ({
   },
 
   // Color
-  default: { color: theme.methods.palette.color.value('default', 70, true) },
+  wrapper_color_default: { background: theme.palette.background.default.primary },
+
+  wrapper_color_neutral: { background: theme.palette.color.neutral.main },
+
+  wrapper_color_primary: { background: theme.palette.color.primary.main },
+
+  wrapper_color_secondary: { background: theme.palette.color.secondary.main },
+
+  wrapper_color_tertiary: { background: theme.palette.color.tertiary.main },
+
+  wrapper_color_quaternary: { background: theme.palette.color.quaternary.main },
+
+  wrapper_color_info: { background: theme.palette.color.info.main },
+
+  wrapper_color_success: { background: theme.palette.color.success.main },
+
+  wrapper_color_warning: { background: theme.palette.color.warning.main },
+
+  wrapper_color_error: { background: theme.palette.color.error.main },
+
+  // Tonal
+  wrapper_tonal_color_neutral: { background: theme.palette.color.neutral[theme.palette.light ? 95 : 10] },
+
+  wrapper_tonal_color_primary: { background: theme.palette.color.primary[theme.palette.light ? 95 : 10] },
+
+  wrapper_tonal_color_secondary: { background: theme.palette.color.secondary[theme.palette.light ? 95 : 10] },
+
+  wrapper_tonal_color_tertiary: { background: theme.palette.color.tertiary[theme.palette.light ? 95 : 10] },
+
+  wrapper_tonal_color_quaternary: { background: theme.palette.color.quaternary[theme.palette.light ? 95 : 10] },
+
+  wrapper_tonal_color_info: { background: theme.palette.color.info[theme.palette.light ? 95 : 10] },
+
+  wrapper_tonal_color_success: { background: theme.palette.color.success[theme.palette.light ? 95 : 10] },
+
+  wrapper_tonal_color_warning: { background: theme.palette.color.warning[theme.palette.light ? 95 : 10] },
+
+  wrapper_tonal_color_error: { background: theme.palette.color.error[theme.palette.light ? 95 : 10] },
+
+  // Color
+  default: { color: theme.palette.text.default.primary },
 
   neutral: { color: theme.methods.palette.color.value('neutral', 70, true) },
 
@@ -92,11 +131,24 @@ const useStyle = style(theme => ({
     padding: `${theme.methods.space.value('sm') * 1.5}px ${theme.methods.space.value('rg') * 1.25}px`
   },
 
+  inset_size_small: {
+    paddingInlineStart: `${56 + theme.methods.space.value('rg') * 0.75}px`
+  },
+
+  inset_size_regular: {
+    paddingInlineStart: `${56 + theme.methods.space.value('rg')}px`
+  },
+
+  inset_size_large: {
+    paddingInlineStart: `${56 + theme.methods.space.value('rg') * 1.25}px`
+  },
+
   middle: {
     display: 'inline-flex',
     flex: '1 1 auto',
     width: '100%',
     flexDirection: 'column',
+
     // Fix for white-space: nowrap & flex: 1 1 auto
     minWidth: 0,
     alignSelf: 'center'
@@ -178,6 +230,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiListItem?.props?.default }), [props_]);
 
   const [focus, setFocus] = React.useState(false);
+
   const refs = {
     root: React.useRef<HTMLElement>()
   };
@@ -185,10 +238,12 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
   const { classes } = useStyle(props);
 
   const {
+    inset,
     primary,
     secondary,
     tertiary,
     selected,
+    tonal,
     color = 'default',
     colorSelected = 'primary',
     start,
@@ -217,7 +272,11 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
   } = props;
 
   const styles: any = {
-    root: {}
+    root: {},
+    wrapper: {},
+    primary: {},
+    secondary: {},
+    tertiary: {}
   };
 
   let RootComponent = RootComponent_;
@@ -238,10 +297,20 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
 
   let colorToUse = selected ? colorSelected : color;
 
-  if (!classes[colorToUse]) {
-    const palette = theme.methods.color(colorToUse);
+  const palette = !theme.palette.color[color] && theme.methods.color(color);
 
+  if (!classes[colorToUse] && color !== 'default') {
     styles.root.color = theme.methods.palette.color.value(colorToUse, 70, true, palette);
+
+    styles.wrapper.background = !tonal ? palette.main : palette[theme.palette.light ? 95 : 10];
+  }
+
+  if (!tonal) {
+    if (color !== 'default') {
+      styles.root.color = styles.primary.color = theme.methods.palette.color.text((palette || theme.palette.color[color] as any).main, true, 'light', 'primary');
+      styles.secondary.color = theme.methods.palette.color.text((palette || theme.palette.color[color] as any).main, true, 'light', 'secondary');
+      styles.tertiary.color = theme.methods.palette.color.text((palette || theme.palette.color[color] as any).main, true, 'light', 'tertiary');
+    }
   }
 
   return (
@@ -250,12 +319,18 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
 
       className={classNames([
         staticClassName('ListItem', theme) && [
-          'AmauiListItem-wrapper'
+          'AmauiListItem-wrapper',
+          `AmauiListItem-color-${!classes[colorToUse] ? 'new' : colorToUse}`,
+          tonal && `AmauiListItem-tonal`,
         ],
 
         className,
-        classes.wrapper
+        classes.wrapper,
+        classes[`wrapper_color_${color}`],
+        tonal && classes[`wrapper_tonal_color_${color}`]
       ])}
+
+      style={styles.wrapper}
     >
       <RootComponent
         ref={refs.root}
@@ -271,6 +346,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
             `AmauiListItem-size-${size}`,
             `AmauiListItem-color-${!classes[colorToUse] ? 'new' : colorToUse}`,
             `AmauiListItem-shape-${shape}-position-${shapePosition}`,
+            tonal && `AmauiListItem-tonal`,
             disabled && `AmauiListItem-disabled`
           ],
 
@@ -278,6 +354,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
           classes[size],
           classes[selected ? colorSelected : color],
           classes[`shape_${shape}_position_${shapePosition}`],
+          inset && !start && classes[`inset_size_${size}`],
           (href || button) && classes.button,
           disabled && classes.disabled
         ])}
@@ -351,6 +428,8 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
                   classes.text_primary,
                   PrimaryProps?.className
                 ])}
+
+                style={styles.primary}
               >
                 {primary}
               </Type>
@@ -374,6 +453,8 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
                   classes.text_secondary,
                   SecondaryProps?.className
                 ])}
+
+                style={styles.secondary}
               >
                 {secondary}
               </Type>
@@ -397,6 +478,8 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
                   classes.text_tertiary,
                   TertiaryProps?.className
                 ])}
+
+                style={styles.tertiary}
               >
                 {tertiary}
               </Type>

@@ -5778,6 +5778,169 @@ function App() {
           </div>
         </Accordion>
 
+        <Accordion label='List item inset' open>
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+            <List size='small'>
+              <ListItem
+                button
+
+                inset
+
+                primary='Primary value'
+
+                end={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+              />
+              <ListItem
+                button
+
+                primary='Primary value'
+
+                start={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+
+                end={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+              />
+              <ListItem
+                button
+
+                primary='Primary value'
+
+                start={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+
+                end={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+              />
+              <ListItem
+                button
+
+                primary='Primary value'
+
+                start={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+
+                end={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+              />
+            </List>
+
+            <List size='regular'>
+              <ListItem
+                button
+
+                inset
+
+                primary='Primary value'
+
+                end={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+              />
+              <ListItem
+                button
+
+                primary='Primary value'
+
+                start={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+
+                end={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+              />
+              <ListItem
+                button
+
+                primary='Primary value'
+
+                start={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+
+                end={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+              />
+              <ListItem
+                button
+
+                primary='Primary value'
+
+                start={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+
+                end={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+              />
+            </List>
+
+            <List size='large'>
+              <ListItem
+                button
+
+                inset
+
+                primary='Primary value'
+
+                end={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+              />
+              <ListItem
+                button
+
+                primary='Primary value'
+
+                start={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+
+                end={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+              />
+              <ListItem
+                button
+
+                primary='Primary value'
+
+                start={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+
+                end={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+              />
+              <ListItem
+                button
+
+                primary='Primary value'
+
+                start={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+
+                end={(
+                  <IconMaterialPottedPlantRounded color='secondary' />
+                )}
+              />
+            </List>
+          </div>
+        </Accordion>
+
         <Accordion label='List padding vertical' open>
           <div className={classNames([classes.column])} style={{ gap: 14 }}>
             <List paddingVertical='both'>
@@ -5876,6 +6039,700 @@ function App() {
                   tertiary='Tertiary text'
 
                   key={item}
+                />
+              ))}
+            </List>
+          </div>
+        </Accordion>
+
+        <Accordion label='List color' open>
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+            <List tonal={false} color='default'>
+              {[1, 2, 3, 4].map(item => (
+                <ListItem
+                  button
+
+                  key={item}
+
+                  primary='Primary value'
+                  secondary='Secondary value'
+                  tertiary='Tertiary value'
+
+                  start={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+
+                  end={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+                />
+              ))}
+            </List>
+
+            <List tonal={false} color='primary'>
+              {[1, 2, 3, 4].map(item => (
+                <ListItem
+                  button
+
+                  key={item}
+
+                  primary='Primary value'
+                  secondary='Secondary value'
+                  tertiary='Tertiary value'
+
+                  start={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+
+                  end={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+                />
+              ))}
+            </List>
+
+            <List tonal={false} color='secondary'>
+              {[1, 2, 3, 4].map(item => (
+                <ListItem
+                  button
+
+                  key={item}
+
+                  primary='Primary value'
+                  secondary='Secondary value'
+                  tertiary='Tertiary value'
+
+                  start={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+
+                  end={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+                />
+              ))}
+            </List>
+
+            <List tonal={false} color='tertiary'>
+              {[1, 2, 3, 4].map(item => (
+                <ListItem
+                  button
+
+                  key={item}
+
+                  primary='Primary value'
+                  secondary='Secondary value'
+                  tertiary='Tertiary value'
+
+                  start={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+
+                  end={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+                />
+              ))}
+            </List>
+
+            <List tonal={false} color='quaternary'>
+              {[1, 2, 3, 4].map(item => (
+                <ListItem
+                  button
+
+                  key={item}
+
+                  primary='Primary value'
+                  secondary='Secondary value'
+                  tertiary='Tertiary value'
+
+                  start={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+
+                  end={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+                />
+              ))}
+            </List>
+
+            <List tonal={false} color='info'>
+              {[1, 2, 3, 4].map(item => (
+                <ListItem
+                  button
+
+                  key={item}
+
+                  primary='Primary value'
+                  secondary='Secondary value'
+                  tertiary='Tertiary value'
+
+                  start={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+
+                  end={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+                />
+              ))}
+            </List>
+
+            <List tonal={false} color='success'>
+              {[1, 2, 3, 4].map(item => (
+                <ListItem
+                  button
+
+                  key={item}
+
+                  primary='Primary value'
+                  secondary='Secondary value'
+                  tertiary='Tertiary value'
+
+                  start={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+
+                  end={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+                />
+              ))}
+            </List>
+
+            <List tonal={false} color='warning'>
+              {[1, 2, 3, 4].map(item => (
+                <ListItem
+                  button
+
+                  key={item}
+
+                  primary='Primary value'
+                  secondary='Secondary value'
+                  tertiary='Tertiary value'
+
+                  start={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+
+                  end={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+                />
+              ))}
+            </List>
+
+            <List tonal={false} color='error'>
+              {[1, 2, 3, 4].map(item => (
+                <ListItem
+                  button
+
+                  key={item}
+
+                  primary='Primary value'
+                  secondary='Secondary value'
+                  tertiary='Tertiary value'
+
+                  start={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+
+                  end={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+                />
+              ))}
+            </List>
+
+            <List tonal={false} color='neutral'>
+              {[1, 2, 3, 4].map(item => (
+                <ListItem
+                  button
+
+                  key={item}
+
+                  primary='Primary value'
+                  secondary='Secondary value'
+                  tertiary='Tertiary value'
+
+                  start={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+
+                  end={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+                />
+              ))}
+            </List>
+
+            <List tonal={false} color='#f5d758'>
+              {[1, 2, 3, 4].map(item => (
+                <ListItem
+                  button
+
+                  key={item}
+
+                  primary='Primary value'
+                  secondary='Secondary value'
+                  tertiary='Tertiary value'
+
+                  start={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+
+                  end={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+                />
+              ))}
+            </List>
+          </div>
+        </Accordion>
+
+        <Accordion label='List color tonal' open>
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+            <List color='primary' tonal>
+              {[1, 2, 3, 4].map(item => (
+                <ListItem
+                  button
+
+                  key={item}
+
+                  primary='Primary value'
+                  secondary='Secondary value'
+                  tertiary='Tertiary value'
+
+                  start={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+
+                  end={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+                />
+              ))}
+            </List>
+
+            <List color='secondary' tonal>
+              {[1, 2, 3, 4].map(item => (
+                <ListItem
+                  button
+
+                  key={item}
+
+                  primary='Primary value'
+                  secondary='Secondary value'
+                  tertiary='Tertiary value'
+
+                  start={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+
+                  end={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+                />
+              ))}
+            </List>
+
+            <List color='tertiary' tonal>
+              {[1, 2, 3, 4].map(item => (
+                <ListItem
+                  button
+
+                  key={item}
+
+                  primary='Primary value'
+                  secondary='Secondary value'
+                  tertiary='Tertiary value'
+
+                  start={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+
+                  end={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+                />
+              ))}
+            </List>
+
+            <List color='quaternary' tonal>
+              {[1, 2, 3, 4].map(item => (
+                <ListItem
+                  button
+
+                  key={item}
+
+                  primary='Primary value'
+                  secondary='Secondary value'
+                  tertiary='Tertiary value'
+
+                  start={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+
+                  end={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+                />
+              ))}
+            </List>
+
+            <List color='info' tonal>
+              {[1, 2, 3, 4].map(item => (
+                <ListItem
+                  button
+
+                  key={item}
+
+                  primary='Primary value'
+                  secondary='Secondary value'
+                  tertiary='Tertiary value'
+
+                  start={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+
+                  end={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+                />
+              ))}
+            </List>
+
+            <List color='success' tonal>
+              {[1, 2, 3, 4].map(item => (
+                <ListItem
+                  button
+
+                  key={item}
+
+                  primary='Primary value'
+                  secondary='Secondary value'
+                  tertiary='Tertiary value'
+
+                  start={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+
+                  end={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+                />
+              ))}
+            </List>
+
+            <List color='warning' tonal>
+              {[1, 2, 3, 4].map(item => (
+                <ListItem
+                  button
+
+                  key={item}
+
+                  primary='Primary value'
+                  secondary='Secondary value'
+                  tertiary='Tertiary value'
+
+                  start={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+
+                  end={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+                />
+              ))}
+            </List>
+
+            <List color='error' tonal>
+              {[1, 2, 3, 4].map(item => (
+                <ListItem
+                  button
+
+                  key={item}
+
+                  primary='Primary value'
+                  secondary='Secondary value'
+                  tertiary='Tertiary value'
+
+                  start={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+
+                  end={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+                />
+              ))}
+            </List>
+
+            <List color='neutral' tonal>
+              {[1, 2, 3, 4].map(item => (
+                <ListItem
+                  button
+
+                  key={item}
+
+                  primary='Primary value'
+                  secondary='Secondary value'
+                  tertiary='Tertiary value'
+
+                  start={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+
+                  end={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+                />
+              ))}
+            </List>
+
+            <List color='#f5d758' tonal>
+              {[1, 2, 3, 4].map(item => (
+                <ListItem
+                  button
+
+                  key={item}
+
+                  primary='Primary value'
+                  secondary='Secondary value'
+                  tertiary='Tertiary value'
+
+                  start={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+
+                  end={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+                />
+              ))}
+            </List>
+          </div>
+        </Accordion>
+
+        <Accordion label='List shadow'>
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+            <List shadow={0}>
+              {[1, 2, 3, 4].map(item => (
+                <ListItem
+                  button
+
+                  key={item}
+
+                  primary='Primary value'
+
+                  start={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+
+                  end={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+                />
+              ))}
+            </List>
+
+            <List shadow={1}>
+              {[1, 2, 3, 4].map(item => (
+                <ListItem
+                  button
+
+                  key={item}
+
+                  primary='Primary value'
+
+                  start={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+
+                  end={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+                />
+              ))}
+            </List>
+
+            <List shadow={2}>
+              {[1, 2, 3, 4].map(item => (
+                <ListItem
+                  button
+
+                  key={item}
+
+                  primary='Primary value'
+
+                  start={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+
+                  end={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+                />
+              ))}
+            </List>
+
+            <List shadow={3}>
+              {[1, 2, 3, 4].map(item => (
+                <ListItem
+                  button
+
+                  key={item}
+
+                  primary='Primary value'
+
+                  start={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+
+                  end={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+                />
+              ))}
+            </List>
+
+            <List shadow={4}>
+              {[1, 2, 3, 4].map(item => (
+                <ListItem
+                  button
+
+                  key={item}
+
+                  primary='Primary value'
+
+                  start={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+
+                  end={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+                />
+              ))}
+            </List>
+
+            <List shadow={6}>
+              {[1, 2, 3, 4].map(item => (
+                <ListItem
+                  button
+
+                  key={item}
+
+                  primary='Primary value'
+
+                  start={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+
+                  end={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+                />
+              ))}
+            </List>
+
+            <List shadow={8}>
+              {[1, 2, 3, 4].map(item => (
+                <ListItem
+                  button
+
+                  key={item}
+
+                  primary='Primary value'
+
+                  start={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+
+                  end={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+                />
+              ))}
+            </List>
+
+            <List shadow={9}>
+              {[1, 2, 3, 4].map(item => (
+                <ListItem
+                  button
+
+                  key={item}
+
+                  primary='Primary value'
+
+                  start={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+
+                  end={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+                />
+              ))}
+            </List>
+
+            <List shadow={12}>
+              {[1, 2, 3, 4].map(item => (
+                <ListItem
+                  button
+
+                  key={item}
+
+                  primary='Primary value'
+
+                  start={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+
+                  end={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+                />
+              ))}
+            </List>
+
+            <List shadow={16}>
+              {[1, 2, 3, 4].map(item => (
+                <ListItem
+                  button
+
+                  key={item}
+
+                  primary='Primary value'
+
+                  start={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+
+                  end={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+                />
+              ))}
+            </List>
+
+            <List shadow={24}>
+              {[1, 2, 3, 4].map(item => (
+                <ListItem
+                  button
+
+                  key={item}
+
+                  primary='Primary value'
+
+                  start={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
+
+                  end={(
+                    <IconMaterialPottedPlantRounded color='secondary' />
+                  )}
                 />
               ))}
             </List>

@@ -14,8 +14,72 @@ const useStyle = style(theme => ({
     flexDirection: 'column',
     alignItems: 'flex-start',
     width: '100%',
+    borderRadius: `${theme.shape.radius.unit / 2}px`,
+
     background: theme.palette.background.default.primary
   },
+
+  // Color
+  default: { background: theme.palette.background.default.primary },
+
+  neutral: { background: theme.palette.color.neutral.main },
+
+  primary: { background: theme.palette.color.primary.main },
+
+  secondary: { background: theme.palette.color.secondary.main },
+
+  tertiary: { background: theme.palette.color.tertiary.main },
+
+  quaternary: { background: theme.palette.color.quaternary.main },
+
+  info: { background: theme.palette.color.info.main },
+
+  success: { background: theme.palette.color.success.main },
+
+  warning: { background: theme.palette.color.warning.main },
+
+  error: { background: theme.palette.color.error.main },
+
+  // Tonal
+  tonal_neutral: { background: theme.palette.color.neutral[theme.palette.light ? 95 : 10] },
+
+  tonal_primary: { background: theme.palette.color.primary[theme.palette.light ? 95 : 10] },
+
+  tonal_secondary: { background: theme.palette.color.secondary[theme.palette.light ? 95 : 10] },
+
+  tonal_tertiary: { background: theme.palette.color.tertiary[theme.palette.light ? 95 : 10] },
+
+  tonal_quaternary: { background: theme.palette.color.quaternary[theme.palette.light ? 95 : 10] },
+
+  tonal_info: { background: theme.palette.color.info[theme.palette.light ? 95 : 10] },
+
+  tonal_success: { background: theme.palette.color.success[theme.palette.light ? 95 : 10] },
+
+  tonal_warning: { background: theme.palette.color.warning[theme.palette.light ? 95 : 10] },
+
+  tonal_error: { background: theme.palette.color.error[theme.palette.light ? 95 : 10] },
+
+  shadow_0: { boxShadow: theme.shadows.values.neutral[0] },
+
+  shadow_1: { boxShadow: theme.shadows.values.neutral[1] },
+
+  shadow_2: { boxShadow: theme.shadows.values.neutral[2] },
+
+  shadow_3: { boxShadow: theme.shadows.values.neutral[3] },
+
+  shadow_4: { boxShadow: theme.shadows.values.neutral[4] },
+
+  shadow_6: { boxShadow: theme.shadows.values.neutral[6] },
+
+  shadow_8: { boxShadow: theme.shadows.values.neutral[8] },
+
+  shadow_9: { boxShadow: theme.shadows.values.neutral[9] },
+
+  shadow_12: { boxShadow: theme.shadows.values.neutral[12] },
+
+  shadow_16: { boxShadow: theme.shadows.values.neutral[16] },
+
+  shadow_24: { boxShadow: theme.shadows.values.neutral[24] },
 
   padding_vertical_both: {
     paddingBlock: theme.methods.space.value('sm', 'px')
@@ -50,6 +114,9 @@ const useStyle = style(theme => ({
   }
 }), { name: 'AmauiList' });
 
+// List menu
+// min and max width
+
 const List = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 
@@ -58,6 +125,10 @@ const List = React.forwardRef((props_: any, ref: any) => {
   const { classes } = useStyle(props);
 
   const {
+    menu,
+    color = 'default',
+    tonal = true,
+    shadow = 0,
     paddingHorizontal = 'none',
     paddingVertical = 'both',
     Component = 'ul',
@@ -70,6 +141,16 @@ const List = React.forwardRef((props_: any, ref: any) => {
     ...other
   } = props;
 
+  const styles: any = {
+    root: {}
+  };
+
+  if (!theme.palette.color[color] && color !== 'default') {
+    const palette = theme.methods.color(color);
+
+    styles.root.background = !tonal ? palette.main : palette[theme.palette.light ? 95 : 10];
+  }
+
   return (
     <Component
       ref={ref}
@@ -78,18 +159,33 @@ const List = React.forwardRef((props_: any, ref: any) => {
         staticClassName('List', theme) && [
           'AmauiList-root',
           `AmauiList-padding-horizontal-${paddingHorizontal}`,
-          `AmauiList-padding-vertical-${paddingVertical}`
+          `AmauiList-padding-vertical-${paddingVertical}`,
+          `AmauiList-shadow-${shadow}`,
+          `AmauiBadge-color-${!theme.palette.color[color] && color !== 'default' ? 'new' : color}`,
+          tonal && `AmauiList-tonal`
         ],
 
         className,
         classes.root,
         classes[`padding_vertical_${paddingVertical}`],
-        classes[`padding_horizontal_${paddingHorizontal}`]
+        classes[`padding_horizontal_${paddingHorizontal}`],
+        classes[`shadow_${shadow}`],
+        classes[color],
+        tonal && classes[`tonal_${color}`]
       ])}
 
-      style={style}
+      style={{
+        ...style,
+
+        ...styles.root
+      }}
     >
       {React.Children.toArray(children).map((item: any) => React.cloneElement(item, {
+        menu,
+
+        color,
+        tonal,
+
         ...other,
 
         ...item.props
