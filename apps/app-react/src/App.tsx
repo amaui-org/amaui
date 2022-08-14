@@ -11,6 +11,11 @@ import IconMaterialCloseRounded from '@amaui/icons-material-react/build/IconMate
 import IconMaterialLightModeRounded from '@amaui/icons-material-react/build/IconMaterialLightModeRounded';
 import IconMaterialDarkModeRounded from '@amaui/icons-material-react/build/IconMaterialDarkModeRounded';
 import IconMaterialUndoRounded from '@amaui/icons-material-react/build/IconMaterialUndoRounded';
+import IconMaterialCutRounded from '@amaui/icons-material-react/build/IconMaterialCutRounded';
+import IconMaterialContentCopyRounded from '@amaui/icons-material-react/build/IconMaterialContentCopyRounded';
+import IconMaterialContentPasteRounded from '@amaui/icons-material-react/build/IconMaterialContentPasteRounded';
+import IconMaterialCloudRounded from '@amaui/icons-material-react/build/IconMaterialCloudRounded';
+import IconMaterialArrowRightRounded from '@amaui/icons-material-react/build/IconMaterialArrowRightRounded';
 
 const useStyleA = style(theme => ({
   a: {
@@ -5774,6 +5779,218 @@ function App() {
                   key={item}
                 />
               ))}
+            </List>
+          </div>
+        </Accordion>
+
+        <Accordion label='List menu' open>
+          <div className={classNames([classes.column])}>
+            <List menu>
+              {[0, 1, 3, 4].map(item => (
+                <ListItem
+                  button
+
+                  primary={`Item ${item + 1}`}
+
+                  key={item}
+                />
+              ))}
+            </List>
+
+            <List menu>
+              {[0, 1, 3, 4].map(item => (
+                <ListItem
+                  button
+
+                  primary={`Item ${item + 1}`}
+
+                  key={item}
+
+                  end={item === 3 && (
+                    <IconMaterialArrowRightRounded />
+                  )}
+                />
+              ))}
+            </List>
+
+            <List menu style={{ minWidth: 240 }}>
+              <ListItem
+                button
+
+                primary='Cut'
+
+                start={(
+                  <IconMaterialCutRounded />
+                )}
+
+                end={(
+                  <Type version='b2' color='secondary'>
+                    ⌘X
+                  </Type>
+                )}
+
+                disabled
+              />
+
+              <ListItem
+                button
+
+                primary='Copy'
+
+                start={(
+                  <IconMaterialContentCopyRounded />
+                )}
+
+                end={(
+                  <Type version='b2' color='secondary'>
+                    ⌘C
+                  </Type>
+                )}
+              />
+
+              <ListItem
+                button
+
+                primary='Paste'
+
+                start={(
+                  <IconMaterialContentPasteRounded />
+                )}
+
+                end={(
+                  <Type version='b2' color='secondary'>
+                    ⌘V
+                  </Type>
+                )}
+              />
+
+              <Divider
+                Component='li'
+              />
+
+              <ListItem
+                button
+
+                primary='Cloud'
+
+                start={(
+                  <IconMaterialCloudRounded />
+                )}
+
+                end={(
+                  <IconMaterialArrowRightRounded />
+                )}
+              />
+            </List>
+
+            <List menu color='secondary'>
+              <ListItem
+                button
+
+                primary='Undo'
+              />
+
+              <ListItem
+                button
+
+                primary='Redo'
+
+                disabled
+              />
+
+              <Divider
+                Component='li'
+              />
+
+              <ListItem
+                button
+
+                primary='Cut'
+
+                disabled
+              />
+
+              <ListItem
+                button
+
+                primary='Copy'
+
+                disabled
+              />
+
+              <ListItem
+                button
+
+                primary='Paste'
+              />
+            </List>
+
+            <List menu color='secondary'>
+              <ListItem
+                inset
+
+                button
+
+                primary='Single'
+              />
+
+              <ListItem
+                inset
+
+                button
+
+                primary='1.15'
+              />
+
+              <ListItem
+                inset
+
+                button
+
+                primary='Double'
+              />
+
+              <ListItem
+                button
+
+                primary='Custom: 1.2'
+
+                start={(
+                  <IconMaterialCheckRounded />
+                )}
+              />
+
+              <Divider
+                Component='li'
+              />
+
+              <ListItem
+                button
+
+                primary='Add space before paragraph'
+
+                end={(
+                  <IconMaterialArrowRightRounded />
+                )}
+
+                selected
+              />
+
+              <ListItem
+                button
+
+                primary='Add space after paragraph'
+              />
+
+              <Divider
+                Component='li'
+              />
+
+              <ListItem
+                button
+
+                primary='Custom spacing...'
+              />
             </List>
           </div>
         </Accordion>

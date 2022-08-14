@@ -11,6 +11,16 @@ const useStyle = style(theme => ({
     padding: '0'
   },
 
+  inherit: { color: 'inherit' },
+
+  primary: { color: theme.palette.text.default.primary },
+
+  secondary: { color: theme.palette.text.default.secondary },
+
+  tertiary: { color: theme.palette.text.default.tertiary },
+
+  quaternary: { color: theme.palette.text.default.quaternary },
+
   d1: { ...theme.typography.values.d1 },
 
   d2: { ...theme.typography.values.d2 },
@@ -39,7 +49,13 @@ const useStyle = style(theme => ({
 
   b2: { ...theme.typography.values.b2 },
 
-  b3: { ...theme.typography.values.b3 }
+  b3: { ...theme.typography.values.b3 },
+
+  disabled: {
+    pointerEvents: 'none',
+    userSelect: 'none',
+    opacity: theme.palette.visual_contrast.default.opacity.disabled
+  }
 }), { name: 'AmauiType' });
 
 const Type = React.forwardRef((props_: any, ref: any) => {
@@ -50,9 +66,11 @@ const Type = React.forwardRef((props_: any, ref: any) => {
   const { classes } = useStyle(props);
 
   const {
+    color = 'inherit',
     version = 'b2',
     size,
     Component: Component_,
+    disabled,
 
     className,
     style = {},
@@ -92,12 +110,16 @@ const Type = React.forwardRef((props_: any, ref: any) => {
       className={classNames([
         staticClassName('Type', theme) && [
           'AmauiType-root',
-          `AmauiType-version-${version}`
+          `AmauiType-version-${version}`,
+          `AmauiType-color-${color}`,
+          disabled && `AmauiType-disabled`
         ],
 
         classes.root,
         className,
-        classes[version]
+        classes[version],
+        classes[color],
+        disabled && classes.disabled
       ])}
 
       style={{

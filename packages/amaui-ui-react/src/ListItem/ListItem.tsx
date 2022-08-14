@@ -57,23 +57,23 @@ const useStyle = style(theme => ({
   wrapper_color_error: { background: theme.palette.color.error.main },
 
   // Tonal
-  wrapper_tonal_color_neutral: { background: theme.palette.color.neutral[theme.palette.light ? 95 : 10] },
+  wrapper_tonal_color_neutral: { background: theme.palette.color.neutral[theme.palette.light ? 95 : 5] },
 
-  wrapper_tonal_color_primary: { background: theme.palette.color.primary[theme.palette.light ? 95 : 10] },
+  wrapper_tonal_color_primary: { background: theme.palette.color.primary[theme.palette.light ? 95 : 5] },
 
-  wrapper_tonal_color_secondary: { background: theme.palette.color.secondary[theme.palette.light ? 95 : 10] },
+  wrapper_tonal_color_secondary: { background: theme.palette.color.secondary[theme.palette.light ? 95 : 5] },
 
-  wrapper_tonal_color_tertiary: { background: theme.palette.color.tertiary[theme.palette.light ? 95 : 10] },
+  wrapper_tonal_color_tertiary: { background: theme.palette.color.tertiary[theme.palette.light ? 95 : 5] },
 
-  wrapper_tonal_color_quaternary: { background: theme.palette.color.quaternary[theme.palette.light ? 95 : 10] },
+  wrapper_tonal_color_quaternary: { background: theme.palette.color.quaternary[theme.palette.light ? 95 : 5] },
 
-  wrapper_tonal_color_info: { background: theme.palette.color.info[theme.palette.light ? 95 : 10] },
+  wrapper_tonal_color_info: { background: theme.palette.color.info[theme.palette.light ? 95 : 5] },
 
-  wrapper_tonal_color_success: { background: theme.palette.color.success[theme.palette.light ? 95 : 10] },
+  wrapper_tonal_color_success: { background: theme.palette.color.success[theme.palette.light ? 95 : 5] },
 
-  wrapper_tonal_color_warning: { background: theme.palette.color.warning[theme.palette.light ? 95 : 10] },
+  wrapper_tonal_color_warning: { background: theme.palette.color.warning[theme.palette.light ? 95 : 5] },
 
-  wrapper_tonal_color_error: { background: theme.palette.color.error[theme.palette.light ? 95 : 10] },
+  wrapper_tonal_color_error: { background: theme.palette.color.error[theme.palette.light ? 95 : 5] },
 
   // Color
   default: { color: theme.palette.text.default.primary },
@@ -131,6 +131,18 @@ const useStyle = style(theme => ({
     padding: `${theme.methods.space.value('sm') * 1.5}px ${theme.methods.space.value('rg') * 1.25}px`
   },
 
+  menu_size_small: {
+    padding: `${theme.methods.space.value('sm') * 0.5}px ${theme.methods.space.value('rg') * 0.75}px`
+  },
+
+  menu_size_regular: {
+    padding: `${theme.methods.space.value('sm', 'px')} ${theme.methods.space.value('rg') * 0.75}px`
+  },
+
+  menu_size_large: {
+    padding: `${theme.methods.space.value('sm') * 1.5}px ${theme.methods.space.value('rg') * 0.75}px`
+  },
+
   inset_size_small: {
     paddingInlineStart: `${56 + theme.methods.space.value('rg') * 0.75}px`
   },
@@ -143,7 +155,20 @@ const useStyle = style(theme => ({
     paddingInlineStart: `${56 + theme.methods.space.value('rg') * 1.25}px`
   },
 
+  menu_inset_size_small: {
+    paddingInlineStart: `48px`
+  },
+
+  menu_inset_size_regular: {
+    paddingInlineStart: `48px`
+  },
+
+  menu_inset_size_large: {
+    paddingInlineStart: `48px`
+  },
+
   middle: {
+    position: 'relative',
     display: 'inline-flex',
     flex: '1 1 auto',
     width: '100%',
@@ -152,6 +177,10 @@ const useStyle = style(theme => ({
     // Fix for white-space: nowrap & flex: 1 1 auto
     minWidth: 0,
     alignSelf: 'center'
+  },
+
+  menu_middle: {
+    marginInlineEnd: '44px'
   },
 
   text: {
@@ -172,6 +201,7 @@ const useStyle = style(theme => ({
   },
 
   aside: {
+    position: 'relative',
     display: 'inline-flex',
     flex: '0 0 auto',
     alignSelf: 'flex-start'
@@ -201,6 +231,18 @@ const useStyle = style(theme => ({
     paddingInline: '0 12px'
   },
 
+  menu_start_icon: {
+    paddingInlineEnd: '12px'
+  },
+
+  menu_start_button: {
+    paddingInlineEnd: '4px'
+  },
+
+  menu_start_switch: {
+    paddingInlineEnd: '2px'
+  },
+
   end_icon: {
     paddingInlineStart: '12px',
     paddingInlineEnd: '24px'
@@ -216,10 +258,25 @@ const useStyle = style(theme => ({
     paddingInlineEnd: '8px'
   },
 
+  menu_end_icon: {
+    paddingInlineStart: '12px'
+  },
+
+  menu_end_button: {
+    paddingInlineStart: '4px'
+  },
+
+  menu_end_switch: {
+    paddingInlineStart: '2px'
+  },
+
+  middle_disabled: {
+    opacity: theme.palette.visual_contrast.default.opacity.disabled
+  },
+
   disabled: {
     pointerEvents: 'none',
     userSelect: 'none',
-    opacity: theme.palette.visual_contrast.default.opacity.disabled,
     cursor: 'default'
   }
 }), { name: 'AmauiListItem' });
@@ -238,6 +295,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
   const { classes } = useStyle(props);
 
   const {
+    menu,
     inset,
     primary,
     secondary,
@@ -245,7 +303,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
     selected,
     tonal,
     color = 'default',
-    colorSelected = 'primary',
+    colorSelected = props.color,
     start,
     end,
     startAlign = 'start',
@@ -273,6 +331,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
 
   const styles: any = {
     root: {},
+    icon: { color: 'default' },
     wrapper: {},
     primary: {},
     secondary: {},
@@ -302,12 +361,12 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
   if (!classes[colorToUse] && color !== 'default') {
     styles.root.color = theme.methods.palette.color.value(colorToUse, 70, true, palette);
 
-    styles.wrapper.background = !tonal ? palette.main : palette[theme.palette.light ? 95 : 10];
+    styles.wrapper.background = !tonal ? palette.main : palette[theme.palette.light ? 95 : 5];
   }
 
   if (!tonal) {
     if (color !== 'default') {
-      styles.root.color = styles.primary.color = theme.methods.palette.color.text((palette || theme.palette.color[color] as any).main, true, 'light', 'primary');
+      styles.icon.color = styles.root.color = styles.primary.color = theme.methods.palette.color.text((palette || theme.palette.color[color] as any).main, true, 'light', 'primary');
       styles.secondary.color = theme.methods.palette.color.text((palette || theme.palette.color[color] as any).main, true, 'light', 'secondary');
       styles.tertiary.color = theme.methods.palette.color.text((palette || theme.palette.color[color] as any).main, true, 'light', 'tertiary');
     }
@@ -321,7 +380,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
         staticClassName('ListItem', theme) && [
           'AmauiListItem-wrapper',
           `AmauiListItem-color-${!classes[colorToUse] ? 'new' : colorToUse}`,
-          tonal && `AmauiListItem-tonal`,
+          tonal && `AmauiListItem-tonal`
         ],
 
         className,
@@ -346,6 +405,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
             `AmauiListItem-size-${size}`,
             `AmauiListItem-color-${!classes[colorToUse] ? 'new' : colorToUse}`,
             `AmauiListItem-shape-${shape}-position-${shapePosition}`,
+            menu && `AmauiListItem-menu`,
             tonal && `AmauiListItem-tonal`,
             disabled && `AmauiListItem-disabled`
           ],
@@ -355,6 +415,10 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
           classes[selected ? colorSelected : color],
           classes[`shape_${shape}_position_${shapePosition}`],
           inset && !start && classes[`inset_size_${size}`],
+          menu && [
+            classes[`menu_size_${size}`],
+            inset && classes[`menu_inset_size_${size}`]
+          ],
           (href || button) && classes.button,
           disabled && classes.disabled
         ])}
@@ -385,16 +449,19 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
               staticClassName('ListItem', theme) && [
                 'AmauiListItem-aside',
                 'AmauiListItem-start',
-                `AmauiListItem-start-${['AmauiAvatar', 'AmauiIconButton', 'AmauiCheckbox', 'AmauiRadio'].includes(start?.type?.displayName) ? 'button' : ['AmauiSwitch'].includes(start?.type?.displayName) ? 'switch' : 'icon'}`
+                `AmauiListItem-start-${['AmauiAvatar', 'AmauiIconButton', 'AmauiCheckbox', 'AmauiRadio'].includes(start?.type?.displayName) ? 'button' : ['AmauiSwitch'].includes(start?.type?.displayName) ? 'switch' : 'icon'}`,
+                menu && 'AmauiListItem-menu'
               ],
 
               classes.aside,
               classes.start,
               classes[`align_${startAlign}`],
-              classes[`start_${['AmauiAvatar', 'AmauiIconButton', 'AmauiCheckbox', 'AmauiRadio'].includes(start?.type?.displayName) ? 'button' : ['AmauiSwitch'].includes(start?.type?.displayName) ? 'switch' : 'icon'}`]
+              classes[`${menu ? 'menu_' : ''}start_${['AmauiAvatar', 'AmauiIconButton', 'AmauiCheckbox', 'AmauiRadio'].includes(start?.type?.displayName) ? 'button' : ['AmauiSwitch'].includes(start?.type?.displayName) ? 'switch' : 'icon'}`]
             ])}
           >
             {is('string', start) ? start : React.cloneElement(start, {
+              color: styles.icon.color,
+
               size: ['AmauiSwitch'].includes(start?.type?.displayName) ? 'small' : 'regular',
 
               disabled
@@ -405,10 +472,14 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
         <span
           className={classNames([
             staticClassName('ListItem', theme) && [
-              'AmauiListItem-middle'
+              'AmauiListItem-middle',
+              menu && 'AmauiListItem-menu',
+              disabled && 'AmauiListItem-disabled'
             ],
 
-            classes.middle
+            classes.middle,
+            menu && classes.menu_middle,
+            disabled && classes.middle_disabled
           ])}
         >
           {primary !== undefined && (
@@ -416,7 +487,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
               <Type
                 {...PrimaryProps}
 
-                version='b1'
+                version={menu ? 'b2' : 'b1'}
 
                 className={classNames([
                   staticClassName('ListItem', theme) && [
@@ -493,16 +564,19 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
               staticClassName('ListItem', theme) && [
                 'AmauiListItem-aside',
                 'AmauiListItem-end',
-                `AmauiListItem-end-${['AmauiAvatar', 'AmauiIconButton', 'AmauiCheckbox', 'AmauiRadio'].includes(end?.type?.displayName) ? 'button' : ['AmauiSwitch'].includes(end?.type?.displayName) ? 'switch' : 'icon'}`
+                `AmauiListItem-end-${['AmauiAvatar', 'AmauiIconButton', 'AmauiCheckbox', 'AmauiRadio'].includes(end?.type?.displayName) ? 'button' : ['AmauiSwitch'].includes(end?.type?.displayName) ? 'switch' : 'icon'}`,
+                menu && 'AmauiListItem-menu'
               ],
 
               classes.aside,
               classes.end,
               classes[`align_${endAlign}`],
-              classes[`end_${['AmauiAvatar', 'AmauiIconButton', 'AmauiCheckbox', 'AmauiRadio'].includes(end?.type?.displayName) ? 'button' : ['AmauiSwitch'].includes(end?.type?.displayName) ? 'switch' : 'icon'}`]
+              classes[`${menu ? 'menu_' : ''}end_${['AmauiAvatar', 'AmauiIconButton', 'AmauiCheckbox', 'AmauiRadio'].includes(end?.type?.displayName) ? 'button' : ['AmauiSwitch'].includes(end?.type?.displayName) ? 'switch' : 'icon'}`]
             ])}
           >
             {is('string', end) ? end : React.cloneElement(end, {
+              color: styles.icon.color,
+
               size: ['AmauiSwitch'].includes(start?.type?.displayName) ? 'small' : 'regular',
 
               disabled

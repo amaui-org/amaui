@@ -25,22 +25,24 @@ const useStyle = style(theme => ({
 
   // Orientation
   horizontal: {
+    margin: '8px 0',
     height: '1px',
     width: '100%'
   },
 
   horizontal_middle: {
-    margin: `0 16px`,
+    margin: `8px 16px`,
     width: `calc(100% - 32px)`
   },
 
   vertical: {
+    margin: '0 8px',
     height: '100%',
     width: '1px'
   },
 
   vertical_middle: {
-    margin: `16px 0`,
+    margin: `16px 8px`,
     height: `calc(100% - 32px)`
   },
 

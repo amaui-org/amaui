@@ -41,23 +41,23 @@ const useStyle = style(theme => ({
   error: { background: theme.palette.color.error.main },
 
   // Tonal
-  tonal_neutral: { background: theme.palette.color.neutral[theme.palette.light ? 95 : 10] },
+  tonal_neutral: { background: theme.palette.color.neutral[theme.palette.light ? 95 : 5] },
 
-  tonal_primary: { background: theme.palette.color.primary[theme.palette.light ? 95 : 10] },
+  tonal_primary: { background: theme.palette.color.primary[theme.palette.light ? 95 : 5] },
 
-  tonal_secondary: { background: theme.palette.color.secondary[theme.palette.light ? 95 : 10] },
+  tonal_secondary: { background: theme.palette.color.secondary[theme.palette.light ? 95 : 5] },
 
-  tonal_tertiary: { background: theme.palette.color.tertiary[theme.palette.light ? 95 : 10] },
+  tonal_tertiary: { background: theme.palette.color.tertiary[theme.palette.light ? 95 : 5] },
 
-  tonal_quaternary: { background: theme.palette.color.quaternary[theme.palette.light ? 95 : 10] },
+  tonal_quaternary: { background: theme.palette.color.quaternary[theme.palette.light ? 95 : 5] },
 
-  tonal_info: { background: theme.palette.color.info[theme.palette.light ? 95 : 10] },
+  tonal_info: { background: theme.palette.color.info[theme.palette.light ? 95 : 5] },
 
-  tonal_success: { background: theme.palette.color.success[theme.palette.light ? 95 : 10] },
+  tonal_success: { background: theme.palette.color.success[theme.palette.light ? 95 : 5] },
 
-  tonal_warning: { background: theme.palette.color.warning[theme.palette.light ? 95 : 10] },
+  tonal_warning: { background: theme.palette.color.warning[theme.palette.light ? 95 : 5] },
 
-  tonal_error: { background: theme.palette.color.error[theme.palette.light ? 95 : 10] },
+  tonal_error: { background: theme.palette.color.error[theme.palette.light ? 95 : 5] },
 
   shadow_0: { boxShadow: theme.shadows.values.neutral[0] },
 
@@ -111,11 +111,18 @@ const useStyle = style(theme => ({
 
   padding_horizontal_none: {
     paddingInline: 0
+  },
+
+  menu: {
+    width: 'auto',
+    minWidth: '112px',
+    maxWidth: '280px'
+  },
+
+  noMaxWidth: {
+    maxWidth: 'unset'
   }
 }), { name: 'AmauiList' });
-
-// List menu
-// min and max width
 
 const List = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
@@ -126,9 +133,10 @@ const List = React.forwardRef((props_: any, ref: any) => {
 
   const {
     menu,
-    color = 'default',
+    noMaxWidth = true,
+    color = menu ? 'neutral' : 'default',
     tonal = true,
-    shadow = 0,
+    shadow = props.menu ? 2 : 0,
     paddingHorizontal = 'none',
     paddingVertical = 'both',
     Component = 'ul',
@@ -148,7 +156,7 @@ const List = React.forwardRef((props_: any, ref: any) => {
   if (!theme.palette.color[color] && color !== 'default') {
     const palette = theme.methods.color(color);
 
-    styles.root.background = !tonal ? palette.main : palette[theme.palette.light ? 95 : 10];
+    styles.root.background = !tonal ? palette.main : palette[theme.palette.light ? 95 : 5];
   }
 
   return (
@@ -162,7 +170,9 @@ const List = React.forwardRef((props_: any, ref: any) => {
           `AmauiList-padding-vertical-${paddingVertical}`,
           `AmauiList-shadow-${shadow}`,
           `AmauiBadge-color-${!theme.palette.color[color] && color !== 'default' ? 'new' : color}`,
-          tonal && `AmauiList-tonal`
+          tonal && `AmauiList-tonal`,
+          menu && `AmauiList-menu`,
+          noMaxWidth && `AmauiList-noMaxWidth`
         ],
 
         className,
@@ -171,7 +181,9 @@ const List = React.forwardRef((props_: any, ref: any) => {
         classes[`padding_horizontal_${paddingHorizontal}`],
         classes[`shadow_${shadow}`],
         classes[color],
-        tonal && classes[`tonal_${color}`]
+        tonal && classes[`tonal_${color}`],
+        menu && classes.menu,
+        noMaxWidth && classes.noMaxWidth
       ])}
 
       style={{
