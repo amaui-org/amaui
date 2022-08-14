@@ -41,23 +41,23 @@ const useStyle = style(theme => ({
   error: { background: theme.palette.color.error.main },
 
   // Tonal
-  tonal_neutral: { background: theme.palette.color.neutral[theme.palette.light ? 95 : 5] },
+  tonal_neutral: { background: theme.palette.color.neutral[theme.palette.light ? 95 : 10] },
 
-  tonal_primary: { background: theme.palette.color.primary[theme.palette.light ? 95 : 5] },
+  tonal_primary: { background: theme.palette.color.primary[theme.palette.light ? 95 : 10] },
 
-  tonal_secondary: { background: theme.palette.color.secondary[theme.palette.light ? 95 : 5] },
+  tonal_secondary: { background: theme.palette.color.secondary[theme.palette.light ? 95 : 10] },
 
-  tonal_tertiary: { background: theme.palette.color.tertiary[theme.palette.light ? 95 : 5] },
+  tonal_tertiary: { background: theme.palette.color.tertiary[theme.palette.light ? 95 : 10] },
 
-  tonal_quaternary: { background: theme.palette.color.quaternary[theme.palette.light ? 95 : 5] },
+  tonal_quaternary: { background: theme.palette.color.quaternary[theme.palette.light ? 95 : 10] },
 
-  tonal_info: { background: theme.palette.color.info[theme.palette.light ? 95 : 5] },
+  tonal_info: { background: theme.palette.color.info[theme.palette.light ? 95 : 10] },
 
-  tonal_success: { background: theme.palette.color.success[theme.palette.light ? 95 : 5] },
+  tonal_success: { background: theme.palette.color.success[theme.palette.light ? 95 : 10] },
 
-  tonal_warning: { background: theme.palette.color.warning[theme.palette.light ? 95 : 5] },
+  tonal_warning: { background: theme.palette.color.warning[theme.palette.light ? 95 : 10] },
 
-  tonal_error: { background: theme.palette.color.error[theme.palette.light ? 95 : 5] },
+  tonal_error: { background: theme.palette.color.error[theme.palette.light ? 95 : 10] },
 
   shadow_0: { boxShadow: theme.shadows.values.neutral[0] },
 
@@ -134,7 +134,7 @@ const List = React.forwardRef((props_: any, ref: any) => {
   const {
     menu,
     noMaxWidth = true,
-    color = menu ? 'neutral' : 'default',
+    color = 'default',
     tonal = true,
     shadow = props.menu ? 2 : 0,
     paddingHorizontal = 'none',
@@ -156,7 +156,11 @@ const List = React.forwardRef((props_: any, ref: any) => {
   if (!theme.palette.color[color] && color !== 'default') {
     const palette = theme.methods.color(color);
 
-    styles.root.background = !tonal ? palette.main : palette[theme.palette.light ? 95 : 5];
+    styles.root.background = !tonal ? palette.main : palette[theme.palette.light ? 95 : 10];
+  }
+
+  if (menu && color === 'default') {
+    if (!theme.palette.light) styles.root.background = theme.palette.color.neutral[10];
   }
 
   return (

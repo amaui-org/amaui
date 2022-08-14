@@ -57,23 +57,23 @@ const useStyle = style(theme => ({
   wrapper_color_error: { background: theme.palette.color.error.main },
 
   // Tonal
-  wrapper_tonal_color_neutral: { background: theme.palette.color.neutral[theme.palette.light ? 95 : 5] },
+  wrapper_tonal_color_neutral: { background: theme.palette.color.neutral[theme.palette.light ? 95 : 10] },
 
-  wrapper_tonal_color_primary: { background: theme.palette.color.primary[theme.palette.light ? 95 : 5] },
+  wrapper_tonal_color_primary: { background: theme.palette.color.primary[theme.palette.light ? 95 : 10] },
 
-  wrapper_tonal_color_secondary: { background: theme.palette.color.secondary[theme.palette.light ? 95 : 5] },
+  wrapper_tonal_color_secondary: { background: theme.palette.color.secondary[theme.palette.light ? 95 : 10] },
 
-  wrapper_tonal_color_tertiary: { background: theme.palette.color.tertiary[theme.palette.light ? 95 : 5] },
+  wrapper_tonal_color_tertiary: { background: theme.palette.color.tertiary[theme.palette.light ? 95 : 10] },
 
-  wrapper_tonal_color_quaternary: { background: theme.palette.color.quaternary[theme.palette.light ? 95 : 5] },
+  wrapper_tonal_color_quaternary: { background: theme.palette.color.quaternary[theme.palette.light ? 95 : 10] },
 
-  wrapper_tonal_color_info: { background: theme.palette.color.info[theme.palette.light ? 95 : 5] },
+  wrapper_tonal_color_info: { background: theme.palette.color.info[theme.palette.light ? 95 : 10] },
 
-  wrapper_tonal_color_success: { background: theme.palette.color.success[theme.palette.light ? 95 : 5] },
+  wrapper_tonal_color_success: { background: theme.palette.color.success[theme.palette.light ? 95 : 10] },
 
-  wrapper_tonal_color_warning: { background: theme.palette.color.warning[theme.palette.light ? 95 : 5] },
+  wrapper_tonal_color_warning: { background: theme.palette.color.warning[theme.palette.light ? 95 : 10] },
 
-  wrapper_tonal_color_error: { background: theme.palette.color.error[theme.palette.light ? 95 : 5] },
+  wrapper_tonal_color_error: { background: theme.palette.color.error[theme.palette.light ? 95 : 10] },
 
   // Color
   default: { color: theme.palette.text.default.primary },
@@ -361,7 +361,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
   if (!classes[colorToUse] && color !== 'default') {
     styles.root.color = theme.methods.palette.color.value(colorToUse, 70, true, palette);
 
-    styles.wrapper.background = !tonal ? palette.main : palette[theme.palette.light ? 95 : 5];
+    styles.wrapper.background = !tonal ? palette.main : palette[theme.palette.light ? 95 : 10];
   }
 
   if (!tonal) {
@@ -370,6 +370,10 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
       styles.secondary.color = theme.methods.palette.color.text((palette || theme.palette.color[color] as any).main, true, 'light', 'secondary');
       styles.tertiary.color = theme.methods.palette.color.text((palette || theme.palette.color[color] as any).main, true, 'light', 'tertiary');
     }
+  }
+
+  if (menu && color === 'default') {
+    if (!theme.palette.light) styles.wrapper.background = theme.palette.color.neutral[10];
   }
 
   return (
