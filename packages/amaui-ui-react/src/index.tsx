@@ -136,3 +136,6 @@ export * from './Append';
 
 export { default as Tooltip } from './Tooltip';
 export * from './Tooltip';
+
+export { default as Menu } from './Menu';
+export * from './Menu';

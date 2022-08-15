@@ -78,23 +78,23 @@ const useStyle = style(theme => ({
   // Color
   default: { color: theme.palette.text.default.primary },
 
-  neutral: { color: theme.methods.palette.color.value('neutral', 70, true) },
+  neutral: { color: theme.methods.palette.color.value('neutral', 60, true) },
 
-  primary: { color: theme.methods.palette.color.value('primary', 70, true) },
+  primary: { color: theme.methods.palette.color.value('primary', 60, true) },
 
-  secondary: { color: theme.methods.palette.color.value('secondary', 70, true) },
+  secondary: { color: theme.methods.palette.color.value('secondary', 60, true) },
 
-  tertiary: { color: theme.methods.palette.color.value('tertiary', 70, true) },
+  tertiary: { color: theme.methods.palette.color.value('tertiary', 60, true) },
 
-  quaternary: { color: theme.methods.palette.color.value('quaternary', 70, true) },
+  quaternary: { color: theme.methods.palette.color.value('quaternary', 60, true) },
 
-  info: { color: theme.methods.palette.color.value('info', 70, true) },
+  info: { color: theme.methods.palette.color.value('info', 60, true) },
 
-  success: { color: theme.methods.palette.color.value('success', 70, true) },
+  success: { color: theme.methods.palette.color.value('success', 60, true) },
 
-  warning: { color: theme.methods.palette.color.value('warning', 70, true) },
+  warning: { color: theme.methods.palette.color.value('warning', 60, true) },
 
-  error: { color: theme.methods.palette.color.value('error', 70, true) },
+  error: { color: theme.methods.palette.color.value('error', 60, true) },
 
   shape_round_position_both: {
     borderRadius: '114vh'
@@ -359,7 +359,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
   const palette = !theme.palette.color[color] && theme.methods.color(color);
 
   if (!classes[colorToUse] && color !== 'default') {
-    styles.root.color = theme.methods.palette.color.value(colorToUse, 70, true, palette);
+    styles.root.color = theme.methods.palette.color.value(colorToUse, 60, true, palette);
 
     styles.wrapper.background = !tonal ? palette.main : palette[theme.palette.light ? 95 : 10];
   }

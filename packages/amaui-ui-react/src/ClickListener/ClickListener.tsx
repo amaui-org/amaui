@@ -54,6 +54,11 @@ const ClickListener = React.forwardRef((props_: any, ref: any) => {
           ref: item => {
             if (ref) ref.current = item;
 
+            if (children.ref) {
+              if (is('function', children.ref)) children.ref(item);
+              else children.ref.current = item;
+            }
+
             refs.root.current = item;
           }
         })

@@ -28,6 +28,8 @@ const useStyle = style(theme => ({
 
   labelRoot_position_right: { marginLeft: '16px' },
 
+  labelRoot_noMargin: { margin: 0 },
+
   label: {
     borderRadius: clamp(theme.shape.radius.unit / 2, 0, 8),
     padding: '4px 8px',
@@ -277,6 +279,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
     maxWidth = 'xxs',
     arrow,
     anchorElement,
+    noMargin,
 
     touch: touch_ = true,
     longPress: longPress_ = false,
@@ -503,7 +506,14 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
 
       element={items => (
         <Modal
-          ref={items.ref}
+          ref={item => {
+            if (ref) {
+              if (is('function', ref)) ref(item);
+              else ref.current = item;
+            }
+
+            items.ref.current = item;
+          }}
 
           open={open}
 
@@ -524,7 +534,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
           disableKeyboardClose
 
           className={classNames([
-            staticClassName('Modal', theme) && [
+            staticClassName('Tooltip', theme) && [
               'AmauiTooltip-root',
               `AmauiTooltip-maxWidth-${maxWidth}`,
               `AmauiTooltip-position-${position}`,
@@ -559,20 +569,22 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
           >
             <span
               className={classNames([
-                staticClassName('Modal', theme) && [
-                  'AmauiTooltip-labelRoot'
+                staticClassName('Tooltip', theme) && [
+                  'AmauiTooltip-labelRoot',
+                  noMargin && 'AmauiTooltip-labelRoot'
                 ],
 
                 classes.labelRoot,
                 classes[`labelRoot_position_${resolvePosition(items.values.switch)}`],
                 classes[maxWidth],
+                noMargin && classes.labelRoot_noMargin,
                 fullWidth && classes.fullWidth
               ])}
             >
-              {is('string', label) ?
+              {is('simple', label) ?
                 <Type
                   className={classNames([
-                    staticClassName('Modal', theme) && [
+                    staticClassName('Tooltip', theme) && [
                       'AmauiTooltip-label',
                       `AmauiTooltip-color-${!theme.palette.color[color] && color !== 'default' ? 'new' : color}`,
                       tonal && `AmauiTooltip-tonal`,

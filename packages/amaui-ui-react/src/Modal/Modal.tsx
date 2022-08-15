@@ -26,6 +26,10 @@ const useStyle = style(theme => ({
     zIndex: -1
   },
 
+  backgroundInvisible: {
+    background: 'transparent'
+  },
+
   modalRoot: {
     position: 'relative',
     height: '100%',
@@ -95,6 +99,7 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
     freezeScroll = true,
     disableKeyboardClose,
     disableBackgroundClose,
+    backgroundInvisible,
 
     BackgroundComponent = Fade,
     BackgroundProps = {},
@@ -285,10 +290,12 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
               <div
                 className={classNames([
                   staticClassName('Modal', theme) && [
-                    'AmauiModal-background'
+                    'AmauiModal-background',
+                    backgroundInvisible && 'AmauiModal-backgroundInvisible'
                   ],
 
-                  classes.background
+                  classes.background,
+                  backgroundInvisible && classes.backgroundInvisible
                 ])}
 
                 onClick={() => !disableBackgroundClose && onClose()}

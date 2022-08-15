@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import { is } from '@amaui/utils';
 import { useAmauiTheme } from '@amaui/style-react';
 
 const Portal = React.forwardRef((props_: any, ref: any) => {
@@ -20,9 +21,15 @@ const Portal = React.forwardRef((props_: any, ref: any) => {
     ReactDOM.createPortal(
       React.cloneElement(children, {
         ref: item => {
-          if (ref) ref.current = item;
+          if (ref) {
+            if (is('function', ref)) ref(item);
+            else ref.current = item;
+          }
 
-          if (children.ref) children.ref.current = item;
+          if (children.ref) {
+            if (is('function', children.ref)) children.ref(item);
+            else children.ref.current = item;
+          }
         },
         ...other
       }),
