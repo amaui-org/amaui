@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { debounce, equalDeep, is, isEnvironment, element as element_, clamp, stringify } from '@amaui/utils';
+import { debounce, is, isEnvironment, element as element_, clamp } from '@amaui/utils';
 import { useAmauiTheme } from '@amaui/style-react';
 
 const Append = (props_: any) => {
@@ -25,6 +25,7 @@ const Append = (props_: any) => {
     relativeTo = 'parent',
     accelerated = true,
     anchor,
+    anchorElement,
     offset = [0, 0],
     padding = [0, 0],
     paddingUnfollow = props.padding,
@@ -39,6 +40,8 @@ const Append = (props_: any) => {
 
     children
   } = props;
+
+  if (anchorElement) refs.root.current = anchorElement;
 
   React.useEffect(() => {
     make();

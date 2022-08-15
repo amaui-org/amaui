@@ -276,6 +276,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
     fullWidth,
     maxWidth = 'xxs',
     arrow,
+    anchorElement,
 
     touch: touch_ = true,
     longPress: longPress_ = false,
@@ -492,6 +493,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
       relativeTo='window'
 
       anchor={anchor}
+      anchorElement={anchorElement}
       position={position}
       alignment={alignment}
       switch={switch_}
