@@ -6276,11 +6276,11 @@ function App() {
                   tertiary='Tertiary value'
 
                   start={(
-                    <IconMaterialPottedPlantRounded color='secondary' />
+                    <IconMaterialPottedPlantRounded />
                   )}
 
                   end={(
-                    <IconMaterialPottedPlantRounded color='secondary' />
+                    <IconMaterialPottedPlantRounded />
                   )}
                 />
               ))}
@@ -6298,11 +6298,11 @@ function App() {
                   tertiary='Tertiary value'
 
                   start={(
-                    <IconMaterialPottedPlantRounded color='secondary' />
+                    <IconMaterialPottedPlantRounded />
                   )}
 
                   end={(
-                    <IconMaterialPottedPlantRounded color='secondary' />
+                    <IconMaterialPottedPlantRounded />
                   )}
                 />
               ))}
@@ -6320,11 +6320,11 @@ function App() {
                   tertiary='Tertiary value'
 
                   start={(
-                    <IconMaterialPottedPlantRounded color='secondary' />
+                    <IconMaterialPottedPlantRounded />
                   )}
 
                   end={(
-                    <IconMaterialPottedPlantRounded color='secondary' />
+                    <IconMaterialPottedPlantRounded />
                   )}
                 />
               ))}
@@ -6342,11 +6342,11 @@ function App() {
                   tertiary='Tertiary value'
 
                   start={(
-                    <IconMaterialPottedPlantRounded color='secondary' />
+                    <IconMaterialPottedPlantRounded />
                   )}
 
                   end={(
-                    <IconMaterialPottedPlantRounded color='secondary' />
+                    <IconMaterialPottedPlantRounded />
                   )}
                 />
               ))}
@@ -6364,11 +6364,11 @@ function App() {
                   tertiary='Tertiary value'
 
                   start={(
-                    <IconMaterialPottedPlantRounded color='secondary' />
+                    <IconMaterialPottedPlantRounded />
                   )}
 
                   end={(
-                    <IconMaterialPottedPlantRounded color='secondary' />
+                    <IconMaterialPottedPlantRounded />
                   )}
                 />
               ))}
@@ -6386,11 +6386,11 @@ function App() {
                   tertiary='Tertiary value'
 
                   start={(
-                    <IconMaterialPottedPlantRounded color='secondary' />
+                    <IconMaterialPottedPlantRounded />
                   )}
 
                   end={(
-                    <IconMaterialPottedPlantRounded color='secondary' />
+                    <IconMaterialPottedPlantRounded />
                   )}
                 />
               ))}
@@ -6408,11 +6408,11 @@ function App() {
                   tertiary='Tertiary value'
 
                   start={(
-                    <IconMaterialPottedPlantRounded color='secondary' />
+                    <IconMaterialPottedPlantRounded />
                   )}
 
                   end={(
-                    <IconMaterialPottedPlantRounded color='secondary' />
+                    <IconMaterialPottedPlantRounded />
                   )}
                 />
               ))}
@@ -6430,11 +6430,11 @@ function App() {
                   tertiary='Tertiary value'
 
                   start={(
-                    <IconMaterialPottedPlantRounded color='secondary' />
+                    <IconMaterialPottedPlantRounded />
                   )}
 
                   end={(
-                    <IconMaterialPottedPlantRounded color='secondary' />
+                    <IconMaterialPottedPlantRounded />
                   )}
                 />
               ))}
@@ -6452,11 +6452,11 @@ function App() {
                   tertiary='Tertiary value'
 
                   start={(
-                    <IconMaterialPottedPlantRounded color='secondary' />
+                    <IconMaterialPottedPlantRounded />
                   )}
 
                   end={(
-                    <IconMaterialPottedPlantRounded color='secondary' />
+                    <IconMaterialPottedPlantRounded />
                   )}
                 />
               ))}
@@ -6474,11 +6474,11 @@ function App() {
                   tertiary='Tertiary value'
 
                   start={(
-                    <IconMaterialPottedPlantRounded color='secondary' />
+                    <IconMaterialPottedPlantRounded />
                   )}
 
                   end={(
-                    <IconMaterialPottedPlantRounded color='secondary' />
+                    <IconMaterialPottedPlantRounded />
                   )}
                 />
               ))}
@@ -6496,11 +6496,11 @@ function App() {
                   tertiary='Tertiary value'
 
                   start={(
-                    <IconMaterialPottedPlantRounded color='secondary' />
+                    <IconMaterialPottedPlantRounded />
                   )}
 
                   end={(
-                    <IconMaterialPottedPlantRounded color='secondary' />
+                    <IconMaterialPottedPlantRounded />
                   )}
                 />
               ))}
@@ -6522,11 +6522,11 @@ function App() {
                   tertiary='Tertiary value'
 
                   start={(
-                    <IconMaterialPottedPlantRounded color='secondary' />
+                    <IconMaterialPottedPlantRounded />
                   )}
 
                   end={(
-                    <IconMaterialPottedPlantRounded color='secondary' />
+                    <IconMaterialPottedPlantRounded />
                   )}
                 />
               ))}
@@ -6544,11 +6544,11 @@ function App() {
                   tertiary='Tertiary value'
 
                   start={(
-                    <IconMaterialPottedPlantRounded color='secondary' />
+                    <IconMaterialPottedPlantRounded />
                   )}
 
                   end={(
-                    <IconMaterialPottedPlantRounded color='secondary' />
+                    <IconMaterialPottedPlantRounded />
                   )}
                 />
               ))}
@@ -6566,11 +6566,11 @@ function App() {
                   tertiary='Tertiary value'
 
                   start={(
-                    <IconMaterialPottedPlantRounded color='secondary' />
+                    <IconMaterialPottedPlantRounded />
                   )}
 
                   end={(
-                    <IconMaterialPottedPlantRounded color='secondary' />
+                    <IconMaterialPottedPlantRounded />
                   )}
                 />
               ))}
@@ -6588,11 +6588,11 @@ function App() {
                   tertiary='Tertiary value'
 
                   start={(
-                    <IconMaterialPottedPlantRounded color='secondary' />
+                    <IconMaterialPottedPlantRounded />
                   )}
 
                   end={(
-                    <IconMaterialPottedPlantRounded color='secondary' />
+                    <IconMaterialPottedPlantRounded />
                   )}
                 />
               ))}
@@ -6610,11 +6610,11 @@ function App() {
                   tertiary='Tertiary value'
 
                   start={(
-                    <IconMaterialPottedPlantRounded color='secondary' />
+                    <IconMaterialPottedPlantRounded />
                   )}
 
                   end={(
-                    <IconMaterialPottedPlantRounded color='secondary' />
+                    <IconMaterialPottedPlantRounded />
                   )}
                 />
               ))}
@@ -6632,11 +6632,11 @@ function App() {
                   tertiary='Tertiary value'
 
                   start={(
-                    <IconMaterialPottedPlantRounded color='secondary' />
+                    <IconMaterialPottedPlantRounded />
                   )}
 
                   end={(
-                    <IconMaterialPottedPlantRounded color='secondary' />
+                    <IconMaterialPottedPlantRounded />
                   )}
                 />
               ))}
@@ -6654,11 +6654,11 @@ function App() {
                   tertiary='Tertiary value'
 
                   start={(
-                    <IconMaterialPottedPlantRounded color='secondary' />
+                    <IconMaterialPottedPlantRounded />
                   )}
 
                   end={(
-                    <IconMaterialPottedPlantRounded color='secondary' />
+                    <IconMaterialPottedPlantRounded />
                   )}
                 />
               ))}
@@ -6676,11 +6676,11 @@ function App() {
                   tertiary='Tertiary value'
 
                   start={(
-                    <IconMaterialPottedPlantRounded color='secondary' />
+                    <IconMaterialPottedPlantRounded />
                   )}
 
                   end={(
-                    <IconMaterialPottedPlantRounded color='secondary' />
+                    <IconMaterialPottedPlantRounded />
                   )}
                 />
               ))}
@@ -6698,11 +6698,11 @@ function App() {
                   tertiary='Tertiary value'
 
                   start={(
-                    <IconMaterialPottedPlantRounded color='secondary' />
+                    <IconMaterialPottedPlantRounded />
                   )}
 
                   end={(
-                    <IconMaterialPottedPlantRounded color='secondary' />
+                    <IconMaterialPottedPlantRounded />
                   )}
                 />
               ))}
@@ -6720,11 +6720,11 @@ function App() {
                   tertiary='Tertiary value'
 
                   start={(
-                    <IconMaterialPottedPlantRounded color='secondary' />
+                    <IconMaterialPottedPlantRounded />
                   )}
 
                   end={(
-                    <IconMaterialPottedPlantRounded color='secondary' />
+                    <IconMaterialPottedPlantRounded />
                   )}
                 />
               ))}

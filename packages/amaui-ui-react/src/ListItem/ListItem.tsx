@@ -464,9 +464,9 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
             ])}
           >
             {is('string', start) ? start : React.cloneElement(start, {
-              color: styles.icon.color,
+              color: start.props?.color || styles.icon.color,
 
-              size: ['AmauiSwitch'].includes(start?.type?.displayName) ? 'small' : 'regular',
+              size: start.props?.size || ['AmauiSwitch'].includes(start?.type?.displayName) ? 'small' : 'regular',
 
               disabled
             })}
@@ -579,9 +579,9 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
             ])}
           >
             {is('string', end) ? end : React.cloneElement(end, {
-              color: styles.icon.color,
+              color: end.props?.color || styles.icon.color,
 
-              size: ['AmauiSwitch'].includes(start?.type?.displayName) ? 'small' : 'regular',
+              size: end.props?.size || ['AmauiSwitch'].includes(start?.type?.displayName) ? 'small' : 'regular',
 
               disabled
             })}
