@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import { useAmauiTheme } from '@amaui/style-react';
 
-const Portal = (props_: any) => {
+const Portal = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiPortal?.props?.default }), [props_]);
@@ -11,16 +11,25 @@ const Portal = (props_: any) => {
   const {
     element,
 
-    children
+    children,
+
+    ...other
   } = props;
 
   return (
     ReactDOM.createPortal(
-      children,
+      React.cloneElement(children, {
+        ref: item => {
+          if (ref) ref.current = item;
+
+          if (children.ref) children.ref.current = item;
+        },
+        ...other
+      }),
       element
     )
   );
-};
+});
 
 Portal.displayName = 'AmauiPortal';
 

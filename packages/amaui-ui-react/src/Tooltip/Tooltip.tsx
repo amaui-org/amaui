@@ -490,8 +490,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
     <Append
       open={open}
 
-      relativeTo='window'
-
+      portal
       anchor={anchor}
       anchorElement={anchorElement}
       position={position}
@@ -517,7 +516,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
           })}
 
           modalWrapper={false}
-          portal={portal}
+          portal={false}
           background={false}
           freezeScroll={false}
           focus={false}

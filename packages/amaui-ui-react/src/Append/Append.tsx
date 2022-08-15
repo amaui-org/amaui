@@ -2,6 +2,7 @@ import React from 'react';
 
 import { debounce, is, isEnvironment, element as element_, clamp } from '@amaui/utils';
 import { useAmauiTheme } from '@amaui/style-react';
+import Portal from '../Portal';
 
 const Append = (props_: any) => {
   const theme = useAmauiTheme();
@@ -21,8 +22,8 @@ const Append = (props_: any) => {
   };
 
   const {
-    open,
-    relativeTo = 'parent',
+    open = true,
+    portal = false,
     accelerated = true,
     anchor,
     anchorElement,
@@ -103,6 +104,8 @@ const Append = (props_: any) => {
 
       const rectElement = refs.element.current.getBoundingClientRect();
 
+      // Normalize
+
       const update = scrollableParents.some(parent => {
         const rectParent = parent.getBoundingClientRect();
 
@@ -135,7 +138,7 @@ const Append = (props_: any) => {
   };
 
   // Switch
-  React.useEffect(updateSwitch, [relativeTo === 'parent' ? values : values.position, values.x, values.y]);
+  React.useEffect(updateSwitch, [values]);
 
   const getValues = () => {
     if (!((refs.root.current || anchor) && refs.element.current)) return;
@@ -145,7 +148,7 @@ const Append = (props_: any) => {
     const resolve = () => {
       if (!anchor) return;
 
-      if (relativeTo === 'parent') {
+      if (!portal) {
         anchor.x = anchor.x - wrapperRect.x;
 
         anchor.y = anchor.y - wrapperRect.y;
@@ -204,8 +207,8 @@ const Append = (props_: any) => {
       y: 0
     };
 
-    const rootX = relativeTo === 'window' ? rect.root.x : rectOffset.root.x;
-    const rootY = relativeTo === 'window' ? rect.root.y : rectOffset.root.y;
+    const rootX = portal ? rect.root.x : rectOffset.root.x;
+    const rootY = portal ? rect.root.y : rectOffset.root.y;
 
     if (theme.direction === 'rtl' && ['top', 'bottom'].includes(position)) {
       if (alignment === 'start') alignment = 'end';
@@ -245,22 +248,29 @@ const Append = (props_: any) => {
       }
     }
 
+    // Absolute position
+    if (portal) {
+      values_.y += window.document.documentElement.scrollTop;
+
+      values_.x += window.document.documentElement.scrollLeft;
+    }
+
     // Overflow
-    if (overflow) {
+    if (overflow && false) {
       // If x or y is out of bounds of the parent
       // or window push them to 0 value
       // only if that value doesn't unfollow them from the element
       // or unfollow them if unfollow is true
-      if (['window'].includes(relativeTo)) rectOffset = rect;
+      if (portal) rectOffset = rect;
 
-      const rootY = relativeTo === 'parent' ? wrapperRect.y + rectOffset.root.y : rect.root.y;
-      const valueY = relativeTo === 'parent' ? wrapperRect.y + values_.y : values_.y;
+      const rootY = !portal ? wrapperRect.y + rectOffset.root.y : rect.root.y;
+      const valueY = !portal ? wrapperRect.y + values_.y : values_.y;
 
-      const rootX = relativeTo === 'parent' ? wrapperRect.x + rectOffset.root.x : rect.root.x;
-      const valueX = relativeTo === 'parent' ? wrapperRect.x + values_.x : values_.x;
+      const rootX = !portal ? wrapperRect.x + rectOffset.root.x : rect.root.x;
+      const valueX = !portal ? wrapperRect.x + values_.x : values_.x;
 
-      const wrapperRectY = relativeTo === 'parent' ? wrapperRect.y : 0;
-      const wrapperRectX = relativeTo === 'parent' ? wrapperRect.x : 0;
+      const wrapperRectY = !portal ? wrapperRect.y : 0;
+      const wrapperRectX = !portal ? wrapperRect.x : 0;
 
       if (['left', 'right'].includes(position)) {
         // All parents that are scrollable
@@ -287,7 +297,7 @@ const Append = (props_: any) => {
                 0
               ];
 
-              if (relativeTo === 'parent') mathValues.push(rectOffset.root.y - rootY);
+              if (!portal) mathValues.push(rectOffset.root.y - rootY);
 
               values_.y = Math.max(...mathValues);
 
@@ -373,7 +383,7 @@ const Append = (props_: any) => {
                 0
               ];
 
-              if (relativeTo === 'parent') mathValues.push(rectOffset.root.x - rootX);
+              if (!portal) mathValues.push(rectOffset.root.x - rootX);
 
               values_.x = Math.max(...mathValues);
 
@@ -441,7 +451,7 @@ const Append = (props_: any) => {
 
   let style: React.CSSProperties = {};
 
-  style.position = ['parent'].includes(relativeTo) ? 'absolute' : 'fixed';
+  style.position = 'absolute';
 
   style.inset = '0px auto auto 0px';
 
@@ -464,20 +474,32 @@ const Append = (props_: any) => {
     ...style_
   };
 
+  const PortalComponent = portal ? Portal : React.Fragment;
+
+  const PortalComponentProps: any = {};
+
+  if (portal) PortalComponentProps.element = window.document.body;
+
   return (
     <React.Fragment>
       {children && React.cloneElement(children, { ref: refs.root })}
 
       {/* Method or value */}
       {open && (
-        is('function', element) ?
-          element({ ref: refs.element, values, style }) :
+        <PortalComponent
+          {...PortalComponentProps}
+        >
+          {
+            is('function', element) ?
+              element({ ref: refs.element, values, style }) :
 
-          React.cloneElement(element, {
-            ref: refs.element,
+              React.cloneElement(element, {
+                ref: refs.element,
 
-            style
-          })
+                style
+              })
+          }
+        </PortalComponent>
       )}
     </React.Fragment>
   );
