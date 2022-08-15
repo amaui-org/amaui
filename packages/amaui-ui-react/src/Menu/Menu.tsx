@@ -22,6 +22,7 @@ const Menu = React.forwardRef((props_: any, ref: any) => {
     anchorElement,
 
     arrow,
+    closeOnClickAway = true,
 
     ModalProps = {},
 
@@ -40,9 +41,15 @@ const Menu = React.forwardRef((props_: any, ref: any) => {
     if (is('function', onClose_)) onClose_();
   }, []);
 
+  const Wrapper = closeOnClickAway ? ClickListener : React.Fragment;
+
+  const WrapperProps: any = {};
+
+  if (closeOnClickAway) WrapperProps.onClickOutside = onClose;
+
   return (
-    <ClickListener
-      onClickOutside={onClose}
+    <Wrapper
+      {...WrapperProps}
     >
       <Tooltip
         ref={ref}
@@ -62,6 +69,7 @@ const Menu = React.forwardRef((props_: any, ref: any) => {
 
         label={children}
 
+        arrow={arrow}
         hover={false}
         focus={false}
         longPress={false}
@@ -80,7 +88,7 @@ const Menu = React.forwardRef((props_: any, ref: any) => {
 
         {...other}
       />
-    </ClickListener>
+    </Wrapper>
   );
 });
 

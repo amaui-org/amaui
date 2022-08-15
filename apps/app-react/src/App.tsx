@@ -758,7 +758,7 @@ function App() {
             <Menu
               open={a.menu_1}
 
-              onClose={() => update('menu_1')}
+              onClose={() => setA((items: any) => ({ ...items, menu_1: false }))}
 
               anchorElement={refs.menu['1'].current}
             >
@@ -777,215 +777,130 @@ function App() {
           </div>
         </Accordion>
 
-        <Accordion label='Menus' open>
+        <Accordion label='Menu position, alignment, transformOrigin and inset' open>
           <div className={classNames([classes.column])}>
-            <List menu>
-              {[0, 1, 3, 4].map(item => (
-                <ListItem
-                  button
+            <Button
+              ref={refs.menu['2']}
 
-                  primary={`Item ${item + 1}`}
+              onClick={() => update('menu_2')}
 
-                  key={item}
-                />
-              ))}
-            </List>
+              color='secondary'
+            >
+              Menu
+            </Button>
 
-            <List menu>
-              {[0, 1, 3, 4].map(item => (
-                <ListItem
-                  button
+            <Menu
+              open={a.menu_2}
 
-                  primary={`Item ${item + 1}`}
+              onClose={() => setA((items: any) => ({ ...items, menu_2: false }))}
 
-                  key={item}
+              anchorElement={refs.menu['2'].current}
 
-                  end={item === 3 && (
-                    <IconMaterialArrowRightRounded />
-                  )}
-                />
-              ))}
-            </List>
+              transformOrigin='top right'
 
-            <List menu style={{ minWidth: 240 }}>
-              <ListItem
-                button
+              position='top'
 
-                primary='Cut'
+              alignment='end'
 
-                start={(
-                  <IconMaterialCutRounded />
-                )}
+              inset
+            >
+              <List menu>
+                {[0, 1, 3, 4].map(item => (
+                  <ListItem
+                    button
 
-                end={(
-                  <Type version='b2' color='secondary'>
-                    ⌘X
-                  </Type>
-                )}
+                    primary={`Item ${item + 1}`}
 
-                disabled
-              />
+                    key={item}
+                  />
+                ))}
+              </List>
+            </Menu>
+          </div>
+        </Accordion>
 
-              <ListItem
-                button
+        <Accordion label='Menu maxHeight' open>
+          <div className={classNames([classes.column])}>
+            <Button
+              ref={refs.menu['3']}
 
-                primary='Copy'
+              onClick={() => update('menu_3')}
 
-                start={(
-                  <IconMaterialContentCopyRounded />
-                )}
+              color='secondary'
+            >
+              Menu
+            </Button>
 
-                end={(
-                  <Type version='b2' color='secondary'>
-                    ⌘C
-                  </Type>
-                )}
-              />
+            <Menu
+              open={a.menu_3}
 
-              <ListItem
-                button
+              onClose={() => setA((items: any) => ({ ...items, menu_3: false }))}
 
-                primary='Paste'
+              anchorElement={refs.menu['3'].current}
 
-                start={(
-                  <IconMaterialContentPasteRounded />
-                )}
+              transformOrigin='top right'
+            >
+              <List
+                menu
 
-                end={(
-                  <Type version='b2' color='secondary'>
-                    ⌘V
-                  </Type>
-                )}
-              />
+                style={{
+                  maxHeight: 140,
+                  overflow: 'auto'
+                }}
+              >
+                {[0, 1, 3, 4].map(item => (
+                  <ListItem
+                    button
 
-              <Divider
-                Component='li'
-              />
+                    primary={`Item ${item + 1}`}
 
-              <ListItem
-                button
+                    key={item}
+                  />
+                ))}
+              </List>
+            </Menu>
+          </div>
+        </Accordion>
 
-                primary='Cloud'
+        <Accordion label='Menu with arrow' open>
+          <div className={classNames([classes.column])}>
+            <Button
+              ref={refs.menu['4']}
 
-                start={(
-                  <IconMaterialCloudRounded />
-                )}
+              onClick={() => update('menu_4')}
 
-                end={(
-                  <IconMaterialArrowRightRounded />
-                )}
-              />
-            </List>
+              color='secondary'
+            >
+              Menu
+            </Button>
 
-            <List menu color='secondary'>
-              <ListItem
-                button
+            <Menu
+              open={a.menu_4}
 
-                primary='Undo'
-              />
+              onClose={() => setA((items: any) => ({ ...items, menu_4: false }))}
 
-              <ListItem
-                button
+              anchorElement={refs.menu['4'].current}
 
-                primary='Redo'
+              transformOrigin='top right'
 
-                disabled
-              />
+              position='bottom'
 
-              <Divider
-                Component='li'
-              />
+              alignment='end'
 
-              <ListItem
-                button
+              arrow
+            >
+              <List menu>
+                {[0, 1, 3, 4].map(item => (
+                  <ListItem
+                    button
 
-                primary='Cut'
+                    primary={`Item ${item + 1}`}
 
-                disabled
-              />
-
-              <ListItem
-                button
-
-                primary='Copy'
-
-                disabled
-              />
-
-              <ListItem
-                button
-
-                primary='Paste'
-              />
-            </List>
-
-            <List menu color='secondary'>
-              <ListItem
-                inset
-
-                button
-
-                primary='Single'
-              />
-
-              <ListItem
-                inset
-
-                button
-
-                primary='1.15'
-              />
-
-              <ListItem
-                inset
-
-                button
-
-                primary='Double'
-              />
-
-              <ListItem
-                button
-
-                primary='Custom: 1.2'
-
-                start={(
-                  <IconMaterialCheckRounded />
-                )}
-              />
-
-              <Divider
-                Component='li'
-              />
-
-              <ListItem
-                button
-
-                primary='Add space before paragraph'
-
-                end={(
-                  <IconMaterialArrowRightRounded />
-                )}
-
-                selected
-              />
-
-              <ListItem
-                button
-
-                primary='Add space after paragraph'
-              />
-
-              <Divider
-                Component='li'
-              />
-
-              <ListItem
-                button
-
-                primary='Custom spacing...'
-              />
-            </List>
+                    key={item}
+                  />
+                ))}
+              </List>
+            </Menu>
           </div>
         </Accordion>
       </Accordion>

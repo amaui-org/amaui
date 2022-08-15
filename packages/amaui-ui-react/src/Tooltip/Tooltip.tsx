@@ -43,14 +43,14 @@ const useStyle = style(theme => ({
       height: '8px',
       background: 'inherit',
       position: 'absolute',
-      zIndex: -1
+      zIndex: 0
     }
   },
 
   arrow_position_top_alignment_start: {
     '&::before': {
       bottom: '-4px',
-      right: '20%',
+      left: 'clamp(11px, 14%, 24px)',
       transform: 'translate(0, 0) rotate(45deg)'
     }
   },
@@ -66,7 +66,7 @@ const useStyle = style(theme => ({
   arrow_position_top_alignment_end: {
     '&::before': {
       bottom: '-4px',
-      left: '20%',
+      right: 'clamp(11px, 14%, 24px)',
       transform: 'translate(0, 0) rotate(45deg)'
     }
   },
@@ -74,7 +74,7 @@ const useStyle = style(theme => ({
   arrow_position_bottom_alignment_start: {
     '&::before': {
       top: '-4px',
-      right: '20%',
+      left: 'clamp(11px, 14%, 24px)',
       transform: 'translate(0, 0) rotate(45deg)'
     }
   },
@@ -90,7 +90,7 @@ const useStyle = style(theme => ({
   arrow_position_bottom_alignment_end: {
     '&::before': {
       top: '-4px',
-      left: '20%',
+      right: 'clamp(11px, 14%, 24px)',
       transform: 'translate(0, 0) rotate(45deg)'
     }
   },
@@ -98,7 +98,7 @@ const useStyle = style(theme => ({
   arrow_position_left_alignment_start: {
     '&::before': {
       right: '-4px',
-      bottom: '20%',
+      top: 'clamp(5.4px, 14%, 24px)',
       transform: 'translate(0, 0) rotate(45deg)'
     }
   },
@@ -114,7 +114,7 @@ const useStyle = style(theme => ({
   arrow_position_left_alignment_end: {
     '&::before': {
       right: '-4px',
-      top: '20%',
+      bottom: 'clamp(5.4px, 14%, 24px)',
       transform: 'translate(0, 0) rotate(45deg)'
     }
   },
@@ -122,7 +122,7 @@ const useStyle = style(theme => ({
   arrow_position_right_alignment_start: {
     '&::before': {
       left: '-4px',
-      bottom: '20%',
+      top: 'clamp(5.4px, 14%, 24px)',
       transform: 'translate(0, 0) rotate(45deg)'
     }
   },
@@ -138,7 +138,7 @@ const useStyle = style(theme => ({
   arrow_position_right_alignment_end: {
     '&::before': {
       left: '-4px',
-      top: '20%',
+      bottom: 'clamp(5.4px, 14%, 24px)',
       transform: 'translate(0, 0) rotate(45deg)'
     }
   },
@@ -280,11 +280,12 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
     arrow,
     anchorElement,
     noMargin,
-
+    transformOrigin,
     touch: touch_ = true,
     longPress: longPress_ = false,
     hover: hover_ = true,
     focus: focus_ = true,
+    inset,
 
     onOpen: onOpen_,
     onClose: onClose_,
@@ -322,7 +323,8 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
   const { classes } = useStyle(props);
 
   const styles: any = {
-    label: {}
+    label: {},
+    labelRoot: {}
   };
 
   const onMouseDown = React.useCallback((event: React.MouseEvent<any>) => {
@@ -480,6 +482,8 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
     }
   }
 
+  if (transformOrigin) styles.labelRoot.transformOrigin = transformOrigin;
+
   const resolvePosition = (switched = false) => {
     if (!switched) return position;
 
@@ -499,6 +503,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
       position={position}
       alignment={alignment}
       switch={switch_}
+      inset={inset}
 
       padding={[8, 8]}
 
@@ -553,6 +558,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
             ...items.style,
 
             ...style,
+
             ...ModalProps?.style
           }}
 
@@ -580,6 +586,8 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
                 noMargin && classes.labelRoot_noMargin,
                 fullWidth && classes.fullWidth
               ])}
+
+              style={styles.labelRoot}
             >
               {is('simple', label) ?
                 <Type
@@ -602,9 +610,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
 
                   version='b3'
 
-                  style={{
-                    ...styles.label
-                  }}
+                  style={styles.label}
                 >
                   {label}
                 </Type> :
@@ -612,7 +618,10 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
                 React.cloneElement(label, {
                   className: classNames([
                     label?.props?.className,
-                    arrow && classes.arrow
+                    arrow && [
+                      classes.arrow,
+                      classes[`arrow_position_${position}_alignment_${alignment}`]
+                    ]
                   ])
                 })
               }
