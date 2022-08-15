@@ -212,7 +212,23 @@ const useStyle = style(theme => ({
     textTransform: 'capitalize',
     whiteSpace: 'nowrap',
     alignItems: 'center',
-    gap: '8px'
+    gap: '8px',
+    width: '100%'
+  },
+
+  align_start: {
+    textAlign: 'start',
+    justifyContent: 'flex-start'
+  },
+
+  align_center: {
+    textAlign: 'center',
+    justifyContent: 'center'
+  },
+
+  align_end: {
+    textAlign: 'start',
+    justifyContent: 'flex-end'
   },
 
   // Size
@@ -320,7 +336,7 @@ const Button = React.forwardRef((props_: any, ref: any) => {
     endIcon: endIcon_,
     elevation = true,
     backgroundOpacity,
-
+    align = 'center',
     loading,
     loadingLabel,
     loadingIcon = <RoundProgress size='small' />,
@@ -623,11 +639,13 @@ const Button = React.forwardRef((props_: any, ref: any) => {
           className={classNames([
             staticClassName('Button', theme) && [
               'AmauiButton-label',
-              `AmauiButton-size-${size}`
+              `AmauiButton-size-${size}`,
+              `AmauiButton-align-${align}`
             ],
 
             classes.label,
-            classes[`label_size_${size}`]
+            classes[`label_size_${size}`],
+            classes[`align_${align}`]
           ])}
 
           Component='span'

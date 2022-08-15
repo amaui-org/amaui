@@ -15,6 +15,10 @@ const useStyle = style(theme => ({
     borderRadius: theme.methods.space.value('xl', 'px')
   },
 
+  vertical: {
+    flexDirection: 'column'
+  },
+
   // Size
   small: {
     borderRadius: `${theme.shape.radius.unit * 2}px`
@@ -38,7 +42,7 @@ const useStyle = style(theme => ({
     }
   },
 
-  left: {
+  start: {
     '&:not(:first-of-type)': {
       borderStartStartRadius: '0px',
       borderEndStartRadius: '0px',
@@ -53,10 +57,32 @@ const useStyle = style(theme => ({
     },
   },
 
-  right: {
+  end: {
     '&:not(:last-of-type)': {
       borderStartEndRadius: '0px',
       borderEndEndRadius: '0px'
+    }
+  },
+
+  vertical_start: {
+    '&:not(:first-of-type)': {
+      borderStartStartRadius: '0px',
+      borderStartEndRadius: '0px',
+
+      '&$outlined': {
+        marginBlockStart: '-1px'
+      },
+
+      '&$border:not($outlined)': {
+        borderBlockStart: '1px solid currentColor'
+      }
+    },
+  },
+
+  vertical_end: {
+    '&:not(:last-of-type)': {
+      borderEndEndRadius: '0px',
+      borderEndStartRadius: '0px'
     }
   },
 
@@ -71,6 +97,10 @@ const useStyle = style(theme => ({
   pathIn: {
     strokeDashoffset: 0,
     transition: theme.methods.transitions.make('stroke-dashoffset', { duration: 'xxs', delay: 45, timing_function: 'accelerated' })
+  },
+
+  fullWidth: {
+    width: '100%'
   }
 }), { name: 'AmauiButtonGroup' });
 
@@ -111,7 +141,7 @@ export const IconDoneAnimated = (props: any) => {
     simple,
 
     onExited,
-
+    fullWidth,
     noExitAnimation,
     add,
 
@@ -193,9 +223,10 @@ const ButtonGroup = React.forwardRef((props_: any, ref: any) => {
     version = 'outlined',
     color = 'primary',
     size = 'regular',
-
+    vertical,
     elevation = true,
     border = true,
+    fullWidth,
     disabled,
 
     className,
@@ -256,8 +287,13 @@ const ButtonGroup = React.forwardRef((props_: any, ref: any) => {
         item.className,
         classes.item,
         classes[version],
-        classes.left,
-        classes.right,
+        !vertical ? [
+          classes.start,
+          classes.end
+        ] : [
+          classes.vertical_start,
+          classes.vertical_end
+        ],
         border && classes.border
       ]),
 
@@ -314,12 +350,16 @@ const ButtonGroup = React.forwardRef((props_: any, ref: any) => {
           elevation && !disabled && ['filled', 'tonal'].includes(version) && `AmauiButtonGroup-elevation`,
           tonal && `AmauiButtonGroup-tonal`,
           border && `AmauiButtonGroup-border`,
+          vertical && `AmauiButtonGroup-vertical`,
+          fullWidth && `AmauiButtonGroup-fullWidth`,
           disabled && `AmauiButtonGroup-disabled`,
         ],
 
         classes.root,
         className,
         classes[size],
+        vertical && classes.vertical,
+        fullWidth && classes.fullWidth,
         elevation && !disabled && ['filled', 'tonal'].includes(version) && classes.elevation,
       ])}
 

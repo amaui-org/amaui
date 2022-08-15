@@ -15508,7 +15508,41 @@ function App() {
           </div>
         </Accordion>
 
-        <Accordion label='AmauiTheme' open>
+        <Accordion label='Button group vertical select multi' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <ButtonGroup color='default' version='text' select='multi' fullWidth vertical>
+              <Button align='start'>Button one</Button>
+              <Button align='start'>Button two</Button>
+              <Button align='start'>Button three</Button>
+              <Button align='start'>Button four</Button>
+              <Button align='start'>Button five</Button>
+              <Button align='start'>Button seven</Button>
+              <Button align='start'>Button fourteen</Button>
+            </ButtonGroup>
+
+            <ButtonGroup color='default' version='outlined' select='multi' fullWidth vertical>
+              <Button align='start'>Button one</Button>
+              <Button align='start'>Button two</Button>
+              <Button align='start'>Button three</Button>
+              <Button align='start'>Button four</Button>
+              <Button align='start'>Button five</Button>
+              <Button align='start'>Button seven</Button>
+              <Button align='start'>Button fourteen</Button>
+            </ButtonGroup>
+
+            <ButtonGroup color='default' version='filled' select='multi' fullWidth vertical>
+              <Button align='start'>Button one</Button>
+              <Button align='start'>Button two</Button>
+              <Button align='start'>Button three</Button>
+              <Button align='start'>Button four</Button>
+              <Button align='start'>Button five</Button>
+              <Button align='start'>Button seven</Button>
+              <Button align='start'>Button fourteen</Button>
+            </ButtonGroup>
+          </div>
+        </Accordion>
+
+        <Accordion label='AmauiTheme'>
           <div className={classNames([classes.column])}>
             <ButtonGroup color='secondary'>
               <Button>Button one</Button>

@@ -126,7 +126,7 @@ const Append = (props_: any) => {
         if (position_ === 'right') newPosition = 'left';
         if (position_ === 'bottom') newPosition = 'top';
 
-        make({ position: newPosition, alignment: alignment_, inset: inset_ });
+        make({ position: newPosition, alignment: alignment_, inset: inset_, switch: true });
       }
     }
   };
@@ -142,11 +142,11 @@ const Append = (props_: any) => {
     const resolve = () => {
       if (!anchor) return;
 
-      if (relativeTo === 'window') return anchor;
+      if (relativeTo === 'parent') {
+        anchor.x = anchor.x - wrapperRect.x;
 
-      anchor.x = anchor.x - wrapperRect.x;
-
-      anchor.y = anchor.y - wrapperRect.y;
+        anchor.y = anchor.y - wrapperRect.y;
+      }
 
       return anchor;
     };
@@ -181,7 +181,7 @@ const Append = (props_: any) => {
   };
 
   const make = (
-    value = { position: position_, alignment: alignment_, inset: inset_ },
+    value = { position: position_, alignment: alignment_, inset: inset_, switch: false },
     values = getValues()
   ) => {
     if (!values) return;
@@ -190,7 +190,7 @@ const Append = (props_: any) => {
 
     const scrollableParents = element_(refs.root.current || refs.element.current).parents().filter(item => item.scrollHeight - item.clientHeight);
 
-    let { position, alignment, inset } = value;
+    let { position, alignment, inset, switch: switched } = value;
 
     let { rect, rectOffset } = values;
 
@@ -248,7 +248,7 @@ const Append = (props_: any) => {
       // or window push them to 0 value
       // only if that value doesn't unfollow them from the element
       // or unfollow them if unfollow is true
-      if (relativeTo === 'window') rectOffset = rect;
+      if (['window'].includes(relativeTo)) rectOffset = rect;
 
       const rootY = relativeTo === 'parent' ? wrapperRect.y + rectOffset.root.y : rect.root.y;
       const valueY = relativeTo === 'parent' ? wrapperRect.y + values_.y : values_.y;
@@ -433,16 +433,12 @@ const Append = (props_: any) => {
     }
 
     // Update
-    setValues(items => {
-      if (!equalDeep(items, values_)) return { position, ...values_ };
-
-      return items;
-    });
+    setValues(() => ({ position, switch: switched, ...values_ }));
   };
 
-  const style: React.CSSProperties = {};
+  let style: React.CSSProperties = {};
 
-  style.position = relativeTo === 'parent' ? 'absolute' : 'fixed';
+  style.position = ['parent'].includes(relativeTo) ? 'absolute' : 'fixed';
 
   style.inset = '0px auto auto 0px';
 
@@ -457,6 +453,14 @@ const Append = (props_: any) => {
     style.left = values.x;
   }
 
+  style = {
+    ...element.props?.style,
+
+    ...style,
+
+    ...style_
+  };
+
   return (
     <React.Fragment>
       {children && React.cloneElement(children, { ref: refs.root })}
@@ -464,18 +468,12 @@ const Append = (props_: any) => {
       {/* Method or value */}
       {open && (
         is('function', element) ?
-          element({ ref: refs.element, values }) :
+          element({ ref: refs.element, values, style }) :
 
           React.cloneElement(element, {
             ref: refs.element,
 
-            style: {
-              ...element.props?.style,
-
-              ...style,
-
-              ...style_
-            }
+            style
           })
       )}
     </React.Fragment>

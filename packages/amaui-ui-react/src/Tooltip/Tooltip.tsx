@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { clamp, is, isEnvironment, wait } from '@amaui/utils';
+import { clamp, is, isEnvironment } from '@amaui/utils';
 import { style, classNames, useAmauiTheme } from '@amaui/style-react';
 
 import Grow from '../Grow';
@@ -269,9 +269,8 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
     tonal,
     color = 'default',
     follow,
-    leaveDelay = 0,
-    enterDelay = 104,
     position = 'bottom',
+    switch: switch_ = true,
     alignment = 'center',
     portal = true,
     fullWidth,
@@ -295,6 +294,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
     disableInteractive,
 
     className,
+    style,
 
     children,
 
@@ -412,18 +412,14 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
     }
   }, []);
 
-  const onOpen = async () => {
-    await wait(enterDelay);
-
+  const onOpen = () => {
     if (!open) setOpen(true);
     if (!inProp) setInProp(true);
 
     if (is('function', onOpen_) && open) onOpen_();
   };
 
-  const onClose = async () => {
-    await wait(leaveDelay);
-
+  const onClose = () => {
     setOpen(false);
 
     if (is('function', onClose_)) onClose_();
@@ -480,6 +476,15 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
     }
   }
 
+  const resolvePosition = (switched = false) => {
+    if (!switched) return position;
+
+    if (position === 'top') return 'bottom';
+    if (position === 'left') return 'right';
+    if (position === 'right') return 'left';
+    if (position === 'bottom') return 'top';
+  };
+
   return (
     <Append
       open={open}
@@ -489,13 +494,16 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
       anchor={anchor}
       position={position}
       alignment={alignment}
+      switch={switch_}
 
       padding={[8, 8]}
 
       {...AppendProps}
 
-      element={(
+      element={items => (
         <Modal
+          ref={items.ref}
+
           open={open}
 
           {...(!disableInteractive && {
@@ -530,6 +538,13 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
 
           {...ModalProps}
 
+          style={{
+            ...items.style,
+
+            ...style,
+            ...ModalProps?.style
+          }}
+
           {...other}
         >
           <TransitionComponent
@@ -548,7 +563,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
                 ],
 
                 classes.labelRoot,
-                classes[`labelRoot_position_${position}`],
+                classes[`labelRoot_position_${resolvePosition(items.values.switch)}`],
                 classes[maxWidth],
                 fullWidth && classes.fullWidth
               ])}
