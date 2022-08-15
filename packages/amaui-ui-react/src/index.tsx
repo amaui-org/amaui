@@ -139,3 +139,6 @@ export * from './Tooltip';
 
 export { default as Menu } from './Menu';
 export * from './Menu';
+
+export { default as useMediaQuery } from './useMediaQuery';
+export * from './useMediaQuery';

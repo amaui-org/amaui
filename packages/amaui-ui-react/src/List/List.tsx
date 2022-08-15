@@ -3,6 +3,7 @@ import React from 'react';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import { staticClassName } from '../utils';
+import useMediaQuery from '../useMediaQuery';
 
 const useStyle = style(theme => ({
   root: {
@@ -129,10 +130,13 @@ const List = React.forwardRef((props_: any, ref: any) => {
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiList?.props?.default }), [props_]);
 
+  const mobile = useMediaQuery('(max-width: 767px)');
+
   const { classes } = useStyle(props);
 
   const {
     menu,
+    size = mobile ? 'small' : 'regular',
     noMaxWidth = true,
     color = 'default',
     tonal = true,
@@ -201,6 +205,7 @@ const List = React.forwardRef((props_: any, ref: any) => {
 
         color,
         tonal,
+        size,
 
         ...other,
 
