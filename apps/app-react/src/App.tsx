@@ -1684,7 +1684,6 @@ function App() {
 
                   <Append position='bottom' alignment='center' portal
                     element={(
-
                       <span className={classes.tooltip}>a</span>
                     )}
                   >
@@ -1693,7 +1692,6 @@ function App() {
 
                   <Append position='bottom' alignment='end' portal
                     element={(
-
                       <span className={classes.tooltip}>a</span>
                     )}
                   >
@@ -1702,7 +1700,6 @@ function App() {
 
                   <Append position='top' alignment='start' portal
                     element={(
-
                       <span className={classes.tooltip}>a</span>
                     )}
                   >
@@ -1711,7 +1708,6 @@ function App() {
 
                   <Append position='top' alignment='center' portal
                     element={(
-
                       <span className={classes.tooltip}>a</span>
                     )}
                   >
@@ -1720,7 +1716,6 @@ function App() {
 
                   <Append position='top' alignment='end' portal
                     element={(
-
                       <span className={classes.tooltip}>a</span>
                     )}
                   >
@@ -1729,7 +1724,6 @@ function App() {
 
                   <Append position='left' alignment='start' portal
                     element={(
-
                       <span className={classes.tooltip}>a</span>
                     )}
                   >
@@ -1738,7 +1732,6 @@ function App() {
 
                   <Append position='left' alignment='center' portal
                     element={(
-
                       <span className={classes.tooltip}>a</span>
                     )}
                   >
@@ -1747,7 +1740,6 @@ function App() {
 
                   <Append position='left' alignment='end' portal
                     element={(
-
                       <span className={classes.tooltip}>a</span>
                     )}
                   >
@@ -1756,7 +1748,6 @@ function App() {
 
                   <Append position='right' alignment='start' portal
                     element={(
-
                       <span className={classes.tooltip}>a</span>
                     )}
                   >
@@ -1765,7 +1756,6 @@ function App() {
 
                   <Append position='right' alignment='center' portal
                     element={(
-
                       <span className={classes.tooltip}>a</span>
                     )}
                   >
@@ -1774,7 +1764,6 @@ function App() {
 
                   <Append position='right' alignment='end' portal
                     element={(
-
                       <span className={classes.tooltip}>a</span>
                     )}
                   >

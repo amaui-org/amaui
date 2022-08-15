@@ -29,7 +29,7 @@ const Append = (props_: any) => {
     anchorElement,
     offset = [0, 0],
     padding = [0, 0],
-    paddingUnfollow = props.padding,
+    paddingUnfollow = props.padding || [0, 0],
     inset: inset_,
     position: position_ = 'bottom',
     alignment: alignment_ = 'end',
@@ -254,12 +254,15 @@ const Append = (props_: any) => {
     }
 
     // Overflow
-    if (overflow && false) {
+    if (overflow) {
       // If x or y is out of bounds of the parent
       // or window push them to 0 value
       // only if that value doesn't unfollow them from the element
       // or unfollow them if unfollow is true
       if (portal) rectOffset = rect;
+
+      const top = (portal ? window.document.documentElement.scrollTop : 0);
+      const left = (portal ? window.document.documentElement.scrollLeft : 0);
 
       const rootY = !portal ? wrapperRect.y + rectOffset.root.y : rect.root.y;
       const valueY = !portal ? wrapperRect.y + values_.y : values_.y;
@@ -284,14 +287,15 @@ const Append = (props_: any) => {
 
           // top
           if (
-            (valueY <= 0 + padding[1]) ||
-            (valueScrollParentY <= 0 + padding[1])
+            (valueY - top <= 0 + padding[1]) ||
+            (valueScrollParentY - top <= 0 + padding[1])
           ) {
             if ((rootY + rect.root.height) > 0 || unfollow) {
               const mathValues = [
                 values_.y,
+                top,
                 scrollParentY,
-                scrollParentRect.y - wrapperRectY,
+                scrollParentRect.y - wrapperRectY + top,
                 0
               ];
 
@@ -300,15 +304,15 @@ const Append = (props_: any) => {
               values_.y = Math.max(...mathValues);
 
               // padding
-              const padding_ = values_.y > (rectOffset.root.y + rect.root.height) && unfollow ? paddingUnfollow : padding;
+              const padding_ = values_.y > (rectOffset.root.y + rect.root.height + top) && unfollow ? paddingUnfollow : padding;
 
               const scrollRoot = scrollParentRect.y - wrapperRectY >= 0;
 
               values_.y += clamp(Math.abs(values_.y - (scrollRoot ? scrollParentRect.y : 0) + wrapperRectY - padding_[1]), 0, padding_[1]);
 
-              if (!unfollow) values_.y = clamp(values_.y, Number.MIN_SAFE_INTEGER, rectOffset.root.y + rect.root.height);
+              if (!unfollow) values_.y = clamp(values_.y, Number.MIN_SAFE_INTEGER, rectOffset.root.y + rect.root.height + top);
             }
-            else values_.y = rectOffset.root.y + rect.root.height;
+            else values_.y = rectOffset.root.y + rect.root.height + top;
 
             valuesY.push(values_.y);
 
@@ -317,8 +321,8 @@ const Append = (props_: any) => {
 
           // bottom
           if (
-            (valueY + rect.element.height >= window.innerHeight - padding[1]) ||
-            (values_.y + rect.element.height >= scrollParentRect.y + scrollParentRect.height - wrapperRectY - padding[1])
+            (valueY + rect.element.height - top >= window.innerHeight - padding[1]) ||
+            (values_.y + rect.element.height - top >= scrollParentRect.y + scrollParentRect.height - wrapperRectY - padding[1])
           ) {
             if (
               (
@@ -327,22 +331,24 @@ const Append = (props_: any) => {
               )
               || unfollow
             ) {
-              values_.y = Math.abs(Math.min(
+              const mathValues = [
                 values_.y,
-                window.innerHeight - wrapperRectY - rect.element.height,
-                scrollParentRect.y + scrollParentRect.height - wrapperRectY - rect.element.height
-              ));
+                window.innerHeight - wrapperRectY - rect.element.height + top,
+                scrollParentRect.y + scrollParentRect.height - wrapperRectY - rect.element.height + top
+              ];
+
+              values_.y = Math.abs(Math.min(...mathValues));
 
               // padding
-              const padding_ = (values_.y < rectOffset.root.y - rect.element.height) && unfollow ? paddingUnfollow : padding;
+              const padding_ = values_.y < (rectOffset.root.y - rect.element.height + top) && unfollow ? paddingUnfollow : padding;
 
               const scrollRoot = scrollParentRect.y - wrapperRectY >= 0;
 
               values_.y -= clamp(Math.abs(values_.y - ((scrollRoot ? scrollParentRect.y + scrollParentRect.height : window.innerHeight) - wrapperRectY - rect.element.height - padding_[1])), 0, padding_[1]);
 
-              if (!unfollow) values_.y = clamp(values_.y, rectOffset.root.y - rect.element.height, Number.MAX_SAFE_INTEGER);
+              if (!unfollow) values_.y = clamp(values_.y, rectOffset.root.y - rect.element.height + top, Number.MAX_SAFE_INTEGER);
             }
-            else values_.y = rectOffset.root.y - rect.element.height;
+            else values_.y = rectOffset.root.y - rect.element.height + top;
 
             valuesY.push(values_.y);
 
@@ -370,14 +376,15 @@ const Append = (props_: any) => {
 
           // left
           if (
-            (valueX <= 0 + padding[0]) ||
-            (valueScrollParentX <= 0 + padding[0])
+            (valueX - left <= 0 + padding[0]) ||
+            (valueScrollParentX - left <= 0 + padding[0])
           ) {
             if ((rootX + rect.root.width) > 0 || unfollow) {
               const mathValues = [
                 values_.x,
+                left,
                 scrollParentX,
-                scrollParentRect.x - wrapperRectX,
+                scrollParentRect.x - wrapperRectX + left,
                 0
               ];
 
@@ -386,15 +393,15 @@ const Append = (props_: any) => {
               values_.x = Math.max(...mathValues);
 
               // padding
-              const padding_ = (values_.x > rectOffset.root.x + rect.root.width) && unfollow ? paddingUnfollow : padding;
+              const padding_ = (values_.x > rectOffset.root.x + rect.root.width + left) && unfollow ? paddingUnfollow : padding;
 
               const scrollRoot = scrollParentRect.x - wrapperRectX >= 0;
 
               values_.x += clamp(Math.abs(values_.x - (scrollRoot ? scrollParentRect.x : 0) + wrapperRectX - padding_[0]), 0, padding_[0]);
 
-              if (!unfollow) values_.x = clamp(values_.x, Number.MIN_SAFE_INTEGER, rectOffset.root.x + rect.root.width);
+              if (!unfollow) values_.x = clamp(values_.x, Number.MIN_SAFE_INTEGER, rectOffset.root.x + rect.root.width + left);
             }
-            else values_.x = rectOffset.root.x + rect.root.width;
+            else values_.x = rectOffset.root.x + rect.root.width + left;
 
             valuesX.push(values_.x);
 
@@ -403,8 +410,8 @@ const Append = (props_: any) => {
 
           // right
           if (
-            (valueX + rect.element.width >= window.innerWidth - padding[0]) ||
-            (values_.x + rect.element.width >= scrollParentRect.x + scrollParentRect.width - wrapperRectX - padding[0])
+            (valueX + rect.element.width - left >= window.innerWidth - padding[0]) ||
+            (values_.x + rect.element.width - left >= scrollParentRect.x + scrollParentRect.width - wrapperRectX - padding[0])
           ) {
             if (
               (
@@ -413,22 +420,24 @@ const Append = (props_: any) => {
               )
               || unfollow
             ) {
-              values_.x = Math.abs(Math.min(
+              const mathValues = [
                 values_.x,
-                window.innerWidth - wrapperRectX - rect.element.width,
-                scrollParentRect.x + scrollParentRect.width - wrapperRectX - rect.element.width
-              ));
+                window.innerWidth - wrapperRectX - rect.element.width + left,
+                scrollParentRect.x + scrollParentRect.width - wrapperRectX - rect.element.width + left
+              ];
+
+              values_.x = Math.abs(Math.min(...mathValues));
 
               // padding
-              const padding_ = (values_.x < rectOffset.root.x - rect.element.width) && unfollow ? paddingUnfollow : padding;
+              const padding_ = (values_.x < rectOffset.root.x - rect.element.width + left) && unfollow ? paddingUnfollow : padding;
 
               const scrollRoot = scrollParentRect.x - wrapperRectX >= 0;
 
               values_.x -= clamp(Math.abs(values_.x - ((scrollRoot ? scrollParentRect.x + scrollParentRect.width : window.innerWidth) - wrapperRectX - rect.element.width - padding_[1])), 0, padding_[1]);
 
-              if (!unfollow) values_.x = clamp(values_.x, rectOffset.root.x - rect.element.width, Number.MAX_SAFE_INTEGER);
+              if (!unfollow) values_.x = clamp(values_.x, rectOffset.root.x - rect.element.width + left, Number.MAX_SAFE_INTEGER);
             }
-            else values_.x = rectOffset.root.x - rect.element.width;
+            else values_.x = rectOffset.root.x - rect.element.width + left;
 
             valuesX.push(values_.x);
 
