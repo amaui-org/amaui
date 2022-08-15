@@ -104,8 +104,6 @@ const Append = (props_: any) => {
 
       const rectElement = refs.element.current.getBoundingClientRect();
 
-      // Normalize
-
       const update = scrollableParents.some(parent => {
         const rectParent = parent.getBoundingClientRect();
 
