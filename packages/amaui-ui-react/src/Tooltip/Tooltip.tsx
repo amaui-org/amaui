@@ -17,7 +17,7 @@ const useStyle = style(theme => ({
   },
 
   labelRoot: {
-    display: 'inline-flex'
+
   },
 
   labelRoot_position_top: { marginBottom: '16px' },
@@ -587,7 +587,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
 
               {...TransitionComponentProps}
             >
-              <span
+              <div
                 className={classNames([
                   staticClassName('Tooltip', theme) && [
                     'AmauiTooltip-labelRoot',
@@ -639,7 +639,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
                     ])
                   })
                 }
-              </span>
+              </div>
             </TransitionComponent>
           </Modal>
         );

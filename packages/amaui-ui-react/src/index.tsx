@@ -142,3 +142,6 @@ export * from './Menu';
 
 export { default as useMediaQuery } from './useMediaQuery';
 export * from './useMediaQuery';
+
+export { default as Select } from './Select';
+export * from './Select';

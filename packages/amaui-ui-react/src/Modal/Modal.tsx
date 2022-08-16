@@ -73,6 +73,8 @@ const useStyle = style(theme => ({
   xl: { maxWidth: `1120px` },
 
   xxl: { maxWidth: `1360px` },
+
+  unset: { maxWidth: `unset` }
 }), { name: 'AmauiModal' });
 
 let MODALS_OPEN = 0;

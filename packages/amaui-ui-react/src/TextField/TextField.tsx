@@ -3,9 +3,9 @@ import React from 'react';
 import { clamp, is, isEnvironment } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
-import Type from '../Type';
-
 import { staticClassName } from '../utils';
+
+import Type from '../Type';
 
 const other = {
   pointerEvents: 'none',
@@ -490,6 +490,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
     counter,
     prefix,
     sufix,
+    rootRef,
     noPrefixMargin,
     noSufixMargin,
     enabled,
@@ -506,6 +507,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
     rows: rows_,
     minRows,
     maxRows,
+    focus: focus_ = false,
     disabled,
 
     inputProps = {},
@@ -531,7 +533,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
   };
 
   const [value, setValue] = React.useState((valueDefault !== undefined ? valueDefault : value_) || '');
-  const [focus, setFocus] = React.useState(false);
+  const [focus, setFocus] = React.useState(focus_);
   const [hover, setHover] = React.useState(false);
   const [row, setRow] = React.useState(rowValue);
   const [rows, setRows] = React.useState<any>(1);
@@ -567,6 +569,10 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
       setValue(value_);
     }
   }, [value_]);
+
+  React.useEffect(() => {
+    if (focus_ !== focus) setFocus(focus_);
+  }, [focus_]);
 
   const onUpdate = (event: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = event.target.value;
@@ -662,6 +668,11 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
       fullWidth && classes.fullWidth,
       disabled && classes.disabled
     ]);
+
+    WrapperProps['ref'] = rootRef;
+  }
+  else {
+    other['ref'] = rootRef;
   }
 
   let InputComponent = 'input';
@@ -879,6 +890,8 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
             </Type>
           )}
 
+          {children}
+
           <InputComponent
             ref={item => {
               if (ref) ref.current = item;
@@ -887,29 +900,8 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
             }}
 
             onFocus={onFocus}
+
             onBlur={onBlur}
-
-            className={classNames([
-              staticClassName('TextField', theme) && [
-                'AmauiTextField-input',
-                `AmauiTextField-version-${version}`,
-                `AmauiTextField-size-${size}`,
-                focus && 'AmauiTextField-focus',
-                value && 'AmauiTextField-value',
-                startIcon && `AmauiTextField-icon-start`,
-                endIcon && `AmauiTextField-icon-end`,
-                align && `AmauiTextField-align-${align}`
-              ],
-
-              classes.input,
-              classes[`input_version_${version}`],
-              classes[`input_size_${size}`],
-              classes[`input_version_${version}_size_${size}`],
-              multiline && classes.multiline,
-              align && classes[`input_align_${align}`],
-              startIcon && classes.input_start_icon,
-              endIcon && classes.input_end_icon,
-            ])}
 
             placeholder={placeholder}
 
@@ -932,6 +924,29 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
             style={styles.input}
 
             {...inputProps}
+
+            className={classNames([
+              staticClassName('TextField', theme) && [
+                'AmauiTextField-input',
+                `AmauiTextField-version-${version}`,
+                `AmauiTextField-size-${size}`,
+                focus && 'AmauiTextField-focus',
+                value && 'AmauiTextField-value',
+                startIcon && `AmauiTextField-icon-start`,
+                endIcon && `AmauiTextField-icon-end`,
+                align && `AmauiTextField-align-${align}`
+              ],
+
+              classes.input,
+              inputProps?.className,
+              classes[`input_version_${version}`],
+              classes[`input_size_${size}`],
+              classes[`input_version_${version}_size_${size}`],
+              multiline && classes.multiline,
+              align && classes[`input_align_${align}`],
+              startIcon && classes.input_start_icon,
+              endIcon && classes.input_end_icon,
+            ])}
           />
 
           {sufix !== undefined && (
