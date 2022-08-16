@@ -431,7 +431,8 @@ function App() {
       3: React.useRef<any>(),
       4: React.useRef<any>(),
       5: React.useRef<any>(),
-      7: React.useRef<any>()
+      7: React.useRef<any>(),
+      14: React.useRef<any>()
     }
   };
 
@@ -600,6 +601,36 @@ function App() {
 
       <Accordion label='All'>
         <div className={classNames([classes.column])}>
+          <Button
+            ref={refs.menu['14']}
+
+            onClick={() => update('menu_14')}
+
+            color='secondary'
+          >
+            Menu
+          </Button>
+
+          <Menu
+            open={a.menu_14}
+
+            onClose={() => setA((items: any) => ({ ...items, menu_14: false }))}
+
+            anchorElement={refs.menu['14'].current}
+          >
+            <List menu>
+              {[0, 1, 3, 4].map(item => (
+                <ListItem
+                  button
+
+                  primary={`Item ${item + 1}`}
+
+                  key={item}
+                />
+              ))}
+            </List>
+          </Menu>
+
           <Tooltip
             label='Label'
           >
@@ -899,6 +930,228 @@ function App() {
                     key={item}
                   />
                 ))}
+              </List>
+            </Menu>
+          </div>
+        </Accordion>
+
+        <Accordion label='Menu additional menu' open>
+          <div className={classNames([classes.column])}>
+            <Button
+              ref={refs.menu['5']}
+
+              onClick={() => update('menu_5')}
+
+              color='secondary'
+            >
+              View
+            </Button>
+
+            <Menu
+              open={a.menu_5}
+
+              onClose={() => setA((items: any) => ({ ...items, menu_5: false }))}
+
+              anchorElement={refs.menu['5'].current}
+
+              transformOrigin='left top'
+
+              transformOriginSwitch='left bottom'
+
+              transformOriginRtl='right top'
+
+              transformOriginRtlSwitch='right bottom'
+
+              position='bottom'
+
+              alignment='start'
+            >
+              <List menu color='secondary' style={{ minWidth: 320 }}>
+                <ListItem
+                  button
+
+                  primary='Bold'
+
+                  end={(
+                    <Type version='b2' color='secondary'>
+                      ⌘B
+                    </Type>
+                  )}
+                />
+
+                <ListItem
+                  button
+
+                  primary='Italic'
+
+                  end={(
+                    <Type version='b2' color='secondary'>
+                      ⌘I
+                    </Type>
+                  )}
+                />
+
+                <ListItem
+                  button
+
+                  primary='Underline'
+
+                  end={(
+                    <Type version='b2' color='secondary'>
+                      ⌘U
+                    </Type>
+                  )}
+                />
+
+                <ListItem
+                  button
+
+                  primary='Strikethrough'
+
+                  end={(
+                    <Type version='b2' color='secondary'>
+                      ⌘+Shift+X
+                    </Type>
+                  )}
+                />
+
+                <ListItem
+                  button
+
+                  primary='Superscript'
+
+                  end={(
+                    <Type version='b2' color='secondary'>
+                      ⌘.
+                    </Type>
+                  )}
+                />
+
+                <ListItem
+                  button
+
+                  primary='Subscript'
+
+                  end={(
+                    <Type version='b2' color='secondary'>
+                      ⌘,
+                    </Type>
+                  )}
+                />
+
+                <Divider
+                  Component='li'
+                />
+
+                <ListItem
+                  button
+
+                  primary='Paragraph styles'
+                />
+
+                <ListItem
+                  button
+
+                  primary='Align'
+                />
+
+                <ListItem
+                  button
+
+                  primary='Line spacing'
+
+                  menu={(
+                    <List menu color='secondary' style={{ minWidth: 320 }}>
+                      <ListItem
+                        inset
+
+                        button
+
+                        primary='Single'
+                      />
+
+                      <ListItem
+                        inset
+
+                        button
+
+                        primary='1.15'
+                      />
+
+                      <ListItem
+                        inset
+
+                        button
+
+                        primary='Double'
+                      />
+
+                      <ListItem
+                        button
+
+                        primary='Custom: 1.2'
+
+                        start={(
+                          <IconMaterialCheckRounded />
+                        )}
+                      />
+
+                      <Divider
+                        Component='li'
+                      />
+
+                      <ListItem
+                        button
+
+                        primary='Add space before paragraph'
+                      />
+
+                      <ListItem
+                        button
+
+                        primary='Add space after paragraph'
+                      />
+
+                      <Divider
+                        Component='li'
+                      />
+
+                      <ListItem
+                        button
+
+                        primary='Custom spacing...'
+                      />
+                    </List>
+                  )}
+                />
+
+                <ListItem
+                  button
+
+                  primary='Numbered lists'
+                />
+
+                <ListItem
+                  button
+
+                  primary='List options'
+                />
+
+                <Divider
+                  Component='li'
+                />
+
+                <ListItem
+                  button
+
+                  primary='Clear formating'
+
+                  end={(
+                    <Type version='b2' color='secondary'>
+                      ⌘/
+                    </Type>
+                  )}
+                />
               </List>
             </Menu>
           </div>

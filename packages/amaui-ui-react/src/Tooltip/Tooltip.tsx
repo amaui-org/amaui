@@ -281,6 +281,9 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
     anchorElement,
     noMargin,
     transformOrigin,
+    transformOriginSwitch,
+    transformOriginRtl,
+    transformOriginRtlSwitch,
     touch: touch_ = true,
     longPress: longPress_ = false,
     hover: hover_ = true,
@@ -434,8 +437,8 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
   React.useEffect(() => {
     refs.open.current = open_;
 
-    if (open_ && !open) onOpen();
-    else if (!open_ && open) {
+    if (open_) onOpen();
+    else {
       if (!inProp) onClose();
       else setInProp(false);
     }
@@ -482,8 +485,6 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
     }
   }
 
-  if (transformOrigin) styles.labelRoot.transformOrigin = transformOrigin;
-
   const resolvePosition = (switched = false) => {
     if (!switched) return position;
 
@@ -497,7 +498,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
     <Append
       open={open}
 
-      portal
+      portal={portal}
       anchor={anchor}
       anchorElement={anchorElement}
       position={position}
@@ -509,126 +510,140 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
 
       {...AppendProps}
 
-      element={items => (
-        <Modal
-          ref={item => {
-            if (ref) {
-              if (is('function', ref)) ref(item);
-              else ref.current = item;
-            }
+      element={items => {
+        const rtl = theme.direction === 'rtl';
+        const switched = items.values.switch;
 
-            items.ref.current = item;
-          }}
+        if (!rtl) {
+          styles.labelRoot.transformOrigin = (!switched ? transformOrigin : transformOriginSwitch) || transformOrigin;
+        }
+        else {
+          styles.labelRoot.transformOrigin = (!switched ? transformOriginRtl : transformOriginRtlSwitch) || transformOriginRtl;
+        }
 
-          open={open}
+        if (!styles.labelRoot.transformOrigin) styles.labelRoot.transformOrigin = transformOrigin;
 
-          {...(!disableInteractive && {
-            onMouseEnter,
-            onTouchStart,
-
-            onMouseLeave,
-            onTouchEnd
-          })}
-
-          modalWrapper={false}
-          portal={false}
-          background={false}
-          freezeScroll={false}
-          focus={false}
-
-          disableKeyboardClose
-
-          className={classNames([
-            staticClassName('Tooltip', theme) && [
-              'AmauiTooltip-root',
-              `AmauiTooltip-maxWidth-${maxWidth}`,
-              `AmauiTooltip-position-${position}`,
-              `AmauiTooltip-alignment-${alignment}`,
-              fullWidth && `AmauiButton-fullWidth`
-            ],
-
-            classes.root,
-            className,
-            ModalProps?.className
-          ])}
-
-          {...ModalProps}
-
-          style={{
-            ...items.style,
-
-            ...style,
-
-            ...ModalProps?.style
-          }}
-
-          {...other}
-        >
-          <TransitionComponent
-            in={inProp}
-
-            onExited={onClose}
-
-            add
-
-            {...TransitionComponentProps}
-          >
-            <span
-              className={classNames([
-                staticClassName('Tooltip', theme) && [
-                  'AmauiTooltip-labelRoot',
-                  noMargin && 'AmauiTooltip-labelRoot'
-                ],
-
-                classes.labelRoot,
-                classes[`labelRoot_position_${resolvePosition(items.values.switch)}`],
-                classes[maxWidth],
-                noMargin && classes.labelRoot_noMargin,
-                fullWidth && classes.fullWidth
-              ])}
-
-              style={styles.labelRoot}
-            >
-              {is('simple', label) ?
-                <Type
-                  className={classNames([
-                    staticClassName('Tooltip', theme) && [
-                      'AmauiTooltip-label',
-                      `AmauiTooltip-color-${!theme.palette.color[color] && color !== 'default' ? 'new' : color}`,
-                      tonal && `AmauiTooltip-tonal`,
-                      arrow && `AmauiTooltip-arrow`
-                    ],
-
-                    classes.label,
-                    classes[color],
-                    tonal && classes[`tonal_${color}`],
-                    arrow && [
-                      classes.arrow,
-                      classes[`arrow_position_${position}_alignment_${alignment}`]
-                    ]
-                  ])}
-
-                  version='b3'
-
-                  style={styles.label}
-                >
-                  {label}
-                </Type> :
-
-                React.cloneElement(label, {
-                  className: classNames([
-                    label?.props?.className,
-                    arrow && [
-                      classes.arrow,
-                      classes[`arrow_position_${position}_alignment_${alignment}`]
-                    ]
-                  ])
-                })
+        return (
+          <Modal
+            ref={item => {
+              if (ref) {
+                if (is('function', ref)) ref(item);
+                else ref.current = item;
               }
-            </span>
-          </TransitionComponent>
-        </Modal>
-      )}
+
+              items.ref.current = item;
+            }}
+
+            open={open}
+
+            {...(!disableInteractive && {
+              onMouseEnter,
+              onTouchStart,
+
+              onMouseLeave,
+              onTouchEnd
+            })}
+
+            modalWrapper={false}
+            portal={false}
+            background={false}
+            freezeScroll={false}
+            focus={false}
+
+            disableKeyboardClose
+
+            className={classNames([
+              staticClassName('Tooltip', theme) && [
+                'AmauiTooltip-root',
+                `AmauiTooltip-maxWidth-${maxWidth}`,
+                `AmauiTooltip-position-${position}`,
+                `AmauiTooltip-alignment-${alignment}`,
+                fullWidth && `AmauiButton-fullWidth`
+              ],
+
+              classes.root,
+              className,
+              ModalProps?.className
+            ])}
+
+            {...ModalProps}
+
+            style={{
+              ...items.style,
+
+              ...style,
+
+              ...ModalProps?.style
+            }}
+
+            {...other}
+          >
+            <TransitionComponent
+              in={inProp}
+
+              onExited={onClose}
+
+              add
+
+              {...TransitionComponentProps}
+            >
+              <span
+                className={classNames([
+                  staticClassName('Tooltip', theme) && [
+                    'AmauiTooltip-labelRoot',
+                    noMargin && 'AmauiTooltip-labelRoot'
+                  ],
+
+                  classes.labelRoot,
+                  classes[`labelRoot_position_${resolvePosition(items.values.switch)}`],
+                  classes[maxWidth],
+                  noMargin && classes.labelRoot_noMargin,
+                  fullWidth && classes.fullWidth
+                ])}
+
+                style={styles.labelRoot}
+              >
+                {is('simple', label) ?
+                  <Type
+                    className={classNames([
+                      staticClassName('Tooltip', theme) && [
+                        'AmauiTooltip-label',
+                        `AmauiTooltip-color-${!theme.palette.color[color] && color !== 'default' ? 'new' : color}`,
+                        tonal && `AmauiTooltip-tonal`,
+                        arrow && `AmauiTooltip-arrow`
+                      ],
+
+                      classes.label,
+                      classes[color],
+                      tonal && classes[`tonal_${color}`],
+                      arrow && [
+                        classes.arrow,
+                        classes[`arrow_position_${position}_alignment_${alignment}`]
+                      ]
+                    ])}
+
+                    version='b3'
+
+                    style={styles.label}
+                  >
+                    {label}
+                  </Type> :
+
+                  React.cloneElement(label, {
+                    className: classNames([
+                      label?.props?.className,
+                      arrow && [
+                        classes.arrow,
+                        classes[`arrow_position_${position}_alignment_${alignment}`]
+                      ]
+                    ])
+                  })
+                }
+              </span>
+            </TransitionComponent>
+          </Modal>
+        );
+      }}
     >
       {children && (
         React.cloneElement(children, {

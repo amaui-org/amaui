@@ -4,8 +4,11 @@ import { is } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import { staticClassName } from '../utils';
+
+import Icon from '../Icon';
 import Interaction from '../Interaction';
 import Type from '../Type';
+import Menu from '../Menu';
 
 const overflow = {
   width: '100%',
@@ -131,16 +134,16 @@ const useStyle = style(theme => ({
     padding: `${theme.methods.space.value('sm') * 1.5}px ${theme.methods.space.value('rg') * 1.25}px`
   },
 
-  menu_size_small: {
-    padding: `${theme.methods.space.value('sm') * 0.5}px ${theme.methods.space.value('rg') * 0.75}px`
+  menuItem_size_small: {
+    padding: `${theme.methods.space.value('sm') * 0.5}px ${theme.methods.space.value('rg', 'px')}`
   },
 
-  menu_size_regular: {
-    padding: `${theme.methods.space.value('sm', 'px')} ${theme.methods.space.value('rg') * 0.75}px`
+  menuItem_size_regular: {
+    padding: `${theme.methods.space.value('sm', 'px')} ${theme.methods.space.value('rg', 'px')}`
   },
 
-  menu_size_large: {
-    padding: `${theme.methods.space.value('sm') * 1.5}px ${theme.methods.space.value('rg') * 0.75}px`
+  menuItem_size_large: {
+    padding: `${theme.methods.space.value('sm') * 1.5}px ${theme.methods.space.value('rg', 'px')}`
   },
 
   inset_size_small: {
@@ -155,16 +158,16 @@ const useStyle = style(theme => ({
     paddingInlineStart: `${56 + theme.methods.space.value('rg') * 1.25}px`
   },
 
-  menu_inset_size_small: {
-    paddingInlineStart: `48px`
+  menuItem_inset_size_small: {
+    paddingInlineStart: `56px`
   },
 
-  menu_inset_size_regular: {
-    paddingInlineStart: `48px`
+  menuItem_inset_size_regular: {
+    paddingInlineStart: `56px`
   },
 
-  menu_inset_size_large: {
-    paddingInlineStart: `48px`
+  menuItem_inset_size_large: {
+    paddingInlineStart: `56px`
   },
 
   middle: {
@@ -179,7 +182,7 @@ const useStyle = style(theme => ({
     alignSelf: 'center'
   },
 
-  menu_middle: {
+  menuItem_middle: {
     marginInlineEnd: '44px'
   },
 
@@ -231,16 +234,16 @@ const useStyle = style(theme => ({
     paddingInline: '0 12px'
   },
 
-  menu_start_icon: {
-    paddingInlineEnd: '12px'
+  menuItem_start_icon: {
+    paddingInlineEnd: '16px'
   },
 
-  menu_start_button: {
-    paddingInlineEnd: '4px'
+  menuItem_start_button: {
+    paddingInlineEnd: '8px'
   },
 
-  menu_start_switch: {
-    paddingInlineEnd: '2px'
+  menuItem_start_switch: {
+    paddingInlineEnd: '6px'
   },
 
   end_icon: {
@@ -258,16 +261,16 @@ const useStyle = style(theme => ({
     paddingInlineEnd: '8px'
   },
 
-  menu_end_icon: {
-    paddingInlineStart: '12px'
+  menuItem_end_icon: {
+    paddingInlineStart: '16px'
   },
 
-  menu_end_button: {
-    paddingInlineStart: '4px'
+  menuItem_end_button: {
+    paddingInlineStart: '8px'
   },
 
-  menu_end_switch: {
-    paddingInlineStart: '2px'
+  menuItem_end_switch: {
+    paddingInlineStart: '6px'
   },
 
   middle_disabled: {
@@ -281,11 +284,28 @@ const useStyle = style(theme => ({
   }
 }), { name: 'AmauiListItem' });
 
+const IconMaterialArrowRightRounded = React.forwardRef((props: any, ref) => {
+  return (
+    <Icon
+      ref={ref}
+
+      name='ArrowRightRounded'
+      short_name='ArrowRight'
+
+      {...props}
+    >
+      <path d="M11.7 15.3Q11.225 15.775 10.613 15.512Q10 15.25 10 14.575V9.425Q10 8.75 10.613 8.488Q11.225 8.225 11.7 8.7L14.3 11.3Q14.45 11.45 14.525 11.625Q14.6 11.8 14.6 12Q14.6 12.2 14.525 12.375Q14.45 12.55 14.3 12.7Z" />
+    </Icon>
+  );
+});
+
 const ListItem = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiListItem?.props?.default }), [props_]);
 
+  const [open, setOpen] = React.useState(false);
+  const [hover, setHover] = React.useState(false);
   const [focus, setFocus] = React.useState(false);
 
   const refs = {
@@ -296,6 +316,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
 
   const {
     menu,
+    menuItem,
     inset,
     primary,
     secondary,
@@ -305,7 +326,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
     color = 'default',
     colorSelected = props.color,
     start,
-    end,
+    end: end_,
     startAlign = 'start',
     endAlign = 'center',
     size = 'regular',
@@ -319,6 +340,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
     PrimaryProps = {},
     SecondaryProps = {},
     TertiaryProps = {},
+    include,
     disabled,
 
     className,
@@ -338,7 +360,27 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
     tertiary: {}
   };
 
+  let end = end_;
+
+  if (menu) end = end_ || <IconMaterialArrowRightRounded />;
+
   let RootComponent = RootComponent_;
+
+  React.useEffect(() => {
+    if (menu) setOpen(hover);
+  }, [hover]);
+
+  React.useEffect(() => {
+    if (menu) setOpen(hover || focus);
+  }, [focus]);
+
+  const onMouseEnter = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
+    if (!disabled) setHover(true);
+  }, []);
+
+  const onMouseLeave = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
+    if (!disabled) setHover(false);
+  }, []);
 
   const onFocus = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
     if (!disabled && event.target === refs.root.current) setFocus(true);
@@ -346,6 +388,10 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
 
   const onBlur = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
     if (!disabled) setFocus(false);
+  }, []);
+
+  const onClose = React.useCallback(() => {
+    if (!disabled) setOpen(false);
   }, []);
 
   if (button) {
@@ -372,13 +418,17 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
     }
   }
 
-  if (menu && color === 'default') {
+  if (menuItem && color === 'default') {
     if (!theme.palette.light) styles.wrapper.background = theme.palette.color.neutral[10];
   }
 
   return (
     <Component
       ref={ref}
+
+      onMouseEnter={onMouseEnter}
+
+      onMouseLeave={onMouseLeave}
 
       className={classNames([
         staticClassName('ListItem', theme) && [
@@ -409,7 +459,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
             `AmauiListItem-size-${size}`,
             `AmauiListItem-color-${!classes[colorToUse] ? 'new' : colorToUse}`,
             `AmauiListItem-shape-${shape}-position-${shapePosition}`,
-            menu && `AmauiListItem-menu`,
+            menuItem && `AmauiListItem-menuItem`,
             tonal && `AmauiListItem-tonal`,
             disabled && `AmauiListItem-disabled`
           ],
@@ -419,9 +469,9 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
           classes[selected ? colorSelected : color],
           classes[`shape_${shape}_position_${shapePosition}`],
           inset && !start && classes[`inset_size_${size}`],
-          menu && [
-            classes[`menu_size_${size}`],
-            inset && classes[`menu_inset_size_${size}`]
+          menuItem && [
+            classes[`menuItem_size_${size}`],
+            inset && classes[`menuItem_inset_size_${size}`]
           ],
           (href || button) && classes.button,
           disabled && classes.disabled
@@ -441,7 +491,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
           <Interaction
             border={false}
             pulse={focus}
-            selected={selected}
+            selected={open || selected}
 
             {...InteractionProps}
           />
@@ -454,13 +504,13 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
                 'AmauiListItem-aside',
                 'AmauiListItem-start',
                 `AmauiListItem-start-${['AmauiAvatar', 'AmauiIconButton', 'AmauiCheckbox', 'AmauiRadio'].includes(start?.type?.displayName) ? 'button' : ['AmauiSwitch'].includes(start?.type?.displayName) ? 'switch' : 'icon'}`,
-                menu && 'AmauiListItem-menu'
+                menuItem && 'AmauiListItem-menuItem'
               ],
 
               classes.aside,
               classes.start,
               classes[`align_${startAlign}`],
-              classes[`${menu ? 'menu_' : ''}start_${['AmauiAvatar', 'AmauiIconButton', 'AmauiCheckbox', 'AmauiRadio'].includes(start?.type?.displayName) ? 'button' : ['AmauiSwitch'].includes(start?.type?.displayName) ? 'switch' : 'icon'}`]
+              classes[`${menuItem ? 'menuItem_' : ''}start_${['AmauiAvatar', 'AmauiIconButton', 'AmauiCheckbox', 'AmauiRadio'].includes(start?.type?.displayName) ? 'button' : ['AmauiSwitch'].includes(start?.type?.displayName) ? 'switch' : 'icon'}`]
             ])}
           >
             {is('string', start) ? start : React.cloneElement(start, {
@@ -477,12 +527,12 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
           className={classNames([
             staticClassName('ListItem', theme) && [
               'AmauiListItem-middle',
-              menu && 'AmauiListItem-menu',
+              menuItem && 'AmauiListItem-menuItem',
               disabled && 'AmauiListItem-disabled'
             ],
 
             classes.middle,
-            menu && classes.menu_middle,
+            menuItem && classes.menuItem_middle,
             disabled && classes.middle_disabled
           ])}
         >
@@ -491,7 +541,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
               <Type
                 {...PrimaryProps}
 
-                version={menu ? 'b2' : 'b1'}
+                version={menuItem ? 'b2' : 'b1'}
 
                 className={classNames([
                   staticClassName('ListItem', theme) && [
@@ -569,13 +619,13 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
                 'AmauiListItem-aside',
                 'AmauiListItem-end',
                 `AmauiListItem-end-${['AmauiAvatar', 'AmauiIconButton', 'AmauiCheckbox', 'AmauiRadio'].includes(end?.type?.displayName) ? 'button' : ['AmauiSwitch'].includes(end?.type?.displayName) ? 'switch' : 'icon'}`,
-                menu && 'AmauiListItem-menu'
+                menuItem && 'AmauiListItem-menuItem'
               ],
 
               classes.aside,
               classes.end,
               classes[`align_${endAlign}`],
-              classes[`${menu ? 'menu_' : ''}end_${['AmauiAvatar', 'AmauiIconButton', 'AmauiCheckbox', 'AmauiRadio'].includes(end?.type?.displayName) ? 'button' : ['AmauiSwitch'].includes(end?.type?.displayName) ? 'switch' : 'icon'}`]
+              classes[`${menuItem ? 'menuItem_' : ''}end_${['AmauiAvatar', 'AmauiIconButton', 'AmauiCheckbox', 'AmauiRadio'].includes(end?.type?.displayName) ? 'button' : ['AmauiSwitch'].includes(end?.type?.displayName) ? 'switch' : 'icon'}`]
             ])}
           >
             {is('string', end) ? end : React.cloneElement(end, {
@@ -588,6 +638,37 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
           </span>
         )}
       </RootComponent>
+
+      {/* Menu */}
+      {menu && (
+        <Menu
+          open={open}
+
+          include={include}
+
+          onClose={onClose}
+
+          closeOnClickAway={false}
+
+          anchorElement={refs.root.current}
+
+          transformOrigin='left top'
+
+          transformOriginSwitch='right top'
+
+          transformOriginRtl='left top'
+
+          transformOriginRtlSwitch='right top'
+
+          position='right'
+
+          alignment='start'
+
+          onMouseEnter={onMouseEnter}
+        >
+          {menu}
+        </Menu>
+      )}
     </Component>
   );
 });

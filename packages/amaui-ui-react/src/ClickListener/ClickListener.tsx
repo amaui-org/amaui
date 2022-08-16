@@ -18,6 +18,8 @@ const ClickListener = React.forwardRef((props_: any, ref: any) => {
     mouseEvent = 'onClick',
     touchEvent = 'onTouchEnd',
 
+    include = [],
+
     onClickInside,
     onClickOutside,
 
@@ -27,7 +29,10 @@ const ClickListener = React.forwardRef((props_: any, ref: any) => {
   React.useEffect(() => {
     const onMethod = (event: MouseEvent) => {
       if (refs.root.current) {
-        if (refs.root.current.contains(event.target as any)) {
+        if (
+          refs.root.current.contains(event.target as any) ||
+          include.some(item => item.contains(event.target))
+        ) {
           if (is('function', onClickInside)) onClickInside();
         }
         else {

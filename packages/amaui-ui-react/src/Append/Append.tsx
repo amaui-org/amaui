@@ -2,6 +2,7 @@ import React from 'react';
 
 import { debounce, is, isEnvironment, element as element_, clamp } from '@amaui/utils';
 import { useAmauiTheme } from '@amaui/style-react';
+
 import Portal from '../Portal';
 
 const Append = (props_: any) => {
@@ -13,7 +14,8 @@ const Append = (props_: any) => {
   const [values, setValues] = React.useState({
     position: props.position,
     x: 0,
-    y: 0
+    y: 0,
+    switch: false
   });
 
   const refs = {
@@ -22,7 +24,7 @@ const Append = (props_: any) => {
   };
 
   const {
-    open = true,
+    open,
     portal = false,
     accelerated = true,
     anchor,
@@ -97,7 +99,7 @@ const Append = (props_: any) => {
 
   const updateSwitch = () => {
     // Switch
-    if (switch_ && values.position === position_ && refs.element.current) {
+    if (switch_ && !values.switch && values.position === position_ && refs.element.current) {
       let newPosition = position_;
 
       const scrollableParents = element_(refs.root.current).parents().filter(item => item.scrollHeight - item.clientHeight);
@@ -111,6 +113,7 @@ const Append = (props_: any) => {
           return !(
             rectElement.x - (['left', 'right'].includes(position_) ? padding[1] : 0) >= 0 &&
             rectElement.x - (['left', 'right'].includes(position_) ? padding[1] : 0) >= rectParent.x &&
+            rectElement.x + rectElement.width + (['left', 'right'].includes(position_) ? padding[1] : 0) <= window.innerWidth &&
             rectElement.x + rectElement.width + (['left', 'right'].includes(position_) ? padding[1] : 0) <= rectParent.x + rectParent.width
           );
         }
@@ -119,6 +122,7 @@ const Append = (props_: any) => {
           return !(
             rectElement.y - (['top', 'bottom'].includes(position_) ? padding[0] : 0) >= 0 &&
             rectElement.y - (['top', 'bottom'].includes(position_) ? padding[0] : 0) >= rectParent.y &&
+            rectElement.y + rectElement.height + (['top', 'bottom'].includes(position_) ? padding[0] : 0) <= window.innerHeight &&
             rectElement.y + rectElement.height + (['top', 'bottom'].includes(position_) ? padding[0] : 0) <= rectParent.y + rectParent.height
           );
         }

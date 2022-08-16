@@ -12,8 +12,6 @@ const useStyle = style(theme => ({
   root: {},
 }), { name: 'AmauiMenu' });
 
-// Menu in ListItem value y
-
 const Menu = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 
@@ -25,6 +23,7 @@ const Menu = React.forwardRef((props_: any, ref: any) => {
 
     arrow,
     closeOnClickAway = true,
+    include,
 
     ModalProps = {},
 
@@ -39,6 +38,25 @@ const Menu = React.forwardRef((props_: any, ref: any) => {
 
   const { classes } = useStyle(props);
 
+  const refs = {
+    root: React.useRef<any>(),
+    include: React.useRef<any>([])
+  };
+
+  React.useEffect(() => {
+    setTimeout(() => {
+      if (include && refs.root.current) include.push(refs.root.current);
+    });
+
+    return () => {
+      if (include) {
+        const index = include.findIndex(item => item === refs.root.current);
+
+        if (index > -1) include.splice(index, 1);
+      }
+    };
+  }, [open]);
+
   const onClose = React.useCallback(() => {
     if (is('function', onClose_)) onClose_();
   }, []);
@@ -47,14 +65,22 @@ const Menu = React.forwardRef((props_: any, ref: any) => {
 
   const WrapperProps: any = {};
 
-  if (closeOnClickAway) WrapperProps.onClickOutside = onClose;
+  if (closeOnClickAway) {
+    WrapperProps.onClickOutside = onClose;
+
+    WrapperProps.include = refs.include.current;
+  }
 
   return (
     <Wrapper
       {...WrapperProps}
     >
       <Tooltip
-        ref={ref}
+        ref={item => {
+          if (ref) ref.current = item;
+
+          refs.root.current = item;
+        }}
 
         open={open}
 
@@ -69,7 +95,9 @@ const Menu = React.forwardRef((props_: any, ref: any) => {
 
         anchorElement={anchorElement}
 
-        label={children}
+        label={children && (
+          React.cloneElement(children, { include: refs.include.current })
+        )}
 
         arrow={arrow}
         hover={false}

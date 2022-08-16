@@ -201,7 +201,7 @@ const List = React.forwardRef((props_: any, ref: any) => {
       }}
     >
       {React.Children.toArray(children).map((item: any) => React.cloneElement(item, {
-        menu,
+        menuItem: menu,
 
         color,
         tonal,
