@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { is } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import { staticClassName } from '../utils';
@@ -8,14 +9,39 @@ import TextField from '../TextField';
 import List from '../List';
 import Menu from '../Menu';
 
+const overflow = {
+  width: '100%',
+  overflow: 'hidden',
+  whiteSpace: 'nowrap',
+  textOverflow: 'ellipsis'
+};
+
 const useStyle = style(theme => ({
   root: {
     width: '100%',
     cursor: 'pointer'
   },
 
-  open: {
-    cursor: 'default'
+  input: {
+    width: '100%',
+    margin: 0,
+    border: 0,
+    color: theme.palette.text.default.primary,
+    background: 'transparent',
+    '-webkit-tap-highlight-color': 'transparent',
+    textAlign: 'start',
+    borderRadius: `${theme.shape.radius.unit / 2}px ${theme.shape.radius.unit / 2}px 0 0`,
+    ...theme.typography.values.b2,
+    ...overflow,
+    cursor: 'pointer'
+  },
+
+  input_align_start: {
+    textAlign: 'start'
+  },
+
+  input_align_end: {
+    textAlign: 'end'
   },
 
   input_size_small: {
@@ -65,11 +91,15 @@ const useStyle = style(theme => ({
     paddingBottom: '22px'
   },
 
-  input: {
+  input_: {
     position: 'absolute',
     left: 0,
     bottom: 0,
     pointerEvents: 'none'
+  },
+
+  open: {
+    cursor: 'default'
   },
 
   disabled: {
@@ -92,15 +122,9 @@ const Select = React.forwardRef((props_: any, ref: any) => {
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiSelect?.props?.default }), [props_]);
 
-  const [open, setOpen] = React.useState(false);
-
-  const { classes } = useStyle(props);
-
-  const refs = {
-    root: React.useRef<any>()
-  };
-
   const {
+    value: value_,
+    valueDefault,
     size = 'regular',
     version = 'filled',
     startIcon,
@@ -114,15 +138,30 @@ const Select = React.forwardRef((props_: any, ref: any) => {
     className,
     style,
 
-    children,
+    children: children_,
 
     ...other
   } = props;
+
+  const children = React.Children.toArray(children_);
+
+  const [value, setValue] = React.useState(valueDefault !== undefined ? valueDefault : value_);
+  const [open, setOpen] = React.useState(false);
+
+  const { classes } = useStyle(props);
+
+  const refs = {
+    root: React.useRef<any>()
+  };
 
   const styles: any = {
     root: {},
     menu: {}
   };
+
+  React.useEffect(() => {
+    if (value_ !== undefined && value_ !== value) setValue(value_);
+  }, [value_]);
 
   const onClick = React.useCallback(() => {
     if (!disabled) setOpen(value => !value);
@@ -132,6 +171,12 @@ const Select = React.forwardRef((props_: any, ref: any) => {
     if (!disabled) setOpen(false);
   }, []);
 
+  const onSelect = (value: any) => {
+    setValue(value);
+
+    if (is('function', onChange)) onChange(value);
+  };
+
   if (refs.root.current) {
     const rect = refs.root.current.getBoundingClientRect();
 
@@ -139,6 +184,12 @@ const Select = React.forwardRef((props_: any, ref: any) => {
       styles.menu.minWidth = rect.width;
     }
   }
+
+  const resolveItem = (value: any) => {
+    const item: any = children.find((item_: any) => item_.props?.value === value);
+
+    return item && (item.props?.label || item.props?.primary || item.props?.secondary || item.props?.tertiary || item.props?.children);
+  };
 
   return (
     <React.Fragment>
@@ -149,7 +200,8 @@ const Select = React.forwardRef((props_: any, ref: any) => {
           refs.root.current = item;
         }}
 
-        enabled={open}
+        enabled={open || value}
+
         focus={open}
 
         onClick={onClick}
@@ -167,24 +219,26 @@ const Select = React.forwardRef((props_: any, ref: any) => {
 
           classes.root,
           className,
-          classes[`input_size_${size}`],
-          classes[`input_version_${version}_size_${size}`],
-          startIcon && classes.input_start_icon,
-          endIcon && classes.input_end_icon,
           open && classes.open,
           disabled && classes.disabled
         ])}
 
         size={size}
+
         version={version}
+
         startIcon={startIcon}
+
         endIcon={endIcon}
+
         disabled={disabled}
 
         inputProps={{
           className: classNames([
-            classes.input
-          ])
+            classes.input_
+          ]),
+
+          readOnly: true
         }}
 
         style={{
@@ -194,7 +248,31 @@ const Select = React.forwardRef((props_: any, ref: any) => {
         }}
 
         {...other}
-      />
+      >
+        <div
+          onClick={onClick}
+
+          className={classNames([
+            staticClassName('Select', theme) && [
+              'AmauiSelect-input',
+              `AmauiSelect-version-${version}`,
+              `AmauiSelect-size-${size}`,
+              startIcon && `AmauiSelect-icon-start`,
+              endIcon && `AmauiSelect-icon-end`,
+              open && `AmauiSelect-open`
+            ],
+
+            classes.input,
+            classes[`input_size_${size}`],
+            classes[`input_version_${version}_size_${size}`],
+            startIcon && classes.input_start_icon,
+            endIcon && classes.input_end_icon,
+            open && classes.open
+          ])}
+        >
+          {resolveItem(value)}
+        </div>
+      </TextField>
 
       {children && (
         <Menu
@@ -213,7 +291,19 @@ const Select = React.forwardRef((props_: any, ref: any) => {
           style={styles.menu}
         >
           <List menu>
-            {children}
+            {children.map((item: any) => (
+              React.cloneElement(item, {
+                selected: value === item.props?.value,
+
+                onClick: (event: React.MouseEvent) => {
+                  onSelect(item.props?.value);
+
+                  if (is('function', item.props?.onClick)) item.props?.onClick(event);
+
+                  setOpen(false);
+                }
+              })
+            ))}
           </List>
         </Menu>
       )}

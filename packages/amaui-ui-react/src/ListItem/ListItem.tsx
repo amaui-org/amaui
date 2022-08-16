@@ -318,7 +318,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
     menu,
     menuItem,
     inset,
-    primary,
+    primary = props.children,
     secondary,
     tertiary,
     selected,

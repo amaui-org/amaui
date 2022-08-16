@@ -604,7 +604,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
   };
 
   const onFocus = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
-    if (!disabled) {
+    if (!disabled && focus_ === undefined) {
       setFocus(true);
 
       if (is('function', onFocus_)) onFocus_(event);
@@ -612,7 +612,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
   }, []);
 
   const onBlur = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
-    if (!disabled) {
+    if (!disabled && focus_ === undefined) {
       setFocus(false);
 
       if (is('function', onBlur_)) onBlur_(event);
