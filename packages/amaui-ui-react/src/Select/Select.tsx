@@ -245,7 +245,11 @@ const Select = React.forwardRef((props_: any, ref: any) => {
   }, []);
 
   const onClick = React.useCallback((event: React.MouseEvent) => {
-    if (event.target === refs.input.current && !disabled && !readOnly) setOpen(open => !open);
+    if (event.target === refs.input.current && !disabled && !readOnly) setOpen(open => {
+      if (open) setFocus(false);
+
+      return !open;
+    });
   }, []);
 
   const onClickArrowDown = React.useCallback((event: React.MouseEvent) => {
