@@ -483,6 +483,8 @@ const Select = React.forwardRef((props_: any, ref: any) => {
         <Menu
           open={open}
 
+          portal={false}
+
           onClose={() => onClose(false)}
 
           anchorElement={refs.root.current}

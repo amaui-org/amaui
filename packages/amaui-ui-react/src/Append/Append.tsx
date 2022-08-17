@@ -107,7 +107,7 @@ const Append = (props_: any) => {
     if (switch_ && !values.switch && values.position === position_ && refs.element.current) {
       let newPosition = position_;
 
-      const scrollableParents = element_(refs.root.current).parents().filter(item => item.scrollHeight - item.clientHeight);
+      const scrollableParents = element_(refs.root.current).parents().filter(item => item instanceof Element && !['visible', 'initial'].includes(window.getComputedStyle(item).overflow));
 
       const rectElement = refs.element.current.getBoundingClientRect();
 
@@ -201,7 +201,7 @@ const Append = (props_: any) => {
 
     const wrapperRect = (overflow || switch_) && (refs.root.current || refs.element.current).parentElement.getBoundingClientRect();
 
-    const scrollableParents = element_(refs.root.current || refs.element.current).parents().filter(item => item.scrollHeight - item.clientHeight);
+    const scrollableParents = element_(refs.root.current).parents().filter(item => item instanceof Element && !['visible', 'initial'].includes(window.getComputedStyle(item).overflow));
 
     let { position, alignment, inset, switch: switched } = value;
 
