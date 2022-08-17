@@ -1,13 +1,16 @@
 import React from 'react';
 
-import { is } from '@amaui/utils';
+import { is, unique } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import { staticClassName } from '../utils';
 
-import TextField from '../TextField';
+import Icon from '../Icon';
 import List from '../List';
 import Menu from '../Menu';
+import Chip from '../Chip';
+import TextField from '../TextField';
+import ChipGroup from '../ChipGroup';
 
 const overflow = {
   width: '100%',
@@ -19,7 +22,7 @@ const overflow = {
 const useStyle = style(theme => ({
   root: {
     width: '100%',
-    cursor: 'pointer'
+    flex: 'unset'
   },
 
   input: {
@@ -95,7 +98,47 @@ const useStyle = style(theme => ({
     position: 'absolute',
     left: 0,
     bottom: 0,
+    pointerEvents: 'none',
+    opacity: 0
+  },
+
+  chip: {
+    height: 'unset'
+  },
+
+  input_chip_size_small: {
+    minHeight: '48px'
+  },
+
+  input_chip_size_regular: {
+    minHeight: '56px'
+  },
+
+  input_chip_size_large: {
+    minHeight: '64px'
+  },
+
+  chipGroup: {
     pointerEvents: 'none'
+  },
+
+  chipGroup_padding: {
+    paddingTop: '4px'
+  },
+
+  arrow: {
+    alignSelf: 'center',
+    paddingBlock: '0px !important',
+
+    '& > svg': {
+      transition: theme.methods.transitions.make('transform')
+    }
+  },
+
+  arrow_open: {
+    '& > svg': {
+      transform: 'rotate(180deg)'
+    }
   },
 
   open: {
@@ -107,15 +150,21 @@ const useStyle = style(theme => ({
   }
 }), { name: 'AmauiSelect' });
 
-// To do
+const IconMaterialArrowDropDownRounded = React.forwardRef((props: any, ref) => {
 
-// value
-// value chips
-// value
-// versions
-// start and end icons
-// multiple
-// disabled
+  return (
+    <Icon
+      ref={ref}
+
+      name='ArrowDropDownRounded'
+      short_name='ArrowDropDown'
+
+      {...props}
+    >
+      <path d="M11.3 14.3 8.7 11.7Q8.225 11.225 8.488 10.613Q8.75 10 9.425 10H14.575Q15.25 10 15.512 10.613Q15.775 11.225 15.3 11.7L12.7 14.3Q12.55 14.45 12.375 14.525Q12.2 14.6 12 14.6Q11.8 14.6 11.625 14.525Q11.45 14.45 11.3 14.3Z" />
+    </Icon>
+  );
+});
 
 const Select = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
@@ -123,17 +172,28 @@ const Select = React.forwardRef((props_: any, ref: any) => {
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiSelect?.props?.default }), [props_]);
 
   const {
+    tonal,
+    color = 'primary',
+    multiple,
     value: value_,
     valueDefault,
     size = 'regular',
     version = 'filled',
+    prefix,
+    sufix,
     startIcon,
-    endIcon,
+    endIcon: endIcon_,
     autoWidth,
-
+    readOnly,
+    renderValues: renderValues_,
+    chip,
     onChange,
 
     disabled,
+
+    ChipGroupProps = {},
+    ListProps = {},
+    MenuProps = {},
 
     className,
     style,
@@ -145,13 +205,19 @@ const Select = React.forwardRef((props_: any, ref: any) => {
 
   const children = React.Children.toArray(children_);
 
-  const [value, setValue] = React.useState(valueDefault !== undefined ? valueDefault : value_);
+  const [value, setValue] = React.useState(() => {
+    const values = valueDefault !== undefined ? valueDefault : value_;
+
+    return multiple ? (is('array', values) ? values : [values]).filter(Boolean) : values;
+  });
+  const [focus, setFocus] = React.useState(false);
   const [open, setOpen] = React.useState(false);
 
   const { classes } = useStyle(props);
 
   const refs = {
-    root: React.useRef<any>()
+    root: React.useRef<any>(),
+    input: React.useRef<any>()
   };
 
   const styles: any = {
@@ -159,22 +225,80 @@ const Select = React.forwardRef((props_: any, ref: any) => {
     menu: {}
   };
 
+  const endIcon = endIcon_ || <IconMaterialArrowDropDownRounded />;
+
+  React.useEffect(() => {
+    const method = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') onClose();
+    };
+
+    window.addEventListener('keydown', method);
+
+    return () => {
+      window.removeEventListener('keydown', method);
+    };
+  }, []);
+
   React.useEffect(() => {
     if (value_ !== undefined && value_ !== value) setValue(value_);
   }, [value_]);
 
-  const onClick = React.useCallback(() => {
-    if (!disabled) setOpen(value => !value);
+  const onFocus = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
+    if (!disabled) setFocus(true);
   }, []);
 
-  const onClose = React.useCallback(() => {
-    if (!disabled) setOpen(false);
+  const onBlur = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
+    if (!disabled) setFocus(false);
   }, []);
 
-  const onSelect = (value: any) => {
-    setValue(value);
+  const onClick = React.useCallback((event: React.MouseEvent) => {
+    if (event.target === refs.input.current && !disabled && !readOnly) setOpen(open => {
+      if (open) refs.input.current.focus();
 
-    if (is('function', onChange)) onChange(value);
+      return !open;
+    });
+  }, []);
+
+  const onEnterKeyDown = React.useCallback((event: React.KeyboardEvent) => {
+    if (event.key === 'Enter' && !disabled && !readOnly) setOpen(open => {
+      if (open) refs.input.current.focus();
+
+      return !open;
+    });
+  }, []);
+
+  const onClose = React.useCallback((refocus = true) => {
+    if (!disabled) {
+      setOpen(open => {
+        if (open && refocus) refs.input.current.focus();
+
+        return false;
+      });
+    }
+  }, []);
+
+  const onSelect = (newValue: any) => {
+    let values = multiple ? is('array', value) ? value : [value] : value;
+
+    values = multiple ? unique([...values, newValue]) : newValue;
+
+    if (is('function', onChange)) onChange(values);
+
+    // Inner controlled value
+    if (!props.hasOwnProperty('value')) setValue(values);
+  };
+
+  const onUnselect = (itemValue: any) => {
+    if (multiple) {
+      let values = is('array', value) ? value : [value];
+
+      values = values.filter(item => item !== itemValue);
+
+      if (is('function', onChange)) onChange(values);
+
+      // Inner controlled value
+      if (!props.hasOwnProperty('value')) setValue(values);
+    }
   };
 
   if (refs.root.current) {
@@ -185,11 +309,46 @@ const Select = React.forwardRef((props_: any, ref: any) => {
     }
   }
 
-  const resolveItem = (value: any) => {
-    const item: any = children.find((item_: any) => item_.props?.value === value);
+  const renderValue = (values: any = value) => {
+    const item: any = children.find((item_: any) => item_.props?.value === values);
 
-    return item && (item.props?.label || item.props?.primary || item.props?.secondary || item.props?.tertiary || item.props?.children);
+    return item ? (item.props?.label || item.props?.primary || item.props?.secondary || item.props?.tertiary || item.props?.children) : value;
   };
+
+  const renderValues = renderValues_ || (() => {
+    if (multiple) {
+      if (chip) {
+        return (
+          <ChipGroup
+            wrap
+
+            size={size}
+
+            className={classNames([
+              classes.chipGroup,
+              version !== 'outlined' && classes.chipGroup_padding
+            ])}
+
+            {...ChipGroupProps}
+          >
+            {value.map(item => (
+              <Chip
+                key={item}
+
+                focus={false}
+              >
+                {renderValue(item)}
+              </Chip>
+            ))}
+          </ChipGroup>
+        );
+      }
+
+      return value.map(item => renderValue(item)).join(', ');
+    }
+
+    return renderValue(value);
+  });
 
   return (
     <React.Fragment>
@@ -200,19 +359,17 @@ const Select = React.forwardRef((props_: any, ref: any) => {
           refs.root.current = item;
         }}
 
-        enabled={open || value}
+        enabled={open || !!(is('array', value) ? value.length : value)}
 
-        focus={open}
-
-        onClick={onClick}
+        focus={focus || open}
 
         className={classNames([
           staticClassName('Select', theme) && [
             'AmauiSelect-root',
             `AmauiSelect-version-${version}`,
             `AmauiSelect-size-${size}`,
-            startIcon && `AmauiSelect-icon-start`,
-            endIcon && `AmauiSelect-icon-end`,
+            (prefix || startIcon) && `AmauiSelect-icon-start`,
+            (sufix || endIcon) && `AmauiSelect-icon-end`,
             open && `AmauiSelect-open`,
             disabled && `AmauiSelect-disabled`
           ],
@@ -220,23 +377,44 @@ const Select = React.forwardRef((props_: any, ref: any) => {
           classes.root,
           className,
           open && classes.open,
+          (prefix || startIcon) && classes.input_start_icon,
+          (sufix || endIcon) && classes.input_end_icon,
           disabled && classes.disabled
         ])}
+
+        tonal={tonal}
+
+        color={color}
 
         size={size}
 
         version={version}
 
+        prefix={prefix}
+
+        sufix={sufix}
+
         startIcon={startIcon}
 
         endIcon={endIcon}
 
+        readOnly={readOnly}
+
         disabled={disabled}
+
+        classes={{
+          endIcon: classNames([
+            classes.arrow,
+            open && classes.arrow_open
+          ])
+        }}
 
         inputProps={{
           className: classNames([
             classes.input_
           ]),
+
+          disabled: true,
 
           readOnly: true
         }}
@@ -250,27 +428,41 @@ const Select = React.forwardRef((props_: any, ref: any) => {
         {...other}
       >
         <div
+          ref={refs.input}
+
+          tabIndex={0}
+
+          onFocus={onFocus}
+
+          onBlur={onBlur}
+
           onClick={onClick}
+
+          onKeyDown={onEnterKeyDown}
 
           className={classNames([
             staticClassName('Select', theme) && [
               'AmauiSelect-input',
               `AmauiSelect-version-${version}`,
               `AmauiSelect-size-${size}`,
-              startIcon && `AmauiSelect-icon-start`,
-              endIcon && `AmauiSelect-icon-end`,
+              (prefix || startIcon) && `AmauiSelect-icon-start`,
+              (sufix || endIcon) && `AmauiSelect-icon-end`,
+              chip && `AmauiSelect-chip`,
               open && `AmauiSelect-open`
             ],
 
             classes.input,
+            classes[`input_version_${version}`],
             classes[`input_size_${size}`],
+            classes[`input_chip_size_${size}`],
             classes[`input_version_${version}_size_${size}`],
-            startIcon && classes.input_start_icon,
-            endIcon && classes.input_end_icon,
+            (prefix || startIcon) && classes.input_start_icon,
+            (sufix || endIcon) && classes.input_end_icon,
+            chip && classes.chip,
             open && classes.open
           ])}
         >
-          {resolveItem(value)}
+          {renderValues()}
         </div>
       </TextField>
 
@@ -278,7 +470,7 @@ const Select = React.forwardRef((props_: any, ref: any) => {
         <Menu
           open={open}
 
-          onClose={onClose}
+          onClose={() => onClose(false)}
 
           anchorElement={refs.root.current}
 
@@ -288,19 +480,43 @@ const Select = React.forwardRef((props_: any, ref: any) => {
 
           maxWidth='unset'
 
+          ModalProps={{
+            // focus: true
+          }}
+
           style={styles.menu}
+
+          {...MenuProps}
         >
-          <List menu>
-            {children.map((item: any) => (
+          <List
+            size={size}
+
+            menu
+
+            {...ListProps}
+          >
+            {children.map((item: any, index: number) => (
               React.cloneElement(item, {
-                selected: value === item.props?.value,
+                selected: multiple ? value.includes(item.props?.value) : value === item.props?.value,
 
                 onClick: (event: React.MouseEvent) => {
-                  onSelect(item.props?.value);
+                  if (multiple && value.includes(item.props?.value)) onUnselect(item.props?.value);
+                  else onSelect(item.props?.value);
 
                   if (is('function', item.props?.onClick)) item.props?.onClick(event);
 
-                  setOpen(false);
+                  if (!multiple) setOpen(false);
+                },
+
+                onKeyDown: (event: React.KeyboardEvent) => {
+                  if (event.key === 'Enter') {
+                    if (multiple && value.includes(item.props?.value)) onUnselect(item.props?.value);
+                    else onSelect(item.props?.value);
+
+                    if (is('function', item.props?.onClick)) item.props?.onClick(event);
+
+                    if (!multiple) setOpen(false);
+                  }
                 }
               })
             ))}

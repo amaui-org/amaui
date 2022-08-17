@@ -384,18 +384,12 @@ const useStyle = style(theme => ({
 
   icon_start: {
     paddingInlineEnd: '16px',
-
-    '&:not($icon_version_text)': {
-      paddingInlineStart: '12px'
-    }
+    paddingInlineStart: '12px'
   },
 
   icon_end: {
     paddingInlineStart: '16px',
-
-    '&:not($icon_version_text)': {
-      paddingInlineEnd: '12px'
-    }
+    paddingInlineEnd: '12px'
   },
 
   addition: {
@@ -434,7 +428,12 @@ const useStyle = style(theme => ({
 
   prefix: {
     flex: '0 0 auto',
+    marginInlineStart: '16px',
     marginInlineEnd: '8px'
+  },
+
+  prefix_noStartMargin: {
+    marginInlineStart: '0px'
   },
 
   noPrefixMargin: {
@@ -443,7 +442,12 @@ const useStyle = style(theme => ({
 
   sufix: {
     flex: '0 0 auto',
+    marginInlineEnd: '16px',
     marginInlineStart: '8px'
+  },
+
+  sufix_noEndMargin: {
+    marginInlineEnd: '0px'
   },
 
   noSufixMargin: {
@@ -475,6 +479,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
     align,
     startIcon,
     endIcon,
+    visible,
     placeholder,
     valueDefault,
     value: value_,
@@ -507,11 +512,12 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
     rows: rows_,
     minRows,
     maxRows,
-    focus: focus_ = false,
+    focus: focus_,
     disabled,
 
     inputProps = {},
 
+    classes: classes_ = {},
     className,
     style,
 
@@ -668,11 +674,6 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
       fullWidth && classes.fullWidth,
       disabled && classes.disabled
     ]);
-
-    WrapperProps['ref'] = rootRef;
-  }
-  else {
-    other['ref'] = rootRef;
   }
 
   let InputComponent = 'input';
@@ -694,6 +695,8 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
       {...WrapperProps}
     >
       <Component
+        ref={rootRef}
+
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
 
@@ -879,6 +882,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
 
                 classes.addition,
                 classes.prefix,
+                (startIcon || version === 'text') && classes.prefix_noStartMargin,
                 classes[`addition_size_${size}`],
                 classes[`addition_version_${version}_size_${size}`],
                 noPrefixMargin && classes.noPrefixMargin
@@ -932,9 +936,9 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
                 `AmauiTextField-size-${size}`,
                 focus && 'AmauiTextField-focus',
                 value && 'AmauiTextField-value',
-                startIcon && `AmauiTextField-icon-start`,
-                endIcon && `AmauiTextField-icon-end`,
-                align && `AmauiTextField-align-${align}`
+                align && `AmauiTextField-align-${align}`,
+                (prefix || startIcon) && `AmauiTextField-icon-start`,
+                (sufix || endIcon) && `AmauiTextField-icon-end`
               ],
 
               classes.input,
@@ -944,8 +948,8 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
               classes[`input_version_${version}_size_${size}`],
               multiline && classes.multiline,
               align && classes[`input_align_${align}`],
-              startIcon && classes.input_start_icon,
-              endIcon && classes.input_end_icon,
+              (prefix || startIcon) && classes.input_start_icon,
+              (sufix || endIcon) && classes.input_end_icon
             ])}
           />
 
@@ -962,6 +966,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
 
                 classes.addition,
                 classes.sufix,
+                (endIcon || version === 'text') && classes.sufix_noEndMargin,
                 classes[`addition_size_${size}`],
                 classes[`addition_version_${version}_size_${size}`],
                 noSufixMargin && classes.noSufixMargin
@@ -987,7 +992,8 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
               classes.icon,
               classes.icon_end,
               classes[`icon${endIcon?.type?.displayName?.includes('IconButton') ? '_button' : ''}_size_${size}`],
-              classes[`icon_version_${version}`]
+              classes[`icon_version_${version}`],
+              classes_.endIcon
             ])}
           >
             {React.cloneElement(endIcon, {

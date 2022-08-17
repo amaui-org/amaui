@@ -206,20 +206,23 @@ const Accordion = (props: any) => {
     <div className={classes.section}>
       <h1 className={classes.h1} onClick={() => setOpen(!open)}>{props.label}</h1>
 
-      <Expand
-        in={open}
-
-        removeOnExited
-      >
+      {open && (
         <section className={classNames([classes.item, props.className])}>
           {props.children}
         </section>
-      </Expand>
+      )}
     </div>
   );
 };
 
 const styled = {
+  Select: sy(Select)((theme: AmauiTheme) => ({
+    root: {
+      '&:hover': {
+        opacity: 0.4
+      }
+    }
+  })),
   Tooltip: sy(Tooltip)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
@@ -410,6 +413,7 @@ function App() {
   const [init, setInit] = React.useState(false);
   const [anchor, setAnchor] = React.useState<any>();
   // eslint-disable-next-line
+  const [selected, setSelected] = React.useState<any>([]);
   const [progress, setProgress] = React.useState(0);
   const [items, setItems] = React.useState([0]);
   const [space, setSpace] = React.useState(8);
@@ -601,6 +605,24 @@ function App() {
 
       <Accordion label='All'>
         <div className={classNames([classes.column])}>
+          <Select
+            label='Items'
+
+            color='secondary'
+          >
+            {[1, 3, 4].map(item => (
+              <ListItem
+                button
+
+                primary={`Item ${item}`}
+
+                value={item}
+
+                key={item}
+              />
+            ))}
+          </Select>
+
           <Button
             ref={refs.menu['14']}
 
@@ -794,6 +816,838 @@ function App() {
           </Select>
         </Accordion>
 
+        <Accordion label='Select multiple' open>
+          <Select
+            label='Items'
+
+            color='secondary'
+
+            multiple
+          >
+            {[1, 3, 4].map(item => (
+              <ListItem
+                button
+
+                primary={`Item ${item}`}
+
+                value={item}
+
+                key={item}
+              />
+            ))}
+          </Select>
+        </Accordion>
+
+        <Accordion label='Select multiple chip' open>
+          <div className={classNames([classes.column])} style={{ gap: 24 }}>
+            <Select
+              label='Items'
+
+              color='secondary'
+
+              version='text'
+
+              multiple
+
+              chip
+            >
+              {[1, 3, 4, 5, 7].map(item => (
+                <ListItem
+                  button
+
+                  primary={`Item ${item}`}
+
+                  value={item}
+
+                  key={item}
+                />
+              ))}
+            </Select>
+
+            <Select
+              label='Items'
+
+              color='secondary'
+
+              version='filled'
+
+              multiple
+
+              chip
+            >
+              {[1, 3, 4, 5, 7].map(item => (
+                <ListItem
+                  button
+
+                  primary={`Item ${item}`}
+
+                  value={item}
+
+                  key={item}
+                />
+              ))}
+            </Select>
+
+            <Select
+              label='Items'
+
+              color='secondary'
+
+              version='outlined'
+
+              multiple
+
+              chip
+            >
+              {[1, 3, 4, 5, 7].map(item => (
+                <ListItem
+                  button
+
+                  primary={`Item ${item}`}
+
+                  value={item}
+
+                  key={item}
+                />
+              ))}
+            </Select>
+          </div>
+        </Accordion>
+
+        <Accordion label='Select multiple checkboxes' open>
+          <Select
+            label='Items'
+
+            color='secondary'
+
+            value={selected}
+
+            onChange={(value_: any) => setSelected(value_)}
+
+            multiple
+          >
+            {[1, 3, 4].map((item: any) => (
+              <ListItem
+                button
+
+                primary={`Item ${item}`}
+
+                start={(
+                  <Checkbox value={selected.includes(item)} />
+                )}
+
+                value={item}
+
+                key={item}
+              />
+            ))}
+          </Select>
+        </Accordion>
+
+        <Accordion label='Select versions'>
+          <div className={classNames([classes.column])} style={{ gap: 24 }}>
+            <Select
+              label='Items'
+
+              version='text'
+
+              color='secondary'
+            >
+              {[1, 3, 4].map(item => (
+                <ListItem
+                  button
+
+                  primary={`Item ${item}`}
+
+                  value={item}
+
+                  key={item}
+                />
+              ))}
+            </Select>
+
+            <Select
+              label='Items'
+
+              version='filled'
+
+              color='secondary'
+            >
+              {[1, 3, 4].map(item => (
+                <ListItem
+                  button
+
+                  primary={`Item ${item}`}
+
+                  value={item}
+
+                  key={item}
+                />
+              ))}
+            </Select>
+
+            <Select
+              label='Items'
+
+              version='outlined'
+
+              color='secondary'
+            >
+              {[1, 3, 4].map(item => (
+                <ListItem
+                  button
+
+                  primary={`Item ${item}`}
+
+                  value={item}
+
+                  key={item}
+                />
+              ))}
+            </Select>
+          </div>
+        </Accordion>
+
+        <Accordion label='Select sizes'>
+          <Accordion label='Select small' open>
+            <div className={classNames([classes.column])} style={{ gap: 24 }}>
+              <Select
+                size='small'
+
+                label='Items'
+
+                version='text'
+
+                color='secondary'
+              >
+                {[1, 3, 4].map(item => (
+                  <ListItem
+                    button
+
+                    primary={`Item ${item}`}
+
+                    value={item}
+
+                    key={item}
+                  />
+                ))}
+              </Select>
+
+              <Select
+                size='small'
+
+                label='Items'
+
+                version='filled'
+
+                color='secondary'
+              >
+                {[1, 3, 4].map(item => (
+                  <ListItem
+                    button
+
+                    primary={`Item ${item}`}
+
+                    value={item}
+
+                    key={item}
+                  />
+                ))}
+              </Select>
+
+              <Select
+                size='small'
+
+                label='Items'
+
+                version='outlined'
+
+                color='secondary'
+              >
+                {[1, 3, 4].map(item => (
+                  <ListItem
+                    button
+
+                    primary={`Item ${item}`}
+
+                    value={item}
+
+                    key={item}
+                  />
+                ))}
+              </Select>
+            </div>
+          </Accordion>
+
+          <Accordion label='Select regular' open>
+            <div className={classNames([classes.column])} style={{ gap: 24 }}>
+              <Select
+                size='regular'
+
+                label='Items'
+
+                version='text'
+
+                color='secondary'
+              >
+                {[1, 3, 4].map(item => (
+                  <ListItem
+                    button
+
+                    primary={`Item ${item}`}
+
+                    value={item}
+
+                    key={item}
+                  />
+                ))}
+              </Select>
+
+              <Select
+                size='regular'
+
+                label='Items'
+
+                version='filled'
+
+                color='secondary'
+              >
+                {[1, 3, 4].map(item => (
+                  <ListItem
+                    button
+
+                    primary={`Item ${item}`}
+
+                    value={item}
+
+                    key={item}
+                  />
+                ))}
+              </Select>
+
+              <Select
+                size='regular'
+
+                label='Items'
+
+                version='outlined'
+
+                color='secondary'
+              >
+                {[1, 3, 4].map(item => (
+                  <ListItem
+                    button
+
+                    primary={`Item ${item}`}
+
+                    value={item}
+
+                    key={item}
+                  />
+                ))}
+              </Select>
+            </div>
+          </Accordion>
+
+          <Accordion label='Select large' open>
+            <div className={classNames([classes.column])} style={{ gap: 24 }}>
+              <Select
+                size='large'
+
+                label='Items'
+
+                version='text'
+
+                color='secondary'
+              >
+                {[1, 3, 4].map(item => (
+                  <ListItem
+                    button
+
+                    primary={`Item ${item}`}
+
+                    value={item}
+
+                    key={item}
+                  />
+                ))}
+              </Select>
+
+              <Select
+                size='large'
+
+                label='Items'
+
+                version='filled'
+
+                color='secondary'
+              >
+                {[1, 3, 4].map(item => (
+                  <ListItem
+                    button
+
+                    primary={`Item ${item}`}
+
+                    value={item}
+
+                    key={item}
+                  />
+                ))}
+              </Select>
+
+              <Select
+                size='large'
+
+                label='Items'
+
+                version='outlined'
+
+                color='secondary'
+              >
+                {[1, 3, 4].map(item => (
+                  <ListItem
+                    button
+
+                    primary={`Item ${item}`}
+
+                    value={item}
+
+                    key={item}
+                  />
+                ))}
+              </Select>
+            </div>
+          </Accordion>
+        </Accordion>
+
+        <Accordion label='Select helper text' open>
+          <Select
+            label='Items'
+
+            helperText='It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more of it.'
+
+            color='secondary'
+          >
+            {[1, 3, 4].map(item => (
+              <ListItem
+                button
+
+                primary={`Item ${item}`}
+
+                value={item}
+
+                key={item}
+              />
+            ))}
+          </Select>
+        </Accordion>
+
+        <Accordion label='Select with start and end icons' open>
+          <Select
+            label='Items'
+
+            version='text'
+
+            startIcon={<IconMaterialCheckRounded />}
+
+            endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>}
+
+            color='secondary'
+          >
+            {[1, 3, 4].map(item => (
+              <ListItem
+                button
+
+                primary={`Item ${item}`}
+
+                value={item}
+
+                key={item}
+              />
+            ))}
+          </Select>
+
+          <Select
+            label='Items'
+
+            version='filled'
+
+            startIcon={<IconMaterialCheckRounded />}
+
+            endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>}
+
+            color='secondary'
+          >
+            {[1, 3, 4].map(item => (
+              <ListItem
+                button
+
+                primary={`Item ${item}`}
+
+                value={item}
+
+                key={item}
+              />
+            ))}
+          </Select>
+
+          <Select
+            label='Items'
+
+            version='outlined'
+
+            startIcon={<IconMaterialCheckRounded />}
+
+            endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>}
+
+            color='secondary'
+          >
+            {[1, 3, 4].map(item => (
+              <ListItem
+                button
+
+                primary={`Item ${item}`}
+
+                value={item}
+
+                key={item}
+              />
+            ))}
+          </Select>
+        </Accordion>
+
+        <Accordion label='Select with prefix and sufix' open>
+          <Select
+            label='Items'
+
+            version='text'
+
+            prefix='mm'
+
+            sufix='lbs'
+
+            color='secondary'
+          >
+            {[1, 3, 4].map(item => (
+              <ListItem
+                button
+
+                primary={`Item ${item}`}
+
+                value={item}
+
+                key={item}
+              />
+            ))}
+          </Select>
+
+          <Select
+            label='Items'
+
+            version='filled'
+
+            prefix='mm'
+
+            sufix='lbs'
+
+            color='secondary'
+          >
+            {[1, 3, 4].map(item => (
+              <ListItem
+                button
+
+                primary={`Item ${item}`}
+
+                value={item}
+
+                key={item}
+              />
+            ))}
+          </Select>
+
+          <Select
+            label='Items'
+
+            version='outlined'
+
+            prefix='mm'
+
+            sufix='lbs'
+
+            color='secondary'
+          >
+            {[1, 3, 4].map(item => (
+              <ListItem
+                button
+
+                primary={`Item ${item}`}
+
+                value={item}
+
+                key={item}
+              />
+            ))}
+          </Select>
+        </Accordion>
+
+        <Accordion label='Select readOnly' open>
+          <Select
+            label='Items'
+
+            valueDefault='Item 1'
+
+            color='secondary'
+
+            readOnly
+          >
+            {[1, 3, 4].map(item => (
+              <ListItem
+                button
+
+                primary={`Item ${item}`}
+
+                value={item}
+
+                key={item}
+              />
+            ))}
+          </Select>
+        </Accordion>
+
+        <Accordion label='Select disabled' open>
+          <Select
+            label='Items'
+
+            valueDefault='Item 1'
+
+            color='secondary'
+
+            disabled
+          >
+            {[1, 3, 4].map(item => (
+              <ListItem
+                button
+
+                primary={`Item ${item}`}
+
+                value={item}
+
+                key={item}
+              />
+            ))}
+          </Select>
+        </Accordion>
+
+        <Accordion label='AmauiTheme' open>
+          <div
+            className={classNames([classes.column])}
+
+            style={{
+              width: '100%'
+            }}
+          >
+            <Select
+              label='Items'
+
+              color='secondary'
+            >
+              {[1, 3, 4].map(item => (
+                <ListItem
+                  button
+
+                  primary={`Item ${item}`}
+
+                  value={item}
+
+                  key={item}
+                />
+              ))}
+            </Select>
+
+            <Accordion label='AmauiTheme nested value' open>
+              <AmauiThemeProvider
+                value={{
+                  palette: {
+                    color: {
+                      secondary: {
+                        main: '#008000'
+                      }
+                    }
+                  },
+                  space: {
+                    unit: 5
+                  }
+                }}
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                <Select
+                  label='Items'
+
+                  color='secondary'
+                >
+                  {[1, 3, 4].map(item => (
+                    <ListItem
+                      button
+
+                      primary={`Item ${item}`}
+
+                      value={item}
+
+                      key={item}
+                    />
+                  ))}
+                </Select>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme add' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiSelect: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: 0.4
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                <Select
+                  label='Items'
+
+                  color='secondary'
+                >
+                  {[1, 3, 4].map(item => (
+                    <ListItem
+                      button
+
+                      primary={`Item ${item}`}
+
+                      value={item}
+
+                      key={item}
+                    />
+                  ))}
+                </Select>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme override' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiSelect: {
+                        style: {
+                          override: {
+                            root: {
+                              width: '100%',
+                              flex: 'unset',
+                              height: 44
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                <Select
+                  label='Items'
+
+                  color='secondary'
+                >
+                  {[1, 3, 4].map(item => (
+                    <ListItem
+                      button
+
+                      primary={`Item ${item}`}
+
+                      value={item}
+
+                      key={item}
+                    />
+                  ))}
+                </Select>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme props' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiSelect: {
+                        props: {
+                          default: {
+                            color: 'secondary'
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                <Select
+                  label='Items'
+                >
+                  {[1, 3, 4].map(item => (
+                    <ListItem
+                      button
+
+                      primary={`Item ${item}`}
+
+                      value={item}
+
+                      key={item}
+                    />
+                  ))}
+                </Select>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme styled' open>
+              <styled.Select
+                label='Items'
+              >
+                {[1, 3, 4].map(item => (
+                  <ListItem
+                    button
+
+                    primary={`Item ${item}`}
+
+                    value={item}
+
+                    key={item}
+                  />
+                ))}
+              </styled.Select>
+            </Accordion>
+          </div>
+        </Accordion>
       </Accordion>
 
       <Accordion label='Menu'>
@@ -10057,6 +10911,56 @@ function App() {
         </Accordion>
 
         <Accordion label='TextField prefix and sufix' open>
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+            <TextField valueDefault='a' prefix='mm' size='small' version='text' color='secondary' label='Text value' placeholder='Text value' />
+            <TextField valueDefault='a' prefix='mm' size='small' version='filled' color='secondary' label='Filled value' placeholder='Filled value' />
+            <TextField valueDefault='a' prefix='mm' size='small' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' />
+          </div>
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+            <TextField valueDefault='a' prefix='mm' size='regular' version='text' color='secondary' label='Text value' placeholder='Text value' />
+            <TextField valueDefault='a' prefix='mm' size='regular' version='filled' color='secondary' label='Filled value' placeholder='Filled value' />
+            <TextField valueDefault='a' prefix='mm' size='regular' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' />
+          </div>
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+            <TextField valueDefault='a' prefix='mm' size='large' version='text' color='secondary' label='Text value' placeholder='Text value' />
+            <TextField valueDefault='a' prefix='mm' size='large' version='filled' color='secondary' label='Filled value' placeholder='Filled value' />
+            <TextField valueDefault='a' prefix='mm' size='large' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' />
+          </div>
+
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+            <TextField valueDefault='a' sufix='lbs' size='small' version='text' color='secondary' label='Text value' placeholder='Text value' />
+            <TextField valueDefault='a' sufix='lbs' size='small' version='filled' color='secondary' label='Filled value' placeholder='Filled value' />
+            <TextField valueDefault='a' sufix='lbs' size='small' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' />
+          </div>
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+            <TextField valueDefault='a' sufix='lbs' size='regular' version='text' color='secondary' label='Text value' placeholder='Text value' />
+            <TextField valueDefault='a' sufix='lbs' size='regular' version='filled' color='secondary' label='Filled value' placeholder='Filled value' />
+            <TextField valueDefault='a' sufix='lbs' size='regular' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' />
+          </div>
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+            <TextField valueDefault='a' sufix='lbs' size='large' version='text' color='secondary' label='Text value' placeholder='Text value' />
+            <TextField valueDefault='a' sufix='lbs' size='large' version='filled' color='secondary' label='Filled value' placeholder='Filled value' />
+            <TextField valueDefault='a' sufix='lbs' size='large' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' />
+          </div>
+
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+            <TextField valueDefault='a' prefix='mm' sufix='lbs' size='small' version='text' color='secondary' label='Text value' placeholder='Text value' />
+            <TextField valueDefault='a' prefix='mm' sufix='lbs' size='small' version='filled' color='secondary' label='Filled value' placeholder='Filled value' />
+            <TextField valueDefault='a' prefix='mm' sufix='lbs' size='small' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' />
+          </div>
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+            <TextField valueDefault='a' prefix='mm' sufix='lbs' size='regular' version='text' color='secondary' label='Text value' placeholder='Text value' />
+            <TextField valueDefault='a' prefix='mm' sufix='lbs' size='regular' version='filled' color='secondary' label='Filled value' placeholder='Filled value' />
+            <TextField valueDefault='a' prefix='mm' sufix='lbs' size='regular' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' />
+          </div>
+          <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+            <TextField valueDefault='a' prefix='mm' sufix='lbs' size='large' version='text' color='secondary' label='Text value' placeholder='Text value' />
+            <TextField valueDefault='a' prefix='mm' sufix='lbs' size='large' version='filled' color='secondary' label='Filled value' placeholder='Filled value' />
+            <TextField valueDefault='a' prefix='mm' sufix='lbs' size='large' version='outlined' color='secondary' label='Outlined value' placeholder='Outlined value' />
+          </div>
+        </Accordion>
+
+        <Accordion label='TextField prefix and sufix icons' open>
           <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
             <TextField valueDefault='a' prefix='mm' size='small' version='text' color='secondary' label='Text value' placeholder='Text value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
             <TextField valueDefault='a' prefix='mm' size='small' version='filled' color='secondary' label='Filled value' placeholder='Filled value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />

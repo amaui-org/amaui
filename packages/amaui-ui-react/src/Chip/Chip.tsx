@@ -46,6 +46,7 @@ const Chip = React.forwardRef((props_: any, ref: any) => {
     startIcon,
     onClick,
     selected: selected_,
+    focus,
 
     className,
 
@@ -155,6 +156,8 @@ const Chip = React.forwardRef((props_: any, ref: any) => {
           />
         )
       } : {})}
+
+      focus={focus}
 
       selected={selected}
 

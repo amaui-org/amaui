@@ -341,6 +341,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
     SecondaryProps = {},
     TertiaryProps = {},
     include,
+    tabIndex,
     disabled,
 
     className,
@@ -383,7 +384,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
   }, []);
 
   const onFocus = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
-    if (!disabled && event.target === refs.root.current) setFocus(true);
+    if (!disabled) setFocus(true);
   }, []);
 
   const onBlur = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
@@ -393,10 +394,6 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
   const onClose = React.useCallback(() => {
     if (!disabled) setOpen(false);
   }, []);
-
-  if (button) {
-    if (other.tabIndex === undefined && !disabled) other.tabIndex = 0;
-  }
 
   if (href) RootComponent = 'a';
 
@@ -426,6 +423,12 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
     <Component
       ref={ref}
 
+      tabIndex={tabIndex !== undefined ? tabIndex : (button && !disabled) ? 0 : -1}
+
+      onFocus={onFocus}
+
+      onBlur={onBlur}
+
       onMouseEnter={onMouseEnter}
 
       onMouseLeave={onMouseLeave}
@@ -444,14 +447,13 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
       ])}
 
       style={styles.wrapper}
+
+      {...other}
     >
       <RootComponent
         ref={refs.root}
 
         href={href}
-
-        onFocus={onFocus}
-        onBlur={onBlur}
 
         className={classNames([
           staticClassName('ListItem', theme) && [
@@ -484,8 +486,6 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
         }}
 
         disabled={disabled}
-
-        {...other}
       >
         {(href || button) && (
           <Interaction

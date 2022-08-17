@@ -314,12 +314,6 @@ const Button = React.forwardRef((props_: any, ref: any) => {
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiButton?.props?.default }), [props_]);
 
-  const { classes } = useStyle(props);
-  const [focus, setFocus] = React.useState(false);
-  const refs = {
-    color: React.useRef<any>()
-  };
-
   const {
     version = 'outlined',
     size = 'regular',
@@ -346,6 +340,7 @@ const Button = React.forwardRef((props_: any, ref: any) => {
     fab,
     chip,
     icon,
+    focus: focus_,
 
     className,
     style,
@@ -357,6 +352,14 @@ const Button = React.forwardRef((props_: any, ref: any) => {
 
     ...other
   } = props;
+
+  const [focus, setFocus] = React.useState(focus_ !== undefined ? focus_ : false);
+
+  const refs = {
+    color: React.useRef<any>()
+  };
+
+  const { classes } = useStyle(props);
 
   let color = color_;
   let startIcon = startIcon_;
@@ -504,15 +507,19 @@ const Button = React.forwardRef((props_: any, ref: any) => {
   }
 
   const onFocus = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
-    setFocus(true);
+    if (focus_ === undefined) {
+      setFocus(true);
 
-    if (is('function', onFocus_)) onFocus_(event);
+      if (is('function', onFocus_)) onFocus_(event);
+    }
   }, []);
 
   const onBlur = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
-    setFocus(false);
+    if (focus_ === undefined) {
+      setFocus(false);
 
-    if (is('function', onBlur_)) onBlur_(event);
+      if (is('function', onBlur_)) onBlur_(event)
+    };
   }, []);
 
   return (
