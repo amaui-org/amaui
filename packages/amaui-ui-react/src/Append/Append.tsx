@@ -233,6 +233,9 @@ const Append = (props_: any) => {
       values_.y = position === 'top' ? rootY - offset[1] - rect.element.height : rootY + offset[1] + rect.root.height;
 
       if (inset) values_.y = position === 'top' ? rootY + offset[1] : rootY + rect.root.height - rect.element.height - offset[1];
+
+      // Add the offset of root from the parent top
+      if (!portal) values_.y += Math.abs(rect.root.y - refs.root.current.parentElement.getBoundingClientRect().y);
     }
 
     // Left
@@ -253,6 +256,9 @@ const Append = (props_: any) => {
 
         if (inset) values_.x = rootX + rect.root.width - offset[0] - rect.element.width;
       }
+
+      // Add the offset of root from the parent left
+      if (!portal) values_.x += Math.abs(rect.root.x - refs.root.current.parentElement.getBoundingClientRect().x);
     }
 
     // Absolute position

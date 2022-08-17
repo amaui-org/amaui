@@ -355,190 +355,190 @@ const Select = React.forwardRef((props_: any, ref: any) => {
     return renderValue(value);
   });
 
+  const MenuValue = (children && (
+    <Menu
+      open={open}
+
+      portal={false}
+
+      onClose={() => onClose(false)}
+
+      anchorElement={refs.root.current}
+
+      transformOrigin='center top'
+
+      transformOriginSwitch='center bottom'
+
+      maxWidth='unset'
+
+      ModalProps={{
+        focus: !MenuProps.portal
+      }}
+
+      style={styles.menu}
+
+      {...MenuProps}
+    >
+      <List
+        size={size}
+
+        menu
+
+        {...ListProps}
+      >
+        {children.map((item: any, index: number) => (
+          React.cloneElement(item, {
+            selected: multiple ? value.includes(item.props?.value) : value === item.props?.value,
+
+            onClick: (event: React.MouseEvent) => {
+              if (multiple && value.includes(item.props?.value)) onUnselect(item.props?.value);
+              else onSelect(item.props?.value);
+
+              if (is('function', item.props?.onClick)) item.props?.onClick(event);
+
+              if (!multiple) setOpen(false);
+            },
+
+            onKeyDown: (event: React.KeyboardEvent) => {
+              if (event.key === 'Enter') {
+                if (multiple && value.includes(item.props?.value)) onUnselect(item.props?.value);
+                else onSelect(item.props?.value);
+
+                if (is('function', item.props?.onClick)) item.props?.onClick(event);
+
+                if (!multiple) setOpen(false);
+              }
+            }
+          })
+        ))}
+      </List>
+    </Menu>
+  ));
+
   return (
-    <React.Fragment>
-      <TextField
-        rootRef={item => {
-          if (ref) ref.current = item;
+    <TextField
+      rootRef={item => {
+        if (ref) ref.current = item;
 
-          refs.root.current = item;
-        }}
+        refs.root.current = item;
+      }}
 
-        enabled={open || !!(is('array', value) ? value.length : value)}
+      enabled={open || !!(is('array', value) ? value.length : value)}
 
-        focus={focus || open}
+      focus={focus || open}
+
+      className={classNames([
+        staticClassName('Select', theme) && [
+          'AmauiSelect-root',
+          `AmauiSelect-version-${version}`,
+          `AmauiSelect-size-${size}`,
+          (prefix || startIcon) && `AmauiSelect-icon-start`,
+          (sufix || endIcon) && `AmauiSelect-icon-end`,
+          open && `AmauiSelect-open`,
+          disabled && `AmauiSelect-disabled`
+        ],
+
+        classes.root,
+        className,
+        open && classes.open,
+        (prefix || startIcon) && classes.input_start_icon,
+        (sufix || endIcon) && classes.input_end_icon,
+        disabled && classes.disabled
+      ])}
+
+      tonal={tonal}
+
+      color={color}
+
+      size={size}
+
+      version={version}
+
+      prefix={prefix}
+
+      sufix={sufix}
+
+      startIcon={startIcon}
+
+      endIcon={[
+        endIcon,
+
+        <IconButton
+          onClick={onClickArrowDown}
+        >
+          <IconMaterialArrowDropDownRounded
+            className={classNames([
+              classes.arrow,
+              open && classes.arrow_open
+            ])}
+          />
+        </IconButton>
+      ]}
+
+      readOnly={readOnly}
+
+      endIconVerticalAlign='center'
+
+      disabled={disabled}
+
+      inputProps={{
+        className: classNames([
+          classes.input_
+        ]),
+
+        disabled: true,
+
+        readOnly: true
+      }}
+
+      footer={MenuValue}
+
+      style={{
+        ...style,
+
+        ...styles.root
+      }}
+
+      {...other}
+    >
+      <div
+        ref={refs.input}
+
+        tabIndex={0}
+
+        onFocus={onFocus}
+
+        onBlur={onBlur}
+
+        onClick={onClick}
+
+        onKeyDown={onEnterKeyDown}
 
         className={classNames([
           staticClassName('Select', theme) && [
-            'AmauiSelect-root',
+            'AmauiSelect-input',
             `AmauiSelect-version-${version}`,
             `AmauiSelect-size-${size}`,
             (prefix || startIcon) && `AmauiSelect-icon-start`,
             (sufix || endIcon) && `AmauiSelect-icon-end`,
-            open && `AmauiSelect-open`,
-            disabled && `AmauiSelect-disabled`
+            chip && `AmauiSelect-chip`,
+            open && `AmauiSelect-open`
           ],
 
-          classes.root,
-          className,
-          open && classes.open,
+          classes.input,
+          classes[`input_version_${version}`],
+          classes[`input_size_${size}`],
+          classes[`input_chip_size_${size}`],
+          classes[`input_version_${version}_size_${size}`],
           (prefix || startIcon) && classes.input_start_icon,
           (sufix || endIcon) && classes.input_end_icon,
-          disabled && classes.disabled
+          chip && classes.chip,
+          open && classes.open
         ])}
-
-        tonal={tonal}
-
-        color={color}
-
-        size={size}
-
-        version={version}
-
-        prefix={prefix}
-
-        sufix={sufix}
-
-        startIcon={startIcon}
-
-        endIcon={[
-          endIcon,
-
-          <IconButton
-            onClick={onClickArrowDown}
-          >
-            <IconMaterialArrowDropDownRounded
-              className={classNames([
-                classes.arrow,
-                open && classes.arrow_open
-              ])}
-            />
-          </IconButton>
-        ]}
-
-        readOnly={readOnly}
-
-        endIconVerticalAlign='center'
-
-        disabled={disabled}
-
-        inputProps={{
-          className: classNames([
-            classes.input_
-          ]),
-
-          disabled: true,
-
-          readOnly: true
-        }}
-
-        style={{
-          ...style,
-
-          ...styles.root
-        }}
-
-        {...other}
       >
-        <div
-          ref={refs.input}
-
-          tabIndex={0}
-
-          onFocus={onFocus}
-
-          onBlur={onBlur}
-
-          onClick={onClick}
-
-          onKeyDown={onEnterKeyDown}
-
-          className={classNames([
-            staticClassName('Select', theme) && [
-              'AmauiSelect-input',
-              `AmauiSelect-version-${version}`,
-              `AmauiSelect-size-${size}`,
-              (prefix || startIcon) && `AmauiSelect-icon-start`,
-              (sufix || endIcon) && `AmauiSelect-icon-end`,
-              chip && `AmauiSelect-chip`,
-              open && `AmauiSelect-open`
-            ],
-
-            classes.input,
-            classes[`input_version_${version}`],
-            classes[`input_size_${size}`],
-            classes[`input_chip_size_${size}`],
-            classes[`input_version_${version}_size_${size}`],
-            (prefix || startIcon) && classes.input_start_icon,
-            (sufix || endIcon) && classes.input_end_icon,
-            chip && classes.chip,
-            open && classes.open
-          ])}
-        >
-          {renderValues()}
-        </div>
-      </TextField>
-
-      {children && (
-        <Menu
-          open={open}
-
-          portal={false}
-
-          onClose={() => onClose(false)}
-
-          anchorElement={refs.root.current}
-
-          transformOrigin='center top'
-
-          transformOriginSwitch='center bottom'
-
-          maxWidth='unset'
-
-          ModalProps={{
-            // focus: true
-          }}
-
-          style={styles.menu}
-
-          {...MenuProps}
-        >
-          <List
-            size={size}
-
-            menu
-
-            {...ListProps}
-          >
-            {children.map((item: any, index: number) => (
-              React.cloneElement(item, {
-                selected: multiple ? value.includes(item.props?.value) : value === item.props?.value,
-
-                onClick: (event: React.MouseEvent) => {
-                  if (multiple && value.includes(item.props?.value)) onUnselect(item.props?.value);
-                  else onSelect(item.props?.value);
-
-                  if (is('function', item.props?.onClick)) item.props?.onClick(event);
-
-                  if (!multiple) setOpen(false);
-                },
-
-                onKeyDown: (event: React.KeyboardEvent) => {
-                  if (event.key === 'Enter') {
-                    if (multiple && value.includes(item.props?.value)) onUnselect(item.props?.value);
-                    else onSelect(item.props?.value);
-
-                    if (is('function', item.props?.onClick)) item.props?.onClick(event);
-
-                    if (!multiple) setOpen(false);
-                  }
-                }
-              })
-            ))}
-          </List>
-        </Menu>
-      )}
-    </React.Fragment>
+        {renderValues()}
+      </div>
+    </TextField>
   );
 });
 

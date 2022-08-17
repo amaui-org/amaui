@@ -25,17 +25,18 @@ const overflow = {
 
 const useStyle = style(theme => ({
   wrapper: {
+    position: 'relative',
     display: 'inline-flex',
-    flex: '1 1 auto',
-    flexDirection: 'column'
+    flexDirection: 'column',
+    width: '100%'
   },
 
   root: {
     display: 'inline-flex',
-    flex: '1 1 auto',
     alignItems: 'flex-start',
     position: 'relative',
-    borderRadius: `${theme.shape.radius.unit / 2}px ${theme.shape.radius.unit / 2}px 0 0`
+    borderRadius: `${theme.shape.radius.unit / 2}px ${theme.shape.radius.unit / 2}px 0 0`,
+    width: '100%'
   },
 
   // Color
@@ -522,6 +523,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
     minRows,
     maxRows,
     focus: focus_,
+    footer: footer_,
     disabled,
 
     inputProps = {},
@@ -665,7 +667,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
 
   if (tonal) styles.background.color = theme.methods.palette.color.value(color, 20, true, palette);
 
-  const footer = (helperText !== undefined || counter !== undefined || required);
+  const footer = (footer_ || helperText !== undefined || counter !== undefined || required);
 
   const Wrapper = footer ? WrapperComponent : React.Fragment;
 
@@ -1026,7 +1028,9 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
         )}
       </Component>
 
-      {footer && (
+      {footer && <>
+        {footer_}
+
         <div
           className={classNames([
             staticClassName('TextField', theme) && [
@@ -1074,7 +1078,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
             </Type>
           )}
         </div>
-      )}
+      </>}
     </Wrapper>
   );
 });
