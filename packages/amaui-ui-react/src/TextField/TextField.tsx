@@ -920,6 +920,8 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
               refs.input.current = item;
             }}
 
+            {...inputProps}
+
             onFocus={onFocus}
 
             onBlur={onBlur}
@@ -943,8 +945,6 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
             disabled={disabled}
 
             style={styles.input}
-
-            {...inputProps}
 
             className={classNames([
               staticClassName('TextField', theme) && [

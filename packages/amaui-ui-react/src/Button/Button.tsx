@@ -320,12 +320,9 @@ const Button = React.forwardRef((props_: any, ref: any) => {
     color: color_ = 'primary',
     tonal,
 
-    Component = props.href ? 'a' : 'button',
     prefer = 'light',
     fullWidth,
     selected,
-
-    InteractionProps = {},
     startIcon: startIcon_,
     endIcon: endIcon_,
     elevation = true,
@@ -336,6 +333,10 @@ const Button = React.forwardRef((props_: any, ref: any) => {
     loadingIcon = <RoundProgress size='small' />,
     loadingIconPosition = 'center',
     disabled: disabled_,
+
+    Component = props.href ? 'a' : 'button',
+
+    InteractionProps = {},
 
     fab,
     chip,

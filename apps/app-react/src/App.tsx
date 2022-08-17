@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { AmauiTheme, AmauiThemeProvider, classNames, style, sy, useAmauiTheme } from '@amaui/style-react';
-import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, ButtonGroup, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, ChipGroup, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select } from '@amaui/ui-react';
+import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, ButtonGroup, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, ChipGroup, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete } from '@amaui/ui-react';
 
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
@@ -216,6 +216,13 @@ const Accordion = (props: any) => {
 };
 
 const styled = {
+  AutoComplete: sy(AutoComplete)((theme: AmauiTheme) => ({
+    root: {
+      '&:hover': {
+        opacity: 0.4
+      }
+    }
+  })),
   Select: sy(Select)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
@@ -793,6 +800,861 @@ function App() {
 
           <IconMaterialPottedPlantRounded color='secondary' />
         </div>
+      </Accordion>
+
+      <Accordion label='AutoComplete'>
+        <Accordion label='AutoComplete' open>
+          <AutoComplete
+            label='Items'
+
+            color='secondary'
+          >
+            {[1, 3, 4].map(item => (
+              <ListItem
+                button
+
+                primary={`Item ${item}`}
+
+                value={`Item ${item}`}
+
+                key={item}
+              />
+            ))}
+          </AutoComplete>
+        </Accordion>
+
+        <Accordion label='AutoComplete multiple' open>
+          <AutoComplete
+            label='Items'
+
+            color='secondary'
+
+            multiple
+          >
+            {[1, 3, 4].map(item => (
+              <ListItem
+                button
+
+                primary={`Item ${item}`}
+
+                value={item}
+
+                key={item}
+              />
+            ))}
+          </AutoComplete>
+        </Accordion>
+
+        <Accordion label='AutoComplete multiple chip' open>
+          <div className={classNames([classes.column])} style={{ gap: 24 }}>
+            <AutoComplete
+              label='Items'
+
+              color='secondary'
+
+              version='text'
+
+              multiple
+
+              chip
+            >
+              {[1, 3, 4, 5, 7].map(item => (
+                <ListItem
+                  button
+
+                  primary={`Item ${item}`}
+
+                  value={item}
+
+                  key={item}
+                />
+              ))}
+            </AutoComplete>
+
+            <AutoComplete
+              label='Items'
+
+              color='secondary'
+
+              version='filled'
+
+              multiple
+
+              chip
+            >
+              {[1, 3, 4, 5, 7].map(item => (
+                <ListItem
+                  button
+
+                  primary={`Item ${item}`}
+
+                  value={item}
+
+                  key={item}
+                />
+              ))}
+            </AutoComplete>
+
+            <AutoComplete
+              label='Items'
+
+              color='secondary'
+
+              version='outlined'
+
+              multiple
+
+              chip
+            >
+              {[1, 3, 4, 5, 7].map(item => (
+                <ListItem
+                  button
+
+                  primary={`Item ${item}`}
+
+                  value={item}
+
+                  key={item}
+                />
+              ))}
+            </AutoComplete>
+          </div>
+        </Accordion>
+
+        <Accordion label='AutoComplete multiple checkboxes' open>
+          <AutoComplete
+            label='Items'
+
+            color='secondary'
+
+            value={selected}
+
+            onChange={(value_: any) => setSelected(value_)}
+
+            multiple
+          >
+            {[1, 3, 4].map((item: any) => (
+              <ListItem
+                button
+
+                primary={`Item ${item}`}
+
+                start={(
+                  <Checkbox value={selected.includes(item)} />
+                )}
+
+                value={item}
+
+                key={item}
+              />
+            ))}
+          </AutoComplete>
+        </Accordion>
+
+        <Accordion label='AutoComplete versions'>
+          <div className={classNames([classes.column])} style={{ gap: 24 }}>
+            <AutoComplete
+              label='Items'
+
+              version='text'
+
+              color='secondary'
+            >
+              {[1, 3, 4].map(item => (
+                <ListItem
+                  button
+
+                  primary={`Item ${item}`}
+
+                  value={item}
+
+                  key={item}
+                />
+              ))}
+            </AutoComplete>
+
+            <AutoComplete
+              label='Items'
+
+              version='filled'
+
+              color='secondary'
+            >
+              {[1, 3, 4].map(item => (
+                <ListItem
+                  button
+
+                  primary={`Item ${item}`}
+
+                  value={item}
+
+                  key={item}
+                />
+              ))}
+            </AutoComplete>
+
+            <AutoComplete
+              label='Items'
+
+              version='outlined'
+
+              color='secondary'
+            >
+              {[1, 3, 4].map(item => (
+                <ListItem
+                  button
+
+                  primary={`Item ${item}`}
+
+                  value={item}
+
+                  key={item}
+                />
+              ))}
+            </AutoComplete>
+          </div>
+        </Accordion>
+
+        <Accordion label='AutoComplete sizes'>
+          <Accordion label='AutoComplete small' open>
+            <div className={classNames([classes.column])} style={{ gap: 24 }}>
+              <AutoComplete
+                size='small'
+
+                label='Items'
+
+                version='text'
+
+                color='secondary'
+              >
+                {[1, 3, 4].map(item => (
+                  <ListItem
+                    button
+
+                    primary={`Item ${item}`}
+
+                    value={item}
+
+                    key={item}
+                  />
+                ))}
+              </AutoComplete>
+
+              <AutoComplete
+                size='small'
+
+                label='Items'
+
+                version='filled'
+
+                color='secondary'
+              >
+                {[1, 3, 4].map(item => (
+                  <ListItem
+                    button
+
+                    primary={`Item ${item}`}
+
+                    value={item}
+
+                    key={item}
+                  />
+                ))}
+              </AutoComplete>
+
+              <AutoComplete
+                size='small'
+
+                label='Items'
+
+                version='outlined'
+
+                color='secondary'
+              >
+                {[1, 3, 4].map(item => (
+                  <ListItem
+                    button
+
+                    primary={`Item ${item}`}
+
+                    value={item}
+
+                    key={item}
+                  />
+                ))}
+              </AutoComplete>
+            </div>
+          </Accordion>
+
+          <Accordion label='AutoComplete regular' open>
+            <div className={classNames([classes.column])} style={{ gap: 24 }}>
+              <AutoComplete
+                size='regular'
+
+                label='Items'
+
+                version='text'
+
+                color='secondary'
+              >
+                {[1, 3, 4].map(item => (
+                  <ListItem
+                    button
+
+                    primary={`Item ${item}`}
+
+                    value={item}
+
+                    key={item}
+                  />
+                ))}
+              </AutoComplete>
+
+              <AutoComplete
+                size='regular'
+
+                label='Items'
+
+                version='filled'
+
+                color='secondary'
+              >
+                {[1, 3, 4].map(item => (
+                  <ListItem
+                    button
+
+                    primary={`Item ${item}`}
+
+                    value={item}
+
+                    key={item}
+                  />
+                ))}
+              </AutoComplete>
+
+              <AutoComplete
+                size='regular'
+
+                label='Items'
+
+                version='outlined'
+
+                color='secondary'
+              >
+                {[1, 3, 4].map(item => (
+                  <ListItem
+                    button
+
+                    primary={`Item ${item}`}
+
+                    value={item}
+
+                    key={item}
+                  />
+                ))}
+              </AutoComplete>
+            </div>
+          </Accordion>
+
+          <Accordion label='AutoComplete large' open>
+            <div className={classNames([classes.column])} style={{ gap: 24 }}>
+              <AutoComplete
+                size='large'
+
+                label='Items'
+
+                version='text'
+
+                color='secondary'
+              >
+                {[1, 3, 4].map(item => (
+                  <ListItem
+                    button
+
+                    primary={`Item ${item}`}
+
+                    value={item}
+
+                    key={item}
+                  />
+                ))}
+              </AutoComplete>
+
+              <AutoComplete
+                size='large'
+
+                label='Items'
+
+                version='filled'
+
+                color='secondary'
+              >
+                {[1, 3, 4].map(item => (
+                  <ListItem
+                    button
+
+                    primary={`Item ${item}`}
+
+                    value={item}
+
+                    key={item}
+                  />
+                ))}
+              </AutoComplete>
+
+              <AutoComplete
+                size='large'
+
+                label='Items'
+
+                version='outlined'
+
+                color='secondary'
+              >
+                {[1, 3, 4].map(item => (
+                  <ListItem
+                    button
+
+                    primary={`Item ${item}`}
+
+                    value={item}
+
+                    key={item}
+                  />
+                ))}
+              </AutoComplete>
+            </div>
+          </Accordion>
+        </Accordion>
+
+        <Accordion label='AutoComplete helper text' open>
+          <AutoComplete
+            label='Items'
+
+            helperText='It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more of it.'
+
+            color='secondary'
+          >
+            {[1, 3, 4].map(item => (
+              <ListItem
+                button
+
+                primary={`Item ${item}`}
+
+                value={item}
+
+                key={item}
+              />
+            ))}
+          </AutoComplete>
+        </Accordion>
+
+        <Accordion label='AutoComplete with start and end icons' open>
+          <AutoComplete
+            label='Items'
+
+            version='text'
+
+            startIcon={<IconMaterialCheckRounded />}
+
+            endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>}
+
+            color='secondary'
+          >
+            {[1, 3, 4].map(item => (
+              <ListItem
+                button
+
+                primary={`Item ${item}`}
+
+                value={item}
+
+                key={item}
+              />
+            ))}
+          </AutoComplete>
+
+          <AutoComplete
+            label='Items'
+
+            version='filled'
+
+            startIcon={<IconMaterialCheckRounded />}
+
+            endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>}
+
+            color='secondary'
+          >
+            {[1, 3, 4].map(item => (
+              <ListItem
+                button
+
+                primary={`Item ${item}`}
+
+                value={item}
+
+                key={item}
+              />
+            ))}
+          </AutoComplete>
+
+          <AutoComplete
+            label='Items'
+
+            version='outlined'
+
+            startIcon={<IconMaterialCheckRounded />}
+
+            endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>}
+
+            color='secondary'
+          >
+            {[1, 3, 4].map(item => (
+              <ListItem
+                button
+
+                primary={`Item ${item}`}
+
+                value={item}
+
+                key={item}
+              />
+            ))}
+          </AutoComplete>
+        </Accordion>
+
+        <Accordion label='AutoComplete with prefix and sufix' open>
+          <AutoComplete
+            label='Items'
+
+            version='text'
+
+            prefix='mm'
+
+            sufix='lbs'
+
+            color='secondary'
+          >
+            {[1, 3, 4].map(item => (
+              <ListItem
+                button
+
+                primary={`Item ${item}`}
+
+                value={item}
+
+                key={item}
+              />
+            ))}
+          </AutoComplete>
+
+          <AutoComplete
+            label='Items'
+
+            version='filled'
+
+            prefix='mm'
+
+            sufix='lbs'
+
+            color='secondary'
+          >
+            {[1, 3, 4].map(item => (
+              <ListItem
+                button
+
+                primary={`Item ${item}`}
+
+                value={item}
+
+                key={item}
+              />
+            ))}
+          </AutoComplete>
+
+          <AutoComplete
+            label='Items'
+
+            version='outlined'
+
+            prefix='mm'
+
+            sufix='lbs'
+
+            color='secondary'
+          >
+            {[1, 3, 4].map(item => (
+              <ListItem
+                button
+
+                primary={`Item ${item}`}
+
+                value={item}
+
+                key={item}
+              />
+            ))}
+          </AutoComplete>
+        </Accordion>
+
+        <Accordion label='AutoComplete readOnly' open>
+          <AutoComplete
+            label='Items'
+
+            valueDefault='Item 1'
+
+            color='secondary'
+
+            readOnly
+          >
+            {[1, 3, 4].map(item => (
+              <ListItem
+                button
+
+                primary={`Item ${item}`}
+
+                value={item}
+
+                key={item}
+              />
+            ))}
+          </AutoComplete>
+        </Accordion>
+
+        <Accordion label='AutoComplete disabled' open>
+          <AutoComplete
+            label='Items'
+
+            valueDefault='Item 1'
+
+            color='secondary'
+
+            disabled
+          >
+            {[1, 3, 4].map(item => (
+              <ListItem
+                button
+
+                primary={`Item ${item}`}
+
+                value={item}
+
+                key={item}
+              />
+            ))}
+          </AutoComplete>
+        </Accordion>
+
+        <Accordion label='AmauiTheme' open>
+          <div
+            className={classNames([classes.column])}
+
+            style={{
+              width: '100%'
+            }}
+          >
+            <AutoComplete
+              label='Items'
+
+              color='secondary'
+            >
+              {[1, 3, 4].map(item => (
+                <ListItem
+                  button
+
+                  primary={`Item ${item}`}
+
+                  value={item}
+
+                  key={item}
+                />
+              ))}
+            </AutoComplete>
+
+            <Accordion label='AmauiTheme nested value' open>
+              <AmauiThemeProvider
+                value={{
+                  palette: {
+                    color: {
+                      secondary: {
+                        main: '#008000'
+                      }
+                    }
+                  },
+                  space: {
+                    unit: 5
+                  }
+                }}
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                <AutoComplete
+                  label='Items'
+
+                  color='secondary'
+                >
+                  {[1, 3, 4].map(item => (
+                    <ListItem
+                      button
+
+                      primary={`Item ${item}`}
+
+                      value={item}
+
+                      key={item}
+                    />
+                  ))}
+                </AutoComplete>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme add' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiAutoComplete: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: 0.4
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                <AutoComplete
+                  label='Items'
+
+                  color='secondary'
+                >
+                  {[1, 3, 4].map(item => (
+                    <ListItem
+                      button
+
+                      primary={`Item ${item}`}
+
+                      value={item}
+
+                      key={item}
+                    />
+                  ))}
+                </AutoComplete>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme override' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiAutoComplete: {
+                        style: {
+                          override: {
+                            root: {
+                              width: '100%',
+                              flex: 'unset',
+                              height: 44
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                <AutoComplete
+                  label='Items'
+
+                  color='secondary'
+                >
+                  {[1, 3, 4].map(item => (
+                    <ListItem
+                      button
+
+                      primary={`Item ${item}`}
+
+                      value={item}
+
+                      key={item}
+                    />
+                  ))}
+                </AutoComplete>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme props' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiAutoComplete: {
+                        props: {
+                          default: {
+                            color: 'secondary'
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                <AutoComplete
+                  label='Items'
+                >
+                  {[1, 3, 4].map(item => (
+                    <ListItem
+                      button
+
+                      primary={`Item ${item}`}
+
+                      value={item}
+
+                      key={item}
+                    />
+                  ))}
+                </AutoComplete>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme styled' open>
+              <styled.AutoComplete
+                label='Items'
+              >
+                {[1, 3, 4].map(item => (
+                  <ListItem
+                    button
+
+                    primary={`Item ${item}`}
+
+                    value={item}
+
+                    key={item}
+                  />
+                ))}
+              </styled.AutoComplete>
+            </Accordion>
+          </div>
+        </Accordion>
       </Accordion>
 
       <Accordion label='Select'>

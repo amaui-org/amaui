@@ -145,3 +145,6 @@ export * from './useMediaQuery';
 
 export { default as Select } from './Select';
 export * from './Select';
+
+export { default as AutoComplete } from './AutoComplete';
+export * from './AutoComplete';

@@ -160,15 +160,18 @@ const Interaction = React.forwardRef((props_: any, ref: any) => {
     origin,
     selected,
     wave_version,
+    clear,
     disabled: disabled_,
 
     className
   } = props;
 
+  const [init, setInit] = React.useState(false);
   const [interactions, setInteractions] = React.useState([]);
   const [border, setBorder] = React.useState(false);
   const [waves, setWaves] = React.useState([]);
   const [disabled, setDisabled] = React.useState(disabled_);
+
   const refs = {
     root: React.useRef<HTMLElement>(),
     mouse: React.useRef({ down: 0, up: 0, press: 0 })
@@ -239,6 +242,8 @@ const Interaction = React.forwardRef((props_: any, ref: any) => {
       parent.addEventListener('touchend', onMouseOut, { passive: true });
     }
 
+    setInit(true);
+
     return () => {
       if (parent) {
         parent.removeEventListener('mousedown', onMouseDown);
@@ -252,8 +257,16 @@ const Interaction = React.forwardRef((props_: any, ref: any) => {
         parent.removeEventListener('mouseleave', onMouseOut);
         parent.removeEventListener('touchend', onMouseOut);
       }
-    }
+    };
   }, []);
+
+  React.useEffect(() => {
+    if (init) {
+      setInteractions([]);
+
+      removeWaves();
+    }
+  }, [clear]);
 
   React.useEffect(() => {
     if (pulse) addWavePulse();
@@ -368,8 +381,7 @@ const Interaction = React.forwardRef((props_: any, ref: any) => {
             />
           </Transition>
         )
-      ]
-      );
+      ]);
     }
   };
 
