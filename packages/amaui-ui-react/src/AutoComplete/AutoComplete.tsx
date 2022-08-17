@@ -12,6 +12,7 @@ import Chip from '../Chip';
 import TextField from '../TextField';
 import ChipGroup from '../ChipGroup';
 import IconButton from '../IconButton';
+import ListItem from '../ListItem';
 
 const overflow = {
   width: '100%',
@@ -139,6 +140,11 @@ const useStyle = style(theme => ({
     cursor: 'default'
   },
 
+  list: {
+    maxHeight: '400px',
+    overflow: 'auto'
+  },
+
   disabled: {
     cursor: 'default'
   }
@@ -199,6 +205,8 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
     renderValues: renderValues_,
     chip,
     onChange,
+    filter,
+    options: options_ = [],
     clear = true,
 
     disabled,
@@ -224,6 +232,7 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
   });
   const [focus, setFocus] = React.useState(false);
   const [open, setOpen] = React.useState(false);
+  const [options, setOptions] = React.useState(options_);
 
   const { classes } = useStyle(props);
 
@@ -251,8 +260,25 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
   }, []);
 
   React.useEffect(() => {
+    const item = (options_ || []).find(item_ => item_.label === value);
+
+    if (!!value?.length && !open && !item) setOpen(true);
+  }, [value]);
+
+  React.useEffect(() => {
     if (value_ !== undefined && value_ !== value) setValue(value_);
   }, [value_]);
+
+  const updateOptions = (newValue: any = value, newOptions: any = undefined) => {
+    let optionsValue = options_;
+
+    if (newOptions) optionsValue = newOptions;
+    else optionsValue = is('function', filter) ? filter(newValue, options_) : options_.filter(item => item.label.toLowerCase().includes(newValue.toLowerCase()));
+
+    if (!optionsValue.length) optionsValue.push({ label: 'No options', version: 'text', noOptions: true });
+
+    setOptions(optionsValue);
+  };
 
   const onFocus = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
     if (!disabled) setFocus(true);
@@ -281,15 +307,33 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
   const onClose = React.useCallback((refocus = true) => {
     if (!disabled) {
       setOpen(open => {
-        if (open && refocus) refs.value.current.focus();
+        if (open) {
+          if (refocus) refs.value.current.focus();
+        }
 
         return false;
       });
     }
   }, []);
 
+  const onExited = () => {
+    if (!disabled) {
+      if (!open) {
+        const item = (options_ || []).find(item_ => item_.label === value);
+
+        // Update options to all values
+        // if value is one of the option values
+        if (item || !value || options[0]?.noOptions) updateOptions(undefined, options_);
+      }
+    }
+  };
+
   const onChangeValue = React.useCallback((newValue: any) => {
-    if (!disabled && !readOnly) setValue(newValue);
+    if (!disabled && !readOnly) {
+      setValue(newValue);
+
+      updateOptions(newValue);
+    }
   }, []);
 
   const onClear = React.useCallback(() => {
@@ -385,6 +429,8 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
 
       onClose={() => onClose(false)}
 
+      onExited={onExited}
+
       anchorElement={refs.root.current}
 
       transformOrigin='center top'
@@ -402,35 +448,34 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
       {...MenuProps}
     >
       <List
+        className={classNames([
+          classes.list
+        ])}
+
         size={size}
 
         menu
 
         {...ListProps}
       >
-        {children.map((item: any, index: number) => (
-          React.cloneElement(item, {
-            key: index,
+        {options.map((item: any, index: number) => {
+          let other_: any = {};
 
-            selected: multiple ? value.includes(item.props?.value) : value === item.props?.value,
+          const button = item.version === undefined || item.version === 'button';
 
-            onClick: (event: React.MouseEvent) => {
-              if (multiple && value.includes(item.props?.value)) onUnselect(item.props?.value);
-              else onSelect(item.props?.value);
+          if (button) {
+            other_ = {
+              primary: item.label,
 
-              if (is('function', item.props?.onClick)) item.props?.onClick(event);
+              value: item.label,
 
-              if (!multiple) {
-                setOpen(false);
+              button,
 
-                refs.input.current.focus();
-              }
-            },
+              selected: multiple ? value.includes(item.props?.value) : value === item.label,
 
-            onKeyDown: (event: React.KeyboardEvent) => {
-              if (event.key === 'Enter') {
-                if (multiple && value.includes(item.props?.value)) onUnselect(item.props?.value);
-                else onSelect(item.props?.value);
+              onClick: (event: React.MouseEvent) => {
+                if (multiple && value.includes(item.label)) onUnselect(item.label);
+                else onSelect(item.label);
 
                 if (is('function', item.props?.onClick)) item.props?.onClick(event);
 
@@ -439,10 +484,38 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
 
                   refs.input.current.focus();
                 }
+              },
+
+              onKeyDown: (event: React.KeyboardEvent) => {
+                if (event.key === 'Enter') {
+                  if (multiple && value.includes(item.label)) onUnselect(item.label);
+                  else onSelect(item.label);
+
+                  if (is('function', item.props?.onClick)) item.props?.onClick(event);
+
+                  if (!multiple) {
+                    setOpen(false);
+
+                    refs.input.current.focus();
+                  }
+                }
               }
-            }
-          })
-        ))}
+            };
+          }
+          else {
+            other_.secondary = item.label;
+          }
+
+          if (item.disabled !== undefined) other_.disabled = item.disabled;
+
+          return (
+            <ListItem
+              key={index}
+
+              {...other_}
+            />
+          );
+        })}
       </List>
     </Menu>
   ));

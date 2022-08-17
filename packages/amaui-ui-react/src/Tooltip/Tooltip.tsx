@@ -292,6 +292,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
 
     onOpen: onOpen_,
     onClose: onClose_,
+    onExited,
 
     TransitionComponent = Grow,
     TransitionComponentProps = {},
@@ -432,6 +433,8 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
     setOpen(false);
 
     if (is('function', onClose_)) onClose_();
+
+    if (is('function', onExited)) onExited();
   };
 
   React.useEffect(() => {

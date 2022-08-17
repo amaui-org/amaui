@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { countries } from '@amaui/utils';
 import { AmauiTheme, AmauiThemeProvider, classNames, style, sy, useAmauiTheme } from '@amaui/style-react';
 import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, ButtonGroup, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, ChipGroup, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete } from '@amaui/ui-react';
 
@@ -807,20 +808,10 @@ function App() {
           <AutoComplete
             label='Items'
 
+            options={countries.map(item => ({ label: item.name }))}
+
             color='secondary'
-          >
-            {[1, 3, 4].map(item => (
-              <ListItem
-                button
-
-                primary={`Item ${item}`}
-
-                value={`Item ${item}`}
-
-                key={item}
-              />
-            ))}
-          </AutoComplete>
+          />
         </Accordion>
 
         <Accordion label='AutoComplete multiple' open>
