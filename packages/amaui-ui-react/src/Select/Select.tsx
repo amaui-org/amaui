@@ -11,6 +11,7 @@ import Menu from '../Menu';
 import Chip from '../Chip';
 import TextField from '../TextField';
 import ChipGroup from '../ChipGroup';
+import IconButton from '../IconButton';
 
 const overflow = {
   width: '100%',
@@ -127,18 +128,11 @@ const useStyle = style(theme => ({
   },
 
   arrow: {
-    alignSelf: 'center',
-    paddingBlock: '0px !important',
-
-    '& > svg': {
-      transition: theme.methods.transitions.make('transform')
-    }
+    transition: theme.methods.transitions.make('transform')
   },
 
   arrow_open: {
-    '& > svg': {
-      transform: 'rotate(180deg)'
-    }
+    transform: 'rotate(180deg)'
   },
 
   open: {
@@ -182,9 +176,10 @@ const Select = React.forwardRef((props_: any, ref: any) => {
     prefix,
     sufix,
     startIcon,
-    endIcon: endIcon_,
+    endIcon,
     autoWidth,
     readOnly,
+    getLabel,
     renderValues: renderValues_,
     chip,
     onChange,
@@ -225,8 +220,6 @@ const Select = React.forwardRef((props_: any, ref: any) => {
     menu: {}
   };
 
-  const endIcon = endIcon_ || <IconMaterialArrowDropDownRounded />;
-
   React.useEffect(() => {
     const method = (event: KeyboardEvent) => {
       if (event.key === 'Escape') onClose();
@@ -253,6 +246,14 @@ const Select = React.forwardRef((props_: any, ref: any) => {
 
   const onClick = React.useCallback((event: React.MouseEvent) => {
     if (event.target === refs.input.current && !disabled && !readOnly) setOpen(open => {
+      if (open) refs.input.current.focus();
+
+      return !open;
+    });
+  }, []);
+
+  const onClickArrowDown = React.useCallback((event: React.MouseEvent) => {
+    if (!disabled && !readOnly) setOpen(open => {
       if (open) refs.input.current.focus();
 
       return !open;
@@ -312,7 +313,11 @@ const Select = React.forwardRef((props_: any, ref: any) => {
   const renderValue = (values: any = value) => {
     const item: any = children.find((item_: any) => item_.props?.value === values);
 
-    return item ? (item.props?.label || item.props?.primary || item.props?.secondary || item.props?.tertiary || item.props?.children) : value;
+    const getItemLabel = getLabel || (() => {
+      return (item.props?.label || item.props?.primary || item.props?.secondary || item.props?.tertiary || item.props?.children);
+    });
+
+    return item ? getItemLabel(item, props) : value;
   };
 
   const renderValues = renderValues_ || (() => {
@@ -396,18 +401,26 @@ const Select = React.forwardRef((props_: any, ref: any) => {
 
         startIcon={startIcon}
 
-        endIcon={endIcon}
+        endIcon={[
+          endIcon,
+
+          <IconButton
+            onClick={onClickArrowDown}
+          >
+            <IconMaterialArrowDropDownRounded
+              className={classNames([
+                classes.arrow,
+                open && classes.arrow_open
+              ])}
+            />
+          </IconButton>
+        ]}
 
         readOnly={readOnly}
 
-        disabled={disabled}
+        endIconVerticalAlign='center'
 
-        classes={{
-          endIcon: classNames([
-            classes.arrow,
-            open && classes.arrow_open
-          ])
-        }}
+        disabled={disabled}
 
         inputProps={{
           className: classNames([

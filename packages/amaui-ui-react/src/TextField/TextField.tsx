@@ -353,38 +353,45 @@ const useStyle = style(theme => ({
   },
 
   icon_size_small: {
-    paddingTop: '12px',
-    paddingBottom: '0'
+    paddingBlock: '12px'
   },
 
   icon_size_regular: {
-    paddingTop: '16px',
-    paddingBottom: '0'
+    paddingBlock: '16px'
   },
 
   icon_size_large: {
-    paddingTop: '20px',
-    paddingBottom: '0'
+    paddingBlock: '20px'
   },
 
   icon_button_size_small: {
-    paddingTop: '4px',
-    paddingBottom: '0'
+    paddingBlock: '4px'
   },
 
   icon_button_size_regular: {
-    paddingTop: '8px',
-    paddingBottom: '0'
+    paddingBlock: '8px'
   },
 
   icon_button_size_large: {
-    paddingTop: '12px',
-    paddingBottom: '0'
+    paddingBlock: '12px'
   },
 
   icon_start: {
     paddingInlineEnd: '16px',
     paddingInlineStart: '12px'
+  },
+
+  icon_vertical_align_start: {
+    alignSelf: 'flex-start'
+  },
+
+  icon_vertical_align_center: {
+    alignSelf: 'center',
+    paddingBlock: '0px'
+  },
+
+  icon_vertical_align_end: {
+    alignSelf: 'flex-end'
   },
 
   icon_end: {
@@ -478,7 +485,9 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
     label,
     align,
     startIcon,
+    startIconVerticalAlign = 'start',
     endIcon,
+    endIconVerticalAlign = 'start',
     visible,
     placeholder,
     valueDefault,
@@ -840,20 +849,26 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
                 'AmauiTextField-icon',
                 `AmauiTextField-version-${version}`,
                 'AmauiTextField-icon-start',
-                `AmauiTextField-size-${size}`
+                `AmauiTextField-size-${size}`,
+                `AmauiTextField-icon-start-vertical-align-${startIconVerticalAlign}`
               ],
 
               classes.icon,
               classes.icon_start,
               classes[`icon${startIcon?.type?.displayName?.includes('IconButton') ? '_button' : ''}_size_${size}`],
-              classes[`icon_version_${version}`]
+              classes[`icon_version_${version}`],
+              classes[`icon_vertical_align_${startIconVerticalAlign}`]
             ])}
           >
-            {React.cloneElement(startIcon, {
-              size: 'regular',
-              color: theme.palette.text.default.secondary,
-              style: styles.icon
-            })}
+            {React.Children.toArray(startIcon).map((item: any, index: number) => (
+              React.cloneElement(item, {
+                key: index,
+
+                size: 'regular',
+                color: theme.palette.text.default.secondary,
+                style: styles.icon
+              })
+            ))}
           </span>
         )}
 
@@ -986,21 +1001,27 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
                 'AmauiTextField-icon',
                 `AmauiTextField-version-${version}`,
                 'AmauiTextField-icon-end',
-                `AmauiTextField-size-${size}`
+                `AmauiTextField-size-${size}`,
+                `AmauiTextField-icon-end-vertical-align-${endIconVerticalAlign}`
               ],
 
               classes.icon,
               classes.icon_end,
               classes[`icon${endIcon?.type?.displayName?.includes('IconButton') ? '_button' : ''}_size_${size}`],
               classes[`icon_version_${version}`],
+              classes[`icon_vertical_align_${endIconVerticalAlign}`],
               classes_.endIcon
             ])}
           >
-            {React.cloneElement(endIcon, {
-              size: 'regular',
-              color: error ? theme.palette.light ? theme.palette.color.error[hover ? 20 : 40] : theme.palette.color.error[hover ? 90 : 80] : theme.palette.text.default.secondary,
-              style: styles.icon
-            })}
+            {React.Children.toArray(endIcon).map((item: any, index: number) => (
+              React.cloneElement(item, {
+                key: index,
+
+                size: 'regular',
+                color: error ? theme.palette.light ? theme.palette.color.error[hover ? 20 : 40] : theme.palette.color.error[hover ? 90 : 80] : theme.palette.text.default.secondary,
+                style: styles.icon
+              })
+            ))}
           </span>
         )}
       </Component>
