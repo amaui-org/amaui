@@ -13,7 +13,7 @@ import Append from '../Append';
 
 const useStyle = style(theme => ({
   root: {
-    inset: '0px auto auto 0px !important'
+    inset: '0px auto auto 0px'
   },
 
   labelRoot: {

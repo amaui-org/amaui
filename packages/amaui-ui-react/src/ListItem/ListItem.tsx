@@ -13,7 +13,6 @@ import Menu from '../Menu';
 const overflow = {
   width: '100%',
   overflow: 'hidden',
-  whiteSpace: 'nowrap',
   textOverflow: 'ellipsis'
 };
 
@@ -321,6 +320,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
     primary = props.children,
     secondary,
     tertiary,
+    preselected,
     selected,
     tonal,
     color = 'default',
@@ -366,6 +366,10 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
   if (menu) end = end_ || <IconMaterialArrowRightRounded />;
 
   let RootComponent = RootComponent_;
+
+  React.useEffect(() => {
+    if (preselected) refs.root.current.focus();
+  }, [preselected]);
 
   React.useEffect(() => {
     if (menu) setOpen(hover);
@@ -491,6 +495,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
           <Interaction
             border={false}
             pulse={focus}
+            preselected={preselected || undefined}
             selected={open || selected}
 
             {...InteractionProps}

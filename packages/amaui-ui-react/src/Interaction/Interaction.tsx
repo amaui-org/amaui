@@ -158,6 +158,7 @@ const Interaction = React.forwardRef((props_: any, ref: any) => {
     border: border_ = true,
     pulse,
     origin,
+    preselected,
     selected,
     wave_version,
     clear,
@@ -429,7 +430,7 @@ const Interaction = React.forwardRef((props_: any, ref: any) => {
             ],
 
             classes.background,
-            has('mouse-in') && classes.hovered,
+            (preselected || has('mouse-in')) && classes.hovered,
             selected && classes.selected
           ])}
         />

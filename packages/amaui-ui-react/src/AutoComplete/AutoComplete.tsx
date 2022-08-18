@@ -141,7 +141,7 @@ const useStyle = style(theme => ({
   },
 
   list: {
-    maxHeight: '400px',
+    maxHeight: '40vh',
     overflow: 'auto'
   },
 
@@ -149,6 +149,37 @@ const useStyle = style(theme => ({
     cursor: 'default'
   }
 }), { name: 'AmauiAutoComplete' });
+
+// To do
+
+// Example with countries value
+
+// selectOnFocus
+// clearOnBlur
+// autoSelect
+// blurOnSelect
+// clearOnEscape
+// closeOnSelect
+// preselectReset
+// filterSelectedOptions
+// noOptions = true
+// openOnFocus
+// optionEqualValue method
+// limitTags
+// loading
+// onChange
+// onOpen
+// onClose
+// groupBy
+
+// Arrow down, home and end keys for focusing on an item
+// Arrow down moves from 1 to last item, and if last item is in focus, next focus the refs input value
+
+// Multiple
+
+// other options...
+
+// amauiTheme and all value y
 
 const IconMaterialCloseRounded = React.forwardRef((props: any, ref) => {
 
@@ -203,6 +234,7 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
     readOnly,
     getLabel,
     renderValues: renderValues_,
+    renderOption,
     chip,
     onChange,
     filter,
@@ -249,7 +281,7 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
 
   React.useEffect(() => {
     const method = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') onClose();
+      if (event.key === 'Escape') onClose(true);
     };
 
     window.addEventListener('keydown', method);
@@ -262,7 +294,7 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
   React.useEffect(() => {
     const item = (options_ || []).find(item_ => item_.label === value);
 
-    if (!!value?.length && !open && !item) setOpen(true);
+    if (!!value?.length && !open && !item && !disabled && !readOnly) setOpen(true);
   }, [value]);
 
   React.useEffect(() => {
@@ -308,7 +340,7 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
     if (!disabled) {
       setOpen(open => {
         if (open) {
-          if (refocus) refs.value.current.focus();
+          if (refocus) refs.input.current.focus();
         }
 
         return false;
@@ -425,7 +457,7 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
     <Menu
       open={open}
 
-      portal={false}
+      portal
 
       onClose={() => onClose(false)}
 
@@ -441,6 +473,8 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
 
       ModalProps={{
         // focus: !MenuProps.portal
+
+        freezeScroll: false
       }}
 
       style={styles.menu}
@@ -506,14 +540,17 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
             other_.secondary = item.label;
           }
 
-          if (item.disabled !== undefined) other_.disabled = item.disabled;
-
           return (
-            <ListItem
-              key={index}
+            is('function', renderOption) ?
+              renderOption(item, index, { ...other_, ...item.props }) :
 
-              {...other_}
-            />
+              <ListItem
+                key={index}
+
+                {...other_}
+
+                {...item.props}
+              />
           );
         })}
       </List>

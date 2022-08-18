@@ -814,134 +814,6 @@ function App() {
           />
         </Accordion>
 
-        <Accordion label='AutoComplete multiple' open>
-          <AutoComplete
-            label='Items'
-
-            color='secondary'
-
-            multiple
-          >
-            {[1, 3, 4].map(item => (
-              <ListItem
-                button
-
-                primary={`Item ${item}`}
-
-                value={item}
-
-                key={item}
-              />
-            ))}
-          </AutoComplete>
-        </Accordion>
-
-        <Accordion label='AutoComplete multiple chip' open>
-          <div className={classNames([classes.column])} style={{ gap: 24 }}>
-            <AutoComplete
-              label='Items'
-
-              color='secondary'
-
-              version='text'
-
-              multiple
-
-              chip
-            >
-              {[1, 3, 4, 5, 7].map(item => (
-                <ListItem
-                  button
-
-                  primary={`Item ${item}`}
-
-                  value={item}
-
-                  key={item}
-                />
-              ))}
-            </AutoComplete>
-
-            <AutoComplete
-              label='Items'
-
-              color='secondary'
-
-              version='filled'
-
-              multiple
-
-              chip
-            >
-              {[1, 3, 4, 5, 7].map(item => (
-                <ListItem
-                  button
-
-                  primary={`Item ${item}`}
-
-                  value={item}
-
-                  key={item}
-                />
-              ))}
-            </AutoComplete>
-
-            <AutoComplete
-              label='Items'
-
-              color='secondary'
-
-              version='outlined'
-
-              multiple
-
-              chip
-            >
-              {[1, 3, 4, 5, 7].map(item => (
-                <ListItem
-                  button
-
-                  primary={`Item ${item}`}
-
-                  value={item}
-
-                  key={item}
-                />
-              ))}
-            </AutoComplete>
-          </div>
-        </Accordion>
-
-        <Accordion label='AutoComplete multiple checkboxes' open>
-          <AutoComplete
-            label='Items'
-
-            color='secondary'
-
-            value={selected}
-
-            onChange={(value_: any) => setSelected(value_)}
-
-            multiple
-          >
-            {[1, 3, 4].map((item: any) => (
-              <ListItem
-                button
-
-                primary={`Item ${item}`}
-
-                start={(
-                  <Checkbox value={selected.includes(item)} />
-                )}
-
-                value={item}
-
-                key={item}
-              />
-            ))}
-          </AutoComplete>
-        </Accordion>
-
         <Accordion label='AutoComplete versions'>
           <div className={classNames([classes.column])} style={{ gap: 24 }}>
             <AutoComplete
@@ -950,19 +822,9 @@ function App() {
               version='text'
 
               color='secondary'
-            >
-              {[1, 3, 4].map(item => (
-                <ListItem
-                  button
 
-                  primary={`Item ${item}`}
-
-                  value={item}
-
-                  key={item}
-                />
-              ))}
-            </AutoComplete>
+              options={countries.map(item => ({ label: item.name }))}
+            />
 
             <AutoComplete
               label='Items'
@@ -970,19 +832,9 @@ function App() {
               version='filled'
 
               color='secondary'
-            >
-              {[1, 3, 4].map(item => (
-                <ListItem
-                  button
 
-                  primary={`Item ${item}`}
-
-                  value={item}
-
-                  key={item}
-                />
-              ))}
-            </AutoComplete>
+              options={countries.map(item => ({ label: item.name }))}
+            />
 
             <AutoComplete
               label='Items'
@@ -990,19 +842,9 @@ function App() {
               version='outlined'
 
               color='secondary'
-            >
-              {[1, 3, 4].map(item => (
-                <ListItem
-                  button
 
-                  primary={`Item ${item}`}
-
-                  value={item}
-
-                  key={item}
-                />
-              ))}
-            </AutoComplete>
+              options={countries.map(item => ({ label: item.name }))}
+            />
           </div>
         </Accordion>
 
@@ -1017,19 +859,9 @@ function App() {
                 version='text'
 
                 color='secondary'
-              >
-                {[1, 3, 4].map(item => (
-                  <ListItem
-                    button
 
-                    primary={`Item ${item}`}
-
-                    value={item}
-
-                    key={item}
-                  />
-                ))}
-              </AutoComplete>
+                options={countries.map(item => ({ label: item.name }))}
+              />
 
               <AutoComplete
                 size='small'
@@ -1039,19 +871,9 @@ function App() {
                 version='filled'
 
                 color='secondary'
-              >
-                {[1, 3, 4].map(item => (
-                  <ListItem
-                    button
 
-                    primary={`Item ${item}`}
-
-                    value={item}
-
-                    key={item}
-                  />
-                ))}
-              </AutoComplete>
+                options={countries.map(item => ({ label: item.name }))}
+              />
 
               <AutoComplete
                 size='small'
@@ -1061,19 +883,9 @@ function App() {
                 version='outlined'
 
                 color='secondary'
-              >
-                {[1, 3, 4].map(item => (
-                  <ListItem
-                    button
 
-                    primary={`Item ${item}`}
-
-                    value={item}
-
-                    key={item}
-                  />
-                ))}
-              </AutoComplete>
+                options={countries.map(item => ({ label: item.name }))}
+              />
             </div>
           </Accordion>
 

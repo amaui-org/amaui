@@ -20,7 +20,8 @@ const Append = (props_: any) => {
 
   const refs = {
     root: React.useRef<HTMLElement>(),
-    element: React.useRef<HTMLElement>()
+    element: React.useRef<HTMLElement>(),
+    values: React.useRef(values)
   };
 
   const {
@@ -39,6 +40,7 @@ const Append = (props_: any) => {
     overflow = true,
     unfollow = false,
     style: style_,
+    update,
     element,
 
     children
@@ -102,50 +104,22 @@ const Append = (props_: any) => {
     };
   }, [refs.root.current]);
 
-  const updateSwitch = () => {
-    // Switch
-    if (switch_ && !values.switch && values.position === position_ && refs.element.current) {
-      let newPosition = position_;
+  // Element resize
+  React.useEffect(() => {
+    // Resize
+    const observerResize = new ResizeObserver(onResize);
 
-      const scrollableParents = element_(refs.root.current).parents().filter(item => item instanceof Element && !['visible', 'initial'].includes(window.getComputedStyle(item).overflow));
+    if (refs.element.current) observerResize.observe(refs.element.current);
 
-      const rectElement = refs.element.current.getBoundingClientRect();
+    return () => {
+      if (refs.element.current) observerResize.disconnect();
+    };
+  }, [refs.element.current]);
 
-      const update = scrollableParents.some(parent => {
-        const rectParent = parent.getBoundingClientRect();
-
-        if (['left', 'right'].includes(position_)) {
-          return !(
-            rectElement.x - (['left', 'right'].includes(position_) ? padding[1] : 0) >= 0 &&
-            rectElement.x - (['left', 'right'].includes(position_) ? padding[1] : 0) >= rectParent.x &&
-            rectElement.x + rectElement.width + (['left', 'right'].includes(position_) ? padding[1] : 0) <= window.innerWidth &&
-            rectElement.x + rectElement.width + (['left', 'right'].includes(position_) ? padding[1] : 0) <= rectParent.x + rectParent.width
-          );
-        }
-
-        if (['top', 'bottom'].includes(position_)) {
-          return !(
-            rectElement.y - (['top', 'bottom'].includes(position_) ? padding[0] : 0) >= 0 &&
-            rectElement.y - (['top', 'bottom'].includes(position_) ? padding[0] : 0) >= rectParent.y &&
-            rectElement.y + rectElement.height + (['top', 'bottom'].includes(position_) ? padding[0] : 0) <= window.innerHeight &&
-            rectElement.y + rectElement.height + (['top', 'bottom'].includes(position_) ? padding[0] : 0) <= rectParent.y + rectParent.height
-          );
-        }
-      });
-
-      if (update) {
-        if (position_ === 'top') newPosition = 'bottom';
-        if (position_ === 'left') newPosition = 'right';
-        if (position_ === 'right') newPosition = 'left';
-        if (position_ === 'bottom') newPosition = 'top';
-
-        make({ position: newPosition, alignment: alignment_, inset: inset_, switch: true });
-      }
-    }
-  };
-
-  // Switch
-  React.useEffect(updateSwitch, [values]);
+  // Update
+  React.useEffect(() => {
+    if (init) make();
+  }, [update]);
 
   const getValues = () => {
     if (!((refs.root.current || anchor) && refs.element.current)) return;
@@ -195,9 +169,9 @@ const Append = (props_: any) => {
 
   const make = (
     value = { position: position_, alignment: alignment_, inset: inset_, switch: false },
-    values = getValues()
+    values__ = getValues()
   ) => {
-    if (!values) return;
+    if (!values__) return;
 
     const wrapperRect = (overflow || switch_) && (refs.root.current || refs.element.current).parentElement.getBoundingClientRect();
 
@@ -205,7 +179,7 @@ const Append = (props_: any) => {
 
     let { position, alignment, inset, switch: switched } = value;
 
-    let { rect, rectOffset } = values;
+    let { rect, rectOffset } = values__;
 
     // We need both root and element refs
     // to make our values for it
@@ -216,6 +190,11 @@ const Append = (props_: any) => {
 
     const rootX = portal ? rect.root.x : rectOffset.root.x;
     const rootY = portal ? rect.root.y : rectOffset.root.y;
+
+    const rootBottom = portal ? rect.root.bottom : rectOffset.root.y + rect.root.height;
+    const rootRight = portal ? rect.root.right : rectOffset.root.x + rect.root.width;
+
+    const parent = (portal ? window.document.body : refs.root.current.parentElement)?.getBoundingClientRect();
 
     if (theme.direction === 'rtl' && ['top', 'bottom'].includes(position)) {
       if (alignment === 'start') alignment = 'end';
@@ -230,12 +209,16 @@ const Append = (props_: any) => {
 
       if (alignment === 'end') values_.x = rootX + rect.root.width - rect.element.width;
 
-      values_.y = position === 'top' ? rootY - offset[1] - rect.element.height : rootY + offset[1] + rect.root.height;
+      if (position === 'top') {
+        values_.y = rootBottom - parent.height - offset[1] - rect.root.height;
 
-      if (inset) values_.y = position === 'top' ? rootY + offset[1] : rootY + rect.root.height - rect.element.height - offset[1];
+        if (inset) values_.y = rootBottom - parent.height - rect.root.height + rect.element.height + offset[1];
+      }
+      else {
+        values_.y = rootY + offset[1] + rect.root.height;
 
-      // Add the offset of root from the parent top
-      if (!portal) values_.y += Math.abs(rect.root.y - refs.root.current.parentElement.getBoundingClientRect().y);
+        if (inset) values_.y = rootY + rect.root.height - rect.element.height - offset[1];
+      }
     }
 
     // Left
@@ -247,18 +230,15 @@ const Append = (props_: any) => {
       if (alignment === 'end') values_.y = rootY + rect.root.height - rect.element.height;
 
       if (position === 'left') {
-        values_.x = rootX - offset[0] - rect.element.width;
+        values_.x = rootRight - parent.width - offset[0] - rect.root.width;
 
-        if (inset) values_.x = rootX + offset[0];
+        if (inset) values_.x = rootRight - parent.width - rect.root.width + rect.element.width + offset[0];
       }
       else {
         values_.x = rootX + offset[0] + rect.root.width;
 
-        if (inset) values_.x = rootX + rect.root.width - offset[0] - rect.element.width;
+        if (inset) values_.x = rootX + rect.root.width - rect.element.width - offset[0];
       }
-
-      // Add the offset of root from the parent left
-      if (!portal) values_.x += Math.abs(rect.root.x - refs.root.current.parentElement.getBoundingClientRect().x);
     }
 
     // Absolute position
@@ -467,15 +447,71 @@ const Append = (props_: any) => {
       }
     }
 
+    // Switch
+    if (switch_ && !value.switch) {
+      // Calculate new boundingRectClient x and y
+      // and see if switch needs to happen if yes make methods value y
+      let newPosition = position;
+
+      const rectValue: any = {
+        element: {}
+      };
+
+      rectValue.element.x = rect.element.x + values_.x - refs.values.current.x;
+
+      rectValue.element.y = rect.element.y + values_.y - refs.values.current.y;
+
+      if (refs.values.current.position === 'top') rectValue.element.y = rect.element.y + values_.y - (parent.height + refs.values.current.y - rect.element.height);
+
+      if (refs.values.current.position === 'left') rectValue.element.x = rect.element.x + values_.x - (parent.width + refs.values.current.x - rect.element.width);
+
+      const update_ = scrollableParents.some(parent => {
+        const rectParent = parent.getBoundingClientRect();
+
+        if (position_ === 'top') return !(
+          rectValue.element.y - (['top', 'bottom'].includes(position_) ? padding[0] : 0) >= 0 &&
+          rectValue.element.y - (['top', 'bottom'].includes(position_) ? padding[0] : 0) >= rectParent.y
+        );
+
+        if (position_ === 'bottom') return !(
+          rectValue.element.y + rect.element.height + (['top', 'bottom'].includes(position_) ? padding[0] : 0) <= window.innerHeight &&
+          rectValue.element.y + rect.element.height + (['top', 'bottom'].includes(position_) ? padding[0] : 0) <= rectParent.y + rectParent.height
+        );
+
+        if (position_ === 'left') return !(
+          rectValue.element.x - (['left', 'right'].includes(position_) ? padding[1] : 0) >= 0 &&
+          rectValue.element.x - (['left', 'right'].includes(position_) ? padding[1] : 0) >= rectParent.x
+        );
+
+        if (position_ === 'right') return !(
+          rectValue.element.x + rect.element.width + (['left', 'right'].includes(position_) ? padding[1] : 0) <= window.innerWidth &&
+          rectValue.element.x + rect.element.width + (['left', 'right'].includes(position_) ? padding[1] : 0) <= rectParent.x + rectParent.width
+        );
+      });
+
+      if (update_) {
+        if (position_ === 'top') newPosition = 'bottom';
+        if (position_ === 'left') newPosition = 'right';
+        if (position_ === 'right') newPosition = 'left';
+        if (position_ === 'bottom') newPosition = 'top';
+
+        return make({ position: newPosition, alignment: alignment_, inset: inset_, switch: true });
+      }
+    }
+
     // Update
-    setValues(() => ({ position, switch: switched, ...values_ }));
+    setValues({ position: value.position, switch: switched, ...values_ });
+
+    refs.values.current = { position, switch: switched, ...values_ };
   };
 
   let style: React.CSSProperties = {};
 
   style.position = 'absolute';
 
-  style.inset = '0px auto auto 0px';
+  if (values.position === 'top') style.inset = 'auto auto 0px 0px';
+  else if (values.position === 'left') style.inset = '0px 0px auto auto';
+  else style.inset = '0px auto auto 0px';
 
   if (accelerated) {
     const ppiHigh = isEnvironment('browser') && window.devicePixelRatio > 1;
