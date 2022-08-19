@@ -9,6 +9,7 @@ import Icon from '../Icon';
 import Interaction from '../Interaction';
 import Type from '../Type';
 import Menu from '../Menu';
+import List from '../List/List';
 
 const overflow = {
   width: '100%',
@@ -334,15 +335,18 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
     button,
     shape = 'round',
     shapePosition = 'none',
+    include,
+    tabIndex,
+    disabled,
+
     Component = 'li',
     RootComponent: RootComponent_ = 'div',
     InteractionProps = {},
     PrimaryProps = {},
     SecondaryProps = {},
     TertiaryProps = {},
-    include,
-    tabIndex,
-    disabled,
+    MenuListProps = {},
+    MenuProps = {},
 
     className,
     style,
@@ -670,8 +674,24 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
           alignment='start'
 
           onMouseEnter={onMouseEnter}
+
+          {...MenuProps}
         >
-          {menu}
+          <List
+            menu
+
+            {...MenuListProps}
+          >
+            {React.Children.toArray(menu).map((item: any) => (
+              React.cloneElement(item, {
+                onClick: (event: React.MouseEvent<any>) => {
+                  if (is('function', item.props?.onClick)) item.props?.onClick(event);
+
+                  if (item.props?.menuCloseOnClick) setOpen(false);
+                }
+              })
+            ))}
+          </List>
         </Menu>
       )}
     </Component>

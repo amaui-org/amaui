@@ -2474,69 +2474,76 @@ function App() {
 
                   primary='Line spacing'
 
-                  menu={(
-                    <List menu color='secondary' style={{ minWidth: 320 }}>
-                      <ListItem
-                        inset
+                  MenuListProps={{
+                    color: 'secondary',
+                    style: {
+                      minWidth: 320
+                    }
+                  }}
 
-                        button
+                  menu={[
+                    <ListItem
+                      inset
 
-                        primary='Single'
-                      />
+                      button
 
-                      <ListItem
-                        inset
+                      primary='Single'
+                    />,
 
-                        button
+                    <ListItem
+                      inset
 
-                        primary='1.15'
-                      />
+                      button
 
-                      <ListItem
-                        inset
+                      primary='1.15'
 
-                        button
+                      menuCloseOnClick
+                    />,
 
-                        primary='Double'
-                      />
+                    <ListItem
+                      inset
 
-                      <ListItem
-                        button
+                      button
 
-                        primary='Custom: 1.2'
+                      primary='Double'
+                    />,
 
-                        start={(
-                          <IconMaterialCheckRounded />
-                        )}
-                      />
+                    <ListItem
+                      button
 
-                      <Divider
-                        Component='li'
-                      />
+                      primary='Custom: 1.2'
 
-                      <ListItem
-                        button
+                      start={(
+                        <IconMaterialCheckRounded />
+                      )}
+                    />,
 
-                        primary='Add space before paragraph'
-                      />
+                    <Divider
+                      Component='li'
+                    />,
 
-                      <ListItem
-                        button
+                    <ListItem
+                      button
 
-                        primary='Add space after paragraph'
-                      />
+                      primary='Add space before paragraph'
+                    />,
 
-                      <Divider
-                        Component='li'
-                      />
+                    <ListItem
+                      button
 
-                      <ListItem
-                        button
+                      primary='Add space after paragraph'
+                    />,
 
-                        primary='Custom spacing...'
-                      />
-                    </List>
-                  )}
+                    <Divider
+                      Component='li'
+                    />,
+
+                    <ListItem
+                      button
+
+                      primary='Custom spacing...'
+                    />
+                  ]}
                 />
 
                 <ListItem
