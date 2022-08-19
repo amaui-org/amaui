@@ -399,7 +399,7 @@ const Select = React.forwardRef((props_: any, ref: any) => {
   ];
 
   if (mouseDown) refs.input.current.focus();
-  console.log(1, open, focus, !!(is('array', value) ? value.length : value));
+
   return (
     <TextField
       ref={refs.input}
@@ -410,9 +410,9 @@ const Select = React.forwardRef((props_: any, ref: any) => {
         refs.root.current = item;
       }}
 
-      enabled={open || focus || !!(is('array', value) ? value.length : value)}
+      enabled={open || focus || mouseDown || !!(is('array', value) ? value.length : value)}
 
-      focus={open || focus}
+      focus={open || focus || mouseDown}
 
       className={classNames([
         staticClassName('Select', theme) && [

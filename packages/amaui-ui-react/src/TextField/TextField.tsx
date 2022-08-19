@@ -650,12 +650,16 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
   const onInputWrapperMouseDown = React.useCallback((event: React.MouseEvent<any>) => {
     if (!disabled) {
       setMouseDown(true);
+
+      if (is('function', InputWrapperProps.onMouseDown)) InputWrapperProps.onMouseDown(event);
     }
   }, []);
 
   const onInputWrapperMouseUp = React.useCallback((event: React.MouseEvent<any>) => {
     if (!disabled) {
       setMouseDown(false);
+
+      if (is('function', InputWrapperProps.onMouseUp)) InputWrapperProps.onMouseUp(event);
     }
   }, []);
 
