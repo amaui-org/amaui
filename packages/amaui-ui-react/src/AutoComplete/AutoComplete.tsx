@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 
 import { is, unique } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
@@ -152,8 +152,6 @@ const useStyle = style(theme => ({
 
 // To do
 
-// Example with countries value
-
 // selectOnFocus
 // clearOnBlur
 // autoSelect
@@ -243,6 +241,7 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
 
     disabled,
 
+    IconClear = IconMaterialCloseRounded,
     ChipGroupProps = {},
     ListProps = {},
     MenuProps = {},
@@ -560,28 +559,30 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
   const endIcons = [
     endIcon,
 
-    !!(is('array', value) ? value.length : value) && (
+    ...(!readOnly ? [
+      !!(is('array', value) ? value.length : value) && (
+        <IconButton
+          onClick={onClear}
+        >
+          <IconClear />
+        </IconButton>
+      ),
+
       <IconButton
-        onClick={onClear}
+        onClick={onClickArrowDown}
+
+        InteractionProps={{
+          clear: !!(is('array', value) ? value.length : value)
+        }}
       >
-        <IconMaterialCloseRounded />
+        <IconMaterialArrowDropDownRounded
+          className={classNames([
+            classes.arrow,
+            open && classes.arrow_open
+          ])}
+        />
       </IconButton>
-    ),
-
-    <IconButton
-      onClick={onClickArrowDown}
-
-      InteractionProps={{
-        clear: !!(is('array', value) ? value.length : value)
-      }}
-    >
-      <IconMaterialArrowDropDownRounded
-        className={classNames([
-          classes.arrow,
-          open && classes.arrow_open
-        ])}
-      />
-    </IconButton>
+    ] : [])
   ].filter(Boolean);
 
   return (

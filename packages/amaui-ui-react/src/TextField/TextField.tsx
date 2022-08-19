@@ -69,12 +69,18 @@ const useStyle = style(theme => ({
   },
 
   inputWrapper: {
+    // Reset
+    margin: 0,
+    border: 0,
+
     display: 'inline-flex',
     alignItems: 'flex-start',
     opacity: 0,
     transition: theme.methods.transitions.make('opacity'),
     borderRadius: `${theme.shape.radius.unit / 2}px ${theme.shape.radius.unit / 2}px 0 0`,
-    width: '100%'
+    width: '100%',
+    cursor: 'text',
+    ...theme.typography.values.b2,
   },
 
   inputWrapper_focus: {
@@ -85,6 +91,7 @@ const useStyle = style(theme => ({
     // Reset
     margin: 0,
     border: 0,
+
     color: theme.palette.text.default.primary,
     background: 'transparent',
     '-webkit-tap-highlight-color': 'transparent',
@@ -437,11 +444,17 @@ const useStyle = style(theme => ({
   prefix: {
     flex: '0 0 auto',
     marginInlineStart: '16px',
-    marginInlineEnd: '8px'
+    marginInlineEnd: '8px',
+    opacity: 0,
+    transition: theme.methods.transitions.make('opacity'),
   },
 
   prefix_noStartMargin: {
     marginInlineStart: '0px'
+  },
+
+  prefix_focus: {
+    opacity: 1
   },
 
   noPrefixMargin: {
@@ -451,7 +464,13 @@ const useStyle = style(theme => ({
   sufix: {
     flex: '0 0 auto',
     marginInlineEnd: '16px',
-    marginInlineStart: '8px'
+    marginInlineStart: '8px',
+    opacity: 0,
+    transition: theme.methods.transitions.make('opacity'),
+  },
+
+  sufix_focus: {
+    opacity: 1
   },
 
   sufix_noEndMargin: {
@@ -520,13 +539,14 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
     error,
     multiline,
     rows: rows_,
-    minRows,
+    minRows = 1,
     maxRows,
     focus: focus_,
     footer: footer_,
     disabled,
 
     inputProps = {},
+    InputWrapperProps = {},
 
     classes: classes_ = {},
     className,
@@ -551,9 +571,11 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
 
   const [value, setValue] = React.useState((valueDefault !== undefined ? valueDefault : value_) || '');
   const [focus, setFocus] = React.useState(focus_);
+  const [mouseDown, setMouseDown] = React.useState(false);
   const [hover, setHover] = React.useState(false);
   const [row, setRow] = React.useState(rowValue);
   const [rows, setRows] = React.useState<any>(1);
+
   const refs = {
     input: React.useRef<HTMLInputElement>()
   };
@@ -565,6 +587,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
   const styles: any = {
     root: {},
     input: {},
+    inputWrapper: {},
     background: {
       color: theme.palette.text.default.secondary
     }
@@ -575,8 +598,12 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
 
     htmlObserver.observe(window.document.documentElement, { attributes: true, attributeFilter: ['style'] });
 
+    window.addEventListener('mouseup', onInputWrapperMouseUp as any);
+
     return () => {
       // Clean up
+      window.removeEventListener('mouseup', onInputWrapperMouseUp as any);
+
       htmlObserver.disconnect();
     };
   }, []);
@@ -605,9 +632,9 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
       // Revert back to previous value
       refs.input.current.style.height = heightValue;
 
-      const rows_ = Math.floor((scrollHeight - row.padding) / row.height);
+      const newRows = Math.floor(scrollHeight / row.height);
 
-      setRows(rows_);
+      setRows(newRows);
     }
 
     if (!disabled && inputValue !== value) {
@@ -619,6 +646,26 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
       }
     }
   };
+
+  const onInputWrapperMouseDown = React.useCallback((event: React.MouseEvent<any>) => {
+    if (!disabled) {
+      setMouseDown(true);
+    }
+  }, []);
+
+  const onInputWrapperMouseUp = React.useCallback((event: React.MouseEvent<any>) => {
+    if (!disabled) {
+      setMouseDown(false);
+    }
+  }, []);
+
+  const onInputWrapperClick = React.useCallback((event: React.MouseEvent<any>) => {
+    if (!disabled) {
+      if (event.target === event.currentTarget) refs.input.current?.focus();
+
+      if (is('function', InputWrapperProps?.onClick)) InputWrapperProps.onClick(event);
+    }
+  }, []);
 
   const onFocus = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
     if (!disabled && focus_ === undefined) {
@@ -696,10 +743,18 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
     type = undefined;
 
     if (row) {
-      if (rows_) styles.input.height = (rows_ * row.height) + row.padding;
-      else styles.input.height = (row.height * clamp(rows, minRows, maxRows)) + row.padding;
+      if (rows_) {
+        styles.input.height = (rows_ * row.height);
+        styles.inputWrapper.height = (rows_ * row.height) + row.padding;
+      }
+      else {
+        styles.input.height = (row.height * clamp(rows, minRows, maxRows));
+        styles.inputWrapper.height = (row.height * clamp(rows, minRows, maxRows)) + row.padding;
+      }
     }
   }
+
+  if (mouseDown) refs.input.current.focus();
 
   return (
     <Wrapper
@@ -874,43 +929,65 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
           </span>
         )}
 
-        <label
+        {prefix !== undefined && (
+          <Type
+            className={classNames([
+              staticClassName('TextField', theme) && [
+                'AmauiTextField-addition',
+                'AmauiTextField-prefix',
+                `AmauiTextField-version-${version}`,
+                `AmauiTextField-size-${size}`,
+                (enabled || value || focus) && 'AmauiTextField-focus',
+                noPrefixMargin && 'AmauiTextField-prefix-no-margin'
+              ],
+
+              classes.addition,
+              classes.prefix,
+              (startIcon || version === 'text') && classes.prefix_noStartMargin,
+              classes[`addition_size_${size}`],
+              classes[`addition_version_${version}_size_${size}`],
+              (enabled || value || focus) && classes.prefix_focus,
+              noPrefixMargin && classes.noPrefixMargin
+            ])}
+
+            version='b2'
+          >
+            {prefix}
+          </Type>
+        )}
+
+        <div
+          {...InputWrapperProps}
+
           className={classNames([
             staticClassName('TextField', theme) && [
               'AmauiTextField-inputWrapper',
+              `AmauiTextField-version-${version}`,
+              `AmauiTextField-size-${size}`,
+              value && 'AmauiTextField-value',
               focus && 'AmauiTextField-focus',
-              value && 'AmauiTextField-value'
+              (prefix || startIcon) && `AmauiTextField-icon-start`,
+              (sufix || endIcon) && `AmauiTextField-icon-end`
             ],
 
             classes.inputWrapper,
+            InputWrapperProps?.className,
             (enabled || label === undefined || value || focus) && classes.inputWrapper_focus,
+            classes[`input_version_${version}`],
+            classes[`input_size_${size}`],
+            classes[`input_version_${version}_size_${size}`],
+            (prefix || startIcon) && classes.input_start_icon,
+            (sufix || endIcon) && classes.input_end_icon
           ])}
+
+          onClick={onInputWrapperClick}
+
+          onMouseUp={onInputWrapperMouseUp}
+
+          onMouseDown={onInputWrapperMouseDown}
+
+          style={styles.inputWrapper}
         >
-          {prefix !== undefined && (
-            <Type
-              className={classNames([
-                staticClassName('TextField', theme) && [
-                  'AmauiTextField-addition',
-                  'AmauiTextField-prefix',
-                  `AmauiTextField-version-${version}`,
-                  `AmauiTextField-size-${size}`,
-                  noPrefixMargin && 'AmauiTextField-prefix-no-margin'
-                ],
-
-                classes.addition,
-                classes.prefix,
-                (startIcon || version === 'text') && classes.prefix_noStartMargin,
-                classes[`addition_size_${size}`],
-                classes[`addition_version_${version}_size_${size}`],
-                noPrefixMargin && classes.noPrefixMargin
-              ])}
-
-              version='b2'
-            >
-              {prefix}
-            </Type>
-          )}
-
           {children}
 
           <InputComponent
@@ -921,6 +998,20 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
             }}
 
             {...inputProps}
+
+            className={classNames([
+              staticClassName('TextField', theme) && [
+                'AmauiTextField-input',
+                multiline && 'AmauiTextField-multiline',
+                value && 'AmauiTextField-value',
+                align && `AmauiTextField-align-${align}`
+              ],
+
+              classes.input,
+              inputProps?.className,
+              multiline && classes.multiline,
+              align && classes[`input_align_${align}`]
+            ])}
 
             onFocus={onFocus}
 
@@ -945,56 +1036,35 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
             disabled={disabled}
 
             style={styles.input}
+          />
+        </div>
 
+        {sufix !== undefined && (
+          <Type
             className={classNames([
               staticClassName('TextField', theme) && [
-                'AmauiTextField-input',
+                'AmauiTextField-addition',
+                'AmauiTextField-sufix',
                 `AmauiTextField-version-${version}`,
                 `AmauiTextField-size-${size}`,
-                focus && 'AmauiTextField-focus',
-                value && 'AmauiTextField-value',
-                align && `AmauiTextField-align-${align}`,
-                (prefix || startIcon) && `AmauiTextField-icon-start`,
-                (sufix || endIcon) && `AmauiTextField-icon-end`
+                (enabled || value || focus) && 'AmauiTextField-focus',
+                noPrefixMargin && 'AmauiTextField-sufix-no-margin'
               ],
 
-              classes.input,
-              inputProps?.className,
-              classes[`input_version_${version}`],
-              classes[`input_size_${size}`],
-              classes[`input_version_${version}_size_${size}`],
-              multiline && classes.multiline,
-              align && classes[`input_align_${align}`],
-              (prefix || startIcon) && classes.input_start_icon,
-              (sufix || endIcon) && classes.input_end_icon
+              classes.addition,
+              classes.sufix,
+              (endIcon || version === 'text') && classes.sufix_noEndMargin,
+              classes[`addition_size_${size}`],
+              classes[`addition_version_${version}_size_${size}`],
+              (enabled || value || focus) && classes.sufix_focus,
+              noSufixMargin && classes.noSufixMargin
             ])}
-          />
 
-          {sufix !== undefined && (
-            <Type
-              className={classNames([
-                staticClassName('TextField', theme) && [
-                  'AmauiTextField-addition',
-                  'AmauiTextField-sufix',
-                  `AmauiTextField-version-${version}`,
-                  `AmauiTextField-size-${size}`,
-                  noPrefixMargin && 'AmauiTextField-sufix-no-margin'
-                ],
-
-                classes.addition,
-                classes.sufix,
-                (endIcon || version === 'text') && classes.sufix_noEndMargin,
-                classes[`addition_size_${size}`],
-                classes[`addition_version_${version}_size_${size}`],
-                noSufixMargin && classes.noSufixMargin
-              ])}
-
-              version='b2'
-            >
-              {sufix}
-            </Type>
-          )}
-        </label>
+            version='b2'
+          >
+            {sufix}
+          </Type>
+        )}
 
         {endIcon && (
           <span

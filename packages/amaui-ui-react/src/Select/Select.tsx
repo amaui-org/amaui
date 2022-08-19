@@ -26,6 +26,10 @@ const useStyle = style(theme => ({
     flex: 'unset'
   },
 
+  inputWrapper: {
+    cursor: 'pointer !important'
+  },
+
   input: {
     width: '100%',
     margin: 0,
@@ -40,61 +44,6 @@ const useStyle = style(theme => ({
     cursor: 'pointer'
   },
 
-  input_align_start: {
-    textAlign: 'start'
-  },
-
-  input_align_end: {
-    textAlign: 'end'
-  },
-
-  input_size_small: {
-    height: '48px',
-    padding: '7px 16px',
-    paddingTop: '21px'
-  },
-
-  input_size_regular: {
-    height: '56px',
-    padding: '11px 16px',
-    paddingTop: '25px'
-  },
-
-  input_size_large: {
-    height: '64px',
-    padding: '16px 16px',
-    paddingTop: '28px'
-  },
-
-  input_version_text: {
-    '&:not($input_start_icon)': {
-      paddingInline: 0
-    }
-  },
-
-  input_start_icon: {
-    paddingInlineStart: 0
-  },
-
-  input_end_icon: {
-    paddingInlineEnd: 0
-  },
-
-  input_version_outlined_size_small: {
-    paddingTop: '14px',
-    paddingBottom: '14px'
-  },
-
-  input_version_outlined_size_regular: {
-    paddingTop: '18px',
-    paddingBottom: '18px'
-  },
-
-  input_version_outlined_size_large: {
-    paddingTop: '22px',
-    paddingBottom: '22px'
-  },
-
   input_: {
     position: 'absolute',
     left: 0,
@@ -104,18 +53,18 @@ const useStyle = style(theme => ({
   },
 
   chip: {
-    height: 'unset'
+    height: 'unset !important'
   },
 
-  input_chip_size_small: {
+  inputWrapper_chip_size_small: {
     minHeight: '48px'
   },
 
-  input_chip_size_regular: {
+  inputWrapper_chip_size_regular: {
     minHeight: '56px'
   },
 
-  input_chip_size_large: {
+  inputWrapper_chip_size_large: {
     minHeight: '64px'
   },
 
@@ -136,11 +85,15 @@ const useStyle = style(theme => ({
   },
 
   open: {
-    cursor: 'default'
+    cursor: 'default !important'
+  },
+
+  readOnly: {
+    cursor: 'default !important'
   },
 
   disabled: {
-    cursor: 'default'
+    cursor: 'default !important'
   }
 }), { name: 'AmauiSelect' });
 
@@ -237,15 +190,15 @@ const Select = React.forwardRef((props_: any, ref: any) => {
   }, [value_]);
 
   const onFocus = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
-    if (!disabled) setFocus(true);
+    if (!disabled && !readOnly) setFocus(true);
   }, []);
 
   const onBlur = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
-    if (!disabled) setFocus(false);
+    if (!disabled && !readOnly) setFocus(false);
   }, []);
 
   const onClick = React.useCallback((event: React.MouseEvent) => {
-    if (event.target === refs.input.current && !disabled && !readOnly) setOpen(open => {
+    if (!disabled && !readOnly) setOpen(open => {
       if (open) setFocus(false);
 
       return !open;
@@ -265,7 +218,7 @@ const Select = React.forwardRef((props_: any, ref: any) => {
   }, []);
 
   const onClose = React.useCallback((refocus = true) => {
-    if (!disabled) {
+    if (!disabled && !readOnly) {
       setOpen(open => {
         if (open && refocus) refs.input.current.focus();
 
@@ -411,6 +364,23 @@ const Select = React.forwardRef((props_: any, ref: any) => {
     </Menu>
   ));
 
+  const endIcons = [
+    endIcon,
+
+    ...(!readOnly ? [
+      <IconButton
+        onClick={onClickArrowDown}
+      >
+        <IconMaterialArrowDropDownRounded
+          className={classNames([
+            classes.arrow,
+            open && classes.arrow_open
+          ])}
+        />
+      </IconButton>
+    ] : [])
+  ];
+
   return (
     <TextField
       rootRef={item => {
@@ -426,19 +396,13 @@ const Select = React.forwardRef((props_: any, ref: any) => {
       className={classNames([
         staticClassName('Select', theme) && [
           'AmauiSelect-root',
-          `AmauiSelect-version-${version}`,
-          `AmauiSelect-size-${size}`,
-          (prefix || startIcon) && `AmauiSelect-icon-start`,
-          (sufix || endIcon) && `AmauiSelect-icon-end`,
           open && `AmauiSelect-open`,
           disabled && `AmauiSelect-disabled`
         ],
 
-        classes.root,
         className,
+        classes.root,
         open && classes.open,
-        (prefix || startIcon) && classes.input_start_icon,
-        (sufix || endIcon) && classes.input_end_icon,
         disabled && classes.disabled
       ])}
 
@@ -456,26 +420,42 @@ const Select = React.forwardRef((props_: any, ref: any) => {
 
       startIcon={startIcon}
 
-      endIcon={[
-        endIcon,
-
-        <IconButton
-          onClick={onClickArrowDown}
-        >
-          <IconMaterialArrowDropDownRounded
-            className={classNames([
-              classes.arrow,
-              open && classes.arrow_open
-            ])}
-          />
-        </IconButton>
-      ]}
+      endIcon={endIcons}
 
       readOnly={readOnly}
 
       endIconVerticalAlign='center'
 
       disabled={disabled}
+
+      InputWrapperProps={{
+        ref: refs.input,
+
+        className: classNames([
+          staticClassName('Select', theme) && [
+            'AmauiSelect-inputWrapper',
+            `AmauiSelect-size-${size}`,
+            chip && `AmauiSelect-chip`,
+            open && `AmauiSelect-open`,
+            readOnly && `AmauiSelect-readOnly`
+          ],
+
+          classes.inputWrapper,
+          chip && [
+            classes.chip,
+            classes[`inputWrapper_chip_size_${size}`]
+          ],
+          open && classes.open,
+          readOnly && classes.readOnly
+        ]),
+
+        tabIndex: 0,
+
+        onFocus,
+        onBlur,
+        onClick,
+        onKeyDown: onEnterKeyDown
+      }}
 
       inputProps={{
         className: classNames([
@@ -498,38 +478,18 @@ const Select = React.forwardRef((props_: any, ref: any) => {
       {...other}
     >
       <div
-        ref={refs.input}
-
-        tabIndex={0}
-
-        onFocus={onFocus}
-
-        onBlur={onBlur}
-
-        onClick={onClick}
-
-        onKeyDown={onEnterKeyDown}
-
         className={classNames([
           staticClassName('Select', theme) && [
             'AmauiSelect-input',
-            `AmauiSelect-version-${version}`,
-            `AmauiSelect-size-${size}`,
-            (prefix || startIcon) && `AmauiSelect-icon-start`,
-            (sufix || endIcon) && `AmauiSelect-icon-end`,
             chip && `AmauiSelect-chip`,
-            open && `AmauiSelect-open`
+            open && `AmauiSelect-open`,
+            readOnly && `AmauiSelect-readOnly`
           ],
 
           classes.input,
-          classes[`input_version_${version}`],
-          classes[`input_size_${size}`],
-          classes[`input_chip_size_${size}`],
-          classes[`input_version_${version}_size_${size}`],
-          (prefix || startIcon) && classes.input_start_icon,
-          (sufix || endIcon) && classes.input_end_icon,
           chip && classes.chip,
-          open && classes.open
+          open && classes.open,
+          readOnly && classes.readOnly
         ])}
       >
         {renderValues()}

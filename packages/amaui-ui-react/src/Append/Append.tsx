@@ -11,11 +11,11 @@ const Append = (props_: any) => {
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiAppend?.props?.default }), [props_]);
 
   const [init, setInit] = React.useState(false);
-  const [values, setValues] = React.useState({
-    position: props.position,
+  const [values, setValues] = React.useState<any>({
     x: 0,
     y: 0,
-    switch: false
+    switch: false,
+    init: true
   });
 
   const refs = {
@@ -63,9 +63,6 @@ const Append = (props_: any) => {
 
   React.useEffect(() => {
     make();
-
-    // Bug
-    if (switch_) setTimeout(() => make());
 
     // Scroll
     window.addEventListener('scroll', onScroll, true);
@@ -194,7 +191,7 @@ const Append = (props_: any) => {
     const rootBottom = portal ? rect.root.bottom : rectOffset.root.y + rect.root.height;
     const rootRight = portal ? rect.root.right : rectOffset.root.x + rect.root.width;
 
-    const parent = (portal ? window.document.body : refs.root.current.parentElement)?.getBoundingClientRect();
+    const parent_ = (portal ? window.document.body : refs.root.current?.parentElement)?.getBoundingClientRect();
 
     if (theme.direction === 'rtl' && ['top', 'bottom'].includes(position)) {
       if (alignment === 'start') alignment = 'end';
@@ -210,9 +207,9 @@ const Append = (props_: any) => {
       if (alignment === 'end') values_.x = rootX + rect.root.width - rect.element.width;
 
       if (position === 'top') {
-        values_.y = rootBottom - parent.height - offset[1] - rect.root.height;
+        values_.y = rootBottom - (parent_.height || 0) - offset[1] - rect.root.height;
 
-        if (inset) values_.y = rootBottom - parent.height - rect.root.height + rect.element.height + offset[1];
+        if (inset) values_.y = rootBottom - (parent_.height || 0) - rect.root.height + rect.element.height + offset[1];
       }
       else {
         values_.y = rootY + offset[1] + rect.root.height;
@@ -230,9 +227,9 @@ const Append = (props_: any) => {
       if (alignment === 'end') values_.y = rootY + rect.root.height - rect.element.height;
 
       if (position === 'left') {
-        values_.x = rootRight - parent.width - offset[0] - rect.root.width;
+        values_.x = rootRight - (parent_.width || 0) - offset[0] - rect.root.width;
 
-        if (inset) values_.x = rootRight - parent.width - rect.root.width + rect.element.width + offset[0];
+        if (inset) values_.x = rootRight - (parent_.width || 0) - rect.root.width + rect.element.width + offset[0];
       }
       else {
         values_.x = rootX + offset[0] + rect.root.width;
@@ -449,21 +446,19 @@ const Append = (props_: any) => {
 
     // Switch
     if (switch_ && !value.switch) {
-      // Calculate new boundingRectClient x and y
-      // and see if switch needs to happen if yes make methods value y
       let newPosition = position;
 
       const rectValue: any = {
         element: {}
       };
 
-      rectValue.element.x = rect.element.x + values_.x - refs.values.current.x;
+      if (position_ === 'top') rectValue.element.y = rect.root.y - offset[1] - rect.element.height;
 
-      rectValue.element.y = rect.element.y + values_.y - refs.values.current.y;
+      if (position_ === 'bottom') rectValue.element.y = rect.root.y + rect.root.height + offset[1];
 
-      if (refs.values.current.position === 'top') rectValue.element.y = rect.element.y + values_.y - (parent.height + refs.values.current.y - rect.element.height);
+      if (position_ === 'left') rectValue.element.x = rect.root.x - offset[0] - rect.element.width;
 
-      if (refs.values.current.position === 'left') rectValue.element.x = rect.element.x + values_.x - (parent.width + refs.values.current.x - rect.element.width);
+      if (position_ === 'right') rectValue.element.x = rect.root.x + rect.root.width + offset[0];
 
       const update_ = scrollableParents.some(parent => {
         const rectParent = parent.getBoundingClientRect();
@@ -500,9 +495,9 @@ const Append = (props_: any) => {
     }
 
     // Update
-    setValues({ position: value.position, switch: switched, ...values_ });
+    setValues({ position: value.position, switch: switched, init: false, ...values_ });
 
-    refs.values.current = { position, switch: switched, ...values_ };
+    refs.values.current = { position, switch: switched, init: false, ...values_ };
   };
 
   let style: React.CSSProperties = {};

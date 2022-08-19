@@ -899,19 +899,9 @@ function App() {
                 version='text'
 
                 color='secondary'
-              >
-                {[1, 3, 4].map(item => (
-                  <ListItem
-                    button
 
-                    primary={`Item ${item}`}
-
-                    value={item}
-
-                    key={item}
-                  />
-                ))}
-              </AutoComplete>
+                options={countries.map(item => ({ label: item.name }))}
+              />
 
               <AutoComplete
                 size='regular'
@@ -921,19 +911,9 @@ function App() {
                 version='filled'
 
                 color='secondary'
-              >
-                {[1, 3, 4].map(item => (
-                  <ListItem
-                    button
 
-                    primary={`Item ${item}`}
-
-                    value={item}
-
-                    key={item}
-                  />
-                ))}
-              </AutoComplete>
+                options={countries.map(item => ({ label: item.name }))}
+              />
 
               <AutoComplete
                 size='regular'
@@ -943,19 +923,9 @@ function App() {
                 version='outlined'
 
                 color='secondary'
-              >
-                {[1, 3, 4].map(item => (
-                  <ListItem
-                    button
 
-                    primary={`Item ${item}`}
-
-                    value={item}
-
-                    key={item}
-                  />
-                ))}
-              </AutoComplete>
+                options={countries.map(item => ({ label: item.name }))}
+              />
             </div>
           </Accordion>
 
@@ -969,19 +939,9 @@ function App() {
                 version='text'
 
                 color='secondary'
-              >
-                {[1, 3, 4].map(item => (
-                  <ListItem
-                    button
 
-                    primary={`Item ${item}`}
-
-                    value={item}
-
-                    key={item}
-                  />
-                ))}
-              </AutoComplete>
+                options={countries.map(item => ({ label: item.name }))}
+              />
 
               <AutoComplete
                 size='large'
@@ -991,19 +951,9 @@ function App() {
                 version='filled'
 
                 color='secondary'
-              >
-                {[1, 3, 4].map(item => (
-                  <ListItem
-                    button
 
-                    primary={`Item ${item}`}
-
-                    value={item}
-
-                    key={item}
-                  />
-                ))}
-              </AutoComplete>
+                options={countries.map(item => ({ label: item.name }))}
+              />
 
               <AutoComplete
                 size='large'
@@ -1013,46 +963,26 @@ function App() {
                 version='outlined'
 
                 color='secondary'
-              >
-                {[1, 3, 4].map(item => (
-                  <ListItem
-                    button
 
-                    primary={`Item ${item}`}
-
-                    value={item}
-
-                    key={item}
-                  />
-                ))}
-              </AutoComplete>
+                options={countries.map(item => ({ label: item.name }))}
+              />
             </div>
           </Accordion>
         </Accordion>
 
-        <Accordion label='AutoComplete helper text' open>
+        <Accordion label='AutoComplete helper text' >
           <AutoComplete
             label='Items'
 
             helperText='It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more of it.'
 
             color='secondary'
-          >
-            {[1, 3, 4].map(item => (
-              <ListItem
-                button
 
-                primary={`Item ${item}`}
-
-                value={item}
-
-                key={item}
-              />
-            ))}
-          </AutoComplete>
+            options={countries.map(item => ({ label: item.name }))}
+          />
         </Accordion>
 
-        <Accordion label='AutoComplete with start and end icons' open>
+        <Accordion label='AutoComplete with start and end icons' >
           <AutoComplete
             label='Items'
 
@@ -1063,19 +993,9 @@ function App() {
             endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>}
 
             color='secondary'
-          >
-            {[1, 3, 4].map(item => (
-              <ListItem
-                button
 
-                primary={`Item ${item}`}
-
-                value={item}
-
-                key={item}
-              />
-            ))}
-          </AutoComplete>
+            options={countries.map(item => ({ label: item.name }))}
+          />
 
           <AutoComplete
             label='Items'
@@ -1087,19 +1007,9 @@ function App() {
             endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>}
 
             color='secondary'
-          >
-            {[1, 3, 4].map(item => (
-              <ListItem
-                button
 
-                primary={`Item ${item}`}
-
-                value={item}
-
-                key={item}
-              />
-            ))}
-          </AutoComplete>
+            options={countries.map(item => ({ label: item.name }))}
+          />
 
           <AutoComplete
             label='Items'
@@ -1111,22 +1021,12 @@ function App() {
             endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>}
 
             color='secondary'
-          >
-            {[1, 3, 4].map(item => (
-              <ListItem
-                button
 
-                primary={`Item ${item}`}
-
-                value={item}
-
-                key={item}
-              />
-            ))}
-          </AutoComplete>
+            options={countries.map(item => ({ label: item.name }))}
+          />
         </Accordion>
 
-        <Accordion label='AutoComplete with prefix and sufix' open>
+        <Accordion label='AutoComplete with prefix and sufix' >
           <AutoComplete
             label='Items'
 
@@ -1137,19 +1037,9 @@ function App() {
             sufix='lbs'
 
             color='secondary'
-          >
-            {[1, 3, 4].map(item => (
-              <ListItem
-                button
 
-                primary={`Item ${item}`}
-
-                value={item}
-
-                key={item}
-              />
-            ))}
-          </AutoComplete>
+            options={countries.map(item => ({ label: item.name }))}
+          />
 
           <AutoComplete
             label='Items'
@@ -1161,19 +1051,9 @@ function App() {
             sufix='lbs'
 
             color='secondary'
-          >
-            {[1, 3, 4].map(item => (
-              <ListItem
-                button
 
-                primary={`Item ${item}`}
-
-                value={item}
-
-                key={item}
-              />
-            ))}
-          </AutoComplete>
+            options={countries.map(item => ({ label: item.name }))}
+          />
 
           <AutoComplete
             label='Items'
@@ -1185,22 +1065,12 @@ function App() {
             sufix='lbs'
 
             color='secondary'
-          >
-            {[1, 3, 4].map(item => (
-              <ListItem
-                button
 
-                primary={`Item ${item}`}
-
-                value={item}
-
-                key={item}
-              />
-            ))}
-          </AutoComplete>
+            options={countries.map(item => ({ label: item.name }))}
+          />
         </Accordion>
 
-        <Accordion label='AutoComplete readOnly' open>
+        <Accordion label='AutoComplete readOnly' >
           <AutoComplete
             label='Items'
 
@@ -1209,22 +1079,12 @@ function App() {
             color='secondary'
 
             readOnly
-          >
-            {[1, 3, 4].map(item => (
-              <ListItem
-                button
 
-                primary={`Item ${item}`}
-
-                value={item}
-
-                key={item}
-              />
-            ))}
-          </AutoComplete>
+            options={countries.map(item => ({ label: item.name }))}
+          />
         </Accordion>
 
-        <Accordion label='AutoComplete disabled' open>
+        <Accordion label='AutoComplete disabled' >
           <AutoComplete
             label='Items'
 
@@ -1233,22 +1093,34 @@ function App() {
             color='secondary'
 
             disabled
-          >
-            {[1, 3, 4].map(item => (
-              <ListItem
-                button
 
-                primary={`Item ${item}`}
-
-                value={item}
-
-                key={item}
-              />
-            ))}
-          </AutoComplete>
+            options={countries.map(item => ({ label: item.name }))}
+          />
         </Accordion>
 
-        <Accordion label='AmauiTheme' open>
+        <Accordion label='AutoComplete countries' >
+          <AutoComplete
+            label='Items'
+
+            options={countries.map(item => ({ label: item.name, flag: item.flag }))}
+
+            renderOption={(item: any, index: number, props: any) => (
+              <ListItem
+                key={index}
+
+                start={item.flag}
+
+                startAlign='center'
+
+                {...props}
+              />
+            )}
+
+            color='secondary'
+          />
+        </Accordion>
+
+        <Accordion label='AmauiTheme' >
           <div
             className={classNames([classes.column])}
 
