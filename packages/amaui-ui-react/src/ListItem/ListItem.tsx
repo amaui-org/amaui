@@ -338,6 +338,9 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
     include,
     tabIndex,
     menuCloseOnClick,
+    onMouseEnter: onMouseEnter_,
+    onMouseLeave: onMouseLeave_,
+    onClose: onClose_,
     disabled,
 
     Component = 'li',
@@ -386,10 +389,14 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
 
   const onMouseEnter = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
     if (!disabled) setHover(true);
+
+    if (is('function', onMouseEnter_)) onMouseEnter_(event);
   }, []);
 
   const onMouseLeave = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
     if (!disabled) setHover(false);
+
+    if (is('function', onMouseLeave_)) onMouseLeave_(event);
   }, []);
 
   const onFocus = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
@@ -401,7 +408,13 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
   }, []);
 
   const onClose = React.useCallback(() => {
-    if (!disabled) setOpen(false);
+    if (!disabled) {
+      setOpen(false);
+      setHover(false);
+      setFocus(false);
+
+      if (is('function', onClose_)) onClose_();
+    }
   }, []);
 
   if (href) RootComponent = 'a';
@@ -430,7 +443,11 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
 
   return (
     <Component
-      ref={ref}
+      ref={item => {
+        if (ref) ref.current = item;
+
+        refs.root.current = item;
+      }}
 
       tabIndex={tabIndex !== undefined ? tabIndex : (button && !disabled) ? 0 : -1}
 
@@ -460,8 +477,6 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
       {...other}
     >
       <RootComponent
-        ref={refs.root}
-
         href={href}
 
         className={classNames([
@@ -499,7 +514,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
         {(href || button) && (
           <Interaction
             border={false}
-            pulse={focus}
+            background={(!preselected && focus) || undefined}
             preselected={preselected || undefined}
             selected={open || selected}
 
@@ -678,24 +693,10 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
 
           {...MenuProps}
         >
-          <List
-            menu
-
-            {...MenuListProps}
-          >
-            {React.Children.toArray(menu).map((item: any) => (
-              React.cloneElement(item, {
-                onClick: (event: React.MouseEvent<any>) => {
-                  if (is('function', item.props?.onClick)) item.props?.onClick(event);
-
-                  if (item.props?.menuCloseOnClick) setOpen(false);
-                }
-              })
-            ))}
-          </List>
+          {menu}
         </Menu>
       )}
-    </Component>
+    </Component >
   );
 });
 

@@ -30,6 +30,18 @@ const useStyle = style(theme => ({
     cursor: 'pointer !important'
   },
 
+  inputWrapper_chip_size_small: {
+    minHeight: '48px'
+  },
+
+  inputWrapper_chip_size_regular: {
+    minHeight: '56px'
+  },
+
+  inputWrapper_chip_size_large: {
+    minHeight: '64px'
+  },
+
   input: {
     width: '100%',
     margin: 0,
@@ -54,18 +66,6 @@ const useStyle = style(theme => ({
 
   chip: {
     height: 'unset !important'
-  },
-
-  inputWrapper_chip_size_small: {
-    minHeight: '48px'
-  },
-
-  inputWrapper_chip_size_regular: {
-    minHeight: '56px'
-  },
-
-  inputWrapper_chip_size_large: {
-    minHeight: '64px'
   },
 
   chipGroup: {

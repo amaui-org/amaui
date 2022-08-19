@@ -7,10 +7,18 @@ import { staticClassName } from '../utils';
 
 import Tooltip from '../Tooltip';
 import ClickListener from '../ClickListener';
+import List from '../List';
 
 const useStyle = style(theme => ({
   root: {},
 }), { name: 'AmauiMenu' });
+
+// To do
+
+// If menu open
+// on arrow up, down, End or Home
+// setHovered based on current one
+// only out of available ones that are button or href and not disabled
 
 const Menu = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
@@ -25,8 +33,10 @@ const Menu = React.forwardRef((props_: any, ref: any) => {
     closeOnClickAway = true,
     include,
 
+    ListProps = {},
     ModalProps = {},
 
+    onOpen: onOpen_,
     onClose: onClose_,
 
     className,
@@ -35,6 +45,8 @@ const Menu = React.forwardRef((props_: any, ref: any) => {
 
     ...other
   } = props;
+
+  const [hovered, setHovered] = React.useState(undefined);
 
   const { classes } = useStyle(props);
 
@@ -57,7 +69,13 @@ const Menu = React.forwardRef((props_: any, ref: any) => {
     };
   }, [open]);
 
+  const onOpen = React.useCallback(() => {
+    if (is('function', onOpen_)) onOpen_();
+  }, []);
+
   const onClose = React.useCallback(() => {
+    setHovered(undefined);
+
     if (is('function', onClose_)) onClose_();
   }, []);
 
@@ -96,7 +114,50 @@ const Menu = React.forwardRef((props_: any, ref: any) => {
         anchorElement={anchorElement}
 
         label={children && (
-          React.cloneElement(children, { include: refs.include.current })
+          <List
+            menu
+
+            include={refs.include.current}
+
+            {...ListProps}
+          >
+            {React.Children.toArray(children).map((item: any, index: number) => (
+              React.cloneElement(item, {
+                key: index,
+
+                onClose,
+
+                // Only if button or href value
+                ...(((item.props?.button || item.props?.href) && !item.props.disabled) ? {
+                  onMouseEnter: () => {
+                    setHovered(index);
+                  },
+
+                  onMouseLeave: () => {
+                    setHovered(undefined);
+                  },
+
+                  preselected: index === hovered,
+
+                  onClick: (event: React.MouseEvent<any>) => {
+                    if (is('function', item.props?.onClick)) item.props?.onClick(event);
+
+                    if (item.props?.menuCloseOnClick) onClose();
+                  },
+
+                  onKeyDown: (event: React.KeyboardEvent<any>) => {
+                    if (event.key === 'Enter') {
+                      if (is('function', item.props?.onClick)) item.props?.onClick();
+
+                      if (is('function', item.props?.onKeyDown)) item.props?.onKeyDown(event);
+
+                      if (item.props?.menuCloseOnClick) onClose();
+                    }
+                  }
+                } : {})
+              })
+            ))}
+          </List>
         )}
 
         arrow={arrow}

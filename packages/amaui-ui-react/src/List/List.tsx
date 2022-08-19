@@ -200,8 +200,10 @@ const List = React.forwardRef((props_: any, ref: any) => {
         ...styles.root
       }}
     >
-      {React.Children.toArray(children).map((item: any) => React.cloneElement(item, {
+      {React.Children.toArray(children).map((item: any, index: number) => React.cloneElement(item, {
         ...(['AmauiListItem'].includes(item.type?.displayName) ? {
+          key: index,
+
           menuItem: menu,
 
           color,

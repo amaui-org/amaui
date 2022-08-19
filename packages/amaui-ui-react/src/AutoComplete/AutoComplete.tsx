@@ -37,63 +37,19 @@ const useStyle = style(theme => ({
     textAlign: 'start',
     borderRadius: `${theme.shape.radius.unit / 2}px ${theme.shape.radius.unit / 2}px 0 0`,
     ...theme.typography.values.b2,
-    ...overflow,
-    cursor: 'pointer'
+    ...overflow
   },
 
-  input_align_start: {
-    textAlign: 'start'
+  inputWrapper_chip_size_small: {
+    minHeight: '48px'
   },
 
-  input_align_end: {
-    textAlign: 'end'
+  inputWrapper_chip_size_regular: {
+    minHeight: '56px'
   },
 
-  input_size_small: {
-    height: '48px',
-    padding: '7px 16px',
-    paddingTop: '21px'
-  },
-
-  input_size_regular: {
-    height: '56px',
-    padding: '11px 16px',
-    paddingTop: '25px'
-  },
-
-  input_size_large: {
-    height: '64px',
-    padding: '16px 16px',
-    paddingTop: '28px'
-  },
-
-  input_version_text: {
-    '&:not($input_start_icon)': {
-      paddingInline: 0
-    }
-  },
-
-  input_start_icon: {
-    paddingInlineStart: 0
-  },
-
-  input_end_icon: {
-    paddingInlineEnd: 0
-  },
-
-  input_version_outlined_size_small: {
-    paddingTop: '14px',
-    paddingBottom: '14px'
-  },
-
-  input_version_outlined_size_regular: {
-    paddingTop: '18px',
-    paddingBottom: '18px'
-  },
-
-  input_version_outlined_size_large: {
-    paddingTop: '22px',
-    paddingBottom: '22px'
+  inputWrapper_chip_size_large: {
+    minHeight: '64px'
   },
 
   input_: {
@@ -105,19 +61,7 @@ const useStyle = style(theme => ({
   },
 
   chip: {
-    height: 'unset'
-  },
-
-  input_chip_size_small: {
-    minHeight: '48px'
-  },
-
-  input_chip_size_regular: {
-    minHeight: '56px'
-  },
-
-  input_chip_size_large: {
-    minHeight: '64px'
+    height: 'unset !important'
   },
 
   chipGroup: {
@@ -136,8 +80,10 @@ const useStyle = style(theme => ({
     transform: 'rotate(180deg)'
   },
 
-  open: {
-    cursor: 'default'
+  open: {},
+
+  readOnly: {
+    cursor: 'default !important'
   },
 
   list: {
@@ -146,13 +92,12 @@ const useStyle = style(theme => ({
   },
 
   disabled: {
-    cursor: 'default'
+    cursor: 'default !important'
   }
 }), { name: 'AmauiAutoComplete' });
 
 // To do
 
-// selectOnFocus
 // clearOnBlur
 // autoSelect
 // blurOnSelect
@@ -169,6 +114,7 @@ const useStyle = style(theme => ({
 // onOpen
 // onClose
 // groupBy
+// selectOnFocus
 
 // Arrow down, home and end keys for focusing on an item
 // Arrow down moves from 1 to last item, and if last item is in focus, next focus the refs input value
@@ -238,7 +184,8 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
     filter,
     options: options_ = [],
     clear = true,
-
+    selectOnFocus,
+    clearOnBlur,
     disabled,
 
     IconClear = IconMaterialCloseRounded,
@@ -263,6 +210,7 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
   });
   const [focus, setFocus] = React.useState(false);
   const [open, setOpen] = React.useState(false);
+  const [mouseDown, setMouseDown] = React.useState(false);
   const [options, setOptions] = React.useState(options_);
 
   const { classes } = useStyle(props);
@@ -270,7 +218,7 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
   const refs = {
     root: React.useRef<any>(),
     value: React.useRef<any>(),
-    input: React.useRef<any>()
+    input: React.useRef<HTMLInputElement>()
   };
 
   const styles: any = {
@@ -285,7 +233,12 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
 
     window.addEventListener('keydown', method);
 
+    window.addEventListener('mouseup', onInputWrapperMouseUp as any);
+
     return () => {
+      // Clean up
+      window.removeEventListener('mouseup', onInputWrapperMouseUp as any);
+
       window.removeEventListener('keydown', method);
     };
   }, []);
@@ -300,6 +253,12 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
     if (value_ !== undefined && value_ !== value) setValue(value_);
   }, [value_]);
 
+  React.useEffect(() => {
+    if (focus) {
+      if (!!(is('array', value) ? value.length : value) && selectOnFocus) setTimeout(() => refs.input.current.select());
+    }
+  }, [focus]);
+
   const updateOptions = (newValue: any = value, newOptions: any = undefined) => {
     let optionsValue = options_;
 
@@ -311,6 +270,14 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
     setOptions(optionsValue);
   };
 
+  const onInputWrapperMouseDown = React.useCallback((event: React.MouseEvent<any>) => {
+    if (!disabled) setMouseDown(true);
+  }, []);
+
+  const onInputWrapperMouseUp = React.useCallback((event: React.MouseEvent<any>) => {
+    if (!disabled) setMouseDown(false);
+  }, []);
+
   const onFocus = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
     if (!disabled) setFocus(true);
   }, []);
@@ -320,16 +287,24 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
   }, []);
 
   const onClick = React.useCallback((event: React.MouseEvent) => {
-    if ([refs.value.current, refs.input.current].includes(event.target) && !disabled && !readOnly) setOpen(open => !open);
+    if (!disabled && !readOnly) setOpen(open => {
+      if (!open) refs.input.current.focus();
+
+      return !open;
+    });
   }, []);
 
   const onClickArrowDown = React.useCallback((event: React.MouseEvent) => {
-    if (!disabled && !readOnly) setOpen(open => !open);
+    if (!disabled && !readOnly) setOpen(open => {
+      if (!open) refs.input.current.focus();
+
+      return !open;
+    });
   }, []);
 
   const onEnterKeyDown = React.useCallback((event: React.KeyboardEvent) => {
     if (event.key === 'Enter' && !disabled && !readOnly) setOpen(open => {
-      if (open) refs.value.current.focus();
+      if (!open) refs.input.current.focus();
 
       return !open;
     });
@@ -367,11 +342,11 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
     }
   }, []);
 
-  const onClear = React.useCallback(() => {
+  const onClear = React.useCallback((refocus = true) => {
     if (!disabled && !readOnly) {
       setValue('');
 
-      refs.input.current.focus();
+      if (refocus) refs.input.current.focus();
     }
   }, []);
 
@@ -539,6 +514,10 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
             other_.secondary = item.label;
           }
 
+          other_.onMouseUp = onInputWrapperMouseUp;
+
+          other_.onMouseDown = onInputWrapperMouseDown;
+
           return (
             is('function', renderOption) ?
               renderOption(item, index, { ...other_, ...item.props }) :
@@ -585,6 +564,8 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
     ] : [])
   ].filter(Boolean);
 
+  if (mouseDown) refs.input.current.focus();
+
   return (
     <TextField
       ref={refs.input}
@@ -603,27 +584,21 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
 
       onChange={onChangeValue}
 
-      enabled={open || !!(is('array', value) ? value.length : value) || undefined}
+      enabled={open || focus || !!(is('array', value) ? value.length : value) || undefined}
 
       focus={open || focus || undefined}
 
       className={
         classNames([
-          staticClassName('Select', theme) && [
-            'AmauiSelect-root',
-            `AmauiSelect-version-${version}`,
-            `AmauiSelect-size-${size}`,
-            (prefix || startIcon) && `AmauiSelect-icon-start`,
-            (sufix || endIcon) && `AmauiSelect-icon-end`,
-            open && `AmauiSelect-open`,
-            disabled && `AmauiSelect-disabled`
+          staticClassName('AutoComplete', theme) && [
+            'AmauiAutoComplete-root',
+            open && `AmauiAutoComplete-open`,
+            disabled && `AmauiAutoComplete-disabled`
           ],
 
           classes.root,
           className,
           open && classes.open,
-          multiple && (prefix || startIcon) && classes.input_start_icon,
-          multiple && (sufix || endIcon) && classes.input_end_icon,
           disabled && classes.disabled
         ])
       }
@@ -650,9 +625,34 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
 
       disabled={disabled}
 
-      inputProps={{
-        onClick,
+      InputWrapperProps={{
+        ref: refs.input,
 
+        className: classNames([
+          staticClassName('AutoComplete', theme) && [
+            'AmauiAutoComplete-inputWrapper',
+            `AmauiAutoComplete-size-${size}`,
+            chip && `AmauiAutoComplete-chip`,
+            open && `AmauiAutoComplete-open`,
+            readOnly && `AmauiAutoComplete-readOnly`
+          ],
+
+          classes.inputWrapper,
+          chip && [
+            classes.chip,
+            classes[`inputWrapper_chip_size_${size}`]
+          ],
+          open && classes.open,
+          readOnly && classes.readOnly
+        ]),
+
+        tabIndex: 0,
+
+        onClick,
+        onKeyDown: onEnterKeyDown
+      }}
+
+      inputProps={{
         className: classNames([
           multiple && classes.input_
         ]),
@@ -687,33 +687,28 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
           onKeyDown={onEnterKeyDown}
 
           className={classNames([
-            staticClassName('Select', theme) && [
-              'AmauiSelect-input',
-              `AmauiSelect-version-${version}`,
-              `AmauiSelect-size-${size}`,
-              (prefix || startIcon) && `AmauiSelect-icon-start`,
-              (sufix || endIcon) && `AmauiSelect-icon-end`,
-              chip && `AmauiSelect-chip`,
-              open && `AmauiSelect-open`
+            staticClassName('AutoComplete', theme) && [
+              'AmauiAutoComplete-input',
+
+              multiple && [
+                chip && `AmauiAutoComplete-chip`,
+                open && `AmauiAutoComplete-open`,
+                readOnly && `AmauiSelect-readOnly`
+              ],
             ],
 
             multiple && [
               classes.input,
-              classes[`input_version_${version}`],
-              classes[`input_size_${size}`],
-              classes[`input_chip_size_${size}`],
-              classes[`input_version_${version}_size_${size}`],
-              (prefix || startIcon) && classes.input_start_icon,
-              (sufix || endIcon) && classes.input_end_icon
+              chip && classes.chip,
+              open && classes.open,
+              readOnly && classes.readOnly
             ],
-            chip && classes.chip,
-            open && classes.open
           ])}
         >
           {renderValues()}
         </div>
       )}
-    </TextField >
+    </TextField>
   );
 });
 

@@ -444,7 +444,8 @@ function App() {
       4: React.useRef<any>(),
       5: React.useRef<any>(),
       7: React.useRef<any>(),
-      14: React.useRef<any>()
+      14: React.useRef<any>(),
+      114: React.useRef<any>()
     }
   };
 
@@ -613,6 +614,16 @@ function App() {
 
       <Accordion label='All'>
         <div className={classNames([classes.column])}>
+          <Accordion label='AutoComplete' open>
+            <AutoComplete
+              label='Items'
+
+              options={countries.map(item => ({ label: item.name }))}
+
+              color='secondary'
+            />
+          </Accordion>
+
           <Select
             label='Items'
 
@@ -809,6 +820,52 @@ function App() {
             label='Items'
 
             options={countries.map(item => ({ label: item.name }))}
+
+            color='secondary'
+          />
+        </Accordion>
+
+        <Accordion label='AutoComplete clearOnBlur' open>
+          <AutoComplete
+            label='Items'
+
+            options={countries.map(item => ({ label: item.name }))}
+
+            color='secondary'
+
+            clearOnBlur
+          />
+        </Accordion>
+
+        <Accordion label='AutoComplete selectOnFocus' open>
+          <AutoComplete
+            label='Items'
+
+            options={countries.map(item => ({ label: item.name }))}
+
+            color='secondary'
+
+            selectOnFocus
+          />
+        </Accordion>
+
+        <Accordion label='AutoComplete countries' >
+          <AutoComplete
+            label='Items'
+
+            options={countries.map(item => ({ label: item.name, flag: item.flag }))}
+
+            renderOption={(item: any, index: number, props: any) => (
+              <ListItem
+                key={index}
+
+                start={item.flag}
+
+                startAlign='center'
+
+                {...props}
+              />
+            )}
 
             color='secondary'
           />
@@ -1095,28 +1152,6 @@ function App() {
             disabled
 
             options={countries.map(item => ({ label: item.name }))}
-          />
-        </Accordion>
-
-        <Accordion label='AutoComplete countries' >
-          <AutoComplete
-            label='Items'
-
-            options={countries.map(item => ({ label: item.name, flag: item.flag }))}
-
-            renderOption={(item: any, index: number, props: any) => (
-              <ListItem
-                key={index}
-
-                start={item.flag}
-
-                startAlign='center'
-
-                {...props}
-              />
-            )}
-
-            color='secondary'
           />
         </Accordion>
 
@@ -2207,17 +2242,15 @@ function App() {
 
               anchorElement={refs.menu['1'].current}
             >
-              <List menu>
-                {[0, 1, 3, 4].map(item => (
-                  <ListItem
-                    button
+              {[0, 1, 3, 4].map(item => (
+                <ListItem
+                  button
 
-                    primary={`Item ${item + 1}`}
+                  primary={`Item ${item + 1}`}
 
-                    key={item}
-                  />
-                ))}
-              </List>
+                  key={item}
+                />
+              ))}
             </Menu>
           </div>
         </Accordion>
@@ -2249,17 +2282,15 @@ function App() {
 
               inset
             >
-              <List menu>
-                {[0, 1, 3, 4].map(item => (
-                  <ListItem
-                    button
+              {[0, 1, 3, 4].map(item => (
+                <ListItem
+                  button
 
-                    primary={`Item ${item + 1}`}
+                  primary={`Item ${item + 1}`}
 
-                    key={item}
-                  />
-                ))}
-              </List>
+                  key={item}
+                />
+              ))}
             </Menu>
           </div>
         </Accordion>
@@ -2284,25 +2315,23 @@ function App() {
               anchorElement={refs.menu['3'].current}
 
               transformOrigin='top right'
-            >
-              <List
-                menu
 
-                style={{
+              ListProps={{
+                style: {
                   maxHeight: 140,
                   overflow: 'auto'
-                }}
-              >
-                {[0, 1, 3, 4].map(item => (
-                  <ListItem
-                    button
+                }
+              }}
+            >
+              {[0, 1, 3, 4].map(item => (
+                <ListItem
+                  button
 
-                    primary={`Item ${item + 1}`}
+                  primary={`Item ${item + 1}`}
 
-                    key={item}
-                  />
-                ))}
-              </List>
+                  key={item}
+                />
+              ))}
             </Menu>
           </div>
         </Accordion>
@@ -2334,17 +2363,15 @@ function App() {
 
               arrow
             >
-              <List menu>
-                {[0, 1, 3, 4].map(item => (
-                  <ListItem
-                    button
+              {[0, 1, 3, 4].map(item => (
+                <ListItem
+                  button
 
-                    primary={`Item ${item + 1}`}
+                  primary={`Item ${item + 1}`}
 
-                    key={item}
-                  />
-                ))}
-              </List>
+                  key={item}
+                />
+              ))}
             </Menu>
           </div>
         </Accordion>
@@ -2379,201 +2406,246 @@ function App() {
               position='bottom'
 
               alignment='start'
+
+              ListProps={{
+                color: 'secondary',
+
+                style: {
+                  minWidth: 320
+                }
+              }}
             >
-              <List menu color='secondary' style={{ minWidth: 320 }}>
-                <ListItem
-                  button
+              <ListItem
+                button
 
-                  primary='Bold'
+                primary='Bold'
 
-                  end={(
-                    <Type version='b2' color='secondary'>
-                      ⌘B
-                    </Type>
-                  )}
-                />
+                end={(
+                  <Type version='b2' color='secondary'>
+                    ⌘B
+                  </Type>
+                )}
+              />
 
-                <ListItem
-                  button
+              <ListItem
+                button
 
-                  primary='Italic'
+                primary='Italic'
 
-                  end={(
-                    <Type version='b2' color='secondary'>
-                      ⌘I
-                    </Type>
-                  )}
-                />
+                end={(
+                  <Type version='b2' color='secondary'>
+                    ⌘I
+                  </Type>
+                )}
+              />
 
-                <ListItem
-                  button
+              <ListItem
+                button
 
-                  primary='Underline'
+                primary='Underline'
 
-                  end={(
-                    <Type version='b2' color='secondary'>
-                      ⌘U
-                    </Type>
-                  )}
-                />
+                end={(
+                  <Type version='b2' color='secondary'>
+                    ⌘U
+                  </Type>
+                )}
+              />
 
-                <ListItem
-                  button
+              <ListItem
+                button
 
-                  primary='Strikethrough'
+                primary='Strikethrough'
 
-                  end={(
-                    <Type version='b2' color='secondary'>
-                      ⌘+Shift+X
-                    </Type>
-                  )}
-                />
+                end={(
+                  <Type version='b2' color='secondary'>
+                    ⌘+Shift+X
+                  </Type>
+                )}
+              />
 
-                <ListItem
-                  button
+              <ListItem
+                button
 
-                  primary='Superscript'
+                primary='Superscript'
 
-                  end={(
-                    <Type version='b2' color='secondary'>
-                      ⌘.
-                    </Type>
-                  )}
-                />
+                end={(
+                  <Type version='b2' color='secondary'>
+                    ⌘.
+                  </Type>
+                )}
+              />
 
-                <ListItem
-                  button
+              <ListItem
+                button
 
-                  primary='Subscript'
+                primary='Subscript'
 
-                  end={(
-                    <Type version='b2' color='secondary'>
-                      ⌘,
-                    </Type>
-                  )}
-                />
+                end={(
+                  <Type version='b2' color='secondary'>
+                    ⌘,
+                  </Type>
+                )}
 
-                <Divider
-                  Component='li'
-                />
+                menuCloseOnClick
+              />
 
-                <ListItem
-                  button
+              <Divider
+                Component='li'
+              />
 
-                  primary='Paragraph styles'
-                />
+              <ListItem
+                button
 
-                <ListItem
-                  button
+                primary='Paragraph styles'
+              />
 
-                  primary='Align'
-                />
+              <ListItem
+                button
 
-                <ListItem
-                  button
+                primary='Align'
+              />
 
-                  primary='Line spacing'
+              <ListItem
+                button
 
-                  MenuListProps={{
+                primary='Line spacing'
+
+                MenuProps={{
+                  ListProps: {
                     color: 'secondary',
+
                     style: {
                       minWidth: 320
                     }
-                  }}
+                  }
+                }}
 
-                  menu={[
-                    <ListItem
-                      inset
+                menu={[
+                  <ListItem
+                    inset
 
-                      button
+                    button
 
-                      primary='Single'
-                    />,
+                    primary='Single'
+                  />,
 
-                    <ListItem
-                      inset
+                  <ListItem
+                    inset
 
-                      button
+                    button
 
-                      primary='1.15'
+                    primary='1.15'
 
-                      menuCloseOnClick
-                    />,
+                    menuCloseOnClick
+                  />,
 
-                    <ListItem
-                      inset
+                  <ListItem
+                    inset
 
-                      button
+                    button
 
-                      primary='Double'
-                    />,
+                    primary='Double'
+                  />,
 
-                    <ListItem
-                      button
+                  <ListItem
+                    button
 
-                      primary='Custom: 1.2'
+                    primary='Custom: 1.2'
 
-                      start={(
-                        <IconMaterialCheckRounded />
-                      )}
-                    />,
+                    start={(
+                      <IconMaterialCheckRounded />
+                    )}
+                  />,
 
-                    <Divider
-                      Component='li'
-                    />,
+                  <Divider
+                    Component='li'
+                  />,
 
-                    <ListItem
-                      button
+                  <ListItem
+                    button
 
-                      primary='Add space before paragraph'
-                    />,
+                    primary='Add space before paragraph'
+                  />,
 
-                    <ListItem
-                      button
+                  <ListItem
+                    button
 
-                      primary='Add space after paragraph'
-                    />,
+                    primary='Add space after paragraph'
+                  />,
 
-                    <Divider
-                      Component='li'
-                    />,
+                  <Divider
+                    Component='li'
+                  />,
 
-                    <ListItem
-                      button
+                  <ListItem
+                    button
 
-                      primary='Custom spacing...'
-                    />
-                  ]}
-                />
+                    primary='Custom spacing...'
+                  />
+                ]}
+              />
 
+              <ListItem
+                button
+
+                primary='Numbered lists'
+              />
+
+              <ListItem
+                button
+
+                primary='List options'
+              />
+
+              <Divider
+                Component='li'
+              />
+
+              <ListItem
+                button
+
+                primary='Clear formating'
+
+                end={(
+                  <Type version='b2' color='secondary'>
+                    ⌘/
+                  </Type>
+                )}
+              />
+            </Menu>
+          </div>
+        </Accordion>
+
+        <Accordion label='Menu ListItem menuCloseOnClick' open>
+          <div className={classNames([classes.column])}>
+            <Button
+              ref={refs.menu['114']}
+
+              onClick={() => update('menu_114')}
+
+              color='secondary'
+            >
+              Menu
+            </Button>
+
+            <Menu
+              open={a.menu_114}
+
+              onClose={() => setA((items: any) => ({ ...items, menu_114: false }))}
+
+              anchorElement={refs.menu['114'].current}
+            >
+              {[0, 1, 3, 4].map(item => (
                 <ListItem
+                  key={item}
+
                   button
 
-                  primary='Numbered lists'
+                  primary={`Item ${item + 1}`}
+
+                  menuCloseOnClick={item === 3}
                 />
-
-                <ListItem
-                  button
-
-                  primary='List options'
-                />
-
-                <Divider
-                  Component='li'
-                />
-
-                <ListItem
-                  button
-
-                  primary='Clear formating'
-
-                  end={(
-                    <Type version='b2' color='secondary'>
-                      ⌘/
-                    </Type>
-                  )}
-                />
-              </List>
+              ))}
             </Menu>
           </div>
         </Accordion>
