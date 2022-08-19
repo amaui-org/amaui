@@ -201,15 +201,17 @@ const List = React.forwardRef((props_: any, ref: any) => {
       }}
     >
       {React.Children.toArray(children).map((item: any) => React.cloneElement(item, {
-        menuItem: menu,
+        ...(['AmauiListItem'].includes(item.type?.displayName) ? {
+          menuItem: menu,
 
-        color,
-        tonal,
-        size,
+          color,
+          tonal,
+          size,
 
-        ...other,
+          ...other,
 
-        ...item.props
+          ...item.props
+        } : {})
       }))}
     </Component>
   );

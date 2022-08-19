@@ -337,6 +337,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
     shapePosition = 'none',
     include,
     tabIndex,
+    menuCloseOnClick,
     disabled,
 
     Component = 'li',
@@ -392,11 +393,11 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
   }, []);
 
   const onFocus = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
-    if (!disabled) setFocus(true);
+    if (event.target === event.currentTarget && !disabled) setFocus(true);
   }, []);
 
   const onBlur = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
-    if (!disabled) setFocus(false);
+    if (event.target === event.currentTarget && !disabled) setFocus(false);
   }, []);
 
   const onClose = React.useCallback(() => {
