@@ -476,7 +476,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
   if (menuItem && color === 'default') {
     if (!theme.palette.light) styles.wrapper.background = theme.palette.color.neutral[10];
   }
-  if (menu) console.log(1, primary, open, hover, focus, preselected, selected);
+
   return (
     <Component
       ref={item => {

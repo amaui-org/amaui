@@ -641,6 +641,9 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
 
         tabIndex: 0,
 
+        onMouseDown,
+        onMouseUp,
+
         onFocus,
         onBlur,
 

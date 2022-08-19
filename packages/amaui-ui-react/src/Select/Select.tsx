@@ -191,11 +191,11 @@ const Select = React.forwardRef((props_: any, ref: any) => {
   }, [value_]);
 
   const onMouseDown = React.useCallback((event: React.MouseEvent<any>) => {
-    if (!disabled) setMouseDown(true);
+    if (!disabled && !readOnly) setMouseDown(true);
   }, []);
 
   const onMouseUp = React.useCallback((event: React.MouseEvent<any>) => {
-    if (!disabled) setMouseDown(false);
+    if (!disabled && !readOnly) setMouseDown(false);
   }, []);
 
   const onFocus = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
@@ -399,7 +399,7 @@ const Select = React.forwardRef((props_: any, ref: any) => {
   ];
 
   if (mouseDown) refs.input.current.focus();
-
+  console.log(1, open, focus, !!(is('array', value) ? value.length : value));
   return (
     <TextField
       ref={refs.input}
@@ -469,6 +469,9 @@ const Select = React.forwardRef((props_: any, ref: any) => {
         ]),
 
         tabIndex: 0,
+
+        onMouseDown,
+        onMouseUp,
 
         onFocus,
         onBlur,

@@ -72,7 +72,8 @@ const Menu = React.forwardRef((props_: any, ref: any) => {
     root: React.useRef<any>(),
     id: React.useRef<any>(),
     props: React.useRef<any>(),
-    preselected: React.useRef<any>()
+    preselected: React.useRef<any>(),
+    include: React.useRef<any>([])
   };
 
   refs.id.current = id;
@@ -95,7 +96,6 @@ const Menu = React.forwardRef((props_: any, ref: any) => {
     const onKeyDown = (event: KeyboardEvent) => {
       if (refs.props.current.open && MENUS.priority(refs.id.current)) {
         event.preventDefault();
-        console.log(114, event.key, children.length, refs.props.current.open, refs.id.current, MENUS.priority(refs.id.current));
 
         const values = React.Children.toArray(refs.props.current.children).map((item: any, index: number) => ((item.props?.button || item.props?.href) && !item.props?.disabled) ? index : undefined).filter(item => is('number', item));
 
@@ -193,7 +193,7 @@ const Menu = React.forwardRef((props_: any, ref: any) => {
   if (closeOnClickAway) {
     WrapperProps.onClickOutside = onClose;
 
-    WrapperProps.include = include;
+    WrapperProps.include = refs.include.current;
   }
 
   if (open) MENUS.add(id);
@@ -229,7 +229,7 @@ const Menu = React.forwardRef((props_: any, ref: any) => {
           <List
             menu
 
-            include={include}
+            include={refs.include.current}
 
             {...ListProps}
           >
