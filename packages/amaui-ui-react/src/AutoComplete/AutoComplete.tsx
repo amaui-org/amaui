@@ -120,8 +120,6 @@ const useStyle = style(theme => ({
 
 // other options...
 
-// amauiTheme and all value y
-
 const IconMaterialCloseRounded = React.forwardRef((props: any, ref) => {
 
   return (
@@ -640,6 +638,11 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
           open && classes.open,
           readOnly && classes.readOnly
         ]),
+
+        tabIndex: 0,
+
+        onFocus,
+        onBlur,
 
         onClick,
         onKeyDown: onEnterKeyDown

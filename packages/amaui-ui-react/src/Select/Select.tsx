@@ -347,7 +347,11 @@ const Select = React.forwardRef((props_: any, ref: any) => {
     >
       {children.map((item: any, index: number) => (
         React.cloneElement(item, {
+          key: index,
+
           selected: multiple ? value.includes(item.props?.value) : value === item.props?.value,
+
+          preselected: !(multiple ? value.includes(item.props?.value) : value === item.props?.value),
 
           onMouseUp,
 

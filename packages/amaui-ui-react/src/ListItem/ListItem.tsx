@@ -9,7 +9,7 @@ import Icon from '../Icon';
 import Interaction from '../Interaction';
 import Type from '../Type';
 import Menu from '../Menu';
-import List from '../List/List';
+import { MENUS } from '../Menu/Menu';
 
 const overflow = {
   width: '100%',
@@ -301,8 +301,6 @@ const IconMaterialArrowRightRounded = React.forwardRef((props: any, ref) => {
 
 // To do
 
-// List to keydown for left right keys
-// and if theres a menu, either open it or not
 // and autoPreselect first item (add this to menu as an option)
 
 const ListItem = React.forwardRef((props_: any, ref: any) => {
@@ -318,6 +316,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
 
   const {
     menu,
+    menuId,
     menuItem,
     inset,
     primary = props.children,
@@ -340,7 +339,6 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
     include,
     tabIndex,
     menuCloseOnClick,
-    onKeyDown: onKeyDown_,
     onMouseEnter: onMouseEnter_,
     onMouseLeave: onMouseLeave_,
     onClose: onClose_,
@@ -353,7 +351,9 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
     SecondaryProps = {},
     TertiaryProps = {},
     MenuListProps = {},
-    MenuProps = {},
+    MenuProps = {
+      autoSelect: true
+    },
 
     className,
     style,
@@ -390,14 +390,13 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
 
   React.useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
-      if (!refs.props.current.disabled && (refs.props.current.selected || refs.props.current.preselected) && menu) {
-        if (event.key === 'Enter') setOpen(item => !item);
-
+      if (
+        !refs.props.current.disabled &&
+        menu
+      ) {
         if (refs.open.current && ((theme.direction === 'ltr' && event.key === 'ArrowLeft') || (theme.direction === 'rtl' && event.key === 'ArrowRight'))) setOpen(false);
 
         if (!refs.open.current && ((theme.direction === 'ltr' && event.key === 'ArrowRight') || (theme.direction === 'rtl' && event.key === 'ArrowLeft'))) setOpen(true);
-
-        if (is('function', onKeyDown_)) onKeyDown_(event);
       }
     };
 
@@ -413,11 +412,11 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
   }, [preselected]);
 
   React.useEffect(() => {
-    if (menu) setOpen(hover);
+    if (menu) setOpen(hover || preselected || selected);
   }, [hover]);
 
   React.useEffect(() => {
-    if (menu) setOpen(hover || focus);
+    if (menu) setOpen(hover || focus || preselected || selected);
   }, [focus]);
 
   const onMouseEnter = React.useCallback((event: React.FocusEvent<any>) => {
@@ -477,7 +476,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
   if (menuItem && color === 'default') {
     if (!theme.palette.light) styles.wrapper.background = theme.palette.color.neutral[10];
   }
-
+  if (menu) console.log(1, primary, open, hover, focus, preselected, selected);
   return (
     <Component
       ref={item => {

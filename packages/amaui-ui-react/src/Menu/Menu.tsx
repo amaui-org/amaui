@@ -13,7 +13,7 @@ const useStyle = style(theme => ({
   root: {},
 }), { name: 'AmauiMenu' });
 
-const MENUS = {
+export const MENUS = {
   open: [],
 
   priority: (value: any) => MENUS.open[MENUS.open.length - 1] === value,
@@ -48,6 +48,7 @@ const Menu = React.forwardRef((props_: any, ref: any) => {
     closeOnClickAway = true,
     include,
     resetKeyboardNavigation = false,
+    autoSelect,
 
     ListProps = {},
     ModalProps = {},
@@ -62,33 +63,41 @@ const Menu = React.forwardRef((props_: any, ref: any) => {
     ...other
   } = props;
 
+  const id = React.useState(() => getID())[0];
   const [preselected, setPreselected] = React.useState(undefined);
-  const id = React.useState(getID())[0];
 
   const { classes } = useStyle(props);
 
   const refs = {
     root: React.useRef<any>(),
-    include: React.useRef<any>([]),
-    open: React.useRef<any>(),
-    preselected: React.useRef<any>(),
-    children: React.useRef<any>()
+    id: React.useRef<any>(),
+    props: React.useRef<any>(),
+    preselected: React.useRef<any>()
   };
 
-  refs.open.current = open;
+  refs.id.current = id;
 
   refs.preselected.current = preselected;
 
-  refs.children.current = children;
+  refs.props.current = props;
 
   React.useEffect(() => {
-    if (open) MENUS.add(id);
+    if (open) {
+      MENUS.add(refs.id.current);
+
+      if (autoSelect) {
+        const values = React.Children.toArray(refs.props.current.children).map((item: any, index: number) => ((item.props?.button || item.props?.href) && !item.props?.disabled) ? index : undefined).filter(item => is('number', item));
+
+        setPreselected(values[0]);
+      }
+    }
 
     const onKeyDown = (event: KeyboardEvent) => {
-      if (refs.open.current && MENUS.priority(id)) {
+      if (refs.props.current.open && MENUS.priority(refs.id.current)) {
         event.preventDefault();
+        console.log(114, event.key, children.length, refs.props.current.open, refs.id.current, MENUS.priority(refs.id.current));
 
-        const values = React.Children.toArray(refs.children.current).map((item: any, index: number) => ((item.props?.button || item.props?.href) && !item.props?.disabled) ? index : undefined).filter(item => is('number', item));
+        const values = React.Children.toArray(refs.props.current.children).map((item: any, index: number) => ((item.props?.button || item.props?.href) && !item.props?.disabled) ? index : undefined).filter(item => is('number', item));
 
         switch (event.key) {
           case 'ArrowUp':
@@ -97,9 +106,9 @@ const Menu = React.forwardRef((props_: any, ref: any) => {
 
               const index = values.findIndex(item_ => item_ === value);
 
-              if (index === -1) value = values[0];
+              if (index === -1) value = values[values.length - 1];
               else if (index > 0) value = values[index - 1];
-              else if (resetKeyboardNavigation) value = values[values.length - 1];
+              else if (refs.props.current.resetKeyboardNavigation) value = values[values.length - 1];
 
               return value;
             });
@@ -110,12 +119,15 @@ const Menu = React.forwardRef((props_: any, ref: any) => {
 
               const index = values.findIndex(item_ => item_ === value);
 
-              if (index === -1) value = values[values.length - 1];
+              if (index === -1) value = values[0];
               else if (index < values.length - 1) value = values[index + 1];
-              else if (resetKeyboardNavigation) value = values[0];
+              else if (refs.props.current.resetKeyboardNavigation) value = values[0];
 
               return value;
             });
+
+          case 'Escape':
+            return onClose();
 
           case 'Home':
             return setPreselected(values[0]);
@@ -132,15 +144,20 @@ const Menu = React.forwardRef((props_: any, ref: any) => {
     window.document.addEventListener('keydown', onKeyDown);
 
     return () => {
-      MENUS.remove(id);
+      MENUS.remove(refs.id.current);
 
       window.document.removeEventListener('keydown', onKeyDown);
     };
   }, []);
 
   React.useEffect(() => {
-    if (open) MENUS.add(id);
-    else MENUS.remove(id);
+    if (open) {
+      if (autoSelect) {
+        const values = React.Children.toArray(refs.props.current.children).map((item: any, index: number) => ((item.props?.button || item.props?.href) && !item.props?.disabled) ? index : undefined).filter(item => is('number', item));
+
+        setPreselected(values[0]);
+      }
+    }
 
     setTimeout(() => {
       if (include && refs.root.current) include.push(refs.root.current);
@@ -176,8 +193,11 @@ const Menu = React.forwardRef((props_: any, ref: any) => {
   if (closeOnClickAway) {
     WrapperProps.onClickOutside = onClose;
 
-    WrapperProps.include = refs.include.current;
+    WrapperProps.include = include;
   }
+
+  if (open) MENUS.add(id);
+  else MENUS.remove(id);
 
   return (
     <Wrapper
@@ -209,13 +229,15 @@ const Menu = React.forwardRef((props_: any, ref: any) => {
           <List
             menu
 
-            include={refs.include.current}
+            include={include}
 
             {...ListProps}
           >
             {React.Children.toArray(children).map((item: any, index: number) => (
               React.cloneElement(item, {
-                key: index,
+                key: item.key || index,
+
+                menuId: id,
 
                 onClose,
 
@@ -238,7 +260,7 @@ const Menu = React.forwardRef((props_: any, ref: any) => {
                   },
 
                   onKeyDown: (event: React.KeyboardEvent<any>) => {
-                    if (event.key === 'Enter') {
+                    if (event.target === event.currentTarget && event.key === 'Enter') {
                       if (is('function', item.props?.onClick)) item.props?.onClick();
 
                       if (is('function', item.props?.onKeyDown)) item.props?.onKeyDown(event);

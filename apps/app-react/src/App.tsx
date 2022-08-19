@@ -591,7 +591,7 @@ function App() {
   const onClose = () => {
     setA((values_: any) => ({ ...values_, tooltip: false }));
   };
-  console.log(0, a.menu_5);
+
   return (
     <div className={classes.root}>
       {/* Reset */}
@@ -1166,20 +1166,10 @@ function App() {
             <AutoComplete
               label='Items'
 
+              options={countries.map(item => ({ label: item.name }))}
+
               color='secondary'
-            >
-              {[1, 3, 4].map(item => (
-                <ListItem
-                  button
-
-                  primary={`Item ${item}`}
-
-                  value={item}
-
-                  key={item}
-                />
-              ))}
-            </AutoComplete>
+            />
 
             <Accordion label='AmauiTheme nested value' open>
               <AmauiThemeProvider
@@ -1203,20 +1193,10 @@ function App() {
                 <AutoComplete
                   label='Items'
 
+                  options={countries.map(item => ({ label: item.name }))}
+
                   color='secondary'
-                >
-                  {[1, 3, 4].map(item => (
-                    <ListItem
-                      button
-
-                      primary={`Item ${item}`}
-
-                      value={item}
-
-                      key={item}
-                    />
-                  ))}
-                </AutoComplete>
+                />
               </AmauiThemeProvider>
             </Accordion>
 
@@ -1247,20 +1227,10 @@ function App() {
                 <AutoComplete
                   label='Items'
 
+                  options={countries.map(item => ({ label: item.name }))}
+
                   color='secondary'
-                >
-                  {[1, 3, 4].map(item => (
-                    <ListItem
-                      button
-
-                      primary={`Item ${item}`}
-
-                      value={item}
-
-                      key={item}
-                    />
-                  ))}
-                </AutoComplete>
+                />
               </AmauiThemeProvider>
             </Accordion>
 
@@ -1291,20 +1261,10 @@ function App() {
                 <AutoComplete
                   label='Items'
 
+                  options={countries.map(item => ({ label: item.name }))}
+
                   color='secondary'
-                >
-                  {[1, 3, 4].map(item => (
-                    <ListItem
-                      button
-
-                      primary={`Item ${item}`}
-
-                      value={item}
-
-                      key={item}
-                    />
-                  ))}
-                </AutoComplete>
+                />
               </AmauiThemeProvider>
             </Accordion>
 
@@ -1330,38 +1290,18 @@ function App() {
               >
                 <AutoComplete
                   label='Items'
-                >
-                  {[1, 3, 4].map(item => (
-                    <ListItem
-                      button
 
-                      primary={`Item ${item}`}
-
-                      value={item}
-
-                      key={item}
-                    />
-                  ))}
-                </AutoComplete>
+                  options={countries.map(item => ({ label: item.name }))}
+                />
               </AmauiThemeProvider>
             </Accordion>
 
             <Accordion label='AmauiTheme styled' open>
               <styled.AutoComplete
                 label='Items'
-              >
-                {[1, 3, 4].map(item => (
-                  <ListItem
-                    button
 
-                    primary={`Item ${item}`}
-
-                    value={item}
-
-                    key={item}
-                  />
-                ))}
-              </styled.AutoComplete>
+                options={countries.map(item => ({ label: item.name }))}
+              />
             </Accordion>
           </div>
         </Accordion>
