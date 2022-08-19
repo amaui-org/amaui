@@ -159,6 +159,7 @@ const Select = React.forwardRef((props_: any, ref: any) => {
     return multiple ? (is('array', values) ? values : [values]).filter(Boolean) : values;
   });
   const [focus, setFocus] = React.useState(false);
+  const [mouseDown, setMouseDown] = React.useState(false);
   const [open, setOpen] = React.useState(false);
 
   const { classes } = useStyle(props);
@@ -188,6 +189,14 @@ const Select = React.forwardRef((props_: any, ref: any) => {
   React.useEffect(() => {
     if (value_ !== undefined && value_ !== value) setValue(value_);
   }, [value_]);
+
+  const onMouseDown = React.useCallback((event: React.MouseEvent<any>) => {
+    if (!disabled) setMouseDown(true);
+  }, []);
+
+  const onMouseUp = React.useCallback((event: React.MouseEvent<any>) => {
+    if (!disabled) setMouseDown(false);
+  }, []);
 
   const onFocus = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
     if (!disabled && !readOnly) setFocus(true);
@@ -326,41 +335,45 @@ const Select = React.forwardRef((props_: any, ref: any) => {
 
       style={styles.menu}
 
+      ListProps={{
+        menu: true,
+
+        size,
+
+        ...ListProps
+      }}
+
       {...MenuProps}
     >
-      <List
-        size={size}
+      {children.map((item: any, index: number) => (
+        React.cloneElement(item, {
+          selected: multiple ? value.includes(item.props?.value) : value === item.props?.value,
 
-        menu
+          onMouseUp,
 
-        {...ListProps}
-      >
-        {children.map((item: any, index: number) => (
-          React.cloneElement(item, {
-            selected: multiple ? value.includes(item.props?.value) : value === item.props?.value,
+          onMouseDown,
 
-            onClick: (event: React.MouseEvent) => {
+          onClick: (event: React.MouseEvent) => {
+            if (multiple && value.includes(item.props?.value)) onUnselect(item.props?.value);
+            else onSelect(item.props?.value);
+
+            if (is('function', item.props?.onClick)) item.props?.onClick(event);
+
+            if (!multiple) setOpen(false);
+          },
+
+          onKeyDown: (event: React.KeyboardEvent) => {
+            if (event.key === 'Enter') {
               if (multiple && value.includes(item.props?.value)) onUnselect(item.props?.value);
               else onSelect(item.props?.value);
 
               if (is('function', item.props?.onClick)) item.props?.onClick(event);
 
               if (!multiple) setOpen(false);
-            },
-
-            onKeyDown: (event: React.KeyboardEvent) => {
-              if (event.key === 'Enter') {
-                if (multiple && value.includes(item.props?.value)) onUnselect(item.props?.value);
-                else onSelect(item.props?.value);
-
-                if (is('function', item.props?.onClick)) item.props?.onClick(event);
-
-                if (!multiple) setOpen(false);
-              }
             }
-          })
-        ))}
-      </List>
+          }
+        })
+      ))}
     </Menu>
   ));
 
@@ -381,17 +394,21 @@ const Select = React.forwardRef((props_: any, ref: any) => {
     ] : [])
   ];
 
+  if (mouseDown) refs.input.current.focus();
+
   return (
     <TextField
+      ref={refs.input}
+
       rootRef={item => {
         if (ref) ref.current = item;
 
         refs.root.current = item;
       }}
 
-      enabled={open || !!(is('array', value) ? value.length : value)}
+      enabled={open || focus || !!(is('array', value) ? value.length : value)}
 
-      focus={focus || open}
+      focus={open || focus}
 
       className={classNames([
         staticClassName('Select', theme) && [
@@ -429,8 +446,6 @@ const Select = React.forwardRef((props_: any, ref: any) => {
       disabled={disabled}
 
       InputWrapperProps={{
-        ref: refs.input,
-
         className: classNames([
           staticClassName('Select', theme) && [
             'AmauiSelect-inputWrapper',
@@ -453,6 +468,7 @@ const Select = React.forwardRef((props_: any, ref: any) => {
 
         onFocus,
         onBlur,
+
         onClick,
         onKeyDown: onEnterKeyDown
       }}

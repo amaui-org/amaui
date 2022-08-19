@@ -591,7 +591,7 @@ function App() {
   const onClose = () => {
     setA((values_: any) => ({ ...values_, tooltip: false }));
   };
-
+  console.log(0, a.menu_5);
   return (
     <div className={classes.root}>
       {/* Reset */}
@@ -2223,7 +2223,7 @@ function App() {
       </Accordion>
 
       <Accordion label='Menu'>
-        <Accordion label='Menu' open>
+        <Accordion label='Menu'>
           <div className={classNames([classes.column])}>
             <Button
               ref={refs.menu['1']}
@@ -2241,12 +2241,16 @@ function App() {
               onClose={() => setA((items: any) => ({ ...items, menu_1: false }))}
 
               anchorElement={refs.menu['1'].current}
+
+              resetKeyboardNavigation
             >
               {[0, 1, 3, 4].map(item => (
                 <ListItem
                   button
 
                   primary={`Item ${item + 1}`}
+
+                  disabled={item === 3}
 
                   key={item}
                 />
@@ -2255,7 +2259,7 @@ function App() {
           </div>
         </Accordion>
 
-        <Accordion label='Menu position, alignment, transformOrigin and inset' open>
+        <Accordion label='Menu position, alignment, transformOrigin and inset'>
           <div className={classNames([classes.column])}>
             <Button
               ref={refs.menu['2']}
@@ -2295,7 +2299,7 @@ function App() {
           </div>
         </Accordion>
 
-        <Accordion label='Menu maxHeight' open>
+        <Accordion label='Menu maxHeight'>
           <div className={classNames([classes.column])}>
             <Button
               ref={refs.menu['3']}
@@ -2336,7 +2340,7 @@ function App() {
           </div>
         </Accordion>
 
-        <Accordion label='Menu with arrow' open>
+        <Accordion label='Menu with arrow'>
           <div className={classNames([classes.column])}>
             <Button
               ref={refs.menu['4']}
@@ -2376,7 +2380,7 @@ function App() {
           </div>
         </Accordion>
 
-        <Accordion label='Menu additional menu' open>
+        <Accordion label='Menu additional menu'>
           <div className={classNames([classes.column])}>
             <Button
               ref={refs.menu['5']}
@@ -2616,7 +2620,7 @@ function App() {
           </div>
         </Accordion>
 
-        <Accordion label='Menu ListItem menuCloseOnClick' open>
+        <Accordion label='Menu ListItem menuCloseOnClick'>
           <div className={classNames([classes.column])}>
             <Button
               ref={refs.menu['114']}

@@ -116,9 +116,6 @@ const useStyle = style(theme => ({
 // groupBy
 // selectOnFocus
 
-// Arrow down, home and end keys for focusing on an item
-// Arrow down moves from 1 to last item, and if last item is in focus, next focus the refs input value
-
 // Multiple
 
 // other options...
@@ -233,11 +230,11 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
 
     window.addEventListener('keydown', method);
 
-    window.addEventListener('mouseup', onInputWrapperMouseUp as any);
+    window.addEventListener('mouseup', onMouseUp as any);
 
     return () => {
       // Clean up
-      window.removeEventListener('mouseup', onInputWrapperMouseUp as any);
+      window.removeEventListener('mouseup', onMouseUp as any);
 
       window.removeEventListener('keydown', method);
     };
@@ -270,11 +267,11 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
     setOptions(optionsValue);
   };
 
-  const onInputWrapperMouseDown = React.useCallback((event: React.MouseEvent<any>) => {
+  const onMouseDown = React.useCallback((event: React.MouseEvent<any>) => {
     if (!disabled) setMouseDown(true);
   }, []);
 
-  const onInputWrapperMouseUp = React.useCallback((event: React.MouseEvent<any>) => {
+  const onMouseUp = React.useCallback((event: React.MouseEvent<any>) => {
     if (!disabled) setMouseDown(false);
   }, []);
 
@@ -431,7 +428,7 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
     <Menu
       open={open}
 
-      portal
+      portal={false}
 
       onClose={() => onClose(false)}
 
@@ -453,35 +450,50 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
 
       style={styles.menu}
 
+      ListProps={{
+        menu: true,
+
+        size,
+
+        className: classNames([
+          classes.list
+        ]),
+
+        ...ListProps
+      }}
+
       {...MenuProps}
     >
-      <List
-        className={classNames([
-          classes.list
-        ])}
+      {options.map((item: any, index: number) => {
+        let other_: any = {};
 
-        size={size}
+        const button = item.version === undefined || item.version === 'button';
 
-        menu
+        if (button) {
+          other_ = {
+            primary: item.label,
 
-        {...ListProps}
-      >
-        {options.map((item: any, index: number) => {
-          let other_: any = {};
+            value: item.label,
 
-          const button = item.version === undefined || item.version === 'button';
+            button,
 
-          if (button) {
-            other_ = {
-              primary: item.label,
+            selected: multiple ? value.includes(item.props?.value) : value === item.label,
 
-              value: item.label,
+            onClick: (event: React.MouseEvent) => {
+              if (multiple && value.includes(item.label)) onUnselect(item.label);
+              else onSelect(item.label);
 
-              button,
+              if (is('function', item.props?.onClick)) item.props?.onClick(event);
 
-              selected: multiple ? value.includes(item.props?.value) : value === item.label,
+              if (!multiple) {
+                setOpen(false);
 
-              onClick: (event: React.MouseEvent) => {
+                refs.input.current.focus();
+              }
+            },
+
+            onKeyDown: (event: React.KeyboardEvent) => {
+              if (event.key === 'Enter') {
                 if (multiple && value.includes(item.label)) onUnselect(item.label);
                 else onSelect(item.label);
 
@@ -492,46 +504,31 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
 
                   refs.input.current.focus();
                 }
-              },
-
-              onKeyDown: (event: React.KeyboardEvent) => {
-                if (event.key === 'Enter') {
-                  if (multiple && value.includes(item.label)) onUnselect(item.label);
-                  else onSelect(item.label);
-
-                  if (is('function', item.props?.onClick)) item.props?.onClick(event);
-
-                  if (!multiple) {
-                    setOpen(false);
-
-                    refs.input.current.focus();
-                  }
-                }
               }
-            };
-          }
-          else {
-            other_.secondary = item.label;
-          }
+            }
+          };
+        }
+        else {
+          other_.secondary = item.label;
+        }
 
-          other_.onMouseUp = onInputWrapperMouseUp;
+        other_.onMouseUp = onMouseUp;
 
-          other_.onMouseDown = onInputWrapperMouseDown;
+        other_.onMouseDown = onMouseDown;
 
-          return (
-            is('function', renderOption) ?
-              renderOption(item, index, { ...other_, ...item.props }) :
+        return (
+          is('function', renderOption) ?
+            renderOption(item, index, { ...other_, ...item.props }) :
 
-              <ListItem
-                key={index}
+            <ListItem
+              key={index}
 
-                {...other_}
+              {...other_}
 
-                {...item.props}
-              />
-          );
-        })}
-      </List>
+              {...item.props}
+            />
+        );
+      })}
     </Menu>
   ));
 
@@ -584,9 +581,9 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
 
       onChange={onChangeValue}
 
-      enabled={open || focus || !!(is('array', value) ? value.length : value) || undefined}
+      enabled={open || focus || !!(is('array', value) ? value.length : value)}
 
-      focus={open || focus || undefined}
+      focus={open || focus}
 
       className={
         classNames([
@@ -626,8 +623,6 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
       disabled={disabled}
 
       InputWrapperProps={{
-        ref: refs.input,
-
         className: classNames([
           staticClassName('AutoComplete', theme) && [
             'AmauiAutoComplete-inputWrapper',
@@ -645,8 +640,6 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
           open && classes.open,
           readOnly && classes.readOnly
         ]),
-
-        tabIndex: 0,
 
         onClick,
         onKeyDown: onEnterKeyDown

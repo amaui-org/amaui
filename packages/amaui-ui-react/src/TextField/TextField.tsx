@@ -667,21 +667,21 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
     }
   }, []);
 
-  const onFocus = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
+  const onFocus = (event: React.FocusEvent<HTMLInputElement>) => {
     if (!disabled) {
       setFocus(focus_ !== undefined ? focus_ : true);
 
       if (is('function', onFocus_)) onFocus_(event);
     }
-  }, []);
+  };
 
-  const onBlur = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
+  const onBlur = (event: React.FocusEvent<HTMLInputElement>) => {
     if (!disabled) {
       setFocus(focus_ !== undefined ? focus_ : false);
 
       if (is('function', onBlur_)) onBlur_(event);
     }
-  }, []);
+  };
 
   const onMouseEnter = React.useCallback((event: React.MouseEvent<HTMLInputElement>) => {
     if (!disabled) {

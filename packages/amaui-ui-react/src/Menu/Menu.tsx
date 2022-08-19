@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is } from '@amaui/utils';
+import { getID, is } from '@amaui/utils';
 import { style, classNames, useAmauiTheme } from '@amaui/style-react';
 
 import { staticClassName } from '../utils';
@@ -13,12 +13,27 @@ const useStyle = style(theme => ({
   root: {},
 }), { name: 'AmauiMenu' });
 
-// To do
+const MENUS = {
+  open: [],
 
-// If menu open
-// on arrow up, down, End or Home
-// setHovered based on current one
-// only out of available ones that are button or href and not disabled
+  priority: (value: any) => MENUS.open[MENUS.open.length - 1] === value,
+
+  add: (value: any) => {
+    const index = MENUS.open.findIndex(item => item === value);
+
+    if (index === -1) MENUS.open.push(value);
+
+    MENUS.open = MENUS.open.filter(Boolean);
+  },
+
+  remove: (value: any) => {
+    const index = MENUS.open.findIndex(item => item === value);
+
+    if (index > -1) MENUS.open.splice(index, 1);
+
+    MENUS.open = MENUS.open.filter(Boolean);
+  }
+};
 
 const Menu = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
@@ -32,6 +47,7 @@ const Menu = React.forwardRef((props_: any, ref: any) => {
     arrow,
     closeOnClickAway = true,
     include,
+    resetKeyboardNavigation = false,
 
     ListProps = {},
     ModalProps = {},
@@ -46,16 +62,86 @@ const Menu = React.forwardRef((props_: any, ref: any) => {
     ...other
   } = props;
 
-  const [hovered, setHovered] = React.useState(undefined);
+  const [preselected, setPreselected] = React.useState(undefined);
+  const id = React.useState(getID())[0];
 
   const { classes } = useStyle(props);
 
   const refs = {
     root: React.useRef<any>(),
-    include: React.useRef<any>([])
+    include: React.useRef<any>([]),
+    open: React.useRef<any>(),
+    preselected: React.useRef<any>(),
+    children: React.useRef<any>()
   };
 
+  refs.open.current = open;
+
+  refs.preselected.current = preselected;
+
+  refs.children.current = children;
+
   React.useEffect(() => {
+    if (open) MENUS.add(id);
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (refs.open.current && MENUS.priority(id)) {
+        event.preventDefault();
+
+        const values = React.Children.toArray(refs.children.current).map((item: any, index: number) => ((item.props?.button || item.props?.href) && !item.props?.disabled) ? index : undefined).filter(item => is('number', item));
+
+        switch (event.key) {
+          case 'ArrowUp':
+            return setPreselected(() => {
+              let value = refs.preselected.current;
+
+              const index = values.findIndex(item_ => item_ === value);
+
+              if (index === -1) value = values[0];
+              else if (index > 0) value = values[index - 1];
+              else if (resetKeyboardNavigation) value = values[values.length - 1];
+
+              return value;
+            });
+
+          case 'ArrowDown':
+            return setPreselected(() => {
+              let value = refs.preselected.current;
+
+              const index = values.findIndex(item_ => item_ === value);
+
+              if (index === -1) value = values[values.length - 1];
+              else if (index < values.length - 1) value = values[index + 1];
+              else if (resetKeyboardNavigation) value = values[0];
+
+              return value;
+            });
+
+          case 'Home':
+            return setPreselected(values[0]);
+
+          case 'End':
+            return setPreselected(values[values.length - 1]);
+
+          default:
+            break;
+        }
+      }
+    };
+
+    window.document.addEventListener('keydown', onKeyDown);
+
+    return () => {
+      MENUS.remove(id);
+
+      window.document.removeEventListener('keydown', onKeyDown);
+    };
+  }, []);
+
+  React.useEffect(() => {
+    if (open) MENUS.add(id);
+    else MENUS.remove(id);
+
     setTimeout(() => {
       if (include && refs.root.current) include.push(refs.root.current);
     });
@@ -69,12 +155,16 @@ const Menu = React.forwardRef((props_: any, ref: any) => {
     };
   }, [open]);
 
+  const onMouseLeave = React.useCallback(() => {
+    setPreselected(undefined);
+  }, []);
+
   const onOpen = React.useCallback(() => {
     if (is('function', onOpen_)) onOpen_();
   }, []);
 
   const onClose = React.useCallback(() => {
-    setHovered(undefined);
+    setPreselected(undefined);
 
     if (is('function', onClose_)) onClose_();
   }, []);
@@ -111,6 +201,8 @@ const Menu = React.forwardRef((props_: any, ref: any) => {
           className
         ])}
 
+        onMouseLeave={onMouseLeave}
+
         anchorElement={anchorElement}
 
         label={children && (
@@ -130,14 +222,14 @@ const Menu = React.forwardRef((props_: any, ref: any) => {
                 // Only if button or href value
                 ...(((item.props?.button || item.props?.href) && !item.props.disabled) ? {
                   onMouseEnter: () => {
-                    setHovered(index);
+                    setPreselected(index);
                   },
 
                   onMouseLeave: () => {
-                    setHovered(undefined);
+                    setPreselected(undefined);
                   },
 
-                  preselected: index === hovered,
+                  preselected: index === preselected,
 
                   onClick: (event: React.MouseEvent<any>) => {
                     if (is('function', item.props?.onClick)) item.props?.onClick(event);

@@ -299,6 +299,12 @@ const IconMaterialArrowRightRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+// To do
+
+// List to keydown for left right keys
+// and if theres a menu, either open it or not
+// and autoPreselect first item (add this to menu as an option)
+
 const ListItem = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 
@@ -307,10 +313,6 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
   const [open, setOpen] = React.useState(false);
   const [hover, setHover] = React.useState(false);
   const [focus, setFocus] = React.useState(false);
-
-  const refs = {
-    root: React.useRef<HTMLElement>()
-  };
 
   const { classes } = useStyle(props);
 
@@ -338,6 +340,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
     include,
     tabIndex,
     menuCloseOnClick,
+    onKeyDown: onKeyDown_,
     onMouseEnter: onMouseEnter_,
     onMouseLeave: onMouseLeave_,
     onClose: onClose_,
@@ -360,6 +363,16 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
     ...other
   } = props;
 
+  const refs = {
+    root: React.useRef<HTMLElement>(),
+    props: React.useRef<any>(),
+    open: React.useRef<any>()
+  };
+
+  refs.props.current = props;
+
+  refs.open.current = open;
+
   const styles: any = {
     root: {},
     icon: { color: 'default' },
@@ -376,6 +389,26 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
   let RootComponent = RootComponent_;
 
   React.useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (!refs.props.current.disabled && (refs.props.current.selected || refs.props.current.preselected) && menu) {
+        if (event.key === 'Enter') setOpen(item => !item);
+
+        if (refs.open.current && ((theme.direction === 'ltr' && event.key === 'ArrowLeft') || (theme.direction === 'rtl' && event.key === 'ArrowRight'))) setOpen(false);
+
+        if (!refs.open.current && ((theme.direction === 'ltr' && event.key === 'ArrowRight') || (theme.direction === 'rtl' && event.key === 'ArrowLeft'))) setOpen(true);
+
+        if (is('function', onKeyDown_)) onKeyDown_(event);
+      }
+    };
+
+    window.document.addEventListener('keydown', onKeyDown);
+
+    return () => {
+      window.document.removeEventListener('keydown', onKeyDown);
+    };
+  }, []);
+
+  React.useEffect(() => {
     if (preselected) refs.root.current.focus();
   }, [preselected]);
 
@@ -387,23 +420,27 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
     if (menu) setOpen(hover || focus);
   }, [focus]);
 
-  const onMouseEnter = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
+  const onMouseEnter = React.useCallback((event: React.FocusEvent<any>) => {
     if (!disabled) setHover(true);
 
     if (is('function', onMouseEnter_)) onMouseEnter_(event);
   }, []);
 
-  const onMouseLeave = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
-    if (!disabled) setHover(false);
+  const onMouseLeave = React.useCallback((event: React.FocusEvent<any>) => {
+    if (!disabled) {
+      setHover(false);
+
+      setFocus(false);
+    }
 
     if (is('function', onMouseLeave_)) onMouseLeave_(event);
   }, []);
 
-  const onFocus = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
+  const onFocus = React.useCallback((event: React.FocusEvent<any>) => {
     if (event.target === event.currentTarget && !disabled) setFocus(true);
   }, []);
 
-  const onBlur = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
+  const onBlur = React.useCallback((event: React.FocusEvent<any>) => {
     if (event.target === event.currentTarget && !disabled) setFocus(false);
   }, []);
 
@@ -514,8 +551,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
         {(href || button) && (
           <Interaction
             border={false}
-            background={(!preselected && focus) || undefined}
-            preselected={preselected || undefined}
+            preselected={focus || preselected || undefined}
             selected={open || selected}
 
             {...InteractionProps}
