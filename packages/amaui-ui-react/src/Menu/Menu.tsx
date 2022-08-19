@@ -95,12 +95,12 @@ const Menu = React.forwardRef((props_: any, ref: any) => {
 
     const onKeyDown = (event: KeyboardEvent) => {
       if (refs.props.current.open && MENUS.priority(refs.id.current)) {
-        event.preventDefault();
-
         const values = React.Children.toArray(refs.props.current.children).map((item: any, index: number) => ((item.props?.button || item.props?.href) && !item.props?.disabled) ? index : undefined).filter(item => is('number', item));
 
         switch (event.key) {
           case 'ArrowUp':
+            event.preventDefault();
+
             return setPreselected(() => {
               let value = refs.preselected.current;
 
@@ -114,6 +114,8 @@ const Menu = React.forwardRef((props_: any, ref: any) => {
             });
 
           case 'ArrowDown':
+            event.preventDefault();
+
             return setPreselected(() => {
               let value = refs.preselected.current;
 
@@ -127,12 +129,18 @@ const Menu = React.forwardRef((props_: any, ref: any) => {
             });
 
           case 'Escape':
+            event.preventDefault();
+
             return onClose();
 
           case 'Home':
+            event.preventDefault();
+
             return setPreselected(values[0]);
 
           case 'End':
+            event.preventDefault();
+
             return setPreselected(values[values.length - 1]);
 
           default:

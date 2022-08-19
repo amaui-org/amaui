@@ -299,10 +299,6 @@ const IconMaterialArrowRightRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
-// To do
-
-// and autoPreselect first item (add this to menu as an option)
-
 const ListItem = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 

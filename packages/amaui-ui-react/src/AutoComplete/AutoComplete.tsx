@@ -6,7 +6,6 @@ import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 import { staticClassName } from '../utils';
 
 import Icon from '../Icon';
-import List from '../List';
 import Menu from '../Menu';
 import Chip from '../Chip';
 import TextField from '../TextField';
@@ -161,6 +160,8 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
     tonal,
     color = 'primary',
     multiple,
+    valueInput: valueInput_,
+    valueInputDefault,
     value: value_,
     valueDefault,
     size = 'regular',
@@ -175,6 +176,7 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
     renderValues: renderValues_,
     renderOption,
     chip,
+    onChangeInput,
     onChange,
     filter,
     options: options_ = [],
@@ -198,11 +200,8 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
 
   const children = React.Children.toArray(children_);
 
-  const [value, setValue] = React.useState(() => {
-    const values = valueDefault !== undefined ? valueDefault : value_;
-
-    return multiple ? (is('array', values) ? values : [values]).filter(Boolean) : values;
-  });
+  const [valueInput, setValueInput] = React.useState(valueInputDefault !== undefined ? valueInputDefault : valueInput_);
+  const [value, setValue] = React.useState((valueDefault !== undefined ? valueDefault : value_) || []);
   const [focus, setFocus] = React.useState(false);
   const [open, setOpen] = React.useState(false);
   const [mouseDown, setMouseDown] = React.useState(false);
@@ -239,22 +238,22 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
   }, []);
 
   React.useEffect(() => {
-    const item = (options_ || []).find(item_ => item_.label === value);
+    const item = (options_ || []).find(item_ => item_.label === valueInput);
 
-    if (!!value?.length && !open && !item && !disabled && !readOnly) setOpen(true);
-  }, [value]);
+    if (!!valueInput?.length && !open && !item && !disabled && !readOnly) setOpen(true);
+  }, [valueInput]);
 
   React.useEffect(() => {
-    if (value_ !== undefined && value_ !== value) setValue(value_);
+    if (value_ !== undefined && value_ !== valueInput) setValueInput(value_);
   }, [value_]);
 
   React.useEffect(() => {
     if (focus) {
-      if (!!(is('array', value) ? value.length : value) && selectOnFocus) setTimeout(() => refs.input.current.select());
+      if (!!(multiple ? value.length : valueInput) && selectOnFocus) setTimeout(() => refs.input.current.select());
     }
   }, [focus]);
 
-  const updateOptions = (newValue: any = value, newOptions: any = undefined) => {
+  const updateOptions = (newValue: any = valueInput, newOptions: any = undefined) => {
     let optionsValue = options_;
 
     if (newOptions) optionsValue = newOptions;
@@ -266,19 +265,19 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
   };
 
   const onMouseDown = React.useCallback((event: React.MouseEvent<any>) => {
-    if (!disabled) setMouseDown(true);
+    if (!disabled && !readOnly) setMouseDown(true);
   }, []);
 
   const onMouseUp = React.useCallback((event: React.MouseEvent<any>) => {
-    if (!disabled) setMouseDown(false);
+    if (!disabled && !readOnly) setMouseDown(false);
   }, []);
 
   const onFocus = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
-    if (!disabled) setFocus(true);
+    if (!disabled && !readOnly) setFocus(true);
   }, []);
 
   const onBlur = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
-    if (!disabled) setFocus(false);
+    if (!disabled && !readOnly) setFocus(false);
   }, []);
 
   const onClick = React.useCallback((event: React.MouseEvent) => {
@@ -306,7 +305,7 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
   }, []);
 
   const onClose = React.useCallback((refocus = true) => {
-    if (!disabled) {
+    if (!disabled && !readOnly) {
       setOpen(open => {
         if (open) {
           if (refocus) refs.input.current.focus();
@@ -318,20 +317,20 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
   }, []);
 
   const onExited = () => {
-    if (!disabled) {
+    if (!disabled && !readOnly) {
       if (!open) {
-        const item = (options_ || []).find(item_ => item_.label === value);
+        const item = (options_ || []).find(item_ => item_.label === valueInput);
 
         // Update options to all values
         // if value is one of the option values
-        if (item || !value || options[0]?.noOptions) updateOptions(undefined, options_);
+        if (item || !valueInput || options[0]?.noOptions) updateOptions(undefined, options_);
       }
     }
   };
 
   const onChangeValue = React.useCallback((newValue: any) => {
     if (!disabled && !readOnly) {
-      setValue(newValue);
+      setValueInput(newValue);
 
       updateOptions(newValue);
     }
@@ -339,21 +338,31 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
 
   const onClear = React.useCallback((refocus = true) => {
     if (!disabled && !readOnly) {
-      setValue('');
+      setValueInput('');
 
       if (refocus) refs.input.current.focus();
     }
   }, []);
 
   const onSelect = (newValue: any) => {
-    let values = multiple ? is('array', value) ? value : [value] : value;
+    let values = multiple ? is('array', value) ? value : [value] : valueInput;
 
     values = multiple ? unique([...values, newValue]) : newValue;
 
-    if (is('function', onChange)) onChange(values);
+    if (!multiple) {
+      if (is('function', onChange)) onChange(newValue);
+    }
+    else {
+      if (is('function', onChangeInput)) onChangeInput(newValue);
+
+      if (is('function', onChange)) onChange(values);
+    }
 
     // Inner controlled value
-    if (!props.hasOwnProperty('value')) setValue(values);
+    if (!props.hasOwnProperty('value')) {
+      if (!multiple) setValueInput(newValue);
+      else setValue(values);
+    }
   };
 
   const onUnselect = (itemValue: any) => {
@@ -377,14 +386,14 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
     }
   }
 
-  const renderValue = (values: any = value) => {
-    const item: any = children.find((item_: any) => item_.props?.value === values);
+  const renderValue = (value_: any) => {
+    const item: any = children.find((item_: any) => item_.props?.value === value_);
 
     const getItemLabel = getLabel || (() => {
       return (item.props?.label || item.props?.primary || item.props?.secondary || item.props?.tertiary || item.props?.children);
     });
 
-    return item ? getItemLabel(item, props) : value;
+    return item ? getItemLabel(item, props) : value_;
   };
 
   const renderValues = renderValues_ || (() => {
@@ -475,7 +484,7 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
 
             button,
 
-            selected: multiple ? value.includes(item.props?.value) : value === item.label,
+            selected: multiple ? value.includes(item.props?.value) : valueInput === item.label,
 
             onClick: (event: React.MouseEvent) => {
               if (multiple && value.includes(item.label)) onUnselect(item.label);
@@ -534,7 +543,7 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
     endIcon,
 
     ...(!readOnly ? [
-      !!(is('array', value) ? value.length : value) && (
+      !!(multiple ? value.length : valueInput) && (
         <IconButton
           onClick={onClear}
         >
@@ -546,7 +555,7 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
         onClick={onClickArrowDown}
 
         InteractionProps={{
-          clear: !!(is('array', value) ? value.length : value)
+          clear: !!(multiple ? value.length : valueInput)
         }}
       >
         <IconMaterialArrowDropDownRounded
@@ -575,13 +584,13 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
 
       onFocus={onFocus}
 
-      value={value}
+      value={valueInput}
 
       onChange={onChangeValue}
 
-      enabled={open || focus || !!(is('array', value) ? value.length : value)}
+      enabled={open || focus || mouseDown || !!(multiple ? (value.length || valueInput) : valueInput)}
 
-      focus={open || focus}
+      focus={open || focus || mouseDown}
 
       className={
         classNames([
@@ -648,6 +657,7 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
         onBlur,
 
         onClick,
+
         onKeyDown: onEnterKeyDown
       }}
 
@@ -681,7 +691,7 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
 
           onBlur={onBlur}
 
-          onClick={onClick}
+          onMouseDown={onMouseDown}
 
           onKeyDown={onEnterKeyDown}
 
