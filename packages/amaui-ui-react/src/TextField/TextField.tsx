@@ -932,9 +932,13 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
               React.cloneElement(item, {
                 key: index,
 
-                size: 'regular',
-                color: theme.palette.text.default.secondary,
-                style: styles.icon
+                size: item.props?.size !== undefined ? item.props?.size : 'regular',
+                color: item.props?.color !== undefined ? item.props?.color : theme.palette.text.default.secondary,
+                style: {
+                  ...item.props.style,
+
+                  ...styles.icon
+                }
               })
             ))}
           </span>
@@ -1100,9 +1104,13 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
               React.cloneElement(item, {
                 key: index,
 
-                size: 'regular',
-                color: error ? theme.palette.light ? theme.palette.color.error[hover ? 20 : 40] : theme.palette.color.error[hover ? 90 : 80] : theme.palette.text.default.secondary,
-                style: styles.icon
+                size: item.props?.size !== undefined ? item.props?.size : 'regular',
+                color: item.props?.color !== undefined ? item.props?.color : error ? theme.palette.light ? theme.palette.color.error[hover ? 20 : 40] : theme.palette.color.error[hover ? 90 : 80] : theme.palette.text.default.secondary,
+                style: {
+                  ...item.props.style,
+
+                  ...styles.icon
+                }
               })
             ))}
           </span>

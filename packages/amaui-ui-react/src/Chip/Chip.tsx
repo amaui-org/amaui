@@ -37,6 +37,7 @@ const Chip = React.forwardRef((props_: any, ref: any) => {
   const {
     input,
     filter,
+    onClick,
     onRemove,
     onSelected,
     onUnselected,
@@ -44,7 +45,6 @@ const Chip = React.forwardRef((props_: any, ref: any) => {
     version = 'outlined',
     color = 'default',
     startIcon,
-    onClick,
     selected: selected_,
     focus,
 
@@ -130,11 +130,11 @@ const Chip = React.forwardRef((props_: any, ref: any) => {
         className
       ])}
 
-      onClick={() => {
+      onClick={(event: React.MouseEvent<any>) => {
         onSelect();
 
         // Invoke items on click method
-        if (is('function', onClick)) onClick();
+        if (is('function', onClick)) onClick(event);
       }}
 
       startIcon={startIcon}

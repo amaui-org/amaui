@@ -851,6 +851,18 @@ function App() {
           />
         </Accordion>
 
+        <Accordion label='AutoComplete loading' open>
+          <AutoComplete
+            label='Items'
+
+            options={countries.map(item => ({ label: item.name }))}
+
+            color='secondary'
+
+            loading
+          />
+        </Accordion>
+
         <Accordion label='AutoComplete clearOnBlur' open>
           <AutoComplete
             label='Items'

@@ -11,6 +11,7 @@ import Chip from '../Chip';
 import TextField from '../TextField';
 import IconButton from '../IconButton';
 import ListItem from '../ListItem';
+import RoundProgress from '../RoundProgress';
 
 const useStyle = style(theme => ({
   root: {
@@ -79,6 +80,10 @@ const useStyle = style(theme => ({
     overflow: 'auto'
   },
 
+  roundProgress: {
+    padding: '0 8px'
+  },
+
   disabled: {
     cursor: 'default !important'
   }
@@ -86,24 +91,20 @@ const useStyle = style(theme => ({
 
 // To do
 
-// clearOnBlur
 // autoSelect
+// noOptions = true
+
+// clearOnBlur
 // blurOnSelect
 // clearOnEscape
 // closeOnSelect
 // preselectReset
 // filterSelectedOptions
-// noOptions = true
 // openOnFocus
 // optionEqualValue method
 // limitTags
-// loading
-// onChange
-// onOpen
-// onClose
 // groupBy
 // selectOnFocus
-
 
 // other options...
 
@@ -164,14 +165,16 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
     renderValues: renderValues_,
     renderOption,
     chip,
-    onChangeInput,
-    onChange,
     filter,
     options: options_ = [],
     clear = true,
     selectOnFocus,
     clearOnBlur,
+    loading,
     disabled,
+
+    onChangeInput,
+    onChange,
 
     IconClear = IconMaterialCloseRounded,
     ChipGroupProps = {},
@@ -241,11 +244,16 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
     }
   }, [focus]);
 
+  React.useEffect(() => {
+    if (loading) setOpen(true);
+  }, [loading]);
+
   const updateOptions = (newValue: any = valueInput, newOptions: any = undefined) => {
     let optionsValue = options_;
 
-    if (newOptions) optionsValue = newOptions;
-    else optionsValue = is('function', filter) ? filter(newValue, options_) : options_.filter(item => item.label.toLowerCase().includes(newValue.toLowerCase()));
+    if (loading) optionsValue = [{ label: 'Loading...', version: 'text' }];
+    else if (newOptions) optionsValue = newOptions;
+    else optionsValue = is('function', filter) ? filter(newValue, options_) : options_.filter(item => item?.label?.toLowerCase().includes(newValue?.toLowerCase()));
 
     if (!optionsValue.length) optionsValue.push({ label: 'No options', version: 'text', noOptions: true });
 
@@ -393,6 +401,11 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
             <Chip
               key={item}
 
+              onClick={(event: React.MouseEvent<any>) => {
+                event.preventDefault();
+                event.stopPropagation();
+              }}
+
               onRemove={(event: React.MouseEvent<any>) => {
                 event.preventDefault();
                 event.stopPropagation();
@@ -526,6 +539,14 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
     endIcon,
 
     ...(!readOnly ? [
+      ...(loading ? [
+        <RoundProgress
+          className={classes.roundProgress}
+
+          size='small'
+        />
+      ] : []),
+
       !!(multiple ? value.length : valueInput) && (
         <IconButton
           onClick={onClear}
