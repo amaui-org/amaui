@@ -99,12 +99,9 @@ const useStyle = style(theme => ({
 
 // To do
 
-// controlled input value y
 // clearOnBlur
 // selectOnFocus
 // onSelect focus fix
-
-// other options...
 
 const IconMaterialCloseRounded = React.forwardRef((props: any, ref) => {
 
@@ -177,7 +174,7 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
     clearOnEscape,
     groupBy,
     limit,
-
+    filterOutSelectedOptions,
     selectOnFocus,
     clearOnBlur,
 
@@ -487,6 +484,14 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
   });
 
   let optionsToUse = options;
+
+  if (filterOutSelectedOptions) {
+    optionsToUse = optionsToUse.filter(item_ => {
+      const item = multiple ? value.includes(item_.label) : valueInput === item_.label;
+
+      return !item;
+    });
+  }
 
   const groups = {};
 

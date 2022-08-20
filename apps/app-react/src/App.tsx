@@ -879,6 +879,20 @@ function App() {
           />
         </Accordion>
 
+        <Accordion label='AutoComplete filterOutSelectedOptions' open>
+          <AutoComplete
+            label='Items'
+
+            options={countries.map(item => ({ label: item.name }))}
+
+            color='secondary'
+
+            multiple
+
+            filterOutSelectedOptions
+          />
+        </Accordion>
+
         <Accordion label='AutoComplete loading' open>
           <AutoComplete
             label='Items'
@@ -987,7 +1001,7 @@ function App() {
           />
         </Accordion>
 
-        <Accordion label='AutoComplete countries' >
+        <Accordion label='AutoComplete countries'>
           <AutoComplete
             label='Items'
 
@@ -1165,7 +1179,7 @@ function App() {
           </Accordion>
         </Accordion>
 
-        <Accordion label='AutoComplete helper text' >
+        <Accordion label='AutoComplete helper text'>
           <AutoComplete
             label='Items'
 
@@ -1177,7 +1191,7 @@ function App() {
           />
         </Accordion>
 
-        <Accordion label='AutoComplete with start and end icons' >
+        <Accordion label='AutoComplete with start and end icons'>
           <AutoComplete
             label='Items'
 
@@ -1221,7 +1235,7 @@ function App() {
           />
         </Accordion>
 
-        <Accordion label='AutoComplete with prefix and sufix' >
+        <Accordion label='AutoComplete with prefix and sufix'>
           <AutoComplete
             label='Items'
 
@@ -1265,7 +1279,7 @@ function App() {
           />
         </Accordion>
 
-        <Accordion label='AutoComplete readOnly' >
+        <Accordion label='AutoComplete readOnly'>
           <AutoComplete
             label='Items'
 
@@ -1279,7 +1293,7 @@ function App() {
           />
         </Accordion>
 
-        <Accordion label='AutoComplete disabled' >
+        <Accordion label='AutoComplete disabled'>
           <AutoComplete
             label='Items'
 
@@ -1293,7 +1307,23 @@ function App() {
           />
         </Accordion>
 
-        <Accordion label='AmauiTheme' >
+        <Accordion label='AutoComplete controlled'>
+          <AutoComplete
+            label='Items'
+
+            valueDefault='Item 1'
+
+            value={a.autocomplete}
+
+            onChange={(value: any) => setA((items: any) => ({ ...items, autocomplete: value }))}
+
+            color='secondary'
+
+            options={countries.map(item => ({ label: item.name }))}
+          />
+        </Accordion>
+
+        <Accordion label='AmauiTheme'>
           <div
             className={classNames([classes.column])}
 
@@ -2073,6 +2103,32 @@ function App() {
             color='secondary'
 
             disabled
+          >
+            {[1, 3, 4].map(item => (
+              <ListItem
+                button
+
+                primary={`Item ${item}`}
+
+                value={item}
+
+                key={item}
+              />
+            ))}
+          </Select>
+        </Accordion>
+
+        <Accordion label='Select controlled' open>
+          <Select
+            label='Items'
+
+            valueDefault='Item 1'
+
+            value={a.select}
+
+            onChange={(value: any) => setA((items: any) => ({ ...items, select: value }))}
+
+            color='secondary'
           >
             {[1, 3, 4].map(item => (
               <ListItem
