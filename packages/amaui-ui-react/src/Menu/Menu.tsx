@@ -49,6 +49,8 @@ const Menu = React.forwardRef((props_: any, ref: any) => {
     include,
     resetKeyboardNavigation = false,
     autoSelect,
+    autoSelectOnBlur,
+    onSelect,
 
     ListProps = {},
     ModalProps = {},
@@ -188,11 +190,17 @@ const Menu = React.forwardRef((props_: any, ref: any) => {
     if (is('function', onOpen_)) onOpen_();
   }, []);
 
-  const onClose = React.useCallback(() => {
+  const onClose = () => {
+    if (refs.props.current.autoSelectOnBlur) {
+      const item: any = React.Children.toArray(refs.props.current.children)[refs.preselected.current];
+
+      if (item && is('function', refs.props.current.onSelect)) refs.props.current.onSelect(item.props?.value)
+    }
+
     setPreselected(undefined);
 
-    if (is('function', onClose_)) onClose_();
-  }, []);
+    if (is('function', refs.props.current.onClose)) refs.props.current.onClose();
+  };
 
   const Wrapper = closeOnClickAway ? ClickListener : React.Fragment;
 

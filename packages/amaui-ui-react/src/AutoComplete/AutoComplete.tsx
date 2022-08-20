@@ -91,20 +91,13 @@ const useStyle = style(theme => ({
 
 // To do
 
-// autoSelect
-// noOptions = true
-
-// clearOnBlur
-// blurOnSelect
-// clearOnEscape
-// closeOnSelect
-// preselectReset
-// filterSelectedOptions
 // openOnFocus
-// optionEqualValue method
 // limitTags
 // groupBy
+
+// clearOnBlur
 // selectOnFocus
+// onSelect focus fix
 
 // other options...
 
@@ -165,12 +158,20 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
     renderValues: renderValues_,
     renderOption,
     chip,
+    optionEqualValue,
     filter,
     options: options_ = [],
     clear = true,
+    loading,
+    autoSelectOnBlur,
+    blurOnSelect = false,
+    noOptions = true,
+    closeOnSelect = true,
+    clearOnEscape,
+
     selectOnFocus,
     clearOnBlur,
-    loading,
+
     disabled,
 
     onChangeInput,
@@ -197,6 +198,7 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
   const [open, setOpen] = React.useState(false);
   const [mouseDown, setMouseDown] = React.useState(false);
   const [options, setOptions] = React.useState(options_);
+  const [free, setFree] = React.useState(false);
 
   const { classes } = useStyle(props);
 
@@ -213,7 +215,11 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
 
   React.useEffect(() => {
     const method = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') onClose(true);
+      if (event.key === 'Escape') {
+        if (clearOnEscape) onClear();
+
+        onClose(true);
+      }
     };
 
     window.addEventListener('keydown', method);
@@ -231,8 +237,8 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
   React.useEffect(() => {
     const item = (options_ || []).find(item_ => item_.label === valueInput);
 
-    if (!!valueInput?.length && !open && !item && !disabled && !readOnly) setOpen(true);
-  }, [valueInput]);
+    if (!!valueInput?.length && !open && !item && !disabled && !readOnly) setOpen(!free);
+  }, [valueInput, free]);
 
   React.useEffect(() => {
     if (value_ !== undefined && value_ !== valueInput) setValueInput(value_);
@@ -251,11 +257,23 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
   const updateOptions = (newValue: any = valueInput, newOptions: any = undefined) => {
     let optionsValue = options_;
 
+    // reset
+    setFree(false);
+
     if (loading) optionsValue = [{ label: 'Loading...', version: 'text' }];
     else if (newOptions) optionsValue = newOptions;
-    else optionsValue = is('function', filter) ? filter(newValue, options_) : options_.filter(item => item?.label?.toLowerCase().includes(newValue?.toLowerCase()));
+    else optionsValue = is('function', filter) ? filter(newValue, options_) : options_.filter(item => is('function', optionEqualValue) ? optionEqualValue(newValue, item) : item?.label?.toLowerCase().includes(newValue?.toLowerCase()));
 
-    if (!optionsValue.length) optionsValue.push({ label: 'No options', version: 'text', noOptions: true });
+    if (!optionsValue.length) {
+      if (noOptions) optionsValue.push({ label: 'No options', version: 'text', noOptions: true });
+      else {
+        setOpen(false);
+
+        setFree(true);
+
+        return;
+      }
+    }
 
     setOptions(optionsValue);
   };
@@ -272,9 +290,9 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
     if (!disabled && !readOnly) setFocus(true);
   }, []);
 
-  const onBlur = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
+  const onBlur = (event: React.FocusEvent<HTMLInputElement>) => {
     if (!disabled && !readOnly) setFocus(false);
-  }, []);
+  };
 
   const onClick = React.useCallback((event: React.MouseEvent) => {
     if (!disabled && !readOnly) setOpen(open => {
@@ -326,9 +344,9 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
 
   const onChangeValue = React.useCallback((newValue: any) => {
     if (!disabled && !readOnly) {
-      setValueInput(newValue);
-
       updateOptions(newValue);
+
+      setValueInput(newValue);
     }
   }, []);
 
@@ -431,6 +449,10 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
     <Menu
       open={open}
 
+      autoSelectOnBlur={autoSelectOnBlur}
+
+      onSelect={onSelect}
+
       portal={false}
 
       onClose={() => onClose(false)}
@@ -489,9 +511,12 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
               if (is('function', item.props?.onClick)) item.props?.onClick(event);
 
               if (!multiple) {
-                setOpen(false);
+                if (blurOnSelect) {
+                  if (closeOnSelect) setOpen(false);
 
-                refs.input.current.focus();
+                  refs.input.current.blur();
+                }
+                else if (closeOnSelect) onClose();
               }
             },
 
@@ -503,9 +528,12 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
                 if (is('function', item.props?.onClick)) item.props?.onClick(event);
 
                 if (!multiple) {
-                  setOpen(false);
+                  if (blurOnSelect) {
+                    if (closeOnSelect) setOpen(false);
 
-                  refs.input.current.focus();
+                    refs.input.current.blur();
+                  }
+                  else if (closeOnSelect) onClose();
                 }
               }
             }
@@ -573,7 +601,7 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
   ].filter(Boolean);
 
   if (mouseDown) refs.input.current.focus();
-
+  console.log(1, open, focus);
   return (
     <TextField
       ref={refs.input}
@@ -653,13 +681,8 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
           readOnly && classes.readOnly
         ]),
 
-        tabIndex: 0,
-
         onMouseDown,
         onMouseUp,
-
-        onFocus,
-        onBlur,
 
         onClick,
 

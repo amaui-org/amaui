@@ -863,6 +863,66 @@ function App() {
           />
         </Accordion>
 
+        <Accordion label='AutoComplete autoSelectOnBlur' open>
+          <AutoComplete
+            label='Items'
+
+            options={countries.map(item => ({ label: item.name }))}
+
+            color='secondary'
+
+            autoSelectOnBlur
+          />
+        </Accordion>
+
+        <Accordion label='AutoComplete noOptions' open>
+          <AutoComplete
+            label='Items'
+
+            options={countries.map(item => ({ label: item.name }))}
+
+            color='secondary'
+
+            noOptions={false}
+          />
+        </Accordion>
+
+        <Accordion label='AutoComplete blurOnSelect' open>
+          <AutoComplete
+            label='Items'
+
+            options={countries.map(item => ({ label: item.name }))}
+
+            color='secondary'
+
+            blurOnSelect
+          />
+        </Accordion>
+
+        <Accordion label='AutoComplete clearOnEscape' open>
+          <AutoComplete
+            label='Items'
+
+            options={countries.map(item => ({ label: item.name }))}
+
+            color='secondary'
+
+            clearOnEscape
+          />
+        </Accordion>
+
+        <Accordion label='AutoComplete closeOnSelect' open>
+          <AutoComplete
+            label='Items'
+
+            options={countries.map(item => ({ label: item.name }))}
+
+            color='secondary'
+
+            closeOnSelect={false}
+          />
+        </Accordion>
+
         <Accordion label='AutoComplete clearOnBlur' open>
           <AutoComplete
             label='Items'
