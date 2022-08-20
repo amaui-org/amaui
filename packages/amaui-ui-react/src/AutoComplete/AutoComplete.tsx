@@ -591,13 +591,13 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
 
             style={{ width: '100%' }}
           >
-            <ListSubheader>{item}</ListSubheader>
+            <ListSubheader
+              Component='div'
+            >
+              {item}
+            </ListSubheader>
 
             <List
-              className={classNames([
-                classes.list
-              ])}
-
               size={size}
 
               paddingVertical='none'
