@@ -867,6 +867,18 @@ function App() {
           />
         </Accordion>
 
+        <Accordion label='AutoComplete groupBy' open>
+          <AutoComplete
+            label='Items'
+
+            options={countries.map(item => ({ label: item.name, letter: item.name.charAt(0) }))}
+
+            groupBy={(item: any) => item?.letter}
+
+            color='secondary'
+          />
+        </Accordion>
+
         <Accordion label='AutoComplete loading' open>
           <AutoComplete
             label='Items'
@@ -9445,9 +9457,9 @@ function App() {
             <List style={{ height: 140, width: 400, overflow: 'auto' }} paddingVertical='none'>
               {[0, 1, 3, 4].map(item => (
                 <li key={`li-${item}`} style={{ width: '100%' }}>
-                  <List key={`ul-${item}`} paddingVertical='none'>
-                    <ListSubheader>{`List subheader ${item}`}</ListSubheader>
+                  <ListSubheader>{`List subheader ${item}`}</ListSubheader>
 
+                  <List key={`ul-${item}`} paddingVertical='none'>
                     {[0, 1, 3].map(item_ => (
                       <ListItem
                         key={`li1-${item_}`}

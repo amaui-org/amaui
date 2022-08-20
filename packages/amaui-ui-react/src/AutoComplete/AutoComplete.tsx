@@ -13,6 +13,8 @@ import IconButton from '../IconButton';
 import ListItem from '../ListItem';
 import RoundProgress from '../RoundProgress';
 import Type from '../Type';
+import ListSubheader from '../ListSubheader';
+import List from '../List';
 
 const useStyle = style(theme => ({
   root: {
@@ -97,8 +99,7 @@ const useStyle = style(theme => ({
 
 // To do
 
-// groupBy
-
+// controlled input value y
 // clearOnBlur
 // selectOnFocus
 // onSelect focus fix
@@ -174,6 +175,7 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
     openOnFocus = true,
     closeOnSelect = true,
     clearOnEscape,
+    groupBy,
     limit,
 
     selectOnFocus,
@@ -484,6 +486,133 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
     return renderValue(value);
   });
 
+  let optionsToUse = options;
+
+  const groups = {};
+
+  if (is('function', groupBy)) {
+    optionsToUse.forEach(option => {
+      const valueForGroupBy = groupBy(option) || 'Other';
+
+      if (!groups[valueForGroupBy]) groups[valueForGroupBy] = [];
+
+      groups[valueForGroupBy].push(option);
+    });
+
+    optionsToUse = [];
+
+    if (!!Object.keys(groups).length) Object.keys(groups).forEach(item => {
+      const array = groups[item];
+
+      optionsToUse.push({ label: item, version: 'subheader' }, ...array);
+    });
+  }
+
+  const renderOptionValue = (values: any) => {
+    return values.map((item: any, index: number) => {
+      let other_: any = {};
+
+      const button = item.version === undefined || item.version === 'button';
+
+      if (button) {
+        other_ = {
+          primary: item.label,
+
+          value: item.label,
+
+          button,
+
+          selected: multiple ? value.includes(item.label) : valueInput === item.label,
+
+          onClick: (event: React.MouseEvent) => {
+            if (multiple && value.includes(item.label)) onUnselect(item.label);
+            else onSelect(item.label);
+
+            if (is('function', item.props?.onClick)) item.props?.onClick(event);
+
+            if (!multiple) {
+              if (blurOnSelect) {
+                if (closeOnSelect) setOpen(false);
+
+                refs.input.current.blur();
+              }
+              else if (closeOnSelect) onClose();
+            }
+          },
+
+          onKeyDown: (event: React.KeyboardEvent) => {
+            if (event.key === 'Enter') {
+              if (multiple && value.includes(item.label)) onUnselect(item.label);
+              else onSelect(item.label);
+
+              if (is('function', item.props?.onClick)) item.props?.onClick(event);
+
+              if (!multiple) {
+                if (blurOnSelect) {
+                  if (closeOnSelect) setOpen(false);
+
+                  refs.input.current.blur();
+                }
+                else if (closeOnSelect) onClose();
+              }
+            }
+          }
+        };
+      }
+      else {
+        other_.secondary = item.label;
+      }
+
+      other_.onMouseUp = onMouseUp;
+
+      other_.onMouseDown = onMouseDown;
+
+      return (
+        is('function', renderOption) ?
+          renderOption(item, index, { ...other_, ...item.props }) :
+
+          <ListItem
+            key={index}
+
+            {...other_}
+
+            {...item.props}
+          />
+      );
+    });
+  };
+
+  const renderList = () => {
+    if (!!Object.keys(groups).length) {
+      return (
+        Object.keys(groups).map((item: any, index: number) => (
+          <li
+            key={index}
+
+            style={{ width: '100%' }}
+          >
+            <ListSubheader>{item}</ListSubheader>
+
+            <List
+              className={classNames([
+                classes.list
+              ])}
+
+              size={size}
+
+              paddingVertical='none'
+
+              menu
+            >
+              {renderOptionValue(groups[item])}
+            </List>
+          </li>
+        ))
+      );
+    }
+    else return renderOptionValue(optionsToUse);
+  };
+
   const MenuValue = (children && (
     <Menu
       open={open}
@@ -517,6 +646,8 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
       ListProps={{
         menu: true,
 
+        paddingVertical: (is('function', groupBy) && !!options.length) ? 'none' : undefined,
+
         size,
 
         className: classNames([
@@ -528,77 +659,7 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
 
       {...MenuProps}
     >
-      {options.map((item: any, index: number) => {
-        let other_: any = {};
-
-        const button = item.version === undefined || item.version === 'button';
-
-        if (button) {
-          other_ = {
-            primary: item.label,
-
-            value: item.label,
-
-            button,
-
-            selected: multiple ? value.includes(item.label) : valueInput === item.label,
-
-            onClick: (event: React.MouseEvent) => {
-              if (multiple && value.includes(item.label)) onUnselect(item.label);
-              else onSelect(item.label);
-
-              if (is('function', item.props?.onClick)) item.props?.onClick(event);
-
-              if (!multiple) {
-                if (blurOnSelect) {
-                  if (closeOnSelect) setOpen(false);
-
-                  refs.input.current.blur();
-                }
-                else if (closeOnSelect) onClose();
-              }
-            },
-
-            onKeyDown: (event: React.KeyboardEvent) => {
-              if (event.key === 'Enter') {
-                if (multiple && value.includes(item.label)) onUnselect(item.label);
-                else onSelect(item.label);
-
-                if (is('function', item.props?.onClick)) item.props?.onClick(event);
-
-                if (!multiple) {
-                  if (blurOnSelect) {
-                    if (closeOnSelect) setOpen(false);
-
-                    refs.input.current.blur();
-                  }
-                  else if (closeOnSelect) onClose();
-                }
-              }
-            }
-          };
-        }
-        else {
-          other_.secondary = item.label;
-        }
-
-        other_.onMouseUp = onMouseUp;
-
-        other_.onMouseDown = onMouseDown;
-
-        return (
-          is('function', renderOption) ?
-            renderOption(item, index, { ...other_, ...item.props }) :
-
-            <ListItem
-              key={index}
-
-              {...other_}
-
-              {...item.props}
-            />
-        );
-      })}
+      {renderList()}
     </Menu>
   ));
 
@@ -640,7 +701,7 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
   ].filter(Boolean);
 
   if (mouseDown) refs.input.current.focus();
-  console.log(1, open, focus);
+
   return (
     <TextField
       ref={refs.input}
