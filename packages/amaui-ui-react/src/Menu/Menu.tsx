@@ -245,6 +245,8 @@ const Menu = React.forwardRef((props_: any, ref: any) => {
           <List
             menu
 
+            menuOpen={open}
+
             include={refs.include.current}
 
             {...ListProps}

@@ -313,6 +313,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
   const {
     menu,
     menuId,
+    menuOpen,
     menuItem,
     inset,
     primary = props.children,
@@ -404,8 +405,8 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
   }, []);
 
   React.useEffect(() => {
-    if (preselected) refs.root.current.focus();
-  }, [preselected]);
+    if (menuOpen && preselected) refs.root.current.focus();
+  }, [preselected, menuOpen]);
 
   React.useEffect(() => {
     if (menu) setOpen(hover || preselected || selected);

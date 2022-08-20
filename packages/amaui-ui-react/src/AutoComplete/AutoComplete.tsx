@@ -8,13 +8,13 @@ import { staticClassName } from '../utils';
 import Icon from '../Icon';
 import Menu from '../Menu';
 import Chip from '../Chip';
+import Type from '../Type';
+import List from '../List';
+import ListItem from '../ListItem';
 import TextField from '../TextField';
 import IconButton from '../IconButton';
-import ListItem from '../ListItem';
 import RoundProgress from '../RoundProgress';
-import Type from '../Type';
 import ListSubheader from '../ListSubheader';
-import List from '../List';
 
 const useStyle = style(theme => ({
   root: {
@@ -96,12 +96,6 @@ const useStyle = style(theme => ({
     cursor: 'default !important'
   }
 }), { name: 'AmauiAutoComplete' });
-
-// To do
-
-// clearOnBlur
-// selectOnFocus
-// onSelect focus fix
 
 const IconMaterialCloseRounded = React.forwardRef((props: any, ref) => {
 
@@ -251,12 +245,6 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
   }, [value_]);
 
   React.useEffect(() => {
-    if (focus) {
-      if (!!(multiple ? value.length : valueInput) && selectOnFocus) setTimeout(() => refs.input.current.select());
-    }
-  }, [focus]);
-
-  React.useEffect(() => {
     if (loading) setOpen(true);
   }, [loading]);
 
@@ -293,7 +281,11 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
   }, []);
 
   const onFocus = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
-    if (!disabled && !readOnly) setFocus(true);
+    if (!disabled && !readOnly) {
+      setFocus(true);
+
+      if (selectOnFocus) setTimeout(() => refs.input.current.select());
+    }
   }, []);
 
   const onBlur = (event: React.FocusEvent<HTMLInputElement>) => {
@@ -332,17 +324,23 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
     });
   }, []);
 
-  const onClose = React.useCallback((refocus = true) => {
+  const onClose = (refocus = true) => {
     if (!disabled && !readOnly) {
       setOpen(open => {
         if (open) {
           if (refocus) refs.input.current.focus();
+
+          if (clearOnBlur) {
+            const item = options.find(item_ => item_.label === valueInput);
+
+            if (!item) onClear();
+          }
         }
 
         return false;
       });
     }
-  }, []);
+  };
 
   const onExited = () => {
     if (!disabled && !readOnly) {
@@ -578,6 +576,8 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
 
           <ListItem
             key={index}
+
+            preselected={!open ? false : undefined}
 
             {...other_}
 

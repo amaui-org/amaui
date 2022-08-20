@@ -136,6 +136,7 @@ const List = React.forwardRef((props_: any, ref: any) => {
 
   const {
     menu,
+    menuOpen,
     size = mobile ? 'small' : 'regular',
     noMaxWidth = true,
     color = 'default',
@@ -205,6 +206,7 @@ const List = React.forwardRef((props_: any, ref: any) => {
           key: index,
 
           menuItem: menu,
+          menuOpen,
 
           color,
           tonal,
