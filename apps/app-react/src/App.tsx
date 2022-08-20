@@ -837,6 +837,20 @@ function App() {
           />
         </Accordion>
 
+        <Accordion label='AutoComplete multiple chip' open>
+          <AutoComplete
+            label='Items'
+
+            options={countries.map(item => ({ label: item.name }))}
+
+            color='secondary'
+
+            chip
+
+            multiple
+          />
+        </Accordion>
+
         <Accordion label='AutoComplete clearOnBlur' open>
           <AutoComplete
             label='Items'

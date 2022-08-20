@@ -73,14 +73,16 @@ const useStyle = style(theme => ({
     margin: 0,
     border: 0,
 
-    display: 'inline-flex',
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
     alignItems: 'flex-start',
     opacity: 0,
     transition: theme.methods.transitions.make('opacity'),
     borderRadius: `${theme.shape.radius.unit / 2}px ${theme.shape.radius.unit / 2}px 0 0`,
     width: '100%',
     cursor: 'text',
-    ...theme.typography.values.b2,
+    ...theme.typography.values.b2
   },
 
   inputWrapper_focus: {
@@ -98,7 +100,10 @@ const useStyle = style(theme => ({
     textAlign: 'start',
     borderRadius: `${theme.shape.radius.unit / 2}px ${theme.shape.radius.unit / 2}px 0 0`,
     ...theme.typography.values.b2,
-    ...overflow
+    ...overflow,
+
+    width: 'auto',
+    flex: '1 1 auto'
   },
 
   multiline: {

@@ -9,16 +9,8 @@ import Icon from '../Icon';
 import Menu from '../Menu';
 import Chip from '../Chip';
 import TextField from '../TextField';
-import ChipGroup from '../ChipGroup';
 import IconButton from '../IconButton';
 import ListItem from '../ListItem';
-
-const overflow = {
-  width: '100%',
-  overflow: 'hidden',
-  whiteSpace: 'nowrap',
-  textOverflow: 'ellipsis'
-};
 
 const useStyle = style(theme => ({
   root: {
@@ -26,8 +18,12 @@ const useStyle = style(theme => ({
     flex: 'unset'
   },
 
+  input_: {
+    alignSelf: 'center'
+  },
+
   input: {
-    width: '100%',
+    display: 'inline-flex',
     margin: 0,
     border: 0,
     color: theme.palette.text.default.primary,
@@ -35,36 +31,29 @@ const useStyle = style(theme => ({
     '-webkit-tap-highlight-color': 'transparent',
     textAlign: 'start',
     borderRadius: `${theme.shape.radius.unit / 2}px ${theme.shape.radius.unit / 2}px 0 0`,
-    ...theme.typography.values.b2,
-    ...overflow
+    ...theme.typography.values.b2
   },
 
-  inputWrapper_chip_size_small: {
-    minHeight: '48px'
+  inputWrapper_multiple_size_small: {
+    minHeight: '48px',
+    columnGap: '6px',
+    rowGap: '12px'
   },
 
-  inputWrapper_chip_size_regular: {
-    minHeight: '56px'
+  inputWrapper_multiple_size_regular: {
+    minHeight: '56px',
+    columnGap: '8px',
+    rowGap: '16px'
   },
 
-  inputWrapper_chip_size_large: {
-    minHeight: '64px'
+  inputWrapper_multiple_size_large: {
+    minHeight: '64px',
+    columnGap: '10px',
+    rowGap: '20px'
   },
 
-  input_: {
-    position: 'absolute',
-    left: 0,
-    bottom: 0,
-    pointerEvents: 'none',
-    opacity: 0
-  },
-
-  chip: {
+  multiple: {
     height: 'unset !important'
-  },
-
-  chipGroup: {
-    pointerEvents: 'none'
   },
 
   chipGroup_padding: {
@@ -115,7 +104,6 @@ const useStyle = style(theme => ({
 // groupBy
 // selectOnFocus
 
-// Multiple
 
 // other options...
 
@@ -339,6 +327,7 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
   const onClear = React.useCallback((refocus = true) => {
     if (!disabled && !readOnly) {
       setValueInput('');
+      setValue([]);
 
       if (refocus) refs.input.current.focus();
     }
@@ -400,28 +389,22 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
     if (multiple) {
       if (chip) {
         return (
-          <ChipGroup
-            wrap
+          value.map(item => (
+            <Chip
+              key={item}
 
-            size={size}
+              onRemove={(event: React.MouseEvent<any>) => {
+                event.preventDefault();
+                event.stopPropagation();
 
-            className={classNames([
-              classes.chipGroup,
-              version !== 'outlined' && classes.chipGroup_padding
-            ])}
+                onUnselect(item);
+              }}
 
-            {...ChipGroupProps}
-          >
-            {value.map(item => (
-              <Chip
-                key={item}
-
-                focus={false}
-              >
-                {renderValue(item)}
-              </Chip>
-            ))}
-          </ChipGroup>
+              input
+            >
+              {renderValue(item)}
+            </Chip>
+          ))
         );
       }
 
@@ -484,7 +467,7 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
 
             button,
 
-            selected: multiple ? value.includes(item.props?.value) : valueInput === item.label,
+            selected: multiple ? value.includes(item.label) : valueInput === item.label,
 
             onClick: (event: React.MouseEvent) => {
               if (multiple && value.includes(item.label)) onUnselect(item.label);
@@ -640,10 +623,11 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
           ],
 
           classes.inputWrapper,
-          chip && [
-            classes.chip,
-            classes[`inputWrapper_chip_size_${size}`]
+          multiple && [
+            classes.multiple,
+            classes[`inputWrapper_multiple_size_${size}`]
           ],
+          chip && classes.chip,
           open && classes.open,
           readOnly && classes.readOnly
         ]),
@@ -681,7 +665,7 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
 
       {...other}
     >
-      {multiple && (
+      {multiple && !chip && !!value.length && (
         <div
           ref={refs.value}
 
@@ -717,6 +701,8 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
           {renderValues()}
         </div>
       )}
+
+      {multiple && chip && !!value.length && renderValues()}
     </TextField>
   );
 });

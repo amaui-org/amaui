@@ -66,8 +66,8 @@ const Chip = React.forwardRef((props_: any, ref: any) => {
 
   if (input) {
     OtherProps.endIcon = <IconMaterialCloseSharp
-      onClick={() => {
-        if (is('function', onRemove)) onRemove();
+      onClick={(event: React.MouseEvent<any>) => {
+        if (is('function', onRemove)) onRemove(event);
       }}
     />
   }
