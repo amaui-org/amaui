@@ -12,6 +12,7 @@ import TextField from '../TextField';
 import IconButton from '../IconButton';
 import ListItem from '../ListItem';
 import RoundProgress from '../RoundProgress';
+import Type from '../Type';
 
 const useStyle = style(theme => ({
   root: {
@@ -80,6 +81,11 @@ const useStyle = style(theme => ({
     overflow: 'auto'
   },
 
+  limitText: {
+    alignSelf: 'center',
+    color: theme.palette.text.default.primary
+  },
+
   roundProgress: {
     padding: '0 8px'
   },
@@ -91,8 +97,6 @@ const useStyle = style(theme => ({
 
 // To do
 
-// openOnFocus
-// limitTags
 // groupBy
 
 // clearOnBlur
@@ -156,6 +160,7 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
     readOnly,
     getLabel,
     renderValues: renderValues_,
+    renderChip,
     renderOption,
     chip,
     optionEqualValue,
@@ -166,8 +171,10 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
     autoSelectOnBlur,
     blurOnSelect = false,
     noOptions = true,
+    openOnFocus = true,
     closeOnSelect = true,
     clearOnEscape,
+    limit,
 
     selectOnFocus,
     clearOnBlur,
@@ -296,7 +303,11 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
 
   const onClick = React.useCallback((event: React.MouseEvent) => {
     if (!disabled && !readOnly) setOpen(open => {
-      if (!open) refs.input.current.focus();
+      if (!open) {
+        if (!openOnFocus) return open;
+
+        refs.input.current.focus();
+      }
 
       return !open;
     });
@@ -312,7 +323,11 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
 
   const onEnterKeyDown = React.useCallback((event: React.KeyboardEvent) => {
     if (event.key === 'Enter' && !disabled && !readOnly) setOpen(open => {
-      if (!open) refs.input.current.focus();
+      if (!open) {
+        if (!openOnFocus) return open;
+
+        refs.input.current.focus();
+      }
 
       return !open;
     });
@@ -376,7 +391,11 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
     // Inner controlled value
     if (!props.hasOwnProperty('value')) {
       if (!multiple) setValueInput(newValue);
-      else setValue(values);
+      else {
+        setValueInput('');
+
+        setValue(values);
+      }
     }
   };
 
@@ -414,29 +433,49 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
   const renderValues = renderValues_ || (() => {
     if (multiple) {
       if (chip) {
-        return (
-          value.map(item => (
+        let values = value;
+
+        if (is('number', limit) && !open) values = values.slice(0, limit);
+
+        values = values.map(item => {
+          const other = {
+            key: item,
+
+            onClick: (event: React.MouseEvent<any>) => {
+              event.preventDefault();
+              event.stopPropagation();
+            },
+
+            onRemove: (event: React.MouseEvent<any>) => {
+              event.preventDefault();
+              event.stopPropagation();
+
+              onUnselect(item);
+            },
+
+            input: true
+          };
+
+          if (is('function', renderChip)) return renderChip(renderValue(item), other);
+
+          return (
             <Chip
-              key={item}
-
-              onClick={(event: React.MouseEvent<any>) => {
-                event.preventDefault();
-                event.stopPropagation();
-              }}
-
-              onRemove={(event: React.MouseEvent<any>) => {
-                event.preventDefault();
-                event.stopPropagation();
-
-                onUnselect(item);
-              }}
-
-              input
+              {...other}
             >
               {renderValue(item)}
             </Chip>
-          ))
+          );
+        });
+
+        if (is('number', limit) && !open && value.length - limit > 0) values.push(
+          <Type
+            className={classes.limitText}
+          >
+            +{value.length - limit}
+          </Type>
         );
+
+        return values;
       }
 
       return value.map(item => renderValue(item)).join(', ');

@@ -851,6 +851,22 @@ function App() {
           />
         </Accordion>
 
+        <Accordion label='AutoComplete multiple limit' open>
+          <AutoComplete
+            label='Items'
+
+            options={countries.map(item => ({ label: item.name }))}
+
+            color='secondary'
+
+            limit={4}
+
+            chip
+
+            multiple
+          />
+        </Accordion>
+
         <Accordion label='AutoComplete loading' open>
           <AutoComplete
             label='Items'
@@ -920,6 +936,18 @@ function App() {
             color='secondary'
 
             closeOnSelect={false}
+          />
+        </Accordion>
+
+        <Accordion label='AutoComplete openOnFocus' open>
+          <AutoComplete
+            label='Items'
+
+            options={countries.map(item => ({ label: item.name }))}
+
+            color='secondary'
+
+            openOnFocus={false}
           />
         </Accordion>
 
