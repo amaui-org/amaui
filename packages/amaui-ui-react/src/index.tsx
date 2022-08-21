@@ -148,3 +148,6 @@ export * from './Select';
 
 export { default as AutoComplete } from './AutoComplete';
 export * from './AutoComplete';
+
+export { default as Rating } from './Rating';
+export * from './Rating';

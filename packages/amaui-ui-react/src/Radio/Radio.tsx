@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from 'react';
+import React from 'react';
 
 import { is } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
@@ -106,6 +106,7 @@ const Radio = React.forwardRef((props_: any, ref: any) => {
 
     ...other
   } = props;
+
   const [checked, setChecked] = React.useState(valueDefault !== undefined ? valueDefault : value);
 
   const { classes } = useStyle(props);
@@ -118,7 +119,7 @@ const Radio = React.forwardRef((props_: any, ref: any) => {
     if (value !== undefined && checked !== value) setChecked(value);
   }, [value]);
 
-  const onUpdate = (event: ChangeEvent<HTMLInputElement>) => {
+  const onUpdate = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (!disabled) {
       if (is('function', onChange)) onChange(!checked, event);
 

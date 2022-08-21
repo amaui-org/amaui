@@ -46,7 +46,7 @@ const Icon = React.forwardRef((props_: any, ref: any) => {
     name,
     short_name,
     tonal,
-    tone = '30',
+    tone = '60',
     color: color_ = 'inherit',
     size = 'regular',
     Component = 'svg',
@@ -66,9 +66,7 @@ const Icon = React.forwardRef((props_: any, ref: any) => {
 
   React.useEffect(() => {
     // Update rtl based on theme value
-    const method = (update, themeNew: AmauiTheme) => {
-      setRtl(themeNew.direction === 'rtl');
-    };
+    const method = (update, themeNew: AmauiTheme) => setRtl(themeNew.direction === 'rtl');
 
     theme.subscriptions.update.subscribe(method);
 

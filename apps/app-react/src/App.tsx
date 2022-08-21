@@ -2,7 +2,7 @@ import React from 'react';
 
 import { countries } from '@amaui/utils';
 import { AmauiTheme, AmauiThemeProvider, classNames, style, sy, useAmauiTheme } from '@amaui/style-react';
-import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, ButtonGroup, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, ChipGroup, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete } from '@amaui/ui-react';
+import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, ButtonGroup, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, ChipGroup, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating } from '@amaui/ui-react';
 
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
@@ -812,6 +812,196 @@ function App() {
 
           <IconMaterialPottedPlantRounded color='secondary' />
         </div>
+      </Accordion>
+
+      <Accordion label='Rating'>
+        <Accordion label='Rating' open>
+          <div className={classNames([classes.column])}>
+            <Rating />
+          </div>
+        </Accordion>
+
+        <Accordion label='Rating values' open>
+          <div className={classNames([classes.column])}>
+            <Rating values={7} />
+          </div>
+        </Accordion>
+
+        <Accordion label='Rating precision' open>
+          <div className={classNames([classes.column])}>
+            <Rating precision={0.25} />
+            <Rating precision={0.5} />
+            <Rating precision={0.75} />
+            <Rating precision={1} />
+          </div>
+        </Accordion>
+
+        <Accordion label='Rating sizes' open>
+          <div className={classNames([classes.column])} style={{ gap: 14 }}>
+            <Rating size='small' />
+            <Rating size='regular' />
+            <Rating size='large' />
+          </div>
+        </Accordion>
+
+        <Accordion label='Switch color' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Switch color='default' valueDefault />
+            <Switch color='primary' valueDefault />
+            <Switch color='secondary' valueDefault />
+            <Switch color='tertiary' valueDefault />
+            <Switch color='quaternary' valueDefault />
+            <Switch color='info' valueDefault />
+            <Switch color='success' valueDefault />
+            <Switch color='error' valueDefault />
+            <Switch color='warning' valueDefault />
+            <Switch color='neutral' valueDefault />
+            <Switch color='#f5d758' valueDefault />
+          </div>
+        </Accordion>
+
+        <Accordion label='Switch color tonal' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Switch tonal color='primary' valueDefault />
+            <Switch tonal color='secondary' valueDefault />
+            <Switch tonal color='tertiary' valueDefault />
+            <Switch tonal color='quaternary' valueDefault />
+            <Switch tonal color='info' valueDefault />
+            <Switch tonal color='success' valueDefault />
+            <Switch tonal color='error' valueDefault />
+            <Switch tonal color='warning' valueDefault />
+            <Switch tonal color='neutral' valueDefault />
+            <Switch tonal color='#f5d758' valueDefault />
+          </div>
+        </Accordion>
+
+        <Accordion label='Switch valueDefault' open>
+          <div className={classNames([classes.column])}>
+            <Switch color='secondary' valueDefault />
+          </div>
+        </Accordion>
+
+        <Accordion label='Switch controlled value' open>
+          <div className={classNames([classes.column])}>
+            <Switch
+              color='secondary'
+
+              onChange={(value: boolean) => updateValue(value, 'switch')}
+              value={!!a.switch}
+            />
+          </div>
+        </Accordion>
+
+        <Accordion label='Switch readOnly' open>
+          <div className={classNames([classes.column])}>
+            <Switch color='secondary' OffIcon={<IconMaterialCloseRounded />} readOnly />
+            <Switch color='secondary' OnIcon={<IconMaterialCheckRounded />} valueDefault readOnly />
+          </div>
+        </Accordion>
+
+        <Accordion label='Switch disabled' open>
+          <div className={classNames([classes.column])}>
+            <Switch color='secondary' OffIcon={<IconMaterialCloseRounded />} disabled />
+            <Switch color='secondary' OnIcon={<IconMaterialCheckRounded />} valueDefault disabled />
+          </div>
+        </Accordion>
+
+        <Accordion label='AmauiTheme' open>
+          <div className={classNames([classes.column])}>
+            <Switch color='secondary' />
+
+            <Accordion label='AmauiTheme nested value' open>
+              <AmauiThemeProvider
+                value={{
+                  palette: {
+                    color: {
+                      secondary: {
+                        main: '#008000'
+                      }
+                    }
+                  },
+                  space: {
+                    unit: 5
+                  }
+                }}
+              >
+                <Switch color='secondary' />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme add' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiSwitch: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: 0.4
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Switch color='secondary' />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme override' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiSwitch: {
+                        style: {
+                          override: {
+                            root: {
+                              display: 'inline-flex',
+                              position: 'relative',
+                              height: 37
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Switch color='secondary' />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme props' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiSwitch: {
+                        props: {
+                          default: {
+                            color: 'secondary'
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Switch />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme styled' open>
+              <styled.Switch />
+            </Accordion>
+          </div>
+        </Accordion>
       </Accordion>
 
       <Accordion label='AutoComplete'>
