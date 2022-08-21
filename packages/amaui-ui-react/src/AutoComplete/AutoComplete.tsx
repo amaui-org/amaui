@@ -192,6 +192,7 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
 
   const children = React.Children.toArray(children_);
 
+  const [init, setInit] = React.useState(false);
   const [valueInput, setValueInput] = React.useState(valueInputDefault !== undefined ? valueInputDefault : valueInput_);
   const [value, setValue] = React.useState((valueDefault !== undefined ? valueDefault : value_) || []);
   const [focus, setFocus] = React.useState(false);
@@ -226,6 +227,8 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
 
     window.addEventListener('mouseup', onMouseUp as any);
 
+    setInit(true);
+
     return () => {
       // Clean up
       window.removeEventListener('mouseup', onMouseUp as any);
@@ -245,7 +248,7 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
   }, [value_]);
 
   React.useEffect(() => {
-    if (loading) setOpen(true);
+    if (init && loading) setOpen(true);
   }, [loading]);
 
   const updateOptions = (newValue: any = valueInput, newOptions: any = undefined) => {
