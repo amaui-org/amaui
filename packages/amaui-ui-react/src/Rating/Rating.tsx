@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { debounce, is } from '@amaui/utils';
+import { is } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import { staticClassName } from '../utils';
@@ -22,6 +22,12 @@ const useStyle = style(theme => ({
     }
   },
 
+  iconWrapper_readOnly: {
+    '&:hover': {
+      transform: 'none'
+    }
+  },
+
   active: {
     display: 'inline-flex',
     position: 'absolute',
@@ -33,6 +39,15 @@ const useStyle = style(theme => ({
 
   inactive: {
     opacity: 0.24
+  },
+
+  readOnly: {
+    cursor: 'default'
+  },
+
+  disabled: {
+    opacity: theme.palette.visual_contrast.default.opacity.disabled,
+    cursor: 'default'
   }
 }), { name: 'AmauiRating' });
 
@@ -70,14 +85,6 @@ const IconMaterialGradeRoundedFilled = React.forwardRef((props: any, ref) => {
 
 // To do
 
-// readOnly
-// disabled
-// sizes
-// colors
-// only selected
-// custom icons global and/or per value index
-// // iconEmpty, iconActive and icons as an object or per value icon value y
-// value, onChangeActive and onChange
 // focus (only on not readOnly, disabled active or first value y)
 // keyboard with arrows left, bottom and top, right move value to left or right value y
 // enter key as well for updating value y
@@ -94,13 +101,18 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
     size = 'regular',
     values = 5,
     precision = 1,
-    value_,
+    value: value_,
     valueDefault,
+    valueActive: valueActive_,
+    valueActiveDefault,
     onChange,
     onChangeActive,
     Component = 'span',
+    icon,
+    icons,
     iconInactive = <IconMaterialGradeRounded />,
     iconActive = <IconMaterialGradeRoundedFilled />,
+    onlyValue,
     readOnly,
     disabled,
 
@@ -111,8 +123,9 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
     ...other
   } = props;
 
-  const [value, setValue] = React.useState((valueDefault !== undefined ? valueDefault : value_));
-  const [valueActive, setValueActive] = React.useState<number>();
+  const [init, setInit] = React.useState(false);
+  const [value, setValue] = React.useState(valueDefault !== undefined ? valueDefault : value_);
+  const [valueActive, setValueActive] = React.useState<number>(valueActiveDefault !== undefined ? valueActiveDefault : valueActive_);
   const [hover, setHover] = React.useState(false);
 
   const refs = {
@@ -121,14 +134,34 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
 
   const { classes } = useStyle(props);
 
-  const onClick = React.useCallback((event: React.MouseEvent<any>, index: number) => {
+  React.useEffect(() => {
+    setInit(true);
+  }, []);
+
+  React.useEffect(() => {
+    if (init && value_ !== value) setValue(value_);
+  }, [value_]);
+
+  React.useEffect(() => {
+    if (init && valueActive_ !== valueActive) setValueActive(valueActive_);
+  }, [valueActive_]);
+
+  const onClick = React.useCallback(() => {
     if (!disabled && !readOnly) {
       if (value === valueActive) {
-        setValue(undefined);
+        if (props.hasOwnProperty('value')) {
+          if (is('function', onChange)) onChange(undefined);
+        }
+        else setValue(undefined);
 
         setHover(false);
       }
-      else setValue(valueActive);
+      else {
+        if (props.hasOwnProperty('value')) {
+          if (is('function', onChange)) onChange(valueActive);
+        }
+        else setValue(valueActive);
+      }
     }
   }, [disabled, readOnly, value, valueActive]);
 
@@ -173,7 +206,13 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
       if ([0, 1].includes(value__)) value__ = index;
       else value__ += index;
 
-      if (valueActive !== value__) setValueActive(value__);
+      if (valueActive !== value__) {
+        if (props.hasOwnProperty('valueActive')) {
+          if (is('function', onChangeActive)) onChangeActive(value__);
+        }
+        // Inner controlled value
+        else setValueActive(value__);
+      }
     }
   }, [disabled, readOnly, hover, valueActive]);
 
@@ -183,7 +222,11 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
 
   const onMouseLeave = React.useCallback(() => {
     if (!disabled && !readOnly) {
-      setValueActive(undefined);
+      if (props.hasOwnProperty('valueActive')) {
+        if (is('function', onChangeActive)) onChangeActive(undefined);
+      }
+      // Inner controlled value
+      else setValueActive(undefined);
 
       setHover(false);
     }
@@ -192,10 +235,19 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
   const width = (index: number) => {
     const value__ = !hover ? value : valueActive;
 
-    if (value__ === undefined || value__ < index) return '0%';
-    if (value__ > index + 1 || value__ === index) return '100%';
-    // Precision value update y
-    else return `${(value__ - index) * 100}%`;
+    if (value__ >= index && value__ < index + 1) {
+      if (value__ === index) return '100%';
+
+      return `${(value__ - index) * 100}%`;
+    }
+
+    if (value__ !== undefined && index < +(value__).toFixed(1) && !onlyValue) return '100%';
+  };
+
+  const getIcon = (index: number, inactive = true) => {
+    if (inactive) return icons?.[index]?.iconInactive || icons?.[index]?.icon || icon || iconInactive;
+
+    return icons?.[index]?.iconActive || icons?.[index]?.icon || icon || iconActive;
   };
 
   return (
@@ -221,62 +273,70 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
         readOnly && classes.readOnly,
         disabled && classes.disabled
       ])}
+
+      {...other}
     >
-      {new Array(values).fill(undefined).map((item: any, index: number) => (
-        <span
-          ref={item => refs.values.current.push(item)}
+      {new Array(values).fill(undefined).map((item: any, index: number) => {
+        const IconInactive = getIcon(index);
+        const IconActive = getIcon(index, false);
 
-          onMouseMove={(event: React.MouseEvent<any>) => onMouseMove(event, index)}
-
-          onClick={(event: React.MouseEvent<any>) => onClick(event, index)}
-
-          className={classNames([
-            staticClassName('Icon', theme) && [
-              'AmauiRating-icon-wrapper'
-            ],
-
-            classes.iconWrapper
-          ])}
-        >
+        return (
           <span
+            ref={item => refs.values.current.push(item)}
+
+            onMouseMove={(event: React.MouseEvent<any>) => onMouseMove(event, index)}
+
+            onClick={onClick}
+
             className={classNames([
               staticClassName('Icon', theme) && [
-                'AmauiRating-icon',
-                'AmauiRating-icon-inactive'
+                'AmauiRating-icon-wrapper'
               ],
 
-              classes.icon,
-              classes.inactive
+              classes.iconWrapper,
+              (readOnly || disabled) && classes.iconWrapper_readOnly
             ])}
           >
-            {React.cloneElement(iconInactive, {
-              tonal: iconInactive.props?.tonal !== undefined ? iconInactive.props?.tonal : tonal,
-              color: iconInactive.props?.color !== undefined ? iconInactive.props?.color : colorInactive,
-              size: iconInactive.props?.size !== undefined ? iconInactive.props?.size : size
-            })}
+            <span
+              className={classNames([
+                staticClassName('Icon', theme) && [
+                  'AmauiRating-icon',
+                  'AmauiRating-icon-inactive'
+                ],
+
+                classes.icon,
+                classes.inactive
+              ])}
+            >
+              {React.cloneElement(IconInactive, {
+                tonal: IconInactive.props?.tonal !== undefined ? IconInactive.props?.tonal : tonal,
+                color: colorInactive,
+                size: IconInactive.props?.size !== undefined ? IconInactive.props?.size : size
+              })}
+            </span>
+
+            <span
+              className={classNames([
+                staticClassName('Icon', theme) && [
+                  'AmauiRating-icon',
+                  'AmauiRating-icon-active'
+                ],
+
+                classes.icon,
+                classes.active
+              ])}
+
+              style={{ width: width(index) }}
+            >
+              {React.cloneElement(IconActive, {
+                tonal: IconActive.props?.tonal !== undefined ? IconActive.props?.tonal : tonal,
+                color: IconActive.props?.color !== undefined ? IconActive.props?.color : color,
+                size: IconActive.props?.size !== undefined ? IconActive.props?.size : size
+              })}
+            </span>
           </span>
-
-          <span
-            className={classNames([
-              staticClassName('Icon', theme) && [
-                'AmauiRating-icon',
-                'AmauiRating-icon-active'
-              ],
-
-              classes.icon,
-              classes.active
-            ])}
-
-            style={{ width: width(index) }}
-          >
-            {React.cloneElement(iconActive, {
-              tonal: iconInactive.props?.tonal !== undefined ? iconInactive.props?.tonal : tonal,
-              color: iconInactive.props?.color !== undefined ? iconInactive.props?.color : color,
-              size: iconInactive.props?.size !== undefined ? iconInactive.props?.size : size
-            })}
-          </span>
-        </span>
-      ))}
+        );
+      })}
     </Component>
   );
 });

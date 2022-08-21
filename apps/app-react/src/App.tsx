@@ -17,6 +17,9 @@ import IconMaterialContentCopyRounded from '@amaui/icons-material-react/build/Ic
 import IconMaterialContentPasteRounded from '@amaui/icons-material-react/build/IconMaterialContentPasteRounded';
 import IconMaterialCloudRounded from '@amaui/icons-material-react/build/IconMaterialCloudRounded';
 import IconMaterialArrowRightRounded from '@amaui/icons-material-react/build/IconMaterialArrowRightRounded';
+import IconMaterialSentimentDissatisfiedRounded from '@amaui/icons-material-react/build/IconMaterialSentimentDissatisfiedRounded';
+import IconMaterialSentimentNeutralRounded from '@amaui/icons-material-react/build/IconMaterialSentimentNeutralRounded';
+import IconMaterialSentimentSatisfiedRounded from '@amaui/icons-material-react/build/IconMaterialSentimentSatisfiedRounded';
 
 const useStyleA = style(theme => ({
   a: {
@@ -217,6 +220,13 @@ const Accordion = (props: any) => {
 };
 
 const styled = {
+  Rating: sy(Rating)((theme: AmauiTheme) => ({
+    root: {
+      '&:hover': {
+        opacity: 0.4
+      }
+    }
+  })),
   AutoComplete: sy(AutoComplete)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
@@ -844,71 +854,92 @@ function App() {
           </div>
         </Accordion>
 
-        <Accordion label='Switch color' open>
-          <div className={classNames([classes.row, classes.center])}>
-            <Switch color='default' valueDefault />
-            <Switch color='primary' valueDefault />
-            <Switch color='secondary' valueDefault />
-            <Switch color='tertiary' valueDefault />
-            <Switch color='quaternary' valueDefault />
-            <Switch color='info' valueDefault />
-            <Switch color='success' valueDefault />
-            <Switch color='error' valueDefault />
-            <Switch color='warning' valueDefault />
-            <Switch color='neutral' valueDefault />
-            <Switch color='#f5d758' valueDefault />
-          </div>
-        </Accordion>
-
-        <Accordion label='Switch color tonal' open>
-          <div className={classNames([classes.row, classes.center])}>
-            <Switch tonal color='primary' valueDefault />
-            <Switch tonal color='secondary' valueDefault />
-            <Switch tonal color='tertiary' valueDefault />
-            <Switch tonal color='quaternary' valueDefault />
-            <Switch tonal color='info' valueDefault />
-            <Switch tonal color='success' valueDefault />
-            <Switch tonal color='error' valueDefault />
-            <Switch tonal color='warning' valueDefault />
-            <Switch tonal color='neutral' valueDefault />
-            <Switch tonal color='#f5d758' valueDefault />
-          </div>
-        </Accordion>
-
-        <Accordion label='Switch valueDefault' open>
+        <Accordion label='Rating color' open>
           <div className={classNames([classes.column])}>
-            <Switch color='secondary' valueDefault />
+            <Rating color='default' valueDefault={3} />
+            <Rating color='primary' valueDefault={3} />
+            <Rating color='secondary' valueDefault={3} />
+            <Rating color='tertiary' valueDefault={3} />
+            <Rating color='quaternary' valueDefault={3} />
+            <Rating color='info' valueDefault={3} />
+            <Rating color='success' valueDefault={3} />
+            <Rating color='error' valueDefault={3} />
+            <Rating color='warning' valueDefault={3} />
+            <Rating color='neutral' valueDefault={3} />
+            <Rating color='#f5d758' valueDefault={3} />
           </div>
         </Accordion>
 
-        <Accordion label='Switch controlled value' open>
+        <Accordion label='Rating color tonal' open>
           <div className={classNames([classes.column])}>
-            <Switch
-              color='secondary'
+            <Rating tonal color='primary' valueDefault={3} />
+            <Rating tonal color='secondary' valueDefault={3} />
+            <Rating tonal color='tertiary' valueDefault={3} />
+            <Rating tonal color='quaternary' valueDefault={3} />
+            <Rating tonal color='info' valueDefault={3} />
+            <Rating tonal color='success' valueDefault={3} />
+            <Rating tonal color='error' valueDefault={3} />
+            <Rating tonal color='warning' valueDefault={3} />
+            <Rating tonal color='neutral' valueDefault={3} />
+            <Rating tonal color='#f5d758' valueDefault={3} />
+          </div>
+        </Accordion>
 
-              onChange={(value: boolean) => updateValue(value, 'switch')}
-              value={!!a.switch}
+        <Accordion label='Rating valueDefault' open>
+          <div className={classNames([classes.column])}>
+            <Rating color='secondary' valueDefault={3} />
+          </div>
+        </Accordion>
+
+        <Accordion label='Rating controlled value' open>
+          <div className={classNames([classes.column])}>
+            <Rating
+              onChange={(value: number) => updatePure(value, 'rating')}
+
+              value={a.rating}
             />
           </div>
         </Accordion>
 
-        <Accordion label='Switch readOnly' open>
+        <Accordion label='Rating custom icons' open>
           <div className={classNames([classes.column])}>
-            <Switch color='secondary' OffIcon={<IconMaterialCloseRounded />} readOnly />
-            <Switch color='secondary' OnIcon={<IconMaterialCheckRounded />} valueDefault readOnly />
+            <Rating
+              icons={{
+                0: { icon: <IconMaterialSentimentDissatisfiedRounded color='warning' /> },
+                1: { icon: <IconMaterialSentimentNeutralRounded color='default' /> },
+                2: { icon: <IconMaterialSentimentSatisfiedRounded color='success' /> }
+              }}
+
+              values={3}
+
+              onlyValue
+            />
           </div>
         </Accordion>
 
-        <Accordion label='Switch disabled' open>
+        <Accordion label='Rating onlyValue' open>
           <div className={classNames([classes.column])}>
-            <Switch color='secondary' OffIcon={<IconMaterialCloseRounded />} disabled />
-            <Switch color='secondary' OnIcon={<IconMaterialCheckRounded />} valueDefault disabled />
+            <Rating valueDefault={3} onlyValue />
+
+            <Rating precision={0.5} valueDefault={3} onlyValue />
+          </div>
+        </Accordion>
+
+        <Accordion label='Rating readOnly' open>
+          <div className={classNames([classes.column])}>
+            <Rating valueDefault={3} readOnly />
+          </div>
+        </Accordion>
+
+        <Accordion label='Rating disabled' open>
+          <div className={classNames([classes.column])}>
+            <Rating valueDefault={3} disabled />
           </div>
         </Accordion>
 
         <Accordion label='AmauiTheme' open>
           <div className={classNames([classes.column])}>
-            <Switch color='secondary' />
+            <Rating color='secondary' />
 
             <Accordion label='AmauiTheme nested value' open>
               <AmauiThemeProvider
@@ -925,7 +956,7 @@ function App() {
                   }
                 }}
               >
-                <Switch color='secondary' />
+                <Rating color='secondary' />
               </AmauiThemeProvider>
             </Accordion>
 
@@ -934,7 +965,7 @@ function App() {
                 value={{
                   ui: {
                     elements: {
-                      AmauiSwitch: {
+                      AmauiRating: {
                         style: {
                           add: {
                             root: {
@@ -949,7 +980,7 @@ function App() {
                   }
                 }}
               >
-                <Switch color='secondary' />
+                <Rating color='secondary' />
               </AmauiThemeProvider>
             </Accordion>
 
@@ -958,13 +989,14 @@ function App() {
                 value={{
                   ui: {
                     elements: {
-                      AmauiSwitch: {
+                      AmauiRating: {
                         style: {
                           override: {
                             root: {
                               display: 'inline-flex',
-                              position: 'relative',
-                              height: 37
+                              cursor: 'pointer',
+                              padding: '4px 7px',
+                              background: '#f7f7f7'
                             }
                           }
                         }
@@ -973,7 +1005,7 @@ function App() {
                   }
                 }}
               >
-                <Switch color='secondary' />
+                <Rating color='secondary' />
               </AmauiThemeProvider>
             </Accordion>
 
@@ -982,7 +1014,7 @@ function App() {
                 value={{
                   ui: {
                     elements: {
-                      AmauiSwitch: {
+                      AmauiRating: {
                         props: {
                           default: {
                             color: 'secondary'
@@ -993,12 +1025,12 @@ function App() {
                   }
                 }}
               >
-                <Switch />
+                <Rating />
               </AmauiThemeProvider>
             </Accordion>
 
             <Accordion label='AmauiTheme styled' open>
-              <styled.Switch />
+              <styled.Rating />
             </Accordion>
           </div>
         </Accordion>
