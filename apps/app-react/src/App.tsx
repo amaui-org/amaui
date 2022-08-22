@@ -2,7 +2,7 @@ import React from 'react';
 
 import { countries } from '@amaui/utils';
 import { AmauiTheme, AmauiThemeProvider, classNames, style, sy, useAmauiTheme } from '@amaui/style-react';
-import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, ButtonGroup, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, ChipGroup, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box } from '@amaui/ui-react';
+import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, ButtonGroup, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, ChipGroup, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container } from '@amaui/ui-react';
 
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
@@ -66,7 +66,8 @@ const useStyle = style(theme => ({
 
   '@pure': {
     div: {
-      position: 'relative'
+      position: 'relative',
+      width: '100%'
     }
   },
 
@@ -220,6 +221,13 @@ const Accordion = (props: any) => {
 };
 
 const styled = {
+  Container: sy(Container)((theme: AmauiTheme) => ({
+    root: {
+      '&:hover': {
+        opacity: 0.4
+      }
+    }
+  })),
   Box: sy(Box)((theme: AmauiTheme) => ({
     root: {
       color: theme.palette?.color?.primary?.main
@@ -417,6 +425,20 @@ const styled = {
     }
   })),
 };
+
+const Box14 = () => (
+  <Box
+    styles={(theme: AmauiTheme) => ({
+      root: {
+        width: '100%',
+        height: '140px',
+        backgroundColor: 'beige'
+      }
+    })}
+  >
+    Value
+  </Box>
+);
 
 const Box1 = () => (
   <Box
@@ -873,6 +895,230 @@ function App() {
 
           <IconMaterialPottedPlantRounded color='secondary' />
         </div>
+      </Accordion>
+
+      <Accordion label='Container'>
+        <Accordion label='Container' open>
+          <div className={classNames([classes.column])}>
+            <Container>
+              <Box14 />
+            </Container>
+          </div>
+        </Accordion>
+
+        <Accordion label='Container alignment' open>
+          <div className={classNames([classes.column])} style={{ gap: 24 }}>
+            <Container alignment='start'>
+              <Box14 />
+            </Container>
+
+            <Container alignment='center'>
+              <Box14 />
+            </Container>
+
+            <Container alignment='end'>
+              <Box14 />
+            </Container>
+          </div>
+        </Accordion>
+
+        <Accordion label='Container fullWidth' open>
+          <div className={classNames([classes.column])} style={{ gap: 24 }}>
+            <Container fullWidth>
+              <Box14 />
+            </Container>
+          </div>
+        </Accordion>
+
+        <Accordion label='Container paddingHorizontal' open>
+          <div className={classNames([classes.column])} style={{ gap: 24 }}>
+            <Container paddingHorizontal='both'>
+              <Box14 />
+            </Container>
+
+            <Container paddingHorizontal='start'>
+              <Box14 />
+            </Container>
+
+            <Container paddingHorizontal='end'>
+              <Box14 />
+            </Container>
+
+            <Container paddingHorizontal='none'>
+              <Box14 />
+            </Container>
+          </div>
+        </Accordion>
+
+        <Accordion label='Container paddingVertical' open>
+          <div className={classNames([classes.column])} style={{ gap: 24 }}>
+            <Container paddingVertical='both'>
+              <Box14 />
+            </Container>
+
+            <Container paddingVertical='start'>
+              <Box14 />
+            </Container>
+
+            <Container paddingVertical='end'>
+              <Box14 />
+            </Container>
+
+            <Container paddingVertical='none'>
+              <Box14 />
+            </Container>
+          </div>
+        </Accordion>
+
+        <Accordion label='Container maxWidth' open>
+          <div className={classNames([classes.column])} style={{ gap: 24 }}>
+            <Container maxWidth='xxs'>
+              <Box14 />
+            </Container>
+
+            <Container maxWidth='xs'>
+              <Box14 />
+            </Container>
+
+            <Container maxWidth='sm'>
+              <Box14 />
+            </Container>
+
+            <Container maxWidth='rg'>
+              <Box14 />
+            </Container>
+
+            <Container maxWidth='lg'>
+              <Box14 />
+            </Container>
+
+            <Container maxWidth='xl'>
+              <Box14 />
+            </Container>
+
+            <Container maxWidth='xxl'>
+              <Box14 />
+            </Container>
+
+            <Container maxWidth='unset'>
+              <Box14 />
+            </Container>
+
+            <Container maxWidth='440px'>
+              <Box14 />
+            </Container>
+          </div>
+        </Accordion>
+
+        <Accordion label='AmauiTheme'>
+          <div className={classNames([classes.column])}>
+            <Container>
+              <Box14 />
+            </Container>
+
+            <Accordion label='AmauiTheme nested value' open>
+              <AmauiThemeProvider
+                value={{
+                  palette: {
+                    color: {
+                      secondary: {
+                        main: '#008000'
+                      }
+                    }
+                  },
+                  space: {
+                    unit: 5
+                  }
+                }}
+              >
+                <Container>
+                  <Box14 />
+                </Container>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme add' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiContainer: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: '0.4'
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Container>
+                  <Box14 />
+                </Container>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme override' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiContainer: {
+                        style: {
+                          override: {
+                            root: {
+                              display: 'flex',
+                              width: '100%',
+                              cursor: 'pointer',
+                              background: '#f7f7f7'
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Container>
+                  <Box14 />
+                </Container>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme props' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiContainer: {
+                        props: {
+                          default: {
+                            Component: 'main'
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Container>
+                  <Box14 />
+                </Container>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme styled' open>
+              <styled.Container>
+                <Box14 />
+              </styled.Container>
+            </Accordion>
+          </div>
+        </Accordion>
       </Accordion>
 
       <Accordion label='Box'>
