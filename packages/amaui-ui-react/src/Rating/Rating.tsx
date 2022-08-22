@@ -93,12 +93,6 @@ const IconMaterialGradeRoundedFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
-// To do
-
-// focus (only on not readOnly, disabled active or first value y)
-// keyboard with arrows left, bottom and top, right move value to left or right value y
-// enter key as well for updating value y
-
 const Rating = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 
@@ -138,6 +132,7 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
   const [valueActive, setValueActive] = React.useState<number>(valueActiveDefault !== undefined ? valueActiveDefault : valueActive_);
   const [hover, setHover] = React.useState(false);
   const [focus, setFocus] = React.useState(false);
+  const [mouseDown, setMouseDown] = React.useState(false);
 
   const refs = {
     root: React.useRef<any>(),
@@ -147,7 +142,17 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
   const { classes } = useStyle(props);
 
   React.useEffect(() => {
+    const onMouseUp = () => {
+      if (!disabled && !readOnly) setMouseDown(false);
+    };
+
+    window.document.addEventListener('mouseup', onMouseUp);
+
     setInit(true);
+
+    return () => {
+      window.document.removeEventListener('mouseup', onMouseUp);
+    };
   }, []);
 
   React.useEffect(() => {
@@ -158,18 +163,8 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
     if (init && valueActive_ !== valueActive) setValueActive(valueActive_);
   }, [valueActive_]);
 
-  const onMouseUp = React.useCallback(() => {
-    if (!disabled && !readOnly) {
-      // Remove the focus from the root
-      refs.root.current.blur();
-    }
-  }, [disabled, readOnly]);
-
   const onMouseDown = React.useCallback(() => {
-    if (!disabled && !readOnly) {
-      // Remove the focus from the root
-      refs.root.current.blur();
-    }
+    if (!disabled && !readOnly) setMouseDown(true);
   }, [disabled, readOnly]);
 
   const onClick = React.useCallback(() => {
@@ -261,9 +256,9 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
     }
   }, [disabled, readOnly, value, precision]);
 
-  const onFocus = React.useCallback(() => {
-    if (!disabled && !readOnly) setFocus(true);
-  }, [disabled, readOnly]);
+  const onFocus = React.useCallback((event) => {
+    if (!disabled && !readOnly && !mouseDown) setFocus(true);
+  }, [disabled, readOnly, mouseDown]);
 
   const onBlur = React.useCallback(() => {
     if (!disabled && !readOnly) setFocus(false);
@@ -352,8 +347,6 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
 
       onMouseLeave={onMouseLeave}
 
-      onMouseUp={onMouseUp}
-
       onMouseDown={onMouseDown}
 
       onKeyDown={onKeyDown}
@@ -394,10 +387,6 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
 
             onMouseMove={(event: React.MouseEvent<any>) => onMouseMove(event, index + 1)}
 
-            onMouseUp={onMouseUp}
-
-            onMouseDown={onMouseDown}
-
             onClick={onClick}
 
             className={classNames([
@@ -412,10 +401,6 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
             ])}
           >
             <span
-              onMouseUp={onMouseUp}
-
-              onMouseDown={onMouseDown}
-
               className={classNames([
                 staticClassName('Rating', theme) && [
                   'AmauiRating-icon',
@@ -434,10 +419,6 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
             </span>
 
             <span
-              onMouseUp={onMouseUp}
-
-              onMouseDown={onMouseDown}
-
               className={classNames([
                 staticClassName('Rating', theme) && [
                   'AmauiRating-icon',
