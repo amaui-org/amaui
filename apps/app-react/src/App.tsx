@@ -905,9 +905,9 @@ function App() {
           <div className={classNames([classes.column])}>
             <Rating
               icons={{
-                0: { icon: <IconMaterialSentimentDissatisfiedRounded color='warning' /> },
-                1: { icon: <IconMaterialSentimentNeutralRounded color='default' /> },
-                2: { icon: <IconMaterialSentimentSatisfiedRounded color='success' /> }
+                1: { icon: <IconMaterialSentimentDissatisfiedRounded color='warning' /> },
+                2: { icon: <IconMaterialSentimentNeutralRounded color='default' /> },
+                3: { icon: <IconMaterialSentimentSatisfiedRounded color='success' /> }
               }}
 
               values={3}

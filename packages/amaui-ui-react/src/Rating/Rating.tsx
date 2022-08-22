@@ -10,10 +10,12 @@ import Icon from '../Icon';
 const useStyle = style(theme => ({
   root: {
     display: 'inline-flex',
+    alignItems: 'flex-start',
     cursor: 'pointer'
   },
 
   iconWrapper: {
+    display: 'inline-flex',
     position: 'relative',
     transition: theme.methods.transitions.make('transform', { duration: 'xs' }),
 
@@ -28,6 +30,10 @@ const useStyle = style(theme => ({
     }
   },
 
+  icon: {
+    display: 'inline-flex'
+  },
+
   active: {
     display: 'inline-flex',
     position: 'absolute',
@@ -39,6 +45,10 @@ const useStyle = style(theme => ({
 
   inactive: {
     opacity: 0.24
+  },
+
+  focus_outline: {
+    outline: `1px solid ${theme.palette.text.default.secondary}`
   },
 
   readOnly: {
@@ -127,8 +137,10 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
   const [value, setValue] = React.useState(valueDefault !== undefined ? valueDefault : value_);
   const [valueActive, setValueActive] = React.useState<number>(valueActiveDefault !== undefined ? valueActiveDefault : valueActive_);
   const [hover, setHover] = React.useState(false);
+  const [focus, setFocus] = React.useState(false);
 
   const refs = {
+    root: React.useRef<any>(),
     values: React.useRef<Array<HTMLSpanElement>>([])
   };
 
@@ -146,16 +158,23 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
     if (init && valueActive_ !== valueActive) setValueActive(valueActive_);
   }, [valueActive_]);
 
+  const onMouseUp = React.useCallback(() => {
+    if (!disabled && !readOnly) {
+      // Remove the focus from the root
+      refs.root.current.blur();
+    }
+  }, [disabled, readOnly]);
+
+  const onMouseDown = React.useCallback(() => {
+    if (!disabled && !readOnly) {
+      // Remove the focus from the root
+      refs.root.current.blur();
+    }
+  }, [disabled, readOnly]);
+
   const onClick = React.useCallback(() => {
     if (!disabled && !readOnly) {
-      if (value === valueActive) {
-        if (props.hasOwnProperty('value')) {
-          if (is('function', onChange)) onChange(undefined);
-        }
-        else setValue(undefined);
-
-        setHover(false);
-      }
+      if (value === valueActive) onClear();
       else {
         if (props.hasOwnProperty('value')) {
           if (is('function', onChange)) onChange(valueActive);
@@ -187,24 +206,87 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
     }
   };
 
+  const move = (forward = true) => {
+    let valueNew = value;
+
+    if (value === undefined) {
+      if (forward) valueNew = precision;
+      else valueNew = values;
+    }
+    else {
+      if (forward) valueNew += precision;
+      else valueNew -= precision;
+
+      if ((precision === 1 ? valueNew < 1 : valueNew <= 0) || valueNew > values) valueNew = undefined;
+    }
+
+    // Value update
+    setValue(valueNew === undefined ? valueNew : +(valueNew).toFixed(2));
+  };
+
+  const onClear = () => {
+    if (props.hasOwnProperty('value')) {
+      if (is('function', onChange)) onChange(undefined);
+    }
+    else setValue(undefined);
+
+    setHover(false);
+  };
+
+  const onKeyDown = React.useCallback((event: React.KeyboardEvent<any>) => {
+    if (!disabled && !readOnly) {
+      if (['Enter', 'Escape', 'ArrowUp', 'ArrowRight', 'ArrowDown', 'ArrowLeft'].includes(event.key)) {
+        // Prevent default
+        event.preventDefault();
+
+        switch (event.key) {
+          case 'ArrowUp':
+          case 'ArrowRight':
+            return move();
+
+          case 'ArrowDown':
+          case 'ArrowLeft':
+            return move(false);
+
+          case 'Enter':
+            return onClick();
+
+          case 'Escape':
+            return onClear();
+
+          default:
+            break;
+        }
+      }
+    }
+  }, [disabled, readOnly, value, precision]);
+
+  const onFocus = React.useCallback(() => {
+    if (!disabled && !readOnly) setFocus(true);
+  }, [disabled, readOnly]);
+
+  const onBlur = React.useCallback(() => {
+    if (!disabled && !readOnly) setFocus(false);
+  }, [disabled, readOnly]);
+
   const onMouseMove = React.useCallback((event: React.MouseEvent<any>, index: number) => {
     if (!disabled && !readOnly) {
       if (!hover) setHover(true);
 
-      let value__ = index;
+      let value__ = index - 1;
 
       const { clientX } = event;
 
-      const rect = refs.values.current[index].getBoundingClientRect();
+      const rect = refs.values.current[index - 1].getBoundingClientRect();
 
       const width = rect.width;
 
       // Value to the precision point value
-      value__ = valuePrecision((clientX - rect.x) / width);
+      const decimals = valuePrecision((clientX - rect.x) / width);
 
       // Add index value
-      if ([0, 1].includes(value__)) value__ = index;
-      else value__ += index;
+      if ([0, 1].includes(decimals)) value__ = index;
+      else value__ += decimals;
 
       if (valueActive !== value__) {
         if (props.hasOwnProperty('valueActive')) {
@@ -235,10 +317,10 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
   const width = (index: number) => {
     const value__ = !hover ? value : valueActive;
 
-    if (value__ >= index && value__ < index + 1) {
+    if (value__ > index - 1 && value__ <= index) {
       if (value__ === index) return '100%';
 
-      return `${(value__ - index) * 100}%`;
+      return `${(value__ % 1) * 100}%`;
     }
 
     if (value__ !== undefined && index < +(value__).toFixed(1) && !onlyValue) return '100%';
@@ -250,26 +332,52 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
     return icons?.[index]?.iconActive || icons?.[index]?.icon || icon || iconActive;
   };
 
+  const selected = (index: number) => value > index - 1 && value <= index;
+
   return (
     <Component
-      ref={ref}
+      ref={item => {
+        if (ref) ref.current = ref;
+
+        refs.root.current = item;
+      }}
+
+      tabIndex={(!disabled && !readOnly) ? 0 : undefined}
+
+      onBlur={onBlur}
+
+      onFocus={onFocus}
 
       onMouseEnter={onMouseEnter}
 
       onMouseLeave={onMouseLeave}
 
+      onMouseUp={onMouseUp}
+
+      onMouseDown={onMouseDown}
+
+      onKeyDown={onKeyDown}
+
       className={classNames([
-        staticClassName('Icon', theme) && [
+        staticClassName('Rating', theme) && [
           'AmauiRating-root',
           `AmauiRating-color-${!theme.palette.color[color] && color !== 'default' ? 'new' : color}`,
           is('string', size) && `AmauiRating-size-${size}`,
           tonal && `AmauiButton-tonal`,
+          focus && [
+            `AmauiButton-focus`,
+            value === undefined && `AmauiButton-focus-noValue`
+          ],
           readOnly && `AmauiRating-readOnly`,
           disabled && `AmauiRating-disabled`
         ],
 
         className,
         classes.root,
+        focus && [
+          classes.focus,
+          value === undefined && classes.focus_outline
+        ],
         readOnly && classes.readOnly,
         disabled && classes.disabled
       ])}
@@ -277,29 +385,39 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
       {...other}
     >
       {new Array(values).fill(undefined).map((item: any, index: number) => {
-        const IconInactive = getIcon(index);
-        const IconActive = getIcon(index, false);
+        const IconInactive = getIcon(index + 1);
+        const IconActive = getIcon(index + 1, false);
 
         return (
           <span
             ref={item => refs.values.current.push(item)}
 
-            onMouseMove={(event: React.MouseEvent<any>) => onMouseMove(event, index)}
+            onMouseMove={(event: React.MouseEvent<any>) => onMouseMove(event, index + 1)}
+
+            onMouseUp={onMouseUp}
+
+            onMouseDown={onMouseDown}
 
             onClick={onClick}
 
             className={classNames([
-              staticClassName('Icon', theme) && [
-                'AmauiRating-icon-wrapper'
+              staticClassName('Rating', theme) && [
+                'AmauiRating-icon-wrapper',
+                focus && selected(index + 1) && 'AmauiRating-focus'
               ],
 
               classes.iconWrapper,
+              focus && selected(index + 1) && classes.focus_outline,
               (readOnly || disabled) && classes.iconWrapper_readOnly
             ])}
           >
             <span
+              onMouseUp={onMouseUp}
+
+              onMouseDown={onMouseDown}
+
               className={classNames([
-                staticClassName('Icon', theme) && [
+                staticClassName('Rating', theme) && [
                   'AmauiRating-icon',
                   'AmauiRating-icon-inactive'
                 ],
@@ -316,8 +434,12 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
             </span>
 
             <span
+              onMouseUp={onMouseUp}
+
+              onMouseDown={onMouseDown}
+
               className={classNames([
-                staticClassName('Icon', theme) && [
+                staticClassName('Rating', theme) && [
                   'AmauiRating-icon',
                   'AmauiRating-icon-active'
                 ],
@@ -326,7 +448,7 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
                 classes.active
               ])}
 
-              style={{ width: width(index) }}
+              style={{ width: width(index + 1) }}
             >
               {React.cloneElement(IconActive, {
                 tonal: IconActive.props?.tonal !== undefined ? IconActive.props?.tonal : tonal,
