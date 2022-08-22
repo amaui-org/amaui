@@ -14,8 +14,8 @@ export interface IResponseStyle extends IMethodResponse {
 
 export const propsAreNew = (props) => props && Object.keys(props).reduce((result, item) => result += item + String(props[item]), '');
 
-export default function style(value: TValue, options_: IOptions = {}) {
-  const responses: Array<IResponseStyle> = [];
+export default function style(value: TValue, options_: IOptions = {}, responses_?: Array<IResponseStyle>) {
+  const responses: Array<IResponseStyle> = responses_ || [];
 
   const { name } = options_;
 

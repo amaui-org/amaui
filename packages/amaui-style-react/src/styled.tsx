@@ -6,6 +6,9 @@ import { IOptions } from '@amaui/style/style';
 import { style } from '.';
 
 const styled = (Element: any) => (value: TValue, options: IOptions = {}): React.ElementType => {
+  // Name
+  options.name = options.name !== undefined ? options.name : `${Element?.displayName || Element?.type?.displayName || ''}Styled`;
+
   // Use styles
   const useStyle = style(value, options);
 

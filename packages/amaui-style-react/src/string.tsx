@@ -1,10 +1,12 @@
 import React from 'react';
 
-import { IResponse, IMethodResponse, style } from '@amaui/style';
+import { hash } from '@amaui/utils';
 
-import { useAmauiStyle, useAmauiTheme } from '.';
+import style from './style';
 
 // May be TValue or a string  as a string value literal
+const responses = {};
+
 export default function string(value_: TemplateStringsArray, ...args: any[]): string {
   const method = () => value_.reduce((result, item, index) => result += `${item}${args[index] || ''}`, '');
 
@@ -12,49 +14,13 @@ export default function string(value_: TemplateStringsArray, ...args: any[]): st
     a: method(),
   };
 
-  const amauiStyle = useAmauiStyle();
-  const amauiTheme = useAmauiTheme();
+  const name = React.useState(() => hash(value.a))[0];
 
-  const makeResponse = () => {
-    // If there's not add a new response and use it
-    const options = {
-      amaui_style: { value: undefined },
-      amaui_theme: { value: undefined },
-    };
+  if (!responses[hash(value.a)]) responses[hash(value.a)] = [];
 
-    // AmauiStyle
-    if (amauiStyle !== undefined) options.amaui_style.value = amauiStyle;
+  const useStyle = React.useState(() => style(value_ as any, { name }, responses[name]))[0];
 
-    // AmauiTheme
-    if (amauiTheme !== undefined) options.amaui_theme.value = amauiTheme;
-
-    const response_ = style(value, options);
-
-    // Update
-    if (amauiTheme) amauiTheme.subscriptions.update.subscribe(method);
-
-    return response_;
-  };
-
-  const response = React.useState<IMethodResponse>(makeResponse())[0];
-
-  const values = React.useState<IResponse>(() => response.add())[0];
-
-  React.useEffect(() => {
-
-    // Clean up
-    return () => {
-      // Remove
-      response?.remove(values?.ids?.dynamic);
-    };
-  }, []);
-
-  // Update
-  // if values update based on
-  // ui props or useAmauiTheme update
-  React.useEffect(() => {
-    if (response?.update !== undefined) response.update(value);
-  }, [value.a]);
+  const values = useStyle();
 
   return (values.class || '') as string;
 }

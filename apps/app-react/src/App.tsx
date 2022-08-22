@@ -2,7 +2,7 @@ import React from 'react';
 
 import { countries } from '@amaui/utils';
 import { AmauiTheme, AmauiThemeProvider, classNames, style, sy, useAmauiTheme } from '@amaui/style-react';
-import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, ButtonGroup, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, ChipGroup, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating } from '@amaui/ui-react';
+import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, ButtonGroup, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, ChipGroup, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box } from '@amaui/ui-react';
 
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
@@ -220,6 +220,11 @@ const Accordion = (props: any) => {
 };
 
 const styled = {
+  Box: sy(Box)((theme: AmauiTheme) => ({
+    root: {
+      color: theme.palette?.color?.primary?.main
+    }
+  })),
   Rating: sy(Rating)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
@@ -412,6 +417,46 @@ const styled = {
     }
   })),
 };
+
+const Box1 = () => (
+  <Box
+    styles={(theme: AmauiTheme) => ({
+      root: {
+        width: '140px',
+        height: '140px',
+        color: theme.palette?.color?.secondary?.main,
+        backgroundColor: 'beige',
+        transition: 'opacity .4s',
+
+        '&:hover': {
+          opacity: 0.4
+        }
+      }
+    })}
+  >
+    Value
+  </Box>
+);
+
+const BoxStyled = () => (
+  <styled.Box
+    styles={(theme: AmauiTheme) => ({
+      root: {
+        width: '140px',
+        height: '140px',
+        color: theme.palette?.color?.secondary?.main,
+        backgroundColor: 'beige',
+        transition: 'opacity .4s',
+
+        '&:hover': {
+          opacity: 0.4
+        }
+      }
+    })}
+  >
+    Value
+  </styled.Box>
+);
 
 function App() {
   const [a, setA] = React.useState<any>({
@@ -830,6 +875,122 @@ function App() {
         </div>
       </Accordion>
 
+      <Accordion label='Box'>
+        <Accordion label='Box' open>
+          <div className={classNames([classes.column])}>
+            <Box1 />
+          </div>
+        </Accordion>
+
+        <Accordion label='Box multiple' open>
+          <div className={classNames([classes.row])} style={{ gap: 14 }}>
+            <Box1 />
+
+            <Box1 />
+
+            <Box1 />
+          </div>
+        </Accordion>
+
+        <Accordion label='AmauiTheme'>
+          <div className={classNames([classes.column])}>
+            <Box1 />
+
+            <Accordion label='AmauiTheme nested value' open>
+              <AmauiThemeProvider
+                value={{
+                  palette: {
+                    color: {
+                      secondary: {
+                        main: '#008000'
+                      }
+                    }
+                  },
+                  space: {
+                    unit: 5
+                  }
+                }}
+              >
+                <Box1 />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme add' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiBox: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: '0.7 !important'
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Box1 />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme override' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiBox: {
+                        style: {
+                          override: {
+                            root: {
+                              display: 'inline-flex',
+                              cursor: 'pointer',
+                              padding: '4px 7px',
+                              background: '#f7f7f7'
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Box1 />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme props' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiBox: {
+                        props: {
+                          default: {
+                            Component: 'main'
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Box1 />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme styled' open>
+              <BoxStyled />
+            </Accordion>
+          </div>
+        </Accordion>
+      </Accordion>
+
       <Accordion label='Rating'>
         <Accordion label='Rating' open>
           <div className={classNames([classes.column])}>
@@ -857,6 +1018,22 @@ function App() {
             <Rating size='small' />
             <Rating size='regular' />
             <Rating size='large' />
+          </div>
+        </Accordion>
+
+        <Accordion label='Rating colorInactive' open>
+          <div className={classNames([classes.column])}>
+            <Rating colorInactive='default' valueDefault={3} />
+            <Rating colorInactive='primary' valueDefault={3} />
+            <Rating colorInactive='secondary' valueDefault={3} />
+            <Rating colorInactive='tertiary' valueDefault={3} />
+            <Rating colorInactive='quaternary' valueDefault={3} />
+            <Rating colorInactive='info' valueDefault={3} />
+            <Rating colorInactive='success' valueDefault={3} />
+            <Rating colorInactive='error' valueDefault={3} />
+            <Rating colorInactive='warning' valueDefault={3} />
+            <Rating colorInactive='neutral' valueDefault={3} />
+            <Rating colorInactive='#f5d758' valueDefault={3} />
           </div>
         </Accordion>
 

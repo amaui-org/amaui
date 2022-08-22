@@ -151,3 +151,6 @@ export * from './AutoComplete';
 
 export { default as Rating } from './Rating';
 export * from './Rating';
+
+export { default as Box } from './Box';
+export * from './Box';
