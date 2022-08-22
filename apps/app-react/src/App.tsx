@@ -624,6 +624,12 @@ function App() {
 
       <Accordion label='All'>
         <div className={classNames([classes.column])}>
+          <Accordion label='Rating' open>
+            <div className={classNames([classes.column])}>
+              <Rating />
+            </div>
+          </Accordion>
+
           <Accordion label='AutoComplete' open>
             <AutoComplete
               label='Items'
