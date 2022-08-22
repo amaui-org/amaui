@@ -23,6 +23,23 @@ const useStyle = style(theme => ({
     width: `calc(100% - 72px)`
   },
 
+  vertical: {
+    margin: '0 8px',
+    height: '100%',
+    width: '1px'
+  },
+
+  vertical_middle: {
+    margin: `16px 8px`,
+    height: `calc(100% - 32px)`
+  },
+
+  // flex
+  flex: {
+    alignSelf: 'stretch',
+    height: 'auto'
+  },
+
   // Orientation
   horizontal: {
     margin: '8px 0',
@@ -33,17 +50,6 @@ const useStyle = style(theme => ({
   horizontal_middle: {
     margin: `8px 16px`,
     width: `calc(100% - 32px)`
-  },
-
-  vertical: {
-    margin: '0 8px',
-    height: '100%',
-    width: '1px'
-  },
-
-  vertical_middle: {
-    margin: `16px 8px`,
-    height: `calc(100% - 32px)`
   },
 
   rootWithChildren: {
@@ -122,6 +128,7 @@ const Divider = React.forwardRef((props_: any, ref: any) => {
     alignment = 'center',
     orientation = 'horizontal',
     Component: Component_ = 'hr',
+    flex,
 
     className,
     style,
@@ -175,6 +182,7 @@ const Divider = React.forwardRef((props_: any, ref: any) => {
           `AmauiDivider-alignment-${alignment}`,
           `AmauiDivider-orientation-${orientation}`,
           `AmauiDivider-color-${!theme.palette.color[color] && color !== 'default' ? 'new' : color}`,
+          flex && `AmauiDivider-flex`,
           inset && `AmauiDivider-inset`,
           middle && `AmauiDivider-middle`,
           tonal && `AmauiDivider-tonal`
@@ -184,6 +192,7 @@ const Divider = React.forwardRef((props_: any, ref: any) => {
         classes[children ? 'rootWithChildren' : 'root'],
         classes[color],
         classes[`${children ? 'rootWithChildren_' : ''}${orientation}`],
+        flex && classes.flex,
         inset && classes.inset,
         middle && classes[`${children ? `rootWithChildren_` : ''}${orientation}_middle`]
       ])}

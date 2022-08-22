@@ -157,3 +157,6 @@ export * from './Box';
 
 export { default as Container } from './Container';
 export * from './Container';
+
+export { default as Line } from './Line';
+export * from './Line';

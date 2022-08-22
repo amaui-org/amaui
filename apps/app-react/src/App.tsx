@@ -2,7 +2,7 @@ import React from 'react';
 
 import { countries } from '@amaui/utils';
 import { AmauiTheme, AmauiThemeProvider, classNames, style, sy, useAmauiTheme } from '@amaui/style-react';
-import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, ButtonGroup, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, ChipGroup, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container } from '@amaui/ui-react';
+import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, ButtonGroup, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, ChipGroup, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line } from '@amaui/ui-react';
 
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
@@ -66,8 +66,7 @@ const useStyle = style(theme => ({
 
   '@pure': {
     div: {
-      position: 'relative',
-      width: '100%'
+      position: 'relative'
     }
   },
 
@@ -221,6 +220,13 @@ const Accordion = (props: any) => {
 };
 
 const styled = {
+  Line: sy(Line)((theme: AmauiTheme) => ({
+    root: {
+      '&:hover': {
+        opacity: 0.4
+      }
+    }
+  })),
   Container: sy(Container)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
@@ -479,6 +485,10 @@ const BoxStyled = () => (
     Value
   </styled.Box>
 );
+
+const Item = sy(Surface)((theme) => ({
+
+}));
 
 function App() {
   const [a, setA] = React.useState<any>({
@@ -895,6 +905,726 @@ function App() {
 
           <IconMaterialPottedPlantRounded color='secondary' />
         </div>
+      </Accordion>
+
+      <Accordion label='Line'>
+        <Accordion label='Line' open>
+          <div className={classNames([classes.column])}>
+            <Line>
+              <Item size='small' elevation={1}>Item 1</Item>
+              <Item size='regular' elevation={1}>Item 114</Item>
+              <Item size='large' elevation={1}>Item 1114</Item>
+            </Line>
+          </div>
+        </Accordion>
+
+        <Accordion label='Line divider' open>
+          <div className={classNames([classes.column])}>
+            <Line direction='row' divider>
+              <Item size='small' elevation={1}>Item 1</Item>
+              <Item size='regular' elevation={1}>Item 114</Item>
+              <Item size='large' elevation={1}>Item 1114</Item>
+            </Line>
+
+            <Line direction='column' divider>
+              <Item size='small' elevation={1}>Item 1</Item>
+              <Item size='regular' elevation={1}>Item 114</Item>
+              <Item size='large' elevation={1}>Item 1114</Item>
+            </Line>
+          </div>
+        </Accordion>
+
+        <Accordion label='Line direction' open>
+          <div className={classNames([classes.column])}>
+            <Line direction='row'>
+              <Item size='small' elevation={1}>Item 1</Item>
+              <Item size='regular' elevation={1}>Item 114</Item>
+              <Item size='large' elevation={1}>Item 1114</Item>
+            </Line>
+
+            <Line direction='row-reverse'>
+              <Item size='small' elevation={1}>Item 1</Item>
+              <Item size='regular' elevation={1}>Item 114</Item>
+              <Item size='large' elevation={1}>Item 1114</Item>
+            </Line>
+
+            <Line direction='column'>
+              <Item size='small' elevation={1}>Item 1</Item>
+              <Item size='regular' elevation={1}>Item 114</Item>
+              <Item size='large' elevation={1}>Item 1114</Item>
+            </Line>
+
+            <Line direction='column-reverse'>
+              <Item size='small' elevation={1}>Item 1</Item>
+              <Item size='regular' elevation={1}>Item 114</Item>
+              <Item size='large' elevation={1}>Item 1114</Item>
+            </Line>
+          </div>
+        </Accordion>
+
+        <Accordion label='Line align' open>
+          <Accordion label='Line align row' open>
+            <div className={classNames([classes.column])}>
+              <Line direction='row' align='flex-start'>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='row' align='center'>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='row' align='flex-end'>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='row' align='baseline'>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='row' align='stretch'>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+            </div>
+          </Accordion>
+
+          <Accordion label='Line align column' open>
+            <div className={classNames([classes.column])}>
+              <Line direction='column' align='flex-start'>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='column' align='center'>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='column' align='flex-end'>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='column' align='baseline'>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='column' align='stretch'>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+            </div>
+          </Accordion>
+        </Accordion>
+
+        <Accordion label='Line justify' open>
+          <Accordion label='Line justify row' open>
+            <div className={classNames([classes.column])}>
+              <Line direction='row' justify='flex-start'>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='row' justify='center'>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='row' justify='flex-end'>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='row' justify='space-around'>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='row' justify='space-between'>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='row' justify='space-evenly'>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+            </div>
+          </Accordion>
+
+          <Accordion label='Line justify column' open>
+            <div className={classNames([classes.column])}>
+              <Line direction='column' justify='flex-start' style={{ height: 400, background: '#fafafa' }}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='column' justify='center' style={{ height: 400, background: '#fafafa' }}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='column' justify='flex-end' style={{ height: 400, background: '#fafafa' }}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='column' justify='space-around' style={{ height: 400, background: '#fafafa' }}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='column' justify='space-between' style={{ height: 400, background: '#fafafa' }}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='column' justify='space-evenly' style={{ height: 400, background: '#fafafa' }}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+            </div>
+          </Accordion>
+        </Accordion>
+
+        <Accordion label='Line gap' open>
+          <Accordion label='Line gap row' open>
+            <div className={classNames([classes.column])}>
+              <Line direction='row' gap={0}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='row' gap={0.5}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='row' gap={1}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='row' gap={2}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='row' gap={3}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='row' gap={4}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='row' gap={8}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='row' gap={12}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='row' gap={16}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='row' gap={17}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+            </div>
+          </Accordion>
+
+          <Accordion label='Line gap column' open>
+            <div className={classNames([classes.column])}>
+              <Line direction='column' gap={0}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='column' gap={0.5}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='column' gap={1}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='column' gap={2}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='column' gap={3}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='column' gap={4}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='column' gap={8}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='column' gap={12}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='column' gap={16}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='column' gap={17}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+            </div>
+          </Accordion>
+        </Accordion>
+
+        <Accordion label='Line rowGap' open>
+          <Accordion label='Line rowGap row' open>
+            <div className={classNames([classes.column])}>
+              <Line direction='row' rowGap={0}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='row' rowGap={0.5}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='row' rowGap={1}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='row' rowGap={2}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='row' rowGap={3}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='row' rowGap={4}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='row' rowGap={8}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='row' rowGap={12}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='row' rowGap={16}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='row' rowGap={17}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+            </div>
+          </Accordion>
+
+          <Accordion label='Line rowGap column' open>
+            <div className={classNames([classes.column])}>
+              <Line direction='column' rowGap={0}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='column' rowGap={0.5}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='column' rowGap={1}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='column' rowGap={2}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='column' rowGap={3}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='column' rowGap={4}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='column' rowGap={8}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='column' rowGap={12}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='column' rowGap={16}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='column' rowGap={17}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+            </div>
+          </Accordion>
+        </Accordion>
+
+        <Accordion label='Line columnGap' open>
+          <Accordion label='Line columnGap row' open>
+            <div className={classNames([classes.column])}>
+              <Line direction='row' columnGap={0}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='row' columnGap={0.5}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='row' columnGap={1}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='row' columnGap={2}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='row' columnGap={3}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='row' columnGap={4}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='row' columnGap={8}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='row' columnGap={12}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='row' columnGap={16}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='row' columnGap={17}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+            </div>
+          </Accordion>
+
+          <Accordion label='Line columnGap column' open>
+            <div className={classNames([classes.column])}>
+              <Line direction='column' columnGap={0}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='column' columnGap={0.5}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='column' columnGap={1}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='column' columnGap={2}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='column' columnGap={3}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='column' columnGap={4}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='column' columnGap={8}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='column' columnGap={12}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='column' columnGap={16}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+
+              <Line direction='column' columnGap={17}>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </Line>
+            </div>
+          </Accordion>
+        </Accordion>
+
+        <Accordion label='AmauiTheme'>
+          <div className={classNames([classes.column])}>
+            <Line>
+              <Item size='small' elevation={1}>Item 1</Item>
+              <Item size='regular' elevation={1}>Item 114</Item>
+              <Item size='large' elevation={1}>Item 1114</Item>
+            </Line>
+
+            <Accordion label='AmauiTheme nested value' open>
+              <AmauiThemeProvider
+                value={{
+                  palette: {
+                    color: {
+                      secondary: {
+                        main: '#008000'
+                      }
+                    }
+                  },
+                  space: {
+                    unit: 5
+                  }
+                }}
+              >
+                <Line>
+                  <Item size='small' elevation={1}>Item 1</Item>
+                  <Item size='regular' elevation={1}>Item 114</Item>
+                  <Item size='large' elevation={1}>Item 1114</Item>
+                </Line>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme add' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiLine: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: '0.4'
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Line>
+                  <Item size='small' elevation={1}>Item 1</Item>
+                  <Item size='regular' elevation={1}>Item 114</Item>
+                  <Item size='large' elevation={1}>Item 1114</Item>
+                </Line>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme override' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiLine: {
+                        style: {
+                          override: {
+                            root: {
+                              display: 'flex',
+                              width: '100%',
+                              cursor: 'pointer',
+                              background: '#f7f7f7'
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Line>
+                  <Item size='small' elevation={1}>Item 1</Item>
+                  <Item size='regular' elevation={1}>Item 114</Item>
+                  <Item size='large' elevation={1}>Item 1114</Item>
+                </Line>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme props' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiLine: {
+                        props: {
+                          default: {
+                            gap: 4
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Line>
+                  <Item size='small' elevation={1}>Item 1</Item>
+                  <Item size='regular' elevation={1}>Item 114</Item>
+                  <Item size='large' elevation={1}>Item 1114</Item>
+                </Line>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme styled' open>
+              <styled.Line>
+                <Item size='small' elevation={1}>Item 1</Item>
+                <Item size='regular' elevation={1}>Item 114</Item>
+                <Item size='large' elevation={1}>Item 1114</Item>
+              </styled.Line>
+            </Accordion>
+          </div>
+        </Accordion>
       </Accordion>
 
       <Accordion label='Container'>
@@ -19497,7 +20227,7 @@ function App() {
         </Accordion>
 
       </Accordion>
-    </div>
+    </div >
   );
 }
 
