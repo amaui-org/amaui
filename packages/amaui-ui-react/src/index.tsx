@@ -163,3 +163,6 @@ export * from './Line';
 
 export { default as Grid } from './Grid';
 export * from './Grid';
+
+export { default as Banner } from './Banner';
+export * from './Banner';

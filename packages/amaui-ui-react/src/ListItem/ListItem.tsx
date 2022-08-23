@@ -188,6 +188,7 @@ const useStyle = style(theme => ({
 
   text: {
     ...overflow,
+    whiteSpace: 'pre-wrap',
     textAlign: 'start'
   },
 
@@ -325,14 +326,15 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
     color = 'default',
     colorSelected = props.color,
     start,
-    end: end_,
     startAlign = 'start',
+    end: end_,
     endAlign = 'center',
     size = 'regular',
     href,
     button,
     shape = 'round',
     shapePosition = 'none',
+    footer,
     include,
     tabIndex,
     menuCloseOnClick,
@@ -343,6 +345,8 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
 
     Component = 'li',
     RootComponent: RootComponent_ = 'div',
+    WrapperProps = {},
+    RootProps = {},
     InteractionProps = {},
     PrimaryProps = {},
     SecondaryProps = {},
@@ -352,6 +356,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
       autoSelect: true
     },
 
+    classes: classes_,
     className,
     style,
 
@@ -501,11 +506,14 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
 
         className,
         classes.wrapper,
+        classes_?.wrapper,
         classes[`wrapper_color_${color}`],
         tonal && classes[`wrapper_tonal_color_${color}`]
       ])}
 
       style={styles.wrapper}
+
+      {...WrapperProps}
 
       {...other}
     >
@@ -524,6 +532,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
           ],
 
           classes.root,
+          classes_?.root,
           classes[size],
           classes[selected ? colorSelected : color],
           classes[`shape_${shape}_position_${shapePosition}`],
@@ -543,6 +552,8 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
         }}
 
         disabled={disabled}
+
+        {...RootProps}
       >
         {(href || button) && (
           <Interaction
@@ -596,8 +607,6 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
           {primary !== undefined && (
             is('simple', primary) ? (
               <Type
-                {...PrimaryProps}
-
                 version={menuItem ? 'b2' : 'b1'}
 
                 className={classNames([
@@ -610,6 +619,8 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
                   classes.text_primary,
                   PrimaryProps?.className
                 ])}
+
+                {...PrimaryProps}
 
                 style={styles.primary}
               >
@@ -695,6 +706,8 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
           </span>
         )}
       </RootComponent>
+
+      {footer}
 
       {/* Menu */}
       {menu && (

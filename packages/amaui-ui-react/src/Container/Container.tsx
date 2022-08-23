@@ -66,15 +66,13 @@ const useStyle = style(theme => ({
 
   maxWidth_xs: { maxWidth: '400px' },
 
-  maxWidth_sm: { maxWidth: '480px' },
+  maxWidth_sm: { maxWidth: '600px' },
 
-  maxWidth_rg: { maxWidth: '560px' },
+  maxWidth_rg: { maxWidth: '960px' },
 
-  maxWidth_lg: { maxWidth: '800px' },
+  maxWidth_lg: { maxWidth: '1240px' },
 
-  maxWidth_xl: { maxWidth: '1120px' },
-
-  maxWidth_xxl: { maxWidth: '1360px' },
+  maxWidth_xl: { maxWidth: '1920px' },
 
   maxWidth_unset: { maxWidth: 'unset' },
 
@@ -105,7 +103,7 @@ const Container = React.forwardRef((props_: any, ref: any) => {
     paddingVertical: paddingVertical_ = 'none',
     paddingHorizontal: paddingHorizontal_ = 'both',
     fullWidth: fullWidth_,
-    maxWidth: maxWidth_ = 'rg',
+    maxWidth: maxWidth_,
 
     style,
     className,
@@ -132,7 +130,7 @@ const Container = React.forwardRef((props_: any, ref: any) => {
   const paddingVertical = is('simple', paddingVertical_) ? paddingVertical_ : value(paddingVertical_, 'none');
   const paddingHorizontal = is('simple', paddingHorizontal_) ? paddingHorizontal_ : value(paddingHorizontal_, 'both');
   const fullWidth = is('simple', fullWidth_) ? fullWidth_ : value(fullWidth_);
-  const maxWidth = is('simple', maxWidth_) ? maxWidth_ : value(maxWidth_, 'rg');
+  const maxWidth = is('simple', maxWidth_) ? maxWidth_ : value(maxWidth_);
 
   const styles: any = {
     root: {}
@@ -150,7 +148,12 @@ const Container = React.forwardRef((props_: any, ref: any) => {
 
       className={classNames([
         staticClassName('Container', theme) && [
-          'AmauiContainer-root'
+          'AmauiContainer-root',
+          `AmauiContainer-alignment-${alignment}`,
+          `AmauiContainer-maxWidth-${maxWidth}`,
+          `AmauiContainer-padding-vertical-${paddingVertical}`,
+          `AmauiContainer-padding-horizontal-${paddingHorizontal}`,
+          `AmauiContainer-fullWidth-${fullWidth}`
         ],
 
         className,

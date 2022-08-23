@@ -2,7 +2,7 @@ import React from 'react';
 
 import { countries } from '@amaui/utils';
 import { AmauiTheme, AmauiThemeProvider, classNames, style, sy, useAmauiTheme } from '@amaui/style-react';
-import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, ButtonGroup, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, ChipGroup, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid } from '@amaui/ui-react';
+import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, ButtonGroup, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, ChipGroup, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner } from '@amaui/ui-react';
 
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
@@ -935,6 +935,148 @@ function App() {
 
           <IconMaterialPottedPlantRounded color='secondary' />
         </div>
+      </Accordion>
+
+      <Accordion label='Banner'>
+        <Accordion label='Banner' open>
+          <Banner
+            primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+            startAlign='center'
+
+            start={(
+              <IconButton color='secondary' version='filled'>
+                <IconMaterialPottedPlantRounded />
+              </IconButton>
+            )}
+
+            end={(
+              <Button>
+                Active
+              </Button>
+            )}
+          />
+        </Accordion>
+
+        <Accordion label='Banner size' open>
+          <Banner
+            size='small'
+
+            primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+            startAlign='center'
+
+            start={(
+              <IconButton color='secondary' version='filled'>
+                <IconMaterialPottedPlantRounded />
+              </IconButton>
+            )}
+
+            end={(
+              <Button>
+                Active
+              </Button>
+            )}
+          />
+
+          <Banner
+            size='regular'
+
+            primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+            startAlign='center'
+
+            start={(
+              <IconButton color='secondary' version='filled'>
+                <IconMaterialPottedPlantRounded />
+              </IconButton>
+            )}
+
+            end={(
+              <Button>
+                Active
+              </Button>
+            )}
+          />
+
+          <Banner
+            size='large'
+
+            primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+            startAlign='center'
+
+            start={(
+              <IconButton color='secondary' version='filled'>
+                <IconMaterialPottedPlantRounded />
+              </IconButton>
+            )}
+
+            end={(
+              <Button>
+                Active
+              </Button>
+            )}
+          />
+        </Accordion>
+
+        <Accordion label='Banner actions' open>
+          <Banner
+            primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+            actions={[
+              <Button color='secondary' version='text'>Sign in</Button>,
+
+              <Button color='secondary' version='text'>Open</Button>
+            ]}
+
+            startAlign='center'
+
+            start={(
+              <IconButton color='secondary' version='filled'>
+                <IconMaterialPottedPlantRounded />
+              </IconButton>
+            )}
+          />
+
+          <Banner
+            primary='Your password was updated on your other device. Please sign in again.'
+
+            actions={[
+              <Button color='secondary' version='text'>Sign in</Button>,
+
+              <Button color='secondary' version='text'>Open</Button>
+            ]}
+          />
+        </Accordion>
+
+        <Accordion label='Banner actions' open>
+          <Banner
+            maxWidth='lg'
+
+            primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+            actions={[
+              <Button color='secondary' version='text'>Sign in</Button>,
+
+              <Button color='secondary' version='text'>Open</Button>
+            ]}
+
+            startAlign='center'
+
+            start={(
+              <IconButton color='secondary' version='filled'>
+                <IconMaterialPottedPlantRounded />
+              </IconButton>
+            )}
+          />
+        </Accordion>
       </Accordion>
 
       <Accordion label='Grid'>

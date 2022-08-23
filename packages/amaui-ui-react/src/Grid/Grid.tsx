@@ -47,6 +47,8 @@ const Grid = React.forwardRef((props_: any, ref: any) => {
     offsets,
     values,
 
+    RootProps = {},
+
     style,
     className,
 
@@ -129,6 +131,8 @@ const Grid = React.forwardRef((props_: any, ref: any) => {
 
         ...style
       }}
+
+      {...RootProps}
 
       {...other}
     >
