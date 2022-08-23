@@ -4,7 +4,9 @@ import { is } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import { staticClassName } from '../utils';
+
 import Divider from '../Divider';
+import useMediaQuery from '../useMediaQuery';
 
 const useStyle = style(theme => ({
   root: {
@@ -109,18 +111,24 @@ const Line = React.forwardRef((props_: any, ref: any) => {
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiLine?.props?.default }), [props_]);
 
+  const breakpoints = {};
+
+  theme.breakpoints.keys.forEach(key => {
+    if (theme.breakpoints.media[key]) breakpoints[key] = useMediaQuery(theme.breakpoints.media[key]);
+  });
+
   const { classes } = useStyle(props);
 
   const {
     Component = 'div',
 
-    direction = 'column',
-    align,
-    justify,
-    gap = 2,
-    rowGap,
-    columnGap,
-    divider,
+    align: align_,
+    justify: justify_,
+    direction: direction_ = 'column',
+    gap: gap_ = 2,
+    rowGap: rowGap_,
+    columnGap: columnGap_,
+    divider: divider_,
 
     DividerProps = {},
 
@@ -131,6 +139,27 @@ const Line = React.forwardRef((props_: any, ref: any) => {
 
     ...other
   } = props;
+
+  // Media query value or value
+  const value = (item: any, value_?: any) => {
+    if (is('object', item)) {
+      for (const breakpoint of theme.breakpoints.keys) {
+        if (breakpoints[breakpoint] && item?.[breakpoint] !== undefined) return item[breakpoint];
+      }
+
+      if (item?.default !== undefined) return item?.default;
+    }
+
+    return value_;
+  };
+
+  const align = is('simple', align_) ? align_ : value(align_);
+  const justify = is('simple', justify_) ? justify_ : value(justify_);
+  const direction = is('simple', direction_) ? direction_ : value(direction_, 'column');
+  const gap = is('simple', gap_) ? gap_ : value(gap_, 2);
+  const rowGap = is('simple', rowGap_) ? rowGap_ : value(rowGap_);
+  const columnGap = is('simple', columnGap_) ? columnGap_ : value(columnGap_);
+  const divider = is('simple', divider_) ? divider_ : value(divider_);
 
   const styles: any = {
     root: {},

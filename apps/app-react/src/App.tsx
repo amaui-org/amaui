@@ -1509,6 +1509,16 @@ function App() {
           </Accordion>
         </Accordion>
 
+        <Accordion label='Line values per breakpoint value' open>
+          <div className={classNames([classes.column])}>
+            <Line align={{ sm: 'center', lg: 'flex-end' }}>
+              <Item size='small' elevation={1}>Item 1</Item>
+              <Item size='regular' elevation={1}>Item 114</Item>
+              <Item size='large' elevation={1}>Item 1114</Item>
+            </Line>
+          </div>
+        </Accordion>
+
         <Accordion label='AmauiTheme'>
           <div className={classNames([classes.column])}>
             <Line>
@@ -1740,6 +1750,14 @@ function App() {
             </Container>
 
             <Container maxWidth='440px'>
+              <Box14 />
+            </Container>
+          </div>
+        </Accordion>
+
+        <Accordion label='Container values per breakpoint value' open>
+          <div className={classNames([classes.column])} style={{ gap: 24 }}>
+            <Container maxWidth={{ sm: 'sm', lg: 'lg' }}>
               <Box14 />
             </Container>
           </div>
