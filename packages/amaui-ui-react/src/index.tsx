@@ -160,3 +160,6 @@ export * from './Container';
 
 export { default as Line } from './Line';
 export * from './Line';
+
+export { default as Grid } from './Grid';
+export * from './Grid';

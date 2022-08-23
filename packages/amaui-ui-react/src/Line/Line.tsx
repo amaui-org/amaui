@@ -14,6 +14,13 @@ const useStyle = style(theme => ({
     width: '100%'
   },
 
+  // wrap
+  wrap_nowrap: { flexWrap: 'nowrap' },
+
+  wrap_wrap: { flexWrap: 'wrap' },
+
+  'wrap_wrap-reverse': { flexWrap: 'wrap-reverse' },
+
   // direction
   direction_row: { flexDirection: 'row' },
 
@@ -129,6 +136,7 @@ const Line = React.forwardRef((props_: any, ref: any) => {
     rowGap: rowGap_,
     columnGap: columnGap_,
     divider: divider_,
+    wrap: wrap_,
 
     DividerProps = {},
 
@@ -160,6 +168,7 @@ const Line = React.forwardRef((props_: any, ref: any) => {
   const rowGap = is('simple', rowGap_) ? rowGap_ : value(rowGap_);
   const columnGap = is('simple', columnGap_) ? columnGap_ : value(columnGap_);
   const divider = is('simple', divider_) ? divider_ : value(divider_);
+  const wrap = is('simple', wrap_) ? wrap_ : value(wrap_);
 
   const styles: any = {
     root: {},
@@ -197,6 +206,7 @@ const Line = React.forwardRef((props_: any, ref: any) => {
 
         className,
         classes.root,
+        classes[`wrap_${wrap}`],
         classes[`direction_${direction}`],
         classes[`align_${align}`],
         classes[`justify_${justify}`],

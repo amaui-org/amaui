@@ -2,7 +2,7 @@ import React from 'react';
 
 import { countries } from '@amaui/utils';
 import { AmauiTheme, AmauiThemeProvider, classNames, style, sy, useAmauiTheme } from '@amaui/style-react';
-import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, ButtonGroup, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, ChipGroup, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line } from '@amaui/ui-react';
+import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, ButtonGroup, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, ChipGroup, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid } from '@amaui/ui-react';
 
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
@@ -221,6 +221,13 @@ const Accordion = (props: any) => {
 };
 
 const styled = {
+  Grid: sy(Grid)((theme: AmauiTheme) => ({
+    root: {
+      '&:hover': {
+        opacity: 0.4
+      }
+    }
+  })),
   Line: sy(Line)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
@@ -702,6 +709,24 @@ function App() {
 
       <Accordion label='All'>
         <div className={classNames([classes.column])}>
+          <Grid gap={2} line>
+            <Grid values={{ xs: 8, sm: 4 }}>
+              <Item elevation={1} style={{ width: '100%' }}>Item 1</Item>
+            </Grid>
+
+            <Grid values={{ xs: 2, sm: 6 }}>
+              <Item elevation={1} style={{ width: '100%' }}>Item 2</Item>
+            </Grid>
+
+            <Grid values={{ xs: 3, sm: 3.5 }}>
+              <Item elevation={1} style={{ width: '100%' }}>Item 3</Item>
+            </Grid>
+
+            <Grid values={{ xs: 7, sm: 6.5 }}>
+              <Item elevation={1} style={{ width: '100%' }}>Item 4</Item>
+            </Grid>
+          </Grid>
+
           <Line>
             <Item size='small' elevation={1}>Item 1</Item>
             <Item size='regular' elevation={1}>Item 114</Item>
@@ -910,6 +935,234 @@ function App() {
 
           <IconMaterialPottedPlantRounded color='secondary' />
         </div>
+      </Accordion>
+
+      <Accordion label='Grid'>
+        <Accordion label='Grid' open>
+          <div className={classNames([classes.column])} style={{ bacground: '#f7f7f7' }}>
+            <Grid gap={2} line>
+              <Grid values={{ xs: 8, sm: 4 }}>
+                <Item elevation={1} style={{ width: '100%' }}>Item 1</Item>
+              </Grid>
+
+              <Grid values={{ xs: 2, sm: 6 }}>
+                <Item elevation={1} style={{ width: '100%' }}>Item 2</Item>
+              </Grid>
+
+              <Grid values={{ xs: 3, sm: 3.5 }}>
+                <Item elevation={1} style={{ width: '100%' }}>Item 3</Item>
+              </Grid>
+
+              <Grid values={{ xs: 7, sm: 6.5 }}>
+                <Item elevation={1} style={{ width: '100%' }}>Item 4</Item>
+              </Grid>
+            </Grid>
+          </div>
+        </Accordion>
+
+        <Accordion label='Grid offset' open>
+          <div className={classNames([classes.column])} style={{ bacground: '#f7f7f7' }}>
+            <Grid gap={2} line>
+              <Grid values={{ xs: 8, sm: 4 }}>
+                <Item elevation={1} style={{ width: '100%' }}>Item 1</Item>
+              </Grid>
+
+              <Grid values={{ xs: 2, sm: 4 }} offsets={{ sm: 2 }}>
+                <Item elevation={1} style={{ width: '100%' }}>Item 2</Item>
+              </Grid>
+
+              <Grid values={{ xs: 3, sm: 3.5 }}>
+                <Item elevation={1} style={{ width: '100%' }}>Item 3</Item>
+              </Grid>
+
+              <Grid values={{ xs: 7, sm: 6.5 }}>
+                <Item elevation={1} style={{ width: '100%' }}>Item 4</Item>
+              </Grid>
+            </Grid>
+          </div>
+        </Accordion>
+
+        <Accordion label='Grid gap' open>
+          <div className={classNames([classes.column])} style={{ bacground: '#f7f7f7' }}>
+            <Grid gap={4} line>
+              <Grid values={{ xs: 8, sm: 4 }}>
+                <Item elevation={1} style={{ width: '100%' }}>Item 1</Item>
+              </Grid>
+
+              <Grid values={{ xs: 2, sm: 6 }}>
+                <Item elevation={1} style={{ width: '100%' }}>Item 2</Item>
+              </Grid>
+
+              <Grid values={{ xs: 3, sm: 3.5 }}>
+                <Item elevation={1} style={{ width: '100%' }}>Item 3</Item>
+              </Grid>
+
+              <Grid values={{ xs: 7, sm: 6.5 }}>
+                <Item elevation={1} style={{ width: '100%' }}>Item 4</Item>
+              </Grid>
+            </Grid>
+          </div>
+        </Accordion>
+
+        <Accordion label='Grid auto' open>
+          <div className={classNames([classes.column])} style={{ bacground: '#f7f7f7' }}>
+            <Grid gap={2} line>
+              <Grid auto>
+                <Item elevation={1} style={{ width: '100%' }}>Item 1</Item>
+              </Grid>
+
+              <Grid values={{ xs: 2, sm: 6 }}>
+                <Item elevation={1} style={{ width: '100%' }}>Item 2</Item>
+              </Grid>
+            </Grid>
+          </div>
+        </Accordion>
+
+        <Accordion label='AmauiTheme'>
+          <div className={classNames([classes.column])}>
+            <Grid line>
+              <Grid values={{ xs: 8, sm: 4 }}>
+                <Item elevation={1} style={{ width: '100%' }}>Item 1</Item>
+              </Grid>
+
+              <Grid values={{ xs: 2, sm: 6 }}>
+                <Item elevation={1} style={{ width: '100%' }}>Item 2</Item>
+              </Grid>
+            </Grid>
+
+            <Accordion label='AmauiTheme nested value' open>
+              <AmauiThemeProvider
+                value={{
+                  palette: {
+                    color: {
+                      secondary: {
+                        main: '#008000'
+                      }
+                    }
+                  },
+                  space: {
+                    unit: 5
+                  }
+                }}
+              >
+                <Grid line>
+                  <Grid values={{ xs: 8, sm: 4 }}>
+                    <Item elevation={1} style={{ width: '100%' }}>Item 1</Item>
+                  </Grid>
+
+                  <Grid values={{ xs: 2, sm: 6 }}>
+                    <Item elevation={1} style={{ width: '100%' }}>Item 2</Item>
+                  </Grid>
+                </Grid>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme add' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiGrid: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: '0.4'
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Grid line>
+                  <Grid values={{ xs: 8, sm: 4 }}>
+                    <Item elevation={1} style={{ width: '100%' }}>Item 1</Item>
+                  </Grid>
+
+                  <Grid values={{ xs: 2, sm: 6 }}>
+                    <Item elevation={1} style={{ width: '100%' }}>Item 2</Item>
+                  </Grid>
+                </Grid>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme override' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiGrid: {
+                        style: {
+                          override: {
+                            root: {
+                              display: 'flex',
+                              width: '100%',
+                              cursor: 'pointer',
+                              background: '#f7f7f7'
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Grid line>
+                  <Grid values={{ xs: 8, sm: 4 }}>
+                    <Item elevation={1} style={{ width: '100%' }}>Item 1</Item>
+                  </Grid>
+
+                  <Grid values={{ xs: 2, sm: 6 }}>
+                    <Item elevation={1} style={{ width: '100%' }}>Item 2</Item>
+                  </Grid>
+                </Grid>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme props' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiGrid: {
+                        props: {
+                          default: {
+                            gap: 4
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Grid line>
+                  <Grid values={{ xs: 8, sm: 4 }}>
+                    <Item elevation={1} style={{ width: '100%' }}>Item 1</Item>
+                  </Grid>
+
+                  <Grid values={{ xs: 2, sm: 6 }}>
+                    <Item elevation={1} style={{ width: '100%' }}>Item 2</Item>
+                  </Grid>
+                </Grid>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme styled' open>
+              <styled.Grid line>
+                <Grid values={{ xs: 8, sm: 4 }}>
+                  <Item elevation={1} style={{ width: '100%' }}>Item 1</Item>
+                </Grid>
+
+                <Grid values={{ xs: 2, sm: 6 }}>
+                  <Item elevation={1} style={{ width: '100%' }}>Item 2</Item>
+                </Grid>
+              </styled.Grid>
+            </Accordion>
+          </div>
+        </Accordion>
       </Accordion>
 
       <Accordion label='Line'>
