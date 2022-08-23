@@ -18,4 +18,6 @@ const IconMaterialSportsMotorsportsSharpW100 = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialSportsMotorsportsSharpW100.displayName = 'AmauiIconMaterialSportsMotorsportsSharpW100';
+
 export default IconMaterialSportsMotorsportsSharpW100;

@@ -18,4 +18,6 @@ const IconMaterialSmokingRoomsSharpFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialSmokingRoomsSharpFilled.displayName = 'AmauiIconMaterialSmokingRoomsSharpFilled';
+
 export default IconMaterialSmokingRoomsSharpFilled;

@@ -18,4 +18,6 @@ const IconMaterialNestSunblockRoundedFilled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialNestSunblockRoundedFilled.displayName = 'AmauiIconMaterialNestSunblockRoundedFilled';
+
 export default IconMaterialNestSunblockRoundedFilled;

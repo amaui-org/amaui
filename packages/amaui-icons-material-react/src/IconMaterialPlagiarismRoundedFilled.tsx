@@ -18,4 +18,6 @@ const IconMaterialPlagiarismRoundedFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialPlagiarismRoundedFilled.displayName = 'AmauiIconMaterialPlagiarismRoundedFilled';
+
 export default IconMaterialPlagiarismRoundedFilled;

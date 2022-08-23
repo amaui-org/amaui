@@ -18,4 +18,6 @@ const IconMaterialNestCamIndoorRoundedW100 = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialNestCamIndoorRoundedW100.displayName = 'AmauiIconMaterialNestCamIndoorRoundedW100';
+
 export default IconMaterialNestCamIndoorRoundedW100;

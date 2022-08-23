@@ -18,4 +18,6 @@ const IconMaterialFlipToBackRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFlipToBackRounded.displayName = 'AmauiIconMaterialFlipToBackRounded';
+
 export default IconMaterialFlipToBackRounded;

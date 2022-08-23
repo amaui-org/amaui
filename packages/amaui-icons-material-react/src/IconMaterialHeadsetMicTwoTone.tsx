@@ -18,4 +18,6 @@ const IconMaterialHeadsetMicTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialHeadsetMicTwoTone.displayName = 'AmauiIconMaterialHeadsetMicTwoTone';
+
 export default IconMaterialHeadsetMicTwoTone;

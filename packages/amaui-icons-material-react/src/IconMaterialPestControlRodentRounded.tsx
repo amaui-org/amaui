@@ -18,4 +18,6 @@ const IconMaterialPestControlRodentRounded = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialPestControlRodentRounded.displayName = 'AmauiIconMaterialPestControlRodentRounded';
+
 export default IconMaterialPestControlRodentRounded;

@@ -18,4 +18,6 @@ const IconMaterialCompassCalibrationTwoTone = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialCompassCalibrationTwoTone.displayName = 'AmauiIconMaterialCompassCalibrationTwoTone';
+
 export default IconMaterialCompassCalibrationTwoTone;

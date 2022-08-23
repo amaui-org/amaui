@@ -18,4 +18,6 @@ const IconMaterialSignalCellularAltRounded = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialSignalCellularAltRounded.displayName = 'AmauiIconMaterialSignalCellularAltRounded';
+
 export default IconMaterialSignalCellularAltRounded;

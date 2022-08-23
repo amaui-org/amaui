@@ -18,4 +18,6 @@ const IconMaterialFilterHdrTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFilterHdrTwoTone.displayName = 'AmauiIconMaterialFilterHdrTwoTone';
+
 export default IconMaterialFilterHdrTwoTone;

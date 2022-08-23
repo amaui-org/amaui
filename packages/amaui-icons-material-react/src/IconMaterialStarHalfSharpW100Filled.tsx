@@ -18,4 +18,6 @@ const IconMaterialStarHalfSharpW100Filled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialStarHalfSharpW100Filled.displayName = 'AmauiIconMaterialStarHalfSharpW100Filled';
+
 export default IconMaterialStarHalfSharpW100Filled;

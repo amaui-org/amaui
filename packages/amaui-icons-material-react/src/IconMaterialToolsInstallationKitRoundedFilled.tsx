@@ -18,4 +18,6 @@ const IconMaterialToolsInstallationKitRoundedFilled = React.forwardRef((props: a
   );
 });
 
+IconMaterialToolsInstallationKitRoundedFilled.displayName = 'AmauiIconMaterialToolsInstallationKitRoundedFilled';
+
 export default IconMaterialToolsInstallationKitRoundedFilled;

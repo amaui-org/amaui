@@ -18,4 +18,6 @@ const IconMaterialHorizontalSplitTwoTone = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialHorizontalSplitTwoTone.displayName = 'AmauiIconMaterialHorizontalSplitTwoTone';
+
 export default IconMaterialHorizontalSplitTwoTone;

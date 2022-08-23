@@ -18,4 +18,6 @@ const IconMaterialAirlinesSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAirlinesSharp.displayName = 'AmauiIconMaterialAirlinesSharp';
+
 export default IconMaterialAirlinesSharp;

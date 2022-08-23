@@ -18,4 +18,6 @@ const IconMaterialWheelchairPickupTwoTone = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialWheelchairPickupTwoTone.displayName = 'AmauiIconMaterialWheelchairPickupTwoTone';
+
 export default IconMaterialWheelchairPickupTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialPhonePausedSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPhonePausedSharp.displayName = 'AmauiIconMaterialPhonePausedSharp';
+
 export default IconMaterialPhonePausedSharp;

@@ -18,4 +18,6 @@ const IconMaterialImportContactsSharpW100Filled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialImportContactsSharpW100Filled.displayName = 'AmauiIconMaterialImportContactsSharpW100Filled';
+
 export default IconMaterialImportContactsSharpW100Filled;

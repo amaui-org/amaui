@@ -18,4 +18,6 @@ const IconMaterialDirectionsBoatRoundedW100Filled = React.forwardRef((props: any
   );
 });
 
+IconMaterialDirectionsBoatRoundedW100Filled.displayName = 'AmauiIconMaterialDirectionsBoatRoundedW100Filled';
+
 export default IconMaterialDirectionsBoatRoundedW100Filled;

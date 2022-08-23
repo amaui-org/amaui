@@ -18,4 +18,6 @@ const IconMaterialFlipSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFlipSharp.displayName = 'AmauiIconMaterialFlipSharp';
+
 export default IconMaterialFlipSharp;

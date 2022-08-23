@@ -18,4 +18,6 @@ const IconMaterialKettleTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialKettleTwoTone.displayName = 'AmauiIconMaterialKettleTwoTone';
+
 export default IconMaterialKettleTwoTone;

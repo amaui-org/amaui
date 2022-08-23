@@ -18,4 +18,6 @@ const IconMaterialFileDownloadDoneRoundedFilled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialFileDownloadDoneRoundedFilled.displayName = 'AmauiIconMaterialFileDownloadDoneRoundedFilled';
+
 export default IconMaterialFileDownloadDoneRoundedFilled;

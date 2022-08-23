@@ -18,4 +18,6 @@ const IconMaterialDigitalOutOfHomeTwoTone = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialDigitalOutOfHomeTwoTone.displayName = 'AmauiIconMaterialDigitalOutOfHomeTwoTone';
+
 export default IconMaterialDigitalOutOfHomeTwoTone;

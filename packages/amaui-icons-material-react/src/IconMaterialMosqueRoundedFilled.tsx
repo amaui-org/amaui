@@ -18,4 +18,6 @@ const IconMaterialMosqueRoundedFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMosqueRoundedFilled.displayName = 'AmauiIconMaterialMosqueRoundedFilled';
+
 export default IconMaterialMosqueRoundedFilled;

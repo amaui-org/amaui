@@ -18,4 +18,6 @@ const IconMaterialRvHookupTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialRvHookupTwoTone.displayName = 'AmauiIconMaterialRvHookupTwoTone';
+
 export default IconMaterialRvHookupTwoTone;

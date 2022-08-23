@@ -18,4 +18,6 @@ const IconMaterialSettingsAlertTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSettingsAlertTwoTone.displayName = 'AmauiIconMaterialSettingsAlertTwoTone';
+
 export default IconMaterialSettingsAlertTwoTone;

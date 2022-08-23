@@ -18,4 +18,6 @@ const IconMaterialPanToolTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPanToolTwoTone.displayName = 'AmauiIconMaterialPanToolTwoTone';
+
 export default IconMaterialPanToolTwoTone;

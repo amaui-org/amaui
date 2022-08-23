@@ -18,4 +18,6 @@ const IconMaterialNoiseControlOnTwoTone = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialNoiseControlOnTwoTone.displayName = 'AmauiIconMaterialNoiseControlOnTwoTone';
+
 export default IconMaterialNoiseControlOnTwoTone;

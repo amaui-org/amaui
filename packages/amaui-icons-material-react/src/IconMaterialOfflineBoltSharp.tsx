@@ -18,4 +18,6 @@ const IconMaterialOfflineBoltSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialOfflineBoltSharp.displayName = 'AmauiIconMaterialOfflineBoltSharp';
+
 export default IconMaterialOfflineBoltSharp;

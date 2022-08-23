@@ -18,4 +18,6 @@ const IconMaterialTextFieldsRoundedW100 = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialTextFieldsRoundedW100.displayName = 'AmauiIconMaterialTextFieldsRoundedW100';
+
 export default IconMaterialTextFieldsRoundedW100;

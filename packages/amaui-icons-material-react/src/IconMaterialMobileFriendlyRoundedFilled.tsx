@@ -18,4 +18,6 @@ const IconMaterialMobileFriendlyRoundedFilled = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialMobileFriendlyRoundedFilled.displayName = 'AmauiIconMaterialMobileFriendlyRoundedFilled';
+
 export default IconMaterialMobileFriendlyRoundedFilled;

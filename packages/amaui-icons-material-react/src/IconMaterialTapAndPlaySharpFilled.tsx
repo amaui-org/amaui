@@ -18,4 +18,6 @@ const IconMaterialTapAndPlaySharpFilled = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialTapAndPlaySharpFilled.displayName = 'AmauiIconMaterialTapAndPlaySharpFilled';
+
 export default IconMaterialTapAndPlaySharpFilled;

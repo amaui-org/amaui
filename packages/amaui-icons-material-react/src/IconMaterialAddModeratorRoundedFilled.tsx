@@ -18,4 +18,6 @@ const IconMaterialAddModeratorRoundedFilled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialAddModeratorRoundedFilled.displayName = 'AmauiIconMaterialAddModeratorRoundedFilled';
+
 export default IconMaterialAddModeratorRoundedFilled;

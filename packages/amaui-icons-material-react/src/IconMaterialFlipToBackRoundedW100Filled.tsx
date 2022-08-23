@@ -18,4 +18,6 @@ const IconMaterialFlipToBackRoundedW100Filled = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialFlipToBackRoundedW100Filled.displayName = 'AmauiIconMaterialFlipToBackRoundedW100Filled';
+
 export default IconMaterialFlipToBackRoundedW100Filled;

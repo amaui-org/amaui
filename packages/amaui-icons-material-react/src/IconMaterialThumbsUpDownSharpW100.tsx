@@ -18,4 +18,6 @@ const IconMaterialThumbsUpDownSharpW100 = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialThumbsUpDownSharpW100.displayName = 'AmauiIconMaterialThumbsUpDownSharpW100';
+
 export default IconMaterialThumbsUpDownSharpW100;

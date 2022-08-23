@@ -18,4 +18,6 @@ const IconMaterialVerticalAlignCenterTwoTone = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialVerticalAlignCenterTwoTone.displayName = 'AmauiIconMaterialVerticalAlignCenterTwoTone';
+
 export default IconMaterialVerticalAlignCenterTwoTone;

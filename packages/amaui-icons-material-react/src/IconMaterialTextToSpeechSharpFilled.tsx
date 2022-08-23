@@ -18,4 +18,6 @@ const IconMaterialTextToSpeechSharpFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialTextToSpeechSharpFilled.displayName = 'AmauiIconMaterialTextToSpeechSharpFilled';
+
 export default IconMaterialTextToSpeechSharpFilled;

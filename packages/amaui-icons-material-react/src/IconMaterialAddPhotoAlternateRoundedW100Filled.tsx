@@ -18,4 +18,6 @@ const IconMaterialAddPhotoAlternateRoundedW100Filled = React.forwardRef((props: 
   );
 });
 
+IconMaterialAddPhotoAlternateRoundedW100Filled.displayName = 'AmauiIconMaterialAddPhotoAlternateRoundedW100Filled';
+
 export default IconMaterialAddPhotoAlternateRoundedW100Filled;

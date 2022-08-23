@@ -18,4 +18,6 @@ const IconMaterialFormatIndentDecreaseTwoTone = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialFormatIndentDecreaseTwoTone.displayName = 'AmauiIconMaterialFormatIndentDecreaseTwoTone';
+
 export default IconMaterialFormatIndentDecreaseTwoTone;

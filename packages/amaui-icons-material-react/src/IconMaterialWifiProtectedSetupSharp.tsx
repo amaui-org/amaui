@@ -18,4 +18,6 @@ const IconMaterialWifiProtectedSetupSharp = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialWifiProtectedSetupSharp.displayName = 'AmauiIconMaterialWifiProtectedSetupSharp';
+
 export default IconMaterialWifiProtectedSetupSharp;

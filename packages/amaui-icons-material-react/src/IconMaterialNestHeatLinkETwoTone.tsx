@@ -18,4 +18,6 @@ const IconMaterialNestHeatLinkETwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNestHeatLinkETwoTone.displayName = 'AmauiIconMaterialNestHeatLinkETwoTone';
+
 export default IconMaterialNestHeatLinkETwoTone;

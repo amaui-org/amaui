@@ -18,4 +18,6 @@ const IconMaterialApkInstallSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialApkInstallSharpW100.displayName = 'AmauiIconMaterialApkInstallSharpW100';
+
 export default IconMaterialApkInstallSharpW100;

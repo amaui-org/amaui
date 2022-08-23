@@ -18,4 +18,6 @@ const IconMaterialEmojiSymbolsTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialEmojiSymbolsTwoTone.displayName = 'AmauiIconMaterialEmojiSymbolsTwoTone';
+
 export default IconMaterialEmojiSymbolsTwoTone;

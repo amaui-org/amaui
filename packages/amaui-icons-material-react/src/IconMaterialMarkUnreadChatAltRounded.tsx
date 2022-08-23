@@ -18,4 +18,6 @@ const IconMaterialMarkUnreadChatAltRounded = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialMarkUnreadChatAltRounded.displayName = 'AmauiIconMaterialMarkUnreadChatAltRounded';
+
 export default IconMaterialMarkUnreadChatAltRounded;

@@ -18,4 +18,6 @@ const IconMaterialFlashOnRoundedFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFlashOnRoundedFilled.displayName = 'AmauiIconMaterialFlashOnRoundedFilled';
+
 export default IconMaterialFlashOnRoundedFilled;

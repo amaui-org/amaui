@@ -18,4 +18,6 @@ const IconMaterialPriorityHighTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPriorityHighTwoTone.displayName = 'AmauiIconMaterialPriorityHighTwoTone';
+
 export default IconMaterialPriorityHighTwoTone;

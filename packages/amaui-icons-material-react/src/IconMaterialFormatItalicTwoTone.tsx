@@ -18,4 +18,6 @@ const IconMaterialFormatItalicTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFormatItalicTwoTone.displayName = 'AmauiIconMaterialFormatItalicTwoTone';
+
 export default IconMaterialFormatItalicTwoTone;

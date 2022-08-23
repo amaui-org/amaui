@@ -18,4 +18,6 @@ const IconMaterialSettingsOverscanSharpFilled = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialSettingsOverscanSharpFilled.displayName = 'AmauiIconMaterialSettingsOverscanSharpFilled';
+
 export default IconMaterialSettingsOverscanSharpFilled;

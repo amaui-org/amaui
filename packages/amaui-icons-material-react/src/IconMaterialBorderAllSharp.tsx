@@ -18,4 +18,6 @@ const IconMaterialBorderAllSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBorderAllSharp.displayName = 'AmauiIconMaterialBorderAllSharp';
+
 export default IconMaterialBorderAllSharp;

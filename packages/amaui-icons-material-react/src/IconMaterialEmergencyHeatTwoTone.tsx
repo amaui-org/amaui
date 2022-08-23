@@ -18,4 +18,6 @@ const IconMaterialEmergencyHeatTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialEmergencyHeatTwoTone.displayName = 'AmauiIconMaterialEmergencyHeatTwoTone';
+
 export default IconMaterialEmergencyHeatTwoTone;

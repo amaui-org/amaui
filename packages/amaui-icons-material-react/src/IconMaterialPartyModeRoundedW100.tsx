@@ -18,4 +18,6 @@ const IconMaterialPartyModeRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPartyModeRoundedW100.displayName = 'AmauiIconMaterialPartyModeRoundedW100';
+
 export default IconMaterialPartyModeRoundedW100;

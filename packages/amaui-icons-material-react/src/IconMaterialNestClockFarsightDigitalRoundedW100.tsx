@@ -18,4 +18,6 @@ const IconMaterialNestClockFarsightDigitalRoundedW100 = React.forwardRef((props:
   );
 });
 
+IconMaterialNestClockFarsightDigitalRoundedW100.displayName = 'AmauiIconMaterialNestClockFarsightDigitalRoundedW100';
+
 export default IconMaterialNestClockFarsightDigitalRoundedW100;

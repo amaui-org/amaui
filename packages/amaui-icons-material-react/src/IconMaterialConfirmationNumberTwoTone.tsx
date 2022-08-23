@@ -18,4 +18,6 @@ const IconMaterialConfirmationNumberTwoTone = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialConfirmationNumberTwoTone.displayName = 'AmauiIconMaterialConfirmationNumberTwoTone';
+
 export default IconMaterialConfirmationNumberTwoTone;

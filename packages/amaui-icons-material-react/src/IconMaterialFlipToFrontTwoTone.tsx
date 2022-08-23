@@ -18,4 +18,6 @@ const IconMaterialFlipToFrontTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFlipToFrontTwoTone.displayName = 'AmauiIconMaterialFlipToFrontTwoTone';
+
 export default IconMaterialFlipToFrontTwoTone;

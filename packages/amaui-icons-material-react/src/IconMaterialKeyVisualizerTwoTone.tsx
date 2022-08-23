@@ -18,4 +18,6 @@ const IconMaterialKeyVisualizerTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialKeyVisualizerTwoTone.displayName = 'AmauiIconMaterialKeyVisualizerTwoTone';
+
 export default IconMaterialKeyVisualizerTwoTone;

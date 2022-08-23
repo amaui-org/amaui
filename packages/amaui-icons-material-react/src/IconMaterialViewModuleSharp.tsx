@@ -18,4 +18,6 @@ const IconMaterialViewModuleSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialViewModuleSharp.displayName = 'AmauiIconMaterialViewModuleSharp';
+
 export default IconMaterialViewModuleSharp;

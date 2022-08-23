@@ -18,4 +18,6 @@ const IconMaterialRuleFolderSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialRuleFolderSharpW100.displayName = 'AmauiIconMaterialRuleFolderSharpW100';
+
 export default IconMaterialRuleFolderSharpW100;

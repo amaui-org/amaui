@@ -18,4 +18,6 @@ const IconMaterialSettingsInputSvideoTwoTone = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialSettingsInputSvideoTwoTone.displayName = 'AmauiIconMaterialSettingsInputSvideoTwoTone';
+
 export default IconMaterialSettingsInputSvideoTwoTone;

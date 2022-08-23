@@ -18,4 +18,6 @@ const IconMaterialOpenInNewSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialOpenInNewSharpFilled.displayName = 'AmauiIconMaterialOpenInNewSharpFilled';
+
 export default IconMaterialOpenInNewSharpFilled;

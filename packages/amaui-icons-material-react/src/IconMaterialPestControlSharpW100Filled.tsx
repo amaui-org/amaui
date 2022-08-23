@@ -18,4 +18,6 @@ const IconMaterialPestControlSharpW100Filled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialPestControlSharpW100Filled.displayName = 'AmauiIconMaterialPestControlSharpW100Filled';
+
 export default IconMaterialPestControlSharpW100Filled;

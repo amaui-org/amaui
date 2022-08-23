@@ -18,4 +18,6 @@ const IconMaterialSettingsSystemDaydreamSharpW100Filled = React.forwardRef((prop
   );
 });
 
+IconMaterialSettingsSystemDaydreamSharpW100Filled.displayName = 'AmauiIconMaterialSettingsSystemDaydreamSharpW100Filled';
+
 export default IconMaterialSettingsSystemDaydreamSharpW100Filled;

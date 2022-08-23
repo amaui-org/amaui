@@ -18,4 +18,6 @@ const IconMaterialTamperDetectionOnTwoTone = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialTamperDetectionOnTwoTone.displayName = 'AmauiIconMaterialTamperDetectionOnTwoTone';
+
 export default IconMaterialTamperDetectionOnTwoTone;

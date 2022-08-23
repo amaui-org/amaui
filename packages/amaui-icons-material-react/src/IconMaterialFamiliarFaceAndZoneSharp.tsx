@@ -18,4 +18,6 @@ const IconMaterialFamiliarFaceAndZoneSharp = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialFamiliarFaceAndZoneSharp.displayName = 'AmauiIconMaterialFamiliarFaceAndZoneSharp';
+
 export default IconMaterialFamiliarFaceAndZoneSharp;

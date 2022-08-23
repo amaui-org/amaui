@@ -18,4 +18,6 @@ const IconMaterialSearchOffRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSearchOffRoundedW100.displayName = 'AmauiIconMaterialSearchOffRoundedW100';
+
 export default IconMaterialSearchOffRoundedW100;

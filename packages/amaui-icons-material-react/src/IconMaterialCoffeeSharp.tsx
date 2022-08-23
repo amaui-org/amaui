@@ -18,4 +18,6 @@ const IconMaterialCoffeeSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCoffeeSharp.displayName = 'AmauiIconMaterialCoffeeSharp';
+
 export default IconMaterialCoffeeSharp;

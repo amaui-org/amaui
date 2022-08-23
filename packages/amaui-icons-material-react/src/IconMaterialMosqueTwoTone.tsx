@@ -18,4 +18,6 @@ const IconMaterialMosqueTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMosqueTwoTone.displayName = 'AmauiIconMaterialMosqueTwoTone';
+
 export default IconMaterialMosqueTwoTone;

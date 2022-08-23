@@ -18,4 +18,6 @@ const IconMaterialEcoSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialEcoSharpFilled.displayName = 'AmauiIconMaterialEcoSharpFilled';
+
 export default IconMaterialEcoSharpFilled;

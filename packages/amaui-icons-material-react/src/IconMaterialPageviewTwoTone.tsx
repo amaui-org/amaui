@@ -18,4 +18,6 @@ const IconMaterialPageviewTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPageviewTwoTone.displayName = 'AmauiIconMaterialPageviewTwoTone';
+
 export default IconMaterialPageviewTwoTone;

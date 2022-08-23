@@ -18,4 +18,6 @@ const IconMaterialDoorbellChimeRoundedW100 = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialDoorbellChimeRoundedW100.displayName = 'AmauiIconMaterialDoorbellChimeRoundedW100';
+
 export default IconMaterialDoorbellChimeRoundedW100;

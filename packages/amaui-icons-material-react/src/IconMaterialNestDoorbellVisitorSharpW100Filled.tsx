@@ -18,4 +18,6 @@ const IconMaterialNestDoorbellVisitorSharpW100Filled = React.forwardRef((props: 
   );
 });
 
+IconMaterialNestDoorbellVisitorSharpW100Filled.displayName = 'AmauiIconMaterialNestDoorbellVisitorSharpW100Filled';
+
 export default IconMaterialNestDoorbellVisitorSharpW100Filled;

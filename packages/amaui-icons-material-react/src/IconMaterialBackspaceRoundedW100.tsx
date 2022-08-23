@@ -18,4 +18,6 @@ const IconMaterialBackspaceRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBackspaceRoundedW100.displayName = 'AmauiIconMaterialBackspaceRoundedW100';
+
 export default IconMaterialBackspaceRoundedW100;

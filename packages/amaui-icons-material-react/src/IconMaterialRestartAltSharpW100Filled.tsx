@@ -18,4 +18,6 @@ const IconMaterialRestartAltSharpW100Filled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialRestartAltSharpW100Filled.displayName = 'AmauiIconMaterialRestartAltSharpW100Filled';
+
 export default IconMaterialRestartAltSharpW100Filled;

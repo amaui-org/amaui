@@ -18,4 +18,6 @@ const IconMaterialVideoChatRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialVideoChatRounded.displayName = 'AmauiIconMaterialVideoChatRounded';
+
 export default IconMaterialVideoChatRounded;

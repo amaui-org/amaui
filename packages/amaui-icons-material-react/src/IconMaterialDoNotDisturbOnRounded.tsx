@@ -18,4 +18,6 @@ const IconMaterialDoNotDisturbOnRounded = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialDoNotDisturbOnRounded.displayName = 'AmauiIconMaterialDoNotDisturbOnRounded';
+
 export default IconMaterialDoNotDisturbOnRounded;

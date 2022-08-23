@@ -18,4 +18,6 @@ const IconMaterialCurrencyBitcoinSharpW100 = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialCurrencyBitcoinSharpW100.displayName = 'AmauiIconMaterialCurrencyBitcoinSharpW100';
+
 export default IconMaterialCurrencyBitcoinSharpW100;

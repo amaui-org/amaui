@@ -18,4 +18,6 @@ const IconMaterialDynamicFeedSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDynamicFeedSharp.displayName = 'AmauiIconMaterialDynamicFeedSharp';
+
 export default IconMaterialDynamicFeedSharp;

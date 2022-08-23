@@ -18,4 +18,6 @@ const IconMaterialLowPriorityRoundedW100 = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialLowPriorityRoundedW100.displayName = 'AmauiIconMaterialLowPriorityRoundedW100';
+
 export default IconMaterialLowPriorityRoundedW100;

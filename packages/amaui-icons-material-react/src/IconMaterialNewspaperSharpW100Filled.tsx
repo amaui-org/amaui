@@ -18,4 +18,6 @@ const IconMaterialNewspaperSharpW100Filled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialNewspaperSharpW100Filled.displayName = 'AmauiIconMaterialNewspaperSharpW100Filled';
+
 export default IconMaterialNewspaperSharpW100Filled;

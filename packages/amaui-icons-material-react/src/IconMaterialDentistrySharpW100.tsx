@@ -18,4 +18,6 @@ const IconMaterialDentistrySharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDentistrySharpW100.displayName = 'AmauiIconMaterialDentistrySharpW100';
+
 export default IconMaterialDentistrySharpW100;

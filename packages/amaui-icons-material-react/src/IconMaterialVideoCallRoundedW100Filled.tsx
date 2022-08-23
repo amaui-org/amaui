@@ -18,4 +18,6 @@ const IconMaterialVideoCallRoundedW100Filled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialVideoCallRoundedW100Filled.displayName = 'AmauiIconMaterialVideoCallRoundedW100Filled';
+
 export default IconMaterialVideoCallRoundedW100Filled;

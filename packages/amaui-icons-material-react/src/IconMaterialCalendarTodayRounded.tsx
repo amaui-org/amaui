@@ -18,4 +18,6 @@ const IconMaterialCalendarTodayRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCalendarTodayRounded.displayName = 'AmauiIconMaterialCalendarTodayRounded';
+
 export default IconMaterialCalendarTodayRounded;

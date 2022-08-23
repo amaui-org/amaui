@@ -18,4 +18,6 @@ const IconMaterialFilterBAndWRoundedW100 = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialFilterBAndWRoundedW100.displayName = 'AmauiIconMaterialFilterBAndWRoundedW100';
+
 export default IconMaterialFilterBAndWRoundedW100;

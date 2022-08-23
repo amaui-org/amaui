@@ -18,4 +18,6 @@ const IconMaterialThermostatCarbonRoundedW100 = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialThermostatCarbonRoundedW100.displayName = 'AmauiIconMaterialThermostatCarbonRoundedW100';
+
 export default IconMaterialThermostatCarbonRoundedW100;

@@ -18,4 +18,6 @@ const IconMaterialGlyphsSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialGlyphsSharp.displayName = 'AmauiIconMaterialGlyphsSharp';
+
 export default IconMaterialGlyphsSharp;

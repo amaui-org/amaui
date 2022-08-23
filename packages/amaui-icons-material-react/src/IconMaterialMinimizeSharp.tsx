@@ -18,4 +18,6 @@ const IconMaterialMinimizeSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMinimizeSharp.displayName = 'AmauiIconMaterialMinimizeSharp';
+
 export default IconMaterialMinimizeSharp;

@@ -18,4 +18,6 @@ const IconMaterialSurroundSoundSharpFilled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialSurroundSoundSharpFilled.displayName = 'AmauiIconMaterialSurroundSoundSharpFilled';
+
 export default IconMaterialSurroundSoundSharpFilled;

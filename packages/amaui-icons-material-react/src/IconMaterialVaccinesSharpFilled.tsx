@@ -18,4 +18,6 @@ const IconMaterialVaccinesSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialVaccinesSharpFilled.displayName = 'AmauiIconMaterialVaccinesSharpFilled';
+
 export default IconMaterialVaccinesSharpFilled;

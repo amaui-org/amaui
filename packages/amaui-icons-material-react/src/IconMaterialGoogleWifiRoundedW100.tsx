@@ -18,4 +18,6 @@ const IconMaterialGoogleWifiRoundedW100 = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialGoogleWifiRoundedW100.displayName = 'AmauiIconMaterialGoogleWifiRoundedW100';
+
 export default IconMaterialGoogleWifiRoundedW100;

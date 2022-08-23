@@ -18,4 +18,6 @@ const IconMaterialRemoteGenSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialRemoteGenSharp.displayName = 'AmauiIconMaterialRemoteGenSharp';
+
 export default IconMaterialRemoteGenSharp;

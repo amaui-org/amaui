@@ -18,4 +18,6 @@ const IconMaterialSdSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSdSharp.displayName = 'AmauiIconMaterialSdSharp';
+
 export default IconMaterialSdSharp;

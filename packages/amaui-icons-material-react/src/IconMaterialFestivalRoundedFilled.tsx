@@ -18,4 +18,6 @@ const IconMaterialFestivalRoundedFilled = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialFestivalRoundedFilled.displayName = 'AmauiIconMaterialFestivalRoundedFilled';
+
 export default IconMaterialFestivalRoundedFilled;

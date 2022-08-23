@@ -18,4 +18,6 @@ const IconMaterialDoorFrontSharpW100Filled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialDoorFrontSharpW100Filled.displayName = 'AmauiIconMaterialDoorFrontSharpW100Filled';
+
 export default IconMaterialDoorFrontSharpW100Filled;

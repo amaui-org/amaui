@@ -18,4 +18,6 @@ const IconMaterialHealingTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialHealingTwoTone.displayName = 'AmauiIconMaterialHealingTwoTone';
+
 export default IconMaterialHealingTwoTone;

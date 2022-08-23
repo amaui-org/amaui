@@ -18,4 +18,6 @@ const IconMaterialTabletAndroidRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTabletAndroidRounded.displayName = 'AmauiIconMaterialTabletAndroidRounded';
+
 export default IconMaterialTabletAndroidRounded;

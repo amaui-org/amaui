@@ -18,4 +18,6 @@ const IconMaterialIndeterminateCheckBoxSharpFilled = React.forwardRef((props: an
   );
 });
 
+IconMaterialIndeterminateCheckBoxSharpFilled.displayName = 'AmauiIconMaterialIndeterminateCheckBoxSharpFilled';
+
 export default IconMaterialIndeterminateCheckBoxSharpFilled;

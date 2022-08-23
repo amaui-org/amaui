@@ -18,4 +18,6 @@ const IconMaterialSendAndArchiveSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSendAndArchiveSharp.displayName = 'AmauiIconMaterialSendAndArchiveSharp';
+
 export default IconMaterialSendAndArchiveSharp;

@@ -18,4 +18,6 @@ const IconMaterialLocalPoliceTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLocalPoliceTwoTone.displayName = 'AmauiIconMaterialLocalPoliceTwoTone';
+
 export default IconMaterialLocalPoliceTwoTone;

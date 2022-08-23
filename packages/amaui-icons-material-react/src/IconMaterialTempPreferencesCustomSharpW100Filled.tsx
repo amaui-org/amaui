@@ -18,4 +18,6 @@ const IconMaterialTempPreferencesCustomSharpW100Filled = React.forwardRef((props
   );
 });
 
+IconMaterialTempPreferencesCustomSharpW100Filled.displayName = 'AmauiIconMaterialTempPreferencesCustomSharpW100Filled';
+
 export default IconMaterialTempPreferencesCustomSharpW100Filled;

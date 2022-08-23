@@ -18,4 +18,6 @@ const IconMaterialNestFarsightWeatherRounded = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialNestFarsightWeatherRounded.displayName = 'AmauiIconMaterialNestFarsightWeatherRounded';
+
 export default IconMaterialNestFarsightWeatherRounded;

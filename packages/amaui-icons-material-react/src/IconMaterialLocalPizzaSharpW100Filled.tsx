@@ -18,4 +18,6 @@ const IconMaterialLocalPizzaSharpW100Filled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialLocalPizzaSharpW100Filled.displayName = 'AmauiIconMaterialLocalPizzaSharpW100Filled';
+
 export default IconMaterialLocalPizzaSharpW100Filled;

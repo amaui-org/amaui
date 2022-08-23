@@ -18,4 +18,6 @@ const IconMaterialCloudQueueRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCloudQueueRounded.displayName = 'AmauiIconMaterialCloudQueueRounded';
+
 export default IconMaterialCloudQueueRounded;

@@ -18,4 +18,6 @@ const IconMaterialIndeterminateCheckBoxTwoTone = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialIndeterminateCheckBoxTwoTone.displayName = 'AmauiIconMaterialIndeterminateCheckBoxTwoTone';
+
 export default IconMaterialIndeterminateCheckBoxTwoTone;

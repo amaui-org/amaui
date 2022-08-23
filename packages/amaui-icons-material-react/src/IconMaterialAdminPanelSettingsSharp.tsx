@@ -18,4 +18,6 @@ const IconMaterialAdminPanelSettingsSharp = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialAdminPanelSettingsSharp.displayName = 'AmauiIconMaterialAdminPanelSettingsSharp';
+
 export default IconMaterialAdminPanelSettingsSharp;

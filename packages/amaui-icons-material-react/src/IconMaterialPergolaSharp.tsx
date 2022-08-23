@@ -18,4 +18,6 @@ const IconMaterialPergolaSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPergolaSharp.displayName = 'AmauiIconMaterialPergolaSharp';
+
 export default IconMaterialPergolaSharp;

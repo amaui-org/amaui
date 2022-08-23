@@ -18,4 +18,6 @@ const IconMaterialBlurCircularRoundedFilled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialBlurCircularRoundedFilled.displayName = 'AmauiIconMaterialBlurCircularRoundedFilled';
+
 export default IconMaterialBlurCircularRoundedFilled;

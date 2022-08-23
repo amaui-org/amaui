@@ -18,4 +18,6 @@ const IconMaterialImageNotSupportedSharpFilled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialImageNotSupportedSharpFilled.displayName = 'AmauiIconMaterialImageNotSupportedSharpFilled';
+
 export default IconMaterialImageNotSupportedSharpFilled;

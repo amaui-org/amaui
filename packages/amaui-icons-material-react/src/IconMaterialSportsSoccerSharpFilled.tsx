@@ -18,4 +18,6 @@ const IconMaterialSportsSoccerSharpFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialSportsSoccerSharpFilled.displayName = 'AmauiIconMaterialSportsSoccerSharpFilled';
+
 export default IconMaterialSportsSoccerSharpFilled;

@@ -18,4 +18,6 @@ const IconMaterialEmojiFlagsRoundedFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialEmojiFlagsRoundedFilled.displayName = 'AmauiIconMaterialEmojiFlagsRoundedFilled';
+
 export default IconMaterialEmojiFlagsRoundedFilled;

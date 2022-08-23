@@ -18,4 +18,6 @@ const IconMaterialZoomOutMapSharpFilled = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialZoomOutMapSharpFilled.displayName = 'AmauiIconMaterialZoomOutMapSharpFilled';
+
 export default IconMaterialZoomOutMapSharpFilled;

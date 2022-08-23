@@ -18,4 +18,6 @@ const IconMaterialGolfCourseTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialGolfCourseTwoTone.displayName = 'AmauiIconMaterialGolfCourseTwoTone';
+
 export default IconMaterialGolfCourseTwoTone;

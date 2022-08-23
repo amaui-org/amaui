@@ -18,4 +18,6 @@ const IconMaterialOtherHousesSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialOtherHousesSharp.displayName = 'AmauiIconMaterialOtherHousesSharp';
+
 export default IconMaterialOtherHousesSharp;

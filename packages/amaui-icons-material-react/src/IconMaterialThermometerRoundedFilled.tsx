@@ -18,4 +18,6 @@ const IconMaterialThermometerRoundedFilled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialThermometerRoundedFilled.displayName = 'AmauiIconMaterialThermometerRoundedFilled';
+
 export default IconMaterialThermometerRoundedFilled;

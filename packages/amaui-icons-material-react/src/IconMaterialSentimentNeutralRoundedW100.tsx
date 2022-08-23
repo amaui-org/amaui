@@ -18,4 +18,6 @@ const IconMaterialSentimentNeutralRoundedW100 = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialSentimentNeutralRoundedW100.displayName = 'AmauiIconMaterialSentimentNeutralRoundedW100';
+
 export default IconMaterialSentimentNeutralRoundedW100;

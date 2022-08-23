@@ -18,4 +18,6 @@ const IconMaterialViewAgendaRoundedFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialViewAgendaRoundedFilled.displayName = 'AmauiIconMaterialViewAgendaRoundedFilled';
+
 export default IconMaterialViewAgendaRoundedFilled;

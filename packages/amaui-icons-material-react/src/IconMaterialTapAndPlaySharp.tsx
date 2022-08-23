@@ -18,4 +18,6 @@ const IconMaterialTapAndPlaySharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTapAndPlaySharp.displayName = 'AmauiIconMaterialTapAndPlaySharp';
+
 export default IconMaterialTapAndPlaySharp;

@@ -18,4 +18,6 @@ const IconMaterialHowToRegRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialHowToRegRoundedW100.displayName = 'AmauiIconMaterialHowToRegRoundedW100';
+
 export default IconMaterialHowToRegRoundedW100;

@@ -18,4 +18,6 @@ const IconMaterialFastfoodSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFastfoodSharp.displayName = 'AmauiIconMaterialFastfoodSharp';
+
 export default IconMaterialFastfoodSharp;

@@ -18,4 +18,6 @@ const IconMaterialDashboardCustomizeTwoTone = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialDashboardCustomizeTwoTone.displayName = 'AmauiIconMaterialDashboardCustomizeTwoTone';
+
 export default IconMaterialDashboardCustomizeTwoTone;

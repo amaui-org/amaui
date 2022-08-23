@@ -18,4 +18,6 @@ const IconMaterialCallMissedOutgoingTwoTone = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialCallMissedOutgoingTwoTone.displayName = 'AmauiIconMaterialCallMissedOutgoingTwoTone';
+
 export default IconMaterialCallMissedOutgoingTwoTone;

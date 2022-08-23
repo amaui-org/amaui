@@ -18,4 +18,6 @@ const IconMaterialMoreTimeRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMoreTimeRounded.displayName = 'AmauiIconMaterialMoreTimeRounded';
+
 export default IconMaterialMoreTimeRounded;

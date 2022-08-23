@@ -18,4 +18,6 @@ const IconMaterialRoomPreferencesRoundedFilled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialRoomPreferencesRoundedFilled.displayName = 'AmauiIconMaterialRoomPreferencesRoundedFilled';
+
 export default IconMaterialRoomPreferencesRoundedFilled;

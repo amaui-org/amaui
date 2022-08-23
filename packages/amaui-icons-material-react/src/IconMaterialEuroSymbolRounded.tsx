@@ -18,4 +18,6 @@ const IconMaterialEuroSymbolRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialEuroSymbolRounded.displayName = 'AmauiIconMaterialEuroSymbolRounded';
+
 export default IconMaterialEuroSymbolRounded;

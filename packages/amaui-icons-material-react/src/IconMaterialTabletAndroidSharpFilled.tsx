@@ -18,4 +18,6 @@ const IconMaterialTabletAndroidSharpFilled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialTabletAndroidSharpFilled.displayName = 'AmauiIconMaterialTabletAndroidSharpFilled';
+
 export default IconMaterialTabletAndroidSharpFilled;

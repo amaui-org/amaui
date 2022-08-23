@@ -18,4 +18,6 @@ const IconMaterialEscalatorTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialEscalatorTwoTone.displayName = 'AmauiIconMaterialEscalatorTwoTone';
+
 export default IconMaterialEscalatorTwoTone;

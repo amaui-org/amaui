@@ -18,4 +18,6 @@ const IconMaterialSettingsApplicationsTwoTone = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialSettingsApplicationsTwoTone.displayName = 'AmauiIconMaterialSettingsApplicationsTwoTone';
+
 export default IconMaterialSettingsApplicationsTwoTone;

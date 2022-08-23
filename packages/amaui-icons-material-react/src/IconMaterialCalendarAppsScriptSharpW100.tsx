@@ -18,4 +18,6 @@ const IconMaterialCalendarAppsScriptSharpW100 = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialCalendarAppsScriptSharpW100.displayName = 'AmauiIconMaterialCalendarAppsScriptSharpW100';
+
 export default IconMaterialCalendarAppsScriptSharpW100;

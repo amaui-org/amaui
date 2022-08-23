@@ -18,4 +18,6 @@ const IconMaterialTextRotationNoneSharp = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialTextRotationNoneSharp.displayName = 'AmauiIconMaterialTextRotationNoneSharp';
+
 export default IconMaterialTextRotationNoneSharp;

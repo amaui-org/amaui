@@ -18,4 +18,6 @@ const IconMaterialWaterDamageSharpFilled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialWaterDamageSharpFilled.displayName = 'AmauiIconMaterialWaterDamageSharpFilled';
+
 export default IconMaterialWaterDamageSharpFilled;

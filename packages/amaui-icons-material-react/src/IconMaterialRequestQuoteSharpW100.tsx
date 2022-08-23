@@ -18,4 +18,6 @@ const IconMaterialRequestQuoteSharpW100 = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialRequestQuoteSharpW100.displayName = 'AmauiIconMaterialRequestQuoteSharpW100';
+
 export default IconMaterialRequestQuoteSharpW100;

@@ -18,4 +18,6 @@ const IconMaterialValveTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialValveTwoTone.displayName = 'AmauiIconMaterialValveTwoTone';
+
 export default IconMaterialValveTwoTone;

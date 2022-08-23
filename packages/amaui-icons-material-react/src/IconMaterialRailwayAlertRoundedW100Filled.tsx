@@ -18,4 +18,6 @@ const IconMaterialRailwayAlertRoundedW100Filled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialRailwayAlertRoundedW100Filled.displayName = 'AmauiIconMaterialRailwayAlertRoundedW100Filled';
+
 export default IconMaterialRailwayAlertRoundedW100Filled;

@@ -18,4 +18,6 @@ const IconMaterialWbAutoRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialWbAutoRounded.displayName = 'AmauiIconMaterialWbAutoRounded';
+
 export default IconMaterialWbAutoRounded;

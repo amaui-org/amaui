@@ -18,4 +18,6 @@ const IconMaterialAppShortcutSharpFilled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialAppShortcutSharpFilled.displayName = 'AmauiIconMaterialAppShortcutSharpFilled';
+
 export default IconMaterialAppShortcutSharpFilled;

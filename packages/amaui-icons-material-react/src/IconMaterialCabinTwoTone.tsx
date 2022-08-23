@@ -18,4 +18,6 @@ const IconMaterialCabinTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCabinTwoTone.displayName = 'AmauiIconMaterialCabinTwoTone';
+
 export default IconMaterialCabinTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialMicOffRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMicOffRounded.displayName = 'AmauiIconMaterialMicOffRounded';
+
 export default IconMaterialMicOffRounded;

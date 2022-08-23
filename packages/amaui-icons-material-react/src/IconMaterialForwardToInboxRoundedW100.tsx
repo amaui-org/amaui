@@ -18,4 +18,6 @@ const IconMaterialForwardToInboxRoundedW100 = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialForwardToInboxRoundedW100.displayName = 'AmauiIconMaterialForwardToInboxRoundedW100';
+
 export default IconMaterialForwardToInboxRoundedW100;

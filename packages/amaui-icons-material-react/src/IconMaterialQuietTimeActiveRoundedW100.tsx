@@ -18,4 +18,6 @@ const IconMaterialQuietTimeActiveRoundedW100 = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialQuietTimeActiveRoundedW100.displayName = 'AmauiIconMaterialQuietTimeActiveRoundedW100';
+
 export default IconMaterialQuietTimeActiveRoundedW100;

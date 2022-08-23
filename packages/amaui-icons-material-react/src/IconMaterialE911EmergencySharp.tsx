@@ -18,4 +18,6 @@ const IconMaterialE911EmergencySharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialE911EmergencySharp.displayName = 'AmauiIconMaterialE911EmergencySharp';
+
 export default IconMaterialE911EmergencySharp;

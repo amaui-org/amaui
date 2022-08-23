@@ -18,4 +18,6 @@ const IconMaterialDialpadSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDialpadSharpFilled.displayName = 'AmauiIconMaterialDialpadSharpFilled';
+
 export default IconMaterialDialpadSharpFilled;

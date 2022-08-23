@@ -18,4 +18,6 @@ const IconMaterialNestTrueRadiantTwoTone = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialNestTrueRadiantTwoTone.displayName = 'AmauiIconMaterialNestTrueRadiantTwoTone';
+
 export default IconMaterialNestTrueRadiantTwoTone;

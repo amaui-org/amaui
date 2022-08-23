@@ -18,4 +18,6 @@ const IconMaterialAirplaneTicketSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAirplaneTicketSharp.displayName = 'AmauiIconMaterialAirplaneTicketSharp';
+
 export default IconMaterialAirplaneTicketSharp;

@@ -18,4 +18,6 @@ const IconMaterialDynamicFormTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDynamicFormTwoTone.displayName = 'AmauiIconMaterialDynamicFormTwoTone';
+
 export default IconMaterialDynamicFormTwoTone;

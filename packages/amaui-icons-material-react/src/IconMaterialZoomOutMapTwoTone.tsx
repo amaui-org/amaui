@@ -18,4 +18,6 @@ const IconMaterialZoomOutMapTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialZoomOutMapTwoTone.displayName = 'AmauiIconMaterialZoomOutMapTwoTone';
+
 export default IconMaterialZoomOutMapTwoTone;

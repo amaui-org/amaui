@@ -18,4 +18,6 @@ const IconMaterialFlightTakeoffTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFlightTakeoffTwoTone.displayName = 'AmauiIconMaterialFlightTakeoffTwoTone';
+
 export default IconMaterialFlightTakeoffTwoTone;

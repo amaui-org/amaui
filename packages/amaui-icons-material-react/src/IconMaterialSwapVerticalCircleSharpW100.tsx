@@ -18,4 +18,6 @@ const IconMaterialSwapVerticalCircleSharpW100 = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialSwapVerticalCircleSharpW100.displayName = 'AmauiIconMaterialSwapVerticalCircleSharpW100';
+
 export default IconMaterialSwapVerticalCircleSharpW100;

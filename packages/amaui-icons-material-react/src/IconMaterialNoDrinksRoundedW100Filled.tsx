@@ -18,4 +18,6 @@ const IconMaterialNoDrinksRoundedW100Filled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialNoDrinksRoundedW100Filled.displayName = 'AmauiIconMaterialNoDrinksRoundedW100Filled';
+
 export default IconMaterialNoDrinksRoundedW100Filled;

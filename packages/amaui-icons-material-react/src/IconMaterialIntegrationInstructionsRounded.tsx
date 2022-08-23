@@ -18,4 +18,6 @@ const IconMaterialIntegrationInstructionsRounded = React.forwardRef((props: any,
   );
 });
 
+IconMaterialIntegrationInstructionsRounded.displayName = 'AmauiIconMaterialIntegrationInstructionsRounded';
+
 export default IconMaterialIntegrationInstructionsRounded;

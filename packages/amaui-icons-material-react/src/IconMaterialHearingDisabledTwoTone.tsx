@@ -18,4 +18,6 @@ const IconMaterialHearingDisabledTwoTone = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialHearingDisabledTwoTone.displayName = 'AmauiIconMaterialHearingDisabledTwoTone';
+
 export default IconMaterialHearingDisabledTwoTone;

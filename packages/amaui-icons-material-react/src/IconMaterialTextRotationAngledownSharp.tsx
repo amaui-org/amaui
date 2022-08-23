@@ -18,4 +18,6 @@ const IconMaterialTextRotationAngledownSharp = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialTextRotationAngledownSharp.displayName = 'AmauiIconMaterialTextRotationAngledownSharp';
+
 export default IconMaterialTextRotationAngledownSharp;

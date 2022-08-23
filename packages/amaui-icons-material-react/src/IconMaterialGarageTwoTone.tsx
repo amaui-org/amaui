@@ -18,4 +18,6 @@ const IconMaterialGarageTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialGarageTwoTone.displayName = 'AmauiIconMaterialGarageTwoTone';
+
 export default IconMaterialGarageTwoTone;

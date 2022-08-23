@@ -18,4 +18,6 @@ const IconMaterialStickyNote2Rounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialStickyNote2Rounded.displayName = 'AmauiIconMaterialStickyNote2Rounded';
+
 export default IconMaterialStickyNote2Rounded;

@@ -18,4 +18,6 @@ const IconMaterialPowerInputRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPowerInputRounded.displayName = 'AmauiIconMaterialPowerInputRounded';
+
 export default IconMaterialPowerInputRounded;

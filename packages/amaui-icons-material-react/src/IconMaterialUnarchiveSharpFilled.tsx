@@ -18,4 +18,6 @@ const IconMaterialUnarchiveSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialUnarchiveSharpFilled.displayName = 'AmauiIconMaterialUnarchiveSharpFilled';
+
 export default IconMaterialUnarchiveSharpFilled;

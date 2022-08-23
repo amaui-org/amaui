@@ -18,4 +18,6 @@ const IconMaterialGridViewRoundedW100Filled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialGridViewRoundedW100Filled.displayName = 'AmauiIconMaterialGridViewRoundedW100Filled';
+
 export default IconMaterialGridViewRoundedW100Filled;

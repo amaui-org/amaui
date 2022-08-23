@@ -18,4 +18,6 @@ const IconMaterialSanitizerTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSanitizerTwoTone.displayName = 'AmauiIconMaterialSanitizerTwoTone';
+
 export default IconMaterialSanitizerTwoTone;

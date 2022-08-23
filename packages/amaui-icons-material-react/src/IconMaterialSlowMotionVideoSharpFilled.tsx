@@ -18,4 +18,6 @@ const IconMaterialSlowMotionVideoSharpFilled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialSlowMotionVideoSharpFilled.displayName = 'AmauiIconMaterialSlowMotionVideoSharpFilled';
+
 export default IconMaterialSlowMotionVideoSharpFilled;

@@ -18,4 +18,6 @@ const IconMaterialVolumeMuteTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialVolumeMuteTwoTone.displayName = 'AmauiIconMaterialVolumeMuteTwoTone';
+
 export default IconMaterialVolumeMuteTwoTone;

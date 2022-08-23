@@ -18,4 +18,6 @@ const IconMaterialCarpenterRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCarpenterRounded.displayName = 'AmauiIconMaterialCarpenterRounded';
+
 export default IconMaterialCarpenterRounded;

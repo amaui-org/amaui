@@ -18,4 +18,6 @@ const IconMaterialTempleHinduRoundedFilled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialTempleHinduRoundedFilled.displayName = 'AmauiIconMaterialTempleHinduRoundedFilled';
+
 export default IconMaterialTempleHinduRoundedFilled;

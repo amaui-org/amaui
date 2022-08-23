@@ -18,4 +18,6 @@ const IconMaterialFormatUnderlinedSquiggleSharpW100Filled = React.forwardRef((pr
   );
 });
 
+IconMaterialFormatUnderlinedSquiggleSharpW100Filled.displayName = 'AmauiIconMaterialFormatUnderlinedSquiggleSharpW100Filled';
+
 export default IconMaterialFormatUnderlinedSquiggleSharpW100Filled;

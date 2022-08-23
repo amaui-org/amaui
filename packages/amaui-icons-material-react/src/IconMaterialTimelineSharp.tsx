@@ -18,4 +18,6 @@ const IconMaterialTimelineSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTimelineSharp.displayName = 'AmauiIconMaterialTimelineSharp';
+
 export default IconMaterialTimelineSharp;

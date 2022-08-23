@@ -18,4 +18,6 @@ const IconMaterialClimateMiniSplitSharpFilled = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialClimateMiniSplitSharpFilled.displayName = 'AmauiIconMaterialClimateMiniSplitSharpFilled';
+
 export default IconMaterialClimateMiniSplitSharpFilled;

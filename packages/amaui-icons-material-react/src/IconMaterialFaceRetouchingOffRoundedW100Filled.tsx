@@ -18,4 +18,6 @@ const IconMaterialFaceRetouchingOffRoundedW100Filled = React.forwardRef((props: 
   );
 });
 
+IconMaterialFaceRetouchingOffRoundedW100Filled.displayName = 'AmauiIconMaterialFaceRetouchingOffRoundedW100Filled';
+
 export default IconMaterialFaceRetouchingOffRoundedW100Filled;

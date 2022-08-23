@@ -18,4 +18,6 @@ const IconMaterialModeOfTravelSharpW100Filled = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialModeOfTravelSharpW100Filled.displayName = 'AmauiIconMaterialModeOfTravelSharpW100Filled';
+
 export default IconMaterialModeOfTravelSharpW100Filled;

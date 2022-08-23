@@ -18,4 +18,6 @@ const IconMaterialHomeRepairServiceRounded = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialHomeRepairServiceRounded.displayName = 'AmauiIconMaterialHomeRepairServiceRounded';
+
 export default IconMaterialHomeRepairServiceRounded;

@@ -18,4 +18,6 @@ const IconMaterialExclamationSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialExclamationSharp.displayName = 'AmauiIconMaterialExclamationSharp';
+
 export default IconMaterialExclamationSharp;

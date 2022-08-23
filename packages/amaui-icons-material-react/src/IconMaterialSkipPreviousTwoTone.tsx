@@ -18,4 +18,6 @@ const IconMaterialSkipPreviousTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSkipPreviousTwoTone.displayName = 'AmauiIconMaterialSkipPreviousTwoTone';
+
 export default IconMaterialSkipPreviousTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialAlbumSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAlbumSharp.displayName = 'AmauiIconMaterialAlbumSharp';
+
 export default IconMaterialAlbumSharp;

@@ -18,4 +18,6 @@ const IconMaterialVideogameAssetOffSharp = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialVideogameAssetOffSharp.displayName = 'AmauiIconMaterialVideogameAssetOffSharp';
+
 export default IconMaterialVideogameAssetOffSharp;

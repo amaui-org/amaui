@@ -18,4 +18,6 @@ const IconMaterialGardenCartSharpW100Filled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialGardenCartSharpW100Filled.displayName = 'AmauiIconMaterialGardenCartSharpW100Filled';
+
 export default IconMaterialGardenCartSharpW100Filled;

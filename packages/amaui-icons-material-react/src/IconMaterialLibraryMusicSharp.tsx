@@ -18,4 +18,6 @@ const IconMaterialLibraryMusicSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLibraryMusicSharp.displayName = 'AmauiIconMaterialLibraryMusicSharp';
+
 export default IconMaterialLibraryMusicSharp;

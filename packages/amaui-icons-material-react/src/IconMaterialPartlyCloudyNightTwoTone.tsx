@@ -18,4 +18,6 @@ const IconMaterialPartlyCloudyNightTwoTone = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialPartlyCloudyNightTwoTone.displayName = 'AmauiIconMaterialPartlyCloudyNightTwoTone';
+
 export default IconMaterialPartlyCloudyNightTwoTone;

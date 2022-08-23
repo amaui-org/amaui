@@ -18,4 +18,6 @@ const IconMaterialAlignHorizontalCenterSharpW100 = React.forwardRef((props: any,
   );
 });
 
+IconMaterialAlignHorizontalCenterSharpW100.displayName = 'AmauiIconMaterialAlignHorizontalCenterSharpW100';
+
 export default IconMaterialAlignHorizontalCenterSharpW100;

@@ -18,4 +18,6 @@ const IconMaterialDeveloperBoardOffRoundedFilled = React.forwardRef((props: any,
   );
 });
 
+IconMaterialDeveloperBoardOffRoundedFilled.displayName = 'AmauiIconMaterialDeveloperBoardOffRoundedFilled';
+
 export default IconMaterialDeveloperBoardOffRoundedFilled;

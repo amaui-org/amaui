@@ -18,4 +18,6 @@ const IconMaterialSensorsRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSensorsRoundedW100.displayName = 'AmauiIconMaterialSensorsRoundedW100';
+
 export default IconMaterialSensorsRoundedW100;

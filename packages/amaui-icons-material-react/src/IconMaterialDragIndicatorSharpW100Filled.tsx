@@ -18,4 +18,6 @@ const IconMaterialDragIndicatorSharpW100Filled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialDragIndicatorSharpW100Filled.displayName = 'AmauiIconMaterialDragIndicatorSharpW100Filled';
+
 export default IconMaterialDragIndicatorSharpW100Filled;

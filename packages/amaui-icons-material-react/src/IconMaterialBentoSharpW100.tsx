@@ -18,4 +18,6 @@ const IconMaterialBentoSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBentoSharpW100.displayName = 'AmauiIconMaterialBentoSharpW100';
+
 export default IconMaterialBentoSharpW100;

@@ -18,4 +18,6 @@ const IconMaterialBakeryDiningSharpFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialBakeryDiningSharpFilled.displayName = 'AmauiIconMaterialBakeryDiningSharpFilled';
+
 export default IconMaterialBakeryDiningSharpFilled;

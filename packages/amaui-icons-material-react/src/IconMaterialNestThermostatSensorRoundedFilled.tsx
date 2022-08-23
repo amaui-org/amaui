@@ -18,4 +18,6 @@ const IconMaterialNestThermostatSensorRoundedFilled = React.forwardRef((props: a
   );
 });
 
+IconMaterialNestThermostatSensorRoundedFilled.displayName = 'AmauiIconMaterialNestThermostatSensorRoundedFilled';
+
 export default IconMaterialNestThermostatSensorRoundedFilled;

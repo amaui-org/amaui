@@ -18,4 +18,6 @@ const IconMaterialBubbleChartTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBubbleChartTwoTone.displayName = 'AmauiIconMaterialBubbleChartTwoTone';
+
 export default IconMaterialBubbleChartTwoTone;

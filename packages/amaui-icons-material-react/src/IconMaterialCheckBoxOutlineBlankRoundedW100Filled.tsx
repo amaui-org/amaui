@@ -18,4 +18,6 @@ const IconMaterialCheckBoxOutlineBlankRoundedW100Filled = React.forwardRef((prop
   );
 });
 
+IconMaterialCheckBoxOutlineBlankRoundedW100Filled.displayName = 'AmauiIconMaterialCheckBoxOutlineBlankRoundedW100Filled';
+
 export default IconMaterialCheckBoxOutlineBlankRoundedW100Filled;

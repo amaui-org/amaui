@@ -18,4 +18,6 @@ const IconMaterialSoundDetectionDogBarkingRoundedW100 = React.forwardRef((props:
   );
 });
 
+IconMaterialSoundDetectionDogBarkingRoundedW100.displayName = 'AmauiIconMaterialSoundDetectionDogBarkingRoundedW100';
+
 export default IconMaterialSoundDetectionDogBarkingRoundedW100;

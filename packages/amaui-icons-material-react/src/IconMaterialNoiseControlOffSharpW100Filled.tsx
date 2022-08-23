@@ -18,4 +18,6 @@ const IconMaterialNoiseControlOffSharpW100Filled = React.forwardRef((props: any,
   );
 });
 
+IconMaterialNoiseControlOffSharpW100Filled.displayName = 'AmauiIconMaterialNoiseControlOffSharpW100Filled';
+
 export default IconMaterialNoiseControlOffSharpW100Filled;

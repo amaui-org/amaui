@@ -18,4 +18,6 @@ const IconMaterialCastConnectedSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCastConnectedSharp.displayName = 'AmauiIconMaterialCastConnectedSharp';
+
 export default IconMaterialCastConnectedSharp;

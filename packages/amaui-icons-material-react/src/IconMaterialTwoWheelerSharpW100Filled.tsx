@@ -18,4 +18,6 @@ const IconMaterialTwoWheelerSharpW100Filled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialTwoWheelerSharpW100Filled.displayName = 'AmauiIconMaterialTwoWheelerSharpW100Filled';
+
 export default IconMaterialTwoWheelerSharpW100Filled;

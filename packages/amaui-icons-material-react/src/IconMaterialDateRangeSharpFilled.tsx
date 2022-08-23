@@ -18,4 +18,6 @@ const IconMaterialDateRangeSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDateRangeSharpFilled.displayName = 'AmauiIconMaterialDateRangeSharpFilled';
+
 export default IconMaterialDateRangeSharpFilled;

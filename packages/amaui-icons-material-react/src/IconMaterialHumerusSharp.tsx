@@ -18,4 +18,6 @@ const IconMaterialHumerusSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialHumerusSharp.displayName = 'AmauiIconMaterialHumerusSharp';
+
 export default IconMaterialHumerusSharp;

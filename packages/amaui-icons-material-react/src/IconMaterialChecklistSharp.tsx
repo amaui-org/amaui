@@ -18,4 +18,6 @@ const IconMaterialChecklistSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialChecklistSharp.displayName = 'AmauiIconMaterialChecklistSharp';
+
 export default IconMaterialChecklistSharp;

@@ -18,4 +18,6 @@ const IconMaterialSettingsAccessibilityRoundedW100Filled = React.forwardRef((pro
   );
 });
 
+IconMaterialSettingsAccessibilityRoundedW100Filled.displayName = 'AmauiIconMaterialSettingsAccessibilityRoundedW100Filled';
+
 export default IconMaterialSettingsAccessibilityRoundedW100Filled;

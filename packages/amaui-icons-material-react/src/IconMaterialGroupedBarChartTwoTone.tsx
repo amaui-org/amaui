@@ -18,4 +18,6 @@ const IconMaterialGroupedBarChartTwoTone = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialGroupedBarChartTwoTone.displayName = 'AmauiIconMaterialGroupedBarChartTwoTone';
+
 export default IconMaterialGroupedBarChartTwoTone;

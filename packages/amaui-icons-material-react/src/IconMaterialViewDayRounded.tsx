@@ -18,4 +18,6 @@ const IconMaterialViewDayRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialViewDayRounded.displayName = 'AmauiIconMaterialViewDayRounded';
+
 export default IconMaterialViewDayRounded;

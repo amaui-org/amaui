@@ -18,4 +18,6 @@ const IconMaterialOpenInNewOffRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialOpenInNewOffRounded.displayName = 'AmauiIconMaterialOpenInNewOffRounded';
+
 export default IconMaterialOpenInNewOffRounded;

@@ -18,4 +18,6 @@ const IconMaterialSignalCellularAlt2BarSharpW100 = React.forwardRef((props: any,
   );
 });
 
+IconMaterialSignalCellularAlt2BarSharpW100.displayName = 'AmauiIconMaterialSignalCellularAlt2BarSharpW100';
+
 export default IconMaterialSignalCellularAlt2BarSharpW100;

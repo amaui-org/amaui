@@ -18,4 +18,6 @@ const IconMaterialKeyboardArrowRightSharpFilled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialKeyboardArrowRightSharpFilled.displayName = 'AmauiIconMaterialKeyboardArrowRightSharpFilled';
+
 export default IconMaterialKeyboardArrowRightSharpFilled;

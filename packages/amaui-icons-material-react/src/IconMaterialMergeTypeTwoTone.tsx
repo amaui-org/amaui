@@ -18,4 +18,6 @@ const IconMaterialMergeTypeTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMergeTypeTwoTone.displayName = 'AmauiIconMaterialMergeTypeTwoTone';
+
 export default IconMaterialMergeTypeTwoTone;

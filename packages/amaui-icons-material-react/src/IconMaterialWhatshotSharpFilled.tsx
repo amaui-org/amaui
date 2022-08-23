@@ -18,4 +18,6 @@ const IconMaterialWhatshotSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialWhatshotSharpFilled.displayName = 'AmauiIconMaterialWhatshotSharpFilled';
+
 export default IconMaterialWhatshotSharpFilled;

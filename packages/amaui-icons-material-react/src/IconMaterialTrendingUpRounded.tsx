@@ -18,4 +18,6 @@ const IconMaterialTrendingUpRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTrendingUpRounded.displayName = 'AmauiIconMaterialTrendingUpRounded';
+
 export default IconMaterialTrendingUpRounded;

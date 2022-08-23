@@ -18,4 +18,6 @@ const IconMaterialModeStandbyTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialModeStandbyTwoTone.displayName = 'AmauiIconMaterialModeStandbyTwoTone';
+
 export default IconMaterialModeStandbyTwoTone;

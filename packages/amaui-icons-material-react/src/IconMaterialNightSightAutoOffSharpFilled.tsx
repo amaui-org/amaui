@@ -18,4 +18,6 @@ const IconMaterialNightSightAutoOffSharpFilled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialNightSightAutoOffSharpFilled.displayName = 'AmauiIconMaterialNightSightAutoOffSharpFilled';
+
 export default IconMaterialNightSightAutoOffSharpFilled;

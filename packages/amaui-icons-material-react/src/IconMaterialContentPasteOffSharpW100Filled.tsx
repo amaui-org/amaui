@@ -18,4 +18,6 @@ const IconMaterialContentPasteOffSharpW100Filled = React.forwardRef((props: any,
   );
 });
 
+IconMaterialContentPasteOffSharpW100Filled.displayName = 'AmauiIconMaterialContentPasteOffSharpW100Filled';
+
 export default IconMaterialContentPasteOffSharpW100Filled;

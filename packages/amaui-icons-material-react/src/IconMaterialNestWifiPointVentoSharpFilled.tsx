@@ -18,4 +18,6 @@ const IconMaterialNestWifiPointVentoSharpFilled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialNestWifiPointVentoSharpFilled.displayName = 'AmauiIconMaterialNestWifiPointVentoSharpFilled';
+
 export default IconMaterialNestWifiPointVentoSharpFilled;

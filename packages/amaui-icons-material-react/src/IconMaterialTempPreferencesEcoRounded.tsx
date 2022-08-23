@@ -18,4 +18,6 @@ const IconMaterialTempPreferencesEcoRounded = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialTempPreferencesEcoRounded.displayName = 'AmauiIconMaterialTempPreferencesEcoRounded';
+
 export default IconMaterialTempPreferencesEcoRounded;

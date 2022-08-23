@@ -18,4 +18,6 @@ const IconMaterialAddToHomeScreenTwoTone = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialAddToHomeScreenTwoTone.displayName = 'AmauiIconMaterialAddToHomeScreenTwoTone';
+
 export default IconMaterialAddToHomeScreenTwoTone;

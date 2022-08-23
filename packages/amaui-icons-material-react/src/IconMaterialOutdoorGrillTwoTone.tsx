@@ -18,4 +18,6 @@ const IconMaterialOutdoorGrillTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialOutdoorGrillTwoTone.displayName = 'AmauiIconMaterialOutdoorGrillTwoTone';
+
 export default IconMaterialOutdoorGrillTwoTone;

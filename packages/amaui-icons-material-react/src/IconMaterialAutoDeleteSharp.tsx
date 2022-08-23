@@ -18,4 +18,6 @@ const IconMaterialAutoDeleteSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAutoDeleteSharp.displayName = 'AmauiIconMaterialAutoDeleteSharp';
+
 export default IconMaterialAutoDeleteSharp;

@@ -18,4 +18,6 @@ const IconMaterialWrapTextTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialWrapTextTwoTone.displayName = 'AmauiIconMaterialWrapTextTwoTone';
+
 export default IconMaterialWrapTextTwoTone;

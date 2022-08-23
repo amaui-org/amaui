@@ -18,4 +18,6 @@ const IconMaterialDoNotStepTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDoNotStepTwoTone.displayName = 'AmauiIconMaterialDoNotStepTwoTone';
+
 export default IconMaterialDoNotStepTwoTone;

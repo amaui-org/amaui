@@ -18,4 +18,6 @@ const IconMaterialUnfoldLessDoubleTwoTone = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialUnfoldLessDoubleTwoTone.displayName = 'AmauiIconMaterialUnfoldLessDoubleTwoTone';
+
 export default IconMaterialUnfoldLessDoubleTwoTone;

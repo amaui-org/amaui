@@ -18,4 +18,6 @@ const IconMaterialDarkModeRoundedW100Filled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialDarkModeRoundedW100Filled.displayName = 'AmauiIconMaterialDarkModeRoundedW100Filled';
+
 export default IconMaterialDarkModeRoundedW100Filled;

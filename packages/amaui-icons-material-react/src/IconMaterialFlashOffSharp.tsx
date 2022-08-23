@@ -18,4 +18,6 @@ const IconMaterialFlashOffSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFlashOffSharp.displayName = 'AmauiIconMaterialFlashOffSharp';
+
 export default IconMaterialFlashOffSharp;

@@ -18,4 +18,6 @@ const IconMaterialEditRoadSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialEditRoadSharpW100.displayName = 'AmauiIconMaterialEditRoadSharpW100';
+
 export default IconMaterialEditRoadSharpW100;

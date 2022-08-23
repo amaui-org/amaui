@@ -18,4 +18,6 @@ const IconMaterialSecurityUpdateGoodRoundedW100Filled = React.forwardRef((props:
   );
 });
 
+IconMaterialSecurityUpdateGoodRoundedW100Filled.displayName = 'AmauiIconMaterialSecurityUpdateGoodRoundedW100Filled';
+
 export default IconMaterialSecurityUpdateGoodRoundedW100Filled;

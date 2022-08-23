@@ -18,4 +18,6 @@ const IconMaterialFloorLampTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFloorLampTwoTone.displayName = 'AmauiIconMaterialFloorLampTwoTone';
+
 export default IconMaterialFloorLampTwoTone;

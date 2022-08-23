@@ -18,4 +18,6 @@ const IconMaterialBadgeCriticalBatterySharpW100 = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialBadgeCriticalBatterySharpW100.displayName = 'AmauiIconMaterialBadgeCriticalBatterySharpW100';
+
 export default IconMaterialBadgeCriticalBatterySharpW100;

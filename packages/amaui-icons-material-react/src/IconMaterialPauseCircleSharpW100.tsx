@@ -18,4 +18,6 @@ const IconMaterialPauseCircleSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPauseCircleSharpW100.displayName = 'AmauiIconMaterialPauseCircleSharpW100';
+
 export default IconMaterialPauseCircleSharpW100;

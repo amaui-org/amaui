@@ -18,4 +18,6 @@ const IconMaterialAutoActivityZoneSharpFilled = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialAutoActivityZoneSharpFilled.displayName = 'AmauiIconMaterialAutoActivityZoneSharpFilled';
+
 export default IconMaterialAutoActivityZoneSharpFilled;

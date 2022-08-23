@@ -18,4 +18,6 @@ const IconMaterialTransgenderTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTransgenderTwoTone.displayName = 'AmauiIconMaterialTransgenderTwoTone';
+
 export default IconMaterialTransgenderTwoTone;

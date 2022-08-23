@@ -18,4 +18,6 @@ const IconMaterialCardTravelRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCardTravelRounded.displayName = 'AmauiIconMaterialCardTravelRounded';
+
 export default IconMaterialCardTravelRounded;

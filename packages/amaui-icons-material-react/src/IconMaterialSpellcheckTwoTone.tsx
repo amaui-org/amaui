@@ -18,4 +18,6 @@ const IconMaterialSpellcheckTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSpellcheckTwoTone.displayName = 'AmauiIconMaterialSpellcheckTwoTone';
+
 export default IconMaterialSpellcheckTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialAirPurifierGenRoundedFilled = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialAirPurifierGenRoundedFilled.displayName = 'AmauiIconMaterialAirPurifierGenRoundedFilled';
+
 export default IconMaterialAirPurifierGenRoundedFilled;

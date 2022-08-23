@@ -18,4 +18,6 @@ const IconMaterialFlourescentTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFlourescentTwoTone.displayName = 'AmauiIconMaterialFlourescentTwoTone';
+
 export default IconMaterialFlourescentTwoTone;

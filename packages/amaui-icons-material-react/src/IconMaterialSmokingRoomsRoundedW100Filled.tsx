@@ -18,4 +18,6 @@ const IconMaterialSmokingRoomsRoundedW100Filled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialSmokingRoomsRoundedW100Filled.displayName = 'AmauiIconMaterialSmokingRoomsRoundedW100Filled';
+
 export default IconMaterialSmokingRoomsRoundedW100Filled;

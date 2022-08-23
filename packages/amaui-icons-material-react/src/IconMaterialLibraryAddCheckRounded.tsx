@@ -18,4 +18,6 @@ const IconMaterialLibraryAddCheckRounded = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialLibraryAddCheckRounded.displayName = 'AmauiIconMaterialLibraryAddCheckRounded';
+
 export default IconMaterialLibraryAddCheckRounded;

@@ -18,4 +18,6 @@ const IconMaterialAddHomeWorkRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAddHomeWorkRounded.displayName = 'AmauiIconMaterialAddHomeWorkRounded';
+
 export default IconMaterialAddHomeWorkRounded;

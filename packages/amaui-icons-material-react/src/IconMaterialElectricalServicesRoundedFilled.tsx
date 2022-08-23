@@ -18,4 +18,6 @@ const IconMaterialElectricalServicesRoundedFilled = React.forwardRef((props: any
   );
 });
 
+IconMaterialElectricalServicesRoundedFilled.displayName = 'AmauiIconMaterialElectricalServicesRoundedFilled';
+
 export default IconMaterialElectricalServicesRoundedFilled;

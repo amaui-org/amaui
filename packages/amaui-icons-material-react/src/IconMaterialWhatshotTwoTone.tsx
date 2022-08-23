@@ -18,4 +18,6 @@ const IconMaterialWhatshotTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialWhatshotTwoTone.displayName = 'AmauiIconMaterialWhatshotTwoTone';
+
 export default IconMaterialWhatshotTwoTone;

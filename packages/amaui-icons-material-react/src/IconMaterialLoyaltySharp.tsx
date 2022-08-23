@@ -18,4 +18,6 @@ const IconMaterialLoyaltySharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLoyaltySharp.displayName = 'AmauiIconMaterialLoyaltySharp';
+
 export default IconMaterialLoyaltySharp;

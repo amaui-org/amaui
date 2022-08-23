@@ -18,4 +18,6 @@ const IconMaterialFaceRetouchingOffSharpFilled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialFaceRetouchingOffSharpFilled.displayName = 'AmauiIconMaterialFaceRetouchingOffSharpFilled';
+
 export default IconMaterialFaceRetouchingOffSharpFilled;

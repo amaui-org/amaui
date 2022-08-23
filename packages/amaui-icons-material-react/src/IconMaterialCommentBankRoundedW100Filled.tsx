@@ -18,4 +18,6 @@ const IconMaterialCommentBankRoundedW100Filled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialCommentBankRoundedW100Filled.displayName = 'AmauiIconMaterialCommentBankRoundedW100Filled';
+
 export default IconMaterialCommentBankRoundedW100Filled;

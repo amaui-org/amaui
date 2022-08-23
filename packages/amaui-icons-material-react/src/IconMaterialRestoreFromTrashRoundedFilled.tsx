@@ -18,4 +18,6 @@ const IconMaterialRestoreFromTrashRoundedFilled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialRestoreFromTrashRoundedFilled.displayName = 'AmauiIconMaterialRestoreFromTrashRoundedFilled';
+
 export default IconMaterialRestoreFromTrashRoundedFilled;

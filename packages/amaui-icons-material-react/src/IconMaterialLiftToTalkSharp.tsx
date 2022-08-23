@@ -18,4 +18,6 @@ const IconMaterialLiftToTalkSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLiftToTalkSharp.displayName = 'AmauiIconMaterialLiftToTalkSharp';
+
 export default IconMaterialLiftToTalkSharp;

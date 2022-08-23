@@ -18,4 +18,6 @@ const IconMaterialClearNightTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialClearNightTwoTone.displayName = 'AmauiIconMaterialClearNightTwoTone';
+
 export default IconMaterialClearNightTwoTone;

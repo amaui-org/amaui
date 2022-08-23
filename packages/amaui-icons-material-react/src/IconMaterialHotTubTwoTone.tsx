@@ -18,4 +18,6 @@ const IconMaterialHotTubTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialHotTubTwoTone.displayName = 'AmauiIconMaterialHotTubTwoTone';
+
 export default IconMaterialHotTubTwoTone;

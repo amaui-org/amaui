@@ -18,4 +18,6 @@ const IconMaterialSupervisedUserCircleTwoTone = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialSupervisedUserCircleTwoTone.displayName = 'AmauiIconMaterialSupervisedUserCircleTwoTone';
+
 export default IconMaterialSupervisedUserCircleTwoTone;

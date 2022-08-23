@@ -18,4 +18,6 @@ const IconMaterialViewWeekSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialViewWeekSharpFilled.displayName = 'AmauiIconMaterialViewWeekSharpFilled';
+
 export default IconMaterialViewWeekSharpFilled;

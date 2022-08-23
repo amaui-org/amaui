@@ -18,4 +18,6 @@ const IconMaterialElectricCarRoundedFilled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialElectricCarRoundedFilled.displayName = 'AmauiIconMaterialElectricCarRoundedFilled';
+
 export default IconMaterialElectricCarRoundedFilled;

@@ -18,4 +18,6 @@ const IconMaterialPlaylistAddSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPlaylistAddSharp.displayName = 'AmauiIconMaterialPlaylistAddSharp';
+
 export default IconMaterialPlaylistAddSharp;

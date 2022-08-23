@@ -18,4 +18,6 @@ const IconMaterialNearbyErrorTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNearbyErrorTwoTone.displayName = 'AmauiIconMaterialNearbyErrorTwoTone';
+
 export default IconMaterialNearbyErrorTwoTone;

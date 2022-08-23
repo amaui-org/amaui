@@ -18,4 +18,6 @@ const IconMaterialExpandCircleDownSharpW100Filled = React.forwardRef((props: any
   );
 });
 
+IconMaterialExpandCircleDownSharpW100Filled.displayName = 'AmauiIconMaterialExpandCircleDownSharpW100Filled';
+
 export default IconMaterialExpandCircleDownSharpW100Filled;

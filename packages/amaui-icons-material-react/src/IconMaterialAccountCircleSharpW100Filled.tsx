@@ -18,4 +18,6 @@ const IconMaterialAccountCircleSharpW100Filled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialAccountCircleSharpW100Filled.displayName = 'AmauiIconMaterialAccountCircleSharpW100Filled';
+
 export default IconMaterialAccountCircleSharpW100Filled;

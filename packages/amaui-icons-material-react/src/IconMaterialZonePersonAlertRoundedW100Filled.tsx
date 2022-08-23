@@ -18,4 +18,6 @@ const IconMaterialZonePersonAlertRoundedW100Filled = React.forwardRef((props: an
   );
 });
 
+IconMaterialZonePersonAlertRoundedW100Filled.displayName = 'AmauiIconMaterialZonePersonAlertRoundedW100Filled';
+
 export default IconMaterialZonePersonAlertRoundedW100Filled;

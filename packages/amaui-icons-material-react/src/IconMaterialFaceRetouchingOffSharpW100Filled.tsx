@@ -18,4 +18,6 @@ const IconMaterialFaceRetouchingOffSharpW100Filled = React.forwardRef((props: an
   );
 });
 
+IconMaterialFaceRetouchingOffSharpW100Filled.displayName = 'AmauiIconMaterialFaceRetouchingOffSharpW100Filled';
+
 export default IconMaterialFaceRetouchingOffSharpW100Filled;

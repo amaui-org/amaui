@@ -18,4 +18,6 @@ const IconMaterialLocalGasStationSharpW100 = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialLocalGasStationSharpW100.displayName = 'AmauiIconMaterialLocalGasStationSharpW100';
+
 export default IconMaterialLocalGasStationSharpW100;

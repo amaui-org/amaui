@@ -18,4 +18,6 @@ const IconMaterialContactlessTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialContactlessTwoTone.displayName = 'AmauiIconMaterialContactlessTwoTone';
+
 export default IconMaterialContactlessTwoTone;

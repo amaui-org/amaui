@@ -18,4 +18,6 @@ const IconMaterialSwapHorizontalCircleTwoTone = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialSwapHorizontalCircleTwoTone.displayName = 'AmauiIconMaterialSwapHorizontalCircleTwoTone';
+
 export default IconMaterialSwapHorizontalCircleTwoTone;

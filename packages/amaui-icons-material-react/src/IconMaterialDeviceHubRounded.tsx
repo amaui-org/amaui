@@ -18,4 +18,6 @@ const IconMaterialDeviceHubRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDeviceHubRounded.displayName = 'AmauiIconMaterialDeviceHubRounded';
+
 export default IconMaterialDeviceHubRounded;

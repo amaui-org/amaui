@@ -18,4 +18,6 @@ const IconMaterialRuleFolderSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialRuleFolderSharp.displayName = 'AmauiIconMaterialRuleFolderSharp';
+
 export default IconMaterialRuleFolderSharp;

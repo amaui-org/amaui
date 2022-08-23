@@ -18,4 +18,6 @@ const IconMaterialEarbudsSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialEarbudsSharp.displayName = 'AmauiIconMaterialEarbudsSharp';
+
 export default IconMaterialEarbudsSharp;

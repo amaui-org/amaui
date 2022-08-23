@@ -18,4 +18,6 @@ const IconMaterialArmingCountdownTwoTone = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialArmingCountdownTwoTone.displayName = 'AmauiIconMaterialArmingCountdownTwoTone';
+
 export default IconMaterialArmingCountdownTwoTone;

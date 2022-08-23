@@ -18,4 +18,6 @@ const IconMaterialBiotechTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBiotechTwoTone.displayName = 'AmauiIconMaterialBiotechTwoTone';
+
 export default IconMaterialBiotechTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialCasinoTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCasinoTwoTone.displayName = 'AmauiIconMaterialCasinoTwoTone';
+
 export default IconMaterialCasinoTwoTone;

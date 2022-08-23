@@ -18,4 +18,6 @@ const IconMaterialSettingsInputAntennaTwoTone = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialSettingsInputAntennaTwoTone.displayName = 'AmauiIconMaterialSettingsInputAntennaTwoTone';
+
 export default IconMaterialSettingsInputAntennaTwoTone;

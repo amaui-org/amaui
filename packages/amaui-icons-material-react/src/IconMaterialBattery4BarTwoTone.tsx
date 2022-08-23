@@ -18,4 +18,6 @@ const IconMaterialBattery4BarTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBattery4BarTwoTone.displayName = 'AmauiIconMaterialBattery4BarTwoTone';
+
 export default IconMaterialBattery4BarTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialSimCardRoundedW100Filled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialSimCardRoundedW100Filled.displayName = 'AmauiIconMaterialSimCardRoundedW100Filled';
+
 export default IconMaterialSimCardRoundedW100Filled;

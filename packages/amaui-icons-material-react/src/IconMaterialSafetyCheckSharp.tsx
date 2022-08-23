@@ -18,4 +18,6 @@ const IconMaterialSafetyCheckSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSafetyCheckSharp.displayName = 'AmauiIconMaterialSafetyCheckSharp';
+
 export default IconMaterialSafetyCheckSharp;

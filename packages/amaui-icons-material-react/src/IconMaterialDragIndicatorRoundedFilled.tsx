@@ -18,4 +18,6 @@ const IconMaterialDragIndicatorRoundedFilled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialDragIndicatorRoundedFilled.displayName = 'AmauiIconMaterialDragIndicatorRoundedFilled';
+
 export default IconMaterialDragIndicatorRoundedFilled;

@@ -18,4 +18,6 @@ const IconMaterialTimeAutoRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTimeAutoRoundedW100.displayName = 'AmauiIconMaterialTimeAutoRoundedW100';
+
 export default IconMaterialTimeAutoRoundedW100;

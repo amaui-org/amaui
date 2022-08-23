@@ -18,4 +18,6 @@ const IconMaterialCurrencyBitcoinTwoTone = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialCurrencyBitcoinTwoTone.displayName = 'AmauiIconMaterialCurrencyBitcoinTwoTone';
+
 export default IconMaterialCurrencyBitcoinTwoTone;

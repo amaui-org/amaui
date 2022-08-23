@@ -18,4 +18,6 @@ const IconMaterialResetTvSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialResetTvSharpW100.displayName = 'AmauiIconMaterialResetTvSharpW100';
+
 export default IconMaterialResetTvSharpW100;

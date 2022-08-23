@@ -18,4 +18,6 @@ const IconMaterialEmojiNatureSharpW100Filled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialEmojiNatureSharpW100Filled.displayName = 'AmauiIconMaterialEmojiNatureSharpW100Filled';
+
 export default IconMaterialEmojiNatureSharpW100Filled;

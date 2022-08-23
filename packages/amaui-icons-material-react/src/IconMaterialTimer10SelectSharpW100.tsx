@@ -18,4 +18,6 @@ const IconMaterialTimer10SelectSharpW100 = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialTimer10SelectSharpW100.displayName = 'AmauiIconMaterialTimer10SelectSharpW100';
+
 export default IconMaterialTimer10SelectSharpW100;

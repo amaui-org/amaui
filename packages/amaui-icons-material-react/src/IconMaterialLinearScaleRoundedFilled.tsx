@@ -18,4 +18,6 @@ const IconMaterialLinearScaleRoundedFilled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialLinearScaleRoundedFilled.displayName = 'AmauiIconMaterialLinearScaleRoundedFilled';
+
 export default IconMaterialLinearScaleRoundedFilled;

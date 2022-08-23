@@ -18,4 +18,6 @@ const IconMaterialFormatOverlineTwoTone = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialFormatOverlineTwoTone.displayName = 'AmauiIconMaterialFormatOverlineTwoTone';
+
 export default IconMaterialFormatOverlineTwoTone;

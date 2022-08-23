@@ -18,4 +18,6 @@ const IconMaterialBringYourOwnIpRounded = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialBringYourOwnIpRounded.displayName = 'AmauiIconMaterialBringYourOwnIpRounded';
+
 export default IconMaterialBringYourOwnIpRounded;

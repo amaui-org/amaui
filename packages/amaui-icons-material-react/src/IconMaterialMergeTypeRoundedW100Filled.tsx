@@ -18,4 +18,6 @@ const IconMaterialMergeTypeRoundedW100Filled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialMergeTypeRoundedW100Filled.displayName = 'AmauiIconMaterialMergeTypeRoundedW100Filled';
+
 export default IconMaterialMergeTypeRoundedW100Filled;

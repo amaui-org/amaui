@@ -18,4 +18,6 @@ const IconMaterialLockOpenTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLockOpenTwoTone.displayName = 'AmauiIconMaterialLockOpenTwoTone';
+
 export default IconMaterialLockOpenTwoTone;

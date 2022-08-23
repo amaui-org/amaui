@@ -18,4 +18,6 @@ const IconMaterialWorkspacePremiumSharp = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialWorkspacePremiumSharp.displayName = 'AmauiIconMaterialWorkspacePremiumSharp';
+
 export default IconMaterialWorkspacePremiumSharp;

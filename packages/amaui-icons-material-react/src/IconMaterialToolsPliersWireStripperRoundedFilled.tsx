@@ -18,4 +18,6 @@ const IconMaterialToolsPliersWireStripperRoundedFilled = React.forwardRef((props
   );
 });
 
+IconMaterialToolsPliersWireStripperRoundedFilled.displayName = 'AmauiIconMaterialToolsPliersWireStripperRoundedFilled';
+
 export default IconMaterialToolsPliersWireStripperRoundedFilled;

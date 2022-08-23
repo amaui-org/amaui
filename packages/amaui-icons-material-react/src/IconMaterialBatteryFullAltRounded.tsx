@@ -18,4 +18,6 @@ const IconMaterialBatteryFullAltRounded = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialBatteryFullAltRounded.displayName = 'AmauiIconMaterialBatteryFullAltRounded';
+
 export default IconMaterialBatteryFullAltRounded;

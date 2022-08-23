@@ -18,4 +18,6 @@ const IconMaterialHourglassFullTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialHourglassFullTwoTone.displayName = 'AmauiIconMaterialHourglassFullTwoTone';
+
 export default IconMaterialHourglassFullTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialLocationHomeRoundedW100 = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialLocationHomeRoundedW100.displayName = 'AmauiIconMaterialLocationHomeRoundedW100';
+
 export default IconMaterialLocationHomeRoundedW100;

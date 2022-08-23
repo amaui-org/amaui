@@ -18,4 +18,6 @@ const IconMaterialMinorCrashRoundedW100 = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialMinorCrashRoundedW100.displayName = 'AmauiIconMaterialMinorCrashRoundedW100';
+
 export default IconMaterialMinorCrashRoundedW100;

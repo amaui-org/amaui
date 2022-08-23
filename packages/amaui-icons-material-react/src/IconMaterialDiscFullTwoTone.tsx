@@ -18,4 +18,6 @@ const IconMaterialDiscFullTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDiscFullTwoTone.displayName = 'AmauiIconMaterialDiscFullTwoTone';
+
 export default IconMaterialDiscFullTwoTone;

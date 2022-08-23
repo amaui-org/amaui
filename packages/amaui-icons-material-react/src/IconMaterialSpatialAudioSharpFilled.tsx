@@ -18,4 +18,6 @@ const IconMaterialSpatialAudioSharpFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialSpatialAudioSharpFilled.displayName = 'AmauiIconMaterialSpatialAudioSharpFilled';
+
 export default IconMaterialSpatialAudioSharpFilled;

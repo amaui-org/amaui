@@ -18,4 +18,6 @@ const IconMaterialVerticalDistributeRoundedW100Filled = React.forwardRef((props:
   );
 });
 
+IconMaterialVerticalDistributeRoundedW100Filled.displayName = 'AmauiIconMaterialVerticalDistributeRoundedW100Filled';
+
 export default IconMaterialVerticalDistributeRoundedW100Filled;

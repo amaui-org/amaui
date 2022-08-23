@@ -18,4 +18,6 @@ const IconMaterialDeselectSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDeselectSharpFilled.displayName = 'AmauiIconMaterialDeselectSharpFilled';
+
 export default IconMaterialDeselectSharpFilled;

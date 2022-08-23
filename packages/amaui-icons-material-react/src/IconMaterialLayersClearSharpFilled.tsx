@@ -18,4 +18,6 @@ const IconMaterialLayersClearSharpFilled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialLayersClearSharpFilled.displayName = 'AmauiIconMaterialLayersClearSharpFilled';
+
 export default IconMaterialLayersClearSharpFilled;

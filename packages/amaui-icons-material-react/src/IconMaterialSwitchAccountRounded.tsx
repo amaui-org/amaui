@@ -18,4 +18,6 @@ const IconMaterialSwitchAccountRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSwitchAccountRounded.displayName = 'AmauiIconMaterialSwitchAccountRounded';
+
 export default IconMaterialSwitchAccountRounded;

@@ -18,4 +18,6 @@ const IconMaterialTaskAltSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTaskAltSharpFilled.displayName = 'AmauiIconMaterialTaskAltSharpFilled';
+
 export default IconMaterialTaskAltSharpFilled;

@@ -18,4 +18,6 @@ const IconMaterialTimer10Alt1SharpW100Filled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialTimer10Alt1SharpW100Filled.displayName = 'AmauiIconMaterialTimer10Alt1SharpW100Filled';
+
 export default IconMaterialTimer10Alt1SharpW100Filled;

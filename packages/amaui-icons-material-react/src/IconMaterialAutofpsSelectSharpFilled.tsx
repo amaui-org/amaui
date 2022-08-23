@@ -18,4 +18,6 @@ const IconMaterialAutofpsSelectSharpFilled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialAutofpsSelectSharpFilled.displayName = 'AmauiIconMaterialAutofpsSelectSharpFilled';
+
 export default IconMaterialAutofpsSelectSharpFilled;

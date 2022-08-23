@@ -18,4 +18,6 @@ const IconMaterialRadioButtonUncheckedSharpW100 = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialRadioButtonUncheckedSharpW100.displayName = 'AmauiIconMaterialRadioButtonUncheckedSharpW100';
+
 export default IconMaterialRadioButtonUncheckedSharpW100;

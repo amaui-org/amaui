@@ -18,4 +18,6 @@ const IconMaterialCastForEducationRoundedW100Filled = React.forwardRef((props: a
   );
 });
 
+IconMaterialCastForEducationRoundedW100Filled.displayName = 'AmauiIconMaterialCastForEducationRoundedW100Filled';
+
 export default IconMaterialCastForEducationRoundedW100Filled;

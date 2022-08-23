@@ -18,4 +18,6 @@ const IconMaterialScreenLockLandscapeSharpFilled = React.forwardRef((props: any,
   );
 });
 
+IconMaterialScreenLockLandscapeSharpFilled.displayName = 'AmauiIconMaterialScreenLockLandscapeSharpFilled';
+
 export default IconMaterialScreenLockLandscapeSharpFilled;

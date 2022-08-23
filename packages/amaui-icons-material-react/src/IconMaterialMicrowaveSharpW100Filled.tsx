@@ -18,4 +18,6 @@ const IconMaterialMicrowaveSharpW100Filled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialMicrowaveSharpW100Filled.displayName = 'AmauiIconMaterialMicrowaveSharpW100Filled';
+
 export default IconMaterialMicrowaveSharpW100Filled;

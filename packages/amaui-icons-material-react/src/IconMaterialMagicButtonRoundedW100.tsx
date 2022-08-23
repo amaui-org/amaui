@@ -18,4 +18,6 @@ const IconMaterialMagicButtonRoundedW100 = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialMagicButtonRoundedW100.displayName = 'AmauiIconMaterialMagicButtonRoundedW100';
+
 export default IconMaterialMagicButtonRoundedW100;

@@ -18,4 +18,6 @@ const IconMaterialFolderOffTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFolderOffTwoTone.displayName = 'AmauiIconMaterialFolderOffTwoTone';
+
 export default IconMaterialFolderOffTwoTone;

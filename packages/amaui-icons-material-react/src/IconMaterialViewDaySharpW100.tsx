@@ -18,4 +18,6 @@ const IconMaterialViewDaySharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialViewDaySharpW100.displayName = 'AmauiIconMaterialViewDaySharpW100';
+
 export default IconMaterialViewDaySharpW100;

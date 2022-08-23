@@ -18,4 +18,6 @@ const IconMaterialDocumentScannerTwoTone = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialDocumentScannerTwoTone.displayName = 'AmauiIconMaterialDocumentScannerTwoTone';
+
 export default IconMaterialDocumentScannerTwoTone;

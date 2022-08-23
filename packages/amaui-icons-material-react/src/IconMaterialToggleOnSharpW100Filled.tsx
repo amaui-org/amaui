@@ -18,4 +18,6 @@ const IconMaterialToggleOnSharpW100Filled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialToggleOnSharpW100Filled.displayName = 'AmauiIconMaterialToggleOnSharpW100Filled';
+
 export default IconMaterialToggleOnSharpW100Filled;

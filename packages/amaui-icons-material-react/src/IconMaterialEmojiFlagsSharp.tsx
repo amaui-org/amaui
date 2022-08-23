@@ -18,4 +18,6 @@ const IconMaterialEmojiFlagsSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialEmojiFlagsSharp.displayName = 'AmauiIconMaterialEmojiFlagsSharp';
+
 export default IconMaterialEmojiFlagsSharp;

@@ -18,4 +18,6 @@ const IconMaterialCompostTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCompostTwoTone.displayName = 'AmauiIconMaterialCompostTwoTone';
+
 export default IconMaterialCompostTwoTone;

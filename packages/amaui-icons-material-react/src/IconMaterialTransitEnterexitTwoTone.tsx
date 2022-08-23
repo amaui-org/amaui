@@ -18,4 +18,6 @@ const IconMaterialTransitEnterexitTwoTone = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialTransitEnterexitTwoTone.displayName = 'AmauiIconMaterialTransitEnterexitTwoTone';
+
 export default IconMaterialTransitEnterexitTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialForumSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialForumSharpW100.displayName = 'AmauiIconMaterialForumSharpW100';
+
 export default IconMaterialForumSharpW100;

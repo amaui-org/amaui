@@ -18,4 +18,6 @@ const IconMaterialGateTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialGateTwoTone.displayName = 'AmauiIconMaterialGateTwoTone';
+
 export default IconMaterialGateTwoTone;

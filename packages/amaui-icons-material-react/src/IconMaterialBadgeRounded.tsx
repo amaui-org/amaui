@@ -18,4 +18,6 @@ const IconMaterialBadgeRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBadgeRounded.displayName = 'AmauiIconMaterialBadgeRounded';
+
 export default IconMaterialBadgeRounded;

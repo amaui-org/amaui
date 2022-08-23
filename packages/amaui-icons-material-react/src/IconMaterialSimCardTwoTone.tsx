@@ -18,4 +18,6 @@ const IconMaterialSimCardTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSimCardTwoTone.displayName = 'AmauiIconMaterialSimCardTwoTone';
+
 export default IconMaterialSimCardTwoTone;

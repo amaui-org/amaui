@@ -18,4 +18,6 @@ const IconMaterialChevronRightRoundedW100 = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialChevronRightRoundedW100.displayName = 'AmauiIconMaterialChevronRightRoundedW100';
+
 export default IconMaterialChevronRightRoundedW100;

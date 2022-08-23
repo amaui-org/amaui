@@ -18,4 +18,6 @@ const IconMaterialFormatOverlineRoundedW100Filled = React.forwardRef((props: any
   );
 });
 
+IconMaterialFormatOverlineRoundedW100Filled.displayName = 'AmauiIconMaterialFormatOverlineRoundedW100Filled';
+
 export default IconMaterialFormatOverlineRoundedW100Filled;

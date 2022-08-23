@@ -18,4 +18,6 @@ const IconMaterialCleaningServicesSharpW100 = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialCleaningServicesSharpW100.displayName = 'AmauiIconMaterialCleaningServicesSharpW100';
+
 export default IconMaterialCleaningServicesSharpW100;

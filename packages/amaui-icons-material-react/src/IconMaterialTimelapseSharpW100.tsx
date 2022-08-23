@@ -18,4 +18,6 @@ const IconMaterialTimelapseSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTimelapseSharpW100.displayName = 'AmauiIconMaterialTimelapseSharpW100';
+
 export default IconMaterialTimelapseSharpW100;

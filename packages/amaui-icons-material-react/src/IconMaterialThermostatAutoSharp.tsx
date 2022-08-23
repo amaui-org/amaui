@@ -18,4 +18,6 @@ const IconMaterialThermostatAutoSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialThermostatAutoSharp.displayName = 'AmauiIconMaterialThermostatAutoSharp';
+
 export default IconMaterialThermostatAutoSharp;

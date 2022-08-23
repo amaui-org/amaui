@@ -18,4 +18,6 @@ const IconMaterialBringYourOwnIpSharpW100Filled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialBringYourOwnIpSharpW100Filled.displayName = 'AmauiIconMaterialBringYourOwnIpSharpW100Filled';
+
 export default IconMaterialBringYourOwnIpSharpW100Filled;

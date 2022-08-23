@@ -18,4 +18,6 @@ const IconMaterialWatchRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialWatchRoundedW100.displayName = 'AmauiIconMaterialWatchRoundedW100';
+
 export default IconMaterialWatchRoundedW100;

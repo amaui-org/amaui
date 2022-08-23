@@ -18,4 +18,6 @@ const IconMaterialWoman2RoundedFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialWoman2RoundedFilled.displayName = 'AmauiIconMaterialWoman2RoundedFilled';
+
 export default IconMaterialWoman2RoundedFilled;

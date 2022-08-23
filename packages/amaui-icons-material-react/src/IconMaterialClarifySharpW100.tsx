@@ -18,4 +18,6 @@ const IconMaterialClarifySharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialClarifySharpW100.displayName = 'AmauiIconMaterialClarifySharpW100';
+
 export default IconMaterialClarifySharpW100;

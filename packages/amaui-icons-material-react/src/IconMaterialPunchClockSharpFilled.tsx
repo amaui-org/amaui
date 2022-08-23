@@ -18,4 +18,6 @@ const IconMaterialPunchClockSharpFilled = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialPunchClockSharpFilled.displayName = 'AmauiIconMaterialPunchClockSharpFilled';
+
 export default IconMaterialPunchClockSharpFilled;

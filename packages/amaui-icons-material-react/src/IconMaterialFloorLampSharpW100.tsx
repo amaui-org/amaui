@@ -18,4 +18,6 @@ const IconMaterialFloorLampSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFloorLampSharpW100.displayName = 'AmauiIconMaterialFloorLampSharpW100';
+
 export default IconMaterialFloorLampSharpW100;

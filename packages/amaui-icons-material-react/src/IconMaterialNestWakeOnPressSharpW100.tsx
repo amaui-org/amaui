@@ -18,4 +18,6 @@ const IconMaterialNestWakeOnPressSharpW100 = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialNestWakeOnPressSharpW100.displayName = 'AmauiIconMaterialNestWakeOnPressSharpW100';
+
 export default IconMaterialNestWakeOnPressSharpW100;

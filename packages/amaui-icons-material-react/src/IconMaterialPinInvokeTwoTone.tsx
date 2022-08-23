@@ -18,4 +18,6 @@ const IconMaterialPinInvokeTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPinInvokeTwoTone.displayName = 'AmauiIconMaterialPinInvokeTwoTone';
+
 export default IconMaterialPinInvokeTwoTone;

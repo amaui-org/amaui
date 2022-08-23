@@ -18,4 +18,6 @@ const IconMaterialRadioButtonCheckedSharp = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialRadioButtonCheckedSharp.displayName = 'AmauiIconMaterialRadioButtonCheckedSharp';
+
 export default IconMaterialRadioButtonCheckedSharp;

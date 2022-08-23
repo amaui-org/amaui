@@ -18,4 +18,6 @@ const IconMaterialRestartAltSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialRestartAltSharp.displayName = 'AmauiIconMaterialRestartAltSharp';
+
 export default IconMaterialRestartAltSharp;

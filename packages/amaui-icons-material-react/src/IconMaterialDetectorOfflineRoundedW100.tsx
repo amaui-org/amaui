@@ -18,4 +18,6 @@ const IconMaterialDetectorOfflineRoundedW100 = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialDetectorOfflineRoundedW100.displayName = 'AmauiIconMaterialDetectorOfflineRoundedW100';
+
 export default IconMaterialDetectorOfflineRoundedW100;

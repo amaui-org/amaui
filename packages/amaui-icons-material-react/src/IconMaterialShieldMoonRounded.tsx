@@ -18,4 +18,6 @@ const IconMaterialShieldMoonRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialShieldMoonRounded.displayName = 'AmauiIconMaterialShieldMoonRounded';
+
 export default IconMaterialShieldMoonRounded;

@@ -18,4 +18,6 @@ const IconMaterialConfirmationNumberRoundedW100Filled = React.forwardRef((props:
   );
 });
 
+IconMaterialConfirmationNumberRoundedW100Filled.displayName = 'AmauiIconMaterialConfirmationNumberRoundedW100Filled';
+
 export default IconMaterialConfirmationNumberRoundedW100Filled;

@@ -18,4 +18,6 @@ const IconMaterialSettingsAccessibilityTwoTone = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialSettingsAccessibilityTwoTone.displayName = 'AmauiIconMaterialSettingsAccessibilityTwoTone';
+
 export default IconMaterialSettingsAccessibilityTwoTone;

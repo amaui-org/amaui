@@ -18,4 +18,6 @@ const IconMaterialMobileScreenShareRoundedW100Filled = React.forwardRef((props: 
   );
 });
 
+IconMaterialMobileScreenShareRoundedW100Filled.displayName = 'AmauiIconMaterialMobileScreenShareRoundedW100Filled';
+
 export default IconMaterialMobileScreenShareRoundedW100Filled;

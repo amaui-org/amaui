@@ -18,4 +18,6 @@ const IconMaterialToolsPhillipsRoundedW100Filled = React.forwardRef((props: any,
   );
 });
 
+IconMaterialToolsPhillipsRoundedW100Filled.displayName = 'AmauiIconMaterialToolsPhillipsRoundedW100Filled';
+
 export default IconMaterialToolsPhillipsRoundedW100Filled;

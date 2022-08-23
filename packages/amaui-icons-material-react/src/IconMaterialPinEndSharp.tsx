@@ -18,4 +18,6 @@ const IconMaterialPinEndSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPinEndSharp.displayName = 'AmauiIconMaterialPinEndSharp';
+
 export default IconMaterialPinEndSharp;

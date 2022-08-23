@@ -18,4 +18,6 @@ const IconMaterialControlPointDuplicateRoundedW100 = React.forwardRef((props: an
   );
 });
 
+IconMaterialControlPointDuplicateRoundedW100.displayName = 'AmauiIconMaterialControlPointDuplicateRoundedW100';
+
 export default IconMaterialControlPointDuplicateRoundedW100;

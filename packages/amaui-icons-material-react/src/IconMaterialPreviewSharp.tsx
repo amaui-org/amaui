@@ -18,4 +18,6 @@ const IconMaterialPreviewSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPreviewSharp.displayName = 'AmauiIconMaterialPreviewSharp';
+
 export default IconMaterialPreviewSharp;

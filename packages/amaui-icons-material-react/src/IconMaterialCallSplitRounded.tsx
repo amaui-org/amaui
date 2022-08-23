@@ -18,4 +18,6 @@ const IconMaterialCallSplitRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCallSplitRounded.displayName = 'AmauiIconMaterialCallSplitRounded';
+
 export default IconMaterialCallSplitRounded;

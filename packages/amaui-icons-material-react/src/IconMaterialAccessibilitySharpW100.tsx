@@ -18,4 +18,6 @@ const IconMaterialAccessibilitySharpW100 = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialAccessibilitySharpW100.displayName = 'AmauiIconMaterialAccessibilitySharpW100';
+
 export default IconMaterialAccessibilitySharpW100;

@@ -18,4 +18,6 @@ const IconMaterialEuroSymbolTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialEuroSymbolTwoTone.displayName = 'AmauiIconMaterialEuroSymbolTwoTone';
+
 export default IconMaterialEuroSymbolTwoTone;

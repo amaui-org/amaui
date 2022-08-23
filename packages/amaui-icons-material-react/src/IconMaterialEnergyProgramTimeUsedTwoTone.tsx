@@ -18,4 +18,6 @@ const IconMaterialEnergyProgramTimeUsedTwoTone = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialEnergyProgramTimeUsedTwoTone.displayName = 'AmauiIconMaterialEnergyProgramTimeUsedTwoTone';
+
 export default IconMaterialEnergyProgramTimeUsedTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialCampaignRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCampaignRounded.displayName = 'AmauiIconMaterialCampaignRounded';
+
 export default IconMaterialCampaignRounded;

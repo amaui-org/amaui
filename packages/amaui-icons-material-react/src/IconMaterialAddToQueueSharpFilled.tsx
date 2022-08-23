@@ -18,4 +18,6 @@ const IconMaterialAddToQueueSharpFilled = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialAddToQueueSharpFilled.displayName = 'AmauiIconMaterialAddToQueueSharpFilled';
+
 export default IconMaterialAddToQueueSharpFilled;

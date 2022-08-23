@@ -18,4 +18,6 @@ const IconMaterialGoogleWifiSharpFilled = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialGoogleWifiSharpFilled.displayName = 'AmauiIconMaterialGoogleWifiSharpFilled';
+
 export default IconMaterialGoogleWifiSharpFilled;

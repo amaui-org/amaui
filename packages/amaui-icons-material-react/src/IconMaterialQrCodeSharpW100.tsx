@@ -18,4 +18,6 @@ const IconMaterialQrCodeSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialQrCodeSharpW100.displayName = 'AmauiIconMaterialQrCodeSharpW100';
+
 export default IconMaterialQrCodeSharpW100;

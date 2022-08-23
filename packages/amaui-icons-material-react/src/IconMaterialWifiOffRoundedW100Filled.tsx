@@ -18,4 +18,6 @@ const IconMaterialWifiOffRoundedW100Filled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialWifiOffRoundedW100Filled.displayName = 'AmauiIconMaterialWifiOffRoundedW100Filled';
+
 export default IconMaterialWifiOffRoundedW100Filled;

@@ -18,4 +18,6 @@ const IconMaterialArtTrackSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialArtTrackSharp.displayName = 'AmauiIconMaterialArtTrackSharp';
+
 export default IconMaterialArtTrackSharp;

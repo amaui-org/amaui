@@ -18,4 +18,6 @@ const IconMaterialFaceRetouchingNaturalTwoTone = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialFaceRetouchingNaturalTwoTone.displayName = 'AmauiIconMaterialFaceRetouchingNaturalTwoTone';
+
 export default IconMaterialFaceRetouchingNaturalTwoTone;

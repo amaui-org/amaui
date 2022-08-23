@@ -18,4 +18,6 @@ const IconMaterialHandshakeRoundedFilled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialHandshakeRoundedFilled.displayName = 'AmauiIconMaterialHandshakeRoundedFilled';
+
 export default IconMaterialHandshakeRoundedFilled;

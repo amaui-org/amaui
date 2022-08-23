@@ -18,4 +18,6 @@ const IconMaterialNotAccessibleSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNotAccessibleSharp.displayName = 'AmauiIconMaterialNotAccessibleSharp';
+
 export default IconMaterialNotAccessibleSharp;

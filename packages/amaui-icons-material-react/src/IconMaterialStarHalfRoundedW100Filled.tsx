@@ -18,4 +18,6 @@ const IconMaterialStarHalfRoundedW100Filled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialStarHalfRoundedW100Filled.displayName = 'AmauiIconMaterialStarHalfRoundedW100Filled';
+
 export default IconMaterialStarHalfRoundedW100Filled;

@@ -18,4 +18,6 @@ const IconMaterialAutorenewRoundedFilled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialAutorenewRoundedFilled.displayName = 'AmauiIconMaterialAutorenewRoundedFilled';
+
 export default IconMaterialAutorenewRoundedFilled;

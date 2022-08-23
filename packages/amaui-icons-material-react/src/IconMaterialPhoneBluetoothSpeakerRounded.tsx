@@ -18,4 +18,6 @@ const IconMaterialPhoneBluetoothSpeakerRounded = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialPhoneBluetoothSpeakerRounded.displayName = 'AmauiIconMaterialPhoneBluetoothSpeakerRounded';
+
 export default IconMaterialPhoneBluetoothSpeakerRounded;

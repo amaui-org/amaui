@@ -18,4 +18,6 @@ const IconMaterialBathtubSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBathtubSharpFilled.displayName = 'AmauiIconMaterialBathtubSharpFilled';
+
 export default IconMaterialBathtubSharpFilled;

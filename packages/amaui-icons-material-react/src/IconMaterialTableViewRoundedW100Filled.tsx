@@ -18,4 +18,6 @@ const IconMaterialTableViewRoundedW100Filled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialTableViewRoundedW100Filled.displayName = 'AmauiIconMaterialTableViewRoundedW100Filled';
+
 export default IconMaterialTableViewRoundedW100Filled;

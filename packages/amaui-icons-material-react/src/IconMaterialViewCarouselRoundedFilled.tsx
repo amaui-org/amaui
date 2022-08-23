@@ -18,4 +18,6 @@ const IconMaterialViewCarouselRoundedFilled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialViewCarouselRoundedFilled.displayName = 'AmauiIconMaterialViewCarouselRoundedFilled';
+
 export default IconMaterialViewCarouselRoundedFilled;

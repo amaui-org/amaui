@@ -18,4 +18,6 @@ const IconMaterialSupervisorAccountRoundedFilled = React.forwardRef((props: any,
   );
 });
 
+IconMaterialSupervisorAccountRoundedFilled.displayName = 'AmauiIconMaterialSupervisorAccountRoundedFilled';
+
 export default IconMaterialSupervisorAccountRoundedFilled;

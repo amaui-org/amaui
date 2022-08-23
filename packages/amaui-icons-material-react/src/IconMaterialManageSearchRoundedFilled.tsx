@@ -18,4 +18,6 @@ const IconMaterialManageSearchRoundedFilled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialManageSearchRoundedFilled.displayName = 'AmauiIconMaterialManageSearchRoundedFilled';
+
 export default IconMaterialManageSearchRoundedFilled;

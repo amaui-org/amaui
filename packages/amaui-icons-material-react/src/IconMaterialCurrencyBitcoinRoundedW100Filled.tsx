@@ -18,4 +18,6 @@ const IconMaterialCurrencyBitcoinRoundedW100Filled = React.forwardRef((props: an
   );
 });
 
+IconMaterialCurrencyBitcoinRoundedW100Filled.displayName = 'AmauiIconMaterialCurrencyBitcoinRoundedW100Filled';
+
 export default IconMaterialCurrencyBitcoinRoundedW100Filled;

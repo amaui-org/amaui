@@ -18,4 +18,6 @@ const IconMaterialFlightLandSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFlightLandSharpW100.displayName = 'AmauiIconMaterialFlightLandSharpW100';
+
 export default IconMaterialFlightLandSharpW100;

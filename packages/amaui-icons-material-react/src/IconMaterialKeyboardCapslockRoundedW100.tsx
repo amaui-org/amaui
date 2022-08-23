@@ -18,4 +18,6 @@ const IconMaterialKeyboardCapslockRoundedW100 = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialKeyboardCapslockRoundedW100.displayName = 'AmauiIconMaterialKeyboardCapslockRoundedW100';
+
 export default IconMaterialKeyboardCapslockRoundedW100;

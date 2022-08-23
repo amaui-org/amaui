@@ -18,4 +18,6 @@ const IconMaterialNoTransferTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNoTransferTwoTone.displayName = 'AmauiIconMaterialNoTransferTwoTone';
+
 export default IconMaterialNoTransferTwoTone;

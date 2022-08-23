@@ -18,4 +18,6 @@ const IconMaterialPendingActionsRoundedW100Filled = React.forwardRef((props: any
   );
 });
 
+IconMaterialPendingActionsRoundedW100Filled.displayName = 'AmauiIconMaterialPendingActionsRoundedW100Filled';
+
 export default IconMaterialPendingActionsRoundedW100Filled;

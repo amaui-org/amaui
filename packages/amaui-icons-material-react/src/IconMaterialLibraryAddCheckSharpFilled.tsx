@@ -18,4 +18,6 @@ const IconMaterialLibraryAddCheckSharpFilled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialLibraryAddCheckSharpFilled.displayName = 'AmauiIconMaterialLibraryAddCheckSharpFilled';
+
 export default IconMaterialLibraryAddCheckSharpFilled;

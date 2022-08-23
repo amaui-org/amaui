@@ -18,4 +18,6 @@ const IconMaterialToggleOnRoundedFilled = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialToggleOnRoundedFilled.displayName = 'AmauiIconMaterialToggleOnRoundedFilled';
+
 export default IconMaterialToggleOnRoundedFilled;

@@ -18,4 +18,6 @@ const IconMaterialFireHydrantTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFireHydrantTwoTone.displayName = 'AmauiIconMaterialFireHydrantTwoTone';
+
 export default IconMaterialFireHydrantTwoTone;

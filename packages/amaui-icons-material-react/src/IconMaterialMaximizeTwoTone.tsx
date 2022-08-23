@@ -18,4 +18,6 @@ const IconMaterialMaximizeTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMaximizeTwoTone.displayName = 'AmauiIconMaterialMaximizeTwoTone';
+
 export default IconMaterialMaximizeTwoTone;

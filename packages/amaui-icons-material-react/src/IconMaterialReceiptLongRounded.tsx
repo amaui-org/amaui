@@ -18,4 +18,6 @@ const IconMaterialReceiptLongRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialReceiptLongRounded.displayName = 'AmauiIconMaterialReceiptLongRounded';
+
 export default IconMaterialReceiptLongRounded;

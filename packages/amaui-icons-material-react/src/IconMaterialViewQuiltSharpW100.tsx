@@ -18,4 +18,6 @@ const IconMaterialViewQuiltSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialViewQuiltSharpW100.displayName = 'AmauiIconMaterialViewQuiltSharpW100';
+
 export default IconMaterialViewQuiltSharpW100;

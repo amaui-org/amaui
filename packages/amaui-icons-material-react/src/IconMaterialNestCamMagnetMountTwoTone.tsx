@@ -18,4 +18,6 @@ const IconMaterialNestCamMagnetMountTwoTone = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialNestCamMagnetMountTwoTone.displayName = 'AmauiIconMaterialNestCamMagnetMountTwoTone';
+
 export default IconMaterialNestCamMagnetMountTwoTone;

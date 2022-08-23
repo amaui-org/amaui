@@ -18,4 +18,6 @@ const IconMaterialScreenSearchDesktopSharp = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialScreenSearchDesktopSharp.displayName = 'AmauiIconMaterialScreenSearchDesktopSharp';
+
 export default IconMaterialScreenSearchDesktopSharp;

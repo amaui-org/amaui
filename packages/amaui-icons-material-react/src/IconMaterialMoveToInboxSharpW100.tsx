@@ -18,4 +18,6 @@ const IconMaterialMoveToInboxSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMoveToInboxSharpW100.displayName = 'AmauiIconMaterialMoveToInboxSharpW100';
+
 export default IconMaterialMoveToInboxSharpW100;

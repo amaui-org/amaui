@@ -18,4 +18,6 @@ const IconMaterialPanToolSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPanToolSharpW100.displayName = 'AmauiIconMaterialPanToolSharpW100';
+
 export default IconMaterialPanToolSharpW100;

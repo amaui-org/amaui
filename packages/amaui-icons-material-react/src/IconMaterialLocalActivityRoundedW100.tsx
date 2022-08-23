@@ -18,4 +18,6 @@ const IconMaterialLocalActivityRoundedW100 = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialLocalActivityRoundedW100.displayName = 'AmauiIconMaterialLocalActivityRoundedW100';
+
 export default IconMaterialLocalActivityRoundedW100;

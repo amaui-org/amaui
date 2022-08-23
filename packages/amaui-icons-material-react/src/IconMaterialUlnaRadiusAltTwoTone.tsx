@@ -18,4 +18,6 @@ const IconMaterialUlnaRadiusAltTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialUlnaRadiusAltTwoTone.displayName = 'AmauiIconMaterialUlnaRadiusAltTwoTone';
+
 export default IconMaterialUlnaRadiusAltTwoTone;

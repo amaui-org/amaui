@@ -18,4 +18,6 @@ const IconMaterialNestWakeOnPressTwoTone = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialNestWakeOnPressTwoTone.displayName = 'AmauiIconMaterialNestWakeOnPressTwoTone';
+
 export default IconMaterialNestWakeOnPressTwoTone;

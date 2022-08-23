@@ -18,4 +18,6 @@ const IconMaterialFormatListBulletedSharpW100 = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialFormatListBulletedSharpW100.displayName = 'AmauiIconMaterialFormatListBulletedSharpW100';
+
 export default IconMaterialFormatListBulletedSharpW100;

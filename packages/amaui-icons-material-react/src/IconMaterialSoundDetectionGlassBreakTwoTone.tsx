@@ -18,4 +18,6 @@ const IconMaterialSoundDetectionGlassBreakTwoTone = React.forwardRef((props: any
   );
 });
 
+IconMaterialSoundDetectionGlassBreakTwoTone.displayName = 'AmauiIconMaterialSoundDetectionGlassBreakTwoTone';
+
 export default IconMaterialSoundDetectionGlassBreakTwoTone;

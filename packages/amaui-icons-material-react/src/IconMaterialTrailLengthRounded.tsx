@@ -18,4 +18,6 @@ const IconMaterialTrailLengthRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTrailLengthRounded.displayName = 'AmauiIconMaterialTrailLengthRounded';
+
 export default IconMaterialTrailLengthRounded;

@@ -18,4 +18,6 @@ const IconMaterialFlipCameraIosSharpW100 = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialFlipCameraIosSharpW100.displayName = 'AmauiIconMaterialFlipCameraIosSharpW100';
+
 export default IconMaterialFlipCameraIosSharpW100;

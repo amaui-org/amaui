@@ -18,4 +18,6 @@ const IconMaterialAirlineSeatLegroomReducedSharpW100 = React.forwardRef((props: 
   );
 });
 
+IconMaterialAirlineSeatLegroomReducedSharpW100.displayName = 'AmauiIconMaterialAirlineSeatLegroomReducedSharpW100';
+
 export default IconMaterialAirlineSeatLegroomReducedSharpW100;

@@ -18,4 +18,6 @@ const IconMaterialAirlineSeatFlatRoundedFilled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialAirlineSeatFlatRoundedFilled.displayName = 'AmauiIconMaterialAirlineSeatFlatRoundedFilled';
+
 export default IconMaterialAirlineSeatFlatRoundedFilled;

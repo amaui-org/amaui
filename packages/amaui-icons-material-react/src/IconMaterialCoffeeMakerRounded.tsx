@@ -18,4 +18,6 @@ const IconMaterialCoffeeMakerRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCoffeeMakerRounded.displayName = 'AmauiIconMaterialCoffeeMakerRounded';
+
 export default IconMaterialCoffeeMakerRounded;

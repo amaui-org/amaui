@@ -18,4 +18,6 @@ const IconMaterialSoapRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSoapRounded.displayName = 'AmauiIconMaterialSoapRounded';
+
 export default IconMaterialSoapRounded;

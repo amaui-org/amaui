@@ -18,4 +18,6 @@ const IconMaterialPanToolAltSharpFilled = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialPanToolAltSharpFilled.displayName = 'AmauiIconMaterialPanToolAltSharpFilled';
+
 export default IconMaterialPanToolAltSharpFilled;

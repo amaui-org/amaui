@@ -18,4 +18,6 @@ const IconMaterialNearbyErrorSharpFilled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialNearbyErrorSharpFilled.displayName = 'AmauiIconMaterialNearbyErrorSharpFilled';
+
 export default IconMaterialNearbyErrorSharpFilled;

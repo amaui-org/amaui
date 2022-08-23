@@ -18,4 +18,6 @@ const IconMaterialWorkspacesRoundedFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialWorkspacesRoundedFilled.displayName = 'AmauiIconMaterialWorkspacesRoundedFilled';
+
 export default IconMaterialWorkspacesRoundedFilled;

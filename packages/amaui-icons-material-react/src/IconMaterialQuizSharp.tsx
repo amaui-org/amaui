@@ -18,4 +18,6 @@ const IconMaterialQuizSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialQuizSharp.displayName = 'AmauiIconMaterialQuizSharp';
+
 export default IconMaterialQuizSharp;

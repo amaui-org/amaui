@@ -18,4 +18,6 @@ const IconMaterialNestConnectSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNestConnectSharpW100.displayName = 'AmauiIconMaterialNestConnectSharpW100';
+
 export default IconMaterialNestConnectSharpW100;

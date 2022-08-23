@@ -18,4 +18,6 @@ const IconMaterialFormatUnderlinedRoundedW100Filled = React.forwardRef((props: a
   );
 });
 
+IconMaterialFormatUnderlinedRoundedW100Filled.displayName = 'AmauiIconMaterialFormatUnderlinedRoundedW100Filled';
+
 export default IconMaterialFormatUnderlinedRoundedW100Filled;

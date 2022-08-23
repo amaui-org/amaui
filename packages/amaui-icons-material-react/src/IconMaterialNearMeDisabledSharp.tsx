@@ -18,4 +18,6 @@ const IconMaterialNearMeDisabledSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNearMeDisabledSharp.displayName = 'AmauiIconMaterialNearMeDisabledSharp';
+
 export default IconMaterialNearMeDisabledSharp;

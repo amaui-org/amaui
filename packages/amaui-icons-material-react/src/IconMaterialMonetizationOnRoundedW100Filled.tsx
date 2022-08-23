@@ -18,4 +18,6 @@ const IconMaterialMonetizationOnRoundedW100Filled = React.forwardRef((props: any
   );
 });
 
+IconMaterialMonetizationOnRoundedW100Filled.displayName = 'AmauiIconMaterialMonetizationOnRoundedW100Filled';
+
 export default IconMaterialMonetizationOnRoundedW100Filled;

@@ -18,4 +18,6 @@ const IconMaterialNestCamFloodlightRoundedW100Filled = React.forwardRef((props: 
   );
 });
 
+IconMaterialNestCamFloodlightRoundedW100Filled.displayName = 'AmauiIconMaterialNestCamFloodlightRoundedW100Filled';
+
 export default IconMaterialNestCamFloodlightRoundedW100Filled;

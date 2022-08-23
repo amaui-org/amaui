@@ -18,4 +18,6 @@ const IconMaterialTrendingFlatTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTrendingFlatTwoTone.displayName = 'AmauiIconMaterialTrendingFlatTwoTone';
+
 export default IconMaterialTrendingFlatTwoTone;

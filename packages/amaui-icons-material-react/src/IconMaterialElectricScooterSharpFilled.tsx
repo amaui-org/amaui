@@ -18,4 +18,6 @@ const IconMaterialElectricScooterSharpFilled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialElectricScooterSharpFilled.displayName = 'AmauiIconMaterialElectricScooterSharpFilled';
+
 export default IconMaterialElectricScooterSharpFilled;

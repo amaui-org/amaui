@@ -18,4 +18,6 @@ const IconMaterialLocalLaundryServiceRoundedW100Filled = React.forwardRef((props
   );
 });
 
+IconMaterialLocalLaundryServiceRoundedW100Filled.displayName = 'AmauiIconMaterialLocalLaundryServiceRoundedW100Filled';
+
 export default IconMaterialLocalLaundryServiceRoundedW100Filled;

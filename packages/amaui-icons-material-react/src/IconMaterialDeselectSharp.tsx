@@ -18,4 +18,6 @@ const IconMaterialDeselectSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDeselectSharp.displayName = 'AmauiIconMaterialDeselectSharp';
+
 export default IconMaterialDeselectSharp;

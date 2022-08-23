@@ -18,4 +18,6 @@ const IconMaterialPanoramaFishEyeTwoTone = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialPanoramaFishEyeTwoTone.displayName = 'AmauiIconMaterialPanoramaFishEyeTwoTone';
+
 export default IconMaterialPanoramaFishEyeTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialPinEndSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPinEndSharpFilled.displayName = 'AmauiIconMaterialPinEndSharpFilled';
+
 export default IconMaterialPinEndSharpFilled;

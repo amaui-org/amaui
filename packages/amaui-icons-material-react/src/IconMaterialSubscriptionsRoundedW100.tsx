@@ -18,4 +18,6 @@ const IconMaterialSubscriptionsRoundedW100 = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialSubscriptionsRoundedW100.displayName = 'AmauiIconMaterialSubscriptionsRoundedW100';
+
 export default IconMaterialSubscriptionsRoundedW100;

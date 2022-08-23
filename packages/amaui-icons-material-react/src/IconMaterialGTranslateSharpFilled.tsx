@@ -18,4 +18,6 @@ const IconMaterialGTranslateSharpFilled = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialGTranslateSharpFilled.displayName = 'AmauiIconMaterialGTranslateSharpFilled';
+
 export default IconMaterialGTranslateSharpFilled;

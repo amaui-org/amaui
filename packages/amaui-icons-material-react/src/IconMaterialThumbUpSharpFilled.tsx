@@ -18,4 +18,6 @@ const IconMaterialThumbUpSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialThumbUpSharpFilled.displayName = 'AmauiIconMaterialThumbUpSharpFilled';
+
 export default IconMaterialThumbUpSharpFilled;

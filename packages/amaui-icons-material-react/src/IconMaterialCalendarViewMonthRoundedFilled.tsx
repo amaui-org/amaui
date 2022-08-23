@@ -18,4 +18,6 @@ const IconMaterialCalendarViewMonthRoundedFilled = React.forwardRef((props: any,
   );
 });
 
+IconMaterialCalendarViewMonthRoundedFilled.displayName = 'AmauiIconMaterialCalendarViewMonthRoundedFilled';
+
 export default IconMaterialCalendarViewMonthRoundedFilled;

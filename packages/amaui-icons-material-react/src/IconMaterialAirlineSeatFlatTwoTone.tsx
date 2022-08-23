@@ -18,4 +18,6 @@ const IconMaterialAirlineSeatFlatTwoTone = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialAirlineSeatFlatTwoTone.displayName = 'AmauiIconMaterialAirlineSeatFlatTwoTone';
+
 export default IconMaterialAirlineSeatFlatTwoTone;

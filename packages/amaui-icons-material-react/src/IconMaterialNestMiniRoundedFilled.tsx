@@ -18,4 +18,6 @@ const IconMaterialNestMiniRoundedFilled = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialNestMiniRoundedFilled.displayName = 'AmauiIconMaterialNestMiniRoundedFilled';
+
 export default IconMaterialNestMiniRoundedFilled;

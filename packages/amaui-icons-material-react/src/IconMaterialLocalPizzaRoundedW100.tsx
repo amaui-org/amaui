@@ -18,4 +18,6 @@ const IconMaterialLocalPizzaRoundedW100 = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialLocalPizzaRoundedW100.displayName = 'AmauiIconMaterialLocalPizzaRoundedW100';
+
 export default IconMaterialLocalPizzaRoundedW100;

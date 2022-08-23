@@ -18,4 +18,6 @@ const IconMaterialLocalBarSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLocalBarSharpW100.displayName = 'AmauiIconMaterialLocalBarSharpW100';
+
 export default IconMaterialLocalBarSharpW100;

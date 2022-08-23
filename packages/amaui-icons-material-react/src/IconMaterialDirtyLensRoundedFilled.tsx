@@ -18,4 +18,6 @@ const IconMaterialDirtyLensRoundedFilled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialDirtyLensRoundedFilled.displayName = 'AmauiIconMaterialDirtyLensRoundedFilled';
+
 export default IconMaterialDirtyLensRoundedFilled;

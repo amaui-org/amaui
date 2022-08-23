@@ -18,4 +18,6 @@ const IconMaterialGMobiledataSharpFilled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialGMobiledataSharpFilled.displayName = 'AmauiIconMaterialGMobiledataSharpFilled';
+
 export default IconMaterialGMobiledataSharpFilled;

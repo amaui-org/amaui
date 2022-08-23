@@ -18,4 +18,6 @@ const IconMaterialSocialDistanceRounded = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialSocialDistanceRounded.displayName = 'AmauiIconMaterialSocialDistanceRounded';
+
 export default IconMaterialSocialDistanceRounded;

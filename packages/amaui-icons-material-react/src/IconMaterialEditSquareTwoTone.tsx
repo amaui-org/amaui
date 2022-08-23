@@ -18,4 +18,6 @@ const IconMaterialEditSquareTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialEditSquareTwoTone.displayName = 'AmauiIconMaterialEditSquareTwoTone';
+
 export default IconMaterialEditSquareTwoTone;

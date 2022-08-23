@@ -18,4 +18,6 @@ const IconMaterialExclamationRoundedW100 = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialExclamationRoundedW100.displayName = 'AmauiIconMaterialExclamationRoundedW100';
+
 export default IconMaterialExclamationRoundedW100;

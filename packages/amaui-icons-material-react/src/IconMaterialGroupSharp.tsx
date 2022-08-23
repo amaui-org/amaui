@@ -18,4 +18,6 @@ const IconMaterialGroupSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialGroupSharp.displayName = 'AmauiIconMaterialGroupSharp';
+
 export default IconMaterialGroupSharp;

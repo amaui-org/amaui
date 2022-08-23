@@ -18,4 +18,6 @@ const IconMaterialThermostatAutoTwoTone = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialThermostatAutoTwoTone.displayName = 'AmauiIconMaterialThermostatAutoTwoTone';
+
 export default IconMaterialThermostatAutoTwoTone;

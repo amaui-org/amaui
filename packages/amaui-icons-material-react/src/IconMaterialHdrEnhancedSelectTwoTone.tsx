@@ -18,4 +18,6 @@ const IconMaterialHdrEnhancedSelectTwoTone = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialHdrEnhancedSelectTwoTone.displayName = 'AmauiIconMaterialHdrEnhancedSelectTwoTone';
+
 export default IconMaterialHdrEnhancedSelectTwoTone;

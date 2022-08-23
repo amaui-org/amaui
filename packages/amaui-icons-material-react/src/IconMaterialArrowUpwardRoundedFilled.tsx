@@ -18,4 +18,6 @@ const IconMaterialArrowUpwardRoundedFilled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialArrowUpwardRoundedFilled.displayName = 'AmauiIconMaterialArrowUpwardRoundedFilled';
+
 export default IconMaterialArrowUpwardRoundedFilled;

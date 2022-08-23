@@ -18,4 +18,6 @@ const IconMaterialNightSightAutoSharpW100 = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialNightSightAutoSharpW100.displayName = 'AmauiIconMaterialNightSightAutoSharpW100';
+
 export default IconMaterialNightSightAutoSharpW100;

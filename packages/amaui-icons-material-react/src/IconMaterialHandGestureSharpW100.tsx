@@ -18,4 +18,6 @@ const IconMaterialHandGestureSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialHandGestureSharpW100.displayName = 'AmauiIconMaterialHandGestureSharpW100';
+
 export default IconMaterialHandGestureSharpW100;

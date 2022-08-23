@@ -18,4 +18,6 @@ const IconMaterialCastForEducationSharpW100 = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialCastForEducationSharpW100.displayName = 'AmauiIconMaterialCastForEducationSharpW100';
+
 export default IconMaterialCastForEducationSharpW100;

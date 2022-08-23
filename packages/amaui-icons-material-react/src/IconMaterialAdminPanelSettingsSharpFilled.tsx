@@ -18,4 +18,6 @@ const IconMaterialAdminPanelSettingsSharpFilled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialAdminPanelSettingsSharpFilled.displayName = 'AmauiIconMaterialAdminPanelSettingsSharpFilled';
+
 export default IconMaterialAdminPanelSettingsSharpFilled;

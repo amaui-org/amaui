@@ -18,4 +18,6 @@ const IconMaterialPolylineRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPolylineRounded.displayName = 'AmauiIconMaterialPolylineRounded';
+
 export default IconMaterialPolylineRounded;

@@ -18,4 +18,6 @@ const IconMaterialSmartButtonSharpFilled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialSmartButtonSharpFilled.displayName = 'AmauiIconMaterialSmartButtonSharpFilled';
+
 export default IconMaterialSmartButtonSharpFilled;

@@ -18,4 +18,6 @@ const IconMaterialBluetoothSearchingSharp = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialBluetoothSearchingSharp.displayName = 'AmauiIconMaterialBluetoothSearchingSharp';
+
 export default IconMaterialBluetoothSearchingSharp;

@@ -18,4 +18,6 @@ const IconMaterialTipsAndUpdatesTwoTone = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialTipsAndUpdatesTwoTone.displayName = 'AmauiIconMaterialTipsAndUpdatesTwoTone';
+
 export default IconMaterialTipsAndUpdatesTwoTone;

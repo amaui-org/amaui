@@ -18,4 +18,6 @@ const IconMaterialHowToVoteTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialHowToVoteTwoTone.displayName = 'AmauiIconMaterialHowToVoteTwoTone';
+
 export default IconMaterialHowToVoteTwoTone;

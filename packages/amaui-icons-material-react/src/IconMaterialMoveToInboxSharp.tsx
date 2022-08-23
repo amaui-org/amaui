@@ -18,4 +18,6 @@ const IconMaterialMoveToInboxSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMoveToInboxSharp.displayName = 'AmauiIconMaterialMoveToInboxSharp';
+
 export default IconMaterialMoveToInboxSharp;

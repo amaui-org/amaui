@@ -18,4 +18,6 @@ const IconMaterialFormatItalicRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFormatItalicRounded.displayName = 'AmauiIconMaterialFormatItalicRounded';
+
 export default IconMaterialFormatItalicRounded;

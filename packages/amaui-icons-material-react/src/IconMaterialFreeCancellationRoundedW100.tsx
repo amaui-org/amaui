@@ -18,4 +18,6 @@ const IconMaterialFreeCancellationRoundedW100 = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialFreeCancellationRoundedW100.displayName = 'AmauiIconMaterialFreeCancellationRoundedW100';
+
 export default IconMaterialFreeCancellationRoundedW100;

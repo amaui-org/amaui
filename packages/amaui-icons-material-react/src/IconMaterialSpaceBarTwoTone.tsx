@@ -18,4 +18,6 @@ const IconMaterialSpaceBarTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSpaceBarTwoTone.displayName = 'AmauiIconMaterialSpaceBarTwoTone';
+
 export default IconMaterialSpaceBarTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialFitnessCenterSharpFilled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialFitnessCenterSharpFilled.displayName = 'AmauiIconMaterialFitnessCenterSharpFilled';
+
 export default IconMaterialFitnessCenterSharpFilled;

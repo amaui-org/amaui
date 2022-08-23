@@ -18,4 +18,6 @@ const IconMaterialTextRotationAngleupTwoTone = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialTextRotationAngleupTwoTone.displayName = 'AmauiIconMaterialTextRotationAngleupTwoTone';
+
 export default IconMaterialTextRotationAngleupTwoTone;

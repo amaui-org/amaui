@@ -18,4 +18,6 @@ const IconMaterialChargingStationSharpFilled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialChargingStationSharpFilled.displayName = 'AmauiIconMaterialChargingStationSharpFilled';
+
 export default IconMaterialChargingStationSharpFilled;

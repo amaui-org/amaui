@@ -18,4 +18,6 @@ const IconMaterialGiteSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialGiteSharp.displayName = 'AmauiIconMaterialGiteSharp';
+
 export default IconMaterialGiteSharp;

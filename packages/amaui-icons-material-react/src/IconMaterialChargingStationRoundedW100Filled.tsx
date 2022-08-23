@@ -18,4 +18,6 @@ const IconMaterialChargingStationRoundedW100Filled = React.forwardRef((props: an
   );
 });
 
+IconMaterialChargingStationRoundedW100Filled.displayName = 'AmauiIconMaterialChargingStationRoundedW100Filled';
+
 export default IconMaterialChargingStationRoundedW100Filled;

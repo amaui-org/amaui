@@ -18,4 +18,6 @@ const IconMaterialAdsClickSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAdsClickSharpW100.displayName = 'AmauiIconMaterialAdsClickSharpW100';
+
 export default IconMaterialAdsClickSharpW100;

@@ -18,4 +18,6 @@ const IconMaterialTripOriginRoundedW100 = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialTripOriginRoundedW100.displayName = 'AmauiIconMaterialTripOriginRoundedW100';
+
 export default IconMaterialTripOriginRoundedW100;

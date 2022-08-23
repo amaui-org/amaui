@@ -18,4 +18,6 @@ const IconMaterialDiscFullRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDiscFullRounded.displayName = 'AmauiIconMaterialDiscFullRounded';
+
 export default IconMaterialDiscFullRounded;

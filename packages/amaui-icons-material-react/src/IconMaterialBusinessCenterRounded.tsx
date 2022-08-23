@@ -18,4 +18,6 @@ const IconMaterialBusinessCenterRounded = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialBusinessCenterRounded.displayName = 'AmauiIconMaterialBusinessCenterRounded';
+
 export default IconMaterialBusinessCenterRounded;

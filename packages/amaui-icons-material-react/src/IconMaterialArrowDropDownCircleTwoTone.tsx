@@ -18,4 +18,6 @@ const IconMaterialArrowDropDownCircleTwoTone = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialArrowDropDownCircleTwoTone.displayName = 'AmauiIconMaterialArrowDropDownCircleTwoTone';
+
 export default IconMaterialArrowDropDownCircleTwoTone;

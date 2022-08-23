@@ -18,4 +18,6 @@ const IconMaterialToggleOnTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialToggleOnTwoTone.displayName = 'AmauiIconMaterialToggleOnTwoTone';
+
 export default IconMaterialToggleOnTwoTone;

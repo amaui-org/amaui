@@ -18,4 +18,6 @@ const IconMaterialRollerSkatingRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialRollerSkatingRounded.displayName = 'AmauiIconMaterialRollerSkatingRounded';
+
 export default IconMaterialRollerSkatingRounded;

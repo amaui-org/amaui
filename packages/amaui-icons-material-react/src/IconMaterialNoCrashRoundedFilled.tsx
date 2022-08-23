@@ -18,4 +18,6 @@ const IconMaterialNoCrashRoundedFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNoCrashRoundedFilled.displayName = 'AmauiIconMaterialNoCrashRoundedFilled';
+
 export default IconMaterialNoCrashRoundedFilled;

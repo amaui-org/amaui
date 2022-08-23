@@ -18,4 +18,6 @@ const IconMaterialLocalBarRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLocalBarRounded.displayName = 'AmauiIconMaterialLocalBarRounded';
+
 export default IconMaterialLocalBarRounded;

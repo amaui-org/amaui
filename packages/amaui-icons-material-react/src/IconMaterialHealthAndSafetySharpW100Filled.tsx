@@ -18,4 +18,6 @@ const IconMaterialHealthAndSafetySharpW100Filled = React.forwardRef((props: any,
   );
 });
 
+IconMaterialHealthAndSafetySharpW100Filled.displayName = 'AmauiIconMaterialHealthAndSafetySharpW100Filled';
+
 export default IconMaterialHealthAndSafetySharpW100Filled;

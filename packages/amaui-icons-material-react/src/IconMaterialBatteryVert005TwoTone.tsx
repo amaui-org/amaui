@@ -18,4 +18,6 @@ const IconMaterialBatteryVert005TwoTone = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialBatteryVert005TwoTone.displayName = 'AmauiIconMaterialBatteryVert005TwoTone';
+
 export default IconMaterialBatteryVert005TwoTone;

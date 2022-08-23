@@ -18,4 +18,6 @@ const IconMaterialNestThermostatEEuSharpW100 = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialNestThermostatEEuSharpW100.displayName = 'AmauiIconMaterialNestThermostatEEuSharpW100';
+
 export default IconMaterialNestThermostatEEuSharpW100;

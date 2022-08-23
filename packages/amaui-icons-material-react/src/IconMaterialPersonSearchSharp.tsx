@@ -18,4 +18,6 @@ const IconMaterialPersonSearchSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPersonSearchSharp.displayName = 'AmauiIconMaterialPersonSearchSharp';
+
 export default IconMaterialPersonSearchSharp;

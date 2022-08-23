@@ -18,4 +18,6 @@ const IconMaterialTibiaAltSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTibiaAltSharp.displayName = 'AmauiIconMaterialTibiaAltSharp';
+
 export default IconMaterialTibiaAltSharp;

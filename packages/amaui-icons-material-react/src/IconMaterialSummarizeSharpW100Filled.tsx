@@ -18,4 +18,6 @@ const IconMaterialSummarizeSharpW100Filled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialSummarizeSharpW100Filled.displayName = 'AmauiIconMaterialSummarizeSharpW100Filled';
+
 export default IconMaterialSummarizeSharpW100Filled;

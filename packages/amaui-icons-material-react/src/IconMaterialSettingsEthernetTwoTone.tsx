@@ -18,4 +18,6 @@ const IconMaterialSettingsEthernetTwoTone = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialSettingsEthernetTwoTone.displayName = 'AmauiIconMaterialSettingsEthernetTwoTone';
+
 export default IconMaterialSettingsEthernetTwoTone;

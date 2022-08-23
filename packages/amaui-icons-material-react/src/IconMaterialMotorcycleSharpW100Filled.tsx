@@ -18,4 +18,6 @@ const IconMaterialMotorcycleSharpW100Filled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialMotorcycleSharpW100Filled.displayName = 'AmauiIconMaterialMotorcycleSharpW100Filled';
+
 export default IconMaterialMotorcycleSharpW100Filled;

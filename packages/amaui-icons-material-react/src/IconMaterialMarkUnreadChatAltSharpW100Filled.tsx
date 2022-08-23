@@ -18,4 +18,6 @@ const IconMaterialMarkUnreadChatAltSharpW100Filled = React.forwardRef((props: an
   );
 });
 
+IconMaterialMarkUnreadChatAltSharpW100Filled.displayName = 'AmauiIconMaterialMarkUnreadChatAltSharpW100Filled';
+
 export default IconMaterialMarkUnreadChatAltSharpW100Filled;

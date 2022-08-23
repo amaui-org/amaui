@@ -18,4 +18,6 @@ const IconMaterialSportsMotorsportsTwoTone = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialSportsMotorsportsTwoTone.displayName = 'AmauiIconMaterialSportsMotorsportsTwoTone';
+
 export default IconMaterialSportsMotorsportsTwoTone;

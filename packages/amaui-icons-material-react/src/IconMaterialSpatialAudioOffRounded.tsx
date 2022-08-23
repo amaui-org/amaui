@@ -18,4 +18,6 @@ const IconMaterialSpatialAudioOffRounded = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialSpatialAudioOffRounded.displayName = 'AmauiIconMaterialSpatialAudioOffRounded';
+
 export default IconMaterialSpatialAudioOffRounded;

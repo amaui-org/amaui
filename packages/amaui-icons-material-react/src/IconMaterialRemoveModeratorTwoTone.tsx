@@ -18,4 +18,6 @@ const IconMaterialRemoveModeratorTwoTone = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialRemoveModeratorTwoTone.displayName = 'AmauiIconMaterialRemoveModeratorTwoTone';
+
 export default IconMaterialRemoveModeratorTwoTone;

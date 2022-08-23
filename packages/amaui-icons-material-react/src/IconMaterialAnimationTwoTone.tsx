@@ -18,4 +18,6 @@ const IconMaterialAnimationTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAnimationTwoTone.displayName = 'AmauiIconMaterialAnimationTwoTone';
+
 export default IconMaterialAnimationTwoTone;

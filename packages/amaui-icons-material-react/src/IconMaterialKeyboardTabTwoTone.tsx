@@ -18,4 +18,6 @@ const IconMaterialKeyboardTabTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialKeyboardTabTwoTone.displayName = 'AmauiIconMaterialKeyboardTabTwoTone';
+
 export default IconMaterialKeyboardTabTwoTone;

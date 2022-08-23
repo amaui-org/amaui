@@ -18,4 +18,6 @@ const IconMaterialHeadsetOffSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialHeadsetOffSharp.displayName = 'AmauiIconMaterialHeadsetOffSharp';
+
 export default IconMaterialHeadsetOffSharp;

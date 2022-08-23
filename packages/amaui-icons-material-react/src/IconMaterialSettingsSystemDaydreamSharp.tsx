@@ -18,4 +18,6 @@ const IconMaterialSettingsSystemDaydreamSharp = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialSettingsSystemDaydreamSharp.displayName = 'AmauiIconMaterialSettingsSystemDaydreamSharp';
+
 export default IconMaterialSettingsSystemDaydreamSharp;

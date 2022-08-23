@@ -18,4 +18,6 @@ const IconMaterialFireExtinguisherRoundedFilled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialFireExtinguisherRoundedFilled.displayName = 'AmauiIconMaterialFireExtinguisherRoundedFilled';
+
 export default IconMaterialFireExtinguisherRoundedFilled;

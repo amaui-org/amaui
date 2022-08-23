@@ -18,4 +18,6 @@ const IconMaterialVerticalSplitRoundedFilled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialVerticalSplitRoundedFilled.displayName = 'AmauiIconMaterialVerticalSplitRoundedFilled';
+
 export default IconMaterialVerticalSplitRoundedFilled;

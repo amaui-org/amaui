@@ -18,4 +18,6 @@ const IconMaterialFavoriteSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFavoriteSharpFilled.displayName = 'AmauiIconMaterialFavoriteSharpFilled';
+
 export default IconMaterialFavoriteSharpFilled;

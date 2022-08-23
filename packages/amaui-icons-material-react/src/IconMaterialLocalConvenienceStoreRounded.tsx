@@ -18,4 +18,6 @@ const IconMaterialLocalConvenienceStoreRounded = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialLocalConvenienceStoreRounded.displayName = 'AmauiIconMaterialLocalConvenienceStoreRounded';
+
 export default IconMaterialLocalConvenienceStoreRounded;

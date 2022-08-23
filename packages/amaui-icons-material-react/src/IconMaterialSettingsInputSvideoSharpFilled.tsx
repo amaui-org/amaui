@@ -18,4 +18,6 @@ const IconMaterialSettingsInputSvideoSharpFilled = React.forwardRef((props: any,
   );
 });
 
+IconMaterialSettingsInputSvideoSharpFilled.displayName = 'AmauiIconMaterialSettingsInputSvideoSharpFilled';
+
 export default IconMaterialSettingsInputSvideoSharpFilled;

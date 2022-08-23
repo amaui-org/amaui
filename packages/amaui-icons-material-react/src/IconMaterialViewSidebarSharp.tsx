@@ -18,4 +18,6 @@ const IconMaterialViewSidebarSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialViewSidebarSharp.displayName = 'AmauiIconMaterialViewSidebarSharp';
+
 export default IconMaterialViewSidebarSharp;

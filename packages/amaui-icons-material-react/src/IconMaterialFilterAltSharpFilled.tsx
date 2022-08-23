@@ -18,4 +18,6 @@ const IconMaterialFilterAltSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFilterAltSharpFilled.displayName = 'AmauiIconMaterialFilterAltSharpFilled';
+
 export default IconMaterialFilterAltSharpFilled;

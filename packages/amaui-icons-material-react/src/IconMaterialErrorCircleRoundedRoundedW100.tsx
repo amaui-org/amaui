@@ -18,4 +18,6 @@ const IconMaterialErrorCircleRoundedRoundedW100 = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialErrorCircleRoundedRoundedW100.displayName = 'AmauiIconMaterialErrorCircleRoundedRoundedW100';
+
 export default IconMaterialErrorCircleRoundedRoundedW100;

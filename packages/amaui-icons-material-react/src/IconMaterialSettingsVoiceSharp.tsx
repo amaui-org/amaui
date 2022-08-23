@@ -18,4 +18,6 @@ const IconMaterialSettingsVoiceSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSettingsVoiceSharp.displayName = 'AmauiIconMaterialSettingsVoiceSharp';
+
 export default IconMaterialSettingsVoiceSharp;

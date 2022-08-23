@@ -18,4 +18,6 @@ const IconMaterialCallToActionRoundedFilled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialCallToActionRoundedFilled.displayName = 'AmauiIconMaterialCallToActionRoundedFilled';
+
 export default IconMaterialCallToActionRoundedFilled;

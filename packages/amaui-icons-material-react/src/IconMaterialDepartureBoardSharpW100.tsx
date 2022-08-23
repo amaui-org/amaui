@@ -18,4 +18,6 @@ const IconMaterialDepartureBoardSharpW100 = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialDepartureBoardSharpW100.displayName = 'AmauiIconMaterialDepartureBoardSharpW100';
+
 export default IconMaterialDepartureBoardSharpW100;

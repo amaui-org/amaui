@@ -18,4 +18,6 @@ const IconMaterialBookOnlineSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBookOnlineSharpW100.displayName = 'AmauiIconMaterialBookOnlineSharpW100';
+
 export default IconMaterialBookOnlineSharpW100;

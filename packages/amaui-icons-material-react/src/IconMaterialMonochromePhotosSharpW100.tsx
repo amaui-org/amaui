@@ -18,4 +18,6 @@ const IconMaterialMonochromePhotosSharpW100 = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialMonochromePhotosSharpW100.displayName = 'AmauiIconMaterialMonochromePhotosSharpW100';
+
 export default IconMaterialMonochromePhotosSharpW100;

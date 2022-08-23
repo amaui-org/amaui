@@ -18,4 +18,6 @@ const IconMaterialDirectionsWalkRounded = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialDirectionsWalkRounded.displayName = 'AmauiIconMaterialDirectionsWalkRounded';
+
 export default IconMaterialDirectionsWalkRounded;

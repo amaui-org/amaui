@@ -18,4 +18,6 @@ const IconMaterialNestConnectRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNestConnectRounded.displayName = 'AmauiIconMaterialNestConnectRounded';
+
 export default IconMaterialNestConnectRounded;

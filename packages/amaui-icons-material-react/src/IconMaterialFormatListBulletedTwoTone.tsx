@@ -18,4 +18,6 @@ const IconMaterialFormatListBulletedTwoTone = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialFormatListBulletedTwoTone.displayName = 'AmauiIconMaterialFormatListBulletedTwoTone';
+
 export default IconMaterialFormatListBulletedTwoTone;

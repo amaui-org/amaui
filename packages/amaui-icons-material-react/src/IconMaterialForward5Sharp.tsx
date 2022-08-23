@@ -18,4 +18,6 @@ const IconMaterialForward5Sharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialForward5Sharp.displayName = 'AmauiIconMaterialForward5Sharp';
+
 export default IconMaterialForward5Sharp;

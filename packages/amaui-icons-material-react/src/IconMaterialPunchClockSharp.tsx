@@ -18,4 +18,6 @@ const IconMaterialPunchClockSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPunchClockSharp.displayName = 'AmauiIconMaterialPunchClockSharp';
+
 export default IconMaterialPunchClockSharp;

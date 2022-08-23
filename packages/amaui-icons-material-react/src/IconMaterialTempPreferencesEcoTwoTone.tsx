@@ -18,4 +18,6 @@ const IconMaterialTempPreferencesEcoTwoTone = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialTempPreferencesEcoTwoTone.displayName = 'AmauiIconMaterialTempPreferencesEcoTwoTone';
+
 export default IconMaterialTempPreferencesEcoTwoTone;

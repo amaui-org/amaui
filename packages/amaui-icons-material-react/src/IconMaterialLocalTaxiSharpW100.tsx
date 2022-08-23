@@ -18,4 +18,6 @@ const IconMaterialLocalTaxiSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLocalTaxiSharpW100.displayName = 'AmauiIconMaterialLocalTaxiSharpW100';
+
 export default IconMaterialLocalTaxiSharpW100;

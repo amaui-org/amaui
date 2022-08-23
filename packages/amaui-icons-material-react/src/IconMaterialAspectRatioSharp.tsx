@@ -18,4 +18,6 @@ const IconMaterialAspectRatioSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAspectRatioSharp.displayName = 'AmauiIconMaterialAspectRatioSharp';
+
 export default IconMaterialAspectRatioSharp;

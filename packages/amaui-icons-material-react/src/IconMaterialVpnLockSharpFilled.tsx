@@ -18,4 +18,6 @@ const IconMaterialVpnLockSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialVpnLockSharpFilled.displayName = 'AmauiIconMaterialVpnLockSharpFilled';
+
 export default IconMaterialVpnLockSharpFilled;

@@ -18,4 +18,6 @@ const IconMaterialCountertopsRoundedW100 = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialCountertopsRoundedW100.displayName = 'AmauiIconMaterialCountertopsRoundedW100';
+
 export default IconMaterialCountertopsRoundedW100;

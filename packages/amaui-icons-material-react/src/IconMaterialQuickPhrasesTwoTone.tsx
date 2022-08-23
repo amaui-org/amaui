@@ -18,4 +18,6 @@ const IconMaterialQuickPhrasesTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialQuickPhrasesTwoTone.displayName = 'AmauiIconMaterialQuickPhrasesTwoTone';
+
 export default IconMaterialQuickPhrasesTwoTone;

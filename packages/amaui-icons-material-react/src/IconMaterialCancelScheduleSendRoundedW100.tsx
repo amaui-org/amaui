@@ -18,4 +18,6 @@ const IconMaterialCancelScheduleSendRoundedW100 = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialCancelScheduleSendRoundedW100.displayName = 'AmauiIconMaterialCancelScheduleSendRoundedW100';
+
 export default IconMaterialCancelScheduleSendRoundedW100;

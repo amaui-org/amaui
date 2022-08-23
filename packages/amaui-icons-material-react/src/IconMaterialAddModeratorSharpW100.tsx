@@ -18,4 +18,6 @@ const IconMaterialAddModeratorSharpW100 = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialAddModeratorSharpW100.displayName = 'AmauiIconMaterialAddModeratorSharpW100';
+
 export default IconMaterialAddModeratorSharpW100;

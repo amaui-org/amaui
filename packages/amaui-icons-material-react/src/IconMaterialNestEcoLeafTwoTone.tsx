@@ -18,4 +18,6 @@ const IconMaterialNestEcoLeafTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNestEcoLeafTwoTone.displayName = 'AmauiIconMaterialNestEcoLeafTwoTone';
+
 export default IconMaterialNestEcoLeafTwoTone;

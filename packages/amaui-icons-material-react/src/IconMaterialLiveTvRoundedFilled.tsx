@@ -18,4 +18,6 @@ const IconMaterialLiveTvRoundedFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLiveTvRoundedFilled.displayName = 'AmauiIconMaterialLiveTvRoundedFilled';
+
 export default IconMaterialLiveTvRoundedFilled;

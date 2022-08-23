@@ -18,4 +18,6 @@ const IconMaterialShopTwoRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialShopTwoRounded.displayName = 'AmauiIconMaterialShopTwoRounded';
+
 export default IconMaterialShopTwoRounded;

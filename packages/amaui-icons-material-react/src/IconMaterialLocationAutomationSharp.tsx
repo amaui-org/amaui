@@ -18,4 +18,6 @@ const IconMaterialLocationAutomationSharp = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialLocationAutomationSharp.displayName = 'AmauiIconMaterialLocationAutomationSharp';
+
 export default IconMaterialLocationAutomationSharp;

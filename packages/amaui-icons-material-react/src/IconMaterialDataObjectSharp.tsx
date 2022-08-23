@@ -18,4 +18,6 @@ const IconMaterialDataObjectSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDataObjectSharp.displayName = 'AmauiIconMaterialDataObjectSharp';
+
 export default IconMaterialDataObjectSharp;

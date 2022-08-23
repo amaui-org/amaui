@@ -18,4 +18,6 @@ const IconMaterialDragHandleTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDragHandleTwoTone.displayName = 'AmauiIconMaterialDragHandleTwoTone';
+
 export default IconMaterialDragHandleTwoTone;

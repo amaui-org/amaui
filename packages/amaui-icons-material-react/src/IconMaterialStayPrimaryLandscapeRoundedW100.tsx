@@ -18,4 +18,6 @@ const IconMaterialStayPrimaryLandscapeRoundedW100 = React.forwardRef((props: any
   );
 });
 
+IconMaterialStayPrimaryLandscapeRoundedW100.displayName = 'AmauiIconMaterialStayPrimaryLandscapeRoundedW100';
+
 export default IconMaterialStayPrimaryLandscapeRoundedW100;

@@ -18,4 +18,6 @@ const IconMaterialVolcanoRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialVolcanoRoundedW100.displayName = 'AmauiIconMaterialVolcanoRoundedW100';
+
 export default IconMaterialVolcanoRoundedW100;

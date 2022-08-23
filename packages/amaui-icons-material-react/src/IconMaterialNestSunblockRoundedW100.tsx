@@ -18,4 +18,6 @@ const IconMaterialNestSunblockRoundedW100 = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialNestSunblockRoundedW100.displayName = 'AmauiIconMaterialNestSunblockRoundedW100';
+
 export default IconMaterialNestSunblockRoundedW100;

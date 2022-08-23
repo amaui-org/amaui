@@ -18,4 +18,6 @@ const IconMaterialHourglassDisabledSharpFilled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialHourglassDisabledSharpFilled.displayName = 'AmauiIconMaterialHourglassDisabledSharpFilled';
+
 export default IconMaterialHourglassDisabledSharpFilled;

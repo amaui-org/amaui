@@ -18,4 +18,6 @@ const IconMaterialPhotoSizeSelectSmallRoundedW100 = React.forwardRef((props: any
   );
 });
 
+IconMaterialPhotoSizeSelectSmallRoundedW100.displayName = 'AmauiIconMaterialPhotoSizeSelectSmallRoundedW100';
+
 export default IconMaterialPhotoSizeSelectSmallRoundedW100;

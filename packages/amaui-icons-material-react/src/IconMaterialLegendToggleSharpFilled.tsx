@@ -18,4 +18,6 @@ const IconMaterialLegendToggleSharpFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialLegendToggleSharpFilled.displayName = 'AmauiIconMaterialLegendToggleSharpFilled';
+
 export default IconMaterialLegendToggleSharpFilled;

@@ -18,4 +18,6 @@ const IconMaterialNoLuggageSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNoLuggageSharp.displayName = 'AmauiIconMaterialNoLuggageSharp';
+
 export default IconMaterialNoLuggageSharp;

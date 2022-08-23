@@ -18,4 +18,6 @@ const IconMaterialSignalWifiStatusbarNotConnectedSharpW100Filled = React.forward
   );
 });
 
+IconMaterialSignalWifiStatusbarNotConnectedSharpW100Filled.displayName = 'AmauiIconMaterialSignalWifiStatusbarNotConnectedSharpW100Filled';
+
 export default IconMaterialSignalWifiStatusbarNotConnectedSharpW100Filled;

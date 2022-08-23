@@ -18,4 +18,6 @@ const IconMaterialSprinklerSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSprinklerSharpFilled.displayName = 'AmauiIconMaterialSprinklerSharpFilled';
+
 export default IconMaterialSprinklerSharpFilled;

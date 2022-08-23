@@ -18,4 +18,6 @@ const IconMaterial30fpsSelectSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterial30fpsSelectSharp.displayName = 'AmauiIconMaterial30fpsSelectSharp';
+
 export default IconMaterial30fpsSelectSharp;

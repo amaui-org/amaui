@@ -18,4 +18,6 @@ const IconMaterialSwitchLeftRoundedFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialSwitchLeftRoundedFilled.displayName = 'AmauiIconMaterialSwitchLeftRoundedFilled';
+
 export default IconMaterialSwitchLeftRoundedFilled;

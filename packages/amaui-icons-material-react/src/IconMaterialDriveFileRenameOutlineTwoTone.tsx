@@ -18,4 +18,6 @@ const IconMaterialDriveFileRenameOutlineTwoTone = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialDriveFileRenameOutlineTwoTone.displayName = 'AmauiIconMaterialDriveFileRenameOutlineTwoTone';
+
 export default IconMaterialDriveFileRenameOutlineTwoTone;

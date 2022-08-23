@@ -18,4 +18,6 @@ const IconMaterialCellWifiRoundedFilled = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialCellWifiRoundedFilled.displayName = 'AmauiIconMaterialCellWifiRoundedFilled';
+
 export default IconMaterialCellWifiRoundedFilled;

@@ -18,4 +18,6 @@ const IconMaterialPhonelinkLockTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPhonelinkLockTwoTone.displayName = 'AmauiIconMaterialPhonelinkLockTwoTone';
+
 export default IconMaterialPhonelinkLockTwoTone;

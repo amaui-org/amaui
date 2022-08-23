@@ -18,4 +18,6 @@ const IconMaterial30fpsSelectRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterial30fpsSelectRounded.displayName = 'AmauiIconMaterial30fpsSelectRounded';
+
 export default IconMaterial30fpsSelectRounded;

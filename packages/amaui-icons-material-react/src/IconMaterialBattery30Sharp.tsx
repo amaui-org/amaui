@@ -18,4 +18,6 @@ const IconMaterialBattery30Sharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBattery30Sharp.displayName = 'AmauiIconMaterialBattery30Sharp';
+
 export default IconMaterialBattery30Sharp;

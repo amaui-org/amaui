@@ -18,4 +18,6 @@ const IconMaterialEuroSymbolSharpFilled = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialEuroSymbolSharpFilled.displayName = 'AmauiIconMaterialEuroSymbolSharpFilled';
+
 export default IconMaterialEuroSymbolSharpFilled;

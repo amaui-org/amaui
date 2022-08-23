@@ -18,4 +18,6 @@ const IconMaterialQueuePlayNextTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialQueuePlayNextTwoTone.displayName = 'AmauiIconMaterialQueuePlayNextTwoTone';
+
 export default IconMaterialQueuePlayNextTwoTone;

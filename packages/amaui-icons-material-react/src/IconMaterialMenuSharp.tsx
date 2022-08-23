@@ -18,4 +18,6 @@ const IconMaterialMenuSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMenuSharp.displayName = 'AmauiIconMaterialMenuSharp';
+
 export default IconMaterialMenuSharp;

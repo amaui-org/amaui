@@ -18,4 +18,6 @@ const IconMaterialStairsTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialStairsTwoTone.displayName = 'AmauiIconMaterialStairsTwoTone';
+
 export default IconMaterialStairsTwoTone;

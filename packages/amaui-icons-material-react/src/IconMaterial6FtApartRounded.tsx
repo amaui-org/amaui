@@ -18,4 +18,6 @@ const IconMaterial6FtApartRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterial6FtApartRounded.displayName = 'AmauiIconMaterial6FtApartRounded';
+
 export default IconMaterial6FtApartRounded;

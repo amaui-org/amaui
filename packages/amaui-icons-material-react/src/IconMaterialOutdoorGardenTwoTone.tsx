@@ -18,4 +18,6 @@ const IconMaterialOutdoorGardenTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialOutdoorGardenTwoTone.displayName = 'AmauiIconMaterialOutdoorGardenTwoTone';
+
 export default IconMaterialOutdoorGardenTwoTone;

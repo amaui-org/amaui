@@ -18,4 +18,6 @@ const IconMaterialBusAlertTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBusAlertTwoTone.displayName = 'AmauiIconMaterialBusAlertTwoTone';
+
 export default IconMaterialBusAlertTwoTone;

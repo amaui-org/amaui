@@ -18,4 +18,6 @@ const IconMaterialBluetoothDriveTwoTone = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialBluetoothDriveTwoTone.displayName = 'AmauiIconMaterialBluetoothDriveTwoTone';
+
 export default IconMaterialBluetoothDriveTwoTone;

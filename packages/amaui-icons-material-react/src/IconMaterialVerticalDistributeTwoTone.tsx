@@ -18,4 +18,6 @@ const IconMaterialVerticalDistributeTwoTone = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialVerticalDistributeTwoTone.displayName = 'AmauiIconMaterialVerticalDistributeTwoTone';
+
 export default IconMaterialVerticalDistributeTwoTone;

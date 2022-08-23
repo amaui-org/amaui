@@ -18,4 +18,6 @@ const IconMaterialSignalCellularNodataSharp = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialSignalCellularNodataSharp.displayName = 'AmauiIconMaterialSignalCellularNodataSharp';
+
 export default IconMaterialSignalCellularNodataSharp;

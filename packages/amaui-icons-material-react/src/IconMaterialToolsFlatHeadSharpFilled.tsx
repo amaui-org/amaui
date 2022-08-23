@@ -18,4 +18,6 @@ const IconMaterialToolsFlatHeadSharpFilled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialToolsFlatHeadSharpFilled.displayName = 'AmauiIconMaterialToolsFlatHeadSharpFilled';
+
 export default IconMaterialToolsFlatHeadSharpFilled;

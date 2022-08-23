@@ -18,4 +18,6 @@ const IconMaterialBluetoothSearchingRounded = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialBluetoothSearchingRounded.displayName = 'AmauiIconMaterialBluetoothSearchingRounded';
+
 export default IconMaterialBluetoothSearchingRounded;

@@ -18,4 +18,6 @@ const IconMaterialFormatItalicSharpW100 = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialFormatItalicSharpW100.displayName = 'AmauiIconMaterialFormatItalicSharpW100';
+
 export default IconMaterialFormatItalicSharpW100;

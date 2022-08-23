@@ -18,4 +18,6 @@ const IconMaterialViewCarouselTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialViewCarouselTwoTone.displayName = 'AmauiIconMaterialViewCarouselTwoTone';
+
 export default IconMaterialViewCarouselTwoTone;

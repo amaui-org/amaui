@@ -18,4 +18,6 @@ const IconMaterialAstrophotographyAutoTwoTone = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialAstrophotographyAutoTwoTone.displayName = 'AmauiIconMaterialAstrophotographyAutoTwoTone';
+
 export default IconMaterialAstrophotographyAutoTwoTone;

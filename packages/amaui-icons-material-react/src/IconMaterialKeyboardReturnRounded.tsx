@@ -18,4 +18,6 @@ const IconMaterialKeyboardReturnRounded = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialKeyboardReturnRounded.displayName = 'AmauiIconMaterialKeyboardReturnRounded';
+
 export default IconMaterialKeyboardReturnRounded;

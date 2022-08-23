@@ -18,4 +18,6 @@ const IconMaterialFormatUnderlinedSquiggleTwoTone = React.forwardRef((props: any
   );
 });
 
+IconMaterialFormatUnderlinedSquiggleTwoTone.displayName = 'AmauiIconMaterialFormatUnderlinedSquiggleTwoTone';
+
 export default IconMaterialFormatUnderlinedSquiggleTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialSettingsVoiceRoundedW100 = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialSettingsVoiceRoundedW100.displayName = 'AmauiIconMaterialSettingsVoiceRoundedW100';
+
 export default IconMaterialSettingsVoiceRoundedW100;

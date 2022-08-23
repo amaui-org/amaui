@@ -18,4 +18,6 @@ const IconMaterialFollowTheSignsSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFollowTheSignsSharp.displayName = 'AmauiIconMaterialFollowTheSignsSharp';
+
 export default IconMaterialFollowTheSignsSharp;

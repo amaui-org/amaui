@@ -18,4 +18,6 @@ const IconMaterialCardMembershipSharpFilled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialCardMembershipSharpFilled.displayName = 'AmauiIconMaterialCardMembershipSharpFilled';
+
 export default IconMaterialCardMembershipSharpFilled;

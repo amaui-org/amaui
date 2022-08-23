@@ -18,4 +18,6 @@ const IconMaterialQuickPhrasesSharpFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialQuickPhrasesSharpFilled.displayName = 'AmauiIconMaterialQuickPhrasesSharpFilled';
+
 export default IconMaterialQuickPhrasesSharpFilled;

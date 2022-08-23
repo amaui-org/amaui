@@ -18,4 +18,6 @@ const IconMaterialLocalPizzaTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLocalPizzaTwoTone.displayName = 'AmauiIconMaterialLocalPizzaTwoTone';
+
 export default IconMaterialLocalPizzaTwoTone;

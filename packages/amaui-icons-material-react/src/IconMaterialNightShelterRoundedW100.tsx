@@ -18,4 +18,6 @@ const IconMaterialNightShelterRoundedW100 = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialNightShelterRoundedW100.displayName = 'AmauiIconMaterialNightShelterRoundedW100';
+
 export default IconMaterialNightShelterRoundedW100;

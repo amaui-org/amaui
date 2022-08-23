@@ -18,4 +18,6 @@ const IconMaterialIcecreamRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialIcecreamRounded.displayName = 'AmauiIconMaterialIcecreamRounded';
+
 export default IconMaterialIcecreamRounded;

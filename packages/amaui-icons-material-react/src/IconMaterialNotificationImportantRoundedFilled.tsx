@@ -18,4 +18,6 @@ const IconMaterialNotificationImportantRoundedFilled = React.forwardRef((props: 
   );
 });
 
+IconMaterialNotificationImportantRoundedFilled.displayName = 'AmauiIconMaterialNotificationImportantRoundedFilled';
+
 export default IconMaterialNotificationImportantRoundedFilled;

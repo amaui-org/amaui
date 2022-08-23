@@ -18,4 +18,6 @@ const IconMaterialSafetyDividerSharpFilled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialSafetyDividerSharpFilled.displayName = 'AmauiIconMaterialSafetyDividerSharpFilled';
+
 export default IconMaterialSafetyDividerSharpFilled;

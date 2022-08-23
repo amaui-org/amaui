@@ -18,4 +18,6 @@ const IconMaterialBabyChangingStationRoundedW100 = React.forwardRef((props: any,
   );
 });
 
+IconMaterialBabyChangingStationRoundedW100.displayName = 'AmauiIconMaterialBabyChangingStationRoundedW100';
+
 export default IconMaterialBabyChangingStationRoundedW100;

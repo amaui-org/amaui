@@ -18,4 +18,6 @@ const IconMaterialShutterSpeedRoundedW100 = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialShutterSpeedRoundedW100.displayName = 'AmauiIconMaterialShutterSpeedRoundedW100';
+
 export default IconMaterialShutterSpeedRoundedW100;

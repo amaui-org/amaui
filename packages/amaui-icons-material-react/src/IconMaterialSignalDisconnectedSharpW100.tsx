@@ -18,4 +18,6 @@ const IconMaterialSignalDisconnectedSharpW100 = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialSignalDisconnectedSharpW100.displayName = 'AmauiIconMaterialSignalDisconnectedSharpW100';
+
 export default IconMaterialSignalDisconnectedSharpW100;

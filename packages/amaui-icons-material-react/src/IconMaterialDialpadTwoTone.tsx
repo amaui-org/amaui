@@ -18,4 +18,6 @@ const IconMaterialDialpadTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDialpadTwoTone.displayName = 'AmauiIconMaterialDialpadTwoTone';
+
 export default IconMaterialDialpadTwoTone;

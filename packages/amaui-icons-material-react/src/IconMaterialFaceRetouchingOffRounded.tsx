@@ -18,4 +18,6 @@ const IconMaterialFaceRetouchingOffRounded = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialFaceRetouchingOffRounded.displayName = 'AmauiIconMaterialFaceRetouchingOffRounded';
+
 export default IconMaterialFaceRetouchingOffRounded;

@@ -18,4 +18,6 @@ const IconMaterialFontDownloadRoundedW100 = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialFontDownloadRoundedW100.displayName = 'AmauiIconMaterialFontDownloadRoundedW100';
+
 export default IconMaterialFontDownloadRoundedW100;

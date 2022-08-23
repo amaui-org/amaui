@@ -18,4 +18,6 @@ const IconMaterialDoNotDisturbOnRoundedW100Filled = React.forwardRef((props: any
   );
 });
 
+IconMaterialDoNotDisturbOnRoundedW100Filled.displayName = 'AmauiIconMaterialDoNotDisturbOnRoundedW100Filled';
+
 export default IconMaterialDoNotDisturbOnRoundedW100Filled;

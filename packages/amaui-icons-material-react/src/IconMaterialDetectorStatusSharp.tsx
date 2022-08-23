@@ -18,4 +18,6 @@ const IconMaterialDetectorStatusSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDetectorStatusSharp.displayName = 'AmauiIconMaterialDetectorStatusSharp';
+
 export default IconMaterialDetectorStatusSharp;

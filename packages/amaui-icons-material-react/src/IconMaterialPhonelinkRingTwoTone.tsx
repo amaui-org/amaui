@@ -18,4 +18,6 @@ const IconMaterialPhonelinkRingTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPhonelinkRingTwoTone.displayName = 'AmauiIconMaterialPhonelinkRingTwoTone';
+
 export default IconMaterialPhonelinkRingTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialMusicNoteRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMusicNoteRounded.displayName = 'AmauiIconMaterialMusicNoteRounded';
+
 export default IconMaterialMusicNoteRounded;

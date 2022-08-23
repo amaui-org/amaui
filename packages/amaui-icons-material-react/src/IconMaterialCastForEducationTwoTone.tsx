@@ -18,4 +18,6 @@ const IconMaterialCastForEducationTwoTone = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialCastForEducationTwoTone.displayName = 'AmauiIconMaterialCastForEducationTwoTone';
+
 export default IconMaterialCastForEducationTwoTone;

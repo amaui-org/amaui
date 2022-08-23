@@ -18,4 +18,6 @@ const IconMaterialAddPhotoAlternateTwoTone = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialAddPhotoAlternateTwoTone.displayName = 'AmauiIconMaterialAddPhotoAlternateTwoTone';
+
 export default IconMaterialAddPhotoAlternateTwoTone;

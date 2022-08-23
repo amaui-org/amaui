@@ -18,4 +18,6 @@ const IconMaterialViewQuiltTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialViewQuiltTwoTone.displayName = 'AmauiIconMaterialViewQuiltTwoTone';
+
 export default IconMaterialViewQuiltTwoTone;

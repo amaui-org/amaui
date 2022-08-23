@@ -18,4 +18,6 @@ const IconMaterialInterpreterModeRounded = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialInterpreterModeRounded.displayName = 'AmauiIconMaterialInterpreterModeRounded';
+
 export default IconMaterialInterpreterModeRounded;

@@ -18,4 +18,6 @@ const IconMaterialPlaylistAddCheckCircleTwoTone = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialPlaylistAddCheckCircleTwoTone.displayName = 'AmauiIconMaterialPlaylistAddCheckCircleTwoTone';
+
 export default IconMaterialPlaylistAddCheckCircleTwoTone;

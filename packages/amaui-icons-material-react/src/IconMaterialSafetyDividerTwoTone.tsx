@@ -18,4 +18,6 @@ const IconMaterialSafetyDividerTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSafetyDividerTwoTone.displayName = 'AmauiIconMaterialSafetyDividerTwoTone';
+
 export default IconMaterialSafetyDividerTwoTone;

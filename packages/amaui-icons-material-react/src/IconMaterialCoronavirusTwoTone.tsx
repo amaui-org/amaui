@@ -18,4 +18,6 @@ const IconMaterialCoronavirusTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCoronavirusTwoTone.displayName = 'AmauiIconMaterialCoronavirusTwoTone';
+
 export default IconMaterialCoronavirusTwoTone;

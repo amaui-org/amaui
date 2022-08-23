@@ -18,4 +18,6 @@ const IconMaterialAltRouteSharpW100Filled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialAltRouteSharpW100Filled.displayName = 'AmauiIconMaterialAltRouteSharpW100Filled';
+
 export default IconMaterialAltRouteSharpW100Filled;

@@ -18,4 +18,6 @@ const IconMaterialStrikethroughSTwoTone = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialStrikethroughSTwoTone.displayName = 'AmauiIconMaterialStrikethroughSTwoTone';
+
 export default IconMaterialStrikethroughSTwoTone;

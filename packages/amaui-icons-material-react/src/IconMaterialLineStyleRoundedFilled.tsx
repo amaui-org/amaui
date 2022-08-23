@@ -18,4 +18,6 @@ const IconMaterialLineStyleRoundedFilled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialLineStyleRoundedFilled.displayName = 'AmauiIconMaterialLineStyleRoundedFilled';
+
 export default IconMaterialLineStyleRoundedFilled;

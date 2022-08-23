@@ -18,4 +18,6 @@ const IconMaterialHdrWeakSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialHdrWeakSharpFilled.displayName = 'AmauiIconMaterialHdrWeakSharpFilled';
+
 export default IconMaterialHdrWeakSharpFilled;

@@ -18,4 +18,6 @@ const IconMaterialScreenSearchDesktopRoundedW100Filled = React.forwardRef((props
   );
 });
 
+IconMaterialScreenSearchDesktopRoundedW100Filled.displayName = 'AmauiIconMaterialScreenSearchDesktopRoundedW100Filled';
+
 export default IconMaterialScreenSearchDesktopRoundedW100Filled;

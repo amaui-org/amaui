@@ -18,4 +18,6 @@ const IconMaterialImportContactsSharpFilled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialImportContactsSharpFilled.displayName = 'AmauiIconMaterialImportContactsSharpFilled';
+
 export default IconMaterialImportContactsSharpFilled;

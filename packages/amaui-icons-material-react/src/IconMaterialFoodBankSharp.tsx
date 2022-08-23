@@ -18,4 +18,6 @@ const IconMaterialFoodBankSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFoodBankSharp.displayName = 'AmauiIconMaterialFoodBankSharp';
+
 export default IconMaterialFoodBankSharp;

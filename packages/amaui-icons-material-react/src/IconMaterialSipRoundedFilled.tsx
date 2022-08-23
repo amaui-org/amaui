@@ -18,4 +18,6 @@ const IconMaterialSipRoundedFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSipRoundedFilled.displayName = 'AmauiIconMaterialSipRoundedFilled';
+
 export default IconMaterialSipRoundedFilled;

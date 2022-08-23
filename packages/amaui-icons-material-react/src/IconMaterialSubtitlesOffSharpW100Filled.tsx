@@ -18,4 +18,6 @@ const IconMaterialSubtitlesOffSharpW100Filled = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialSubtitlesOffSharpW100Filled.displayName = 'AmauiIconMaterialSubtitlesOffSharpW100Filled';
+
 export default IconMaterialSubtitlesOffSharpW100Filled;

@@ -18,4 +18,6 @@ const IconMaterialNestTagRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNestTagRounded.displayName = 'AmauiIconMaterialNestTagRounded';
+
 export default IconMaterialNestTagRounded;

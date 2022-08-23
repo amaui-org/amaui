@@ -18,4 +18,6 @@ const IconMaterialNestWifiPointVentoTwoTone = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialNestWifiPointVentoTwoTone.displayName = 'AmauiIconMaterialNestWifiPointVentoTwoTone';
+
 export default IconMaterialNestWifiPointVentoTwoTone;

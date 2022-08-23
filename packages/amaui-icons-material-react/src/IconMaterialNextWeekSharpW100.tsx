@@ -18,4 +18,6 @@ const IconMaterialNextWeekSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNextWeekSharpW100.displayName = 'AmauiIconMaterialNextWeekSharpW100';
+
 export default IconMaterialNextWeekSharpW100;

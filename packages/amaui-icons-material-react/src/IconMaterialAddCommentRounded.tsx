@@ -18,4 +18,6 @@ const IconMaterialAddCommentRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAddCommentRounded.displayName = 'AmauiIconMaterialAddCommentRounded';
+
 export default IconMaterialAddCommentRounded;

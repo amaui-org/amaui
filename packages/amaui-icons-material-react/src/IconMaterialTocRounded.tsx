@@ -18,4 +18,6 @@ const IconMaterialTocRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTocRounded.displayName = 'AmauiIconMaterialTocRounded';
+
 export default IconMaterialTocRounded;

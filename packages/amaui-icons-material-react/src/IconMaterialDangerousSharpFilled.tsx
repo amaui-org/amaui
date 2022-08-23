@@ -18,4 +18,6 @@ const IconMaterialDangerousSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDangerousSharpFilled.displayName = 'AmauiIconMaterialDangerousSharpFilled';
+
 export default IconMaterialDangerousSharpFilled;

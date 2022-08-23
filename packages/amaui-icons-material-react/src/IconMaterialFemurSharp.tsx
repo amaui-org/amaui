@@ -18,4 +18,6 @@ const IconMaterialFemurSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFemurSharp.displayName = 'AmauiIconMaterialFemurSharp';
+
 export default IconMaterialFemurSharp;

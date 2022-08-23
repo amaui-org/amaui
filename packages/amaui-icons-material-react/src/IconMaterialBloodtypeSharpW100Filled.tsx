@@ -18,4 +18,6 @@ const IconMaterialBloodtypeSharpW100Filled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialBloodtypeSharpW100Filled.displayName = 'AmauiIconMaterialBloodtypeSharpW100Filled';
+
 export default IconMaterialBloodtypeSharpW100Filled;

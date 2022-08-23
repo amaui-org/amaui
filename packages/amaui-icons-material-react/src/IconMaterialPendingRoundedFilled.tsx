@@ -18,4 +18,6 @@ const IconMaterialPendingRoundedFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPendingRoundedFilled.displayName = 'AmauiIconMaterialPendingRoundedFilled';
+
 export default IconMaterialPendingRoundedFilled;

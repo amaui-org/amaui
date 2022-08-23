@@ -18,4 +18,6 @@ const IconMaterialKettleSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialKettleSharpW100.displayName = 'AmauiIconMaterialKettleSharpW100';
+
 export default IconMaterialKettleSharpW100;

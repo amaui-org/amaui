@@ -18,4 +18,6 @@ const IconMaterialOutdoorGrillRoundedFilled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialOutdoorGrillRoundedFilled.displayName = 'AmauiIconMaterialOutdoorGrillRoundedFilled';
+
 export default IconMaterialOutdoorGrillRoundedFilled;

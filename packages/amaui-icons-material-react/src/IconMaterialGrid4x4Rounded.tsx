@@ -18,4 +18,6 @@ const IconMaterialGrid4x4Rounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialGrid4x4Rounded.displayName = 'AmauiIconMaterialGrid4x4Rounded';
+
 export default IconMaterialGrid4x4Rounded;

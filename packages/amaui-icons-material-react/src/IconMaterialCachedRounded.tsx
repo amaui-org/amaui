@@ -18,4 +18,6 @@ const IconMaterialCachedRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCachedRounded.displayName = 'AmauiIconMaterialCachedRounded';
+
 export default IconMaterialCachedRounded;

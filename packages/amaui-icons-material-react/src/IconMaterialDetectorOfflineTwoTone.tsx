@@ -18,4 +18,6 @@ const IconMaterialDetectorOfflineTwoTone = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialDetectorOfflineTwoTone.displayName = 'AmauiIconMaterialDetectorOfflineTwoTone';
+
 export default IconMaterialDetectorOfflineTwoTone;

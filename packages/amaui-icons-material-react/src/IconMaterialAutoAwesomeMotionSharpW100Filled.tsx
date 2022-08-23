@@ -18,4 +18,6 @@ const IconMaterialAutoAwesomeMotionSharpW100Filled = React.forwardRef((props: an
   );
 });
 
+IconMaterialAutoAwesomeMotionSharpW100Filled.displayName = 'AmauiIconMaterialAutoAwesomeMotionSharpW100Filled';
+
 export default IconMaterialAutoAwesomeMotionSharpW100Filled;

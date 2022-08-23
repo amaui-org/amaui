@@ -18,4 +18,6 @@ const IconMaterialKeyboardAltSharpFilled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialKeyboardAltSharpFilled.displayName = 'AmauiIconMaterialKeyboardAltSharpFilled';
+
 export default IconMaterialKeyboardAltSharpFilled;

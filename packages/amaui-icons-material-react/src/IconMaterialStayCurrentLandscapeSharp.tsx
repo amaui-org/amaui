@@ -18,4 +18,6 @@ const IconMaterialStayCurrentLandscapeSharp = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialStayCurrentLandscapeSharp.displayName = 'AmauiIconMaterialStayCurrentLandscapeSharp';
+
 export default IconMaterialStayCurrentLandscapeSharp;

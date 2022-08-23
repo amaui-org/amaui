@@ -18,4 +18,6 @@ const IconMaterialViewComfyRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialViewComfyRounded.displayName = 'AmauiIconMaterialViewComfyRounded';
+
 export default IconMaterialViewComfyRounded;

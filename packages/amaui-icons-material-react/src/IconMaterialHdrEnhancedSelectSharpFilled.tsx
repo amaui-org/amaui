@@ -18,4 +18,6 @@ const IconMaterialHdrEnhancedSelectSharpFilled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialHdrEnhancedSelectSharpFilled.displayName = 'AmauiIconMaterialHdrEnhancedSelectSharpFilled';
+
 export default IconMaterialHdrEnhancedSelectSharpFilled;

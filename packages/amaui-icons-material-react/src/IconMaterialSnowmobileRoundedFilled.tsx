@@ -18,4 +18,6 @@ const IconMaterialSnowmobileRoundedFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialSnowmobileRoundedFilled.displayName = 'AmauiIconMaterialSnowmobileRoundedFilled';
+
 export default IconMaterialSnowmobileRoundedFilled;

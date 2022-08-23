@@ -18,4 +18,6 @@ const IconMaterialLocalGasStationRounded = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialLocalGasStationRounded.displayName = 'AmauiIconMaterialLocalGasStationRounded';
+
 export default IconMaterialLocalGasStationRounded;

@@ -18,4 +18,6 @@ const IconMaterialTibiaSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTibiaSharpW100.displayName = 'AmauiIconMaterialTibiaSharpW100';
+
 export default IconMaterialTibiaSharpW100;

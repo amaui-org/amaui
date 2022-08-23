@@ -18,4 +18,6 @@ const IconMaterialRiceBowlRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialRiceBowlRounded.displayName = 'AmauiIconMaterialRiceBowlRounded';
+
 export default IconMaterialRiceBowlRounded;

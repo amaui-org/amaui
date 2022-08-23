@@ -18,4 +18,6 @@ const IconMaterialCampingTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCampingTwoTone.displayName = 'AmauiIconMaterialCampingTwoTone';
+
 export default IconMaterialCampingTwoTone;

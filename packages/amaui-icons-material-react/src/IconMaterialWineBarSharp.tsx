@@ -18,4 +18,6 @@ const IconMaterialWineBarSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialWineBarSharp.displayName = 'AmauiIconMaterialWineBarSharp';
+
 export default IconMaterialWineBarSharp;

@@ -18,4 +18,6 @@ const IconMaterialLightGroupRoundedFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialLightGroupRoundedFilled.displayName = 'AmauiIconMaterialLightGroupRoundedFilled';
+
 export default IconMaterialLightGroupRoundedFilled;

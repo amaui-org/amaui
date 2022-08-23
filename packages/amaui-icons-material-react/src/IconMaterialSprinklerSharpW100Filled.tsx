@@ -18,4 +18,6 @@ const IconMaterialSprinklerSharpW100Filled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialSprinklerSharpW100Filled.displayName = 'AmauiIconMaterialSprinklerSharpW100Filled';
+
 export default IconMaterialSprinklerSharpW100Filled;

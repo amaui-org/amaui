@@ -18,4 +18,6 @@ const IconMaterialEqualizerRoundedW100Filled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialEqualizerRoundedW100Filled.displayName = 'AmauiIconMaterialEqualizerRoundedW100Filled';
+
 export default IconMaterialEqualizerRoundedW100Filled;

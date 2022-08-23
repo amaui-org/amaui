@@ -18,4 +18,6 @@ const IconMaterialCalendarAddOnSharpFilled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialCalendarAddOnSharpFilled.displayName = 'AmauiIconMaterialCalendarAddOnSharpFilled';
+
 export default IconMaterialCalendarAddOnSharpFilled;

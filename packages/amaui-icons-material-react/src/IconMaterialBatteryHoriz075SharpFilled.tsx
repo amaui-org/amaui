@@ -18,4 +18,6 @@ const IconMaterialBatteryHoriz075SharpFilled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialBatteryHoriz075SharpFilled.displayName = 'AmauiIconMaterialBatteryHoriz075SharpFilled';
+
 export default IconMaterialBatteryHoriz075SharpFilled;

@@ -18,4 +18,6 @@ const IconMaterialVpnKeyRoundedW100Filled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialVpnKeyRoundedW100Filled.displayName = 'AmauiIconMaterialVpnKeyRoundedW100Filled';
+
 export default IconMaterialVpnKeyRoundedW100Filled;

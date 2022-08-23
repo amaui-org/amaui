@@ -18,4 +18,6 @@ const IconMaterialEventUpcomingTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialEventUpcomingTwoTone.displayName = 'AmauiIconMaterialEventUpcomingTwoTone';
+
 export default IconMaterialEventUpcomingTwoTone;

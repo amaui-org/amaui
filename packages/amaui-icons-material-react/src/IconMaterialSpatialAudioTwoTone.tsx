@@ -18,4 +18,6 @@ const IconMaterialSpatialAudioTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSpatialAudioTwoTone.displayName = 'AmauiIconMaterialSpatialAudioTwoTone';
+
 export default IconMaterialSpatialAudioTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialTourSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTourSharpW100.displayName = 'AmauiIconMaterialTourSharpW100';
+
 export default IconMaterialTourSharpW100;

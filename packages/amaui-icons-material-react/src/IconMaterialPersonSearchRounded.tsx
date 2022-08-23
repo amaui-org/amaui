@@ -18,4 +18,6 @@ const IconMaterialPersonSearchRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPersonSearchRounded.displayName = 'AmauiIconMaterialPersonSearchRounded';
+
 export default IconMaterialPersonSearchRounded;

@@ -18,4 +18,6 @@ const IconMaterialPictureAsPdfSharpFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialPictureAsPdfSharpFilled.displayName = 'AmauiIconMaterialPictureAsPdfSharpFilled';
+
 export default IconMaterialPictureAsPdfSharpFilled;

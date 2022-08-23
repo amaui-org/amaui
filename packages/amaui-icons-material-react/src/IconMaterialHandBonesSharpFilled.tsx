@@ -18,4 +18,6 @@ const IconMaterialHandBonesSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialHandBonesSharpFilled.displayName = 'AmauiIconMaterialHandBonesSharpFilled';
+
 export default IconMaterialHandBonesSharpFilled;

@@ -18,4 +18,6 @@ const IconMaterialRunningWithErrorsTwoTone = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialRunningWithErrorsTwoTone.displayName = 'AmauiIconMaterialRunningWithErrorsTwoTone';
+
 export default IconMaterialRunningWithErrorsTwoTone;

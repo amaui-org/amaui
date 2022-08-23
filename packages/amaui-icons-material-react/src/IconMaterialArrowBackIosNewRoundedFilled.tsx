@@ -18,4 +18,6 @@ const IconMaterialArrowBackIosNewRoundedFilled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialArrowBackIosNewRoundedFilled.displayName = 'AmauiIconMaterialArrowBackIosNewRoundedFilled';
+
 export default IconMaterialArrowBackIosNewRoundedFilled;

@@ -18,4 +18,6 @@ const IconMaterialAspectRatioTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAspectRatioTwoTone.displayName = 'AmauiIconMaterialAspectRatioTwoTone';
+
 export default IconMaterialAspectRatioTwoTone;

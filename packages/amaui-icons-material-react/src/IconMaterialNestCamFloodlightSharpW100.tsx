@@ -18,4 +18,6 @@ const IconMaterialNestCamFloodlightSharpW100 = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialNestCamFloodlightSharpW100.displayName = 'AmauiIconMaterialNestCamFloodlightSharpW100';
+
 export default IconMaterialNestCamFloodlightSharpW100;

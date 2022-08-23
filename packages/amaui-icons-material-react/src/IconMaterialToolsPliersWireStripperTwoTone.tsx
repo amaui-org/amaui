@@ -18,4 +18,6 @@ const IconMaterialToolsPliersWireStripperTwoTone = React.forwardRef((props: any,
   );
 });
 
+IconMaterialToolsPliersWireStripperTwoTone.displayName = 'AmauiIconMaterialToolsPliersWireStripperTwoTone';
+
 export default IconMaterialToolsPliersWireStripperTwoTone;

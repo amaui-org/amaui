@@ -18,4 +18,6 @@ const IconMaterialBrightness5SharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBrightness5SharpW100.displayName = 'AmauiIconMaterialBrightness5SharpW100';
+
 export default IconMaterialBrightness5SharpW100;

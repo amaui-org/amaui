@@ -18,4 +18,6 @@ const IconMaterialStickyNote2Sharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialStickyNote2Sharp.displayName = 'AmauiIconMaterialStickyNote2Sharp';
+
 export default IconMaterialStickyNote2Sharp;

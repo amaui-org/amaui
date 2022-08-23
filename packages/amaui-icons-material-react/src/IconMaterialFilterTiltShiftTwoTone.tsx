@@ -18,4 +18,6 @@ const IconMaterialFilterTiltShiftTwoTone = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialFilterTiltShiftTwoTone.displayName = 'AmauiIconMaterialFilterTiltShiftTwoTone';
+
 export default IconMaterialFilterTiltShiftTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialWaterfallChartRoundedW100Filled = React.forwardRef((props: any
   );
 });
 
+IconMaterialWaterfallChartRoundedW100Filled.displayName = 'AmauiIconMaterialWaterfallChartRoundedW100Filled';
+
 export default IconMaterialWaterfallChartRoundedW100Filled;

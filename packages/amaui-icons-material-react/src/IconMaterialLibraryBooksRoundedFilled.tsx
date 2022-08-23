@@ -18,4 +18,6 @@ const IconMaterialLibraryBooksRoundedFilled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialLibraryBooksRoundedFilled.displayName = 'AmauiIconMaterialLibraryBooksRoundedFilled';
+
 export default IconMaterialLibraryBooksRoundedFilled;

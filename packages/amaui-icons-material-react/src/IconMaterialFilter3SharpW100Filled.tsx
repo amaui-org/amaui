@@ -18,4 +18,6 @@ const IconMaterialFilter3SharpW100Filled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialFilter3SharpW100Filled.displayName = 'AmauiIconMaterialFilter3SharpW100Filled';
+
 export default IconMaterialFilter3SharpW100Filled;

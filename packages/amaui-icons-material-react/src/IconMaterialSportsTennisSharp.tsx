@@ -18,4 +18,6 @@ const IconMaterialSportsTennisSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSportsTennisSharp.displayName = 'AmauiIconMaterialSportsTennisSharp';
+
 export default IconMaterialSportsTennisSharp;

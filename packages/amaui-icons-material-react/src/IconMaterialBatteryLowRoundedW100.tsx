@@ -18,4 +18,6 @@ const IconMaterialBatteryLowRoundedW100 = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialBatteryLowRoundedW100.displayName = 'AmauiIconMaterialBatteryLowRoundedW100';
+
 export default IconMaterialBatteryLowRoundedW100;

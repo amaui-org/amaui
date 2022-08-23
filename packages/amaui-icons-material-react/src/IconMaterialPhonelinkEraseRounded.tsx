@@ -18,4 +18,6 @@ const IconMaterialPhonelinkEraseRounded = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialPhonelinkEraseRounded.displayName = 'AmauiIconMaterialPhonelinkEraseRounded';
+
 export default IconMaterialPhonelinkEraseRounded;

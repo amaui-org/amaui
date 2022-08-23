@@ -18,4 +18,6 @@ const IconMaterialPaddingTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPaddingTwoTone.displayName = 'AmauiIconMaterialPaddingTwoTone';
+
 export default IconMaterialPaddingTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialPhonelinkRingSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPhonelinkRingSharp.displayName = 'AmauiIconMaterialPhonelinkRingSharp';
+
 export default IconMaterialPhonelinkRingSharp;

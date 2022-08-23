@@ -18,4 +18,6 @@ const IconMaterialBurstModeTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBurstModeTwoTone.displayName = 'AmauiIconMaterialBurstModeTwoTone';
+
 export default IconMaterialBurstModeTwoTone;

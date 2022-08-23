@@ -18,4 +18,6 @@ const IconMaterialWbShadeSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialWbShadeSharpFilled.displayName = 'AmauiIconMaterialWbShadeSharpFilled';
+
 export default IconMaterialWbShadeSharpFilled;

@@ -18,4 +18,6 @@ const IconMaterialBiotechSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBiotechSharpW100.displayName = 'AmauiIconMaterialBiotechSharpW100';
+
 export default IconMaterialBiotechSharpW100;

@@ -18,4 +18,6 @@ const IconMaterialFormsAddOnSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFormsAddOnSharp.displayName = 'AmauiIconMaterialFormsAddOnSharp';
+
 export default IconMaterialFormsAddOnSharp;

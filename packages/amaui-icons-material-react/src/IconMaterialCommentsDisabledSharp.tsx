@@ -18,4 +18,6 @@ const IconMaterialCommentsDisabledSharp = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialCommentsDisabledSharp.displayName = 'AmauiIconMaterialCommentsDisabledSharp';
+
 export default IconMaterialCommentsDisabledSharp;

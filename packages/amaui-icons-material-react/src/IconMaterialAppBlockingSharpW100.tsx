@@ -18,4 +18,6 @@ const IconMaterialAppBlockingSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAppBlockingSharpW100.displayName = 'AmauiIconMaterialAppBlockingSharpW100';
+
 export default IconMaterialAppBlockingSharpW100;

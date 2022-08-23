@@ -18,4 +18,6 @@ const IconMaterialRoomServiceRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialRoomServiceRounded.displayName = 'AmauiIconMaterialRoomServiceRounded';
+
 export default IconMaterialRoomServiceRounded;

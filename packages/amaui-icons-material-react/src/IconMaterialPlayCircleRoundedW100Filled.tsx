@@ -18,4 +18,6 @@ const IconMaterialPlayCircleRoundedW100Filled = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialPlayCircleRoundedW100Filled.displayName = 'AmauiIconMaterialPlayCircleRoundedW100Filled';
+
 export default IconMaterialPlayCircleRoundedW100Filled;

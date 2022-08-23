@@ -18,4 +18,6 @@ const IconMaterialFlipCameraAndroidRoundedW100 = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialFlipCameraAndroidRoundedW100.displayName = 'AmauiIconMaterialFlipCameraAndroidRoundedW100';
+
 export default IconMaterialFlipCameraAndroidRoundedW100;

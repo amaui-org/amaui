@@ -18,4 +18,6 @@ const IconMaterialStrollerSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialStrollerSharp.displayName = 'AmauiIconMaterialStrollerSharp';
+
 export default IconMaterialStrollerSharp;

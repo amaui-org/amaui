@@ -18,4 +18,6 @@ const IconMaterialContentPasteSharpW100 = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialContentPasteSharpW100.displayName = 'AmauiIconMaterialContentPasteSharpW100';
+
 export default IconMaterialContentPasteSharpW100;

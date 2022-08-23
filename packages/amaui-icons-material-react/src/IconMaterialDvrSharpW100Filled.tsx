@@ -18,4 +18,6 @@ const IconMaterialDvrSharpW100Filled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDvrSharpW100Filled.displayName = 'AmauiIconMaterialDvrSharpW100Filled';
+
 export default IconMaterialDvrSharpW100Filled;

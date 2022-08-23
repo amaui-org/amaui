@@ -18,4 +18,6 @@ const IconMaterialModeHeatSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialModeHeatSharpW100.displayName = 'AmauiIconMaterialModeHeatSharpW100';
+
 export default IconMaterialModeHeatSharpW100;

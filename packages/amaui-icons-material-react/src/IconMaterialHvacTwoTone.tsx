@@ -18,4 +18,6 @@ const IconMaterialHvacTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialHvacTwoTone.displayName = 'AmauiIconMaterialHvacTwoTone';
+
 export default IconMaterialHvacTwoTone;

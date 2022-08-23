@@ -18,4 +18,6 @@ const IconMaterialLaptopChromebookTwoTone = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialLaptopChromebookTwoTone.displayName = 'AmauiIconMaterialLaptopChromebookTwoTone';
+
 export default IconMaterialLaptopChromebookTwoTone;

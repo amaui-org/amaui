@@ -18,4 +18,6 @@ const IconMaterialRadiologySharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialRadiologySharp.displayName = 'AmauiIconMaterialRadiologySharp';
+
 export default IconMaterialRadiologySharp;

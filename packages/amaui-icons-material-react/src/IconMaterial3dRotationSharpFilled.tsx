@@ -18,4 +18,6 @@ const IconMaterial3dRotationSharpFilled = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterial3dRotationSharpFilled.displayName = 'AmauiIconMaterial3dRotationSharpFilled';
+
 export default IconMaterial3dRotationSharpFilled;

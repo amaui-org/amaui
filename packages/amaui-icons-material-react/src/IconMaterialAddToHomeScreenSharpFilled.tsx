@@ -18,4 +18,6 @@ const IconMaterialAddToHomeScreenSharpFilled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialAddToHomeScreenSharpFilled.displayName = 'AmauiIconMaterialAddToHomeScreenSharpFilled';
+
 export default IconMaterialAddToHomeScreenSharpFilled;

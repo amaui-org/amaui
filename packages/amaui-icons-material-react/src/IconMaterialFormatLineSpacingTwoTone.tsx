@@ -18,4 +18,6 @@ const IconMaterialFormatLineSpacingTwoTone = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialFormatLineSpacingTwoTone.displayName = 'AmauiIconMaterialFormatLineSpacingTwoTone';
+
 export default IconMaterialFormatLineSpacingTwoTone;

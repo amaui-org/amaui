@@ -18,4 +18,6 @@ const IconMaterialChatAddOnTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialChatAddOnTwoTone.displayName = 'AmauiIconMaterialChatAddOnTwoTone';
+
 export default IconMaterialChatAddOnTwoTone;

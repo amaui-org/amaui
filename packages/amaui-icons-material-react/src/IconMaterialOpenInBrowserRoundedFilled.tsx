@@ -18,4 +18,6 @@ const IconMaterialOpenInBrowserRoundedFilled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialOpenInBrowserRoundedFilled.displayName = 'AmauiIconMaterialOpenInBrowserRoundedFilled';
+
 export default IconMaterialOpenInBrowserRoundedFilled;

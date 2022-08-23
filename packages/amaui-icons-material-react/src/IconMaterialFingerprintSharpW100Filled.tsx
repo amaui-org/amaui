@@ -18,4 +18,6 @@ const IconMaterialFingerprintSharpW100Filled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialFingerprintSharpW100Filled.displayName = 'AmauiIconMaterialFingerprintSharpW100Filled';
+
 export default IconMaterialFingerprintSharpW100Filled;

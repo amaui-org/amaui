@@ -18,4 +18,6 @@ const IconMaterialMotionBlurRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMotionBlurRounded.displayName = 'AmauiIconMaterialMotionBlurRounded';
+
 export default IconMaterialMotionBlurRounded;

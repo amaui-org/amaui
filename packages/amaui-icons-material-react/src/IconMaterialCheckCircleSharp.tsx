@@ -18,4 +18,6 @@ const IconMaterialCheckCircleSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCheckCircleSharp.displayName = 'AmauiIconMaterialCheckCircleSharp';
+
 export default IconMaterialCheckCircleSharp;

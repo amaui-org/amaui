@@ -18,4 +18,6 @@ const IconMaterialToolsPhillipsRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialToolsPhillipsRounded.displayName = 'AmauiIconMaterialToolsPhillipsRounded';
+
 export default IconMaterialToolsPhillipsRounded;

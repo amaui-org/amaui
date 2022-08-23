@@ -18,4 +18,6 @@ const IconMaterialAutoActivityZoneRoundedW100 = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialAutoActivityZoneRoundedW100.displayName = 'AmauiIconMaterialAutoActivityZoneRoundedW100';
+
 export default IconMaterialAutoActivityZoneRoundedW100;

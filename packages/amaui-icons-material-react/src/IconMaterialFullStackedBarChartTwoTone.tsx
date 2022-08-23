@@ -18,4 +18,6 @@ const IconMaterialFullStackedBarChartTwoTone = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialFullStackedBarChartTwoTone.displayName = 'AmauiIconMaterialFullStackedBarChartTwoTone';
+
 export default IconMaterialFullStackedBarChartTwoTone;

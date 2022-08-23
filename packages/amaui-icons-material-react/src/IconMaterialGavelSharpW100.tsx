@@ -18,4 +18,6 @@ const IconMaterialGavelSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialGavelSharpW100.displayName = 'AmauiIconMaterialGavelSharpW100';
+
 export default IconMaterialGavelSharpW100;

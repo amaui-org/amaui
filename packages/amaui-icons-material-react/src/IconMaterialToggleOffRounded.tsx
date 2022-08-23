@@ -18,4 +18,6 @@ const IconMaterialToggleOffRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialToggleOffRounded.displayName = 'AmauiIconMaterialToggleOffRounded';
+
 export default IconMaterialToggleOffRounded;

@@ -18,4 +18,6 @@ const IconMaterialLocalPostOfficeSharpFilled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialLocalPostOfficeSharpFilled.displayName = 'AmauiIconMaterialLocalPostOfficeSharpFilled';
+
 export default IconMaterialLocalPostOfficeSharpFilled;

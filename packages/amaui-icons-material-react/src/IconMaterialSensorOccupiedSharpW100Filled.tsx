@@ -18,4 +18,6 @@ const IconMaterialSensorOccupiedSharpW100Filled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialSensorOccupiedSharpW100Filled.displayName = 'AmauiIconMaterialSensorOccupiedSharpW100Filled';
+
 export default IconMaterialSensorOccupiedSharpW100Filled;

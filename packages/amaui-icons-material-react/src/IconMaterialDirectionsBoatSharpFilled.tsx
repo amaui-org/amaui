@@ -18,4 +18,6 @@ const IconMaterialDirectionsBoatSharpFilled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialDirectionsBoatSharpFilled.displayName = 'AmauiIconMaterialDirectionsBoatSharpFilled';
+
 export default IconMaterialDirectionsBoatSharpFilled;

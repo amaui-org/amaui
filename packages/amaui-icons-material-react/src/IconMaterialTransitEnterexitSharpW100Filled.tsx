@@ -18,4 +18,6 @@ const IconMaterialTransitEnterexitSharpW100Filled = React.forwardRef((props: any
   );
 });
 
+IconMaterialTransitEnterexitSharpW100Filled.displayName = 'AmauiIconMaterialTransitEnterexitSharpW100Filled';
+
 export default IconMaterialTransitEnterexitSharpW100Filled;

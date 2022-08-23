@@ -18,4 +18,6 @@ const IconMaterialPolicySharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPolicySharp.displayName = 'AmauiIconMaterialPolicySharp';
+
 export default IconMaterialPolicySharp;

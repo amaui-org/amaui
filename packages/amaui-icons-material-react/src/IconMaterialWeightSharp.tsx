@@ -18,4 +18,6 @@ const IconMaterialWeightSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialWeightSharp.displayName = 'AmauiIconMaterialWeightSharp';
+
 export default IconMaterialWeightSharp;

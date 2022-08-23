@@ -18,4 +18,6 @@ const IconMaterialFilterCenterFocusSharpFilled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialFilterCenterFocusSharpFilled.displayName = 'AmauiIconMaterialFilterCenterFocusSharpFilled';
+
 export default IconMaterialFilterCenterFocusSharpFilled;

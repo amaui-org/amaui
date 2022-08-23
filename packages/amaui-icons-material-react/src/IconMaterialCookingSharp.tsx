@@ -18,4 +18,6 @@ const IconMaterialCookingSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCookingSharp.displayName = 'AmauiIconMaterialCookingSharp';
+
 export default IconMaterialCookingSharp;

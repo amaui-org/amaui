@@ -18,4 +18,6 @@ const IconMaterialNestWakeOnPressRoundedFilled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialNestWakeOnPressRoundedFilled.displayName = 'AmauiIconMaterialNestWakeOnPressRoundedFilled';
+
 export default IconMaterialNestWakeOnPressRoundedFilled;

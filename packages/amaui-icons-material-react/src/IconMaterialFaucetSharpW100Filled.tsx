@@ -18,4 +18,6 @@ const IconMaterialFaucetSharpW100Filled = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialFaucetSharpW100Filled.displayName = 'AmauiIconMaterialFaucetSharpW100Filled';
+
 export default IconMaterialFaucetSharpW100Filled;

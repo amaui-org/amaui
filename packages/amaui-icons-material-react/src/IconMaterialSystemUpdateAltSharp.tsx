@@ -18,4 +18,6 @@ const IconMaterialSystemUpdateAltSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSystemUpdateAltSharp.displayName = 'AmauiIconMaterialSystemUpdateAltSharp';
+
 export default IconMaterialSystemUpdateAltSharp;

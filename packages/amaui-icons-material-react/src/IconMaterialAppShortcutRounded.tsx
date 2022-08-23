@@ -18,4 +18,6 @@ const IconMaterialAppShortcutRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAppShortcutRounded.displayName = 'AmauiIconMaterialAppShortcutRounded';
+
 export default IconMaterialAppShortcutRounded;

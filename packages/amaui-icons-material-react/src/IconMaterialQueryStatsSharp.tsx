@@ -18,4 +18,6 @@ const IconMaterialQueryStatsSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialQueryStatsSharp.displayName = 'AmauiIconMaterialQueryStatsSharp';
+
 export default IconMaterialQueryStatsSharp;

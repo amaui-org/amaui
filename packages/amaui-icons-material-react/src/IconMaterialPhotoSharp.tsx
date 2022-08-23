@@ -18,4 +18,6 @@ const IconMaterialPhotoSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPhotoSharp.displayName = 'AmauiIconMaterialPhotoSharp';
+
 export default IconMaterialPhotoSharp;

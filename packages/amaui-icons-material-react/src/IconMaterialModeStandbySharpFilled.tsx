@@ -18,4 +18,6 @@ const IconMaterialModeStandbySharpFilled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialModeStandbySharpFilled.displayName = 'AmauiIconMaterialModeStandbySharpFilled';
+
 export default IconMaterialModeStandbySharpFilled;

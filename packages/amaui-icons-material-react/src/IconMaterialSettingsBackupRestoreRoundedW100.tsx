@@ -18,4 +18,6 @@ const IconMaterialSettingsBackupRestoreRoundedW100 = React.forwardRef((props: an
   );
 });
 
+IconMaterialSettingsBackupRestoreRoundedW100.displayName = 'AmauiIconMaterialSettingsBackupRestoreRoundedW100';
+
 export default IconMaterialSettingsBackupRestoreRoundedW100;

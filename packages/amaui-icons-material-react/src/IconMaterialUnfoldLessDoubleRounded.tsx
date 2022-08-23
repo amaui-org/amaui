@@ -18,4 +18,6 @@ const IconMaterialUnfoldLessDoubleRounded = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialUnfoldLessDoubleRounded.displayName = 'AmauiIconMaterialUnfoldLessDoubleRounded';
+
 export default IconMaterialUnfoldLessDoubleRounded;

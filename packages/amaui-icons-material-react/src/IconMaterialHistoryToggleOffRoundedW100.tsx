@@ -18,4 +18,6 @@ const IconMaterialHistoryToggleOffRoundedW100 = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialHistoryToggleOffRoundedW100.displayName = 'AmauiIconMaterialHistoryToggleOffRoundedW100';
+
 export default IconMaterialHistoryToggleOffRoundedW100;

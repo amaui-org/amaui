@@ -18,4 +18,6 @@ const IconMaterialParaglidingRoundedW100Filled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialParaglidingRoundedW100Filled.displayName = 'AmauiIconMaterialParaglidingRoundedW100Filled';
+
 export default IconMaterialParaglidingRoundedW100Filled;

@@ -18,4 +18,6 @@ const IconMaterialGroups2RoundedFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialGroups2RoundedFilled.displayName = 'AmauiIconMaterialGroups2RoundedFilled';
+
 export default IconMaterialGroups2RoundedFilled;

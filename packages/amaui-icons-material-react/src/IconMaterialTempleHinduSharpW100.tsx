@@ -18,4 +18,6 @@ const IconMaterialTempleHinduSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTempleHinduSharpW100.displayName = 'AmauiIconMaterialTempleHinduSharpW100';
+
 export default IconMaterialTempleHinduSharpW100;

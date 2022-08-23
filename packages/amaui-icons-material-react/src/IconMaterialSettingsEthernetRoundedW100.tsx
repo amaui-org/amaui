@@ -18,4 +18,6 @@ const IconMaterialSettingsEthernetRoundedW100 = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialSettingsEthernetRoundedW100.displayName = 'AmauiIconMaterialSettingsEthernetRoundedW100';
+
 export default IconMaterialSettingsEthernetRoundedW100;

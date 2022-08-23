@@ -18,4 +18,6 @@ const IconMaterialRadioSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialRadioSharpW100.displayName = 'AmauiIconMaterialRadioSharpW100';
+
 export default IconMaterialRadioSharpW100;

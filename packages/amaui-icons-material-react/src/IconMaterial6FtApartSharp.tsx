@@ -18,4 +18,6 @@ const IconMaterial6FtApartSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterial6FtApartSharp.displayName = 'AmauiIconMaterial6FtApartSharp';
+
 export default IconMaterial6FtApartSharp;

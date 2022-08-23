@@ -18,4 +18,6 @@ const IconMaterialGavelRoundedW100Filled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialGavelRoundedW100Filled.displayName = 'AmauiIconMaterialGavelRoundedW100Filled';
+
 export default IconMaterialGavelRoundedW100Filled;

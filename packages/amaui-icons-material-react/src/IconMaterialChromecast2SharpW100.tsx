@@ -18,4 +18,6 @@ const IconMaterialChromecast2SharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialChromecast2SharpW100.displayName = 'AmauiIconMaterialChromecast2SharpW100';
+
 export default IconMaterialChromecast2SharpW100;

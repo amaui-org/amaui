@@ -18,4 +18,6 @@ const IconMaterialPedalBikeRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPedalBikeRounded.displayName = 'AmauiIconMaterialPedalBikeRounded';
+
 export default IconMaterialPedalBikeRounded;

@@ -18,4 +18,6 @@ const IconMaterialChargingStationTwoTone = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialChargingStationTwoTone.displayName = 'AmauiIconMaterialChargingStationTwoTone';
+
 export default IconMaterialChargingStationTwoTone;

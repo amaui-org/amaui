@@ -18,4 +18,6 @@ const IconMaterialCommentBankSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCommentBankSharpW100.displayName = 'AmauiIconMaterialCommentBankSharpW100';
+
 export default IconMaterialCommentBankSharpW100;

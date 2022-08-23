@@ -18,4 +18,6 @@ const IconMaterialGifBoxTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialGifBoxTwoTone.displayName = 'AmauiIconMaterialGifBoxTwoTone';
+
 export default IconMaterialGifBoxTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialSupportAgentSharpFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialSupportAgentSharpFilled.displayName = 'AmauiIconMaterialSupportAgentSharpFilled';
+
 export default IconMaterialSupportAgentSharpFilled;

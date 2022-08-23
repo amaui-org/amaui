@@ -18,4 +18,6 @@ const IconMaterialGridOffSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialGridOffSharp.displayName = 'AmauiIconMaterialGridOffSharp';
+
 export default IconMaterialGridOffSharp;

@@ -18,4 +18,6 @@ const IconMaterialQuickreplyRoundedW100 = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialQuickreplyRoundedW100.displayName = 'AmauiIconMaterialQuickreplyRoundedW100';
+
 export default IconMaterialQuickreplyRoundedW100;

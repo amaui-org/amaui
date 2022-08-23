@@ -18,4 +18,6 @@ const IconMaterialCropSquareRoundedW100Filled = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialCropSquareRoundedW100Filled.displayName = 'AmauiIconMaterialCropSquareRoundedW100Filled';
+
 export default IconMaterialCropSquareRoundedW100Filled;

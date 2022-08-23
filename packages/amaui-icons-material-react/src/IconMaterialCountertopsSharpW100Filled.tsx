@@ -18,4 +18,6 @@ const IconMaterialCountertopsSharpW100Filled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialCountertopsSharpW100Filled.displayName = 'AmauiIconMaterialCountertopsSharpW100Filled';
+
 export default IconMaterialCountertopsSharpW100Filled;

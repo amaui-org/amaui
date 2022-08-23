@@ -18,4 +18,6 @@ const IconMaterialBallotSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBallotSharp.displayName = 'AmauiIconMaterialBallotSharp';
+
 export default IconMaterialBallotSharp;

@@ -18,4 +18,6 @@ const IconMaterialSubscriptSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSubscriptSharp.displayName = 'AmauiIconMaterialSubscriptSharp';
+
 export default IconMaterialSubscriptSharp;

@@ -18,4 +18,6 @@ const IconMaterialBathtubTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBathtubTwoTone.displayName = 'AmauiIconMaterialBathtubTwoTone';
+
 export default IconMaterialBathtubTwoTone;

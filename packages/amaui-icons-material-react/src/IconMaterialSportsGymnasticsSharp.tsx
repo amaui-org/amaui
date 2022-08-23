@@ -18,4 +18,6 @@ const IconMaterialSportsGymnasticsSharp = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialSportsGymnasticsSharp.displayName = 'AmauiIconMaterialSportsGymnasticsSharp';
+
 export default IconMaterialSportsGymnasticsSharp;

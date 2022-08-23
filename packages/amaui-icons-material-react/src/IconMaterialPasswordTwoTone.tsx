@@ -18,4 +18,6 @@ const IconMaterialPasswordTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPasswordTwoTone.displayName = 'AmauiIconMaterialPasswordTwoTone';
+
 export default IconMaterialPasswordTwoTone;

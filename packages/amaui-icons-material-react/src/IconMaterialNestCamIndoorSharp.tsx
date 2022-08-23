@@ -18,4 +18,6 @@ const IconMaterialNestCamIndoorSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNestCamIndoorSharp.displayName = 'AmauiIconMaterialNestCamIndoorSharp';
+
 export default IconMaterialNestCamIndoorSharp;

@@ -18,4 +18,6 @@ const IconMaterialHotTubRoundedW100Filled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialHotTubRoundedW100Filled.displayName = 'AmauiIconMaterialHotTubRoundedW100Filled';
+
 export default IconMaterialHotTubRoundedW100Filled;

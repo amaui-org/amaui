@@ -18,4 +18,6 @@ const IconMaterialAirplaneTicketRoundedW100 = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialAirplaneTicketRoundedW100.displayName = 'AmauiIconMaterialAirplaneTicketRoundedW100';
+
 export default IconMaterialAirplaneTicketRoundedW100;

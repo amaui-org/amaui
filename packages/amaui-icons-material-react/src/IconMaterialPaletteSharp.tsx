@@ -18,4 +18,6 @@ const IconMaterialPaletteSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPaletteSharp.displayName = 'AmauiIconMaterialPaletteSharp';
+
 export default IconMaterialPaletteSharp;

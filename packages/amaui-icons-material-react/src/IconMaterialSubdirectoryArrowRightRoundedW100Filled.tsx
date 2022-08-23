@@ -18,4 +18,6 @@ const IconMaterialSubdirectoryArrowRightRoundedW100Filled = React.forwardRef((pr
   );
 });
 
+IconMaterialSubdirectoryArrowRightRoundedW100Filled.displayName = 'AmauiIconMaterialSubdirectoryArrowRightRoundedW100Filled';
+
 export default IconMaterialSubdirectoryArrowRightRoundedW100Filled;

@@ -18,4 +18,6 @@ const IconMaterialFenceSharpW100Filled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFenceSharpW100Filled.displayName = 'AmauiIconMaterialFenceSharpW100Filled';
+
 export default IconMaterialFenceSharpW100Filled;

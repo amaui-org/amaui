@@ -18,4 +18,6 @@ const IconMaterialMaximizeRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMaximizeRoundedW100.displayName = 'AmauiIconMaterialMaximizeRoundedW100';
+
 export default IconMaterialMaximizeRoundedW100;

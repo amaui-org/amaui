@@ -18,4 +18,6 @@ const IconMaterialMarkEmailUnreadRoundedW100Filled = React.forwardRef((props: an
   );
 });
 
+IconMaterialMarkEmailUnreadRoundedW100Filled.displayName = 'AmauiIconMaterialMarkEmailUnreadRoundedW100Filled';
+
 export default IconMaterialMarkEmailUnreadRoundedW100Filled;

@@ -18,4 +18,6 @@ const IconMaterialDrySharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDrySharp.displayName = 'AmauiIconMaterialDrySharp';
+
 export default IconMaterialDrySharp;

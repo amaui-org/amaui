@@ -18,4 +18,6 @@ const IconMaterialBarcodeTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBarcodeTwoTone.displayName = 'AmauiIconMaterialBarcodeTwoTone';
+
 export default IconMaterialBarcodeTwoTone;

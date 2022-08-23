@@ -18,4 +18,6 @@ const IconMaterialTeamDashboardSharpFilled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialTeamDashboardSharpFilled.displayName = 'AmauiIconMaterialTeamDashboardSharpFilled';
+
 export default IconMaterialTeamDashboardSharpFilled;

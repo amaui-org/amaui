@@ -18,4 +18,6 @@ const IconMaterialCloudSharpW100Filled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCloudSharpW100Filled.displayName = 'AmauiIconMaterialCloudSharpW100Filled';
+
 export default IconMaterialCloudSharpW100Filled;

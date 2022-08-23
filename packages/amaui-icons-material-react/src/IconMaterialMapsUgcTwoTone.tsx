@@ -18,4 +18,6 @@ const IconMaterialMapsUgcTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMapsUgcTwoTone.displayName = 'AmauiIconMaterialMapsUgcTwoTone';
+
 export default IconMaterialMapsUgcTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialViewComfyTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialViewComfyTwoTone.displayName = 'AmauiIconMaterialViewComfyTwoTone';
+
 export default IconMaterialViewComfyTwoTone;

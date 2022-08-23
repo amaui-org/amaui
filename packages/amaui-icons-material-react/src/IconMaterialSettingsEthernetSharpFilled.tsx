@@ -18,4 +18,6 @@ const IconMaterialSettingsEthernetSharpFilled = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialSettingsEthernetSharpFilled.displayName = 'AmauiIconMaterialSettingsEthernetSharpFilled';
+
 export default IconMaterialSettingsEthernetSharpFilled;

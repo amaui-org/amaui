@@ -18,4 +18,6 @@ const IconMaterialHomeMaxDotsRoundedW100 = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialHomeMaxDotsRoundedW100.displayName = 'AmauiIconMaterialHomeMaxDotsRoundedW100';
+
 export default IconMaterialHomeMaxDotsRoundedW100;

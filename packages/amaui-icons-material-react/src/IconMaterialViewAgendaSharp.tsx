@@ -18,4 +18,6 @@ const IconMaterialViewAgendaSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialViewAgendaSharp.displayName = 'AmauiIconMaterialViewAgendaSharp';
+
 export default IconMaterialViewAgendaSharp;

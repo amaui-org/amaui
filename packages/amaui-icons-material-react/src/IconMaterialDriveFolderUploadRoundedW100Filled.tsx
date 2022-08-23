@@ -18,4 +18,6 @@ const IconMaterialDriveFolderUploadRoundedW100Filled = React.forwardRef((props: 
   );
 });
 
+IconMaterialDriveFolderUploadRoundedW100Filled.displayName = 'AmauiIconMaterialDriveFolderUploadRoundedW100Filled';
+
 export default IconMaterialDriveFolderUploadRoundedW100Filled;

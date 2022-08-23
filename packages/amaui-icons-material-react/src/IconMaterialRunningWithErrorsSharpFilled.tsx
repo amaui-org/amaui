@@ -18,4 +18,6 @@ const IconMaterialRunningWithErrorsSharpFilled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialRunningWithErrorsSharpFilled.displayName = 'AmauiIconMaterialRunningWithErrorsSharpFilled';
+
 export default IconMaterialRunningWithErrorsSharpFilled;

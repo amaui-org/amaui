@@ -18,4 +18,6 @@ const IconMaterialLooksTwoRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLooksTwoRoundedW100.displayName = 'AmauiIconMaterialLooksTwoRoundedW100';
+
 export default IconMaterialLooksTwoRoundedW100;

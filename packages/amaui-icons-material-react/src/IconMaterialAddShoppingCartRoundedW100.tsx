@@ -18,4 +18,6 @@ const IconMaterialAddShoppingCartRoundedW100 = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialAddShoppingCartRoundedW100.displayName = 'AmauiIconMaterialAddShoppingCartRoundedW100';
+
 export default IconMaterialAddShoppingCartRoundedW100;

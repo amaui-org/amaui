@@ -18,4 +18,6 @@ const IconMaterialCreditScoreTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCreditScoreTwoTone.displayName = 'AmauiIconMaterialCreditScoreTwoTone';
+
 export default IconMaterialCreditScoreTwoTone;

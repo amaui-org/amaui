@@ -18,4 +18,6 @@ const IconMaterialDirectionsBikeSharpW100Filled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialDirectionsBikeSharpW100Filled.displayName = 'AmauiIconMaterialDirectionsBikeSharpW100Filled';
+
 export default IconMaterialDirectionsBikeSharpW100Filled;

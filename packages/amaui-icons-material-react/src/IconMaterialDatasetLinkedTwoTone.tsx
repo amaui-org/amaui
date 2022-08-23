@@ -18,4 +18,6 @@ const IconMaterialDatasetLinkedTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDatasetLinkedTwoTone.displayName = 'AmauiIconMaterialDatasetLinkedTwoTone';
+
 export default IconMaterialDatasetLinkedTwoTone;

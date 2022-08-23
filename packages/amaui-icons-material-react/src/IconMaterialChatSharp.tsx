@@ -18,4 +18,6 @@ const IconMaterialChatSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialChatSharp.displayName = 'AmauiIconMaterialChatSharp';
+
 export default IconMaterialChatSharp;

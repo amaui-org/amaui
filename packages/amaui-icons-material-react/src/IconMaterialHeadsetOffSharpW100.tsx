@@ -18,4 +18,6 @@ const IconMaterialHeadsetOffSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialHeadsetOffSharpW100.displayName = 'AmauiIconMaterialHeadsetOffSharpW100';
+
 export default IconMaterialHeadsetOffSharpW100;

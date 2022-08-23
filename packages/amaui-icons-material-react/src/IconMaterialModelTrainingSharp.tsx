@@ -18,4 +18,6 @@ const IconMaterialModelTrainingSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialModelTrainingSharp.displayName = 'AmauiIconMaterialModelTrainingSharp';
+
 export default IconMaterialModelTrainingSharp;

@@ -18,4 +18,6 @@ const IconMaterialTvGenRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTvGenRounded.displayName = 'AmauiIconMaterialTvGenRounded';
+
 export default IconMaterialTvGenRounded;

@@ -18,4 +18,6 @@ const IconMaterialMultipleStopSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMultipleStopSharp.displayName = 'AmauiIconMaterialMultipleStopSharp';
+
 export default IconMaterialMultipleStopSharp;

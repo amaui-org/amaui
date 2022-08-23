@@ -18,4 +18,6 @@ const IconMaterialPanoramaVerticalSharp = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialPanoramaVerticalSharp.displayName = 'AmauiIconMaterialPanoramaVerticalSharp';
+
 export default IconMaterialPanoramaVerticalSharp;

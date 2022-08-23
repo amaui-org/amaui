@@ -18,4 +18,6 @@ const IconMaterialNoiseControlOnSharpW100 = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialNoiseControlOnSharpW100.displayName = 'AmauiIconMaterialNoiseControlOnSharpW100';
+
 export default IconMaterialNoiseControlOnSharpW100;

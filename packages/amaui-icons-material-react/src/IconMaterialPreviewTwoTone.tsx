@@ -18,4 +18,6 @@ const IconMaterialPreviewTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPreviewTwoTone.displayName = 'AmauiIconMaterialPreviewTwoTone';
+
 export default IconMaterialPreviewTwoTone;

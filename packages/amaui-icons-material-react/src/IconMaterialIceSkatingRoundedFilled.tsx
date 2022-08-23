@@ -18,4 +18,6 @@ const IconMaterialIceSkatingRoundedFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialIceSkatingRoundedFilled.displayName = 'AmauiIconMaterialIceSkatingRoundedFilled';
+
 export default IconMaterialIceSkatingRoundedFilled;

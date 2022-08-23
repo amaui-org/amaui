@@ -18,4 +18,6 @@ const IconMaterialFormatLineSpacingSharpFilled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialFormatLineSpacingSharpFilled.displayName = 'AmauiIconMaterialFormatLineSpacingSharpFilled';
+
 export default IconMaterialFormatLineSpacingSharpFilled;

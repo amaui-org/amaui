@@ -18,4 +18,6 @@ const IconMaterialVaccinesRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialVaccinesRoundedW100.displayName = 'AmauiIconMaterialVaccinesRoundedW100';
+
 export default IconMaterialVaccinesRoundedW100;

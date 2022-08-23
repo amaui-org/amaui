@@ -18,4 +18,6 @@ const IconMaterialPergolaSharpW100Filled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialPergolaSharpW100Filled.displayName = 'AmauiIconMaterialPergolaSharpW100Filled';
+
 export default IconMaterialPergolaSharpW100Filled;

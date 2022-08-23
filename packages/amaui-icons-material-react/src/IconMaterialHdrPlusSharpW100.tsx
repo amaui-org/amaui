@@ -18,4 +18,6 @@ const IconMaterialHdrPlusSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialHdrPlusSharpW100.displayName = 'AmauiIconMaterialHdrPlusSharpW100';
+
 export default IconMaterialHdrPlusSharpW100;

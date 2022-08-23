@@ -18,4 +18,6 @@ const IconMaterial3dRotationRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterial3dRotationRounded.displayName = 'AmauiIconMaterial3dRotationRounded';
+
 export default IconMaterial3dRotationRounded;

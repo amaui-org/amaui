@@ -18,4 +18,6 @@ const IconMaterialZonePersonIdleRoundedFilled = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialZonePersonIdleRoundedFilled.displayName = 'AmauiIconMaterialZonePersonIdleRoundedFilled';
+
 export default IconMaterialZonePersonIdleRoundedFilled;

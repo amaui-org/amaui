@@ -18,4 +18,6 @@ const IconMaterialSignLanguageRoundedW100Filled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialSignLanguageRoundedW100Filled.displayName = 'AmauiIconMaterialSignLanguageRoundedW100Filled';
+
 export default IconMaterialSignLanguageRoundedW100Filled;

@@ -18,4 +18,6 @@ const IconMaterialGavelSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialGavelSharpFilled.displayName = 'AmauiIconMaterialGavelSharpFilled';
+
 export default IconMaterialGavelSharpFilled;

@@ -18,4 +18,6 @@ const IconMaterialSkateboardingSharpFilled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialSkateboardingSharpFilled.displayName = 'AmauiIconMaterialSkateboardingSharpFilled';
+
 export default IconMaterialSkateboardingSharpFilled;

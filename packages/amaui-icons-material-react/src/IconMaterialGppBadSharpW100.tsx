@@ -18,4 +18,6 @@ const IconMaterialGppBadSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialGppBadSharpW100.displayName = 'AmauiIconMaterialGppBadSharpW100';
+
 export default IconMaterialGppBadSharpW100;

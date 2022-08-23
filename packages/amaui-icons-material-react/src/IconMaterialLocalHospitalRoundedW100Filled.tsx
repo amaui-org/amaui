@@ -18,4 +18,6 @@ const IconMaterialLocalHospitalRoundedW100Filled = React.forwardRef((props: any,
   );
 });
 
+IconMaterialLocalHospitalRoundedW100Filled.displayName = 'AmauiIconMaterialLocalHospitalRoundedW100Filled';
+
 export default IconMaterialLocalHospitalRoundedW100Filled;

@@ -18,4 +18,6 @@ const IconMaterialLandslideRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLandslideRounded.displayName = 'AmauiIconMaterialLandslideRounded';
+
 export default IconMaterialLandslideRounded;

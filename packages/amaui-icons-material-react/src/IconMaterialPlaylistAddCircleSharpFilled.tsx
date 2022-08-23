@@ -18,4 +18,6 @@ const IconMaterialPlaylistAddCircleSharpFilled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialPlaylistAddCircleSharpFilled.displayName = 'AmauiIconMaterialPlaylistAddCircleSharpFilled';
+
 export default IconMaterialPlaylistAddCircleSharpFilled;

@@ -18,4 +18,6 @@ const IconMaterialScienceSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialScienceSharp.displayName = 'AmauiIconMaterialScienceSharp';
+
 export default IconMaterialScienceSharp;

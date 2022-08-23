@@ -18,4 +18,6 @@ const IconMaterialFullscreenExitSharpW100 = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialFullscreenExitSharpW100.displayName = 'AmauiIconMaterialFullscreenExitSharpW100';
+
 export default IconMaterialFullscreenExitSharpW100;

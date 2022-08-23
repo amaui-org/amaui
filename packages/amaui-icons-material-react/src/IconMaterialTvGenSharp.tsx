@@ -18,4 +18,6 @@ const IconMaterialTvGenSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTvGenSharp.displayName = 'AmauiIconMaterialTvGenSharp';
+
 export default IconMaterialTvGenSharp;

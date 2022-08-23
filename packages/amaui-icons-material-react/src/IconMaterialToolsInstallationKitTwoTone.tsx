@@ -18,4 +18,6 @@ const IconMaterialToolsInstallationKitTwoTone = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialToolsInstallationKitTwoTone.displayName = 'AmauiIconMaterialToolsInstallationKitTwoTone';
+
 export default IconMaterialToolsInstallationKitTwoTone;

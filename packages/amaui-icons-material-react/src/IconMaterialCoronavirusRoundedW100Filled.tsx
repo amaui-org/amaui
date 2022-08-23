@@ -18,4 +18,6 @@ const IconMaterialCoronavirusRoundedW100Filled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialCoronavirusRoundedW100Filled.displayName = 'AmauiIconMaterialCoronavirusRoundedW100Filled';
+
 export default IconMaterialCoronavirusRoundedW100Filled;

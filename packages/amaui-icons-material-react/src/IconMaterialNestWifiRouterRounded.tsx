@@ -18,4 +18,6 @@ const IconMaterialNestWifiRouterRounded = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialNestWifiRouterRounded.displayName = 'AmauiIconMaterialNestWifiRouterRounded';
+
 export default IconMaterialNestWifiRouterRounded;

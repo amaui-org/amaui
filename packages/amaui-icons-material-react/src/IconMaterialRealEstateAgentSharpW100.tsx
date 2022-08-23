@@ -18,4 +18,6 @@ const IconMaterialRealEstateAgentSharpW100 = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialRealEstateAgentSharpW100.displayName = 'AmauiIconMaterialRealEstateAgentSharpW100';
+
 export default IconMaterialRealEstateAgentSharpW100;

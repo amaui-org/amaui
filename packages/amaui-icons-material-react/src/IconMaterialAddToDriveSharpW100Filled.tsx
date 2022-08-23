@@ -18,4 +18,6 @@ const IconMaterialAddToDriveSharpW100Filled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialAddToDriveSharpW100Filled.displayName = 'AmauiIconMaterialAddToDriveSharpW100Filled';
+
 export default IconMaterialAddToDriveSharpW100Filled;

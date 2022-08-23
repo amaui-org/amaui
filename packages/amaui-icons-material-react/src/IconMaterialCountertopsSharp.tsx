@@ -18,4 +18,6 @@ const IconMaterialCountertopsSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCountertopsSharp.displayName = 'AmauiIconMaterialCountertopsSharp';
+
 export default IconMaterialCountertopsSharp;

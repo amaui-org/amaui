@@ -18,4 +18,6 @@ const IconMaterialShoppingBasketSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialShoppingBasketSharp.displayName = 'AmauiIconMaterialShoppingBasketSharp';
+
 export default IconMaterialShoppingBasketSharp;

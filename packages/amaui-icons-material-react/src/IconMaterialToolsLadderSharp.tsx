@@ -18,4 +18,6 @@ const IconMaterialToolsLadderSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialToolsLadderSharp.displayName = 'AmauiIconMaterialToolsLadderSharp';
+
 export default IconMaterialToolsLadderSharp;

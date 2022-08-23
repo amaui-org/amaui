@@ -18,4 +18,6 @@ const IconMaterialAssistantDirectionTwoTone = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialAssistantDirectionTwoTone.displayName = 'AmauiIconMaterialAssistantDirectionTwoTone';
+
 export default IconMaterialAssistantDirectionTwoTone;

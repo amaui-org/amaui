@@ -18,4 +18,6 @@ const IconMaterialHeatPumpBalanceSharpW100 = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialHeatPumpBalanceSharpW100.displayName = 'AmauiIconMaterialHeatPumpBalanceSharpW100';
+
 export default IconMaterialHeatPumpBalanceSharpW100;

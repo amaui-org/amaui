@@ -18,4 +18,6 @@ const IconMaterialMicrowaveTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMicrowaveTwoTone.displayName = 'AmauiIconMaterialMicrowaveTwoTone';
+
 export default IconMaterialMicrowaveTwoTone;

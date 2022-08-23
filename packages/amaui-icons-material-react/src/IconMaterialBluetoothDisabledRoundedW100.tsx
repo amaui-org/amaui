@@ -18,4 +18,6 @@ const IconMaterialBluetoothDisabledRoundedW100 = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialBluetoothDisabledRoundedW100.displayName = 'AmauiIconMaterialBluetoothDisabledRoundedW100';
+
 export default IconMaterialBluetoothDisabledRoundedW100;

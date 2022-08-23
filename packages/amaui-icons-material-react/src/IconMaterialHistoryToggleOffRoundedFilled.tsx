@@ -18,4 +18,6 @@ const IconMaterialHistoryToggleOffRoundedFilled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialHistoryToggleOffRoundedFilled.displayName = 'AmauiIconMaterialHistoryToggleOffRoundedFilled';
+
 export default IconMaterialHistoryToggleOffRoundedFilled;

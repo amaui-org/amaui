@@ -18,4 +18,6 @@ const IconMaterialFormatColorFillSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFormatColorFillSharp.displayName = 'AmauiIconMaterialFormatColorFillSharp';
+
 export default IconMaterialFormatColorFillSharp;

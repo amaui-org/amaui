@@ -18,4 +18,6 @@ const IconMaterialQueuePlayNextRoundedW100 = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialQueuePlayNextRoundedW100.displayName = 'AmauiIconMaterialQueuePlayNextRoundedW100';
+
 export default IconMaterialQueuePlayNextRoundedW100;

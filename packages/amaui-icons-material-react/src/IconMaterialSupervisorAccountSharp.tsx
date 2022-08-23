@@ -18,4 +18,6 @@ const IconMaterialSupervisorAccountSharp = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialSupervisorAccountSharp.displayName = 'AmauiIconMaterialSupervisorAccountSharp';
+
 export default IconMaterialSupervisorAccountSharp;

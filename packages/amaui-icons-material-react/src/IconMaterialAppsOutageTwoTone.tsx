@@ -18,4 +18,6 @@ const IconMaterialAppsOutageTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAppsOutageTwoTone.displayName = 'AmauiIconMaterialAppsOutageTwoTone';
+
 export default IconMaterialAppsOutageTwoTone;

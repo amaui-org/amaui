@@ -18,4 +18,6 @@ const IconMaterialBeachAccessSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBeachAccessSharp.displayName = 'AmauiIconMaterialBeachAccessSharp';
+
 export default IconMaterialBeachAccessSharp;

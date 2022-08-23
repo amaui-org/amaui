@@ -18,4 +18,6 @@ const IconMaterialIntegrationInstructionsSharpFilled = React.forwardRef((props: 
   );
 });
 
+IconMaterialIntegrationInstructionsSharpFilled.displayName = 'AmauiIconMaterialIntegrationInstructionsSharpFilled';
+
 export default IconMaterialIntegrationInstructionsSharpFilled;

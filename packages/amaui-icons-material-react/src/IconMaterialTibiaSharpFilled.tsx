@@ -18,4 +18,6 @@ const IconMaterialTibiaSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTibiaSharpFilled.displayName = 'AmauiIconMaterialTibiaSharpFilled';
+
 export default IconMaterialTibiaSharpFilled;

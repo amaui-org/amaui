@@ -18,4 +18,6 @@ const IconMaterialDepartureBoardRoundedFilled = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialDepartureBoardRoundedFilled.displayName = 'AmauiIconMaterialDepartureBoardRoundedFilled';
+
 export default IconMaterialDepartureBoardRoundedFilled;

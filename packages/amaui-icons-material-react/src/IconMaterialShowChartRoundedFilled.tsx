@@ -18,4 +18,6 @@ const IconMaterialShowChartRoundedFilled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialShowChartRoundedFilled.displayName = 'AmauiIconMaterialShowChartRoundedFilled';
+
 export default IconMaterialShowChartRoundedFilled;

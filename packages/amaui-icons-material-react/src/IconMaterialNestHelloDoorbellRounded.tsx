@@ -18,4 +18,6 @@ const IconMaterialNestHelloDoorbellRounded = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialNestHelloDoorbellRounded.displayName = 'AmauiIconMaterialNestHelloDoorbellRounded';
+
 export default IconMaterialNestHelloDoorbellRounded;

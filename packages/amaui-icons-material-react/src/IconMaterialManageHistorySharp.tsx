@@ -18,4 +18,6 @@ const IconMaterialManageHistorySharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialManageHistorySharp.displayName = 'AmauiIconMaterialManageHistorySharp';
+
 export default IconMaterialManageHistorySharp;

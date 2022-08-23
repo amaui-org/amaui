@@ -18,4 +18,6 @@ const IconMaterialHandshakeSharpW100Filled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialHandshakeSharpW100Filled.displayName = 'AmauiIconMaterialHandshakeSharpW100Filled';
+
 export default IconMaterialHandshakeSharpW100Filled;

@@ -18,4 +18,6 @@ const IconMaterialFormatIndentIncreaseRoundedFilled = React.forwardRef((props: a
   );
 });
 
+IconMaterialFormatIndentIncreaseRoundedFilled.displayName = 'AmauiIconMaterialFormatIndentIncreaseRoundedFilled';
+
 export default IconMaterialFormatIndentIncreaseRoundedFilled;

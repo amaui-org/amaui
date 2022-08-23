@@ -18,4 +18,6 @@ const IconMaterialCalendarViewWeekTwoTone = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialCalendarViewWeekTwoTone.displayName = 'AmauiIconMaterialCalendarViewWeekTwoTone';
+
 export default IconMaterialCalendarViewWeekTwoTone;

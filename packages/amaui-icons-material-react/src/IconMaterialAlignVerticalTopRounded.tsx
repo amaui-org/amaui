@@ -18,4 +18,6 @@ const IconMaterialAlignVerticalTopRounded = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialAlignVerticalTopRounded.displayName = 'AmauiIconMaterialAlignVerticalTopRounded';
+
 export default IconMaterialAlignVerticalTopRounded;

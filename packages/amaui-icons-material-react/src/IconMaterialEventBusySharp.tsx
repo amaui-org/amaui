@@ -18,4 +18,6 @@ const IconMaterialEventBusySharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialEventBusySharp.displayName = 'AmauiIconMaterialEventBusySharp';
+
 export default IconMaterialEventBusySharp;

@@ -18,4 +18,6 @@ const IconMaterialRollerSkatingSharpFilled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialRollerSkatingSharpFilled.displayName = 'AmauiIconMaterialRollerSkatingSharpFilled';
+
 export default IconMaterialRollerSkatingSharpFilled;

@@ -18,4 +18,6 @@ const IconMaterialAdminPanelSettingsRoundedFilled = React.forwardRef((props: any
   );
 });
 
+IconMaterialAdminPanelSettingsRoundedFilled.displayName = 'AmauiIconMaterialAdminPanelSettingsRoundedFilled';
+
 export default IconMaterialAdminPanelSettingsRoundedFilled;

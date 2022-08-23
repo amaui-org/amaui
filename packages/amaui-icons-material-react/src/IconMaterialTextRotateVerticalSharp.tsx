@@ -18,4 +18,6 @@ const IconMaterialTextRotateVerticalSharp = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialTextRotateVerticalSharp.displayName = 'AmauiIconMaterialTextRotateVerticalSharp';
+
 export default IconMaterialTextRotateVerticalSharp;

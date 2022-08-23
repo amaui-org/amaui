@@ -18,4 +18,6 @@ const IconMaterialFireExtinguisherTwoTone = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialFireExtinguisherTwoTone.displayName = 'AmauiIconMaterialFireExtinguisherTwoTone';
+
 export default IconMaterialFireExtinguisherTwoTone;

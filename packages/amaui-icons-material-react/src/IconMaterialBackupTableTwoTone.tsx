@@ -18,4 +18,6 @@ const IconMaterialBackupTableTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBackupTableTwoTone.displayName = 'AmauiIconMaterialBackupTableTwoTone';
+
 export default IconMaterialBackupTableTwoTone;

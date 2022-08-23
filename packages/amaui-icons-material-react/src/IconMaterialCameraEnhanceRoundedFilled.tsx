@@ -18,4 +18,6 @@ const IconMaterialCameraEnhanceRoundedFilled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialCameraEnhanceRoundedFilled.displayName = 'AmauiIconMaterialCameraEnhanceRoundedFilled';
+
 export default IconMaterialCameraEnhanceRoundedFilled;

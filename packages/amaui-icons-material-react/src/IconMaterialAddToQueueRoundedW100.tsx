@@ -18,4 +18,6 @@ const IconMaterialAddToQueueRoundedW100 = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialAddToQueueRoundedW100.displayName = 'AmauiIconMaterialAddToQueueRoundedW100';
+
 export default IconMaterialAddToQueueRoundedW100;

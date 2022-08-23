@@ -18,4 +18,6 @@ const IconMaterialSlowMotionVideoRounded = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialSlowMotionVideoRounded.displayName = 'AmauiIconMaterialSlowMotionVideoRounded';
+
 export default IconMaterialSlowMotionVideoRounded;

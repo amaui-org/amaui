@@ -18,4 +18,6 @@ const IconMaterialOfflineShareTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialOfflineShareTwoTone.displayName = 'AmauiIconMaterialOfflineShareTwoTone';
+
 export default IconMaterialOfflineShareTwoTone;

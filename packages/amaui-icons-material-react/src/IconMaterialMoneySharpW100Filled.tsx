@@ -18,4 +18,6 @@ const IconMaterialMoneySharpW100Filled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMoneySharpW100Filled.displayName = 'AmauiIconMaterialMoneySharpW100Filled';
+
 export default IconMaterialMoneySharpW100Filled;

@@ -18,4 +18,6 @@ const IconMaterialEventNoteRoundedFilled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialEventNoteRoundedFilled.displayName = 'AmauiIconMaterialEventNoteRoundedFilled';
+
 export default IconMaterialEventNoteRoundedFilled;

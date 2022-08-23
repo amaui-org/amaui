@@ -18,4 +18,6 @@ const IconMaterialFemurRoundedFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFemurRoundedFilled.displayName = 'AmauiIconMaterialFemurRoundedFilled';
+
 export default IconMaterialFemurRoundedFilled;

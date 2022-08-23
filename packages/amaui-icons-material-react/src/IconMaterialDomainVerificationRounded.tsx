@@ -18,4 +18,6 @@ const IconMaterialDomainVerificationRounded = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialDomainVerificationRounded.displayName = 'AmauiIconMaterialDomainVerificationRounded';
+
 export default IconMaterialDomainVerificationRounded;

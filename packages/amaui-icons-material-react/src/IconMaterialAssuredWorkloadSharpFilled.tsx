@@ -18,4 +18,6 @@ const IconMaterialAssuredWorkloadSharpFilled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialAssuredWorkloadSharpFilled.displayName = 'AmauiIconMaterialAssuredWorkloadSharpFilled';
+
 export default IconMaterialAssuredWorkloadSharpFilled;

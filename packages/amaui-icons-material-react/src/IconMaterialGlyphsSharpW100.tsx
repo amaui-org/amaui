@@ -18,4 +18,6 @@ const IconMaterialGlyphsSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialGlyphsSharpW100.displayName = 'AmauiIconMaterialGlyphsSharpW100';
+
 export default IconMaterialGlyphsSharpW100;

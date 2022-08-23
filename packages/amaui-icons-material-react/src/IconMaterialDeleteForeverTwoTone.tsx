@@ -18,4 +18,6 @@ const IconMaterialDeleteForeverTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDeleteForeverTwoTone.displayName = 'AmauiIconMaterialDeleteForeverTwoTone';
+
 export default IconMaterialDeleteForeverTwoTone;

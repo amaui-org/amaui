@@ -18,4 +18,6 @@ const IconMaterialDishwasherGenSharpFilled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialDishwasherGenSharpFilled.displayName = 'AmauiIconMaterialDishwasherGenSharpFilled';
+
 export default IconMaterialDishwasherGenSharpFilled;

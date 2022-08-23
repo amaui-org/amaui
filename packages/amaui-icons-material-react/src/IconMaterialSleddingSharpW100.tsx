@@ -18,4 +18,6 @@ const IconMaterialSleddingSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSleddingSharpW100.displayName = 'AmauiIconMaterialSleddingSharpW100';
+
 export default IconMaterialSleddingSharpW100;

@@ -18,4 +18,6 @@ const IconMaterialToolsPliersWireStripperSharpW100 = React.forwardRef((props: an
   );
 });
 
+IconMaterialToolsPliersWireStripperSharpW100.displayName = 'AmauiIconMaterialToolsPliersWireStripperSharpW100';
+
 export default IconMaterialToolsPliersWireStripperSharpW100;

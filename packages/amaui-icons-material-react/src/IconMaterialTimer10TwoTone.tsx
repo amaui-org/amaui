@@ -18,4 +18,6 @@ const IconMaterialTimer10TwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTimer10TwoTone.displayName = 'AmauiIconMaterialTimer10TwoTone';
+
 export default IconMaterialTimer10TwoTone;

@@ -18,4 +18,6 @@ const IconMaterialLaptopChromebookRoundedW100 = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialLaptopChromebookRoundedW100.displayName = 'AmauiIconMaterialLaptopChromebookRoundedW100';
+
 export default IconMaterialLaptopChromebookRoundedW100;

@@ -18,4 +18,6 @@ const IconMaterialStreetviewSharpW100Filled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialStreetviewSharpW100Filled.displayName = 'AmauiIconMaterialStreetviewSharpW100Filled';
+
 export default IconMaterialStreetviewSharpW100Filled;

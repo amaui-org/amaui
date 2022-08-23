@@ -18,4 +18,6 @@ const IconMaterialFontDownloadOffRoundedFilled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialFontDownloadOffRoundedFilled.displayName = 'AmauiIconMaterialFontDownloadOffRoundedFilled';
+
 export default IconMaterialFontDownloadOffRoundedFilled;

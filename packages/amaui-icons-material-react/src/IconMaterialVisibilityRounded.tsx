@@ -18,4 +18,6 @@ const IconMaterialVisibilityRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialVisibilityRounded.displayName = 'AmauiIconMaterialVisibilityRounded';
+
 export default IconMaterialVisibilityRounded;

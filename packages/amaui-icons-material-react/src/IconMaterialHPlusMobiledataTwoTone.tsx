@@ -18,4 +18,6 @@ const IconMaterialHPlusMobiledataTwoTone = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialHPlusMobiledataTwoTone.displayName = 'AmauiIconMaterialHPlusMobiledataTwoTone';
+
 export default IconMaterialHPlusMobiledataTwoTone;

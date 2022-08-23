@@ -18,4 +18,6 @@ const IconMaterialLocalFireDepartmentSharpFilled = React.forwardRef((props: any,
   );
 });
 
+IconMaterialLocalFireDepartmentSharpFilled.displayName = 'AmauiIconMaterialLocalFireDepartmentSharpFilled';
+
 export default IconMaterialLocalFireDepartmentSharpFilled;

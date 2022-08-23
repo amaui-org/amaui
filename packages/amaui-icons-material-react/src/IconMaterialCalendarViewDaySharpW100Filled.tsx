@@ -18,4 +18,6 @@ const IconMaterialCalendarViewDaySharpW100Filled = React.forwardRef((props: any,
   );
 });
 
+IconMaterialCalendarViewDaySharpW100Filled.displayName = 'AmauiIconMaterialCalendarViewDaySharpW100Filled';
+
 export default IconMaterialCalendarViewDaySharpW100Filled;

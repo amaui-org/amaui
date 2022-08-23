@@ -18,4 +18,6 @@ const IconMaterialGridViewSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialGridViewSharpFilled.displayName = 'AmauiIconMaterialGridViewSharpFilled';
+
 export default IconMaterialGridViewSharpFilled;

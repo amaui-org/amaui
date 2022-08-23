@@ -18,4 +18,6 @@ const IconMaterialNearMeDisabledTwoTone = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialNearMeDisabledTwoTone.displayName = 'AmauiIconMaterialNearMeDisabledTwoTone';
+
 export default IconMaterialNearMeDisabledTwoTone;

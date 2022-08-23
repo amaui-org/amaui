@@ -18,4 +18,6 @@ const IconMaterialCableSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCableSharpFilled.displayName = 'AmauiIconMaterialCableSharpFilled';
+
 export default IconMaterialCableSharpFilled;

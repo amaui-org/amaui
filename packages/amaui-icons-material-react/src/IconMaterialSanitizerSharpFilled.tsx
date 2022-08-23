@@ -18,4 +18,6 @@ const IconMaterialSanitizerSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSanitizerSharpFilled.displayName = 'AmauiIconMaterialSanitizerSharpFilled';
+
 export default IconMaterialSanitizerSharpFilled;

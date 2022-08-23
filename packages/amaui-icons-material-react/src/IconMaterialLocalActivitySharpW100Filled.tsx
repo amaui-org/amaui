@@ -18,4 +18,6 @@ const IconMaterialLocalActivitySharpW100Filled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialLocalActivitySharpW100Filled.displayName = 'AmauiIconMaterialLocalActivitySharpW100Filled';
+
 export default IconMaterialLocalActivitySharpW100Filled;

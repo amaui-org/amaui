@@ -18,4 +18,6 @@ const IconMaterialBloodtypeRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBloodtypeRoundedW100.displayName = 'AmauiIconMaterialBloodtypeRoundedW100';
+
 export default IconMaterialBloodtypeRoundedW100;

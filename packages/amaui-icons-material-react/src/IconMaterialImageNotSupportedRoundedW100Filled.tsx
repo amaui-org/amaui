@@ -18,4 +18,6 @@ const IconMaterialImageNotSupportedRoundedW100Filled = React.forwardRef((props: 
   );
 });
 
+IconMaterialImageNotSupportedRoundedW100Filled.displayName = 'AmauiIconMaterialImageNotSupportedRoundedW100Filled';
+
 export default IconMaterialImageNotSupportedRoundedW100Filled;

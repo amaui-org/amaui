@@ -18,4 +18,6 @@ const IconMaterialSettingsInputAntennaSharpFilled = React.forwardRef((props: any
   );
 });
 
+IconMaterialSettingsInputAntennaSharpFilled.displayName = 'AmauiIconMaterialSettingsInputAntennaSharpFilled';
+
 export default IconMaterialSettingsInputAntennaSharpFilled;

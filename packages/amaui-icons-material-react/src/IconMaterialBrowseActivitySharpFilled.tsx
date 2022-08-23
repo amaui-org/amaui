@@ -18,4 +18,6 @@ const IconMaterialBrowseActivitySharpFilled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialBrowseActivitySharpFilled.displayName = 'AmauiIconMaterialBrowseActivitySharpFilled';
+
 export default IconMaterialBrowseActivitySharpFilled;

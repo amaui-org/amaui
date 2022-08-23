@@ -18,4 +18,6 @@ const IconMaterialWaterfallChartRounded = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialWaterfallChartRounded.displayName = 'AmauiIconMaterialWaterfallChartRounded';
+
 export default IconMaterialWaterfallChartRounded;

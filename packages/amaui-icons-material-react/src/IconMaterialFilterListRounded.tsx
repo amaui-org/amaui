@@ -18,4 +18,6 @@ const IconMaterialFilterListRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFilterListRounded.displayName = 'AmauiIconMaterialFilterListRounded';
+
 export default IconMaterialFilterListRounded;

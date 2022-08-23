@@ -18,4 +18,6 @@ const IconMaterialSuperscriptSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSuperscriptSharp.displayName = 'AmauiIconMaterialSuperscriptSharp';
+
 export default IconMaterialSuperscriptSharp;

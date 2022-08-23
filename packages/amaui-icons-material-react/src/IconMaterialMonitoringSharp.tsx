@@ -18,4 +18,6 @@ const IconMaterialMonitoringSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMonitoringSharp.displayName = 'AmauiIconMaterialMonitoringSharp';
+
 export default IconMaterialMonitoringSharp;

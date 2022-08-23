@@ -18,4 +18,6 @@ const IconMaterialSlideshowSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSlideshowSharp.displayName = 'AmauiIconMaterialSlideshowSharp';
+
 export default IconMaterialSlideshowSharp;

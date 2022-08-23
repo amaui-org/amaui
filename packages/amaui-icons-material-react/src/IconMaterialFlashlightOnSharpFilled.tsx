@@ -18,4 +18,6 @@ const IconMaterialFlashlightOnSharpFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialFlashlightOnSharpFilled.displayName = 'AmauiIconMaterialFlashlightOnSharpFilled';
+
 export default IconMaterialFlashlightOnSharpFilled;

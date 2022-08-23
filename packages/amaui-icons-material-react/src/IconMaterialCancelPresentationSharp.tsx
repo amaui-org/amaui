@@ -18,4 +18,6 @@ const IconMaterialCancelPresentationSharp = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialCancelPresentationSharp.displayName = 'AmauiIconMaterialCancelPresentationSharp';
+
 export default IconMaterialCancelPresentationSharp;

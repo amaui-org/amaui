@@ -18,4 +18,6 @@ const IconMaterialMailRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMailRounded.displayName = 'AmauiIconMaterialMailRounded';
+
 export default IconMaterialMailRounded;

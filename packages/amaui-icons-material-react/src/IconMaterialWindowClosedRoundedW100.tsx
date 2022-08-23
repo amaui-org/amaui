@@ -18,4 +18,6 @@ const IconMaterialWindowClosedRoundedW100 = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialWindowClosedRoundedW100.displayName = 'AmauiIconMaterialWindowClosedRoundedW100';
+
 export default IconMaterialWindowClosedRoundedW100;

@@ -18,4 +18,6 @@ const IconMaterialSprinklerSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSprinklerSharp.displayName = 'AmauiIconMaterialSprinklerSharp';
+
 export default IconMaterialSprinklerSharp;

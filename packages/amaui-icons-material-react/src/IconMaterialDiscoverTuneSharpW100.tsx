@@ -18,4 +18,6 @@ const IconMaterialDiscoverTuneSharpW100 = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialDiscoverTuneSharpW100.displayName = 'AmauiIconMaterialDiscoverTuneSharpW100';
+
 export default IconMaterialDiscoverTuneSharpW100;

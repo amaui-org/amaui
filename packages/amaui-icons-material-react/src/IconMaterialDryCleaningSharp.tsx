@@ -18,4 +18,6 @@ const IconMaterialDryCleaningSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDryCleaningSharp.displayName = 'AmauiIconMaterialDryCleaningSharp';
+
 export default IconMaterialDryCleaningSharp;

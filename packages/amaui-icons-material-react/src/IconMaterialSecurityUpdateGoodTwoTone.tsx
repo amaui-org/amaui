@@ -18,4 +18,6 @@ const IconMaterialSecurityUpdateGoodTwoTone = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialSecurityUpdateGoodTwoTone.displayName = 'AmauiIconMaterialSecurityUpdateGoodTwoTone';
+
 export default IconMaterialSecurityUpdateGoodTwoTone;

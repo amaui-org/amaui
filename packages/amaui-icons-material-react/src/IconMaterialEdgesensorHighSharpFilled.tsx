@@ -18,4 +18,6 @@ const IconMaterialEdgesensorHighSharpFilled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialEdgesensorHighSharpFilled.displayName = 'AmauiIconMaterialEdgesensorHighSharpFilled';
+
 export default IconMaterialEdgesensorHighSharpFilled;

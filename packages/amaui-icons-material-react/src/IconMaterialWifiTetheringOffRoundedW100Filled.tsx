@@ -18,4 +18,6 @@ const IconMaterialWifiTetheringOffRoundedW100Filled = React.forwardRef((props: a
   );
 });
 
+IconMaterialWifiTetheringOffRoundedW100Filled.displayName = 'AmauiIconMaterialWifiTetheringOffRoundedW100Filled';
+
 export default IconMaterialWifiTetheringOffRoundedW100Filled;

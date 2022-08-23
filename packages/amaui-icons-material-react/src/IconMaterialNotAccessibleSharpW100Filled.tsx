@@ -18,4 +18,6 @@ const IconMaterialNotAccessibleSharpW100Filled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialNotAccessibleSharpW100Filled.displayName = 'AmauiIconMaterialNotAccessibleSharpW100Filled';
+
 export default IconMaterialNotAccessibleSharpW100Filled;

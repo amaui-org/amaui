@@ -18,4 +18,6 @@ const IconMaterialResetTvTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialResetTvTwoTone.displayName = 'AmauiIconMaterialResetTvTwoTone';
+
 export default IconMaterialResetTvTwoTone;

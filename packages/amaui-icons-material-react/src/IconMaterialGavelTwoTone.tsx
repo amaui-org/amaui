@@ -18,4 +18,6 @@ const IconMaterialGavelTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialGavelTwoTone.displayName = 'AmauiIconMaterialGavelTwoTone';
+
 export default IconMaterialGavelTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialVerticalDistributeSharp = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialVerticalDistributeSharp.displayName = 'AmauiIconMaterialVerticalDistributeSharp';
+
 export default IconMaterialVerticalDistributeSharp;

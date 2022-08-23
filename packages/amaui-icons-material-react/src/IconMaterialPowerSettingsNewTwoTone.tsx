@@ -18,4 +18,6 @@ const IconMaterialPowerSettingsNewTwoTone = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialPowerSettingsNewTwoTone.displayName = 'AmauiIconMaterialPowerSettingsNewTwoTone';
+
 export default IconMaterialPowerSettingsNewTwoTone;

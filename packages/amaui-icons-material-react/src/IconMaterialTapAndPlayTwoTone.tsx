@@ -18,4 +18,6 @@ const IconMaterialTapAndPlayTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTapAndPlayTwoTone.displayName = 'AmauiIconMaterialTapAndPlayTwoTone';
+
 export default IconMaterialTapAndPlayTwoTone;

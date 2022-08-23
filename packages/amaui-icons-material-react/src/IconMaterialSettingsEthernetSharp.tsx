@@ -18,4 +18,6 @@ const IconMaterialSettingsEthernetSharp = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialSettingsEthernetSharp.displayName = 'AmauiIconMaterialSettingsEthernetSharp';
+
 export default IconMaterialSettingsEthernetSharp;

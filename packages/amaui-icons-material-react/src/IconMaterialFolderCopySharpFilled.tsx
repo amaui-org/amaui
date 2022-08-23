@@ -18,4 +18,6 @@ const IconMaterialFolderCopySharpFilled = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialFolderCopySharpFilled.displayName = 'AmauiIconMaterialFolderCopySharpFilled';
+
 export default IconMaterialFolderCopySharpFilled;

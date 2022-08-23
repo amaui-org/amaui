@@ -18,4 +18,6 @@ const IconMaterialChromeReaderModeRoundedW100Filled = React.forwardRef((props: a
   );
 });
 
+IconMaterialChromeReaderModeRoundedW100Filled.displayName = 'AmauiIconMaterialChromeReaderModeRoundedW100Filled';
+
 export default IconMaterialChromeReaderModeRoundedW100Filled;

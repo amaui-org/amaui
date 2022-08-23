@@ -18,4 +18,6 @@ const IconMaterialAutoActivityZoneSharpW100Filled = React.forwardRef((props: any
   );
 });
 
+IconMaterialAutoActivityZoneSharpW100Filled.displayName = 'AmauiIconMaterialAutoActivityZoneSharpW100Filled';
+
 export default IconMaterialAutoActivityZoneSharpW100Filled;

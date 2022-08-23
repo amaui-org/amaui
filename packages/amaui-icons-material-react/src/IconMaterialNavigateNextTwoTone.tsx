@@ -18,4 +18,6 @@ const IconMaterialNavigateNextTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNavigateNextTwoTone.displayName = 'AmauiIconMaterialNavigateNextTwoTone';
+
 export default IconMaterialNavigateNextTwoTone;

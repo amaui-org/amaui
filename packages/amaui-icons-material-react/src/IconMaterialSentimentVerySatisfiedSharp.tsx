@@ -18,4 +18,6 @@ const IconMaterialSentimentVerySatisfiedSharp = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialSentimentVerySatisfiedSharp.displayName = 'AmauiIconMaterialSentimentVerySatisfiedSharp';
+
 export default IconMaterialSentimentVerySatisfiedSharp;

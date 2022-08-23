@@ -18,4 +18,6 @@ const IconMaterialShieldMoonSharpW100Filled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialShieldMoonSharpW100Filled.displayName = 'AmauiIconMaterialShieldMoonSharpW100Filled';
+
 export default IconMaterialShieldMoonSharpW100Filled;

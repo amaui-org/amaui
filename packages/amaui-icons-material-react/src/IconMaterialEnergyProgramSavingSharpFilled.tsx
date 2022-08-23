@@ -18,4 +18,6 @@ const IconMaterialEnergyProgramSavingSharpFilled = React.forwardRef((props: any,
   );
 });
 
+IconMaterialEnergyProgramSavingSharpFilled.displayName = 'AmauiIconMaterialEnergyProgramSavingSharpFilled';
+
 export default IconMaterialEnergyProgramSavingSharpFilled;

@@ -18,4 +18,6 @@ const IconMaterialCreditCardOffSharpW100 = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialCreditCardOffSharpW100.displayName = 'AmauiIconMaterialCreditCardOffSharpW100';
+
 export default IconMaterialCreditCardOffSharpW100;

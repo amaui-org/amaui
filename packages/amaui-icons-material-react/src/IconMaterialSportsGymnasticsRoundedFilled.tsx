@@ -18,4 +18,6 @@ const IconMaterialSportsGymnasticsRoundedFilled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialSportsGymnasticsRoundedFilled.displayName = 'AmauiIconMaterialSportsGymnasticsRoundedFilled';
+
 export default IconMaterialSportsGymnasticsRoundedFilled;

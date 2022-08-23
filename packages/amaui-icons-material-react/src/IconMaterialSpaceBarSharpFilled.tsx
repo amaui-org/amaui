@@ -18,4 +18,6 @@ const IconMaterialSpaceBarSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSpaceBarSharpFilled.displayName = 'AmauiIconMaterialSpaceBarSharpFilled';
+
 export default IconMaterialSpaceBarSharpFilled;

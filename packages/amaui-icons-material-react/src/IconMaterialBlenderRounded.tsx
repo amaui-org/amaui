@@ -18,4 +18,6 @@ const IconMaterialBlenderRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBlenderRounded.displayName = 'AmauiIconMaterialBlenderRounded';
+
 export default IconMaterialBlenderRounded;

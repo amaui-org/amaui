@@ -18,4 +18,6 @@ const IconMaterialCardTravelSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCardTravelSharp.displayName = 'AmauiIconMaterialCardTravelSharp';
+
 export default IconMaterialCardTravelSharp;

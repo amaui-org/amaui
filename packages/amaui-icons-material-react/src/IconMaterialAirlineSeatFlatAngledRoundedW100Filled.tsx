@@ -18,4 +18,6 @@ const IconMaterialAirlineSeatFlatAngledRoundedW100Filled = React.forwardRef((pro
   );
 });
 
+IconMaterialAirlineSeatFlatAngledRoundedW100Filled.displayName = 'AmauiIconMaterialAirlineSeatFlatAngledRoundedW100Filled';
+
 export default IconMaterialAirlineSeatFlatAngledRoundedW100Filled;

@@ -18,4 +18,6 @@ const IconMaterialLocalShippingRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLocalShippingRounded.displayName = 'AmauiIconMaterialLocalShippingRounded';
+
 export default IconMaterialLocalShippingRounded;

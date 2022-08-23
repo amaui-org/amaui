@@ -18,4 +18,6 @@ const IconMaterialReduceCapacitySharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialReduceCapacitySharp.displayName = 'AmauiIconMaterialReduceCapacitySharp';
+
 export default IconMaterialReduceCapacitySharp;

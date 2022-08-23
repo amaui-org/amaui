@@ -18,4 +18,6 @@ const IconMaterialForwardToInboxTwoTone = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialForwardToInboxTwoTone.displayName = 'AmauiIconMaterialForwardToInboxTwoTone';
+
 export default IconMaterialForwardToInboxTwoTone;

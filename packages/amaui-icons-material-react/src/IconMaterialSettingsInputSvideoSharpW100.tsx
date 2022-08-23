@@ -18,4 +18,6 @@ const IconMaterialSettingsInputSvideoSharpW100 = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialSettingsInputSvideoSharpW100.displayName = 'AmauiIconMaterialSettingsInputSvideoSharpW100';
+
 export default IconMaterialSettingsInputSvideoSharpW100;

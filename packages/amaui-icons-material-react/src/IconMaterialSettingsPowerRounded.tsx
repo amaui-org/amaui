@@ -18,4 +18,6 @@ const IconMaterialSettingsPowerRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSettingsPowerRounded.displayName = 'AmauiIconMaterialSettingsPowerRounded';
+
 export default IconMaterialSettingsPowerRounded;

@@ -18,4 +18,6 @@ const IconMaterialAppsOutageRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAppsOutageRounded.displayName = 'AmauiIconMaterialAppsOutageRounded';
+
 export default IconMaterialAppsOutageRounded;

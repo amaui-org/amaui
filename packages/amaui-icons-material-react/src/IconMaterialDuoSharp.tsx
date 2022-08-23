@@ -18,4 +18,6 @@ const IconMaterialDuoSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDuoSharp.displayName = 'AmauiIconMaterialDuoSharp';
+
 export default IconMaterialDuoSharp;

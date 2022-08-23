@@ -18,4 +18,6 @@ const IconMaterialDoNotTouchSharpFilled = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialDoNotTouchSharpFilled.displayName = 'AmauiIconMaterialDoNotTouchSharpFilled';
+
 export default IconMaterialDoNotTouchSharpFilled;

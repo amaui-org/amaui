@@ -18,4 +18,6 @@ const IconMaterialLocalTaxiRoundedFilled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialLocalTaxiRoundedFilled.displayName = 'AmauiIconMaterialLocalTaxiRoundedFilled';
+
 export default IconMaterialLocalTaxiRoundedFilled;

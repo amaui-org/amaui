@@ -18,4 +18,6 @@ const IconMaterialProductivitySharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialProductivitySharp.displayName = 'AmauiIconMaterialProductivitySharp';
+
 export default IconMaterialProductivitySharp;

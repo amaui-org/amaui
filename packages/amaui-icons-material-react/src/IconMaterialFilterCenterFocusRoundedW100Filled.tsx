@@ -18,4 +18,6 @@ const IconMaterialFilterCenterFocusRoundedW100Filled = React.forwardRef((props: 
   );
 });
 
+IconMaterialFilterCenterFocusRoundedW100Filled.displayName = 'AmauiIconMaterialFilterCenterFocusRoundedW100Filled';
+
 export default IconMaterialFilterCenterFocusRoundedW100Filled;

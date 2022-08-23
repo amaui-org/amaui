@@ -18,4 +18,6 @@ const IconMaterialAdsClickTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAdsClickTwoTone.displayName = 'AmauiIconMaterialAdsClickTwoTone';
+
 export default IconMaterialAdsClickTwoTone;

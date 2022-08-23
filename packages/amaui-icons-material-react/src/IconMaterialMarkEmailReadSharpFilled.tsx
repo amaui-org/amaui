@@ -18,4 +18,6 @@ const IconMaterialMarkEmailReadSharpFilled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialMarkEmailReadSharpFilled.displayName = 'AmauiIconMaterialMarkEmailReadSharpFilled';
+
 export default IconMaterialMarkEmailReadSharpFilled;

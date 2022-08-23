@@ -18,4 +18,6 @@ const IconMaterialReorderSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialReorderSharp.displayName = 'AmauiIconMaterialReorderSharp';
+
 export default IconMaterialReorderSharp;

@@ -18,4 +18,6 @@ const IconMaterialCallMissedOutgoingSharpFilled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialCallMissedOutgoingSharpFilled.displayName = 'AmauiIconMaterialCallMissedOutgoingSharpFilled';
+
 export default IconMaterialCallMissedOutgoingSharpFilled;

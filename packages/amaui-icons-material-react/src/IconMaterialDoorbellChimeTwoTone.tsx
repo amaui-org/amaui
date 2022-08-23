@@ -18,4 +18,6 @@ const IconMaterialDoorbellChimeTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDoorbellChimeTwoTone.displayName = 'AmauiIconMaterialDoorbellChimeTwoTone';
+
 export default IconMaterialDoorbellChimeTwoTone;

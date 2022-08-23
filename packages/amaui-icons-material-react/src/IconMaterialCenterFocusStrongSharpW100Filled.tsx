@@ -18,4 +18,6 @@ const IconMaterialCenterFocusStrongSharpW100Filled = React.forwardRef((props: an
   );
 });
 
+IconMaterialCenterFocusStrongSharpW100Filled.displayName = 'AmauiIconMaterialCenterFocusStrongSharpW100Filled';
+
 export default IconMaterialCenterFocusStrongSharpW100Filled;

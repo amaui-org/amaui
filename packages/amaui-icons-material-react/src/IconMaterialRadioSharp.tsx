@@ -18,4 +18,6 @@ const IconMaterialRadioSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialRadioSharp.displayName = 'AmauiIconMaterialRadioSharp';
+
 export default IconMaterialRadioSharp;

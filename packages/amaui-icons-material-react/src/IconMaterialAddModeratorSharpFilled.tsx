@@ -18,4 +18,6 @@ const IconMaterialAddModeratorSharpFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialAddModeratorSharpFilled.displayName = 'AmauiIconMaterialAddModeratorSharpFilled';
+
 export default IconMaterialAddModeratorSharpFilled;

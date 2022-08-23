@@ -18,4 +18,6 @@ const IconMaterialNestHeatLinkGen3Rounded = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialNestHeatLinkGen3Rounded.displayName = 'AmauiIconMaterialNestHeatLinkGen3Rounded';
+
 export default IconMaterialNestHeatLinkGen3Rounded;

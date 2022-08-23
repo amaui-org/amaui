@@ -18,4 +18,6 @@ const IconMaterialSpeakerRoundedW100Filled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialSpeakerRoundedW100Filled.displayName = 'AmauiIconMaterialSpeakerRoundedW100Filled';
+
 export default IconMaterialSpeakerRoundedW100Filled;

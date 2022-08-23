@@ -18,4 +18,6 @@ const IconMaterialGifBoxRoundedFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialGifBoxRoundedFilled.displayName = 'AmauiIconMaterialGifBoxRoundedFilled';
+
 export default IconMaterialGifBoxRoundedFilled;

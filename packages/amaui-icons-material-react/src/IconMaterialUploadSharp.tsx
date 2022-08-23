@@ -18,4 +18,6 @@ const IconMaterialUploadSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialUploadSharp.displayName = 'AmauiIconMaterialUploadSharp';
+
 export default IconMaterialUploadSharp;

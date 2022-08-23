@@ -18,4 +18,6 @@ const IconMaterialPowerOffSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPowerOffSharp.displayName = 'AmauiIconMaterialPowerOffSharp';
+
 export default IconMaterialPowerOffSharp;

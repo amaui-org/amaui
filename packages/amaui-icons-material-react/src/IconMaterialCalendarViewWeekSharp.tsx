@@ -18,4 +18,6 @@ const IconMaterialCalendarViewWeekSharp = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialCalendarViewWeekSharp.displayName = 'AmauiIconMaterialCalendarViewWeekSharp';
+
 export default IconMaterialCalendarViewWeekSharp;

@@ -18,4 +18,6 @@ const IconMaterialVrpanoSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialVrpanoSharp.displayName = 'AmauiIconMaterialVrpanoSharp';
+
 export default IconMaterialVrpanoSharp;

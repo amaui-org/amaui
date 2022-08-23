@@ -18,4 +18,6 @@ const IconMaterialModeFanRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialModeFanRoundedW100.displayName = 'AmauiIconMaterialModeFanRoundedW100';
+
 export default IconMaterialModeFanRoundedW100;

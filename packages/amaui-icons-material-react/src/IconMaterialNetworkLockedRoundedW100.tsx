@@ -18,4 +18,6 @@ const IconMaterialNetworkLockedRoundedW100 = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialNetworkLockedRoundedW100.displayName = 'AmauiIconMaterialNetworkLockedRoundedW100';
+
 export default IconMaterialNetworkLockedRoundedW100;

@@ -18,4 +18,6 @@ const IconMaterialScreenRotationSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialScreenRotationSharp.displayName = 'AmauiIconMaterialScreenRotationSharp';
+
 export default IconMaterialScreenRotationSharp;

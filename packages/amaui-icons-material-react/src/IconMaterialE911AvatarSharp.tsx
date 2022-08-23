@@ -18,4 +18,6 @@ const IconMaterialE911AvatarSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialE911AvatarSharp.displayName = 'AmauiIconMaterialE911AvatarSharp';
+
 export default IconMaterialE911AvatarSharp;

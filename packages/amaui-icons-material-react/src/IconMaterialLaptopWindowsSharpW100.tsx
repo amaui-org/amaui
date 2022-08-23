@@ -18,4 +18,6 @@ const IconMaterialLaptopWindowsSharpW100 = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialLaptopWindowsSharpW100.displayName = 'AmauiIconMaterialLaptopWindowsSharpW100';
+
 export default IconMaterialLaptopWindowsSharpW100;

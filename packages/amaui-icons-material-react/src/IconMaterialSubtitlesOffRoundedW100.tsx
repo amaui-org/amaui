@@ -18,4 +18,6 @@ const IconMaterialSubtitlesOffRoundedW100 = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialSubtitlesOffRoundedW100.displayName = 'AmauiIconMaterialSubtitlesOffRoundedW100';
+
 export default IconMaterialSubtitlesOffRoundedW100;

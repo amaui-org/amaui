@@ -18,4 +18,6 @@ const IconMaterialPetsRoundedFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPetsRoundedFilled.displayName = 'AmauiIconMaterialPetsRoundedFilled';
+
 export default IconMaterialPetsRoundedFilled;

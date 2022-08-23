@@ -18,4 +18,6 @@ const IconMaterialExpandLessTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialExpandLessTwoTone.displayName = 'AmauiIconMaterialExpandLessTwoTone';
+
 export default IconMaterialExpandLessTwoTone;

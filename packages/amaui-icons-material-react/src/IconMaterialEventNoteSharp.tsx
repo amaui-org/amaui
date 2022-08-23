@@ -18,4 +18,6 @@ const IconMaterialEventNoteSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialEventNoteSharp.displayName = 'AmauiIconMaterialEventNoteSharp';
+
 export default IconMaterialEventNoteSharp;

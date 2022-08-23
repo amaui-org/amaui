@@ -18,4 +18,6 @@ const IconMaterialAltRouteTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAltRouteTwoTone.displayName = 'AmauiIconMaterialAltRouteTwoTone';
+
 export default IconMaterialAltRouteTwoTone;

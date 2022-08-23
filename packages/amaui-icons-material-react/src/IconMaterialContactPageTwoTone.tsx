@@ -18,4 +18,6 @@ const IconMaterialContactPageTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialContactPageTwoTone.displayName = 'AmauiIconMaterialContactPageTwoTone';
+
 export default IconMaterialContactPageTwoTone;

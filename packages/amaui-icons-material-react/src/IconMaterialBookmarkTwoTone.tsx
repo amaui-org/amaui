@@ -18,4 +18,6 @@ const IconMaterialBookmarkTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBookmarkTwoTone.displayName = 'AmauiIconMaterialBookmarkTwoTone';
+
 export default IconMaterialBookmarkTwoTone;

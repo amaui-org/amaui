@@ -18,4 +18,6 @@ const IconMaterialVibrationSharpW100Filled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialVibrationSharpW100Filled.displayName = 'AmauiIconMaterialVibrationSharpW100Filled';
+
 export default IconMaterialVibrationSharpW100Filled;

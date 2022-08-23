@@ -18,4 +18,6 @@ const IconMaterialNestHeatLinkGen3TwoTone = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialNestHeatLinkGen3TwoTone.displayName = 'AmauiIconMaterialNestHeatLinkGen3TwoTone';
+
 export default IconMaterialNestHeatLinkGen3TwoTone;

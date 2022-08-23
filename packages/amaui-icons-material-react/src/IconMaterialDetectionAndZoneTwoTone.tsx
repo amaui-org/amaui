@@ -18,4 +18,6 @@ const IconMaterialDetectionAndZoneTwoTone = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialDetectionAndZoneTwoTone.displayName = 'AmauiIconMaterialDetectionAndZoneTwoTone';
+
 export default IconMaterialDetectionAndZoneTwoTone;

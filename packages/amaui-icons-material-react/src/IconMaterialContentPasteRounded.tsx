@@ -18,4 +18,6 @@ const IconMaterialContentPasteRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialContentPasteRounded.displayName = 'AmauiIconMaterialContentPasteRounded';
+
 export default IconMaterialContentPasteRounded;

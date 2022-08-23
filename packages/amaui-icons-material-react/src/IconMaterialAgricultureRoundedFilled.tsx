@@ -18,4 +18,6 @@ const IconMaterialAgricultureRoundedFilled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialAgricultureRoundedFilled.displayName = 'AmauiIconMaterialAgricultureRoundedFilled';
+
 export default IconMaterialAgricultureRoundedFilled;

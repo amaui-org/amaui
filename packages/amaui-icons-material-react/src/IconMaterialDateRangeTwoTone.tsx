@@ -18,4 +18,6 @@ const IconMaterialDateRangeTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDateRangeTwoTone.displayName = 'AmauiIconMaterialDateRangeTwoTone';
+
 export default IconMaterialDateRangeTwoTone;

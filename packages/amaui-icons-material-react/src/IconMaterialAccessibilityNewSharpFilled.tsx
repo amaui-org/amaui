@@ -18,4 +18,6 @@ const IconMaterialAccessibilityNewSharpFilled = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialAccessibilityNewSharpFilled.displayName = 'AmauiIconMaterialAccessibilityNewSharpFilled';
+
 export default IconMaterialAccessibilityNewSharpFilled;

@@ -18,4 +18,6 @@ const IconMaterialNestAudioSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNestAudioSharp.displayName = 'AmauiIconMaterialNestAudioSharp';
+
 export default IconMaterialNestAudioSharp;

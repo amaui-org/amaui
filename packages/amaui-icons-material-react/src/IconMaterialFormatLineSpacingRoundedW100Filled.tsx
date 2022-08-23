@@ -18,4 +18,6 @@ const IconMaterialFormatLineSpacingRoundedW100Filled = React.forwardRef((props: 
   );
 });
 
+IconMaterialFormatLineSpacingRoundedW100Filled.displayName = 'AmauiIconMaterialFormatLineSpacingRoundedW100Filled';
+
 export default IconMaterialFormatLineSpacingRoundedW100Filled;

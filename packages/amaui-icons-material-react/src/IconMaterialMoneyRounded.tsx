@@ -18,4 +18,6 @@ const IconMaterialMoneyRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMoneyRounded.displayName = 'AmauiIconMaterialMoneyRounded';
+
 export default IconMaterialMoneyRounded;

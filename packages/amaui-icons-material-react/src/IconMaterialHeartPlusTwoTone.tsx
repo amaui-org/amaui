@@ -18,4 +18,6 @@ const IconMaterialHeartPlusTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialHeartPlusTwoTone.displayName = 'AmauiIconMaterialHeartPlusTwoTone';
+
 export default IconMaterialHeartPlusTwoTone;

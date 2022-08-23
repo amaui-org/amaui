@@ -18,4 +18,6 @@ const IconMaterialMfgNestYaleLockSharpW100 = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialMfgNestYaleLockSharpW100.displayName = 'AmauiIconMaterialMfgNestYaleLockSharpW100';
+
 export default IconMaterialMfgNestYaleLockSharpW100;

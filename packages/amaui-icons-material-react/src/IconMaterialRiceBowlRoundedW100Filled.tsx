@@ -18,4 +18,6 @@ const IconMaterialRiceBowlRoundedW100Filled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialRiceBowlRoundedW100Filled.displayName = 'AmauiIconMaterialRiceBowlRoundedW100Filled';
+
 export default IconMaterialRiceBowlRoundedW100Filled;

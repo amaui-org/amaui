@@ -18,4 +18,6 @@ const IconMaterialArrowDownwardTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialArrowDownwardTwoTone.displayName = 'AmauiIconMaterialArrowDownwardTwoTone';
+
 export default IconMaterialArrowDownwardTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialSwapHorizRoundedW100Filled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialSwapHorizRoundedW100Filled.displayName = 'AmauiIconMaterialSwapHorizRoundedW100Filled';
+
 export default IconMaterialSwapHorizRoundedW100Filled;

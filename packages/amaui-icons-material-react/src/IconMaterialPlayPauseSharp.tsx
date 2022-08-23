@@ -18,4 +18,6 @@ const IconMaterialPlayPauseSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPlayPauseSharp.displayName = 'AmauiIconMaterialPlayPauseSharp';
+
 export default IconMaterialPlayPauseSharp;

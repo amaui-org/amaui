@@ -18,4 +18,6 @@ const IconMaterialViewHeadlineTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialViewHeadlineTwoTone.displayName = 'AmauiIconMaterialViewHeadlineTwoTone';
+
 export default IconMaterialViewHeadlineTwoTone;

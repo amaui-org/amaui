@@ -18,4 +18,6 @@ const IconMaterialAttachMoneySharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAttachMoneySharp.displayName = 'AmauiIconMaterialAttachMoneySharp';
+
 export default IconMaterialAttachMoneySharp;

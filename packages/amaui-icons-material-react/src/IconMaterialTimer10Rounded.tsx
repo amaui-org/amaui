@@ -18,4 +18,6 @@ const IconMaterialTimer10Rounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTimer10Rounded.displayName = 'AmauiIconMaterialTimer10Rounded';
+
 export default IconMaterialTimer10Rounded;

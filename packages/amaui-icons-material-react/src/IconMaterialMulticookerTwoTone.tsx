@@ -18,4 +18,6 @@ const IconMaterialMulticookerTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMulticookerTwoTone.displayName = 'AmauiIconMaterialMulticookerTwoTone';
+
 export default IconMaterialMulticookerTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialAutoReadPlayRoundedW100Filled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialAutoReadPlayRoundedW100Filled.displayName = 'AmauiIconMaterialAutoReadPlayRoundedW100Filled';
+
 export default IconMaterialAutoReadPlayRoundedW100Filled;

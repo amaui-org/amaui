@@ -18,4 +18,6 @@ const IconMaterialHourglassTopRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialHourglassTopRounded.displayName = 'AmauiIconMaterialHourglassTopRounded';
+
 export default IconMaterialHourglassTopRounded;

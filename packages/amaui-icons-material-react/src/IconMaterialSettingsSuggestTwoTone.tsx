@@ -18,4 +18,6 @@ const IconMaterialSettingsSuggestTwoTone = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialSettingsSuggestTwoTone.displayName = 'AmauiIconMaterialSettingsSuggestTwoTone';
+
 export default IconMaterialSettingsSuggestTwoTone;

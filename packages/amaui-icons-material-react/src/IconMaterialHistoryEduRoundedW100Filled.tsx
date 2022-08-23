@@ -18,4 +18,6 @@ const IconMaterialHistoryEduRoundedW100Filled = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialHistoryEduRoundedW100Filled.displayName = 'AmauiIconMaterialHistoryEduRoundedW100Filled';
+
 export default IconMaterialHistoryEduRoundedW100Filled;

@@ -18,4 +18,6 @@ const IconMaterialFormatStrikethroughRounded = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialFormatStrikethroughRounded.displayName = 'AmauiIconMaterialFormatStrikethroughRounded';
+
 export default IconMaterialFormatStrikethroughRounded;

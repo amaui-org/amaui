@@ -18,4 +18,6 @@ const IconMaterialVignetteTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialVignetteTwoTone.displayName = 'AmauiIconMaterialVignetteTwoTone';
+
 export default IconMaterialVignetteTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialLocalConvenienceStoreSharp = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialLocalConvenienceStoreSharp.displayName = 'AmauiIconMaterialLocalConvenienceStoreSharp';
+
 export default IconMaterialLocalConvenienceStoreSharp;

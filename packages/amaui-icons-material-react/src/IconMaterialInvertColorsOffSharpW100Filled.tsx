@@ -18,4 +18,6 @@ const IconMaterialInvertColorsOffSharpW100Filled = React.forwardRef((props: any,
   );
 });
 
+IconMaterialInvertColorsOffSharpW100Filled.displayName = 'AmauiIconMaterialInvertColorsOffSharpW100Filled';
+
 export default IconMaterialInvertColorsOffSharpW100Filled;

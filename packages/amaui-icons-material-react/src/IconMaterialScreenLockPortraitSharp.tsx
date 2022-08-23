@@ -18,4 +18,6 @@ const IconMaterialScreenLockPortraitSharp = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialScreenLockPortraitSharp.displayName = 'AmauiIconMaterialScreenLockPortraitSharp';
+
 export default IconMaterialScreenLockPortraitSharp;

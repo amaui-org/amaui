@@ -18,4 +18,6 @@ const IconMaterialViewHeadlineSharpFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialViewHeadlineSharpFilled.displayName = 'AmauiIconMaterialViewHeadlineSharpFilled';
+
 export default IconMaterialViewHeadlineSharpFilled;

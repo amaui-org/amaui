@@ -18,4 +18,6 @@ const IconMaterialDetectionAndZoneSharp = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialDetectionAndZoneSharp.displayName = 'AmauiIconMaterialDetectionAndZoneSharp';
+
 export default IconMaterialDetectionAndZoneSharp;

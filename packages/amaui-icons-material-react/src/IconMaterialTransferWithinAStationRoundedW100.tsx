@@ -18,4 +18,6 @@ const IconMaterialTransferWithinAStationRoundedW100 = React.forwardRef((props: a
   );
 });
 
+IconMaterialTransferWithinAStationRoundedW100.displayName = 'AmauiIconMaterialTransferWithinAStationRoundedW100';
+
 export default IconMaterialTransferWithinAStationRoundedW100;

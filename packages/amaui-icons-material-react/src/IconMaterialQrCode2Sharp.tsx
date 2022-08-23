@@ -18,4 +18,6 @@ const IconMaterialQrCode2Sharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialQrCode2Sharp.displayName = 'AmauiIconMaterialQrCode2Sharp';
+
 export default IconMaterialQrCode2Sharp;

@@ -18,4 +18,6 @@ const IconMaterialHorizontalSplitRoundedW100 = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialHorizontalSplitRoundedW100.displayName = 'AmauiIconMaterialHorizontalSplitRoundedW100';
+
 export default IconMaterialHorizontalSplitRoundedW100;

@@ -18,4 +18,6 @@ const IconMaterialCrisisAlertRoundedW100 = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialCrisisAlertRoundedW100.displayName = 'AmauiIconMaterialCrisisAlertRoundedW100';
+
 export default IconMaterialCrisisAlertRoundedW100;

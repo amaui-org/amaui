@@ -18,4 +18,6 @@ const IconMaterialHdrAutoSelectRoundedW100 = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialHdrAutoSelectRoundedW100.displayName = 'AmauiIconMaterialHdrAutoSelectRoundedW100';
+
 export default IconMaterialHdrAutoSelectRoundedW100;

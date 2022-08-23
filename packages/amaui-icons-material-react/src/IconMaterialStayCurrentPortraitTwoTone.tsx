@@ -18,4 +18,6 @@ const IconMaterialStayCurrentPortraitTwoTone = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialStayCurrentPortraitTwoTone.displayName = 'AmauiIconMaterialStayCurrentPortraitTwoTone';
+
 export default IconMaterialStayCurrentPortraitTwoTone;

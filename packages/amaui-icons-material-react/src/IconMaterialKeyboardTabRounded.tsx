@@ -18,4 +18,6 @@ const IconMaterialKeyboardTabRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialKeyboardTabRounded.displayName = 'AmauiIconMaterialKeyboardTabRounded';
+
 export default IconMaterialKeyboardTabRounded;

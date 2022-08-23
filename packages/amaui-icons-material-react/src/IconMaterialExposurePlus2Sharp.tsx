@@ -18,4 +18,6 @@ const IconMaterialExposurePlus2Sharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialExposurePlus2Sharp.displayName = 'AmauiIconMaterialExposurePlus2Sharp';
+
 export default IconMaterialExposurePlus2Sharp;

@@ -18,4 +18,6 @@ const IconMaterialMotorcycleRoundedFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialMotorcycleRoundedFilled.displayName = 'AmauiIconMaterialMotorcycleRoundedFilled';
+
 export default IconMaterialMotorcycleRoundedFilled;

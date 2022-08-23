@@ -18,4 +18,6 @@ const IconMaterialToolsWrenchTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialToolsWrenchTwoTone.displayName = 'AmauiIconMaterialToolsWrenchTwoTone';
+
 export default IconMaterialToolsWrenchTwoTone;

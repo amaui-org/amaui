@@ -18,4 +18,6 @@ const IconMaterialInvertColorsTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialInvertColorsTwoTone.displayName = 'AmauiIconMaterialInvertColorsTwoTone';
+
 export default IconMaterialInvertColorsTwoTone;

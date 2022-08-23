@@ -18,4 +18,6 @@ const IconMaterialFilterTiltShiftRoundedFilled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialFilterTiltShiftRoundedFilled.displayName = 'AmauiIconMaterialFilterTiltShiftRoundedFilled';
+
 export default IconMaterialFilterTiltShiftRoundedFilled;

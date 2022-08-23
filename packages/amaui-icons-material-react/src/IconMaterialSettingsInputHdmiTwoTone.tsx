@@ -18,4 +18,6 @@ const IconMaterialSettingsInputHdmiTwoTone = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialSettingsInputHdmiTwoTone.displayName = 'AmauiIconMaterialSettingsInputHdmiTwoTone';
+
 export default IconMaterialSettingsInputHdmiTwoTone;

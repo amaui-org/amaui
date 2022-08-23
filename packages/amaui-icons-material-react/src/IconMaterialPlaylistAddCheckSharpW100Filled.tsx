@@ -18,4 +18,6 @@ const IconMaterialPlaylistAddCheckSharpW100Filled = React.forwardRef((props: any
   );
 });
 
+IconMaterialPlaylistAddCheckSharpW100Filled.displayName = 'AmauiIconMaterialPlaylistAddCheckSharpW100Filled';
+
 export default IconMaterialPlaylistAddCheckSharpW100Filled;

@@ -18,4 +18,6 @@ const IconMaterialLandscapeSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLandscapeSharp.displayName = 'AmauiIconMaterialLandscapeSharp';
+
 export default IconMaterialLandscapeSharp;

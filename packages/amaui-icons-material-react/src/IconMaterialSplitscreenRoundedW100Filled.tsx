@@ -18,4 +18,6 @@ const IconMaterialSplitscreenRoundedW100Filled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialSplitscreenRoundedW100Filled.displayName = 'AmauiIconMaterialSplitscreenRoundedW100Filled';
+
 export default IconMaterialSplitscreenRoundedW100Filled;

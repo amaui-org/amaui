@@ -18,4 +18,6 @@ const IconMaterialFormatShapesRoundedW100 = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialFormatShapesRoundedW100.displayName = 'AmauiIconMaterialFormatShapesRoundedW100';
+
 export default IconMaterialFormatShapesRoundedW100;

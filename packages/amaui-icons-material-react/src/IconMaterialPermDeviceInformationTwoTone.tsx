@@ -18,4 +18,6 @@ const IconMaterialPermDeviceInformationTwoTone = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialPermDeviceInformationTwoTone.displayName = 'AmauiIconMaterialPermDeviceInformationTwoTone';
+
 export default IconMaterialPermDeviceInformationTwoTone;

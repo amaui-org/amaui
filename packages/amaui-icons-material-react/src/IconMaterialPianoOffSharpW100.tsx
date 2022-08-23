@@ -18,4 +18,6 @@ const IconMaterialPianoOffSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPianoOffSharpW100.displayName = 'AmauiIconMaterialPianoOffSharpW100';
+
 export default IconMaterialPianoOffSharpW100;

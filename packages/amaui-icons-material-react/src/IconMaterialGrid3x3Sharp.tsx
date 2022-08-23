@@ -18,4 +18,6 @@ const IconMaterialGrid3x3Sharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialGrid3x3Sharp.displayName = 'AmauiIconMaterialGrid3x3Sharp';
+
 export default IconMaterialGrid3x3Sharp;

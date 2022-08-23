@@ -18,4 +18,6 @@ const IconMaterialFormatOverlineSharpFilled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialFormatOverlineSharpFilled.displayName = 'AmauiIconMaterialFormatOverlineSharpFilled';
+
 export default IconMaterialFormatOverlineSharpFilled;

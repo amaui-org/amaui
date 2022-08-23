@@ -18,4 +18,6 @@ const IconMaterialPrivateConnectivityRoundedW100 = React.forwardRef((props: any,
   );
 });
 
+IconMaterialPrivateConnectivityRoundedW100.displayName = 'AmauiIconMaterialPrivateConnectivityRoundedW100';
+
 export default IconMaterialPrivateConnectivityRoundedW100;

@@ -18,4 +18,6 @@ const IconMaterialDoNotDisturbOnTotalSilenceRoundedFilled = React.forwardRef((pr
   );
 });
 
+IconMaterialDoNotDisturbOnTotalSilenceRoundedFilled.displayName = 'AmauiIconMaterialDoNotDisturbOnTotalSilenceRoundedFilled';
+
 export default IconMaterialDoNotDisturbOnTotalSilenceRoundedFilled;

@@ -18,4 +18,6 @@ const IconMaterialFullStackedBarChartRounded = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialFullStackedBarChartRounded.displayName = 'AmauiIconMaterialFullStackedBarChartRounded';
+
 export default IconMaterialFullStackedBarChartRounded;

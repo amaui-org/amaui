@@ -18,4 +18,6 @@ const IconMaterialHealthAndSafetySharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialHealthAndSafetySharp.displayName = 'AmauiIconMaterialHealthAndSafetySharp';
+
 export default IconMaterialHealthAndSafetySharp;

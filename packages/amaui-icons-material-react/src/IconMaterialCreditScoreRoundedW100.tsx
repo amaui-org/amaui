@@ -18,4 +18,6 @@ const IconMaterialCreditScoreRoundedW100 = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialCreditScoreRoundedW100.displayName = 'AmauiIconMaterialCreditScoreRoundedW100';
+
 export default IconMaterialCreditScoreRoundedW100;

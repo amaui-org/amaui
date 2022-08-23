@@ -18,4 +18,6 @@ const IconMaterialNoiseAwareSharpFilled = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialNoiseAwareSharpFilled.displayName = 'AmauiIconMaterialNoiseAwareSharpFilled';
+
 export default IconMaterialNoiseAwareSharpFilled;

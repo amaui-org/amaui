@@ -18,4 +18,6 @@ const IconMaterialGarageRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialGarageRounded.displayName = 'AmauiIconMaterialGarageRounded';
+
 export default IconMaterialGarageRounded;

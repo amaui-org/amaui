@@ -18,4 +18,6 @@ const IconMaterialSwipeRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSwipeRoundedW100.displayName = 'AmauiIconMaterialSwipeRoundedW100';
+
 export default IconMaterialSwipeRoundedW100;

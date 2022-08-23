@@ -18,4 +18,6 @@ const IconMaterialDesktopWindowsRoundedW100Filled = React.forwardRef((props: any
   );
 });
 
+IconMaterialDesktopWindowsRoundedW100Filled.displayName = 'AmauiIconMaterialDesktopWindowsRoundedW100Filled';
+
 export default IconMaterialDesktopWindowsRoundedW100Filled;

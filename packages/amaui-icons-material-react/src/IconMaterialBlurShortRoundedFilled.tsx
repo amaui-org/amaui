@@ -18,4 +18,6 @@ const IconMaterialBlurShortRoundedFilled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialBlurShortRoundedFilled.displayName = 'AmauiIconMaterialBlurShortRoundedFilled';
+
 export default IconMaterialBlurShortRoundedFilled;

@@ -18,4 +18,6 @@ const IconMaterialBrowserUpdatedTwoTone = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialBrowserUpdatedTwoTone.displayName = 'AmauiIconMaterialBrowserUpdatedTwoTone';
+
 export default IconMaterialBrowserUpdatedTwoTone;

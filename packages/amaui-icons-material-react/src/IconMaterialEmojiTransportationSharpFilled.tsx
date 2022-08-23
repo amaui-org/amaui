@@ -18,4 +18,6 @@ const IconMaterialEmojiTransportationSharpFilled = React.forwardRef((props: any,
   );
 });
 
+IconMaterialEmojiTransportationSharpFilled.displayName = 'AmauiIconMaterialEmojiTransportationSharpFilled';
+
 export default IconMaterialEmojiTransportationSharpFilled;

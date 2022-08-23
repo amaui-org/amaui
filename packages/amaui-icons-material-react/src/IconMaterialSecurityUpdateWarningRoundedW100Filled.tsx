@@ -18,4 +18,6 @@ const IconMaterialSecurityUpdateWarningRoundedW100Filled = React.forwardRef((pro
   );
 });
 
+IconMaterialSecurityUpdateWarningRoundedW100Filled.displayName = 'AmauiIconMaterialSecurityUpdateWarningRoundedW100Filled';
+
 export default IconMaterialSecurityUpdateWarningRoundedW100Filled;

@@ -18,4 +18,6 @@ const IconMaterialUndoSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialUndoSharp.displayName = 'AmauiIconMaterialUndoSharp';
+
 export default IconMaterialUndoSharp;

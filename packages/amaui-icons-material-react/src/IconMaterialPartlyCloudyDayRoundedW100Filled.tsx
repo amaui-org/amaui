@@ -18,4 +18,6 @@ const IconMaterialPartlyCloudyDayRoundedW100Filled = React.forwardRef((props: an
   );
 });
 
+IconMaterialPartlyCloudyDayRoundedW100Filled.displayName = 'AmauiIconMaterialPartlyCloudyDayRoundedW100Filled';
+
 export default IconMaterialPartlyCloudyDayRoundedW100Filled;

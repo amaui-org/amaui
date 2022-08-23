@@ -18,4 +18,6 @@ const IconMaterialAdsClickRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAdsClickRounded.displayName = 'AmauiIconMaterialAdsClickRounded';
+
 export default IconMaterialAdsClickRounded;

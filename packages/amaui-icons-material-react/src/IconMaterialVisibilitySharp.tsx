@@ -18,4 +18,6 @@ const IconMaterialVisibilitySharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialVisibilitySharp.displayName = 'AmauiIconMaterialVisibilitySharp';
+
 export default IconMaterialVisibilitySharp;

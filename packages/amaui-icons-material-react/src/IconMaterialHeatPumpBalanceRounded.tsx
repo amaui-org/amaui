@@ -18,4 +18,6 @@ const IconMaterialHeatPumpBalanceRounded = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialHeatPumpBalanceRounded.displayName = 'AmauiIconMaterialHeatPumpBalanceRounded';
+
 export default IconMaterialHeatPumpBalanceRounded;

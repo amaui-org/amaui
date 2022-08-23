@@ -18,4 +18,6 @@ const IconMaterialRemoveDoneSharpW100Filled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialRemoveDoneSharpW100Filled.displayName = 'AmauiIconMaterialRemoveDoneSharpW100Filled';
+
 export default IconMaterialRemoveDoneSharpW100Filled;

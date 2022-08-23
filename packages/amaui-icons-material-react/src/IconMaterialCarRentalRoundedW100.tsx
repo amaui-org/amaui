@@ -18,4 +18,6 @@ const IconMaterialCarRentalRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCarRentalRoundedW100.displayName = 'AmauiIconMaterialCarRentalRoundedW100';
+
 export default IconMaterialCarRentalRoundedW100;

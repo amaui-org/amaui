@@ -18,4 +18,6 @@ const IconMaterialTableRestaurantSharpFilled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialTableRestaurantSharpFilled.displayName = 'AmauiIconMaterialTableRestaurantSharpFilled';
+
 export default IconMaterialTableRestaurantSharpFilled;

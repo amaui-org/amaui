@@ -18,4 +18,6 @@ const IconMaterialPsychologyAltTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPsychologyAltTwoTone.displayName = 'AmauiIconMaterialPsychologyAltTwoTone';
+
 export default IconMaterialPsychologyAltTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialPictureAsPdfTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPictureAsPdfTwoTone.displayName = 'AmauiIconMaterialPictureAsPdfTwoTone';
+
 export default IconMaterialPictureAsPdfTwoTone;

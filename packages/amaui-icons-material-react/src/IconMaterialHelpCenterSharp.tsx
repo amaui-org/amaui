@@ -18,4 +18,6 @@ const IconMaterialHelpCenterSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialHelpCenterSharp.displayName = 'AmauiIconMaterialHelpCenterSharp';
+
 export default IconMaterialHelpCenterSharp;

@@ -18,4 +18,6 @@ const IconMaterialMovieFilterRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMovieFilterRounded.displayName = 'AmauiIconMaterialMovieFilterRounded';
+
 export default IconMaterialMovieFilterRounded;

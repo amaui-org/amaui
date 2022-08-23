@@ -18,4 +18,6 @@ const IconMaterialSettingsSystemDaydreamRoundedW100 = React.forwardRef((props: a
   );
 });
 
+IconMaterialSettingsSystemDaydreamRoundedW100.displayName = 'AmauiIconMaterialSettingsSystemDaydreamRoundedW100';
+
 export default IconMaterialSettingsSystemDaydreamRoundedW100;

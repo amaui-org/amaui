@@ -18,4 +18,6 @@ const IconMaterialFindInPageRoundedW100Filled = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialFindInPageRoundedW100Filled.displayName = 'AmauiIconMaterialFindInPageRoundedW100Filled';
+
 export default IconMaterialFindInPageRoundedW100Filled;

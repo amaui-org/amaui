@@ -18,4 +18,6 @@ const IconMaterialPhoneInTalkTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPhoneInTalkTwoTone.displayName = 'AmauiIconMaterialPhoneInTalkTwoTone';
+
 export default IconMaterialPhoneInTalkTwoTone;

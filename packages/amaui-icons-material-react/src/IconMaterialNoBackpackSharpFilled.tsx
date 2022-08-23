@@ -18,4 +18,6 @@ const IconMaterialNoBackpackSharpFilled = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialNoBackpackSharpFilled.displayName = 'AmauiIconMaterialNoBackpackSharpFilled';
+
 export default IconMaterialNoBackpackSharpFilled;

@@ -18,4 +18,6 @@ const IconMaterialPoolTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPoolTwoTone.displayName = 'AmauiIconMaterialPoolTwoTone';
+
 export default IconMaterialPoolTwoTone;

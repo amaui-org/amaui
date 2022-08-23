@@ -18,4 +18,6 @@ const IconMaterialHeightSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialHeightSharpFilled.displayName = 'AmauiIconMaterialHeightSharpFilled';
+
 export default IconMaterialHeightSharpFilled;

@@ -18,4 +18,6 @@ const IconMaterialNestSunblockTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNestSunblockTwoTone.displayName = 'AmauiIconMaterialNestSunblockTwoTone';
+
 export default IconMaterialNestSunblockTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialChatRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialChatRounded.displayName = 'AmauiIconMaterialChatRounded';
+
 export default IconMaterialChatRounded;

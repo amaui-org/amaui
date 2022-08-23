@@ -18,4 +18,6 @@ const IconMaterialHomeMaxSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialHomeMaxSharpFilled.displayName = 'AmauiIconMaterialHomeMaxSharpFilled';
+
 export default IconMaterialHomeMaxSharpFilled;

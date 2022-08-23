@@ -18,4 +18,6 @@ const IconMaterialBiotechRoundedW100Filled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialBiotechRoundedW100Filled.displayName = 'AmauiIconMaterialBiotechRoundedW100Filled';
+
 export default IconMaterialBiotechRoundedW100Filled;

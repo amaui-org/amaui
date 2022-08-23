@@ -18,4 +18,6 @@ const IconMaterialFolderSpecialRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFolderSpecialRounded.displayName = 'AmauiIconMaterialFolderSpecialRounded';
+
 export default IconMaterialFolderSpecialRounded;

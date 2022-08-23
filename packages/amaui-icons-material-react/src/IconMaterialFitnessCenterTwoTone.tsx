@@ -18,4 +18,6 @@ const IconMaterialFitnessCenterTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFitnessCenterTwoTone.displayName = 'AmauiIconMaterialFitnessCenterTwoTone';
+
 export default IconMaterialFitnessCenterTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialFiberSmartRecordSharpW100 = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialFiberSmartRecordSharpW100.displayName = 'AmauiIconMaterialFiberSmartRecordSharpW100';
+
 export default IconMaterialFiberSmartRecordSharpW100;

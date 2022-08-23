@@ -18,4 +18,6 @@ const IconMaterialBadgeSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBadgeSharpFilled.displayName = 'AmauiIconMaterialBadgeSharpFilled';
+
 export default IconMaterialBadgeSharpFilled;

@@ -18,4 +18,6 @@ const IconMaterialKeyboardBackspaceRoundedW100 = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialKeyboardBackspaceRoundedW100.displayName = 'AmauiIconMaterialKeyboardBackspaceRoundedW100';
+
 export default IconMaterialKeyboardBackspaceRoundedW100;

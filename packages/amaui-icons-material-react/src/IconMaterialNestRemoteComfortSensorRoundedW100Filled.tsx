@@ -18,4 +18,6 @@ const IconMaterialNestRemoteComfortSensorRoundedW100Filled = React.forwardRef((p
   );
 });
 
+IconMaterialNestRemoteComfortSensorRoundedW100Filled.displayName = 'AmauiIconMaterialNestRemoteComfortSensorRoundedW100Filled';
+
 export default IconMaterialNestRemoteComfortSensorRoundedW100Filled;

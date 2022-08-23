@@ -18,4 +18,6 @@ const IconMaterialStarHalfTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialStarHalfTwoTone.displayName = 'AmauiIconMaterialStarHalfTwoTone';
+
 export default IconMaterialStarHalfTwoTone;

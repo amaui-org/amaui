@@ -18,4 +18,6 @@ const IconMaterialViewStreamRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialViewStreamRounded.displayName = 'AmauiIconMaterialViewStreamRounded';
+
 export default IconMaterialViewStreamRounded;

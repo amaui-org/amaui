@@ -18,4 +18,6 @@ const IconMaterialFingerprintTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFingerprintTwoTone.displayName = 'AmauiIconMaterialFingerprintTwoTone';
+
 export default IconMaterialFingerprintTwoTone;

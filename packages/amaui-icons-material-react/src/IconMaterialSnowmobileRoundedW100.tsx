@@ -18,4 +18,6 @@ const IconMaterialSnowmobileRoundedW100 = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialSnowmobileRoundedW100.displayName = 'AmauiIconMaterialSnowmobileRoundedW100';
+
 export default IconMaterialSnowmobileRoundedW100;

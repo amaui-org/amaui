@@ -18,4 +18,6 @@ const IconMaterialCasinoRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCasinoRounded.displayName = 'AmauiIconMaterialCasinoRounded';
+
 export default IconMaterialCasinoRounded;

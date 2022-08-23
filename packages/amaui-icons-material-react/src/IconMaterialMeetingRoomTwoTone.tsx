@@ -18,4 +18,6 @@ const IconMaterialMeetingRoomTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMeetingRoomTwoTone.displayName = 'AmauiIconMaterialMeetingRoomTwoTone';
+
 export default IconMaterialMeetingRoomTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialNotificationsPausedSharpFilled = React.forwardRef((props: any,
   );
 });
 
+IconMaterialNotificationsPausedSharpFilled.displayName = 'AmauiIconMaterialNotificationsPausedSharpFilled';
+
 export default IconMaterialNotificationsPausedSharpFilled;

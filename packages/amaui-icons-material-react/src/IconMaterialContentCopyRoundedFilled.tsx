@@ -18,4 +18,6 @@ const IconMaterialContentCopyRoundedFilled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialContentCopyRoundedFilled.displayName = 'AmauiIconMaterialContentCopyRoundedFilled';
+
 export default IconMaterialContentCopyRoundedFilled;

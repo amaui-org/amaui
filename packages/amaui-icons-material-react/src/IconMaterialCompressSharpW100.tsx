@@ -18,4 +18,6 @@ const IconMaterialCompressSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCompressSharpW100.displayName = 'AmauiIconMaterialCompressSharpW100';
+
 export default IconMaterialCompressSharpW100;

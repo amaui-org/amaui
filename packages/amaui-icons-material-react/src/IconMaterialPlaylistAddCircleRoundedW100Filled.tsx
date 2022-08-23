@@ -18,4 +18,6 @@ const IconMaterialPlaylistAddCircleRoundedW100Filled = React.forwardRef((props: 
   );
 });
 
+IconMaterialPlaylistAddCircleRoundedW100Filled.displayName = 'AmauiIconMaterialPlaylistAddCircleRoundedW100Filled';
+
 export default IconMaterialPlaylistAddCircleRoundedW100Filled;

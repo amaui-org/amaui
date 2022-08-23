@@ -18,4 +18,6 @@ const IconMaterialApartmentSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialApartmentSharpW100.displayName = 'AmauiIconMaterialApartmentSharpW100';
+
 export default IconMaterialApartmentSharpW100;

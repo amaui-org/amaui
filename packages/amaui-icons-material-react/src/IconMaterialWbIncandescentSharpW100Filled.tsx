@@ -18,4 +18,6 @@ const IconMaterialWbIncandescentSharpW100Filled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialWbIncandescentSharpW100Filled.displayName = 'AmauiIconMaterialWbIncandescentSharpW100Filled';
+
 export default IconMaterialWbIncandescentSharpW100Filled;

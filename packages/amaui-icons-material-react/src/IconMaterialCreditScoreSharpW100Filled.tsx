@@ -18,4 +18,6 @@ const IconMaterialCreditScoreSharpW100Filled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialCreditScoreSharpW100Filled.displayName = 'AmauiIconMaterialCreditScoreSharpW100Filled';
+
 export default IconMaterialCreditScoreSharpW100Filled;

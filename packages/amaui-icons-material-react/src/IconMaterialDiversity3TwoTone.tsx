@@ -18,4 +18,6 @@ const IconMaterialDiversity3TwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDiversity3TwoTone.displayName = 'AmauiIconMaterialDiversity3TwoTone';
+
 export default IconMaterialDiversity3TwoTone;

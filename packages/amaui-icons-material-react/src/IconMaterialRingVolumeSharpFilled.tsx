@@ -18,4 +18,6 @@ const IconMaterialRingVolumeSharpFilled = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialRingVolumeSharpFilled.displayName = 'AmauiIconMaterialRingVolumeSharpFilled';
+
 export default IconMaterialRingVolumeSharpFilled;

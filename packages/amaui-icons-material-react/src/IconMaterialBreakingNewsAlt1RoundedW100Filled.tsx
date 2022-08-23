@@ -18,4 +18,6 @@ const IconMaterialBreakingNewsAlt1RoundedW100Filled = React.forwardRef((props: a
   );
 });
 
+IconMaterialBreakingNewsAlt1RoundedW100Filled.displayName = 'AmauiIconMaterialBreakingNewsAlt1RoundedW100Filled';
+
 export default IconMaterialBreakingNewsAlt1RoundedW100Filled;

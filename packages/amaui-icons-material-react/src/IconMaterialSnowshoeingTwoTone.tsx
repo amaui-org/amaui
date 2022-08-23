@@ -18,4 +18,6 @@ const IconMaterialSnowshoeingTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSnowshoeingTwoTone.displayName = 'AmauiIconMaterialSnowshoeingTwoTone';
+
 export default IconMaterialSnowshoeingTwoTone;

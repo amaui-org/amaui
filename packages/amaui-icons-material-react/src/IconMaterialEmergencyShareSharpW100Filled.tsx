@@ -18,4 +18,6 @@ const IconMaterialEmergencyShareSharpW100Filled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialEmergencyShareSharpW100Filled.displayName = 'AmauiIconMaterialEmergencyShareSharpW100Filled';
+
 export default IconMaterialEmergencyShareSharpW100Filled;

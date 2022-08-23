@@ -18,4 +18,6 @@ const IconMaterialSelfImprovementTwoTone = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialSelfImprovementTwoTone.displayName = 'AmauiIconMaterialSelfImprovementTwoTone';
+
 export default IconMaterialSelfImprovementTwoTone;

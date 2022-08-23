@@ -18,4 +18,6 @@ const IconMaterialLocalGasStationTwoTone = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialLocalGasStationTwoTone.displayName = 'AmauiIconMaterialLocalGasStationTwoTone';
+
 export default IconMaterialLocalGasStationTwoTone;

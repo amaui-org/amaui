@@ -18,4 +18,6 @@ const IconMaterialLocationSearchingSharpFilled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialLocationSearchingSharpFilled.displayName = 'AmauiIconMaterialLocationSearchingSharpFilled';
+
 export default IconMaterialLocationSearchingSharpFilled;

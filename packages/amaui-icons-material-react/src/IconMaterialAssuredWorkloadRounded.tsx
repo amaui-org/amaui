@@ -18,4 +18,6 @@ const IconMaterialAssuredWorkloadRounded = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialAssuredWorkloadRounded.displayName = 'AmauiIconMaterialAssuredWorkloadRounded';
+
 export default IconMaterialAssuredWorkloadRounded;

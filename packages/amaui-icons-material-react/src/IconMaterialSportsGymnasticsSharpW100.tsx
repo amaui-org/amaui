@@ -18,4 +18,6 @@ const IconMaterialSportsGymnasticsSharpW100 = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialSportsGymnasticsSharpW100.displayName = 'AmauiIconMaterialSportsGymnasticsSharpW100';
+
 export default IconMaterialSportsGymnasticsSharpW100;

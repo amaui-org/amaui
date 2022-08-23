@@ -18,4 +18,6 @@ const IconMaterialFloodTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFloodTwoTone.displayName = 'AmauiIconMaterialFloodTwoTone';
+
 export default IconMaterialFloodTwoTone;

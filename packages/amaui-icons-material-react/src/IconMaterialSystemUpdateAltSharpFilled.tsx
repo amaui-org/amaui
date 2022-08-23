@@ -18,4 +18,6 @@ const IconMaterialSystemUpdateAltSharpFilled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialSystemUpdateAltSharpFilled.displayName = 'AmauiIconMaterialSystemUpdateAltSharpFilled';
+
 export default IconMaterialSystemUpdateAltSharpFilled;

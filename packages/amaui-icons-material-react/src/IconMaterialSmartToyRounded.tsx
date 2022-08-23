@@ -18,4 +18,6 @@ const IconMaterialSmartToyRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSmartToyRounded.displayName = 'AmauiIconMaterialSmartToyRounded';
+
 export default IconMaterialSmartToyRounded;

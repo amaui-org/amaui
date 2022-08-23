@@ -18,4 +18,6 @@ const IconMaterialWysiwygRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialWysiwygRounded.displayName = 'AmauiIconMaterialWysiwygRounded';
+
 export default IconMaterialWysiwygRounded;

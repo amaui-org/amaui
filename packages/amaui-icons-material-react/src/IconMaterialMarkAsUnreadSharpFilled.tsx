@@ -18,4 +18,6 @@ const IconMaterialMarkAsUnreadSharpFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialMarkAsUnreadSharpFilled.displayName = 'AmauiIconMaterialMarkAsUnreadSharpFilled';
+
 export default IconMaterialMarkAsUnreadSharpFilled;

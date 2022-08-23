@@ -18,4 +18,6 @@ const IconMaterialFlightTakeoffSharpFilled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialFlightTakeoffSharpFilled.displayName = 'AmauiIconMaterialFlightTakeoffSharpFilled';
+
 export default IconMaterialFlightTakeoffSharpFilled;

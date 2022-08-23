@@ -18,4 +18,6 @@ const IconMaterialToolsFlatHeadRoundedFilled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialToolsFlatHeadRoundedFilled.displayName = 'AmauiIconMaterialToolsFlatHeadRoundedFilled';
+
 export default IconMaterialToolsFlatHeadRoundedFilled;

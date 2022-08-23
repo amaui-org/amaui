@@ -18,4 +18,6 @@ const IconMaterialInsertChartTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialInsertChartTwoTone.displayName = 'AmauiIconMaterialInsertChartTwoTone';
+
 export default IconMaterialInsertChartTwoTone;

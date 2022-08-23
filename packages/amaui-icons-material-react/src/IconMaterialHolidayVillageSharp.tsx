@@ -18,4 +18,6 @@ const IconMaterialHolidayVillageSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialHolidayVillageSharp.displayName = 'AmauiIconMaterialHolidayVillageSharp';
+
 export default IconMaterialHolidayVillageSharp;

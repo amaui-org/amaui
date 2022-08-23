@@ -18,4 +18,6 @@ const IconMaterialPinDropRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPinDropRounded.displayName = 'AmauiIconMaterialPinDropRounded';
+
 export default IconMaterialPinDropRounded;

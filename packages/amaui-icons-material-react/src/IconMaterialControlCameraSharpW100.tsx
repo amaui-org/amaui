@@ -18,4 +18,6 @@ const IconMaterialControlCameraSharpW100 = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialControlCameraSharpW100.displayName = 'AmauiIconMaterialControlCameraSharpW100';
+
 export default IconMaterialControlCameraSharpW100;

@@ -18,4 +18,6 @@ const IconMaterialFormatClearSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFormatClearSharp.displayName = 'AmauiIconMaterialFormatClearSharp';
+
 export default IconMaterialFormatClearSharp;

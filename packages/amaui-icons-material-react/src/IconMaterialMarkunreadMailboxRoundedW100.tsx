@@ -18,4 +18,6 @@ const IconMaterialMarkunreadMailboxRoundedW100 = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialMarkunreadMailboxRoundedW100.displayName = 'AmauiIconMaterialMarkunreadMailboxRoundedW100';
+
 export default IconMaterialMarkunreadMailboxRoundedW100;

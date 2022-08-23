@@ -18,4 +18,6 @@ const IconMaterialRequestQuoteRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialRequestQuoteRounded.displayName = 'AmauiIconMaterialRequestQuoteRounded';
+
 export default IconMaterialRequestQuoteRounded;

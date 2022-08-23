@@ -18,4 +18,6 @@ const IconMaterialQrCodeScannerTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialQrCodeScannerTwoTone.displayName = 'AmauiIconMaterialQrCodeScannerTwoTone';
+
 export default IconMaterialQrCodeScannerTwoTone;

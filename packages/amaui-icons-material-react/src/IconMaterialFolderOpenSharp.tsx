@@ -18,4 +18,6 @@ const IconMaterialFolderOpenSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFolderOpenSharp.displayName = 'AmauiIconMaterialFolderOpenSharp';
+
 export default IconMaterialFolderOpenSharp;

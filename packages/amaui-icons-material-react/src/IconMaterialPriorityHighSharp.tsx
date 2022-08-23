@@ -18,4 +18,6 @@ const IconMaterialPriorityHighSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPriorityHighSharp.displayName = 'AmauiIconMaterialPriorityHighSharp';
+
 export default IconMaterialPriorityHighSharp;

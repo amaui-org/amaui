@@ -18,4 +18,6 @@ const IconMaterialPanoramaVerticalTwoTone = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialPanoramaVerticalTwoTone.displayName = 'AmauiIconMaterialPanoramaVerticalTwoTone';
+
 export default IconMaterialPanoramaVerticalTwoTone;

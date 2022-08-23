@@ -18,4 +18,6 @@ const IconMaterialNoiseControlOnRoundedW100Filled = React.forwardRef((props: any
   );
 });
 
+IconMaterialNoiseControlOnRoundedW100Filled.displayName = 'AmauiIconMaterialNoiseControlOnRoundedW100Filled';
+
 export default IconMaterialNoiseControlOnRoundedW100Filled;

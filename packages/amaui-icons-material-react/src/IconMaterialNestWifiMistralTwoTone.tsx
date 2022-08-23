@@ -18,4 +18,6 @@ const IconMaterialNestWifiMistralTwoTone = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialNestWifiMistralTwoTone.displayName = 'AmauiIconMaterialNestWifiMistralTwoTone';
+
 export default IconMaterialNestWifiMistralTwoTone;

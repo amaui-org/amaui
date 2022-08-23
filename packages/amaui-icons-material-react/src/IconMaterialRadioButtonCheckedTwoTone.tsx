@@ -18,4 +18,6 @@ const IconMaterialRadioButtonCheckedTwoTone = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialRadioButtonCheckedTwoTone.displayName = 'AmauiIconMaterialRadioButtonCheckedTwoTone';
+
 export default IconMaterialRadioButtonCheckedTwoTone;

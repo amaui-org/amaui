@@ -18,4 +18,6 @@ const IconMaterialUnarchiveRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialUnarchiveRounded.displayName = 'AmauiIconMaterialUnarchiveRounded';
+
 export default IconMaterialUnarchiveRounded;

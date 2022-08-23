@@ -18,4 +18,6 @@ const IconMaterialFireExtinguisherSharpW100Filled = React.forwardRef((props: any
   );
 });
 
+IconMaterialFireExtinguisherSharpW100Filled.displayName = 'AmauiIconMaterialFireExtinguisherSharpW100Filled';
+
 export default IconMaterialFireExtinguisherSharpW100Filled;

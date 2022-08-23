@@ -18,4 +18,6 @@ const IconMaterialImageNotSupportedSharp = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialImageNotSupportedSharp.displayName = 'AmauiIconMaterialImageNotSupportedSharp';
+
 export default IconMaterialImageNotSupportedSharp;

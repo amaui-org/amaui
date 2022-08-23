@@ -18,4 +18,6 @@ const IconMaterialMonetizationOnSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMonetizationOnSharp.displayName = 'AmauiIconMaterialMonetizationOnSharp';
+
 export default IconMaterialMonetizationOnSharp;

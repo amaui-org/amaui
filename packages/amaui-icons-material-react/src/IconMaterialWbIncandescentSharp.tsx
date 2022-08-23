@@ -18,4 +18,6 @@ const IconMaterialWbIncandescentSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialWbIncandescentSharp.displayName = 'AmauiIconMaterialWbIncandescentSharp';
+
 export default IconMaterialWbIncandescentSharp;

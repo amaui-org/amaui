@@ -18,4 +18,6 @@ const IconMaterialDentistryTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDentistryTwoTone.displayName = 'AmauiIconMaterialDentistryTwoTone';
+
 export default IconMaterialDentistryTwoTone;

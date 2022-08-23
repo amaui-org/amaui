@@ -18,4 +18,6 @@ const IconMaterialHdrAutoSelectSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialHdrAutoSelectSharp.displayName = 'AmauiIconMaterialHdrAutoSelectSharp';
+
 export default IconMaterialHdrAutoSelectSharp;

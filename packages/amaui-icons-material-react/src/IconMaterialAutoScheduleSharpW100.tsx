@@ -18,4 +18,6 @@ const IconMaterialAutoScheduleSharpW100 = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialAutoScheduleSharpW100.displayName = 'AmauiIconMaterialAutoScheduleSharpW100';
+
 export default IconMaterialAutoScheduleSharpW100;

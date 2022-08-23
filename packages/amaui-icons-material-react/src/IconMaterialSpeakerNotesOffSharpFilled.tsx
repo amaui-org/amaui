@@ -18,4 +18,6 @@ const IconMaterialSpeakerNotesOffSharpFilled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialSpeakerNotesOffSharpFilled.displayName = 'AmauiIconMaterialSpeakerNotesOffSharpFilled';
+
 export default IconMaterialSpeakerNotesOffSharpFilled;

@@ -18,4 +18,6 @@ const IconMaterialMotionBlurSharpW100Filled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialMotionBlurSharpW100Filled.displayName = 'AmauiIconMaterialMotionBlurSharpW100Filled';
+
 export default IconMaterialMotionBlurSharpW100Filled;

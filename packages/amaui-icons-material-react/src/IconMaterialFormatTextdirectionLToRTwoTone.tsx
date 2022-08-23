@@ -18,4 +18,6 @@ const IconMaterialFormatTextdirectionLToRTwoTone = React.forwardRef((props: any,
   );
 });
 
+IconMaterialFormatTextdirectionLToRTwoTone.displayName = 'AmauiIconMaterialFormatTextdirectionLToRTwoTone';
+
 export default IconMaterialFormatTextdirectionLToRTwoTone;

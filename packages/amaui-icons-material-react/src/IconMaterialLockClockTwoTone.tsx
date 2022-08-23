@@ -18,4 +18,6 @@ const IconMaterialLockClockTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLockClockTwoTone.displayName = 'AmauiIconMaterialLockClockTwoTone';
+
 export default IconMaterialLockClockTwoTone;

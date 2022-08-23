@@ -18,4 +18,6 @@ const IconMaterialPregnantWomanRoundedW100 = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialPregnantWomanRoundedW100.displayName = 'AmauiIconMaterialPregnantWomanRoundedW100';
+
 export default IconMaterialPregnantWomanRoundedW100;

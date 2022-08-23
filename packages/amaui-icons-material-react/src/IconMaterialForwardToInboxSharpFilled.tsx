@@ -18,4 +18,6 @@ const IconMaterialForwardToInboxSharpFilled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialForwardToInboxSharpFilled.displayName = 'AmauiIconMaterialForwardToInboxSharpFilled';
+
 export default IconMaterialForwardToInboxSharpFilled;

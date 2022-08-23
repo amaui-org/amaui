@@ -18,4 +18,6 @@ const IconMaterialImagesearchRollerRoundedW100 = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialImagesearchRollerRoundedW100.displayName = 'AmauiIconMaterialImagesearchRollerRoundedW100';
+
 export default IconMaterialImagesearchRollerRoundedW100;

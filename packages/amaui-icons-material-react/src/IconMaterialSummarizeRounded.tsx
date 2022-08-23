@@ -18,4 +18,6 @@ const IconMaterialSummarizeRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSummarizeRounded.displayName = 'AmauiIconMaterialSummarizeRounded';
+
 export default IconMaterialSummarizeRounded;

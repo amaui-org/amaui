@@ -18,4 +18,6 @@ const IconMaterialBorderRightTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBorderRightTwoTone.displayName = 'AmauiIconMaterialBorderRightTwoTone';
+
 export default IconMaterialBorderRightTwoTone;

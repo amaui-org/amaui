@@ -18,4 +18,6 @@ const IconMaterialAirplaneTicketTwoTone = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialAirplaneTicketTwoTone.displayName = 'AmauiIconMaterialAirplaneTicketTwoTone';
+
 export default IconMaterialAirplaneTicketTwoTone;

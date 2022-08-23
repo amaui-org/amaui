@@ -18,4 +18,6 @@ const IconMaterialCallMissedSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCallMissedSharp.displayName = 'AmauiIconMaterialCallMissedSharp';
+
 export default IconMaterialCallMissedSharp;

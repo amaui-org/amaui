@@ -18,4 +18,6 @@ const IconMaterialCreateNewFolderRoundedW100 = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialCreateNewFolderRoundedW100.displayName = 'AmauiIconMaterialCreateNewFolderRoundedW100';
+
 export default IconMaterialCreateNewFolderRoundedW100;

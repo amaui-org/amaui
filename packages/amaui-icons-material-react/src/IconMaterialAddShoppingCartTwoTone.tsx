@@ -18,4 +18,6 @@ const IconMaterialAddShoppingCartTwoTone = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialAddShoppingCartTwoTone.displayName = 'AmauiIconMaterialAddShoppingCartTwoTone';
+
 export default IconMaterialAddShoppingCartTwoTone;

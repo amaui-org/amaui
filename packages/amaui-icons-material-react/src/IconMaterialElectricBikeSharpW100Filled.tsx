@@ -18,4 +18,6 @@ const IconMaterialElectricBikeSharpW100Filled = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialElectricBikeSharpW100Filled.displayName = 'AmauiIconMaterialElectricBikeSharpW100Filled';
+
 export default IconMaterialElectricBikeSharpW100Filled;

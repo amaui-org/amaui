@@ -18,4 +18,6 @@ const IconMaterialNoEncryptionTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNoEncryptionTwoTone.displayName = 'AmauiIconMaterialNoEncryptionTwoTone';
+
 export default IconMaterialNoEncryptionTwoTone;

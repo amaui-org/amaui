@@ -18,4 +18,6 @@ const IconMaterialPianoOffTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPianoOffTwoTone.displayName = 'AmauiIconMaterialPianoOffTwoTone';
+
 export default IconMaterialPianoOffTwoTone;

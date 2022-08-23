@@ -18,4 +18,6 @@ const IconMaterialClosedCaptionSharpFilled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialClosedCaptionSharpFilled.displayName = 'AmauiIconMaterialClosedCaptionSharpFilled';
+
 export default IconMaterialClosedCaptionSharpFilled;

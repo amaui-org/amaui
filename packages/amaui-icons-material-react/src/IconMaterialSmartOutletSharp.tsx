@@ -18,4 +18,6 @@ const IconMaterialSmartOutletSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSmartOutletSharp.displayName = 'AmauiIconMaterialSmartOutletSharp';
+
 export default IconMaterialSmartOutletSharp;

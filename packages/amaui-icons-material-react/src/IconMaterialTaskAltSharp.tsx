@@ -18,4 +18,6 @@ const IconMaterialTaskAltSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTaskAltSharp.displayName = 'AmauiIconMaterialTaskAltSharp';
+
 export default IconMaterialTaskAltSharp;

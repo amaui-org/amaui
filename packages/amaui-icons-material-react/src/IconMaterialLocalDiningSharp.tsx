@@ -18,4 +18,6 @@ const IconMaterialLocalDiningSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLocalDiningSharp.displayName = 'AmauiIconMaterialLocalDiningSharp';
+
 export default IconMaterialLocalDiningSharp;

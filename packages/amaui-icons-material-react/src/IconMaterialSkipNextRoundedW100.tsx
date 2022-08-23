@@ -18,4 +18,6 @@ const IconMaterialSkipNextRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSkipNextRoundedW100.displayName = 'AmauiIconMaterialSkipNextRoundedW100';
+
 export default IconMaterialSkipNextRoundedW100;

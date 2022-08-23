@@ -18,4 +18,6 @@ const IconMaterialLocalFloristRoundedFilled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialLocalFloristRoundedFilled.displayName = 'AmauiIconMaterialLocalFloristRoundedFilled';
+
 export default IconMaterialLocalFloristRoundedFilled;

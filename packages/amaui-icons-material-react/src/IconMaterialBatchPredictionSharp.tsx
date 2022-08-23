@@ -18,4 +18,6 @@ const IconMaterialBatchPredictionSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBatchPredictionSharp.displayName = 'AmauiIconMaterialBatchPredictionSharp';
+
 export default IconMaterialBatchPredictionSharp;

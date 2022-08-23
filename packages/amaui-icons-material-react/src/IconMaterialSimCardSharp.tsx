@@ -18,4 +18,6 @@ const IconMaterialSimCardSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSimCardSharp.displayName = 'AmauiIconMaterialSimCardSharp';
+
 export default IconMaterialSimCardSharp;

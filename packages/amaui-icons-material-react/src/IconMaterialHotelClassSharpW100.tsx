@@ -18,4 +18,6 @@ const IconMaterialHotelClassSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialHotelClassSharpW100.displayName = 'AmauiIconMaterialHotelClassSharpW100';
+
 export default IconMaterialHotelClassSharpW100;

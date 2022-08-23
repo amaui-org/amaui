@@ -18,4 +18,6 @@ const IconMaterialAutofpsSelectRoundedW100 = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialAutofpsSelectRoundedW100.displayName = 'AmauiIconMaterialAutofpsSelectRoundedW100';
+
 export default IconMaterialAutofpsSelectRoundedW100;

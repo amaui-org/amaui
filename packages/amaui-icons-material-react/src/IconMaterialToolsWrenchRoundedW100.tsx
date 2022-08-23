@@ -18,4 +18,6 @@ const IconMaterialToolsWrenchRoundedW100 = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialToolsWrenchRoundedW100.displayName = 'AmauiIconMaterialToolsWrenchRoundedW100';
+
 export default IconMaterialToolsWrenchRoundedW100;

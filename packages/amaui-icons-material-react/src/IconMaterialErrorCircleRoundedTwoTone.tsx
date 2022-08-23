@@ -18,4 +18,6 @@ const IconMaterialErrorCircleRoundedTwoTone = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialErrorCircleRoundedTwoTone.displayName = 'AmauiIconMaterialErrorCircleRoundedTwoTone';
+
 export default IconMaterialErrorCircleRoundedTwoTone;

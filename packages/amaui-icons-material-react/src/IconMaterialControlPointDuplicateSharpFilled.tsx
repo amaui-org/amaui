@@ -18,4 +18,6 @@ const IconMaterialControlPointDuplicateSharpFilled = React.forwardRef((props: an
   );
 });
 
+IconMaterialControlPointDuplicateSharpFilled.displayName = 'AmauiIconMaterialControlPointDuplicateSharpFilled';
+
 export default IconMaterialControlPointDuplicateSharpFilled;

@@ -18,4 +18,6 @@ const IconMaterialNoStrollerTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNoStrollerTwoTone.displayName = 'AmauiIconMaterialNoStrollerTwoTone';
+
 export default IconMaterialNoStrollerTwoTone;

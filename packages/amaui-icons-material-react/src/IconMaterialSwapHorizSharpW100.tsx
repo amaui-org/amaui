@@ -18,4 +18,6 @@ const IconMaterialSwapHorizSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSwapHorizSharpW100.displayName = 'AmauiIconMaterialSwapHorizSharpW100';
+
 export default IconMaterialSwapHorizSharpW100;

@@ -18,4 +18,6 @@ const IconMaterialClimateMiniSplitSharpW100 = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialClimateMiniSplitSharpW100.displayName = 'AmauiIconMaterialClimateMiniSplitSharpW100';
+
 export default IconMaterialClimateMiniSplitSharpW100;

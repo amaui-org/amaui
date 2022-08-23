@@ -18,4 +18,6 @@ const IconMaterialBeachAccessTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBeachAccessTwoTone.displayName = 'AmauiIconMaterialBeachAccessTwoTone';
+
 export default IconMaterialBeachAccessTwoTone;

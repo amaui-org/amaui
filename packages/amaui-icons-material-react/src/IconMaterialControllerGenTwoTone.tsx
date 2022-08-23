@@ -18,4 +18,6 @@ const IconMaterialControllerGenTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialControllerGenTwoTone.displayName = 'AmauiIconMaterialControllerGenTwoTone';
+
 export default IconMaterialControllerGenTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialDetectionAndZoneSharpW100 = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialDetectionAndZoneSharpW100.displayName = 'AmauiIconMaterialDetectionAndZoneSharpW100';
+
 export default IconMaterialDetectionAndZoneSharpW100;

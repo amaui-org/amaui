@@ -18,4 +18,6 @@ const IconMaterialGeneratingTokensRoundedFilled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialGeneratingTokensRoundedFilled.displayName = 'AmauiIconMaterialGeneratingTokensRoundedFilled';
+
 export default IconMaterialGeneratingTokensRoundedFilled;

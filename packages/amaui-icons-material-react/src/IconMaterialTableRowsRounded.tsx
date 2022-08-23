@@ -18,4 +18,6 @@ const IconMaterialTableRowsRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTableRowsRounded.displayName = 'AmauiIconMaterialTableRowsRounded';
+
 export default IconMaterialTableRowsRounded;

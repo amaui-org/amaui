@@ -18,4 +18,6 @@ const IconMaterialPermDeviceInformationSharpFilled = React.forwardRef((props: an
   );
 });
 
+IconMaterialPermDeviceInformationSharpFilled.displayName = 'AmauiIconMaterialPermDeviceInformationSharpFilled';
+
 export default IconMaterialPermDeviceInformationSharpFilled;

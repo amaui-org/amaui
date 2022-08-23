@@ -18,4 +18,6 @@ const IconMaterialKeyVisualizerSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialKeyVisualizerSharp.displayName = 'AmauiIconMaterialKeyVisualizerSharp';
+
 export default IconMaterialKeyVisualizerSharp;

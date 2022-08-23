@@ -18,4 +18,6 @@ const IconMaterialNestMiniSharpW100Filled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialNestMiniSharpW100Filled.displayName = 'AmauiIconMaterialNestMiniSharpW100Filled';
+
 export default IconMaterialNestMiniSharpW100Filled;

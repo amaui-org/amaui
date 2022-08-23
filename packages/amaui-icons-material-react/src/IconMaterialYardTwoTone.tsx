@@ -18,4 +18,6 @@ const IconMaterialYardTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialYardTwoTone.displayName = 'AmauiIconMaterialYardTwoTone';
+
 export default IconMaterialYardTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialCenterFocusWeakTwoTone = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialCenterFocusWeakTwoTone.displayName = 'AmauiIconMaterialCenterFocusWeakTwoTone';
+
 export default IconMaterialCenterFocusWeakTwoTone;

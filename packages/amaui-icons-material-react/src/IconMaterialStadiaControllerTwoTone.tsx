@@ -18,4 +18,6 @@ const IconMaterialStadiaControllerTwoTone = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialStadiaControllerTwoTone.displayName = 'AmauiIconMaterialStadiaControllerTwoTone';
+
 export default IconMaterialStadiaControllerTwoTone;

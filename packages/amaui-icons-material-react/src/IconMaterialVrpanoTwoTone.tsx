@@ -18,4 +18,6 @@ const IconMaterialVrpanoTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialVrpanoTwoTone.displayName = 'AmauiIconMaterialVrpanoTwoTone';
+
 export default IconMaterialVrpanoTwoTone;

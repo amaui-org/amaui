@@ -18,4 +18,6 @@ const IconMaterialLogoutSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLogoutSharp.displayName = 'AmauiIconMaterialLogoutSharp';
+
 export default IconMaterialLogoutSharp;

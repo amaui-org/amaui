@@ -18,4 +18,6 @@ const IconMaterialFamilyRestroomTwoTone = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialFamilyRestroomTwoTone.displayName = 'AmauiIconMaterialFamilyRestroomTwoTone';
+
 export default IconMaterialFamilyRestroomTwoTone;

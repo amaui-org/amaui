@@ -18,4 +18,6 @@ const IconMaterialAirPurifierGenSharpW100 = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialAirPurifierGenSharpW100.displayName = 'AmauiIconMaterialAirPurifierGenSharpW100';
+
 export default IconMaterialAirPurifierGenSharpW100;

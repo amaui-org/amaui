@@ -18,4 +18,6 @@ const IconMaterialTireRepairRoundedFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialTireRepairRoundedFilled.displayName = 'AmauiIconMaterialTireRepairRoundedFilled';
+
 export default IconMaterialTireRepairRoundedFilled;

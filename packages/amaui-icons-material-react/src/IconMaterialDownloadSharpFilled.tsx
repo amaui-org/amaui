@@ -18,4 +18,6 @@ const IconMaterialDownloadSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDownloadSharpFilled.displayName = 'AmauiIconMaterialDownloadSharpFilled';
+
 export default IconMaterialDownloadSharpFilled;

@@ -18,4 +18,6 @@ const IconMaterialLocalPoliceSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLocalPoliceSharpW100.displayName = 'AmauiIconMaterialLocalPoliceSharpW100';
+
 export default IconMaterialLocalPoliceSharpW100;

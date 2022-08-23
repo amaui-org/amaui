@@ -18,4 +18,6 @@ const IconMaterialCloudSyncTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCloudSyncTwoTone.displayName = 'AmauiIconMaterialCloudSyncTwoTone';
+
 export default IconMaterialCloudSyncTwoTone;

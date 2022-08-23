@@ -18,4 +18,6 @@ const IconMaterialScreenShareTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialScreenShareTwoTone.displayName = 'AmauiIconMaterialScreenShareTwoTone';
+
 export default IconMaterialScreenShareTwoTone;

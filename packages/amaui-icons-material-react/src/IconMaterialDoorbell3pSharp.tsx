@@ -18,4 +18,6 @@ const IconMaterialDoorbell3pSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDoorbell3pSharp.displayName = 'AmauiIconMaterialDoorbell3pSharp';
+
 export default IconMaterialDoorbell3pSharp;

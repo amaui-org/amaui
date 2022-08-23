@@ -18,4 +18,6 @@ const IconMaterialRoundedCornerTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialRoundedCornerTwoTone.displayName = 'AmauiIconMaterialRoundedCornerTwoTone';
+
 export default IconMaterialRoundedCornerTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialKayakingTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialKayakingTwoTone.displayName = 'AmauiIconMaterialKayakingTwoTone';
+
 export default IconMaterialKayakingTwoTone;

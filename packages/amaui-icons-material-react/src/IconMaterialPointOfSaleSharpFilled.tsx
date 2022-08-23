@@ -18,4 +18,6 @@ const IconMaterialPointOfSaleSharpFilled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialPointOfSaleSharpFilled.displayName = 'AmauiIconMaterialPointOfSaleSharpFilled';
+
 export default IconMaterialPointOfSaleSharpFilled;

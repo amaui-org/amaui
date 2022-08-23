@@ -18,4 +18,6 @@ const IconMaterialExposureNeg2Rounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialExposureNeg2Rounded.displayName = 'AmauiIconMaterialExposureNeg2Rounded';
+
 export default IconMaterialExposureNeg2Rounded;

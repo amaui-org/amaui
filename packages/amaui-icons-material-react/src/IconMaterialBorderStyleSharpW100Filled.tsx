@@ -18,4 +18,6 @@ const IconMaterialBorderStyleSharpW100Filled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialBorderStyleSharpW100Filled.displayName = 'AmauiIconMaterialBorderStyleSharpW100Filled';
+
 export default IconMaterialBorderStyleSharpW100Filled;

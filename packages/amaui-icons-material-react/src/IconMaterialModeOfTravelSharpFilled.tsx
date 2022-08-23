@@ -18,4 +18,6 @@ const IconMaterialModeOfTravelSharpFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialModeOfTravelSharpFilled.displayName = 'AmauiIconMaterialModeOfTravelSharpFilled';
+
 export default IconMaterialModeOfTravelSharpFilled;

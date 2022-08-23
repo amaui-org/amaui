@@ -18,4 +18,6 @@ const IconMaterialEarbudsTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialEarbudsTwoTone.displayName = 'AmauiIconMaterialEarbudsTwoTone';
+
 export default IconMaterialEarbudsTwoTone;

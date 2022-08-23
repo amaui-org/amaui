@@ -18,4 +18,6 @@ const IconMaterialAdminPanelSettingsTwoTone = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialAdminPanelSettingsTwoTone.displayName = 'AmauiIconMaterialAdminPanelSettingsTwoTone';
+
 export default IconMaterialAdminPanelSettingsTwoTone;

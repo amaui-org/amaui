@@ -18,4 +18,6 @@ const IconMaterialBusAlertSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBusAlertSharpW100.displayName = 'AmauiIconMaterialBusAlertSharpW100';
+
 export default IconMaterialBusAlertSharpW100;

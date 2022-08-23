@@ -18,4 +18,6 @@ const IconMaterialSuperscriptTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSuperscriptTwoTone.displayName = 'AmauiIconMaterialSuperscriptTwoTone';
+
 export default IconMaterialSuperscriptTwoTone;

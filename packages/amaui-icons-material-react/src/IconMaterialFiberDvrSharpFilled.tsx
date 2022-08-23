@@ -18,4 +18,6 @@ const IconMaterialFiberDvrSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFiberDvrSharpFilled.displayName = 'AmauiIconMaterialFiberDvrSharpFilled';
+
 export default IconMaterialFiberDvrSharpFilled;

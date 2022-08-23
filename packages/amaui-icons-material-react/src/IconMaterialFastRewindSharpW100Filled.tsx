@@ -18,4 +18,6 @@ const IconMaterialFastRewindSharpW100Filled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialFastRewindSharpW100Filled.displayName = 'AmauiIconMaterialFastRewindSharpW100Filled';
+
 export default IconMaterialFastRewindSharpW100Filled;

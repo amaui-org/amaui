@@ -18,4 +18,6 @@ const IconMaterialCloseFullscreenSharpW100Filled = React.forwardRef((props: any,
   );
 });
 
+IconMaterialCloseFullscreenSharpW100Filled.displayName = 'AmauiIconMaterialCloseFullscreenSharpW100Filled';
+
 export default IconMaterialCloseFullscreenSharpW100Filled;

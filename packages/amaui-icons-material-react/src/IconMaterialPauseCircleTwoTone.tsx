@@ -18,4 +18,6 @@ const IconMaterialPauseCircleTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPauseCircleTwoTone.displayName = 'AmauiIconMaterialPauseCircleTwoTone';
+
 export default IconMaterialPauseCircleTwoTone;

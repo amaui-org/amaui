@@ -18,4 +18,6 @@ const IconMaterialToolsPhillipsSharpFilled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialToolsPhillipsSharpFilled.displayName = 'AmauiIconMaterialToolsPhillipsSharpFilled';
+
 export default IconMaterialToolsPhillipsSharpFilled;

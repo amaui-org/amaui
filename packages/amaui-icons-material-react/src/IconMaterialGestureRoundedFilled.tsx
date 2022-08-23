@@ -18,4 +18,6 @@ const IconMaterialGestureRoundedFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialGestureRoundedFilled.displayName = 'AmauiIconMaterialGestureRoundedFilled';
+
 export default IconMaterialGestureRoundedFilled;

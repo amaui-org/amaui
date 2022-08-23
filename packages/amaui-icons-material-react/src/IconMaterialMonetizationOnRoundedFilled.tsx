@@ -18,4 +18,6 @@ const IconMaterialMonetizationOnRoundedFilled = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialMonetizationOnRoundedFilled.displayName = 'AmauiIconMaterialMonetizationOnRoundedFilled';
+
 export default IconMaterialMonetizationOnRoundedFilled;

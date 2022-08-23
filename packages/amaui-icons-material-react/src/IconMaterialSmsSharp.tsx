@@ -18,4 +18,6 @@ const IconMaterialSmsSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSmsSharp.displayName = 'AmauiIconMaterialSmsSharp';
+
 export default IconMaterialSmsSharp;

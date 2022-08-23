@@ -18,4 +18,6 @@ const IconMaterialNestHeatLinkESharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNestHeatLinkESharp.displayName = 'AmauiIconMaterialNestHeatLinkESharp';
+
 export default IconMaterialNestHeatLinkESharp;

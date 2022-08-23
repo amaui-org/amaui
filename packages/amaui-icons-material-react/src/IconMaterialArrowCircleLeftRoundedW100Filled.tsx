@@ -18,4 +18,6 @@ const IconMaterialArrowCircleLeftRoundedW100Filled = React.forwardRef((props: an
   );
 });
 
+IconMaterialArrowCircleLeftRoundedW100Filled.displayName = 'AmauiIconMaterialArrowCircleLeftRoundedW100Filled';
+
 export default IconMaterialArrowCircleLeftRoundedW100Filled;

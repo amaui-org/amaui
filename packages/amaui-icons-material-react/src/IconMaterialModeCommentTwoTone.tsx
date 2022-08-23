@@ -18,4 +18,6 @@ const IconMaterialModeCommentTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialModeCommentTwoTone.displayName = 'AmauiIconMaterialModeCommentTwoTone';
+
 export default IconMaterialModeCommentTwoTone;

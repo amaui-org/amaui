@@ -18,4 +18,6 @@ const IconMaterialCastConnectedRoundedFilled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialCastConnectedRoundedFilled.displayName = 'AmauiIconMaterialCastConnectedRoundedFilled';
+
 export default IconMaterialCastConnectedRoundedFilled;

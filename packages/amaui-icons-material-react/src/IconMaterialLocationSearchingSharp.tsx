@@ -18,4 +18,6 @@ const IconMaterialLocationSearchingSharp = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialLocationSearchingSharp.displayName = 'AmauiIconMaterialLocationSearchingSharp';
+
 export default IconMaterialLocationSearchingSharp;

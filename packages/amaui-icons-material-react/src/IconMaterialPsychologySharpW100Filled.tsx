@@ -18,4 +18,6 @@ const IconMaterialPsychologySharpW100Filled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialPsychologySharpW100Filled.displayName = 'AmauiIconMaterialPsychologySharpW100Filled';
+
 export default IconMaterialPsychologySharpW100Filled;

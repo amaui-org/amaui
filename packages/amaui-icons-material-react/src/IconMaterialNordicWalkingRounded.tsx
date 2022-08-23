@@ -18,4 +18,6 @@ const IconMaterialNordicWalkingRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNordicWalkingRounded.displayName = 'AmauiIconMaterialNordicWalkingRounded';
+
 export default IconMaterialNordicWalkingRounded;

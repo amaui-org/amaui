@@ -18,4 +18,6 @@ const IconMaterialAppBlockingSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAppBlockingSharp.displayName = 'AmauiIconMaterialAppBlockingSharp';
+
 export default IconMaterialAppBlockingSharp;

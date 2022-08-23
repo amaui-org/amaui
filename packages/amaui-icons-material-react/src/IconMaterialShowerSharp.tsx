@@ -18,4 +18,6 @@ const IconMaterialShowerSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialShowerSharp.displayName = 'AmauiIconMaterialShowerSharp';
+
 export default IconMaterialShowerSharp;

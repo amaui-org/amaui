@@ -18,4 +18,6 @@ const IconMaterialAutoActivityZoneRoundedFilled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialAutoActivityZoneRoundedFilled.displayName = 'AmauiIconMaterialAutoActivityZoneRoundedFilled';
+
 export default IconMaterialAutoActivityZoneRoundedFilled;

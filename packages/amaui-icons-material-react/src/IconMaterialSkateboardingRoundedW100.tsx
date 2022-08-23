@@ -18,4 +18,6 @@ const IconMaterialSkateboardingRoundedW100 = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialSkateboardingRoundedW100.displayName = 'AmauiIconMaterialSkateboardingRoundedW100';
+
 export default IconMaterialSkateboardingRoundedW100;

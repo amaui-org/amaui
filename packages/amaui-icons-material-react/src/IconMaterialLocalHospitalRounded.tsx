@@ -18,4 +18,6 @@ const IconMaterialLocalHospitalRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLocalHospitalRounded.displayName = 'AmauiIconMaterialLocalHospitalRounded';
+
 export default IconMaterialLocalHospitalRounded;

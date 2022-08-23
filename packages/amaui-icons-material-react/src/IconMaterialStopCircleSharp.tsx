@@ -18,4 +18,6 @@ const IconMaterialStopCircleSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialStopCircleSharp.displayName = 'AmauiIconMaterialStopCircleSharp';
+
 export default IconMaterialStopCircleSharp;

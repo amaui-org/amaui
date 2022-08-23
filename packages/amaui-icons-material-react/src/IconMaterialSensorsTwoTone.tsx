@@ -18,4 +18,6 @@ const IconMaterialSensorsTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSensorsTwoTone.displayName = 'AmauiIconMaterialSensorsTwoTone';
+
 export default IconMaterialSensorsTwoTone;

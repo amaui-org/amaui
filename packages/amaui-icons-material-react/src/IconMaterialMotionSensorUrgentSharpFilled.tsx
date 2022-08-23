@@ -18,4 +18,6 @@ const IconMaterialMotionSensorUrgentSharpFilled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialMotionSensorUrgentSharpFilled.displayName = 'AmauiIconMaterialMotionSensorUrgentSharpFilled';
+
 export default IconMaterialMotionSensorUrgentSharpFilled;

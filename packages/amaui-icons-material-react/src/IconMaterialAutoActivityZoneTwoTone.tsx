@@ -18,4 +18,6 @@ const IconMaterialAutoActivityZoneTwoTone = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialAutoActivityZoneTwoTone.displayName = 'AmauiIconMaterialAutoActivityZoneTwoTone';
+
 export default IconMaterialAutoActivityZoneTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialFlashOffRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFlashOffRoundedW100.displayName = 'AmauiIconMaterialFlashOffRoundedW100';
+
 export default IconMaterialFlashOffRoundedW100;

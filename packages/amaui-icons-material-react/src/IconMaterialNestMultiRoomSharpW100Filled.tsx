@@ -18,4 +18,6 @@ const IconMaterialNestMultiRoomSharpW100Filled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialNestMultiRoomSharpW100Filled.displayName = 'AmauiIconMaterialNestMultiRoomSharpW100Filled';
+
 export default IconMaterialNestMultiRoomSharpW100Filled;

@@ -18,4 +18,6 @@ const IconMaterialWeightRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialWeightRounded.displayName = 'AmauiIconMaterialWeightRounded';
+
 export default IconMaterialWeightRounded;

@@ -18,4 +18,6 @@ const IconMaterialApkDocumentRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialApkDocumentRounded.displayName = 'AmauiIconMaterialApkDocumentRounded';
+
 export default IconMaterialApkDocumentRounded;

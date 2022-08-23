@@ -18,4 +18,6 @@ const IconMaterialCopyAllRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCopyAllRoundedW100.displayName = 'AmauiIconMaterialCopyAllRoundedW100';
+
 export default IconMaterialCopyAllRoundedW100;

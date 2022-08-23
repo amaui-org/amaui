@@ -18,4 +18,6 @@ const IconMaterialLocationAwayRoundedFilled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialLocationAwayRoundedFilled.displayName = 'AmauiIconMaterialLocationAwayRoundedFilled';
+
 export default IconMaterialLocationAwayRoundedFilled;

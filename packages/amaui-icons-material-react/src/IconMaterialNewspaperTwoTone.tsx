@@ -18,4 +18,6 @@ const IconMaterialNewspaperTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNewspaperTwoTone.displayName = 'AmauiIconMaterialNewspaperTwoTone';
+
 export default IconMaterialNewspaperTwoTone;

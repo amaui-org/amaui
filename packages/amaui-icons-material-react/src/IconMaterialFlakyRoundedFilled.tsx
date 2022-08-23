@@ -18,4 +18,6 @@ const IconMaterialFlakyRoundedFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFlakyRoundedFilled.displayName = 'AmauiIconMaterialFlakyRoundedFilled';
+
 export default IconMaterialFlakyRoundedFilled;

@@ -18,4 +18,6 @@ const IconMaterialNestEcoLeafRoundedFilled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialNestEcoLeafRoundedFilled.displayName = 'AmauiIconMaterialNestEcoLeafRoundedFilled';
+
 export default IconMaterialNestEcoLeafRoundedFilled;

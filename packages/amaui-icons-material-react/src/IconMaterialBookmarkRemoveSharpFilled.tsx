@@ -18,4 +18,6 @@ const IconMaterialBookmarkRemoveSharpFilled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialBookmarkRemoveSharpFilled.displayName = 'AmauiIconMaterialBookmarkRemoveSharpFilled';
+
 export default IconMaterialBookmarkRemoveSharpFilled;

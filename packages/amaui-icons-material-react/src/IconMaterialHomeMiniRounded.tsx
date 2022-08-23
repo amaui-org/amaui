@@ -18,4 +18,6 @@ const IconMaterialHomeMiniRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialHomeMiniRounded.displayName = 'AmauiIconMaterialHomeMiniRounded';
+
 export default IconMaterialHomeMiniRounded;

@@ -18,4 +18,6 @@ const IconMaterialScatterPlotRoundedW100Filled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialScatterPlotRoundedW100Filled.displayName = 'AmauiIconMaterialScatterPlotRoundedW100Filled';
+
 export default IconMaterialScatterPlotRoundedW100Filled;

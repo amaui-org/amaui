@@ -18,4 +18,6 @@ const IconMaterialWheelchairPickupRoundedW100Filled = React.forwardRef((props: a
   );
 });
 
+IconMaterialWheelchairPickupRoundedW100Filled.displayName = 'AmauiIconMaterialWheelchairPickupRoundedW100Filled';
+
 export default IconMaterialWheelchairPickupRoundedW100Filled;

@@ -18,4 +18,6 @@ const IconMaterialAppsOutageSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAppsOutageSharpW100.displayName = 'AmauiIconMaterialAppsOutageSharpW100';
+
 export default IconMaterialAppsOutageSharpW100;

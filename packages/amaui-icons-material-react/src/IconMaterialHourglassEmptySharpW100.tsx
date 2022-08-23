@@ -18,4 +18,6 @@ const IconMaterialHourglassEmptySharpW100 = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialHourglassEmptySharpW100.displayName = 'AmauiIconMaterialHourglassEmptySharpW100';
+
 export default IconMaterialHourglassEmptySharpW100;

@@ -18,4 +18,6 @@ const IconMaterialNetworkWifiSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNetworkWifiSharp.displayName = 'AmauiIconMaterialNetworkWifiSharp';
+
 export default IconMaterialNetworkWifiSharp;

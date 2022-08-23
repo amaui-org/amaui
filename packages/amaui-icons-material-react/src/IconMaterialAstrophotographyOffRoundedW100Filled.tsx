@@ -18,4 +18,6 @@ const IconMaterialAstrophotographyOffRoundedW100Filled = React.forwardRef((props
   );
 });
 
+IconMaterialAstrophotographyOffRoundedW100Filled.displayName = 'AmauiIconMaterialAstrophotographyOffRoundedW100Filled';
+
 export default IconMaterialAstrophotographyOffRoundedW100Filled;

@@ -18,4 +18,6 @@ const IconMaterialNestThermostatGen3TwoTone = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialNestThermostatGen3TwoTone.displayName = 'AmauiIconMaterialNestThermostatGen3TwoTone';
+
 export default IconMaterialNestThermostatGen3TwoTone;

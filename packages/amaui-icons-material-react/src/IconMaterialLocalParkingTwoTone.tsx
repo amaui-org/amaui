@@ -18,4 +18,6 @@ const IconMaterialLocalParkingTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLocalParkingTwoTone.displayName = 'AmauiIconMaterialLocalParkingTwoTone';
+
 export default IconMaterialLocalParkingTwoTone;

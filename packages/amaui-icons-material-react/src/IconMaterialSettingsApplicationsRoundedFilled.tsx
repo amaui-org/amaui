@@ -18,4 +18,6 @@ const IconMaterialSettingsApplicationsRoundedFilled = React.forwardRef((props: a
   );
 });
 
+IconMaterialSettingsApplicationsRoundedFilled.displayName = 'AmauiIconMaterialSettingsApplicationsRoundedFilled';
+
 export default IconMaterialSettingsApplicationsRoundedFilled;

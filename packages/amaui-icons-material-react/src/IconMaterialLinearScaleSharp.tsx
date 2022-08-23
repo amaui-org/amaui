@@ -18,4 +18,6 @@ const IconMaterialLinearScaleSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLinearScaleSharp.displayName = 'AmauiIconMaterialLinearScaleSharp';
+
 export default IconMaterialLinearScaleSharp;

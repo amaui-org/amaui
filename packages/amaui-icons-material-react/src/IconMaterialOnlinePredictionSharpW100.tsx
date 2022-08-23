@@ -18,4 +18,6 @@ const IconMaterialOnlinePredictionSharpW100 = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialOnlinePredictionSharpW100.displayName = 'AmauiIconMaterialOnlinePredictionSharpW100';
+
 export default IconMaterialOnlinePredictionSharpW100;

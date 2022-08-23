@@ -18,4 +18,6 @@ const IconMaterialSettingsInputComponentSharpFilled = React.forwardRef((props: a
   );
 });
 
+IconMaterialSettingsInputComponentSharpFilled.displayName = 'AmauiIconMaterialSettingsInputComponentSharpFilled';
+
 export default IconMaterialSettingsInputComponentSharpFilled;

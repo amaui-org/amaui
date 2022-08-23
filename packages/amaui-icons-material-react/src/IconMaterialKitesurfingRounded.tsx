@@ -18,4 +18,6 @@ const IconMaterialKitesurfingRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialKitesurfingRounded.displayName = 'AmauiIconMaterialKitesurfingRounded';
+
 export default IconMaterialKitesurfingRounded;

@@ -18,4 +18,6 @@ const IconMaterialReduceCapacityRoundedW100 = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialReduceCapacityRoundedW100.displayName = 'AmauiIconMaterialReduceCapacityRoundedW100';
+
 export default IconMaterialReduceCapacityRoundedW100;

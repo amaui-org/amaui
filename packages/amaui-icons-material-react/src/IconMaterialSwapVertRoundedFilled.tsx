@@ -18,4 +18,6 @@ const IconMaterialSwapVertRoundedFilled = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialSwapVertRoundedFilled.displayName = 'AmauiIconMaterialSwapVertRoundedFilled';
+
 export default IconMaterialSwapVertRoundedFilled;

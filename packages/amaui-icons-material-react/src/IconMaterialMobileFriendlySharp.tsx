@@ -18,4 +18,6 @@ const IconMaterialMobileFriendlySharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMobileFriendlySharp.displayName = 'AmauiIconMaterialMobileFriendlySharp';
+
 export default IconMaterialMobileFriendlySharp;

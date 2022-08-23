@@ -323,8 +323,11 @@ const Button = React.forwardRef((props_: any, ref: any) => {
     prefer = 'light',
     fullWidth,
     selected,
+    iconSelected,
     startIcon: startIcon_,
+    startIconSelected,
     endIcon: endIcon_,
+    endIconSelected,
     elevation = true,
     backgroundOpacity,
     align = 'center',
@@ -363,8 +366,8 @@ const Button = React.forwardRef((props_: any, ref: any) => {
   const { classes } = useStyle(props);
 
   let color = color_;
-  let startIcon = startIcon_;
-  let endIcon = endIcon_;
+  let startIcon = (selected && startIconSelected) || startIcon_;
+  let endIcon = (selected && endIconSelected) || endIcon_;
   let disabled = disabled_ || loading;
   let TypeProps = { version: 'l2' };
 
@@ -640,7 +643,7 @@ const Button = React.forwardRef((props_: any, ref: any) => {
 
           style={styles.icon}
         >
-          {children_}
+          {(selected && iconSelected) || children_}
         </span>
       ) : (
         <Type
@@ -662,7 +665,11 @@ const Button = React.forwardRef((props_: any, ref: any) => {
 
           {...TypeProps}
         >
-          {children_}
+          {React.Children.toArray(children_).map((item: any) => {
+            if (selected && item.type?.displayName?.includes('AmauiIcon') && iconSelected) return iconSelected;
+
+            return item;
+          })}
         </Type>
       )}
 

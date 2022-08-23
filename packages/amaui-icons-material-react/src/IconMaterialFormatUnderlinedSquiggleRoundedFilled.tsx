@@ -18,4 +18,6 @@ const IconMaterialFormatUnderlinedSquiggleRoundedFilled = React.forwardRef((prop
   );
 });
 
+IconMaterialFormatUnderlinedSquiggleRoundedFilled.displayName = 'AmauiIconMaterialFormatUnderlinedSquiggleRoundedFilled';
+
 export default IconMaterialFormatUnderlinedSquiggleRoundedFilled;

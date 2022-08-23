@@ -18,4 +18,6 @@ const IconMaterialVideoSettingsRoundedW100 = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialVideoSettingsRoundedW100.displayName = 'AmauiIconMaterialVideoSettingsRoundedW100';
+
 export default IconMaterialVideoSettingsRoundedW100;

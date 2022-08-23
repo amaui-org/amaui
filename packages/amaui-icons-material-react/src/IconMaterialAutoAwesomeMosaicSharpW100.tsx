@@ -18,4 +18,6 @@ const IconMaterialAutoAwesomeMosaicSharpW100 = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialAutoAwesomeMosaicSharpW100.displayName = 'AmauiIconMaterialAutoAwesomeMosaicSharpW100';
+
 export default IconMaterialAutoAwesomeMosaicSharpW100;

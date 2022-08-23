@@ -18,4 +18,6 @@ const IconMaterialDialpadSharpW100Filled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialDialpadSharpW100Filled.displayName = 'AmauiIconMaterialDialpadSharpW100Filled';
+
 export default IconMaterialDialpadSharpW100Filled;

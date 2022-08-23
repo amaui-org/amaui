@@ -18,4 +18,6 @@ const IconMaterialPianoRoundedFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPianoRoundedFilled.displayName = 'AmauiIconMaterialPianoRoundedFilled';
+
 export default IconMaterialPianoRoundedFilled;

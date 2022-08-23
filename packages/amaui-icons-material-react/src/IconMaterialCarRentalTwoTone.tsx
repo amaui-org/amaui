@@ -18,4 +18,6 @@ const IconMaterialCarRentalTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCarRentalTwoTone.displayName = 'AmauiIconMaterialCarRentalTwoTone';
+
 export default IconMaterialCarRentalTwoTone;

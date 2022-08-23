@@ -18,4 +18,6 @@ const IconMaterialReorderTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialReorderTwoTone.displayName = 'AmauiIconMaterialReorderTwoTone';
+
 export default IconMaterialReorderTwoTone;

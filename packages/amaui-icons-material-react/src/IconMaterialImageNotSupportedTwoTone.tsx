@@ -18,4 +18,6 @@ const IconMaterialImageNotSupportedTwoTone = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialImageNotSupportedTwoTone.displayName = 'AmauiIconMaterialImageNotSupportedTwoTone';
+
 export default IconMaterialImageNotSupportedTwoTone;

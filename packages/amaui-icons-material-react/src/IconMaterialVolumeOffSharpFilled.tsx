@@ -18,4 +18,6 @@ const IconMaterialVolumeOffSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialVolumeOffSharpFilled.displayName = 'AmauiIconMaterialVolumeOffSharpFilled';
+
 export default IconMaterialVolumeOffSharpFilled;

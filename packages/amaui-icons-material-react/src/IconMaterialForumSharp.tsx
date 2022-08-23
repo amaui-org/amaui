@@ -18,4 +18,6 @@ const IconMaterialForumSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialForumSharp.displayName = 'AmauiIconMaterialForumSharp';
+
 export default IconMaterialForumSharp;

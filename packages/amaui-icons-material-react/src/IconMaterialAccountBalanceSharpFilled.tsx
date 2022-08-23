@@ -18,4 +18,6 @@ const IconMaterialAccountBalanceSharpFilled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialAccountBalanceSharpFilled.displayName = 'AmauiIconMaterialAccountBalanceSharpFilled';
+
 export default IconMaterialAccountBalanceSharpFilled;

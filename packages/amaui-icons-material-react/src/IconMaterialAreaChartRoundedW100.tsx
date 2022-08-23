@@ -18,4 +18,6 @@ const IconMaterialAreaChartRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAreaChartRoundedW100.displayName = 'AmauiIconMaterialAreaChartRoundedW100';
+
 export default IconMaterialAreaChartRoundedW100;

@@ -18,4 +18,6 @@ const IconMaterialLocalFireDepartmentRoundedW100Filled = React.forwardRef((props
   );
 });
 
+IconMaterialLocalFireDepartmentRoundedW100Filled.displayName = 'AmauiIconMaterialLocalFireDepartmentRoundedW100Filled';
+
 export default IconMaterialLocalFireDepartmentRoundedW100Filled;

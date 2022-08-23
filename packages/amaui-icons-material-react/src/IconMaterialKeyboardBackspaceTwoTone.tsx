@@ -18,4 +18,6 @@ const IconMaterialKeyboardBackspaceTwoTone = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialKeyboardBackspaceTwoTone.displayName = 'AmauiIconMaterialKeyboardBackspaceTwoTone';
+
 export default IconMaterialKeyboardBackspaceTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialPermPhoneMsgTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPermPhoneMsgTwoTone.displayName = 'AmauiIconMaterialPermPhoneMsgTwoTone';
+
 export default IconMaterialPermPhoneMsgTwoTone;

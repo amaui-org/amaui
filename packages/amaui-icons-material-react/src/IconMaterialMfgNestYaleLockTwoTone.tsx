@@ -18,4 +18,6 @@ const IconMaterialMfgNestYaleLockTwoTone = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialMfgNestYaleLockTwoTone.displayName = 'AmauiIconMaterialMfgNestYaleLockTwoTone';
+
 export default IconMaterialMfgNestYaleLockTwoTone;

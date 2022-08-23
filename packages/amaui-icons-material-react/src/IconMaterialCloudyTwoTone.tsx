@@ -18,4 +18,6 @@ const IconMaterialCloudyTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCloudyTwoTone.displayName = 'AmauiIconMaterialCloudyTwoTone';
+
 export default IconMaterialCloudyTwoTone;

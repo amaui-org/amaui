@@ -18,4 +18,6 @@ const IconMaterialSoapSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSoapSharp.displayName = 'AmauiIconMaterialSoapSharp';
+
 export default IconMaterialSoapSharp;

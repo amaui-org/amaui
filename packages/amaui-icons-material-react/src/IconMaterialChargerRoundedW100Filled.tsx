@@ -18,4 +18,6 @@ const IconMaterialChargerRoundedW100Filled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialChargerRoundedW100Filled.displayName = 'AmauiIconMaterialChargerRoundedW100Filled';
+
 export default IconMaterialChargerRoundedW100Filled;

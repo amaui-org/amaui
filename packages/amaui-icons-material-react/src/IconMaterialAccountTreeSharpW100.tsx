@@ -18,4 +18,6 @@ const IconMaterialAccountTreeSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAccountTreeSharpW100.displayName = 'AmauiIconMaterialAccountTreeSharpW100';
+
 export default IconMaterialAccountTreeSharpW100;

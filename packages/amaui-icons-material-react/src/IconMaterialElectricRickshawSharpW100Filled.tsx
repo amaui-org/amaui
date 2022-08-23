@@ -18,4 +18,6 @@ const IconMaterialElectricRickshawSharpW100Filled = React.forwardRef((props: any
   );
 });
 
+IconMaterialElectricRickshawSharpW100Filled.displayName = 'AmauiIconMaterialElectricRickshawSharpW100Filled';
+
 export default IconMaterialElectricRickshawSharpW100Filled;

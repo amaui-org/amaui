@@ -18,4 +18,6 @@ const IconMaterialRotate90DegreesCcwTwoTone = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialRotate90DegreesCcwTwoTone.displayName = 'AmauiIconMaterialRotate90DegreesCcwTwoTone';
+
 export default IconMaterialRotate90DegreesCcwTwoTone;

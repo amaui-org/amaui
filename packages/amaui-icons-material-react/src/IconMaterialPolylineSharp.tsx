@@ -18,4 +18,6 @@ const IconMaterialPolylineSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPolylineSharp.displayName = 'AmauiIconMaterialPolylineSharp';
+
 export default IconMaterialPolylineSharp;

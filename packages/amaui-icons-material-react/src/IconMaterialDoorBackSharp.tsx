@@ -18,4 +18,6 @@ const IconMaterialDoorBackSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDoorBackSharp.displayName = 'AmauiIconMaterialDoorBackSharp';
+
 export default IconMaterialDoorBackSharp;

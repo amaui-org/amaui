@@ -18,4 +18,6 @@ const IconMaterialDetectionAndZoneRoundedFilled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialDetectionAndZoneRoundedFilled.displayName = 'AmauiIconMaterialDetectionAndZoneRoundedFilled';
+
 export default IconMaterialDetectionAndZoneRoundedFilled;

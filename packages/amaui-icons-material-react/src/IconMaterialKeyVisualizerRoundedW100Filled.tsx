@@ -18,4 +18,6 @@ const IconMaterialKeyVisualizerRoundedW100Filled = React.forwardRef((props: any,
   );
 });
 
+IconMaterialKeyVisualizerRoundedW100Filled.displayName = 'AmauiIconMaterialKeyVisualizerRoundedW100Filled';
+
 export default IconMaterialKeyVisualizerRoundedW100Filled;

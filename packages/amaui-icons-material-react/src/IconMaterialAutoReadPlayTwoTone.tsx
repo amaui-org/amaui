@@ -18,4 +18,6 @@ const IconMaterialAutoReadPlayTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAutoReadPlayTwoTone.displayName = 'AmauiIconMaterialAutoReadPlayTwoTone';
+
 export default IconMaterialAutoReadPlayTwoTone;

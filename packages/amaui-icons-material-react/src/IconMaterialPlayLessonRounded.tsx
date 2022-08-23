@@ -18,4 +18,6 @@ const IconMaterialPlayLessonRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPlayLessonRounded.displayName = 'AmauiIconMaterialPlayLessonRounded';
+
 export default IconMaterialPlayLessonRounded;

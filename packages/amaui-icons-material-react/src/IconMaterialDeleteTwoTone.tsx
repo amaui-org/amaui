@@ -18,4 +18,6 @@ const IconMaterialDeleteTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDeleteTwoTone.displayName = 'AmauiIconMaterialDeleteTwoTone';
+
 export default IconMaterialDeleteTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialValveRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialValveRounded.displayName = 'AmauiIconMaterialValveRounded';
+
 export default IconMaterialValveRounded;

@@ -18,4 +18,6 @@ const IconMaterialBorderClearRoundedFilled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialBorderClearRoundedFilled.displayName = 'AmauiIconMaterialBorderClearRoundedFilled';
+
 export default IconMaterialBorderClearRoundedFilled;

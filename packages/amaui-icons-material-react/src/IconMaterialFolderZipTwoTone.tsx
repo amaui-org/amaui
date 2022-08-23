@@ -18,4 +18,6 @@ const IconMaterialFolderZipTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFolderZipTwoTone.displayName = 'AmauiIconMaterialFolderZipTwoTone';
+
 export default IconMaterialFolderZipTwoTone;

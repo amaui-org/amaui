@@ -18,4 +18,6 @@ const IconMaterialPermDataSettingTwoTone = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialPermDataSettingTwoTone.displayName = 'AmauiIconMaterialPermDataSettingTwoTone';
+
 export default IconMaterialPermDataSettingTwoTone;

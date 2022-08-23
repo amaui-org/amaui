@@ -18,4 +18,6 @@ const IconMaterialBluetoothConnectedTwoTone = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialBluetoothConnectedTwoTone.displayName = 'AmauiIconMaterialBluetoothConnectedTwoTone';
+
 export default IconMaterialBluetoothConnectedTwoTone;

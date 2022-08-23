@@ -18,4 +18,6 @@ const IconMaterialOvenGenRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialOvenGenRounded.displayName = 'AmauiIconMaterialOvenGenRounded';
+
 export default IconMaterialOvenGenRounded;

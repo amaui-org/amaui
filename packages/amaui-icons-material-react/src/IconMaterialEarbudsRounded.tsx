@@ -18,4 +18,6 @@ const IconMaterialEarbudsRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialEarbudsRounded.displayName = 'AmauiIconMaterialEarbudsRounded';
+
 export default IconMaterialEarbudsRounded;

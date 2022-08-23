@@ -18,4 +18,6 @@ const IconMaterialCropFreeSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCropFreeSharpFilled.displayName = 'AmauiIconMaterialCropFreeSharpFilled';
+
 export default IconMaterialCropFreeSharpFilled;

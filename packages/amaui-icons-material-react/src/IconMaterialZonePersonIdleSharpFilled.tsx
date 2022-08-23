@@ -18,4 +18,6 @@ const IconMaterialZonePersonIdleSharpFilled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialZonePersonIdleSharpFilled.displayName = 'AmauiIconMaterialZonePersonIdleSharpFilled';
+
 export default IconMaterialZonePersonIdleSharpFilled;

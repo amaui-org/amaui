@@ -18,4 +18,6 @@ const IconMaterialOfflinePinRoundedFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialOfflinePinRoundedFilled.displayName = 'AmauiIconMaterialOfflinePinRoundedFilled';
+
 export default IconMaterialOfflinePinRoundedFilled;

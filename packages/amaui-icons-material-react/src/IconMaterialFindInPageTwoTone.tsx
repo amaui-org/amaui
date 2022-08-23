@@ -18,4 +18,6 @@ const IconMaterialFindInPageTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFindInPageTwoTone.displayName = 'AmauiIconMaterialFindInPageTwoTone';
+
 export default IconMaterialFindInPageTwoTone;

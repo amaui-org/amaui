@@ -18,4 +18,6 @@ const IconMaterialChurchRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialChurchRoundedW100.displayName = 'AmauiIconMaterialChurchRoundedW100';
+
 export default IconMaterialChurchRoundedW100;

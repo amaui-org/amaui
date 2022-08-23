@@ -18,4 +18,6 @@ const IconMaterialDynamicFeedRoundedW100Filled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialDynamicFeedRoundedW100Filled.displayName = 'AmauiIconMaterialDynamicFeedRoundedW100Filled';
+
 export default IconMaterialDynamicFeedRoundedW100Filled;

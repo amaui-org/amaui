@@ -18,4 +18,6 @@ const IconMaterialEnhancedEncryptionRoundedW100Filled = React.forwardRef((props:
   );
 });
 
+IconMaterialEnhancedEncryptionRoundedW100Filled.displayName = 'AmauiIconMaterialEnhancedEncryptionRoundedW100Filled';
+
 export default IconMaterialEnhancedEncryptionRoundedW100Filled;

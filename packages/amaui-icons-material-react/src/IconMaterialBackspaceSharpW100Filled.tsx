@@ -18,4 +18,6 @@ const IconMaterialBackspaceSharpW100Filled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialBackspaceSharpW100Filled.displayName = 'AmauiIconMaterialBackspaceSharpW100Filled';
+
 export default IconMaterialBackspaceSharpW100Filled;

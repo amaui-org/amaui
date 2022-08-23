@@ -18,4 +18,6 @@ const IconMaterialSpokeSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSpokeSharp.displayName = 'AmauiIconMaterialSpokeSharp';
+
 export default IconMaterialSpokeSharp;

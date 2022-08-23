@@ -18,4 +18,6 @@ const IconMaterialNestWakeOnApproachTwoTone = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialNestWakeOnApproachTwoTone.displayName = 'AmauiIconMaterialNestWakeOnApproachTwoTone';
+
 export default IconMaterialNestWakeOnApproachTwoTone;

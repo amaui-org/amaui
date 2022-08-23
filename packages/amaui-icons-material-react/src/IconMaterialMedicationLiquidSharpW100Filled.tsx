@@ -18,4 +18,6 @@ const IconMaterialMedicationLiquidSharpW100Filled = React.forwardRef((props: any
   );
 });
 
+IconMaterialMedicationLiquidSharpW100Filled.displayName = 'AmauiIconMaterialMedicationLiquidSharpW100Filled';
+
 export default IconMaterialMedicationLiquidSharpW100Filled;

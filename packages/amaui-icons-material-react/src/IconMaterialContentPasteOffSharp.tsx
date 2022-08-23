@@ -18,4 +18,6 @@ const IconMaterialContentPasteOffSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialContentPasteOffSharp.displayName = 'AmauiIconMaterialContentPasteOffSharp';
+
 export default IconMaterialContentPasteOffSharp;

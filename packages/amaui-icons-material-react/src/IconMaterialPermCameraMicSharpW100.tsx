@@ -18,4 +18,6 @@ const IconMaterialPermCameraMicSharpW100 = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialPermCameraMicSharpW100.displayName = 'AmauiIconMaterialPermCameraMicSharpW100';
+
 export default IconMaterialPermCameraMicSharpW100;

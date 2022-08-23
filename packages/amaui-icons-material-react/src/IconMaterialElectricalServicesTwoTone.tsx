@@ -18,4 +18,6 @@ const IconMaterialElectricalServicesTwoTone = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialElectricalServicesTwoTone.displayName = 'AmauiIconMaterialElectricalServicesTwoTone';
+
 export default IconMaterialElectricalServicesTwoTone;

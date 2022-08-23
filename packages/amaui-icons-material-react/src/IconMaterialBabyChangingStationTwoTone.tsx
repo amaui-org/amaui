@@ -18,4 +18,6 @@ const IconMaterialBabyChangingStationTwoTone = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialBabyChangingStationTwoTone.displayName = 'AmauiIconMaterialBabyChangingStationTwoTone';
+
 export default IconMaterialBabyChangingStationTwoTone;

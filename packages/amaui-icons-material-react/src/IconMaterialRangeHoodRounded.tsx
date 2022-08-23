@@ -18,4 +18,6 @@ const IconMaterialRangeHoodRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialRangeHoodRounded.displayName = 'AmauiIconMaterialRangeHoodRounded';
+
 export default IconMaterialRangeHoodRounded;

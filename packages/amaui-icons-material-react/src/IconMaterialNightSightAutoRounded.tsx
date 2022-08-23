@@ -18,4 +18,6 @@ const IconMaterialNightSightAutoRounded = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialNightSightAutoRounded.displayName = 'AmauiIconMaterialNightSightAutoRounded';
+
 export default IconMaterialNightSightAutoRounded;

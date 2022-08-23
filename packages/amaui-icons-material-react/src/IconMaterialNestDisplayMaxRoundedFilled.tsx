@@ -18,4 +18,6 @@ const IconMaterialNestDisplayMaxRoundedFilled = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialNestDisplayMaxRoundedFilled.displayName = 'AmauiIconMaterialNestDisplayMaxRoundedFilled';
+
 export default IconMaterialNestDisplayMaxRoundedFilled;

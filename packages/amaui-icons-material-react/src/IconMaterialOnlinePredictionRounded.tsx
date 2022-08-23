@@ -18,4 +18,6 @@ const IconMaterialOnlinePredictionRounded = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialOnlinePredictionRounded.displayName = 'AmauiIconMaterialOnlinePredictionRounded';
+
 export default IconMaterialOnlinePredictionRounded;

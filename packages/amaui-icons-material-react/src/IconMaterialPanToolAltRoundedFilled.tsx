@@ -18,4 +18,6 @@ const IconMaterialPanToolAltRoundedFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialPanToolAltRoundedFilled.displayName = 'AmauiIconMaterialPanToolAltRoundedFilled';
+
 export default IconMaterialPanToolAltRoundedFilled;

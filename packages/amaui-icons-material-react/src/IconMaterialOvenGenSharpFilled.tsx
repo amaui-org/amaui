@@ -18,4 +18,6 @@ const IconMaterialOvenGenSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialOvenGenSharpFilled.displayName = 'AmauiIconMaterialOvenGenSharpFilled';
+
 export default IconMaterialOvenGenSharpFilled;

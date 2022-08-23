@@ -18,4 +18,6 @@ const IconMaterialSentimentNeutralSharpFilled = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialSentimentNeutralSharpFilled.displayName = 'AmauiIconMaterialSentimentNeutralSharpFilled';
+
 export default IconMaterialSentimentNeutralSharpFilled;

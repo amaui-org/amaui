@@ -18,4 +18,6 @@ const IconMaterialTextFieldsRoundedW100Filled = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialTextFieldsRoundedW100Filled.displayName = 'AmauiIconMaterialTextFieldsRoundedW100Filled';
+
 export default IconMaterialTextFieldsRoundedW100Filled;

@@ -18,4 +18,6 @@ const IconMaterialLocalPharmacyRoundedFilled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialLocalPharmacyRoundedFilled.displayName = 'AmauiIconMaterialLocalPharmacyRoundedFilled';
+
 export default IconMaterialLocalPharmacyRoundedFilled;

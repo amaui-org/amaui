@@ -18,4 +18,6 @@ const IconMaterialSportsMotorsportsRoundedW100 = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialSportsMotorsportsRoundedW100.displayName = 'AmauiIconMaterialSportsMotorsportsRoundedW100';
+
 export default IconMaterialSportsMotorsportsRoundedW100;

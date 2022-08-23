@@ -18,4 +18,6 @@ const IconMaterialFlutterDashTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFlutterDashTwoTone.displayName = 'AmauiIconMaterialFlutterDashTwoTone';
+
 export default IconMaterialFlutterDashTwoTone;

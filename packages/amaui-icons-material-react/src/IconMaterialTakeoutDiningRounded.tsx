@@ -18,4 +18,6 @@ const IconMaterialTakeoutDiningRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTakeoutDiningRounded.displayName = 'AmauiIconMaterialTakeoutDiningRounded';
+
 export default IconMaterialTakeoutDiningRounded;

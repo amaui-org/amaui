@@ -18,4 +18,6 @@ const IconMaterialContactMailSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialContactMailSharp.displayName = 'AmauiIconMaterialContactMailSharp';
+
 export default IconMaterialContactMailSharp;

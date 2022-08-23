@@ -18,4 +18,6 @@ const IconMaterialSyncDisabledSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSyncDisabledSharp.displayName = 'AmauiIconMaterialSyncDisabledSharp';
+
 export default IconMaterialSyncDisabledSharp;

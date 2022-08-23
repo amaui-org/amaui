@@ -18,4 +18,6 @@ const IconMaterialViewSidebarTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialViewSidebarTwoTone.displayName = 'AmauiIconMaterialViewSidebarTwoTone';
+
 export default IconMaterialViewSidebarTwoTone;

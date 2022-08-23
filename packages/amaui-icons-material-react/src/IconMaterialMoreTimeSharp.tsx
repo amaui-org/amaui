@@ -18,4 +18,6 @@ const IconMaterialMoreTimeSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMoreTimeSharp.displayName = 'AmauiIconMaterialMoreTimeSharp';
+
 export default IconMaterialMoreTimeSharp;

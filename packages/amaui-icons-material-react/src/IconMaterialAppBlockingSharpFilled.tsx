@@ -18,4 +18,6 @@ const IconMaterialAppBlockingSharpFilled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialAppBlockingSharpFilled.displayName = 'AmauiIconMaterialAppBlockingSharpFilled';
+
 export default IconMaterialAppBlockingSharpFilled;

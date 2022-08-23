@@ -18,4 +18,6 @@ const IconMaterialSentimentExtremelyDissatisfiedTwoTone = React.forwardRef((prop
   );
 });
 
+IconMaterialSentimentExtremelyDissatisfiedTwoTone.displayName = 'AmauiIconMaterialSentimentExtremelyDissatisfiedTwoTone';
+
 export default IconMaterialSentimentExtremelyDissatisfiedTwoTone;

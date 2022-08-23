@@ -18,4 +18,6 @@ const IconMaterialSdCardAlertTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSdCardAlertTwoTone.displayName = 'AmauiIconMaterialSdCardAlertTwoTone';
+
 export default IconMaterialSdCardAlertTwoTone;

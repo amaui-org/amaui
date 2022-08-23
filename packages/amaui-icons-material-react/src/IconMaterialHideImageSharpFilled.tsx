@@ -18,4 +18,6 @@ const IconMaterialHideImageSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialHideImageSharpFilled.displayName = 'AmauiIconMaterialHideImageSharpFilled';
+
 export default IconMaterialHideImageSharpFilled;

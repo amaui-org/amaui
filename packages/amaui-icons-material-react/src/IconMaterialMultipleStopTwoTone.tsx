@@ -18,4 +18,6 @@ const IconMaterialMultipleStopTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMultipleStopTwoTone.displayName = 'AmauiIconMaterialMultipleStopTwoTone';
+
 export default IconMaterialMultipleStopTwoTone;

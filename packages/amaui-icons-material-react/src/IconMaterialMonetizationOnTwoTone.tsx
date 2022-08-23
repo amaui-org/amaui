@@ -18,4 +18,6 @@ const IconMaterialMonetizationOnTwoTone = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialMonetizationOnTwoTone.displayName = 'AmauiIconMaterialMonetizationOnTwoTone';
+
 export default IconMaterialMonetizationOnTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialOpenInNewRoundedFilled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialOpenInNewRoundedFilled.displayName = 'AmauiIconMaterialOpenInNewRoundedFilled';
+
 export default IconMaterialOpenInNewRoundedFilled;

@@ -18,4 +18,6 @@ const IconMaterialAirplanemodeInactiveRoundedFilled = React.forwardRef((props: a
   );
 });
 
+IconMaterialAirplanemodeInactiveRoundedFilled.displayName = 'AmauiIconMaterialAirplanemodeInactiveRoundedFilled';
+
 export default IconMaterialAirplanemodeInactiveRoundedFilled;

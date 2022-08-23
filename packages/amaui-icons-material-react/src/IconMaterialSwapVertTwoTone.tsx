@@ -18,4 +18,6 @@ const IconMaterialSwapVertTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSwapVertTwoTone.displayName = 'AmauiIconMaterialSwapVertTwoTone';
+
 export default IconMaterialSwapVertTwoTone;

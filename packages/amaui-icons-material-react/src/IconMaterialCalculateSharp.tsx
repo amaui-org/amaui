@@ -18,4 +18,6 @@ const IconMaterialCalculateSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCalculateSharp.displayName = 'AmauiIconMaterialCalculateSharp';
+
 export default IconMaterialCalculateSharp;

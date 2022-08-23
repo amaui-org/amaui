@@ -18,4 +18,6 @@ const IconMaterialRowingSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialRowingSharp.displayName = 'AmauiIconMaterialRowingSharp';
+
 export default IconMaterialRowingSharp;

@@ -18,4 +18,6 @@ const IconMaterialFormatColorTextSharpW100 = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialFormatColorTextSharpW100.displayName = 'AmauiIconMaterialFormatColorTextSharpW100';
+
 export default IconMaterialFormatColorTextSharpW100;

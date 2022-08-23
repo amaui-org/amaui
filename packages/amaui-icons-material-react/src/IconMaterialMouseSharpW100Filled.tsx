@@ -18,4 +18,6 @@ const IconMaterialMouseSharpW100Filled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMouseSharpW100Filled.displayName = 'AmauiIconMaterialMouseSharpW100Filled';
+
 export default IconMaterialMouseSharpW100Filled;

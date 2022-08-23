@@ -18,4 +18,6 @@ const IconMaterialFlipCameraIosSharpFilled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialFlipCameraIosSharpFilled.displayName = 'AmauiIconMaterialFlipCameraIosSharpFilled';
+
 export default IconMaterialFlipCameraIosSharpFilled;

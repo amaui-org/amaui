@@ -18,4 +18,6 @@ const IconMaterialBorderHorizontalRoundedW100 = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialBorderHorizontalRoundedW100.displayName = 'AmauiIconMaterialBorderHorizontalRoundedW100';
+
 export default IconMaterialBorderHorizontalRoundedW100;

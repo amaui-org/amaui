@@ -18,4 +18,6 @@ const IconMaterialTempleBuddhistRoundedW100 = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialTempleBuddhistRoundedW100.displayName = 'AmauiIconMaterialTempleBuddhistRoundedW100';
+
 export default IconMaterialTempleBuddhistRoundedW100;

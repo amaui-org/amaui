@@ -18,4 +18,6 @@ const IconMaterialGridOffTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialGridOffTwoTone.displayName = 'AmauiIconMaterialGridOffTwoTone';
+
 export default IconMaterialGridOffTwoTone;

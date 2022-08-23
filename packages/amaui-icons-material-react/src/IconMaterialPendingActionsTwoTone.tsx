@@ -18,4 +18,6 @@ const IconMaterialPendingActionsTwoTone = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialPendingActionsTwoTone.displayName = 'AmauiIconMaterialPendingActionsTwoTone';
+
 export default IconMaterialPendingActionsTwoTone;

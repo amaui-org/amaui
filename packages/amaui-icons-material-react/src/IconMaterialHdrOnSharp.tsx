@@ -18,4 +18,6 @@ const IconMaterialHdrOnSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialHdrOnSharp.displayName = 'AmauiIconMaterialHdrOnSharp';
+
 export default IconMaterialHdrOnSharp;

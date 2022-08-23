@@ -18,4 +18,6 @@ const IconMaterialRvHookupRoundedFilled = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialRvHookupRoundedFilled.displayName = 'AmauiIconMaterialRvHookupRoundedFilled';
+
 export default IconMaterialRvHookupRoundedFilled;

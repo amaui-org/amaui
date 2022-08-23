@@ -18,4 +18,6 @@ const IconMaterialAutoGraphRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAutoGraphRounded.displayName = 'AmauiIconMaterialAutoGraphRounded';
+
 export default IconMaterialAutoGraphRounded;

@@ -18,4 +18,6 @@ const IconMaterialAdsClickSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAdsClickSharpFilled.displayName = 'AmauiIconMaterialAdsClickSharpFilled';
+
 export default IconMaterialAdsClickSharpFilled;

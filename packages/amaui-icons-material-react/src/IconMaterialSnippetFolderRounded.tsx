@@ -18,4 +18,6 @@ const IconMaterialSnippetFolderRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSnippetFolderRounded.displayName = 'AmauiIconMaterialSnippetFolderRounded';
+
 export default IconMaterialSnippetFolderRounded;

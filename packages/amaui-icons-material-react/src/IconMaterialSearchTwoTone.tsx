@@ -18,4 +18,6 @@ const IconMaterialSearchTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSearchTwoTone.displayName = 'AmauiIconMaterialSearchTwoTone';
+
 export default IconMaterialSearchTwoTone;

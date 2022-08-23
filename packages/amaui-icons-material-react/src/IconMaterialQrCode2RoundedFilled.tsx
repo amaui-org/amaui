@@ -18,4 +18,6 @@ const IconMaterialQrCode2RoundedFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialQrCode2RoundedFilled.displayName = 'AmauiIconMaterialQrCode2RoundedFilled';
+
 export default IconMaterialQrCode2RoundedFilled;

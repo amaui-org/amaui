@@ -18,4 +18,6 @@ const IconMaterialUlnaRadiusAltSharpFilled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialUlnaRadiusAltSharpFilled.displayName = 'AmauiIconMaterialUlnaRadiusAltSharpFilled';
+
 export default IconMaterialUlnaRadiusAltSharpFilled;

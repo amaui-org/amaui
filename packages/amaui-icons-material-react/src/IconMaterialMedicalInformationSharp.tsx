@@ -18,4 +18,6 @@ const IconMaterialMedicalInformationSharp = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialMedicalInformationSharp.displayName = 'AmauiIconMaterialMedicalInformationSharp';
+
 export default IconMaterialMedicalInformationSharp;

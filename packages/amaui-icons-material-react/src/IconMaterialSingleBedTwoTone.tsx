@@ -18,4 +18,6 @@ const IconMaterialSingleBedTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSingleBedTwoTone.displayName = 'AmauiIconMaterialSingleBedTwoTone';
+
 export default IconMaterialSingleBedTwoTone;

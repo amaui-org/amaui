@@ -18,4 +18,6 @@ const IconMaterialEvShadowSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialEvShadowSharp.displayName = 'AmauiIconMaterialEvShadowSharp';
+
 export default IconMaterialEvShadowSharp;

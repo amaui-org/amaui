@@ -18,4 +18,6 @@ const IconMaterialNestSecureAlarmSharpW100Filled = React.forwardRef((props: any,
   );
 });
 
+IconMaterialNestSecureAlarmSharpW100Filled.displayName = 'AmauiIconMaterialNestSecureAlarmSharpW100Filled';
+
 export default IconMaterialNestSecureAlarmSharpW100Filled;

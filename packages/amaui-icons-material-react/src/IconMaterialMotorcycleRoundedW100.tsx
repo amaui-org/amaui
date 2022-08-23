@@ -18,4 +18,6 @@ const IconMaterialMotorcycleRoundedW100 = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialMotorcycleRoundedW100.displayName = 'AmauiIconMaterialMotorcycleRoundedW100';
+
 export default IconMaterialMotorcycleRoundedW100;

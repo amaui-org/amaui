@@ -18,4 +18,6 @@ const IconMaterialPivotTableChartSharpW100 = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialPivotTableChartSharpW100.displayName = 'AmauiIconMaterialPivotTableChartSharpW100';
+
 export default IconMaterialPivotTableChartSharpW100;

@@ -18,4 +18,6 @@ const IconMaterialAirFreshenerSharpFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialAirFreshenerSharpFilled.displayName = 'AmauiIconMaterialAirFreshenerSharpFilled';
+
 export default IconMaterialAirFreshenerSharpFilled;

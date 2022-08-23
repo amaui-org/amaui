@@ -18,4 +18,6 @@ const IconMaterialNestRemoteComfortSensorTwoTone = React.forwardRef((props: any,
   );
 });
 
+IconMaterialNestRemoteComfortSensorTwoTone.displayName = 'AmauiIconMaterialNestRemoteComfortSensorTwoTone';
+
 export default IconMaterialNestRemoteComfortSensorTwoTone;

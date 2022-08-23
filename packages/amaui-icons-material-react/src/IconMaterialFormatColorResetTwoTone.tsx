@@ -18,4 +18,6 @@ const IconMaterialFormatColorResetTwoTone = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialFormatColorResetTwoTone.displayName = 'AmauiIconMaterialFormatColorResetTwoTone';
+
 export default IconMaterialFormatColorResetTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialBatteryCharging50RoundedFilled = React.forwardRef((props: any,
   );
 });
 
+IconMaterialBatteryCharging50RoundedFilled.displayName = 'AmauiIconMaterialBatteryCharging50RoundedFilled';
+
 export default IconMaterialBatteryCharging50RoundedFilled;

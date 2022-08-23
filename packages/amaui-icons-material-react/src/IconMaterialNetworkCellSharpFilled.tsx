@@ -18,4 +18,6 @@ const IconMaterialNetworkCellSharpFilled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialNetworkCellSharpFilled.displayName = 'AmauiIconMaterialNetworkCellSharpFilled';
+
 export default IconMaterialNetworkCellSharpFilled;

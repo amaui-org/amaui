@@ -18,4 +18,6 @@ const IconMaterialPlagiarismRoundedW100 = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialPlagiarismRoundedW100.displayName = 'AmauiIconMaterialPlagiarismRoundedW100';
+
 export default IconMaterialPlagiarismRoundedW100;

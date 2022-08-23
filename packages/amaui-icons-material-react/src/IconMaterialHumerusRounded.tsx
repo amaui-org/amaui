@@ -18,4 +18,6 @@ const IconMaterialHumerusRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialHumerusRounded.displayName = 'AmauiIconMaterialHumerusRounded';
+
 export default IconMaterialHumerusRounded;

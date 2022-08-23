@@ -18,4 +18,6 @@ const IconMaterialCameraEnhanceSharpW100Filled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialCameraEnhanceSharpW100Filled.displayName = 'AmauiIconMaterialCameraEnhanceSharpW100Filled';
+
 export default IconMaterialCameraEnhanceSharpW100Filled;

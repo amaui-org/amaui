@@ -18,4 +18,6 @@ const IconMaterialDatabaseSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDatabaseSharp.displayName = 'AmauiIconMaterialDatabaseSharp';
+
 export default IconMaterialDatabaseSharp;

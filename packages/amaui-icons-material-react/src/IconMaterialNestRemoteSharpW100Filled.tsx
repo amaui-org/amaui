@@ -18,4 +18,6 @@ const IconMaterialNestRemoteSharpW100Filled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialNestRemoteSharpW100Filled.displayName = 'AmauiIconMaterialNestRemoteSharpW100Filled';
+
 export default IconMaterialNestRemoteSharpW100Filled;

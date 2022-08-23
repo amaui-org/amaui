@@ -18,4 +18,6 @@ const IconMaterialSettingsInputHdmiRounded = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialSettingsInputHdmiRounded.displayName = 'AmauiIconMaterialSettingsInputHdmiRounded';
+
 export default IconMaterialSettingsInputHdmiRounded;

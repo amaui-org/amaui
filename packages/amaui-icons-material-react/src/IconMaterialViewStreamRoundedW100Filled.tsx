@@ -18,4 +18,6 @@ const IconMaterialViewStreamRoundedW100Filled = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialViewStreamRoundedW100Filled.displayName = 'AmauiIconMaterialViewStreamRoundedW100Filled';
+
 export default IconMaterialViewStreamRoundedW100Filled;

@@ -18,4 +18,6 @@ const IconMaterialViewComfyRoundedW100Filled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialViewComfyRoundedW100Filled.displayName = 'AmauiIconMaterialViewComfyRoundedW100Filled';
+
 export default IconMaterialViewComfyRoundedW100Filled;

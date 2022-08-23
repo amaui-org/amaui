@@ -18,4 +18,6 @@ const IconMaterialMotionSensorAlertRoundedW100 = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialMotionSensorAlertRoundedW100.displayName = 'AmauiIconMaterialMotionSensorAlertRoundedW100';
+
 export default IconMaterialMotionSensorAlertRoundedW100;

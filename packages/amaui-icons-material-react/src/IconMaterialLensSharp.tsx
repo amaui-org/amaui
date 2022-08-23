@@ -18,4 +18,6 @@ const IconMaterialLensSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLensSharp.displayName = 'AmauiIconMaterialLensSharp';
+
 export default IconMaterialLensSharp;

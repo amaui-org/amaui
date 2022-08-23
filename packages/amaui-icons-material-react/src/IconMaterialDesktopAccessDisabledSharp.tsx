@@ -18,4 +18,6 @@ const IconMaterialDesktopAccessDisabledSharp = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialDesktopAccessDisabledSharp.displayName = 'AmauiIconMaterialDesktopAccessDisabledSharp';
+
 export default IconMaterialDesktopAccessDisabledSharp;

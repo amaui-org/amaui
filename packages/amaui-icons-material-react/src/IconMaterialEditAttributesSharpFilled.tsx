@@ -18,4 +18,6 @@ const IconMaterialEditAttributesSharpFilled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialEditAttributesSharpFilled.displayName = 'AmauiIconMaterialEditAttributesSharpFilled';
+
 export default IconMaterialEditAttributesSharpFilled;

@@ -18,4 +18,6 @@ const IconMaterialRadioButtonUncheckedRoundedFilled = React.forwardRef((props: a
   );
 });
 
+IconMaterialRadioButtonUncheckedRoundedFilled.displayName = 'AmauiIconMaterialRadioButtonUncheckedRoundedFilled';
+
 export default IconMaterialRadioButtonUncheckedRoundedFilled;

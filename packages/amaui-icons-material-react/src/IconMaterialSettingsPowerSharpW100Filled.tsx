@@ -18,4 +18,6 @@ const IconMaterialSettingsPowerSharpW100Filled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialSettingsPowerSharpW100Filled.displayName = 'AmauiIconMaterialSettingsPowerSharpW100Filled';
+
 export default IconMaterialSettingsPowerSharpW100Filled;

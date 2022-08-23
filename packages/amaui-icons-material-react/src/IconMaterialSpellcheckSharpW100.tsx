@@ -18,4 +18,6 @@ const IconMaterialSpellcheckSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSpellcheckSharpW100.displayName = 'AmauiIconMaterialSpellcheckSharpW100';
+
 export default IconMaterialSpellcheckSharpW100;

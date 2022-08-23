@@ -18,4 +18,6 @@ const IconMaterialCategorySharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCategorySharp.displayName = 'AmauiIconMaterialCategorySharp';
+
 export default IconMaterialCategorySharp;

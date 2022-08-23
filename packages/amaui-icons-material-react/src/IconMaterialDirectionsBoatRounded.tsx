@@ -18,4 +18,6 @@ const IconMaterialDirectionsBoatRounded = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialDirectionsBoatRounded.displayName = 'AmauiIconMaterialDirectionsBoatRounded';
+
 export default IconMaterialDirectionsBoatRounded;

@@ -18,4 +18,6 @@ const IconMaterialSwipeRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSwipeRounded.displayName = 'AmauiIconMaterialSwipeRounded';
+
 export default IconMaterialSwipeRounded;

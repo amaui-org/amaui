@@ -18,4 +18,6 @@ const IconMaterialSecurityUpdateWarningRoundedFilled = React.forwardRef((props: 
   );
 });
 
+IconMaterialSecurityUpdateWarningRoundedFilled.displayName = 'AmauiIconMaterialSecurityUpdateWarningRoundedFilled';
+
 export default IconMaterialSecurityUpdateWarningRoundedFilled;

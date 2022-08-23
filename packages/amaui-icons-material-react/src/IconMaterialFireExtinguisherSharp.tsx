@@ -18,4 +18,6 @@ const IconMaterialFireExtinguisherSharp = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialFireExtinguisherSharp.displayName = 'AmauiIconMaterialFireExtinguisherSharp';
+
 export default IconMaterialFireExtinguisherSharp;

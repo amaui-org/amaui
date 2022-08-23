@@ -18,4 +18,6 @@ const IconMaterialDigitalOutOfHomeSharpW100 = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialDigitalOutOfHomeSharpW100.displayName = 'AmauiIconMaterialDigitalOutOfHomeSharpW100';
+
 export default IconMaterialDigitalOutOfHomeSharpW100;

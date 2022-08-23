@@ -18,4 +18,6 @@ const IconMaterialWcSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialWcSharp.displayName = 'AmauiIconMaterialWcSharp';
+
 export default IconMaterialWcSharp;

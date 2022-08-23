@@ -18,4 +18,6 @@ const IconMaterialDigitalOutOfHomeRounded = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialDigitalOutOfHomeRounded.displayName = 'AmauiIconMaterialDigitalOutOfHomeRounded';
+
 export default IconMaterialDigitalOutOfHomeRounded;

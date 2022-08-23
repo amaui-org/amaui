@@ -18,4 +18,6 @@ const IconMaterialDeleteSweepRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDeleteSweepRounded.displayName = 'AmauiIconMaterialDeleteSweepRounded';
+
 export default IconMaterialDeleteSweepRounded;

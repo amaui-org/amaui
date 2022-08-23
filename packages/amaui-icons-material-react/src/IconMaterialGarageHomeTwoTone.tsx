@@ -18,4 +18,6 @@ const IconMaterialGarageHomeTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialGarageHomeTwoTone.displayName = 'AmauiIconMaterialGarageHomeTwoTone';
+
 export default IconMaterialGarageHomeTwoTone;

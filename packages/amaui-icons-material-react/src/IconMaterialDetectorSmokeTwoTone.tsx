@@ -18,4 +18,6 @@ const IconMaterialDetectorSmokeTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDetectorSmokeTwoTone.displayName = 'AmauiIconMaterialDetectorSmokeTwoTone';
+
 export default IconMaterialDetectorSmokeTwoTone;

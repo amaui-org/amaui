@@ -18,4 +18,6 @@ const IconMaterialSettingsCellRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSettingsCellRounded.displayName = 'AmauiIconMaterialSettingsCellRounded';
+
 export default IconMaterialSettingsCellRounded;

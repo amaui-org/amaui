@@ -18,4 +18,6 @@ const IconMaterialNfcRoundedFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNfcRoundedFilled.displayName = 'AmauiIconMaterialNfcRoundedFilled';
+
 export default IconMaterialNfcRoundedFilled;

@@ -18,4 +18,6 @@ const IconMaterialSettingsAlertRoundedW100Filled = React.forwardRef((props: any,
   );
 });
 
+IconMaterialSettingsAlertRoundedW100Filled.displayName = 'AmauiIconMaterialSettingsAlertRoundedW100Filled';
+
 export default IconMaterialSettingsAlertRoundedW100Filled;

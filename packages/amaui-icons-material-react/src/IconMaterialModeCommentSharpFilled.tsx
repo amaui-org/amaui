@@ -18,4 +18,6 @@ const IconMaterialModeCommentSharpFilled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialModeCommentSharpFilled.displayName = 'AmauiIconMaterialModeCommentSharpFilled';
+
 export default IconMaterialModeCommentSharpFilled;

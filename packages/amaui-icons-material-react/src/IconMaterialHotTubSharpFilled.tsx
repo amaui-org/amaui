@@ -18,4 +18,6 @@ const IconMaterialHotTubSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialHotTubSharpFilled.displayName = 'AmauiIconMaterialHotTubSharpFilled';
+
 export default IconMaterialHotTubSharpFilled;

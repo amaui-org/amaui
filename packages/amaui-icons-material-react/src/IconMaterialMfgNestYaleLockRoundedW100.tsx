@@ -18,4 +18,6 @@ const IconMaterialMfgNestYaleLockRoundedW100 = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialMfgNestYaleLockRoundedW100.displayName = 'AmauiIconMaterialMfgNestYaleLockRoundedW100';
+
 export default IconMaterialMfgNestYaleLockRoundedW100;

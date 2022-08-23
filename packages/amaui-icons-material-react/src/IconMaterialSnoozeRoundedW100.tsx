@@ -18,4 +18,6 @@ const IconMaterialSnoozeRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSnoozeRoundedW100.displayName = 'AmauiIconMaterialSnoozeRoundedW100';
+
 export default IconMaterialSnoozeRoundedW100;

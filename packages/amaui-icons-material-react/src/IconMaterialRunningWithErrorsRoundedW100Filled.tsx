@@ -18,4 +18,6 @@ const IconMaterialRunningWithErrorsRoundedW100Filled = React.forwardRef((props: 
   );
 });
 
+IconMaterialRunningWithErrorsRoundedW100Filled.displayName = 'AmauiIconMaterialRunningWithErrorsRoundedW100Filled';
+
 export default IconMaterialRunningWithErrorsRoundedW100Filled;

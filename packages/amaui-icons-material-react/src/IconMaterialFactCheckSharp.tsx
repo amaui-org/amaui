@@ -18,4 +18,6 @@ const IconMaterialFactCheckSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFactCheckSharp.displayName = 'AmauiIconMaterialFactCheckSharp';
+
 export default IconMaterialFactCheckSharp;

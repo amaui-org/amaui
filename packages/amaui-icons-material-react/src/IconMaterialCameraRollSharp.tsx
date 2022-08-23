@@ -18,4 +18,6 @@ const IconMaterialCameraRollSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCameraRollSharp.displayName = 'AmauiIconMaterialCameraRollSharp';
+
 export default IconMaterialCameraRollSharp;

@@ -18,4 +18,6 @@ const IconMaterialWbAutoSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialWbAutoSharpFilled.displayName = 'AmauiIconMaterialWbAutoSharpFilled';
+
 export default IconMaterialWbAutoSharpFilled;

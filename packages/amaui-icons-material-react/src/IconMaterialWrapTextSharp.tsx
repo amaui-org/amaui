@@ -18,4 +18,6 @@ const IconMaterialWrapTextSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialWrapTextSharp.displayName = 'AmauiIconMaterialWrapTextSharp';
+
 export default IconMaterialWrapTextSharp;

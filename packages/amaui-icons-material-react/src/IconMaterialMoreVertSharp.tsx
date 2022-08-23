@@ -18,4 +18,6 @@ const IconMaterialMoreVertSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMoreVertSharp.displayName = 'AmauiIconMaterialMoreVertSharp';
+
 export default IconMaterialMoreVertSharp;

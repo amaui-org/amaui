@@ -18,4 +18,6 @@ const IconMaterialTabRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTabRounded.displayName = 'AmauiIconMaterialTabRounded';
+
 export default IconMaterialTabRounded;

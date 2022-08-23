@@ -18,4 +18,6 @@ const IconMaterialChromecast2RoundedW100Filled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialChromecast2RoundedW100Filled.displayName = 'AmauiIconMaterialChromecast2RoundedW100Filled';
+
 export default IconMaterialChromecast2RoundedW100Filled;

@@ -18,4 +18,6 @@ const IconMaterialSplitscreenSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSplitscreenSharp.displayName = 'AmauiIconMaterialSplitscreenSharp';
+
 export default IconMaterialSplitscreenSharp;

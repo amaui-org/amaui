@@ -18,4 +18,6 @@ const IconMaterialNestCamOutdoorRoundedW100 = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialNestCamOutdoorRoundedW100.displayName = 'AmauiIconMaterialNestCamOutdoorRoundedW100';
+
 export default IconMaterialNestCamOutdoorRoundedW100;

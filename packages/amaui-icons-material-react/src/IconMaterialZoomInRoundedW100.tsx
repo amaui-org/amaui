@@ -18,4 +18,6 @@ const IconMaterialZoomInRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialZoomInRoundedW100.displayName = 'AmauiIconMaterialZoomInRoundedW100';
+
 export default IconMaterialZoomInRoundedW100;

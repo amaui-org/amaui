@@ -18,4 +18,6 @@ const IconMaterialBalconySharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBalconySharp.displayName = 'AmauiIconMaterialBalconySharp';
+
 export default IconMaterialBalconySharp;

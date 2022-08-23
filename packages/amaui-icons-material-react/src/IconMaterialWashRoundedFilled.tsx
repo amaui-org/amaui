@@ -18,4 +18,6 @@ const IconMaterialWashRoundedFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialWashRoundedFilled.displayName = 'AmauiIconMaterialWashRoundedFilled';
+
 export default IconMaterialWashRoundedFilled;

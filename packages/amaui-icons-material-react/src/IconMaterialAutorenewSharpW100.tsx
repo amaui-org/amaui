@@ -18,4 +18,6 @@ const IconMaterialAutorenewSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAutorenewSharpW100.displayName = 'AmauiIconMaterialAutorenewSharpW100';
+
 export default IconMaterialAutorenewSharpW100;

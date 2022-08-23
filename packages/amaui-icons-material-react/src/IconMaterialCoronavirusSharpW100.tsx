@@ -18,4 +18,6 @@ const IconMaterialCoronavirusSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCoronavirusSharpW100.displayName = 'AmauiIconMaterialCoronavirusSharpW100';
+
 export default IconMaterialCoronavirusSharpW100;

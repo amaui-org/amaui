@@ -18,4 +18,6 @@ const IconMaterialTibiaRoundedW100Filled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialTibiaRoundedW100Filled.displayName = 'AmauiIconMaterialTibiaRoundedW100Filled';
+
 export default IconMaterialTibiaRoundedW100Filled;

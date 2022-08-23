@@ -18,4 +18,6 @@ const IconMaterialTapAndPlaySharpW100Filled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialTapAndPlaySharpW100Filled.displayName = 'AmauiIconMaterialTapAndPlaySharpW100Filled';
+
 export default IconMaterialTapAndPlaySharpW100Filled;

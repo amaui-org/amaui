@@ -18,4 +18,6 @@ const IconMaterialFormatAlignLeftRounded = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialFormatAlignLeftRounded.displayName = 'AmauiIconMaterialFormatAlignLeftRounded';
+
 export default IconMaterialFormatAlignLeftRounded;

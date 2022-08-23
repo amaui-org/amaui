@@ -18,4 +18,6 @@ const IconMaterialFamilyRestroomSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFamilyRestroomSharp.displayName = 'AmauiIconMaterialFamilyRestroomSharp';
+
 export default IconMaterialFamilyRestroomSharp;

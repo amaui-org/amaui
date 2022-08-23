@@ -18,4 +18,6 @@ const IconMaterialFormatTextdirectionRToLRounded = React.forwardRef((props: any,
   );
 });
 
+IconMaterialFormatTextdirectionRToLRounded.displayName = 'AmauiIconMaterialFormatTextdirectionRToLRounded';
+
 export default IconMaterialFormatTextdirectionRToLRounded;

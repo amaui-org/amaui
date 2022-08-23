@@ -18,4 +18,6 @@ const IconMaterialDownhillSkiingRounded = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialDownhillSkiingRounded.displayName = 'AmauiIconMaterialDownhillSkiingRounded';
+
 export default IconMaterialDownhillSkiingRounded;

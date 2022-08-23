@@ -18,4 +18,6 @@ const IconMaterialMoneyOffTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMoneyOffTwoTone.displayName = 'AmauiIconMaterialMoneyOffTwoTone';
+
 export default IconMaterialMoneyOffTwoTone;

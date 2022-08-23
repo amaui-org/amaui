@@ -18,4 +18,6 @@ const IconMaterialBookmarkRemoveTwoTone = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialBookmarkRemoveTwoTone.displayName = 'AmauiIconMaterialBookmarkRemoveTwoTone';
+
 export default IconMaterialBookmarkRemoveTwoTone;

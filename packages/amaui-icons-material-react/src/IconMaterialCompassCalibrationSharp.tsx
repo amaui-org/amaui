@@ -18,4 +18,6 @@ const IconMaterialCompassCalibrationSharp = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialCompassCalibrationSharp.displayName = 'AmauiIconMaterialCompassCalibrationSharp';
+
 export default IconMaterialCompassCalibrationSharp;

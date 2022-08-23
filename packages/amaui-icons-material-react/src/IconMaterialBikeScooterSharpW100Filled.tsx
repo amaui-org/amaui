@@ -18,4 +18,6 @@ const IconMaterialBikeScooterSharpW100Filled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialBikeScooterSharpW100Filled.displayName = 'AmauiIconMaterialBikeScooterSharpW100Filled';
+
 export default IconMaterialBikeScooterSharpW100Filled;

@@ -18,4 +18,6 @@ const IconMaterialNearMeDisabledSharpW100Filled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialNearMeDisabledSharpW100Filled.displayName = 'AmauiIconMaterialNearMeDisabledSharpW100Filled';
+
 export default IconMaterialNearMeDisabledSharpW100Filled;

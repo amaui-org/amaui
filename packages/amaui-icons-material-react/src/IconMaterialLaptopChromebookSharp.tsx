@@ -18,4 +18,6 @@ const IconMaterialLaptopChromebookSharp = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialLaptopChromebookSharp.displayName = 'AmauiIconMaterialLaptopChromebookSharp';
+
 export default IconMaterialLaptopChromebookSharp;

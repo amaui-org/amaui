@@ -18,4 +18,6 @@ const IconMaterialNestCamStandSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNestCamStandSharp.displayName = 'AmauiIconMaterialNestCamStandSharp';
+
 export default IconMaterialNestCamStandSharp;

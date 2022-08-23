@@ -18,4 +18,6 @@ const IconMaterialNoPhotographySharpFilled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialNoPhotographySharpFilled.displayName = 'AmauiIconMaterialNoPhotographySharpFilled';
+
 export default IconMaterialNoPhotographySharpFilled;

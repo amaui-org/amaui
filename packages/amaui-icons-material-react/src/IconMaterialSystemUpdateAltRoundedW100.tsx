@@ -18,4 +18,6 @@ const IconMaterialSystemUpdateAltRoundedW100 = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialSystemUpdateAltRoundedW100.displayName = 'AmauiIconMaterialSystemUpdateAltRoundedW100';
+
 export default IconMaterialSystemUpdateAltRoundedW100;

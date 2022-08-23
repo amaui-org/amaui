@@ -18,4 +18,6 @@ const IconMaterialTtySharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTtySharp.displayName = 'AmauiIconMaterialTtySharp';
+
 export default IconMaterialTtySharp;

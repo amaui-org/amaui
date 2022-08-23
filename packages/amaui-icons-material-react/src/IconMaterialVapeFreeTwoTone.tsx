@@ -18,4 +18,6 @@ const IconMaterialVapeFreeTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialVapeFreeTwoTone.displayName = 'AmauiIconMaterialVapeFreeTwoTone';
+
 export default IconMaterialVapeFreeTwoTone;

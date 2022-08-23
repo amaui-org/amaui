@@ -18,4 +18,6 @@ const IconMaterialSimCardDownloadSharpFilled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialSimCardDownloadSharpFilled.displayName = 'AmauiIconMaterialSimCardDownloadSharpFilled';
+
 export default IconMaterialSimCardDownloadSharpFilled;

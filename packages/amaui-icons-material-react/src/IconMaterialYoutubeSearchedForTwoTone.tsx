@@ -18,4 +18,6 @@ const IconMaterialYoutubeSearchedForTwoTone = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialYoutubeSearchedForTwoTone.displayName = 'AmauiIconMaterialYoutubeSearchedForTwoTone';
+
 export default IconMaterialYoutubeSearchedForTwoTone;

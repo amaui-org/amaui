@@ -18,4 +18,6 @@ const IconMaterialSplitscreenSharpW100Filled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialSplitscreenSharpW100Filled.displayName = 'AmauiIconMaterialSplitscreenSharpW100Filled';
+
 export default IconMaterialSplitscreenSharpW100Filled;

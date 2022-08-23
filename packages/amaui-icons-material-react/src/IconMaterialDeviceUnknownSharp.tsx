@@ -18,4 +18,6 @@ const IconMaterialDeviceUnknownSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDeviceUnknownSharp.displayName = 'AmauiIconMaterialDeviceUnknownSharp';
+
 export default IconMaterialDeviceUnknownSharp;

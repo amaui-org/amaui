@@ -18,4 +18,6 @@ const IconMaterialBluetoothConnectedRounded = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialBluetoothConnectedRounded.displayName = 'AmauiIconMaterialBluetoothConnectedRounded';
+
 export default IconMaterialBluetoothConnectedRounded;

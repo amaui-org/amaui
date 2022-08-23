@@ -18,4 +18,6 @@ const IconMaterialEmojiFoodBeverageRoundedFilled = React.forwardRef((props: any,
   );
 });
 
+IconMaterialEmojiFoodBeverageRoundedFilled.displayName = 'AmauiIconMaterialEmojiFoodBeverageRoundedFilled';
+
 export default IconMaterialEmojiFoodBeverageRoundedFilled;

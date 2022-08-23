@@ -18,4 +18,6 @@ const IconMaterialQuickreplyTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialQuickreplyTwoTone.displayName = 'AmauiIconMaterialQuickreplyTwoTone';
+
 export default IconMaterialQuickreplyTwoTone;

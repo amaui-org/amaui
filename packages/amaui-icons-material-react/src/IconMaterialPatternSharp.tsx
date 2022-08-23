@@ -18,4 +18,6 @@ const IconMaterialPatternSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPatternSharp.displayName = 'AmauiIconMaterialPatternSharp';
+
 export default IconMaterialPatternSharp;

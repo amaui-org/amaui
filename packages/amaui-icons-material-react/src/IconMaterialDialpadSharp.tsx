@@ -18,4 +18,6 @@ const IconMaterialDialpadSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDialpadSharp.displayName = 'AmauiIconMaterialDialpadSharp';
+
 export default IconMaterialDialpadSharp;

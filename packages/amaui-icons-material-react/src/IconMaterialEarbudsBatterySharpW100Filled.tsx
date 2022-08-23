@@ -18,4 +18,6 @@ const IconMaterialEarbudsBatterySharpW100Filled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialEarbudsBatterySharpW100Filled.displayName = 'AmauiIconMaterialEarbudsBatterySharpW100Filled';
+
 export default IconMaterialEarbudsBatterySharpW100Filled;

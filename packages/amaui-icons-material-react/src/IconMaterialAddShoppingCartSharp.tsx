@@ -18,4 +18,6 @@ const IconMaterialAddShoppingCartSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAddShoppingCartSharp.displayName = 'AmauiIconMaterialAddShoppingCartSharp';
+
 export default IconMaterialAddShoppingCartSharp;

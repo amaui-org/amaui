@@ -18,4 +18,6 @@ const IconMaterialCrueltyFreeSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCrueltyFreeSharp.displayName = 'AmauiIconMaterialCrueltyFreeSharp';
+
 export default IconMaterialCrueltyFreeSharp;

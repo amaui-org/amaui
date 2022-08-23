@@ -18,4 +18,6 @@ const IconMaterialFontDownloadSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFontDownloadSharp.displayName = 'AmauiIconMaterialFontDownloadSharp';
+
 export default IconMaterialFontDownloadSharp;

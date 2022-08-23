@@ -18,4 +18,6 @@ const IconMaterial13mpRoundedFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterial13mpRoundedFilled.displayName = 'AmauiIconMaterial13mpRoundedFilled';
+
 export default IconMaterial13mpRoundedFilled;

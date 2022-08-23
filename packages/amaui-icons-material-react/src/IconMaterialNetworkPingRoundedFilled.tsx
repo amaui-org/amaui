@@ -18,4 +18,6 @@ const IconMaterialNetworkPingRoundedFilled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialNetworkPingRoundedFilled.displayName = 'AmauiIconMaterialNetworkPingRoundedFilled';
+
 export default IconMaterialNetworkPingRoundedFilled;

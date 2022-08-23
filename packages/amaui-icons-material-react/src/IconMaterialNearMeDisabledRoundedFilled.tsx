@@ -18,4 +18,6 @@ const IconMaterialNearMeDisabledRoundedFilled = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialNearMeDisabledRoundedFilled.displayName = 'AmauiIconMaterialNearMeDisabledRoundedFilled';
+
 export default IconMaterialNearMeDisabledRoundedFilled;

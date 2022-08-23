@@ -18,4 +18,6 @@ const IconMaterialSouthEastRoundedFilled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialSouthEastRoundedFilled.displayName = 'AmauiIconMaterialSouthEastRoundedFilled';
+
 export default IconMaterialSouthEastRoundedFilled;

@@ -18,4 +18,6 @@ const IconMaterialMotionPhotosPausedRoundedW100Filled = React.forwardRef((props:
   );
 });
 
+IconMaterialMotionPhotosPausedRoundedW100Filled.displayName = 'AmauiIconMaterialMotionPhotosPausedRoundedW100Filled';
+
 export default IconMaterialMotionPhotosPausedRoundedW100Filled;

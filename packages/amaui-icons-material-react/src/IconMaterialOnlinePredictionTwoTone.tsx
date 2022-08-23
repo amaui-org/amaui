@@ -18,4 +18,6 @@ const IconMaterialOnlinePredictionTwoTone = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialOnlinePredictionTwoTone.displayName = 'AmauiIconMaterialOnlinePredictionTwoTone';
+
 export default IconMaterialOnlinePredictionTwoTone;

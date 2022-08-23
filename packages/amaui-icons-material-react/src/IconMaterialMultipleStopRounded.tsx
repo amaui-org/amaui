@@ -18,4 +18,6 @@ const IconMaterialMultipleStopRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMultipleStopRounded.displayName = 'AmauiIconMaterialMultipleStopRounded';
+
 export default IconMaterialMultipleStopRounded;

@@ -18,4 +18,6 @@ const IconMaterialCoronavirusSharpFilled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialCoronavirusSharpFilled.displayName = 'AmauiIconMaterialCoronavirusSharpFilled';
+
 export default IconMaterialCoronavirusSharpFilled;

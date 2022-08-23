@@ -18,4 +18,6 @@ const IconMaterialWineBarTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialWineBarTwoTone.displayName = 'AmauiIconMaterialWineBarTwoTone';
+
 export default IconMaterialWineBarTwoTone;

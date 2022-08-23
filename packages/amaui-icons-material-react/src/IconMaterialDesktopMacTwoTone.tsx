@@ -18,4 +18,6 @@ const IconMaterialDesktopMacTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDesktopMacTwoTone.displayName = 'AmauiIconMaterialDesktopMacTwoTone';
+
 export default IconMaterialDesktopMacTwoTone;

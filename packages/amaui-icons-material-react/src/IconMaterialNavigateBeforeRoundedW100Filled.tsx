@@ -18,4 +18,6 @@ const IconMaterialNavigateBeforeRoundedW100Filled = React.forwardRef((props: any
   );
 });
 
+IconMaterialNavigateBeforeRoundedW100Filled.displayName = 'AmauiIconMaterialNavigateBeforeRoundedW100Filled';
+
 export default IconMaterialNavigateBeforeRoundedW100Filled;

@@ -18,4 +18,6 @@ const IconMaterialNestWifiGaleRoundedFilled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialNestWifiGaleRoundedFilled.displayName = 'AmauiIconMaterialNestWifiGaleRoundedFilled';
+
 export default IconMaterialNestWifiGaleRoundedFilled;

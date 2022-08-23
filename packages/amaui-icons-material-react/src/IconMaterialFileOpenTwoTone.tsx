@@ -18,4 +18,6 @@ const IconMaterialFileOpenTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFileOpenTwoTone.displayName = 'AmauiIconMaterialFileOpenTwoTone';
+
 export default IconMaterialFileOpenTwoTone;

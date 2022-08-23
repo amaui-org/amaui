@@ -18,4 +18,6 @@ const IconMaterialNaturePeopleSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNaturePeopleSharp.displayName = 'AmauiIconMaterialNaturePeopleSharp';
+
 export default IconMaterialNaturePeopleSharp;

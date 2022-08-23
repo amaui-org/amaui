@@ -18,4 +18,6 @@ const IconMaterialPermDataSettingRoundedFilled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialPermDataSettingRoundedFilled.displayName = 'AmauiIconMaterialPermDataSettingRoundedFilled';
+
 export default IconMaterialPermDataSettingRoundedFilled;

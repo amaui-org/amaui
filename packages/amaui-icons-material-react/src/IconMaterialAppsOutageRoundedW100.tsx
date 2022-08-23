@@ -18,4 +18,6 @@ const IconMaterialAppsOutageRoundedW100 = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialAppsOutageRoundedW100.displayName = 'AmauiIconMaterialAppsOutageRoundedW100';
+
 export default IconMaterialAppsOutageRoundedW100;

@@ -18,4 +18,6 @@ const IconMaterialToolsPowerDrillSharpFilled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialToolsPowerDrillSharpFilled.displayName = 'AmauiIconMaterialToolsPowerDrillSharpFilled';
+
 export default IconMaterialToolsPowerDrillSharpFilled;

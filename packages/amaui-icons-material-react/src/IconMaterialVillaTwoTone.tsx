@@ -18,4 +18,6 @@ const IconMaterialVillaTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialVillaTwoTone.displayName = 'AmauiIconMaterialVillaTwoTone';
+
 export default IconMaterialVillaTwoTone;

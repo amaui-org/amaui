@@ -18,4 +18,6 @@ const IconMaterialRestoreFromTrashTwoTone = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialRestoreFromTrashTwoTone.displayName = 'AmauiIconMaterialRestoreFromTrashTwoTone';
+
 export default IconMaterialRestoreFromTrashTwoTone;

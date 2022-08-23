@@ -18,4 +18,6 @@ const IconMaterialPermDataSettingSharpW100 = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialPermDataSettingSharpW100.displayName = 'AmauiIconMaterialPermDataSettingSharpW100';
+
 export default IconMaterialPermDataSettingSharpW100;

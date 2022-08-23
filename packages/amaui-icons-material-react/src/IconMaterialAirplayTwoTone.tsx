@@ -18,4 +18,6 @@ const IconMaterialAirplayTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAirplayTwoTone.displayName = 'AmauiIconMaterialAirplayTwoTone';
+
 export default IconMaterialAirplayTwoTone;

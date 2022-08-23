@@ -18,4 +18,6 @@ const IconMaterialDriveFolderUploadTwoTone = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialDriveFolderUploadTwoTone.displayName = 'AmauiIconMaterialDriveFolderUploadTwoTone';
+
 export default IconMaterialDriveFolderUploadTwoTone;

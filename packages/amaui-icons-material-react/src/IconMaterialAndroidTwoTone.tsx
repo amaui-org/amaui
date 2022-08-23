@@ -18,4 +18,6 @@ const IconMaterialAndroidTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAndroidTwoTone.displayName = 'AmauiIconMaterialAndroidTwoTone';
+
 export default IconMaterialAndroidTwoTone;

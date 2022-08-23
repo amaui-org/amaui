@@ -18,4 +18,6 @@ const IconMaterialGolfCourseSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialGolfCourseSharpW100.displayName = 'AmauiIconMaterialGolfCourseSharpW100';
+
 export default IconMaterialGolfCourseSharpW100;

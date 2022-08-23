@@ -18,4 +18,6 @@ const IconMaterialVideoStableSharpFilled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialVideoStableSharpFilled.displayName = 'AmauiIconMaterialVideoStableSharpFilled';
+
 export default IconMaterialVideoStableSharpFilled;

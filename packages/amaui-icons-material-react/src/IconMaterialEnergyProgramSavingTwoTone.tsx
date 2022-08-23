@@ -18,4 +18,6 @@ const IconMaterialEnergyProgramSavingTwoTone = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialEnergyProgramSavingTwoTone.displayName = 'AmauiIconMaterialEnergyProgramSavingTwoTone';
+
 export default IconMaterialEnergyProgramSavingTwoTone;

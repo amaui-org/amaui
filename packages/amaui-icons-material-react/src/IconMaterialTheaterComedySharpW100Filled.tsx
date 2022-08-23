@@ -18,4 +18,6 @@ const IconMaterialTheaterComedySharpW100Filled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialTheaterComedySharpW100Filled.displayName = 'AmauiIconMaterialTheaterComedySharpW100Filled';
+
 export default IconMaterialTheaterComedySharpW100Filled;

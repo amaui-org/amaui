@@ -18,4 +18,6 @@ const IconMaterialImagesearchRollerSharp = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialImagesearchRollerSharp.displayName = 'AmauiIconMaterialImagesearchRollerSharp';
+
 export default IconMaterialImagesearchRollerSharp;

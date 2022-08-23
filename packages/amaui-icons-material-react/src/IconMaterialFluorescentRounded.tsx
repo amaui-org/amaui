@@ -18,4 +18,6 @@ const IconMaterialFluorescentRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFluorescentRounded.displayName = 'AmauiIconMaterialFluorescentRounded';
+
 export default IconMaterialFluorescentRounded;

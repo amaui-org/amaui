@@ -18,4 +18,6 @@ const IconMaterialDiversity3Sharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDiversity3Sharp.displayName = 'AmauiIconMaterialDiversity3Sharp';
+
 export default IconMaterialDiversity3Sharp;

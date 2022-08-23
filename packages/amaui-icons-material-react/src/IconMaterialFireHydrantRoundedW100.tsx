@@ -18,4 +18,6 @@ const IconMaterialFireHydrantRoundedW100 = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialFireHydrantRoundedW100.displayName = 'AmauiIconMaterialFireHydrantRoundedW100';
+
 export default IconMaterialFireHydrantRoundedW100;

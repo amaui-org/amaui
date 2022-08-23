@@ -18,4 +18,6 @@ const IconMaterialOutdoorGardenSharpW100 = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialOutdoorGardenSharpW100.displayName = 'AmauiIconMaterialOutdoorGardenSharpW100';
+
 export default IconMaterialOutdoorGardenSharpW100;

@@ -18,4 +18,6 @@ const IconMaterialMarginSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMarginSharp.displayName = 'AmauiIconMaterialMarginSharp';
+
 export default IconMaterialMarginSharp;

@@ -18,4 +18,6 @@ const IconMaterialClosedCaptionDisabledSharpW100 = React.forwardRef((props: any,
   );
 });
 
+IconMaterialClosedCaptionDisabledSharpW100.displayName = 'AmauiIconMaterialClosedCaptionDisabledSharpW100';
+
 export default IconMaterialClosedCaptionDisabledSharpW100;

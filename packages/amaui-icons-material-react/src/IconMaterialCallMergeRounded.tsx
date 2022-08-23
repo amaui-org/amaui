@@ -18,4 +18,6 @@ const IconMaterialCallMergeRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCallMergeRounded.displayName = 'AmauiIconMaterialCallMergeRounded';
+
 export default IconMaterialCallMergeRounded;

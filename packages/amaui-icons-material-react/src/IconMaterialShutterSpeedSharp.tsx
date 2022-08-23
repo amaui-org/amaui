@@ -18,4 +18,6 @@ const IconMaterialShutterSpeedSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialShutterSpeedSharp.displayName = 'AmauiIconMaterialShutterSpeedSharp';
+
 export default IconMaterialShutterSpeedSharp;

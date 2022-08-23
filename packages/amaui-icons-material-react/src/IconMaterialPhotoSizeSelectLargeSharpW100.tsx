@@ -18,4 +18,6 @@ const IconMaterialPhotoSizeSelectLargeSharpW100 = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialPhotoSizeSelectLargeSharpW100.displayName = 'AmauiIconMaterialPhotoSizeSelectLargeSharpW100';
+
 export default IconMaterialPhotoSizeSelectLargeSharpW100;

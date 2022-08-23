@@ -18,4 +18,6 @@ const IconMaterialTheatersSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTheatersSharp.displayName = 'AmauiIconMaterialTheatersSharp';
+
 export default IconMaterialTheatersSharp;

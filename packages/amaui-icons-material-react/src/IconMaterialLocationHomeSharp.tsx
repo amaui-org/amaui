@@ -18,4 +18,6 @@ const IconMaterialLocationHomeSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLocationHomeSharp.displayName = 'AmauiIconMaterialLocationHomeSharp';
+
 export default IconMaterialLocationHomeSharp;

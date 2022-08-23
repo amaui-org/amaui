@@ -18,4 +18,6 @@ const IconMaterialInsertChartRoundedW100Filled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialInsertChartRoundedW100Filled.displayName = 'AmauiIconMaterialInsertChartRoundedW100Filled';
+
 export default IconMaterialInsertChartRoundedW100Filled;

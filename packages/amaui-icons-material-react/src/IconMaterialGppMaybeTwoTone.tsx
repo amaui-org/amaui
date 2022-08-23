@@ -18,4 +18,6 @@ const IconMaterialGppMaybeTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialGppMaybeTwoTone.displayName = 'AmauiIconMaterialGppMaybeTwoTone';
+
 export default IconMaterialGppMaybeTwoTone;

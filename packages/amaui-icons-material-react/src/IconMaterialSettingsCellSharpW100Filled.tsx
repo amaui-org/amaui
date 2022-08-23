@@ -18,4 +18,6 @@ const IconMaterialSettingsCellSharpW100Filled = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialSettingsCellSharpW100Filled.displayName = 'AmauiIconMaterialSettingsCellSharpW100Filled';
+
 export default IconMaterialSettingsCellSharpW100Filled;

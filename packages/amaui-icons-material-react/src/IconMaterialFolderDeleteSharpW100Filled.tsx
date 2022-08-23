@@ -18,4 +18,6 @@ const IconMaterialFolderDeleteSharpW100Filled = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialFolderDeleteSharpW100Filled.displayName = 'AmauiIconMaterialFolderDeleteSharpW100Filled';
+
 export default IconMaterialFolderDeleteSharpW100Filled;

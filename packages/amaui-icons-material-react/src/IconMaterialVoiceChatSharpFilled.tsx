@@ -18,4 +18,6 @@ const IconMaterialVoiceChatSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialVoiceChatSharpFilled.displayName = 'AmauiIconMaterialVoiceChatSharpFilled';
+
 export default IconMaterialVoiceChatSharpFilled;

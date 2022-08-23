@@ -18,4 +18,6 @@ const IconMaterialClimateMiniSplitTwoTone = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialClimateMiniSplitTwoTone.displayName = 'AmauiIconMaterialClimateMiniSplitTwoTone';
+
 export default IconMaterialClimateMiniSplitTwoTone;

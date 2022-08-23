@@ -18,4 +18,6 @@ const IconMaterialMovieFilterSharpFilled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialMovieFilterSharpFilled.displayName = 'AmauiIconMaterialMovieFilterSharpFilled';
+
 export default IconMaterialMovieFilterSharpFilled;

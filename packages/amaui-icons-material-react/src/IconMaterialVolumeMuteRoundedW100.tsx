@@ -18,4 +18,6 @@ const IconMaterialVolumeMuteRoundedW100 = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialVolumeMuteRoundedW100.displayName = 'AmauiIconMaterialVolumeMuteRoundedW100';
+
 export default IconMaterialVolumeMuteRoundedW100;

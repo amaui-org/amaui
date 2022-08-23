@@ -18,4 +18,6 @@ const IconMaterialFlipToBackSharpFilled = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialFlipToBackSharpFilled.displayName = 'AmauiIconMaterialFlipToBackSharpFilled';
+
 export default IconMaterialFlipToBackSharpFilled;

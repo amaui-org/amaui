@@ -18,4 +18,6 @@ const IconMaterialMacroOffSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMacroOffSharp.displayName = 'AmauiIconMaterialMacroOffSharp';
+
 export default IconMaterialMacroOffSharp;

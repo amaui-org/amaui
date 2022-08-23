@@ -18,4 +18,6 @@ const IconMaterialGMobiledataRoundedW100 = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialGMobiledataRoundedW100.displayName = 'AmauiIconMaterialGMobiledataRoundedW100';
+
 export default IconMaterialGMobiledataRoundedW100;

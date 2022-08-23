@@ -18,4 +18,6 @@ const IconMaterialConnectingAirportsSharpFilled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialConnectingAirportsSharpFilled.displayName = 'AmauiIconMaterialConnectingAirportsSharpFilled';
+
 export default IconMaterialConnectingAirportsSharpFilled;

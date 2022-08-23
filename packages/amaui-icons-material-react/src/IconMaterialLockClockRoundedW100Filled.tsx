@@ -18,4 +18,6 @@ const IconMaterialLockClockRoundedW100Filled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialLockClockRoundedW100Filled.displayName = 'AmauiIconMaterialLockClockRoundedW100Filled';
+
 export default IconMaterialLockClockRoundedW100Filled;

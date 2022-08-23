@@ -18,4 +18,6 @@ const IconMaterialCloudOffRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCloudOffRoundedW100.displayName = 'AmauiIconMaterialCloudOffRoundedW100';
+
 export default IconMaterialCloudOffRoundedW100;

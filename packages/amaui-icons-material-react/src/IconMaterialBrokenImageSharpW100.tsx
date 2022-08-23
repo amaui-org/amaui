@@ -18,4 +18,6 @@ const IconMaterialBrokenImageSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBrokenImageSharpW100.displayName = 'AmauiIconMaterialBrokenImageSharpW100';
+
 export default IconMaterialBrokenImageSharpW100;

@@ -18,4 +18,6 @@ const IconMaterialPrivacyTipRoundedFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialPrivacyTipRoundedFilled.displayName = 'AmauiIconMaterialPrivacyTipRoundedFilled';
+
 export default IconMaterialPrivacyTipRoundedFilled;

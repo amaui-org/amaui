@@ -18,4 +18,6 @@ const IconMaterialRailwayAlertSharpFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialRailwayAlertSharpFilled.displayName = 'AmauiIconMaterialRailwayAlertSharpFilled';
+
 export default IconMaterialRailwayAlertSharpFilled;

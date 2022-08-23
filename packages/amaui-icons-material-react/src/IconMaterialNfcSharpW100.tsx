@@ -18,4 +18,6 @@ const IconMaterialNfcSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNfcSharpW100.displayName = 'AmauiIconMaterialNfcSharpW100';
+
 export default IconMaterialNfcSharpW100;

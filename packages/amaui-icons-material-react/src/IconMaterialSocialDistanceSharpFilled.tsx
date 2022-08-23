@@ -18,4 +18,6 @@ const IconMaterialSocialDistanceSharpFilled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialSocialDistanceSharpFilled.displayName = 'AmauiIconMaterialSocialDistanceSharpFilled';
+
 export default IconMaterialSocialDistanceSharpFilled;

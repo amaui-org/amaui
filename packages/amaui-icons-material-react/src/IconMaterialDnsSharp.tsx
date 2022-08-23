@@ -18,4 +18,6 @@ const IconMaterialDnsSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDnsSharp.displayName = 'AmauiIconMaterialDnsSharp';
+
 export default IconMaterialDnsSharp;

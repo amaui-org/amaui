@@ -18,4 +18,6 @@ const IconMaterialAirwaveSharpW100Filled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialAirwaveSharpW100Filled.displayName = 'AmauiIconMaterialAirwaveSharpW100Filled';
+
 export default IconMaterialAirwaveSharpW100Filled;

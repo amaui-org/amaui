@@ -18,4 +18,6 @@ const IconMaterialTvWithAssistantSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTvWithAssistantSharp.displayName = 'AmauiIconMaterialTvWithAssistantSharp';
+
 export default IconMaterialTvWithAssistantSharp;

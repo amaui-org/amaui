@@ -18,4 +18,6 @@ const IconMaterialLinearScaleTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLinearScaleTwoTone.displayName = 'AmauiIconMaterialLinearScaleTwoTone';
+
 export default IconMaterialLinearScaleTwoTone;

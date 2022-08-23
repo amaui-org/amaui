@@ -18,4 +18,6 @@ const IconMaterialPanoramaPhotosphereRoundedFilled = React.forwardRef((props: an
   );
 });
 
+IconMaterialPanoramaPhotosphereRoundedFilled.displayName = 'AmauiIconMaterialPanoramaPhotosphereRoundedFilled';
+
 export default IconMaterialPanoramaPhotosphereRoundedFilled;

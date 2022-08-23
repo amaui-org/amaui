@@ -18,4 +18,6 @@ const IconMaterialRunningWithErrorsSharpW100 = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialRunningWithErrorsSharpW100.displayName = 'AmauiIconMaterialRunningWithErrorsSharpW100';
+
 export default IconMaterialRunningWithErrorsSharpW100;

@@ -18,4 +18,6 @@ const IconMaterialHorizontalRuleRoundedW100Filled = React.forwardRef((props: any
   );
 });
 
+IconMaterialHorizontalRuleRoundedW100Filled.displayName = 'AmauiIconMaterialHorizontalRuleRoundedW100Filled';
+
 export default IconMaterialHorizontalRuleRoundedW100Filled;

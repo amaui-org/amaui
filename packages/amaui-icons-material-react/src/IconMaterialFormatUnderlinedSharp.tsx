@@ -18,4 +18,6 @@ const IconMaterialFormatUnderlinedSharp = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialFormatUnderlinedSharp.displayName = 'AmauiIconMaterialFormatUnderlinedSharp';
+
 export default IconMaterialFormatUnderlinedSharp;

@@ -18,4 +18,6 @@ const IconMaterialStarHalfRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialStarHalfRounded.displayName = 'AmauiIconMaterialStarHalfRounded';
+
 export default IconMaterialStarHalfRounded;

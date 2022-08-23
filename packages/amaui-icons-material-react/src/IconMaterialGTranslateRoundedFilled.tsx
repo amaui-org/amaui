@@ -18,4 +18,6 @@ const IconMaterialGTranslateRoundedFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialGTranslateRoundedFilled.displayName = 'AmauiIconMaterialGTranslateRoundedFilled';
+
 export default IconMaterialGTranslateRoundedFilled;

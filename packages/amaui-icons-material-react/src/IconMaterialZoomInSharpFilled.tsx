@@ -18,4 +18,6 @@ const IconMaterialZoomInSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialZoomInSharpFilled.displayName = 'AmauiIconMaterialZoomInSharpFilled';
+
 export default IconMaterialZoomInSharpFilled;

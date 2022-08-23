@@ -18,4 +18,6 @@ const IconMaterialViewCarouselSharpFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialViewCarouselSharpFilled.displayName = 'AmauiIconMaterialViewCarouselSharpFilled';
+
 export default IconMaterialViewCarouselSharpFilled;

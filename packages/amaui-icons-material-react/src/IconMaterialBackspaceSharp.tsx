@@ -18,4 +18,6 @@ const IconMaterialBackspaceSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBackspaceSharp.displayName = 'AmauiIconMaterialBackspaceSharp';
+
 export default IconMaterialBackspaceSharp;

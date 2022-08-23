@@ -18,4 +18,6 @@ const IconMaterialLoupeRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLoupeRoundedW100.displayName = 'AmauiIconMaterialLoupeRoundedW100';
+
 export default IconMaterialLoupeRoundedW100;

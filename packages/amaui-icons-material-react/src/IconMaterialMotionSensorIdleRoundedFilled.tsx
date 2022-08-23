@@ -18,4 +18,6 @@ const IconMaterialMotionSensorIdleRoundedFilled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialMotionSensorIdleRoundedFilled.displayName = 'AmauiIconMaterialMotionSensorIdleRoundedFilled';
+
 export default IconMaterialMotionSensorIdleRoundedFilled;

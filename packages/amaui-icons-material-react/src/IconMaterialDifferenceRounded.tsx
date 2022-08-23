@@ -18,4 +18,6 @@ const IconMaterialDifferenceRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDifferenceRounded.displayName = 'AmauiIconMaterialDifferenceRounded';
+
 export default IconMaterialDifferenceRounded;

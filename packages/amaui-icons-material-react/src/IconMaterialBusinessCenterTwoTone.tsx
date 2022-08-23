@@ -18,4 +18,6 @@ const IconMaterialBusinessCenterTwoTone = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialBusinessCenterTwoTone.displayName = 'AmauiIconMaterialBusinessCenterTwoTone';
+
 export default IconMaterialBusinessCenterTwoTone;

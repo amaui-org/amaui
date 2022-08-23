@@ -18,4 +18,6 @@ const IconMaterialTouchAppSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTouchAppSharpW100.displayName = 'AmauiIconMaterialTouchAppSharpW100';
+
 export default IconMaterialTouchAppSharpW100;

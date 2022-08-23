@@ -18,4 +18,6 @@ const IconMaterialTimeAutoSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTimeAutoSharp.displayName = 'AmauiIconMaterialTimeAutoSharp';
+
 export default IconMaterialTimeAutoSharp;

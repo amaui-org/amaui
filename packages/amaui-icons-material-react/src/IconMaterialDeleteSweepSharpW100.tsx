@@ -18,4 +18,6 @@ const IconMaterialDeleteSweepSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDeleteSweepSharpW100.displayName = 'AmauiIconMaterialDeleteSweepSharpW100';
+
 export default IconMaterialDeleteSweepSharpW100;

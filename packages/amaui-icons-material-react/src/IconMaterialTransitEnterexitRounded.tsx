@@ -18,4 +18,6 @@ const IconMaterialTransitEnterexitRounded = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialTransitEnterexitRounded.displayName = 'AmauiIconMaterialTransitEnterexitRounded';
+
 export default IconMaterialTransitEnterexitRounded;

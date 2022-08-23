@@ -18,4 +18,6 @@ const IconMaterialFlourescentSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFlourescentSharp.displayName = 'AmauiIconMaterialFlourescentSharp';
+
 export default IconMaterialFlourescentSharp;

@@ -18,4 +18,6 @@ const IconMaterialAutorenewTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAutorenewTwoTone.displayName = 'AmauiIconMaterialAutorenewTwoTone';
+
 export default IconMaterialAutorenewTwoTone;

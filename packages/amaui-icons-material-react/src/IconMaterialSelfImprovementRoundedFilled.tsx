@@ -18,4 +18,6 @@ const IconMaterialSelfImprovementRoundedFilled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialSelfImprovementRoundedFilled.displayName = 'AmauiIconMaterialSelfImprovementRoundedFilled';
+
 export default IconMaterialSelfImprovementRoundedFilled;

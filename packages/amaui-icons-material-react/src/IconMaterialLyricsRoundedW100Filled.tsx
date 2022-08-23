@@ -18,4 +18,6 @@ const IconMaterialLyricsRoundedW100Filled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialLyricsRoundedW100Filled.displayName = 'AmauiIconMaterialLyricsRoundedW100Filled';
+
 export default IconMaterialLyricsRoundedW100Filled;

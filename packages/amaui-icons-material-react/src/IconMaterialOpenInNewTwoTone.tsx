@@ -18,4 +18,6 @@ const IconMaterialOpenInNewTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialOpenInNewTwoTone.displayName = 'AmauiIconMaterialOpenInNewTwoTone';
+
 export default IconMaterialOpenInNewTwoTone;

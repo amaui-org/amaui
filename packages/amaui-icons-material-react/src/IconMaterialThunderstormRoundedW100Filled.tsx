@@ -18,4 +18,6 @@ const IconMaterialThunderstormRoundedW100Filled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialThunderstormRoundedW100Filled.displayName = 'AmauiIconMaterialThunderstormRoundedW100Filled';
+
 export default IconMaterialThunderstormRoundedW100Filled;

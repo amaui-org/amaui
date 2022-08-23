@@ -18,4 +18,6 @@ const IconMaterialCallMergeTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCallMergeTwoTone.displayName = 'AmauiIconMaterialCallMergeTwoTone';
+
 export default IconMaterialCallMergeTwoTone;

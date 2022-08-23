@@ -18,4 +18,6 @@ const IconMaterialFolderZipSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFolderZipSharp.displayName = 'AmauiIconMaterialFolderZipSharp';
+
 export default IconMaterialFolderZipSharp;

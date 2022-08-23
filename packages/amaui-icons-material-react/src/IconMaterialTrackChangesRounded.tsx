@@ -18,4 +18,6 @@ const IconMaterialTrackChangesRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTrackChangesRounded.displayName = 'AmauiIconMaterialTrackChangesRounded';
+
 export default IconMaterialTrackChangesRounded;

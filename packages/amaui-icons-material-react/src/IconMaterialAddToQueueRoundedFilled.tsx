@@ -18,4 +18,6 @@ const IconMaterialAddToQueueRoundedFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialAddToQueueRoundedFilled.displayName = 'AmauiIconMaterialAddToQueueRoundedFilled';
+
 export default IconMaterialAddToQueueRoundedFilled;

@@ -18,4 +18,6 @@ const IconMaterialLocalDrinkSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLocalDrinkSharp.displayName = 'AmauiIconMaterialLocalDrinkSharp';
+
 export default IconMaterialLocalDrinkSharp;

@@ -18,4 +18,6 @@ const IconMaterialTextFieldsRoundedFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialTextFieldsRoundedFilled.displayName = 'AmauiIconMaterialTextFieldsRoundedFilled';
+
 export default IconMaterialTextFieldsRoundedFilled;

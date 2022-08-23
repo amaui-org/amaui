@@ -18,4 +18,6 @@ const IconMaterialArrowDropUpRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialArrowDropUpRounded.displayName = 'AmauiIconMaterialArrowDropUpRounded';
+
 export default IconMaterialArrowDropUpRounded;

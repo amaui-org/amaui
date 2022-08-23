@@ -18,4 +18,6 @@ const IconMaterialDoorSlidingTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDoorSlidingTwoTone.displayName = 'AmauiIconMaterialDoorSlidingTwoTone';
+
 export default IconMaterialDoorSlidingTwoTone;

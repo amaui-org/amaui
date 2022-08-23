@@ -18,4 +18,6 @@ const IconMaterialDateRangeSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDateRangeSharp.displayName = 'AmauiIconMaterialDateRangeSharp';
+
 export default IconMaterialDateRangeSharp;

@@ -18,4 +18,6 @@ const IconMaterialFitScreenSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFitScreenSharp.displayName = 'AmauiIconMaterialFitScreenSharp';
+
 export default IconMaterialFitScreenSharp;

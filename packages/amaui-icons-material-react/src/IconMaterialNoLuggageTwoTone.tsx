@@ -18,4 +18,6 @@ const IconMaterialNoLuggageTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNoLuggageTwoTone.displayName = 'AmauiIconMaterialNoLuggageTwoTone';
+
 export default IconMaterialNoLuggageTwoTone;

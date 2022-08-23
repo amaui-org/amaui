@@ -18,4 +18,6 @@ const IconMaterialBlenderSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBlenderSharp.displayName = 'AmauiIconMaterialBlenderSharp';
+
 export default IconMaterialBlenderSharp;

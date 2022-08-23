@@ -18,4 +18,6 @@ const IconMaterialDesktopAccessDisabledTwoTone = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialDesktopAccessDisabledTwoTone.displayName = 'AmauiIconMaterialDesktopAccessDisabledTwoTone';
+
 export default IconMaterialDesktopAccessDisabledTwoTone;

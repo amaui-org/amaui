@@ -18,4 +18,6 @@ const IconMaterialKebabDiningRoundedW100 = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialKebabDiningRoundedW100.displayName = 'AmauiIconMaterialKebabDiningRoundedW100';
+
 export default IconMaterialKebabDiningRoundedW100;

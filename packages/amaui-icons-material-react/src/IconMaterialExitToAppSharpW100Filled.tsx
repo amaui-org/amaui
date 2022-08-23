@@ -18,4 +18,6 @@ const IconMaterialExitToAppSharpW100Filled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialExitToAppSharpW100Filled.displayName = 'AmauiIconMaterialExitToAppSharpW100Filled';
+
 export default IconMaterialExitToAppSharpW100Filled;

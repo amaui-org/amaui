@@ -18,4 +18,6 @@ const IconMaterialAddModeratorTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAddModeratorTwoTone.displayName = 'AmauiIconMaterialAddModeratorTwoTone';
+
 export default IconMaterialAddModeratorTwoTone;

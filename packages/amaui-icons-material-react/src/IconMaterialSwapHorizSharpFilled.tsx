@@ -18,4 +18,6 @@ const IconMaterialSwapHorizSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSwapHorizSharpFilled.displayName = 'AmauiIconMaterialSwapHorizSharpFilled';
+
 export default IconMaterialSwapHorizSharpFilled;

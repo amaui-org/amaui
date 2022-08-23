@@ -18,4 +18,6 @@ const IconMaterialGifSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialGifSharpW100.displayName = 'AmauiIconMaterialGifSharpW100';
+
 export default IconMaterialGifSharpW100;

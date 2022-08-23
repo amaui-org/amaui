@@ -18,4 +18,6 @@ const IconMaterialMultilineChartRounded = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialMultilineChartRounded.displayName = 'AmauiIconMaterialMultilineChartRounded';
+
 export default IconMaterialMultilineChartRounded;

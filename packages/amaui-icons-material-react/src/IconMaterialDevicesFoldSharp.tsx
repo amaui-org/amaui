@@ -18,4 +18,6 @@ const IconMaterialDevicesFoldSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDevicesFoldSharp.displayName = 'AmauiIconMaterialDevicesFoldSharp';
+
 export default IconMaterialDevicesFoldSharp;

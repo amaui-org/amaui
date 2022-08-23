@@ -18,4 +18,6 @@ const IconMaterialGooglePlusReshareRounded = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialGooglePlusReshareRounded.displayName = 'AmauiIconMaterialGooglePlusReshareRounded';
+
 export default IconMaterialGooglePlusReshareRounded;

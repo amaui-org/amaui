@@ -18,4 +18,6 @@ const IconMaterialEvChargerSharpW100Filled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialEvChargerSharpW100Filled.displayName = 'AmauiIconMaterialEvChargerSharpW100Filled';
+
 export default IconMaterialEvChargerSharpW100Filled;

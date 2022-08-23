@@ -18,4 +18,6 @@ const IconMaterialAppRegistrationSharpFilled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialAppRegistrationSharpFilled.displayName = 'AmauiIconMaterialAppRegistrationSharpFilled';
+
 export default IconMaterialAppRegistrationSharpFilled;

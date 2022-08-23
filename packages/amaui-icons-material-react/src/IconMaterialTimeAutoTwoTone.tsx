@@ -18,4 +18,6 @@ const IconMaterialTimeAutoTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTimeAutoTwoTone.displayName = 'AmauiIconMaterialTimeAutoTwoTone';
+
 export default IconMaterialTimeAutoTwoTone;

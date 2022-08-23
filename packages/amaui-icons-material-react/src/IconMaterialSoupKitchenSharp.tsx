@@ -18,4 +18,6 @@ const IconMaterialSoupKitchenSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSoupKitchenSharp.displayName = 'AmauiIconMaterialSoupKitchenSharp';
+
 export default IconMaterialSoupKitchenSharp;

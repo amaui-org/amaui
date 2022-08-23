@@ -18,4 +18,6 @@ const IconMaterialEmergencyShareSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialEmergencyShareSharp.displayName = 'AmauiIconMaterialEmergencyShareSharp';
+
 export default IconMaterialEmergencyShareSharp;

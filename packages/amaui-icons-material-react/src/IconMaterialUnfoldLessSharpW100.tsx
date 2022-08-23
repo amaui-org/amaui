@@ -18,4 +18,6 @@ const IconMaterialUnfoldLessSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialUnfoldLessSharpW100.displayName = 'AmauiIconMaterialUnfoldLessSharpW100';
+
 export default IconMaterialUnfoldLessSharpW100;

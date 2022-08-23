@@ -18,4 +18,6 @@ const IconMaterialFormatQuoteRoundedFilled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialFormatQuoteRoundedFilled.displayName = 'AmauiIconMaterialFormatQuoteRoundedFilled';
+
 export default IconMaterialFormatQuoteRoundedFilled;

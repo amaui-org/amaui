@@ -18,4 +18,6 @@ const IconMaterialCrop54TwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCrop54TwoTone.displayName = 'AmauiIconMaterialCrop54TwoTone';
+
 export default IconMaterialCrop54TwoTone;

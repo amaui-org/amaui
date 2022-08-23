@@ -18,4 +18,6 @@ const IconMaterialAirFreshenerRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAirFreshenerRounded.displayName = 'AmauiIconMaterialAirFreshenerRounded';
+
 export default IconMaterialAirFreshenerRounded;

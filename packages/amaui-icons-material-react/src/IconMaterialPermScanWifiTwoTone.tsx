@@ -18,4 +18,6 @@ const IconMaterialPermScanWifiTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPermScanWifiTwoTone.displayName = 'AmauiIconMaterialPermScanWifiTwoTone';
+
 export default IconMaterialPermScanWifiTwoTone;

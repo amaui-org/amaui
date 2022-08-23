@@ -18,4 +18,6 @@ const IconMaterialSignalDisconnectedTwoTone = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialSignalDisconnectedTwoTone.displayName = 'AmauiIconMaterialSignalDisconnectedTwoTone';
+
 export default IconMaterialSignalDisconnectedTwoTone;

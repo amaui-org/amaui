@@ -18,4 +18,6 @@ const IconMaterialChromeReaderModeSharpW100Filled = React.forwardRef((props: any
   );
 });
 
+IconMaterialChromeReaderModeSharpW100Filled.displayName = 'AmauiIconMaterialChromeReaderModeSharpW100Filled';
+
 export default IconMaterialChromeReaderModeSharpW100Filled;

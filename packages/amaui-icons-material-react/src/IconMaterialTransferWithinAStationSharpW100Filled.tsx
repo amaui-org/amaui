@@ -18,4 +18,6 @@ const IconMaterialTransferWithinAStationSharpW100Filled = React.forwardRef((prop
   );
 });
 
+IconMaterialTransferWithinAStationSharpW100Filled.displayName = 'AmauiIconMaterialTransferWithinAStationSharpW100Filled';
+
 export default IconMaterialTransferWithinAStationSharpW100Filled;

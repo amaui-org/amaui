@@ -18,4 +18,6 @@ const IconMaterialBatchPredictionSharpW100 = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialBatchPredictionSharpW100.displayName = 'AmauiIconMaterialBatchPredictionSharpW100';
+
 export default IconMaterialBatchPredictionSharpW100;

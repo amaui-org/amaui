@@ -18,4 +18,6 @@ const IconMaterialAddToDriveRoundedW100 = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialAddToDriveRoundedW100.displayName = 'AmauiIconMaterialAddToDriveRoundedW100';
+
 export default IconMaterialAddToDriveRoundedW100;

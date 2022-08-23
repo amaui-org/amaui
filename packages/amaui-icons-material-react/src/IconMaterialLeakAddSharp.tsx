@@ -18,4 +18,6 @@ const IconMaterialLeakAddSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLeakAddSharp.displayName = 'AmauiIconMaterialLeakAddSharp';
+
 export default IconMaterialLeakAddSharp;

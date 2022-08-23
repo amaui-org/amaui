@@ -18,4 +18,6 @@ const IconMaterialTextFieldsSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTextFieldsSharp.displayName = 'AmauiIconMaterialTextFieldsSharp';
+
 export default IconMaterialTextFieldsSharp;

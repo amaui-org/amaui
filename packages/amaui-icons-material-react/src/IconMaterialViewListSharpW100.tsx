@@ -18,4 +18,6 @@ const IconMaterialViewListSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialViewListSharpW100.displayName = 'AmauiIconMaterialViewListSharpW100';
+
 export default IconMaterialViewListSharpW100;

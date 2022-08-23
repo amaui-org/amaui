@@ -18,4 +18,6 @@ const IconMaterialSignalDisconnectedRounded = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialSignalDisconnectedRounded.displayName = 'AmauiIconMaterialSignalDisconnectedRounded';
+
 export default IconMaterialSignalDisconnectedRounded;

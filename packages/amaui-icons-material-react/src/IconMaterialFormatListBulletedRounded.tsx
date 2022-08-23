@@ -18,4 +18,6 @@ const IconMaterialFormatListBulletedRounded = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialFormatListBulletedRounded.displayName = 'AmauiIconMaterialFormatListBulletedRounded';
+
 export default IconMaterialFormatListBulletedRounded;

@@ -18,4 +18,6 @@ const IconMaterialAssuredWorkloadTwoTone = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialAssuredWorkloadTwoTone.displayName = 'AmauiIconMaterialAssuredWorkloadTwoTone';
+
 export default IconMaterialAssuredWorkloadTwoTone;

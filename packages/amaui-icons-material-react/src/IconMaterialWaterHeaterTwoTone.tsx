@@ -18,4 +18,6 @@ const IconMaterialWaterHeaterTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialWaterHeaterTwoTone.displayName = 'AmauiIconMaterialWaterHeaterTwoTone';
+
 export default IconMaterialWaterHeaterTwoTone;

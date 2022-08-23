@@ -18,4 +18,6 @@ const IconMaterialWorkspacesTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialWorkspacesTwoTone.displayName = 'AmauiIconMaterialWorkspacesTwoTone';
+
 export default IconMaterialWorkspacesTwoTone;

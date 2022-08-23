@@ -18,4 +18,6 @@ const IconMaterialEmojiNatureRoundedW100 = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialEmojiNatureRoundedW100.displayName = 'AmauiIconMaterialEmojiNatureRoundedW100';
+
 export default IconMaterialEmojiNatureRoundedW100;

@@ -18,4 +18,6 @@ const IconMaterialOpenInFullRoundedW100 = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialOpenInFullRoundedW100.displayName = 'AmauiIconMaterialOpenInFullRoundedW100';
+
 export default IconMaterialOpenInFullRoundedW100;

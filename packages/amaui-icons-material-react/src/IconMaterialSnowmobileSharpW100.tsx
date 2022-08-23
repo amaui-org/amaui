@@ -18,4 +18,6 @@ const IconMaterialSnowmobileSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSnowmobileSharpW100.displayName = 'AmauiIconMaterialSnowmobileSharpW100';
+
 export default IconMaterialSnowmobileSharpW100;

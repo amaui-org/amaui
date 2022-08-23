@@ -18,4 +18,6 @@ const IconMaterialPlaylistAddRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPlaylistAddRounded.displayName = 'AmauiIconMaterialPlaylistAddRounded';
+
 export default IconMaterialPlaylistAddRounded;

@@ -18,4 +18,6 @@ const IconMaterialOutboxTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialOutboxTwoTone.displayName = 'AmauiIconMaterialOutboxTwoTone';
+
 export default IconMaterialOutboxTwoTone;

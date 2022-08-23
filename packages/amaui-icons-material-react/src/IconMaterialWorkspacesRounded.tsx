@@ -18,4 +18,6 @@ const IconMaterialWorkspacesRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialWorkspacesRounded.displayName = 'AmauiIconMaterialWorkspacesRounded';
+
 export default IconMaterialWorkspacesRounded;

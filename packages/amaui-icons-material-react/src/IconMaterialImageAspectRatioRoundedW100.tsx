@@ -18,4 +18,6 @@ const IconMaterialImageAspectRatioRoundedW100 = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialImageAspectRatioRoundedW100.displayName = 'AmauiIconMaterialImageAspectRatioRoundedW100';
+
 export default IconMaterialImageAspectRatioRoundedW100;

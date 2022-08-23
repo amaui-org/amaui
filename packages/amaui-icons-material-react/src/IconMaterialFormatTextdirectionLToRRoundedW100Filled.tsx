@@ -18,4 +18,6 @@ const IconMaterialFormatTextdirectionLToRRoundedW100Filled = React.forwardRef((p
   );
 });
 
+IconMaterialFormatTextdirectionLToRRoundedW100Filled.displayName = 'AmauiIconMaterialFormatTextdirectionLToRRoundedW100Filled';
+
 export default IconMaterialFormatTextdirectionLToRRoundedW100Filled;

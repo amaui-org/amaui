@@ -18,4 +18,6 @@ const IconMaterialRadioButtonCheckedRoundedW100Filled = React.forwardRef((props:
   );
 });
 
+IconMaterialRadioButtonCheckedRoundedW100Filled.displayName = 'AmauiIconMaterialRadioButtonCheckedRoundedW100Filled';
+
 export default IconMaterialRadioButtonCheckedRoundedW100Filled;

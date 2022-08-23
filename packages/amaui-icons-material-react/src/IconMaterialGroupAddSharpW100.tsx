@@ -18,4 +18,6 @@ const IconMaterialGroupAddSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialGroupAddSharpW100.displayName = 'AmauiIconMaterialGroupAddSharpW100';
+
 export default IconMaterialGroupAddSharpW100;

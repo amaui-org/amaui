@@ -18,4 +18,6 @@ const IconMaterialGooglePlusReshareSharpW100 = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialGooglePlusReshareSharpW100.displayName = 'AmauiIconMaterialGooglePlusReshareSharpW100';
+
 export default IconMaterialGooglePlusReshareSharpW100;

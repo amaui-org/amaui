@@ -18,4 +18,6 @@ const IconMaterialCreditScoreRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCreditScoreRounded.displayName = 'AmauiIconMaterialCreditScoreRounded';
+
 export default IconMaterialCreditScoreRounded;

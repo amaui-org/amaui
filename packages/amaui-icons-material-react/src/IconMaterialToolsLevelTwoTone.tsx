@@ -18,4 +18,6 @@ const IconMaterialToolsLevelTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialToolsLevelTwoTone.displayName = 'AmauiIconMaterialToolsLevelTwoTone';
+
 export default IconMaterialToolsLevelTwoTone;

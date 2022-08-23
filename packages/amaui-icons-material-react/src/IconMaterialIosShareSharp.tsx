@@ -18,4 +18,6 @@ const IconMaterialIosShareSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialIosShareSharp.displayName = 'AmauiIconMaterialIosShareSharp';
+
 export default IconMaterialIosShareSharp;

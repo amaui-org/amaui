@@ -18,4 +18,6 @@ const IconMaterialMonitorHeartRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMonitorHeartRounded.displayName = 'AmauiIconMaterialMonitorHeartRounded';
+
 export default IconMaterialMonitorHeartRounded;

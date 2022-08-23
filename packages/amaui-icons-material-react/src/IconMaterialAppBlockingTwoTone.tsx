@@ -18,4 +18,6 @@ const IconMaterialAppBlockingTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAppBlockingTwoTone.displayName = 'AmauiIconMaterialAppBlockingTwoTone';
+
 export default IconMaterialAppBlockingTwoTone;

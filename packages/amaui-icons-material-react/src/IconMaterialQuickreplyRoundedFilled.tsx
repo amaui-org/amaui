@@ -18,4 +18,6 @@ const IconMaterialQuickreplyRoundedFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialQuickreplyRoundedFilled.displayName = 'AmauiIconMaterialQuickreplyRoundedFilled';
+
 export default IconMaterialQuickreplyRoundedFilled;

@@ -18,4 +18,6 @@ const IconMaterialRunCircleTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialRunCircleTwoTone.displayName = 'AmauiIconMaterialRunCircleTwoTone';
+
 export default IconMaterialRunCircleTwoTone;

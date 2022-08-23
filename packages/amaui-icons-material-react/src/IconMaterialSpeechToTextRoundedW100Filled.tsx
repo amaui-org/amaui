@@ -18,4 +18,6 @@ const IconMaterialSpeechToTextRoundedW100Filled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialSpeechToTextRoundedW100Filled.displayName = 'AmauiIconMaterialSpeechToTextRoundedW100Filled';
+
 export default IconMaterialSpeechToTextRoundedW100Filled;

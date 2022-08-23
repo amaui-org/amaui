@@ -18,4 +18,6 @@ const IconMaterialSportsMmaSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSportsMmaSharpFilled.displayName = 'AmauiIconMaterialSportsMmaSharpFilled';
+
 export default IconMaterialSportsMmaSharpFilled;

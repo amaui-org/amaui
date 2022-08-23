@@ -18,4 +18,6 @@ const IconMaterialChromecastDeviceSharp = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialChromecastDeviceSharp.displayName = 'AmauiIconMaterialChromecastDeviceSharp';
+
 export default IconMaterialChromecastDeviceSharp;

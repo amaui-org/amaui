@@ -18,4 +18,6 @@ const IconMaterialToolsInstallationKitSharpW100 = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialToolsInstallationKitSharpW100.displayName = 'AmauiIconMaterialToolsInstallationKitSharpW100';
+
 export default IconMaterialToolsInstallationKitSharpW100;

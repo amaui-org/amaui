@@ -18,4 +18,6 @@ const IconMaterialAutoReadPauseSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAutoReadPauseSharp.displayName = 'AmauiIconMaterialAutoReadPauseSharp';
+
 export default IconMaterialAutoReadPauseSharp;

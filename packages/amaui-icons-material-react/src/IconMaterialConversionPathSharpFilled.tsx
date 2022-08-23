@@ -18,4 +18,6 @@ const IconMaterialConversionPathSharpFilled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialConversionPathSharpFilled.displayName = 'AmauiIconMaterialConversionPathSharpFilled';
+
 export default IconMaterialConversionPathSharpFilled;

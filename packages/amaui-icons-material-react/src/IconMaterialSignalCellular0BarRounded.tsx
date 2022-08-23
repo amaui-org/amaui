@@ -18,4 +18,6 @@ const IconMaterialSignalCellular0BarRounded = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialSignalCellular0BarRounded.displayName = 'AmauiIconMaterialSignalCellular0BarRounded';
+
 export default IconMaterialSignalCellular0BarRounded;

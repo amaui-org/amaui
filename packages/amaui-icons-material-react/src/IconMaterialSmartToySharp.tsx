@@ -18,4 +18,6 @@ const IconMaterialSmartToySharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSmartToySharp.displayName = 'AmauiIconMaterialSmartToySharp';
+
 export default IconMaterialSmartToySharp;

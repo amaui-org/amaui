@@ -18,4 +18,6 @@ const IconMaterialSportsHandballTwoTone = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialSportsHandballTwoTone.displayName = 'AmauiIconMaterialSportsHandballTwoTone';
+
 export default IconMaterialSportsHandballTwoTone;

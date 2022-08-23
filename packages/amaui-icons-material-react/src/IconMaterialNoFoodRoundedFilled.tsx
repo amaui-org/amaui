@@ -18,4 +18,6 @@ const IconMaterialNoFoodRoundedFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNoFoodRoundedFilled.displayName = 'AmauiIconMaterialNoFoodRoundedFilled';
+
 export default IconMaterialNoFoodRoundedFilled;

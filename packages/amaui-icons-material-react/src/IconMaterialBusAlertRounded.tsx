@@ -18,4 +18,6 @@ const IconMaterialBusAlertRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBusAlertRounded.displayName = 'AmauiIconMaterialBusAlertRounded';
+
 export default IconMaterialBusAlertRounded;

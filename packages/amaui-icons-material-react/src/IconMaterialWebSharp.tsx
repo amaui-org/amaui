@@ -18,4 +18,6 @@ const IconMaterialWebSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialWebSharp.displayName = 'AmauiIconMaterialWebSharp';
+
 export default IconMaterialWebSharp;

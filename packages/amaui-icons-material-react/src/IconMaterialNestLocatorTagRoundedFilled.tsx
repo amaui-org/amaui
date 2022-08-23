@@ -18,4 +18,6 @@ const IconMaterialNestLocatorTagRoundedFilled = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialNestLocatorTagRoundedFilled.displayName = 'AmauiIconMaterialNestLocatorTagRoundedFilled';
+
 export default IconMaterialNestLocatorTagRoundedFilled;

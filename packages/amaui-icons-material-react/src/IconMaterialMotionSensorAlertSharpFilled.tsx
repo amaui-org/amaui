@@ -18,4 +18,6 @@ const IconMaterialMotionSensorAlertSharpFilled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialMotionSensorAlertSharpFilled.displayName = 'AmauiIconMaterialMotionSensorAlertSharpFilled';
+
 export default IconMaterialMotionSensorAlertSharpFilled;

@@ -18,4 +18,6 @@ const IconMaterialConfirmationNumberSharpFilled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialConfirmationNumberSharpFilled.displayName = 'AmauiIconMaterialConfirmationNumberSharpFilled';
+
 export default IconMaterialConfirmationNumberSharpFilled;

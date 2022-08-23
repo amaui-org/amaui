@@ -18,4 +18,6 @@ const IconMaterialLocalCarWashRoundedFilled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialLocalCarWashRoundedFilled.displayName = 'AmauiIconMaterialLocalCarWashRoundedFilled';
+
 export default IconMaterialLocalCarWashRoundedFilled;

@@ -18,4 +18,6 @@ const IconMaterialTamperDetectionOnSharpFilled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialTamperDetectionOnSharpFilled.displayName = 'AmauiIconMaterialTamperDetectionOnSharpFilled';
+
 export default IconMaterialTamperDetectionOnSharpFilled;

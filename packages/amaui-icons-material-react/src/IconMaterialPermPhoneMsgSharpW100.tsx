@@ -18,4 +18,6 @@ const IconMaterialPermPhoneMsgSharpW100 = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialPermPhoneMsgSharpW100.displayName = 'AmauiIconMaterialPermPhoneMsgSharpW100';
+
 export default IconMaterialPermPhoneMsgSharpW100;

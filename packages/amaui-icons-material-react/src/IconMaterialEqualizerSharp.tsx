@@ -18,4 +18,6 @@ const IconMaterialEqualizerSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialEqualizerSharp.displayName = 'AmauiIconMaterialEqualizerSharp';
+
 export default IconMaterialEqualizerSharp;

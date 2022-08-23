@@ -18,4 +18,6 @@ const IconMaterialPrivacySharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPrivacySharp.displayName = 'AmauiIconMaterialPrivacySharp';
+
 export default IconMaterialPrivacySharp;

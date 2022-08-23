@@ -18,4 +18,6 @@ const IconMaterialWorkspacesOutlineRoundedFilled = React.forwardRef((props: any,
   );
 });
 
+IconMaterialWorkspacesOutlineRoundedFilled.displayName = 'AmauiIconMaterialWorkspacesOutlineRoundedFilled';
+
 export default IconMaterialWorkspacesOutlineRoundedFilled;

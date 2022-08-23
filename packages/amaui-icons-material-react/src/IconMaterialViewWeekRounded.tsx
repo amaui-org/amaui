@@ -18,4 +18,6 @@ const IconMaterialViewWeekRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialViewWeekRounded.displayName = 'AmauiIconMaterialViewWeekRounded';
+
 export default IconMaterialViewWeekRounded;

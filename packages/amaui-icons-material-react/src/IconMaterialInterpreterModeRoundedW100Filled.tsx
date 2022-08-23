@@ -18,4 +18,6 @@ const IconMaterialInterpreterModeRoundedW100Filled = React.forwardRef((props: an
   );
 });
 
+IconMaterialInterpreterModeRoundedW100Filled.displayName = 'AmauiIconMaterialInterpreterModeRoundedW100Filled';
+
 export default IconMaterialInterpreterModeRoundedW100Filled;

@@ -18,4 +18,6 @@ const IconMaterialSoundDetectionGlassBreakSharpFilled = React.forwardRef((props:
   );
 });
 
+IconMaterialSoundDetectionGlassBreakSharpFilled.displayName = 'AmauiIconMaterialSoundDetectionGlassBreakSharpFilled';
+
 export default IconMaterialSoundDetectionGlassBreakSharpFilled;

@@ -18,4 +18,6 @@ const IconMaterialContactsTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialContactsTwoTone.displayName = 'AmauiIconMaterialContactsTwoTone';
+
 export default IconMaterialContactsTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialNearMeRoundedFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNearMeRoundedFilled.displayName = 'AmauiIconMaterialNearMeRoundedFilled';
+
 export default IconMaterialNearMeRoundedFilled;

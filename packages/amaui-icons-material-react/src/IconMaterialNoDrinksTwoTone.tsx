@@ -18,4 +18,6 @@ const IconMaterialNoDrinksTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNoDrinksTwoTone.displayName = 'AmauiIconMaterialNoDrinksTwoTone';
+
 export default IconMaterialNoDrinksTwoTone;

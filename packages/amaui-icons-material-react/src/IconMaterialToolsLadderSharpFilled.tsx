@@ -18,4 +18,6 @@ const IconMaterialToolsLadderSharpFilled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialToolsLadderSharpFilled.displayName = 'AmauiIconMaterialToolsLadderSharpFilled';
+
 export default IconMaterialToolsLadderSharpFilled;

@@ -18,4 +18,6 @@ const IconMaterialAccountBalanceWalletRoundedW100Filled = React.forwardRef((prop
   );
 });
 
+IconMaterialAccountBalanceWalletRoundedW100Filled.displayName = 'AmauiIconMaterialAccountBalanceWalletRoundedW100Filled';
+
 export default IconMaterialAccountBalanceWalletRoundedW100Filled;

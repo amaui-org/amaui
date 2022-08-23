@@ -18,4 +18,6 @@ const IconMaterialDriveFileRenameOutlineSharpFilled = React.forwardRef((props: a
   );
 });
 
+IconMaterialDriveFileRenameOutlineSharpFilled.displayName = 'AmauiIconMaterialDriveFileRenameOutlineSharpFilled';
+
 export default IconMaterialDriveFileRenameOutlineSharpFilled;

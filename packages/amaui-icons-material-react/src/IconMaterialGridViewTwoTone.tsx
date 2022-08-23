@@ -18,4 +18,6 @@ const IconMaterialGridViewTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialGridViewTwoTone.displayName = 'AmauiIconMaterialGridViewTwoTone';
+
 export default IconMaterialGridViewTwoTone;

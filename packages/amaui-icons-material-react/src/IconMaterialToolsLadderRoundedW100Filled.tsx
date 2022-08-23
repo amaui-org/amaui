@@ -18,4 +18,6 @@ const IconMaterialToolsLadderRoundedW100Filled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialToolsLadderRoundedW100Filled.displayName = 'AmauiIconMaterialToolsLadderRoundedW100Filled';
+
 export default IconMaterialToolsLadderRoundedW100Filled;

@@ -18,4 +18,6 @@ const IconMaterialCodeOffSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCodeOffSharp.displayName = 'AmauiIconMaterialCodeOffSharp';
+
 export default IconMaterialCodeOffSharp;

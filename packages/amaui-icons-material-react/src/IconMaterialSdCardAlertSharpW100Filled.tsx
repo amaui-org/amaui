@@ -18,4 +18,6 @@ const IconMaterialSdCardAlertSharpW100Filled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialSdCardAlertSharpW100Filled.displayName = 'AmauiIconMaterialSdCardAlertSharpW100Filled';
+
 export default IconMaterialSdCardAlertSharpW100Filled;

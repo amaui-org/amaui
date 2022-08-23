@@ -18,4 +18,6 @@ const IconMaterialWavingHandSharpFilled = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialWavingHandSharpFilled.displayName = 'AmauiIconMaterialWavingHandSharpFilled';
+
 export default IconMaterialWavingHandSharpFilled;

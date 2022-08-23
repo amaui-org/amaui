@@ -18,4 +18,6 @@ const IconMaterialTvWithAssistantTwoTone = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialTvWithAssistantTwoTone.displayName = 'AmauiIconMaterialTvWithAssistantTwoTone';
+
 export default IconMaterialTvWithAssistantTwoTone;

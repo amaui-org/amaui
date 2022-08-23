@@ -18,4 +18,6 @@ const IconMaterialSettingsOverscanTwoTone = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialSettingsOverscanTwoTone.displayName = 'AmauiIconMaterialSettingsOverscanTwoTone';
+
 export default IconMaterialSettingsOverscanTwoTone;

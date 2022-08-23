@@ -18,4 +18,6 @@ const IconMaterialOpenInBrowserSharpW100 = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialOpenInBrowserSharpW100.displayName = 'AmauiIconMaterialOpenInBrowserSharpW100';
+
 export default IconMaterialOpenInBrowserSharpW100;

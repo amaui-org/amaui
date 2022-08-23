@@ -18,4 +18,6 @@ const IconMaterialEditDocumentRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialEditDocumentRounded.displayName = 'AmauiIconMaterialEditDocumentRounded';
+
 export default IconMaterialEditDocumentRounded;

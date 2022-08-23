@@ -18,4 +18,6 @@ const IconMaterialAdbSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAdbSharpW100.displayName = 'AmauiIconMaterialAdbSharpW100';
+
 export default IconMaterialAdbSharpW100;

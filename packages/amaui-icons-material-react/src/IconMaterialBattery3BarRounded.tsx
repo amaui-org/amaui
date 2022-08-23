@@ -18,4 +18,6 @@ const IconMaterialBattery3BarRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBattery3BarRounded.displayName = 'AmauiIconMaterialBattery3BarRounded';
+
 export default IconMaterialBattery3BarRounded;

@@ -18,4 +18,6 @@ const IconMaterialAirwaveSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAirwaveSharp.displayName = 'AmauiIconMaterialAirwaveSharp';
+
 export default IconMaterialAirwaveSharp;

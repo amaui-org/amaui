@@ -18,4 +18,6 @@ const IconMaterialBarcodeScannerSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBarcodeScannerSharp.displayName = 'AmauiIconMaterialBarcodeScannerSharp';
+
 export default IconMaterialBarcodeScannerSharp;

@@ -18,4 +18,6 @@ const IconMaterialScreenLockRotationSharpFilled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialScreenLockRotationSharpFilled.displayName = 'AmauiIconMaterialScreenLockRotationSharpFilled';
+
 export default IconMaterialScreenLockRotationSharpFilled;

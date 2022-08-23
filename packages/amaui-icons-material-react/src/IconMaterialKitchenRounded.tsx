@@ -18,4 +18,6 @@ const IconMaterialKitchenRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialKitchenRounded.displayName = 'AmauiIconMaterialKitchenRounded';
+
 export default IconMaterialKitchenRounded;

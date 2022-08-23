@@ -18,4 +18,6 @@ const IconMaterialKeyboardHideSharpW100 = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialKeyboardHideSharpW100.displayName = 'AmauiIconMaterialKeyboardHideSharpW100';
+
 export default IconMaterialKeyboardHideSharpW100;

@@ -18,4 +18,6 @@ const IconMaterialFireTruckTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFireTruckTwoTone.displayName = 'AmauiIconMaterialFireTruckTwoTone';
+
 export default IconMaterialFireTruckTwoTone;

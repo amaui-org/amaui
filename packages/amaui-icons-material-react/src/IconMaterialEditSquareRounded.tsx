@@ -18,4 +18,6 @@ const IconMaterialEditSquareRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialEditSquareRounded.displayName = 'AmauiIconMaterialEditSquareRounded';
+
 export default IconMaterialEditSquareRounded;

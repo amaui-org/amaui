@@ -18,4 +18,6 @@ const IconMaterialFormatAlignRightSharpFilled = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialFormatAlignRightSharpFilled.displayName = 'AmauiIconMaterialFormatAlignRightSharpFilled';
+
 export default IconMaterialFormatAlignRightSharpFilled;

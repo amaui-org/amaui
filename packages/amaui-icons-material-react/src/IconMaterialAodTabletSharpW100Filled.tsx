@@ -18,4 +18,6 @@ const IconMaterialAodTabletSharpW100Filled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialAodTabletSharpW100Filled.displayName = 'AmauiIconMaterialAodTabletSharpW100Filled';
+
 export default IconMaterialAodTabletSharpW100Filled;

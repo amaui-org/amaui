@@ -18,4 +18,6 @@ const IconMaterialChairAltSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialChairAltSharpW100.displayName = 'AmauiIconMaterialChairAltSharpW100';
+
 export default IconMaterialChairAltSharpW100;

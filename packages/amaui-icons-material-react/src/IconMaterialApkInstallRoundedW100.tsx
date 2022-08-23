@@ -18,4 +18,6 @@ const IconMaterialApkInstallRoundedW100 = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialApkInstallRoundedW100.displayName = 'AmauiIconMaterialApkInstallRoundedW100';
+
 export default IconMaterialApkInstallRoundedW100;

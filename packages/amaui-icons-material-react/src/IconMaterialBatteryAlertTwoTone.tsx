@@ -18,4 +18,6 @@ const IconMaterialBatteryAlertTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBatteryAlertTwoTone.displayName = 'AmauiIconMaterialBatteryAlertTwoTone';
+
 export default IconMaterialBatteryAlertTwoTone;

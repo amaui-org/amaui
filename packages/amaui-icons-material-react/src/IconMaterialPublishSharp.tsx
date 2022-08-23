@@ -18,4 +18,6 @@ const IconMaterialPublishSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPublishSharp.displayName = 'AmauiIconMaterialPublishSharp';
+
 export default IconMaterialPublishSharp;

@@ -18,4 +18,6 @@ const IconMaterialWorkspacePremiumTwoTone = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialWorkspacePremiumTwoTone.displayName = 'AmauiIconMaterialWorkspacePremiumTwoTone';
+
 export default IconMaterialWorkspacePremiumTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialTwoWheelerRoundedW100Filled = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialTwoWheelerRoundedW100Filled.displayName = 'AmauiIconMaterialTwoWheelerRoundedW100Filled';
+
 export default IconMaterialTwoWheelerRoundedW100Filled;

@@ -18,4 +18,6 @@ const IconMaterialChurchSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialChurchSharp.displayName = 'AmauiIconMaterialChurchSharp';
+
 export default IconMaterialChurchSharp;

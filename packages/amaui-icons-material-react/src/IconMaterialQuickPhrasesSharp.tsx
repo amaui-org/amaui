@@ -18,4 +18,6 @@ const IconMaterialQuickPhrasesSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialQuickPhrasesSharp.displayName = 'AmauiIconMaterialQuickPhrasesSharp';
+
 export default IconMaterialQuickPhrasesSharp;

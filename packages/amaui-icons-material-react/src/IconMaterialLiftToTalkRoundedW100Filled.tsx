@@ -18,4 +18,6 @@ const IconMaterialLiftToTalkRoundedW100Filled = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialLiftToTalkRoundedW100Filled.displayName = 'AmauiIconMaterialLiftToTalkRoundedW100Filled';
+
 export default IconMaterialLiftToTalkRoundedW100Filled;

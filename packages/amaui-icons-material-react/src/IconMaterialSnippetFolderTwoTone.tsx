@@ -18,4 +18,6 @@ const IconMaterialSnippetFolderTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSnippetFolderTwoTone.displayName = 'AmauiIconMaterialSnippetFolderTwoTone';
+
 export default IconMaterialSnippetFolderTwoTone;

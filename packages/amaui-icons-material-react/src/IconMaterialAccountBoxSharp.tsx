@@ -18,4 +18,6 @@ const IconMaterialAccountBoxSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAccountBoxSharp.displayName = 'AmauiIconMaterialAccountBoxSharp';
+
 export default IconMaterialAccountBoxSharp;

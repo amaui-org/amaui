@@ -18,4 +18,6 @@ const IconMaterialStayCurrentLandscapeRoundedW100Filled = React.forwardRef((prop
   );
 });
 
+IconMaterialStayCurrentLandscapeRoundedW100Filled.displayName = 'AmauiIconMaterialStayCurrentLandscapeRoundedW100Filled';
+
 export default IconMaterialStayCurrentLandscapeRoundedW100Filled;

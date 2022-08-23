@@ -18,4 +18,6 @@ const IconMaterialCommentsDisabledSharpW100Filled = React.forwardRef((props: any
   );
 });
 
+IconMaterialCommentsDisabledSharpW100Filled.displayName = 'AmauiIconMaterialCommentsDisabledSharpW100Filled';
+
 export default IconMaterialCommentsDisabledSharpW100Filled;

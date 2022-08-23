@@ -18,4 +18,6 @@ const IconMaterialTableViewTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTableViewTwoTone.displayName = 'AmauiIconMaterialTableViewTwoTone';
+
 export default IconMaterialTableViewTwoTone;

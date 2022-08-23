@@ -18,4 +18,6 @@ const IconMaterialHeightRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialHeightRounded.displayName = 'AmauiIconMaterialHeightRounded';
+
 export default IconMaterialHeightRounded;

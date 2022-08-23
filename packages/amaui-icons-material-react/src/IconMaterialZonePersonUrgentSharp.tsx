@@ -18,4 +18,6 @@ const IconMaterialZonePersonUrgentSharp = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialZonePersonUrgentSharp.displayName = 'AmauiIconMaterialZonePersonUrgentSharp';
+
 export default IconMaterialZonePersonUrgentSharp;

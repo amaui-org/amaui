@@ -18,4 +18,6 @@ const IconMaterialSignLanguageSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSignLanguageSharp.displayName = 'AmauiIconMaterialSignLanguageSharp';
+
 export default IconMaterialSignLanguageSharp;

@@ -18,4 +18,6 @@ const IconMaterialGestureSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialGestureSharp.displayName = 'AmauiIconMaterialGestureSharp';
+
 export default IconMaterialGestureSharp;

@@ -18,4 +18,6 @@ const IconMaterialAstrophotographyOffSharp = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialAstrophotographyOffSharp.displayName = 'AmauiIconMaterialAstrophotographyOffSharp';
+
 export default IconMaterialAstrophotographyOffSharp;

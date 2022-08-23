@@ -18,4 +18,6 @@ const IconMaterialCrisisAlertSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCrisisAlertSharp.displayName = 'AmauiIconMaterialCrisisAlertSharp';
+
 export default IconMaterialCrisisAlertSharp;

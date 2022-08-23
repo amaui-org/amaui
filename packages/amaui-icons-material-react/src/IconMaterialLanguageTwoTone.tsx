@@ -18,4 +18,6 @@ const IconMaterialLanguageTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLanguageTwoTone.displayName = 'AmauiIconMaterialLanguageTwoTone';
+
 export default IconMaterialLanguageTwoTone;

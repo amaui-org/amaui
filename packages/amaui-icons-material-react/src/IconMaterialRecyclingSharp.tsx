@@ -18,4 +18,6 @@ const IconMaterialRecyclingSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialRecyclingSharp.displayName = 'AmauiIconMaterialRecyclingSharp';
+
 export default IconMaterialRecyclingSharp;

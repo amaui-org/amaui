@@ -18,4 +18,6 @@ const IconMaterialGroupOffSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialGroupOffSharpFilled.displayName = 'AmauiIconMaterialGroupOffSharpFilled';
+
 export default IconMaterialGroupOffSharpFilled;

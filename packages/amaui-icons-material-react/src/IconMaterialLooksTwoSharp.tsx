@@ -18,4 +18,6 @@ const IconMaterialLooksTwoSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLooksTwoSharp.displayName = 'AmauiIconMaterialLooksTwoSharp';
+
 export default IconMaterialLooksTwoSharp;

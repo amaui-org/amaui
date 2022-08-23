@@ -18,4 +18,6 @@ const IconMaterialChildFriendlySharpFilled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialChildFriendlySharpFilled.displayName = 'AmauiIconMaterialChildFriendlySharpFilled';
+
 export default IconMaterialChildFriendlySharpFilled;

@@ -18,4 +18,6 @@ const IconMaterialParaglidingTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialParaglidingTwoTone.displayName = 'AmauiIconMaterialParaglidingTwoTone';
+
 export default IconMaterialParaglidingTwoTone;

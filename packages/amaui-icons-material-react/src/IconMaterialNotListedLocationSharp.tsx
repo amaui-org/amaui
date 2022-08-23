@@ -18,4 +18,6 @@ const IconMaterialNotListedLocationSharp = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialNotListedLocationSharp.displayName = 'AmauiIconMaterialNotListedLocationSharp';
+
 export default IconMaterialNotListedLocationSharp;

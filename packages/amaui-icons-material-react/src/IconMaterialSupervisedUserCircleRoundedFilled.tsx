@@ -18,4 +18,6 @@ const IconMaterialSupervisedUserCircleRoundedFilled = React.forwardRef((props: a
   );
 });
 
+IconMaterialSupervisedUserCircleRoundedFilled.displayName = 'AmauiIconMaterialSupervisedUserCircleRoundedFilled';
+
 export default IconMaterialSupervisedUserCircleRoundedFilled;

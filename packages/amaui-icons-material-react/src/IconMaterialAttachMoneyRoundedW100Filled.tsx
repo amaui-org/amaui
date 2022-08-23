@@ -18,4 +18,6 @@ const IconMaterialAttachMoneyRoundedW100Filled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialAttachMoneyRoundedW100Filled.displayName = 'AmauiIconMaterialAttachMoneyRoundedW100Filled';
+
 export default IconMaterialAttachMoneyRoundedW100Filled;

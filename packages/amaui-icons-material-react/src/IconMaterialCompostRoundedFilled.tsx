@@ -18,4 +18,6 @@ const IconMaterialCompostRoundedFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCompostRoundedFilled.displayName = 'AmauiIconMaterialCompostRoundedFilled';
+
 export default IconMaterialCompostRoundedFilled;

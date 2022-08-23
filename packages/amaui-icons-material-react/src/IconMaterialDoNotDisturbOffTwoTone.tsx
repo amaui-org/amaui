@@ -18,4 +18,6 @@ const IconMaterialDoNotDisturbOffTwoTone = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialDoNotDisturbOffTwoTone.displayName = 'AmauiIconMaterialDoNotDisturbOffTwoTone';
+
 export default IconMaterialDoNotDisturbOffTwoTone;

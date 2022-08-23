@@ -18,4 +18,6 @@ const IconMaterialVaccinesTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialVaccinesTwoTone.displayName = 'AmauiIconMaterialVaccinesTwoTone';
+
 export default IconMaterialVaccinesTwoTone;

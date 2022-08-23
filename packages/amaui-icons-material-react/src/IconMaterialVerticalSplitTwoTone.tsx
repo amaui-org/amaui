@@ -18,4 +18,6 @@ const IconMaterialVerticalSplitTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialVerticalSplitTwoTone.displayName = 'AmauiIconMaterialVerticalSplitTwoTone';
+
 export default IconMaterialVerticalSplitTwoTone;

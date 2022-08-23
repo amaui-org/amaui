@@ -18,4 +18,6 @@ const IconMaterialMoneyOffRoundedW100Filled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialMoneyOffRoundedW100Filled.displayName = 'AmauiIconMaterialMoneyOffRoundedW100Filled';
+
 export default IconMaterialMoneyOffRoundedW100Filled;

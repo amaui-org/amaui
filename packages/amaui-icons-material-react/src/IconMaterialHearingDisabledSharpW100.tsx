@@ -18,4 +18,6 @@ const IconMaterialHearingDisabledSharpW100 = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialHearingDisabledSharpW100.displayName = 'AmauiIconMaterialHearingDisabledSharpW100';
+
 export default IconMaterialHearingDisabledSharpW100;

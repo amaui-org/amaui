@@ -18,4 +18,6 @@ const IconMaterialHumidityLowSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialHumidityLowSharp.displayName = 'AmauiIconMaterialHumidityLowSharp';
+
 export default IconMaterialHumidityLowSharp;

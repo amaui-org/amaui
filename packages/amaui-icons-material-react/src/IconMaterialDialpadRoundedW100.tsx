@@ -18,4 +18,6 @@ const IconMaterialDialpadRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDialpadRoundedW100.displayName = 'AmauiIconMaterialDialpadRoundedW100';
+
 export default IconMaterialDialpadRoundedW100;

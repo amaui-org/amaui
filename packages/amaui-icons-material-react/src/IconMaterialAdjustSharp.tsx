@@ -18,4 +18,6 @@ const IconMaterialAdjustSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAdjustSharp.displayName = 'AmauiIconMaterialAdjustSharp';
+
 export default IconMaterialAdjustSharp;

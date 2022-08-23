@@ -18,4 +18,6 @@ const IconMaterialHeightTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialHeightTwoTone.displayName = 'AmauiIconMaterialHeightTwoTone';
+
 export default IconMaterialHeightTwoTone;

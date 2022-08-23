@@ -18,4 +18,6 @@ const IconMaterialLaptopChromebookRoundedFilled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialLaptopChromebookRoundedFilled.displayName = 'AmauiIconMaterialLaptopChromebookRoundedFilled';
+
 export default IconMaterialLaptopChromebookRoundedFilled;

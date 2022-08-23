@@ -18,4 +18,6 @@ const IconMaterialHealthAndSafetyRounded = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialHealthAndSafetyRounded.displayName = 'AmauiIconMaterialHealthAndSafetyRounded';
+
 export default IconMaterialHealthAndSafetyRounded;

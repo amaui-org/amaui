@@ -18,4 +18,6 @@ const IconMaterialPermContactCalendarTwoTone = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialPermContactCalendarTwoTone.displayName = 'AmauiIconMaterialPermContactCalendarTwoTone';
+
 export default IconMaterialPermContactCalendarTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialVapeFreeSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialVapeFreeSharpFilled.displayName = 'AmauiIconMaterialVapeFreeSharpFilled';
+
 export default IconMaterialVapeFreeSharpFilled;

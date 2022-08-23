@@ -18,4 +18,6 @@ const IconMaterialViewInArNewRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialViewInArNewRounded.displayName = 'AmauiIconMaterialViewInArNewRounded';
+
 export default IconMaterialViewInArNewRounded;

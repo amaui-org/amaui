@@ -18,4 +18,6 @@ const IconMaterialSuperscriptRoundedW100Filled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialSuperscriptRoundedW100Filled.displayName = 'AmauiIconMaterialSuperscriptRoundedW100Filled';
+
 export default IconMaterialSuperscriptRoundedW100Filled;

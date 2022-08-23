@@ -18,4 +18,6 @@ const IconMaterialAlignVerticalCenterSharp = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialAlignVerticalCenterSharp.displayName = 'AmauiIconMaterialAlignVerticalCenterSharp';
+
 export default IconMaterialAlignVerticalCenterSharp;

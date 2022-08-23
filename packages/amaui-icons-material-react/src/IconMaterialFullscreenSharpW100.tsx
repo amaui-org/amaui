@@ -18,4 +18,6 @@ const IconMaterialFullscreenSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFullscreenSharpW100.displayName = 'AmauiIconMaterialFullscreenSharpW100';
+
 export default IconMaterialFullscreenSharpW100;

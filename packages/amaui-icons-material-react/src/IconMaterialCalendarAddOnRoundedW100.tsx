@@ -18,4 +18,6 @@ const IconMaterialCalendarAddOnRoundedW100 = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialCalendarAddOnRoundedW100.displayName = 'AmauiIconMaterialCalendarAddOnRoundedW100';
+
 export default IconMaterialCalendarAddOnRoundedW100;

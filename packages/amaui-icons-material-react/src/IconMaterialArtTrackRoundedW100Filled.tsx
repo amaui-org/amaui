@@ -18,4 +18,6 @@ const IconMaterialArtTrackRoundedW100Filled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialArtTrackRoundedW100Filled.displayName = 'AmauiIconMaterialArtTrackRoundedW100Filled';
+
 export default IconMaterialArtTrackRoundedW100Filled;

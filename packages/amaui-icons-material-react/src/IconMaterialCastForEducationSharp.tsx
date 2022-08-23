@@ -18,4 +18,6 @@ const IconMaterialCastForEducationSharp = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialCastForEducationSharp.displayName = 'AmauiIconMaterialCastForEducationSharp';
+
 export default IconMaterialCastForEducationSharp;

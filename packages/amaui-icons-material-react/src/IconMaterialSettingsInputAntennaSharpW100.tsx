@@ -18,4 +18,6 @@ const IconMaterialSettingsInputAntennaSharpW100 = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialSettingsInputAntennaSharpW100.displayName = 'AmauiIconMaterialSettingsInputAntennaSharpW100';
+
 export default IconMaterialSettingsInputAntennaSharpW100;

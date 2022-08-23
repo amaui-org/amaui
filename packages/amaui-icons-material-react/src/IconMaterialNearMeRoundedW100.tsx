@@ -18,4 +18,6 @@ const IconMaterialNearMeRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNearMeRoundedW100.displayName = 'AmauiIconMaterialNearMeRoundedW100';
+
 export default IconMaterialNearMeRoundedW100;

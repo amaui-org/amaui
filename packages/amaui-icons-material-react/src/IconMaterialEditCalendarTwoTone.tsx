@@ -18,4 +18,6 @@ const IconMaterialEditCalendarTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialEditCalendarTwoTone.displayName = 'AmauiIconMaterialEditCalendarTwoTone';
+
 export default IconMaterialEditCalendarTwoTone;

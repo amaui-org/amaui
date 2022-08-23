@@ -18,4 +18,6 @@ const IconMaterialSynagogueSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSynagogueSharpW100.displayName = 'AmauiIconMaterialSynagogueSharpW100';
+
 export default IconMaterialSynagogueSharpW100;

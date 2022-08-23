@@ -18,4 +18,6 @@ const IconMaterialLiveHelpRoundedFilled = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialLiveHelpRoundedFilled.displayName = 'AmauiIconMaterialLiveHelpRoundedFilled';
+
 export default IconMaterialLiveHelpRoundedFilled;

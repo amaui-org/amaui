@@ -18,4 +18,6 @@ const IconMaterialNotificationImportantSharp = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialNotificationImportantSharp.displayName = 'AmauiIconMaterialNotificationImportantSharp';
+
 export default IconMaterialNotificationImportantSharp;

@@ -18,4 +18,6 @@ const IconMaterialStrikethroughSRoundedW100 = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialStrikethroughSRoundedW100.displayName = 'AmauiIconMaterialStrikethroughSRoundedW100';
+
 export default IconMaterialStrikethroughSRoundedW100;

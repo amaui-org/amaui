@@ -18,4 +18,6 @@ const IconMaterialViewQuiltRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialViewQuiltRoundedW100.displayName = 'AmauiIconMaterialViewQuiltRoundedW100';
+
 export default IconMaterialViewQuiltRoundedW100;

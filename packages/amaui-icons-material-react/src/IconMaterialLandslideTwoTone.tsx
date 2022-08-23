@@ -18,4 +18,6 @@ const IconMaterialLandslideTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLandslideTwoTone.displayName = 'AmauiIconMaterialLandslideTwoTone';
+
 export default IconMaterialLandslideTwoTone;

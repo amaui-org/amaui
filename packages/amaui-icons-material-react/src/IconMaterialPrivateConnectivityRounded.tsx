@@ -18,4 +18,6 @@ const IconMaterialPrivateConnectivityRounded = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialPrivateConnectivityRounded.displayName = 'AmauiIconMaterialPrivateConnectivityRounded';
+
 export default IconMaterialPrivateConnectivityRounded;

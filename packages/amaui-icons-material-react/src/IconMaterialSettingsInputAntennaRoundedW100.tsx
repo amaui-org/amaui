@@ -18,4 +18,6 @@ const IconMaterialSettingsInputAntennaRoundedW100 = React.forwardRef((props: any
   );
 });
 
+IconMaterialSettingsInputAntennaRoundedW100.displayName = 'AmauiIconMaterialSettingsInputAntennaRoundedW100';
+
 export default IconMaterialSettingsInputAntennaRoundedW100;

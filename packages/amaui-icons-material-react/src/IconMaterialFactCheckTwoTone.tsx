@@ -18,4 +18,6 @@ const IconMaterialFactCheckTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFactCheckTwoTone.displayName = 'AmauiIconMaterialFactCheckTwoTone';
+
 export default IconMaterialFactCheckTwoTone;

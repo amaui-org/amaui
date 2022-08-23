@@ -18,4 +18,6 @@ const IconMaterialAutoAwesomeMotionRounded = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialAutoAwesomeMotionRounded.displayName = 'AmauiIconMaterialAutoAwesomeMotionRounded';
+
 export default IconMaterialAutoAwesomeMotionRounded;

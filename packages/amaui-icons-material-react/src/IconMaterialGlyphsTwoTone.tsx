@@ -18,4 +18,6 @@ const IconMaterialGlyphsTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialGlyphsTwoTone.displayName = 'AmauiIconMaterialGlyphsTwoTone';
+
 export default IconMaterialGlyphsTwoTone;

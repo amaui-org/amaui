@@ -18,4 +18,6 @@ const IconMaterialWaterDamageRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialWaterDamageRounded.displayName = 'AmauiIconMaterialWaterDamageRounded';
+
 export default IconMaterialWaterDamageRounded;

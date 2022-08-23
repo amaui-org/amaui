@@ -18,4 +18,6 @@ const IconMaterialContactPageSharpW100Filled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialContactPageSharpW100Filled.displayName = 'AmauiIconMaterialContactPageSharpW100Filled';
+
 export default IconMaterialContactPageSharpW100Filled;

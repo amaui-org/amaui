@@ -18,4 +18,6 @@ const IconMaterialSelfImprovementSharpW100 = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialSelfImprovementSharpW100.displayName = 'AmauiIconMaterialSelfImprovementSharpW100';
+
 export default IconMaterialSelfImprovementSharpW100;

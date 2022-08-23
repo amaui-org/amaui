@@ -18,4 +18,6 @@ const IconMaterialMapsUgcSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMapsUgcSharpW100.displayName = 'AmauiIconMaterialMapsUgcSharpW100';
+
 export default IconMaterialMapsUgcSharpW100;

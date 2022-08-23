@@ -18,4 +18,6 @@ const IconMaterialHelpCenterRoundedW100 = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialHelpCenterRoundedW100.displayName = 'AmauiIconMaterialHelpCenterRoundedW100';
+
 export default IconMaterialHelpCenterRoundedW100;

@@ -18,4 +18,6 @@ const IconMaterialSquareFootSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSquareFootSharp.displayName = 'AmauiIconMaterialSquareFootSharp';
+
 export default IconMaterialSquareFootSharp;

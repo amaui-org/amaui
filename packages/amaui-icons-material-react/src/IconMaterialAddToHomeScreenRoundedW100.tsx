@@ -18,4 +18,6 @@ const IconMaterialAddToHomeScreenRoundedW100 = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialAddToHomeScreenRoundedW100.displayName = 'AmauiIconMaterialAddToHomeScreenRoundedW100';
+
 export default IconMaterialAddToHomeScreenRoundedW100;

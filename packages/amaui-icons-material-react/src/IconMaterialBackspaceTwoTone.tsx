@@ -18,4 +18,6 @@ const IconMaterialBackspaceTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBackspaceTwoTone.displayName = 'AmauiIconMaterialBackspaceTwoTone';
+
 export default IconMaterialBackspaceTwoTone;

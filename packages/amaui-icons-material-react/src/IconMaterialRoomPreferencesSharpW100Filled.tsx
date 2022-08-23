@@ -18,4 +18,6 @@ const IconMaterialRoomPreferencesSharpW100Filled = React.forwardRef((props: any,
   );
 });
 
+IconMaterialRoomPreferencesSharpW100Filled.displayName = 'AmauiIconMaterialRoomPreferencesSharpW100Filled';
+
 export default IconMaterialRoomPreferencesSharpW100Filled;

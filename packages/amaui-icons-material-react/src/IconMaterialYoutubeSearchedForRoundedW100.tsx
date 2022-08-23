@@ -18,4 +18,6 @@ const IconMaterialYoutubeSearchedForRoundedW100 = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialYoutubeSearchedForRoundedW100.displayName = 'AmauiIconMaterialYoutubeSearchedForRoundedW100';
+
 export default IconMaterialYoutubeSearchedForRoundedW100;

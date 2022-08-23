@@ -18,4 +18,6 @@ const IconMaterialPanoramaSharpW100Filled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialPanoramaSharpW100Filled.displayName = 'AmauiIconMaterialPanoramaSharpW100Filled';
+
 export default IconMaterialPanoramaSharpW100Filled;

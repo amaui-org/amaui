@@ -18,4 +18,6 @@ const IconMaterialHighQualitySharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialHighQualitySharp.displayName = 'AmauiIconMaterialHighQualitySharp';
+
 export default IconMaterialHighQualitySharp;

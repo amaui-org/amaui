@@ -18,4 +18,6 @@ const IconMaterialAddRoadSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAddRoadSharp.displayName = 'AmauiIconMaterialAddRoadSharp';
+
 export default IconMaterialAddRoadSharp;

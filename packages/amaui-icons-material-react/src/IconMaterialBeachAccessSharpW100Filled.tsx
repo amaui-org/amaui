@@ -18,4 +18,6 @@ const IconMaterialBeachAccessSharpW100Filled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialBeachAccessSharpW100Filled.displayName = 'AmauiIconMaterialBeachAccessSharpW100Filled';
+
 export default IconMaterialBeachAccessSharpW100Filled;

@@ -18,4 +18,6 @@ const IconMaterialBackspaceRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBackspaceRounded.displayName = 'AmauiIconMaterialBackspaceRounded';
+
 export default IconMaterialBackspaceRounded;

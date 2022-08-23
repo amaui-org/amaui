@@ -18,4 +18,6 @@ const IconMaterialHotelSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialHotelSharpFilled.displayName = 'AmauiIconMaterialHotelSharpFilled';
+
 export default IconMaterialHotelSharpFilled;

@@ -18,4 +18,6 @@ const IconMaterialHeatPumpBalanceTwoTone = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialHeatPumpBalanceTwoTone.displayName = 'AmauiIconMaterialHeatPumpBalanceTwoTone';
+
 export default IconMaterialHeatPumpBalanceTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialVideoLibraryTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialVideoLibraryTwoTone.displayName = 'AmauiIconMaterialVideoLibraryTwoTone';
+
 export default IconMaterialVideoLibraryTwoTone;

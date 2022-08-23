@@ -18,4 +18,6 @@ const IconMaterialPowerSettingsNewSharp = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialPowerSettingsNewSharp.displayName = 'AmauiIconMaterialPowerSettingsNewSharp';
+
 export default IconMaterialPowerSettingsNewSharp;

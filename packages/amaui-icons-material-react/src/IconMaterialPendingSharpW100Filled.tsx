@@ -18,4 +18,6 @@ const IconMaterialPendingSharpW100Filled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialPendingSharpW100Filled.displayName = 'AmauiIconMaterialPendingSharpW100Filled';
+
 export default IconMaterialPendingSharpW100Filled;

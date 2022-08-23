@@ -18,4 +18,6 @@ const IconMaterialMediaBluetoothOffTwoTone = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialMediaBluetoothOffTwoTone.displayName = 'AmauiIconMaterialMediaBluetoothOffTwoTone';
+
 export default IconMaterialMediaBluetoothOffTwoTone;

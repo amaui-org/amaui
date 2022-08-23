@@ -18,4 +18,6 @@ const IconMaterialDoubleArrowSharpFilled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialDoubleArrowSharpFilled.displayName = 'AmauiIconMaterialDoubleArrowSharpFilled';
+
 export default IconMaterialDoubleArrowSharpFilled;

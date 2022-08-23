@@ -18,4 +18,6 @@ const IconMaterialMilitaryTechTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMilitaryTechTwoTone.displayName = 'AmauiIconMaterialMilitaryTechTwoTone';
+
 export default IconMaterialMilitaryTechTwoTone;

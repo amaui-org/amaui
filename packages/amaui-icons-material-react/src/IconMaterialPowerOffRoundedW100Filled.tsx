@@ -18,4 +18,6 @@ const IconMaterialPowerOffRoundedW100Filled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialPowerOffRoundedW100Filled.displayName = 'AmauiIconMaterialPowerOffRoundedW100Filled';
+
 export default IconMaterialPowerOffRoundedW100Filled;

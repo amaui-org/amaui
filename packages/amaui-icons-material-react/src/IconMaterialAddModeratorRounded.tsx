@@ -18,4 +18,6 @@ const IconMaterialAddModeratorRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAddModeratorRounded.displayName = 'AmauiIconMaterialAddModeratorRounded';
+
 export default IconMaterialAddModeratorRounded;

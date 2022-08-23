@@ -18,4 +18,6 @@ const IconMaterialMotionSensorAlertSharpW100 = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialMotionSensorAlertSharpW100.displayName = 'AmauiIconMaterialMotionSensorAlertSharpW100';
+
 export default IconMaterialMotionSensorAlertSharpW100;

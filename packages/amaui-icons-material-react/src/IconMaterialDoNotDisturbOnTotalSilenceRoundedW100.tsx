@@ -18,4 +18,6 @@ const IconMaterialDoNotDisturbOnTotalSilenceRoundedW100 = React.forwardRef((prop
   );
 });
 
+IconMaterialDoNotDisturbOnTotalSilenceRoundedW100.displayName = 'AmauiIconMaterialDoNotDisturbOnTotalSilenceRoundedW100';
+
 export default IconMaterialDoNotDisturbOnTotalSilenceRoundedW100;

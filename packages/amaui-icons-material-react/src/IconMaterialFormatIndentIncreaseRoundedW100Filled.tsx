@@ -18,4 +18,6 @@ const IconMaterialFormatIndentIncreaseRoundedW100Filled = React.forwardRef((prop
   );
 });
 
+IconMaterialFormatIndentIncreaseRoundedW100Filled.displayName = 'AmauiIconMaterialFormatIndentIncreaseRoundedW100Filled';
+
 export default IconMaterialFormatIndentIncreaseRoundedW100Filled;

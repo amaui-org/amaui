@@ -18,4 +18,6 @@ const IconMaterialSynagogueRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSynagogueRoundedW100.displayName = 'AmauiIconMaterialSynagogueRoundedW100';
+
 export default IconMaterialSynagogueRoundedW100;

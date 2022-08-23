@@ -18,4 +18,6 @@ const IconMaterialProductionQuantityLimitsSharpFilled = React.forwardRef((props:
   );
 });
 
+IconMaterialProductionQuantityLimitsSharpFilled.displayName = 'AmauiIconMaterialProductionQuantityLimitsSharpFilled';
+
 export default IconMaterialProductionQuantityLimitsSharpFilled;

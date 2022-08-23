@@ -18,4 +18,6 @@ const IconMaterialNestClockFarsightAnalogTwoTone = React.forwardRef((props: any,
   );
 });
 
+IconMaterialNestClockFarsightAnalogTwoTone.displayName = 'AmauiIconMaterialNestClockFarsightAnalogTwoTone';
+
 export default IconMaterialNestClockFarsightAnalogTwoTone;

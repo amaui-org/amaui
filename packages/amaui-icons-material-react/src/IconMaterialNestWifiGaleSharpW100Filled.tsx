@@ -18,4 +18,6 @@ const IconMaterialNestWifiGaleSharpW100Filled = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialNestWifiGaleSharpW100Filled.displayName = 'AmauiIconMaterialNestWifiGaleSharpW100Filled';
+
 export default IconMaterialNestWifiGaleSharpW100Filled;

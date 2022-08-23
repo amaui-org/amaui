@@ -18,4 +18,6 @@ const IconMaterialVisibilityOffTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialVisibilityOffTwoTone.displayName = 'AmauiIconMaterialVisibilityOffTwoTone';
+
 export default IconMaterialVisibilityOffTwoTone;

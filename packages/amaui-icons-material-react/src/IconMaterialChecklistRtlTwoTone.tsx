@@ -18,4 +18,6 @@ const IconMaterialChecklistRtlTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialChecklistRtlTwoTone.displayName = 'AmauiIconMaterialChecklistRtlTwoTone';
+
 export default IconMaterialChecklistRtlTwoTone;

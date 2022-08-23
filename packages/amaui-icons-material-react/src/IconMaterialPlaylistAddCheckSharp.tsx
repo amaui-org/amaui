@@ -18,4 +18,6 @@ const IconMaterialPlaylistAddCheckSharp = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialPlaylistAddCheckSharp.displayName = 'AmauiIconMaterialPlaylistAddCheckSharp';
+
 export default IconMaterialPlaylistAddCheckSharp;

@@ -18,4 +18,6 @@ const IconMaterialHotelRoundedFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialHotelRoundedFilled.displayName = 'AmauiIconMaterialHotelRoundedFilled';
+
 export default IconMaterialHotelRoundedFilled;

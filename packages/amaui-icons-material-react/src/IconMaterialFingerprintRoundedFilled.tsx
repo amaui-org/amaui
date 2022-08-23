@@ -18,4 +18,6 @@ const IconMaterialFingerprintRoundedFilled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialFingerprintRoundedFilled.displayName = 'AmauiIconMaterialFingerprintRoundedFilled';
+
 export default IconMaterialFingerprintRoundedFilled;

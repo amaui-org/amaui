@@ -18,4 +18,6 @@ const IconMaterialClosedCaptionDisabledTwoTone = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialClosedCaptionDisabledTwoTone.displayName = 'AmauiIconMaterialClosedCaptionDisabledTwoTone';
+
 export default IconMaterialClosedCaptionDisabledTwoTone;

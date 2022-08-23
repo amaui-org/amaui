@@ -18,4 +18,6 @@ const IconMaterialBarcodeSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBarcodeSharpFilled.displayName = 'AmauiIconMaterialBarcodeSharpFilled';
+
 export default IconMaterialBarcodeSharpFilled;

@@ -18,4 +18,6 @@ const IconMaterialHeadphonesBatterySharp = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialHeadphonesBatterySharp.displayName = 'AmauiIconMaterialHeadphonesBatterySharp';
+
 export default IconMaterialHeadphonesBatterySharp;

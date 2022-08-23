@@ -18,4 +18,6 @@ const IconMaterialQueueMusicSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialQueueMusicSharp.displayName = 'AmauiIconMaterialQueueMusicSharp';
+
 export default IconMaterialQueueMusicSharp;

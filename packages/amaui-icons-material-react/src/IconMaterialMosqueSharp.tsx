@@ -18,4 +18,6 @@ const IconMaterialMosqueSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMosqueSharp.displayName = 'AmauiIconMaterialMosqueSharp';
+
 export default IconMaterialMosqueSharp;

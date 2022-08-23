@@ -18,4 +18,6 @@ const IconMaterialVideoLibraryRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialVideoLibraryRounded.displayName = 'AmauiIconMaterialVideoLibraryRounded';
+
 export default IconMaterialVideoLibraryRounded;

@@ -18,4 +18,6 @@ const IconMaterialDriveFileMoveTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDriveFileMoveTwoTone.displayName = 'AmauiIconMaterialDriveFileMoveTwoTone';
+
 export default IconMaterialDriveFileMoveTwoTone;

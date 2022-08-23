@@ -18,4 +18,6 @@ const IconMaterialSportsBarSharpW100Filled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialSportsBarSharpW100Filled.displayName = 'AmauiIconMaterialSportsBarSharpW100Filled';
+
 export default IconMaterialSportsBarSharpW100Filled;

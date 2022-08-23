@@ -18,4 +18,6 @@ const IconMaterialLastPageSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLastPageSharp.displayName = 'AmauiIconMaterialLastPageSharp';
+
 export default IconMaterialLastPageSharp;

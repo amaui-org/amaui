@@ -18,4 +18,6 @@ const IconMaterialScatterPlotSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialScatterPlotSharp.displayName = 'AmauiIconMaterialScatterPlotSharp';
+
 export default IconMaterialScatterPlotSharp;

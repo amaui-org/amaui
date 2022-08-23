@@ -18,4 +18,6 @@ const IconMaterialSlowMotionVideoRoundedW100 = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialSlowMotionVideoRoundedW100.displayName = 'AmauiIconMaterialSlowMotionVideoRoundedW100';
+
 export default IconMaterialSlowMotionVideoRoundedW100;

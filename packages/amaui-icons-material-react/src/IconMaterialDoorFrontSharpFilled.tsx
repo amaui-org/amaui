@@ -18,4 +18,6 @@ const IconMaterialDoorFrontSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDoorFrontSharpFilled.displayName = 'AmauiIconMaterialDoorFrontSharpFilled';
+
 export default IconMaterialDoorFrontSharpFilled;

@@ -18,4 +18,6 @@ const IconMaterialSailingSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSailingSharp.displayName = 'AmauiIconMaterialSailingSharp';
+
 export default IconMaterialSailingSharp;

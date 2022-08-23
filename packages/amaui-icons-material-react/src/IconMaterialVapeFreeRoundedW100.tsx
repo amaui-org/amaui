@@ -18,4 +18,6 @@ const IconMaterialVapeFreeRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialVapeFreeRoundedW100.displayName = 'AmauiIconMaterialVapeFreeRoundedW100';
+
 export default IconMaterialVapeFreeRoundedW100;

@@ -18,4 +18,6 @@ const IconMaterialPlagiarismTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPlagiarismTwoTone.displayName = 'AmauiIconMaterialPlagiarismTwoTone';
+
 export default IconMaterialPlagiarismTwoTone;

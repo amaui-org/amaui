@@ -18,4 +18,6 @@ const IconMaterialSupervisedUserCircleSharpW100 = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialSupervisedUserCircleSharpW100.displayName = 'AmauiIconMaterialSupervisedUserCircleSharpW100';
+
 export default IconMaterialSupervisedUserCircleSharpW100;

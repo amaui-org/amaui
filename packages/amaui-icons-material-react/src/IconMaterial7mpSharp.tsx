@@ -18,4 +18,6 @@ const IconMaterial7mpSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterial7mpSharp.displayName = 'AmauiIconMaterial7mpSharp';
+
 export default IconMaterial7mpSharp;

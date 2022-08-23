@@ -18,4 +18,6 @@ const IconMaterialSwitchVideoSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSwitchVideoSharpW100.displayName = 'AmauiIconMaterialSwitchVideoSharpW100';
+
 export default IconMaterialSwitchVideoSharpW100;

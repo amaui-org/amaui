@@ -18,4 +18,6 @@ const IconMaterialCloudSyncRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCloudSyncRounded.displayName = 'AmauiIconMaterialCloudSyncRounded';
+
 export default IconMaterialCloudSyncRounded;

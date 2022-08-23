@@ -18,4 +18,6 @@ const IconMaterialFolderOffSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFolderOffSharp.displayName = 'AmauiIconMaterialFolderOffSharp';
+
 export default IconMaterialFolderOffSharp;

@@ -18,4 +18,6 @@ const IconMaterialAlarmAddRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAlarmAddRounded.displayName = 'AmauiIconMaterialAlarmAddRounded';
+
 export default IconMaterialAlarmAddRounded;

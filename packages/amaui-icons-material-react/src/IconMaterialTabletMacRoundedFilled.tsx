@@ -18,4 +18,6 @@ const IconMaterialTabletMacRoundedFilled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialTabletMacRoundedFilled.displayName = 'AmauiIconMaterialTabletMacRoundedFilled';
+
 export default IconMaterialTabletMacRoundedFilled;

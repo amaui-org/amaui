@@ -18,4 +18,6 @@ const IconMaterialPrivateConnectivitySharpW100 = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialPrivateConnectivitySharpW100.displayName = 'AmauiIconMaterialPrivateConnectivitySharpW100';
+
 export default IconMaterialPrivateConnectivitySharpW100;

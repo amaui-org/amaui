@@ -18,4 +18,6 @@ const IconMaterialSwitchLeftSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSwitchLeftSharp.displayName = 'AmauiIconMaterialSwitchLeftSharp';
+
 export default IconMaterialSwitchLeftSharp;

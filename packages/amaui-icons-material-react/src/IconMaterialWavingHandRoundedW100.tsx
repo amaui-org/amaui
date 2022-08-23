@@ -18,4 +18,6 @@ const IconMaterialWavingHandRoundedW100 = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialWavingHandRoundedW100.displayName = 'AmauiIconMaterialWavingHandRoundedW100';
+
 export default IconMaterialWavingHandRoundedW100;

@@ -18,4 +18,6 @@ const IconMaterialEmojiFoodBeverageSharpFilled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialEmojiFoodBeverageSharpFilled.displayName = 'AmauiIconMaterialEmojiFoodBeverageSharpFilled';
+
 export default IconMaterialEmojiFoodBeverageSharpFilled;

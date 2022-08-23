@@ -18,4 +18,6 @@ const IconMaterialConnectWithoutContactTwoTone = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialConnectWithoutContactTwoTone.displayName = 'AmauiIconMaterialConnectWithoutContactTwoTone';
+
 export default IconMaterialConnectWithoutContactTwoTone;

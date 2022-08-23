@@ -18,4 +18,6 @@ const IconMaterialNavigateBeforeSharpFilled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialNavigateBeforeSharpFilled.displayName = 'AmauiIconMaterialNavigateBeforeSharpFilled';
+
 export default IconMaterialNavigateBeforeSharpFilled;

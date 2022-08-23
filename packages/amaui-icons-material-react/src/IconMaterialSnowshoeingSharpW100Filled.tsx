@@ -18,4 +18,6 @@ const IconMaterialSnowshoeingSharpW100Filled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialSnowshoeingSharpW100Filled.displayName = 'AmauiIconMaterialSnowshoeingSharpW100Filled';
+
 export default IconMaterialSnowshoeingSharpW100Filled;

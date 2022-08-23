@@ -18,4 +18,6 @@ const IconMaterialScheduleSendSharpFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialScheduleSendSharpFilled.displayName = 'AmauiIconMaterialScheduleSendSharpFilled';
+
 export default IconMaterialScheduleSendSharpFilled;

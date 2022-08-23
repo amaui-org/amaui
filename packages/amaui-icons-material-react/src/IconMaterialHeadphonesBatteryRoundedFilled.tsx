@@ -18,4 +18,6 @@ const IconMaterialHeadphonesBatteryRoundedFilled = React.forwardRef((props: any,
   );
 });
 
+IconMaterialHeadphonesBatteryRoundedFilled.displayName = 'AmauiIconMaterialHeadphonesBatteryRoundedFilled';
+
 export default IconMaterialHeadphonesBatteryRoundedFilled;

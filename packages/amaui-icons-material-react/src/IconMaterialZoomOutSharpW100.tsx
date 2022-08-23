@@ -18,4 +18,6 @@ const IconMaterialZoomOutSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialZoomOutSharpW100.displayName = 'AmauiIconMaterialZoomOutSharpW100';
+
 export default IconMaterialZoomOutSharpW100;

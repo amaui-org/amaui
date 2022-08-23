@@ -18,4 +18,6 @@ const IconMaterialCallToActionSharpW100 = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialCallToActionSharpW100.displayName = 'AmauiIconMaterialCallToActionSharpW100';
+
 export default IconMaterialCallToActionSharpW100;

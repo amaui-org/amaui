@@ -18,4 +18,6 @@ const IconMaterialCompassCalibrationRounded = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialCompassCalibrationRounded.displayName = 'AmauiIconMaterialCompassCalibrationRounded';
+
 export default IconMaterialCompassCalibrationRounded;

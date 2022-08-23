@@ -18,4 +18,6 @@ const IconMaterialVillaSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialVillaSharp.displayName = 'AmauiIconMaterialVillaSharp';
+
 export default IconMaterialVillaSharp;

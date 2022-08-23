@@ -18,4 +18,6 @@ const IconMaterialVpnKeyTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialVpnKeyTwoTone.displayName = 'AmauiIconMaterialVpnKeyTwoTone';
+
 export default IconMaterialVpnKeyTwoTone;

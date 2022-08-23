@@ -18,4 +18,6 @@ const IconMaterialCalendarAppsScriptTwoTone = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialCalendarAppsScriptTwoTone.displayName = 'AmauiIconMaterialCalendarAppsScriptTwoTone';
+
 export default IconMaterialCalendarAppsScriptTwoTone;

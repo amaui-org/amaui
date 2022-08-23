@@ -18,4 +18,6 @@ const IconMaterialLoupeTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLoupeTwoTone.displayName = 'AmauiIconMaterialLoupeTwoTone';
+
 export default IconMaterialLoupeTwoTone;

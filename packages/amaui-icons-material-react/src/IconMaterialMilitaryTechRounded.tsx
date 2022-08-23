@@ -18,4 +18,6 @@ const IconMaterialMilitaryTechRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMilitaryTechRounded.displayName = 'AmauiIconMaterialMilitaryTechRounded';
+
 export default IconMaterialMilitaryTechRounded;

@@ -18,4 +18,6 @@ const IconMaterialRecordVoiceOverSharpW100Filled = React.forwardRef((props: any,
   );
 });
 
+IconMaterialRecordVoiceOverSharpW100Filled.displayName = 'AmauiIconMaterialRecordVoiceOverSharpW100Filled';
+
 export default IconMaterialRecordVoiceOverSharpW100Filled;

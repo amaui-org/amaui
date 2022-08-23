@@ -18,4 +18,6 @@ const IconMaterialThumbUpRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialThumbUpRounded.displayName = 'AmauiIconMaterialThumbUpRounded';
+
 export default IconMaterialThumbUpRounded;

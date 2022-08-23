@@ -18,4 +18,6 @@ const IconMaterialPhotoSizeSelectLargeRoundedW100Filled = React.forwardRef((prop
   );
 });
 
+IconMaterialPhotoSizeSelectLargeRoundedW100Filled.displayName = 'AmauiIconMaterialPhotoSizeSelectLargeRoundedW100Filled';
+
 export default IconMaterialPhotoSizeSelectLargeRoundedW100Filled;

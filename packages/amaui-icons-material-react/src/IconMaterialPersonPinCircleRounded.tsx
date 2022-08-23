@@ -18,4 +18,6 @@ const IconMaterialPersonPinCircleRounded = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialPersonPinCircleRounded.displayName = 'AmauiIconMaterialPersonPinCircleRounded';
+
 export default IconMaterialPersonPinCircleRounded;

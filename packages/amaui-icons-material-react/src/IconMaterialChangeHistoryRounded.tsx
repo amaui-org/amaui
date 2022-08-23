@@ -18,4 +18,6 @@ const IconMaterialChangeHistoryRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialChangeHistoryRounded.displayName = 'AmauiIconMaterialChangeHistoryRounded';
+
 export default IconMaterialChangeHistoryRounded;

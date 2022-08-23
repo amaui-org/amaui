@@ -18,4 +18,6 @@ const IconMaterialEmergencyRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialEmergencyRoundedW100.displayName = 'AmauiIconMaterialEmergencyRoundedW100';
+
 export default IconMaterialEmergencyRoundedW100;

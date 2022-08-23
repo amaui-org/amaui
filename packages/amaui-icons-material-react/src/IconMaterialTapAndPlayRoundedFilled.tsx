@@ -18,4 +18,6 @@ const IconMaterialTapAndPlayRoundedFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialTapAndPlayRoundedFilled.displayName = 'AmauiIconMaterialTapAndPlayRoundedFilled';
+
 export default IconMaterialTapAndPlayRoundedFilled;

@@ -18,4 +18,6 @@ const IconMaterialCalendarViewDayTwoTone = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialCalendarViewDayTwoTone.displayName = 'AmauiIconMaterialCalendarViewDayTwoTone';
+
 export default IconMaterialCalendarViewDayTwoTone;

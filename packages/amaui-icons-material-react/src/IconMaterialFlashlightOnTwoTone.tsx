@@ -18,4 +18,6 @@ const IconMaterialFlashlightOnTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFlashlightOnTwoTone.displayName = 'AmauiIconMaterialFlashlightOnTwoTone';
+
 export default IconMaterialFlashlightOnTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialThumbUpOffSharpW100Filled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialThumbUpOffSharpW100Filled.displayName = 'AmauiIconMaterialThumbUpOffSharpW100Filled';
+
 export default IconMaterialThumbUpOffSharpW100Filled;

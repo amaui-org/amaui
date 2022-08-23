@@ -18,4 +18,6 @@ const IconMaterialCenterFocusWeakSharpFilled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialCenterFocusWeakSharpFilled.displayName = 'AmauiIconMaterialCenterFocusWeakSharpFilled';
+
 export default IconMaterialCenterFocusWeakSharpFilled;

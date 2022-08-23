@@ -18,4 +18,6 @@ const IconMaterialTimer3SelectSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTimer3SelectSharp.displayName = 'AmauiIconMaterialTimer3SelectSharp';
+
 export default IconMaterialTimer3SelectSharp;

@@ -18,4 +18,6 @@ const IconMaterialToolsPhillipsSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialToolsPhillipsSharp.displayName = 'AmauiIconMaterialToolsPhillipsSharp';
+
 export default IconMaterialToolsPhillipsSharp;

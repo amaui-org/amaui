@@ -18,4 +18,6 @@ const IconMaterialQuietTimeTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialQuietTimeTwoTone.displayName = 'AmauiIconMaterialQuietTimeTwoTone';
+
 export default IconMaterialQuietTimeTwoTone;

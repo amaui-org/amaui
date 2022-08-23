@@ -18,4 +18,6 @@ const IconMaterialConfirmationNumberSharp = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialConfirmationNumberSharp.displayName = 'AmauiIconMaterialConfirmationNumberSharp';
+
 export default IconMaterialConfirmationNumberSharp;

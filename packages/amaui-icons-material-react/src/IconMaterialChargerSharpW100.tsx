@@ -18,4 +18,6 @@ const IconMaterialChargerSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialChargerSharpW100.displayName = 'AmauiIconMaterialChargerSharpW100';
+
 export default IconMaterialChargerSharpW100;

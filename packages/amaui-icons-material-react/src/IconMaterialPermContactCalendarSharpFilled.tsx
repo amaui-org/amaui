@@ -18,4 +18,6 @@ const IconMaterialPermContactCalendarSharpFilled = React.forwardRef((props: any,
   );
 });
 
+IconMaterialPermContactCalendarSharpFilled.displayName = 'AmauiIconMaterialPermContactCalendarSharpFilled';
+
 export default IconMaterialPermContactCalendarSharpFilled;

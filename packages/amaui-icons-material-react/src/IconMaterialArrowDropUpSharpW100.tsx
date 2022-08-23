@@ -18,4 +18,6 @@ const IconMaterialArrowDropUpSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialArrowDropUpSharpW100.displayName = 'AmauiIconMaterialArrowDropUpSharpW100';
+
 export default IconMaterialArrowDropUpSharpW100;

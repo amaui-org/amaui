@@ -18,4 +18,6 @@ const IconMaterialLocationCitySharpW100Filled = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialLocationCitySharpW100Filled.displayName = 'AmauiIconMaterialLocationCitySharpW100Filled';
+
 export default IconMaterialLocationCitySharpW100Filled;

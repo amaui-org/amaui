@@ -18,4 +18,6 @@ const IconMaterialUmbrellaSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialUmbrellaSharp.displayName = 'AmauiIconMaterialUmbrellaSharp';
+
 export default IconMaterialUmbrellaSharp;

@@ -18,4 +18,6 @@ const IconMaterial4gPlusMobiledataSharp = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterial4gPlusMobiledataSharp.displayName = 'AmauiIconMaterial4gPlusMobiledataSharp';
+
 export default IconMaterial4gPlusMobiledataSharp;

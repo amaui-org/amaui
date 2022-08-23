@@ -18,4 +18,6 @@ const IconMaterialContactPageRoundedFilled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialContactPageRoundedFilled.displayName = 'AmauiIconMaterialContactPageRoundedFilled';
+
 export default IconMaterialContactPageRoundedFilled;

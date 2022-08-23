@@ -18,4 +18,6 @@ const IconMaterialNoLuggageRoundedFilled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialNoLuggageRoundedFilled.displayName = 'AmauiIconMaterialNoLuggageRoundedFilled';
+
 export default IconMaterialNoLuggageRoundedFilled;

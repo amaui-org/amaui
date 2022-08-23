@@ -18,4 +18,6 @@ const IconMaterialPestControlTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPestControlTwoTone.displayName = 'AmauiIconMaterialPestControlTwoTone';
+
 export default IconMaterialPestControlTwoTone;

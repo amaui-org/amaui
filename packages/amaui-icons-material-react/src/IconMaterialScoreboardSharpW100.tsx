@@ -18,4 +18,6 @@ const IconMaterialScoreboardSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialScoreboardSharpW100.displayName = 'AmauiIconMaterialScoreboardSharpW100';
+
 export default IconMaterialScoreboardSharpW100;

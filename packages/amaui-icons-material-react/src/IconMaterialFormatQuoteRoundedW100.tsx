@@ -18,4 +18,6 @@ const IconMaterialFormatQuoteRoundedW100 = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialFormatQuoteRoundedW100.displayName = 'AmauiIconMaterialFormatQuoteRoundedW100';
+
 export default IconMaterialFormatQuoteRoundedW100;

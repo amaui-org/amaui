@@ -18,4 +18,6 @@ const IconMaterialChairAltTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialChairAltTwoTone.displayName = 'AmauiIconMaterialChairAltTwoTone';
+
 export default IconMaterialChairAltTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialDynamicFormSharpW100Filled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialDynamicFormSharpW100Filled.displayName = 'AmauiIconMaterialDynamicFormSharpW100Filled';
+
 export default IconMaterialDynamicFormSharpW100Filled;

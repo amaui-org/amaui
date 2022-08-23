@@ -18,4 +18,6 @@ const IconMaterialChatAppsScriptRoundedW100 = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialChatAppsScriptRoundedW100.displayName = 'AmauiIconMaterialChatAppsScriptRoundedW100';
+
 export default IconMaterialChatAppsScriptRoundedW100;

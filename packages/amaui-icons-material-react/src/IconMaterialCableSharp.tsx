@@ -18,4 +18,6 @@ const IconMaterialCableSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCableSharp.displayName = 'AmauiIconMaterialCableSharp';
+
 export default IconMaterialCableSharp;

@@ -18,4 +18,6 @@ const IconMaterialLockClockSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLockClockSharp.displayName = 'AmauiIconMaterialLockClockSharp';
+
 export default IconMaterialLockClockSharp;

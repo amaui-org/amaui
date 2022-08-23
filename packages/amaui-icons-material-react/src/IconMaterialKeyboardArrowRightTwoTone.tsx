@@ -18,4 +18,6 @@ const IconMaterialKeyboardArrowRightTwoTone = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialKeyboardArrowRightTwoTone.displayName = 'AmauiIconMaterialKeyboardArrowRightTwoTone';
+
 export default IconMaterialKeyboardArrowRightTwoTone;

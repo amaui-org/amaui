@@ -18,4 +18,6 @@ const IconMaterialThumbDownTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialThumbDownTwoTone.displayName = 'AmauiIconMaterialThumbDownTwoTone';
+
 export default IconMaterialThumbDownTwoTone;

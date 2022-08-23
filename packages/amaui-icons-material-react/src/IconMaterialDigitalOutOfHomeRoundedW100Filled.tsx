@@ -18,4 +18,6 @@ const IconMaterialDigitalOutOfHomeRoundedW100Filled = React.forwardRef((props: a
   );
 });
 
+IconMaterialDigitalOutOfHomeRoundedW100Filled.displayName = 'AmauiIconMaterialDigitalOutOfHomeRoundedW100Filled';
+
 export default IconMaterialDigitalOutOfHomeRoundedW100Filled;

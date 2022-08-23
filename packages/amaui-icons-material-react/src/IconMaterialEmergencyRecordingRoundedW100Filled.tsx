@@ -18,4 +18,6 @@ const IconMaterialEmergencyRecordingRoundedW100Filled = React.forwardRef((props:
   );
 });
 
+IconMaterialEmergencyRecordingRoundedW100Filled.displayName = 'AmauiIconMaterialEmergencyRecordingRoundedW100Filled';
+
 export default IconMaterialEmergencyRecordingRoundedW100Filled;

@@ -18,4 +18,6 @@ const IconMaterialArrowsMoreDownRounded = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialArrowsMoreDownRounded.displayName = 'AmauiIconMaterialArrowsMoreDownRounded';
+
 export default IconMaterialArrowsMoreDownRounded;

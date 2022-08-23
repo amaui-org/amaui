@@ -18,4 +18,6 @@ const IconMaterialKayakingRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialKayakingRounded.displayName = 'AmauiIconMaterialKayakingRounded';
+
 export default IconMaterialKayakingRounded;

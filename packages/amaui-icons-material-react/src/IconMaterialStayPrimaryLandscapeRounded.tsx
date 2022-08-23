@@ -18,4 +18,6 @@ const IconMaterialStayPrimaryLandscapeRounded = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialStayPrimaryLandscapeRounded.displayName = 'AmauiIconMaterialStayPrimaryLandscapeRounded';
+
 export default IconMaterialStayPrimaryLandscapeRounded;

@@ -18,4 +18,6 @@ const IconMaterialModeCoolOffRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialModeCoolOffRounded.displayName = 'AmauiIconMaterialModeCoolOffRounded';
+
 export default IconMaterialModeCoolOffRounded;

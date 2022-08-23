@@ -18,4 +18,6 @@ const IconMaterialSentimentExtremelyDissatisfiedSharpW100Filled = React.forwardR
   );
 });
 
+IconMaterialSentimentExtremelyDissatisfiedSharpW100Filled.displayName = 'AmauiIconMaterialSentimentExtremelyDissatisfiedSharpW100Filled';
+
 export default IconMaterialSentimentExtremelyDissatisfiedSharpW100Filled;

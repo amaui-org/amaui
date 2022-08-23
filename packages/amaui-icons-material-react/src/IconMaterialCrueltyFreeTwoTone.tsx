@@ -18,4 +18,6 @@ const IconMaterialCrueltyFreeTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCrueltyFreeTwoTone.displayName = 'AmauiIconMaterialCrueltyFreeTwoTone';
+
 export default IconMaterialCrueltyFreeTwoTone;

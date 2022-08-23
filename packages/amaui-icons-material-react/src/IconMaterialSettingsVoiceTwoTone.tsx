@@ -18,4 +18,6 @@ const IconMaterialSettingsVoiceTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSettingsVoiceTwoTone.displayName = 'AmauiIconMaterialSettingsVoiceTwoTone';
+
 export default IconMaterialSettingsVoiceTwoTone;

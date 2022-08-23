@@ -18,4 +18,6 @@ const IconMaterialHumidityLowTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialHumidityLowTwoTone.displayName = 'AmauiIconMaterialHumidityLowTwoTone';
+
 export default IconMaterialHumidityLowTwoTone;

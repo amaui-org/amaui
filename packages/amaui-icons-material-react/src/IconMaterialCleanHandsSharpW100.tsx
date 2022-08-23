@@ -18,4 +18,6 @@ const IconMaterialCleanHandsSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCleanHandsSharpW100.displayName = 'AmauiIconMaterialCleanHandsSharpW100';
+
 export default IconMaterialCleanHandsSharpW100;

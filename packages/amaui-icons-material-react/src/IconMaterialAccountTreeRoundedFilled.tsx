@@ -18,4 +18,6 @@ const IconMaterialAccountTreeRoundedFilled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialAccountTreeRoundedFilled.displayName = 'AmauiIconMaterialAccountTreeRoundedFilled';
+
 export default IconMaterialAccountTreeRoundedFilled;

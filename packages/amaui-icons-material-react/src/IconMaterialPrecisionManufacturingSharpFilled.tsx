@@ -18,4 +18,6 @@ const IconMaterialPrecisionManufacturingSharpFilled = React.forwardRef((props: a
   );
 });
 
+IconMaterialPrecisionManufacturingSharpFilled.displayName = 'AmauiIconMaterialPrecisionManufacturingSharpFilled';
+
 export default IconMaterialPrecisionManufacturingSharpFilled;

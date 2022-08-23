@@ -18,4 +18,6 @@ const IconMaterialPolylineTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPolylineTwoTone.displayName = 'AmauiIconMaterialPolylineTwoTone';
+
 export default IconMaterialPolylineTwoTone;

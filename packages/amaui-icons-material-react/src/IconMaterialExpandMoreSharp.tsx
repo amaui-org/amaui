@@ -18,4 +18,6 @@ const IconMaterialExpandMoreSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialExpandMoreSharp.displayName = 'AmauiIconMaterialExpandMoreSharp';
+
 export default IconMaterialExpandMoreSharp;

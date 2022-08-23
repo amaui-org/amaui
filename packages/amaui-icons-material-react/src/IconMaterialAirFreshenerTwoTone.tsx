@@ -18,4 +18,6 @@ const IconMaterialAirFreshenerTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAirFreshenerTwoTone.displayName = 'AmauiIconMaterialAirFreshenerTwoTone';
+
 export default IconMaterialAirFreshenerTwoTone;

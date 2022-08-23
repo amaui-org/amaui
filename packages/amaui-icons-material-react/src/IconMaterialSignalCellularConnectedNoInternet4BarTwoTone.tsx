@@ -18,4 +18,6 @@ const IconMaterialSignalCellularConnectedNoInternet4BarTwoTone = React.forwardRe
   );
 });
 
+IconMaterialSignalCellularConnectedNoInternet4BarTwoTone.displayName = 'AmauiIconMaterialSignalCellularConnectedNoInternet4BarTwoTone';
+
 export default IconMaterialSignalCellularConnectedNoInternet4BarTwoTone;

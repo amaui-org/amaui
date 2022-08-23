@@ -18,4 +18,6 @@ const IconMaterialChurchTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialChurchTwoTone.displayName = 'AmauiIconMaterialChurchTwoTone';
+
 export default IconMaterialChurchTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialPermDeviceInformationSharpW100Filled = React.forwardRef((props
   );
 });
 
+IconMaterialPermDeviceInformationSharpW100Filled.displayName = 'AmauiIconMaterialPermDeviceInformationSharpW100Filled';
+
 export default IconMaterialPermDeviceInformationSharpW100Filled;

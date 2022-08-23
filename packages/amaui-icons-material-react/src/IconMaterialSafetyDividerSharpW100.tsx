@@ -18,4 +18,6 @@ const IconMaterialSafetyDividerSharpW100 = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialSafetyDividerSharpW100.displayName = 'AmauiIconMaterialSafetyDividerSharpW100';
+
 export default IconMaterialSafetyDividerSharpW100;

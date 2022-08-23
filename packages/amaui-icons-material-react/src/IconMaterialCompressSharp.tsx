@@ -18,4 +18,6 @@ const IconMaterialCompressSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCompressSharp.displayName = 'AmauiIconMaterialCompressSharp';
+
 export default IconMaterialCompressSharp;

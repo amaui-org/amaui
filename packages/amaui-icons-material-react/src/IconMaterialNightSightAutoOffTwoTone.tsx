@@ -18,4 +18,6 @@ const IconMaterialNightSightAutoOffTwoTone = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialNightSightAutoOffTwoTone.displayName = 'AmauiIconMaterialNightSightAutoOffTwoTone';
+
 export default IconMaterialNightSightAutoOffTwoTone;

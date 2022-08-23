@@ -18,4 +18,6 @@ const IconMaterialCellWifiRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCellWifiRoundedW100.displayName = 'AmauiIconMaterialCellWifiRoundedW100';
+
 export default IconMaterialCellWifiRoundedW100;

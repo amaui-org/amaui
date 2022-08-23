@@ -18,4 +18,6 @@ const IconMaterialPlayPauseTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPlayPauseTwoTone.displayName = 'AmauiIconMaterialPlayPauseTwoTone';
+
 export default IconMaterialPlayPauseTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialExtensionOffTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialExtensionOffTwoTone.displayName = 'AmauiIconMaterialExtensionOffTwoTone';
+
 export default IconMaterialExtensionOffTwoTone;

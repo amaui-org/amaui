@@ -18,4 +18,6 @@ const IconMaterialEvShadowTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialEvShadowTwoTone.displayName = 'AmauiIconMaterialEvShadowTwoTone';
+
 export default IconMaterialEvShadowTwoTone;

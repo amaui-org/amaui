@@ -18,4 +18,6 @@ const IconMaterialFlutterDashSharpW100Filled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialFlutterDashSharpW100Filled.displayName = 'AmauiIconMaterialFlutterDashSharpW100Filled';
+
 export default IconMaterialFlutterDashSharpW100Filled;

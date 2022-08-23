@@ -18,4 +18,6 @@ const IconMaterialToggleOffSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialToggleOffSharpFilled.displayName = 'AmauiIconMaterialToggleOffSharpFilled';
+
 export default IconMaterialToggleOffSharpFilled;

@@ -18,4 +18,6 @@ const IconMaterialSwitchAccessShortcutRoundedFilled = React.forwardRef((props: a
   );
 });
 
+IconMaterialSwitchAccessShortcutRoundedFilled.displayName = 'AmauiIconMaterialSwitchAccessShortcutRoundedFilled';
+
 export default IconMaterialSwitchAccessShortcutRoundedFilled;

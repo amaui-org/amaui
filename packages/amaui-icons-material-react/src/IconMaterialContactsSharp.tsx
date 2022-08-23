@@ -18,4 +18,6 @@ const IconMaterialContactsSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialContactsSharp.displayName = 'AmauiIconMaterialContactsSharp';
+
 export default IconMaterialContactsSharp;

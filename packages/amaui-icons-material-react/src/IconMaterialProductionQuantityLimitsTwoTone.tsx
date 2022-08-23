@@ -18,4 +18,6 @@ const IconMaterialProductionQuantityLimitsTwoTone = React.forwardRef((props: any
   );
 });
 
+IconMaterialProductionQuantityLimitsTwoTone.displayName = 'AmauiIconMaterialProductionQuantityLimitsTwoTone';
+
 export default IconMaterialProductionQuantityLimitsTwoTone;

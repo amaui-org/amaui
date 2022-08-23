@@ -18,4 +18,6 @@ const IconMaterialNorthWestRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNorthWestRounded.displayName = 'AmauiIconMaterialNorthWestRounded';
+
 export default IconMaterialNorthWestRounded;

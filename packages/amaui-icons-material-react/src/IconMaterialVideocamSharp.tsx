@@ -18,4 +18,6 @@ const IconMaterialVideocamSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialVideocamSharp.displayName = 'AmauiIconMaterialVideocamSharp';
+
 export default IconMaterialVideocamSharp;

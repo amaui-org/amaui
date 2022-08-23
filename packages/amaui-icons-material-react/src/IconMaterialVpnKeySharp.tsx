@@ -18,4 +18,6 @@ const IconMaterialVpnKeySharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialVpnKeySharp.displayName = 'AmauiIconMaterialVpnKeySharp';
+
 export default IconMaterialVpnKeySharp;

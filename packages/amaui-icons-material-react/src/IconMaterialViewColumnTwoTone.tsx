@@ -18,4 +18,6 @@ const IconMaterialViewColumnTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialViewColumnTwoTone.displayName = 'AmauiIconMaterialViewColumnTwoTone';
+
 export default IconMaterialViewColumnTwoTone;

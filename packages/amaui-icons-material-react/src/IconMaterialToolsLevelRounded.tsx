@@ -18,4 +18,6 @@ const IconMaterialToolsLevelRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialToolsLevelRounded.displayName = 'AmauiIconMaterialToolsLevelRounded';
+
 export default IconMaterialToolsLevelRounded;

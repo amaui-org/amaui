@@ -18,4 +18,6 @@ const IconMaterialNfcTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNfcTwoTone.displayName = 'AmauiIconMaterialNfcTwoTone';
+
 export default IconMaterialNfcTwoTone;

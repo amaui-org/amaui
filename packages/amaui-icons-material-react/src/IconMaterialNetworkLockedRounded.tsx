@@ -18,4 +18,6 @@ const IconMaterialNetworkLockedRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNetworkLockedRounded.displayName = 'AmauiIconMaterialNetworkLockedRounded';
+
 export default IconMaterialNetworkLockedRounded;

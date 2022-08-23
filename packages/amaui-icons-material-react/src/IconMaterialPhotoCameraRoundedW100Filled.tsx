@@ -18,4 +18,6 @@ const IconMaterialPhotoCameraRoundedW100Filled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialPhotoCameraRoundedW100Filled.displayName = 'AmauiIconMaterialPhotoCameraRoundedW100Filled';
+
 export default IconMaterialPhotoCameraRoundedW100Filled;

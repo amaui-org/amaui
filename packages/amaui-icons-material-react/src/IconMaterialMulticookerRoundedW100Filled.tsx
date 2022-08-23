@@ -18,4 +18,6 @@ const IconMaterialMulticookerRoundedW100Filled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialMulticookerRoundedW100Filled.displayName = 'AmauiIconMaterialMulticookerRoundedW100Filled';
+
 export default IconMaterialMulticookerRoundedW100Filled;

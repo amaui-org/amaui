@@ -18,4 +18,6 @@ const IconMaterialRoundedCornerSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialRoundedCornerSharp.displayName = 'AmauiIconMaterialRoundedCornerSharp';
+
 export default IconMaterialRoundedCornerSharp;

@@ -18,4 +18,6 @@ const IconMaterialAssignmentLateTwoTone = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialAssignmentLateTwoTone.displayName = 'AmauiIconMaterialAssignmentLateTwoTone';
+
 export default IconMaterialAssignmentLateTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialBrightness5TwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBrightness5TwoTone.displayName = 'AmauiIconMaterialBrightness5TwoTone';
+
 export default IconMaterialBrightness5TwoTone;

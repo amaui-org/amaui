@@ -18,4 +18,6 @@ const IconMaterialBatchPredictionRounded = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialBatchPredictionRounded.displayName = 'AmauiIconMaterialBatchPredictionRounded';
+
 export default IconMaterialBatchPredictionRounded;

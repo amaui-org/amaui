@@ -18,4 +18,6 @@ const IconMaterialFilterTiltShiftRoundedW100 = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialFilterTiltShiftRoundedW100.displayName = 'AmauiIconMaterialFilterTiltShiftRoundedW100';
+
 export default IconMaterialFilterTiltShiftRoundedW100;

@@ -18,4 +18,6 @@ const IconMaterialPictureAsPdfRoundedW100 = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialPictureAsPdfRoundedW100.displayName = 'AmauiIconMaterialPictureAsPdfRoundedW100';
+
 export default IconMaterialPictureAsPdfRoundedW100;

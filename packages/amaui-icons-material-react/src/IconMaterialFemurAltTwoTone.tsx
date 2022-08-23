@@ -18,4 +18,6 @@ const IconMaterialFemurAltTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFemurAltTwoTone.displayName = 'AmauiIconMaterialFemurAltTwoTone';
+
 export default IconMaterialFemurAltTwoTone;

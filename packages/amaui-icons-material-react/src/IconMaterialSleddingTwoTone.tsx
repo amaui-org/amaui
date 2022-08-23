@@ -18,4 +18,6 @@ const IconMaterialSleddingTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSleddingTwoTone.displayName = 'AmauiIconMaterialSleddingTwoTone';
+
 export default IconMaterialSleddingTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialBrandingWatermarkTwoTone = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialBrandingWatermarkTwoTone.displayName = 'AmauiIconMaterialBrandingWatermarkTwoTone';
+
 export default IconMaterialBrandingWatermarkTwoTone;

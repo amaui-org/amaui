@@ -18,4 +18,6 @@ const IconMaterialNestThermostatGen3SharpFilled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialNestThermostatGen3SharpFilled.displayName = 'AmauiIconMaterialNestThermostatGen3SharpFilled';
+
 export default IconMaterialNestThermostatGen3SharpFilled;

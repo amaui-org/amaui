@@ -18,4 +18,6 @@ const IconMaterialSettingsBackupRestoreTwoTone = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialSettingsBackupRestoreTwoTone.displayName = 'AmauiIconMaterialSettingsBackupRestoreTwoTone';
+
 export default IconMaterialSettingsBackupRestoreTwoTone;

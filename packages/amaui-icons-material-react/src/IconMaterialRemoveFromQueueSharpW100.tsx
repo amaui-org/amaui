@@ -18,4 +18,6 @@ const IconMaterialRemoveFromQueueSharpW100 = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialRemoveFromQueueSharpW100.displayName = 'AmauiIconMaterialRemoveFromQueueSharpW100';
+
 export default IconMaterialRemoveFromQueueSharpW100;

@@ -18,4 +18,6 @@ const IconMaterialConversionPathRoundedW100 = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialConversionPathRoundedW100.displayName = 'AmauiIconMaterialConversionPathRoundedW100';
+
 export default IconMaterialConversionPathRoundedW100;

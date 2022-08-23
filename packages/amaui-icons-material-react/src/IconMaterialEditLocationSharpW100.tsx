@@ -18,4 +18,6 @@ const IconMaterialEditLocationSharpW100 = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialEditLocationSharpW100.displayName = 'AmauiIconMaterialEditLocationSharpW100';
+
 export default IconMaterialEditLocationSharpW100;

@@ -18,4 +18,6 @@ const IconMaterialSwitchAccessShortcutTwoTone = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialSwitchAccessShortcutTwoTone.displayName = 'AmauiIconMaterialSwitchAccessShortcutTwoTone';
+
 export default IconMaterialSwitchAccessShortcutTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialCookieSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCookieSharpFilled.displayName = 'AmauiIconMaterialCookieSharpFilled';
+
 export default IconMaterialCookieSharpFilled;

@@ -18,4 +18,6 @@ const IconMaterialElectricRickshawTwoTone = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialElectricRickshawTwoTone.displayName = 'AmauiIconMaterialElectricRickshawTwoTone';
+
 export default IconMaterialElectricRickshawTwoTone;

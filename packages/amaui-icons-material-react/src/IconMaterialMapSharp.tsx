@@ -18,4 +18,6 @@ const IconMaterialMapSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMapSharp.displayName = 'AmauiIconMaterialMapSharp';
+
 export default IconMaterialMapSharp;

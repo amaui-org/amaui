@@ -18,4 +18,6 @@ const IconMaterialSpatialTrackingSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSpatialTrackingSharp.displayName = 'AmauiIconMaterialSpatialTrackingSharp';
+
 export default IconMaterialSpatialTrackingSharp;

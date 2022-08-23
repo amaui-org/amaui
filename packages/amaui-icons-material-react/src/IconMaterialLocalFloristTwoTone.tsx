@@ -18,4 +18,6 @@ const IconMaterialLocalFloristTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLocalFloristTwoTone.displayName = 'AmauiIconMaterialLocalFloristTwoTone';
+
 export default IconMaterialLocalFloristTwoTone;

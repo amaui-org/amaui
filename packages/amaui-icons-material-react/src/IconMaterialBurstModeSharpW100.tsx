@@ -18,4 +18,6 @@ const IconMaterialBurstModeSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBurstModeSharpW100.displayName = 'AmauiIconMaterialBurstModeSharpW100';
+
 export default IconMaterialBurstModeSharpW100;

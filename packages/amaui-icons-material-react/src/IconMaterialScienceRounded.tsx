@@ -18,4 +18,6 @@ const IconMaterialScienceRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialScienceRounded.displayName = 'AmauiIconMaterialScienceRounded';
+
 export default IconMaterialScienceRounded;

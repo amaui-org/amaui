@@ -18,4 +18,6 @@ const IconMaterialRheumatologySharpW100 = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialRheumatologySharpW100.displayName = 'AmauiIconMaterialRheumatologySharpW100';
+
 export default IconMaterialRheumatologySharpW100;

@@ -18,4 +18,6 @@ const IconMaterialPowerInputSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPowerInputSharp.displayName = 'AmauiIconMaterialPowerInputSharp';
+
 export default IconMaterialPowerInputSharp;

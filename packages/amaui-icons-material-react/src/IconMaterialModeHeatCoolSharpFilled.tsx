@@ -18,4 +18,6 @@ const IconMaterialModeHeatCoolSharpFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialModeHeatCoolSharpFilled.displayName = 'AmauiIconMaterialModeHeatCoolSharpFilled';
+
 export default IconMaterialModeHeatCoolSharpFilled;

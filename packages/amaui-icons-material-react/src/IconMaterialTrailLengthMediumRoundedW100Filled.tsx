@@ -18,4 +18,6 @@ const IconMaterialTrailLengthMediumRoundedW100Filled = React.forwardRef((props: 
   );
 });
 
+IconMaterialTrailLengthMediumRoundedW100Filled.displayName = 'AmauiIconMaterialTrailLengthMediumRoundedW100Filled';
+
 export default IconMaterialTrailLengthMediumRoundedW100Filled;

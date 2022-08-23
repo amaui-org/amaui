@@ -18,4 +18,6 @@ const IconMaterialSortByAlphaSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSortByAlphaSharpW100.displayName = 'AmauiIconMaterialSortByAlphaSharpW100';
+
 export default IconMaterialSortByAlphaSharpW100;

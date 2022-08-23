@@ -18,4 +18,6 @@ const IconMaterialVibrationSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialVibrationSharp.displayName = 'AmauiIconMaterialVibrationSharp';
+
 export default IconMaterialVibrationSharp;

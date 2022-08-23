@@ -18,4 +18,6 @@ const IconMaterialCasesSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCasesSharp.displayName = 'AmauiIconMaterialCasesSharp';
+
 export default IconMaterialCasesSharp;

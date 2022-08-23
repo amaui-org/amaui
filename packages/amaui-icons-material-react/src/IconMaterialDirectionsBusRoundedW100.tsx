@@ -18,4 +18,6 @@ const IconMaterialDirectionsBusRoundedW100 = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialDirectionsBusRoundedW100.displayName = 'AmauiIconMaterialDirectionsBusRoundedW100';
+
 export default IconMaterialDirectionsBusRoundedW100;

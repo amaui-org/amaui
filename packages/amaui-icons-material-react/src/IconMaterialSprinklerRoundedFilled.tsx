@@ -18,4 +18,6 @@ const IconMaterialSprinklerRoundedFilled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialSprinklerRoundedFilled.displayName = 'AmauiIconMaterialSprinklerRoundedFilled';
+
 export default IconMaterialSprinklerRoundedFilled;

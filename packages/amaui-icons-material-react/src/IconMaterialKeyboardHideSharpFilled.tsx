@@ -18,4 +18,6 @@ const IconMaterialKeyboardHideSharpFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialKeyboardHideSharpFilled.displayName = 'AmauiIconMaterialKeyboardHideSharpFilled';
+
 export default IconMaterialKeyboardHideSharpFilled;

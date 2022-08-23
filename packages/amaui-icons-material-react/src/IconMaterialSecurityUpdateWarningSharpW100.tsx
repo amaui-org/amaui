@@ -18,4 +18,6 @@ const IconMaterialSecurityUpdateWarningSharpW100 = React.forwardRef((props: any,
   );
 });
 
+IconMaterialSecurityUpdateWarningSharpW100.displayName = 'AmauiIconMaterialSecurityUpdateWarningSharpW100';
+
 export default IconMaterialSecurityUpdateWarningSharpW100;

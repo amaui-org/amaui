@@ -18,4 +18,6 @@ const IconMaterialEqualizerRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialEqualizerRounded.displayName = 'AmauiIconMaterialEqualizerRounded';
+
 export default IconMaterialEqualizerRounded;

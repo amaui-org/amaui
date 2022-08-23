@@ -18,4 +18,6 @@ const IconMaterialChromecastDeviceTwoTone = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialChromecastDeviceTwoTone.displayName = 'AmauiIconMaterialChromecastDeviceTwoTone';
+
 export default IconMaterialChromecastDeviceTwoTone;

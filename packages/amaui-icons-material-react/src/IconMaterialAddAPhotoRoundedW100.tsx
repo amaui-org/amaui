@@ -18,4 +18,6 @@ const IconMaterialAddAPhotoRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAddAPhotoRoundedW100.displayName = 'AmauiIconMaterialAddAPhotoRoundedW100';
+
 export default IconMaterialAddAPhotoRoundedW100;

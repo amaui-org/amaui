@@ -18,4 +18,6 @@ const IconMaterialUpgradeSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialUpgradeSharp.displayName = 'AmauiIconMaterialUpgradeSharp';
+
 export default IconMaterialUpgradeSharp;

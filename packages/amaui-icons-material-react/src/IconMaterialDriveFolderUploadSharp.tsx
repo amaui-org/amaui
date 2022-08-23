@@ -18,4 +18,6 @@ const IconMaterialDriveFolderUploadSharp = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialDriveFolderUploadSharp.displayName = 'AmauiIconMaterialDriveFolderUploadSharp';
+
 export default IconMaterialDriveFolderUploadSharp;

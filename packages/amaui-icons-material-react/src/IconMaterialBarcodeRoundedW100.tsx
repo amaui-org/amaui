@@ -18,4 +18,6 @@ const IconMaterialBarcodeRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBarcodeRoundedW100.displayName = 'AmauiIconMaterialBarcodeRoundedW100';
+
 export default IconMaterialBarcodeRoundedW100;

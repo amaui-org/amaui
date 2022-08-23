@@ -18,4 +18,6 @@ const IconMaterialScreenLockLandscapeTwoTone = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialScreenLockLandscapeTwoTone.displayName = 'AmauiIconMaterialScreenLockLandscapeTwoTone';
+
 export default IconMaterialScreenLockLandscapeTwoTone;

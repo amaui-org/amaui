@@ -18,4 +18,6 @@ const IconMaterialSatelliteTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSatelliteTwoTone.displayName = 'AmauiIconMaterialSatelliteTwoTone';
+
 export default IconMaterialSatelliteTwoTone;

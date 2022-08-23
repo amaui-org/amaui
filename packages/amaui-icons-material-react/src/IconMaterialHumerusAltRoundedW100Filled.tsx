@@ -18,4 +18,6 @@ const IconMaterialHumerusAltRoundedW100Filled = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialHumerusAltRoundedW100Filled.displayName = 'AmauiIconMaterialHumerusAltRoundedW100Filled';
+
 export default IconMaterialHumerusAltRoundedW100Filled;

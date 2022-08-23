@@ -18,4 +18,6 @@ const IconMaterialAirplanemodeInactiveRoundedW100 = React.forwardRef((props: any
   );
 });
 
+IconMaterialAirplanemodeInactiveRoundedW100.displayName = 'AmauiIconMaterialAirplanemodeInactiveRoundedW100';
+
 export default IconMaterialAirplanemodeInactiveRoundedW100;

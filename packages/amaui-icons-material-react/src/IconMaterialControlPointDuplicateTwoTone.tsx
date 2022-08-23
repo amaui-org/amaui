@@ -18,4 +18,6 @@ const IconMaterialControlPointDuplicateTwoTone = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialControlPointDuplicateTwoTone.displayName = 'AmauiIconMaterialControlPointDuplicateTwoTone';
+
 export default IconMaterialControlPointDuplicateTwoTone;

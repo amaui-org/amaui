@@ -18,4 +18,6 @@ const IconMaterialPunchClockSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPunchClockSharpW100.displayName = 'AmauiIconMaterialPunchClockSharpW100';
+
 export default IconMaterialPunchClockSharpW100;

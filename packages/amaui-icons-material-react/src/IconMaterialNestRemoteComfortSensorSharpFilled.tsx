@@ -18,4 +18,6 @@ const IconMaterialNestRemoteComfortSensorSharpFilled = React.forwardRef((props: 
   );
 });
 
+IconMaterialNestRemoteComfortSensorSharpFilled.displayName = 'AmauiIconMaterialNestRemoteComfortSensorSharpFilled';
+
 export default IconMaterialNestRemoteComfortSensorSharpFilled;

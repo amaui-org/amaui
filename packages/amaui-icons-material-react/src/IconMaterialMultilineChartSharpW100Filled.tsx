@@ -18,4 +18,6 @@ const IconMaterialMultilineChartSharpW100Filled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialMultilineChartSharpW100Filled.displayName = 'AmauiIconMaterialMultilineChartSharpW100Filled';
+
 export default IconMaterialMultilineChartSharpW100Filled;

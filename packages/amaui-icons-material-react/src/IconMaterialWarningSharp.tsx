@@ -18,4 +18,6 @@ const IconMaterialWarningSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialWarningSharp.displayName = 'AmauiIconMaterialWarningSharp';
+
 export default IconMaterialWarningSharp;

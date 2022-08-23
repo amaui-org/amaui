@@ -18,4 +18,6 @@ const IconMaterialTempleBuddhistTwoTone = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialTempleBuddhistTwoTone.displayName = 'AmauiIconMaterialTempleBuddhistTwoTone';
+
 export default IconMaterialTempleBuddhistTwoTone;

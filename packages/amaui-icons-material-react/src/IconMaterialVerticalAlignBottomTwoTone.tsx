@@ -18,4 +18,6 @@ const IconMaterialVerticalAlignBottomTwoTone = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialVerticalAlignBottomTwoTone.displayName = 'AmauiIconMaterialVerticalAlignBottomTwoTone';
+
 export default IconMaterialVerticalAlignBottomTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialEmergencyRecordingSharpW100 = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialEmergencyRecordingSharpW100.displayName = 'AmauiIconMaterialEmergencyRecordingSharpW100';
+
 export default IconMaterialEmergencyRecordingSharpW100;

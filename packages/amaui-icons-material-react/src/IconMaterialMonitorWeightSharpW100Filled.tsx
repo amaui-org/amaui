@@ -18,4 +18,6 @@ const IconMaterialMonitorWeightSharpW100Filled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialMonitorWeightSharpW100Filled.displayName = 'AmauiIconMaterialMonitorWeightSharpW100Filled';
+
 export default IconMaterialMonitorWeightSharpW100Filled;

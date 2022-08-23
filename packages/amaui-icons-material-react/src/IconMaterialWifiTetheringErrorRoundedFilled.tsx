@@ -18,4 +18,6 @@ const IconMaterialWifiTetheringErrorRoundedFilled = React.forwardRef((props: any
   );
 });
 
+IconMaterialWifiTetheringErrorRoundedFilled.displayName = 'AmauiIconMaterialWifiTetheringErrorRoundedFilled';
+
 export default IconMaterialWifiTetheringErrorRoundedFilled;

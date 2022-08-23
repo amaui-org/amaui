@@ -18,4 +18,6 @@ const IconMaterialToysFanRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialToysFanRoundedW100.displayName = 'AmauiIconMaterialToysFanRoundedW100';
+
 export default IconMaterialToysFanRoundedW100;

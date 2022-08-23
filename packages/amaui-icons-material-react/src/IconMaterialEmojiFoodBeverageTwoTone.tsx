@@ -18,4 +18,6 @@ const IconMaterialEmojiFoodBeverageTwoTone = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialEmojiFoodBeverageTwoTone.displayName = 'AmauiIconMaterialEmojiFoodBeverageTwoTone';
+
 export default IconMaterialEmojiFoodBeverageTwoTone;

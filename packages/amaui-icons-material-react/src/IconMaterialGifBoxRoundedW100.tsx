@@ -18,4 +18,6 @@ const IconMaterialGifBoxRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialGifBoxRoundedW100.displayName = 'AmauiIconMaterialGifBoxRoundedW100';
+
 export default IconMaterialGifBoxRoundedW100;

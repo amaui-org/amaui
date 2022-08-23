@@ -18,4 +18,6 @@ const IconMaterialArmingCountdownRoundedFilled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialArmingCountdownRoundedFilled.displayName = 'AmauiIconMaterialArmingCountdownRoundedFilled';
+
 export default IconMaterialArmingCountdownRoundedFilled;

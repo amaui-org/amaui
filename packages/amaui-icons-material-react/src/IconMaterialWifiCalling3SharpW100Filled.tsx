@@ -18,4 +18,6 @@ const IconMaterialWifiCalling3SharpW100Filled = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialWifiCalling3SharpW100Filled.displayName = 'AmauiIconMaterialWifiCalling3SharpW100Filled';
+
 export default IconMaterialWifiCalling3SharpW100Filled;

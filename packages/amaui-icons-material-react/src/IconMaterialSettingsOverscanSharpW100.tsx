@@ -18,4 +18,6 @@ const IconMaterialSettingsOverscanSharpW100 = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialSettingsOverscanSharpW100.displayName = 'AmauiIconMaterialSettingsOverscanSharpW100';
+
 export default IconMaterialSettingsOverscanSharpW100;

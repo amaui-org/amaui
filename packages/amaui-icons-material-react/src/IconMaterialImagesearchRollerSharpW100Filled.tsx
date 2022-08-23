@@ -18,4 +18,6 @@ const IconMaterialImagesearchRollerSharpW100Filled = React.forwardRef((props: an
   );
 });
 
+IconMaterialImagesearchRollerSharpW100Filled.displayName = 'AmauiIconMaterialImagesearchRollerSharpW100Filled';
+
 export default IconMaterialImagesearchRollerSharpW100Filled;

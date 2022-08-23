@@ -18,4 +18,6 @@ const IconMaterialToggleOnSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialToggleOnSharp.displayName = 'AmauiIconMaterialToggleOnSharp';
+
 export default IconMaterialToggleOnSharp;

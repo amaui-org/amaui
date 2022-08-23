@@ -18,4 +18,6 @@ const IconMaterialHeadsetMicSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialHeadsetMicSharp.displayName = 'AmauiIconMaterialHeadsetMicSharp';
+
 export default IconMaterialHeadsetMicSharp;

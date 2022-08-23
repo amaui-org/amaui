@@ -18,4 +18,6 @@ const IconMaterialScreenLockLandscapeRounded = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialScreenLockLandscapeRounded.displayName = 'AmauiIconMaterialScreenLockLandscapeRounded';
+
 export default IconMaterialScreenLockLandscapeRounded;

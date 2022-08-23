@@ -18,4 +18,6 @@ const IconMaterialWindowSensorSharpFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialWindowSensorSharpFilled.displayName = 'AmauiIconMaterialWindowSensorSharpFilled';
+
 export default IconMaterialWindowSensorSharpFilled;

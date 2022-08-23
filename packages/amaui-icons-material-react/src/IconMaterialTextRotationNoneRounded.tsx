@@ -18,4 +18,6 @@ const IconMaterialTextRotationNoneRounded = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialTextRotationNoneRounded.displayName = 'AmauiIconMaterialTextRotationNoneRounded';
+
 export default IconMaterialTextRotationNoneRounded;

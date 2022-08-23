@@ -18,4 +18,6 @@ const IconMaterialHotelClassRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialHotelClassRounded.displayName = 'AmauiIconMaterialHotelClassRounded';
+
 export default IconMaterialHotelClassRounded;

@@ -18,4 +18,6 @@ const IconMaterialAgricultureTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAgricultureTwoTone.displayName = 'AmauiIconMaterialAgricultureTwoTone';
+
 export default IconMaterialAgricultureTwoTone;

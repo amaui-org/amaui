@@ -18,4 +18,6 @@ const IconMaterialCloudUploadSharpFilled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialCloudUploadSharpFilled.displayName = 'AmauiIconMaterialCloudUploadSharpFilled';
+
 export default IconMaterialCloudUploadSharpFilled;

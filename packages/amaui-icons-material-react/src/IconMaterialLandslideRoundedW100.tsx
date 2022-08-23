@@ -18,4 +18,6 @@ const IconMaterialLandslideRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLandslideRoundedW100.displayName = 'AmauiIconMaterialLandslideRoundedW100';
+
 export default IconMaterialLandslideRoundedW100;

@@ -18,4 +18,6 @@ const IconMaterialSmsFailedSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSmsFailedSharpW100.displayName = 'AmauiIconMaterialSmsFailedSharpW100';
+
 export default IconMaterialSmsFailedSharpW100;

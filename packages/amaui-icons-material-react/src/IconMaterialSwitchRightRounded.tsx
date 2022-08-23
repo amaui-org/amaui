@@ -18,4 +18,6 @@ const IconMaterialSwitchRightRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSwitchRightRounded.displayName = 'AmauiIconMaterialSwitchRightRounded';
+
 export default IconMaterialSwitchRightRounded;

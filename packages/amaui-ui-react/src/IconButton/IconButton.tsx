@@ -36,8 +36,8 @@ const IconButton = React.forwardRef((props_: any, ref: any) => {
           'AmauiIconButton-root'
         ],
 
-        classes.root,
-        className
+        className,
+        classes.root
       ])}
 
       version={version}

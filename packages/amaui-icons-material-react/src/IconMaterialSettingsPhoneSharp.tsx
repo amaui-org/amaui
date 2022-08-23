@@ -18,4 +18,6 @@ const IconMaterialSettingsPhoneSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSettingsPhoneSharp.displayName = 'AmauiIconMaterialSettingsPhoneSharp';
+
 export default IconMaterialSettingsPhoneSharp;

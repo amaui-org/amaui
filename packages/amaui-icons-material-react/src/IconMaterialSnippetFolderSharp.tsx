@@ -18,4 +18,6 @@ const IconMaterialSnippetFolderSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSnippetFolderSharp.displayName = 'AmauiIconMaterialSnippetFolderSharp';
+
 export default IconMaterialSnippetFolderSharp;

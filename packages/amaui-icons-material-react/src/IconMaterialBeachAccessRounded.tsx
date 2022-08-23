@@ -18,4 +18,6 @@ const IconMaterialBeachAccessRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBeachAccessRounded.displayName = 'AmauiIconMaterialBeachAccessRounded';
+
 export default IconMaterialBeachAccessRounded;

@@ -18,4 +18,6 @@ const IconMaterialBrightnessAutoSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBrightnessAutoSharp.displayName = 'AmauiIconMaterialBrightnessAutoSharp';
+
 export default IconMaterialBrightnessAutoSharp;

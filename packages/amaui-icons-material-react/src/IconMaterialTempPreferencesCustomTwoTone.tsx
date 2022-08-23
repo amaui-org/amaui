@@ -18,4 +18,6 @@ const IconMaterialTempPreferencesCustomTwoTone = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialTempPreferencesCustomTwoTone.displayName = 'AmauiIconMaterialTempPreferencesCustomTwoTone';
+
 export default IconMaterialTempPreferencesCustomTwoTone;

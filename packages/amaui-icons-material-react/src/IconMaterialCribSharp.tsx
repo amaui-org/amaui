@@ -18,4 +18,6 @@ const IconMaterialCribSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCribSharp.displayName = 'AmauiIconMaterialCribSharp';
+
 export default IconMaterialCribSharp;

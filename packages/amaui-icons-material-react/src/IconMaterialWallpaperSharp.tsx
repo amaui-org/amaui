@@ -18,4 +18,6 @@ const IconMaterialWallpaperSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialWallpaperSharp.displayName = 'AmauiIconMaterialWallpaperSharp';
+
 export default IconMaterialWallpaperSharp;

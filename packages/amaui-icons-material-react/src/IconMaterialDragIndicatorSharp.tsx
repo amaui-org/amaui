@@ -18,4 +18,6 @@ const IconMaterialDragIndicatorSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDragIndicatorSharp.displayName = 'AmauiIconMaterialDragIndicatorSharp';
+
 export default IconMaterialDragIndicatorSharp;

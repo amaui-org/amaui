@@ -18,4 +18,6 @@ const IconMaterialHdrOffSelectTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialHdrOffSelectTwoTone.displayName = 'AmauiIconMaterialHdrOffSelectTwoTone';
+
 export default IconMaterialHdrOffSelectTwoTone;

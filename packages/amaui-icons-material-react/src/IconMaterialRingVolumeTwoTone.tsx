@@ -18,4 +18,6 @@ const IconMaterialRingVolumeTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialRingVolumeTwoTone.displayName = 'AmauiIconMaterialRingVolumeTwoTone';
+
 export default IconMaterialRingVolumeTwoTone;

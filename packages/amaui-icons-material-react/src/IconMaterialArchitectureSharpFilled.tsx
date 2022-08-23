@@ -18,4 +18,6 @@ const IconMaterialArchitectureSharpFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialArchitectureSharpFilled.displayName = 'AmauiIconMaterialArchitectureSharpFilled';
+
 export default IconMaterialArchitectureSharpFilled;

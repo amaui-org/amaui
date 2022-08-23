@@ -18,4 +18,6 @@ const IconMaterialDetectorOfflineRounded = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialDetectorOfflineRounded.displayName = 'AmauiIconMaterialDetectorOfflineRounded';
+
 export default IconMaterialDetectorOfflineRounded;

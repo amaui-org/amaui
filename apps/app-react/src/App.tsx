@@ -7,6 +7,7 @@ import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction,
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
 import IconMaterialPottedPlantRounded from '@amaui/icons-material-react/build/IconMaterialPottedPlantRounded';
+import IconMaterialPottedPlantRoundedFilled from '@amaui/icons-material-react/build/IconMaterialPottedPlantRoundedFilled';
 import IconMaterialCheckRounded from '@amaui/icons-material-react/build/IconMaterialCheckRounded';
 import IconMaterialCloseRounded from '@amaui/icons-material-react/build/IconMaterialCloseRounded';
 import IconMaterialLightModeRounded from '@amaui/icons-material-react/build/IconMaterialLightModeRounded';
@@ -701,21 +702,27 @@ function App() {
 
       <Accordion label='All'>
         <div className={classNames([classes.column])}>
-          <Accordion label='Rating' open>
-            <div className={classNames([classes.column])}>
-              <Rating />
-            </div>
-          </Accordion>
+          <Line>
+            <Item size='small' elevation={1}>Item 1</Item>
+            <Item size='regular' elevation={1}>Item 114</Item>
+            <Item size='large' elevation={1}>Item 1114</Item>
+          </Line>
 
-          <Accordion label='AutoComplete' open>
-            <AutoComplete
-              label='Items'
+          <Container>
+            <Box14 />
+          </Container>
 
-              options={countries.map(item => ({ label: item.name }))}
+          <Box1 />
 
-              color='secondary'
-            />
-          </Accordion>
+          <Rating />
+
+          <AutoComplete
+            label='Items'
+
+            options={countries.map(item => ({ label: item.name }))}
+
+            color='secondary'
+          />
 
           <Select
             label='Items'
@@ -752,17 +759,15 @@ function App() {
 
             anchorElement={refs.menu['14'].current}
           >
-            <List menu>
-              {[0, 1, 3, 4].map(item => (
-                <ListItem
-                  button
+            {[0, 1, 3, 4].map(item => (
+              <ListItem
+                button
 
-                  primary={`Item ${item + 1}`}
+                primary={`Item ${item + 1}`}
 
-                  key={item}
-                />
-              ))}
-            </List>
+                key={item}
+              />
+            ))}
           </Menu>
 
           <Tooltip
@@ -11927,6 +11932,38 @@ function App() {
           </div>
         </Accordion>
 
+        <Accordion label='List icon selected' open>
+          <div className={classNames([classes.column])}>
+            <List>
+              {[0, 1, 3, 4].map(item => item + 1).map(item => (
+                <ListItem
+                  key={item}
+
+                  button
+
+                  primary='Primary text'
+                  secondary='Secondary text'
+                  tertiary='Tertiary text'
+
+                  selected={item === 1}
+
+                  start={(
+                    <IconButton color='secondary'>
+                      {item === 1 ? <IconMaterialPottedPlantRoundedFilled /> : <IconMaterialPottedPlantRounded />}
+                    </IconButton>
+                  )}
+
+                  end={(
+                    <IconButton color='secondary'>
+                      {item === 1 ? <IconMaterialPottedPlantRoundedFilled /> : <IconMaterialPottedPlantRounded />}
+                    </IconButton>
+                  )}
+                />
+              ))}
+            </List>
+          </div>
+        </Accordion>
+
         <Accordion label='List color' open>
           <div className={classNames([classes.column])}>
             <List>
@@ -15042,6 +15079,14 @@ function App() {
           </div>
         </Accordion>
 
+        <Accordion label='Chip icon selected' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Chip startIcon={<IconMaterialPottedPlantRounded />} startIconSelected={<IconMaterialPottedPlantRoundedFilled />} endIcon={<IconMaterialPottedPlantRounded />} endIconSelected={<IconMaterialPottedPlantRoundedFilled />}>Regular</Chip>
+
+            <Chip startIcon={<IconMaterialPottedPlantRounded />} startIconSelected={<IconMaterialPottedPlantRoundedFilled />} endIcon={<IconMaterialPottedPlantRounded />} endIconSelected={<IconMaterialPottedPlantRoundedFilled />} selected>Regular</Chip>
+          </div>
+        </Accordion>
+
         <Accordion label='AmauiTheme' open>
           <div className={classNames([classes.column])}>
             <Chip color='secondary'>Enabled</Chip>
@@ -17922,6 +17967,16 @@ function App() {
           </div>
         </Accordion>
 
+        <Accordion label='Fab selected' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Fab iconSelected={<IconMaterialPottedPlantRoundedFilled />}><IconMaterialPottedPlantRounded /> Regular</Fab>
+            <Fab iconSelected={<IconMaterialPottedPlantRoundedFilled />}><IconMaterialPottedPlantRounded /></Fab>
+
+            <Fab iconSelected={<IconMaterialPottedPlantRoundedFilled />} selected><IconMaterialPottedPlantRounded /> Regular</Fab>
+            <Fab iconSelected={<IconMaterialPottedPlantRoundedFilled />} selected><IconMaterialPottedPlantRounded /></Fab>
+          </div>
+        </Accordion>
+
         <Accordion label='Fab rtl' open>
           <div className={classNames([classes.row, classes.center])}>
             <Fab version='text' size='small'><IconMaterialUndoRounded /> Small</Fab>
@@ -18259,6 +18314,13 @@ function App() {
             <IconButton version='outlined' color='secondary' size='regular' selected><IconMaterialPottedPlantRounded /></IconButton>
             <IconButton version='filled' color='secondary' size='regular' selected><IconMaterialPottedPlantRounded /></IconButton>
             <IconButton version='filled' tonal color='tertiary' size='large' selected><IconMaterialPottedPlantRounded /></IconButton>
+          </div>
+        </Accordion>
+
+        <Accordion label='Icon button icon selected' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <IconButton iconSelected={<IconMaterialPottedPlantRoundedFilled />}><IconMaterialPottedPlantRounded /></IconButton>
+            <IconButton iconSelected={<IconMaterialPottedPlantRoundedFilled />} selected><IconMaterialPottedPlantRounded /></IconButton>
           </div>
         </Accordion>
 
@@ -19394,6 +19456,13 @@ function App() {
             <Button version='outlined' color='secondary' size='regular' selected>Regular</Button>
             <Button version='filled' color='secondary' size='regular' selected>Regular</Button>
             <Button version='filled' tonal color='tertiary' size='large' selected>Large</Button>
+          </div>
+        </Accordion>
+
+        <Accordion label='Button icons selected' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Button color='secondary' startIcon={<IconMaterialPottedPlantRounded />} startIconSelected={<IconMaterialPottedPlantRoundedFilled />} endIcon={<IconMaterialPottedPlantRounded />} endIconSelected={<IconMaterialPottedPlantRoundedFilled />}>Regular</Button>
+            <Button color='secondary' startIcon={<IconMaterialPottedPlantRounded />} startIconSelected={<IconMaterialPottedPlantRoundedFilled />} endIcon={<IconMaterialPottedPlantRounded />} endIconSelected={<IconMaterialPottedPlantRoundedFilled />} selected>Regular</Button>
           </div>
         </Accordion>
 

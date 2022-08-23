@@ -18,4 +18,6 @@ const IconMaterialAgricultureSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAgricultureSharp.displayName = 'AmauiIconMaterialAgricultureSharp';
+
 export default IconMaterialAgricultureSharp;

@@ -18,4 +18,6 @@ const IconMaterialDifferenceSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDifferenceSharp.displayName = 'AmauiIconMaterialDifferenceSharp';
+
 export default IconMaterialDifferenceSharp;

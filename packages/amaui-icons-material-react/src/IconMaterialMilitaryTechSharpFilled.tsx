@@ -18,4 +18,6 @@ const IconMaterialMilitaryTechSharpFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialMilitaryTechSharpFilled.displayName = 'AmauiIconMaterialMilitaryTechSharpFilled';
+
 export default IconMaterialMilitaryTechSharpFilled;

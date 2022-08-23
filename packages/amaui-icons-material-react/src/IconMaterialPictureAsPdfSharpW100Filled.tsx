@@ -18,4 +18,6 @@ const IconMaterialPictureAsPdfSharpW100Filled = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialPictureAsPdfSharpW100Filled.displayName = 'AmauiIconMaterialPictureAsPdfSharpW100Filled';
+
 export default IconMaterialPictureAsPdfSharpW100Filled;

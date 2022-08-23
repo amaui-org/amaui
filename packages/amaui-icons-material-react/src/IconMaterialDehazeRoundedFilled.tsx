@@ -18,4 +18,6 @@ const IconMaterialDehazeRoundedFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDehazeRoundedFilled.displayName = 'AmauiIconMaterialDehazeRoundedFilled';
+
 export default IconMaterialDehazeRoundedFilled;

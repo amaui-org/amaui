@@ -18,4 +18,6 @@ const IconMaterialMicExternalOffRoundedW100Filled = React.forwardRef((props: any
   );
 });
 
+IconMaterialMicExternalOffRoundedW100Filled.displayName = 'AmauiIconMaterialMicExternalOffRoundedW100Filled';
+
 export default IconMaterialMicExternalOffRoundedW100Filled;

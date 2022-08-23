@@ -18,4 +18,6 @@ const IconMaterialHdrOffSelectSharpW100Filled = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialHdrOffSelectSharpW100Filled.displayName = 'AmauiIconMaterialHdrOffSelectSharpW100Filled';
+
 export default IconMaterialHdrOffSelectSharpW100Filled;

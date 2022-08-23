@@ -18,4 +18,6 @@ const IconMaterialLineStyleRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLineStyleRounded.displayName = 'AmauiIconMaterialLineStyleRounded';
+
 export default IconMaterialLineStyleRounded;

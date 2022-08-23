@@ -18,4 +18,6 @@ const IconMaterialShieldWithHeartRounded = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialShieldWithHeartRounded.displayName = 'AmauiIconMaterialShieldWithHeartRounded';
+
 export default IconMaterialShieldWithHeartRounded;

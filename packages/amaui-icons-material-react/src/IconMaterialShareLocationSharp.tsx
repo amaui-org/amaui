@@ -18,4 +18,6 @@ const IconMaterialShareLocationSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialShareLocationSharp.displayName = 'AmauiIconMaterialShareLocationSharp';
+
 export default IconMaterialShareLocationSharp;

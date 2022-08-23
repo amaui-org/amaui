@@ -18,4 +18,6 @@ const IconMaterialSoupKitchenRoundedFilled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialSoupKitchenRoundedFilled.displayName = 'AmauiIconMaterialSoupKitchenRoundedFilled';
+
 export default IconMaterialSoupKitchenRoundedFilled;

@@ -18,4 +18,6 @@ const IconMaterialVerticalSplitSharpW100Filled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialVerticalSplitSharpW100Filled.displayName = 'AmauiIconMaterialVerticalSplitSharpW100Filled';
+
 export default IconMaterialVerticalSplitSharpW100Filled;

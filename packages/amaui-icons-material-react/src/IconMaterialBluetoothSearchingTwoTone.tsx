@@ -18,4 +18,6 @@ const IconMaterialBluetoothSearchingTwoTone = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialBluetoothSearchingTwoTone.displayName = 'AmauiIconMaterialBluetoothSearchingTwoTone';
+
 export default IconMaterialBluetoothSearchingTwoTone;

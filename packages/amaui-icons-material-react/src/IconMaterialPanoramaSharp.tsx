@@ -18,4 +18,6 @@ const IconMaterialPanoramaSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPanoramaSharp.displayName = 'AmauiIconMaterialPanoramaSharp';
+
 export default IconMaterialPanoramaSharp;

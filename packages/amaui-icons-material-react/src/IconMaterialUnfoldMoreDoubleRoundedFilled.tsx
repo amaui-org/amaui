@@ -18,4 +18,6 @@ const IconMaterialUnfoldMoreDoubleRoundedFilled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialUnfoldMoreDoubleRoundedFilled.displayName = 'AmauiIconMaterialUnfoldMoreDoubleRoundedFilled';
+
 export default IconMaterialUnfoldMoreDoubleRoundedFilled;

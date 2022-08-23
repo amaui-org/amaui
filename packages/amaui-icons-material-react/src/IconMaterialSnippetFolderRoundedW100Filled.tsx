@@ -18,4 +18,6 @@ const IconMaterialSnippetFolderRoundedW100Filled = React.forwardRef((props: any,
   );
 });
 
+IconMaterialSnippetFolderRoundedW100Filled.displayName = 'AmauiIconMaterialSnippetFolderRoundedW100Filled';
+
 export default IconMaterialSnippetFolderRoundedW100Filled;

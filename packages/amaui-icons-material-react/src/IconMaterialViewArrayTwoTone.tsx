@@ -18,4 +18,6 @@ const IconMaterialViewArrayTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialViewArrayTwoTone.displayName = 'AmauiIconMaterialViewArrayTwoTone';
+
 export default IconMaterialViewArrayTwoTone;

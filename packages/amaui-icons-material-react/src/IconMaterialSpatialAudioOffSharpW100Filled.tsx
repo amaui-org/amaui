@@ -18,4 +18,6 @@ const IconMaterialSpatialAudioOffSharpW100Filled = React.forwardRef((props: any,
   );
 });
 
+IconMaterialSpatialAudioOffSharpW100Filled.displayName = 'AmauiIconMaterialSpatialAudioOffSharpW100Filled';
+
 export default IconMaterialSpatialAudioOffSharpW100Filled;

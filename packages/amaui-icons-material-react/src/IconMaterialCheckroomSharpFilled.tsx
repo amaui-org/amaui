@@ -18,4 +18,6 @@ const IconMaterialCheckroomSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCheckroomSharpFilled.displayName = 'AmauiIconMaterialCheckroomSharpFilled';
+
 export default IconMaterialCheckroomSharpFilled;

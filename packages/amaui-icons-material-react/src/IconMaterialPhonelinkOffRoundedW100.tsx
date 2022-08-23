@@ -18,4 +18,6 @@ const IconMaterialPhonelinkOffRoundedW100 = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialPhonelinkOffRoundedW100.displayName = 'AmauiIconMaterialPhonelinkOffRoundedW100';
+
 export default IconMaterialPhonelinkOffRoundedW100;

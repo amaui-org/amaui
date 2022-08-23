@@ -18,4 +18,6 @@ const IconMaterialDatasetLinkedRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDatasetLinkedRounded.displayName = 'AmauiIconMaterialDatasetLinkedRounded';
+
 export default IconMaterialDatasetLinkedRounded;

@@ -18,4 +18,6 @@ const IconMaterialPanoramaRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPanoramaRounded.displayName = 'AmauiIconMaterialPanoramaRounded';
+
 export default IconMaterialPanoramaRounded;

@@ -18,4 +18,6 @@ const IconMaterialCardMembershipRoundedW100Filled = React.forwardRef((props: any
   );
 });
 
+IconMaterialCardMembershipRoundedW100Filled.displayName = 'AmauiIconMaterialCardMembershipRoundedW100Filled';
+
 export default IconMaterialCardMembershipRoundedW100Filled;

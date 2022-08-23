@@ -18,4 +18,6 @@ const IconMaterialSubscriptTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSubscriptTwoTone.displayName = 'AmauiIconMaterialSubscriptTwoTone';
+
 export default IconMaterialSubscriptTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialDoNotStepSharpW100Filled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialDoNotStepSharpW100Filled.displayName = 'AmauiIconMaterialDoNotStepSharpW100Filled';
+
 export default IconMaterialDoNotStepSharpW100Filled;

@@ -18,4 +18,6 @@ const IconMaterialNotificationsOffTwoTone = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialNotificationsOffTwoTone.displayName = 'AmauiIconMaterialNotificationsOffTwoTone';
+
 export default IconMaterialNotificationsOffTwoTone;

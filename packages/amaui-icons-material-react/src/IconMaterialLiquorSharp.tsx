@@ -18,4 +18,6 @@ const IconMaterialLiquorSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLiquorSharp.displayName = 'AmauiIconMaterialLiquorSharp';
+
 export default IconMaterialLiquorSharp;

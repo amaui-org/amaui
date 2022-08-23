@@ -18,4 +18,6 @@ const IconMaterialCancelScheduleSendTwoTone = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialCancelScheduleSendTwoTone.displayName = 'AmauiIconMaterialCancelScheduleSendTwoTone';
+
 export default IconMaterialCancelScheduleSendTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialSocialDistanceTwoTone = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialSocialDistanceTwoTone.displayName = 'AmauiIconMaterialSocialDistanceTwoTone';
+
 export default IconMaterialSocialDistanceTwoTone;

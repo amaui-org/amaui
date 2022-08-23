@@ -18,4 +18,6 @@ const IconMaterialNestLocatorTagSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNestLocatorTagSharp.displayName = 'AmauiIconMaterialNestLocatorTagSharp';
+
 export default IconMaterialNestLocatorTagSharp;

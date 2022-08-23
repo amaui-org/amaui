@@ -18,4 +18,6 @@ const IconMaterialEditNoteSharpW100Filled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialEditNoteSharpW100Filled.displayName = 'AmauiIconMaterialEditNoteSharpW100Filled';
+
 export default IconMaterialEditNoteSharpW100Filled;

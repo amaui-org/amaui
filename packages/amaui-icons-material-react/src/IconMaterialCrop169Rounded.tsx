@@ -18,4 +18,6 @@ const IconMaterialCrop169Rounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCrop169Rounded.displayName = 'AmauiIconMaterialCrop169Rounded';
+
 export default IconMaterialCrop169Rounded;

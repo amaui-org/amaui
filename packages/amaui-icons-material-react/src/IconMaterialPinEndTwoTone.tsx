@@ -18,4 +18,6 @@ const IconMaterialPinEndTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPinEndTwoTone.displayName = 'AmauiIconMaterialPinEndTwoTone';
+
 export default IconMaterialPinEndTwoTone;

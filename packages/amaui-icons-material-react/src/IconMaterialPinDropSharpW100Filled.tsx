@@ -18,4 +18,6 @@ const IconMaterialPinDropSharpW100Filled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialPinDropSharpW100Filled.displayName = 'AmauiIconMaterialPinDropSharpW100Filled';
+
 export default IconMaterialPinDropSharpW100Filled;

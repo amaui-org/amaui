@@ -18,4 +18,6 @@ const IconMaterialCardMembershipTwoTone = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialCardMembershipTwoTone.displayName = 'AmauiIconMaterialCardMembershipTwoTone';
+
 export default IconMaterialCardMembershipTwoTone;

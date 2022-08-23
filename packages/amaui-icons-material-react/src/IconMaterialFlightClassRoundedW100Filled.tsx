@@ -18,4 +18,6 @@ const IconMaterialFlightClassRoundedW100Filled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialFlightClassRoundedW100Filled.displayName = 'AmauiIconMaterialFlightClassRoundedW100Filled';
+
 export default IconMaterialFlightClassRoundedW100Filled;

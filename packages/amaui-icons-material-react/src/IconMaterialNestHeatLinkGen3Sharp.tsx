@@ -18,4 +18,6 @@ const IconMaterialNestHeatLinkGen3Sharp = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialNestHeatLinkGen3Sharp.displayName = 'AmauiIconMaterialNestHeatLinkGen3Sharp';
+
 export default IconMaterialNestHeatLinkGen3Sharp;

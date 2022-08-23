@@ -18,4 +18,6 @@ const IconMaterialReplay5RoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialReplay5RoundedW100.displayName = 'AmauiIconMaterialReplay5RoundedW100';
+
 export default IconMaterialReplay5RoundedW100;

@@ -18,4 +18,6 @@ const IconMaterialAirPurifierGenTwoTone = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialAirPurifierGenTwoTone.displayName = 'AmauiIconMaterialAirPurifierGenTwoTone';
+
 export default IconMaterialAirPurifierGenTwoTone;

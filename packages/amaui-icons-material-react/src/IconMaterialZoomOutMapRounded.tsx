@@ -18,4 +18,6 @@ const IconMaterialZoomOutMapRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialZoomOutMapRounded.displayName = 'AmauiIconMaterialZoomOutMapRounded';
+
 export default IconMaterialZoomOutMapRounded;

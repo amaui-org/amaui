@@ -18,4 +18,6 @@ const IconMaterialBubbleChartSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBubbleChartSharp.displayName = 'AmauiIconMaterialBubbleChartSharp';
+
 export default IconMaterialBubbleChartSharp;

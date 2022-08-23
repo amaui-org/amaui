@@ -18,4 +18,6 @@ const IconMaterialPhotoSizeSelectSmallSharpFilled = React.forwardRef((props: any
   );
 });
 
+IconMaterialPhotoSizeSelectSmallSharpFilled.displayName = 'AmauiIconMaterialPhotoSizeSelectSmallSharpFilled';
+
 export default IconMaterialPhotoSizeSelectSmallSharpFilled;

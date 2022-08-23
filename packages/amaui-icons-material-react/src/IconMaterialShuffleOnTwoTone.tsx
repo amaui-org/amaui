@@ -18,4 +18,6 @@ const IconMaterialShuffleOnTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialShuffleOnTwoTone.displayName = 'AmauiIconMaterialShuffleOnTwoTone';
+
 export default IconMaterialShuffleOnTwoTone;

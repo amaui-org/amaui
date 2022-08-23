@@ -18,4 +18,6 @@ const IconMaterialVapingRoomsRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialVapingRoomsRounded.displayName = 'AmauiIconMaterialVapingRoomsRounded';
+
 export default IconMaterialVapingRoomsRounded;

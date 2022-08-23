@@ -18,4 +18,6 @@ const IconMaterialLocalActivityRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLocalActivityRounded.displayName = 'AmauiIconMaterialLocalActivityRounded';
+
 export default IconMaterialLocalActivityRounded;

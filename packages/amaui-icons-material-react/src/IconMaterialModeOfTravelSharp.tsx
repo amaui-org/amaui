@@ -18,4 +18,6 @@ const IconMaterialModeOfTravelSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialModeOfTravelSharp.displayName = 'AmauiIconMaterialModeOfTravelSharp';
+
 export default IconMaterialModeOfTravelSharp;

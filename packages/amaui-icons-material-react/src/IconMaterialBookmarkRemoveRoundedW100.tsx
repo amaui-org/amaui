@@ -18,4 +18,6 @@ const IconMaterialBookmarkRemoveRoundedW100 = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialBookmarkRemoveRoundedW100.displayName = 'AmauiIconMaterialBookmarkRemoveRoundedW100';
+
 export default IconMaterialBookmarkRemoveRoundedW100;

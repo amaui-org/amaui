@@ -18,4 +18,6 @@ const IconMaterialScreenRotationRoundedFilled = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialScreenRotationRoundedFilled.displayName = 'AmauiIconMaterialScreenRotationRoundedFilled';
+
 export default IconMaterialScreenRotationRoundedFilled;

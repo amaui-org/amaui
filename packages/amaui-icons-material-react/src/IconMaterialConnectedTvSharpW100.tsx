@@ -18,4 +18,6 @@ const IconMaterialConnectedTvSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialConnectedTvSharpW100.displayName = 'AmauiIconMaterialConnectedTvSharpW100';
+
 export default IconMaterialConnectedTvSharpW100;

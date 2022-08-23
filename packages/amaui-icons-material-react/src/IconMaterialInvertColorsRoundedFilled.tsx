@@ -18,4 +18,6 @@ const IconMaterialInvertColorsRoundedFilled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialInvertColorsRoundedFilled.displayName = 'AmauiIconMaterialInvertColorsRoundedFilled';
+
 export default IconMaterialInvertColorsRoundedFilled;

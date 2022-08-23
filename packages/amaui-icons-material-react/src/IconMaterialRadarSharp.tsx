@@ -18,4 +18,6 @@ const IconMaterialRadarSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialRadarSharp.displayName = 'AmauiIconMaterialRadarSharp';
+
 export default IconMaterialRadarSharp;

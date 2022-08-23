@@ -18,4 +18,6 @@ const IconMaterialTrendingDownRoundedFilled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialTrendingDownRoundedFilled.displayName = 'AmauiIconMaterialTrendingDownRoundedFilled';
+
 export default IconMaterialTrendingDownRoundedFilled;

@@ -18,4 +18,6 @@ const IconMaterialContactSupportRoundedW100 = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialContactSupportRoundedW100.displayName = 'AmauiIconMaterialContactSupportRoundedW100';
+
 export default IconMaterialContactSupportRoundedW100;

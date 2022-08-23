@@ -18,4 +18,6 @@ const IconMaterialAssistantNavigationSharp = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialAssistantNavigationSharp.displayName = 'AmauiIconMaterialAssistantNavigationSharp';
+
 export default IconMaterialAssistantNavigationSharp;

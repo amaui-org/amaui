@@ -18,4 +18,6 @@ const IconMaterialShuffleOnRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialShuffleOnRounded.displayName = 'AmauiIconMaterialShuffleOnRounded';
+
 export default IconMaterialShuffleOnRounded;

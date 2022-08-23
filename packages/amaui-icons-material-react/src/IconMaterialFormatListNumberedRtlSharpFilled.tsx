@@ -18,4 +18,6 @@ const IconMaterialFormatListNumberedRtlSharpFilled = React.forwardRef((props: an
   );
 });
 
+IconMaterialFormatListNumberedRtlSharpFilled.displayName = 'AmauiIconMaterialFormatListNumberedRtlSharpFilled';
+
 export default IconMaterialFormatListNumberedRtlSharpFilled;

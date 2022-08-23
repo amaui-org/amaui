@@ -18,4 +18,6 @@ const IconMaterialSettingsAlertSharpW100Filled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialSettingsAlertSharpW100Filled.displayName = 'AmauiIconMaterialSettingsAlertSharpW100Filled';
+
 export default IconMaterialSettingsAlertSharpW100Filled;

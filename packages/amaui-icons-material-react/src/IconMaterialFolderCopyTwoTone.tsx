@@ -18,4 +18,6 @@ const IconMaterialFolderCopyTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFolderCopyTwoTone.displayName = 'AmauiIconMaterialFolderCopyTwoTone';
+
 export default IconMaterialFolderCopyTwoTone;

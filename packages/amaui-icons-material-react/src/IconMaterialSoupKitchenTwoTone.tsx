@@ -18,4 +18,6 @@ const IconMaterialSoupKitchenTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSoupKitchenTwoTone.displayName = 'AmauiIconMaterialSoupKitchenTwoTone';
+
 export default IconMaterialSoupKitchenTwoTone;

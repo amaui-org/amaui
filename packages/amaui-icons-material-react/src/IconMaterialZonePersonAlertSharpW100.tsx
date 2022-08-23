@@ -18,4 +18,6 @@ const IconMaterialZonePersonAlertSharpW100 = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialZonePersonAlertSharpW100.displayName = 'AmauiIconMaterialZonePersonAlertSharpW100';
+
 export default IconMaterialZonePersonAlertSharpW100;

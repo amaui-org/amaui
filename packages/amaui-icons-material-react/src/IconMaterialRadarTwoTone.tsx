@@ -18,4 +18,6 @@ const IconMaterialRadarTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialRadarTwoTone.displayName = 'AmauiIconMaterialRadarTwoTone';
+
 export default IconMaterialRadarTwoTone;

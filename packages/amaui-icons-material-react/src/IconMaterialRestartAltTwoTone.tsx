@@ -18,4 +18,6 @@ const IconMaterialRestartAltTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialRestartAltTwoTone.displayName = 'AmauiIconMaterialRestartAltTwoTone';
+
 export default IconMaterialRestartAltTwoTone;

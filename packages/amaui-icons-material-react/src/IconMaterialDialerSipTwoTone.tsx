@@ -18,4 +18,6 @@ const IconMaterialDialerSipTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDialerSipTwoTone.displayName = 'AmauiIconMaterialDialerSipTwoTone';
+
 export default IconMaterialDialerSipTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialFiberManualRecordRounded = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialFiberManualRecordRounded.displayName = 'AmauiIconMaterialFiberManualRecordRounded';
+
 export default IconMaterialFiberManualRecordRounded;

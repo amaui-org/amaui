@@ -18,4 +18,6 @@ const IconMaterialTimer10SelectRoundedW100Filled = React.forwardRef((props: any,
   );
 });
 
+IconMaterialTimer10SelectRoundedW100Filled.displayName = 'AmauiIconMaterialTimer10SelectRoundedW100Filled';
+
 export default IconMaterialTimer10SelectRoundedW100Filled;

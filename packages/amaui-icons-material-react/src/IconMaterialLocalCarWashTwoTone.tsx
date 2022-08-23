@@ -18,4 +18,6 @@ const IconMaterialLocalCarWashTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLocalCarWashTwoTone.displayName = 'AmauiIconMaterialLocalCarWashTwoTone';
+
 export default IconMaterialLocalCarWashTwoTone;

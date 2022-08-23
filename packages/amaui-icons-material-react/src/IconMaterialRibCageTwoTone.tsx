@@ -18,4 +18,6 @@ const IconMaterialRibCageTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialRibCageTwoTone.displayName = 'AmauiIconMaterialRibCageTwoTone';
+
 export default IconMaterialRibCageTwoTone;

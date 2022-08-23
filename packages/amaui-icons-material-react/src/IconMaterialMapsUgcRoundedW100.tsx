@@ -18,4 +18,6 @@ const IconMaterialMapsUgcRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMapsUgcRoundedW100.displayName = 'AmauiIconMaterialMapsUgcRoundedW100';
+
 export default IconMaterialMapsUgcRoundedW100;

@@ -18,4 +18,6 @@ const IconMaterialLocalShippingSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLocalShippingSharp.displayName = 'AmauiIconMaterialLocalShippingSharp';
+
 export default IconMaterialLocalShippingSharp;

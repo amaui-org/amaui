@@ -18,4 +18,6 @@ const IconMaterialSignalWifiStatusbarNotConnectedRoundedFilled = React.forwardRe
   );
 });
 
+IconMaterialSignalWifiStatusbarNotConnectedRoundedFilled.displayName = 'AmauiIconMaterialSignalWifiStatusbarNotConnectedRoundedFilled';
+
 export default IconMaterialSignalWifiStatusbarNotConnectedRoundedFilled;

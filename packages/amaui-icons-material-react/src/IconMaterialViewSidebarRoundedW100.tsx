@@ -18,4 +18,6 @@ const IconMaterialViewSidebarRoundedW100 = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialViewSidebarRoundedW100.displayName = 'AmauiIconMaterialViewSidebarRoundedW100';
+
 export default IconMaterialViewSidebarRoundedW100;

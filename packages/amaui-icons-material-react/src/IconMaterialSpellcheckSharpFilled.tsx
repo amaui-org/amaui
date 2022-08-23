@@ -18,4 +18,6 @@ const IconMaterialSpellcheckSharpFilled = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialSpellcheckSharpFilled.displayName = 'AmauiIconMaterialSpellcheckSharpFilled';
+
 export default IconMaterialSpellcheckSharpFilled;

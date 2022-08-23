@@ -18,4 +18,6 @@ const IconMaterialMonochromePhotosRoundedW100 = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialMonochromePhotosRoundedW100.displayName = 'AmauiIconMaterialMonochromePhotosRoundedW100';
+
 export default IconMaterialMonochromePhotosRoundedW100;

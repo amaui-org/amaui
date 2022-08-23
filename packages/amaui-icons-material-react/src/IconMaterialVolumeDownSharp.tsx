@@ -18,4 +18,6 @@ const IconMaterialVolumeDownSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialVolumeDownSharp.displayName = 'AmauiIconMaterialVolumeDownSharp';
+
 export default IconMaterialVolumeDownSharp;

@@ -18,4 +18,6 @@ const IconMaterialProductionQuantityLimitsRoundedW100 = React.forwardRef((props:
   );
 });
 
+IconMaterialProductionQuantityLimitsRoundedW100.displayName = 'AmauiIconMaterialProductionQuantityLimitsRoundedW100';
+
 export default IconMaterialProductionQuantityLimitsRoundedW100;

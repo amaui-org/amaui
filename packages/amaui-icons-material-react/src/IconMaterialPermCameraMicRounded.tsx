@@ -18,4 +18,6 @@ const IconMaterialPermCameraMicRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPermCameraMicRounded.displayName = 'AmauiIconMaterialPermCameraMicRounded';
+
 export default IconMaterialPermCameraMicRounded;

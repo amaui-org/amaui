@@ -18,4 +18,6 @@ const IconMaterialCloudUploadRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCloudUploadRounded.displayName = 'AmauiIconMaterialCloudUploadRounded';
+
 export default IconMaterialCloudUploadRounded;

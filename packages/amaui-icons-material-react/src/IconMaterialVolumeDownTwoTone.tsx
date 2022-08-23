@@ -18,4 +18,6 @@ const IconMaterialVolumeDownTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialVolumeDownTwoTone.displayName = 'AmauiIconMaterialVolumeDownTwoTone';
+
 export default IconMaterialVolumeDownTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialYoutubeSearchedForSharpFilled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialYoutubeSearchedForSharpFilled.displayName = 'AmauiIconMaterialYoutubeSearchedForSharpFilled';
+
 export default IconMaterialYoutubeSearchedForSharpFilled;

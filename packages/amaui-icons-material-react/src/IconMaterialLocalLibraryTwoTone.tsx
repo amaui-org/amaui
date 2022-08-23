@@ -18,4 +18,6 @@ const IconMaterialLocalLibraryTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLocalLibraryTwoTone.displayName = 'AmauiIconMaterialLocalLibraryTwoTone';
+
 export default IconMaterialLocalLibraryTwoTone;

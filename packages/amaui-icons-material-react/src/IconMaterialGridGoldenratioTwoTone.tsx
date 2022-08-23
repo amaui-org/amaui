@@ -18,4 +18,6 @@ const IconMaterialGridGoldenratioTwoTone = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialGridGoldenratioTwoTone.displayName = 'AmauiIconMaterialGridGoldenratioTwoTone';
+
 export default IconMaterialGridGoldenratioTwoTone;

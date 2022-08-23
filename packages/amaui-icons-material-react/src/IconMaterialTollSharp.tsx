@@ -18,4 +18,6 @@ const IconMaterialTollSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTollSharp.displayName = 'AmauiIconMaterialTollSharp';
+
 export default IconMaterialTollSharp;

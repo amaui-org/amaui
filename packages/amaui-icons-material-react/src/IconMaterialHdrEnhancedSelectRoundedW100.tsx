@@ -18,4 +18,6 @@ const IconMaterialHdrEnhancedSelectRoundedW100 = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialHdrEnhancedSelectRoundedW100.displayName = 'AmauiIconMaterialHdrEnhancedSelectRoundedW100';
+
 export default IconMaterialHdrEnhancedSelectRoundedW100;

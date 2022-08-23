@@ -18,4 +18,6 @@ const IconMaterialFastRewindRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFastRewindRounded.displayName = 'AmauiIconMaterialFastRewindRounded';
+
 export default IconMaterialFastRewindRounded;

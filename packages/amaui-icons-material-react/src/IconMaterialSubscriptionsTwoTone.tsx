@@ -18,4 +18,6 @@ const IconMaterialSubscriptionsTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSubscriptionsTwoTone.displayName = 'AmauiIconMaterialSubscriptionsTwoTone';
+
 export default IconMaterialSubscriptionsTwoTone;

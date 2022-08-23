@@ -18,4 +18,6 @@ const IconMaterialYardSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialYardSharp.displayName = 'AmauiIconMaterialYardSharp';
+
 export default IconMaterialYardSharp;

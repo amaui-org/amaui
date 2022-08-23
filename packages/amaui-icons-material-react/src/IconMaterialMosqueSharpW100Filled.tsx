@@ -18,4 +18,6 @@ const IconMaterialMosqueSharpW100Filled = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialMosqueSharpW100Filled.displayName = 'AmauiIconMaterialMosqueSharpW100Filled';
+
 export default IconMaterialMosqueSharpW100Filled;

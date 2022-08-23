@@ -18,4 +18,6 @@ const IconMaterialScreenLockLandscapeSharpW100 = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialScreenLockLandscapeSharpW100.displayName = 'AmauiIconMaterialScreenLockLandscapeSharpW100';
+
 export default IconMaterialScreenLockLandscapeSharpW100;

@@ -18,4 +18,6 @@ const IconMaterialBrowseGalleryRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBrowseGalleryRounded.displayName = 'AmauiIconMaterialBrowseGalleryRounded';
+
 export default IconMaterialBrowseGalleryRounded;

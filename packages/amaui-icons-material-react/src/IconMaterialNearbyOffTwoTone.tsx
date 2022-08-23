@@ -18,4 +18,6 @@ const IconMaterialNearbyOffTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNearbyOffTwoTone.displayName = 'AmauiIconMaterialNearbyOffTwoTone';
+
 export default IconMaterialNearbyOffTwoTone;

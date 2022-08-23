@@ -18,4 +18,6 @@ const IconMaterialPermDeviceInformationRounded = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialPermDeviceInformationRounded.displayName = 'AmauiIconMaterialPermDeviceInformationRounded';
+
 export default IconMaterialPermDeviceInformationRounded;

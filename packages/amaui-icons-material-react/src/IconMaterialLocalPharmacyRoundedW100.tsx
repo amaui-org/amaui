@@ -18,4 +18,6 @@ const IconMaterialLocalPharmacyRoundedW100 = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialLocalPharmacyRoundedW100.displayName = 'AmauiIconMaterialLocalPharmacyRoundedW100';
+
 export default IconMaterialLocalPharmacyRoundedW100;

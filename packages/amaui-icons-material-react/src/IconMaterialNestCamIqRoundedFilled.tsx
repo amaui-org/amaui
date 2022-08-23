@@ -18,4 +18,6 @@ const IconMaterialNestCamIqRoundedFilled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialNestCamIqRoundedFilled.displayName = 'AmauiIconMaterialNestCamIqRoundedFilled';
+
 export default IconMaterialNestCamIqRoundedFilled;

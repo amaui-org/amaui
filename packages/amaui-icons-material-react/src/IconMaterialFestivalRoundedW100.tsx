@@ -18,4 +18,6 @@ const IconMaterialFestivalRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFestivalRoundedW100.displayName = 'AmauiIconMaterialFestivalRoundedW100';
+
 export default IconMaterialFestivalRoundedW100;

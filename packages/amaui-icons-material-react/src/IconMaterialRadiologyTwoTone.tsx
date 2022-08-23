@@ -18,4 +18,6 @@ const IconMaterialRadiologyTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialRadiologyTwoTone.displayName = 'AmauiIconMaterialRadiologyTwoTone';
+
 export default IconMaterialRadiologyTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialMagicButtonTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMagicButtonTwoTone.displayName = 'AmauiIconMaterialMagicButtonTwoTone';
+
 export default IconMaterialMagicButtonTwoTone;

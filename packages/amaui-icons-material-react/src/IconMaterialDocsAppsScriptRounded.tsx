@@ -18,4 +18,6 @@ const IconMaterialDocsAppsScriptRounded = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialDocsAppsScriptRounded.displayName = 'AmauiIconMaterialDocsAppsScriptRounded';
+
 export default IconMaterialDocsAppsScriptRounded;

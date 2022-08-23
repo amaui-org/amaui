@@ -18,4 +18,6 @@ const IconMaterialRemoteGenRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialRemoteGenRounded.displayName = 'AmauiIconMaterialRemoteGenRounded';
+
 export default IconMaterialRemoteGenRounded;

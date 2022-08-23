@@ -18,4 +18,6 @@ const IconMaterialOfflineBoltTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialOfflineBoltTwoTone.displayName = 'AmauiIconMaterialOfflineBoltTwoTone';
+
 export default IconMaterialOfflineBoltTwoTone;

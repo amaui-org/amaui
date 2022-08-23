@@ -18,4 +18,6 @@ const IconMaterialRealEstateAgentTwoTone = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialRealEstateAgentTwoTone.displayName = 'AmauiIconMaterialRealEstateAgentTwoTone';
+
 export default IconMaterialRealEstateAgentTwoTone;

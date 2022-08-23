@@ -18,4 +18,6 @@ const IconMaterialRibCageRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialRibCageRounded.displayName = 'AmauiIconMaterialRibCageRounded';
+
 export default IconMaterialRibCageRounded;

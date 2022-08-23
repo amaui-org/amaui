@@ -18,4 +18,6 @@ const IconMaterialVideoCameraFrontSharpFilled = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialVideoCameraFrontSharpFilled.displayName = 'AmauiIconMaterialVideoCameraFrontSharpFilled';
+
 export default IconMaterialVideoCameraFrontSharpFilled;

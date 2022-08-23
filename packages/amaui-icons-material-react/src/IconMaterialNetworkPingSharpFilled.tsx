@@ -18,4 +18,6 @@ const IconMaterialNetworkPingSharpFilled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialNetworkPingSharpFilled.displayName = 'AmauiIconMaterialNetworkPingSharpFilled';
+
 export default IconMaterialNetworkPingSharpFilled;

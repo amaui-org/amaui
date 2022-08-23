@@ -18,4 +18,6 @@ const IconMaterialTextSnippetTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTextSnippetTwoTone.displayName = 'AmauiIconMaterialTextSnippetTwoTone';
+
 export default IconMaterialTextSnippetTwoTone;

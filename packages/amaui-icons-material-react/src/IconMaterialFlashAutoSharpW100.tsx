@@ -18,4 +18,6 @@ const IconMaterialFlashAutoSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFlashAutoSharpW100.displayName = 'AmauiIconMaterialFlashAutoSharpW100';
+
 export default IconMaterialFlashAutoSharpW100;

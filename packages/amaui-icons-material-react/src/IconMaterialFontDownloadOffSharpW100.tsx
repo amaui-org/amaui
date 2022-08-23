@@ -18,4 +18,6 @@ const IconMaterialFontDownloadOffSharpW100 = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialFontDownloadOffSharpW100.displayName = 'AmauiIconMaterialFontDownloadOffSharpW100';
+
 export default IconMaterialFontDownloadOffSharpW100;

@@ -18,4 +18,6 @@ const IconMaterialCookieTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCookieTwoTone.displayName = 'AmauiIconMaterialCookieTwoTone';
+
 export default IconMaterialCookieTwoTone;

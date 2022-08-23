@@ -18,4 +18,6 @@ const IconMaterialPersonalInjurySharpFilled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialPersonalInjurySharpFilled.displayName = 'AmauiIconMaterialPersonalInjurySharpFilled';
+
 export default IconMaterialPersonalInjurySharpFilled;

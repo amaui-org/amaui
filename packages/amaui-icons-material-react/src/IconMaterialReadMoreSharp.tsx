@@ -18,4 +18,6 @@ const IconMaterialReadMoreSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialReadMoreSharp.displayName = 'AmauiIconMaterialReadMoreSharp';
+
 export default IconMaterialReadMoreSharp;

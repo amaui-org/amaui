@@ -18,4 +18,6 @@ const IconMaterialFlipCameraAndroidTwoTone = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialFlipCameraAndroidTwoTone.displayName = 'AmauiIconMaterialFlipCameraAndroidTwoTone';
+
 export default IconMaterialFlipCameraAndroidTwoTone;

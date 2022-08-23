@@ -18,4 +18,6 @@ const IconMaterialWifiTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialWifiTwoTone.displayName = 'AmauiIconMaterialWifiTwoTone';
+
 export default IconMaterialWifiTwoTone;

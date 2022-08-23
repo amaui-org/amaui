@@ -18,4 +18,6 @@ const IconMaterialTrailLengthShortTwoTone = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialTrailLengthShortTwoTone.displayName = 'AmauiIconMaterialTrailLengthShortTwoTone';
+
 export default IconMaterialTrailLengthShortTwoTone;

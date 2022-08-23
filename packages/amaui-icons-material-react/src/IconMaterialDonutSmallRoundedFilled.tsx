@@ -18,4 +18,6 @@ const IconMaterialDonutSmallRoundedFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialDonutSmallRoundedFilled.displayName = 'AmauiIconMaterialDonutSmallRoundedFilled';
+
 export default IconMaterialDonutSmallRoundedFilled;

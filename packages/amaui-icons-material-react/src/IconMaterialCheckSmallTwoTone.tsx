@@ -18,4 +18,6 @@ const IconMaterialCheckSmallTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCheckSmallTwoTone.displayName = 'AmauiIconMaterialCheckSmallTwoTone';
+
 export default IconMaterialCheckSmallTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialCameraswitchSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCameraswitchSharp.displayName = 'AmauiIconMaterialCameraswitchSharp';
+
 export default IconMaterialCameraswitchSharp;

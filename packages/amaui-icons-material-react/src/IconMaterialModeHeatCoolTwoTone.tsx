@@ -18,4 +18,6 @@ const IconMaterialModeHeatCoolTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialModeHeatCoolTwoTone.displayName = 'AmauiIconMaterialModeHeatCoolTwoTone';
+
 export default IconMaterialModeHeatCoolTwoTone;

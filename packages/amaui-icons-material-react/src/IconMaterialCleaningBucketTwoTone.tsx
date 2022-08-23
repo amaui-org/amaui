@@ -18,4 +18,6 @@ const IconMaterialCleaningBucketTwoTone = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialCleaningBucketTwoTone.displayName = 'AmauiIconMaterialCleaningBucketTwoTone';
+
 export default IconMaterialCleaningBucketTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialTrailLengthShortSharpFilled = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialTrailLengthShortSharpFilled.displayName = 'AmauiIconMaterialTrailLengthShortSharpFilled';
+
 export default IconMaterialTrailLengthShortSharpFilled;

@@ -18,4 +18,6 @@ const IconMaterialWysiwygSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialWysiwygSharpFilled.displayName = 'AmauiIconMaterialWysiwygSharpFilled';
+
 export default IconMaterialWysiwygSharpFilled;

@@ -18,4 +18,6 @@ const IconMaterialMediaBluetoothOnSharpW100 = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialMediaBluetoothOnSharpW100.displayName = 'AmauiIconMaterialMediaBluetoothOnSharpW100';
+
 export default IconMaterialMediaBluetoothOnSharpW100;

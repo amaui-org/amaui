@@ -18,4 +18,6 @@ const IconMaterialNestCamIqTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNestCamIqTwoTone.displayName = 'AmauiIconMaterialNestCamIqTwoTone';
+
 export default IconMaterialNestCamIqTwoTone;

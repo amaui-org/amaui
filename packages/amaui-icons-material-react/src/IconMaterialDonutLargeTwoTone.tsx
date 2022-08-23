@@ -18,4 +18,6 @@ const IconMaterialDonutLargeTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDonutLargeTwoTone.displayName = 'AmauiIconMaterialDonutLargeTwoTone';
+
 export default IconMaterialDonutLargeTwoTone;

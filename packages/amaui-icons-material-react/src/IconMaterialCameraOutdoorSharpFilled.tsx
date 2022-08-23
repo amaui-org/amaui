@@ -18,4 +18,6 @@ const IconMaterialCameraOutdoorSharpFilled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialCameraOutdoorSharpFilled.displayName = 'AmauiIconMaterialCameraOutdoorSharpFilled';
+
 export default IconMaterialCameraOutdoorSharpFilled;

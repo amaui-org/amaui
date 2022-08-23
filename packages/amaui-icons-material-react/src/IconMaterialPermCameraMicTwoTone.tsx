@@ -18,4 +18,6 @@ const IconMaterialPermCameraMicTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPermCameraMicTwoTone.displayName = 'AmauiIconMaterialPermCameraMicTwoTone';
+
 export default IconMaterialPermCameraMicTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialFireTruckRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFireTruckRoundedW100.displayName = 'AmauiIconMaterialFireTruckRoundedW100';
+
 export default IconMaterialFireTruckRoundedW100;

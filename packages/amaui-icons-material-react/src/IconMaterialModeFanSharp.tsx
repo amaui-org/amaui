@@ -18,4 +18,6 @@ const IconMaterialModeFanSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialModeFanSharp.displayName = 'AmauiIconMaterialModeFanSharp';
+
 export default IconMaterialModeFanSharp;

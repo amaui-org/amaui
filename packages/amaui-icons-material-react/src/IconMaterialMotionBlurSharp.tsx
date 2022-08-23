@@ -18,4 +18,6 @@ const IconMaterialMotionBlurSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMotionBlurSharp.displayName = 'AmauiIconMaterialMotionBlurSharp';
+
 export default IconMaterialMotionBlurSharp;

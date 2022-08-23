@@ -18,4 +18,6 @@ const IconMaterialGradientRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialGradientRounded.displayName = 'AmauiIconMaterialGradientRounded';
+
 export default IconMaterialGradientRounded;

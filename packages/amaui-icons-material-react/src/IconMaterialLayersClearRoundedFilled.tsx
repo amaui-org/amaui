@@ -18,4 +18,6 @@ const IconMaterialLayersClearRoundedFilled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialLayersClearRoundedFilled.displayName = 'AmauiIconMaterialLayersClearRoundedFilled';
+
 export default IconMaterialLayersClearRoundedFilled;

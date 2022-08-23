@@ -18,4 +18,6 @@ const IconMaterialFiberSmartRecordRoundedW100 = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialFiberSmartRecordRoundedW100.displayName = 'AmauiIconMaterialFiberSmartRecordRoundedW100';
+
 export default IconMaterialFiberSmartRecordRoundedW100;

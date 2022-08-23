@@ -18,4 +18,6 @@ const IconMaterialGroupRemoveTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialGroupRemoveTwoTone.displayName = 'AmauiIconMaterialGroupRemoveTwoTone';
+
 export default IconMaterialGroupRemoveTwoTone;

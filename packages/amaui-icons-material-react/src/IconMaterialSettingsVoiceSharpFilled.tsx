@@ -18,4 +18,6 @@ const IconMaterialSettingsVoiceSharpFilled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialSettingsVoiceSharpFilled.displayName = 'AmauiIconMaterialSettingsVoiceSharpFilled';
+
 export default IconMaterialSettingsVoiceSharpFilled;

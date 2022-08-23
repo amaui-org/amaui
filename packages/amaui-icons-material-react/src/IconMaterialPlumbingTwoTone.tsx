@@ -18,4 +18,6 @@ const IconMaterialPlumbingTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPlumbingTwoTone.displayName = 'AmauiIconMaterialPlumbingTwoTone';
+
 export default IconMaterialPlumbingTwoTone;

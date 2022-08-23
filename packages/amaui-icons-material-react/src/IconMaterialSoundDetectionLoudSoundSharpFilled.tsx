@@ -18,4 +18,6 @@ const IconMaterialSoundDetectionLoudSoundSharpFilled = React.forwardRef((props: 
   );
 });
 
+IconMaterialSoundDetectionLoudSoundSharpFilled.displayName = 'AmauiIconMaterialSoundDetectionLoudSoundSharpFilled';
+
 export default IconMaterialSoundDetectionLoudSoundSharpFilled;

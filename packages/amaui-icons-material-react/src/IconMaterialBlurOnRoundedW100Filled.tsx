@@ -18,4 +18,6 @@ const IconMaterialBlurOnRoundedW100Filled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialBlurOnRoundedW100Filled.displayName = 'AmauiIconMaterialBlurOnRoundedW100Filled';
+
 export default IconMaterialBlurOnRoundedW100Filled;

@@ -18,4 +18,6 @@ const IconMaterialLocalPostOfficeRoundedW100 = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialLocalPostOfficeRoundedW100.displayName = 'AmauiIconMaterialLocalPostOfficeRoundedW100';
+
 export default IconMaterialLocalPostOfficeRoundedW100;

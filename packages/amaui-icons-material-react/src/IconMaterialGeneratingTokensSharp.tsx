@@ -18,4 +18,6 @@ const IconMaterialGeneratingTokensSharp = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialGeneratingTokensSharp.displayName = 'AmauiIconMaterialGeneratingTokensSharp';
+
 export default IconMaterialGeneratingTokensSharp;

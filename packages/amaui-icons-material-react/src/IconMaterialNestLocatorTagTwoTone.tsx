@@ -18,4 +18,6 @@ const IconMaterialNestLocatorTagTwoTone = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialNestLocatorTagTwoTone.displayName = 'AmauiIconMaterialNestLocatorTagTwoTone';
+
 export default IconMaterialNestLocatorTagTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialMoreHorizTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMoreHorizTwoTone.displayName = 'AmauiIconMaterialMoreHorizTwoTone';
+
 export default IconMaterialMoreHorizTwoTone;

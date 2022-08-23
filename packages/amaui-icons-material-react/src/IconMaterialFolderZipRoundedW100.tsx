@@ -18,4 +18,6 @@ const IconMaterialFolderZipRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFolderZipRoundedW100.displayName = 'AmauiIconMaterialFolderZipRoundedW100';
+
 export default IconMaterialFolderZipRoundedW100;

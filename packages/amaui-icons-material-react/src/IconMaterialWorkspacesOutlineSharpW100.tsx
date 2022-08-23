@@ -18,4 +18,6 @@ const IconMaterialWorkspacesOutlineSharpW100 = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialWorkspacesOutlineSharpW100.displayName = 'AmauiIconMaterialWorkspacesOutlineSharpW100';
+
 export default IconMaterialWorkspacesOutlineSharpW100;

@@ -18,4 +18,6 @@ const IconMaterialMusicOffSharpW100Filled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialMusicOffSharpW100Filled.displayName = 'AmauiIconMaterialMusicOffSharpW100Filled';
+
 export default IconMaterialMusicOffSharpW100Filled;

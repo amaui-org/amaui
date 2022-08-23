@@ -18,4 +18,6 @@ const IconMaterialSwapVerticalCircleRoundedW100Filled = React.forwardRef((props:
   );
 });
 
+IconMaterialSwapVerticalCircleRoundedW100Filled.displayName = 'AmauiIconMaterialSwapVerticalCircleRoundedW100Filled';
+
 export default IconMaterialSwapVerticalCircleRoundedW100Filled;

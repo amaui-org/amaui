@@ -18,4 +18,6 @@ const IconMaterialPageviewRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPageviewRoundedW100.displayName = 'AmauiIconMaterialPageviewRoundedW100';
+
 export default IconMaterialPageviewRoundedW100;

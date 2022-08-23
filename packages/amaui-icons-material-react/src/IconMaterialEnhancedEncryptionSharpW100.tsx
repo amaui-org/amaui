@@ -18,4 +18,6 @@ const IconMaterialEnhancedEncryptionSharpW100 = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialEnhancedEncryptionSharpW100.displayName = 'AmauiIconMaterialEnhancedEncryptionSharpW100';
+
 export default IconMaterialEnhancedEncryptionSharpW100;

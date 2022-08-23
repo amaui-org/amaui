@@ -18,4 +18,6 @@ const IconMaterialAccessibilityNewTwoTone = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialAccessibilityNewTwoTone.displayName = 'AmauiIconMaterialAccessibilityNewTwoTone';
+
 export default IconMaterialAccessibilityNewTwoTone;

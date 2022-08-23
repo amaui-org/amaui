@@ -18,4 +18,6 @@ const IconMaterialPunchClockRoundedFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialPunchClockRoundedFilled.displayName = 'AmauiIconMaterialPunchClockRoundedFilled';
+
 export default IconMaterialPunchClockRoundedFilled;

@@ -18,4 +18,6 @@ const IconMaterialNordicWalkingTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNordicWalkingTwoTone.displayName = 'AmauiIconMaterialNordicWalkingTwoTone';
+
 export default IconMaterialNordicWalkingTwoTone;

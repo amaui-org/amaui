@@ -18,4 +18,6 @@ const IconMaterialEscalatorSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialEscalatorSharp.displayName = 'AmauiIconMaterialEscalatorSharp';
+
 export default IconMaterialEscalatorSharp;

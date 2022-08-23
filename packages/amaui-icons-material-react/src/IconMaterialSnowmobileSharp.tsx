@@ -18,4 +18,6 @@ const IconMaterialSnowmobileSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSnowmobileSharp.displayName = 'AmauiIconMaterialSnowmobileSharp';
+
 export default IconMaterialSnowmobileSharp;

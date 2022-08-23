@@ -18,4 +18,6 @@ const IconMaterialCheckroomRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCheckroomRounded.displayName = 'AmauiIconMaterialCheckroomRounded';
+
 export default IconMaterialCheckroomRounded;

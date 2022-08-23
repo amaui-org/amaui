@@ -18,4 +18,6 @@ const IconMaterialAstrophotographyOffTwoTone = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialAstrophotographyOffTwoTone.displayName = 'AmauiIconMaterialAstrophotographyOffTwoTone';
+
 export default IconMaterialAstrophotographyOffTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialDetectorSmokeSharpW100Filled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialDetectorSmokeSharpW100Filled.displayName = 'AmauiIconMaterialDetectorSmokeSharpW100Filled';
+
 export default IconMaterialDetectorSmokeSharpW100Filled;

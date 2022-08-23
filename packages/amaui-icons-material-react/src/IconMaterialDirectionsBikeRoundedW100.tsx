@@ -18,4 +18,6 @@ const IconMaterialDirectionsBikeRoundedW100 = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialDirectionsBikeRoundedW100.displayName = 'AmauiIconMaterialDirectionsBikeRoundedW100';
+
 export default IconMaterialDirectionsBikeRoundedW100;

@@ -18,4 +18,6 @@ const IconMaterialTabUnselectedRoundedW100Filled = React.forwardRef((props: any,
   );
 });
 
+IconMaterialTabUnselectedRoundedW100Filled.displayName = 'AmauiIconMaterialTabUnselectedRoundedW100Filled';
+
 export default IconMaterialTabUnselectedRoundedW100Filled;

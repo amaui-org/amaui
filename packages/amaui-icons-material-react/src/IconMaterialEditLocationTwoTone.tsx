@@ -18,4 +18,6 @@ const IconMaterialEditLocationTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialEditLocationTwoTone.displayName = 'AmauiIconMaterialEditLocationTwoTone';
+
 export default IconMaterialEditLocationTwoTone;

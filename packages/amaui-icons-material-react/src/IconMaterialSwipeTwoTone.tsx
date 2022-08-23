@@ -18,4 +18,6 @@ const IconMaterialSwipeTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSwipeTwoTone.displayName = 'AmauiIconMaterialSwipeTwoTone';
+
 export default IconMaterialSwipeTwoTone;

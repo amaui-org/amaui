@@ -18,4 +18,6 @@ const IconMaterialCloudOffSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCloudOffSharp.displayName = 'AmauiIconMaterialCloudOffSharp';
+
 export default IconMaterialCloudOffSharp;

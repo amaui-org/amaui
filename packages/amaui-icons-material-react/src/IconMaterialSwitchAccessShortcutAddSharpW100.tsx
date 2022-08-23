@@ -18,4 +18,6 @@ const IconMaterialSwitchAccessShortcutAddSharpW100 = React.forwardRef((props: an
   );
 });
 
+IconMaterialSwitchAccessShortcutAddSharpW100.displayName = 'AmauiIconMaterialSwitchAccessShortcutAddSharpW100';
+
 export default IconMaterialSwitchAccessShortcutAddSharpW100;

@@ -18,4 +18,6 @@ const IconMaterialEmergencyRecordingTwoTone = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialEmergencyRecordingTwoTone.displayName = 'AmauiIconMaterialEmergencyRecordingTwoTone';
+
 export default IconMaterialEmergencyRecordingTwoTone;

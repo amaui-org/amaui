@@ -18,4 +18,6 @@ const IconMaterialArrowCircleRightTwoTone = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialArrowCircleRightTwoTone.displayName = 'AmauiIconMaterialArrowCircleRightTwoTone';
+
 export default IconMaterialArrowCircleRightTwoTone;

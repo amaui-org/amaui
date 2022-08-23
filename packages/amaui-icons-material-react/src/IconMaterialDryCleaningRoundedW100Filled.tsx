@@ -18,4 +18,6 @@ const IconMaterialDryCleaningRoundedW100Filled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialDryCleaningRoundedW100Filled.displayName = 'AmauiIconMaterialDryCleaningRoundedW100Filled';
+
 export default IconMaterialDryCleaningRoundedW100Filled;

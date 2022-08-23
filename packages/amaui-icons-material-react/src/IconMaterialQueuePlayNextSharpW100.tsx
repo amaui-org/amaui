@@ -18,4 +18,6 @@ const IconMaterialQueuePlayNextSharpW100 = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialQueuePlayNextSharpW100.displayName = 'AmauiIconMaterialQueuePlayNextSharpW100';
+
 export default IconMaterialQueuePlayNextSharpW100;

@@ -18,4 +18,6 @@ const IconMaterialIceSkatingSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialIceSkatingSharpW100.displayName = 'AmauiIconMaterialIceSkatingSharpW100';
+
 export default IconMaterialIceSkatingSharpW100;

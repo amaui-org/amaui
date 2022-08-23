@@ -18,4 +18,6 @@ const IconMaterialRangeHoodSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialRangeHoodSharpFilled.displayName = 'AmauiIconMaterialRangeHoodSharpFilled';
+
 export default IconMaterialRangeHoodSharpFilled;

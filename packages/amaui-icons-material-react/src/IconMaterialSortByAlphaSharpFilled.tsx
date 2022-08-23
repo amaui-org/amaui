@@ -18,4 +18,6 @@ const IconMaterialSortByAlphaSharpFilled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialSortByAlphaSharpFilled.displayName = 'AmauiIconMaterialSortByAlphaSharpFilled';
+
 export default IconMaterialSortByAlphaSharpFilled;

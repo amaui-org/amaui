@@ -18,4 +18,6 @@ const IconMaterialPivotTableChartRoundedFilled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialPivotTableChartRoundedFilled.displayName = 'AmauiIconMaterialPivotTableChartRoundedFilled';
+
 export default IconMaterialPivotTableChartRoundedFilled;

@@ -18,4 +18,6 @@ const IconMaterialPrecisionManufacturingRoundedFilled = React.forwardRef((props:
   );
 });
 
+IconMaterialPrecisionManufacturingRoundedFilled.displayName = 'AmauiIconMaterialPrecisionManufacturingRoundedFilled';
+
 export default IconMaterialPrecisionManufacturingRoundedFilled;

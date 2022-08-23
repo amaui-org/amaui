@@ -18,4 +18,6 @@ const IconMaterialKingBedTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialKingBedTwoTone.displayName = 'AmauiIconMaterialKingBedTwoTone';
+
 export default IconMaterialKingBedTwoTone;

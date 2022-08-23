@@ -18,4 +18,6 @@ const IconMaterialEscalatorWarningRoundedFilled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialEscalatorWarningRoundedFilled.displayName = 'AmauiIconMaterialEscalatorWarningRoundedFilled';
+
 export default IconMaterialEscalatorWarningRoundedFilled;

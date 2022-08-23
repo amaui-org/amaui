@@ -18,4 +18,6 @@ const IconMaterialLeakAddTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLeakAddTwoTone.displayName = 'AmauiIconMaterialLeakAddTwoTone';
+
 export default IconMaterialLeakAddTwoTone;

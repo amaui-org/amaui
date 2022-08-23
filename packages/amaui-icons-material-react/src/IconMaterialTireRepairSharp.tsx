@@ -18,4 +18,6 @@ const IconMaterialTireRepairSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTireRepairSharp.displayName = 'AmauiIconMaterialTireRepairSharp';
+
 export default IconMaterialTireRepairSharp;

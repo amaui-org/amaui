@@ -18,4 +18,6 @@ const IconMaterialElectricalServicesSharp = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialElectricalServicesSharp.displayName = 'AmauiIconMaterialElectricalServicesSharp';
+
 export default IconMaterialElectricalServicesSharp;

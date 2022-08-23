@@ -18,4 +18,6 @@ const IconMaterialSignalWifiStatusbarNullTwoTone = React.forwardRef((props: any,
   );
 });
 
+IconMaterialSignalWifiStatusbarNullTwoTone.displayName = 'AmauiIconMaterialSignalWifiStatusbarNullTwoTone';
+
 export default IconMaterialSignalWifiStatusbarNullTwoTone;

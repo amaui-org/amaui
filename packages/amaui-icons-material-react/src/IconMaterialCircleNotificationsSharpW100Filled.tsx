@@ -18,4 +18,6 @@ const IconMaterialCircleNotificationsSharpW100Filled = React.forwardRef((props: 
   );
 });
 
+IconMaterialCircleNotificationsSharpW100Filled.displayName = 'AmauiIconMaterialCircleNotificationsSharpW100Filled';
+
 export default IconMaterialCircleNotificationsSharpW100Filled;

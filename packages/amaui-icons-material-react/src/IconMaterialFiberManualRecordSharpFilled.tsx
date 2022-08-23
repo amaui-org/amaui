@@ -18,4 +18,6 @@ const IconMaterialFiberManualRecordSharpFilled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialFiberManualRecordSharpFilled.displayName = 'AmauiIconMaterialFiberManualRecordSharpFilled';
+
 export default IconMaterialFiberManualRecordSharpFilled;

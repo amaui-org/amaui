@@ -18,4 +18,6 @@ const IconMaterialReduceCapacityRounded = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialReduceCapacityRounded.displayName = 'AmauiIconMaterialReduceCapacityRounded';
+
 export default IconMaterialReduceCapacityRounded;

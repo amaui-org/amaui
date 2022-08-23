@@ -18,4 +18,6 @@ const IconMaterialCenterFocusStrongRoundedW100 = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialCenterFocusStrongRoundedW100.displayName = 'AmauiIconMaterialCenterFocusStrongRoundedW100';
+
 export default IconMaterialCenterFocusStrongRoundedW100;

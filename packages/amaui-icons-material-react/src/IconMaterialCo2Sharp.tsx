@@ -18,4 +18,6 @@ const IconMaterialCo2Sharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCo2Sharp.displayName = 'AmauiIconMaterialCo2Sharp';
+
 export default IconMaterialCo2Sharp;

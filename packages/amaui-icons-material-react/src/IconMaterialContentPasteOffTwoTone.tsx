@@ -18,4 +18,6 @@ const IconMaterialContentPasteOffTwoTone = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialContentPasteOffTwoTone.displayName = 'AmauiIconMaterialContentPasteOffTwoTone';
+
 export default IconMaterialContentPasteOffTwoTone;

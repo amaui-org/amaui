@@ -18,4 +18,6 @@ const IconMaterialDashboardCustomizeSharpFilled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialDashboardCustomizeSharpFilled.displayName = 'AmauiIconMaterialDashboardCustomizeSharpFilled';
+
 export default IconMaterialDashboardCustomizeSharpFilled;

@@ -18,4 +18,6 @@ const IconMaterialFormatSizeTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFormatSizeTwoTone.displayName = 'AmauiIconMaterialFormatSizeTwoTone';
+
 export default IconMaterialFormatSizeTwoTone;

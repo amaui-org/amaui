@@ -18,4 +18,6 @@ const IconMaterialViewWeekTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialViewWeekTwoTone.displayName = 'AmauiIconMaterialViewWeekTwoTone';
+
 export default IconMaterialViewWeekTwoTone;

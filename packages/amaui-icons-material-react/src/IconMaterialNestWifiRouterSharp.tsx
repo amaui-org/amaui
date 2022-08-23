@@ -18,4 +18,6 @@ const IconMaterialNestWifiRouterSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNestWifiRouterSharp.displayName = 'AmauiIconMaterialNestWifiRouterSharp';
+
 export default IconMaterialNestWifiRouterSharp;

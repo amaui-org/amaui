@@ -18,4 +18,6 @@ const IconMaterialRadioTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialRadioTwoTone.displayName = 'AmauiIconMaterialRadioTwoTone';
+
 export default IconMaterialRadioTwoTone;

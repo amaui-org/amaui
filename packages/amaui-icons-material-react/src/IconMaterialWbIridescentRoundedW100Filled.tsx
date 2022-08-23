@@ -18,4 +18,6 @@ const IconMaterialWbIridescentRoundedW100Filled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialWbIridescentRoundedW100Filled.displayName = 'AmauiIconMaterialWbIridescentRoundedW100Filled';
+
 export default IconMaterialWbIridescentRoundedW100Filled;

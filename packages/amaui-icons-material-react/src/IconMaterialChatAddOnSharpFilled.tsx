@@ -18,4 +18,6 @@ const IconMaterialChatAddOnSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialChatAddOnSharpFilled.displayName = 'AmauiIconMaterialChatAddOnSharpFilled';
+
 export default IconMaterialChatAddOnSharpFilled;

@@ -18,4 +18,6 @@ const IconMaterialFolderDeleteRoundedFilled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialFolderDeleteRoundedFilled.displayName = 'AmauiIconMaterialFolderDeleteRoundedFilled';
+
 export default IconMaterialFolderDeleteRoundedFilled;

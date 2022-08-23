@@ -18,4 +18,6 @@ const IconMaterialRoomPreferencesTwoTone = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialRoomPreferencesTwoTone.displayName = 'AmauiIconMaterialRoomPreferencesTwoTone';
+
 export default IconMaterialRoomPreferencesTwoTone;

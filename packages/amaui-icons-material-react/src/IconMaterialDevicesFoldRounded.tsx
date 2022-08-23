@@ -18,4 +18,6 @@ const IconMaterialDevicesFoldRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDevicesFoldRounded.displayName = 'AmauiIconMaterialDevicesFoldRounded';
+
 export default IconMaterialDevicesFoldRounded;

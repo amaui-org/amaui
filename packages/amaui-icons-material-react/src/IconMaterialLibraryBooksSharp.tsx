@@ -18,4 +18,6 @@ const IconMaterialLibraryBooksSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLibraryBooksSharp.displayName = 'AmauiIconMaterialLibraryBooksSharp';
+
 export default IconMaterialLibraryBooksSharp;

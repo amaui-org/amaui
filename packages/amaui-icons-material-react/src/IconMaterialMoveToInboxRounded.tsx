@@ -18,4 +18,6 @@ const IconMaterialMoveToInboxRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMoveToInboxRounded.displayName = 'AmauiIconMaterialMoveToInboxRounded';
+
 export default IconMaterialMoveToInboxRounded;

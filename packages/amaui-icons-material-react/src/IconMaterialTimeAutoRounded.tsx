@@ -18,4 +18,6 @@ const IconMaterialTimeAutoRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTimeAutoRounded.displayName = 'AmauiIconMaterialTimeAutoRounded';
+
 export default IconMaterialTimeAutoRounded;

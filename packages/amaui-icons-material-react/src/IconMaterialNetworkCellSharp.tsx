@@ -18,4 +18,6 @@ const IconMaterialNetworkCellSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNetworkCellSharp.displayName = 'AmauiIconMaterialNetworkCellSharp';
+
 export default IconMaterialNetworkCellSharp;

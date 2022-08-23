@@ -18,4 +18,6 @@ const IconMaterialPowerSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPowerSharp.displayName = 'AmauiIconMaterialPowerSharp';
+
 export default IconMaterialPowerSharp;

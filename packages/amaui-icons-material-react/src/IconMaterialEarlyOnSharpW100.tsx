@@ -18,4 +18,6 @@ const IconMaterialEarlyOnSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialEarlyOnSharpW100.displayName = 'AmauiIconMaterialEarlyOnSharpW100';
+
 export default IconMaterialEarlyOnSharpW100;

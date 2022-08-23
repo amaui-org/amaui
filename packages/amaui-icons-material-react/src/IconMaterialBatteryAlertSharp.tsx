@@ -18,4 +18,6 @@ const IconMaterialBatteryAlertSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBatteryAlertSharp.displayName = 'AmauiIconMaterialBatteryAlertSharp';
+
 export default IconMaterialBatteryAlertSharp;

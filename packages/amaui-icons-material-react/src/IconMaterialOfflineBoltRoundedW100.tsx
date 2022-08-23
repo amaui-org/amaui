@@ -18,4 +18,6 @@ const IconMaterialOfflineBoltRoundedW100 = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialOfflineBoltRoundedW100.displayName = 'AmauiIconMaterialOfflineBoltRoundedW100';
+
 export default IconMaterialOfflineBoltRoundedW100;

@@ -18,4 +18,6 @@ const IconMaterialSanitizerRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSanitizerRoundedW100.displayName = 'AmauiIconMaterialSanitizerRoundedW100';
+
 export default IconMaterialSanitizerRoundedW100;

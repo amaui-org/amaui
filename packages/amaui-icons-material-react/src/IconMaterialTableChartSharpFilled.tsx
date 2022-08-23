@@ -18,4 +18,6 @@ const IconMaterialTableChartSharpFilled = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialTableChartSharpFilled.displayName = 'AmauiIconMaterialTableChartSharpFilled';
+
 export default IconMaterialTableChartSharpFilled;

@@ -18,4 +18,6 @@ const IconMaterialDirectionsRunRoundedW100Filled = React.forwardRef((props: any,
   );
 });
 
+IconMaterialDirectionsRunRoundedW100Filled.displayName = 'AmauiIconMaterialDirectionsRunRoundedW100Filled';
+
 export default IconMaterialDirectionsRunRoundedW100Filled;

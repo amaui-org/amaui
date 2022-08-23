@@ -18,4 +18,6 @@ const IconMaterialFormatSizeRoundedFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialFormatSizeRoundedFilled.displayName = 'AmauiIconMaterialFormatSizeRoundedFilled';
+
 export default IconMaterialFormatSizeRoundedFilled;

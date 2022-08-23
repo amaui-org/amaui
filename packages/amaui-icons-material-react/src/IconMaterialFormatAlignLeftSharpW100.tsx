@@ -18,4 +18,6 @@ const IconMaterialFormatAlignLeftSharpW100 = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialFormatAlignLeftSharpW100.displayName = 'AmauiIconMaterialFormatAlignLeftSharpW100';
+
 export default IconMaterialFormatAlignLeftSharpW100;

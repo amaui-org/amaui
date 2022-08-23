@@ -18,4 +18,6 @@ const IconMaterialCompressSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCompressSharpFilled.displayName = 'AmauiIconMaterialCompressSharpFilled';
+
 export default IconMaterialCompressSharpFilled;

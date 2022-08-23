@@ -18,4 +18,6 @@ const IconMaterialDialpadRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDialpadRounded.displayName = 'AmauiIconMaterialDialpadRounded';
+
 export default IconMaterialDialpadRounded;

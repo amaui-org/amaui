@@ -18,4 +18,6 @@ const IconMaterialLensTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLensTwoTone.displayName = 'AmauiIconMaterialLensTwoTone';
+
 export default IconMaterialLensTwoTone;

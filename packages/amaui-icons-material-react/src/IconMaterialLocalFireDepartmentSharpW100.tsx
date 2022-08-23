@@ -18,4 +18,6 @@ const IconMaterialLocalFireDepartmentSharpW100 = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialLocalFireDepartmentSharpW100.displayName = 'AmauiIconMaterialLocalFireDepartmentSharpW100';
+
 export default IconMaterialLocalFireDepartmentSharpW100;

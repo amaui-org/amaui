@@ -18,4 +18,6 @@ const IconMaterialFilter5TwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFilter5TwoTone.displayName = 'AmauiIconMaterialFilter5TwoTone';
+
 export default IconMaterialFilter5TwoTone;

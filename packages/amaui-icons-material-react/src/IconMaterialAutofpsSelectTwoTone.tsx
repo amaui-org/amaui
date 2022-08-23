@@ -18,4 +18,6 @@ const IconMaterialAutofpsSelectTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAutofpsSelectTwoTone.displayName = 'AmauiIconMaterialAutofpsSelectTwoTone';
+
 export default IconMaterialAutofpsSelectTwoTone;

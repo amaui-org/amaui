@@ -18,4 +18,6 @@ const IconMaterialFlightClassSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFlightClassSharp.displayName = 'AmauiIconMaterialFlightClassSharp';
+
 export default IconMaterialFlightClassSharp;

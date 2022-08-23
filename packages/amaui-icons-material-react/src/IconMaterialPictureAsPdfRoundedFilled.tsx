@@ -18,4 +18,6 @@ const IconMaterialPictureAsPdfRoundedFilled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialPictureAsPdfRoundedFilled.displayName = 'AmauiIconMaterialPictureAsPdfRoundedFilled';
+
 export default IconMaterialPictureAsPdfRoundedFilled;

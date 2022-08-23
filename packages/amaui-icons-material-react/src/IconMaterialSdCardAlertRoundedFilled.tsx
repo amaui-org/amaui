@@ -18,4 +18,6 @@ const IconMaterialSdCardAlertRoundedFilled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialSdCardAlertRoundedFilled.displayName = 'AmauiIconMaterialSdCardAlertRoundedFilled';
+
 export default IconMaterialSdCardAlertRoundedFilled;

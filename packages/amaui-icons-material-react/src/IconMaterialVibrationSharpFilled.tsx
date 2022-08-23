@@ -18,4 +18,6 @@ const IconMaterialVibrationSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialVibrationSharpFilled.displayName = 'AmauiIconMaterialVibrationSharpFilled';
+
 export default IconMaterialVibrationSharpFilled;

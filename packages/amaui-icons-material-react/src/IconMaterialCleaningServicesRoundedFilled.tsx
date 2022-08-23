@@ -18,4 +18,6 @@ const IconMaterialCleaningServicesRoundedFilled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialCleaningServicesRoundedFilled.displayName = 'AmauiIconMaterialCleaningServicesRoundedFilled';
+
 export default IconMaterialCleaningServicesRoundedFilled;

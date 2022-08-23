@@ -18,4 +18,6 @@ const IconMaterialDoorSensorRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDoorSensorRounded.displayName = 'AmauiIconMaterialDoorSensorRounded';
+
 export default IconMaterialDoorSensorRounded;

@@ -18,4 +18,6 @@ const IconMaterialPanoramaPhotosphereTwoTone = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialPanoramaPhotosphereTwoTone.displayName = 'AmauiIconMaterialPanoramaPhotosphereTwoTone';
+
 export default IconMaterialPanoramaPhotosphereTwoTone;

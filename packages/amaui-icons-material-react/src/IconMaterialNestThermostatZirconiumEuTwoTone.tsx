@@ -18,4 +18,6 @@ const IconMaterialNestThermostatZirconiumEuTwoTone = React.forwardRef((props: an
   );
 });
 
+IconMaterialNestThermostatZirconiumEuTwoTone.displayName = 'AmauiIconMaterialNestThermostatZirconiumEuTwoTone';
+
 export default IconMaterialNestThermostatZirconiumEuTwoTone;

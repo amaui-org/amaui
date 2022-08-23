@@ -18,4 +18,6 @@ const IconMaterialNavigateNextSharpW100Filled = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialNavigateNextSharpW100Filled.displayName = 'AmauiIconMaterialNavigateNextSharpW100Filled';
+
 export default IconMaterialNavigateNextSharpW100Filled;

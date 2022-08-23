@@ -18,4 +18,6 @@ const IconMaterialScheduleSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialScheduleSharp.displayName = 'AmauiIconMaterialScheduleSharp';
+
 export default IconMaterialScheduleSharp;

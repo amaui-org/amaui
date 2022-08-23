@@ -18,4 +18,6 @@ const IconMaterialSupervisorAccountTwoTone = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialSupervisorAccountTwoTone.displayName = 'AmauiIconMaterialSupervisorAccountTwoTone';
+
 export default IconMaterialSupervisorAccountTwoTone;

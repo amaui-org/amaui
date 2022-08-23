@@ -18,4 +18,6 @@ const IconMaterialTextRotateUpSharpW100 = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialTextRotateUpSharpW100.displayName = 'AmauiIconMaterialTextRotateUpSharpW100';
+
 export default IconMaterialTextRotateUpSharpW100;

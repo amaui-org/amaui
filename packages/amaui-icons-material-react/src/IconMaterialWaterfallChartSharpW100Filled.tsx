@@ -18,4 +18,6 @@ const IconMaterialWaterfallChartSharpW100Filled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialWaterfallChartSharpW100Filled.displayName = 'AmauiIconMaterialWaterfallChartSharpW100Filled';
+
 export default IconMaterialWaterfallChartSharpW100Filled;

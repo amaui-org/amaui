@@ -18,4 +18,6 @@ const IconMaterialBrightnessLowTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBrightnessLowTwoTone.displayName = 'AmauiIconMaterialBrightnessLowTwoTone';
+
 export default IconMaterialBrightnessLowTwoTone;

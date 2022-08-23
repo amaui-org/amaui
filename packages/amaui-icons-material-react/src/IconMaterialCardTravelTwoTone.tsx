@@ -18,4 +18,6 @@ const IconMaterialCardTravelTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCardTravelTwoTone.displayName = 'AmauiIconMaterialCardTravelTwoTone';
+
 export default IconMaterialCardTravelTwoTone;

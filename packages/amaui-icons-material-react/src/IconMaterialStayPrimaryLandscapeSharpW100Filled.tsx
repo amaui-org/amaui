@@ -18,4 +18,6 @@ const IconMaterialStayPrimaryLandscapeSharpW100Filled = React.forwardRef((props:
   );
 });
 
+IconMaterialStayPrimaryLandscapeSharpW100Filled.displayName = 'AmauiIconMaterialStayPrimaryLandscapeSharpW100Filled';
+
 export default IconMaterialStayPrimaryLandscapeSharpW100Filled;

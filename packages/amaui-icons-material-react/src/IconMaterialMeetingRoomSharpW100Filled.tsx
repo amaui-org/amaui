@@ -18,4 +18,6 @@ const IconMaterialMeetingRoomSharpW100Filled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialMeetingRoomSharpW100Filled.displayName = 'AmauiIconMaterialMeetingRoomSharpW100Filled';
+
 export default IconMaterialMeetingRoomSharpW100Filled;

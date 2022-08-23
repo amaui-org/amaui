@@ -18,4 +18,6 @@ const IconMaterialCompostSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCompostSharp.displayName = 'AmauiIconMaterialCompostSharp';
+
 export default IconMaterialCompostSharp;

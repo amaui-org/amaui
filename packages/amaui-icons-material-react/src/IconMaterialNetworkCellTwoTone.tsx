@@ -18,4 +18,6 @@ const IconMaterialNetworkCellTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNetworkCellTwoTone.displayName = 'AmauiIconMaterialNetworkCellTwoTone';
+
 export default IconMaterialNetworkCellTwoTone;

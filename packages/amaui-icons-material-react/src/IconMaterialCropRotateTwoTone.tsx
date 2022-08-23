@@ -18,4 +18,6 @@ const IconMaterialCropRotateTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCropRotateTwoTone.displayName = 'AmauiIconMaterialCropRotateTwoTone';
+
 export default IconMaterialCropRotateTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialColorizeSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialColorizeSharpFilled.displayName = 'AmauiIconMaterialColorizeSharpFilled';
+
 export default IconMaterialColorizeSharpFilled;

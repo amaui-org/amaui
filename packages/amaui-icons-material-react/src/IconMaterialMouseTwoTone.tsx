@@ -18,4 +18,6 @@ const IconMaterialMouseTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMouseTwoTone.displayName = 'AmauiIconMaterialMouseTwoTone';
+
 export default IconMaterialMouseTwoTone;

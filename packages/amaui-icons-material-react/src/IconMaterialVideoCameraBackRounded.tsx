@@ -18,4 +18,6 @@ const IconMaterialVideoCameraBackRounded = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialVideoCameraBackRounded.displayName = 'AmauiIconMaterialVideoCameraBackRounded';
+
 export default IconMaterialVideoCameraBackRounded;

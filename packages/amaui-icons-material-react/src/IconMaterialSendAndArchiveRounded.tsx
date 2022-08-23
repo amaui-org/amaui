@@ -18,4 +18,6 @@ const IconMaterialSendAndArchiveRounded = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialSendAndArchiveRounded.displayName = 'AmauiIconMaterialSendAndArchiveRounded';
+
 export default IconMaterialSendAndArchiveRounded;

@@ -18,4 +18,6 @@ const IconMaterialAutofpsSelectRoundedFilled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialAutofpsSelectRoundedFilled.displayName = 'AmauiIconMaterialAutofpsSelectRoundedFilled';
+
 export default IconMaterialAutofpsSelectRoundedFilled;

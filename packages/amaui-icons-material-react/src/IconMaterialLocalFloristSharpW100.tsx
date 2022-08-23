@@ -18,4 +18,6 @@ const IconMaterialLocalFloristSharpW100 = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialLocalFloristSharpW100.displayName = 'AmauiIconMaterialLocalFloristSharpW100';
+
 export default IconMaterialLocalFloristSharpW100;

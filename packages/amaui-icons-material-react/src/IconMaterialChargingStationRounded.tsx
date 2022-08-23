@@ -18,4 +18,6 @@ const IconMaterialChargingStationRounded = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialChargingStationRounded.displayName = 'AmauiIconMaterialChargingStationRounded';
+
 export default IconMaterialChargingStationRounded;

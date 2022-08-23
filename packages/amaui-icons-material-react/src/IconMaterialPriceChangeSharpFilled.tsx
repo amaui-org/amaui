@@ -18,4 +18,6 @@ const IconMaterialPriceChangeSharpFilled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialPriceChangeSharpFilled.displayName = 'AmauiIconMaterialPriceChangeSharpFilled';
+
 export default IconMaterialPriceChangeSharpFilled;

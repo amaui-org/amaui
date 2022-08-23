@@ -18,4 +18,6 @@ const IconMaterialGooglePlusReshareRoundedW100Filled = React.forwardRef((props: 
   );
 });
 
+IconMaterialGooglePlusReshareRoundedW100Filled.displayName = 'AmauiIconMaterialGooglePlusReshareRoundedW100Filled';
+
 export default IconMaterialGooglePlusReshareRoundedW100Filled;

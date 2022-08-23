@@ -18,4 +18,6 @@ const IconMaterialTeamDashboardRoundedW100 = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialTeamDashboardRoundedW100.displayName = 'AmauiIconMaterialTeamDashboardRoundedW100';
+
 export default IconMaterialTeamDashboardRoundedW100;

@@ -18,4 +18,6 @@ const IconMaterialChromecast2TwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialChromecast2TwoTone.displayName = 'AmauiIconMaterialChromecast2TwoTone';
+
 export default IconMaterialChromecast2TwoTone;

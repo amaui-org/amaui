@@ -18,4 +18,6 @@ const IconMaterialManageHistoryTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialManageHistoryTwoTone.displayName = 'AmauiIconMaterialManageHistoryTwoTone';
+
 export default IconMaterialManageHistoryTwoTone;

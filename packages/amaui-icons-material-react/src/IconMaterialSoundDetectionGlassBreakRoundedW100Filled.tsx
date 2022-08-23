@@ -18,4 +18,6 @@ const IconMaterialSoundDetectionGlassBreakRoundedW100Filled = React.forwardRef((
   );
 });
 
+IconMaterialSoundDetectionGlassBreakRoundedW100Filled.displayName = 'AmauiIconMaterialSoundDetectionGlassBreakRoundedW100Filled';
+
 export default IconMaterialSoundDetectionGlassBreakRoundedW100Filled;

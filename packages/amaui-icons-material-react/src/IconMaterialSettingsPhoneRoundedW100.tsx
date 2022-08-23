@@ -18,4 +18,6 @@ const IconMaterialSettingsPhoneRoundedW100 = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialSettingsPhoneRoundedW100.displayName = 'AmauiIconMaterialSettingsPhoneRoundedW100';
+
 export default IconMaterialSettingsPhoneRoundedW100;

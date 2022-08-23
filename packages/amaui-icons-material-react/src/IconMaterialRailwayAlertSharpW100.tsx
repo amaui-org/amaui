@@ -18,4 +18,6 @@ const IconMaterialRailwayAlertSharpW100 = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialRailwayAlertSharpW100.displayName = 'AmauiIconMaterialRailwayAlertSharpW100';
+
 export default IconMaterialRailwayAlertSharpW100;

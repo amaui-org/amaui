@@ -18,4 +18,6 @@ const IconMaterialCheckBoxOutlineBlankSharp = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialCheckBoxOutlineBlankSharp.displayName = 'AmauiIconMaterialCheckBoxOutlineBlankSharp';
+
 export default IconMaterialCheckBoxOutlineBlankSharp;

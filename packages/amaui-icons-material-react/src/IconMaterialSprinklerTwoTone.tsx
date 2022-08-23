@@ -18,4 +18,6 @@ const IconMaterialSprinklerTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSprinklerTwoTone.displayName = 'AmauiIconMaterialSprinklerTwoTone';
+
 export default IconMaterialSprinklerTwoTone;

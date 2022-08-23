@@ -18,4 +18,6 @@ const IconMaterialWineBarRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialWineBarRounded.displayName = 'AmauiIconMaterialWineBarRounded';
+
 export default IconMaterialWineBarRounded;

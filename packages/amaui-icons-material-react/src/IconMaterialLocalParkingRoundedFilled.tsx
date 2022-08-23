@@ -18,4 +18,6 @@ const IconMaterialLocalParkingRoundedFilled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialLocalParkingRoundedFilled.displayName = 'AmauiIconMaterialLocalParkingRoundedFilled';
+
 export default IconMaterialLocalParkingRoundedFilled;

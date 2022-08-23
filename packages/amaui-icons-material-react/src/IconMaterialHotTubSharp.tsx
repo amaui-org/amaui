@@ -18,4 +18,6 @@ const IconMaterialHotTubSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialHotTubSharp.displayName = 'AmauiIconMaterialHotTubSharp';
+
 export default IconMaterialHotTubSharp;

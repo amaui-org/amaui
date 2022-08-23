@@ -18,4 +18,6 @@ const IconMaterialWbSunnyRoundedFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialWbSunnyRoundedFilled.displayName = 'AmauiIconMaterialWbSunnyRoundedFilled';
+
 export default IconMaterialWbSunnyRoundedFilled;

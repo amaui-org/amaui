@@ -18,4 +18,6 @@ const IconMaterialPaddingSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPaddingSharpFilled.displayName = 'AmauiIconMaterialPaddingSharpFilled';
+
 export default IconMaterialPaddingSharpFilled;

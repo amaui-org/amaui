@@ -18,4 +18,6 @@ const IconMaterialCloudySnowingRoundedW100Filled = React.forwardRef((props: any,
   );
 });
 
+IconMaterialCloudySnowingRoundedW100Filled.displayName = 'AmauiIconMaterialCloudySnowingRoundedW100Filled';
+
 export default IconMaterialCloudySnowingRoundedW100Filled;

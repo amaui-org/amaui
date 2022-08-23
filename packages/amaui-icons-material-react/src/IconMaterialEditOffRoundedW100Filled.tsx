@@ -18,4 +18,6 @@ const IconMaterialEditOffRoundedW100Filled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialEditOffRoundedW100Filled.displayName = 'AmauiIconMaterialEditOffRoundedW100Filled';
+
 export default IconMaterialEditOffRoundedW100Filled;

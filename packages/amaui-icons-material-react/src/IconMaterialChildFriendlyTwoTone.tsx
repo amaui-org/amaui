@@ -18,4 +18,6 @@ const IconMaterialChildFriendlyTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialChildFriendlyTwoTone.displayName = 'AmauiIconMaterialChildFriendlyTwoTone';
+
 export default IconMaterialChildFriendlyTwoTone;

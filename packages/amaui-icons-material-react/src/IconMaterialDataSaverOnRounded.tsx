@@ -18,4 +18,6 @@ const IconMaterialDataSaverOnRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDataSaverOnRounded.displayName = 'AmauiIconMaterialDataSaverOnRounded';
+
 export default IconMaterialDataSaverOnRounded;

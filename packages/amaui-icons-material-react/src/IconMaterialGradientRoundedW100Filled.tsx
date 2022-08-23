@@ -18,4 +18,6 @@ const IconMaterialGradientRoundedW100Filled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialGradientRoundedW100Filled.displayName = 'AmauiIconMaterialGradientRoundedW100Filled';
+
 export default IconMaterialGradientRoundedW100Filled;

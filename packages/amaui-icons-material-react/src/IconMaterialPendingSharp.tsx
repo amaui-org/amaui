@@ -18,4 +18,6 @@ const IconMaterialPendingSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPendingSharp.displayName = 'AmauiIconMaterialPendingSharp';
+
 export default IconMaterialPendingSharp;

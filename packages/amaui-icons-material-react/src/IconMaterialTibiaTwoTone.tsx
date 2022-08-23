@@ -18,4 +18,6 @@ const IconMaterialTibiaTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTibiaTwoTone.displayName = 'AmauiIconMaterialTibiaTwoTone';
+
 export default IconMaterialTibiaTwoTone;

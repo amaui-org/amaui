@@ -18,4 +18,6 @@ const IconMaterialLockOpenSharpW100Filled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialLockOpenSharpW100Filled.displayName = 'AmauiIconMaterialLockOpenSharpW100Filled';
+
 export default IconMaterialLockOpenSharpW100Filled;

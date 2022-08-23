@@ -18,4 +18,6 @@ const IconMaterialWifiTetheringOffSharp = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialWifiTetheringOffSharp.displayName = 'AmauiIconMaterialWifiTetheringOffSharp';
+
 export default IconMaterialWifiTetheringOffSharp;

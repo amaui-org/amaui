@@ -18,4 +18,6 @@ const IconMaterialLocalConvenienceStoreSharpW100Filled = React.forwardRef((props
   );
 });
 
+IconMaterialLocalConvenienceStoreSharpW100Filled.displayName = 'AmauiIconMaterialLocalConvenienceStoreSharpW100Filled';
+
 export default IconMaterialLocalConvenienceStoreSharpW100Filled;

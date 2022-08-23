@@ -18,4 +18,6 @@ const IconMaterialModeOffOnTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialModeOffOnTwoTone.displayName = 'AmauiIconMaterialModeOffOnTwoTone';
+
 export default IconMaterialModeOffOnTwoTone;

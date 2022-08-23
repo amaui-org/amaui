@@ -18,4 +18,6 @@ const IconMaterialWaterRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialWaterRoundedW100.displayName = 'AmauiIconMaterialWaterRoundedW100';
+
 export default IconMaterialWaterRoundedW100;

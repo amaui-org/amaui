@@ -18,4 +18,6 @@ const IconMaterialWhereToVoteSharpFilled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialWhereToVoteSharpFilled.displayName = 'AmauiIconMaterialWhereToVoteSharpFilled';
+
 export default IconMaterialWhereToVoteSharpFilled;

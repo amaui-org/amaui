@@ -18,4 +18,6 @@ const IconMaterialKitesurfingSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialKitesurfingSharp.displayName = 'AmauiIconMaterialKitesurfingSharp';
+
 export default IconMaterialKitesurfingSharp;

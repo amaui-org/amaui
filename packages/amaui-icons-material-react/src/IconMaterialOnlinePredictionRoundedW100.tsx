@@ -18,4 +18,6 @@ const IconMaterialOnlinePredictionRoundedW100 = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialOnlinePredictionRoundedW100.displayName = 'AmauiIconMaterialOnlinePredictionRoundedW100';
+
 export default IconMaterialOnlinePredictionRoundedW100;

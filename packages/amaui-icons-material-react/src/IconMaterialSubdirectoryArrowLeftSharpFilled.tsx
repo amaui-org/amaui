@@ -18,4 +18,6 @@ const IconMaterialSubdirectoryArrowLeftSharpFilled = React.forwardRef((props: an
   );
 });
 
+IconMaterialSubdirectoryArrowLeftSharpFilled.displayName = 'AmauiIconMaterialSubdirectoryArrowLeftSharpFilled';
+
 export default IconMaterialSubdirectoryArrowLeftSharpFilled;

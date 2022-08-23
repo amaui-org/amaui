@@ -18,4 +18,6 @@ const IconMaterialFileUploadRoundedFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialFileUploadRoundedFilled.displayName = 'AmauiIconMaterialFileUploadRoundedFilled';
+
 export default IconMaterialFileUploadRoundedFilled;

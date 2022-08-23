@@ -18,4 +18,6 @@ const IconMaterialPermContactCalendarRoundedW100 = React.forwardRef((props: any,
   );
 });
 
+IconMaterialPermContactCalendarRoundedW100.displayName = 'AmauiIconMaterialPermContactCalendarRoundedW100';
+
 export default IconMaterialPermContactCalendarRoundedW100;

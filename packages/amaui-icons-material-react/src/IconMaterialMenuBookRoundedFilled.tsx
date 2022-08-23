@@ -18,4 +18,6 @@ const IconMaterialMenuBookRoundedFilled = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialMenuBookRoundedFilled.displayName = 'AmauiIconMaterialMenuBookRoundedFilled';
+
 export default IconMaterialMenuBookRoundedFilled;

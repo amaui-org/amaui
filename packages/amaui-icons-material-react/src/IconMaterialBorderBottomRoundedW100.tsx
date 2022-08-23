@@ -18,4 +18,6 @@ const IconMaterialBorderBottomRoundedW100 = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialBorderBottomRoundedW100.displayName = 'AmauiIconMaterialBorderBottomRoundedW100';
+
 export default IconMaterialBorderBottomRoundedW100;

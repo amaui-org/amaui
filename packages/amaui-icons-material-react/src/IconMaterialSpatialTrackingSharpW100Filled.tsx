@@ -18,4 +18,6 @@ const IconMaterialSpatialTrackingSharpW100Filled = React.forwardRef((props: any,
   );
 });
 
+IconMaterialSpatialTrackingSharpW100Filled.displayName = 'AmauiIconMaterialSpatialTrackingSharpW100Filled';
+
 export default IconMaterialSpatialTrackingSharpW100Filled;

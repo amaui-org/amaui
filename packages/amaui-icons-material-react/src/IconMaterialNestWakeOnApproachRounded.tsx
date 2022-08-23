@@ -18,4 +18,6 @@ const IconMaterialNestWakeOnApproachRounded = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialNestWakeOnApproachRounded.displayName = 'AmauiIconMaterialNestWakeOnApproachRounded';
+
 export default IconMaterialNestWakeOnApproachRounded;

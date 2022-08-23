@@ -18,4 +18,6 @@ const IconMaterialStadiaControllerRoundedW100Filled = React.forwardRef((props: a
   );
 });
 
+IconMaterialStadiaControllerRoundedW100Filled.displayName = 'AmauiIconMaterialStadiaControllerRoundedW100Filled';
+
 export default IconMaterialStadiaControllerRoundedW100Filled;

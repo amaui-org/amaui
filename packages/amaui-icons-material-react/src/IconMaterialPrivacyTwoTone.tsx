@@ -18,4 +18,6 @@ const IconMaterialPrivacyTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPrivacyTwoTone.displayName = 'AmauiIconMaterialPrivacyTwoTone';
+
 export default IconMaterialPrivacyTwoTone;

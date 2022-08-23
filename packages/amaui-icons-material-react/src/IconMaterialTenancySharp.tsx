@@ -18,4 +18,6 @@ const IconMaterialTenancySharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTenancySharp.displayName = 'AmauiIconMaterialTenancySharp';
+
 export default IconMaterialTenancySharp;

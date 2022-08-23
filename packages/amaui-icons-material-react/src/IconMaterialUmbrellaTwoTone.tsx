@@ -18,4 +18,6 @@ const IconMaterialUmbrellaTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialUmbrellaTwoTone.displayName = 'AmauiIconMaterialUmbrellaTwoTone';
+
 export default IconMaterialUmbrellaTwoTone;

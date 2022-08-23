@@ -18,4 +18,6 @@ const IconMaterialNestCamFloodlightTwoTone = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialNestCamFloodlightTwoTone.displayName = 'AmauiIconMaterialNestCamFloodlightTwoTone';
+
 export default IconMaterialNestCamFloodlightTwoTone;

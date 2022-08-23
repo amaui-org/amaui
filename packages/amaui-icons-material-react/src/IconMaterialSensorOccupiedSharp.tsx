@@ -18,4 +18,6 @@ const IconMaterialSensorOccupiedSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSensorOccupiedSharp.displayName = 'AmauiIconMaterialSensorOccupiedSharp';
+
 export default IconMaterialSensorOccupiedSharp;

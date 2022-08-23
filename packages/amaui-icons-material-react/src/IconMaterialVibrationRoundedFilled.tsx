@@ -18,4 +18,6 @@ const IconMaterialVibrationRoundedFilled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialVibrationRoundedFilled.displayName = 'AmauiIconMaterialVibrationRoundedFilled';
+
 export default IconMaterialVibrationRoundedFilled;

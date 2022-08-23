@@ -18,4 +18,6 @@ const IconMaterialLastPageRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLastPageRoundedW100.displayName = 'AmauiIconMaterialLastPageRoundedW100';
+
 export default IconMaterialLastPageRoundedW100;

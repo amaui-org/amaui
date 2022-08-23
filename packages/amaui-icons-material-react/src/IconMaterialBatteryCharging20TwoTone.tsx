@@ -18,4 +18,6 @@ const IconMaterialBatteryCharging20TwoTone = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialBatteryCharging20TwoTone.displayName = 'AmauiIconMaterialBatteryCharging20TwoTone';
+
 export default IconMaterialBatteryCharging20TwoTone;

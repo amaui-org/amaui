@@ -18,4 +18,6 @@ const IconMaterialConnectWithoutContactRoundedW100 = React.forwardRef((props: an
   );
 });
 
+IconMaterialConnectWithoutContactRoundedW100.displayName = 'AmauiIconMaterialConnectWithoutContactRoundedW100';
+
 export default IconMaterialConnectWithoutContactRoundedW100;

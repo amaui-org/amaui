@@ -18,4 +18,6 @@ const IconMaterialSmokingRoomsTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSmokingRoomsTwoTone.displayName = 'AmauiIconMaterialSmokingRoomsTwoTone';
+
 export default IconMaterialSmokingRoomsTwoTone;

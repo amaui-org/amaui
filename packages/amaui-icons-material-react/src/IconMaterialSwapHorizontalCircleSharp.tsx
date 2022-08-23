@@ -18,4 +18,6 @@ const IconMaterialSwapHorizontalCircleSharp = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialSwapHorizontalCircleSharp.displayName = 'AmauiIconMaterialSwapHorizontalCircleSharp';
+
 export default IconMaterialSwapHorizontalCircleSharp;

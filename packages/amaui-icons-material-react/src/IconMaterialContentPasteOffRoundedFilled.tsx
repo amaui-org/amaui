@@ -18,4 +18,6 @@ const IconMaterialContentPasteOffRoundedFilled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialContentPasteOffRoundedFilled.displayName = 'AmauiIconMaterialContentPasteOffRoundedFilled';
+
 export default IconMaterialContentPasteOffRoundedFilled;

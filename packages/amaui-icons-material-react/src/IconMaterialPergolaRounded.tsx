@@ -18,4 +18,6 @@ const IconMaterialPergolaRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPergolaRounded.displayName = 'AmauiIconMaterialPergolaRounded';
+
 export default IconMaterialPergolaRounded;

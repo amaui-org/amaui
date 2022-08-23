@@ -18,4 +18,6 @@ const IconMaterialSwapCallsSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSwapCallsSharp.displayName = 'AmauiIconMaterialSwapCallsSharp';
+
 export default IconMaterialSwapCallsSharp;

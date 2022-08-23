@@ -18,4 +18,6 @@ const IconMaterialDashboardSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDashboardSharp.displayName = 'AmauiIconMaterialDashboardSharp';
+
 export default IconMaterialDashboardSharp;

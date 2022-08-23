@@ -18,4 +18,6 @@ const IconMaterialHorizontalRuleRoundedFilled = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialHorizontalRuleRoundedFilled.displayName = 'AmauiIconMaterialHorizontalRuleRoundedFilled';
+
 export default IconMaterialHorizontalRuleRoundedFilled;

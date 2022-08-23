@@ -18,4 +18,6 @@ const IconMaterialGrid4x4TwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialGrid4x4TwoTone.displayName = 'AmauiIconMaterialGrid4x4TwoTone';
+
 export default IconMaterialGrid4x4TwoTone;

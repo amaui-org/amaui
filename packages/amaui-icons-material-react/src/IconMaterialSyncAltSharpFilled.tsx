@@ -18,4 +18,6 @@ const IconMaterialSyncAltSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSyncAltSharpFilled.displayName = 'AmauiIconMaterialSyncAltSharpFilled';
+
 export default IconMaterialSyncAltSharpFilled;

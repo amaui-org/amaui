@@ -18,4 +18,6 @@ const IconMaterialTaxiAlertRoundedW100Filled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialTaxiAlertRoundedW100Filled.displayName = 'AmauiIconMaterialTaxiAlertRoundedW100Filled';
+
 export default IconMaterialTaxiAlertRoundedW100Filled;

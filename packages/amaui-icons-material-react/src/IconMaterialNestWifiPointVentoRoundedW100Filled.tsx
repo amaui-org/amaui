@@ -18,4 +18,6 @@ const IconMaterialNestWifiPointVentoRoundedW100Filled = React.forwardRef((props:
   );
 });
 
+IconMaterialNestWifiPointVentoRoundedW100Filled.displayName = 'AmauiIconMaterialNestWifiPointVentoRoundedW100Filled';
+
 export default IconMaterialNestWifiPointVentoRoundedW100Filled;

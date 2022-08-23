@@ -18,4 +18,6 @@ const IconMaterialTimelapseSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTimelapseSharp.displayName = 'AmauiIconMaterialTimelapseSharp';
+
 export default IconMaterialTimelapseSharp;

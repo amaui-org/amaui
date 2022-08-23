@@ -18,4 +18,6 @@ const IconMaterialTextSnippetRoundedFilled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialTextSnippetRoundedFilled.displayName = 'AmauiIconMaterialTextSnippetRoundedFilled';
+
 export default IconMaterialTextSnippetRoundedFilled;

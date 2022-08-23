@@ -18,4 +18,6 @@ const IconMaterialAirlineSeatLegroomReducedTwoTone = React.forwardRef((props: an
   );
 });
 
+IconMaterialAirlineSeatLegroomReducedTwoTone.displayName = 'AmauiIconMaterialAirlineSeatLegroomReducedTwoTone';
+
 export default IconMaterialAirlineSeatLegroomReducedTwoTone;

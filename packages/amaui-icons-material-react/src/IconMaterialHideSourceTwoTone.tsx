@@ -18,4 +18,6 @@ const IconMaterialHideSourceTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialHideSourceTwoTone.displayName = 'AmauiIconMaterialHideSourceTwoTone';
+
 export default IconMaterialHideSourceTwoTone;

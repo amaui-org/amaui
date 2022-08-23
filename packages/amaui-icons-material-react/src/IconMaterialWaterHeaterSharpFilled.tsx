@@ -18,4 +18,6 @@ const IconMaterialWaterHeaterSharpFilled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialWaterHeaterSharpFilled.displayName = 'AmauiIconMaterialWaterHeaterSharpFilled';
+
 export default IconMaterialWaterHeaterSharpFilled;

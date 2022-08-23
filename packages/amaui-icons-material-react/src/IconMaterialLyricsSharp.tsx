@@ -18,4 +18,6 @@ const IconMaterialLyricsSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLyricsSharp.displayName = 'AmauiIconMaterialLyricsSharp';
+
 export default IconMaterialLyricsSharp;

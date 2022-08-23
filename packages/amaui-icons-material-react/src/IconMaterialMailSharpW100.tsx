@@ -18,4 +18,6 @@ const IconMaterialMailSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMailSharpW100.displayName = 'AmauiIconMaterialMailSharpW100';
+
 export default IconMaterialMailSharpW100;

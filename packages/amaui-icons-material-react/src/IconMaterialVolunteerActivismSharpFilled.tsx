@@ -18,4 +18,6 @@ const IconMaterialVolunteerActivismSharpFilled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialVolunteerActivismSharpFilled.displayName = 'AmauiIconMaterialVolunteerActivismSharpFilled';
+
 export default IconMaterialVolunteerActivismSharpFilled;

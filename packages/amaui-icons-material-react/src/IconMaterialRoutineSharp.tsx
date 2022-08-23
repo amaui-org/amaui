@@ -18,4 +18,6 @@ const IconMaterialRoutineSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialRoutineSharp.displayName = 'AmauiIconMaterialRoutineSharp';
+
 export default IconMaterialRoutineSharp;

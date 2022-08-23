@@ -18,4 +18,6 @@ const IconMaterialBathtubRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBathtubRoundedW100.displayName = 'AmauiIconMaterialBathtubRoundedW100';
+
 export default IconMaterialBathtubRoundedW100;

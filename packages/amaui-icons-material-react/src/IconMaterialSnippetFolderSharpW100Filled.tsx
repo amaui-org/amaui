@@ -18,4 +18,6 @@ const IconMaterialSnippetFolderSharpW100Filled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialSnippetFolderSharpW100Filled.displayName = 'AmauiIconMaterialSnippetFolderSharpW100Filled';
+
 export default IconMaterialSnippetFolderSharpW100Filled;

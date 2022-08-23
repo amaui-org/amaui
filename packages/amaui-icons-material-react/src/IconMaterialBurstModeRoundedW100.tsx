@@ -18,4 +18,6 @@ const IconMaterialBurstModeRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBurstModeRoundedW100.displayName = 'AmauiIconMaterialBurstModeRoundedW100';
+
 export default IconMaterialBurstModeRoundedW100;

@@ -18,4 +18,6 @@ const IconMaterialPersonalInjurySharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPersonalInjurySharp.displayName = 'AmauiIconMaterialPersonalInjurySharp';
+
 export default IconMaterialPersonalInjurySharp;

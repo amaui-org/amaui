@@ -18,4 +18,6 @@ const IconMaterialSkipNextSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSkipNextSharpFilled.displayName = 'AmauiIconMaterialSkipNextSharpFilled';
+
 export default IconMaterialSkipNextSharpFilled;

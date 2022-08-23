@@ -18,4 +18,6 @@ const IconMaterialLogoutTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLogoutTwoTone.displayName = 'AmauiIconMaterialLogoutTwoTone';
+
 export default IconMaterialLogoutTwoTone;

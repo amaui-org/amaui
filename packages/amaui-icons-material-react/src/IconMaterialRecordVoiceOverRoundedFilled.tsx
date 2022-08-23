@@ -18,4 +18,6 @@ const IconMaterialRecordVoiceOverRoundedFilled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialRecordVoiceOverRoundedFilled.displayName = 'AmauiIconMaterialRecordVoiceOverRoundedFilled';
+
 export default IconMaterialRecordVoiceOverRoundedFilled;

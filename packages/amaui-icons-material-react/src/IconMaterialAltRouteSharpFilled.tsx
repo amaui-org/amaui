@@ -18,4 +18,6 @@ const IconMaterialAltRouteSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAltRouteSharpFilled.displayName = 'AmauiIconMaterialAltRouteSharpFilled';
+
 export default IconMaterialAltRouteSharpFilled;

@@ -18,4 +18,6 @@ const IconMaterialSwitchAccountTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSwitchAccountTwoTone.displayName = 'AmauiIconMaterialSwitchAccountTwoTone';
+
 export default IconMaterialSwitchAccountTwoTone;

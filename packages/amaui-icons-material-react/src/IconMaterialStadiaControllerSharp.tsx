@@ -18,4 +18,6 @@ const IconMaterialStadiaControllerSharp = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialStadiaControllerSharp.displayName = 'AmauiIconMaterialStadiaControllerSharp';
+
 export default IconMaterialStadiaControllerSharp;

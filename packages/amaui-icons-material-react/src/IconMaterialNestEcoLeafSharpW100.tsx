@@ -18,4 +18,6 @@ const IconMaterialNestEcoLeafSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNestEcoLeafSharpW100.displayName = 'AmauiIconMaterialNestEcoLeafSharpW100';
+
 export default IconMaterialNestEcoLeafSharpW100;

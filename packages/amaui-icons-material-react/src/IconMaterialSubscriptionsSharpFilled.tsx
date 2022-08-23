@@ -18,4 +18,6 @@ const IconMaterialSubscriptionsSharpFilled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialSubscriptionsSharpFilled.displayName = 'AmauiIconMaterialSubscriptionsSharpFilled';
+
 export default IconMaterialSubscriptionsSharpFilled;

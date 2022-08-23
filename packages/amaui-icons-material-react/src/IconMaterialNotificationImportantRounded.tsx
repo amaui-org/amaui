@@ -18,4 +18,6 @@ const IconMaterialNotificationImportantRounded = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialNotificationImportantRounded.displayName = 'AmauiIconMaterialNotificationImportantRounded';
+
 export default IconMaterialNotificationImportantRounded;

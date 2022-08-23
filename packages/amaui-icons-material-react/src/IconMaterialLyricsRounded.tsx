@@ -18,4 +18,6 @@ const IconMaterialLyricsRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLyricsRounded.displayName = 'AmauiIconMaterialLyricsRounded';
+
 export default IconMaterialLyricsRounded;

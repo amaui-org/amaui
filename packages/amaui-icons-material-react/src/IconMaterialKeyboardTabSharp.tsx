@@ -18,4 +18,6 @@ const IconMaterialKeyboardTabSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialKeyboardTabSharp.displayName = 'AmauiIconMaterialKeyboardTabSharp';
+
 export default IconMaterialKeyboardTabSharp;

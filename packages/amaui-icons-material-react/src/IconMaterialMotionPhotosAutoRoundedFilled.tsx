@@ -18,4 +18,6 @@ const IconMaterialMotionPhotosAutoRoundedFilled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialMotionPhotosAutoRoundedFilled.displayName = 'AmauiIconMaterialMotionPhotosAutoRoundedFilled';
+
 export default IconMaterialMotionPhotosAutoRoundedFilled;

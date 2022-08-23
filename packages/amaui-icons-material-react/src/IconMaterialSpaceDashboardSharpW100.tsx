@@ -18,4 +18,6 @@ const IconMaterialSpaceDashboardSharpW100 = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialSpaceDashboardSharpW100.displayName = 'AmauiIconMaterialSpaceDashboardSharpW100';
+
 export default IconMaterialSpaceDashboardSharpW100;

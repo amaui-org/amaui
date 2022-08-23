@@ -18,4 +18,6 @@ const IconMaterialMinimizeSharpW100Filled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialMinimizeSharpW100Filled.displayName = 'AmauiIconMaterialMinimizeSharpW100Filled';
+
 export default IconMaterialMinimizeSharpW100Filled;

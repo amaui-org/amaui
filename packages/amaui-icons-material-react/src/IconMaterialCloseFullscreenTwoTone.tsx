@@ -18,4 +18,6 @@ const IconMaterialCloseFullscreenTwoTone = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialCloseFullscreenTwoTone.displayName = 'AmauiIconMaterialCloseFullscreenTwoTone';
+
 export default IconMaterialCloseFullscreenTwoTone;

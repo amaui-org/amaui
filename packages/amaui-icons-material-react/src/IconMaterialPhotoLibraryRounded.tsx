@@ -18,4 +18,6 @@ const IconMaterialPhotoLibraryRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPhotoLibraryRounded.displayName = 'AmauiIconMaterialPhotoLibraryRounded';
+
 export default IconMaterialPhotoLibraryRounded;

@@ -18,4 +18,6 @@ const IconMaterialBrowseActivityRounded = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialBrowseActivityRounded.displayName = 'AmauiIconMaterialBrowseActivityRounded';
+
 export default IconMaterialBrowseActivityRounded;

@@ -18,4 +18,6 @@ const IconMaterialPermScanWifiSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPermScanWifiSharp.displayName = 'AmauiIconMaterialPermScanWifiSharp';
+
 export default IconMaterialPermScanWifiSharp;

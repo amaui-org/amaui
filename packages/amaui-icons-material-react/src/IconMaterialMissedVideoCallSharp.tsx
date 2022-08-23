@@ -18,4 +18,6 @@ const IconMaterialMissedVideoCallSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMissedVideoCallSharp.displayName = 'AmauiIconMaterialMissedVideoCallSharp';
+
 export default IconMaterialMissedVideoCallSharp;

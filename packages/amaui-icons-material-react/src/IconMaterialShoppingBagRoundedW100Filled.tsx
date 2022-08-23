@@ -18,4 +18,6 @@ const IconMaterialShoppingBagRoundedW100Filled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialShoppingBagRoundedW100Filled.displayName = 'AmauiIconMaterialShoppingBagRoundedW100Filled';
+
 export default IconMaterialShoppingBagRoundedW100Filled;

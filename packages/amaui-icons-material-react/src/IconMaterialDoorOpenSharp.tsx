@@ -18,4 +18,6 @@ const IconMaterialDoorOpenSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDoorOpenSharp.displayName = 'AmauiIconMaterialDoorOpenSharp';
+
 export default IconMaterialDoorOpenSharp;

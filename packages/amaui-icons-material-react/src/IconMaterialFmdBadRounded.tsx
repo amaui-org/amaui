@@ -18,4 +18,6 @@ const IconMaterialFmdBadRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFmdBadRounded.displayName = 'AmauiIconMaterialFmdBadRounded';
+
 export default IconMaterialFmdBadRounded;

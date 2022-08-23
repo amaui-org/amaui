@@ -18,4 +18,6 @@ const IconMaterialGooglePlusReshareTwoTone = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialGooglePlusReshareTwoTone.displayName = 'AmauiIconMaterialGooglePlusReshareTwoTone';
+
 export default IconMaterialGooglePlusReshareTwoTone;

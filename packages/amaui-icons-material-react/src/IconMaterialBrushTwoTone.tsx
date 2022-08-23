@@ -18,4 +18,6 @@ const IconMaterialBrushTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBrushTwoTone.displayName = 'AmauiIconMaterialBrushTwoTone';
+
 export default IconMaterialBrushTwoTone;

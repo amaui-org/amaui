@@ -18,4 +18,6 @@ const IconMaterialBackpackSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBackpackSharp.displayName = 'AmauiIconMaterialBackpackSharp';
+
 export default IconMaterialBackpackSharp;

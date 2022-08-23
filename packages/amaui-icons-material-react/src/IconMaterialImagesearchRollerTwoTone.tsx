@@ -18,4 +18,6 @@ const IconMaterialImagesearchRollerTwoTone = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialImagesearchRollerTwoTone.displayName = 'AmauiIconMaterialImagesearchRollerTwoTone';
+
 export default IconMaterialImagesearchRollerTwoTone;

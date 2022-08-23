@@ -18,4 +18,6 @@ const IconMaterialTempleHinduTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTempleHinduTwoTone.displayName = 'AmauiIconMaterialTempleHinduTwoTone';
+
 export default IconMaterialTempleHinduTwoTone;

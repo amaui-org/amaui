@@ -18,4 +18,6 @@ const IconMaterialBookmarkAddRoundedW100 = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialBookmarkAddRoundedW100.displayName = 'AmauiIconMaterialBookmarkAddRoundedW100';
+
 export default IconMaterialBookmarkAddRoundedW100;

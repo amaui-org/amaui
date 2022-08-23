@@ -18,4 +18,6 @@ const IconMaterialMopSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMopSharp.displayName = 'AmauiIconMaterialMopSharp';
+
 export default IconMaterialMopSharp;

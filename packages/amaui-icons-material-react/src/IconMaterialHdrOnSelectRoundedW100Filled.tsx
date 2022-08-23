@@ -18,4 +18,6 @@ const IconMaterialHdrOnSelectRoundedW100Filled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialHdrOnSelectRoundedW100Filled.displayName = 'AmauiIconMaterialHdrOnSelectRoundedW100Filled';
+
 export default IconMaterialHdrOnSelectRoundedW100Filled;

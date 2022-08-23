@@ -18,4 +18,6 @@ const IconMaterialDynamicFeedTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDynamicFeedTwoTone.displayName = 'AmauiIconMaterialDynamicFeedTwoTone';
+
 export default IconMaterialDynamicFeedTwoTone;

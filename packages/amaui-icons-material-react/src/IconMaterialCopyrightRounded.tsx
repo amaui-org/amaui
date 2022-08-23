@@ -18,4 +18,6 @@ const IconMaterialCopyrightRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCopyrightRounded.displayName = 'AmauiIconMaterialCopyrightRounded';
+
 export default IconMaterialCopyrightRounded;

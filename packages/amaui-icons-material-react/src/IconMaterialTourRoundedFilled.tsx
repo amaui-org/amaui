@@ -18,4 +18,6 @@ const IconMaterialTourRoundedFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTourRoundedFilled.displayName = 'AmauiIconMaterialTourRoundedFilled';
+
 export default IconMaterialTourRoundedFilled;

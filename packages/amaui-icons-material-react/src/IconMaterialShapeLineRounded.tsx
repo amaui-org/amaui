@@ -18,4 +18,6 @@ const IconMaterialShapeLineRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialShapeLineRounded.displayName = 'AmauiIconMaterialShapeLineRounded';
+
 export default IconMaterialShapeLineRounded;

@@ -18,4 +18,6 @@ const IconMaterialScreenshotSharpFilled = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialScreenshotSharpFilled.displayName = 'AmauiIconMaterialScreenshotSharpFilled';
+
 export default IconMaterialScreenshotSharpFilled;

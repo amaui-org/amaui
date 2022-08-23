@@ -18,4 +18,6 @@ const IconMaterialReduceCapacitySharpW100Filled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialReduceCapacitySharpW100Filled.displayName = 'AmauiIconMaterialReduceCapacitySharpW100Filled';
+
 export default IconMaterialReduceCapacitySharpW100Filled;

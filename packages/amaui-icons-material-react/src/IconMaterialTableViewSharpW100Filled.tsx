@@ -18,4 +18,6 @@ const IconMaterialTableViewSharpW100Filled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialTableViewSharpW100Filled.displayName = 'AmauiIconMaterialTableViewSharpW100Filled';
+
 export default IconMaterialTableViewSharpW100Filled;

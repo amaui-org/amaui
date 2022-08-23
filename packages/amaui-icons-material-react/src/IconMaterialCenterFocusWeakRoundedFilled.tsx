@@ -18,4 +18,6 @@ const IconMaterialCenterFocusWeakRoundedFilled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialCenterFocusWeakRoundedFilled.displayName = 'AmauiIconMaterialCenterFocusWeakRoundedFilled';
+
 export default IconMaterialCenterFocusWeakRoundedFilled;

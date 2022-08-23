@@ -18,4 +18,6 @@ const IconMaterialAutoAwesomeSharpFilled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialAutoAwesomeSharpFilled.displayName = 'AmauiIconMaterialAutoAwesomeSharpFilled';
+
 export default IconMaterialAutoAwesomeSharpFilled;

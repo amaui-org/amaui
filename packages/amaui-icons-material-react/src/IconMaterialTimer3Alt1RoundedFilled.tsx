@@ -18,4 +18,6 @@ const IconMaterialTimer3Alt1RoundedFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialTimer3Alt1RoundedFilled.displayName = 'AmauiIconMaterialTimer3Alt1RoundedFilled';
+
 export default IconMaterialTimer3Alt1RoundedFilled;

@@ -18,4 +18,6 @@ const IconMaterialLteMobiledataRoundedW100Filled = React.forwardRef((props: any,
   );
 });
 
+IconMaterialLteMobiledataRoundedW100Filled.displayName = 'AmauiIconMaterialLteMobiledataRoundedW100Filled';
+
 export default IconMaterialLteMobiledataRoundedW100Filled;

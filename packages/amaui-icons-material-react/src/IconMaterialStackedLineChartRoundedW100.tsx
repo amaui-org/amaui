@@ -18,4 +18,6 @@ const IconMaterialStackedLineChartRoundedW100 = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialStackedLineChartRoundedW100.displayName = 'AmauiIconMaterialStackedLineChartRoundedW100';
+
 export default IconMaterialStackedLineChartRoundedW100;

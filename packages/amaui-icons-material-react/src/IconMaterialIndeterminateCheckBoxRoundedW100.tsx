@@ -18,4 +18,6 @@ const IconMaterialIndeterminateCheckBoxRoundedW100 = React.forwardRef((props: an
   );
 });
 
+IconMaterialIndeterminateCheckBoxRoundedW100.displayName = 'AmauiIconMaterialIndeterminateCheckBoxRoundedW100';
+
 export default IconMaterialIndeterminateCheckBoxRoundedW100;

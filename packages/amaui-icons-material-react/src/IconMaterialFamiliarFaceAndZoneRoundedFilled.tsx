@@ -18,4 +18,6 @@ const IconMaterialFamiliarFaceAndZoneRoundedFilled = React.forwardRef((props: an
   );
 });
 
+IconMaterialFamiliarFaceAndZoneRoundedFilled.displayName = 'AmauiIconMaterialFamiliarFaceAndZoneRoundedFilled';
+
 export default IconMaterialFamiliarFaceAndZoneRoundedFilled;

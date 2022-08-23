@@ -18,4 +18,6 @@ const IconMaterialBrushRoundedFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBrushRoundedFilled.displayName = 'AmauiIconMaterialBrushRoundedFilled';
+
 export default IconMaterialBrushRoundedFilled;

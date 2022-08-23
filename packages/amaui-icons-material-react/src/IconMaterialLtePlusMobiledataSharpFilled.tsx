@@ -18,4 +18,6 @@ const IconMaterialLtePlusMobiledataSharpFilled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialLtePlusMobiledataSharpFilled.displayName = 'AmauiIconMaterialLtePlusMobiledataSharpFilled';
+
 export default IconMaterialLtePlusMobiledataSharpFilled;

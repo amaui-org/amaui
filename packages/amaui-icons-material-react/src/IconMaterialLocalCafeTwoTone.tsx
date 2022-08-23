@@ -18,4 +18,6 @@ const IconMaterialLocalCafeTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLocalCafeTwoTone.displayName = 'AmauiIconMaterialLocalCafeTwoTone';
+
 export default IconMaterialLocalCafeTwoTone;

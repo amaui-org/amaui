@@ -18,4 +18,6 @@ const IconMaterialCarRentalSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCarRentalSharpFilled.displayName = 'AmauiIconMaterialCarRentalSharpFilled';
+
 export default IconMaterialCarRentalSharpFilled;

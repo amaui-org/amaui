@@ -18,4 +18,6 @@ const IconMaterialEvShadowRoundedFilled = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialEvShadowRoundedFilled.displayName = 'AmauiIconMaterialEvShadowRoundedFilled';
+
 export default IconMaterialEvShadowRoundedFilled;

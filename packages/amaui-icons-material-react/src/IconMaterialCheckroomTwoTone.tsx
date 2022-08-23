@@ -18,4 +18,6 @@ const IconMaterialCheckroomTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCheckroomTwoTone.displayName = 'AmauiIconMaterialCheckroomTwoTone';
+
 export default IconMaterialCheckroomTwoTone;

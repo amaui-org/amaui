@@ -18,4 +18,6 @@ const IconMaterialPartlyCloudyNightRounded = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialPartlyCloudyNightRounded.displayName = 'AmauiIconMaterialPartlyCloudyNightRounded';
+
 export default IconMaterialPartlyCloudyNightRounded;

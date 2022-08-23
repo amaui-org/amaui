@@ -18,4 +18,6 @@ const IconMaterialFamiliarFaceAndZoneSharpW100 = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialFamiliarFaceAndZoneSharpW100.displayName = 'AmauiIconMaterialFamiliarFaceAndZoneSharpW100';
+
 export default IconMaterialFamiliarFaceAndZoneSharpW100;

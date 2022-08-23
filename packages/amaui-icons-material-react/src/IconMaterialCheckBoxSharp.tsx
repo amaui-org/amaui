@@ -18,4 +18,6 @@ const IconMaterialCheckBoxSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCheckBoxSharp.displayName = 'AmauiIconMaterialCheckBoxSharp';
+
 export default IconMaterialCheckBoxSharp;

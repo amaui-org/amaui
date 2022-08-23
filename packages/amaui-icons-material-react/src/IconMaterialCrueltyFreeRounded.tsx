@@ -18,4 +18,6 @@ const IconMaterialCrueltyFreeRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCrueltyFreeRounded.displayName = 'AmauiIconMaterialCrueltyFreeRounded';
+
 export default IconMaterialCrueltyFreeRounded;

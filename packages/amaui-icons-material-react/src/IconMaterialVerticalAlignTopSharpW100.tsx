@@ -18,4 +18,6 @@ const IconMaterialVerticalAlignTopSharpW100 = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialVerticalAlignTopSharpW100.displayName = 'AmauiIconMaterialVerticalAlignTopSharpW100';
+
 export default IconMaterialVerticalAlignTopSharpW100;

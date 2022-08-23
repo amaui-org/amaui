@@ -18,4 +18,6 @@ const IconMaterialAppBlockingRoundedW100 = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialAppBlockingRoundedW100.displayName = 'AmauiIconMaterialAppBlockingRoundedW100';
+
 export default IconMaterialAppBlockingRoundedW100;

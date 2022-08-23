@@ -18,4 +18,6 @@ const IconMaterialWbTwilightRoundedW100 = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialWbTwilightRoundedW100.displayName = 'AmauiIconMaterialWbTwilightRoundedW100';
+
 export default IconMaterialWbTwilightRoundedW100;

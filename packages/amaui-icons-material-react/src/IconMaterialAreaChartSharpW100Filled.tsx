@@ -18,4 +18,6 @@ const IconMaterialAreaChartSharpW100Filled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialAreaChartSharpW100Filled.displayName = 'AmauiIconMaterialAreaChartSharpW100Filled';
+
 export default IconMaterialAreaChartSharpW100Filled;

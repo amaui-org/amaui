@@ -18,4 +18,6 @@ const IconMaterialSettingsOverscanRoundedW100Filled = React.forwardRef((props: a
   );
 });
 
+IconMaterialSettingsOverscanRoundedW100Filled.displayName = 'AmauiIconMaterialSettingsOverscanRoundedW100Filled';
+
 export default IconMaterialSettingsOverscanRoundedW100Filled;

@@ -18,4 +18,6 @@ const IconMaterialStopScreenShareSharpFilled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialStopScreenShareSharpFilled.displayName = 'AmauiIconMaterialStopScreenShareSharpFilled';
+
 export default IconMaterialStopScreenShareSharpFilled;

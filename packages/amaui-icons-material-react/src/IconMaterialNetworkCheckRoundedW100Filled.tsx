@@ -18,4 +18,6 @@ const IconMaterialNetworkCheckRoundedW100Filled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialNetworkCheckRoundedW100Filled.displayName = 'AmauiIconMaterialNetworkCheckRoundedW100Filled';
+
 export default IconMaterialNetworkCheckRoundedW100Filled;

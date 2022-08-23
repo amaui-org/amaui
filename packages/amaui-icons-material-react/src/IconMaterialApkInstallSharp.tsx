@@ -18,4 +18,6 @@ const IconMaterialApkInstallSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialApkInstallSharp.displayName = 'AmauiIconMaterialApkInstallSharp';
+
 export default IconMaterialApkInstallSharp;

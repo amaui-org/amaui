@@ -18,4 +18,6 @@ const IconMaterialForwardToInboxSharpW100Filled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialForwardToInboxSharpW100Filled.displayName = 'AmauiIconMaterialForwardToInboxSharpW100Filled';
+
 export default IconMaterialForwardToInboxSharpW100Filled;

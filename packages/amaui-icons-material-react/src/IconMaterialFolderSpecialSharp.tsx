@@ -18,4 +18,6 @@ const IconMaterialFolderSpecialSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFolderSpecialSharp.displayName = 'AmauiIconMaterialFolderSpecialSharp';
+
 export default IconMaterialFolderSpecialSharp;

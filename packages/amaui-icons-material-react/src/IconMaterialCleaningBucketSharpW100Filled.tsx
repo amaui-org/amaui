@@ -18,4 +18,6 @@ const IconMaterialCleaningBucketSharpW100Filled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialCleaningBucketSharpW100Filled.displayName = 'AmauiIconMaterialCleaningBucketSharpW100Filled';
+
 export default IconMaterialCleaningBucketSharpW100Filled;

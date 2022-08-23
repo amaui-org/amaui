@@ -18,4 +18,6 @@ const IconMaterialVolunteerActivismTwoTone = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialVolunteerActivismTwoTone.displayName = 'AmauiIconMaterialVolunteerActivismTwoTone';
+
 export default IconMaterialVolunteerActivismTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialPrecisionManufacturingSharp = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialPrecisionManufacturingSharp.displayName = 'AmauiIconMaterialPrecisionManufacturingSharp';
+
 export default IconMaterialPrecisionManufacturingSharp;

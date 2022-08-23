@@ -18,4 +18,6 @@ const IconMaterialRoomPreferencesSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialRoomPreferencesSharp.displayName = 'AmauiIconMaterialRoomPreferencesSharp';
+
 export default IconMaterialRoomPreferencesSharp;

@@ -18,4 +18,6 @@ const IconMaterialWatchTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialWatchTwoTone.displayName = 'AmauiIconMaterialWatchTwoTone';
+
 export default IconMaterialWatchTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialAppRegistrationSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAppRegistrationSharp.displayName = 'AmauiIconMaterialAppRegistrationSharp';
+
 export default IconMaterialAppRegistrationSharp;

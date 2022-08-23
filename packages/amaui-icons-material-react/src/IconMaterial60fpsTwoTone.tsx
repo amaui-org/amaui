@@ -18,4 +18,6 @@ const IconMaterial60fpsTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterial60fpsTwoTone.displayName = 'AmauiIconMaterial60fpsTwoTone';
+
 export default IconMaterial60fpsTwoTone;

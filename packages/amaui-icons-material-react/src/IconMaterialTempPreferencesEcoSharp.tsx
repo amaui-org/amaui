@@ -18,4 +18,6 @@ const IconMaterialTempPreferencesEcoSharp = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialTempPreferencesEcoSharp.displayName = 'AmauiIconMaterialTempPreferencesEcoSharp';
+
 export default IconMaterialTempPreferencesEcoSharp;

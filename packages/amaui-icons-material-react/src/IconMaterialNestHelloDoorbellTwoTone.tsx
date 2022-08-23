@@ -18,4 +18,6 @@ const IconMaterialNestHelloDoorbellTwoTone = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialNestHelloDoorbellTwoTone.displayName = 'AmauiIconMaterialNestHelloDoorbellTwoTone';
+
 export default IconMaterialNestHelloDoorbellTwoTone;

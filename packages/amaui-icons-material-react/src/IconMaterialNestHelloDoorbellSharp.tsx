@@ -18,4 +18,6 @@ const IconMaterialNestHelloDoorbellSharp = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialNestHelloDoorbellSharp.displayName = 'AmauiIconMaterialNestHelloDoorbellSharp';
+
 export default IconMaterialNestHelloDoorbellSharp;

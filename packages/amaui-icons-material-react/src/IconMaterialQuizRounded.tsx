@@ -18,4 +18,6 @@ const IconMaterialQuizRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialQuizRounded.displayName = 'AmauiIconMaterialQuizRounded';
+
 export default IconMaterialQuizRounded;

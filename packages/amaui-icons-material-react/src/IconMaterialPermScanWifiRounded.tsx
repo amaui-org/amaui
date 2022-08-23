@@ -18,4 +18,6 @@ const IconMaterialPermScanWifiRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPermScanWifiRounded.displayName = 'AmauiIconMaterialPermScanWifiRounded';
+
 export default IconMaterialPermScanWifiRounded;

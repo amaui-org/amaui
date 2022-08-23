@@ -18,4 +18,6 @@ const IconMaterialGppBadTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialGppBadTwoTone.displayName = 'AmauiIconMaterialGppBadTwoTone';
+
 export default IconMaterialGppBadTwoTone;

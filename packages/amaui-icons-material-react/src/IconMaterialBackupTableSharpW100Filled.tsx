@@ -18,4 +18,6 @@ const IconMaterialBackupTableSharpW100Filled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialBackupTableSharpW100Filled.displayName = 'AmauiIconMaterialBackupTableSharpW100Filled';
+
 export default IconMaterialBackupTableSharpW100Filled;

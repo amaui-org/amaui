@@ -18,4 +18,6 @@ const IconMaterialSpeakerNotesOffRoundedFilled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialSpeakerNotesOffRoundedFilled.displayName = 'AmauiIconMaterialSpeakerNotesOffRoundedFilled';
+
 export default IconMaterialSpeakerNotesOffRoundedFilled;

@@ -18,4 +18,6 @@ const IconMaterialSkullTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSkullTwoTone.displayName = 'AmauiIconMaterialSkullTwoTone';
+
 export default IconMaterialSkullTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialNestWifiMistralRounded = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialNestWifiMistralRounded.displayName = 'AmauiIconMaterialNestWifiMistralRounded';
+
 export default IconMaterialNestWifiMistralRounded;

@@ -18,4 +18,6 @@ const IconMaterialFormatUnderlinedTwoTone = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialFormatUnderlinedTwoTone.displayName = 'AmauiIconMaterialFormatUnderlinedTwoTone';
+
 export default IconMaterialFormatUnderlinedTwoTone;

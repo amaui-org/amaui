@@ -18,4 +18,6 @@ const IconMaterialAddToDriveTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAddToDriveTwoTone.displayName = 'AmauiIconMaterialAddToDriveTwoTone';
+
 export default IconMaterialAddToDriveTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialOvenGenTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialOvenGenTwoTone.displayName = 'AmauiIconMaterialOvenGenTwoTone';
+
 export default IconMaterialOvenGenTwoTone;

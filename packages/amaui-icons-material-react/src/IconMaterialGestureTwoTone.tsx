@@ -18,4 +18,6 @@ const IconMaterialGestureTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialGestureTwoTone.displayName = 'AmauiIconMaterialGestureTwoTone';
+
 export default IconMaterialGestureTwoTone;

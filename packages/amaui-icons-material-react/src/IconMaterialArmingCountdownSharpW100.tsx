@@ -18,4 +18,6 @@ const IconMaterialArmingCountdownSharpW100 = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialArmingCountdownSharpW100.displayName = 'AmauiIconMaterialArmingCountdownSharpW100';
+
 export default IconMaterialArmingCountdownSharpW100;

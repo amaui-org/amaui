@@ -18,4 +18,6 @@ const IconMaterialDonutLargeSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDonutLargeSharp.displayName = 'AmauiIconMaterialDonutLargeSharp';
+
 export default IconMaterialDonutLargeSharp;

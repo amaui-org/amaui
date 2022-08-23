@@ -18,4 +18,6 @@ const IconMaterialShowerRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialShowerRounded.displayName = 'AmauiIconMaterialShowerRounded';
+
 export default IconMaterialShowerRounded;

@@ -18,4 +18,6 @@ const IconMaterialHomeSpeakerTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialHomeSpeakerTwoTone.displayName = 'AmauiIconMaterialHomeSpeakerTwoTone';
+
 export default IconMaterialHomeSpeakerTwoTone;

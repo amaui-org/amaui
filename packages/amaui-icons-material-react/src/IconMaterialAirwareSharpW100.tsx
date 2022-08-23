@@ -18,4 +18,6 @@ const IconMaterialAirwareSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAirwareSharpW100.displayName = 'AmauiIconMaterialAirwareSharpW100';
+
 export default IconMaterialAirwareSharpW100;

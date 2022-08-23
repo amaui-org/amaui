@@ -18,4 +18,6 @@ const IconMaterialVolumeDownRoundedFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialVolumeDownRoundedFilled.displayName = 'AmauiIconMaterialVolumeDownRoundedFilled';
+
 export default IconMaterialVolumeDownRoundedFilled;

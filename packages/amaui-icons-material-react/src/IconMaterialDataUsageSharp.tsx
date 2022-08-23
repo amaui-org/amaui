@@ -18,4 +18,6 @@ const IconMaterialDataUsageSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDataUsageSharp.displayName = 'AmauiIconMaterialDataUsageSharp';
+
 export default IconMaterialDataUsageSharp;

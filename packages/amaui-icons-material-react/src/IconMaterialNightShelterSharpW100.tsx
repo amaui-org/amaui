@@ -18,4 +18,6 @@ const IconMaterialNightShelterSharpW100 = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialNightShelterSharpW100.displayName = 'AmauiIconMaterialNightShelterSharpW100';
+
 export default IconMaterialNightShelterSharpW100;

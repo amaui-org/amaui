@@ -18,4 +18,6 @@ const IconMaterialDoorBackRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDoorBackRounded.displayName = 'AmauiIconMaterialDoorBackRounded';
+
 export default IconMaterialDoorBackRounded;

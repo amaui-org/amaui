@@ -18,4 +18,6 @@ const IconMaterialPhonelinkSetupSharpW100Filled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialPhonelinkSetupSharpW100Filled.displayName = 'AmauiIconMaterialPhonelinkSetupSharpW100Filled';
+
 export default IconMaterialPhonelinkSetupSharpW100Filled;

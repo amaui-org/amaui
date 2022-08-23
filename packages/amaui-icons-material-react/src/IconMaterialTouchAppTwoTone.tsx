@@ -18,4 +18,6 @@ const IconMaterialTouchAppTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTouchAppTwoTone.displayName = 'AmauiIconMaterialTouchAppTwoTone';
+
 export default IconMaterialTouchAppTwoTone;

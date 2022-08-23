@@ -18,4 +18,6 @@ const IconMaterialPermMediaRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPermMediaRoundedW100.displayName = 'AmauiIconMaterialPermMediaRoundedW100';
+
 export default IconMaterialPermMediaRoundedW100;

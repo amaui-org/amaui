@@ -18,4 +18,6 @@ const IconMaterialSortByAlphaTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSortByAlphaTwoTone.displayName = 'AmauiIconMaterialSortByAlphaTwoTone';
+
 export default IconMaterialSortByAlphaTwoTone;

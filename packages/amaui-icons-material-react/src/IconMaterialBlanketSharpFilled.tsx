@@ -18,4 +18,6 @@ const IconMaterialBlanketSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBlanketSharpFilled.displayName = 'AmauiIconMaterialBlanketSharpFilled';
+
 export default IconMaterialBlanketSharpFilled;

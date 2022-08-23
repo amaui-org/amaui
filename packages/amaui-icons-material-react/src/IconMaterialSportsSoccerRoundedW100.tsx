@@ -18,4 +18,6 @@ const IconMaterialSportsSoccerRoundedW100 = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialSportsSoccerRoundedW100.displayName = 'AmauiIconMaterialSportsSoccerRoundedW100';
+
 export default IconMaterialSportsSoccerRoundedW100;

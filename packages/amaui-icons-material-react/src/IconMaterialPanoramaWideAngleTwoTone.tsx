@@ -18,4 +18,6 @@ const IconMaterialPanoramaWideAngleTwoTone = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialPanoramaWideAngleTwoTone.displayName = 'AmauiIconMaterialPanoramaWideAngleTwoTone';
+
 export default IconMaterialPanoramaWideAngleTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialPauseCircleRoundedFilled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialPauseCircleRoundedFilled.displayName = 'AmauiIconMaterialPauseCircleRoundedFilled';
+
 export default IconMaterialPauseCircleRoundedFilled;

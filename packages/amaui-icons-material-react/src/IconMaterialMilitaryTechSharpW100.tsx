@@ -18,4 +18,6 @@ const IconMaterialMilitaryTechSharpW100 = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialMilitaryTechSharpW100.displayName = 'AmauiIconMaterialMilitaryTechSharpW100';
+
 export default IconMaterialMilitaryTechSharpW100;

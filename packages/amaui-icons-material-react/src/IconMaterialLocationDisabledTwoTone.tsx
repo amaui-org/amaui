@@ -18,4 +18,6 @@ const IconMaterialLocationDisabledTwoTone = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialLocationDisabledTwoTone.displayName = 'AmauiIconMaterialLocationDisabledTwoTone';
+
 export default IconMaterialLocationDisabledTwoTone;

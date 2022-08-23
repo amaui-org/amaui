@@ -18,4 +18,6 @@ const IconMaterialFace3RoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFace3RoundedW100.displayName = 'AmauiIconMaterialFace3RoundedW100';
+
 export default IconMaterialFace3RoundedW100;

@@ -18,4 +18,6 @@ const IconMaterialBatchPredictionTwoTone = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialBatchPredictionTwoTone.displayName = 'AmauiIconMaterialBatchPredictionTwoTone';
+
 export default IconMaterialBatchPredictionTwoTone;

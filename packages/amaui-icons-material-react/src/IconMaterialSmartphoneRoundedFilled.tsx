@@ -18,4 +18,6 @@ const IconMaterialSmartphoneRoundedFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialSmartphoneRoundedFilled.displayName = 'AmauiIconMaterialSmartphoneRoundedFilled';
+
 export default IconMaterialSmartphoneRoundedFilled;

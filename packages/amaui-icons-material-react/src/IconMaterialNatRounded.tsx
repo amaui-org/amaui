@@ -18,4 +18,6 @@ const IconMaterialNatRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNatRounded.displayName = 'AmauiIconMaterialNatRounded';
+
 export default IconMaterialNatRounded;

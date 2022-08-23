@@ -18,4 +18,6 @@ const IconMaterialLineWeightSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLineWeightSharp.displayName = 'AmauiIconMaterialLineWeightSharp';
+
 export default IconMaterialLineWeightSharp;

@@ -18,4 +18,6 @@ const IconMaterialSatelliteSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSatelliteSharp.displayName = 'AmauiIconMaterialSatelliteSharp';
+
 export default IconMaterialSatelliteSharp;

@@ -18,4 +18,6 @@ const IconMaterialCastConnectedRoundedW100 = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialCastConnectedRoundedW100.displayName = 'AmauiIconMaterialCastConnectedRoundedW100';
+
 export default IconMaterialCastConnectedRoundedW100;

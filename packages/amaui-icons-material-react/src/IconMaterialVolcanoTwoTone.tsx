@@ -18,4 +18,6 @@ const IconMaterialVolcanoTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialVolcanoTwoTone.displayName = 'AmauiIconMaterialVolcanoTwoTone';
+
 export default IconMaterialVolcanoTwoTone;

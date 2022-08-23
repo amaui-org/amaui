@@ -18,4 +18,6 @@ const IconMaterialBarChartSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBarChartSharp.displayName = 'AmauiIconMaterialBarChartSharp';
+
 export default IconMaterialBarChartSharp;

@@ -18,4 +18,6 @@ const IconMaterialShapeLineTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialShapeLineTwoTone.displayName = 'AmauiIconMaterialShapeLineTwoTone';
+
 export default IconMaterialShapeLineTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialEditSquareSharpW100Filled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialEditSquareSharpW100Filled.displayName = 'AmauiIconMaterialEditSquareSharpW100Filled';
+
 export default IconMaterialEditSquareSharpW100Filled;

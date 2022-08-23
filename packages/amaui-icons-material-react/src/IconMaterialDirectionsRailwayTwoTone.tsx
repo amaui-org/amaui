@@ -18,4 +18,6 @@ const IconMaterialDirectionsRailwayTwoTone = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialDirectionsRailwayTwoTone.displayName = 'AmauiIconMaterialDirectionsRailwayTwoTone';
+
 export default IconMaterialDirectionsRailwayTwoTone;

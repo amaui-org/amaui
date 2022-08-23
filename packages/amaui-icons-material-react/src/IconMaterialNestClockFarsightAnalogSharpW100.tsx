@@ -18,4 +18,6 @@ const IconMaterialNestClockFarsightAnalogSharpW100 = React.forwardRef((props: an
   );
 });
 
+IconMaterialNestClockFarsightAnalogSharpW100.displayName = 'AmauiIconMaterialNestClockFarsightAnalogSharpW100';
+
 export default IconMaterialNestClockFarsightAnalogSharpW100;

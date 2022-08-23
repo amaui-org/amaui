@@ -18,4 +18,6 @@ const IconMaterialSignalWifiStatusbarNullSharpFilled = React.forwardRef((props: 
   );
 });
 
+IconMaterialSignalWifiStatusbarNullSharpFilled.displayName = 'AmauiIconMaterialSignalWifiStatusbarNullSharpFilled';
+
 export default IconMaterialSignalWifiStatusbarNullSharpFilled;

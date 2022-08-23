@@ -18,4 +18,6 @@ const IconMaterialHolidayVillageTwoTone = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialHolidayVillageTwoTone.displayName = 'AmauiIconMaterialHolidayVillageTwoTone';
+
 export default IconMaterialHolidayVillageTwoTone;

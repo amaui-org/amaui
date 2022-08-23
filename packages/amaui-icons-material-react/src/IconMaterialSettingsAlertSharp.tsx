@@ -18,4 +18,6 @@ const IconMaterialSettingsAlertSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSettingsAlertSharp.displayName = 'AmauiIconMaterialSettingsAlertSharp';
+
 export default IconMaterialSettingsAlertSharp;

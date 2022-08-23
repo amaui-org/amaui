@@ -18,4 +18,6 @@ const IconMaterialLegendToggleRoundedFilled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialLegendToggleRoundedFilled.displayName = 'AmauiIconMaterialLegendToggleRoundedFilled';
+
 export default IconMaterialLegendToggleRoundedFilled;

@@ -18,4 +18,6 @@ const IconMaterialThumbDownOffRoundedW100 = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialThumbDownOffRoundedW100.displayName = 'AmauiIconMaterialThumbDownOffRoundedW100';
+
 export default IconMaterialThumbDownOffRoundedW100;

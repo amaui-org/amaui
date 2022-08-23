@@ -18,4 +18,6 @@ const IconMaterialTonalityRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTonalityRoundedW100.displayName = 'AmauiIconMaterialTonalityRoundedW100';
+
 export default IconMaterialTonalityRoundedW100;

@@ -18,4 +18,6 @@ const IconMaterialChatBubbleRoundedW100Filled = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialChatBubbleRoundedW100Filled.displayName = 'AmauiIconMaterialChatBubbleRoundedW100Filled';
+
 export default IconMaterialChatBubbleRoundedW100Filled;

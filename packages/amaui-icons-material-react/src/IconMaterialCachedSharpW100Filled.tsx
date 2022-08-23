@@ -18,4 +18,6 @@ const IconMaterialCachedSharpW100Filled = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialCachedSharpW100Filled.displayName = 'AmauiIconMaterialCachedSharpW100Filled';
+
 export default IconMaterialCachedSharpW100Filled;

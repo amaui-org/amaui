@@ -18,4 +18,6 @@ const IconMaterialTextSnippetSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTextSnippetSharpW100.displayName = 'AmauiIconMaterialTextSnippetSharpW100';
+
 export default IconMaterialTextSnippetSharpW100;

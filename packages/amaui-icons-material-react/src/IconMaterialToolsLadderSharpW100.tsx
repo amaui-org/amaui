@@ -18,4 +18,6 @@ const IconMaterialToolsLadderSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialToolsLadderSharpW100.displayName = 'AmauiIconMaterialToolsLadderSharpW100';
+
 export default IconMaterialToolsLadderSharpW100;

@@ -18,4 +18,6 @@ const IconMaterialDocumentScannerRoundedW100Filled = React.forwardRef((props: an
   );
 });
 
+IconMaterialDocumentScannerRoundedW100Filled.displayName = 'AmauiIconMaterialDocumentScannerRoundedW100Filled';
+
 export default IconMaterialDocumentScannerRoundedW100Filled;

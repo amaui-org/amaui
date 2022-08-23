@@ -18,4 +18,6 @@ const IconMaterialBallotTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBallotTwoTone.displayName = 'AmauiIconMaterialBallotTwoTone';
+
 export default IconMaterialBallotTwoTone;

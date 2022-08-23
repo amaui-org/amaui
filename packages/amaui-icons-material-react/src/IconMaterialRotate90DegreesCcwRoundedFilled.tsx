@@ -18,4 +18,6 @@ const IconMaterialRotate90DegreesCcwRoundedFilled = React.forwardRef((props: any
   );
 });
 
+IconMaterialRotate90DegreesCcwRoundedFilled.displayName = 'AmauiIconMaterialRotate90DegreesCcwRoundedFilled';
+
 export default IconMaterialRotate90DegreesCcwRoundedFilled;

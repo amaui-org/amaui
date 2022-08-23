@@ -18,4 +18,6 @@ const IconMaterialCasinoSharpW100Filled = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialCasinoSharpW100Filled.displayName = 'AmauiIconMaterialCasinoSharpW100Filled';
+
 export default IconMaterialCasinoSharpW100Filled;

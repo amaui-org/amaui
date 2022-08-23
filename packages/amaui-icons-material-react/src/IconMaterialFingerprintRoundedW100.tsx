@@ -18,4 +18,6 @@ const IconMaterialFingerprintRoundedW100 = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialFingerprintRoundedW100.displayName = 'AmauiIconMaterialFingerprintRoundedW100';
+
 export default IconMaterialFingerprintRoundedW100;

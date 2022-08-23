@@ -18,4 +18,6 @@ const IconMaterialEdgesensorLowTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialEdgesensorLowTwoTone.displayName = 'AmauiIconMaterialEdgesensorLowTwoTone';
+
 export default IconMaterialEdgesensorLowTwoTone;

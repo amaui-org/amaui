@@ -18,4 +18,6 @@ const IconMaterialDateRangeRoundedW100Filled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialDateRangeRoundedW100Filled.displayName = 'AmauiIconMaterialDateRangeRoundedW100Filled';
+
 export default IconMaterialDateRangeRoundedW100Filled;

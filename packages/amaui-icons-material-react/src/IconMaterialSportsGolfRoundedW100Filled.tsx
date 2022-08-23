@@ -18,4 +18,6 @@ const IconMaterialSportsGolfRoundedW100Filled = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialSportsGolfRoundedW100Filled.displayName = 'AmauiIconMaterialSportsGolfRoundedW100Filled';
+
 export default IconMaterialSportsGolfRoundedW100Filled;

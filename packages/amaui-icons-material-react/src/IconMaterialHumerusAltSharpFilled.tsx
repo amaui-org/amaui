@@ -18,4 +18,6 @@ const IconMaterialHumerusAltSharpFilled = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialHumerusAltSharpFilled.displayName = 'AmauiIconMaterialHumerusAltSharpFilled';
+
 export default IconMaterialHumerusAltSharpFilled;

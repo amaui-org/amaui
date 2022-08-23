@@ -18,4 +18,6 @@ const IconMaterialSurroundSoundTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSurroundSoundTwoTone.displayName = 'AmauiIconMaterialSurroundSoundTwoTone';
+
 export default IconMaterialSurroundSoundTwoTone;

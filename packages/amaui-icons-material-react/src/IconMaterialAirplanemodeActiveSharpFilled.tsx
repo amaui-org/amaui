@@ -18,4 +18,6 @@ const IconMaterialAirplanemodeActiveSharpFilled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialAirplanemodeActiveSharpFilled.displayName = 'AmauiIconMaterialAirplanemodeActiveSharpFilled';
+
 export default IconMaterialAirplanemodeActiveSharpFilled;

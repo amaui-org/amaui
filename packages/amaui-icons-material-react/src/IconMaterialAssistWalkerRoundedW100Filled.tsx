@@ -18,4 +18,6 @@ const IconMaterialAssistWalkerRoundedW100Filled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialAssistWalkerRoundedW100Filled.displayName = 'AmauiIconMaterialAssistWalkerRoundedW100Filled';
+
 export default IconMaterialAssistWalkerRoundedW100Filled;

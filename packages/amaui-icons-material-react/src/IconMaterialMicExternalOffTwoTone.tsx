@@ -18,4 +18,6 @@ const IconMaterialMicExternalOffTwoTone = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialMicExternalOffTwoTone.displayName = 'AmauiIconMaterialMicExternalOffTwoTone';
+
 export default IconMaterialMicExternalOffTwoTone;

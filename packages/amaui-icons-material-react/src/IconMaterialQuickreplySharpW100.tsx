@@ -18,4 +18,6 @@ const IconMaterialQuickreplySharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialQuickreplySharpW100.displayName = 'AmauiIconMaterialQuickreplySharpW100';
+
 export default IconMaterialQuickreplySharpW100;

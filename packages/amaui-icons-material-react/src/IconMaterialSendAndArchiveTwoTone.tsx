@@ -18,4 +18,6 @@ const IconMaterialSendAndArchiveTwoTone = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialSendAndArchiveTwoTone.displayName = 'AmauiIconMaterialSendAndArchiveTwoTone';
+
 export default IconMaterialSendAndArchiveTwoTone;

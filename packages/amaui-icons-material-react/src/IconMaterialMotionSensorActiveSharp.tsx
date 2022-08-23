@@ -18,4 +18,6 @@ const IconMaterialMotionSensorActiveSharp = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialMotionSensorActiveSharp.displayName = 'AmauiIconMaterialMotionSensorActiveSharp';
+
 export default IconMaterialMotionSensorActiveSharp;

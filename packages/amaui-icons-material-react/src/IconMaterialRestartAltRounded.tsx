@@ -18,4 +18,6 @@ const IconMaterialRestartAltRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialRestartAltRounded.displayName = 'AmauiIconMaterialRestartAltRounded';
+
 export default IconMaterialRestartAltRounded;

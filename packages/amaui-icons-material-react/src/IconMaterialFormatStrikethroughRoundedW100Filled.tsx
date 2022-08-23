@@ -18,4 +18,6 @@ const IconMaterialFormatStrikethroughRoundedW100Filled = React.forwardRef((props
   );
 });
 
+IconMaterialFormatStrikethroughRoundedW100Filled.displayName = 'AmauiIconMaterialFormatStrikethroughRoundedW100Filled';
+
 export default IconMaterialFormatStrikethroughRoundedW100Filled;

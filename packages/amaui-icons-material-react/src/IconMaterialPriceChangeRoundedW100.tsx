@@ -18,4 +18,6 @@ const IconMaterialPriceChangeRoundedW100 = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialPriceChangeRoundedW100.displayName = 'AmauiIconMaterialPriceChangeRoundedW100';
+
 export default IconMaterialPriceChangeRoundedW100;

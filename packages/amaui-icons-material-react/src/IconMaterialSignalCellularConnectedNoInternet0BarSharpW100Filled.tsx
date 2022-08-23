@@ -18,4 +18,6 @@ const IconMaterialSignalCellularConnectedNoInternet0BarSharpW100Filled = React.f
   );
 });
 
+IconMaterialSignalCellularConnectedNoInternet0BarSharpW100Filled.displayName = 'AmauiIconMaterialSignalCellularConnectedNoInternet0BarSharpW100Filled';
+
 export default IconMaterialSignalCellularConnectedNoInternet0BarSharpW100Filled;

@@ -18,4 +18,6 @@ const IconMaterialVignetteSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialVignetteSharpW100.displayName = 'AmauiIconMaterialVignetteSharpW100';
+
 export default IconMaterialVignetteSharpW100;

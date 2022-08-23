@@ -18,4 +18,6 @@ const IconMaterialTextFormatTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTextFormatTwoTone.displayName = 'AmauiIconMaterialTextFormatTwoTone';
+
 export default IconMaterialTextFormatTwoTone;

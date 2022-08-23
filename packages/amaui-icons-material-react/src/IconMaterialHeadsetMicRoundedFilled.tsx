@@ -18,4 +18,6 @@ const IconMaterialHeadsetMicRoundedFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialHeadsetMicRoundedFilled.displayName = 'AmauiIconMaterialHeadsetMicRoundedFilled';
+
 export default IconMaterialHeadsetMicRoundedFilled;

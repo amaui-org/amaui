@@ -18,4 +18,6 @@ const IconMaterialWorkspacePremiumRounded = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialWorkspacePremiumRounded.displayName = 'AmauiIconMaterialWorkspacePremiumRounded';
+
 export default IconMaterialWorkspacePremiumRounded;

@@ -18,4 +18,6 @@ const IconMaterialHistoryToggleOffSharp = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialHistoryToggleOffSharp.displayName = 'AmauiIconMaterialHistoryToggleOffSharp';
+
 export default IconMaterialHistoryToggleOffSharp;

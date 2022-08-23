@@ -18,4 +18,6 @@ const IconMaterialHikingRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialHikingRoundedW100.displayName = 'AmauiIconMaterialHikingRoundedW100';
+
 export default IconMaterialHikingRoundedW100;

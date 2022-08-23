@@ -18,4 +18,6 @@ const IconMaterialImageAspectRatioSharpW100Filled = React.forwardRef((props: any
   );
 });
 
+IconMaterialImageAspectRatioSharpW100Filled.displayName = 'AmauiIconMaterialImageAspectRatioSharpW100Filled';
+
 export default IconMaterialImageAspectRatioSharpW100Filled;

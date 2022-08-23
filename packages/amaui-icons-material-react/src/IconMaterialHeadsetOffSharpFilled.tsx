@@ -18,4 +18,6 @@ const IconMaterialHeadsetOffSharpFilled = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialHeadsetOffSharpFilled.displayName = 'AmauiIconMaterialHeadsetOffSharpFilled';
+
 export default IconMaterialHeadsetOffSharpFilled;

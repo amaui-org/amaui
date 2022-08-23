@@ -18,4 +18,6 @@ const IconMaterialAirportShuttleTwoTone = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialAirportShuttleTwoTone.displayName = 'AmauiIconMaterialAirportShuttleTwoTone';
+
 export default IconMaterialAirportShuttleTwoTone;

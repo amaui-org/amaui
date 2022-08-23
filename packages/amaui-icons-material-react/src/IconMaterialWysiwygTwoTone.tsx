@@ -18,4 +18,6 @@ const IconMaterialWysiwygTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialWysiwygTwoTone.displayName = 'AmauiIconMaterialWysiwygTwoTone';
+
 export default IconMaterialWysiwygTwoTone;

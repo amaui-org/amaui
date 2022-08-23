@@ -18,4 +18,6 @@ const IconMaterialPergolaTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPergolaTwoTone.displayName = 'AmauiIconMaterialPergolaTwoTone';
+
 export default IconMaterialPergolaTwoTone;

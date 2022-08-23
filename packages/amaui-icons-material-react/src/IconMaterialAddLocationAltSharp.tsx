@@ -18,4 +18,6 @@ const IconMaterialAddLocationAltSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAddLocationAltSharp.displayName = 'AmauiIconMaterialAddLocationAltSharp';
+
 export default IconMaterialAddLocationAltSharp;

@@ -18,4 +18,6 @@ const IconMaterialAddToHomeScreenSharpW100 = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialAddToHomeScreenSharpW100.displayName = 'AmauiIconMaterialAddToHomeScreenSharpW100';
+
 export default IconMaterialAddToHomeScreenSharpW100;

@@ -18,4 +18,6 @@ const IconMaterialChromeReaderModeTwoTone = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialChromeReaderModeTwoTone.displayName = 'AmauiIconMaterialChromeReaderModeTwoTone';
+
 export default IconMaterialChromeReaderModeTwoTone;

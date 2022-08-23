@@ -18,4 +18,6 @@ const IconMaterialNestCamMagnetMountSharpW100 = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialNestCamMagnetMountSharpW100.displayName = 'AmauiIconMaterialNestCamMagnetMountSharpW100';
+
 export default IconMaterialNestCamMagnetMountSharpW100;

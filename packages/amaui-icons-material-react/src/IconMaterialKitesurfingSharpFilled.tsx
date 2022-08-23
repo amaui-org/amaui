@@ -18,4 +18,6 @@ const IconMaterialKitesurfingSharpFilled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialKitesurfingSharpFilled.displayName = 'AmauiIconMaterialKitesurfingSharpFilled';
+
 export default IconMaterialKitesurfingSharpFilled;

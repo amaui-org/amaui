@@ -18,4 +18,6 @@ const IconMaterialNestCamOutdoorSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNestCamOutdoorSharp.displayName = 'AmauiIconMaterialNestCamOutdoorSharp';
+
 export default IconMaterialNestCamOutdoorSharp;

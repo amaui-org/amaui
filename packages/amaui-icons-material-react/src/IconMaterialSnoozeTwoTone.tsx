@@ -18,4 +18,6 @@ const IconMaterialSnoozeTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSnoozeTwoTone.displayName = 'AmauiIconMaterialSnoozeTwoTone';
+
 export default IconMaterialSnoozeTwoTone;

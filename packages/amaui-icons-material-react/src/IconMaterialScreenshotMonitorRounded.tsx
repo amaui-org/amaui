@@ -18,4 +18,6 @@ const IconMaterialScreenshotMonitorRounded = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialScreenshotMonitorRounded.displayName = 'AmauiIconMaterialScreenshotMonitorRounded';
+
 export default IconMaterialScreenshotMonitorRounded;

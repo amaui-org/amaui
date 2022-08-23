@@ -18,4 +18,6 @@ const IconMaterialUnsubscribeTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialUnsubscribeTwoTone.displayName = 'AmauiIconMaterialUnsubscribeTwoTone';
+
 export default IconMaterialUnsubscribeTwoTone;

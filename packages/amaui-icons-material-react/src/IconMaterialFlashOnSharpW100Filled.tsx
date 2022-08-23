@@ -18,4 +18,6 @@ const IconMaterialFlashOnSharpW100Filled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialFlashOnSharpW100Filled.displayName = 'AmauiIconMaterialFlashOnSharpW100Filled';
+
 export default IconMaterialFlashOnSharpW100Filled;

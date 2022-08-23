@@ -18,4 +18,6 @@ const IconMaterialCenterFocusStrongTwoTone = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialCenterFocusStrongTwoTone.displayName = 'AmauiIconMaterialCenterFocusStrongTwoTone';
+
 export default IconMaterialCenterFocusStrongTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialSnowboardingRoundedW100Filled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialSnowboardingRoundedW100Filled.displayName = 'AmauiIconMaterialSnowboardingRoundedW100Filled';
+
 export default IconMaterialSnowboardingRoundedW100Filled;

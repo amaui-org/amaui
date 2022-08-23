@@ -18,4 +18,6 @@ const IconMaterialFilterBAndWSharpW100Filled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialFilterBAndWSharpW100Filled.displayName = 'AmauiIconMaterialFilterBAndWSharpW100Filled';
+
 export default IconMaterialFilterBAndWSharpW100Filled;

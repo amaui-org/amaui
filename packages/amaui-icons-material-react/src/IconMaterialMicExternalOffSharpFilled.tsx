@@ -18,4 +18,6 @@ const IconMaterialMicExternalOffSharpFilled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialMicExternalOffSharpFilled.displayName = 'AmauiIconMaterialMicExternalOffSharpFilled';
+
 export default IconMaterialMicExternalOffSharpFilled;

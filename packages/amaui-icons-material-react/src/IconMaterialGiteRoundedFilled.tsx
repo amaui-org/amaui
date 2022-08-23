@@ -18,4 +18,6 @@ const IconMaterialGiteRoundedFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialGiteRoundedFilled.displayName = 'AmauiIconMaterialGiteRoundedFilled';
+
 export default IconMaterialGiteRoundedFilled;

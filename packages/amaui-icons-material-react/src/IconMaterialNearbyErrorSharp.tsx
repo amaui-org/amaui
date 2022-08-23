@@ -18,4 +18,6 @@ const IconMaterialNearbyErrorSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNearbyErrorSharp.displayName = 'AmauiIconMaterialNearbyErrorSharp';
+
 export default IconMaterialNearbyErrorSharp;

@@ -18,4 +18,6 @@ const IconMaterialPrecisionManufacturingTwoTone = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialPrecisionManufacturingTwoTone.displayName = 'AmauiIconMaterialPrecisionManufacturingTwoTone';
+
 export default IconMaterialPrecisionManufacturingTwoTone;

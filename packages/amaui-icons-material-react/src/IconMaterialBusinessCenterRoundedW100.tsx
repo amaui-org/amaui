@@ -18,4 +18,6 @@ const IconMaterialBusinessCenterRoundedW100 = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialBusinessCenterRoundedW100.displayName = 'AmauiIconMaterialBusinessCenterRoundedW100';
+
 export default IconMaterialBusinessCenterRoundedW100;

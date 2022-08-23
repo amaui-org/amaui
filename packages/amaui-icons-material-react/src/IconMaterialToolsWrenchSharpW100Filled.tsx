@@ -18,4 +18,6 @@ const IconMaterialToolsWrenchSharpW100Filled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialToolsWrenchSharpW100Filled.displayName = 'AmauiIconMaterialToolsWrenchSharpW100Filled';
+
 export default IconMaterialToolsWrenchSharpW100Filled;

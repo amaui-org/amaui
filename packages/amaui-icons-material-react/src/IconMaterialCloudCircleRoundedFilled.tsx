@@ -18,4 +18,6 @@ const IconMaterialCloudCircleRoundedFilled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialCloudCircleRoundedFilled.displayName = 'AmauiIconMaterialCloudCircleRoundedFilled';
+
 export default IconMaterialCloudCircleRoundedFilled;

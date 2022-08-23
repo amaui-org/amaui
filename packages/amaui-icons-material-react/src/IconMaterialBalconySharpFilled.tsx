@@ -18,4 +18,6 @@ const IconMaterialBalconySharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBalconySharpFilled.displayName = 'AmauiIconMaterialBalconySharpFilled';
+
 export default IconMaterialBalconySharpFilled;

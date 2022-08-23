@@ -18,4 +18,6 @@ const IconMaterialGlyphsSharpW100Filled = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialGlyphsSharpW100Filled.displayName = 'AmauiIconMaterialGlyphsSharpW100Filled';
+
 export default IconMaterialGlyphsSharpW100Filled;

@@ -18,4 +18,6 @@ const IconMaterialModeHeatOffRoundedFilled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialModeHeatOffRoundedFilled.displayName = 'AmauiIconMaterialModeHeatOffRoundedFilled';
+
 export default IconMaterialModeHeatOffRoundedFilled;

@@ -18,4 +18,6 @@ const IconMaterialErrorCircleRoundedSharpFilled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialErrorCircleRoundedSharpFilled.displayName = 'AmauiIconMaterialErrorCircleRoundedSharpFilled';
+
 export default IconMaterialErrorCircleRoundedSharpFilled;

@@ -18,4 +18,6 @@ const IconMaterialLocalBarTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLocalBarTwoTone.displayName = 'AmauiIconMaterialLocalBarTwoTone';
+
 export default IconMaterialLocalBarTwoTone;

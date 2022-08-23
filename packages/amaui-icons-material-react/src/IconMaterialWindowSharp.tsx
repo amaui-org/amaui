@@ -18,4 +18,6 @@ const IconMaterialWindowSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialWindowSharp.displayName = 'AmauiIconMaterialWindowSharp';
+
 export default IconMaterialWindowSharp;

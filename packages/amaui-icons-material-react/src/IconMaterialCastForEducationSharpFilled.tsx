@@ -18,4 +18,6 @@ const IconMaterialCastForEducationSharpFilled = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialCastForEducationSharpFilled.displayName = 'AmauiIconMaterialCastForEducationSharpFilled';
+
 export default IconMaterialCastForEducationSharpFilled;

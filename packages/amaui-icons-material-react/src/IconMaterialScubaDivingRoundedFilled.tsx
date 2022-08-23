@@ -18,4 +18,6 @@ const IconMaterialScubaDivingRoundedFilled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialScubaDivingRoundedFilled.displayName = 'AmauiIconMaterialScubaDivingRoundedFilled';
+
 export default IconMaterialScubaDivingRoundedFilled;

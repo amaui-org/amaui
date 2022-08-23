@@ -18,4 +18,6 @@ const IconMaterialApkInstallRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialApkInstallRounded.displayName = 'AmauiIconMaterialApkInstallRounded';
+
 export default IconMaterialApkInstallRounded;

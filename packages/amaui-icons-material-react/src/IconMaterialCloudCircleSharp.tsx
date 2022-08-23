@@ -18,4 +18,6 @@ const IconMaterialCloudCircleSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCloudCircleSharp.displayName = 'AmauiIconMaterialCloudCircleSharp';
+
 export default IconMaterialCloudCircleSharp;

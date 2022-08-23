@@ -18,4 +18,6 @@ const IconMaterialCancelPresentationSharpFilled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialCancelPresentationSharpFilled.displayName = 'AmauiIconMaterialCancelPresentationSharpFilled';
+
 export default IconMaterialCancelPresentationSharpFilled;

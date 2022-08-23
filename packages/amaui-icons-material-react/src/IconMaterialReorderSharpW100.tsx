@@ -18,4 +18,6 @@ const IconMaterialReorderSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialReorderSharpW100.displayName = 'AmauiIconMaterialReorderSharpW100';
+
 export default IconMaterialReorderSharpW100;

@@ -18,4 +18,6 @@ const IconMaterialScreenSearchDesktopTwoTone = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialScreenSearchDesktopTwoTone.displayName = 'AmauiIconMaterialScreenSearchDesktopTwoTone';
+
 export default IconMaterialScreenSearchDesktopTwoTone;

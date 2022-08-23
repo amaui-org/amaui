@@ -18,4 +18,6 @@ const IconMaterialMarkUnreadChatAltTwoTone = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialMarkUnreadChatAltTwoTone.displayName = 'AmauiIconMaterialMarkUnreadChatAltTwoTone';
+
 export default IconMaterialMarkUnreadChatAltTwoTone;

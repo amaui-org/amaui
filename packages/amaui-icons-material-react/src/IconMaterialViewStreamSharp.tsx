@@ -18,4 +18,6 @@ const IconMaterialViewStreamSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialViewStreamSharp.displayName = 'AmauiIconMaterialViewStreamSharp';
+
 export default IconMaterialViewStreamSharp;

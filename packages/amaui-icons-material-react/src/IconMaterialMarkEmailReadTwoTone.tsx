@@ -18,4 +18,6 @@ const IconMaterialMarkEmailReadTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMarkEmailReadTwoTone.displayName = 'AmauiIconMaterialMarkEmailReadTwoTone';
+
 export default IconMaterialMarkEmailReadTwoTone;

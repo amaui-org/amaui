@@ -18,4 +18,6 @@ const IconMaterialNetworkCellRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNetworkCellRounded.displayName = 'AmauiIconMaterialNetworkCellRounded';
+
 export default IconMaterialNetworkCellRounded;

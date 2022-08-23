@@ -18,4 +18,6 @@ const IconMaterialCrop32RoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCrop32RoundedW100.displayName = 'AmauiIconMaterialCrop32RoundedW100';
+
 export default IconMaterialCrop32RoundedW100;

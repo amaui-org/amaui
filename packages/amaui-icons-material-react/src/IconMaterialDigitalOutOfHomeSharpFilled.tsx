@@ -18,4 +18,6 @@ const IconMaterialDigitalOutOfHomeSharpFilled = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialDigitalOutOfHomeSharpFilled.displayName = 'AmauiIconMaterialDigitalOutOfHomeSharpFilled';
+
 export default IconMaterialDigitalOutOfHomeSharpFilled;

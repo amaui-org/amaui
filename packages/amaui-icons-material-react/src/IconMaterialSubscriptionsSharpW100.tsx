@@ -18,4 +18,6 @@ const IconMaterialSubscriptionsSharpW100 = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialSubscriptionsSharpW100.displayName = 'AmauiIconMaterialSubscriptionsSharpW100';
+
 export default IconMaterialSubscriptionsSharpW100;

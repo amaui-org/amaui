@@ -18,4 +18,6 @@ const IconMaterialSafetyCheckTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSafetyCheckTwoTone.displayName = 'AmauiIconMaterialSafetyCheckTwoTone';
+
 export default IconMaterialSafetyCheckTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialEuroSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialEuroSharp.displayName = 'AmauiIconMaterialEuroSharp';
+
 export default IconMaterialEuroSharp;

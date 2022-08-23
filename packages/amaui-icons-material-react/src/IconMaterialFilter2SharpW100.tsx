@@ -18,4 +18,6 @@ const IconMaterialFilter2SharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFilter2SharpW100.displayName = 'AmauiIconMaterialFilter2SharpW100';
+
 export default IconMaterialFilter2SharpW100;

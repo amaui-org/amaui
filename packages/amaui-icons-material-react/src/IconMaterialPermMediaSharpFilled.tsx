@@ -18,4 +18,6 @@ const IconMaterialPermMediaSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPermMediaSharpFilled.displayName = 'AmauiIconMaterialPermMediaSharpFilled';
+
 export default IconMaterialPermMediaSharpFilled;

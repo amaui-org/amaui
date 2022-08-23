@@ -18,4 +18,6 @@ const IconMaterialPlaylistAddCheckTwoTone = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialPlaylistAddCheckTwoTone.displayName = 'AmauiIconMaterialPlaylistAddCheckTwoTone';
+
 export default IconMaterialPlaylistAddCheckTwoTone;

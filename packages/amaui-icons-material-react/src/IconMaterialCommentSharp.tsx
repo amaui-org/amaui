@@ -18,4 +18,6 @@ const IconMaterialCommentSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCommentSharp.displayName = 'AmauiIconMaterialCommentSharp';
+
 export default IconMaterialCommentSharp;

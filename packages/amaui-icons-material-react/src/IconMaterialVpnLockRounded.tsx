@@ -18,4 +18,6 @@ const IconMaterialVpnLockRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialVpnLockRounded.displayName = 'AmauiIconMaterialVpnLockRounded';
+
 export default IconMaterialVpnLockRounded;

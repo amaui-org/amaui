@@ -18,4 +18,6 @@ const IconMaterialHistoryToggleOffSharpW100 = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialHistoryToggleOffSharpW100.displayName = 'AmauiIconMaterialHistoryToggleOffSharpW100';
+
 export default IconMaterialHistoryToggleOffSharpW100;

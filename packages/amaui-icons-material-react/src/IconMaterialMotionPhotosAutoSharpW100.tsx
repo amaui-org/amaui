@@ -18,4 +18,6 @@ const IconMaterialMotionPhotosAutoSharpW100 = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialMotionPhotosAutoSharpW100.displayName = 'AmauiIconMaterialMotionPhotosAutoSharpW100';
+
 export default IconMaterialMotionPhotosAutoSharpW100;

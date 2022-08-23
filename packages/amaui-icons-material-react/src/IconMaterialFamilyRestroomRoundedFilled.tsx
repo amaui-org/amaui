@@ -18,4 +18,6 @@ const IconMaterialFamilyRestroomRoundedFilled = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialFamilyRestroomRoundedFilled.displayName = 'AmauiIconMaterialFamilyRestroomRoundedFilled';
+
 export default IconMaterialFamilyRestroomRoundedFilled;

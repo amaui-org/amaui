@@ -18,4 +18,6 @@ const IconMaterialClosedCaptionTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialClosedCaptionTwoTone.displayName = 'AmauiIconMaterialClosedCaptionTwoTone';
+
 export default IconMaterialClosedCaptionTwoTone;

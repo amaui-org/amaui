@@ -18,4 +18,6 @@ const IconMaterialAdminPanelSettingsRoundedW100 = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialAdminPanelSettingsRoundedW100.displayName = 'AmauiIconMaterialAdminPanelSettingsRoundedW100';
+
 export default IconMaterialAdminPanelSettingsRoundedW100;

@@ -18,4 +18,6 @@ const IconMaterialPetsRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPetsRoundedW100.displayName = 'AmauiIconMaterialPetsRoundedW100';
+
 export default IconMaterialPetsRoundedW100;

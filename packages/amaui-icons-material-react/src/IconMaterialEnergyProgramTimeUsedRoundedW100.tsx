@@ -18,4 +18,6 @@ const IconMaterialEnergyProgramTimeUsedRoundedW100 = React.forwardRef((props: an
   );
 });
 
+IconMaterialEnergyProgramTimeUsedRoundedW100.displayName = 'AmauiIconMaterialEnergyProgramTimeUsedRoundedW100';
+
 export default IconMaterialEnergyProgramTimeUsedRoundedW100;

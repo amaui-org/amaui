@@ -18,4 +18,6 @@ const IconMaterialTrafficSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTrafficSharpW100.displayName = 'AmauiIconMaterialTrafficSharpW100';
+
 export default IconMaterialTrafficSharpW100;

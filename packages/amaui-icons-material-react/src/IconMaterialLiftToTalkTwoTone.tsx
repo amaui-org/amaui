@@ -18,4 +18,6 @@ const IconMaterialLiftToTalkTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLiftToTalkTwoTone.displayName = 'AmauiIconMaterialLiftToTalkTwoTone';
+
 export default IconMaterialLiftToTalkTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialRollerSkatingTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialRollerSkatingTwoTone.displayName = 'AmauiIconMaterialRollerSkatingTwoTone';
+
 export default IconMaterialRollerSkatingTwoTone;

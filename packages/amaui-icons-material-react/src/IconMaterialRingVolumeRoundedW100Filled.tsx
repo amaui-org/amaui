@@ -18,4 +18,6 @@ const IconMaterialRingVolumeRoundedW100Filled = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialRingVolumeRoundedW100Filled.displayName = 'AmauiIconMaterialRingVolumeRoundedW100Filled';
+
 export default IconMaterialRingVolumeRoundedW100Filled;

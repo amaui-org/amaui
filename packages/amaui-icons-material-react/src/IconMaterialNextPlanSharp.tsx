@@ -18,4 +18,6 @@ const IconMaterialNextPlanSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNextPlanSharp.displayName = 'AmauiIconMaterialNextPlanSharp';
+
 export default IconMaterialNextPlanSharp;

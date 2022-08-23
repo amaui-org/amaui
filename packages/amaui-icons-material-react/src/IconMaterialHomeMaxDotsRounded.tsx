@@ -18,4 +18,6 @@ const IconMaterialHomeMaxDotsRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialHomeMaxDotsRounded.displayName = 'AmauiIconMaterialHomeMaxDotsRounded';
+
 export default IconMaterialHomeMaxDotsRounded;

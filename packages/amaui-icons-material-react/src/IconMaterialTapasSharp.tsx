@@ -18,4 +18,6 @@ const IconMaterialTapasSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTapasSharp.displayName = 'AmauiIconMaterialTapasSharp';
+
 export default IconMaterialTapasSharp;

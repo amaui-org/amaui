@@ -18,4 +18,6 @@ const IconMaterialMarkAsUnreadRoundedFilled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialMarkAsUnreadRoundedFilled.displayName = 'AmauiIconMaterialMarkAsUnreadRoundedFilled';
+
 export default IconMaterialMarkAsUnreadRoundedFilled;

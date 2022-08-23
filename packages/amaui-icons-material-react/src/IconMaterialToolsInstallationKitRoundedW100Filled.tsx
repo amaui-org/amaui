@@ -18,4 +18,6 @@ const IconMaterialToolsInstallationKitRoundedW100Filled = React.forwardRef((prop
   );
 });
 
+IconMaterialToolsInstallationKitRoundedW100Filled.displayName = 'AmauiIconMaterialToolsInstallationKitRoundedW100Filled';
+
 export default IconMaterialToolsInstallationKitRoundedW100Filled;

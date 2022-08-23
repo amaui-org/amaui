@@ -18,4 +18,6 @@ const IconMaterialAttachFileRoundedW100 = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialAttachFileRoundedW100.displayName = 'AmauiIconMaterialAttachFileRoundedW100';
+
 export default IconMaterialAttachFileRoundedW100;

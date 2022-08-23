@@ -18,4 +18,6 @@ const IconMaterialNetworkPingTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNetworkPingTwoTone.displayName = 'AmauiIconMaterialNetworkPingTwoTone';
+
 export default IconMaterialNetworkPingTwoTone;

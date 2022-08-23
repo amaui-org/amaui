@@ -18,4 +18,6 @@ const IconMaterialSwitchAccessShortcutAddRoundedW100Filled = React.forwardRef((p
   );
 });
 
+IconMaterialSwitchAccessShortcutAddRoundedW100Filled.displayName = 'AmauiIconMaterialSwitchAccessShortcutAddRoundedW100Filled';
+
 export default IconMaterialSwitchAccessShortcutAddRoundedW100Filled;

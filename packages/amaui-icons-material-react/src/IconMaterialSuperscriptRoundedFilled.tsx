@@ -18,4 +18,6 @@ const IconMaterialSuperscriptRoundedFilled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialSuperscriptRoundedFilled.displayName = 'AmauiIconMaterialSuperscriptRoundedFilled';
+
 export default IconMaterialSuperscriptRoundedFilled;

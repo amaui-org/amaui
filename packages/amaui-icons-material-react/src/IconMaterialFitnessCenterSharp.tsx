@@ -18,4 +18,6 @@ const IconMaterialFitnessCenterSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFitnessCenterSharp.displayName = 'AmauiIconMaterialFitnessCenterSharp';
+
 export default IconMaterialFitnessCenterSharp;

@@ -18,4 +18,6 @@ const IconMaterialRestorePageSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialRestorePageSharp.displayName = 'AmauiIconMaterialRestorePageSharp';
+
 export default IconMaterialRestorePageSharp;

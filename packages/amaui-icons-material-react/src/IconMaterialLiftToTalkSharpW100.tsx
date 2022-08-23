@@ -18,4 +18,6 @@ const IconMaterialLiftToTalkSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLiftToTalkSharpW100.displayName = 'AmauiIconMaterialLiftToTalkSharpW100';
+
 export default IconMaterialLiftToTalkSharpW100;

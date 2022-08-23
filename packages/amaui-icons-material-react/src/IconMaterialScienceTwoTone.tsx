@@ -18,4 +18,6 @@ const IconMaterialScienceTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialScienceTwoTone.displayName = 'AmauiIconMaterialScienceTwoTone';
+
 export default IconMaterialScienceTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialFormatAlignJustifyRoundedW100 = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialFormatAlignJustifyRoundedW100.displayName = 'AmauiIconMaterialFormatAlignJustifyRoundedW100';
+
 export default IconMaterialFormatAlignJustifyRoundedW100;

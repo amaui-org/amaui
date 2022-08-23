@@ -18,4 +18,6 @@ const IconMaterialFileDownloadOffTwoTone = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialFileDownloadOffTwoTone.displayName = 'AmauiIconMaterialFileDownloadOffTwoTone';
+
 export default IconMaterialFileDownloadOffTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialFenceTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFenceTwoTone.displayName = 'AmauiIconMaterialFenceTwoTone';
+
 export default IconMaterialFenceTwoTone;

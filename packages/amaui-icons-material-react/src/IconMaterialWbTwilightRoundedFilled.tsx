@@ -18,4 +18,6 @@ const IconMaterialWbTwilightRoundedFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialWbTwilightRoundedFilled.displayName = 'AmauiIconMaterialWbTwilightRoundedFilled';
+
 export default IconMaterialWbTwilightRoundedFilled;

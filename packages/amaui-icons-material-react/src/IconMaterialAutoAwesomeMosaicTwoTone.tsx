@@ -18,4 +18,6 @@ const IconMaterialAutoAwesomeMosaicTwoTone = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialAutoAwesomeMosaicTwoTone.displayName = 'AmauiIconMaterialAutoAwesomeMosaicTwoTone';
+
 export default IconMaterialAutoAwesomeMosaicTwoTone;

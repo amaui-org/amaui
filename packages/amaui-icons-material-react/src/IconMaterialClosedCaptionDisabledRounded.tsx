@@ -18,4 +18,6 @@ const IconMaterialClosedCaptionDisabledRounded = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialClosedCaptionDisabledRounded.displayName = 'AmauiIconMaterialClosedCaptionDisabledRounded';
+
 export default IconMaterialClosedCaptionDisabledRounded;

@@ -18,4 +18,6 @@ const IconMaterialAutoScheduleTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAutoScheduleTwoTone.displayName = 'AmauiIconMaterialAutoScheduleTwoTone';
+
 export default IconMaterialAutoScheduleTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialPetsTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPetsTwoTone.displayName = 'AmauiIconMaterialPetsTwoTone';
+
 export default IconMaterialPetsTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialBookOnlineTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBookOnlineTwoTone.displayName = 'AmauiIconMaterialBookOnlineTwoTone';
+
 export default IconMaterialBookOnlineTwoTone;

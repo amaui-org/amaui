@@ -18,4 +18,6 @@ const IconMaterialDomainVerificationRoundedW100Filled = React.forwardRef((props:
   );
 });
 
+IconMaterialDomainVerificationRoundedW100Filled.displayName = 'AmauiIconMaterialDomainVerificationRoundedW100Filled';
+
 export default IconMaterialDomainVerificationRoundedW100Filled;

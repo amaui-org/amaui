@@ -18,4 +18,6 @@ const IconMaterialNestCamStandRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNestCamStandRounded.displayName = 'AmauiIconMaterialNestCamStandRounded';
+
 export default IconMaterialNestCamStandRounded;

@@ -18,4 +18,6 @@ const IconMaterialWifiTetheringErrorSharp = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialWifiTetheringErrorSharp.displayName = 'AmauiIconMaterialWifiTetheringErrorSharp';
+
 export default IconMaterialWifiTetheringErrorSharp;

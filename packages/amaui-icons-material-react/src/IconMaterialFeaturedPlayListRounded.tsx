@@ -18,4 +18,6 @@ const IconMaterialFeaturedPlayListRounded = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialFeaturedPlayListRounded.displayName = 'AmauiIconMaterialFeaturedPlayListRounded';
+
 export default IconMaterialFeaturedPlayListRounded;

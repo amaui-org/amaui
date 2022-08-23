@@ -18,4 +18,6 @@ const IconMaterialAirlineSeatIndividualSuiteRoundedW100 = React.forwardRef((prop
   );
 });
 
+IconMaterialAirlineSeatIndividualSuiteRoundedW100.displayName = 'AmauiIconMaterialAirlineSeatIndividualSuiteRoundedW100';
+
 export default IconMaterialAirlineSeatIndividualSuiteRoundedW100;

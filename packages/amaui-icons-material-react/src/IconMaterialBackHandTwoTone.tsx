@@ -18,4 +18,6 @@ const IconMaterialBackHandTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBackHandTwoTone.displayName = 'AmauiIconMaterialBackHandTwoTone';
+
 export default IconMaterialBackHandTwoTone;

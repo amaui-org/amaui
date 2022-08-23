@@ -18,4 +18,6 @@ const IconMaterialRoofingSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialRoofingSharp.displayName = 'AmauiIconMaterialRoofingSharp';
+
 export default IconMaterialRoofingSharp;

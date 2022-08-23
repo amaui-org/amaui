@@ -18,4 +18,6 @@ const IconMaterialSettingsBackupRestoreSharpW100 = React.forwardRef((props: any,
   );
 });
 
+IconMaterialSettingsBackupRestoreSharpW100.displayName = 'AmauiIconMaterialSettingsBackupRestoreSharpW100';
+
 export default IconMaterialSettingsBackupRestoreSharpW100;

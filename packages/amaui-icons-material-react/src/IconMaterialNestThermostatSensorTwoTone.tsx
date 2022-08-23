@@ -18,4 +18,6 @@ const IconMaterialNestThermostatSensorTwoTone = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialNestThermostatSensorTwoTone.displayName = 'AmauiIconMaterialNestThermostatSensorTwoTone';
+
 export default IconMaterialNestThermostatSensorTwoTone;

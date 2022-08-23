@@ -18,4 +18,6 @@ const IconMaterialNestAudioRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNestAudioRoundedW100.displayName = 'AmauiIconMaterialNestAudioRoundedW100';
+
 export default IconMaterialNestAudioRoundedW100;

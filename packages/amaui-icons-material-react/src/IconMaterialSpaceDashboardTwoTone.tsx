@@ -18,4 +18,6 @@ const IconMaterialSpaceDashboardTwoTone = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialSpaceDashboardTwoTone.displayName = 'AmauiIconMaterialSpaceDashboardTwoTone';
+
 export default IconMaterialSpaceDashboardTwoTone;

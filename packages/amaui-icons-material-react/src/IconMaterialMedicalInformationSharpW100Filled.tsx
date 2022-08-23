@@ -18,4 +18,6 @@ const IconMaterialMedicalInformationSharpW100Filled = React.forwardRef((props: a
   );
 });
 
+IconMaterialMedicalInformationSharpW100Filled.displayName = 'AmauiIconMaterialMedicalInformationSharpW100Filled';
+
 export default IconMaterialMedicalInformationSharpW100Filled;

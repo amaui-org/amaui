@@ -18,4 +18,6 @@ const IconMaterialSetMealSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSetMealSharpW100.displayName = 'AmauiIconMaterialSetMealSharpW100';
+
 export default IconMaterialSetMealSharpW100;

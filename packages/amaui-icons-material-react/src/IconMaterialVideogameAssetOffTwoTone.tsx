@@ -18,4 +18,6 @@ const IconMaterialVideogameAssetOffTwoTone = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialVideogameAssetOffTwoTone.displayName = 'AmauiIconMaterialVideogameAssetOffTwoTone';
+
 export default IconMaterialVideogameAssetOffTwoTone;

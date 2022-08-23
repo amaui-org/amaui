@@ -18,4 +18,6 @@ const IconMaterialBloodtypeTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBloodtypeTwoTone.displayName = 'AmauiIconMaterialBloodtypeTwoTone';
+
 export default IconMaterialBloodtypeTwoTone;

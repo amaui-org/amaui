@@ -18,4 +18,6 @@ const IconMaterialNestCamIqSharpW100Filled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialNestCamIqSharpW100Filled.displayName = 'AmauiIconMaterialNestCamIqSharpW100Filled';
+
 export default IconMaterialNestCamIqSharpW100Filled;

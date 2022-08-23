@@ -18,4 +18,6 @@ const IconMaterialDomainVerificationSharpFilled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialDomainVerificationSharpFilled.displayName = 'AmauiIconMaterialDomainVerificationSharpFilled';
+
 export default IconMaterialDomainVerificationSharpFilled;

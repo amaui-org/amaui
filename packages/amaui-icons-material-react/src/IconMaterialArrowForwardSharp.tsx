@@ -18,4 +18,6 @@ const IconMaterialArrowForwardSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialArrowForwardSharp.displayName = 'AmauiIconMaterialArrowForwardSharp';
+
 export default IconMaterialArrowForwardSharp;

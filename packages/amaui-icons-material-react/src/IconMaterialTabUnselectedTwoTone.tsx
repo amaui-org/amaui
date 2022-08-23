@@ -18,4 +18,6 @@ const IconMaterialTabUnselectedTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTabUnselectedTwoTone.displayName = 'AmauiIconMaterialTabUnselectedTwoTone';
+
 export default IconMaterialTabUnselectedTwoTone;

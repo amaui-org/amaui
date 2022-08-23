@@ -18,4 +18,6 @@ const IconMaterialBeachAccessSharpFilled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialBeachAccessSharpFilled.displayName = 'AmauiIconMaterialBeachAccessSharpFilled';
+
 export default IconMaterialBeachAccessSharpFilled;

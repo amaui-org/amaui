@@ -18,4 +18,6 @@ const IconMaterialHomeRepairServiceTwoTone = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialHomeRepairServiceTwoTone.displayName = 'AmauiIconMaterialHomeRepairServiceTwoTone';
+
 export default IconMaterialHomeRepairServiceTwoTone;

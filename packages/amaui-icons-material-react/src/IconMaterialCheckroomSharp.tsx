@@ -18,4 +18,6 @@ const IconMaterialCheckroomSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCheckroomSharp.displayName = 'AmauiIconMaterialCheckroomSharp';
+
 export default IconMaterialCheckroomSharp;

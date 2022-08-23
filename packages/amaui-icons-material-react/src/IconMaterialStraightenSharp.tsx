@@ -18,4 +18,6 @@ const IconMaterialStraightenSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialStraightenSharp.displayName = 'AmauiIconMaterialStraightenSharp';
+
 export default IconMaterialStraightenSharp;

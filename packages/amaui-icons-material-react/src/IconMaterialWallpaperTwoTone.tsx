@@ -18,4 +18,6 @@ const IconMaterialWallpaperTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialWallpaperTwoTone.displayName = 'AmauiIconMaterialWallpaperTwoTone';
+
 export default IconMaterialWallpaperTwoTone;

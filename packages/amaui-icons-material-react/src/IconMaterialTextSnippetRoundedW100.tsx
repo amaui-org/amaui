@@ -18,4 +18,6 @@ const IconMaterialTextSnippetRoundedW100 = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialTextSnippetRoundedW100.displayName = 'AmauiIconMaterialTextSnippetRoundedW100';
+
 export default IconMaterialTextSnippetRoundedW100;

@@ -18,4 +18,6 @@ const IconMaterialAirlineSeatReclineNormalRoundedFilled = React.forwardRef((prop
   );
 });
 
+IconMaterialAirlineSeatReclineNormalRoundedFilled.displayName = 'AmauiIconMaterialAirlineSeatReclineNormalRoundedFilled';
+
 export default IconMaterialAirlineSeatReclineNormalRoundedFilled;

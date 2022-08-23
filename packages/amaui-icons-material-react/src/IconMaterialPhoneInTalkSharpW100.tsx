@@ -18,4 +18,6 @@ const IconMaterialPhoneInTalkSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPhoneInTalkSharpW100.displayName = 'AmauiIconMaterialPhoneInTalkSharpW100';
+
 export default IconMaterialPhoneInTalkSharpW100;

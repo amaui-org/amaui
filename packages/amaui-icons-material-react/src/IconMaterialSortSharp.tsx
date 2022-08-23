@@ -18,4 +18,6 @@ const IconMaterialSortSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSortSharp.displayName = 'AmauiIconMaterialSortSharp';
+
 export default IconMaterialSortSharp;

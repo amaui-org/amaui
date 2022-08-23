@@ -18,4 +18,6 @@ const IconMaterialApkInstallTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialApkInstallTwoTone.displayName = 'AmauiIconMaterialApkInstallTwoTone';
+
 export default IconMaterialApkInstallTwoTone;

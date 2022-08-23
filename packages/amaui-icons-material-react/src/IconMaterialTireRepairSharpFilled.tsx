@@ -18,4 +18,6 @@ const IconMaterialTireRepairSharpFilled = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialTireRepairSharpFilled.displayName = 'AmauiIconMaterialTireRepairSharpFilled';
+
 export default IconMaterialTireRepairSharpFilled;

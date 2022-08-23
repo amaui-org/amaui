@@ -18,4 +18,6 @@ const IconMaterialAutoAwesomeRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAutoAwesomeRounded.displayName = 'AmauiIconMaterialAutoAwesomeRounded';
+
 export default IconMaterialAutoAwesomeRounded;

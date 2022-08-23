@@ -18,4 +18,6 @@ const IconMaterialRibCageSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialRibCageSharpFilled.displayName = 'AmauiIconMaterialRibCageSharpFilled';
+
 export default IconMaterialRibCageSharpFilled;

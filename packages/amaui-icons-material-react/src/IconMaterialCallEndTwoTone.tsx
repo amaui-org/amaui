@@ -18,4 +18,6 @@ const IconMaterialCallEndTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCallEndTwoTone.displayName = 'AmauiIconMaterialCallEndTwoTone';
+
 export default IconMaterialCallEndTwoTone;

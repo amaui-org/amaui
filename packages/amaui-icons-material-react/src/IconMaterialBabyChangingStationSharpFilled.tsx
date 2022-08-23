@@ -18,4 +18,6 @@ const IconMaterialBabyChangingStationSharpFilled = React.forwardRef((props: any,
   );
 });
 
+IconMaterialBabyChangingStationSharpFilled.displayName = 'AmauiIconMaterialBabyChangingStationSharpFilled';
+
 export default IconMaterialBabyChangingStationSharpFilled;

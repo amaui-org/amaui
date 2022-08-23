@@ -18,4 +18,6 @@ const IconMaterialSpaSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSpaSharp.displayName = 'AmauiIconMaterialSpaSharp';
+
 export default IconMaterialSpaSharp;

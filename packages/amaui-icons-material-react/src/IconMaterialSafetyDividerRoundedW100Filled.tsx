@@ -18,4 +18,6 @@ const IconMaterialSafetyDividerRoundedW100Filled = React.forwardRef((props: any,
   );
 });
 
+IconMaterialSafetyDividerRoundedW100Filled.displayName = 'AmauiIconMaterialSafetyDividerRoundedW100Filled';
+
 export default IconMaterialSafetyDividerRoundedW100Filled;

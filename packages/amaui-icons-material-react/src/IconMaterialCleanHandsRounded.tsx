@@ -18,4 +18,6 @@ const IconMaterialCleanHandsRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCleanHandsRounded.displayName = 'AmauiIconMaterialCleanHandsRounded';
+
 export default IconMaterialCleanHandsRounded;

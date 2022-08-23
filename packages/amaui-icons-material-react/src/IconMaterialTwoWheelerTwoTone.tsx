@@ -18,4 +18,6 @@ const IconMaterialTwoWheelerTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTwoWheelerTwoTone.displayName = 'AmauiIconMaterialTwoWheelerTwoTone';
+
 export default IconMaterialTwoWheelerTwoTone;

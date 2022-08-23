@@ -18,4 +18,6 @@ const IconMaterialContactEmergencySharpW100 = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialContactEmergencySharpW100.displayName = 'AmauiIconMaterialContactEmergencySharpW100';
+
 export default IconMaterialContactEmergencySharpW100;

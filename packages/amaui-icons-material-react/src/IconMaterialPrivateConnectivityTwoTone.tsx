@@ -18,4 +18,6 @@ const IconMaterialPrivateConnectivityTwoTone = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialPrivateConnectivityTwoTone.displayName = 'AmauiIconMaterialPrivateConnectivityTwoTone';
+
 export default IconMaterialPrivateConnectivityTwoTone;

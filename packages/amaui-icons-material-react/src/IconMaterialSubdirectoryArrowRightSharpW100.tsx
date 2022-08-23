@@ -18,4 +18,6 @@ const IconMaterialSubdirectoryArrowRightSharpW100 = React.forwardRef((props: any
   );
 });
 
+IconMaterialSubdirectoryArrowRightSharpW100.displayName = 'AmauiIconMaterialSubdirectoryArrowRightSharpW100';
+
 export default IconMaterialSubdirectoryArrowRightSharpW100;

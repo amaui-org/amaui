@@ -18,4 +18,6 @@ const IconMaterialPlagiarismSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPlagiarismSharp.displayName = 'AmauiIconMaterialPlagiarismSharp';
+
 export default IconMaterialPlagiarismSharp;

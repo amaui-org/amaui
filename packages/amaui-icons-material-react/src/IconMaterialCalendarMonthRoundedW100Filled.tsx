@@ -18,4 +18,6 @@ const IconMaterialCalendarMonthRoundedW100Filled = React.forwardRef((props: any,
   );
 });
 
+IconMaterialCalendarMonthRoundedW100Filled.displayName = 'AmauiIconMaterialCalendarMonthRoundedW100Filled';
+
 export default IconMaterialCalendarMonthRoundedW100Filled;

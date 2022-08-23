@@ -18,4 +18,6 @@ const IconMaterialNestMultiRoomRoundedFilled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialNestMultiRoomRoundedFilled.displayName = 'AmauiIconMaterialNestMultiRoomRoundedFilled';
+
 export default IconMaterialNestMultiRoomRoundedFilled;

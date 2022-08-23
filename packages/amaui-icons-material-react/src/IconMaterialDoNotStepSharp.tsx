@@ -18,4 +18,6 @@ const IconMaterialDoNotStepSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDoNotStepSharp.displayName = 'AmauiIconMaterialDoNotStepSharp';
+
 export default IconMaterialDoNotStepSharp;

@@ -18,4 +18,6 @@ const IconMaterialRangeHoodSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialRangeHoodSharp.displayName = 'AmauiIconMaterialRangeHoodSharp';
+
 export default IconMaterialRangeHoodSharp;

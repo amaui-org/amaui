@@ -18,4 +18,6 @@ const IconMaterialSoundDetectionDogBarkingTwoTone = React.forwardRef((props: any
   );
 });
 
+IconMaterialSoundDetectionDogBarkingTwoTone.displayName = 'AmauiIconMaterialSoundDetectionDogBarkingTwoTone';
+
 export default IconMaterialSoundDetectionDogBarkingTwoTone;

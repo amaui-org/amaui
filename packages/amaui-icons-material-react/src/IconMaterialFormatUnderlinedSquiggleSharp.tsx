@@ -18,4 +18,6 @@ const IconMaterialFormatUnderlinedSquiggleSharp = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialFormatUnderlinedSquiggleSharp.displayName = 'AmauiIconMaterialFormatUnderlinedSquiggleSharp';
+
 export default IconMaterialFormatUnderlinedSquiggleSharp;

@@ -18,4 +18,6 @@ const IconMaterialEventSeatRoundedFilled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialEventSeatRoundedFilled.displayName = 'AmauiIconMaterialEventSeatRoundedFilled';
+
 export default IconMaterialEventSeatRoundedFilled;

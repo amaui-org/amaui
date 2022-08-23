@@ -18,4 +18,6 @@ const IconMaterialPolylineSharpW100Filled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialPolylineSharpW100Filled.displayName = 'AmauiIconMaterialPolylineSharpW100Filled';
+
 export default IconMaterialPolylineSharpW100Filled;

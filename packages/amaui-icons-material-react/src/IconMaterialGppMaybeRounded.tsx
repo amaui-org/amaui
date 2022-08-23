@@ -18,4 +18,6 @@ const IconMaterialGppMaybeRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialGppMaybeRounded.displayName = 'AmauiIconMaterialGppMaybeRounded';
+
 export default IconMaterialGppMaybeRounded;

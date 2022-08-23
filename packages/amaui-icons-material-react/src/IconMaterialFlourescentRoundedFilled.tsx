@@ -18,4 +18,6 @@ const IconMaterialFlourescentRoundedFilled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialFlourescentRoundedFilled.displayName = 'AmauiIconMaterialFlourescentRoundedFilled';
+
 export default IconMaterialFlourescentRoundedFilled;

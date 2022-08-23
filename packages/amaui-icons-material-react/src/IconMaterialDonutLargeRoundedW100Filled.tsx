@@ -18,4 +18,6 @@ const IconMaterialDonutLargeRoundedW100Filled = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialDonutLargeRoundedW100Filled.displayName = 'AmauiIconMaterialDonutLargeRoundedW100Filled';
+
 export default IconMaterialDonutLargeRoundedW100Filled;

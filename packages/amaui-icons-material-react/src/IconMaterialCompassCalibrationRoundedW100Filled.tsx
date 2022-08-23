@@ -18,4 +18,6 @@ const IconMaterialCompassCalibrationRoundedW100Filled = React.forwardRef((props:
   );
 });
 
+IconMaterialCompassCalibrationRoundedW100Filled.displayName = 'AmauiIconMaterialCompassCalibrationRoundedW100Filled';
+
 export default IconMaterialCompassCalibrationRoundedW100Filled;

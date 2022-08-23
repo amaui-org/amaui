@@ -18,4 +18,6 @@ const IconMaterialFitScreenTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFitScreenTwoTone.displayName = 'AmauiIconMaterialFitScreenTwoTone';
+
 export default IconMaterialFitScreenTwoTone;

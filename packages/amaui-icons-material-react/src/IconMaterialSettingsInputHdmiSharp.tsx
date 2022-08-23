@@ -18,4 +18,6 @@ const IconMaterialSettingsInputHdmiSharp = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialSettingsInputHdmiSharp.displayName = 'AmauiIconMaterialSettingsInputHdmiSharp';
+
 export default IconMaterialSettingsInputHdmiSharp;

@@ -18,4 +18,6 @@ const IconMaterialDoorbell3pTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDoorbell3pTwoTone.displayName = 'AmauiIconMaterialDoorbell3pTwoTone';
+
 export default IconMaterialDoorbell3pTwoTone;

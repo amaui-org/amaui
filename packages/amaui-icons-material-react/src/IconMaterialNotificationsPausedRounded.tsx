@@ -18,4 +18,6 @@ const IconMaterialNotificationsPausedRounded = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialNotificationsPausedRounded.displayName = 'AmauiIconMaterialNotificationsPausedRounded';
+
 export default IconMaterialNotificationsPausedRounded;

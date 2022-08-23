@@ -18,4 +18,6 @@ const IconMaterialAssistantDirectionRounded = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialAssistantDirectionRounded.displayName = 'AmauiIconMaterialAssistantDirectionRounded';
+
 export default IconMaterialAssistantDirectionRounded;

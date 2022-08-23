@@ -18,4 +18,6 @@ const IconMaterialChevronLeftSharpFilled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialChevronLeftSharpFilled.displayName = 'AmauiIconMaterialChevronLeftSharpFilled';
+
 export default IconMaterialChevronLeftSharpFilled;

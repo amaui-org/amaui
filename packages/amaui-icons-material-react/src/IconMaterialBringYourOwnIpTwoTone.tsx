@@ -18,4 +18,6 @@ const IconMaterialBringYourOwnIpTwoTone = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialBringYourOwnIpTwoTone.displayName = 'AmauiIconMaterialBringYourOwnIpTwoTone';
+
 export default IconMaterialBringYourOwnIpTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialPolymerTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPolymerTwoTone.displayName = 'AmauiIconMaterialPolymerTwoTone';
+
 export default IconMaterialPolymerTwoTone;

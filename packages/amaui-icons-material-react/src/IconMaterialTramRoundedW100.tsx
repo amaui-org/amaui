@@ -18,4 +18,6 @@ const IconMaterialTramRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTramRoundedW100.displayName = 'AmauiIconMaterialTramRoundedW100';
+
 export default IconMaterialTramRoundedW100;

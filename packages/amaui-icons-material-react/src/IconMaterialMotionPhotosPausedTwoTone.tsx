@@ -18,4 +18,6 @@ const IconMaterialMotionPhotosPausedTwoTone = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialMotionPhotosPausedTwoTone.displayName = 'AmauiIconMaterialMotionPhotosPausedTwoTone';
+
 export default IconMaterialMotionPhotosPausedTwoTone;

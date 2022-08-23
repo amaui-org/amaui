@@ -18,4 +18,6 @@ const IconMaterial360Sharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterial360Sharp.displayName = 'AmauiIconMaterial360Sharp';
+
 export default IconMaterial360Sharp;

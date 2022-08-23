@@ -18,4 +18,6 @@ const IconMaterialCopyrightSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCopyrightSharp.displayName = 'AmauiIconMaterialCopyrightSharp';
+
 export default IconMaterialCopyrightSharp;

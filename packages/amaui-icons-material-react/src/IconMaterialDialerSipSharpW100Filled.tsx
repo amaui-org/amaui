@@ -18,4 +18,6 @@ const IconMaterialDialerSipSharpW100Filled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialDialerSipSharpW100Filled.displayName = 'AmauiIconMaterialDialerSipSharpW100Filled';
+
 export default IconMaterialDialerSipSharpW100Filled;

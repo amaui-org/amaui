@@ -18,4 +18,6 @@ const IconMaterialBrowseActivitySharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBrowseActivitySharp.displayName = 'AmauiIconMaterialBrowseActivitySharp';
+
 export default IconMaterialBrowseActivitySharp;

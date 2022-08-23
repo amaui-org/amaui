@@ -18,4 +18,6 @@ const IconMaterialNestFoundSavingsTwoTone = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialNestFoundSavingsTwoTone.displayName = 'AmauiIconMaterialNestFoundSavingsTwoTone';
+
 export default IconMaterialNestFoundSavingsTwoTone;

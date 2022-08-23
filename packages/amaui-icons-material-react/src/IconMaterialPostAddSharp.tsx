@@ -18,4 +18,6 @@ const IconMaterialPostAddSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPostAddSharp.displayName = 'AmauiIconMaterialPostAddSharp';
+
 export default IconMaterialPostAddSharp;

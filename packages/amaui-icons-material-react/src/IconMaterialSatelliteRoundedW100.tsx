@@ -18,4 +18,6 @@ const IconMaterialSatelliteRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSatelliteRoundedW100.displayName = 'AmauiIconMaterialSatelliteRoundedW100';
+
 export default IconMaterialSatelliteRoundedW100;

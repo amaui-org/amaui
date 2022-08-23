@@ -18,4 +18,6 @@ const IconMaterialChromeReaderModeRounded = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialChromeReaderModeRounded.displayName = 'AmauiIconMaterialChromeReaderModeRounded';
+
 export default IconMaterialChromeReaderModeRounded;

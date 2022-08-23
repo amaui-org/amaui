@@ -18,4 +18,6 @@ const IconMaterialBallotRoundedFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBallotRoundedFilled.displayName = 'AmauiIconMaterialBallotRoundedFilled';
+
 export default IconMaterialBallotRoundedFilled;

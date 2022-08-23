@@ -18,4 +18,6 @@ const IconMaterialNestThermostatSensorEuSharpFilled = React.forwardRef((props: a
   );
 });
 
+IconMaterialNestThermostatSensorEuSharpFilled.displayName = 'AmauiIconMaterialNestThermostatSensorEuSharpFilled';
+
 export default IconMaterialNestThermostatSensorEuSharpFilled;

@@ -18,4 +18,6 @@ const IconMaterialSensorsOffSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSensorsOffSharp.displayName = 'AmauiIconMaterialSensorsOffSharp';
+
 export default IconMaterialSensorsOffSharp;

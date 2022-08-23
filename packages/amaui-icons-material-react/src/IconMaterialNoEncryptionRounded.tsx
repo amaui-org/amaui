@@ -18,4 +18,6 @@ const IconMaterialNoEncryptionRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNoEncryptionRounded.displayName = 'AmauiIconMaterialNoEncryptionRounded';
+
 export default IconMaterialNoEncryptionRounded;

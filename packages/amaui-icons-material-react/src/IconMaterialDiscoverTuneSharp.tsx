@@ -18,4 +18,6 @@ const IconMaterialDiscoverTuneSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDiscoverTuneSharp.displayName = 'AmauiIconMaterialDiscoverTuneSharp';
+
 export default IconMaterialDiscoverTuneSharp;

@@ -18,4 +18,6 @@ const IconMaterialModeOfTravelRoundedW100Filled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialModeOfTravelRoundedW100Filled.displayName = 'AmauiIconMaterialModeOfTravelRoundedW100Filled';
+
 export default IconMaterialModeOfTravelRoundedW100Filled;

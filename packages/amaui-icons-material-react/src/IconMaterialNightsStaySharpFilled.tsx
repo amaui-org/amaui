@@ -18,4 +18,6 @@ const IconMaterialNightsStaySharpFilled = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialNightsStaySharpFilled.displayName = 'AmauiIconMaterialNightsStaySharpFilled';
+
 export default IconMaterialNightsStaySharpFilled;

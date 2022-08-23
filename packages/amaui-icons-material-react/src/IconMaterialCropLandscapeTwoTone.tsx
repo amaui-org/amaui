@@ -18,4 +18,6 @@ const IconMaterialCropLandscapeTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCropLandscapeTwoTone.displayName = 'AmauiIconMaterialCropLandscapeTwoTone';
+
 export default IconMaterialCropLandscapeTwoTone;

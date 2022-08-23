@@ -18,4 +18,6 @@ const IconMaterialScreenLockRotationTwoTone = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialScreenLockRotationTwoTone.displayName = 'AmauiIconMaterialScreenLockRotationTwoTone';
+
 export default IconMaterialScreenLockRotationTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialTamperDetectionOffRoundedW100 = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialTamperDetectionOffRoundedW100.displayName = 'AmauiIconMaterialTamperDetectionOffRoundedW100';
+
 export default IconMaterialTamperDetectionOffRoundedW100;

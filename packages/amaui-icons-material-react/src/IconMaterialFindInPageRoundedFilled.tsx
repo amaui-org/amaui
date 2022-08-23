@@ -18,4 +18,6 @@ const IconMaterialFindInPageRoundedFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialFindInPageRoundedFilled.displayName = 'AmauiIconMaterialFindInPageRoundedFilled';
+
 export default IconMaterialFindInPageRoundedFilled;

@@ -18,4 +18,6 @@ const IconMaterialZoomInTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialZoomInTwoTone.displayName = 'AmauiIconMaterialZoomInTwoTone';
+
 export default IconMaterialZoomInTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialCelebrationSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCelebrationSharp.displayName = 'AmauiIconMaterialCelebrationSharp';
+
 export default IconMaterialCelebrationSharp;

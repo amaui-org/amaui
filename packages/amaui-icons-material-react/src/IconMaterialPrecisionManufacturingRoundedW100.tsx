@@ -18,4 +18,6 @@ const IconMaterialPrecisionManufacturingRoundedW100 = React.forwardRef((props: a
   );
 });
 
+IconMaterialPrecisionManufacturingRoundedW100.displayName = 'AmauiIconMaterialPrecisionManufacturingRoundedW100';
+
 export default IconMaterialPrecisionManufacturingRoundedW100;

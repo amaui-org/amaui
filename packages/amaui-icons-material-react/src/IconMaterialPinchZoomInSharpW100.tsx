@@ -18,4 +18,6 @@ const IconMaterialPinchZoomInSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPinchZoomInSharpW100.displayName = 'AmauiIconMaterialPinchZoomInSharpW100';
+
 export default IconMaterialPinchZoomInSharpW100;

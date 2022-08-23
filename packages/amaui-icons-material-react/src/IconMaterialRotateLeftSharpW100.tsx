@@ -18,4 +18,6 @@ const IconMaterialRotateLeftSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialRotateLeftSharpW100.displayName = 'AmauiIconMaterialRotateLeftSharpW100';
+
 export default IconMaterialRotateLeftSharpW100;

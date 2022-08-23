@@ -18,4 +18,6 @@ const IconMaterialArrowDropDownCircleRounded = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialArrowDropDownCircleRounded.displayName = 'AmauiIconMaterialArrowDropDownCircleRounded';
+
 export default IconMaterialArrowDropDownCircleRounded;

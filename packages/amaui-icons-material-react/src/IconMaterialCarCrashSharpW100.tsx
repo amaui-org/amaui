@@ -18,4 +18,6 @@ const IconMaterialCarCrashSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCarCrashSharpW100.displayName = 'AmauiIconMaterialCarCrashSharpW100';
+
 export default IconMaterialCarCrashSharpW100;

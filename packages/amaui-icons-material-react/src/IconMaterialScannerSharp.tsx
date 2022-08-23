@@ -18,4 +18,6 @@ const IconMaterialScannerSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialScannerSharp.displayName = 'AmauiIconMaterialScannerSharp';
+
 export default IconMaterialScannerSharp;

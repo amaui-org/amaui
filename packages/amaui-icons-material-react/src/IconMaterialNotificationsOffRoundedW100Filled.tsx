@@ -18,4 +18,6 @@ const IconMaterialNotificationsOffRoundedW100Filled = React.forwardRef((props: a
   );
 });
 
+IconMaterialNotificationsOffRoundedW100Filled.displayName = 'AmauiIconMaterialNotificationsOffRoundedW100Filled';
+
 export default IconMaterialNotificationsOffRoundedW100Filled;

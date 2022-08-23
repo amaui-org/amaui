@@ -18,4 +18,6 @@ const IconMaterialAodTabletTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAodTabletTwoTone.displayName = 'AmauiIconMaterialAodTabletTwoTone';
+
 export default IconMaterialAodTabletTwoTone;

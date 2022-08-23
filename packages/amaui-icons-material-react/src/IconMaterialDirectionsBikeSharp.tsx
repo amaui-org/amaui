@@ -18,4 +18,6 @@ const IconMaterialDirectionsBikeSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDirectionsBikeSharp.displayName = 'AmauiIconMaterialDirectionsBikeSharp';
+
 export default IconMaterialDirectionsBikeSharp;

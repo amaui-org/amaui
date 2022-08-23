@@ -18,4 +18,6 @@ const IconMaterialHotelTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialHotelTwoTone.displayName = 'AmauiIconMaterialHotelTwoTone';
+
 export default IconMaterialHotelTwoTone;

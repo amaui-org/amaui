@@ -18,4 +18,6 @@ const IconMaterialAddToQueueTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAddToQueueTwoTone.displayName = 'AmauiIconMaterialAddToQueueTwoTone';
+
 export default IconMaterialAddToQueueTwoTone;

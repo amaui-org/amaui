@@ -18,4 +18,6 @@ const IconMaterialExpandCircleDownTwoTone = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialExpandCircleDownTwoTone.displayName = 'AmauiIconMaterialExpandCircleDownTwoTone';
+
 export default IconMaterialExpandCircleDownTwoTone;

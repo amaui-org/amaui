@@ -18,4 +18,6 @@ const IconMaterialLooksOneSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLooksOneSharp.displayName = 'AmauiIconMaterialLooksOneSharp';
+
 export default IconMaterialLooksOneSharp;

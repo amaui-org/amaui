@@ -18,4 +18,6 @@ const IconMaterialMouseRoundedFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMouseRoundedFilled.displayName = 'AmauiIconMaterialMouseRoundedFilled';
+
 export default IconMaterialMouseRoundedFilled;

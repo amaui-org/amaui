@@ -18,4 +18,6 @@ const IconMaterialFormatColorResetRounded = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialFormatColorResetRounded.displayName = 'AmauiIconMaterialFormatColorResetRounded';
+
 export default IconMaterialFormatColorResetRounded;

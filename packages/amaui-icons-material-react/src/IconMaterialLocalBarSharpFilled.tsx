@@ -18,4 +18,6 @@ const IconMaterialLocalBarSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLocalBarSharpFilled.displayName = 'AmauiIconMaterialLocalBarSharpFilled';
+
 export default IconMaterialLocalBarSharpFilled;

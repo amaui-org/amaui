@@ -18,4 +18,6 @@ const IconMaterialScreenLockPortraitTwoTone = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialScreenLockPortraitTwoTone.displayName = 'AmauiIconMaterialScreenLockPortraitTwoTone';
+
 export default IconMaterialScreenLockPortraitTwoTone;

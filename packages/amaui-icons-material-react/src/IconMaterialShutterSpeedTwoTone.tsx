@@ -18,4 +18,6 @@ const IconMaterialShutterSpeedTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialShutterSpeedTwoTone.displayName = 'AmauiIconMaterialShutterSpeedTwoTone';
+
 export default IconMaterialShutterSpeedTwoTone;

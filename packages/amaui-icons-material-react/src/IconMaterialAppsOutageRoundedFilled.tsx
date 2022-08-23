@@ -18,4 +18,6 @@ const IconMaterialAppsOutageRoundedFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialAppsOutageRoundedFilled.displayName = 'AmauiIconMaterialAppsOutageRoundedFilled';
+
 export default IconMaterialAppsOutageRoundedFilled;

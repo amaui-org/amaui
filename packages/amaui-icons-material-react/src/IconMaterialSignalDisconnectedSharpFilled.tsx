@@ -18,4 +18,6 @@ const IconMaterialSignalDisconnectedSharpFilled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialSignalDisconnectedSharpFilled.displayName = 'AmauiIconMaterialSignalDisconnectedSharpFilled';
+
 export default IconMaterialSignalDisconnectedSharpFilled;

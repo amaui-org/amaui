@@ -18,4 +18,6 @@ const IconMaterialPasswordRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPasswordRounded.displayName = 'AmauiIconMaterialPasswordRounded';
+
 export default IconMaterialPasswordRounded;

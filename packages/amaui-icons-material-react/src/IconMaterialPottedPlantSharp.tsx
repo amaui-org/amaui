@@ -18,4 +18,6 @@ const IconMaterialPottedPlantSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPottedPlantSharp.displayName = 'AmauiIconMaterialPottedPlantSharp';
+
 export default IconMaterialPottedPlantSharp;

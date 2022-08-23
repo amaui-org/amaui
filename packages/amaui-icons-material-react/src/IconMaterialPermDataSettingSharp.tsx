@@ -18,4 +18,6 @@ const IconMaterialPermDataSettingSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPermDataSettingSharp.displayName = 'AmauiIconMaterialPermDataSettingSharp';
+
 export default IconMaterialPermDataSettingSharp;

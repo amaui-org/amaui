@@ -18,4 +18,6 @@ const IconMaterialFaceRetouchingNaturalRoundedW100 = React.forwardRef((props: an
   );
 });
 
+IconMaterialFaceRetouchingNaturalRoundedW100.displayName = 'AmauiIconMaterialFaceRetouchingNaturalRoundedW100';
+
 export default IconMaterialFaceRetouchingNaturalRoundedW100;

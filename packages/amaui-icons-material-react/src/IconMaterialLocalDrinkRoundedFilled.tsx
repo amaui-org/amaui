@@ -18,4 +18,6 @@ const IconMaterialLocalDrinkRoundedFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialLocalDrinkRoundedFilled.displayName = 'AmauiIconMaterialLocalDrinkRoundedFilled';
+
 export default IconMaterialLocalDrinkRoundedFilled;

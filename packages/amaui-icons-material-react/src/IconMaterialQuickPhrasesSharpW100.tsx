@@ -18,4 +18,6 @@ const IconMaterialQuickPhrasesSharpW100 = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialQuickPhrasesSharpW100.displayName = 'AmauiIconMaterialQuickPhrasesSharpW100';
+
 export default IconMaterialQuickPhrasesSharpW100;

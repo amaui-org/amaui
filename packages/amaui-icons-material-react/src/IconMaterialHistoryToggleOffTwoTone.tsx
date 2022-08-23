@@ -18,4 +18,6 @@ const IconMaterialHistoryToggleOffTwoTone = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialHistoryToggleOffTwoTone.displayName = 'AmauiIconMaterialHistoryToggleOffTwoTone';
+
 export default IconMaterialHistoryToggleOffTwoTone;

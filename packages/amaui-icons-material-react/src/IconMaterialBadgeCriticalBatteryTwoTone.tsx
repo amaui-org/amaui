@@ -18,4 +18,6 @@ const IconMaterialBadgeCriticalBatteryTwoTone = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialBadgeCriticalBatteryTwoTone.displayName = 'AmauiIconMaterialBadgeCriticalBatteryTwoTone';
+
 export default IconMaterialBadgeCriticalBatteryTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialDatasetSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDatasetSharp.displayName = 'AmauiIconMaterialDatasetSharp';
+
 export default IconMaterialDatasetSharp;

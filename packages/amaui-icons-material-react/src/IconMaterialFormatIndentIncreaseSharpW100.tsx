@@ -18,4 +18,6 @@ const IconMaterialFormatIndentIncreaseSharpW100 = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialFormatIndentIncreaseSharpW100.displayName = 'AmauiIconMaterialFormatIndentIncreaseSharpW100';
+
 export default IconMaterialFormatIndentIncreaseSharpW100;

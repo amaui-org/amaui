@@ -18,4 +18,6 @@ const IconMaterialPhotoCameraBackSharpFilled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialPhotoCameraBackSharpFilled.displayName = 'AmauiIconMaterialPhotoCameraBackSharpFilled';
+
 export default IconMaterialPhotoCameraBackSharpFilled;

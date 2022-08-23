@@ -18,4 +18,6 @@ const IconMaterialFormatListNumberedTwoTone = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialFormatListNumberedTwoTone.displayName = 'AmauiIconMaterialFormatListNumberedTwoTone';
+
 export default IconMaterialFormatListNumberedTwoTone;

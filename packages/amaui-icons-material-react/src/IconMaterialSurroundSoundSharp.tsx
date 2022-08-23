@@ -18,4 +18,6 @@ const IconMaterialSurroundSoundSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSurroundSoundSharp.displayName = 'AmauiIconMaterialSurroundSoundSharp';
+
 export default IconMaterialSurroundSoundSharp;

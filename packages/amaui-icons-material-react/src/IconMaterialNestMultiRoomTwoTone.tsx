@@ -18,4 +18,6 @@ const IconMaterialNestMultiRoomTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNestMultiRoomTwoTone.displayName = 'AmauiIconMaterialNestMultiRoomTwoTone';
+
 export default IconMaterialNestMultiRoomTwoTone;

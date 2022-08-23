@@ -18,4 +18,6 @@ const IconMaterialHowToVoteRoundedW100Filled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialHowToVoteRoundedW100Filled.displayName = 'AmauiIconMaterialHowToVoteRoundedW100Filled';
+
 export default IconMaterialHowToVoteRoundedW100Filled;

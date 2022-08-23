@@ -18,4 +18,6 @@ const IconMaterialLineWeightRoundedFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialLineWeightRoundedFilled.displayName = 'AmauiIconMaterialLineWeightRoundedFilled';
+
 export default IconMaterialLineWeightRoundedFilled;

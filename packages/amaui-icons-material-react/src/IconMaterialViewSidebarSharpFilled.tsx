@@ -18,4 +18,6 @@ const IconMaterialViewSidebarSharpFilled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialViewSidebarSharpFilled.displayName = 'AmauiIconMaterialViewSidebarSharpFilled';
+
 export default IconMaterialViewSidebarSharpFilled;

@@ -18,4 +18,6 @@ const IconMaterialDishwasherGenTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDishwasherGenTwoTone.displayName = 'AmauiIconMaterialDishwasherGenTwoTone';
+
 export default IconMaterialDishwasherGenTwoTone;

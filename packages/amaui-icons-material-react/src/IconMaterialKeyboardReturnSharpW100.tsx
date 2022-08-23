@@ -18,4 +18,6 @@ const IconMaterialKeyboardReturnSharpW100 = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialKeyboardReturnSharpW100.displayName = 'AmauiIconMaterialKeyboardReturnSharpW100';
+
 export default IconMaterialKeyboardReturnSharpW100;

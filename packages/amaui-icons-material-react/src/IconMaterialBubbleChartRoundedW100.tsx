@@ -18,4 +18,6 @@ const IconMaterialBubbleChartRoundedW100 = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialBubbleChartRoundedW100.displayName = 'AmauiIconMaterialBubbleChartRoundedW100';
+
 export default IconMaterialBubbleChartRoundedW100;

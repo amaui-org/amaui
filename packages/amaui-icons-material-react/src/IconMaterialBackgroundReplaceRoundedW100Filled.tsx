@@ -18,4 +18,6 @@ const IconMaterialBackgroundReplaceRoundedW100Filled = React.forwardRef((props: 
   );
 });
 
+IconMaterialBackgroundReplaceRoundedW100Filled.displayName = 'AmauiIconMaterialBackgroundReplaceRoundedW100Filled';
+
 export default IconMaterialBackgroundReplaceRoundedW100Filled;

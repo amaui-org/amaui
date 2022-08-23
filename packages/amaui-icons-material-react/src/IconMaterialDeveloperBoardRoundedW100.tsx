@@ -18,4 +18,6 @@ const IconMaterialDeveloperBoardRoundedW100 = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialDeveloperBoardRoundedW100.displayName = 'AmauiIconMaterialDeveloperBoardRoundedW100';
+
 export default IconMaterialDeveloperBoardRoundedW100;

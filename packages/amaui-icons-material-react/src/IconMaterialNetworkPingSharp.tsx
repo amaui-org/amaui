@@ -18,4 +18,6 @@ const IconMaterialNetworkPingSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNetworkPingSharp.displayName = 'AmauiIconMaterialNetworkPingSharp';
+
 export default IconMaterialNetworkPingSharp;

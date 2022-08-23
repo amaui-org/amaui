@@ -18,4 +18,6 @@ const IconMaterialVerticalAlignBottomSharpW100Filled = React.forwardRef((props: 
   );
 });
 
+IconMaterialVerticalAlignBottomSharpW100Filled.displayName = 'AmauiIconMaterialVerticalAlignBottomSharpW100Filled';
+
 export default IconMaterialVerticalAlignBottomSharpW100Filled;

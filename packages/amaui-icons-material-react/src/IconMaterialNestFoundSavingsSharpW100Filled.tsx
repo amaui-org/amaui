@@ -18,4 +18,6 @@ const IconMaterialNestFoundSavingsSharpW100Filled = React.forwardRef((props: any
   );
 });
 
+IconMaterialNestFoundSavingsSharpW100Filled.displayName = 'AmauiIconMaterialNestFoundSavingsSharpW100Filled';
+
 export default IconMaterialNestFoundSavingsSharpW100Filled;

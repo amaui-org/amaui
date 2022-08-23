@@ -18,4 +18,6 @@ const IconMaterialPsychologyAltSharpW100 = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialPsychologyAltSharpW100.displayName = 'AmauiIconMaterialPsychologyAltSharpW100';
+
 export default IconMaterialPsychologyAltSharpW100;

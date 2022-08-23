@@ -18,4 +18,6 @@ const IconMaterialQuickPhrasesRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialQuickPhrasesRounded.displayName = 'AmauiIconMaterialQuickPhrasesRounded';
+
 export default IconMaterialQuickPhrasesRounded;

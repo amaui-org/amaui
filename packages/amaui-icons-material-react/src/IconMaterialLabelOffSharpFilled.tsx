@@ -18,4 +18,6 @@ const IconMaterialLabelOffSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLabelOffSharpFilled.displayName = 'AmauiIconMaterialLabelOffSharpFilled';
+
 export default IconMaterialLabelOffSharpFilled;

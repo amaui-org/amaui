@@ -18,4 +18,6 @@ const IconMaterialRotateLeftRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialRotateLeftRounded.displayName = 'AmauiIconMaterialRotateLeftRounded';
+
 export default IconMaterialRotateLeftRounded;

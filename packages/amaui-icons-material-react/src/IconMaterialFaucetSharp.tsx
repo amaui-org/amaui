@@ -18,4 +18,6 @@ const IconMaterialFaucetSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFaucetSharp.displayName = 'AmauiIconMaterialFaucetSharp';
+
 export default IconMaterialFaucetSharp;

@@ -18,4 +18,6 @@ const IconMaterialChairSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialChairSharp.displayName = 'AmauiIconMaterialChairSharp';
+
 export default IconMaterialChairSharp;

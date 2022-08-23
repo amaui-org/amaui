@@ -18,4 +18,6 @@ const IconMaterialFormatColorFillRoundedW100 = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialFormatColorFillRoundedW100.displayName = 'AmauiIconMaterialFormatColorFillRoundedW100';
+
 export default IconMaterialFormatColorFillRoundedW100;

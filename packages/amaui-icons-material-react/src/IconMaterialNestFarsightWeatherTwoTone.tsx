@@ -18,4 +18,6 @@ const IconMaterialNestFarsightWeatherTwoTone = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialNestFarsightWeatherTwoTone.displayName = 'AmauiIconMaterialNestFarsightWeatherTwoTone';
+
 export default IconMaterialNestFarsightWeatherTwoTone;

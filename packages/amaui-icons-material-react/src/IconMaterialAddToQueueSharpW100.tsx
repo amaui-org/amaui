@@ -18,4 +18,6 @@ const IconMaterialAddToQueueSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAddToQueueSharpW100.displayName = 'AmauiIconMaterialAddToQueueSharpW100';
+
 export default IconMaterialAddToQueueSharpW100;

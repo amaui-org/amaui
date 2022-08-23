@@ -18,4 +18,6 @@ const IconMaterialFlipCameraAndroidRoundedFilled = React.forwardRef((props: any,
   );
 });
 
+IconMaterialFlipCameraAndroidRoundedFilled.displayName = 'AmauiIconMaterialFlipCameraAndroidRoundedFilled';
+
 export default IconMaterialFlipCameraAndroidRoundedFilled;

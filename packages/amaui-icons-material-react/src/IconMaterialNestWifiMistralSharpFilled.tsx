@@ -18,4 +18,6 @@ const IconMaterialNestWifiMistralSharpFilled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialNestWifiMistralSharpFilled.displayName = 'AmauiIconMaterialNestWifiMistralSharpFilled';
+
 export default IconMaterialNestWifiMistralSharpFilled;

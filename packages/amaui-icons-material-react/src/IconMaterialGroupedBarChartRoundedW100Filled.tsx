@@ -18,4 +18,6 @@ const IconMaterialGroupedBarChartRoundedW100Filled = React.forwardRef((props: an
   );
 });
 
+IconMaterialGroupedBarChartRoundedW100Filled.displayName = 'AmauiIconMaterialGroupedBarChartRoundedW100Filled';
+
 export default IconMaterialGroupedBarChartRoundedW100Filled;

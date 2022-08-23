@@ -18,4 +18,6 @@ const IconMaterialToggleOffRoundedW100Filled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialToggleOffRoundedW100Filled.displayName = 'AmauiIconMaterialToggleOffRoundedW100Filled';
+
 export default IconMaterialToggleOffRoundedW100Filled;

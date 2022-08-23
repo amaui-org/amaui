@@ -18,4 +18,6 @@ const IconMaterialEdgesensorLowRoundedFilled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialEdgesensorLowRoundedFilled.displayName = 'AmauiIconMaterialEdgesensorLowRoundedFilled';
+
 export default IconMaterialEdgesensorLowRoundedFilled;

@@ -18,4 +18,6 @@ const IconMaterialThunderstormSharpW100 = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialThunderstormSharpW100.displayName = 'AmauiIconMaterialThunderstormSharpW100';
+
 export default IconMaterialThunderstormSharpW100;

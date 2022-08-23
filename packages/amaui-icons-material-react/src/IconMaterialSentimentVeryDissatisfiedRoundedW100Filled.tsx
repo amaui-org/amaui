@@ -18,4 +18,6 @@ const IconMaterialSentimentVeryDissatisfiedRoundedW100Filled = React.forwardRef(
   );
 });
 
+IconMaterialSentimentVeryDissatisfiedRoundedW100Filled.displayName = 'AmauiIconMaterialSentimentVeryDissatisfiedRoundedW100Filled';
+
 export default IconMaterialSentimentVeryDissatisfiedRoundedW100Filled;

@@ -18,4 +18,6 @@ const IconMaterial30fpsSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterial30fpsSharpFilled.displayName = 'AmauiIconMaterial30fpsSharpFilled';
+
 export default IconMaterial30fpsSharpFilled;

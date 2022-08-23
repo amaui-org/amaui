@@ -18,4 +18,6 @@ const IconMaterialSnoozeSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSnoozeSharp.displayName = 'AmauiIconMaterialSnoozeSharp';
+
 export default IconMaterialSnoozeSharp;

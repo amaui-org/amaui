@@ -18,4 +18,6 @@ const IconMaterialChairAltRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialChairAltRounded.displayName = 'AmauiIconMaterialChairAltRounded';
+
 export default IconMaterialChairAltRounded;

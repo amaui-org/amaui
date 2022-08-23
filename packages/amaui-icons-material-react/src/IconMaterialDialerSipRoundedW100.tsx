@@ -18,4 +18,6 @@ const IconMaterialDialerSipRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDialerSipRoundedW100.displayName = 'AmauiIconMaterialDialerSipRoundedW100';
+
 export default IconMaterialDialerSipRoundedW100;

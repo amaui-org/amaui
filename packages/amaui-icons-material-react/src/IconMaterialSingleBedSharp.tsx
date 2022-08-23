@@ -18,4 +18,6 @@ const IconMaterialSingleBedSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSingleBedSharp.displayName = 'AmauiIconMaterialSingleBedSharp';
+
 export default IconMaterialSingleBedSharp;

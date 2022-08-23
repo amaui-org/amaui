@@ -18,4 +18,6 @@ const IconMaterialPanoramaFishEyeSharpW100Filled = React.forwardRef((props: any,
   );
 });
 
+IconMaterialPanoramaFishEyeSharpW100Filled.displayName = 'AmauiIconMaterialPanoramaFishEyeSharpW100Filled';
+
 export default IconMaterialPanoramaFishEyeSharpW100Filled;

@@ -18,4 +18,6 @@ const IconMaterialHorizontalDistributeSharp = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialHorizontalDistributeSharp.displayName = 'AmauiIconMaterialHorizontalDistributeSharp';
+
 export default IconMaterialHorizontalDistributeSharp;

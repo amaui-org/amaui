@@ -18,4 +18,6 @@ const IconMaterialMarkunreadMailboxTwoTone = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialMarkunreadMailboxTwoTone.displayName = 'AmauiIconMaterialMarkunreadMailboxTwoTone';
+
 export default IconMaterialMarkunreadMailboxTwoTone;

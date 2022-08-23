@@ -18,4 +18,6 @@ const IconMaterialNestAudioSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNestAudioSharpW100.displayName = 'AmauiIconMaterialNestAudioSharpW100';
+
 export default IconMaterialNestAudioSharpW100;

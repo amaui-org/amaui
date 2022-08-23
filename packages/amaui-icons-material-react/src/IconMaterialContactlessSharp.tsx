@@ -18,4 +18,6 @@ const IconMaterialContactlessSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialContactlessSharp.displayName = 'AmauiIconMaterialContactlessSharp';
+
 export default IconMaterialContactlessSharp;

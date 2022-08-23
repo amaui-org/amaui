@@ -18,4 +18,6 @@ const IconMaterialEventSeatSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialEventSeatSharpW100.displayName = 'AmauiIconMaterialEventSeatSharpW100';
+
 export default IconMaterialEventSeatSharpW100;

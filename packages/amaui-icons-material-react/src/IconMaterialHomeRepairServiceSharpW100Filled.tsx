@@ -18,4 +18,6 @@ const IconMaterialHomeRepairServiceSharpW100Filled = React.forwardRef((props: an
   );
 });
 
+IconMaterialHomeRepairServiceSharpW100Filled.displayName = 'AmauiIconMaterialHomeRepairServiceSharpW100Filled';
+
 export default IconMaterialHomeRepairServiceSharpW100Filled;

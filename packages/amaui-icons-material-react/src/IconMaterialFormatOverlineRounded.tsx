@@ -18,4 +18,6 @@ const IconMaterialFormatOverlineRounded = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialFormatOverlineRounded.displayName = 'AmauiIconMaterialFormatOverlineRounded';
+
 export default IconMaterialFormatOverlineRounded;

@@ -18,4 +18,6 @@ const IconMaterialHumerusTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialHumerusTwoTone.displayName = 'AmauiIconMaterialHumerusTwoTone';
+
 export default IconMaterialHumerusTwoTone;

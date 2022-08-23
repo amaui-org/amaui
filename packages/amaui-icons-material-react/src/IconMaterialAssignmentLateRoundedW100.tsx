@@ -18,4 +18,6 @@ const IconMaterialAssignmentLateRoundedW100 = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialAssignmentLateRoundedW100.displayName = 'AmauiIconMaterialAssignmentLateRoundedW100';
+
 export default IconMaterialAssignmentLateRoundedW100;

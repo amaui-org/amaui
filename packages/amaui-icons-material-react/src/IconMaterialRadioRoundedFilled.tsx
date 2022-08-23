@@ -18,4 +18,6 @@ const IconMaterialRadioRoundedFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialRadioRoundedFilled.displayName = 'AmauiIconMaterialRadioRoundedFilled';
+
 export default IconMaterialRadioRoundedFilled;

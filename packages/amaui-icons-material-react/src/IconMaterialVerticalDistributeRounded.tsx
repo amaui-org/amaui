@@ -18,4 +18,6 @@ const IconMaterialVerticalDistributeRounded = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialVerticalDistributeRounded.displayName = 'AmauiIconMaterialVerticalDistributeRounded';
+
 export default IconMaterialVerticalDistributeRounded;

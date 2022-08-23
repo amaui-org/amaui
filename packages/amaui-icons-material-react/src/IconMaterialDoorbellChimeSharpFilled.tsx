@@ -18,4 +18,6 @@ const IconMaterialDoorbellChimeSharpFilled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialDoorbellChimeSharpFilled.displayName = 'AmauiIconMaterialDoorbellChimeSharpFilled';
+
 export default IconMaterialDoorbellChimeSharpFilled;

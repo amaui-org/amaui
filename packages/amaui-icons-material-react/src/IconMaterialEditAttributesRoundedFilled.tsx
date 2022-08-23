@@ -18,4 +18,6 @@ const IconMaterialEditAttributesRoundedFilled = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialEditAttributesRoundedFilled.displayName = 'AmauiIconMaterialEditAttributesRoundedFilled';
+
 export default IconMaterialEditAttributesRoundedFilled;

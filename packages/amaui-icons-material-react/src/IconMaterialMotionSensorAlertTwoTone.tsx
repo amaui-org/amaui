@@ -18,4 +18,6 @@ const IconMaterialMotionSensorAlertTwoTone = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialMotionSensorAlertTwoTone.displayName = 'AmauiIconMaterialMotionSensorAlertTwoTone';
+
 export default IconMaterialMotionSensorAlertTwoTone;

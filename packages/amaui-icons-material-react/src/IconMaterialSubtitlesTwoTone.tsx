@@ -18,4 +18,6 @@ const IconMaterialSubtitlesTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSubtitlesTwoTone.displayName = 'AmauiIconMaterialSubtitlesTwoTone';
+
 export default IconMaterialSubtitlesTwoTone;

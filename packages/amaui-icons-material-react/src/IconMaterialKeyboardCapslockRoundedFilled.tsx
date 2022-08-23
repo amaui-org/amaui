@@ -18,4 +18,6 @@ const IconMaterialKeyboardCapslockRoundedFilled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialKeyboardCapslockRoundedFilled.displayName = 'AmauiIconMaterialKeyboardCapslockRoundedFilled';
+
 export default IconMaterialKeyboardCapslockRoundedFilled;

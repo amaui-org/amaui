@@ -18,4 +18,6 @@ const IconMaterialSouthAmericaRoundedFilled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialSouthAmericaRoundedFilled.displayName = 'AmauiIconMaterialSouthAmericaRoundedFilled';
+
 export default IconMaterialSouthAmericaRoundedFilled;

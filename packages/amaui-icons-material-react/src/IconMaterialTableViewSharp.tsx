@@ -18,4 +18,6 @@ const IconMaterialTableViewSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTableViewSharp.displayName = 'AmauiIconMaterialTableViewSharp';
+
 export default IconMaterialTableViewSharp;

@@ -18,4 +18,6 @@ const IconMaterialThumbDownSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialThumbDownSharpFilled.displayName = 'AmauiIconMaterialThumbDownSharpFilled';
+
 export default IconMaterialThumbDownSharpFilled;

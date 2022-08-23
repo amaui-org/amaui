@@ -18,4 +18,6 @@ const IconMaterialPsychologyRoundedFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialPsychologyRoundedFilled.displayName = 'AmauiIconMaterialPsychologyRoundedFilled';
+
 export default IconMaterialPsychologyRoundedFilled;

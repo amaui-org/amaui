@@ -18,4 +18,6 @@ const IconMaterialGridGoldenratioRoundedW100Filled = React.forwardRef((props: an
   );
 });
 
+IconMaterialGridGoldenratioRoundedW100Filled.displayName = 'AmauiIconMaterialGridGoldenratioRoundedW100Filled';
+
 export default IconMaterialGridGoldenratioRoundedW100Filled;

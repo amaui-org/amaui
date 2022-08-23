@@ -18,4 +18,6 @@ const IconMaterialSoupKitchenSharpW100Filled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialSoupKitchenSharpW100Filled.displayName = 'AmauiIconMaterialSoupKitchenSharpW100Filled';
+
 export default IconMaterialSoupKitchenSharpW100Filled;

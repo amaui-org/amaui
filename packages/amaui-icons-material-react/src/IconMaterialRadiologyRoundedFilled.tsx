@@ -18,4 +18,6 @@ const IconMaterialRadiologyRoundedFilled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialRadiologyRoundedFilled.displayName = 'AmauiIconMaterialRadiologyRoundedFilled';
+
 export default IconMaterialRadiologyRoundedFilled;

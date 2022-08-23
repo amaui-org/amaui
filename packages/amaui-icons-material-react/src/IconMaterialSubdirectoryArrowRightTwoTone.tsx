@@ -18,4 +18,6 @@ const IconMaterialSubdirectoryArrowRightTwoTone = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialSubdirectoryArrowRightTwoTone.displayName = 'AmauiIconMaterialSubdirectoryArrowRightTwoTone';
+
 export default IconMaterialSubdirectoryArrowRightTwoTone;

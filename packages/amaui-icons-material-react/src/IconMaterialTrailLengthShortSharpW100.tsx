@@ -18,4 +18,6 @@ const IconMaterialTrailLengthShortSharpW100 = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialTrailLengthShortSharpW100.displayName = 'AmauiIconMaterialTrailLengthShortSharpW100';
+
 export default IconMaterialTrailLengthShortSharpW100;

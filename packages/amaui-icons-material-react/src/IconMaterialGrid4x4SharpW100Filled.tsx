@@ -18,4 +18,6 @@ const IconMaterialGrid4x4SharpW100Filled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialGrid4x4SharpW100Filled.displayName = 'AmauiIconMaterialGrid4x4SharpW100Filled';
+
 export default IconMaterialGrid4x4SharpW100Filled;

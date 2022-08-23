@@ -18,4 +18,6 @@ const IconMaterialSmokeFreeRoundedFilled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialSmokeFreeRoundedFilled.displayName = 'AmauiIconMaterialSmokeFreeRoundedFilled';
+
 export default IconMaterialSmokeFreeRoundedFilled;

@@ -18,4 +18,6 @@ const IconMaterialReduceCapacityTwoTone = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialReduceCapacityTwoTone.displayName = 'AmauiIconMaterialReduceCapacityTwoTone';
+
 export default IconMaterialReduceCapacityTwoTone;

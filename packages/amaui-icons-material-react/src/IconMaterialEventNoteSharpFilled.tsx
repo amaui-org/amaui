@@ -18,4 +18,6 @@ const IconMaterialEventNoteSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialEventNoteSharpFilled.displayName = 'AmauiIconMaterialEventNoteSharpFilled';
+
 export default IconMaterialEventNoteSharpFilled;

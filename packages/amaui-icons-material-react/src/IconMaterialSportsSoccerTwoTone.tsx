@@ -18,4 +18,6 @@ const IconMaterialSportsSoccerTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSportsSoccerTwoTone.displayName = 'AmauiIconMaterialSportsSoccerTwoTone';
+
 export default IconMaterialSportsSoccerTwoTone;

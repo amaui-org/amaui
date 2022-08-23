@@ -18,4 +18,6 @@ const IconMaterialSettingsRemoteTwoTone = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialSettingsRemoteTwoTone.displayName = 'AmauiIconMaterialSettingsRemoteTwoTone';
+
 export default IconMaterialSettingsRemoteTwoTone;

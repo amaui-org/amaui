@@ -18,4 +18,6 @@ const IconMaterialUnsubscribeSharpW100Filled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialUnsubscribeSharpW100Filled.displayName = 'AmauiIconMaterialUnsubscribeSharpW100Filled';
+
 export default IconMaterialUnsubscribeSharpW100Filled;

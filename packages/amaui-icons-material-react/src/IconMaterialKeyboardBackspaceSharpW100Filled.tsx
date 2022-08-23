@@ -18,4 +18,6 @@ const IconMaterialKeyboardBackspaceSharpW100Filled = React.forwardRef((props: an
   );
 });
 
+IconMaterialKeyboardBackspaceSharpW100Filled.displayName = 'AmauiIconMaterialKeyboardBackspaceSharpW100Filled';
+
 export default IconMaterialKeyboardBackspaceSharpW100Filled;

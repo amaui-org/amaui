@@ -18,4 +18,6 @@ const IconMaterialCarCrashRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCarCrashRounded.displayName = 'AmauiIconMaterialCarCrashRounded';
+
 export default IconMaterialCarCrashRounded;

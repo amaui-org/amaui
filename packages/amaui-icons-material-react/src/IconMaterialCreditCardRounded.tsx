@@ -18,4 +18,6 @@ const IconMaterialCreditCardRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCreditCardRounded.displayName = 'AmauiIconMaterialCreditCardRounded';
+
 export default IconMaterialCreditCardRounded;

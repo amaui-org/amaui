@@ -18,4 +18,6 @@ const IconMaterialAirplanemodeInactiveTwoTone = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialAirplanemodeInactiveTwoTone.displayName = 'AmauiIconMaterialAirplanemodeInactiveTwoTone';
+
 export default IconMaterialAirplanemodeInactiveTwoTone;

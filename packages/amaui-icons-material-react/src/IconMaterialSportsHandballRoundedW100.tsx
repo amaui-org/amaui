@@ -18,4 +18,6 @@ const IconMaterialSportsHandballRoundedW100 = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialSportsHandballRoundedW100.displayName = 'AmauiIconMaterialSportsHandballRoundedW100';
+
 export default IconMaterialSportsHandballRoundedW100;

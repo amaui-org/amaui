@@ -18,4 +18,6 @@ const IconMaterialClearDaySharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialClearDaySharp.displayName = 'AmauiIconMaterialClearDaySharp';
+
 export default IconMaterialClearDaySharp;

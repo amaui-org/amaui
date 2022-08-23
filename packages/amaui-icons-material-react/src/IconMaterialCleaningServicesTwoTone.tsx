@@ -18,4 +18,6 @@ const IconMaterialCleaningServicesTwoTone = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialCleaningServicesTwoTone.displayName = 'AmauiIconMaterialCleaningServicesTwoTone';
+
 export default IconMaterialCleaningServicesTwoTone;

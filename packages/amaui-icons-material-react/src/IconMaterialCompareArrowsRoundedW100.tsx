@@ -18,4 +18,6 @@ const IconMaterialCompareArrowsRoundedW100 = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialCompareArrowsRoundedW100.displayName = 'AmauiIconMaterialCompareArrowsRoundedW100';
+
 export default IconMaterialCompareArrowsRoundedW100;

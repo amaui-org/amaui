@@ -18,4 +18,6 @@ const IconMaterialInterpreterModeTwoTone = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialInterpreterModeTwoTone.displayName = 'AmauiIconMaterialInterpreterModeTwoTone';
+
 export default IconMaterialInterpreterModeTwoTone;

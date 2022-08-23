@@ -18,4 +18,6 @@ const IconMaterialLyricsSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLyricsSharpW100.displayName = 'AmauiIconMaterialLyricsSharpW100';
+
 export default IconMaterialLyricsSharpW100;

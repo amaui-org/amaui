@@ -18,4 +18,6 @@ const IconMaterialMovieSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMovieSharp.displayName = 'AmauiIconMaterialMovieSharp';
+
 export default IconMaterialMovieSharp;

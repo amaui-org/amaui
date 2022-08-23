@@ -18,4 +18,6 @@ const IconMaterialSubscriptRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSubscriptRoundedW100.displayName = 'AmauiIconMaterialSubscriptRoundedW100';
+
 export default IconMaterialSubscriptRoundedW100;

@@ -18,4 +18,6 @@ const IconMaterialMenuOpenRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMenuOpenRounded.displayName = 'AmauiIconMaterialMenuOpenRounded';
+
 export default IconMaterialMenuOpenRounded;

@@ -18,4 +18,6 @@ const IconMaterialLocalParkingSharpFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialLocalParkingSharpFilled.displayName = 'AmauiIconMaterialLocalParkingSharpFilled';
+
 export default IconMaterialLocalParkingSharpFilled;

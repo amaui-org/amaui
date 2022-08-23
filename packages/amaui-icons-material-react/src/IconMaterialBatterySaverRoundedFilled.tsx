@@ -18,4 +18,6 @@ const IconMaterialBatterySaverRoundedFilled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialBatterySaverRoundedFilled.displayName = 'AmauiIconMaterialBatterySaverRoundedFilled';
+
 export default IconMaterialBatterySaverRoundedFilled;

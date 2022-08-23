@@ -18,4 +18,6 @@ const IconMaterialSelfImprovementRounded = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialSelfImprovementRounded.displayName = 'AmauiIconMaterialSelfImprovementRounded';
+
 export default IconMaterialSelfImprovementRounded;

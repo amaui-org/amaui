@@ -18,4 +18,6 @@ const IconMaterialWrapTextSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialWrapTextSharpW100.displayName = 'AmauiIconMaterialWrapTextSharpW100';
+
 export default IconMaterialWrapTextSharpW100;

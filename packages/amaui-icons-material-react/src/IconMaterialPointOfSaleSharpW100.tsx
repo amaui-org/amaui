@@ -18,4 +18,6 @@ const IconMaterialPointOfSaleSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPointOfSaleSharpW100.displayName = 'AmauiIconMaterialPointOfSaleSharpW100';
+
 export default IconMaterialPointOfSaleSharpW100;

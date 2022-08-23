@@ -18,4 +18,6 @@ const IconMaterialNetworkCheckRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNetworkCheckRounded.displayName = 'AmauiIconMaterialNetworkCheckRounded';
+
 export default IconMaterialNetworkCheckRounded;

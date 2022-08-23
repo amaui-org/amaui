@@ -18,4 +18,6 @@ const IconMaterialBikeScooterTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBikeScooterTwoTone.displayName = 'AmauiIconMaterialBikeScooterTwoTone';
+
 export default IconMaterialBikeScooterTwoTone;

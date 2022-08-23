@@ -18,4 +18,6 @@ const IconMaterialStopScreenShareRounded = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialStopScreenShareRounded.displayName = 'AmauiIconMaterialStopScreenShareRounded';
+
 export default IconMaterialStopScreenShareRounded;

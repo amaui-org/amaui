@@ -18,4 +18,6 @@ const IconMaterialPictureInPictureAltRoundedFilled = React.forwardRef((props: an
   );
 });
 
+IconMaterialPictureInPictureAltRoundedFilled.displayName = 'AmauiIconMaterialPictureInPictureAltRoundedFilled';
+
 export default IconMaterialPictureInPictureAltRoundedFilled;

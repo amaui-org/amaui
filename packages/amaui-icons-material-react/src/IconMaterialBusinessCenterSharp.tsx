@@ -18,4 +18,6 @@ const IconMaterialBusinessCenterSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBusinessCenterSharp.displayName = 'AmauiIconMaterialBusinessCenterSharp';
+
 export default IconMaterialBusinessCenterSharp;

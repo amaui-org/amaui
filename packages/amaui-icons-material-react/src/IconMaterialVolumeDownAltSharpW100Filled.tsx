@@ -18,4 +18,6 @@ const IconMaterialVolumeDownAltSharpW100Filled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialVolumeDownAltSharpW100Filled.displayName = 'AmauiIconMaterialVolumeDownAltSharpW100Filled';
+
 export default IconMaterialVolumeDownAltSharpW100Filled;

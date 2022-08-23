@@ -18,4 +18,6 @@ const IconMaterialDraftSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDraftSharp.displayName = 'AmauiIconMaterialDraftSharp';
+
 export default IconMaterialDraftSharp;

@@ -18,4 +18,6 @@ const IconMaterialNoteAltSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNoteAltSharp.displayName = 'AmauiIconMaterialNoteAltSharp';
+
 export default IconMaterialNoteAltSharp;

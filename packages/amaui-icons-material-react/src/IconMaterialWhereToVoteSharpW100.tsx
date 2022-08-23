@@ -18,4 +18,6 @@ const IconMaterialWhereToVoteSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialWhereToVoteSharpW100.displayName = 'AmauiIconMaterialWhereToVoteSharpW100';
+
 export default IconMaterialWhereToVoteSharpW100;

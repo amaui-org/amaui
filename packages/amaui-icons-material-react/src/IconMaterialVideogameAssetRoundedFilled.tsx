@@ -18,4 +18,6 @@ const IconMaterialVideogameAssetRoundedFilled = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialVideogameAssetRoundedFilled.displayName = 'AmauiIconMaterialVideogameAssetRoundedFilled';
+
 export default IconMaterialVideogameAssetRoundedFilled;

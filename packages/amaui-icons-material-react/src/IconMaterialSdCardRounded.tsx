@@ -18,4 +18,6 @@ const IconMaterialSdCardRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSdCardRounded.displayName = 'AmauiIconMaterialSdCardRounded';
+
 export default IconMaterialSdCardRounded;

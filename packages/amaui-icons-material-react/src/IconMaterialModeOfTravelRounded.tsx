@@ -18,4 +18,6 @@ const IconMaterialModeOfTravelRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialModeOfTravelRounded.displayName = 'AmauiIconMaterialModeOfTravelRounded';
+
 export default IconMaterialModeOfTravelRounded;

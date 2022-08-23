@@ -18,4 +18,6 @@ const IconMaterialRiceBowlSharpW100Filled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialRiceBowlSharpW100Filled.displayName = 'AmauiIconMaterialRiceBowlSharpW100Filled';
+
 export default IconMaterialRiceBowlSharpW100Filled;

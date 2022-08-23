@@ -18,4 +18,6 @@ const IconMaterialRepartitionSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialRepartitionSharp.displayName = 'AmauiIconMaterialRepartitionSharp';
+
 export default IconMaterialRepartitionSharp;

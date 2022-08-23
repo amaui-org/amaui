@@ -18,4 +18,6 @@ const IconMaterialControllerGenSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialControllerGenSharp.displayName = 'AmauiIconMaterialControllerGenSharp';
+
 export default IconMaterialControllerGenSharp;

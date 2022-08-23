@@ -18,4 +18,6 @@ const IconMaterialShieldMoonTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialShieldMoonTwoTone.displayName = 'AmauiIconMaterialShieldMoonTwoTone';
+
 export default IconMaterialShieldMoonTwoTone;

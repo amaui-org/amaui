@@ -18,4 +18,6 @@ const IconMaterialHandBonesRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialHandBonesRoundedW100.displayName = 'AmauiIconMaterialHandBonesRoundedW100';
+
 export default IconMaterialHandBonesRoundedW100;

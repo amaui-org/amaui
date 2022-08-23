@@ -18,4 +18,6 @@ const IconMaterialEmergencyHomeRoundedFilled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialEmergencyHomeRoundedFilled.displayName = 'AmauiIconMaterialEmergencyHomeRoundedFilled';
+
 export default IconMaterialEmergencyHomeRoundedFilled;

@@ -18,4 +18,6 @@ const IconMaterialQuietTimeSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialQuietTimeSharp.displayName = 'AmauiIconMaterialQuietTimeSharp';
+
 export default IconMaterialQuietTimeSharp;

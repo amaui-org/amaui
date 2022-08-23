@@ -18,4 +18,6 @@ const IconMaterial18UpRatingRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterial18UpRatingRounded.displayName = 'AmauiIconMaterial18UpRatingRounded';
+
 export default IconMaterial18UpRatingRounded;

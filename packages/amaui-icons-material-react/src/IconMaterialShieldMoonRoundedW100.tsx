@@ -18,4 +18,6 @@ const IconMaterialShieldMoonRoundedW100 = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialShieldMoonRoundedW100.displayName = 'AmauiIconMaterialShieldMoonRoundedW100';
+
 export default IconMaterialShieldMoonRoundedW100;

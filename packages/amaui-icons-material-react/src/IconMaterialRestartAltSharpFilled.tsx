@@ -18,4 +18,6 @@ const IconMaterialRestartAltSharpFilled = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialRestartAltSharpFilled.displayName = 'AmauiIconMaterialRestartAltSharpFilled';
+
 export default IconMaterialRestartAltSharpFilled;

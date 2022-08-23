@@ -18,4 +18,6 @@ const IconMaterialGridOnRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialGridOnRoundedW100.displayName = 'AmauiIconMaterialGridOnRoundedW100';
+
 export default IconMaterialGridOnRoundedW100;

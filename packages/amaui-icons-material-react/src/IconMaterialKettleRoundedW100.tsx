@@ -18,4 +18,6 @@ const IconMaterialKettleRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialKettleRoundedW100.displayName = 'AmauiIconMaterialKettleRoundedW100';
+
 export default IconMaterialKettleRoundedW100;

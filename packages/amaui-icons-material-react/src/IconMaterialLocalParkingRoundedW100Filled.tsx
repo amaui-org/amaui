@@ -18,4 +18,6 @@ const IconMaterialLocalParkingRoundedW100Filled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialLocalParkingRoundedW100Filled.displayName = 'AmauiIconMaterialLocalParkingRoundedW100Filled';
+
 export default IconMaterialLocalParkingRoundedW100Filled;

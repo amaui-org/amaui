@@ -18,4 +18,6 @@ const IconMaterialPriorityHighRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPriorityHighRounded.displayName = 'AmauiIconMaterialPriorityHighRounded';
+
 export default IconMaterialPriorityHighRounded;

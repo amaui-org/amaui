@@ -18,4 +18,6 @@ const IconMaterialHeadsetOffTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialHeadsetOffTwoTone.displayName = 'AmauiIconMaterialHeadsetOffTwoTone';
+
 export default IconMaterialHeadsetOffTwoTone;

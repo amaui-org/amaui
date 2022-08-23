@@ -18,4 +18,6 @@ const IconMaterialWifiCalling3RoundedW100 = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialWifiCalling3RoundedW100.displayName = 'AmauiIconMaterialWifiCalling3RoundedW100';
+
 export default IconMaterialWifiCalling3RoundedW100;

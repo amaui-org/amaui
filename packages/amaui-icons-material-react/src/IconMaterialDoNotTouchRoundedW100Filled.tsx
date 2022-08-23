@@ -18,4 +18,6 @@ const IconMaterialDoNotTouchRoundedW100Filled = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialDoNotTouchRoundedW100Filled.displayName = 'AmauiIconMaterialDoNotTouchRoundedW100Filled';
+
 export default IconMaterialDoNotTouchRoundedW100Filled;

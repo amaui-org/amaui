@@ -18,4 +18,6 @@ const IconMaterialReplay5Sharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialReplay5Sharp.displayName = 'AmauiIconMaterialReplay5Sharp';
+
 export default IconMaterialReplay5Sharp;

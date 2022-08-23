@@ -18,4 +18,6 @@ const IconMaterialSlowMotionVideoTwoTone = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialSlowMotionVideoTwoTone.displayName = 'AmauiIconMaterialSlowMotionVideoTwoTone';
+
 export default IconMaterialSlowMotionVideoTwoTone;

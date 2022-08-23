@@ -18,4 +18,6 @@ const IconMaterialKeyboardArrowDownRounded = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialKeyboardArrowDownRounded.displayName = 'AmauiIconMaterialKeyboardArrowDownRounded';
+
 export default IconMaterialKeyboardArrowDownRounded;

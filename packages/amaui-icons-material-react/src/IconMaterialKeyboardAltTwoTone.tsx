@@ -18,4 +18,6 @@ const IconMaterialKeyboardAltTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialKeyboardAltTwoTone.displayName = 'AmauiIconMaterialKeyboardAltTwoTone';
+
 export default IconMaterialKeyboardAltTwoTone;

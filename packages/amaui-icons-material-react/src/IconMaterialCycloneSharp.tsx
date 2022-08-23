@@ -18,4 +18,6 @@ const IconMaterialCycloneSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCycloneSharp.displayName = 'AmauiIconMaterialCycloneSharp';
+
 export default IconMaterialCycloneSharp;

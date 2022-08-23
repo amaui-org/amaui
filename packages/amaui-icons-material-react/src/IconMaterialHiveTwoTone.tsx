@@ -18,4 +18,6 @@ const IconMaterialHiveTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialHiveTwoTone.displayName = 'AmauiIconMaterialHiveTwoTone';
+
 export default IconMaterialHiveTwoTone;

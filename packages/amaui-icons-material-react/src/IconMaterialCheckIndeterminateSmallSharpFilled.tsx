@@ -18,4 +18,6 @@ const IconMaterialCheckIndeterminateSmallSharpFilled = React.forwardRef((props: 
   );
 });
 
+IconMaterialCheckIndeterminateSmallSharpFilled.displayName = 'AmauiIconMaterialCheckIndeterminateSmallSharpFilled';
+
 export default IconMaterialCheckIndeterminateSmallSharpFilled;

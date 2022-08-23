@@ -18,4 +18,6 @@ const IconMaterialSyncProblemSharpW100Filled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialSyncProblemSharpW100Filled.displayName = 'AmauiIconMaterialSyncProblemSharpW100Filled';
+
 export default IconMaterialSyncProblemSharpW100Filled;

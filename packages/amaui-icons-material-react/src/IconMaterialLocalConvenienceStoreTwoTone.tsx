@@ -18,4 +18,6 @@ const IconMaterialLocalConvenienceStoreTwoTone = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialLocalConvenienceStoreTwoTone.displayName = 'AmauiIconMaterialLocalConvenienceStoreTwoTone';
+
 export default IconMaterialLocalConvenienceStoreTwoTone;

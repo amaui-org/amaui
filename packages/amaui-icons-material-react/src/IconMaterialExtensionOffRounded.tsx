@@ -18,4 +18,6 @@ const IconMaterialExtensionOffRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialExtensionOffRounded.displayName = 'AmauiIconMaterialExtensionOffRounded';
+
 export default IconMaterialExtensionOffRounded;

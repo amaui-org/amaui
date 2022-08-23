@@ -18,4 +18,6 @@ const IconMaterialLocalConvenienceStoreRoundedW100 = React.forwardRef((props: an
   );
 });
 
+IconMaterialLocalConvenienceStoreRoundedW100.displayName = 'AmauiIconMaterialLocalConvenienceStoreRoundedW100';
+
 export default IconMaterialLocalConvenienceStoreRoundedW100;

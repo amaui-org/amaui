@@ -18,4 +18,6 @@ const IconMaterialLogoutRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLogoutRounded.displayName = 'AmauiIconMaterialLogoutRounded';
+
 export default IconMaterialLogoutRounded;

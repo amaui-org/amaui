@@ -18,4 +18,6 @@ const IconMaterialCampingSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCampingSharp.displayName = 'AmauiIconMaterialCampingSharp';
+
 export default IconMaterialCampingSharp;

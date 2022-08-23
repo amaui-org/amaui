@@ -18,4 +18,6 @@ const IconMaterialAttachEmailTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAttachEmailTwoTone.displayName = 'AmauiIconMaterialAttachEmailTwoTone';
+
 export default IconMaterialAttachEmailTwoTone;

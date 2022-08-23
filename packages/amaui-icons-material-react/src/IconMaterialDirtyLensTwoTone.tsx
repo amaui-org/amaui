@@ -18,4 +18,6 @@ const IconMaterialDirtyLensTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDirtyLensTwoTone.displayName = 'AmauiIconMaterialDirtyLensTwoTone';
+
 export default IconMaterialDirtyLensTwoTone;

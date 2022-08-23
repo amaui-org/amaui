@@ -18,4 +18,6 @@ const IconMaterialFileOpenSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFileOpenSharp.displayName = 'AmauiIconMaterialFileOpenSharp';
+
 export default IconMaterialFileOpenSharp;

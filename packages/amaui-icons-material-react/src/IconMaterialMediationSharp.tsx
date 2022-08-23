@@ -18,4 +18,6 @@ const IconMaterialMediationSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMediationSharp.displayName = 'AmauiIconMaterialMediationSharp';
+
 export default IconMaterialMediationSharp;

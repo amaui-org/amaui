@@ -18,4 +18,6 @@ const IconMaterialViewInArRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialViewInArRounded.displayName = 'AmauiIconMaterialViewInArRounded';
+
 export default IconMaterialViewInArRounded;

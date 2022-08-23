@@ -18,4 +18,6 @@ const IconMaterialHorizontalRuleTwoTone = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialHorizontalRuleTwoTone.displayName = 'AmauiIconMaterialHorizontalRuleTwoTone';
+
 export default IconMaterialHorizontalRuleTwoTone;

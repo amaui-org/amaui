@@ -18,4 +18,6 @@ const IconMaterialNoPhotographyTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNoPhotographyTwoTone.displayName = 'AmauiIconMaterialNoPhotographyTwoTone';
+
 export default IconMaterialNoPhotographyTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialSmartButtonTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSmartButtonTwoTone.displayName = 'AmauiIconMaterialSmartButtonTwoTone';
+
 export default IconMaterialSmartButtonTwoTone;

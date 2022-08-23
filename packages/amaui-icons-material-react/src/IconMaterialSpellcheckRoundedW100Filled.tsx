@@ -18,4 +18,6 @@ const IconMaterialSpellcheckRoundedW100Filled = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialSpellcheckRoundedW100Filled.displayName = 'AmauiIconMaterialSpellcheckRoundedW100Filled';
+
 export default IconMaterialSpellcheckRoundedW100Filled;

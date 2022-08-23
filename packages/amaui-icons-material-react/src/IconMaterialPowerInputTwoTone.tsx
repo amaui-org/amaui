@@ -18,4 +18,6 @@ const IconMaterialPowerInputTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPowerInputTwoTone.displayName = 'AmauiIconMaterialPowerInputTwoTone';
+
 export default IconMaterialPowerInputTwoTone;

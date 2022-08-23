@@ -18,4 +18,6 @@ const IconMaterialLoupeSharpW100Filled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLoupeSharpW100Filled.displayName = 'AmauiIconMaterialLoupeSharpW100Filled';
+
 export default IconMaterialLoupeSharpW100Filled;

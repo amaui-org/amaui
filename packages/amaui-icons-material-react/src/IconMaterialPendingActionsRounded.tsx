@@ -18,4 +18,6 @@ const IconMaterialPendingActionsRounded = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialPendingActionsRounded.displayName = 'AmauiIconMaterialPendingActionsRounded';
+
 export default IconMaterialPendingActionsRounded;

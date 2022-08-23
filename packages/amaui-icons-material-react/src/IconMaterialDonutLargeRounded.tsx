@@ -18,4 +18,6 @@ const IconMaterialDonutLargeRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDonutLargeRounded.displayName = 'AmauiIconMaterialDonutLargeRounded';
+
 export default IconMaterialDonutLargeRounded;

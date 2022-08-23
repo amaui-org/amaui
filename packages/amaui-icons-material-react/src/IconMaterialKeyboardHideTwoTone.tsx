@@ -18,4 +18,6 @@ const IconMaterialKeyboardHideTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialKeyboardHideTwoTone.displayName = 'AmauiIconMaterialKeyboardHideTwoTone';
+
 export default IconMaterialKeyboardHideTwoTone;

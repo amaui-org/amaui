@@ -18,4 +18,6 @@ const IconMaterialConversionPathRoundedFilled = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialConversionPathRoundedFilled.displayName = 'AmauiIconMaterialConversionPathRoundedFilled';
+
 export default IconMaterialConversionPathRoundedFilled;

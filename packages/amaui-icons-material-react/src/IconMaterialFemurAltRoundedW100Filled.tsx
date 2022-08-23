@@ -18,4 +18,6 @@ const IconMaterialFemurAltRoundedW100Filled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialFemurAltRoundedW100Filled.displayName = 'AmauiIconMaterialFemurAltRoundedW100Filled';
+
 export default IconMaterialFemurAltRoundedW100Filled;

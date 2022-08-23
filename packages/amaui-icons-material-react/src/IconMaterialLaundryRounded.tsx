@@ -18,4 +18,6 @@ const IconMaterialLaundryRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLaundryRounded.displayName = 'AmauiIconMaterialLaundryRounded';
+
 export default IconMaterialLaundryRounded;

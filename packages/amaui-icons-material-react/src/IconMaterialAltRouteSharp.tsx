@@ -18,4 +18,6 @@ const IconMaterialAltRouteSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAltRouteSharp.displayName = 'AmauiIconMaterialAltRouteSharp';
+
 export default IconMaterialAltRouteSharp;

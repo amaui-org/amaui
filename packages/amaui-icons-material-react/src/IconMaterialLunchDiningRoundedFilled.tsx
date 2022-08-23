@@ -18,4 +18,6 @@ const IconMaterialLunchDiningRoundedFilled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialLunchDiningRoundedFilled.displayName = 'AmauiIconMaterialLunchDiningRoundedFilled';
+
 export default IconMaterialLunchDiningRoundedFilled;

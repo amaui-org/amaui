@@ -18,4 +18,6 @@ const IconMaterialSpatialTrackingTwoTone = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialSpatialTrackingTwoTone.displayName = 'AmauiIconMaterialSpatialTrackingTwoTone';
+
 export default IconMaterialSpatialTrackingTwoTone;

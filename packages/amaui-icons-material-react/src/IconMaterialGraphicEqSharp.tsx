@@ -18,4 +18,6 @@ const IconMaterialGraphicEqSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialGraphicEqSharp.displayName = 'AmauiIconMaterialGraphicEqSharp';
+
 export default IconMaterialGraphicEqSharp;

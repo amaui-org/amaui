@@ -18,4 +18,6 @@ const IconMaterialTimer3Alt1Sharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTimer3Alt1Sharp.displayName = 'AmauiIconMaterialTimer3Alt1Sharp';
+
 export default IconMaterialTimer3Alt1Sharp;

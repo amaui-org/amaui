@@ -18,4 +18,6 @@ const IconMaterialMusicVideoSharpFilled = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialMusicVideoSharpFilled.displayName = 'AmauiIconMaterialMusicVideoSharpFilled';
+
 export default IconMaterialMusicVideoSharpFilled;

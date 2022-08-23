@@ -18,4 +18,6 @@ const IconMaterialCookieRoundedFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCookieRoundedFilled.displayName = 'AmauiIconMaterialCookieRoundedFilled';
+
 export default IconMaterialCookieRoundedFilled;

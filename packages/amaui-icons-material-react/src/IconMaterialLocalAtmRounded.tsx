@@ -18,4 +18,6 @@ const IconMaterialLocalAtmRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLocalAtmRounded.displayName = 'AmauiIconMaterialLocalAtmRounded';
+
 export default IconMaterialLocalAtmRounded;

@@ -18,4 +18,6 @@ const IconMaterialStadiaControllerSharpW100Filled = React.forwardRef((props: any
   );
 });
 
+IconMaterialStadiaControllerSharpW100Filled.displayName = 'AmauiIconMaterialStadiaControllerSharpW100Filled';
+
 export default IconMaterialStadiaControllerSharpW100Filled;

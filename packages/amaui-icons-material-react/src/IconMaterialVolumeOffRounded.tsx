@@ -18,4 +18,6 @@ const IconMaterialVolumeOffRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialVolumeOffRounded.displayName = 'AmauiIconMaterialVolumeOffRounded';
+
 export default IconMaterialVolumeOffRounded;

@@ -18,4 +18,6 @@ const IconMaterialNoEncryptionSharpFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialNoEncryptionSharpFilled.displayName = 'AmauiIconMaterialNoEncryptionSharpFilled';
+
 export default IconMaterialNoEncryptionSharpFilled;

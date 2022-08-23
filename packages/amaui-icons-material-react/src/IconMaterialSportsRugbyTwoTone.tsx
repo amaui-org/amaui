@@ -18,4 +18,6 @@ const IconMaterialSportsRugbyTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSportsRugbyTwoTone.displayName = 'AmauiIconMaterialSportsRugbyTwoTone';
+
 export default IconMaterialSportsRugbyTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialExclamationTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialExclamationTwoTone.displayName = 'AmauiIconMaterialExclamationTwoTone';
+
 export default IconMaterialExclamationTwoTone;

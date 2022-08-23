@@ -18,4 +18,6 @@ const IconMaterialCalendarViewMonthTwoTone = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialCalendarViewMonthTwoTone.displayName = 'AmauiIconMaterialCalendarViewMonthTwoTone';
+
 export default IconMaterialCalendarViewMonthTwoTone;

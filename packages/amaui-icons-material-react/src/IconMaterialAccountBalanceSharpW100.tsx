@@ -18,4 +18,6 @@ const IconMaterialAccountBalanceSharpW100 = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialAccountBalanceSharpW100.displayName = 'AmauiIconMaterialAccountBalanceSharpW100';
+
 export default IconMaterialAccountBalanceSharpW100;

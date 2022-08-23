@@ -18,4 +18,6 @@ const IconMaterialEditRoadTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialEditRoadTwoTone.displayName = 'AmauiIconMaterialEditRoadTwoTone';
+
 export default IconMaterialEditRoadTwoTone;

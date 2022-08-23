@@ -38,6 +38,8 @@ const ${prefix}${name} = React.forwardRef((props: any, ref) => {
   );
 });
 
+${prefix}${name}.displayName = 'Amaui${prefix}${name}';
+
 export default ${prefix}${name};
 `;
 

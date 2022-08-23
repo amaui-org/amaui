@@ -18,4 +18,6 @@ const IconMaterialWineBarSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialWineBarSharpFilled.displayName = 'AmauiIconMaterialWineBarSharpFilled';
+
 export default IconMaterialWineBarSharpFilled;

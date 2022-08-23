@@ -18,4 +18,6 @@ const IconMaterialMicExternalOnRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMicExternalOnRounded.displayName = 'AmauiIconMaterialMicExternalOnRounded';
+
 export default IconMaterialMicExternalOnRounded;

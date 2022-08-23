@@ -18,4 +18,6 @@ const IconMaterialFrontHandRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFrontHandRoundedW100.displayName = 'AmauiIconMaterialFrontHandRoundedW100';
+
 export default IconMaterialFrontHandRoundedW100;

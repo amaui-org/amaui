@@ -18,4 +18,6 @@ const IconMaterialHdrStrongRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialHdrStrongRounded.displayName = 'AmauiIconMaterialHdrStrongRounded';
+
 export default IconMaterialHdrStrongRounded;

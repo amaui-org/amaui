@@ -18,4 +18,6 @@ const IconMaterialBeachAccessRoundedW100 = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialBeachAccessRoundedW100.displayName = 'AmauiIconMaterialBeachAccessRoundedW100';
+
 export default IconMaterialBeachAccessRoundedW100;

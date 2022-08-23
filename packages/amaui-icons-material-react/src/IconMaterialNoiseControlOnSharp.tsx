@@ -18,4 +18,6 @@ const IconMaterialNoiseControlOnSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNoiseControlOnSharp.displayName = 'AmauiIconMaterialNoiseControlOnSharp';
+
 export default IconMaterialNoiseControlOnSharp;

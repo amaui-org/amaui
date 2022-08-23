@@ -18,4 +18,6 @@ const IconMaterialFiberSmartRecordTwoTone = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialFiberSmartRecordTwoTone.displayName = 'AmauiIconMaterialFiberSmartRecordTwoTone';
+
 export default IconMaterialFiberSmartRecordTwoTone;

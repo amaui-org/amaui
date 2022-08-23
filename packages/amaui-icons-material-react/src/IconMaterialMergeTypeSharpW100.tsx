@@ -18,4 +18,6 @@ const IconMaterialMergeTypeSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMergeTypeSharpW100.displayName = 'AmauiIconMaterialMergeTypeSharpW100';
+
 export default IconMaterialMergeTypeSharpW100;

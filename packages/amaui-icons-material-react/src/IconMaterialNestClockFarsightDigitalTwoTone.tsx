@@ -18,4 +18,6 @@ const IconMaterialNestClockFarsightDigitalTwoTone = React.forwardRef((props: any
   );
 });
 
+IconMaterialNestClockFarsightDigitalTwoTone.displayName = 'AmauiIconMaterialNestClockFarsightDigitalTwoTone';
+
 export default IconMaterialNestClockFarsightDigitalTwoTone;

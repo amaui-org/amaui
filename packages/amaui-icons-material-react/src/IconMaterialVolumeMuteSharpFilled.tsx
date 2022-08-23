@@ -18,4 +18,6 @@ const IconMaterialVolumeMuteSharpFilled = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialVolumeMuteSharpFilled.displayName = 'AmauiIconMaterialVolumeMuteSharpFilled';
+
 export default IconMaterialVolumeMuteSharpFilled;

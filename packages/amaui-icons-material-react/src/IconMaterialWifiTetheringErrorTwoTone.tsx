@@ -18,4 +18,6 @@ const IconMaterialWifiTetheringErrorTwoTone = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialWifiTetheringErrorTwoTone.displayName = 'AmauiIconMaterialWifiTetheringErrorTwoTone';
+
 export default IconMaterialWifiTetheringErrorTwoTone;

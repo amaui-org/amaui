@@ -18,4 +18,6 @@ const IconMaterialPhotoCameraTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPhotoCameraTwoTone.displayName = 'AmauiIconMaterialPhotoCameraTwoTone';
+
 export default IconMaterialPhotoCameraTwoTone;

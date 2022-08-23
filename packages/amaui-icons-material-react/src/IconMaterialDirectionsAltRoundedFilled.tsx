@@ -18,4 +18,6 @@ const IconMaterialDirectionsAltRoundedFilled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialDirectionsAltRoundedFilled.displayName = 'AmauiIconMaterialDirectionsAltRoundedFilled';
+
 export default IconMaterialDirectionsAltRoundedFilled;

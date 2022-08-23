@@ -18,4 +18,6 @@ const IconMaterialFilterAltRoundedW100Filled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialFilterAltRoundedW100Filled.displayName = 'AmauiIconMaterialFilterAltRoundedW100Filled';
+
 export default IconMaterialFilterAltRoundedW100Filled;

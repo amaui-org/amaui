@@ -18,4 +18,6 @@ const IconMaterialSmsFailedRoundedFilled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialSmsFailedRoundedFilled.displayName = 'AmauiIconMaterialSmsFailedRoundedFilled';
+
 export default IconMaterialSmsFailedRoundedFilled;

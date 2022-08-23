@@ -18,4 +18,6 @@ const IconMaterialCommentBankTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCommentBankTwoTone.displayName = 'AmauiIconMaterialCommentBankTwoTone';
+
 export default IconMaterialCommentBankTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialSettingsAlertRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSettingsAlertRounded.displayName = 'AmauiIconMaterialSettingsAlertRounded';
+
 export default IconMaterialSettingsAlertRounded;

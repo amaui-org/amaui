@@ -18,4 +18,6 @@ const IconMaterialRemoveRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialRemoveRoundedW100.displayName = 'AmauiIconMaterialRemoveRoundedW100';
+
 export default IconMaterialRemoveRoundedW100;

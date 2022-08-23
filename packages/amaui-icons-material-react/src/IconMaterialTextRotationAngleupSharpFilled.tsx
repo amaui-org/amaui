@@ -18,4 +18,6 @@ const IconMaterialTextRotationAngleupSharpFilled = React.forwardRef((props: any,
   );
 });
 
+IconMaterialTextRotationAngleupSharpFilled.displayName = 'AmauiIconMaterialTextRotationAngleupSharpFilled';
+
 export default IconMaterialTextRotationAngleupSharpFilled;

@@ -18,4 +18,6 @@ const IconMaterialLocalPoliceRoundedW100Filled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialLocalPoliceRoundedW100Filled.displayName = 'AmauiIconMaterialLocalPoliceRoundedW100Filled';
+
 export default IconMaterialLocalPoliceRoundedW100Filled;

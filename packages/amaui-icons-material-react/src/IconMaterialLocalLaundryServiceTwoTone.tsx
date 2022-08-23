@@ -18,4 +18,6 @@ const IconMaterialLocalLaundryServiceTwoTone = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialLocalLaundryServiceTwoTone.displayName = 'AmauiIconMaterialLocalLaundryServiceTwoTone';
+
 export default IconMaterialLocalLaundryServiceTwoTone;

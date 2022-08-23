@@ -18,4 +18,6 @@ const IconMaterialFlakySharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFlakySharp.displayName = 'AmauiIconMaterialFlakySharp';
+
 export default IconMaterialFlakySharp;

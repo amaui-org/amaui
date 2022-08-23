@@ -18,4 +18,6 @@ const IconMaterialKeyboardCapslockTwoTone = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialKeyboardCapslockTwoTone.displayName = 'AmauiIconMaterialKeyboardCapslockTwoTone';
+
 export default IconMaterialKeyboardCapslockTwoTone;

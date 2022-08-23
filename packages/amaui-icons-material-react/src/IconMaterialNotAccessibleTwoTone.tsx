@@ -18,4 +18,6 @@ const IconMaterialNotAccessibleTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNotAccessibleTwoTone.displayName = 'AmauiIconMaterialNotAccessibleTwoTone';
+
 export default IconMaterialNotAccessibleTwoTone;

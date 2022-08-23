@@ -18,4 +18,6 @@ const IconMaterialVideocamOffTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialVideocamOffTwoTone.displayName = 'AmauiIconMaterialVideocamOffTwoTone';
+
 export default IconMaterialVideocamOffTwoTone;

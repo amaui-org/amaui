@@ -18,4 +18,6 @@ const IconMaterialFaceRetouchingNaturalSharpFilled = React.forwardRef((props: an
   );
 });
 
+IconMaterialFaceRetouchingNaturalSharpFilled.displayName = 'AmauiIconMaterialFaceRetouchingNaturalSharpFilled';
+
 export default IconMaterialFaceRetouchingNaturalSharpFilled;

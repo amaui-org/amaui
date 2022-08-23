@@ -18,4 +18,6 @@ const IconMaterialDriveFileMoveRtlSharpW100 = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialDriveFileMoveRtlSharpW100.displayName = 'AmauiIconMaterialDriveFileMoveRtlSharpW100';
+
 export default IconMaterialDriveFileMoveRtlSharpW100;

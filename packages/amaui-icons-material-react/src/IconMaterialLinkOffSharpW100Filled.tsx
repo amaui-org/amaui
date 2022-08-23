@@ -18,4 +18,6 @@ const IconMaterialLinkOffSharpW100Filled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialLinkOffSharpW100Filled.displayName = 'AmauiIconMaterialLinkOffSharpW100Filled';
+
 export default IconMaterialLinkOffSharpW100Filled;

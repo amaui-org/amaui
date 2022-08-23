@@ -18,4 +18,6 @@ const IconMaterialAlternateEmailSharpFilled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialAlternateEmailSharpFilled.displayName = 'AmauiIconMaterialAlternateEmailSharpFilled';
+
 export default IconMaterialAlternateEmailSharpFilled;

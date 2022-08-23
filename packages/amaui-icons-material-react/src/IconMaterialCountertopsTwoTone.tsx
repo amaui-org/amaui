@@ -18,4 +18,6 @@ const IconMaterialCountertopsTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCountertopsTwoTone.displayName = 'AmauiIconMaterialCountertopsTwoTone';
+
 export default IconMaterialCountertopsTwoTone;

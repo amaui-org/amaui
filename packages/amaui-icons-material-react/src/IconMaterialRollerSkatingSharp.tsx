@@ -18,4 +18,6 @@ const IconMaterialRollerSkatingSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialRollerSkatingSharp.displayName = 'AmauiIconMaterialRollerSkatingSharp';
+
 export default IconMaterialRollerSkatingSharp;

@@ -18,4 +18,6 @@ const IconMaterialCallMissedOutgoingRounded = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialCallMissedOutgoingRounded.displayName = 'AmauiIconMaterialCallMissedOutgoingRounded';
+
 export default IconMaterialCallMissedOutgoingRounded;

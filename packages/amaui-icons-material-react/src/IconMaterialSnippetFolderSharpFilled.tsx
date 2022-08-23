@@ -18,4 +18,6 @@ const IconMaterialSnippetFolderSharpFilled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialSnippetFolderSharpFilled.displayName = 'AmauiIconMaterialSnippetFolderSharpFilled';
+
 export default IconMaterialSnippetFolderSharpFilled;

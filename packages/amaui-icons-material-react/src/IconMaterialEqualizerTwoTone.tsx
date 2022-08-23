@@ -18,4 +18,6 @@ const IconMaterialEqualizerTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialEqualizerTwoTone.displayName = 'AmauiIconMaterialEqualizerTwoTone';
+
 export default IconMaterialEqualizerTwoTone;

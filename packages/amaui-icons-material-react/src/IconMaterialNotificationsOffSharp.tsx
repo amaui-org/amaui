@@ -18,4 +18,6 @@ const IconMaterialNotificationsOffSharp = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialNotificationsOffSharp.displayName = 'AmauiIconMaterialNotificationsOffSharp';
+
 export default IconMaterialNotificationsOffSharp;

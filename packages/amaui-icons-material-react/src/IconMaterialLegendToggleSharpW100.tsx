@@ -18,4 +18,6 @@ const IconMaterialLegendToggleSharpW100 = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialLegendToggleSharpW100.displayName = 'AmauiIconMaterialLegendToggleSharpW100';
+
 export default IconMaterialLegendToggleSharpW100;

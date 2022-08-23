@@ -18,4 +18,6 @@ const IconMaterialNestMultiRoomSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNestMultiRoomSharp.displayName = 'AmauiIconMaterialNestMultiRoomSharp';
+
 export default IconMaterialNestMultiRoomSharp;

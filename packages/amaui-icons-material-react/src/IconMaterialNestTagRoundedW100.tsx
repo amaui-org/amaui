@@ -18,4 +18,6 @@ const IconMaterialNestTagRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNestTagRoundedW100.displayName = 'AmauiIconMaterialNestTagRoundedW100';
+
 export default IconMaterialNestTagRoundedW100;

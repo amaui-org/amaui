@@ -18,4 +18,6 @@ const IconMaterialHomeIotDeviceSharpFilled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialHomeIotDeviceSharpFilled.displayName = 'AmauiIconMaterialHomeIotDeviceSharpFilled';
+
 export default IconMaterialHomeIotDeviceSharpFilled;

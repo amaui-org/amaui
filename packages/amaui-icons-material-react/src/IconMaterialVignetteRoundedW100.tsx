@@ -18,4 +18,6 @@ const IconMaterialVignetteRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialVignetteRoundedW100.displayName = 'AmauiIconMaterialVignetteRoundedW100';
+
 export default IconMaterialVignetteRoundedW100;

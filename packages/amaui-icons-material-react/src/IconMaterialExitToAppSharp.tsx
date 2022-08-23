@@ -18,4 +18,6 @@ const IconMaterialExitToAppSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialExitToAppSharp.displayName = 'AmauiIconMaterialExitToAppSharp';
+
 export default IconMaterialExitToAppSharp;

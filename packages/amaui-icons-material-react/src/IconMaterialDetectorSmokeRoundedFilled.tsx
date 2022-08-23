@@ -18,4 +18,6 @@ const IconMaterialDetectorSmokeRoundedFilled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialDetectorSmokeRoundedFilled.displayName = 'AmauiIconMaterialDetectorSmokeRoundedFilled';
+
 export default IconMaterialDetectorSmokeRoundedFilled;

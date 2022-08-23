@@ -18,4 +18,6 @@ const IconMaterialLaptopWindowsRoundedW100 = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialLaptopWindowsRoundedW100.displayName = 'AmauiIconMaterialLaptopWindowsRoundedW100';
+
 export default IconMaterialLaptopWindowsRoundedW100;

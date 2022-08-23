@@ -18,4 +18,6 @@ const IconMaterialCloudSyncRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCloudSyncRoundedW100.displayName = 'AmauiIconMaterialCloudSyncRoundedW100';
+
 export default IconMaterialCloudSyncRoundedW100;

@@ -18,4 +18,6 @@ const IconMaterialSendToMobileSharpFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialSendToMobileSharpFilled.displayName = 'AmauiIconMaterialSendToMobileSharpFilled';
+
 export default IconMaterialSendToMobileSharpFilled;

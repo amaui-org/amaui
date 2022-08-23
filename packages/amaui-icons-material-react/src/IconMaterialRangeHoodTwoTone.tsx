@@ -18,4 +18,6 @@ const IconMaterialRangeHoodTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialRangeHoodTwoTone.displayName = 'AmauiIconMaterialRangeHoodTwoTone';
+
 export default IconMaterialRangeHoodTwoTone;

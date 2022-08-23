@@ -18,4 +18,6 @@ const IconMaterialKayakingSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialKayakingSharp.displayName = 'AmauiIconMaterialKayakingSharp';
+
 export default IconMaterialKayakingSharp;

@@ -18,4 +18,6 @@ const IconMaterialShieldWithHeartRoundedW100 = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialShieldWithHeartRoundedW100.displayName = 'AmauiIconMaterialShieldWithHeartRoundedW100';
+
 export default IconMaterialShieldWithHeartRoundedW100;

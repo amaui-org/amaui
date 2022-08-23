@@ -18,4 +18,6 @@ const IconMaterialMoodBadTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMoodBadTwoTone.displayName = 'AmauiIconMaterialMoodBadTwoTone';
+
 export default IconMaterialMoodBadTwoTone;

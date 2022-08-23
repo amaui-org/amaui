@@ -18,4 +18,6 @@ const IconMaterialBorderInnerRoundedW100Filled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialBorderInnerRoundedW100Filled.displayName = 'AmauiIconMaterialBorderInnerRoundedW100Filled';
+
 export default IconMaterialBorderInnerRoundedW100Filled;

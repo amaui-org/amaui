@@ -18,4 +18,6 @@ const IconMaterialFiberDvrTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFiberDvrTwoTone.displayName = 'AmauiIconMaterialFiberDvrTwoTone';
+
 export default IconMaterialFiberDvrTwoTone;

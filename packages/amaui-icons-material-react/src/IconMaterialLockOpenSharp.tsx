@@ -18,4 +18,6 @@ const IconMaterialLockOpenSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialLockOpenSharp.displayName = 'AmauiIconMaterialLockOpenSharp';
+
 export default IconMaterialLockOpenSharp;

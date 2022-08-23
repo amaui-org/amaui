@@ -18,4 +18,6 @@ const IconMaterialDownloadDoneSharpW100Filled = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialDownloadDoneSharpW100Filled.displayName = 'AmauiIconMaterialDownloadDoneSharpW100Filled';
+
 export default IconMaterialDownloadDoneSharpW100Filled;

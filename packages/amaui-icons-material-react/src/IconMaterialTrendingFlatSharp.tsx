@@ -18,4 +18,6 @@ const IconMaterialTrendingFlatSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTrendingFlatSharp.displayName = 'AmauiIconMaterialTrendingFlatSharp';
+
 export default IconMaterialTrendingFlatSharp;

@@ -18,4 +18,6 @@ const IconMaterialCameraOutdoorTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCameraOutdoorTwoTone.displayName = 'AmauiIconMaterialCameraOutdoorTwoTone';
+
 export default IconMaterialCameraOutdoorTwoTone;

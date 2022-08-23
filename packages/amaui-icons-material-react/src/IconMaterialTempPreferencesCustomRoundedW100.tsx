@@ -18,4 +18,6 @@ const IconMaterialTempPreferencesCustomRoundedW100 = React.forwardRef((props: an
   );
 });
 
+IconMaterialTempPreferencesCustomRoundedW100.displayName = 'AmauiIconMaterialTempPreferencesCustomRoundedW100';
+
 export default IconMaterialTempPreferencesCustomRoundedW100;

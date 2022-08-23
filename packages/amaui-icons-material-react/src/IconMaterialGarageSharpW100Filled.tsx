@@ -18,4 +18,6 @@ const IconMaterialGarageSharpW100Filled = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialGarageSharpW100Filled.displayName = 'AmauiIconMaterialGarageSharpW100Filled';
+
 export default IconMaterialGarageSharpW100Filled;

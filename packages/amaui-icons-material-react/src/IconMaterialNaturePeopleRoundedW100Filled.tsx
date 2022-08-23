@@ -18,4 +18,6 @@ const IconMaterialNaturePeopleRoundedW100Filled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialNaturePeopleRoundedW100Filled.displayName = 'AmauiIconMaterialNaturePeopleRoundedW100Filled';
+
 export default IconMaterialNaturePeopleRoundedW100Filled;

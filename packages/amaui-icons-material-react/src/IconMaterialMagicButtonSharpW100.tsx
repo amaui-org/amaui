@@ -18,4 +18,6 @@ const IconMaterialMagicButtonSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMagicButtonSharpW100.displayName = 'AmauiIconMaterialMagicButtonSharpW100';
+
 export default IconMaterialMagicButtonSharpW100;

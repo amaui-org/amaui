@@ -18,4 +18,6 @@ const IconMaterialFormatStrikethroughTwoTone = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialFormatStrikethroughTwoTone.displayName = 'AmauiIconMaterialFormatStrikethroughTwoTone';
+
 export default IconMaterialFormatStrikethroughTwoTone;

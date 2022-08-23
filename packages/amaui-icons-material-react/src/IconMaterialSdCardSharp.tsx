@@ -18,4 +18,6 @@ const IconMaterialSdCardSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSdCardSharp.displayName = 'AmauiIconMaterialSdCardSharp';
+
 export default IconMaterialSdCardSharp;

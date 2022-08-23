@@ -18,4 +18,6 @@ const IconMaterialCancelScheduleSendSharp = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialCancelScheduleSendSharp.displayName = 'AmauiIconMaterialCancelScheduleSendSharp';
+
 export default IconMaterialCancelScheduleSendSharp;

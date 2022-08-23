@@ -18,4 +18,6 @@ const IconMaterialScreenshotSharpW100Filled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialScreenshotSharpW100Filled.displayName = 'AmauiIconMaterialScreenshotSharpW100Filled';
+
 export default IconMaterialScreenshotSharpW100Filled;

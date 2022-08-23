@@ -18,4 +18,6 @@ const IconMaterialGifBoxSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialGifBoxSharpFilled.displayName = 'AmauiIconMaterialGifBoxSharpFilled';
+
 export default IconMaterialGifBoxSharpFilled;

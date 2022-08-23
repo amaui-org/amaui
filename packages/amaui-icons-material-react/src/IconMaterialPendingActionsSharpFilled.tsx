@@ -18,4 +18,6 @@ const IconMaterialPendingActionsSharpFilled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialPendingActionsSharpFilled.displayName = 'AmauiIconMaterialPendingActionsSharpFilled';
+
 export default IconMaterialPendingActionsSharpFilled;

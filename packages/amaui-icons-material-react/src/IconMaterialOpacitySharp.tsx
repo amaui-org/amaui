@@ -18,4 +18,6 @@ const IconMaterialOpacitySharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialOpacitySharp.displayName = 'AmauiIconMaterialOpacitySharp';
+
 export default IconMaterialOpacitySharp;

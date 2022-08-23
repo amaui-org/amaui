@@ -18,4 +18,6 @@ const IconMaterialCoolToDryRoundedFilled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialCoolToDryRoundedFilled.displayName = 'AmauiIconMaterialCoolToDryRoundedFilled';
+
 export default IconMaterialCoolToDryRoundedFilled;

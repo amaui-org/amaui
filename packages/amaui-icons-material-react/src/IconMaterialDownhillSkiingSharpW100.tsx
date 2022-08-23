@@ -18,4 +18,6 @@ const IconMaterialDownhillSkiingSharpW100 = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialDownhillSkiingSharpW100.displayName = 'AmauiIconMaterialDownhillSkiingSharpW100';
+
 export default IconMaterialDownhillSkiingSharpW100;

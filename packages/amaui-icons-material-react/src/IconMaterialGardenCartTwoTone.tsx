@@ -18,4 +18,6 @@ const IconMaterialGardenCartTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialGardenCartTwoTone.displayName = 'AmauiIconMaterialGardenCartTwoTone';
+
 export default IconMaterialGardenCartTwoTone;

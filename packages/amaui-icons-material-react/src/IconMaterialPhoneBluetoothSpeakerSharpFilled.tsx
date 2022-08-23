@@ -18,4 +18,6 @@ const IconMaterialPhoneBluetoothSpeakerSharpFilled = React.forwardRef((props: an
   );
 });
 
+IconMaterialPhoneBluetoothSpeakerSharpFilled.displayName = 'AmauiIconMaterialPhoneBluetoothSpeakerSharpFilled';
+
 export default IconMaterialPhoneBluetoothSpeakerSharpFilled;

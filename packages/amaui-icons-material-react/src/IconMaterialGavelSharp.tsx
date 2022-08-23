@@ -18,4 +18,6 @@ const IconMaterialGavelSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialGavelSharp.displayName = 'AmauiIconMaterialGavelSharp';
+
 export default IconMaterialGavelSharp;

@@ -18,4 +18,6 @@ const IconMaterialMediaBluetoothOnRoundedFilled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialMediaBluetoothOnRoundedFilled.displayName = 'AmauiIconMaterialMediaBluetoothOnRoundedFilled';
+
 export default IconMaterialMediaBluetoothOnRoundedFilled;

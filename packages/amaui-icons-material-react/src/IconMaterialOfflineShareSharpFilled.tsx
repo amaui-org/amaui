@@ -18,4 +18,6 @@ const IconMaterialOfflineShareSharpFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialOfflineShareSharpFilled.displayName = 'AmauiIconMaterialOfflineShareSharpFilled';
+
 export default IconMaterialOfflineShareSharpFilled;

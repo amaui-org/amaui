@@ -18,4 +18,6 @@ const IconMaterialToolsPhillipsTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialToolsPhillipsTwoTone.displayName = 'AmauiIconMaterialToolsPhillipsTwoTone';
+
 export default IconMaterialToolsPhillipsTwoTone;

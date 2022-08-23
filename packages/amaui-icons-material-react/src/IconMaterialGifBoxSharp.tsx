@@ -18,4 +18,6 @@ const IconMaterialGifBoxSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialGifBoxSharp.displayName = 'AmauiIconMaterialGifBoxSharp';
+
 export default IconMaterialGifBoxSharp;

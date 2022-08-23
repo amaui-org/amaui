@@ -18,4 +18,6 @@ const IconMaterialFlightTakeoffRoundedW100 = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialFlightTakeoffRoundedW100.displayName = 'AmauiIconMaterialFlightTakeoffRoundedW100';
+
 export default IconMaterialFlightTakeoffRoundedW100;

@@ -18,4 +18,6 @@ const IconMaterialFlutterDashRoundedFilled = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialFlutterDashRoundedFilled.displayName = 'AmauiIconMaterialFlutterDashRoundedFilled';
+
 export default IconMaterialFlutterDashRoundedFilled;

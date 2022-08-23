@@ -18,4 +18,6 @@ const IconMaterialMicrowaveRoundedFilled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialMicrowaveRoundedFilled.displayName = 'AmauiIconMaterialMicrowaveRoundedFilled';
+
 export default IconMaterialMicrowaveRoundedFilled;

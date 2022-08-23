@@ -18,4 +18,6 @@ const IconMaterialMusicVideoRoundedFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialMusicVideoRoundedFilled.displayName = 'AmauiIconMaterialMusicVideoRoundedFilled';
+
 export default IconMaterialMusicVideoRoundedFilled;

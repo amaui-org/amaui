@@ -18,4 +18,6 @@ const IconMaterialOvenGenSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialOvenGenSharp.displayName = 'AmauiIconMaterialOvenGenSharp';
+
 export default IconMaterialOvenGenSharp;

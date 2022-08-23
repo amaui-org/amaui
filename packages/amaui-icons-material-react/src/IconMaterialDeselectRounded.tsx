@@ -18,4 +18,6 @@ const IconMaterialDeselectRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDeselectRounded.displayName = 'AmauiIconMaterialDeselectRounded';
+
 export default IconMaterialDeselectRounded;

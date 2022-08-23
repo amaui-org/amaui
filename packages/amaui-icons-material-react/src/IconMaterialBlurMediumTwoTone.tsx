@@ -18,4 +18,6 @@ const IconMaterialBlurMediumTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialBlurMediumTwoTone.displayName = 'AmauiIconMaterialBlurMediumTwoTone';
+
 export default IconMaterialBlurMediumTwoTone;

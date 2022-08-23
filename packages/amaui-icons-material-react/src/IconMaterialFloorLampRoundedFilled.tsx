@@ -18,4 +18,6 @@ const IconMaterialFloorLampRoundedFilled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialFloorLampRoundedFilled.displayName = 'AmauiIconMaterialFloorLampRoundedFilled';
+
 export default IconMaterialFloorLampRoundedFilled;

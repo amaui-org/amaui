@@ -18,4 +18,6 @@ const IconMaterialLocalFireDepartmentTwoTone = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialLocalFireDepartmentTwoTone.displayName = 'AmauiIconMaterialLocalFireDepartmentTwoTone';
+
 export default IconMaterialLocalFireDepartmentTwoTone;

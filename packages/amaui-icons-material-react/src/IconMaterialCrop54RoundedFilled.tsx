@@ -18,4 +18,6 @@ const IconMaterialCrop54RoundedFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCrop54RoundedFilled.displayName = 'AmauiIconMaterialCrop54RoundedFilled';
+
 export default IconMaterialCrop54RoundedFilled;

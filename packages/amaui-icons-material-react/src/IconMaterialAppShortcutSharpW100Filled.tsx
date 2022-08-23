@@ -18,4 +18,6 @@ const IconMaterialAppShortcutSharpW100Filled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialAppShortcutSharpW100Filled.displayName = 'AmauiIconMaterialAppShortcutSharpW100Filled';
+
 export default IconMaterialAppShortcutSharpW100Filled;

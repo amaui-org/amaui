@@ -18,4 +18,6 @@ const IconMaterialWavingHandTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialWavingHandTwoTone.displayName = 'AmauiIconMaterialWavingHandTwoTone';
+
 export default IconMaterialWavingHandTwoTone;

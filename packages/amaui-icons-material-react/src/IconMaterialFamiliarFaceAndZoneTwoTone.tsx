@@ -18,4 +18,6 @@ const IconMaterialFamiliarFaceAndZoneTwoTone = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialFamiliarFaceAndZoneTwoTone.displayName = 'AmauiIconMaterialFamiliarFaceAndZoneTwoTone';
+
 export default IconMaterialFamiliarFaceAndZoneTwoTone;

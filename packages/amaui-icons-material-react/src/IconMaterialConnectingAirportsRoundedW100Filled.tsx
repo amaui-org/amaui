@@ -18,4 +18,6 @@ const IconMaterialConnectingAirportsRoundedW100Filled = React.forwardRef((props:
   );
 });
 
+IconMaterialConnectingAirportsRoundedW100Filled.displayName = 'AmauiIconMaterialConnectingAirportsRoundedW100Filled';
+
 export default IconMaterialConnectingAirportsRoundedW100Filled;

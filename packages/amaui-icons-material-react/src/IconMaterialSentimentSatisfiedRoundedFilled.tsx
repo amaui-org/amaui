@@ -18,4 +18,6 @@ const IconMaterialSentimentSatisfiedRoundedFilled = React.forwardRef((props: any
   );
 });
 
+IconMaterialSentimentSatisfiedRoundedFilled.displayName = 'AmauiIconMaterialSentimentSatisfiedRoundedFilled';
+
 export default IconMaterialSentimentSatisfiedRoundedFilled;

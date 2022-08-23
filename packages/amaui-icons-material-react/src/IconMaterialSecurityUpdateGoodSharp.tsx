@@ -18,4 +18,6 @@ const IconMaterialSecurityUpdateGoodSharp = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialSecurityUpdateGoodSharp.displayName = 'AmauiIconMaterialSecurityUpdateGoodSharp';
+
 export default IconMaterialSecurityUpdateGoodSharp;

@@ -18,4 +18,6 @@ const IconMaterialViewAgendaTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialViewAgendaTwoTone.displayName = 'AmauiIconMaterialViewAgendaTwoTone';
+
 export default IconMaterialViewAgendaTwoTone;

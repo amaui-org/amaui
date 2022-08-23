@@ -18,4 +18,6 @@ const IconMaterialBluetoothDriveSharpW100 = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialBluetoothDriveSharpW100.displayName = 'AmauiIconMaterialBluetoothDriveSharpW100';
+
 export default IconMaterialBluetoothDriveSharpW100;

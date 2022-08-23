@@ -18,4 +18,6 @@ const IconMaterialEmojiFoodBeverageRoundedW100Filled = React.forwardRef((props: 
   );
 });
 
+IconMaterialEmojiFoodBeverageRoundedW100Filled.displayName = 'AmauiIconMaterialEmojiFoodBeverageRoundedW100Filled';
+
 export default IconMaterialEmojiFoodBeverageRoundedW100Filled;

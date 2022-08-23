@@ -18,4 +18,6 @@ const IconMaterialPlaylistPlaySharpW100 = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialPlaylistPlaySharpW100.displayName = 'AmauiIconMaterialPlaylistPlaySharpW100';
+
 export default IconMaterialPlaylistPlaySharpW100;

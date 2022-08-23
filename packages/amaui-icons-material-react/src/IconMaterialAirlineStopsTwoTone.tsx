@@ -18,4 +18,6 @@ const IconMaterialAirlineStopsTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAirlineStopsTwoTone.displayName = 'AmauiIconMaterialAirlineStopsTwoTone';
+
 export default IconMaterialAirlineStopsTwoTone;

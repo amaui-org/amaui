@@ -18,4 +18,6 @@ const IconMaterialRiceBowlTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialRiceBowlTwoTone.displayName = 'AmauiIconMaterialRiceBowlTwoTone';
+
 export default IconMaterialRiceBowlTwoTone;

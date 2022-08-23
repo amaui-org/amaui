@@ -18,4 +18,6 @@ const IconMaterialSwapHorizontalCircleRounded = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialSwapHorizontalCircleRounded.displayName = 'AmauiIconMaterialSwapHorizontalCircleRounded';
+
 export default IconMaterialSwapHorizontalCircleRounded;

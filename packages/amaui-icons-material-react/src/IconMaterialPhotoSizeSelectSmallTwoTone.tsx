@@ -18,4 +18,6 @@ const IconMaterialPhotoSizeSelectSmallTwoTone = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialPhotoSizeSelectSmallTwoTone.displayName = 'AmauiIconMaterialPhotoSizeSelectSmallTwoTone';
+
 export default IconMaterialPhotoSizeSelectSmallTwoTone;

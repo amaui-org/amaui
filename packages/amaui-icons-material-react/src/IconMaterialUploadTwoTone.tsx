@@ -18,4 +18,6 @@ const IconMaterialUploadTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialUploadTwoTone.displayName = 'AmauiIconMaterialUploadTwoTone';
+
 export default IconMaterialUploadTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialLocalPostOfficeTwoTone = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialLocalPostOfficeTwoTone.displayName = 'AmauiIconMaterialLocalPostOfficeTwoTone';
+
 export default IconMaterialLocalPostOfficeTwoTone;

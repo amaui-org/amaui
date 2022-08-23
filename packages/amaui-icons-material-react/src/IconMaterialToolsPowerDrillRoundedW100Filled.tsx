@@ -18,4 +18,6 @@ const IconMaterialToolsPowerDrillRoundedW100Filled = React.forwardRef((props: an
   );
 });
 
+IconMaterialToolsPowerDrillRoundedW100Filled.displayName = 'AmauiIconMaterialToolsPowerDrillRoundedW100Filled';
+
 export default IconMaterialToolsPowerDrillRoundedW100Filled;

@@ -18,4 +18,6 @@ const IconMaterialPictureInPictureAltSharp = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialPictureInPictureAltSharp.displayName = 'AmauiIconMaterialPictureInPictureAltSharp';
+
 export default IconMaterialPictureInPictureAltSharp;

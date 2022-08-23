@@ -18,4 +18,6 @@ const IconMaterialScatterPlotTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialScatterPlotTwoTone.displayName = 'AmauiIconMaterialScatterPlotTwoTone';
+
 export default IconMaterialScatterPlotTwoTone;

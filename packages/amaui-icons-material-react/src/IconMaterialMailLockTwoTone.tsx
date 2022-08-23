@@ -18,4 +18,6 @@ const IconMaterialMailLockTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMailLockTwoTone.displayName = 'AmauiIconMaterialMailLockTwoTone';
+
 export default IconMaterialMailLockTwoTone;

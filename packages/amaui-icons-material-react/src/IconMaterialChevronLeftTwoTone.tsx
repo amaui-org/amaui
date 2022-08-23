@@ -18,4 +18,6 @@ const IconMaterialChevronLeftTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialChevronLeftTwoTone.displayName = 'AmauiIconMaterialChevronLeftTwoTone';
+
 export default IconMaterialChevronLeftTwoTone;

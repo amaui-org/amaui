@@ -18,4 +18,6 @@ const IconMaterialGateSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialGateSharpFilled.displayName = 'AmauiIconMaterialGateSharpFilled';
+
 export default IconMaterialGateSharpFilled;

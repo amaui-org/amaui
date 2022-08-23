@@ -18,4 +18,6 @@ const IconMaterialSimCardDownloadRoundedW100 = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialSimCardDownloadRoundedW100.displayName = 'AmauiIconMaterialSimCardDownloadRoundedW100';
+
 export default IconMaterialSimCardDownloadRoundedW100;

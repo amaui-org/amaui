@@ -18,4 +18,6 @@ const IconMaterialWifiProtectedSetupRoundedW100 = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialWifiProtectedSetupRoundedW100.displayName = 'AmauiIconMaterialWifiProtectedSetupRoundedW100';
+
 export default IconMaterialWifiProtectedSetupRoundedW100;

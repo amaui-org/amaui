@@ -18,4 +18,6 @@ const IconMaterialWindowClosedSharpFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialWindowClosedSharpFilled.displayName = 'AmauiIconMaterialWindowClosedSharpFilled';
+
 export default IconMaterialWindowClosedSharpFilled;

@@ -18,4 +18,6 @@ const IconMaterialParaglidingSharpFilled = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialParaglidingSharpFilled.displayName = 'AmauiIconMaterialParaglidingSharpFilled';
+
 export default IconMaterialParaglidingSharpFilled;

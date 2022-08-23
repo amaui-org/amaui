@@ -18,4 +18,6 @@ const IconMaterialPrintDisabledTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPrintDisabledTwoTone.displayName = 'AmauiIconMaterialPrintDisabledTwoTone';
+
 export default IconMaterialPrintDisabledTwoTone;

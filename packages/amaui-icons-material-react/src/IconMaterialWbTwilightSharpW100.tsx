@@ -18,4 +18,6 @@ const IconMaterialWbTwilightSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialWbTwilightSharpW100.displayName = 'AmauiIconMaterialWbTwilightSharpW100';
+
 export default IconMaterialWbTwilightSharpW100;

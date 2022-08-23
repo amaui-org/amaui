@@ -18,4 +18,6 @@ const IconMaterialWaterDropTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialWaterDropTwoTone.displayName = 'AmauiIconMaterialWaterDropTwoTone';
+
 export default IconMaterialWaterDropTwoTone;

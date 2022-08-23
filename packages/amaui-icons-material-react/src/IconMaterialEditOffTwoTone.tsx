@@ -18,4 +18,6 @@ const IconMaterialEditOffTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialEditOffTwoTone.displayName = 'AmauiIconMaterialEditOffTwoTone';
+
 export default IconMaterialEditOffTwoTone;

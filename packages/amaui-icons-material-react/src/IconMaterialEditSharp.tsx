@@ -18,4 +18,6 @@ const IconMaterialEditSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialEditSharp.displayName = 'AmauiIconMaterialEditSharp';
+
 export default IconMaterialEditSharp;

@@ -18,4 +18,6 @@ const IconMaterialLightGroupRoundedW100 = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialLightGroupRoundedW100.displayName = 'AmauiIconMaterialLightGroupRoundedW100';
+
 export default IconMaterialLightGroupRoundedW100;

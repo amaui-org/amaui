@@ -18,4 +18,6 @@ const IconMaterialChargerRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialChargerRounded.displayName = 'AmauiIconMaterialChargerRounded';
+
 export default IconMaterialChargerRounded;

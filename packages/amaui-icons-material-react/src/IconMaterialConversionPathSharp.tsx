@@ -18,4 +18,6 @@ const IconMaterialConversionPathSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialConversionPathSharp.displayName = 'AmauiIconMaterialConversionPathSharp';
+
 export default IconMaterialConversionPathSharp;

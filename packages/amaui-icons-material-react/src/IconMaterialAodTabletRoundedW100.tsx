@@ -18,4 +18,6 @@ const IconMaterialAodTabletRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAodTabletRoundedW100.displayName = 'AmauiIconMaterialAodTabletRoundedW100';
+
 export default IconMaterialAodTabletRoundedW100;

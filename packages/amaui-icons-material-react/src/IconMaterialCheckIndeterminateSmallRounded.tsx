@@ -18,4 +18,6 @@ const IconMaterialCheckIndeterminateSmallRounded = React.forwardRef((props: any,
   );
 });
 
+IconMaterialCheckIndeterminateSmallRounded.displayName = 'AmauiIconMaterialCheckIndeterminateSmallRounded';
+
 export default IconMaterialCheckIndeterminateSmallRounded;

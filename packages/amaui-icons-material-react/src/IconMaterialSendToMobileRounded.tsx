@@ -18,4 +18,6 @@ const IconMaterialSendToMobileRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSendToMobileRounded.displayName = 'AmauiIconMaterialSendToMobileRounded';
+
 export default IconMaterialSendToMobileRounded;

@@ -18,4 +18,6 @@ const IconMaterialThermometerSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialThermometerSharpW100.displayName = 'AmauiIconMaterialThermometerSharpW100';
+
 export default IconMaterialThermometerSharpW100;

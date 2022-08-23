@@ -18,4 +18,6 @@ const IconMaterialOfflinePinRoundedW100 = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialOfflinePinRoundedW100.displayName = 'AmauiIconMaterialOfflinePinRoundedW100';
+
 export default IconMaterialOfflinePinRoundedW100;

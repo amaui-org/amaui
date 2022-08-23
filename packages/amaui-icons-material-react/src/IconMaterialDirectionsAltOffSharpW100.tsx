@@ -18,4 +18,6 @@ const IconMaterialDirectionsAltOffSharpW100 = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialDirectionsAltOffSharpW100.displayName = 'AmauiIconMaterialDirectionsAltOffSharpW100';
+
 export default IconMaterialDirectionsAltOffSharpW100;

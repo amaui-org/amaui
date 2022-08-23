@@ -18,4 +18,6 @@ const IconMaterialMonitorWeightTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMonitorWeightTwoTone.displayName = 'AmauiIconMaterialMonitorWeightTwoTone';
+
 export default IconMaterialMonitorWeightTwoTone;

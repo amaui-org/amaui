@@ -18,4 +18,6 @@ const IconMaterialCalendarViewMonthSharp = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialCalendarViewMonthSharp.displayName = 'AmauiIconMaterialCalendarViewMonthSharp';
+
 export default IconMaterialCalendarViewMonthSharp;

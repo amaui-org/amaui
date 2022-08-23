@@ -18,4 +18,6 @@ const IconMaterialTransitEnterexitRoundedW100Filled = React.forwardRef((props: a
   );
 });
 
+IconMaterialTransitEnterexitRoundedW100Filled.displayName = 'AmauiIconMaterialTransitEnterexitRoundedW100Filled';
+
 export default IconMaterialTransitEnterexitRoundedW100Filled;

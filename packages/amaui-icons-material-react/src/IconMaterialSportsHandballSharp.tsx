@@ -18,4 +18,6 @@ const IconMaterialSportsHandballSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSportsHandballSharp.displayName = 'AmauiIconMaterialSportsHandballSharp';
+
 export default IconMaterialSportsHandballSharp;

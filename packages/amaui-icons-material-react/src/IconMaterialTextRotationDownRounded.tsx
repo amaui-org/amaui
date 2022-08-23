@@ -18,4 +18,6 @@ const IconMaterialTextRotationDownRounded = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialTextRotationDownRounded.displayName = 'AmauiIconMaterialTextRotationDownRounded';
+
 export default IconMaterialTextRotationDownRounded;

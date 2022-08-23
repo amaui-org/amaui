@@ -18,4 +18,6 @@ const IconMaterialPivotTableChartRoundedW100 = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialPivotTableChartRoundedW100.displayName = 'AmauiIconMaterialPivotTableChartRoundedW100';
+
 export default IconMaterialPivotTableChartRoundedW100;

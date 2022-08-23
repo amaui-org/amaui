@@ -18,4 +18,6 @@ const IconMaterialCopyAllTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCopyAllTwoTone.displayName = 'AmauiIconMaterialCopyAllTwoTone';
+
 export default IconMaterialCopyAllTwoTone;

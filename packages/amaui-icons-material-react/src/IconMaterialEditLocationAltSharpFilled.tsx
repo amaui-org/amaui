@@ -18,4 +18,6 @@ const IconMaterialEditLocationAltSharpFilled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialEditLocationAltSharpFilled.displayName = 'AmauiIconMaterialEditLocationAltSharpFilled';
+
 export default IconMaterialEditLocationAltSharpFilled;

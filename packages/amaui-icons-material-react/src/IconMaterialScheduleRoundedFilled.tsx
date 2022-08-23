@@ -18,4 +18,6 @@ const IconMaterialScheduleRoundedFilled = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialScheduleRoundedFilled.displayName = 'AmauiIconMaterialScheduleRoundedFilled';
+
 export default IconMaterialScheduleRoundedFilled;

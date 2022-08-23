@@ -18,4 +18,6 @@ const IconMaterialToolsFlatHeadTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialToolsFlatHeadTwoTone.displayName = 'AmauiIconMaterialToolsFlatHeadTwoTone';
+
 export default IconMaterialToolsFlatHeadTwoTone;

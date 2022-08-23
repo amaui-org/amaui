@@ -18,4 +18,6 @@ const IconMaterialDownloadForOfflineSharp = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialDownloadForOfflineSharp.displayName = 'AmauiIconMaterialDownloadForOfflineSharp';
+
 export default IconMaterialDownloadForOfflineSharp;

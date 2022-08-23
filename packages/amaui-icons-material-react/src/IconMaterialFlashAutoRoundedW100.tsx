@@ -18,4 +18,6 @@ const IconMaterialFlashAutoRoundedW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFlashAutoRoundedW100.displayName = 'AmauiIconMaterialFlashAutoRoundedW100';
+
 export default IconMaterialFlashAutoRoundedW100;

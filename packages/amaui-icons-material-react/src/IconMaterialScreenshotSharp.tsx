@@ -18,4 +18,6 @@ const IconMaterialScreenshotSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialScreenshotSharp.displayName = 'AmauiIconMaterialScreenshotSharp';
+
 export default IconMaterialScreenshotSharp;

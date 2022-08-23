@@ -18,4 +18,6 @@ const IconMaterialCloseTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCloseTwoTone.displayName = 'AmauiIconMaterialCloseTwoTone';
+
 export default IconMaterialCloseTwoTone;

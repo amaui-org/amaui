@@ -18,4 +18,6 @@ const IconMaterialRestoreFromTrashSharp = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialRestoreFromTrashSharp.displayName = 'AmauiIconMaterialRestoreFromTrashSharp';
+
 export default IconMaterialRestoreFromTrashSharp;

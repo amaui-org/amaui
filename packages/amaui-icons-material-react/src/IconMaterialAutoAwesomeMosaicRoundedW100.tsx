@@ -18,4 +18,6 @@ const IconMaterialAutoAwesomeMosaicRoundedW100 = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialAutoAwesomeMosaicRoundedW100.displayName = 'AmauiIconMaterialAutoAwesomeMosaicRoundedW100';
+
 export default IconMaterialAutoAwesomeMosaicRoundedW100;

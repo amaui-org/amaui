@@ -18,4 +18,6 @@ const IconMaterialTextFieldsTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialTextFieldsTwoTone.displayName = 'AmauiIconMaterialTextFieldsTwoTone';
+
 export default IconMaterialTextFieldsTwoTone;

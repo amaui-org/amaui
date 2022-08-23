@@ -18,4 +18,6 @@ const IconMaterialScoreboardRoundedFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialScoreboardRoundedFilled.displayName = 'AmauiIconMaterialScoreboardRoundedFilled';
+
 export default IconMaterialScoreboardRoundedFilled;

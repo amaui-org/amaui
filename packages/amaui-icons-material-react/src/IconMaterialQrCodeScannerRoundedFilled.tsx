@@ -18,4 +18,6 @@ const IconMaterialQrCodeScannerRoundedFilled = React.forwardRef((props: any, ref
   );
 });
 
+IconMaterialQrCodeScannerRoundedFilled.displayName = 'AmauiIconMaterialQrCodeScannerRoundedFilled';
+
 export default IconMaterialQrCodeScannerRoundedFilled;

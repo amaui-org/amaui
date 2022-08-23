@@ -18,4 +18,6 @@ const IconMaterialHiveSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialHiveSharp.displayName = 'AmauiIconMaterialHiveSharp';
+
 export default IconMaterialHiveSharp;

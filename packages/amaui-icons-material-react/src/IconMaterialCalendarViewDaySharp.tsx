@@ -18,4 +18,6 @@ const IconMaterialCalendarViewDaySharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCalendarViewDaySharp.displayName = 'AmauiIconMaterialCalendarViewDaySharp';
+
 export default IconMaterialCalendarViewDaySharp;

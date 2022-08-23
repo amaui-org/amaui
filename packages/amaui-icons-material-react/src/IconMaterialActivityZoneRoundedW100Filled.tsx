@@ -18,4 +18,6 @@ const IconMaterialActivityZoneRoundedW100Filled = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialActivityZoneRoundedW100Filled.displayName = 'AmauiIconMaterialActivityZoneRoundedW100Filled';
+
 export default IconMaterialActivityZoneRoundedW100Filled;

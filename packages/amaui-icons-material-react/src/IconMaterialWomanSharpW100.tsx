@@ -18,4 +18,6 @@ const IconMaterialWomanSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialWomanSharpW100.displayName = 'AmauiIconMaterialWomanSharpW100';
+
 export default IconMaterialWomanSharpW100;

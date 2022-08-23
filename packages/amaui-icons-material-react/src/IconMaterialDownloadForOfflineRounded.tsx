@@ -18,4 +18,6 @@ const IconMaterialDownloadForOfflineRounded = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialDownloadForOfflineRounded.displayName = 'AmauiIconMaterialDownloadForOfflineRounded';
+
 export default IconMaterialDownloadForOfflineRounded;

@@ -18,4 +18,6 @@ const IconMaterialTouchAppRoundedFilled = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialTouchAppRoundedFilled.displayName = 'AmauiIconMaterialTouchAppRoundedFilled';
+
 export default IconMaterialTouchAppRoundedFilled;

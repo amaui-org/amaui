@@ -18,4 +18,6 @@ const IconMaterialToolsPowerDrillTwoTone = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialToolsPowerDrillTwoTone.displayName = 'AmauiIconMaterialToolsPowerDrillTwoTone';
+
 export default IconMaterialToolsPowerDrillTwoTone;

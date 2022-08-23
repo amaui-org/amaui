@@ -18,4 +18,6 @@ const IconMaterialAssignmentLateSharpW100 = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialAssignmentLateSharpW100.displayName = 'AmauiIconMaterialAssignmentLateSharpW100';
+
 export default IconMaterialAssignmentLateSharpW100;

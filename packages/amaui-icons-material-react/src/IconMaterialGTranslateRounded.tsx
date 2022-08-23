@@ -18,4 +18,6 @@ const IconMaterialGTranslateRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialGTranslateRounded.displayName = 'AmauiIconMaterialGTranslateRounded';
+
 export default IconMaterialGTranslateRounded;

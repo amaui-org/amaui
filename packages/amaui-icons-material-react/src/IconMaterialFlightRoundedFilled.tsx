@@ -18,4 +18,6 @@ const IconMaterialFlightRoundedFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFlightRoundedFilled.displayName = 'AmauiIconMaterialFlightRoundedFilled';
+
 export default IconMaterialFlightRoundedFilled;

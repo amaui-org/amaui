@@ -18,4 +18,6 @@ const IconMaterialCallSplitTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCallSplitTwoTone.displayName = 'AmauiIconMaterialCallSplitTwoTone';
+
 export default IconMaterialCallSplitTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialMotorcycleSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMotorcycleSharp.displayName = 'AmauiIconMaterialMotorcycleSharp';
+
 export default IconMaterialMotorcycleSharp;

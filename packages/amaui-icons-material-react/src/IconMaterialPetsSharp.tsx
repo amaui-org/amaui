@@ -18,4 +18,6 @@ const IconMaterialPetsSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPetsSharp.displayName = 'AmauiIconMaterialPetsSharp';
+
 export default IconMaterialPetsSharp;

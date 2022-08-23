@@ -18,4 +18,6 @@ const IconMaterialDesktopMacSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDesktopMacSharp.displayName = 'AmauiIconMaterialDesktopMacSharp';
+
 export default IconMaterialDesktopMacSharp;

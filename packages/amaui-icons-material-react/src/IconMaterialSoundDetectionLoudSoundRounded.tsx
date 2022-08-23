@@ -18,4 +18,6 @@ const IconMaterialSoundDetectionLoudSoundRounded = React.forwardRef((props: any,
   );
 });
 
+IconMaterialSoundDetectionLoudSoundRounded.displayName = 'AmauiIconMaterialSoundDetectionLoudSoundRounded';
+
 export default IconMaterialSoundDetectionLoudSoundRounded;

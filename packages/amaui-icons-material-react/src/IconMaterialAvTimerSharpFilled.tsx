@@ -18,4 +18,6 @@ const IconMaterialAvTimerSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialAvTimerSharpFilled.displayName = 'AmauiIconMaterialAvTimerSharpFilled';
+
 export default IconMaterialAvTimerSharpFilled;

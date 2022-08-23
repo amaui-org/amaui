@@ -18,4 +18,6 @@ const IconMaterialParaglidingSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialParaglidingSharpW100.displayName = 'AmauiIconMaterialParaglidingSharpW100';
+
 export default IconMaterialParaglidingSharpW100;

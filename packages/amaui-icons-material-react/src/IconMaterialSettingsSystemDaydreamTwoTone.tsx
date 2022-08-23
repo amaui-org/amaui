@@ -18,4 +18,6 @@ const IconMaterialSettingsSystemDaydreamTwoTone = React.forwardRef((props: any, 
   );
 });
 
+IconMaterialSettingsSystemDaydreamTwoTone.displayName = 'AmauiIconMaterialSettingsSystemDaydreamTwoTone';
+
 export default IconMaterialSettingsSystemDaydreamTwoTone;

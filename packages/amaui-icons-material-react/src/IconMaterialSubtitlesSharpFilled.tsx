@@ -18,4 +18,6 @@ const IconMaterialSubtitlesSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSubtitlesSharpFilled.displayName = 'AmauiIconMaterialSubtitlesSharpFilled';
+
 export default IconMaterialSubtitlesSharpFilled;

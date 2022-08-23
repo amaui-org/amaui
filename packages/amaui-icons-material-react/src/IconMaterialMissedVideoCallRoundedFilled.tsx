@@ -18,4 +18,6 @@ const IconMaterialMissedVideoCallRoundedFilled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialMissedVideoCallRoundedFilled.displayName = 'AmauiIconMaterialMissedVideoCallRoundedFilled';
+
 export default IconMaterialMissedVideoCallRoundedFilled;

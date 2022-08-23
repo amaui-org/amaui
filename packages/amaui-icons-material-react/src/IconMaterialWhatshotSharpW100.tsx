@@ -18,4 +18,6 @@ const IconMaterialWhatshotSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialWhatshotSharpW100.displayName = 'AmauiIconMaterialWhatshotSharpW100';
+
 export default IconMaterialWhatshotSharpW100;

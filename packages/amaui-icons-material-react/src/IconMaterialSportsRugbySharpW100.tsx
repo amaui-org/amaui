@@ -18,4 +18,6 @@ const IconMaterialSportsRugbySharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSportsRugbySharpW100.displayName = 'AmauiIconMaterialSportsRugbySharpW100';
+
 export default IconMaterialSportsRugbySharpW100;

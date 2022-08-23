@@ -18,4 +18,6 @@ const IconMaterialPlumbingSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPlumbingSharpW100.displayName = 'AmauiIconMaterialPlumbingSharpW100';
+
 export default IconMaterialPlumbingSharpW100;

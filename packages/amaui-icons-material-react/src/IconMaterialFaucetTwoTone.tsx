@@ -18,4 +18,6 @@ const IconMaterialFaucetTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialFaucetTwoTone.displayName = 'AmauiIconMaterialFaucetTwoTone';
+
 export default IconMaterialFaucetTwoTone;

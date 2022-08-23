@@ -18,4 +18,6 @@ const IconMaterial3dRotationTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterial3dRotationTwoTone.displayName = 'AmauiIconMaterial3dRotationTwoTone';
+
 export default IconMaterial3dRotationTwoTone;

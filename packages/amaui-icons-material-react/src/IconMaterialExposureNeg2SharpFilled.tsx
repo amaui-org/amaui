@@ -18,4 +18,6 @@ const IconMaterialExposureNeg2SharpFilled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialExposureNeg2SharpFilled.displayName = 'AmauiIconMaterialExposureNeg2SharpFilled';
+
 export default IconMaterialExposureNeg2SharpFilled;

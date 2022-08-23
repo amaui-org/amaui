@@ -18,4 +18,6 @@ const IconMaterialNearbyOffSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNearbyOffSharpFilled.displayName = 'AmauiIconMaterialNearbyOffSharpFilled';
+
 export default IconMaterialNearbyOffSharpFilled;

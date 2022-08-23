@@ -18,4 +18,6 @@ const IconMaterialBookmarkAddedSharpW100Filled = React.forwardRef((props: any, r
   );
 });
 
+IconMaterialBookmarkAddedSharpW100Filled.displayName = 'AmauiIconMaterialBookmarkAddedSharpW100Filled';
+
 export default IconMaterialBookmarkAddedSharpW100Filled;

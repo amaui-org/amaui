@@ -18,4 +18,6 @@ const IconMaterialSummarizeSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSummarizeSharpFilled.displayName = 'AmauiIconMaterialSummarizeSharpFilled';
+
 export default IconMaterialSummarizeSharpFilled;

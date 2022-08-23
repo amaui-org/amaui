@@ -18,4 +18,6 @@ const IconMaterialCreditCardOffTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCreditCardOffTwoTone.displayName = 'AmauiIconMaterialCreditCardOffTwoTone';
+
 export default IconMaterialCreditCardOffTwoTone;

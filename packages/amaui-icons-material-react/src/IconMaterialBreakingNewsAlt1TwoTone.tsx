@@ -18,4 +18,6 @@ const IconMaterialBreakingNewsAlt1TwoTone = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialBreakingNewsAlt1TwoTone.displayName = 'AmauiIconMaterialBreakingNewsAlt1TwoTone';
+
 export default IconMaterialBreakingNewsAlt1TwoTone;

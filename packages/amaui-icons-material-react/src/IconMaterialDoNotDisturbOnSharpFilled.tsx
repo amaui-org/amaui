@@ -18,4 +18,6 @@ const IconMaterialDoNotDisturbOnSharpFilled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialDoNotDisturbOnSharpFilled.displayName = 'AmauiIconMaterialDoNotDisturbOnSharpFilled';
+
 export default IconMaterialDoNotDisturbOnSharpFilled;

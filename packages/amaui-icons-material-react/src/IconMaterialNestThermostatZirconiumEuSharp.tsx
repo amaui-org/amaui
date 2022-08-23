@@ -18,4 +18,6 @@ const IconMaterialNestThermostatZirconiumEuSharp = React.forwardRef((props: any,
   );
 });
 
+IconMaterialNestThermostatZirconiumEuSharp.displayName = 'AmauiIconMaterialNestThermostatZirconiumEuSharp';
+
 export default IconMaterialNestThermostatZirconiumEuSharp;

@@ -18,4 +18,6 @@ const IconMaterialNestRemoteSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialNestRemoteSharp.displayName = 'AmauiIconMaterialNestRemoteSharp';
+
 export default IconMaterialNestRemoteSharp;

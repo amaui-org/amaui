@@ -18,4 +18,6 @@ const IconMaterialDesktopAccessDisabledRoundedW100Filled = React.forwardRef((pro
   );
 });
 
+IconMaterialDesktopAccessDisabledRoundedW100Filled.displayName = 'AmauiIconMaterialDesktopAccessDisabledRoundedW100Filled';
+
 export default IconMaterialDesktopAccessDisabledRoundedW100Filled;

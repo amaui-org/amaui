@@ -18,4 +18,6 @@ const IconMaterialMaximizeSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMaximizeSharpW100.displayName = 'AmauiIconMaterialMaximizeSharpW100';
+
 export default IconMaterialMaximizeSharpW100;

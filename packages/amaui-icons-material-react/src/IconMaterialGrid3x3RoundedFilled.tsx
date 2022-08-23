@@ -18,4 +18,6 @@ const IconMaterialGrid3x3RoundedFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialGrid3x3RoundedFilled.displayName = 'AmauiIconMaterialGrid3x3RoundedFilled';
+
 export default IconMaterialGrid3x3RoundedFilled;

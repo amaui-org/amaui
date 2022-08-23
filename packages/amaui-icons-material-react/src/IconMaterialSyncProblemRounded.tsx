@@ -18,4 +18,6 @@ const IconMaterialSyncProblemRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSyncProblemRounded.displayName = 'AmauiIconMaterialSyncProblemRounded';
+
 export default IconMaterialSyncProblemRounded;

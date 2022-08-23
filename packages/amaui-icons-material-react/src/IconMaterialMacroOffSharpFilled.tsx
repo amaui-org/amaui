@@ -18,4 +18,6 @@ const IconMaterialMacroOffSharpFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialMacroOffSharpFilled.displayName = 'AmauiIconMaterialMacroOffSharpFilled';
+
 export default IconMaterialMacroOffSharpFilled;

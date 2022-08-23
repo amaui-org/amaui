@@ -18,4 +18,6 @@ const IconMaterialHouseWithShieldSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialHouseWithShieldSharp.displayName = 'AmauiIconMaterialHouseWithShieldSharp';
+
 export default IconMaterialHouseWithShieldSharp;

@@ -18,4 +18,6 @@ const IconMaterialBrightness7RoundedW100 = React.forwardRef((props: any, ref) =>
   );
 });
 
+IconMaterialBrightness7RoundedW100.displayName = 'AmauiIconMaterialBrightness7RoundedW100';
+
 export default IconMaterialBrightness7RoundedW100;

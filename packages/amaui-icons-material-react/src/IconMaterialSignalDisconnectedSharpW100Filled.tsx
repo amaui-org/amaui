@@ -18,4 +18,6 @@ const IconMaterialSignalDisconnectedSharpW100Filled = React.forwardRef((props: a
   );
 });
 
+IconMaterialSignalDisconnectedSharpW100Filled.displayName = 'AmauiIconMaterialSignalDisconnectedSharpW100Filled';
+
 export default IconMaterialSignalDisconnectedSharpW100Filled;

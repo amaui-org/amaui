@@ -18,4 +18,6 @@ const IconMaterialReceiptLongSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialReceiptLongSharp.displayName = 'AmauiIconMaterialReceiptLongSharp';
+
 export default IconMaterialReceiptLongSharp;

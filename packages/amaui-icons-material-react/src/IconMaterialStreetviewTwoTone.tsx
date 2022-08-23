@@ -18,4 +18,6 @@ const IconMaterialStreetviewTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialStreetviewTwoTone.displayName = 'AmauiIconMaterialStreetviewTwoTone';
+
 export default IconMaterialStreetviewTwoTone;

@@ -18,4 +18,6 @@ const IconMaterialCookieSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialCookieSharp.displayName = 'AmauiIconMaterialCookieSharp';
+
 export default IconMaterialCookieSharp;

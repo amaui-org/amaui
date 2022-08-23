@@ -18,4 +18,6 @@ const IconMaterialViewCarouselSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialViewCarouselSharp.displayName = 'AmauiIconMaterialViewCarouselSharp';
+
 export default IconMaterialViewCarouselSharp;

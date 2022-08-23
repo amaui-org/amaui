@@ -18,4 +18,6 @@ const IconMaterialDragHandleRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialDragHandleRounded.displayName = 'AmauiIconMaterialDragHandleRounded';
+
 export default IconMaterialDragHandleRounded;

@@ -18,4 +18,6 @@ const IconMaterialRvHookupSharpW100 = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialRvHookupSharpW100.displayName = 'AmauiIconMaterialRvHookupSharpW100';
+
 export default IconMaterialRvHookupSharpW100;

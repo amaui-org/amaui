@@ -18,4 +18,6 @@ const IconMaterialMedicationLiquidRoundedW100Filled = React.forwardRef((props: a
   );
 });
 
+IconMaterialMedicationLiquidRoundedW100Filled.displayName = 'AmauiIconMaterialMedicationLiquidRoundedW100Filled';
+
 export default IconMaterialMedicationLiquidRoundedW100Filled;

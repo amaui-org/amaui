@@ -18,4 +18,6 @@ const IconMaterialSummarizeTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialSummarizeTwoTone.displayName = 'AmauiIconMaterialSummarizeTwoTone';
+
 export default IconMaterialSummarizeTwoTone;

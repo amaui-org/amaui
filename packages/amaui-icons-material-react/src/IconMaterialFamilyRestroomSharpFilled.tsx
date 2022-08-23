@@ -18,4 +18,6 @@ const IconMaterialFamilyRestroomSharpFilled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialFamilyRestroomSharpFilled.displayName = 'AmauiIconMaterialFamilyRestroomSharpFilled';
+
 export default IconMaterialFamilyRestroomSharpFilled;

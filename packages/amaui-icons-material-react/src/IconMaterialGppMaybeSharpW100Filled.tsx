@@ -18,4 +18,6 @@ const IconMaterialGppMaybeSharpW100Filled = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialGppMaybeSharpW100Filled.displayName = 'AmauiIconMaterialGppMaybeSharpW100Filled';
+
 export default IconMaterialGppMaybeSharpW100Filled;

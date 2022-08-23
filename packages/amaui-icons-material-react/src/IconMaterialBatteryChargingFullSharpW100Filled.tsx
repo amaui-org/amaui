@@ -18,4 +18,6 @@ const IconMaterialBatteryChargingFullSharpW100Filled = React.forwardRef((props: 
   );
 });
 
+IconMaterialBatteryChargingFullSharpW100Filled.displayName = 'AmauiIconMaterialBatteryChargingFullSharpW100Filled';
+
 export default IconMaterialBatteryChargingFullSharpW100Filled;

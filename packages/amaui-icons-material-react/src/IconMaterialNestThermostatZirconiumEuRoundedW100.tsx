@@ -18,4 +18,6 @@ const IconMaterialNestThermostatZirconiumEuRoundedW100 = React.forwardRef((props
   );
 });
 
+IconMaterialNestThermostatZirconiumEuRoundedW100.displayName = 'AmauiIconMaterialNestThermostatZirconiumEuRoundedW100';
+
 export default IconMaterialNestThermostatZirconiumEuRoundedW100;

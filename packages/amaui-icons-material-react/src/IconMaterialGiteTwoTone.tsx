@@ -18,4 +18,6 @@ const IconMaterialGiteTwoTone = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialGiteTwoTone.displayName = 'AmauiIconMaterialGiteTwoTone';
+
 export default IconMaterialGiteTwoTone;

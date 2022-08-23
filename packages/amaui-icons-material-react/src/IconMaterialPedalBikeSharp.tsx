@@ -18,4 +18,6 @@ const IconMaterialPedalBikeSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialPedalBikeSharp.displayName = 'AmauiIconMaterialPedalBikeSharp';
+
 export default IconMaterialPedalBikeSharp;

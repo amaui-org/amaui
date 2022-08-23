@@ -18,4 +18,6 @@ const IconMaterialSignLanguageSharpW100Filled = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialSignLanguageSharpW100Filled.displayName = 'AmauiIconMaterialSignLanguageSharpW100Filled';
+
 export default IconMaterialSignLanguageSharpW100Filled;

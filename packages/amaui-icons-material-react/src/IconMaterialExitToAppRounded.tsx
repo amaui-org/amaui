@@ -18,4 +18,6 @@ const IconMaterialExitToAppRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+IconMaterialExitToAppRounded.displayName = 'AmauiIconMaterialExitToAppRounded';
+
 export default IconMaterialExitToAppRounded;

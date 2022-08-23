@@ -18,4 +18,6 @@ const IconMaterialDirectionsWalkSharpW100 = React.forwardRef((props: any, ref) =
   );
 });
 
+IconMaterialDirectionsWalkSharpW100.displayName = 'AmauiIconMaterialDirectionsWalkSharpW100';
+
 export default IconMaterialDirectionsWalkSharpW100;

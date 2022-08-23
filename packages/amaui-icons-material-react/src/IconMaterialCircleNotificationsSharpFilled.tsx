@@ -18,4 +18,6 @@ const IconMaterialCircleNotificationsSharpFilled = React.forwardRef((props: any,
   );
 });
 
+IconMaterialCircleNotificationsSharpFilled.displayName = 'AmauiIconMaterialCircleNotificationsSharpFilled';
+
 export default IconMaterialCircleNotificationsSharpFilled;

@@ -18,4 +18,6 @@ const IconMaterialThumbDownOffRoundedFilled = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialThumbDownOffRoundedFilled.displayName = 'AmauiIconMaterialThumbDownOffRoundedFilled';
+
 export default IconMaterialThumbDownOffRoundedFilled;

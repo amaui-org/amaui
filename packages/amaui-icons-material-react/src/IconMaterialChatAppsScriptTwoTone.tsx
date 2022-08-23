@@ -18,4 +18,6 @@ const IconMaterialChatAppsScriptTwoTone = React.forwardRef((props: any, ref) => 
   );
 });
 
+IconMaterialChatAppsScriptTwoTone.displayName = 'AmauiIconMaterialChatAppsScriptTwoTone';
+
 export default IconMaterialChatAppsScriptTwoTone;

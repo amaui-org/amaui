@@ -18,4 +18,6 @@ const IconMaterialPhotoSizeSelectLargeSharp = React.forwardRef((props: any, ref)
   );
 });
 
+IconMaterialPhotoSizeSelectLargeSharp.displayName = 'AmauiIconMaterialPhotoSizeSelectLargeSharp';
+
 export default IconMaterialPhotoSizeSelectLargeSharp;

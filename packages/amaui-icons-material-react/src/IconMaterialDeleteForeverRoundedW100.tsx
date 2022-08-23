@@ -18,4 +18,6 @@ const IconMaterialDeleteForeverRoundedW100 = React.forwardRef((props: any, ref) 
   );
 });
 
+IconMaterialDeleteForeverRoundedW100.displayName = 'AmauiIconMaterialDeleteForeverRoundedW100';
+
 export default IconMaterialDeleteForeverRoundedW100;

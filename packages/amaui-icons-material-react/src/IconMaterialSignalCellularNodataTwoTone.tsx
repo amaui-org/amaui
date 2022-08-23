@@ -18,4 +18,6 @@ const IconMaterialSignalCellularNodataTwoTone = React.forwardRef((props: any, re
   );
 });
 
+IconMaterialSignalCellularNodataTwoTone.displayName = 'AmauiIconMaterialSignalCellularNodataTwoTone';
+
 export default IconMaterialSignalCellularNodataTwoTone;
