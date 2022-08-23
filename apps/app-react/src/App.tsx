@@ -1004,6 +1004,28 @@ function App() {
           </div>
         </Accordion>
 
+        <Accordion label='Grid rowGap' open>
+          <div className={classNames([classes.column])} style={{ bacground: '#f7f7f7' }}>
+            <Grid gap={2} rowGap={4} line>
+              <Grid values={{ xs: 8, sm: 4 }}>
+                <Item elevation={1} style={{ width: '100%' }}>Item 1</Item>
+              </Grid>
+
+              <Grid values={{ xs: 2, sm: 6 }}>
+                <Item elevation={1} style={{ width: '100%' }}>Item 2</Item>
+              </Grid>
+
+              <Grid values={{ xs: 3, sm: 3.5 }}>
+                <Item elevation={1} style={{ width: '100%' }}>Item 3</Item>
+              </Grid>
+
+              <Grid values={{ xs: 7, sm: 6.5 }}>
+                <Item elevation={1} style={{ width: '100%' }}>Item 4</Item>
+              </Grid>
+            </Grid>
+          </div>
+        </Accordion>
+
         <Accordion label='Grid auto' open>
           <div className={classNames([classes.column])} style={{ bacground: '#f7f7f7' }}>
             <Grid gap={2} line>

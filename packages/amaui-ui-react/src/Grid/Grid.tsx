@@ -135,7 +135,9 @@ const Grid = React.forwardRef((props_: any, ref: any) => {
       {React.Children.toArray(children).map((item: any) => (
         React.cloneElement(item, {
           gap,
-          columnGap
+          columnGap,
+
+          ...other
         })
       ))}
     </Component>
