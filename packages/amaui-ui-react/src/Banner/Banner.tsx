@@ -126,7 +126,7 @@ const Banner = React.forwardRef((props_: any, ref: any) => {
     other.RootProps = {};
 
     other.RootProps.values = {
-      md: 8
+      md: 7
     };
 
     other.footer = (
@@ -143,6 +143,10 @@ const Banner = React.forwardRef((props_: any, ref: any) => {
 
         values={{
           md: 2
+        }}
+
+        offsets={{
+          md: 1
         }}
       >
         {actions}

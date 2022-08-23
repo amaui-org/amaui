@@ -221,6 +221,13 @@ const Accordion = (props: any) => {
 };
 
 const styled = {
+  Banner: sy(Banner)((theme: AmauiTheme) => ({
+    root: {
+      '&:hover': {
+        opacity: 0.4
+      }
+    }
+  })),
   Grid: sy(Grid)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
@@ -709,6 +716,25 @@ function App() {
 
       <Accordion label='All'>
         <div className={classNames([classes.column])}>
+          <Banner
+            primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+            startAlign='center'
+
+            start={(
+              <IconButton color='secondary' version='filled'>
+                <IconMaterialPottedPlantRounded />
+              </IconButton>
+            )}
+
+            end={(
+              <Button>
+                Active
+              </Button>
+            )}
+          />
+
           <Grid gap={2} line>
             <Grid values={{ xs: 8, sm: 4 }}>
               <Item elevation={1} style={{ width: '100%' }}>Item 1</Item>
@@ -1076,6 +1102,207 @@ Please sign in again.`}
               </IconButton>
             )}
           />
+        </Accordion>
+
+        <Accordion label='AmauiTheme'>
+          <div className={classNames([classes.column])}>
+            <Banner
+              primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+              startAlign='center'
+
+              start={(
+                <IconButton color='secondary' version='filled'>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>
+              )}
+
+              end={(
+                <Button>
+                  Active
+                </Button>
+              )}
+            />
+
+            <Accordion label='AmauiTheme nested value' open>
+              <AmauiThemeProvider
+                value={{
+                  palette: {
+                    color: {
+                      secondary: {
+                        main: '#008000'
+                      }
+                    }
+                  },
+                  space: {
+                    unit: 5
+                  }
+                }}
+              >
+                <Banner
+                  primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+                  startAlign='center'
+
+                  start={(
+                    <IconButton color='secondary' version='filled'>
+                      <IconMaterialPottedPlantRounded />
+                    </IconButton>
+                  )}
+
+                  end={(
+                    <Button>
+                      Active
+                    </Button>
+                  )}
+                />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme add' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiBanner: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: '0.4'
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Banner
+                  primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+                  startAlign='center'
+
+                  start={(
+                    <IconButton color='secondary' version='filled'>
+                      <IconMaterialPottedPlantRounded />
+                    </IconButton>
+                  )}
+
+                  end={(
+                    <Button>
+                      Active
+                    </Button>
+                  )}
+                />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme override' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiBanner: {
+                        style: {
+                          override: {
+                            root: {
+                              display: 'flex',
+                              width: '100%',
+                              cursor: 'pointer'
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Banner
+                  primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+                  startAlign='center'
+
+                  start={(
+                    <IconButton color='secondary' version='filled'>
+                      <IconMaterialPottedPlantRounded />
+                    </IconButton>
+                  )}
+
+                  end={(
+                    <Button>
+                      Active
+                    </Button>
+                  )}
+                />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme props' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiBanner: {
+                        props: {
+                          default: {
+                            maxWidth: 'lg'
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+
+                style={{ width: '100%' }}
+              >
+                <Banner
+                  primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+                  startAlign='center'
+
+                  start={(
+                    <IconButton color='secondary' version='filled'>
+                      <IconMaterialPottedPlantRounded />
+                    </IconButton>
+                  )}
+
+                  end={(
+                    <Button>
+                      Active
+                    </Button>
+                  )}
+                />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme styled' open>
+              <styled.Banner
+                primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+                startAlign='center'
+
+                start={(
+                  <IconButton color='secondary' version='filled'>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>
+                )}
+
+                end={(
+                  <Button>
+                    Active
+                  </Button>
+                )}
+              />
+            </Accordion>
+          </div>
         </Accordion>
       </Accordion>
 
