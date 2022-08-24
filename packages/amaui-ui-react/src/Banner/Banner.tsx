@@ -57,15 +57,15 @@ const useStyle = style(theme => ({
 
   tonal_color_error: { background: theme.palette.color.error[theme.palette.light ? 95 : 10] },
 
-  small: {
+  size_small: {
     padding: `${theme.methods.space.value('md') * 0.5}px ${theme.methods.space.value('rg') * 0.75}px`
   },
 
-  regular: {
+  size_regular: {
     padding: `${theme.methods.space.value('md', 'px')} ${theme.methods.space.value('rg', 'px')}`
   },
 
-  large: {
+  size_large: {
     padding: `${theme.methods.space.value('md') * 1.5}px ${theme.methods.space.value('rg') * 1.25}px`
   },
 
@@ -204,7 +204,7 @@ const Banner = React.forwardRef((props_: any, ref: any) => {
           ],
 
           classes.listItem,
-          classes[size],
+          classes[`size_${size}`],
           classes[`maxWidth_${maxWidth}`]
         ])}
 

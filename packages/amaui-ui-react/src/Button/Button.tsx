@@ -40,6 +40,8 @@ const useStyle = style(theme => ({
   },
 
   // Color
+  inherit: { color: 'inherit' },
+
   default: { color: theme.palette.text.default.primary },
 
   neutral: { color: theme.palette.color.neutral.main },
@@ -396,7 +398,7 @@ const Button = React.forwardRef((props_: any, ref: any) => {
   }
 
   if (version === 'filled') {
-    styles.background.background = color === 'default' ? theme.palette.text.default.primary : theme.palette.color[color] ? (theme.palette.color[color] as any).main : color;
+    styles.background.background = color === 'inherit' ? 'currentColor' : color === 'default' ? theme.palette.text.default.primary : theme.palette.color[color] ? (theme.palette.color[color] as any).main : color;
 
     styles.root.color = theme.methods.palette.color.text(styles.background.background, true, prefer);
   }
@@ -534,7 +536,7 @@ const Button = React.forwardRef((props_: any, ref: any) => {
         staticClassName('Button', theme) && [
           'AmauiButton-root',
           `AmauiButton-version-${version}`,
-          `AmauiButton-color-${!theme.palette.color[color] && color !== 'default' ? 'new' : color}`,
+          `AmauiButton-color-${!theme.palette.color[color] && !['inherit', 'default'].includes(color) ? 'new' : color}`,
           `AmauiButton-size-${size}`,
           elevation && !disabled && ['filled', 'tonal'].includes(version) && `AmauiButton-elevation`,
           tonal && `AmauiButton-tonal`,

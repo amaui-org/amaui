@@ -166,3 +166,6 @@ export * from './Grid';
 
 export { default as Banner } from './Banner';
 export * from './Banner';
+
+export { default as Slider } from './Slider';
+export * from './Slider';

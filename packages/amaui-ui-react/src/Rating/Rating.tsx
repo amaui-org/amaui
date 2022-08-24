@@ -44,7 +44,7 @@ const useStyle = style(theme => ({
   },
 
   inactive: {
-    opacity: 0.24
+    opacity: theme.palette.light ? 0.24 : 0.4
   },
 
   focus_outline: {
@@ -188,12 +188,13 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
       let valueNew = value__;
 
       while (true) {
-        // Precision up to decimal hundreds in value
-        valueNew += 0.01;
+        const valueDecimals = String(precision).split('.')[1].length;
 
-        valueNew = +(valueNew).toFixed(2);
+        valueNew += Number(`0.${'0'.repeat(valueDecimals - 1)}1`);
 
-        mod = +(valueNew % precision).toFixed(2);
+        valueNew = +(valueNew).toFixed(valueDecimals);
+
+        mod = +(valueNew % precision).toFixed(valueDecimals);
 
         if (mod === precision || mod === 0) return valueNew;
         else if (valueNew >= 1) return 0;
@@ -412,7 +413,6 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
               ])}
             >
               {React.cloneElement(IconInactive, {
-                tonal: IconInactive.props?.tonal !== undefined ? IconInactive.props?.tonal : tonal,
                 color: colorInactive,
                 size: IconInactive.props?.size !== undefined ? IconInactive.props?.size : size
               })}
