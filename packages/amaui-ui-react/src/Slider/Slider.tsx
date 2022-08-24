@@ -317,8 +317,6 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
 
   styles.track.width = `${value * 100}%`;
 
-  console.log(1, value);
-
   return (
     <Component
       ref={item => {

@@ -210,7 +210,9 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
     }
   };
 
-  const move = (forward = true) => {
+  const move = (forward_ = true) => {
+    const forward = theme.direction === 'ltr' ? forward_ : !forward_;
+
     let valueNew = value;
 
     if (value === undefined) {
