@@ -5,7 +5,7 @@ import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 import { staticClassName } from '../utils';
 
 import IconButton from '../IconButton';
-import { clamp, debounce, is } from '@amaui/utils';
+import { colorToRgb, is } from '@amaui/utils';
 
 const rail = {
   position: 'absolute',
@@ -21,7 +21,8 @@ const useStyle = style(theme => ({
   root: {
     position: 'relative',
     display: 'inline-flex',
-    borderRadius: `${theme.shape.radius.unit * 0.75}px`
+    borderRadius: `${theme.shape.radius.unit * 0.75}px`,
+    cursor: 'pointer'
   },
 
   // Color
@@ -155,40 +156,59 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
 
   const refs = {
     root: React.useRef<HTMLSpanElement>(),
+    value: React.useRef<any>(),
     props: React.useRef<any>(),
-    mouseDown: React.useRef<any>()
+    mouseDown: React.useRef<any>(),
+    direction: React.useRef<any>()
   };
 
+  refs.value.current = value;
   refs.props.current = props;
   refs.mouseDown.current = mouseDown;
+  refs.direction.current = theme.direction;
 
   const { classes } = useStyle(props);
 
-  const valuePrecision = (value__: number) => {
-    const offset = theme.direction === 'rtl' ? 1 : 0;
+  const valuePrecision = (valueMouse: number) => {
+    const valuePrevious = refs.value.current;
+    const offset = refs.direction.current === 'rtl' ? 1 : 0;
 
-    if (value__ <= 0) return theme.direction === 'ltr' ? 0 : 1;
-    else if (value__ >= 1) return theme.direction === 'ltr' ? 1 : 0;
+    let value__ = Math.abs(valueMouse - offset);
+
+    if (valueMouse <= 0) return refs.direction.current === 'ltr' ? 0 : 1;
+
+    if (valueMouse >= 1) return refs.direction.current === 'ltr' ? 1 : 0;
+
+    if (
+      valuePrevious < 1 &&
+      (
+        (value__ === valuePrevious) ||
+        (value__ > valuePrevious && value__ < valuePrevious + (precision / 2)) ||
+        (value__ < valuePrevious && value__ >= valuePrevious - (precision / 2))
+      )
+    ) return valuePrevious;
+
+    if (
+      (value__ < valuePrevious && value__ < valuePrevious - (precision / 2)) ||
+      (value__ < valuePrevious && valuePrevious === 1 && precision > 0.5 && precision < 1)
+    ) value__ -= precision;
 
     let mod = value__ % precision;
 
-    if (precision >= value__) return Math.abs(precision - offset);
-    else if (mod === 0) return Math.abs(value__ - offset);
-    else {
-      let valueNew = value__;
+    let valueNew = value__;
 
-      while (true) {
-        const valueDecimals = String(precision).split('.')[1].length;
+    while (true) {
+      const valueDecimals = String(precision).split('.')[1]?.length || 0;
 
-        valueNew += Number(`0.${'0'.repeat(valueDecimals - 1)}1`);
+      valueNew += Number(`0.${'0'.repeat(valueDecimals)}1`);
 
-        valueNew = +(valueNew).toFixed(valueDecimals);
+      valueNew = +(valueNew).toFixed(valueDecimals + 1);
 
-        mod = +(valueNew % precision).toFixed(valueDecimals);
+      mod = +(valueNew % precision).toFixed(valueDecimals + 1);
 
-        if (mod === precision || mod === 0) return Math.abs(valueNew - offset);
-        else if (valueNew >= 1) return 0;
-      }
+      if (valueNew >= 1) return 1;
+
+      if (mod === precision || mod === 0) return valueNew;
     }
   };
 
@@ -208,11 +228,13 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
         // Value to the precision point value
         const value__ = valuePrecision((clientX - rect.x) / width);
 
-        if (props.hasOwnProperty('value')) {
-          if (is('function', refs.props.current.onChange)) refs.props.current.onChange(value__);
+        if (value__ !== refs.value.current) {
+          if (props.hasOwnProperty('value')) {
+            if (is('function', refs.props.current.onChange)) refs.props.current.onChange(value__);
+          }
+          // Inner controlled value
+          else setValue(value__);
         }
-        // Inner controlled value
-        else setValue(value__);
       }
     };
 
@@ -242,11 +264,13 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
       // Value to the precision point value
       const value__ = valuePrecision((clientX - rect.x) / width);
 
-      if (props.hasOwnProperty('value')) {
-        if (is('function', onChange)) onChange(value__);
+      if (value__ !== value) {
+        if (props.hasOwnProperty('value')) {
+          if (is('function', onChange)) onChange(value__);
+        }
+        // Inner controlled value
+        else setValue(value__);
       }
-      // Inner controlled value
-      else setValue(value__);
     }
   }, [disabled, readOnly, onChange, value]);
 
@@ -268,6 +292,7 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
 
   const styles: any = {
     root: {},
+    icon: {},
     iconButton: {},
     track: {}
   };
@@ -275,6 +300,8 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
   const palette = !theme.palette.color[color] && theme.methods.color(color);
 
   if (!classes[color] && color !== 'default') styles.root.color = !tonal ? palette.main : theme.methods.palette.color.value(undefined, 70, true, palette);
+
+  if (color === 'default') styles.icon.background = styles.track.background = colorToRgb(theme.palette.text.default.primary, 1);
 
   if (size === 'small') {
     styles.iconButton.insetInlineStart = `calc(${value * 100}% - 15px)`;
@@ -381,6 +408,8 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
             classes.icon,
             classes[`icon_size_${size}`]
           ])}
+
+          style={styles.icon}
         />
       </IconButton>
     </Component>

@@ -973,6 +973,206 @@ Please sign in again.`}
             }}
           />
         </Accordion>
+
+        <Accordion label='Slider size' open>
+          <Line gap={5}>
+            <Slider
+              size='small'
+
+              color='secondary'
+
+              style={{
+                width: 140
+              }}
+            />
+
+            <Slider
+              size='regular'
+
+              color='secondary'
+
+              style={{
+                width: 140
+              }}
+            />
+
+            <Slider
+              size='large'
+
+              color='secondary'
+
+              style={{
+                width: 140
+              }}
+            />
+          </Line>
+        </Accordion>
+
+        <Accordion label='Slider color' open>
+          <Line gap={5}>
+            <Slider
+              color='default'
+
+              style={{
+                width: 140
+              }}
+            />
+
+            <Slider
+              color='primary'
+
+              style={{
+                width: 140
+              }}
+            />
+
+            <Slider
+              color='secondary'
+
+              style={{
+                width: 140
+              }}
+            />
+
+            <Slider
+              color='tertiary'
+
+              style={{
+                width: 140
+              }}
+            />
+
+            <Slider
+              color='quaternary'
+
+              style={{
+                width: 140
+              }}
+            />
+
+            <Slider
+              color='info'
+
+              style={{
+                width: 140
+              }}
+            />
+
+            <Slider
+              color='success'
+
+              style={{
+                width: 140
+              }}
+            />
+
+            <Slider
+              color='warning'
+
+              style={{
+                width: 140
+              }}
+            />
+
+            <Slider
+              color='error'
+
+              style={{
+                width: 140
+              }}
+            />
+
+            <Slider
+              color='neutral'
+
+              style={{
+                width: 140
+              }}
+            />
+
+            <Slider
+              color='#f5d758'
+
+              style={{
+                width: 140
+              }}
+            />
+          </Line>
+        </Accordion>
+
+        <Accordion label='Slider precision' open>
+          <Line gap={5}>
+            <Slider
+              color='secondary'
+
+              precision={0.01}
+
+              style={{
+                width: 140
+              }}
+            />
+
+            <Slider
+              color='secondary'
+
+              precision={0.1}
+
+              style={{
+                width: 140
+              }}
+            />
+
+            <Slider
+              color='secondary'
+
+              precision={0.2}
+
+              style={{
+                width: 140
+              }}
+            />
+
+            <Slider
+              color='secondary'
+
+              precision={0.25}
+
+              style={{
+                width: 140
+              }}
+            />
+
+            <Slider
+              color='secondary'
+
+              precision={0.5}
+
+              style={{
+                width: 140
+              }}
+            />
+
+            <Slider
+              color='secondary'
+
+              precision={0.75}
+
+              style={{
+                width: 140
+              }}
+            />
+
+            <Slider
+              color='secondary'
+
+              precision={1}
+
+              style={{
+                width: 140
+              }}
+            />
+          </Line>
+        </Accordion>
       </Accordion>
 
       <Accordion label='Banner'>

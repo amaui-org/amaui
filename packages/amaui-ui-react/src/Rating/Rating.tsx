@@ -183,22 +183,22 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
     let mod = value__ % precision;
 
     if (precision >= value__) return precision;
-    else if (mod === 0) return value__;
-    else {
-      let valueNew = value__;
 
-      while (true) {
-        const valueDecimals = String(precision).split('.')[1].length;
+    if (mod === 0) return value__;
 
-        valueNew += Number(`0.${'0'.repeat(valueDecimals - 1)}1`);
+    let valueNew = value__;
 
-        valueNew = +(valueNew).toFixed(valueDecimals);
+    while (true) {
+      const valueDecimals = String(precision).split('.')[1].length;
 
-        mod = +(valueNew % precision).toFixed(valueDecimals);
+      valueNew += Number(`0.${'0'.repeat(valueDecimals - 1)}1`);
 
-        if (mod === precision || mod === 0) return valueNew;
-        else if (valueNew >= 1) return 0;
-      }
+      valueNew = +(valueNew).toFixed(valueDecimals);
+
+      mod = +(valueNew % precision).toFixed(valueDecimals);
+
+      if (mod === precision || mod === 0) return valueNew;
+      else if (valueNew >= 1) return 0;
     }
   };
 
