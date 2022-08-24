@@ -165,12 +165,15 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
   const { classes } = useStyle(props);
 
   const valuePrecision = (value__: number) => {
-    if (value__ <= 0) return 0;
+    const offset = theme.direction === 'rtl' ? 1 : 0;
+
+    if (value__ <= 0) return theme.direction === 'ltr' ? 0 : 1;
+    else if (value__ >= 1) return theme.direction === 'ltr' ? 1 : 0;
 
     let mod = value__ % precision;
 
-    if (precision >= value__) return precision;
-    else if (mod === 0) return value__;
+    if (precision >= value__) return Math.abs(precision - offset);
+    else if (mod === 0) return Math.abs(value__ - offset);
     else {
       let valueNew = value__;
 
@@ -183,7 +186,7 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
 
         mod = +(valueNew % precision).toFixed(valueDecimals);
 
-        if (mod === precision || mod === 0) return valueNew;
+        if (mod === precision || mod === 0) return Math.abs(valueNew - offset);
         else if (valueNew >= 1) return 0;
       }
     }
@@ -203,7 +206,7 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
         const width = rect.width;
 
         // Value to the precision point value
-        const value__ = clamp(valuePrecision((clientX - rect.x) / width), 0, 1);
+        const value__ = valuePrecision((clientX - rect.x) / width);
 
         if (props.hasOwnProperty('value')) {
           if (is('function', refs.props.current.onChange)) refs.props.current.onChange(value__);
@@ -237,7 +240,7 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
       const width = rect.width;
 
       // Value to the precision point value
-      const value__ = clamp(valuePrecision((clientX - rect.x) / width), 0, 1);
+      const value__ = valuePrecision((clientX - rect.x) / width);
 
       if (props.hasOwnProperty('value')) {
         if (is('function', onChange)) onChange(value__);
