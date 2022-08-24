@@ -410,6 +410,10 @@ const Select = React.forwardRef((props_: any, ref: any) => {
         refs.root.current = item;
       }}
 
+      onBlur={onBlur}
+
+      onFocus={onFocus}
+
       enabled={open || focus || mouseDown || !!(is('array', value) ? value.length : value)}
 
       focus={open || focus || mouseDown}
@@ -468,13 +472,8 @@ const Select = React.forwardRef((props_: any, ref: any) => {
           readOnly && classes.readOnly
         ]),
 
-        tabIndex: 0,
-
         onMouseDown,
         onMouseUp,
-
-        onFocus,
-        onBlur,
 
         onClick,
         onKeyDown: onEnterKeyDown
