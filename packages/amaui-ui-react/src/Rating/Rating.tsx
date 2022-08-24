@@ -136,8 +136,11 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
 
   const refs = {
     root: React.useRef<any>(),
-    values: React.useRef<Array<HTMLSpanElement>>([])
+    values: React.useRef<Array<HTMLSpanElement>>([]),
+    direction: React.useRef<any>()
   };
+
+  refs.direction.current = theme.direction;
 
   const { classes } = useStyle(props);
 
@@ -179,7 +182,11 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
     }
   }, [disabled, readOnly, value, valueActive]);
 
-  const valuePrecision = (value__: number) => {
+  const valuePrecision = (valueMouse: number) => {
+    const offset = refs.direction.current === 'rtl' ? 1 : 0;
+
+    let value__ = Math.abs(valueMouse - offset);
+
     let mod = value__ % precision;
 
     if (precision >= value__) return precision;
@@ -189,16 +196,17 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
     let valueNew = value__;
 
     while (true) {
-      const valueDecimals = String(precision).split('.')[1].length;
+      const valueDecimals = String(precision).split('.')[1]?.length || 0;
 
-      valueNew += Number(`0.${'0'.repeat(valueDecimals - 1)}1`);
+      valueNew += Number(`0.${'0'.repeat(valueDecimals)}1`);
 
-      valueNew = +(valueNew).toFixed(valueDecimals);
+      valueNew = +(valueNew).toFixed(valueDecimals + 1);
 
-      mod = +(valueNew % precision).toFixed(valueDecimals);
+      mod = +(valueNew % precision).toFixed(valueDecimals + 1);
+
+      if (valueNew >= 1) return 1;
 
       if (mod === precision || mod === 0) return valueNew;
-      else if (valueNew >= 1) return 0;
     }
   };
 
