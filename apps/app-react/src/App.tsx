@@ -1011,6 +1011,8 @@ Please sign in again.`}
         <Accordion label='Slider color' open>
           <Line gap={5}>
             <Slider
+              valueDefault={40}
+
               color='default'
 
               style={{
@@ -1019,6 +1021,8 @@ Please sign in again.`}
             />
 
             <Slider
+              valueDefault={40}
+
               color='primary'
 
               style={{
@@ -1027,6 +1031,8 @@ Please sign in again.`}
             />
 
             <Slider
+              valueDefault={40}
+
               color='secondary'
 
               style={{
@@ -1035,6 +1041,8 @@ Please sign in again.`}
             />
 
             <Slider
+              valueDefault={40}
+
               color='tertiary'
 
               style={{
@@ -1043,6 +1051,8 @@ Please sign in again.`}
             />
 
             <Slider
+              valueDefault={40}
+
               color='quaternary'
 
               style={{
@@ -1051,6 +1061,8 @@ Please sign in again.`}
             />
 
             <Slider
+              valueDefault={40}
+
               color='info'
 
               style={{
@@ -1059,6 +1071,8 @@ Please sign in again.`}
             />
 
             <Slider
+              valueDefault={40}
+
               color='success'
 
               style={{
@@ -1067,6 +1081,8 @@ Please sign in again.`}
             />
 
             <Slider
+              valueDefault={40}
+
               color='warning'
 
               style={{
@@ -1075,6 +1091,8 @@ Please sign in again.`}
             />
 
             <Slider
+              valueDefault={40}
+
               color='error'
 
               style={{
@@ -1083,6 +1101,8 @@ Please sign in again.`}
             />
 
             <Slider
+              valueDefault={40}
+
               color='neutral'
 
               style={{
@@ -1091,6 +1111,132 @@ Please sign in again.`}
             />
 
             <Slider
+              valueDefault={40}
+
+              color='#f5d758'
+
+              style={{
+                width: 140
+              }}
+            />
+          </Line>
+        </Accordion>
+
+        <Accordion label='Slider tonal' open>
+          <Line gap={5}>
+            <Slider
+              valueDefault={40}
+
+              tonal
+
+              color='primary'
+
+              style={{
+                width: 140
+              }}
+            />
+
+            <Slider
+              valueDefault={40}
+
+              tonal
+
+              color='secondary'
+
+              style={{
+                width: 140
+              }}
+            />
+
+            <Slider
+              valueDefault={40}
+
+              tonal
+
+              color='tertiary'
+
+              style={{
+                width: 140
+              }}
+            />
+
+            <Slider
+              valueDefault={40}
+
+              tonal
+
+              color='quaternary'
+
+              style={{
+                width: 140
+              }}
+            />
+
+            <Slider
+              valueDefault={40}
+
+              tonal
+
+              color='info'
+
+              style={{
+                width: 140
+              }}
+            />
+
+            <Slider
+              valueDefault={40}
+
+              tonal
+
+              color='success'
+
+              style={{
+                width: 140
+              }}
+            />
+
+            <Slider
+              valueDefault={40}
+
+              tonal
+
+              color='warning'
+
+              style={{
+                width: 140
+              }}
+            />
+
+            <Slider
+              valueDefault={40}
+
+              tonal
+
+              color='error'
+
+              style={{
+                width: 140
+              }}
+            />
+
+            <Slider
+              valueDefault={40}
+
+              tonal
+
+              color='neutral'
+
+              style={{
+                width: 140
+              }}
+            />
+
+            <Slider
+              valueDefault={40}
+
+              tonal
+
               color='#f5d758'
 
               style={{
@@ -1105,7 +1251,7 @@ Please sign in again.`}
             <Slider
               color='secondary'
 
-              precision={0.01}
+              precision={1}
 
               style={{
                 width: 140
@@ -1115,7 +1261,7 @@ Please sign in again.`}
             <Slider
               color='secondary'
 
-              precision={0.1}
+              precision={10}
 
               style={{
                 width: 140
@@ -1125,7 +1271,7 @@ Please sign in again.`}
             <Slider
               color='secondary'
 
-              precision={0.2}
+              precision={20}
 
               style={{
                 width: 140
@@ -1135,7 +1281,7 @@ Please sign in again.`}
             <Slider
               color='secondary'
 
-              precision={0.25}
+              precision={25}
 
               style={{
                 width: 140
@@ -1145,7 +1291,7 @@ Please sign in again.`}
             <Slider
               color='secondary'
 
-              precision={0.5}
+              precision={50}
 
               style={{
                 width: 140
@@ -1155,7 +1301,7 @@ Please sign in again.`}
             <Slider
               color='secondary'
 
-              precision={0.75}
+              precision={75}
 
               style={{
                 width: 140
@@ -1163,12 +1309,240 @@ Please sign in again.`}
             />
 
             <Slider
+              color='secondary'
+
+              precision={100}
+
+              style={{
+                width: 140
+              }}
+            />
+          </Line>
+        </Accordion>
+
+        <Accordion label='Slider marks' open>
+          <Line gap={5}>
+            <Slider
+              marks
+
+              color='secondary'
+
+              style={{
+                width: 140
+              }}
+            />
+
+            <Slider
+              marks
+
               color='secondary'
 
               precision={1}
 
               style={{
                 width: 140
+              }}
+            />
+
+            <Slider
+              marks
+
+              color='secondary'
+
+              precision={10}
+
+              style={{
+                width: 140
+              }}
+            />
+
+            <Slider
+              marks
+
+              color='secondary'
+
+              precision={20}
+
+              style={{
+                width: 140
+              }}
+            />
+
+            <Slider
+              marks
+
+              color='secondary'
+
+              precision={25}
+
+              style={{
+                width: 140
+              }}
+            />
+
+            <Slider
+              marks
+
+              color='secondary'
+
+              precision={50}
+
+              style={{
+                width: 140
+              }}
+            />
+
+            <Slider
+              marks
+
+              color='secondary'
+
+              precision={75}
+
+              style={{
+                width: 140
+              }}
+            />
+
+            <Slider
+              marks
+
+              color='secondary'
+
+              precision={100}
+
+              style={{
+                width: 140
+              }}
+            />
+          </Line>
+        </Accordion>
+
+        <Accordion label='Slider vertical' open>
+          <Line gap={5} align='flex-start'>
+            <Slider
+              valueDefault={40}
+
+              orientation='vertical'
+
+              marks
+
+              color='secondary'
+
+              style={{
+                height: 140
+              }}
+            />
+
+            <Slider
+              valueDefault={40}
+
+              orientation='vertical'
+
+              marks
+
+              color='secondary'
+
+              precision={1}
+
+              style={{
+                height: 140
+              }}
+            />
+
+            <Slider
+              valueDefault={40}
+
+              orientation='vertical'
+
+              marks
+
+              color='secondary'
+
+              precision={10}
+
+              style={{
+                height: 140
+              }}
+            />
+
+            <Slider
+              valueDefault={40}
+
+              orientation='vertical'
+
+              marks
+
+              color='secondary'
+
+              precision={20}
+
+              style={{
+                height: 140
+              }}
+            />
+
+            <Slider
+              valueDefault={40}
+
+              orientation='vertical'
+
+              marks
+
+              color='secondary'
+
+              precision={25}
+
+              style={{
+                height: 140
+              }}
+            />
+
+            <Slider
+              valueDefault={40}
+
+              orientation='vertical'
+
+              marks
+
+              color='secondary'
+
+              precision={50}
+
+              style={{
+                height: 140
+              }}
+            />
+
+            <Slider
+              valueDefault={40}
+
+              orientation='vertical'
+
+              marks
+
+              color='secondary'
+
+              precision={75}
+
+              style={{
+                height: 140
+              }}
+            />
+
+            <Slider
+              valueDefault={40}
+
+              orientation='vertical'
+
+              marks
+
+              color='secondary'
+
+              precision={100}
+
+              style={{
+                height: 140
               }}
             />
           </Line>

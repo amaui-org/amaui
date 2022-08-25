@@ -2,19 +2,27 @@ import React from 'react';
 
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
+import { is } from '@amaui/utils';
 import { staticClassName } from '../utils';
 
 import IconButton from '../IconButton';
-import { colorToRgb, is } from '@amaui/utils';
 
 const rail = {
   position: 'absolute',
   display: 'inline-flex',
-  width: '100%',
-  background: 'currentColor',
-  top: '50%',
-  transform: 'translateY(-50%)',
+  alignItems: 'center',
+  justifyContent: 'center',
   borderRadius: 'inherit'
+};
+
+const horizontal = {
+  top: '50%',
+  transform: 'translateY(-50%)'
+};
+
+const vertical = {
+  left: '50%',
+  transform: 'translateX(-50%)'
 };
 
 const useStyle = style(theme => ({
@@ -25,84 +33,161 @@ const useStyle = style(theme => ({
     cursor: 'pointer'
   },
 
-  // Color
-  color_default: { color: theme.palette.text.default.primary },
-
-  color_neutral: { color: theme.palette.color.neutral.main },
-
-  color_primary: { color: theme.palette.color.primary.main },
-
-  color_secondary: { color: theme.palette.color.secondary.main },
-
-  color_tertiary: { color: theme.palette.color.tertiary.main },
-
-  color_quaternary: { color: theme.palette.color.quaternary.main },
-
-  color_info: { color: theme.palette.color.info.main },
-
-  color_success: { color: theme.palette.color.success.main },
-
-  color_warning: { color: theme.palette.color.warning.main },
-
-  color_error: { color: theme.palette.color.error.main },
-
-  // Tonal
-  tonal_color_neutral: { color: theme.methods.palette.color.value('default', 70) },
-
-  tonal_color_primary: { color: theme.methods.palette.color.value('primary', 70) },
-
-  tonal_color_secondary: { color: theme.methods.palette.color.value('secondary', 70) },
-
-  tonal_color_tertiary: { color: theme.methods.palette.color.value('tertiary', 70) },
-
-  tonal_color_quaternary: { color: theme.methods.palette.color.value('quaternary', 70) },
-
-  tonal_color_info: { color: theme.methods.palette.color.value('info', 70) },
-
-  tonal_color_success: { color: theme.methods.palette.color.value('success', 70) },
-
-  tonal_color_warning: { color: theme.methods.palette.color.value('warning', 70) },
-
-  tonal_color_error: { color: theme.methods.palette.color.value('error', 70) },
-
   rail: {
     inset: 0,
-    ...rail,
-    opacity: 0.24
+    ...rail
   },
 
-  rail_size_small: { height: '3px' },
+  rail_orientation_horizontal_size_small: { height: '3px' },
 
-  rail_size_regular: { height: '4px' },
+  rail_orientation_horizontal_size_regular: { height: '4px' },
 
-  rail_size_large: { height: '5px' },
+  rail_orientation_horizontal_size_large: { height: '5px' },
+
+  rail_orientation_vertical_size_small: { width: '3px' },
+
+  rail_orientation_vertical_size_regular: { width: '4px' },
+
+  rail_orientation_vertical_size_large: { width: '5px' },
 
   track: {
     ...rail,
+  },
+
+  track_orientation_horizontal: {
     insetInlineStart: 0
   },
 
-  track_size_small: { height: '5px' },
+  track_orientation_vertical: {
+    insetBlockEnd: 0
+  },
 
-  track_size_regular: { height: '6px' },
+  track_orientation_horizontal_size_small: { height: '5px' },
 
-  track_size_large: { height: '7px' },
+  track_orientation_horizontal_size_regular: { height: '6px' },
+
+  track_orientation_horizontal_size_large: { height: '7px' },
+
+  track_orientation_vertical_size_small: { width: '5px' },
+
+  track_orientation_vertical_size_regular: { width: '6px' },
+
+  track_orientation_vertical_size_large: { width: '7px' },
+
+  // Color
+  // rail
+  rail_color_default: { background: theme.methods.palette.color.value('default', 90) },
+
+  rail_color_neutral: { background: theme.methods.palette.color.value('default', 90) },
+
+  rail_color_primary: { background: theme.methods.palette.color.value('primary', 90) },
+
+  rail_color_secondary: { background: theme.methods.palette.color.value('secondary', 90) },
+
+  rail_color_tertiary: { background: theme.methods.palette.color.value('tertiary', 90) },
+
+  rail_color_quaternary: { background: theme.methods.palette.color.value('quaternary', 90) },
+
+  rail_color_info: { background: theme.methods.palette.color.value('info', 90) },
+
+  rail_color_success: { background: theme.methods.palette.color.value('success', 90) },
+
+  rail_color_warning: { background: theme.methods.palette.color.value('warning', 90) },
+
+  rail_color_error: { background: theme.methods.palette.color.value('error', 90) },
+
+  // track
+  track_color_default: { background: theme.methods.palette.color.value('neutral', 0) },
+
+  track_color_neutral: { background: theme.palette.color.neutral.main },
+
+  track_color_primary: { background: theme.palette.color.primary.main },
+
+  track_color_secondary: { background: theme.palette.color.secondary.main },
+
+  track_color_tertiary: { background: theme.palette.color.tertiary.main },
+
+  track_color_quaternary: { background: theme.palette.color.quaternary.main },
+
+  track_color_info: { background: theme.palette.color.info.main },
+
+  track_color_success: { background: theme.palette.color.success.main },
+
+  track_color_warning: { background: theme.palette.color.warning.main },
+
+  track_color_error: { background: theme.palette.color.error.main },
+
+  // Tonal
+  track_tonal_color_neutral: { background: theme.methods.palette.color.value('default', 70) },
+
+  track_tonal_color_primary: { background: theme.methods.palette.color.value('primary', 70) },
+
+  track_tonal_color_secondary: { background: theme.methods.palette.color.value('secondary', 70) },
+
+  track_tonal_color_tertiary: { background: theme.methods.palette.color.value('tertiary', 70) },
+
+  track_tonal_color_quaternary: { background: theme.methods.palette.color.value('quaternary', 70) },
+
+  track_tonal_color_info: { background: theme.methods.palette.color.value('info', 70) },
+
+  track_tonal_color_success: { background: theme.methods.palette.color.value('success', 70) },
+
+  track_tonal_color_warning: { background: theme.methods.palette.color.value('warning', 70) },
+
+  track_tonal_color_error: { background: theme.methods.palette.color.value('error', 70) },
+
+  // iconButton
+  iconButton_color_default: { color: [theme.palette.text.default.primary, '!important'] },
+
+  iconButton_color_neutral: { color: [theme.palette.color.neutral.main, '!important'] },
+
+  iconButton_color_primary: { color: [theme.palette.color.primary.main, '!important'] },
+
+  iconButton_color_secondary: { color: [theme.palette.color.secondary.main, '!important'] },
+
+  iconButton_color_tertiary: { color: [theme.palette.color.tertiary.main, '!important'] },
+
+  iconButton_color_quaternary: { color: [theme.palette.color.quaternary.main, '!important'] },
+
+  iconButton_color_info: { color: [theme.palette.color.info.main, '!important'] },
+
+  iconButton_color_success: { color: [theme.palette.color.success.main, '!important'] },
+
+  iconButton_color_warning: { color: [theme.palette.color.warning.main, '!important'] },
+
+  iconButton_color_error: { color: [theme.palette.color.error.main, '!important'] },
+
+  // Tonal
+  iconButton_tonal_color_neutral: { color: [theme.methods.palette.color.value('default', 70), '!important'] },
+
+  iconButton_tonal_color_primary: { color: [theme.methods.palette.color.value('primary', 70), '!important'] },
+
+  iconButton_tonal_color_secondary: { color: [theme.methods.palette.color.value('secondary', 70), '!important'] },
+
+  iconButton_tonal_color_tertiary: { color: [theme.methods.palette.color.value('tertiary', 70), '!important'] },
+
+  iconButton_tonal_color_quaternary: { color: [theme.methods.palette.color.value('quaternary', 70), '!important'] },
+
+  iconButton_tonal_color_info: { color: [theme.methods.palette.color.value('info', 70), '!important'] },
+
+  iconButton_tonal_color_success: { color: [theme.methods.palette.color.value('success', 70), '!important'] },
+
+  iconButton_tonal_color_warning: { color: [theme.methods.palette.color.value('warning', 70), '!important'] },
+
+  iconButton_tonal_color_error: { color: [theme.methods.palette.color.value('error', 70), '!important'] },
 
   square: {
     borderRadius: '0px'
   },
 
   iconButton: {
-    position: 'absolute',
-    top: '50%',
-    transform: 'translateY(-50%)'
+    position: 'absolute'
   },
 
   icon: {
     display: 'inline-flex',
     alignItems: 'center',
     justifyContent: 'center',
-    background: 'currentColor',
     borderRadius: `calc(${theme.shape.radius.unit / 8} * 0.5em)`
   },
 
@@ -119,8 +204,42 @@ const useStyle = style(theme => ({
   icon_size_large: {
     width: '24px',
     height: '24px',
+  },
+
+  marks: {
+    inset: 0,
+    ...rail
+  },
+
+  mark: {
+    position: 'absolute',
+    width: '2px',
+    height: '2px',
+    borderRadius: '50%'
+  },
+
+  orientation_horizontal: {
+    ...horizontal
+  },
+
+  orientation_vertical: {
+    ...vertical
   }
 }), { name: 'AmauiSlider' });
+
+// To do
+
+// on 100 precision move at 50 properly value y
+// move bugging
+// smallest values
+// marks only with no precision
+// tooltip
+// tooltip always open
+// readOnly
+// disabled
+
+// controlled value y
+// focus and keyboard
 
 const Slider = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
@@ -131,12 +250,16 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
     tonal,
     color = 'primary',
     size = 'regular',
+    orientation = 'horizontal',
     square,
     value: value_,
     valueDefault,
     onChange,
-    precision = 0.00001,
     readOnly,
+    marks,
+    precision = 0.001,
+    min = 0,
+    max = 100,
     disabled,
 
     Component = 'span',
@@ -169,18 +292,20 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
 
   const { classes } = useStyle(props);
 
-  const valuePrecision = (valueMouse: number) => {
+  const valuePrecision = (valueMouse_: number) => {
+    const valueDecimals = String(precision).split('.')[1]?.length || 0;
+    const valueMouse = +(valueMouse_ * 100).toFixed(valueDecimals);
     const valuePrevious = refs.value.current;
-    const offset = refs.direction.current === 'rtl' ? 1 : 0;
+    const offset = refs.direction.current === 'rtl' ? max : 0;
 
-    let value__ = Math.abs(valueMouse - offset);
+    let value__ = +(Math.abs(valueMouse - offset)).toFixed(valueDecimals);
 
-    if (valueMouse <= 0) return refs.direction.current === 'ltr' ? 0 : 1;
+    if (valueMouse <= min) return refs.direction.current === 'ltr' ? min : max;
 
-    if (valueMouse >= 1) return refs.direction.current === 'ltr' ? 1 : 0;
+    if (valueMouse >= max) return refs.direction.current === 'ltr' ? max : min;
 
     if (
-      valuePrevious < 1 &&
+      valuePrevious < max &&
       (
         (value__ === valuePrevious) ||
         (value__ > valuePrevious && value__ < valuePrevious + (precision / 2)) ||
@@ -190,23 +315,23 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
 
     if (
       (value__ < valuePrevious && value__ < valuePrevious - (precision / 2)) ||
-      (value__ < valuePrevious && valuePrevious === 1 && precision > 0.5 && precision < 1)
+      (value__ < valuePrevious && valuePrevious === max && precision > ((max + min) / 2) && precision < max)
     ) value__ -= precision;
 
     let mod = value__ % precision;
 
     let valueNew = value__;
 
+    const valuePrecision = +(`1${'0'.repeat(+String(precision).split('.')[0].length - 1)}`) / 10;
+
     while (true) {
-      const valueDecimals = String(precision).split('.')[1]?.length || 0;
+      valueNew += valuePrecision;
 
-      valueNew += Number(`0.${'0'.repeat(valueDecimals)}1`);
+      valueNew = +(valueNew).toFixed(valueDecimals);
 
-      valueNew = +(valueNew).toFixed(valueDecimals + 1);
+      mod = +(valueNew % precision).toFixed(valueDecimals);
 
-      mod = +(valueNew % precision).toFixed(valueDecimals + 1);
-
-      if (valueNew >= 1) return 1;
+      if (valueNew >= max) return max;
 
       if (mod === precision || mod === 0) return valueNew;
     }
@@ -219,14 +344,14 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
 
     const onMouseMove = (event: MouseEvent) => {
       if (!refs.props.current.disabled && !refs.props.current.readOnly && refs.mouseDown.current) {
-        const { clientX } = event;
+        const { clientX, clientY } = event;
 
         const rect = refs.root.current.getBoundingClientRect();
 
-        const width = rect.width;
+        const { width, height } = rect;
 
         // Value to the precision point value
-        const value__ = valuePrecision((clientX - rect.x) / width);
+        const value__ = valuePrecision(orientation === 'horizontal' ? (clientX - rect.x) / width : (1 - (clientY - rect.y) / height));
 
         if (value__ !== refs.value.current) {
           if (props.hasOwnProperty('value')) {
@@ -255,14 +380,14 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
 
   const move = React.useCallback((event: React.MouseEvent<any>) => {
     if (!disabled && !readOnly) {
-      const { clientX } = event;
+      const { clientX, clientY } = event;
 
       const rect = refs.root.current.getBoundingClientRect();
 
-      const width = rect.width;
+      const { width, height } = rect;
 
       // Value to the precision point value
-      const value__ = valuePrecision((clientX - rect.x) / width);
+      const value__ = valuePrecision(orientation === 'horizontal' ? (clientX - rect.x) / width : (1 - (clientY - rect.y) / height));
 
       if (value__ !== value) {
         if (props.hasOwnProperty('value')) {
@@ -294,29 +419,81 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
     root: {},
     icon: {},
     iconButton: {},
-    track: {}
+    rail: {},
+    track: {},
+    markRail: {},
+    markTrack: {}
   };
 
   const palette = !theme.palette.color[color] && theme.methods.color(color);
 
-  if (!classes[color] && color !== 'default') styles.root.color = !tonal ? palette.main : theme.methods.palette.color.value(undefined, 70, true, palette);
+  if (!theme.palette.color[color] && color !== 'default') {
+    styles.markRail.background = styles.rail.background = theme.methods.palette.color.value(undefined, 90, true, palette);
 
-  if (color === 'default') styles.icon.background = styles.track.background = colorToRgb(theme.palette.text.default.primary, 1);
+    styles.markTrack.background = styles.icon.background = styles.track.background = styles.iconButton.color = !tonal ? palette.main : theme.methods.palette.color.value(undefined, 70, true, palette);
+  }
+
+  const valueValue = (value__: any = value, pure = false) => {
+    let valueNew = value__;
+
+    if (value__ === min) valueNew = 0;
+
+    else if (value__ === max) valueNew = 100;
+
+    else valueNew = (value__ / (max + min)) * 100;
+
+    return pure ? valueNew : orientation === 'horizontal' ? valueNew : 100 - valueNew;
+  };
+
+  const valueMark = (value__: any) => {
+    if (value__ === min) return orientation === 'horizontal' ? 0 : `calc(100% - 2px)`;
+
+    if (value__ === max) return orientation === 'horizontal' ? `calc(100% - 2px)` : 0;
+
+    return `calc(${valueValue(value__)}% - 1px)`;
+  };
+
+  const propInset = orientation === 'horizontal' ? 'insetInlineStart' : 'insetBlockStart';
+
+  const valuePercent = valueValue();
 
   if (size === 'small') {
-    styles.iconButton.insetInlineStart = `calc(${value * 100}% - 15px)`;
+    styles.iconButton[propInset] = `calc(${valuePercent}% - 15px)`;
   }
 
   if (size === 'regular') {
-    styles.iconButton.insetInlineStart = `calc(${value * 100}% - 20px)`;
+    styles.iconButton[propInset] = `calc(${valuePercent}% - 20px)`;
   }
 
   if (size === 'large') {
-    styles.iconButton.insetInlineStart = `calc(${value * 100}% - 25px)`;
+    styles.iconButton[propInset] = `calc(${valuePercent}% - 25px)`;
   }
 
-  styles.track.width = `${value * 100}%`;
+  const propTrac = orientation === 'horizontal' ? 'width' : 'height';
 
+  styles.track[propTrac] = `${valueValue(value, true)}%`;
+
+  const marksValue = Math.ceil((max + min) / precision);
+
+  let marks_ = [];
+
+  if (!!marks && marksValue <= 1e3) {
+    if (is('object', marks)) marks_ = marks;
+    else {
+      let markSum = min;
+
+      marks_.push({ value: min });
+
+      while (markSum <= max) {
+        markSum += precision;
+
+        if (markSum < max) marks_.push({ value: markSum });
+      }
+
+      marks_.push({ value: max });
+    }
+  }
+  console.log(1, value, marks_);
   return (
     <Component
       ref={item => {
@@ -330,6 +507,7 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
       className={classNames([
         staticClassName('Slider', theme) && [
           'AmauiSlider-root',
+          `AmauiSlider-orientation-${orientation}`,
           `AmauiSlider-color-${!classes[color] ? 'new' : color}`,
           tonal && `AmauiSlider-tonal`,
           square && `AmauiSlider-square`
@@ -357,7 +535,9 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
           ],
 
           classes.rail,
-          classes[`rail_size_${size}`]
+          classes[`orientation_${orientation}`],
+          classes[`rail_color_${color}`],
+          classes[`rail_orientation_${orientation}_size_${size}`]
         ])}
 
         style={styles.rail}
@@ -370,18 +550,58 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
           ],
 
           classes.track,
-          classes[`track_size_${size}`]
+          classes[`orientation_${orientation}`],
+          classes[`track_orientation_${orientation}`],
+          classes[`track_color_${color}`],
+          tonal && classes[`track_tonal_color_${color}`],
+          classes[`track_orientation_${orientation}_size_${size}`]
         ])}
 
         style={styles.track}
       />
 
+      {!!marks_.length && (
+        <span
+          className={classNames([
+            staticClassName('Slider', theme) && [
+              'AmauiSlider-marks'
+            ],
+
+            classes.marks,
+            classes[`orientation_${orientation}`],
+            classes[`track_size_${size}`]
+          ])}
+        >
+          {marks_.map((item: any, index: number) => (
+            <span
+              key={index}
+
+              className={classNames([
+                staticClassName('Slider', theme) && [
+                  'AmauiSlider-mark'
+                ],
+
+                classes.mark,
+                item.value <= value ? classes[`rail_color_${color}`] : [
+                  classes[`track_color_${color}`],
+                  tonal && classes[`track_tonal_color_${color}`]
+                ]
+              ])}
+
+              style={{
+                ...(item.value <= value ? styles.markRail : styles.markTrack),
+
+                [propInset]: valueMark(item.value)
+              }}
+            />
+          ))}
+        </span>
+      )}
+
       <IconButton
         size={size}
 
-        tonal={tonal}
-
-        color={color}
+        color='inherit'
 
         onBlur={onBlur}
 
@@ -392,7 +612,10 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
             'AmauiSlider-iconButton'
           ],
 
-          classes.iconButton
+          classes.iconButton,
+          classes[`orientation_${orientation}`],
+          !tonal && classes[`iconButton_color_${color}`],
+          tonal && classes[`iconButton_tonal_color_${color}`],
         ])}
 
         style={styles.iconButton}
@@ -404,6 +627,8 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
             ],
 
             classes.icon,
+            classes[`track_color_${color}`],
+            tonal && classes[`track_tonal_color_${color}`],
             classes[`icon_size_${size}`]
           ])}
 
