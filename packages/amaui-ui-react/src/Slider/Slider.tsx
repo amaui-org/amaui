@@ -236,11 +236,6 @@ const useStyle = style(theme => ({
 
 // To do
 
-// bug
-
-// middle for min, max
-// rtl min, max
-
 // marks only with no precision
 // tooltip
 // tooltip always open
@@ -309,18 +304,20 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
   const valuePrecision = (valueMouse: number) => {
     let value__ = valueWithinRangePercentage(valueMouse * 100, min, max);
 
-    if (refs.direction.current === 'rtl' && orientation === 'horizontal') value__ = max - value__;
+    if (refs.direction.current === 'rtl' && orientation === 'horizontal') value__ = (max + min) - value__;
 
     if (value__ <= min) return min;
 
     if (value__ >= max) return max;
 
     // previous value
-    const previous = clamp(+(value__ - (value__ % precision)).toFixed(valueDecimals), min, max);
+    let previous = clamp(+(value__ - (value__ % precision)).toFixed(valueDecimals), min, max);
+
+    if (value__ < 0) previous -= precision;
 
     // next value
     const next = clamp(+(previous + precision).toFixed(valueDecimals), min, max);
-    console.log(14, value__, previous, next);
+    console.log(14, value__, previous, next, precision);
     return value__ < previous + (precision / 2) ? previous : next;
   };
 
