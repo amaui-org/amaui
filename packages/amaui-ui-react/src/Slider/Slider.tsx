@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { is } from '@amaui/utils';
+import { clamp, is } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
-import { staticClassName } from '../utils';
+import { percentageWithinRange, staticClassName, valueWithinRangePercentage } from '../utils';
 
 import IconButton from '../IconButton';
 
@@ -229,8 +229,6 @@ const useStyle = style(theme => ({
 
 // To do
 
-// smallest values
-// move bugging
 // marks only with no precision
 // tooltip
 // tooltip always open
@@ -297,12 +295,11 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
   const valueDecimals = (String(precision).includes('e-') ? +String(precision).split('e-')[1] : String(precision).split('.')[1]?.length) || 0;
 
   const valuePrecision = (valueMouse_: number) => {
-    const valueMouse = +(valueMouse_ * (max + min)).toFixed(valueDecimals);
+    const valueMouse = valueWithinRangePercentage(valueMouse_ * 100, min, max);
     const valuePrevious = refs.value.current;
     const offset = refs.direction.current === 'rtl' ? max : 0;
 
-    console.log(11, valueMouse);
-    let value__ = +(Math.abs(valueMouse - offset)).toFixed(valueDecimals);
+    let value__ = valueMouse - offset;
 
     if (valueMouse <= min) return refs.direction.current === 'ltr' ? min : max;
 
@@ -317,34 +314,13 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
       )
     ) return valuePrevious;
 
-    if (
-      (value__ < valuePrevious && value__ < valuePrevious - (precision / 2)) ||
-      (value__ < valuePrevious && valuePrevious === max && precision > ((max + min) / 2) && precision < max)
-    ) value__ -= precision;
+    // previous value
+    const previous = clamp(+(value__ - (value__ % precision)).toFixed(valueDecimals), min, max);
 
-    let mod = value__ % precision;
+    // next value
+    const next = clamp(+(previous + precision).toFixed(valueDecimals), min, max);
 
-    let valueNew = value__;
-
-    const repeat = !String(precision).includes('e-') ? +String(precision).split('.')[0].length - 1 : 0;
-
-    const valuePrecisionInteger = +(`1${'0'.repeat(repeat)}`) / (precision === max ? 100 : 10);
-    const valuePrecisionDecimal = valueDecimals && `${'0'.repeat(valueDecimals)}1`;
-
-    const valuePrecision = !valuePrecisionDecimal ? valuePrecisionInteger : +`${String(valuePrecisionInteger).split('.')[0]}${valuePrecisionDecimal ? `.${valuePrecisionDecimal}` : ''}`;
-
-    console.log(15, valuePrecision);
-    while (true) {
-      valueNew += valuePrecision;
-
-      valueNew = +(valueNew).toFixed(valueDecimals);
-
-      mod = +(valueNew % precision).toFixed(valueDecimals);
-
-      if (valueNew >= max) return max;
-
-      if (mod === precision || mod === 0) return valueNew;
-    }
+    return value__ < previous + (precision / 2) ? previous : next;
   };
 
   React.useEffect(() => {
@@ -454,7 +430,7 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
 
     else if (value__ === max) valueNew = 100;
 
-    else valueNew = (value__ / (max + min)) * 100;
+    else valueNew = percentageWithinRange(value__, min, max);
 
     return pure ? valueNew : orientation === 'horizontal' ? valueNew : 100 - valueNew;
   };
@@ -508,7 +484,7 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
       marks_.push({ value: max });
     }
   }
-  console.log(1, marksValue, marks_, valueDecimals);
+
   return (
     <Component
       ref={item => {

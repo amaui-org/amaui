@@ -1585,6 +1585,24 @@ Please sign in again.`}
         <Accordion label='Slider smallest values' open>
           <Line gap={5} align='flex-start'>
             <Slider
+              valueDefault={-0.4}
+
+              precision={0.1}
+
+              min={-0.5}
+
+              max={0}
+
+              marks
+
+              color='secondary'
+
+              style={{
+                width: 140
+              }}
+            />
+
+            <Slider
               valueDefault={0}
 
               precision={0.1}

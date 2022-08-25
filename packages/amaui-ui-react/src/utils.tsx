@@ -21,3 +21,11 @@ export const iconSizeToFontSize = (value: string | number) => {
 
   return fontSize;
 };
+
+export function percentageWithinRange(value: number, min: number, max: number, minAllowed: number = 0, maxAllowed: number = 100) {
+  return (maxAllowed - minAllowed) * (value - min) / (max - min) + minAllowed;
+}
+
+export function valueWithinRangePercentage(value: number, min: number, max: number, minAllowed = 0, maxAllowed = 100) {
+  return min + ((value * (max - min + minAllowed)) / (maxAllowed - minAllowed));
+}
