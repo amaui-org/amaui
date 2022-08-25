@@ -1,8 +1,8 @@
 import React from 'react';
 
+import { is } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
-import { is } from '@amaui/utils';
 import { staticClassName } from '../utils';
 
 import IconButton from '../IconButton';
@@ -229,12 +229,13 @@ const useStyle = style(theme => ({
 
 // To do
 
-// on 100 precision move at 50 properly value y
-// move bugging
 // smallest values
+// move bugging
 // marks only with no precision
 // tooltip
 // tooltip always open
+// multiple value y
+// inverted
 // readOnly
 // disabled
 
@@ -260,6 +261,7 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
     precision = 0.001,
     min = 0,
     max = 100,
+    noButton,
     disabled,
 
     Component = 'span',
@@ -292,12 +294,14 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
 
   const { classes } = useStyle(props);
 
+  const valueDecimals = (String(precision).includes('e-') ? +String(precision).split('e-')[1] : String(precision).split('.')[1]?.length) || 0;
+
   const valuePrecision = (valueMouse_: number) => {
-    const valueDecimals = String(precision).split('.')[1]?.length || 0;
-    const valueMouse = +(valueMouse_ * 100).toFixed(valueDecimals);
+    const valueMouse = +(valueMouse_ * (max + min)).toFixed(valueDecimals);
     const valuePrevious = refs.value.current;
     const offset = refs.direction.current === 'rtl' ? max : 0;
 
+    console.log(11, valueMouse);
     let value__ = +(Math.abs(valueMouse - offset)).toFixed(valueDecimals);
 
     if (valueMouse <= min) return refs.direction.current === 'ltr' ? min : max;
@@ -322,8 +326,14 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
 
     let valueNew = value__;
 
-    const valuePrecision = +(`1${'0'.repeat(+String(precision).split('.')[0].length - 1)}`) / 10;
+    const repeat = !String(precision).includes('e-') ? +String(precision).split('.')[0].length - 1 : 0;
 
+    const valuePrecisionInteger = +(`1${'0'.repeat(repeat)}`) / (precision === max ? 100 : 10);
+    const valuePrecisionDecimal = valueDecimals && `${'0'.repeat(valueDecimals)}1`;
+
+    const valuePrecision = !valuePrecisionDecimal ? valuePrecisionInteger : +`${String(valuePrecisionInteger).split('.')[0]}${valuePrecisionDecimal ? `.${valuePrecisionDecimal}` : ''}`;
+
+    console.log(15, valuePrecision);
     while (true) {
       valueNew += valuePrecision;
 
@@ -364,12 +374,14 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
     };
 
     window.document.addEventListener('mouseup', onMouseUp);
+    window.document.addEventListener('touchend', onMouseUp, { passive: true });
     window.document.addEventListener('mousemove', onMouseMove);
 
     setInit(true);
 
     return () => {
       window.document.removeEventListener('mouseup', onMouseUp);
+      window.document.removeEventListener('touchend', onMouseUp);
       window.document.removeEventListener('mousemove', onMouseMove);
     };
   }, []);
@@ -378,16 +390,14 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
     if (init && value_ !== value) setValue(value_);
   }, [value_]);
 
-  const move = React.useCallback((event: React.MouseEvent<any>) => {
+  const move = React.useCallback((x: number, y: number) => {
     if (!disabled && !readOnly) {
-      const { clientX, clientY } = event;
-
       const rect = refs.root.current.getBoundingClientRect();
 
       const { width, height } = rect;
 
       // Value to the precision point value
-      const value__ = valuePrecision(orientation === 'horizontal' ? (clientX - rect.x) / width : (1 - (clientY - rect.y) / height));
+      const value__ = valuePrecision(orientation === 'horizontal' ? (x - rect.x) / width : (1 - (y - rect.y) / height));
 
       if (value__ !== value) {
         if (props.hasOwnProperty('value')) {
@@ -407,11 +417,15 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
     if (!disabled && !readOnly) setFocus(false);
   }, [disabled, readOnly]);
 
-  const onMouseDown = React.useCallback((event: React.MouseEvent<any>) => {
+  const onMouseDown = React.useCallback((event: React.TouchEvent<any> | React.MouseEvent<any>) => {
     if (!disabled && !readOnly) {
       setMouseDown(true);
 
-      move(event);
+      const x = (event as React.MouseEvent<any>).clientX ? (event as React.MouseEvent<any>).clientX : (event as React.TouchEvent<any>).touches?.[0]?.clientX;
+
+      const y = (event as React.MouseEvent<any>).clientY ? (event as React.MouseEvent<any>).clientY : (event as React.TouchEvent<any>).touches?.[0]?.clientY;
+
+      move(x, y);
     }
   }, [disabled, readOnly]);
 
@@ -473,7 +487,7 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
 
   styles.track[propTrac] = `${valueValue(value, true)}%`;
 
-  const marksValue = Math.ceil((max + min) / precision);
+  const marksValue = Math.ceil((max - min) / precision);
 
   let marks_ = [];
 
@@ -481,11 +495,12 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
     if (is('object', marks)) marks_ = marks;
     else {
       let markSum = min;
+      let index = 1;
 
       marks_.push({ value: min });
 
       while (markSum <= max) {
-        markSum += precision;
+        markSum = min + (precision * index++);
 
         if (markSum < max) marks_.push({ value: markSum });
       }
@@ -493,7 +508,7 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
       marks_.push({ value: max });
     }
   }
-  console.log(1, value, marks_);
+  console.log(1, marksValue, marks_, valueDecimals);
   return (
     <Component
       ref={item => {
@@ -501,6 +516,8 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
 
         refs.root.current = item;
       }}
+
+      onTouchStart={onMouseDown}
 
       onMouseDown={onMouseDown}
 
@@ -598,43 +615,45 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
         </span>
       )}
 
-      <IconButton
-        size={size}
+      {!noButton && (
+        <IconButton
+          size={size}
 
-        color='inherit'
+          color='inherit'
 
-        onBlur={onBlur}
+          onBlur={onBlur}
 
-        onFocus={onFocus}
+          onFocus={onFocus}
 
-        className={classNames([
-          staticClassName('Slider', theme) && [
-            'AmauiSlider-iconButton'
-          ],
-
-          classes.iconButton,
-          classes[`orientation_${orientation}`],
-          !tonal && classes[`iconButton_color_${color}`],
-          tonal && classes[`iconButton_tonal_color_${color}`],
-        ])}
-
-        style={styles.iconButton}
-      >
-        <span
           className={classNames([
             staticClassName('Slider', theme) && [
-              'AmauiSlider-icon'
+              'AmauiSlider-iconButton'
             ],
 
-            classes.icon,
-            classes[`track_color_${color}`],
-            tonal && classes[`track_tonal_color_${color}`],
-            classes[`icon_size_${size}`]
+            classes.iconButton,
+            classes[`orientation_${orientation}`],
+            !tonal && classes[`iconButton_color_${color}`],
+            tonal && classes[`iconButton_tonal_color_${color}`],
           ])}
 
-          style={styles.icon}
-        />
-      </IconButton>
+          style={styles.iconButton}
+        >
+          <span
+            className={classNames([
+              staticClassName('Slider', theme) && [
+                'AmauiSlider-icon'
+              ],
+
+              classes.icon,
+              classes[`track_color_${color}`],
+              tonal && classes[`track_tonal_color_${color}`],
+              classes[`icon_size_${size}`]
+            ])}
+
+            style={styles.icon}
+          />
+        </IconButton>
+      )}
     </Component>
   );
 });

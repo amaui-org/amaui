@@ -1547,6 +1547,100 @@ Please sign in again.`}
             />
           </Line>
         </Accordion>
+
+        <Accordion label='Slider noButton' open>
+          <Line gap={5} align='flex-start'>
+            <Slider
+              valueDefault={40}
+
+              noButton
+
+              marks
+
+              color='secondary'
+
+              style={{
+                width: 140
+              }}
+            />
+
+            <Slider
+              valueDefault={40}
+
+              noButton
+
+              orientation='vertical'
+
+              marks
+
+              color='secondary'
+
+              style={{
+                height: 140
+              }}
+            />
+          </Line>
+        </Accordion>
+
+        <Accordion label='Slider smallest values' open>
+          <Line gap={5} align='flex-start'>
+            <Slider
+              valueDefault={0}
+
+              precision={0.1}
+
+              min={-0.5}
+
+              max={1}
+
+              marks
+
+              color='secondary'
+
+              style={{
+                width: 140
+              }}
+            />
+
+            <Slider
+              valueDefault={0.00000005}
+
+              precision={0.00000001}
+
+              min={-0.00000005}
+
+              max={0.0000001}
+
+              marks
+
+              color='secondary'
+
+              style={{
+                width: 140
+              }}
+            />
+
+            <Slider
+              valueDefault={0.00000005}
+
+              precision={0.00000001}
+
+              min={-0.00000005}
+
+              max={0.0000001}
+
+              orientation='vertical'
+
+              marks
+
+              color='secondary'
+
+              style={{
+                height: 140
+              }}
+            />
+          </Line>
+        </Accordion>
       </Accordion>
 
       <Accordion label='Banner'>
