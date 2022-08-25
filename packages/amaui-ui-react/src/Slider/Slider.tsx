@@ -34,8 +34,15 @@ const useStyle = style(theme => ({
   },
 
   rail: {
-    inset: 0,
     ...rail
+  },
+
+  rail_orientation_horizontal: {
+    insetInline: 0
+  },
+
+  rail_orientation_vertical: {
+    insetBlock: 0
   },
 
   rail_orientation_horizontal_size_small: { height: '3px' },
@@ -229,6 +236,11 @@ const useStyle = style(theme => ({
 
 // To do
 
+// bug
+
+// middle for min, max
+// rtl min, max
+
 // marks only with no precision
 // tooltip
 // tooltip always open
@@ -294,32 +306,21 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
 
   const valueDecimals = (String(precision).includes('e-') ? +String(precision).split('e-')[1] : String(precision).split('.')[1]?.length) || 0;
 
-  const valuePrecision = (valueMouse_: number) => {
-    const valueMouse = valueWithinRangePercentage(valueMouse_ * 100, min, max);
-    const valuePrevious = refs.value.current;
-    const offset = refs.direction.current === 'rtl' ? max : 0;
+  const valuePrecision = (valueMouse: number) => {
+    let value__ = valueWithinRangePercentage(valueMouse * 100, min, max);
 
-    let value__ = valueMouse - offset;
+    if (refs.direction.current === 'rtl' && orientation === 'horizontal') value__ = max - value__;
 
-    if (valueMouse <= min) return refs.direction.current === 'ltr' ? min : max;
+    if (value__ <= min) return min;
 
-    if (valueMouse >= max) return refs.direction.current === 'ltr' ? max : min;
-
-    if (
-      valuePrevious < max &&
-      (
-        (value__ === valuePrevious) ||
-        (value__ > valuePrevious && value__ < valuePrevious + (precision / 2)) ||
-        (value__ < valuePrevious && value__ >= valuePrevious - (precision / 2))
-      )
-    ) return valuePrevious;
+    if (value__ >= max) return max;
 
     // previous value
     const previous = clamp(+(value__ - (value__ % precision)).toFixed(valueDecimals), min, max);
 
     // next value
     const next = clamp(+(previous + precision).toFixed(valueDecimals), min, max);
-
+    console.log(14, value__, previous, next);
     return value__ < previous + (precision / 2) ? previous : next;
   };
 
@@ -423,7 +424,7 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
     styles.markTrack.background = styles.icon.background = styles.track.background = styles.iconButton.color = !tonal ? palette.main : theme.methods.palette.color.value(undefined, 70, true, palette);
   }
 
-  const valueValue = (value__: any = value, pure = false) => {
+  const valueValue = (value__: any = value) => {
     let valueNew = value__;
 
     if (value__ === min) valueNew = 0;
@@ -432,18 +433,18 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
 
     else valueNew = percentageWithinRange(value__, min, max);
 
-    return pure ? valueNew : orientation === 'horizontal' ? valueNew : 100 - valueNew;
+    return valueNew;
   };
 
   const valueMark = (value__: any) => {
-    if (value__ === min) return orientation === 'horizontal' ? 0 : `calc(100% - 2px)`;
+    if (value__ === min) return 0;
 
-    if (value__ === max) return orientation === 'horizontal' ? `calc(100% - 2px)` : 0;
+    if (value__ === max) return `calc(100% - 2px)`;
 
     return `calc(${valueValue(value__)}% - 1px)`;
   };
 
-  const propInset = orientation === 'horizontal' ? 'insetInlineStart' : 'insetBlockStart';
+  const propInset = orientation === 'horizontal' ? 'insetInlineStart' : 'insetBlockEnd';
 
   const valuePercent = valueValue();
 
@@ -461,7 +462,7 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
 
   const propTrac = orientation === 'horizontal' ? 'width' : 'height';
 
-  styles.track[propTrac] = `${valueValue(value, true)}%`;
+  styles.track[propTrac] = `${valuePercent}%`;
 
   const marksValue = Math.ceil((max - min) / precision);
 
@@ -484,7 +485,7 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
       marks_.push({ value: max });
     }
   }
-
+  console.log(1, value);
   return (
     <Component
       ref={item => {
@@ -529,6 +530,7 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
 
           classes.rail,
           classes[`orientation_${orientation}`],
+          classes[`rail_orientation_${orientation}`],
           classes[`rail_color_${color}`],
           classes[`rail_orientation_${orientation}_size_${size}`]
         ])}
@@ -565,29 +567,33 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
             classes[`track_size_${size}`]
           ])}
         >
-          {marks_.map((item: any, index: number) => (
-            <span
-              key={index}
+          {marks_.map((item: any, index: number) => {
+            console.log(1411, index, item.value, valueMark(item.value));
 
-              className={classNames([
-                staticClassName('Slider', theme) && [
-                  'AmauiSlider-mark'
-                ],
+            return (
+              <span
+                key={index}
 
-                classes.mark,
-                item.value <= value ? classes[`rail_color_${color}`] : [
-                  classes[`track_color_${color}`],
-                  tonal && classes[`track_tonal_color_${color}`]
-                ]
-              ])}
+                className={classNames([
+                  staticClassName('Slider', theme) && [
+                    'AmauiSlider-mark'
+                  ],
 
-              style={{
-                ...(item.value <= value ? styles.markRail : styles.markTrack),
+                  classes.mark,
+                  item.value <= value ? classes[`rail_color_${color}`] : [
+                    classes[`track_color_${color}`],
+                    tonal && classes[`track_tonal_color_${color}`]
+                  ]
+                ])}
 
-                [propInset]: valueMark(item.value)
-              }}
-            />
-          ))}
+                style={{
+                  ...(item.value <= value ? styles.markRail : styles.markTrack),
+
+                  [propInset]: valueMark(item.value)
+                }}
+              />
+            );
+          })}
         </span>
       )}
 
