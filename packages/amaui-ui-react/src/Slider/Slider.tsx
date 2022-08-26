@@ -732,6 +732,8 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
 
       {!noButton && values.map((value__: number) => (
         <Tooltip
+          key={value__}
+
           {...(tooltip === 'always' ? { open: true } : tooltip === undefined ? { open: false } : {})}
 
           label={labelMethod(value__)}
