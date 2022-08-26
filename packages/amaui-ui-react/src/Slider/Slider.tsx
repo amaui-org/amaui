@@ -232,19 +232,32 @@ const useStyle = style(theme => ({
 
   orientation_vertical: {
     ...vertical
+  },
+
+  readOnly: {
+    cursor: 'default'
+  },
+
+  disabled: {
+    cursor: 'default',
+    pointerEvents: 'none',
+    opacity: theme.palette.visual_contrast.default.opacity.disabled
   }
 }), { name: 'AmauiSlider' });
 
+
 // To do
 
-// readOnly
-// disabled
-// controlled value y
-// focus and keyboard
-
 // marks only with no precision
+// labels
 // multiple value y
 // inverted
+// focus and keyboard
+
+// examples
+// update rating
+
+// wrap up
 
 const Slider = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
@@ -253,7 +266,7 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
 
   const {
     tonal,
-    color = 'primary',
+    color: color_ = 'primary',
     size = 'regular',
     orientation = 'horizontal',
     square,
@@ -265,8 +278,8 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
     precision = 0.001,
     min = 0,
     max = 100,
-    label,
-    makeLabel,
+    tooltip,
+    makeLabelTooltip,
     noButton,
     disabled,
 
@@ -302,6 +315,10 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
   refs.direction.current = theme.direction;
 
   const { classes } = useStyle(props);
+
+  let color = color_;
+
+  if (disabled) color = 'default';
 
   const valueDecimals = (String(precision).includes('e-') ? +String(precision).split('e-')[1] : String(precision).split('.')[1]?.length) || 0;
 
@@ -388,11 +405,11 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
   }, [disabled, readOnly, onChange, value]);
 
   const onMouseEnter = React.useCallback(() => {
-    if (!disabled && !readOnly) setHover(true);
+    if (!disabled) setHover(true);
   }, [disabled, readOnly]);
 
   const onMouseLeave = React.useCallback(() => {
-    if (!disabled && !readOnly) setHover(false);
+    if (!disabled) setHover(false);
   }, [disabled, readOnly]);
 
   const onFocus = React.useCallback((event) => {
@@ -495,11 +512,11 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
     }
   }
 
-  const labelMethod = is('function', makeLabel) ? makeLabel : () => +(value).toFixed();
+  const labelMethod = is('function', makeLabelTooltip) ? makeLabelTooltip : () => +(value).toFixed();
 
   const valueLabel = labelMethod(value);
 
-  console.log(1, value);
+  console.log(1, value, focus, hover);
 
   return (
     <Component
@@ -519,14 +536,18 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
           `AmauiSlider-orientation-${orientation}`,
           `AmauiSlider-color-${!classes[color] ? 'new' : color}`,
           tonal && `AmauiSlider-tonal`,
-          square && `AmauiSlider-square`
+          square && `AmauiSlider-square`,
+          readOnly && `AmauiSlider-readOnly`,
+          disabled && `AmauiSlider-disabled`
         ],
 
         className,
         classes.root,
         classes[`color_${color}`],
         tonal && classes[`tonal_color_${color}`],
-        square && classes.square
+        square && classes.square,
+        readOnly && classes.readOnly,
+        disabled && classes.disabled
       ])}
 
       style={{
@@ -610,7 +631,7 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
 
       {!noButton && (
         <Tooltip
-          open={label === 'always' || ([true, 'auto'].includes(label) && (hover || mouseDown))}
+          open={tooltip === 'always' || ([true, 'auto'].includes(tooltip) && (hover || mouseDown))}
 
           label={valueLabel}
 

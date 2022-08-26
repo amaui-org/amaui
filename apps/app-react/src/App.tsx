@@ -974,10 +974,10 @@ Please sign in again.`}
           />
         </Accordion>
 
-        <Accordion label='Slider label' open>
+        <Accordion label='Slider tooltip' open>
           <Line gap={11}>
             <Slider
-              label='auto'
+              tooltip='auto'
 
               color='secondary'
 
@@ -987,7 +987,7 @@ Please sign in again.`}
             />
 
             <Slider
-              label='always'
+              tooltip='always'
 
               color='secondary'
 
@@ -1718,6 +1718,54 @@ Please sign in again.`}
               }}
             />
           </Line>
+        </Accordion>
+
+        <Accordion label='Slider readOnly' open>
+          <Slider
+            valueDefault={40}
+
+            label
+
+            readOnly
+
+            color='secondary'
+
+            style={{
+              width: 140
+            }}
+          />
+        </Accordion>
+
+        <Accordion label='Slider disabled' open>
+          <Slider
+            valueDefault={40}
+
+            label
+
+            disabled
+
+            color='secondary'
+
+            style={{
+              width: 140
+            }}
+          />
+        </Accordion>
+
+        <Accordion label='Slider controlled' open>
+          <Slider
+            valueDefault={40}
+
+            value={a.slider}
+
+            onChange={(value_: any) => updatePure(value_, 'slider')}
+
+            color='secondary'
+
+            style={{
+              width: 140
+            }}
+          />
         </Accordion>
       </Accordion>
 
