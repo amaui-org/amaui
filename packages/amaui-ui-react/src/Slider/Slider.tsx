@@ -293,9 +293,8 @@ const useStyle = style(theme => ({
 
 // To do
 
-// examples
-
-// wrap up
+// youtube value y example
+// MiUI value y example
 
 const Slider = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();

@@ -221,6 +221,13 @@ const Accordion = (props: any) => {
 };
 
 const styled = {
+  Slider: sy(Slider)((theme: AmauiTheme) => ({
+    root: {
+      '&:hover': {
+        opacity: 0.4
+      }
+    }
+  })),
   Banner: sy(Banner)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
@@ -503,6 +510,51 @@ const BoxStyled = () => (
 
 const Item = sy(Surface)((theme) => ({
 
+}));
+
+const SliderYoutube = sy(Slider)((theme) => ({
+  root: {
+    width: '50px',
+    borderRadius: '0px',
+
+    '& .AmauiSlider-rail': {
+      height: '5px'
+    },
+
+    '& .AmauiSlider-track': {
+      height: '5px'
+    },
+
+    '& .AmauiSlider-iconButton': {
+      height: '10px',
+      width: '10px'
+    },
+
+    '& .AmauiSlider-icon': {
+      height: '10px',
+      width: '10px'
+    }
+  }
+}));
+
+const SliderMiUI = sy(Slider)((theme) => ({
+  root: {
+    width: '170px',
+    height: '45px',
+    borderRadius: '24px',
+    overflow: 'hidden',
+
+    '& .AmauiSlider-rail': {
+      height: '100%',
+      width: '100%'
+    },
+
+    '& .AmauiSlider-track': {
+      height: '100%',
+      width: '100%',
+      borderRadius: '0px'
+    }
+  }
 }));
 
 function App() {
@@ -972,6 +1024,28 @@ Please sign in again.`}
               width: 140
             }}
           />
+        </Accordion>
+
+        <Accordion label='Slider examples' open>
+          <Line align='flex-start' gap={11} style={{ padding: '40px 0' }}>
+            <SliderYoutube
+              valueDefault={40}
+
+              precision={1}
+
+              iconButtonPosition={(value_: number, valuePercentage: number) => `calc(${valuePercentage}% - 5px)`}
+
+              color='default'
+            />
+
+            <SliderMiUI
+              valueDefault={40}
+
+              color='default'
+
+              noButtons
+            />
+          </Line>
         </Accordion>
 
         <Accordion label='Slider range' open>
@@ -2217,6 +2291,137 @@ Please sign in again.`}
               width: 140
             }}
           />
+        </Accordion>
+
+        <Accordion label='AmauiTheme'>
+          <div className={classNames([classes.column])}>
+            <Slider
+              color='secondary'
+
+              style={{
+                width: 140
+              }}
+            />
+
+            <Accordion label='AmauiTheme nested value' open>
+              <AmauiThemeProvider
+                value={{
+                  palette: {
+                    color: {
+                      secondary: {
+                        main: '#008000'
+                      }
+                    }
+                  },
+                  space: {
+                    unit: 5
+                  }
+                }}
+              >
+                <Slider
+                  color='secondary'
+
+                  style={{
+                    width: 140
+                  }}
+                />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme add' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiSlider: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: 0.4
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Slider
+                  color='secondary'
+
+                  style={{
+                    width: 140
+                  }}
+                />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme override' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiSlider: {
+                        style: {
+                          override: {
+                            root: {
+                              position: 'relative',
+                              display: 'inline-flex',
+                              cursor: 'default',
+                              padding: '40px',
+                              background: '#f7f7f7'
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Slider
+                  color='secondary'
+
+                  style={{
+                    width: 140
+                  }}
+                />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme props' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiSlider: {
+                        props: {
+                          default: {
+                            color: 'secondary'
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Slider
+                  style={{
+                    width: 140
+                  }}
+                />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme styled' open>
+              <styled.Slider
+                style={{
+                  width: 140
+                }}
+              />
+            </Accordion>
+          </div>
         </Accordion>
       </Accordion>
 
