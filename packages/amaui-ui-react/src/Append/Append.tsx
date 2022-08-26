@@ -92,24 +92,38 @@ const Append = (props_: any) => {
   // Anchor element
   React.useEffect(() => {
     // Resize
-    const observerResize = new ResizeObserver(onResize);
+    // const observerResize = new ResizeObserver(onResize);
+    const observerMutation = new MutationObserver(onResize);
 
-    if (refs.root.current) observerResize.observe(refs.root.current);
+    if (refs.root.current) {
+      // observerResize.observe(refs.root.current);
+      observerMutation.observe(refs.root.current, { attributes: true });
+    }
 
     return () => {
-      if (refs.root.current) observerResize.disconnect();
+      if (refs.root.current) {
+        // observerResize.disconnect();
+        observerMutation.disconnect();
+      }
     };
   }, [refs.root.current]);
 
   // Element resize
   React.useEffect(() => {
     // Resize
-    const observerResize = new ResizeObserver(onResize);
+    // const observerResize = new ResizeObserver(onResize);
+    const observerMutation = new MutationObserver(onResize);
 
-    if (refs.element.current) observerResize.observe(refs.element.current);
+    if (refs.element.current) {
+      // observerResize.observe(refs.element.current);
+      observerMutation.observe(refs.element.current, { attributes: true });
+    }
 
     return () => {
-      if (refs.element.current) observerResize.disconnect();
+      if (refs.element.current) {
+        // observerResize.disconnect();
+        observerMutation.disconnect();
+      }
     };
   }, [refs.element.current]);
 

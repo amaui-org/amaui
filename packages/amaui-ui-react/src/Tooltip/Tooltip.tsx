@@ -310,6 +310,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
     ...other
   } = props;
 
+  const [init, setInit] = React.useState(false);
   const [open, setOpen] = React.useState(open_);
   const [hover, setHover] = React.useState(false);
   const [touch, setTouch] = React.useState(false);
@@ -361,8 +362,10 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
     if (refs.longPress.current) {
       setLongPress(false);
 
-      if (!inProp) onClose();
-      else setInProp(false);
+      if (!props.hasOwnProperty('open')) {
+        if (!inProp) onClose();
+        else setInProp(false);
+      }
     }
 
     if (hover_) {
@@ -400,8 +403,10 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
     if (refs.longPress.current) {
       setLongPress(false);
 
-      if (!inProp) onClose();
-      else setInProp(false);
+      if (!props.hasOwnProperty('open')) {
+        if (!inProp) onClose();
+        else setInProp(false);
+      }
     }
 
     if (focus_) {
@@ -438,41 +443,53 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
   };
 
   React.useEffect(() => {
-    refs.open.current = open_;
+    setInit(true);
+  }, []);
 
-    if (open_) onOpen();
-    else {
-      if (!inProp) onClose();
-      else setInProp(false);
+  React.useEffect(() => {
+    if (init) {
+      refs.open.current = open_;
+
+      if (open_) onOpen();
+      else {
+        if (!inProp) onClose();
+        else setInProp(false);
+      }
     }
   }, [open_]);
 
   React.useEffect(() => {
-    refs.open.current = (touch || hover || longPress);
+    if (init && !props.hasOwnProperty('open')) {
+      refs.open.current = (touch || hover || longPress);
 
-    if (refs.open.current) onOpen();
-    else {
-      if (!inProp) onClose();
-      else setInProp(false);
+      if (refs.open.current) onOpen();
+      else {
+        if (!inProp) onClose();
+        else setInProp(false);
+      }
     }
   }, [touch, hover, longPress]);
 
   React.useEffect(() => {
-    refs.open.current = focus;
+    if (init && !props.hasOwnProperty('open')) {
+      refs.open.current = focus;
 
-    if (refs.open.current) onOpen();
-    else {
-      if (!inProp) onClose();
-      else setInProp(false);
+      if (refs.open.current) onOpen();
+      else {
+        if (!inProp) onClose();
+        else setInProp(false);
+      }
     }
   }, [focus]);
 
   React.useEffect(() => {
-    if (longPress) refs.open.current = longPress;
+    if (init) {
+      if (longPress) refs.open.current = longPress;
 
-    refs.longPress.current = longPress;
+      refs.longPress.current = longPress;
 
-    if (refs.open.current) onOpen();
+      if (refs.open.current) onOpen();
+    }
   }, [longPress]);
 
   if (!classes[color]) {

@@ -974,6 +974,30 @@ Please sign in again.`}
           />
         </Accordion>
 
+        <Accordion label='Slider label' open>
+          <Line gap={11}>
+            <Slider
+              label='auto'
+
+              color='secondary'
+
+              style={{
+                width: 140
+              }}
+            />
+
+            <Slider
+              label='always'
+
+              color='secondary'
+
+              style={{
+                width: 140
+              }}
+            />
+          </Line>
+        </Accordion>
+
         <Accordion label='Slider size' open>
           <Line gap={5}>
             <Slider

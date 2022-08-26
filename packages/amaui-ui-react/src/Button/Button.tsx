@@ -582,6 +582,7 @@ const Button = React.forwardRef((props_: any, ref: any) => {
       }}
 
       onFocus={onFocus}
+
       onBlur={onBlur}
 
       disabled={disabled}

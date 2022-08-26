@@ -6,6 +6,7 @@ import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 import { percentageWithinRange, staticClassName, valueWithinRangePercentage } from '../utils';
 
 import IconButton from '../IconButton';
+import Tooltip from '../Tooltip';
 
 const rail = {
   position: 'absolute',
@@ -236,16 +237,14 @@ const useStyle = style(theme => ({
 
 // To do
 
-// marks only with no precision
-// tooltip
-// tooltip always open
-// multiple value y
-// inverted
 // readOnly
 // disabled
-
 // controlled value y
 // focus and keyboard
+
+// marks only with no precision
+// multiple value y
+// inverted
 
 const Slider = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
@@ -266,9 +265,13 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
     precision = 0.001,
     min = 0,
     max = 100,
+    label,
+    makeLabel,
     noButton,
     disabled,
 
+    IconButtonProps = {},
+    TooltipProps = {},
     Component = 'span',
 
     style,
@@ -281,6 +284,7 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
 
   const [init, setInit] = React.useState(false);
   const [value, setValue] = React.useState((valueDefault !== undefined ? valueDefault : value_) || 0);
+  const [hover, setHover] = React.useState(false);
   const [focus, setFocus] = React.useState(false);
   const [mouseDown, setMouseDown] = React.useState(false);
 
@@ -317,7 +321,7 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
 
     // next value
     const next = clamp(+(previous + precision).toFixed(valueDecimals), min, max);
-    console.log(14, value__, previous, next, precision);
+
     return value__ < previous + (precision / 2) ? previous : next;
   };
 
@@ -382,6 +386,14 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
       }
     }
   }, [disabled, readOnly, onChange, value]);
+
+  const onMouseEnter = React.useCallback(() => {
+    if (!disabled && !readOnly) setHover(true);
+  }, [disabled, readOnly]);
+
+  const onMouseLeave = React.useCallback(() => {
+    if (!disabled && !readOnly) setHover(false);
+  }, [disabled, readOnly]);
 
   const onFocus = React.useCallback((event) => {
     if (!disabled && !readOnly && !mouseDown) setFocus(true);
@@ -482,7 +494,13 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
       marks_.push({ value: max });
     }
   }
+
+  const labelMethod = is('function', makeLabel) ? makeLabel : () => +(value).toFixed();
+
+  const valueLabel = labelMethod(value);
+
   console.log(1, value);
+
   return (
     <Component
       ref={item => {
@@ -564,74 +582,90 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
             classes[`track_size_${size}`]
           ])}
         >
-          {marks_.map((item: any, index: number) => {
-            console.log(1411, index, item.value, valueMark(item.value));
+          {marks_.map((item: any, index: number) => (
+            <span
+              key={index}
 
-            return (
-              <span
-                key={index}
+              className={classNames([
+                staticClassName('Slider', theme) && [
+                  'AmauiSlider-mark'
+                ],
 
-                className={classNames([
-                  staticClassName('Slider', theme) && [
-                    'AmauiSlider-mark'
-                  ],
+                classes.mark,
+                item.value <= value ? classes[`rail_color_${color}`] : [
+                  classes[`track_color_${color}`],
+                  tonal && classes[`track_tonal_color_${color}`]
+                ]
+              ])}
 
-                  classes.mark,
-                  item.value <= value ? classes[`rail_color_${color}`] : [
-                    classes[`track_color_${color}`],
-                    tonal && classes[`track_tonal_color_${color}`]
-                  ]
-                ])}
+              style={{
+                ...(item.value <= value ? styles.markRail : styles.markTrack),
 
-                style={{
-                  ...(item.value <= value ? styles.markRail : styles.markTrack),
-
-                  [propInset]: valueMark(item.value)
-                }}
-              />
-            );
-          })}
+                [propInset]: valueMark(item.value)
+              }}
+            />
+          ))}
         </span>
       )}
 
       {!noButton && (
-        <IconButton
-          size={size}
+        <Tooltip
+          open={label === 'always' || ([true, 'auto'].includes(label) && (hover || mouseDown))}
 
-          color='inherit'
+          label={valueLabel}
 
-          onBlur={onBlur}
+          position='top'
 
-          onFocus={onFocus}
+          alignment='center'
 
-          className={classNames([
-            staticClassName('Slider', theme) && [
-              'AmauiSlider-iconButton'
-            ],
+          arrow
 
-            classes.iconButton,
-            classes[`orientation_${orientation}`],
-            !tonal && classes[`iconButton_color_${color}`],
-            tonal && classes[`iconButton_tonal_color_${color}`],
-          ])}
-
-          style={styles.iconButton}
+          {...TooltipProps}
         >
-          <span
+          <IconButton
+            size={size}
+
+            color='inherit'
+
+            onBlur={onBlur}
+
+            onFocus={onFocus}
+
+            onMouseEnter={onMouseEnter}
+
+            onMouseLeave={onMouseLeave}
+
             className={classNames([
               staticClassName('Slider', theme) && [
-                'AmauiSlider-icon'
+                'AmauiSlider-iconButton'
               ],
 
-              classes.icon,
-              classes[`track_color_${color}`],
-              tonal && classes[`track_tonal_color_${color}`],
-              classes[`icon_size_${size}`]
+              classes.iconButton,
+              classes[`orientation_${orientation}`],
+              !tonal && classes[`iconButton_color_${color}`],
+              tonal && classes[`iconButton_tonal_color_${color}`],
             ])}
 
-            style={styles.icon}
-          />
-        </IconButton>
+            style={styles.iconButton}
+
+            {...IconButton}
+          >
+            <span
+              className={classNames([
+                staticClassName('Slider', theme) && [
+                  'AmauiSlider-icon'
+                ],
+
+                classes.icon,
+                classes[`track_color_${color}`],
+                tonal && classes[`track_tonal_color_${color}`],
+                classes[`icon_size_${size}`]
+              ])}
+
+              style={styles.icon}
+            />
+          </IconButton>
+        </Tooltip>
       )}
     </Component>
   );
