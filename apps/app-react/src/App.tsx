@@ -1041,38 +1041,6 @@ Please sign in again.`}
             />
 
             <Slider
-              valueDefault={[0, 0, 0]}
-
-              marks
-
-              precision={4}
-
-              tooltip
-
-              color='secondary'
-
-              style={{
-                width: 240
-              }}
-            />
-
-            <Slider
-              valueDefault={[84, 24, 40]}
-
-              marks
-
-              precision={4}
-
-              tooltip
-
-              color='secondary'
-
-              style={{
-                width: 240
-              }}
-            />
-
-            <Slider
               valueDefault={[24, 40]}
 
               tooltip
@@ -1106,6 +1074,42 @@ Please sign in again.`}
 
             <Slider
               valueDefault={[24, 40, 84]}
+
+              marks
+
+              precision={4}
+
+              tooltip
+
+              orientation='vertical'
+
+              color='secondary'
+
+              style={{
+                height: 240
+              }}
+            />
+
+            <Slider
+              valueDefault={[0, 0, 0]}
+
+              marks
+
+              precision={4}
+
+              tooltip
+
+              orientation='vertical'
+
+              color='secondary'
+
+              style={{
+                height: 240
+              }}
+            />
+
+            <Slider
+              valueDefault={[84, 24, 40]}
 
               marks
 
@@ -1128,6 +1132,150 @@ Please sign in again.`}
               min={-40}
 
               max={140}
+
+              marks
+
+              precision={4}
+
+              tooltip
+
+              orientation='vertical'
+
+              color='secondary'
+
+              style={{
+                height: 240
+              }}
+            />
+          </Line>
+        </Accordion>
+
+        <Accordion label='Slider inverted' open>
+          <Line align='flex-start' gap={11} style={{ padding: '40px 0' }}>
+            <Slider
+              valueDefault={40}
+              inverted
+
+
+              tooltip
+
+              color='secondary'
+
+              style={{
+                width: 240
+              }}
+            />
+
+            <Slider
+              inverted
+
+              valueDefault={[24, 40]}
+
+              tooltip
+
+              color='secondary'
+
+              style={{
+                width: 240
+              }}
+            />
+
+            <Slider
+              inverted
+
+              valueDefault={[24, 40]}
+
+              marks
+
+              precision={4}
+
+              tooltip
+
+              color='secondary'
+
+              style={{
+                width: 240
+              }}
+            />
+
+            <Slider
+              inverted
+
+              valueDefault={[24, 40, 84]}
+
+              marks
+
+              precision={4}
+
+              tooltip
+
+              color='secondary'
+
+              style={{
+                width: 240
+              }}
+            />
+
+            <Slider
+              inverted
+
+              valueDefault={40}
+
+              precision={4}
+
+              tooltip
+
+              orientation='vertical'
+
+              color='secondary'
+
+              style={{
+                height: 240
+              }}
+            />
+
+            <Slider
+              inverted
+
+              valueDefault={[24, 40]}
+
+              precision={4}
+
+              tooltip
+
+              orientation='vertical'
+
+              color='secondary'
+
+              style={{
+                height: 240
+              }}
+            />
+
+            <Slider
+              inverted
+
+              valueDefault={[24, 40]}
+
+              marks
+
+              precision={4}
+
+              tooltip
+
+              orientation='vertical'
+
+              color='secondary'
+
+              style={{
+                height: 240
+              }}
+            />
+
+            <Slider
+              inverted
+
+              valueDefault={[24, 40, 84]}
 
               marks
 
@@ -1832,6 +1980,40 @@ Please sign in again.`}
             <Slider
               valueDefault={40}
 
+              precision={10}
+
+              noButtons
+
+              marks
+
+              color='secondary'
+
+              style={{
+                width: 140
+              }}
+            />
+
+            <Slider
+              valueDefault={40}
+
+              noButtons
+
+              orientation='vertical'
+
+              marks
+
+              color='secondary'
+
+              style={{
+                height: 140
+              }}
+            />
+
+            <Slider
+              valueDefault={40}
+
+              precision={10}
+
               noButtons
 
               orientation='vertical'
@@ -1961,7 +2143,7 @@ Please sign in again.`}
           </Line>
         </Accordion>
 
-        <Accordion label='Slider no track' open>
+        <Accordion label='Slider noTrack' open>
           <Line gap={5} align='flex-start'>
             <Slider
               valueDefault={40}

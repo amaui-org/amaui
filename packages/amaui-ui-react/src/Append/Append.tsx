@@ -554,7 +554,16 @@ const Append = (props_: any) => {
 
   return (
     <React.Fragment>
-      {children && React.cloneElement(children, { ref: refs.root })}
+      {children && React.cloneElement(children, {
+        ref: item => {
+          if (children.ref) {
+            if (is('function', children.ref)) children.ref(item);
+            else children.ref.current = item;
+          }
+
+          refs.root.current = item;
+        }
+      })}
 
       {/* Method or value */}
       {open && (

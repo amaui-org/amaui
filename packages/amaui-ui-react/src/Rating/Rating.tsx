@@ -68,6 +68,7 @@ const IconMaterialGradeRounded = React.forwardRef((props: any, ref) => {
       ref={ref}
 
       name='GradeRounded'
+
       short_name='Grade'
 
       {...props}
@@ -227,7 +228,12 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
     }
 
     // Value update
-    setValue(valueNew === undefined ? valueNew : +(valueNew).toFixed(2));
+    valueNew = valueNew === undefined ? valueNew : +(valueNew).toFixed(2);
+
+    if (props.hasOwnProperty('value')) {
+      if (is('function', onChange)) onChange(valueNew);
+    }
+    else setValue(valueNew);
   };
 
   const onClear = () => {
@@ -241,11 +247,23 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
 
   const onKeyDown = React.useCallback((event: React.KeyboardEvent<any>) => {
     if (!disabled && !readOnly) {
-      if (['Enter', 'Escape', 'ArrowUp', 'ArrowRight', 'ArrowDown', 'ArrowLeft'].includes(event.key)) {
+      if (['Enter', 'Escape', 'ArrowUp', 'ArrowRight', 'ArrowDown', 'ArrowLeft', 'Home', 'End'].includes(event.key)) {
         // Prevent default
         event.preventDefault();
 
         switch (event.key) {
+          case 'End':
+            if (props.hasOwnProperty('value')) {
+              if (is('function', onChange)) return onChange(0);
+            }
+            else return setValue(0);
+
+          case 'Home':
+            if (props.hasOwnProperty('value')) {
+              if (is('function', onChange)) return onChange(values);
+            }
+            else return setValue(values);
+
           case 'ArrowUp':
           case 'ArrowRight':
             return move();

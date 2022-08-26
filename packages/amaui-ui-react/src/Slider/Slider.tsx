@@ -274,6 +274,11 @@ const useStyle = style(theme => ({
     color: theme.palette.text.default.primary
   },
 
+  focus_outline: {
+    outline: `1px solid ${theme.palette.text.default.secondary}`,
+    outlineOffset: '8px'
+  },
+
   readOnly: {
     cursor: 'default'
   },
@@ -288,12 +293,9 @@ const useStyle = style(theme => ({
 
 // To do
 
-// inverted
-
-// focus and keyboard
+// focus with noButtons
 
 // examples
-// update rating
 
 // wrap up
 
@@ -319,9 +321,11 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
     labels,
     onlyMarks,
     makeLabelTooltip,
+    iconButtonPosition,
     noTrack,
     noButtons,
     square,
+    inverted,
     disabled,
 
     IconButtonProps = {},
@@ -342,10 +346,10 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
 
     return is('array', valueNew) ? valueNew.sort((a, b) => a - b) : valueNew;
   });
-  const [hover, setHover] = React.useState(false);
   const [focus, setFocus] = React.useState(false);
   const [mouseDown, setMouseDown] = React.useState<any>(false);
   const [mouseDownButton, setMouseDownButton] = React.useState<any>(false);
+  const [focusButton, setFocusButton] = React.useState<any>(false);
 
   const refs = {
     root: React.useRef<HTMLSpanElement>(),
@@ -353,13 +357,16 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
     props: React.useRef<any>(),
     mouseDown: React.useRef<any>(),
     mouseDownButton: React.useRef<any>(),
-    direction: React.useRef<any>()
+    focusButton: React.useRef<any>(),
+    direction: React.useRef<any>(),
+    iconButtons: React.useRef<Array<any>>([]),
   };
 
   refs.value.current = value;
   refs.props.current = props;
   refs.mouseDown.current = mouseDown;
   refs.mouseDownButton.current = mouseDownButton;
+  refs.focusButton.current = focusButton;
   refs.direction.current = theme.direction;
 
   const { classes } = useStyle(props);
@@ -439,13 +446,13 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
         if (is('array', refs.value.current)) {
           let index = is('number', refs.mouseDownButton.current) ? refs.mouseDownButton.current : 0;
 
-          if (index > 0 && value__ <= refs.value.current[index - 1]) {
+          if (index > 0 && value__ < refs.value.current[index - 1]) {
             index -= 1;
 
             setMouseDownButton(index);
           }
 
-          if (index < refs.value.current.length - 1 && value__ >= refs.value.current[index + 1]) {
+          if (index < refs.value.current.length - 1 && value__ > refs.value.current[index + 1]) {
             index += 1;
 
             setMouseDownButton(index);
@@ -520,12 +527,131 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
     }
   }, [disabled, readOnly, onChange, value, mouseDownButton]);
 
+  const moveItem = (forward_ = true) => {
+    const forward = theme.direction === 'ltr' ? forward_ : !forward_;
+
+    let valueNew = is('array', refs.value.current) ? [...refs.value.current] : refs.value.current;
+    let index = refs.focusButton.current || 0;
+
+    let value__ = is('array', valueNew) ? valueNew[index] : valueNew;
+
+    // previous value
+    let previous = clamp(+(value__ - precision).toFixed(valueDecimals), min, max);
+
+    if (value__ < 0) previous -= precision;
+
+    previous = clamp(previous, min, max);
+
+    if (onlyMarks && is('array', marks)) {
+      const previousMark = marks.map(item => item.value).sort((a, b) => b - a).find(item => item < value__);
+
+      previous = previousMark !== undefined ? previousMark : min;
+    }
+
+    // next value
+    let next = clamp(+(value__ + precision).toFixed(valueDecimals), min, max);
+
+    if (onlyMarks && is('array', marks)) {
+      const nextMark = marks.map(item => item.value).sort((a, b) => a - b).find(item => item > value__);
+
+      next = nextMark !== undefined ? nextMark : max;
+    }
+
+    next = clamp(next, min, max);
+
+    value__ = forward ? next : previous;
+
+    if (is('array', refs.value.current)) {
+      if (index > 0 && value__ < refs.value.current[index - 1]) {
+        index -= 1;
+
+        refs.focusButton.current = index;
+
+        setFocusButton(index);
+
+        refs.iconButtons.current[index].focus();
+      }
+
+      if (index < refs.value.current.length - 1 && value__ > refs.value.current[index + 1]) {
+        index += 1;
+
+        refs.focusButton.current = index;
+
+        setFocusButton(index);
+
+        refs.iconButtons.current[index].focus();
+      }
+
+      valueNew[index] = value__;
+    }
+    else valueNew = value__;
+
+    if (!equalDeep(valueNew, refs.value.current)) {
+      if (props.hasOwnProperty('value')) {
+        if (is('function', onChange)) onChange(valueNew);
+      }
+      else setValue(valueNew);
+    }
+  };
+
+  const onKeyDown = React.useCallback((event: React.KeyboardEvent<any>) => {
+    if (!disabled && !readOnly) {
+      if (['Enter', 'Escape', 'ArrowUp', 'ArrowRight', 'ArrowDown', 'ArrowLeft', 'Home', 'End'].includes(event.key)) {
+        // Prevent default
+        event.preventDefault();
+
+        let valueNew = refs.value.current;
+
+        switch (event.key) {
+          case 'End':
+            if (is('array', refs.value.current)) {
+              valueNew = [...refs.value.current];
+
+              valueNew[0] = min;
+            } else valueNew = min;
+
+            if (props.hasOwnProperty('value')) {
+              if (is('function', onChange)) return onChange(valueNew);
+            }
+            else return setValue(valueNew);
+
+          case 'Home':
+            if (is('array', refs.value.current)) {
+              valueNew = [...refs.value.current];
+
+              valueNew[valueNew.length - 1] = max;
+            } else valueNew = max;
+
+            if (props.hasOwnProperty('value')) {
+              if (is('function', onChange)) return onChange(valueNew);
+            }
+            else return setValue(valueNew);
+
+          case 'ArrowUp':
+          case 'ArrowRight':
+            return moveItem();
+
+          case 'ArrowDown':
+          case 'ArrowLeft':
+            return moveItem(false);
+
+          default:
+            break;
+        }
+      }
+    }
+  }, [disabled, readOnly, value, precision, focusButton]);
+
   const onFocus = React.useCallback(() => {
     if (!disabled && !readOnly && !mouseDown) setFocus(true);
   }, [disabled, readOnly, mouseDown]);
 
   const onBlur = React.useCallback(() => {
     if (!disabled && !readOnly) setFocus(false);
+  }, [disabled, readOnly]);
+
+  const onFocusButton = React.useCallback((index: number) => {
+    if (!disabled && !readOnly) setFocusButton(index);
   }, [disabled, readOnly]);
 
   const onMouseDownButton = React.useCallback((event: React.TouchEvent<any> | React.MouseEvent<any>, index: number) => {
@@ -589,16 +715,19 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
   const iconButtonStyles = (value__: number) => {
     const style = {};
 
-    if (size === 'small') {
-      style[propInset] = `calc(${valueValue(value__)}% - 15px)`;
-    }
+    if (is('function', iconButtonPosition)) style[propInset] = iconButtonPosition(value__, valueValue(value__), size);
+    else {
+      if (size === 'small') {
+        style[propInset] = `calc(${valueValue(value__)}% - 15px)`;
+      }
 
-    if (size === 'regular') {
-      style[propInset] = `calc(${valueValue(value__)}% - 20px)`;
-    }
+      if (size === 'regular') {
+        style[propInset] = `calc(${valueValue(value__)}% - 20px)`;
+      }
 
-    if (size === 'large') {
-      style[propInset] = `calc(${valueValue(value__)}% - 25px)`;
+      if (size === 'large') {
+        style[propInset] = `calc(${valueValue(value__)}% - 25px)`;
+      }
     }
 
     return style;
@@ -644,9 +773,14 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
     }
   }
 
+  const markTrack = (value__: number) => {
+    if (values.length === 1) return !inverted ? value__ <= values[0] : value__ > values[0];
+    else return !inverted ? value__ >= values[0] && value__ <= values[values.length - 1] : value__ < values[0] || value__ > values[values.length - 1];
+  };
+
   const labelMethod = is('function', makeLabelTooltip) ? makeLabelTooltip : (value__: number) => +(value__).toFixed();
 
-  console.log(1, value, focus, hover, mouseDown, mouseDownButton);
+  console.log(1, value);
   return (
     <Component
       ref={item => {
@@ -655,9 +789,17 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
         refs.root.current = item;
       }}
 
+      tabIndex={noButtons ? 0 : -1}
+
+      onFocus={onFocus}
+
+      onBlur={onBlur}
+
       onTouchStart={onMouseDown}
 
       onMouseDown={onMouseDown}
+
+      onKeyDown={onKeyDown}
 
       className={classNames([
         staticClassName('Slider', theme) && [
@@ -674,6 +816,7 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
         classes.root,
         classes[`color_${color}`],
         tonal && classes[`tonal_color_${color}`],
+        noButtons && focus && classes.focus_outline,
         square && classes.square,
         readOnly && classes.readOnly,
         disabled && classes.disabled
@@ -695,9 +838,14 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
 
           classes.rail,
           classes[`orientation_${orientation}`],
-          classes[`rail_orientation_${orientation}`],
-          classes[`rail_color_${color}`],
-          classes[`rail_orientation_${orientation}_size_${size}`]
+          classes[`rail_orientation_${orientation}`], ,
+          classes[`rail_orientation_${orientation}_size_${size}`],
+          !inverted ? [
+            classes[`rail_color_${color}`]
+          ] : [
+            classes[`track_color_${color}`],
+            tonal && classes[`track_tonal_color_${color}`]
+          ]
         ])}
 
         style={styles.rail}
@@ -713,9 +861,13 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
             classes.track,
             classes[`orientation_${orientation}`],
             classes[`track_orientation_${orientation}`],
-            classes[`track_color_${color}`],
-            tonal && classes[`track_tonal_color_${color}`],
-            classes[`track_orientation_${orientation}_size_${size}`]
+            classes[`track_orientation_${orientation}_size_${size}`],
+            !inverted ? [
+              classes[`track_color_${color}`],
+              tonal && classes[`track_tonal_color_${color}`]
+            ] : [
+              classes[`rail_color_${color}`]
+            ]
           ])}
 
           style={styles.track}
@@ -744,14 +896,14 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
                 ],
 
                 classes.mark,
-                item.value <= value ? classes[`rail_color_${color}`] : [
+                markTrack(item.value) ? classes[`rail_color_${color}`] : [
                   classes[`track_color_${color}`],
                   tonal && classes[`track_tonal_color_${color}`]
                 ]
               ])}
 
               style={{
-                ...(item.value <= value ? styles.markRail : styles.markTrack),
+                ...(markTrack(item.value) ? styles.markRail : styles.markTrack),
 
                 [propInset]: valueMark(item.value)
               }}
@@ -800,7 +952,7 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
         <Tooltip
           key={index}
 
-          {...(tooltip === 'always' ? { open: true } : tooltip === undefined ? { open: false } : {})}
+          {...((tooltip === 'always') || (tooltip !== undefined && mouseDownButton === index) ? { open: true } : tooltip === undefined ? { open: false } : {})}
 
           label={labelMethod(value__)}
 
@@ -815,13 +967,19 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
           {...TooltipProps}
         >
           <IconButton
+            ref={item => refs.iconButtons.current.push(item)}
+
             size={size}
 
             color='inherit'
 
             onBlur={onBlur}
 
-            onFocus={onFocus}
+            onFocus={() => {
+              onFocus();
+
+              onFocusButton(index);
+            }}
 
             onMouseDown={(event: any) => onMouseDownButton(event, index)}
 
