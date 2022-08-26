@@ -1041,6 +1041,38 @@ Please sign in again.`}
             />
 
             <Slider
+              valueDefault={[0, 0, 0]}
+
+              marks
+
+              precision={4}
+
+              tooltip
+
+              color='secondary'
+
+              style={{
+                width: 240
+              }}
+            />
+
+            <Slider
+              valueDefault={[84, 24, 40]}
+
+              marks
+
+              precision={4}
+
+              tooltip
+
+              color='secondary'
+
+              style={{
+                width: 240
+              }}
+            />
+
+            <Slider
               valueDefault={[24, 40]}
 
               tooltip

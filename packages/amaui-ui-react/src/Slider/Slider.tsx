@@ -337,7 +337,11 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
   } = props;
 
   const [init, setInit] = React.useState(false);
-  const [value, setValue] = React.useState((valueDefault !== undefined ? valueDefault : value_) || 0);
+  const [value, setValue] = React.useState(() => {
+    const valueNew = (valueDefault !== undefined ? valueDefault : value_) || 0;
+
+    return is('array', valueNew) ? valueNew.sort((a, b) => a - b) : valueNew;
+  });
   const [hover, setHover] = React.useState(false);
   const [focus, setFocus] = React.useState(false);
   const [mouseDown, setMouseDown] = React.useState<any>(false);
@@ -604,8 +608,8 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
 
   if (values.length === 1) styles.track[propTrac] = `${valueValue()}%`;
   else {
-    const start = values[0];
-    const end = values[values.length - 1];
+    const start = Math.min(...values);
+    const end = Math.max(...values);
 
     if (orientation === 'horizontal') {
       styles.track.insetInlineStart = `${valueValue(start)}%`;
