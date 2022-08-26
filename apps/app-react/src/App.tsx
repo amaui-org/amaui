@@ -541,7 +541,7 @@ const SliderMiUI = sy(Slider)((theme) => ({
   root: {
     width: '170px',
     height: '45px',
-    borderRadius: '24px',
+    borderRadius: '16px',
     overflow: 'hidden',
 
     '& .AmauiSlider-rail': {
@@ -768,6 +768,14 @@ function App() {
 
       <Accordion label='All'>
         <div className={classNames([classes.column])}>
+          <Slider
+            color='secondary'
+
+            style={{
+              width: 140
+            }}
+          />
+
           <Banner
             primary={`Your password was updated on your other device.
 Please sign in again.`}
@@ -1040,6 +1048,8 @@ Please sign in again.`}
 
             <SliderMiUI
               valueDefault={40}
+
+              precision={1}
 
               color='default'
 
