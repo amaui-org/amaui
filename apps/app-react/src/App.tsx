@@ -991,6 +991,40 @@ Please sign in again.`}
             <Slider
               valueDefault={[24, 40]}
 
+              marks
+
+              precision={4}
+
+              tooltip
+
+              color='secondary'
+
+              style={{
+                width: 340
+              }}
+            />
+
+            <Slider
+              valueDefault={[24, 40]}
+
+              tooltip
+
+              orientation='vertical'
+
+              color='secondary'
+
+              style={{
+                height: 340
+              }}
+            />
+
+            <Slider
+              valueDefault={[24, 40]}
+
+              marks
+
+              precision={4}
+
               tooltip
 
               orientation='vertical'
@@ -1671,12 +1705,12 @@ Please sign in again.`}
           </Line>
         </Accordion>
 
-        <Accordion label='Slider noButton' open>
+        <Accordion label='Slider noButtons' open>
           <Line gap={5} align='flex-start'>
             <Slider
               valueDefault={40}
 
-              noButton
+              noButtons
 
               marks
 
@@ -1690,7 +1724,7 @@ Please sign in again.`}
             <Slider
               valueDefault={40}
 
-              noButton
+              noButtons
 
               orientation='vertical'
 
