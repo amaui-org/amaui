@@ -528,7 +528,7 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
   }, [disabled, readOnly, onChange, value, mouseDownButton]);
 
   const moveItem = (forward_ = true) => {
-    const forward = theme.direction === 'ltr' ? forward_ : !forward_;
+    const forward = theme.direction === 'ltr' && orientation === 'horizontal' ? forward_ : !forward_;
 
     let valueNew = is('array', refs.value.current) ? [...refs.value.current] : refs.value.current;
     let index = refs.focusButton.current || 0;
@@ -537,10 +537,6 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
 
     // previous value
     let previous = clamp(+(value__ - precision).toFixed(valueDecimals), min, max);
-
-    if (value__ < 0) previous -= precision;
-
-    previous = clamp(previous, min, max);
 
     if (onlyMarks && is('array', marks)) {
       const previousMark = marks.map(item => item.value).sort((a, b) => b - a).find(item => item < value__);
@@ -556,8 +552,6 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
 
       next = nextMark !== undefined ? nextMark : max;
     }
-
-    next = clamp(next, min, max);
 
     value__ = forward ? next : previous;
 
