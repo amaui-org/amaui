@@ -288,10 +288,6 @@ const useStyle = style(theme => ({
 
 // To do
 
-// multiple value y
-
-// 3 values, and with steps and min, max
-
 // inverted
 
 // focus and keyboard
@@ -406,9 +402,6 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
       const minItem = Math.min(...items);
 
       const index = items.findIndex(item => item === minItem);
-
-      console.log(1.114, valueNew, JSON.stringify(refs.value.current));
-      console.log(1.1114, JSON.stringify(items), minItem, index);
 
       setMouseDownButton(index);
 

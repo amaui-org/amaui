@@ -984,7 +984,7 @@ Please sign in again.`}
               color='secondary'
 
               style={{
-                width: 340
+                width: 240
               }}
             />
 
@@ -1000,7 +1000,43 @@ Please sign in again.`}
               color='secondary'
 
               style={{
-                width: 340
+                width: 240
+              }}
+            />
+
+            <Slider
+              valueDefault={[24, 40, 84]}
+
+              marks
+
+              precision={4}
+
+              tooltip
+
+              color='secondary'
+
+              style={{
+                width: 240
+              }}
+            />
+
+            <Slider
+              valueDefault={[24, 40, 84]}
+
+              min={-40}
+
+              max={140}
+
+              marks
+
+              precision={4}
+
+              tooltip
+
+              color='secondary'
+
+              style={{
+                width: 240
               }}
             />
 
@@ -1014,7 +1050,7 @@ Please sign in again.`}
               color='secondary'
 
               style={{
-                height: 340
+                height: 240
               }}
             />
 
@@ -1032,7 +1068,47 @@ Please sign in again.`}
               color='secondary'
 
               style={{
-                height: 340
+                height: 240
+              }}
+            />
+
+            <Slider
+              valueDefault={[24, 40, 84]}
+
+              marks
+
+              precision={4}
+
+              tooltip
+
+              orientation='vertical'
+
+              color='secondary'
+
+              style={{
+                height: 240
+              }}
+            />
+
+            <Slider
+              valueDefault={[24, 40, 84]}
+
+              min={-40}
+
+              max={140}
+
+              marks
+
+              precision={4}
+
+              tooltip
+
+              orientation='vertical'
+
+              color='secondary'
+
+              style={{
+                height: 240
               }}
             />
           </Line>
@@ -1848,6 +1924,34 @@ Please sign in again.`}
 
               style={{
                 height: 140
+              }}
+            />
+          </Line>
+        </Accordion>
+
+        <Accordion label='Slider no track' open>
+          <Line gap={5} align='flex-start'>
+            <Slider
+              valueDefault={40}
+
+              noTrack
+
+              color='secondary'
+
+              style={{
+                width: 140
+              }}
+            />
+
+            <Slider
+              valueDefault={[24, 40, 74]}
+
+              noTrack
+
+              color='secondary'
+
+              style={{
+                width: 140
               }}
             />
           </Line>
