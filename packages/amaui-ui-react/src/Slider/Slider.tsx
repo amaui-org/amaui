@@ -293,8 +293,6 @@ const useStyle = style(theme => ({
 
 // To do
 
-// focus with noButtons
-
 // examples
 
 // wrap up
@@ -528,7 +526,7 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
   }, [disabled, readOnly, onChange, value, mouseDownButton]);
 
   const moveItem = (forward_ = true) => {
-    const forward = theme.direction === 'ltr' && orientation === 'horizontal' ? forward_ : !forward_;
+    const forward = (orientation === 'vertical' || (theme.direction === 'ltr' && orientation === 'horizontal')) ? forward_ : !forward_;
 
     let valueNew = is('array', refs.value.current) ? [...refs.value.current] : refs.value.current;
     let index = refs.focusButton.current || 0;
