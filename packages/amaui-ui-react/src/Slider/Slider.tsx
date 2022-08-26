@@ -234,6 +234,46 @@ const useStyle = style(theme => ({
     ...vertical
   },
 
+  labels: {
+    position: 'absolute',
+    userSelect: 'none'
+  },
+
+  labels_orientation_horizontal: {
+    width: '100%',
+    left: 0,
+    top: '15px'
+  },
+
+  labels_orientation_vertical: {
+    height: '100%',
+    top: 0,
+    insetInlineStart: '21px'
+  },
+
+  label: {
+    position: 'absolute',
+    ...theme.typography.values.b2,
+    transition: theme.methods.transitions.make('color', { duration: 'xs' }),
+    color: theme.palette.text.default.secondary
+  },
+
+  label_orientation_horizontal: {
+    transform: 'translateX(-50%)'
+  },
+
+  label_orientation_horizontal_rtl: {
+    transform: 'translateX(50%)'
+  },
+
+  label_orientation_vertical: {
+    transform: 'translateY(50%)'
+  },
+
+  label_active: {
+    color: theme.palette.text.default.primary
+  },
+
   readOnly: {
     cursor: 'default'
   },
@@ -248,8 +288,6 @@ const useStyle = style(theme => ({
 
 // To do
 
-// marks only with no precision
-// labels
 // multiple value y
 // inverted
 // focus and keyboard
@@ -269,7 +307,6 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
     color: color_ = 'primary',
     size = 'regular',
     orientation = 'horizontal',
-    square,
     value: value_,
     valueDefault,
     onChange,
@@ -279,8 +316,11 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
     min = 0,
     max = 100,
     tooltip,
+    labels,
+    onlyMarks,
     makeLabelTooltip,
     noButton,
+    square,
     disabled,
 
     IconButtonProps = {},
@@ -336,10 +376,22 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
 
     if (value__ < 0) previous -= precision;
 
-    // next value
-    const next = clamp(+(previous + precision).toFixed(valueDecimals), min, max);
+    if (onlyMarks && is('array', marks)) {
+      const previousMark = marks.map(item => item.value).sort((a, b) => b - a).find(item => item <= value__);
 
-    return value__ < previous + (precision / 2) ? previous : next;
+      previous = previousMark !== undefined ? previousMark : min;
+    }
+
+    // next value
+    let next = clamp(+(previous + precision).toFixed(valueDecimals), min, max);
+
+    if (onlyMarks && is('array', marks)) {
+      const nextMark = marks.map(item => item.value).sort((a, b) => a - b).find(item => item >= value__);
+
+      next = nextMark !== undefined ? nextMark : max;
+    }
+
+    return value__ < previous + ((next - previous) / 2) ? previous : next;
   };
 
   React.useEffect(() => {
@@ -394,7 +446,7 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
       // Value to the precision point value
       const value__ = valuePrecision(orientation === 'horizontal' ? (x - rect.x) / width : (1 - (y - rect.y) / height));
 
-      if (value__ !== value) {
+      if (value__ !== refs.value.current) {
         if (props.hasOwnProperty('value')) {
           if (is('function', onChange)) onChange(value__);
         }
@@ -494,21 +546,21 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
 
   let marks_ = [];
 
-  if (!!marks && marksValue <= 1e3) {
-    if (is('object', marks)) marks_ = marks;
-    else {
+  if (!!marks) {
+    if (is('array', marks)) marks_ = marks;
+    else if (marksValue <= 1e3) {
       let markSum = min;
       let index = 1;
 
-      marks_.push({ value: min });
+      marks_.push({ value: min, label: min });
 
       while (markSum <= max) {
         markSum = min + (precision * index++);
 
-        if (markSum < max) marks_.push({ value: markSum });
+        if (markSum < max) marks_.push({ value: markSum, label: markSum });
       }
 
-      marks_.push({ value: max });
+      marks_.push({ value: max, label: max });
     }
   }
 
@@ -517,7 +569,6 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
   const valueLabel = labelMethod(value);
 
   console.log(1, value, focus, hover);
-
   return (
     <Component
       ref={item => {
@@ -629,17 +680,55 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
         </span>
       )}
 
+      {labels && !!marks_.length && (
+        <span
+          className={classNames([
+            staticClassName('Slider', theme) && [
+              'AmauiSlider-labels'
+            ],
+
+            classes.labels,
+            classes[`labels_orientation_${orientation}`]
+          ])}
+        >
+          {marks_.map((item: any, index: number) => (
+            <span
+              key={index}
+
+              className={classNames([
+                staticClassName('Slider', theme) && [
+                  'AmauiSlider-label'
+                ],
+
+                classes.label,
+                classes[`label_orientation_${orientation}`],
+                theme.direction === 'rtl' && classes[`label_orientation_${orientation}_rtl`],
+                item.value <= value && classes.label_active
+              ])}
+
+              style={{
+                [propInset]: valueMark(item.value)
+              }}
+            >
+              {item.label}
+            </span>
+          ))}
+        </span>
+      )}
+
       {!noButton && (
         <Tooltip
           open={tooltip === 'always' || ([true, 'auto'].includes(tooltip) && (hover || mouseDown))}
 
           label={valueLabel}
 
-          position='top'
+          position={orientation === 'horizontal' ? 'top' : theme.direction === 'ltr' ? 'left' : 'right'}
 
           alignment='center'
 
           arrow
+
+          noMargin
 
           {...TooltipProps}
         >

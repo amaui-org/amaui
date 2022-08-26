@@ -1442,6 +1442,75 @@ Please sign in again.`}
           </Line>
         </Accordion>
 
+        <Accordion label='Slider onlyMarks' open>
+          <Slider
+            onlyMarks
+
+            marks={[
+              { value: 0, label: '0°C' },
+              { value: 20, label: '20°C' },
+              { value: 37, label: '37°C' },
+              { value: 100, label: '100°C' }
+            ]}
+
+            tooltip
+
+            color='secondary'
+
+            style={{
+              width: 140
+            }}
+          />
+        </Accordion>
+
+        <Accordion label='Slider labels' open>
+          <Line align='flex-start' gap={11} style={{ padding: '40px 0' }}>
+            <Slider
+              labels
+
+              onlyMarks
+
+              marks={[
+                { value: 0, label: '0°C' },
+                { value: 20, label: '20°C' },
+                { value: 37, label: '37°C' },
+                { value: 100, label: '100°C' }
+              ]}
+
+              tooltip
+
+              color='secondary'
+
+              style={{
+                width: 340
+              }}
+            />
+
+            <Slider
+              labels
+
+              onlyMarks
+
+              marks={[
+                { value: 0, label: '0°C' },
+                { value: 20, label: '20°C' },
+                { value: 37, label: '37°C' },
+                { value: 100, label: '100°C' }
+              ]}
+
+              tooltip
+
+              orientation='vertical'
+
+              color='secondary'
+
+              style={{
+                height: 340
+              }}
+            />
+          </Line>
+        </Accordion>
+
         <Accordion label='Slider vertical' open>
           <Line gap={5} align='flex-start'>
             <Slider
@@ -1724,7 +1793,7 @@ Please sign in again.`}
           <Slider
             valueDefault={40}
 
-            label
+            tooltip
 
             readOnly
 
@@ -1740,7 +1809,7 @@ Please sign in again.`}
           <Slider
             valueDefault={40}
 
-            label
+            tooltip
 
             disabled
 

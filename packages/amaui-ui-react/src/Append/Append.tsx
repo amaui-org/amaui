@@ -21,7 +21,9 @@ const Append = (props_: any) => {
   const refs = {
     root: React.useRef<HTMLElement>(),
     element: React.useRef<HTMLElement>(),
-    values: React.useRef(values)
+    values: React.useRef(values),
+    alignment: React.useRef<any>(),
+    position: React.useRef<any>()
   };
 
   const {
@@ -45,6 +47,9 @@ const Append = (props_: any) => {
 
     children
   } = props;
+
+  refs.alignment.current = alignment_;
+  refs.position.current = position_;
 
   if (anchorElement) refs.root.current = anchorElement;
 
@@ -179,7 +184,7 @@ const Append = (props_: any) => {
   };
 
   const make = (
-    value = { position: position_, alignment: alignment_, inset: inset_, switch: false },
+    value = { position: refs.position.current, alignment: refs.alignment.current, inset: inset_, switch: false },
     values__ = getValues()
   ) => {
     if (!values__) return;
