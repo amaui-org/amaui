@@ -974,6 +974,36 @@ Please sign in again.`}
           />
         </Accordion>
 
+        <Accordion label='Slider range' open>
+          <Line align='flex-start' gap={11} style={{ padding: '40px 0' }}>
+            <Slider
+              valueDefault={[24, 40]}
+
+              tooltip
+
+              color='secondary'
+
+              style={{
+                width: 340
+              }}
+            />
+
+            <Slider
+              valueDefault={[24, 40]}
+
+              tooltip
+
+              orientation='vertical'
+
+              color='secondary'
+
+              style={{
+                height: 340
+              }}
+            />
+          </Line>
+        </Accordion>
+
         <Accordion label='Slider tooltip' open>
           <Line gap={11}>
             <Slider

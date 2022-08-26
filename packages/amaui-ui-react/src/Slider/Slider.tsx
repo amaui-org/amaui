@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { clamp, is } from '@amaui/utils';
+import { clamp, equalDeep, is } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import { percentageWithinRange, staticClassName, valueWithinRangePercentage } from '../utils';
@@ -290,6 +290,7 @@ const useStyle = style(theme => ({
 
 // multiple value y
 // inverted
+
 // focus and keyboard
 
 // examples
@@ -319,6 +320,7 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
     labels,
     onlyMarks,
     makeLabelTooltip,
+    noTrack,
     noButton,
     square,
     disabled,
@@ -410,7 +412,7 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
         // Value to the precision point value
         const value__ = valuePrecision(orientation === 'horizontal' ? (clientX - rect.x) / width : (1 - (clientY - rect.y) / height));
 
-        if (value__ !== refs.value.current) {
+        if (!equalDeep(value__, refs.value.current)) {
           if (props.hasOwnProperty('value')) {
             if (is('function', refs.props.current.onChange)) refs.props.current.onChange(value__);
           }
@@ -446,7 +448,7 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
       // Value to the precision point value
       const value__ = valuePrecision(orientation === 'horizontal' ? (x - rect.x) / width : (1 - (y - rect.y) / height));
 
-      if (value__ !== refs.value.current) {
+      if (!equalDeep(value__, refs.value.current)) {
         if (props.hasOwnProperty('value')) {
           if (is('function', onChange)) onChange(value__);
         }
@@ -456,15 +458,7 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
     }
   }, [disabled, readOnly, onChange, value]);
 
-  const onMouseEnter = React.useCallback(() => {
-    if (!disabled) setHover(true);
-  }, [disabled, readOnly]);
-
-  const onMouseLeave = React.useCallback(() => {
-    if (!disabled) setHover(false);
-  }, [disabled, readOnly]);
-
-  const onFocus = React.useCallback((event) => {
+  const onFocus = React.useCallback(() => {
     if (!disabled && !readOnly && !mouseDown) setFocus(true);
   }, [disabled, readOnly, mouseDown]);
 
@@ -502,7 +496,9 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
     styles.markTrack.background = styles.icon.background = styles.track.background = styles.iconButton.color = !tonal ? palette.main : theme.methods.palette.color.value(undefined, 70, true, palette);
   }
 
-  const valueValue = (value__: any = value) => {
+  const values = (is('array', value) ? value : [value]);
+
+  const valueValue = (value__: any = values[0]) => {
     let valueNew = value__;
 
     if (value__ === min) valueNew = 0;
@@ -524,23 +520,41 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
 
   const propInset = orientation === 'horizontal' ? 'insetInlineStart' : 'insetBlockEnd';
 
-  const valuePercent = valueValue();
+  const iconButtonStyles = (value__: number) => {
+    const style = {};
 
-  if (size === 'small') {
-    styles.iconButton[propInset] = `calc(${valuePercent}% - 15px)`;
-  }
+    if (size === 'small') {
+      style[propInset] = `calc(${valueValue(value__)}% - 15px)`;
+    }
 
-  if (size === 'regular') {
-    styles.iconButton[propInset] = `calc(${valuePercent}% - 20px)`;
-  }
+    if (size === 'regular') {
+      style[propInset] = `calc(${valueValue(value__)}% - 20px)`;
+    }
 
-  if (size === 'large') {
-    styles.iconButton[propInset] = `calc(${valuePercent}% - 25px)`;
-  }
+    if (size === 'large') {
+      style[propInset] = `calc(${valueValue(value__)}% - 25px)`;
+    }
+
+    return style;
+  };
 
   const propTrac = orientation === 'horizontal' ? 'width' : 'height';
 
-  styles.track[propTrac] = `${valuePercent}%`;
+  if (values.length === 1) styles.track[propTrac] = `${valueValue()}%`;
+  else {
+    const start = values[0];
+    const end = values[values.length - 1];
+
+    if (orientation === 'horizontal') {
+      styles.track.insetInlineStart = `${valueValue(start)}%`;
+      styles.track.insetInlineEnd = `${100 - valueValue(end)}%`;
+    }
+
+    if (orientation === 'vertical') {
+      styles.track.insetBlockStart = `${100 - valueValue(end)}%`;
+      styles.track.insetBlockEnd = `${valueValue(start)}%`;
+    }
+  }
 
   const marksValue = Math.ceil((max - min) / precision);
 
@@ -564,9 +578,7 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
     }
   }
 
-  const labelMethod = is('function', makeLabelTooltip) ? makeLabelTooltip : () => +(value).toFixed();
-
-  const valueLabel = labelMethod(value);
+  const labelMethod = is('function', makeLabelTooltip) ? makeLabelTooltip : (value__: number) => +(value__).toFixed();
 
   console.log(1, value, focus, hover);
   return (
@@ -625,22 +637,24 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
         style={styles.rail}
       />
 
-      <span
-        className={classNames([
-          staticClassName('Slider', theme) && [
-            'AmauiSlider-track'
-          ],
+      {!noTrack && (
+        <span
+          className={classNames([
+            staticClassName('Slider', theme) && [
+              'AmauiSlider-track'
+            ],
 
-          classes.track,
-          classes[`orientation_${orientation}`],
-          classes[`track_orientation_${orientation}`],
-          classes[`track_color_${color}`],
-          tonal && classes[`track_tonal_color_${color}`],
-          classes[`track_orientation_${orientation}_size_${size}`]
-        ])}
+            classes.track,
+            classes[`orientation_${orientation}`],
+            classes[`track_orientation_${orientation}`],
+            classes[`track_color_${color}`],
+            tonal && classes[`track_tonal_color_${color}`],
+            classes[`track_orientation_${orientation}_size_${size}`]
+          ])}
 
-        style={styles.track}
-      />
+          style={styles.track}
+        />
+      )}
 
       {!!marks_.length && (
         <span
@@ -716,11 +730,11 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
         </span>
       )}
 
-      {!noButton && (
+      {!noButton && values.map((value__: number) => (
         <Tooltip
-          open={tooltip === 'always' || ([true, 'auto'].includes(tooltip) && (hover || mouseDown))}
+          {...(tooltip === 'always' ? { open: true } : tooltip === undefined ? { open: false } : {})}
 
-          label={valueLabel}
+          label={labelMethod(value__)}
 
           position={orientation === 'horizontal' ? 'top' : theme.direction === 'ltr' ? 'left' : 'right'}
 
@@ -741,10 +755,6 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
 
             onFocus={onFocus}
 
-            onMouseEnter={onMouseEnter}
-
-            onMouseLeave={onMouseLeave}
-
             className={classNames([
               staticClassName('Slider', theme) && [
                 'AmauiSlider-iconButton'
@@ -756,7 +766,7 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
               tonal && classes[`iconButton_tonal_color_${color}`],
             ])}
 
-            style={styles.iconButton}
+            style={iconButtonStyles(value__)}
 
             {...IconButton}
           >
@@ -776,7 +786,7 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
             />
           </IconButton>
         </Tooltip>
-      )}
+      ))}
     </Component>
   );
 });
