@@ -21312,6 +21312,42 @@ Please sign in again.`}
           </div>
         </Accordion>
 
+        <Accordion label='Buttons chip disabled' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Buttons color='default' version='outlined' select='single' noCheckIcon chip disabled>
+              <Chip icon><IconMaterialFormatAlignLeftRounded /></Chip>
+              <Chip icon><IconMaterialFormatAlignCenterRounded /></Chip>
+              <Chip icon><IconMaterialFormatAlignRightRounded /></Chip>
+              <Chip icon disabled><IconMaterialFormatAlignJustifyRounded /></Chip>
+            </Buttons>
+          </div>
+        </Accordion>
+
+        <Accordion label='Buttons chip disabled' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Buttons color='default' version='filled' select='single' noCheckIcon chip disabled>
+              <Chip icon><IconMaterialFormatAlignLeftRounded /></Chip>
+              <Chip icon><IconMaterialFormatAlignCenterRounded /></Chip>
+              <Chip icon><IconMaterialFormatAlignRightRounded /></Chip>
+              <Chip icon disabled><IconMaterialFormatAlignJustifyRounded /></Chip>
+            </Buttons>
+          </div>
+        </Accordion>
+
+        <Accordion label='Buttons disabled' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Buttons color='default' version='filled' select='single' disabled>
+              <Button>Button one</Button>
+              <Button>Button two</Button>
+              <Button>Button three</Button>
+              <Button>Button four</Button>
+              <Button>Button five</Button>
+              <Button>Button seven</Button>
+              <Button>Button fourteen</Button>
+            </Buttons>
+          </div>
+        </Accordion>
+
         <Accordion label='Buttons vertical select multi' open>
           <div className={classNames([classes.row, classes.center])}>
             <Buttons color='default' version='text' select='multi' fullWidth vertical>

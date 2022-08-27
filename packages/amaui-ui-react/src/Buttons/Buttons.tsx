@@ -20,30 +20,18 @@ const useStyle = style(theme => ({
   },
 
   // Size
-  size_small: {
-    borderRadius: `${theme.shape.radius.unit * 2}px`
-  },
+  size_small: { borderRadius: `${theme.shape.radius.unit * 2}px` },
 
-  size_regular: {
-    borderRadius: `${theme.shape.radius.unit * 2.5}px`
-  },
+  size_regular: { borderRadius: `${theme.shape.radius.unit * 2.5}px` },
 
-  size_large: {
-    borderRadius: `${theme.shape.radius.unit * 3.5}px`
-  },
+  size_large: { borderRadius: `${theme.shape.radius.unit * 3.5}px` },
 
   // Size
-  chip_size_small: {
-    borderRadius: `${theme.shape.radius.unit - (theme.shape.radius.unit / 4)}px`
-  },
+  chip_size_small: { borderRadius: `${theme.shape.radius.unit - (theme.shape.radius.unit / 4)}px` },
 
-  chip_size_regular: {
-    borderRadius: `${theme.shape.radius.unit}px`
-  },
+  chip_size_regular: { borderRadius: `${theme.shape.radius.unit}px` },
 
-  chip_size_large: {
-    borderRadius: `${theme.shape.radius.unit + (theme.shape.radius.unit / 4)}px`
-  },
+  chip_size_large: { borderRadius: `${theme.shape.radius.unit + (theme.shape.radius.unit / 4)}px` },
 
   // Shadows
   elevation: {
@@ -118,6 +106,10 @@ const useStyle = style(theme => ({
 
   selected: {
     zIndex: 1
+  },
+
+  disabled: {
+    boxShadow: 'none'
   }
 }), { name: 'AmauiButtons' });
 
@@ -353,16 +345,16 @@ const Buttons = React.forwardRef((props_: any, ref: any) => {
         )
       } : {}),
 
-      version,
-      color: selected.includes(index) ? colorSelected || color : color,
-      size,
-      tonal,
+      version: item.props?.version !== undefined ? item.props.version : version,
+      color: selected.includes(index) ? colorSelected || (item.props?.color !== undefined ? item.props.color : color) : (item.props?.color !== undefined ? item.props.color : color),
+      size: item.props?.size !== undefined ? item.props.size : size,
+      tonal: item.props?.tonal !== undefined ? item.props.tonal : tonal,
 
       elevation: false,
 
       selected: selected.includes(index),
 
-      disabled
+      disabled: item.props?.disabled !== undefined ? item.props.disabled : disabled
     }));
 
   console.log(1, colorSelected);
@@ -393,6 +385,7 @@ const Buttons = React.forwardRef((props_: any, ref: any) => {
         vertical && classes.vertical,
         fullWidth && classes.fullWidth,
         elevation && !disabled && ['filled', 'tonal'].includes(version) && classes.elevation,
+        disabled && classes.disabled
       ])}
 
       {...other}
