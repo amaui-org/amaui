@@ -1034,6 +1034,16 @@ Please sign in again.`}
         </div>
       </Accordion>
 
+      <Accordion label='Expand'>
+        <Line>
+          <Button onClick={() => update('e')} color='secondary' size='small'>a</Button>
+
+          <Expand in={a.e}>
+            <div className={classes.div} />
+          </Expand>
+        </Line>
+      </Accordion>
+
       <Accordion label='Toggle buttons'>
         <Accordion label='Toggle buttons' open>
           <Line>

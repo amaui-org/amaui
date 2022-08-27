@@ -75,8 +75,24 @@ const Expand = React.forwardRef((props_: any, ref: any) => {
   if (orientation === 'horizontal') prop = 'width';
 
   const styles = {
-    enter: {
+    appended: {
+      visibility: 'hidden'
+    },
+
+    add: {
+      [prop]: 0,
+      overflow: 'hidden'
+    },
+    adding: {
       [prop]: rect && `${rect[prop]}px`,
+      overflow: 'hidden'
+    },
+    added: {
+      [prop]: rect && `${rect[prop]}px`
+    },
+
+    enter: {
+      [prop]: 0,
       overflow: 'hidden'
     },
     entering: {
@@ -86,6 +102,7 @@ const Expand = React.forwardRef((props_: any, ref: any) => {
     entered: {
       [prop]: rect && `${rect[prop]}px`
     },
+
     exit: {
       [prop]: expandSize !== undefined ? expandSize : '0',
       overflow: 'hidden'
@@ -112,6 +129,9 @@ const Expand = React.forwardRef((props_: any, ref: any) => {
 
   return (
     <Transition
+      append
+      // removeOnExited
+
       {...props}
 
       onInit={element => setRect(element?.getBoundingClientRect())}
@@ -135,7 +155,7 @@ const Expand = React.forwardRef((props_: any, ref: any) => {
 
             visibility: status === 'exited' && !inProp && expandSize === undefined ? 'hidden' : undefined,
 
-            ...(rect && styles[status] || {}),
+            ...(styles[status] || {}),
 
             ...(children?.props?.style || {}),
           }

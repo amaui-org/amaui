@@ -154,9 +154,11 @@ function Transition(props_: IProps) {
 
     return statusNew;
   });
+
   const subs = React.useRef({
     status: new AmauiSubscription()
   });
+
   const refs = {
     root: React.useRef<HTMLElement>(),
     status: React.useRef(status)
