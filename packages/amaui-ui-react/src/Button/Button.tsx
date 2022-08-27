@@ -132,7 +132,7 @@ const useStyle = style(theme => ({
 
   chip_size_regular: {
     padding: `8px 16px`,
-    borderRadius: `${theme.shape.radius.unit}px`,
+    borderRadius: `${theme.shape.radius.unit}px`
   },
 
   chip_size_large: {
@@ -321,7 +321,6 @@ const Button = React.forwardRef((props_: any, ref: any) => {
     size = 'regular',
     color: color_ = 'primary',
     tonal,
-
     prefer = 'light',
     fullWidth,
     selected,
@@ -337,22 +336,21 @@ const Button = React.forwardRef((props_: any, ref: any) => {
     loadingLabel,
     loadingIcon = <RoundProgress size='small' />,
     loadingIconPosition = 'center',
-    disabled: disabled_,
-
-    Component = props.href ? 'a' : 'button',
-
-    InteractionProps = {},
-
     fab,
     chip,
     icon,
     focus: focus_,
+    value,
+    onFocus: onFocus_,
+    onBlur: onBlur_,
+    onSelected,
+    onUnselected,
+    disabled: disabled_,
+    InteractionProps = {},
+    Component = props.href ? 'a' : 'button',
 
     className,
     style,
-
-    onFocus: onFocus_,
-    onBlur: onBlur_,
 
     children,
 

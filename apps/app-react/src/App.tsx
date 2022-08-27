@@ -2,7 +2,7 @@ import React from 'react';
 
 import { countries } from '@amaui/utils';
 import { AmauiTheme, AmauiThemeProvider, classNames, style, sy, useAmauiTheme } from '@amaui/style-react';
-import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, ButtonGroup, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, ChipGroup, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider } from '@amaui/ui-react';
+import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider } from '@amaui/ui-react';
 
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
@@ -21,6 +21,10 @@ import IconMaterialArrowRightRounded from '@amaui/icons-material-react/build/Ico
 import IconMaterialSentimentDissatisfiedRounded from '@amaui/icons-material-react/build/IconMaterialSentimentDissatisfiedRounded';
 import IconMaterialSentimentNeutralRounded from '@amaui/icons-material-react/build/IconMaterialSentimentNeutralRounded';
 import IconMaterialSentimentSatisfiedRounded from '@amaui/icons-material-react/build/IconMaterialSentimentSatisfiedRounded';
+import IconMaterialFormatAlignLeftRounded from '@amaui/icons-material-react/build/IconMaterialFormatAlignLeftRounded';
+import IconMaterialFormatAlignRightRounded from '@amaui/icons-material-react/build/IconMaterialFormatAlignRightRounded';
+import IconMaterialFormatAlignCenterRounded from '@amaui/icons-material-react/build/IconMaterialFormatAlignCenterRounded';
+import IconMaterialFormatAlignJustifyRounded from '@amaui/icons-material-react/build/IconMaterialFormatAlignJustifyRounded';
 
 const useStyleA = style(theme => ({
   a: {
@@ -331,7 +335,7 @@ const styled = {
       }
     }
   })),
-  ChipGroup: sy(ChipGroup)((theme: AmauiTheme) => ({
+  Chips: sy(Chips)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
         opacity: 0.4
@@ -431,7 +435,7 @@ const styled = {
       }
     }
   })),
-  ButtonGroup: sy(ButtonGroup)((theme: AmauiTheme) => ({
+  Buttons: sy(Buttons)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
         opacity: 0.4
@@ -671,7 +675,7 @@ function App() {
   };
 
   // React.useEffect(() => {
-  //   const id = setInterval(() => setProgress(item => item >= 100 ? 0 : item + 10), 1000);
+  //   const id = setInterval(() => setProgress(item => item>= 100 ? 0 : item + 10), 1000);
 
   //   return () => {
   //     clearInterval(id);
@@ -16555,10 +16559,10 @@ Please sign in again.`}
         </Accordion>
       </Accordion>
 
-      <Accordion label='ChipGroup'>
-        <Accordion label='ChipGroup' open>
+      <Accordion label='Chips'>
+        <Accordion label='Chips' open>
           <div className={classNames([classes.row, classes.center])}>
-            <ChipGroup startIcon={<IconMaterialPottedPlantRounded />}>
+            <Chips startIcon={<IconMaterialPottedPlantRounded />}>
               <Chip>Assistive</Chip>
               <Chip>Assistive 1</Chip>
               <Chip>Assistive 3</Chip>
@@ -16566,13 +16570,13 @@ Please sign in again.`}
               <Chip>Assistive 14</Chip>
               <Chip>Assistive 114</Chip>
               <Chip>Assistive 1114</Chip>
-            </ChipGroup>
+            </Chips>
           </div>
         </Accordion>
 
-        <Accordion label='ChipGroup color' open>
+        <Accordion label='Chips color' open>
           <div className={classNames([classes.row, classes.center])}>
-            <ChipGroup color='secondary' tonal>
+            <Chips color='secondary' tonal>
               <Chip>Assistive</Chip>
               <Chip>Assistive 1</Chip>
               <Chip>Assistive 3</Chip>
@@ -16580,13 +16584,13 @@ Please sign in again.`}
               <Chip>Assistive 14</Chip>
               <Chip>Assistive 114</Chip>
               <Chip>Assistive 1114</Chip>
-            </ChipGroup>
+            </Chips>
           </div>
         </Accordion>
 
-        <Accordion label='ChipGroup color Chip override' open>
+        <Accordion label='Chips color Chip override' open>
           <div className={classNames([classes.row, classes.center])}>
-            <ChipGroup color='secondary' tonal>
+            <Chips color='secondary' tonal>
               <Chip>Assistive</Chip>
               <Chip color='primary'>Assistive 1</Chip>
               <Chip>Assistive 3</Chip>
@@ -16594,13 +16598,13 @@ Please sign in again.`}
               <Chip>Assistive 14</Chip>
               <Chip>Assistive 114</Chip>
               <Chip>Assistive 1114</Chip>
-            </ChipGroup>
+            </Chips>
           </div>
         </Accordion>
 
-        <Accordion label='ChipGroup wrap' open>
+        <Accordion label='Chips wrap' open>
           <div className={classNames([classes.row, classes.center])}>
-            <ChipGroup wrap>
+            <Chips wrap>
               <Chip>Assistive</Chip>
               <Chip>Assistive 1</Chip>
               <Chip>Assistive 3</Chip>
@@ -16608,13 +16612,13 @@ Please sign in again.`}
               <Chip>Assistive 14</Chip>
               <Chip>Assistive 114</Chip>
               <Chip>Assistive 1114</Chip>
-            </ChipGroup>
+            </Chips>
           </div>
         </Accordion>
 
-        <Accordion label='ChipGroup size' open>
+        <Accordion label='Chips size' open>
           <div className={classNames([classes.row, classes.center])}>
-            <ChipGroup size='small' >
+            <Chips size='small'>
               <Chip>Assistive</Chip>
               <Chip>Assistive 1</Chip>
               <Chip>Assistive 3</Chip>
@@ -16622,9 +16626,9 @@ Please sign in again.`}
               <Chip>Assistive 14</Chip>
               <Chip>Assistive 114</Chip>
               <Chip>Assistive 1114</Chip>
-            </ChipGroup>
+            </Chips>
 
-            <ChipGroup size='small' wrap>
+            <Chips size='small' wrap>
               <Chip>Assistive</Chip>
               <Chip>Assistive 1</Chip>
               <Chip>Assistive 3</Chip>
@@ -16632,9 +16636,9 @@ Please sign in again.`}
               <Chip>Assistive 14</Chip>
               <Chip>Assistive 114</Chip>
               <Chip>Assistive 1114</Chip>
-            </ChipGroup>
+            </Chips>
 
-            <ChipGroup size='regular' >
+            <Chips size='regular'>
               <Chip>Assistive</Chip>
               <Chip>Assistive 1</Chip>
               <Chip>Assistive 3</Chip>
@@ -16642,9 +16646,9 @@ Please sign in again.`}
               <Chip>Assistive 14</Chip>
               <Chip>Assistive 114</Chip>
               <Chip>Assistive 1114</Chip>
-            </ChipGroup>
+            </Chips>
 
-            <ChipGroup size='regular' wrap>
+            <Chips size='regular' wrap>
               <Chip>Assistive</Chip>
               <Chip>Assistive 1</Chip>
               <Chip>Assistive 3</Chip>
@@ -16652,9 +16656,9 @@ Please sign in again.`}
               <Chip>Assistive 14</Chip>
               <Chip>Assistive 114</Chip>
               <Chip>Assistive 1114</Chip>
-            </ChipGroup>
+            </Chips>
 
-            <ChipGroup size='large' >
+            <Chips size='large'>
               <Chip>Assistive</Chip>
               <Chip>Assistive 1</Chip>
               <Chip>Assistive 3</Chip>
@@ -16662,9 +16666,9 @@ Please sign in again.`}
               <Chip>Assistive 14</Chip>
               <Chip>Assistive 114</Chip>
               <Chip>Assistive 1114</Chip>
-            </ChipGroup>
+            </Chips>
 
-            <ChipGroup size='large' wrap>
+            <Chips size='large' wrap>
               <Chip>Assistive</Chip>
               <Chip>Assistive 1</Chip>
               <Chip>Assistive 3</Chip>
@@ -16672,13 +16676,13 @@ Please sign in again.`}
               <Chip>Assistive 14</Chip>
               <Chip>Assistive 114</Chip>
               <Chip>Assistive 1114</Chip>
-            </ChipGroup>
+            </Chips>
           </div>
         </Accordion>
 
-        <Accordion label='ChipGroup disabled' open>
+        <Accordion label='Chips disabled' open>
           <div className={classNames([classes.row, classes.center])}>
-            <ChipGroup disabled>
+            <Chips disabled>
               <Chip>Assistive</Chip>
               <Chip>Assistive 1</Chip>
               <Chip>Assistive 3</Chip>
@@ -16686,13 +16690,13 @@ Please sign in again.`}
               <Chip>Assistive 14</Chip>
               <Chip>Assistive 114</Chip>
               <Chip>Assistive 1114</Chip>
-            </ChipGroup>
+            </Chips>
           </div>
         </Accordion>
 
         <Accordion label='AmauiTheme' open>
           <div className={classNames([classes.column])}>
-            <ChipGroup color='secondary'>
+            <Chips color='secondary'>
               <Chip>Assistive</Chip>
               <Chip>Assistive 1</Chip>
               <Chip>Assistive 3</Chip>
@@ -16700,7 +16704,7 @@ Please sign in again.`}
               <Chip>Assistive 14</Chip>
               <Chip>Assistive 114</Chip>
               <Chip>Assistive 1114</Chip>
-            </ChipGroup>
+            </Chips>
 
             <Accordion label='AmauiTheme nested value' open>
               <AmauiThemeProvider
@@ -16717,7 +16721,7 @@ Please sign in again.`}
                   }
                 }}
               >
-                <ChipGroup color='secondary'>
+                <Chips color='secondary'>
                   <Chip>Assistive</Chip>
                   <Chip>Assistive 1</Chip>
                   <Chip>Assistive 3</Chip>
@@ -16725,7 +16729,7 @@ Please sign in again.`}
                   <Chip>Assistive 14</Chip>
                   <Chip>Assistive 114</Chip>
                   <Chip>Assistive 1114</Chip>
-                </ChipGroup>
+                </Chips>
               </AmauiThemeProvider>
             </Accordion>
 
@@ -16734,7 +16738,7 @@ Please sign in again.`}
                 value={{
                   ui: {
                     elements: {
-                      AmauiChipGroup: {
+                      AmauiChips: {
                         style: {
                           add: {
                             root: {
@@ -16749,7 +16753,7 @@ Please sign in again.`}
                   }
                 }}
               >
-                <ChipGroup color='secondary'>
+                <Chips color='secondary'>
                   <Chip>Assistive</Chip>
                   <Chip>Assistive 1</Chip>
                   <Chip>Assistive 3</Chip>
@@ -16757,7 +16761,7 @@ Please sign in again.`}
                   <Chip>Assistive 14</Chip>
                   <Chip>Assistive 114</Chip>
                   <Chip>Assistive 1114</Chip>
-                </ChipGroup>
+                </Chips>
               </AmauiThemeProvider>
             </Accordion>
 
@@ -16766,7 +16770,7 @@ Please sign in again.`}
                 value={{
                   ui: {
                     elements: {
-                      AmauiChipGroup: {
+                      AmauiChips: {
                         style: {
                           override: {
                             root: {
@@ -16781,7 +16785,7 @@ Please sign in again.`}
                   }
                 }}
               >
-                <ChipGroup color='secondary'>
+                <Chips color='secondary'>
                   <Chip>Assistive</Chip>
                   <Chip>Assistive 1</Chip>
                   <Chip>Assistive 3</Chip>
@@ -16789,7 +16793,7 @@ Please sign in again.`}
                   <Chip>Assistive 14</Chip>
                   <Chip>Assistive 114</Chip>
                   <Chip>Assistive 1114</Chip>
-                </ChipGroup>
+                </Chips>
               </AmauiThemeProvider>
             </Accordion>
 
@@ -16798,7 +16802,7 @@ Please sign in again.`}
                 value={{
                   ui: {
                     elements: {
-                      AmauiChipGroup: {
+                      AmauiChips: {
                         props: {
                           default: {
                             color: 'secondary'
@@ -16809,7 +16813,7 @@ Please sign in again.`}
                   }
                 }}
               >
-                <ChipGroup>
+                <Chips>
                   <Chip>Assistive</Chip>
                   <Chip>Assistive 1</Chip>
                   <Chip>Assistive 3</Chip>
@@ -16817,12 +16821,12 @@ Please sign in again.`}
                   <Chip>Assistive 14</Chip>
                   <Chip>Assistive 114</Chip>
                   <Chip>Assistive 1114</Chip>
-                </ChipGroup>
+                </Chips>
               </AmauiThemeProvider>
             </Accordion>
 
             <Accordion label='AmauiTheme styled' open>
-              <styled.ChipGroup>
+              <styled.Chips>
                 <Chip>Assistive</Chip>
                 <Chip>Assistive 1</Chip>
                 <Chip>Assistive 3</Chip>
@@ -16830,7 +16834,7 @@ Please sign in again.`}
                 <Chip>Assistive 14</Chip>
                 <Chip>Assistive 114</Chip>
                 <Chip>Assistive 1114</Chip>
-              </styled.ChipGroup>
+              </styled.Chips>
             </Accordion>
           </div>
         </Accordion>
@@ -20962,41 +20966,41 @@ Please sign in again.`}
         </Accordion>
       </Accordion>
 
-      <Accordion label='Button group'>
-        <Accordion label='Button group' open>
+      <Accordion label='Buttons'>
+        <Accordion label='Buttons' open>
 
           <div className={classNames([classes.row, classes.center])}>
-            <ButtonGroup>
+            <Buttons>
               <Button>Button one</Button>
-            </ButtonGroup>
+            </Buttons>
           </div>
 
           <div className={classNames([classes.row, classes.center])}>
-            <ButtonGroup>
+            <Buttons>
               <Button>Button one</Button>
               <Button>Button two</Button>
-            </ButtonGroup>
+            </Buttons>
           </div>
 
           <div className={classNames([classes.row, classes.center])}>
-            <ButtonGroup>
+            <Buttons>
               <Button>Button one</Button>
               <Button>Button two</Button>
               <Button>Button three</Button>
-            </ButtonGroup>
+            </Buttons>
           </div>
 
           <div className={classNames([classes.row, classes.center])}>
-            <ButtonGroup>
+            <Buttons>
               <Button>Button one</Button>
               <Button>Button two</Button>
               <Button>Button three</Button>
               <Button>Button four</Button>
-            </ButtonGroup>
+            </Buttons>
           </div>
 
           <div className={classNames([classes.row, classes.center])}>
-            <ButtonGroup>
+            <Buttons>
               <Button>Button one</Button>
               <Button>Button two</Button>
               <Button>Button three</Button>
@@ -21004,169 +21008,169 @@ Please sign in again.`}
               <Button>Button five</Button>
               <Button>Button seven</Button>
               <Button>Button fourteen</Button>
-            </ButtonGroup>
+            </Buttons>
           </div>
         </Accordion>
 
-        <Accordion label='Button group sizes' open>
+        <Accordion label='Buttons sizes' open>
 
           <div className={classNames([classes.row, classes.center])}>
-            <ButtonGroup size='small' color='secondary' tonal>
+            <Buttons size='small' color='secondary' tonal>
               <Button>Button one</Button>
               <Button>Button two</Button>
               <Button>Button three</Button>
               <Button>Button four</Button>
               <Button>Button five</Button>
-            </ButtonGroup>
+            </Buttons>
           </div>
 
           <div className={classNames([classes.row, classes.center])}>
-            <ButtonGroup size='regular' color='secondary' tonal>
+            <Buttons size='regular' color='secondary' tonal>
               <Button>Button one</Button>
               <Button>Button two</Button>
               <Button>Button three</Button>
               <Button>Button four</Button>
               <Button>Button five</Button>
-            </ButtonGroup>
+            </Buttons>
           </div>
 
           <div className={classNames([classes.row, classes.center])}>
-            <ButtonGroup size='large' color='secondary' tonal>
+            <Buttons size='large' color='secondary' tonal>
               <Button>Button one</Button>
               <Button>Button two</Button>
               <Button>Button three</Button>
               <Button>Button four</Button>
               <Button>Button five</Button>
-            </ButtonGroup>
-          </div>
-
-        </Accordion>
-
-        <Accordion label='Button group versions' open>
-
-          <div className={classNames([classes.row, classes.center])}>
-            <ButtonGroup size='small' color='secondary' version='text'>
-              <Button>Button one</Button>
-              <Button>Button two</Button>
-              <Button>Button three</Button>
-              <Button>Button four</Button>
-              <Button>Button five</Button>
-            </ButtonGroup>
-          </div>
-
-          <div className={classNames([classes.row, classes.center])}>
-            <ButtonGroup size='regular' color='secondary' version='outlined'>
-              <Button>Button one</Button>
-              <Button>Button two</Button>
-              <Button>Button three</Button>
-              <Button>Button four</Button>
-              <Button>Button five</Button>
-            </ButtonGroup>
-          </div>
-
-          <div className={classNames([classes.row, classes.center])}>
-            <ButtonGroup size='large' color='secondary' version='filled'>
-              <Button>Button one</Button>
-              <Button>Button two</Button>
-              <Button>Button three</Button>
-              <Button>Button four</Button>
-              <Button>Button five</Button>
-            </ButtonGroup>
-          </div>
-
-          <div className={classNames([classes.row, classes.center])}>
-            <ButtonGroup size='regular' color='secondary' version='filled' tonal>
-              <Button>Button one</Button>
-              <Button>Button two</Button>
-              <Button>Button three</Button>
-              <Button>Button four</Button>
-              <Button>Button five</Button>
-            </ButtonGroup>
+            </Buttons>
           </div>
 
         </Accordion>
 
-        <Accordion label='Button group no border' open>
+        <Accordion label='Buttons versions' open>
 
           <div className={classNames([classes.row, classes.center])}>
-            <ButtonGroup size='small' color='secondary' version='text' border={false}>
+            <Buttons size='small' color='secondary' version='text'>
               <Button>Button one</Button>
               <Button>Button two</Button>
               <Button>Button three</Button>
               <Button>Button four</Button>
               <Button>Button five</Button>
-            </ButtonGroup>
+            </Buttons>
           </div>
 
           <div className={classNames([classes.row, classes.center])}>
-            <ButtonGroup size='regular' color='secondary' version='outlined' border={false}>
+            <Buttons size='regular' color='secondary' version='outlined'>
               <Button>Button one</Button>
               <Button>Button two</Button>
               <Button>Button three</Button>
               <Button>Button four</Button>
               <Button>Button five</Button>
-            </ButtonGroup>
+            </Buttons>
           </div>
 
           <div className={classNames([classes.row, classes.center])}>
-            <ButtonGroup size='large' color='secondary' version='filled' border={false}>
+            <Buttons size='large' color='secondary' version='filled'>
               <Button>Button one</Button>
               <Button>Button two</Button>
               <Button>Button three</Button>
               <Button>Button four</Button>
               <Button>Button five</Button>
-            </ButtonGroup>
+            </Buttons>
           </div>
 
           <div className={classNames([classes.row, classes.center])}>
-            <ButtonGroup size='regular' color='secondary' version='filled' border={false} tonal>
+            <Buttons size='regular' color='secondary' version='filled' tonal>
               <Button>Button one</Button>
               <Button>Button two</Button>
               <Button>Button three</Button>
               <Button>Button four</Button>
               <Button>Button five</Button>
-            </ButtonGroup>
+            </Buttons>
           </div>
 
         </Accordion>
 
-        <Accordion label='Button group with icons' open>
+        <Accordion label='Buttons no border' open>
 
           <div className={classNames([classes.row, classes.center])}>
-            <ButtonGroup select='single' size='small' color='secondary' version='text'>
+            <Buttons size='small' color='secondary' version='text' border={false}>
+              <Button>Button one</Button>
+              <Button>Button two</Button>
+              <Button>Button three</Button>
+              <Button>Button four</Button>
+              <Button>Button five</Button>
+            </Buttons>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Buttons size='regular' color='secondary' version='outlined' border={false}>
+              <Button>Button one</Button>
+              <Button>Button two</Button>
+              <Button>Button three</Button>
+              <Button>Button four</Button>
+              <Button>Button five</Button>
+            </Buttons>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Buttons size='large' color='secondary' version='filled' border={false}>
+              <Button>Button one</Button>
+              <Button>Button two</Button>
+              <Button>Button three</Button>
+              <Button>Button four</Button>
+              <Button>Button five</Button>
+            </Buttons>
+          </div>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Buttons size='regular' color='secondary' version='filled' border={false} tonal>
+              <Button>Button one</Button>
+              <Button>Button two</Button>
+              <Button>Button three</Button>
+              <Button>Button four</Button>
+              <Button>Button five</Button>
+            </Buttons>
+          </div>
+
+        </Accordion>
+
+        <Accordion label='Buttons with icons' open>
+
+          <div className={classNames([classes.row, classes.center])}>
+            <Buttons select='single' size='small' color='secondary' version='text'>
               <Button startIcon={<IconMaterialAddRounded />}>Button one</Button>
               <Button startIcon={<IconMaterialAddRounded />}>Button two</Button>
               <Button startIcon={<IconMaterialAddRounded />}>Button three</Button>
               <Button startIcon={<IconMaterialAddRounded />}>Button four</Button>
               <Button startIcon={<IconMaterialAddRounded />}>Button five</Button>
-            </ButtonGroup>
+            </Buttons>
           </div>
 
           <div className={classNames([classes.row, classes.center])}>
-            <ButtonGroup select='single' size='regular' color='secondary' version='outlined'>
+            <Buttons select='single' size='regular' color='secondary' version='outlined'>
               <Button endIcon={<IconMaterialAddRounded />}>Button one</Button>
               <Button endIcon={<IconMaterialAddRounded />}>Button two</Button>
               <Button endIcon={<IconMaterialAddRounded />}>Button three</Button>
               <Button endIcon={<IconMaterialAddRounded />}>Button four</Button>
               <Button endIcon={<IconMaterialAddRounded />}>Button five</Button>
-            </ButtonGroup>
-          </div >
+            </Buttons>
+          </div>
 
           <div className={classNames([classes.row, classes.center])}>
-            <ButtonGroup select='single' size='large' color='secondary' version='filled' tonal>
+            <Buttons select='single' size='large' color='secondary' version='filled' tonal>
               <Button startIcon={<IconMaterialAddRounded />} endIcon={<IconMaterialAddRounded />}>Button one</Button>
               <Button startIcon={<IconMaterialAddRounded />} endIcon={<IconMaterialAddRounded />}>Button two</Button>
               <Button startIcon={<IconMaterialAddRounded />} endIcon={<IconMaterialAddRounded />}>Button three</Button>
               <Button startIcon={<IconMaterialAddRounded />} endIcon={<IconMaterialAddRounded />}>Button four</Button>
               <Button startIcon={<IconMaterialAddRounded />} endIcon={<IconMaterialAddRounded />}>Button five</Button>
-            </ButtonGroup>
-          </div >
+            </Buttons>
+          </div>
 
-        </Accordion >
+        </Accordion>
 
-        <Accordion label='Button group select single' open>
+        <Accordion label='Buttons select single' open>
           <div className={classNames([classes.row, classes.center])}>
-            <ButtonGroup color='secondary' version='filled' select='single' tonal>
+            <Buttons color='secondary' version='filled' select='single' tonal>
               <Button>Button one</Button>
               <Button>Button two</Button>
               <Button>Button three</Button>
@@ -21174,13 +21178,13 @@ Please sign in again.`}
               <Button>Button five</Button>
               <Button>Button seven</Button>
               <Button>Button fourteen</Button>
-            </ButtonGroup>
+            </Buttons>
           </div>
         </Accordion>
 
-        <Accordion label='Button group select multi' open>
+        <Accordion label='Buttons select multi' open>
           <div className={classNames([classes.row, classes.center])}>
-            <ButtonGroup version='filled' size='large' select='multi'>
+            <Buttons version='filled' size='large' select='multi'>
               <Button>Button one</Button>
               <Button>Button two</Button>
               <Button>Button three</Button>
@@ -21188,33 +21192,129 @@ Please sign in again.`}
               <Button>Button five</Button>
               <Button>Button seven</Button>
               <Button>Button fourteen</Button>
-            </ButtonGroup>
+            </Buttons>
           </div>
         </Accordion>
 
-        <Accordion label='Button group vertical select multi' open>
+        <Accordion label='Buttons select single noCheckIcon' open>
           <div className={classNames([classes.row, classes.center])}>
-            <ButtonGroup color='default' version='text' select='multi' fullWidth vertical>
-              <Button align='start'>Button one</Button>
-              <Button align='start'>Button two</Button>
-              <Button align='start'>Button three</Button>
-              <Button align='start'>Button four</Button>
-              <Button align='start'>Button five</Button>
-              <Button align='start'>Button seven</Button>
-              <Button align='start'>Button fourteen</Button>
-            </ButtonGroup>
+            <Buttons color='secondary' version='filled' select='single' noCheckIcon tonal>
+              <Button>Button one</Button>
+              <Button>Button two</Button>
+              <Button>Button three</Button>
+              <Button>Button four</Button>
+              <Button>Button five</Button>
+              <Button>Button seven</Button>
+              <Button>Button fourteen</Button>
+            </Buttons>
+          </div>
+        </Accordion>
 
-            <ButtonGroup color='default' version='outlined' select='multi' fullWidth vertical>
-              <Button align='start'>Button one</Button>
-              <Button align='start'>Button two</Button>
-              <Button align='start'>Button three</Button>
-              <Button align='start'>Button four</Button>
-              <Button align='start'>Button five</Button>
-              <Button align='start'>Button seven</Button>
-              <Button align='start'>Button fourteen</Button>
-            </ButtonGroup>
+        <Accordion label='Buttons select multi noCheckIcon' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Buttons version='filled' size='large' select='multi' noCheckIcon>
+              <Button>Button one</Button>
+              <Button>Button two</Button>
+              <Button>Button three</Button>
+              <Button>Button four</Button>
+              <Button>Button five</Button>
+              <Button>Button seven</Button>
+              <Button>Button fourteen</Button>
+            </Buttons>
+          </div>
+        </Accordion>
 
-            <ButtonGroup color='default' version='filled' select='multi' fullWidth vertical>
+        <Accordion label='Buttons chip' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Buttons color='default' version='text' select='single' noCheckIcon border={false} chip>
+              <Chip icon><IconMaterialFormatAlignLeftRounded /></Chip>
+              <Chip icon><IconMaterialFormatAlignCenterRounded /></Chip>
+              <Chip icon><IconMaterialFormatAlignRightRounded /></Chip>
+              <Chip icon disabled><IconMaterialFormatAlignJustifyRounded /></Chip>
+            </Buttons>
+          </div>
+        </Accordion>
+
+        <Accordion label='Buttons chip' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Buttons color='default' version='text' select='single' noCheckIcon chip>
+              <Chip icon><IconMaterialFormatAlignLeftRounded /></Chip>
+              <Chip icon><IconMaterialFormatAlignCenterRounded /></Chip>
+              <Chip icon><IconMaterialFormatAlignRightRounded /></Chip>
+              <Chip icon disabled><IconMaterialFormatAlignJustifyRounded /></Chip>
+            </Buttons>
+          </div>
+        </Accordion>
+
+        <Accordion label='Buttons chip' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Buttons color='default' version='outlined' select='single' noCheckIcon chip>
+              <Chip icon><IconMaterialFormatAlignLeftRounded /></Chip>
+              <Chip icon><IconMaterialFormatAlignCenterRounded /></Chip>
+              <Chip icon><IconMaterialFormatAlignRightRounded /></Chip>
+              <Chip icon disabled><IconMaterialFormatAlignJustifyRounded /></Chip>
+            </Buttons>
+          </div>
+        </Accordion>
+
+        <Accordion label='Buttons chip' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Buttons color='default' version='filled' select='single' noCheckIcon chip>
+              <Chip icon><IconMaterialFormatAlignLeftRounded /></Chip>
+              <Chip icon><IconMaterialFormatAlignCenterRounded /></Chip>
+              <Chip icon><IconMaterialFormatAlignRightRounded /></Chip>
+              <Chip icon disabled><IconMaterialFormatAlignJustifyRounded /></Chip>
+            </Buttons>
+          </div>
+        </Accordion>
+
+        <Accordion label='Buttons chip' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Buttons color='default' version='text' select='single' noCheckIcon vertical chip>
+              <Chip icon><IconMaterialFormatAlignLeftRounded /></Chip>
+              <Chip icon><IconMaterialFormatAlignCenterRounded /></Chip>
+              <Chip icon><IconMaterialFormatAlignRightRounded /></Chip>
+              <Chip icon disabled><IconMaterialFormatAlignJustifyRounded /></Chip>
+            </Buttons>
+          </div>
+        </Accordion>
+
+        <Accordion label='Buttons chip' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Buttons color='default' version='outlined' select='single' noCheckIcon vertical chip>
+              <Chip icon><IconMaterialFormatAlignLeftRounded /></Chip>
+              <Chip icon><IconMaterialFormatAlignCenterRounded /></Chip>
+              <Chip icon><IconMaterialFormatAlignRightRounded /></Chip>
+              <Chip icon disabled><IconMaterialFormatAlignJustifyRounded /></Chip>
+            </Buttons>
+          </div>
+        </Accordion>
+
+        <Accordion label='Buttons chip' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Buttons color='default' version='filled' select='single' noCheckIcon vertical chip>
+              <Chip icon><IconMaterialFormatAlignLeftRounded /></Chip>
+              <Chip icon><IconMaterialFormatAlignCenterRounded /></Chip>
+              <Chip icon><IconMaterialFormatAlignRightRounded /></Chip>
+              <Chip icon disabled><IconMaterialFormatAlignJustifyRounded /></Chip>
+            </Buttons>
+          </div>
+        </Accordion>
+
+        <Accordion label='Buttons chip colorSelected' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Buttons color='default' colorSelected='secondary' version='outlined' select='single' noCheckIcon chip>
+              <Chip icon><IconMaterialFormatAlignLeftRounded /></Chip>
+              <Chip icon><IconMaterialFormatAlignCenterRounded /></Chip>
+              <Chip icon><IconMaterialFormatAlignRightRounded /></Chip>
+              <Chip icon disabled><IconMaterialFormatAlignJustifyRounded /></Chip>
+            </Buttons>
+          </div>
+        </Accordion>
+
+        <Accordion label='Buttons vertical select multi' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Buttons color='default' version='text' select='multi' fullWidth vertical>
               <Button align='start'>Button one</Button>
               <Button align='start'>Button two</Button>
               <Button align='start'>Button three</Button>
@@ -21222,18 +21322,38 @@ Please sign in again.`}
               <Button align='start'>Button five</Button>
               <Button align='start'>Button seven</Button>
               <Button align='start'>Button fourteen</Button>
-            </ButtonGroup>
+            </Buttons>
+
+            <Buttons color='default' version='outlined' select='multi' fullWidth vertical>
+              <Button align='start'>Button one</Button>
+              <Button align='start'>Button two</Button>
+              <Button align='start'>Button three</Button>
+              <Button align='start'>Button four</Button>
+              <Button align='start'>Button five</Button>
+              <Button align='start'>Button seven</Button>
+              <Button align='start'>Button fourteen</Button>
+            </Buttons>
+
+            <Buttons color='default' version='filled' select='multi' fullWidth vertical>
+              <Button align='start'>Button one</Button>
+              <Button align='start'>Button two</Button>
+              <Button align='start'>Button three</Button>
+              <Button align='start'>Button four</Button>
+              <Button align='start'>Button five</Button>
+              <Button align='start'>Button seven</Button>
+              <Button align='start'>Button fourteen</Button>
+            </Buttons>
           </div>
         </Accordion>
 
         <Accordion label='AmauiTheme'>
           <div className={classNames([classes.column])}>
-            <ButtonGroup color='secondary'>
+            <Buttons color='secondary'>
               <Button>Button one</Button>
               <Button>Button two</Button>
               <Button>Button three</Button>
               <Button>Button four</Button>
-            </ButtonGroup>
+            </Buttons>
 
             <Accordion label='AmauiTheme nested value' open>
               <AmauiThemeProvider
@@ -21250,12 +21370,12 @@ Please sign in again.`}
                   }
                 }}
               >
-                <ButtonGroup color='secondary'>
+                <Buttons color='secondary'>
                   <Button>Button one</Button>
                   <Button>Button two</Button>
                   <Button>Button three</Button>
                   <Button>Button four</Button>
-                </ButtonGroup>
+                </Buttons>
               </AmauiThemeProvider>
             </Accordion>
 
@@ -21264,7 +21384,7 @@ Please sign in again.`}
                 value={{
                   ui: {
                     elements: {
-                      AmauiButtonGroup: {
+                      AmauiButtons: {
                         style: {
                           add: {
                             root: {
@@ -21279,12 +21399,12 @@ Please sign in again.`}
                   }
                 }}
               >
-                <ButtonGroup color='secondary'>
+                <Buttons color='secondary'>
                   <Button>Button one</Button>
                   <Button>Button two</Button>
                   <Button>Button three</Button>
                   <Button>Button four</Button>
-                </ButtonGroup>
+                </Buttons>
               </AmauiThemeProvider>
             </Accordion>
 
@@ -21293,7 +21413,7 @@ Please sign in again.`}
                 value={{
                   ui: {
                     elements: {
-                      AmauiButtonGroup: {
+                      AmauiButtons: {
                         style: {
                           override: {
                             root: {
@@ -21308,12 +21428,12 @@ Please sign in again.`}
                   }
                 }}
               >
-                <ButtonGroup color='secondary'>
+                <Buttons color='secondary'>
                   <Button>Button one</Button>
                   <Button>Button two</Button>
                   <Button>Button three</Button>
                   <Button>Button four</Button>
-                </ButtonGroup>
+                </Buttons>
               </AmauiThemeProvider>
             </Accordion>
 
@@ -21322,7 +21442,7 @@ Please sign in again.`}
                 value={{
                   ui: {
                     elements: {
-                      AmauiButtonGroup: {
+                      AmauiButtons: {
                         props: {
                           default: {
                             color: 'secondary'
@@ -21333,22 +21453,22 @@ Please sign in again.`}
                   }
                 }}
               >
-                <ButtonGroup>
+                <Buttons>
                   <Button>Button one</Button>
                   <Button>Button two</Button>
                   <Button>Button three</Button>
                   <Button>Button four</Button>
-                </ButtonGroup>
+                </Buttons>
               </AmauiThemeProvider>
             </Accordion>
 
             <Accordion label='AmauiTheme styled' open>
-              <styled.ButtonGroup>
+              <styled.Buttons>
                 <Button>Button one</Button>
                 <Button>Button two</Button>
                 <Button>Button three</Button>
                 <Button>Button four</Button>
-              </styled.ButtonGroup>
+              </styled.Buttons>
             </Accordion>
           </div>
         </Accordion>
@@ -22430,7 +22550,7 @@ Please sign in again.`}
         </Accordion>
 
       </Accordion>
-    </div >
+    </div>
   );
 }
 

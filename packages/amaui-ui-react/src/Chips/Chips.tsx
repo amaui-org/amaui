@@ -54,12 +54,12 @@ const useStyle = style(theme => ({
   wrap_large: {
     rowGap: '20px'
   }
-}), { name: 'AmauiChipGroup' });
+}), { name: 'AmauiChips' });
 
-const ChipGroup = React.forwardRef((props_: any, ref: any) => {
+const Chips = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiChipGroup?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiChips?.props?.default }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -80,10 +80,10 @@ const ChipGroup = React.forwardRef((props_: any, ref: any) => {
       ref={ref}
 
       className={classNames([
-        staticClassName('ChipGroup', theme) && [
-          'AmauiChipGroup-root',
-          `AmauiChipGroup-size-${size}`,
-          wrap && 'AmauiChipGroup-wrap'
+        staticClassName('Chips', theme) && [
+          'AmauiChips-root',
+          `AmauiChips-size-${size}`,
+          wrap && 'AmauiChips-wrap'
         ],
 
         className,
@@ -110,6 +110,6 @@ const ChipGroup = React.forwardRef((props_: any, ref: any) => {
   );
 });
 
-ChipGroup.displayName = 'AmauiChipGroup';
+Chips.displayName = 'AmauiChips';
 
-export default ChipGroup;
+export default Chips;

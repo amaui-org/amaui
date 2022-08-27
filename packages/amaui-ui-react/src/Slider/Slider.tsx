@@ -649,7 +649,7 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
     if (!disabled && !readOnly) setMouseDownButton(index);
   }, [disabled, readOnly]);
 
-  const onMouseDown = React.useCallback((event: React.TouchEvent<any> | React.MouseEvent<any>, index?: number) => {
+  const onMouseDown = React.useCallback((event: React.TouchEvent<any> | React.MouseEvent<any>) => {
     if (!disabled && !readOnly) {
       setMouseDown(true);
 

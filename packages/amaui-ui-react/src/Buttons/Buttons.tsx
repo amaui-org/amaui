@@ -20,16 +20,29 @@ const useStyle = style(theme => ({
   },
 
   // Size
-  small: {
+  size_small: {
     borderRadius: `${theme.shape.radius.unit * 2}px`
   },
 
-  regular: {
+  size_regular: {
     borderRadius: `${theme.shape.radius.unit * 2.5}px`
   },
 
-  large: {
+  size_large: {
     borderRadius: `${theme.shape.radius.unit * 3.5}px`
+  },
+
+  // Size
+  chip_size_small: {
+    borderRadius: `${theme.shape.radius.unit - (theme.shape.radius.unit / 4)}px`
+  },
+
+  chip_size_regular: {
+    borderRadius: `${theme.shape.radius.unit}px`
+  },
+
+  chip_size_large: {
+    borderRadius: `${theme.shape.radius.unit + (theme.shape.radius.unit / 4)}px`
   },
 
   // Shadows
@@ -101,8 +114,12 @@ const useStyle = style(theme => ({
 
   fullWidth: {
     width: '100%'
+  },
+
+  selected: {
+    zIndex: 1
   }
-}), { name: 'AmauiButtonGroup' });
+}), { name: 'AmauiButtons' });
 
 export const IconMaterialDoneSharp = React.forwardRef((props: any, ref) => {
   const {
@@ -139,7 +156,6 @@ export const IconDoneAnimated = (props: any) => {
   const {
     in: inProp,
     simple,
-
     onExited,
     fullWidth,
     noExitAnimation,
@@ -206,10 +222,10 @@ export const IconDoneAnimated = (props: any) => {
   );
 };
 
-const ButtonGroup = React.forwardRef((props_: any, ref: any) => {
+const Buttons = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiButtonGroup?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiButtons?.props?.default }), [props_]);
 
   const [preSelected, setPreSelected] = React.useState([]);
   const [selected, setSelected] = React.useState([]);
@@ -218,14 +234,16 @@ const ButtonGroup = React.forwardRef((props_: any, ref: any) => {
 
   const {
     select,
-
     tonal,
     version = 'outlined',
     color = 'primary',
+    colorSelected = props.color,
     size = 'regular',
     vertical,
+    noCheckIcon,
     elevation = true,
     border = true,
+    chip,
     fullWidth,
     disabled,
 
@@ -245,6 +263,7 @@ const ButtonGroup = React.forwardRef((props_: any, ref: any) => {
       }
       else {
         if (select === 'single') setSelected([index]);
+
         if (select === 'multi') setSelected(items => unique([...items, index]));
 
         if (is('function', itemProps.onSelected)) itemProps.onSelected();
@@ -253,20 +272,29 @@ const ButtonGroup = React.forwardRef((props_: any, ref: any) => {
     else {
       // Unselect
       if (selected.includes(index)) {
-        setPreSelected(items => items.filter(item => item !== index));
+        if (!noCheckIcon) {
+          setPreSelected(items => items.filter(item => item !== index));
+        }
+        else setSelected(items => items.filter(item => item !== index));
 
         if (is('function', itemProps.onUnselected)) itemProps.onUnselected();
       }
       else {
         if (select === 'single') {
-          setPreSelected([index]);
+          if (!noCheckIcon) {
+            setPreSelected([index]);
 
-          setSelected(items => [...items, index]);
+            setSelected(items => [...items, index]);
+          }
+          else setSelected(() => [index]);
         }
         if (select === 'multi') {
-          setPreSelected(items => unique([...items, index]));
+          if (!noCheckIcon) {
+            setPreSelected(items => unique([...items, index]));
 
-          setSelected(items => unique([...items, index]));
+            setSelected(items => unique([...items, index]));
+          }
+          else setSelected(items => unique([...items, index]));
         }
 
         if (is('function', itemProps.onSelected)) itemProps.onSelected();
@@ -283,6 +311,8 @@ const ButtonGroup = React.forwardRef((props_: any, ref: any) => {
     // Clamp array to max of 5 values
     .slice(0, 5)
     .map((item: any, index: number) => React.cloneElement(item, {
+      key: index,
+
       className: classNames([
         item.className,
         classes.item,
@@ -294,10 +324,9 @@ const ButtonGroup = React.forwardRef((props_: any, ref: any) => {
           classes.vertical_start,
           classes.vertical_end
         ],
+        selected.includes(index) && classes.selected,
         border && classes.border
       ]),
-
-      key: index,
 
       onClick: () => {
         onSelect(index, item.props, !!item.props.startIcon);
@@ -306,13 +335,13 @@ const ButtonGroup = React.forwardRef((props_: any, ref: any) => {
         if (is('function', item.props.onClick)) item.props.onClick();
       },
 
-      ...(item.props.startIcon && selected.includes(index) ? {
+      ...(!noCheckIcon && item.props.startIcon && selected.includes(index) ? {
         startIcon: (
           <IconDoneAnimated simple in add />
         )
       } : {}),
 
-      ...(!item.props.startIcon && (selected.includes(index) || preSelected.includes(index)) ? {
+      ...(!noCheckIcon && (!item.props.startIcon && (selected.includes(index) || preSelected.includes(index))) ? {
         startIcon: (
           <IconDoneAnimated
             in={(item.props.startIcon ? selected : preSelected).includes(index)}
@@ -325,7 +354,7 @@ const ButtonGroup = React.forwardRef((props_: any, ref: any) => {
       } : {}),
 
       version,
-      color,
+      color: selected.includes(index) ? colorSelected || color : color,
       size,
       tonal,
 
@@ -336,28 +365,31 @@ const ButtonGroup = React.forwardRef((props_: any, ref: any) => {
       disabled
     }));
 
+  console.log(1, colorSelected);
   return (
     <div
       ref={ref}
 
       className={classNames([
-        staticClassName('ButtonGroup', theme) && [
-          'AmauiButtonGroup-root',
-          `AmauiButtonGroup-select-${select}`,
-          `AmauiButtonGroup-version-${version}`,
-          `AmauiButtonGroup-color-${!theme.palette.color[color] && color !== 'default' ? 'new' : color}`,
-          `AmauiButtonGroup-size-${size}`,
-          elevation && !disabled && ['filled', 'tonal'].includes(version) && `AmauiButtonGroup-elevation`,
-          tonal && `AmauiButtonGroup-tonal`,
-          border && `AmauiButtonGroup-border`,
-          vertical && `AmauiButtonGroup-vertical`,
-          fullWidth && `AmauiButtonGroup-fullWidth`,
-          disabled && `AmauiButtonGroup-disabled`,
+        staticClassName('Buttons', theme) && [
+          'AmauiButtons-root',
+          `AmauiButtons-select-${select}`,
+          `AmauiButtons-version-${version}`,
+          `AmauiButtons-color-${!theme.palette.color[color] && color !== 'default' ? 'new' : color}`,
+          `AmauiButtons-size-${size}`,
+          elevation && !disabled && ['filled', 'tonal'].includes(version) && `AmauiButtons-elevation`,
+          tonal && `AmauiButtons-tonal`,
+          chip && `AmauiButtons-chip`,
+          border && `AmauiButtons-border`,
+          vertical && `AmauiButtons-vertical`,
+          fullWidth && `AmauiButtons-fullWidth`,
+          disabled && `AmauiButtons-disabled`,
         ],
 
         classes.root,
         className,
-        classes[size],
+        classes[`size_${size}`],
+        chip && classes[`chip_size_${size}`],
         vertical && classes.vertical,
         fullWidth && classes.fullWidth,
         elevation && !disabled && ['filled', 'tonal'].includes(version) && classes.elevation,
@@ -370,6 +402,6 @@ const ButtonGroup = React.forwardRef((props_: any, ref: any) => {
   );
 });
 
-ButtonGroup.displayName = 'AmauiButtonGroup';
+Buttons.displayName = 'AmauiButtons';
 
-export default ButtonGroup;
+export default Buttons;

@@ -10,7 +10,7 @@ import List from '../List';
 import Menu from '../Menu';
 import Chip from '../Chip';
 import TextField from '../TextField';
-import ChipGroup from '../ChipGroup';
+import ChipGroup from '../Chips';
 import IconButton from '../IconButton';
 
 const overflow = {

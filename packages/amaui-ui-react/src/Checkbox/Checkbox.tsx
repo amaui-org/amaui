@@ -5,7 +5,7 @@ import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Icon from '../Icon';
 import IconButton from '../IconButton';
-import { IconDoneAnimated } from '../ButtonGroup/ButtonGroup';
+import { IconDoneAnimated } from '../Buttons/Buttons';
 
 import { staticClassName } from '../utils';
 

@@ -5,7 +5,7 @@ import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Button from '../Button';
 import Icon from '../Icon';
-import { IconDoneAnimated } from '../ButtonGroup/ButtonGroup';
+import { IconDoneAnimated } from '../Buttons/Buttons';
 
 import { staticClassName } from '../utils';
 
@@ -61,6 +61,10 @@ const Chip = React.forwardRef((props_: any, ref: any) => {
   const { classes } = useStyle(props);
 
   let children = children_;
+
+  React.useEffect(() => {
+    if (selected !== selected_) setSelected(selected_);
+  }, [selected_]);
 
   const OtherProps: any = {};
 

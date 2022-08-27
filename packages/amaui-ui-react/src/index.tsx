@@ -32,8 +32,8 @@ export * from './Icon';
 export { default as Button } from './Button';
 export * from './Button';
 
-export { default as ButtonGroup } from './ButtonGroup';
-export * from './ButtonGroup';
+export { default as Buttons } from './Buttons';
+export * from './Buttons';
 
 export { default as RoundProgress } from './RoundProgress';
 export * from './RoundProgress';
@@ -101,8 +101,8 @@ export * from './ClickListener';
 export { default as Chip } from './Chip';
 export * from './Chip';
 
-export { default as ChipGroup } from './ChipGroup';
-export * from './ChipGroup';
+export { default as Chips } from './Chips';
+export * from './Chips';
 
 export { default as Backdrop } from './Backdrop';
 export * from './Backdrop';
