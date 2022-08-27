@@ -2,7 +2,7 @@ import React from 'react';
 
 import { countries } from '@amaui/utils';
 import { AmauiTheme, AmauiThemeProvider, classNames, style, sy, useAmauiTheme } from '@amaui/style-react';
-import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider } from '@amaui/ui-react';
+import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton } from '@amaui/ui-react';
 
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
@@ -225,6 +225,13 @@ const Accordion = (props: any) => {
 };
 
 const styled = {
+  ToggleButtons: sy(ToggleButtons)((theme: AmauiTheme) => ({
+    root: {
+      '&:hover': {
+        opacity: 0.4
+      }
+    }
+  })),
   Slider: sy(Slider)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
@@ -1025,6 +1032,387 @@ Please sign in again.`}
 
           <IconMaterialPottedPlantRounded color='secondary' />
         </div>
+      </Accordion>
+
+      <Accordion label='Toggle buttons'>
+        <Accordion label='Toggle buttons' open>
+          <Line>
+            <ToggleButtons>
+              <ToggleButton value='1' icon><IconMaterialFormatAlignLeftRounded /></ToggleButton>
+              <ToggleButton value='2' icon><IconMaterialFormatAlignCenterRounded /></ToggleButton>
+              <ToggleButton value='3' icon><IconMaterialFormatAlignRightRounded /></ToggleButton>
+              <ToggleButton value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></ToggleButton>
+            </ToggleButtons>
+          </Line>
+        </Accordion>
+
+        <Accordion label='Toggle buttons sizes' open>
+          <Line gap={4}>
+            <ToggleButtons size='small'>
+              <ToggleButton value='1' icon><IconMaterialFormatAlignLeftRounded /></ToggleButton>
+              <ToggleButton value='2' icon><IconMaterialFormatAlignCenterRounded /></ToggleButton>
+              <ToggleButton value='3' icon><IconMaterialFormatAlignRightRounded /></ToggleButton>
+              <ToggleButton value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></ToggleButton>
+            </ToggleButtons>
+
+            <ToggleButtons size='regular'>
+              <ToggleButton value='1' icon><IconMaterialFormatAlignLeftRounded /></ToggleButton>
+              <ToggleButton value='2' icon><IconMaterialFormatAlignCenterRounded /></ToggleButton>
+              <ToggleButton value='3' icon><IconMaterialFormatAlignRightRounded /></ToggleButton>
+              <ToggleButton value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></ToggleButton>
+            </ToggleButtons>
+
+            <ToggleButtons size='large'>
+              <ToggleButton value='1' icon><IconMaterialFormatAlignLeftRounded /></ToggleButton>
+              <ToggleButton value='2' icon><IconMaterialFormatAlignCenterRounded /></ToggleButton>
+              <ToggleButton value='3' icon><IconMaterialFormatAlignRightRounded /></ToggleButton>
+              <ToggleButton value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></ToggleButton>
+            </ToggleButtons>
+          </Line>
+        </Accordion>
+
+        <Accordion label='Toggle buttons versions' open>
+          <Line gap={4}>
+            <ToggleButtons size='small' version='text'>
+              <ToggleButton value='1' icon><IconMaterialFormatAlignLeftRounded /></ToggleButton>
+              <ToggleButton value='2' icon><IconMaterialFormatAlignCenterRounded /></ToggleButton>
+              <ToggleButton value='3' icon><IconMaterialFormatAlignRightRounded /></ToggleButton>
+              <ToggleButton value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></ToggleButton>
+            </ToggleButtons>
+
+            <ToggleButtons size='small' version='outlined'>
+              <ToggleButton value='1' icon><IconMaterialFormatAlignLeftRounded /></ToggleButton>
+              <ToggleButton value='2' icon><IconMaterialFormatAlignCenterRounded /></ToggleButton>
+              <ToggleButton value='3' icon><IconMaterialFormatAlignRightRounded /></ToggleButton>
+              <ToggleButton value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></ToggleButton>
+            </ToggleButtons>
+
+            <ToggleButtons size='small' version='filled'>
+              <ToggleButton value='1' icon><IconMaterialFormatAlignLeftRounded /></ToggleButton>
+              <ToggleButton value='2' icon><IconMaterialFormatAlignCenterRounded /></ToggleButton>
+              <ToggleButton value='3' icon><IconMaterialFormatAlignRightRounded /></ToggleButton>
+              <ToggleButton value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></ToggleButton>
+            </ToggleButtons>
+
+            <ToggleButtons size='regular' version='text'>
+              <ToggleButton value='1' icon><IconMaterialFormatAlignLeftRounded /></ToggleButton>
+              <ToggleButton value='2' icon><IconMaterialFormatAlignCenterRounded /></ToggleButton>
+              <ToggleButton value='3' icon><IconMaterialFormatAlignRightRounded /></ToggleButton>
+              <ToggleButton value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></ToggleButton>
+            </ToggleButtons>
+
+            <ToggleButtons size='regular' version='outlined'>
+              <ToggleButton value='1' icon><IconMaterialFormatAlignLeftRounded /></ToggleButton>
+              <ToggleButton value='2' icon><IconMaterialFormatAlignCenterRounded /></ToggleButton>
+              <ToggleButton value='3' icon><IconMaterialFormatAlignRightRounded /></ToggleButton>
+              <ToggleButton value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></ToggleButton>
+            </ToggleButtons>
+
+            <ToggleButtons size='regular' version='filled'>
+              <ToggleButton value='1' icon><IconMaterialFormatAlignLeftRounded /></ToggleButton>
+              <ToggleButton value='2' icon><IconMaterialFormatAlignCenterRounded /></ToggleButton>
+              <ToggleButton value='3' icon><IconMaterialFormatAlignRightRounded /></ToggleButton>
+              <ToggleButton value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></ToggleButton>
+            </ToggleButtons>
+
+            <ToggleButtons size='large' version='text'>
+              <ToggleButton value='1' icon><IconMaterialFormatAlignLeftRounded /></ToggleButton>
+              <ToggleButton value='2' icon><IconMaterialFormatAlignCenterRounded /></ToggleButton>
+              <ToggleButton value='3' icon><IconMaterialFormatAlignRightRounded /></ToggleButton>
+              <ToggleButton value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></ToggleButton>
+            </ToggleButtons>
+
+            <ToggleButtons size='large' version='outlined'>
+              <ToggleButton value='1' icon><IconMaterialFormatAlignLeftRounded /></ToggleButton>
+              <ToggleButton value='2' icon><IconMaterialFormatAlignCenterRounded /></ToggleButton>
+              <ToggleButton value='3' icon><IconMaterialFormatAlignRightRounded /></ToggleButton>
+              <ToggleButton value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></ToggleButton>
+            </ToggleButtons>
+
+            <ToggleButtons size='large' version='filled'>
+              <ToggleButton value='1' icon><IconMaterialFormatAlignLeftRounded /></ToggleButton>
+              <ToggleButton value='2' icon><IconMaterialFormatAlignCenterRounded /></ToggleButton>
+              <ToggleButton value='3' icon><IconMaterialFormatAlignRightRounded /></ToggleButton>
+              <ToggleButton value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></ToggleButton>
+            </ToggleButtons>
+          </Line>
+        </Accordion>
+
+        <Accordion label='Toggle buttons vertical' open>
+          <Line gap={4}>
+            <ToggleButtons size='small' version='text' vertical>
+              <ToggleButton value='1' icon><IconMaterialFormatAlignLeftRounded /></ToggleButton>
+              <ToggleButton value='2' icon><IconMaterialFormatAlignCenterRounded /></ToggleButton>
+              <ToggleButton value='3' icon><IconMaterialFormatAlignRightRounded /></ToggleButton>
+              <ToggleButton value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></ToggleButton>
+            </ToggleButtons>
+
+            <ToggleButtons size='small' version='outlined' vertical>
+              <ToggleButton value='1' icon><IconMaterialFormatAlignLeftRounded /></ToggleButton>
+              <ToggleButton value='2' icon><IconMaterialFormatAlignCenterRounded /></ToggleButton>
+              <ToggleButton value='3' icon><IconMaterialFormatAlignRightRounded /></ToggleButton>
+              <ToggleButton value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></ToggleButton>
+            </ToggleButtons>
+
+            <ToggleButtons size='small' version='filled' vertical>
+              <ToggleButton value='1' icon><IconMaterialFormatAlignLeftRounded /></ToggleButton>
+              <ToggleButton value='2' icon><IconMaterialFormatAlignCenterRounded /></ToggleButton>
+              <ToggleButton value='3' icon><IconMaterialFormatAlignRightRounded /></ToggleButton>
+              <ToggleButton value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></ToggleButton>
+            </ToggleButtons>
+
+            <ToggleButtons size='regular' version='text' vertical>
+              <ToggleButton value='1' icon><IconMaterialFormatAlignLeftRounded /></ToggleButton>
+              <ToggleButton value='2' icon><IconMaterialFormatAlignCenterRounded /></ToggleButton>
+              <ToggleButton value='3' icon><IconMaterialFormatAlignRightRounded /></ToggleButton>
+              <ToggleButton value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></ToggleButton>
+            </ToggleButtons>
+
+            <ToggleButtons size='regular' version='outlined' vertical>
+              <ToggleButton value='1' icon><IconMaterialFormatAlignLeftRounded /></ToggleButton>
+              <ToggleButton value='2' icon><IconMaterialFormatAlignCenterRounded /></ToggleButton>
+              <ToggleButton value='3' icon><IconMaterialFormatAlignRightRounded /></ToggleButton>
+              <ToggleButton value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></ToggleButton>
+            </ToggleButtons>
+
+            <ToggleButtons size='regular' version='filled' vertical>
+              <ToggleButton value='1' icon><IconMaterialFormatAlignLeftRounded /></ToggleButton>
+              <ToggleButton value='2' icon><IconMaterialFormatAlignCenterRounded /></ToggleButton>
+              <ToggleButton value='3' icon><IconMaterialFormatAlignRightRounded /></ToggleButton>
+              <ToggleButton value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></ToggleButton>
+            </ToggleButtons>
+
+            <ToggleButtons size='large' version='text' vertical>
+              <ToggleButton value='1' icon><IconMaterialFormatAlignLeftRounded /></ToggleButton>
+              <ToggleButton value='2' icon><IconMaterialFormatAlignCenterRounded /></ToggleButton>
+              <ToggleButton value='3' icon><IconMaterialFormatAlignRightRounded /></ToggleButton>
+              <ToggleButton value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></ToggleButton>
+            </ToggleButtons>
+
+            <ToggleButtons size='large' version='outlined' vertical>
+              <ToggleButton value='1' icon><IconMaterialFormatAlignLeftRounded /></ToggleButton>
+              <ToggleButton value='2' icon><IconMaterialFormatAlignCenterRounded /></ToggleButton>
+              <ToggleButton value='3' icon><IconMaterialFormatAlignRightRounded /></ToggleButton>
+              <ToggleButton value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></ToggleButton>
+            </ToggleButtons>
+
+            <ToggleButtons size='large' version='filled' vertical>
+              <ToggleButton value='1' icon><IconMaterialFormatAlignLeftRounded /></ToggleButton>
+              <ToggleButton value='2' icon><IconMaterialFormatAlignCenterRounded /></ToggleButton>
+              <ToggleButton value='3' icon><IconMaterialFormatAlignRightRounded /></ToggleButton>
+              <ToggleButton value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></ToggleButton>
+            </ToggleButtons>
+          </Line>
+        </Accordion>
+
+        <Accordion label='Toggle buttons select single' open>
+          <Line>
+            <ToggleButtons select='single'>
+              <ToggleButton value='1' icon><IconMaterialFormatAlignLeftRounded /></ToggleButton>
+              <ToggleButton value='2' icon><IconMaterialFormatAlignCenterRounded /></ToggleButton>
+              <ToggleButton value='3' icon><IconMaterialFormatAlignRightRounded /></ToggleButton>
+              <ToggleButton value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></ToggleButton>
+            </ToggleButtons>
+          </Line>
+        </Accordion>
+
+        <Accordion label='Toggle buttons select multi' open>
+          <Line>
+            <ToggleButtons select='multi'>
+              <ToggleButton value='1' icon><IconMaterialFormatAlignLeftRounded /></ToggleButton>
+              <ToggleButton value='2' icon><IconMaterialFormatAlignCenterRounded /></ToggleButton>
+              <ToggleButton value='3' icon><IconMaterialFormatAlignRightRounded /></ToggleButton>
+              <ToggleButton value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></ToggleButton>
+            </ToggleButtons>
+          </Line>
+        </Accordion>
+
+        <Accordion label='Toggle buttons chip colorSelected' open>
+          <Line>
+            <ToggleButtons colorSelected='secondary' select='multi'>
+              <ToggleButton value='1' icon><IconMaterialFormatAlignLeftRounded /></ToggleButton>
+              <ToggleButton value='2' icon><IconMaterialFormatAlignCenterRounded /></ToggleButton>
+              <ToggleButton value='3' icon><IconMaterialFormatAlignRightRounded /></ToggleButton>
+              <ToggleButton value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></ToggleButton>
+            </ToggleButtons>
+          </Line>
+        </Accordion>
+
+        <Accordion label='Toggle buttons valueDefault' open>
+          <Line>
+            <ToggleButtons valueDefault='3' select='single'>
+              <ToggleButton value='1' icon><IconMaterialFormatAlignLeftRounded /></ToggleButton>
+              <ToggleButton value='2' icon><IconMaterialFormatAlignCenterRounded /></ToggleButton>
+              <ToggleButton value='3' icon><IconMaterialFormatAlignRightRounded /></ToggleButton>
+              <ToggleButton value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></ToggleButton>
+            </ToggleButtons>
+          </Line>
+        </Accordion>
+
+        <Accordion label='Toggle buttons controlled' open>
+          <Line>
+            <ToggleButtons valueDefault='3' onChange={(value_: any) => updatePure(value_, 'buttons')} value={a.buttons} select='single'>
+              <ToggleButton value='1' icon><IconMaterialFormatAlignLeftRounded /></ToggleButton>
+              <ToggleButton value='2' icon><IconMaterialFormatAlignCenterRounded /></ToggleButton>
+              <ToggleButton value='3' icon><IconMaterialFormatAlignRightRounded /></ToggleButton>
+              <ToggleButton value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></ToggleButton>
+            </ToggleButtons>
+          </Line>
+        </Accordion>
+
+        <Accordion label='Toggle buttons chip disabled' open>
+          <Line>
+            <ToggleButtons version='text' disabled>
+              <ToggleButton value='1' icon><IconMaterialFormatAlignLeftRounded /></ToggleButton>
+              <ToggleButton value='2' icon><IconMaterialFormatAlignCenterRounded /></ToggleButton>
+              <ToggleButton value='3' icon><IconMaterialFormatAlignRightRounded /></ToggleButton>
+              <ToggleButton value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></ToggleButton>
+            </ToggleButtons>
+
+            <ToggleButtons version='outlined' disabled>
+              <ToggleButton value='1' icon><IconMaterialFormatAlignLeftRounded /></ToggleButton>
+              <ToggleButton value='2' icon><IconMaterialFormatAlignCenterRounded /></ToggleButton>
+              <ToggleButton value='3' icon><IconMaterialFormatAlignRightRounded /></ToggleButton>
+              <ToggleButton value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></ToggleButton>
+            </ToggleButtons>
+
+            <ToggleButtons version='filled' disabled>
+              <ToggleButton value='1' icon><IconMaterialFormatAlignLeftRounded /></ToggleButton>
+              <ToggleButton value='2' icon><IconMaterialFormatAlignCenterRounded /></ToggleButton>
+              <ToggleButton value='3' icon><IconMaterialFormatAlignRightRounded /></ToggleButton>
+              <ToggleButton value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></ToggleButton>
+            </ToggleButtons>
+          </Line>
+        </Accordion>
+
+        <Accordion label='AmauiTheme'>
+          <div className={classNames([classes.column])}>
+            <ToggleButtons color='secondary'>
+              <ToggleButton value='1' icon><IconMaterialFormatAlignLeftRounded /></ToggleButton>
+              <ToggleButton value='2' icon><IconMaterialFormatAlignCenterRounded /></ToggleButton>
+              <ToggleButton value='3' icon><IconMaterialFormatAlignRightRounded /></ToggleButton>
+              <ToggleButton value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></ToggleButton>
+            </ToggleButtons>
+
+            <Accordion label='AmauiTheme nested value' open>
+              <AmauiThemeProvider
+                value={{
+                  palette: {
+                    color: {
+                      secondary: {
+                        main: '#008000'
+                      }
+                    }
+                  },
+                  space: {
+                    unit: 5
+                  }
+                }}
+              >
+                <ToggleButtons color='secondary'>
+                  <ToggleButton value='1' icon><IconMaterialFormatAlignLeftRounded /></ToggleButton>
+                  <ToggleButton value='2' icon><IconMaterialFormatAlignCenterRounded /></ToggleButton>
+                  <ToggleButton value='3' icon><IconMaterialFormatAlignRightRounded /></ToggleButton>
+                  <ToggleButton value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></ToggleButton>
+                </ToggleButtons>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme add' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiToggleButtons: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: 0.4
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <ToggleButtons color='secondary'>
+                  <ToggleButton value='1' icon><IconMaterialFormatAlignLeftRounded /></ToggleButton>
+                  <ToggleButton value='2' icon><IconMaterialFormatAlignCenterRounded /></ToggleButton>
+                  <ToggleButton value='3' icon><IconMaterialFormatAlignRightRounded /></ToggleButton>
+                  <ToggleButton value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></ToggleButton>
+                </ToggleButtons>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme override' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiToggleButtons: {
+                        style: {
+                          override: {
+                            root: {
+                              display: 'inline-flex',
+                              position: 'relative',
+                              borderRadius: theme.methods.space.value('xl', 'px'),
+                              padding: '40px',
+                              background: '#f7f7f7'
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <ToggleButtons color='secondary'>
+                  <ToggleButton value='1' icon><IconMaterialFormatAlignLeftRounded /></ToggleButton>
+                  <ToggleButton value='2' icon><IconMaterialFormatAlignCenterRounded /></ToggleButton>
+                  <ToggleButton value='3' icon><IconMaterialFormatAlignRightRounded /></ToggleButton>
+                  <ToggleButton value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></ToggleButton>
+                </ToggleButtons>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme props' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiToggleButtons: {
+                        props: {
+                          default: {
+                            color: 'secondary'
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <ToggleButtons>
+                  <ToggleButton value='1' icon><IconMaterialFormatAlignLeftRounded /></ToggleButton>
+                  <ToggleButton value='2' icon><IconMaterialFormatAlignCenterRounded /></ToggleButton>
+                  <ToggleButton value='3' icon><IconMaterialFormatAlignRightRounded /></ToggleButton>
+                  <ToggleButton value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></ToggleButton>
+                </ToggleButtons>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion label='AmauiTheme styled' open>
+              <styled.ToggleButtons>
+                <ToggleButton value='1' icon><IconMaterialFormatAlignLeftRounded /></ToggleButton>
+                <ToggleButton value='2' icon><IconMaterialFormatAlignCenterRounded /></ToggleButton>
+                <ToggleButton value='3' icon><IconMaterialFormatAlignRightRounded /></ToggleButton>
+                <ToggleButton value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></ToggleButton>
+              </styled.ToggleButtons>
+            </Accordion>
+          </div>
+        </Accordion>
       </Accordion>
 
       <Accordion label='Slider'>
@@ -21248,138 +21636,6 @@ Please sign in again.`}
                   Button {index}
                 </Button>
               ))}
-            </Buttons>
-          </div>
-        </Accordion>
-
-        <Accordion label='Buttons chip' open>
-          <div className={classNames([classes.row, classes.center])}>
-            <Buttons color='default' version='text' select='single' noCheckIcon border={false} chip>
-              <Chip value='1' icon><IconMaterialFormatAlignLeftRounded /></Chip>
-              <Chip value='2' icon><IconMaterialFormatAlignCenterRounded /></Chip>
-              <Chip value='3' icon><IconMaterialFormatAlignRightRounded /></Chip>
-              <Chip value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></Chip>
-            </Buttons>
-          </div>
-        </Accordion>
-
-        <Accordion label='Buttons chip' open>
-          <div className={classNames([classes.row, classes.center])}>
-            <Buttons color='default' version='text' select='single' noCheckIcon chip>
-              <Chip value='1' icon><IconMaterialFormatAlignLeftRounded /></Chip>
-              <Chip value='2' icon><IconMaterialFormatAlignCenterRounded /></Chip>
-              <Chip value='3' icon><IconMaterialFormatAlignRightRounded /></Chip>
-              <Chip value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></Chip>
-            </Buttons>
-          </div>
-        </Accordion>
-
-        <Accordion label='Buttons chip' open>
-          <div className={classNames([classes.row, classes.center])}>
-            <Buttons color='default' version='outlined' select='single' noCheckIcon chip>
-              <Chip value='1' icon><IconMaterialFormatAlignLeftRounded /></Chip>
-              <Chip value='2' icon><IconMaterialFormatAlignCenterRounded /></Chip>
-              <Chip value='3' icon><IconMaterialFormatAlignRightRounded /></Chip>
-              <Chip value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></Chip>
-            </Buttons>
-          </div>
-        </Accordion>
-
-        <Accordion label='Buttons chip' open>
-          <div className={classNames([classes.row, classes.center])}>
-            <Buttons color='default' version='filled' select='single' noCheckIcon chip>
-              <Chip value='1' icon><IconMaterialFormatAlignLeftRounded /></Chip>
-              <Chip value='2' icon><IconMaterialFormatAlignCenterRounded /></Chip>
-              <Chip value='3' icon><IconMaterialFormatAlignRightRounded /></Chip>
-              <Chip value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></Chip>
-            </Buttons>
-          </div>
-        </Accordion>
-
-        <Accordion label='Buttons chip' open>
-          <div className={classNames([classes.row, classes.center])}>
-            <Buttons color='default' version='text' select='single' noCheckIcon vertical chip>
-              <Chip value='1' icon><IconMaterialFormatAlignLeftRounded /></Chip>
-              <Chip value='2' icon><IconMaterialFormatAlignCenterRounded /></Chip>
-              <Chip value='3' icon><IconMaterialFormatAlignRightRounded /></Chip>
-              <Chip value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></Chip>
-            </Buttons>
-          </div>
-        </Accordion>
-
-        <Accordion label='Buttons chip' open>
-          <div className={classNames([classes.row, classes.center])}>
-            <Buttons color='default' version='outlined' select='single' noCheckIcon vertical chip>
-              <Chip value='1' icon><IconMaterialFormatAlignLeftRounded /></Chip>
-              <Chip value='2' icon><IconMaterialFormatAlignCenterRounded /></Chip>
-              <Chip value='3' icon><IconMaterialFormatAlignRightRounded /></Chip>
-              <Chip value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></Chip>
-            </Buttons>
-          </div>
-        </Accordion>
-
-        <Accordion label='Buttons chip' open>
-          <div className={classNames([classes.row, classes.center])}>
-            <Buttons color='default' version='filled' select='single' noCheckIcon vertical chip>
-              <Chip value='1' icon><IconMaterialFormatAlignLeftRounded /></Chip>
-              <Chip value='2' icon><IconMaterialFormatAlignCenterRounded /></Chip>
-              <Chip value='3' icon><IconMaterialFormatAlignRightRounded /></Chip>
-              <Chip value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></Chip>
-            </Buttons>
-          </div>
-        </Accordion>
-
-        <Accordion label='Buttons chip colorSelected' open>
-          <div className={classNames([classes.row, classes.center])}>
-            <Buttons color='default' colorSelected='secondary' version='outlined' select='single' noCheckIcon chip>
-              <Chip value='1' icon><IconMaterialFormatAlignLeftRounded /></Chip>
-              <Chip value='2' icon><IconMaterialFormatAlignCenterRounded /></Chip>
-              <Chip value='3' icon><IconMaterialFormatAlignRightRounded /></Chip>
-              <Chip value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></Chip>
-            </Buttons>
-          </div>
-        </Accordion>
-
-        <Accordion label='Buttons valueDefault' open>
-          <div className={classNames([classes.row, classes.center])}>
-            <Buttons valueDefault='3' color='default' version='outlined' select='single' noCheckIcon chip>
-              <Chip value='1' icon><IconMaterialFormatAlignLeftRounded /></Chip>
-              <Chip value='2' icon><IconMaterialFormatAlignCenterRounded /></Chip>
-              <Chip value='3' icon><IconMaterialFormatAlignRightRounded /></Chip>
-              <Chip value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></Chip>
-            </Buttons>
-          </div>
-        </Accordion>
-
-        <Accordion label='Buttons controlled' open>
-          <div className={classNames([classes.row, classes.center])}>
-            <Buttons onChange={(value_: any) => updatePure(value_, 'buttons')} value={a.buttons} valueDefault='3' color='default' version='outlined' select='single' noCheckIcon chip>
-              <Chip value='1' icon><IconMaterialFormatAlignLeftRounded /></Chip>
-              <Chip value='2' icon><IconMaterialFormatAlignCenterRounded /></Chip>
-              <Chip value='3' icon><IconMaterialFormatAlignRightRounded /></Chip>
-              <Chip value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></Chip>
-            </Buttons>
-          </div>
-        </Accordion>
-
-        <Accordion label='Buttons chip disabled' open>
-          <div className={classNames([classes.row, classes.center])}>
-            <Buttons color='default' version='outlined' select='single' noCheckIcon chip disabled>
-              <Chip value='1' icon><IconMaterialFormatAlignLeftRounded /></Chip>
-              <Chip value='2' icon><IconMaterialFormatAlignCenterRounded /></Chip>
-              <Chip value='3' icon><IconMaterialFormatAlignRightRounded /></Chip>
-              <Chip value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></Chip>
-            </Buttons>
-          </div>
-        </Accordion>
-
-        <Accordion label='Buttons chip disabled' open>
-          <div className={classNames([classes.row, classes.center])}>
-            <Buttons color='default' version='filled' select='single' noCheckIcon chip disabled>
-              <Chip value='1' icon><IconMaterialFormatAlignLeftRounded /></Chip>
-              <Chip value='2' icon><IconMaterialFormatAlignCenterRounded /></Chip>
-              <Chip value='3' icon><IconMaterialFormatAlignRightRounded /></Chip>
-              <Chip value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></Chip>
             </Buttons>
           </div>
         </Accordion>

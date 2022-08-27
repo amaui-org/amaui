@@ -11,7 +11,9 @@ import useMediaQuery from '../useMediaQuery';
 const useStyle = style(theme => ({
   root: {
     display: 'flex',
-    width: '100%'
+    width: '100%',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start'
   },
 
   // wrap

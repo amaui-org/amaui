@@ -169,3 +169,9 @@ export * from './Banner';
 
 export { default as Slider } from './Slider';
 export * from './Slider';
+
+export { default as ToggleButton } from './ToggleButton';
+export * from './ToggleButton';
+
+export { default as ToggleButtons } from './ToggleButtons';
+export * from './ToggleButtons';
