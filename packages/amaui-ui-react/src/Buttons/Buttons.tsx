@@ -219,11 +219,6 @@ const Buttons = React.forwardRef((props_: any, ref: any) => {
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiButtons?.props?.default }), [props_]);
 
-  const [preSelected, setPreSelected] = React.useState([]);
-  const [selected, setSelected] = React.useState([]);
-
-  const { classes } = useStyle(props);
-
   const {
     select,
     tonal,
@@ -232,6 +227,9 @@ const Buttons = React.forwardRef((props_: any, ref: any) => {
     colorSelected = props.color,
     size = 'regular',
     vertical,
+    value,
+    valueDefault,
+    onChange,
     noCheckIcon,
     elevation = true,
     border = true,
@@ -246,56 +244,84 @@ const Buttons = React.forwardRef((props_: any, ref: any) => {
     ...other
   } = props;
 
-  const onSelect = (index: number, itemProps: any, startIcon = false) => {
-    if (startIcon) {
-      if (selected.includes(index)) {
-        setSelected(items => items.filter(item => item !== index));
+  const [init, setInit] = React.useState(false);
+  const [preSelected, setPreSelected] = React.useState([]);
+  const [selected, setSelected] = React.useState(() => {
+    const valueNew = valueDefault !== undefined ? valueDefault : value;
 
-        if (is('function', itemProps.onUnselected)) itemProps.onUnselected();
+    return valueNew !== undefined ? is('array', valueNew) ? valueNew : [valueNew] : [];
+  });
+
+  const { classes } = useStyle(props);
+
+  React.useEffect(() => {
+    setInit(true);
+  }, []);
+
+  React.useEffect(() => {
+    if (init && value !== selected) setSelected(is('array', value) ? value : [value]);
+  }, [value]);
+
+  const onSelect = (itemProps: any, startIcon = false) => {
+    let valueNew: any;
+
+    if (startIcon) {
+      if (selected.includes(itemProps.value)) {
+        valueNew = selected.filter(item => item !== itemProps.value);
       }
       else {
-        if (select === 'single') setSelected([index]);
+        if (select === 'single') valueNew = [itemProps.value];
 
-        if (select === 'multi') setSelected(items => unique([...items, index]));
-
-        if (is('function', itemProps.onSelected)) itemProps.onSelected();
+        if (select === 'multi') valueNew = unique([...selected, itemProps.value]);
       }
     }
     else {
       // Unselect
-      if (selected.includes(index)) {
+      if (selected.includes(itemProps.value)) {
         if (!noCheckIcon) {
-          setPreSelected(items => items.filter(item => item !== index));
+          setPreSelected(items => items.filter(item => item !== itemProps.value));
         }
-        else setSelected(items => items.filter(item => item !== index));
-
-        if (is('function', itemProps.onUnselected)) itemProps.onUnselected();
+        else {
+          valueNew = selected.filter(item => item !== itemProps.value);
+        }
       }
       else {
         if (select === 'single') {
           if (!noCheckIcon) {
-            setPreSelected([index]);
+            setPreSelected([itemProps.value]);
 
-            setSelected(items => [...items, index]);
+            valueNew = [...selected, itemProps.value];
           }
-          else setSelected(() => [index]);
+          else valueNew = [itemProps.value];
         }
         if (select === 'multi') {
           if (!noCheckIcon) {
-            setPreSelected(items => unique([...items, index]));
+            setPreSelected(items => unique([...items, itemProps.value]));
 
-            setSelected(items => unique([...items, index]));
+            valueNew = unique([...selected, itemProps.value]);
           }
-          else setSelected(items => unique([...items, index]));
+          else valueNew = unique([...selected, itemProps.value]);
         }
-
-        if (is('function', itemProps.onSelected)) itemProps.onSelected();
       }
+    }
+
+    if (valueNew !== undefined) {
+      // Update inner or controlled
+      if (props.hasOwnProperty('value')) {
+        if (is('function', onChange)) onChange(valueNew);
+      }
+      else setSelected(valueNew);
     }
   };
 
-  const updateSelected = (index: number, itemProps: any) => {
-    setSelected(items => items.filter(item => item !== index));
+  const updateSelected = (itemProps: any) => {
+    const valueNew = selected.filter(item => item !== itemProps.value);
+
+    // Update inner or controlled
+    if (props.hasOwnProperty('value')) {
+      if (is('function', onChange)) onChange(valueNew);
+    }
+    else setSelected(valueNew);
   };
 
   const children = React.Children
@@ -316,29 +342,29 @@ const Buttons = React.forwardRef((props_: any, ref: any) => {
           classes.vertical_start,
           classes.vertical_end
         ],
-        selected.includes(index) && classes.selected,
+        selected.includes(item.props.value) && classes.selected,
         border && classes.border
       ]),
 
       onClick: () => {
-        onSelect(index, item.props, !!item.props.startIcon);
+        onSelect(item.props, !!item.props.startIcon);
 
         // Invoke items on click method
         if (is('function', item.props.onClick)) item.props.onClick();
       },
 
-      ...(!noCheckIcon && item.props.startIcon && selected.includes(index) ? {
+      ...(!noCheckIcon && item.props.startIcon && selected.includes(item.props.value) ? {
         startIcon: (
           <IconDoneAnimated simple in add />
         )
       } : {}),
 
-      ...(!noCheckIcon && (!item.props.startIcon && (selected.includes(index) || preSelected.includes(index))) ? {
+      ...(!noCheckIcon && (!item.props.startIcon && (selected.includes(item.props.value) || preSelected.includes(item.props.value))) ? {
         startIcon: (
           <IconDoneAnimated
             in={(item.props.startIcon ? selected : preSelected).includes(index)}
 
-            onExited={() => updateSelected(index, item.props)}
+            onExited={() => updateSelected(item.props)}
 
             add
           />
@@ -346,13 +372,13 @@ const Buttons = React.forwardRef((props_: any, ref: any) => {
       } : {}),
 
       version: item.props?.version !== undefined ? item.props.version : version,
-      color: selected.includes(index) ? colorSelected || (item.props?.color !== undefined ? item.props.color : color) : (item.props?.color !== undefined ? item.props.color : color),
+      color: selected.includes(item.props.value) ? colorSelected || (item.props?.color !== undefined ? item.props.color : color) : (item.props?.color !== undefined ? item.props.color : color),
       size: item.props?.size !== undefined ? item.props.size : size,
       tonal: item.props?.tonal !== undefined ? item.props.tonal : tonal,
 
       elevation: false,
 
-      selected: selected.includes(index),
+      selected: selected.includes(item.props.value),
 
       disabled: item.props?.disabled !== undefined ? item.props.disabled : disabled
     }));

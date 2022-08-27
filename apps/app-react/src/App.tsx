@@ -21138,31 +21138,51 @@ Please sign in again.`}
 
           <div className={classNames([classes.row, classes.center])}>
             <Buttons select='single' size='small' color='secondary' version='text'>
-              <Button startIcon={<IconMaterialAddRounded />}>Button one</Button>
-              <Button startIcon={<IconMaterialAddRounded />}>Button two</Button>
-              <Button startIcon={<IconMaterialAddRounded />}>Button three</Button>
-              <Button startIcon={<IconMaterialAddRounded />}>Button four</Button>
-              <Button startIcon={<IconMaterialAddRounded />}>Button five</Button>
+              {new Array(5).fill(true).map((item: any, index: number) => (
+                <Button
+                  key={index}
+
+                  value={index}
+
+                  startIcon={<IconMaterialAddRounded />}
+                >
+                  Button {index}
+                </Button>
+              ))}
             </Buttons>
           </div>
 
           <div className={classNames([classes.row, classes.center])}>
             <Buttons select='single' size='regular' color='secondary' version='outlined'>
-              <Button endIcon={<IconMaterialAddRounded />}>Button one</Button>
-              <Button endIcon={<IconMaterialAddRounded />}>Button two</Button>
-              <Button endIcon={<IconMaterialAddRounded />}>Button three</Button>
-              <Button endIcon={<IconMaterialAddRounded />}>Button four</Button>
-              <Button endIcon={<IconMaterialAddRounded />}>Button five</Button>
+              {new Array(5).fill(true).map((item: any, index: number) => (
+                <Button
+                  key={index}
+
+                  value={index}
+
+                  endIcon={<IconMaterialAddRounded />}
+                >
+                  Button {index}
+                </Button>
+              ))}
             </Buttons>
           </div>
 
           <div className={classNames([classes.row, classes.center])}>
             <Buttons select='single' size='large' color='secondary' version='filled' tonal>
-              <Button startIcon={<IconMaterialAddRounded />} endIcon={<IconMaterialAddRounded />}>Button one</Button>
-              <Button startIcon={<IconMaterialAddRounded />} endIcon={<IconMaterialAddRounded />}>Button two</Button>
-              <Button startIcon={<IconMaterialAddRounded />} endIcon={<IconMaterialAddRounded />}>Button three</Button>
-              <Button startIcon={<IconMaterialAddRounded />} endIcon={<IconMaterialAddRounded />}>Button four</Button>
-              <Button startIcon={<IconMaterialAddRounded />} endIcon={<IconMaterialAddRounded />}>Button five</Button>
+              {new Array(5).fill(true).map((item: any, index: number) => (
+                <Button
+                  key={index}
+
+                  value={index}
+
+                  startIcon={<IconMaterialAddRounded />}
+
+                  endIcon={<IconMaterialAddRounded />}
+                >
+                  Button {index}
+                </Button>
+              ))}
             </Buttons>
           </div>
 
@@ -21171,13 +21191,15 @@ Please sign in again.`}
         <Accordion label='Buttons select single' open>
           <div className={classNames([classes.row, classes.center])}>
             <Buttons color='secondary' version='filled' select='single' tonal>
-              <Button>Button one</Button>
-              <Button>Button two</Button>
-              <Button>Button three</Button>
-              <Button>Button four</Button>
-              <Button>Button five</Button>
-              <Button>Button seven</Button>
-              <Button>Button fourteen</Button>
+              {new Array(7).fill(true).map((item: any, index: number) => (
+                <Button
+                  key={index}
+
+                  value={index}
+                >
+                  Button {index}
+                </Button>
+              ))}
             </Buttons>
           </div>
         </Accordion>
@@ -21185,13 +21207,15 @@ Please sign in again.`}
         <Accordion label='Buttons select multi' open>
           <div className={classNames([classes.row, classes.center])}>
             <Buttons version='filled' size='large' select='multi'>
-              <Button>Button one</Button>
-              <Button>Button two</Button>
-              <Button>Button three</Button>
-              <Button>Button four</Button>
-              <Button>Button five</Button>
-              <Button>Button seven</Button>
-              <Button>Button fourteen</Button>
+              {new Array(7).fill(true).map((item: any, index: number) => (
+                <Button
+                  key={index}
+
+                  value={index}
+                >
+                  Button {index}
+                </Button>
+              ))}
             </Buttons>
           </div>
         </Accordion>
@@ -21199,13 +21223,15 @@ Please sign in again.`}
         <Accordion label='Buttons select single noCheckIcon' open>
           <div className={classNames([classes.row, classes.center])}>
             <Buttons color='secondary' version='filled' select='single' noCheckIcon tonal>
-              <Button>Button one</Button>
-              <Button>Button two</Button>
-              <Button>Button three</Button>
-              <Button>Button four</Button>
-              <Button>Button five</Button>
-              <Button>Button seven</Button>
-              <Button>Button fourteen</Button>
+              {new Array(7).fill(true).map((item: any, index: number) => (
+                <Button
+                  key={index}
+
+                  value={index}
+                >
+                  Button {index}
+                </Button>
+              ))}
             </Buttons>
           </div>
         </Accordion>
@@ -21213,13 +21239,15 @@ Please sign in again.`}
         <Accordion label='Buttons select multi noCheckIcon' open>
           <div className={classNames([classes.row, classes.center])}>
             <Buttons version='filled' size='large' select='multi' noCheckIcon>
-              <Button>Button one</Button>
-              <Button>Button two</Button>
-              <Button>Button three</Button>
-              <Button>Button four</Button>
-              <Button>Button five</Button>
-              <Button>Button seven</Button>
-              <Button>Button fourteen</Button>
+              {new Array(7).fill(true).map((item: any, index: number) => (
+                <Button
+                  key={index}
+
+                  value={index}
+                >
+                  Button {index}
+                </Button>
+              ))}
             </Buttons>
           </div>
         </Accordion>
@@ -21227,10 +21255,10 @@ Please sign in again.`}
         <Accordion label='Buttons chip' open>
           <div className={classNames([classes.row, classes.center])}>
             <Buttons color='default' version='text' select='single' noCheckIcon border={false} chip>
-              <Chip icon><IconMaterialFormatAlignLeftRounded /></Chip>
-              <Chip icon><IconMaterialFormatAlignCenterRounded /></Chip>
-              <Chip icon><IconMaterialFormatAlignRightRounded /></Chip>
-              <Chip icon disabled><IconMaterialFormatAlignJustifyRounded /></Chip>
+              <Chip value='1' icon><IconMaterialFormatAlignLeftRounded /></Chip>
+              <Chip value='2' icon><IconMaterialFormatAlignCenterRounded /></Chip>
+              <Chip value='3' icon><IconMaterialFormatAlignRightRounded /></Chip>
+              <Chip value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></Chip>
             </Buttons>
           </div>
         </Accordion>
@@ -21238,10 +21266,10 @@ Please sign in again.`}
         <Accordion label='Buttons chip' open>
           <div className={classNames([classes.row, classes.center])}>
             <Buttons color='default' version='text' select='single' noCheckIcon chip>
-              <Chip icon><IconMaterialFormatAlignLeftRounded /></Chip>
-              <Chip icon><IconMaterialFormatAlignCenterRounded /></Chip>
-              <Chip icon><IconMaterialFormatAlignRightRounded /></Chip>
-              <Chip icon disabled><IconMaterialFormatAlignJustifyRounded /></Chip>
+              <Chip value='1' icon><IconMaterialFormatAlignLeftRounded /></Chip>
+              <Chip value='2' icon><IconMaterialFormatAlignCenterRounded /></Chip>
+              <Chip value='3' icon><IconMaterialFormatAlignRightRounded /></Chip>
+              <Chip value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></Chip>
             </Buttons>
           </div>
         </Accordion>
@@ -21249,10 +21277,10 @@ Please sign in again.`}
         <Accordion label='Buttons chip' open>
           <div className={classNames([classes.row, classes.center])}>
             <Buttons color='default' version='outlined' select='single' noCheckIcon chip>
-              <Chip icon><IconMaterialFormatAlignLeftRounded /></Chip>
-              <Chip icon><IconMaterialFormatAlignCenterRounded /></Chip>
-              <Chip icon><IconMaterialFormatAlignRightRounded /></Chip>
-              <Chip icon disabled><IconMaterialFormatAlignJustifyRounded /></Chip>
+              <Chip value='1' icon><IconMaterialFormatAlignLeftRounded /></Chip>
+              <Chip value='2' icon><IconMaterialFormatAlignCenterRounded /></Chip>
+              <Chip value='3' icon><IconMaterialFormatAlignRightRounded /></Chip>
+              <Chip value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></Chip>
             </Buttons>
           </div>
         </Accordion>
@@ -21260,10 +21288,10 @@ Please sign in again.`}
         <Accordion label='Buttons chip' open>
           <div className={classNames([classes.row, classes.center])}>
             <Buttons color='default' version='filled' select='single' noCheckIcon chip>
-              <Chip icon><IconMaterialFormatAlignLeftRounded /></Chip>
-              <Chip icon><IconMaterialFormatAlignCenterRounded /></Chip>
-              <Chip icon><IconMaterialFormatAlignRightRounded /></Chip>
-              <Chip icon disabled><IconMaterialFormatAlignJustifyRounded /></Chip>
+              <Chip value='1' icon><IconMaterialFormatAlignLeftRounded /></Chip>
+              <Chip value='2' icon><IconMaterialFormatAlignCenterRounded /></Chip>
+              <Chip value='3' icon><IconMaterialFormatAlignRightRounded /></Chip>
+              <Chip value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></Chip>
             </Buttons>
           </div>
         </Accordion>
@@ -21271,10 +21299,10 @@ Please sign in again.`}
         <Accordion label='Buttons chip' open>
           <div className={classNames([classes.row, classes.center])}>
             <Buttons color='default' version='text' select='single' noCheckIcon vertical chip>
-              <Chip icon><IconMaterialFormatAlignLeftRounded /></Chip>
-              <Chip icon><IconMaterialFormatAlignCenterRounded /></Chip>
-              <Chip icon><IconMaterialFormatAlignRightRounded /></Chip>
-              <Chip icon disabled><IconMaterialFormatAlignJustifyRounded /></Chip>
+              <Chip value='1' icon><IconMaterialFormatAlignLeftRounded /></Chip>
+              <Chip value='2' icon><IconMaterialFormatAlignCenterRounded /></Chip>
+              <Chip value='3' icon><IconMaterialFormatAlignRightRounded /></Chip>
+              <Chip value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></Chip>
             </Buttons>
           </div>
         </Accordion>
@@ -21282,10 +21310,10 @@ Please sign in again.`}
         <Accordion label='Buttons chip' open>
           <div className={classNames([classes.row, classes.center])}>
             <Buttons color='default' version='outlined' select='single' noCheckIcon vertical chip>
-              <Chip icon><IconMaterialFormatAlignLeftRounded /></Chip>
-              <Chip icon><IconMaterialFormatAlignCenterRounded /></Chip>
-              <Chip icon><IconMaterialFormatAlignRightRounded /></Chip>
-              <Chip icon disabled><IconMaterialFormatAlignJustifyRounded /></Chip>
+              <Chip value='1' icon><IconMaterialFormatAlignLeftRounded /></Chip>
+              <Chip value='2' icon><IconMaterialFormatAlignCenterRounded /></Chip>
+              <Chip value='3' icon><IconMaterialFormatAlignRightRounded /></Chip>
+              <Chip value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></Chip>
             </Buttons>
           </div>
         </Accordion>
@@ -21293,10 +21321,10 @@ Please sign in again.`}
         <Accordion label='Buttons chip' open>
           <div className={classNames([classes.row, classes.center])}>
             <Buttons color='default' version='filled' select='single' noCheckIcon vertical chip>
-              <Chip icon><IconMaterialFormatAlignLeftRounded /></Chip>
-              <Chip icon><IconMaterialFormatAlignCenterRounded /></Chip>
-              <Chip icon><IconMaterialFormatAlignRightRounded /></Chip>
-              <Chip icon disabled><IconMaterialFormatAlignJustifyRounded /></Chip>
+              <Chip value='1' icon><IconMaterialFormatAlignLeftRounded /></Chip>
+              <Chip value='2' icon><IconMaterialFormatAlignCenterRounded /></Chip>
+              <Chip value='3' icon><IconMaterialFormatAlignRightRounded /></Chip>
+              <Chip value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></Chip>
             </Buttons>
           </div>
         </Accordion>
@@ -21304,10 +21332,32 @@ Please sign in again.`}
         <Accordion label='Buttons chip colorSelected' open>
           <div className={classNames([classes.row, classes.center])}>
             <Buttons color='default' colorSelected='secondary' version='outlined' select='single' noCheckIcon chip>
-              <Chip icon><IconMaterialFormatAlignLeftRounded /></Chip>
-              <Chip icon><IconMaterialFormatAlignCenterRounded /></Chip>
-              <Chip icon><IconMaterialFormatAlignRightRounded /></Chip>
-              <Chip icon disabled><IconMaterialFormatAlignJustifyRounded /></Chip>
+              <Chip value='1' icon><IconMaterialFormatAlignLeftRounded /></Chip>
+              <Chip value='2' icon><IconMaterialFormatAlignCenterRounded /></Chip>
+              <Chip value='3' icon><IconMaterialFormatAlignRightRounded /></Chip>
+              <Chip value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></Chip>
+            </Buttons>
+          </div>
+        </Accordion>
+
+        <Accordion label='Buttons valueDefault' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Buttons valueDefault='3' color='default' version='outlined' select='single' noCheckIcon chip>
+              <Chip value='1' icon><IconMaterialFormatAlignLeftRounded /></Chip>
+              <Chip value='2' icon><IconMaterialFormatAlignCenterRounded /></Chip>
+              <Chip value='3' icon><IconMaterialFormatAlignRightRounded /></Chip>
+              <Chip value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></Chip>
+            </Buttons>
+          </div>
+        </Accordion>
+
+        <Accordion label='Buttons controlled' open>
+          <div className={classNames([classes.row, classes.center])}>
+            <Buttons onChange={(value_: any) => updatePure(value_, 'buttons')} value={a.buttons} valueDefault='3' color='default' version='outlined' select='single' noCheckIcon chip>
+              <Chip value='1' icon><IconMaterialFormatAlignLeftRounded /></Chip>
+              <Chip value='2' icon><IconMaterialFormatAlignCenterRounded /></Chip>
+              <Chip value='3' icon><IconMaterialFormatAlignRightRounded /></Chip>
+              <Chip value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></Chip>
             </Buttons>
           </div>
         </Accordion>
@@ -21315,10 +21365,10 @@ Please sign in again.`}
         <Accordion label='Buttons chip disabled' open>
           <div className={classNames([classes.row, classes.center])}>
             <Buttons color='default' version='outlined' select='single' noCheckIcon chip disabled>
-              <Chip icon><IconMaterialFormatAlignLeftRounded /></Chip>
-              <Chip icon><IconMaterialFormatAlignCenterRounded /></Chip>
-              <Chip icon><IconMaterialFormatAlignRightRounded /></Chip>
-              <Chip icon disabled><IconMaterialFormatAlignJustifyRounded /></Chip>
+              <Chip value='1' icon><IconMaterialFormatAlignLeftRounded /></Chip>
+              <Chip value='2' icon><IconMaterialFormatAlignCenterRounded /></Chip>
+              <Chip value='3' icon><IconMaterialFormatAlignRightRounded /></Chip>
+              <Chip value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></Chip>
             </Buttons>
           </div>
         </Accordion>
@@ -21326,10 +21376,10 @@ Please sign in again.`}
         <Accordion label='Buttons chip disabled' open>
           <div className={classNames([classes.row, classes.center])}>
             <Buttons color='default' version='filled' select='single' noCheckIcon chip disabled>
-              <Chip icon><IconMaterialFormatAlignLeftRounded /></Chip>
-              <Chip icon><IconMaterialFormatAlignCenterRounded /></Chip>
-              <Chip icon><IconMaterialFormatAlignRightRounded /></Chip>
-              <Chip icon disabled><IconMaterialFormatAlignJustifyRounded /></Chip>
+              <Chip value='1' icon><IconMaterialFormatAlignLeftRounded /></Chip>
+              <Chip value='2' icon><IconMaterialFormatAlignCenterRounded /></Chip>
+              <Chip value='3' icon><IconMaterialFormatAlignRightRounded /></Chip>
+              <Chip value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></Chip>
             </Buttons>
           </div>
         </Accordion>
@@ -21337,13 +21387,15 @@ Please sign in again.`}
         <Accordion label='Buttons disabled' open>
           <div className={classNames([classes.row, classes.center])}>
             <Buttons color='default' version='filled' select='single' disabled>
-              <Button>Button one</Button>
-              <Button>Button two</Button>
-              <Button>Button three</Button>
-              <Button>Button four</Button>
-              <Button>Button five</Button>
-              <Button>Button seven</Button>
-              <Button>Button fourteen</Button>
+              {new Array(7).fill(true).map((item: any, index: number) => (
+                <Button
+                  key={index}
+
+                  value={index}
+                >
+                  Button {index}
+                </Button>
+              ))}
             </Buttons>
           </div>
         </Accordion>
@@ -21351,33 +21403,45 @@ Please sign in again.`}
         <Accordion label='Buttons vertical select multi' open>
           <div className={classNames([classes.row, classes.center])}>
             <Buttons color='default' version='text' select='multi' fullWidth vertical>
-              <Button align='start'>Button one</Button>
-              <Button align='start'>Button two</Button>
-              <Button align='start'>Button three</Button>
-              <Button align='start'>Button four</Button>
-              <Button align='start'>Button five</Button>
-              <Button align='start'>Button seven</Button>
-              <Button align='start'>Button fourteen</Button>
+              {new Array(7).fill(true).map((item: any, index: number) => (
+                <Button
+                  key={index}
+
+                  align='start'
+
+                  value={index}
+                >
+                  Button {index}
+                </Button>
+              ))}
             </Buttons>
 
             <Buttons color='default' version='outlined' select='multi' fullWidth vertical>
-              <Button align='start'>Button one</Button>
-              <Button align='start'>Button two</Button>
-              <Button align='start'>Button three</Button>
-              <Button align='start'>Button four</Button>
-              <Button align='start'>Button five</Button>
-              <Button align='start'>Button seven</Button>
-              <Button align='start'>Button fourteen</Button>
+              {new Array(7).fill(true).map((item: any, index: number) => (
+                <Button
+                  key={index}
+
+                  align='start'
+
+                  value={index}
+                >
+                  Button {index}
+                </Button>
+              ))}
             </Buttons>
 
             <Buttons color='default' version='filled' select='multi' fullWidth vertical>
-              <Button align='start'>Button one</Button>
-              <Button align='start'>Button two</Button>
-              <Button align='start'>Button three</Button>
-              <Button align='start'>Button four</Button>
-              <Button align='start'>Button five</Button>
-              <Button align='start'>Button seven</Button>
-              <Button align='start'>Button fourteen</Button>
+              {new Array(7).fill(true).map((item: any, index: number) => (
+                <Button
+                  key={index}
+
+                  align='start'
+
+                  value={index}
+                >
+                  Button {index}
+                </Button>
+              ))}
             </Buttons>
           </div>
         </Accordion>
