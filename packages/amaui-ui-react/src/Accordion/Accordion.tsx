@@ -11,6 +11,7 @@ import IconButton from '../IconButton';
 import Grid from '../Grid';
 import Line from '../Line';
 import Type from '../Type';
+import Fade from '../Fade';
 
 const useStyle = style(theme => ({
   root: {
@@ -158,6 +159,9 @@ const Accordion = React.forwardRef((props_: any, ref: any) => {
     openDefault,
     open: open_,
     onChange,
+    TransitionComponent: TransitionComponent_ = Fade,
+    TransitionComponentProps: TransitionComponentProps_ = { add: true },
+    noTransition,
     disabled,
 
     ExpandProps = {},
@@ -172,6 +176,9 @@ const Accordion = React.forwardRef((props_: any, ref: any) => {
   const [open, setOpen] = React.useState(openDefault !== undefined ? openDefault : open_);
 
   const { classes } = useStyle(props);
+
+  let TransitionComponent = TransitionComponent_;
+  let TransitionComponentProps = TransitionComponentProps_;
 
   React.useEffect(() => {
     if (open_ !== open) setOpen(open_);
@@ -188,6 +195,12 @@ const Accordion = React.forwardRef((props_: any, ref: any) => {
       else setOpen(valueNew);
     }
   }, [open, disabled]);
+
+  if (!noTransition) TransitionComponentProps.in = open;
+  else {
+    TransitionComponent = React.Fragment;
+    TransitionComponentProps = {};
+  }
 
   return (
     <div
@@ -241,7 +254,9 @@ const Accordion = React.forwardRef((props_: any, ref: any) => {
         <Grid
           gap={{ xs: 0.5, sm: 3 }}
 
-          container
+          direction={{ xs: 'column', sm: 'row' }}
+
+          line
 
           className={classNames([
             staticClassName('Accordion', theme) && [
@@ -307,25 +322,25 @@ const Accordion = React.forwardRef((props_: any, ref: any) => {
       <Expand
         in={open}
 
-        append
-
-        removeOnExited
-
         {...ExpandProps}
       >
-        <div
-          className={classNames([
-            staticClassName('Accordion', theme) && [
-              'AmauiAccordion-main'
-            ],
-
-            classes.main,
-            classes[`main_padding_vertical_${mainPaddingVertical}`],
-            classes[`main_padding_horizontal_${mainPaddingHorizontal}`],
-          ])}
+        <TransitionComponent
+          {...TransitionComponentProps}
         >
-          {children}
-        </div>
+          <div
+            className={classNames([
+              staticClassName('Accordion', theme) && [
+                'AmauiAccordion-main'
+              ],
+
+              classes.main,
+              classes[`main_padding_vertical_${mainPaddingVertical}`],
+              classes[`main_padding_horizontal_${mainPaddingHorizontal}`],
+            ])}
+          >
+            {children}
+          </div>
+        </TransitionComponent>
       </Expand>
     </div>
   );

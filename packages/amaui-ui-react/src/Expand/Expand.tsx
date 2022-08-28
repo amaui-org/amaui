@@ -91,7 +91,7 @@ const Expand = React.forwardRef((props_: any, ref: any) => {
       overflow: 'hidden'
     },
     added: {
-      [prop]: rect && `${rect[prop]}px`
+      [prop]: 'auto'
     },
 
     enter: {
@@ -134,15 +134,28 @@ const Expand = React.forwardRef((props_: any, ref: any) => {
     <Transition
       append
 
+      removeOnExited
+
       {...props}
 
       onInit={element => refs.rect.current = element?.getBoundingClientRect()}
 
       onEnter={(element: any) => {
-        refs.rect.current = element?.getBoundingClientRect();
+        const rect_ = element?.getBoundingClientRect();
+
+        // Bug
+        if (refs.rect.current === undefined || (rect_?.height > 0 && rect_?.height < refs.rect.current?.height)) refs.rect.current = rect_;
+      }}
+
+      onExit={(element: any) => {
+        const rect_ = element?.getBoundingClientRect();
+
+        // Bug
+        if (refs.rect.current === undefined || (rect_?.height > 0 && rect_?.height < refs.rect.current?.height)) refs.rect.current = rect_;
       }}
     >
       {(status: TTransitionStatus, ref_) => {
+        console.log(1, status, styles[status]);
         return React.cloneElement(<Wrapper children={children} {...WrapperProps} />, {
           ...other,
 
