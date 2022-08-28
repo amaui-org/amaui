@@ -39,6 +39,7 @@ const Expand = React.forwardRef((props_: any, ref: any) => {
     run,
     append,
     add,
+    addValue = 0,
     enter,
     exit,
     enterOnAdd,
@@ -130,33 +131,39 @@ const Expand = React.forwardRef((props_: any, ref: any) => {
 
   const timingFunction = status => (is('simple', timing_function) ? timing_function : timing_function[status]) || theme.transitions.timing_function.standard;
 
+  const children_ = React.useMemo(() => <Wrapper {...WrapperProps}>{children}</Wrapper>, [children]);
+
   return (
     <Transition
-      append
-
       removeOnExited
 
       {...props}
 
-      onInit={element => refs.rect.current = element?.getBoundingClientRect()}
+      append
 
-      onEnter={(element: any) => {
-        const rect_ = element?.getBoundingClientRect();
+      onInit={element => {
+        refs.rect.current = element?.getBoundingClientRect();
 
-        // Bug
-        if (refs.rect.current === undefined || (rect_?.height > 0 && rect_?.height < refs.rect.current?.height)) refs.rect.current = rect_;
+        // Bug value update
+        refs.rect.current[prop] += addValue;
       }}
 
-      onExit={(element: any) => {
-        const rect_ = element?.getBoundingClientRect();
+      onEnter={element => {
+        refs.rect.current = element?.getBoundingClientRect();
 
-        // Bug
-        if (refs.rect.current === undefined || (rect_?.height > 0 && rect_?.height < refs.rect.current?.height)) refs.rect.current = rect_;
+        // Bug value update
+        refs.rect.current[prop] += addValue;
+      }}
+
+      onExit={element => {
+        refs.rect.current = element?.getBoundingClientRect();
+
+        // Bug value update
+        refs.rect.current[prop] += addValue;
       }}
     >
       {(status: TTransitionStatus, ref_) => {
-        console.log(1, status, styles[status]);
-        return React.cloneElement(<Wrapper children={children} {...WrapperProps} />, {
+        return React.cloneElement(children_, {
           ...other,
 
           ref: item => {

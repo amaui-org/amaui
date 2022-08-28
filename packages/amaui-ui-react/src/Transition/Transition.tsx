@@ -178,12 +178,12 @@ function Transition(props_: IProps) {
       if (exitOnAdd) statusNew = STATUS.exit;
     }
 
+    if (is('function', onInit)) onInit(refs.root.current);
+
     // Update
     update(statusNew);
 
     setInit(true);
-
-    if (is('function', onInit)) onInit(refs.root.current);
   }, []);
 
   React.useEffect(() => {

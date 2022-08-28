@@ -15,6 +15,7 @@ import Fade from '../Fade';
 
 const useStyle = style(theme => ({
   root: {
+    position: 'relative',
     display: 'flex',
     flexDirection: 'column',
     transition: theme.methods.transitions.make(['margin', 'boxShadow']),
@@ -202,6 +203,20 @@ const Accordion = React.forwardRef((props_: any, ref: any) => {
     TransitionComponentProps = {};
   }
 
+  let addValue = 0;
+
+  const method = (children_: any) => {
+    const items = React.Children.toArray(children_);
+
+    items.forEach((item: any) => {
+      if (item?.type?.displayName === 'AmauiAccordion') addValue = 1;
+
+      method(item?.props?.children);
+    });
+  };
+
+  method(children);
+
   return (
     <div
       ref={ref}
@@ -321,6 +336,8 @@ const Accordion = React.forwardRef((props_: any, ref: any) => {
 
       <Expand
         in={open}
+
+        addValue={addValue * -8}
 
         {...ExpandProps}
       >

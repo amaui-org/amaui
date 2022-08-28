@@ -1052,7 +1052,7 @@ Please sign in again.`}
           </Line>
         </Accordion>
 
-        <Accordion primary='Accordion multi'>
+        <Accordion primary='Accordion multi' open>
           <Accordion
             primary='Primary text'
 
