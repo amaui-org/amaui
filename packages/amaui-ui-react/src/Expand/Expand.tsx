@@ -144,6 +144,9 @@ const Expand = React.forwardRef((props_: any, ref: any) => {
         const rect_ = element?.getBoundingClientRect();
 
         if (rect_?.height > refs.rect.current?.height) refs.rect.current = rect_;
+
+        const c = window.document.createElement('canvas');
+        const t = c.getContext('2d');
       }}
 
       onTransition={(element: any, status: any) => {
