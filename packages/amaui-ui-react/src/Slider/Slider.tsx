@@ -771,7 +771,6 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
 
   const labelMethod = is('function', makeLabelTooltip) ? makeLabelTooltip : (value__: number) => +(value__).toFixed();
 
-  console.log(1, value);
   return (
     <Component
       ref={item => {

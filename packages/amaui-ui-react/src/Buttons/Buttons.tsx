@@ -383,7 +383,6 @@ const Buttons = React.forwardRef((props_: any, ref: any) => {
       disabled: item.props?.disabled !== undefined ? item.props.disabled : disabled
     }));
 
-  console.log(1, colorSelected);
   return (
     <div
       ref={ref}
