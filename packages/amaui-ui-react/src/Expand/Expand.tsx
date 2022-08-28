@@ -148,6 +148,10 @@ const Expand = React.forwardRef((props_: any, ref: any) => {
         }
       }}
 
+      onAppended={element => {
+        refs.rect.current = element?.getBoundingClientRect();
+      }}
+
       onEnter={element => {
         const rect_ = element?.getBoundingClientRect();
 
