@@ -344,7 +344,7 @@ const Accordion = React.forwardRef((props_: any, ref: any) => {
         <TransitionComponent
           {...TransitionComponentProps}
         >
-          <div
+          <Line
             className={classNames([
               staticClassName('Accordion', theme) && [
                 'AmauiAccordion-main'
@@ -356,7 +356,7 @@ const Accordion = React.forwardRef((props_: any, ref: any) => {
             ])}
           >
             {children}
-          </div>
+          </Line>
         </TransitionComponent>
       </Expand>
     </div>

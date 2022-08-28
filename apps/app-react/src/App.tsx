@@ -22592,25 +22592,25 @@ Please sign in again.`}
         <Accordion primary='Expand' open>
           <Button size='small' color='secondary' className={classes.btn} onClick={() => update('expand')}>a</Button>
 
-          <Expand in={a.expand}>
+          <Expand in={a.expand} removeOnExited={false}>
             <div className={classes.div}>
               vertical {String(a.expand)}
             </div>
           </Expand>
 
-          <Expand in={a.expand} expandSize='70px'>
+          <Expand in={a.expand} expandSize='70px' removeOnExited={false}>
             <div className={classes.div}>
               vertical expand size {String(a.expand)}
             </div>
           </Expand>
 
-          <Expand in={a.expand} orientation='horizontal'>
+          <Expand in={a.expand} orientation='horizontal' removeOnExited={false}>
             <div className={classes.div}>
               horizontal {String(a.expand)}
             </div>
           </Expand>
 
-          <Expand in={a.expand} orientation='horizontal' expandSize='70px'>
+          <Expand in={a.expand} orientation='horizontal' expandSize='70px' removeOnExited={false}>
             <div className={classes.div}>
               horizontal expand size {String(a.expand)}
             </div>

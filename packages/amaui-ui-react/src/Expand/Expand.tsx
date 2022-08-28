@@ -71,13 +71,11 @@ const Expand = React.forwardRef((props_: any, ref: any) => {
     ...other
   } = props;
 
-  const rect = refs.rect.current;
-
   let prop = 'height';
 
   if (orientation === 'horizontal') prop = 'width';
 
-  const styles = {
+  const styles = () => ({
     appended: {
       position: 'absolute',
       visibility: 'hidden'
@@ -88,7 +86,7 @@ const Expand = React.forwardRef((props_: any, ref: any) => {
       overflow: 'hidden'
     },
     adding: {
-      [prop]: rect && `${rect[prop]}px`,
+      [prop]: refs.rect.current && `${refs.rect.current[prop]}px`,
       overflow: 'hidden'
     },
     added: {
@@ -100,7 +98,7 @@ const Expand = React.forwardRef((props_: any, ref: any) => {
       overflow: 'hidden'
     },
     entering: {
-      [prop]: rect && `${rect[prop]}px`,
+      [prop]: refs.rect.current && `${refs.rect.current[prop]}px`,
       overflow: 'hidden'
     },
     entered: {
@@ -108,7 +106,7 @@ const Expand = React.forwardRef((props_: any, ref: any) => {
     },
 
     exit: {
-      [prop]: rect && `${rect[prop]}px`,
+      [prop]: refs.rect.current && `${refs.rect.current[prop]}px`,
       overflow: 'hidden'
     },
     exiting: {
@@ -119,7 +117,7 @@ const Expand = React.forwardRef((props_: any, ref: any) => {
       [prop]: expandSize !== undefined ? expandSize : '0',
       overflow: 'hidden'
     }
-  };
+  });
 
   const timeout = (status: TTransitionStatus, property: string = 'opacity') => {
     const properties = {
@@ -142,24 +140,27 @@ const Expand = React.forwardRef((props_: any, ref: any) => {
       append
 
       onInit={element => {
-        refs.rect.current = element?.getBoundingClientRect();
+        if (!refs.rect.current) {
+          refs.rect.current = element?.getBoundingClientRect();
 
-        // Bug value update
-        refs.rect.current[prop] += addValue;
+          // Bug value update
+          refs.rect.current[prop] += addValue;
+        }
       }}
 
       onEnter={element => {
-        refs.rect.current = element?.getBoundingClientRect();
+        const rect_ = element?.getBoundingClientRect();
 
-        // Bug value update
-        refs.rect.current[prop] += addValue;
+        if (refs.rect.current === undefined || (rect_?.[prop] > 0 && rect_?.[prop] >= refs.rect.current[prop])) {
+          refs.rect.current = rect_;
+
+          // Bug value update
+          refs.rect.current[prop] += addValue;
+        }
       }}
 
       onExit={element => {
         refs.rect.current = element?.getBoundingClientRect();
-
-        // Bug value update
-        refs.rect.current[prop] += addValue;
       }}
     >
       {(status: TTransitionStatus, ref_) => {
@@ -181,13 +182,13 @@ const Expand = React.forwardRef((props_: any, ref: any) => {
 
             visibility: status === 'exited' && !inProp && expandSize === undefined ? 'hidden' : undefined,
 
-            ...(styles[status] || {}),
+            ...styles()[status],
 
-            ...(children?.props?.style || {}),
+            ...children?.props?.style,
           }
         })
       }}
-    </Transition>
+    </Transition >
   );
 });
 

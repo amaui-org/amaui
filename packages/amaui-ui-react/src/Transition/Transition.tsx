@@ -197,17 +197,19 @@ function Transition(props_: IProps) {
         if ([STATUS.exit, STATUS.exited].indexOf(status) === -1) statusNew = STATUS.exit;
       }
 
-      if (status !== statusNew) {
-        // Added
-        if (inProp && (!refs.root.current || (refs.root.current && refs.root.current.className.indexOf('removed') > -1))) {
-          // We add the element and get the ref value
-          // for update below to use it for enter
-          setStatus('appended');
+      // Added
+      if (inProp && (!refs.root.current || (refs.root.current && refs.root.current.className.indexOf('removed') > -1))) {
+        // We add the element and get the ref value
+        // for update below to use it for enter
+        update('appended');
 
-          setTimeout(() => update(statusNew));
-        }
-        else update(statusNew);
+        // Reflow
+        reflow(refs.root.current);
+
+        // Prevent update batches
+        setTimeout(() => update(statusNew), 14);
       }
+      else update(statusNew);
     }
   }, [inProp]);
 
@@ -250,7 +252,9 @@ function Transition(props_: IProps) {
     ) setInProp(in_);
   }, [in_]);
 
-  const update = async (status_: TTransitionStatus) => {
+  const update = async (status_: TTransitionStatus, pause?: number) => {
+    if (pause !== undefined) await wait(pause);
+
     refs.status.current = status_;
 
     switch (status_) {
