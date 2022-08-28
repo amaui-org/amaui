@@ -1,6 +1,6 @@
 import React from 'react';
 
-import is from '@amaui/utils/is';
+import { is } from '@amaui/utils';
 import { useAmauiTheme } from '@amaui/style-react';
 
 import { Transition, TTransitionStatus } from '..';
@@ -79,8 +79,6 @@ const Expand = React.forwardRef((props_: any, ref: any) => {
   const styles = {
     appended: {
       position: 'absolute',
-      left: '-40000px',
-      height: 'auto',
       visibility: 'hidden'
     },
 
@@ -141,22 +139,10 @@ const Expand = React.forwardRef((props_: any, ref: any) => {
       onInit={element => refs.rect.current = element?.getBoundingClientRect()}
 
       onEnter={(element: any) => {
-        const rect_ = element?.getBoundingClientRect();
-
-        if (rect_?.height > refs.rect.current?.height) refs.rect.current = rect_;
-
-        const c = window.document.createElement('canvas');
-        const t = c.getContext('2d');
-      }}
-
-      onTransition={(element: any, status: any) => {
-        const rect_ = element?.getBoundingClientRect();
-
-        console.log(1114, rect_?.height, status);
+        refs.rect.current = element?.getBoundingClientRect();
       }}
     >
       {(status: TTransitionStatus, ref_) => {
-        console.log(1, status, styles[status], `${prop} ${timeout(status, prop)} ${timingFunction(status)}`);
         return React.cloneElement(<Wrapper children={children} {...WrapperProps} />, {
           ...other,
 

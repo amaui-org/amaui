@@ -188,7 +188,7 @@ const Accordion = React.forwardRef((props_: any, ref: any) => {
       else setOpen(valueNew);
     }
   }, [open, disabled]);
-  console.log('Accordion ', open, openDefault, open_, primary);
+
   return (
     <div
       ref={ref}

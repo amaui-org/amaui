@@ -306,7 +306,6 @@ function Transition(props_: IProps) {
 
   const enter = async (status_: TTransitionStatus) => {
     if (refs.status.current !== status_) return;
-
     // Re add / add element for ref value
     updateStatus('enter');
 
@@ -349,7 +348,7 @@ function Transition(props_: IProps) {
 
   const updateStatus = (status_: TTransitionStatus) => {
     setStatus(status_);
-    console.log(114, status_);
+
     // Subscriptions
     subs.current.status.emit(status_);
 
