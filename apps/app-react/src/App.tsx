@@ -2,7 +2,7 @@ import React from 'react';
 
 import { countries } from '@amaui/utils';
 import { AmauiTheme, AmauiThemeProvider, classNames, style, sy, useAmauiTheme } from '@amaui/style-react';
-import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton } from '@amaui/ui-react';
+import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion } from '@amaui/ui-react';
 
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
@@ -207,24 +207,14 @@ const useStyle = style(theme => ({
   }
 }), { name: 'App' });
 
-const Accordion = (props: any) => {
-  const { classes } = useStyle();
-  const [open, setOpen] = React.useState(props.open);
-
-  return (
-    <div className={classes.section}>
-      <h1 className={classes.h1} onClick={() => setOpen(!open)}>{props.label}</h1>
-
-      {open && (
-        <section className={classNames([classes.item, props.className])}>
-          {props.children}
-        </section>
-      )}
-    </div>
-  );
-};
-
 const styled = {
+  Accordion: sy(Accordion)((theme: AmauiTheme) => ({
+    root: {
+      '&:hover': {
+        opacity: 0.4
+      }
+    }
+  })),
   ToggleButtons: sy(ToggleButtons)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
@@ -777,8 +767,23 @@ function App() {
         <Button size='small' color='secondary' className={classes.btn} onClick={() => setRtl(item => !item)}>rtl {rtl ? ' on' : ''}</Button>
       </div>
 
-      <Accordion label='All'>
+      <Accordion primary='All'>
         <div className={classNames([classes.column])}>
+          <Accordion
+            primary='Primary text'
+
+            secondary='Secondary text'
+          >
+            <div className={classes.div} />
+          </Accordion>
+
+          <ToggleButtons>
+            <ToggleButton value='1' icon><IconMaterialFormatAlignLeftRounded /></ToggleButton>
+            <ToggleButton value='2' icon><IconMaterialFormatAlignCenterRounded /></ToggleButton>
+            <ToggleButton value='3' icon><IconMaterialFormatAlignRightRounded /></ToggleButton>
+            <ToggleButton value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></ToggleButton>
+          </ToggleButtons>
+
           <Slider
             color='secondary'
 
@@ -1034,18 +1039,221 @@ Please sign in again.`}
         </div>
       </Accordion>
 
-      <Accordion label='Expand'>
-        <Line>
-          <Button onClick={() => update('e')} color='secondary' size='small'>a</Button>
+      <Accordion primary='Accordion'>
+        <Accordion primary='Accordion'>
+          <Line>
+            <Accordion
+              primary='Primary text'
 
-          <Expand in={a.e}>
+              secondary='Secondary text'
+            >
+              <div className={classes.div} />
+            </Accordion>
+          </Line>
+        </Accordion>
+
+        <Accordion primary='Accordion multi'>
+          <Accordion
+            primary='Primary text'
+
+            secondary='Secondary text'
+          >
             <div className={classes.div} />
-          </Expand>
-        </Line>
+          </Accordion>
+          <Accordion
+            primary='Primary text'
+
+            secondary='Secondary text'
+          >
+            <div className={classes.div} />
+          </Accordion>
+          <Accordion
+            primary='Primary text'
+
+            secondary='Secondary text'
+          >
+            <div className={classes.div} />
+          </Accordion>
+          <Accordion
+            primary='Primary text'
+
+            secondary='Secondary text'
+          >
+            <div className={classes.div} />
+          </Accordion>
+        </Accordion>
+
+        <Accordion primary='Accordion disabled'>
+          <Accordion
+            primary='Primary text'
+
+            secondary='Secondary text'
+          >
+            <div className={classes.div} />
+          </Accordion>
+          <Accordion
+            primary='Primary text'
+
+            secondary='Secondary text'
+          >
+            <div className={classes.div} />
+          </Accordion>
+          <Accordion
+            primary='Primary text'
+
+            secondary='Secondary text'
+          >
+            <div className={classes.div} />
+          </Accordion>
+          <Accordion
+            primary='Primary text'
+
+            secondary='Secondary text'
+
+            disabled
+          >
+            <div className={classes.div} />
+          </Accordion>
+        </Accordion>
+
+        <Accordion primary='AmauiTheme'>
+          <div className={classNames([classes.column])}>
+            <Accordion
+              primary='Primary text'
+
+              secondary='Secondary text'
+            >
+              <div className={classes.div} />
+            </Accordion>
+
+            <Accordion primary='AmauiTheme nested value' open>
+              <AmauiThemeProvider
+                value={{
+                  palette: {
+                    color: {
+                      secondary: {
+                        main: '#008000'
+                      }
+                    }
+                  },
+                  space: {
+                    unit: 5
+                  }
+                }}
+              >
+                <Accordion
+                  primary='Primary text'
+
+                  secondary='Secondary text'
+                >
+                  <div className={classes.div} />
+                </Accordion>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme add' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiAccordion: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: 0.4
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Accordion
+                  primary='Primary text'
+
+                  secondary='Secondary text'
+                >
+                  <div className={classes.div} />
+                </Accordion>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme override' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiAccordion: {
+                        style: {
+                          override: {
+                            root: {
+                              display: 'flex',
+                              flexDirection: 'column',
+                              transition: theme.methods.transitions.make(['margin', 'boxShadow']),
+                              width: '100%',
+                              background: '#f7f7f7'
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Accordion
+                  primary='Primary text'
+
+                  secondary='Secondary text'
+                >
+                  <div className={classes.div} />
+                </Accordion>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme props' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiAccordion: {
+                        props: {
+                          default: {
+                            background: true
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Accordion
+                  primary='Primary text'
+
+                  secondary='Secondary text'
+                >
+                  <div className={classes.div} />
+                </Accordion>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme styled' open>
+              <styled.Accordion
+                primary='Primary text'
+
+                secondary='Secondary text'
+              >
+                <div className={classes.div} />
+              </styled.Accordion>
+            </Accordion>
+          </div>
+        </Accordion>
       </Accordion>
 
-      <Accordion label='Toggle buttons'>
-        <Accordion label='Toggle buttons' open>
+      <Accordion primary='Toggle buttons'>
+        <Accordion primary='Toggle buttons' open>
           <Line>
             <ToggleButtons>
               <ToggleButton value='1' icon><IconMaterialFormatAlignLeftRounded /></ToggleButton>
@@ -1056,7 +1264,7 @@ Please sign in again.`}
           </Line>
         </Accordion>
 
-        <Accordion label='Toggle buttons sizes' open>
+        <Accordion primary='Toggle buttons sizes' open>
           <Line gap={4}>
             <ToggleButtons size='small'>
               <ToggleButton value='1' icon><IconMaterialFormatAlignLeftRounded /></ToggleButton>
@@ -1081,7 +1289,7 @@ Please sign in again.`}
           </Line>
         </Accordion>
 
-        <Accordion label='Toggle buttons versions' open>
+        <Accordion primary='Toggle buttons versions' open>
           <Line gap={4}>
             <ToggleButtons size='small' version='text'>
               <ToggleButton value='1' icon><IconMaterialFormatAlignLeftRounded /></ToggleButton>
@@ -1148,7 +1356,7 @@ Please sign in again.`}
           </Line>
         </Accordion>
 
-        <Accordion label='Toggle buttons vertical' open>
+        <Accordion primary='Toggle buttons vertical' open>
           <Line gap={4}>
             <ToggleButtons size='small' version='text' vertical>
               <ToggleButton value='1' icon><IconMaterialFormatAlignLeftRounded /></ToggleButton>
@@ -1215,7 +1423,7 @@ Please sign in again.`}
           </Line>
         </Accordion>
 
-        <Accordion label='Toggle buttons select single' open>
+        <Accordion primary='Toggle buttons select single' open>
           <Line>
             <ToggleButtons select='single'>
               <ToggleButton value='1' icon><IconMaterialFormatAlignLeftRounded /></ToggleButton>
@@ -1226,7 +1434,7 @@ Please sign in again.`}
           </Line>
         </Accordion>
 
-        <Accordion label='Toggle buttons select multi' open>
+        <Accordion primary='Toggle buttons select multi' open>
           <Line>
             <ToggleButtons select='multi'>
               <ToggleButton value='1' icon><IconMaterialFormatAlignLeftRounded /></ToggleButton>
@@ -1237,7 +1445,7 @@ Please sign in again.`}
           </Line>
         </Accordion>
 
-        <Accordion label='Toggle buttons chip colorSelected' open>
+        <Accordion primary='Toggle buttons chip colorSelected' open>
           <Line>
             <ToggleButtons colorSelected='secondary' select='multi'>
               <ToggleButton value='1' icon><IconMaterialFormatAlignLeftRounded /></ToggleButton>
@@ -1248,7 +1456,7 @@ Please sign in again.`}
           </Line>
         </Accordion>
 
-        <Accordion label='Toggle buttons valueDefault' open>
+        <Accordion primary='Toggle buttons valueDefault' open>
           <Line>
             <ToggleButtons valueDefault='3' select='single'>
               <ToggleButton value='1' icon><IconMaterialFormatAlignLeftRounded /></ToggleButton>
@@ -1259,7 +1467,7 @@ Please sign in again.`}
           </Line>
         </Accordion>
 
-        <Accordion label='Toggle buttons controlled' open>
+        <Accordion primary='Toggle buttons controlled' open>
           <Line>
             <ToggleButtons valueDefault='3' onChange={(value_: any) => updatePure(value_, 'buttons')} value={a.buttons} select='single'>
               <ToggleButton value='1' icon><IconMaterialFormatAlignLeftRounded /></ToggleButton>
@@ -1270,7 +1478,7 @@ Please sign in again.`}
           </Line>
         </Accordion>
 
-        <Accordion label='Toggle buttons chip disabled' open>
+        <Accordion primary='Toggle buttons chip disabled' open>
           <Line>
             <ToggleButtons version='text' disabled>
               <ToggleButton value='1' icon><IconMaterialFormatAlignLeftRounded /></ToggleButton>
@@ -1295,7 +1503,7 @@ Please sign in again.`}
           </Line>
         </Accordion>
 
-        <Accordion label='AmauiTheme'>
+        <Accordion primary='AmauiTheme'>
           <div className={classNames([classes.column])}>
             <ToggleButtons color='secondary'>
               <ToggleButton value='1' icon><IconMaterialFormatAlignLeftRounded /></ToggleButton>
@@ -1304,7 +1512,7 @@ Please sign in again.`}
               <ToggleButton value='4' icon disabled><IconMaterialFormatAlignJustifyRounded /></ToggleButton>
             </ToggleButtons>
 
-            <Accordion label='AmauiTheme nested value' open>
+            <Accordion primary='AmauiTheme nested value' open>
               <AmauiThemeProvider
                 value={{
                   palette: {
@@ -1328,7 +1536,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme add' open>
+            <Accordion primary='AmauiTheme add' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -1357,7 +1565,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme override' open>
+            <Accordion primary='AmauiTheme override' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -1388,7 +1596,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme props' open>
+            <Accordion primary='AmauiTheme props' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -1413,7 +1621,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme styled' open>
+            <Accordion primary='AmauiTheme styled' open>
               <styled.ToggleButtons>
                 <ToggleButton value='1' icon><IconMaterialFormatAlignLeftRounded /></ToggleButton>
                 <ToggleButton value='2' icon><IconMaterialFormatAlignCenterRounded /></ToggleButton>
@@ -1425,8 +1633,8 @@ Please sign in again.`}
         </Accordion>
       </Accordion>
 
-      <Accordion label='Slider'>
-        <Accordion label='Slider' open>
+      <Accordion primary='Slider'>
+        <Accordion primary='Slider' open>
           <Slider
             color='secondary'
 
@@ -1436,7 +1644,7 @@ Please sign in again.`}
           />
         </Accordion>
 
-        <Accordion label='Slider examples' open>
+        <Accordion primary='Slider examples' open>
           <Line align='flex-start' gap={11} style={{ padding: '40px 0' }}>
             <SliderYoutube
               valueDefault={40}
@@ -1460,7 +1668,7 @@ Please sign in again.`}
           </Line>
         </Accordion>
 
-        <Accordion label='Slider range' open>
+        <Accordion primary='Slider range' open>
           <Line align='flex-start' gap={11} style={{ padding: '40px 0' }}>
             <Slider
               valueDefault={[24, 40]}
@@ -1636,7 +1844,7 @@ Please sign in again.`}
           </Line>
         </Accordion>
 
-        <Accordion label='Slider inverted' open>
+        <Accordion primary='Slider inverted' open>
           <Line align='flex-start' gap={11} style={{ padding: '40px 0' }}>
             <Slider
               valueDefault={40}
@@ -1780,7 +1988,7 @@ Please sign in again.`}
           </Line>
         </Accordion>
 
-        <Accordion label='Slider tooltip' open>
+        <Accordion primary='Slider tooltip' open>
           <Line gap={11}>
             <Slider
               tooltip='auto'
@@ -1804,7 +2012,7 @@ Please sign in again.`}
           </Line>
         </Accordion>
 
-        <Accordion label='Slider size' open>
+        <Accordion primary='Slider size' open>
           <Line gap={5}>
             <Slider
               size='small'
@@ -1838,7 +2046,7 @@ Please sign in again.`}
           </Line>
         </Accordion>
 
-        <Accordion label='Slider color' open>
+        <Accordion primary='Slider color' open>
           <Line gap={5}>
             <Slider
               valueDefault={40}
@@ -1952,7 +2160,7 @@ Please sign in again.`}
           </Line>
         </Accordion>
 
-        <Accordion label='Slider tonal' open>
+        <Accordion primary='Slider tonal' open>
           <Line gap={5}>
             <Slider
               valueDefault={40}
@@ -2076,7 +2284,7 @@ Please sign in again.`}
           </Line>
         </Accordion>
 
-        <Accordion label='Slider precision' open>
+        <Accordion primary='Slider precision' open>
           <Line gap={5}>
             <Slider
               color='secondary'
@@ -2150,7 +2358,7 @@ Please sign in again.`}
           </Line>
         </Accordion>
 
-        <Accordion label='Slider marks' open>
+        <Accordion primary='Slider marks' open>
           <Line gap={5}>
             <Slider
               marks
@@ -2248,7 +2456,7 @@ Please sign in again.`}
           </Line>
         </Accordion>
 
-        <Accordion label='Slider onlyMarks' open>
+        <Accordion primary='Slider onlyMarks' open>
           <Slider
             onlyMarks
 
@@ -2269,7 +2477,7 @@ Please sign in again.`}
           />
         </Accordion>
 
-        <Accordion label='Slider labels' open>
+        <Accordion primary='Slider labels' open>
           <Line align='flex-start' gap={11} style={{ padding: '40px 0' }}>
             <Slider
               labels
@@ -2317,7 +2525,7 @@ Please sign in again.`}
           </Line>
         </Accordion>
 
-        <Accordion label='Slider vertical' open>
+        <Accordion primary='Slider vertical' open>
           <Line gap={5} align='flex-start'>
             <Slider
               valueDefault={40}
@@ -2447,7 +2655,7 @@ Please sign in again.`}
           </Line>
         </Accordion>
 
-        <Accordion label='Slider noButtons' open>
+        <Accordion primary='Slider noButtons' open>
           <Line gap={5} align='flex-start'>
             <Slider
               valueDefault={40}
@@ -2515,7 +2723,7 @@ Please sign in again.`}
           </Line>
         </Accordion>
 
-        <Accordion label='Slider min, max' open>
+        <Accordion primary='Slider min, max' open>
           <Line gap={5} align='flex-start'>
             <Slider
               valueDefault={40}
@@ -2629,7 +2837,7 @@ Please sign in again.`}
           </Line>
         </Accordion>
 
-        <Accordion label='Slider noTrack' open>
+        <Accordion primary='Slider noTrack' open>
           <Line gap={5} align='flex-start'>
             <Slider
               valueDefault={40}
@@ -2657,7 +2865,7 @@ Please sign in again.`}
           </Line>
         </Accordion>
 
-        <Accordion label='Slider readOnly' open>
+        <Accordion primary='Slider readOnly' open>
           <Slider
             valueDefault={40}
 
@@ -2673,7 +2881,7 @@ Please sign in again.`}
           />
         </Accordion>
 
-        <Accordion label='Slider disabled' open>
+        <Accordion primary='Slider disabled' open>
           <Slider
             valueDefault={40}
 
@@ -2689,7 +2897,7 @@ Please sign in again.`}
           />
         </Accordion>
 
-        <Accordion label='Slider controlled' open>
+        <Accordion primary='Slider controlled' open>
           <Slider
             valueDefault={40}
 
@@ -2705,7 +2913,7 @@ Please sign in again.`}
           />
         </Accordion>
 
-        <Accordion label='AmauiTheme'>
+        <Accordion primary='AmauiTheme'>
           <div className={classNames([classes.column])}>
             <Slider
               color='secondary'
@@ -2715,7 +2923,7 @@ Please sign in again.`}
               }}
             />
 
-            <Accordion label='AmauiTheme nested value' open>
+            <Accordion primary='AmauiTheme nested value' open>
               <AmauiThemeProvider
                 value={{
                   palette: {
@@ -2740,7 +2948,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme add' open>
+            <Accordion primary='AmauiTheme add' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -2770,7 +2978,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme override' open>
+            <Accordion primary='AmauiTheme override' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -2802,7 +3010,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme props' open>
+            <Accordion primary='AmauiTheme props' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -2826,7 +3034,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme styled' open>
+            <Accordion primary='AmauiTheme styled' open>
               <styled.Slider
                 style={{
                   width: 140
@@ -2837,8 +3045,8 @@ Please sign in again.`}
         </Accordion>
       </Accordion>
 
-      <Accordion label='Banner'>
-        <Accordion label='Banner' open>
+      <Accordion primary='Banner'>
+        <Accordion primary='Banner' open>
           <Banner
             primary={`Your password was updated on your other device.
 Please sign in again.`}
@@ -2859,7 +3067,7 @@ Please sign in again.`}
           />
         </Accordion>
 
-        <Accordion label='Banner size' open>
+        <Accordion primary='Banner size' open>
           <Banner
             size='small'
 
@@ -2924,7 +3132,7 @@ Please sign in again.`}
           />
         </Accordion>
 
-        <Accordion label='Banner actions' open>
+        <Accordion primary='Banner actions' open>
           <Banner
             primary={`Your password was updated on your other device.
 Please sign in again.`}
@@ -2955,7 +3163,7 @@ Please sign in again.`}
           />
         </Accordion>
 
-        <Accordion label='Banner actions' open>
+        <Accordion primary='Banner actions' open>
           <Banner
             maxWidth='lg'
 
@@ -2978,7 +3186,7 @@ Please sign in again.`}
           />
         </Accordion>
 
-        <Accordion label='AmauiTheme'>
+        <Accordion primary='AmauiTheme'>
           <div className={classNames([classes.column])}>
             <Banner
               primary={`Your password was updated on your other device.
@@ -2999,7 +3207,7 @@ Please sign in again.`}
               )}
             />
 
-            <Accordion label='AmauiTheme nested value' open>
+            <Accordion primary='AmauiTheme nested value' open>
               <AmauiThemeProvider
                 value={{
                   palette: {
@@ -3035,7 +3243,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme add' open>
+            <Accordion primary='AmauiTheme add' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -3076,7 +3284,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme override' open>
+            <Accordion primary='AmauiTheme override' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -3117,7 +3325,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme props' open>
+            <Accordion primary='AmauiTheme props' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -3156,7 +3364,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme styled' open>
+            <Accordion primary='AmauiTheme styled' open>
               <styled.Banner
                 primary={`Your password was updated on your other device.
 Please sign in again.`}
@@ -3180,8 +3388,8 @@ Please sign in again.`}
         </Accordion>
       </Accordion>
 
-      <Accordion label='Grid'>
-        <Accordion label='Grid' open>
+      <Accordion primary='Grid'>
+        <Accordion primary='Grid' open>
           <div className={classNames([classes.column])} style={{ bacground: '#f7f7f7' }}>
             <Grid gap={2} line>
               <Grid values={{ xs: 8, sm: 4 }}>
@@ -3203,7 +3411,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Grid offset' open>
+        <Accordion primary='Grid offset' open>
           <div className={classNames([classes.column])} style={{ bacground: '#f7f7f7' }}>
             <Grid gap={2} line>
               <Grid values={{ xs: 8, sm: 4 }}>
@@ -3225,7 +3433,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Grid gap' open>
+        <Accordion primary='Grid gap' open>
           <div className={classNames([classes.column])} style={{ bacground: '#f7f7f7' }}>
             <Grid gap={4} line>
               <Grid values={{ xs: 8, sm: 4 }}>
@@ -3247,7 +3455,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Grid rowGap' open>
+        <Accordion primary='Grid rowGap' open>
           <div className={classNames([classes.column])} style={{ bacground: '#f7f7f7' }}>
             <Grid gap={2} rowGap={4} line>
               <Grid values={{ xs: 8, sm: 4 }}>
@@ -3269,7 +3477,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Grid auto' open>
+        <Accordion primary='Grid auto' open>
           <div className={classNames([classes.column])} style={{ bacground: '#f7f7f7' }}>
             <Grid gap={2} line>
               <Grid auto>
@@ -3283,7 +3491,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='AmauiTheme'>
+        <Accordion primary='AmauiTheme'>
           <div className={classNames([classes.column])}>
             <Grid line>
               <Grid values={{ xs: 8, sm: 4 }}>
@@ -3295,7 +3503,7 @@ Please sign in again.`}
               </Grid>
             </Grid>
 
-            <Accordion label='AmauiTheme nested value' open>
+            <Accordion primary='AmauiTheme nested value' open>
               <AmauiThemeProvider
                 value={{
                   palette: {
@@ -3322,7 +3530,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme add' open>
+            <Accordion primary='AmauiTheme add' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -3354,7 +3562,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme override' open>
+            <Accordion primary='AmauiTheme override' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -3387,7 +3595,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme props' open>
+            <Accordion primary='AmauiTheme props' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -3415,7 +3623,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme styled' open>
+            <Accordion primary='AmauiTheme styled' open>
               <styled.Grid line>
                 <Grid values={{ xs: 8, sm: 4 }}>
                   <Item elevation={1} style={{ width: '100%' }}>Item 1</Item>
@@ -3430,8 +3638,8 @@ Please sign in again.`}
         </Accordion>
       </Accordion>
 
-      <Accordion label='Line'>
-        <Accordion label='Line' open>
+      <Accordion primary='Line'>
+        <Accordion primary='Line' open>
           <div className={classNames([classes.column])}>
             <Line>
               <Item size='small' elevation={1}>Item 1</Item>
@@ -3441,7 +3649,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Line divider' open>
+        <Accordion primary='Line divider' open>
           <div className={classNames([classes.column])}>
             <Line direction='row' divider>
               <Item size='small' elevation={1}>Item 1</Item>
@@ -3457,7 +3665,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Line direction' open>
+        <Accordion primary='Line direction' open>
           <div className={classNames([classes.column])}>
             <Line direction='row'>
               <Item size='small' elevation={1}>Item 1</Item>
@@ -3485,8 +3693,8 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Line align' open>
-          <Accordion label='Line align row' open>
+        <Accordion primary='Line align' open>
+          <Accordion primary='Line align row' open>
             <div className={classNames([classes.column])}>
               <Line direction='row' align='flex-start'>
                 <Item size='small' elevation={1}>Item 1</Item>
@@ -3520,7 +3728,7 @@ Please sign in again.`}
             </div>
           </Accordion>
 
-          <Accordion label='Line align column' open>
+          <Accordion primary='Line align column' open>
             <div className={classNames([classes.column])}>
               <Line direction='column' align='flex-start'>
                 <Item size='small' elevation={1}>Item 1</Item>
@@ -3555,8 +3763,8 @@ Please sign in again.`}
           </Accordion>
         </Accordion>
 
-        <Accordion label='Line justify' open>
-          <Accordion label='Line justify row' open>
+        <Accordion primary='Line justify' open>
+          <Accordion primary='Line justify row' open>
             <div className={classNames([classes.column])}>
               <Line direction='row' justify='flex-start'>
                 <Item size='small' elevation={1}>Item 1</Item>
@@ -3596,7 +3804,7 @@ Please sign in again.`}
             </div>
           </Accordion>
 
-          <Accordion label='Line justify column' open>
+          <Accordion primary='Line justify column' open>
             <div className={classNames([classes.column])}>
               <Line direction='column' justify='flex-start' style={{ height: 400, background: '#fafafa' }}>
                 <Item size='small' elevation={1}>Item 1</Item>
@@ -3637,8 +3845,8 @@ Please sign in again.`}
           </Accordion>
         </Accordion>
 
-        <Accordion label='Line gap' open>
-          <Accordion label='Line gap row' open>
+        <Accordion primary='Line gap' open>
+          <Accordion primary='Line gap row' open>
             <div className={classNames([classes.column])}>
               <Line direction='row' gap={0}>
                 <Item size='small' elevation={1}>Item 1</Item>
@@ -3702,7 +3910,7 @@ Please sign in again.`}
             </div>
           </Accordion>
 
-          <Accordion label='Line gap column' open>
+          <Accordion primary='Line gap column' open>
             <div className={classNames([classes.column])}>
               <Line direction='column' gap={0}>
                 <Item size='small' elevation={1}>Item 1</Item>
@@ -3767,8 +3975,8 @@ Please sign in again.`}
           </Accordion>
         </Accordion>
 
-        <Accordion label='Line rowGap' open>
-          <Accordion label='Line rowGap row' open>
+        <Accordion primary='Line rowGap' open>
+          <Accordion primary='Line rowGap row' open>
             <div className={classNames([classes.column])}>
               <Line direction='row' rowGap={0}>
                 <Item size='small' elevation={1}>Item 1</Item>
@@ -3832,7 +4040,7 @@ Please sign in again.`}
             </div>
           </Accordion>
 
-          <Accordion label='Line rowGap column' open>
+          <Accordion primary='Line rowGap column' open>
             <div className={classNames([classes.column])}>
               <Line direction='column' rowGap={0}>
                 <Item size='small' elevation={1}>Item 1</Item>
@@ -3897,8 +4105,8 @@ Please sign in again.`}
           </Accordion>
         </Accordion>
 
-        <Accordion label='Line columnGap' open>
-          <Accordion label='Line columnGap row' open>
+        <Accordion primary='Line columnGap' open>
+          <Accordion primary='Line columnGap row' open>
             <div className={classNames([classes.column])}>
               <Line direction='row' columnGap={0}>
                 <Item size='small' elevation={1}>Item 1</Item>
@@ -3962,7 +4170,7 @@ Please sign in again.`}
             </div>
           </Accordion>
 
-          <Accordion label='Line columnGap column' open>
+          <Accordion primary='Line columnGap column' open>
             <div className={classNames([classes.column])}>
               <Line direction='column' columnGap={0}>
                 <Item size='small' elevation={1}>Item 1</Item>
@@ -4027,7 +4235,7 @@ Please sign in again.`}
           </Accordion>
         </Accordion>
 
-        <Accordion label='Line values per breakpoint value' open>
+        <Accordion primary='Line values per breakpoint value' open>
           <div className={classNames([classes.column])}>
             <Line align={{ sm: 'center', lg: 'flex-end' }}>
               <Item size='small' elevation={1}>Item 1</Item>
@@ -4037,7 +4245,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='AmauiTheme'>
+        <Accordion primary='AmauiTheme'>
           <div className={classNames([classes.column])}>
             <Line>
               <Item size='small' elevation={1}>Item 1</Item>
@@ -4045,7 +4253,7 @@ Please sign in again.`}
               <Item size='large' elevation={1}>Item 1114</Item>
             </Line>
 
-            <Accordion label='AmauiTheme nested value' open>
+            <Accordion primary='AmauiTheme nested value' open>
               <AmauiThemeProvider
                 value={{
                   palette: {
@@ -4068,7 +4276,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme add' open>
+            <Accordion primary='AmauiTheme add' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -4096,7 +4304,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme override' open>
+            <Accordion primary='AmauiTheme override' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -4125,7 +4333,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme props' open>
+            <Accordion primary='AmauiTheme props' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -4149,7 +4357,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme styled' open>
+            <Accordion primary='AmauiTheme styled' open>
               <styled.Line>
                 <Item size='small' elevation={1}>Item 1</Item>
                 <Item size='regular' elevation={1}>Item 114</Item>
@@ -4160,8 +4368,8 @@ Please sign in again.`}
         </Accordion>
       </Accordion>
 
-      <Accordion label='Container'>
-        <Accordion label='Container' open>
+      <Accordion primary='Container'>
+        <Accordion primary='Container' open>
           <div className={classNames([classes.column])}>
             <Container>
               <Box14 />
@@ -4169,7 +4377,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Container alignment' open>
+        <Accordion primary='Container alignment' open>
           <div className={classNames([classes.column])} style={{ gap: 24 }}>
             <Container alignment='start'>
               <Box14 />
@@ -4185,7 +4393,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Container fullWidth' open>
+        <Accordion primary='Container fullWidth' open>
           <div className={classNames([classes.column])} style={{ gap: 24 }}>
             <Container fullWidth>
               <Box14 />
@@ -4193,7 +4401,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Container paddingHorizontal' open>
+        <Accordion primary='Container paddingHorizontal' open>
           <div className={classNames([classes.column])} style={{ gap: 24 }}>
             <Container paddingHorizontal='both'>
               <Box14 />
@@ -4213,7 +4421,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Container paddingVertical' open>
+        <Accordion primary='Container paddingVertical' open>
           <div className={classNames([classes.column])} style={{ gap: 24 }}>
             <Container paddingVertical='both'>
               <Box14 />
@@ -4233,7 +4441,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Container maxWidth' open>
+        <Accordion primary='Container maxWidth' open>
           <div className={classNames([classes.column])} style={{ gap: 24 }}>
             <Container maxWidth='xxs'>
               <Box14 />
@@ -4273,7 +4481,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Container values per breakpoint value' open>
+        <Accordion primary='Container values per breakpoint value' open>
           <div className={classNames([classes.column])} style={{ gap: 24 }}>
             <Container maxWidth={{ sm: 'sm', lg: 'lg' }}>
               <Box14 />
@@ -4281,13 +4489,13 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='AmauiTheme'>
+        <Accordion primary='AmauiTheme'>
           <div className={classNames([classes.column])}>
             <Container>
               <Box14 />
             </Container>
 
-            <Accordion label='AmauiTheme nested value' open>
+            <Accordion primary='AmauiTheme nested value' open>
               <AmauiThemeProvider
                 value={{
                   palette: {
@@ -4308,7 +4516,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme add' open>
+            <Accordion primary='AmauiTheme add' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -4334,7 +4542,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme override' open>
+            <Accordion primary='AmauiTheme override' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -4361,7 +4569,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme props' open>
+            <Accordion primary='AmauiTheme props' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -4383,7 +4591,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme styled' open>
+            <Accordion primary='AmauiTheme styled' open>
               <styled.Container>
                 <Box14 />
               </styled.Container>
@@ -4392,14 +4600,14 @@ Please sign in again.`}
         </Accordion>
       </Accordion>
 
-      <Accordion label='Box'>
-        <Accordion label='Box' open>
+      <Accordion primary='Box'>
+        <Accordion primary='Box' open>
           <div className={classNames([classes.column])}>
             <Box1 />
           </div>
         </Accordion>
 
-        <Accordion label='Box multiple' open>
+        <Accordion primary='Box multiple' open>
           <div className={classNames([classes.row])} style={{ gap: 14 }}>
             <Box1 />
 
@@ -4409,11 +4617,11 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='AmauiTheme'>
+        <Accordion primary='AmauiTheme'>
           <div className={classNames([classes.column])}>
             <Box1 />
 
-            <Accordion label='AmauiTheme nested value' open>
+            <Accordion primary='AmauiTheme nested value' open>
               <AmauiThemeProvider
                 value={{
                   palette: {
@@ -4432,7 +4640,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme add' open>
+            <Accordion primary='AmauiTheme add' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -4456,7 +4664,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme override' open>
+            <Accordion primary='AmauiTheme override' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -4481,7 +4689,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme props' open>
+            <Accordion primary='AmauiTheme props' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -4501,27 +4709,27 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme styled' open>
+            <Accordion primary='AmauiTheme styled' open>
               <BoxStyled />
             </Accordion>
           </div>
         </Accordion>
       </Accordion>
 
-      <Accordion label='Rating'>
-        <Accordion label='Rating' open>
+      <Accordion primary='Rating'>
+        <Accordion primary='Rating' open>
           <div className={classNames([classes.column])}>
             <Rating />
           </div>
         </Accordion>
 
-        <Accordion label='Rating values' open>
+        <Accordion primary='Rating values' open>
           <div className={classNames([classes.column])}>
             <Rating values={7} />
           </div>
         </Accordion>
 
-        <Accordion label='Rating precision' open>
+        <Accordion primary='Rating precision' open>
           <div className={classNames([classes.column])}>
             <Rating precision={0.25} />
             <Rating precision={0.5} />
@@ -4530,7 +4738,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Rating sizes' open>
+        <Accordion primary='Rating sizes' open>
           <div className={classNames([classes.column])} style={{ gap: 14 }}>
             <Rating size='small' />
             <Rating size='regular' />
@@ -4538,7 +4746,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Rating colorInactive' open>
+        <Accordion primary='Rating colorInactive' open>
           <div className={classNames([classes.column])}>
             <Rating colorInactive='default' valueDefault={3} />
             <Rating colorInactive='primary' valueDefault={3} />
@@ -4554,7 +4762,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Rating color' open>
+        <Accordion primary='Rating color' open>
           <div className={classNames([classes.column])}>
             <Rating color='default' valueDefault={3} />
             <Rating color='primary' valueDefault={3} />
@@ -4570,7 +4778,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Rating color tonal' open>
+        <Accordion primary='Rating color tonal' open>
           <div className={classNames([classes.column])}>
             <Rating tonal color='primary' valueDefault={3} />
             <Rating tonal color='secondary' valueDefault={3} />
@@ -4585,13 +4793,13 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Rating valueDefault' open>
+        <Accordion primary='Rating valueDefault' open>
           <div className={classNames([classes.column])}>
             <Rating color='secondary' valueDefault={3} />
           </div>
         </Accordion>
 
-        <Accordion label='Rating controlled value' open>
+        <Accordion primary='Rating controlled value' open>
           <div className={classNames([classes.column])}>
             <Rating
               onChange={(value: number) => updatePure(value, 'rating')}
@@ -4601,7 +4809,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Rating custom icons' open>
+        <Accordion primary='Rating custom icons' open>
           <div className={classNames([classes.column])}>
             <Rating
               icons={{
@@ -4617,7 +4825,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Rating onlyValue' open>
+        <Accordion primary='Rating onlyValue' open>
           <div className={classNames([classes.column])}>
             <Rating valueDefault={3} onlyValue />
 
@@ -4625,23 +4833,23 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Rating readOnly' open>
+        <Accordion primary='Rating readOnly' open>
           <div className={classNames([classes.column])}>
             <Rating valueDefault={3} readOnly />
           </div>
         </Accordion>
 
-        <Accordion label='Rating disabled' open>
+        <Accordion primary='Rating disabled' open>
           <div className={classNames([classes.column])}>
             <Rating valueDefault={3} disabled />
           </div>
         </Accordion>
 
-        <Accordion label='AmauiTheme' open>
+        <Accordion primary='AmauiTheme' open>
           <div className={classNames([classes.column])}>
             <Rating color='secondary' />
 
-            <Accordion label='AmauiTheme nested value' open>
+            <Accordion primary='AmauiTheme nested value' open>
               <AmauiThemeProvider
                 value={{
                   palette: {
@@ -4660,7 +4868,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme add' open>
+            <Accordion primary='AmauiTheme add' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -4684,7 +4892,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme override' open>
+            <Accordion primary='AmauiTheme override' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -4709,7 +4917,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme props' open>
+            <Accordion primary='AmauiTheme props' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -4729,15 +4937,15 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme styled' open>
+            <Accordion primary='AmauiTheme styled' open>
               <styled.Rating />
             </Accordion>
           </div>
         </Accordion>
       </Accordion>
 
-      <Accordion label='AutoComplete'>
-        <Accordion label='AutoComplete' open>
+      <Accordion primary='AutoComplete'>
+        <Accordion primary='AutoComplete' open>
           <AutoComplete
             label='Items'
 
@@ -4747,7 +4955,7 @@ Please sign in again.`}
           />
         </Accordion>
 
-        <Accordion label='AutoComplete multiple' open>
+        <Accordion primary='AutoComplete multiple' open>
           <AutoComplete
             label='Items'
 
@@ -4759,7 +4967,7 @@ Please sign in again.`}
           />
         </Accordion>
 
-        <Accordion label='AutoComplete multiple chip' open>
+        <Accordion primary='AutoComplete multiple chip' open>
           <AutoComplete
             label='Items'
 
@@ -4773,7 +4981,7 @@ Please sign in again.`}
           />
         </Accordion>
 
-        <Accordion label='AutoComplete multiple limit' open>
+        <Accordion primary='AutoComplete multiple limit' open>
           <AutoComplete
             label='Items'
 
@@ -4789,7 +4997,7 @@ Please sign in again.`}
           />
         </Accordion>
 
-        <Accordion label='AutoComplete groupBy' open>
+        <Accordion primary='AutoComplete groupBy' open>
           <AutoComplete
             label='Items'
 
@@ -4801,7 +5009,7 @@ Please sign in again.`}
           />
         </Accordion>
 
-        <Accordion label='AutoComplete filterOutSelectedOptions' open>
+        <Accordion primary='AutoComplete filterOutSelectedOptions' open>
           <AutoComplete
             label='Items'
 
@@ -4815,7 +5023,7 @@ Please sign in again.`}
           />
         </Accordion>
 
-        <Accordion label='AutoComplete loading' open>
+        <Accordion primary='AutoComplete loading' open>
           <AutoComplete
             label='Items'
 
@@ -4827,7 +5035,7 @@ Please sign in again.`}
           />
         </Accordion>
 
-        <Accordion label='AutoComplete autoSelectOnBlur' open>
+        <Accordion primary='AutoComplete autoSelectOnBlur' open>
           <AutoComplete
             label='Items'
 
@@ -4839,7 +5047,7 @@ Please sign in again.`}
           />
         </Accordion>
 
-        <Accordion label='AutoComplete noOptions' open>
+        <Accordion primary='AutoComplete noOptions' open>
           <AutoComplete
             label='Items'
 
@@ -4851,7 +5059,7 @@ Please sign in again.`}
           />
         </Accordion>
 
-        <Accordion label='AutoComplete blurOnSelect' open>
+        <Accordion primary='AutoComplete blurOnSelect' open>
           <AutoComplete
             label='Items'
 
@@ -4863,7 +5071,7 @@ Please sign in again.`}
           />
         </Accordion>
 
-        <Accordion label='AutoComplete clearOnEscape' open>
+        <Accordion primary='AutoComplete clearOnEscape' open>
           <AutoComplete
             label='Items'
 
@@ -4875,7 +5083,7 @@ Please sign in again.`}
           />
         </Accordion>
 
-        <Accordion label='AutoComplete closeOnSelect' open>
+        <Accordion primary='AutoComplete closeOnSelect' open>
           <AutoComplete
             label='Items'
 
@@ -4887,7 +5095,7 @@ Please sign in again.`}
           />
         </Accordion>
 
-        <Accordion label='AutoComplete openOnFocus' open>
+        <Accordion primary='AutoComplete openOnFocus' open>
           <AutoComplete
             label='Items'
 
@@ -4899,7 +5107,7 @@ Please sign in again.`}
           />
         </Accordion>
 
-        <Accordion label='AutoComplete clearOnBlur' open>
+        <Accordion primary='AutoComplete clearOnBlur' open>
           <AutoComplete
             label='Items'
 
@@ -4911,7 +5119,7 @@ Please sign in again.`}
           />
         </Accordion>
 
-        <Accordion label='AutoComplete selectOnFocus' open>
+        <Accordion primary='AutoComplete selectOnFocus' open>
           <AutoComplete
             label='Items'
 
@@ -4923,7 +5131,7 @@ Please sign in again.`}
           />
         </Accordion>
 
-        <Accordion label='AutoComplete countries'>
+        <Accordion primary='AutoComplete countries'>
           <AutoComplete
             label='Items'
 
@@ -4945,7 +5153,7 @@ Please sign in again.`}
           />
         </Accordion>
 
-        <Accordion label='AutoComplete versions'>
+        <Accordion primary='AutoComplete versions'>
           <div className={classNames([classes.column])} style={{ gap: 24 }}>
             <AutoComplete
               label='Items'
@@ -4979,8 +5187,8 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='AutoComplete sizes'>
-          <Accordion label='AutoComplete small' open>
+        <Accordion primary='AutoComplete sizes'>
+          <Accordion primary='AutoComplete small' open>
             <div className={classNames([classes.column])} style={{ gap: 24 }}>
               <AutoComplete
                 size='small'
@@ -5020,7 +5228,7 @@ Please sign in again.`}
             </div>
           </Accordion>
 
-          <Accordion label='AutoComplete regular' open>
+          <Accordion primary='AutoComplete regular' open>
             <div className={classNames([classes.column])} style={{ gap: 24 }}>
               <AutoComplete
                 size='regular'
@@ -5060,7 +5268,7 @@ Please sign in again.`}
             </div>
           </Accordion>
 
-          <Accordion label='AutoComplete large' open>
+          <Accordion primary='AutoComplete large' open>
             <div className={classNames([classes.column])} style={{ gap: 24 }}>
               <AutoComplete
                 size='large'
@@ -5101,7 +5309,7 @@ Please sign in again.`}
           </Accordion>
         </Accordion>
 
-        <Accordion label='AutoComplete helper text'>
+        <Accordion primary='AutoComplete helper text'>
           <AutoComplete
             label='Items'
 
@@ -5113,7 +5321,7 @@ Please sign in again.`}
           />
         </Accordion>
 
-        <Accordion label='AutoComplete with start and end icons'>
+        <Accordion primary='AutoComplete with start and end icons'>
           <AutoComplete
             label='Items'
 
@@ -5157,7 +5365,7 @@ Please sign in again.`}
           />
         </Accordion>
 
-        <Accordion label='AutoComplete with prefix and sufix'>
+        <Accordion primary='AutoComplete with prefix and sufix'>
           <AutoComplete
             label='Items'
 
@@ -5201,7 +5409,7 @@ Please sign in again.`}
           />
         </Accordion>
 
-        <Accordion label='AutoComplete readOnly'>
+        <Accordion primary='AutoComplete readOnly'>
           <AutoComplete
             label='Items'
 
@@ -5215,7 +5423,7 @@ Please sign in again.`}
           />
         </Accordion>
 
-        <Accordion label='AutoComplete disabled'>
+        <Accordion primary='AutoComplete disabled'>
           <AutoComplete
             label='Items'
 
@@ -5229,7 +5437,7 @@ Please sign in again.`}
           />
         </Accordion>
 
-        <Accordion label='AutoComplete controlled'>
+        <Accordion primary='AutoComplete controlled'>
           <AutoComplete
             label='Items'
 
@@ -5245,7 +5453,7 @@ Please sign in again.`}
           />
         </Accordion>
 
-        <Accordion label='AmauiTheme'>
+        <Accordion primary='AmauiTheme'>
           <div
             className={classNames([classes.column])}
 
@@ -5261,7 +5469,7 @@ Please sign in again.`}
               color='secondary'
             />
 
-            <Accordion label='AmauiTheme nested value' open>
+            <Accordion primary='AmauiTheme nested value' open>
               <AmauiThemeProvider
                 value={{
                   palette: {
@@ -5290,7 +5498,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme add' open>
+            <Accordion primary='AmauiTheme add' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -5324,7 +5532,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme override' open>
+            <Accordion primary='AmauiTheme override' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -5358,7 +5566,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme props' open>
+            <Accordion primary='AmauiTheme props' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -5386,7 +5594,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme styled' open>
+            <Accordion primary='AmauiTheme styled' open>
               <styled.AutoComplete
                 label='Items'
 
@@ -5397,8 +5605,8 @@ Please sign in again.`}
         </Accordion>
       </Accordion>
 
-      <Accordion label='Select'>
-        <Accordion label='Select' open>
+      <Accordion primary='Select'>
+        <Accordion primary='Select' open>
           <Select
             label='Items'
 
@@ -5418,7 +5626,7 @@ Please sign in again.`}
           </Select>
         </Accordion>
 
-        <Accordion label='Select multiple' open>
+        <Accordion primary='Select multiple' open>
           <Select
             label='Items'
 
@@ -5440,7 +5648,7 @@ Please sign in again.`}
           </Select>
         </Accordion>
 
-        <Accordion label='Select multiple chip' open>
+        <Accordion primary='Select multiple chip' open>
           <div className={classNames([classes.column])} style={{ gap: 24 }}>
             <Select
               label='Items'
@@ -5516,7 +5724,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Select multiple checkboxes' open>
+        <Accordion primary='Select multiple checkboxes' open>
           <Select
             label='Items'
 
@@ -5546,7 +5754,7 @@ Please sign in again.`}
           </Select>
         </Accordion>
 
-        <Accordion label='Select versions'>
+        <Accordion primary='Select versions'>
           <div className={classNames([classes.column])} style={{ gap: 24 }}>
             <Select
               label='Items'
@@ -5610,8 +5818,8 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Select sizes'>
-          <Accordion label='Select small' open>
+        <Accordion primary='Select sizes'>
+          <Accordion primary='Select small' open>
             <div className={classNames([classes.column])} style={{ gap: 24 }}>
               <Select
                 size='small'
@@ -5681,7 +5889,7 @@ Please sign in again.`}
             </div>
           </Accordion>
 
-          <Accordion label='Select regular' open>
+          <Accordion primary='Select regular' open>
             <div className={classNames([classes.column])} style={{ gap: 24 }}>
               <Select
                 size='regular'
@@ -5751,7 +5959,7 @@ Please sign in again.`}
             </div>
           </Accordion>
 
-          <Accordion label='Select large' open>
+          <Accordion primary='Select large' open>
             <div className={classNames([classes.column])} style={{ gap: 24 }}>
               <Select
                 size='large'
@@ -5822,7 +6030,7 @@ Please sign in again.`}
           </Accordion>
         </Accordion>
 
-        <Accordion label='Select helper text' open>
+        <Accordion primary='Select helper text' open>
           <Select
             label='Items'
 
@@ -5844,7 +6052,7 @@ Please sign in again.`}
           </Select>
         </Accordion>
 
-        <Accordion label='Select with start and end icons' open>
+        <Accordion primary='Select with start and end icons' open>
           <Select
             label='Items'
 
@@ -5918,7 +6126,7 @@ Please sign in again.`}
           </Select>
         </Accordion>
 
-        <Accordion label='Select with prefix and sufix' open>
+        <Accordion primary='Select with prefix and sufix' open>
           <Select
             label='Items'
 
@@ -5992,7 +6200,7 @@ Please sign in again.`}
           </Select>
         </Accordion>
 
-        <Accordion label='Select readOnly' open>
+        <Accordion primary='Select readOnly' open>
           <Select
             label='Items'
 
@@ -6016,7 +6224,7 @@ Please sign in again.`}
           </Select>
         </Accordion>
 
-        <Accordion label='Select disabled' open>
+        <Accordion primary='Select disabled' open>
           <Select
             label='Items'
 
@@ -6040,7 +6248,7 @@ Please sign in again.`}
           </Select>
         </Accordion>
 
-        <Accordion label='Select controlled' open>
+        <Accordion primary='Select controlled' open>
           <Select
             label='Items'
 
@@ -6066,7 +6274,7 @@ Please sign in again.`}
           </Select>
         </Accordion>
 
-        <Accordion label='AmauiTheme' open>
+        <Accordion primary='AmauiTheme' open>
           <div
             className={classNames([classes.column])}
 
@@ -6092,7 +6300,7 @@ Please sign in again.`}
               ))}
             </Select>
 
-            <Accordion label='AmauiTheme nested value' open>
+            <Accordion primary='AmauiTheme nested value' open>
               <AmauiThemeProvider
                 value={{
                   palette: {
@@ -6131,7 +6339,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme add' open>
+            <Accordion primary='AmauiTheme add' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -6175,7 +6383,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme override' open>
+            <Accordion primary='AmauiTheme override' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -6219,7 +6427,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme props' open>
+            <Accordion primary='AmauiTheme props' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -6257,7 +6465,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme styled' open>
+            <Accordion primary='AmauiTheme styled' open>
               <styled.Select
                 label='Items'
               >
@@ -6278,8 +6486,8 @@ Please sign in again.`}
         </Accordion>
       </Accordion>
 
-      <Accordion label='Menu'>
-        <Accordion label='Menu'>
+      <Accordion primary='Menu'>
+        <Accordion primary='Menu'>
           <div className={classNames([classes.column])}>
             <Button
               ref={refs.menu['1']}
@@ -6315,7 +6523,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Menu position, alignment, transformOrigin and inset'>
+        <Accordion primary='Menu position, alignment, transformOrigin and inset'>
           <div className={classNames([classes.column])}>
             <Button
               ref={refs.menu['2']}
@@ -6355,7 +6563,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Menu maxHeight'>
+        <Accordion primary='Menu maxHeight'>
           <div className={classNames([classes.column])}>
             <Button
               ref={refs.menu['3']}
@@ -6396,7 +6604,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Menu with arrow'>
+        <Accordion primary='Menu with arrow'>
           <div className={classNames([classes.column])}>
             <Button
               ref={refs.menu['4']}
@@ -6436,7 +6644,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Menu additional menu'>
+        <Accordion primary='Menu additional menu'>
           <div className={classNames([classes.column])}>
             <Button
               ref={refs.menu['5']}
@@ -6676,7 +6884,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Menu ListItem menuCloseOnClick'>
+        <Accordion primary='Menu ListItem menuCloseOnClick'>
           <div className={classNames([classes.column])}>
             <Button
               ref={refs.menu['114']}
@@ -6711,8 +6919,8 @@ Please sign in again.`}
         </Accordion>
       </Accordion>
 
-      <Accordion label='Tooltip'>
-        <Accordion label='Tooltip' open>
+      <Accordion primary='Tooltip'>
+        <Accordion primary='Tooltip' open>
           <div className={classNames([classes.column])}>
             <Tooltip
               label='Label'
@@ -6722,7 +6930,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Tooltip positions and alignments'>
+        <Accordion primary='Tooltip positions and alignments'>
           <div className={classNames([classes.column])} style={{ gap: 24 }}>
             <Tooltip
               label='Label'
@@ -6823,7 +7031,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Tooltip colors'>
+        <Accordion primary='Tooltip colors'>
           <div className={classNames([classes.column])} style={{ gap: 24 }}>
             <Tooltip
               label='Label'
@@ -6905,7 +7113,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Tooltip tonal'>
+        <Accordion primary='Tooltip tonal'>
           <div className={classNames([classes.column])} style={{ gap: 24 }}>
             <Tooltip
               tonal
@@ -7000,7 +7208,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Tooltip transitions' open>
+        <Accordion primary='Tooltip transitions' open>
           <div className={classNames([classes.column])} style={{ gap: 24 }}>
             <Tooltip
               label='Label'
@@ -7036,7 +7244,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Tooltip arrow'>
+        <Accordion primary='Tooltip arrow'>
           <div className={classNames([classes.column])}>
             <Tooltip
               arrow
@@ -7161,7 +7369,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Tooltip follow' open>
+        <Accordion primary='Tooltip follow' open>
           <div className={classNames([classes.column])}>
             <Tooltip
               label='Label'
@@ -7173,7 +7381,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Tooltip disableInteractive' open>
+        <Accordion primary='Tooltip disableInteractive' open>
           <div className={classNames([classes.column])}>
             <Tooltip
               label='Label'
@@ -7185,7 +7393,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Tooltip maxWidth' open>
+        <Accordion primary='Tooltip maxWidth' open>
           <div className={classNames([classes.column])} style={{ gap: 24 }}>
             <Tooltip
               label={`It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).`}
@@ -7260,7 +7468,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Tooltip fullWidth' open>
+        <Accordion primary='Tooltip fullWidth' open>
           <div className={classNames([classes.column])} style={{ gap: 24 }}>
             <Tooltip
               label={`It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).`}
@@ -7275,7 +7483,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Tooltip controlled' open>
+        <Accordion primary='Tooltip controlled' open>
           <div className={classNames([classes.column])} style={{ gap: 24 }}>
             <Button onClick={() => update('tooltip')} version='outlined' color='secondary'>a</Button>
 
@@ -7292,7 +7500,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Tooltip label element value y' open>
+        <Accordion primary='Tooltip label element value y' open>
           <div className={classNames([classes.column])}>
             <Tooltip
               label={(
@@ -7315,7 +7523,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='AmauiTheme' open>
+        <Accordion primary='AmauiTheme' open>
           <div className={classNames([classes.column])}>
             <Tooltip
               label='Label'
@@ -7325,7 +7533,7 @@ Please sign in again.`}
               <Button color='secondary'>Append</Button>
             </Tooltip>
 
-            <Accordion label='AmauiTheme nested value' open>
+            <Accordion primary='AmauiTheme nested value' open>
               <AmauiThemeProvider
                 value={{
                   palette: {
@@ -7350,7 +7558,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme add' open>
+            <Accordion primary='AmauiTheme add' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -7380,7 +7588,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme override' open>
+            <Accordion primary='AmauiTheme override' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -7410,7 +7618,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme props' open>
+            <Accordion primary='AmauiTheme props' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -7434,7 +7642,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme styled' open>
+            <Accordion primary='AmauiTheme styled' open>
               <styled.Tooltip
                 label='Label'
               >
@@ -7445,11 +7653,11 @@ Please sign in again.`}
         </Accordion>
       </Accordion>
 
-      <Accordion label='Append'>
+      <Accordion primary='Append'>
         <div className={classNames([classes.column])} style={{ gap: 44 }}>
-          <Accordion label='Append'>
+          <Accordion primary='Append'>
             <div className={classNames([classes.column])}>
-              <Accordion label='Append inset'>
+              <Accordion primary='Append inset'>
                 <div className={classNames([classes.column])} style={{ gap: 74 }}>
                   <Append position='bottom' alignment='start' inset
                     element={(
@@ -7549,7 +7757,7 @@ Please sign in again.`}
                 </div>
               </Accordion>
 
-              <Accordion label='Append'>
+              <Accordion primary='Append'>
                 <div className={classNames([classes.column])} style={{ gap: 74 }}>
                   <Append position='bottom' alignment='start'
                     element={(
@@ -7649,7 +7857,7 @@ Please sign in again.`}
                 </div>
               </Accordion>
 
-              <Accordion label='Append portal'>
+              <Accordion primary='Append portal'>
                 <div className={classNames([classes.column])} style={{ gap: 74 }}>
                   <Append position='bottom' alignment='start' portal
                     element={(
@@ -7749,7 +7957,7 @@ Please sign in again.`}
                 </div>
               </Accordion>
 
-              <Accordion label='Append scroll container'>
+              <Accordion primary='Append scroll container'>
                 <div className={classNames([classes.column])} style={{ gap: 74 }}>
                   <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
                     <div style={{ height: 400, width: 400, padding: 340 }}>
@@ -7801,7 +8009,7 @@ Please sign in again.`}
                 </div>
               </Accordion>
 
-              <Accordion label='Append scroll container portal'>
+              <Accordion primary='Append scroll container portal'>
                 <div className={classNames([classes.column])} style={{ gap: 74 }}>
                   <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
                     <div style={{ height: 400, width: 400, padding: 340 }}>
@@ -7853,7 +8061,7 @@ Please sign in again.`}
                 </div>
               </Accordion>
 
-              <Accordion label='Append unfollow'>
+              <Accordion primary='Append unfollow'>
                 <div className={classNames([classes.column])} style={{ gap: 74 }}>
                   <Append position='bottom' alignment='start' unfollow
                     element={(
@@ -7953,7 +8161,7 @@ Please sign in again.`}
                 </div>
               </Accordion>
 
-              <Accordion label='Append unfollow portal'>
+              <Accordion primary='Append unfollow portal'>
                 <div className={classNames([classes.column])} style={{ gap: 74 }}>
                   <Append position='bottom' alignment='start' portal unfollow
                     element={(
@@ -8053,7 +8261,7 @@ Please sign in again.`}
                 </div>
               </Accordion>
 
-              <Accordion label='Append unfollow scroll container'>
+              <Accordion primary='Append unfollow scroll container'>
                 <div className={classNames([classes.column])} style={{ gap: 74 }}>
                   <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
                     <div style={{ height: 400, width: 400, padding: 340 }}>
@@ -8105,7 +8313,7 @@ Please sign in again.`}
                 </div>
               </Accordion>
 
-              <Accordion label='Append unfollow scroll container portal'>
+              <Accordion primary='Append unfollow scroll container portal'>
                 <div className={classNames([classes.column])} style={{ gap: 74 }}>
                   <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
                     <div style={{ height: 400, width: 400, padding: 340 }}>
@@ -8159,9 +8367,9 @@ Please sign in again.`}
             </div>
           </Accordion>
 
-          <Accordion label='Append with offset and padding'>
+          <Accordion primary='Append with offset and padding'>
             <div className={classNames([classes.column])}>
-              <Accordion label='Append inset'>
+              <Accordion primary='Append inset'>
                 <div className={classNames([classes.column])} style={{ gap: 74 }}>
                   <Append position='bottom' alignment='start' inset offset={[14, 14]} padding={[7, 7]}
                     element={(
@@ -8261,7 +8469,7 @@ Please sign in again.`}
                 </div>
               </Accordion>
 
-              <Accordion label='Append'>
+              <Accordion primary='Append'>
                 <div className={classNames([classes.column])} style={{ gap: 74 }}>
                   <Append position='bottom' alignment='start' offset={[14, 14]} padding={[7, 7]}
                     element={(
@@ -8361,7 +8569,7 @@ Please sign in again.`}
                 </div>
               </Accordion>
 
-              <Accordion label='Append portal'>
+              <Accordion primary='Append portal'>
                 <div className={classNames([classes.column])} style={{ gap: 74 }}>
                   <Append position='bottom' alignment='start' portal offset={[14, 14]} padding={[7, 7]}
                     element={(
@@ -8461,7 +8669,7 @@ Please sign in again.`}
                 </div>
               </Accordion>
 
-              <Accordion label='Append scroll container'>
+              <Accordion primary='Append scroll container'>
                 <div className={classNames([classes.column])} style={{ gap: 74 }}>
                   <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
                     <div style={{ height: 400, width: 400, padding: 340 }}>
@@ -8513,7 +8721,7 @@ Please sign in again.`}
                 </div>
               </Accordion>
 
-              <Accordion label='Append scroll container portal'>
+              <Accordion primary='Append scroll container portal'>
                 <div className={classNames([classes.column])} style={{ gap: 74 }}>
                   <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
                     <div style={{ height: 400, width: 400, padding: 340 }}>
@@ -8565,7 +8773,7 @@ Please sign in again.`}
                 </div>
               </Accordion>
 
-              <Accordion label='Append unfollow'>
+              <Accordion primary='Append unfollow'>
                 <div className={classNames([classes.column])} style={{ gap: 74 }}>
                   <Append position='bottom' alignment='start' unfollow offset={[14, 14]} padding={[7, 7]}
                     element={(
@@ -8665,7 +8873,7 @@ Please sign in again.`}
                 </div>
               </Accordion>
 
-              <Accordion label='Append unfollow portal'>
+              <Accordion primary='Append unfollow portal'>
                 <div className={classNames([classes.column])} style={{ gap: 74 }}>
                   <Append position='bottom' alignment='start' portal unfollow offset={[14, 14]} padding={[7, 7]}
                     element={(
@@ -8765,7 +8973,7 @@ Please sign in again.`}
                 </div>
               </Accordion>
 
-              <Accordion label='Append unfollow scroll container'>
+              <Accordion primary='Append unfollow scroll container'>
                 <div className={classNames([classes.column])} style={{ gap: 74 }}>
                   <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
                     <div style={{ height: 400, width: 400, padding: 340 }}>
@@ -8817,7 +9025,7 @@ Please sign in again.`}
                 </div>
               </Accordion>
 
-              <Accordion label='Append unfollow scroll container portal'>
+              <Accordion primary='Append unfollow scroll container portal'>
                 <div className={classNames([classes.column])} style={{ gap: 74 }}>
                   <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
                     <div style={{ height: 400, width: 400, padding: 340 }}>
@@ -8871,9 +9079,9 @@ Please sign in again.`}
             </div>
           </Accordion>
 
-          <Accordion label='Append with container padding'>
+          <Accordion primary='Append with container padding'>
             <div className={classNames([classes.column])}>
-              <Accordion label='Append inset'>
+              <Accordion primary='Append inset'>
                 <div className={classNames([classes.column])} style={{ gap: 74, padding: 40 }}>
                   <Append position='bottom' alignment='start' inset
                     element={(
@@ -8973,7 +9181,7 @@ Please sign in again.`}
                 </div>
               </Accordion>
 
-              <Accordion label='Append'>
+              <Accordion primary='Append'>
                 <div className={classNames([classes.column])} style={{ gap: 74, padding: 40 }}>
                   <Append position='bottom' alignment='start'
                     element={(
@@ -9073,7 +9281,7 @@ Please sign in again.`}
                 </div>
               </Accordion>
 
-              <Accordion label='Append portal'>
+              <Accordion primary='Append portal'>
                 <div className={classNames([classes.column])} style={{ gap: 74, padding: 40 }}>
                   <Append position='bottom' alignment='start' portal
                     element={(
@@ -9173,7 +9381,7 @@ Please sign in again.`}
                 </div>
               </Accordion>
 
-              <Accordion label='Append scroll container'>
+              <Accordion primary='Append scroll container'>
                 <div className={classNames([classes.column])} style={{ gap: 74, padding: 40 }}>
                   <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
                     <div style={{ height: 400, width: 400, padding: 340 }}>
@@ -9225,7 +9433,7 @@ Please sign in again.`}
                 </div>
               </Accordion>
 
-              <Accordion label='Append scroll container portal'>
+              <Accordion primary='Append scroll container portal'>
                 <div className={classNames([classes.column])} style={{ gap: 74, padding: 40 }}>
                   <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
                     <div style={{ height: 400, width: 400, padding: 340 }}>
@@ -9277,7 +9485,7 @@ Please sign in again.`}
                 </div>
               </Accordion>
 
-              <Accordion label='Append unfollow'>
+              <Accordion primary='Append unfollow'>
                 <div className={classNames([classes.column])} style={{ gap: 74, padding: 40 }}>
                   <Append position='bottom' alignment='start' unfollow
                     element={(
@@ -9377,7 +9585,7 @@ Please sign in again.`}
                 </div>
               </Accordion>
 
-              <Accordion label='Append unfollow portal'>
+              <Accordion primary='Append unfollow portal'>
                 <div className={classNames([classes.column])} style={{ gap: 74, padding: 40 }}>
                   <Append position='bottom' alignment='start' portal unfollow
                     element={(
@@ -9477,7 +9685,7 @@ Please sign in again.`}
                 </div>
               </Accordion>
 
-              <Accordion label='Append unfollow scroll container'>
+              <Accordion primary='Append unfollow scroll container'>
                 <div className={classNames([classes.column])} style={{ gap: 74, padding: 40 }}>
                   <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
                     <div style={{ height: 400, width: 400, padding: 340 }}>
@@ -9529,7 +9737,7 @@ Please sign in again.`}
                 </div>
               </Accordion>
 
-              <Accordion label='Append unfollow scroll container portal'>
+              <Accordion primary='Append unfollow scroll container portal'>
                 <div className={classNames([classes.column])} style={{ gap: 74, padding: 40 }}>
                   <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
                     <div style={{ height: 400, width: 400, padding: 340 }}>
@@ -9583,9 +9791,9 @@ Please sign in again.`}
             </div>
           </Accordion>
 
-          <Accordion label='Append with container padding and with offset and padding'>
+          <Accordion primary='Append with container padding and with offset and padding'>
             <div className={classNames([classes.column])}>
-              <Accordion label='Append inset'>
+              <Accordion primary='Append inset'>
                 <div className={classNames([classes.column])} style={{ gap: 74, padding: 40 }}>
                   <Append position='bottom' alignment='start' inset offset={[14, 14]} padding={[7, 7]}
                     element={(
@@ -9685,7 +9893,7 @@ Please sign in again.`}
                 </div>
               </Accordion>
 
-              <Accordion label='Append'>
+              <Accordion primary='Append'>
                 <div className={classNames([classes.column])} style={{ gap: 74, padding: 40 }}>
                   <Append position='bottom' alignment='start' offset={[14, 14]} padding={[7, 7]}
                     element={(
@@ -9785,7 +9993,7 @@ Please sign in again.`}
                 </div>
               </Accordion>
 
-              <Accordion label='Append portal'>
+              <Accordion primary='Append portal'>
                 <div className={classNames([classes.column])} style={{ gap: 74, padding: 40 }}>
                   <Append position='bottom' alignment='start' portal offset={[14, 14]} padding={[7, 7]}
                     element={(
@@ -9885,7 +10093,7 @@ Please sign in again.`}
                 </div>
               </Accordion>
 
-              <Accordion label='Append scroll container'>
+              <Accordion primary='Append scroll container'>
                 <div className={classNames([classes.column])} style={{ gap: 74, padding: 40 }}>
                   <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
                     <div style={{ height: 400, width: 400, padding: 340 }}>
@@ -9937,7 +10145,7 @@ Please sign in again.`}
                 </div>
               </Accordion>
 
-              <Accordion label='Append scroll container portal'>
+              <Accordion primary='Append scroll container portal'>
                 <div className={classNames([classes.column])} style={{ gap: 74, padding: 40 }}>
                   <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
                     <div style={{ height: 400, width: 400, padding: 340 }}>
@@ -9989,7 +10197,7 @@ Please sign in again.`}
                 </div>
               </Accordion>
 
-              <Accordion label='Append unfollow'>
+              <Accordion primary='Append unfollow'>
                 <div className={classNames([classes.column])} style={{ gap: 74, padding: 40 }}>
                   <Append position='bottom' alignment='start' unfollow offset={[14, 14]} padding={[7, 7]}
                     element={(
@@ -10089,7 +10297,7 @@ Please sign in again.`}
                 </div>
               </Accordion>
 
-              <Accordion label='Append unfollow with paddingUnfollow'>
+              <Accordion primary='Append unfollow with paddingUnfollow'>
                 <div className={classNames([classes.column])} style={{ gap: 74, padding: 40 }}>
                   <Append position='bottom' alignment='start' unfollow offset={[14, 14]} padding={[7, 7]} paddingUnfollow={[14, 14]}
                     element={(
@@ -10189,7 +10397,7 @@ Please sign in again.`}
                 </div>
               </Accordion>
 
-              <Accordion label='Append unfollow portal'>
+              <Accordion primary='Append unfollow portal'>
                 <div className={classNames([classes.column])} style={{ gap: 74, padding: 40 }}>
                   <Append position='bottom' alignment='start' portal unfollow offset={[14, 14]} padding={[7, 7]}
                     element={(
@@ -10289,7 +10497,7 @@ Please sign in again.`}
                 </div>
               </Accordion>
 
-              <Accordion label='Append unfollow portal with paddingUnfollow'>
+              <Accordion primary='Append unfollow portal with paddingUnfollow'>
                 <div className={classNames([classes.column])} style={{ gap: 74, padding: 40 }}>
                   <Append position='bottom' alignment='start' portal unfollow offset={[14, 14]} padding={[7, 7]} paddingUnfollow={[14, 14]}
                     element={(
@@ -10389,7 +10597,7 @@ Please sign in again.`}
                 </div>
               </Accordion>
 
-              <Accordion label='Append unfollow scroll container'>
+              <Accordion primary='Append unfollow scroll container'>
                 <div className={classNames([classes.column])} style={{ gap: 74, padding: 40 }}>
                   <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
                     <div style={{ height: 400, width: 400, padding: 340 }}>
@@ -10441,7 +10649,7 @@ Please sign in again.`}
                 </div>
               </Accordion>
 
-              <Accordion label='Append unfollow scroll container with paddingUnfollow'>
+              <Accordion primary='Append unfollow scroll container with paddingUnfollow'>
                 <div className={classNames([classes.column])} style={{ gap: 74, padding: 40 }}>
                   <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
                     <div style={{ height: 400, width: 400, padding: 340 }}>
@@ -10493,7 +10701,7 @@ Please sign in again.`}
                 </div>
               </Accordion>
 
-              <Accordion label='Append unfollow scroll container portal'>
+              <Accordion primary='Append unfollow scroll container portal'>
                 <div className={classNames([classes.column])} style={{ gap: 74, padding: 40 }}>
                   <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
                     <div style={{ height: 400, width: 400, padding: 340 }}>
@@ -10545,7 +10753,7 @@ Please sign in again.`}
                 </div>
               </Accordion>
 
-              <Accordion label='Append unfollow scroll container portal with paddingUnfollow'>
+              <Accordion primary='Append unfollow scroll container portal with paddingUnfollow'>
                 <div className={classNames([classes.column])} style={{ gap: 74, padding: 40 }}>
                   <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
                     <div style={{ height: 400, width: 400, padding: 340 }}>
@@ -10599,9 +10807,9 @@ Please sign in again.`}
             </div>
           </Accordion>
 
-          <Accordion label='Append with container padding and with offset and padding with switch'>
+          <Accordion primary='Append with container padding and with offset and padding with switch'>
             <div className={classNames([classes.column])}>
-              <Accordion label='Append inset'>
+              <Accordion primary='Append inset'>
                 <div className={classNames([classes.column])} style={{ gap: 74, padding: 40 }}>
                   <Append switch position='bottom' alignment='start' inset offset={[14, 14]} padding={[7, 7]}
                     element={(
@@ -10701,7 +10909,7 @@ Please sign in again.`}
                 </div>
               </Accordion>
 
-              <Accordion label='Append'>
+              <Accordion primary='Append'>
                 <div className={classNames([classes.column])} style={{ gap: 74, padding: 40 }}>
                   <Append switch position='bottom' alignment='start' offset={[14, 14]} padding={[7, 7]}
                     element={(
@@ -10801,7 +11009,7 @@ Please sign in again.`}
                 </div>
               </Accordion>
 
-              <Accordion label='Append portal'>
+              <Accordion primary='Append portal'>
                 <div className={classNames([classes.column])} style={{ gap: 74, padding: 40 }}>
                   <Append switch position='bottom' alignment='start' portal offset={[14, 14]} padding={[7, 7]}
                     element={(
@@ -10901,7 +11109,7 @@ Please sign in again.`}
                 </div>
               </Accordion>
 
-              <Accordion label='Append scroll container'>
+              <Accordion primary='Append scroll container'>
                 <div className={classNames([classes.column])} style={{ gap: 74, padding: 40 }}>
                   <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
                     <div style={{ height: 400, width: 400, padding: 340 }}>
@@ -10953,7 +11161,7 @@ Please sign in again.`}
                 </div>
               </Accordion>
 
-              <Accordion label='Append scroll container portal'>
+              <Accordion primary='Append scroll container portal'>
                 <div className={classNames([classes.column])} style={{ gap: 74, padding: 40 }}>
                   <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
                     <div style={{ height: 400, width: 400, padding: 340 }}>
@@ -11005,7 +11213,7 @@ Please sign in again.`}
                 </div>
               </Accordion>
 
-              <Accordion label='Append unfollow'>
+              <Accordion primary='Append unfollow'>
                 <div className={classNames([classes.column])} style={{ gap: 74, padding: 40 }}>
                   <Append switch position='bottom' alignment='start' unfollow offset={[14, 14]} padding={[7, 7]}
                     element={(
@@ -11105,7 +11313,7 @@ Please sign in again.`}
                 </div>
               </Accordion>
 
-              <Accordion label='Append unfollow with paddingUnfollow'>
+              <Accordion primary='Append unfollow with paddingUnfollow'>
                 <div className={classNames([classes.column])} style={{ gap: 74, padding: 40 }}>
                   <Append switch position='bottom' alignment='start' unfollow offset={[14, 14]} padding={[7, 7]} paddingUnfollow={[14, 14]}
                     element={(
@@ -11205,7 +11413,7 @@ Please sign in again.`}
                 </div>
               </Accordion>
 
-              <Accordion label='Append unfollow portal'>
+              <Accordion primary='Append unfollow portal'>
                 <div className={classNames([classes.column])} style={{ gap: 74, padding: 40 }}>
                   <Append switch position='bottom' alignment='start' portal unfollow offset={[14, 14]} padding={[7, 7]}
                     element={(
@@ -11305,7 +11513,7 @@ Please sign in again.`}
                 </div>
               </Accordion>
 
-              <Accordion label='Append unfollow portal with paddingUnfollow'>
+              <Accordion primary='Append unfollow portal with paddingUnfollow'>
                 <div className={classNames([classes.column])} style={{ gap: 74, padding: 40 }}>
                   <Append switch position='bottom' alignment='start' portal unfollow offset={[14, 14]} padding={[7, 7]} paddingUnfollow={[14, 14]}
                     element={(
@@ -11405,7 +11613,7 @@ Please sign in again.`}
                 </div>
               </Accordion>
 
-              <Accordion label='Append unfollow scroll container'>
+              <Accordion primary='Append unfollow scroll container'>
                 <div className={classNames([classes.column])} style={{ gap: 74, padding: 40 }}>
                   <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
                     <div style={{ height: 400, width: 400, padding: 340 }}>
@@ -11457,7 +11665,7 @@ Please sign in again.`}
                 </div>
               </Accordion>
 
-              <Accordion label='Append unfollow scroll container with paddingUnfollow'>
+              <Accordion primary='Append unfollow scroll container with paddingUnfollow'>
                 <div className={classNames([classes.column])} style={{ gap: 74, padding: 40 }}>
                   <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
                     <div style={{ height: 400, width: 400, padding: 340 }}>
@@ -11509,7 +11717,7 @@ Please sign in again.`}
                 </div>
               </Accordion>
 
-              <Accordion label='Append unfollow scroll container portal'>
+              <Accordion primary='Append unfollow scroll container portal'>
                 <div className={classNames([classes.column])} style={{ gap: 74, padding: 40 }}>
                   <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
                     <div style={{ height: 400, width: 400, padding: 340 }}>
@@ -11561,7 +11769,7 @@ Please sign in again.`}
                 </div>
               </Accordion>
 
-              <Accordion label='Append unfollow scroll container portal with paddingUnfollow'>
+              <Accordion primary='Append unfollow scroll container portal with paddingUnfollow'>
                 <div className={classNames([classes.column])} style={{ gap: 74, padding: 40 }}>
                   <div style={{ overflow: 'auto', width: 140, height: 140, background: 'beige' }}>
                     <div style={{ height: 400, width: 400, padding: 340 }}>
@@ -11615,8 +11823,8 @@ Please sign in again.`}
             </div>
           </Accordion>
 
-          <Accordion label='Append resize'>
-            <Accordion label='Append'>
+          <Accordion primary='Append resize'>
+            <Accordion primary='Append'>
               <div className={classNames([classes.column])} style={{ gap: 74 }}>
                 <Append position='bottom' alignment='end'
                   element={(
@@ -11641,7 +11849,7 @@ Please sign in again.`}
               </div>
             </Accordion>
 
-            <Accordion label='Append portal'>
+            <Accordion primary='Append portal'>
               <div className={classNames([classes.column])} style={{ gap: 74 }}>
                 <Append position='bottom' alignment='end' portal
                   element={(
@@ -11667,8 +11875,8 @@ Please sign in again.`}
             </Accordion>
           </Accordion>
 
-          <Accordion label='Append use case text select value'>
-            <Accordion label='Append'>
+          <Accordion primary='Append use case text select value'>
+            <Accordion primary='Append'>
               <div className={classNames([classes.column])} style={{ gap: 74 }}>
                 <Type
                   onMouseUp={onMouseUp}
@@ -11686,7 +11894,7 @@ Please sign in again.`}
               </div>
             </Accordion>
 
-            <Accordion label='Append portal'>
+            <Accordion primary='Append portal'>
               <div className={classNames([classes.column])} style={{ gap: 74 }}>
                 <Type
                   onMouseUp={onMouseUp}
@@ -11705,8 +11913,8 @@ Please sign in again.`}
             </Accordion>
           </Accordion>
 
-          <Accordion label='Append use case follow pointer value'>
-            <Accordion label='Append'>
+          <Accordion primary='Append use case follow pointer value'>
+            <Accordion primary='Append'>
               <div className={classNames([classes.column])} style={{ gap: 74 }}>
                 <Type
                   onMouseMove={onMouseMove}
@@ -11724,7 +11932,7 @@ Please sign in again.`}
               </div>
             </Accordion>
 
-            <Accordion label='Append portal'>
+            <Accordion primary='Append portal'>
               <div className={classNames([classes.column])} style={{ gap: 74 }}>
                 <Type
                   onMouseMove={onMouseMove}
@@ -11745,8 +11953,8 @@ Please sign in again.`}
         </div>
       </Accordion>
 
-      <Accordion label='List'>
-        <Accordion label='List' open>
+      <Accordion primary='List'>
+        <Accordion primary='List' open>
           <div className={classNames([classes.column])}>
             <List>
               {[0, 1, 3, 4].map(item => (
@@ -11762,7 +11970,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='List menu' open>
+        <Accordion primary='List menu' open>
           <div className={classNames([classes.column])}>
             <List menu>
               {[0, 1, 3, 4].map(item => (
@@ -11974,7 +12182,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='List item inset' open>
+        <Accordion primary='List item inset' open>
           <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
             <List size='small'>
               <ListItem
@@ -12137,7 +12345,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='List padding vertical' open>
+        <Accordion primary='List padding vertical' open>
           <div className={classNames([classes.column])} style={{ gap: 14 }}>
             <List paddingVertical='both'>
               {[0, 1, 3, 4].map(item => (
@@ -12189,7 +12397,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='List padding horizontal' open>
+        <Accordion primary='List padding horizontal' open>
           <div className={classNames([classes.column])} style={{ gap: 14 }}>
             <List paddingHorizontal='both'>
               {[0, 1, 3, 4].map(item => (
@@ -12241,7 +12449,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='List color' open>
+        <Accordion primary='List color' open>
           <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
             <List tonal={false} color='default'>
               {[1, 2, 3, 4].map(item => (
@@ -12487,7 +12695,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='List color tonal' open>
+        <Accordion primary='List color tonal' open>
           <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
             <List color='primary' tonal>
               {[1, 2, 3, 4].map(item => (
@@ -12711,7 +12919,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='List shadow'>
+        <Accordion primary='List shadow'>
           <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
             <List shadow={0}>
               {[1, 2, 3, 4].map(item => (
@@ -12935,7 +13143,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='List item shape and shape position' open>
+        <Accordion primary='List item shape and shape position' open>
           <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
             <List size='small'>
               <ListItem
@@ -13128,7 +13336,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='List item shape and shape position with list padding' open>
+        <Accordion primary='List item shape and shape position with list padding' open>
           <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
             <List size='small' paddingHorizontal='end'>
               <ListItem
@@ -13186,7 +13394,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='List sizes' open>
+        <Accordion primary='List sizes' open>
           <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
             <List size='small'>
               <ListItem
@@ -13430,7 +13638,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='List with subheader' open>
+        <Accordion primary='List with subheader' open>
           <div className={classNames([classes.column])}>
             <List style={{ height: 140, width: 400, overflow: 'auto' }} paddingVertical='none'>
               {[0, 1, 3, 4].map(item => (
@@ -13452,7 +13660,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='List align' open>
+        <Accordion primary='List align' open>
           <div className={classNames([classes.column, classes.center])} style={{ gap: 14 }}>
             <List size='small' startAlign='start' endAlign='start'>
               <ListItem
@@ -13892,7 +14100,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='List button' open>
+        <Accordion primary='List button' open>
           <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
 
             <List size='small'>
@@ -14224,7 +14432,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='List href' open>
+        <Accordion primary='List href' open>
           <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
 
             <List size='small'>
@@ -14436,7 +14644,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='List selected' open>
+        <Accordion primary='List selected' open>
           <div className={classNames([classes.column])}>
             <List>
               {[0, 1, 3, 4].map(item => item + 1).map(item => (
@@ -14468,7 +14676,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='List icon selected' open>
+        <Accordion primary='List icon selected' open>
           <div className={classNames([classes.column])}>
             <List>
               {[0, 1, 3, 4].map(item => item + 1).map(item => (
@@ -14500,7 +14708,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='List color' open>
+        <Accordion primary='List color' open>
           <div className={classNames([classes.column])}>
             <List>
               <ListItem
@@ -14738,7 +14946,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='List colorSelected' open>
+        <Accordion primary='List colorSelected' open>
           <div className={classNames([classes.column])}>
             <List>
               <ListItem
@@ -14998,7 +15206,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='List with radio, switch & checkbox' open>
+        <Accordion primary='List with radio, switch & checkbox' open>
           <div className={classNames([classes.column])}>
             <List>
               <ListItem
@@ -15050,7 +15258,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='List disabled' open>
+        <Accordion primary='List disabled' open>
           <div className={classNames([classes.column])}>
             <List>
               {[0, 1, 3, 4].map(item => (
@@ -15084,7 +15292,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='AmauiTheme' open>
+        <Accordion primary='AmauiTheme' open>
           <div className={classNames([classes.column])}>
             <List>
               {[0, 1, 4].map(item => (
@@ -15098,7 +15306,7 @@ Please sign in again.`}
               ))}
             </List>
 
-            <Accordion label='AmauiTheme nested value' open>
+            <Accordion primary='AmauiTheme nested value' open>
               <AmauiThemeProvider
                 value={{
                   palette: {
@@ -15127,7 +15335,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme add' open>
+            <Accordion primary='AmauiTheme add' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -15161,7 +15369,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme override' open>
+            <Accordion primary='AmauiTheme override' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -15209,7 +15417,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme props' open>
+            <Accordion primary='AmauiTheme props' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -15248,7 +15456,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme styled' open>
+            <Accordion primary='AmauiTheme styled' open>
               <styled.List>
                 {[0, 1, 4].map(item => (
                   <ListItem
@@ -15265,14 +15473,14 @@ Please sign in again.`}
         </Accordion>
       </Accordion>
 
-      <Accordion label='TextField'>
-        <Accordion label='TextField' open>
+      <Accordion primary='TextField'>
+        <Accordion primary='TextField' open>
           <div className={classNames([classes.row])}>
             <TextField color='secondary' label='Filled text' placeholder='Filled text' />
           </div>
         </Accordion>
 
-        <Accordion label='TextField versions' open>
+        <Accordion primary='TextField versions' open>
           <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
             <TextField version='text' color='secondary' label='Text value' placeholder='Text value' />
             <TextField version='filled' color='secondary' label='Filled value' placeholder='Filled value' />
@@ -15280,7 +15488,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='TextField multiline' open>
+        <Accordion primary='TextField multiline' open>
           <div className={classNames([classes.column])} style={{ gap: 14 }}>
             <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
               <TextField multiline valueDefault='14' prefix='€' size='small' version='text' color='secondary' label='Text value' placeholder='Text value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
@@ -15342,7 +15550,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='TextField sizes' open>
+        <Accordion primary='TextField sizes' open>
           <div className={classNames([classes.column])} style={{ gap: 14 }}>
             <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
               <TextField size='small' version='text' color='secondary' label='Text value' placeholder='Text value' />
@@ -15364,7 +15572,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='TextField color' open>
+        <Accordion primary='TextField color' open>
           <div className={classNames([classes.row, classes.center])}>
             <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
               <TextField size='small' version='text' color='default' label='Text value' placeholder='Text value' />
@@ -15424,7 +15632,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='TextField color tonal' open>
+        <Accordion primary='TextField color tonal' open>
           <div className={classNames([classes.row, classes.center])}>
             <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
               <TextField size='small' version='text' color='default' label='Text value' placeholder='Text value' tonal />
@@ -15484,7 +15692,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='TextField helper text' open>
+        <Accordion primary='TextField helper text' open>
           <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
             <TextField version='text' color='secondary' label='Text value' placeholder='Text value' helperText='Helper text' />
             <TextField version='filled' color='secondary' label='Filled value' placeholder='Filled value' helperText='Helper text' />
@@ -15498,7 +15706,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='TextField counter' open>
+        <Accordion primary='TextField counter' open>
           <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
             <TextField version='text' color='secondary' label='Text value' placeholder='Text value' counter='14' />
             <TextField version='filled' color='secondary' label='Filled value' placeholder='Filled value' counter='14' />
@@ -15518,7 +15726,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='TextField startIcon and endIcon' open>
+        <Accordion primary='TextField startIcon and endIcon' open>
           <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
             <TextField size='small' version='text' color='secondary' label='Text value' placeholder='Text value' startIcon={<IconMaterialCheckRounded />} />
             <TextField size='small' version='filled' color='secondary' label='Filled value' placeholder='Filled value' startIcon={<IconMaterialCheckRounded />} />
@@ -15568,7 +15776,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='TextField startIcon and endIcon with iconButton' open>
+        <Accordion primary='TextField startIcon and endIcon with iconButton' open>
           <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
             <TextField size='small' version='text' color='secondary' label='Text value' placeholder='Text value' startIcon={<IconMaterialCheckRounded />} />
             <TextField size='small' version='filled' color='secondary' label='Filled value' placeholder='Filled value' startIcon={<IconMaterialCheckRounded />} />
@@ -15618,7 +15826,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='TextField prefix and sufix' open>
+        <Accordion primary='TextField prefix and sufix' open>
           <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
             <TextField valueDefault='a' prefix='mm' size='small' version='text' color='secondary' label='Text value' placeholder='Text value' />
             <TextField valueDefault='a' prefix='mm' size='small' version='filled' color='secondary' label='Filled value' placeholder='Filled value' />
@@ -15668,7 +15876,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='TextField prefix and sufix icons' open>
+        <Accordion primary='TextField prefix and sufix icons' open>
           <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
             <TextField valueDefault='a' prefix='mm' size='small' version='text' color='secondary' label='Text value' placeholder='Text value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
             <TextField valueDefault='a' prefix='mm' size='small' version='filled' color='secondary' label='Filled value' placeholder='Filled value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
@@ -15718,7 +15926,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='TextField prefix and sufix with align' open>
+        <Accordion primary='TextField prefix and sufix with align' open>
           <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
             <TextField valueDefault='14' prefix='€' size='small' version='text' color='secondary' label='Text value' placeholder='Text value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
             <TextField valueDefault='14' prefix='€' size='small' version='filled' color='secondary' label='Filled value' placeholder='Filled value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} />
@@ -15768,7 +15976,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='TextField enabled' open>
+        <Accordion primary='TextField enabled' open>
           <div className={classNames([classes.column])} style={{ gap: 14 }}>
             <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
               <TextField enabled size='small' version='text' color='secondary' label='Text value' placeholder='Text value' />
@@ -15790,7 +15998,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='TextField readOnly' open>
+        <Accordion primary='TextField readOnly' open>
           <div className={classNames([classes.column])} style={{ gap: 14 }}>
             <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
               <TextField readOnly valueDefault='a' size='small' version='text' color='secondary' label='Text value' placeholder='Text value' />
@@ -15812,7 +16020,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='TextField valueDefault' open>
+        <Accordion primary='TextField valueDefault' open>
           <div className={classNames([classes.column])} style={{ gap: 14 }}>
             <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
               <TextField valueDefault='a' size='small' version='text' color='secondary' label='Text value' placeholder='Text value' />
@@ -15834,7 +16042,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='TextField controlled value' open>
+        <Accordion primary='TextField controlled value' open>
           <div className={classNames([classes.column])} style={{ gap: 14 }}>
             <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
               <TextField value={a.textfield} onChange={(value: any) => updatePure(value, 'textfield')} size='small' version='text' color='secondary' label='Text value' placeholder='Text value' />
@@ -15856,7 +16064,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='TextField fullWidth' open>
+        <Accordion primary='TextField fullWidth' open>
           <div className={classNames([classes.row])}>
             <TextField version='text' color='secondary' label='Text value' placeholder='Text value' fullWidth />
             <TextField version='filled' color='secondary' label='Filled value' placeholder='Filled value' fullWidth />
@@ -15864,7 +16072,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='TextField placeholder' open>
+        <Accordion primary='TextField placeholder' open>
           <div className={classNames([classes.row])}>
             <TextField version='text' color='secondary' label='Text value' placeholder='Text value' />
             <TextField version='filled' color='secondary' label='Filled value' placeholder='Filled value' />
@@ -15872,7 +16080,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='TextField type' open>
+        <Accordion primary='TextField type' open>
           <div className={classNames([classes.row])}>
             <TextField version='text' color='secondary' label='Text value' placeholder='Text value' type='number' />
             <TextField version='filled' color='secondary' label='Filled value' placeholder='Filled value' type='number' />
@@ -15880,7 +16088,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='TextField without label' open>
+        <Accordion primary='TextField without label' open>
           <div className={classNames([classes.row])}>
             <TextField version='text' color='secondary' placeholder='Text value' />
             <TextField version='filled' color='secondary' placeholder='Filled value' />
@@ -15888,7 +16096,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='TextField required' open>
+        <Accordion primary='TextField required' open>
           <div className={classNames([classes.row])}>
             <TextField version='text' color='secondary' label='Text value' placeholder='Text value' required />
             <TextField version='filled' color='secondary' label='Filled value' placeholder='Filled value' required />
@@ -15896,7 +16104,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='TextField optional' open>
+        <Accordion primary='TextField optional' open>
           <div className={classNames([classes.row])}>
             <TextField version='text' color='secondary' label='Text value' placeholder='Text value' optional />
             <TextField version='filled' color='secondary' label='Filled value' placeholder='Filled value' optional />
@@ -15904,7 +16112,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='TextField error' open>
+        <Accordion primary='TextField error' open>
           <div className={classNames([classes.row])}>
             <TextField size='regular' version='text' color='secondary' label='Text value' placeholder='Text value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} helperText='Supporting text' error />
             <TextField size='regular' version='filled' color='secondary' label='Filled value' placeholder='Filled value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} helperText='Supporting text' error />
@@ -15912,7 +16120,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='TextField autofill' open>
+        <Accordion primary='TextField autofill' open>
           <div className={classNames([classes.row])}>
             <TextField size='regular' version='text' color='secondary' label='Text value' placeholder='Text value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} helperText='Supporting text' type='email' />
             <TextField size='regular' version='filled' color='secondary' label='Filled value' placeholder='Filled value' startIcon={<IconMaterialCheckRounded />} endIcon={<IconButton><IconMaterialCloseRounded /></IconButton>} helperText='Supporting text' type='email' />
@@ -15920,7 +16128,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='TextField disabled' open>
+        <Accordion primary='TextField disabled' open>
           <div className={classNames([classes.row])} style={{ gap: 14 }}>
             <TextField version='text' color='secondary' label='Text value' placeholder='Text value' valueDefault='Text value' disabled />
             <TextField version='filled' color='secondary' label='Filled value' placeholder='Filled value' valueDefault='Filled value' disabled />
@@ -15940,7 +16148,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='AmauiTheme' open>
+        <Accordion primary='AmauiTheme' open>
           <div
             className={classNames([classes.column])}
 
@@ -15950,7 +16158,7 @@ Please sign in again.`}
           >
             <TextField color='secondary' label='Value text' />
 
-            <Accordion label='AmauiTheme nested value' open>
+            <Accordion primary='AmauiTheme nested value' open>
               <AmauiThemeProvider
                 value={{
                   palette: {
@@ -15973,7 +16181,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme add' open>
+            <Accordion primary='AmauiTheme add' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -16001,7 +16209,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme override' open>
+            <Accordion primary='AmauiTheme override' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -16029,7 +16237,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme props' open>
+            <Accordion primary='AmauiTheme props' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -16053,28 +16261,28 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme styled' open>
+            <Accordion primary='AmauiTheme styled' open>
               <styled.TextField label='Value text' />
             </Accordion>
           </div>
         </Accordion>
       </Accordion>
 
-      <Accordion label='Switch'>
-        <Accordion label='Switch' open>
+      <Accordion primary='Switch'>
+        <Accordion primary='Switch' open>
           <div className={classNames([classes.column])}>
             <Switch color='secondary' />
           </div>
         </Accordion>
 
-        <Accordion label='Switch versions' open>
+        <Accordion primary='Switch versions' open>
           <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
             <Switch size='regular' version='filled' color='secondary' valueDefault />
             <Switch size='regular' version='filled' tonal color='secondary' valueDefault />
           </div>
         </Accordion>
 
-        <Accordion label='Switch sizes' open>
+        <Accordion primary='Switch sizes' open>
           <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
             <Switch size='small' color='secondary' valueDefault />
             <Switch size='regular' color='secondary' valueDefault />
@@ -16082,7 +16290,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Switch color' open>
+        <Accordion primary='Switch color' open>
           <div className={classNames([classes.row, classes.center])}>
             <Switch color='default' valueDefault />
             <Switch color='primary' valueDefault />
@@ -16098,7 +16306,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Switch color tonal' open>
+        <Accordion primary='Switch color tonal' open>
           <div className={classNames([classes.row, classes.center])}>
             <Switch tonal color='primary' valueDefault />
             <Switch tonal color='secondary' valueDefault />
@@ -16113,21 +16321,21 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Switch OnIcon' open>
+        <Accordion primary='Switch OnIcon' open>
           <div className={classNames([classes.column])}>
             <Switch color='secondary' OnIcon={<IconMaterialCheckRounded />} />
             <Switch color='secondary' tonal OnIcon={<IconMaterialCheckRounded />} />
           </div>
         </Accordion>
 
-        <Accordion label='Switch OffIcon' open>
+        <Accordion primary='Switch OffIcon' open>
           <div className={classNames([classes.column])}>
             <Switch color='secondary' OffIcon={<IconMaterialCloseRounded />} />
             <Switch color='secondary' tonal OffIcon={<IconMaterialCloseRounded />} />
           </div>
         </Accordion>
 
-        <Accordion label='Switch OnIcon & OffIcon' open>
+        <Accordion primary='Switch OnIcon & OffIcon' open>
           <div className={classNames([classes.column])}>
             <Switch color='secondary' OnIcon={<IconMaterialCheckRounded />} OffIcon={<IconMaterialCloseRounded />} />
             <Switch color='secondary' tonal OnIcon={<IconMaterialCheckRounded />} OffIcon={<IconMaterialCloseRounded />} />
@@ -16135,7 +16343,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Switch sizes with icons' open>
+        <Accordion primary='Switch sizes with icons' open>
           <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
             <Switch size='small' color='secondary' OnIcon={<IconMaterialCheckRounded />} OffIcon={<IconMaterialCloseRounded />} valueDefault />
             <Switch size='regular' color='secondary' OnIcon={<IconMaterialCheckRounded />} OffIcon={<IconMaterialCloseRounded />} valueDefault />
@@ -16143,7 +16351,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Switch color with icons' open>
+        <Accordion primary='Switch color with icons' open>
           <div className={classNames([classes.row, classes.center])}>
             <Switch color='default' OnIcon={<IconMaterialCheckRounded />} OffIcon={<IconMaterialCloseRounded />} valueDefault />
             <Switch color='primary' OnIcon={<IconMaterialCheckRounded />} OffIcon={<IconMaterialCloseRounded />} valueDefault />
@@ -16159,13 +16367,13 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Switch valueDefault' open>
+        <Accordion primary='Switch valueDefault' open>
           <div className={classNames([classes.column])}>
             <Switch color='secondary' valueDefault />
           </div>
         </Accordion>
 
-        <Accordion label='Switch controlled value' open>
+        <Accordion primary='Switch controlled value' open>
           <div className={classNames([classes.column])}>
             <Switch
               color='secondary'
@@ -16176,18 +16384,18 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Switch disabled' open>
+        <Accordion primary='Switch disabled' open>
           <div className={classNames([classes.column])}>
             <Switch color='secondary' OffIcon={<IconMaterialCloseRounded />} disabled />
             <Switch color='secondary' OnIcon={<IconMaterialCheckRounded />} valueDefault disabled />
           </div>
         </Accordion>
 
-        <Accordion label='AmauiTheme' open>
+        <Accordion primary='AmauiTheme' open>
           <div className={classNames([classes.column])}>
             <Switch color='secondary' />
 
-            <Accordion label='AmauiTheme nested value' open>
+            <Accordion primary='AmauiTheme nested value' open>
               <AmauiThemeProvider
                 value={{
                   palette: {
@@ -16206,7 +16414,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme add' open>
+            <Accordion primary='AmauiTheme add' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -16230,7 +16438,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme override' open>
+            <Accordion primary='AmauiTheme override' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -16254,7 +16462,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme props' open>
+            <Accordion primary='AmauiTheme props' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -16274,15 +16482,15 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme styled' open>
+            <Accordion primary='AmauiTheme styled' open>
               <styled.Switch />
             </Accordion>
           </div>
         </Accordion>
       </Accordion>
 
-      <Accordion label='Keyframes'>
-        <Accordion label='Keyframes' open>
+      <Accordion primary='Keyframes'>
+        <Accordion primary='Keyframes' open>
           <Button size='small' color='secondary' className={classes.btn} onClick={() => update('keyframes')}>a</Button>
 
           <div style={{ height: 140 }}>
@@ -16316,14 +16524,14 @@ Please sign in again.`}
         </Accordion>
       </Accordion>
 
-      <Accordion label='Radio'>
-        <Accordion label='Radio' open>
+      <Accordion primary='Radio'>
+        <Accordion primary='Radio' open>
           <div className={classNames([classes.column])}>
             <Radio color='secondary' />
           </div>
         </Accordion>
 
-        <Accordion label='Radio versions' open>
+        <Accordion primary='Radio versions' open>
           <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
             <Radio size='regular' version='text' color='secondary' valueDefault />
             <Radio size='regular' version='outlined' color='secondary' valueDefault />
@@ -16332,7 +16540,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Radio sizes' open>
+        <Accordion primary='Radio sizes' open>
           <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
             <Radio size='small' color='secondary' />
             <Radio size='regular' color='secondary' />
@@ -16348,7 +16556,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Radio color' open>
+        <Accordion primary='Radio color' open>
           <div className={classNames([classes.row, classes.center])}>
             <Radio version='text' color='default' valueDefault />
             <Radio version='text' color='primary' valueDefault />
@@ -16392,7 +16600,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Radio color tonal' open>
+        <Accordion primary='Radio color tonal' open>
           <div className={classNames([classes.row, classes.center])}>
             <Radio tonal version='text' color='primary' valueDefault />
             <Radio tonal version='text' color='secondary' valueDefault />
@@ -16433,19 +16641,19 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Radio valueDefault' open>
+        <Accordion primary='Radio valueDefault' open>
           <div className={classNames([classes.column])}>
             <Radio color='secondary' valueDefault />
           </div>
         </Accordion>
 
-        <Accordion label='Radio colorUnchecked' open>
+        <Accordion primary='Radio colorUnchecked' open>
           <div className={classNames([classes.column])}>
             <Radio color='secondary' colorUnchecked='primary' />
           </div>
         </Accordion>
 
-        <Accordion label='Radio controlled value' open>
+        <Accordion primary='Radio controlled value' open>
           <div className={classNames([classes.column])}>
             <Radio
               color='secondary'
@@ -16456,18 +16664,18 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Radio disabled' open>
+        <Accordion primary='Radio disabled' open>
           <div className={classNames([classes.column])}>
             <Radio color='secondary' disabled />
             <Radio color='secondary' valueDefault disabled />
           </div>
         </Accordion>
 
-        <Accordion label='AmauiTheme' open>
+        <Accordion primary='AmauiTheme' open>
           <div className={classNames([classes.column])}>
             <Radio color='secondary' />
 
-            <Accordion label='AmauiTheme nested value' open>
+            <Accordion primary='AmauiTheme nested value' open>
               <AmauiThemeProvider
                 value={{
                   palette: {
@@ -16486,7 +16694,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme add' open>
+            <Accordion primary='AmauiTheme add' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -16510,7 +16718,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme override' open>
+            <Accordion primary='AmauiTheme override' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -16534,7 +16742,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme props' open>
+            <Accordion primary='AmauiTheme props' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -16554,21 +16762,21 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme styled' open>
+            <Accordion primary='AmauiTheme styled' open>
               <styled.Radio />
             </Accordion>
           </div>
         </Accordion>
       </Accordion>
 
-      <Accordion label='Checkbox'>
-        <Accordion label='Checkbox' open>
+      <Accordion primary='Checkbox'>
+        <Accordion primary='Checkbox' open>
           <div className={classNames([classes.column])}>
             <Checkbox color='secondary' />
           </div>
         </Accordion>
 
-        <Accordion label='Checkbox versions' open>
+        <Accordion primary='Checkbox versions' open>
           <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
             <Checkbox size='regular' version='text' color='secondary' valueDefault />
             <Checkbox size='regular' version='outlined' color='secondary' valueDefault />
@@ -16577,7 +16785,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Checkbox sizes' open>
+        <Accordion primary='Checkbox sizes' open>
           <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
             <Checkbox size='small' color='secondary' />
             <Checkbox size='regular' color='secondary' />
@@ -16600,7 +16808,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Checkbox color' open>
+        <Accordion primary='Checkbox color' open>
           <div className={classNames([classes.row, classes.center])}>
             <Checkbox version='text' color='default' valueDefault />
             <Checkbox version='text' color='primary' valueDefault />
@@ -16644,7 +16852,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Checkbox color indeterminate' open>
+        <Accordion primary='Checkbox color indeterminate' open>
           <div className={classNames([classes.row, classes.center])}>
             <Checkbox version='text' color='default' indeterminate />
             <Checkbox version='text' color='primary' indeterminate />
@@ -16688,7 +16896,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Checkbox color tonal' open>
+        <Accordion primary='Checkbox color tonal' open>
           <div className={classNames([classes.row, classes.center])}>
             <Checkbox tonal version='text' color='primary' valueDefault />
             <Checkbox tonal version='text' color='secondary' valueDefault />
@@ -16729,7 +16937,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Checkbox color tonal indeterminate' open>
+        <Accordion primary='Checkbox color tonal indeterminate' open>
           <div className={classNames([classes.row, classes.center])}>
             <Checkbox tonal version='text' color='primary' indeterminate />
             <Checkbox tonal version='text' color='secondary' indeterminate />
@@ -16770,31 +16978,31 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Checkbox indeterminate' open>
+        <Accordion primary='Checkbox indeterminate' open>
           <div className={classNames([classes.column])}>
             <Checkbox color='secondary' indeterminate />
           </div>
         </Accordion>
 
-        <Accordion label='Checkbox valueDefault' open>
+        <Accordion primary='Checkbox valueDefault' open>
           <div className={classNames([classes.column])}>
             <Checkbox color='secondary' valueDefault />
           </div>
         </Accordion>
 
-        <Accordion label='Checkbox colorUnchecked' open>
+        <Accordion primary='Checkbox colorUnchecked' open>
           <div className={classNames([classes.column])}>
             <Checkbox color='secondary' colorUnchecked='primary' />
           </div>
         </Accordion>
 
-        <Accordion label='Checkbox colorIndeterminate' open>
+        <Accordion primary='Checkbox colorIndeterminate' open>
           <div className={classNames([classes.column])}>
             <Checkbox color='secondary' colorIndeterminate='primary' indeterminate />
           </div>
         </Accordion>
 
-        <Accordion label='Checkbox controlled value' open>
+        <Accordion primary='Checkbox controlled value' open>
           <div className={classNames([classes.column])}>
             <Checkbox
               color='secondary'
@@ -16806,7 +17014,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Checkbox indeterminate controlled value' open>
+        <Accordion primary='Checkbox indeterminate controlled value' open>
           <div className={classNames([classes.column])}>
             <Checkbox
               color='secondary'
@@ -16819,7 +17027,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Checkbox disabled' open>
+        <Accordion primary='Checkbox disabled' open>
           <div className={classNames([classes.column])}>
             <Checkbox color='secondary' disabled />
             <Checkbox color='secondary' indeterminate disabled />
@@ -16827,11 +17035,11 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='AmauiTheme' open>
+        <Accordion primary='AmauiTheme' open>
           <div className={classNames([classes.column])}>
             <Checkbox color='secondary' />
 
-            <Accordion label='AmauiTheme nested value' open>
+            <Accordion primary='AmauiTheme nested value' open>
               <AmauiThemeProvider
                 value={{
                   palette: {
@@ -16850,7 +17058,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme add' open>
+            <Accordion primary='AmauiTheme add' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -16874,7 +17082,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme override' open>
+            <Accordion primary='AmauiTheme override' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -16898,7 +17106,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme props' open>
+            <Accordion primary='AmauiTheme props' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -16918,15 +17126,15 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme styled' open>
+            <Accordion primary='AmauiTheme styled' open>
               <styled.Checkbox />
             </Accordion>
           </div>
         </Accordion>
       </Accordion>
 
-      <Accordion label='Backdrop'>
-        <Accordion label='Backdrop' open>
+      <Accordion primary='Backdrop'>
+        <Accordion primary='Backdrop' open>
           <div className={classNames([classes.column])}>
             <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue('b-1', 'backdrop')}>a</Button>
 
@@ -16940,7 +17148,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Backdrop invisible' open>
+        <Accordion primary='Backdrop invisible' open>
           <div className={classNames([classes.column])}>
             <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue('b-i', 'backdrop')}>a</Button>
 
@@ -16957,8 +17165,8 @@ Please sign in again.`}
         </Accordion>
       </Accordion>
 
-      <Accordion label='Chips'>
-        <Accordion label='Chips' open>
+      <Accordion primary='Chips'>
+        <Accordion primary='Chips' open>
           <div className={classNames([classes.row, classes.center])}>
             <Chips startIcon={<IconMaterialPottedPlantRounded />}>
               <Chip>Assistive</Chip>
@@ -16972,7 +17180,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Chips color' open>
+        <Accordion primary='Chips color' open>
           <div className={classNames([classes.row, classes.center])}>
             <Chips color='secondary' tonal>
               <Chip>Assistive</Chip>
@@ -16986,7 +17194,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Chips color Chip override' open>
+        <Accordion primary='Chips color Chip override' open>
           <div className={classNames([classes.row, classes.center])}>
             <Chips color='secondary' tonal>
               <Chip>Assistive</Chip>
@@ -17000,7 +17208,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Chips wrap' open>
+        <Accordion primary='Chips wrap' open>
           <div className={classNames([classes.row, classes.center])}>
             <Chips wrap>
               <Chip>Assistive</Chip>
@@ -17014,7 +17222,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Chips size' open>
+        <Accordion primary='Chips size' open>
           <div className={classNames([classes.row, classes.center])}>
             <Chips size='small'>
               <Chip>Assistive</Chip>
@@ -17078,7 +17286,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Chips disabled' open>
+        <Accordion primary='Chips disabled' open>
           <div className={classNames([classes.row, classes.center])}>
             <Chips disabled>
               <Chip>Assistive</Chip>
@@ -17092,7 +17300,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='AmauiTheme' open>
+        <Accordion primary='AmauiTheme' open>
           <div className={classNames([classes.column])}>
             <Chips color='secondary'>
               <Chip>Assistive</Chip>
@@ -17104,7 +17312,7 @@ Please sign in again.`}
               <Chip>Assistive 1114</Chip>
             </Chips>
 
-            <Accordion label='AmauiTheme nested value' open>
+            <Accordion primary='AmauiTheme nested value' open>
               <AmauiThemeProvider
                 value={{
                   palette: {
@@ -17131,7 +17339,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme add' open>
+            <Accordion primary='AmauiTheme add' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -17163,7 +17371,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme override' open>
+            <Accordion primary='AmauiTheme override' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -17195,7 +17403,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme props' open>
+            <Accordion primary='AmauiTheme props' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -17223,7 +17431,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme styled' open>
+            <Accordion primary='AmauiTheme styled' open>
               <styled.Chips>
                 <Chip>Assistive</Chip>
                 <Chip>Assistive 1</Chip>
@@ -17238,14 +17446,14 @@ Please sign in again.`}
         </Accordion>
       </Accordion>
 
-      <Accordion label='Chip'>
-        <Accordion label='Chip' open>
+      <Accordion primary='Chip'>
+        <Accordion primary='Chip' open>
           <div className={classNames([classes.row, classes.center])}>
             <Chip>Enabled</Chip>
           </div>
         </Accordion>
 
-        <Accordion label='Assistive' open>
+        <Accordion primary='Assistive' open>
           <div className={classNames([classes.row, classes.center])}>
             <Chip size='small' version='text' startIcon={<IconMaterialPottedPlantRounded />}>Assistive</Chip>
             <Chip size='regular' version='text' startIcon={<IconMaterialPottedPlantRounded />}>Assistive</Chip>
@@ -17271,7 +17479,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Input' open>
+        <Accordion primary='Input' open>
           <div className={classNames([classes.row, classes.center])}>
             <Chip size='small' version='text' input>Input</Chip>
             <Chip size='regular' version='text' onRemove={() => console.log('removed')} input>Input</Chip>
@@ -17297,7 +17505,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Filter' open>
+        <Accordion primary='Filter' open>
           <div className={classNames([classes.row, classes.center])}>
             <Chip size='small' version='text' filter>Filter</Chip>
             <Chip size='regular' version='text' filter>Filter</Chip>
@@ -17323,7 +17531,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Filter start icon' open>
+        <Accordion primary='Filter start icon' open>
           <div className={classNames([classes.row, classes.center])}>
             <Chip size='small' version='text' filter startIcon={<IconMaterialPottedPlantRounded />}>Filter</Chip>
             <Chip size='regular' version='text' filter startIcon={<IconMaterialPottedPlantRounded />}>Filter</Chip>
@@ -17349,7 +17557,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Filter start end icon' open>
+        <Accordion primary='Filter start end icon' open>
           <div className={classNames([classes.row, classes.center])}>
             <Chip size='small' version='text' filter startIcon={<IconMaterialPottedPlantRounded />} endIcon={<IconMaterialPottedPlantRounded />}>Filter</Chip>
             <Chip size='regular' version='text' filter startIcon={<IconMaterialPottedPlantRounded />} endIcon={<IconMaterialPottedPlantRounded />}>Filter</Chip>
@@ -17375,7 +17583,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Suggestion' open>
+        <Accordion primary='Suggestion' open>
           <div className={classNames([classes.row, classes.center])}>
             <Chip size='small' version='text'>Suggestion</Chip>
             <Chip size='regular' version='text'>Suggestion</Chip>
@@ -17401,7 +17609,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Chip icon only' open>
+        <Accordion primary='Chip icon only' open>
           <div className={classNames([classes.row, classes.center])}>
             <Chip size='small' version='text' icon><IconMaterialPottedPlantRounded /></Chip>
             <Chip size='regular' version='text' icon><IconMaterialPottedPlantRounded /></Chip>
@@ -17427,7 +17635,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Chip versions' open>
+        <Accordion primary='Chip versions' open>
           <div className={classNames([classes.row, classes.center])}>
             <Chip version='filled' color='secondary' size='small'>Filled</Chip>
             <Chip version='filled' color='secondary' size='regular'>Filled</Chip>
@@ -17455,7 +17663,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Chip color' open>
+        <Accordion primary='Chip color' open>
           <div className={classNames([classes.row, classes.center])}>
             <Chip version='text' color='default'>Default</Chip>
             <Chip version='text' color='primary'>Primary</Chip>
@@ -17499,7 +17707,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Chip color tonal' open>
+        <Accordion primary='Chip color tonal' open>
           <div className={classNames([classes.row, classes.center])}>
             <Chip tonal version='text' color='primary'>Primary</Chip>
             <Chip tonal version='text' color='secondary'>Secondary</Chip>
@@ -17540,7 +17748,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Chip size' open>
+        <Accordion primary='Chip size' open>
           <div className={classNames([classes.row, classes.center])}>
             <Chip color='secondary' size='small'>Small</Chip>
             <Chip color='secondary' size='regular'>Regular</Chip>
@@ -17549,7 +17757,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Chip loading' open>
+        <Accordion primary='Chip loading' open>
           <Button size='small' color='secondary' className={classes.btn} onClick={() => update('loading')}>a</Button>
 
           <div className={classNames([classes.row, classes.center])}>
@@ -17581,7 +17789,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Chip disabled' open>
+        <Accordion primary='Chip disabled' open>
           <div className={classNames([classes.row, classes.center])}>
             <Chip version='text' color='primary' size='small' disabled>Small</Chip>
             <Chip version='outlined' color='secondary' size='regular' disabled>Regular</Chip>
@@ -17590,7 +17798,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Chip icons' open>
+        <Accordion primary='Chip icons' open>
           <div className={classNames([classes.row, classes.center])}>
             <Chip version='text' color='secondary' size='small' startIcon={<IconMaterialAddRounded />}>Start icon</Chip>
             <Chip version='filled' color='warning' size='regular' startIcon={<IconMaterialAddRounded />}>Start icon</Chip>
@@ -17606,7 +17814,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Chip selected' open>
+        <Accordion primary='Chip selected' open>
           <div className={classNames([classes.row, classes.center])}>
             <Chip version='text' color='primary' size='small' selected>Small</Chip>
             <Chip version='outlined' color='secondary' size='regular' selected>Regular</Chip>
@@ -17615,7 +17823,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Chip icon selected' open>
+        <Accordion primary='Chip icon selected' open>
           <div className={classNames([classes.row, classes.center])}>
             <Chip startIcon={<IconMaterialPottedPlantRounded />} startIconSelected={<IconMaterialPottedPlantRoundedFilled />} endIcon={<IconMaterialPottedPlantRounded />} endIconSelected={<IconMaterialPottedPlantRoundedFilled />}>Regular</Chip>
 
@@ -17623,11 +17831,11 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='AmauiTheme' open>
+        <Accordion primary='AmauiTheme' open>
           <div className={classNames([classes.column])}>
             <Chip color='secondary'>Enabled</Chip>
 
-            <Accordion label='AmauiTheme nested value' open>
+            <Accordion primary='AmauiTheme nested value' open>
               <AmauiThemeProvider
                 value={{
                   palette: {
@@ -17646,7 +17854,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme add' open>
+            <Accordion primary='AmauiTheme add' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -17670,7 +17878,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme override' open>
+            <Accordion primary='AmauiTheme override' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -17694,7 +17902,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme props' open>
+            <Accordion primary='AmauiTheme props' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -17714,15 +17922,15 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme styled' open>
+            <Accordion primary='AmauiTheme styled' open>
               <styled.Chip>Enabled</styled.Chip>
             </Accordion>
           </div>
         </Accordion>
       </Accordion>
 
-      <Accordion label='ClickListener'>
-        <Accordion label='ClickListener' open>
+      <Accordion primary='ClickListener'>
+        <Accordion primary='ClickListener' open>
           <div className={classNames([classes.column])}>
             <ClickListener
             // onClickInside={() => console.log('inside')}
@@ -17739,8 +17947,8 @@ Please sign in again.`}
         </Accordion>
       </Accordion>
 
-      <Accordion label='Avatar group'>
-        <Accordion label='Avatar group' open>
+      <Accordion primary='Avatar group'>
+        <Accordion primary='Avatar group' open>
           <div className={classNames([classes.column])}>
             <AvatarGroup>
               <Avatar>1</Avatar>
@@ -17752,7 +17960,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Avatar group with image' open>
+        <Accordion primary='Avatar group with image' open>
           <div className={classNames([classes.column])}>
             <AvatarGroup total={6} size='small'>
               <Avatar image='/avatar.jpeg' />
@@ -17788,7 +17996,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Avatar group size' open>
+        <Accordion primary='Avatar group size' open>
           <div className={classNames([classes.column])}>
             <AvatarGroup size='small'>
               <Avatar>1</Avatar>
@@ -17830,7 +18038,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Avatar group color' open>
+        <Accordion primary='Avatar group color' open>
           <div className={classNames([classes.column])}>
             <AvatarGroup color='secondary'>
               <Avatar>1</Avatar>
@@ -17842,7 +18050,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Avatar group Avatar override' open>
+        <Accordion primary='Avatar group Avatar override' open>
           <div className={classNames([classes.column])}>
             <AvatarGroup color='secondary'>
               <Avatar color='primary'>1</Avatar>
@@ -17854,7 +18062,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Avatar group max' open>
+        <Accordion primary='Avatar group max' open>
           <div className={classNames([classes.column])}>
             <AvatarGroup max={4}>
               <Avatar>1</Avatar>
@@ -17866,7 +18074,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Avatar group total' open>
+        <Accordion primary='Avatar group total' open>
           <div className={classNames([classes.column])}>
             <AvatarGroup total={29}>
               <Avatar>1</Avatar>
@@ -17878,7 +18086,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Avatar group additional' open>
+        <Accordion primary='Avatar group additional' open>
           <div className={classNames([classes.column])}>
             <AvatarGroup total={29} size='small'>
               <Avatar>1</Avatar>
@@ -17914,7 +18122,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Avatar group disabled' open>
+        <Accordion primary='Avatar group disabled' open>
           <div className={classNames([classes.column])}>
             <AvatarGroup max={4} disabled>
               <Avatar>1</Avatar>
@@ -17926,7 +18134,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='AmauiTheme' open>
+        <Accordion primary='AmauiTheme' open>
           <div className={classNames([classes.column])}>
             <AvatarGroup color='secondary'>
               <Avatar>1</Avatar>
@@ -17936,7 +18144,7 @@ Please sign in again.`}
               <Avatar>5</Avatar>
             </AvatarGroup>
 
-            <Accordion label='AmauiTheme nested value' open>
+            <Accordion primary='AmauiTheme nested value' open>
               <AmauiThemeProvider
                 value={{
                   palette: {
@@ -17961,7 +18169,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme add' open>
+            <Accordion primary='AmauiTheme add' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -17991,7 +18199,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme override' open>
+            <Accordion primary='AmauiTheme override' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -18021,7 +18229,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme props' open>
+            <Accordion primary='AmauiTheme props' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -18047,7 +18255,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme styled' open>
+            <Accordion primary='AmauiTheme styled' open>
               <styled.AvatarGroup color='secondary'>
                 <Avatar>1</Avatar>
                 <Avatar>2</Avatar>
@@ -18060,8 +18268,8 @@ Please sign in again.`}
         </Accordion>
       </Accordion>
 
-      <Accordion label='Avatar'>
-        <Accordion label='Avatar' open>
+      <Accordion primary='Avatar'>
+        <Accordion primary='Avatar' open>
           <div className={classNames([classes.row, classes.center])}>
             <Avatar>
               <IconMaterialPottedPlantRounded />
@@ -18069,7 +18277,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Avatar with text' open>
+        <Accordion primary='Avatar with text' open>
           <div className={classNames([classes.row, classes.center])}>
             <Avatar>
               a
@@ -18085,13 +18293,13 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Avatar with image' open>
+        <Accordion primary='Avatar with image' open>
           <div className={classNames([classes.row, classes.center])}>
             <Avatar image='/avatar.jpeg' />
           </div>
         </Accordion>
 
-        <Accordion label='Avatar versions' open>
+        <Accordion primary='Avatar versions' open>
           <div className={classNames([classes.row, classes.center])}>
             <Avatar version='filled' color='secondary' size='small'>
               <IconMaterialPottedPlantRounded />
@@ -18150,7 +18358,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Avatar versions text' open>
+        <Accordion primary='Avatar versions text' open>
           <div className={classNames([classes.row, classes.center])}>
             <Avatar version='filled' color='secondary' size='small'>
               Aa
@@ -18209,7 +18417,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Avatar versions image' open>
+        <Accordion primary='Avatar versions image' open>
           <div className={classNames([classes.row, classes.center])}>
             <Avatar version='filled' color='secondary' size='small' image='/avatar.jpeg' />
             <Avatar version='filled' color='secondary' size='regular' image='/avatar.jpeg' />
@@ -18238,7 +18446,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Avatar color' open>
+        <Accordion primary='Avatar color' open>
           <div className={classNames([classes.row, classes.center])}>
             <Avatar version='text' color='default'><IconMaterialPottedPlantRounded /></Avatar>
             <Avatar version='text' color='primary'><IconMaterialPottedPlantRounded /></Avatar>
@@ -18282,7 +18490,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Avatar color text' open>
+        <Accordion primary='Avatar color text' open>
           <div className={classNames([classes.row, classes.center])}>
             <Avatar version='text' color='default'>Aa</Avatar>
             <Avatar version='text' color='primary'>Aa</Avatar>
@@ -18326,7 +18534,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Avatar color tonal' open>
+        <Accordion primary='Avatar color tonal' open>
           <div className={classNames([classes.row, classes.center])}>
             <Avatar tonal version='text' color='primary'><IconMaterialPottedPlantRounded /></Avatar>
             <Avatar tonal version='text' color='secondary'><IconMaterialPottedPlantRounded /></Avatar>
@@ -18367,7 +18575,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Avatar color tonal text' open>
+        <Accordion primary='Avatar color tonal text' open>
           <div className={classNames([classes.row, classes.center])}>
             <Avatar tonal version='text' color='primary'>Aa</Avatar>
             <Avatar tonal version='text' color='secondary'>Aa</Avatar>
@@ -18408,7 +18616,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Avatar size' open>
+        <Accordion primary='Avatar size' open>
           <div className={classNames([classes.row, classes.center])}>
             <Avatar color='secondary' size='small'>Aa</Avatar>
             <Avatar color='secondary' size='regular'>Aa</Avatar>
@@ -18427,7 +18635,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Avatar loading' open>
+        <Accordion primary='Avatar loading' open>
           <Button size='small' color='secondary' className={classes.btn} onClick={() => update('loading')}>a</Button>
 
           <div className={classNames([classes.row, classes.center])}>
@@ -18438,7 +18646,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Avatar disabled' open>
+        <Accordion primary='Avatar disabled' open>
           <div className={classNames([classes.row, classes.center])}>
             <Avatar version='text' color='primary' size='small' disabled><IconMaterialPottedPlantRounded /></Avatar>
             <Avatar version='outlined' color='secondary' size='regular' disabled><IconMaterialPottedPlantRounded /></Avatar>
@@ -18447,7 +18655,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Avatar disabled text' open>
+        <Accordion primary='Avatar disabled text' open>
           <div className={classNames([classes.row, classes.center])}>
             <Avatar version='text' color='primary' size='small' disabled>Aa</Avatar>
             <Avatar version='outlined' color='secondary' size='regular' disabled>Aa</Avatar>
@@ -18456,7 +18664,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Avatar disabled image' open>
+        <Accordion primary='Avatar disabled image' open>
           <div className={classNames([classes.row, classes.center])}>
             <Avatar version='text' color='primary' size='small' disabled image='/avatar.jpeg' />
             <Avatar version='outlined' color='secondary' size='regular' disabled image='/avatar.jpeg' />
@@ -18465,7 +18673,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Avatar square' open>
+        <Accordion primary='Avatar square' open>
           <div className={classNames([classes.row, classes.center])}>
             <Avatar square>
               <IconMaterialPottedPlantRounded />
@@ -18473,11 +18681,11 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='AmauiTheme' open>
+        <Accordion primary='AmauiTheme' open>
           <div className={classNames([classes.column])}>
             <Avatar color='secondary'>a</Avatar>
 
-            <Accordion label='AmauiTheme nested value' open>
+            <Accordion primary='AmauiTheme nested value' open>
               <AmauiThemeProvider
                 value={{
                   palette: {
@@ -18496,7 +18704,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme add' open>
+            <Accordion primary='AmauiTheme add' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -18520,7 +18728,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme override' open>
+            <Accordion primary='AmauiTheme override' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -18544,7 +18752,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme props' open>
+            <Accordion primary='AmauiTheme props' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -18564,15 +18772,15 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme styled' open>
+            <Accordion primary='AmauiTheme styled' open>
               <styled.Avatar color='secondary'>a</styled.Avatar>
             </Accordion>
           </div>
         </Accordion>
       </Accordion>
 
-      <Accordion label='Badge'>
-        <Accordion label='Badge' open>
+      <Accordion primary='Badge'>
+        <Accordion primary='Badge' open>
           <div className={classNames([classes.column])}>
             <Badge indicator>
               <IconMaterialPottedPlantRounded />
@@ -18580,7 +18788,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Badge with value' open>
+        <Accordion primary='Badge with value' open>
           <div className={classNames([classes.column])}>
             <Badge value='1'>
               <IconMaterialPottedPlantRounded />
@@ -18600,7 +18808,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Badge color' open>
+        <Accordion primary='Badge color' open>
           <div className={classNames([classes.column])} style={{ gap: 24 }}>
             <Badge value='14' color='default' tonal={false}>
               <IconMaterialPottedPlantRounded />
@@ -18638,7 +18846,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Badge color tonal' open>
+        <Accordion primary='Badge color tonal' open>
           <div className={classNames([classes.column])} style={{ gap: 24 }}>
             <Badge value='14' color='primary' tonal>
               <IconMaterialPottedPlantRounded />
@@ -18673,7 +18881,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Vertical top, horizontal right' open>
+        <Accordion primary='Vertical top, horizontal right' open>
           <div className={classNames([classes.column])}>
             <Badge indicator vertical='top' horizontal='right'>
               <IconMaterialPottedPlantRounded />
@@ -18697,7 +18905,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Vertical top, horizontal left' open>
+        <Accordion primary='Vertical top, horizontal left' open>
           <div className={classNames([classes.column])}>
             <Badge indicator vertical='top' horizontal='left'>
               <IconMaterialPottedPlantRounded />
@@ -18721,7 +18929,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Vertical bottom, horizontal right' open>
+        <Accordion primary='Vertical bottom, horizontal right' open>
           <div className={classNames([classes.column])}>
             <Badge indicator vertical='bottom' horizontal='right'>
               <IconMaterialPottedPlantRounded />
@@ -18745,7 +18953,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Vertical bottom, horizontal left' open>
+        <Accordion primary='Vertical bottom, horizontal left' open>
           <div className={classNames([classes.column])}>
             <Badge indicator vertical='bottom' horizontal='left'>
               <IconMaterialPottedPlantRounded />
@@ -18769,7 +18977,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Badge with value with max' open>
+        <Accordion primary='Badge with value with max' open>
           <div className={classNames([classes.column])}>
             <Badge value={1114} max={114}>
               <IconMaterialPottedPlantRounded />
@@ -18777,7 +18985,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Badge with Icon button' open>
+        <Accordion primary='Badge with Icon button' open>
           <div className={classNames([classes.column])}>
             <Badge value={1}>
               <IconButton color='secondary'>
@@ -18805,13 +19013,13 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='AmauiTheme' open>
+        <Accordion primary='AmauiTheme' open>
           <div className={classNames([classes.column])}>
             <Badge color='secondary' value='1114'>
               <IconMaterialPottedPlantRounded />
             </Badge>
 
-            <Accordion label='AmauiTheme nested value' open>
+            <Accordion primary='AmauiTheme nested value' open>
               <AmauiThemeProvider
                 value={{
                   palette: {
@@ -18832,7 +19040,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme add' open>
+            <Accordion primary='AmauiTheme add' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -18858,7 +19066,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme override' open>
+            <Accordion primary='AmauiTheme override' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -18884,7 +19092,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme props' open>
+            <Accordion primary='AmauiTheme props' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -18906,7 +19114,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme styled' open>
+            <Accordion primary='AmauiTheme styled' open>
               <styled.Badge value='1114'>
                 <IconMaterialPottedPlantRounded />
               </styled.Badge>
@@ -18915,14 +19123,14 @@ Please sign in again.`}
         </Accordion>
       </Accordion>
 
-      <Accordion label='Divider'>
-        <Accordion label='Divider' open>
+      <Accordion primary='Divider'>
+        <Accordion primary='Divider' open>
           <div className={classNames([classes.column])}>
             <Divider />
           </div>
         </Accordion>
 
-        <Accordion label='Divider color' open>
+        <Accordion primary='Divider color' open>
           <div className={classNames([classes.column, classes.center])} style={{ gap: 24 }}>
             <Divider color='default' />
             <Divider color='primary' />
@@ -18938,7 +19146,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Divider color tonal' open>
+        <Accordion primary='Divider color tonal' open>
           <div className={classNames([classes.column, classes.center])} style={{ gap: 24 }}>
             <Divider color='primary' tonal />
             <Divider color='secondary' tonal />
@@ -18953,7 +19161,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Divider color opacity' open>
+        <Accordion primary='Divider color opacity' open>
           <div className={classNames([classes.column, classes.center])} style={{ gap: 24 }}>
             <Divider color='primary' opacity={0.7} />
             <Divider color='secondary' opacity={0.7} />
@@ -18968,13 +19176,13 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Divider inset' open>
+        <Accordion primary='Divider inset' open>
           <div className={classNames([classes.column])}>
             <Divider inset />
           </div>
         </Accordion>
 
-        <Accordion label='Divider orientation' open>
+        <Accordion primary='Divider orientation' open>
           <div className={classNames([classes.column])}>
             <Divider orientation='horizontal' />
           </div>
@@ -18988,7 +19196,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Divider middle' open>
+        <Accordion primary='Divider middle' open>
           <div className={classNames([classes.column])}>
             <Divider middle />
           </div>
@@ -19002,7 +19210,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Divider with text' open>
+        <Accordion primary='Divider with text' open>
           <div className={classNames([classes.column])}>
             <Divider>
               Text
@@ -19036,7 +19244,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Divider with text alignment' open>
+        <Accordion primary='Divider with text alignment' open>
           <div className={classNames([classes.column, classes.center])} style={{ gap: 24 }}>
             <Divider alignment='start'>
               Text
@@ -19082,11 +19290,11 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='AmauiTheme' open>
+        <Accordion primary='AmauiTheme' open>
           <div className={classNames([classes.column])}>
             <Divider color='secondary' />
 
-            <Accordion label='AmauiTheme nested value' open>
+            <Accordion primary='AmauiTheme nested value' open>
               <AmauiThemeProvider
                 value={{
                   palette: {
@@ -19109,7 +19317,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme add' open>
+            <Accordion primary='AmauiTheme add' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -19137,7 +19345,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme override' open>
+            <Accordion primary='AmauiTheme override' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -19165,7 +19373,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme props' open>
+            <Accordion primary='AmauiTheme props' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -19189,15 +19397,15 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme styled' open>
+            <Accordion primary='AmauiTheme styled' open>
               <styled.Divider />
             </Accordion>
           </div>
         </Accordion>
       </Accordion>
 
-      <Accordion label='Modal'>
-        <Accordion label='Modal' open>
+      <Accordion primary='Modal'>
+        <Accordion primary='Modal' open>
           <div className={classNames([classes.column])}>
             <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue(1)}>a</Button>
 
@@ -19237,7 +19445,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Modal with icon' open>
+        <Accordion primary='Modal with icon' open>
           <div className={classNames([classes.column])}>
             <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue(2)}>a</Button>
 
@@ -19278,7 +19486,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Modal with overflow text' open>
+        <Accordion primary='Modal with overflow text' open>
           <div className={classNames([classes.column])}>
             <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue(3)}>a</Button>
 
@@ -19323,7 +19531,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Modal modal component' open>
+        <Accordion primary='Modal modal component' open>
           <div className={classNames([classes.column])}>
             <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue(5)}>a</Button>
 
@@ -19365,7 +19573,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Modal max width' open>
+        <Accordion primary='Modal max width' open>
           <div className={classNames([classes.column])}>
             <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue('xxs')}>xxs</Button>
             <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue('xs')}>xs</Button>
@@ -19418,7 +19626,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Modal full width' open>
+        <Accordion primary='Modal full width' open>
           <div className={classNames([classes.column])}>
             <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue(4)}>a</Button>
 
@@ -19465,7 +19673,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Modal full screen' open>
+        <Accordion primary='Modal full screen' open>
           <div className={classNames([classes.column])}>
             <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue(7)}>a</Button>
 
@@ -19514,7 +19722,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='AmauiTheme' open>
+        <Accordion primary='AmauiTheme' open>
           <div className={classNames([classes.column])}>
             <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue(11)}>a</Button>
 
@@ -19553,7 +19761,7 @@ Please sign in again.`}
               </ModalFooter>
             </Modal>
 
-            <Accordion label='AmauiTheme nested value' open>
+            <Accordion primary='AmauiTheme nested value' open>
               <AmauiThemeProvider
                 value={{
                   palette: {
@@ -19607,7 +19815,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme add' open>
+            <Accordion primary='AmauiTheme add' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -19666,7 +19874,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme override' open>
+            <Accordion primary='AmauiTheme override' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -19725,7 +19933,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme props' open>
+            <Accordion primary='AmauiTheme props' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -19780,7 +19988,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme styled' open>
+            <Accordion primary='AmauiTheme styled' open>
               <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue(17)}>a</Button>
 
               <styled.Modal
@@ -19822,8 +20030,8 @@ Please sign in again.`}
         </Accordion>
       </Accordion>
 
-      <Accordion label='Portal'>
-        <Accordion label='Portal' open>
+      <Accordion primary='Portal'>
+        <Accordion primary='Portal' open>
           <div className={classNames([classes.column])}>
             <Button size='small' color='secondary' className={classes.btn} onClick={() => update('portal')}>a</Button>
 
@@ -19836,8 +20044,8 @@ Please sign in again.`}
         </Accordion>
       </Accordion>
 
-      <Accordion label='Focus'>
-        <Accordion label='Focus' open>
+      <Accordion primary='Focus'>
+        <Accordion primary='Focus' open>
           <div className={classNames([classes.column])}>
             <Focus>
               <Button color='secondary'>a</Button>
@@ -19848,20 +20056,20 @@ Please sign in again.`}
         </Accordion>
       </Accordion>
 
-      <Accordion label='Surface'>
-        <Accordion label='Surface' open>
+      <Accordion primary='Surface'>
+        <Accordion primary='Surface' open>
           <div className={classNames([classes.column])}>
             <Surface>Surface</Surface>
           </div>
         </Accordion>
 
-        <Accordion label='Surface noBorderRadius' open>
+        <Accordion primary='Surface noBorderRadius' open>
           <div className={classNames([classes.column])}>
             <Surface elevation='1' noBorderRadius>Surface</Surface>
           </div>
         </Accordion>
 
-        <Accordion label='Surface sizes' open>
+        <Accordion primary='Surface sizes' open>
           <div className={classNames([classes.column])}>
             <Surface size='small' elevation='1'>Small</Surface>
             <Surface size='regular' elevation='1'>Regular</Surface>
@@ -19869,7 +20077,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Surface elevations' open>
+        <Accordion primary='Surface elevations' open>
           <div className={classNames([classes.column])}>
             <Surface elevation='0'>0</Surface>
             <Surface elevation='1'>1</Surface>
@@ -19885,7 +20093,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Surface colors' open>
+        <Accordion primary='Surface colors' open>
           <div className={classNames([classes.column])}>
             <Surface color='default' tonal={false}>Default</Surface>
             <Surface color='primary' tonal={false}>Primary</Surface>
@@ -19901,7 +20109,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Surface tonal' open>
+        <Accordion primary='Surface tonal' open>
           <div className={classNames([classes.column])}>
             <Surface color='primary' tonal>Primary</Surface>
             <Surface color='secondary' tonal>Secondary</Surface>
@@ -19916,13 +20124,13 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='AmauiTheme' open>
+        <Accordion primary='AmauiTheme' open>
           <div className={classNames([classes.column])}>
             <Surface color='secondary'>
               a
             </Surface>
 
-            <Accordion label='AmauiTheme nested value' open>
+            <Accordion primary='AmauiTheme nested value' open>
               <AmauiThemeProvider
                 value={{
                   palette: {
@@ -19943,7 +20151,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme add' open>
+            <Accordion primary='AmauiTheme add' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -19969,7 +20177,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme override' open>
+            <Accordion primary='AmauiTheme override' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -19995,7 +20203,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme props' open>
+            <Accordion primary='AmauiTheme props' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -20017,7 +20225,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme styled' open>
+            <Accordion primary='AmauiTheme styled' open>
               <styled.Surface>
                 a
               </styled.Surface>
@@ -20026,14 +20234,14 @@ Please sign in again.`}
         </Accordion>
       </Accordion>
 
-      <Accordion label='Link'>
-        <Accordion label='Link' open>
+      <Accordion primary='Link'>
+        <Accordion primary='Link' open>
           <div className={classNames([classes.column])}>
             <Link href='https://google.com' target='_blank'>Link</Link>
           </div>
         </Accordion>
 
-        <Accordion label='Link underline' open>
+        <Accordion primary='Link underline' open>
           <div className={classNames([classes.column])}>
             <Link href='https://google.com' target='_blank' underline>Link</Link>
             <Link href='https://google.com' target='_blank' underline={false}>Link</Link>
@@ -20041,7 +20249,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Link versions' open>
+        <Accordion primary='Link versions' open>
           <div className={classNames([classes.column])} style={{ gap: 0 }}>
             <Link href='https://google.com' target='_blank' version='d1'>Display 1</Link>
             <Link href='https://google.com' target='_blank' version='d2'>Display 2</Link>
@@ -20073,7 +20281,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Link colors' open>
+        <Accordion primary='Link colors' open>
           <div className={classNames([classes.row])}>
             <Link href='https://google.com' target='_blank' color='default'>Default</Link>
             <Link href='https://google.com' target='_blank' color='primary'>Primary</Link>
@@ -20089,7 +20297,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Link colors tonal' open>
+        <Accordion primary='Link colors tonal' open>
           <div className={classNames([classes.row])}>
             <Link href='https://google.com' target='_blank' color='primary' tonal>Primary</Link>
             <Link href='https://google.com' target='_blank' color='secondary' tonal>Secondary</Link>
@@ -20104,11 +20312,11 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='AmauiTheme' open>
+        <Accordion primary='AmauiTheme' open>
           <div className={classNames([classes.column])}>
             <Link href='https://google.com' target='_blank' color='secondary'>Enabled</Link>
 
-            <Accordion label='AmauiTheme nested value' open>
+            <Accordion primary='AmauiTheme nested value' open>
               <AmauiThemeProvider
                 value={{
                   palette: {
@@ -20127,7 +20335,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme add' open>
+            <Accordion primary='AmauiTheme add' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -20151,7 +20359,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme override' open>
+            <Accordion primary='AmauiTheme override' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -20175,7 +20383,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme props' open>
+            <Accordion primary='AmauiTheme props' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -20195,15 +20403,15 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme styled' open>
+            <Accordion primary='AmauiTheme styled' open>
               <styled.Link href='https://google.com' target='_blank'>Enabled</styled.Link>
             </Accordion>
           </div>
         </Accordion>
       </Accordion>
 
-      <Accordion label='Type'>
-        <Accordion label='Type' open>
+      <Accordion primary='Type'>
+        <Accordion primary='Type' open>
           <div className={classNames([classes.column])}>
             <Type>
               It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
@@ -20211,7 +20419,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Type versions' open>
+        <Accordion primary='Type versions' open>
           <div className={classNames([classes.column])} style={{ gap: 0 }}>
             <Type version='d1'>Display 1</Type>
             <Type version='d2'>Display 2</Type>
@@ -20243,11 +20451,11 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='AmauiTheme' open>
+        <Accordion primary='AmauiTheme' open>
           <div className={classNames([classes.column])}>
             <Type color='secondary'>Enabled</Type>
 
-            <Accordion label='AmauiTheme nested value' open>
+            <Accordion primary='AmauiTheme nested value' open>
               <AmauiThemeProvider
                 value={{
                   typography: {
@@ -20263,7 +20471,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme add' open>
+            <Accordion primary='AmauiTheme add' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -20287,7 +20495,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme override' open>
+            <Accordion primary='AmauiTheme override' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -20310,7 +20518,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme props' open>
+            <Accordion primary='AmauiTheme props' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -20330,15 +20538,15 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme styled' open>
+            <Accordion primary='AmauiTheme styled' open>
               <styled.Type>Enabled</styled.Type>
             </Accordion>
           </div>
         </Accordion>
       </Accordion>
 
-      <Accordion label='Fab'>
-        <Accordion label='Fab' open>
+      <Accordion primary='Fab'>
+        <Accordion primary='Fab' open>
           <div className={classNames([classes.row, classes.center])}>
             <Fab><IconMaterialPottedPlantRounded /> Filled</Fab>
             <Fab><IconMaterialPottedPlantRounded /></Fab>
@@ -20346,7 +20554,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Fab versions' open>
+        <Accordion primary='Fab versions' open>
           <div className={classNames([classes.row, classes.center])}>
             <Fab tonal={false} color='secondary' version='filled' size='small'><IconMaterialPottedPlantRounded /> Small</Fab>
             <Fab tonal={false} color='secondary' version='filled' size='regular'><IconMaterialPottedPlantRounded /></Fab>
@@ -20372,7 +20580,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Fab color' open>
+        <Accordion primary='Fab color' open>
           <div className={classNames([classes.row, classes.center])}>
             <Fab tonal={false} version='text' color='default'><IconMaterialPottedPlantRounded /> Text</Fab>
             <Fab tonal={false} version='text' color='primary'><IconMaterialPottedPlantRounded /> Text</Fab>
@@ -20416,7 +20624,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Fab color tonal' open>
+        <Accordion primary='Fab color tonal' open>
           <div className={classNames([classes.row, classes.center])}>
             <Fab version='text' color='primary'><IconMaterialPottedPlantRounded /> Text</Fab>
             <Fab version='text' color='secondary'><IconMaterialPottedPlantRounded /> Text</Fab>
@@ -20457,7 +20665,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Fab size' open>
+        <Accordion primary='Fab size' open>
           <div className={classNames([classes.row, classes.center])}>
             <Fab size='small'><IconMaterialPottedPlantRounded /> Small</Fab>
             <Fab size='small'><IconMaterialPottedPlantRounded /></Fab>
@@ -20477,7 +20685,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Fab loading' open>
+        <Accordion primary='Fab loading' open>
           <Button size='small' color='secondary' className={classes.btn} onClick={() => update('loading')}>a</Button>
 
           <div className={classNames([classes.row, classes.center])}>
@@ -20487,7 +20695,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Fab disabled' open>
+        <Accordion primary='Fab disabled' open>
           <div className={classNames([classes.row, classes.center])}>
             <Fab version='text' size='small' disabled><IconMaterialPottedPlantRounded /> Small</Fab>
             <Fab version='outlined' size='regular' disabled><IconMaterialPottedPlantRounded /></Fab>
@@ -20495,7 +20703,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Fab selected' open>
+        <Accordion primary='Fab selected' open>
           <div className={classNames([classes.row, classes.center])}>
             <Fab version='text' size='small' selected><IconMaterialPottedPlantRounded /> Small</Fab>
             <Fab version='outlined' size='regular' selected><IconMaterialPottedPlantRounded /></Fab>
@@ -20503,7 +20711,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Fab selected' open>
+        <Accordion primary='Fab selected' open>
           <div className={classNames([classes.row, classes.center])}>
             <Fab iconSelected={<IconMaterialPottedPlantRoundedFilled />}><IconMaterialPottedPlantRounded /> Regular</Fab>
             <Fab iconSelected={<IconMaterialPottedPlantRoundedFilled />}><IconMaterialPottedPlantRounded /></Fab>
@@ -20513,18 +20721,18 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Fab rtl' open>
+        <Accordion primary='Fab rtl' open>
           <div className={classNames([classes.row, classes.center])}>
             <Fab version='text' size='small'><IconMaterialUndoRounded /> Small</Fab>
             <Fab version='outlined' size='regular'><IconMaterialUndoRounded /></Fab>
           </div>
         </Accordion>
 
-        <Accordion label='AmauiTheme' open>
+        <Accordion primary='AmauiTheme' open>
           <div className={classNames([classes.column])}>
             <Fab color='secondary' tonal version='filled' size='regular'><IconMaterialPottedPlantRounded /> Regular</Fab>
 
-            <Accordion label='AmauiTheme nested value' open>
+            <Accordion primary='AmauiTheme nested value' open>
               <AmauiThemeProvider
                 value={{
                   palette: {
@@ -20543,7 +20751,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme add' open>
+            <Accordion primary='AmauiTheme add' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -20567,7 +20775,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme override' open>
+            <Accordion primary='AmauiTheme override' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -20591,7 +20799,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme props' open>
+            <Accordion primary='AmauiTheme props' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -20611,15 +20819,15 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme styled' open>
+            <Accordion primary='AmauiTheme styled' open>
               <styled.Fab color='secondary' tonal version='filled' size='regular'><IconMaterialPottedPlantRounded /> Regular</styled.Fab>
             </Accordion>
           </div>
         </Accordion>
       </Accordion>
 
-      <Accordion label='Icon button'>
-        <Accordion label='Icon button' open>
+      <Accordion primary='Icon button'>
+        <Accordion primary='Icon button' open>
           <div className={classNames([classes.row, classes.center])}>
             <IconButton>
               <IconMaterialPottedPlantRounded />
@@ -20627,7 +20835,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Icon button versions' open>
+        <Accordion primary='Icon button versions' open>
           <div className={classNames([classes.row, classes.center])}>
             <IconButton version='filled' color='secondary' size='small'>
               <IconMaterialPottedPlantRounded />
@@ -20686,7 +20894,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Icon button color' open>
+        <Accordion primary='Icon button color' open>
           <div className={classNames([classes.row, classes.center])}>
             <IconButton version='text' color='default'><IconMaterialPottedPlantRounded /></IconButton>
             <IconButton version='text' color='primary'><IconMaterialPottedPlantRounded /></IconButton>
@@ -20730,7 +20938,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Icon button color tonal' open>
+        <Accordion primary='Icon button color tonal' open>
           <div className={classNames([classes.row, classes.center])}>
             <IconButton tonal version='text' color='primary'><IconMaterialPottedPlantRounded /></IconButton>
             <IconButton tonal version='text' color='secondary'><IconMaterialPottedPlantRounded /></IconButton>
@@ -20771,7 +20979,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Icon button background opacity' open>
+        <Accordion primary='Icon button background opacity' open>
           <div className={classNames([classes.row, classes.center])}>
             <IconButton backgroundOpacity='0.4' version='text' color='default'><IconMaterialPottedPlantRounded /></IconButton>
             <IconButton backgroundOpacity='0.4' version='text' color='primary'><IconMaterialPottedPlantRounded /></IconButton>
@@ -20815,7 +21023,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Icon button size' open>
+        <Accordion primary='Icon button size' open>
           <div className={classNames([classes.row, classes.center])}>
             <IconButton color='secondary' size='small'><IconMaterialPottedPlantRounded /></IconButton>
             <IconButton color='secondary' size='regular'><IconMaterialPottedPlantRounded /></IconButton>
@@ -20824,7 +21032,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Icon button loading' open>
+        <Accordion primary='Icon button loading' open>
           <Button size='small' color='secondary' className={classes.btn} onClick={() => update('loading')}>a</Button>
 
           <div className={classNames([classes.row, classes.center])}>
@@ -20835,7 +21043,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Icon button disabled' open>
+        <Accordion primary='Icon button disabled' open>
           <div className={classNames([classes.row, classes.center])}>
             <IconButton version='text' color='primary' size='small' disabled><IconMaterialPottedPlantRounded /></IconButton>
             <IconButton version='outlined' color='secondary' size='regular' disabled><IconMaterialPottedPlantRounded /></IconButton>
@@ -20844,7 +21052,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Icon button selected' open>
+        <Accordion primary='Icon button selected' open>
           <div className={classNames([classes.row, classes.center])}>
             <IconButton version='text' color='primary' size='small' selected><IconMaterialPottedPlantRounded /></IconButton>
             <IconButton version='outlined' color='secondary' size='regular' selected><IconMaterialPottedPlantRounded /></IconButton>
@@ -20853,26 +21061,26 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Icon button icon selected' open>
+        <Accordion primary='Icon button icon selected' open>
           <div className={classNames([classes.row, classes.center])}>
             <IconButton iconSelected={<IconMaterialPottedPlantRoundedFilled />}><IconMaterialPottedPlantRounded /></IconButton>
             <IconButton iconSelected={<IconMaterialPottedPlantRoundedFilled />} selected><IconMaterialPottedPlantRounded /></IconButton>
           </div>
         </Accordion>
 
-        <Accordion label='Icon button rtl' open>
+        <Accordion primary='Icon button rtl' open>
           <div className={classNames([classes.row, classes.center])}>
             <IconButton version='outlined' tonal color='secondary'><IconMaterialUndoRounded /></IconButton>
           </div>
         </Accordion>
 
-        <Accordion label='AmauiTheme' open>
+        <Accordion primary='AmauiTheme' open>
           <div className={classNames([classes.column])}>
             <IconButton color='secondary'>
               <IconMaterialPottedPlantRounded />
             </IconButton>
 
-            <Accordion label='AmauiTheme nested value' open>
+            <Accordion primary='AmauiTheme nested value' open>
               <AmauiThemeProvider
                 value={{
                   palette: {
@@ -20893,7 +21101,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme add' open>
+            <Accordion primary='AmauiTheme add' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -20919,7 +21127,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme override' open>
+            <Accordion primary='AmauiTheme override' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -20945,7 +21153,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme props' open>
+            <Accordion primary='AmauiTheme props' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -20967,7 +21175,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme styled' open>
+            <Accordion primary='AmauiTheme styled' open>
               <styled.IconButton color='secondary'>
                 <IconMaterialPottedPlantRounded />
               </styled.IconButton>
@@ -20976,14 +21184,14 @@ Please sign in again.`}
         </Accordion>
       </Accordion>
 
-      <Accordion label='Linear progress'>
-        <Accordion label='Linear progress' open>
+      <Accordion primary='Linear progress'>
+        <Accordion primary='Linear progress' open>
           <div className={classNames([classes.column, classes.center])}>
             <LinearProgress />
           </div>
         </Accordion>
 
-        <Accordion label='Linear progress versions' open>
+        <Accordion primary='Linear progress versions' open>
           <div className={classNames([classes.column, classes.center])}>
             <LinearProgress />
             <LinearProgress version='indeterminate' />
@@ -20992,7 +21200,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Linear progress colors' open>
+        <Accordion primary='Linear progress colors' open>
           <div className={classNames([classes.column, classes.center])}>
             <LinearProgress color='default' version='determinate' value={{ buffer: 40, progress: 24 }} buffer />
             <LinearProgress color='primary' version='determinate' value={{ buffer: 40, progress: 24 }} buffer />
@@ -21008,7 +21216,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Linear progress colors tonal' open>
+        <Accordion primary='Linear progress colors tonal' open>
           <div className={classNames([classes.column, classes.center])}>
             <LinearProgress color='primary' version='determinate' value={{ buffer: 40, progress: 24 }} buffer tonal />
             <LinearProgress color='secondary' version='determinate' value={{ buffer: 40, progress: 24 }} buffer tonal />
@@ -21023,13 +21231,13 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Linear progress determinate with buffer' open>
+        <Accordion primary='Linear progress determinate with buffer' open>
           <div className={classNames([classes.column, classes.center])}>
             <LinearProgress version='determinate' value={{ buffer: progress + 20, progress: progress }} buffer />
           </div>
         </Accordion>
 
-        <Accordion label='Linear progress reverse' open>
+        <Accordion primary='Linear progress reverse' open>
           <div className={classNames([classes.column, classes.center])}>
             <LinearProgress />
             <LinearProgress version='indeterminate' reverse />
@@ -21038,11 +21246,11 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='AmauiTheme' open>
+        <Accordion primary='AmauiTheme' open>
           <div className={classNames([classes.column])}>
             <LinearProgress color='secondary' />
 
-            <Accordion label='AmauiTheme nested value' open>
+            <Accordion primary='AmauiTheme nested value' open>
               <AmauiThemeProvider
                 value={{
                   palette: {
@@ -21065,7 +21273,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme add' open>
+            <Accordion primary='AmauiTheme add' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -21093,7 +21301,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme override' open>
+            <Accordion primary='AmauiTheme override' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -21123,7 +21331,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme props' open>
+            <Accordion primary='AmauiTheme props' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -21147,21 +21355,21 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme styled' open>
+            <Accordion primary='AmauiTheme styled' open>
               <styled.LinearProgress />
             </Accordion>
           </div>
         </Accordion>
       </Accordion>
 
-      <Accordion label='Round progress'>
-        <Accordion label='Round progress' open>
+      <Accordion primary='Round progress'>
+        <Accordion primary='Round progress' open>
           <div className={classNames([classes.row, classes.center])}>
             <RoundProgress />
           </div>
         </Accordion>
 
-        <Accordion label='Round progress size' open>
+        <Accordion primary='Round progress size' open>
           <div className={classNames([classes.row, classes.center])}>
             <RoundProgress size='extra_small' />
             <RoundProgress size={20} />
@@ -21171,7 +21379,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Round progress color' open>
+        <Accordion primary='Round progress color' open>
           <div className={classNames([classes.row, classes.center])}>
             <RoundProgress color='default' />
             <RoundProgress color='primary' />
@@ -21187,7 +21395,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Round progress color tonal' open>
+        <Accordion primary='Round progress color tonal' open>
           <div className={classNames([classes.row, classes.center])}>
             <RoundProgress color='primary' tonal />
             <RoundProgress color='secondary' tonal />
@@ -21202,7 +21410,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Round progress no shrink' open>
+        <Accordion primary='Round progress no shrink' open>
           <div className={classNames([classes.row, classes.center])}>
             <RoundProgress size='extra_small' noShrink />
             <RoundProgress size={20} noShrink />
@@ -21212,7 +21420,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Round progress thickness' open>
+        <Accordion primary='Round progress thickness' open>
           <div className={classNames([classes.row, classes.center])}>
             <RoundProgress size='extra_small' thickness={1.4} />
             <RoundProgress size={20} thickness={1.4} />
@@ -21222,7 +21430,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Rounded progress rounded' open>
+        <Accordion primary='Rounded progress rounded' open>
           <div className={classNames([classes.row, classes.center])}>
             <RoundProgress size='extra_small' rounded={false} />
             <RoundProgress size={20} rounded={false} />
@@ -21232,7 +21440,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Rounded progress deteminate with pathBackgroundProps as well' open>
+        <Accordion primary='Rounded progress deteminate with pathBackgroundProps as well' open>
           <div className={classNames([classes.row, classes.center])}>
             <RoundProgress size='small' version='determinate' value={0} pathBackgroundProps={{ className: classes.pathBackground }} />
             <RoundProgress size='small' version='determinate' value={1} pathBackgroundProps={{ className: classes.pathBackground }} />
@@ -21264,11 +21472,11 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='AmauiTheme' open>
+        <Accordion primary='AmauiTheme' open>
           <div className={classNames([classes.column])}>
             <RoundProgress color='secondary' />
 
-            <Accordion label='AmauiTheme nested value' open>
+            <Accordion primary='AmauiTheme nested value' open>
               <AmauiThemeProvider
                 value={{
                   palette: {
@@ -21287,7 +21495,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme add' open>
+            <Accordion primary='AmauiTheme add' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -21313,7 +21521,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme override' open>
+            <Accordion primary='AmauiTheme override' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -21337,7 +21545,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme props' open>
+            <Accordion primary='AmauiTheme props' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -21357,15 +21565,15 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme styled' open>
+            <Accordion primary='AmauiTheme styled' open>
               <styled.RoundProgress />
             </Accordion>
           </div>
         </Accordion>
       </Accordion>
 
-      <Accordion label='Buttons'>
-        <Accordion label='Buttons' open>
+      <Accordion primary='Buttons'>
+        <Accordion primary='Buttons' open>
 
           <div className={classNames([classes.row, classes.center])}>
             <Buttons>
@@ -21410,7 +21618,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Buttons sizes' open>
+        <Accordion primary='Buttons sizes' open>
 
           <div className={classNames([classes.row, classes.center])}>
             <Buttons size='small' color='secondary' tonal>
@@ -21444,7 +21652,7 @@ Please sign in again.`}
 
         </Accordion>
 
-        <Accordion label='Buttons versions' open>
+        <Accordion primary='Buttons versions' open>
 
           <div className={classNames([classes.row, classes.center])}>
             <Buttons size='small' color='secondary' version='text'>
@@ -21488,7 +21696,7 @@ Please sign in again.`}
 
         </Accordion>
 
-        <Accordion label='Buttons no border' open>
+        <Accordion primary='Buttons no border' open>
 
           <div className={classNames([classes.row, classes.center])}>
             <Buttons size='small' color='secondary' version='text' border={false}>
@@ -21532,7 +21740,7 @@ Please sign in again.`}
 
         </Accordion>
 
-        <Accordion label='Buttons with icons' open>
+        <Accordion primary='Buttons with icons' open>
 
           <div className={classNames([classes.row, classes.center])}>
             <Buttons select='single' size='small' color='secondary' version='text'>
@@ -21586,7 +21794,7 @@ Please sign in again.`}
 
         </Accordion>
 
-        <Accordion label='Buttons select single' open>
+        <Accordion primary='Buttons select single' open>
           <div className={classNames([classes.row, classes.center])}>
             <Buttons color='secondary' version='filled' select='single' tonal>
               {new Array(7).fill(true).map((item: any, index: number) => (
@@ -21602,7 +21810,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Buttons select multi' open>
+        <Accordion primary='Buttons select multi' open>
           <div className={classNames([classes.row, classes.center])}>
             <Buttons version='filled' size='large' select='multi'>
               {new Array(7).fill(true).map((item: any, index: number) => (
@@ -21618,7 +21826,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Buttons select single noCheckIcon' open>
+        <Accordion primary='Buttons select single noCheckIcon' open>
           <div className={classNames([classes.row, classes.center])}>
             <Buttons color='secondary' version='filled' select='single' noCheckIcon tonal>
               {new Array(7).fill(true).map((item: any, index: number) => (
@@ -21634,7 +21842,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Buttons select multi noCheckIcon' open>
+        <Accordion primary='Buttons select multi noCheckIcon' open>
           <div className={classNames([classes.row, classes.center])}>
             <Buttons version='filled' size='large' select='multi' noCheckIcon>
               {new Array(7).fill(true).map((item: any, index: number) => (
@@ -21650,7 +21858,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Buttons disabled' open>
+        <Accordion primary='Buttons disabled' open>
           <div className={classNames([classes.row, classes.center])}>
             <Buttons color='default' version='filled' select='single' disabled>
               {new Array(7).fill(true).map((item: any, index: number) => (
@@ -21666,7 +21874,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Buttons vertical select multi' open>
+        <Accordion primary='Buttons vertical select multi' open>
           <div className={classNames([classes.row, classes.center])}>
             <Buttons color='default' version='text' select='multi' fullWidth vertical>
               {new Array(7).fill(true).map((item: any, index: number) => (
@@ -21712,7 +21920,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='AmauiTheme'>
+        <Accordion primary='AmauiTheme'>
           <div className={classNames([classes.column])}>
             <Buttons color='secondary'>
               <Button>Button one</Button>
@@ -21721,7 +21929,7 @@ Please sign in again.`}
               <Button>Button four</Button>
             </Buttons>
 
-            <Accordion label='AmauiTheme nested value' open>
+            <Accordion primary='AmauiTheme nested value' open>
               <AmauiThemeProvider
                 value={{
                   palette: {
@@ -21745,7 +21953,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme add' open>
+            <Accordion primary='AmauiTheme add' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -21774,7 +21982,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme override' open>
+            <Accordion primary='AmauiTheme override' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -21803,7 +22011,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme props' open>
+            <Accordion primary='AmauiTheme props' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -21828,7 +22036,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme styled' open>
+            <Accordion primary='AmauiTheme styled' open>
               <styled.Buttons>
                 <Button>Button one</Button>
                 <Button>Button two</Button>
@@ -21840,14 +22048,14 @@ Please sign in again.`}
         </Accordion>
       </Accordion>
 
-      <Accordion label='Button'>
-        <Accordion label='Button' open>
+      <Accordion primary='Button'>
+        <Accordion primary='Button' open>
           <div className={classNames([classes.row, classes.center])}>
             <Button>Button</Button>
           </div>
         </Accordion>
 
-        <Accordion label='Button versions' open>
+        <Accordion primary='Button versions' open>
           <div className={classNames([classes.row, classes.center])}>
             <Button version='filled' color='secondary' size='small'>Filled</Button>
             <Button version='filled' color='secondary' size='regular'>Filled</Button>
@@ -21875,7 +22083,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Button color' open>
+        <Accordion primary='Button color' open>
           <div className={classNames([classes.row, classes.center])}>
             <Button version='text' color='default'>Default</Button>
             <Button version='text' color='primary'>Primary</Button>
@@ -21919,7 +22127,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Button color tonal' open>
+        <Accordion primary='Button color tonal' open>
           <div className={classNames([classes.row, classes.center])}>
             <Button tonal version='text' color='primary'>Primary</Button>
             <Button tonal version='text' color='secondary'>Secondary</Button>
@@ -21960,7 +22168,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Button backgroundOpacity' open>
+        <Accordion primary='Button backgroundOpacity' open>
           <div className={classNames([classes.row, classes.center])}>
             <Button backgroundOpacity='0.4' version='text' color='default'>Default</Button>
             <Button backgroundOpacity='0.4' version='text' color='primary'>Primary</Button>
@@ -22004,7 +22212,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Button size' open>
+        <Accordion primary='Button size' open>
           <div className={classNames([classes.row, classes.center])}>
             <Button color='secondary' size='small'>Small</Button>
             <Button color='secondary' size='regular'>Regular</Button>
@@ -22013,7 +22221,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Button loading' open>
+        <Accordion primary='Button loading' open>
           <Button size='small' color='secondary' className={classes.btn} onClick={() => update('loading')}>a</Button>
 
           <div className={classNames([classes.row, classes.center])}>
@@ -22045,7 +22253,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Button disabled' open>
+        <Accordion primary='Button disabled' open>
           <div className={classNames([classes.row, classes.center])}>
             <Button version='text' color='primary' size='small' disabled>Small</Button>
             <Button version='outlined' color='secondary' size='regular' disabled>Regular</Button>
@@ -22054,7 +22262,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Button icons' open>
+        <Accordion primary='Button icons' open>
           <div className={classNames([classes.row, classes.center])}>
             <Button version='text' color='secondary' size='small' startIcon={<IconMaterialAddRounded />}>Start icon</Button>
             <Button version='filled' color='warning' size='regular' startIcon={<IconMaterialAddRounded />}>Start icon</Button>
@@ -22070,7 +22278,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Button selected' open>
+        <Accordion primary='Button selected' open>
           <div className={classNames([classes.row, classes.center])}>
             <Button version='text' color='primary' size='small' selected>Small</Button>
             <Button version='outlined' color='secondary' size='regular' selected>Regular</Button>
@@ -22079,18 +22287,18 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Button icons selected' open>
+        <Accordion primary='Button icons selected' open>
           <div className={classNames([classes.row, classes.center])}>
             <Button color='secondary' startIcon={<IconMaterialPottedPlantRounded />} startIconSelected={<IconMaterialPottedPlantRoundedFilled />} endIcon={<IconMaterialPottedPlantRounded />} endIconSelected={<IconMaterialPottedPlantRoundedFilled />}>Regular</Button>
             <Button color='secondary' startIcon={<IconMaterialPottedPlantRounded />} startIconSelected={<IconMaterialPottedPlantRoundedFilled />} endIcon={<IconMaterialPottedPlantRounded />} endIconSelected={<IconMaterialPottedPlantRoundedFilled />} selected>Regular</Button>
           </div>
         </Accordion>
 
-        <Accordion label='AmauiTheme' open>
+        <Accordion primary='AmauiTheme' open>
           <div className={classNames([classes.column])}>
             <Button color='secondary'>Button</Button>
 
-            <Accordion label='AmauiTheme nested value' open>
+            <Accordion primary='AmauiTheme nested value' open>
               <AmauiThemeProvider
                 value={{
                   palette: {
@@ -22109,7 +22317,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme add' open>
+            <Accordion primary='AmauiTheme add' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -22133,7 +22341,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme override' open>
+            <Accordion primary='AmauiTheme override' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -22157,7 +22365,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme props' open>
+            <Accordion primary='AmauiTheme props' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -22177,21 +22385,21 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme styled' open>
+            <Accordion primary='AmauiTheme styled' open>
               <styled.Button>Button</styled.Button>
             </Accordion>
           </div>
         </Accordion>
       </Accordion>
 
-      <Accordion label='Icon'>
-        <Accordion label='Icon' open>
+      <Accordion primary='Icon'>
+        <Accordion primary='Icon' open>
           <div className={classNames([classes.row, classes.center])}>
             <IconMaterialPottedPlantRounded />
           </div>
         </Accordion>
 
-        <Accordion label='Icon color' open>
+        <Accordion primary='Icon color' open>
           <div className={classNames([classes.row, classes.center])}>
             <IconMaterialPottedPlantRounded color='default' />
             <IconMaterialPottedPlantRounded color='primary' />
@@ -22207,7 +22415,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Icon color tonal' open>
+        <Accordion primary='Icon color tonal' open>
           <div className={classNames([classes.row, classes.center])}>
             <IconMaterialPottedPlantRounded color='primary' tonal />
             <IconMaterialPottedPlantRounded color='secondary' tonal />
@@ -22222,7 +22430,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Icon size' open>
+        <Accordion primary='Icon size' open>
           <div className={classNames([classes.row, classes.center])}>
             <IconMaterialPottedPlantRounded size='very small' color='primary' tonal />
             <IconMaterialPottedPlantRounded size='small' color='primary' tonal />
@@ -22234,17 +22442,17 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Icon rtl' open>
+        <Accordion primary='Icon rtl' open>
           <div className={classNames([classes.row, classes.center])}>
             <IconMaterialUndoRounded />
           </div>
         </Accordion>
 
-        <Accordion label='AmauiTheme' open>
+        <Accordion primary='AmauiTheme' open>
           <div className={classNames([classes.column])}>
             <IconMaterialPottedPlantRounded color='secondary' />
 
-            <Accordion label='AmauiTheme nested value' open>
+            <Accordion primary='AmauiTheme nested value' open>
               <AmauiThemeProvider
                 value={{
                   palette: {
@@ -22263,7 +22471,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme add' open>
+            <Accordion primary='AmauiTheme add' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -22287,7 +22495,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme override' open>
+            <Accordion primary='AmauiTheme override' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -22311,7 +22519,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme props' open>
+            <Accordion primary='AmauiTheme props' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -22331,15 +22539,15 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme styled' open>
+            <Accordion primary='AmauiTheme styled' open>
               <styled.IconMaterialPottedPlantRounded />
             </Accordion>
           </div>
         </Accordion>
       </Accordion>
 
-      <Accordion label='Transitions / Transition'>
-        <Accordion label='Fade' open>
+      <Accordion primary='Transitions / Transition'>
+        <Accordion primary='Fade' open>
           <Button size='small' color='secondary' className={classes.btn} onClick={() => { update('fade'); }}>a</Button>
 
           <Fade in={a.fade}>
@@ -22349,7 +22557,7 @@ Please sign in again.`}
           </Fade>
         </Accordion>
 
-        <Accordion label='Grow' open>
+        <Accordion primary='Grow' open>
           <Button size='small' color='secondary' className={classes.btn} onClick={() => update('grow')}>a</Button>
 
           <Grow in={a.grow}>
@@ -22365,7 +22573,7 @@ Please sign in again.`}
           </Grow>
         </Accordion>
 
-        <Accordion label='Zoom' open>
+        <Accordion primary='Zoom' open>
           <Button size='small' color='secondary' className={classes.btn} onClick={() => update('zoom')}>a</Button>
 
           <Zoom in={a.zoom}>
@@ -22381,7 +22589,7 @@ Please sign in again.`}
           </Zoom>
         </Accordion>
 
-        <Accordion label='Expand' open>
+        <Accordion primary='Expand' open>
           <Button size='small' color='secondary' className={classes.btn} onClick={() => update('expand')}>a</Button>
 
           <Expand in={a.expand}>
@@ -22409,7 +22617,7 @@ Please sign in again.`}
           </Expand>
         </Accordion>
 
-        <Accordion label='Slide' open>
+        <Accordion primary='Slide' open>
           <Button size='small' color='secondary' className={classes.btn} onClick={() => update('slide')}>a</Button>
 
           <Slide in={a.slide} direction='up'>
@@ -22443,7 +22651,7 @@ Please sign in again.`}
           </Slide>
         </Accordion>
 
-        <Accordion label='Slide relative to root ref' className={classes.row} open>
+        <Accordion primary='Slide relative to root ref' className={classes.row} open>
           <Button size='small' color='secondary' className={classes.btn} onClick={() => update('slideRef')}>a</Button>
 
           <div className={classes.item} ref={refs.slides.up} style={{ overflow: 'hidden', height: 140 }}>
@@ -22487,7 +22695,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Transition' open>
+        <Accordion primary='Transition' open>
           <Button size='small' color='secondary' className={classes.btn} onClick={() => update('a')}>a</Button>
 
           <A in={a.a}>
@@ -22495,7 +22703,7 @@ Please sign in again.`}
           </A>
         </Accordion>
 
-        <Accordion label='Transition with switch' open>
+        <Accordion primary='Transition with switch' open>
           <Button size='small' color='secondary' className={classes.btn} onClick={() => update('transitions')}>a</Button>
 
           <div className={classes.item} style={{ height: 140 }}>
@@ -22529,7 +22737,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='Transitions' className={classes.row} open>
+        <Accordion primary='Transitions' className={classes.row} open>
           <Button size='small' color='secondary' className={classes.btn} onClick={() => setItems(items_ => [...items_, new Date().getTime()])}>a</Button>
 
           <Transitions>
@@ -22548,7 +22756,7 @@ Please sign in again.`}
         </Accordion>
       </Accordion>
 
-      <Accordion label='Interaction'>
+      <Accordion primary='Interaction'>
         <Button size='small' color='secondary' className={classes.btn} onClick={() => update('pulse')}>a</Button>
 
         <div className={classes.a} style={{ color: 'orange' }}>
@@ -22559,7 +22767,7 @@ Please sign in again.`}
           <span style={{ position: 'relative' }}>a</span>
         </div>
 
-        <Accordion label='AmauiTheme' open>
+        <Accordion primary='AmauiTheme' open>
           <div className={classNames([classes.column])}>
             <div className={classes.a} style={{ color: 'orange' }}>
               <Interaction pulse={a.pulse} />
@@ -22569,7 +22777,7 @@ Please sign in again.`}
               <span style={{ position: 'relative' }}>a</span>
             </div>
 
-            <Accordion label='AmauiTheme add' open>
+            <Accordion primary='AmauiTheme add' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -22597,7 +22805,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme override' open>
+            <Accordion primary='AmauiTheme override' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -22627,7 +22835,7 @@ Please sign in again.`}
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion label='AmauiTheme props' open>
+            <Accordion primary='AmauiTheme props' open>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -22656,9 +22864,9 @@ Please sign in again.`}
         </Accordion>
       </Accordion>
 
-      <Accordion label='AmauiTheme usage values'>
+      <Accordion primary='AmauiTheme usage values'>
 
-        <Accordion label='AmauiTheme nested' open>
+        <Accordion primary='AmauiTheme nested' open>
           <div className={classNames([classes.column])}>
             <Button color='primary'>Primary</Button>
 
@@ -22678,7 +22886,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='AmauiTheme nested with value as a method' open>
+        <Accordion primary='AmauiTheme nested with value as a method' open>
           <div className={classNames([classes.column])}>
             <Button color='primary'>Primary</Button>
 
@@ -22706,7 +22914,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='AmauiTheme with style add' open>
+        <Accordion primary='AmauiTheme with style add' open>
           <div className={classNames([classes.column])}>
             <Button color='primary'>Primary</Button>
 
@@ -22739,7 +22947,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='AmauiTheme with style override' open>
+        <Accordion primary='AmauiTheme with style override' open>
           <div className={classNames([classes.column])}>
             <Button color='primary'>Primary</Button>
 
@@ -22775,7 +22983,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='AmauiTheme with style override with theme and prop dynamic value' open>
+        <Accordion primary='AmauiTheme with style override with theme and prop dynamic value' open>
           <div className={classNames([classes.column])}>
             <Button color='primary'>Primary</Button>
 
@@ -22818,7 +23026,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='AmauiTheme with default props' open>
+        <Accordion primary='AmauiTheme with default props' open>
           <div className={classNames([classes.column])}>
             <Avatar color='primary'>a</Avatar>
 
@@ -22851,7 +23059,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='AmauiTheme with classNames global' open>
+        <Accordion primary='AmauiTheme with classNames global' open>
           <div className={classNames([classes.column])}>
             <Avatar color='primary'>a</Avatar>
 
@@ -22869,7 +23077,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion label='AmauiTheme with classNames global' open>
+        <Accordion primary='AmauiTheme with classNames global' open>
           <div className={classNames([classes.column])}>
             <Avatar>a</Avatar>
 

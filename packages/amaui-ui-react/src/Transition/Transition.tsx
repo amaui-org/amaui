@@ -296,7 +296,7 @@ function Transition(props_: IProps) {
       reflow(refs.root.current);
 
       // Prevent update batches
-      await wait(1);
+      await wait(14);
 
       updateStatus('adding');
 
@@ -314,7 +314,7 @@ function Transition(props_: IProps) {
     reflow(refs.root.current);
 
     // Prevent update batches
-    await wait(1);
+    await wait(14);
 
     updateStatus('entering');
 
@@ -332,7 +332,7 @@ function Transition(props_: IProps) {
     reflow(refs.root.current);
 
     // Prevent update batches
-    await wait(1);
+    await wait(14);
 
     updateStatus('exiting');
 
@@ -349,7 +349,7 @@ function Transition(props_: IProps) {
 
   const updateStatus = (status_: TTransitionStatus) => {
     setStatus(status_);
-
+    console.log(114, status_);
     // Subscriptions
     subs.current.status.emit(status_);
 

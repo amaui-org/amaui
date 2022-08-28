@@ -175,3 +175,6 @@ export * from './ToggleButton';
 
 export { default as ToggleButtons } from './ToggleButtons';
 export * from './ToggleButtons';
+
+export { default as Accordion } from './Accordion';
+export * from './Accordion';
