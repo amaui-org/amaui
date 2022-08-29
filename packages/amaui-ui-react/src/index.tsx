@@ -178,3 +178,6 @@ export * from './ToggleButtons';
 
 export { default as Accordion } from './Accordion';
 export * from './Accordion';
+
+export { default as NavigationBar } from './NavigationBar';
+export * from './NavigationBar';

@@ -33,6 +33,10 @@ const useStyle = style(theme => ({
   'direction_column-reverse': { flexDirection: 'column-reverse' },
 
   // align
+  'align_inherit': { alignItems: 'inherit' },
+
+  'align_initial': { alignItems: 'initial' },
+
   'align_flex-start': { alignItems: 'flex-start' },
 
   align_center: { alignItems: 'center' },
@@ -44,6 +48,10 @@ const useStyle = style(theme => ({
   'align_stretch': { alignItems: 'stretch' },
 
   // justify
+  justify_inherit: { justifyContent: 'inherit' },
+
+  justify_initial: { justifyContent: 'initial' },
+
   'justify_flex-start': { justifyContent: 'flex-start' },
 
   justify_center: { justifyContent: 'center' },
@@ -113,6 +121,7 @@ const useStyle = style(theme => ({
   'columnGap_12': { columnGap: `${12 * theme.space.unit}px` },
 
   'columnGap_16': { columnGap: `${16 * theme.space.unit}px` }
+
 }), { name: 'AmauiLine' });
 
 const Line = React.forwardRef((props_: any, ref: any) => {

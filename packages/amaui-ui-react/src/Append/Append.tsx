@@ -55,16 +55,16 @@ const Append = (props_: any) => {
 
   const onScroll = React.useCallback(debounce((event: any) => {
     // Only if it's parent's scroll event
-    if (event.target.contains(refs.root.current)) make();
+    if (event.target.contains(refs.root.current) && anchor === undefined) make();
 
     // More than 140 frames per second
-  }, 7), []);
+  }, 7), [anchor]);
 
-  const onResize = React.useCallback(debounce(() => {
-    make();
+  const observerMethod = React.useCallback(debounce(() => {
+    if (anchor === undefined) make();
 
     // More than 140 frames per second
-  }, 7), []);
+  }, 7), [anchor]);
 
   React.useEffect(() => {
     make();
@@ -97,8 +97,8 @@ const Append = (props_: any) => {
   // Anchor element
   React.useEffect(() => {
     // Resize
-    // const observerResize = new ResizeObserver(onResize);
-    const observerMutation = new MutationObserver(onResize);
+    // const observerResize = new ResizeObserver(observerMethod);
+    const observerMutation = new MutationObserver(observerMethod);
 
     if (refs.root.current) {
       // observerResize.observe(refs.root.current);
@@ -116,8 +116,8 @@ const Append = (props_: any) => {
   // Element resize
   React.useEffect(() => {
     // Resize
-    // const observerResize = new ResizeObserver(onResize);
-    const observerMutation = new MutationObserver(onResize);
+    // const observerResize = new ResizeObserver(observerMethod);
+    const observerMutation = new MutationObserver(observerMethod);
 
     if (refs.element.current) {
       // observerResize.observe(refs.element.current);
