@@ -1409,6 +1409,8 @@ Please sign in again.`}
             ]}
           >
             <IconButton
+              tonal={false}
+
               label='Home'
 
               value='Home'
@@ -1419,6 +1421,8 @@ Please sign in again.`}
             </IconButton>
 
             <IconButton
+              tonal={false}
+
               label='Plant'
 
               value='Plant'
@@ -1429,6 +1433,8 @@ Please sign in again.`}
             </IconButton>
 
             <IconButton
+              tonal={false}
+
               label='Light'
 
               value='Light'
@@ -1441,7 +1447,36 @@ Please sign in again.`}
         </Accordion>
 
         <Accordion primary='NavigationBar with badge'>
-          <NavigationBar>
+          <NavigationRail
+            version='regular'
+
+            header={[
+              <IconButton>
+                <IconMaterialMenuRounded />
+              </IconButton>,
+
+              <Fab
+                elevation={0}
+              >
+                <IconMaterialPottedPlantRounded />
+              </Fab>
+            ]}
+          >
+            <IconButton
+              tonal={false}
+
+              label='Home1'
+
+              value='Home1'
+
+              iconSelected={<IconMaterialHomeRoundedFilled />}
+
+              IconWrapperComponent={Badge}
+              IconWrapperProps={{ indicator: true }}
+            >
+              <IconMaterialHomeRounded />
+            </IconButton>
+
             <NavigationItem
               label='Home'
 
@@ -1475,12 +1510,28 @@ Please sign in again.`}
 
               disabled
             />
-          </NavigationBar>
+          </NavigationRail>
         </Accordion>
 
         <Accordion primary='NavigationBar color'>
           <Line gap={5}>
-            <NavigationBar color='default' tonal={false}>
+            <NavigationRail
+              tonal={false}
+
+              color='default'
+
+              header={[
+                <IconButton>
+                  <IconMaterialMenuRounded />
+                </IconButton>,
+
+                <Fab
+                  elevation={0}
+                >
+                  <IconMaterialPottedPlantRounded />
+                </Fab>
+              ]}
+            >
               <NavigationItem
                 label='Home'
 
@@ -1508,9 +1559,25 @@ Please sign in again.`}
 
                 disabled
               />
-            </NavigationBar>
+            </NavigationRail>
 
-            <NavigationBar color='primary' tonal={false}>
+            <NavigationRail
+              tonal={false}
+
+              color='primary'
+
+              header={[
+                <IconButton>
+                  <IconMaterialMenuRounded />
+                </IconButton>,
+
+                <Fab
+                  elevation={0}
+                >
+                  <IconMaterialPottedPlantRounded />
+                </Fab>
+              ]}
+            >
               <NavigationItem
                 label='Home'
 
@@ -1538,9 +1605,25 @@ Please sign in again.`}
 
                 disabled
               />
-            </NavigationBar>
+            </NavigationRail>
 
-            <NavigationBar color='secondary' tonal={false}>
+            <NavigationRail
+              tonal={false}
+
+              color='secondary'
+
+              header={[
+                <IconButton>
+                  <IconMaterialMenuRounded />
+                </IconButton>,
+
+                <Fab
+                  elevation={0}
+                >
+                  <IconMaterialPottedPlantRounded />
+                </Fab>
+              ]}
+            >
               <NavigationItem
                 label='Home'
 
@@ -1568,9 +1651,25 @@ Please sign in again.`}
 
                 disabled
               />
-            </NavigationBar>
+            </NavigationRail>
 
-            <NavigationBar color='tertiary' tonal={false}>
+            <NavigationRail
+              tonal={false}
+
+              color='tertiary'
+
+              header={[
+                <IconButton>
+                  <IconMaterialMenuRounded />
+                </IconButton>,
+
+                <Fab
+                  elevation={0}
+                >
+                  <IconMaterialPottedPlantRounded />
+                </Fab>
+              ]}
+            >
               <NavigationItem
                 label='Home'
 
@@ -1598,9 +1697,25 @@ Please sign in again.`}
 
                 disabled
               />
-            </NavigationBar>
+            </NavigationRail>
 
-            <NavigationBar color='quaternary' tonal={false}>
+            <NavigationRail
+              tonal={false}
+
+              color='quaternary'
+
+              header={[
+                <IconButton>
+                  <IconMaterialMenuRounded />
+                </IconButton>,
+
+                <Fab
+                  elevation={0}
+                >
+                  <IconMaterialPottedPlantRounded />
+                </Fab>
+              ]}
+            >
               <NavigationItem
                 label='Home'
 
@@ -1628,9 +1743,25 @@ Please sign in again.`}
 
                 disabled
               />
-            </NavigationBar>
+            </NavigationRail>
 
-            <NavigationBar color='info' tonal={false}>
+            <NavigationRail
+              tonal={false}
+
+              color='info'
+
+              header={[
+                <IconButton>
+                  <IconMaterialMenuRounded />
+                </IconButton>,
+
+                <Fab
+                  elevation={0}
+                >
+                  <IconMaterialPottedPlantRounded />
+                </Fab>
+              ]}
+            >
               <NavigationItem
                 label='Home'
 
@@ -1658,9 +1789,25 @@ Please sign in again.`}
 
                 disabled
               />
-            </NavigationBar>
+            </NavigationRail>
 
-            <NavigationBar color='success' tonal={false}>
+            <NavigationRail
+              tonal={false}
+
+              color='success'
+
+              header={[
+                <IconButton>
+                  <IconMaterialMenuRounded />
+                </IconButton>,
+
+                <Fab
+                  elevation={0}
+                >
+                  <IconMaterialPottedPlantRounded />
+                </Fab>
+              ]}
+            >
               <NavigationItem
                 label='Home'
 
@@ -1688,9 +1835,25 @@ Please sign in again.`}
 
                 disabled
               />
-            </NavigationBar>
+            </NavigationRail>
 
-            <NavigationBar color='warning' tonal={false}>
+            <NavigationRail
+              tonal={false}
+
+              color='warning'
+
+              header={[
+                <IconButton>
+                  <IconMaterialMenuRounded />
+                </IconButton>,
+
+                <Fab
+                  elevation={0}
+                >
+                  <IconMaterialPottedPlantRounded />
+                </Fab>
+              ]}
+            >
               <NavigationItem
                 label='Home'
 
@@ -1718,9 +1881,25 @@ Please sign in again.`}
 
                 disabled
               />
-            </NavigationBar>
+            </NavigationRail>
 
-            <NavigationBar color='error' tonal={false}>
+            <NavigationRail
+              tonal={false}
+
+              color='error'
+
+              header={[
+                <IconButton>
+                  <IconMaterialMenuRounded />
+                </IconButton>,
+
+                <Fab
+                  elevation={0}
+                >
+                  <IconMaterialPottedPlantRounded />
+                </Fab>
+              ]}
+            >
               <NavigationItem
                 label='Home'
 
@@ -1748,9 +1927,25 @@ Please sign in again.`}
 
                 disabled
               />
-            </NavigationBar>
+            </NavigationRail>
 
-            <NavigationBar color='neutral' tonal={false}>
+            <NavigationRail
+              tonal={false}
+
+              color='neutral'
+
+              header={[
+                <IconButton>
+                  <IconMaterialMenuRounded />
+                </IconButton>,
+
+                <Fab
+                  elevation={0}
+                >
+                  <IconMaterialPottedPlantRounded />
+                </Fab>
+              ]}
+            >
               <NavigationItem
                 label='Home'
 
@@ -1778,9 +1973,25 @@ Please sign in again.`}
 
                 disabled
               />
-            </NavigationBar>
+            </NavigationRail>
 
-            <NavigationBar color='#f5d758' tonal={false}>
+            <NavigationRail
+              tonal={false}
+
+              color='#f5d758'
+
+              header={[
+                <IconButton>
+                  <IconMaterialMenuRounded />
+                </IconButton>,
+
+                <Fab
+                  elevation={0}
+                >
+                  <IconMaterialPottedPlantRounded />
+                </Fab>
+              ]}
+            >
               <NavigationItem
                 label='Home'
 
@@ -1808,13 +2019,29 @@ Please sign in again.`}
 
                 disabled
               />
-            </NavigationBar>
+            </NavigationRail>
           </Line>
         </Accordion>
 
         <Accordion primary='NavigationBar tonal'>
           <Line gap={5}>
-            <NavigationBar color='primary' tonal>
+            <NavigationRail
+              tonal
+
+              color='primary'
+
+              header={[
+                <IconButton>
+                  <IconMaterialMenuRounded />
+                </IconButton>,
+
+                <Fab
+                  elevation={0}
+                >
+                  <IconMaterialPottedPlantRounded />
+                </Fab>
+              ]}
+            >
               <NavigationItem
                 label='Home'
 
@@ -1842,9 +2069,25 @@ Please sign in again.`}
 
                 disabled
               />
-            </NavigationBar>
+            </NavigationRail>
 
-            <NavigationBar color='secondary' tonal>
+            <NavigationRail
+              tonal
+
+              color='secondary'
+
+              header={[
+                <IconButton>
+                  <IconMaterialMenuRounded />
+                </IconButton>,
+
+                <Fab
+                  elevation={0}
+                >
+                  <IconMaterialPottedPlantRounded />
+                </Fab>
+              ]}
+            >
               <NavigationItem
                 label='Home'
 
@@ -1872,9 +2115,25 @@ Please sign in again.`}
 
                 disabled
               />
-            </NavigationBar>
+            </NavigationRail>
 
-            <NavigationBar color='tertiary' tonal>
+            <NavigationRail
+              tonal
+
+              color='tertiary'
+
+              header={[
+                <IconButton>
+                  <IconMaterialMenuRounded />
+                </IconButton>,
+
+                <Fab
+                  elevation={0}
+                >
+                  <IconMaterialPottedPlantRounded />
+                </Fab>
+              ]}
+            >
               <NavigationItem
                 label='Home'
 
@@ -1902,9 +2161,25 @@ Please sign in again.`}
 
                 disabled
               />
-            </NavigationBar>
+            </NavigationRail>
 
-            <NavigationBar color='quaternary' tonal>
+            <NavigationRail
+              tonal
+
+              color='quaternary'
+
+              header={[
+                <IconButton>
+                  <IconMaterialMenuRounded />
+                </IconButton>,
+
+                <Fab
+                  elevation={0}
+                >
+                  <IconMaterialPottedPlantRounded />
+                </Fab>
+              ]}
+            >
               <NavigationItem
                 label='Home'
 
@@ -1932,9 +2207,25 @@ Please sign in again.`}
 
                 disabled
               />
-            </NavigationBar>
+            </NavigationRail>
 
-            <NavigationBar color='info' tonal>
+            <NavigationRail
+              tonal={false}
+
+              color='info'
+
+              header={[
+                <IconButton>
+                  <IconMaterialMenuRounded />
+                </IconButton>,
+
+                <Fab
+                  elevation={0}
+                >
+                  <IconMaterialPottedPlantRounded />
+                </Fab>
+              ]}
+            >
               <NavigationItem
                 label='Home'
 
@@ -1962,9 +2253,25 @@ Please sign in again.`}
 
                 disabled
               />
-            </NavigationBar>
+            </NavigationRail>
 
-            <NavigationBar color='success' tonal>
+            <NavigationRail
+              tonal
+
+              color='success'
+
+              header={[
+                <IconButton>
+                  <IconMaterialMenuRounded />
+                </IconButton>,
+
+                <Fab
+                  elevation={0}
+                >
+                  <IconMaterialPottedPlantRounded />
+                </Fab>
+              ]}
+            >
               <NavigationItem
                 label='Home'
 
@@ -1992,9 +2299,25 @@ Please sign in again.`}
 
                 disabled
               />
-            </NavigationBar>
+            </NavigationRail>
 
-            <NavigationBar color='warning' tonal>
+            <NavigationRail
+              tonal
+
+              color='warning'
+
+              header={[
+                <IconButton>
+                  <IconMaterialMenuRounded />
+                </IconButton>,
+
+                <Fab
+                  elevation={0}
+                >
+                  <IconMaterialPottedPlantRounded />
+                </Fab>
+              ]}
+            >
               <NavigationItem
                 label='Home'
 
@@ -2022,9 +2345,25 @@ Please sign in again.`}
 
                 disabled
               />
-            </NavigationBar>
+            </NavigationRail>
 
-            <NavigationBar color='error' tonal>
+            <NavigationRail
+              tonal
+
+              color='error'
+
+              header={[
+                <IconButton>
+                  <IconMaterialMenuRounded />
+                </IconButton>,
+
+                <Fab
+                  elevation={0}
+                >
+                  <IconMaterialPottedPlantRounded />
+                </Fab>
+              ]}
+            >
               <NavigationItem
                 label='Home'
 
@@ -2052,9 +2391,25 @@ Please sign in again.`}
 
                 disabled
               />
-            </NavigationBar>
+            </NavigationRail>
 
-            <NavigationBar color='neutral' tonal>
+            <NavigationRail
+              tonal
+
+              color='neutral'
+
+              header={[
+                <IconButton>
+                  <IconMaterialMenuRounded />
+                </IconButton>,
+
+                <Fab
+                  elevation={0}
+                >
+                  <IconMaterialPottedPlantRounded />
+                </Fab>
+              ]}
+            >
               <NavigationItem
                 label='Home'
 
@@ -2082,9 +2437,25 @@ Please sign in again.`}
 
                 disabled
               />
-            </NavigationBar>
+            </NavigationRail>
 
-            <NavigationBar color='#f5d758' tonal>
+            <NavigationRail
+              tonal
+
+              color='#f5d758'
+
+              header={[
+                <IconButton>
+                  <IconMaterialMenuRounded />
+                </IconButton>,
+
+                <Fab
+                  elevation={0}
+                >
+                  <IconMaterialPottedPlantRounded />
+                </Fab>
+              ]}
+            >
               <NavigationItem
                 label='Home'
 
@@ -2112,7 +2483,7 @@ Please sign in again.`}
 
                 disabled
               />
-            </NavigationBar>
+            </NavigationRail>
           </Line>
         </Accordion>
 

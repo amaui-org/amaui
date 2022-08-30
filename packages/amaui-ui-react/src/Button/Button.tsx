@@ -333,6 +333,8 @@ const Button = React.forwardRef((props_: any, ref: any) => {
     backgroundOpacity,
     align = 'center',
     label,
+    IconWrapperComponent = 'span',
+    IconWrapperProps = {},
     loading,
     loadingLabel,
     loadingIcon = <RoundProgress size='small' />,
@@ -381,6 +383,12 @@ const Button = React.forwardRef((props_: any, ref: any) => {
 
   let palette: any;
 
+  if (!theme.palette.color[color] && !['inherit', 'default'].includes(color)) {
+    palette = theme.methods.color(color);
+
+    styles.root.color = palette?.main;
+  }
+
   if (version === 'filled') {
     styles.background.background = color === 'inherit' ? 'currentColor' : color === 'default' ? theme.palette.text.default.primary : theme.palette.color[color] ? (theme.palette.color[color] as any).main : color;
 
@@ -408,12 +416,6 @@ const Button = React.forwardRef((props_: any, ref: any) => {
 
       styles.background.background = theme.methods.palette.color.value(color, 90, true, palette);
     }
-  }
-
-  if (!theme.palette.color[color] && !['inherit', 'default'].includes(color)) {
-    palette = theme.methods.color(color);
-
-    styles.root.color = palette?.main;
   }
 
   // size
@@ -625,7 +627,7 @@ const Button = React.forwardRef((props_: any, ref: any) => {
       )}
 
       {icon ? (
-        <span
+        <IconWrapperComponent
           className={classNames([
             staticClassName('Button', theme) && [
               'AmauiButton-iconRoot'
@@ -635,9 +637,11 @@ const Button = React.forwardRef((props_: any, ref: any) => {
           ])}
 
           style={styles.icon}
+
+          {...IconWrapperProps}
         >
           {(selected && iconSelected) || children_}
-        </span>
+        </IconWrapperComponent>
       ) : (
         <Type
           className={classNames([
