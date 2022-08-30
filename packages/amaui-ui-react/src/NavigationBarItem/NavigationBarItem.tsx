@@ -156,7 +156,8 @@ const NavigationBarItem = React.forwardRef((props_: any, ref: any) => {
   const [mouseDown, setMouseDown] = React.useState(false);
 
   const refs = {
-    props: React.useRef<any>()
+    props: React.useRef<any>(),
+    hover: React.useRef<any>()
   };
 
   const styles: any = {
@@ -167,6 +168,7 @@ const NavigationBarItem = React.forwardRef((props_: any, ref: any) => {
   };
 
   refs.props.current = props;
+  refs.hover.current = hover;
 
   React.useEffect(() => {
     const onMouseUp = () => {
@@ -183,6 +185,12 @@ const NavigationBarItem = React.forwardRef((props_: any, ref: any) => {
       window.document.removeEventListener('mouseup', onMouseUp);
     };
   }, []);
+
+  React.useEffect(() => {
+    if (!selected) {
+      if (refs.hover.current) setHover(false);
+    }
+  }, [selected]);
 
   const onKeyDown = React.useCallback((event: React.KeyboardEvent<any>) => {
     if (!disabled) {
@@ -207,11 +215,7 @@ const NavigationBarItem = React.forwardRef((props_: any, ref: any) => {
   }, []);
 
   const onTouch = React.useCallback((event: React.MouseEvent<any>) => {
-    if (!disabled) {
-      setMouseDown(true);
-
-      setHover(false);
-    }
+    if (!disabled) setMouseDown(true);
 
     if (is('function', onTouch_)) onTouch_(event);
   }, []);
