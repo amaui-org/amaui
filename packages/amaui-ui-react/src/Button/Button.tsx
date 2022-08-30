@@ -474,7 +474,7 @@ const Button = React.forwardRef((props_: any, ref: any) => {
 
   // fab
   if (fab) {
-    if (React.Children.count(children_) === 1 && !is('string', children_) && size !== 'large') styles.root.minWidth = 'initial';
+    if (React.Children.count(children_) === 1 && !is('string', children_)) styles.root.minWidth = 'initial';
 
     if (size === 'small') styles.Icon.fontSize = 18;
     if (size === 'regular') styles.Icon.fontSize = 24;

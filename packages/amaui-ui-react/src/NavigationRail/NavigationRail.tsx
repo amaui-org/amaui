@@ -6,16 +6,21 @@ import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 import Line from '../Line';
 
 import { staticClassName } from '../utils';
+import NavigationBar from '../NavigationBar';
 
 const useStyle = style(theme => ({
   root: {
     zIndex: theme.z_index.app_bar,
+    height: '100vw',
+    width: '80px',
+    padding: '40px 0',
+    overflow: 'auto'
   },
 
   fixed: {
     position: 'fixed',
-    insetInline: 0,
-    bottom: 0
+    insetBlock: 0,
+    insetInlineStart: 0
   },
 
   // Color
@@ -58,12 +63,20 @@ const useStyle = style(theme => ({
 
   tonal_color_error: { backgroundColor: theme.methods.palette.color.value('error', 95) },
 
-}), { name: 'AmauiNavigationBar' });
+  header: {
+    marginBottom: '70px'
+  },
 
-const NavigationBar = React.forwardRef((props_: any, ref: any) => {
+  main: {
+    width: '100%',
+    flex: '1 1 auto'
+  }
+}), { name: 'AmauiNavigationRail' });
+
+const NavigationRail = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiNavigationBar?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiNavigationRail?.props?.default }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -71,6 +84,8 @@ const NavigationBar = React.forwardRef((props_: any, ref: any) => {
     color = 'primary',
     tonal = true,
     version = 'regular',
+    alignment = 'center',
+    header: header_,
     fixed,
     value,
     valueDefault,
@@ -92,7 +107,8 @@ const NavigationBar = React.forwardRef((props_: any, ref: any) => {
   });
 
   const styles: any = {
-    root: {}
+    root: {},
+    icon: {}
   };
 
   React.useEffect(() => {
@@ -117,12 +133,36 @@ const NavigationBar = React.forwardRef((props_: any, ref: any) => {
     }
   };
 
-  if (!theme.palette.color[color] && !['inherit', 'default'].includes(color)) {
-    const palette = theme.methods.color(color);
+  let palette: any;
 
+  if (!theme.palette.color[color] && !['inherit', 'default'].includes(color)) {
+    palette = theme.methods.color(color);
+  }
+
+  if (!theme.palette.color[color] && !['inherit', 'default'].includes(color)) {
     if (tonal) styles.root.backgroundColor = theme.methods.palette.color.value(undefined, 95, true, palette);
     else styles.root.backgroundColor = palette.main;
   }
+
+  // Header
+  if (!tonal) {
+    let background = (theme.palette.color[color] as any)?.main;
+
+    if (color === 'default') background = theme.palette.background.default.primary;
+
+    styles.icon.color = theme.methods.palette.color.text(palette?.main || background, true, 'light');
+  }
+  else {
+    styles.icon.color = theme.methods.palette.color.value(color, 5, true, palette);
+  }
+
+  const header = React.Children
+    .toArray(header_)
+    .map((item: any, index: number) => React.cloneElement(item, {
+      key: index,
+
+      color: item.props.color !== undefined ? item.props.color : styles.icon.color
+    }));
 
   const children = React.Children
     .toArray(children_)
@@ -131,6 +171,7 @@ const NavigationBar = React.forwardRef((props_: any, ref: any) => {
 
       ...other,
 
+      vertical: true,
       color: item.props.color !== undefined ? item.props.color : color,
       tonal: item.props.tonal !== undefined ? item.props.tonal : tonal,
       version: item.props.version !== undefined ? item.props.version : version,
@@ -151,20 +192,20 @@ const NavigationBar = React.forwardRef((props_: any, ref: any) => {
     <Line
       ref={ref}
 
-      direction='row'
+      direction='column'
 
-      align='center'
+      align='initial'
 
       justify='initial'
 
-      gap={1}
+      gap={0}
 
       className={classNames([
-        staticClassName('NavigationBar', theme) && [
-          'AmauiNavigationBar-root',
-          `AmauiNavigationBar-color-${!theme.palette.color[color] && !['inherit', 'default'].includes(color) ? 'new' : color}`,
-          tonal && `NavigationBar-tonal`,
-          fixed && `NavigationBar-fixed`
+        staticClassName('NavigationRail', theme) && [
+          'AmauiNavigationRail-root',
+          `AmauiNavigationRail-color-${!theme.palette.color[color] && !['inherit', 'default'].includes(color) ? 'new' : color}`,
+          tonal && `NavigationRail-tonal`,
+          fixed && `NavigationRail-fixed`
         ],
 
         className,
@@ -182,11 +223,43 @@ const NavigationBar = React.forwardRef((props_: any, ref: any) => {
 
       {...other}
     >
-      {children}
+      {header && (
+        <Line
+          className={classNames([
+            staticClassName('NavigationRail', theme) && [
+              'AmauiNavigationRail-header'
+            ],
+
+            classes.header
+          ])}
+        >
+          {header}
+        </Line>
+      )}
+
+      {children && (
+        <NavigationBar
+          direction='column'
+
+          justify={alignment}
+
+          gap={2}
+
+          className={classNames([
+            staticClassName('NavigationRail', theme) && [
+              'AmauiNavigationRail-main'
+            ],
+
+            classes.main
+          ])}
+        >
+          {children}
+        </NavigationBar>
+      )}
     </Line>
   );
 });
 
-NavigationBar.displayName = 'AmauiNavigationBar';
+NavigationRail.displayName = 'AmauiNavigationRail';
 
-export default NavigationBar;
+export default NavigationRail;

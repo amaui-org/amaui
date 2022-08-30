@@ -179,8 +179,11 @@ export * from './ToggleButtons';
 export { default as Accordion } from './Accordion';
 export * from './Accordion';
 
+export { default as NavigationRail } from './NavigationRail';
+export * from './NavigationRail';
+
 export { default as NavigationBar } from './NavigationBar';
 export * from './NavigationBar';
 
-export { default as NavigationBarItem } from './NavigationBarItem';
-export * from './NavigationBarItem';
+export { default as NavigationItem } from './NavigationItem';
+export * from './NavigationItem';

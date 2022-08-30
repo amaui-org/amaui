@@ -21,6 +21,13 @@ const useStyle = style(theme => ({
     minHeight: '80px'
   },
 
+  vertical: {
+    flex: '0 0 auto',
+    padding: '0px',
+    minHeight: '52px',
+    width: '100%'
+  },
+
   iconWrapper: {
     position: 'absolute',
     top: 0,
@@ -110,16 +117,16 @@ const useStyle = style(theme => ({
     pointerEvents: 'none',
     cursor: 'default'
   }
-}), { name: 'AmauiNavigationBarItem' });
+}), { name: 'AmauiNavigationItem' });
 
 // To do
 
 // Long press label in tooltip value y
 
-const NavigationBarItem = React.forwardRef((props_: any, ref: any) => {
+const NavigationItem = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiNavigationBarItem?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiNavigationItem?.props?.default }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -127,6 +134,7 @@ const NavigationBarItem = React.forwardRef((props_: any, ref: any) => {
     color = 'primary',
     tonal = true,
     version = 'regular',
+    vertical,
     label,
     icon,
     iconSelected,
@@ -141,6 +149,7 @@ const NavigationBarItem = React.forwardRef((props_: any, ref: any) => {
     onMouseEnter: onMouseEnter_,
     onMouseLeave: onMouseLeave_,
     onTouch: onTouch_,
+    TooltipProps = {},
     disabled,
 
     className,
@@ -259,12 +268,18 @@ const NavigationBarItem = React.forwardRef((props_: any, ref: any) => {
 
   let LabelWrapper = version === 'auto' ? Fade : React.Fragment;
 
-  const LabelWrapperProps: any = {
-
-  };
+  const LabelWrapperProps: any = {};
 
   if (version === 'auto') {
     LabelWrapperProps.in = selected;
+
+    LabelWrapperProps.className = classNames([
+      staticClassName('NavigationItem', theme) && [
+        'AmauiNavigationItem-label'
+      ],
+
+      classes.labelWrapper
+    ]);
   }
 
   const Icon = (selected && iconSelected) || icon;
@@ -282,6 +297,8 @@ const NavigationBarItem = React.forwardRef((props_: any, ref: any) => {
       touch={false}
       hover={false}
       focus={false}
+
+      {...TooltipProps}
     >
       <span
         tabIndex={!disabled && 0}
@@ -301,13 +318,15 @@ const NavigationBarItem = React.forwardRef((props_: any, ref: any) => {
         onMouseLeave={onMouseLeave}
 
         className={classNames([
-          staticClassName('NavigationBarItem', theme) && [
-            'AmauiNavigationBarItem-root',
-            disabled && `AmauiNavigationBarItem-disabled`
+          staticClassName('NavigationItem', theme) && [
+            'AmauiNavigationItem-root',
+            vertical && 'AmauiNavigationItem-vertical',
+            disabled && `AmauiNavigationItem-disabled`
           ],
 
           className,
           classes.root,
+          vertical && classes.vertical,
           disabled && classes.disabled
         ])}
 
@@ -331,8 +350,8 @@ const NavigationBarItem = React.forwardRef((props_: any, ref: any) => {
           gap={0.5}
 
           className={classNames([
-            staticClassName('NavigationBarItem', theme) && [
-              'AmauiNavigationBarItem-item'
+            staticClassName('NavigationItem', theme) && [
+              'AmauiNavigationItem-item'
             ],
 
             classes.item
@@ -347,8 +366,8 @@ const NavigationBarItem = React.forwardRef((props_: any, ref: any) => {
               justify='center'
 
               className={classNames([
-                staticClassName('NavigationBarItem', theme) && [
-                  'AmauiNavigationBarItem-iconWrapper'
+                staticClassName('NavigationItem', theme) && [
+                  'AmauiNavigationItem-iconWrapper'
                 ],
 
                 classes.iconWrapper,
@@ -362,8 +381,8 @@ const NavigationBarItem = React.forwardRef((props_: any, ref: any) => {
                 {(status: TTransitionStatus) => (
                   <span
                     className={classNames([
-                      staticClassName('NavigationBarItem', theme) && [
-                        'AmauiNavigationBarItem-indicator'
+                      staticClassName('NavigationItem', theme) && [
+                        'AmauiNavigationItem-indicator'
                       ],
 
                       classes.indicator,
@@ -381,8 +400,8 @@ const NavigationBarItem = React.forwardRef((props_: any, ref: any) => {
 
               <IconWrapperComponent
                 className={classNames([
-                  staticClassName('NavigationBarItem', theme) && [
-                    'AmauiNavigationBarItem-icon'
+                  staticClassName('NavigationItem', theme) && [
+                    'AmauiNavigationItem-icon'
                   ],
 
                   classes.icon
@@ -399,22 +418,14 @@ const NavigationBarItem = React.forwardRef((props_: any, ref: any) => {
 
           {['regular', 'auto'].includes(version) && (
             <LabelWrapper
-              className={classNames([
-                staticClassName('NavigationBarItem', theme) && [
-                  'AmauiNavigationBarItem-label'
-                ],
-
-                classes.labelWrapper
-              ])}
-
               {...LabelWrapperProps}
             >
               <Type
                 version='b3'
 
                 className={classNames([
-                  staticClassName('NavigationBarItem', theme) && [
-                    'AmauiNavigationBarItem-label'
+                  staticClassName('NavigationItem', theme) && [
+                    'AmauiNavigationItem-label'
                   ],
 
                   classes.label
@@ -432,6 +443,6 @@ const NavigationBarItem = React.forwardRef((props_: any, ref: any) => {
   );
 });
 
-NavigationBarItem.displayName = 'AmauiNavigationBarItem';
+NavigationItem.displayName = 'AmauiNavigationItem';
 
-export default NavigationBarItem;
+export default NavigationItem;

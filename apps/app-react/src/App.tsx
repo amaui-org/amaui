@@ -2,7 +2,7 @@ import React from 'react';
 
 import { countries } from '@amaui/utils';
 import { AmauiTheme, AmauiThemeProvider, classNames, style, sy, useAmauiTheme } from '@amaui/style-react';
-import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationBarItem } from '@amaui/ui-react';
+import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationItem, NavigationRail } from '@amaui/ui-react';
 
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
@@ -779,7 +779,7 @@ function App() {
       <Accordion primary='All'>
         <div className={classNames([classes.column])}>
           <NavigationBar>
-            <NavigationBarItem
+            <NavigationItem
               label='Home'
 
               value='Home'
@@ -788,7 +788,7 @@ function App() {
               iconSelected={IconMaterialHomeRoundedFilled}
             />
 
-            <NavigationBarItem
+            <NavigationItem
               label='Plant'
 
               value='Plant'
@@ -797,7 +797,7 @@ function App() {
               iconSelected={IconMaterialPottedPlantRoundedFilled}
             />
 
-            <NavigationBarItem
+            <NavigationItem
               label='Light'
 
               value='Light'
@@ -1078,10 +1078,10 @@ Please sign in again.`}
         </div>
       </Accordion>
 
-      <Accordion primary='NavigationBar'>
-        <Accordion primary='NavigationBar'>
-          <NavigationBar>
-            <NavigationBarItem
+      <Accordion primary='NavigationRail'>
+        <Accordion primary='NavigationRail'>
+          <NavigationRail>
+            <NavigationItem
               label='Home'
 
               value='Home'
@@ -1090,7 +1090,7 @@ Please sign in again.`}
               iconSelected={IconMaterialHomeRoundedFilled}
             />
 
-            <NavigationBarItem
+            <NavigationItem
               label='Plant'
 
               value='Plant'
@@ -1099,7 +1099,7 @@ Please sign in again.`}
               iconSelected={IconMaterialPottedPlantRoundedFilled}
             />
 
-            <NavigationBarItem
+            <NavigationItem
               label='Light'
 
               value='Light'
@@ -1108,12 +1108,12 @@ Please sign in again.`}
 
               disabled
             />
-          </NavigationBar>
+          </NavigationRail>
         </Accordion>
 
         <Accordion primary='NavigationBar versions'>
           <NavigationBar version='regular'>
-            <NavigationBarItem
+            <NavigationItem
               label='Home'
 
               value='Home'
@@ -1122,7 +1122,7 @@ Please sign in again.`}
               iconSelected={IconMaterialHomeRoundedFilled}
             />
 
-            <NavigationBarItem
+            <NavigationItem
               label='Plant'
 
               value='Plant'
@@ -1131,7 +1131,7 @@ Please sign in again.`}
               iconSelected={IconMaterialPottedPlantRoundedFilled}
             />
 
-            <NavigationBarItem
+            <NavigationItem
               label='Light'
 
               value='Light'
@@ -1143,7 +1143,7 @@ Please sign in again.`}
           </NavigationBar>
 
           <NavigationBar version='none'>
-            <NavigationBarItem
+            <NavigationItem
               label='Home'
 
               value='Home'
@@ -1152,7 +1152,7 @@ Please sign in again.`}
               iconSelected={IconMaterialHomeRoundedFilled}
             />
 
-            <NavigationBarItem
+            <NavigationItem
               label='Plant'
 
               value='Plant'
@@ -1161,7 +1161,7 @@ Please sign in again.`}
               iconSelected={IconMaterialPottedPlantRoundedFilled}
             />
 
-            <NavigationBarItem
+            <NavigationItem
               label='Light'
 
               value='Light'
@@ -1173,7 +1173,7 @@ Please sign in again.`}
           </NavigationBar>
 
           <NavigationBar version='auto'>
-            <NavigationBarItem
+            <NavigationItem
               label='Home'
 
               value='Home'
@@ -1182,7 +1182,7 @@ Please sign in again.`}
               iconSelected={IconMaterialHomeRoundedFilled}
             />
 
-            <NavigationBarItem
+            <NavigationItem
               label='Plant'
 
               value='Plant'
@@ -1191,7 +1191,7 @@ Please sign in again.`}
               iconSelected={IconMaterialPottedPlantRoundedFilled}
             />
 
-            <NavigationBarItem
+            <NavigationItem
               label='Light'
 
               value='Light'
@@ -1205,7 +1205,7 @@ Please sign in again.`}
 
         <Accordion primary='NavigationBar with badge'>
           <NavigationBar>
-            <NavigationBarItem
+            <NavigationItem
               label='Home'
 
               value='Home'
@@ -1217,7 +1217,7 @@ Please sign in again.`}
               IconWrapperProps={{ indicator: true }}
             />
 
-            <NavigationBarItem
+            <NavigationItem
               label='Plant'
 
               value='Plant'
@@ -1229,7 +1229,7 @@ Please sign in again.`}
               IconWrapperProps={{ value: 14 }}
             />
 
-            <NavigationBarItem
+            <NavigationItem
               label='Light'
 
               value='Light'
@@ -1244,7 +1244,7 @@ Please sign in again.`}
         <Accordion primary='NavigationBar color'>
           <Line gap={5}>
             <NavigationBar color='default' tonal={false}>
-              <NavigationBarItem
+              <NavigationItem
                 label='Home'
 
                 value='Home'
@@ -1253,7 +1253,7 @@ Please sign in again.`}
                 iconSelected={IconMaterialHomeRoundedFilled}
               />
 
-              <NavigationBarItem
+              <NavigationItem
                 label='Plant'
 
                 value='Plant'
@@ -1262,7 +1262,7 @@ Please sign in again.`}
                 iconSelected={IconMaterialPottedPlantRoundedFilled}
               />
 
-              <NavigationBarItem
+              <NavigationItem
                 label='Light'
 
                 value='Light'
@@ -1274,7 +1274,7 @@ Please sign in again.`}
             </NavigationBar>
 
             <NavigationBar color='primary' tonal={false}>
-              <NavigationBarItem
+              <NavigationItem
                 label='Home'
 
                 value='Home'
@@ -1283,7 +1283,7 @@ Please sign in again.`}
                 iconSelected={IconMaterialHomeRoundedFilled}
               />
 
-              <NavigationBarItem
+              <NavigationItem
                 label='Plant'
 
                 value='Plant'
@@ -1292,7 +1292,7 @@ Please sign in again.`}
                 iconSelected={IconMaterialPottedPlantRoundedFilled}
               />
 
-              <NavigationBarItem
+              <NavigationItem
                 label='Light'
 
                 value='Light'
@@ -1304,7 +1304,7 @@ Please sign in again.`}
             </NavigationBar>
 
             <NavigationBar color='secondary' tonal={false}>
-              <NavigationBarItem
+              <NavigationItem
                 label='Home'
 
                 value='Home'
@@ -1313,7 +1313,7 @@ Please sign in again.`}
                 iconSelected={IconMaterialHomeRoundedFilled}
               />
 
-              <NavigationBarItem
+              <NavigationItem
                 label='Plant'
 
                 value='Plant'
@@ -1322,7 +1322,7 @@ Please sign in again.`}
                 iconSelected={IconMaterialPottedPlantRoundedFilled}
               />
 
-              <NavigationBarItem
+              <NavigationItem
                 label='Light'
 
                 value='Light'
@@ -1334,7 +1334,7 @@ Please sign in again.`}
             </NavigationBar>
 
             <NavigationBar color='tertiary' tonal={false}>
-              <NavigationBarItem
+              <NavigationItem
                 label='Home'
 
                 value='Home'
@@ -1343,7 +1343,7 @@ Please sign in again.`}
                 iconSelected={IconMaterialHomeRoundedFilled}
               />
 
-              <NavigationBarItem
+              <NavigationItem
                 label='Plant'
 
                 value='Plant'
@@ -1352,7 +1352,7 @@ Please sign in again.`}
                 iconSelected={IconMaterialPottedPlantRoundedFilled}
               />
 
-              <NavigationBarItem
+              <NavigationItem
                 label='Light'
 
                 value='Light'
@@ -1364,7 +1364,7 @@ Please sign in again.`}
             </NavigationBar>
 
             <NavigationBar color='quaternary' tonal={false}>
-              <NavigationBarItem
+              <NavigationItem
                 label='Home'
 
                 value='Home'
@@ -1373,7 +1373,7 @@ Please sign in again.`}
                 iconSelected={IconMaterialHomeRoundedFilled}
               />
 
-              <NavigationBarItem
+              <NavigationItem
                 label='Plant'
 
                 value='Plant'
@@ -1382,7 +1382,7 @@ Please sign in again.`}
                 iconSelected={IconMaterialPottedPlantRoundedFilled}
               />
 
-              <NavigationBarItem
+              <NavigationItem
                 label='Light'
 
                 value='Light'
@@ -1394,7 +1394,7 @@ Please sign in again.`}
             </NavigationBar>
 
             <NavigationBar color='info' tonal={false}>
-              <NavigationBarItem
+              <NavigationItem
                 label='Home'
 
                 value='Home'
@@ -1403,7 +1403,7 @@ Please sign in again.`}
                 iconSelected={IconMaterialHomeRoundedFilled}
               />
 
-              <NavigationBarItem
+              <NavigationItem
                 label='Plant'
 
                 value='Plant'
@@ -1412,7 +1412,7 @@ Please sign in again.`}
                 iconSelected={IconMaterialPottedPlantRoundedFilled}
               />
 
-              <NavigationBarItem
+              <NavigationItem
                 label='Light'
 
                 value='Light'
@@ -1424,7 +1424,7 @@ Please sign in again.`}
             </NavigationBar>
 
             <NavigationBar color='success' tonal={false}>
-              <NavigationBarItem
+              <NavigationItem
                 label='Home'
 
                 value='Home'
@@ -1433,7 +1433,7 @@ Please sign in again.`}
                 iconSelected={IconMaterialHomeRoundedFilled}
               />
 
-              <NavigationBarItem
+              <NavigationItem
                 label='Plant'
 
                 value='Plant'
@@ -1442,7 +1442,7 @@ Please sign in again.`}
                 iconSelected={IconMaterialPottedPlantRoundedFilled}
               />
 
-              <NavigationBarItem
+              <NavigationItem
                 label='Light'
 
                 value='Light'
@@ -1454,7 +1454,7 @@ Please sign in again.`}
             </NavigationBar>
 
             <NavigationBar color='warning' tonal={false}>
-              <NavigationBarItem
+              <NavigationItem
                 label='Home'
 
                 value='Home'
@@ -1463,7 +1463,7 @@ Please sign in again.`}
                 iconSelected={IconMaterialHomeRoundedFilled}
               />
 
-              <NavigationBarItem
+              <NavigationItem
                 label='Plant'
 
                 value='Plant'
@@ -1472,7 +1472,7 @@ Please sign in again.`}
                 iconSelected={IconMaterialPottedPlantRoundedFilled}
               />
 
-              <NavigationBarItem
+              <NavigationItem
                 label='Light'
 
                 value='Light'
@@ -1484,7 +1484,7 @@ Please sign in again.`}
             </NavigationBar>
 
             <NavigationBar color='error' tonal={false}>
-              <NavigationBarItem
+              <NavigationItem
                 label='Home'
 
                 value='Home'
@@ -1493,7 +1493,7 @@ Please sign in again.`}
                 iconSelected={IconMaterialHomeRoundedFilled}
               />
 
-              <NavigationBarItem
+              <NavigationItem
                 label='Plant'
 
                 value='Plant'
@@ -1502,7 +1502,7 @@ Please sign in again.`}
                 iconSelected={IconMaterialPottedPlantRoundedFilled}
               />
 
-              <NavigationBarItem
+              <NavigationItem
                 label='Light'
 
                 value='Light'
@@ -1514,7 +1514,7 @@ Please sign in again.`}
             </NavigationBar>
 
             <NavigationBar color='neutral' tonal={false}>
-              <NavigationBarItem
+              <NavigationItem
                 label='Home'
 
                 value='Home'
@@ -1523,7 +1523,7 @@ Please sign in again.`}
                 iconSelected={IconMaterialHomeRoundedFilled}
               />
 
-              <NavigationBarItem
+              <NavigationItem
                 label='Plant'
 
                 value='Plant'
@@ -1532,7 +1532,7 @@ Please sign in again.`}
                 iconSelected={IconMaterialPottedPlantRoundedFilled}
               />
 
-              <NavigationBarItem
+              <NavigationItem
                 label='Light'
 
                 value='Light'
@@ -1544,7 +1544,7 @@ Please sign in again.`}
             </NavigationBar>
 
             <NavigationBar color='#f5d758' tonal={false}>
-              <NavigationBarItem
+              <NavigationItem
                 label='Home'
 
                 value='Home'
@@ -1553,7 +1553,7 @@ Please sign in again.`}
                 iconSelected={IconMaterialHomeRoundedFilled}
               />
 
-              <NavigationBarItem
+              <NavigationItem
                 label='Plant'
 
                 value='Plant'
@@ -1562,7 +1562,7 @@ Please sign in again.`}
                 iconSelected={IconMaterialPottedPlantRoundedFilled}
               />
 
-              <NavigationBarItem
+              <NavigationItem
                 label='Light'
 
                 value='Light'
@@ -1578,7 +1578,7 @@ Please sign in again.`}
         <Accordion primary='NavigationBar tonal'>
           <Line gap={5}>
             <NavigationBar color='primary' tonal>
-              <NavigationBarItem
+              <NavigationItem
                 label='Home'
 
                 value='Home'
@@ -1587,7 +1587,7 @@ Please sign in again.`}
                 iconSelected={IconMaterialHomeRoundedFilled}
               />
 
-              <NavigationBarItem
+              <NavigationItem
                 label='Plant'
 
                 value='Plant'
@@ -1596,7 +1596,7 @@ Please sign in again.`}
                 iconSelected={IconMaterialPottedPlantRoundedFilled}
               />
 
-              <NavigationBarItem
+              <NavigationItem
                 label='Light'
 
                 value='Light'
@@ -1608,7 +1608,7 @@ Please sign in again.`}
             </NavigationBar>
 
             <NavigationBar color='secondary' tonal>
-              <NavigationBarItem
+              <NavigationItem
                 label='Home'
 
                 value='Home'
@@ -1617,7 +1617,7 @@ Please sign in again.`}
                 iconSelected={IconMaterialHomeRoundedFilled}
               />
 
-              <NavigationBarItem
+              <NavigationItem
                 label='Plant'
 
                 value='Plant'
@@ -1626,7 +1626,7 @@ Please sign in again.`}
                 iconSelected={IconMaterialPottedPlantRoundedFilled}
               />
 
-              <NavigationBarItem
+              <NavigationItem
                 label='Light'
 
                 value='Light'
@@ -1638,7 +1638,7 @@ Please sign in again.`}
             </NavigationBar>
 
             <NavigationBar color='tertiary' tonal>
-              <NavigationBarItem
+              <NavigationItem
                 label='Home'
 
                 value='Home'
@@ -1647,7 +1647,7 @@ Please sign in again.`}
                 iconSelected={IconMaterialHomeRoundedFilled}
               />
 
-              <NavigationBarItem
+              <NavigationItem
                 label='Plant'
 
                 value='Plant'
@@ -1656,7 +1656,7 @@ Please sign in again.`}
                 iconSelected={IconMaterialPottedPlantRoundedFilled}
               />
 
-              <NavigationBarItem
+              <NavigationItem
                 label='Light'
 
                 value='Light'
@@ -1668,7 +1668,7 @@ Please sign in again.`}
             </NavigationBar>
 
             <NavigationBar color='quaternary' tonal>
-              <NavigationBarItem
+              <NavigationItem
                 label='Home'
 
                 value='Home'
@@ -1677,7 +1677,7 @@ Please sign in again.`}
                 iconSelected={IconMaterialHomeRoundedFilled}
               />
 
-              <NavigationBarItem
+              <NavigationItem
                 label='Plant'
 
                 value='Plant'
@@ -1686,7 +1686,7 @@ Please sign in again.`}
                 iconSelected={IconMaterialPottedPlantRoundedFilled}
               />
 
-              <NavigationBarItem
+              <NavigationItem
                 label='Light'
 
                 value='Light'
@@ -1698,7 +1698,7 @@ Please sign in again.`}
             </NavigationBar>
 
             <NavigationBar color='info' tonal>
-              <NavigationBarItem
+              <NavigationItem
                 label='Home'
 
                 value='Home'
@@ -1707,7 +1707,7 @@ Please sign in again.`}
                 iconSelected={IconMaterialHomeRoundedFilled}
               />
 
-              <NavigationBarItem
+              <NavigationItem
                 label='Plant'
 
                 value='Plant'
@@ -1716,7 +1716,7 @@ Please sign in again.`}
                 iconSelected={IconMaterialPottedPlantRoundedFilled}
               />
 
-              <NavigationBarItem
+              <NavigationItem
                 label='Light'
 
                 value='Light'
@@ -1728,7 +1728,7 @@ Please sign in again.`}
             </NavigationBar>
 
             <NavigationBar color='success' tonal>
-              <NavigationBarItem
+              <NavigationItem
                 label='Home'
 
                 value='Home'
@@ -1737,7 +1737,7 @@ Please sign in again.`}
                 iconSelected={IconMaterialHomeRoundedFilled}
               />
 
-              <NavigationBarItem
+              <NavigationItem
                 label='Plant'
 
                 value='Plant'
@@ -1746,7 +1746,7 @@ Please sign in again.`}
                 iconSelected={IconMaterialPottedPlantRoundedFilled}
               />
 
-              <NavigationBarItem
+              <NavigationItem
                 label='Light'
 
                 value='Light'
@@ -1758,7 +1758,7 @@ Please sign in again.`}
             </NavigationBar>
 
             <NavigationBar color='warning' tonal>
-              <NavigationBarItem
+              <NavigationItem
                 label='Home'
 
                 value='Home'
@@ -1767,7 +1767,7 @@ Please sign in again.`}
                 iconSelected={IconMaterialHomeRoundedFilled}
               />
 
-              <NavigationBarItem
+              <NavigationItem
                 label='Plant'
 
                 value='Plant'
@@ -1776,7 +1776,7 @@ Please sign in again.`}
                 iconSelected={IconMaterialPottedPlantRoundedFilled}
               />
 
-              <NavigationBarItem
+              <NavigationItem
                 label='Light'
 
                 value='Light'
@@ -1788,7 +1788,7 @@ Please sign in again.`}
             </NavigationBar>
 
             <NavigationBar color='error' tonal>
-              <NavigationBarItem
+              <NavigationItem
                 label='Home'
 
                 value='Home'
@@ -1797,7 +1797,7 @@ Please sign in again.`}
                 iconSelected={IconMaterialHomeRoundedFilled}
               />
 
-              <NavigationBarItem
+              <NavigationItem
                 label='Plant'
 
                 value='Plant'
@@ -1806,7 +1806,7 @@ Please sign in again.`}
                 iconSelected={IconMaterialPottedPlantRoundedFilled}
               />
 
-              <NavigationBarItem
+              <NavigationItem
                 label='Light'
 
                 value='Light'
@@ -1818,7 +1818,7 @@ Please sign in again.`}
             </NavigationBar>
 
             <NavigationBar color='neutral' tonal>
-              <NavigationBarItem
+              <NavigationItem
                 label='Home'
 
                 value='Home'
@@ -1827,7 +1827,7 @@ Please sign in again.`}
                 iconSelected={IconMaterialHomeRoundedFilled}
               />
 
-              <NavigationBarItem
+              <NavigationItem
                 label='Plant'
 
                 value='Plant'
@@ -1836,7 +1836,7 @@ Please sign in again.`}
                 iconSelected={IconMaterialPottedPlantRoundedFilled}
               />
 
-              <NavigationBarItem
+              <NavigationItem
                 label='Light'
 
                 value='Light'
@@ -1848,7 +1848,7 @@ Please sign in again.`}
             </NavigationBar>
 
             <NavigationBar color='#f5d758' tonal>
-              <NavigationBarItem
+              <NavigationItem
                 label='Home'
 
                 value='Home'
@@ -1857,7 +1857,7 @@ Please sign in again.`}
                 iconSelected={IconMaterialHomeRoundedFilled}
               />
 
-              <NavigationBarItem
+              <NavigationItem
                 label='Plant'
 
                 value='Plant'
@@ -1866,7 +1866,7 @@ Please sign in again.`}
                 iconSelected={IconMaterialPottedPlantRoundedFilled}
               />
 
-              <NavigationBarItem
+              <NavigationItem
                 label='Light'
 
                 value='Light'
@@ -1882,7 +1882,7 @@ Please sign in again.`}
         <Accordion primary='AmauiTheme'>
           <div className={classNames([classes.column])}>
             <NavigationBar>
-              <NavigationBarItem
+              <NavigationItem
                 label='Home'
 
                 value='Home'
@@ -1891,7 +1891,7 @@ Please sign in again.`}
                 iconSelected={IconMaterialHomeRoundedFilled}
               />
 
-              <NavigationBarItem
+              <NavigationItem
                 label='Plant'
 
                 value='Plant'
@@ -1900,7 +1900,7 @@ Please sign in again.`}
                 iconSelected={IconMaterialPottedPlantRoundedFilled}
               />
 
-              <NavigationBarItem
+              <NavigationItem
                 label='Light'
 
                 value='Light'
@@ -1929,7 +1929,7 @@ Please sign in again.`}
                 style={{ width: '100%' }}
               >
                 <NavigationBar color='secondary'>
-                  <NavigationBarItem
+                  <NavigationItem
                     label='Home'
 
                     value='Home'
@@ -1938,7 +1938,7 @@ Please sign in again.`}
                     iconSelected={IconMaterialHomeRoundedFilled}
                   />
 
-                  <NavigationBarItem
+                  <NavigationItem
                     label='Plant'
 
                     value='Plant'
@@ -1947,7 +1947,7 @@ Please sign in again.`}
                     iconSelected={IconMaterialPottedPlantRoundedFilled}
                   />
 
-                  <NavigationBarItem
+                  <NavigationItem
                     label='Light'
 
                     value='Light'
@@ -1983,7 +1983,7 @@ Please sign in again.`}
                 style={{ width: '100%' }}
               >
                 <NavigationBar color='secondary'>
-                  <NavigationBarItem
+                  <NavigationItem
                     label='Home'
 
                     value='Home'
@@ -1992,7 +1992,7 @@ Please sign in again.`}
                     iconSelected={IconMaterialHomeRoundedFilled}
                   />
 
-                  <NavigationBarItem
+                  <NavigationItem
                     label='Plant'
 
                     value='Plant'
@@ -2001,7 +2001,7 @@ Please sign in again.`}
                     iconSelected={IconMaterialPottedPlantRoundedFilled}
                   />
 
-                  <NavigationBarItem
+                  <NavigationItem
                     label='Light'
 
                     value='Light'
@@ -2040,7 +2040,7 @@ Please sign in again.`}
                 style={{ width: '100%' }}
               >
                 <NavigationBar color='secondary'>
-                  <NavigationBarItem
+                  <NavigationItem
                     label='Home'
 
                     value='Home'
@@ -2049,7 +2049,7 @@ Please sign in again.`}
                     iconSelected={IconMaterialHomeRoundedFilled}
                   />
 
-                  <NavigationBarItem
+                  <NavigationItem
                     label='Plant'
 
                     value='Plant'
@@ -2058,7 +2058,7 @@ Please sign in again.`}
                     iconSelected={IconMaterialPottedPlantRoundedFilled}
                   />
 
-                  <NavigationBarItem
+                  <NavigationItem
                     label='Light'
 
                     value='Light'
@@ -2090,7 +2090,7 @@ Please sign in again.`}
                 style={{ width: '100%' }}
               >
                 <NavigationBar>
-                  <NavigationBarItem
+                  <NavigationItem
                     label='Home'
 
                     value='Home'
@@ -2099,7 +2099,7 @@ Please sign in again.`}
                     iconSelected={IconMaterialHomeRoundedFilled}
                   />
 
-                  <NavigationBarItem
+                  <NavigationItem
                     label='Plant'
 
                     value='Plant'
@@ -2108,7 +2108,7 @@ Please sign in again.`}
                     iconSelected={IconMaterialPottedPlantRoundedFilled}
                   />
 
-                  <NavigationBarItem
+                  <NavigationItem
                     label='Light'
 
                     value='Light'
@@ -2123,7 +2123,7 @@ Please sign in again.`}
 
             <Accordion primary='AmauiTheme styled' open>
               <styled.NavigationBar>
-                <NavigationBarItem
+                <NavigationItem
                   label='Home'
 
                   value='Home'
@@ -2132,7 +2132,7 @@ Please sign in again.`}
                   iconSelected={IconMaterialHomeRoundedFilled}
                 />
 
-                <NavigationBarItem
+                <NavigationItem
                   label='Plant'
 
                   value='Plant'
@@ -2141,7 +2141,1085 @@ Please sign in again.`}
                   iconSelected={IconMaterialPottedPlantRoundedFilled}
                 />
 
-                <NavigationBarItem
+                <NavigationItem
+                  label='Light'
+
+                  value='Light'
+
+                  icon={IconMaterialLightModeRounded}
+
+                  disabled
+                />
+              </styled.NavigationBar>
+            </Accordion>
+          </div>
+        </Accordion>
+      </Accordion>
+
+      <Accordion primary='NavigationBar'>
+        <Accordion primary='NavigationBar'>
+          <NavigationBar>
+            <NavigationItem
+              label='Home'
+
+              value='Home'
+
+              icon={IconMaterialHomeRounded}
+              iconSelected={IconMaterialHomeRoundedFilled}
+            />
+
+            <NavigationItem
+              label='Plant'
+
+              value='Plant'
+
+              icon={IconMaterialPottedPlantRounded}
+              iconSelected={IconMaterialPottedPlantRoundedFilled}
+            />
+
+            <NavigationItem
+              label='Light'
+
+              value='Light'
+
+              icon={IconMaterialLightModeRounded}
+
+              disabled
+            />
+          </NavigationBar>
+        </Accordion>
+
+        <Accordion primary='NavigationBar versions'>
+          <NavigationBar version='regular'>
+            <NavigationItem
+              label='Home'
+
+              value='Home'
+
+              icon={IconMaterialHomeRounded}
+              iconSelected={IconMaterialHomeRoundedFilled}
+            />
+
+            <NavigationItem
+              label='Plant'
+
+              value='Plant'
+
+              icon={IconMaterialPottedPlantRounded}
+              iconSelected={IconMaterialPottedPlantRoundedFilled}
+            />
+
+            <NavigationItem
+              label='Light'
+
+              value='Light'
+
+              icon={IconMaterialLightModeRounded}
+
+              disabled
+            />
+          </NavigationBar>
+
+          <NavigationBar version='none'>
+            <NavigationItem
+              label='Home'
+
+              value='Home'
+
+              icon={IconMaterialHomeRounded}
+              iconSelected={IconMaterialHomeRoundedFilled}
+            />
+
+            <NavigationItem
+              label='Plant'
+
+              value='Plant'
+
+              icon={IconMaterialPottedPlantRounded}
+              iconSelected={IconMaterialPottedPlantRoundedFilled}
+            />
+
+            <NavigationItem
+              label='Light'
+
+              value='Light'
+
+              icon={IconMaterialLightModeRounded}
+
+              disabled
+            />
+          </NavigationBar>
+
+          <NavigationBar version='auto'>
+            <NavigationItem
+              label='Home'
+
+              value='Home'
+
+              icon={IconMaterialHomeRounded}
+              iconSelected={IconMaterialHomeRoundedFilled}
+            />
+
+            <NavigationItem
+              label='Plant'
+
+              value='Plant'
+
+              icon={IconMaterialPottedPlantRounded}
+              iconSelected={IconMaterialPottedPlantRoundedFilled}
+            />
+
+            <NavigationItem
+              label='Light'
+
+              value='Light'
+
+              icon={IconMaterialLightModeRounded}
+
+              disabled
+            />
+          </NavigationBar>
+        </Accordion>
+
+        <Accordion primary='NavigationBar with badge'>
+          <NavigationBar>
+            <NavigationItem
+              label='Home'
+
+              value='Home'
+
+              icon={IconMaterialHomeRounded}
+              iconSelected={IconMaterialHomeRoundedFilled}
+
+              IconWrapperComponent={Badge}
+              IconWrapperProps={{ indicator: true }}
+            />
+
+            <NavigationItem
+              label='Plant'
+
+              value='Plant'
+
+              icon={IconMaterialPottedPlantRounded}
+              iconSelected={IconMaterialPottedPlantRoundedFilled}
+
+              IconWrapperComponent={Badge}
+              IconWrapperProps={{ value: 14 }}
+            />
+
+            <NavigationItem
+              label='Light'
+
+              value='Light'
+
+              icon={IconMaterialLightModeRounded}
+
+              disabled
+            />
+          </NavigationBar>
+        </Accordion>
+
+        <Accordion primary='NavigationBar color'>
+          <Line gap={5}>
+            <NavigationBar color='default' tonal={false}>
+              <NavigationItem
+                label='Home'
+
+                value='Home'
+
+                icon={IconMaterialHomeRounded}
+                iconSelected={IconMaterialHomeRoundedFilled}
+              />
+
+              <NavigationItem
+                label='Plant'
+
+                value='Plant'
+
+                icon={IconMaterialPottedPlantRounded}
+                iconSelected={IconMaterialPottedPlantRoundedFilled}
+              />
+
+              <NavigationItem
+                label='Light'
+
+                value='Light'
+
+                icon={IconMaterialLightModeRounded}
+
+                disabled
+              />
+            </NavigationBar>
+
+            <NavigationBar color='primary' tonal={false}>
+              <NavigationItem
+                label='Home'
+
+                value='Home'
+
+                icon={IconMaterialHomeRounded}
+                iconSelected={IconMaterialHomeRoundedFilled}
+              />
+
+              <NavigationItem
+                label='Plant'
+
+                value='Plant'
+
+                icon={IconMaterialPottedPlantRounded}
+                iconSelected={IconMaterialPottedPlantRoundedFilled}
+              />
+
+              <NavigationItem
+                label='Light'
+
+                value='Light'
+
+                icon={IconMaterialLightModeRounded}
+
+                disabled
+              />
+            </NavigationBar>
+
+            <NavigationBar color='secondary' tonal={false}>
+              <NavigationItem
+                label='Home'
+
+                value='Home'
+
+                icon={IconMaterialHomeRounded}
+                iconSelected={IconMaterialHomeRoundedFilled}
+              />
+
+              <NavigationItem
+                label='Plant'
+
+                value='Plant'
+
+                icon={IconMaterialPottedPlantRounded}
+                iconSelected={IconMaterialPottedPlantRoundedFilled}
+              />
+
+              <NavigationItem
+                label='Light'
+
+                value='Light'
+
+                icon={IconMaterialLightModeRounded}
+
+                disabled
+              />
+            </NavigationBar>
+
+            <NavigationBar color='tertiary' tonal={false}>
+              <NavigationItem
+                label='Home'
+
+                value='Home'
+
+                icon={IconMaterialHomeRounded}
+                iconSelected={IconMaterialHomeRoundedFilled}
+              />
+
+              <NavigationItem
+                label='Plant'
+
+                value='Plant'
+
+                icon={IconMaterialPottedPlantRounded}
+                iconSelected={IconMaterialPottedPlantRoundedFilled}
+              />
+
+              <NavigationItem
+                label='Light'
+
+                value='Light'
+
+                icon={IconMaterialLightModeRounded}
+
+                disabled
+              />
+            </NavigationBar>
+
+            <NavigationBar color='quaternary' tonal={false}>
+              <NavigationItem
+                label='Home'
+
+                value='Home'
+
+                icon={IconMaterialHomeRounded}
+                iconSelected={IconMaterialHomeRoundedFilled}
+              />
+
+              <NavigationItem
+                label='Plant'
+
+                value='Plant'
+
+                icon={IconMaterialPottedPlantRounded}
+                iconSelected={IconMaterialPottedPlantRoundedFilled}
+              />
+
+              <NavigationItem
+                label='Light'
+
+                value='Light'
+
+                icon={IconMaterialLightModeRounded}
+
+                disabled
+              />
+            </NavigationBar>
+
+            <NavigationBar color='info' tonal={false}>
+              <NavigationItem
+                label='Home'
+
+                value='Home'
+
+                icon={IconMaterialHomeRounded}
+                iconSelected={IconMaterialHomeRoundedFilled}
+              />
+
+              <NavigationItem
+                label='Plant'
+
+                value='Plant'
+
+                icon={IconMaterialPottedPlantRounded}
+                iconSelected={IconMaterialPottedPlantRoundedFilled}
+              />
+
+              <NavigationItem
+                label='Light'
+
+                value='Light'
+
+                icon={IconMaterialLightModeRounded}
+
+                disabled
+              />
+            </NavigationBar>
+
+            <NavigationBar color='success' tonal={false}>
+              <NavigationItem
+                label='Home'
+
+                value='Home'
+
+                icon={IconMaterialHomeRounded}
+                iconSelected={IconMaterialHomeRoundedFilled}
+              />
+
+              <NavigationItem
+                label='Plant'
+
+                value='Plant'
+
+                icon={IconMaterialPottedPlantRounded}
+                iconSelected={IconMaterialPottedPlantRoundedFilled}
+              />
+
+              <NavigationItem
+                label='Light'
+
+                value='Light'
+
+                icon={IconMaterialLightModeRounded}
+
+                disabled
+              />
+            </NavigationBar>
+
+            <NavigationBar color='warning' tonal={false}>
+              <NavigationItem
+                label='Home'
+
+                value='Home'
+
+                icon={IconMaterialHomeRounded}
+                iconSelected={IconMaterialHomeRoundedFilled}
+              />
+
+              <NavigationItem
+                label='Plant'
+
+                value='Plant'
+
+                icon={IconMaterialPottedPlantRounded}
+                iconSelected={IconMaterialPottedPlantRoundedFilled}
+              />
+
+              <NavigationItem
+                label='Light'
+
+                value='Light'
+
+                icon={IconMaterialLightModeRounded}
+
+                disabled
+              />
+            </NavigationBar>
+
+            <NavigationBar color='error' tonal={false}>
+              <NavigationItem
+                label='Home'
+
+                value='Home'
+
+                icon={IconMaterialHomeRounded}
+                iconSelected={IconMaterialHomeRoundedFilled}
+              />
+
+              <NavigationItem
+                label='Plant'
+
+                value='Plant'
+
+                icon={IconMaterialPottedPlantRounded}
+                iconSelected={IconMaterialPottedPlantRoundedFilled}
+              />
+
+              <NavigationItem
+                label='Light'
+
+                value='Light'
+
+                icon={IconMaterialLightModeRounded}
+
+                disabled
+              />
+            </NavigationBar>
+
+            <NavigationBar color='neutral' tonal={false}>
+              <NavigationItem
+                label='Home'
+
+                value='Home'
+
+                icon={IconMaterialHomeRounded}
+                iconSelected={IconMaterialHomeRoundedFilled}
+              />
+
+              <NavigationItem
+                label='Plant'
+
+                value='Plant'
+
+                icon={IconMaterialPottedPlantRounded}
+                iconSelected={IconMaterialPottedPlantRoundedFilled}
+              />
+
+              <NavigationItem
+                label='Light'
+
+                value='Light'
+
+                icon={IconMaterialLightModeRounded}
+
+                disabled
+              />
+            </NavigationBar>
+
+            <NavigationBar color='#f5d758' tonal={false}>
+              <NavigationItem
+                label='Home'
+
+                value='Home'
+
+                icon={IconMaterialHomeRounded}
+                iconSelected={IconMaterialHomeRoundedFilled}
+              />
+
+              <NavigationItem
+                label='Plant'
+
+                value='Plant'
+
+                icon={IconMaterialPottedPlantRounded}
+                iconSelected={IconMaterialPottedPlantRoundedFilled}
+              />
+
+              <NavigationItem
+                label='Light'
+
+                value='Light'
+
+                icon={IconMaterialLightModeRounded}
+
+                disabled
+              />
+            </NavigationBar>
+          </Line>
+        </Accordion>
+
+        <Accordion primary='NavigationBar tonal'>
+          <Line gap={5}>
+            <NavigationBar color='primary' tonal>
+              <NavigationItem
+                label='Home'
+
+                value='Home'
+
+                icon={IconMaterialHomeRounded}
+                iconSelected={IconMaterialHomeRoundedFilled}
+              />
+
+              <NavigationItem
+                label='Plant'
+
+                value='Plant'
+
+                icon={IconMaterialPottedPlantRounded}
+                iconSelected={IconMaterialPottedPlantRoundedFilled}
+              />
+
+              <NavigationItem
+                label='Light'
+
+                value='Light'
+
+                icon={IconMaterialLightModeRounded}
+
+                disabled
+              />
+            </NavigationBar>
+
+            <NavigationBar color='secondary' tonal>
+              <NavigationItem
+                label='Home'
+
+                value='Home'
+
+                icon={IconMaterialHomeRounded}
+                iconSelected={IconMaterialHomeRoundedFilled}
+              />
+
+              <NavigationItem
+                label='Plant'
+
+                value='Plant'
+
+                icon={IconMaterialPottedPlantRounded}
+                iconSelected={IconMaterialPottedPlantRoundedFilled}
+              />
+
+              <NavigationItem
+                label='Light'
+
+                value='Light'
+
+                icon={IconMaterialLightModeRounded}
+
+                disabled
+              />
+            </NavigationBar>
+
+            <NavigationBar color='tertiary' tonal>
+              <NavigationItem
+                label='Home'
+
+                value='Home'
+
+                icon={IconMaterialHomeRounded}
+                iconSelected={IconMaterialHomeRoundedFilled}
+              />
+
+              <NavigationItem
+                label='Plant'
+
+                value='Plant'
+
+                icon={IconMaterialPottedPlantRounded}
+                iconSelected={IconMaterialPottedPlantRoundedFilled}
+              />
+
+              <NavigationItem
+                label='Light'
+
+                value='Light'
+
+                icon={IconMaterialLightModeRounded}
+
+                disabled
+              />
+            </NavigationBar>
+
+            <NavigationBar color='quaternary' tonal>
+              <NavigationItem
+                label='Home'
+
+                value='Home'
+
+                icon={IconMaterialHomeRounded}
+                iconSelected={IconMaterialHomeRoundedFilled}
+              />
+
+              <NavigationItem
+                label='Plant'
+
+                value='Plant'
+
+                icon={IconMaterialPottedPlantRounded}
+                iconSelected={IconMaterialPottedPlantRoundedFilled}
+              />
+
+              <NavigationItem
+                label='Light'
+
+                value='Light'
+
+                icon={IconMaterialLightModeRounded}
+
+                disabled
+              />
+            </NavigationBar>
+
+            <NavigationBar color='info' tonal>
+              <NavigationItem
+                label='Home'
+
+                value='Home'
+
+                icon={IconMaterialHomeRounded}
+                iconSelected={IconMaterialHomeRoundedFilled}
+              />
+
+              <NavigationItem
+                label='Plant'
+
+                value='Plant'
+
+                icon={IconMaterialPottedPlantRounded}
+                iconSelected={IconMaterialPottedPlantRoundedFilled}
+              />
+
+              <NavigationItem
+                label='Light'
+
+                value='Light'
+
+                icon={IconMaterialLightModeRounded}
+
+                disabled
+              />
+            </NavigationBar>
+
+            <NavigationBar color='success' tonal>
+              <NavigationItem
+                label='Home'
+
+                value='Home'
+
+                icon={IconMaterialHomeRounded}
+                iconSelected={IconMaterialHomeRoundedFilled}
+              />
+
+              <NavigationItem
+                label='Plant'
+
+                value='Plant'
+
+                icon={IconMaterialPottedPlantRounded}
+                iconSelected={IconMaterialPottedPlantRoundedFilled}
+              />
+
+              <NavigationItem
+                label='Light'
+
+                value='Light'
+
+                icon={IconMaterialLightModeRounded}
+
+                disabled
+              />
+            </NavigationBar>
+
+            <NavigationBar color='warning' tonal>
+              <NavigationItem
+                label='Home'
+
+                value='Home'
+
+                icon={IconMaterialHomeRounded}
+                iconSelected={IconMaterialHomeRoundedFilled}
+              />
+
+              <NavigationItem
+                label='Plant'
+
+                value='Plant'
+
+                icon={IconMaterialPottedPlantRounded}
+                iconSelected={IconMaterialPottedPlantRoundedFilled}
+              />
+
+              <NavigationItem
+                label='Light'
+
+                value='Light'
+
+                icon={IconMaterialLightModeRounded}
+
+                disabled
+              />
+            </NavigationBar>
+
+            <NavigationBar color='error' tonal>
+              <NavigationItem
+                label='Home'
+
+                value='Home'
+
+                icon={IconMaterialHomeRounded}
+                iconSelected={IconMaterialHomeRoundedFilled}
+              />
+
+              <NavigationItem
+                label='Plant'
+
+                value='Plant'
+
+                icon={IconMaterialPottedPlantRounded}
+                iconSelected={IconMaterialPottedPlantRoundedFilled}
+              />
+
+              <NavigationItem
+                label='Light'
+
+                value='Light'
+
+                icon={IconMaterialLightModeRounded}
+
+                disabled
+              />
+            </NavigationBar>
+
+            <NavigationBar color='neutral' tonal>
+              <NavigationItem
+                label='Home'
+
+                value='Home'
+
+                icon={IconMaterialHomeRounded}
+                iconSelected={IconMaterialHomeRoundedFilled}
+              />
+
+              <NavigationItem
+                label='Plant'
+
+                value='Plant'
+
+                icon={IconMaterialPottedPlantRounded}
+                iconSelected={IconMaterialPottedPlantRoundedFilled}
+              />
+
+              <NavigationItem
+                label='Light'
+
+                value='Light'
+
+                icon={IconMaterialLightModeRounded}
+
+                disabled
+              />
+            </NavigationBar>
+
+            <NavigationBar color='#f5d758' tonal>
+              <NavigationItem
+                label='Home'
+
+                value='Home'
+
+                icon={IconMaterialHomeRounded}
+                iconSelected={IconMaterialHomeRoundedFilled}
+              />
+
+              <NavigationItem
+                label='Plant'
+
+                value='Plant'
+
+                icon={IconMaterialPottedPlantRounded}
+                iconSelected={IconMaterialPottedPlantRoundedFilled}
+              />
+
+              <NavigationItem
+                label='Light'
+
+                value='Light'
+
+                icon={IconMaterialLightModeRounded}
+
+                disabled
+              />
+            </NavigationBar>
+          </Line>
+        </Accordion>
+
+        <Accordion primary='AmauiTheme'>
+          <div className={classNames([classes.column])}>
+            <NavigationBar>
+              <NavigationItem
+                label='Home'
+
+                value='Home'
+
+                icon={IconMaterialHomeRounded}
+                iconSelected={IconMaterialHomeRoundedFilled}
+              />
+
+              <NavigationItem
+                label='Plant'
+
+                value='Plant'
+
+                icon={IconMaterialPottedPlantRounded}
+                iconSelected={IconMaterialPottedPlantRoundedFilled}
+              />
+
+              <NavigationItem
+                label='Light'
+
+                value='Light'
+
+                icon={IconMaterialLightModeRounded}
+
+                disabled
+              />
+            </NavigationBar>
+
+            <Accordion primary='AmauiTheme nested value' open>
+              <AmauiThemeProvider
+                value={{
+                  palette: {
+                    color: {
+                      secondary: {
+                        main: '#008000'
+                      }
+                    }
+                  },
+                  space: {
+                    unit: 5
+                  }
+                }}
+
+                style={{ width: '100%' }}
+              >
+                <NavigationBar color='secondary'>
+                  <NavigationItem
+                    label='Home'
+
+                    value='Home'
+
+                    icon={IconMaterialHomeRounded}
+                    iconSelected={IconMaterialHomeRoundedFilled}
+                  />
+
+                  <NavigationItem
+                    label='Plant'
+
+                    value='Plant'
+
+                    icon={IconMaterialPottedPlantRounded}
+                    iconSelected={IconMaterialPottedPlantRoundedFilled}
+                  />
+
+                  <NavigationItem
+                    label='Light'
+
+                    value='Light'
+
+                    icon={IconMaterialLightModeRounded}
+
+                    disabled
+                  />
+                </NavigationBar>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme add' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiNavigationBar: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: 0.4
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+
+                style={{ width: '100%' }}
+              >
+                <NavigationBar color='secondary'>
+                  <NavigationItem
+                    label='Home'
+
+                    value='Home'
+
+                    icon={IconMaterialHomeRounded}
+                    iconSelected={IconMaterialHomeRoundedFilled}
+                  />
+
+                  <NavigationItem
+                    label='Plant'
+
+                    value='Plant'
+
+                    icon={IconMaterialPottedPlantRounded}
+                    iconSelected={IconMaterialPottedPlantRoundedFilled}
+                  />
+
+                  <NavigationItem
+                    label='Light'
+
+                    value='Light'
+
+                    icon={IconMaterialLightModeRounded}
+
+                    disabled
+                  />
+                </NavigationBar>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme override' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiNavigationBar: {
+                        style: {
+                          override: {
+                            root: {
+                              display: 'inline-flex',
+                              flex: '1 1 auto',
+                              userSelect: 'none',
+                              cursor: 'pointer',
+                              padding: '24px 0 34px',
+                              minHeight: '80px'
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+
+                style={{ width: '100%' }}
+              >
+                <NavigationBar color='secondary'>
+                  <NavigationItem
+                    label='Home'
+
+                    value='Home'
+
+                    icon={IconMaterialHomeRounded}
+                    iconSelected={IconMaterialHomeRoundedFilled}
+                  />
+
+                  <NavigationItem
+                    label='Plant'
+
+                    value='Plant'
+
+                    icon={IconMaterialPottedPlantRounded}
+                    iconSelected={IconMaterialPottedPlantRoundedFilled}
+                  />
+
+                  <NavigationItem
+                    label='Light'
+
+                    value='Light'
+
+                    icon={IconMaterialLightModeRounded}
+
+                    disabled
+                  />
+                </NavigationBar>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme props' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiNavigationBar: {
+                        props: {
+                          default: {
+                            color: 'secondary'
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+
+                style={{ width: '100%' }}
+              >
+                <NavigationBar>
+                  <NavigationItem
+                    label='Home'
+
+                    value='Home'
+
+                    icon={IconMaterialHomeRounded}
+                    iconSelected={IconMaterialHomeRoundedFilled}
+                  />
+
+                  <NavigationItem
+                    label='Plant'
+
+                    value='Plant'
+
+                    icon={IconMaterialPottedPlantRounded}
+                    iconSelected={IconMaterialPottedPlantRoundedFilled}
+                  />
+
+                  <NavigationItem
+                    label='Light'
+
+                    value='Light'
+
+                    icon={IconMaterialLightModeRounded}
+
+                    disabled
+                  />
+                </NavigationBar>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme styled' open>
+              <styled.NavigationBar>
+                <NavigationItem
+                  label='Home'
+
+                  value='Home'
+
+                  icon={IconMaterialHomeRounded}
+                  iconSelected={IconMaterialHomeRoundedFilled}
+                />
+
+                <NavigationItem
+                  label='Plant'
+
+                  value='Plant'
+
+                  icon={IconMaterialPottedPlantRounded}
+                  iconSelected={IconMaterialPottedPlantRoundedFilled}
+                />
+
+                <NavigationItem
                   label='Light'
 
                   value='Light'
