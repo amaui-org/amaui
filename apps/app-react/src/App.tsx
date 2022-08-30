@@ -785,8 +785,8 @@ function App() {
 
               value='Home'
 
-              icon={IconMaterialHomeRounded}
-              iconSelected={IconMaterialHomeRoundedFilled}
+              icon={<IconMaterialHomeRounded />}
+              iconSelected={<IconMaterialHomeRoundedFilled />}
             />
 
             <NavigationItem
@@ -794,8 +794,8 @@ function App() {
 
               value='Plant'
 
-              icon={IconMaterialPottedPlantRounded}
-              iconSelected={IconMaterialPottedPlantRoundedFilled}
+              icon={<IconMaterialPottedPlantRounded />}
+              iconSelected={<IconMaterialPottedPlantRoundedFilled />}
             />
 
             <NavigationItem
@@ -803,7 +803,7 @@ function App() {
 
               value='Light'
 
-              icon={IconMaterialLightModeRounded}
+              icon={<IconMaterialLightModeRounded />}
 
               disabled
             />
@@ -1099,8 +1099,8 @@ Please sign in again.`}
 
               value='Home'
 
-              icon={IconMaterialHomeRounded}
-              iconSelected={IconMaterialHomeRoundedFilled}
+              icon={<IconMaterialHomeRounded />}
+              iconSelected={<IconMaterialHomeRoundedFilled />}
             />
 
             <NavigationItem
@@ -1108,8 +1108,8 @@ Please sign in again.`}
 
               value='Plant'
 
-              icon={IconMaterialPottedPlantRounded}
-              iconSelected={IconMaterialPottedPlantRoundedFilled}
+              icon={<IconMaterialPottedPlantRounded />}
+              iconSelected={<IconMaterialPottedPlantRoundedFilled />}
             />
 
             <NavigationItem
@@ -1117,7 +1117,7 @@ Please sign in again.`}
 
               value='Light'
 
-              icon={IconMaterialLightModeRounded}
+              icon={<IconMaterialLightModeRounded />}
 
               disabled
             />
@@ -1146,8 +1146,8 @@ Please sign in again.`}
 
                 value='Home'
 
-                icon={IconMaterialHomeRounded}
-                iconSelected={IconMaterialHomeRoundedFilled}
+                icon={<IconMaterialHomeRounded />}
+                iconSelected={<IconMaterialHomeRoundedFilled />}
               />
 
               <NavigationItem
@@ -1155,8 +1155,8 @@ Please sign in again.`}
 
                 value='Plant'
 
-                icon={IconMaterialPottedPlantRounded}
-                iconSelected={IconMaterialPottedPlantRoundedFilled}
+                icon={<IconMaterialPottedPlantRounded />}
+                iconSelected={<IconMaterialPottedPlantRoundedFilled />}
               />
 
               <NavigationItem
@@ -1164,7 +1164,7 @@ Please sign in again.`}
 
                 value='Light'
 
-                icon={IconMaterialLightModeRounded}
+                icon={<IconMaterialLightModeRounded />}
 
                 disabled
               />
@@ -1190,8 +1190,8 @@ Please sign in again.`}
 
                 value='Home'
 
-                icon={IconMaterialHomeRounded}
-                iconSelected={IconMaterialHomeRoundedFilled}
+                icon={<IconMaterialHomeRounded />}
+                iconSelected={<IconMaterialHomeRoundedFilled />}
               />
 
               <NavigationItem
@@ -1199,8 +1199,8 @@ Please sign in again.`}
 
                 value='Plant'
 
-                icon={IconMaterialPottedPlantRounded}
-                iconSelected={IconMaterialPottedPlantRoundedFilled}
+                icon={<IconMaterialPottedPlantRounded />}
+                iconSelected={<IconMaterialPottedPlantRoundedFilled />}
               />
 
               <NavigationItem
@@ -1208,7 +1208,7 @@ Please sign in again.`}
 
                 value='Light'
 
-                icon={IconMaterialLightModeRounded}
+                icon={<IconMaterialLightModeRounded />}
 
                 disabled
               />
@@ -1234,8 +1234,8 @@ Please sign in again.`}
 
                 value='Home'
 
-                icon={IconMaterialHomeRounded}
-                iconSelected={IconMaterialHomeRoundedFilled}
+                icon={<IconMaterialHomeRounded />}
+                iconSelected={<IconMaterialHomeRoundedFilled />}
               />
 
               <NavigationItem
@@ -1243,8 +1243,8 @@ Please sign in again.`}
 
                 value='Plant'
 
-                icon={IconMaterialPottedPlantRounded}
-                iconSelected={IconMaterialPottedPlantRoundedFilled}
+                icon={<IconMaterialPottedPlantRounded />}
+                iconSelected={<IconMaterialPottedPlantRoundedFilled />}
               />
 
               <NavigationItem
@@ -1252,7 +1252,7 @@ Please sign in again.`}
 
                 value='Light'
 
-                icon={IconMaterialLightModeRounded}
+                icon={<IconMaterialLightModeRounded />}
 
                 disabled
               />
@@ -1260,15 +1260,29 @@ Please sign in again.`}
           </Line>
         </Accordion>
 
-        <Accordion primary='NavigationBar versions'>
-          <NavigationBar version='regular'>
+        <Accordion primary='NavigationRail versions'>
+          <NavigationRail
+            version='regular'
+
+            header={[
+              <IconButton>
+                <IconMaterialMenuRounded />
+              </IconButton>,
+
+              <Fab
+                elevation={0}
+              >
+                <IconMaterialPottedPlantRounded />
+              </Fab>
+            ]}
+          >
             <NavigationItem
               label='Home'
 
               value='Home'
 
-              icon={IconMaterialHomeRounded}
-              iconSelected={IconMaterialHomeRoundedFilled}
+              icon={<IconMaterialHomeRounded />}
+              iconSelected={<IconMaterialHomeRoundedFilled />}
             />
 
             <NavigationItem
@@ -1276,8 +1290,8 @@ Please sign in again.`}
 
               value='Plant'
 
-              icon={IconMaterialPottedPlantRounded}
-              iconSelected={IconMaterialPottedPlantRoundedFilled}
+              icon={<IconMaterialPottedPlantRounded />}
+              iconSelected={<IconMaterialPottedPlantRoundedFilled />}
             />
 
             <NavigationItem
@@ -1285,20 +1299,34 @@ Please sign in again.`}
 
               value='Light'
 
-              icon={IconMaterialLightModeRounded}
+              icon={<IconMaterialLightModeRounded />}
 
               disabled
             />
-          </NavigationBar>
+          </NavigationRail>
 
-          <NavigationBar version='none'>
+          <NavigationRail
+            version='none'
+
+            header={[
+              <IconButton>
+                <IconMaterialMenuRounded />
+              </IconButton>,
+
+              <Fab
+                elevation={0}
+              >
+                <IconMaterialPottedPlantRounded />
+              </Fab>
+            ]}
+          >
             <NavigationItem
               label='Home'
 
               value='Home'
 
-              icon={IconMaterialHomeRounded}
-              iconSelected={IconMaterialHomeRoundedFilled}
+              icon={<IconMaterialHomeRounded />}
+              iconSelected={<IconMaterialHomeRoundedFilled />}
             />
 
             <NavigationItem
@@ -1306,8 +1334,8 @@ Please sign in again.`}
 
               value='Plant'
 
-              icon={IconMaterialPottedPlantRounded}
-              iconSelected={IconMaterialPottedPlantRoundedFilled}
+              icon={<IconMaterialPottedPlantRounded />}
+              iconSelected={<IconMaterialPottedPlantRoundedFilled />}
             />
 
             <NavigationItem
@@ -1315,20 +1343,34 @@ Please sign in again.`}
 
               value='Light'
 
-              icon={IconMaterialLightModeRounded}
+              icon={<IconMaterialLightModeRounded />}
 
               disabled
             />
-          </NavigationBar>
+          </NavigationRail>
 
-          <NavigationBar version='auto'>
+          <NavigationRail
+            version='auto'
+
+            header={[
+              <IconButton>
+                <IconMaterialMenuRounded />
+              </IconButton>,
+
+              <Fab
+                elevation={0}
+              >
+                <IconMaterialPottedPlantRounded />
+              </Fab>
+            ]}
+          >
             <NavigationItem
               label='Home'
 
               value='Home'
 
-              icon={IconMaterialHomeRounded}
-              iconSelected={IconMaterialHomeRoundedFilled}
+              icon={<IconMaterialHomeRounded />}
+              iconSelected={<IconMaterialHomeRoundedFilled />}
             />
 
             <NavigationItem
@@ -1336,8 +1378,8 @@ Please sign in again.`}
 
               value='Plant'
 
-              icon={IconMaterialPottedPlantRounded}
-              iconSelected={IconMaterialPottedPlantRoundedFilled}
+              icon={<IconMaterialPottedPlantRounded />}
+              iconSelected={<IconMaterialPottedPlantRoundedFilled />}
             />
 
             <NavigationItem
@@ -1345,11 +1387,57 @@ Please sign in again.`}
 
               value='Light'
 
-              icon={IconMaterialLightModeRounded}
+              icon={<IconMaterialLightModeRounded />}
 
               disabled
             />
-          </NavigationBar>
+          </NavigationRail>
+
+          <NavigationRail
+            version='auto'
+
+            header={[
+              <IconButton>
+                <IconMaterialMenuRounded />
+              </IconButton>,
+
+              <Fab
+                elevation={0}
+              >
+                <IconMaterialPottedPlantRounded />
+              </Fab>
+            ]}
+          >
+            <IconButton
+              label='Home'
+
+              value='Home'
+
+              iconSelected={<IconMaterialHomeRoundedFilled />}
+            >
+              <IconMaterialHomeRounded />
+            </IconButton>
+
+            <IconButton
+              label='Plant'
+
+              value='Plant'
+
+              iconSelected={<IconMaterialPottedPlantRoundedFilled />}
+            >
+              <IconMaterialPottedPlantRounded />
+            </IconButton>
+
+            <IconButton
+              label='Light'
+
+              value='Light'
+
+              disabled
+            >
+              <IconMaterialLightModeRounded />
+            </IconButton>
+          </NavigationRail>
         </Accordion>
 
         <Accordion primary='NavigationBar with badge'>
@@ -1359,8 +1447,8 @@ Please sign in again.`}
 
               value='Home'
 
-              icon={IconMaterialHomeRounded}
-              iconSelected={IconMaterialHomeRoundedFilled}
+              icon={<IconMaterialHomeRounded />}
+              iconSelected={<IconMaterialHomeRoundedFilled />}
 
               IconWrapperComponent={Badge}
               IconWrapperProps={{ indicator: true }}
@@ -1371,8 +1459,8 @@ Please sign in again.`}
 
               value='Plant'
 
-              icon={IconMaterialPottedPlantRounded}
-              iconSelected={IconMaterialPottedPlantRoundedFilled}
+              icon={<IconMaterialPottedPlantRounded />}
+              iconSelected={<IconMaterialPottedPlantRoundedFilled />}
 
               IconWrapperComponent={Badge}
               IconWrapperProps={{ value: 14 }}
@@ -1383,7 +1471,7 @@ Please sign in again.`}
 
               value='Light'
 
-              icon={IconMaterialLightModeRounded}
+              icon={<IconMaterialLightModeRounded />}
 
               disabled
             />
@@ -1398,8 +1486,8 @@ Please sign in again.`}
 
                 value='Home'
 
-                icon={IconMaterialHomeRounded}
-                iconSelected={IconMaterialHomeRoundedFilled}
+                icon={<IconMaterialHomeRounded />}
+                iconSelected={<IconMaterialHomeRoundedFilled />}
               />
 
               <NavigationItem
@@ -1407,8 +1495,8 @@ Please sign in again.`}
 
                 value='Plant'
 
-                icon={IconMaterialPottedPlantRounded}
-                iconSelected={IconMaterialPottedPlantRoundedFilled}
+                icon={<IconMaterialPottedPlantRounded />}
+                iconSelected={<IconMaterialPottedPlantRoundedFilled />}
               />
 
               <NavigationItem
@@ -1416,7 +1504,7 @@ Please sign in again.`}
 
                 value='Light'
 
-                icon={IconMaterialLightModeRounded}
+                icon={<IconMaterialLightModeRounded />}
 
                 disabled
               />
@@ -1428,8 +1516,8 @@ Please sign in again.`}
 
                 value='Home'
 
-                icon={IconMaterialHomeRounded}
-                iconSelected={IconMaterialHomeRoundedFilled}
+                icon={<IconMaterialHomeRounded />}
+                iconSelected={<IconMaterialHomeRoundedFilled />}
               />
 
               <NavigationItem
@@ -1437,8 +1525,8 @@ Please sign in again.`}
 
                 value='Plant'
 
-                icon={IconMaterialPottedPlantRounded}
-                iconSelected={IconMaterialPottedPlantRoundedFilled}
+                icon={<IconMaterialPottedPlantRounded />}
+                iconSelected={<IconMaterialPottedPlantRoundedFilled />}
               />
 
               <NavigationItem
@@ -1446,7 +1534,7 @@ Please sign in again.`}
 
                 value='Light'
 
-                icon={IconMaterialLightModeRounded}
+                icon={<IconMaterialLightModeRounded />}
 
                 disabled
               />
@@ -1458,8 +1546,8 @@ Please sign in again.`}
 
                 value='Home'
 
-                icon={IconMaterialHomeRounded}
-                iconSelected={IconMaterialHomeRoundedFilled}
+                icon={<IconMaterialHomeRounded />}
+                iconSelected={<IconMaterialHomeRoundedFilled />}
               />
 
               <NavigationItem
@@ -1467,8 +1555,8 @@ Please sign in again.`}
 
                 value='Plant'
 
-                icon={IconMaterialPottedPlantRounded}
-                iconSelected={IconMaterialPottedPlantRoundedFilled}
+                icon={<IconMaterialPottedPlantRounded />}
+                iconSelected={<IconMaterialPottedPlantRoundedFilled />}
               />
 
               <NavigationItem
@@ -1476,7 +1564,7 @@ Please sign in again.`}
 
                 value='Light'
 
-                icon={IconMaterialLightModeRounded}
+                icon={<IconMaterialLightModeRounded />}
 
                 disabled
               />
@@ -1488,8 +1576,8 @@ Please sign in again.`}
 
                 value='Home'
 
-                icon={IconMaterialHomeRounded}
-                iconSelected={IconMaterialHomeRoundedFilled}
+                icon={<IconMaterialHomeRounded />}
+                iconSelected={<IconMaterialHomeRoundedFilled />}
               />
 
               <NavigationItem
@@ -1497,8 +1585,8 @@ Please sign in again.`}
 
                 value='Plant'
 
-                icon={IconMaterialPottedPlantRounded}
-                iconSelected={IconMaterialPottedPlantRoundedFilled}
+                icon={<IconMaterialPottedPlantRounded />}
+                iconSelected={<IconMaterialPottedPlantRoundedFilled />}
               />
 
               <NavigationItem
@@ -1506,7 +1594,7 @@ Please sign in again.`}
 
                 value='Light'
 
-                icon={IconMaterialLightModeRounded}
+                icon={<IconMaterialLightModeRounded />}
 
                 disabled
               />
@@ -1518,8 +1606,8 @@ Please sign in again.`}
 
                 value='Home'
 
-                icon={IconMaterialHomeRounded}
-                iconSelected={IconMaterialHomeRoundedFilled}
+                icon={<IconMaterialHomeRounded />}
+                iconSelected={<IconMaterialHomeRoundedFilled />}
               />
 
               <NavigationItem
@@ -1527,8 +1615,8 @@ Please sign in again.`}
 
                 value='Plant'
 
-                icon={IconMaterialPottedPlantRounded}
-                iconSelected={IconMaterialPottedPlantRoundedFilled}
+                icon={<IconMaterialPottedPlantRounded />}
+                iconSelected={<IconMaterialPottedPlantRoundedFilled />}
               />
 
               <NavigationItem
@@ -1536,7 +1624,7 @@ Please sign in again.`}
 
                 value='Light'
 
-                icon={IconMaterialLightModeRounded}
+                icon={<IconMaterialLightModeRounded />}
 
                 disabled
               />
@@ -1548,8 +1636,8 @@ Please sign in again.`}
 
                 value='Home'
 
-                icon={IconMaterialHomeRounded}
-                iconSelected={IconMaterialHomeRoundedFilled}
+                icon={<IconMaterialHomeRounded />}
+                iconSelected={<IconMaterialHomeRoundedFilled />}
               />
 
               <NavigationItem
@@ -1557,8 +1645,8 @@ Please sign in again.`}
 
                 value='Plant'
 
-                icon={IconMaterialPottedPlantRounded}
-                iconSelected={IconMaterialPottedPlantRoundedFilled}
+                icon={<IconMaterialPottedPlantRounded />}
+                iconSelected={<IconMaterialPottedPlantRoundedFilled />}
               />
 
               <NavigationItem
@@ -1566,7 +1654,7 @@ Please sign in again.`}
 
                 value='Light'
 
-                icon={IconMaterialLightModeRounded}
+                icon={<IconMaterialLightModeRounded />}
 
                 disabled
               />
@@ -1578,8 +1666,8 @@ Please sign in again.`}
 
                 value='Home'
 
-                icon={IconMaterialHomeRounded}
-                iconSelected={IconMaterialHomeRoundedFilled}
+                icon={<IconMaterialHomeRounded />}
+                iconSelected={<IconMaterialHomeRoundedFilled />}
               />
 
               <NavigationItem
@@ -1587,8 +1675,8 @@ Please sign in again.`}
 
                 value='Plant'
 
-                icon={IconMaterialPottedPlantRounded}
-                iconSelected={IconMaterialPottedPlantRoundedFilled}
+                icon={<IconMaterialPottedPlantRounded />}
+                iconSelected={<IconMaterialPottedPlantRoundedFilled />}
               />
 
               <NavigationItem
@@ -1596,7 +1684,7 @@ Please sign in again.`}
 
                 value='Light'
 
-                icon={IconMaterialLightModeRounded}
+                icon={<IconMaterialLightModeRounded />}
 
                 disabled
               />
@@ -1608,8 +1696,8 @@ Please sign in again.`}
 
                 value='Home'
 
-                icon={IconMaterialHomeRounded}
-                iconSelected={IconMaterialHomeRoundedFilled}
+                icon={<IconMaterialHomeRounded />}
+                iconSelected={<IconMaterialHomeRoundedFilled />}
               />
 
               <NavigationItem
@@ -1617,8 +1705,8 @@ Please sign in again.`}
 
                 value='Plant'
 
-                icon={IconMaterialPottedPlantRounded}
-                iconSelected={IconMaterialPottedPlantRoundedFilled}
+                icon={<IconMaterialPottedPlantRounded />}
+                iconSelected={<IconMaterialPottedPlantRoundedFilled />}
               />
 
               <NavigationItem
@@ -1626,7 +1714,7 @@ Please sign in again.`}
 
                 value='Light'
 
-                icon={IconMaterialLightModeRounded}
+                icon={<IconMaterialLightModeRounded />}
 
                 disabled
               />
@@ -1638,8 +1726,8 @@ Please sign in again.`}
 
                 value='Home'
 
-                icon={IconMaterialHomeRounded}
-                iconSelected={IconMaterialHomeRoundedFilled}
+                icon={<IconMaterialHomeRounded />}
+                iconSelected={<IconMaterialHomeRoundedFilled />}
               />
 
               <NavigationItem
@@ -1647,8 +1735,8 @@ Please sign in again.`}
 
                 value='Plant'
 
-                icon={IconMaterialPottedPlantRounded}
-                iconSelected={IconMaterialPottedPlantRoundedFilled}
+                icon={<IconMaterialPottedPlantRounded />}
+                iconSelected={<IconMaterialPottedPlantRoundedFilled />}
               />
 
               <NavigationItem
@@ -1656,7 +1744,7 @@ Please sign in again.`}
 
                 value='Light'
 
-                icon={IconMaterialLightModeRounded}
+                icon={<IconMaterialLightModeRounded />}
 
                 disabled
               />
@@ -1668,8 +1756,8 @@ Please sign in again.`}
 
                 value='Home'
 
-                icon={IconMaterialHomeRounded}
-                iconSelected={IconMaterialHomeRoundedFilled}
+                icon={<IconMaterialHomeRounded />}
+                iconSelected={<IconMaterialHomeRoundedFilled />}
               />
 
               <NavigationItem
@@ -1677,8 +1765,8 @@ Please sign in again.`}
 
                 value='Plant'
 
-                icon={IconMaterialPottedPlantRounded}
-                iconSelected={IconMaterialPottedPlantRoundedFilled}
+                icon={<IconMaterialPottedPlantRounded />}
+                iconSelected={<IconMaterialPottedPlantRoundedFilled />}
               />
 
               <NavigationItem
@@ -1686,7 +1774,7 @@ Please sign in again.`}
 
                 value='Light'
 
-                icon={IconMaterialLightModeRounded}
+                icon={<IconMaterialLightModeRounded />}
 
                 disabled
               />
@@ -1698,8 +1786,8 @@ Please sign in again.`}
 
                 value='Home'
 
-                icon={IconMaterialHomeRounded}
-                iconSelected={IconMaterialHomeRoundedFilled}
+                icon={<IconMaterialHomeRounded />}
+                iconSelected={<IconMaterialHomeRoundedFilled />}
               />
 
               <NavigationItem
@@ -1707,8 +1795,8 @@ Please sign in again.`}
 
                 value='Plant'
 
-                icon={IconMaterialPottedPlantRounded}
-                iconSelected={IconMaterialPottedPlantRoundedFilled}
+                icon={<IconMaterialPottedPlantRounded />}
+                iconSelected={<IconMaterialPottedPlantRoundedFilled />}
               />
 
               <NavigationItem
@@ -1716,7 +1804,7 @@ Please sign in again.`}
 
                 value='Light'
 
-                icon={IconMaterialLightModeRounded}
+                icon={<IconMaterialLightModeRounded />}
 
                 disabled
               />
@@ -1732,8 +1820,8 @@ Please sign in again.`}
 
                 value='Home'
 
-                icon={IconMaterialHomeRounded}
-                iconSelected={IconMaterialHomeRoundedFilled}
+                icon={<IconMaterialHomeRounded />}
+                iconSelected={<IconMaterialHomeRoundedFilled />}
               />
 
               <NavigationItem
@@ -1741,8 +1829,8 @@ Please sign in again.`}
 
                 value='Plant'
 
-                icon={IconMaterialPottedPlantRounded}
-                iconSelected={IconMaterialPottedPlantRoundedFilled}
+                icon={<IconMaterialPottedPlantRounded />}
+                iconSelected={<IconMaterialPottedPlantRoundedFilled />}
               />
 
               <NavigationItem
@@ -1750,7 +1838,7 @@ Please sign in again.`}
 
                 value='Light'
 
-                icon={IconMaterialLightModeRounded}
+                icon={<IconMaterialLightModeRounded />}
 
                 disabled
               />
@@ -1762,8 +1850,8 @@ Please sign in again.`}
 
                 value='Home'
 
-                icon={IconMaterialHomeRounded}
-                iconSelected={IconMaterialHomeRoundedFilled}
+                icon={<IconMaterialHomeRounded />}
+                iconSelected={<IconMaterialHomeRoundedFilled />}
               />
 
               <NavigationItem
@@ -1771,8 +1859,8 @@ Please sign in again.`}
 
                 value='Plant'
 
-                icon={IconMaterialPottedPlantRounded}
-                iconSelected={IconMaterialPottedPlantRoundedFilled}
+                icon={<IconMaterialPottedPlantRounded />}
+                iconSelected={<IconMaterialPottedPlantRoundedFilled />}
               />
 
               <NavigationItem
@@ -1780,7 +1868,7 @@ Please sign in again.`}
 
                 value='Light'
 
-                icon={IconMaterialLightModeRounded}
+                icon={<IconMaterialLightModeRounded />}
 
                 disabled
               />
@@ -1792,8 +1880,8 @@ Please sign in again.`}
 
                 value='Home'
 
-                icon={IconMaterialHomeRounded}
-                iconSelected={IconMaterialHomeRoundedFilled}
+                icon={<IconMaterialHomeRounded />}
+                iconSelected={<IconMaterialHomeRoundedFilled />}
               />
 
               <NavigationItem
@@ -1801,8 +1889,8 @@ Please sign in again.`}
 
                 value='Plant'
 
-                icon={IconMaterialPottedPlantRounded}
-                iconSelected={IconMaterialPottedPlantRoundedFilled}
+                icon={<IconMaterialPottedPlantRounded />}
+                iconSelected={<IconMaterialPottedPlantRoundedFilled />}
               />
 
               <NavigationItem
@@ -1810,7 +1898,7 @@ Please sign in again.`}
 
                 value='Light'
 
-                icon={IconMaterialLightModeRounded}
+                icon={<IconMaterialLightModeRounded />}
 
                 disabled
               />
@@ -1822,8 +1910,8 @@ Please sign in again.`}
 
                 value='Home'
 
-                icon={IconMaterialHomeRounded}
-                iconSelected={IconMaterialHomeRoundedFilled}
+                icon={<IconMaterialHomeRounded />}
+                iconSelected={<IconMaterialHomeRoundedFilled />}
               />
 
               <NavigationItem
@@ -1831,8 +1919,8 @@ Please sign in again.`}
 
                 value='Plant'
 
-                icon={IconMaterialPottedPlantRounded}
-                iconSelected={IconMaterialPottedPlantRoundedFilled}
+                icon={<IconMaterialPottedPlantRounded />}
+                iconSelected={<IconMaterialPottedPlantRoundedFilled />}
               />
 
               <NavigationItem
@@ -1840,7 +1928,7 @@ Please sign in again.`}
 
                 value='Light'
 
-                icon={IconMaterialLightModeRounded}
+                icon={<IconMaterialLightModeRounded />}
 
                 disabled
               />
@@ -1852,8 +1940,8 @@ Please sign in again.`}
 
                 value='Home'
 
-                icon={IconMaterialHomeRounded}
-                iconSelected={IconMaterialHomeRoundedFilled}
+                icon={<IconMaterialHomeRounded />}
+                iconSelected={<IconMaterialHomeRoundedFilled />}
               />
 
               <NavigationItem
@@ -1861,8 +1949,8 @@ Please sign in again.`}
 
                 value='Plant'
 
-                icon={IconMaterialPottedPlantRounded}
-                iconSelected={IconMaterialPottedPlantRoundedFilled}
+                icon={<IconMaterialPottedPlantRounded />}
+                iconSelected={<IconMaterialPottedPlantRoundedFilled />}
               />
 
               <NavigationItem
@@ -1870,7 +1958,7 @@ Please sign in again.`}
 
                 value='Light'
 
-                icon={IconMaterialLightModeRounded}
+                icon={<IconMaterialLightModeRounded />}
 
                 disabled
               />
@@ -1882,8 +1970,8 @@ Please sign in again.`}
 
                 value='Home'
 
-                icon={IconMaterialHomeRounded}
-                iconSelected={IconMaterialHomeRoundedFilled}
+                icon={<IconMaterialHomeRounded />}
+                iconSelected={<IconMaterialHomeRoundedFilled />}
               />
 
               <NavigationItem
@@ -1891,8 +1979,8 @@ Please sign in again.`}
 
                 value='Plant'
 
-                icon={IconMaterialPottedPlantRounded}
-                iconSelected={IconMaterialPottedPlantRoundedFilled}
+                icon={<IconMaterialPottedPlantRounded />}
+                iconSelected={<IconMaterialPottedPlantRoundedFilled />}
               />
 
               <NavigationItem
@@ -1900,7 +1988,7 @@ Please sign in again.`}
 
                 value='Light'
 
-                icon={IconMaterialLightModeRounded}
+                icon={<IconMaterialLightModeRounded />}
 
                 disabled
               />
@@ -1912,8 +2000,8 @@ Please sign in again.`}
 
                 value='Home'
 
-                icon={IconMaterialHomeRounded}
-                iconSelected={IconMaterialHomeRoundedFilled}
+                icon={<IconMaterialHomeRounded />}
+                iconSelected={<IconMaterialHomeRoundedFilled />}
               />
 
               <NavigationItem
@@ -1921,8 +2009,8 @@ Please sign in again.`}
 
                 value='Plant'
 
-                icon={IconMaterialPottedPlantRounded}
-                iconSelected={IconMaterialPottedPlantRoundedFilled}
+                icon={<IconMaterialPottedPlantRounded />}
+                iconSelected={<IconMaterialPottedPlantRoundedFilled />}
               />
 
               <NavigationItem
@@ -1930,7 +2018,7 @@ Please sign in again.`}
 
                 value='Light'
 
-                icon={IconMaterialLightModeRounded}
+                icon={<IconMaterialLightModeRounded />}
 
                 disabled
               />
@@ -1942,8 +2030,8 @@ Please sign in again.`}
 
                 value='Home'
 
-                icon={IconMaterialHomeRounded}
-                iconSelected={IconMaterialHomeRoundedFilled}
+                icon={<IconMaterialHomeRounded />}
+                iconSelected={<IconMaterialHomeRoundedFilled />}
               />
 
               <NavigationItem
@@ -1951,8 +2039,8 @@ Please sign in again.`}
 
                 value='Plant'
 
-                icon={IconMaterialPottedPlantRounded}
-                iconSelected={IconMaterialPottedPlantRoundedFilled}
+                icon={<IconMaterialPottedPlantRounded />}
+                iconSelected={<IconMaterialPottedPlantRoundedFilled />}
               />
 
               <NavigationItem
@@ -1960,7 +2048,7 @@ Please sign in again.`}
 
                 value='Light'
 
-                icon={IconMaterialLightModeRounded}
+                icon={<IconMaterialLightModeRounded />}
 
                 disabled
               />
@@ -1972,8 +2060,8 @@ Please sign in again.`}
 
                 value='Home'
 
-                icon={IconMaterialHomeRounded}
-                iconSelected={IconMaterialHomeRoundedFilled}
+                icon={<IconMaterialHomeRounded />}
+                iconSelected={<IconMaterialHomeRoundedFilled />}
               />
 
               <NavigationItem
@@ -1981,8 +2069,8 @@ Please sign in again.`}
 
                 value='Plant'
 
-                icon={IconMaterialPottedPlantRounded}
-                iconSelected={IconMaterialPottedPlantRoundedFilled}
+                icon={<IconMaterialPottedPlantRounded />}
+                iconSelected={<IconMaterialPottedPlantRoundedFilled />}
               />
 
               <NavigationItem
@@ -1990,7 +2078,7 @@ Please sign in again.`}
 
                 value='Light'
 
-                icon={IconMaterialLightModeRounded}
+                icon={<IconMaterialLightModeRounded />}
 
                 disabled
               />
@@ -2002,8 +2090,8 @@ Please sign in again.`}
 
                 value='Home'
 
-                icon={IconMaterialHomeRounded}
-                iconSelected={IconMaterialHomeRoundedFilled}
+                icon={<IconMaterialHomeRounded />}
+                iconSelected={<IconMaterialHomeRoundedFilled />}
               />
 
               <NavigationItem
@@ -2011,8 +2099,8 @@ Please sign in again.`}
 
                 value='Plant'
 
-                icon={IconMaterialPottedPlantRounded}
-                iconSelected={IconMaterialPottedPlantRoundedFilled}
+                icon={<IconMaterialPottedPlantRounded />}
+                iconSelected={<IconMaterialPottedPlantRoundedFilled />}
               />
 
               <NavigationItem
@@ -2020,7 +2108,7 @@ Please sign in again.`}
 
                 value='Light'
 
-                icon={IconMaterialLightModeRounded}
+                icon={<IconMaterialLightModeRounded />}
 
                 disabled
               />
@@ -2036,8 +2124,8 @@ Please sign in again.`}
 
                 value='Home'
 
-                icon={IconMaterialHomeRounded}
-                iconSelected={IconMaterialHomeRoundedFilled}
+                icon={<IconMaterialHomeRounded />}
+                iconSelected={<IconMaterialHomeRoundedFilled />}
               />
 
               <NavigationItem
@@ -2045,8 +2133,8 @@ Please sign in again.`}
 
                 value='Plant'
 
-                icon={IconMaterialPottedPlantRounded}
-                iconSelected={IconMaterialPottedPlantRoundedFilled}
+                icon={<IconMaterialPottedPlantRounded />}
+                iconSelected={<IconMaterialPottedPlantRoundedFilled />}
               />
 
               <NavigationItem
@@ -2054,7 +2142,7 @@ Please sign in again.`}
 
                 value='Light'
 
-                icon={IconMaterialLightModeRounded}
+                icon={<IconMaterialLightModeRounded />}
 
                 disabled
               />
@@ -2083,8 +2171,8 @@ Please sign in again.`}
 
                     value='Home'
 
-                    icon={IconMaterialHomeRounded}
-                    iconSelected={IconMaterialHomeRoundedFilled}
+                    icon={<IconMaterialHomeRounded />}
+                    iconSelected={<IconMaterialHomeRoundedFilled />}
                   />
 
                   <NavigationItem
@@ -2092,8 +2180,8 @@ Please sign in again.`}
 
                     value='Plant'
 
-                    icon={IconMaterialPottedPlantRounded}
-                    iconSelected={IconMaterialPottedPlantRoundedFilled}
+                    icon={<IconMaterialPottedPlantRounded />}
+                    iconSelected={<IconMaterialPottedPlantRoundedFilled />}
                   />
 
                   <NavigationItem
@@ -2101,7 +2189,7 @@ Please sign in again.`}
 
                     value='Light'
 
-                    icon={IconMaterialLightModeRounded}
+                    icon={<IconMaterialLightModeRounded />}
 
                     disabled
                   />
@@ -2137,8 +2225,8 @@ Please sign in again.`}
 
                     value='Home'
 
-                    icon={IconMaterialHomeRounded}
-                    iconSelected={IconMaterialHomeRoundedFilled}
+                    icon={<IconMaterialHomeRounded />}
+                    iconSelected={<IconMaterialHomeRoundedFilled />}
                   />
 
                   <NavigationItem
@@ -2146,8 +2234,8 @@ Please sign in again.`}
 
                     value='Plant'
 
-                    icon={IconMaterialPottedPlantRounded}
-                    iconSelected={IconMaterialPottedPlantRoundedFilled}
+                    icon={<IconMaterialPottedPlantRounded />}
+                    iconSelected={<IconMaterialPottedPlantRoundedFilled />}
                   />
 
                   <NavigationItem
@@ -2155,7 +2243,7 @@ Please sign in again.`}
 
                     value='Light'
 
-                    icon={IconMaterialLightModeRounded}
+                    icon={<IconMaterialLightModeRounded />}
 
                     disabled
                   />
@@ -2194,8 +2282,8 @@ Please sign in again.`}
 
                     value='Home'
 
-                    icon={IconMaterialHomeRounded}
-                    iconSelected={IconMaterialHomeRoundedFilled}
+                    icon={<IconMaterialHomeRounded />}
+                    iconSelected={<IconMaterialHomeRoundedFilled />}
                   />
 
                   <NavigationItem
@@ -2203,8 +2291,8 @@ Please sign in again.`}
 
                     value='Plant'
 
-                    icon={IconMaterialPottedPlantRounded}
-                    iconSelected={IconMaterialPottedPlantRoundedFilled}
+                    icon={<IconMaterialPottedPlantRounded />}
+                    iconSelected={<IconMaterialPottedPlantRoundedFilled />}
                   />
 
                   <NavigationItem
@@ -2212,7 +2300,7 @@ Please sign in again.`}
 
                     value='Light'
 
-                    icon={IconMaterialLightModeRounded}
+                    icon={<IconMaterialLightModeRounded />}
 
                     disabled
                   />
@@ -2244,8 +2332,8 @@ Please sign in again.`}
 
                     value='Home'
 
-                    icon={IconMaterialHomeRounded}
-                    iconSelected={IconMaterialHomeRoundedFilled}
+                    icon={<IconMaterialHomeRounded />}
+                    iconSelected={<IconMaterialHomeRoundedFilled />}
                   />
 
                   <NavigationItem
@@ -2253,8 +2341,8 @@ Please sign in again.`}
 
                     value='Plant'
 
-                    icon={IconMaterialPottedPlantRounded}
-                    iconSelected={IconMaterialPottedPlantRoundedFilled}
+                    icon={<IconMaterialPottedPlantRounded />}
+                    iconSelected={<IconMaterialPottedPlantRoundedFilled />}
                   />
 
                   <NavigationItem
@@ -2262,7 +2350,7 @@ Please sign in again.`}
 
                     value='Light'
 
-                    icon={IconMaterialLightModeRounded}
+                    icon={<IconMaterialLightModeRounded />}
 
                     disabled
                   />
@@ -2277,8 +2365,8 @@ Please sign in again.`}
 
                   value='Home'
 
-                  icon={IconMaterialHomeRounded}
-                  iconSelected={IconMaterialHomeRoundedFilled}
+                  icon={<IconMaterialHomeRounded />}
+                  iconSelected={<IconMaterialHomeRoundedFilled />}
                 />
 
                 <NavigationItem
@@ -2286,8 +2374,8 @@ Please sign in again.`}
 
                   value='Plant'
 
-                  icon={IconMaterialPottedPlantRounded}
-                  iconSelected={IconMaterialPottedPlantRoundedFilled}
+                  icon={<IconMaterialPottedPlantRounded />}
+                  iconSelected={<IconMaterialPottedPlantRoundedFilled />}
                 />
 
                 <NavigationItem
@@ -2295,7 +2383,7 @@ Please sign in again.`}
 
                   value='Light'
 
-                  icon={IconMaterialLightModeRounded}
+                  icon={<IconMaterialLightModeRounded />}
 
                   disabled
                 />
@@ -2313,8 +2401,8 @@ Please sign in again.`}
 
               value='Home'
 
-              icon={IconMaterialHomeRounded}
-              iconSelected={IconMaterialHomeRoundedFilled}
+              icon={<IconMaterialHomeRounded />}
+              iconSelected={<IconMaterialHomeRoundedFilled />}
             />
 
             <NavigationItem
@@ -2322,8 +2410,8 @@ Please sign in again.`}
 
               value='Plant'
 
-              icon={IconMaterialPottedPlantRounded}
-              iconSelected={IconMaterialPottedPlantRoundedFilled}
+              icon={<IconMaterialPottedPlantRounded />}
+              iconSelected={<IconMaterialPottedPlantRoundedFilled />}
             />
 
             <NavigationItem
@@ -2331,7 +2419,7 @@ Please sign in again.`}
 
               value='Light'
 
-              icon={IconMaterialLightModeRounded}
+              icon={<IconMaterialLightModeRounded />}
 
               disabled
             />
@@ -2345,8 +2433,8 @@ Please sign in again.`}
 
               value='Home'
 
-              icon={IconMaterialHomeRounded}
-              iconSelected={IconMaterialHomeRoundedFilled}
+              icon={<IconMaterialHomeRounded />}
+              iconSelected={<IconMaterialHomeRoundedFilled />}
             />
 
             <NavigationItem
@@ -2354,8 +2442,8 @@ Please sign in again.`}
 
               value='Plant'
 
-              icon={IconMaterialPottedPlantRounded}
-              iconSelected={IconMaterialPottedPlantRoundedFilled}
+              icon={<IconMaterialPottedPlantRounded />}
+              iconSelected={<IconMaterialPottedPlantRoundedFilled />}
             />
 
             <NavigationItem
@@ -2363,7 +2451,7 @@ Please sign in again.`}
 
               value='Light'
 
-              icon={IconMaterialLightModeRounded}
+              icon={<IconMaterialLightModeRounded />}
 
               disabled
             />
@@ -2375,8 +2463,8 @@ Please sign in again.`}
 
               value='Home'
 
-              icon={IconMaterialHomeRounded}
-              iconSelected={IconMaterialHomeRoundedFilled}
+              icon={<IconMaterialHomeRounded />}
+              iconSelected={<IconMaterialHomeRoundedFilled />}
             />
 
             <NavigationItem
@@ -2384,8 +2472,8 @@ Please sign in again.`}
 
               value='Plant'
 
-              icon={IconMaterialPottedPlantRounded}
-              iconSelected={IconMaterialPottedPlantRoundedFilled}
+              icon={<IconMaterialPottedPlantRounded />}
+              iconSelected={<IconMaterialPottedPlantRoundedFilled />}
             />
 
             <NavigationItem
@@ -2393,7 +2481,7 @@ Please sign in again.`}
 
               value='Light'
 
-              icon={IconMaterialLightModeRounded}
+              icon={<IconMaterialLightModeRounded />}
 
               disabled
             />
@@ -2405,8 +2493,8 @@ Please sign in again.`}
 
               value='Home'
 
-              icon={IconMaterialHomeRounded}
-              iconSelected={IconMaterialHomeRoundedFilled}
+              icon={<IconMaterialHomeRounded />}
+              iconSelected={<IconMaterialHomeRoundedFilled />}
             />
 
             <NavigationItem
@@ -2414,8 +2502,8 @@ Please sign in again.`}
 
               value='Plant'
 
-              icon={IconMaterialPottedPlantRounded}
-              iconSelected={IconMaterialPottedPlantRoundedFilled}
+              icon={<IconMaterialPottedPlantRounded />}
+              iconSelected={<IconMaterialPottedPlantRoundedFilled />}
             />
 
             <NavigationItem
@@ -2423,7 +2511,7 @@ Please sign in again.`}
 
               value='Light'
 
-              icon={IconMaterialLightModeRounded}
+              icon={<IconMaterialLightModeRounded />}
 
               disabled
             />
@@ -2437,8 +2525,8 @@ Please sign in again.`}
 
               value='Home'
 
-              icon={IconMaterialHomeRounded}
-              iconSelected={IconMaterialHomeRoundedFilled}
+              icon={<IconMaterialHomeRounded />}
+              iconSelected={<IconMaterialHomeRoundedFilled />}
 
               IconWrapperComponent={Badge}
               IconWrapperProps={{ indicator: true }}
@@ -2449,8 +2537,8 @@ Please sign in again.`}
 
               value='Plant'
 
-              icon={IconMaterialPottedPlantRounded}
-              iconSelected={IconMaterialPottedPlantRoundedFilled}
+              icon={<IconMaterialPottedPlantRounded />}
+              iconSelected={<IconMaterialPottedPlantRoundedFilled />}
 
               IconWrapperComponent={Badge}
               IconWrapperProps={{ value: 14 }}
@@ -2461,7 +2549,7 @@ Please sign in again.`}
 
               value='Light'
 
-              icon={IconMaterialLightModeRounded}
+              icon={<IconMaterialLightModeRounded />}
 
               disabled
             />
@@ -2476,8 +2564,8 @@ Please sign in again.`}
 
                 value='Home'
 
-                icon={IconMaterialHomeRounded}
-                iconSelected={IconMaterialHomeRoundedFilled}
+                icon={<IconMaterialHomeRounded />}
+                iconSelected={<IconMaterialHomeRoundedFilled />}
               />
 
               <NavigationItem
@@ -2485,8 +2573,8 @@ Please sign in again.`}
 
                 value='Plant'
 
-                icon={IconMaterialPottedPlantRounded}
-                iconSelected={IconMaterialPottedPlantRoundedFilled}
+                icon={<IconMaterialPottedPlantRounded />}
+                iconSelected={<IconMaterialPottedPlantRoundedFilled />}
               />
 
               <NavigationItem
@@ -2494,7 +2582,7 @@ Please sign in again.`}
 
                 value='Light'
 
-                icon={IconMaterialLightModeRounded}
+                icon={<IconMaterialLightModeRounded />}
 
                 disabled
               />
@@ -2506,8 +2594,8 @@ Please sign in again.`}
 
                 value='Home'
 
-                icon={IconMaterialHomeRounded}
-                iconSelected={IconMaterialHomeRoundedFilled}
+                icon={<IconMaterialHomeRounded />}
+                iconSelected={<IconMaterialHomeRoundedFilled />}
               />
 
               <NavigationItem
@@ -2515,8 +2603,8 @@ Please sign in again.`}
 
                 value='Plant'
 
-                icon={IconMaterialPottedPlantRounded}
-                iconSelected={IconMaterialPottedPlantRoundedFilled}
+                icon={<IconMaterialPottedPlantRounded />}
+                iconSelected={<IconMaterialPottedPlantRoundedFilled />}
               />
 
               <NavigationItem
@@ -2524,7 +2612,7 @@ Please sign in again.`}
 
                 value='Light'
 
-                icon={IconMaterialLightModeRounded}
+                icon={<IconMaterialLightModeRounded />}
 
                 disabled
               />
@@ -2536,8 +2624,8 @@ Please sign in again.`}
 
                 value='Home'
 
-                icon={IconMaterialHomeRounded}
-                iconSelected={IconMaterialHomeRoundedFilled}
+                icon={<IconMaterialHomeRounded />}
+                iconSelected={<IconMaterialHomeRoundedFilled />}
               />
 
               <NavigationItem
@@ -2545,8 +2633,8 @@ Please sign in again.`}
 
                 value='Plant'
 
-                icon={IconMaterialPottedPlantRounded}
-                iconSelected={IconMaterialPottedPlantRoundedFilled}
+                icon={<IconMaterialPottedPlantRounded />}
+                iconSelected={<IconMaterialPottedPlantRoundedFilled />}
               />
 
               <NavigationItem
@@ -2554,7 +2642,7 @@ Please sign in again.`}
 
                 value='Light'
 
-                icon={IconMaterialLightModeRounded}
+                icon={<IconMaterialLightModeRounded />}
 
                 disabled
               />
@@ -2566,8 +2654,8 @@ Please sign in again.`}
 
                 value='Home'
 
-                icon={IconMaterialHomeRounded}
-                iconSelected={IconMaterialHomeRoundedFilled}
+                icon={<IconMaterialHomeRounded />}
+                iconSelected={<IconMaterialHomeRoundedFilled />}
               />
 
               <NavigationItem
@@ -2575,8 +2663,8 @@ Please sign in again.`}
 
                 value='Plant'
 
-                icon={IconMaterialPottedPlantRounded}
-                iconSelected={IconMaterialPottedPlantRoundedFilled}
+                icon={<IconMaterialPottedPlantRounded />}
+                iconSelected={<IconMaterialPottedPlantRoundedFilled />}
               />
 
               <NavigationItem
@@ -2584,7 +2672,7 @@ Please sign in again.`}
 
                 value='Light'
 
-                icon={IconMaterialLightModeRounded}
+                icon={<IconMaterialLightModeRounded />}
 
                 disabled
               />
@@ -2596,8 +2684,8 @@ Please sign in again.`}
 
                 value='Home'
 
-                icon={IconMaterialHomeRounded}
-                iconSelected={IconMaterialHomeRoundedFilled}
+                icon={<IconMaterialHomeRounded />}
+                iconSelected={<IconMaterialHomeRoundedFilled />}
               />
 
               <NavigationItem
@@ -2605,8 +2693,8 @@ Please sign in again.`}
 
                 value='Plant'
 
-                icon={IconMaterialPottedPlantRounded}
-                iconSelected={IconMaterialPottedPlantRoundedFilled}
+                icon={<IconMaterialPottedPlantRounded />}
+                iconSelected={<IconMaterialPottedPlantRoundedFilled />}
               />
 
               <NavigationItem
@@ -2614,7 +2702,7 @@ Please sign in again.`}
 
                 value='Light'
 
-                icon={IconMaterialLightModeRounded}
+                icon={<IconMaterialLightModeRounded />}
 
                 disabled
               />
@@ -2626,8 +2714,8 @@ Please sign in again.`}
 
                 value='Home'
 
-                icon={IconMaterialHomeRounded}
-                iconSelected={IconMaterialHomeRoundedFilled}
+                icon={<IconMaterialHomeRounded />}
+                iconSelected={<IconMaterialHomeRoundedFilled />}
               />
 
               <NavigationItem
@@ -2635,8 +2723,8 @@ Please sign in again.`}
 
                 value='Plant'
 
-                icon={IconMaterialPottedPlantRounded}
-                iconSelected={IconMaterialPottedPlantRoundedFilled}
+                icon={<IconMaterialPottedPlantRounded />}
+                iconSelected={<IconMaterialPottedPlantRoundedFilled />}
               />
 
               <NavigationItem
@@ -2644,7 +2732,7 @@ Please sign in again.`}
 
                 value='Light'
 
-                icon={IconMaterialLightModeRounded}
+                icon={<IconMaterialLightModeRounded />}
 
                 disabled
               />
@@ -2656,8 +2744,8 @@ Please sign in again.`}
 
                 value='Home'
 
-                icon={IconMaterialHomeRounded}
-                iconSelected={IconMaterialHomeRoundedFilled}
+                icon={<IconMaterialHomeRounded />}
+                iconSelected={<IconMaterialHomeRoundedFilled />}
               />
 
               <NavigationItem
@@ -2665,8 +2753,8 @@ Please sign in again.`}
 
                 value='Plant'
 
-                icon={IconMaterialPottedPlantRounded}
-                iconSelected={IconMaterialPottedPlantRoundedFilled}
+                icon={<IconMaterialPottedPlantRounded />}
+                iconSelected={<IconMaterialPottedPlantRoundedFilled />}
               />
 
               <NavigationItem
@@ -2674,7 +2762,7 @@ Please sign in again.`}
 
                 value='Light'
 
-                icon={IconMaterialLightModeRounded}
+                icon={<IconMaterialLightModeRounded />}
 
                 disabled
               />
@@ -2686,8 +2774,8 @@ Please sign in again.`}
 
                 value='Home'
 
-                icon={IconMaterialHomeRounded}
-                iconSelected={IconMaterialHomeRoundedFilled}
+                icon={<IconMaterialHomeRounded />}
+                iconSelected={<IconMaterialHomeRoundedFilled />}
               />
 
               <NavigationItem
@@ -2695,8 +2783,8 @@ Please sign in again.`}
 
                 value='Plant'
 
-                icon={IconMaterialPottedPlantRounded}
-                iconSelected={IconMaterialPottedPlantRoundedFilled}
+                icon={<IconMaterialPottedPlantRounded />}
+                iconSelected={<IconMaterialPottedPlantRoundedFilled />}
               />
 
               <NavigationItem
@@ -2704,7 +2792,7 @@ Please sign in again.`}
 
                 value='Light'
 
-                icon={IconMaterialLightModeRounded}
+                icon={<IconMaterialLightModeRounded />}
 
                 disabled
               />
@@ -2716,8 +2804,8 @@ Please sign in again.`}
 
                 value='Home'
 
-                icon={IconMaterialHomeRounded}
-                iconSelected={IconMaterialHomeRoundedFilled}
+                icon={<IconMaterialHomeRounded />}
+                iconSelected={<IconMaterialHomeRoundedFilled />}
               />
 
               <NavigationItem
@@ -2725,8 +2813,8 @@ Please sign in again.`}
 
                 value='Plant'
 
-                icon={IconMaterialPottedPlantRounded}
-                iconSelected={IconMaterialPottedPlantRoundedFilled}
+                icon={<IconMaterialPottedPlantRounded />}
+                iconSelected={<IconMaterialPottedPlantRoundedFilled />}
               />
 
               <NavigationItem
@@ -2734,7 +2822,7 @@ Please sign in again.`}
 
                 value='Light'
 
-                icon={IconMaterialLightModeRounded}
+                icon={<IconMaterialLightModeRounded />}
 
                 disabled
               />
@@ -2746,8 +2834,8 @@ Please sign in again.`}
 
                 value='Home'
 
-                icon={IconMaterialHomeRounded}
-                iconSelected={IconMaterialHomeRoundedFilled}
+                icon={<IconMaterialHomeRounded />}
+                iconSelected={<IconMaterialHomeRoundedFilled />}
               />
 
               <NavigationItem
@@ -2755,8 +2843,8 @@ Please sign in again.`}
 
                 value='Plant'
 
-                icon={IconMaterialPottedPlantRounded}
-                iconSelected={IconMaterialPottedPlantRoundedFilled}
+                icon={<IconMaterialPottedPlantRounded />}
+                iconSelected={<IconMaterialPottedPlantRoundedFilled />}
               />
 
               <NavigationItem
@@ -2764,7 +2852,7 @@ Please sign in again.`}
 
                 value='Light'
 
-                icon={IconMaterialLightModeRounded}
+                icon={<IconMaterialLightModeRounded />}
 
                 disabled
               />
@@ -2776,8 +2864,8 @@ Please sign in again.`}
 
                 value='Home'
 
-                icon={IconMaterialHomeRounded}
-                iconSelected={IconMaterialHomeRoundedFilled}
+                icon={<IconMaterialHomeRounded />}
+                iconSelected={<IconMaterialHomeRoundedFilled />}
               />
 
               <NavigationItem
@@ -2785,8 +2873,8 @@ Please sign in again.`}
 
                 value='Plant'
 
-                icon={IconMaterialPottedPlantRounded}
-                iconSelected={IconMaterialPottedPlantRoundedFilled}
+                icon={<IconMaterialPottedPlantRounded />}
+                iconSelected={<IconMaterialPottedPlantRoundedFilled />}
               />
 
               <NavigationItem
@@ -2794,7 +2882,7 @@ Please sign in again.`}
 
                 value='Light'
 
-                icon={IconMaterialLightModeRounded}
+                icon={<IconMaterialLightModeRounded />}
 
                 disabled
               />
@@ -2810,8 +2898,8 @@ Please sign in again.`}
 
                 value='Home'
 
-                icon={IconMaterialHomeRounded}
-                iconSelected={IconMaterialHomeRoundedFilled}
+                icon={<IconMaterialHomeRounded />}
+                iconSelected={<IconMaterialHomeRoundedFilled />}
               />
 
               <NavigationItem
@@ -2819,8 +2907,8 @@ Please sign in again.`}
 
                 value='Plant'
 
-                icon={IconMaterialPottedPlantRounded}
-                iconSelected={IconMaterialPottedPlantRoundedFilled}
+                icon={<IconMaterialPottedPlantRounded />}
+                iconSelected={<IconMaterialPottedPlantRoundedFilled />}
               />
 
               <NavigationItem
@@ -2828,7 +2916,7 @@ Please sign in again.`}
 
                 value='Light'
 
-                icon={IconMaterialLightModeRounded}
+                icon={<IconMaterialLightModeRounded />}
 
                 disabled
               />
@@ -2840,8 +2928,8 @@ Please sign in again.`}
 
                 value='Home'
 
-                icon={IconMaterialHomeRounded}
-                iconSelected={IconMaterialHomeRoundedFilled}
+                icon={<IconMaterialHomeRounded />}
+                iconSelected={<IconMaterialHomeRoundedFilled />}
               />
 
               <NavigationItem
@@ -2849,8 +2937,8 @@ Please sign in again.`}
 
                 value='Plant'
 
-                icon={IconMaterialPottedPlantRounded}
-                iconSelected={IconMaterialPottedPlantRoundedFilled}
+                icon={<IconMaterialPottedPlantRounded />}
+                iconSelected={<IconMaterialPottedPlantRoundedFilled />}
               />
 
               <NavigationItem
@@ -2858,7 +2946,7 @@ Please sign in again.`}
 
                 value='Light'
 
-                icon={IconMaterialLightModeRounded}
+                icon={<IconMaterialLightModeRounded />}
 
                 disabled
               />
@@ -2870,8 +2958,8 @@ Please sign in again.`}
 
                 value='Home'
 
-                icon={IconMaterialHomeRounded}
-                iconSelected={IconMaterialHomeRoundedFilled}
+                icon={<IconMaterialHomeRounded />}
+                iconSelected={<IconMaterialHomeRoundedFilled />}
               />
 
               <NavigationItem
@@ -2879,8 +2967,8 @@ Please sign in again.`}
 
                 value='Plant'
 
-                icon={IconMaterialPottedPlantRounded}
-                iconSelected={IconMaterialPottedPlantRoundedFilled}
+                icon={<IconMaterialPottedPlantRounded />}
+                iconSelected={<IconMaterialPottedPlantRoundedFilled />}
               />
 
               <NavigationItem
@@ -2888,7 +2976,7 @@ Please sign in again.`}
 
                 value='Light'
 
-                icon={IconMaterialLightModeRounded}
+                icon={<IconMaterialLightModeRounded />}
 
                 disabled
               />
@@ -2900,8 +2988,8 @@ Please sign in again.`}
 
                 value='Home'
 
-                icon={IconMaterialHomeRounded}
-                iconSelected={IconMaterialHomeRoundedFilled}
+                icon={<IconMaterialHomeRounded />}
+                iconSelected={<IconMaterialHomeRoundedFilled />}
               />
 
               <NavigationItem
@@ -2909,8 +2997,8 @@ Please sign in again.`}
 
                 value='Plant'
 
-                icon={IconMaterialPottedPlantRounded}
-                iconSelected={IconMaterialPottedPlantRoundedFilled}
+                icon={<IconMaterialPottedPlantRounded />}
+                iconSelected={<IconMaterialPottedPlantRoundedFilled />}
               />
 
               <NavigationItem
@@ -2918,7 +3006,7 @@ Please sign in again.`}
 
                 value='Light'
 
-                icon={IconMaterialLightModeRounded}
+                icon={<IconMaterialLightModeRounded />}
 
                 disabled
               />
@@ -2930,8 +3018,8 @@ Please sign in again.`}
 
                 value='Home'
 
-                icon={IconMaterialHomeRounded}
-                iconSelected={IconMaterialHomeRoundedFilled}
+                icon={<IconMaterialHomeRounded />}
+                iconSelected={<IconMaterialHomeRoundedFilled />}
               />
 
               <NavigationItem
@@ -2939,8 +3027,8 @@ Please sign in again.`}
 
                 value='Plant'
 
-                icon={IconMaterialPottedPlantRounded}
-                iconSelected={IconMaterialPottedPlantRoundedFilled}
+                icon={<IconMaterialPottedPlantRounded />}
+                iconSelected={<IconMaterialPottedPlantRoundedFilled />}
               />
 
               <NavigationItem
@@ -2948,7 +3036,7 @@ Please sign in again.`}
 
                 value='Light'
 
-                icon={IconMaterialLightModeRounded}
+                icon={<IconMaterialLightModeRounded />}
 
                 disabled
               />
@@ -2960,8 +3048,8 @@ Please sign in again.`}
 
                 value='Home'
 
-                icon={IconMaterialHomeRounded}
-                iconSelected={IconMaterialHomeRoundedFilled}
+                icon={<IconMaterialHomeRounded />}
+                iconSelected={<IconMaterialHomeRoundedFilled />}
               />
 
               <NavigationItem
@@ -2969,8 +3057,8 @@ Please sign in again.`}
 
                 value='Plant'
 
-                icon={IconMaterialPottedPlantRounded}
-                iconSelected={IconMaterialPottedPlantRoundedFilled}
+                icon={<IconMaterialPottedPlantRounded />}
+                iconSelected={<IconMaterialPottedPlantRoundedFilled />}
               />
 
               <NavigationItem
@@ -2978,7 +3066,7 @@ Please sign in again.`}
 
                 value='Light'
 
-                icon={IconMaterialLightModeRounded}
+                icon={<IconMaterialLightModeRounded />}
 
                 disabled
               />
@@ -2990,8 +3078,8 @@ Please sign in again.`}
 
                 value='Home'
 
-                icon={IconMaterialHomeRounded}
-                iconSelected={IconMaterialHomeRoundedFilled}
+                icon={<IconMaterialHomeRounded />}
+                iconSelected={<IconMaterialHomeRoundedFilled />}
               />
 
               <NavigationItem
@@ -2999,8 +3087,8 @@ Please sign in again.`}
 
                 value='Plant'
 
-                icon={IconMaterialPottedPlantRounded}
-                iconSelected={IconMaterialPottedPlantRoundedFilled}
+                icon={<IconMaterialPottedPlantRounded />}
+                iconSelected={<IconMaterialPottedPlantRoundedFilled />}
               />
 
               <NavigationItem
@@ -3008,7 +3096,7 @@ Please sign in again.`}
 
                 value='Light'
 
-                icon={IconMaterialLightModeRounded}
+                icon={<IconMaterialLightModeRounded />}
 
                 disabled
               />
@@ -3020,8 +3108,8 @@ Please sign in again.`}
 
                 value='Home'
 
-                icon={IconMaterialHomeRounded}
-                iconSelected={IconMaterialHomeRoundedFilled}
+                icon={<IconMaterialHomeRounded />}
+                iconSelected={<IconMaterialHomeRoundedFilled />}
               />
 
               <NavigationItem
@@ -3029,8 +3117,8 @@ Please sign in again.`}
 
                 value='Plant'
 
-                icon={IconMaterialPottedPlantRounded}
-                iconSelected={IconMaterialPottedPlantRoundedFilled}
+                icon={<IconMaterialPottedPlantRounded />}
+                iconSelected={<IconMaterialPottedPlantRoundedFilled />}
               />
 
               <NavigationItem
@@ -3038,7 +3126,7 @@ Please sign in again.`}
 
                 value='Light'
 
-                icon={IconMaterialLightModeRounded}
+                icon={<IconMaterialLightModeRounded />}
 
                 disabled
               />
@@ -3050,8 +3138,8 @@ Please sign in again.`}
 
                 value='Home'
 
-                icon={IconMaterialHomeRounded}
-                iconSelected={IconMaterialHomeRoundedFilled}
+                icon={<IconMaterialHomeRounded />}
+                iconSelected={<IconMaterialHomeRoundedFilled />}
               />
 
               <NavigationItem
@@ -3059,8 +3147,8 @@ Please sign in again.`}
 
                 value='Plant'
 
-                icon={IconMaterialPottedPlantRounded}
-                iconSelected={IconMaterialPottedPlantRoundedFilled}
+                icon={<IconMaterialPottedPlantRounded />}
+                iconSelected={<IconMaterialPottedPlantRoundedFilled />}
               />
 
               <NavigationItem
@@ -3068,7 +3156,7 @@ Please sign in again.`}
 
                 value='Light'
 
-                icon={IconMaterialLightModeRounded}
+                icon={<IconMaterialLightModeRounded />}
 
                 disabled
               />
@@ -3080,8 +3168,8 @@ Please sign in again.`}
 
                 value='Home'
 
-                icon={IconMaterialHomeRounded}
-                iconSelected={IconMaterialHomeRoundedFilled}
+                icon={<IconMaterialHomeRounded />}
+                iconSelected={<IconMaterialHomeRoundedFilled />}
               />
 
               <NavigationItem
@@ -3089,8 +3177,8 @@ Please sign in again.`}
 
                 value='Plant'
 
-                icon={IconMaterialPottedPlantRounded}
-                iconSelected={IconMaterialPottedPlantRoundedFilled}
+                icon={<IconMaterialPottedPlantRounded />}
+                iconSelected={<IconMaterialPottedPlantRoundedFilled />}
               />
 
               <NavigationItem
@@ -3098,7 +3186,7 @@ Please sign in again.`}
 
                 value='Light'
 
-                icon={IconMaterialLightModeRounded}
+                icon={<IconMaterialLightModeRounded />}
 
                 disabled
               />
@@ -3114,8 +3202,8 @@ Please sign in again.`}
 
                 value='Home'
 
-                icon={IconMaterialHomeRounded}
-                iconSelected={IconMaterialHomeRoundedFilled}
+                icon={<IconMaterialHomeRounded />}
+                iconSelected={<IconMaterialHomeRoundedFilled />}
               />
 
               <NavigationItem
@@ -3123,8 +3211,8 @@ Please sign in again.`}
 
                 value='Plant'
 
-                icon={IconMaterialPottedPlantRounded}
-                iconSelected={IconMaterialPottedPlantRoundedFilled}
+                icon={<IconMaterialPottedPlantRounded />}
+                iconSelected={<IconMaterialPottedPlantRoundedFilled />}
               />
 
               <NavigationItem
@@ -3132,7 +3220,7 @@ Please sign in again.`}
 
                 value='Light'
 
-                icon={IconMaterialLightModeRounded}
+                icon={<IconMaterialLightModeRounded />}
 
                 disabled
               />
@@ -3161,8 +3249,8 @@ Please sign in again.`}
 
                     value='Home'
 
-                    icon={IconMaterialHomeRounded}
-                    iconSelected={IconMaterialHomeRoundedFilled}
+                    icon={<IconMaterialHomeRounded />}
+                    iconSelected={<IconMaterialHomeRoundedFilled />}
                   />
 
                   <NavigationItem
@@ -3170,8 +3258,8 @@ Please sign in again.`}
 
                     value='Plant'
 
-                    icon={IconMaterialPottedPlantRounded}
-                    iconSelected={IconMaterialPottedPlantRoundedFilled}
+                    icon={<IconMaterialPottedPlantRounded />}
+                    iconSelected={<IconMaterialPottedPlantRoundedFilled />}
                   />
 
                   <NavigationItem
@@ -3179,7 +3267,7 @@ Please sign in again.`}
 
                     value='Light'
 
-                    icon={IconMaterialLightModeRounded}
+                    icon={<IconMaterialLightModeRounded />}
 
                     disabled
                   />
@@ -3215,8 +3303,8 @@ Please sign in again.`}
 
                     value='Home'
 
-                    icon={IconMaterialHomeRounded}
-                    iconSelected={IconMaterialHomeRoundedFilled}
+                    icon={<IconMaterialHomeRounded />}
+                    iconSelected={<IconMaterialHomeRoundedFilled />}
                   />
 
                   <NavigationItem
@@ -3224,8 +3312,8 @@ Please sign in again.`}
 
                     value='Plant'
 
-                    icon={IconMaterialPottedPlantRounded}
-                    iconSelected={IconMaterialPottedPlantRoundedFilled}
+                    icon={<IconMaterialPottedPlantRounded />}
+                    iconSelected={<IconMaterialPottedPlantRoundedFilled />}
                   />
 
                   <NavigationItem
@@ -3233,7 +3321,7 @@ Please sign in again.`}
 
                     value='Light'
 
-                    icon={IconMaterialLightModeRounded}
+                    icon={<IconMaterialLightModeRounded />}
 
                     disabled
                   />
@@ -3272,8 +3360,8 @@ Please sign in again.`}
 
                     value='Home'
 
-                    icon={IconMaterialHomeRounded}
-                    iconSelected={IconMaterialHomeRoundedFilled}
+                    icon={<IconMaterialHomeRounded />}
+                    iconSelected={<IconMaterialHomeRoundedFilled />}
                   />
 
                   <NavigationItem
@@ -3281,8 +3369,8 @@ Please sign in again.`}
 
                     value='Plant'
 
-                    icon={IconMaterialPottedPlantRounded}
-                    iconSelected={IconMaterialPottedPlantRoundedFilled}
+                    icon={<IconMaterialPottedPlantRounded />}
+                    iconSelected={<IconMaterialPottedPlantRoundedFilled />}
                   />
 
                   <NavigationItem
@@ -3290,7 +3378,7 @@ Please sign in again.`}
 
                     value='Light'
 
-                    icon={IconMaterialLightModeRounded}
+                    icon={<IconMaterialLightModeRounded />}
 
                     disabled
                   />
@@ -3322,8 +3410,8 @@ Please sign in again.`}
 
                     value='Home'
 
-                    icon={IconMaterialHomeRounded}
-                    iconSelected={IconMaterialHomeRoundedFilled}
+                    icon={<IconMaterialHomeRounded />}
+                    iconSelected={<IconMaterialHomeRoundedFilled />}
                   />
 
                   <NavigationItem
@@ -3331,8 +3419,8 @@ Please sign in again.`}
 
                     value='Plant'
 
-                    icon={IconMaterialPottedPlantRounded}
-                    iconSelected={IconMaterialPottedPlantRoundedFilled}
+                    icon={<IconMaterialPottedPlantRounded />}
+                    iconSelected={<IconMaterialPottedPlantRoundedFilled />}
                   />
 
                   <NavigationItem
@@ -3340,7 +3428,7 @@ Please sign in again.`}
 
                     value='Light'
 
-                    icon={IconMaterialLightModeRounded}
+                    icon={<IconMaterialLightModeRounded />}
 
                     disabled
                   />
@@ -3355,8 +3443,8 @@ Please sign in again.`}
 
                   value='Home'
 
-                  icon={IconMaterialHomeRounded}
-                  iconSelected={IconMaterialHomeRoundedFilled}
+                  icon={<IconMaterialHomeRounded />}
+                  iconSelected={<IconMaterialHomeRoundedFilled />}
                 />
 
                 <NavigationItem
@@ -3364,8 +3452,8 @@ Please sign in again.`}
 
                   value='Plant'
 
-                  icon={IconMaterialPottedPlantRounded}
-                  iconSelected={IconMaterialPottedPlantRoundedFilled}
+                  icon={<IconMaterialPottedPlantRounded />}
+                  iconSelected={<IconMaterialPottedPlantRoundedFilled />}
                 />
 
                 <NavigationItem
@@ -3373,7 +3461,7 @@ Please sign in again.`}
 
                   value='Light'
 
-                  icon={IconMaterialLightModeRounded}
+                  icon={<IconMaterialLightModeRounded />}
 
                   disabled
                 />

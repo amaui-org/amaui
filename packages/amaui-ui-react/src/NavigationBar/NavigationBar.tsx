@@ -92,7 +92,8 @@ const NavigationBar = React.forwardRef((props_: any, ref: any) => {
   });
 
   const styles: any = {
-    root: {}
+    root: {},
+    icon: {}
   };
 
   React.useEffect(() => {
@@ -117,11 +118,31 @@ const NavigationBar = React.forwardRef((props_: any, ref: any) => {
     }
   };
 
-  if (!theme.palette.color[color] && !['inherit', 'default'].includes(color)) {
-    const palette = theme.methods.color(color);
+  let palette: any;
 
+  if (!theme.palette.color[color] && !['inherit', 'default'].includes(color)) {
+    palette = theme.methods.color(color);
+  }
+
+  if (!theme.palette.color[color] && !['inherit', 'default'].includes(color)) {
     if (tonal) styles.root.backgroundColor = theme.methods.palette.color.value(undefined, 95, true, palette);
     else styles.root.backgroundColor = palette.main;
+  }
+
+  if (!theme.palette.color[color] && !['inherit', 'default'].includes(color)) {
+    if (tonal) styles.root.backgroundColor = theme.methods.palette.color.value(undefined, 95, true, palette);
+    else styles.root.backgroundColor = palette.main;
+  }
+
+  if (!tonal) {
+    let background = (theme.palette.color[color] as any)?.main;
+
+    if (color === 'default') background = theme.palette.background.default.primary;
+
+    styles.icon.color = theme.methods.palette.color.text(palette?.main || background, true, 'light');
+  }
+  else {
+    styles.icon.color = theme.methods.palette.color.value(color, 5, true, palette);
   }
 
   const children = React.Children
@@ -129,11 +150,12 @@ const NavigationBar = React.forwardRef((props_: any, ref: any) => {
     .map((item: any, index: number) => React.cloneElement(item, {
       key: index,
 
-      ...other,
+      ...(['AmauiNavigationItem'].includes(item.type?.displayName) ? {
+        ...other
+      } : {}),
 
-      color: item.props.color !== undefined ? item.props.color : color,
+      color: item.props.color !== undefined ? item.props.color : (['AmauiNavigationItem'].includes(item.type?.displayName) ? color : styles.icon.color),
       tonal: item.props.tonal !== undefined ? item.props.tonal : tonal,
-      version: item.props.version !== undefined ? item.props.version : version,
 
       selected: selected.includes(item.props.value),
 

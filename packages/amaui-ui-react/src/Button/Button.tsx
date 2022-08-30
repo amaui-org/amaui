@@ -332,6 +332,7 @@ const Button = React.forwardRef((props_: any, ref: any) => {
     elevation = true,
     backgroundOpacity,
     align = 'center',
+    label,
     loading,
     loadingLabel,
     loadingIcon = <RoundProgress size='small' />,

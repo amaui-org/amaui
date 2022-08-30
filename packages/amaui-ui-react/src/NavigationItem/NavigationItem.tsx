@@ -409,9 +409,13 @@ const NavigationItem = React.forwardRef((props_: any, ref: any) => {
 
                 {...IconWrapperProps}
               >
-                <Icon
-                  style={styles.icon}
-                />
+                {React.cloneElement(Icon, {
+                  style: {
+                    ...Icon.props.style,
+
+                    ...styles.icon
+                  }
+                })}
               </IconWrapperComponent>
             </Line>
           )}

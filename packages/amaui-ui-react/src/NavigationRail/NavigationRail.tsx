@@ -90,6 +90,7 @@ const NavigationRail = React.forwardRef((props_: any, ref: any) => {
     value,
     valueDefault,
     onChange,
+    NavigationBarProps = {},
 
     className,
     style,
@@ -144,7 +145,6 @@ const NavigationRail = React.forwardRef((props_: any, ref: any) => {
     else styles.root.backgroundColor = palette.main;
   }
 
-  // Header
   if (!tonal) {
     let background = (theme.palette.color[color] as any)?.main;
 
@@ -169,12 +169,12 @@ const NavigationRail = React.forwardRef((props_: any, ref: any) => {
     .map((item: any, index: number) => React.cloneElement(item, {
       key: index,
 
-      ...other,
+      ...(['AmauiNavigationItem'].includes(item.type?.displayName) ? {
+        ...other,
 
-      vertical: true,
-      color: item.props.color !== undefined ? item.props.color : color,
-      tonal: item.props.tonal !== undefined ? item.props.tonal : tonal,
-      version: item.props.version !== undefined ? item.props.version : version,
+        vertical: true,
+        version: item.props.version !== undefined ? item.props.version : version,
+      } : {}),
 
       selected: selected.includes(item.props.value),
 
@@ -247,6 +247,10 @@ const NavigationRail = React.forwardRef((props_: any, ref: any) => {
 
           gap={2}
 
+          color={color}
+
+          tonal={tonal}
+
           className={classNames([
             staticClassName('NavigationRail', theme) && [
               'AmauiNavigationRail-main'
@@ -254,6 +258,8 @@ const NavigationRail = React.forwardRef((props_: any, ref: any) => {
 
             classes.main
           ])}
+
+          {...NavigationBarProps}
         >
           {children}
         </NavigationBar>
