@@ -182,6 +182,7 @@ const NavigationBar = React.forwardRef((props_: any, ref: any) => {
         staticClassName('NavigationBar', theme) && [
           'AmauiNavigationBar-root',
           `AmauiNavigationBar-color-${!theme.palette.color[color] && !['inherit', 'default'].includes(color) ? 'new' : color}`,
+          `AmauiNavigationBar-version-${version}`,
           tonal && `NavigationBar-tonal`,
           fixed && `NavigationBar-fixed`
         ],

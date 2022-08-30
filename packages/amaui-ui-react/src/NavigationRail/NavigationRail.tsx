@@ -161,7 +161,9 @@ const NavigationRail = React.forwardRef((props_: any, ref: any) => {
     .map((item: any, index: number) => React.cloneElement(item, {
       key: index,
 
-      color: item.props.color !== undefined ? item.props.color : styles.icon.color
+      color: item.props.color !== undefined ? item.props.color : styles.icon.color,
+
+      tonal: item.props.tonal !== undefined ? item.props.tonal : tonal
     }));
 
   const children = React.Children
@@ -201,6 +203,8 @@ const NavigationRail = React.forwardRef((props_: any, ref: any) => {
         staticClassName('NavigationRail', theme) && [
           'AmauiNavigationRail-root',
           `AmauiNavigationRail-color-${!theme.palette.color[color] && !['inherit', 'default'].includes(color) ? 'new' : color}`,
+          `AmauiNavigationRail-version-${version}`,
+          `AmauiNavigationRail-alignment-${alignment}`,
           tonal && `NavigationRail-tonal`,
           fixed && `NavigationRail-fixed`
         ],

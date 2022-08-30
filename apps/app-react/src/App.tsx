@@ -211,6 +211,13 @@ const useStyle = style(theme => ({
 }), { name: 'App' });
 
 const styled = {
+  NavigationRail: sy(NavigationRail)((theme: AmauiTheme) => ({
+    root: {
+      '&:hover': {
+        opacity: 0.4
+      }
+    }
+  })),
   NavigationBar: sy(NavigationBar)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
@@ -779,6 +786,48 @@ function App() {
 
       <Accordion primary='All'>
         <div className={classNames([classes.column])}>
+          <NavigationRail
+            header={[
+              <IconButton tonal={false}>
+                <IconMaterialMenuRounded />
+              </IconButton>,
+
+              <Fab
+                elevation={0}
+              >
+                <IconMaterialPottedPlantRounded />
+              </Fab>
+            ]}
+          >
+            <NavigationItem
+              label='Home'
+
+              value='Home'
+
+              icon={<IconMaterialHomeRounded />}
+              iconSelected={<IconMaterialHomeRoundedFilled />}
+            />
+
+            <NavigationItem
+              label='Plant'
+
+              value='Plant'
+
+              icon={<IconMaterialPottedPlantRounded />}
+              iconSelected={<IconMaterialPottedPlantRoundedFilled />}
+            />
+
+            <NavigationItem
+              label='Light'
+
+              value='Light'
+
+              icon={<IconMaterialLightModeRounded />}
+
+              disabled
+            />
+          </NavigationRail>
+
           <NavigationBar>
             <NavigationItem
               label='Home'
@@ -1083,7 +1132,7 @@ Please sign in again.`}
         <Accordion primary='NavigationRail'>
           <NavigationRail
             header={[
-              <IconButton>
+              <IconButton tonal={false}>
                 <IconMaterialMenuRounded />
               </IconButton>,
 
@@ -1130,7 +1179,7 @@ Please sign in again.`}
               alignment='flex-start'
 
               header={[
-                <IconButton>
+                <IconButton tonal={false}>
                   <IconMaterialMenuRounded />
                 </IconButton>,
 
@@ -1174,7 +1223,7 @@ Please sign in again.`}
               alignment='center'
 
               header={[
-                <IconButton>
+                <IconButton tonal={false}>
                   <IconMaterialMenuRounded />
                 </IconButton>,
 
@@ -1218,7 +1267,7 @@ Please sign in again.`}
               alignment='flex-end'
 
               header={[
-                <IconButton>
+                <IconButton tonal={false}>
                   <IconMaterialMenuRounded />
                 </IconButton>,
 
@@ -1265,7 +1314,7 @@ Please sign in again.`}
             version='regular'
 
             header={[
-              <IconButton>
+              <IconButton tonal={false}>
                 <IconMaterialMenuRounded />
               </IconButton>,
 
@@ -1309,7 +1358,7 @@ Please sign in again.`}
             version='none'
 
             header={[
-              <IconButton>
+              <IconButton tonal={false}>
                 <IconMaterialMenuRounded />
               </IconButton>,
 
@@ -1353,7 +1402,7 @@ Please sign in again.`}
             version='auto'
 
             header={[
-              <IconButton>
+              <IconButton tonal={false}>
                 <IconMaterialMenuRounded />
               </IconButton>,
 
@@ -1397,7 +1446,7 @@ Please sign in again.`}
             version='auto'
 
             header={[
-              <IconButton>
+              <IconButton tonal={false}>
                 <IconMaterialMenuRounded />
               </IconButton>,
 
@@ -1451,7 +1500,7 @@ Please sign in again.`}
             version='regular'
 
             header={[
-              <IconButton>
+              <IconButton tonal={false}>
                 <IconMaterialMenuRounded />
               </IconButton>,
 
@@ -1521,7 +1570,7 @@ Please sign in again.`}
               color='default'
 
               header={[
-                <IconButton>
+                <IconButton tonal={false}>
                   <IconMaterialMenuRounded />
                 </IconButton>,
 
@@ -1567,7 +1616,7 @@ Please sign in again.`}
               color='primary'
 
               header={[
-                <IconButton>
+                <IconButton tonal={false}>
                   <IconMaterialMenuRounded />
                 </IconButton>,
 
@@ -1613,7 +1662,7 @@ Please sign in again.`}
               color='secondary'
 
               header={[
-                <IconButton>
+                <IconButton tonal={false}>
                   <IconMaterialMenuRounded />
                 </IconButton>,
 
@@ -1659,7 +1708,7 @@ Please sign in again.`}
               color='tertiary'
 
               header={[
-                <IconButton>
+                <IconButton tonal={false}>
                   <IconMaterialMenuRounded />
                 </IconButton>,
 
@@ -1705,7 +1754,7 @@ Please sign in again.`}
               color='quaternary'
 
               header={[
-                <IconButton>
+                <IconButton tonal={false}>
                   <IconMaterialMenuRounded />
                 </IconButton>,
 
@@ -1751,7 +1800,7 @@ Please sign in again.`}
               color='info'
 
               header={[
-                <IconButton>
+                <IconButton tonal={false}>
                   <IconMaterialMenuRounded />
                 </IconButton>,
 
@@ -1797,7 +1846,7 @@ Please sign in again.`}
               color='success'
 
               header={[
-                <IconButton>
+                <IconButton tonal={false}>
                   <IconMaterialMenuRounded />
                 </IconButton>,
 
@@ -1843,7 +1892,7 @@ Please sign in again.`}
               color='warning'
 
               header={[
-                <IconButton>
+                <IconButton tonal={false}>
                   <IconMaterialMenuRounded />
                 </IconButton>,
 
@@ -1889,7 +1938,7 @@ Please sign in again.`}
               color='error'
 
               header={[
-                <IconButton>
+                <IconButton tonal={false}>
                   <IconMaterialMenuRounded />
                 </IconButton>,
 
@@ -1935,7 +1984,7 @@ Please sign in again.`}
               color='neutral'
 
               header={[
-                <IconButton>
+                <IconButton tonal={false}>
                   <IconMaterialMenuRounded />
                 </IconButton>,
 
@@ -1981,7 +2030,7 @@ Please sign in again.`}
               color='#f5d758'
 
               header={[
-                <IconButton>
+                <IconButton tonal={false}>
                   <IconMaterialMenuRounded />
                 </IconButton>,
 
@@ -2031,7 +2080,7 @@ Please sign in again.`}
               color='primary'
 
               header={[
-                <IconButton>
+                <IconButton tonal={false}>
                   <IconMaterialMenuRounded />
                 </IconButton>,
 
@@ -2077,7 +2126,7 @@ Please sign in again.`}
               color='secondary'
 
               header={[
-                <IconButton>
+                <IconButton tonal={false}>
                   <IconMaterialMenuRounded />
                 </IconButton>,
 
@@ -2123,7 +2172,7 @@ Please sign in again.`}
               color='tertiary'
 
               header={[
-                <IconButton>
+                <IconButton tonal={false}>
                   <IconMaterialMenuRounded />
                 </IconButton>,
 
@@ -2169,7 +2218,7 @@ Please sign in again.`}
               color='quaternary'
 
               header={[
-                <IconButton>
+                <IconButton tonal={false}>
                   <IconMaterialMenuRounded />
                 </IconButton>,
 
@@ -2210,12 +2259,12 @@ Please sign in again.`}
             </NavigationRail>
 
             <NavigationRail
-              tonal={false}
+              tonal
 
               color='info'
 
               header={[
-                <IconButton>
+                <IconButton tonal={false}>
                   <IconMaterialMenuRounded />
                 </IconButton>,
 
@@ -2261,7 +2310,7 @@ Please sign in again.`}
               color='success'
 
               header={[
-                <IconButton>
+                <IconButton tonal={false}>
                   <IconMaterialMenuRounded />
                 </IconButton>,
 
@@ -2307,7 +2356,7 @@ Please sign in again.`}
               color='warning'
 
               header={[
-                <IconButton>
+                <IconButton tonal={false}>
                   <IconMaterialMenuRounded />
                 </IconButton>,
 
@@ -2353,7 +2402,7 @@ Please sign in again.`}
               color='error'
 
               header={[
-                <IconButton>
+                <IconButton tonal={false}>
                   <IconMaterialMenuRounded />
                 </IconButton>,
 
@@ -2399,7 +2448,7 @@ Please sign in again.`}
               color='neutral'
 
               header={[
-                <IconButton>
+                <IconButton tonal={false}>
                   <IconMaterialMenuRounded />
                 </IconButton>,
 
@@ -2445,7 +2494,7 @@ Please sign in again.`}
               color='#f5d758'
 
               header={[
-                <IconButton>
+                <IconButton tonal={false}>
                   <IconMaterialMenuRounded />
                 </IconButton>,
 
@@ -2489,7 +2538,21 @@ Please sign in again.`}
 
         <Accordion primary='AmauiTheme'>
           <div className={classNames([classes.column])}>
-            <NavigationBar>
+            <NavigationRail
+              color='secondary'
+
+              header={[
+                <IconButton tonal={false}>
+                  <IconMaterialMenuRounded />
+                </IconButton>,
+
+                <Fab
+                  elevation={0}
+                >
+                  <IconMaterialPottedPlantRounded />
+                </Fab>
+              ]}
+            >
               <NavigationItem
                 label='Home'
 
@@ -2517,7 +2580,7 @@ Please sign in again.`}
 
                 disabled
               />
-            </NavigationBar>
+            </NavigationRail>
 
             <Accordion primary='AmauiTheme nested value' open>
               <AmauiThemeProvider
@@ -2536,7 +2599,21 @@ Please sign in again.`}
 
                 style={{ width: '100%' }}
               >
-                <NavigationBar color='secondary'>
+                <NavigationRail
+                  color='secondary'
+
+                  header={[
+                    <IconButton tonal={false}>
+                      <IconMaterialMenuRounded />
+                    </IconButton>,
+
+                    <Fab
+                      elevation={0}
+                    >
+                      <IconMaterialPottedPlantRounded />
+                    </Fab>
+                  ]}
+                >
                   <NavigationItem
                     label='Home'
 
@@ -2564,7 +2641,7 @@ Please sign in again.`}
 
                     disabled
                   />
-                </NavigationBar>
+                </NavigationRail>
               </AmauiThemeProvider>
             </Accordion>
 
@@ -2573,7 +2650,7 @@ Please sign in again.`}
                 value={{
                   ui: {
                     elements: {
-                      AmauiNavigationBar: {
+                      AmauiNavigationRail: {
                         style: {
                           add: {
                             root: {
@@ -2590,7 +2667,21 @@ Please sign in again.`}
 
                 style={{ width: '100%' }}
               >
-                <NavigationBar color='secondary'>
+                <NavigationRail
+                  color='secondary'
+
+                  header={[
+                    <IconButton tonal={false}>
+                      <IconMaterialMenuRounded />
+                    </IconButton>,
+
+                    <Fab
+                      elevation={0}
+                    >
+                      <IconMaterialPottedPlantRounded />
+                    </Fab>
+                  ]}
+                >
                   <NavigationItem
                     label='Home'
 
@@ -2618,7 +2709,7 @@ Please sign in again.`}
 
                     disabled
                   />
-                </NavigationBar>
+                </NavigationRail>
               </AmauiThemeProvider>
             </Accordion>
 
@@ -2627,16 +2718,15 @@ Please sign in again.`}
                 value={{
                   ui: {
                     elements: {
-                      AmauiNavigationBar: {
+                      AmauiNavigationRail: {
                         style: {
                           override: {
                             root: {
-                              display: 'inline-flex',
-                              flex: '1 1 auto',
-                              userSelect: 'none',
-                              cursor: 'pointer',
-                              padding: '24px 0 34px',
-                              minHeight: '80px'
+                              zIndex: theme.z_index.app_bar,
+                              height: '100vh',
+                              width: '140px',
+                              padding: '40px 0',
+                              overflow: 'auto'
                             }
                           }
                         }
@@ -2647,7 +2737,21 @@ Please sign in again.`}
 
                 style={{ width: '100%' }}
               >
-                <NavigationBar color='secondary'>
+                <NavigationRail
+                  color='secondary'
+
+                  header={[
+                    <IconButton tonal={false}>
+                      <IconMaterialMenuRounded />
+                    </IconButton>,
+
+                    <Fab
+                      elevation={0}
+                    >
+                      <IconMaterialPottedPlantRounded />
+                    </Fab>
+                  ]}
+                >
                   <NavigationItem
                     label='Home'
 
@@ -2675,7 +2779,7 @@ Please sign in again.`}
 
                     disabled
                   />
-                </NavigationBar>
+                </NavigationRail>
               </AmauiThemeProvider>
             </Accordion>
 
@@ -2684,7 +2788,7 @@ Please sign in again.`}
                 value={{
                   ui: {
                     elements: {
-                      AmauiNavigationBar: {
+                      AmauiNavigationRail: {
                         props: {
                           default: {
                             color: 'secondary'
@@ -2697,7 +2801,19 @@ Please sign in again.`}
 
                 style={{ width: '100%' }}
               >
-                <NavigationBar>
+                <NavigationRail
+                  header={[
+                    <IconButton tonal={false}>
+                      <IconMaterialMenuRounded />
+                    </IconButton>,
+
+                    <Fab
+                      elevation={0}
+                    >
+                      <IconMaterialPottedPlantRounded />
+                    </Fab>
+                  ]}
+                >
                   <NavigationItem
                     label='Home'
 
@@ -2725,12 +2841,24 @@ Please sign in again.`}
 
                     disabled
                   />
-                </NavigationBar>
+                </NavigationRail>
               </AmauiThemeProvider>
             </Accordion>
 
             <Accordion primary='AmauiTheme styled' open>
-              <styled.NavigationBar>
+              <styled.NavigationRail
+                header={[
+                  <IconButton tonal={false}>
+                    <IconMaterialMenuRounded />
+                  </IconButton>,
+
+                  <Fab
+                    elevation={0}
+                  >
+                    <IconMaterialPottedPlantRounded />
+                  </Fab>
+                ]}
+              >
                 <NavigationItem
                   label='Home'
 
@@ -2758,7 +2886,7 @@ Please sign in again.`}
 
                   disabled
                 />
-              </styled.NavigationBar>
+              </styled.NavigationRail>
             </Accordion>
           </div>
         </Accordion>
