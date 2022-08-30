@@ -30,6 +30,7 @@ const Expand = React.forwardRef((props_: any, ref: any) => {
 
   const refs = {
     root: React.useRef<HTMLElement>(),
+    rectStart: React.useRef<any>(),
     rect: React.useRef<any>()
   };
 
@@ -86,7 +87,7 @@ const Expand = React.forwardRef((props_: any, ref: any) => {
       overflow: 'hidden'
     },
     adding: {
-      [prop]: refs.rect.current && `${refs.rect.current[prop]}px`,
+      [prop]: refs.rectStart.current && `${refs.rectStart.current[prop]}px`,
       overflow: 'hidden'
     },
     added: {
@@ -98,7 +99,7 @@ const Expand = React.forwardRef((props_: any, ref: any) => {
       overflow: 'hidden'
     },
     entering: {
-      [prop]: refs.rect.current && `${refs.rect.current[prop]}px`,
+      [prop]: refs.rectStart.current && `${refs.rectStart.current[prop]}px`,
       overflow: 'hidden'
     },
     entered: {
@@ -137,36 +138,11 @@ const Expand = React.forwardRef((props_: any, ref: any) => {
 
       {...props}
 
-      append
-
-      onInit={element => {
-        if (!refs.rect.current) {
-          refs.rect.current = element?.getBoundingClientRect();
-
-          // Bug value update
-          refs.rect.current[prop] += addValue;
-        }
-      }}
-
-      onAppended={element => {
-        const rect_ = element?.getBoundingClientRect();
-
-        if (rect_) {
-          refs.rect.current = rect_;
-
-          // Bug value update
-          refs.rect.current[prop] += addValue;
-        }
-      }}
-
       onEnter={element => {
-        const rect_ = element?.getBoundingClientRect();
+        if (!refs.rectStart.current) {
+          refs.rectStart.current = element?.getBoundingClientRect();
 
-        if (refs.rect.current === undefined || (rect_?.[prop] > 0 && rect_?.[prop] >= refs.rect.current[prop])) {
-          refs.rect.current = rect_;
-
-          // Bug value update
-          refs.rect.current[prop] += addValue;
+          if (refs.rectStart.current) refs.rectStart.current[prop] += addValue;
         }
       }}
 

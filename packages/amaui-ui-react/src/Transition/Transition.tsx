@@ -207,11 +207,8 @@ function Transition(props_: IProps) {
         // for update below to use it for enter
         update('appended');
 
-        // Reflow
-        reflow(refs.root.current);
-
         // Prevent update batches
-        setTimeout(() => update(statusNew), 14);
+        setTimeout(() => update(statusNew), 40);
       }
       else update(statusNew);
     }

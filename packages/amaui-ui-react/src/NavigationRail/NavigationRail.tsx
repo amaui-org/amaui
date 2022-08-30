@@ -7,6 +7,7 @@ import Line from '../Line';
 
 import { staticClassName } from '../utils';
 import NavigationBar from '../NavigationBar';
+import Divider from '../Divider';
 
 const useStyle = style(theme => ({
   root: {
@@ -16,6 +17,12 @@ const useStyle = style(theme => ({
     padding: '40px 0',
     overflow: 'auto'
   },
+
+  size_small: { width: '72px' },
+
+  size_regular: { width: '80px' },
+
+  size_large: { width: '88px' },
 
   fixed: {
     position: 'fixed',
@@ -69,7 +76,16 @@ const useStyle = style(theme => ({
 
   main: {
     width: '100%',
-    flex: '1 1 auto'
+    flex: '1 1 auto',
+    background: 'transparent'
+  },
+
+  divider: {
+    position: 'absolute',
+    height: '100%',
+    insetBlock: 0,
+    insetInlineEnd: 0,
+    margin: '0 !important'
   }
 }), { name: 'AmauiNavigationRail' });
 
@@ -84,7 +100,9 @@ const NavigationRail = React.forwardRef((props_: any, ref: any) => {
     color = 'primary',
     tonal = true,
     version = 'regular',
+    size = 'regular',
     alignment = 'center',
+    border,
     header: header_,
     fixed,
     value,
@@ -205,6 +223,7 @@ const NavigationRail = React.forwardRef((props_: any, ref: any) => {
           `AmauiNavigationRail-color-${!theme.palette.color[color] && !['inherit', 'default'].includes(color) ? 'new' : color}`,
           `AmauiNavigationRail-version-${version}`,
           `AmauiNavigationRail-alignment-${alignment}`,
+          `AmauiNavigationRail-size-${size}`,
           tonal && `NavigationRail-tonal`,
           fixed && `NavigationRail-fixed`
         ],
@@ -212,6 +231,7 @@ const NavigationRail = React.forwardRef((props_: any, ref: any) => {
         className,
         classes.root,
         classes[`color_${color}`],
+        classes[`size_${size}`],
         tonal && classes[`tonal_color_${color}`],
         fixed && classes.fixed
       ])}
@@ -266,6 +286,24 @@ const NavigationRail = React.forwardRef((props_: any, ref: any) => {
         >
           {children}
         </NavigationBar>
+      )}
+
+      {border && (
+        <Divider
+
+          className={classNames([
+            staticClassName('NavigationRail', theme) && [
+              'AmauiNavigationRail-divider'
+            ],
+
+            classes.divider
+          ])}
+
+          color={color}
+          tonal={tonal}
+
+          orientation='vertical'
+        />
       )}
     </Line>
   );

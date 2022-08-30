@@ -142,6 +142,7 @@ const List = React.forwardRef((props_: any, ref: any) => {
     color = 'default',
     tonal = true,
     shadow = props.menu ? 2 : 0,
+    indent = 0,
     paddingHorizontal = 'none',
     paddingVertical = 'both',
     Component = 'ul',
@@ -167,6 +168,8 @@ const List = React.forwardRef((props_: any, ref: any) => {
   if (menu && color === 'default') {
     if (!theme.palette.light) styles.root.background = theme.palette.color.neutral[10];
   }
+
+  if (indent !== undefined) styles.root.paddingInlineStart = `${indent * theme.space.unit}px`;
 
   return (
     <Component

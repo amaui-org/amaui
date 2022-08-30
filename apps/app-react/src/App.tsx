@@ -1495,6 +1495,186 @@ Please sign in again.`}
           </NavigationRail>
         </Accordion>
 
+        <Accordion primary='NavigationRail border'>
+          <NavigationRail
+            border
+
+            header={[
+              <IconButton tonal={false}>
+                <IconMaterialMenuRounded />
+              </IconButton>,
+
+              <Fab
+                elevation={0}
+              >
+                <IconMaterialPottedPlantRounded />
+              </Fab>
+            ]}
+          >
+            <NavigationItem
+              label='Home'
+
+              value='Home'
+
+              icon={<IconMaterialHomeRounded />}
+              iconSelected={<IconMaterialHomeRoundedFilled />}
+            />
+
+            <NavigationItem
+              label='Plant'
+
+              value='Plant'
+
+              icon={<IconMaterialPottedPlantRounded />}
+              iconSelected={<IconMaterialPottedPlantRoundedFilled />}
+            />
+
+            <NavigationItem
+              label='Light'
+
+              value='Light'
+
+              icon={<IconMaterialLightModeRounded />}
+
+              disabled
+            />
+          </NavigationRail>
+        </Accordion>
+
+        <Accordion primary='NavigationRail size'>
+          <NavigationRail
+            size='small'
+
+            header={[
+              <IconButton tonal={false}>
+                <IconMaterialMenuRounded />
+              </IconButton>,
+
+              <Fab
+                elevation={0}
+              >
+                <IconMaterialPottedPlantRounded />
+              </Fab>
+            ]}
+          >
+            <NavigationItem
+              label='Home'
+
+              value='Home'
+
+              icon={<IconMaterialHomeRounded />}
+              iconSelected={<IconMaterialHomeRoundedFilled />}
+            />
+
+            <NavigationItem
+              label='Plant'
+
+              value='Plant'
+
+              icon={<IconMaterialPottedPlantRounded />}
+              iconSelected={<IconMaterialPottedPlantRoundedFilled />}
+            />
+
+            <NavigationItem
+              label='Light'
+
+              value='Light'
+
+              icon={<IconMaterialLightModeRounded />}
+
+              disabled
+            />
+          </NavigationRail>
+
+          <NavigationRail
+            size='regular'
+
+            header={[
+              <IconButton tonal={false}>
+                <IconMaterialMenuRounded />
+              </IconButton>,
+
+              <Fab
+                elevation={0}
+              >
+                <IconMaterialPottedPlantRounded />
+              </Fab>
+            ]}
+          >
+            <NavigationItem
+              label='Home'
+
+              value='Home'
+
+              icon={<IconMaterialHomeRounded />}
+              iconSelected={<IconMaterialHomeRoundedFilled />}
+            />
+
+            <NavigationItem
+              label='Plant'
+
+              value='Plant'
+
+              icon={<IconMaterialPottedPlantRounded />}
+              iconSelected={<IconMaterialPottedPlantRoundedFilled />}
+            />
+
+            <NavigationItem
+              label='Light'
+
+              value='Light'
+
+              icon={<IconMaterialLightModeRounded />}
+
+              disabled
+            />
+          </NavigationRail>
+
+          <NavigationRail
+            size='large'
+
+            header={[
+              <IconButton tonal={false}>
+                <IconMaterialMenuRounded />
+              </IconButton>,
+
+              <Fab
+                elevation={0}
+              >
+                <IconMaterialPottedPlantRounded />
+              </Fab>
+            ]}
+          >
+            <NavigationItem
+              label='Home'
+
+              value='Home'
+
+              icon={<IconMaterialHomeRounded />}
+              iconSelected={<IconMaterialHomeRoundedFilled />}
+            />
+
+            <NavigationItem
+              label='Plant'
+
+              value='Plant'
+
+              icon={<IconMaterialPottedPlantRounded />}
+              iconSelected={<IconMaterialPottedPlantRoundedFilled />}
+            />
+
+            <NavigationItem
+              label='Light'
+
+              value='Light'
+
+              icon={<IconMaterialLightModeRounded />}
+
+              disabled
+            />
+          </NavigationRail>
+        </Accordion>
+
         <Accordion primary='NavigationBar with badge'>
           <NavigationRail
             version='regular'
@@ -2724,7 +2904,7 @@ Please sign in again.`}
                             root: {
                               zIndex: theme.z_index.app_bar,
                               height: '100vh',
-                              width: '140px',
+                              width: '114px',
                               padding: '40px 0',
                               overflow: 'auto'
                             }
@@ -14901,6 +15081,24 @@ Please sign in again.`}
           </div>
         </Accordion>
 
+        <Accordion primary='List indent' open>
+          <div className={classNames([classes.column])}>
+            <List
+              indent={5}
+            >
+              {[0, 1, 3, 4].map(item => (
+                <ListItem
+                  key={item}
+
+                  button
+
+                  primary={`Item ${item + 1}`}
+                />
+              ))}
+            </List>
+          </div>
+        </Accordion>
+
         <Accordion primary='List menu' open>
           <div className={classNames([classes.column])}>
             <List menu>
@@ -15109,6 +15307,36 @@ Please sign in again.`}
 
                 primary='Custom spacing...'
               />
+            </List>
+          </div>
+        </Accordion>
+
+        <Accordion primary='List list' open>
+          <div className={classNames([classes.column])}>
+            <List>
+              {[0, 1, 3, 4].map(item => (
+                <ListItem
+                  key={item}
+
+                  button
+
+                  primary={`Item ${item + 1}`}
+
+                  list={item === 3 && (
+                    [0, 1, 3, 4].map(item_ => (
+                      <ListItem
+                        key={item_}
+
+                        button
+
+                        primary={`Item ${item + item_ + 1}`}
+
+                        listCloseOnClick={item_ === 4}
+                      />
+                    ))
+                  )}
+                />
+              ))}
             </List>
           </div>
         </Accordion>

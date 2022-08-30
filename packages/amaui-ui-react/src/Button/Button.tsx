@@ -323,6 +323,7 @@ const Button = React.forwardRef((props_: any, ref: any) => {
     tonal,
     prefer = 'light',
     fullWidth,
+    fontSize,
     selected,
     iconSelected,
     startIcon: startIcon_,
@@ -436,14 +437,15 @@ const Button = React.forwardRef((props_: any, ref: any) => {
   // icon
   if (icon) {
     if (!['small', 'regular', 'large'].includes(size)) {
+      const iconFontSize = fontSize !== undefined && 'inherit';
+
       children_ = is('array', children_) ?
         children_.filter(Boolean).map(
           (item: any, index: number) => is('string', item.type) ?
             React.cloneElement(item, { key: index }) :
-            React.cloneElement(item, { key: index, size: (item.props as any).size !== undefined ? (item.props as any).size : size / 1.667 } as any)
-
+            React.cloneElement(item, { key: index, size: iconFontSize || (item.props as any).size !== undefined ? (item.props as any).size : size / 1.667 } as any)
         ) :
-        React.cloneElement(children_, { size: children_.props?.size !== undefined ? children_.props.size : size / 1.667 });
+        React.cloneElement(children_, { size: iconFontSize || children_.props?.size !== undefined ? children_.props.size : size / 1.667 });
 
       styles.root.width = size;
       styles.root.height = size;
@@ -475,6 +477,12 @@ const Button = React.forwardRef((props_: any, ref: any) => {
     if (size === 'large') styles.Icon.fontSize = 30;
 
     children_ = React.Children.toArray(children_).map(item => React.isValidElement(item) ? React.cloneElement(item, { style: styles.Icon }) : item);
+  }
+
+  if (fontSize !== undefined) {
+    styles.root.fontSize = fontSize;
+
+    styles.icon.fontSize = 'inherit';
   }
 
   // loading
@@ -519,6 +527,8 @@ const Button = React.forwardRef((props_: any, ref: any) => {
       if (is('function', onBlur_)) onBlur_(event)
     };
   }, []);
+
+  const IconElement = (selected && iconSelected) || children_;
 
   return (
     <Component
@@ -640,7 +650,7 @@ const Button = React.forwardRef((props_: any, ref: any) => {
 
           {...IconWrapperProps}
         >
-          {(selected && iconSelected) || children_}
+          {IconElement}
         </IconWrapperComponent>
       ) : (
         <Type

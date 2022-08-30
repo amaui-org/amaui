@@ -9,7 +9,10 @@ import Icon from '../Icon';
 import Interaction from '../Interaction';
 import Type from '../Type';
 import Menu from '../Menu';
-import { MENUS } from '../Menu/Menu';
+import Expand from '../Expand';
+import List from '../List';
+import Fade from '../Fade';
+import IconButton from '../IconButton';
 
 const overflow = {
   width: '100%',
@@ -278,12 +281,36 @@ const useStyle = style(theme => ({
     opacity: theme.palette.visual_contrast.default.opacity.disabled
   },
 
+  icon: {
+    transition: theme.methods.transitions.make('transform')
+  },
+
+  icon_open: {
+    transform: 'rotate(180deg)'
+  },
+
   disabled: {
     pointerEvents: 'none',
     userSelect: 'none',
     cursor: 'default'
   }
 }), { name: 'AmauiListItem' });
+
+const IconMaterialExpandMoreRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='ExpandMoreRounded'
+      short_name='ExpandMore'
+
+      {...props}
+    >
+      <path d="M12 14.95Q11.8 14.95 11.625 14.887Q11.45 14.825 11.3 14.675L6.675 10.05Q6.4 9.775 6.413 9.362Q6.425 8.95 6.7 8.675Q6.975 8.4 7.4 8.4Q7.825 8.4 8.1 8.675L12 12.575L15.925 8.65Q16.2 8.375 16.613 8.387Q17.025 8.4 17.3 8.675Q17.575 8.95 17.575 9.375Q17.575 9.8 17.3 10.075L12.7 14.675Q12.55 14.825 12.375 14.887Q12.2 14.95 12 14.95Z" />
+    </Icon>
+  );
+});
 
 const IconMaterialArrowRightRounded = React.forwardRef((props: any, ref) => {
   return (
@@ -305,7 +332,8 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiListItem?.props?.default }), [props_]);
 
-  const [open, setOpen] = React.useState(false);
+  const [openMenu, setOpenMenu] = React.useState(false);
+  const [openList, setOpenList] = React.useState(false);
   const [hover, setHover] = React.useState(false);
   const [focus, setFocus] = React.useState(false);
 
@@ -316,6 +344,8 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
     menuId,
     menuOpen,
     menuItem,
+    list: list_,
+    listOpen,
     inset,
     primary = props.children,
     secondary,
@@ -338,21 +368,27 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
     include,
     tabIndex,
     menuCloseOnClick,
+    listCloseOnClick,
+    onClick: onClick_,
     onFocus: onFocus_,
     onBlur: onBlur_,
     onMouseEnter: onMouseEnter_,
     onMouseLeave: onMouseLeave_,
     onClose: onClose_,
     disabled,
-
     Component = 'li',
     RootComponent: RootComponent_ = 'div',
     WrapperProps = {},
+    ListProps = {},
     RootProps = {},
     InteractionProps = {},
     PrimaryProps = {},
     SecondaryProps = {},
     TertiaryProps = {},
+    ExpandIcon = IconMaterialExpandMoreRounded,
+    ListTransitionComponent = Fade,
+    ListTransitionComponentProps = { add: true },
+    ExpandProps = {},
     MenuListProps = {},
     MenuProps = {
       autoSelect: true
@@ -370,12 +406,15 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
   const refs = {
     root: React.useRef<HTMLElement>(),
     props: React.useRef<any>(),
-    open: React.useRef<any>()
+    openMenu: React.useRef<any>(),
+    openList: React.useRef<any>(),
+    focus: React.useRef<any>()
   };
 
   refs.props.current = props;
-
-  refs.open.current = open;
+  refs.openMenu.current = openMenu;
+  refs.openList.current = openList;
+  refs.focus.current = focus;
 
   const styles: any = {
     root: {},
@@ -386,21 +425,81 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
     tertiary: {}
   };
 
+  let RootComponent = RootComponent_;
+
+  const list = list_ && React.Children.toArray(list_).map((item: any, index: number) => (
+    React.cloneElement(item, {
+      key: index,
+
+      onClick: (event: React.MouseEvent<any>) => {
+        if (item.props.listCloseOnClick) onClose();
+
+        if (is('function', item.props.onClick)) item.props.onClick(event);
+      }
+    })
+  ));
+
+  const onClick = React.useCallback((event?: React.FocusEvent<any>) => {
+    if (!refs.props.current.disabled) {
+      if (refs.props.current.list) {
+        setOpenList(!refs.openList.current);
+      }
+    }
+
+    if (is('function', refs.props.current.onClick)) refs.props.current.onClick(event);
+  }, []);
+
   let end = end_;
 
   if (menu) end = end_ || <IconMaterialArrowRightRounded />;
 
-  let RootComponent = RootComponent_;
+  if (list) end = end_ || (
+    <IconButton
+      size={24}
+
+      fontSize={24}
+
+      color='default'
+
+      onClick={onClick}
+
+      className={classNames([
+        staticClassName('Accordion', theme) && [
+          'AmauiAccordion-iconButton'
+        ],
+
+        classes.iconButton
+      ])}
+    >
+      <ExpandIcon
+        className={classNames([
+          classes.icon,
+          openList && classes.icon_open
+        ])}
+      />
+    </IconButton>
+  );
 
   React.useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
-      if (
-        !refs.props.current.disabled &&
-        menu
-      ) {
-        if (refs.open.current && ((theme.direction === 'ltr' && event.key === 'ArrowLeft') || (theme.direction === 'rtl' && event.key === 'ArrowRight'))) setOpen(false);
+      if (!refs.props.current.disabled) {
+        if (menu) {
+          if (refs.openMenu.current && ((theme.direction === 'ltr' && event.key === 'ArrowLeft') || (theme.direction === 'rtl' && event.key === 'ArrowRight'))) setOpenMenu(false);
 
-        if (!refs.open.current && ((theme.direction === 'ltr' && event.key === 'ArrowRight') || (theme.direction === 'rtl' && event.key === 'ArrowLeft'))) setOpen(true);
+          if (!refs.openMenu.current && ((theme.direction === 'ltr' && event.key === 'ArrowRight') || (theme.direction === 'rtl' && event.key === 'ArrowLeft'))) setOpenMenu(true);
+        }
+        else if (list) {
+          if (refs.openList.current && (event.key === 'ArrowUp' || (theme.direction === 'ltr' && event.key === 'ArrowLeft') || (theme.direction === 'rtl' && event.key === 'ArrowRight'))) setOpenMenu(false);
+
+          if (!refs.openList.current && (event.key === 'ArrowDown' || (theme.direction === 'ltr' && event.key === 'ArrowRight') || (theme.direction === 'rtl' && event.key === 'ArrowLeft'))) setOpenMenu(true);
+
+          if (event.key === 'Enter' && refs.focus.current) onClick();
+        }
+        else {
+          if (event.key === 'Enter' && refs.focus.current) {
+            if (is('function', refs.props.current.onClick)) refs.props.current.onClick(event);
+          }
+        }
       }
     };
 
@@ -412,15 +511,23 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
   }, []);
 
   React.useEffect(() => {
+    if (menuOpen !== openMenu) setOpenMenu(menuOpen);
+  }, [menuOpen]);
+
+  React.useEffect(() => {
+    if (listOpen !== openList) setOpenList(listOpen);
+  }, [listOpen]);
+
+  React.useEffect(() => {
     if (menuOpen && preselected) refs.root.current.focus();
   }, [preselected, menuOpen]);
 
   React.useEffect(() => {
-    if (menu) setOpen(hover || preselected || selected);
+    if (menu) setOpenMenu(hover || preselected || selected);
   }, [hover]);
 
   React.useEffect(() => {
-    if (menu) setOpen(hover || focus || preselected || selected);
+    if (menu) setOpenMenu(hover || focus || preselected || selected);
   }, [focus]);
 
   const onMouseEnter = React.useCallback((event: React.FocusEvent<any>) => {
@@ -453,7 +560,8 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
 
   const onClose = React.useCallback(() => {
     if (!disabled) {
-      setOpen(false);
+      setOpenMenu(false);
+      setOpenList(false);
       setHover(false);
       setFocus(false);
 
@@ -484,6 +592,24 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
   if (menuItem && color === 'default') {
     if (!theme.palette.light) styles.wrapper.background = theme.palette.color.neutral[10];
   }
+
+  let addValue = 0;
+
+  const method = (children_: any) => {
+    const items = React.Children.toArray(children_);
+
+    items.forEach((item: any) => {
+      if (item?.type?.displayName === 'AmauiAccordion') addValue = 1;
+
+      method(item?.props?.children);
+    });
+  };
+
+  if (list) {
+    method(list);
+  }
+
+  ListTransitionComponentProps.in = openList;
 
   return (
     <Component
@@ -526,6 +652,8 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
       <RootComponent
         href={href}
 
+        onClick={onClick}
+
         className={classNames([
           staticClassName('ListItem', theme) && [
             'AmauiListItem-root',
@@ -565,7 +693,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
           <Interaction
             border={false}
             preselected={focus || preselected || undefined}
-            selected={open || selected}
+            selected={openMenu || openList || selected}
 
             {...InteractionProps}
           />
@@ -590,7 +718,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
             {is('string', start) ? start : React.cloneElement(start, {
               color: start.props?.color || styles.icon.color,
 
-              size: start.props?.size || ['AmauiSwitch'].includes(start?.type?.displayName) ? 'small' : 'regular',
+              size: start.props?.size !== undefined ? start.props?.size : ['AmauiSwitch'].includes(start?.type?.displayName) ? 'small' : 'regular',
 
               disabled
             })}
@@ -705,7 +833,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
             {is('string', end) ? end : React.cloneElement(end, {
               color: end.props?.color || styles.icon.color,
 
-              size: end.props?.size || ['AmauiSwitch'].includes(start?.type?.displayName) ? 'small' : 'regular',
+              size: end.props?.size !== undefined ? end.props?.size : ['AmauiSwitch'].includes(start?.type?.displayName) ? 'small' : 'regular',
 
               disabled
             })}
@@ -715,10 +843,38 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
 
       {footer}
 
+      <Expand
+        in={openList}
+
+        addValue={addValue * -8}
+
+        {...ExpandProps}
+      >
+        <ListTransitionComponent
+          {...ListTransitionComponentProps}
+        >
+          <List
+            indent={5}
+
+            className={classNames([
+              staticClassName('Accordion', theme) && [
+                'AmauiListItem-list'
+              ],
+
+              classes.list
+            ])}
+
+            {...ListProps}
+          >
+            {list}
+          </List>
+        </ListTransitionComponent>
+      </Expand>
+
       {/* Menu */}
       {menu && (
         <Menu
-          open={open}
+          open={openMenu}
 
           include={include}
 
