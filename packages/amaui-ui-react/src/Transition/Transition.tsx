@@ -106,6 +106,7 @@ function Transition(props_: IProps) {
 
     removeOnExited,
 
+    preEnterAppendTimeout = 14,
     timeout: timeout_,
 
     // An all in one method
@@ -208,7 +209,7 @@ function Transition(props_: IProps) {
         update('appended');
 
         // Prevent update batches
-        setTimeout(() => update(statusNew), 40);
+        setTimeout(() => update(statusNew), preEnterAppendTimeout);
       }
       else update(statusNew);
     }

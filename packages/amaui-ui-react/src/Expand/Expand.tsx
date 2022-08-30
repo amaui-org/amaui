@@ -136,6 +136,8 @@ const Expand = React.forwardRef((props_: any, ref: any) => {
     <Transition
       removeOnExited
 
+      preEnterAppendTimeout={70}
+
       {...props}
 
       onEnter={element => {

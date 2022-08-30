@@ -204,15 +204,20 @@ const Accordion = React.forwardRef((props_: any, ref: any) => {
   }
 
   let addValue = 0;
+  let firstAccordionLevel = undefined;
 
-  const method = (children_: any) => {
+  const method = (children_: any, level = 0) => {
     const items = React.Children.toArray(children_);
 
     items.forEach((item: any) => {
-      if (item?.type?.displayName === 'AmauiAccordion') addValue = 1;
+      if (item?.type?.displayName === 'AmauiAccordion') {
+        if (firstAccordionLevel === undefined) firstAccordionLevel = level;
 
-      method(item?.props?.children);
+        if (firstAccordionLevel === level) addValue += 1;
+      }
     });
+
+    items.forEach((item: any) => method(item.props?.children, level + 1));
   };
 
   method(children);
