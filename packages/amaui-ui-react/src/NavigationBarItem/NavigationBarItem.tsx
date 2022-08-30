@@ -140,6 +140,7 @@ const NavigationBarItem = React.forwardRef((props_: any, ref: any) => {
     onMouseDown: onMouseDown_,
     onMouseEnter: onMouseEnter_,
     onMouseLeave: onMouseLeave_,
+    onTouch: onTouch_,
     disabled,
 
     className,
@@ -203,6 +204,16 @@ const NavigationBarItem = React.forwardRef((props_: any, ref: any) => {
     if (!disabled) setFocus(false);
 
     if (is('function', onBlur_)) onBlur_(event);
+  }, []);
+
+  const onTouch = React.useCallback((event: React.MouseEvent<any>) => {
+    if (!disabled) {
+      setMouseDown(true);
+
+      setHover(false);
+    }
+
+    if (is('function', onTouch_)) onTouch_(event);
   }, []);
 
   const onMouseDown = React.useCallback((event: React.MouseEvent<any>) => {
@@ -276,6 +287,8 @@ const NavigationBarItem = React.forwardRef((props_: any, ref: any) => {
         onBlur={onBlur}
 
         onKeyDown={onKeyDown}
+
+        onTouch={onTouch}
 
         onMouseDown={onMouseDown}
 
