@@ -360,10 +360,6 @@ const Button = React.forwardRef((props_: any, ref: any) => {
 
   const [focus, setFocus] = React.useState(focus_ !== undefined ? focus_ : false);
 
-  const refs = {
-    color: React.useRef<any>()
-  };
-
   const { classes } = useStyle(props);
 
   let color = color_;
@@ -374,12 +370,6 @@ const Button = React.forwardRef((props_: any, ref: any) => {
 
   if (disabled) color = 'default';
 
-  React.useEffect(() => {
-    if (classes[color] === undefined && is('string', color)) {
-      refs.color.current = theme.methods.color(color);
-    }
-  }, [color]);
-
   const styles: any = {
     root: {},
     background: {},
@@ -389,12 +379,7 @@ const Button = React.forwardRef((props_: any, ref: any) => {
     Icon: { fontSize: '17px' }
   };
 
-  // color
-  if (classes[color] === undefined && is('string', color)) {
-    if (!refs.color.current) refs.color.current = theme.methods.color(color);
-
-    styles.root.color = color;
-  }
+  let palette: any;
 
   if (version === 'filled') {
     styles.background.background = color === 'inherit' ? 'currentColor' : color === 'default' ? theme.palette.text.default.primary : theme.palette.color[color] ? (theme.palette.color[color] as any).main : color;
@@ -405,24 +390,30 @@ const Button = React.forwardRef((props_: any, ref: any) => {
   if (tonal) {
     // Text
     if (version === 'text') {
-      styles.root.color = theme.methods.palette.color.value(color, 30, true, refs.color.current);
+      styles.root.color = theme.methods.palette.color.value(color, 30, true, palette);
     }
 
     // Outlined
     if (version === 'outlined') {
-      styles.root.color = theme.methods.palette.color.value(color, 50, true, refs.color.current);
+      styles.root.color = theme.methods.palette.color.value(color, 50, true, palette);
 
-      styles.label.color = theme.methods.palette.color.value(color, 10, true, refs.color.current);
+      styles.label.color = theme.methods.palette.color.value(color, 10, true, palette);
 
-      styles.border.boxShadow = `inset 0 0 0 1px ${theme.methods.palette.color.value(color, 30, true, refs.color.current)}`;
+      styles.border.boxShadow = `inset 0 0 0 1px ${theme.methods.palette.color.value(color, 30, true, palette)}`;
     }
 
     // Filled
     if (version === 'filled') {
-      styles.root.color = theme.methods.palette.color.value(color, 10, true, refs.color.current);
+      styles.root.color = theme.methods.palette.color.value(color, 10, true, palette);
 
-      styles.background.background = theme.methods.palette.color.value(color, 90, true, refs.color.current);
+      styles.background.background = theme.methods.palette.color.value(color, 90, true, palette);
     }
+  }
+
+  if (!theme.palette.color[color] && !['inherit', 'default'].includes(color)) {
+    palette = theme.methods.color(color);
+
+    styles.root.color = palette?.main;
   }
 
   // size

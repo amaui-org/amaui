@@ -170,10 +170,7 @@ const NavigationRail = React.forwardRef((props_: any, ref: any) => {
       key: index,
 
       ...(['AmauiNavigationItem'].includes(item.type?.displayName) ? {
-        ...other,
-
-        vertical: true,
-        version: item.props.version !== undefined ? item.props.version : version,
+        vertical: true
       } : {}),
 
       selected: selected.includes(item.props.value),
@@ -241,6 +238,8 @@ const NavigationRail = React.forwardRef((props_: any, ref: any) => {
 
       {children && (
         <NavigationBar
+          version={version}
+
           direction='column'
 
           justify={alignment}
