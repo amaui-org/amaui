@@ -161,8 +161,12 @@ function Transition(props_: IProps) {
 
   const refs = {
     root: React.useRef<HTMLElement>(),
-    status: React.useRef(status)
+    status: React.useRef(status),
+    inProp: React.useRef(inProp)
   };
+
+  refs.status.current = status;
+  refs.inProp.current = inProp;
 
   React.useEffect(() => {
     let statusNew: TTransitionStatus;
@@ -309,8 +313,8 @@ function Transition(props_: IProps) {
   };
 
   const enter = async (status_: TTransitionStatus) => {
-    if (refs.status.current !== status_) return;
-    // Re add / add element for ref value
+    if (refs.status.current !== status_ || !refs.inProp.current) return;
+
     updateStatus('enter');
 
     // Reflow
@@ -327,7 +331,7 @@ function Transition(props_: IProps) {
   };
 
   const exit = async (status_: TTransitionStatus) => {
-    if (refs.status.current !== status_) return;
+    if (refs.status.current !== status_ || refs.inProp.current) return;
 
     updateStatus('exit');
 

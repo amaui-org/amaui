@@ -9,7 +9,6 @@ import { staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
-    padding: '12px 0 16px',
     zIndex: theme.z_index.app_bar,
   },
 
@@ -41,23 +40,23 @@ const useStyle = style(theme => ({
   color_error: { backgroundColor: theme.palette.color.error.main },
 
   // Tonal
-  tonal_color_neutral: { backgroundColor: theme.methods.palette.color.value('neutral', 90) },
+  tonal_color_neutral: { backgroundColor: theme.methods.palette.color.value('neutral', 95) },
 
-  tonal_color_primary: { backgroundColor: theme.methods.palette.color.value('primary', 90) },
+  tonal_color_primary: { backgroundColor: theme.methods.palette.color.value('primary', 95) },
 
-  tonal_color_secondary: { backgroundColor: theme.methods.palette.color.value('secondary', 90) },
+  tonal_color_secondary: { backgroundColor: theme.methods.palette.color.value('secondary', 95) },
 
-  tonal_color_tertiary: { backgroundColor: theme.methods.palette.color.value('tertiary', 90) },
+  tonal_color_tertiary: { backgroundColor: theme.methods.palette.color.value('tertiary', 95) },
 
-  tonal_color_quaternary: { backgroundColor: theme.methods.palette.color.value('quaternary', 90) },
+  tonal_color_quaternary: { backgroundColor: theme.methods.palette.color.value('quaternary', 95) },
 
-  tonal_color_info: { backgroundColor: theme.methods.palette.color.value('info', 90) },
+  tonal_color_info: { backgroundColor: theme.methods.palette.color.value('info', 95) },
 
-  tonal_color_success: { backgroundColor: theme.methods.palette.color.value('success', 90) },
+  tonal_color_success: { backgroundColor: theme.methods.palette.color.value('success', 95) },
 
-  tonal_color_warning: { backgroundColor: theme.methods.palette.color.value('warning', 90) },
+  tonal_color_warning: { backgroundColor: theme.methods.palette.color.value('warning', 95) },
 
-  tonal_color_error: { backgroundColor: theme.methods.palette.color.value('error', 90) },
+  tonal_color_error: { backgroundColor: theme.methods.palette.color.value('error', 95) },
 
 }), { name: 'AmauiNavigationBar' });
 
@@ -71,6 +70,7 @@ const NavigationBar = React.forwardRef((props_: any, ref: any) => {
   const {
     color = 'primary',
     tonal = true,
+    version = 'regular',
     fixed,
     value,
     valueDefault,
@@ -120,7 +120,7 @@ const NavigationBar = React.forwardRef((props_: any, ref: any) => {
   if (!theme.palette.color[color] && !['inherit', 'default'].includes(color)) {
     const palette = theme.methods.color(color);
 
-    if (tonal) styles.root.backgroundColor = theme.methods.palette.color.value(undefined, 90, true, palette);
+    if (tonal) styles.root.backgroundColor = theme.methods.palette.color.value(undefined, 95, true, palette);
     else styles.root.backgroundColor = palette.main;
   }
 
@@ -129,14 +129,20 @@ const NavigationBar = React.forwardRef((props_: any, ref: any) => {
     .map((item: any, index: number) => React.cloneElement(item, {
       key: index,
 
+      color: item.props.color !== undefined ? item.props.color : color,
+      tonal: item.props.tonal !== undefined ? item.props.tonal : tonal,
+      version: item.props.version !== undefined ? item.props.version : version,
+
+      selected: selected.includes(item.props.value),
+
       onClick: () => {
-        onSelect(item.props);
+        if (!item.props.disabled) {
+          onSelect(item.props);
 
-        // Invoke items on click method
-        if (is('function', item.props.onClick)) item.props.onClick();
-      },
-
-      selected: selected.includes(item.props.value)
+          // Invoke items on click method
+          if (is('function', item.props.onClick)) item.props.onClick();
+        }
+      }
     }));
 
   return (

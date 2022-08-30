@@ -2,7 +2,7 @@ import React from 'react';
 
 import { countries } from '@amaui/utils';
 import { AmauiTheme, AmauiThemeProvider, classNames, style, sy, useAmauiTheme } from '@amaui/style-react';
-import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar } from '@amaui/ui-react';
+import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationBarItem } from '@amaui/ui-react';
 
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
@@ -25,6 +25,8 @@ import IconMaterialFormatAlignLeftRounded from '@amaui/icons-material-react/buil
 import IconMaterialFormatAlignRightRounded from '@amaui/icons-material-react/build/IconMaterialFormatAlignRightRounded';
 import IconMaterialFormatAlignCenterRounded from '@amaui/icons-material-react/build/IconMaterialFormatAlignCenterRounded';
 import IconMaterialFormatAlignJustifyRounded from '@amaui/icons-material-react/build/IconMaterialFormatAlignJustifyRounded';
+import IconMaterialHomeRounded from '@amaui/icons-material-react/build/IconMaterialHomeRounded';
+import IconMaterialHomeRoundedFilled from '@amaui/icons-material-react/build/IconMaterialHomeRoundedFilled';
 
 const useStyleA = style(theme => ({
   a: {
@@ -208,6 +210,13 @@ const useStyle = style(theme => ({
 }), { name: 'App' });
 
 const styled = {
+  NavigationBar: sy(NavigationBar)((theme: AmauiTheme) => ({
+    root: {
+      '&:hover': {
+        opacity: 0.4
+      }
+    }
+  })),
   Accordion: sy(Accordion)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
@@ -769,6 +778,36 @@ function App() {
 
       <Accordion primary='All'>
         <div className={classNames([classes.column])}>
+          <NavigationBar>
+            <NavigationBarItem
+              label='Home'
+
+              value='Home'
+
+              icon={IconMaterialHomeRounded}
+              iconSelected={IconMaterialHomeRoundedFilled}
+            />
+
+            <NavigationBarItem
+              label='Plant'
+
+              value='Plant'
+
+              icon={IconMaterialPottedPlantRounded}
+              iconSelected={IconMaterialPottedPlantRoundedFilled}
+            />
+
+            <NavigationBarItem
+              label='Light'
+
+              value='Light'
+
+              icon={IconMaterialLightModeRounded}
+
+              disabled
+            />
+          </NavigationBar>
+
           <Accordion
             primary='Primary text'
 
@@ -1042,10 +1081,1079 @@ Please sign in again.`}
       <Accordion primary='NavigationBar'>
         <Accordion primary='NavigationBar'>
           <NavigationBar>
+            <NavigationBarItem
+              label='Home'
 
+              value='Home'
+
+              icon={IconMaterialHomeRounded}
+              iconSelected={IconMaterialHomeRoundedFilled}
+            />
+
+            <NavigationBarItem
+              label='Plant'
+
+              value='Plant'
+
+              icon={IconMaterialPottedPlantRounded}
+              iconSelected={IconMaterialPottedPlantRoundedFilled}
+            />
+
+            <NavigationBarItem
+              label='Light'
+
+              value='Light'
+
+              icon={IconMaterialLightModeRounded}
+
+              disabled
+            />
           </NavigationBar>
         </Accordion>
 
+        <Accordion primary='NavigationBar versions'>
+          <NavigationBar version='regular'>
+            <NavigationBarItem
+              label='Home'
+
+              value='Home'
+
+              icon={IconMaterialHomeRounded}
+              iconSelected={IconMaterialHomeRoundedFilled}
+            />
+
+            <NavigationBarItem
+              label='Plant'
+
+              value='Plant'
+
+              icon={IconMaterialPottedPlantRounded}
+              iconSelected={IconMaterialPottedPlantRoundedFilled}
+            />
+
+            <NavigationBarItem
+              label='Light'
+
+              value='Light'
+
+              icon={IconMaterialLightModeRounded}
+
+              disabled
+            />
+          </NavigationBar>
+
+          <NavigationBar version='none'>
+            <NavigationBarItem
+              label='Home'
+
+              value='Home'
+
+              icon={IconMaterialHomeRounded}
+              iconSelected={IconMaterialHomeRoundedFilled}
+            />
+
+            <NavigationBarItem
+              label='Plant'
+
+              value='Plant'
+
+              icon={IconMaterialPottedPlantRounded}
+              iconSelected={IconMaterialPottedPlantRoundedFilled}
+            />
+
+            <NavigationBarItem
+              label='Light'
+
+              value='Light'
+
+              icon={IconMaterialLightModeRounded}
+
+              disabled
+            />
+          </NavigationBar>
+
+          <NavigationBar version='auto'>
+            <NavigationBarItem
+              label='Home'
+
+              value='Home'
+
+              icon={IconMaterialHomeRounded}
+              iconSelected={IconMaterialHomeRoundedFilled}
+            />
+
+            <NavigationBarItem
+              label='Plant'
+
+              value='Plant'
+
+              icon={IconMaterialPottedPlantRounded}
+              iconSelected={IconMaterialPottedPlantRoundedFilled}
+            />
+
+            <NavigationBarItem
+              label='Light'
+
+              value='Light'
+
+              icon={IconMaterialLightModeRounded}
+
+              disabled
+            />
+          </NavigationBar>
+        </Accordion>
+
+        <Accordion primary='NavigationBar with badge'>
+          <NavigationBar>
+            <NavigationBarItem
+              label='Home'
+
+              value='Home'
+
+              icon={IconMaterialHomeRounded}
+              iconSelected={IconMaterialHomeRoundedFilled}
+
+              IconWrapperComponent={Badge}
+              IconWrapperProps={{ indicator: true }}
+            />
+
+            <NavigationBarItem
+              label='Plant'
+
+              value='Plant'
+
+              icon={IconMaterialPottedPlantRounded}
+              iconSelected={IconMaterialPottedPlantRoundedFilled}
+
+              IconWrapperComponent={Badge}
+              IconWrapperProps={{ value: 14 }}
+            />
+
+            <NavigationBarItem
+              label='Light'
+
+              value='Light'
+
+              icon={IconMaterialLightModeRounded}
+
+              disabled
+            />
+          </NavigationBar>
+        </Accordion>
+
+        <Accordion primary='NavigationBar color'>
+          <Line gap={5}>
+            <NavigationBar color='default' tonal={false}>
+              <NavigationBarItem
+                label='Home'
+
+                value='Home'
+
+                icon={IconMaterialHomeRounded}
+                iconSelected={IconMaterialHomeRoundedFilled}
+              />
+
+              <NavigationBarItem
+                label='Plant'
+
+                value='Plant'
+
+                icon={IconMaterialPottedPlantRounded}
+                iconSelected={IconMaterialPottedPlantRoundedFilled}
+              />
+
+              <NavigationBarItem
+                label='Light'
+
+                value='Light'
+
+                icon={IconMaterialLightModeRounded}
+
+                disabled
+              />
+            </NavigationBar>
+
+            <NavigationBar color='primary' tonal={false}>
+              <NavigationBarItem
+                label='Home'
+
+                value='Home'
+
+                icon={IconMaterialHomeRounded}
+                iconSelected={IconMaterialHomeRoundedFilled}
+              />
+
+              <NavigationBarItem
+                label='Plant'
+
+                value='Plant'
+
+                icon={IconMaterialPottedPlantRounded}
+                iconSelected={IconMaterialPottedPlantRoundedFilled}
+              />
+
+              <NavigationBarItem
+                label='Light'
+
+                value='Light'
+
+                icon={IconMaterialLightModeRounded}
+
+                disabled
+              />
+            </NavigationBar>
+
+            <NavigationBar color='secondary' tonal={false}>
+              <NavigationBarItem
+                label='Home'
+
+                value='Home'
+
+                icon={IconMaterialHomeRounded}
+                iconSelected={IconMaterialHomeRoundedFilled}
+              />
+
+              <NavigationBarItem
+                label='Plant'
+
+                value='Plant'
+
+                icon={IconMaterialPottedPlantRounded}
+                iconSelected={IconMaterialPottedPlantRoundedFilled}
+              />
+
+              <NavigationBarItem
+                label='Light'
+
+                value='Light'
+
+                icon={IconMaterialLightModeRounded}
+
+                disabled
+              />
+            </NavigationBar>
+
+            <NavigationBar color='tertiary' tonal={false}>
+              <NavigationBarItem
+                label='Home'
+
+                value='Home'
+
+                icon={IconMaterialHomeRounded}
+                iconSelected={IconMaterialHomeRoundedFilled}
+              />
+
+              <NavigationBarItem
+                label='Plant'
+
+                value='Plant'
+
+                icon={IconMaterialPottedPlantRounded}
+                iconSelected={IconMaterialPottedPlantRoundedFilled}
+              />
+
+              <NavigationBarItem
+                label='Light'
+
+                value='Light'
+
+                icon={IconMaterialLightModeRounded}
+
+                disabled
+              />
+            </NavigationBar>
+
+            <NavigationBar color='quaternary' tonal={false}>
+              <NavigationBarItem
+                label='Home'
+
+                value='Home'
+
+                icon={IconMaterialHomeRounded}
+                iconSelected={IconMaterialHomeRoundedFilled}
+              />
+
+              <NavigationBarItem
+                label='Plant'
+
+                value='Plant'
+
+                icon={IconMaterialPottedPlantRounded}
+                iconSelected={IconMaterialPottedPlantRoundedFilled}
+              />
+
+              <NavigationBarItem
+                label='Light'
+
+                value='Light'
+
+                icon={IconMaterialLightModeRounded}
+
+                disabled
+              />
+            </NavigationBar>
+
+            <NavigationBar color='info' tonal={false}>
+              <NavigationBarItem
+                label='Home'
+
+                value='Home'
+
+                icon={IconMaterialHomeRounded}
+                iconSelected={IconMaterialHomeRoundedFilled}
+              />
+
+              <NavigationBarItem
+                label='Plant'
+
+                value='Plant'
+
+                icon={IconMaterialPottedPlantRounded}
+                iconSelected={IconMaterialPottedPlantRoundedFilled}
+              />
+
+              <NavigationBarItem
+                label='Light'
+
+                value='Light'
+
+                icon={IconMaterialLightModeRounded}
+
+                disabled
+              />
+            </NavigationBar>
+
+            <NavigationBar color='success' tonal={false}>
+              <NavigationBarItem
+                label='Home'
+
+                value='Home'
+
+                icon={IconMaterialHomeRounded}
+                iconSelected={IconMaterialHomeRoundedFilled}
+              />
+
+              <NavigationBarItem
+                label='Plant'
+
+                value='Plant'
+
+                icon={IconMaterialPottedPlantRounded}
+                iconSelected={IconMaterialPottedPlantRoundedFilled}
+              />
+
+              <NavigationBarItem
+                label='Light'
+
+                value='Light'
+
+                icon={IconMaterialLightModeRounded}
+
+                disabled
+              />
+            </NavigationBar>
+
+            <NavigationBar color='warning' tonal={false}>
+              <NavigationBarItem
+                label='Home'
+
+                value='Home'
+
+                icon={IconMaterialHomeRounded}
+                iconSelected={IconMaterialHomeRoundedFilled}
+              />
+
+              <NavigationBarItem
+                label='Plant'
+
+                value='Plant'
+
+                icon={IconMaterialPottedPlantRounded}
+                iconSelected={IconMaterialPottedPlantRoundedFilled}
+              />
+
+              <NavigationBarItem
+                label='Light'
+
+                value='Light'
+
+                icon={IconMaterialLightModeRounded}
+
+                disabled
+              />
+            </NavigationBar>
+
+            <NavigationBar color='error' tonal={false}>
+              <NavigationBarItem
+                label='Home'
+
+                value='Home'
+
+                icon={IconMaterialHomeRounded}
+                iconSelected={IconMaterialHomeRoundedFilled}
+              />
+
+              <NavigationBarItem
+                label='Plant'
+
+                value='Plant'
+
+                icon={IconMaterialPottedPlantRounded}
+                iconSelected={IconMaterialPottedPlantRoundedFilled}
+              />
+
+              <NavigationBarItem
+                label='Light'
+
+                value='Light'
+
+                icon={IconMaterialLightModeRounded}
+
+                disabled
+              />
+            </NavigationBar>
+
+            <NavigationBar color='neutral' tonal={false}>
+              <NavigationBarItem
+                label='Home'
+
+                value='Home'
+
+                icon={IconMaterialHomeRounded}
+                iconSelected={IconMaterialHomeRoundedFilled}
+              />
+
+              <NavigationBarItem
+                label='Plant'
+
+                value='Plant'
+
+                icon={IconMaterialPottedPlantRounded}
+                iconSelected={IconMaterialPottedPlantRoundedFilled}
+              />
+
+              <NavigationBarItem
+                label='Light'
+
+                value='Light'
+
+                icon={IconMaterialLightModeRounded}
+
+                disabled
+              />
+            </NavigationBar>
+
+            <NavigationBar color='#f5d758' tonal={false}>
+              <NavigationBarItem
+                label='Home'
+
+                value='Home'
+
+                icon={IconMaterialHomeRounded}
+                iconSelected={IconMaterialHomeRoundedFilled}
+              />
+
+              <NavigationBarItem
+                label='Plant'
+
+                value='Plant'
+
+                icon={IconMaterialPottedPlantRounded}
+                iconSelected={IconMaterialPottedPlantRoundedFilled}
+              />
+
+              <NavigationBarItem
+                label='Light'
+
+                value='Light'
+
+                icon={IconMaterialLightModeRounded}
+
+                disabled
+              />
+            </NavigationBar>
+          </Line>
+        </Accordion>
+
+        <Accordion primary='NavigationBar tonal'>
+          <Line gap={5}>
+            <NavigationBar color='primary' tonal>
+              <NavigationBarItem
+                label='Home'
+
+                value='Home'
+
+                icon={IconMaterialHomeRounded}
+                iconSelected={IconMaterialHomeRoundedFilled}
+              />
+
+              <NavigationBarItem
+                label='Plant'
+
+                value='Plant'
+
+                icon={IconMaterialPottedPlantRounded}
+                iconSelected={IconMaterialPottedPlantRoundedFilled}
+              />
+
+              <NavigationBarItem
+                label='Light'
+
+                value='Light'
+
+                icon={IconMaterialLightModeRounded}
+
+                disabled
+              />
+            </NavigationBar>
+
+            <NavigationBar color='secondary' tonal>
+              <NavigationBarItem
+                label='Home'
+
+                value='Home'
+
+                icon={IconMaterialHomeRounded}
+                iconSelected={IconMaterialHomeRoundedFilled}
+              />
+
+              <NavigationBarItem
+                label='Plant'
+
+                value='Plant'
+
+                icon={IconMaterialPottedPlantRounded}
+                iconSelected={IconMaterialPottedPlantRoundedFilled}
+              />
+
+              <NavigationBarItem
+                label='Light'
+
+                value='Light'
+
+                icon={IconMaterialLightModeRounded}
+
+                disabled
+              />
+            </NavigationBar>
+
+            <NavigationBar color='tertiary' tonal>
+              <NavigationBarItem
+                label='Home'
+
+                value='Home'
+
+                icon={IconMaterialHomeRounded}
+                iconSelected={IconMaterialHomeRoundedFilled}
+              />
+
+              <NavigationBarItem
+                label='Plant'
+
+                value='Plant'
+
+                icon={IconMaterialPottedPlantRounded}
+                iconSelected={IconMaterialPottedPlantRoundedFilled}
+              />
+
+              <NavigationBarItem
+                label='Light'
+
+                value='Light'
+
+                icon={IconMaterialLightModeRounded}
+
+                disabled
+              />
+            </NavigationBar>
+
+            <NavigationBar color='quaternary' tonal>
+              <NavigationBarItem
+                label='Home'
+
+                value='Home'
+
+                icon={IconMaterialHomeRounded}
+                iconSelected={IconMaterialHomeRoundedFilled}
+              />
+
+              <NavigationBarItem
+                label='Plant'
+
+                value='Plant'
+
+                icon={IconMaterialPottedPlantRounded}
+                iconSelected={IconMaterialPottedPlantRoundedFilled}
+              />
+
+              <NavigationBarItem
+                label='Light'
+
+                value='Light'
+
+                icon={IconMaterialLightModeRounded}
+
+                disabled
+              />
+            </NavigationBar>
+
+            <NavigationBar color='info' tonal>
+              <NavigationBarItem
+                label='Home'
+
+                value='Home'
+
+                icon={IconMaterialHomeRounded}
+                iconSelected={IconMaterialHomeRoundedFilled}
+              />
+
+              <NavigationBarItem
+                label='Plant'
+
+                value='Plant'
+
+                icon={IconMaterialPottedPlantRounded}
+                iconSelected={IconMaterialPottedPlantRoundedFilled}
+              />
+
+              <NavigationBarItem
+                label='Light'
+
+                value='Light'
+
+                icon={IconMaterialLightModeRounded}
+
+                disabled
+              />
+            </NavigationBar>
+
+            <NavigationBar color='success' tonal>
+              <NavigationBarItem
+                label='Home'
+
+                value='Home'
+
+                icon={IconMaterialHomeRounded}
+                iconSelected={IconMaterialHomeRoundedFilled}
+              />
+
+              <NavigationBarItem
+                label='Plant'
+
+                value='Plant'
+
+                icon={IconMaterialPottedPlantRounded}
+                iconSelected={IconMaterialPottedPlantRoundedFilled}
+              />
+
+              <NavigationBarItem
+                label='Light'
+
+                value='Light'
+
+                icon={IconMaterialLightModeRounded}
+
+                disabled
+              />
+            </NavigationBar>
+
+            <NavigationBar color='warning' tonal>
+              <NavigationBarItem
+                label='Home'
+
+                value='Home'
+
+                icon={IconMaterialHomeRounded}
+                iconSelected={IconMaterialHomeRoundedFilled}
+              />
+
+              <NavigationBarItem
+                label='Plant'
+
+                value='Plant'
+
+                icon={IconMaterialPottedPlantRounded}
+                iconSelected={IconMaterialPottedPlantRoundedFilled}
+              />
+
+              <NavigationBarItem
+                label='Light'
+
+                value='Light'
+
+                icon={IconMaterialLightModeRounded}
+
+                disabled
+              />
+            </NavigationBar>
+
+            <NavigationBar color='error' tonal>
+              <NavigationBarItem
+                label='Home'
+
+                value='Home'
+
+                icon={IconMaterialHomeRounded}
+                iconSelected={IconMaterialHomeRoundedFilled}
+              />
+
+              <NavigationBarItem
+                label='Plant'
+
+                value='Plant'
+
+                icon={IconMaterialPottedPlantRounded}
+                iconSelected={IconMaterialPottedPlantRoundedFilled}
+              />
+
+              <NavigationBarItem
+                label='Light'
+
+                value='Light'
+
+                icon={IconMaterialLightModeRounded}
+
+                disabled
+              />
+            </NavigationBar>
+
+            <NavigationBar color='neutral' tonal>
+              <NavigationBarItem
+                label='Home'
+
+                value='Home'
+
+                icon={IconMaterialHomeRounded}
+                iconSelected={IconMaterialHomeRoundedFilled}
+              />
+
+              <NavigationBarItem
+                label='Plant'
+
+                value='Plant'
+
+                icon={IconMaterialPottedPlantRounded}
+                iconSelected={IconMaterialPottedPlantRoundedFilled}
+              />
+
+              <NavigationBarItem
+                label='Light'
+
+                value='Light'
+
+                icon={IconMaterialLightModeRounded}
+
+                disabled
+              />
+            </NavigationBar>
+
+            <NavigationBar color='#f5d758' tonal>
+              <NavigationBarItem
+                label='Home'
+
+                value='Home'
+
+                icon={IconMaterialHomeRounded}
+                iconSelected={IconMaterialHomeRoundedFilled}
+              />
+
+              <NavigationBarItem
+                label='Plant'
+
+                value='Plant'
+
+                icon={IconMaterialPottedPlantRounded}
+                iconSelected={IconMaterialPottedPlantRoundedFilled}
+              />
+
+              <NavigationBarItem
+                label='Light'
+
+                value='Light'
+
+                icon={IconMaterialLightModeRounded}
+
+                disabled
+              />
+            </NavigationBar>
+          </Line>
+        </Accordion>
+
+        <Accordion primary='AmauiTheme'>
+          <div className={classNames([classes.column])}>
+            <NavigationBar>
+              <NavigationBarItem
+                label='Home'
+
+                value='Home'
+
+                icon={IconMaterialHomeRounded}
+                iconSelected={IconMaterialHomeRoundedFilled}
+              />
+
+              <NavigationBarItem
+                label='Plant'
+
+                value='Plant'
+
+                icon={IconMaterialPottedPlantRounded}
+                iconSelected={IconMaterialPottedPlantRoundedFilled}
+              />
+
+              <NavigationBarItem
+                label='Light'
+
+                value='Light'
+
+                icon={IconMaterialLightModeRounded}
+
+                disabled
+              />
+            </NavigationBar>
+
+            <Accordion primary='AmauiTheme nested value' open>
+              <AmauiThemeProvider
+                value={{
+                  palette: {
+                    color: {
+                      secondary: {
+                        main: '#008000'
+                      }
+                    }
+                  },
+                  space: {
+                    unit: 5
+                  }
+                }}
+
+                style={{ width: '100%' }}
+              >
+                <NavigationBar color='secondary'>
+                  <NavigationBarItem
+                    label='Home'
+
+                    value='Home'
+
+                    icon={IconMaterialHomeRounded}
+                    iconSelected={IconMaterialHomeRoundedFilled}
+                  />
+
+                  <NavigationBarItem
+                    label='Plant'
+
+                    value='Plant'
+
+                    icon={IconMaterialPottedPlantRounded}
+                    iconSelected={IconMaterialPottedPlantRoundedFilled}
+                  />
+
+                  <NavigationBarItem
+                    label='Light'
+
+                    value='Light'
+
+                    icon={IconMaterialLightModeRounded}
+
+                    disabled
+                  />
+                </NavigationBar>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme add' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiNavigationBar: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: 0.4
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+
+                style={{ width: '100%' }}
+              >
+                <NavigationBar color='secondary'>
+                  <NavigationBarItem
+                    label='Home'
+
+                    value='Home'
+
+                    icon={IconMaterialHomeRounded}
+                    iconSelected={IconMaterialHomeRoundedFilled}
+                  />
+
+                  <NavigationBarItem
+                    label='Plant'
+
+                    value='Plant'
+
+                    icon={IconMaterialPottedPlantRounded}
+                    iconSelected={IconMaterialPottedPlantRoundedFilled}
+                  />
+
+                  <NavigationBarItem
+                    label='Light'
+
+                    value='Light'
+
+                    icon={IconMaterialLightModeRounded}
+
+                    disabled
+                  />
+                </NavigationBar>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme override' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiNavigationBar: {
+                        style: {
+                          override: {
+                            root: {
+                              display: 'inline-flex',
+                              flex: '1 1 auto',
+                              userSelect: 'none',
+                              cursor: 'pointer',
+                              padding: '24px 0 34px',
+                              minHeight: '80px'
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+
+                style={{ width: '100%' }}
+              >
+                <NavigationBar color='secondary'>
+                  <NavigationBarItem
+                    label='Home'
+
+                    value='Home'
+
+                    icon={IconMaterialHomeRounded}
+                    iconSelected={IconMaterialHomeRoundedFilled}
+                  />
+
+                  <NavigationBarItem
+                    label='Plant'
+
+                    value='Plant'
+
+                    icon={IconMaterialPottedPlantRounded}
+                    iconSelected={IconMaterialPottedPlantRoundedFilled}
+                  />
+
+                  <NavigationBarItem
+                    label='Light'
+
+                    value='Light'
+
+                    icon={IconMaterialLightModeRounded}
+
+                    disabled
+                  />
+                </NavigationBar>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme props' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiNavigationBar: {
+                        props: {
+                          default: {
+                            color: 'secondary'
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+
+                style={{ width: '100%' }}
+              >
+                <NavigationBar>
+                  <NavigationBarItem
+                    label='Home'
+
+                    value='Home'
+
+                    icon={IconMaterialHomeRounded}
+                    iconSelected={IconMaterialHomeRoundedFilled}
+                  />
+
+                  <NavigationBarItem
+                    label='Plant'
+
+                    value='Plant'
+
+                    icon={IconMaterialPottedPlantRounded}
+                    iconSelected={IconMaterialPottedPlantRoundedFilled}
+                  />
+
+                  <NavigationBarItem
+                    label='Light'
+
+                    value='Light'
+
+                    icon={IconMaterialLightModeRounded}
+
+                    disabled
+                  />
+                </NavigationBar>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme styled' open>
+              <styled.NavigationBar>
+                <NavigationBarItem
+                  label='Home'
+
+                  value='Home'
+
+                  icon={IconMaterialHomeRounded}
+                  iconSelected={IconMaterialHomeRoundedFilled}
+                />
+
+                <NavigationBarItem
+                  label='Plant'
+
+                  value='Plant'
+
+                  icon={IconMaterialPottedPlantRounded}
+                  iconSelected={IconMaterialPottedPlantRoundedFilled}
+                />
+
+                <NavigationBarItem
+                  label='Light'
+
+                  value='Light'
+
+                  icon={IconMaterialLightModeRounded}
+
+                  disabled
+                />
+              </styled.NavigationBar>
+            </Accordion>
+          </div>
+        </Accordion>
       </Accordion>
 
       <Accordion primary='Accordion'>

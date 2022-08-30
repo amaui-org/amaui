@@ -338,6 +338,8 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
     include,
     tabIndex,
     menuCloseOnClick,
+    onFocus: onFocus_,
+    onBlur: onBlur_,
     onMouseEnter: onMouseEnter_,
     onMouseLeave: onMouseLeave_,
     onClose: onClose_,
@@ -439,10 +441,14 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
 
   const onFocus = React.useCallback((event: React.FocusEvent<any>) => {
     if (event.target === event.currentTarget && !disabled) setFocus(true);
+
+    if (is('function', onFocus_)) onFocus_(event);
   }, []);
 
   const onBlur = React.useCallback((event: React.FocusEvent<any>) => {
     if (event.target === event.currentTarget && !disabled) setFocus(false);
+
+    if (is('function', onBlur_)) onBlur_(event);
   }, []);
 
   const onClose = React.useCallback(() => {

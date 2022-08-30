@@ -149,7 +149,14 @@ const Expand = React.forwardRef((props_: any, ref: any) => {
       }}
 
       onAppended={element => {
-        refs.rect.current = element?.getBoundingClientRect();
+        const rect_ = element?.getBoundingClientRect();
+
+        if (rect_) {
+          refs.rect.current = rect_;
+
+          // Bug value update
+          refs.rect.current[prop] += addValue;
+        }
       }}
 
       onEnter={element => {

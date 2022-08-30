@@ -181,3 +181,6 @@ export * from './Accordion';
 
 export { default as NavigationBar } from './NavigationBar';
 export * from './NavigationBar';
+
+export { default as NavigationBarItem } from './NavigationBarItem';
+export * from './NavigationBarItem';
