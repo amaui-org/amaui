@@ -96,7 +96,7 @@ const useStyle = style(theme => ({
   indicator_exiting: {
     opacity: '0',
     transform: 'scaleX(1)',
-    transition: theme.methods.transitions.make(['opacity', 'transform'], { duration: 'xxs' })
+    transition: theme.methods.transitions.make(['opacity', 'transform'], { duration: 0 })
   },
 
   indicator_exited: {

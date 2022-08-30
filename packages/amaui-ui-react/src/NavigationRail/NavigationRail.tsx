@@ -11,7 +11,7 @@ import NavigationBar from '../NavigationBar';
 const useStyle = style(theme => ({
   root: {
     zIndex: theme.z_index.app_bar,
-    height: '100vw',
+    height: '100vh',
     width: '80px',
     padding: '40px 0',
     overflow: 'auto'
@@ -225,6 +225,8 @@ const NavigationRail = React.forwardRef((props_: any, ref: any) => {
     >
       {header && (
         <Line
+          align='center'
+
           className={classNames([
             staticClassName('NavigationRail', theme) && [
               'AmauiNavigationRail-header'
