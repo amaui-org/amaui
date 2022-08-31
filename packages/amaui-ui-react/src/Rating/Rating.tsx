@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { is } from '@amaui/utils';
+import { clamp, is } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
-import { staticClassName } from '../utils';
+import { staticClassName, valueWithinRangePercentage } from '../utils';
 
 import Icon from '../Icon';
 
@@ -137,25 +137,129 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
 
   const refs = {
     root: React.useRef<any>(),
+    props: React.useRef<any>(),
+    value: React.useRef<any>(),
+    valueActive: React.useRef<any>(),
     values: React.useRef<Array<HTMLSpanElement>>([]),
+    mouseDown: React.useRef<any>(),
+    hover: React.useRef<any>(),
     direction: React.useRef<any>()
   };
 
+  refs.props.current = props;
+  refs.value.current = value;
+  refs.valueActive.current = valueActive;
+  refs.mouseDown.current = mouseDown;
+  refs.hover.current = hover;
   refs.direction.current = theme.direction;
 
   const { classes } = useStyle(props);
+
+  const min = 0;
+  const max = values;
+  const valueDecimals = (String(precision).includes('e-') ? +String(precision).split('e-')[1] : String(precision).split('.')[1]?.length) || 0;
+
+  const valuePrecision = (valueMouse: number) => {
+    let value__ = valueWithinRangePercentage(valueMouse * 100, min, max);
+
+    if (refs.direction.current === 'rtl') value__ = (max + min) - value__;
+
+    if (value__ <= min) return min;
+
+    if (value__ >= max) return max;
+
+    // previous value
+    let previous = clamp(+(value__ - (value__ % precision)).toFixed(valueDecimals), min, max);
+
+    if (value__ < 0) previous -= precision;
+
+    // next value
+    let next = clamp(+(previous + precision).toFixed(valueDecimals), min, max);
+
+    const valueNew = value__ > next ? previous : next;
+
+    return valueNew;
+  };
 
   React.useEffect(() => {
     const onMouseUp = () => {
       if (!disabled && !readOnly) setMouseDown(false);
     };
 
+    const onMouseMove = (event: MouseEvent) => {
+      if (!refs.props.current.disabled && !refs.props.current.readOnly && (refs.mouseDown.current || refs.hover.current)) {
+        let valuePrevious = refs.hover.current ? refs.valueActive.current : refs.value.current;
+        const x: number = event.clientX;
+
+        const rect = refs.root.current.getBoundingClientRect();
+
+        const { width } = rect;
+
+        // Value to the precision point value
+        const value__ = valuePrecision((x - rect.x) / width);
+
+        const valueNew = value__;
+
+        if (valueNew !== valuePrevious) {
+          if (props.hasOwnProperty('value')) {
+            if (refs.hover.current) {
+              if (is('function', onChangeActive)) onChangeActive(valueNew);
+            }
+            else {
+              if (is('function', onChange)) onChange(valueNew);
+            }
+          }
+          // Inner controlled value
+          else {
+            if (refs.hover.current) {
+              setValueActive(valueNew);
+            }
+            else {
+              setValue(valueNew);
+            }
+          }
+        }
+      }
+    };
+
+    const onTouchMove = (event: TouchEvent) => {
+      if (!refs.props.current.disabled && !refs.props.current.readOnly && refs.mouseDown.current) {
+        let valuePrevious = refs.hover.current ? refs.valueActive.current : refs.value.current;
+        const x: number = event.touches[0].clientX;
+
+        const rect = refs.root.current.getBoundingClientRect();
+
+        const { width } = rect;
+
+        // Value to the precision point value
+        const value__ = valuePrecision((x - rect.x) / width);
+
+        const valueNew = value__;
+
+        if (valueNew !== valuePrevious) {
+          if (props.hasOwnProperty('value')) {
+            if (is('function', onChange)) onChange(valueNew);
+          }
+          // Inner controlled value
+          else {
+            setValue(valueNew);
+          }
+        }
+      }
+    };
+
     window.document.addEventListener('mouseup', onMouseUp);
+    window.document.addEventListener('mousemove', onMouseMove);
+    window.document.addEventListener('touchend', onMouseUp, { passive: true });
+    window.document.addEventListener('touchmove', onTouchMove, { passive: true });
 
     setInit(true);
 
     return () => {
       window.document.removeEventListener('mouseup', onMouseUp);
+      window.document.removeEventListener('touchend', onMouseUp);
+      window.document.removeEventListener('mousemove', onMouseMove);
+      window.document.addEventListener('touchmove', onTouchMove);
     };
   }, []);
 
@@ -171,69 +275,50 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
     if (!disabled && !readOnly) setMouseDown(true);
   }, [disabled, readOnly]);
 
-  const onClick = React.useCallback(() => {
+  const onClick = React.useCallback((event: React.MouseEvent<any>) => {
     if (!disabled && !readOnly) {
-      if (value === valueActive) onClear();
+      // Make precision value
+      // if value is same as previous value clear
+      // otherwise update the value y
+      const x: number = event.clientX;
+
+      const rect = refs.root.current.getBoundingClientRect();
+
+      const { width } = rect;
+
+      const valueNew = valuePrecision((x - rect.x) / width);
+
+      if (value === valueNew) onClear();
       else {
         if (props.hasOwnProperty('value')) {
-          if (is('function', onChange)) onChange(valueActive);
+          if (is('function', onChange)) onChange(valueNew);
         }
-        else setValue(valueActive);
+        else setValue(valueNew);
       }
     }
   }, [disabled, readOnly, value, valueActive]);
 
-  const valuePrecision = (valueMouse: number) => {
-    const offset = refs.direction.current === 'rtl' ? 1 : 0;
-
-    let value__ = Math.abs(valueMouse - offset);
-
-    let mod = value__ % precision;
-
-    if (precision >= value__) return precision;
-
-    if (mod === 0) return value__;
-
-    let valueNew = value__;
-
-    while (true) {
-      const valueDecimals = String(precision).split('.')[1]?.length || 0;
-
-      valueNew += Number(`0.${'0'.repeat(valueDecimals)}1`);
-
-      valueNew = +(valueNew).toFixed(valueDecimals + 1);
-
-      mod = +(valueNew % precision).toFixed(valueDecimals + 1);
-
-      if (valueNew >= 1) return 1;
-
-      if (mod === precision || mod === 0) return valueNew;
-    }
-  };
-
   const move = (forward_ = true) => {
     const forward = theme.direction === 'ltr' ? forward_ : !forward_;
 
-    let valueNew = value;
+    let value__ = refs.value.current || 0;
 
-    if (value === undefined) {
-      if (forward) valueNew = precision;
-      else valueNew = values;
+    // previous value
+    let previous = clamp(+(value__ - precision).toFixed(valueDecimals), min, max);
+
+    // next value
+    let next = clamp(+(value__ + precision).toFixed(valueDecimals), min, max);
+
+    value__ = forward ? next : previous;
+
+    const valueNew = value__;
+
+    if (valueNew !== refs.value.current) {
+      if (props.hasOwnProperty('value')) {
+        if (is('function', onChange)) onChange(valueNew);
+      }
+      else setValue(valueNew);
     }
-    else {
-      if (forward) valueNew += precision;
-      else valueNew -= precision;
-
-      if ((precision === 1 ? valueNew < 1 : valueNew <= 0) || valueNew > values) valueNew = undefined;
-    }
-
-    // Value update
-    valueNew = valueNew === undefined ? valueNew : +(valueNew).toFixed(2);
-
-    if (props.hasOwnProperty('value')) {
-      if (is('function', onChange)) onChange(valueNew);
-    }
-    else setValue(valueNew);
   };
 
   const onClear = () => {
@@ -273,17 +358,29 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
             return move(false);
 
           case 'Enter':
-            return onClick();
+            if (value === valueActive) {
+              if (props.hasOwnProperty('value')) {
+                if (is('function', onChange)) onChange(undefined);
+              }
+              else setValue(undefined);
+            }
+
+            return;
 
           case 'Escape':
-            return onClear();
+            if (props.hasOwnProperty('value')) {
+              if (is('function', onChange)) onChange(undefined);
+            }
+            else setValue(undefined);
+
+            return;
 
           default:
             break;
         }
       }
     }
-  }, [disabled, readOnly, value, precision]);
+  }, [disabled, readOnly, value, valueActive, precision]);
 
   const onFocus = React.useCallback((event) => {
     if (!disabled && !readOnly && !mouseDown) setFocus(true);
@@ -293,49 +390,12 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
     if (!disabled && !readOnly) setFocus(false);
   }, [disabled, readOnly]);
 
-  const onMouseMove = React.useCallback((event: React.MouseEvent<any>, index: number) => {
-    if (!disabled && !readOnly) {
-      if (!hover) setHover(true);
-
-      let value__ = index - 1;
-
-      const { clientX } = event;
-
-      const rect = refs.values.current[index - 1].getBoundingClientRect();
-
-      const width = rect.width;
-
-      // Value to the precision point value
-      const decimals = valuePrecision((clientX - rect.x) / width);
-
-      // Add index value
-      if ([0, 1].includes(decimals)) value__ = index;
-      else value__ += decimals;
-
-      if (valueActive !== value__) {
-        if (props.hasOwnProperty('valueActive')) {
-          if (is('function', onChangeActive)) onChangeActive(value__);
-        }
-        // Inner controlled value
-        else setValueActive(value__);
-      }
-    }
-  }, [disabled, readOnly, hover, valueActive]);
-
   const onMouseEnter = React.useCallback(() => {
     if (!disabled && !readOnly) setHover(true);
   }, [disabled, readOnly]);
 
   const onMouseLeave = React.useCallback(() => {
-    if (!disabled && !readOnly) {
-      if (props.hasOwnProperty('valueActive')) {
-        if (is('function', onChangeActive)) onChangeActive(undefined);
-      }
-      // Inner controlled value
-      else setValueActive(undefined);
-
-      setHover(false);
-    }
+    if (!disabled && !readOnly) setHover(false);
   }, [disabled, readOnly]);
 
   const width = (index: number) => {
@@ -378,6 +438,8 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
 
       onMouseDown={onMouseDown}
 
+      onTouchStart={onMouseDown}
+
       onKeyDown={onKeyDown}
 
       className={classNames([
@@ -388,7 +450,7 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
           tonal && `AmauiButton-tonal`,
           focus && [
             `AmauiButton-focus`,
-            value === undefined && `AmauiButton-focus-noValue`
+            [undefined, 0].includes(value) && `AmauiButton-focus-noValue`
           ],
           readOnly && `AmauiRating-readOnly`,
           disabled && `AmauiRating-disabled`
@@ -398,7 +460,7 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
         classes.root,
         focus && [
           classes.focus,
-          value === undefined && classes.focus_outline
+          [undefined, 0].includes(value) && classes.focus_outline
         ],
         readOnly && classes.readOnly,
         disabled && classes.disabled
@@ -413,8 +475,6 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
         return (
           <span
             ref={item => refs.values.current.push(item)}
-
-            onMouseMove={(event: React.MouseEvent<any>) => onMouseMove(event, index + 1)}
 
             onClick={onClick}
 

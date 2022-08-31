@@ -505,9 +505,9 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
     };
 
     window.document.addEventListener('mouseup', onMouseUp);
-    window.document.addEventListener('touchend', onMouseUp, { passive: true });
     window.document.addEventListener('mousemove', onMouseMove);
-    window.document.addEventListener('touchmove', onMouseMove);
+    window.document.addEventListener('touchend', onMouseUp, { passive: true });
+    window.document.addEventListener('touchmove', onMouseMove, { passive: true });
 
     setInit(true);
 
