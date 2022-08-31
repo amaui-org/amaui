@@ -17,6 +17,22 @@ const useStyle = style(theme => ({
     zIndex: theme.z_index.modal
   },
 
+  // Size
+  size_small: {
+    padding: '16px',
+    borderRadius: `${(theme.shape.radius.unit * 2) + (theme.shape.radius.unit / 2)}px`
+  },
+
+  size_regular: {
+    padding: theme.methods.space.value('md', 'px'),
+    borderRadius: `${(theme.shape.radius.unit * 3) + (theme.shape.radius.unit / 2)}px`
+  },
+
+  size_large: {
+    padding: theme.methods.space.value('lg', 'px'),
+    borderRadius: `${(theme.shape.radius.unit * 4) + (theme.shape.radius.unit / 2)}px`
+  },
+
   background: {
     position: 'absolute',
     inset: 0,
@@ -91,6 +107,9 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
   const {
     open: open_,
 
+    tonal = true,
+    color = 'primary',
+    size = 'regular',
     fullScreen,
     fullWidth,
     maxWidth: maxWidth_ = 'rg',
@@ -225,26 +244,25 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
         {...ModalProps}
       >
         <Surface
+          tonal={tonal}
+
+          color={color}
+
+          tabIndex='-1'
+
           className={classNames([
             staticClassName('Modal', theme) && [
-              'AmauiModal-surface',
-              `AmauiModal-maxWidth-${maxWidth}`,
-              fullScreen && `AmauiButton-fullScreen`,
-              fullWidth && `AmauiButton-fullWidth`
+              'AmauiModal-surface'
             ],
 
             classes.surface,
-
+            classes[maxWidth],
+            classes[`size_${size}`],
             fullScreen && classes.fullScreen,
             fullWidth && classes.fullWidth,
-            classes[maxWidth],
 
             SurfaceProps.className
           ])}
-
-          color='primary'
-
-          tabIndex='-1'
 
           onKeyDown={onKeyDown}
 

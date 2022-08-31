@@ -8,103 +8,182 @@ const useStyle = style(theme => ({
   root: {},
 
   // Color
-  color_default: {
+  version_filled_color_default: {
     color: theme.palette.text.default.primary,
     backgroundColor: theme.palette.background.default.primary
   },
 
-  color_neutral: {
+  version_filled_color_neutral: {
     color: theme.methods.palette.color.text(theme.palette.color.neutral.main, true, 'light'),
     backgroundColor: theme.palette.color.neutral.main
   },
 
-  color_primary: {
+  version_filled_color_primary: {
     color: theme.methods.palette.color.text(theme.palette.color.primary.main, true, 'light'),
     backgroundColor: theme.palette.color.primary.main
   },
 
-  color_secondary: {
+  version_filled_color_secondary: {
     color: theme.methods.palette.color.text(theme.palette.color.secondary.main, true, 'light'),
     backgroundColor: theme.palette.color.secondary.main
   },
 
-  color_tertiary: {
+  version_filled_color_tertiary: {
     color: theme.methods.palette.color.text(theme.palette.color.tertiary.main, true, 'light'),
     backgroundColor: theme.palette.color.tertiary.main
   },
 
-  color_quaternary: {
+  version_filled_color_quaternary: {
     color: theme.methods.palette.color.text(theme.palette.color.quaternary.main, true, 'light'),
     backgroundColor: theme.palette.color.quaternary.main
   },
 
-  color_info: {
+  version_filled_color_info: {
     color: theme.methods.palette.color.text(theme.palette.color.info.main, true, 'light'),
     backgroundColor: theme.palette.color.info.main
   },
 
-  color_success: {
+  version_filled_color_success: {
     color: theme.methods.palette.color.text(theme.palette.color.success.main, true, 'light'),
     backgroundColor: theme.palette.color.success.main
   },
 
-  color_warning: {
+  version_filled_color_warning: {
     color: theme.methods.palette.color.text(theme.palette.color.warning.main, true, 'light'),
     backgroundColor: theme.palette.color.warning.main
   },
 
-  color_error: {
+  version_filled_color_error: {
     color: theme.methods.palette.color.text(theme.palette.color.error.main, true, 'light'),
     backgroundColor: theme.palette.color.error.main
   },
 
   // Tonal
-  color_tonal_neutral: {
+  version_filled_color_tonal_neutral: {
     color: theme.methods.palette.color.value('neutral', 10),
     backgroundColor: theme.methods.palette.color.value('neutral', 95)
   },
 
-  color_tonal_primary: {
+  version_filled_color_tonal_primary: {
     color: theme.methods.palette.color.value('primary', 10),
     backgroundColor: theme.methods.palette.color.value('primary', 95)
   },
 
-  color_tonal_secondary: {
+  version_filled_color_tonal_secondary: {
     color: theme.methods.palette.color.value('secondary', 10),
     backgroundColor: theme.methods.palette.color.value('secondary', 95)
   },
 
-  color_tonal_tertiary: {
+  version_filled_color_tonal_tertiary: {
     color: theme.methods.palette.color.value('tertiary', 10),
     backgroundColor: theme.methods.palette.color.value('tertiary', 95)
   },
 
-  color_tonal_quaternary: {
+  version_filled_color_tonal_quaternary: {
     color: theme.methods.palette.color.value('quaternary', 10),
     backgroundColor: theme.methods.palette.color.value('quaternary', 95)
   },
 
-  color_tonal_info: {
+  version_filled_color_tonal_info: {
     color: theme.methods.palette.color.value('info', 10),
     backgroundColor: theme.methods.palette.color.value('info', 95)
   },
 
-  color_tonal_success: {
+  version_filled_color_tonal_success: {
     color: theme.methods.palette.color.value('success', 10),
     backgroundColor: theme.methods.palette.color.value('success', 95)
   },
 
-  color_tonal_warning: {
+  version_filled_color_tonal_warning: {
     color: theme.methods.palette.color.value('warning', 10),
     backgroundColor: theme.methods.palette.color.value('warning', 95)
   },
 
-  color_tonal_error: {
+  version_filled_color_tonal_error: {
     color: theme.methods.palette.color.value('error', 10),
     backgroundColor: theme.methods.palette.color.value('error', 95)
   },
 
   // Version
+  // Text
+  version_text_color_default: {
+    color: theme.palette.text.default.primary
+  },
+
+  version_text_color_neutral: {
+    color: theme.palette.color.neutral.main
+  },
+
+  version_text_color_primary: {
+    color: theme.palette.color.primary.main
+  },
+
+  version_text_color_secondary: {
+    color: theme.palette.color.secondary.main
+  },
+
+  version_text_color_tertiary: {
+    color: theme.palette.color.tertiary.main
+  },
+
+  version_text_color_quaternary: {
+    color: theme.palette.color.quaternary.main
+  },
+
+  version_text_color_info: {
+    color: theme.palette.color.info.main
+  },
+
+  version_text_color_success: {
+    color: theme.palette.color.success.main
+  },
+
+  version_text_color_warning: {
+    color: theme.palette.color.warning.main
+  },
+
+  version_text_color_error: {
+    color: theme.palette.color.error.main
+  },
+
+  // Tonal
+  version_text_color_tonal_neutral: {
+    color: theme.methods.palette.color.value('neutral', 40)
+  },
+
+  version_text_color_tonal_primary: {
+    color: theme.methods.palette.color.value('primary', 40)
+  },
+
+  version_text_color_tonal_secondary: {
+    color: theme.methods.palette.color.value('secondary', 40)
+  },
+
+  version_text_color_tonal_tertiary: {
+    color: theme.methods.palette.color.value('tertiary', 40)
+  },
+
+  version_text_color_tonal_quaternary: {
+    color: theme.methods.palette.color.value('quaternary', 40)
+  },
+
+  version_text_color_tonal_info: {
+    color: theme.methods.palette.color.value('info', 40)
+  },
+
+  version_text_color_tonal_success: {
+    color: theme.methods.palette.color.value('success', 40)
+  },
+
+  version_text_color_tonal_warning: {
+    color: theme.methods.palette.color.value('warning', 40)
+  },
+
+  version_text_color_tonal_error: {
+    color: theme.methods.palette.color.value('error', 40)
+  },
+
+  // Outlined
   version_outlined: {
     outlineWidth: '1px',
     outlineStyle: 'solid'
@@ -112,79 +191,98 @@ const useStyle = style(theme => ({
 
   // Color
   version_outlined_color_default: {
+    color: theme.palette.text.default.primary,
     outlineColor: theme.palette.color.neutral[theme.palette.light ? 40 : 60]
   },
 
   version_outlined_color_neutral: {
+    color: theme.palette.color.neutral.main,
     outlineColor: theme.palette.color.neutral[40]
   },
 
   version_outlined_color_primary: {
+    color: theme.palette.color.primary.main,
     outlineColor: theme.palette.color.primary[40]
   },
 
   version_outlined_color_secondary: {
+    color: theme.palette.color.secondary.main,
     outlineColor: theme.palette.color.secondary[40]
   },
 
   version_outlined_color_tertiary: {
+    color: theme.palette.color.tertiary.main,
     outlineColor: theme.palette.color.tertiary[40]
   },
 
   version_outlined_color_quaternary: {
+    color: theme.palette.color.quaternary.main,
     outlineColor: theme.palette.color.quaternary[40]
   },
 
   version_outlined_color_info: {
+    color: theme.palette.color.info.main,
     outlineColor: theme.palette.color.info[40]
   },
 
   version_outlined_color_success: {
+    color: theme.palette.color.success.main,
     outlineColor: theme.palette.color.success[40]
   },
 
   version_outlined_color_warning: {
+    color: theme.palette.color.warning.main,
     outlineColor: theme.palette.color.warning[40]
   },
 
   version_outlined_color_error: {
+    color: theme.palette.color.error.main,
     outlineColor: theme.palette.color.error[40]
   },
 
   // Tonal
   version_outlined_color_tonal_neutral: {
+    color: theme.methods.palette.color.value('neutral', 40),
     outlineColor: theme.methods.palette.color.value('neutral', 40)
   },
 
   version_outlined_color_tonal_primary: {
+    color: theme.methods.palette.color.value('primary', 40),
     outlineColor: theme.methods.palette.color.value('primary', 40)
   },
 
   version_outlined_color_tonal_secondary: {
+    color: theme.methods.palette.color.value('secondary', 40),
     outlineColor: theme.methods.palette.color.value('secondary', 40)
   },
 
   version_outlined_color_tonal_tertiary: {
+    color: theme.methods.palette.color.value('tertiary', 40),
     outlineColor: theme.methods.palette.color.value('tertiary', 40)
   },
 
   version_outlined_color_tonal_quaternary: {
+    color: theme.methods.palette.color.value('quaternary', 40),
     outlineColor: theme.methods.palette.color.value('quaternary', 40)
   },
 
   version_outlined_color_tonal_info: {
+    color: theme.methods.palette.color.value('info', 40),
     outlineColor: theme.methods.palette.color.value('info', 40)
   },
 
   version_outlined_color_tonal_success: {
+    color: theme.methods.palette.color.value('success', 40),
     outlineColor: theme.methods.palette.color.value('success', 40)
   },
 
   version_outlined_color_tonal_warning: {
+    color: theme.methods.palette.color.value('warning', 40),
     outlineColor: theme.methods.palette.color.value('warning', 40)
   },
 
   version_outlined_color_tonal_error: {
+    color: theme.methods.palette.color.value('error', 40),
     outlineColor: theme.methods.palette.color.value('error', 40)
   },
 
@@ -252,7 +350,7 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
   const { classes } = useStyle(props);
 
   const {
-    tonal = true,
+    tonal,
     color = props.tonal ? 'neutral' : 'default',
     version = 'filled',
     elevation = 0,
@@ -275,15 +373,21 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
 
     if (tonal) {
       styles.root.color = theme.methods.palette.color.value(undefined, 10, true, palette);
-      styles.root.backgroundColor = theme.methods.palette.color.value(undefined, 95, true, palette);
+
+      if (version === 'filled') styles.root.background = theme.methods.palette.color.value(undefined, 95, true, palette);
 
       if (version === 'outlined') styles.root.outlineColor = theme.methods.palette.color.value(undefined, 40, true, palette);
+
+      if (['text', 'outlined'].includes(version)) styles.root.color = theme.methods.palette.color.value(undefined, 40, true, palette);
     }
     else {
       styles.root.color = theme.methods.palette.color.text(palette.main, true);
-      styles.root.backgroundColor = palette.main;
+
+      if (version === 'filled') styles.root.background = palette.main;
 
       if (version === 'outlined') styles.root.outlineColor = palette[40];
+
+      if (['text', 'outlined'].includes(version)) styles.root.color = palette.main;
     }
   }
 
@@ -294,7 +398,7 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
       className={classNames([
         staticClassName('Surface', theme) && [
           'AmauiSurface-root',
-          `AmauiSurface-color-${!theme.palette.color[color] && color !== 'default' ? 'new' : color}`,
+          `AmauiSurface-color-${!theme.palette.color[color] && ['default', 'inherit'].includes(color) ? 'new' : color}`,
           `AmauiSurface-version-${version}`,
           tonal && `AmauiSurface-tonal`,
           elevation && `AmauiSurface-elevation-${elevation}`
@@ -302,14 +406,10 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
 
         className,
         classes.root,
-        classes[`color_${color}`],
         classes[`version_${version}`],
         classes[`version_${version}_color_${color}`],
         classes[`elevation_${elevation}`],
-        tonal && [
-          classes[`color_tonal_${color}`],
-          classes[`version_${version}_color_tonal_${color}`]
-        ]
+        tonal && classes[`version_${version}_color_tonal_${color}`]
       ])}
 
       style={{

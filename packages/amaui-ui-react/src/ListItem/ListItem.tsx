@@ -271,20 +271,16 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiListItem?.props?.default }), [props_]);
 
-  const [openMenu, setOpenMenu] = React.useState(false);
-  const [openList, setOpenList] = React.useState(false);
-  const [hover, setHover] = React.useState(false);
-  const [focus, setFocus] = React.useState(false);
-
-  const { classes } = useStyle(props);
-
   const {
     menu,
     menuId,
     menuOpen,
+    openMenu: openMenu_,
+    openMenuDefault,
     menuItem,
     list: list_,
-    listOpen,
+    openList: openList_,
+    openListDefault,
     inset,
     primary = props.children,
     secondary,
@@ -341,6 +337,13 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
     ...other
   } = props;
 
+  const [openMenu, setOpenMenu] = React.useState(openMenuDefault !== undefined ? openMenuDefault : openMenu_);
+  const [openList, setOpenList] = React.useState(openListDefault !== undefined ? openListDefault : openList_);
+  const [hover, setHover] = React.useState(false);
+  const [focus, setFocus] = React.useState(false);
+
+  const { classes } = useStyle(props);
+
   const refs = {
     root: React.useRef<any>(),
     props: React.useRef<any>(),
@@ -389,7 +392,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
 
   let end = end_;
 
-  if (menu) end = end_ || <IconMaterialArrowRightRounded />;
+  if (menu) end = end_ || <IconMaterialArrowRightRounded size={20} />;
 
   if (list) end = end_ || (
     <IconButton
@@ -449,12 +452,12 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
   }, []);
 
   React.useEffect(() => {
-    if (menuOpen !== openMenu) setOpenMenu(menuOpen);
-  }, [menuOpen]);
+    if (openMenu_ !== openMenu) setOpenMenu(openMenu_);
+  }, [openMenu_]);
 
   React.useEffect(() => {
-    if (listOpen !== openList) setOpenList(listOpen);
-  }, [listOpen]);
+    if (openList_ !== openList) setOpenList(openList_);
+  }, [openList_]);
 
   React.useEffect(() => {
     if (menuOpen && preselected) refs.root.current.focus();
@@ -532,7 +535,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
   const colorToUse = selected ? colorSelected : color;
 
   ListTransitionComponentProps.in = openList;
-
+  console.log(1411, primary, openList, openMenu)
   return (
     <Surface
       ref={item => {

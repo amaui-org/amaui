@@ -8,17 +8,15 @@ import Grow from '../Grow';
 import { staticClassName } from '../utils';
 
 import Modal from '../Modal';
-import Type from '../Type';
 import Append from '../Append';
+import Surface from '../Surface';
 
 const useStyle = style(theme => ({
   root: {
     inset: '0px auto auto 0px'
   },
 
-  labelRoot: {
-
-  },
+  labelRoot: {},
 
   labelRoot_position_top: { marginBottom: '16px' },
 
@@ -31,6 +29,8 @@ const useStyle = style(theme => ({
   labelRoot_noMargin: { margin: 0 },
 
   label: {
+    ...theme.typography.values.b3,
+
     borderRadius: clamp(theme.shape.radius.unit / 2, 0, 8),
     padding: '4px 8px',
     lineHeight: 1.455
@@ -143,103 +143,6 @@ const useStyle = style(theme => ({
     }
   },
 
-  // Color
-  default: {
-    color: theme.palette.color.neutral[90],
-    background: theme.palette.color.neutral[theme.palette.light ? 40 : 20]
-  },
-
-  neutral: {
-    color: theme.methods.palette.color.text(theme.palette.color.neutral.main, true, 'light'),
-    background: theme.palette.color.neutral.main,
-  },
-
-  primary: {
-    color: theme.methods.palette.color.text(theme.palette.color.primary.main, true, 'light'),
-    background: theme.palette.color.primary.main
-  },
-
-  secondary: {
-    color: theme.methods.palette.color.text(theme.palette.color.secondary.main, true, 'light'),
-    background: theme.palette.color.secondary.main
-  },
-
-  tertiary: {
-    color: theme.methods.palette.color.text(theme.palette.color.tertiary.main, true, 'light'),
-    background: theme.palette.color.tertiary.main
-  },
-
-  quaternary: {
-    color: theme.methods.palette.color.text(theme.palette.color.quaternary.main, true, 'light'),
-    background: theme.palette.color.quaternary.main
-  },
-
-  info: {
-    color: theme.methods.palette.color.text(theme.palette.color.info.main, true, 'light'),
-    background: theme.palette.color.info.main
-  },
-
-  success: {
-    color: theme.methods.palette.color.text(theme.palette.color.success.main, true, 'light'),
-    background: theme.palette.color.success.main
-  },
-
-  warning: {
-    color: theme.methods.palette.color.text(theme.palette.color.warning.main, true, 'light'),
-    background: theme.palette.color.warning.main
-  },
-
-  error: {
-    color: theme.methods.palette.color.text(theme.palette.color.error.main, true, 'light'),
-    background: theme.palette.color.error.main
-  },
-
-  // Tonal
-  tonal_neutral: {
-    color: theme.methods.palette.color.value('neutral', 90),
-    background: theme.palette.color.neutral[theme.palette.light ? 40 : 80]
-  },
-
-  tonal_primary: {
-    color: theme.methods.palette.color.value('primary', 90),
-    background: theme.palette.color.primary[theme.palette.light ? 40 : 80]
-  },
-
-  tonal_secondary: {
-    color: theme.methods.palette.color.value('secondary', 90),
-    background: theme.palette.color.secondary[theme.palette.light ? 40 : 80]
-  },
-
-  tonal_tertiary: {
-    color: theme.methods.palette.color.value('tertiary', 90),
-    background: theme.palette.color.tertiary[theme.palette.light ? 40 : 80]
-  },
-
-  tonal_quaternary: {
-    color: theme.methods.palette.color.value('quaternary', 90),
-    background: theme.palette.color.quaternary[theme.palette.light ? 40 : 80]
-  },
-
-  tonal_info: {
-    color: theme.methods.palette.color.value('info', 90),
-    background: theme.palette.color.info[theme.palette.light ? 40 : 80]
-  },
-
-  tonal_success: {
-    color: theme.methods.palette.color.value('success', 90),
-    background: theme.palette.color.success[theme.palette.light ? 40 : 80]
-  },
-
-  tonal_warning: {
-    color: theme.methods.palette.color.value('warning', 90),
-    background: theme.palette.color.warning[theme.palette.light ? 40 : 80]
-  },
-
-  tonal_error: {
-    color: theme.methods.palette.color.value('error', 90),
-    background: theme.palette.color.error[theme.palette.light ? 40 : 80]
-  },
-
   // maxWidth
   xxs: { maxWidth: `320px` },
 
@@ -268,9 +171,8 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
 
     label,
 
-    tonal,
-    color = 'default',
-    follow,
+    tonal = true,
+    color = 'neutral',
     position = 'bottom',
     switch: switch_ = true,
     alignment = 'center',
@@ -289,6 +191,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
     hover: hover_ = true,
     focus: focus_ = true,
     inset,
+    follow,
 
     onOpen: onOpen_,
     onClose: onClose_,
@@ -481,19 +384,6 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
     }
   }, [longPress]);
 
-  if (!classes[color]) {
-    const palette = theme.methods.color(color);
-
-    if (tonal) {
-      styles.label.color = theme.methods.palette.color.value(undefined, 90, true, palette);
-      styles.label.background = palette[theme.palette.light ? 40 : 80];
-    }
-    else {
-      styles.label.color = theme.methods.palette.color.text(palette.main, true, 'light');
-      styles.label.background = palette.main;
-    }
-  }
-
   const resolvePosition = (switched = false) => {
     if (!switched) return position;
 
@@ -613,25 +503,23 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
                 style={styles.labelRoot}
               >
                 {is('simple', label) ?
-                  <Type
+                  <Surface
+                    tonal={tonal}
+
+                    color={color}
+
                     className={classNames([
                       staticClassName('Tooltip', theme) && [
                         'AmauiTooltip-label',
-                        `AmauiTooltip-color-${!theme.palette.color[color] && color !== 'default' ? 'new' : color}`,
-                        tonal && `AmauiTooltip-tonal`,
                         arrow && `AmauiTooltip-arrow`
                       ],
 
                       classes.label,
-                      classes[color],
-                      tonal && classes[`tonal_${color}`],
                       arrow && [
                         classes.arrow,
                         classes[`arrow_position_${position}_alignment_${alignment}`]
                       ]
                     ])}
-
-                    version='b3'
 
                     {...LabelProps}
 
@@ -650,7 +538,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
                     >
                       {label}
                     </span>
-                  </Type> :
+                  </Surface> :
 
                   React.cloneElement(label, {
                     className: classNames([
@@ -664,7 +552,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
                 }
               </div>
             </TransitionComponent>
-          </Modal>
+          </Modal >
         );
       }}
     >
@@ -685,7 +573,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
           onTouchEnd
         })
       )}
-    </Append>
+    </Append >
   );
 });
 

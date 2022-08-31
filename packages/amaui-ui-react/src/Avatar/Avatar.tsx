@@ -49,14 +49,13 @@ const Avatar = React.forwardRef((props_: any, ref) => {
     version = 'filled',
     size = 'regular',
     elevation = 0,
-    disabled,
-
     Component = 'span',
     TypeProps = {},
     InteractionProps = {
       background: false,
       wave: false
     },
+    disabled,
 
     className,
 

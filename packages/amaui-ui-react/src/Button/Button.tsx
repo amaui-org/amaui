@@ -3,20 +3,12 @@ import React from 'react';
 import { is } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
+import Surface from '../Surface';
 import Interaction from '../Interaction';
 import RoundProgress from '../RoundProgress';
 import Type from '../Type';
 
 import { iconSizeToFontSize, staticClassName } from '../utils';
-
-const other = {
-  pointerEvents: 'none',
-  borderRadius: 'inherit',
-  position: 'absolute',
-  inset: 0,
-  width: '100%',
-  height: '100%'
-};
 
 const useStyle = style(theme => ({
   root: {
@@ -40,42 +32,22 @@ const useStyle = style(theme => ({
   },
 
   // Color
-  inherit: { color: 'inherit' },
-
-  default: { color: theme.palette.text.default.primary },
-
-  neutral: { color: theme.palette.color.neutral.main },
-
-  primary: { color: theme.palette.color.primary.main },
-
-  secondary: { color: theme.palette.color.secondary.main },
-
-  tertiary: { color: theme.palette.color.tertiary.main },
-
-  quaternary: { color: theme.palette.color.quaternary.main },
-
-  info: { color: theme.palette.color.info.main },
-
-  success: { color: theme.palette.color.success.main },
-
-  warning: { color: theme.palette.color.warning.main },
-
-  error: { color: theme.palette.color.error.main },
+  color_inherit: { color: 'inherit' },
 
   // Size
-  small: {
+  size_small: {
     paddingBlock: '7.5px',
     paddingInline: '16px',
     borderRadius: `${theme.shape.radius.unit * 2}px`
   },
 
-  regular: {
+  size_regular: {
     paddingBlock: '11px',
     paddingInline: '24px',
     borderRadius: `${theme.shape.radius.unit * 2.5}px`
   },
 
-  large: {
+  size_large: {
     paddingBlock: '16px',
     paddingInline: '32px',
     borderRadius: `${theme.shape.radius.unit * 3.5}px`
@@ -153,9 +125,8 @@ const useStyle = style(theme => ({
     width: '100%'
   },
 
-  // Shadows
+  // Elevation
   elevation: {
-    boxShadow: theme.shadows.values.neutral[1],
     transition: theme.methods.transitions.make('box-shadow'),
 
     '&:hover': {
@@ -165,46 +136,27 @@ const useStyle = style(theme => ({
 
   // Disabled
   disabled: {
-    cursor: 'default'
+    cursor: 'default',
+    opacity: theme.palette.visual_contrast.default.opacity.disabled
   },
 
-  disabled_filled: {
-    color: theme.palette.text.neutral.primary,
-    opacity: theme.palette.visual_contrast.default.opacity[theme.palette.light ? 'disabled' : 'active']
+  disabled_version_text: {
+    '&.AmauiSurface-root': {
+      color: theme.palette.text.default.primary
+    }
   },
 
-  disabled_tonal: {
-    color: theme.palette.text.neutral.primary,
-    opacity: theme.palette.visual_contrast.default.opacity[theme.palette.light ? 'disabled' : 'active']
+  disabled_version_outlined: {
+    '&.AmauiSurface-root': {
+      color: theme.palette.text.default.primary
+    }
   },
 
-  disabled_outlined: {
-    color: theme.palette.text.disabled
-  },
-
-  disabled_text: {
-    color: theme.palette.text.disabled
-  },
-
-  background: {
-    ...other,
-
-    transition: theme.methods.transitions.make(['background'])
-  },
-
-  background_disabled: {
-    background: theme.palette.light ? theme.palette.text.divider : theme.palette.text.neutral.quaternary
-  },
-
-  border: {
-    ...other,
-    boxShadow: 'inset 0 0 0 1px currentColor',
-
-    transition: theme.methods.transitions.make(['boxShadow'])
-  },
-
-  border_disabled_outlined: {
-    opacity: theme.palette.visual_contrast.default.opacity[theme.palette.light ? 'quaternary' : 'secondary']
+  disabled_version_filled: {
+    '&.AmauiSurface-root': {
+      color: theme.palette.text.neutral.primary,
+      background: theme.palette.light ? theme.palette.text.divider : theme.palette.text.neutral.quaternary
+    }
   },
 
   // Label
@@ -317,10 +269,10 @@ const Button = React.forwardRef((props_: any, ref: any) => {
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiButton?.props?.default }), [props_]);
 
   const {
+    tonal,
+    color: color_ = 'primary',
     version = 'outlined',
     size = 'regular',
-    color: color_ = 'primary',
-    tonal,
     prefer = 'light',
     fullWidth,
     fontSize,
@@ -349,9 +301,10 @@ const Button = React.forwardRef((props_: any, ref: any) => {
     onBlur: onBlur_,
     onSelected,
     onUnselected,
-    disabled: disabled_,
+    noIconRootFontSize,
     InteractionProps = {},
     Component = props.href ? 'a' : 'button',
+    disabled: disabled_,
 
     className,
     style,
@@ -377,49 +330,12 @@ const Button = React.forwardRef((props_: any, ref: any) => {
     root: {},
     background: {},
     border: {},
-    icon: {},
+    iconRoot: {},
     label: { margin: 0 },
     Icon: { fontSize: '17px' }
   };
 
-  let palette: any;
-
-  if (!theme.palette.color[color] && !['inherit', 'default'].includes(color)) {
-    palette = theme.methods.color(color);
-
-    styles.root.color = palette?.main;
-  }
-
-  if (version === 'filled') {
-    styles.background.background = color === 'inherit' ? 'currentColor' : color === 'default' ? theme.palette.text.default.primary : theme.palette.color[color] ? (theme.palette.color[color] as any).main : color;
-
-    styles.root.color = theme.methods.palette.color.text(styles.background.background, true, prefer);
-  }
-
-  if (tonal) {
-    // Text
-    if (version === 'text') {
-      styles.root.color = theme.methods.palette.color.value(color, 30, true, palette);
-    }
-
-    // Outlined
-    if (version === 'outlined') {
-      styles.root.color = theme.methods.palette.color.value(color, 50, true, palette);
-
-      styles.label.color = theme.methods.palette.color.value(color, 10, true, palette);
-
-      styles.border.boxShadow = `inset 0 0 0 1px ${theme.methods.palette.color.value(color, 30, true, palette)}`;
-    }
-
-    // Filled
-    if (version === 'filled') {
-      styles.root.color = theme.methods.palette.color.value(color, 10, true, palette);
-
-      styles.background.background = theme.methods.palette.color.value(color, 90, true, palette);
-    }
-  }
-
-  // size
+  // Size
   if (size === 'small') {
     styles.Icon.fontSize = '15px';
 
@@ -451,12 +367,12 @@ const Button = React.forwardRef((props_: any, ref: any) => {
       styles.root.height = size;
       styles.root.fontSize = size / 1.667;
 
-      styles.icon.fontSize = size;
+      if (!noIconRootFontSize) styles.iconRoot.fontSize = size;
     }
     else {
       children_ = is('array', children_) ?
         children_.filter(Boolean).map(
-          (item: any, index, number) => is('string', item.type) ?
+          (item: any, index: number) => is('string', item.type) ?
             React.cloneElement(item, { key: index }) :
             React.cloneElement(item, { key: index, size: children_.props?.size !== undefined ? children_.props?.size : (size === 'large' ? 'medium' : size) } as any)
         ) :
@@ -464,7 +380,7 @@ const Button = React.forwardRef((props_: any, ref: any) => {
 
       styles.root.fontSize = iconSizeToFontSize(size === 'large' ? 'medium' : size);
 
-      styles.icon.fontSize = size === 'small' ? 30 : size === 'regular' ? 40 : 50;
+      if (!noIconRootFontSize) styles.iconRoot.fontSize = size === 'small' ? 30 : size === 'regular' ? 40 : 50;
     }
   }
 
@@ -482,7 +398,7 @@ const Button = React.forwardRef((props_: any, ref: any) => {
   if (fontSize !== undefined) {
     styles.root.fontSize = fontSize;
 
-    styles.icon.fontSize = 'inherit';
+    styles.iconRoot.fontSize = 'inherit';
   }
 
   // loading
@@ -525,44 +441,48 @@ const Button = React.forwardRef((props_: any, ref: any) => {
       setFocus(false);
 
       if (is('function', onBlur_)) onBlur_(event)
-    };
+    }
   }, []);
 
   const IconElement = (selected && iconSelected) || children_;
 
   return (
-    <Component
+    <Surface
       ref={ref}
+
+      Component={Component}
+
+      color={color}
+
+      tonal={tonal}
+
+      version={version}
+
+      elevation={(elevation && !disabled && ['filled', 'tonal'].includes(version)) ? 1 : 0}
 
       className={classNames([
         staticClassName('Button', theme) && [
-          'AmauiButton-root',
+          `AmauiButton-root`,
           `AmauiButton-version-${version}`,
-          `AmauiButton-color-${!theme.palette.color[color] && !['inherit', 'default'].includes(color) ? 'new' : color}`,
           `AmauiButton-size-${size}`,
-          elevation && !disabled && ['filled', 'tonal'].includes(version) && `AmauiButton-elevation`,
-          tonal && `AmauiButton-tonal`,
-          disabled && `AmauiButton-disabled`,
+          `AmauiButton-align-${align}`,
+          (elevation && !disabled && ['filled', 'tonal'].includes(version)) && `AmauiButton-elevation`,
           fullWidth && `AmauiButton-fullWidth`,
           startIcon && `AmauiButton-startIcon`,
           endIcon && `AmauiButton-endIcon`,
-          selected && `AmauiButton-selected`
+          selected && `AmauiButton-selected`,
+          disabled && `AmauiButton-disabled`
         ],
 
-        classes.root,
         className,
-        classes[size],
-        classes[color],
-        classes[version],
-        tonal && classes.tonal,
+        classes.root,
+        classes[`size_${size}`],
+        classes[`version_${version}`],
+        classes[`color_${color}`],
+        (elevation && !disabled && ['filled', 'tonal'].includes(version)) && classes.elevation,
         startIcon && classes.startIcon,
         endIcon && classes.endIcon,
         fullWidth && classes.fullWidth,
-        elevation && !disabled && ['filled', 'tonal'].includes(version) && classes.elevation,
-        disabled && [
-          classes.disabled,
-          classes[`disabled_${version}`]
-        ],
         icon && [
           classes.icon,
           classes[`icon_size_${size}`]
@@ -574,6 +494,10 @@ const Button = React.forwardRef((props_: any, ref: any) => {
         chip && [
           classes.chip,
           classes[`chip_size_${size}`]
+        ],
+        disabled && [
+          classes.disabled,
+          classes[`disabled_version_${version}`]
         ]
       ])}
 
@@ -591,22 +515,6 @@ const Button = React.forwardRef((props_: any, ref: any) => {
 
       {...other}
     >
-      {['filled'].includes(version) && (
-        <span
-          className={classNames([
-            staticClassName('Button', theme) && [
-              'AmauiButton-backgroud',
-              disabled && `AmauiButton-background-disabled`
-            ],
-
-            classes.background,
-            disabled && classes[`background_disabled`]
-          ])}
-
-          style={styles.background}
-        />
-      )}
-
       <Interaction
         border={false}
 
@@ -622,8 +530,7 @@ const Button = React.forwardRef((props_: any, ref: any) => {
           className={classNames([
             staticClassName('Button', theme) && [
               'AmauiButton-icon',
-              'AmauiButton-startIcon',
-              `AmauiButton-size-${size}`
+              'AmauiButton-startIcon'
             ],
 
             classes.Icon,
@@ -646,7 +553,7 @@ const Button = React.forwardRef((props_: any, ref: any) => {
             classes.iconRoot
           ])}
 
-          style={styles.icon}
+          style={styles.iconRoot}
 
           {...IconWrapperProps}
         >
@@ -656,9 +563,7 @@ const Button = React.forwardRef((props_: any, ref: any) => {
         <Type
           className={classNames([
             staticClassName('Button', theme) && [
-              'AmauiButton-label',
-              `AmauiButton-size-${size}`,
-              `AmauiButton-align-${align}`
+              'AmauiButton-label'
             ],
 
             classes.label,
@@ -685,8 +590,7 @@ const Button = React.forwardRef((props_: any, ref: any) => {
           className={classNames([
             staticClassName('Button', theme) && [
               'AmauiButton-icon',
-              'AmauiButton-endIcon',
-              `AmauiButton-size-${size}`
+              'AmauiButton-endIcon'
             ],
 
             classes.Icon,
@@ -698,23 +602,7 @@ const Button = React.forwardRef((props_: any, ref: any) => {
           {React.cloneElement(endIcon, { style: styles.Icon })}
         </span>
       )}
-
-      {version === 'outlined' && (
-        <span
-          className={classNames([
-            staticClassName('Button', theme) && [
-              'AmauiButton-border',
-              disabled && `AmauiButton-border-disabled`
-            ],
-
-            classes.border,
-            disabled && classes[`border_disabled_${version}`]
-          ])}
-
-          style={styles.border}
-        />
-      )}
-    </Component>
+    </Surface>
   );
 });
 

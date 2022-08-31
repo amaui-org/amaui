@@ -49,13 +49,13 @@ const useStyle = style(theme => ({
       borderEndStartRadius: '0px',
 
       '&$outlined': {
-        marginInlineStart: '-1px'
+        marginInlineStart: '1px'
       },
 
       '&$border:not($outlined)': {
         borderInlineStart: '1px solid currentColor'
       }
-    },
+    }
   },
 
   end: {
@@ -71,13 +71,13 @@ const useStyle = style(theme => ({
       borderStartEndRadius: '0px',
 
       '&$outlined': {
-        marginBlockStart: '-1px'
+        marginBlockStart: '1px'
       },
 
       '&$border:not($outlined)': {
         borderBlockStart: '1px solid currentColor'
       }
-    },
+    }
   },
 
   vertical_end: {

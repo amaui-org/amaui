@@ -9,6 +9,7 @@ const useStyle = style(theme => ({
     display: 'flex',
     flexDirection: 'row',
     width: '100%',
+    padding: '1px',
 
     '&:not($wrap)': {
       overflowX: 'auto',

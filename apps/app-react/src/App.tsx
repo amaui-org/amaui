@@ -6966,6 +6966,533 @@ Please sign in again.`}
         </Accordion>
 
         <Accordion primary='Banner version' open>
+          <Accordion primary='Banner version text' open>
+            <Banner
+              version='text'
+
+              tonal={false}
+
+              color='default'
+
+              primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+              startAlign='center'
+
+              start={(
+                <IconButton color='secondary' version='filled'>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>
+              )}
+
+              end={(
+                <Button>
+                  Active
+                </Button>
+              )}
+            />
+
+            <Banner
+              version='text'
+
+              tonal={false}
+
+              color='primary'
+
+              primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+              startAlign='center'
+
+              start={(
+                <IconButton color='secondary' version='filled'>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>
+              )}
+
+              end={(
+                <Button>
+                  Active
+                </Button>
+              )}
+            />
+
+            <Banner
+              version='text'
+
+              tonal={false}
+
+              color='secondary'
+
+              primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+              startAlign='center'
+
+              start={(
+                <IconButton color='secondary' version='filled'>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>
+              )}
+
+              end={(
+                <Button>
+                  Active
+                </Button>
+              )}
+            />
+
+            <Banner
+              version='text'
+
+              tonal={false}
+
+              color='tertiary'
+
+              primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+              startAlign='center'
+
+              start={(
+                <IconButton color='secondary' version='filled'>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>
+              )}
+
+              end={(
+                <Button>
+                  Active
+                </Button>
+              )}
+            />
+
+            <Banner
+              version='text'
+
+              tonal={false}
+
+              color='quaternary'
+
+              primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+              startAlign='center'
+
+              start={(
+                <IconButton color='secondary' version='filled'>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>
+              )}
+
+              end={(
+                <Button>
+                  Active
+                </Button>
+              )}
+            />
+
+            <Banner
+              version='text'
+
+              tonal={false}
+
+              color='info'
+
+              primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+              startAlign='center'
+
+              start={(
+                <IconButton color='secondary' version='filled'>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>
+              )}
+
+              end={(
+                <Button>
+                  Active
+                </Button>
+              )}
+            />
+
+            <Banner
+              version='text'
+
+              tonal={false}
+
+              color='success'
+
+              primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+              startAlign='center'
+
+              start={(
+                <IconButton color='secondary' version='filled'>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>
+              )}
+
+              end={(
+                <Button>
+                  Active
+                </Button>
+              )}
+            />
+
+            <Banner
+              version='text'
+
+              tonal={false}
+
+              color='warning'
+
+              primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+              startAlign='center'
+
+              start={(
+                <IconButton color='secondary' version='filled'>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>
+              )}
+
+              end={(
+                <Button>
+                  Active
+                </Button>
+              )}
+            />
+
+            <Banner
+              version='text'
+
+              tonal={false}
+
+              color='error'
+
+              primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+              startAlign='center'
+
+              start={(
+                <IconButton color='secondary' version='filled'>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>
+              )}
+
+              end={(
+                <Button>
+                  Active
+                </Button>
+              )}
+            />
+
+            <Banner
+              version='text'
+
+              tonal={false}
+
+              color='neutral'
+
+              primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+              startAlign='center'
+
+              start={(
+                <IconButton color='secondary' version='filled'>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>
+              )}
+
+              end={(
+                <Button>
+                  Active
+                </Button>
+              )}
+            />
+
+            <Banner
+              version='text'
+
+              tonal={false}
+
+              color='#f5d758'
+
+              primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+              startAlign='center'
+
+              start={(
+                <IconButton color='secondary' version='filled'>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>
+              )}
+
+              end={(
+                <Button>
+                  Active
+                </Button>
+              )}
+            />
+
+            <Banner
+              version='text'
+
+              tonal
+
+              color='primary'
+
+              primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+              startAlign='center'
+
+              start={(
+                <IconButton color='secondary' version='filled'>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>
+              )}
+
+              end={(
+                <Button>
+                  Active
+                </Button>
+              )}
+            />
+
+            <Banner
+              version='text'
+
+              tonal
+
+              color='secondary'
+
+              primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+              startAlign='center'
+
+              start={(
+                <IconButton color='secondary' version='filled'>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>
+              )}
+
+              end={(
+                <Button>
+                  Active
+                </Button>
+              )}
+            />
+
+            <Banner
+              version='text'
+
+              tonal
+
+              color='tertiary'
+
+              primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+              startAlign='center'
+
+              start={(
+                <IconButton color='secondary' version='filled'>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>
+              )}
+
+              end={(
+                <Button>
+                  Active
+                </Button>
+              )}
+            />
+
+            <Banner
+              version='text'
+
+              tonal
+
+              color='quaternary'
+
+              primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+              startAlign='center'
+
+              start={(
+                <IconButton color='secondary' version='filled'>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>
+              )}
+
+              end={(
+                <Button>
+                  Active
+                </Button>
+              )}
+            />
+
+            <Banner
+              version='text'
+
+              tonal
+
+              color='info'
+
+              primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+              startAlign='center'
+
+              start={(
+                <IconButton color='secondary' version='filled'>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>
+              )}
+
+              end={(
+                <Button>
+                  Active
+                </Button>
+              )}
+            />
+
+            <Banner
+              version='text'
+
+              tonal
+
+              color='success'
+
+              primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+              startAlign='center'
+
+              start={(
+                <IconButton color='secondary' version='filled'>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>
+              )}
+
+              end={(
+                <Button>
+                  Active
+                </Button>
+              )}
+            />
+
+            <Banner
+              version='text'
+
+              tonal
+
+              color='warning'
+
+              primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+              startAlign='center'
+
+              start={(
+                <IconButton color='secondary' version='filled'>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>
+              )}
+
+              end={(
+                <Button>
+                  Active
+                </Button>
+              )}
+            />
+
+            <Banner
+              version='text'
+
+              tonal
+
+              color='error'
+
+              primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+              startAlign='center'
+
+              start={(
+                <IconButton color='secondary' version='filled'>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>
+              )}
+
+              end={(
+                <Button>
+                  Active
+                </Button>
+              )}
+            />
+
+            <Banner
+              version='text'
+
+              tonal
+
+              color='neutral'
+
+              primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+              startAlign='center'
+
+              start={(
+                <IconButton color='secondary' version='filled'>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>
+              )}
+
+              end={(
+                <Button>
+                  Active
+                </Button>
+              )}
+            />
+
+            <Banner
+              version='text'
+
+              tonal
+
+              color='#f5d758'
+
+              primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+              startAlign='center'
+
+              start={(
+                <IconButton color='secondary' version='filled'>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>
+              )}
+
+              end={(
+                <Button>
+                  Active
+                </Button>
+              )}
+            />
+          </Accordion>
+
           <Accordion primary='Banner version outlined' open>
             <Banner
               version='outlined'
@@ -24474,6 +25001,35 @@ Please sign in again.`}
         </Accordion>
 
         <Accordion primary='Surface versions'>
+          <Accordion primary='Surface version text'>
+            <Line>
+              <Surface version='text' style={{ padding: '24px 40px' }} color='default' tonal={false}>Default</Surface>
+              <Surface version='text' style={{ padding: '24px 40px' }} color='primary' tonal={false}>Primary</Surface>
+              <Surface version='text' style={{ padding: '24px 40px' }} color='secondary' tonal={false}>Secondary</Surface>
+              <Surface version='text' style={{ padding: '24px 40px' }} color='tertiary' tonal={false}>Tertiary</Surface>
+              <Surface version='text' style={{ padding: '24px 40px' }} color='quaternary' tonal={false}>Quaternary</Surface>
+              <Surface version='text' style={{ padding: '24px 40px' }} color='info' tonal={false}>Info</Surface>
+              <Surface version='text' style={{ padding: '24px 40px' }} color='success' tonal={false}>Success</Surface>
+              <Surface version='text' style={{ padding: '24px 40px' }} color='error' tonal={false}>Error</Surface>
+              <Surface version='text' style={{ padding: '24px 40px' }} color='warning' tonal={false}>Warning</Surface>
+              <Surface version='text' style={{ padding: '24px 40px' }} color='neutral' tonal={false}>Neutral</Surface>
+              <Surface version='text' style={{ padding: '24px 40px' }} color='#f5d758' tonal={false}>Other</Surface>
+            </Line>
+
+            <Line>
+              <Surface version='text' style={{ padding: '24px 40px' }} color='primary' tonal>Primary</Surface>
+              <Surface version='text' style={{ padding: '24px 40px' }} color='secondary' tonal>Secondary</Surface>
+              <Surface version='text' style={{ padding: '24px 40px' }} color='tertiary' tonal>Tertiary</Surface>
+              <Surface version='text' style={{ padding: '24px 40px' }} color='quaternary' tonal>Quaternary</Surface>
+              <Surface version='text' style={{ padding: '24px 40px' }} color='info' tonal>Info</Surface>
+              <Surface version='text' style={{ padding: '24px 40px' }} color='success' tonal>Success</Surface>
+              <Surface version='text' style={{ padding: '24px 40px' }} color='error' tonal>Error</Surface>
+              <Surface version='text' style={{ padding: '24px 40px' }} color='warning' tonal>Warning</Surface>
+              <Surface version='text' style={{ padding: '24px 40px' }} color='neutral' tonal>Neutral</Surface>
+              <Surface version='text' style={{ padding: '24px 40px' }} color='#f5d758' tonal>Other</Surface>
+            </Line>
+          </Accordion>
+
           <Accordion primary='Surface version outlined'>
             <Line>
               <Surface version='outlined' style={{ padding: '24px 40px' }} color='default' tonal={false}>Default</Surface>
@@ -24500,6 +25056,35 @@ Please sign in again.`}
               <Surface version='outlined' style={{ padding: '24px 40px' }} color='warning' tonal>Warning</Surface>
               <Surface version='outlined' style={{ padding: '24px 40px' }} color='neutral' tonal>Neutral</Surface>
               <Surface version='outlined' style={{ padding: '24px 40px' }} color='#f5d758' tonal>Other</Surface>
+            </Line>
+          </Accordion>
+
+          <Accordion primary='Surface version filled'>
+            <Line>
+              <Surface version='filled' style={{ padding: '24px 40px' }} color='default' tonal={false}>Default</Surface>
+              <Surface version='filled' style={{ padding: '24px 40px' }} color='primary' tonal={false}>Primary</Surface>
+              <Surface version='filled' style={{ padding: '24px 40px' }} color='secondary' tonal={false}>Secondary</Surface>
+              <Surface version='filled' style={{ padding: '24px 40px' }} color='tertiary' tonal={false}>Tertiary</Surface>
+              <Surface version='filled' style={{ padding: '24px 40px' }} color='quaternary' tonal={false}>Quaternary</Surface>
+              <Surface version='filled' style={{ padding: '24px 40px' }} color='info' tonal={false}>Info</Surface>
+              <Surface version='filled' style={{ padding: '24px 40px' }} color='success' tonal={false}>Success</Surface>
+              <Surface version='filled' style={{ padding: '24px 40px' }} color='error' tonal={false}>Error</Surface>
+              <Surface version='filled' style={{ padding: '24px 40px' }} color='warning' tonal={false}>Warning</Surface>
+              <Surface version='filled' style={{ padding: '24px 40px' }} color='neutral' tonal={false}>Neutral</Surface>
+              <Surface version='filled' style={{ padding: '24px 40px' }} color='#f5d758' tonal={false}>Other</Surface>
+            </Line>
+
+            <Line>
+              <Surface version='filled' style={{ padding: '24px 40px' }} color='primary' tonal>Primary</Surface>
+              <Surface version='filled' style={{ padding: '24px 40px' }} color='secondary' tonal>Secondary</Surface>
+              <Surface version='filled' style={{ padding: '24px 40px' }} color='tertiary' tonal>Tertiary</Surface>
+              <Surface version='filled' style={{ padding: '24px 40px' }} color='quaternary' tonal>Quaternary</Surface>
+              <Surface version='filled' style={{ padding: '24px 40px' }} color='info' tonal>Info</Surface>
+              <Surface version='filled' style={{ padding: '24px 40px' }} color='success' tonal>Success</Surface>
+              <Surface version='filled' style={{ padding: '24px 40px' }} color='error' tonal>Error</Surface>
+              <Surface version='filled' style={{ padding: '24px 40px' }} color='warning' tonal>Warning</Surface>
+              <Surface version='filled' style={{ padding: '24px 40px' }} color='neutral' tonal>Neutral</Surface>
+              <Surface version='filled' style={{ padding: '24px 40px' }} color='#f5d758' tonal>Other</Surface>
             </Line>
           </Accordion>
         </Accordion>
@@ -26595,50 +27180,6 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion primary='Button backgroundOpacity' open>
-          <div className={classNames([classes.row, classes.center])}>
-            <Button backgroundOpacity='0.4' version='text' color='default'>Default</Button>
-            <Button backgroundOpacity='0.4' version='text' color='primary'>Primary</Button>
-            <Button backgroundOpacity='0.4' version='text' color='secondary'>Secondary</Button>
-            <Button backgroundOpacity='0.4' version='text' color='tertiary'>Tertiary</Button>
-            <Button backgroundOpacity='0.4' version='text' color='quaternary'>Quaternary</Button>
-            <Button backgroundOpacity='0.4' version='text' color='info'>Info</Button>
-            <Button backgroundOpacity='0.4' version='text' color='success'>Success</Button>
-            <Button backgroundOpacity='0.4' version='text' color='error'>Error</Button>
-            <Button backgroundOpacity='0.4' version='text' color='warning'>Warning</Button>
-            <Button backgroundOpacity='0.4' version='text' color='neutral'>Neutral</Button>
-            <Button backgroundOpacity='0.4' version='text' color='#f5d758'>Other</Button>
-          </div>
-
-          <div className={classNames([classes.row, classes.center])}>
-            <Button backgroundOpacity='0.4' version='outlined' color='default'>Default</Button>
-            <Button backgroundOpacity='0.4' version='outlined' color='primary'>Primary</Button>
-            <Button backgroundOpacity='0.4' version='outlined' color='secondary'>Secondary</Button>
-            <Button backgroundOpacity='0.4' version='outlined' color='tertiary'>Tertiary</Button>
-            <Button backgroundOpacity='0.4' version='outlined' color='quaternary'>Quaternary</Button>
-            <Button backgroundOpacity='0.4' version='outlined' color='info'>Info</Button>
-            <Button backgroundOpacity='0.4' version='outlined' color='success'>Success</Button>
-            <Button backgroundOpacity='0.4' version='outlined' color='error'>Error</Button>
-            <Button backgroundOpacity='0.4' version='outlined' color='warning'>Warning</Button>
-            <Button backgroundOpacity='0.4' version='outlined' color='neutral'>Neutral</Button>
-            <Button backgroundOpacity='0.4' version='outlined' color='#f5d758'>Other</Button>
-          </div>
-
-          <div className={classNames([classes.row, classes.center])}>
-            <Button backgroundOpacity='0.4' version='filled' color='default'>Default</Button>
-            <Button backgroundOpacity='0.4' version='filled' color='primary'>Primary</Button>
-            <Button backgroundOpacity='0.4' version='filled' color='secondary'>Secondary</Button>
-            <Button backgroundOpacity='0.4' version='filled' color='tertiary'>Tertiary</Button>
-            <Button backgroundOpacity='0.4' version='filled' color='quaternary'>Quaternary</Button>
-            <Button backgroundOpacity='0.4' version='filled' color='info'>Info</Button>
-            <Button backgroundOpacity='0.4' version='filled' color='success'>Success</Button>
-            <Button backgroundOpacity='0.4' version='filled' color='error'>Error</Button>
-            <Button backgroundOpacity='0.4' version='filled' color='warning'>Warning</Button>
-            <Button backgroundOpacity='0.4' version='filled' color='neutral'>Neutral</Button>
-            <Button backgroundOpacity='0.4' version='filled' color='#f5d758'>Other</Button>
-          </div>
-        </Accordion>
-
         <Accordion primary='Button size' open>
           <div className={classNames([classes.row, classes.center])}>
             <Button color='secondary' size='small'>Small</Button>
@@ -26721,7 +27262,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion primary='AmauiTheme' open>
+        <Accordion primary='AmauiTheme'>
           <div className={classNames([classes.column])}>
             <Button color='secondary'>Button</Button>
 

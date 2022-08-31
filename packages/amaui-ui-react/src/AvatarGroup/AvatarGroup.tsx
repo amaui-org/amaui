@@ -40,7 +40,7 @@ const AvatarGroup = React.forwardRef((props_: any, ref: any) => {
     color = 'primary',
     size = 'regular',
     AdditionalAvatar,
-    AdditionalAvatarProps = { color: 'default', tonal: true },
+    AdditionalAvatarProps = { color: 'neutral', tonal: true },
     disabled,
 
     className,
@@ -73,9 +73,7 @@ const AvatarGroup = React.forwardRef((props_: any, ref: any) => {
     if ((total !== undefined && total - children_.length >= 1)) value = `+${total - children_.length}`;
     else value = `+${Math.abs(children_.length - max)}`;
 
-    AdditionalAvatarProps.TypeProps = {
-      ...(AdditionalAvatarProps.TypeProps || {})
-    };
+    if (!AdditionalAvatarProps.TypeProps) AdditionalAvatarProps.TypeProps = {};
 
     AdditionalAvatarProps.TypeProps.size = '0.44em';
 
@@ -87,14 +85,14 @@ const AvatarGroup = React.forwardRef((props_: any, ref: any) => {
 
         {...AdditionalAvatarProps}
 
-        color={AdditionalAvatarProps.color}
+        noIconRootFontSize
       >
         {value}
       </Avatar>
     );
   }
 
-  if (AdditionalAvatarProps.TypeProps?.size !== undefined) styles.root.fontSize = AdditionalAvatarProps.TypeProps.size;
+  if (AdditionalAvatarProps?.size !== undefined) styles.root.fontSize = AdditionalAvatarProps.size;
 
   return (
     <div

@@ -97,16 +97,6 @@ const List = React.forwardRef((props_: any, ref: any) => {
     root: {}
   };
 
-  if (!theme.palette.color[color] && color !== 'default') {
-    const palette = theme.methods.color(color);
-
-    styles.root.background = !tonal ? palette.main : palette[theme.palette.light ? 95 : 10];
-  }
-
-  if (menu && color === 'default') {
-    if (!theme.palette.light) styles.root.background = theme.palette.color.neutral[10];
-  }
-
   if (indent !== undefined) styles.root.paddingInlineStart = `${indent * theme.space.unit}px`;
 
   return (
