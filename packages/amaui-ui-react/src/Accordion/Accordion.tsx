@@ -3,8 +3,7 @@ import React from 'react';
 import { is } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
-import { staticClassName } from '../utils';
-
+import Surface from '../Surface';
 import Expand from '../Expand';
 import Icon from '../Icon';
 import IconButton from '../IconButton';
@@ -12,6 +11,8 @@ import Grid from '../Grid';
 import Line from '../Line';
 import Type from '../Type';
 import Fade from '../Fade';
+
+import { staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
@@ -22,25 +23,17 @@ const useStyle = style(theme => ({
     width: '100%',
 
     '&:first-of-type': {
+      marginTop: 0,
       borderTopLeftRadius: `${theme.shape.radius.unit / 2}px`,
       borderTopRightRadius: `${theme.shape.radius.unit / 2}px`
     },
 
     '&:last-of-type': {
+      marginBottom: 0,
       borderBottomLeftRadius: `${theme.shape.radius.unit / 2}px`,
       borderBottomRightRadius: `${theme.shape.radius.unit / 2}px`
     }
   },
-
-  background: {
-    background: theme.palette.background.default.primary
-  },
-
-  elevation_0: { boxShadow: theme.shadows.values.neutral[0] },
-
-  elevation_1: { boxShadow: theme.shadows.values.neutral[1] },
-
-  elevation_2: { boxShadow: theme.shadows.values.neutral[2] },
 
   expanded_margin_vertical_start: { marginBlockStart: '16px' },
 
@@ -56,9 +49,7 @@ const useStyle = style(theme => ({
     userSelect: 'none'
   },
 
-  header: {
-
-  },
+  header: {},
 
   header_padding_vertical_start: { paddingBlockStart: '8px' },
 
@@ -84,9 +75,7 @@ const useStyle = style(theme => ({
 
   header_padding_horizontal_none: { paddingInline: '0px' },
 
-  main: {
-
-  },
+  main: {},
 
   main_padding_vertical_start: { paddingBlockStart: '16px' },
 
@@ -104,6 +93,10 @@ const useStyle = style(theme => ({
 
   main_padding_horizontal_none: { paddingInline: '0px' },
 
+  secondary: {
+    opacity: theme.palette.visual_contrast.default.opacity.primary
+  },
+
   icon: {
     transition: theme.methods.transitions.make('transform')
   },
@@ -114,6 +107,12 @@ const useStyle = style(theme => ({
 
   iconButton: {
     alignSelf: 'flex-start'
+  },
+
+  noBackground: {
+    '&.AmauiSurface-root': {
+      background: 'transparent'
+    }
   },
 
   disabled: {
@@ -147,19 +146,22 @@ const Accordion = React.forwardRef((props_: any, ref: any) => {
   const {
     primary,
     secondary,
+    tonal = false,
+    color = 'default',
     elevation = 0,
     ExpandIcon = IconMaterialExpandMoreRounded,
-    background,
+    noBackground,
     noExpandButton,
     expandedMarginVertical = 'both',
     expandedHeaderPaddingVertical = 'both',
     headerPaddingVertical = 'both',
-    headerPaddingHorizontal = 'none',
+    headerPaddingHorizontal = 'both',
     mainPaddingVertical = 'both',
-    mainPaddingHorizontal = 'none',
+    mainPaddingHorizontal = 'both',
     openDefault,
     open: open_,
     onChange,
+    Component = 'div',
     TransitionComponent: TransitionComponent_ = Fade,
     TransitionComponentProps: TransitionComponentProps_ = { add: true },
     noTransition,
@@ -223,27 +225,29 @@ const Accordion = React.forwardRef((props_: any, ref: any) => {
   method(children);
 
   return (
-    <div
+    <Surface
       ref={ref}
+
+      tonal={tonal}
+
+      color={color}
+
+      elevation={elevation}
+
+      Component={Component}
 
       className={classNames([
         staticClassName('Accordion', theme) && [
           'AmauiAccordion-root',
-          elevation !== undefined && classes[`elevation_${elevation}`],
-          open && [
-            `AmauiAccordion-expanded-margin-vertical-${expandedMarginVertical}`
-          ],
-          background && `AmauiAccordion-background`,
+          open && `AmauiAccordion-expanded-margin-vertical-${expandedMarginVertical}`,
+          noBackground && `AmauiAccordion-noBackground`,
           disabled && `AmauiAccordion-disabled`
         ],
 
         className,
         classes.root,
-        classes[`elevation_${elevation}`],
-        open && [
-          classes[`expanded_margin_vertical_${expandedMarginVertical}`]
-        ],
-        background && classes.background,
+        open && classes[`expanded_margin_vertical_${expandedMarginVertical}`],
+        noBackground && classes.noBackground,
         disabled && classes.disabled
       ])}
 
@@ -293,7 +297,15 @@ const Accordion = React.forwardRef((props_: any, ref: any) => {
               <Type
                 version='b1'
 
-                color='primary'
+                color='inherit'
+
+                className={classNames([
+                  staticClassName('Accordion', theme) && [
+                    'AmauiAccordion-primary'
+                  ],
+
+                  classes.primary
+                ])}
               >
                 {primary}
               </Type>
@@ -308,7 +320,15 @@ const Accordion = React.forwardRef((props_: any, ref: any) => {
                 <Type
                   version='b1'
 
-                  color='secondary'
+                  color='inherit'
+
+                  className={classNames([
+                    staticClassName('Accordion', theme) && [
+                      'AmauiAccordion-secondary'
+                    ],
+
+                    classes.secondary
+                  ])}
                 >
                   {secondary}
                 </Type>
@@ -319,7 +339,7 @@ const Accordion = React.forwardRef((props_: any, ref: any) => {
 
         {!noExpandButton && (
           <IconButton
-            color='default'
+            color='inherit'
 
             className={classNames([
               staticClassName('Accordion', theme) && [
@@ -364,7 +384,7 @@ const Accordion = React.forwardRef((props_: any, ref: any) => {
           </Line>
         </TransitionComponent>
       </Expand>
-    </div>
+    </Surface>
   );
 });
 

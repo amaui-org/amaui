@@ -69,7 +69,7 @@ const useStyle = style(theme => ({
     '@p': true,
 
     color: theme?.palette.text?.default?.primary,
-    background: theme?.palette.background?.default?.secondary
+    background: theme?.palette.background?.default?.primary
   },
 
   '@pure': {
@@ -4186,6 +4186,199 @@ Please sign in again.`}
             <div className={classes.div} />
           </Accordion>
           <Accordion
+            primary='Primary text'
+
+            secondary='Secondary text'
+          >
+            <div className={classes.div} />
+          </Accordion>
+        </Accordion>
+
+        <Accordion primary='Accordion color'>
+          <Accordion color='default'
+
+            primary='Primary text'
+
+            secondary='Secondary text'
+          >
+            <div className={classes.div} />
+          </Accordion>
+
+          <Accordion color='primary'
+
+            primary='Primary text'
+
+            secondary='Secondary text'
+          >
+            <div className={classes.div} />
+          </Accordion>
+
+          <Accordion color='secondary'
+
+            primary='Primary text'
+
+            secondary='Secondary text'
+          >
+            <div className={classes.div} />
+          </Accordion>
+
+          <Accordion color='tertiary'
+
+            primary='Primary text'
+
+            secondary='Secondary text'
+          >
+            <div className={classes.div} />
+          </Accordion>
+
+          <Accordion color='quaternary'
+
+            primary='Primary text'
+
+            secondary='Secondary text'
+          >
+            <div className={classes.div} />
+          </Accordion>
+
+          <Accordion color='info'
+
+            primary='Primary text'
+
+            secondary='Secondary text'
+          >
+            <div className={classes.div} />
+          </Accordion>
+
+          <Accordion color='success'
+
+            primary='Primary text'
+
+            secondary='Secondary text'
+          >
+            <div className={classes.div} />
+          </Accordion>
+
+          <Accordion color='warning'
+
+            primary='Primary text'
+
+            secondary='Secondary text'
+          >
+            <div className={classes.div} />
+          </Accordion>
+
+          <Accordion color='error'
+
+            primary='Primary text'
+
+            secondary='Secondary text'
+          >
+            <div className={classes.div} />
+          </Accordion>
+
+          <Accordion color='neutral'
+
+            primary='Primary text'
+
+            secondary='Secondary text'
+          >
+            <div className={classes.div} />
+          </Accordion>
+
+          <Accordion color='#f5d758'
+
+            primary='Primary text'
+
+            secondary='Secondary text'
+          >
+            <div className={classes.div} />
+          </Accordion>
+        </Accordion>
+
+        <Accordion primary='Accordion tonal'>
+          <Accordion tonal color='primary'
+
+            primary='Primary text'
+
+            secondary='Secondary text'
+          >
+            <div className={classes.div} />
+          </Accordion>
+
+          <Accordion tonal color='secondary'
+
+            primary='Primary text'
+
+            secondary='Secondary text'
+          >
+            <div className={classes.div} />
+          </Accordion>
+
+          <Accordion tonal color='tertiary'
+
+            primary='Primary text'
+
+            secondary='Secondary text'
+          >
+            <div className={classes.div} />
+          </Accordion>
+
+          <Accordion tonal color='quaternary'
+
+            primary='Primary text'
+
+            secondary='Secondary text'
+          >
+            <div className={classes.div} />
+          </Accordion>
+
+          <Accordion tonal color='info'
+
+            primary='Primary text'
+
+            secondary='Secondary text'
+          >
+            <div className={classes.div} />
+          </Accordion>
+
+          <Accordion tonal color='success'
+
+            primary='Primary text'
+
+            secondary='Secondary text'
+          >
+            <div className={classes.div} />
+          </Accordion>
+
+          <Accordion tonal color='warning'
+
+            primary='Primary text'
+
+            secondary='Secondary text'
+          >
+            <div className={classes.div} />
+          </Accordion>
+
+          <Accordion tonal color='error'
+
+            primary='Primary text'
+
+            secondary='Secondary text'
+          >
+            <div className={classes.div} />
+          </Accordion>
+
+          <Accordion tonal color='neutral'
+
+            primary='Primary text'
+
+            secondary='Secondary text'
+          >
+            <div className={classes.div} />
+          </Accordion>
+
+          <Accordion tonal color='#f5d758'
+
             primary='Primary text'
 
             secondary='Secondary text'
@@ -23260,74 +23453,60 @@ Please sign in again.`}
       <Accordion primary='Surface'>
         <Accordion primary='Surface' open>
           <div className={classNames([classes.column])}>
-            <Surface>Surface</Surface>
-          </div>
-        </Accordion>
-
-        <Accordion primary='Surface noBorderRadius' open>
-          <div className={classNames([classes.column])}>
-            <Surface elevation='1' noBorderRadius>Surface</Surface>
-          </div>
-        </Accordion>
-
-        <Accordion primary='Surface sizes' open>
-          <div className={classNames([classes.column])}>
-            <Surface size='small' elevation='1'>Small</Surface>
-            <Surface size='regular' elevation='1'>Regular</Surface>
-            <Surface size='large' elevation='1'>Large</Surface>
+            <Surface style={{ padding: '24px 40px' }}>Surface</Surface>
           </div>
         </Accordion>
 
         <Accordion primary='Surface elevations' open>
           <div className={classNames([classes.column])}>
-            <Surface elevation='0'>0</Surface>
-            <Surface elevation='1'>1</Surface>
-            <Surface elevation='2'>2</Surface>
-            <Surface elevation='3'>3</Surface>
-            <Surface elevation='4'>4</Surface>
-            <Surface elevation='6'>6</Surface>
-            <Surface elevation='8'>8</Surface>
-            <Surface elevation='9'>9</Surface>
-            <Surface elevation='12'>12</Surface>
-            <Surface elevation='16'>16</Surface>
-            <Surface elevation='24'>24</Surface>
+            <Surface style={{ padding: '24px 40px' }} elevation='0'>0</Surface>
+            <Surface style={{ padding: '24px 40px' }} elevation='1'>1</Surface>
+            <Surface style={{ padding: '24px 40px' }} elevation='2'>2</Surface>
+            <Surface style={{ padding: '24px 40px' }} elevation='3'>3</Surface>
+            <Surface style={{ padding: '24px 40px' }} elevation='4'>4</Surface>
+            <Surface style={{ padding: '24px 40px' }} elevation='6'>6</Surface>
+            <Surface style={{ padding: '24px 40px' }} elevation='8'>8</Surface>
+            <Surface style={{ padding: '24px 40px' }} elevation='9'>9</Surface>
+            <Surface style={{ padding: '24px 40px' }} elevation='12'>12</Surface>
+            <Surface style={{ padding: '24px 40px' }} elevation='16'>16</Surface>
+            <Surface style={{ padding: '24px 40px' }} elevation='24'>24</Surface>
           </div>
         </Accordion>
 
         <Accordion primary='Surface colors' open>
           <div className={classNames([classes.column])}>
-            <Surface color='default' tonal={false}>Default</Surface>
-            <Surface color='primary' tonal={false}>Primary</Surface>
-            <Surface color='secondary' tonal={false}>Secondary</Surface>
-            <Surface color='tertiary' tonal={false}>Tertiary</Surface>
-            <Surface color='quaternary' tonal={false}>Quaternary</Surface>
-            <Surface color='info' tonal={false}>Info</Surface>
-            <Surface color='success' tonal={false}>Success</Surface>
-            <Surface color='error' tonal={false}>Error</Surface>
-            <Surface color='warning' tonal={false}>Warning</Surface>
-            <Surface color='neutral' tonal={false}>Neutral</Surface>
-            <Surface color='#f5d758' tonal={false}>Other</Surface>
+            <Surface style={{ padding: '24px 40px' }} color='default' tonal={false}>Default</Surface>
+            <Surface style={{ padding: '24px 40px' }} color='primary' tonal={false}>Primary</Surface>
+            <Surface style={{ padding: '24px 40px' }} color='secondary' tonal={false}>Secondary</Surface>
+            <Surface style={{ padding: '24px 40px' }} color='tertiary' tonal={false}>Tertiary</Surface>
+            <Surface style={{ padding: '24px 40px' }} color='quaternary' tonal={false}>Quaternary</Surface>
+            <Surface style={{ padding: '24px 40px' }} color='info' tonal={false}>Info</Surface>
+            <Surface style={{ padding: '24px 40px' }} color='success' tonal={false}>Success</Surface>
+            <Surface style={{ padding: '24px 40px' }} color='error' tonal={false}>Error</Surface>
+            <Surface style={{ padding: '24px 40px' }} color='warning' tonal={false}>Warning</Surface>
+            <Surface style={{ padding: '24px 40px' }} color='neutral' tonal={false}>Neutral</Surface>
+            <Surface style={{ padding: '24px 40px' }} color='#f5d758' tonal={false}>Other</Surface>
           </div>
         </Accordion>
 
         <Accordion primary='Surface tonal' open>
           <div className={classNames([classes.column])}>
-            <Surface color='primary' tonal>Primary</Surface>
-            <Surface color='secondary' tonal>Secondary</Surface>
-            <Surface color='tertiary' tonal>Tertiary</Surface>
-            <Surface color='quaternary' tonal>Quaternary</Surface>
-            <Surface color='info' tonal>Info</Surface>
-            <Surface color='success' tonal>Success</Surface>
-            <Surface color='error' tonal>Error</Surface>
-            <Surface color='warning' tonal>Warning</Surface>
-            <Surface color='neutral' tonal>Neutral</Surface>
-            <Surface color='#f5d758' tonal>Other</Surface>
+            <Surface style={{ padding: '24px 40px' }} color='primary' tonal>Primary</Surface>
+            <Surface style={{ padding: '24px 40px' }} color='secondary' tonal>Secondary</Surface>
+            <Surface style={{ padding: '24px 40px' }} color='tertiary' tonal>Tertiary</Surface>
+            <Surface style={{ padding: '24px 40px' }} color='quaternary' tonal>Quaternary</Surface>
+            <Surface style={{ padding: '24px 40px' }} color='info' tonal>Info</Surface>
+            <Surface style={{ padding: '24px 40px' }} color='success' tonal>Success</Surface>
+            <Surface style={{ padding: '24px 40px' }} color='error' tonal>Error</Surface>
+            <Surface style={{ padding: '24px 40px' }} color='warning' tonal>Warning</Surface>
+            <Surface style={{ padding: '24px 40px' }} color='neutral' tonal>Neutral</Surface>
+            <Surface style={{ padding: '24px 40px' }} color='#f5d758' tonal>Other</Surface>
           </div>
         </Accordion>
 
         <Accordion primary='AmauiTheme' open>
           <div className={classNames([classes.column])}>
-            <Surface color='secondary'>
+            <Surface style={{ padding: '24px 40px' }} color='secondary'>
               a
             </Surface>
 
@@ -23346,7 +23525,7 @@ Please sign in again.`}
                   }
                 }}
               >
-                <Surface color='secondary'>
+                <Surface style={{ padding: '24px 40px' }} color='secondary'>
                   a
                 </Surface>
               </AmauiThemeProvider>
@@ -23372,7 +23551,7 @@ Please sign in again.`}
                   }
                 }}
               >
-                <Surface color='secondary'>
+                <Surface style={{ padding: '24px 40px' }} color='secondary'>
                   a
                 </Surface>
               </AmauiThemeProvider>
@@ -23398,7 +23577,7 @@ Please sign in again.`}
                   }
                 }}
               >
-                <Surface color='secondary'>
+                <Surface style={{ padding: '24px 40px' }} color='secondary'>
                   a
                 </Surface>
               </AmauiThemeProvider>
@@ -23420,7 +23599,7 @@ Please sign in again.`}
                   }
                 }}
               >
-                <Surface value='1114'>
+                <Surface style={{ padding: '24px 40px' }} value='1114'>
                   a
                 </Surface>
               </AmauiThemeProvider>

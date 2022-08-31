@@ -5,10 +5,7 @@ import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 import { staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
-  root: {
-    position: 'relative',
-    transition: theme.methods.transitions.make(['color', 'background', 'box-shadow'])
-  },
+  root: {},
 
   // Color
   default: {
@@ -107,22 +104,6 @@ const useStyle = style(theme => ({
     backgroundColor: theme.methods.palette.color.value('error', 95),
   },
 
-  // Size
-  small: {
-    padding: '16px',
-    borderRadius: `${(theme.shape.radius.unit * 2) + (theme.shape.radius.unit / 2)}px`
-  },
-
-  regular: {
-    padding: theme.methods.space.value('md', 'px'),
-    borderRadius: `${(theme.shape.radius.unit * 3) + (theme.shape.radius.unit / 2)}px`
-  },
-
-  large: {
-    padding: theme.methods.space.value('lg', 'px'),
-    borderRadius: `${(theme.shape.radius.unit * 4) + (theme.shape.radius.unit / 2)}px`
-  },
-
   // Elevation
   elevation_0: {
     boxShadow: theme.shadows.values.neutral[0]
@@ -176,11 +157,6 @@ const useStyle = style(theme => ({
   elevation_24: {
     boxShadow: theme.shadows.values.neutral[24],
     backgroundImage: !theme.palette.light ? 'linear-gradient(rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.28))' : undefined,
-  },
-
-  // Other
-  noBorderRadius: {
-    borderRadius: 0
   }
 }), { name: 'AmauiSurface' });
 
@@ -192,16 +168,12 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
   const { classes } = useStyle(props);
 
   const {
-    className,
-
-    size = 'regular',
-    color = props.tonal ? 'neutral' : 'default',
     tonal = true,
+    color = props.tonal ? 'neutral' : 'default',
     elevation = 0,
-
-    noBorderRadius,
     Component = 'div',
 
+    className,
     style,
 
     children,
@@ -227,26 +199,22 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
   }
 
   return (
-    <div
+    <Component
       ref={ref}
 
       className={classNames([
         staticClassName('Surface', theme) && [
           'AmauiSurface-root',
           `AmauiSurface-color-${!theme.palette.color[color] && color !== 'default' ? 'new' : color}`,
-          `AmauiSurface-size-${size}`,
           tonal && `AmauiSurface-tonal`,
-          elevation && `AmauiSurface-elevation-${elevation}`,
-          noBorderRadius && `AmauiSurface-noBorderRadius`
+          elevation && `AmauiSurface-elevation-${elevation}`
         ],
 
-        classes.root,
         className,
-        classes[size],
+        classes.root,
         classes[color],
         classes[`elevation_${elevation}`],
-        tonal && classes[`tonal_${color}`],
-        noBorderRadius && classes.noBorderRadius
+        tonal && classes[`tonal_${color}`]
       ])}
 
       style={{
@@ -258,7 +226,7 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
       {...other}
     >
       {children}
-    </div>
+    </Component>
   );
 });
 

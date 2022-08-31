@@ -4,60 +4,21 @@ import { is } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Line from '../Line';
+import Surface from '../Surface';
 
 import { staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
     zIndex: theme.z_index.app_bar,
+    padding: 0
   },
 
   fixed: {
     position: 'fixed',
     insetInline: 0,
     bottom: 0
-  },
-
-  // Color
-  color_default: { backgroundColor: theme.palette.background.default.primary },
-
-  color_neutral: { backgroundColor: theme.palette.color.neutral.main },
-
-  color_primary: { backgroundColor: theme.palette.color.primary.main },
-
-  color_secondary: { backgroundColor: theme.palette.color.secondary.main },
-
-  color_tertiary: { backgroundColor: theme.palette.color.tertiary.main },
-
-  color_quaternary: { backgroundColor: theme.palette.color.quaternary.main },
-
-  color_info: { backgroundColor: theme.palette.color.info.main },
-
-  color_success: { backgroundColor: theme.palette.color.success.main },
-
-  color_warning: { backgroundColor: theme.palette.color.warning.main },
-
-  color_error: { backgroundColor: theme.palette.color.error.main },
-
-  // Tonal
-  tonal_color_neutral: { backgroundColor: theme.methods.palette.color.value('neutral', 95) },
-
-  tonal_color_primary: { backgroundColor: theme.methods.palette.color.value('primary', 95) },
-
-  tonal_color_secondary: { backgroundColor: theme.methods.palette.color.value('secondary', 95) },
-
-  tonal_color_tertiary: { backgroundColor: theme.methods.palette.color.value('tertiary', 95) },
-
-  tonal_color_quaternary: { backgroundColor: theme.methods.palette.color.value('quaternary', 95) },
-
-  tonal_color_info: { backgroundColor: theme.methods.palette.color.value('info', 95) },
-
-  tonal_color_success: { backgroundColor: theme.methods.palette.color.value('success', 95) },
-
-  tonal_color_warning: { backgroundColor: theme.methods.palette.color.value('warning', 95) },
-
-  tonal_color_error: { backgroundColor: theme.methods.palette.color.value('error', 95) },
-
+  }
 }), { name: 'AmauiNavigationBar' });
 
 const NavigationBar = React.forwardRef((props_: any, ref: any) => {
@@ -167,8 +128,16 @@ const NavigationBar = React.forwardRef((props_: any, ref: any) => {
     }));
 
   return (
-    <Line
+    <Surface
       ref={ref}
+
+      noBorderRadius
+
+      Component={Line}
+
+      color={color}
+
+      tonal={tonal}
 
       direction='row'
 
@@ -203,7 +172,7 @@ const NavigationBar = React.forwardRef((props_: any, ref: any) => {
       {...other}
     >
       {children}
-    </Line>
+    </Surface>
   );
 });
 
