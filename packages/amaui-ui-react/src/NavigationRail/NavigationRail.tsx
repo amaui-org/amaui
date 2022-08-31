@@ -61,8 +61,8 @@ const NavigationRail = React.forwardRef((props_: any, ref: any) => {
   const { classes } = useStyle(props);
 
   const {
-    color = 'primary',
     tonal = true,
+    color = 'primary',
     version = 'regular',
     size = 'regular',
     alignment = 'center',
@@ -116,34 +116,12 @@ const NavigationRail = React.forwardRef((props_: any, ref: any) => {
     }
   };
 
-  let palette: any;
-
-  if (!theme.palette.color[color] && !['inherit', 'default'].includes(color)) {
-    palette = theme.methods.color(color);
-  }
-
-  if (!theme.palette.color[color] && !['inherit', 'default'].includes(color)) {
-    if (tonal) styles.root.backgroundColor = theme.methods.palette.color.value(undefined, 95, true, palette);
-    else styles.root.backgroundColor = palette.main;
-  }
-
-  if (!tonal) {
-    let background = (theme.palette.color[color] as any)?.main;
-
-    if (color === 'default') background = theme.palette.background.default.primary;
-
-    styles.icon.color = theme.methods.palette.color.text(palette?.main || background, true, 'light');
-  }
-  else {
-    styles.icon.color = theme.methods.palette.color.value(color, 5, true, palette);
-  }
-
   const header = React.Children
     .toArray(header_)
     .map((item: any, index: number) => React.cloneElement(item, {
       key: index,
 
-      color: item.props.color !== undefined ? item.props.color : styles.icon.color,
+      color: item.props.color !== undefined ? item.props.color : color,
 
       tonal: item.props.tonal !== undefined ? item.props.tonal : tonal
     }));

@@ -766,7 +766,6 @@ function App() {
 
   return (
     <div className={classes.root}>
-      {/* Reset */}
       <Reset />
 
       <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
@@ -788,7 +787,7 @@ function App() {
         <div className={classNames([classes.column])}>
           <NavigationRail
             header={[
-              <IconButton tonal={false}>
+              <IconButton version='filled' elevation={0}>
                 <IconMaterialMenuRounded />
               </IconButton>,
 
@@ -1132,7 +1131,7 @@ Please sign in again.`}
         <Accordion primary='NavigationRail'>
           <NavigationRail
             header={[
-              <IconButton tonal={false}>
+              <IconButton version='filled' elevation={0}>
                 <IconMaterialMenuRounded />
               </IconButton>,
 
@@ -1179,7 +1178,7 @@ Please sign in again.`}
               alignment='flex-start'
 
               header={[
-                <IconButton tonal={false}>
+                <IconButton version='filled' elevation={0}>
                   <IconMaterialMenuRounded />
                 </IconButton>,
 
@@ -1223,7 +1222,7 @@ Please sign in again.`}
               alignment='center'
 
               header={[
-                <IconButton tonal={false}>
+                <IconButton version='filled' elevation={0}>
                   <IconMaterialMenuRounded />
                 </IconButton>,
 
@@ -1267,7 +1266,7 @@ Please sign in again.`}
               alignment='flex-end'
 
               header={[
-                <IconButton tonal={false}>
+                <IconButton version='filled' elevation={0}>
                   <IconMaterialMenuRounded />
                 </IconButton>,
 
@@ -1314,7 +1313,7 @@ Please sign in again.`}
             version='regular'
 
             header={[
-              <IconButton tonal={false}>
+              <IconButton version='filled' elevation={0}>
                 <IconMaterialMenuRounded />
               </IconButton>,
 
@@ -1358,7 +1357,7 @@ Please sign in again.`}
             version='none'
 
             header={[
-              <IconButton tonal={false}>
+              <IconButton version='filled'>
                 <IconMaterialMenuRounded />
               </IconButton>,
 
@@ -1402,7 +1401,7 @@ Please sign in again.`}
             version='auto'
 
             header={[
-              <IconButton tonal={false}>
+              <IconButton version='filled'>
                 <IconMaterialMenuRounded />
               </IconButton>,
 
@@ -1446,7 +1445,7 @@ Please sign in again.`}
             version='auto'
 
             header={[
-              <IconButton tonal={false}>
+              <IconButton version='filled'>
                 <IconMaterialMenuRounded />
               </IconButton>,
 
@@ -1500,7 +1499,7 @@ Please sign in again.`}
             border
 
             header={[
-              <IconButton tonal={false}>
+              <IconButton version='filled'>
                 <IconMaterialMenuRounded />
               </IconButton>,
 

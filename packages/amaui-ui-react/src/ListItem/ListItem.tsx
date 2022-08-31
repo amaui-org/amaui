@@ -796,7 +796,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
       {/* Menu */}
       {menu && (
         <Menu
-          open={openMenu}
+          open={!!openMenu}
 
           include={include}
 
