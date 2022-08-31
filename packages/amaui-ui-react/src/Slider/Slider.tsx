@@ -453,16 +453,26 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
       }
     };
 
-    const onMouseMove = (event: MouseEvent) => {
+    const onMouseMove = (event: TouchEvent | MouseEvent) => {
       if (!refs.props.current.disabled && !refs.props.current.readOnly && refs.mouseDown.current) {
-        const { clientX, clientY } = event;
+        let x: number;
+        let y: number;
+
+        if ((event as MouseEvent).clientX !== undefined) {
+          x = (event as MouseEvent).clientX;
+          y = (event as MouseEvent).clientY;
+        }
+        else {
+          x = (event as TouchEvent).touches[0].clientX;
+          y = (event as TouchEvent).touches[0].clientY;
+        }
 
         const rect = refs.root.current.getBoundingClientRect();
 
         const { width, height } = rect;
 
         // Value to the precision point value
-        const value__ = valuePrecision(orientation === 'horizontal' ? (clientX - rect.x) / width : (1 - (clientY - rect.y) / height));
+        const value__ = valuePrecision(orientation === 'horizontal' ? (x - rect.x) / width : (1 - (y - rect.y) / height));
 
         const valueNew = is('array', refs.value.current) ? [...refs.value.current] : value__;
 
@@ -497,6 +507,7 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
     window.document.addEventListener('mouseup', onMouseUp);
     window.document.addEventListener('touchend', onMouseUp, { passive: true });
     window.document.addEventListener('mousemove', onMouseMove);
+    window.document.addEventListener('touchmove', onMouseMove);
 
     setInit(true);
 
@@ -504,6 +515,7 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
       window.document.removeEventListener('mouseup', onMouseUp);
       window.document.removeEventListener('touchend', onMouseUp);
       window.document.removeEventListener('mousemove', onMouseMove);
+      window.document.addEventListener('touchmove', onMouseMove);
     };
   }, []);
 

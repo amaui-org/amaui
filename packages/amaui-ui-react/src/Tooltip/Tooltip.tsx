@@ -502,7 +502,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
     if (position === 'right') return 'left';
     if (position === 'bottom') return 'top';
   };
-  console.log(1, LabelProps);
+
   return (
     <Append
       open={open}
