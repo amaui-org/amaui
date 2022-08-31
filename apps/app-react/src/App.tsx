@@ -6478,6 +6478,1022 @@ Please sign in again.`}
           />
         </Accordion>
 
+        <Accordion primary='Banner color' open>
+          <Banner
+            tonal={false}
+
+            color='default'
+
+            primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+            startAlign='center'
+
+            start={(
+              <IconButton color='secondary' version='filled'>
+                <IconMaterialPottedPlantRounded />
+              </IconButton>
+            )}
+
+            end={(
+              <Button>
+                Active
+              </Button>
+            )}
+          />
+
+          <Banner
+            tonal={false}
+
+            color='primary'
+
+            primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+            startAlign='center'
+
+            start={(
+              <IconButton color='secondary' version='filled'>
+                <IconMaterialPottedPlantRounded />
+              </IconButton>
+            )}
+
+            end={(
+              <Button>
+                Active
+              </Button>
+            )}
+          />
+
+          <Banner
+            tonal={false}
+
+            color='secondary'
+
+            primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+            startAlign='center'
+
+            start={(
+              <IconButton color='secondary' version='filled'>
+                <IconMaterialPottedPlantRounded />
+              </IconButton>
+            )}
+
+            end={(
+              <Button>
+                Active
+              </Button>
+            )}
+          />
+
+          <Banner
+            tonal={false}
+
+            color='tertiary'
+
+            primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+            startAlign='center'
+
+            start={(
+              <IconButton color='secondary' version='filled'>
+                <IconMaterialPottedPlantRounded />
+              </IconButton>
+            )}
+
+            end={(
+              <Button>
+                Active
+              </Button>
+            )}
+          />
+
+          <Banner
+            tonal={false}
+
+            color='quaternary'
+
+            primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+            startAlign='center'
+
+            start={(
+              <IconButton color='secondary' version='filled'>
+                <IconMaterialPottedPlantRounded />
+              </IconButton>
+            )}
+
+            end={(
+              <Button>
+                Active
+              </Button>
+            )}
+          />
+
+          <Banner
+            tonal={false}
+
+            color='info'
+
+            primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+            startAlign='center'
+
+            start={(
+              <IconButton color='secondary' version='filled'>
+                <IconMaterialPottedPlantRounded />
+              </IconButton>
+            )}
+
+            end={(
+              <Button>
+                Active
+              </Button>
+            )}
+          />
+
+          <Banner
+            tonal={false}
+
+            color='success'
+
+            primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+            startAlign='center'
+
+            start={(
+              <IconButton color='secondary' version='filled'>
+                <IconMaterialPottedPlantRounded />
+              </IconButton>
+            )}
+
+            end={(
+              <Button>
+                Active
+              </Button>
+            )}
+          />
+
+          <Banner
+            tonal={false}
+
+            color='warning'
+
+            primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+            startAlign='center'
+
+            start={(
+              <IconButton color='secondary' version='filled'>
+                <IconMaterialPottedPlantRounded />
+              </IconButton>
+            )}
+
+            end={(
+              <Button>
+                Active
+              </Button>
+            )}
+          />
+
+          <Banner
+            tonal={false}
+
+            color='error'
+
+            primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+            startAlign='center'
+
+            start={(
+              <IconButton color='secondary' version='filled'>
+                <IconMaterialPottedPlantRounded />
+              </IconButton>
+            )}
+
+            end={(
+              <Button>
+                Active
+              </Button>
+            )}
+          />
+
+          <Banner
+            tonal={false}
+
+            color='neutral'
+
+            primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+            startAlign='center'
+
+            start={(
+              <IconButton color='secondary' version='filled'>
+                <IconMaterialPottedPlantRounded />
+              </IconButton>
+            )}
+
+            end={(
+              <Button>
+                Active
+              </Button>
+            )}
+          />
+
+          <Banner
+            tonal={false}
+
+            color='#f5d758'
+
+            primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+            startAlign='center'
+
+            start={(
+              <IconButton color='secondary' version='filled'>
+                <IconMaterialPottedPlantRounded />
+              </IconButton>
+            )}
+
+            end={(
+              <Button>
+                Active
+              </Button>
+            )}
+          />
+        </Accordion>
+
+        <Accordion primary='Banner tonal' open>
+          <Banner
+            tonal
+
+            color='primary'
+
+            primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+            startAlign='center'
+
+            start={(
+              <IconButton color='secondary' version='filled'>
+                <IconMaterialPottedPlantRounded />
+              </IconButton>
+            )}
+
+            end={(
+              <Button>
+                Active
+              </Button>
+            )}
+          />
+
+          <Banner
+            tonal
+
+            color='secondary'
+
+            primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+            startAlign='center'
+
+            start={(
+              <IconButton color='secondary' version='filled'>
+                <IconMaterialPottedPlantRounded />
+              </IconButton>
+            )}
+
+            end={(
+              <Button>
+                Active
+              </Button>
+            )}
+          />
+
+          <Banner
+            tonal
+
+            color='tertiary'
+
+            primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+            startAlign='center'
+
+            start={(
+              <IconButton color='secondary' version='filled'>
+                <IconMaterialPottedPlantRounded />
+              </IconButton>
+            )}
+
+            end={(
+              <Button>
+                Active
+              </Button>
+            )}
+          />
+
+          <Banner
+            tonal
+
+            color='quaternary'
+
+            primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+            startAlign='center'
+
+            start={(
+              <IconButton color='secondary' version='filled'>
+                <IconMaterialPottedPlantRounded />
+              </IconButton>
+            )}
+
+            end={(
+              <Button>
+                Active
+              </Button>
+            )}
+          />
+
+          <Banner
+            tonal
+
+            color='info'
+
+            primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+            startAlign='center'
+
+            start={(
+              <IconButton color='secondary' version='filled'>
+                <IconMaterialPottedPlantRounded />
+              </IconButton>
+            )}
+
+            end={(
+              <Button>
+                Active
+              </Button>
+            )}
+          />
+
+          <Banner
+            tonal
+
+            color='success'
+
+            primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+            startAlign='center'
+
+            start={(
+              <IconButton color='secondary' version='filled'>
+                <IconMaterialPottedPlantRounded />
+              </IconButton>
+            )}
+
+            end={(
+              <Button>
+                Active
+              </Button>
+            )}
+          />
+
+          <Banner
+            tonal
+
+            color='warning'
+
+            primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+            startAlign='center'
+
+            start={(
+              <IconButton color='secondary' version='filled'>
+                <IconMaterialPottedPlantRounded />
+              </IconButton>
+            )}
+
+            end={(
+              <Button>
+                Active
+              </Button>
+            )}
+          />
+
+          <Banner
+            tonal
+
+            color='error'
+
+            primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+            startAlign='center'
+
+            start={(
+              <IconButton color='secondary' version='filled'>
+                <IconMaterialPottedPlantRounded />
+              </IconButton>
+            )}
+
+            end={(
+              <Button>
+                Active
+              </Button>
+            )}
+          />
+
+          <Banner
+            tonal
+
+            color='neutral'
+
+            primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+            startAlign='center'
+
+            start={(
+              <IconButton color='secondary' version='filled'>
+                <IconMaterialPottedPlantRounded />
+              </IconButton>
+            )}
+
+            end={(
+              <Button>
+                Active
+              </Button>
+            )}
+          />
+
+          <Banner
+            tonal
+
+            color='#f5d758'
+
+            primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+            startAlign='center'
+
+            start={(
+              <IconButton color='secondary' version='filled'>
+                <IconMaterialPottedPlantRounded />
+              </IconButton>
+            )}
+
+            end={(
+              <Button>
+                Active
+              </Button>
+            )}
+          />
+        </Accordion>
+
+        <Accordion primary='Banner version' open>
+          <Accordion primary='Banner version outlined' open>
+            <Banner
+              version='outlined'
+
+              tonal={false}
+
+              color='default'
+
+              primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+              startAlign='center'
+
+              start={(
+                <IconButton color='secondary' version='filled'>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>
+              )}
+
+              end={(
+                <Button>
+                  Active
+                </Button>
+              )}
+            />
+
+            <Banner
+              version='outlined'
+
+              tonal={false}
+
+              color='primary'
+
+              primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+              startAlign='center'
+
+              start={(
+                <IconButton color='secondary' version='filled'>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>
+              )}
+
+              end={(
+                <Button>
+                  Active
+                </Button>
+              )}
+            />
+
+            <Banner
+              version='outlined'
+
+              tonal={false}
+
+              color='secondary'
+
+              primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+              startAlign='center'
+
+              start={(
+                <IconButton color='secondary' version='filled'>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>
+              )}
+
+              end={(
+                <Button>
+                  Active
+                </Button>
+              )}
+            />
+
+            <Banner
+              version='outlined'
+
+              tonal={false}
+
+              color='tertiary'
+
+              primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+              startAlign='center'
+
+              start={(
+                <IconButton color='secondary' version='filled'>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>
+              )}
+
+              end={(
+                <Button>
+                  Active
+                </Button>
+              )}
+            />
+
+            <Banner
+              version='outlined'
+
+              tonal={false}
+
+              color='quaternary'
+
+              primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+              startAlign='center'
+
+              start={(
+                <IconButton color='secondary' version='filled'>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>
+              )}
+
+              end={(
+                <Button>
+                  Active
+                </Button>
+              )}
+            />
+
+            <Banner
+              version='outlined'
+
+              tonal={false}
+
+              color='info'
+
+              primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+              startAlign='center'
+
+              start={(
+                <IconButton color='secondary' version='filled'>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>
+              )}
+
+              end={(
+                <Button>
+                  Active
+                </Button>
+              )}
+            />
+
+            <Banner
+              version='outlined'
+
+              tonal={false}
+
+              color='success'
+
+              primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+              startAlign='center'
+
+              start={(
+                <IconButton color='secondary' version='filled'>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>
+              )}
+
+              end={(
+                <Button>
+                  Active
+                </Button>
+              )}
+            />
+
+            <Banner
+              version='outlined'
+
+              tonal={false}
+
+              color='warning'
+
+              primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+              startAlign='center'
+
+              start={(
+                <IconButton color='secondary' version='filled'>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>
+              )}
+
+              end={(
+                <Button>
+                  Active
+                </Button>
+              )}
+            />
+
+            <Banner
+              version='outlined'
+
+              tonal={false}
+
+              color='error'
+
+              primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+              startAlign='center'
+
+              start={(
+                <IconButton color='secondary' version='filled'>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>
+              )}
+
+              end={(
+                <Button>
+                  Active
+                </Button>
+              )}
+            />
+
+            <Banner
+              version='outlined'
+
+              tonal={false}
+
+              color='neutral'
+
+              primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+              startAlign='center'
+
+              start={(
+                <IconButton color='secondary' version='filled'>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>
+              )}
+
+              end={(
+                <Button>
+                  Active
+                </Button>
+              )}
+            />
+
+            <Banner
+              version='outlined'
+
+              tonal={false}
+
+              color='#f5d758'
+
+              primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+              startAlign='center'
+
+              start={(
+                <IconButton color='secondary' version='filled'>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>
+              )}
+
+              end={(
+                <Button>
+                  Active
+                </Button>
+              )}
+            />
+
+            <Banner
+              version='outlined'
+
+              tonal
+
+              color='primary'
+
+              primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+              startAlign='center'
+
+              start={(
+                <IconButton color='secondary' version='filled'>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>
+              )}
+
+              end={(
+                <Button>
+                  Active
+                </Button>
+              )}
+            />
+
+            <Banner
+              version='outlined'
+
+              tonal
+
+              color='secondary'
+
+              primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+              startAlign='center'
+
+              start={(
+                <IconButton color='secondary' version='filled'>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>
+              )}
+
+              end={(
+                <Button>
+                  Active
+                </Button>
+              )}
+            />
+
+            <Banner
+              version='outlined'
+
+              tonal
+
+              color='tertiary'
+
+              primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+              startAlign='center'
+
+              start={(
+                <IconButton color='secondary' version='filled'>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>
+              )}
+
+              end={(
+                <Button>
+                  Active
+                </Button>
+              )}
+            />
+
+            <Banner
+              version='outlined'
+
+              tonal
+
+              color='quaternary'
+
+              primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+              startAlign='center'
+
+              start={(
+                <IconButton color='secondary' version='filled'>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>
+              )}
+
+              end={(
+                <Button>
+                  Active
+                </Button>
+              )}
+            />
+
+            <Banner
+              version='outlined'
+
+              tonal
+
+              color='info'
+
+              primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+              startAlign='center'
+
+              start={(
+                <IconButton color='secondary' version='filled'>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>
+              )}
+
+              end={(
+                <Button>
+                  Active
+                </Button>
+              )}
+            />
+
+            <Banner
+              version='outlined'
+
+              tonal
+
+              color='success'
+
+              primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+              startAlign='center'
+
+              start={(
+                <IconButton color='secondary' version='filled'>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>
+              )}
+
+              end={(
+                <Button>
+                  Active
+                </Button>
+              )}
+            />
+
+            <Banner
+              version='outlined'
+
+              tonal
+
+              color='warning'
+
+              primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+              startAlign='center'
+
+              start={(
+                <IconButton color='secondary' version='filled'>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>
+              )}
+
+              end={(
+                <Button>
+                  Active
+                </Button>
+              )}
+            />
+
+            <Banner
+              version='outlined'
+
+              tonal
+
+              color='error'
+
+              primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+              startAlign='center'
+
+              start={(
+                <IconButton color='secondary' version='filled'>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>
+              )}
+
+              end={(
+                <Button>
+                  Active
+                </Button>
+              )}
+            />
+
+            <Banner
+              version='outlined'
+
+              tonal
+
+              color='neutral'
+
+              primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+              startAlign='center'
+
+              start={(
+                <IconButton color='secondary' version='filled'>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>
+              )}
+
+              end={(
+                <Button>
+                  Active
+                </Button>
+              )}
+            />
+
+            <Banner
+              version='outlined'
+
+              tonal
+
+              color='#f5d758'
+
+              primary={`Your password was updated on your other device.
+Please sign in again.`}
+
+              startAlign='center'
+
+              start={(
+                <IconButton color='secondary' version='filled'>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>
+              )}
+
+              end={(
+                <Button>
+                  Active
+                </Button>
+              )}
+            />
+          </Accordion>
+        </Accordion>
+
         <Accordion primary='Banner actions' open>
           <Banner
             primary={`Your password was updated on your other device.
