@@ -3,8 +3,7 @@ import React from 'react';
 import { is } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
-import { staticClassName } from '../utils';
-
+import Surface from '../Surface';
 import Icon from '../Icon';
 import Interaction from '../Interaction';
 import Type from '../Type';
@@ -13,6 +12,8 @@ import Expand from '../Expand';
 import List from '../List';
 import Fade from '../Fade';
 import IconButton from '../IconButton';
+
+import { staticClassName } from '../utils';
 
 const overflow = {
   width: '100%',
@@ -32,7 +33,6 @@ const useStyle = style(theme => ({
     '-webkit-appearance': 'none',
     appearance: 'none',
     border: 'none',
-    background: 'transparent',
     textDecoration: 'none',
     color: 'inherit',
 
@@ -40,67 +40,6 @@ const useStyle = style(theme => ({
     display: 'inline-flex',
     width: '100%'
   },
-
-  // Color
-  wrapper_color_default: { background: theme.palette.background.default.primary },
-
-  wrapper_color_neutral: { background: theme.palette.color.neutral.main },
-
-  wrapper_color_primary: { background: theme.palette.color.primary.main },
-
-  wrapper_color_secondary: { background: theme.palette.color.secondary.main },
-
-  wrapper_color_tertiary: { background: theme.palette.color.tertiary.main },
-
-  wrapper_color_quaternary: { background: theme.palette.color.quaternary.main },
-
-  wrapper_color_info: { background: theme.palette.color.info.main },
-
-  wrapper_color_success: { background: theme.palette.color.success.main },
-
-  wrapper_color_warning: { background: theme.palette.color.warning.main },
-
-  wrapper_color_error: { background: theme.palette.color.error.main },
-
-  // Tonal
-  wrapper_tonal_color_neutral: { background: theme.palette.color.neutral[theme.palette.light ? 95 : 10] },
-
-  wrapper_tonal_color_primary: { background: theme.palette.color.primary[theme.palette.light ? 95 : 10] },
-
-  wrapper_tonal_color_secondary: { background: theme.palette.color.secondary[theme.palette.light ? 95 : 10] },
-
-  wrapper_tonal_color_tertiary: { background: theme.palette.color.tertiary[theme.palette.light ? 95 : 10] },
-
-  wrapper_tonal_color_quaternary: { background: theme.palette.color.quaternary[theme.palette.light ? 95 : 10] },
-
-  wrapper_tonal_color_info: { background: theme.palette.color.info[theme.palette.light ? 95 : 10] },
-
-  wrapper_tonal_color_success: { background: theme.palette.color.success[theme.palette.light ? 95 : 10] },
-
-  wrapper_tonal_color_warning: { background: theme.palette.color.warning[theme.palette.light ? 95 : 10] },
-
-  wrapper_tonal_color_error: { background: theme.palette.color.error[theme.palette.light ? 95 : 10] },
-
-  // Color
-  default: { color: theme.palette.text.default.primary },
-
-  neutral: { color: theme.methods.palette.color.value('neutral', 60, true) },
-
-  primary: { color: theme.methods.palette.color.value('primary', 60, true) },
-
-  secondary: { color: theme.methods.palette.color.value('secondary', 60, true) },
-
-  tertiary: { color: theme.methods.palette.color.value('tertiary', 60, true) },
-
-  quaternary: { color: theme.methods.palette.color.value('quaternary', 60, true) },
-
-  info: { color: theme.methods.palette.color.value('info', 60, true) },
-
-  success: { color: theme.methods.palette.color.value('success', 60, true) },
-
-  warning: { color: theme.methods.palette.color.value('warning', 60, true) },
-
-  error: { color: theme.methods.palette.color.value('error', 60, true) },
 
   shape_round_position_both: {
     borderRadius: '114vh'
@@ -196,15 +135,15 @@ const useStyle = style(theme => ({
   },
 
   text_primary: {
-    color: theme.palette.text.default.primary
+    opacity: 1
   },
 
   text_secondary: {
-    color: theme.palette.text.default.secondary
+    opacity: theme.palette.visual_contrast.default.opacity.primary
   },
 
   text_tertiary: {
-    color: theme.palette.text.default.tertiary
+    opacity: theme.palette.visual_contrast.default.opacity.secondary
   },
 
   aside: {
@@ -394,7 +333,6 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
       autoSelect: true
     },
 
-    classes: classes_,
     className,
     style,
 
@@ -404,7 +342,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
   } = props;
 
   const refs = {
-    root: React.useRef<HTMLElement>(),
+    root: React.useRef<any>(),
     props: React.useRef<any>(),
     openMenu: React.useRef<any>(),
     openList: React.useRef<any>(),
@@ -571,24 +509,6 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
 
   if (href) RootComponent = 'a';
 
-  let colorToUse = selected ? colorSelected : color;
-
-  const palette = !theme.palette.color[color] && theme.methods.color(color);
-
-  if (!classes[colorToUse] && color !== 'default') {
-    styles.root.color = theme.methods.palette.color.value(colorToUse, 60, true, palette);
-
-    styles.wrapper.background = !tonal ? palette.main : palette[theme.palette.light ? 95 : 10];
-  }
-
-  if (!tonal) {
-    if (color !== 'default') {
-      styles.icon.color = styles.root.color = styles.primary.color = theme.methods.palette.color.text((palette || theme.palette.color[color] as any).main, true, 'light', 'primary');
-      styles.secondary.color = theme.methods.palette.color.text((palette || theme.palette.color[color] as any).main, true, 'light', 'secondary');
-      styles.tertiary.color = theme.methods.palette.color.text((palette || theme.palette.color[color] as any).main, true, 'light', 'tertiary');
-    }
-  }
-
   if (menuItem && color === 'default') {
     if (!theme.palette.light) styles.wrapper.background = theme.palette.color.neutral[10];
   }
@@ -609,15 +529,23 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
     method(list);
   }
 
+  const colorToUse = selected ? colorSelected : color;
+
   ListTransitionComponentProps.in = openList;
 
   return (
-    <Component
+    <Surface
       ref={item => {
         if (ref) ref.current = item;
 
         refs.root.current = item;
       }}
+
+      Component={Component}
+
+      color={colorToUse}
+
+      tonal={tonal}
 
       tabIndex={tabIndex !== undefined ? tabIndex : (button && !disabled) ? 0 : -1}
 
@@ -631,16 +559,11 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
 
       className={classNames([
         staticClassName('ListItem', theme) && [
-          'AmauiListItem-wrapper',
-          `AmauiListItem-color-${!classes[colorToUse] ? 'new' : colorToUse}`,
-          tonal && `AmauiListItem-tonal`
+          'AmauiListItem-wrapper'
         ],
 
         className,
-        classes.wrapper,
-        classes_?.wrapper,
-        classes[`wrapper_color_${color}`],
-        tonal && classes[`wrapper_tonal_color_${color}`]
+        classes.wrapper
       ])}
 
       style={styles.wrapper}
@@ -658,17 +581,13 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
           staticClassName('ListItem', theme) && [
             'AmauiListItem-root',
             `AmauiListItem-size-${size}`,
-            `AmauiListItem-color-${!classes[colorToUse] ? 'new' : colorToUse}`,
             `AmauiListItem-shape-${shape}-position-${shapePosition}`,
             menuItem && `AmauiListItem-menuItem`,
-            tonal && `AmauiListItem-tonal`,
             disabled && `AmauiListItem-disabled`
           ],
 
           classes.root,
-          classes_?.root,
           classes[size],
-          classes[selected ? colorSelected : color],
           classes[`shape_${shape}_position_${shapePosition}`],
           inset && !start && classes[`inset_size_${size}`],
           menuItem && [
@@ -716,7 +635,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
             ])}
           >
             {is('string', start) ? start : React.cloneElement(start, {
-              color: start.props?.color || styles.icon.color,
+              color: start.props?.color || 'inherit',
 
               size: start.props?.size !== undefined ? start.props?.size : ['AmauiSwitch'].includes(start?.type?.displayName) ? 'small' : 'regular',
 
@@ -831,7 +750,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
             ])}
           >
             {is('string', end) ? end : React.cloneElement(end, {
-              color: end.props?.color || styles.icon.color,
+              color: end.props?.color || 'inherit',
 
               size: end.props?.size !== undefined ? end.props?.size : ['AmauiSwitch'].includes(start?.type?.displayName) ? 'small' : 'regular',
 
@@ -903,7 +822,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
           {menu}
         </Menu>
       )}
-    </Component >
+    </Surface>
   );
 });
 

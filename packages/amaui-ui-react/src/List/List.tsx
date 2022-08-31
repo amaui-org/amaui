@@ -2,8 +2,10 @@ import React from 'react';
 
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
-import { staticClassName } from '../utils';
+import Surface from '../Surface'
 import useMediaQuery from '../useMediaQuery';
+
+import { staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
@@ -15,72 +17,8 @@ const useStyle = style(theme => ({
     flexDirection: 'column',
     alignItems: 'flex-start',
     width: '100%',
-    borderRadius: `${theme.shape.radius.unit / 2}px`,
-
-    background: theme.palette.background.default.primary
+    borderRadius: `${theme.shape.radius.unit / 2}px`
   },
-
-  // Color
-  default: { background: theme.palette.background.default.primary },
-
-  neutral: { background: theme.palette.color.neutral.main },
-
-  primary: { background: theme.palette.color.primary.main },
-
-  secondary: { background: theme.palette.color.secondary.main },
-
-  tertiary: { background: theme.palette.color.tertiary.main },
-
-  quaternary: { background: theme.palette.color.quaternary.main },
-
-  info: { background: theme.palette.color.info.main },
-
-  success: { background: theme.palette.color.success.main },
-
-  warning: { background: theme.palette.color.warning.main },
-
-  error: { background: theme.palette.color.error.main },
-
-  // Tonal
-  tonal_neutral: { background: theme.palette.color.neutral[theme.palette.light ? 95 : 10] },
-
-  tonal_primary: { background: theme.palette.color.primary[theme.palette.light ? 95 : 10] },
-
-  tonal_secondary: { background: theme.palette.color.secondary[theme.palette.light ? 95 : 10] },
-
-  tonal_tertiary: { background: theme.palette.color.tertiary[theme.palette.light ? 95 : 10] },
-
-  tonal_quaternary: { background: theme.palette.color.quaternary[theme.palette.light ? 95 : 10] },
-
-  tonal_info: { background: theme.palette.color.info[theme.palette.light ? 95 : 10] },
-
-  tonal_success: { background: theme.palette.color.success[theme.palette.light ? 95 : 10] },
-
-  tonal_warning: { background: theme.palette.color.warning[theme.palette.light ? 95 : 10] },
-
-  tonal_error: { background: theme.palette.color.error[theme.palette.light ? 95 : 10] },
-
-  shadow_0: { boxShadow: theme.shadows.values.neutral[0] },
-
-  shadow_1: { boxShadow: theme.shadows.values.neutral[1] },
-
-  shadow_2: { boxShadow: theme.shadows.values.neutral[2] },
-
-  shadow_3: { boxShadow: theme.shadows.values.neutral[3] },
-
-  shadow_4: { boxShadow: theme.shadows.values.neutral[4] },
-
-  shadow_6: { boxShadow: theme.shadows.values.neutral[6] },
-
-  shadow_8: { boxShadow: theme.shadows.values.neutral[8] },
-
-  shadow_9: { boxShadow: theme.shadows.values.neutral[9] },
-
-  shadow_12: { boxShadow: theme.shadows.values.neutral[12] },
-
-  shadow_16: { boxShadow: theme.shadows.values.neutral[16] },
-
-  shadow_24: { boxShadow: theme.shadows.values.neutral[24] },
 
   padding_vertical_both: {
     paddingBlock: theme.methods.space.value('sm', 'px')
@@ -141,7 +79,7 @@ const List = React.forwardRef((props_: any, ref: any) => {
     noMaxWidth = true,
     color = 'default',
     tonal = true,
-    shadow = props.menu ? 2 : 0,
+    elevation = props.menu ? 2 : 0,
     indent = 0,
     paddingHorizontal = 'none',
     paddingVertical = 'both',
@@ -172,17 +110,22 @@ const List = React.forwardRef((props_: any, ref: any) => {
   if (indent !== undefined) styles.root.paddingInlineStart = `${indent * theme.space.unit}px`;
 
   return (
-    <Component
+    <Surface
       ref={ref}
+
+      Component={Component}
+
+      elevation={elevation}
+
+      color={color}
+
+      tonal={tonal}
 
       className={classNames([
         staticClassName('List', theme) && [
           'AmauiList-root',
           `AmauiList-padding-horizontal-${paddingHorizontal}`,
           `AmauiList-padding-vertical-${paddingVertical}`,
-          `AmauiList-shadow-${shadow}`,
-          `AmauiBadge-color-${!theme.palette.color[color] && color !== 'default' ? 'new' : color}`,
-          tonal && `AmauiList-tonal`,
           menu && `AmauiList-menu`,
           noMaxWidth && `AmauiList-noMaxWidth`
         ],
@@ -191,9 +134,6 @@ const List = React.forwardRef((props_: any, ref: any) => {
         classes.root,
         classes[`padding_vertical_${paddingVertical}`],
         classes[`padding_horizontal_${paddingHorizontal}`],
-        classes[`shadow_${shadow}`],
-        classes[color],
-        tonal && classes[`tonal_${color}`],
         menu && classes.menu,
         noMaxWidth && classes.noMaxWidth
       ])}
@@ -220,7 +160,7 @@ const List = React.forwardRef((props_: any, ref: any) => {
           ...item.props
         } : {})
       }))}
-    </Component>
+    </Surface>
   );
 });
 
