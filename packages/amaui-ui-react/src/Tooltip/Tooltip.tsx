@@ -299,6 +299,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
 
     AppendProps = {},
     ModalProps = {},
+    LabelProps = {},
 
     disableInteractive,
 
@@ -501,7 +502,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
     if (position === 'right') return 'left';
     if (position === 'bottom') return 'top';
   };
-
+  console.log(1, LabelProps);
   return (
     <Append
       open={open}
@@ -569,8 +570,8 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
                 fullWidth && `AmauiButton-fullWidth`
               ],
 
-              classes.root,
               className,
+              classes.root,
               ModalProps?.className
             ])}
 
@@ -632,9 +633,23 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
 
                     version='b3'
 
-                    style={styles.label}
+                    {...LabelProps}
+
+                    style={{
+                      ...styles.label,
+
+                      ...LabelProps?.style
+                    }}
                   >
-                    {label}
+                    <span
+                      className={classNames([
+                        staticClassName('Tooltip', theme) && [
+                          'AmauiTooltip-label-text'
+                        ],
+                      ])}
+                    >
+                      {label}
+                    </span>
                   </Type> :
 
                   React.cloneElement(label, {

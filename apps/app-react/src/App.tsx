@@ -5160,6 +5160,8 @@ Please sign in again.`}
         <Accordion primary='Slider color' open>
           <Line gap={5}>
             <Slider
+              tooltip
+
               valueDefault={40}
 
               color='default'
@@ -5170,6 +5172,8 @@ Please sign in again.`}
             />
 
             <Slider
+              tooltip
+
               valueDefault={40}
 
               color='primary'
@@ -5180,6 +5184,8 @@ Please sign in again.`}
             />
 
             <Slider
+              tooltip
+
               valueDefault={40}
 
               color='secondary'
@@ -5190,6 +5196,8 @@ Please sign in again.`}
             />
 
             <Slider
+              tooltip
+
               valueDefault={40}
 
               color='tertiary'
@@ -5200,6 +5208,8 @@ Please sign in again.`}
             />
 
             <Slider
+              tooltip
+
               valueDefault={40}
 
               color='quaternary'
@@ -5210,6 +5220,8 @@ Please sign in again.`}
             />
 
             <Slider
+              tooltip
+
               valueDefault={40}
 
               color='info'
@@ -5220,6 +5232,8 @@ Please sign in again.`}
             />
 
             <Slider
+              tooltip
+
               valueDefault={40}
 
               color='success'
@@ -5230,6 +5244,8 @@ Please sign in again.`}
             />
 
             <Slider
+              tooltip
+
               valueDefault={40}
 
               color='warning'
@@ -5240,6 +5256,8 @@ Please sign in again.`}
             />
 
             <Slider
+              tooltip
+
               valueDefault={40}
 
               color='error'
@@ -5250,6 +5268,8 @@ Please sign in again.`}
             />
 
             <Slider
+              tooltip
+
               valueDefault={40}
 
               color='neutral'
@@ -5260,6 +5280,8 @@ Please sign in again.`}
             />
 
             <Slider
+              tooltip
+
               valueDefault={40}
 
               color='#f5d758'
@@ -5274,6 +5296,8 @@ Please sign in again.`}
         <Accordion primary='Slider tonal' open>
           <Line gap={5}>
             <Slider
+              tooltip
+
               valueDefault={40}
 
               tonal
@@ -5286,6 +5310,8 @@ Please sign in again.`}
             />
 
             <Slider
+              tooltip
+
               valueDefault={40}
 
               tonal
@@ -5298,6 +5324,8 @@ Please sign in again.`}
             />
 
             <Slider
+              tooltip
+
               valueDefault={40}
 
               tonal
@@ -5310,6 +5338,8 @@ Please sign in again.`}
             />
 
             <Slider
+              tooltip
+
               valueDefault={40}
 
               tonal
@@ -5322,6 +5352,8 @@ Please sign in again.`}
             />
 
             <Slider
+              tooltip
+
               valueDefault={40}
 
               tonal
@@ -5334,6 +5366,8 @@ Please sign in again.`}
             />
 
             <Slider
+              tooltip
+
               valueDefault={40}
 
               tonal
@@ -5346,6 +5380,8 @@ Please sign in again.`}
             />
 
             <Slider
+              tooltip
+
               valueDefault={40}
 
               tonal
@@ -5358,6 +5394,8 @@ Please sign in again.`}
             />
 
             <Slider
+              tooltip
+
               valueDefault={40}
 
               tonal
@@ -5370,6 +5408,8 @@ Please sign in again.`}
             />
 
             <Slider
+              tooltip
+
               valueDefault={40}
 
               tonal
@@ -5382,6 +5422,8 @@ Please sign in again.`}
             />
 
             <Slider
+              tooltip
+
               valueDefault={40}
 
               tonal

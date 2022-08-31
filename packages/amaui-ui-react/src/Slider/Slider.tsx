@@ -7,6 +7,7 @@ import { percentageWithinRange, staticClassName, valueWithinRangePercentage } fr
 
 import IconButton from '../IconButton';
 import Tooltip from '../Tooltip';
+import Zoom from '../Zoom';
 
 const rail = {
   position: 'absolute',
@@ -283,18 +284,43 @@ const useStyle = style(theme => ({
     cursor: 'default'
   },
 
+  tooltip: {
+    '& .AmauiTooltip-label': {
+      padding: 0,
+      lineHeight: 0,
+      minWidth: '30px',
+      paddingTop: '100%',
+      overflow: 'hidden',
+      borderRadius: '50% 50% 50% 0px',
+      transform: 'rotate(-45deg)',
+
+      '& .AmauiTooltip-label-text': {
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%) rotate(45deg)'
+      }
+    },
+
+    '&.AmauiTooltip-position-left': {
+      '& .AmauiTooltip-label': {
+        borderRadius: '50% 50% 0px 50%'
+      }
+    },
+
+    '&.AmauiTooltip-position-right': {
+      '& .AmauiTooltip-label': {
+        borderRadius: '0px 50% 50% 50%'
+      }
+    }
+  },
+
   disabled: {
     cursor: 'default',
     pointerEvents: 'none',
     opacity: theme.palette.visual_contrast.default.opacity.disabled
   }
 }), { name: 'AmauiSlider' });
-
-
-// To do
-
-// youtube value y example
-// MiUI value y example
 
 const Slider = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
@@ -668,7 +694,8 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
     rail: {},
     track: {},
     markRail: {},
-    markTrack: {}
+    markTrack: {},
+    label: {},
   };
 
   const palette = !theme.palette.color[color] && theme.methods.color(color);
@@ -676,8 +703,14 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
   if (!theme.palette.color[color] && color !== 'default') {
     styles.markRail.background = styles.rail.background = theme.methods.palette.color.value(undefined, 90, true, palette);
 
-    styles.markTrack.background = styles.icon.background = styles.track.background = styles.iconButton.color = !tonal ? palette.main : theme.methods.palette.color.value(undefined, 70, true, palette);
+    styles.label.background = styles.markTrack.background = styles.icon.background = styles.track.background = styles.iconButton.color = !tonal ? palette.main : theme.methods.palette.color.value(undefined, 70, true, palette);
+
+    styles.label.color = theme.methods.palette.color.text(styles.label.background, true, 'light');
   }
+
+  styles.label.background = !tonal ? (palette?.main || (color === 'default' ? theme.palette.text.default.primary : (theme.palette.color[color] as any).main)) : theme.methods.palette.color.value(color, 70, true, palette);
+
+  styles.label.color = theme.methods.palette.color.text(styles.label.background, true, 'light');
 
   const values = (is('array', value) ? value : [value]);
 
@@ -942,6 +975,10 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
         <Tooltip
           key={index}
 
+          className={classNames([
+            classes.tooltip
+          ])}
+
           {...((tooltip === 'always') || (tooltip !== undefined && mouseDownButton === index) ? { open: true } : tooltip === undefined ? { open: false } : {})}
 
           label={labelMethod(value__)}
@@ -950,9 +987,17 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
 
           alignment='center'
 
-          arrow
-
           noMargin
+
+          TransitionComponent={Zoom}
+
+          transformOrigin={orientation === 'horizontal' ? 'bottom center' : 'center right'}
+
+          transformOriginRtl={orientation === 'horizontal' ? 'bottom center' : 'center left'}
+
+          LabelProps={{
+            style: styles.label
+          }}
 
           {...TooltipProps}
         >
