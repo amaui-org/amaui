@@ -373,7 +373,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
       key: index,
 
       onClick: (event: React.MouseEvent<any>) => {
-        if (item.props.listCloseOnClick) onClose();
+        if (item.props.listCloseOnClick) onCloseList();
 
         if (is('function', item.props.onClick)) item.props.onClick(event);
       }
@@ -499,10 +499,19 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
     if (is('function', onBlur_)) onBlur_(event);
   }, []);
 
-  const onClose = React.useCallback(() => {
+  const onCloseList = React.useCallback(() => {
+    if (!disabled) {
+      setOpenList(false);
+      setHover(false);
+      setFocus(false);
+
+      if (is('function', onClose_)) onClose_();
+    }
+  }, []);
+
+  const onCloseMenu = React.useCallback(() => {
     if (!disabled) {
       setOpenMenu(false);
-      setOpenList(false);
       setHover(false);
       setFocus(false);
 
@@ -534,7 +543,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
 
   const colorToUse = selected ? colorSelected : color;
 
-  ListTransitionComponentProps.in = openList;
+  ListTransitionComponentProps.in = !!openList;
 
   return (
     <Surface
@@ -800,7 +809,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
 
           include={include}
 
-          onClose={onClose}
+          onClose={onCloseMenu}
 
           closeOnClickAway={false}
 

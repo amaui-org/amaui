@@ -95,7 +95,7 @@ const useStyle = style(theme => ({
   },
 
   readOnly: {
-    '&.AmauiTextField-inputWrapper': {
+    '&.AmauiTextField-root': {
       cursor: 'default'
     }
   },
