@@ -695,21 +695,6 @@ function App() {
     });
   };
 
-  // React.useEffect(() => {
-  //   const id = setInterval(() => setProgress(item => item>= 100 ? 0 : item + 10), 1000);
-
-  //   return () => {
-  //     clearInterval(id);
-  //   }
-  // }, []);
-
-  // React.useEffect(() => {
-  //   const rect = refs.transitions.current.getBoundingClientRect();
-
-  //   window.scrollBy(0, Math.abs(window.innerHeight - rect.y - rect.height) * 2);
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [items.length]);
-
   const keyframes: any = {
     appended: {
       opacity: 0
@@ -770,6 +755,14 @@ function App() {
   const onClose = () => {
     setA((values_: any) => ({ ...values_, tooltip: false }));
   };
+
+  // React.useEffect(() => {
+  //   const id = setInterval(() => setProgress(item => item >= 100 ? 0 : item + 10), 1000);
+
+  //   return () => {
+  //     clearInterval(id);
+  //   }
+  // }, []);
 
   return (
     <div className={classes.root}>
@@ -28727,7 +28720,7 @@ Please sign in again.`}
         </Accordion>
 
       </Accordion>
-    </div >
+    </div>
   );
 }
 
