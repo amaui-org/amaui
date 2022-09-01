@@ -69,47 +69,47 @@ const useStyle = style(theme => ({
   },
 
   // Tonal
-  version_filled_color_tonal_neutral: {
+  version_filled_tonal_color_neutral: {
     color: theme.methods.palette.color.value('neutral', 10),
     backgroundColor: theme.methods.palette.color.value('neutral', 95)
   },
 
-  version_filled_color_tonal_primary: {
+  version_filled_tonal_color_primary: {
     color: theme.methods.palette.color.value('primary', 10),
     backgroundColor: theme.methods.palette.color.value('primary', 95)
   },
 
-  version_filled_color_tonal_secondary: {
+  version_filled_tonal_color_secondary: {
     color: theme.methods.palette.color.value('secondary', 10),
     backgroundColor: theme.methods.palette.color.value('secondary', 95)
   },
 
-  version_filled_color_tonal_tertiary: {
+  version_filled_tonal_color_tertiary: {
     color: theme.methods.palette.color.value('tertiary', 10),
     backgroundColor: theme.methods.palette.color.value('tertiary', 95)
   },
 
-  version_filled_color_tonal_quaternary: {
+  version_filled_tonal_color_quaternary: {
     color: theme.methods.palette.color.value('quaternary', 10),
     backgroundColor: theme.methods.palette.color.value('quaternary', 95)
   },
 
-  version_filled_color_tonal_info: {
+  version_filled_tonal_color_info: {
     color: theme.methods.palette.color.value('info', 10),
     backgroundColor: theme.methods.palette.color.value('info', 95)
   },
 
-  version_filled_color_tonal_success: {
+  version_filled_tonal_color_success: {
     color: theme.methods.palette.color.value('success', 10),
     backgroundColor: theme.methods.palette.color.value('success', 95)
   },
 
-  version_filled_color_tonal_warning: {
+  version_filled_tonal_color_warning: {
     color: theme.methods.palette.color.value('warning', 10),
     backgroundColor: theme.methods.palette.color.value('warning', 95)
   },
 
-  version_filled_color_tonal_error: {
+  version_filled_tonal_color_error: {
     color: theme.methods.palette.color.value('error', 10),
     backgroundColor: theme.methods.palette.color.value('error', 95)
   },
@@ -165,39 +165,39 @@ const useStyle = style(theme => ({
   },
 
   // Tonal
-  version_text_color_tonal_neutral: {
+  version_text_tonal_color_neutral: {
     color: theme.methods.palette.color.value('neutral', 40)
   },
 
-  version_text_color_tonal_primary: {
+  version_text_tonal_color_primary: {
     color: theme.methods.palette.color.value('primary', 40)
   },
 
-  version_text_color_tonal_secondary: {
+  version_text_tonal_color_secondary: {
     color: theme.methods.palette.color.value('secondary', 40)
   },
 
-  version_text_color_tonal_tertiary: {
+  version_text_tonal_color_tertiary: {
     color: theme.methods.palette.color.value('tertiary', 40)
   },
 
-  version_text_color_tonal_quaternary: {
+  version_text_tonal_color_quaternary: {
     color: theme.methods.palette.color.value('quaternary', 40)
   },
 
-  version_text_color_tonal_info: {
+  version_text_tonal_color_info: {
     color: theme.methods.palette.color.value('info', 40)
   },
 
-  version_text_color_tonal_success: {
+  version_text_tonal_color_success: {
     color: theme.methods.palette.color.value('success', 40)
   },
 
-  version_text_color_tonal_warning: {
+  version_text_tonal_color_warning: {
     color: theme.methods.palette.color.value('warning', 40)
   },
 
-  version_text_color_tonal_error: {
+  version_text_tonal_color_error: {
     color: theme.methods.palette.color.value('error', 40)
   },
 
@@ -269,47 +269,47 @@ const useStyle = style(theme => ({
   },
 
   // Tonal
-  version_outlined_color_tonal_neutral: {
+  version_outlined_tonal_color_neutral: {
     color: theme.methods.palette.color.value('neutral', 40),
     outlineColor: theme.methods.palette.color.value('neutral', 40)
   },
 
-  version_outlined_color_tonal_primary: {
+  version_outlined_tonal_color_primary: {
     color: theme.methods.palette.color.value('primary', 40),
     outlineColor: theme.methods.palette.color.value('primary', 40)
   },
 
-  version_outlined_color_tonal_secondary: {
+  version_outlined_tonal_color_secondary: {
     color: theme.methods.palette.color.value('secondary', 40),
     outlineColor: theme.methods.palette.color.value('secondary', 40)
   },
 
-  version_outlined_color_tonal_tertiary: {
+  version_outlined_tonal_color_tertiary: {
     color: theme.methods.palette.color.value('tertiary', 40),
     outlineColor: theme.methods.palette.color.value('tertiary', 40)
   },
 
-  version_outlined_color_tonal_quaternary: {
+  version_outlined_tonal_color_quaternary: {
     color: theme.methods.palette.color.value('quaternary', 40),
     outlineColor: theme.methods.palette.color.value('quaternary', 40)
   },
 
-  version_outlined_color_tonal_info: {
+  version_outlined_tonal_color_info: {
     color: theme.methods.palette.color.value('info', 40),
     outlineColor: theme.methods.palette.color.value('info', 40)
   },
 
-  version_outlined_color_tonal_success: {
+  version_outlined_tonal_color_success: {
     color: theme.methods.palette.color.value('success', 40),
     outlineColor: theme.methods.palette.color.value('success', 40)
   },
 
-  version_outlined_color_tonal_warning: {
+  version_outlined_tonal_color_warning: {
     color: theme.methods.palette.color.value('warning', 40),
     outlineColor: theme.methods.palette.color.value('warning', 40)
   },
 
-  version_outlined_color_tonal_error: {
+  version_outlined_tonal_color_error: {
     color: theme.methods.palette.color.value('error', 40),
     outlineColor: theme.methods.palette.color.value('error', 40)
   },
@@ -426,7 +426,7 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
       className={classNames([
         staticClassName('Surface', theme) && [
           'AmauiSurface-root',
-          `AmauiSurface-color-${!theme.palette.color[color] && ['default', 'inherit'].includes(color) ? 'new' : color}`,
+          `AmauiSurface-color-${!theme.palette.color[color] && ['themed', 'inverse', 'default', 'inherit'].includes(color) ? 'new' : color}`,
           `AmauiSurface-version-${version}`,
           tonal && `AmauiSurface-tonal`,
           elevation && `AmauiSurface-elevation-${elevation}`
@@ -437,7 +437,7 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
         classes[`version_${version}`],
         classes[`version_${version}_color_${color}`],
         classes[`elevation_${elevation}`],
-        tonal && classes[`version_${version}_color_tonal_${color}`]
+        tonal && classes[`version_${version}_tonal_color_${color}`]
       ])}
 
       style={{

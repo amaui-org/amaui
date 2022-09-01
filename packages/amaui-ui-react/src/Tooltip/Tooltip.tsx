@@ -144,19 +144,19 @@ const useStyle = style(theme => ({
   },
 
   // maxWidth
-  xxs: { maxWidth: `320px` },
+  maxWidth_xxs: { maxWidth: `320px` },
 
-  xs: { maxWidth: `400px` },
+  maxWidth_xs: { maxWidth: `400px` },
 
-  sm: { maxWidth: `480px` },
+  maxWidth_sm: { maxWidth: `480px` },
 
-  rg: { maxWidth: `560px` },
+  maxWidth_rg: { maxWidth: `560px` },
 
-  lg: { maxWidth: `800px` },
+  maxWidth_lg: { maxWidth: `800px` },
 
-  xl: { maxWidth: `1120px` },
+  maxWidth_xl: { maxWidth: `1120px` },
 
-  xxl: { maxWidth: `1360px` },
+  maxWidth_xxl: { maxWidth: `1360px` },
 
   fullWidth: { maxWidth: `${(isEnvironment('browser') ? window.innerWidth : 1400) - +theme.methods.space.value('rg', '', 1)}px` }
 }), { name: 'AmauiTooltip' });
@@ -495,7 +495,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
 
                   classes.labelRoot,
                   classes[`labelRoot_position_${resolvePosition(items.values.switch)}`],
-                  classes[maxWidth],
+                  classes[`maxWidth_${maxWidth}`],
                   noMargin && classes.labelRoot_noMargin,
                   fullWidth && classes.fullWidth
                 ])}

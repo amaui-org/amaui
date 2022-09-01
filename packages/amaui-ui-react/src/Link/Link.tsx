@@ -48,44 +48,44 @@ const useStyle = style(theme => ({
   },
 
   // Color
-  default: { color: theme.palette.text.default.primary },
+  color_default: { color: theme.palette.text.default.primary },
 
-  neutral: { color: theme.palette.color.neutral.main },
+  color_neutral: { color: theme.palette.color.neutral.main },
 
-  primary: { color: theme.palette.color.primary.main },
+  color_primary: { color: theme.palette.color.primary.main },
 
-  secondary: { color: theme.palette.color.secondary.main },
+  color_secondary: { color: theme.palette.color.secondary.main },
 
-  tertiary: { color: theme.palette.color.tertiary.main },
+  color_tertiary: { color: theme.palette.color.tertiary.main },
 
-  quaternary: { color: theme.palette.color.quaternary.main },
+  color_quaternary: { color: theme.palette.color.quaternary.main },
 
-  info: { color: theme.palette.color.info.main },
+  color_info: { color: theme.palette.color.info.main },
 
-  success: { color: theme.palette.color.success.main },
+  color_success: { color: theme.palette.color.success.main },
 
-  warning: { color: theme.palette.color.warning.main },
+  color_warning: { color: theme.palette.color.warning.main },
 
-  error: { color: theme.palette.color.error.main },
+  color_error: { color: theme.palette.color.error.main },
 
   // Tonal
-  tonal_neutral: { color: theme.methods.palette.color.value('neutral', 30) },
+  tonal_color_neutral: { color: theme.methods.palette.color.value('neutral', 30) },
 
-  tonal_primary: { color: theme.methods.palette.color.value('primary', 30) },
+  tonal_color_primary: { color: theme.methods.palette.color.value('primary', 30) },
 
-  tonal_secondary: { color: theme.methods.palette.color.value('secondary', 30) },
+  tonal_color_secondary: { color: theme.methods.palette.color.value('secondary', 30) },
 
-  tonal_tertiary: { color: theme.methods.palette.color.value('tertiary', 30) },
+  tonal_color_tertiary: { color: theme.methods.palette.color.value('tertiary', 30) },
 
-  tonal_quaternary: { color: theme.methods.palette.color.value('quaternary', 30) },
+  tonal_color_quaternary: { color: theme.methods.palette.color.value('quaternary', 30) },
 
-  tonal_info: { color: theme.methods.palette.color.value('info', 30) },
+  tonal_color_info: { color: theme.methods.palette.color.value('info', 30) },
 
-  tonal_success: { color: theme.methods.palette.color.value('success', 30) },
+  tonal_color_success: { color: theme.methods.palette.color.value('success', 30) },
 
-  tonal_warning: { color: theme.methods.palette.color.value('warning', 30) },
+  tonal_color_warning: { color: theme.methods.palette.color.value('warning', 30) },
 
-  tonal_error: { color: theme.methods.palette.color.value('error', 30) }
+  tonal_color_error: { color: theme.methods.palette.color.value('error', 30) }
 }), { name: 'AmauiLink' });
 
 const Link = React.forwardRef((props_: any, ref: any) => {
@@ -166,7 +166,7 @@ const Link = React.forwardRef((props_: any, ref: any) => {
       className={classNames([
         staticClassName('Link', theme) && [
           'AmauiLink-root',
-          `AmauiLink-color-${!theme.palette.color[color] && color !== 'default' ? 'new' : color}`,
+          `AmauiLink-color-${!theme.palette.color[color] && !['themed', 'inverse', 'default', 'inherit'].includes(color) ? 'new' : color}`,
           tonal && `AmauiLink-tonal`,
           underline && `AmauiLink-underline-${underline}`,
           focus && `AmauiLink-focus`
@@ -174,8 +174,8 @@ const Link = React.forwardRef((props_: any, ref: any) => {
 
         classes.root,
         className,
-        classes[color],
-        tonal && classes[`tonal_${color}`],
+        classes[`color_${color}`],
+        tonal && classes[`tonal_color_${color}`],
         underline === true && classes.underline,
         underline === 'hover' && classes.underline_hover,
         focus && classes.focus

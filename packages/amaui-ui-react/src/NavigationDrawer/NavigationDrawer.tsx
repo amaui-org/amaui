@@ -72,7 +72,7 @@ const useStyle = style(theme => ({
       width: '100%',
       borderRadius: '16px 16px 0 0'
     }
-  },
+  }
 }), { name: 'AmauiNavigationDrawer' });
 
 // swipe

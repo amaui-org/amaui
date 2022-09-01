@@ -64,15 +64,15 @@ const useStyle = style(theme => ({
     userSelect: 'none'
   },
 
-  small: {
+  size_small: {
     padding: `${theme.methods.space.value('rg') * 0.5}px ${theme.methods.space.value('rg') * 0.75}px`
   },
 
-  regular: {
+  size_regular: {
     padding: `${theme.methods.space.value('rg', 'px')} ${theme.methods.space.value('rg', 'px')}`
   },
 
-  large: {
+  size_large: {
     padding: `${theme.methods.space.value('rg') * 1.5}px ${theme.methods.space.value('rg') * 1.25}px`
   },
 
@@ -603,7 +603,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
           ],
 
           classes.root,
-          classes[size],
+          classes[`size_${size}`],
           classes[`shape_${shape}_position_${shapePosition}`],
           inset && !start && classes[`inset_size_${size}`],
           menuItem && [
@@ -640,8 +640,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
               staticClassName('ListItem', theme) && [
                 'AmauiListItem-aside',
                 'AmauiListItem-start',
-                `AmauiListItem-start-${['AmauiAvatar', 'AmauiIconButton', 'AmauiCheckbox', 'AmauiRadio'].includes(start?.type?.displayName) ? 'button' : ['AmauiSwitch'].includes(start?.type?.displayName) ? 'switch' : 'icon'}`,
-                menuItem && 'AmauiListItem-menuItem'
+                `AmauiListItem-start-${['AmauiAvatar', 'AmauiIconButton', 'AmauiCheckbox', 'AmauiRadio'].includes(start?.type?.displayName) ? 'button' : ['AmauiSwitch'].includes(start?.type?.displayName) ? 'switch' : 'icon'}`
               ],
 
               classes.aside,
@@ -663,9 +662,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
         <span
           className={classNames([
             staticClassName('ListItem', theme) && [
-              'AmauiListItem-middle',
-              menuItem && 'AmauiListItem-menuItem',
-              disabled && 'AmauiListItem-disabled'
+              'AmauiListItem-middle'
             ],
 
             classes.middle,
@@ -756,8 +753,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
               staticClassName('ListItem', theme) && [
                 'AmauiListItem-aside',
                 'AmauiListItem-end',
-                `AmauiListItem-end-${['AmauiAvatar', 'AmauiIconButton', 'AmauiCheckbox', 'AmauiRadio'].includes(end?.type?.displayName) ? 'button' : ['AmauiSwitch'].includes(end?.type?.displayName) ? 'switch' : 'icon'}`,
-                menuItem && 'AmauiListItem-menuItem'
+                `AmauiListItem-end-${['AmauiAvatar', 'AmauiIconButton', 'AmauiCheckbox', 'AmauiRadio'].includes(end?.type?.displayName) ? 'button' : ['AmauiSwitch'].includes(end?.type?.displayName) ? 'switch' : 'icon'}`
               ],
 
               classes.aside,

@@ -104,7 +104,7 @@ const Badge = React.forwardRef((props_: any, ref: any) => {
       className={classNames([
         staticClassName('Badge', theme) && [
           'AmauiBadge-root',
-          `AmauiBadge-color-${!theme.palette.color[color] && color !== 'default' ? 'new' : color}`,
+          `AmauiBadge-color-${!theme.palette.color[color] && !['themed', 'inverse', 'default', 'inherit'].includes(color) ? 'new' : color}`,
           `AmauiBadge-vertical-${vertical}`,
           `AmauiBadge-horizontal-${horizontal}`,
           tonal && `AmauiBadge-tonal`,

@@ -28,15 +28,15 @@ const useStyle = style(theme => ({
     }
   },
 
-  small: {
+  size_small: {
     columnGap: '6px'
   },
 
-  regular: {
+  size_regular: {
     columnGap: '8px'
   },
 
-  large: {
+  size_large: {
     columnGap: '10px'
   },
 
@@ -89,7 +89,7 @@ const Chips = React.forwardRef((props_: any, ref: any) => {
 
         className,
         classes.root,
-        classes[size],
+        classes[`size_${size}`],
         wrap && [
           classes.wrap,
           classes[`wrap_${size}`]

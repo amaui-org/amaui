@@ -3,8 +3,6 @@ import React from 'react';
 import { is, unique } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
-import { staticClassName } from '../utils';
-
 import Icon from '../Icon';
 import Menu from '../Menu';
 import Chip from '../Chip';
@@ -15,6 +13,8 @@ import TextField from '../TextField';
 import IconButton from '../IconButton';
 import RoundProgress from '../RoundProgress';
 import ListSubheader from '../ListSubheader';
+
+import { staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
   root: {

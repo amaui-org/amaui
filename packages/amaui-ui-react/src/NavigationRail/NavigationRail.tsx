@@ -173,7 +173,7 @@ const NavigationRail = React.forwardRef((props_: any, ref: any) => {
       className={classNames([
         staticClassName('NavigationRail', theme) && [
           'AmauiNavigationRail-root',
-          `AmauiNavigationRail-color-${!theme.palette.color[color] && !['inherit', 'default'].includes(color) ? 'new' : color}`,
+          `AmauiNavigationRail-color-${!theme.palette.color[color] && !['themed', 'inverse', 'default', 'inherit'].includes(color) ? 'new' : color}`,
           `AmauiNavigationRail-version-${version}`,
           `AmauiNavigationRail-alignment-${alignment}`,
           `AmauiNavigationRail-size-${size}`,

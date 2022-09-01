@@ -2,9 +2,9 @@ import React from 'react';
 
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
-import { staticClassName } from '../utils';
-
 import Buttons from '../Buttons';
+
+import { staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
   root: {},

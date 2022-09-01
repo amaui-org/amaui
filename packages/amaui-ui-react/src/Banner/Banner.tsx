@@ -2,11 +2,11 @@ import React from 'react';
 
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
-import { staticClassName } from '../utils';
-
 import ListItem from '../ListItem';
 import Grid from '../Grid';
 import Line from '../Line';
+
+import { staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
@@ -47,7 +47,6 @@ const useStyle = style(theme => ({
   maxWidth_xl: { maxWidth: '1920px' },
 
   maxWidth_unset: { maxWidth: 'unset' }
-
 }), { name: 'AmauiBanner' });
 
 const Banner = React.forwardRef((props_: any, ref: any) => {

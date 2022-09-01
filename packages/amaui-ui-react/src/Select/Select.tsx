@@ -3,15 +3,14 @@ import React from 'react';
 import { is, unique } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
-import { staticClassName } from '../utils';
-
 import Icon from '../Icon';
-import List from '../List';
 import Menu from '../Menu';
 import Chip from '../Chip';
 import TextField from '../TextField';
 import ChipGroup from '../Chips';
 import IconButton from '../IconButton';
+
+import { staticClassName } from '../utils';
 
 const overflow = {
   width: '100%',
@@ -23,7 +22,15 @@ const overflow = {
 const useStyle = style(theme => ({
   root: {
     width: '100%',
-    flex: 'unset'
+    flex: 'unset',
+
+    '& .AmauiTextField-input': {
+      position: 'absolute',
+      left: 0,
+      bottom: 0,
+      pointerEvents: 'none',
+      opacity: 0
+    }
   },
 
   inputWrapper: {
@@ -56,14 +63,6 @@ const useStyle = style(theme => ({
     ...theme.typography.values.b2,
     ...overflow,
     cursor: 'pointer'
-  },
-
-  input_: {
-    position: 'absolute',
-    left: 0,
-    bottom: 0,
-    pointerEvents: 'none',
-    opacity: 0
   },
 
   chip: {
@@ -432,6 +431,8 @@ const Select = React.forwardRef((props_: any, ref: any) => {
         staticClassName('Select', theme) && [
           'AmauiSelect-root',
           open && `AmauiSelect-open`,
+          chip && `AmauiSelect-chip`,
+          readOnly && `AmauiSelect-readOnly`,
           disabled && `AmauiSelect-disabled`
         ],
 
@@ -490,10 +491,6 @@ const Select = React.forwardRef((props_: any, ref: any) => {
       }}
 
       inputProps={{
-        className: classNames([
-          classes.input_
-        ]),
-
         disabled: true,
 
         readOnly: true
@@ -512,10 +509,7 @@ const Select = React.forwardRef((props_: any, ref: any) => {
       <div
         className={classNames([
           staticClassName('Select', theme) && [
-            'AmauiSelect-input',
-            chip && `AmauiSelect-chip`,
-            open && `AmauiSelect-open`,
-            readOnly && `AmauiSelect-readOnly`
+            'AmauiSelect-input'
           ],
 
           classes.input,

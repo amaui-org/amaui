@@ -43,62 +43,62 @@ const useStyle = style(theme => ({
   },
 
   // Version
-  indeterminate: {
+  version_indeterminate: {
     animation: `$spin 1.4s linear infinite`
   },
 
-  determinate: {
+  version_determinate: {
     transform: 'rotate(-90deg)'
   },
 
   // Size
-  extra_small: { fontSize: '16px' },
+  size_extra_small: { fontSize: '16px' },
 
-  small: { fontSize: '24px' },
+  size_small: { fontSize: '24px' },
 
-  regular: { fontSize: '48px' },
+  size_regular: { fontSize: '48px' },
 
-  large: { fontSize: '56px' },
+  size_large: { fontSize: '56px' },
 
   // Color
-  default: { color: theme.palette.text.default.primary },
+  color_default: { color: theme.palette.text.default.primary },
 
-  neutral: { color: theme.palette.color.neutral.main },
+  color_neutral: { color: theme.palette.color.neutral.main },
 
-  primary: { color: theme.palette.color.primary.main },
+  color_primary: { color: theme.palette.color.primary.main },
 
-  secondary: { color: theme.palette.color.secondary.main },
+  color_secondary: { color: theme.palette.color.secondary.main },
 
-  tertiary: { color: theme.palette.color.tertiary.main },
+  color_tertiary: { color: theme.palette.color.tertiary.main },
 
-  quaternary: { color: theme.palette.color.quaternary.main },
+  color_quaternary: { color: theme.palette.color.quaternary.main },
 
-  info: { color: theme.palette.color.info.main },
+  color_info: { color: theme.palette.color.info.main },
 
-  success: { color: theme.palette.color.success.main },
+  color_success: { color: theme.palette.color.success.main },
 
-  warning: { color: theme.palette.color.warning.main },
+  color_warning: { color: theme.palette.color.warning.main },
 
-  error: { color: theme.palette.color.error.main },
+  color_error: { color: theme.palette.color.error.main },
 
   // Tonal
-  tonal_neutral: { color: theme.methods.palette.color.value('neutral', 70) },
+  tonal_color_neutral: { color: theme.methods.palette.color.value('neutral', 70) },
 
-  tonal_primary: { color: theme.methods.palette.color.value('primary', 70) },
+  tonal_color_primary: { color: theme.methods.palette.color.value('primary', 70) },
 
-  tonal_secondary: { color: theme.methods.palette.color.value('secondary', 70) },
+  tonal_color_secondary: { color: theme.methods.palette.color.value('secondary', 70) },
 
-  tonal_tertiary: { color: theme.methods.palette.color.value('tertiary', 70) },
+  tonal_color_tertiary: { color: theme.methods.palette.color.value('tertiary', 70) },
 
-  tonal_quaternary: { color: theme.methods.palette.color.value('quaternary', 70) },
+  tonal_color_quaternary: { color: theme.methods.palette.color.value('quaternary', 70) },
 
-  tonal_info: { color: theme.methods.palette.color.value('info', 70) },
+  tonal_color_info: { color: theme.methods.palette.color.value('info', 70) },
 
-  tonal_success: { color: theme.methods.palette.color.value('success', 70) },
+  tonal_color_success: { color: theme.methods.palette.color.value('success', 70) },
 
-  tonal_warning: { color: theme.methods.palette.color.value('warning', 70) },
+  tonal_color_warning: { color: theme.methods.palette.color.value('warning', 70) },
 
-  tonal_error: { color: theme.methods.palette.color.value('error', 70) },
+  tonal_color_error: { color: theme.methods.palette.color.value('error', 70) },
 
   svg: {
     width: '1em',
@@ -201,7 +201,7 @@ const RoundProgress = React.forwardRef((props_: any, ref: any) => {
         staticClassName('RoundedProgress', theme) && [
           'AmauiRoundedProgress-root',
           `AmauiRoundedProgress-version-${version}`,
-          `AmauiRoundedProgress-color-${!theme.palette.color[color] && color !== 'default' ? 'new' : color}`,
+          `AmauiRoundedProgress-color-${!theme.palette.color[color] && !['themed', 'inverse', 'default', 'inherit'].includes(color) ? 'new' : color}`,
           `AmauiRoundedProgress-size-${size}`,
           tonal && `AmauiRoundedProgress-tonal`,
           rounded && `AmauiRoundedProgress-rounded`,
@@ -210,10 +210,10 @@ const RoundProgress = React.forwardRef((props_: any, ref: any) => {
 
         classes.root,
         className,
-        classes[size],
-        classes[color],
-        classes[version],
-        tonal && classes[`tonal_${color}`]
+        classes[`size_${size}`],
+        classes[`color_${color}`],
+        classes[`version_${version}`],
+        tonal && classes[`tonal_color_${color}`]
       ])}
     >
       <svg
@@ -248,8 +248,7 @@ const RoundProgress = React.forwardRef((props_: any, ref: any) => {
 
           className={classNames([
             staticClassName('RoundedProgress', theme) && [
-              'AmauiRoundedProgress-pathBackground',
-              `AmauiRoundedProgress-version-${version}`
+              'AmauiRoundedProgress-pathBackground'
             ],
 
             classes.pathBackground,
@@ -269,8 +268,7 @@ const RoundProgress = React.forwardRef((props_: any, ref: any) => {
 
           className={classNames([
             staticClassName('RoundedProgress', theme) && [
-              'AmauiRoundedProgress-path',
-              `AmauiRoundedProgress-version-${version}`
+              'AmauiRoundedProgress-path'
             ],
 
             classes.path,

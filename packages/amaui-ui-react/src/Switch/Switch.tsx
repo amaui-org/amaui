@@ -15,44 +15,44 @@ const useStyle = style(theme => ({
   },
 
   // Color
-  default: { color: theme.palette.text.default.primary },
+  color_default: { color: theme.palette.text.default.primary },
 
-  neutral: { color: theme.palette.color.neutral.main },
+  color_neutral: { color: theme.palette.color.neutral.main },
 
-  primary: { color: theme.palette.color.primary.main },
+  color_primary: { color: theme.palette.color.primary.main },
 
-  secondary: { color: theme.palette.color.secondary.main },
+  color_secondary: { color: theme.palette.color.secondary.main },
 
-  tertiary: { color: theme.palette.color.tertiary.main },
+  color_tertiary: { color: theme.palette.color.tertiary.main },
 
-  quaternary: { color: theme.palette.color.quaternary.main },
+  color_quaternary: { color: theme.palette.color.quaternary.main },
 
-  info: { color: theme.palette.color.info.main },
+  color_info: { color: theme.palette.color.info.main },
 
-  success: { color: theme.palette.color.success.main },
+  color_success: { color: theme.palette.color.success.main },
 
-  warning: { color: theme.palette.color.warning.main },
+  color_warning: { color: theme.palette.color.warning.main },
 
-  error: { color: theme.palette.color.error.main },
+  color_error: { color: theme.palette.color.error.main },
 
   // Tonal
-  tonal_neutral: { color: theme.methods.palette.color.value('neutral', 60) },
+  tonal_color_neutral: { color: theme.methods.palette.color.value('neutral', 60) },
 
-  tonal_primary: { color: theme.methods.palette.color.value('primary', 60) },
+  tonal_color_primary: { color: theme.methods.palette.color.value('primary', 60) },
 
-  tonal_secondary: { color: theme.methods.palette.color.value('secondary', 60) },
+  tonal_color_secondary: { color: theme.methods.palette.color.value('secondary', 60) },
 
-  tonal_tertiary: { color: theme.methods.palette.color.value('tertiary', 60) },
+  tonal_color_tertiary: { color: theme.methods.palette.color.value('tertiary', 60) },
 
-  tonal_quaternary: { color: theme.methods.palette.color.value('quaternary', 60) },
+  tonal_color_quaternary: { color: theme.methods.palette.color.value('quaternary', 60) },
 
-  tonal_info: { color: theme.methods.palette.color.value('info', 60) },
+  tonal_color_info: { color: theme.methods.palette.color.value('info', 60) },
 
-  tonal_success: { color: theme.methods.palette.color.value('success', 60) },
+  tonal_color_success: { color: theme.methods.palette.color.value('success', 60) },
 
-  tonal_warning: { color: theme.methods.palette.color.value('warning', 60) },
+  tonal_color_warning: { color: theme.methods.palette.color.value('warning', 60) },
 
-  tonal_error: { color: theme.methods.palette.color.value('error', 60) },
+  tonal_color_error: { color: theme.methods.palette.color.value('error', 60) },
 
   size_small: {
     height: '24px',
@@ -101,23 +101,23 @@ const useStyle = style(theme => ({
   },
 
   // Tonal
-  border_tonal_neutral: { borderColor: theme.palette.color['neutral'][theme.palette.light ? 40 : 20] },
+  border_tonal_color_neutral: { borderColor: theme.palette.color['neutral'][theme.palette.light ? 40 : 20] },
 
-  border_tonal_primary: { borderColor: theme.palette.color['primary'][theme.palette.light ? 40 : 20] },
+  border_tonal_color_primary: { borderColor: theme.palette.color['primary'][theme.palette.light ? 40 : 20] },
 
-  border_tonal_secondary: { borderColor: theme.palette.color['secondary'][theme.palette.light ? 40 : 20] },
+  border_tonal_color_secondary: { borderColor: theme.palette.color['secondary'][theme.palette.light ? 40 : 20] },
 
-  border_tonal_tertiary: { borderColor: theme.palette.color['tertiary'][theme.palette.light ? 40 : 20] },
+  border_tonal_color_tertiary: { borderColor: theme.palette.color['tertiary'][theme.palette.light ? 40 : 20] },
 
-  border_tonal_quaternary: { borderColor: theme.palette.color['quaternary'][theme.palette.light ? 40 : 20] },
+  border_tonal_color_quaternary: { borderColor: theme.palette.color['quaternary'][theme.palette.light ? 40 : 20] },
 
-  border_tonal_info: { borderColor: theme.palette.color['info'][theme.palette.light ? 40 : 20] },
+  border_tonal_color_info: { borderColor: theme.palette.color['info'][theme.palette.light ? 40 : 20] },
 
-  border_tonal_success: { borderColor: theme.palette.color['success'][theme.palette.light ? 40 : 20] },
+  border_tonal_color_success: { borderColor: theme.palette.color['success'][theme.palette.light ? 40 : 20] },
 
-  border_tonal_warning: { borderColor: theme.palette.color['warning'][theme.palette.light ? 40 : 20] },
+  border_tonal_color_warning: { borderColor: theme.palette.color['warning'][theme.palette.light ? 40 : 20] },
 
-  border_tonal_error: { borderColor: theme.palette.color['error'][theme.palette.light ? 40 : 20] },
+  border_tonal_color_error: { borderColor: theme.palette.color['error'][theme.palette.light ? 40 : 20] },
 
   iconButton: {
     top: '50%'
@@ -616,7 +616,7 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
       className={classNames([
         staticClassName('Switch', theme) && [
           'AmauiSwitch-root',
-          `AmauiSwitch-color-${!theme.palette.color[color] && color !== 'default' ? 'new' : color}`,
+          `AmauiSwitch-color-${!theme.palette.color[color] && !['themed', 'inverse', 'default', 'inherit'].includes(color) ? 'new' : color}`,
           `AmauiSwitch-size-${size}`,
           tonal && `AmauiSwitch-tonal`,
           disabled && `AmauiSwitch-disabled`
@@ -624,9 +624,9 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
 
         className,
         classes.root,
-        classes[color],
+        classes[`color_${color}`],
         classes[`size_${size}`],
-        tonal && classes[`tonal_${color}`],
+        tonal && classes[`tonal_color_${color}`],
         disabled && classes.disabled
       ])}
 
@@ -655,8 +655,7 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
             <span
               className={classNames([
                 staticClassName('Switch', theme) && [
-                  'AmauiSwitch-background',
-                  disabled && `AmauiSwitch-disabled`
+                  'AmauiSwitch-background'
                 ],
 
                 classes.background,
@@ -675,14 +674,12 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
             <span
               className={classNames([
                 staticClassName('Switch', theme) && [
-                  'AmauiSwitch-border',
-                  `AmauiSwitch-color-${!theme.palette.color[color] && color !== 'default' ? 'new' : color}`,
-                  tonal && `AmauiSwitch-tonal`
+                  'AmauiSwitch-border'
                 ],
 
                 classes.border,
-                classes[color],
-                tonal && classes[`border_tonal_${color}`]
+                classes[`color_${color}`],
+                tonal && classes[`border_tonal_color_${color}`]
               ])}
 
               style={{

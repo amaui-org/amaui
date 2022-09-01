@@ -7,9 +7,9 @@ import Transition, { TTransitionStatus } from '../Transition';
 import Type from '../Type';
 import Fade from '../Fade';
 import Line from '../Line';
+import Tooltip from '../Tooltip';
 
 import { staticClassName } from '../utils';
-import Tooltip from '../Tooltip';
 
 const useStyle = style(theme => ({
   root: {
@@ -249,7 +249,7 @@ const NavigationItem = React.forwardRef((props_: any, ref: any) => {
 
   let palette: any;
 
-  if (!theme.palette.color[color] && !['inherit', 'default'].includes(color)) {
+  if (!theme.palette.color[color] && !['themed', 'inverse', 'default', 'inherit'].includes(color)) {
     palette = theme.methods.color(color);
   }
 

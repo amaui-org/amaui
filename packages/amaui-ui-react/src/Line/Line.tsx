@@ -3,10 +3,10 @@ import React from 'react';
 import { is } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
-import { staticClassName } from '../utils';
-
 import Divider from '../Divider';
 import useMediaQuery from '../useMediaQuery';
+
+import { staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
@@ -121,7 +121,6 @@ const useStyle = style(theme => ({
   'columnGap_12': { columnGap: `${12 * theme.space.unit}px` },
 
   'columnGap_16': { columnGap: `${16 * theme.space.unit}px` }
-
 }), { name: 'AmauiLine' });
 
 const Line = React.forwardRef((props_: any, ref: any) => {

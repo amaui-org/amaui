@@ -77,21 +77,21 @@ const useStyle = style(theme => ({
   fullWidth: { width: `calc(100% - ${theme.methods.space.value('xl') * 2}px)` },
 
   // maxWidth
-  xxs: { maxWidth: `320px` },
+  maxWidth_xxs: { maxWidth: `320px` },
 
-  xs: { maxWidth: `400px` },
+  maxWidth_xs: { maxWidth: `400px` },
 
-  sm: { maxWidth: `480px` },
+  maxWidth_sm: { maxWidth: `480px` },
 
-  rg: { maxWidth: `560px` },
+  maxWidth_rg: { maxWidth: `560px` },
 
-  lg: { maxWidth: `800px` },
+  maxWidth_lg: { maxWidth: `800px` },
 
-  xl: { maxWidth: `1120px` },
+  maxWidth_xl: { maxWidth: `1120px` },
 
-  xxl: { maxWidth: `1360px` },
+  maxWidth_xxl: { maxWidth: `1360px` },
 
-  unset: { maxWidth: `unset` }
+  maxWidth_unset: { maxWidth: `unset` }
 }), { name: 'AmauiModal' });
 
 let MODALS_OPEN = 0;
@@ -257,7 +257,7 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
             ],
 
             classes.surface,
-            classes[maxWidth],
+            classes[`maxWidth_${maxWidth}`],
             classes[`size_${size}`],
             fullScreen && classes.fullScreen,
             fullWidth && classes.fullWidth,
@@ -312,7 +312,7 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
                 className={classNames([
                   staticClassName('Modal', theme) && [
                     'AmauiModal-background',
-                    backgroundInvisible && 'AmauiModal-backgroundInvisible'
+                    backgroundInvisible && 'AmauiModal-background-invisible'
                   ],
 
                   classes.background,

@@ -3,9 +3,9 @@ import React from 'react';
 import { clamp, is, isEnvironment } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
-import { staticClassName } from '../utils';
-
 import Type from '../Type';
+
+import { staticClassName } from '../utils';
 
 const other = {
   pointerEvents: 'none',
@@ -40,25 +40,25 @@ const useStyle = style(theme => ({
   },
 
   // Color
-  default: { color: theme.palette.text.default.primary },
+  color_default: { color: theme.palette.text.default.primary },
 
-  neutral: { color: theme.palette.color.neutral.main },
+  color_neutral: { color: theme.palette.color.neutral.main },
 
-  primary: { color: theme.palette.color.primary.main },
+  color_primary: { color: theme.palette.color.primary.main },
 
-  secondary: { color: theme.palette.color.secondary.main },
+  color_secondary: { color: theme.palette.color.secondary.main },
 
-  tertiary: { color: theme.palette.color.tertiary.main },
+  color_tertiary: { color: theme.palette.color.tertiary.main },
 
-  quaternary: { color: theme.palette.color.quaternary.main },
+  color_quaternary: { color: theme.palette.color.quaternary.main },
 
-  info: { color: theme.palette.color.info.main },
+  color_info: { color: theme.palette.color.info.main },
 
-  success: { color: theme.palette.color.success.main },
+  color_success: { color: theme.palette.color.success.main },
 
-  warning: { color: theme.palette.color.warning.main },
+  color_warning: { color: theme.palette.color.warning.main },
 
-  error: { color: theme.palette.color.error.main },
+  color_error: { color: theme.palette.color.error.main },
 
   error_color: {
     color: [theme.palette.light ? theme.palette.color.error[40] : theme.palette.color.error[80], '!important']
@@ -553,7 +553,6 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
     inputProps = {},
     InputWrapperProps = {},
 
-    classes: classes_ = {},
     className,
     style,
 
@@ -785,17 +784,17 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
             'AmauiTextField-root',
             `AmauiTextField-version-${version}`,
             `AmauiTextField-size-${size}`,
+            `AmauiTextField-icon-end-vertical-align-${endIconVerticalAlign}`,
+            `AmauiTextField-icon-start-vertical-align-${startIconVerticalAlign}`,
             fullWidth && !footer && 'AmauiTextField-fullWidth',
             hover && `AmauiTextField-hover`,
             error && `AmauiTextField-error`,
             !footer && disabled && 'AmauiTextField-disabled'
           ],
 
-          classes.root,
-          classes[color],
-          classes[version],
-          classes[size],
           className,
+          classes.root,
+          classes[`color_${color}`],
           fullWidth && !footer && classes.fullWidth,
           error && (hover ? classes.error_hover_color : classes.error_color),
           !footer && disabled && classes.disabled
@@ -1060,9 +1059,6 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
               staticClassName('TextField', theme) && [
                 'AmauiTextField-addition',
                 'AmauiTextField-sufix',
-                `AmauiTextField-version-${version}`,
-                `AmauiTextField-size-${size}`,
-                (enabled || value || focus) && 'AmauiTextField-focus',
                 noPrefixMargin && 'AmauiTextField-sufix-no-margin'
               ],
 
@@ -1086,18 +1082,14 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
             className={classNames([
               staticClassName('TextField', theme) && [
                 'AmauiTextField-icon',
-                `AmauiTextField-version-${version}`,
-                'AmauiTextField-icon-end',
-                `AmauiTextField-size-${size}`,
-                `AmauiTextField-icon-end-vertical-align-${endIconVerticalAlign}`
+                'AmauiTextField-icon-end'
               ],
 
               classes.icon,
               classes.icon_end,
               classes[`icon${endIcon?.type?.displayName?.includes('IconButton') ? '_button' : ''}_size_${size}`],
               classes[`icon_version_${version}`],
-              classes[`icon_vertical_align_${endIconVerticalAlign}`],
-              classes_.endIcon
+              classes[`icon_vertical_align_${endIconVerticalAlign}`]
             ])}
           >
             {React.Children.toArray(endIcon).map((item: any, index: number) => (
@@ -1123,8 +1115,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
         <div
           className={classNames([
             staticClassName('TextField', theme) && [
-              'AmauiTextField-footer',
-              `AmauiTextField-version-${version}`
+              'AmauiTextField-footer'
             ],
 
             classes.footer,
@@ -1155,8 +1146,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
 
               className={classNames([
                 staticClassName('TextField', theme) && [
-                  'AmauiTextField-counter',
-                  error && 'AmauiTextField-error'
+                  'AmauiTextField-counter'
                 ],
 
                 classes.counterText,

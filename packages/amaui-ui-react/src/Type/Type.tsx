@@ -11,45 +11,51 @@ const useStyle = style(theme => ({
     padding: '0'
   },
 
-  inherit: { color: 'inherit' },
+  color_inherit: { color: 'inherit' },
 
-  primary: { color: theme.palette.text.default.primary },
+  color_themed: { color: theme.palette.light ? theme.palette.text.default.primary : theme.palette.text.default.secondary },
 
-  secondary: { color: theme.palette.text.default.secondary },
+  color_inverse: { color: theme.palette.background.default.primary },
 
-  tertiary: { color: theme.palette.text.default.tertiary },
+  color_default: { color: theme.palette.text.default.primary },
 
-  quaternary: { color: theme.palette.text.default.quaternary },
+  color_primary: { color: theme.palette.text.default.primary },
 
-  d1: { ...theme.typography.values.d1 },
+  color_secondary: { color: theme.palette.text.default.secondary },
 
-  d2: { ...theme.typography.values.d2 },
+  color_tertiary: { color: theme.palette.text.default.tertiary },
 
-  d3: { ...theme.typography.values.d3 },
+  color_quaternary: { color: theme.palette.text.default.quaternary },
 
-  h1: { ...theme.typography.values.h1 },
+  version_d1: { ...theme.typography.values.d1 },
 
-  h2: { ...theme.typography.values.h2 },
+  version_d2: { ...theme.typography.values.d2 },
 
-  h3: { ...theme.typography.values.h3 },
+  version_d3: { ...theme.typography.values.d3 },
 
-  t1: { ...theme.typography.values.t1 },
+  version_h1: { ...theme.typography.values.h1 },
 
-  t2: { ...theme.typography.values.t2 },
+  version_h2: { ...theme.typography.values.h2 },
 
-  t3: { ...theme.typography.values.t3 },
+  version_h3: { ...theme.typography.values.h3 },
 
-  l1: { ...theme.typography.values.l1 },
+  version_t1: { ...theme.typography.values.t1 },
 
-  l2: { ...theme.typography.values.l2 },
+  version_t2: { ...theme.typography.values.t2 },
 
-  l3: { ...theme.typography.values.l3 },
+  version_t3: { ...theme.typography.values.t3 },
 
-  b1: { ...theme.typography.values.b1 },
+  version_l1: { ...theme.typography.values.l1 },
 
-  b2: { ...theme.typography.values.b2 },
+  version_l2: { ...theme.typography.values.l2 },
 
-  b3: { ...theme.typography.values.b3 },
+  version_l3: { ...theme.typography.values.l3 },
+
+  version_b1: { ...theme.typography.values.b1 },
+
+  version_b2: { ...theme.typography.values.b2 },
+
+  version_b3: { ...theme.typography.values.b3 },
 
   disabled: {
     pointerEvents: 'none',
@@ -117,8 +123,8 @@ const Type = React.forwardRef((props_: any, ref: any) => {
 
         classes.root,
         className,
-        classes[version],
-        classes[color],
+        classes[`version_${version}`],
+        classes[`color_${color}`],
         disabled && classes.disabled
       ])}
 

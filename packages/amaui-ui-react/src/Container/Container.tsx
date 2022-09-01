@@ -3,9 +3,9 @@ import React from 'react';
 import { is } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
-import { staticClassName } from '../utils';
-
 import useMediaQuery from '../useMediaQuery';
+
+import { staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
