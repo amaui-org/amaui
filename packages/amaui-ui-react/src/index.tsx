@@ -187,3 +187,6 @@ export * from './NavigationBar';
 
 export { default as NavigationItem } from './NavigationItem';
 export * from './NavigationItem';
+
+export { default as NavigationDrawer } from './NavigationDrawer';
+export * from './NavigationDrawer';

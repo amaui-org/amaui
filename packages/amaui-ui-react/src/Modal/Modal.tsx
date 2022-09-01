@@ -289,8 +289,8 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
             fullWidth && `AmauiButton-fullWidth`
           ],
 
-          classes.root,
-          className
+          className,
+          classes.root
         ])}
 
         {...other}

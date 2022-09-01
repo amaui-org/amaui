@@ -1094,7 +1094,9 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
 
             size={size}
 
-            color='inherit'
+            tonal={tonal}
+
+            color={color}
 
             onBlur={onBlur}
 
