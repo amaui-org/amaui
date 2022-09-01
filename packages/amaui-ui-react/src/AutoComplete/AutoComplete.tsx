@@ -177,16 +177,13 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
     filterOutSelectedOptions,
     selectOnFocus,
     clearOnBlur,
-
-    disabled,
-
     onChangeInput,
     onChange,
-
     IconClear = IconMaterialCloseRounded,
     ChipGroupProps = {},
     ListProps = {},
     MenuProps = {},
+    disabled,
 
     className,
     style,
@@ -743,11 +740,24 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
           staticClassName('AutoComplete', theme) && [
             'AmauiAutoComplete-root',
             open && `AmauiAutoComplete-open`,
-            disabled && `AmauiAutoComplete-disabled`
+            chip && `AmauiAutoComplete-chip`,
+            multiple && `AmauiAutoComplete-multiple`,
+            autoWidth && `AmauiAutoComplete-autoWidth`,
+            clear && `AmauiAutoComplete-clear`,
+            loading && `AmauiAutoComplete-loading`,
+            autoSelectOnBlur && `AmauiAutoComplete-autoSelectOnBlur`,
+            blurOnSelect && `AmauiAutoComplete-blurOnSelect`,
+            openOnFocus && `AmauiAutoComplete-openOnFocus`,
+            noOptions && `AmauiAutoComplete-noOptions`,
+            closeOnSelect && `AmauiAutoComplete-closeOnSelect`,
+            clearOnEscape && `AmauiAutoComplete-clearOnEscape`,
+            limit !== undefined && `AmauiAutoComplete-limit`,
+            selectOnFocus && `AmauiAutoComplete-selectOnFocus`,
+            clearOnBlur && `AmauiAutoComplete-clearOnBlur`
           ],
 
-          classes.root,
           className,
+          classes.root,
           open && classes.open,
           disabled && classes.disabled
         ])
@@ -778,11 +788,7 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
       InputWrapperProps={{
         className: classNames([
           staticClassName('AutoComplete', theme) && [
-            'AmauiAutoComplete-inputWrapper',
-            `AmauiAutoComplete-size-${size}`,
-            chip && `AmauiAutoComplete-chip`,
-            open && `AmauiAutoComplete-open`,
-            readOnly && `AmauiAutoComplete-readOnly`
+            'AmauiAutoComplete-inputWrapper'
           ],
 
           classes.inputWrapper,

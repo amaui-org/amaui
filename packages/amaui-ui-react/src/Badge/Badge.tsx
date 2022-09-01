@@ -75,7 +75,7 @@ const Badge = React.forwardRef((props_: any, ref: any) => {
   const {
     max,
     value: value_,
-    tonal = true,
+    tonal = false,
     color = 'primary',
     vertical = 'top',
     horizontal = 'right',
@@ -95,7 +95,7 @@ const Badge = React.forwardRef((props_: any, ref: any) => {
 
   let value = value_;
 
-  if (max && value > max) value = `${max}+`;
+  if (max !== undefined && value > max) value = `${max}+`;
 
   return (
     <Component
@@ -104,10 +104,8 @@ const Badge = React.forwardRef((props_: any, ref: any) => {
       className={classNames([
         staticClassName('Badge', theme) && [
           'AmauiBadge-root',
-          `AmauiBadge-color-${!theme.palette.color[color] && !['themed', 'inverse', 'default', 'inherit'].includes(color) ? 'new' : color}`,
           `AmauiBadge-vertical-${vertical}`,
           `AmauiBadge-horizontal-${horizontal}`,
-          tonal && `AmauiBadge-tonal`,
           indicator && `AmauiBadge-indicator`,
           max !== undefined && `AmauiBadge-max`
         ],
