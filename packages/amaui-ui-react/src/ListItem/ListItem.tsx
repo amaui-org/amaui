@@ -535,7 +535,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
   const colorToUse = selected ? colorSelected : color;
 
   ListTransitionComponentProps.in = openList;
-  console.log(1411, primary, openList, openMenu)
+
   return (
     <Surface
       ref={item => {

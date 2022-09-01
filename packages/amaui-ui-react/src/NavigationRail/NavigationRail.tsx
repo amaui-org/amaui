@@ -49,7 +49,10 @@ const useStyle = style(theme => ({
     height: '100%',
     insetBlock: 0,
     insetInlineEnd: 0,
-    margin: '0 !important'
+
+    '&.AmauiDivider': {
+      margin: '0'
+    }
   }
 }), { name: 'AmauiNavigationRail' });
 

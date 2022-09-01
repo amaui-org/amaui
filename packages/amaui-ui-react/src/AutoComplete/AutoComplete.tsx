@@ -57,7 +57,9 @@ const useStyle = style(theme => ({
   },
 
   multiple: {
-    height: 'unset !important'
+    '&.AmauiTextField-inputWrapper': {
+      height: 'unset'
+    }
   },
 
   chipGroup_padding: {
@@ -75,7 +77,9 @@ const useStyle = style(theme => ({
   open: {},
 
   readOnly: {
-    cursor: 'default !important'
+    '&.AmauiTextField-inputWrapper': {
+      cursor: 'default'
+    }
   },
 
   list: {
@@ -93,7 +97,9 @@ const useStyle = style(theme => ({
   },
 
   disabled: {
-    cursor: 'default !important'
+    '&.AmauiTextField-inputWrapper': {
+      cursor: 'default'
+    }
   }
 }), { name: 'AmauiAutoComplete' });
 

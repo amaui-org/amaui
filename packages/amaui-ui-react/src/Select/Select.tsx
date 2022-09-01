@@ -27,7 +27,9 @@ const useStyle = style(theme => ({
   },
 
   inputWrapper: {
-    cursor: 'pointer !important'
+    '&.AmauiTextField-inputWrapper': {
+      cursor: 'pointer'
+    }
   },
 
   inputWrapper_chip_size_small: {
@@ -65,7 +67,9 @@ const useStyle = style(theme => ({
   },
 
   chip: {
-    height: 'unset !important'
+    '&.AmauiTextField-inputWrapper': {
+      height: 'unset'
+    }
   },
 
   chipGroup: {
@@ -85,15 +89,21 @@ const useStyle = style(theme => ({
   },
 
   open: {
-    cursor: 'default !important'
+    '&.AmauiTextField-root': {
+      cursor: 'default'
+    }
   },
 
   readOnly: {
-    cursor: 'default !important'
+    '&.AmauiTextField-inputWrapper': {
+      cursor: 'default'
+    }
   },
 
   disabled: {
-    cursor: 'default !important'
+    '&.AmauiTextField-root': {
+      cursor: 'default'
+    }
   }
 }), { name: 'AmauiSelect' });
 

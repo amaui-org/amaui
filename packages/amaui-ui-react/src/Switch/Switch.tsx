@@ -54,27 +54,28 @@ const useStyle = style(theme => ({
 
   tonal_error: { color: theme.methods.palette.color.value('error', 60) },
 
-  small: {
+  size_small: {
     height: '24px',
     width: '44px',
     borderRadius: `${theme.shape.radius.unit * 1.5}px`
   },
 
-  regular: {
+  size_regular: {
     height: '32px',
     width: '52px',
     borderRadius: `${theme.shape.radius.unit * 2}px`
   },
 
-  large: {
+  size_large: {
     height: '40px',
     width: '60px',
     borderRadius: `${theme.shape.radius.unit * 2.5}px`
   },
 
   disabled: {
+    cursor: 'default',
     opacity: theme.palette.visual_contrast.default.opacity.disabled,
-    cursor: 'default'
+    pointerEvents: 'none'
   },
 
   background: {
@@ -85,10 +86,6 @@ const useStyle = style(theme => ({
     height: '100%',
     borderRadius: 'inherit',
     transition: theme.methods.transitions.make(['opacity', 'background'], { duration: 'sm' })
-  },
-
-  background_disabled: {
-    background: [theme.palette.text.default.secondary, '!important']
   },
 
   border: {
@@ -179,16 +176,16 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiSwitch?.props?.default }), [props_]);
 
   const {
-    tonal,
-    color = 'primary',
+    tonal: tonal_,
+    color: color_ = 'primary',
     size = 'regular',
     valueDefault,
     value,
     onChange,
     Component = 'span',
-    disabled,
     OnIcon,
     OffIcon,
+    disabled,
 
     className,
     style,
@@ -202,6 +199,14 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
   const animation = React.useRef(false);
 
   const { classes } = useStyle(props);
+
+  let color = color_;
+  let tonal = tonal_;
+
+  if (disabled) {
+    color = 'neutral';
+    tonal = true;
+  }
 
   const styles: any = {
     root: {},
@@ -620,7 +625,7 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
         className,
         classes.root,
         classes[color],
-        classes[size],
+        classes[`size_${size}`],
         tonal && classes[`tonal_${color}`],
         disabled && classes.disabled
       ])}
@@ -690,6 +695,8 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
             />
 
             <IconButton
+              tabIndex={disabled ? -1 : undefined}
+
               size={size}
 
               className={classNames([
@@ -707,8 +714,6 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
 
                 ...styleKeyframes().iconButton[status]
               }}
-
-              disabled={disabled}
             >
               <Icon
                 className={classNames([

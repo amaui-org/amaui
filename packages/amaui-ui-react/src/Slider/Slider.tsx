@@ -146,44 +146,120 @@ const useStyle = style(theme => ({
   track_tonal_color_error: { background: theme.methods.palette.color.value('error', 70) },
 
   // iconButton
-  iconButton_color_default: { color: [theme.palette.text.default.primary, '!important'] },
+  iconButton_color_default: {
+    '&.AmauiIconButton': {
+      color: theme.palette.text.default.primary
+    }
+  },
 
-  iconButton_color_neutral: { color: [theme.palette.color.neutral.main, '!important'] },
+  iconButton_color_neutral: {
+    '&.AmauiIconButton': {
+      color: theme.palette.color.neutral.main
+    }
+  },
 
-  iconButton_color_primary: { color: [theme.palette.color.primary.main, '!important'] },
+  iconButton_color_primary: {
+    '&.AmauiIconButton': {
+      color: theme.palette.color.primary.main
+    }
+  },
 
-  iconButton_color_secondary: { color: [theme.palette.color.secondary.main, '!important'] },
+  iconButton_color_secondary: {
+    '&.AmauiIconButton': {
+      color: theme.palette.color.secondary.main
+    }
+  },
 
-  iconButton_color_tertiary: { color: [theme.palette.color.tertiary.main, '!important'] },
+  iconButton_color_tertiary: {
+    '&.AmauiIconButton': {
+      color: theme.palette.color.tertiary.main
+    }
+  },
 
-  iconButton_color_quaternary: { color: [theme.palette.color.quaternary.main, '!important'] },
+  iconButton_color_quaternary: {
+    '&.AmauiIconButton': {
+      color: theme.palette.color.quaternary.main
+    }
+  },
 
-  iconButton_color_info: { color: [theme.palette.color.info.main, '!important'] },
+  iconButton_color_info: {
+    '&.AmauiIconButton': {
+      color: theme.palette.color.info.main
+    }
+  },
 
-  iconButton_color_success: { color: [theme.palette.color.success.main, '!important'] },
+  iconButton_color_success: {
+    '&.AmauiIconButton': {
+      color: theme.palette.color.success.main
+    }
+  },
 
-  iconButton_color_warning: { color: [theme.palette.color.warning.main, '!important'] },
+  iconButton_color_warning: {
+    '&.AmauiIconButton': {
+      color: theme.palette.color.warning.main
+    }
+  },
 
-  iconButton_color_error: { color: [theme.palette.color.error.main, '!important'] },
+  iconButton_color_error: {
+    '&.AmauiIconButton': {
+      color: theme.palette.color.error.main
+    }
+  },
 
   // Tonal
-  iconButton_tonal_color_neutral: { color: [theme.methods.palette.color.value('default', 70), '!important'] },
+  iconButton_tonal_color_neutral: {
+    '&.AmauiIconButton': {
+      color: theme.methods.palette.color.value('default', 70)
+    }
+  },
 
-  iconButton_tonal_color_primary: { color: [theme.methods.palette.color.value('primary', 70), '!important'] },
+  iconButton_tonal_color_primary: {
+    '&.AmauiIconButton': {
+      color: theme.methods.palette.color.value('primary', 70)
+    }
+  },
 
-  iconButton_tonal_color_secondary: { color: [theme.methods.palette.color.value('secondary', 70), '!important'] },
+  iconButton_tonal_color_secondary: {
+    '&.AmauiIconButton': {
+      color: theme.methods.palette.color.value('secondary', 70)
+    }
+  },
 
-  iconButton_tonal_color_tertiary: { color: [theme.methods.palette.color.value('tertiary', 70), '!important'] },
+  iconButton_tonal_color_tertiary: {
+    '&.AmauiIconButton': {
+      color: theme.methods.palette.color.value('tertiary', 70)
+    }
+  },
 
-  iconButton_tonal_color_quaternary: { color: [theme.methods.palette.color.value('quaternary', 70), '!important'] },
+  iconButton_tonal_color_quaternary: {
+    '&.AmauiIconButton': {
+      color: theme.methods.palette.color.value('quaternary', 70)
+    }
+  },
 
-  iconButton_tonal_color_info: { color: [theme.methods.palette.color.value('info', 70), '!important'] },
+  iconButton_tonal_color_info: {
+    '&.AmauiIconButton': {
+      color: theme.methods.palette.color.value('info', 70)
+    }
+  },
 
-  iconButton_tonal_color_success: { color: [theme.methods.palette.color.value('success', 70), '!important'] },
+  iconButton_tonal_color_success: {
+    '&.AmauiIconButton': {
+      color: theme.methods.palette.color.value('success', 70)
+    }
+  },
 
-  iconButton_tonal_color_warning: { color: [theme.methods.palette.color.value('warning', 70), '!important'] },
+  iconButton_tonal_color_warning: {
+    '&.AmauiIconButton': {
+      color: theme.methods.palette.color.value('warning', 70)
+    }
+  },
 
-  iconButton_tonal_color_error: { color: [theme.methods.palette.color.value('error', 70), '!important'] },
+  iconButton_tonal_color_error: {
+    '&.AmauiIconButton': {
+      color: theme.methods.palette.color.value('error', 70)
+    }
+  },
 
   square: {
     borderRadius: '0px'
