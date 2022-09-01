@@ -8,6 +8,16 @@ const useStyle = style(theme => ({
   root: {},
 
   // Color
+  version_filled_color_themed: {
+    color: theme.palette.text.default.primary,
+    backgroundColor: theme.palette.light ? theme.palette.background.default.primary : theme.palette.background.default.quaternary
+  },
+
+  version_filled_color_inverse: {
+    color: theme.palette.background.default.primary,
+    backgroundColor: theme.palette.light ? theme.palette.background.dark.primary : theme.palette.background.light.primary
+  },
+
   version_filled_color_default: {
     color: theme.palette.text.default.primary,
     backgroundColor: theme.palette.background.default.primary
@@ -106,6 +116,14 @@ const useStyle = style(theme => ({
 
   // Version
   // Text
+  version_text_color_themed: {
+    color: theme.palette.light ? theme.palette.text.default.primary : theme.palette.text.default.secondary
+  },
+
+  version_text_color_inverse: {
+    color: theme.palette.background.default.primary
+  },
+
   version_text_color_default: {
     color: theme.palette.text.default.primary
   },
@@ -190,6 +208,16 @@ const useStyle = style(theme => ({
   },
 
   // Color
+  version_outlined_color_themed: {
+    color: theme.palette.light ? theme.palette.text.default.primary : theme.palette.text.default.secondary,
+    outlineColor: theme.palette.color.neutral[theme.palette.light ? 40 : 60]
+  },
+
+  version_outlined_color_inverse: {
+    color: theme.palette.background.default.primary,
+    outlineColor: theme.palette.color.neutral[theme.palette.light ? 60 : 40]
+  },
+
   version_outlined_color_default: {
     color: theme.palette.text.default.primary,
     outlineColor: theme.palette.color.neutral[theme.palette.light ? 40 : 60]
@@ -368,7 +396,7 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
     root: {}
   };
 
-  if (!theme.palette.color[color] && !['default', 'inherit'].includes(color)) {
+  if (!theme.palette.color[color] && !['themed', 'inverse', 'default', 'inherit'].includes(color)) {
     const palette = theme.methods.color(color);
 
     if (tonal) {

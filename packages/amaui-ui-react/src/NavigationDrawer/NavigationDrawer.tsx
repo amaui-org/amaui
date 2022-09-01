@@ -65,7 +65,7 @@ const NavigationDrawer = React.forwardRef((props_: any, ref: any) => {
 
   const {
     tonal = false,
-    color = 'default',
+    color = 'themed',
     direction: direction_ = 'left',
 
     className,

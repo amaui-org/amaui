@@ -1137,7 +1137,7 @@ Please sign in again.`}
 
               onClose={() => updateValue(false, 'navd')}
             >
-              <List style={{ width: 240 }}>
+              <List color='themed' style={{ width: 240 }}>
                 {[0, 1, 3, 4].map(item => (
                   <ListItem
                     primary='Primary text'
@@ -1168,7 +1168,7 @@ Please sign in again.`}
 
               onClose={() => updateValue(false, 'navd')}
             >
-              <List>
+              <List color='themed'>
                 {[0, 1, 3, 4].map(item => (
                   <ListItem
                     primary='Primary text'
@@ -1186,7 +1186,7 @@ Please sign in again.`}
 
               onClose={() => updateValue(false, 'navd')}
             >
-              <List style={{ width: 240 }}>
+              <List color='themed' style={{ width: 240 }}>
                 {[0, 1, 3, 4].map(item => (
                   <ListItem
                     primary='Primary text'
@@ -1204,7 +1204,7 @@ Please sign in again.`}
 
               onClose={() => updateValue(false, 'navd')}
             >
-              <List style={{ width: 240 }}>
+              <List color='themed' style={{ width: 240 }}>
                 {[0, 1, 3, 4].map(item => (
                   <ListItem
                     primary='Primary text'
@@ -1222,7 +1222,7 @@ Please sign in again.`}
 
               onClose={() => updateValue(false, 'navd')}
             >
-              <List>
+              <List color='themed'>
                 {[0, 1, 3, 4].map(item => (
                   <ListItem
                     primary='Primary text'
@@ -27514,6 +27514,8 @@ Please sign in again.`}
 
         <Accordion primary='Button color' open>
           <div className={classNames([classes.row, classes.center])}>
+            <Button version='text' color='themed'>Themed</Button>
+            <Button version='text' color='inverse'>Inverse</Button>
             <Button version='text' color='default'>Default</Button>
             <Button version='text' color='primary'>Primary</Button>
             <Button version='text' color='secondary'>Secondary</Button>
@@ -27528,6 +27530,8 @@ Please sign in again.`}
           </div>
 
           <div className={classNames([classes.row, classes.center])}>
+            <Button version='outlined' color='themed'>Themed</Button>
+            <Button version='outlined' color='inverse'>Inverse</Button>
             <Button version='outlined' color='default'>Default</Button>
             <Button version='outlined' color='primary'>Primary</Button>
             <Button version='outlined' color='secondary'>Secondary</Button>
@@ -27542,6 +27546,8 @@ Please sign in again.`}
           </div>
 
           <div className={classNames([classes.row, classes.center])}>
+            <Button version='filled' color='themed'>Themed</Button>
+            <Button version='filled' color='inverse'>Inverse</Button>
             <Button version='filled' color='default'>Default</Button>
             <Button version='filled' color='primary'>Primary</Button>
             <Button version='filled' color='secondary'>Secondary</Button>
