@@ -11,7 +11,8 @@ const useStyle = style(theme => ({
     top: 0,
     position: 'sticky',
     fontWeight: 500,
-    zIndex: 1
+    zIndex: 1,
+    userSelect: 'none'
   }
 }), { name: 'AmauiListSubheader' });
 

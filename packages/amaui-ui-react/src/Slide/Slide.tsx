@@ -61,13 +61,13 @@ const Slide = React.forwardRef((props_: any, ref: any) => {
     const right = root ? refs.root.current?.offsetLeft + refs.root.current?.offsetWidth : rect?.right;
     const bottom = root ? refs.root.current?.offsetTop + refs.root.current?.offsetHeight : rect?.bottom;
 
-    if (direction === 'up') return `translate(0, -${bottom !== undefined ? bottom + 'px' : '100vh'})`;
+    if (direction === 'top') return `translate(0, -${bottom !== undefined ? bottom + 'px' : '100vh'})`;
 
     if (direction === 'left') return `translate(-${right !== undefined ? right + 'px' : '100vw'}, 0)`;
 
     if (direction === 'right') return `translate(${left !== undefined ? w - left + 'px' : '100vw'}, 0)`;
 
-    if (direction === 'down') return `translate(0, ${top !== undefined ? Math.abs(h - top) + 'px' : '100vh'})`;
+    if (direction === 'bottom') return `translate(0, ${top !== undefined ? Math.abs(h - top) + 'px' : '100vh'})`;
   };
 
   const styles = (status: TTransitionStatus) => {

@@ -38,7 +38,7 @@ const useStyle = style(theme => ({
     }
   },
 
-  direction_up: {
+  direction_top: {
     '& .AmauiModal-surface': {
       top: 0,
       left: 0,
@@ -65,7 +65,7 @@ const useStyle = style(theme => ({
     }
   },
 
-  direction_down: {
+  direction_bottom: {
     '& .AmauiModal-surface': {
       bottom: 0,
       left: 0,
@@ -76,9 +76,6 @@ const useStyle = style(theme => ({
 }), { name: 'AmauiNavigationDrawer' });
 
 // swipe
-
-// drag
-// move < 50 and touchEnd close, if move >= 50 and touchEnd open update to full position
 
 const NavigationDrawer = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
