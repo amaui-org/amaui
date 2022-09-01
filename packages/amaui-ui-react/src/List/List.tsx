@@ -75,12 +75,12 @@ const List = React.forwardRef((props_: any, ref: any) => {
   const {
     menu,
     menuOpen,
+    tonal = true,
+    color = 'default',
     size = mobile ? 'small' : 'regular',
     noMaxWidth = true,
-    color = 'default',
-    tonal = true,
     elevation = props.menu ? 2 : 0,
-    indent = 0,
+    indent,
     paddingHorizontal = 'none',
     paddingVertical = 'both',
     Component = 'ul',
@@ -135,15 +135,15 @@ const List = React.forwardRef((props_: any, ref: any) => {
       }}
     >
       {React.Children.toArray(children).map((item: any, index: number) => React.cloneElement(item, {
-        ...(['AmauiListItem'].includes(item.type?.displayName) ? {
+        ...(['AmauiListItem', 'AmauiListSubheader'].includes(item.type?.displayName) ? {
           key: index,
 
           menuItem: menu,
           menuOpen,
 
-          color,
-          tonal,
-          size,
+          color: item.props.color !== undefined ? item.props.color : color,
+          tonal: item.props.tonal !== undefined ? item.props.tonal : tonal,
+          size: item.props.size !== undefined ? item.props.size : size,
 
           ...other,
 

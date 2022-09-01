@@ -109,6 +109,16 @@ const useStyle = style(theme => ({
 
   divider_vertical: {
     width: '1px'
+  },
+
+  orientation_horizontal_padding: {
+    marginInline: '16px',
+    width: 'calc(100% - 32px)'
+  },
+
+  orientation_vertical_padding: {
+    marginBlock: '16px',
+    height: 'calc(100% - 32px)'
   }
 }), { name: 'AmauiDivider' });
 
@@ -123,6 +133,7 @@ const Divider = React.forwardRef((props_: any, ref: any) => {
     inset,
     middle,
     tonal,
+    padding,
     color = props.tonal ? 'neutral' : 'default',
     opacity = theme.palette.visual_contrast.default.opacity.divider,
     alignment = 'center',
@@ -185,6 +196,7 @@ const Divider = React.forwardRef((props_: any, ref: any) => {
           flex && `AmauiDivider-flex`,
           inset && `AmauiDivider-inset`,
           middle && `AmauiDivider-middle`,
+          padding && `AmauiDivider-padding`,
           tonal && `AmauiDivider-tonal`
         ],
 
@@ -194,7 +206,8 @@ const Divider = React.forwardRef((props_: any, ref: any) => {
         classes[`${children ? 'rootWithChildren_' : ''}${orientation}`],
         flex && classes.flex,
         inset && classes.inset,
-        middle && classes[`${children ? `rootWithChildren_` : ''}${orientation}_middle`]
+        middle && classes[`${children ? `rootWithChildren_` : ''}${orientation}_middle`],
+        padding && classes[`orientation_${orientation}_padding`]
       ])}
 
       style={{

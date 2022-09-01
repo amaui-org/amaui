@@ -13,13 +13,28 @@ const useStyle = style(theme => ({
       display: 'flex',
       flexDirection: 'column',
       margin: 0,
-      borderRadius: 0,
       maxHeight: 'unset',
       maxWidth: 'unset',
       minWidth: 'unset',
-      position: 'fixed',
       flex: '1 0 auto',
       padding: 0
+    }
+  },
+
+  version_modal: {
+    '& .AmauiModal-surface': {
+      position: 'fixed'
+    }
+  },
+
+  version_standard: {
+    '&.AmauiModal-root': {
+      position: 'unset',
+      inset: 'unset'
+    },
+
+    '& .AmauiModal-surface': {
+      position: 'relative'
     }
   },
 
@@ -27,7 +42,8 @@ const useStyle = style(theme => ({
     '& .AmauiModal-surface': {
       top: 0,
       left: 0,
-      width: '100%'
+      width: '100%',
+      borderRadius: '0 0 16px 16px'
     }
   },
 
@@ -35,7 +51,8 @@ const useStyle = style(theme => ({
     '& .AmauiModal-surface': {
       top: 0,
       left: 0,
-      height: '100%'
+      height: '100%',
+      borderRadius: '0 16px 16px 0'
     }
   },
 
@@ -43,7 +60,8 @@ const useStyle = style(theme => ({
     '& .AmauiModal-surface': {
       top: 0,
       right: 0,
-      height: '100%'
+      height: '100%',
+      borderRadius: '16px 0 0 16px'
     }
   },
 
@@ -51,10 +69,16 @@ const useStyle = style(theme => ({
     '& .AmauiModal-surface': {
       bottom: 0,
       left: 0,
-      width: '100%'
+      width: '100%',
+      borderRadius: '16px 16px 0 0'
     }
   },
 }), { name: 'AmauiNavigationDrawer' });
+
+// swipe
+
+// drag
+// move < 50 and touchEnd close, if move >= 50 and touchEnd open update to full position
 
 const NavigationDrawer = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
@@ -64,8 +88,9 @@ const NavigationDrawer = React.forwardRef((props_: any, ref: any) => {
   const { classes } = useStyle(props);
 
   const {
+    version = 'modal',
     tonal = false,
-    color = 'themed',
+    color = props.version === 'modal' ? 'themed' : 'default',
     direction: direction_ = 'left',
 
     className,
@@ -74,6 +99,14 @@ const NavigationDrawer = React.forwardRef((props_: any, ref: any) => {
 
     ...other
   } = props;
+
+  if (version === 'standard') {
+    other.portal = other.portal !== undefined ? other.portal : false;
+    other.freezeScroll = other.freezeScroll !== undefined ? other.freezeScroll : false;
+    other.background = other.background !== undefined ? other.background : false;
+    other.focus = other.focus !== undefined ? other.focus : false;
+    other.disableKeyboardClose = other.disableKeyboardClose !== undefined ? other.disableKeyboardClose : true;
+  }
 
   let direction = direction_;
 
@@ -99,12 +132,14 @@ const NavigationDrawer = React.forwardRef((props_: any, ref: any) => {
       className={classNames([
         staticClassName('Modal', theme) && [
           'AmauiNavigationDrawer-root',
-          `AmauiNavigationDrawer-direction-${direction}`
+          `AmauiNavigationDrawer-direction-${direction}`,
+          `AmauiNavigationDrawer-version-${version}`
         ],
 
         className,
         classes.root,
-        classes[`direction_${direction}`]
+        classes[`direction_${direction}`],
+        classes[`version_${version}`]
       ])}
 
       {...other}

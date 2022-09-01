@@ -211,6 +211,13 @@ const useStyle = style(theme => ({
 }), { name: 'App' });
 
 const styled = {
+  NavigationDrawer: sy(NavigationDrawer)((theme: AmauiTheme) => ({
+    root: {
+      '&:hover': {
+        opacity: 0.4
+      }
+    }
+  })),
   NavigationRail: sy(NavigationRail)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
@@ -784,7 +791,25 @@ function App() {
       </div>
 
       <Accordion primary='All'>
-        <div className={classNames([classes.column])}>
+        <Line>
+          <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue(1411, 'navd')}>nav d</Button>
+
+          <NavigationDrawer
+            open={a.navd === 1411}
+
+            onClose={() => updateValue(false, 'navd')}
+          >
+            <List color='themed' style={{ width: 240 }}>
+              {[0, 1, 3, 4].map(item => (
+                <ListItem
+                  primary='Primary text'
+
+                  key={item}
+                />
+              ))}
+            </List>
+          </NavigationDrawer>
+
           <NavigationRail
             header={[
               <IconButton version='filled' elevation={0}>
@@ -1124,7 +1149,7 @@ Please sign in again.`}
           <Button version='filled' color='secondary' size='regular'>Filled</Button>
 
           <IconMaterialPottedPlantRounded color='secondary' />
-        </div>
+        </Line>
       </Accordion>
 
       <Accordion primary='NavigationDrawer'>
@@ -1150,7 +1175,253 @@ Please sign in again.`}
           </Line>
         </Accordion>
 
-        <Accordion primary='NavigationDrawer' open>
+        <Accordion primary='NavigationDrawer version'>
+          <Accordion primary='NavigationDrawer version standard'>
+            <Line>
+              <Line
+                direction='row'
+              >
+                <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue(111, 'navd')}>Top</Button>
+                <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue(112, 'navd')}>Left</Button>
+                <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue(113, 'navd')}>Right</Button>
+                <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue(114, 'navd')}>Bottom</Button>
+              </Line>
+
+              <NavigationDrawer
+                open={a.navd === 111}
+
+                direction='up'
+
+                tonal
+
+                color='primary'
+
+                onClose={() => updateValue(false, 'navd')}
+
+                version='standard'
+
+                style={{ width: '100%' }}
+              >
+                <List tonal color='primary'>
+                  {[0, 1, 3, 4].map(item => (
+                    <ListItem
+                      primary='Primary text'
+
+                      key={item}
+                    />
+                  ))}
+                </List>
+              </NavigationDrawer>
+
+              <NavigationDrawer
+                open={a.navd === 112}
+
+                direction='left'
+
+                tonal
+
+                color='primary'
+
+                onClose={() => updateValue(false, 'navd')}
+
+                version='standard'
+              >
+                <List tonal color='primary' style={{ width: 240 }}>
+                  {[0, 1, 3, 4].map(item => (
+                    <ListItem
+                      primary='Primary text'
+
+                      key={item}
+                    />
+                  ))}
+                </List>
+              </NavigationDrawer>
+
+              <NavigationDrawer
+                open={a.navd === 113}
+
+                direction='right'
+
+                tonal
+
+                color='primary'
+
+                onClose={() => updateValue(false, 'navd')}
+
+                version='standard'
+              >
+                <List tonal color='primary' style={{ width: 240 }}>
+                  {[0, 1, 3, 4].map(item => (
+                    <ListItem
+                      primary='Primary text'
+
+                      key={item}
+                    />
+                  ))}
+                </List>
+              </NavigationDrawer>
+
+              <NavigationDrawer
+                open={a.navd === 114}
+
+                direction='down'
+
+                tonal
+
+                color='primary'
+
+                onClose={() => updateValue(false, 'navd')}
+
+                version='standard'
+
+                style={{ width: '100%' }}
+              >
+                <List tonal color='primary'>
+                  {[0, 1, 3, 4].map(item => (
+                    <ListItem
+                      primary='Primary text'
+
+                      key={item}
+                    />
+                  ))}
+                </List>
+              </NavigationDrawer>
+
+              <NavigationDrawer
+                open
+
+                tonal
+
+                color='secondary'
+
+                onClose={() => updateValue(false, 'navd')}
+
+                version='standard'
+              >
+                <List tonal color='primary' style={{ width: 240 }}>
+                  {[0, 1, 3, 4].map(item => (
+                    <ListItem
+                      primary='Primary text'
+
+                      key={item}
+                    />
+                  ))}
+                </List>
+              </NavigationDrawer>
+            </Line>
+          </Accordion>
+
+          <Accordion primary='NavigationDrawer version modal'>
+            <Line>
+              <Line
+                direction='row'
+              >
+                <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue(111, 'navd')}>Top</Button>
+                <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue(112, 'navd')}>Left</Button>
+                <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue(113, 'navd')}>Right</Button>
+                <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue(114, 'navd')}>Bottom</Button>
+              </Line>
+
+              <NavigationDrawer
+                open={a.navd === 111}
+
+                direction='up'
+
+                tonal
+
+                color='primary'
+
+                onClose={() => updateValue(false, 'navd')}
+
+                version='modal'
+              >
+                <List tonal color='primary' style={{ width: 240 }}>
+                  {[0, 1, 3, 4].map(item => (
+                    <ListItem
+                      primary='Primary text'
+
+                      key={item}
+                    />
+                  ))}
+                </List>
+              </NavigationDrawer>
+
+              <NavigationDrawer
+                open={a.navd === 112}
+
+                direction='left'
+
+                tonal
+
+                color='primary'
+
+                onClose={() => updateValue(false, 'navd')}
+
+                version='modal'
+              >
+                <List tonal color='primary' style={{ width: 240 }}>
+                  {[0, 1, 3, 4].map(item => (
+                    <ListItem
+                      primary='Primary text'
+
+                      key={item}
+                    />
+                  ))}
+                </List>
+              </NavigationDrawer>
+
+              <NavigationDrawer
+                open={a.navd === 113}
+
+                direction='right'
+
+                tonal
+
+                color='primary'
+
+                onClose={() => updateValue(false, 'navd')}
+
+                version='modal'
+              >
+                <List tonal color='primary' style={{ width: 240 }}>
+                  {[0, 1, 3, 4].map(item => (
+                    <ListItem
+                      primary='Primary text'
+
+                      key={item}
+                    />
+                  ))}
+                </List>
+              </NavigationDrawer>
+
+              <NavigationDrawer
+                open={a.navd === 114}
+
+                direction='down'
+
+                tonal
+
+                color='primary'
+
+                onClose={() => updateValue(false, 'navd')}
+
+                version='modal'
+              >
+                <List tonal color='primary' style={{ width: 240 }}>
+                  {[0, 1, 3, 4].map(item => (
+                    <ListItem
+                      primary='Primary text'
+
+                      key={item}
+                    />
+                  ))}
+                </List>
+              </NavigationDrawer>
+            </Line>
+          </Accordion>
+        </Accordion>
+
+        <Accordion primary='NavigationDrawer direction' open>
           <Line>
             <Line
               direction='row'
@@ -1235,44 +1506,125 @@ Please sign in again.`}
           </Line>
         </Accordion>
 
-        <Accordion primary='AmauiTheme' open>
-          <div className={classNames([classes.column])}>
-            <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue(11)}>a</Button>
+        <Accordion primary='NavigationDrawer example' open>
+          <Line>
+            <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue('e', 'navd')}>a</Button>
 
-            <Modal
-              open={a.modal === 11}
+            <NavigationDrawer
+              open={a.navd === 'e'}
 
-              onClose={() => updateValue()}
+              tonal
+
+              color='primary'
+
+              onClose={() => updateValue(false, 'navd')}
             >
-              <ModalHeader>
-                <ModalIcon><IconMaterialPottedPlantRounded /></ModalIcon>
-                <ModalTitle>Basic modal title</ModalTitle>
-              </ModalHeader>
+              <List
+                tonal
 
-              <ModalMain>
-                <ModalText>
-                  A modal is type of window that appears in front of app content to provide critical information, or ask for a decision.
-                </ModalText>
-              </ModalMain>
+                color='primary'
 
-              <ModalFooter>
-                <Button
-                  version='text'
+                shapePosition='both'
 
-                  tonal
-                >
-                  Enabled
-                </Button>
+                paddingHorizontal='both'
 
-                <Button
-                  version='text'
+                style={{ width: 340 }}
+              >
+                <ListSubheader>
+                  Mail
+                </ListSubheader>
 
-                  tonal
-                >
-                  Enabled
-                </Button>
-              </ModalFooter>
-            </Modal>
+                <ListItem
+                  primary='Inbox'
+
+                  start={(
+                    <IconMaterialPottedPlantRounded />
+                  )}
+
+                  end={(
+                    <Type
+                      version='l2'
+                    >
+                      114
+                    </Type>
+                  )}
+
+                  button
+
+                  selected
+                />
+
+                <ListItem
+                  primary='Outbox'
+
+                  start={(
+                    <IconMaterialPottedPlantRounded />
+                  )}
+
+                  end={(
+                    <Type
+                      version='l2'
+                    >
+                      114
+                    </Type>
+                  )}
+
+                  button
+                />
+
+                <ListItem
+                  primary='Favourites'
+
+                  start={(
+                    <IconMaterialPottedPlantRounded />
+                  )}
+
+                  button
+                />
+
+                <ListItem
+                  primary='Trash'
+
+                  start={(
+                    <IconMaterialPottedPlantRounded />
+                  )}
+
+                  button
+                />
+
+                <Divider
+                  Component='li'
+
+                  padding
+                />
+
+                <ListItem
+                  primary='Label'
+
+                  button
+                />
+
+                <ListItem
+                  primary='Label 114'
+
+                  button
+                />
+              </List>
+            </NavigationDrawer>
+          </Line>
+        </Accordion>
+
+        <Accordion primary='AmauiTheme'>
+          <div className={classNames([classes.column])}>
+            <NavigationDrawer
+              open
+
+              color='secondary'
+
+              version='standard'
+            >
+              a
+            </NavigationDrawer>
 
             <Accordion primary='AmauiTheme nested value' open>
               <AmauiThemeProvider
@@ -1289,42 +1641,15 @@ Please sign in again.`}
                   }
                 }}
               >
-                <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue(12)}>a</Button>
+                <NavigationDrawer
+                  open
 
-                <Modal
-                  open={a.modal === 12}
+                  color='primary'
 
-                  onClose={() => updateValue()}
+                  version='standard'
                 >
-                  <ModalHeader>
-                    <ModalIcon><IconMaterialPottedPlantRounded /></ModalIcon>
-                    <ModalTitle>Basic modal title</ModalTitle>
-                  </ModalHeader>
-
-                  <ModalMain>
-                    <ModalText>
-                      A modal is type of window that appears in front of app content to provide critical information, or ask for a decision.
-                    </ModalText>
-                  </ModalMain>
-
-                  <ModalFooter>
-                    <Button
-                      version='text'
-
-                      tonal
-                    >
-                      Enabled
-                    </Button>
-
-                    <Button
-                      version='text'
-
-                      tonal
-                    >
-                      Enabled
-                    </Button>
-                  </ModalFooter>
-                </Modal>
+                  a
+                </NavigationDrawer>
               </AmauiThemeProvider>
             </Accordion>
 
@@ -1333,7 +1658,7 @@ Please sign in again.`}
                 value={{
                   ui: {
                     elements: {
-                      AmauiModal: {
+                      AmauiNavigationDrawer: {
                         style: {
                           add: {
                             root: {
@@ -1348,42 +1673,15 @@ Please sign in again.`}
                   }
                 }}
               >
-                <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue(13)}>a</Button>
+                <NavigationDrawer
+                  open
 
-                <Modal
-                  open={a.modal === 13}
+                  color='secondary'
 
-                  onClose={() => updateValue()}
+                  version='standard'
                 >
-                  <ModalHeader>
-                    <ModalIcon><IconMaterialPottedPlantRounded /></ModalIcon>
-                    <ModalTitle>Basic modal title</ModalTitle>
-                  </ModalHeader>
-
-                  <ModalMain>
-                    <ModalText>
-                      A modal is type of window that appears in front of app content to provide critical information, or ask for a decision.
-                    </ModalText>
-                  </ModalMain>
-
-                  <ModalFooter>
-                    <Button
-                      version='text'
-
-                      tonal
-                    >
-                      Enabled
-                    </Button>
-
-                    <Button
-                      version='text'
-
-                      tonal
-                    >
-                      Enabled
-                    </Button>
-                  </ModalFooter>
-                </Modal>
+                  a
+                </NavigationDrawer>
               </AmauiThemeProvider>
             </Accordion>
 
@@ -1392,13 +1690,11 @@ Please sign in again.`}
                 value={{
                   ui: {
                     elements: {
-                      AmauiModal: {
+                      AmauiNavigationDrawer: {
                         style: {
                           override: {
                             root: {
-                              position: 'fixed',
-                              inset: 0,
-                              zIndex: 4000
+                              padding: 40
                             }
                           }
                         }
@@ -1407,42 +1703,15 @@ Please sign in again.`}
                   }
                 }}
               >
-                <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue(14)}>a</Button>
+                <NavigationDrawer
+                  open
 
-                <Modal
-                  open={a.modal === 14}
+                  color='secondary'
 
-                  onClose={() => updateValue()}
+                  version='standard'
                 >
-                  <ModalHeader>
-                    <ModalIcon><IconMaterialPottedPlantRounded /></ModalIcon>
-                    <ModalTitle>Basic modal title</ModalTitle>
-                  </ModalHeader>
-
-                  <ModalMain>
-                    <ModalText>
-                      A modal is type of window that appears in front of app content to provide critical information, or ask for a decision.
-                    </ModalText>
-                  </ModalMain>
-
-                  <ModalFooter>
-                    <Button
-                      version='text'
-
-                      tonal
-                    >
-                      Enabled
-                    </Button>
-
-                    <Button
-                      version='text'
-
-                      tonal
-                    >
-                      Enabled
-                    </Button>
-                  </ModalFooter>
-                </Modal>
+                  a
+                </NavigationDrawer>
               </AmauiThemeProvider>
             </Accordion>
 
@@ -1451,10 +1720,10 @@ Please sign in again.`}
                 value={{
                   ui: {
                     elements: {
-                      AmauiModal: {
+                      AmauiNavigationDrawer: {
                         props: {
                           default: {
-                            fullScreen: true
+                            color: 'secondary'
                           }
                         }
                       }
@@ -1462,82 +1731,24 @@ Please sign in again.`}
                   }
                 }}
               >
-                <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue(15)}>a</Button>
+                <NavigationDrawer
+                  open
 
-                <Modal
-                  open={a.modal === 15}
-
-                  onClose={() => updateValue()}
+                  version='standard'
                 >
-                  <ModalHeader>
-                    <ModalIcon><IconMaterialPottedPlantRounded /></ModalIcon>
-                    <ModalTitle>Basic modal title</ModalTitle>
-                  </ModalHeader>
-
-                  <ModalMain>
-                    <ModalText>
-                      A modal is type of window that appears in front of app content to provide critical information, or ask for a decision.
-                    </ModalText>
-                  </ModalMain>
-
-                  <ModalFooter>
-                    <Button
-                      version='text'
-
-                      tonal
-                    >
-                      Enabled
-                    </Button>
-
-                    <Button
-                      version='text'
-
-                      tonal
-                    >
-                      Enabled
-                    </Button>
-                  </ModalFooter>
-                </Modal>
+                  a
+                </NavigationDrawer>
               </AmauiThemeProvider>
             </Accordion>
 
             <Accordion primary='AmauiTheme styled' open>
-              <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue(17)}>a</Button>
+              <styled.NavigationDrawer
+                open
 
-              <styled.Modal
-                open={a.modal === 17}
-
-                onClose={() => updateValue()}
+                version='standard'
               >
-                <ModalHeader>
-                  <ModalIcon><IconMaterialPottedPlantRounded /></ModalIcon>
-                  <ModalTitle>Basic modal title</ModalTitle>
-                </ModalHeader>
-
-                <ModalMain>
-                  <ModalText>
-                    A modal is type of window that appears in front of app content to provide critical information, or ask for a decision.
-                  </ModalText>
-                </ModalMain>
-
-                <ModalFooter>
-                  <Button
-                    version='text'
-
-                    tonal
-                  >
-                    Enabled
-                  </Button>
-
-                  <Button
-                    version='text'
-
-                    tonal
-                  >
-                    Enabled
-                  </Button>
-                </ModalFooter>
-              </styled.Modal>
+                a
+              </styled.NavigationDrawer>
             </Accordion>
           </div>
         </Accordion>
@@ -19069,6 +19280,7 @@ Please sign in again.`}
                 primary='Primary text'
                 secondary='Secondary text'
                 tertiary='Tertiary text'
+
                 start={(
                   <IconButton color='secondary'>
                     <IconMaterialPottedPlantRounded />

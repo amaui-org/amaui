@@ -65,15 +65,15 @@ const useStyle = style(theme => ({
   },
 
   small: {
-    padding: `${theme.methods.space.value('sm') * 0.5}px ${theme.methods.space.value('rg') * 0.75}px`
+    padding: `${theme.methods.space.value('rg') * 0.5}px ${theme.methods.space.value('rg') * 0.75}px`
   },
 
   regular: {
-    padding: `${theme.methods.space.value('sm', 'px')} ${theme.methods.space.value('rg', 'px')}`
+    padding: `${theme.methods.space.value('rg', 'px')} ${theme.methods.space.value('rg', 'px')}`
   },
 
   large: {
-    padding: `${theme.methods.space.value('sm') * 1.5}px ${theme.methods.space.value('rg') * 1.25}px`
+    padding: `${theme.methods.space.value('rg') * 1.5}px ${theme.methods.space.value('rg') * 1.25}px`
   },
 
   menuItem_size_small: {
@@ -138,6 +138,10 @@ const useStyle = style(theme => ({
     opacity: 1
   },
 
+  text_primary_weight: {
+    fontWeight: 500
+  },
+
   text_secondary: {
     opacity: theme.palette.visual_contrast.default.opacity.primary
   },
@@ -166,7 +170,7 @@ const useStyle = style(theme => ({
   },
 
   start_icon: {
-    paddingInline: '8px 24px'
+    paddingInline: '0px 16px'
   },
 
   start_button: {
@@ -174,7 +178,7 @@ const useStyle = style(theme => ({
   },
 
   start_switch: {
-    paddingInline: '0 12px'
+    paddingInline: '0 16px'
   },
 
   menuItem_start_icon: {
@@ -182,26 +186,26 @@ const useStyle = style(theme => ({
   },
 
   menuItem_start_button: {
-    paddingInlineEnd: '8px'
+    paddingInlineEnd: '16px'
   },
 
   menuItem_start_switch: {
-    paddingInlineEnd: '6px'
+    paddingInlineEnd: '16px'
   },
 
   end_icon: {
     paddingInlineStart: '12px',
-    paddingInlineEnd: '24px'
+    paddingInlineEnd: '8px'
   },
 
   end_button: {
-    paddingInlineStart: '4px',
-    paddingInlineEnd: '16px'
+    paddingInlineStart: '12px',
+    paddingInlineEnd: '0'
   },
 
   end_switch: {
-    paddingInlineStart: '8px',
-    paddingInlineEnd: '8px'
+    paddingInlineStart: '12px',
+    paddingInlineEnd: '0'
   },
 
   menuItem_end_icon: {
@@ -209,11 +213,11 @@ const useStyle = style(theme => ({
   },
 
   menuItem_end_button: {
-    paddingInlineStart: '8px'
+    paddingInlineStart: '16px'
   },
 
   menuItem_end_switch: {
-    paddingInlineStart: '6px'
+    paddingInlineStart: '16px'
   },
 
   middle_disabled: {
@@ -672,7 +676,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
           {primary !== undefined && (
             is('simple', primary) ? (
               <Type
-                version={menuItem ? 'b2' : 'b1'}
+                version='b2'
 
                 className={classNames([
                   staticClassName('ListItem', theme) && [
@@ -682,7 +686,8 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
 
                   classes.text,
                   classes.text_primary,
-                  PrimaryProps?.className
+                  PrimaryProps?.className,
+                  !menuItem && classes.text_primary_weight
                 ])}
 
                 {...PrimaryProps}

@@ -61,6 +61,7 @@ const useStyle = style(theme => ({
     minWidth: `280px`,
     maxHeight: `calc(100% - ${theme.methods.space.value('xl') * 2}px)`,
     margin: theme.methods.space.value('xl', 'px'),
+    overflow: 'hidden',
     pointerEvents: 'all'
   },
 
