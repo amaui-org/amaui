@@ -400,11 +400,12 @@ const Buttons = React.forwardRef((props_: any, ref: any) => {
           border && `AmauiButtons-border`,
           vertical && `AmauiButtons-vertical`,
           fullWidth && `AmauiButtons-fullWidth`,
+          noCheckIcon && `AmauiButtons-noCheckIcon`,
           disabled && `AmauiButtons-disabled`,
         ],
 
-        classes.root,
         className,
+        classes.root,
         classes[`size_${size}`],
         chip && classes[`chip_size_${size}`],
         vertical && classes.vertical,

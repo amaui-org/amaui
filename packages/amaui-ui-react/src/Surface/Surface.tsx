@@ -426,7 +426,7 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
       className={classNames([
         staticClassName('Surface', theme) && [
           'AmauiSurface-root',
-          `AmauiSurface-color-${!theme.palette.color[color] && ['themed', 'inverse', 'default', 'inherit'].includes(color) ? 'new' : color}`,
+          `AmauiSurface-color-${!theme.palette.color[color] && !['themed', 'inverse', 'default', 'inherit'].includes(color) ? 'new' : color}`,
           `AmauiSurface-version-${version}`,
           tonal && `AmauiSurface-tonal`,
           elevation && `AmauiSurface-elevation-${elevation}`

@@ -85,9 +85,9 @@ const NavigationDrawer = React.forwardRef((props_: any, ref: any) => {
   const { classes } = useStyle(props);
 
   const {
-    version = 'modal',
     tonal = false,
     color = props.version === 'modal' ? 'themed' : 'default',
+    version = 'modal',
     direction: direction_ = 'left',
 
     className,
@@ -129,8 +129,8 @@ const NavigationDrawer = React.forwardRef((props_: any, ref: any) => {
       className={classNames([
         staticClassName('Modal', theme) && [
           'AmauiNavigationDrawer-root',
-          `AmauiNavigationDrawer-direction-${direction}`,
-          `AmauiNavigationDrawer-version-${version}`
+          `AmauiNavigationDrawer-version-${version}`,
+          `AmauiNavigationDrawer-direction-${direction}`
         ],
 
         className,

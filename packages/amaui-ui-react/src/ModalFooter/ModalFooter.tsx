@@ -22,7 +22,7 @@ const ModalFooter = React.forwardRef((props_: any, ref: any) => {
 
   const {
     className,
-    style = {},
+    style,
 
     children,
 

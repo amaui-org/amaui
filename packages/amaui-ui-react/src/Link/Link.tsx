@@ -172,8 +172,8 @@ const Link = React.forwardRef((props_: any, ref: any) => {
           focus && `AmauiLink-focus`
         ],
 
-        classes.root,
         className,
+        classes.root,
         classes[`color_${color}`],
         tonal && classes[`tonal_color_${color}`],
         underline === true && classes.underline,

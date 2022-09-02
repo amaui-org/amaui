@@ -273,7 +273,6 @@ const Button = React.forwardRef((props_: any, ref: any) => {
     color: color_ = 'primary',
     version = 'outlined',
     size = 'regular',
-    prefer = 'light',
     fullWidth,
     fontSize,
     selected,
@@ -285,7 +284,6 @@ const Button = React.forwardRef((props_: any, ref: any) => {
     elevation = true,
     backgroundOpacity,
     align = 'center',
-    label,
     IconWrapperComponent = 'span',
     IconWrapperProps = {},
     loading,
@@ -425,7 +423,6 @@ const Button = React.forwardRef((props_: any, ref: any) => {
 
     delete styles.root.color;
     delete styles.label.color;
-    delete styles.background.background;
   }
 
   const onFocus = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
@@ -471,6 +468,11 @@ const Button = React.forwardRef((props_: any, ref: any) => {
           startIcon && `AmauiButton-startIcon`,
           endIcon && `AmauiButton-endIcon`,
           selected && `AmauiButton-selected`,
+          loading && `AmauiButton-loading`,
+          icon && `AmauiButton-icon`,
+          fab && `AmauiButton-fab`,
+          chip && `AmauiButton-chip`,
+          noIconRootFontSize && `AmauiButton-noIconRootFontSize`,
           disabled && `AmauiButton-disabled`
         ],
 

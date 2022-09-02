@@ -513,7 +513,6 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
     startIconVerticalAlign = 'start',
     endIcon,
     endIconVerticalAlign = 'start',
-    visible,
     placeholder,
     valueDefault,
     value: value_,
@@ -783,13 +782,41 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
           staticClassName('TextField', theme) && [
             'AmauiTextField-root',
             `AmauiTextField-version-${version}`,
+            `AmauiSurface-color-${!theme.palette.color[color] && !['themed', 'inverse', 'default', 'inherit'].includes(color) ? 'new' : color}`,
             `AmauiTextField-size-${size}`,
             `AmauiTextField-icon-end-vertical-align-${endIconVerticalAlign}`,
             `AmauiTextField-icon-start-vertical-align-${startIconVerticalAlign}`,
-            fullWidth && !footer && 'AmauiTextField-fullWidth',
-            hover && `AmauiTextField-hover`,
+            value && 'AmauiTextField-value',
+            enabled && 'AmauiTextField-enabled',
+            hover && 'AmauiTextField-hover',
+            focus && 'AmauiTextField-focus',
             error && `AmauiTextField-error`,
-            !footer && disabled && 'AmauiTextField-disabled'
+            multiline && `AmauiTextField-multiline`,
+            placeholder && `AmauiTextField-placeholder`,
+            helperText && `AmauiTextField-helperText`,
+            prefix && `AmauiTextField-prefix`,
+            sufix && `AmauiTextField-sufix`,
+            autoFocus && `AmauiTextField-autoFocus`,
+            autoComplete && `AmauiTextField-autoComplete`,
+            counter && `AmauiTextField-counter`,
+            align && `AmauiTextField-align-${align}`,
+            theme.direction === 'rtl' ? 'AmauiTextField-direction-rtl' : 'AmauiTextFied-direction-ltr',
+            startIcon && 'AmauiTextField-icon-start',
+            startIconVerticalAlign && `AmauiTextField-icon-start-align-vertical-${startIconVerticalAlign}`,
+            endIcon && 'AmauiTextField-icon-end',
+            endIconVerticalAlign && `AmauiTextField-icon-end-align-vertical-${endIconVerticalAlign}`,
+            fullWidth && !footer && 'AmauiTextField-fullWidth',
+            noSufixMargin && 'AmauiTextField-sufix-no-margin',
+            noPrefixMargin && 'AmauiTextField-prefix-no-margin',
+            type && `AmauiTextField-type-${type}`,
+            tonal && 'AmauiTextField-tonal',
+            required && 'AmauiTextField-required',
+            optional && 'AmauiTextField-optional',
+            rows !== undefined && `AmauiTextField-rows-${rows}`,
+            minRows !== undefined && `AmauiTextField-minRows-${minRows}`,
+            maxRows !== undefined && `AmauiTextField-maxRows-${maxRows}`,
+            readOnly && `AmauiTextField-readOnly`,
+            disabled && 'AmauiTextField-disabled'
           ],
 
           className,
@@ -812,10 +839,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
           <span
             className={classNames([
               staticClassName('TextField', theme) && [
-                'AmauiTextField-background',
-                value && 'AmauiTextField-value',
-                hover && 'AmauiTextField-hover',
-                focus && 'AmauiTextField-focus'
+                'AmauiTextField-background'
               ],
 
               classes.background,
@@ -831,9 +855,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
           <span
             className={classNames([
               staticClassName('TextField', theme) && [
-                'AmauiTextField-border',
-                hover && 'AmauiTextField-hover',
-                focus && 'AmauiTextField-focus'
+                'AmauiTextField-border'
               ],
 
               classes.border,
@@ -848,10 +870,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
           <fieldset
             className={classNames([
               staticClassName('TextField', theme) && [
-                'AmauiTextField-fieldset',
-                value && 'AmauiTextField-value',
-                hover && 'AmauiTextField-hover',
-                focus && 'AmauiTextField-focus'
+                'AmauiTextField-fieldset'
               ],
 
               classes.fieldset,
@@ -863,9 +882,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
             <legend
               className={classNames([
                 staticClassName('TextField', theme) && [
-                  'AmauiTextField-legend',
-                  value && 'AmauiTextField-value',
-                  focus && 'AmauiTextField-focus'
+                  'AmauiTextField-legend'
                 ],
 
                 classes.legend,
@@ -883,13 +900,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
 
             className={classNames([
               staticClassName('TextField', theme) && [
-                'AmauiTextField-label',
-                `AmauiTextField-version-${version}`,
-                `AmauiTextField-size-${size}`,
-                focus && 'AmauiTextField-focus',
-                value && 'AmauiTextField-value',
-                theme.direction === 'rtl' && 'AmauiTextField-rtl',
-                startIcon && 'AmauiTextField-icon-start'
+                'AmauiTextField-label'
               ],
 
               classes.label,
@@ -914,10 +925,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
             className={classNames([
               staticClassName('TextField', theme) && [
                 'AmauiTextField-icon',
-                `AmauiTextField-version-${version}`,
-                'AmauiTextField-icon-start',
-                `AmauiTextField-size-${size}`,
-                `AmauiTextField-icon-start-vertical-align-${startIconVerticalAlign}`
+                'AmauiTextField-icon-start'
               ],
 
               classes.icon,
@@ -948,11 +956,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
             className={classNames([
               staticClassName('TextField', theme) && [
                 'AmauiTextField-addition',
-                'AmauiTextField-prefix',
-                `AmauiTextField-version-${version}`,
-                `AmauiTextField-size-${size}`,
-                (enabled || value || focus) && 'AmauiTextField-focus',
-                noPrefixMargin && 'AmauiTextField-prefix-no-margin'
+                'AmauiTextField-prefix'
               ],
 
               classes.addition,
@@ -975,13 +979,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
 
           className={classNames([
             staticClassName('TextField', theme) && [
-              'AmauiTextField-inputWrapper',
-              `AmauiTextField-version-${version}`,
-              `AmauiTextField-size-${size}`,
-              value && 'AmauiTextField-value',
-              focus && 'AmauiTextField-focus',
-              (prefix || startIcon) && `AmauiTextField-icon-start`,
-              (sufix || endIcon) && `AmauiTextField-icon-end`
+              'AmauiTextField-inputWrapper'
             ],
 
             classes.inputWrapper,
@@ -1015,10 +1013,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
 
             className={classNames([
               staticClassName('TextField', theme) && [
-                'AmauiTextField-input',
-                multiline && 'AmauiTextField-multiline',
-                value && 'AmauiTextField-value',
-                align && `AmauiTextField-align-${align}`
+                'AmauiTextField-input'
               ],
 
               classes.input,
@@ -1058,8 +1053,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
             className={classNames([
               staticClassName('TextField', theme) && [
                 'AmauiTextField-addition',
-                'AmauiTextField-sufix',
-                noPrefixMargin && 'AmauiTextField-sufix-no-margin'
+                'AmauiTextField-sufix'
               ],
 
               classes.addition,

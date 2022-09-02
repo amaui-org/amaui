@@ -91,9 +91,9 @@ const Radio = React.forwardRef((props_: any, ref: any) => {
 
   const {
     tonal,
-    version = 'text',
     color = 'primary',
     colorUnchecked = 'default',
+    version = 'text',
     valueDefault,
     value,
     onChange,
@@ -154,7 +154,8 @@ const Radio = React.forwardRef((props_: any, ref: any) => {
       className={classNames([
         staticClassName('Radio', theme) && [
           'AmauiRadio-root',
-          `AmauiRadio-color-unchecked-${!theme.palette.color[colorUnchecked] && colorUnchecked !== 'default' ? 'new' : colorUnchecked}`,
+          `AmauiRadio-color-unchecked-${!theme.palette.color[colorUnchecked] && !['themed', 'inverse', 'default', 'inherit'].includes(colorUnchecked) ? 'new' : colorUnchecked}`,
+          checked && `AmauiRadio-checked`
         ],
 
         className,
@@ -182,9 +183,7 @@ const Radio = React.forwardRef((props_: any, ref: any) => {
         className={classNames([
           staticClassName('Radio', theme) && [
             'AmauiRadio-icon',
-            'AmauiRadio-iconBox',
-            `AmauiRadio-version-${version}`,
-            disabled && `AmauiRadio-disabled`
+            'AmauiRadio-iconBox'
           ],
 
           classes.icon,
@@ -202,8 +201,7 @@ const Radio = React.forwardRef((props_: any, ref: any) => {
         className={classNames([
           staticClassName('Radio', theme) && [
             'AmauiRadio-icon',
-            'AmauiRadio-iconDot',
-            checked && `AmauiRadio-checked`
+            'AmauiRadio-iconDot'
           ],
 
           classes.icon,

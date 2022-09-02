@@ -35,8 +35,8 @@ const Fab = React.forwardRef((props_: any, ref: any) => {
           'AmauiFab-root'
         ],
 
-        classes.root,
-        className
+        className,
+        classes.root
       ])}
 
       version={version}

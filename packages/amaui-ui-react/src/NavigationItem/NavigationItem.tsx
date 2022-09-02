@@ -131,8 +131,8 @@ const NavigationItem = React.forwardRef((props_: any, ref: any) => {
   const { classes } = useStyle(props);
 
   const {
-    color = 'primary',
     tonal = true,
+    color = 'primary',
     version = 'regular',
     vertical,
     label,
@@ -320,7 +320,14 @@ const NavigationItem = React.forwardRef((props_: any, ref: any) => {
         className={classNames([
           staticClassName('NavigationItem', theme) && [
             'AmauiNavigationItem-root',
+            `AmauiNavigationItem-version-${version}`,
+            `AmauiNavigationItem-color-${!theme.palette.color[color] && !['themed', 'inverse', 'default', 'inherit'].includes(color) ? 'new' : color}`,
+            label && 'AmauiNavigationItem-label',
+            icon && 'AmauiNavigationItem-icon',
+            iconSelected && 'AmauiNavigationItem-iconSelected',
+            selected && 'AmauiNavigationItem-selected',
             vertical && 'AmauiNavigationItem-vertical',
+            tonal && `AmauiNavigationItem-tonal`,
             disabled && `AmauiNavigationItem-disabled`
           ],
 

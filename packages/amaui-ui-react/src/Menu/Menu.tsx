@@ -221,11 +221,18 @@ const Menu = React.forwardRef((props_: any, ref: any) => {
 
         className={classNames([
           staticClassName('Menu', theme) && [
-            'AmauiMenu-root'
+            'AmauiMenu-root',
+            open && `AmauiMenu-open`,
+            arrow && `AmauiMenu-arrow`,
+            anchorElement && `AmauiMenu-anchorElement`,
+            closeOnClickAway && `AmauiMenu-closeOnClickAway`,
+            resetKeyboardNavigation && `AmauiMenu-resetKeyboardNavigation`,
+            autoSelect && `AmauiMenu-autoSelect`,
+            autoSelectOnBlur && `AmauiMenu-autoSelectOnBlur`
           ],
 
-          classes.root,
-          className
+          className,
+          classes.root
         ])}
 
         onMouseLeave={onMouseLeave}

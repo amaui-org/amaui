@@ -3,7 +3,7 @@ import React from 'react';
 import { is } from '@amaui/utils';
 import { useAmauiTheme } from '@amaui/style-react';
 
-const resolve = value => value.replace(/^on/, '').toLowerCase();
+const resolve = (value: string) => value.replace(/^on/, '').toLowerCase();
 
 const ClickListener = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();

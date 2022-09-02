@@ -25,7 +25,7 @@ const ModalHeader = React.forwardRef((props_: any, ref: any) => {
     align,
 
     className,
-    style = {},
+    style,
 
     children,
 
@@ -44,7 +44,8 @@ const ModalHeader = React.forwardRef((props_: any, ref: any) => {
 
       className={classNames([
         staticClassName('ModalHeader', theme) && [
-          'AmauiModalHeader-root'
+          'AmauiModalHeader-root',
+          align && `AmauiModalHeader-align-${align}`
         ],
 
         className,

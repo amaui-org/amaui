@@ -457,7 +457,18 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
                 `AmauiTooltip-maxWidth-${maxWidth}`,
                 `AmauiTooltip-position-${position}`,
                 `AmauiTooltip-alignment-${alignment}`,
-                fullWidth && `AmauiButton-fullWidth`
+                switch_ && `AmauiButton-switch`,
+                portal && `AmauiButton-portal`,
+                anchorElement && `AmauiButton-anchorElement`,
+                fullWidth && `AmauiButton-fullWidth`,
+                follow && 'AmauiTooltip-follow',
+                touch && 'AmauiTooltip-touch',
+                longPress && 'AmauiTooltip-longPress',
+                hover && 'AmauiTooltip-hover',
+                focus && 'AmauiTooltip-focus',
+                inset && 'AmauiTooltip-inset',
+                noMargin && 'AmauiTooltip-noMargin',
+                arrow && `AmauiTooltip-arrow`
               ],
 
               className,
@@ -489,8 +500,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
               <div
                 className={classNames([
                   staticClassName('Tooltip', theme) && [
-                    'AmauiTooltip-labelRoot',
-                    noMargin && 'AmauiTooltip-labelRoot'
+                    'AmauiTooltip-labelRoot'
                   ],
 
                   classes.labelRoot,
@@ -510,8 +520,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
 
                     className={classNames([
                       staticClassName('Tooltip', theme) && [
-                        'AmauiTooltip-label',
-                        arrow && `AmauiTooltip-arrow`
+                        'AmauiTooltip-label'
                       ],
 
                       classes.label,

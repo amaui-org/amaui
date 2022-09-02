@@ -140,17 +140,15 @@ const Select = React.forwardRef((props_: any, ref: any) => {
     startIcon,
     endIcon,
     autoWidth,
-    readOnly,
     getLabel,
     renderValues: renderValues_,
     chip,
     onChange,
-
-    disabled,
-
+    readOnly,
     ChipGroupProps = {},
     ListProps = {},
     MenuProps = {},
+    disabled,
 
     className,
     style,
@@ -431,9 +429,9 @@ const Select = React.forwardRef((props_: any, ref: any) => {
         staticClassName('Select', theme) && [
           'AmauiSelect-root',
           open && `AmauiSelect-open`,
-          chip && `AmauiSelect-chip`,
-          readOnly && `AmauiSelect-readOnly`,
-          disabled && `AmauiSelect-disabled`
+          multiple && `AmauiSelect-multiple`,
+          autoWidth && `AmauiSelect-autoWidth`,
+          chip && `AmauiSelect-chip`
         ],
 
         className,
@@ -467,11 +465,7 @@ const Select = React.forwardRef((props_: any, ref: any) => {
       InputWrapperProps={{
         className: classNames([
           staticClassName('Select', theme) && [
-            'AmauiSelect-inputWrapper',
-            `AmauiSelect-size-${size}`,
-            chip && `AmauiSelect-chip`,
-            open && `AmauiSelect-open`,
-            readOnly && `AmauiSelect-readOnly`
+            'AmauiSelect-inputWrapper'
           ],
 
           classes.inputWrapper,

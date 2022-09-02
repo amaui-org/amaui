@@ -42,10 +42,10 @@ const Chip = React.forwardRef((props_: any, ref: any) => {
     onSelected,
     onUnselected,
     tonal = false,
-    version = 'outlined',
     color = 'default',
-    startIcon,
+    version = 'outlined',
     selected: selected_,
+    startIcon,
     focus,
 
     className,
@@ -130,8 +130,8 @@ const Chip = React.forwardRef((props_: any, ref: any) => {
           selected && `AmauiChip-selected`
         ],
 
-        classes.root,
-        className
+        className,
+        classes.root
       ])}
 
       onClick={(event: React.MouseEvent<any>) => {

@@ -916,8 +916,17 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
         staticClassName('Slider', theme) && [
           'AmauiSlider-root',
           `AmauiSlider-orientation-${orientation}`,
-          `AmauiSlider-color-${!classes[color] ? 'new' : color}`,
+          `AmauiSlider-color-${!theme.palette.color[color] && !['themed', 'inverse', 'default', 'inherit'].includes(color) ? 'new' : color}`,
           tonal && `AmauiSlider-tonal`,
+          marks && `AmauiSlider-marks`,
+          min && `AmauiSlider-min`,
+          max && `AmauiSlider-max`,
+          precision && `AmauiSlider-precision`,
+          tooltip && `AmauiSlider-tooltip`,
+          onlyMarks && `AmauiSlider-onlyMarks`,
+          noTrack && `AmauiSlider-noTrack`,
+          noButtons && `AmauiSlider-noButtons`,
+          inverted && `AmauiSlider-inverted`,
           square && `AmauiSlider-square`,
           readOnly && `AmauiSlider-readOnly`,
           disabled && `AmauiSlider-disabled`

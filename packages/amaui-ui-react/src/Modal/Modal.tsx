@@ -111,9 +111,9 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
     tonal = true,
     color = 'primary',
     size = 'regular',
+    maxWidth: maxWidth_ = 'rg',
     fullScreen,
     fullWidth,
-    maxWidth: maxWidth_ = 'rg',
     background = true,
     modalWrapper = true,
     portal = true,
@@ -285,9 +285,19 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
         className={classNames([
           staticClassName('Modal', theme) && [
             'AmauiModal-root',
+            `AmauiModal-size-${size}`,
             `AmauiModal-maxWidth-${maxWidth}`,
+            open && `AmauiButton-open`,
             fullScreen && `AmauiButton-fullScreen`,
-            fullWidth && `AmauiButton-fullWidth`
+            fullWidth && `AmauiButton-fullWidth`,
+            background && `AmauiButton-background`,
+            modalWrapper && `AmauiButton-modalWrapper`,
+            portal && `AmauiButton-portal`,
+            focus && `AmauiButton-focus`,
+            freezeScroll && `AmauiButton-freezeScroll`,
+            disableKeyboardClose && `AmauiButton-disableKeyboardClose`,
+            disableBackgroundClose && `AmauiButton-disableBackgroundClose`,
+            backgroundInvisible && 'AmauiModal-background-invisible'
           ],
 
           className,
@@ -311,8 +321,7 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
               <div
                 className={classNames([
                   staticClassName('Modal', theme) && [
-                    'AmauiModal-background',
-                    backgroundInvisible && 'AmauiModal-background-invisible'
+                    'AmauiModal-background'
                   ],
 
                   classes.background,

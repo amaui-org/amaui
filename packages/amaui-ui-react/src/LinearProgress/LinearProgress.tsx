@@ -262,13 +262,14 @@ const LinearProgress = React.forwardRef((props_: any, ref: any) => {
   const { classes } = useStyle(props);
 
   const {
-    className,
     tonal,
     color = 'primary',
     version = 'indeterminate',
     buffer,
     value,
     reverse: reverse_,
+
+    className,
 
     ...other
   } = props;
@@ -323,6 +324,7 @@ const LinearProgress = React.forwardRef((props_: any, ref: any) => {
           `AmauiLinearProgress-version-${version}`,
           `AmauiLinearProgress-color-${!theme.palette.color[color] && !['themed', 'inverse', 'default', 'inherit'].includes(color) ? 'new' : color}`,
           tonal && `AmauiLinearProgress-tonal`,
+          buffer && `AmauiLinearProgress-buffer`,
           reverse && `AmauiLinearProgress-reverse`
         ],
 
@@ -341,8 +343,7 @@ const LinearProgress = React.forwardRef((props_: any, ref: any) => {
         <div
           className={classNames([
             staticClassName('LinearProgress', theme) && [
-              'AmauiLinearProgress-bufferDots',
-              reverse && `AmauiLinearProgress-reverse`
+              'AmauiLinearProgress-bufferDots'
             ],
 
             classes.bufferDots,

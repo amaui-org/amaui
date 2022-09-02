@@ -101,8 +101,8 @@ const Grid = React.forwardRef((props_: any, ref: any) => {
     direction: direction_ = 'row',
     columns = 10,
     gap: gap_ = 2,
-    columnGap: columnGap_,
     rowGap: rowGap_,
+    columnGap: columnGap_,
     offsets,
     values,
 
@@ -180,7 +180,14 @@ const Grid = React.forwardRef((props_: any, ref: any) => {
       className={classNames([
         staticClassName('Grid', theme) && [
           'AmauiGrid-root',
-          auto && 'AmauiGrid-root-auto'
+          `AmauiGrid-wrap-${wrap}`,
+          `AmauiGrid-direction-${direction}`,
+          `AmauiGrid-columns-${columns}`,
+          `AmauiGrid-gap-${gap}`,
+          line && 'AmauiGrid-root-line',
+          auto && 'AmauiGrid-root-auto',
+          rowGap !== undefined && 'AmauiGrid-rowGap-${rowGap',
+          columnGap !== undefined && 'AmauiGrid-columnGap-${columnGap'
         ],
 
         className,

@@ -96,16 +96,16 @@ const Icon = React.forwardRef((props_: any, ref: any) => {
         staticClassName('Icon', theme) && [
           'AmauiIcon-root',
           `AmauiIcon-color-${!theme.palette.color[color] && !['themed', 'inverse', 'default', 'inherit'].includes(color) ? 'new' : color}`,
-          is('string', size) && `AmauiIcon-size-${size}`,
+          `AmauiIcon-size-${size}`,
           tonal && `AmauiButton-tonal`,
-          (rtl && isRtlIcon) && 'AmauiIcon-rtl',
+          (rtl && isRtlIcon) ? 'AmauiIcon-direction-rtl' : 'AmauiIcon-direction-ltr',
           disabled && `AmauiIcon-disabled`
         ],
 
-        classes.root,
         className,
-        disabled && classes.disabled,
-        (rtl && isRtlIcon) && classes.rtl
+        classes.root,
+        (rtl && isRtlIcon) && classes.rtl,
+        disabled && classes.disabled
       ])}
 
       // Default '0 0 24 24' for material icons

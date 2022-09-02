@@ -446,12 +446,16 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
         staticClassName('Rating', theme) && [
           'AmauiRating-root',
           `AmauiRating-color-${!theme.palette.color[color] && !['themed', 'inverse', 'default', 'inherit'].includes(color) ? 'new' : color}`,
-          is('string', size) && `AmauiRating-size-${size}`,
-          tonal && `AmauiButton-tonal`,
+          `AmauiRating-color-inactive-${!theme.palette.color[colorInactive] && !['themed', 'inverse', 'default', 'inherit'].includes(colorInactive) ? 'new' : color}`,
+          `AmauiRating-size-${size}`,
+          values && `AmauiButton-values`,
+          precision && `AmauiButton-precision`,
           focus && [
             `AmauiButton-focus`,
             [undefined, 0].includes(value) && `AmauiButton-focus-noValue`
           ],
+          tonal && `AmauiButton-tonal`,
+          onlyValue && `AmauiButton-onlyValue`,
           readOnly && `AmauiRating-readOnly`,
           disabled && `AmauiRating-disabled`
         ],

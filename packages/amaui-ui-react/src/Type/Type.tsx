@@ -121,8 +121,8 @@ const Type = React.forwardRef((props_: any, ref: any) => {
           disabled && `AmauiType-disabled`
         ],
 
-        classes.root,
         className,
+        classes.root,
         classes[`version_${version}`],
         classes[`color_${color}`],
         disabled && classes.disabled
