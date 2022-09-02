@@ -22,6 +22,10 @@ export interface IResponseUseSwipe {
 
 // transition duration is 300 regular, or less depending on swiper acceleration
 
+// response value is how much % it's moved
+
+// make backgroud more transparent as well value y
+
 const useSwipe = (element: HTMLElement, options: IOptionsUseSwipe = {}) => {
   const [response, setResponse] = React.useState<IResponseUseSwipe>();
   const [touch, setTouch] = React.useState<TouchEvent | Boolean>(false);
@@ -49,12 +53,18 @@ const useSwipe = (element: HTMLElement, options: IOptionsUseSwipe = {}) => {
 
   // Watch
   React.useEffect(() => {
+    const onTouchMoveMethod = (event: any) => {
+      // Workaround for proper element for touchmove
+      if (document.elementFromPoint(event.touches[0].clientX, event.touches[0].clientY) === element) onTouchMove(event);
+    };
+
     if (element) {
       refs.rect.current = element.getBoundingClientRect();
 
       element.addEventListener('touchstart', onTouchStart);
       element.addEventListener('touchend', onTouchEnd);
-      element.addEventListener('touchmove', onTouchMove);
+
+      window.document.addEventListener('touchmove', onTouchMoveMethod);
     }
 
     return () => {
@@ -62,12 +72,13 @@ const useSwipe = (element: HTMLElement, options: IOptionsUseSwipe = {}) => {
       if (element) {
         element.addEventListener('touchstart', onTouchStart);
         element.addEventListener('touchend', onTouchEnd);
-        element.addEventListener('touchmove', onTouchMove);
+
+        window.document.addEventListener('touchmove', onTouchMoveMethod);
       }
     };
   }, [element]);
-  console.log(1, refs.rect.current, touch);
 
+  console.log(1, refs.rect.current, touch);
   return response;
 };
 
