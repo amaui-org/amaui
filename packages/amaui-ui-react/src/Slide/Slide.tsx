@@ -156,6 +156,7 @@ const Slide = React.forwardRef((props_: any, ref: any) => {
       {...props}
     >
       {(status: TTransitionStatus, ref_) => {
+        console.log(status);
         return React.cloneElement(children, {
           ...other,
 
@@ -165,6 +166,8 @@ const Slide = React.forwardRef((props_: any, ref: any) => {
             if (ref) ref.current = item;
 
             if (ref_) ref_.current = item;
+
+            if (children.ref) children.ref.current = item;
           },
 
           style: {

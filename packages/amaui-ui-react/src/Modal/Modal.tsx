@@ -111,7 +111,7 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
     open: open_,
     openDefault,
     partialyOpened,
-
+    mainRef,
     tonal = true,
     color = 'primary',
     size = 'regular',
@@ -126,7 +126,6 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
     disableKeyboardClose,
     disableBackgroundClose,
     backgroundInvisible,
-
     BackgroundComponent = Fade,
     BackgroundProps = {},
 
@@ -202,10 +201,12 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
     if (open) refs.focus.current?.focus();
   }, [open]);
 
-  const onExited = () => {
+  const onExited = (value: any) => {
     setOpen(false);
 
     modal.close();
+
+    if (is('function', TransitionComponentProps?.onExited)) TransitionComponentProps?.onExited(value);
   };
 
   if (!open && !partialyOpened) return null;
@@ -242,13 +243,15 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
       <TransitionComponent
         in={inProp}
 
+        {...TransitionComponentProps}
+
         onExited={onExited}
 
         add
-
-        {...TransitionComponentProps}
       >
         <Surface
+          ref={mainRef}
+
           tonal={tonal}
 
           color={color}

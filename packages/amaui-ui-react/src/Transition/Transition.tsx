@@ -217,7 +217,7 @@ function Transition(props_: IProps) {
 
   React.useEffect(() => {
     if (status === STATUS.exited && removeOnExited) {
-      setStatus('removed');
+      updateStatus('removed');
 
       // Subscriptions
       subs.current.status.emit('removed');
@@ -270,7 +270,7 @@ function Transition(props_: IProps) {
         return await exit(status_);
 
       case 'exited':
-        return updateStatus(removeOnExited ? 'removed' : status_);
+        return updateStatus(status_);
 
       default:
         return updateStatus(status_);

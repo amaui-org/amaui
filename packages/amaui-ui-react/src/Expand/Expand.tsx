@@ -130,7 +130,7 @@ const Expand = React.forwardRef((props_: any, ref: any) => {
 
   const timingFunction = status => (is('simple', timing_function) ? timing_function : timing_function[status]) || theme.transitions.timing_function.standard;
 
-  const children_ = React.useMemo(() => <Wrapper {...WrapperProps}>{children}</Wrapper>, [children]);
+  const children_: any = React.useMemo(() => <Wrapper {...WrapperProps}>{children}</Wrapper>, [children]);
 
   return (
     <Transition
@@ -162,6 +162,8 @@ const Expand = React.forwardRef((props_: any, ref: any) => {
             if (ref) ref.current = item;
 
             if (ref_) ref_.current = item;
+
+            if (children_.ref) children_.ref.current = item;
           },
 
           style: {

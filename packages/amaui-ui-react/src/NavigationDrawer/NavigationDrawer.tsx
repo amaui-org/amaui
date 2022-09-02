@@ -6,6 +6,8 @@ import Modal from '../Modal';
 import Slide from '../Slide';
 
 import { staticClassName } from '../utils';
+import useSwipe from '../useSwipe';
+import { IOptionsUseSwipe, IResponseUseSwipe } from '../useSwipe/useSwipe';
 
 const useStyle = style(theme => ({
   root: {
@@ -77,19 +79,16 @@ const useStyle = style(theme => ({
 
 // swipe
 
-// vertical
-// horizontal
-
-// and for both have min, max and checkpoints to move between
-// - touch move goes through checkpoints, within min, max (width, height)
-// - swipe, or touchEnd move from checkpoint to checkpoint only if >50% of checkpoints difference previous, otherwise go to next
-
-// transition duration is 300 regular, or less depending on swiper acceleration
-
 const NavigationDrawer = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiNavigationDrawer?.props?.default }), [props_]);
+
+  const [entered, setEntered] = React.useState(false);
+
+  const refs = {
+    modal: React.useRef<HTMLElement>()
+  };
 
   const { classes } = useStyle(props);
 
@@ -99,6 +98,7 @@ const NavigationDrawer = React.forwardRef((props_: any, ref: any) => {
     version = 'modal',
     direction: direction_ = 'left',
     removeOnExited,
+    swipe = true,
     min,
 
     TransitionComponentProps = {},
@@ -111,6 +111,39 @@ const NavigationDrawer = React.forwardRef((props_: any, ref: any) => {
   } = props;
 
   let direction = direction_;
+
+  if (theme.direction === 'rtl') {
+    if (direction === 'left') direction = 'right';
+    else if (direction === 'right') direction = 'left';
+  }
+
+  let swipeValue: IResponseUseSwipe;
+
+  if (swipe) {
+    const swipeOptions: IOptionsUseSwipe = {};
+
+    if (direction === 'top') {
+      swipeOptions.min = min !== undefined ? min : 'top';
+      swipeOptions.max = 'bottom';
+    }
+
+    if (direction === 'left') {
+      swipeOptions.min = min !== undefined ? min : 'left';
+      swipeOptions.max = 'right';
+    }
+
+    if (direction === 'right') {
+      swipeOptions.min = min !== undefined ? min : 'right';
+      swipeOptions.max = 'left';
+    }
+
+    if (direction === 'bottom') {
+      swipeOptions.min = min !== undefined ? min : 'bottom';
+      swipeOptions.max = 'top';
+    }
+
+    swipeValue = useSwipe(refs.modal.current, swipeOptions);
+  }
 
   if (version === 'standard') {
     other.portal = other.portal !== undefined ? other.portal : false;
@@ -131,15 +164,12 @@ const NavigationDrawer = React.forwardRef((props_: any, ref: any) => {
     TransitionComponentProps.exitOnAdd = TransitionComponentProps.exitOnAdd !== undefined ? TransitionComponentProps.exitOnAdd : true;
     TransitionComponentProps.min = TransitionComponentProps.min !== undefined ? TransitionComponentProps.min : min;
   }
-
-  if (theme.direction === 'rtl') {
-    if (direction === 'left') direction = 'right';
-    else if (direction === 'right') direction = 'left';
-  }
-
+  console.log(0, refs.modal.current, entered);
   return (
     <Modal
       ref={ref}
+
+      mainRef={refs.modal}
 
       partialyOpened={min !== undefined}
 
@@ -148,6 +178,12 @@ const NavigationDrawer = React.forwardRef((props_: any, ref: any) => {
       color={color}
 
       TransitionComponentProps={{
+        onAdded: () => setEntered(true),
+
+        onEntered: () => setEntered(true),
+
+        onExited: () => setEntered(false),
+
         ...TransitionComponentProps
       }}
 

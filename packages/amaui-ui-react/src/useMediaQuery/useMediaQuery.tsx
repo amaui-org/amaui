@@ -5,7 +5,7 @@ const useMediaQuery = (props: any) => {
   const [mediaQuery, setMediaQuery] = React.useState<MediaQueryList>(window.matchMedia(media));
   const [response, setResponse] = React.useState<MediaQueryList | MediaQueryListEvent>(mediaQuery);
 
-  const method = (event: MediaQueryListEvent) => setResponse(event);
+  const method = React.useCallback((event: MediaQueryListEvent) => setResponse(event), []);
 
   // Watch
   React.useEffect(() => {

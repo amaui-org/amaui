@@ -91,25 +91,29 @@ const Zoom = React.forwardRef((props_: any, ref: any) => {
     <Transition
       {...props}
     >
-      {(status: TTransitionStatus, ref_) => React.cloneElement(children, {
-        ...other,
+      {(status: TTransitionStatus, ref_) => {
+        return React.cloneElement(children, {
+          ...other,
 
-        ref: item => {
-          if (ref) ref.current = item;
+          ref: item => {
+            if (ref) ref.current = item;
 
-          if (ref_) ref_.current = item;
-        },
+            if (ref_) ref_.current = item;
 
-        style: {
-          visibility: status === 'exited' && !inProp ? 'hidden' : undefined,
+            if (children.ref) children.ref.current = item;
+          },
 
-          transition: `transform ${timeout(status, 'transform')} ${timingFunction(status)}`,
+          style: {
+            visibility: status === 'exited' && !inProp ? 'hidden' : undefined,
 
-          ...(styles[status] || {}),
+            transition: `transform ${timeout(status, 'transform')} ${timingFunction(status)}`,
 
-          ...(children?.props?.style || {}),
-        }
-      })}
+            ...(styles[status] || {}),
+
+            ...(children?.props?.style || {}),
+          }
+        });
+      }}
     </Transition>
   );
 });

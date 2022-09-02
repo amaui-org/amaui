@@ -100,25 +100,29 @@ const Grow = React.forwardRef((props_: any, ref: any) => {
     <Transition
       {...props}
     >
-      {(status: TTransitionStatus, ref_) => React.cloneElement(children, {
-        ...other,
+      {(status: TTransitionStatus, ref_) => {
+        return React.cloneElement(children, {
+          ...other,
 
-        ref: item => {
-          if (ref) ref.current = item;
+          ref: item => {
+            if (ref) ref.current = item;
 
-          if (ref_) ref_.current = item;
-        },
+            if (ref_) ref_.current = item;
 
-        style: {
-          visibility: status === 'exited' && !inProp ? 'hidden' : undefined,
+            if (children.ref) children.ref.current = item;
+          },
 
-          transition: `opacity ${timeout(status)} ${timingFunction(status)}, transform ${timeout(status, 'transform')} ${timingFunction(status)} ${status === 'exiting' ? '74ms' : '0ms'}`,
+          style: {
+            visibility: status === 'exited' && !inProp ? 'hidden' : undefined,
 
-          ...(styles[status] || {}),
+            transition: `opacity ${timeout(status)} ${timingFunction(status)}, transform ${timeout(status, 'transform')} ${timingFunction(status)} ${status === 'exiting' ? '74ms' : '0ms'}`,
 
-          ...(children?.props?.style || {}),
-        }
-      })}
+            ...(styles[status] || {}),
+
+            ...(children?.props?.style || {}),
+          }
+        });
+      }}
     </Transition>
   );
 });
