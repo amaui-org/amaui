@@ -86,7 +86,6 @@ const useStyle = style(theme => ({
 
 // transition duration is 300 regular, or less depending on swiper acceleration
 
-
 const NavigationDrawer = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 
