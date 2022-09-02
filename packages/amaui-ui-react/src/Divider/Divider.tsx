@@ -63,24 +63,24 @@ const useStyle = style(theme => ({
   },
 
   // Orientation
-  rootWithChildren_horizontal: {
+  rootWithChildren_orientationn_horizontal: {
     flexDirection: 'row',
     alignItems: 'center',
     width: '100%'
   },
 
-  rootWithChildren_horizontal_middle: {
+  rootWithChildren_orientationn_horizontal_middle: {
     margin: `0 16px`,
     width: `calc(100% - 32px)`
   },
 
-  rootWithChildren_vertical: {
+  rootWithChildren_orientationn_vertical: {
     flexDirection: 'column',
     alignItems: 'center',
     height: '100%'
   },
 
-  rootWithChildren_vertical_middle: {
+  rootWithChildren_orientationn_vertical_middle: {
     margin: `16px 0`,
     height: `calc(100% - 32px)`
   },
@@ -197,16 +197,17 @@ const Divider = React.forwardRef((props_: any, ref: any) => {
           inset && `AmauiDivider-inset`,
           middle && `AmauiDivider-middle`,
           padding && `AmauiDivider-padding`,
+          children && `AmauiDivider-children`,
           tonal && `AmauiDivider-tonal`
         ],
 
         className,
         classes[children ? 'rootWithChildren' : 'root'],
         classes[color],
-        classes[`${children ? 'rootWithChildren_' : ''}${orientation}`],
+        classes[`${children ? 'rootWithChildren_' : ''}orientation_${orientation}`],
         flex && classes.flex,
         inset && classes.inset,
-        middle && classes[`${children ? `rootWithChildren_` : ''}${orientation}_middle`],
+        middle && classes[`${children ? `rootWithChildren_` : ''}orientation_${orientation}_middle`],
         padding && classes[`orientation_${orientation}_padding`]
       ])}
 

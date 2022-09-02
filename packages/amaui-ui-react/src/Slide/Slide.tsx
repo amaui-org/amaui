@@ -17,6 +17,7 @@ const Slide = React.forwardRef((props_: any, ref: any) => {
   const {
     in: inProp,
     root,
+    min = 0,
     direction = 'down',
     prefix,
     run,
@@ -50,7 +51,7 @@ const Slide = React.forwardRef((props_: any, ref: any) => {
     ...other
   } = props;
 
-  const translate = () => {
+  const translate = (useMin = false) => {
     const rect = refs.root?.current?.getBoundingClientRect();
 
     const h = root ? root.offsetHeight : window.innerHeight;
@@ -61,13 +62,17 @@ const Slide = React.forwardRef((props_: any, ref: any) => {
     const right = root ? refs.root.current?.offsetLeft + refs.root.current?.offsetWidth : rect?.right;
     const bottom = root ? refs.root.current?.offsetTop + refs.root.current?.offsetHeight : rect?.bottom;
 
-    if (direction === 'top') return `translate(0, -${bottom !== undefined ? bottom + 'px' : '100vh'})`;
+    let toAdd = 0;
 
-    if (direction === 'left') return `translate(-${right !== undefined ? right + 'px' : '100vw'}, 0)`;
+    if (min !== undefined && useMin) toAdd = min;
 
-    if (direction === 'right') return `translate(${left !== undefined ? w - left + 'px' : '100vw'}, 0)`;
+    if (direction === 'top') return `translate(0, ${bottom !== undefined ? (bottom * -1) + toAdd + 'px' : '-100vh'})`;
 
-    if (direction === 'bottom') return `translate(0, ${top !== undefined ? Math.abs(h - top) + 'px' : '100vh'})`;
+    if (direction === 'left') return `translate(${right !== undefined ? (right * -1) + toAdd + 'px' : '-100vw'}, 0)`;
+
+    if (direction === 'right') return `translate(${left !== undefined ? Math.abs(w - left) - toAdd + 'px' : '100vw'}, 0)`;
+
+    if (direction === 'bottom') return `translate(0, ${top !== undefined ? Math.abs(h - top) - toAdd + 'px' : '100vh'})`;
   };
 
   const styles = (status: TTransitionStatus) => {
@@ -75,7 +80,14 @@ const Slide = React.forwardRef((props_: any, ref: any) => {
 
     const transform = refs.root.current && window.getComputedStyle(refs.root?.current).transform;
 
+    const translateValueMin = translate(true);
     const translateValue = translate();
+
+    const other: any = {};
+
+    if (min === undefined) {
+      other.visibility = 'hidden';
+    }
 
     const allStyles = {
       appended: {
@@ -84,9 +96,10 @@ const Slide = React.forwardRef((props_: any, ref: any) => {
 
       add: {
         transition: 'none',
-        visibility: 'hidden',
 
-        transform: translateValue
+        transform: translateValue,
+
+        ...other
       },
       adding: {
         transform: 'translate(0, 0)'
@@ -97,9 +110,10 @@ const Slide = React.forwardRef((props_: any, ref: any) => {
 
       enter: {
         transition: 'none',
-        visibility: 'hidden',
 
-        transform: translateValue
+        transform: translateValue,
+
+        ...other
       },
       entering: {
         transform: 'translate(0, 0)',
@@ -112,11 +126,12 @@ const Slide = React.forwardRef((props_: any, ref: any) => {
         transform: 'none'
       },
       exiting: {
-        transform: translateValue
+        transform: translateValueMin
       },
       exited: {
         transform,
-        visibility: 'hidden'
+
+        ...other
       }
     };
 
@@ -140,25 +155,27 @@ const Slide = React.forwardRef((props_: any, ref: any) => {
 
       {...props}
     >
-      {(status: TTransitionStatus, ref_) => React.cloneElement(children, {
-        ...other,
+      {(status: TTransitionStatus, ref_) => {
+        return React.cloneElement(children, {
+          ...other,
 
-        ref: item => {
-          refs.root.current = item;
+          ref: item => {
+            refs.root.current = item;
 
-          if (ref) ref.current = item;
+            if (ref) ref.current = item;
 
-          if (ref_) ref_.current = item;
-        },
+            if (ref_) ref_.current = item;
+          },
 
-        style: {
-          transition: `transform ${timeout(status, 'transform')} ${timingFunction(status)}`,
+          style: {
+            transition: `transform ${timeout(status, 'transform')} ${timingFunction(status)}`,
 
-          ...(styles(status) || {}),
+            ...(styles(status) || {}),
 
-          ...(children?.props?.style || {}),
-        }
-      })}
+            ...(children?.props?.style || {}),
+          }
+        });
+      }}
     </Transition>
   );
 });

@@ -77,6 +77,16 @@ const useStyle = style(theme => ({
 
 // swipe
 
+// vertical
+// horizontal
+
+// and for both have min, max and checkpoints to move between
+// - touch move goes through checkpoints, within min, max (width, height)
+// - swipe, or touchEnd move from checkpoint to checkpoint only if >50% of checkpoints difference previous, otherwise go to next
+
+// transition duration is 300 regular, or less depending on swiper acceleration
+
+
 const NavigationDrawer = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 
@@ -89,6 +99,10 @@ const NavigationDrawer = React.forwardRef((props_: any, ref: any) => {
     color = props.version === 'modal' ? 'themed' : 'default',
     version = 'modal',
     direction: direction_ = 'left',
+    removeOnExited,
+    min,
+
+    TransitionComponentProps = {},
 
     className,
 
@@ -96,6 +110,8 @@ const NavigationDrawer = React.forwardRef((props_: any, ref: any) => {
 
     ...other
   } = props;
+
+  let direction = direction_;
 
   if (version === 'standard') {
     other.portal = other.portal !== undefined ? other.portal : false;
@@ -105,7 +121,17 @@ const NavigationDrawer = React.forwardRef((props_: any, ref: any) => {
     other.disableKeyboardClose = other.disableKeyboardClose !== undefined ? other.disableKeyboardClose : true;
   }
 
-  let direction = direction_;
+  TransitionComponentProps.direction = TransitionComponentProps.direction !== undefined ? TransitionComponentProps.direction : direction;
+  TransitionComponentProps.removeOnExited = TransitionComponentProps.removeOnExited !== undefined ? TransitionComponentProps.removeOnExited : min === undefined;
+
+  if (min !== undefined) {
+    other.freezeScroll = other.freezeScroll !== undefined ? other.freezeScroll : false;
+    other.openDefault = false;
+
+    TransitionComponentProps.add = TransitionComponentProps.add !== undefined ? TransitionComponentProps.add : true;
+    TransitionComponentProps.exitOnAdd = TransitionComponentProps.exitOnAdd !== undefined ? TransitionComponentProps.exitOnAdd : true;
+    TransitionComponentProps.min = TransitionComponentProps.min !== undefined ? TransitionComponentProps.min : min;
+  }
 
   if (theme.direction === 'rtl') {
     if (direction === 'left') direction = 'right';
@@ -116,15 +142,17 @@ const NavigationDrawer = React.forwardRef((props_: any, ref: any) => {
     <Modal
       ref={ref}
 
+      partialyOpened={min !== undefined}
+
       tonal={tonal}
 
       color={color}
 
-      ModalProps={{
-        direction
+      TransitionComponentProps={{
+        ...TransitionComponentProps
       }}
 
-      ModalComponent={Slide}
+      TransitionComponent={Slide}
 
       className={classNames([
         staticClassName('Modal', theme) && [

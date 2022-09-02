@@ -170,27 +170,27 @@ const useStyle = style(theme => ({
   },
 
   start_icon: {
-    paddingInline: '0px 16px'
+    paddingInline: '0px 12px'
   },
 
   start_button: {
-    paddingInline: '0 16px'
+    paddingInline: '0 12px'
   },
 
   start_switch: {
-    paddingInline: '0 16px'
+    paddingInline: '0 12px'
   },
 
   menuItem_start_icon: {
-    paddingInlineEnd: '16px'
+    paddingInlineEnd: '12px'
   },
 
   menuItem_start_button: {
-    paddingInlineEnd: '16px'
+    paddingInlineEnd: '12px'
   },
 
   menuItem_start_switch: {
-    paddingInlineEnd: '16px'
+    paddingInlineEnd: '12px'
   },
 
   end_icon: {
@@ -209,15 +209,15 @@ const useStyle = style(theme => ({
   },
 
   menuItem_end_icon: {
-    paddingInlineStart: '16px'
+    paddingInlineStart: '12px'
   },
 
   menuItem_end_button: {
-    paddingInlineStart: '16px'
+    paddingInlineStart: '12px'
   },
 
   menuItem_end_switch: {
-    paddingInlineStart: '16px'
+    paddingInlineStart: '12px'
   },
 
   middle_disabled: {

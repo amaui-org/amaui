@@ -14,7 +14,8 @@ const useStyle = style(theme => ({
   root: {
     position: 'fixed',
     inset: 0,
-    zIndex: theme.z_index.modal
+    zIndex: theme.z_index.modal,
+    pointerEvents: 'none'
   },
 
   // Size
@@ -39,7 +40,8 @@ const useStyle = style(theme => ({
     width: '100%',
     height: '100%',
     background: 'rgba(0, 0, 0, 0.44)',
-    zIndex: -1
+    zIndex: -1,
+    pointerEvents: 'all'
   },
 
   backgroundInvisible: {
@@ -107,6 +109,8 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
 
   const {
     open: open_,
+    openDefault,
+    partialyOpened,
 
     tonal = true,
     color = 'primary',
@@ -126,8 +130,8 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
     BackgroundComponent = Fade,
     BackgroundProps = {},
 
-    ModalComponent = Fade,
-    ModalProps = {},
+    TransitionComponent = Fade,
+    TransitionComponentProps = {},
 
     SurfaceProps = {},
 
@@ -142,7 +146,7 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
     ...other
   } = props;
 
-  const [open, setOpen] = React.useState(open_);
+  const [open, setOpen] = React.useState(openDefault !== undefined ? openDefault : open_);
   const [inProp, setInProp] = React.useState(open_);
 
   const refs = {
@@ -160,7 +164,7 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
     close: () => {
       MODALS_OPEN--;
 
-      if (!MODALS_OPEN && freezeScroll) window.document.body.style.removeProperty('overflow');
+      if (MODALS_OPEN <= 0 && freezeScroll) window.document.body.style.removeProperty('overflow');
     }
   };
 
@@ -204,7 +208,7 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
     modal.close();
   };
 
-  if (!open) return null;
+  if (!open && !partialyOpened) return null;
 
   let PortalComponent: any = portal ? Portal : React.Fragment;
 
@@ -235,14 +239,14 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
         classes.modalRoot
       ])}
     >
-      <ModalComponent
+      <TransitionComponent
         in={inProp}
 
         onExited={onExited}
 
         add
 
-        {...ModalProps}
+        {...TransitionComponentProps}
       >
         <Surface
           tonal={tonal}
@@ -271,7 +275,7 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
         >
           {children}
         </Surface>
-      </ModalComponent>
+      </TransitionComponent>
     </div>
   );
 

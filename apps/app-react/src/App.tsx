@@ -1607,6 +1607,443 @@ Please sign in again.`}
           </Line>
         </Accordion>
 
+        <Accordion primary='NavigationDrawer min'>
+          <Line>
+            <Line
+              direction='row'
+            >
+              <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue('e1', 'navd')}>Top</Button>
+              <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue('e12', 'navd')}>Left</Button>
+              <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue('e13', 'navd')}>Right</Button>
+              <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue('e14', 'navd')}>Bottom</Button>
+            </Line>
+
+            <NavigationDrawer
+              open={a.navd === 'e1'}
+
+              direction='top'
+
+              tonal
+
+              color='primary'
+
+              onClose={() => updateValue(false, 'navd')}
+
+              min={140}
+            >
+              <List
+                tonal
+
+                color='primary'
+
+                shapePosition='both'
+
+                paddingHorizontal='both'
+
+                style={{ width: 340 }}
+              >
+                <ListSubheader>
+                  Mail
+                </ListSubheader>
+
+                <ListItem
+                  primary='Inbox'
+
+                  start={(
+                    <IconMaterialPottedPlantRounded />
+                  )}
+
+                  end={(
+                    <Type
+                      version='l2'
+                    >
+                      114
+                    </Type>
+                  )}
+
+                  button
+
+                  selected
+                />
+
+                <ListItem
+                  primary='Outbox'
+
+                  start={(
+                    <IconMaterialPottedPlantRounded />
+                  )}
+
+                  end={(
+                    <Type
+                      version='l2'
+                    >
+                      114
+                    </Type>
+                  )}
+
+                  button
+                />
+
+                <ListItem
+                  primary='Favourites'
+
+                  start={(
+                    <IconMaterialPottedPlantRounded />
+                  )}
+
+                  button
+                />
+
+                <ListItem
+                  primary='Trash'
+
+                  start={(
+                    <IconMaterialPottedPlantRounded />
+                  )}
+
+                  button
+                />
+
+                <Divider
+                  Component='li'
+
+                  padding
+                />
+
+                <ListItem
+                  primary='Label'
+
+                  button
+                />
+
+                <ListItem
+                  primary='Label 114'
+
+                  button
+                />
+              </List>
+            </NavigationDrawer>
+
+            <NavigationDrawer
+              open={a.navd === 'e12'}
+
+              direction='left'
+
+              tonal
+
+              color='primary'
+
+              onClose={() => updateValue(false, 'navd')}
+
+              min={140}
+            >
+              <List
+                tonal
+
+                color='primary'
+
+                shapePosition='both'
+
+                paddingHorizontal='both'
+
+                style={{ width: 340 }}
+              >
+                <ListSubheader>
+                  Mail
+                </ListSubheader>
+
+                <ListItem
+                  primary='Inbox'
+
+                  start={(
+                    <IconMaterialPottedPlantRounded />
+                  )}
+
+                  end={(
+                    <Type
+                      version='l2'
+                    >
+                      114
+                    </Type>
+                  )}
+
+                  button
+
+                  selected
+                />
+
+                <ListItem
+                  primary='Outbox'
+
+                  start={(
+                    <IconMaterialPottedPlantRounded />
+                  )}
+
+                  end={(
+                    <Type
+                      version='l2'
+                    >
+                      114
+                    </Type>
+                  )}
+
+                  button
+                />
+
+                <ListItem
+                  primary='Favourites'
+
+                  start={(
+                    <IconMaterialPottedPlantRounded />
+                  )}
+
+                  button
+                />
+
+                <ListItem
+                  primary='Trash'
+
+                  start={(
+                    <IconMaterialPottedPlantRounded />
+                  )}
+
+                  button
+                />
+
+                <Divider
+                  Component='li'
+
+                  padding
+                />
+
+                <ListItem
+                  primary='Label'
+
+                  button
+                />
+
+                <ListItem
+                  primary='Label 114'
+
+                  button
+                />
+              </List>
+            </NavigationDrawer>
+
+            <NavigationDrawer
+              open={a.navd === 'e13'}
+
+              direction='right'
+
+              tonal
+
+              color='primary'
+
+              onClose={() => updateValue(false, 'navd')}
+
+              min={140}
+            >
+              <List
+                tonal
+
+                color='primary'
+
+                shapePosition='both'
+
+                paddingHorizontal='both'
+
+                style={{ width: 340 }}
+              >
+                <ListSubheader>
+                  Mail
+                </ListSubheader>
+
+                <ListItem
+                  primary='Inbox'
+
+                  start={(
+                    <IconMaterialPottedPlantRounded />
+                  )}
+
+                  end={(
+                    <Type
+                      version='l2'
+                    >
+                      114
+                    </Type>
+                  )}
+
+                  button
+
+                  selected
+                />
+
+                <ListItem
+                  primary='Outbox'
+
+                  start={(
+                    <IconMaterialPottedPlantRounded />
+                  )}
+
+                  end={(
+                    <Type
+                      version='l2'
+                    >
+                      114
+                    </Type>
+                  )}
+
+                  button
+                />
+
+                <ListItem
+                  primary='Favourites'
+
+                  start={(
+                    <IconMaterialPottedPlantRounded />
+                  )}
+
+                  button
+                />
+
+                <ListItem
+                  primary='Trash'
+
+                  start={(
+                    <IconMaterialPottedPlantRounded />
+                  )}
+
+                  button
+                />
+
+                <Divider
+                  Component='li'
+
+                  padding
+                />
+
+                <ListItem
+                  primary='Label'
+
+                  button
+                />
+
+                <ListItem
+                  primary='Label 114'
+
+                  button
+                />
+              </List>
+            </NavigationDrawer>
+
+            <NavigationDrawer
+              open={a.navd === 'e14'}
+
+              direction='bottom'
+
+              tonal
+
+              color='primary'
+
+              onClose={() => updateValue(false, 'navd')}
+
+              min={140}
+            >
+              <List
+                tonal
+
+                color='primary'
+
+                shapePosition='both'
+
+                paddingHorizontal='both'
+
+                style={{ width: 340 }}
+              >
+                <ListSubheader>
+                  Mail
+                </ListSubheader>
+
+                <ListItem
+                  primary='Inbox'
+
+                  start={(
+                    <IconMaterialPottedPlantRounded />
+                  )}
+
+                  end={(
+                    <Type
+                      version='l2'
+                    >
+                      114
+                    </Type>
+                  )}
+
+                  button
+
+                  selected
+                />
+
+                <ListItem
+                  primary='Outbox'
+
+                  start={(
+                    <IconMaterialPottedPlantRounded />
+                  )}
+
+                  end={(
+                    <Type
+                      version='l2'
+                    >
+                      114
+                    </Type>
+                  )}
+
+                  button
+                />
+
+                <ListItem
+                  primary='Favourites'
+
+                  start={(
+                    <IconMaterialPottedPlantRounded />
+                  )}
+
+                  button
+                />
+
+                <ListItem
+                  primary='Trash'
+
+                  start={(
+                    <IconMaterialPottedPlantRounded />
+                  )}
+
+                  button
+                />
+
+                <Divider
+                  Component='li'
+
+                  padding
+                />
+
+                <ListItem
+                  primary='Label'
+
+                  button
+                />
+
+                <ListItem
+                  primary='Label 114'
+
+                  button
+                />
+              </List>
+            </NavigationDrawer>
+          </Line>
+        </Accordion>
+
         <Accordion primary='AmauiTheme'>
           <div className={classNames([classes.column])}>
             <NavigationDrawer
@@ -25097,7 +25534,7 @@ Please sign in again.`}
             <Modal
               open={a.modal === 5}
 
-              ModalComponent={Slide}
+              TransitionComponent={Slide}
 
               onClose={() => updateValue()}
             >
@@ -25239,7 +25676,7 @@ Please sign in again.`}
             <Modal
               open={a.modal === 7}
 
-              ModalComponent={Slide}
+              TransitionComponent={Slide}
 
               fullScreen
 
