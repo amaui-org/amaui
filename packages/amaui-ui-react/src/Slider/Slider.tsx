@@ -445,9 +445,9 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
 
     return is('array', valueNew) ? valueNew.sort((a, b) => a - b) : valueNew;
   });
-  const [focus, setFocus] = React.useState(false);
   const [mouseDown, setMouseDown] = React.useState<any>(false);
   const [mouseDownButton, setMouseDownButton] = React.useState<any>(false);
+  const [focus, setFocus] = React.useState(false);
   const [focusButton, setFocusButton] = React.useState<any>(false);
 
   const refs = {
@@ -928,6 +928,8 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
           noButtons && `AmauiSlider-noButtons`,
           inverted && `AmauiSlider-inverted`,
           square && `AmauiSlider-square`,
+          mouseDown && `AmauiSlider-mouseDown`,
+          focus && `AmauiSlider-focus`,
           readOnly && `AmauiSlider-readOnly`,
           disabled && `AmauiSlider-disabled`
         ],

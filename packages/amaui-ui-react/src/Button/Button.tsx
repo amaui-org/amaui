@@ -473,6 +473,7 @@ const Button = React.forwardRef((props_: any, ref: any) => {
           fab && `AmauiButton-fab`,
           chip && `AmauiButton-chip`,
           noIconRootFontSize && `AmauiButton-noIconRootFontSize`,
+          focus && `AmauiButton-focus`,
           disabled && `AmauiButton-disabled`
         ],
 

@@ -740,6 +740,8 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
           staticClassName('AutoComplete', theme) && [
             'AmauiAutoComplete-root',
             open && `AmauiAutoComplete-open`,
+            mouseDown && `AmauiAutoComplete-mouseDown`,
+            focus && `AmauiAutoComplete-focus`,
             chip && `AmauiAutoComplete-chip`,
             multiple && `AmauiAutoComplete-multiple`,
             autoWidth && `AmauiAutoComplete-autoWidth`,

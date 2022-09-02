@@ -617,7 +617,8 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
             button && `AmauiListItem-button`,
             footer && `AmauiListItem-footer`,
             inset && `AmauiListItem-inset`,
-            inset && `AmauiListItem-inset`,
+            hover && `AmauiListItem-hover`,
+            focus && `AmauiListItem-focus`,
             disabled && `AmauiListItem-disabled`
           ],
 

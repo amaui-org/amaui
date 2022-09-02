@@ -462,6 +462,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
                 anchorElement && `AmauiButton-anchorElement`,
                 fullWidth && `AmauiButton-fullWidth`,
                 follow && 'AmauiTooltip-follow',
+                open && `AmauiButton-open`,
                 touch && 'AmauiTooltip-touch',
                 longPress && 'AmauiTooltip-longPress',
                 hover && 'AmauiTooltip-hover',

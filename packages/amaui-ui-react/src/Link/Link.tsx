@@ -169,6 +169,7 @@ const Link = React.forwardRef((props_: any, ref: any) => {
           `AmauiLink-color-${!theme.palette.color[color] && !['themed', 'inverse', 'default', 'inherit'].includes(color) ? 'new' : color}`,
           tonal && `AmauiLink-tonal`,
           underline && `AmauiLink-underline-${underline}`,
+          hover && `AmauiLink-hover`,
           focus && `AmauiLink-focus`
         ],
 

@@ -328,6 +328,9 @@ const NavigationItem = React.forwardRef((props_: any, ref: any) => {
             selected && 'AmauiNavigationItem-selected',
             vertical && 'AmauiNavigationItem-vertical',
             tonal && `AmauiNavigationItem-tonal`,
+            hover && `AmauiNavigationItem-hover`,
+            mouseDown && `AmauiNavigationItem-mouseDown`,
+            focus && `AmauiNavigationItem-focus`,
             disabled && `AmauiNavigationItem-disabled`
           ],
 

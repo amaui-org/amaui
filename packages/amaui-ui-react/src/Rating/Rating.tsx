@@ -450,6 +450,8 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
           `AmauiRating-size-${size}`,
           values && `AmauiButton-values`,
           precision && `AmauiButton-precision`,
+          hover && `AmauiButton-hover`,
+          mouseDown && `AmauiButton-mouseDown`,
           focus && [
             `AmauiButton-focus`,
             [undefined, 0].includes(value) && `AmauiButton-focus-noValue`

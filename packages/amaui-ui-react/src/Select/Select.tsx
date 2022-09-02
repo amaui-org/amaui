@@ -165,9 +165,9 @@ const Select = React.forwardRef((props_: any, ref: any) => {
 
     return multiple ? (is('array', values) ? values : [values]).filter(Boolean) : values;
   });
-  const [focus, setFocus] = React.useState(false);
-  const [mouseDown, setMouseDown] = React.useState(false);
   const [open, setOpen] = React.useState(false);
+  const [mouseDown, setMouseDown] = React.useState(false);
+  const [focus, setFocus] = React.useState(false);
 
   const { classes } = useStyle(props);
 
@@ -429,6 +429,8 @@ const Select = React.forwardRef((props_: any, ref: any) => {
         staticClassName('Select', theme) && [
           'AmauiSelect-root',
           open && `AmauiSelect-open`,
+          mouseDown && `AmauiSelect-mouseDown`,
+          focus && `AmauiSelect-focus`,
           multiple && `AmauiSelect-multiple`,
           autoWidth && `AmauiSelect-autoWidth`,
           chip && `AmauiSelect-chip`
