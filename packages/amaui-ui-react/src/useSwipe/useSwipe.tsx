@@ -15,8 +15,6 @@ export interface IResponseUseSwipe {
   position?: string;
 }
 
-// check all sides left, top, right & bottom
-
 // touch in middle of surface properly move
 
 const useSwipe = (element: HTMLElement, options: IOptionsUseSwipe = {}) => {
@@ -118,7 +116,7 @@ const useSwipe = (element: HTMLElement, options: IOptionsUseSwipe = {}) => {
       }
     };
   }, [element]);
-
+  console.log('useSwipe', response);
   return response;
 };
 

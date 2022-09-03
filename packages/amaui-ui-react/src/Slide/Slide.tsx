@@ -72,9 +72,9 @@ const Slide = React.forwardRef((props_: any, ref: any) => {
 
     if (direction === 'left') return `translate(${right !== undefined ? (Math.abs(right) === width ? (right * -1) : -width) + toAdd + 'px' : '-100vw'}, 0)`;
 
-    if (direction === 'right') return `translate(${left !== undefined ? (Math.abs(w - left) === width) ? Math.abs(w - left) : (right - w) - toAdd + 'px' : '100vw'}, 0)`;
+    if (direction === 'right') return `translate(${left !== undefined ? ((Math.abs(w - left) === width) ? Math.abs(w - left) : width) - toAdd + 'px' : '100vw'}, 0)`;
 
-    if (direction === 'bottom') return `translate(0, ${top !== undefined ? (Math.abs(h - top) === height) ? Math.abs(h - top) : (bottom - h) - toAdd + 'px' : '100vh'})`;
+    if (direction === 'bottom') return `translate(0, ${top !== undefined ? ((Math.abs(h - top) === height) ? Math.abs(h - top) : height) - toAdd + 'px' : '100vh'})`;
   };
 
   const styles = (status: TTransitionStatus) => {
