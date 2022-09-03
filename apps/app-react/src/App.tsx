@@ -211,6 +211,13 @@ const useStyle = style(theme => ({
 }), { name: 'App' });
 
 const styled = {
+  BottomSheet: sy(BottomSheet)((theme: AmauiTheme) => ({
+    root: {
+      '&:hover': {
+        opacity: 0.4
+      }
+    }
+  })),
   NavigationDrawer: sy(NavigationDrawer)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
@@ -1170,17 +1177,27 @@ Please sign in again.`}
 
         <Accordion primary='AmauiTheme'>
           <div className={classNames([classes.column])}>
-            <NavigationDrawer
+            <BottomSheet
               open
 
               color='secondary'
 
               version='standard'
-            >
-              a
-            </NavigationDrawer>
 
-            <Accordion primary='AmauiTheme nested value' open>
+              onClose={() => updateValue(false, 'bsheet')}
+            >
+              <List color='themed' style={{ width: 240 }}>
+                {[0, 1, 3, 4].map(item => (
+                  <ListItem
+                    primary='Primary text'
+
+                    key={item}
+                  />
+                ))}
+              </List>
+            </BottomSheet>
+
+            <Accordion primary='AmauiTheme nested value'>
               <AmauiThemeProvider
                 value={{
                   palette: {
@@ -1195,19 +1212,29 @@ Please sign in again.`}
                   }
                 }}
               >
-                <NavigationDrawer
+                <BottomSheet
                   open
 
-                  color='primary'
+                  color='secondary'
 
                   version='standard'
+
+                  onClose={() => updateValue(false, 'bsheet')}
                 >
-                  a
-                </NavigationDrawer>
+                  <List color='themed' style={{ width: 240 }}>
+                    {[0, 1, 3, 4].map(item => (
+                      <ListItem
+                        primary='Primary text'
+
+                        key={item}
+                      />
+                    ))}
+                  </List>
+                </BottomSheet>
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion primary='AmauiTheme add' open>
+            <Accordion primary='AmauiTheme add'>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -1227,19 +1254,29 @@ Please sign in again.`}
                   }
                 }}
               >
-                <NavigationDrawer
+                <BottomSheet
                   open
 
                   color='secondary'
 
                   version='standard'
+
+                  onClose={() => updateValue(false, 'bsheet')}
                 >
-                  a
-                </NavigationDrawer>
+                  <List color='themed' style={{ width: 240 }}>
+                    {[0, 1, 3, 4].map(item => (
+                      <ListItem
+                        primary='Primary text'
+
+                        key={item}
+                      />
+                    ))}
+                  </List>
+                </BottomSheet>
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion primary='AmauiTheme override' open>
+            <Accordion primary='AmauiTheme override'>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -1257,19 +1294,29 @@ Please sign in again.`}
                   }
                 }}
               >
-                <NavigationDrawer
+                <BottomSheet
                   open
 
                   color='secondary'
 
                   version='standard'
+
+                  onClose={() => updateValue(false, 'bsheet')}
                 >
-                  a
-                </NavigationDrawer>
+                  <List color='themed' style={{ width: 240 }}>
+                    {[0, 1, 3, 4].map(item => (
+                      <ListItem
+                        primary='Primary text'
+
+                        key={item}
+                      />
+                    ))}
+                  </List>
+                </BottomSheet>
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion primary='AmauiTheme props' open>
+            <Accordion primary='AmauiTheme props'>
               <AmauiThemeProvider
                 value={{
                   ui: {
@@ -1285,24 +1332,44 @@ Please sign in again.`}
                   }
                 }}
               >
-                <NavigationDrawer
+                <BottomSheet
                   open
 
                   version='standard'
+
+                  onClose={() => updateValue(false, 'bsheet')}
                 >
-                  a
-                </NavigationDrawer>
+                  <List color='themed' style={{ width: 240 }}>
+                    {[0, 1, 3, 4].map(item => (
+                      <ListItem
+                        primary='Primary text'
+
+                        key={item}
+                      />
+                    ))}
+                  </List>
+                </BottomSheet>
               </AmauiThemeProvider>
             </Accordion>
 
-            <Accordion primary='AmauiTheme styled' open>
-              <styled.NavigationDrawer
+            <Accordion primary='AmauiTheme styled'>
+              <BottomSheet
                 open
 
                 version='standard'
+
+                onClose={() => updateValue(false, 'bsheet')}
               >
-                a
-              </styled.NavigationDrawer>
+                <List color='themed' style={{ width: 240 }}>
+                  {[0, 1, 3, 4].map(item => (
+                    <ListItem
+                      primary='Primary text'
+
+                      key={item}
+                    />
+                  ))}
+                </List>
+              </BottomSheet>
             </Accordion>
           </div>
         </Accordion>

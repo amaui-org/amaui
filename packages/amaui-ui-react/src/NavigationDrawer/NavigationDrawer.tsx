@@ -1,14 +1,14 @@
 import React from 'react';
 
+import { clamp, is } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Modal from '../Modal';
 import Slide from '../Slide';
-
-import { staticClassName } from '../utils';
 import useSwipe from '../useSwipe';
 import { IOptionsUseSwipe, IResponseUseSwipe } from '../useSwipe/useSwipe';
-import { clamp, is } from '@amaui/utils';
+
+import { staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
@@ -51,7 +51,7 @@ const useStyle = style(theme => ({
 
   direction_left: {
     '& .AmauiModal-surface': {
-      top: 0,
+      left: 0,
       height: '100%',
       borderRadius: '0 16px 16px 0'
     }
