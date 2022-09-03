@@ -9,7 +9,7 @@ import { staticClassName } from '../utils';
 const useStyle = style(theme => ({
   root: {
     '&.AmauiModal-root .AmauiModal-surface': {
-      paddingTop: '40px',
+      paddingTop: '50px',
       maxWidth: '640px',
 
       '&:before': {
@@ -18,7 +18,7 @@ const useStyle = style(theme => ({
         background: 'currentColor',
         height: '5px',
         width: '30px',
-        top: '18.5px',
+        top: '22.5px',
         left: '50%',
         transform: 'translateX(-50%)',
         borderRadius: '5px',
