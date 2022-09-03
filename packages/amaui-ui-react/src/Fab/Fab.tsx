@@ -18,7 +18,7 @@ const Fab = React.forwardRef((props_: any, ref: any) => {
   const { classes } = useStyle(props);
 
   const {
-    tonal = true,
+    tonal = 'secondary',
     version = 'filled',
 
     className

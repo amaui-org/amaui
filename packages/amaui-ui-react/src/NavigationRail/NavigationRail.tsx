@@ -126,7 +126,7 @@ const NavigationRail = React.forwardRef((props_: any, ref: any) => {
 
       color: item.props.color !== undefined ? item.props.color : color,
 
-      tonal: item.props.tonal !== undefined ? item.props.tonal : tonal
+      tonal: item.props.tonal !== undefined ? item.props.tonal : tonal && ['AmauiFab'].includes(item.type?.displayName) ? 'secondary' : tonal
     }));
 
   const children = React.Children
