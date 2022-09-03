@@ -17,7 +17,7 @@ export interface IResponseUseSwipe {
 }
 
 const useSwipe = (element: HTMLElement, options: IOptionsUseSwipe = {}) => {
-  const [response, setResponse] = React.useState<IResponseUseSwipe>({ value: 100 });
+  const [response, setResponse] = React.useState<IResponseUseSwipe>();
   const [touch, setTouch] = React.useState<TouchEvent | Boolean>(false);
 
   const refs = {

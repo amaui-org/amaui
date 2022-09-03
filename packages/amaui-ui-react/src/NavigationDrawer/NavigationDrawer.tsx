@@ -138,54 +138,56 @@ const NavigationDrawer = React.forwardRef((props_: any, ref: any) => {
   }, [open_]);
 
   React.useEffect(() => {
-    const valueSwipe = swipeValue.value;
-    const valuePercentageSwipe = clamp(swipeValue.valuePercentage, 0, 100);
-    const position = swipeValue.position;
+    if (swipeValue) {
+      const valueSwipe = swipeValue.value;
+      const valuePercentageSwipe = clamp(swipeValue.valuePercentage, 0, 100);
+      const position = swipeValue.position;
 
-    if (position !== undefined) {
-      if (position === 'min') {
-        if (refs.modal.current) onClose();
+      if (position !== undefined) {
+        if (position === 'min') {
+          if (refs.modal.current) onClose();
+        }
+
+        if (position === 'max') {
+          if (refs.modal.current) {
+            // Add transition
+            refs.modal.current.style.transition = theme.methods.transitions.make('transform', { duration: 'xs' });
+
+            refs.modal.current.style.transform = 'translate(0, 0)';
+          }
+
+          if (refs.background.current) {
+            // Add transition
+            refs.background.current.style.transition = theme.methods.transitions.make('opacity', { duration: 'xs' });
+
+            refs.background.current.style.opacity = '1';
+          }
+        }
       }
+      else {
+        let value_ = '';
 
-      if (position === 'max') {
         if (refs.modal.current) {
-          // Add transition
-          refs.modal.current.style.transition = theme.methods.transitions.make('transform', { duration: 'xs' });
+          if (direction === 'top') value_ = `translateY(${valueSwipe}px)`;
 
-          refs.modal.current.style.transform = 'translate(0, 0)';
+          if (direction === 'left') value_ = `translateX(${valueSwipe}px)`;
+
+          if (direction === 'right') value_ = `translateX(${valueSwipe}px)`;
+
+          if (direction === 'bottom') value_ = `translateY(${valueSwipe}px)`;
+
+          // No transition
+          refs.modal.current.style.transition = 'none';
+
+          refs.modal.current.style.transform = value_;
         }
 
         if (refs.background.current) {
-          // Add transition
-          refs.background.current.style.transition = theme.methods.transitions.make('opacity', { duration: 'xs' });
+          // No transition
+          refs.background.current.style.transition = 'none';
 
-          refs.background.current.style.opacity = '1';
+          refs.background.current.style.opacity = `${valuePercentageSwipe / 100}`;
         }
-      }
-    }
-    else {
-      let value_ = '';
-
-      if (refs.modal.current) {
-        if (direction === 'top') value_ = `translateY(${valueSwipe}px)`;
-
-        if (direction === 'left') value_ = `translateX(${valueSwipe}px)`;
-
-        if (direction === 'right') value_ = `translateX(${valueSwipe}px)`;
-
-        if (direction === 'bottom') value_ = `translateY(${valueSwipe}px)`;
-
-        // No transition
-        refs.modal.current.style.transition = 'none';
-
-        refs.modal.current.style.transform = value_;
-      }
-
-      if (refs.background.current) {
-        // No transition
-        refs.background.current.style.transition = 'none';
-
-        refs.background.current.style.opacity = `${valuePercentageSwipe / 100}`;
       }
     }
   }, [swipeValue?.value, swipeValue?.position]);
@@ -209,10 +211,9 @@ const NavigationDrawer = React.forwardRef((props_: any, ref: any) => {
     other.freezeScroll = other.freezeScroll !== undefined ? other.freezeScroll : false;
     other.openDefault = false;
 
-    TransitionComponentProps.add = TransitionComponentProps.add !== undefined ? TransitionComponentProps.add : true;
     TransitionComponentProps.min = TransitionComponentProps.min !== undefined ? TransitionComponentProps.min : min;
   }
-  console.log(0, swipeValue);
+
   return (
     <Modal
       ref={ref}

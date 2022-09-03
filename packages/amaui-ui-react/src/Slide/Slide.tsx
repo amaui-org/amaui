@@ -115,7 +115,7 @@ const Slide = React.forwardRef((props_: any, ref: any) => {
       enter: {
         transition: 'none',
 
-        transform: translateValue,
+        transform: min !== undefined ? transform : translateValue,
 
         ...other
       },
@@ -163,14 +163,17 @@ const Slide = React.forwardRef((props_: any, ref: any) => {
       }}
 
       onEnter={element => {
-        element.style.visibility = 'hidden';
-        element.style.transition = 'none';
-        element.style.transform = 'none';
+        if (min === undefined) {
+          element.style.visibility = 'hidden';
+          element.style.transition = 'none';
+          element.style.transform = 'none';
 
-        refs.rect.current = element?.getBoundingClientRect();
+          refs.rect.current = element?.getBoundingClientRect();
 
-        // Clean up
-        element.style.removeProperty('visibility');
+          // Clean up
+          element.style.removeProperty('visibility');
+          element.style.removeProperty('transition');
+        }
       }}
 
       onExit={element => {
