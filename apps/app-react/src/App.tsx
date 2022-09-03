@@ -28653,19 +28653,19 @@ Please sign in again.`}
         <Accordion primary='Slide'>
           <Button size='small' color='secondary' className={classes.btn} onClick={() => update('slide')}>a</Button>
 
-          <Slide in={a.slide} direction='top'  removeOnExited={false}>
+          <Slide in={a.slide} direction='top' removeOnExited={false}>
             <div className={classes.div}>
-              up {String(a.slide)}
+              top {String(a.slide)}
             </div>
           </Slide>
 
-          {/* <Slide in={a.slide} direction='left'  removeOnExited={false}>
+          <Slide in={a.slide} direction='left' removeOnExited={false}>
             <div className={classes.div}>
               left {String(a.slide)}
             </div>
           </Slide>
 
-          <Slide in={a.slide} direction='right'  removeOnExited={false}>
+          <Slide in={a.slide} direction='right' removeOnExited={false}>
             <div className={classes.div}>
               right {String(a.slide)}
             </div>
@@ -28673,16 +28673,16 @@ Please sign in again.`}
 
           <Slide in={a.slide} direction='bottom' removeOnExited={false}>
             <div className={classes.div}>
-              down without removeOnExited {String(a.slide)}
+              bottom {String(a.slide)}
             </div>
-          </Slide> */}
+          </Slide>
         </Accordion>
 
         <Accordion primary='Slide relative to root ref' className={classes.row}>
           <Button size='small' color='secondary' className={classes.btn} onClick={() => update('slideRef')}>a</Button>
 
           <div className={classes.item} ref={refs.slides.up} style={{ overflow: 'hidden', height: 140 }}>
-            <Slide in={a.slideRef} direction='top' root={refs.slides.up?.current}>
+            <Slide in={a.slideRef} direction='top' root={refs.slides.up?.current} removeOnExited={false}>
               <div className={classes.div}>
                 up {String(a.slideRef)}
               </div>
@@ -28690,7 +28690,7 @@ Please sign in again.`}
           </div>
 
           <div className={classes.item} ref={refs.slides.left} style={{ overflow: 'hidden', height: 140 }}>
-            <Slide in={a.slideRef} direction='left' root={refs.slides.left?.current}>
+            <Slide in={a.slideRef} direction='left' root={refs.slides.left?.current} removeOnExited={false}>
               <div className={classes.div}>
                 left {String(a.slideRef)}
               </div>
@@ -28698,7 +28698,7 @@ Please sign in again.`}
           </div>
 
           <div className={classes.item} ref={refs.slides.right} style={{ overflow: 'hidden', height: 140 }}>
-            <Slide in={a.slideRef} direction='right' root={refs.slides.right?.current}>
+            <Slide in={a.slideRef} direction='right' root={refs.slides.right?.current} removeOnExited={false}>
               <div className={classes.div}>
                 right {String(a.slideRef)}
               </div>
@@ -28706,17 +28706,9 @@ Please sign in again.`}
           </div>
 
           <div className={classes.item} ref={refs.slides.down} style={{ overflow: 'hidden', height: 140 }}>
-            <Slide in={a.slideRef} direction='bottom' root={refs.slides.down?.current}>
-              <div className={classes.div}>
-                down {String(a.slideRef)}
-              </div>
-            </Slide>
-          </div>
-
-          <div className={classes.item} ref={refs.slides.down} style={{ overflow: 'hidden', height: 140 }}>
             <Slide in={a.slideRef} direction='bottom' root={refs.slides.down?.current} removeOnExited={false}>
               <div className={classes.div}>
-                down without onRemoveExited {String(a.slideRef)}
+                down {String(a.slideRef)}
               </div>
             </Slide>
           </div>
