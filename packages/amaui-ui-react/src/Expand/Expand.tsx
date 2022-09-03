@@ -78,7 +78,7 @@ const Expand = React.forwardRef((props_: any, ref: any) => {
 
   const styles = (status: TTransitionStatus) => {
     const styles_ = (refs.root.current && window.getComputedStyle(refs.root?.current)) || {};
-
+    console.log(0, refs.rectStart.current, refs.rectStart.current?.[prop]);
     const allStyles = {
       appended: {
         position: 'absolute',
@@ -140,11 +140,21 @@ const Expand = React.forwardRef((props_: any, ref: any) => {
 
   return (
     <Transition
+      append={!removeOnExited}
+
       removeOnExited
 
       preEnterAppendTimeout={70}
 
       {...props}
+
+      onAppended={element => {
+        if (!removeOnExited && !refs.rectStart.current) {
+          refs.rectStart.current = element?.getBoundingClientRect();
+
+          if (refs.rectStart.current) refs.rectStart.current[prop] += addValue;
+        }
+      }}
 
       onEnter={element => {
         if (!refs.rectStart.current) {

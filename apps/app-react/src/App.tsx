@@ -28580,7 +28580,7 @@ Please sign in again.`}
       </Accordion>
 
       <Accordion primary='Transitions / Transition'>
-        <Accordion primary='Fade' open>
+        <Accordion primary='Fade' >
           <Button size='small' color='secondary' className={classes.btn} onClick={() => { update('fade'); }}>a</Button>
 
           <Fade in={a.fade}>
@@ -28590,7 +28590,7 @@ Please sign in again.`}
           </Fade>
         </Accordion>
 
-        <Accordion primary='Grow' open>
+        <Accordion primary='Grow' >
           <Button size='small' color='secondary' className={classes.btn} onClick={() => update('grow')}>a</Button>
 
           <Grow in={a.grow}>
@@ -28606,7 +28606,7 @@ Please sign in again.`}
           </Grow>
         </Accordion>
 
-        <Accordion primary='Zoom' open>
+        <Accordion primary='Zoom' >
           <Button size='small' color='secondary' className={classes.btn} onClick={() => update('zoom')}>a</Button>
 
           <Zoom in={a.zoom}>
@@ -28622,7 +28622,7 @@ Please sign in again.`}
           </Zoom>
         </Accordion>
 
-        <Accordion primary='Expand' open>
+        <Accordion primary='Expand' >
           <Button size='small' color='secondary' className={classes.btn} onClick={() => update('expand')}>a</Button>
 
           <Expand in={a.expand} removeOnExited={false}>
@@ -28650,7 +28650,7 @@ Please sign in again.`}
           </Expand>
         </Accordion>
 
-        <Accordion primary='Slide' open>
+        <Accordion primary='Slide' >
           <Button size='small' color='secondary' className={classes.btn} onClick={() => update('slide')}>a</Button>
 
           <Slide in={a.slide} direction='top'>
@@ -28684,7 +28684,7 @@ Please sign in again.`}
           </Slide>
         </Accordion>
 
-        <Accordion primary='Slide relative to root ref' className={classes.row} open>
+        <Accordion primary='Slide relative to root ref' className={classes.row} >
           <Button size='small' color='secondary' className={classes.btn} onClick={() => update('slideRef')}>a</Button>
 
           <div className={classes.item} ref={refs.slides.up} style={{ overflow: 'hidden', height: 140 }}>
@@ -28728,7 +28728,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion primary='Transition' open>
+        <Accordion primary='Transition' >
           <Button size='small' color='secondary' className={classes.btn} onClick={() => update('a')}>a</Button>
 
           <A in={a.a}>
@@ -28736,7 +28736,7 @@ Please sign in again.`}
           </A>
         </Accordion>
 
-        <Accordion primary='Transition with switch' open>
+        <Accordion primary='Transition with switch' >
           <Button size='small' color='secondary' className={classes.btn} onClick={() => update('transitions')}>a</Button>
 
           <div className={classes.item} style={{ height: 140 }}>
@@ -28770,7 +28770,7 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion primary='Transitions' className={classes.row} open>
+        <Accordion primary='Transitions' className={classes.row} >
           <Button size='small' color='secondary' className={classes.btn} onClick={() => setItems(items_ => [...items_, new Date().getTime()])}>a</Button>
 
           <Transitions>

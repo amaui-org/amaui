@@ -76,7 +76,7 @@ const Zoom = React.forwardRef((props_: any, ref: any) => {
         transform
       },
       exiting: {
-        transform: `scale(0)`
+        transform: `scale(0.001)`
       },
       exited: {
         transform: `scale(0)`
@@ -86,7 +86,7 @@ const Zoom = React.forwardRef((props_: any, ref: any) => {
     return allStyles[status];
   };
 
-  const timeout = (status: TTransitionStatus, property: string = 'opacity') => {
+  const timeout = (status: TTransitionStatus, property: string = 'transform') => {
     const properties = {
       transform: theme.transitions.duration.xs
     };
@@ -117,7 +117,7 @@ const Zoom = React.forwardRef((props_: any, ref: any) => {
           style: {
             visibility: status === 'exited' && !inProp ? 'hidden' : undefined,
 
-            transition: `transform ${timeout(status, 'transform')} ${timingFunction(status)}`,
+            transition: `transform ${timeout(status)} ${timingFunction(status)}`,
 
             ...styles(status),
 

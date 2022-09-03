@@ -172,6 +172,12 @@ function Transition(props_: IProps) {
   React.useEffect(() => {
     let statusNew: TTransitionStatus;
 
+    if (status === 'appended') {
+      if (is('function', onTransition)) onTransition(refs.root.current, 'appended');
+
+      if (is('function', onAppended)) onAppended(refs.root.current);
+    }
+
     if (inProp) {
       statusNew = add_ ? STATUS.add : STATUS.entered;
 
