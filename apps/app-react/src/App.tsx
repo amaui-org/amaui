@@ -792,6 +792,24 @@ function App() {
 
       <Accordion primary='All'>
         <Line>
+          <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue(114, 'bsheet')}>a</Button>
+
+          <BottomSheet
+            open={a.bsheet === 114}
+
+            onClose={() => updateValue(false, 'bsheet')}
+          >
+            <List color='themed' style={{ width: 240 }}>
+              {[0, 1, 3, 4].map(item => (
+                <ListItem
+                  primary='Primary text'
+
+                  key={item}
+                />
+              ))}
+            </List>
+          </BottomSheet>
+
           <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue(1411, 'navd')}>nav d</Button>
 
           <NavigationDrawer
