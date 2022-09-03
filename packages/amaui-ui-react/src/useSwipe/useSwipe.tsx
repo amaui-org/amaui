@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { is } from '@amaui/utils';
+import { clamp } from '@amaui/utils';
 
-import { valueWithinRangePercentage, percentageWithinRange } from '../utils';
+import { percentageWithinRange } from '../utils';
 
 export interface IOptionsUseSwipe {
   min?: string | number;
@@ -12,10 +12,9 @@ export interface IOptionsUseSwipe {
 
 export interface IResponseUseSwipe {
   value?: number;
+  valuePercentage?: number;
   position?: string;
 }
-
-// touch in middle of surface properly move
 
 const useSwipe = (element: HTMLElement, options: IOptionsUseSwipe = {}) => {
   const [response, setResponse] = React.useState<IResponseUseSwipe>({ value: 100 });
@@ -23,33 +22,25 @@ const useSwipe = (element: HTMLElement, options: IOptionsUseSwipe = {}) => {
 
   const refs = {
     rect: React.useRef<any>(),
-    min: React.useRef<any>(),
-    max: React.useRef<any>(),
     element: React.useRef<any>(),
     options: React.useRef(options),
     response: React.useRef<any>(),
-    touch: React.useRef<any>()
+    touch: React.useRef<any>(),
+    previous: React.useRef<any>()
   };
 
   refs.options.current = options;
   refs.response.current = response;
   refs.touch.current = touch;
 
-  const valuePrecision = (value: number) => {
-    let valueNew = valueWithinRangePercentage(value, refs.min.current, refs.max.current);
-
-    // percentage
-    valueNew = percentageWithinRange(valueNew, refs.min.current, refs.max.current);
-
-    return valueNew;
-  };
-
   const onTouchStart = React.useCallback((event: TouchEvent) => setTouch(event), []);
 
   const onTouchEnd = React.useCallback(() => {
     const newResponse = { ...refs.response.current };
 
-    newResponse.position = newResponse.value > 50 ? 'min' : 'max';
+    newResponse.position = newResponse.valuePercentage < 50 ? 'min' : 'max';
+
+    refs.previous.current = undefined;
 
     setTouch(false);
     setResponse(newResponse);
@@ -58,22 +49,52 @@ const useSwipe = (element: HTMLElement, options: IOptionsUseSwipe = {}) => {
   const onTouchMove = React.useCallback((event: TouchEvent) => {
     const newResponse = { ...refs.response.current };
 
-    const { clientX: x, clientY: y } = event.touches[0];
+    const { clientX: x_, clientY: y_ } = event.touches[0];
+    const { clientX: pX, clientY: pY } = refs.previous.current.touches[0];
 
-    const { width, height, x: rootX, y: rootY } = refs.rect.current;
+    const x = pX - x_;
+    const y = pY - y_;
+
+    const { top = 0, left = 0, width = 0, height = 0 } = element?.getBoundingClientRect() || {};
 
     // value
-    let value_;
+    let value_: number;
+    let min: number;
+    let max: number;
 
-    if (refs.options.current.direction === 'top') value_ = ((-y - rootY) / height) * 100;
+    if (refs.options.current.direction === 'top') {
+      min = refs.rect.current.top;
+      max = refs.rect.current.bottom;
 
-    if (refs.options.current.direction === 'left') value_ = ((-x - rootX) / width) * 100;
+      value_ = top - y;
+    }
 
-    if (refs.options.current.direction === 'right') value_ = ((x - rootX + width) / width) * 100;
+    if (refs.options.current.direction === 'left') {
+      min = refs.rect.current.left;
+      max = refs.rect.current.right;
 
-    if (refs.options.current.direction === 'bottom') value_ = ((y - rootY + height) / height) * 100;
+      value_ = left - x;
+    }
 
-    newResponse.value = valuePrecision(value_);
+    if (refs.options.current.direction === 'right') {
+      min = window.innerWidth - refs.rect.current.left;
+      max = min + refs.rect.current.width;
+
+      value_ = width - (window.innerWidth - left) - x;
+    }
+
+    if (refs.options.current.direction === 'bottom') {
+      min = window.innerHeight - refs.rect.current.top;
+      max = min + refs.rect.current.height;
+
+      value_ = height - (window.innerHeight - top) - y;
+    }
+
+    newResponse.value = clamp(value_, min, max);
+
+    newResponse.valuePercentage = percentageWithinRange(newResponse.value, min, max);
+
+    if (['bottom', 'right'].includes(refs.options.current.direction)) newResponse.valuePercentage = 100 - newResponse.valuePercentage;
 
     // Only value move at touchmove
     newResponse.position = undefined;
@@ -81,24 +102,22 @@ const useSwipe = (element: HTMLElement, options: IOptionsUseSwipe = {}) => {
     setResponse(newResponse);
   }, [element, response]);
 
-  // Watch
   React.useEffect(() => {
     const onTouchMoveMethod = (event: any) => {
       // Workaround for proper element for touchmove
-      if (refs.touch.current || element.contains(document.elementFromPoint(event.touches[0].clientX, event.touches[0].clientY))) {
+      if (refs.previous.current && (refs.touch.current || element.contains(document.elementFromPoint(event.touches[0].clientX, event.touches[0].clientY)))) {
         if (!refs.touch.current) setTouch(true);
 
         onTouchMove(event);
       }
+
+      refs.previous.current = event;
     };
 
     if (element) {
       refs.element.current = element;
 
       refs.rect.current = element.getBoundingClientRect();
-
-      refs.min.current = is('number', options.min) ? options.min : refs.rect.current[options.min];
-      refs.max.current = is('number', options.max) ? options.max : refs.rect.current[options.max];
 
       element.addEventListener('touchstart', onTouchStart, { passive: true });
 
@@ -108,12 +127,10 @@ const useSwipe = (element: HTMLElement, options: IOptionsUseSwipe = {}) => {
 
     return () => {
       // Remove previous event listeners
-      if (element) {
-        element.addEventListener('touchstart', onTouchStart);
+      if (element) element.removeEventListener('touchstart', onTouchStart);
 
-        window.document.addEventListener('touchend', onTouchEnd);
-        window.document.addEventListener('touchmove', onTouchMoveMethod);
-      }
+      window.document.removeEventListener('touchend', onTouchEnd);
+      window.document.removeEventListener('touchmove', onTouchMoveMethod);
     };
   }, [element]);
   console.log('useSwipe', response);
