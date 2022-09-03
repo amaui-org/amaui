@@ -112,6 +112,7 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
     openDefault,
     partialyOpened,
     mainRef,
+    backgroundRef,
     tonal = true,
     color = 'primary',
     size = 'regular',
@@ -326,6 +327,8 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
               {...BackgroundProps}
             >
               <div
+                ref={backgroundRef}
+
                 className={classNames([
                   staticClassName('Modal', theme) && [
                     'AmauiModal-background'

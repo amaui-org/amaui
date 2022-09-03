@@ -76,49 +76,55 @@ const Expand = React.forwardRef((props_: any, ref: any) => {
 
   if (orientation === 'horizontal') prop = 'width';
 
-  const styles = () => ({
-    appended: {
-      position: 'absolute',
-      visibility: 'hidden'
-    },
+  const styles = (status: TTransitionStatus) => {
+    const styles_ = (refs.root.current && window.getComputedStyle(refs.root?.current)) || {};
 
-    add: {
-      [prop]: 0,
-      overflow: 'hidden'
-    },
-    adding: {
-      [prop]: refs.rectStart.current && `${refs.rectStart.current[prop]}px`,
-      overflow: 'hidden'
-    },
-    added: {
-      [prop]: 'auto'
-    },
+    const allStyles = {
+      appended: {
+        position: 'absolute',
+        visibility: 'hidden'
+      },
 
-    enter: {
-      [prop]: 0,
-      overflow: 'hidden'
-    },
-    entering: {
-      [prop]: refs.rectStart.current && `${refs.rectStart.current[prop]}px`,
-      overflow: 'hidden'
-    },
-    entered: {
-      [prop]: 'auto'
-    },
+      add: {
+        [prop]: 0,
+        overflow: 'hidden'
+      },
+      adding: {
+        [prop]: refs.rectStart.current && `${refs.rectStart.current[prop]}px`,
+        overflow: 'hidden'
+      },
+      added: {
+        [prop]: 'auto'
+      },
 
-    exit: {
-      [prop]: refs.rect.current && `${refs.rect.current[prop]}px`,
-      overflow: 'hidden'
-    },
-    exiting: {
-      [prop]: expandSize !== undefined ? expandSize : '0',
-      overflow: 'hidden'
-    },
-    exited: {
-      [prop]: expandSize !== undefined ? expandSize : '0',
-      overflow: 'hidden'
-    }
-  });
+      enter: {
+        [prop]: 0,
+        overflow: 'hidden'
+      },
+      entering: {
+        [prop]: refs.rectStart.current && `${refs.rectStart.current[prop]}px`,
+        overflow: 'hidden'
+      },
+      entered: {
+        [prop]: 'auto'
+      },
+
+      exit: {
+        [prop]: styles_[prop],
+        overflow: 'hidden'
+      },
+      exiting: {
+        [prop]: expandSize !== undefined ? expandSize : '0',
+        overflow: 'hidden'
+      },
+      exited: {
+        [prop]: expandSize !== undefined ? expandSize : '0',
+        overflow: 'hidden'
+      }
+    };
+
+    return allStyles[status];
+  };
 
   const timeout = (status: TTransitionStatus, property: string = 'opacity') => {
     const properties = {
@@ -147,10 +153,6 @@ const Expand = React.forwardRef((props_: any, ref: any) => {
           if (refs.rectStart.current) refs.rectStart.current[prop] += addValue;
         }
       }}
-
-      onExit={element => {
-        refs.rect.current = element?.getBoundingClientRect();
-      }}
     >
       {(status: TTransitionStatus, ref_) => {
         return React.cloneElement(children_, {
@@ -173,7 +175,7 @@ const Expand = React.forwardRef((props_: any, ref: any) => {
 
             visibility: status === 'exited' && !inProp && expandSize === undefined ? 'hidden' : undefined,
 
-            ...styles()[status],
+            ...styles(status),
 
             ...children?.props?.style,
           }

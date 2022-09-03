@@ -8,6 +8,7 @@ import Slide from '../Slide';
 import { staticClassName } from '../utils';
 import useSwipe from '../useSwipe';
 import { IOptionsUseSwipe, IResponseUseSwipe } from '../useSwipe/useSwipe';
+import { clamp, is } from '@amaui/utils';
 
 const useStyle = style(theme => ({
   root: {
@@ -77,20 +78,10 @@ const useStyle = style(theme => ({
   }
 }), { name: 'AmauiNavigationDrawer' });
 
-// swipe
-
 const NavigationDrawer = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiNavigationDrawer?.props?.default }), [props_]);
-
-  const [entered, setEntered] = React.useState(false);
-
-  const refs = {
-    modal: React.useRef<HTMLElement>()
-  };
-
-  const { classes } = useStyle(props);
 
   const {
     tonal = false,
@@ -100,6 +91,9 @@ const NavigationDrawer = React.forwardRef((props_: any, ref: any) => {
     removeOnExited,
     swipe = true,
     min,
+    open: open_,
+    openDefault,
+    onClose: onClose_,
 
     TransitionComponentProps = {},
 
@@ -109,6 +103,16 @@ const NavigationDrawer = React.forwardRef((props_: any, ref: any) => {
 
     ...other
   } = props;
+
+  const [entered, setEntered] = React.useState(false);
+  const [open, setOpen] = React.useState(false);
+
+  const refs = {
+    modal: React.useRef<HTMLElement>(),
+    background: React.useRef<HTMLElement>()
+  };
+
+  const { classes } = useStyle(props);
 
   let direction = direction_;
 
@@ -120,7 +124,9 @@ const NavigationDrawer = React.forwardRef((props_: any, ref: any) => {
   let swipeValue: IResponseUseSwipe;
 
   if (swipe) {
-    const swipeOptions: IOptionsUseSwipe = {};
+    const swipeOptions: IOptionsUseSwipe = {
+      direction
+    };
 
     if (direction === 'top') {
       swipeOptions.min = min !== undefined ? min : 'top';
@@ -145,6 +151,70 @@ const NavigationDrawer = React.forwardRef((props_: any, ref: any) => {
     swipeValue = useSwipe(refs.modal.current, swipeOptions);
   }
 
+  React.useEffect(() => {
+    if (open_ !== open) setOpen(open_);
+  }, [open_]);
+
+  React.useEffect(() => {
+    const valueSwipe = clamp(swipeValue.value, 0, 100);
+    const position = swipeValue.position;
+
+    if (position !== undefined) {
+      if (position === 'min') {
+        if (refs.modal.current) onClose();
+
+        if (refs.background.current) {
+          // Add transition
+          refs.background.current.style.transition = theme.methods.transitions.make('transform', { duration: 'xs' });
+
+          refs.background.current.style.opacity = `${1 - (valueSwipe / 100)}`;
+        }
+      }
+
+      if (position === 'max') {
+        if (refs.modal.current) {
+          // Add transition
+          refs.modal.current.style.transition = theme.methods.transitions.make('transform', { duration: 'xs' });
+
+          refs.modal.current.style.transform = 'translate(0, 0)';
+        }
+
+        if (refs.background.current) {
+          // Add transition
+          refs.background.current.style.transition = theme.methods.transitions.make('opacity', { duration: 'xs' });
+
+          refs.background.current.style.opacity = '1';
+        }
+      }
+    }
+    else {
+      let value_ = '';
+
+      if (refs.modal.current) {
+        if (direction === 'top') value_ = `translateY(-${valueSwipe}%)`;
+        if (direction === 'left') value_ = `translateX(-${valueSwipe}%)`;
+        if (direction === 'right') value_ = `translateX(${valueSwipe}%)`;
+        if (direction === 'bottom') value_ = `translateY(${valueSwipe}%)`;
+
+        // No transition
+        refs.modal.current.style.transition = 'none';
+
+        refs.modal.current.style.transform = value_;
+      }
+
+      if (refs.background.current) {
+        // No transition
+        refs.background.current.style.transition = 'none';
+
+        refs.background.current.style.opacity = `${1 - (valueSwipe / 100)}`;
+      }
+    }
+  }, [swipeValue?.value, swipeValue?.position]);
+
+  const onClose = React.useCallback(() => {
+    if (is('function', onClose_)) onClose_();
+  }, []);
+
   if (version === 'standard') {
     other.portal = other.portal !== undefined ? other.portal : false;
     other.freezeScroll = other.freezeScroll !== undefined ? other.freezeScroll : false;
@@ -164,18 +234,24 @@ const NavigationDrawer = React.forwardRef((props_: any, ref: any) => {
     TransitionComponentProps.exitOnAdd = TransitionComponentProps.exitOnAdd !== undefined ? TransitionComponentProps.exitOnAdd : true;
     TransitionComponentProps.min = TransitionComponentProps.min !== undefined ? TransitionComponentProps.min : min;
   }
-  console.log(0, refs.modal.current, entered);
+  console.log(0, swipeValue);
   return (
     <Modal
       ref={ref}
 
+      open={open}
+
       mainRef={refs.modal}
+
+      backgroundRef={refs.background}
 
       partialyOpened={min !== undefined}
 
       tonal={tonal}
 
       color={color}
+
+      onClose={onClose}
 
       TransitionComponentProps={{
         onAdded: () => setEntered(true),

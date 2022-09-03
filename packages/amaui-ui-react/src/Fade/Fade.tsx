@@ -10,6 +10,10 @@ const Fade = React.forwardRef((props_: any, ref: any) => {
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiFade?.props?.default }), [props_]);
 
+  const refs = {
+    root: React.useRef<HTMLElement>()
+  };
+
   const {
     in: inProp,
     prefix,
@@ -44,36 +48,42 @@ const Fade = React.forwardRef((props_: any, ref: any) => {
     ...other
   } = props;
 
-  const styles = {
-    add: {
-      opacity: 0
-    },
-    adding: {
-      opacity: 1
-    },
-    added: {
-      opacity: 1
-    },
+  const styles = (status: TTransitionStatus) => {
+    const { opacity = 1 } = (refs.root.current && window.getComputedStyle(refs.root?.current)) || {};
 
-    enter: {
-      opacity: 0
-    },
-    entering: {
-      opacity: 1
-    },
-    entered: {
-      opacity: 1
-    },
+    const allStyles = {
+      add: {
+        opacity: 0
+      },
+      adding: {
+        opacity: 1
+      },
+      added: {
+        opacity: 1
+      },
 
-    exit: {
-      opacity: 1
-    },
-    exiting: {
-      opacity: 0
-    },
-    exited: {
-      opacity: 0
-    },
+      enter: {
+        opacity: 0
+      },
+      entering: {
+        opacity: 1
+      },
+      entered: {
+        opacity: 1
+      },
+
+      exit: {
+        opacity
+      },
+      exiting: {
+        opacity: 0
+      },
+      exited: {
+        opacity: 0
+      }
+    };
+
+    return allStyles[status];
   };
 
   const timeout = (status: TTransitionStatus, property: string = 'opacity') => {
@@ -95,6 +105,8 @@ const Fade = React.forwardRef((props_: any, ref: any) => {
           ...other,
 
           ref: item => {
+            refs.root.current = item;
+
             if (ref) ref.current = item;
 
             if (ref_) ref_.current = item;
@@ -107,9 +119,9 @@ const Fade = React.forwardRef((props_: any, ref: any) => {
 
             transition: `opacity ${timeout(status)} ${timingFunction(status)}`,
 
-            ...(styles[status] || {}),
+            ...styles(status),
 
-            ...(children?.props?.style || {}),
+            ...children?.props?.style,
           }
         });
       }}

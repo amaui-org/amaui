@@ -10,6 +10,10 @@ const Zoom = React.forwardRef((props_: any, ref: any) => {
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiZoom?.props?.default }), [props_]);
 
+  const refs = {
+    root: React.useRef<HTMLElement>()
+  };
+
   const {
     in: inProp,
     prefix,
@@ -44,37 +48,42 @@ const Zoom = React.forwardRef((props_: any, ref: any) => {
     ...other
   } = props;
 
+  const styles = (status: TTransitionStatus) => {
+    const { transform = 'scale(1)' } = (refs.root.current && window.getComputedStyle(refs.root?.current)) || {};
 
-  const styles = {
-    add: {
-      transform: `scale(0)`
-    },
-    adding: {
-      transform: `scale(1)`
-    },
-    added: {
-      transform: `scale(1)`
-    },
+    const allStyles = {
+      add: {
+        transform: `scale(0)`
+      },
+      adding: {
+        transform: `scale(1)`
+      },
+      added: {
+        transform: `scale(1)`
+      },
 
-    enter: {
-      transform: `scale(0)`
-    },
-    entering: {
-      transform: `scale(1)`
-    },
-    entered: {
-      transform: `scale(1)`
-    },
+      enter: {
+        transform: `scale(0)`
+      },
+      entering: {
+        transform: `scale(1)`
+      },
+      entered: {
+        transform: `scale(1)`
+      },
 
-    exit: {
-      transform: `scale(1)`
-    },
-    exiting: {
-      transform: `scale(0)`
-    },
-    exited: {
-      transform: `scale(0)`
-    },
+      exit: {
+        transform
+      },
+      exiting: {
+        transform: `scale(0)`
+      },
+      exited: {
+        transform: `scale(0)`
+      }
+    };
+
+    return allStyles[status];
   };
 
   const timeout = (status: TTransitionStatus, property: string = 'opacity') => {
@@ -96,6 +105,8 @@ const Zoom = React.forwardRef((props_: any, ref: any) => {
           ...other,
 
           ref: item => {
+            refs.root.current = item;
+
             if (ref) ref.current = item;
 
             if (ref_) ref_.current = item;
@@ -108,13 +119,13 @@ const Zoom = React.forwardRef((props_: any, ref: any) => {
 
             transition: `transform ${timeout(status, 'transform')} ${timingFunction(status)}`,
 
-            ...(styles[status] || {}),
+            ...styles(status),
 
-            ...(children?.props?.style || {}),
+            ...children?.props?.style,
           }
         });
       }}
-    </Transition>
+    </Transition >
   );
 });
 

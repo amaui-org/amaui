@@ -54,6 +54,8 @@ const Slide = React.forwardRef((props_: any, ref: any) => {
   const translate = (useMin = false) => {
     const rect = refs.root?.current?.getBoundingClientRect();
 
+    const { width = 0, height = 0 } = rect || {};
+
     const h = root ? root.offsetHeight : window.innerHeight;
     const w = root ? root.offsetWidth : window.innerWidth;
 
@@ -66,19 +68,19 @@ const Slide = React.forwardRef((props_: any, ref: any) => {
 
     if (min !== undefined && useMin) toAdd = min;
 
-    if (direction === 'top') return `translate(0, ${bottom !== undefined ? (bottom * -1) + toAdd + 'px' : '-100vh'})`;
+    if (direction === 'top') return `translate(0, ${bottom !== undefined ? (Math.abs(bottom) === height ? (bottom * -1) : -height) + toAdd + 'px' : '-100vh'})`;
 
-    if (direction === 'left') return `translate(${right !== undefined ? (right * -1) + toAdd + 'px' : '-100vw'}, 0)`;
+    if (direction === 'left') return `translate(${right !== undefined ? (Math.abs(right) === width ? (right * -1) : -width) + toAdd + 'px' : '-100vw'}, 0)`;
 
-    if (direction === 'right') return `translate(${left !== undefined ? Math.abs(w - left) - toAdd + 'px' : '100vw'}, 0)`;
+    if (direction === 'right') return `translate(${left !== undefined ? (Math.abs(w - left) === width) ? Math.abs(w - left) : (right - w) - toAdd + 'px' : '100vw'}, 0)`;
 
-    if (direction === 'bottom') return `translate(0, ${top !== undefined ? Math.abs(h - top) - toAdd + 'px' : '100vh'})`;
+    if (direction === 'bottom') return `translate(0, ${top !== undefined ? (Math.abs(h - top) === height) ? Math.abs(h - top) : (bottom - h) - toAdd + 'px' : '100vh'})`;
   };
 
   const styles = (status: TTransitionStatus) => {
     if (!status) return { visibility: 'hidden' };
 
-    const transform = refs.root.current && window.getComputedStyle(refs.root?.current).transform;
+    const { transform = 'none' } = (refs.root.current && window.getComputedStyle(refs.root?.current)) || {};
 
     const translateValueMin = translate(true);
     const translateValue = translate();
@@ -123,7 +125,7 @@ const Slide = React.forwardRef((props_: any, ref: any) => {
       },
 
       exit: {
-        transform: 'none'
+        transform
       },
       exiting: {
         transform: translateValueMin
@@ -138,7 +140,7 @@ const Slide = React.forwardRef((props_: any, ref: any) => {
     return allStyles[status];
   };
 
-  const timeout = (status: TTransitionStatus, property: string = 'opacity') => {
+  const timeout = (status: TTransitionStatus, property: string = 'transform') => {
     const properties = {
       transform: theme.transitions.duration.xs
     };
@@ -170,11 +172,11 @@ const Slide = React.forwardRef((props_: any, ref: any) => {
           },
 
           style: {
-            transition: `transform ${timeout(status, 'transform')} ${timingFunction(status)}`,
+            transition: `transform ${timeout(status)} ${timingFunction(status)}`,
 
-            ...(styles(status) || {}),
+            ...styles(status),
 
-            ...(children?.props?.style || {}),
+            ...children?.props?.style,
           }
         });
       }}

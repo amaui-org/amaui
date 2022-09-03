@@ -10,6 +10,10 @@ const Grow = React.forwardRef((props_: any, ref: any) => {
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiGrow?.props?.default }), [props_]);
 
+  const refs = {
+    root: React.useRef<HTMLElement>()
+  };
+
   const {
     in: inProp,
     prefix,
@@ -44,45 +48,51 @@ const Grow = React.forwardRef((props_: any, ref: any) => {
     ...other
   } = props;
 
-  const styles = {
-    add: {
-      opacity: 0,
-      transform: `scale(0.74)`
-    },
-    adding: {
-      opacity: 1,
-      transform: `scale(1)`
-    },
-    added: {
-      opacity: 1,
-      transform: `scale(1)`
-    },
+  const styles = (status: TTransitionStatus) => {
+    const { opacity = 1, transform = 'scale(1)' } = (refs.root.current && window.getComputedStyle(refs.root?.current)) || {};
 
-    enter: {
-      opacity: 0,
-      transform: `scale(0.74)`
-    },
-    entering: {
-      opacity: 1,
-      transform: `scale(1)`
-    },
-    entered: {
-      opacity: 1,
-      transform: `scale(1)`
-    },
+    const allStyles = {
+      add: {
+        opacity: 0,
+        transform: `scale(0.74)`
+      },
+      adding: {
+        opacity: 1,
+        transform: `scale(1)`
+      },
+      added: {
+        opacity: 1,
+        transform: `scale(1)`
+      },
 
-    exit: {
-      opacity: 1,
-      transform: `scale(1)`
-    },
-    exiting: {
-      opacity: 0,
-      transform: `scale(0.74)`
-    },
-    exited: {
-      opacity: 0,
-      transform: `scale(0.74)`
-    },
+      enter: {
+        opacity: 0,
+        transform: `scale(0.74)`
+      },
+      entering: {
+        opacity: 1,
+        transform: `scale(1)`
+      },
+      entered: {
+        opacity: 1,
+        transform: `scale(1)`
+      },
+
+      exit: {
+        opacity,
+        transform
+      },
+      exiting: {
+        opacity: 0,
+        transform: `scale(0.74)`
+      },
+      exited: {
+        opacity: 0,
+        transform: `scale(0.74)`
+      }
+    };
+
+    return allStyles[status];
   };
 
   const timeout = (status: TTransitionStatus, property: string = 'opacity') => {
@@ -105,6 +115,8 @@ const Grow = React.forwardRef((props_: any, ref: any) => {
           ...other,
 
           ref: item => {
+            refs.root.current = item;
+
             if (ref) ref.current = item;
 
             if (ref_) ref_.current = item;
@@ -117,9 +129,9 @@ const Grow = React.forwardRef((props_: any, ref: any) => {
 
             transition: `opacity ${timeout(status)} ${timingFunction(status)}, transform ${timeout(status, 'transform')} ${timingFunction(status)} ${status === 'exiting' ? '74ms' : '0ms'}`,
 
-            ...(styles[status] || {}),
+            ...styles(status),
 
-            ...(children?.props?.style || {}),
+            ...children?.props?.style,
           }
         });
       }}
