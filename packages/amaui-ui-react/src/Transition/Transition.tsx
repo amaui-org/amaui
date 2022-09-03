@@ -38,7 +38,6 @@ export interface IProps {
   run?: boolean;
 
   append?: boolean;
-  reAppend?: boolean;
   add?: boolean;
   enter?: boolean;
   exit?: boolean;
@@ -96,7 +95,6 @@ function Transition(props_: IProps) {
     run,
 
     append,
-    reAppend,
     add: add_,
     enter: enter_ = true,
     exit: exit_ = true,
@@ -320,17 +318,6 @@ function Transition(props_: IProps) {
 
   const enter = async (status_: TTransitionStatus) => {
     if (refs.status.current !== status_ || !refs.inProp.current) return;
-
-    // reAppend
-    if (reAppend) {
-      updateStatus('appended');
-
-      // Reflow
-      reflow(refs.root.current);
-
-      // Prevent update batches
-      await wait(14);
-    }
 
     updateStatus('enter');
 
