@@ -193,3 +193,6 @@ export * from './NavigationDrawer';
 
 export { default as useSwipe } from './useSwipe';
 export * from './useSwipe';
+
+export { default as BottomSheet } from './BottomSheet';
+export * from './BottomSheet';

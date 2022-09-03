@@ -44,7 +44,6 @@ const useStyle = style(theme => ({
   direction_top: {
     '& .AmauiModal-surface': {
       top: 0,
-      left: 0,
       width: '100%',
       borderRadius: '0 0 16px 16px'
     }
@@ -53,7 +52,6 @@ const useStyle = style(theme => ({
   direction_left: {
     '& .AmauiModal-surface': {
       top: 0,
-      left: 0,
       height: '100%',
       borderRadius: '0 16px 16px 0'
     }
@@ -61,7 +59,6 @@ const useStyle = style(theme => ({
 
   direction_right: {
     '& .AmauiModal-surface': {
-      top: 0,
       right: 0,
       height: '100%',
       borderRadius: '16px 0 0 16px'
@@ -71,7 +68,6 @@ const useStyle = style(theme => ({
   direction_bottom: {
     '& .AmauiModal-surface': {
       bottom: 0,
-      left: 0,
       width: '100%',
       borderRadius: '16px 16px 0 0'
     }
@@ -85,7 +81,7 @@ const NavigationDrawer = React.forwardRef((props_: any, ref: any) => {
 
   const {
     tonal = false,
-    color = props.version === 'modal' ? 'themed' : 'default',
+    color = [undefined, 'modal'].includes(props.version) ? 'themed' : 'default',
     version = 'modal',
     direction: direction_ = 'left',
     removeOnExited,
