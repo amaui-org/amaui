@@ -84,6 +84,7 @@ const Slide = React.forwardRef((props_: any, ref: any) => {
     const { transform = 'none' } = (refs.root.current && window.getComputedStyle(refs.root?.current)) || {};
 
     const translateValueMin = translate(true);
+
     const translateValue = translate();
 
     const other: any = {};
@@ -119,7 +120,7 @@ const Slide = React.forwardRef((props_: any, ref: any) => {
         ...other
       },
       entering: {
-        transform: 'translate(0, 0)',
+        transform: 'translate(0, 0)'
       },
       entered: {
         transform: 'none'
@@ -132,7 +133,7 @@ const Slide = React.forwardRef((props_: any, ref: any) => {
         transform: translateValueMin
       },
       exited: {
-        transform,
+        transform: min !== undefined ? translateValueMin : transform,
 
         ...other
       }
@@ -163,9 +164,13 @@ const Slide = React.forwardRef((props_: any, ref: any) => {
 
       onEnter={element => {
         element.style.visibility = 'hidden';
+        element.style.transition = 'none';
         element.style.transform = 'none';
 
         refs.rect.current = element?.getBoundingClientRect();
+
+        // Clean up
+        element.style.removeProperty('visibility');
       }}
 
       onExit={element => {

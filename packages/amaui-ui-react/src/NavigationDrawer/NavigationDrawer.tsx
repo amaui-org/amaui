@@ -125,6 +125,8 @@ const NavigationDrawer = React.forwardRef((props_: any, ref: any) => {
 
   if (swipe) {
     const swipeOptions: IOptionsUseSwipe = {
+      open,
+      min,
       direction
     };
 
@@ -208,7 +210,6 @@ const NavigationDrawer = React.forwardRef((props_: any, ref: any) => {
     other.openDefault = false;
 
     TransitionComponentProps.add = TransitionComponentProps.add !== undefined ? TransitionComponentProps.add : true;
-    TransitionComponentProps.exitOnAdd = TransitionComponentProps.exitOnAdd !== undefined ? TransitionComponentProps.exitOnAdd : true;
     TransitionComponentProps.min = TransitionComponentProps.min !== undefined ? TransitionComponentProps.min : min;
   }
   console.log(0, swipeValue);

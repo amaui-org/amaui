@@ -5,8 +5,8 @@ import { clamp } from '@amaui/utils';
 import { percentageWithinRange } from '../utils';
 
 export interface IOptionsUseSwipe {
-  min?: string | number;
-  max?: string | number;
+  open?: boolean;
+  min?: number;
   direction?: 'top' | 'left' | 'right' | 'bottom';
 }
 
@@ -62,30 +62,32 @@ const useSwipe = (element: HTMLElement, options: IOptionsUseSwipe = {}) => {
     let min: number;
     let max: number;
 
+    const optionsMin = refs.options.current.min || 0;
+
     if (refs.options.current.direction === 'top') {
       min = refs.rect.current.top;
-      max = refs.rect.current.bottom;
+      max = refs.rect.current.bottom - optionsMin;
 
       value_ = top - y;
     }
 
     if (refs.options.current.direction === 'left') {
       min = refs.rect.current.left;
-      max = refs.rect.current.right;
+      max = refs.rect.current.right - optionsMin;
 
       value_ = left - x;
     }
 
     if (refs.options.current.direction === 'right') {
-      min = window.innerWidth - refs.rect.current.left;
-      max = min + refs.rect.current.width;
+      min = window.innerWidth - refs.rect.current.left - optionsMin;
+      max = min + refs.rect.current.width - optionsMin;
 
       value_ = width - (window.innerWidth - left) - x;
     }
 
     if (refs.options.current.direction === 'bottom') {
-      min = window.innerHeight - refs.rect.current.top;
-      max = min + refs.rect.current.height;
+      min = window.innerHeight - refs.rect.current.top - optionsMin;
+      max = min + refs.rect.current.height - optionsMin;
 
       value_ = height - (window.innerHeight - top) - y;
     }
@@ -105,7 +107,7 @@ const useSwipe = (element: HTMLElement, options: IOptionsUseSwipe = {}) => {
   React.useEffect(() => {
     const onTouchMoveMethod = (event: any) => {
       // Workaround for proper element for touchmove
-      if (refs.previous.current && (refs.touch.current || element.contains(document.elementFromPoint(event.touches[0].clientX, event.touches[0].clientY)))) {
+      if (refs.options.current.open && refs.previous.current && (refs.touch.current || element.contains(document.elementFromPoint(event.touches[0].clientX, event.touches[0].clientY)))) {
         if (!refs.touch.current) setTouch(true);
 
         onTouchMove(event);
@@ -133,7 +135,7 @@ const useSwipe = (element: HTMLElement, options: IOptionsUseSwipe = {}) => {
       window.document.removeEventListener('touchmove', onTouchMoveMethod);
     };
   }, [element]);
-  console.log('useSwipe', response);
+
   return response;
 };
 
