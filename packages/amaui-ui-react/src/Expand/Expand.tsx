@@ -46,7 +46,7 @@ const Expand = React.forwardRef((props_: any, ref: any) => {
     enterOnAdd,
     exitOnAdd,
     noAbruption,
-    removeOnExited,
+    removeOnExited = true,
     timeout: timeout_,
     timing_function,
     onTransition,
@@ -78,7 +78,7 @@ const Expand = React.forwardRef((props_: any, ref: any) => {
 
   const styles = (status: TTransitionStatus) => {
     const styles_ = (refs.root.current && window.getComputedStyle(refs.root?.current)) || {};
-    console.log(0, refs.rectStart.current, refs.rectStart.current?.[prop]);
+
     const allStyles = {
       appended: {
         position: 'absolute',

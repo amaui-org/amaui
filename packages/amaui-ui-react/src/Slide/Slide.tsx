@@ -68,13 +68,13 @@ const Slide = React.forwardRef((props_: any, ref: any) => {
 
     if (min !== undefined && useMin) toAdd = min;
 
-    if (direction === 'top') return `translate(0, ${bottom !== undefined ? (Math.abs(bottom) === height ? (bottom * -1) : -height) + toAdd + 'px' : '-100vh'})`;
+    if (direction === 'top') return `translate(0, ${bottom !== undefined ? (top < 0 ? -height : -bottom) + toAdd + 'px' : '-100vh'})`;
 
-    if (direction === 'left') return `translate(${right !== undefined ? (Math.abs(right) === width ? (right * -1) : -width) + toAdd + 'px' : '-100vw'}, 0)`;
+    if (direction === 'left') return `translate(${right !== undefined ? (left < 0 ? -width : -right) + toAdd + 'px' : '-100vw'}, 0)`;
 
-    if (direction === 'right') return `translate(${left !== undefined ? ((Math.abs(w - left) === width) ? Math.abs(w - left) : width) - toAdd + 'px' : '100vw'}, 0)`;
+    if (direction === 'right') return `translate(${left !== undefined ? ((right > w) ? width : Math.abs(w - left)) - toAdd + 'px' : '100vw'}, 0)`;
 
-    if (direction === 'bottom') return `translate(0, ${top !== undefined ? ((Math.abs(h - top) === height) ? Math.abs(h - top) : height) - toAdd + 'px' : '100vh'})`;
+    if (direction === 'bottom') return `translate(0, ${top !== undefined ? ((bottom > h) ? height : Math.abs(h - top)) - toAdd + 'px' : '100vh'})`;
   };
 
   const styles = (status: TTransitionStatus) => {
@@ -153,6 +153,7 @@ const Slide = React.forwardRef((props_: any, ref: any) => {
   return (
     <Transition
       append
+
       removeOnExited
 
       {...props}
