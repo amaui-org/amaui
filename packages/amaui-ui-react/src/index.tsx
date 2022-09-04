@@ -196,3 +196,6 @@ export * from './useSwipe';
 
 export { default as BottomSheet } from './BottomSheet';
 export * from './BottomSheet';
+
+export { default as BottomAppBar } from './BottomAppBar';
+export * from './BottomAppBar';
