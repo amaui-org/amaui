@@ -8,6 +8,7 @@ export interface IOptionsUseSwipe {
   open?: boolean;
   min?: number;
   direction?: 'top' | 'left' | 'right' | 'bottom';
+  touchAnywhere?: boolean;
 }
 
 export interface IResponseUseSwipe {
@@ -107,7 +108,7 @@ const useSwipe = (element: HTMLElement, options: IOptionsUseSwipe = {}) => {
   React.useEffect(() => {
     const onTouchMoveMethod = (event: any) => {
       // Workaround for proper element for touchmove
-      if (refs.options.current.open && refs.previous.current && (refs.touch.current || element.contains(document.elementFromPoint(event.touches[0].clientX, event.touches[0].clientY)))) {
+      if (refs.options.current.open && refs.previous.current && ((refs.options.current.touchAnywhere || refs.touch.current) || element.contains(document.elementFromPoint(event.touches[0].clientX, event.touches[0].clientY)))) {
         if (!refs.touch.current) setTouch(true);
 
         onTouchMove(event);

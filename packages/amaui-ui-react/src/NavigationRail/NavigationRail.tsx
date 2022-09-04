@@ -176,15 +176,13 @@ const NavigationRail = React.forwardRef((props_: any, ref: any) => {
           `AmauiNavigationRail-version-${version}`,
           `AmauiNavigationRail-alignment-${alignment}`,
           `AmauiNavigationRail-size-${size}`,
-          border && `NavigationRail-border`,
-          fixed && `NavigationRail-fixed`
+          border && `AmauiNavigationRail-border`,
+          fixed && `AmauiNavigationRail-fixed`
         ],
 
         className,
         classes.root,
-        classes[`color_${color}`],
         classes[`size_${size}`],
-        tonal && classes[`tonal_color_${color}`],
         fixed && classes.fixed
       ])}
 

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { countries } from '@amaui/utils';
 import { AmauiTheme, AmauiThemeProvider, classNames, style, sy, useAmauiTheme } from '@amaui/style-react';
-import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationItem, NavigationRail, NavigationDrawer, BottomSheet, BottomAppBar } from '@amaui/ui-react';
+import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationItem, NavigationRail, NavigationDrawer, BottomSheet, BottomAppBar, TopAppBar } from '@amaui/ui-react';
 
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
@@ -18,6 +18,7 @@ import IconMaterialContentCopyRounded from '@amaui/icons-material-react/build/Ic
 import IconMaterialContentPasteRounded from '@amaui/icons-material-react/build/IconMaterialContentPasteRounded';
 import IconMaterialCloudRounded from '@amaui/icons-material-react/build/IconMaterialCloudRounded';
 import IconMaterialArrowRightRounded from '@amaui/icons-material-react/build/IconMaterialArrowRightRounded';
+import IconMaterialArrowBackRounded from '@amaui/icons-material-react/build/IconMaterialArrowBackRounded';
 import IconMaterialSentimentDissatisfiedRounded from '@amaui/icons-material-react/build/IconMaterialSentimentDissatisfiedRounded';
 import IconMaterialSentimentNeutralRounded from '@amaui/icons-material-react/build/IconMaterialSentimentNeutralRounded';
 import IconMaterialSentimentSatisfiedRounded from '@amaui/icons-material-react/build/IconMaterialSentimentSatisfiedRounded';
@@ -211,6 +212,13 @@ const useStyle = style(theme => ({
 }), { name: 'App' });
 
 const styled = {
+  TopAppBar: sy(TopAppBar)((theme: AmauiTheme) => ({
+    root: {
+      '&:hover': {
+        opacity: 0.4
+      }
+    }
+  })),
   BottomAppBar: sy(BottomAppBar)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
@@ -799,6 +807,56 @@ function App() {
 
       <Accordion primary='All'>
         <Line>
+          <TopAppBar
+            title='Title Large'
+
+            start={[
+              <IconButton>
+                <IconMaterialArrowBackRounded />
+              </IconButton>
+            ]}
+
+            end={[
+              <IconButton>
+                <IconMaterialPottedPlantRounded />
+              </IconButton>,
+
+              <IconButton>
+                <IconMaterialCheckRounded />
+              </IconButton>,
+
+              <IconButton>
+                <IconMaterialLightModeRounded />
+              </IconButton>
+            ]}
+          />
+
+          <BottomAppBar
+            main={(
+              <Fab
+                elevation={0}
+              >
+                <IconMaterialPottedPlantRounded />
+              </Fab>
+            )}
+          >
+            <IconButton>
+              <IconMaterialPottedPlantRounded />
+            </IconButton>
+
+            <IconButton>
+              <IconMaterialCheckRounded />
+            </IconButton>
+
+            <IconButton>
+              <IconMaterialLightModeRounded />
+            </IconButton>
+
+            <IconButton>
+              <IconMaterialUndoRounded />
+            </IconButton>
+          </BottomAppBar>
+
           <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue(114, 'bsheet')}>bottom s</Button>
 
           <BottomSheet
@@ -1175,6 +1233,1009 @@ Please sign in again.`}
 
           <IconMaterialPottedPlantRounded color='secondary' />
         </Line>
+      </Accordion>
+
+      <Accordion primary='TopAppBar'>
+        <Accordion primary='TopAppBar' open>
+          <Line>
+            <TopAppBar
+              title='Title Large'
+
+              start={[
+                <IconButton>
+                  <IconMaterialArrowBackRounded />
+                </IconButton>
+              ]}
+
+              end={[
+                <IconButton>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialCheckRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialLightModeRounded />
+                </IconButton>
+              ]}
+            />
+          </Line>
+        </Accordion>
+
+        <Accordion primary='TopAppBar version' open>
+          <Line>
+            <TopAppBar
+              title='Title Large'
+
+              version='small'
+
+              start={[
+                <IconButton>
+                  <IconMaterialArrowBackRounded />
+                </IconButton>
+              ]}
+
+              end={[
+                <IconButton>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialCheckRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialLightModeRounded />
+                </IconButton>
+              ]}
+            />
+
+            <TopAppBar
+              title='Title Large'
+
+              version='small'
+
+              end={[
+                <IconButton>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialCheckRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialLightModeRounded />
+                </IconButton>
+              ]}
+            />
+
+            <TopAppBar
+              title='Title Large'
+
+              version='center'
+
+              start={[
+                <IconButton>
+                  <IconMaterialArrowBackRounded />
+                </IconButton>
+              ]}
+
+              end={[
+                <IconButton>
+                  <IconMaterialLightModeRounded />
+                </IconButton>
+              ]}
+            />
+
+            <TopAppBar
+              title='Headline small'
+
+              version='medium'
+
+              start={[
+                <IconButton>
+                  <IconMaterialArrowBackRounded />
+                </IconButton>
+              ]}
+
+              end={[
+                <IconButton>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialCheckRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialLightModeRounded />
+                </IconButton>
+              ]}
+            />
+
+            <TopAppBar
+              title='Headline medium'
+
+              version='large'
+
+              start={[
+                <IconButton>
+                  <IconMaterialArrowBackRounded />
+                </IconButton>
+              ]}
+
+              end={[
+                <IconButton>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialCheckRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialLightModeRounded />
+                </IconButton>
+              ]}
+            />
+          </Line>
+        </Accordion>
+
+        <Accordion primary='TopAppBar color' open>
+          <Line>
+            <TopAppBar color='default' tonal={false}
+              title='Title Large'
+
+              start={[
+                <IconButton>
+                  <IconMaterialArrowBackRounded />
+                </IconButton>
+              ]}
+
+              end={[
+                <IconButton>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialCheckRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialLightModeRounded />
+                </IconButton>
+              ]}
+            />
+
+            <TopAppBar color='primary' tonal={false}
+              title='Title Large'
+
+              start={[
+                <IconButton>
+                  <IconMaterialArrowBackRounded />
+                </IconButton>
+              ]}
+
+              end={[
+                <IconButton>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialCheckRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialLightModeRounded />
+                </IconButton>
+              ]}
+            />
+
+            <TopAppBar color='secondary' tonal={false}
+              title='Title Large'
+
+              start={[
+                <IconButton>
+                  <IconMaterialArrowBackRounded />
+                </IconButton>
+              ]}
+
+              end={[
+                <IconButton>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialCheckRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialLightModeRounded />
+                </IconButton>
+              ]}
+            />
+
+            <TopAppBar color='tertiary' tonal={false}
+              title='Title Large'
+
+              start={[
+                <IconButton>
+                  <IconMaterialArrowBackRounded />
+                </IconButton>
+              ]}
+
+              end={[
+                <IconButton>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialCheckRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialLightModeRounded />
+                </IconButton>
+              ]}
+            />
+
+            <TopAppBar color='quaternary' tonal={false}
+              title='Title Large'
+
+              start={[
+                <IconButton>
+                  <IconMaterialArrowBackRounded />
+                </IconButton>
+              ]}
+
+              end={[
+                <IconButton>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialCheckRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialLightModeRounded />
+                </IconButton>
+              ]}
+            />
+
+            <TopAppBar color='info' tonal={false}
+              title='Title Large'
+
+              start={[
+                <IconButton>
+                  <IconMaterialArrowBackRounded />
+                </IconButton>
+              ]}
+
+              end={[
+                <IconButton>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialCheckRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialLightModeRounded />
+                </IconButton>
+              ]}
+            />
+
+            <TopAppBar color='success' tonal={false}
+              title='Title Large'
+
+              start={[
+                <IconButton>
+                  <IconMaterialArrowBackRounded />
+                </IconButton>
+              ]}
+
+              end={[
+                <IconButton>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialCheckRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialLightModeRounded />
+                </IconButton>
+              ]}
+            />
+
+            <TopAppBar color='warning' tonal={false}
+              title='Title Large'
+
+              start={[
+                <IconButton>
+                  <IconMaterialArrowBackRounded />
+                </IconButton>
+              ]}
+
+              end={[
+                <IconButton>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialCheckRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialLightModeRounded />
+                </IconButton>
+              ]}
+            />
+
+            <TopAppBar color='error' tonal={false}
+              title='Title Large'
+
+              start={[
+                <IconButton>
+                  <IconMaterialArrowBackRounded />
+                </IconButton>
+              ]}
+
+              end={[
+                <IconButton>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialCheckRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialLightModeRounded />
+                </IconButton>
+              ]}
+            />
+
+            <TopAppBar color='neutral' tonal={false}
+              title='Title Large'
+
+              start={[
+                <IconButton>
+                  <IconMaterialArrowBackRounded />
+                </IconButton>
+              ]}
+
+              end={[
+                <IconButton>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialCheckRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialLightModeRounded />
+                </IconButton>
+              ]}
+            />
+
+            <TopAppBar color='#f5d758' tonal={false}
+              title='Title Large'
+
+              start={[
+                <IconButton>
+                  <IconMaterialArrowBackRounded />
+                </IconButton>
+              ]}
+
+              end={[
+                <IconButton>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialCheckRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialLightModeRounded />
+                </IconButton>
+              ]}
+            />
+          </Line>
+        </Accordion>
+
+        <Accordion primary='TopAppBar tonal' open>
+          <Line>
+            <TopAppBar color='default' tonal
+              title='Title Large'
+
+              start={[
+                <IconButton>
+                  <IconMaterialArrowBackRounded />
+                </IconButton>
+              ]}
+
+              end={[
+                <IconButton>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialCheckRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialLightModeRounded />
+                </IconButton>
+              ]}
+            />
+
+            <TopAppBar color='primary' tonal
+              title='Title Large'
+
+              start={[
+                <IconButton>
+                  <IconMaterialArrowBackRounded />
+                </IconButton>
+              ]}
+
+              end={[
+                <IconButton>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialCheckRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialLightModeRounded />
+                </IconButton>
+              ]}
+            />
+
+            <TopAppBar color='secondary' tonal
+              title='Title Large'
+
+              start={[
+                <IconButton>
+                  <IconMaterialArrowBackRounded />
+                </IconButton>
+              ]}
+
+              end={[
+                <IconButton>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialCheckRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialLightModeRounded />
+                </IconButton>
+              ]}
+            />
+
+            <TopAppBar color='tertiary' tonal
+              title='Title Large'
+
+              start={[
+                <IconButton>
+                  <IconMaterialArrowBackRounded />
+                </IconButton>
+              ]}
+
+              end={[
+                <IconButton>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialCheckRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialLightModeRounded />
+                </IconButton>
+              ]}
+            />
+
+            <TopAppBar color='quaternary' tonal
+              title='Title Large'
+
+              start={[
+                <IconButton>
+                  <IconMaterialArrowBackRounded />
+                </IconButton>
+              ]}
+
+              end={[
+                <IconButton>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialCheckRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialLightModeRounded />
+                </IconButton>
+              ]}
+            />
+
+            <TopAppBar color='info' tonal
+              title='Title Large'
+
+              start={[
+                <IconButton>
+                  <IconMaterialArrowBackRounded />
+                </IconButton>
+              ]}
+
+              end={[
+                <IconButton>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialCheckRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialLightModeRounded />
+                </IconButton>
+              ]}
+            />
+
+            <TopAppBar color='success' tonal
+              title='Title Large'
+
+              start={[
+                <IconButton>
+                  <IconMaterialArrowBackRounded />
+                </IconButton>
+              ]}
+
+              end={[
+                <IconButton>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialCheckRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialLightModeRounded />
+                </IconButton>
+              ]}
+            />
+
+            <TopAppBar color='warning' tonal
+              title='Title Large'
+
+              start={[
+                <IconButton>
+                  <IconMaterialArrowBackRounded />
+                </IconButton>
+              ]}
+
+              end={[
+                <IconButton>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialCheckRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialLightModeRounded />
+                </IconButton>
+              ]}
+            />
+
+            <TopAppBar color='error' tonal
+              title='Title Large'
+
+              start={[
+                <IconButton>
+                  <IconMaterialArrowBackRounded />
+                </IconButton>
+              ]}
+
+              end={[
+                <IconButton>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialCheckRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialLightModeRounded />
+                </IconButton>
+              ]}
+            />
+
+            <TopAppBar color='neutral' tonal
+              title='Title Large'
+
+              start={[
+                <IconButton>
+                  <IconMaterialArrowBackRounded />
+                </IconButton>
+              ]}
+
+              end={[
+                <IconButton>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialCheckRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialLightModeRounded />
+                </IconButton>
+              ]}
+            />
+
+            <TopAppBar color='#f5d758' tonal
+              title='Title Large'
+
+              start={[
+                <IconButton>
+                  <IconMaterialArrowBackRounded />
+                </IconButton>
+              ]}
+
+              end={[
+                <IconButton>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialCheckRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialLightModeRounded />
+                </IconButton>
+              ]}
+            />
+          </Line>
+        </Accordion>
+
+        <Accordion primary='TopAppBar size' open>
+          <Line>
+            <TopAppBar
+              size='small'
+
+              title='Title Large'
+
+              start={[
+                <IconButton>
+                  <IconMaterialArrowBackRounded />
+                </IconButton>
+              ]}
+
+              end={[
+                <IconButton>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialCheckRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialLightModeRounded />
+                </IconButton>
+              ]}
+            />
+
+            <TopAppBar
+              size='regular'
+
+              title='Title Large'
+
+              start={[
+                <IconButton>
+                  <IconMaterialArrowBackRounded />
+                </IconButton>
+              ]}
+
+              end={[
+                <IconButton>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialCheckRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialLightModeRounded />
+                </IconButton>
+              ]}
+            />
+
+            <TopAppBar
+              size='large'
+
+              title='Title Large'
+
+              start={[
+                <IconButton>
+                  <IconMaterialArrowBackRounded />
+                </IconButton>
+              ]}
+
+              end={[
+                <IconButton>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialCheckRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialLightModeRounded />
+                </IconButton>
+              ]}
+            />
+          </Line>
+        </Accordion>
+
+        <Accordion primary='AmauiTheme'>
+          <div className={classNames([classes.column])}>
+            <TopAppBar
+              color='secondary'
+
+              title='Title Large'
+
+              start={[
+                <IconButton>
+                  <IconMaterialArrowBackRounded />
+                </IconButton>
+              ]}
+
+              end={[
+                <IconButton>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialCheckRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialLightModeRounded />
+                </IconButton>
+              ]}
+            />
+
+            <Accordion primary='AmauiTheme nested value'>
+              <AmauiThemeProvider
+                value={{
+                  palette: {
+                    color: {
+                      primary: {
+                        main: '#008000'
+                      }
+                    }
+                  },
+                  space: {
+                    unit: 5
+                  }
+                }}
+              >
+                <TopAppBar
+                  color='secondary'
+
+                  title='Title Large'
+
+                  start={[
+                    <IconButton>
+                      <IconMaterialArrowBackRounded />
+                    </IconButton>
+                  ]}
+
+                  end={[
+                    <IconButton>
+                      <IconMaterialPottedPlantRounded />
+                    </IconButton>,
+
+                    <IconButton>
+                      <IconMaterialCheckRounded />
+                    </IconButton>,
+
+                    <IconButton>
+                      <IconMaterialLightModeRounded />
+                    </IconButton>
+                  ]}
+                />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme add'>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiTopAppBar: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: 0.4
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <TopAppBar
+                  color='secondary'
+
+                  title='Title Large'
+
+                  start={[
+                    <IconButton>
+                      <IconMaterialArrowBackRounded />
+                    </IconButton>
+                  ]}
+
+                  end={[
+                    <IconButton>
+                      <IconMaterialPottedPlantRounded />
+                    </IconButton>,
+
+                    <IconButton>
+                      <IconMaterialCheckRounded />
+                    </IconButton>,
+
+                    <IconButton>
+                      <IconMaterialLightModeRounded />
+                    </IconButton>
+                  ]}
+                />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme override'>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiTopAppBar: {
+                        style: {
+                          override: {
+                            root: {
+                              padding: 40
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <TopAppBar
+                  color='secondary'
+
+                  title='Title Large'
+
+                  start={[
+                    <IconButton>
+                      <IconMaterialArrowBackRounded />
+                    </IconButton>
+                  ]}
+
+                  end={[
+                    <IconButton>
+                      <IconMaterialPottedPlantRounded />
+                    </IconButton>,
+
+                    <IconButton>
+                      <IconMaterialCheckRounded />
+                    </IconButton>,
+
+                    <IconButton>
+                      <IconMaterialLightModeRounded />
+                    </IconButton>
+                  ]}
+                />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme props'>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiTopAppBar: {
+                        props: {
+                          default: {
+                            color: 'secondary'
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <TopAppBar
+                  title='Title Large'
+
+                  start={[
+                    <IconButton>
+                      <IconMaterialArrowBackRounded />
+                    </IconButton>
+                  ]}
+
+                  end={[
+                    <IconButton>
+                      <IconMaterialPottedPlantRounded />
+                    </IconButton>,
+
+                    <IconButton>
+                      <IconMaterialCheckRounded />
+                    </IconButton>,
+
+                    <IconButton>
+                      <IconMaterialLightModeRounded />
+                    </IconButton>
+                  ]}
+                />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme styled'>
+              <styled.TopAppBar
+                title='Title Large'
+
+                start={[
+                  <IconButton>
+                    <IconMaterialArrowBackRounded />
+                  </IconButton>
+                ]}
+
+                end={[
+                  <IconButton>
+                    <IconMaterialPottedPlantRounded />
+                  </IconButton>,
+
+                  <IconButton>
+                    <IconMaterialCheckRounded />
+                  </IconButton>,
+
+                  <IconButton>
+                    <IconMaterialLightModeRounded />
+                  </IconButton>
+                ]}
+              />
+            </Accordion>
+          </div>
+        </Accordion>
       </Accordion>
 
       <Accordion primary='BottomAppBar'>
@@ -2330,6 +3391,30 @@ Please sign in again.`}
               open={a.navd === 1}
 
               onClose={() => updateValue(false, 'navd')}
+            >
+              <List color='themed' style={{ width: 240 }}>
+                {[0, 1, 3, 4].map(item => (
+                  <ListItem
+                    primary='Primary text'
+
+                    key={item}
+                  />
+                ))}
+              </List>
+            </NavigationDrawer>
+          </Line>
+        </Accordion>
+
+        <Accordion primary='NavigationDrawer touchAnywhere' open>
+          <Line>
+            <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue('e1', 'navd')}>a</Button>
+
+            <NavigationDrawer
+              open={a.navd === 'e1'}
+
+              onClose={() => updateValue(false, 'navd')}
+
+              swipeBackgroundFollow={false}
             >
               <List color='themed' style={{ width: 240 }}>
                 {[0, 1, 3, 4].map(item => (

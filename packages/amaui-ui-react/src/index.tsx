@@ -199,3 +199,6 @@ export * from './BottomSheet';
 
 export { default as BottomAppBar } from './BottomAppBar';
 export * from './BottomAppBar';
+
+export { default as TopAppBar } from './TopAppBar';
+export * from './TopAppBar';

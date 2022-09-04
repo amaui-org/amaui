@@ -86,6 +86,8 @@ const NavigationDrawer = React.forwardRef((props_: any, ref: any) => {
     direction: direction_ = 'left',
     removeOnExited,
     swipe = true,
+    swipeTouchAnywhere = true,
+    swipeBackgroundFollow = true,
     min,
     open: open_,
     openDefault,
@@ -123,7 +125,8 @@ const NavigationDrawer = React.forwardRef((props_: any, ref: any) => {
     const swipeOptions: IOptionsUseSwipe = {
       open,
       min,
-      direction
+      direction,
+      touchAnywhere: swipeTouchAnywhere
     };
 
     swipeValue = useSwipe(refs.modal.current, swipeOptions);
@@ -178,7 +181,7 @@ const NavigationDrawer = React.forwardRef((props_: any, ref: any) => {
           refs.modal.current.style.transform = value_;
         }
 
-        if (refs.background.current) {
+        if (swipeBackgroundFollow && refs.background.current) {
           // No transition
           refs.background.current.style.transition = 'none';
 

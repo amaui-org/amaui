@@ -151,13 +151,11 @@ const NavigationBar = React.forwardRef((props_: any, ref: any) => {
         staticClassName('NavigationBar', theme) && [
           'AmauiNavigationBar-root',
           `AmauiNavigationBar-version-${version}`,
-          fixed && `NavigationBar-fixed`
+          fixed && `AmauiNavigationBar-fixed`
         ],
 
         className,
         classes.root,
-        classes[`color_${color}`],
-        tonal && classes[`tonal_color_${color}`],
         fixed && classes.fixed
       ])}
 
