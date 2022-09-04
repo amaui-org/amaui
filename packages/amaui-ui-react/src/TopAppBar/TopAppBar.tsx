@@ -68,13 +68,15 @@ const useStyle = style(theme => ({
 
   title_version_medium: {
     marginInline: '12px',
-    marginBottom: '20px'
+    marginBottom: '20px',
+    width: 'calc(100% - 24px)'
   },
 
   title_version_large: {
     textAlign: 'start',
     marginInline: '12px',
-    marginBottom: '28px'
+    marginBottom: '28px',
+    width: 'calc(100% - 24px)'
   },
 
   title_no_start: {
