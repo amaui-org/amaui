@@ -66,7 +66,7 @@ const BottomAppBar = React.forwardRef((props_: any, ref: any) => {
     .map((item: any, index: number) => React.cloneElement(item, {
       key: index,
 
-      elevation: item.props.elevation !== undefined ? item.props.elevation : 'none',
+      elevation: item.props.elevation !== undefined ? item.props.elevation : false,
 
       version: item.props.version !== undefined ? item.props.version : 'filled',
 
