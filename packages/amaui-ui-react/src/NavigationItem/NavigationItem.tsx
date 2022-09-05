@@ -15,7 +15,6 @@ const useStyle = style(theme => ({
   root: {
     display: 'inline-flex',
     justifyContent: 'center',
-    alignItems: 'center',
     flex: '1 1 auto',
     userSelect: 'none',
     cursor: 'pointer',
