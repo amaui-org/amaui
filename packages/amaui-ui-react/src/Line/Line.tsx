@@ -10,10 +10,7 @@ import { staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
-    display: 'flex',
-    width: '100%',
-    justifyContent: 'flex-start',
-    alignItems: 'flex-start'
+    display: 'flex'
   },
 
   // wrap

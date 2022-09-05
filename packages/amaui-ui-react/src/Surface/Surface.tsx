@@ -286,159 +286,349 @@ const useStyle = style(theme => ({
   // Outlined
   version_outlined: {
     outlineWidth: '1px',
-    outlineStyle: 'solid'
+    outlineStyle: 'solid',
+    outlineOffset: '-1px'
   },
 
   // Color
   version_outlined_color_themed: {
-    color: theme.palette.light ? theme.palette.text.default.primary : theme.palette.text.default.secondary,
+    color: theme.palette.text.default.primary,
+    backgroundColor: theme.palette.light ? theme.palette.background.default.primary : theme.palette.background.default.quaternary,
     outlineColor: theme.palette.color.neutral[theme.palette.light ? 40 : 60]
   },
 
   version_outlined_color_inverse: {
     color: theme.palette.background.default.primary,
+    backgroundColor: theme.palette.light ? theme.palette.background.dark.primary : theme.palette.background.light.primary,
     outlineColor: theme.palette.color.neutral[theme.palette.light ? 60 : 40]
   },
 
   version_outlined_color_default: {
     color: theme.palette.text.default.primary,
+    backgroundColor: theme.palette.background.default.primary,
     outlineColor: theme.palette.color.neutral[theme.palette.light ? 40 : 60]
   },
 
   version_outlined_color_neutral: {
-    color: theme.palette.color.neutral.main,
-    outlineColor: theme.palette.color.neutral[40]
+    color: theme.methods.palette.color.text(theme.palette.color.neutral.main, true, 'light'),
+    backgroundColor: theme.palette.color.neutral.main,
+    outlineColor: theme.palette.color.neutral[10]
   },
 
   version_outlined_color_primary: {
-    color: theme.palette.color.primary.main,
-    outlineColor: theme.palette.color.primary[40]
+    color: theme.methods.palette.color.text(theme.palette.color.primary.main, true, 'light'),
+    backgroundColor: theme.palette.color.primary.main,
+    outlineColor: theme.palette.color.primary[10]
   },
 
   version_outlined_color_secondary: {
-    color: theme.palette.color.secondary.main,
-    outlineColor: theme.palette.color.secondary[40]
+    color: theme.methods.palette.color.text(theme.palette.color.secondary.main, true, 'light'),
+    backgroundColor: theme.palette.color.secondary.main,
+    outlineColor: theme.palette.color.secondary[10]
   },
 
   version_outlined_color_tertiary: {
-    color: theme.palette.color.tertiary.main,
-    outlineColor: theme.palette.color.tertiary[40]
+    color: theme.methods.palette.color.text(theme.palette.color.tertiary.main, true, 'light'),
+    backgroundColor: theme.palette.color.tertiary.main,
+    outlineColor: theme.palette.color.tertiary[10]
   },
 
   version_outlined_color_quaternary: {
-    color: theme.palette.color.quaternary.main,
-    outlineColor: theme.palette.color.quaternary[40]
+    color: theme.methods.palette.color.text(theme.palette.color.quaternary.main, true, 'light'),
+    backgroundColor: theme.palette.color.quaternary.main,
+    outlineColor: theme.palette.color.quaternary[10]
   },
 
   version_outlined_color_info: {
-    color: theme.palette.color.info.main,
-    outlineColor: theme.palette.color.info[40]
+    color: theme.methods.palette.color.text(theme.palette.color.info.main, true, 'light'),
+    backgroundColor: theme.palette.color.info.main,
+    outlineColor: theme.palette.color.info[10]
   },
 
   version_outlined_color_success: {
-    color: theme.palette.color.success.main,
-    outlineColor: theme.palette.color.success[40]
+    color: theme.methods.palette.color.text(theme.palette.color.success.main, true, 'light'),
+    backgroundColor: theme.palette.color.success.main,
+    outlineColor: theme.palette.color.success[10]
   },
 
   version_outlined_color_warning: {
-    color: theme.palette.color.warning.main,
-    outlineColor: theme.palette.color.warning[40]
+    color: theme.methods.palette.color.text(theme.palette.color.warning.main, true, 'light'),
+    backgroundColor: theme.palette.color.warning.main,
+    outlineColor: theme.palette.color.warning[10]
   },
 
   version_outlined_color_error: {
-    color: theme.palette.color.error.main,
-    outlineColor: theme.palette.color.error[40]
+    color: theme.methods.palette.color.text(theme.palette.color.error.main, true, 'light'),
+    backgroundColor: theme.palette.color.error.main,
+    outlineColor: theme.palette.color.error[10]
   },
 
   // Tonal
   version_outlined_tonal_color_neutral: {
-    color: theme.methods.palette.color.value('neutral', 40),
-    outlineColor: theme.methods.palette.color.value('neutral', 40)
+    color: theme.methods.palette.color.value('neutral', 5),
+    backgroundColor: theme.methods.palette.color.value('neutral', 99),
+    outlineColor: theme.methods.palette.color.value('neutral', 10)
   },
 
   version_outlined_tonal_color_primary: {
-    color: theme.methods.palette.color.value('primary', 40),
-    outlineColor: theme.methods.palette.color.value('primary', 40)
+    color: theme.methods.palette.color.value('primary', 5),
+    backgroundColor: theme.methods.palette.color.value('neutral', 99),
+    outlineColor: theme.methods.palette.color.value('primary', 10)
   },
 
   version_outlined_tonal_color_secondary: {
-    color: theme.methods.palette.color.value('secondary', 40),
-    outlineColor: theme.methods.palette.color.value('secondary', 40)
+    color: theme.methods.palette.color.value('secondary', 5),
+    backgroundColor: theme.methods.palette.color.value('secondary', 99),
+    outlineColor: theme.methods.palette.color.value('secondary', 10)
   },
 
   version_outlined_tonal_color_tertiary: {
-    color: theme.methods.palette.color.value('tertiary', 40),
-    outlineColor: theme.methods.palette.color.value('tertiary', 40)
+    color: theme.methods.palette.color.value('tertiary', 5),
+    backgroundColor: theme.methods.palette.color.value('tertiary', 99),
+    outlineColor: theme.methods.palette.color.value('tertiary', 10)
   },
 
   version_outlined_tonal_color_quaternary: {
-    color: theme.methods.palette.color.value('quaternary', 40),
-    outlineColor: theme.methods.palette.color.value('quaternary', 40)
+    color: theme.methods.palette.color.value('quaternary', 5),
+    backgroundColor: theme.methods.palette.color.value('quaternary', 99),
+    outlineColor: theme.methods.palette.color.value('quaternary', 10)
   },
 
   version_outlined_tonal_color_info: {
-    color: theme.methods.palette.color.value('info', 40),
-    outlineColor: theme.methods.palette.color.value('info', 40)
+    color: theme.methods.palette.color.value('info', 5),
+    backgroundColor: theme.methods.palette.color.value('info', 99),
+    outlineColor: theme.methods.palette.color.value('info', 10)
   },
 
   version_outlined_tonal_color_success: {
-    color: theme.methods.palette.color.value('success', 40),
-    outlineColor: theme.methods.palette.color.value('success', 40)
+    color: theme.methods.palette.color.value('success', 5),
+    backgroundColor: theme.methods.palette.color.value('success', 99),
+    outlineColor: theme.methods.palette.color.value('success', 10)
   },
 
   version_outlined_tonal_color_warning: {
-    color: theme.methods.palette.color.value('warning', 40),
-    outlineColor: theme.methods.palette.color.value('warning', 40)
+    color: theme.methods.palette.color.value('warning', 5),
+    backgroundColor: theme.methods.palette.color.value('warning', 99),
+    outlineColor: theme.methods.palette.color.value('warning', 10)
   },
 
   version_outlined_tonal_color_error: {
-    color: theme.methods.palette.color.value('error', 30),
-    outlineColor: theme.methods.palette.color.value('error', 30)
+    color: theme.methods.palette.color.value('error', 5),
+    backgroundColor: theme.methods.palette.color.value('error', 99),
+    outlineColor: theme.methods.palette.color.value('error', 10)
   },
 
   version_outlined_tonal_secondary_color_neutral: {
+    color: theme.methods.palette.color.value('neutral', 10),
+    backgroundColor: theme.methods.palette.color.value('neutral', 95),
+    outlineColor: theme.methods.palette.color.value('neutral', 10)
+  },
+
+  version_outlined_tonal_secondary_color_primary: {
+    color: theme.methods.palette.color.value('primary', 10),
+    backgroundColor: theme.methods.palette.color.value('neutral', 95),
+    outlineColor: theme.methods.palette.color.value('primary', 10)
+  },
+
+  version_outlined_tonal_secondary_color_secondary: {
+    color: theme.methods.palette.color.value('secondary', 10),
+    backgroundColor: theme.methods.palette.color.value('secondary', 95),
+    outlineColor: theme.methods.palette.color.value('secondary', 10)
+  },
+
+  version_outlined_tonal_secondary_color_tertiary: {
+    color: theme.methods.palette.color.value('tertiary', 10),
+    backgroundColor: theme.methods.palette.color.value('tertiary', 95),
+    outlineColor: theme.methods.palette.color.value('tertiary', 10)
+  },
+
+  version_outlined_tonal_secondary_color_quaternary: {
+    color: theme.methods.palette.color.value('quaternary', 10),
+    backgroundColor: theme.methods.palette.color.value('quaternary', 95),
+    outlineColor: theme.methods.palette.color.value('quaternary', 10)
+  },
+
+  version_outlined_tonal_secondary_color_info: {
+    color: theme.methods.palette.color.value('info', 10),
+    backgroundColor: theme.methods.palette.color.value('info', 95),
+    outlineColor: theme.methods.palette.color.value('info', 10)
+  },
+
+  version_outlined_tonal_secondary_color_success: {
+    color: theme.methods.palette.color.value('success', 10),
+    backgroundColor: theme.methods.palette.color.value('success', 95),
+    outlineColor: theme.methods.palette.color.value('success', 10)
+  },
+
+  version_outlined_tonal_secondary_color_warning: {
+    color: theme.methods.palette.color.value('warning', 10),
+    backgroundColor: theme.methods.palette.color.value('warning', 95),
+    outlineColor: theme.methods.palette.color.value('warning', 10)
+  },
+
+  version_outlined_tonal_secondary_color_error: {
+    color: theme.methods.palette.color.value('error', 10),
+    backgroundColor: theme.methods.palette.color.value('error', 95),
+    outlineColor: theme.methods.palette.color.value('error', 10)
+  },
+
+  // Outlined without background
+  'version_outlined-without-background': {
+    outlineWidth: '1px',
+    outlineStyle: 'solid',
+    outlineOffset: '-1px'
+  },
+
+  // Color
+  'version_outlined-without-background_color_themed': {
     color: theme.methods.palette.color.value('neutral', 30),
     outlineColor: theme.methods.palette.color.value('neutral', 30)
   },
 
-  version_outlined_tonal_secondary_color_primary: {
-    color: theme.methods.palette.color.value('primary', 30),
+  'version_outlined-without-background_color_inverse': {
+    color: theme.methods.palette.color.value('neutral', 70),
+    outlineColor: theme.methods.palette.color.value('neutral', 70)
+  },
+
+  'version_outlined-without-background_color_default': {
+    color: theme.palette.text.default.primary,
+    outlineColor: theme.methods.palette.color.value('neutral', 30)
+  },
+
+  'version_outlined-without-background_color_neutral': {
+    color: theme.methods.palette.color.value('neutral', 40),
+    outlineColor: theme.methods.palette.color.value('neutral', 30)
+  },
+
+  'version_outlined-without-background_color_primary': {
+    color: theme.methods.palette.color.value('primary', 40),
     outlineColor: theme.methods.palette.color.value('primary', 30)
   },
 
-  version_outlined_tonal_secondary_color_secondary: {
-    color: theme.methods.palette.color.value('secondary', 30),
+  'version_outlined-without-background_color_secondary': {
+    color: theme.methods.palette.color.value('secondary', 40),
     outlineColor: theme.methods.palette.color.value('secondary', 30)
   },
 
-  version_outlined_tonal_secondary_color_tertiary: {
-    color: theme.methods.palette.color.value('tertiary', 30),
+  'version_outlined-without-background_color_tertiary': {
+    color: theme.methods.palette.color.value('tertiary', 40),
     outlineColor: theme.methods.palette.color.value('tertiary', 30)
   },
 
-  version_outlined_tonal_secondary_color_quaternary: {
-    color: theme.methods.palette.color.value('quaternary', 30),
+  'version_outlined-without-background_color_quaternary': {
+    color: theme.methods.palette.color.value('quaternary', 40),
     outlineColor: theme.methods.palette.color.value('quaternary', 30)
   },
 
-  version_outlined_tonal_secondary_color_info: {
-    color: theme.methods.palette.color.value('info', 30),
+  'version_outlined-without-background_color_info': {
+    color: theme.methods.palette.color.value('info', 40),
     outlineColor: theme.methods.palette.color.value('info', 30)
   },
 
-  version_outlined_tonal_secondary_color_success: {
-    color: theme.methods.palette.color.value('success', 30),
+  'version_outlined-without-background_color_success': {
+    color: theme.methods.palette.color.value('success', 40),
     outlineColor: theme.methods.palette.color.value('success', 30)
   },
 
-  version_outlined_tonal_secondary_color_warning: {
-    color: theme.methods.palette.color.value('warning', 30),
+  'version_outlined-without-background_color_warning': {
+    color: theme.methods.palette.color.value('warning', 40),
     outlineColor: theme.methods.palette.color.value('warning', 30)
   },
 
-  version_outlined_tonal_secondary_color_error: {
-    color: theme.methods.palette.color.value('error', 30),
+  'version_outlined-without-background_color_error': {
+    color: theme.methods.palette.color.value('error', 40),
     outlineColor: theme.methods.palette.color.value('error', 30)
+  },
+
+  // Tonal
+  'version_outlined-without-background_tonal_color_neutral': {
+    color: theme.methods.palette.color.value('neutral', 20),
+    outlineColor: theme.methods.palette.color.value('neutral', 30)
+  },
+
+  'version_outlined-without-background_tonal_color_primary': {
+    color: theme.methods.palette.color.value('primary', 20),
+    outlineColor: theme.methods.palette.color.value('primary', 30)
+  },
+
+  'version_outlined-without-background_tonal_color_secondary': {
+    color: theme.methods.palette.color.value('secondary', 20),
+    outlineColor: theme.methods.palette.color.value('secondary', 30)
+  },
+
+  'version_outlined-without-background_tonal_color_tertiary': {
+    color: theme.methods.palette.color.value('tertiary', 20),
+    outlineColor: theme.methods.palette.color.value('tertiary', 30)
+  },
+
+  'version_outlined-without-background_tonal_color_quaternary': {
+    color: theme.methods.palette.color.value('quaternary', 20),
+    outlineColor: theme.methods.palette.color.value('quaternary', 30)
+  },
+
+  'version_outlined-without-background_tonal_color_info': {
+    color: theme.methods.palette.color.value('info', 20),
+    outlineColor: theme.methods.palette.color.value('info', 30)
+  },
+
+  'version_outlined-without-background_tonal_color_success': {
+    color: theme.methods.palette.color.value('success', 20),
+    outlineColor: theme.methods.palette.color.value('success', 30)
+  },
+
+  'version_outlined-without-background_tonal_color_warning': {
+    color: theme.methods.palette.color.value('warning', 20),
+    outlineColor: theme.methods.palette.color.value('warning', 30)
+  },
+
+  'version_outlined-without-background_tonal_color_error': {
+    color: theme.methods.palette.color.value('error', 20),
+    outlineColor: theme.methods.palette.color.value('error', 30)
+  },
+
+  'version_outlined-without-background_tonal_secondary_color_neutral': {
+    color: theme.methods.palette.color.value('neutral', 30),
+    outlineColor: theme.methods.palette.color.value('neutral', 40)
+  },
+
+  'version_outlined-without-background_tonal_secondary_color_primary': {
+    color: theme.methods.palette.color.value('primary', 30),
+    outlineColor: theme.methods.palette.color.value('primary', 40)
+  },
+
+  'version_outlined-without-background_tonal_secondary_color_secondary': {
+    color: theme.methods.palette.color.value('secondary', 30),
+    outlineColor: theme.methods.palette.color.value('secondary', 40)
+  },
+
+  'version_outlined-without-background_tonal_secondary_color_tertiary': {
+    color: theme.methods.palette.color.value('tertiary', 30),
+    outlineColor: theme.methods.palette.color.value('tertiary', 40)
+  },
+
+  'version_outlined-without-background_tonal_secondary_color_quaternary': {
+    color: theme.methods.palette.color.value('quaternary', 30),
+    outlineColor: theme.methods.palette.color.value('quaternary', 40)
+  },
+
+  'version_outlined-without-background_tonal_secondary_color_info': {
+    color: theme.methods.palette.color.value('info', 30),
+    outlineColor: theme.methods.palette.color.value('info', 40)
+  },
+
+  'version_outlined-without-background_tonal_secondary_color_success': {
+    color: theme.methods.palette.color.value('success', 30),
+    outlineColor: theme.methods.palette.color.value('success', 40)
+  },
+
+  'version_outlined-without-background_tonal_secondary_color_warning': {
+    color: theme.methods.palette.color.value('warning', 30),
+    outlineColor: theme.methods.palette.color.value('warning', 40)
+  },
+
+  'version_outlined-without-background_tonal_secondary_color_error': {
+    color: theme.methods.palette.color.value('error', 30),
+    outlineColor: theme.methods.palette.color.value('error', 40)
   },
 
   // Elevation
@@ -510,6 +700,7 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
     version = 'filled',
     elevation = 0,
     Component = 'div',
+    AdditionalProps,
 
     className,
     style,
@@ -531,18 +722,34 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
 
       if (version === 'filled') styles.root.background = theme.methods.palette.color.value(undefined, tonal === 'secondary' ? 80 : 95, true, palette);
 
-      if (version === 'outlined') styles.root.outlineColor = theme.methods.palette.color.value(undefined, tonal === 'secondary' ? 30 : 40, true, palette);
+      if (version === 'outlined') {
+        styles.root.color = theme.methods.palette.color.value(undefined, tonal === 'secondary' ? 10 : 5, true, palette);
+        styles.root.background = theme.methods.palette.color.value(undefined, tonal === 'secondary' ? 95 : 99, true, palette);
+        styles.root.outlineColor = theme.methods.palette.color.value(undefined, tonal === 'secondary' ? 20 : 10, true, palette);
+      }
 
-      if (['text', 'outlined'].includes(version)) styles.root.color = theme.methods.palette.color.value(undefined, tonal === 'secondary' ? 30 : 40, true, palette);
+      if (version === 'outlined-without-background') {
+        styles.root.color = theme.methods.palette.color.value(undefined, tonal === 'secondary' ? 30 : 20, true, palette);
+        styles.root.outlineColor = theme.methods.palette.color.value(undefined, tonal === 'secondary' ? 40 : 30, true, palette);
+
+        delete styles.root.background;
+      }
+
+      if (version === 'text') styles.root.color = theme.methods.palette.color.value(undefined, tonal === 'secondary' ? 30 : 40, true, palette);
     }
     else {
       styles.root.color = theme.methods.palette.color.text(palette.main, true);
 
-      if (version === 'filled') styles.root.background = palette.main;
+      if (['outlined', 'filled'].includes(version)) styles.root.background = palette.main;
 
-      if (version === 'outlined') styles.root.outlineColor = palette[40];
+      if (version === 'outlined') styles.root.outlineColor = palette[10];
 
-      if (['text', 'outlined'].includes(version)) styles.root.color = palette.main;
+      if (version === 'outlined-without-background') {
+        styles.root.color = palette[40];
+        styles.root.outlineColor = palette[30];
+      }
+
+      if (version === 'text') styles.root.color = palette.main;
     }
   }
 
@@ -572,6 +779,8 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
 
         ...styles.root
       }}
+
+      {...AdditionalProps}
 
       {...other}
     >

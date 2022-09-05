@@ -453,9 +453,13 @@ const Button = React.forwardRef((props_: any, ref: any) => {
 
       tonal={tonal}
 
-      version={version}
+      version={version === 'outlined' ? 'outlined-without-background' : version}
 
       elevation={(elevation && !disabled && ['filled', 'tonal'].includes(version)) ? 1 : 0}
+
+      onFocus={onFocus}
+
+      onBlur={onBlur}
 
       className={classNames([
         staticClassName('Button', theme) && [
@@ -505,14 +509,10 @@ const Button = React.forwardRef((props_: any, ref: any) => {
       ])}
 
       style={{
-        ...(style || {}),
+        ...style,
 
         ...styles.root
       }}
-
-      onFocus={onFocus}
-
-      onBlur={onBlur}
 
       disabled={disabled}
 
