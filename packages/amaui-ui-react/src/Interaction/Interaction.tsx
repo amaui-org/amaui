@@ -50,6 +50,11 @@ const useStyle = style(theme => ({
     background: 'currentColor'
   },
 
+  dragged: {
+    opacity: theme.palette.visual_contrast.default.opacity.drag,
+    background: 'currentColor'
+  },
+
   border: {
     ...other,
     opacity: '0',
@@ -160,6 +165,7 @@ const Interaction = React.forwardRef((props_: any, ref: any) => {
     origin,
     preselected,
     selected,
+    dragged,
     wave_version,
     clear,
     disabled: disabled_,
@@ -422,6 +428,7 @@ const Interaction = React.forwardRef((props_: any, ref: any) => {
           origin && `AmauiInteraction-origin-${origin}`,
           preselected && `AmauiInteraction-preselected`,
           selected && `AmauiInteraction-selected`,
+          dragged && `AmauiInteraction-dragged`,
           wave_version && `AmauiInteraction-wave-version-${wave_version}`,
           disabled && `AmauiInteraction-disabled`
         ],
@@ -440,7 +447,8 @@ const Interaction = React.forwardRef((props_: any, ref: any) => {
 
             classes.background,
             (preselected || has('mouse-in')) && classes.hovered,
-            selected && classes.selected
+            selected && classes.selected,
+            dragged && classes.dragged
           ])}
         />
       )}

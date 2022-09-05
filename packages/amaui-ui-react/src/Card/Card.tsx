@@ -39,9 +39,9 @@ const Card = React.forwardRef((props_: any, ref: any) => {
 
   const {
     tonal = true,
-    color = 'primary',
+    color: color_ = 'primary',
     version = 'filled',
-    elevation = 0,
+    elevation: elevation_ = 0,
     focus: focus_,
     onFocus: onFocus_,
     onBlur: onBlur_,
@@ -63,6 +63,14 @@ const Card = React.forwardRef((props_: any, ref: any) => {
   const [focus, setFocus] = React.useState(focus_ !== undefined ? focus_ : false);
 
   const { classes } = useStyle(props);
+
+  let color = color_;
+  let elevation = elevation_;
+
+  if (disabled) {
+    color = 'neutral';
+    elevation = 0;
+  }
 
   const onFocus = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
     if (focus_ === undefined && !disabled) {
