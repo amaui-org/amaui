@@ -630,8 +630,11 @@ function App() {
   const [radius, setRadius] = React.useState(8);
   const [rtl, setRtl] = React.useState(false);
   const [rootFontSize, setRootFontSize] = React.useState(16);
+  // eslint-disable-next-line
   const scrollUp = useScroll({ direction: 'up' });
+  // eslint-disable-next-line
   const scrollDown = useScroll({ direction: 'down' });
+  // eslint-disable-next-line
   const scrollThreshold = useScroll({ threshold: 140 });
 
   const { classes } = useStyle();
