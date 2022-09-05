@@ -116,6 +116,7 @@ const BottomAppBar = React.forwardRef((props_: any, ref: any) => {
     size = 'regular',
     main: main_,
     fixed,
+    noTransition,
 
     className,
 
@@ -224,17 +225,23 @@ const BottomAppBar = React.forwardRef((props_: any, ref: any) => {
 
   React.useEffect(() => {
     if (init) {
-      refs.preChildren.current = children_;
+      if (!noTransition) {
+        refs.preChildren.current = children_;
 
-      setInProp(false);
+        setInProp(false);
+      }
+      else setChildren(makeChildren(children_));
     }
   }, [React.Children.toArray(children_).map((item: any) => item.key).join('')]);
 
   React.useEffect(() => {
     if (init) {
-      refs.preMain.current = main_;
+      if (!noTransition) {
+        refs.preMain.current = main_;
 
-      setInProp(false);
+        setInProp(false);
+      }
+      else setMain(makeMain(main_));
     }
   }, [React.Children.toArray(main_).map((item: any) => item.key).join('')]);
 

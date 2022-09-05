@@ -3634,7 +3634,7 @@ Please sign in again.`}
           </Line>
         </Accordion>
 
-        <Accordion primary='BottomAppBar animated icon buttons' open>
+        <Accordion primary='BottomAppBar animated icon buttons'>
           <Line>
             <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue(a.babanimated ? 114 : 1114, 'babanimated')}>a</Button>
 
@@ -3648,6 +3648,46 @@ Please sign in again.`}
                   <IconMaterialPottedPlantRounded />
                 </Fab>
               )}
+            >
+              {[
+                <IconButton>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialCheckRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialLightModeRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialUndoRounded />
+                </IconButton>
+              ].map((item: any, index: number) => (
+                React.cloneElement(item, { key: index + a.babanimated })
+              ))}
+            </BottomAppBar>
+          </Line>
+        </Accordion>
+
+        <Accordion primary='BottomAppBar noTransition'>
+          <Line>
+            <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue(a.babanimated ? 114 : 1114, 'babanimated')}>a</Button>
+
+            <BottomAppBar
+              main={(
+                <Fab
+                  elevation={0}
+
+                  key={a.babanimated}
+                >
+                  <IconMaterialPottedPlantRounded />
+                </Fab>
+              )}
+
+              noTransition
             >
               {[
                 <IconButton>
