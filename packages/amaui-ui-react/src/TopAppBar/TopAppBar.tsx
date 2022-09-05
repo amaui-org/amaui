@@ -16,7 +16,9 @@ const useStyle = style(theme => ({
     paddingInline: '4px'
   },
 
-  // Version
+  wrapper: {
+    width: '100%'
+  },
 
   // Size
   version_small_size_small: { height: '56px' },
@@ -254,6 +256,7 @@ const TopAppBar = React.forwardRef((props_: any, ref: any) => {
             'AmauiTopAppBar-wrapper'
           ],
 
+          classes.wrapper,
           classes[`version_small_size_${size}`]
         ])}
       >

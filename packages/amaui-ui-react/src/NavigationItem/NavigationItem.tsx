@@ -14,11 +14,13 @@ import { staticClassName } from '../utils';
 const useStyle = style(theme => ({
   root: {
     display: 'inline-flex',
+    justifyContent: 'center',
+    alignItems: 'center',
     flex: '1 1 auto',
     userSelect: 'none',
     cursor: 'pointer',
     padding: '12px 0 16px',
-    minHeight: '80px'
+    minHeight: '80px',
   },
 
   vertical: {

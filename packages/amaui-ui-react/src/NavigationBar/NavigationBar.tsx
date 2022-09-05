@@ -11,6 +11,7 @@ import { staticClassName } from '../utils';
 const useStyle = style(theme => ({
   root: {
     zIndex: theme.z_index.app_bar,
+    width: '100%',
     padding: 0
   },
 

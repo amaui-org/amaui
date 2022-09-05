@@ -84,7 +84,7 @@ const useStyle = style(theme => ({
     flexDirection: 'column',
     alignItems: 'flex-start',
     gap: 40,
-    padding: '14vw',
+    padding: '14vw'
   },
   section: {
     display: 'flex',
