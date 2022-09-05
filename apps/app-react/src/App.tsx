@@ -617,7 +617,8 @@ function App() {
     slideRef: true,
     loading: true,
     portal: false,
-    modal: false
+    modal: false,
+    babanimated: true
   });
   const [init, setInit] = React.useState(false);
   const [anchor, setAnchor] = React.useState<any>();
@@ -785,6 +786,24 @@ function App() {
   //     clearInterval(id);
   //   }
   // }, []);
+
+  const bottomBarItems = [
+    <IconButton>
+      <IconMaterialPottedPlantRounded />
+    </IconButton>,
+
+    <IconButton>
+      <IconMaterialCheckRounded />
+    </IconButton>,
+
+    <IconButton>
+      <IconMaterialLightModeRounded />
+    </IconButton>,
+
+    <IconButton>
+      <IconMaterialUndoRounded />
+    </IconButton>
+  ];
 
   return (
     <div className={classes.root}>
@@ -2239,7 +2258,7 @@ Please sign in again.`}
       </Accordion>
 
       <Accordion primary='BottomAppBar'>
-        <Accordion primary='BottomAppBar' open>
+        <Accordion primary='BottomAppBar'>
           <Line>
             <BottomAppBar
               main={(
@@ -2269,7 +2288,29 @@ Please sign in again.`}
           </Line>
         </Accordion>
 
-        <Accordion primary='BottomAppBar color' open>
+        <Accordion primary='BottomAppBar animated icon buttons' open>
+          <Line>
+            <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue(a.babanimated ? 114 : 1114, 'babanimated')}>a</Button>
+
+            <BottomAppBar
+              main={(
+                <Fab
+                  elevation={0}
+
+                  key={a.babanimated}
+                >
+                  <IconMaterialPottedPlantRounded />
+                </Fab>
+              )}
+            >
+              {(bottomBarItems).map((item: any, index: number) => (
+                React.cloneElement(item, { key: index + a.babanimated })
+              ))}
+            </BottomAppBar>
+          </Line>
+        </Accordion>
+
+        <Accordion primary='BottomAppBar color'>
           <Line>
             <BottomAppBar color='default' tonal={false}
               main={(
@@ -2559,7 +2600,7 @@ Please sign in again.`}
           </Line>
         </Accordion>
 
-        <Accordion primary='BottomAppBar tonal' open>
+        <Accordion primary='BottomAppBar tonal'>
           <Line>
             <BottomAppBar color='primary'
               main={(
@@ -2823,7 +2864,7 @@ Please sign in again.`}
           </Line>
         </Accordion>
 
-        <Accordion primary='BottomAppBar size' open>
+        <Accordion primary='BottomAppBar size'>
           <Line>
             <BottomAppBar
               size='small'

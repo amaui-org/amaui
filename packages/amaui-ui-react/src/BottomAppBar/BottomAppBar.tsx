@@ -4,6 +4,7 @@ import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Line from '../Line';
 import Surface from '../Surface';
+import Transition, { TTransitionStatus } from '../Transition';
 
 import { staticClassName } from '../utils';
 
@@ -27,6 +28,78 @@ const useStyle = style(theme => ({
     position: 'fixed',
     insetInline: 0,
     bottom: 0
+  },
+
+  item: {
+    opacity: 0,
+    transform: 'translateY(100%)',
+    transition: theme?.methods.transitions.make(['opacity', 'transform'], { duration: 'rg', timing_function: 'standard' }),
+
+    '&.enter': {
+      opacity: '0',
+      transform: 'translateY(100%)'
+    },
+
+    '&.entering': {
+      opacity: '1',
+      transform: 'translateY(0%)'
+    },
+
+    '&.entered': {
+      opacity: '1',
+      transform: 'translateY(0%)'
+    },
+
+    '&.exit': {
+      opacity: '1',
+      transform: 'translateY(0%)'
+    },
+
+    '&.exiting': {
+      opacity: '0',
+      transform: 'translateY(0%)'
+    },
+
+    '&.exited': {
+      opacity: '0',
+      transform: 'translateY(0%)'
+    }
+  },
+
+  mainItem: {
+    opacity: 0,
+    transform: 'scale(0.75)',
+    transition: theme?.methods.transitions.make(['opacity', 'transform'], { duration: 'rg', timing_function: 'standard' }),
+
+    '&.enter': {
+      opacity: '0',
+      transform: 'scale(0.75)'
+    },
+
+    '&.entering': {
+      opacity: '1',
+      transform: 'scale(1)'
+    },
+
+    '&.entered': {
+      opacity: '1',
+      transform: 'scale(1)'
+    },
+
+    '&.exit': {
+      opacity: '1',
+      transform: 'scale(1)'
+    },
+
+    '&.exiting': {
+      opacity: '0',
+      transform: 'scale(1)'
+    },
+
+    '&.exited': {
+      opacity: '0',
+      transform: 'scale(1)'
+    }
   }
 }), { name: 'AmauiBottomAppBar' });
 
@@ -51,29 +124,119 @@ const BottomAppBar = React.forwardRef((props_: any, ref: any) => {
     ...other
   } = props;
 
-  const main = React.Children
-    .toArray(main_)
-    .map((item: any, index: number) => React.cloneElement(item, {
-      key: index,
+  const makeChildren = (values: any) => {
+    return React.Children
+      .toArray(values)
+      .map((item: any, index: number) => (
+        <Transition
+          key={index}
 
-      color: item.props.color !== undefined ? item.props.color : color,
+          onRemoved={() => {
+            if (index === 0) reAddChildren();
+          }}
 
-      tonal: item.props.tonal !== undefined ? item.props.tonal : tonal && ['AmauiFab'].includes(item.type?.displayName) ? 'secondary' : tonal
-    }));
+          removeOnExited
+        >
+          {(status: TTransitionStatus) => (
+            React.cloneElement(item, {
+              className: classNames([
+                classes.item,
+                status
+              ]),
 
-  const children = React.Children
-    .toArray(children_)
-    .map((item: any, index: number) => React.cloneElement(item, {
-      key: index,
+              elevation: item.props.elevation !== undefined ? item.props.elevation : false,
 
-      elevation: item.props.elevation !== undefined ? item.props.elevation : false,
+              version: item.props.version !== undefined ? item.props.version : 'filled',
 
-      version: item.props.version !== undefined ? item.props.version : 'filled',
+              color: item.props.color !== undefined ? item.props.color : color,
 
-      color: item.props.color !== undefined ? item.props.color : color,
+              tonal: item.props.tonal !== undefined ? item.props.tonal : tonal,
 
-      tonal: item.props.tonal !== undefined ? item.props.tonal : tonal
-    }));
+              style: {
+                ...item.props.style,
+
+                ...(status.includes('enter') && {
+                  transitionDelay: `${index * 70}ms`
+                })
+              }
+            })
+          )}
+        </Transition>
+      ));
+  };
+
+  const makeMain = (values: any) => {
+    return React.Children
+      .toArray(values)
+      .map((item: any, index: number) => (
+        <Transition
+          key={index}
+
+          onRemoved={() => {
+            if (index === 0) reAddMain();
+          }}
+
+          removeOnExited
+        >
+          {(status: TTransitionStatus) => (
+            React.cloneElement(item, {
+              className: classNames([
+                classes.mainItem,
+                status
+              ]),
+
+              color: item.props.color !== undefined ? item.props.color : color,
+
+              tonal: item.props.tonal !== undefined ? item.props.tonal : tonal && ['AmauiFab'].includes(item.type?.displayName) ? 'secondary' : tonal
+            })
+          )}
+        </Transition>
+      ));
+  };
+
+  const [init, setInit] = React.useState(false);
+  const [children, setChildren] = React.useState(() => makeChildren(children_));
+  const [main, setMain] = React.useState(() => makeMain(main_));
+  const [inProp, setInProp] = React.useState(true);
+
+  const refs = {
+    preChildren: React.useRef<any>(),
+    preMain: React.useRef<any>()
+  };
+
+  React.useEffect(() => {
+    setInit(true);
+  }, []);
+
+  const reAddChildren = () => {
+    setChildren(makeChildren(refs.preChildren.current));
+    setInProp(true);
+
+    refs.preChildren.current = undefined;
+  };
+
+  const reAddMain = () => {
+    setMain(makeMain(refs.preMain.current));
+    setInProp(true);
+
+    refs.preMain.current = undefined;
+  };
+
+  React.useEffect(() => {
+    if (init) {
+      refs.preChildren.current = children_;
+
+      setInProp(false);
+    }
+  }, [React.Children.toArray(children_).map((item: any) => item.key).join('')]);
+
+  React.useEffect(() => {
+    if (init) {
+      refs.preMain.current = main_;
+
+      setInProp(false);
+    }
+  }, [React.Children.toArray(main_).map((item: any) => item.key).join('')]);
 
   return (
     <Surface
@@ -110,7 +273,7 @@ const BottomAppBar = React.forwardRef((props_: any, ref: any) => {
 
       {...other}
     >
-      {children && (
+      {!!children.length && (
         <Line
           direction='row'
 
@@ -120,11 +283,15 @@ const BottomAppBar = React.forwardRef((props_: any, ref: any) => {
 
           gap={0}
         >
-          {children}
+          {children.map((item: any, index: number) => (
+            React.cloneElement(item, {
+              in: inProp
+            })
+          ))}
         </Line>
       )}
 
-      {main && (
+      {!!main.length && (
         <Line
           direction='row'
 
@@ -132,7 +299,11 @@ const BottomAppBar = React.forwardRef((props_: any, ref: any) => {
 
           justify='flex-end'
         >
-          {main}
+          {main.map((item: any, index: number) => (
+            React.cloneElement(item, {
+              in: inProp
+            })
+          ))}
         </Line>
       )}
     </Surface>
