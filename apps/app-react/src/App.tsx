@@ -212,6 +212,13 @@ const useStyle = style(theme => ({
 }), { name: 'App' });
 
 const styled = {
+  Card: sy(Card)((theme: AmauiTheme) => ({
+    root: {
+      '&:hover': {
+        opacity: 0.4
+      }
+    }
+  })),
   TopAppBar: sy(TopAppBar)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
@@ -816,6 +823,56 @@ function App() {
 
       <Accordion primary='All'>
         <Line>
+          <Card>
+            <CardImage
+              alt='priroda'
+
+              image='/image.jpg'
+            />
+
+            <CardMain
+              gap={1}
+            >
+              <Type
+                version='h3'
+
+                style={{ marginBottom: '4px' }}
+              >
+                Headline
+              </Type>
+
+              <Type
+                version='l1'
+              >
+                Subhead
+              </Type>
+
+              <Type
+                version='b2'
+
+                color='secondary'
+              >
+                Explain more about the topic shown in headline and subhead through supportive text.
+              </Type>
+            </CardMain>
+
+            <CardFooter>
+              <Button
+                version='outlined'
+              >
+                Action 114
+              </Button>
+
+              <Button
+                version='filled'
+
+                elevation={false}
+              >
+                Action 1114
+              </Button>
+            </CardFooter>
+          </Card>
+
           <TopAppBar
             title='Title Large'
 
@@ -1282,8 +1339,6 @@ Please sign in again.`}
             <CardFooter>
               <Button
                 version='outlined'
-
-                tonal
               >
                 Action 114
               </Button>

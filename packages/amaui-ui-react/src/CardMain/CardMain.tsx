@@ -8,7 +8,6 @@ import { staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
-    width: 'auto',
     margin: '16px'
   }
 }), { name: 'AmauiCardMain' });

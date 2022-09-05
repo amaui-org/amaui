@@ -8,7 +8,6 @@ import { staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
-    width: 'auto',
     margin: '16px'
   }
 }), { name: 'AmauiCardFooter' });
@@ -38,9 +37,13 @@ const CardFooter = React.forwardRef((props_: any, ref: any) => {
 
       direction='row'
 
+      wrap='wrap'
+
       align='center'
 
       justify='flex-end'
+
+      gap={1}
 
       className={classNames([
         staticClassName('CardFooter', theme) && [
