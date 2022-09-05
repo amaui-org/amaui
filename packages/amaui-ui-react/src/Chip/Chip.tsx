@@ -35,15 +35,15 @@ const Chip = React.forwardRef((props_: any, ref: any) => {
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiChip?.props?.default }), [props_]);
 
   const {
+    tonal = false,
+    color = props.version === 'filled' ? 'inverse' : 'default',
+    version = 'outlined',
     input,
     filter,
     onClick,
     onRemove,
     onSelected,
     onUnselected,
-    tonal = false,
-    color = 'default',
-    version = 'outlined',
     selected: selected_,
     startIcon,
     focus,

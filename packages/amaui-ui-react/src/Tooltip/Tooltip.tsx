@@ -16,7 +16,9 @@ const useStyle = style(theme => ({
     inset: '0px auto auto 0px'
   },
 
-  labelRoot: {},
+  labelRoot: {
+    pointerEvents: 'all'
+  },
 
   labelRoot_position_top: { marginBottom: '16px' },
 

@@ -71,7 +71,7 @@ const useStyle = style(theme => ({
     width: '100%',
     height: '100%',
     borderRadius: '0',
-    maxWidth: 'unset',
+    maxWidth: 'unset !important',
     maxHeight: 'unset',
     margin: '0'
   },

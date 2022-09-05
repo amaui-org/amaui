@@ -19,7 +19,7 @@ const Slide = React.forwardRef((props_: any, ref: any) => {
     in: inProp,
     root,
     min,
-    direction = 'down',
+    direction = 'bottom',
     prefix,
     run,
     append,
@@ -106,10 +106,12 @@ const Slide = React.forwardRef((props_: any, ref: any) => {
         ...other
       },
       adding: {
-        transform: 'translate(0, 0)'
+        transform: 'translate(0, 0)',
+        visibility: 'visible'
       },
       added: {
-        transform: 'none'
+        transform: 'none',
+        visibility: 'visible'
       },
 
       enter: {
@@ -120,17 +122,21 @@ const Slide = React.forwardRef((props_: any, ref: any) => {
         ...other
       },
       entering: {
-        transform: 'translate(0, 0)'
+        transform: 'translate(0, 0)',
+        visibility: 'visible'
       },
       entered: {
-        transform: 'none'
+        transform: 'none',
+        visibility: 'visible'
       },
 
       exit: {
-        transform
+        transform,
+        visibility: 'visible'
       },
       exiting: {
-        transform: translateValueMin
+        transform: translateValueMin,
+        visibility: 'visible'
       },
       exited: {
         transform: min !== undefined ? translateValueMin : transform,
@@ -171,7 +177,6 @@ const Slide = React.forwardRef((props_: any, ref: any) => {
           refs.rect.current = element?.getBoundingClientRect();
 
           // Clean up
-          element.style.removeProperty('visibility');
           element.style.removeProperty('transition');
         }
       }}
