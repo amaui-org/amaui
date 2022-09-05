@@ -9,7 +9,7 @@ import { staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
-
+    cursor: 'pointer'
   }
 }), { name: 'AmauiCardButton' });
 
