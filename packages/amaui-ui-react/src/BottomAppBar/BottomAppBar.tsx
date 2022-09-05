@@ -283,7 +283,7 @@ const BottomAppBar = React.forwardRef((props_: any, ref: any) => {
 
           gap={0}
         >
-          {children.map((item: any, index: number) => (
+          {children.map((item: any) => (
             React.cloneElement(item, {
               in: inProp
             })
@@ -299,7 +299,7 @@ const BottomAppBar = React.forwardRef((props_: any, ref: any) => {
 
           justify='flex-end'
         >
-          {main.map((item: any, index: number) => (
+          {main.map((item: any) => (
             React.cloneElement(item, {
               in: inProp
             })

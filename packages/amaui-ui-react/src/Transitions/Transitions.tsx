@@ -59,7 +59,7 @@ function Transitions(props_: IProps) {
           const isExiting = !prev?.props.in;
 
           // New or readded previous add it
-          if (next && (!prev || isExiting)) return React.cloneElement(item, { in: true, onExited: onExited(item), enterOnAdd: true, removeOnExited: true, ...other });
+          if (next && (!prev || isExiting)) return React.cloneElement(item, { in: true, onExited: onExited(item), enterOnAdd: true, ...other });
 
           // No prev in new and it's not already exiting exit it
           if (!next && prev && !isExiting) return React.cloneElement(item, { in: false, ...other });
@@ -70,7 +70,7 @@ function Transitions(props_: IProps) {
         return newItems;
       });
     }
-  }, [children__]);
+  }, [children__.length]);
 
   // Switch
   React.useEffect(() => {

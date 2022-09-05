@@ -202,3 +202,6 @@ export * from './BottomAppBar';
 
 export { default as TopAppBar } from './TopAppBar';
 export * from './TopAppBar';
+
+export { default as useScroll } from './useScroll';
+export * from './useScroll';

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { countries } from '@amaui/utils';
 import { AmauiTheme, AmauiThemeProvider, classNames, style, sy, useAmauiTheme } from '@amaui/style-react';
-import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationItem, NavigationRail, NavigationDrawer, BottomSheet, BottomAppBar, TopAppBar } from '@amaui/ui-react';
+import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationItem, NavigationRail, NavigationDrawer, BottomSheet, BottomAppBar, TopAppBar, useScroll } from '@amaui/ui-react';
 
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
@@ -618,7 +618,7 @@ function App() {
     loading: true,
     portal: false,
     modal: false,
-    babanimated: true
+    babanimated: false
   });
   const [init, setInit] = React.useState(false);
   const [anchor, setAnchor] = React.useState<any>();
@@ -630,7 +630,12 @@ function App() {
   const [radius, setRadius] = React.useState(8);
   const [rtl, setRtl] = React.useState(false);
   const [rootFontSize, setRootFontSize] = React.useState(16);
+  const scrollUp = useScroll({ direction: 'up' });
+  const scrollDown = useScroll({ direction: 'down' });
+  const scrollThreshold = useScroll({ threshold: 140 });
+
   const { classes } = useStyle();
+
   const refs = {
     transitions: React.useRef<any>(),
     slides: {
@@ -786,24 +791,6 @@ function App() {
   //     clearInterval(id);
   //   }
   // }, []);
-
-  const bottomBarItems = [
-    <IconButton>
-      <IconMaterialPottedPlantRounded />
-    </IconButton>,
-
-    <IconButton>
-      <IconMaterialCheckRounded />
-    </IconButton>,
-
-    <IconButton>
-      <IconMaterialLightModeRounded />
-    </IconButton>,
-
-    <IconButton>
-      <IconMaterialUndoRounded />
-    </IconButton>
-  ];
 
   return (
     <div className={classes.root}>
@@ -2303,7 +2290,23 @@ Please sign in again.`}
                 </Fab>
               )}
             >
-              {(bottomBarItems).map((item: any, index: number) => (
+              {[
+                <IconButton>
+                  <IconMaterialPottedPlantRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialCheckRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialLightModeRounded />
+                </IconButton>,
+
+                <IconButton>
+                  <IconMaterialUndoRounded />
+                </IconButton>
+              ].map((item: any, index: number) => (
                 React.cloneElement(item, { key: index + a.babanimated })
               ))}
             </BottomAppBar>

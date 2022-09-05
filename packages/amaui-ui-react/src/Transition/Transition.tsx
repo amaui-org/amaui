@@ -1,7 +1,6 @@
 import React from 'react';
 
-import is from '@amaui/utils/is';
-import wait from '@amaui/utils/wait';
+import { is, wait } from '@amaui/utils';
 import AmauiSubscription from '@amaui/subscription';
 import { classNames, useAmauiTheme, TTransitionsDurationProperties } from '@amaui/style-react';
 
