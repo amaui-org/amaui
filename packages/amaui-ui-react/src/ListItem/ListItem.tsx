@@ -232,6 +232,10 @@ const useStyle = style(theme => ({
     transform: 'rotate(180deg)'
   },
 
+  noPadding: {
+    padding: '0px'
+  },
+
   disabled: {
     pointerEvents: 'none',
     userSelect: 'none',
@@ -299,6 +303,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
     end: end_,
     endAlign = 'center',
     size = 'regular',
+    noPadding,
     href,
     button,
     shape = 'round',
@@ -314,7 +319,6 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
     onMouseEnter: onMouseEnter_,
     onMouseLeave: onMouseLeave_,
     onClose: onClose_,
-    disabled,
     Component = 'li',
     RootComponent: RootComponent_ = 'div',
     WrapperProps = {},
@@ -332,6 +336,8 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
     MenuProps = {
       autoSelect: true
     },
+    noOutline,
+    disabled,
 
     className,
     style,
@@ -582,6 +588,8 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
         classes.wrapper
       ])}
 
+      noOutline={noOutline}
+
       style={styles.wrapper}
 
       {...WrapperProps}
@@ -619,6 +627,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
             inset && `AmauiListItem-inset`,
             hover && `AmauiListItem-hover`,
             focus && `AmauiListItem-focus`,
+            noPadding && `AmauiListItem-noPadding`,
             disabled && `AmauiListItem-disabled`
           ],
 
@@ -631,6 +640,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
             inset && classes[`menuItem_inset_size_${size}`]
           ],
           (href || button) && classes.button,
+          noPadding && classes.noPadding,
           disabled && classes.disabled
         ])}
 

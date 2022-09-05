@@ -52,7 +52,15 @@ const CardHeader = React.forwardRef((props_: any, ref: any) => {
 
       {...other}
     >
-      {children}
+      {React.cloneElement(children, {
+        tonal: children.props.tonal !== undefined ? children.props.tonal : props.tonal,
+
+        version: children.props.version !== undefined ? children.props.version : props.version,
+
+        elevation: children.props.elevation !== undefined ? children.props.elevation : props.elevation,
+
+        color: children.props.color || props.color
+      })}
     </Line>
   );
 });

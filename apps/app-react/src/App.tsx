@@ -29,6 +29,7 @@ import IconMaterialFormatAlignJustifyRounded from '@amaui/icons-material-react/b
 import IconMaterialHomeRounded from '@amaui/icons-material-react/build/IconMaterialHomeRounded';
 import IconMaterialHomeRoundedFilled from '@amaui/icons-material-react/build/IconMaterialHomeRoundedFilled';
 import IconMaterialMenuRounded from '@amaui/icons-material-react/build/IconMaterialMenuRounded';
+import IconMaterialMoreVertRounded from '@amaui/icons-material-react/build/IconMaterialMoreVertRounded';
 
 const useStyleA = style(theme => ({
   a: {
@@ -1304,10 +1305,42 @@ Please sign in again.`}
       <Accordion primary='Card'>
         <Accordion primary='Card' open>
           <Card>
+            <CardHeader>
+              <ListItem
+                tonal
+
+                color='primary'
+
+                primary='Primary text'
+
+                secondary='Secondary text'
+
+                Component='div'
+
+                start={(
+                  <Avatar
+                    color='primary'
+                  >
+                    A
+                  </Avatar>
+                )}
+
+                end={(
+                  <IconButton>
+                    <IconMaterialMoreVertRounded />
+                  </IconButton>
+                )}
+
+                noPadding
+              />
+            </CardHeader>
+
             <CardImage
               alt='priroda'
 
               image='/image.jpg'
+
+              shape='all'
             />
 
             <CardMain
@@ -1352,6 +1385,1134 @@ Please sign in again.`}
               </Button>
             </CardFooter>
           </Card>
+        </Accordion>
+
+        <Accordion primary='Card version' open>
+          <Line>
+            <Card
+              version='filled'
+            >
+              <CardHeader>
+                <ListItem
+                  primary='Primary text'
+
+                  secondary='Secondary text'
+
+                  Component='div'
+
+                  start={(
+                    <Avatar
+                      color='primary'
+                    >
+                      A
+                    </Avatar>
+                  )}
+
+                  end={(
+                    <IconButton>
+                      <IconMaterialMoreVertRounded />
+                    </IconButton>
+                  )}
+
+                  noPadding
+                />
+              </CardHeader>
+
+              <CardImage
+                alt='priroda'
+
+                image='/image.jpg'
+
+                shape='all'
+              />
+
+              <CardMain
+                gap={1}
+              >
+                <Type
+                  version='h3'
+
+                  style={{ marginBottom: '4px' }}
+                >
+                  Headline
+                </Type>
+
+                <Type
+                  version='l1'
+                >
+                  Subhead
+                </Type>
+
+                <Type
+                  version='b2'
+
+                  color='secondary'
+                >
+                  Explain more about the topic shown in headline and subhead through supportive text.
+                </Type>
+              </CardMain>
+
+              <CardFooter>
+                <Button
+                  version='outlined'
+                >
+                  Action 114
+                </Button>
+
+                <Button
+                  version='filled'
+
+                  elevation={false}
+                >
+                  Action 1114
+                </Button>
+              </CardFooter>
+            </Card>
+
+            <Card
+              version='filled'
+
+              elevation={1}
+            >
+              <CardHeader>
+                <ListItem
+                  elevation={theme.palette.light ? 0 : undefined}
+
+                  primary='Primary text'
+
+                  secondary='Secondary text'
+
+                  Component='div'
+
+                  start={(
+                    <Avatar
+                      color='primary'
+                    >
+                      A
+                    </Avatar>
+                  )}
+
+                  end={(
+                    <IconButton>
+                      <IconMaterialMoreVertRounded />
+                    </IconButton>
+                  )}
+
+                  noPadding
+                />
+              </CardHeader>
+
+              <CardImage
+                alt='priroda'
+
+                image='/image.jpg'
+
+                shape='all'
+              />
+
+              <CardMain
+                gap={1}
+              >
+                <Type
+                  version='h3'
+
+                  style={{ marginBottom: '4px' }}
+                >
+                  Headline
+                </Type>
+
+                <Type
+                  version='l1'
+                >
+                  Subhead
+                </Type>
+
+                <Type
+                  version='b2'
+
+                  color='secondary'
+                >
+                  Explain more about the topic shown in headline and subhead through supportive text.
+                </Type>
+              </CardMain>
+
+              <CardFooter>
+                <Button
+                  version='outlined'
+                >
+                  Action 114
+                </Button>
+
+                <Button
+                  version='filled'
+
+                  elevation={false}
+                >
+                  Action 1114
+                </Button>
+              </CardFooter>
+            </Card>
+
+            <Card
+              version='outlined'
+            >
+              <CardHeader>
+                <ListItem
+                  primary='Primary text'
+
+                  secondary='Secondary text'
+
+                  Component='div'
+
+                  start={(
+                    <Avatar
+                      color='primary'
+                    >
+                      A
+                    </Avatar>
+                  )}
+
+                  end={(
+                    <IconButton>
+                      <IconMaterialMoreVertRounded />
+                    </IconButton>
+                  )}
+
+                  noPadding
+
+                  noOutline
+                />
+              </CardHeader>
+
+              <CardImage
+                alt='priroda'
+
+                image='/image.jpg'
+
+                shape='all'
+              />
+
+              <CardMain
+                gap={1}
+              >
+                <Type
+                  version='h3'
+
+                  style={{ marginBottom: '4px' }}
+                >
+                  Headline
+                </Type>
+
+                <Type
+                  version='l1'
+                >
+                  Subhead
+                </Type>
+
+                <Type
+                  version='b2'
+
+                  color='secondary'
+                >
+                  Explain more about the topic shown in headline and subhead through supportive text.
+                </Type>
+              </CardMain>
+
+              <CardFooter>
+                <Button
+                  version='outlined'
+                >
+                  Action 114
+                </Button>
+
+                <Button
+                  version='filled'
+
+                  elevation={false}
+                >
+                  Action 1114
+                </Button>
+              </CardFooter>
+            </Card>
+
+            <Card
+              version='outlined-without-background'
+            >
+              <CardHeader>
+                <ListItem
+                  primary='Primary text'
+
+                  secondary='Secondary text'
+
+                  Component='div'
+
+                  start={(
+                    <Avatar
+                      color='primary'
+                    >
+                      A
+                    </Avatar>
+                  )}
+
+                  end={(
+                    <IconButton>
+                      <IconMaterialMoreVertRounded />
+                    </IconButton>
+                  )}
+
+                  noPadding
+
+                  noOutline
+                />
+              </CardHeader>
+
+              <CardImage
+                alt='priroda'
+
+                image='/image.jpg'
+
+                shape='all'
+              />
+
+              <CardMain
+                gap={1}
+              >
+                <Type
+                  version='h3'
+
+                  style={{ marginBottom: '4px' }}
+                >
+                  Headline
+                </Type>
+
+                <Type
+                  version='l1'
+                >
+                  Subhead
+                </Type>
+
+                <Type
+                  version='b2'
+
+                  color='secondary'
+                >
+                  Explain more about the topic shown in headline and subhead through supportive text.
+                </Type>
+              </CardMain>
+
+              <CardFooter>
+                <Button
+                  version='outlined'
+                >
+                  Action 114
+                </Button>
+
+                <Button
+                  version='filled'
+
+                  elevation={false}
+                >
+                  Action 1114
+                </Button>
+              </CardFooter>
+            </Card>
+
+            <Card
+              version='text'
+            >
+              <CardHeader>
+                <ListItem
+                  primary='Primary text'
+
+                  secondary='Secondary text'
+
+                  Component='div'
+
+                  start={(
+                    <Avatar
+                      color='primary'
+                    >
+                      A
+                    </Avatar>
+                  )}
+
+                  end={(
+                    <IconButton>
+                      <IconMaterialMoreVertRounded />
+                    </IconButton>
+                  )}
+
+                  noPadding
+                />
+              </CardHeader>
+
+              <CardImage
+                alt='priroda'
+
+                image='/image.jpg'
+
+                shape='all'
+              />
+
+              <CardMain
+                gap={1}
+              >
+                <Type
+                  version='h3'
+
+                  style={{ marginBottom: '4px' }}
+                >
+                  Headline
+                </Type>
+
+                <Type
+                  version='l1'
+                >
+                  Subhead
+                </Type>
+
+                <Type
+                  version='b2'
+
+                  color='secondary'
+                >
+                  Explain more about the topic shown in headline and subhead through supportive text.
+                </Type>
+              </CardMain>
+
+              <CardFooter>
+                <Button
+                  version='outlined'
+                >
+                  Action 114
+                </Button>
+
+                <Button
+                  version='filled'
+
+                  elevation={false}
+                >
+                  Action 1114
+                </Button>
+              </CardFooter>
+            </Card>
+          </Line>
+        </Accordion>
+
+        <Accordion primary='Card href' open>
+          <Card
+            href='https://google.com'
+
+            target='_blank'
+          >
+            <CardImage
+              alt='priroda'
+
+              image='/image.jpg'
+            />
+
+            <CardMain
+              gap={1}
+            >
+              <Type
+                version='h3'
+
+                style={{ marginBottom: '4px' }}
+              >
+                Headline
+              </Type>
+
+              <Type
+                version='l1'
+              >
+                Subhead
+              </Type>
+
+              <Type
+                version='b2'
+
+                color='secondary'
+              >
+                Explain more about the topic shown in headline and subhead through supportive text.
+              </Type>
+            </CardMain>
+          </Card>
+        </Accordion>
+
+        <Accordion primary='Card button' open>
+          <Card
+            button
+          >
+            <CardImage
+              alt='priroda'
+
+              image='/image.jpg'
+            />
+
+            <CardMain
+              gap={1}
+            >
+              <Type
+                version='h3'
+
+                style={{ marginBottom: '4px' }}
+              >
+                Headline
+              </Type>
+
+              <Type
+                version='l1'
+              >
+                Subhead
+              </Type>
+
+              <Type
+                version='b2'
+
+                color='secondary'
+              >
+                Explain more about the topic shown in headline and subhead through supportive text.
+              </Type>
+            </CardMain>
+          </Card>
+        </Accordion>
+
+        <Accordion primary='Card Button' open>
+          <Card>
+            <CardButton>
+              <CardImage
+                alt='priroda'
+
+                image='/image.jpg'
+              />
+
+              <CardMain
+                gap={1}
+              >
+                <Type
+                  version='h3'
+
+                  style={{ marginBottom: '4px' }}
+                >
+                  Headline
+                </Type>
+
+                <Type
+                  version='l1'
+                >
+                  Subhead
+                </Type>
+
+                <Type
+                  version='b2'
+
+                  color='secondary'
+                >
+                  Explain more about the topic shown in headline and subhead through supportive text.
+                </Type>
+              </CardMain>
+            </CardButton>
+
+            <CardFooter>
+              <Button
+                version='outlined'
+              >
+                Action 114
+              </Button>
+
+              <Button
+                version='filled'
+
+                elevation={false}
+              >
+                Action 1114
+              </Button>
+            </CardFooter>
+          </Card>
+        </Accordion>
+
+        <Accordion primary='AmauiTheme'>
+          <div className={classNames([classes.column])}>
+            <Card
+              color='secondary'
+            >
+              <CardHeader>
+                <ListItem
+                  tonal
+
+                  color='primary'
+
+                  primary='Primary text'
+
+                  secondary='Secondary text'
+
+                  Component='div'
+
+                  start={(
+                    <Avatar
+                      color='primary'
+                    >
+                      A
+                    </Avatar>
+                  )}
+
+                  end={(
+                    <IconButton>
+                      <IconMaterialMoreVertRounded />
+                    </IconButton>
+                  )}
+
+                  noPadding
+                />
+              </CardHeader>
+
+              <CardImage
+                alt='priroda'
+
+                image='/image.jpg'
+
+                shape='all'
+              />
+
+              <CardMain
+                gap={1}
+              >
+                <Type
+                  version='h3'
+
+                  style={{ marginBottom: '4px' }}
+                >
+                  Headline
+                </Type>
+
+                <Type
+                  version='l1'
+                >
+                  Subhead
+                </Type>
+
+                <Type
+                  version='b2'
+
+                  color='secondary'
+                >
+                  Explain more about the topic shown in headline and subhead through supportive text.
+                </Type>
+              </CardMain>
+
+              <CardFooter>
+                <Button
+                  version='outlined'
+                >
+                  Action 114
+                </Button>
+
+                <Button
+                  version='filled'
+
+                  elevation={false}
+                >
+                  Action 1114
+                </Button>
+              </CardFooter>
+            </Card>
+
+            <Accordion primary='AmauiTheme nested value'>
+              <AmauiThemeProvider
+                value={{
+                  palette: {
+                    color: {
+                      primary: {
+                        main: '#008000'
+                      }
+                    }
+                  },
+                  space: {
+                    unit: 5
+                  }
+                }}
+              >
+                <Card
+                  color='secondary'
+                >
+                  <CardHeader>
+                    <ListItem
+                      tonal
+
+                      color='primary'
+
+                      primary='Primary text'
+
+                      secondary='Secondary text'
+
+                      Component='div'
+
+                      start={(
+                        <Avatar
+                          color='primary'
+                        >
+                          A
+                        </Avatar>
+                      )}
+
+                      end={(
+                        <IconButton>
+                          <IconMaterialMoreVertRounded />
+                        </IconButton>
+                      )}
+
+                      noPadding
+                    />
+                  </CardHeader>
+
+                  <CardImage
+                    alt='priroda'
+
+                    image='/image.jpg'
+
+                    shape='all'
+                  />
+
+                  <CardMain
+                    gap={1}
+                  >
+                    <Type
+                      version='h3'
+
+                      style={{ marginBottom: '4px' }}
+                    >
+                      Headline
+                    </Type>
+
+                    <Type
+                      version='l1'
+                    >
+                      Subhead
+                    </Type>
+
+                    <Type
+                      version='b2'
+
+                      color='secondary'
+                    >
+                      Explain more about the topic shown in headline and subhead through supportive text.
+                    </Type>
+                  </CardMain>
+
+                  <CardFooter>
+                    <Button
+                      version='outlined'
+                    >
+                      Action 114
+                    </Button>
+
+                    <Button
+                      version='filled'
+
+                      elevation={false}
+                    >
+                      Action 1114
+                    </Button>
+                  </CardFooter>
+                </Card>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme add'>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiCard: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: 0.4
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Card
+                  color='secondary'
+                >
+                  <CardHeader>
+                    <ListItem
+                      tonal
+
+                      color='primary'
+
+                      primary='Primary text'
+
+                      secondary='Secondary text'
+
+                      Component='div'
+
+                      start={(
+                        <Avatar
+                          color='primary'
+                        >
+                          A
+                        </Avatar>
+                      )}
+
+                      end={(
+                        <IconButton>
+                          <IconMaterialMoreVertRounded />
+                        </IconButton>
+                      )}
+
+                      noPadding
+                    />
+                  </CardHeader>
+
+                  <CardImage
+                    alt='priroda'
+
+                    image='/image.jpg'
+
+                    shape='all'
+                  />
+
+                  <CardMain
+                    gap={1}
+                  >
+                    <Type
+                      version='h3'
+
+                      style={{ marginBottom: '4px' }}
+                    >
+                      Headline
+                    </Type>
+
+                    <Type
+                      version='l1'
+                    >
+                      Subhead
+                    </Type>
+
+                    <Type
+                      version='b2'
+
+                      color='secondary'
+                    >
+                      Explain more about the topic shown in headline and subhead through supportive text.
+                    </Type>
+                  </CardMain>
+
+                  <CardFooter>
+                    <Button
+                      version='outlined'
+                    >
+                      Action 114
+                    </Button>
+
+                    <Button
+                      version='filled'
+
+                      elevation={false}
+                    >
+                      Action 1114
+                    </Button>
+                  </CardFooter>
+                </Card>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme override'>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiCard: {
+                        style: {
+                          override: {
+                            root: {
+                              padding: 40,
+                              maxWidth: 340
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Card
+                  color='secondary'
+                >
+                  <CardHeader>
+                    <ListItem
+                      tonal
+
+                      color='primary'
+
+                      primary='Primary text'
+
+                      secondary='Secondary text'
+
+                      Component='div'
+
+                      start={(
+                        <Avatar
+                          color='primary'
+                        >
+                          A
+                        </Avatar>
+                      )}
+
+                      end={(
+                        <IconButton>
+                          <IconMaterialMoreVertRounded />
+                        </IconButton>
+                      )}
+
+                      noPadding
+                    />
+                  </CardHeader>
+
+                  <CardImage
+                    alt='priroda'
+
+                    image='/image.jpg'
+
+                    shape='all'
+                  />
+
+                  <CardMain
+                    gap={1}
+                  >
+                    <Type
+                      version='h3'
+
+                      style={{ marginBottom: '4px' }}
+                    >
+                      Headline
+                    </Type>
+
+                    <Type
+                      version='l1'
+                    >
+                      Subhead
+                    </Type>
+
+                    <Type
+                      version='b2'
+
+                      color='secondary'
+                    >
+                      Explain more about the topic shown in headline and subhead through supportive text.
+                    </Type>
+                  </CardMain>
+
+                  <CardFooter>
+                    <Button
+                      version='outlined'
+                    >
+                      Action 114
+                    </Button>
+
+                    <Button
+                      version='filled'
+
+                      elevation={false}
+                    >
+                      Action 1114
+                    </Button>
+                  </CardFooter>
+                </Card>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme props'>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiCard: {
+                        props: {
+                          default: {
+                            color: 'secondary'
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Card>
+                  <CardHeader>
+                    <ListItem
+                      tonal
+
+                      color='primary'
+
+                      primary='Primary text'
+
+                      secondary='Secondary text'
+
+                      Component='div'
+
+                      start={(
+                        <Avatar
+                          color='primary'
+                        >
+                          A
+                        </Avatar>
+                      )}
+
+                      end={(
+                        <IconButton>
+                          <IconMaterialMoreVertRounded />
+                        </IconButton>
+                      )}
+
+                      noPadding
+                    />
+                  </CardHeader>
+
+                  <CardImage
+                    alt='priroda'
+
+                    image='/image.jpg'
+
+                    shape='all'
+                  />
+
+                  <CardMain
+                    gap={1}
+                  >
+                    <Type
+                      version='h3'
+
+                      style={{ marginBottom: '4px' }}
+                    >
+                      Headline
+                    </Type>
+
+                    <Type
+                      version='l1'
+                    >
+                      Subhead
+                    </Type>
+
+                    <Type
+                      version='b2'
+
+                      color='secondary'
+                    >
+                      Explain more about the topic shown in headline and subhead through supportive text.
+                    </Type>
+                  </CardMain>
+
+                  <CardFooter>
+                    <Button
+                      version='outlined'
+                    >
+                      Action 114
+                    </Button>
+
+                    <Button
+                      version='filled'
+
+                      elevation={false}
+                    >
+                      Action 1114
+                    </Button>
+                  </CardFooter>
+                </Card>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme styled'>
+              <styled.Card>
+                <CardHeader>
+                  <ListItem
+                    tonal
+
+                    color='primary'
+
+                    primary='Primary text'
+
+                    secondary='Secondary text'
+
+                    Component='div'
+
+                    start={(
+                      <Avatar
+                        color='primary'
+                      >
+                        A
+                      </Avatar>
+                    )}
+
+                    end={(
+                      <IconButton>
+                        <IconMaterialMoreVertRounded />
+                      </IconButton>
+                    )}
+
+                    noPadding
+                  />
+                </CardHeader>
+
+                <CardImage
+                  alt='priroda'
+
+                  image='/image.jpg'
+
+                  shape='all'
+                />
+
+                <CardMain
+                  gap={1}
+                >
+                  <Type
+                    version='h3'
+
+                    style={{ marginBottom: '4px' }}
+                  >
+                    Headline
+                  </Type>
+
+                  <Type
+                    version='l1'
+                  >
+                    Subhead
+                  </Type>
+
+                  <Type
+                    version='b2'
+
+                    color='secondary'
+                  >
+                    Explain more about the topic shown in headline and subhead through supportive text.
+                  </Type>
+                </CardMain>
+
+                <CardFooter>
+                  <Button
+                    version='outlined'
+                  >
+                    Action 114
+                  </Button>
+
+                  <Button
+                    version='filled'
+
+                    elevation={false}
+                  >
+                    Action 1114
+                  </Button>
+                </CardFooter>
+              </styled.Card>
+            </Accordion>
+          </div>
         </Accordion>
       </Accordion>
 
@@ -31562,7 +32723,7 @@ Please sign in again.`}
         </Accordion>
 
       </Accordion>
-    </div>
+    </div >
   );
 }
 

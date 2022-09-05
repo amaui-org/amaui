@@ -637,53 +637,57 @@ const useStyle = style(theme => ({
   },
 
   elevation_1: {
-    boxShadow: theme.shadows.values.neutral[1],
+    boxShadow: theme.palette.light ? theme.shadows.values.neutral[1] : undefined,
     backgroundImage: !theme.palette.light ? 'linear-gradient(rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.04))' : undefined,
   },
 
   elevation_2: {
-    boxShadow: theme.shadows.values.neutral[2],
+    boxShadow: theme.palette.light ? theme.shadows.values.neutral[2] : undefined,
     backgroundImage: !theme.palette.light ? 'linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05))' : undefined,
   },
 
   elevation_3: {
-    boxShadow: theme.shadows.values.neutral[3],
+    boxShadow: theme.palette.light ? theme.shadows.values.neutral[3] : undefined,
     backgroundImage: !theme.palette.light ? 'linear-gradient(rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.07))' : undefined,
   },
 
   elevation_4: {
-    boxShadow: theme.shadows.values.neutral[4],
+    boxShadow: theme.palette.light ? theme.shadows.values.neutral[4] : undefined,
     backgroundImage: !theme.palette.light ? 'linear-gradient(rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.08))' : undefined,
   },
 
   elevation_6: {
-    boxShadow: theme.shadows.values.neutral[6],
+    boxShadow: theme.palette.light ? theme.shadows.values.neutral[6] : undefined,
     backgroundImage: !theme.palette.light ? 'linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1))' : undefined,
   },
 
   elevation_8: {
-    boxShadow: theme.shadows.values.neutral[8],
+    boxShadow: theme.palette.light ? theme.shadows.values.neutral[8] : undefined,
     backgroundImage: !theme.palette.light ? 'linear-gradient(rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.12))' : undefined,
   },
 
   elevation_9: {
-    boxShadow: theme.shadows.values.neutral[9],
+    boxShadow: theme.palette.light ? theme.shadows.values.neutral[9] : undefined,
     backgroundImage: !theme.palette.light ? 'linear-gradient(rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.13))' : undefined,
   },
 
   elevation_12: {
-    boxShadow: theme.shadows.values.neutral[12],
+    boxShadow: theme.palette.light ? theme.shadows.values.neutral[12] : undefined,
     backgroundImage: !theme.palette.light ? 'linear-gradient(rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.16))' : undefined,
   },
 
   elevation_16: {
-    boxShadow: theme.shadows.values.neutral[16],
+    boxShadow: theme.palette.light ? theme.shadows.values.neutral[16] : undefined,
     backgroundImage: !theme.palette.light ? 'linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2))' : undefined,
   },
 
   elevation_24: {
-    boxShadow: theme.shadows.values.neutral[24],
+    boxShadow: theme.palette.light ? theme.shadows.values.neutral[24] : undefined,
     backgroundImage: !theme.palette.light ? 'linear-gradient(rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.28))' : undefined,
+  },
+
+  noOutline: {
+    outline: 'none'
   }
 }), { name: 'AmauiSurface' });
 
@@ -701,6 +705,7 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
     elevation = 0,
     Component = 'div',
     AdditionalProps,
+    noOutline,
 
     className,
     style,
@@ -763,7 +768,8 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
           `AmauiSurface-color-${!theme.palette.color[color] && !['themed', 'inverse', 'default', 'inherit'].includes(color) ? 'new' : color}`,
           `AmauiSurface-version-${version}`,
           tonal && `AmauiSurface-tonal${is('string', tonal) ? `-${tonal}` : ''}`,
-          elevation && `AmauiSurface-elevation-${elevation}`
+          elevation && `AmauiSurface-elevation-${elevation}`,
+          noOutline && `AmauiSurface-noOutlined`
         ],
 
         className,
@@ -771,7 +777,8 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
         classes[`version_${version}`],
         classes[`version_${version}_color_${color}`],
         classes[`elevation_${elevation}`],
-        tonal && classes[`version_${version}_tonal_${is('string', tonal) ? `${tonal}_` : ''}color_${color}`]
+        tonal && classes[`version_${version}_tonal_${is('string', tonal) ? `${tonal}_` : ''}color_${color}`],
+        noOutline && classes.noOutline
       ])}
 
       style={{

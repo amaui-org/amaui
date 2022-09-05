@@ -14,13 +14,15 @@ const useStyle = style(theme => ({
     overflow: 'hidden',
     borderRadius: `${theme.shape.radius.unit * 1.5}px`,
     maxWidth: '340px',
+    position: 'relative',
 
     // reset
     textDecoration: 'none',
   },
 
   button: {
-    cursor: 'pointer'
+    cursor: 'pointer',
+    userSelect: 'none'
   },
 
   disabled: {
@@ -84,6 +86,8 @@ const Card = React.forwardRef((props_: any, ref: any) => {
 
       tabIndex={(href || button) ? 0 : undefined}
 
+      href={href}
+
       Component={Component}
 
       color={color}
@@ -131,7 +135,17 @@ const Card = React.forwardRef((props_: any, ref: any) => {
         />
       )}
 
-      {children}
+      {React.Children.toArray(children).map((item: any) => (
+        React.cloneElement(item, {
+          tonal: item.props.tonal !== undefined ? item.props.tonal : tonal,
+
+          version: item.props.version !== undefined ? item.props.version : version,
+
+          elevation: item.props.elevation !== undefined ? item.props.elevation : elevation,
+
+          color: item.props.color || color
+        })
+      ))}
     </Surface>
   );
 });
