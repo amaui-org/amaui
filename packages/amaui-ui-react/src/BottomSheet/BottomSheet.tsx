@@ -16,13 +16,13 @@ const useStyle = style(theme => ({
         content: "''",
         position: 'absolute',
         background: 'currentColor',
-        height: '5px',
-        width: '30px',
-        top: '22.5px',
+        height: '4px',
+        width: '32px',
+        top: '23px',
         left: '50%',
         transform: 'translateX(-50%)',
         borderRadius: '5px',
-        opacity: 0.24
+        opacity: 0.4
       }
     },
 
