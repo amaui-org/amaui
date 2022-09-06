@@ -15,7 +15,7 @@ const useStyle = style(theme => ({
     borderRadius: `${theme.shape.radius.unit * 3}px`,
     maxWidth: '340px',
     position: 'relative',
-    transition: theme.methods.transitions.make('borderRadius', { duration: 'sm' }),
+    transition: theme.methods.transitions.make('border-radius'),
 
     // reset
     textDecoration: 'none',
@@ -25,6 +25,12 @@ const useStyle = style(theme => ({
     cursor: 'pointer',
     userSelect: 'none',
 
+    '&:active': {
+      borderRadius: `${theme.shape.radius.unit * 6}px`,
+    }
+  },
+
+  href: {
     '&:active': {
       borderRadius: `${theme.shape.radius.unit * 6}px`,
     }
@@ -119,13 +125,15 @@ const Card = React.forwardRef((props_: any, ref: any) => {
         staticClassName('Card', theme) && [
           `AmauiCard-root`,
           focus && `AmauiCard-focus`,
-          (href || button) && `AmauiCard-button`,
+          href && `AmauiCard-href`,
+          button && `AmauiCard-button`,
           disabled && `AmauiCard-disabled`
         ],
 
         className,
         classes.root,
-        (href || button) && classes.button,
+        href && classes.href,
+        button && classes.button,
         disabled && [
           classes.disabled,
           classes[`disabled_version_${version}`]
