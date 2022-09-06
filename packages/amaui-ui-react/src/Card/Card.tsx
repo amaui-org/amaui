@@ -92,7 +92,7 @@ const Card = React.forwardRef((props_: any, ref: any) => {
     <Surface
       ref={ref}
 
-      tabIndex={(href || button) ? 0 : undefined}
+      tabIndex={(href || button) && !disabled ? 0 : undefined}
 
       href={href}
 

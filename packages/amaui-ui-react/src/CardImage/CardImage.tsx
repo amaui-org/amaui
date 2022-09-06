@@ -83,7 +83,7 @@ const CardImage = React.forwardRef((props_: any, ref: any) => {
         className,
         classes.root,
         classes[`shape_${shape}`],
-        classes.marginHorizontal
+        marginHorizontal && classes.marginHorizontal
       ])}
 
       {...other}
