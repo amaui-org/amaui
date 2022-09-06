@@ -863,6 +863,8 @@ function App() {
 
             <CardFooter>
               <Button
+                tonal
+
                 version='outlined'
               >
                 Action 114
@@ -1375,6 +1377,8 @@ Please sign in again.`}
 
             <CardFooter>
               <Button
+                tonal
+
                 version='outlined'
               >
                 Action 114
@@ -1461,6 +1465,8 @@ Please sign in again.`}
 
             <CardFooter>
               <Button
+                tonal
+
                 version='outlined'
               >
                 Action 114
@@ -2005,6 +2011,8 @@ Please sign in again.`}
 
             <CardFooter>
               <Button
+                tonal
+
                 version='outlined'
               >
                 Action 114
@@ -2089,6 +2097,8 @@ Please sign in again.`}
 
             <CardFooter>
               <Button
+                tonal
+
                 version='outlined'
               >
                 Action 114

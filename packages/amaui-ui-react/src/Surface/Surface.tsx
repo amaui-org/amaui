@@ -481,63 +481,63 @@ const useStyle = style(theme => ({
 
   // Color
   'version_outlined-without-background_color_themed': {
-    color: theme.methods.palette.color.value('neutral', 30),
-    outlineColor: theme.methods.palette.color.value('neutral', 30)
+    color: theme.palette.light ? theme.palette.text.default.primary : theme.palette.background.default.secondary,
+    outlineColor: theme.palette.light ? theme.palette.text.default.primary : theme.palette.background.default.secondary
   },
 
   'version_outlined-without-background_color_inverse': {
-    color: theme.methods.palette.color.value('neutral', 70),
-    outlineColor: theme.methods.palette.color.value('neutral', 70)
+    color: theme.palette.background.default.primary,
+    outlineColor: theme.palette.background.default.primary
   },
 
   'version_outlined-without-background_color_default': {
     color: theme.palette.text.default.primary,
-    outlineColor: theme.methods.palette.color.value('neutral', 30)
+    outlineColor: theme.palette.text.default.primary
   },
 
   'version_outlined-without-background_color_neutral': {
-    color: theme.methods.palette.color.value('neutral', 40),
-    outlineColor: theme.methods.palette.color.value('neutral', 30)
+    color: theme.palette.color.neutral.main,
+    outlineColor: theme.palette.color.neutral.main
   },
 
   'version_outlined-without-background_color_primary': {
-    color: theme.methods.palette.color.value('primary', 40),
-    outlineColor: theme.methods.palette.color.value('primary', 30)
+    color: theme.palette.color.primary.main,
+    outlineColor: theme.palette.color.primary.main
   },
 
   'version_outlined-without-background_color_secondary': {
-    color: theme.methods.palette.color.value('secondary', 40),
-    outlineColor: theme.methods.palette.color.value('secondary', 30)
+    color: theme.palette.color.secondary.main,
+    outlineColor: theme.palette.color.secondary.main
   },
 
   'version_outlined-without-background_color_tertiary': {
-    color: theme.methods.palette.color.value('tertiary', 40),
-    outlineColor: theme.methods.palette.color.value('tertiary', 30)
+    color: theme.palette.color.tertiary.main,
+    outlineColor: theme.palette.color.tertiary.main
   },
 
   'version_outlined-without-background_color_quaternary': {
-    color: theme.methods.palette.color.value('quaternary', 40),
-    outlineColor: theme.methods.palette.color.value('quaternary', 30)
+    color: theme.palette.color.quaternary.main,
+    outlineColor: theme.palette.color.quaternary.main
   },
 
   'version_outlined-without-background_color_info': {
-    color: theme.methods.palette.color.value('info', 40),
-    outlineColor: theme.methods.palette.color.value('info', 30)
+    color: theme.palette.color.info.main,
+    outlineColor: theme.palette.color.info.main
   },
 
   'version_outlined-without-background_color_success': {
-    color: theme.methods.palette.color.value('success', 40),
-    outlineColor: theme.methods.palette.color.value('success', 30)
+    color: theme.palette.color.success.main,
+    outlineColor: theme.palette.color.success.main
   },
 
   'version_outlined-without-background_color_warning': {
-    color: theme.methods.palette.color.value('warning', 40),
-    outlineColor: theme.methods.palette.color.value('warning', 30)
+    color: theme.palette.color.warning.main,
+    outlineColor: theme.palette.color.warning.main
   },
 
   'version_outlined-without-background_color_error': {
-    color: theme.methods.palette.color.value('error', 40),
-    outlineColor: theme.methods.palette.color.value('error', 30)
+    color: theme.palette.color.error.main,
+    outlineColor: theme.palette.color.error.main
   },
 
   // Tonal
