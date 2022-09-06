@@ -12,7 +12,7 @@ const useStyle = style(theme => ({
   root: {
     display: 'inline-block',
     overflow: 'hidden',
-    borderRadius: `${theme.shape.radius.unit * 1.5}px`,
+    borderRadius: `${theme.shape.radius.unit * 3}px`,
     maxWidth: '340px',
     position: 'relative',
 

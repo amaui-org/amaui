@@ -15,27 +15,27 @@ const useStyle = style(theme => ({
   },
 
   shape_top: {
-    borderRadius: '16px 16px 0 0'
+    borderRadius: `${theme.shape.radius.unit * 3}px ${theme.shape.radius.unit * 3}px 0 0`
   },
 
   shape_left: {
-    borderRadius: '16px 0 0 16px'
+    borderRadius: `${theme.shape.radius.unit * 3}px 0 0 ${theme.shape.radius.unit * 3}px`
   },
 
   shape_right: {
-    borderRadius: '0 16px 16px 0'
+    borderRadius: `0 ${theme.shape.radius.unit * 3}px ${theme.shape.radius.unit * 3}px 0`
   },
 
   shape_bottom: {
-    borderRadius: '0 0 16px 16px'
+    borderRadius: `0 0 ${theme.shape.radius.unit * 3}px ${theme.shape.radius.unit * 3}px`
   },
 
   shape_all: {
-    borderRadius: '16px'
+    borderRadius: `${theme.shape.radius.unit * 3}px`
   },
 
   shape_none: {
-    borderRadius: '0'
+    borderRadius: `0`
   },
 
   marginHorizontal: {
