@@ -1387,6 +1387,92 @@ Please sign in again.`}
           </Card>
         </Accordion>
 
+        <Accordion primary='Card Image marginHorizontal' open>
+          <Card>
+            <CardHeader>
+              <ListItem
+                tonal
+
+                color='primary'
+
+                primary='Primary text'
+
+                secondary='Secondary text'
+
+                Component='div'
+
+                start={(
+                  <Avatar
+                    color='primary'
+                  >
+                    A
+                  </Avatar>
+                )}
+
+                end={(
+                  <IconButton>
+                    <IconMaterialMoreVertRounded />
+                  </IconButton>
+                )}
+
+                noPadding
+              />
+            </CardHeader>
+
+            <CardImage
+              alt='priroda'
+
+              image='/image.jpg'
+
+              shape='all'
+
+              marginHorizontal
+            />
+
+            <CardMain
+              gap={1}
+            >
+              <Type
+                version='h3'
+
+                style={{ marginBottom: '4px' }}
+              >
+                Headline
+              </Type>
+
+              <Type
+                version='l1'
+              >
+                Subhead
+              </Type>
+
+              <Type
+                version='b2'
+
+                color='secondary'
+              >
+                Explain more about the topic shown in headline and subhead through supportive text.
+              </Type>
+            </CardMain>
+
+            <CardFooter>
+              <Button
+                version='outlined'
+              >
+                Action 114
+              </Button>
+
+              <Button
+                version='filled'
+
+                elevation={false}
+              >
+                Action 1114
+              </Button>
+            </CardFooter>
+          </Card>
+        </Accordion>
+
         <Accordion primary='Card version' open>
           <Line>
             <Card

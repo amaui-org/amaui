@@ -36,6 +36,11 @@ const useStyle = style(theme => ({
 
   shape_none: {
     borderRadius: '0'
+  },
+
+  marginHorizontal: {
+    width: 'calc(100% - 32px)',
+    margin: '0 16px'
   }
 }), { name: 'AmauiCardImage' });
 
@@ -48,7 +53,7 @@ const CardImage = React.forwardRef((props_: any, ref: any) => {
     alt,
     image,
     shape = 'bottom',
-
+    marginHorizontal,
     Component = 'img',
 
     className,
@@ -71,12 +76,14 @@ const CardImage = React.forwardRef((props_: any, ref: any) => {
       className={classNames([
         staticClassName('CardImage', theme) && [
           `AmauiCardImage-root`,
-          `AmauiCardImage-shape-${shape}`
+          `AmauiCardImage-shape-${shape}`,
+          marginHorizontal && `AmauiCardImage-margin-horizontal`
         ],
 
         className,
         classes.root,
-        classes[`shape_${shape}`]
+        classes[`shape_${shape}`],
+        classes.marginHorizontal
       ])}
 
       {...other}
