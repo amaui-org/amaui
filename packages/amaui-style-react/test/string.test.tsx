@@ -239,7 +239,6 @@ group('@amaui/style-react/string', () => {
       });
 
       const values = [...valueBrowsers];
-      console.log(JSON.stringify(values[0], null, 2));
 
       values.forEach(value => assert(value).eql([
         1,
@@ -323,7 +322,7 @@ group('@amaui/style-react/string', () => {
       const values = [...valueBrowsers];
 
       values.forEach(value => assert(value).eql([
-        1,
+        2,
         [
           [
             ".a-0 { color: yellow; }"
@@ -333,7 +332,7 @@ group('@amaui/style-react/string', () => {
           ]
         ],
         "<div><a class=\"a-0\">a</a><a class=\"a-1\">a</a></div>",
-        1,
+        2,
         [
           [
             ".a-0 { color: orange; }"
@@ -411,8 +410,7 @@ group('@amaui/style-react/string', () => {
         [
           [
             ".a-0 { color: yellow; }"
-          ],
-          []
+          ]
         ],
         "<div><a class=\"a-0\">a</a><a class=\"a-0\">a</a></div>",
         0,
