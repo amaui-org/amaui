@@ -56,12 +56,11 @@ group('@amaui/style-react/string', () => {
     const values = [...valueBrowsers];
 
     values.forEach(value => assert(value).eql([
-      2,
+      1,
       [
         [
           ".a-0 { color: yellow; }"
-        ],
-        []
+        ]
       ],
       "<div><a class=\"a-0\">a</a><a class=\"a-0\">a1</a></div>"
     ]));
@@ -113,12 +112,11 @@ group('@amaui/style-react/string', () => {
     const values = [...valueBrowsers];
 
     values.forEach(value => assert(value).eql([
-      2,
+      1,
       [
         [
           ".a-0 { color: yellow; }"
-        ],
-        []
+        ]
       ],
       "<div><a class=\"a-0\">a</a><a class=\"a-0\">a1</a></div>"
     ]));
@@ -172,12 +170,11 @@ group('@amaui/style-react/string', () => {
       const values = [...valueBrowsers];
 
       values.forEach(value => assert(value).eql([
-        2,
+        1,
         [
           [
             ".a-0 { color: yellow; }"
-          ],
-          []
+          ]
         ],
         "<div><a class=\"a-0\">a</a><a class=\"a-0\">a1</a></div>"
       ]));
@@ -242,30 +239,28 @@ group('@amaui/style-react/string', () => {
       });
 
       const values = [...valueBrowsers];
+      console.log(JSON.stringify(values[0], null, 2));
 
       values.forEach(value => assert(value).eql([
-        2,
+        1,
         [
           [
             ".a-0 { color: rgba(0, 0, 0, 0.87); }"
-          ],
-          []
+          ]
         ],
         "<div data-amaui-theme=\"true\"><a class=\"a-0\">a</a><a class=\"a-0\">a</a></div>",
-        2,
+        1,
         [
           [
             ".a-0 { color: rgba(0, 0, 0, 0.87); }"
-          ],
-          []
+          ]
         ],
         "<div data-amaui-theme=\"true\"><a class=\"a-0\">a</a><a class=\"a-0\">a</a></div>",
-        2,
+        1,
         [
           [
             ".a-0 { color: rgba(255, 255, 255, 0.87); }"
-          ],
-          []
+          ]
         ],
         "<div data-amaui-theme=\"true\"><a class=\"a-0\">a</a><a class=\"a-0\">a</a></div>"
       ]));
@@ -328,7 +323,7 @@ group('@amaui/style-react/string', () => {
       const values = [...valueBrowsers];
 
       values.forEach(value => assert(value).eql([
-        2,
+        1,
         [
           [
             ".a-0 { color: yellow; }"
@@ -338,7 +333,7 @@ group('@amaui/style-react/string', () => {
           ]
         ],
         "<div><a class=\"a-0\">a</a><a class=\"a-1\">a</a></div>",
-        2,
+        1,
         [
           [
             ".a-0 { color: orange; }"
@@ -412,7 +407,7 @@ group('@amaui/style-react/string', () => {
       const values = [...valueBrowsers];
 
       values.forEach(value => assert(value).eql([
-        2,
+        1,
         [
           [
             ".a-0 { color: yellow; }"

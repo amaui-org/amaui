@@ -97,12 +97,14 @@ group('use cases', () => {
           [
             ".a1-1 { color: yellow; }"
           ],
-          [],
           [
-            ".a1-2 { color: orange; }"
+            ".a-2 { width: 100px; }"
+          ],
+          [
+            ".a1-3 { color: orange; }"
           ]
         ],
-        "<div data-amaui-style=\"true\"><a class=\"a-0 a1-1\">a</a><a class=\"a-0 a1-2\">a1</a></div>"
+        "<div data-amaui-style=\"true\"><a class=\"a-0 a1-1\">a</a><a class=\"a-2 a1-3\">a1</a></div>"
       ]));
     });
 
@@ -283,16 +285,16 @@ group('use cases', () => {
             ".a-0 { width: 100px; }"
           ],
           [
-            ".a1-2 { color: yellow; }"
+            ".a1-1 { color: yellow; }"
           ],
           [
-            ".a-1 { width: 100px; }"
+            ".a-2 { width: 100px; }"
           ],
           [
             ".a1-3 { color: orange; }"
           ]
         ],
-        "<div data-amaui-style=\"true\"><a class=\"a-0 a1-2\">a</a><a class=\"a-1 a1-3\">a1</a></div>"
+        "<div data-amaui-style=\"true\"><a class=\"a-0 a1-1\">a</a><a class=\"a-2 a1-3\">a1</a></div>"
       ]));
     });
 
@@ -361,15 +363,17 @@ group('use cases', () => {
           [
             ".a1-1 { color: yellow; }"
           ],
-          [],
           [
-            ".a1-2 { color: orange; }"
+            ".a-2 { color: yellow; }"
           ],
           [
             ".a1-3 { color: orange; }"
+          ],
+          [
+            ".a1-4 { color: orange; }"
           ]
         ],
-        "<div><a class=\"a-0 a1-1\" a=\"1\">a</a><a class=\"a-0 a1-2\" a=\"14\">a1</a><a class=\"a-0 a1-3\" a=\"14\">a1</a></div>"
+        "<div><a class=\"a-0 a1-1\" a=\"1\">a</a><a class=\"a-2 a1-3\" a=\"14\">a1</a><a class=\"a-2 a1-4\" a=\"14\">a1</a></div>"
       ]));
     });
 
@@ -417,7 +421,7 @@ group('use cases', () => {
 
         const value = ReactDOMServer.renderToString(React.createElement(App, null));
 
-        assert(value).eq('<div><a class="a-0" a="1">a</a><a class="a-0 a1-1" a="14">a14</a><a class="a-0 a1-1" a="14">a114</a></div>');
+        assert(value).eq('<div><a class="a-0 a1-1" a="1">a</a><a class="a-2 a1-3 a14-4" a="14">a14</a><a class="a-2 a1-3 a14-5" a="14">a114</a></div>');
 
         assert(amauiStyle.css).eq(`
 
@@ -426,6 +430,22 @@ group('use cases', () => {
 }
 
 .a1-1 {
+  color: yellow;
+}
+
+.a-2 {
+  color: yellow;
+}
+
+.a1-3 {
+  color: orange;
+}
+
+.a14-4 {
+  color: orange;
+}
+
+.a14-5 {
   color: orange;
 }
 

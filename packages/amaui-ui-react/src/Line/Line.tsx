@@ -10,9 +10,7 @@ import { staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
-    display: 'flex',
-    justifyContent: 'flex-start',
-    alignItems: 'flex-start'
+    display: 'flex'
   },
 
   // wrap
@@ -138,8 +136,8 @@ const Line = React.forwardRef((props_: any, ref: any) => {
   const {
     Component = 'div',
 
-    align: align_,
-    justify: justify_,
+    align: align_ = 'flex-start',
+    justify: justify_ = 'flex-start',
     direction: direction_ = 'column',
     gap: gap_ = 2,
     rowGap: rowGap_,
@@ -170,8 +168,8 @@ const Line = React.forwardRef((props_: any, ref: any) => {
     return value_;
   };
 
-  const align = is('simple', align_) ? align_ : value(align_);
-  const justify = is('simple', justify_) ? justify_ : value(justify_);
+  const align = is('simple', align_) ? align_ : value(align_, 'flex-start');
+  const justify = is('simple', justify_) ? justify_ : value(justify_, 'flex-start');
   const direction = is('simple', direction_) ? direction_ : value(direction_, 'column');
   const gap = is('simple', gap_) ? gap_ : value(gap_, 2);
   const rowGap = is('simple', rowGap_) ? rowGap_ : value(rowGap_);

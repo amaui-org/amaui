@@ -273,7 +273,13 @@ const useStyle = style(theme => ({
     display: 'inline-flex',
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: `calc(${theme.shape.radius.unit / 8} * 0.5em)`
+    borderRadius: `calc(${theme.shape.radius.unit / 8} * 0.5em)`,
+    transform: 'scale(0.7)',
+    transition: theme.methods.transitions.make('transform', { duration: 'xs' })
+  },
+
+  iconActive: {
+    transform: 'scale(1)'
   },
 
   icon_size_small: {
@@ -1143,7 +1149,8 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
                 classes.icon,
                 classes[`track_color_${color}`],
                 tonal && classes[`track_tonal_color_${color}`],
-                classes[`icon_size_${size}`]
+                classes[`icon_size_${size}`],
+                (mouseDownButton === index) && classes.iconActive
               ])}
 
               style={styles.icon}

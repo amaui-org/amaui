@@ -19,7 +19,7 @@ group('@amaui/style-react/className', () => {
           a: {
             color: 'yellow'
           }
-        }), props);
+        }), props, '', { name: 'a' });
 
         return (
           eval(window.Babel.transform(`
@@ -58,12 +58,11 @@ group('@amaui/style-react/className', () => {
     const values = [...valueBrowsers];
 
     values.forEach(value => assert(value).eql([
-      2,
+      1,
       [
         [
           ".a-0 { color: yellow; }"
-        ],
-        []
+        ]
       ],
       "<div><a class=\"a-0\">a</a><a class=\"a-0\">a1</a></div>"
     ]));
@@ -78,7 +77,7 @@ group('@amaui/style-react/className', () => {
           a: {
             color: 'yellow'
           }
-        }), props);
+        }), props, '', { name: 'a' });
 
         return (
           eval(window.Babel.transform(`
@@ -117,12 +116,11 @@ group('@amaui/style-react/className', () => {
     const values = [...valueBrowsers];
 
     values.forEach(value => assert(value).eql([
-      2,
+      1,
       [
         [
           ".a-0 { color: yellow; }"
-        ],
-        []
+        ]
       ],
       "<div><a class=\"a-0\">a</a><a class=\"a-0\">a1</a></div>"
     ]));
@@ -137,7 +135,7 @@ group('@amaui/style-react/className', () => {
           a: {
             color: 'yellow'
           }
-        }), props);
+        }), props, '', { name: 'a' });
 
         return (
           eval(window.Babel.transform(`
@@ -176,12 +174,11 @@ group('@amaui/style-react/className', () => {
     const values = [...valueBrowsers];
 
     values.forEach(value => assert(value).eql([
-      2,
+      1,
       [
         [
           ".a-0 { color: yellow; }"
-        ],
-        []
+        ]
       ],
       "<div><a class=\"a-0\">a</a><a class=\"a-0\">a1</a></div>"
     ]));
@@ -198,7 +195,7 @@ group('@amaui/style-react/className', () => {
             a: {
               color: 'yellow'
             }
-          }), props);
+          }), props, '', { name: 'a' });
 
           return (
             eval(window.Babel.transform(`
@@ -237,12 +234,11 @@ group('@amaui/style-react/className', () => {
       const values = [...valueBrowsers];
 
       values.forEach(value => assert(value).eql([
-        2,
+        1,
         [
           [
             ".a-0 { color: yellow; }"
-          ],
-          []
+          ]
         ],
         "<div><a class=\"a-0\">a</a><a class=\"a-0\">a1</a></div>"
       ]));
@@ -259,7 +255,7 @@ group('@amaui/style-react/className', () => {
             a: {
               color: theme.palette.text.default.primary
             }
-          }), props);
+          }), props, '', { name: 'a' });
 
           const amauiTheme = useAmauiTheme();
 
@@ -312,28 +308,25 @@ group('@amaui/style-react/className', () => {
       const values = [...valueBrowsers];
 
       values.forEach(value => assert(value).eql([
-        2,
+        1,
         [
           [
             ".a-0 { color: rgba(0, 0, 0, 0.87); }"
-          ],
-          []
+          ]
         ],
         "<div data-amaui-theme=\"true\"><a class=\"a-0\">a</a><a class=\"a-0\">a</a></div>",
-        2,
+        1,
         [
           [
             ".a-0 { color: rgba(0, 0, 0, 0.87); }"
-          ],
-          []
+          ]
         ],
         "<div data-amaui-theme=\"true\"><a class=\"a-0\">a</a><a class=\"a-0\">a</a></div>",
-        2,
+        1,
         [
           [
             ".a-0 { color: rgba(255, 255, 255, 0.87); }"
-          ],
-          []
+          ]
         ],
         "<div data-amaui-theme=\"true\"><a class=\"a-0\">a</a><a class=\"a-0\">a</a></div>"
       ]));
@@ -350,7 +343,7 @@ group('@amaui/style-react/className', () => {
             a: {
               color: props => props.a === 1 ? 'yellow' : 'orange'
             }
-          }), props);
+          }), props, '', { name: 'a' });
 
           return (
             eval(window.Babel.transform(`
@@ -432,7 +425,7 @@ group('@amaui/style-react/className', () => {
             a: {
               color: props => props.a === 1 ? 'yellow' : 'orange',
             }
-          }), props);
+          }), props, '', { name: 'a' });
 
           return (
             eval(window.Babel.transform(`
@@ -514,10 +507,11 @@ group('@amaui/style-react/className', () => {
           a: {
             color: 'yellow'
           },
+
           a1: {
             background: 'orange'
           }
-        }), props);
+        }), props, '', { name: 'a' });
 
         return (
           <a className={classNameProp}>

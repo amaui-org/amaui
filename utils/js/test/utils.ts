@@ -108,12 +108,16 @@ export const evaluate = async (
   for (const key of Object.keys(options.browsers || {})) {
     const browser: IBrowser = options.browsers && options.browsers[key];
 
-    // Reset
-    await browser.page?.reload();
-
     const window = await browser.page?.evaluateHandle(() => window);
 
     const args = options.arguments?.length ? [window, ...options.arguments] : window;
+
+    // Reset
+    await browser.page?.evaluateHandle((window: any) => {
+      // Counter
+      window.amaui_counter.className = 0;
+      window.amaui_counter.keyframesName = 0;
+    }, args);
 
     if (options.pre) await browser.page?.evaluateHandle(options.pre, args);
 
@@ -163,8 +167,6 @@ preEveryTo(async () => {
   // Counter
   global.amaui_counter.className = 0;
   global.amaui_counter.keyframesName = 0;
-
-  // global.amaui_methods.makeName = makeName();
 });
 
 postAll(async () => await closeBrowsers(utils.browsers as IBrowsers));

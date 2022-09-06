@@ -417,15 +417,9 @@ group('@amaui/style-react/AmauiThemeProvider', () => {
 
       const values = [...valueBrowsers];
 
-      values.forEach(value => assert(value).any.eql([
-        [
-          ...new Array(2).fill(true),
-          ...new Array(3).fill(false)
-        ],
-        [
-          ...new Array(2).fill(true),
-          ...new Array(4).fill(false)
-        ]
+      values.forEach(value => assert(value).eql([
+        ...new Array(2).fill(true),
+        ...new Array(2).fill(false)
       ]));
     });
 
@@ -651,11 +645,6 @@ group('@amaui/style-react/AmauiThemeProvider', () => {
           false,
           "#FFEB3B",
           "#8BC34A"
-        ],
-        [
-          false,
-          "#FFEB3B",
-          "#008000"
         ]
       ]));
     });

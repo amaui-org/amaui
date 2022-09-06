@@ -113,10 +113,10 @@
     fast-glob "^3.2.11"
     fs-extra "^10.1.0"
 
-"@amaui/style@^1.0.14274":
-  version "1.0.14274"
-  resolved "https://registry.yarnpkg.com/@amaui/style/-/style-1.0.14274.tgz#4c74f6b7117fc799308bd650e3c9bbd0a8ad0e9c"
-  integrity sha512-MEPWsfowZG+V6PGEEM0y9kJr0FJqGmfnNUAgm7He0rrRzTsJIMqVfRC2NpLKtmHSQPu8og3DPSsRS6Lj+qcENQ==
+"@amaui/style@^1.0.14277":
+  version "1.0.14277"
+  resolved "https://registry.yarnpkg.com/@amaui/style/-/style-1.0.14277.tgz#f3d8d1932cb7864c7645bfd973dea409a49d3756"
+  integrity sha512-Hz5iSmaw8yLaoUjqiRh80BPkB/n+Uv9S23DbUAxblM7Kwxb8pWGqr6jYE9neJ2R2Ydxc2UWgyZSisprjH4+44w==
   dependencies:
     "@amaui/meta" "^1.0.11141"
     "@amaui/node" "^1.0.11117"
@@ -15338,15 +15338,15 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typescript@^4.5.2:
-  version "4.6.3"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.6.3.tgz#eefeafa6afdd31d725584c67a0eaba80f6fc6c6c"
-  integrity sha512-yNIatDa5iaofVozS/uQJEl3JRWLKKGJKh6Yaiv0GLGSuhpFJe7P3SbHZ8/yjAHRQwKRoA6YZqlfjXWmVzoVSMw==
-
 typescript@^4.7.4:
   version "4.7.4"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.7.4.tgz#1a88596d1cf47d59507a1bcdfb5b9dfe4d488235"
   integrity sha512-C0WQT0gezHuw6AdY1M2jxUO83Rjf0HP7Sk1DtXj6j1EwkQNZrHAg2XPWlq62oqEhYvONq5pkC2Y9oPljWToLmQ==
+
+typescript@^4.8.2:
+  version "4.8.2"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.8.2.tgz#e3b33d5ccfb5914e4eeab6699cf208adee3fd790"
+  integrity sha512-C0I1UsrrDHo2fYI5oaCGbSejwX4ch+9Y5jTQELvovfmFkK3HHSZJB8MSJcWLmCUBzQBchCrZ9rMRV6GuNrvGtw==
 
 uglify-js@^3.1.4:
   version "3.15.3"

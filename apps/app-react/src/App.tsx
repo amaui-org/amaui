@@ -807,7 +807,11 @@ function App() {
     <div className={classes.root}>
       <Reset />
 
-      <div className={classNames([classes.row, classes.center])} style={{ gap: 14 }}>
+      <Line
+        direction='row'
+
+        gap={1}
+      >
         <Button size='small' color='secondary' className={classes.btn} onClick={() => updateLight()}>{theme.palette.light ? 'dark' : 'light'}</Button>
 
         <Button size='small' color='secondary' className={classes.btn} onClick={() => setSpace(item => ++item)}>add space ({space})</Button>
@@ -820,7 +824,7 @@ function App() {
         <Button size='small' color='secondary' className={classes.btn} onClick={() => setRootFontSize(item => --item)}>remove root font size ({rootFontSize})</Button>
 
         <Button size='small' color='secondary' className={classes.btn} onClick={() => setRtl(item => !item)}>rtl {rtl ? ' on' : ''}</Button>
-      </div>
+      </Line>
 
       <Accordion primary='All'>
         <Line>

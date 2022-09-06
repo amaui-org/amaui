@@ -538,7 +538,7 @@ group('@amaui/style-react/style', () => {
 
       const value = ReactDOMServer.renderToString(React.createElement(App, null));
 
-      assert(value).eq('<div><div><a class="a-0 a1-1">a</a></div></div>');
+      assert(value).eq('<div><div><a class="a-0 a1-1 a4-2">a</a></div></div>');
 
       assert(amauiStyle.css).eq(`
 
@@ -548,6 +548,10 @@ group('@amaui/style-react/style', () => {
 
 .a1-1 {
   color: rgba(0, 0, 0, 0.87);
+}
+
+.a4-2 {
+  background: orange;
 }
 
 `);

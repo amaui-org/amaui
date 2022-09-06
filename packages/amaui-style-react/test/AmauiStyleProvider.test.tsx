@@ -313,7 +313,7 @@ group('@amaui/style-react/AmauiStyleProvider', () => {
           prefix: false,
           rtl: true
         },
-        optimize: true
+        optimize: false
       },
       true,
       'ltr',
@@ -323,7 +323,7 @@ group('@amaui/style-react/AmauiStyleProvider', () => {
           prefix: false,
           rtl: false
         },
-        optimize: true
+        optimize: false
       }
     ]));
   });
