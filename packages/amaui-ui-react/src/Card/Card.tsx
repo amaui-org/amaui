@@ -15,6 +15,7 @@ const useStyle = style(theme => ({
     borderRadius: `${theme.shape.radius.unit * 3}px`,
     maxWidth: '340px',
     position: 'relative',
+    transition: theme.methods.transitions.make('borderRadius', { duration: 'sm' }),
 
     // reset
     textDecoration: 'none',
@@ -22,7 +23,11 @@ const useStyle = style(theme => ({
 
   button: {
     cursor: 'pointer',
-    userSelect: 'none'
+    userSelect: 'none',
+
+    '&:active': {
+      borderRadius: `${theme.shape.radius.unit * 6}px`,
+    }
   },
 
   disabled: {

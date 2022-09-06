@@ -39,8 +39,8 @@ const useStyle = style(theme => ({
   },
 
   marginHorizontal: {
-    width: 'calc(100% - 32px)',
-    margin: '0 16px'
+    width: 'calc(100% - 48px)',
+    margin: '0 24px'
   }
 }), { name: 'AmauiCardImage' });
 
