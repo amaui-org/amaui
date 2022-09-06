@@ -829,10 +829,42 @@ function App() {
       <Accordion primary='All'>
         <Line>
           <Card>
+            <CardHeader>
+              <ListItem
+                tonal
+
+                color='primary'
+
+                primary='Primary text'
+
+                secondary='Secondary text'
+
+                Component='div'
+
+                start={(
+                  <Avatar
+                    color='primary'
+                  >
+                    A
+                  </Avatar>
+                )}
+
+                end={(
+                  <IconButton>
+                    <IconMaterialMoreVertRounded />
+                  </IconButton>
+                )}
+
+                noPadding
+              />
+            </CardHeader>
+
             <CardImage
               alt='priroda'
 
               image='/image.jpg'
+
+              shape='all'
             />
 
             <CardMain
@@ -1550,6 +1582,8 @@ Please sign in again.`}
 
               <CardFooter>
                 <Button
+                  tonal
+
                   version='outlined'
                 >
                   Action 114
@@ -1634,6 +1668,8 @@ Please sign in again.`}
 
               <CardFooter>
                 <Button
+                  tonal
+
                   version='outlined'
                 >
                   Action 114
@@ -1716,6 +1752,8 @@ Please sign in again.`}
 
               <CardFooter>
                 <Button
+                  tonal
+
                   version='outlined'
                 >
                   Action 114
@@ -1798,6 +1836,8 @@ Please sign in again.`}
 
               <CardFooter>
                 <Button
+                  tonal
+
                   version='outlined'
                 >
                   Action 114
@@ -1878,6 +1918,8 @@ Please sign in again.`}
 
               <CardFooter>
                 <Button
+                  tonal
+
                   version='outlined'
                 >
                   Action 114
@@ -2186,6 +2228,8 @@ Please sign in again.`}
 
               <CardFooter>
                 <Button
+                  tonal
+
                   version='outlined'
                 >
                   Action 114

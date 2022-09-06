@@ -79,7 +79,7 @@ const List = React.forwardRef((props_: any, ref: any) => {
     color = 'default',
     size = mobile ? 'small' : 'regular',
     noMaxWidth = true,
-    elevation = props.menu ? 2 : 0,
+    elevation = (props.menu && theme.palette.light) ? 2 : 0,
     indent,
     paddingHorizontal = 'none',
     paddingVertical = 'both',
