@@ -16,11 +16,11 @@ const useStyle = style(theme => ({
   },
 
   size_regular: {
-    padding: '24px'
+    padding: '24px 16px'
   },
 
   size_large: {
-    padding: '32px'
+    padding: '32px 24px'
   }
 }), { name: 'AmauiTableHeader' });
 

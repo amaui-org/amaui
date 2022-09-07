@@ -1511,7 +1511,7 @@ Please sign in again.`}
                   justify='flex-start'
                 >
                   <Type
-                    version='h3'
+                    version='t3'
                   >
                     Nutrition
                   </Type>
@@ -1643,7 +1643,7 @@ Please sign in again.`}
                   justify='flex-start'
                 >
                   <Type
-                    version='h3'
+                    version='h2'
                   >
                     Nutrition
                   </Type>
