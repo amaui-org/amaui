@@ -32,7 +32,7 @@ const Table = React.forwardRef((props_: any, ref: any) => {
   const {
     tonal,
     color = 'themed',
-
+    size = 'regular',
     elevation = 1,
     header,
     footer,
@@ -64,7 +64,8 @@ const Table = React.forwardRef((props_: any, ref: any) => {
 
       className={classNames([
         staticClassName('Table', theme) && [
-          `AmauiTable-root`
+          `AmauiTable-root`,
+          `AmauiTable-size-${size}`
         ],
 
         className,
@@ -76,7 +77,9 @@ const Table = React.forwardRef((props_: any, ref: any) => {
       {header && React.cloneElement(header, {
         tonal: header.props.tonal !== undefined ? header.props.tonal : tonal,
 
-        color: header.props.color !== undefined ? header.props.color : color
+        color: header.props.color !== undefined ? header.props.color : color,
+
+        size: header.props.size !== undefined ? header.props.size : size
       })}
 
       <WrapperComponent
@@ -105,7 +108,9 @@ const Table = React.forwardRef((props_: any, ref: any) => {
             React.cloneElement(item, {
               tonal: item.props.tonal !== undefined ? item.props.tonal : tonal,
 
-              color: item.props.color !== undefined ? item.props.color : color
+              color: item.props.color !== undefined ? item.props.color : color,
+
+              size: header.props.size !== undefined ? header.props.size : size
             })
           ))}
         </TableComponent>
@@ -114,7 +119,9 @@ const Table = React.forwardRef((props_: any, ref: any) => {
       {footer && React.cloneElement(footer, {
         tonal: footer.props.tonal !== undefined ? footer.props.tonal : tonal,
 
-        color: footer.props.color !== undefined ? footer.props.color : color
+        color: footer.props.color !== undefined ? footer.props.color : color,
+
+        size: header.props.size !== undefined ? header.props.size : size
       })}
     </Surface>
   );

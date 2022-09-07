@@ -1497,6 +1497,363 @@ Please sign in again.`}
           </Table>
         </Accordion>
 
+        <Accordion primary='Table size' open>
+          <Table
+            size='small'
+
+            header={(
+              <TableHeader>
+                <Line
+                  direction='row'
+
+                  align='center'
+
+                  justify='flex-start'
+                >
+                  <Type
+                    version='h3'
+                  >
+                    Nutrition
+                  </Type>
+                </Line>
+              </TableHeader>
+            )}
+
+            footer={(
+              <TableFooter>
+                <Line
+                  direction='row'
+
+                  align='center'
+
+                  justify='center'
+                >
+                  <Type
+                    version='b2'
+                  >
+                    Nutritional information about some foods
+                  </Type>
+                </Line>
+              </TableFooter>
+            )}
+          >
+            <TableHead>
+              <TableRow>
+                {table.header.map((item: string, index: number) => (
+                  <TableCell
+                    key={index}
+                  >
+                    {item}
+                  </TableCell>
+                ))}
+              </TableRow>
+            </TableHead>
+
+            <TableBody>
+              {table.body.map((item: any, index: number) => (
+                <TableRow>
+                  {item.map((item_: string, index_: number) => (
+                    <TableCell
+                      key={index_}
+                    >
+                      {item_}
+                    </TableCell>
+                  ))}
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+
+          <Table
+            size='regular'
+
+            header={(
+              <TableHeader>
+                <Line
+                  direction='row'
+
+                  align='center'
+
+                  justify='flex-start'
+                >
+                  <Type
+                    version='h3'
+                  >
+                    Nutrition
+                  </Type>
+                </Line>
+              </TableHeader>
+            )}
+
+            footer={(
+              <TableFooter>
+                <Line
+                  direction='row'
+
+                  align='center'
+
+                  justify='center'
+                >
+                  <Type
+                    version='b2'
+                  >
+                    Nutritional information about some foods
+                  </Type>
+                </Line>
+              </TableFooter>
+            )}
+          >
+            <TableHead>
+              <TableRow>
+                {table.header.map((item: string, index: number) => (
+                  <TableCell
+                    key={index}
+                  >
+                    {item}
+                  </TableCell>
+                ))}
+              </TableRow>
+            </TableHead>
+
+            <TableBody>
+              {table.body.map((item: any, index: number) => (
+                <TableRow>
+                  {item.map((item_: string, index_: number) => (
+                    <TableCell
+                      key={index_}
+                    >
+                      {item_}
+                    </TableCell>
+                  ))}
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+
+          <Table
+            size='large'
+
+            header={(
+              <TableHeader>
+                <Line
+                  direction='row'
+
+                  align='center'
+
+                  justify='flex-start'
+                >
+                  <Type
+                    version='h3'
+                  >
+                    Nutrition
+                  </Type>
+                </Line>
+              </TableHeader>
+            )}
+
+            footer={(
+              <TableFooter>
+                <Line
+                  direction='row'
+
+                  align='center'
+
+                  justify='center'
+                >
+                  <Type
+                    version='b2'
+                  >
+                    Nutritional information about some foods
+                  </Type>
+                </Line>
+              </TableFooter>
+            )}
+          >
+            <TableHead>
+              <TableRow>
+                {table.header.map((item: string, index: number) => (
+                  <TableCell
+                    key={index}
+                  >
+                    {item}
+                  </TableCell>
+                ))}
+              </TableRow>
+            </TableHead>
+
+            <TableBody>
+              {table.body.map((item: any, index: number) => (
+                <TableRow>
+                  {item.map((item_: string, index_: number) => (
+                    <TableCell
+                      key={index_}
+                    >
+                      {item_}
+                    </TableCell>
+                  ))}
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </Accordion>
+
+        <Accordion primary='Table sticky' open>
+          <Table
+            header={(
+              <TableHeader>
+                <Line
+                  direction='row'
+
+                  align='center'
+
+                  justify='flex-start'
+                >
+                  <Type
+                    version='h3'
+                  >
+                    Nutrition
+                  </Type>
+                </Line>
+              </TableHeader>
+            )}
+
+            footer={(
+              <TableFooter>
+                <Line
+                  direction='row'
+
+                  align='center'
+
+                  justify='center'
+                >
+                  <Type
+                    version='b2'
+                  >
+                    Nutritional information about some foods
+                  </Type>
+                </Line>
+              </TableFooter>
+            )}
+
+            WrapperComponentProps={{
+              style: {
+                maxHeight: 140,
+                overflow: 'auto'
+              }
+            }}
+          >
+            <TableHead sticky>
+              <TableRow>
+                {table.header.map((item: string, index: number) => (
+                  <TableCell
+                    key={index}
+                  >
+                    {item}
+                  </TableCell>
+                ))}
+              </TableRow>
+            </TableHead>
+
+            <TableBody>
+              {table.body.map((item: any, index: number) => (
+                <TableRow>
+                  {item.map((item_: string, index_: number) => (
+                    <TableCell
+                      key={index_}
+                    >
+                      {item_}
+                    </TableCell>
+                  ))}
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </Accordion>
+
+        <Accordion primary='Table colspan' open>
+          <Table
+            header={(
+              <TableHeader>
+                <Line
+                  direction='row'
+
+                  align='center'
+
+                  justify='flex-start'
+                >
+                  <Type
+                    version='h3'
+                  >
+                    Nutrition
+                  </Type>
+                </Line>
+              </TableHeader>
+            )}
+
+            footer={(
+              <TableFooter>
+                <Line
+                  direction='row'
+
+                  align='center'
+
+                  justify='center'
+                >
+                  <Type
+                    version='b2'
+                  >
+                    Nutritional information about some foods
+                  </Type>
+                </Line>
+              </TableFooter>
+            )}
+          >
+            <TableHead>
+              <TableRow>
+                <TableCell
+                  colspan='3'
+
+                  justify='center'
+                >
+                  Group 114
+                </TableCell>
+
+                <TableCell
+                  colspan='2'
+
+                  justify='center'
+                >
+                  Group 1114
+                </TableCell>
+              </TableRow>
+
+              <TableRow>
+                {table.header.map((item: string, index: number) => (
+                  <TableCell
+                    key={index}
+                  >
+                    {item}
+                  </TableCell>
+                ))}
+              </TableRow>
+            </TableHead>
+
+            <TableBody>
+              {table.body.map((item: any, index: number) => (
+                <TableRow>
+                  {item.map((item_: string, index_: number) => (
+                    <TableCell
+                      key={index_}
+                    >
+                      {item_}
+                    </TableCell>
+                  ))}
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </Accordion>
+
         <Accordion primary='Table color' open>
           <Table color='default'
             header={(
@@ -2843,6 +3200,476 @@ Please sign in again.`}
               ))}
             </TableBody>
           </Table>
+        </Accordion>
+
+        <Accordion primary='AmauiTheme'>
+          <div className={classNames([classes.column])}>
+            <Table color='secondary'
+              header={(
+                <TableHeader>
+                  <Line
+                    direction='row'
+
+                    align='center'
+
+                    justify='flex-start'
+                  >
+                    <Type
+                      version='h3'
+                    >
+                      Nutrition
+                    </Type>
+                  </Line>
+                </TableHeader>
+              )}
+
+              footer={(
+                <TableFooter>
+                  <Line
+                    direction='row'
+
+                    align='center'
+
+                    justify='center'
+                  >
+                    <Type
+                      version='b2'
+                    >
+                      Nutritional information about some foods
+                    </Type>
+                  </Line>
+                </TableFooter>
+              )}
+            >
+              <TableHead>
+                <TableRow>
+                  {table.header.map((item: string, index: number) => (
+                    <TableCell
+                      key={index}
+                    >
+                      {item}
+                    </TableCell>
+                  ))}
+                </TableRow>
+              </TableHead>
+
+              <TableBody>
+                {table.body.map((item: any, index: number) => (
+                  <TableRow>
+                    {item.map((item_: string, index_: number) => (
+                      <TableCell
+                        key={index_}
+                      >
+                        {item_}
+                      </TableCell>
+                    ))}
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+
+            <Accordion primary='AmauiTheme nested value'>
+              <AmauiThemeProvider
+                value={{
+                  palette: {
+                    color: {
+                      primary: {
+                        main: '#008000'
+                      }
+                    }
+                  },
+                  space: {
+                    unit: 5
+                  }
+                }}
+              >
+                <Table color='secondary'
+                  header={(
+                    <TableHeader>
+                      <Line
+                        direction='row'
+
+                        align='center'
+
+                        justify='flex-start'
+                      >
+                        <Type
+                          version='h3'
+                        >
+                          Nutrition
+                        </Type>
+                      </Line>
+                    </TableHeader>
+                  )}
+
+                  footer={(
+                    <TableFooter>
+                      <Line
+                        direction='row'
+
+                        align='center'
+
+                        justify='center'
+                      >
+                        <Type
+                          version='b2'
+                        >
+                          Nutritional information about some foods
+                        </Type>
+                      </Line>
+                    </TableFooter>
+                  )}
+                >
+                  <TableHead>
+                    <TableRow>
+                      {table.header.map((item: string, index: number) => (
+                        <TableCell
+                          key={index}
+                        >
+                          {item}
+                        </TableCell>
+                      ))}
+                    </TableRow>
+                  </TableHead>
+
+                  <TableBody>
+                    {table.body.map((item: any, index: number) => (
+                      <TableRow>
+                        {item.map((item_: string, index_: number) => (
+                          <TableCell
+                            key={index_}
+                          >
+                            {item_}
+                          </TableCell>
+                        ))}
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme add'>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiTable: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: 0.4
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Table color='secondary'
+                  header={(
+                    <TableHeader>
+                      <Line
+                        direction='row'
+
+                        align='center'
+
+                        justify='flex-start'
+                      >
+                        <Type
+                          version='h3'
+                        >
+                          Nutrition
+                        </Type>
+                      </Line>
+                    </TableHeader>
+                  )}
+
+                  footer={(
+                    <TableFooter>
+                      <Line
+                        direction='row'
+
+                        align='center'
+
+                        justify='center'
+                      >
+                        <Type
+                          version='b2'
+                        >
+                          Nutritional information about some foods
+                        </Type>
+                      </Line>
+                    </TableFooter>
+                  )}
+                >
+                  <TableHead>
+                    <TableRow>
+                      {table.header.map((item: string, index: number) => (
+                        <TableCell
+                          key={index}
+                        >
+                          {item}
+                        </TableCell>
+                      ))}
+                    </TableRow>
+                  </TableHead>
+
+                  <TableBody>
+                    {table.body.map((item: any, index: number) => (
+                      <TableRow>
+                        {item.map((item_: string, index_: number) => (
+                          <TableCell
+                            key={index_}
+                          >
+                            {item_}
+                          </TableCell>
+                        ))}
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme override'>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiTable: {
+                        style: {
+                          override: {
+                            root: {
+                              padding: 40
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Table color='secondary'
+                  header={(
+                    <TableHeader>
+                      <Line
+                        direction='row'
+
+                        align='center'
+
+                        justify='flex-start'
+                      >
+                        <Type
+                          version='h3'
+                        >
+                          Nutrition
+                        </Type>
+                      </Line>
+                    </TableHeader>
+                  )}
+
+                  footer={(
+                    <TableFooter>
+                      <Line
+                        direction='row'
+
+                        align='center'
+
+                        justify='center'
+                      >
+                        <Type
+                          version='b2'
+                        >
+                          Nutritional information about some foods
+                        </Type>
+                      </Line>
+                    </TableFooter>
+                  )}
+                >
+                  <TableHead>
+                    <TableRow>
+                      {table.header.map((item: string, index: number) => (
+                        <TableCell
+                          key={index}
+                        >
+                          {item}
+                        </TableCell>
+                      ))}
+                    </TableRow>
+                  </TableHead>
+
+                  <TableBody>
+                    {table.body.map((item: any, index: number) => (
+                      <TableRow>
+                        {item.map((item_: string, index_: number) => (
+                          <TableCell
+                            key={index_}
+                          >
+                            {item_}
+                          </TableCell>
+                        ))}
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme props'>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiTable: {
+                        props: {
+                          default: {
+                            color: 'secondary'
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Table
+                  header={(
+                    <TableHeader>
+                      <Line
+                        direction='row'
+
+                        align='center'
+
+                        justify='flex-start'
+                      >
+                        <Type
+                          version='h3'
+                        >
+                          Nutrition
+                        </Type>
+                      </Line>
+                    </TableHeader>
+                  )}
+
+                  footer={(
+                    <TableFooter>
+                      <Line
+                        direction='row'
+
+                        align='center'
+
+                        justify='center'
+                      >
+                        <Type
+                          version='b2'
+                        >
+                          Nutritional information about some foods
+                        </Type>
+                      </Line>
+                    </TableFooter>
+                  )}
+                >
+                  <TableHead>
+                    <TableRow>
+                      {table.header.map((item: string, index: number) => (
+                        <TableCell
+                          key={index}
+                        >
+                          {item}
+                        </TableCell>
+                      ))}
+                    </TableRow>
+                  </TableHead>
+
+                  <TableBody>
+                    {table.body.map((item: any, index: number) => (
+                      <TableRow>
+                        {item.map((item_: string, index_: number) => (
+                          <TableCell
+                            key={index_}
+                          >
+                            {item_}
+                          </TableCell>
+                        ))}
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme styled'>
+              <styled.Table
+                header={(
+                  <TableHeader>
+                    <Line
+                      direction='row'
+
+                      align='center'
+
+                      justify='flex-start'
+                    >
+                      <Type
+                        version='h3'
+                      >
+                        Nutrition
+                      </Type>
+                    </Line>
+                  </TableHeader>
+                )}
+
+                footer={(
+                  <TableFooter>
+                    <Line
+                      direction='row'
+
+                      align='center'
+
+                      justify='center'
+                    >
+                      <Type
+                        version='b2'
+                      >
+                        Nutritional information about some foods
+                      </Type>
+                    </Line>
+                  </TableFooter>
+                )}
+              >
+                <TableHead>
+                  <TableRow>
+                    {table.header.map((item: string, index: number) => (
+                      <TableCell
+                        key={index}
+                      >
+                        {item}
+                      </TableCell>
+                    ))}
+                  </TableRow>
+                </TableHead>
+
+                <TableBody>
+                  {table.body.map((item: any, index: number) => (
+                    <TableRow>
+                      {item.map((item_: string, index_: number) => (
+                        <TableCell
+                          key={index_}
+                        >
+                          {item_}
+                        </TableCell>
+                      ))}
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </styled.Table>
+
+            </Accordion>
+          </div>
         </Accordion>
       </Accordion>
 

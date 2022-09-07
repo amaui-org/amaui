@@ -19,7 +19,19 @@ const useStyle = style(theme => ({
   },
 
   data: {
+
+  },
+
+  size_small: {
+    padding: '8px 16px'
+  },
+
+  size_regular: {
     padding: '16px'
+  },
+
+  size_large: {
+    padding: '24px'
   },
 
   head: {
@@ -43,9 +55,10 @@ const TableCell = React.forwardRef((props_: any, ref: any) => {
   const {
     tonal,
     color,
-
+    size = 'regular',
     position = 'body',
-    align = 'flex-end',
+    align = 'center',
+    justify = 'flex-end',
     noWeight,
 
     DividerProps,
@@ -67,14 +80,14 @@ const TableCell = React.forwardRef((props_: any, ref: any) => {
       className={classNames([
         staticClassName('TableCell', theme) && [
           `AmauiTableCell-root`,
-          `AmauiTableCell-align-${align}`,
           `AmauiTableCell-position-${position}`,
+          `AmauiTableCell-size-${size}`,
           noWeight && `AmauiTableCell-noWeight`
         ],
 
         className,
         classes.root,
-        classes[`align_${align}`],
+        classes[`size_${size}`],
         position === 'head' ? classes.head : classes.body,
         noWeight && classes.noWeight
       ])}
@@ -84,7 +97,9 @@ const TableCell = React.forwardRef((props_: any, ref: any) => {
       <Line
         direction='row'
 
-        justify={align}
+        align={align}
+
+        justify={justify}
 
         className={classNames([
           staticClassName('TableCell', theme) && [

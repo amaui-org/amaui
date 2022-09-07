@@ -31,6 +31,7 @@ const TableRow = React.forwardRef((props_: any, ref: any) => {
   const {
     tonal,
     color = 'themed',
+    size = 'regular',
     hover = true,
     selected,
     position = 'body',
@@ -78,7 +79,9 @@ const TableRow = React.forwardRef((props_: any, ref: any) => {
 
           color: item.props.color !== undefined ? item.props.color : color,
 
-          align: index === 0 ? 'flex-start' : 'flex-end',
+          size: item.props.size !== undefined ? item.props.size : size,
+
+          justify: item.props.justify !== undefined ? item.props.justify : index === 0 ? 'flex-start' : 'flex-end',
 
           position: (index === 0 && position === 'body') ? 'head' : position,
 

@@ -8,7 +8,19 @@ import { staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
+
+  },
+
+  size_small: {
+    padding: '16px'
+  },
+
+  size_regular: {
     padding: '24px'
+  },
+
+  size_large: {
+    padding: '32px'
   }
 }), { name: 'AmauiTableHeader' });
 
@@ -20,6 +32,7 @@ const TableHeader = React.forwardRef((props_: any, ref: any) => {
   const {
     tonal,
     color = 'themed',
+    size = 'regular',
 
     Component = 'div',
 
@@ -44,11 +57,13 @@ const TableHeader = React.forwardRef((props_: any, ref: any) => {
 
       className={classNames([
         staticClassName('TableHeader', theme) && [
-          `AmauiTableHeader-root`
+          `AmauiTableHeader-root`,
+          `AmauiTableHeader-size-${size}`
         ],
 
         className,
-        classes.root
+        classes.root,
+        classes[`size_${size}`]
       ])}
 
       {...other}
