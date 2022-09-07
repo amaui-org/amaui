@@ -2,7 +2,7 @@ import React from 'react';
 
 import { countries } from '@amaui/utils';
 import { AmauiTheme, AmauiThemeProvider, classNames, style, sy, useAmauiTheme } from '@amaui/style-react';
-import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationItem, NavigationRail, NavigationDrawer, BottomSheet, BottomAppBar, TopAppBar, useScroll, Card, CardImage, CardMain, CardHeader, CardButton, CardFooter, Table, TableHead, TableRow, TableCell, TableHeader, TableFooter, TableBody, SkeletonLoader } from '@amaui/ui-react';
+import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationItem, NavigationRail, NavigationDrawer, BottomSheet, BottomAppBar, TopAppBar, useScroll, Card, CardImage, CardMain, CardHeader, CardButton, CardFooter, Table, TableHead, TableRow, TableCell, TableHeader, TableFooter, TableBody, SkeletonLoader, Snackbar } from '@amaui/ui-react';
 
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
@@ -213,6 +213,13 @@ const useStyle = style(theme => ({
 }), { name: 'App' });
 
 const styled = {
+  Snackbar: sy(Snackbar)((theme: AmauiTheme) => ({
+    root: {
+      '&:hover': {
+        opacity: 0.4
+      }
+    }
+  })),
   SkeletonLoader: sy(SkeletonLoader)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
@@ -861,6 +868,21 @@ function App() {
 
       <Accordion primary='All'>
         <Line>
+          <Snackbar
+            primary='Value primary text for snackbar'
+
+            aside={(
+              <Button
+                tonal
+
+                color='inherit'
+
+                version='text'
+              >
+                Activity
+              </Button>
+            )}
+          />
           <SkeletonLoader
             width={240}
 
@@ -1441,6 +1463,642 @@ Please sign in again.`}
 
           <IconMaterialPottedPlantRounded color='secondary' />
         </Line>
+      </Accordion>
+
+      <Accordion primary='Snackbar'>
+        <Accordion primary='Snackbar' open>
+          <Snackbar
+            primary='Value primary text for snackbar'
+          />
+        </Accordion>
+
+        <Accordion primary='Snackbar aside' open>
+          <Snackbar
+            primary='Value primary text for snackbar'
+
+            aside={(
+              <Button
+                tonal
+
+                color='inherit'
+
+                version='text'
+              >
+                Activity
+              </Button>
+            )}
+          />
+        </Accordion>
+
+        <Accordion primary='Snackbar size' open>
+          <Line>
+            <Snackbar
+              size='small'
+
+              primary='Value primary text for snackbar'
+
+              aside={(
+                <Button
+                  tonal
+
+                  color='inherit'
+
+                  version='text'
+                >
+                  Activity
+                </Button>
+              )}
+            />
+
+            <Snackbar
+              size='regular'
+
+              primary='Value primary text for snackbar'
+
+              aside={(
+                <Button
+                  tonal
+
+                  color='inherit'
+
+                  version='text'
+                >
+                  Activity
+                </Button>
+              )}
+            />
+
+            <Snackbar
+              size='large'
+
+              primary='Value primary text for snackbar'
+
+              aside={(
+                <Button
+                  tonal
+
+                  color='inherit'
+
+                  version='text'
+                >
+                  Activity
+                </Button>
+              )}
+            />
+          </Line>
+        </Accordion>
+
+        <Accordion primary='Snackbar color' open>
+          <Line>
+            <Snackbar color='default' tonal={false}
+
+              primary='Value primary text for snackbar'
+
+              aside={(
+                <Button
+                  tonal
+
+                  color='inherit'
+
+                  version='text'
+                >
+                  Activity
+                </Button>
+              )}
+            />
+
+            <Snackbar color='primary' tonal={false}
+
+              primary='Value primary text for snackbar'
+
+              aside={(
+                <Button
+                  tonal
+
+                  color='inherit'
+
+                  version='text'
+                >
+                  Activity
+                </Button>
+              )}
+            />
+
+            <Snackbar color='secondary' tonal={false}
+
+              primary='Value primary text for snackbar'
+
+              aside={(
+                <Button
+                  tonal
+
+                  color='inherit'
+
+                  version='text'
+                >
+                  Activity
+                </Button>
+              )}
+            />
+
+            <Snackbar color='tertiary' tonal={false}
+
+              primary='Value primary text for snackbar'
+
+              aside={(
+                <Button
+                  tonal
+
+                  color='inherit'
+
+                  version='text'
+                >
+                  Activity
+                </Button>
+              )}
+            />
+
+            <Snackbar color='quaternary' tonal={false}
+
+              primary='Value primary text for snackbar'
+
+              aside={(
+                <Button
+                  tonal
+
+                  color='inherit'
+
+                  version='text'
+                >
+                  Activity
+                </Button>
+              )}
+            />
+
+            <Snackbar color='info' tonal={false}
+
+              primary='Value primary text for snackbar'
+
+              aside={(
+                <Button
+                  tonal
+
+                  color='inherit'
+
+                  version='text'
+                >
+                  Activity
+                </Button>
+              )}
+            />
+
+            <Snackbar color='success' tonal={false}
+
+              primary='Value primary text for snackbar'
+
+              aside={(
+                <Button
+                  tonal
+
+                  color='inherit'
+
+                  version='text'
+                >
+                  Activity
+                </Button>
+              )}
+            />
+
+            <Snackbar color='warning' tonal={false}
+
+              primary='Value primary text for snackbar'
+
+              aside={(
+                <Button
+                  tonal
+
+                  color='inherit'
+
+                  version='text'
+                >
+                  Activity
+                </Button>
+              )}
+            />
+
+            <Snackbar color='error' tonal={false}
+
+              primary='Value primary text for snackbar'
+
+              aside={(
+                <Button
+                  tonal
+
+                  color='inherit'
+
+                  version='text'
+                >
+                  Activity
+                </Button>
+              )}
+            />
+
+            <Snackbar color='neutral' tonal={false}
+
+              primary='Value primary text for snackbar'
+
+              aside={(
+                <Button
+                  tonal
+
+                  color='inherit'
+
+                  version='text'
+                >
+                  Activity
+                </Button>
+              )}
+            />
+
+            <Snackbar color='#f5d758' tonal={false}
+
+              primary='Value primary text for snackbar'
+
+              aside={(
+                <Button
+                  tonal
+
+                  color='inherit'
+
+                  version='text'
+                >
+                  Activity
+                </Button>
+              )}
+            />
+          </Line>
+        </Accordion>
+
+        <Accordion primary='Snackbar tonal' open>
+          <Line>
+            <Snackbar color='primary' tonal
+
+              primary='Value primary text for snackbar'
+
+              aside={(
+                <Button
+                  tonal
+
+                  color='inherit'
+
+                  version='text'
+                >
+                  Activity
+                </Button>
+              )}
+            />
+
+            <Snackbar color='secondary' tonal
+
+              primary='Value primary text for snackbar'
+
+              aside={(
+                <Button
+                  tonal
+
+                  color='inherit'
+
+                  version='text'
+                >
+                  Activity
+                </Button>
+              )}
+            />
+
+            <Snackbar color='tertiary' tonal
+
+              primary='Value primary text for snackbar'
+
+              aside={(
+                <Button
+                  tonal
+
+                  color='inherit'
+
+                  version='text'
+                >
+                  Activity
+                </Button>
+              )}
+            />
+
+            <Snackbar color='quaternary' tonal
+
+              primary='Value primary text for snackbar'
+
+              aside={(
+                <Button
+                  tonal
+
+                  color='inherit'
+
+                  version='text'
+                >
+                  Activity
+                </Button>
+              )}
+            />
+
+            <Snackbar color='info' tonal
+
+              primary='Value primary text for snackbar'
+
+              aside={(
+                <Button
+                  tonal
+
+                  color='inherit'
+
+                  version='text'
+                >
+                  Activity
+                </Button>
+              )}
+            />
+
+            <Snackbar color='success' tonal
+
+              primary='Value primary text for snackbar'
+
+              aside={(
+                <Button
+                  tonal
+
+                  color='inherit'
+
+                  version='text'
+                >
+                  Activity
+                </Button>
+              )}
+            />
+
+            <Snackbar color='warning' tonal
+
+              primary='Value primary text for snackbar'
+
+              aside={(
+                <Button
+                  tonal
+
+                  color='inherit'
+
+                  version='text'
+                >
+                  Activity
+                </Button>
+              )}
+            />
+
+            <Snackbar color='error' tonal
+
+              primary='Value primary text for snackbar'
+
+              aside={(
+                <Button
+                  tonal
+
+                  color='inherit'
+
+                  version='text'
+                >
+                  Activity
+                </Button>
+              )}
+            />
+
+            <Snackbar color='neutral' tonal
+
+              primary='Value primary text for snackbar'
+
+              aside={(
+                <Button
+                  tonal
+
+                  color='inherit'
+
+                  version='text'
+                >
+                  Activity
+                </Button>
+              )}
+            />
+
+            <Snackbar color='#f5d758' tonal
+
+              primary='Value primary text for snackbar'
+
+              aside={(
+                <Button
+                  tonal
+
+                  color='inherit'
+
+                  version='text'
+                >
+                  Activity
+                </Button>
+              )}
+            />
+          </Line>
+        </Accordion>
+
+        <Accordion primary='AmauiTheme'>
+          <div className={classNames([classes.column])}>
+            <Snackbar
+              color='secondary'
+
+              primary='Value primary text for snackbar'
+
+              aside={(
+                <Button
+                  tonal
+
+                  color='inherit'
+
+                  version='text'
+                >
+                  Activity
+                </Button>
+              )}
+            />
+
+            <Accordion primary='AmauiTheme nested value'>
+              <AmauiThemeProvider
+                value={{
+                  palette: {
+                    color: {
+                      primary: {
+                        main: '#008000'
+                      }
+                    }
+                  },
+                  space: {
+                    unit: 5
+                  }
+                }}
+              >
+                <Snackbar
+                  color='secondary'
+
+                  primary='Value primary text for snackbar'
+
+                  aside={(
+                    <Button
+                      tonal
+
+                      color='inherit'
+
+                      version='text'
+                    >
+                      Activity
+                    </Button>
+                  )}
+                />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme add'>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiSnackbar: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: 0.4
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Snackbar
+                  color='secondary'
+
+                  primary='Value primary text for snackbar'
+
+                  aside={(
+                    <Button
+                      tonal
+
+                      color='inherit'
+
+                      version='text'
+                    >
+                      Activity
+                    </Button>
+                  )}
+                />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme override'>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiSnackbar: {
+                        style: {
+                          override: {
+                            root: {
+                              padding: '11px 40px !important'
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Snackbar
+                  color='secondary'
+
+                  primary='Value primary text for snackbar'
+
+                  aside={(
+                    <Button
+                      tonal
+
+                      color='inherit'
+
+                      version='text'
+                    >
+                      Activity
+                    </Button>
+                  )}
+                />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme props'>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiSnackbar: {
+                        props: {
+                          default: {
+                            color: 'secondary'
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Snackbar
+                  primary='Value primary text for snackbar'
+
+                  aside={(
+                    <Button
+                      tonal
+
+                      color='inherit'
+
+                      version='text'
+                    >
+                      Activity
+                    </Button>
+                  )}
+                />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme styled'>
+              <styled.Snackbar
+                primary='Value primary text for snackbar'
+
+                aside={(
+                  <Button
+                    tonal
+
+                    color='inherit'
+
+                    version='text'
+                  >
+                    Activity
+                  </Button>
+                )}
+              />
+            </Accordion>
+          </div>
+        </Accordion>
       </Accordion>
 
       <Accordion primary='SkeletonLoader'>

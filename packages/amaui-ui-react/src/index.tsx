@@ -247,3 +247,6 @@ export * from './TableFooter';
 
 export { default as SkeletonLoader } from './SkeletonLoader';
 export * from './SkeletonLoader';
+
+export { default as Snackbar } from './Snackbar';
+export * from './Snackbar';
