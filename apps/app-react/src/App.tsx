@@ -1497,6 +1497,74 @@ Please sign in again.`}
           </Table>
         </Accordion>
 
+        <Accordion primary='Table selected' open>
+          <Table
+            header={(
+              <TableHeader>
+                <Line
+                  direction='row'
+
+                  align='center'
+
+                  justify='flex-start'
+                >
+                  <Type
+                    version='h3'
+                  >
+                    Nutrition
+                  </Type>
+                </Line>
+              </TableHeader>
+            )}
+
+            footer={(
+              <TableFooter>
+                <Line
+                  direction='row'
+
+                  align='center'
+
+                  justify='center'
+                >
+                  <Type
+                    version='b2'
+                  >
+                    Nutritional information about some foods
+                  </Type>
+                </Line>
+              </TableFooter>
+            )}
+          >
+            <TableHead>
+              <TableRow>
+                {table.header.map((item: string, index: number) => (
+                  <TableCell
+                    key={index}
+                  >
+                    {item}
+                  </TableCell>
+                ))}
+              </TableRow>
+            </TableHead>
+
+            <TableBody>
+              {table.body.map((item: any, index: number) => (
+                <TableRow
+                  selected={index === 1}
+                >
+                  {item.map((item_: string, index_: number) => (
+                    <TableCell
+                      key={index_}
+                    >
+                      {item_}
+                    </TableCell>
+                  ))}
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </Accordion>
+
         <Accordion primary='Table size' open>
           <Table
             size='small'
