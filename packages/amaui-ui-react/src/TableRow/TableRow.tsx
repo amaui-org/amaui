@@ -25,7 +25,7 @@ const useStyle = style(theme => ({
   hover: {
     '&:hover': {
       '&::before': {
-        opacity: theme.palette.visual_contrast.default.opacity.hover
+        opacity: [theme.palette.visual_contrast.default.opacity.hover, '!important']
       }
     }
   },
