@@ -2,7 +2,7 @@ import React from 'react';
 
 import { countries } from '@amaui/utils';
 import { AmauiTheme, AmauiThemeProvider, classNames, style, sy, useAmauiTheme } from '@amaui/style-react';
-import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationItem, NavigationRail, NavigationDrawer, BottomSheet, BottomAppBar, TopAppBar, useScroll, Card, CardImage, CardMain, CardHeader, CardButton, CardFooter, Table, TableHead, TableRow, TableCell, TableHeader, TableFooter, TableBody } from '@amaui/ui-react';
+import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationItem, NavigationRail, NavigationDrawer, BottomSheet, BottomAppBar, TopAppBar, useScroll, Card, CardImage, CardMain, CardHeader, CardButton, CardFooter, Table, TableHead, TableRow, TableCell, TableHeader, TableFooter, TableBody, SkeletonLoader } from '@amaui/ui-react';
 
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
@@ -213,6 +213,13 @@ const useStyle = style(theme => ({
 }), { name: 'App' });
 
 const styled = {
+  SkeletonLoader: sy(SkeletonLoader)((theme: AmauiTheme) => ({
+    root: {
+      '&:hover': {
+        opacity: 0.4
+      }
+    }
+  })),
   Table: sy(Table)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
@@ -854,6 +861,12 @@ function App() {
 
       <Accordion primary='All'>
         <Line>
+          <SkeletonLoader
+            width={240}
+
+            height={40}
+          />
+
           <Table
             header={(
               <TableHeader>
@@ -1428,6 +1441,569 @@ Please sign in again.`}
 
           <IconMaterialPottedPlantRounded color='secondary' />
         </Line>
+      </Accordion>
+
+      <Accordion primary='SkeletonLoader'>
+        <Accordion primary='SkeletonLoader' open>
+          <SkeletonLoader
+            width={240}
+
+            height={40}
+          />
+        </Accordion>
+
+        <Accordion primary='SkeletonLoader text' open>
+          <SkeletonLoader
+            width={240}
+
+            text
+          />
+        </Accordion>
+
+        <Accordion primary='SkeletonLoader inffered height from a ui' open>
+          <SkeletonLoader
+            version='circle'
+          >
+            <Avatar>
+              a
+            </Avatar>
+          </SkeletonLoader>
+        </Accordion>
+
+        <Accordion primary='SkeletonLoader version' open>
+          <Line>
+            <SkeletonLoader
+              version='circle'
+
+              width={40}
+
+              height={40}
+            />
+
+            <SkeletonLoader
+              version='rounded'
+
+              width={240}
+
+              height={40}
+            />
+
+            <SkeletonLoader
+              version='rectangle'
+
+              width={240}
+
+              height={40}
+            />
+          </Line>
+        </Accordion>
+
+        <Accordion primary='SkeletonLoader animation' open>
+          <Line>
+            <SkeletonLoader
+              animation='pulse'
+
+              width={240}
+
+              height={40}
+            />
+
+            <SkeletonLoader
+              animation='wave'
+
+              width={240}
+
+              height={40}
+            />
+
+            <SkeletonLoader
+              animation={false}
+
+              width={240}
+
+              height={40}
+            />
+          </Line>
+        </Accordion>
+
+        <Accordion primary='SkeletonLoader color'>
+          <Line>
+            <Line>
+              <SkeletonLoader
+                color='default'
+
+                animation='pulse'
+
+                width={240}
+
+                height={40}
+              />
+
+              <SkeletonLoader
+                color='default'
+
+                animation='wave'
+
+                width={240}
+
+                height={40}
+              />
+
+              <SkeletonLoader
+                color='default'
+
+                animation={false}
+
+                width={240}
+
+                height={40}
+              />
+            </Line>
+
+            <Line>
+              <SkeletonLoader
+                color='primary'
+
+                animation='pulse'
+
+                width={240}
+
+                height={40}
+              />
+
+              <SkeletonLoader
+                color='primary'
+
+                animation='wave'
+
+                width={240}
+
+                height={40}
+              />
+
+              <SkeletonLoader
+                color='primary'
+
+                animation={false}
+
+                width={240}
+
+                height={40}
+              />
+            </Line>
+
+            <Line>
+              <SkeletonLoader
+                color='secondary'
+
+                animation='pulse'
+
+                width={240}
+
+                height={40}
+              />
+
+              <SkeletonLoader
+                color='secondary'
+
+                animation='wave'
+
+                width={240}
+
+                height={40}
+              />
+
+              <SkeletonLoader
+                color='secondary'
+
+                animation={false}
+
+                width={240}
+
+                height={40}
+              />
+            </Line>
+
+            <Line>
+              <SkeletonLoader
+                color='tertiary'
+
+                animation='pulse'
+
+                width={240}
+
+                height={40}
+              />
+
+              <SkeletonLoader
+                color='tertiary'
+
+                animation='wave'
+
+                width={240}
+
+                height={40}
+              />
+
+              <SkeletonLoader
+                color='tertiary'
+
+                animation={false}
+
+                width={240}
+
+                height={40}
+              />
+            </Line>
+
+            <Line>
+              <SkeletonLoader
+                color='quaternary'
+
+                animation='pulse'
+
+                width={240}
+
+                height={40}
+              />
+
+              <SkeletonLoader
+                color='quaternary'
+
+                animation='wave'
+
+                width={240}
+
+                height={40}
+              />
+
+              <SkeletonLoader
+                color='quaternary'
+
+                animation={false}
+
+                width={240}
+
+                height={40}
+              />
+            </Line>
+
+            <Line>
+              <SkeletonLoader
+                color='info'
+
+                animation='pulse'
+
+                width={240}
+
+                height={40}
+              />
+
+              <SkeletonLoader
+                color='info'
+
+                animation='wave'
+
+                width={240}
+
+                height={40}
+              />
+
+              <SkeletonLoader
+                color='info'
+
+                animation={false}
+
+                width={240}
+
+                height={40}
+              />
+            </Line>
+
+            <Line>
+              <SkeletonLoader
+                color='success'
+
+                animation='pulse'
+
+                width={240}
+
+                height={40}
+              />
+
+              <SkeletonLoader
+                color='success'
+
+                animation='wave'
+
+                width={240}
+
+                height={40}
+              />
+
+              <SkeletonLoader
+                color='success'
+
+                animation={false}
+
+                width={240}
+
+                height={40}
+              />
+            </Line>
+
+            <Line>
+              <SkeletonLoader
+                color='warning'
+
+                animation='pulse'
+
+                width={240}
+
+                height={40}
+              />
+
+              <SkeletonLoader
+                color='warning'
+
+                animation='wave'
+
+                width={240}
+
+                height={40}
+              />
+
+              <SkeletonLoader
+                color='warning'
+
+                animation={false}
+
+                width={240}
+
+                height={40}
+              />
+            </Line>
+
+            <Line>
+              <SkeletonLoader
+                color='error'
+
+                animation='pulse'
+
+                width={240}
+
+                height={40}
+              />
+
+              <SkeletonLoader
+                color='error'
+
+                animation='wave'
+
+                width={240}
+
+                height={40}
+              />
+
+              <SkeletonLoader
+                color='error'
+
+                animation={false}
+
+                width={240}
+
+                height={40}
+              />
+            </Line>
+
+            <Line>
+              <SkeletonLoader
+                color='neutral'
+
+                animation='pulse'
+
+                width={240}
+
+                height={40}
+              />
+
+              <SkeletonLoader
+                color='neutral'
+
+                animation='wave'
+
+                width={240}
+
+                height={40}
+              />
+
+              <SkeletonLoader
+                color='neutral'
+
+                animation={false}
+
+                width={240}
+
+                height={40}
+              />
+            </Line>
+
+            <Line>
+              <SkeletonLoader
+                color='#f5d758'
+
+                animation='pulse'
+
+                width={240}
+
+                height={40}
+              />
+
+              <SkeletonLoader
+                color='#f5d758'
+
+                animation='wave'
+
+                width={240}
+
+                height={40}
+              />
+
+              <SkeletonLoader
+                color='#f5d758'
+
+                animation={false}
+
+                width={240}
+
+                height={40}
+              />
+            </Line>
+          </Line>
+        </Accordion>
+
+        <Accordion primary='AmauiTheme'>
+          <div className={classNames([classes.column])}>
+            <SkeletonLoader color='secondary'
+              width={240}
+
+              height={40}
+            />
+
+            <Accordion primary='AmauiTheme nested value'>
+              <AmauiThemeProvider
+                value={{
+                  palette: {
+                    color: {
+                      primary: {
+                        main: '#008000'
+                      }
+                    }
+                  },
+                  space: {
+                    unit: 5
+                  }
+                }}
+              >
+                <SkeletonLoader color='secondary'
+                  width={240}
+
+                  height={40}
+                />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme add'>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiSkeletonLoader: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: 0.4
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <SkeletonLoader color='secondary'
+                  width={240}
+
+                  height={40}
+
+                  animation={false}
+                />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme override'>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiSkeletonLoader: {
+                        style: {
+                          override: {
+                            root: {
+                              padding: 40
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <SkeletonLoader color='secondary'
+                  width={240}
+
+                  height={140}
+                />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme props'>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiSkeletonLoader: {
+                        props: {
+                          default: {
+                            color: 'secondary'
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <SkeletonLoader
+                  width={240}
+
+                  height={40}
+                />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme styled'>
+              <styled.SkeletonLoader
+                width={240}
+
+                height={40}
+
+                animation={false}
+              />
+            </Accordion>
+          </div>
+        </Accordion>
       </Accordion>
 
       <Accordion primary='Table'>

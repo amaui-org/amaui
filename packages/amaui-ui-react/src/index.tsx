@@ -244,3 +244,6 @@ export * from './TableHeader';
 
 export { default as TableFooter } from './TableFooter';
 export * from './TableFooter';
+
+export { default as SkeletonLoader } from './SkeletonLoader';
+export * from './SkeletonLoader';
