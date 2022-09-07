@@ -1511,7 +1511,7 @@ Please sign in again.`}
                   justify='flex-start'
                 >
                   <Type
-                    version='t3'
+                    version='t1'
                   >
                     Nutrition
                   </Type>
