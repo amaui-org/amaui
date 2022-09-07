@@ -26,6 +26,7 @@ const TableHead = React.forwardRef((props_: any, ref: any) => {
   const {
     tonal,
     color = 'themed',
+    size = 'regular',
     sticky,
     Component = 'thead',
 
@@ -66,6 +67,8 @@ const TableHead = React.forwardRef((props_: any, ref: any) => {
           tonal: item.props.tonal !== undefined ? item.props.tonal : tonal,
 
           color: item.props.color !== undefined ? item.props.color : color,
+
+          size: item.props.size !== undefined ? item.props.size : size,
 
           position: 'head'
         })

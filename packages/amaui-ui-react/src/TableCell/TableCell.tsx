@@ -87,7 +87,6 @@ const TableCell = React.forwardRef((props_: any, ref: any) => {
 
         className,
         classes.root,
-        classes[`size_${size}`],
         position === 'head' ? classes.head : classes.body,
         noWeight && classes.noWeight
       ])}
@@ -106,7 +105,8 @@ const TableCell = React.forwardRef((props_: any, ref: any) => {
             `AmauiTableCell-data`
           ],
 
-          classes.data
+          classes.data,
+          classes[`size_${size}`]
         ])}
       >
         {children}
