@@ -25,14 +25,14 @@ const useStyle = style(theme => ({
   hover: {
     '&:hover': {
       '&::before': {
-        opacity: [theme.palette.visual_contrast.default.opacity.hover, '!important']
+        opacity: theme.palette.visual_contrast.default.opacity.hover
       }
     }
   },
 
   selected: {
     '&::before': {
-      opacity: theme.palette.visual_contrast.default.opacity.selected
+      opacity: [theme.palette.visual_contrast.default.opacity.selected, '!important']
     }
   }
 }), { name: 'AmauiTableRow' });
