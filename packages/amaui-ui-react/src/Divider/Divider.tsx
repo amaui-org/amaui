@@ -5,6 +5,7 @@ import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 import Type from '../Type';
 
 import { staticClassName } from '../utils';
+import Surface from '../Surface';
 
 const useStyle = style(theme => ({
   root: {
@@ -14,7 +15,8 @@ const useStyle = style(theme => ({
 
     display: 'flex',
     flexShrink: 0,
-    background: theme.methods.palette.color.colorToRgb(theme.palette.text.default.primary, theme.palette.visual_contrast.default.opacity.divider),
+    background: 'currentColor',
+    opacity: theme.palette.visual_contrast.default.opacity.divider,
     transition: theme.methods.transitions.make('background')
   },
 
@@ -54,6 +56,7 @@ const useStyle = style(theme => ({
 
   rootWithChildren: {
     display: 'flex',
+    opacity: 1,
 
     // Reset
     height: 'unset',
@@ -99,7 +102,9 @@ const useStyle = style(theme => ({
   },
 
   divider: {
-    flex: '0 1 100%'
+    flex: '0 1 100%',
+    background: 'currentColor',
+    opacity: theme.palette.visual_contrast.default.opacity.divider
   },
 
   // Orientation
@@ -119,6 +124,10 @@ const useStyle = style(theme => ({
   orientation_vertical_padding: {
     marginBlock: '16px',
     height: 'calc(100% - 32px)'
+  },
+
+  color_inherit: {
+    color: 'inherit'
   }
 }), { name: 'AmauiDivider' });
 
@@ -130,10 +139,10 @@ const Divider = React.forwardRef((props_: any, ref: any) => {
   const { classes } = useStyle(props);
 
   const {
+    tonal,
+    color = 'default',
     inset,
     middle,
-    tonal,
-    color = props.tonal ? 'neutral' : 'default',
     padding,
     opacity = theme.palette.visual_contrast.default.opacity.divider,
     alignment = 'center',
@@ -160,55 +169,43 @@ const Divider = React.forwardRef((props_: any, ref: any) => {
 
   if (children && Component === 'hr') Component = 'div';
 
-  if (tonal) {
-    const palette = !theme.palette.color[color] && theme.methods.color(color);
-
-    if (!children) styles.root.background = theme.methods.palette.color.colorToRgb(theme.methods.palette.color.value(color, 30, true, palette), opacity);
-    else styles.divider.background = theme.methods.palette.color.colorToRgb(theme.methods.palette.color.value(color, 30, true, palette), opacity);
-  }
-  else {
-    if (color === 'default') {
-      if (!children) styles.root.background = theme.methods.palette.color.colorToRgb(theme.palette.text.default.primary, opacity);
-      else styles.divider.background = theme.methods.palette.color.colorToRgb(theme.palette.text.default.primary, opacity);
-    }
-    else {
-      const palette: any = theme.palette.color[color] || theme.methods.color(color);
-
-      if (!children) styles.root.background = theme.methods.palette.color.colorToRgb(palette.main, opacity);
-      else styles.divider.background = theme.methods.palette.color.colorToRgb(palette.main, opacity);
-    }
-  }
-
   if (alignment === 'start') styles.start.flexBasis = '15%';
 
   if (alignment === 'end') styles.end.flexBasis = '15%';
 
   return (
-    <Component
+    <Surface
       ref={ref}
+
+      version='text'
+
+      tonal={tonal}
+
+      color={color}
+
+      Component={Component}
 
       className={classNames([
         staticClassName('Divider', theme) && [
           'AmauiDivider-root',
           `AmauiDivider-alignment-${alignment}`,
           `AmauiDivider-orientation-${orientation}`,
-          `AmauiDivider-color-${!theme.palette.color[color] && !['themed', 'inverse', 'default', 'inherit'].includes(color) ? 'new' : color}`,
           flex && `AmauiDivider-flex`,
           inset && `AmauiDivider-inset`,
           middle && `AmauiDivider-middle`,
           padding && `AmauiDivider-padding`,
           children && `AmauiDivider-children`,
-          tonal && `AmauiDivider-tonal`
+          color === 'inherit' && `AmauiDivider-color-inherit`
         ],
 
         className,
         classes[children ? 'rootWithChildren' : 'root'],
-        classes[color],
         classes[`${children ? 'rootWithChildren_' : ''}orientation_${orientation}`],
         flex && classes.flex,
         inset && classes.inset,
         middle && classes[`${children ? `rootWithChildren_` : ''}orientation_${orientation}_middle`],
-        padding && classes[`orientation_${orientation}_padding`]
+        padding && classes[`orientation_${orientation}_padding`],
+        color === 'inherit' && classes.color_inherit
       ])}
 
       style={{
@@ -220,7 +217,13 @@ const Divider = React.forwardRef((props_: any, ref: any) => {
       {...other}
     >
       {children && <>
-        <div
+        <Surface
+          version='text'
+
+          tonal={tonal}
+
+          color={color}
+
           className={classNames([
             staticClassName('Divider', theme) && [
               'AmauiDivider-divider'
@@ -252,7 +255,13 @@ const Divider = React.forwardRef((props_: any, ref: any) => {
           {children}
         </Type>
 
-        <div
+        <Surface
+          version='text'
+
+          tonal={tonal}
+
+          color={color}
+
           className={classNames([
             staticClassName('Divider', theme) && [
               'AmauiDivider-divider'
@@ -270,7 +279,7 @@ const Divider = React.forwardRef((props_: any, ref: any) => {
           }}
         />
       </>}
-    </Component>
+    </Surface>
   );
 });
 
