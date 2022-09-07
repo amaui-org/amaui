@@ -20,11 +20,6 @@ const useStyle = style(theme => ({
     transition: theme.methods.transitions.make('background')
   },
 
-  inset: {
-    marginLeft: `72px`,
-    width: `calc(100% - 72px)`
-  },
-
   orientation_vertical: {
     margin: '0 8px',
     height: '100%',
@@ -66,24 +61,24 @@ const useStyle = style(theme => ({
   },
 
   // Orientation
-  rootWithChildren_orientationn_horizontal: {
+  rootWithChildren_orientation_horizontal: {
     flexDirection: 'row',
     alignItems: 'center',
     width: '100%'
   },
 
-  rootWithChildren_orientationn_horizontal_middle: {
+  rootWithChildren_orientation_horizontal_middle: {
     margin: `0 16px`,
     width: `calc(100% - 32px)`
   },
 
-  rootWithChildren_orientationn_vertical: {
+  rootWithChildren_orientation_vertical: {
     flexDirection: 'column',
     alignItems: 'center',
     height: '100%'
   },
 
-  rootWithChildren_orientationn_vertical_middle: {
+  rootWithChildren_orientation_vertical_middle: {
     margin: `16px 0`,
     height: `calc(100% - 32px)`
   },
@@ -128,6 +123,11 @@ const useStyle = style(theme => ({
 
   color_inherit: {
     color: 'inherit'
+  },
+
+  inset: {
+    marginLeft: `72px`,
+    width: `calc(100% - 72px)`
   }
 }), { name: 'AmauiDivider' });
 
