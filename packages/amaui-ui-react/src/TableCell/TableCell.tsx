@@ -10,7 +10,8 @@ import { staticClassName } from '../utils';
 const useStyle = style(theme => ({
   root: {
     display: 'table-cell',
-
+    position: 'relative',
+    zIndex: 1,
     ...theme.typography.values.b2,
 
     '& .AmauiDivider-root': {

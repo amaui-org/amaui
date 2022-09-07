@@ -9,17 +9,31 @@ import { staticClassName } from '../utils';
 const useStyle = style(theme => ({
   root: {
     display: 'table-row',
-    transition: theme.methods.transitions.make('background')
+    position: 'relative',
+
+    '&::before': {
+      content: "''",
+      position: 'absolute',
+      inset: 0,
+      background: 'currentColor',
+      opacity: 0,
+      transition: theme.methods.transitions.make('opacity', { duration: 'xxs' }),
+      zIndex: 0
+    }
   },
 
   hover: {
     '&:hover': {
-      backgroundImage: [`linear-gradient(${theme.methods.palette.color.colorToRgb(theme.palette.text.default.primary, theme.palette.visual_contrast.default.opacity.hover)} 100%, ${theme.methods.palette.color.colorToRgb(theme.palette.text.default.primary, theme.palette.visual_contrast.default.opacity.hover)} 100%)`, '!important']
+      '&::before': {
+        opacity: theme.palette.visual_contrast.default.opacity.hover
+      }
     }
   },
 
   selected: {
-    backgroundImage: [`linear-gradient(${theme.methods.palette.color.colorToRgb(theme.palette.text.default.primary, theme.palette.visual_contrast.default.opacity.selected)} 100%, ${theme.methods.palette.color.colorToRgb(theme.palette.text.default.primary, theme.palette.visual_contrast.default.opacity.selected)} 100%)`, '!important']
+    '&::before': {
+      opacity: theme.palette.visual_contrast.default.opacity.selected
+    }
   }
 }), { name: 'AmauiTableRow' });
 
