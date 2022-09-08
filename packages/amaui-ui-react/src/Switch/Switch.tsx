@@ -225,14 +225,14 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
 
   const onUpdate = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (!disabled && !animation.current) {
-      if (is('function', onChange)) onChange(!checked, event);
-
       // Inner controlled value
       if (!props.hasOwnProperty('value')) {
         setChecked(!checked);
 
         animation.current = true;
       }
+
+      if (is('function', onChange)) onChange(!checked, event);
     }
   };
 

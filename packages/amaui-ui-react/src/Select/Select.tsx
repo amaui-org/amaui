@@ -248,10 +248,10 @@ const Select = React.forwardRef((props_: any, ref: any) => {
 
     values = multiple ? unique([...values, newValue]) : newValue;
 
-    if (is('function', onChange)) onChange(values);
-
     // Inner controlled value
     if (!props.hasOwnProperty('value')) setValue(values);
+
+    if (is('function', onChange)) onChange(values);
   };
 
   const onUnselect = (itemValue: any) => {
@@ -260,10 +260,10 @@ const Select = React.forwardRef((props_: any, ref: any) => {
 
       values = values.filter(item => item !== itemValue);
 
-      if (is('function', onChange)) onChange(values);
-
       // Inner controlled value
       if (!props.hasOwnProperty('value')) setValue(values);
+
+      if (is('function', onChange)) onChange(values);
     }
   };
 

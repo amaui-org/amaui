@@ -253,3 +253,6 @@ export * from './Snackbar';
 
 export { default as Snackbars } from './Snackbars';
 export * from './Snackbars';
+
+export { default as Pagination } from './Pagination';
+export * from './Pagination';

@@ -577,11 +577,10 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
         }
 
         if (!equalDeep(valueNew, refs.value.current)) {
-          if (props.hasOwnProperty('value')) {
-            if (is('function', onChange)) onChange(valueNew);
-          }
           // Inner controlled value
-          else setValue(valueNew);
+          if (props.hasOwnProperty('value')) setValue(valueNew);
+
+          if (is('function', onChange)) onChange(valueNew);
         }
       }
     };
@@ -635,11 +634,10 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
       }
 
       if (!equalDeep(valueNew, refs.value.current)) {
-        if (props.hasOwnProperty('value')) {
-          if (is('function', onChange)) onChange(valueNew);
-        }
         // Inner controlled value
-        else setValue(valueNew);
+        if (props.hasOwnProperty('value')) setValue(valueNew);
+
+        if (is('function', onChange)) onChange(valueNew);
       }
     }
   }, [disabled, readOnly, onChange, value, mouseDownButton]);
@@ -698,10 +696,9 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
     else valueNew = value__;
 
     if (!equalDeep(valueNew, refs.value.current)) {
-      if (props.hasOwnProperty('value')) {
-        if (is('function', onChange)) onChange(valueNew);
-      }
-      else setValue(valueNew);
+      if (props.hasOwnProperty('value')) setValue(valueNew);
+
+      if (is('function', onChange)) onChange(valueNew);
     }
   };
 
@@ -721,10 +718,11 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
               valueNew[0] = min;
             } else valueNew = min;
 
-            if (props.hasOwnProperty('value')) {
-              if (is('function', onChange)) return onChange(valueNew);
-            }
-            else return setValue(valueNew);
+            if (props.hasOwnProperty('value')) setValue(valueNew);
+
+            if (is('function', onChange)) return onChange(valueNew);
+
+            return;
 
           case 'Home':
             if (is('array', refs.value.current)) {
@@ -733,10 +731,11 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
               valueNew[valueNew.length - 1] = max;
             } else valueNew = max;
 
-            if (props.hasOwnProperty('value')) {
-              if (is('function', onChange)) return onChange(valueNew);
-            }
-            else return setValue(valueNew);
+            if (props.hasOwnProperty('value')) setValue(valueNew);
+
+            if (is('function', onChange)) return onChange(valueNew);
+
+            return;
 
           case 'ArrowUp':
           case 'ArrowRight':

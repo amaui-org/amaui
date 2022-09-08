@@ -192,10 +192,9 @@ const Accordion = React.forwardRef((props_: any, ref: any) => {
       const valueNew = !open;
 
       // Update inner or controlled
-      if (props.hasOwnProperty('open')) {
-        if (is('function', onChange)) onChange(valueNew);
-      }
-      else setOpen(valueNew);
+      if (!props.hasOwnProperty('open')) setOpen(valueNew);
+
+      if (is('function', onChange)) onChange(valueNew);
     }
   }, [open, disabled]);
 

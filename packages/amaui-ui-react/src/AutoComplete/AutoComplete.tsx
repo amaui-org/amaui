@@ -408,10 +408,10 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
 
       values = values.filter(item => item !== itemValue);
 
-      if (is('function', onChange)) onChange(values);
-
       // Inner controlled value
       if (!props.hasOwnProperty('value')) setValue(values);
+
+      if (is('function', onChange)) onChange(values);
     }
   };
 

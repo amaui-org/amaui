@@ -73,10 +73,9 @@ const NavigationBar = React.forwardRef((props_: any, ref: any) => {
 
     if (valueNew !== undefined) {
       // Update inner or controlled
-      if (props.hasOwnProperty('value')) {
-        if (is('function', onChange)) onChange(valueNew);
-      }
-      else setSelected(valueNew);
+      if (props.hasOwnProperty('value')) setSelected(valueNew);
+
+      if (is('function', onChange)) onChange(valueNew);
     }
   };
 

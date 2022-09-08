@@ -201,22 +201,17 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
         const valueNew = value__;
 
         if (valueNew !== valuePrevious) {
-          if (props.hasOwnProperty('value')) {
-            if (refs.hover.current) {
-              if (is('function', onChangeActive)) onChangeActive(valueNew);
-            }
-            else {
-              if (is('function', onChange)) onChange(valueNew);
-            }
+          if (!props.hasOwnProperty('value')) {
+            // Inner controlled value
+            if (refs.hover.current) setValueActive(valueNew);
+            else setValue(valueNew);
           }
-          // Inner controlled value
+
+          if (refs.hover.current) {
+            if (is('function', onChangeActive)) onChangeActive(valueNew);
+          }
           else {
-            if (refs.hover.current) {
-              setValueActive(valueNew);
-            }
-            else {
-              setValue(valueNew);
-            }
+            if (is('function', onChange)) onChange(valueNew);
           }
         }
       }
@@ -237,13 +232,10 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
         const valueNew = value__;
 
         if (valueNew !== valuePrevious) {
-          if (props.hasOwnProperty('value')) {
-            if (is('function', onChange)) onChange(valueNew);
-          }
           // Inner controlled value
-          else {
-            setValue(valueNew);
-          }
+          if (props.hasOwnProperty('value')) setValue(valueNew);
+
+          if (is('function', onChange)) onChange(valueNew);
         }
       }
     };
@@ -290,10 +282,9 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
 
       if (value === valueNew) onClear();
       else {
-        if (props.hasOwnProperty('value')) {
-          if (is('function', onChange)) onChange(valueNew);
-        }
-        else setValue(valueNew);
+        if (props.hasOwnProperty('value')) setValue(valueNew);
+
+        if (is('function', onChange)) onChange(valueNew);
       }
     }
   }, [disabled, readOnly, value, valueActive]);
@@ -314,18 +305,16 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
     const valueNew = value__;
 
     if (valueNew !== refs.value.current) {
-      if (props.hasOwnProperty('value')) {
-        if (is('function', onChange)) onChange(valueNew);
-      }
-      else setValue(valueNew);
+      if (props.hasOwnProperty('value')) setValue(valueNew);
+
+      if (is('function', onChange)) onChange(valueNew);
     }
   };
 
   const onClear = () => {
-    if (props.hasOwnProperty('value')) {
-      if (is('function', onChange)) onChange(undefined);
-    }
-    else setValue(undefined);
+    if (props.hasOwnProperty('value')) setValue(undefined);
+
+    if (is('function', onChange)) onChange(undefined);
 
     setHover(false);
   };
@@ -338,16 +327,18 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
 
         switch (event.key) {
           case 'End':
-            if (props.hasOwnProperty('value')) {
-              if (is('function', onChange)) return onChange(0);
-            }
-            else return setValue(0);
+            if (props.hasOwnProperty('value')) setValue(0);
+
+            if (is('function', onChange)) return onChange(0);
+
+            return;
 
           case 'Home':
-            if (props.hasOwnProperty('value')) {
-              if (is('function', onChange)) return onChange(values);
-            }
-            else return setValue(values);
+            if (props.hasOwnProperty('value')) setValue(values);
+
+            if (is('function', onChange)) return onChange(values);
+
+            return;
 
           case 'ArrowUp':
           case 'ArrowRight':
@@ -359,19 +350,17 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
 
           case 'Enter':
             if (value === valueActive) {
-              if (props.hasOwnProperty('value')) {
-                if (is('function', onChange)) onChange(undefined);
-              }
-              else setValue(undefined);
+              if (props.hasOwnProperty('value')) setValue(undefined);
+
+              if (is('function', onChange)) onChange(undefined);
             }
 
             return;
 
           case 'Escape':
-            if (props.hasOwnProperty('value')) {
-              if (is('function', onChange)) onChange(undefined);
-            }
-            else setValue(undefined);
+            if (props.hasOwnProperty('value')) setValue(undefined);
+
+            if (is('function', onChange)) onChange(undefined);
 
             return;
 

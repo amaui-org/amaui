@@ -642,12 +642,10 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
     }
 
     if (!disabled && inputValue !== value) {
-      if (is('function', onChange)) onChange(inputValue, event);
-
       // Inner controlled value
-      if (!props.hasOwnProperty('value')) {
-        setValue(inputValue);
-      }
+      if (!props.hasOwnProperty('value')) setValue(inputValue);
+
+      if (is('function', onChange)) onChange(inputValue, event);
     }
   };
 
