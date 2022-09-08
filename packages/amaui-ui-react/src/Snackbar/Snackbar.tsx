@@ -97,6 +97,8 @@ const Snackbar = React.forwardRef((props_: any, ref: any) => {
     aside: aside_,
     position = 'bottom',
     alignment = 'start',
+    autoHide = true,
+    autoHideDuration = 4000,
     fixed = props.open !== undefined,
     closeButton = true,
     onClose: onClose_,
@@ -111,13 +113,65 @@ const Snackbar = React.forwardRef((props_: any, ref: any) => {
     ...other
   } = props;
 
+  const refs = {
+    timeout: React.useRef<any>(),
+    timeoutStart: React.useRef<any>(),
+    timeoutLeftOver: React.useRef<any>(),
+    autoHideDuration: React.useRef<any>()
+  };
+
   const { classes } = useStyle(props);
+
+  refs.autoHideDuration.current = autoHideDuration;
 
   const aside = React.Children.toArray(aside_);
 
-  const onClose = () => {
+  const onClose = React.useCallback(() => {
     if (is('function', onClose_)) onClose_();
-  };
+  }, [onClose_]);
+
+  React.useEffect(() => {
+    const onFocus = () => {
+      if (refs.timeoutLeftOver.current !== undefined) {
+        refs.timeout.current = setTimeout(() => onClose(), refs.timeoutLeftOver.current);
+
+        refs.timeoutStart.current = new Date().getTime();
+      }
+    };
+
+    const onBlur = () => {
+      if (refs.timeout.current !== undefined) {
+        clearTimeout(refs.timeout.current);
+
+        refs.timeoutLeftOver.current = refs.autoHideDuration.current - (new Date().getTime() - refs.timeoutStart.current);
+      }
+    };
+
+    window.addEventListener('focus', onFocus);
+
+    window.addEventListener('blur', onBlur);
+
+    return () => {
+      window.removeEventListener('focus', onFocus);
+
+      window.removeEventListener('blur', onBlur);
+    };
+  }, []);
+
+  React.useEffect(() => {
+    if (open) {
+      if (autoHide && props.open !== undefined) {
+        refs.timeout.current = setTimeout(() => onClose(), autoHideDuration);
+
+        refs.timeoutStart.current = new Date().getTime();
+      }
+    }
+    else {
+      clearTimeout(refs.timeout.current);
+
+      refs.timeout.current = refs.timeoutStart.current = refs.timeoutLeftOver.current = undefined;
+    }
+  }, [open, autoHide]);
 
   if (props.open !== undefined) {
     if (closeButton) {
