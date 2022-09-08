@@ -82,7 +82,7 @@ const AmauiSnackbarsProvider = React.forwardRef((props_: any, ref: any) => {
 
       TransitionComponentProps: {
         add: true,
-        direction: (props.position === 'top' && props.alignment === 'center') ? 'top' : (props.position === 'bottom' && props.alignment === 'center') ? 'bottom' : ([undefined, 'left'].includes(props.alignment) || ((props.alignment === 'start' && theme.direction === 'ltr') || (props.alignment === 'end' && theme.direction === 'rtl'))) ? 'left' : 'right'
+        direction: (props.position === 'top' && props.alignment === 'center') ? 'top' : (props.position === 'bottom' && props.alignment === 'center') ? 'bottom' : props.alignment === 'left' ? 'left' : 'right'
       },
     },
 
@@ -108,6 +108,16 @@ const AmauiSnackbarsProvider = React.forwardRef((props_: any, ref: any) => {
   refs.open.current = open;
 
   refs.preOpen.current = preOpen;
+
+  // Start and ltr change direction to left or right
+  if (alignment === 'start' && theme.direction === 'ltr') SnackbarProps.TransitionComponentProps.direction = 'left';
+
+  if (alignment === 'start' && theme.direction === 'rtl') SnackbarProps.TransitionComponentProps.direction = 'right';
+
+  // End and ltr change direction to right or left
+  if (alignment === 'end' && theme.direction === 'ltr') SnackbarProps.TransitionComponentProps.direction = 'right';
+
+  if (alignment === 'end' && theme.direction === 'rtl') SnackbarProps.TransitionComponentProps.direction = 'left';
 
   // Add preOpen
   React.useEffect(() => {
