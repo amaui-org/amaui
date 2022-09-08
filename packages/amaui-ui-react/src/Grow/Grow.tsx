@@ -121,7 +121,10 @@ const Grow = React.forwardRef((props_: any, ref: any) => {
 
             if (ref_) ref_.current = item;
 
-            if (children.ref) children.ref.current = item;
+            if (children.ref) {
+              if (is('function', children.ref)) children.ref(item);
+              else children.ref.current = item;
+            }
           },
 
           style: {

@@ -1472,6 +1472,34 @@ Please sign in again.`}
           />
         </Accordion>
 
+        <Accordion primary='Snackbar autoHide'>
+          <Line>
+            <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue('a114', 'snackbar')}>a</Button>
+
+            <Snackbar
+              open={a.snackbar === 'a114'}
+
+              autoHide={false}
+
+              onClose={() => updatePure(false, 'snackbar')}
+
+              primary='Value primary text for snackbar'
+
+              aside={(
+                <Button
+                  tonal
+
+                  color='inherit'
+
+                  version='text'
+                >
+                  Activity
+                </Button>
+              )}
+            />
+          </Line>
+        </Accordion>
+
         <Accordion primary='Snackbar open'>
           <Accordion primary='Snackbar open' open>
             <Line>

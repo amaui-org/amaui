@@ -101,6 +101,8 @@ const Snackbar = React.forwardRef((props_: any, ref: any) => {
     autoHideDuration = 4000,
     fixed = props.open !== undefined,
     closeButton = true,
+    onMouseEnter: onMouseEnter_,
+    onMouseLeave: onMouseLeave_,
     onClose: onClose_,
     TransitionComponent = Grow,
     TransitionComponentProps,
@@ -114,6 +116,7 @@ const Snackbar = React.forwardRef((props_: any, ref: any) => {
   } = props;
 
   const refs = {
+    root: React.useRef<any>(),
     timeout: React.useRef<any>(),
     timeoutStart: React.useRef<any>(),
     timeoutLeftOver: React.useRef<any>(),
@@ -126,45 +129,75 @@ const Snackbar = React.forwardRef((props_: any, ref: any) => {
 
   const aside = React.Children.toArray(aside_);
 
+  const addTimeout = (value = autoHideDuration) => {
+    refs.timeout.current = setTimeout(() => onClose(), value);
+
+    refs.timeoutStart.current = new Date().getTime();
+  };
+
+  const removeTimeout = () => {
+    clearTimeout(refs.timeout.current);
+
+    refs.timeoutLeftOver.current = refs.autoHideDuration.current - (new Date().getTime() - refs.timeoutStart.current);
+  };
+
+  const onMouseEnter = React.useCallback(() => {
+    if (refs.timeout.current !== undefined) removeTimeout();
+
+    if (is('function', onMouseEnter_)) onMouseEnter_();
+  }, [onMouseEnter_]);
+
+  const onMouseLeave = React.useCallback(() => {
+    if (refs.timeoutLeftOver.current !== undefined) addTimeout(refs.timeoutLeftOver.current);
+
+    if (is('function', onMouseLeave_)) onMouseLeave_();
+  }, [onMouseLeave_]);
+
   const onClose = React.useCallback(() => {
     if (is('function', onClose_)) onClose_();
   }, [onClose_]);
 
   React.useEffect(() => {
-    const onFocus = () => {
-      if (refs.timeoutLeftOver.current !== undefined) {
-        refs.timeout.current = setTimeout(() => onClose(), refs.timeoutLeftOver.current);
+    const onTabFocus = () => {
+      if (refs.timeoutLeftOver.current !== undefined) addTimeout(refs.timeoutLeftOver.current);
+    };
 
-        refs.timeoutStart.current = new Date().getTime();
+    const onTabBlur = () => {
+      if (refs.timeout.current !== undefined) removeTimeout();
+    };
+
+    const onBlur = (event: FocusEvent) => {
+      if (refs.timeoutLeftOver.current !== undefined) addTimeout(refs.timeoutLeftOver.current);
+    };
+
+    const onFocus = (event: FocusEvent) => {
+      if (refs.root.current?.contains(event.target)) {
+        if (refs.timeout.current !== undefined) removeTimeout();
       }
     };
 
-    const onBlur = () => {
-      if (refs.timeout.current !== undefined) {
-        clearTimeout(refs.timeout.current);
+    window.addEventListener('focus', onTabFocus);
 
-        refs.timeoutLeftOver.current = refs.autoHideDuration.current - (new Date().getTime() - refs.timeoutStart.current);
-      }
-    };
+    window.addEventListener('blur', onTabBlur);
 
-    window.addEventListener('focus', onFocus);
+    window.document.addEventListener('focusin', onFocus);
 
-    window.addEventListener('blur', onBlur);
+    window.document.addEventListener('focusout', onBlur);
 
     return () => {
-      window.removeEventListener('focus', onFocus);
+      window.removeEventListener('focus', onTabFocus);
 
-      window.removeEventListener('blur', onBlur);
+      window.removeEventListener('blur', onTabBlur);
+
+      window.document.removeEventListener('focusin', onFocus);
+
+      window.document.removeEventListener('focusout', onBlur);
     };
   }, []);
 
   React.useEffect(() => {
     if (open) {
-      if (autoHide && props.open !== undefined) {
-        refs.timeout.current = setTimeout(() => onClose(), autoHideDuration);
-
-        refs.timeoutStart.current = new Date().getTime();
-      }
+      if (autoHide && props.open !== undefined) addTimeout();
     }
     else {
       clearTimeout(refs.timeout.current);
@@ -196,7 +229,11 @@ const Snackbar = React.forwardRef((props_: any, ref: any) => {
       {...TransitionComponentProps}
     >
       <Surface
-        ref={ref}
+        ref={item => {
+          if (ref) ref.current = item;
+
+          refs.root.current = item;
+        }}
 
         tonal={tonal}
 
@@ -215,6 +252,10 @@ const Snackbar = React.forwardRef((props_: any, ref: any) => {
         justify='space-between'
 
         gap={2}
+
+        onMouseEnter={onMouseEnter}
+
+        onMouseLeave={onMouseLeave}
 
         className={classNames([
           staticClassName('Snackbar', theme) && [
