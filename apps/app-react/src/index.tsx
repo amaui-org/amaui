@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { AmauiStyle, AmauiStyleProvider, AmauiThemeProvider, valueObject, prefix, rtl, unit } from '@amaui/style-react';
 
 import App from './App';
+import { Snackbars } from '@amaui/ui-react';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(
@@ -16,7 +17,9 @@ amauiStyle.plugins.add = [unit, prefix, rtl, valueObject];
 root.render(
   <AmauiStyleProvider value={amauiStyle}>
     <AmauiThemeProvider>
-      <App />
+      <Snackbars>
+        <App />
+      </Snackbars>
     </AmauiThemeProvider>
   </AmauiStyleProvider>
 );

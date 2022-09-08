@@ -49,6 +49,11 @@ const useStyle = style(theme => ({
     bottom: '24px'
   },
 
+  alignment_left: {
+    left: '24px',
+    right: 'auto'
+  },
+
   alignment_start: {
     insetInlineStart: '24px',
     insetInlineEnd: 'auto'
@@ -58,6 +63,11 @@ const useStyle = style(theme => ({
     left: '50%',
     right: 'auto',
     transform: 'translateX(-50%)'
+  },
+
+  alignment_right: {
+    right: '24px',
+    left: 'auto'
   },
 
   alignment_end: {

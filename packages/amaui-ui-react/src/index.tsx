@@ -250,3 +250,6 @@ export * from './SkeletonLoader';
 
 export { default as Snackbar } from './Snackbar';
 export * from './Snackbar';
+
+export { default as Snackbars } from './Snackbars';
+export * from './Snackbars';
