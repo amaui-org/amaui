@@ -1498,6 +1498,34 @@ Please sign in again.`}
               />
             </Line>
           </Accordion>
+
+          <Accordion primary='Snackbar transition component' open>
+            <Line>
+              <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue('a14', 'snackbar')}>a</Button>
+
+              <Snackbar
+                open={a.snackbar === 'a14'}
+
+                onClose={() => updatePure(false, 'snackbar')}
+
+                primary='Value primary text for snackbar'
+
+                TransitionComponent={Slide}
+
+                aside={(
+                  <Button
+                    tonal
+
+                    color='inherit'
+
+                    version='text'
+                  >
+                    Activity
+                  </Button>
+                )}
+              />
+            </Line>
+          </Accordion>
         </Accordion>
 
         <Accordion primary='Snackbar position, alignment and fixed'>
