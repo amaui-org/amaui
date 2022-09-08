@@ -1472,7 +1472,201 @@ Please sign in again.`}
           />
         </Accordion>
 
-        <Accordion primary='Snackbar aside' open>
+        <Accordion primary='Snackbar open'>
+          <Accordion primary='Snackbar open' open>
+            <Line>
+              <Button size='small' color='secondary' className={classes.btn} onClick={() => updateValue('a1', 'snackbar')}>a</Button>
+
+              <Snackbar
+                open={a.snackbar === 'a1'}
+
+                onClose={() => updatePure(false, 'snackbar')}
+
+                primary='Value primary text for snackbar'
+
+                aside={(
+                  <Button
+                    tonal
+
+                    color='inherit'
+
+                    version='text'
+                  >
+                    Activity
+                  </Button>
+                )}
+              />
+            </Line>
+          </Accordion>
+        </Accordion>
+
+        <Accordion primary='Snackbar position, alignment and fixed'>
+          <Accordion primary='Snackbar fixed'>
+            <Snackbar
+              primary='Value primary text for snackbar'
+
+              aside={(
+                <Button
+                  tonal
+
+                  color='inherit'
+
+                  version='text'
+                >
+                  Activity
+                </Button>
+              )}
+
+              fixed
+            />
+          </Accordion>
+
+          <Accordion primary='Snackbar top start'>
+            <Snackbar
+              primary='Value primary text for snackbar'
+
+              position='top'
+
+              alignment='start'
+
+              aside={(
+                <Button
+                  tonal
+
+                  color='inherit'
+
+                  version='text'
+                >
+                  Activity
+                </Button>
+              )}
+
+              fixed
+            />
+          </Accordion>
+
+          <Accordion primary='Snackbar top center'>
+            <Snackbar
+              primary='Value primary text for snackbar'
+
+              position='top'
+
+              alignment='center'
+
+              aside={(
+                <Button
+                  tonal
+
+                  color='inherit'
+
+                  version='text'
+                >
+                  Activity
+                </Button>
+              )}
+
+              fixed
+            />
+          </Accordion>
+
+          <Accordion primary='Snackbar top end'>
+            <Snackbar
+              primary='Value primary text for snackbar'
+
+              position='top'
+
+              alignment='end'
+
+              aside={(
+                <Button
+                  tonal
+
+                  color='inherit'
+
+                  version='text'
+                >
+                  Activity
+                </Button>
+              )}
+
+              fixed
+            />
+          </Accordion>
+
+          <Accordion primary='Snackbar bottom start'>
+            <Snackbar
+              primary='Value primary text for snackbar'
+
+              position='bottom'
+
+              alignment='start'
+
+              aside={(
+                <Button
+                  tonal
+
+                  color='inherit'
+
+                  version='text'
+                >
+                  Activity
+                </Button>
+              )}
+
+              fixed
+            />
+          </Accordion>
+
+          <Accordion primary='Snackbar bottom center'>
+            <Snackbar
+              primary='Value primary text for snackbar'
+
+              position='bottom'
+
+              alignment='center'
+
+              aside={(
+                <Button
+                  tonal
+
+                  color='inherit'
+
+                  version='text'
+                >
+                  Activity
+                </Button>
+              )}
+
+              fixed
+            />
+          </Accordion>
+
+          <Accordion primary='Snackbar bottom end'>
+            <Snackbar
+              primary='Value primary text for snackbar'
+
+              position='bottom'
+
+              alignment='end'
+
+              aside={(
+                <Button
+                  tonal
+
+                  color='inherit'
+
+                  version='text'
+                >
+                  Activity
+                </Button>
+              )}
+
+              fixed
+            />
+          </Accordion>
+        </Accordion>
+
+        <Accordion primary='Snackbar aside'>
           <Snackbar
             primary='Value primary text for snackbar'
 
@@ -1490,7 +1684,7 @@ Please sign in again.`}
           />
         </Accordion>
 
-        <Accordion primary='Snackbar size' open>
+        <Accordion primary='Snackbar size'>
           <Line>
             <Snackbar
               size='small'
@@ -1548,7 +1742,7 @@ Please sign in again.`}
           </Line>
         </Accordion>
 
-        <Accordion primary='Snackbar color' open>
+        <Accordion primary='Snackbar color'>
           <Line>
             <Snackbar color='default' tonal={false}
 
@@ -1739,7 +1933,7 @@ Please sign in again.`}
           </Line>
         </Accordion>
 
-        <Accordion primary='Snackbar tonal' open>
+        <Accordion primary='Snackbar tonal'>
           <Line>
             <Snackbar color='primary' tonal
 

@@ -234,6 +234,7 @@ const useStyle = style(theme => ({
   label_version_text_size_small_focus: {
     transform: 'translate(0px, 2px) scale(0.667)'
   },
+
   label_version_text_size_regular_focus: {
     transform: 'translate(0px, 2px) scale(0.667)'
   },
