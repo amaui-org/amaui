@@ -100,8 +100,28 @@ const AmauiSnackbarsProvider = React.forwardRef((props_: any, ref: any) => {
 
   const refs = {
     root: React.useRef<HTMLElement>(),
-    value: React.useRef<ISnackbarsProvider>({} as any)
+    value: React.useRef<ISnackbarsProvider>({} as any),
+    open: React.useRef<any>(),
+    preOpen: React.useRef<any>()
   };
+
+  refs.open.current = open;
+
+  refs.preOpen.current = preOpen;
+
+  // Add preOpen
+  React.useEffect(() => {
+    // Add from preOpen
+    const toAdd = max - open.length;
+
+    if (toAdd > 0 && !!refs.preOpen.current.length) {
+      const itemsToAdd = refs.preOpen.current.slice(0, toAdd);
+
+      setPreOpen(itemsPreOpen => [...itemsPreOpen].slice(toAdd));
+
+      if (!!itemsToAdd.length) setOpen(() => [...itemsToAdd, ...refs.open.current]);
+    }
+  }, [open.length]);
 
   const add = (value: any) => {
     const value_ = {
@@ -163,7 +183,7 @@ const AmauiSnackbarsProvider = React.forwardRef((props_: any, ref: any) => {
 
   const onExpandExited = (id: string) => {
     setOpen(items => {
-      const itemsNew = [...items];
+      let itemsNew = [...items];
 
       const index = itemsNew.findIndex(item_ => item_.id === id);
 
