@@ -82,7 +82,7 @@ const AmauiSnackbarsProvider = React.forwardRef((props_: any, ref: any) => {
 
       TransitionComponentProps: {
         add: true,
-        direction: ([undefined, 'left'].includes(props.alignment) || ((props.alignment === 'start' && theme.direction === 'ltr') || (props.alignment === 'end' && theme.direction === 'rtl'))) ? 'left' : 'right'
+        direction: (props.position === 'top' && props.alignment === 'center') ? 'top' : (props.position === 'bottom' && props.alignment === 'center') ? 'bottom' : ([undefined, 'left'].includes(props.alignment) || ((props.alignment === 'start' && theme.direction === 'ltr') || (props.alignment === 'end' && theme.direction === 'rtl'))) ? 'left' : 'right'
       },
     },
 
@@ -119,7 +119,14 @@ const AmauiSnackbarsProvider = React.forwardRef((props_: any, ref: any) => {
 
       setPreOpen(itemsPreOpen => [...itemsPreOpen].slice(toAdd));
 
-      if (!!itemsToAdd.length) setOpen(() => [...itemsToAdd, ...refs.open.current]);
+      if (!!itemsToAdd.length) setOpen(() => {
+        const itemsNew = [...refs.open.current];
+
+        if (position === 'top') itemsNew.push(...itemsToAdd);
+        else if (position === 'bottom') itemsNew.unshift(...itemsToAdd);
+
+        return itemsNew;
+      });
     }
   }, [open.length]);
 
@@ -141,7 +148,14 @@ const AmauiSnackbarsProvider = React.forwardRef((props_: any, ref: any) => {
     }
     // Open
     else {
-      setOpen(previous => [value_, ...previous]);
+      setOpen(previous => {
+        const itemsNew = [...previous];
+
+        if (position === 'top') itemsNew.push(value_);
+        else if (position === 'bottom') itemsNew.unshift(value_);
+
+        return itemsNew;
+      });
     }
 
     return value_;
