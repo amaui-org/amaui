@@ -525,6 +525,8 @@ const Button = React.forwardRef((props_: any, ref: any) => {
 
         selected={selected}
 
+        disabled={disabled}
+
         {...InteractionProps}
       />
 

@@ -115,6 +115,18 @@ const Avatar = React.forwardRef((props_: any, ref) => {
 
       {...other}
 
+      tonal={tonal}
+
+      elevation={elevation}
+
+      version={version}
+
+      Component={Component}
+
+      InteractionProps={InteractionProps}
+
+      size={size}
+
       className={classNames([
         staticClassName('Avatar', theme) && [
           'AmauiAvatar-root',
@@ -126,18 +138,6 @@ const Avatar = React.forwardRef((props_: any, ref) => {
         classes.root,
         square && classes.square
       ])}
-
-      Component={Component}
-
-      version={version}
-
-      tonal={tonal}
-
-      elevation={elevation}
-
-      InteractionProps={InteractionProps}
-
-      size={size}
 
       disabled={disabled}
 

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { countries } from '@amaui/utils';
 import { AmauiTheme, AmauiThemeProvider, classNames, style, sy, useAmauiTheme } from '@amaui/style-react';
-import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationItem, NavigationRail, NavigationDrawer, BottomSheet, BottomAppBar, TopAppBar, useScroll, Card, CardImage, CardMain, CardHeader, CardButton, CardFooter, Table, TableHead, TableRow, TableCell, TableHeader, TableFooter, TableBody, SkeletonLoader, Snackbar, useSnackbars } from '@amaui/ui-react';
+import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationItem, NavigationRail, NavigationDrawer, BottomSheet, BottomAppBar, TopAppBar, useScroll, Card, CardImage, CardMain, CardHeader, CardButton, CardFooter, Table, TableHead, TableRow, TableCell, TableHeader, TableFooter, TableBody, SkeletonLoader, Snackbar, useSnackbars, Pagination } from '@amaui/ui-react';
 
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
@@ -213,6 +213,13 @@ const useStyle = style(theme => ({
 }), { name: 'App' });
 
 const styled = {
+  Pagination: sy(Pagination)((theme: AmauiTheme) => ({
+    root: {
+      '&:hover': {
+        opacity: 0.4
+      }
+    }
+  })),
   Snackbar: sy(Snackbar)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
@@ -871,6 +878,13 @@ function App() {
 
       <Accordion primary='All'>
         <Line>
+          <Pagination
+            total={11}
+
+            first
+            last
+          />
+
           <Snackbar
             primary='Value primary text for snackbar'
 
@@ -1466,6 +1480,429 @@ Please sign in again.`}
 
           <IconMaterialPottedPlantRounded color='secondary' />
         </Line>
+      </Accordion>
+
+      <Accordion primary='Pagination'>
+        <Accordion primary='Pagination' open>
+          <Pagination
+            total={11}
+
+            first
+            last
+          />
+        </Accordion>
+
+        <Accordion primary='Pagination version' open>
+          <Line>
+            <Pagination
+              version='text'
+
+              total={11}
+
+              first
+              last
+            />
+
+            <Pagination
+              version='outlined'
+
+              total={11}
+
+              first
+              last
+            />
+
+            <Pagination
+              tonal
+
+              color='primary'
+
+              version='filled'
+
+              total={11}
+
+              first
+              last
+            />
+
+            <Pagination
+              version='filled'
+
+              color='primary'
+
+              total={11}
+
+              first
+              last
+            />
+
+            <Pagination
+              version='filled'
+
+              color='primary'
+
+              elevation
+
+              total={11}
+
+              first
+              last
+            />
+          </Line>
+        </Accordion>
+
+        <Accordion primary='Pagination size' open>
+          <Line>
+            <Pagination
+              size='small'
+
+              total={11}
+
+              first
+              last
+            />
+
+            <Pagination
+              size='regular'
+
+              total={11}
+
+              first
+              last
+            />
+
+            <Pagination
+              size='large'
+
+              total={11}
+
+              first
+              last
+            />
+          </Line>
+        </Accordion>
+
+        <Accordion primary='Pagination color' open>
+          <Line>
+            <Pagination color='default'
+
+              total={11}
+
+              first
+              last
+            />
+
+            <Pagination color='primary'
+
+              total={11}
+
+              first
+              last
+            />
+
+            <Pagination color='secondary'
+
+              total={11}
+
+              first
+              last
+            />
+
+            <Pagination color='tertiary'
+
+              total={11}
+
+              first
+              last
+            />
+
+            <Pagination color='quaternary'
+
+              total={11}
+
+              first
+              last
+            />
+
+            <Pagination color='info'
+
+              total={11}
+
+              first
+              last
+            />
+
+            <Pagination color='success'
+
+              total={11}
+
+              first
+              last
+            />
+
+            <Pagination color='warning'
+
+              total={11}
+
+              first
+              last
+            />
+
+            <Pagination color='error'
+
+              total={11}
+
+              first
+              last
+            />
+
+            <Pagination color='neutral'
+
+              total={11}
+
+              first
+              last
+            />
+
+            <Pagination color='#f5d758'
+
+              total={11}
+
+              first
+              last
+            />
+          </Line>
+        </Accordion>
+
+        <Accordion primary='Pagination color' open>
+          <Line>
+            <Pagination color='primary' tonal
+
+              total={11}
+
+              first
+              last
+            />
+
+            <Pagination color='secondary' tonal
+
+              total={11}
+
+              first
+              last
+            />
+
+            <Pagination color='tertiary' tonal
+
+              total={11}
+
+              first
+              last
+            />
+
+            <Pagination color='quaternary' tonal
+
+              total={11}
+
+              first
+              last
+            />
+
+            <Pagination color='info' tonal
+
+              total={11}
+
+              first
+              last
+            />
+
+            <Pagination color='success' tonal
+
+              total={11}
+
+              first
+              last
+            />
+
+            <Pagination color='warning' tonal
+
+              total={11}
+
+              first
+              last
+            />
+
+            <Pagination color='error' tonal
+
+              total={11}
+
+              first
+              last
+            />
+
+            <Pagination color='neutral' tonal
+
+              total={11}
+
+              first
+              last
+            />
+
+            <Pagination color='#f5d758' tonal
+
+              total={11}
+
+              first
+              last
+            />
+          </Line>
+        </Accordion>
+
+        <Accordion primary='Pagination controlled' open>
+          <Pagination
+            value={a.pagination !== undefined ? a.pagination : 1}
+
+            onChange={(value_: number) => updatePure(value_, 'pagination')}
+
+            total={11}
+
+            first
+            last
+          />
+        </Accordion>
+
+        <Accordion primary='AmauiTheme'>
+          <div className={classNames([classes.column])}>
+            <Pagination
+              color='secondary'
+
+              total={11}
+
+              first
+              last
+            />
+
+            <Accordion primary='AmauiTheme nested value'>
+              <AmauiThemeProvider
+                value={{
+                  palette: {
+                    color: {
+                      primary: {
+                        main: '#008000'
+                      }
+                    }
+                  },
+                  space: {
+                    unit: 5
+                  }
+                }}
+              >
+                <Pagination
+                  color='secondary'
+
+                  total={11}
+
+                  first
+                  last
+                />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme add'>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiPagination: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: 0.4
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Pagination
+                  color='secondary'
+
+                  total={11}
+
+                  first
+                  last
+                />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme override'>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiPagination: {
+                        style: {
+                          override: {
+                            root: {
+                              padding: '11px 40px !important'
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Pagination
+                  color='secondary'
+
+                  total={11}
+
+                  first
+                  last
+                />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme props'>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiPagination: {
+                        props: {
+                          default: {
+                            color: 'secondary'
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Pagination
+                  total={11}
+
+                  first
+                  last
+                />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme styled'>
+              <styled.Pagination
+                total={11}
+
+                first
+                last
+              />
+            </Accordion>
+          </div>
+        </Accordion>
       </Accordion>
 
       <Accordion primary='Snackbars'>

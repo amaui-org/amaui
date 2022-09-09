@@ -29,3 +29,42 @@ export function percentageWithinRange(value: number, min: number, max: number, m
 export function valueWithinRangePercentage(value: number, min: number, max: number, minAllowed = 0, maxAllowed = 100) {
   return min + ((value * (max - min + minAllowed)) / (maxAllowed - minAllowed));
 }
+
+export function pagination(value = 1, total = 10, boundary = 1, middle = 1) {
+  const array: any[] = [1];
+
+  // start
+  let value_ = 2;
+
+  while (value_ < 1 + boundary + 1 && value_ < value - middle) array.push(value_++);
+
+  // start dots
+  if ((value - middle) - (1 + boundary) > 1) {
+    if ((value - middle) - (1 + boundary) === 2) array.push(1 + boundary + 1);
+    else array.push('...');
+  }
+
+  // middle
+  value_ = value - middle < 2 ? 2 : value - middle;
+
+  while (value_ < value + middle + 1 && value_ < total) array.push(value_++);
+
+  // end dots
+  if ((total - boundary) - (value + middle) > 1) {
+    if ((total - boundary) - (value + middle) === 2) array.push(value + middle + 1);
+    else array.push('...');
+  }
+
+  // end
+  value_ = value - boundary;
+
+  while (value_ <= total) {
+    if (value_ > value + middle && value_ >= total - boundary && value_ < total) array.push(value_);
+
+    value_++;
+  }
+
+  array.push(total);
+
+  return array;
+};

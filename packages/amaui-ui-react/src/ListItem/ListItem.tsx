@@ -657,8 +657,12 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
         {(href || button) && (
           <Interaction
             border={false}
+
             preselected={focus || preselected || undefined}
+
             selected={openMenu || openList || selected}
+
+            disabled={disabled}
 
             {...InteractionProps}
           />

@@ -168,7 +168,7 @@ const Interaction = React.forwardRef((props_: any, ref: any) => {
     dragged,
     wave_version,
     clear,
-    disabled: disabled_,
+    disabled,
 
     className
   } = props;
@@ -177,25 +177,31 @@ const Interaction = React.forwardRef((props_: any, ref: any) => {
   const [interactions, setInteractions] = React.useState([]);
   const [border, setBorder] = React.useState(false);
   const [waves, setWaves] = React.useState([]);
-  const [disabled, setDisabled] = React.useState(disabled_);
 
   const refs = {
     root: React.useRef<HTMLElement>(),
-    mouse: React.useRef({ down: 0, up: 0, press: 0 })
+    mouse: React.useRef({ down: 0, up: 0, press: 0 }),
+    wave: React.useRef<any>(),
+    pulse: React.useRef<any>(),
+    props: React.useRef<any>()
   };
 
   const { classes } = useStyle(props);
 
+  refs.props.current = props;
+  refs.wave.current = wave;
+  refs.pulse.current = pulse;
+
   React.useEffect(() => {
     const parent = refs.root.current.parentNode;
 
-    const onMouseIn = () => {
+    const onMouseIn = (event: any) => {
       add('mouse-in');
 
       removeWaves();
     };
 
-    const onMouseOut = () => {
+    const onMouseOut = (event: any) => {
       refs.mouse.current.up = new Date().getTime();
       refs.mouse.current.press = refs.mouse.current.down ? Math.round(refs.mouse.current.up - refs.mouse.current.down) : 0;
 
@@ -281,11 +287,11 @@ const Interaction = React.forwardRef((props_: any, ref: any) => {
   }, [pulse]);
 
   React.useEffect(() => {
-    if (disabled_ !== disabled) setDisabled(disabled_);
-  }, [disabled_]);
+    if (disabled) setInteractions([]);
+  }, [disabled]);
 
   const addWave = (event: MouseEvent) => {
-    if (wave && !disabled) {
+    if (refs.wave.current && !refs.props.current.disabled) {
       let top = 0;
       let left = 0;
       let width: any = '100%';
@@ -344,7 +350,7 @@ const Interaction = React.forwardRef((props_: any, ref: any) => {
   };
 
   const addWavePulse = () => {
-    if (pulse && !disabled) {
+    if (refs.pulse.current && !refs.props.current.disabled) {
       // Remove previous wave
       // if there is one
       if (!!waves.length) removeWaves();
@@ -395,7 +401,7 @@ const Interaction = React.forwardRef((props_: any, ref: any) => {
   const removeWaves = () => setWaves([]);
 
   const add = value => {
-    if (!disabled) {
+    if (!refs.props.current.disabled) {
       setInteractions(items => {
         const newItems = [...items];
 
@@ -408,7 +414,7 @@ const Interaction = React.forwardRef((props_: any, ref: any) => {
 
   const has = value => interactions.indexOf(value) > -1;
 
-  const remove = value => setInteractions(items => items.filter(item => item !== value));
+  const remove = value => setInteractions(items => [...items].filter(item => item !== value));
 
   return (
     <span
