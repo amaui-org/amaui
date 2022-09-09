@@ -259,3 +259,6 @@ export * from './Pagination';
 
 export { default as PaginationItem } from './PaginationItem';
 export * from './PaginationItem';
+
+export { default as TablePagination } from './TablePagination';
+export * from './TablePagination';
