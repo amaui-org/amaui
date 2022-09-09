@@ -198,9 +198,11 @@ const TablePagination = React.forwardRef((props_: any, ref: any) => {
         align='center'
       >
         <Select
-          label={rowsPerPageText}
+          tonal={tonal}
 
-          color='secondary'
+          color={color}
+
+          label={rowsPerPageText}
 
           size='small'
 
@@ -233,6 +235,16 @@ const TablePagination = React.forwardRef((props_: any, ref: any) => {
       <Type
         version='b2'
 
+        gap={1}
+
+        direction='row'
+
+        justify='flex-start'
+
+        align='center'
+
+        Component={Line}
+
         className={classNames([
           staticClassName('TablePagination', theme) && [
             `AmauiTablePagination-text`
@@ -241,7 +253,7 @@ const TablePagination = React.forwardRef((props_: any, ref: any) => {
           classes.text
         ])}
       >
-        {(page * rowsPerPage) + 1} - {((page + 1) * rowsPerPage) || total} of {total}
+        <span>{(page * rowsPerPage) + 1} - {((page + 1) * rowsPerPage) || total}</span> <span>of</span> <span>{total}</span>
       </Type>
 
       <Line
