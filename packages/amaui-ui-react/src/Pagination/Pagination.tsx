@@ -17,7 +17,20 @@ const useStyle = style(theme => ({
   },
 
   dots: {
-    padding: '0px 4px'
+    display: 'inline-block',
+    textAlign: 'center'
+  },
+
+  dots_size_small: {
+    width: '30px'
+  },
+
+  dots_size_regular: {
+    width: '40px'
+  },
+
+  dots_size_large: {
+    width: '50px'
   }
 }), { name: 'AmauiPagination' });
 
@@ -147,7 +160,8 @@ const Pagination = React.forwardRef((props_: any, ref: any) => {
             `AmauiPagination-dots`
           ],
 
-          classes.dots
+          classes.dots,
+          classes[`dots_size_${size}`]
         ])}
       >
         {item}

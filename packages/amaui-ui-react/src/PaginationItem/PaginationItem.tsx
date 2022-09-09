@@ -13,23 +13,26 @@ const useStyle = style(theme => ({
   },
 
   size_small: {
-    '& .AmauiButton-root': {
+    '&.AmauiButton-root': {
       width: 'unset',
-      minWidth: '30px'
+      minWidth: '30px',
+      paddingInline: '3px'
     }
   },
 
   size_regular: {
-    '& .AmauiButton-root': {
+    '&.AmauiButton-root': {
       width: 'unset',
-      minWidth: '40px'
+      minWidth: '40px',
+      paddingInline: '7px'
     }
   },
 
   size_large: {
-    '& .AmauiButton-root': {
+    '&.AmauiButton-root': {
       width: 'unset',
-      minWidth: '50px'
+      minWidth: '50px',
+      paddingInline: '10px'
     }
   }
 }), { name: 'AmauiPaginationItem' });
