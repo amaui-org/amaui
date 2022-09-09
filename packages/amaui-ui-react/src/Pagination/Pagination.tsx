@@ -189,6 +189,8 @@ const Pagination = React.forwardRef((props_: any, ref: any) => {
 
       gap={0.5}
 
+      wrap='wrap'
+
       direction='row'
 
       justify='flex-start'
