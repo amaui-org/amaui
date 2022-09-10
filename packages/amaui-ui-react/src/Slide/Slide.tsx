@@ -30,6 +30,7 @@ const Slide = React.forwardRef((props_: any, ref: any) => {
     exitOnAdd,
     noAbruption,
     removeOnExited,
+    delay,
     timeout: timeout_,
     onTransition,
     onAppended,
@@ -46,6 +47,7 @@ const Slide = React.forwardRef((props_: any, ref: any) => {
     timing_function,
 
     className,
+    style,
 
     children,
 
@@ -205,11 +207,13 @@ const Slide = React.forwardRef((props_: any, ref: any) => {
           },
 
           style: {
-            transition: `transform ${timeout(status)} ${timingFunction(status)}`,
+            transition: `transform ${timeout(status)} ${timingFunction(status)} ${delay ? `${delay}ms` : ''}`,
 
             ...styles(status),
 
             ...children?.props?.style,
+
+            ...style
           }
         });
       }}

@@ -10,6 +10,7 @@ import Icon from '../Icon';
 import Tooltip from '../Tooltip';
 
 import { staticClassName } from '../utils';
+import Line from '../Line';
 
 const useStyle = style(theme => ({
   root: {
@@ -49,6 +50,22 @@ const useStyle = style(theme => ({
   alignment_end: {
     insetInlineEnd: '24px',
     insetInlineStart: 'auto'
+  },
+
+  items: {
+    pointerEvents: 'none'
+  },
+
+  items_direction_row: {
+    paddingInline: '16px'
+  },
+
+  items_direction_column: {
+    paddingBlock: '16px'
+  },
+
+  items_open: {
+    pointerEvents: 'auto'
   },
 
   fab: {
@@ -111,6 +128,10 @@ const IconWrapper = (props: any) => {
   )
 };
 
+// To do
+
+// keyboard arrow up and down
+
 const SpeedDial = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 
@@ -119,23 +140,31 @@ const SpeedDial = React.forwardRef((props_: any, ref: any) => {
   const {
     in: inProp = true,
 
+    tonal = true,
+    color = 'primary',
+    version = 'filled',
+
     position = 'bottom',
     alignment = 'end',
-    direction: direction_ = 'start',
+    direction: direction_ = 'top',
+    closeOnClick,
+    tooltipOpen,
 
     FabTransitionComponent = Zoom,
     FabTransitionComponentProps,
 
+    SpeeDialItemTransitionComponent: SpeeDialItemTransitionComponent_ = Zoom,
+    SpeeDialItemTransitionComponentProps,
+
     tooltipLabel,
     TooltipProps = {
-      alignment: 'center'
+      alignment: 'center',
+      disableInteractive: true
     },
 
     Icon = IconMaterialCloseRounded,
     IconOpen,
     FabProps = {
-      tonal: true,
-      color: 'primary',
       elevation: false
     },
 
@@ -160,6 +189,16 @@ const SpeedDial = React.forwardRef((props_: any, ref: any) => {
 
   const { classes } = useStyle(props);
 
+  const refs = {
+    fab: React.useRef<any>(),
+    line: React.useRef<any>()
+  };
+
+  let direction = direction_;
+  let SpeeDialItemTransitionComponent = SpeeDialItemTransitionComponent_;
+
+  if (tooltipOpen) SpeeDialItemTransitionComponent = Fade;
+
   const onOpen = () => {
     // Update inner or controlled
     if (!props.hasOwnProperty('open')) setOpen(true);
@@ -170,6 +209,10 @@ const SpeedDial = React.forwardRef((props_: any, ref: any) => {
   const onClose = () => {
     // Update inner or controlled
     if (!props.hasOwnProperty('open')) setOpen(false);
+
+    setHover(false);
+
+    setFocus(false);
 
     if (is('function', onClose_)) onClose_();
   };
@@ -201,13 +244,13 @@ const SpeedDial = React.forwardRef((props_: any, ref: any) => {
   };
 
   const onMouseEnter = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
-    if (!disabled) {
+    if (!disabled && (event.target.contains(refs.fab.current) || event.target.contains(refs.line.current))) {
       setHover(true);
     }
   }, [disabled]);
 
   const onMouseLeave = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
-    if (!disabled) {
+    if (!disabled && (event.target.contains(refs.fab.current) || event.target.contains(refs.line.current))) {
       setHover(false);
     }
   }, [disabled]);
@@ -224,19 +267,29 @@ const SpeedDial = React.forwardRef((props_: any, ref: any) => {
     }
   }, [disabled]);
 
-  if (
-    alignment === 'left' ||
-    alignment === 'end' && theme.direction === 'rtl'
-  ) TooltipProps.position = 'right';
+  if (alignment === 'right' || alignment === 'end') TooltipProps.position = 'left';
 
-  if (
-    alignment === 'right' ||
-    alignment === 'start' && theme.direction === 'rtl'
-  ) TooltipProps.position = 'left';
+  if (alignment === 'left' || alignment === 'end') TooltipProps.position = 'right';
+
+  const LineProps = {
+    direction: 'row'
+  };
+
+  if (['top', 'bottom'].includes(direction)) LineProps.direction = 'column';
+
+  if (!tooltipLabel) TooltipProps.open = false;
 
   return (
-    <Component
+    <Line
       ref={ref}
+
+      gap={0}
+
+      align='center'
+
+      justify='center'
+
+      Component={Component}
 
       className={classNames([
         staticClassName('SpeedDial', theme) && [
@@ -254,8 +307,67 @@ const SpeedDial = React.forwardRef((props_: any, ref: any) => {
         disabled && classes.disabled
       ])}
 
+      {...LineProps}
+
       {...other}
     >
+      <Line
+        ref={refs.line}
+
+        gap={1}
+
+        direction={`${LineProps.direction}-reverse`}
+
+        onMouseEnter={onMouseEnter}
+
+        onMouseLeave={onMouseLeave}
+
+        className={classNames([
+          staticClassName('SpeedDial', theme) && [
+            `AmauiSpeedDial-items`
+          ],
+
+          classes.items,
+          classes[`items_direction_${LineProps.direction}`],
+          open && classes.items_open
+        ])}
+      >
+        {children.map((item: any, index: number) => (
+          <SpeeDialItemTransitionComponent
+            key={index}
+
+            in={open}
+
+            delay={(open ? index : children.length - 1 - index) * 30}
+
+            append
+
+            add
+
+            removeOnExited
+
+            {...SpeeDialItemTransitionComponentProps}
+          >
+            {React.cloneElement(item, {
+              open,
+
+              tonal,
+              color,
+              version,
+              alignment,
+
+              tooltipOpen,
+
+              onClick: (event: React.MouseEvent<any>) => {
+                if (item.props.closeOnClick !== undefined ? item.props.closeOnClick : closeOnClick) onClose();
+
+                if (is('function', item.props.onClick)) item.props.onClick(event);
+              },
+            })}
+          </SpeeDialItemTransitionComponent>
+        ))}
+      </Line>
+
       <FabTransitionComponent
         in={inProp}
 
@@ -263,13 +375,19 @@ const SpeedDial = React.forwardRef((props_: any, ref: any) => {
       >
         <div>
           <Tooltip
-            open={open && tooltipLabel !== undefined}
-
             label={tooltipLabel}
 
             {...TooltipProps}
           >
             <Fab
+              ref={refs.fab}
+
+              tonal={tonal}
+
+              color={color}
+
+              version={version}
+
               onClick={onClick}
 
               onBlur={onBlur}
@@ -325,7 +443,7 @@ const SpeedDial = React.forwardRef((props_: any, ref: any) => {
           </Tooltip>
         </div>
       </FabTransitionComponent>
-    </Component>
+    </Line>
   );
 });
 

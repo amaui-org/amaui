@@ -17,7 +17,8 @@ const useStyle = style(theme => ({
   },
 
   labelRoot: {
-    pointerEvents: 'all'
+    pointerEvents: 'all',
+    whiteSpace: 'nowrap'
   },
 
   labelRoot_position_top: { marginBottom: '16px' },
@@ -160,7 +161,11 @@ const useStyle = style(theme => ({
 
   maxWidth_xxl: { maxWidth: `1360px` },
 
-  fullWidth: { maxWidth: `${(isEnvironment('browser') ? window.innerWidth : 1400) - +theme.methods.space.value('rg', '', 1)}px` }
+  fullWidth: { maxWidth: `${(isEnvironment('browser') ? window.innerWidth : 1400) - +theme.methods.space.value('rg', '', 1)}px` },
+
+  nowrap: {
+    whiteSpace: 'nowrap'
+  }
 }), { name: 'AmauiTooltip' });
 
 const Tooltip = React.forwardRef((props_: any, ref: any) => {
@@ -193,6 +198,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
     hover: hover_ = true,
     focus: focus_ = true,
     inset,
+    nowrap,
     follow,
 
     onOpen: onOpen_,
@@ -471,7 +477,8 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
                 focus && 'AmauiTooltip-focus',
                 inset && 'AmauiTooltip-inset',
                 noMargin && 'AmauiTooltip-noMargin',
-                arrow && `AmauiTooltip-arrow`
+                arrow && `AmauiTooltip-arrow`,
+                nowrap && `AmauiTooltip-nowrap`
               ],
 
               className,
@@ -510,7 +517,8 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
                   classes[`labelRoot_position_${resolvePosition(items.values.switch)}`],
                   classes[`maxWidth_${maxWidth}`],
                   noMargin && classes.labelRoot_noMargin,
-                  fullWidth && classes.fullWidth
+                  fullWidth && classes.fullWidth,
+                  nowrap && classes.nowrap
                 ])}
 
                 style={styles.labelRoot}

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { countries } from '@amaui/utils';
 import { AmauiTheme, AmauiThemeProvider, classNames, style, sy, useAmauiTheme } from '@amaui/style-react';
-import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationItem, NavigationRail, NavigationDrawer, BottomSheet, BottomAppBar, TopAppBar, useScroll, Card, CardImage, CardMain, CardHeader, CardButton, CardFooter, Table, TableHead, TableRow, TableCell, TableHeader, TableFooter, TableBody, SkeletonLoader, Snackbar, useSnackbars, Pagination, TablePagination, SpeedDial } from '@amaui/ui-react';
+import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationItem, NavigationRail, NavigationDrawer, BottomSheet, BottomAppBar, TopAppBar, useScroll, Card, CardImage, CardMain, CardHeader, CardButton, CardFooter, Table, TableHead, TableRow, TableCell, TableHeader, TableFooter, TableBody, SkeletonLoader, Snackbar, useSnackbars, Pagination, TablePagination, SpeedDial, SpeedDialItem } from '@amaui/ui-react';
 
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
@@ -1493,7 +1493,15 @@ Please sign in again.`}
       <Accordion primary='SpeedDial'>
         <Accordion primary='SpeedDial'>
           <SpeedDial>
+            {[1, 2, 3, 4].map((item: any) => (
+              <SpeedDialItem
+                key={item}
 
+                label={`Item ${item}`}
+
+                Icon={IconMaterialEditRounded}
+              />
+            ))}
           </SpeedDial>
         </Accordion>
 
@@ -1504,7 +1512,15 @@ Please sign in again.`}
             <SpeedDial
               in={a.speedDial}
             >
+              {[1, 2, 3, 4].map((item: any) => (
+                <SpeedDialItem
+                  key={item}
 
+                  label={`Item ${item}`}
+
+                  Icon={IconMaterialEditRounded}
+                />
+              ))}
             </SpeedDial>
           </Line>
         </Accordion>
@@ -1515,7 +1531,47 @@ Please sign in again.`}
 
             tooltipLabel='Edit this docu'
           >
+            {[1, 2, 3, 4].map((item: any) => (
+              <SpeedDialItem
+                key={item}
 
+                label={`Item ${item}`}
+
+                Icon={IconMaterialEditRounded}
+              />
+            ))}
+          </SpeedDial>
+        </Accordion>
+
+        <Accordion primary='SpeedDial tooltipOpen'>
+          <SpeedDial
+            tooltipOpen
+          >
+            {[1, 2, 3, 4].map((item: any) => (
+              <SpeedDialItem
+                key={item}
+
+                label={`Item ${item}`}
+
+                Icon={IconMaterialEditRounded}
+              />
+            ))}
+          </SpeedDial>
+        </Accordion>
+
+        <Accordion primary='SpeedDial closeOnClick'>
+          <SpeedDial
+            closeOnClick
+          >
+            {[1, 2, 3, 4].map((item: any) => (
+              <SpeedDialItem
+                key={item}
+
+                label={`Item ${item}`}
+
+                Icon={IconMaterialEditRounded}
+              />
+            ))}
           </SpeedDial>
         </Accordion>
       </Accordion>

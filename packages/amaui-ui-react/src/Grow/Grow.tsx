@@ -26,6 +26,7 @@ const Grow = React.forwardRef((props_: any, ref: any) => {
     exitOnAdd,
     noAbruption,
     removeOnExited,
+    delay,
     timeout: timeout_,
     timing_function,
     onTransition,
@@ -42,6 +43,7 @@ const Grow = React.forwardRef((props_: any, ref: any) => {
     onRemoved,
 
     className,
+    style,
 
     children,
 
@@ -52,7 +54,13 @@ const Grow = React.forwardRef((props_: any, ref: any) => {
     const { opacity = 1, transform = 'scale(1)' } = (refs.root.current && window.getComputedStyle(refs.root?.current)) || {};
 
     const allStyles = {
+      appended: {
+        visibility: 'hidden'
+      },
+
       add: {
+        transition: 'none',
+
         opacity: 0,
         transform: `scale(0.74)`
       },
@@ -66,6 +74,8 @@ const Grow = React.forwardRef((props_: any, ref: any) => {
       },
 
       enter: {
+        transition: 'none',
+
         opacity: 0,
         transform: `scale(0.74)`
       },
@@ -130,11 +140,13 @@ const Grow = React.forwardRef((props_: any, ref: any) => {
           style: {
             visibility: status === 'exited' && !inProp ? 'hidden' : undefined,
 
-            transition: `opacity ${timeout(status)} ${timingFunction(status)}, transform ${timeout(status, 'transform')} ${timingFunction(status)} ${status === 'exiting' ? '74ms' : '0ms'}`,
+            transition: `opacity ${timeout(status)} ${timingFunction(status)}, transform ${timeout(status, 'transform')} ${timingFunction(status)} ${delay ? `${delay}ms` : (status === 'exiting' ? '74ms' : '0ms')}`,
 
             ...styles(status),
 
             ...children?.props?.style,
+
+            ...style
           }
         });
       }}

@@ -263,5 +263,8 @@ export * from './PaginationItem';
 export { default as SpeedDial } from './SpeedDial';
 export * from './SpeedDial';
 
+export { default as SpeedDialItem } from './SpeedDialItem';
+export * from './SpeedDialItem';
+
 export { default as TablePagination } from './TablePagination';
 export * from './TablePagination';

@@ -26,6 +26,7 @@ const Fade = React.forwardRef((props_: any, ref: any) => {
     exitOnAdd,
     noAbruption,
     removeOnExited,
+    delay,
     timeout: timeout_,
     timing_function,
     onTransition,
@@ -42,6 +43,7 @@ const Fade = React.forwardRef((props_: any, ref: any) => {
     onRemoved,
 
     className,
+    style,
 
     children,
 
@@ -52,7 +54,13 @@ const Fade = React.forwardRef((props_: any, ref: any) => {
     const { opacity = 1 } = (refs.root.current && window.getComputedStyle(refs.root?.current)) || {};
 
     const allStyles = {
+      appended: {
+        visibility: 'hidden'
+      },
+
       add: {
+        transition: 'none',
+
         opacity: 0
       },
       adding: {
@@ -63,6 +71,8 @@ const Fade = React.forwardRef((props_: any, ref: any) => {
       },
 
       enter: {
+        transition: 'none',
+
         opacity: 0
       },
       entering: {
@@ -120,11 +130,13 @@ const Fade = React.forwardRef((props_: any, ref: any) => {
           style: {
             visibility: status === 'exited' && !inProp ? 'hidden' : undefined,
 
-            transition: `opacity ${timeout(status)} ${timingFunction(status)}`,
+            transition: `opacity ${timeout(status)} ${timingFunction(status)} ${delay ? `${delay}ms` : ''}`,
 
             ...styles(status),
 
             ...children?.props?.style,
+
+            ...style
           }
         });
       }}

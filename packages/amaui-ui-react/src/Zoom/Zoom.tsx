@@ -26,6 +26,7 @@ const Zoom = React.forwardRef((props_: any, ref: any) => {
     exitOnAdd,
     noAbruption,
     removeOnExited,
+    delay,
     timeout: timeout_,
     timing_function,
     onTransition,
@@ -42,6 +43,7 @@ const Zoom = React.forwardRef((props_: any, ref: any) => {
     onRemoved,
 
     className,
+    style,
 
     children,
 
@@ -52,7 +54,13 @@ const Zoom = React.forwardRef((props_: any, ref: any) => {
     const { transform = 'scale(1)' } = (refs.root.current && window.getComputedStyle(refs.root?.current)) || {};
 
     const allStyles = {
+      appended: {
+        visibility: 'hidden'
+      },
+
       add: {
+        transition: 'none',
+
         transform: `scale(0)`
       },
       adding: {
@@ -63,6 +71,8 @@ const Zoom = React.forwardRef((props_: any, ref: any) => {
       },
 
       enter: {
+        transition: 'none',
+
         transform: `scale(0)`
       },
       entering: {
@@ -120,11 +130,13 @@ const Zoom = React.forwardRef((props_: any, ref: any) => {
           style: {
             visibility: status === 'exited' && !inProp ? 'hidden' : undefined,
 
-            transition: `transform ${timeout(status)} ${timingFunction(status)}`,
+            transition: `transform ${timeout(status)} ${timingFunction(status)} ${delay ? `${delay}ms` : ''}`,
 
             ...styles(status),
 
             ...children?.props?.style,
+
+            ...style
           }
         });
       }}

@@ -47,6 +47,7 @@ const Expand = React.forwardRef((props_: any, ref: any) => {
     exitOnAdd,
     noAbruption,
     removeOnExited = true,
+    delay,
     timeout: timeout_,
     timing_function,
     onTransition,
@@ -66,6 +67,7 @@ const Expand = React.forwardRef((props_: any, ref: any) => {
     WrapperProps,
 
     className,
+    style,
 
     children,
 
@@ -86,6 +88,7 @@ const Expand = React.forwardRef((props_: any, ref: any) => {
       },
 
       add: {
+        transition: 'none',
         [prop]: 0,
         overflow: 'hidden'
       },
@@ -98,6 +101,7 @@ const Expand = React.forwardRef((props_: any, ref: any) => {
       },
 
       enter: {
+        transition: 'none',
         [prop]: 0,
         overflow: 'hidden'
       },
@@ -181,13 +185,15 @@ const Expand = React.forwardRef((props_: any, ref: any) => {
           style: {
             position: 'relative',
 
-            transition: `${prop} ${timeout(status, prop)} ${timingFunction(status)}`,
+            transition: `${prop} ${timeout(status, prop)} ${timingFunction(status)} ${delay ? `${delay}ms` : ''}`,
 
             visibility: status === 'exited' && !inProp && expandSize === undefined ? 'hidden' : undefined,
 
             ...styles(status),
 
             ...children?.props?.style,
+
+            ...style
           }
         })
       }}
