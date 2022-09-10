@@ -2,7 +2,7 @@ import React from 'react';
 
 import { countries } from '@amaui/utils';
 import { AmauiTheme, AmauiThemeProvider, classNames, style, sy, useAmauiTheme } from '@amaui/style-react';
-import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationItem, NavigationRail, NavigationDrawer, BottomSheet, BottomAppBar, TopAppBar, useScroll, Card, CardImage, CardMain, CardHeader, CardButton, CardFooter, Table, TableHead, TableRow, TableCell, TableHeader, TableFooter, TableBody, SkeletonLoader, Snackbar, useSnackbars, Pagination, TablePagination } from '@amaui/ui-react';
+import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationItem, NavigationRail, NavigationDrawer, BottomSheet, BottomAppBar, TopAppBar, useScroll, Card, CardImage, CardMain, CardHeader, CardButton, CardFooter, Table, TableHead, TableRow, TableCell, TableHeader, TableFooter, TableBody, SkeletonLoader, Snackbar, useSnackbars, Pagination, TablePagination, SpeedDial } from '@amaui/ui-react';
 
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
@@ -30,6 +30,7 @@ import IconMaterialHomeRounded from '@amaui/icons-material-react/build/IconMater
 import IconMaterialHomeRoundedFilled from '@amaui/icons-material-react/build/IconMaterialHomeRoundedFilled';
 import IconMaterialMenuRounded from '@amaui/icons-material-react/build/IconMaterialMenuRounded';
 import IconMaterialMoreVertRounded from '@amaui/icons-material-react/build/IconMaterialMoreVertRounded';
+import IconMaterialEditRounded from '@amaui/icons-material-react/build/IconMaterialEditRounded';
 
 const useStyleA = style(theme => ({
   a: {
@@ -213,6 +214,13 @@ const useStyle = style(theme => ({
 }), { name: 'App' });
 
 const styled = {
+  SpeedDial: sy(SpeedDial)((theme: AmauiTheme) => ({
+    root: {
+      '&:hover': {
+        opacity: 0.4
+      }
+    }
+  })),
   Pagination: sy(Pagination)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
@@ -1480,6 +1488,36 @@ Please sign in again.`}
 
           <IconMaterialPottedPlantRounded color='secondary' />
         </Line>
+      </Accordion>
+
+      <Accordion primary='SpeedDial'>
+        <Accordion primary='SpeedDial'>
+          <SpeedDial>
+
+          </SpeedDial>
+        </Accordion>
+
+        <Accordion primary='SpeedDial in'>
+          <Line>
+            <Button size='small' color='secondary' className={classes.btn} onClick={() => update('speedDial')}>a</Button>
+
+            <SpeedDial
+              in={a.speedDial}
+            >
+
+            </SpeedDial>
+          </Line>
+        </Accordion>
+
+        <Accordion primary='SpeedDial IconOpen'>
+          <SpeedDial
+            IconOpen={IconMaterialEditRounded}
+
+            tooltipLabel='Edit this docu'
+          >
+
+          </SpeedDial>
+        </Accordion>
       </Accordion>
 
       <Accordion primary='Pagination'>

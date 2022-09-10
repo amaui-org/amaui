@@ -20,8 +20,6 @@ const useStyle = style(theme => ({
   root: {
     position: 'fixed',
     zIndex: theme.z_index.modal,
-
-
   },
 
   position_top: {

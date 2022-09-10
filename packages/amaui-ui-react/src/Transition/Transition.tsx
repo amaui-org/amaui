@@ -208,7 +208,9 @@ function Transition(props_: IProps) {
       }
 
       // Added
-      if (inProp && (!refs.root.current || (refs.root.current && refs.root.current.className.indexOf('removed') > -1))) {
+      const classNameValue = (refs.root.current?.className as unknown as SVGAnimatedString)?.baseVal || refs.root.current?.className;
+
+      if (inProp && (!refs.root.current || (classNameValue?.indexOf('removed') > -1))) {
         // We add the element and get the ref value
         // for update below to use it for enter
         update('appended');
