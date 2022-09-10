@@ -1505,6 +1505,210 @@ Please sign in again.`}
           </SpeedDial>
         </Accordion>
 
+        <Accordion primary='SpeedDial position, alignments & direction'>
+          <Line>
+            <Accordion primary='SpeedDial top, start, bottom'>
+              <SpeedDial
+                position='top'
+
+                alignment='start'
+
+                direction='bottom'
+              >
+                {[1, 2, 3, 4].map((item: any) => (
+                  <SpeedDialItem
+                    key={item}
+
+                    label={`Item ${item}`}
+
+                    Icon={IconMaterialEditRounded}
+                  />
+                ))}
+              </SpeedDial>
+            </Accordion>
+
+            <Accordion primary='SpeedDial top, start, right'>
+              <SpeedDial
+                position='top'
+
+                alignment='start'
+
+                direction='right'
+              >
+                {[1, 2, 3, 4].map((item: any) => (
+                  <SpeedDialItem
+                    key={item}
+
+                    label={`Item ${item}`}
+
+                    Icon={IconMaterialEditRounded}
+                  />
+                ))}
+              </SpeedDial>
+            </Accordion>
+
+            <Accordion primary='SpeedDial top, center, bottom'>
+              <SpeedDial
+                position='top'
+
+                alignment='center'
+
+                direction='bottom'
+              >
+                {[1, 2, 3, 4].map((item: any) => (
+                  <SpeedDialItem
+                    key={item}
+
+                    label={`Item ${item}`}
+
+                    Icon={IconMaterialEditRounded}
+                  />
+                ))}
+              </SpeedDial>
+            </Accordion>
+
+            <Accordion primary='SpeedDial top, end, bottom'>
+              <SpeedDial
+                position='top'
+
+                alignment='end'
+
+                direction='bottom'
+              >
+                {[1, 2, 3, 4].map((item: any) => (
+                  <SpeedDialItem
+                    key={item}
+
+                    label={`Item ${item}`}
+
+                    Icon={IconMaterialEditRounded}
+                  />
+                ))}
+              </SpeedDial>
+            </Accordion>
+
+            <Accordion primary='SpeedDial top, end, left'>
+              <SpeedDial
+                position='top'
+
+                alignment='end'
+
+                direction='left'
+              >
+                {[1, 2, 3, 4].map((item: any) => (
+                  <SpeedDialItem
+                    key={item}
+
+                    label={`Item ${item}`}
+
+                    Icon={IconMaterialEditRounded}
+                  />
+                ))}
+              </SpeedDial>
+            </Accordion>
+
+            <Accordion primary='SpeedDial bottom, start, top'>
+              <SpeedDial
+                position='bottom'
+
+                alignment='start'
+
+                direction='top'
+              >
+                {[1, 2, 3, 4].map((item: any) => (
+                  <SpeedDialItem
+                    key={item}
+
+                    label={`Item ${item}`}
+
+                    Icon={IconMaterialEditRounded}
+                  />
+                ))}
+              </SpeedDial>
+            </Accordion>
+
+            <Accordion primary='SpeedDial bottom, start, right'>
+              <SpeedDial
+                position='bottom'
+
+                alignment='start'
+
+                direction='right'
+              >
+                {[1, 2, 3, 4].map((item: any) => (
+                  <SpeedDialItem
+                    key={item}
+
+                    label={`Item ${item}`}
+
+                    Icon={IconMaterialEditRounded}
+                  />
+                ))}
+              </SpeedDial>
+            </Accordion>
+
+            <Accordion primary='SpeedDial bottom, center, top'>
+              <SpeedDial
+                position='bottom'
+
+                alignment='center'
+
+                direction='top'
+              >
+                {[1, 2, 3, 4].map((item: any) => (
+                  <SpeedDialItem
+                    key={item}
+
+                    label={`Item ${item}`}
+
+                    Icon={IconMaterialEditRounded}
+                  />
+                ))}
+              </SpeedDial>
+            </Accordion>
+
+            <Accordion primary='SpeedDial bottom, end, top'>
+              <SpeedDial
+                position='bottom'
+
+                alignment='end'
+
+                direction='top'
+              >
+                {[1, 2, 3, 4].map((item: any) => (
+                  <SpeedDialItem
+                    key={item}
+
+                    label={`Item ${item}`}
+
+                    Icon={IconMaterialEditRounded}
+                  />
+                ))}
+              </SpeedDial>
+            </Accordion>
+
+            <Accordion primary='SpeedDial bottom, end, left'>
+              <SpeedDial
+                position='bottom'
+
+                alignment='end'
+
+                direction='left'
+              >
+                {[1, 2, 3, 4].map((item: any) => (
+                  <SpeedDialItem
+                    key={item}
+
+                    label={`Item ${item}`}
+
+                    Icon={IconMaterialEditRounded}
+                  />
+                ))}
+              </SpeedDial>
+            </Accordion>
+          </Line>
+        </Accordion>
+
         <Accordion primary='SpeedDial in'>
           <Line>
             <Button size='small' color='secondary' className={classes.btn} onClick={() => update('speedDial')}>a</Button>

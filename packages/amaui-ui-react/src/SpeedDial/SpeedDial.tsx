@@ -8,9 +8,9 @@ import Fade from '../Fade';
 import Fab from '../Fab';
 import Icon from '../Icon';
 import Tooltip from '../Tooltip';
+import Line from '../Line';
 
 import { staticClassName } from '../utils';
-import Line from '../Line';
 
 const useStyle = style(theme => ({
   root: {
@@ -56,11 +56,11 @@ const useStyle = style(theme => ({
     pointerEvents: 'none'
   },
 
-  items_direction_row: {
+  items_position_row: {
     paddingInline: '16px'
   },
 
-  items_direction_column: {
+  items_position_column: {
     paddingBlock: '16px'
   },
 
@@ -127,10 +127,6 @@ const IconWrapper = (props: any) => {
     </span>
   )
 };
-
-// To do
-
-// keyboard arrow up and down
 
 const SpeedDial = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
@@ -250,7 +246,7 @@ const SpeedDial = React.forwardRef((props_: any, ref: any) => {
   }, [disabled]);
 
   const onMouseLeave = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
-    if (!disabled && (event.target.contains(refs.fab.current) || event.target.contains(refs.line.current))) {
+    if (!disabled) {
       setHover(false);
     }
   }, [disabled]);
@@ -267,15 +263,96 @@ const SpeedDial = React.forwardRef((props_: any, ref: any) => {
     }
   }, [disabled]);
 
-  if (alignment === 'right' || alignment === 'end') TooltipProps.position = 'left';
+  let lineDirection = 'row';
+  let lineItemsDirection = 'row-reverse';
 
-  if (alignment === 'left' || alignment === 'end') TooltipProps.position = 'right';
+  let directionToUse = direction;
 
-  const LineProps = {
-    direction: 'row'
-  };
+  if (position === 'top') {
+    lineDirection = 'column-reverse';
+    lineItemsDirection = 'column';
 
-  if (['top', 'bottom'].includes(direction)) LineProps.direction = 'column';
+    if (alignment === 'left' || (alignment === 'start' && theme.direction === 'ltr') || (alignment === 'end' && theme.direction === 'rtl')) {
+      if (!['bottom', 'right'].includes(direction)) directionToUse = 'bottom';
+
+      if (directionToUse === 'bottom') {
+        TooltipProps.position = 'right';
+      }
+
+      if (directionToUse === 'right') {
+        TooltipProps.position = 'bottom';
+        lineDirection = 'row-reverse';
+        lineItemsDirection = 'row';
+      }
+    }
+
+    if (alignment === 'center') {
+      if (!['bottom'].includes(direction)) directionToUse = 'bottom';
+
+      if (directionToUse === 'bottom') {
+        TooltipProps.position = 'left';
+      }
+    }
+
+    if (alignment === 'right' || (alignment === 'end' && theme.direction === 'ltr') || (alignment === 'start' && theme.direction === 'rtl')) {
+      if (!['bottom', 'left'].includes(direction)) directionToUse = 'bottom';
+
+      if (directionToUse === 'bottom') {
+        TooltipProps.position = 'left';
+      }
+
+      if (directionToUse === 'left') {
+        TooltipProps.position = 'bottom';
+        lineDirection = 'row';
+        lineItemsDirection = 'row-reverse';
+      }
+    }
+  }
+
+  if (position === 'bottom') {
+    lineDirection = 'column';
+    lineItemsDirection = 'column-reverse';
+
+    if (alignment === 'left' || (alignment === 'start' && theme.direction === 'ltr') || (alignment === 'end' && theme.direction === 'rtl')) {
+      if (!['top', 'right'].includes(direction)) directionToUse = 'top';
+
+      if (directionToUse === 'top') {
+        TooltipProps.position = 'right';
+      }
+
+      if (directionToUse === 'right') {
+        TooltipProps.position = 'top';
+        lineDirection = 'row-reverse';
+        lineItemsDirection = 'row';
+      }
+    }
+
+    if (alignment === 'center') {
+      if (!['top'].includes(direction)) directionToUse = 'top';
+
+      if (directionToUse === 'top') {
+        TooltipProps.position = 'left';
+      }
+    }
+
+    if (alignment === 'right' || (alignment === 'end' && theme.direction === 'ltr') || (alignment === 'start' && theme.direction === 'rtl')) {
+      if (!['top', 'left'].includes(direction)) directionToUse = 'top';
+
+      if (directionToUse === 'top') {
+        TooltipProps.position = 'left';
+      }
+
+      if (directionToUse === 'left') {
+        TooltipProps.position = 'top';
+        lineDirection = 'row';
+        lineItemsDirection = 'row-reverse';
+      }
+    }
+  }
+
+  let linePosition = 'row';
+
+  if (['top', 'bottom'].includes(direction)) linePosition = 'column';
 
   if (!tooltipLabel) TooltipProps.open = false;
 
@@ -284,6 +361,8 @@ const SpeedDial = React.forwardRef((props_: any, ref: any) => {
       ref={ref}
 
       gap={0}
+
+      direction={lineDirection}
 
       align='center'
 
@@ -307,8 +386,6 @@ const SpeedDial = React.forwardRef((props_: any, ref: any) => {
         disabled && classes.disabled
       ])}
 
-      {...LineProps}
-
       {...other}
     >
       <Line
@@ -316,7 +393,7 @@ const SpeedDial = React.forwardRef((props_: any, ref: any) => {
 
         gap={1}
 
-        direction={`${LineProps.direction}-reverse`}
+        direction={lineItemsDirection}
 
         onMouseEnter={onMouseEnter}
 
@@ -328,7 +405,7 @@ const SpeedDial = React.forwardRef((props_: any, ref: any) => {
           ],
 
           classes.items,
-          classes[`items_direction_${LineProps.direction}`],
+          classes[`items_position_${linePosition}`],
           open && classes.items_open
         ])}
       >
@@ -356,6 +433,7 @@ const SpeedDial = React.forwardRef((props_: any, ref: any) => {
               version,
               alignment,
 
+              TooltipProps: { ...TooltipProps },
               tooltipOpen,
 
               onClick: (event: React.MouseEvent<any>) => {

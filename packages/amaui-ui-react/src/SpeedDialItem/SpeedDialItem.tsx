@@ -28,6 +28,11 @@ const SpeedDialItem = React.forwardRef((props_: any, ref: any) => {
     tooltipOpen,
     closeOnClick,
 
+    TooltipProps = {
+      alignment: 'center',
+      disableInteractive: true
+    },
+
     className,
 
     children,
@@ -35,18 +40,7 @@ const SpeedDialItem = React.forwardRef((props_: any, ref: any) => {
     ...other
   } = props;
 
-  const TooltipProps: any = {
-    alignment: 'center',
-    disableInteractive: true
-  };
-
-  if (alignment === 'right' || alignment === 'end') TooltipProps.position = 'left';
-
-  if (alignment === 'left' || alignment === 'end') TooltipProps.position = 'right';
-
-  if (alignment === 'top') TooltipProps.position = 'bottom';
-
-  if (alignment === 'bottom') TooltipProps.position = 'top';
+  delete TooltipProps.open;
 
   if (tooltipOpen) TooltipProps.open = true;
 
