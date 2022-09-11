@@ -886,6 +886,18 @@ function App() {
 
       <Accordion primary='All'>
         <Line>
+          <SpeedDial>
+            {[1, 2, 3, 4].map((item: any) => (
+              <SpeedDialItem
+                key={item}
+
+                label={`Item ${item}`}
+
+                Icon={IconMaterialEditRounded}
+              />
+            ))}
+          </SpeedDial>
+
           <Pagination
             total={11}
 

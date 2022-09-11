@@ -233,7 +233,7 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
 
         if (valueNew !== valuePrevious) {
           // Inner controlled value
-          if (props.hasOwnProperty('value')) setValue(valueNew);
+          if (!props.hasOwnProperty('value')) setValue(valueNew);
 
           if (is('function', onChange)) onChange(valueNew);
         }
@@ -282,7 +282,7 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
 
       if (value === valueNew) onClear();
       else {
-        if (props.hasOwnProperty('value')) setValue(valueNew);
+        if (!props.hasOwnProperty('value')) setValue(valueNew);
 
         if (is('function', onChange)) onChange(valueNew);
       }
@@ -305,14 +305,14 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
     const valueNew = value__;
 
     if (valueNew !== refs.value.current) {
-      if (props.hasOwnProperty('value')) setValue(valueNew);
+      if (!props.hasOwnProperty('value')) setValue(valueNew);
 
       if (is('function', onChange)) onChange(valueNew);
     }
   };
 
   const onClear = () => {
-    if (props.hasOwnProperty('value')) setValue(undefined);
+    if (!props.hasOwnProperty('value')) setValue(undefined);
 
     if (is('function', onChange)) onChange(undefined);
 
@@ -327,14 +327,14 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
 
         switch (event.key) {
           case 'End':
-            if (props.hasOwnProperty('value')) setValue(0);
+            if (!props.hasOwnProperty('value')) setValue(0);
 
             if (is('function', onChange)) return onChange(0);
 
             return;
 
           case 'Home':
-            if (props.hasOwnProperty('value')) setValue(values);
+            if (!props.hasOwnProperty('value')) setValue(values);
 
             if (is('function', onChange)) return onChange(values);
 
@@ -350,7 +350,7 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
 
           case 'Enter':
             if (value === valueActive) {
-              if (props.hasOwnProperty('value')) setValue(undefined);
+              if (!props.hasOwnProperty('value')) setValue(undefined);
 
               if (is('function', onChange)) onChange(undefined);
             }
@@ -358,7 +358,7 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
             return;
 
           case 'Escape':
-            if (props.hasOwnProperty('value')) setValue(undefined);
+            if (!props.hasOwnProperty('value')) setValue(undefined);
 
             if (is('function', onChange)) onChange(undefined);
 

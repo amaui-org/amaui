@@ -578,7 +578,7 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
 
         if (!equalDeep(valueNew, refs.value.current)) {
           // Inner controlled value
-          if (props.hasOwnProperty('value')) setValue(valueNew);
+          if (!props.hasOwnProperty('value')) setValue(valueNew);
 
           if (is('function', onChange)) onChange(valueNew);
         }
@@ -635,7 +635,7 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
 
       if (!equalDeep(valueNew, refs.value.current)) {
         // Inner controlled value
-        if (props.hasOwnProperty('value')) setValue(valueNew);
+        if (!props.hasOwnProperty('value')) setValue(valueNew);
 
         if (is('function', onChange)) onChange(valueNew);
       }
@@ -696,7 +696,7 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
     else valueNew = value__;
 
     if (!equalDeep(valueNew, refs.value.current)) {
-      if (props.hasOwnProperty('value')) setValue(valueNew);
+      if (!props.hasOwnProperty('value')) setValue(valueNew);
 
       if (is('function', onChange)) onChange(valueNew);
     }
@@ -718,7 +718,7 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
               valueNew[0] = min;
             } else valueNew = min;
 
-            if (props.hasOwnProperty('value')) setValue(valueNew);
+            if (!props.hasOwnProperty('value')) setValue(valueNew);
 
             if (is('function', onChange)) return onChange(valueNew);
 
@@ -731,7 +731,7 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
               valueNew[valueNew.length - 1] = max;
             } else valueNew = max;
 
-            if (props.hasOwnProperty('value')) setValue(valueNew);
+            if (!props.hasOwnProperty('value')) setValue(valueNew);
 
             if (is('function', onChange)) return onChange(valueNew);
 
