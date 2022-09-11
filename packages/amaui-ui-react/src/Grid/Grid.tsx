@@ -6,7 +6,7 @@ import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 import useMediaQuery from '../useMediaQuery';
 import Line from '../Line';
 
-import { staticClassName } from '../utils';
+import { staticClassName, valueBreakpoints } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
@@ -93,20 +93,19 @@ const Grid = React.forwardRef((props_: any, ref: any) => {
   const { classes } = useStyle(props);
 
   const {
-    Component: Component_ = 'div',
-
     auto,
     line,
     wrap = 'wrap',
-    direction: direction_ = 'row',
     columns = 10,
-    gap: gap_ = 2,
+    gap: gap_,
     rowGap: rowGap_,
     columnGap: columnGap_,
+    direction: direction_,
     offsets,
     values,
 
     RootProps = {},
+    Component: Component_ = 'div',
 
     style,
     className,
@@ -116,23 +115,10 @@ const Grid = React.forwardRef((props_: any, ref: any) => {
     ...other
   } = props;
 
-  // Media query value or value
-  const value = (item: any, value_?: any) => {
-    if (is('object', item)) {
-      for (const breakpoint of Object.keys(breakpoints)) {
-        if (breakpoints[breakpoint] && item?.[breakpoint] !== undefined) return item[breakpoint];
-      }
-
-      if (item?.default !== undefined) return item?.default;
-    }
-
-    return value_;
-  };
-
-  const gap = is('simple', gap_) ? gap_ : value(gap_, 2);
-  const rowGap = is('simple', rowGap_) ? rowGap_ : value(rowGap_);
-  const columnGap = is('simple', columnGap_) ? columnGap_ : value(columnGap_);
-  const direction = is('simple', direction_) ? direction_ : value(direction_, 'row');
+  const gap = valueBreakpoints(gap_, 2, breakpoints, theme);
+  const rowGap = valueBreakpoints(rowGap_, undefined, breakpoints, theme);
+  const columnGap = valueBreakpoints(columnGap_, undefined, breakpoints, theme);
+  const direction = valueBreakpoints(direction_, 'row', breakpoints, theme);
 
   const styles: any = {
     root: {},
@@ -141,11 +127,14 @@ const Grid = React.forwardRef((props_: any, ref: any) => {
 
   const valuesGaps = [0, 0.5, 1, 2, 3, 4, 8, 12, 16];
 
-  if (!valuesGaps.includes(gap)) styles.root.gap = is('string', gap) ? gap : `${gap * theme.space.unit}px`;
+  if (rowGap !== undefined || columnGap !== undefined) {
+    if (!valuesGaps.includes(rowGap)) styles.root.rowGap = is('string', rowGap) ? rowGap : `${rowGap * theme.space.unit}px`;
 
-  if (!valuesGaps.includes(rowGap)) styles.root.rowGap = is('string', rowGap) ? rowGap : `${rowGap * theme.space.unit}px`;
-
-  if (!valuesGaps.includes(columnGap)) styles.root.columnGap = is('string', columnGap) ? columnGap : `${columnGap * theme.space.unit}px`;
+    if (!valuesGaps.includes(columnGap)) styles.root.columnGap = is('string', columnGap) ? columnGap : `${columnGap * theme.space.unit}px`;
+  }
+  else {
+    if (!valuesGaps.includes(gap)) styles.root.gap = is('string', gap) ? gap : `${gap * theme.space.unit}px`;
+  }
 
   let Component = Component_;
 

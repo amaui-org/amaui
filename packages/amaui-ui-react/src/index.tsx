@@ -268,3 +268,12 @@ export * from './SpeedDialItem';
 
 export { default as TablePagination } from './TablePagination';
 export * from './TablePagination';
+
+export { default as ImageList } from './ImageList';
+export * from './ImageList';
+
+export { default as ImageListItem } from './ImageListItem';
+export * from './ImageListItem';
+
+export { default as ImageListItemBox } from './ImageListItemBox';
+export * from './ImageListItemBox';

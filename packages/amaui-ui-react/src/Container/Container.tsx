@@ -5,7 +5,7 @@ import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import useMediaQuery from '../useMediaQuery';
 
-import { staticClassName } from '../utils';
+import { staticClassName, valueBreakpoints } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
@@ -97,13 +97,13 @@ const Container = React.forwardRef((props_: any, ref: any) => {
   const { classes } = useStyle(props);
 
   const {
-    Component = 'div',
-
-    alignment: alignment_ = 'center',
-    paddingVertical: paddingVertical_ = 'none',
-    paddingHorizontal: paddingHorizontal_ = 'both',
+    alignment: alignment_,
+    paddingVertical: paddingVertical_,
+    paddingHorizontal: paddingHorizontal_,
     fullWidth: fullWidth_,
     maxWidth: maxWidth_,
+
+    Component = 'div',
 
     style,
     className,
@@ -113,24 +113,11 @@ const Container = React.forwardRef((props_: any, ref: any) => {
     ...other
   } = props;
 
-  // Media query value or value
-  const value = (item: any, value_?: any) => {
-    if (is('object', item)) {
-      for (const breakpoint of theme.breakpoints.keys) {
-        if (breakpoints[breakpoint] && item?.[breakpoint] !== undefined) return item[breakpoint];
-      }
-
-      if (item?.default !== undefined) return item?.default;
-    }
-
-    return value_;
-  };
-
-  const alignment = is('simple', alignment_) ? alignment_ : value(alignment_, 'center');
-  const paddingVertical = is('simple', paddingVertical_) ? paddingVertical_ : value(paddingVertical_, 'none');
-  const paddingHorizontal = is('simple', paddingHorizontal_) ? paddingHorizontal_ : value(paddingHorizontal_, 'both');
-  const fullWidth = is('simple', fullWidth_) ? fullWidth_ : value(fullWidth_);
-  const maxWidth = is('simple', maxWidth_) ? maxWidth_ : value(maxWidth_);
+  const alignment = valueBreakpoints(alignment_, 'center', breakpoints, theme);
+  const paddingVertical = valueBreakpoints(paddingVertical_, 'none', breakpoints, theme);
+  const paddingHorizontal = valueBreakpoints(paddingHorizontal_, 'both', breakpoints, theme);
+  const fullWidth = valueBreakpoints(fullWidth_, undefined, breakpoints, theme);
+  const maxWidth = valueBreakpoints(maxWidth_, undefined, breakpoints, theme);
 
   const styles: any = {
     root: {}

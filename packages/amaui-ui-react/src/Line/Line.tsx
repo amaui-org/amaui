@@ -6,7 +6,7 @@ import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 import Divider from '../Divider';
 import useMediaQuery from '../useMediaQuery';
 
-import { staticClassName } from '../utils';
+import { staticClassName, valueBreakpoints } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
@@ -134,48 +134,34 @@ const Line = React.forwardRef((props_: any, ref: any) => {
   const { classes } = useStyle(props);
 
   const {
-    Component = 'div',
-
-    align: align_ = 'flex-start',
-    justify: justify_ = 'flex-start',
-    direction: direction_ = 'column',
-    gap: gap_ = 2,
+    align: align_,
+    justify: justify_,
+    direction: direction_,
+    gap: gap_,
     rowGap: rowGap_,
     columnGap: columnGap_,
     divider: divider_,
     wrap: wrap_,
 
     DividerProps = {},
+    Component = 'div',
 
-    style,
     className,
+    style,
 
     children: children_,
 
     ...other
   } = props;
 
-  // Media query value or value
-  const value = (item: any, value_?: any) => {
-    if (is('object', item)) {
-      for (const breakpoint of theme.breakpoints.keys) {
-        if (breakpoints[breakpoint] && item?.[breakpoint] !== undefined) return item[breakpoint];
-      }
-
-      if (item?.default !== undefined) return item?.default;
-    }
-
-    return value_;
-  };
-
-  const align = is('simple', align_) ? align_ : value(align_, 'flex-start');
-  const justify = is('simple', justify_) ? justify_ : value(justify_, 'flex-start');
-  const direction = is('simple', direction_) ? direction_ : value(direction_, 'column');
-  const gap = is('simple', gap_) ? gap_ : value(gap_, 2);
-  const rowGap = is('simple', rowGap_) ? rowGap_ : value(rowGap_);
-  const columnGap = is('simple', columnGap_) ? columnGap_ : value(columnGap_);
-  const divider = is('simple', divider_) ? divider_ : value(divider_);
-  const wrap = is('simple', wrap_) ? wrap_ : value(wrap_);
+  const align = valueBreakpoints(align_, 'flex-start', breakpoints, theme);
+  const justify = valueBreakpoints(justify_, 'flex-start', breakpoints, theme);
+  const direction = valueBreakpoints(direction_, 'column', breakpoints, theme);
+  const gap = valueBreakpoints(gap_, 2, breakpoints, theme);
+  const rowGap = valueBreakpoints(rowGap_, undefined, breakpoints, theme);
+  const columnGap = valueBreakpoints(columnGap_, undefined, breakpoints, theme);
+  const divider = valueBreakpoints(divider_, undefined, breakpoints, theme);
+  const wrap = valueBreakpoints(wrap_, undefined, breakpoints, theme);
 
   const styles: any = {
     root: {},
@@ -184,11 +170,14 @@ const Line = React.forwardRef((props_: any, ref: any) => {
 
   const valuesGaps = [0, 0.5, 1, 2, 3, 4, 8, 12, 16];
 
-  if (!valuesGaps.includes(gap)) styles.root.gap = is('string', gap) ? gap : `${gap * theme.space.unit}px`;
+  if (rowGap !== undefined || columnGap !== undefined) {
+    if (!valuesGaps.includes(rowGap)) styles.root.rowGap = is('string', rowGap) ? rowGap : `${rowGap * theme.space.unit}px`;
 
-  if (!valuesGaps.includes(rowGap)) styles.root.rowGap = is('string', rowGap) ? rowGap : `${rowGap * theme.space.unit}px`;
-
-  if (!valuesGaps.includes(columnGap)) styles.root.columnGap = is('string', columnGap) ? columnGap : `${columnGap * theme.space.unit}px`;
+    if (!valuesGaps.includes(columnGap)) styles.root.columnGap = is('string', columnGap) ? columnGap : `${columnGap * theme.space.unit}px`;
+  }
+  else {
+    if (!valuesGaps.includes(gap)) styles.root.gap = is('string', gap) ? gap : `${gap * theme.space.unit}px`;
+  }
 
   const children = React.Children.toArray(children_);
 

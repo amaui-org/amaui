@@ -1,12 +1,14 @@
 import React from 'react';
 
+import { is } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import { staticClassName } from '../utils';
-import { is } from '@amaui/utils';
 
 const useStyle = style(theme => ({
-  root: {},
+  root: {
+
+  },
 
   // Color
   version_filled_color_themed: {
@@ -700,12 +702,14 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
 
   const {
     tonal,
-    color = props.tonal ? 'neutral' : 'default',
+    color: color_ = props.tonal ? 'neutral' : 'default',
     version = 'filled',
     elevation = 0,
+    backgroundOpacity,
+    noOutline,
+
     Component = 'div',
     AdditionalProps,
-    noOutline,
 
     className,
     style,
@@ -719,28 +723,30 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
     root: {}
   };
 
+  let color = color_;
+
   if (!theme.palette.color[color] && !['themed', 'inverse', 'default', 'inherit'].includes(color)) {
     const palette = theme.methods.color(color);
 
     if (tonal) {
-      styles.root.color = theme.methods.palette.color.value(undefined, 10, true, palette);
+      styles.root.color = theme.methods.palette.color.value(color, 10, true, palette);
 
-      if (version === 'filled') styles.root.background = theme.methods.palette.color.value(undefined, tonal === 'secondary' ? 80 : 95, true, palette);
+      if (version === 'filled') styles.root.background = theme.methods.palette.color.value(color, tonal === 'secondary' ? 80 : 95, true, palette);
 
       if (version === 'outlined') {
-        styles.root.color = theme.methods.palette.color.value(undefined, tonal === 'secondary' ? 10 : 5, true, palette);
-        styles.root.background = theme.methods.palette.color.value(undefined, tonal === 'secondary' ? 95 : 99, true, palette);
-        styles.root.outlineColor = theme.methods.palette.color.value(undefined, tonal === 'secondary' ? 20 : 10, true, palette);
+        styles.root.color = theme.methods.palette.color.value(color, tonal === 'secondary' ? 10 : 5, true, palette);
+        styles.root.background = theme.methods.palette.color.value(color, tonal === 'secondary' ? 95 : 99, true, palette);
+        styles.root.outlineColor = theme.methods.palette.color.value(color, tonal === 'secondary' ? 20 : 10, true, palette);
       }
 
       if (version === 'outlined-without-background') {
-        styles.root.color = theme.methods.palette.color.value(undefined, tonal === 'secondary' ? 40 : 50, true, palette);
-        styles.root.outlineColor = theme.methods.palette.color.value(undefined, tonal === 'secondary' ? 20 : 30, true, palette);
+        styles.root.color = theme.methods.palette.color.value(color, tonal === 'secondary' ? 40 : 50, true, palette);
+        styles.root.outlineColor = theme.methods.palette.color.value(color, tonal === 'secondary' ? 20 : 30, true, palette);
 
         delete styles.root.background;
       }
 
-      if (version === 'text') styles.root.color = theme.methods.palette.color.value(undefined, tonal === 'secondary' ? 30 : 40, true, palette);
+      if (version === 'text') styles.root.color = theme.methods.palette.color.value(color, tonal === 'secondary' ? 30 : 40, true, palette);
     }
     else {
       styles.root.color = theme.methods.palette.color.text(palette.main, true);
@@ -756,6 +762,28 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
 
       if (version === 'text') styles.root.color = palette.main;
     }
+  }
+
+  if (backgroundOpacity !== undefined) {
+    if (color === 'themed') color = theme.palette.light ? theme.palette.background.default.primary : theme.palette.background.default.quaternary;
+    if (color === 'inverse') color = theme.palette.light ? theme.palette.background.dark.primary : theme.palette.background.light.primary;
+    if (color === 'default') color = theme.palette.background.default.primary;
+    if (color === 'inherit') color = theme.palette.background.default.primary;
+
+    const palette = theme.methods.color(color);
+
+    if (tonal) {
+      if (version === 'filled') styles.root.background = theme.methods.palette.color.value(color, tonal === 'secondary' ? 80 : 95, true, palette);
+
+      if (version === 'outlined') {
+        styles.root.background = theme.methods.palette.color.value(color, tonal === 'secondary' ? 95 : 99, true, palette);
+      }
+    }
+    else {
+      if (['outlined', 'filled'].includes(version)) styles.root.background = palette.main;
+    }
+
+    if (styles.root.background) styles.root.background = theme.methods.palette.color.colorToRgb(styles.root.background, backgroundOpacity);
   }
 
   return (
