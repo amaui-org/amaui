@@ -75,7 +75,7 @@ npm manifest:
       "react": "^18.1.0"
     },
     "dependencies": {
-      "@amaui/style": "^1.0.14277",
+      "@amaui/style": "^1.0.14301",
       "@amaui/utils": "^1.0.11411"
     },
     "publishConfig": {
@@ -211,10 +211,10 @@ Lockfile:
       fast-glob "^3.2.11"
       fs-extra "^10.1.0"
   
-  "@amaui/style@^1.0.14277":
-    version "1.0.14277"
-    resolved "https://registry.yarnpkg.com/@amaui/style/-/style-1.0.14277.tgz#f3d8d1932cb7864c7645bfd973dea409a49d3756"
-    integrity sha512-Hz5iSmaw8yLaoUjqiRh80BPkB/n+Uv9S23DbUAxblM7Kwxb8pWGqr6jYE9neJ2R2Ydxc2UWgyZSisprjH4+44w==
+  "@amaui/style@^1.0.14301":
+    version "1.0.14301"
+    resolved "https://registry.yarnpkg.com/@amaui/style/-/style-1.0.14301.tgz#e8086d84132753b136567b97d46b568c531a5366"
+    integrity sha512-xlzOYbFgh/w1IzWhQI5KZxUaIjcj9IfK/KfW+eDMXHLj1lhI8ENfAk/zl7pWxxAcGju/iL9hiL1D0rpQaONoLg==
     dependencies:
       "@amaui/meta" "^1.0.11141"
       "@amaui/node" "^1.0.11117"
