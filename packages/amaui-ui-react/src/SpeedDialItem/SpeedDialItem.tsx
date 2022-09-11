@@ -9,7 +9,19 @@ import { staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
-    position: 'relative'
+    position: 'relative',
+
+    '& .AmauiButton-root': {
+      boxShadow: theme.shadows.values.default[6],
+
+      '&:hover': {
+        boxShadow: theme.shadows.values.default[8]
+      },
+
+      '&.AmauiButton-focus': {
+        boxShadow: theme.shadows.values.default[8]
+      }
+    }
   },
 }), { name: 'AmauiSpeedDialItem' });
 
@@ -27,6 +39,10 @@ const SpeedDialItem = React.forwardRef((props_: any, ref: any) => {
     alignment = 'top',
     tooltipOpen,
     closeOnClick,
+    buttonRef,
+
+    onBlur,
+    onFocus,
 
     TooltipProps = {
       alignment: 'center',
@@ -46,6 +62,8 @@ const SpeedDialItem = React.forwardRef((props_: any, ref: any) => {
 
   return (
     <div
+      ref={ref}
+
       className={classNames([
         staticClassName('SpeedDialItem', theme) && [
           `AmauiSpeedDialItem-root`
@@ -65,6 +83,9 @@ const SpeedDialItem = React.forwardRef((props_: any, ref: any) => {
         {...TooltipProps}
       >
         <IconButton
+          onBlur={onBlur}
+          onFocus={onFocus}
+
           {...other}
         >
           <Icon />

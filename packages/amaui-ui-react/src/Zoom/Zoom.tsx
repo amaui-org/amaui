@@ -29,6 +29,7 @@ const Zoom = React.forwardRef((props_: any, ref: any) => {
     delay,
     timeout: timeout_,
     timing_function,
+    addTransition,
     onTransition,
     onAppended,
     onAdd,
@@ -130,7 +131,7 @@ const Zoom = React.forwardRef((props_: any, ref: any) => {
           style: {
             visibility: status === 'exited' && !inProp ? 'hidden' : undefined,
 
-            transition: `transform ${timeout(status)} ${timingFunction(status)} ${delay ? `${delay}ms` : ''}`,
+            transition: `transform ${timeout(status)} ${timingFunction(status)} ${delay ? `${delay}ms` : ''}${addTransition ? `, ${addTransition}` : ''}`,
 
             ...styles(status),
 

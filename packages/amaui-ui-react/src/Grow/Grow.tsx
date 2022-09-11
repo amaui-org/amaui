@@ -29,6 +29,7 @@ const Grow = React.forwardRef((props_: any, ref: any) => {
     delay,
     timeout: timeout_,
     timing_function,
+    addTransition,
     onTransition,
     onAppended,
     onAdd,
@@ -140,7 +141,7 @@ const Grow = React.forwardRef((props_: any, ref: any) => {
           style: {
             visibility: status === 'exited' && !inProp ? 'hidden' : undefined,
 
-            transition: `opacity ${timeout(status)} ${timingFunction(status)}, transform ${timeout(status, 'transform')} ${timingFunction(status)} ${delay ? `${delay}ms` : (status === 'exiting' ? '74ms' : '0ms')}`,
+            transition: `opacity ${timeout(status)} ${timingFunction(status)}, transform ${timeout(status, 'transform')} ${timingFunction(status)} ${delay ? `${delay}ms` : (status === 'exiting' ? '74ms' : '0ms')}${addTransition ? `, ${addTransition}` : ''}`,
 
             ...styles(status),
 

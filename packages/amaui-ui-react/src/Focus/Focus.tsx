@@ -7,7 +7,7 @@ const KEYCODES = {
   tab: 'Tab'
 };
 
-const matches = (value: Element) => {
+export const matches = (value: Element) => {
   const method = is('element', value) && (value.matches || value['webkitMatchesSelector'] || value['mozMatchesSelector'] || value['oMatchesSelector'] || value['msMatchesSelector']);
 
   if (!method) return () => false;
@@ -15,7 +15,7 @@ const matches = (value: Element) => {
   return method.bind(value);
 };
 
-const queryMatchFocusable = 'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"]):not([disabled]), details:not([disabled]), summary:not(:disabled)';
+export const queryMatchFocusable = 'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"]):not([disabled]), details:not([disabled]), summary:not(:disabled)';
 
 const Focus = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();

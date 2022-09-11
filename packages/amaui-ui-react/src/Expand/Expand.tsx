@@ -50,6 +50,7 @@ const Expand = React.forwardRef((props_: any, ref: any) => {
     delay,
     timeout: timeout_,
     timing_function,
+    addTransition,
     onTransition,
     onAppended,
     onAdd,
@@ -185,7 +186,7 @@ const Expand = React.forwardRef((props_: any, ref: any) => {
           style: {
             position: 'relative',
 
-            transition: `${prop} ${timeout(status, prop)} ${timingFunction(status)} ${delay ? `${delay}ms` : ''}`,
+            transition: `${prop} ${timeout(status, prop)} ${timingFunction(status)} ${delay ? `${delay}ms` : ''}${addTransition ? `, ${addTransition}` : ''}`,
 
             visibility: status === 'exited' && !inProp && expandSize === undefined ? 'hidden' : undefined,
 

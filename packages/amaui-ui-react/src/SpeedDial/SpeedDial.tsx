@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is } from '@amaui/utils';
+import { is, clamp } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Zoom from '../Zoom';
@@ -157,6 +157,7 @@ const SpeedDial = React.forwardRef((props_: any, ref: any) => {
       alignment: 'center',
       disableInteractive: true
     },
+    onKeyDown: onKeyDown_,
 
     Icon = IconMaterialCloseRounded,
     IconOpen,
@@ -186,6 +187,7 @@ const SpeedDial = React.forwardRef((props_: any, ref: any) => {
   const { classes } = useStyle(props);
 
   const refs = {
+    root: React.useRef<any>(),
     fab: React.useRef<any>(),
     line: React.useRef<any>()
   };
@@ -356,9 +358,63 @@ const SpeedDial = React.forwardRef((props_: any, ref: any) => {
 
   if (!tooltipLabel) TooltipProps.open = false;
 
+  const onKeyDown = (event: React.KeyboardEvent<any>) => {
+    let allElements = [];
+
+    if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(event.key)) {
+      allElements = [...Array.from(refs.line.current?.children).map((item: any) => item.children[0])];
+
+      if (!lineItemsDirection.includes('reverse')) {
+        allElements.reverse();
+
+        allElements.push(refs.fab.current);
+      }
+      else allElements.unshift(refs.fab.current);
+    }
+
+    switch (event.key) {
+      case 'Escape':
+        return onClose();
+
+      case 'ArrowUp':
+      case 'ArrowDown':
+        if (lineItemsDirection.includes('column')) {
+          let index = clamp(allElements.findIndex(item => item === window.document.activeElement), 0);
+
+          event.key === 'ArrowUp' ? index++ : index--;
+
+          allElements[clamp(index, 0, allElements.length - 1)].focus();
+
+          event.preventDefault();
+        }
+        return;
+
+      case 'ArrowLeft':
+      case 'ArrowRight':
+        if (lineItemsDirection.includes('row')) {
+
+          let index = clamp(allElements.findIndex(item => item === window.document.activeElement), 0);
+
+          event.key === 'ArrowLeft' ? index++ : index--;
+
+          allElements[clamp(index, 0, allElements.length - 1)].focus();
+
+          event.preventDefault();
+        }
+        return;
+
+      default:
+        break;
+    }
+  };
+
   return (
     <Line
-      ref={ref}
+      ref={item => {
+        if (ref) ref.current = item;
+
+        refs.root.current = item;
+      }}
 
       gap={0}
 
@@ -367,6 +423,8 @@ const SpeedDial = React.forwardRef((props_: any, ref: any) => {
       align='center'
 
       justify='center'
+
+      onKeyDown={onKeyDown}
 
       Component={Component}
 
@@ -423,6 +481,8 @@ const SpeedDial = React.forwardRef((props_: any, ref: any) => {
 
             removeOnExited
 
+            addTransition={theme.methods.transitions.make('box-shadow')}
+
             {...SpeeDialItemTransitionComponentProps}
           >
             {React.cloneElement(item, {
@@ -432,6 +492,9 @@ const SpeedDial = React.forwardRef((props_: any, ref: any) => {
               color,
               version,
               alignment,
+
+              onBlur,
+              onFocus,
 
               TooltipProps: { ...TooltipProps },
               tooltipOpen,

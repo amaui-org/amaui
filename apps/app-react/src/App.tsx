@@ -1778,6 +1778,193 @@ Please sign in again.`}
             ))}
           </SpeedDial>
         </Accordion>
+
+        <Accordion primary='SpeedDial controlled'>
+          <Line>
+            <Button size='small' color='secondary' className={classes.btn} onClick={() => update('speedDial')}>a</Button>
+
+            <SpeedDial
+              open={a.speedDial}
+            >
+              {[1, 2, 3, 4].map((item: any) => (
+                <SpeedDialItem
+                  key={item}
+
+                  label={`Item ${item}`}
+
+                  Icon={IconMaterialEditRounded}
+                />
+              ))}
+            </SpeedDial>
+          </Line>
+        </Accordion>
+
+        <Accordion primary='AmauiTheme'>
+          <div className={classNames([classes.column])}>
+            <Accordion primary='SpeedDial'>
+              <SpeedDial
+                color='secondary'
+              >
+                {[1, 2, 3, 4].map((item: any) => (
+                  <SpeedDialItem
+                    key={item}
+
+                    label={`Item ${item}`}
+
+                    Icon={IconMaterialEditRounded}
+                  />
+                ))}
+              </SpeedDial>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme nested value'>
+              <AmauiThemeProvider
+                value={{
+                  palette: {
+                    color: {
+                      primary: {
+                        main: '#008000'
+                      }
+                    }
+                  },
+                  space: {
+                    unit: 5
+                  }
+                }}
+              >
+                <SpeedDial
+                  color='secondary'
+                >
+                  {[1, 2, 3, 4].map((item: any) => (
+                    <SpeedDialItem
+                      key={item}
+
+                      label={`Item ${item}`}
+
+                      Icon={IconMaterialEditRounded}
+                    />
+                  ))}
+                </SpeedDial>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme add'>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiSpeedDial: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: 0.4
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <SpeedDial
+                  color='secondary'
+                >
+                  {[1, 2, 3, 4].map((item: any) => (
+                    <SpeedDialItem
+                      key={item}
+
+                      label={`Item ${item}`}
+
+                      Icon={IconMaterialEditRounded}
+                    />
+                  ))}
+                </SpeedDial>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme override'>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiSpeedDial: {
+                        style: {
+                          override: {
+                            root: {
+                              position: 'fixed',
+                              zIndex: theme.z_index.modal,
+                              padding: '11px 40px'
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <SpeedDial
+                  color='secondary'
+                >
+                  {[1, 2, 3, 4].map((item: any) => (
+                    <SpeedDialItem
+                      key={item}
+
+                      label={`Item ${item}`}
+
+                      Icon={IconMaterialEditRounded}
+                    />
+                  ))}
+                </SpeedDial>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme props'>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiSpeedDial: {
+                        props: {
+                          default: {
+                            color: 'secondary'
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <SpeedDial>
+                  {[1, 2, 3, 4].map((item: any) => (
+                    <SpeedDialItem
+                      key={item}
+
+                      label={`Item ${item}`}
+
+                      Icon={IconMaterialEditRounded}
+                    />
+                  ))}
+                </SpeedDial>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme styled'>
+              <styled.SpeedDial>
+                {[1, 2, 3, 4].map((item: any) => (
+                  <SpeedDialItem
+                    key={item}
+
+                    label={`Item ${item}`}
+
+                    Icon={IconMaterialEditRounded}
+                  />
+                ))}
+              </styled.SpeedDial>
+            </Accordion>
+          </div>
+        </Accordion>
       </Accordion>
 
       <Accordion primary='Pagination'>
