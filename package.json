@@ -1,5 +1,5 @@
 {
-  "name": "amaui",
+  "name": "@amaui/monorepo",
   "version": "1.0.0",
   "description": "MIT / Open source framework agnostic UI elements and utils, for building quality and production ready modern front end web apps",
   "repository": "https://github.com/amaui-org/amaui.git",

@@ -1,4 +1,4 @@
-{
+ {
   "compilerOptions": {
     "target": "es5",
     "lib": [
@@ -18,7 +18,17 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "paths": {
+      "@amaui/style-react":["../../packages/amaui-style-react/src"],
+      "@amaui/style-react/*":["../../packages/amaui-style-react/src/*"],
+
+      "@amaui/icons-material-react":["../../packages/amaui-icons-material-react/src"],
+      "@amaui/icons-material-react/*":["../../packages/amaui-icons-material-react/src/*"],
+
+      "@amaui/ui-react":["../../packages/amaui-ui-react/build" ],
+      "@amaui/ui-react/*":["../../packages/amaui-ui-react/build/*"]
+    }
   },
   "include": [
     "src"

@@ -2,7 +2,11 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "declaration": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "paths": {
+      "@amaui/ui-react":["../amaui-ui-react/src"],
+      "@amaui/ui-react/*":["../amaui-ui-react/src/*"]
+    }
   },
   "include": [
     "src/**/*.js",

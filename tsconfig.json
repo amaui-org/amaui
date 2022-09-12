@@ -11,7 +11,17 @@
     "moduleResolution": "node",
     "skipLibCheck": true,
     "declaration": false,
-    "allowJs": true
+    "allowJs": true,
+    "paths": {
+      "@amaui/style-react":["./packages/amaui-style-react/src"],
+      "@amaui/style-react/*":["./packages/amaui-style-react/src/*"],
+
+      "@amaui/icons-material-react":["./packages/amaui-icons-material-react/src"],
+      "@amaui/icons-material-react/*":["./packages/amaui-icons-material-react/src/*"],
+
+      "@amaui/ui-react":["./packages/amaui-ui-react/src"],
+      "@amaui/ui-react/*":["./packages/amaui-ui-react/src/*"]
+    }
   },
   "exclude": [
     "**/build",
