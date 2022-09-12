@@ -607,7 +607,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
             `AmauiListItem-size-${size}`,
             `AmauiListItem-shape-${shape}`,
             `AmauiListItem-shape-${shape}-position-${shapePosition}`,
-            `AmauiListItem-color-selected-${!theme.palette.color[colorSelected] && !['themed', 'inverse', 'default', 'inherit'].includes(color) ? 'new' : color}`,
+            `AmauiListItem-color-selected-${!theme.palette.color[colorSelected] && !['themed', 'inverted', 'default', 'inherit'].includes(color) ? 'new' : color}`,
             `AmauiListItem-start-align-${startAlign}`,
             `AmauiListItem-end-align-${endAlign}`,
             menu && `AmauiListItem-menu`,

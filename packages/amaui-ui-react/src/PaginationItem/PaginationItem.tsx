@@ -1,9 +1,10 @@
 import React from 'react';
 
+import { is } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
-import Button from '../Button';
 import Type from '../Type';
+import Button from '../Button';
 
 import { staticClassName } from '../utils';
 
@@ -50,6 +51,7 @@ const PaginationItem = React.forwardRef((props_: any, ref) => {
     version = 'text',
     elevation = false,
     size = 'regular',
+
     TypeProps = {
       version: props.size === 'large' ? 'b1' : props.size === 'small' ? 'b3' : 'b2'
     },
@@ -89,11 +91,16 @@ const PaginationItem = React.forwardRef((props_: any, ref) => {
 
       icon
     >
-      <Type
-        {...TypeProps}
-      >
-        {children}
-      </Type>
+      {is('simple', children) ?
+        (
+          <Type
+            {...TypeProps}
+          >
+            {children}
+          </Type>
+        ) :
+        children
+      }
     </Button>
   );
 });

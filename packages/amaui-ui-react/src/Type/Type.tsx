@@ -15,7 +15,7 @@ const useStyle = style(theme => ({
 
   color_themed: { color: theme.palette.light ? theme.palette.text.default.primary : theme.palette.text.default.secondary },
 
-  color_inverse: { color: theme.palette.background.default.primary },
+  color_inverted: { color: theme.palette.background.default.primary },
 
   color_default: { color: theme.palette.text.default.primary },
 

@@ -16,7 +16,7 @@ const useStyle = style(theme => ({
     backgroundColor: theme.palette.light ? theme.palette.background.default.primary : theme.palette.background.default.quaternary
   },
 
-  version_filled_color_inverse: {
+  version_filled_color_inverted: {
     color: theme.palette.background.default.primary,
     backgroundColor: theme.palette.light ? theme.palette.background.dark.primary : theme.palette.background.light.primary
   },
@@ -168,7 +168,7 @@ const useStyle = style(theme => ({
     color: theme.palette.light ? theme.palette.text.default.primary : theme.palette.text.default.secondary
   },
 
-  version_text_color_inverse: {
+  version_text_color_inverted: {
     color: theme.palette.background.default.primary
   },
 
@@ -299,7 +299,7 @@ const useStyle = style(theme => ({
     outlineColor: theme.palette.color.neutral[theme.palette.light ? 40 : 60]
   },
 
-  version_outlined_color_inverse: {
+  version_outlined_color_inverted: {
     color: theme.palette.background.default.primary,
     backgroundColor: theme.palette.light ? theme.palette.background.dark.primary : theme.palette.background.light.primary,
     outlineColor: theme.palette.color.neutral[theme.palette.light ? 60 : 40]
@@ -487,7 +487,7 @@ const useStyle = style(theme => ({
     outlineColor: theme.palette.light ? theme.palette.text.default.primary : theme.palette.background.default.secondary
   },
 
-  'version_outlined-without-background_color_inverse': {
+  'version_outlined-without-background_color_inverted': {
     color: theme.palette.background.default.primary,
     outlineColor: theme.palette.background.default.primary
   },
@@ -725,7 +725,7 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
 
   let color = color_;
 
-  if (!theme.palette.color[color] && !['themed', 'inverse', 'default', 'inherit'].includes(color)) {
+  if (!theme.palette.color[color] && !['themed', 'inverted', 'default', 'inherit'].includes(color)) {
     const palette = theme.methods.color(color);
 
     if (tonal) {
@@ -766,7 +766,7 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
 
   if (backgroundOpacity !== undefined) {
     if (color === 'themed') color = theme.palette.light ? theme.palette.background.default.primary : theme.palette.background.default.quaternary;
-    if (color === 'inverse') color = theme.palette.light ? theme.palette.background.dark.primary : theme.palette.background.light.primary;
+    if (color === 'inverted') color = theme.palette.light ? theme.palette.background.dark.primary : theme.palette.background.light.primary;
     if (color === 'default') color = theme.palette.background.default.primary;
     if (color === 'inherit') color = theme.palette.background.default.primary;
 
@@ -793,7 +793,7 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
       className={classNames([
         staticClassName('Surface', theme) && [
           'AmauiSurface-root',
-          `AmauiSurface-color-${!theme.palette.color[color] && !['themed', 'inverse', 'default', 'inherit'].includes(color) ? 'new' : color}`,
+          `AmauiSurface-color-${!theme.palette.color[color] && !['themed', 'inverted', 'default', 'inherit'].includes(color) ? 'new' : color}`,
           `AmauiSurface-version-${version}`,
           tonal && `AmauiSurface-tonal${is('string', tonal) ? `-${tonal}` : ''}`,
           elevation && `AmauiSurface-elevation-${elevation}`,

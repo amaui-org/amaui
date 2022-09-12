@@ -390,7 +390,7 @@ const Buttons = React.forwardRef((props_: any, ref: any) => {
           'AmauiButtons-root',
           `AmauiButtons-select-${select}`,
           `AmauiButtons-version-${version}`,
-          `AmauiButtons-color-${!theme.palette.color[color] && !['themed', 'inverse', 'default', 'inherit'].includes(color) ? 'new' : color}`,
+          `AmauiButtons-color-${!theme.palette.color[color] && !['themed', 'inverted', 'default', 'inherit'].includes(color) ? 'new' : color}`,
           `AmauiButtons-size-${size}`,
           elevation && !disabled && ['filled', 'tonal'].includes(version) && `AmauiButtons-elevation`,
           tonal && `AmauiButtons-tonal`,

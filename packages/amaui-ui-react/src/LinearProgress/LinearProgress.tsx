@@ -125,7 +125,7 @@ const useStyle = style(theme => ({
     }
   },
 
-  '@keyframes bufferDotsInverse': {
+  '@keyframes bufferDotsInverted': {
     '100%': {
       backgroundPosition: '10px 0'
     }
@@ -250,7 +250,7 @@ const useStyle = style(theme => ({
 
   // Reverse
   bufferDots_reverse: {
-    animation: '$bufferDotsInverse .3s infinite linear',
+    animation: '$bufferDotsInverted .3s infinite linear',
   }
 }), { name: 'AmauiLinearProgress' });
 
@@ -322,7 +322,7 @@ const LinearProgress = React.forwardRef((props_: any, ref: any) => {
         staticClassName('LinearProgress', theme) && [
           'AmauiLinearProgress-root',
           `AmauiLinearProgress-version-${version}`,
-          `AmauiLinearProgress-color-${!theme.palette.color[color] && !['themed', 'inverse', 'default', 'inherit'].includes(color) ? 'new' : color}`,
+          `AmauiLinearProgress-color-${!theme.palette.color[color] && !['themed', 'inverted', 'default', 'inherit'].includes(color) ? 'new' : color}`,
           tonal && `AmauiLinearProgress-tonal`,
           buffer && `AmauiLinearProgress-buffer`,
           reverse && `AmauiLinearProgress-reverse`

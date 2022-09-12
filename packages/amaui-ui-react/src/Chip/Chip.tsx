@@ -36,7 +36,7 @@ const Chip = React.forwardRef((props_: any, ref: any) => {
 
   const {
     tonal = false,
-    color = props.version === 'filled' ? 'inverse' : 'default',
+    color = props.version === 'filled' ? 'inverted' : 'default',
     version = 'outlined',
     input,
     filter,

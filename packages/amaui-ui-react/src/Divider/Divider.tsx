@@ -32,9 +32,12 @@ const useStyle = style(theme => ({
   },
 
   // flex
-  flex: {
-    alignSelf: 'stretch',
-    height: 'auto'
+  flex_orientation_horizontal: {
+    flex: '1 1'
+  },
+
+  flex_orientation_vertical: {
+    flex: '1 1 auto'
   },
 
   // Orientation
@@ -201,7 +204,7 @@ const Divider = React.forwardRef((props_: any, ref: any) => {
         className,
         classes[children ? 'rootWithChildren' : 'root'],
         classes[`${children ? 'rootWithChildren_' : ''}orientation_${orientation}`],
-        flex && classes.flex,
+        flex && classes[`flex_orientation_${orientation}`],
         inset && classes.inset,
         middle && classes[`${children ? `rootWithChildren_` : ''}orientation_${orientation}_middle`],
         padding && classes[`orientation_${orientation}_padding`],
@@ -270,7 +273,6 @@ const Divider = React.forwardRef((props_: any, ref: any) => {
             classes.divider,
             classes[`divider_orientation_${orientation}`]
           ])}
-
 
           style={{
             ...styles.divider,

@@ -27,8 +27,7 @@ const useStyle = style(theme => ({
     // Reset
     '-webkit-appearance': 'none',
     appearance: 'none',
-    border: 'none',
-    background: 'transparent'
+    border: 'none'
   },
 
   // Color

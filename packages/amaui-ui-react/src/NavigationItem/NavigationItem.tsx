@@ -250,7 +250,7 @@ const NavigationItem = React.forwardRef((props_: any, ref: any) => {
 
   let palette: any;
 
-  if (!theme.palette.color[color] && !['themed', 'inverse', 'default', 'inherit'].includes(color)) {
+  if (!theme.palette.color[color] && !['themed', 'inverted', 'default', 'inherit'].includes(color)) {
     palette = theme.methods.color(color);
   }
 
@@ -322,7 +322,7 @@ const NavigationItem = React.forwardRef((props_: any, ref: any) => {
           staticClassName('NavigationItem', theme) && [
             'AmauiNavigationItem-root',
             `AmauiNavigationItem-version-${version}`,
-            `AmauiNavigationItem-color-${!theme.palette.color[color] && !['themed', 'inverse', 'default', 'inherit'].includes(color) ? 'new' : color}`,
+            `AmauiNavigationItem-color-${!theme.palette.color[color] && !['themed', 'inverted', 'default', 'inherit'].includes(color) ? 'new' : color}`,
             label && 'AmauiNavigationItem-label',
             icon && 'AmauiNavigationItem-icon',
             iconSelected && 'AmauiNavigationItem-iconSelected',

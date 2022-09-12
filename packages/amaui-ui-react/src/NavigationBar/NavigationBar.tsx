@@ -81,11 +81,11 @@ const NavigationBar = React.forwardRef((props_: any, ref: any) => {
 
   let palette: any;
 
-  if (!theme.palette.color[color] && !['themed', 'inverse', 'default', 'inherit'].includes(color)) {
+  if (!theme.palette.color[color] && !['themed', 'inverted', 'default', 'inherit'].includes(color)) {
     palette = theme.methods.color(color);
   }
 
-  if (!theme.palette.color[color] && !['themed', 'inverse', 'default', 'inherit'].includes(color)) {
+  if (!theme.palette.color[color] && !['themed', 'inverted', 'default', 'inherit'].includes(color)) {
     if (tonal) styles.root.backgroundColor = theme.methods.palette.color.value(undefined, 95, true, palette);
     else styles.root.backgroundColor = palette.main;
   }

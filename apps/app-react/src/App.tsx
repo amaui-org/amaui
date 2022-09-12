@@ -2,7 +2,7 @@ import React from 'react';
 
 import { countries } from '@amaui/utils';
 import { AmauiTheme, AmauiThemeProvider, classNames, style, sy, useAmauiTheme } from '@amaui/style-react';
-import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationItem, NavigationRail, NavigationDrawer, BottomSheet, BottomAppBar, TopAppBar, useScroll, Card, CardImage, CardMain, CardHeader, CardButton, CardFooter, Table, TableHead, TableRow, TableCell, TableHeader, TableFooter, TableBody, SkeletonLoader, Snackbar, useSnackbars, Pagination, TablePagination, SpeedDial, SpeedDialItem, ImageList, ImageListItem, ImageListItemBox } from '@amaui/ui-react';
+import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationItem, NavigationRail, NavigationDrawer, BottomSheet, BottomAppBar, TopAppBar, useScroll, Card, CardImage, CardMain, CardHeader, CardButton, CardFooter, Table, TableHead, TableRow, TableCell, TableHeader, TableFooter, TableBody, SkeletonLoader, Snackbar, useSnackbars, Pagination, TablePagination, SpeedDial, SpeedDialItem, ImageList, ImageListItem, ImageListItemBox, Stepper, Step } from '@amaui/ui-react';
 
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
@@ -215,6 +215,13 @@ const useStyle = style(theme => ({
 }), { name: 'App' });
 
 const styled = {
+  Stepper: sy(Stepper)((theme: AmauiTheme) => ({
+    root: {
+      '&:hover': {
+        opacity: 0.4
+      }
+    }
+  })),
   ImageList: sy(ImageList)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
@@ -672,7 +679,8 @@ function App() {
     loading: true,
     portal: false,
     modal: false,
-    babanimated: false
+    babanimated: false,
+    stepper: 0
   });
   const [init, setInit] = React.useState(false);
   const [anchor, setAnchor] = React.useState<any>();
@@ -684,6 +692,7 @@ function App() {
   const [radius, setRadius] = React.useState(8);
   const [rtl, setRtl] = React.useState(false);
   const [rootFontSize, setRootFontSize] = React.useState(16);
+  const [stepperCompleted, setStepperCompleted] = React.useState({});
   // eslint-disable-next-line
   const scrollUp = useScroll({ direction: 'up' });
   // eslint-disable-next-line
@@ -945,6 +954,46 @@ function App() {
 
       <Accordion primary='All'>
         <Line>
+          <Line
+            style={{ width: '100%' }}
+          >
+            <Stepper
+              active={a.stepper}
+
+              completed={stepperCompleted}
+            >
+              {[1, 2, 3].map((item: any, index: number) => (
+                <Step
+                  primary={`Item primary ${index}`}
+
+                  secondary='Item secondary value'
+
+                  key={index}
+                />
+              ))}
+            </Stepper>
+
+            <Line
+              gap={1}
+
+              direction='row'
+            >
+              <Button color='secondary' version='outlined' onClick={() => updatePure(a.stepper - 1, 'stepper')}>
+                Previous
+              </Button>
+
+              <Button color='secondary' version='outlined' onClick={() => updatePure(a.stepper + 1, 'stepper')}>
+                Next
+              </Button>
+
+              <Button color='secondary' version='outlined' onClick={() => setStepperCompleted(items => {
+                return { ...items, [a.stepper]: true };
+              })}>
+                Complete
+              </Button>
+            </Line>
+          </Line>
+
           <ImageList
             style={{ height: 440, overflowY: 'auto' }}
           >
@@ -1577,6 +1626,493 @@ Please sign in again.`}
 
           <IconMaterialPottedPlantRounded color='secondary' />
         </Line>
+      </Accordion>
+
+      <Accordion primary='Stepper'>
+        <Accordion primary='Stepper'>
+          <Line
+            style={{ width: '100%' }}
+          >
+            <Stepper
+              active={a.stepper}
+
+              completed={stepperCompleted}
+            >
+              {[1, 2, 3].map((item: any, index: number) => (
+                <Step
+                  primary={`Item primary ${index}`}
+
+                  secondary='Item secondary value'
+
+                  key={index}
+                />
+              ))}
+            </Stepper>
+
+            <Line
+              gap={1}
+
+              direction='row'
+            >
+              <Button color='secondary' version='outlined' onClick={() => updatePure(a.stepper - 1, 'stepper')}>
+                Previous
+              </Button>
+
+              <Button color='secondary' version='outlined' onClick={() => updatePure(a.stepper + 1, 'stepper')}>
+                Next
+              </Button>
+
+              <Button color='secondary' version='outlined' onClick={() => setStepperCompleted(items => {
+                return { ...items, [a.stepper]: true };
+              })}>
+                Complete
+              </Button>
+            </Line>
+          </Line>
+        </Accordion>
+
+        <Accordion primary='Stepper stepDirection'>
+          <Line
+            style={{ width: '100%' }}
+          >
+            <Accordion primary='Stepper stepDirection row'>
+              <Line
+                style={{ width: '100%' }}
+              >
+                <Stepper
+                  active={a.stepper}
+
+                  stepDirection='row'
+
+                  completed={stepperCompleted}
+                >
+                  {[1, 2, 3].map((item: any, index: number) => (
+                    <Step
+                      primary={`Item primary ${index}`}
+
+                      secondary='Item secondary value'
+
+                      key={index}
+                    />
+                  ))}
+                </Stepper>
+
+                <Line
+                  gap={1}
+
+                  direction='row'
+                >
+                  <Button color='secondary' version='outlined' onClick={() => updatePure(a.stepper - 1, 'stepper')}>
+                    Previous
+                  </Button>
+
+                  <Button color='secondary' version='outlined' onClick={() => updatePure(a.stepper + 1, 'stepper')}>
+                    Next
+                  </Button>
+
+                  <Button color='secondary' version='outlined' onClick={() => setStepperCompleted(items => {
+                    return { ...items, [a.stepper]: true };
+                  })}>
+                    Complete
+                  </Button>
+                </Line>
+              </Line>
+            </Accordion>
+
+            <Accordion primary='Stepper stepDirection column'>
+              <Line
+                style={{ width: '100%' }}
+              >
+                <Stepper
+                  active={a.stepper}
+
+                  stepDirection='column'
+
+                  completed={stepperCompleted}
+                >
+                  {[1, 2, 3].map((item: any, index: number) => (
+                    <Step
+                      primary={`Item primary ${index}`}
+
+                      secondary='Item secondary value'
+
+                      key={index}
+                    />
+                  ))}
+                </Stepper>
+
+                <Line
+                  gap={1}
+
+                  direction='row'
+                >
+                  <Button color='secondary' version='outlined' onClick={() => updatePure(a.stepper - 1, 'stepper')}>
+                    Previous
+                  </Button>
+
+                  <Button color='secondary' version='outlined' onClick={() => updatePure(a.stepper + 1, 'stepper')}>
+                    Next
+                  </Button>
+
+                  <Button color='secondary' version='outlined' onClick={() => setStepperCompleted(items => {
+                    return { ...items, [a.stepper]: true };
+                  })}>
+                    Complete
+                  </Button>
+                </Line>
+              </Line>
+            </Accordion>
+          </Line>
+        </Accordion>
+
+        <Accordion primary='Stepper orientation vertical'>
+          <Line
+            style={{ width: '100%' }}
+          >
+            <Accordion primary='Stepper stepDirection row'>
+              <Line
+                style={{ width: '100%' }}
+              >
+                <Stepper
+                  active={a.stepper}
+
+                  orientation='vertical'
+
+                  stepDirection='row'
+
+                  completed={stepperCompleted}
+
+                  style={{
+                    height: 440
+                  }}
+                >
+                  {[1, 2, 3].map((item: any, index: number) => (
+                    <Step
+                      primary={`Item primary ${index}`}
+
+                      secondary='Item secondary value'
+
+                      key={index}
+                    />
+                  ))}
+                </Stepper>
+
+                <Line
+                  gap={1}
+
+                  direction='row'
+                >
+                  <Button color='secondary' version='outlined' onClick={() => updatePure(a.stepper - 1, 'stepper')}>
+                    Previous
+                  </Button>
+
+                  <Button color='secondary' version='outlined' onClick={() => updatePure(a.stepper + 1, 'stepper')}>
+                    Next
+                  </Button>
+
+                  <Button color='secondary' version='outlined' onClick={() => setStepperCompleted(items => {
+                    return { ...items, [a.stepper]: true };
+                  })}>
+                    Complete
+                  </Button>
+                </Line>
+              </Line>
+            </Accordion>
+
+            <Accordion primary='Stepper stepDirection column'>
+              <Line
+                style={{ width: '100%' }}
+              >
+                <Stepper
+                  active={a.stepper}
+
+                  orientation='vertical'
+
+                  stepDirection='column'
+
+                  completed={stepperCompleted}
+
+                  style={{
+                    height: 440
+                  }}
+                >
+                  {[1, 2, 3].map((item: any, index: number) => (
+                    <Step
+                      primary={`Item primary ${index}`}
+
+                      secondary='Item secondary value'
+
+                      key={index}
+                    />
+                  ))}
+                </Stepper>
+
+                <Line
+                  gap={1}
+
+                  direction='row'
+                >
+                  <Button color='secondary' version='outlined' onClick={() => updatePure(a.stepper - 1, 'stepper')}>
+                    Previous
+                  </Button>
+
+                  <Button color='secondary' version='outlined' onClick={() => updatePure(a.stepper + 1, 'stepper')}>
+                    Next
+                  </Button>
+
+                  <Button color='secondary' version='outlined' onClick={() => setStepperCompleted(items => {
+                    return { ...items, [a.stepper]: true };
+                  })}>
+                    Complete
+                  </Button>
+                </Line>
+              </Line>
+            </Accordion>
+          </Line>
+        </Accordion>
+
+        <Accordion primary='Stepper error'>
+          <Line
+            style={{ width: '100%' }}
+          >
+            <Stepper
+              active={a.stepper}
+
+              completed={stepperCompleted}
+            >
+              {[1, 2, 3].map((item: any, index: number) => {
+                const other_: any = {};
+
+                if (item === 2) {
+                  other_.ListItemProps = {
+                    color: 'error'
+                  };
+
+                  other_.iconColor = other_.iconColorActive = 'error';
+                }
+
+                return (
+                  <Step
+                    primary={`Item primary ${index}`}
+
+                    secondary='Item secondary value'
+
+                    {...other_}
+
+                    key={index}
+                  />
+                );
+              })}
+            </Stepper>
+
+            <Line
+              gap={1}
+
+              direction='row'
+            >
+              <Button color='secondary' version='outlined' onClick={() => updatePure(a.stepper - 1, 'stepper')}>
+                Previous
+              </Button>
+
+              <Button color='secondary' version='outlined' onClick={() => updatePure(a.stepper + 1, 'stepper')}>
+                Next
+              </Button>
+
+              <Button color='secondary' version='outlined' onClick={() => setStepperCompleted(items => {
+                return { ...items, [a.stepper]: true };
+              })}>
+                Complete
+              </Button>
+            </Line>
+          </Line>
+        </Accordion>
+
+        <Accordion primary='AmauiTheme'>
+          <div className={classNames([classes.column])}>
+            <Stepper
+              color='secondary'
+
+              active={a.stepper}
+
+              completed={stepperCompleted}
+            >
+              {[1, 2, 3].map((item: any, index: number) => (
+                <Step
+                  primary={`Item primary ${index}`}
+
+                  secondary='Item secondary value'
+
+                  key={index}
+                />
+              ))}
+            </Stepper>
+
+            <Accordion primary='AmauiTheme nested value'>
+              <AmauiThemeProvider
+                value={{
+                  palette: {
+                    color: {
+                      primary: {
+                        main: '#008000'
+                      }
+                    }
+                  },
+                  space: {
+                    unit: 5
+                  }
+                }}
+              >
+                <Stepper
+                  color='primary'
+
+                  active={a.stepper}
+
+                  completed={stepperCompleted}
+                >
+                  {[1, 2, 3].map((item: any, index: number) => (
+                    <Step
+                      primary={`Item primary ${index}`}
+
+                      secondary='Item secondary value'
+
+                      key={index}
+                    />
+                  ))}
+                </Stepper>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme add'>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiStepper: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: 0.4
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Stepper
+                  color='secondary'
+
+                  active={a.stepper}
+
+                  completed={stepperCompleted}
+                >
+                  {[1, 2, 3].map((item: any, index: number) => (
+                    <Step
+                      primary={`Item primary ${index}`}
+
+                      secondary='Item secondary value'
+
+                      key={index}
+                    />
+                  ))}
+                </Stepper>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme override'>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiStepper: {
+                        style: {
+                          override: {
+                            root: {
+                              padding: '11px 40px'
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Stepper
+                  color='secondary'
+
+                  active={a.stepper}
+
+                  completed={stepperCompleted}
+                >
+                  {[1, 2, 3].map((item: any, index: number) => (
+                    <Step
+                      primary={`Item primary ${index}`}
+
+                      secondary='Item secondary value'
+
+                      key={index}
+                    />
+                  ))}
+                </Stepper>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme props'>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiStepper: {
+                        props: {
+                          default: {
+                            color: 'secondary'
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Stepper
+                  active={a.stepper}
+
+                  completed={stepperCompleted}
+                >
+                  {[1, 2, 3].map((item: any, index: number) => (
+                    <Step
+                      primary={`Item primary ${index}`}
+
+                      secondary='Item secondary value'
+
+                      key={index}
+                    />
+                  ))}
+                </Stepper>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme styled'>
+              <styled.Stepper
+                active={a.stepper}
+
+                completed={stepperCompleted}
+              >
+                {[1, 2, 3].map((item: any, index: number) => (
+                  <Step
+                    primary={`Item primary ${index}`}
+
+                    secondary='Item secondary value'
+
+                    key={index}
+                  />
+                ))}
+              </styled.Stepper>
+            </Accordion>
+          </div>
+        </Accordion>
       </Accordion>
 
       <Accordion primary='ImageList'>
@@ -2248,6 +2784,197 @@ Please sign in again.`}
               </ImageList>
             </Line>
           </Accordion>
+        </Accordion>
+
+        <Accordion primary='AmauiTheme'>
+          <div className={classNames([classes.column])}>
+            <ImageList
+              style={{ height: 440, overflowY: 'auto' }}
+            >
+              {new Array(17).fill(1).map((item: any, index: number) => (
+                <ImageListItem>
+                  <img
+                    key={index}
+
+                    src={`https://picsum.photos/140?random=${index}`}
+
+                    alt={String(index)}
+
+                    loading='lazy'
+                  />
+                </ImageListItem>
+              ))}
+            </ImageList>
+
+            <Accordion primary='AmauiTheme nested value'>
+              <AmauiThemeProvider
+                value={{
+                  palette: {
+                    color: {
+                      primary: {
+                        main: '#008000'
+                      }
+                    }
+                  },
+                  space: {
+                    unit: 5
+                  }
+                }}
+              >
+                <ImageList
+                  style={{ height: 440, overflowY: 'auto' }}
+                >
+                  {new Array(17).fill(1).map((item: any, index: number) => (
+                    <ImageListItem>
+                      <img
+                        key={index}
+
+                        src={`https://picsum.photos/140?random=${index}`}
+
+                        alt={String(index)}
+
+                        loading='lazy'
+                      />
+                    </ImageListItem>
+                  ))}
+                </ImageList>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme add'>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiImageList: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: 0.4
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <ImageList
+                  style={{ height: 440, overflowY: 'auto' }}
+                >
+                  {new Array(17).fill(1).map((item: any, index: number) => (
+                    <ImageListItem>
+                      <img
+                        key={index}
+
+                        src={`https://picsum.photos/140?random=${index}`}
+
+                        alt={String(index)}
+
+                        loading='lazy'
+                      />
+                    </ImageListItem>
+                  ))}
+                </ImageList>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme override'>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiImageList: {
+                        style: {
+                          override: {
+                            root: {
+                              padding: '11px 40px'
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <ImageList
+                  style={{ height: 440, overflowY: 'auto' }}
+                >
+                  {new Array(17).fill(1).map((item: any, index: number) => (
+                    <ImageListItem>
+                      <img
+                        key={index}
+
+                        src={`https://picsum.photos/140?random=${index}`}
+
+                        alt={String(index)}
+
+                        loading='lazy'
+                      />
+                    </ImageListItem>
+                  ))}
+                </ImageList>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme props'>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiImageList: {
+                        props: {
+                          default: {
+                            gap: 1
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <ImageList
+                  style={{ height: 440, overflowY: 'auto' }}
+                >
+                  {new Array(17).fill(1).map((item: any, index: number) => (
+                    <ImageListItem>
+                      <img
+                        key={index}
+
+                        src={`https://picsum.photos/140?random=${index}`}
+
+                        alt={String(index)}
+
+                        loading='lazy'
+                      />
+                    </ImageListItem>
+                  ))}
+                </ImageList>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme styled'>
+              <styled.ImageList
+                style={{ height: 440, overflowY: 'auto' }}
+              >
+                {new Array(17).fill(1).map((item: any, index: number) => (
+                  <ImageListItem>
+                    <img
+                      key={index}
+
+                      src={`https://picsum.photos/140?random=${index}`}
+
+                      alt={String(index)}
+
+                      loading='lazy'
+                    />
+                  </ImageListItem>
+                ))}
+              </styled.ImageList>
+            </Accordion>
+          </div>
         </Accordion>
       </Accordion>
 
@@ -37591,7 +38318,7 @@ Please sign in again.`}
         <Accordion primary='Button color' open>
           <div className={classNames([classes.row, classes.center])}>
             <Button version='text' color='themed'>Themed</Button>
-            <Button version='text' color='inverse'>Inverse</Button>
+            <Button version='text' color='inverted'>Inverse</Button>
             <Button version='text' color='default'>Default</Button>
             <Button version='text' color='primary'>Primary</Button>
             <Button version='text' color='secondary'>Secondary</Button>
@@ -37607,7 +38334,7 @@ Please sign in again.`}
 
           <div className={classNames([classes.row, classes.center])}>
             <Button version='outlined' color='themed'>Themed</Button>
-            <Button version='outlined' color='inverse'>Inverse</Button>
+            <Button version='outlined' color='inverted'>Inverse</Button>
             <Button version='outlined' color='default'>Default</Button>
             <Button version='outlined' color='primary'>Primary</Button>
             <Button version='outlined' color='secondary'>Secondary</Button>
@@ -37623,7 +38350,7 @@ Please sign in again.`}
 
           <div className={classNames([classes.row, classes.center])}>
             <Button version='filled' color='themed'>Themed</Button>
-            <Button version='filled' color='inverse'>Inverse</Button>
+            <Button version='filled' color='inverted'>Inverse</Button>
             <Button version='filled' color='default'>Default</Button>
             <Button version='filled' color='primary'>Primary</Button>
             <Button version='filled' color='secondary'>Secondary</Button>
@@ -38577,7 +39304,7 @@ Please sign in again.`}
         </Accordion>
 
       </Accordion>
-    </div>
+    </div >
   );
 }
 

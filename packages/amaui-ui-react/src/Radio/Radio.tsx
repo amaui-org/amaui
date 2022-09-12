@@ -154,7 +154,7 @@ const Radio = React.forwardRef((props_: any, ref: any) => {
       className={classNames([
         staticClassName('Radio', theme) && [
           'AmauiRadio-root',
-          `AmauiRadio-color-unchecked-${!theme.palette.color[colorUnchecked] && !['themed', 'inverse', 'default', 'inherit'].includes(colorUnchecked) ? 'new' : colorUnchecked}`,
+          `AmauiRadio-color-unchecked-${!theme.palette.color[colorUnchecked] && !['themed', 'inverted', 'default', 'inherit'].includes(colorUnchecked) ? 'new' : colorUnchecked}`,
           checked && `AmauiRadio-checked`
         ],
 

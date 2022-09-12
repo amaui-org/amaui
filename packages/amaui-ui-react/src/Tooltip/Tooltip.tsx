@@ -179,7 +179,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
     label,
 
     tonal = true,
-    color = 'inverse',
+    color = 'inverted',
     position = 'bottom',
     switch: switch_ = true,
     alignment = 'center',

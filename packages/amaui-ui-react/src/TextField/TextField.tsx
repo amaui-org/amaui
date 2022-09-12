@@ -781,7 +781,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
           staticClassName('TextField', theme) && [
             'AmauiTextField-root',
             `AmauiTextField-version-${version}`,
-            `AmauiSurface-color-${!theme.palette.color[color] && !['themed', 'inverse', 'default', 'inherit'].includes(color) ? 'new' : color}`,
+            `AmauiSurface-color-${!theme.palette.color[color] && !['themed', 'inverted', 'default', 'inherit'].includes(color) ? 'new' : color}`,
             `AmauiTextField-size-${size}`,
             `AmauiTextField-icon-end-vertical-align-${endIconVerticalAlign}`,
             `AmauiTextField-icon-start-vertical-align-${startIconVerticalAlign}`,
