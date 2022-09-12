@@ -389,7 +389,7 @@ const Button = React.forwardRef((props_: any, ref: any) => {
     if (size === 'regular') styles.Icon.fontSize = 24;
     if (size === 'large') styles.Icon.fontSize = 30;
 
-    children_ = React.Children.toArray(children_).map(item => React.isValidElement(item) ? React.cloneElement(item, { style: styles.Icon }) : item);
+    children_ = React.Children.toArray(children_).map((item: any) => React.isValidElement(item) as any ? React.cloneElement(item, { style: styles.Icon }) : item);
   }
 
   if (fontSize !== undefined) {

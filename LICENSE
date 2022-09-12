@@ -1,6 +1,12 @@
-MIT License
 
-Copyright (c) 2022 amaui-org
+Copyright (c) Lazar Eric <lazareric2@gmail.com>
+
+This license is hereby granted to everyone, every business and use case except for the following businesses and use cases:
+1. Commercial application builders, website builders and page builders.
+2. Websites, applications, software as a service, businesses where users make (or it's made, generated for them) their own application/s, page/s or website/s that use code licensed under this license.
+2. Commercial or open source UI (user interface) elements, components library.
+
+MIT License with exceptions
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
