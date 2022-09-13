@@ -234,10 +234,12 @@ const Tabs = React.forwardRef((props_: any, ref: any) => {
 
   const onChange = (valueItem: number, index: number) => {
     // Update inner or controlled
-    if (!props.hasOwnProperty('value')) setValue(valueItem);
+    if (!props.hasOwnProperty('value')) {
+      setValue(valueItem);
 
-    // Update line
-    updateLine(valueItem);
+      // Update line
+      updateLine(valueItem);
+    }
 
     if (is('function', onChange_)) onChange_(valueItem);
   };
