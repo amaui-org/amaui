@@ -172,6 +172,7 @@ const Tabs = React.forwardRef((props_: any, ref: any) => {
   const mobile = useMediaQuery('(max-width: 767px)');
 
   const setMoveValue = React.useState<any>({})[1];
+  const [init, setInit] = React.useState(false);
   const [lineValues, setLineValues] = React.useState<any>({});
   const [value, setValue] = React.useState(valueDefault !== undefined ? valueDefault : value_);
 
@@ -202,6 +203,8 @@ const Tabs = React.forwardRef((props_: any, ref: any) => {
 
     observerMutation.observe(refs.tabsRoot.current);
 
+    setInit(true);
+
     return () => {
       observerMutation.disconnect();
     };
@@ -219,7 +222,14 @@ const Tabs = React.forwardRef((props_: any, ref: any) => {
   }, []);
 
   React.useEffect(() => {
-    if (value_ !== value) setValue(value_);
+    if (init) {
+      if (value_ !== value) {
+        setValue(value_);
+
+        // Update lineValues value
+        updateLine(value_);
+      }
+    }
   }, [value_]);
 
   const onChange = (valueItem: number, index: number) => {
