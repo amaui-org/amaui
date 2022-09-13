@@ -62,8 +62,8 @@ const TableCell = React.forwardRef((props_: any, ref: any) => {
     justify = 'flex-end',
     noWeight,
 
-    DividerProps,
     Component = props.position === 'head' ? 'th' : 'td',
+    DividerProps,
 
     className,
 
@@ -114,8 +114,6 @@ const TableCell = React.forwardRef((props_: any, ref: any) => {
       </Line>
 
       <Divider
-        tonal={tonal}
-
         color='inherit'
 
         {...DividerProps}

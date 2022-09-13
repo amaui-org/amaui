@@ -106,7 +106,7 @@ const Step = React.forwardRef((props_: any, ref: any) => {
     iconColor = 'inverted',
     iconColorActive = 'primary',
 
-    dividerColor = 'default',
+    dividerColor = 'inverted',
     dividerColorActive = 'primary',
 
     step = 0,
@@ -124,6 +124,7 @@ const Step = React.forwardRef((props_: any, ref: any) => {
 
     Component = Surface,
     ListItemProps,
+    DividerProps,
 
     className,
 
@@ -224,8 +225,6 @@ const Step = React.forwardRef((props_: any, ref: any) => {
         <Divider
           orientation={orientation}
 
-          tonal={tonal}
-
           color={activeDivider ? dividerColorActive : dividerColor}
 
           flex
@@ -240,6 +239,8 @@ const Step = React.forwardRef((props_: any, ref: any) => {
             classes[`divider_orientation_${orientation}`],
             activeDivider && classes[`divider_active_orientation_${orientation}`]
           ])}
+
+          {...DividerProps}
         />
       )}
     </Line>

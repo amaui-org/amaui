@@ -289,3 +289,9 @@ export * from './Tabs';
 
 export { default as Tab } from './Tab';
 export * from './Tab';
+
+export { default as Timeline } from './Timeline';
+export * from './Timeline';
+
+export { default as TimelineItem } from './TimelineItem';
+export * from './TimelineItem';

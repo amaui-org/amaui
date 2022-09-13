@@ -3,9 +3,9 @@ import React from 'react';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Type from '../Type';
+import Surface from '../Surface';
 
 import { staticClassName } from '../utils';
-import Surface from '../Surface';
 
 const useStyle = style(theme => ({
   root: {
@@ -15,9 +15,12 @@ const useStyle = style(theme => ({
 
     display: 'flex',
     flexShrink: 0,
-    background: 'currentColor',
     opacity: theme.palette.visual_contrast.default.opacity.divider,
     transition: theme.methods.transitions.make('background')
+  },
+
+  divider_tonal: {
+    opacity: 1
   },
 
   orientation_vertical: {
@@ -55,6 +58,8 @@ const useStyle = style(theme => ({
   rootWithChildren: {
     display: 'flex',
     opacity: 1,
+    color: theme.palette.text.default.primary,
+    background: 'transparent',
 
     // Reset
     height: 'unset',
@@ -101,7 +106,6 @@ const useStyle = style(theme => ({
 
   divider: {
     flex: '0 1 100%',
-    background: 'currentColor',
     opacity: theme.palette.visual_contrast.default.opacity.divider
   },
 
@@ -125,7 +129,9 @@ const useStyle = style(theme => ({
   },
 
   color_inherit: {
-    color: 'inherit'
+    opacity: theme.palette.visual_contrast.default.opacity.divider,
+    color: 'inherit',
+    background: 'currentColor'
   },
 
   inset: {
@@ -143,7 +149,7 @@ const Divider = React.forwardRef((props_: any, ref: any) => {
 
   const {
     tonal,
-    color = 'default',
+    color = 'inverted',
     inset,
     middle,
     padding,
@@ -180,7 +186,7 @@ const Divider = React.forwardRef((props_: any, ref: any) => {
     <Surface
       ref={ref}
 
-      version='text'
+      version='filled'
 
       tonal={tonal}
 
@@ -208,7 +214,8 @@ const Divider = React.forwardRef((props_: any, ref: any) => {
         inset && classes.inset,
         middle && classes[`${children ? `rootWithChildren_` : ''}orientation_${orientation}_middle`],
         padding && classes[`orientation_${orientation}_padding`],
-        color === 'inherit' && classes.color_inherit
+        color === 'inherit' && classes.color_inherit,
+        tonal && classes.divider_tonal
       ])}
 
       style={{
@@ -221,7 +228,7 @@ const Divider = React.forwardRef((props_: any, ref: any) => {
     >
       {children && <>
         <Surface
-          version='text'
+          version='filled'
 
           tonal={tonal}
 
@@ -233,7 +240,8 @@ const Divider = React.forwardRef((props_: any, ref: any) => {
             ],
 
             classes.divider,
-            classes[`divider_orientation_${orientation}`]
+            classes[`divider_orientation_${orientation}`],
+            tonal && classes.divider_tonal
           ])}
 
           style={{
@@ -259,7 +267,7 @@ const Divider = React.forwardRef((props_: any, ref: any) => {
         </Type>
 
         <Surface
-          version='text'
+          version='filled'
 
           tonal={tonal}
 
@@ -271,7 +279,8 @@ const Divider = React.forwardRef((props_: any, ref: any) => {
             ],
 
             classes.divider,
-            classes[`divider_orientation_${orientation}`]
+            classes[`divider_orientation_${orientation}`],
+            tonal && classes.divider_tonal
           ])}
 
           style={{

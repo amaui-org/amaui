@@ -78,7 +78,7 @@ const Stepper = React.forwardRef((props_: any, ref: any) => {
     iconColor = 'inverted',
     iconColorActive = 'primary',
 
-    dividerColor = 'default',
+    dividerColor = 'inverted',
     dividerColorActive = 'primary',
 
     active = 0,
@@ -91,6 +91,7 @@ const Stepper = React.forwardRef((props_: any, ref: any) => {
     free,
 
     Component = 'div',
+    DividerProps,
 
     className,
 
@@ -179,8 +180,6 @@ const Stepper = React.forwardRef((props_: any, ref: any) => {
             <Divider
               orientation={orientation}
 
-              tonal={tonal}
-
               color={active_ ? dividerColorActive : dividerColor}
 
               flex
@@ -196,6 +195,8 @@ const Stepper = React.forwardRef((props_: any, ref: any) => {
                 classes[`divider_orientation_${orientation}_stepDirection_${stepDirection}`],
                 active_ && dividerActive && classes[`divider_active_orientation_${orientation}`]
               ])}
+
+              {...DividerProps}
             />
           );
 
