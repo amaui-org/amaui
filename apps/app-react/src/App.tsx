@@ -215,6 +215,13 @@ const useStyle = style(theme => ({
 }), { name: 'App' });
 
 const styled = {
+  Tabs: sy(Tabs)((theme: AmauiTheme) => ({
+    root: {
+      '&:hover': {
+        opacity: 0.4
+      }
+    }
+  })),
   Stepper: sy(Stepper)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
@@ -953,7 +960,21 @@ function App() {
       </Line>
 
       <Accordion primary='All'>
-        <Line>
+        <Line
+          style={{
+            width: '100%'
+          }}
+        >
+          <Tabs>
+            {new Array(44).fill(1).map((item: any, index: number) => (
+              <Tab
+                label={`Tab ${index}`}
+
+                value={index}
+              />
+            ))}
+          </Tabs>
+
           <Line
             style={{ width: '100%' }}
           >
@@ -1631,7 +1652,7 @@ Please sign in again.`}
       <Accordion primary='Tabs'>
         <Accordion primary='Tabs' open>
           <Tabs>
-            {new Array(14).fill(1).map((item: any, index: number) => (
+            {new Array(44).fill(1).map((item: any, index: number) => (
               <Tab
                 label={`Tab ${index}`}
 
@@ -1639,6 +1660,339 @@ Please sign in again.`}
               />
             ))}
           </Tabs>
+        </Accordion>
+
+        <Accordion primary='Tabs icons' open>
+          <Line
+            style={{
+              width: '100%'
+            }}
+          >
+            <Tabs>
+              {new Array(44).fill(1).map((item: any, index: number) => (
+                <Tab
+                  label={`Tab ${index}`}
+
+                  value={index}
+
+                  icon={<IconMaterialPottedPlantRounded />}
+
+                  iconPosition='start'
+                />
+              ))}
+            </Tabs>
+
+            <Tabs>
+              {new Array(44).fill(1).map((item: any, index: number) => (
+                <Tab
+                  label={`Tab ${index}`}
+
+                  value={index}
+
+                  icon={<IconMaterialPottedPlantRounded />}
+
+                  iconPosition='top'
+                />
+              ))}
+            </Tabs>
+
+            <Tabs>
+              {new Array(44).fill(1).map((item: any, index: number) => (
+                <Tab
+                  label={`Tab ${index}`}
+
+                  value={index}
+
+                  icon={<IconMaterialPottedPlantRounded />}
+
+                  iconPosition='bottom'
+                />
+              ))}
+            </Tabs>
+
+            <Tabs>
+              {new Array(44).fill(1).map((item: any, index: number) => (
+                <Tab
+                  label={`Tab ${index}`}
+
+                  value={index}
+
+                  icon={<IconMaterialPottedPlantRounded />}
+
+                  iconPosition='end'
+                />
+              ))}
+            </Tabs>
+          </Line>
+        </Accordion>
+
+        <Accordion primary='Tabs disabled' open>
+          <Tabs>
+            {new Array(44).fill(1).map((item: any, index: number) => (
+              <Tab
+                label={`Tab ${index}`}
+
+                value={index}
+
+                disabled={index === 4}
+              />
+            ))}
+          </Tabs>
+        </Accordion>
+
+        <Accordion primary='Tabs center' open>
+          <Tabs
+            justify='center'
+          >
+            {new Array(4).fill(1).map((item: any, index: number) => (
+              <Tab
+                label={`Tab ${index}`}
+
+                value={index}
+              />
+            ))}
+          </Tabs>
+        </Accordion>
+
+        <Accordion primary='Tabs vertical' open>
+          <Tabs
+            orientation='vertical'
+
+            style={{
+              maxHeight: 440
+            }}
+          >
+            {new Array(44).fill(1).map((item: any, index: number) => (
+              <Tab
+                label={`Tab ${index}`}
+
+                value={index}
+              />
+            ))}
+          </Tabs>
+        </Accordion>
+
+        <Accordion primary='Tabs arrows' open>
+          <Line
+            style={{
+              width: '100%'
+            }}
+          >
+            <Tabs
+              arrows
+            >
+              {new Array(44).fill(1).map((item: any, index: number) => (
+                <Tab
+                  label={`Tab ${index}`}
+
+                  value={index}
+                />
+              ))}
+            </Tabs>
+
+            <Tabs
+              orientation='vertical'
+
+              arrows
+
+              style={{
+                maxHeight: 440
+              }}
+            >
+              {new Array(44).fill(1).map((item: any, index: number) => (
+                <Tab
+                  label={`Tab ${index}`}
+
+                  value={index}
+                />
+              ))}
+            </Tabs>
+          </Line>
+        </Accordion>
+
+        <Accordion primary='Tabs controlled' open>
+          <Tabs
+            valueDefault={4}
+
+            value={a.tabs}
+
+            onChange={(value: any) => updatePure(value, 'tabs')}
+          >
+            {new Array(44).fill(1).map((item: any, index: number) => (
+              <Tab
+                label={`Tab ${index}`}
+
+                value={index}
+              />
+            ))}
+          </Tabs>
+        </Accordion>
+
+        <Accordion primary='AmauiTheme'>
+          <div className={classNames([classes.column])}>
+            <Tabs
+              color='secondary'
+            >
+              {new Array(44).fill(1).map((item: any, index: number) => (
+                <Tab
+                  label={`Tab ${index}`}
+
+                  value={index}
+                />
+              ))}
+            </Tabs>
+
+            <Accordion primary='AmauiTheme nested value'>
+              <AmauiThemeProvider
+                value={{
+                  palette: {
+                    color: {
+                      secondary: {
+                        main: '#008000'
+                      }
+                    }
+                  },
+                  space: {
+                    unit: 5
+                  }
+                }}
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                <Tabs
+                  color='secondary'
+                >
+                  {new Array(44).fill(1).map((item: any, index: number) => (
+                    <Tab
+                      label={`Tab ${index}`}
+
+                      value={index}
+                    />
+                  ))}
+                </Tabs>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme add'>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiTabs: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: 0.4
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                <Tabs
+                  color='secondary'
+                >
+                  {new Array(44).fill(1).map((item: any, index: number) => (
+                    <Tab
+                      label={`Tab ${index}`}
+
+                      value={index}
+                    />
+                  ))}
+                </Tabs>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme override'>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiTabs: {
+                        style: {
+                          override: {
+                            root: {
+                              padding: '11px 40px'
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                <Tabs
+                  color='secondary'
+                >
+                  {new Array(44).fill(1).map((item: any, index: number) => (
+                    <Tab
+                      label={`Tab ${index}`}
+
+                      value={index}
+                    />
+                  ))}
+                </Tabs>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme props'>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiTabs: {
+                        props: {
+                          default: {
+                            color: 'secondary'
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                <Tabs>
+                  {new Array(44).fill(1).map((item: any, index: number) => (
+                    <Tab
+                      label={`Tab ${index}`}
+
+                      value={index}
+                    />
+                  ))}
+                </Tabs>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme styled'>
+              <styled.Tabs>
+                {new Array(44).fill(1).map((item: any, index: number) => (
+                  <Tab
+                    label={`Tab ${index}`}
+
+                    value={index}
+                  />
+                ))}
+              </styled.Tabs>
+            </Accordion>
+          </div>
         </Accordion>
       </Accordion>
 
