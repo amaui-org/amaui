@@ -160,7 +160,7 @@ const Interaction = React.forwardRef((props_: any, ref: any) => {
   const {
     wave = true,
     background = true,
-    border: border_ = true,
+    border: border_ = false,
     pulse,
     origin,
     preselected,

@@ -141,7 +141,7 @@ const Pagination = React.forwardRef((props_: any, ref: any) => {
     if (value_ !== value) setValue(value_);
   }, [value_]);
 
-  const update = (value__: number) => {
+  const onChange = (value__: number) => {
     // Update inner or controlled
     if (!props.hasOwnProperty('value')) setValue(value__);
 
@@ -180,7 +180,7 @@ const Pagination = React.forwardRef((props_: any, ref: any) => {
 
         size={size}
 
-        onClick={() => update(item as number)}
+        onClick={() => onChange(item as number)}
 
         selected={value_ === item}
       >
@@ -226,7 +226,7 @@ const Pagination = React.forwardRef((props_: any, ref: any) => {
     >
       {first && (
         <IconButton
-          onClick={() => update(1)}
+          onClick={() => onChange(1)}
 
           disabled={value === 1}
 
@@ -238,7 +238,7 @@ const Pagination = React.forwardRef((props_: any, ref: any) => {
 
       {before && (
         <IconButton
-          onClick={() => update(clamp(value - 1, 1, total))}
+          onClick={() => onChange(clamp(value - 1, 1, total))}
 
           disabled={value === 1}
 
@@ -259,7 +259,7 @@ const Pagination = React.forwardRef((props_: any, ref: any) => {
 
       {next && (
         <IconButton
-          onClick={() => update(clamp(value + 1, 1, total))}
+          onClick={() => onChange(clamp(value + 1, 1, total))}
 
           disabled={value === total}
 
@@ -271,7 +271,7 @@ const Pagination = React.forwardRef((props_: any, ref: any) => {
 
       {last && (
         <IconButton
-          onClick={() => update(total)}
+          onClick={() => onChange(total)}
 
           disabled={value === total}
 
