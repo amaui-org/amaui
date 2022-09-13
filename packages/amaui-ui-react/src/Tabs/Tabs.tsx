@@ -39,7 +39,7 @@ const useStyle = style(theme => ({
     flex: '0 0 auto',
     alignSelf: 'center',
     justifySelf: 'center',
-    transition: theme.methods.transitions.make(['opacity']),
+    transition: theme.methods.transitions.make(['opacity'], { duration: 'xxs' }),
 
     '&[disabled]': {
       opacity: 0
