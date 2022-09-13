@@ -38,7 +38,12 @@ const useStyle = style(theme => ({
   arrow: {
     flex: '0 0 auto',
     alignSelf: 'center',
-    justifySelf: 'center'
+    justifySelf: 'center',
+    transition: theme.methods.transitions.make(['opacity']),
+
+    '&[disabled]': {
+      opacity: 0
+    }
   },
 
   line: {
