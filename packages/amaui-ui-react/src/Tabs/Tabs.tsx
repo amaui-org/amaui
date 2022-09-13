@@ -48,7 +48,6 @@ const useStyle = style(theme => ({
 
   line: {
     position: 'absolute',
-    borderRadius: '16px 16px 0 0',
     background: 'currentColor',
     zIndex: 1,
     transition: theme.methods.transitions.make(['top', 'left', 'width'])
@@ -57,11 +56,17 @@ const useStyle = style(theme => ({
   line_orientation_horizontal: {
     height: '3px',
     bottom: 0,
+    borderRadius: '16px 16px 0 0'
   },
 
   line_orientation_vertical: {
     width: '3px',
-    insetInlineEnd: 0
+    insetInlineEnd: 0,
+    borderRadius: '16px 0 0 16px'
+  },
+
+  line_orientation_vertical_rtl: {
+    borderRadius: '0 16px 16px 0'
   },
 
   fixed: {
@@ -208,9 +213,17 @@ const Tabs = React.forwardRef((props_: any, ref: any) => {
 
     observerMutation.observe(refs.tabsRoot.current);
 
+    // Update theme subscription method
+    const method = () => updateLine();
+
+    theme.subscriptions.update.subscribe(method);
+
     setInit(true);
 
     return () => {
+      // Unsubscribe
+      theme.subscriptions.update.unsubscribe(method);
+
       observerMutation.disconnect();
     };
   }, []);
@@ -249,7 +262,9 @@ const Tabs = React.forwardRef((props_: any, ref: any) => {
     if (is('function', onChange_)) onChange_(valueItem);
   };
 
-  const move = (forward = true) => {
+  const move = (forward_ = true) => {
+    const forward = theme.direction === 'ltr' || orientation === 'vertical' ? forward_ : !forward_;
+
     const rect = refs.tabsRoot.current.getBoundingClientRect();
 
     let moveValue_: any;
@@ -266,47 +281,50 @@ const Tabs = React.forwardRef((props_: any, ref: any) => {
     refs.tabsRoot.current.scrollTo(moveValue_);
   };
 
-  const updateLine = (valueItem: number) => {
+  const updateLine = (valueItem: number = refs.value.current) => {
     const tab: HTMLElement = refs.tabs.current.find(item => String(item.value) === String(valueItem));
 
     if (tab) {
       const rect = {
-        parent: refs.tabsRoot.current.getBoundingClientRect(),
+        parent: refs.tabsRoot.current?.getBoundingClientRect(),
         tab: tab.getBoundingClientRect(),
         line: tab.children[1]?.getBoundingClientRect()
       };
 
-      // Update left scroll
-      if (orientation === 'horizontal') {
-        if ((rect.tab.x < rect.parent.x) || (rect.parent.x + rect.parent.width < rect.tab.x + rect.tab.width)) {
-          let left = refs.tabsRoot.current.scrollLeft;
+      // Update
+      if (rect.parent && rect.line && rect.tab) {
+        // Update left scroll
+        if (orientation === 'horizontal') {
+          if ((rect.tab.x < rect.parent.x) || (rect.parent.x + rect.parent.width < rect.tab.x + rect.tab.width)) {
+            let left = refs.tabsRoot.current.scrollLeft;
 
-          if (rect.tab.x < rect.parent.x) left += rect.tab.x - rect.parent.x;
-          else left += (rect.tab.x + rect.tab.width) - (rect.parent.x + rect.parent.width);
+            if (rect.tab.x < rect.parent.x) left += rect.tab.x - rect.parent.x;
+            else left += (rect.tab.x + rect.tab.width) - (rect.parent.x + rect.parent.width);
 
-          // Update
-          refs.tabsRoot.current.scrollTo({ left, behavior: 'smooth' });
+            // Update
+            refs.tabsRoot.current.scrollTo({ left, behavior: 'smooth' });
+          }
         }
-      }
-      else {
-        if ((rect.tab.y < rect.parent.y) || (rect.parent.y + rect.parent.height < rect.tab.y + rect.tab.height)) {
-          let top = refs.tabsRoot.current.scrollTop;
+        else {
+          if ((rect.tab.y < rect.parent.y) || (rect.parent.y + rect.parent.height < rect.tab.y + rect.tab.height)) {
+            let top = refs.tabsRoot.current.scrollTop;
 
-          if (rect.tab.y < rect.parent.y) top += rect.tab.y - rect.parent.y;
-          else top += (rect.tab.y + rect.tab.height) - (rect.parent.y + rect.parent.height);
+            if (rect.tab.y < rect.parent.y) top += rect.tab.y - rect.parent.y;
+            else top += (rect.tab.y + rect.tab.height) - (rect.parent.y + rect.parent.height);
 
-          // Update
-          refs.tabsRoot.current.scrollTo({ top, behavior: 'smooth' });
+            // Update
+            refs.tabsRoot.current.scrollTo({ top, behavior: 'smooth' });
+          }
         }
-      }
 
-      // Update lineValues value
-      setLineValues({
-        x: rect.line.x - rect.parent.x + refs.tabsRoot.current.scrollLeft,
-        y: rect.line.y - rect.parent.y + refs.tabsRoot.current.scrollTop,
-        width: rect.line.width,
-        height: rect.line.height
-      });
+        // Update lineValues value
+        setLineValues({
+          x: rect.line.x - rect.parent.x + refs.tabsRoot.current.scrollLeft,
+          y: rect.line.y - rect.parent.y + refs.tabsRoot.current.scrollTop,
+          width: rect.line.width,
+          height: rect.line.height
+        });
+      }
     }
   };
 
@@ -422,7 +440,8 @@ const Tabs = React.forwardRef((props_: any, ref: any) => {
             ],
 
             classes.line,
-            classes[`line_orientation_${orientation}`]
+            classes[`line_orientation_${orientation}`],
+            orientation === 'vertical' && theme.direction === 'rtl' && classes.line_orientation_vertical_rtl
           ])}
 
           style={{
