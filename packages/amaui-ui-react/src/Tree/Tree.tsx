@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is } from '@amaui/utils';
+import { clamp, is } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Checkbox from '../Checkbox';
@@ -16,6 +16,24 @@ import { staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
+    position: 'relative'
+  },
+
+  line: {
+    '&::before': {
+      content: "''",
+      position: 'absolute',
+      left: '-4px',
+      height: '100%',
+      width: '2px',
+      background: theme.palette.light ? theme.palette.color.neutral['90'] : theme.palette.color.neutral['20']
+    },
+
+    '&:last-of-type': {
+      '&::before': {
+        height: '2px'
+      }
+    }
   },
 
   main: {
@@ -23,6 +41,21 @@ const useStyle = style(theme => ({
     color: 'inherit',
     padding: '2px 8px',
     borderRadius: `${theme.shape.radius.unit * 0.5}px`
+  },
+
+  main_line: {
+    '&::before': {
+      content: "''",
+      position: 'absolute',
+      top: 'calc(50% - 12px)',
+      left: '-4px',
+      width: '8px',
+      height: '10px',
+      borderLeft: '2px solid',
+      borderBottom: '2px solid',
+      borderColor: theme.palette.light ? theme.palette.color.neutral['90'] : theme.palette.color.neutral['20'],
+      borderBottomLeftRadius: '6px'
+    }
   },
 
   middle: {
@@ -59,19 +92,10 @@ const IconMaterialExpandMoreRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
-// To do
-
-// Checkbox
-// Line
-// Keyboard and focus value y
-// Orientation vertical
-
 const Tree = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiTree?.props?.default }), [props_]);
-
-  const { classes } = useStyle(props);
 
   const {
     tonal,
@@ -82,6 +106,7 @@ const Tree = React.forwardRef((props_: any, ref: any) => {
     openDefault,
     onChange,
 
+    line,
     indicator,
     arrow = true,
     checkbox,
@@ -125,6 +150,12 @@ const Tree = React.forwardRef((props_: any, ref: any) => {
   const [focus, setFocus] = React.useState(false);
   const [open, setOpen] = React.useState(openDefault !== undefined ? openDefault : open_);
 
+  const refs = {
+    root: React.useRef<any>()
+  };
+
+  const { classes } = useStyle(props);
+
   const styles: any = {
     root: {}
   };
@@ -141,6 +172,30 @@ const Tree = React.forwardRef((props_: any, ref: any) => {
       if (open_ !== open) setOpen(open_);
     }
   }, [open_]);
+
+  const onKeyDown = (event: React.KeyboardEvent<any>) => {
+    let allElements = [];
+
+    if (['ArrowUp', 'ArrowDown'].includes(event.key)) {
+      allElements = refs.root.current.querySelectorAll(`[tabindex='0']`);
+    }
+
+    switch (event.key) {
+      case 'ArrowUp':
+      case 'ArrowDown':
+        let index = clamp(allElements.findIndex(item => item === window.document.activeElement), 0);
+
+        event.key === 'ArrowUp' ? index++ : index--;
+
+        allElements[clamp(index, 0, allElements.length - 1)].focus();
+
+        event.preventDefault();
+        return;
+
+      default:
+        break;
+    }
+  };
 
   const onClick = React.useCallback(() => {
     if (!disabled) {
@@ -229,6 +284,8 @@ const Tree = React.forwardRef((props_: any, ref: any) => {
 
         version: item.props.version !== undefined ? item.props.version : version,
 
+        line: item.props.line !== undefined ? item.props.line : line,
+
         checkbox: item.props.checkbox !== undefined ? item.props.checkbox : checkbox,
 
         IconArrow: item.props.IconArrow !== undefined ? item.props.IconArrow : IconArrow,
@@ -248,7 +305,11 @@ const Tree = React.forwardRef((props_: any, ref: any) => {
 
   return (
     <Surface
-      ref={ref}
+      ref={item => {
+        if (ref) ref.current = item;
+
+        refs.root.current = item;
+      }}
 
       tonal={tonal}
 
@@ -262,17 +323,22 @@ const Tree = React.forwardRef((props_: any, ref: any) => {
 
       justify='unset'
 
+      onKeyDown={onKeyDown}
+
       Component={Line}
 
       className={classNames([
         staticClassName('Tree', theme) && [
           'AmauiTree-root',
-          !children && `AmauiTree-empty`,
+          `AmauiTree-level-${level}`,
+          (level > 0 && line) && `AmauiTree-line`,
+          children ? `AmauiTree-children` : `AmauiTree-empty`,
           button && `AmauiTree-button`
         ],
 
         className,
-        classes.root
+        classes.root,
+        (level > 0 && line) && classes.line
       ])}
 
       AdditionalProps={{
@@ -306,7 +372,8 @@ const Tree = React.forwardRef((props_: any, ref: any) => {
           ],
 
           classes.main,
-          button && classes.button
+          button && classes.button,
+          (level > 0 && line) && classes.main_line
         ])}
 
         {...MainProps}

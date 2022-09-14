@@ -2010,7 +2010,7 @@ Please sign in again.`}
 
             end={(
               <IconMaterialFiberManualRecordRounded
-                size={14}
+                size={12}
 
                 color='warning'
               />
@@ -2093,7 +2093,177 @@ Please sign in again.`}
 
                 end={(
                   <IconMaterialFiberManualRecordRounded
-                    size={14}
+                    size={12}
+
+                    color='warning'
+                  />
+                )}
+
+                MiddleProps={{
+                  version: 'b2',
+                  color: 'secondary'
+                }}
+              />
+
+              <Tree
+                middle='index.jsx'
+
+                icon={<IconMaterialFiberManualRecordRounded
+                  size='small'
+
+                  color='secondary'
+                />}
+
+                MiddleProps={{
+                  version: 'b2',
+                  color: 'secondary'
+                }}
+              />
+            </Tree>
+
+            <Tree
+              openDefault
+
+              middle='AutoComplete'
+
+              icon={<IconMaterialFolderRounded size='small' />}
+              iconOpen={<IconMaterialFolderOpenRounded size='small' />}
+
+              MiddleProps={{
+                version: 'l2',
+                color: 'primary'
+              }}
+            >
+              <Tree
+                middle='AutoComplete.jsx'
+
+                icon={<IconMaterialFiberManualRecordRounded
+                  size='small'
+
+                  color='secondary'
+                />}
+
+                MiddleProps={{
+                  version: 'b2',
+                  color: 'secondary'
+                }}
+              />
+
+              <Tree
+                middle='index.jsx'
+
+                icon={<IconMaterialFiberManualRecordRounded
+                  size='small'
+
+                  color='secondary'
+                />}
+
+                MiddleProps={{
+                  version: 'b2',
+                  color: 'secondary'
+                }}
+              />
+            </Tree>
+          </Tree>
+        </Accordion>
+
+        <Accordion primary='Tree line' open>
+          <Tree
+            openDefault
+
+            line
+
+            middle='src'
+
+            icon={<IconMaterialFolderRounded size='small' />}
+            iconOpen={<IconMaterialFolderOpenRounded size='small' />}
+
+            end={(
+              <IconMaterialFiberManualRecordRounded
+                size={12}
+
+                color='warning'
+              />
+            )}
+
+            MiddleProps={{
+              version: 'l2',
+              color: 'primary'
+            }}
+
+            style={{
+              minWidth: 204
+            }}
+          >
+            <Tree
+              openDefault
+
+              middle='Accordion'
+
+              icon={<IconMaterialFolderRounded size='small' />}
+              iconOpen={<IconMaterialFolderOpenRounded size='small' />}
+
+              MiddleProps={{
+                version: 'l2',
+                color: 'primary'
+              }}
+            >
+              <Tree
+                middle='Accordion.jsx'
+
+                icon={<IconMaterialFiberManualRecordRounded
+                  size='small'
+
+                  color='secondary'
+                />}
+
+                MiddleProps={{
+                  version: 'b2',
+                  color: 'secondary'
+                }}
+              />
+
+              <Tree
+                middle='index.jsx'
+
+                icon={<IconMaterialFiberManualRecordRounded
+                  size='small'
+
+                  color='secondary'
+                />}
+
+                MiddleProps={{
+                  version: 'b2',
+                  color: 'secondary'
+                }}
+              />
+            </Tree>
+
+            <Tree
+              openDefault
+
+              middle='Append'
+
+              icon={<IconMaterialFolderRounded size='small' />}
+              iconOpen={<IconMaterialFolderOpenRounded size='small' />}
+
+              MiddleProps={{
+                version: 'l2',
+                color: 'primary'
+              }}
+            >
+              <Tree
+                middle='Append.jsx'
+
+                icon={<IconMaterialFiberManualRecordRounded
+                  size='small'
+
+                  color='secondary'
+                />}
+
+                end={(
+                  <IconMaterialFiberManualRecordRounded
+                    size={12}
 
                     color='warning'
                   />
