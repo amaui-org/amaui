@@ -215,6 +215,13 @@ const useStyle = style(theme => ({
 }), { name: 'App' });
 
 const styled = {
+  Timeline: sy(Timeline)((theme: AmauiTheme) => ({
+    root: {
+      '&:hover': {
+        opacity: 0.4
+      }
+    }
+  })),
   Tabs: sy(Tabs)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
@@ -965,6 +972,36 @@ function App() {
             width: '100%'
           }}
         >
+          <Timeline>
+            {new Array(7).fill(1).map((item: any, index: number) => (
+              <TimelineItem
+                key={index}
+
+                start={(
+                  <Type
+                    version='b2'
+
+                    color='secondary'
+                  >
+                    other
+                  </Type>
+                )}
+
+                end={(
+                  <ListItem
+                    Component='div'
+
+                    primary='Primary text'
+                    secondary='Secondary text'
+                    tertiary='Tertiary text'
+
+                    noPadding
+                  />
+                )}
+              />
+            ))}
+          </Timeline>
+
           <Tabs>
             {new Array(44).fill(1).map((item: any, index: number) => (
               <Tab
@@ -1677,6 +1714,78 @@ Please sign in again.`}
                     noPadding
                   />
                 )}
+              />
+            ))}
+          </Timeline>
+        </Accordion>
+
+        <Accordion primary='Timeline horizontal'>
+          <Timeline
+            orientation='horizontal'
+          >
+            {new Array(7).fill(1).map((item: any, index: number) => (
+              <TimelineItem
+                key={index}
+
+                start={(
+                  <Type
+                    version='b2'
+
+                    color='secondary'
+                  >
+                    other
+                  </Type>
+                )}
+
+                end={(
+                  <ListItem
+                    Component='div'
+
+                    primary='Primary text'
+                    secondary='Secondary text'
+                    tertiary='Tertiary text'
+
+                    noPadding
+                  />
+                )}
+              />
+            ))}
+          </Timeline>
+        </Accordion>
+
+        <Accordion primary='Timeline IconProps'>
+          <Timeline>
+            {new Array(7).fill(1).map((item: any, index: number) => (
+              <TimelineItem
+                key={index}
+
+                start={(
+                  <Type
+                    version='b2'
+
+                    color='secondary'
+                  >
+                    other
+                  </Type>
+                )}
+
+                end={(
+                  <ListItem
+                    Component='div'
+
+                    primary='Primary text'
+                    secondary='Secondary text'
+                    tertiary='Tertiary text'
+
+                    noPadding
+                  />
+                )}
+
+                IconProps={{
+                  version: 'outlined-without-background',
+
+                  color: 'secondary'
+                }}
               />
             ))}
           </Timeline>

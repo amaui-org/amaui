@@ -22,7 +22,7 @@ const useStyle = style(theme => ({
   },
 
   orientation_horizontal: {
-    minWidth: '77px'
+    minWidth: '114px'
   },
 
   icon: {
@@ -36,7 +36,7 @@ const useStyle = style(theme => ({
     padding: '4px 24px'
   },
 
-  aside_orientation_horziontal: {
+  aside_orientation_horizontal: {
     padding: '24px 4px'
   },
 
@@ -166,9 +166,9 @@ const TimelineItem = React.forwardRef((props_: any, ref: any) => {
 
         direction={lineDirection}
 
-        align={orientation === 'vertical' ? 'center' : 'flex-start'}
+        align='center'
 
-        justify={orientation === 'vertical' ? 'flex-start' : 'center'}
+        justify='flex-start'
 
         className={classNames([
           staticClassName('TimelineItem', theme) && [

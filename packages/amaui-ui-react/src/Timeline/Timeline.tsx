@@ -55,7 +55,11 @@ const Timeline = React.forwardRef((props_: any, ref: any) => {
 
       {...other}
     >
-      {children}
+      {React.Children.toArray(children).map((item: any) => (
+        React.cloneElement(item, {
+          orientation
+        })
+      ))}
     </Line>
   );
 });
