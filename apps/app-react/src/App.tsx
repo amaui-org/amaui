@@ -2957,6 +2957,160 @@ Please sign in again.`}
           </Tree>
         </Accordion>
 
+        <Accordion primary='Tree disabled'>
+          <Tree
+            openDefault
+
+            middle='src'
+
+            icon={<IconMaterialFolderRounded size='small' />}
+            iconOpen={<IconMaterialFolderOpenRounded size='small' />}
+
+            MiddleProps={{
+              version: 'l2',
+              color: 'primary'
+            }}
+
+            style={{
+              minWidth: 204
+            }}
+          >
+            <Tree
+              openDefault
+
+              middle='Accordion'
+
+              icon={<IconMaterialFolderRounded size='small' />}
+              iconOpen={<IconMaterialFolderOpenRounded size='small' />}
+
+              MiddleProps={{
+                version: 'l2',
+                color: 'primary'
+              }}
+            >
+              <Tree
+                middle='Accordion.jsx'
+
+                icon={<IconMaterialFiberManualRecordRounded
+                  size='small'
+
+                  color='secondary'
+                />}
+
+                MiddleProps={{
+                  version: 'b2',
+                  color: 'secondary'
+                }}
+              />
+
+              <Tree
+                middle='index.jsx'
+
+                icon={<IconMaterialFiberManualRecordRounded
+                  size='small'
+
+                  color='secondary'
+                />}
+
+                MiddleProps={{
+                  version: 'b2',
+                  color: 'secondary'
+                }}
+              />
+            </Tree>
+
+            <Tree
+              openDefault
+
+              middle='Append'
+
+              icon={<IconMaterialFolderRounded size='small' />}
+              iconOpen={<IconMaterialFolderOpenRounded size='small' />}
+
+              MiddleProps={{
+                version: 'l2',
+                color: 'primary'
+              }}
+
+              disabled
+            >
+              <Tree
+                middle='Append.jsx'
+
+                icon={<IconMaterialFiberManualRecordRounded
+                  size='small'
+
+                  color='secondary'
+                />}
+
+                MiddleProps={{
+                  version: 'b2',
+                  color: 'secondary'
+                }}
+              />
+
+              <Tree
+                middle='index.jsx'
+
+                icon={<IconMaterialFiberManualRecordRounded
+                  size='small'
+
+                  color='secondary'
+                />}
+
+                MiddleProps={{
+                  version: 'b2',
+                  color: 'secondary'
+                }}
+              />
+            </Tree>
+
+            <Tree
+              openDefault
+
+              middle='AutoComplete'
+
+              icon={<IconMaterialFolderRounded size='small' />}
+              iconOpen={<IconMaterialFolderOpenRounded size='small' />}
+
+              MiddleProps={{
+                version: 'l2',
+                color: 'primary'
+              }}
+            >
+              <Tree
+                middle='AutoComplete.jsx'
+
+                icon={<IconMaterialFiberManualRecordRounded
+                  size='small'
+
+                  color='secondary'
+                />}
+
+                MiddleProps={{
+                  version: 'b2',
+                  color: 'secondary'
+                }}
+              />
+
+              <Tree
+                middle='index.jsx'
+
+                icon={<IconMaterialFiberManualRecordRounded
+                  size='small'
+
+                  color='secondary'
+                />}
+
+                MiddleProps={{
+                  version: 'b2',
+                  color: 'secondary'
+                }}
+              />
+            </Tree>
+          </Tree>
+        </Accordion>
+
         <Accordion primary='AmauiTheme'>
           <div className={classNames([classes.column])}>
             <Tree

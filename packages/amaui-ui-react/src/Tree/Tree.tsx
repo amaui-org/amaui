@@ -73,6 +73,12 @@ const useStyle = style(theme => ({
   button: {
     userSelect: 'none',
     cursor: 'pointer'
+  },
+
+  disabled: {
+    pointerEvents: 'none',
+    cursor: 'default',
+    opacity: theme.palette.visual_contrast.default.opacity.disabled
   }
 }), { name: 'AmauiTree' });
 
@@ -125,8 +131,6 @@ const Tree = React.forwardRef((props_: any, ref: any) => {
     noTransition,
     noExpand,
 
-    disabled,
-
     Component = 'div',
     ExpandProps,
     TransitionComponent: TransitionComponent_ = Fade,
@@ -137,6 +141,8 @@ const Tree = React.forwardRef((props_: any, ref: any) => {
     MiddleTypeProps,
     EndProps,
     IndicatorProps,
+
+    disabled,
 
     className,
     style,
@@ -334,12 +340,14 @@ const Tree = React.forwardRef((props_: any, ref: any) => {
           `AmauiTree-level-${level}`,
           (level > 0 && line) && `AmauiTree-line`,
           children ? `AmauiTree-children` : `AmauiTree-empty`,
-          button && `AmauiTree-button`
+          button && `AmauiTree-button`,
+          disabled && `AmauiTree-disabled`
         ],
 
         className,
         classes.root,
-        (level > 0 && line) && classes.line
+        (level > 0 && line) && classes.line,
+        disabled && classes.disabled
       ])}
 
       AdditionalProps={{
@@ -357,7 +365,7 @@ const Tree = React.forwardRef((props_: any, ref: any) => {
       <Line
         gap={1}
 
-        tabIndex={(button && children_) ? 0 : -1}
+        tabIndex={(!disabled && button && children_) ? 0 : -1}
 
         direction='row'
 
