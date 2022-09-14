@@ -4,13 +4,13 @@ import { is } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Surface from '../Surface';
+import Fade from '../Fade';
 import Expand from '../Expand';
 import Icon from '../Icon';
 import IconButton from '../IconButton';
 import Grid from '../Grid';
 import Line from '../Line';
 import Type from '../Type';
-import Fade from '../Fade';
 
 import { staticClassName } from '../utils';
 
@@ -161,13 +161,13 @@ const Accordion = React.forwardRef((props_: any, ref: any) => {
     openDefault,
     open: open_,
     onChange,
-    Component = 'div',
-    TransitionComponent: TransitionComponent_ = Fade,
-    TransitionComponentProps: TransitionComponentProps_ = { add: true },
     noTransition,
     disabled,
 
-    ExpandProps = {},
+    Component = 'div',
+    ExpandProps,
+    TransitionComponent: TransitionComponent_ = Fade,
+    TransitionComponentProps: TransitionComponentProps_ = { add: true },
 
     className,
 

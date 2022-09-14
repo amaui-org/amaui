@@ -295,3 +295,6 @@ export * from './Timeline';
 
 export { default as TimelineItem } from './TimelineItem';
 export * from './TimelineItem';
+
+export { default as Tree } from './Tree';
+export * from './Tree';
