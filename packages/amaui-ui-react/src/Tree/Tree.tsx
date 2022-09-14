@@ -3,6 +3,7 @@ import React from 'react';
 import { is } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
+import Checkbox from '../Checkbox';
 import Surface from '../Surface';
 import Type from '../Type';
 import Fade from '../Fade';
@@ -59,7 +60,7 @@ const IconMaterialExpandMoreRounded = React.forwardRef((props: any, ref) => {
 });
 
 // To do
-// Icon end
+
 // Checkbox
 // Line
 // Keyboard and focus value y
@@ -81,7 +82,8 @@ const Tree = React.forwardRef((props_: any, ref: any) => {
     openDefault,
     onChange,
 
-    indicator = true,
+    indicator,
+    arrow = true,
     checkbox,
     IconArrow = IconMaterialExpandMoreRounded,
     indicatorPosition = 'start',
@@ -109,6 +111,7 @@ const Tree = React.forwardRef((props_: any, ref: any) => {
     MiddleProps,
     MiddleTypeProps,
     EndProps,
+    IndicatorProps,
 
     className,
     style,
@@ -172,22 +175,35 @@ const Tree = React.forwardRef((props_: any, ref: any) => {
   const end = React.Children.toArray(end_);
 
   if (indicator && button && children_ && !noExpand) {
-    if (indicatorPosition === 'start') start.unshift(
-      <IconArrow
-        className={classNames([
-          classes.indicator,
-          open && classes.indicator_open
-        ])}
-      />
-    );
-    else if (indicatorPosition === 'end') end.push(
-      <IconArrow
-        className={classNames([
-          classes.indicator,
-          open && classes.indicator_open
-        ])}
-      />
-    );
+    let Indicator: any;
+
+    if (arrow) {
+      Indicator = (
+        <IconArrow
+          className={classNames([
+            classes.indicator,
+            open && classes.indicator_open
+          ])}
+
+          {...IndicatorProps}
+        />
+      );
+    }
+
+    if (checkbox) {
+      Indicator = (
+        <Checkbox
+          size='small'
+
+          value={open}
+
+          {...IndicatorProps}
+        />
+      );
+    }
+
+    if (indicatorPosition === 'start') start.unshift(Indicator);
+    else if (indicatorPosition === 'end') end.push(Indicator);
   }
 
   const MainProps = {
@@ -325,7 +341,11 @@ const Tree = React.forwardRef((props_: any, ref: any) => {
 
             {...StartProps}
           >
-            {start}
+            {start.map((item: any, index: number) => (
+              React.cloneElement(item, {
+                key: index
+              })
+            ))}
           </Line>
         )}
 
@@ -376,7 +396,11 @@ const Tree = React.forwardRef((props_: any, ref: any) => {
 
             {...EndProps}
           >
-            {end}
+            {end.map((item: any, index: number) => (
+              React.cloneElement(item, {
+                key: index
+              })
+            ))}
           </Line>
         )}
       </Line>
@@ -407,7 +431,11 @@ const Tree = React.forwardRef((props_: any, ref: any) => {
                 classes.tree
               ])}
             >
-              {children}
+              {children.map((item: any, index: number) => (
+                React.cloneElement(item, {
+                  key: index
+                })
+              ))}
             </Line>
           </TransitionComponent>
         </Expand>
