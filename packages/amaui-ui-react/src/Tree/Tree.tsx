@@ -177,7 +177,7 @@ const Tree = React.forwardRef((props_: any, ref: any) => {
     let allElements = [];
 
     if (['ArrowUp', 'ArrowDown'].includes(event.key)) {
-      allElements = refs.root.current.querySelectorAll(`[tabindex='0']`);
+      allElements = Array.from(refs.root.current.querySelectorAll(`[tabindex='0']`)).reverse();
     }
 
     switch (event.key) {
