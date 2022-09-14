@@ -1790,6 +1790,269 @@ Please sign in again.`}
             ))}
           </Timeline>
         </Accordion>
+
+        <Accordion primary='AmauiTheme'>
+          <div className={classNames([classes.column])}>
+            <Timeline>
+              {new Array(7).fill(1).map((item: any, index: number) => (
+                <TimelineItem
+                  key={index}
+
+                  start={(
+                    <Type
+                      version='b2'
+
+                      color='secondary'
+                    >
+                      other
+                    </Type>
+                  )}
+
+                  end={(
+                    <ListItem
+                      Component='div'
+
+                      primary='Primary text'
+                      secondary='Secondary text'
+                      tertiary='Tertiary text'
+
+                      noPadding
+                    />
+                  )}
+                />
+              ))}
+            </Timeline>
+
+            <Accordion primary='AmauiTheme nested value'>
+              <AmauiThemeProvider
+                value={{
+                  palette: {
+                    color: {
+                      secondary: {
+                        main: '#008000'
+                      }
+                    }
+                  },
+                  space: {
+                    unit: 5
+                  }
+                }}
+              >
+                <Timeline>
+                  {new Array(7).fill(1).map((item: any, index: number) => (
+                    <TimelineItem
+                      key={index}
+
+                      start={(
+                        <Type
+                          version='b2'
+
+                          color='secondary'
+                        >
+                          other
+                        </Type>
+                      )}
+
+                      end={(
+                        <ListItem
+                          Component='div'
+
+                          primary='Primary text'
+                          secondary='Secondary text'
+                          tertiary='Tertiary text'
+
+                          noPadding
+                        />
+                      )}
+                    />
+                  ))}
+                </Timeline>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme add'>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiTimeline: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: 0.4
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Timeline>
+                  {new Array(7).fill(1).map((item: any, index: number) => (
+                    <TimelineItem
+                      key={index}
+
+                      start={(
+                        <Type
+                          version='b2'
+
+                          color='secondary'
+                        >
+                          other
+                        </Type>
+                      )}
+
+                      end={(
+                        <ListItem
+                          Component='div'
+
+                          primary='Primary text'
+                          secondary='Secondary text'
+                          tertiary='Tertiary text'
+
+                          noPadding
+                        />
+                      )}
+                    />
+                  ))}
+                </Timeline>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme override'>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiTimeline: {
+                        style: {
+                          override: {
+                            root: {
+                              padding: '11px 40px'
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Timeline>
+                  {new Array(7).fill(1).map((item: any, index: number) => (
+                    <TimelineItem
+                      key={index}
+
+                      start={(
+                        <Type
+                          version='b2'
+
+                          color='secondary'
+                        >
+                          other
+                        </Type>
+                      )}
+
+                      end={(
+                        <ListItem
+                          Component='div'
+
+                          primary='Primary text'
+                          secondary='Secondary text'
+                          tertiary='Tertiary text'
+
+                          noPadding
+                        />
+                      )}
+                    />
+                  ))}
+                </Timeline>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme props'>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiTimeline: {
+                        props: {
+                          default: {
+                            orientation: 'horizontal'
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Timeline>
+                  {new Array(7).fill(1).map((item: any, index: number) => (
+                    <TimelineItem
+                      key={index}
+
+                      start={(
+                        <Type
+                          version='b2'
+
+                          color='secondary'
+                        >
+                          other
+                        </Type>
+                      )}
+
+                      end={(
+                        <ListItem
+                          Component='div'
+
+                          primary='Primary text'
+                          secondary='Secondary text'
+                          tertiary='Tertiary text'
+
+                          noPadding
+                        />
+                      )}
+                    />
+                  ))}
+                </Timeline>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme styled'>
+              <styled.Timeline>
+                {new Array(7).fill(1).map((item: any, index: number) => (
+                  <TimelineItem
+                    key={index}
+
+                    start={(
+                      <Type
+                        version='b2'
+
+                        color='secondary'
+                      >
+                        other
+                      </Type>
+                    )}
+
+                    end={(
+                      <ListItem
+                        Component='div'
+
+                        primary='Primary text'
+                        secondary='Secondary text'
+                        tertiary='Tertiary text'
+
+                        noPadding
+                      />
+                    )}
+                  />
+                ))}
+              </styled.Timeline>
+            </Accordion>
+          </div>
+        </Accordion>
       </Accordion>
 
       <Accordion primary='Tabs'>
