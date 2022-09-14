@@ -138,10 +138,10 @@ const Tree = React.forwardRef((props_: any, ref: any) => {
     MainProps: MainProps_,
     StartProps,
     MiddleProps,
-    MiddleTypeProps,
     EndProps,
     IndicatorProps,
 
+    parentDisabled,
     disabled,
 
     className,
@@ -180,32 +180,34 @@ const Tree = React.forwardRef((props_: any, ref: any) => {
   }, [open_]);
 
   const onKeyDown = (event: React.KeyboardEvent<any>) => {
-    let allElements = [];
+    if (level === 0) {
+      let allElements = [];
 
-    if (['ArrowUp', 'ArrowDown'].includes(event.key)) {
-      allElements = Array.from(refs.root.current.querySelectorAll(`[tabindex='0']`));
-    }
+      if (['ArrowUp', 'ArrowDown'].includes(event.key)) {
+        allElements = Array.from(refs.root.current.querySelectorAll(`[tabindex='0']`));
+      }
 
-    switch (event.key) {
-      case 'ArrowUp':
-      case 'ArrowDown':
-        let index = clamp(allElements.findIndex(item => item === window.document.activeElement), 0);
+      switch (event.key) {
+        case 'ArrowUp':
+        case 'ArrowDown':
+          let index = clamp(allElements.findIndex(item => item === window.document.activeElement), 0);
 
-        event.key === 'ArrowDown' ? index++ : index--;
+          event.key === 'ArrowDown' ? index++ : index--;
 
-        allElements[clamp(index, 0, allElements.length - 1)].focus();
+          allElements[clamp(index, 0, allElements.length - 1)].focus();
 
-        event.preventDefault();
+          event.preventDefault();
 
-        return;
+          return;
 
-      default:
-        break;
+        default:
+          break;
+      }
     }
   };
 
-  const onClick = React.useCallback(() => {
-    if (!disabled) {
+  const onClick = React.useCallback((event: React.MouseEvent<any>) => {
+    if (!disabled && !noExpand && children_) {
       const valueNew = !open;
 
       // Update inner or controlled
@@ -213,7 +215,9 @@ const Tree = React.forwardRef((props_: any, ref: any) => {
 
       if (is('function', onChange)) onChange(valueNew);
     }
-  }, [open, disabled]);
+
+    if (is('function', MiddleProps.onClick)) MiddleProps.onClick(event);
+  }, [open, noExpand, children_, disabled]);
 
   if (!noTransition) TransitionComponentProps.in = open;
   else {
@@ -272,8 +276,7 @@ const Tree = React.forwardRef((props_: any, ref: any) => {
     ...MainProps_
   };
 
-  if (button && children_) {
-    MainProps.onClick = onClick;
+  if (!disabled) {
     MainProps.onBlur = onBlur;
     MainProps.onFocus = onFocus;
   }
@@ -304,6 +307,8 @@ const Tree = React.forwardRef((props_: any, ref: any) => {
         noExpand: item.props.noExpand !== undefined ? item.props.noExpand : noExpand,
 
         noTransition: item.props.noTransition !== undefined ? item.props.noTransition : noTransition,
+
+        parentDisabled: item.props.parentDisabled !== undefined ? item.props.parentDisabled : parentDisabled || disabled,
 
         level: level + 1
       })
@@ -365,7 +370,9 @@ const Tree = React.forwardRef((props_: any, ref: any) => {
       <Line
         gap={1}
 
-        tabIndex={(!disabled && button && children_) ? 0 : -1}
+        tabIndex={(!disabled && !parentDisabled) ? 0 : -1}
+
+        onClick={onClick}
 
         direction='row'
 
