@@ -60,10 +60,10 @@ const IconMaterialExpandMoreRounded = React.forwardRef((props: any, ref) => {
 
 // To do
 // Icon end
-// Line
 // Checkbox
-// Orientation vertical
+// Line
 // Keyboard and focus value y
+// Orientation vertical
 
 const Tree = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
