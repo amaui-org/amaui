@@ -177,7 +177,7 @@ const Tree = React.forwardRef((props_: any, ref: any) => {
     let allElements = [];
 
     if (['ArrowUp', 'ArrowDown'].includes(event.key)) {
-      allElements = Array.from(refs.root.current.querySelectorAll(`[tabindex='0']`)).reverse();
+      allElements = Array.from(refs.root.current.querySelectorAll(`[tabindex='0']`));
     }
 
     switch (event.key) {
@@ -185,11 +185,12 @@ const Tree = React.forwardRef((props_: any, ref: any) => {
       case 'ArrowDown':
         let index = clamp(allElements.findIndex(item => item === window.document.activeElement), 0);
 
-        event.key === 'ArrowUp' ? index++ : index--;
+        event.key === 'ArrowDown' ? index++ : index--;
 
         allElements[clamp(index, 0, allElements.length - 1)].focus();
 
         event.preventDefault();
+
         return;
 
       default:
