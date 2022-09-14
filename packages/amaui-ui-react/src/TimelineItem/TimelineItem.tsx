@@ -27,8 +27,8 @@ const useStyle = style(theme => ({
 
   icon: {
     display: 'inline-block',
-    width: '14px',
-    height: '14px',
+    width: '12px',
+    height: '12px',
     borderRadius: '50%'
   },
 
