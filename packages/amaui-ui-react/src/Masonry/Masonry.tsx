@@ -17,10 +17,6 @@ const useStyle = style(theme => ({
   }
 }), { name: 'AmauiMasonry' });
 
-// Reset children on
-// 2. on observerResize only watch on when all children are added
-// and if there's no current watcher and remove observer on children reset if observer exists
-
 const Masonry = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 
@@ -49,6 +45,7 @@ const Masonry = React.forwardRef((props_: any, ref: any) => {
   };
 
   const gap = valueBreakpoints(gap_, 2, breakpoints, theme);
+
   const columns = valueBreakpoints(columns_, { xs: 1, sm: 2, md: 3, lg: 4, xl: 5, default: 3 }, breakpoints, theme);
 
   const refs = {
@@ -56,8 +53,7 @@ const Masonry = React.forwardRef((props_: any, ref: any) => {
     gap: React.useRef<any>(),
     columns: React.useRef<any>(),
     children: React.useRef<any>(),
-    added: React.useRef<any>(),
-    observer: React.useRef<any>()
+    added: React.useRef<any>()
   };
 
   refs.gap.current = gap;
@@ -86,29 +82,13 @@ const Masonry = React.forwardRef((props_: any, ref: any) => {
     return value_;
   }, 0);
 
-  const method = React.useCallback(reset, []);
+  const method = React.useCallback(() => setChildren(reset()), []);
+
+  React.useEffect(method, [gap, columns]);
 
   React.useEffect(() => {
-    setChildren(reset());
-  }, [gap, columns]);
-
-  React.useEffect(() => {
-    // Add
-    if (!refs.observer.current && React.Children.toArray(children_).length === refs.added.current) {
-      refs.observer.current = new ResizeObserver(method);
-
-      refs.observer.current.observe(refs.root.current);
-    }
-
     if (refs.root.current) {
       if (!refs.added.current || React.Children.toArray(children_).length !== refs.added.current) {
-        // Clean up
-        if (refs.observer.current) {
-          refs.observer.current.disconnect();
-
-          refs.observer.current = undefined;
-        }
-
         let column = 0;
         let lowestHeight = Number.MAX_SAFE_INTEGER;
 

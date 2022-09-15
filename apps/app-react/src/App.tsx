@@ -1910,26 +1910,14 @@ Please sign in again.`}
           </Masonry>
         </Accordion>
 
-        <Accordion primary='Masonry resize' open>
-          <Masonry>
-            {new Array(14).fill(1).map((item: any, index: number) => (
-              <Accordion
-                primary={index}
-
-                tonal
-
-                color='primary'
-
-                WrapperHeaderProps={{
-                  style: {
-                    height: random(72, 140)
-                  }
-                }}
-              >
+        <Accordion primary='AmauiTheme'>
+          <div className={classNames([classes.column])}>
+            <Masonry>
+              {new Array(14).fill(1).map((item: any, index: number) => (
                 <Surface
                   tonal
 
-                  color='default'
+                  color='primary'
 
                   version='filled'
 
@@ -1943,15 +1931,244 @@ Please sign in again.`}
 
                   style={{
                     height: random(14, 140),
-                    width: '100%',
                     borderRadius: '8px'
                   }}
                 >
                   {index + 1}
                 </Surface>
-              </Accordion>
-            ))}
-          </Masonry>
+              ))}
+            </Masonry>
+
+            <Accordion primary='AmauiTheme nested value'>
+              <AmauiThemeProvider
+                value={{
+                  palette: {
+                    color: {
+                      primary: {
+                        main: '#008000'
+                      }
+                    }
+                  },
+                  space: {
+                    unit: 5
+                  }
+                }}
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                <Masonry>
+                  {new Array(14).fill(1).map((item: any, index: number) => (
+                    <Surface
+                      tonal
+
+                      color='primary'
+
+                      version='filled'
+
+                      elevation={1}
+
+                      align='center'
+
+                      justify='center'
+
+                      Component={Line}
+
+                      style={{
+                        height: random(14, 140),
+                        borderRadius: '8px'
+                      }}
+                    >
+                      {index + 1}
+                    </Surface>
+                  ))}
+                </Masonry>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme add'>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiMasonry: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: 0.4
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                <Masonry>
+                  {new Array(14).fill(1).map((item: any, index: number) => (
+                    <Surface
+                      tonal
+
+                      color='primary'
+
+                      version='filled'
+
+                      elevation={1}
+
+                      align='center'
+
+                      justify='center'
+
+                      Component={Line}
+
+                      style={{
+                        height: random(14, 140),
+                        borderRadius: '8px'
+                      }}
+                    >
+                      {index + 1}
+                    </Surface>
+                  ))}
+                </Masonry>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme override'>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiMasonry: {
+                        style: {
+                          override: {
+                            root: {
+                              width: '40%'
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                <Masonry>
+                  {new Array(14).fill(1).map((item: any, index: number) => (
+                    <Surface
+                      tonal
+
+                      color='primary'
+
+                      version='filled'
+
+                      elevation={1}
+
+                      align='center'
+
+                      justify='center'
+
+                      Component={Line}
+
+                      style={{
+                        height: random(14, 140),
+                        borderRadius: '8px'
+                      }}
+                    >
+                      {index + 1}
+                    </Surface>
+                  ))}
+                </Masonry>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme props'>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiMasonry: {
+                        props: {
+                          default: {
+                            columns: 4
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                <Masonry>
+                  {new Array(14).fill(1).map((item: any, index: number) => (
+                    <Surface
+                      tonal
+
+                      color='primary'
+
+                      version='filled'
+
+                      elevation={1}
+
+                      align='center'
+
+                      justify='center'
+
+                      Component={Line}
+
+                      style={{
+                        height: random(14, 140),
+                        borderRadius: '8px'
+                      }}
+                    >
+                      {index + 1}
+                    </Surface>
+                  ))}
+                </Masonry>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme styled'>
+              <styled.Masonry>
+                {new Array(14).fill(1).map((item: any, index: number) => (
+                  <Surface
+                    tonal
+
+                    color='primary'
+
+                    version='filled'
+
+                    elevation={1}
+
+                    align='center'
+
+                    justify='center'
+
+                    Component={Line}
+
+                    style={{
+                      height: random(14, 140),
+                      borderRadius: '8px'
+                    }}
+                  >
+                    {index + 1}
+                  </Surface>
+                ))}
+              </styled.Masonry>
+            </Accordion>
+          </div>
         </Accordion>
       </Accordion>
 
