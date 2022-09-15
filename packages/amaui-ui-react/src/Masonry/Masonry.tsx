@@ -29,8 +29,6 @@ const Masonry = React.forwardRef((props_: any, ref: any) => {
     if (theme.breakpoints.media[key]) breakpoints[key] = useMediaQuery(theme.breakpoints.media[key]);
   });
 
-  const [values, setValues] = React.useState<any>({ order: {}, item: {} });
-
   const {
     gap: gap_,
     columns: columns_,
@@ -46,9 +44,7 @@ const Masonry = React.forwardRef((props_: any, ref: any) => {
   const refs = {
     root: React.useRef<any>(),
     gap: React.useRef<any>(),
-    columns: React.useRef<any>(),
-    observer: React.useRef<ResizeObserver>(),
-    height: React.useRef<any>()
+    columns: React.useRef<any>()
   };
 
   const { classes } = useStyle(props);
@@ -68,8 +64,11 @@ const Masonry = React.forwardRef((props_: any, ref: any) => {
 
   const update = () => {
     if (refs.root.current) {
+      console.log('Update', refs.columns.current);
       // Get all children
       const elements = Array.from(refs.root.current.children).slice(0, -(refs.columns.current - 1));
+
+      const width = `calc(${100 / refs.columns.current}% - ${(gap * theme.space.unit * (refs.columns.current - 1)) / refs.columns.current}px)`;
 
       const columns = {};
       const order = {};
@@ -82,6 +81,9 @@ const Masonry = React.forwardRef((props_: any, ref: any) => {
       let highestValue = Number.MIN_SAFE_INTEGER;
 
       elements.forEach((element: HTMLElement, index: number) => {
+        // Width
+        element.style.width = width;
+
         // Update lowest column
         lowestValue = Number.MAX_SAFE_INTEGER;
 
@@ -97,6 +99,9 @@ const Masonry = React.forwardRef((props_: any, ref: any) => {
         columns[lowestColumn] += element.clientHeight + addition;
 
         order[index] = lowestColumn;
+
+        // Order
+        element.style.order = String(lowestColumn);
       });
 
       // update height (biggest column height)
@@ -104,15 +109,10 @@ const Masonry = React.forwardRef((props_: any, ref: any) => {
         if (columns[column] > highestValue) highestValue = columns[column];
       });
 
-      refs.height.current = highestValue + (gap * theme.space.unit);
+      // Height
+      const height = highestValue + (gap * theme.space.unit);
 
-      // update order
-      setValues({
-        order,
-        item: {
-          width: `calc(${100 / refs.columns.current}% - ${(gap * theme.space.unit * (refs.columns.current - 1)) / refs.columns.current}px)`
-        }
-      });
+      refs.root.current.style.height = `${height}px`;
     }
   };
 
@@ -121,19 +121,19 @@ const Masonry = React.forwardRef((props_: any, ref: any) => {
   React.useEffect(() => {
     update();
 
-    refs.observer.current = new ResizeObserver(method);
-  }, []);
+    const observer = new ResizeObserver(method);
 
-  React.useEffect(() => {
-    if (!Object.keys(values.order).length) refs.observer.current.disconnect();
-    else[refs.root.current, ...Array.from(refs.root.current.children).slice(0, -(refs.columns.current - 1))].forEach((item: any) => refs.observer.current.observe(item));
-  }, [values]);
+    [refs.root.current, ...Array.from(refs.root.current.children).slice(0, -(refs.columns.current - 1))].forEach((item: any) => observer.observe(item));
+
+    return () => {
+      // Clean up
+      observer.disconnect();
+    };
+  }, []);
 
   React.useEffect(method as any, [gap, columns]);
 
   styles.item.margin = 0;
-
-  if (refs.height.current !== undefined) styles.root.height = refs.height.current;
 
   styles.root.gap = 'unset';
 
@@ -181,11 +181,7 @@ const Masonry = React.forwardRef((props_: any, ref: any) => {
           style: {
             ...item.props.style,
 
-            order: values.order?.[index],
-
-            ...styles.item,
-
-            ...values.item
+            ...styles.item
           }
         })
       ))}
