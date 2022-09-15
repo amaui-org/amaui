@@ -7,6 +7,7 @@ import Portal from '../Portal';
 import Focus from '../Focus';
 import Fade from '../Fade';
 import Surface from '../Surface';
+import useMediaQuery from '../useMediaQuery';
 
 import { staticClassName } from '../utils';
 
@@ -78,6 +79,23 @@ const useStyle = style(theme => ({
 
   fullWidth: { width: `calc(100% - ${theme.methods.space.value('xl') * 2}px)` },
 
+  // minWidth
+  minWidth_xxs: { minWidth: `320px` },
+
+  minWidth_xs: { minWidth: `400px` },
+
+  minWidth_sm: { minWidth: `480px` },
+
+  minWidth_rg: { minWidth: `560px` },
+
+  minWidth_lg: { minWidth: `800px` },
+
+  minWidth_xl: { minWidth: `1120px` },
+
+  minWidth_xxl: { minWidth: `1360px` },
+
+  minWidth_unset: { minWidth: `unset` },
+
   // maxWidth
   maxWidth_xxs: { maxWidth: `320px` },
 
@@ -107,6 +125,8 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiModal?.props?.default }), [props_]);
 
+  const mobile = useMediaQuery('(max-width: 767px)');
+
   const {
     open: open_,
     openDefault,
@@ -116,6 +136,7 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
     tonal = true,
     color = 'primary',
     size = 'regular',
+    minWidth = !mobile ? 'sm' : undefined,
     maxWidth: maxWidth_ = 'rg',
     fullScreen,
     fullWidth,
@@ -265,6 +286,7 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
             ],
 
             classes.surface,
+            classes[`minWidth_${minWidth}`],
             classes[`maxWidth_${maxWidth}`],
             classes[`size_${size}`],
             fullScreen && classes.fullScreen,
@@ -294,6 +316,7 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
           staticClassName('Modal', theme) && [
             'AmauiModal-root',
             `AmauiModal-size-${size}`,
+            `AmauiModal-minWidth-${minWidth}`,
             `AmauiModal-maxWidth-${maxWidth}`,
             open && `AmauiButton-open`,
             fullScreen && `AmauiButton-fullScreen`,
