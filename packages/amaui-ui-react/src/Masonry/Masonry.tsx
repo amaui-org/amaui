@@ -110,7 +110,7 @@ const Masonry = React.forwardRef((props_: any, ref: any) => {
       setValues({
         order,
         item: {
-          width: `calc(${100 / ref.columns.current}% - ${(gap * theme.space.unit * (ref.columns.current - 1)) / ref.columns.current}px)`
+          width: `calc(${100 / refs.columns.current}% - ${(gap * theme.space.unit * (refs.columns.current - 1)) / refs.columns.current}px)`
         }
       });
     }
