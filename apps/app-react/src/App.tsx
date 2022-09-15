@@ -986,6 +986,23 @@ function App() {
             width: '100%'
           }}
         >
+          <Reveal
+            unreveal
+
+            offset={-40}
+          >
+            <Surface
+              color='primary'
+
+              style={{
+                width: '140px',
+                height: '140px'
+              }}
+            >
+              a
+            </Surface>
+          </Reveal>
+
           <Masonry>
             {new Array(14).fill(1).map((item: any, index: number) => (
               <Surface
