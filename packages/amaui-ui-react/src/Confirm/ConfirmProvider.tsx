@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is, TMethod } from '@amaui/utils';
+import { is, TMethod, setObjectValue } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Button from '../Button';
@@ -95,9 +95,9 @@ const ConfirmProvider = React.forwardRef((props_: any, ref: any) => {
       refs.modal.current.title = value?.title !== undefined ? value?.title : 'Confirmation';
       refs.modal.current.description = value?.description !== undefined ? value?.description : 'Are you sure you want to proceed?';
 
-      if (!refs.modal.current?.buttons) refs.modal.current.buttons = {};
-      if (!refs.modal.current?.negative?.text) refs.modal.current.negative.text = {};
-      if (!refs.modal.current?.positive?.text) refs.modal.current.positive.text = {};
+      setObjectValue(refs.modal.current, 'buttons.negative.text', '');
+
+      setObjectValue(refs.modal.current, 'buttons.positive.text', '');
 
       refs.modal.current.buttons.negative.text = value?.buttons?.negative?.text !== undefined ? value?.buttons?.negative?.text : 'Cancel';
       refs.modal.current.buttons.positive.text = value?.buttons?.positive?.text !== undefined ? value?.buttons?.positive?.text : 'Confirm';
