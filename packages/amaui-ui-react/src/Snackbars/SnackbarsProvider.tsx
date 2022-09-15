@@ -65,7 +65,7 @@ const useStyle = style(theme => ({
   }
 }), { name: 'AmauiSnackbarsProvider' });
 
-const AmauiSnackbarsProvider = React.forwardRef((props_: any, ref: any) => {
+const SnackbarsProvider = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiSnackbarsProvider?.props?.default }), [props_]);
@@ -286,4 +286,6 @@ const AmauiSnackbarsProvider = React.forwardRef((props_: any, ref: any) => {
   );
 });
 
-export default AmauiSnackbarsProvider;
+SnackbarsProvider.displayName = 'AmauiSnackbarsProvider';
+
+export default SnackbarsProvider;

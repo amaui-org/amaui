@@ -2,7 +2,7 @@ import React from 'react';
 
 import { countries, random } from '@amaui/utils';
 import { AmauiTheme, AmauiThemeProvider, classNames, style, sy, useAmauiTheme } from '@amaui/style-react';
-import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationItem, NavigationRail, NavigationDrawer, BottomSheet, BottomAppBar, TopAppBar, Card, CardImage, CardMain, CardHeader, CardButton, CardFooter, Table, TableHead, TableRow, TableCell, TableHeader, TableFooter, TableBody, SkeletonLoader, Snackbar, useSnackbars, Pagination, TablePagination, SpeedDial, SpeedDialItem, ImageList, ImageListItem, ImageListItemBox, Stepper, Step, Tabs, Tab, Timeline, TimelineItem, Tree, Masonry, Reveal } from '@amaui/ui-react';
+import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationItem, NavigationRail, NavigationDrawer, BottomSheet, BottomAppBar, TopAppBar, Card, CardImage, CardMain, CardHeader, CardButton, CardFooter, Table, TableHead, TableRow, TableCell, TableHeader, TableFooter, TableBody, SkeletonLoader, Snackbar, useSnackbars, Pagination, TablePagination, SpeedDial, SpeedDialItem, ImageList, ImageListItem, ImageListItemBox, Stepper, Step, Tabs, Tab, Timeline, TimelineItem, Tree, Masonry, Reveal, useConfirm } from '@amaui/ui-react';
 
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
@@ -728,6 +728,7 @@ function App() {
   // const scrollDown = useScroll({ direction: 'down' });
   // const scrollThreshold = useScroll({ threshold: 140 });
   const snackbars = useSnackbars();
+  const confirm = useConfirm();
 
   const { classes } = useStyle();
 
@@ -986,6 +987,22 @@ function App() {
             width: '100%'
           }}
         >
+            <Button
+              color='secondary'
+
+              version='outlined'
+
+              onClick={async () => {
+                console.log('Pre confirm');
+
+                const response = await confirm.open();
+
+                console.log('Post confirm', response);
+              }}
+            >
+              Confirm
+            </Button>
+
           <Reveal
             unreveal
 
@@ -1892,6 +1909,57 @@ Please sign in again.`}
 
           <IconMaterialPottedPlantRounded color='secondary' />
         </Line>
+      </Accordion>
+
+      <Accordion primary='Confirm'>
+        <Accordion primary='Confirm' open>
+          <Line
+            direction='row'
+          >
+            <Button
+              color='secondary'
+
+              version='outlined'
+
+              onClick={async () => {
+                console.log('Pre confirm');
+
+                const response = await confirm.open();
+
+                console.log('Post confirm', response);
+              }}
+            >
+              Confirm
+            </Button>
+
+            <Button
+              color='secondary'
+
+              version='outlined'
+
+              onClick={async () => {
+                console.log('Pre confirm');
+
+                const response = await confirm.open({
+                  title: 'My confirm modal',
+                  description: 'Are you sure you wanna proceed with that method?',
+                  buttons: {
+                    positive: {
+                      text: 'Yup'
+                    },
+                    negative: {
+                      text: 'Naup!'
+                    }
+                  }
+                });
+
+                console.log('Post confirm', response);
+              }}
+            >
+              Confirm 14
+            </Button>
+          </Line>
+        </Accordion>
       </Accordion>
 
       <Accordion primary='Reveal'>

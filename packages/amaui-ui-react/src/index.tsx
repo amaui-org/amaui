@@ -304,3 +304,6 @@ export * from './Masonry';
 
 export { default as Reveal } from './Reveal';
 export * from './Reveal';
+
+export { default as Confirm } from './Confirm';
+export * from './Confirm';
