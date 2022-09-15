@@ -301,3 +301,6 @@ export * from './Tree';
 
 export { default as Masonry } from './Masonry';
 export * from './Masonry';
+
+export { default as Reveal } from './Reveal';
+export * from './Reveal';
