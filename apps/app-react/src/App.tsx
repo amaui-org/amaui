@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { countries } from '@amaui/utils';
+import { countries, clamp, random } from '@amaui/utils';
 import { AmauiTheme, AmauiThemeProvider, classNames, style, sy, useAmauiTheme } from '@amaui/style-react';
-import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationItem, NavigationRail, NavigationDrawer, BottomSheet, BottomAppBar, TopAppBar, useScroll, Card, CardImage, CardMain, CardHeader, CardButton, CardFooter, Table, TableHead, TableRow, TableCell, TableHeader, TableFooter, TableBody, SkeletonLoader, Snackbar, useSnackbars, Pagination, TablePagination, SpeedDial, SpeedDialItem, ImageList, ImageListItem, ImageListItemBox, Stepper, Step, Tabs, Tab, Timeline, TimelineItem, Tree } from '@amaui/ui-react';
+import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationItem, NavigationRail, NavigationDrawer, BottomSheet, BottomAppBar, TopAppBar, useScroll, Card, CardImage, CardMain, CardHeader, CardButton, CardFooter, Table, TableHead, TableRow, TableCell, TableHeader, TableFooter, TableBody, SkeletonLoader, Snackbar, useSnackbars, Pagination, TablePagination, SpeedDial, SpeedDialItem, ImageList, ImageListItem, ImageListItemBox, Stepper, Step, Tabs, Tab, Timeline, TimelineItem, Tree, Masonry } from '@amaui/ui-react';
 
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
@@ -217,7 +217,14 @@ const useStyle = style(theme => ({
   }
 }), { name: 'App' });
 
-const styled = {
+const styled: any = {
+  Masonry: sy(Masonry)((theme: AmauiTheme) => ({
+    root: {
+      '&:hover': {
+        opacity: 0.4
+      }
+    }
+  })),
   Tree: sy(Tree)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
@@ -638,11 +645,11 @@ const BoxStyled = () => (
   </styled.Box>
 );
 
-const Item = sy(Surface)((theme) => ({
+const Item = sy(Surface)(() => ({
 
 }));
 
-const SliderYoutube = sy(Slider)((theme) => ({
+const SliderYoutube = sy(Slider)(() => ({
   root: {
     width: '50px',
     borderRadius: '0px',
@@ -667,7 +674,7 @@ const SliderYoutube = sy(Slider)((theme) => ({
   }
 }));
 
-const SliderMiUI = sy(Slider)((theme) => ({
+const SliderMiUI = sy(Slider)(() => ({
   root: {
     width: '170px',
     height: '45px',
@@ -982,6 +989,33 @@ function App() {
             width: '100%'
           }}
         >
+          <Masonry>
+            {new Array(14).fill(1).map((item: any, index: number) => (
+              <Surface
+                tonal
+
+                color='primary'
+
+                version='filled'
+
+                elevation={1}
+
+                align='center'
+
+                justify='center'
+
+                Component={Line}
+
+                style={{
+                  height: random(14, 140),
+                  borderRadius: '8px'
+                }}
+              >
+                {index + 1}
+              </Surface>
+            ))}
+          </Masonry>
+
           <Tree
             openDefault
 
@@ -1844,6 +1878,81 @@ Please sign in again.`}
 
           <IconMaterialPottedPlantRounded color='secondary' />
         </Line>
+      </Accordion>
+
+      <Accordion primary='Masonry'>
+        <Accordion primary='Masonry' open>
+          <Masonry>
+            {new Array(14).fill(1).map((item: any, index: number) => (
+              <Surface
+                tonal
+
+                color='primary'
+
+                version='filled'
+
+                elevation={1}
+
+                align='center'
+
+                justify='center'
+
+                Component={Line}
+
+                style={{
+                  height: random(14, 140),
+                  borderRadius: '8px'
+                }}
+              >
+                {index + 1}
+              </Surface>
+            ))}
+          </Masonry>
+        </Accordion>
+
+        <Accordion primary='Masonry resize' open>
+          <Masonry>
+            {new Array(14).fill(1).map((item: any, index: number) => (
+              <Accordion
+                primary={index}
+
+                tonal
+
+                color='primary'
+
+                WrapperHeaderProps={{
+                  style: {
+                    height: random(72, 140)
+                  }
+                }}
+              >
+                <Surface
+                  tonal
+
+                  color='default'
+
+                  version='filled'
+
+                  elevation={1}
+
+                  align='center'
+
+                  justify='center'
+
+                  Component={Line}
+
+                  style={{
+                    height: random(14, 140),
+                    width: '100%',
+                    borderRadius: '8px'
+                  }}
+                >
+                  {index + 1}
+                </Surface>
+              </Accordion>
+            ))}
+          </Masonry>
+        </Accordion>
       </Accordion>
 
       <Accordion primary='Tree'>

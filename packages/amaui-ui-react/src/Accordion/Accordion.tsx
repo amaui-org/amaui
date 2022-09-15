@@ -168,6 +168,7 @@ const Accordion = React.forwardRef((props_: any, ref: any) => {
     ExpandProps,
     TransitionComponent: TransitionComponent_ = Fade,
     TransitionComponentProps: TransitionComponentProps_ = { add: true },
+    WrapperHeaderProps,
 
     className,
 
@@ -281,6 +282,8 @@ const Accordion = React.forwardRef((props_: any, ref: any) => {
             classes[`expanded_header_padding_vertical_${expandedHeaderPaddingVertical}`]
           ]
         ])}
+
+        {...WrapperHeaderProps}
       >
         <Grid
           gap={{ xs: 0.5, sm: 3 }}

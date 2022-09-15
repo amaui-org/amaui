@@ -298,3 +298,6 @@ export * from './TimelineItem';
 
 export { default as Tree } from './Tree';
 export * from './Tree';
+
+export { default as Masonry } from './Masonry';
+export * from './Masonry';
