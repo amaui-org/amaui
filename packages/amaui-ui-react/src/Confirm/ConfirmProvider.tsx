@@ -28,6 +28,8 @@ export interface IConfirmOpen {
     };
   };
 
+  throwError?: boolean;
+
   ButtonNegativeProps?: any;
   ButtonPositiveProps?: any;
 
@@ -102,6 +104,8 @@ const ConfirmProvider = React.forwardRef((props_: any, ref: any) => {
       refs.modal.current.buttons.negative.text = value?.buttons?.negative?.text !== undefined ? value?.buttons?.negative?.text : 'Cancel';
       refs.modal.current.buttons.positive.text = value?.buttons?.positive?.text !== undefined ? value?.buttons?.positive?.text : 'Confirm';
 
+      refs.modal.current.throwError = value?.throwError !== undefined ? value.throwError : refs.props.current.throwError;
+
       const promise = new Promise((resolve: any, reject: any) => {
         refs.promise.resolve.current = resolve;
         refs.promise.reject.current = reject;
@@ -123,7 +127,7 @@ const ConfirmProvider = React.forwardRef((props_: any, ref: any) => {
 
       // Resolve or reject
       if (confirm) refs.promise.resolve.current?.(true);
-      else !refs.props.current.throwError ? refs.promise.resolve.current?.(false) : refs.promise.reject.current?.();
+      else !refs.modal.current.throwError ? refs.promise.resolve.current?.(false) : refs.promise.reject.current?.();
 
       refs.promise.resolve.current = undefined;
       refs.promise.reject.current = undefined;
