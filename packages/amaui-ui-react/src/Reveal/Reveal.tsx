@@ -17,17 +17,9 @@ const Reveal = React.forwardRef((props_: any, ref: any) => {
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiReveal?.props?.default }), [props_]);
 
-  const [inProp, setInProp] = React.useState(false);
-
-  const refs = {
-    root: React.useRef<HTMLElement>(),
-    props: React.useRef<any>(),
-    in: React.useRef<any>()
-  };
-
-  const { classes } = useStyle(props);
-
   const {
+    inDefault,
+
     offset,
     offsetReveal,
     offsetUnreveal,
@@ -46,6 +38,16 @@ const Reveal = React.forwardRef((props_: any, ref: any) => {
 
     ...other
   } = props;
+
+  const [inProp, setInProp] = React.useState(inDefault !== undefined ? inDefault : false);
+
+  const refs = {
+    root: React.useRef<HTMLElement>(),
+    props: React.useRef<any>(),
+    in: React.useRef<any>()
+  };
+
+  const { classes } = useStyle(props);
 
   refs.props.current = props;
 
