@@ -11,6 +11,10 @@ const useStyle = style(theme => ({
   root: {
     width: '100%',
     position: 'relative'
+  },
+
+  lineBreak: {
+    flex: '1 1 100%'
   }
 }), { name: 'AmauiMasonry' });
 
@@ -25,7 +29,7 @@ const Masonry = React.forwardRef((props_: any, ref: any) => {
     if (theme.breakpoints.media[key]) breakpoints[key] = useMediaQuery(theme.breakpoints.media[key]);
   });
 
-  const [order, setOrder] = React.useState<Record<number, number>>();
+  const [values, setValues] = React.useState<any>({ order: {}, item: {} });
 
   const {
     gap: gap_,
@@ -63,53 +67,56 @@ const Masonry = React.forwardRef((props_: any, ref: any) => {
   refs.columns.current = columns;
 
   const update = () => {
-    // Get all children
-    const elements = Array.from(refs.root.current.children);
+    if (refs.root.current) {
+      // Get all children
+      const elements = Array.from(refs.root.current.children).slice(0, -(refs.columns.current - 1));
 
-    const columns = {};
-    const order_ = {};
+      const columns = {};
+      const order = {};
 
-    for (let i = 1; i < refs.columns.current + 1; i++) columns[i] = 0;
+      for (let i = 1; i < refs.columns.current + 1; i++) columns[i] = 0;
 
-    // order them by adding to lowest available order value
-    let lowestColumn = 1;
-    let lowestValue = Number.MAX_SAFE_INTEGER;
-    let highestValue = Number.MIN_SAFE_INTEGER;
+      // order them by adding to lowest available order value
+      let lowestColumn = 1;
+      let lowestValue = Number.MAX_SAFE_INTEGER;
+      let highestValue = Number.MIN_SAFE_INTEGER;
 
-    elements.forEach((element: HTMLElement, index: number) => {
-      // Update lowest column
-      lowestValue = Number.MAX_SAFE_INTEGER;
+      elements.forEach((element: HTMLElement, index: number) => {
+        // Update lowest column
+        lowestValue = Number.MAX_SAFE_INTEGER;
 
-      Object.keys(columns).forEach(column => {
-        if (columns[column] < lowestValue) {
-          lowestColumn = +column;
-          lowestValue = columns[column];
-        }
+        Object.keys(columns).forEach(column => {
+          if (columns[column] < lowestValue) {
+            lowestColumn = +column;
+            lowestValue = columns[column];
+          }
+        });
+
+        const addition = columns[lowestColumn] === 0 ? 0 : (refs.gap.current * theme.space.unit);
+
+        columns[lowestColumn] += element.clientHeight + addition;
+
+        order[index] = lowestColumn;
       });
 
-      const addition = columns[lowestColumn] === 0 ? 0 : (refs.gap.current * theme.space.unit);
+      // update height (biggest column height)
+      Object.keys(columns).forEach(column => {
+        if (columns[column] > highestValue) highestValue = columns[column];
+      });
 
-      columns[lowestColumn] += element.clientHeight + addition;
+      refs.height.current = highestValue + (gap * theme.space.unit);
 
-      order_[index] = lowestColumn;
-    });
-
-    // update height (biggest column height)
-    Object.keys(columns).forEach(column => {
-      if (columns[column] > highestValue) highestValue = columns[column];
-    });
-
-    refs.height.current = highestValue;
-
-    // update order
-    setOrder(order_);
+      // update order
+      setValues({
+        order,
+        item: {
+          width: `calc(${100 / ref.columns.current}% - ${(gap * theme.space.unit * (ref.columns.current - 1)) / ref.columns.current}px)`
+        }
+      });
+    }
   };
 
-  const method = React.useCallback(() => {
-    setOrder(undefined);
-
-    update();
-  }, []);
+  const method = React.useCallback(update, []);
 
   React.useEffect(() => {
     update();
@@ -118,20 +125,21 @@ const Masonry = React.forwardRef((props_: any, ref: any) => {
   }, []);
 
   React.useEffect(() => {
-    if (order === undefined) refs.observer.current.disconnect();
-    else refs.observer.current.observe(refs.root.current);
-  }, [order]);
+    if (!Object.keys(values.order).length) refs.observer.current.disconnect();
+    else[refs.root.current, ...Array.from(refs.root.current.children).slice(0, -(refs.columns.current - 1))].forEach((item: any) => refs.observer.current.observe(item));
+  }, [values]);
 
-  React.useEffect(method, [gap, columns]);
+  React.useEffect(method as any, [gap, columns]);
 
-  if (order === undefined) {
-    styles.item.position = 'absolute';
-    styles.item.visibility = 'hidden';
-  }
-
-  styles.item.width = `calc(${100 / columns}% - ${(gap * theme.space.unit * (columns - 1)) / columns}px)`;
+  styles.item.margin = 0;
 
   if (refs.height.current !== undefined) styles.root.height = refs.height.current;
+
+  styles.root.gap = 'unset';
+
+  styles.root.rowGap = `${gap * theme.space.unit}px`;
+
+  styles.root.columnGap = `${(gap / 2) * theme.space.unit}px`;
 
   return (
     <Line
@@ -140,8 +148,6 @@ const Masonry = React.forwardRef((props_: any, ref: any) => {
 
         refs.root.current = item;
       }}
-
-      gap={gap}
 
       wrap='wrap'
 
@@ -175,11 +181,31 @@ const Masonry = React.forwardRef((props_: any, ref: any) => {
           style: {
             ...item.props.style,
 
-            order: order?.[index],
+            order: values.order?.[index],
 
-            ...styles.item
+            ...styles.item,
+
+            ...values.item
           }
         })
+      ))}
+
+      {new Array(columns - 1).fill(true).map((item: any, index: number) => (
+        <div
+          key={index}
+
+          className={classNames([
+            staticClassName('Masonry', theme) && [
+              'AmauiMasonry-lineBreak'
+            ],
+
+            classes.lineBreak
+          ])}
+
+          style={{
+            order: index + 1
+          }}
+        />
       ))}
     </Line>
   );
