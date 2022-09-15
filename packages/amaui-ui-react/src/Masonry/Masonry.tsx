@@ -64,11 +64,10 @@ const Masonry = React.forwardRef((props_: any, ref: any) => {
 
   const update = () => {
     if (refs.root.current) {
-      console.log('Update', refs.columns.current);
       // Get all children
-      const elements = Array.from(refs.root.current.children).slice(0, -(refs.columns.current - 1));
+      const elements = Array.from(refs.root.current.children).slice(0, refs.columns.current > 1 ? -(refs.columns.current - 1) : undefined);
 
-      const width = `calc(${100 / refs.columns.current}% - ${(gap * theme.space.unit * (refs.columns.current - 1)) / refs.columns.current}px)`;
+      const width = refs.columns.current === 1 ? '100%' : `calc(${100 / refs.columns.current}% - ${(gap * theme.space.unit * (refs.columns.current - 1)) / refs.columns.current}px)`;
 
       const columns = {};
       const order = {};
@@ -123,7 +122,7 @@ const Masonry = React.forwardRef((props_: any, ref: any) => {
 
     const observer = new ResizeObserver(method);
 
-    [refs.root.current, ...Array.from(refs.root.current.children).slice(0, -(refs.columns.current - 1))].forEach((item: any) => observer.observe(item));
+    [refs.root.current, ...Array.from(refs.root.current.children)].forEach((item: any) => observer.observe(item));
 
     return () => {
       // Clean up
