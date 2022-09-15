@@ -9,11 +9,8 @@ import { staticClassName, valueBreakpoints } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
-    width: '100%'
-  },
-
-  column: {
-    flex: '1 1 auto'
+    width: '100%',
+    position: 'relative'
   }
 }), { name: 'AmauiMasonry' });
 
@@ -28,6 +25,8 @@ const Masonry = React.forwardRef((props_: any, ref: any) => {
     if (theme.breakpoints.media[key]) breakpoints[key] = useMediaQuery(theme.breakpoints.media[key]);
   });
 
+  const [order, setOrder] = React.useState<Record<number, number>>();
+
   const {
     gap: gap_,
     columns: columns_,
@@ -35,90 +34,104 @@ const Masonry = React.forwardRef((props_: any, ref: any) => {
     className,
     style,
 
-    children: children_,
+    children,
 
     ...other
   } = props;
 
+  const refs = {
+    root: React.useRef<any>(),
+    gap: React.useRef<any>(),
+    columns: React.useRef<any>(),
+    observer: React.useRef<ResizeObserver>(),
+    height: React.useRef<any>()
+  };
+
+  const { classes } = useStyle(props);
+
   const styles: any = {
-    root: {}
+    root: {},
+    item: {}
   };
 
   const gap = valueBreakpoints(gap_, 2, breakpoints, theme);
 
   const columns = valueBreakpoints(columns_, { xs: 1, sm: 2, md: 3, lg: 4, xl: 5, default: 3 }, breakpoints, theme);
 
-  const refs = {
-    root: React.useRef<any>(),
-    gap: React.useRef<any>(),
-    columns: React.useRef<any>(),
-    children: React.useRef<any>(),
-    added: React.useRef<any>()
-  };
-
   refs.gap.current = gap;
 
   refs.columns.current = columns;
 
-  const reset = () => {
-    const values = {};
+  const update = () => {
+    // Get all children
+    const elements = Array.from(refs.root.current.children);
 
-    for (let i = 0; i < refs.columns.current; i++) {
-      values[i] = [];
-    }
+    const columns = {};
+    const order_ = {};
 
-    return values;
+    for (let i = 1; i < refs.columns.current + 1; i++) columns[i] = 0;
+
+    // order them by adding to lowest available order value
+    let lowestColumn = 1;
+    let lowestValue = Number.MAX_SAFE_INTEGER;
+    let highestValue = Number.MIN_SAFE_INTEGER;
+
+    elements.forEach((element: HTMLElement, index: number) => {
+      // Update lowest column
+      lowestValue = Number.MAX_SAFE_INTEGER;
+
+      Object.keys(columns).forEach(column => {
+        if (columns[column] < lowestValue) {
+          lowestColumn = +column;
+          lowestValue = columns[column];
+        }
+      });
+
+      const addition = columns[lowestColumn] === 0 ? 0 : (refs.gap.current * theme.space.unit);
+
+      columns[lowestColumn] += element.clientHeight + addition;
+
+      order_[index] = lowestColumn;
+    });
+
+    // update height (biggest column height)
+    Object.keys(columns).forEach(column => {
+      if (columns[column] > highestValue) highestValue = columns[column];
+    });
+
+    refs.height.current = highestValue;
+
+    // update order
+    setOrder(order_);
   };
 
-  const [children, setChildren] = React.useState(reset);
+  const method = React.useCallback(() => {
+    setOrder(undefined);
 
-  const { classes } = useStyle(props);
+    update();
+  }, []);
 
-  refs.children.current = children_;
+  React.useEffect(() => {
+    update();
 
-  refs.added.current = Object.keys(children).reduce((result: any, item: any) => {
-    const value_ = result + children[item].length;
+    refs.observer.current = new ResizeObserver(method);
+  }, []);
 
-    return value_;
-  }, 0);
-
-  const method = React.useCallback(() => setChildren(reset()), []);
+  React.useEffect(() => {
+    if (order === undefined) refs.observer.current.disconnect();
+    else refs.observer.current.observe(refs.root.current);
+  }, [order]);
 
   React.useEffect(method, [gap, columns]);
 
-  React.useEffect(() => {
-    if (refs.root.current) {
-      if (!refs.added.current || React.Children.toArray(children_).length !== refs.added.current) {
-        let column = 0;
-        let lowestHeight = Number.MAX_SAFE_INTEGER;
+  if (order === undefined) {
+    styles.item.position = 'absolute';
+    styles.item.visibility = 'hidden';
+  }
 
-        const toAddItem: any = React.Children.toArray(children_)[refs.added.current];
+  styles.item.width = `calc(${100 / columns}% - ${(gap * theme.space.unit * (columns - 1)) / columns}px)`;
 
-        if (!!refs.added.current) {
-          // Order value with lowest height
-          const rootColumns = Array.from(refs.root.current.children);
-
-          rootColumns.forEach((element: HTMLElement, index: number) => {
-            const height = element.clientHeight;
-
-            if (height < lowestHeight) {
-              lowestHeight = height;
-              column = index;
-            }
-          });
-        }
-
-        // Update
-        setChildren(items => {
-          const values_ = { ...items };
-
-          values_[column].push(toAddItem);
-
-          return values_;
-        });
-      }
-    }
-  }, [refs.added.current]);
+  if (refs.height.current !== undefined) styles.root.height = refs.height.current;
 
   return (
     <Line
@@ -132,11 +145,11 @@ const Masonry = React.forwardRef((props_: any, ref: any) => {
 
       wrap='wrap'
 
-      align='flex-start'
+      align='unset'
 
-      justify='flex-start'
+      justify='unset'
 
-      direction='row'
+      direction='column'
 
       className={classNames([
         staticClassName('Masonry', theme) && [
@@ -155,28 +168,18 @@ const Masonry = React.forwardRef((props_: any, ref: any) => {
 
       {...other}
     >
-      {Object.keys(children).map(item => (
-        <Line
-          gap={gap}
+      {React.Children.toArray(children).map((item: any, index: number) => (
+        React.cloneElement(item, {
+          key: index,
 
-          direction='column'
+          style: {
+            ...item.props.style,
 
-          align='unset'
+            order: order?.[index],
 
-          className={classNames([
-            staticClassName('Masonry', theme) && [
-              'AmauiMasonry-column'
-            ],
-
-            classes.column
-          ])}
-        >
-          {children[item].map((item_: any, index: number) => (
-            React.cloneElement(item_, {
-              key: index
-            })
-          ))}
-        </Line>
+            ...styles.item
+          }
+        })
       ))}
     </Line>
   );

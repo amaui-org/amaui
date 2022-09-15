@@ -2,7 +2,7 @@ import React from 'react';
 
 import { countries, random } from '@amaui/utils';
 import { AmauiTheme, AmauiThemeProvider, classNames, style, sy, useAmauiTheme } from '@amaui/style-react';
-import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationItem, NavigationRail, NavigationDrawer, BottomSheet, BottomAppBar, TopAppBar, useScroll, Card, CardImage, CardMain, CardHeader, CardButton, CardFooter, Table, TableHead, TableRow, TableCell, TableHeader, TableFooter, TableBody, SkeletonLoader, Snackbar, useSnackbars, Pagination, TablePagination, SpeedDial, SpeedDialItem, ImageList, ImageListItem, ImageListItemBox, Stepper, Step, Tabs, Tab, Timeline, TimelineItem, Tree, Masonry } from '@amaui/ui-react';
+import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationItem, NavigationRail, NavigationDrawer, BottomSheet, BottomAppBar, TopAppBar, Card, CardImage, CardMain, CardHeader, CardButton, CardFooter, Table, TableHead, TableRow, TableCell, TableHeader, TableFooter, TableBody, SkeletonLoader, Snackbar, useSnackbars, Pagination, TablePagination, SpeedDial, SpeedDialItem, ImageList, ImageListItem, ImageListItemBox, Stepper, Step, Tabs, Tab, Timeline, TimelineItem, Tree, Masonry } from '@amaui/ui-react';
 
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
@@ -724,12 +724,9 @@ function App() {
   const [rtl, setRtl] = React.useState(false);
   const [rootFontSize, setRootFontSize] = React.useState(16);
   const [stepperCompleted, setStepperCompleted] = React.useState({});
-  // eslint-disable-next-line
-  const scrollUp = useScroll({ direction: 'up' });
-  // eslint-disable-next-line
-  const scrollDown = useScroll({ direction: 'down' });
-  // eslint-disable-next-line
-  const scrollThreshold = useScroll({ threshold: 140 });
+  // const scrollUp = useScroll({ direction: 'up' });
+  // const scrollDown = useScroll({ direction: 'down' });
+  // const scrollThreshold = useScroll({ threshold: 140 });
   const snackbars = useSnackbars();
 
   const { classes } = useStyle();
@@ -1906,6 +1903,50 @@ Please sign in again.`}
               >
                 {index + 1}
               </Surface>
+            ))}
+          </Masonry>
+        </Accordion>
+
+        <Accordion primary='Masonry resize'>
+          <Masonry>
+            {new Array(14).fill(1).map((item: any, index: number) => (
+              <Accordion
+                primary={index}
+
+                tonal
+
+                color='primary'
+
+                WrapperHeaderProps={{
+                  style: {
+                    height: random(72, 140)
+                  }
+                }}
+              >
+                <Surface
+                  tonal
+
+                  color='default'
+
+                  version='filled'
+
+                  elevation={1}
+
+                  align='center'
+
+                  justify='center'
+
+                  Component={Line}
+
+                  style={{
+                    height: random(14, 140),
+                    width: '100%',
+                    borderRadius: '8px'
+                  }}
+                >
+                  {index + 1}
+                </Surface>
+              </Accordion>
             ))}
           </Masonry>
         </Accordion>
