@@ -1894,7 +1894,7 @@ Please sign in again.`}
         </Line>
       </Accordion>
 
-      <Accordion primary='Reveal' open>
+      <Accordion primary='Reveal'>
         <Accordion primary='Reveal' open>
           <Line
             justify='flex-end'
