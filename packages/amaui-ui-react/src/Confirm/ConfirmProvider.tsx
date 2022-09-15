@@ -95,9 +95,9 @@ const ConfirmProvider = React.forwardRef((props_: any, ref: any) => {
       refs.modal.current.title = value?.title !== undefined ? value?.title : 'Confirmation';
       refs.modal.current.description = value?.description !== undefined ? value?.description : 'Are you sure you want to proceed?';
 
-      if (refs.modal.current.buttons.negative.text === undefined) setObjectValue(refs.modal.current, 'buttons.negative.text', '');
+      if (refs.modal.current.buttons?.negative?.text === undefined) setObjectValue(refs.modal.current, 'buttons.negative.text', '');
 
-      if (refs.modal.current.buttons.positive.text === undefined) setObjectValue(refs.modal.current, 'buttons.positive.text', '');
+      if (refs.modal.current.buttons?.positive?.text === undefined) setObjectValue(refs.modal.current, 'buttons.positive.text', '');
 
       refs.modal.current.buttons.negative.text = value?.buttons?.negative?.text !== undefined ? value?.buttons?.negative?.text : 'Cancel';
       refs.modal.current.buttons.positive.text = value?.buttons?.positive?.text !== undefined ? value?.buttons?.positive?.text : 'Confirm';
