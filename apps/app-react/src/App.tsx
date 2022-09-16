@@ -2269,6 +2269,10 @@ Please sign in again.`}
                     unit: 5
                   }
                 }}
+
+                style={{
+                  width: '100%'
+                }}
               >
                 <WindowSplit
                   style={{
@@ -2306,7 +2310,7 @@ Please sign in again.`}
                 value={{
                   ui: {
                     elements: {
-                      AmauiViewSplit: {
+                      AmauiWindowSplit: {
                         style: {
                           add: {
                             root: {
@@ -2319,6 +2323,10 @@ Please sign in again.`}
                       }
                     }
                   }
+                }}
+
+                style={{
+                  width: '100%'
                 }}
               >
                 <WindowSplit
@@ -2369,6 +2377,10 @@ Please sign in again.`}
                     }
                   }
                 }}
+
+                style={{
+                  width: '100%'
+                }}
               >
                 <WindowSplit
                   style={{
@@ -2415,6 +2427,10 @@ Please sign in again.`}
                       }
                     }
                   }
+                }}
+
+                style={{
+                  width: '100%'
                 }}
               >
                 <WindowSplit
