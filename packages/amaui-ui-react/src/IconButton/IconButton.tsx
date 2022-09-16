@@ -7,7 +7,9 @@ import Button from '../Button';
 import { staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
-  root: {},
+  root: {
+
+  }
 }), { name: 'AmauiIconButton' });
 
 const IconButton = React.forwardRef((props_: any, ref: any) => {

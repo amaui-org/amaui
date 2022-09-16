@@ -307,3 +307,9 @@ export * from './Reveal';
 
 export { default as Confirm } from './Confirm';
 export * from './Confirm';
+
+export { default as ViewSplit } from './ViewSplit';
+export * from './ViewSplit';
+
+export { default as WindowSplit } from './WindowSplit';
+export * from './WindowSplit';

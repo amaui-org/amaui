@@ -2,7 +2,7 @@ import React from 'react';
 
 import { countries, random } from '@amaui/utils';
 import { AmauiTheme, AmauiThemeProvider, classNames, style, sy, useAmauiTheme } from '@amaui/style-react';
-import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationItem, NavigationRail, NavigationDrawer, BottomSheet, BottomAppBar, TopAppBar, Card, CardImage, CardMain, CardHeader, CardButton, CardFooter, Table, TableHead, TableRow, TableCell, TableHeader, TableFooter, TableBody, SkeletonLoader, Snackbar, useSnackbars, Pagination, TablePagination, SpeedDial, SpeedDialItem, ImageList, ImageListItem, ImageListItemBox, Stepper, Step, Tabs, Tab, Timeline, TimelineItem, Tree, Masonry, Reveal, useConfirm } from '@amaui/ui-react';
+import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationItem, NavigationRail, NavigationDrawer, BottomSheet, BottomAppBar, TopAppBar, Card, CardImage, CardMain, CardHeader, CardButton, CardFooter, Table, TableHead, TableRow, TableCell, TableHeader, TableFooter, TableBody, SkeletonLoader, Snackbar, useSnackbars, Pagination, TablePagination, SpeedDial, SpeedDialItem, ImageList, ImageListItem, ImageListItemBox, Stepper, Step, Tabs, Tab, Timeline, TimelineItem, Tree, Masonry, Reveal, useConfirm, ViewSplit, WindowSplit } from '@amaui/ui-react';
 
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
@@ -987,21 +987,39 @@ function App() {
             width: '100%'
           }}
         >
-            <Button
-              color='secondary'
+          <ViewSplit>
+            <img
+              src='./image.jpg'
 
-              version='outlined'
+              alt=''
+            />
 
-              onClick={async () => {
-                console.log('Pre confirm');
+            <img
+              src='./image.jpg'
 
-                const response = await confirm.open();
+              alt=''
 
-                console.log('Post confirm', response);
+              style={{
+                filter: 'hue-rotate(14deg)'
               }}
-            >
-              Confirm
-            </Button>
+            />
+          </ViewSplit>
+
+          <Button
+            color='secondary'
+
+            version='outlined'
+
+            onClick={async () => {
+              console.log('Pre confirm');
+
+              const response = await confirm.open();
+
+              console.log('Post confirm', response);
+            }}
+          >
+            Confirm
+          </Button>
 
           <Reveal
             unreveal
@@ -1909,6 +1927,72 @@ Please sign in again.`}
 
           <IconMaterialPottedPlantRounded color='secondary' />
         </Line>
+      </Accordion>
+
+      <Accordion primary='ViewSplit'>
+        <Accordion primary='ViewSplit' open>
+          <ViewSplit>
+            <img
+              src='./image.jpg'
+
+              alt=''
+            />
+
+            <img
+              src='./image.jpg'
+
+              alt=''
+
+              style={{
+                filter: 'hue-rotate(14deg)'
+              }}
+            />
+          </ViewSplit>
+        </Accordion>
+
+        <Accordion primary='ViewSplit divider'>
+          <ViewSplit
+            divider
+          >
+            <img
+              src='./image.jpg'
+
+              alt=''
+            />
+
+            <img
+              src='./image.jpg'
+
+              alt=''
+
+              style={{
+                filter: 'hue-rotate(14deg)'
+              }}
+            />
+          </ViewSplit>
+        </Accordion>
+
+        <Accordion primary='ViewSplit manual'>
+          <ViewSplit
+            version='manual'
+          >
+            <img
+              src='./image.jpg'
+
+              alt=''
+            />
+
+            <img
+              src='./image.jpg'
+
+              alt=''
+
+              style={{
+                filter: 'hue-rotate(14deg)'
+              }}
+            />
+          </ViewSplit>
+        </Accordion>
       </Accordion>
 
       <Accordion primary='Confirm'>
