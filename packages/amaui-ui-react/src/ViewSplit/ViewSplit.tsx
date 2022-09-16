@@ -14,7 +14,6 @@ const useStyle = style(theme => ({
   root: {
     position: 'relative',
     color: theme.palette.text.default.primary,
-    userSelect: 'none',
     touchAction: 'none',
     overflow: 'hidden'
   },
@@ -162,6 +161,7 @@ const ViewSplit = React.forwardRef((props_: any, ref: any) => {
 
     onChange: onChange_,
 
+    iconButtonComponent,
     iconOrientationHorizontal = <IconMaterialSwapHorizRounded />,
     iconOrientationVertical = <IconMaterialSwapVertRounded />,
 
@@ -216,7 +216,7 @@ const ViewSplit = React.forwardRef((props_: any, ref: any) => {
     },
 
     divider: {
-      [orientation === 'horizontal' ? 'insetInlineStart' : 'insetBlockStart']: `${value}%`
+      [orientation === 'horizontal' ? 'insetInlineEnd' : 'insetBlockEnd']: `${value}%`
     }
   };
 
@@ -410,20 +410,12 @@ const ViewSplit = React.forwardRef((props_: any, ref: any) => {
           case 'Home':
             valueNew = refs.orientation.current !== 'vertical' ? 0 : 100;
 
-            if (!props.hasOwnProperty('value')) setValue(valueNew);
-
-            if (is('function', onChange)) return onChange(valueNew);
-
-            return;
+            return onChange(valueNew);
 
           case 'End':
             valueNew = refs.orientation.current !== 'vertical' ? 100 : 0;
 
-            if (!props.hasOwnProperty('value')) setValue(valueNew);
-
-            if (is('function', onChange)) return onChange(valueNew);
-
-            return;
+            return onChange(valueNew);
 
           case 'ArrowUp':
           case 'ArrowLeft':
@@ -461,6 +453,8 @@ const ViewSplit = React.forwardRef((props_: any, ref: any) => {
       }}
 
       tabIndex={version === 'auto' ? 0 : undefined}
+
+      gap={0}
 
       direction={direction}
 
@@ -557,7 +551,7 @@ const ViewSplit = React.forwardRef((props_: any, ref: any) => {
           {...DividerProps}
 
           style={{
-            ...styles.start,
+            ...styles.divider,
 
             ...DividerProps?.style
           }}
@@ -565,6 +559,18 @@ const ViewSplit = React.forwardRef((props_: any, ref: any) => {
       )}
 
       {version === 'manual' && (
+        (iconButtonComponent && React.cloneElement(iconButtonComponent, {
+          className: classNames([
+            staticClassName('ViewSplit', theme) && [
+              'AmauiViewSplit-iconButton'
+            ],
+
+            classes.iconButton,
+            classes[`iconButton_orientation_${orientation}`],
+            version === 'manual' && classes[`iconButton_manual_orientation_${orientation}`]
+          ])
+        })) ||
+
         <IconButton
           onFocus={onFocusIconButton}
 

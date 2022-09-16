@@ -218,6 +218,13 @@ const useStyle = style(theme => ({
 }), { name: 'App' });
 
 const styled: any = {
+  WindowSplit: sy(WindowSplit)((theme: AmauiTheme) => ({
+    root: {
+      '&:hover': {
+        opacity: 0.4
+      }
+    }
+  })),
   ViewSplit: sy(ViewSplit)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
@@ -994,6 +1001,35 @@ function App() {
             width: '100%'
           }}
         >
+          <WindowSplit
+            style={{
+              width: '100%',
+              height: 400
+            }}
+          >
+            <Surface
+              tonal
+
+              color='primary'
+
+              style={{
+                width: '100%'
+              }}
+            >
+              a
+            </Surface>
+
+            <Surface
+              color='primary'
+
+              style={{
+                width: '100%'
+              }}
+            >
+              ab
+            </Surface>
+          </WindowSplit>
+
           <ViewSplit>
             <img
               src='./image.jpg'
@@ -1936,6 +1972,516 @@ Please sign in again.`}
         </Line>
       </Accordion>
 
+      <Accordion primary='WindowSplit'>
+        <Accordion primary='WindowSplit'>
+          <WindowSplit
+            style={{
+              width: '100%',
+              height: 400
+            }}
+          >
+            <Surface
+              tonal
+
+              color='primary'
+
+              style={{
+                width: '100%'
+              }}
+            >
+              a
+            </Surface>
+
+            <Surface
+              color='primary'
+
+              style={{
+                width: '100%'
+              }}
+            >
+              ab
+            </Surface>
+          </WindowSplit>
+        </Accordion>
+
+        <Accordion primary='WindowSplit vertical'>
+          <WindowSplit
+            orientation='vertical'
+
+            style={{
+              width: '100%',
+              height: 400
+            }}
+          >
+            <Surface
+              tonal
+
+              color='primary'
+
+              style={{
+                width: '100%'
+              }}
+            >
+              a
+            </Surface>
+
+            <Surface
+              color='primary'
+
+              style={{
+                width: '100%'
+              }}
+            >
+              ab
+            </Surface>
+          </WindowSplit>
+        </Accordion>
+
+        <Accordion primary='WindowSplit padding'>
+          <Line
+            style={{
+              width: '100%'
+            }}
+          >
+            <WindowSplit
+              paddingStart={14}
+
+              paddingEnd={40}
+
+              iconButton
+
+              style={{
+                width: '100%',
+                height: 400
+              }}
+            >
+              <Surface
+                tonal
+
+                color='primary'
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                a
+              </Surface>
+
+              <Surface
+                color='primary'
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                ab
+              </Surface>
+            </WindowSplit>
+
+            <WindowSplit
+              paddingStart={14}
+
+              paddingEnd={40}
+
+              iconButton
+
+              orientation='vertical'
+
+              style={{
+                width: '100%',
+                height: 400
+              }}
+            >
+              <Surface
+                tonal
+
+                color='primary'
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                a
+              </Surface>
+
+              <Surface
+                color='primary'
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                ab
+              </Surface>
+            </WindowSplit>
+          </Line>
+        </Accordion>
+
+        <Accordion primary='WindowSplit iconButton'>
+          <Line
+            style={{
+              width: '100%'
+            }}
+          >
+            <WindowSplit
+              iconButton
+
+              style={{
+                width: '100%',
+                height: 400
+              }}
+            >
+              <Surface
+                tonal
+
+                color='primary'
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                a
+              </Surface>
+
+              <Surface
+                color='primary'
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                ab
+              </Surface>
+            </WindowSplit>
+
+            <WindowSplit
+              iconButton
+
+              orientation='vertical'
+
+              style={{
+                width: '100%',
+                height: 400
+              }}
+            >
+              <Surface
+                tonal
+
+                color='primary'
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                a
+              </Surface>
+
+              <Surface
+                color='primary'
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                ab
+              </Surface>
+            </WindowSplit>
+          </Line>
+        </Accordion>
+
+        <Accordion primary='WindowSplit controlled'>
+          <WindowSplit
+            value={a.windowSplit}
+
+            onChange={(value_: number) => updatePure(value_, 'windowSplit')}
+
+            style={{
+              width: '100%',
+              height: 400
+            }}
+          >
+            <Surface
+              tonal
+
+              color='primary'
+
+              style={{
+                width: '100%'
+              }}
+            >
+              a
+            </Surface>
+
+            <Surface
+              color='primary'
+
+              style={{
+                width: '100%'
+              }}
+            >
+              ab
+            </Surface>
+          </WindowSplit>
+        </Accordion>
+
+        <Accordion primary='AmauiTheme'>
+          <div className={classNames([classes.column])}>
+            <WindowSplit
+              style={{
+                width: '100%',
+                height: 400
+              }}
+            >
+              <Surface
+                tonal
+
+                color='primary'
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                a
+              </Surface>
+
+              <Surface
+                color='primary'
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                ab
+              </Surface>
+            </WindowSplit>
+
+            <Accordion primary='AmauiTheme nested value'>
+              <AmauiThemeProvider
+                value={{
+                  palette: {
+                    color: {
+                      primary: {
+                        main: '#008000'
+                      }
+                    }
+                  },
+                  space: {
+                    unit: 5
+                  }
+                }}
+              >
+                <WindowSplit
+                  style={{
+                    width: '100%',
+                    height: 400
+                  }}
+                >
+                  <Surface
+                    tonal
+
+                    color='primary'
+
+                    style={{
+                      width: '100%'
+                    }}
+                  >
+                    a
+                  </Surface>
+
+                  <Surface
+                    color='primary'
+
+                    style={{
+                      width: '100%'
+                    }}
+                  >
+                    ab
+                  </Surface>
+                </WindowSplit>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme add'>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiViewSplit: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: 0.4
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <WindowSplit
+                  style={{
+                    width: '100%',
+                    height: 400
+                  }}
+                >
+                  <Surface
+                    tonal
+
+                    color='primary'
+
+                    style={{
+                      width: '100%'
+                    }}
+                  >
+                    a
+                  </Surface>
+
+                  <Surface
+                    color='primary'
+
+                    style={{
+                      width: '100%'
+                    }}
+                  >
+                    ab
+                  </Surface>
+                </WindowSplit>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme override'>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiWindowSplit: {
+                        style: {
+                          override: {
+                            root: {
+                              margin: '11px 40px'
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <WindowSplit
+                  style={{
+                    width: '100%',
+                    height: 400
+                  }}
+                >
+                  <Surface
+                    tonal
+
+                    color='primary'
+
+                    style={{
+                      width: '100%'
+                    }}
+                  >
+                    a
+                  </Surface>
+
+                  <Surface
+                    color='primary'
+
+                    style={{
+                      width: '100%'
+                    }}
+                  >
+                    ab
+                  </Surface>
+                </WindowSplit>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme props'>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiWindowSplit: {
+                        props: {
+                          default: {
+                            color: 'secondary'
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <WindowSplit
+                  style={{
+                    width: '100%',
+                    height: 400
+                  }}
+                >
+                  <Surface
+                    tonal
+
+                    color='primary'
+
+                    style={{
+                      width: '100%'
+                    }}
+                  >
+                    a
+                  </Surface>
+
+                  <Surface
+                    color='primary'
+
+                    style={{
+                      width: '100%'
+                    }}
+                  >
+                    ab
+                  </Surface>
+                </WindowSplit>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme styled'>
+              <styled.WindowSplit
+                style={{
+                  width: '100%',
+                  height: 400
+                }}
+              >
+                <Surface
+                  tonal
+
+                  color='primary'
+
+                  style={{
+                    width: '100%'
+                  }}
+                >
+                  a
+                </Surface>
+
+                <Surface
+                  color='primary'
+
+                  style={{
+                    width: '100%'
+                  }}
+                >
+                  ab
+                </Surface>
+              </styled.WindowSplit>
+            </Accordion>
+          </div>
+        </Accordion>
+      </Accordion>
+
       <Accordion primary='ViewSplit'>
         <Accordion primary='ViewSplit' open>
           <ViewSplit>
@@ -2115,7 +2661,7 @@ Please sign in again.`}
                 value={{
                   ui: {
                     elements: {
-                      AmauiViewSplit: {
+                      AmauiWindowSplit: {
                         style: {
                           add: {
                             root: {
