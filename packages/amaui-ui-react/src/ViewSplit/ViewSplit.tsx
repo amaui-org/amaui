@@ -48,12 +48,20 @@ const useStyle = style(theme => ({
     zIndex: 4
   },
 
+  iconButton_manual_orientation_horizontal: {
+    cursor: 'vertical-text'
+  },
+
+  iconButton_manual_orientation_vertical: {
+    cursor: 'text'
+  },
+
   iconButton_orientation_horizontal: {
-    transform: 'translateX(50%)'
+    transform: `translateX(${theme.direction === 'rtl' ? '-' : ''}50%)`
   },
 
   iconButton_orientation_vertical: {
-    transform: 'translateY(50%)'
+    transform: `translateY(50%)`
   },
 
   divider: {
@@ -75,7 +83,7 @@ const useStyle = style(theme => ({
 
   divider_orientation_horizontal: {
     insetBlock: 0,
-    transform: 'translateX(50%)',
+    transform: `translateX(${theme.direction === 'rtl' ? '-' : ''}50%)`,
 
     '&.AmauiDivider-root': {
       width: '8px'
@@ -84,7 +92,7 @@ const useStyle = style(theme => ({
 
   divider_orientation_vertical: {
     insetInline: 0,
-    transform: 'translateY(50%)',
+    transform: `translateY(50%)`,
 
     '&.AmauiDivider-root': {
       height: '8px'
@@ -126,7 +134,6 @@ const IconMaterialSwapVertRounded = React.forwardRef((props: any, ref) => {
 
 // To do
 
-// version = auto, manual
 // orientation: vertical
 
 // keyboard
@@ -182,6 +189,7 @@ const ViewSplit = React.forwardRef((props_: any, ref: any) => {
     mouseDown: React.useRef<any>(),
     hover: React.useRef<any>(),
     props: React.useRef<any>(),
+    orientation: React.useRef<any>(),
     version: React.useRef<any>(),
     direction: React.useRef<any>()
   };
@@ -191,12 +199,13 @@ const ViewSplit = React.forwardRef((props_: any, ref: any) => {
   refs.mouseDown.current = mouseDown;
   refs.hover.current = hover;
   refs.props.current = props;
+  refs.orientation.current = orientation;
   refs.version.current = version;
   refs.direction.current = theme.direction;
 
   const styles: any = {
     start: {
-      insetInlineEnd: `${value}%`
+      [orientation === 'horizontal' ? 'insetInlineEnd' : 'insetBlockEnd']: `${value}%`
     },
 
     startItem: {
@@ -220,7 +229,7 @@ const ViewSplit = React.forwardRef((props_: any, ref: any) => {
   const valuePrecision = (valueMouse: number) => {
     let valueNew = (max + min) - valueWithinRangePercentage(valueMouse * 100, min, max);
 
-    if (refs.direction.current === 'rtl') valueNew = (max + min) - valueNew;
+    if (refs.direction.current === 'rtl' && refs.orientation.current === 'horizontal') valueNew = (max + min) - valueNew;
 
     if (valueNew <= min) return min;
 
@@ -240,13 +249,16 @@ const ViewSplit = React.forwardRef((props_: any, ref: any) => {
         (refs.version.current === 'manual' && refs.mouseDown.current)
       ) {
         const x: number = event.clientX;
+        const y: number = event.clientY;
 
         const rect = refs.root.current.getBoundingClientRect();
 
-        const { width } = rect;
+        const { width, height } = rect;
 
         // Value to the precision point value
-        const valueNew = valuePrecision((x - rect.x) / width);
+        let valueNew = refs.orientation.current === 'horizontal' ? (x - rect.x) / width : (y - rect.y) / height;
+
+        valueNew = valuePrecision(valueNew);
 
         onChange(valueNew);
       }
@@ -255,13 +267,16 @@ const ViewSplit = React.forwardRef((props_: any, ref: any) => {
     const onTouchMove = (event: TouchEvent) => {
       if (refs.mouseDown.current) {
         const x: number = event.touches[0].clientX;
+        const y: number = event.touches[0].clientY;
 
         const rect = refs.root.current.getBoundingClientRect();
 
-        const { width } = rect;
+        const { width, height } = rect;
 
         // Value to the precision point value
-        const valueNew = valuePrecision((x - rect.x) / width);
+        let valueNew = refs.orientation.current === 'horizontal' ? (x - rect.x) / width : (y - rect.y) / height;
+
+        valueNew = valuePrecision(valueNew);
 
         onChange(valueNew);
       }
@@ -460,7 +475,8 @@ const ViewSplit = React.forwardRef((props_: any, ref: any) => {
             ],
 
             classes.iconButton,
-            classes[`iconButton_orientation_${orientation}`]
+            classes[`iconButton_orientation_${orientation}`],
+            version === 'manual' && classes[`iconButton_manual_orientation_${orientation}`]
           ])}
 
           {...IconButtonProps}

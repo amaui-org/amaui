@@ -1950,6 +1950,32 @@ Please sign in again.`}
           </ViewSplit>
         </Accordion>
 
+        <Accordion primary='ViewSplit vertical'>
+          <ViewSplit
+            orientation='vertical'
+
+            version='manual'
+
+            divider
+          >
+            <img
+              src='./image.jpg'
+
+              alt=''
+            />
+
+            <img
+              src='./image.jpg'
+
+              alt=''
+
+              style={{
+                filter: 'hue-rotate(14deg)'
+              }}
+            />
+          </ViewSplit>
+        </Accordion>
+
         <Accordion primary='ViewSplit divider'>
           <ViewSplit
             divider
