@@ -14,6 +14,7 @@ const useStyle = style(theme => ({
   root: {
     position: 'relative',
     userSelect: 'none',
+    touchAction: 'none',
     overflow: 'hidden'
   },
 
@@ -133,8 +134,6 @@ const IconMaterialSwapVertRounded = React.forwardRef((props: any, ref) => {
 });
 
 // To do
-
-// orientation: vertical
 
 // keyboard
 // 1. if not divider or manual tabindex on root, and on focus update value by 1% on arrow left right if horizontal, or up, down on vertical
@@ -297,7 +296,7 @@ const ViewSplit = React.forwardRef((props_: any, ref: any) => {
     window.document.addEventListener('mouseup', onMouseUp);
     window.document.addEventListener('mousemove', onMouseMove);
     window.document.addEventListener('touchend', onMouseUp, { passive: true });
-    window.document.addEventListener('touchmove', onTouchMove, { passive: true });
+    window.document.addEventListener('touchmove', onTouchMove);
 
     setInit(true);
 
@@ -320,13 +319,16 @@ const ViewSplit = React.forwardRef((props_: any, ref: any) => {
 
   const onTouchStart = (event: React.TouchEvent<any>) => {
     const x: number = event.touches[0].clientX;
+    const y: number = event.touches[0].clientY;
 
     const rect = refs.root.current.getBoundingClientRect();
 
-    const { width } = rect;
+    const { width, height } = rect;
 
     // Value to the precision point value
-    const valueNew = valuePrecision((x - rect.x) / width);
+    let valueNew = refs.orientation.current === 'horizontal' ? (x - rect.x) / width : (y - rect.y) / height;
+
+    valueNew = valuePrecision(valueNew);
 
     onChange(valueNew);
 
