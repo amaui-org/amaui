@@ -42,6 +42,7 @@ const Menu = React.forwardRef((props_: any, ref: any) => {
 
   const {
     open,
+
     anchorElement,
     arrow,
     closeOnClickAway = true,
@@ -49,11 +50,13 @@ const Menu = React.forwardRef((props_: any, ref: any) => {
     resetKeyboardNavigation = false,
     autoSelect,
     autoSelectOnBlur,
+
     onSelect,
-    ListProps = {},
-    ModalProps = {},
     onOpen: onOpen_,
     onClose: onClose_,
+
+    ListProps = {},
+    ModalProps = {},
 
     className,
 

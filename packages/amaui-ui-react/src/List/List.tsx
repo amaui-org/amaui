@@ -75,11 +75,13 @@ const List = React.forwardRef((props_: any, ref: any) => {
   const {
     menu,
     menuOpen,
+
     tonal = true,
-    color = 'default',
+    color = 'themed',
     size = mobile ? 'small' : 'regular',
-    noMaxWidth = true,
     elevation = (props.menu && theme.palette.light) ? 2 : 0,
+
+    noMaxWidth = true,
     indent,
     paddingHorizontal = 'none',
     paddingVertical = 'both',
@@ -105,11 +107,11 @@ const List = React.forwardRef((props_: any, ref: any) => {
 
       Component={Component}
 
-      elevation={elevation}
+      tonal={tonal}
 
       color={color}
 
-      tonal={tonal}
+      elevation={elevation}
 
       className={classNames([
         staticClassName('List', theme) && [
@@ -143,8 +145,8 @@ const List = React.forwardRef((props_: any, ref: any) => {
           menuItem: menu,
           menuOpen,
 
-          color: item.props.color !== undefined ? item.props.color : color,
           tonal: item.props.tonal !== undefined ? item.props.tonal : tonal,
+          color: item.props.color !== undefined ? item.props.color : color,
           size: item.props.size !== undefined ? item.props.size : size,
 
           ...other,

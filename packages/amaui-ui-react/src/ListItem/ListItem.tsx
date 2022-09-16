@@ -531,10 +531,6 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
 
   if (href) RootComponent = 'a';
 
-  if (menuItem && color === 'default') {
-    if (!theme.palette.light) styles.wrapper.background = theme.palette.color.neutral[10];
-  }
-
   let addValue = 0;
 
   const method = (children_: any) => {
@@ -563,11 +559,9 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
         refs.root.current = item;
       }}
 
-      Component={Component}
+      tonal={tonal}
 
       color={colorToUse}
-
-      tonal={tonal}
 
       tabIndex={tabIndex !== undefined ? tabIndex : (button && !disabled) ? 0 : -1}
 
@@ -578,6 +572,8 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
       onMouseEnter={onMouseEnter}
 
       onMouseLeave={onMouseLeave}
+
+      Component={Component}
 
       className={classNames([
         staticClassName('ListItem', theme) && [
