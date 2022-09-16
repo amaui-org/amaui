@@ -380,7 +380,11 @@ const ViewSplit = React.forwardRef((props_: any, ref: any) => {
   }, []);
 
   const move = (forward_ = true) => {
-    const forward = (refs.direction.current === 'ltr' && refs.orientation.current === 'horizontal') ? forward_ : !forward_;
+    let forward = forward_;
+
+    if (refs.orientation.current === 'horizontal') {
+      if (refs.direction.current === 'rtl') forward = !forward;
+    }
 
     let valueNew = refs.value.current || 0;
 
@@ -391,41 +395,41 @@ const ViewSplit = React.forwardRef((props_: any, ref: any) => {
   };
 
   const onKeyDown = React.useCallback((event: React.KeyboardEvent<any>) => {
-    if (['ArrowUp', 'ArrowRight', 'ArrowDown', 'ArrowLeft', 'Home', 'End'].includes(event.key)) {
-      // Prevent default
-      event.preventDefault();
+    if (['ArrowUp', 'ArrowRight', 'ArrowLeft', 'ArrowDown', 'Home', 'End'].includes(event.key)) {
+      if (
+        ['Home', 'End'].includes(event.key) ||
+        (['ArrowLeft', 'ArrowRight'].includes(event.key) && refs.orientation.current === 'horizontal') ||
+        (['ArrowUp', 'ArrowDown'].includes(event.key) && refs.orientation.current === 'vertical')
+      ) {
+        // Prevent default
+        event.preventDefault();
 
-      let valueNew: number;
+        switch (event.key) {
+          case 'Home':
+            if (!props.hasOwnProperty('value')) setValue(0);
 
-      switch (event.key) {
-        case 'Home':
-          valueNew = ((refs.direction.current === 'ltr' && refs.orientation.current === 'horizontal') || refs.orientation.current === 'vertical') ? 0 : 100;
+            if (is('function', onChange)) return onChange(0);
 
-          if (!props.hasOwnProperty('value')) setValue(valueNew);
+            return;
 
-          if (is('function', onChange)) return onChange(valueNew);
+          case 'End':
+            if (!props.hasOwnProperty('value')) setValue(100);
 
-          return;
+            if (is('function', onChange)) return onChange(100);
 
-        case 'End':
-          valueNew = ((refs.direction.current === 'ltr' && refs.orientation.current === 'horizontal') || refs.orientation.current === 'vertical') ? 100 : 0;
+            return;
 
-          if (!props.hasOwnProperty('value')) setValue(valueNew);
+          case 'ArrowUp':
+          case 'ArrowLeft':
+            return move();
 
-          if (is('function', onChange)) return onChange(valueNew);
+          case 'ArrowDown':
+          case 'ArrowRight':
+            return move(false);
 
-          return;
-
-        case 'ArrowUp':
-        case 'ArrowRight':
-          return move(false);
-
-        case 'ArrowDown':
-        case 'ArrowLeft':
-          return move();
-
-        default:
-          break;
+          default:
+            break;
+        }
       }
     }
   }, []);
