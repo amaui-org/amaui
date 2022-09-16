@@ -399,7 +399,7 @@ const ViewSplit = React.forwardRef((props_: any, ref: any) => {
 
       switch (event.key) {
         case 'Home':
-          valueNew = ((refs.direction.current === 'rtl' && refs.orientation.current === 'horizontal') || refs.orientation.current === 'vertical') ? 0 : 100;
+          valueNew = ((refs.direction.current === 'ltr' && refs.orientation.current === 'horizontal') || refs.orientation.current === 'vertical') ? 0 : 100;
 
           if (!props.hasOwnProperty('value')) setValue(valueNew);
 
@@ -408,7 +408,7 @@ const ViewSplit = React.forwardRef((props_: any, ref: any) => {
           return;
 
         case 'End':
-          valueNew = ((refs.direction.current === 'rtl' && refs.orientation.current === 'horizontal') || refs.orientation.current === 'vertical') ? 100 : 0;
+          valueNew = ((refs.direction.current === 'ltr' && refs.orientation.current === 'horizontal') || refs.orientation.current === 'vertical') ? 100 : 0;
 
           if (!props.hasOwnProperty('value')) setValue(valueNew);
 
