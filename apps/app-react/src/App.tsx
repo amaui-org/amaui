@@ -218,6 +218,13 @@ const useStyle = style(theme => ({
 }), { name: 'App' });
 
 const styled: any = {
+  ViewSplit: sy(ViewSplit)((theme: AmauiTheme) => ({
+    root: {
+      '&:hover': {
+        opacity: 0.4
+      }
+    }
+  })),
   Masonry: sy(Masonry)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
@@ -2018,6 +2025,209 @@ Please sign in again.`}
               }}
             />
           </ViewSplit>
+        </Accordion>
+
+        <Accordion primary='AmauiTheme'>
+          <div className={classNames([classes.column])}>
+            <ViewSplit
+              divider
+            >
+              <img
+                src='./image.jpg'
+
+                alt=''
+              />
+
+              <img
+                src='./image.jpg'
+
+                alt=''
+
+                style={{
+                  filter: 'hue-rotate(14deg)'
+                }}
+              />
+            </ViewSplit>
+
+            <Accordion primary='AmauiTheme nested value'>
+              <AmauiThemeProvider
+                value={{
+                  palette: {
+                    color: {
+                      primary: {
+                        main: '#008000'
+                      }
+                    }
+                  },
+                  space: {
+                    unit: 5
+                  }
+                }}
+              >
+                <ViewSplit
+                  divider
+                >
+                  <img
+                    src='./image.jpg'
+
+                    alt=''
+                  />
+
+                  <img
+                    src='./image.jpg'
+
+                    alt=''
+
+                    style={{
+                      filter: 'hue-rotate(14deg)'
+                    }}
+                  />
+                </ViewSplit>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme add'>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiViewSplit: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: 0.4
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <ViewSplit
+                  divider
+                >
+                  <img
+                    src='./image.jpg'
+
+                    alt=''
+                  />
+
+                  <img
+                    src='./image.jpg'
+
+                    alt=''
+
+                    style={{
+                      filter: 'hue-rotate(14deg)'
+                    }}
+                  />
+                </ViewSplit>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme override'>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiViewSplit: {
+                        style: {
+                          override: {
+                            root: {
+                              margin: '11px 40px'
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <ViewSplit
+                  divider
+                >
+                  <img
+                    src='./image.jpg'
+
+                    alt=''
+                  />
+
+                  <img
+                    src='./image.jpg'
+
+                    alt=''
+
+                    style={{
+                      filter: 'hue-rotate(14deg)'
+                    }}
+                  />
+                </ViewSplit>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme props'>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiViewSplit: {
+                        props: {
+                          default: {
+                            color: 'secondary'
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <ViewSplit
+                  divider
+                >
+                  <img
+                    src='./image.jpg'
+
+                    alt=''
+                  />
+
+                  <img
+                    src='./image.jpg'
+
+                    alt=''
+
+                    style={{
+                      filter: 'hue-rotate(14deg)'
+                    }}
+                  />
+                </ViewSplit>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme styled'>
+              <styled.ViewSplit
+                divider
+              >
+                <img
+                  src='./image.jpg'
+
+                  alt=''
+                />
+
+                <img
+                  src='./image.jpg'
+
+                  alt=''
+
+                  style={{
+                    filter: 'hue-rotate(14deg)'
+                  }}
+                />
+              </styled.ViewSplit>
+            </Accordion>
+          </div>
         </Accordion>
       </Accordion>
 

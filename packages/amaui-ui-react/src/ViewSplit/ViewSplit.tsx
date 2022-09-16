@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is } from '@amaui/utils';
+import { clamp, is } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Line from '../Line';
@@ -13,9 +13,15 @@ import { staticClassName, valueWithinRangePercentage } from '../utils';
 const useStyle = style(theme => ({
   root: {
     position: 'relative',
+    color: theme.palette.text.default.primary,
     userSelect: 'none',
     touchAction: 'none',
     overflow: 'hidden'
+  },
+
+  focus: {
+    outline: '4px solid currentColor',
+    outlineOffset: '8px'
   },
 
   hidden: {
@@ -133,13 +139,6 @@ const IconMaterialSwapVertRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
-// To do
-
-// keyboard
-// 1. if not divider or manual tabindex on root, and on focus update value by 1% on arrow left right if horizontal, or up, down on vertical
-// and add some outline when root is in focus or whatnot etc.
-// 2. if divider and manual when filled button is in focus, keydown on button, do the same as above
-
 const ViewSplit = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 
@@ -156,6 +155,8 @@ const ViewSplit = React.forwardRef((props_: any, ref: any) => {
     orientation = 'horizontal',
     divider = props.version === 'manual',
 
+    onFocus: onFocus_,
+    onBlur: onBlur_,
     onMouseEnter: onMouseEnter_,
     onMouseLeave: onMouseLeave_,
 
@@ -180,11 +181,13 @@ const ViewSplit = React.forwardRef((props_: any, ref: any) => {
   const [init, setInit] = React.useState(false);
   const [rect, setRect] = React.useState<DOMRect>();
   const [hover, setHover] = React.useState<boolean>();
+  const [focus, setFocus] = React.useState<boolean>();
   const [mouseDown, setMouseDown] = React.useState<boolean>();
   const [value, setValue] = React.useState(valueDefault !== undefined ? valueDefault : value_);
 
   const refs = {
     root: React.useRef<HTMLElement>(),
+    value: React.useRef<any>(),
     mouseDown: React.useRef<any>(),
     hover: React.useRef<any>(),
     props: React.useRef<any>(),
@@ -195,6 +198,7 @@ const ViewSplit = React.forwardRef((props_: any, ref: any) => {
 
   const { classes } = useStyle(props);
 
+  refs.value.current = value;
   refs.mouseDown.current = mouseDown;
   refs.hover.current = hover;
   refs.props.current = props;
@@ -335,6 +339,26 @@ const ViewSplit = React.forwardRef((props_: any, ref: any) => {
     setMouseDown(true);
   };
 
+  const onFocus = React.useCallback((event: React.FocusEvent<any>) => {
+    setFocus(true);
+
+    if (is('function', onFocus_)) onFocus_(event);
+  }, []);
+
+  const onBlur = React.useCallback((event: React.FocusEvent<any>) => {
+    setFocus(false);
+
+    if (is('function', onBlur_)) onBlur_(event);
+  }, []);
+
+  const onFocusIconButton = React.useCallback((event: React.FocusEvent<any>) => {
+    setFocus(true);
+  }, []);
+
+  const onBlurIconButton = React.useCallback((event: React.FocusEvent<any>) => {
+    setFocus(false);
+  }, []);
+
   const onMouseEnter = React.useCallback((event: React.MouseEvent<any>) => {
     setHover(true);
 
@@ -349,6 +373,57 @@ const ViewSplit = React.forwardRef((props_: any, ref: any) => {
 
   const onMouseDown = React.useCallback(() => {
     setMouseDown(true);
+  }, []);
+
+  const move = (forward_ = true) => {
+    const forward = (refs.direction.current === 'ltr' && refs.orientation.current === 'horizontal') ? forward_ : !forward_;
+
+    let valueNew = refs.value.current || 0;
+
+    valueNew = clamp(valueNew + (forward ? 1 : -1), 0, 100);
+
+    // Update
+    onChange(valueNew);
+  };
+
+  const onKeyDown = React.useCallback((event: React.KeyboardEvent<any>) => {
+    if (['ArrowUp', 'ArrowRight', 'ArrowDown', 'ArrowLeft', 'Home', 'End'].includes(event.key)) {
+      // Prevent default
+      event.preventDefault();
+
+      let valueNew: number;
+
+      switch (event.key) {
+        case 'Home':
+          valueNew = refs.direction.current ? 0 : 100;
+
+          if (!props.hasOwnProperty('value')) setValue(valueNew);
+
+          if (is('function', onChange)) return onChange(valueNew);
+
+          return;
+
+        case 'End':
+          valueNew = refs.direction.current ? 100 : 0;
+
+          if (!props.hasOwnProperty('value')) setValue(valueNew);
+
+          if (is('function', onChange)) return onChange(valueNew);
+
+          return;
+
+        case 'ArrowUp':
+        case 'ArrowRight':
+          return move(false);
+
+        case 'ArrowDown':
+        case 'ArrowLeft':
+          return move();
+
+        default:
+          break;
+      }
+    }
   }, []);
 
   const onChange = (valueItem: number) => {
@@ -371,11 +446,17 @@ const ViewSplit = React.forwardRef((props_: any, ref: any) => {
         refs.root.current = item as any;
       }}
 
+      tabIndex={version === 'auto' ? 0 : undefined}
+
       direction={direction}
 
       align='center'
 
       justify='center'
+
+      onFocus={onFocus}
+
+      onBlur={onBlur}
 
       onMouseEnter={onMouseEnter}
 
@@ -383,15 +464,21 @@ const ViewSplit = React.forwardRef((props_: any, ref: any) => {
 
       onTouchStart={onTouchStart}
 
+      onKeyDown={onKeyDown}
+
       className={classNames([
         staticClassName('ViewSplit', theme) && [
           'AmauiViewSplit-root',
           `AmauiViewSplit-orientation-${orientation}`,
-          `AmauiViewSplit-version-${version}`
+          `AmauiViewSplit-version-${version}`,
+          hover && `AmauiButton-hover`,
+          focus && `AmauiButton-focus`,
+          mouseDown && `AmauiButton-mouseDown`,
         ],
 
         className,
-        classes.root
+        classes.root,
+        focus && !(hover || mouseDown) && classes.focus
       ])}
 
       {...other}
@@ -465,6 +552,10 @@ const ViewSplit = React.forwardRef((props_: any, ref: any) => {
 
       {version === 'manual' && (
         <IconButton
+          onFocus={onFocusIconButton}
+
+          onBlur={onBlurIconButton}
+
           onMouseDown={(event: React.MouseEvent<any>) => {
             onMouseDown();
 
