@@ -2027,6 +2027,30 @@ Please sign in again.`}
           </ViewSplit>
         </Accordion>
 
+        <Accordion primary='ViewSplit controlled'>
+          <ViewSplit
+            value={a.viewSplit}
+
+            onChange={(value_: number) => updatePure(value_, 'viewSplit')}
+          >
+            <img
+              src='./image.jpg'
+
+              alt=''
+            />
+
+            <img
+              src='./image.jpg'
+
+              alt=''
+
+              style={{
+                filter: 'hue-rotate(14deg)'
+              }}
+            />
+          </ViewSplit>
+        </Accordion>
+
         <Accordion primary='AmauiTheme'>
           <div className={classNames([classes.column])}>
             <ViewSplit
