@@ -303,6 +303,21 @@ const ViewSplit = React.forwardRef((props_: any, ref: any) => {
     }
   }, [value_]);
 
+  const onTouchStart = (event: React.TouchEvent<any>) => {
+    const x: number = event.touches[0].clientX;
+
+    const rect = refs.root.current.getBoundingClientRect();
+
+    const { width } = rect;
+
+    // Value to the precision point value
+    const valueNew = valuePrecision((x - rect.x) / width);
+
+    onChange(valueNew);
+
+    setMouseDown(true);
+  };
+
   const onMouseEnter = React.useCallback((event: React.MouseEvent<any>) => {
     setHover(true);
 
@@ -349,7 +364,7 @@ const ViewSplit = React.forwardRef((props_: any, ref: any) => {
 
       onMouseLeave={onMouseLeave}
 
-      onTouchStart={onMouseDown}
+      onTouchStart={onTouchStart}
 
       className={classNames([
         staticClassName('ViewSplit', theme) && [
