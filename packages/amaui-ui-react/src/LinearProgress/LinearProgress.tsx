@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is } from '@amaui/utils';
+import { clamp, is } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import { staticClassName } from '../utils';
@@ -264,9 +264,11 @@ const LinearProgress = React.forwardRef((props_: any, ref: any) => {
   const {
     tonal,
     color = 'primary',
+
+    value,
+
     version = 'indeterminate',
     buffer,
-    value,
     reverse: reverse_,
 
     className,
@@ -300,14 +302,14 @@ const LinearProgress = React.forwardRef((props_: any, ref: any) => {
     const values = { buffer: !buffer ? 100 : 0, line: 0 };
 
     if (is('object', value)) {
-      if (buffer) values.buffer = value?.buffer;
+      if (buffer) values.buffer = clamp(value?.buffer, 0, 100);
 
-      values.line = value?.progress;
+      values.line = clamp(value?.progress, 0, 100);
     }
     else {
-      if (buffer) values.buffer = value;
+      if (buffer) values.buffer = clamp(value, 0, 100);
 
-      values.line = value;
+      values.line = clamp(value, 0, 100);
     }
 
     styles.buffer.transform = `scaleX(${values.buffer / 100})`;

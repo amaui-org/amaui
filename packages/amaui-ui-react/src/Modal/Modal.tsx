@@ -292,7 +292,7 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
             fullScreen && classes.fullScreen,
             fullWidth && classes.fullWidth,
 
-            SurfaceProps.className
+            SurfaceProps?.className
           ])}
 
           onKeyDown={onKeyDown}

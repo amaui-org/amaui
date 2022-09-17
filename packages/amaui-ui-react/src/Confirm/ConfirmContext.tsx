@@ -1,5 +1,5 @@
 import React from 'react';
 
-const AmauiSnackbarsContext: any = React.createContext(undefined);
+const AmauiConfirmContext: any = React.createContext(undefined);
 
-export default AmauiSnackbarsContext;
+export default AmauiConfirmContext;

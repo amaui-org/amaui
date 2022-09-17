@@ -51,6 +51,7 @@ const useStyle = style(theme => ({
 
   iconButton: {
     position: 'absolute',
+    userSelect: 'none',
     zIndex: 4
   },
 
@@ -72,6 +73,7 @@ const useStyle = style(theme => ({
 
   divider: {
     position: 'absolute',
+    userSelect: 'none',
     zIndex: 3,
 
     '&.AmauiDivider-root': {

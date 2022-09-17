@@ -245,7 +245,7 @@ export * from './TableHeader';
 export { default as TableFooter } from './TableFooter';
 export * from './TableFooter';
 
-export { default as SkeletonLoader } from './Placeholder';
+export { default as Placeholder } from './Placeholder';
 export * from './Placeholder';
 
 export { default as Snackbar } from './Snackbar';
@@ -314,5 +314,5 @@ export * from './ViewSplit';
 export { default as WindowSplit } from './WindowSplit';
 export * from './WindowSplit';
 
-export { default as Placeholder } from './Placeholder';
-export * from './Placeholder';
+export { default as MainProgress } from './MainProgress';
+export * from './MainProgress';

@@ -158,6 +158,8 @@ const ConfirmProvider = React.forwardRef((props_: any, ref: any) => {
       {children}
 
       <Modal
+        ref={ref}
+
         open={open}
 
         onClose={onClose}

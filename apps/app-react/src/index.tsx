@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom/client';
 
-import { Snackbars, Confirm } from '@amaui/ui-react';
+import { Snackbars, Confirm, MainProgress } from '@amaui/ui-react';
 import { AmauiStyle, AmauiStyleProvider, AmauiThemeProvider, valueObject, prefix, rtl, unit } from '@amaui/style-react';
 
 import App from './App';
@@ -19,7 +19,9 @@ root.render(
     <AmauiThemeProvider>
       <Confirm>
         <Snackbars>
-          <App />
+          <MainProgress>
+            <App />
+          </MainProgress>
         </Snackbars>
       </Confirm>
     </AmauiThemeProvider>
