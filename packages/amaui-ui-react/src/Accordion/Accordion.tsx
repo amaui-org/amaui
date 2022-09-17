@@ -144,12 +144,17 @@ const Accordion = React.forwardRef((props_: any, ref: any) => {
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiAccordion?.props?.default }), [props_]);
 
   const {
-    primary,
-    secondary,
     tonal = false,
     color = 'default',
     elevation = 0,
-    ExpandIcon = IconMaterialExpandMoreRounded,
+
+    primary,
+    secondary,
+
+    openDefault,
+    open: open_,
+    onChange,
+
     noBackground,
     noExpandButton,
     expandedMarginVertical = 'both',
@@ -158,14 +163,12 @@ const Accordion = React.forwardRef((props_: any, ref: any) => {
     headerPaddingHorizontal = 'both',
     mainPaddingVertical = 'both',
     mainPaddingHorizontal = 'both',
-    openDefault,
-    open: open_,
-    onChange,
     noTransition,
     disabled,
 
     Component = 'div',
     ExpandProps,
+    ExpandIcon = IconMaterialExpandMoreRounded,
     TransitionComponent: TransitionComponent_ = Fade,
     TransitionComponentProps: TransitionComponentProps_ = { add: true },
     WrapperHeaderProps,
@@ -319,7 +322,19 @@ const Accordion = React.forwardRef((props_: any, ref: any) => {
               >
                 {primary}
               </Type>
-            ) : primary}
+            ) : (
+              React.Children.toArray(primary)
+                .filter(Boolean)
+                .map((item: any, index: number) => {
+                  if (is('simple', item)) return item;
+
+                  return (
+                    React.cloneElement(item, {
+                      key: index
+                    })
+                  );
+                })
+            )}
           </Grid>
 
           {secondary && (
@@ -342,7 +357,19 @@ const Accordion = React.forwardRef((props_: any, ref: any) => {
                 >
                   {secondary}
                 </Type>
-              ) : secondary}
+              ) : (
+                React.Children.toArray(secondary)
+                  .filter(Boolean)
+                  .map((item: any, index: number) => {
+                    if (is('simple', item)) return item;
+
+                    return (
+                      React.cloneElement(item, {
+                        key: index
+                      })
+                    );
+                  })
+              )}
             </Grid>
           )}
         </Grid>

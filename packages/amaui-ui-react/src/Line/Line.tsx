@@ -226,14 +226,7 @@ const Line = React.forwardRef((props_: any, ref: any) => {
       {...other}
     >
       {(
-        React.Children.toArray(children)
-          .flatMap((item: any, index: number) => (!divider || index === children.length - 1) ? [item] : [item, Divider_])
-          .filter(Boolean)
-          .map((item: any, index: number) => (
-            React.cloneElement(item, {
-              key: item.key !== undefined ? item.key : index
-            })
-          ))
+        React.Children.toArray(children).flatMap((item: any, index: number) => (!divider || index === children.length - 1) ? [item] : [item, Divider_])
       )}
     </Component>
   );

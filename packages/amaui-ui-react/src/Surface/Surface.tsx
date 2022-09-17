@@ -819,7 +819,19 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
 
       {...other}
     >
-      {children}
+      {(
+        children && React.Children.toArray(children)
+          .filter(Boolean)
+          .map((item: any, index: number) => {
+            if (is('simple', item)) return item;
+
+            return (
+              React.cloneElement(item, {
+                key: `${item.key || ''}${index}`
+              })
+            );
+          })
+      )}
     </Component>
   );
 });

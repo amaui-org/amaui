@@ -288,9 +288,11 @@ const ViewSplit = React.forwardRef((props_: any, ref: any) => {
     };
 
     const method = () => {
-      const rect = refs.root.current.getBoundingClientRect();
+      if (refs.root.current) {
+        const rect = refs.root.current.getBoundingClientRect();
 
-      setRect(rect);
+        setRect(rect);
+      }
     };
 
     const observer = new ResizeObserver(method);
