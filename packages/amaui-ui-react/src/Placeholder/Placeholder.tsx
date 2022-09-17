@@ -84,12 +84,12 @@ const useStyle = style(theme => ({
   children: {
     visibility: 'hidden'
   }
-}), { name: 'AmauiSkeletonLoader' });
+}), { name: 'AmauiPlaceholder' });
 
-const SkeletonLoader = React.forwardRef((props_: any, ref: any) => {
+const Placeholder = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiSkeletonLoader?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiPlaceholder?.props?.default }), [props_]);
 
   const {
     color = 'default',
@@ -123,11 +123,11 @@ const SkeletonLoader = React.forwardRef((props_: any, ref: any) => {
       ref={ref}
 
       className={classNames([
-        staticClassName('SkeletonLoader', theme) && [
-          `AmauiSkeletonLoader-root`,
-          version && `AmauiSkeletonLoader-version-${version}`,
-          animation && `AmauiSkeletonLoader-animation-${animation}`,
-          text && `AmauiSkeletonLoader-text`
+        staticClassName('Placeholder', theme) && [
+          `AmauiPlaceholder-root`,
+          version && `AmauiPlaceholder-version-${version}`,
+          animation && `AmauiPlaceholder-animation-${animation}`,
+          text && `AmauiPlaceholder-text`
         ],
 
         className,
@@ -153,8 +153,8 @@ const SkeletonLoader = React.forwardRef((props_: any, ref: any) => {
         color={color}
 
         className={classNames([
-          staticClassName('SkeletonLoader', theme) && [
-            `AmauiSkeletonLoader-wrapper`
+          staticClassName('Placeholder', theme) && [
+            `AmauiPlaceholder-wrapper`
           ],
 
           classes.wrapper
@@ -163,8 +163,8 @@ const SkeletonLoader = React.forwardRef((props_: any, ref: any) => {
         {children && (
           <div
             className={classNames([
-              staticClassName('SkeletonLoader', theme) && [
-                `AmauiSkeletonLoader-children`
+              staticClassName('Placeholder', theme) && [
+                `AmauiPlaceholder-children`
               ],
 
               classes.children
@@ -178,6 +178,6 @@ const SkeletonLoader = React.forwardRef((props_: any, ref: any) => {
   );
 });
 
-SkeletonLoader.displayName = 'AmauiSkeletonLoader';
+Placeholder.displayName = 'AmauiPlaceholder';
 
-export default SkeletonLoader;
+export default Placeholder;

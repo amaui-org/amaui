@@ -2,7 +2,7 @@ import React from 'react';
 
 import { countries, random } from '@amaui/utils';
 import { AmauiTheme, AmauiThemeProvider, classNames, style, sy, useAmauiTheme } from '@amaui/style-react';
-import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationItem, NavigationRail, NavigationDrawer, BottomSheet, BottomAppBar, TopAppBar, Card, CardImage, CardMain, CardHeader, CardButton, CardFooter, Table, TableHead, TableRow, TableCell, TableHeader, TableFooter, TableBody, SkeletonLoader, Snackbar, useSnackbars, Pagination, TablePagination, SpeedDial, SpeedDialItem, ImageList, ImageListItem, ImageListItemBox, Stepper, Step, Tabs, Tab, Timeline, TimelineItem, Tree, Masonry, Reveal, useConfirm, ViewSplit, WindowSplit } from '@amaui/ui-react';
+import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationItem, NavigationRail, NavigationDrawer, BottomSheet, BottomAppBar, TopAppBar, Card, CardImage, CardMain, CardHeader, CardButton, CardFooter, Table, TableHead, TableRow, TableCell, TableHeader, TableFooter, TableBody, Placeholder, Snackbar, useSnackbars, Pagination, TablePagination, SpeedDial, SpeedDialItem, ImageList, ImageListItem, ImageListItemBox, Stepper, Step, Tabs, Tab, Timeline, TimelineItem, Tree, Masonry, Reveal, useConfirm, ViewSplit, WindowSplit } from '@amaui/ui-react';
 
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
@@ -295,7 +295,7 @@ const styled: any = {
       }
     }
   })),
-  SkeletonLoader: sy(SkeletonLoader)((theme: AmauiTheme) => ({
+  Placeholder: sy(Placeholder)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
         opacity: 0.4
@@ -1390,7 +1390,7 @@ function App() {
               </Button>
             )}
           />
-          <SkeletonLoader
+          <Placeholder
             width={240}
 
             height={40}
@@ -9349,36 +9349,36 @@ Please sign in again.`}
         </Accordion>
       </Accordion>
 
-      <Accordion primary='SkeletonLoader'>
-        <Accordion primary='SkeletonLoader' open>
-          <SkeletonLoader
+      <Accordion primary='Placeholder'>
+        <Accordion primary='Placeholder' open>
+          <Placeholder
             width={240}
 
             height={40}
           />
         </Accordion>
 
-        <Accordion primary='SkeletonLoader text' open>
-          <SkeletonLoader
+        <Accordion primary='Placeholder text' open>
+          <Placeholder
             width={240}
 
             text
           />
         </Accordion>
 
-        <Accordion primary='SkeletonLoader inffered height from a ui' open>
-          <SkeletonLoader
+        <Accordion primary='Placeholder inffered height from a ui' open>
+          <Placeholder
             version='circle'
           >
             <Avatar>
               a
             </Avatar>
-          </SkeletonLoader>
+          </Placeholder>
         </Accordion>
 
-        <Accordion primary='SkeletonLoader version' open>
+        <Accordion primary='Placeholder version' open>
           <Line>
-            <SkeletonLoader
+            <Placeholder
               version='circle'
 
               width={40}
@@ -9386,7 +9386,7 @@ Please sign in again.`}
               height={40}
             />
 
-            <SkeletonLoader
+            <Placeholder
               version='rounded'
 
               width={240}
@@ -9394,7 +9394,7 @@ Please sign in again.`}
               height={40}
             />
 
-            <SkeletonLoader
+            <Placeholder
               version='rectangle'
 
               width={240}
@@ -9404,9 +9404,9 @@ Please sign in again.`}
           </Line>
         </Accordion>
 
-        <Accordion primary='SkeletonLoader animation' open>
+        <Accordion primary='Placeholder animation' open>
           <Line>
-            <SkeletonLoader
+            <Placeholder
               animation='pulse'
 
               width={240}
@@ -9414,7 +9414,7 @@ Please sign in again.`}
               height={40}
             />
 
-            <SkeletonLoader
+            <Placeholder
               animation='wave'
 
               width={240}
@@ -9422,7 +9422,7 @@ Please sign in again.`}
               height={40}
             />
 
-            <SkeletonLoader
+            <Placeholder
               animation={false}
 
               width={240}
@@ -9432,10 +9432,10 @@ Please sign in again.`}
           </Line>
         </Accordion>
 
-        <Accordion primary='SkeletonLoader color'>
+        <Accordion primary='Placeholder color'>
           <Line>
             <Line>
-              <SkeletonLoader
+              <Placeholder
                 color='default'
 
                 animation='pulse'
@@ -9445,7 +9445,7 @@ Please sign in again.`}
                 height={40}
               />
 
-              <SkeletonLoader
+              <Placeholder
                 color='default'
 
                 animation='wave'
@@ -9455,7 +9455,7 @@ Please sign in again.`}
                 height={40}
               />
 
-              <SkeletonLoader
+              <Placeholder
                 color='default'
 
                 animation={false}
@@ -9467,7 +9467,7 @@ Please sign in again.`}
             </Line>
 
             <Line>
-              <SkeletonLoader
+              <Placeholder
                 color='primary'
 
                 animation='pulse'
@@ -9477,7 +9477,7 @@ Please sign in again.`}
                 height={40}
               />
 
-              <SkeletonLoader
+              <Placeholder
                 color='primary'
 
                 animation='wave'
@@ -9487,7 +9487,7 @@ Please sign in again.`}
                 height={40}
               />
 
-              <SkeletonLoader
+              <Placeholder
                 color='primary'
 
                 animation={false}
@@ -9499,7 +9499,7 @@ Please sign in again.`}
             </Line>
 
             <Line>
-              <SkeletonLoader
+              <Placeholder
                 color='secondary'
 
                 animation='pulse'
@@ -9509,7 +9509,7 @@ Please sign in again.`}
                 height={40}
               />
 
-              <SkeletonLoader
+              <Placeholder
                 color='secondary'
 
                 animation='wave'
@@ -9519,7 +9519,7 @@ Please sign in again.`}
                 height={40}
               />
 
-              <SkeletonLoader
+              <Placeholder
                 color='secondary'
 
                 animation={false}
@@ -9531,7 +9531,7 @@ Please sign in again.`}
             </Line>
 
             <Line>
-              <SkeletonLoader
+              <Placeholder
                 color='tertiary'
 
                 animation='pulse'
@@ -9541,7 +9541,7 @@ Please sign in again.`}
                 height={40}
               />
 
-              <SkeletonLoader
+              <Placeholder
                 color='tertiary'
 
                 animation='wave'
@@ -9551,7 +9551,7 @@ Please sign in again.`}
                 height={40}
               />
 
-              <SkeletonLoader
+              <Placeholder
                 color='tertiary'
 
                 animation={false}
@@ -9563,7 +9563,7 @@ Please sign in again.`}
             </Line>
 
             <Line>
-              <SkeletonLoader
+              <Placeholder
                 color='quaternary'
 
                 animation='pulse'
@@ -9573,7 +9573,7 @@ Please sign in again.`}
                 height={40}
               />
 
-              <SkeletonLoader
+              <Placeholder
                 color='quaternary'
 
                 animation='wave'
@@ -9583,7 +9583,7 @@ Please sign in again.`}
                 height={40}
               />
 
-              <SkeletonLoader
+              <Placeholder
                 color='quaternary'
 
                 animation={false}
@@ -9595,7 +9595,7 @@ Please sign in again.`}
             </Line>
 
             <Line>
-              <SkeletonLoader
+              <Placeholder
                 color='info'
 
                 animation='pulse'
@@ -9605,7 +9605,7 @@ Please sign in again.`}
                 height={40}
               />
 
-              <SkeletonLoader
+              <Placeholder
                 color='info'
 
                 animation='wave'
@@ -9615,7 +9615,7 @@ Please sign in again.`}
                 height={40}
               />
 
-              <SkeletonLoader
+              <Placeholder
                 color='info'
 
                 animation={false}
@@ -9627,7 +9627,7 @@ Please sign in again.`}
             </Line>
 
             <Line>
-              <SkeletonLoader
+              <Placeholder
                 color='success'
 
                 animation='pulse'
@@ -9637,7 +9637,7 @@ Please sign in again.`}
                 height={40}
               />
 
-              <SkeletonLoader
+              <Placeholder
                 color='success'
 
                 animation='wave'
@@ -9647,7 +9647,7 @@ Please sign in again.`}
                 height={40}
               />
 
-              <SkeletonLoader
+              <Placeholder
                 color='success'
 
                 animation={false}
@@ -9659,7 +9659,7 @@ Please sign in again.`}
             </Line>
 
             <Line>
-              <SkeletonLoader
+              <Placeholder
                 color='warning'
 
                 animation='pulse'
@@ -9669,7 +9669,7 @@ Please sign in again.`}
                 height={40}
               />
 
-              <SkeletonLoader
+              <Placeholder
                 color='warning'
 
                 animation='wave'
@@ -9679,7 +9679,7 @@ Please sign in again.`}
                 height={40}
               />
 
-              <SkeletonLoader
+              <Placeholder
                 color='warning'
 
                 animation={false}
@@ -9691,7 +9691,7 @@ Please sign in again.`}
             </Line>
 
             <Line>
-              <SkeletonLoader
+              <Placeholder
                 color='error'
 
                 animation='pulse'
@@ -9701,7 +9701,7 @@ Please sign in again.`}
                 height={40}
               />
 
-              <SkeletonLoader
+              <Placeholder
                 color='error'
 
                 animation='wave'
@@ -9711,7 +9711,7 @@ Please sign in again.`}
                 height={40}
               />
 
-              <SkeletonLoader
+              <Placeholder
                 color='error'
 
                 animation={false}
@@ -9723,7 +9723,7 @@ Please sign in again.`}
             </Line>
 
             <Line>
-              <SkeletonLoader
+              <Placeholder
                 color='neutral'
 
                 animation='pulse'
@@ -9733,7 +9733,7 @@ Please sign in again.`}
                 height={40}
               />
 
-              <SkeletonLoader
+              <Placeholder
                 color='neutral'
 
                 animation='wave'
@@ -9743,7 +9743,7 @@ Please sign in again.`}
                 height={40}
               />
 
-              <SkeletonLoader
+              <Placeholder
                 color='neutral'
 
                 animation={false}
@@ -9755,7 +9755,7 @@ Please sign in again.`}
             </Line>
 
             <Line>
-              <SkeletonLoader
+              <Placeholder
                 color='#f5d758'
 
                 animation='pulse'
@@ -9765,7 +9765,7 @@ Please sign in again.`}
                 height={40}
               />
 
-              <SkeletonLoader
+              <Placeholder
                 color='#f5d758'
 
                 animation='wave'
@@ -9775,7 +9775,7 @@ Please sign in again.`}
                 height={40}
               />
 
-              <SkeletonLoader
+              <Placeholder
                 color='#f5d758'
 
                 animation={false}
@@ -9790,7 +9790,7 @@ Please sign in again.`}
 
         <Accordion primary='AmauiTheme'>
           <div className={classNames([classes.column])}>
-            <SkeletonLoader color='secondary'
+            <Placeholder color='secondary'
               width={240}
 
               height={40}
@@ -9811,7 +9811,7 @@ Please sign in again.`}
                   }
                 }}
               >
-                <SkeletonLoader color='secondary'
+                <Placeholder color='secondary'
                   width={240}
 
                   height={40}
@@ -9824,7 +9824,7 @@ Please sign in again.`}
                 value={{
                   ui: {
                     elements: {
-                      AmauiSkeletonLoader: {
+                      AmauiPlaceholder: {
                         style: {
                           add: {
                             root: {
@@ -9839,7 +9839,7 @@ Please sign in again.`}
                   }
                 }}
               >
-                <SkeletonLoader color='secondary'
+                <Placeholder color='secondary'
                   width={240}
 
                   height={40}
@@ -9854,7 +9854,7 @@ Please sign in again.`}
                 value={{
                   ui: {
                     elements: {
-                      AmauiSkeletonLoader: {
+                      AmauiPlaceholder: {
                         style: {
                           override: {
                             root: {
@@ -9867,7 +9867,7 @@ Please sign in again.`}
                   }
                 }}
               >
-                <SkeletonLoader color='secondary'
+                <Placeholder color='secondary'
                   width={240}
 
                   height={140}
@@ -9880,7 +9880,7 @@ Please sign in again.`}
                 value={{
                   ui: {
                     elements: {
-                      AmauiSkeletonLoader: {
+                      AmauiPlaceholder: {
                         props: {
                           default: {
                             color: 'secondary'
@@ -9891,7 +9891,7 @@ Please sign in again.`}
                   }
                 }}
               >
-                <SkeletonLoader
+                <Placeholder
                   width={240}
 
                   height={40}
@@ -9900,7 +9900,7 @@ Please sign in again.`}
             </Accordion>
 
             <Accordion primary='AmauiTheme styled'>
-              <styled.SkeletonLoader
+              <styled.Placeholder
                 width={240}
 
                 height={40}
