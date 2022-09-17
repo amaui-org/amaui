@@ -3,11 +3,11 @@ import React from 'react';
 import { clamp, equalDeep, is } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
-import { percentageWithinRange, staticClassName, valueWithinRangePercentage } from '../utils';
-
 import IconButton from '../IconButton';
 import Tooltip from '../Tooltip';
 import Zoom from '../Zoom';
+
+import { percentageWithinRange, staticClassName, valueWithinRangePercentage } from '../utils';
 
 const rail = {
   position: 'absolute',
@@ -1137,7 +1137,7 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
 
             style={iconButtonStyles(value__)}
 
-            {...IconButton}
+            {...IconButtonProps}
           >
             <span
               className={classNames([

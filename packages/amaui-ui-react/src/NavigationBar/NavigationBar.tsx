@@ -131,8 +131,6 @@ const NavigationBar = React.forwardRef((props_: any, ref: any) => {
     <Surface
       ref={ref}
 
-      noBorderRadius
-
       Component={Line}
 
       color={color}

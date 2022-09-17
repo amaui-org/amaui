@@ -50,10 +50,16 @@ const CardImage = React.forwardRef((props_: any, ref: any) => {
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiCardImage?.props?.default }), [props_]);
 
   const {
+    tonal,
+    color,
+    version,
+    elevation,
+
     alt,
     image,
     shape = 'bottom',
     marginHorizontal,
+
     Component = 'img',
 
     className,

@@ -18,6 +18,11 @@ const CardFooter = React.forwardRef((props_: any, ref: any) => {
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiCardFooter?.props?.default }), [props_]);
 
   const {
+    tonal,
+    color,
+    version,
+    elevation,
+
     Component = 'div',
 
     className,

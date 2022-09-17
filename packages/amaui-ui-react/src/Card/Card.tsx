@@ -164,7 +164,7 @@ const Card = React.forwardRef((props_: any, ref: any) => {
 
           elevation: item.props.elevation !== undefined ? item.props.elevation : elevation,
 
-          color: item.props.color || color
+          color: item.props.color !== undefined ? item.props.color : color
         })
       ))}
     </Surface>

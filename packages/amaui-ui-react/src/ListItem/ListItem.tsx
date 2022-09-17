@@ -563,7 +563,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
 
       color={colorToUse}
 
-      tabIndex={tabIndex !== undefined ? tabIndex : (button && !disabled) ? 0 : -1}
+      tabIndex={tabIndex !== undefined ? tabIndex : (button && !disabled) ? 0 : undefined}
 
       onFocus={onFocus}
 

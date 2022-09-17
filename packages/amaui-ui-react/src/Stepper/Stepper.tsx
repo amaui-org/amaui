@@ -134,8 +134,6 @@ const Stepper = React.forwardRef((props_: any, ref: any) => {
           if ((!active_ && !free)) other_.disabled = true;
 
           return React.cloneElement(item, {
-            key: index,
-
             step: index + 1,
 
             tonal,
@@ -201,7 +199,12 @@ const Stepper = React.forwardRef((props_: any, ref: any) => {
           );
 
           return values;
-        })}
+        })
+        .map((item: any, index: number) => (
+          React.cloneElement(item, {
+            key: index
+          })
+        ))}
     </Line>
   );
 });

@@ -18,6 +18,11 @@ const CardHeader = React.forwardRef((props_: any, ref: any) => {
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiCardHeader?.props?.default }), [props_]);
 
   const {
+    tonal,
+    color,
+    version,
+    elevation,
+
     Component = 'div',
 
     className,
@@ -53,13 +58,13 @@ const CardHeader = React.forwardRef((props_: any, ref: any) => {
       {...other}
     >
       {React.cloneElement(children, {
-        tonal: children.props.tonal !== undefined ? children.props.tonal : props.tonal,
+        tonal: children.props.tonal !== undefined ? children.props.tonal : tonal,
 
-        version: children.props.version !== undefined ? children.props.version : props.version,
+        version: children.props.version !== undefined ? children.props.version : version,
 
-        elevation: children.props.elevation !== undefined ? children.props.elevation : props.elevation,
+        elevation: children.props.elevation !== undefined ? children.props.elevation : elevation,
 
-        color: children.props.color || props.color
+        color: children.props.color !== undefined ? children.props.color : color
       })}
     </Line>
   );

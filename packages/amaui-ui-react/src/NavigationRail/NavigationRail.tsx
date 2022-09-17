@@ -165,8 +165,6 @@ const NavigationRail = React.forwardRef((props_: any, ref: any) => {
 
       justify='initial'
 
-      noBorderRadius
-
       gap={0}
 
       className={classNames([

@@ -149,14 +149,14 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
     disableBackgroundClose,
     backgroundInvisible,
     BackgroundComponent = Fade,
-    BackgroundProps = {},
+    BackgroundProps,
 
     TransitionComponent = Fade,
-    TransitionComponentProps = {},
+    TransitionComponentProps,
 
-    SurfaceProps = {},
+    SurfaceProps,
 
-    PortalProps: PortalProps_ = {},
+    PortalProps: PortalProps_,
 
     onClose: onClose_,
 

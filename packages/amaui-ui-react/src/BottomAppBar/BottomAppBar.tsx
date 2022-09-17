@@ -261,8 +261,6 @@ const BottomAppBar = React.forwardRef((props_: any, ref: any) => {
 
       justify='space-between'
 
-      noBorderRadius
-
       gap={4}
 
       className={classNames([

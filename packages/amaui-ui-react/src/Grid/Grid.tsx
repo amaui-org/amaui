@@ -156,7 +156,7 @@ const Grid = React.forwardRef((props_: any, ref: any) => {
   const valueGap = columnGap !== undefined ? columnGap : gap;
 
   if (auto) width = undefined;
-  else width = `calc(${(width / columns) * 100}% - ${(valueGap * theme.space.unit) / 2}px)`;
+  else width = `calc(${(width / columns) * 100}% - ${(valueGap * theme.space.unit)}px)`;
 
   styles.root.width = width;
 
@@ -198,7 +198,7 @@ const Grid = React.forwardRef((props_: any, ref: any) => {
       {...other}
     >
       {React.Children.toArray(children).map((item: any) => (
-        React.cloneElement(item, {
+        React.cloneElement(item, item.type?.displayName !== 'Grid' ? {} : {
           gap,
           rowGap,
           columnGap,

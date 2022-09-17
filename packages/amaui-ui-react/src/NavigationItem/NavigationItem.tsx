@@ -143,15 +143,17 @@ const NavigationItem = React.forwardRef((props_: any, ref: any) => {
     selected,
     IconWrapperComponent = 'span',
     IconWrapperProps = {},
+    disabled,
+
     onFocus: onFocus_,
     onBlur: onBlur_,
     onKeyDown: onKeyDown_,
     onMouseDown: onMouseDown_,
     onMouseEnter: onMouseEnter_,
     onMouseLeave: onMouseLeave_,
-    onTouch: onTouch_,
+    onTouchStart: onTouchStart_,
+
     TooltipProps = {},
-    disabled,
 
     className,
     style,
@@ -224,10 +226,10 @@ const NavigationItem = React.forwardRef((props_: any, ref: any) => {
     if (is('function', onBlur_)) onBlur_(event);
   }, []);
 
-  const onTouch = React.useCallback((event: React.MouseEvent<any>) => {
+  const onTouchStart = React.useCallback((event: React.MouseEvent<any>) => {
     if (!disabled) setMouseDown(true);
 
-    if (is('function', onTouch_)) onTouch_(event);
+    if (is('function', onTouchStart)) onTouchStart(event);
   }, []);
 
   const onMouseDown = React.useCallback((event: React.MouseEvent<any>) => {
@@ -296,13 +298,15 @@ const NavigationItem = React.forwardRef((props_: any, ref: any) => {
       longPress
 
       touch={false}
+
       hover={false}
+
       focus={false}
 
       {...TooltipProps}
     >
       <span
-        tabIndex={!disabled && 0}
+        tabIndex={!disabled ? 0 : undefined}
 
         onFocus={onFocus}
 
@@ -310,7 +314,7 @@ const NavigationItem = React.forwardRef((props_: any, ref: any) => {
 
         onKeyDown={onKeyDown}
 
-        onTouch={onTouch}
+        onTouchStart={onTouchStart}
 
         onMouseDown={onMouseDown}
 

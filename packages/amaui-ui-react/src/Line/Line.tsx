@@ -143,13 +143,13 @@ const Line = React.forwardRef((props_: any, ref: any) => {
     divider: divider_,
     wrap: wrap_,
 
-    DividerProps = {},
     Component = 'div',
+    DividerProps = {},
 
     className,
     style,
 
-    children: children_,
+    children,
 
     ...other
   } = props;
@@ -178,8 +178,6 @@ const Line = React.forwardRef((props_: any, ref: any) => {
   else {
     if (!valuesGaps.includes(gap)) styles.root.gap = is('string', gap) ? gap : `${gap * theme.space.unit}px`;
   }
-
-  const children = React.Children.toArray(children_);
 
   const Divider_ = (
     <Divider
@@ -227,7 +225,16 @@ const Line = React.forwardRef((props_: any, ref: any) => {
 
       {...other}
     >
-      {children.flatMap((item: any, index: number) => (!divider || index === children.length - 1) ? [item] : [item, Divider_])}
+      {(
+        React.Children.toArray(children)
+          .flatMap((item: any, index: number) => (!divider || index === children.length - 1) ? [item] : [item, Divider_])
+          .filter(Boolean)
+          .map((item: any, index: number) => (
+            React.cloneElement(item, {
+              key: item.key !== undefined ? item.key : index
+            })
+          ))
+      )}
     </Component>
   );
 });

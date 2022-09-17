@@ -471,6 +471,8 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
           <span
             ref={item => refs.values.current.push(item)}
 
+            key={index}
+
             onClick={onClick}
 
             className={classNames([

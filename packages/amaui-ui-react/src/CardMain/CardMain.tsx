@@ -18,6 +18,11 @@ const CardMain = React.forwardRef((props_: any, ref: any) => {
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiCardMain?.props?.default }), [props_]);
 
   const {
+    tonal,
+    color,
+    version,
+    elevation,
+
     Component = 'div',
 
     className,

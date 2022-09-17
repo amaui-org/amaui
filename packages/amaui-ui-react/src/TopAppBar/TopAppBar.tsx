@@ -104,6 +104,7 @@ const TopAppBar = React.forwardRef((props_: any, ref: any) => {
     color = 'primary',
     version = 'small',
     size = 'regular',
+
     title: title_,
     start: start_,
     end: end_,
@@ -121,13 +122,13 @@ const TopAppBar = React.forwardRef((props_: any, ref: any) => {
     .map((item: any, index: number) => React.cloneElement(item, {
       key: index,
 
-      elevation: item.props.elevation !== undefined ? item.props.elevation : false,
-
-      version: item.props.version !== undefined ? item.props.version : 'filled',
+      tonal: item.props.tonal !== undefined ? item.props.tonal : tonal,
 
       color: item.props.color !== undefined ? item.props.color : color,
 
-      tonal: item.props.tonal !== undefined ? item.props.tonal : tonal
+      version: item.props.version !== undefined ? item.props.version : 'filled',
+
+      elevation: item.props.elevation !== undefined ? item.props.elevation : false
     }));
 
   const end = React.Children
@@ -135,13 +136,13 @@ const TopAppBar = React.forwardRef((props_: any, ref: any) => {
     .map((item: any, index: number) => React.cloneElement(item, {
       key: index,
 
-      elevation: item.props.elevation !== undefined ? item.props.elevation : false,
-
-      version: item.props.version !== undefined ? item.props.version : 'filled',
+      tonal: item.props.tonal !== undefined ? item.props.tonal : tonal,
 
       color: item.props.color !== undefined ? item.props.color : color,
 
-      tonal: item.props.tonal !== undefined ? item.props.tonal : tonal
+      version: item.props.version !== undefined ? item.props.version : 'filled',
+
+      elevation: item.props.elevation !== undefined ? item.props.elevation : false
     }));
 
   const classNameTitle = classNames([
@@ -160,17 +161,15 @@ const TopAppBar = React.forwardRef((props_: any, ref: any) => {
 
       color='inherit'
 
-      tonal={tonal}
-
       className={classNameTitle}
     >
       {title_}
     </Type>
   ) : (
     React.cloneElement(title_, {
-      color: title_.props.color !== undefined ? title_.props.color : 'inherit',
-
       tonal: title_.props.tonal !== undefined ? title_.props.tonal : tonal,
+
+      color: title_.props.color !== undefined ? title_.props.color : 'inherit',
 
       className: classNameTitle
     })
@@ -192,17 +191,15 @@ const TopAppBar = React.forwardRef((props_: any, ref: any) => {
 
       color='inherit'
 
-      tonal={tonal}
-
       className={classNameTitleMedium}
     >
       {title_}
     </Type>
   ) : (
     React.cloneElement(title_, {
-      color: title_.props.color !== undefined ? title_.props.color : 'inherit',
-
       tonal: title_.props.tonal !== undefined ? title_.props.tonal : tonal,
+
+      color: title_.props.color !== undefined ? title_.props.color : 'inherit',
 
       className: classNameTitleMedium
     })
@@ -219,8 +216,6 @@ const TopAppBar = React.forwardRef((props_: any, ref: any) => {
       tonal={tonal}
 
       justify='space-between'
-
-      noBorderRadius
 
       gap={0}
 
