@@ -44496,7 +44496,7 @@ Please sign in again.`}
         </Accordion>
 
       </Accordion>
-    </div >
+    </div>
   );
 }
 
