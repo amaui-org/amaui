@@ -2,7 +2,7 @@ import React from 'react';
 
 import { countries, random } from '@amaui/utils';
 import { AmauiTheme, AmauiThemeProvider, classNames, style, sy, useAmauiTheme } from '@amaui/style-react';
-import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationItem, NavigationRail, NavigationDrawer, BottomSheet, BottomAppBar, TopAppBar, Card, CardImage, CardMain, CardHeader, CardButton, CardFooter, Table, TableHead, TableRow, TableCell, TableHeader, TableFooter, TableBody, Placeholder, Snackbar, useSnackbars, Pagination, TablePagination, SpeedDial, SpeedDialItem, ImageList, ImageListItem, ImageListItemBox, Stepper, Step, Tabs, Tab, Timeline, TimelineItem, Tree, Masonry, Reveal, useConfirm, ViewSplit, WindowSplit, useMainProgress, Image } from '@amaui/ui-react';
+import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationItem, NavigationRail, NavigationDrawer, BottomSheet, BottomAppBar, TopAppBar, Card, CardImage, CardMain, CardHeader, CardButton, CardFooter, Table, TableHead, TableRow, TableCell, TableHeader, TableFooter, TableBody, Placeholder, Snackbar, useSnackbars, Pagination, TablePagination, SpeedDial, SpeedDialItem, ImageList, ImageListItem, ImageListItemBox, Stepper, Step, Tabs, Tab, Timeline, TimelineItem, Tree, Masonry, Reveal, useConfirm, ViewSplit, WindowSplit, useMainProgress, Image, SpyScroll } from '@amaui/ui-react';
 
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
@@ -1009,6 +1009,93 @@ function App() {
             width: '100%'
           }}
         >
+          <Line>
+            <SpyScroll
+              ids={['a1', 'a14', 'a114']}
+
+              addClassName='active'
+
+              addStyle={{
+                color: 'orange'
+              }}
+            >
+              <Line
+                direction='row'
+
+                style={{
+                  padding: '14px 24px',
+                  position: 'fixed',
+                  top: 0,
+                  left: 0
+                }}
+              >
+                <Line
+                  direction='row'
+                >
+                  <Type
+                    data-amaui-spy-scroll='a1 a14'
+                  >
+                    a1 and a14
+                  </Type>
+
+                  <Type
+                    Component='a'
+
+                    href='https://google.com/a#a1'
+                  >
+                    a1
+                  </Type>
+
+                  <Type
+                    Component='a'
+
+                    href='https://google.com/a#a14'
+                  >
+                    a14
+                  </Type>
+                </Line>
+
+                <Type
+                  Component='a'
+
+                  href='https://google.com/a#a114'
+                >
+                  a114
+                </Type>
+              </Line>
+            </SpyScroll>
+
+            <Line
+              style={{
+                marginTop: 140
+              }}
+            >
+              <section
+                id='a1'
+
+                style={{ height: 140 }}
+              >
+                <h4>Section a1</h4>
+              </section>
+
+              <section
+                id='a14'
+
+                style={{ height: 140 }}
+              >
+                <h4>Section a14</h4>
+              </section>
+
+              <section
+                id='a114'
+
+                style={{ height: 140 }}
+              >
+                <h4>Section a114</h4>
+              </section>
+            </Line>
+          </Line>
+
           <Image
             src='./image.jpg'
           />
@@ -2006,6 +2093,97 @@ Please sign in again.`}
 
           <IconMaterialPottedPlantRounded color='secondary' />
         </Line>
+      </Accordion>
+
+      <Accordion primary='SpyScroll'>
+        <Accordion primary='SpyScroll' open>
+          <Line>
+            <SpyScroll
+              ids={['a1', 'a14', 'a114']}
+
+              addClassName='active'
+
+              addStyle={{
+                color: 'orange'
+              }}
+            >
+              <Line
+                direction='row'
+
+                style={{
+                  padding: '14px 24px',
+                  position: 'fixed',
+                  top: 0,
+                  left: 0
+                }}
+              >
+                <Line
+                  direction='row'
+                >
+                  <Type
+                    data-amaui-spy-scroll='a1 a14'
+                  >
+                    a1 and a14
+                  </Type>
+
+                  <Type
+                    Component='a'
+
+                    href='https://google.com/a#a1'
+                  >
+                    a1
+                  </Type>
+
+                  <Type
+                    Component='a'
+
+                    href='https://google.com/a#a14'
+                  >
+                    a14
+                  </Type>
+                </Line>
+
+                <Type
+                  Component='a'
+
+                  href='https://google.com/a#a114'
+                >
+                  a114
+                </Type>
+              </Line>
+            </SpyScroll>
+
+            <Line
+              style={{
+                marginTop: 140
+              }}
+            >
+              <section
+                id='a1'
+
+                style={{ height: 140 }}
+              >
+                <h4>Section a1</h4>
+              </section>
+
+              <section
+                id='a14'
+
+                style={{ height: 140 }}
+              >
+                <h4>Section a14</h4>
+              </section>
+
+              <section
+                id='a114'
+
+                style={{ height: 140 }}
+              >
+                <h4>Section a114</h4>
+              </section>
+            </Line>
+          </Line>
+        </Accordion>
       </Accordion>
 
       <Accordion primary='Image'>
@@ -44326,7 +44504,7 @@ Please sign in again.`}
         </Accordion>
 
       </Accordion>
-    </div>
+    </div >
   );
 }
 

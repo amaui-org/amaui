@@ -319,3 +319,6 @@ export * from './MainProgress';
 
 export { default as Image } from './Image';
 export * from './Image';
+
+export { default as SpyScroll } from './SpyScroll';
+export * from './SpyScroll';
