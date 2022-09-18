@@ -113,7 +113,7 @@ const SpyScroll = React.forwardRef((props_: any, ref: any) => {
       // Find first active id
       const id = refs.props.current.ids.find((item: string) => methodElement(window.document.querySelector(`#${item}`.replace('##', '#'))));
 
-      if (id) {
+      if (id && refs.root.current) {
         // Update all elements in root
 
         // Remove active className and style from

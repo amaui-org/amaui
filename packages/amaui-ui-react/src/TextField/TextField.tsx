@@ -1004,7 +1004,10 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
 
           <InputComponent
             ref={item => {
-              if (ref) ref.current = item;
+              if (ref) {
+                if (is('function', ref)) ref(item);
+                else ref.current = item;
+              }
 
               refs.input.current = item;
             }}

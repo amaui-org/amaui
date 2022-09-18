@@ -322,3 +322,9 @@ export * from './Image';
 
 export { default as SpyScroll } from './SpyScroll';
 export * from './SpyScroll';
+
+export { default as AdvancedTextField } from './AdvancedTextField';
+export * from './AdvancedTextField';
+
+export { default as NumericTextField } from './NumericTextField';
+export * from './NumericTextField';

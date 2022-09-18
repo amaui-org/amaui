@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { countries, random } from '@amaui/utils';
+import { is, random, countries } from '@amaui/utils';
 import { AmauiTheme, AmauiThemeProvider, classNames, style, sy, useAmauiTheme } from '@amaui/style-react';
-import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationItem, NavigationRail, NavigationDrawer, BottomSheet, BottomAppBar, TopAppBar, Card, CardImage, CardMain, CardHeader, CardButton, CardFooter, Table, TableHead, TableRow, TableCell, TableHeader, TableFooter, TableBody, Placeholder, Snackbar, useSnackbars, Pagination, TablePagination, SpeedDial, SpeedDialItem, ImageList, ImageListItem, ImageListItemBox, Stepper, Step, Tabs, Tab, Timeline, TimelineItem, Tree, Masonry, Reveal, useConfirm, ViewSplit, WindowSplit, useMainProgress, Image, SpyScroll } from '@amaui/ui-react';
+import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationItem, NavigationRail, NavigationDrawer, BottomSheet, BottomAppBar, TopAppBar, Card, CardImage, CardMain, CardHeader, CardButton, CardFooter, Table, TableHead, TableRow, TableCell, TableHeader, TableFooter, TableBody, Placeholder, Snackbar, useSnackbars, Pagination, TablePagination, SpeedDial, SpeedDialItem, ImageList, ImageListItem, ImageListItemBox, Stepper, Step, Tabs, Tab, Timeline, TimelineItem, Tree, Masonry, Reveal, useConfirm, ViewSplit, WindowSplit, useMainProgress, Image, SpyScroll, AdvancedTextField } from '@amaui/ui-react';
 
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
@@ -1009,6 +1009,28 @@ function App() {
             width: '100%'
           }}
         >
+          <AdvancedTextField
+            label='AdvancedTextField'
+
+            color='secondary'
+
+            mask={[
+              '(',
+              ...new Array(3).fill({
+                pattern: '[0-9]'
+              }),
+              ')',
+              ' ',
+              ...new Array(3).fill({
+                pattern: '[0-9]'
+              }),
+              '-',
+              ...new Array(4).fill({
+                pattern: '[0-9]'
+              }),
+            ]}
+          />
+
           <Line>
             <SpyScroll
               ids={['a1', 'a14', 'a114']}
@@ -2089,6 +2111,64 @@ Please sign in again.`}
 
           <IconMaterialPottedPlantRounded color='secondary' />
         </Line>
+      </Accordion>
+
+      <Accordion primary='AdvancedTextField'>
+        <Accordion primary='AdvancedTextField' open>
+          <AdvancedTextField
+            color='secondary'
+
+            label='AdvancedTextField'
+
+            validate={(value_: any) => is('number', +value_)}
+          />
+        </Accordion>
+
+        <Accordion primary='AdvancedTextField prefix'>
+          <AdvancedTextField
+            color='secondary'
+
+            prefix='eur '
+
+            label='AdvancedTextField'
+          />
+        </Accordion>
+
+        <Accordion primary='AdvancedTextField thousand'>
+          <AdvancedTextField
+            color='secondary'
+
+            thousand
+
+            prefix='eur '
+
+            label='AdvancedTextField'
+          />
+        </Accordion>
+
+        <Accordion primary='AdvancedTextField mask'>
+          <AdvancedTextField
+            color='secondary'
+
+            mask={[
+              '(',
+              ...new Array(3).fill({
+                pattern: '[0-9]'
+              }),
+              ')',
+              ' ',
+              ...new Array(3).fill({
+                pattern: '[0-9]'
+              }),
+              '-',
+              ...new Array(4).fill({
+                pattern: '[0-9]'
+              }),
+            ]}
+
+            label='AdvancedTextField'
+          />
+        </Accordion>
       </Accordion>
 
       <Accordion primary='SpyScroll'>
