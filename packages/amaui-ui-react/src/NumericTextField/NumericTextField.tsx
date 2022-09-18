@@ -97,7 +97,7 @@ const NumericTextField = React.forwardRef((props_: any, ref: any) => {
   };
 
   const onIncrement = () => {
-    let valueNew: any = value || 0;
+    let valueNew: any = value || '0';
 
     if (props.prefix !== undefined) valueNew = valueNew.replace(props.prefix, '');
 
@@ -114,7 +114,7 @@ const NumericTextField = React.forwardRef((props_: any, ref: any) => {
   };
 
   const onDecrement = () => {
-    let valueNew: any = value || 0;
+    let valueNew: any = value || '0';
 
     if (props.prefix !== undefined) valueNew = valueNew.replace(props.prefix, '');
 
