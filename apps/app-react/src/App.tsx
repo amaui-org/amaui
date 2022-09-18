@@ -2123,15 +2123,57 @@ Please sign in again.`}
         </Accordion>
 
         <Accordion primary='NumericTextField increment and decrement value'>
-          <NumericTextField
-            color='secondary'
+          <Line>
+            <NumericTextField
+              color='secondary'
 
-            incrementValue={40}
+              incrementValue={40}
 
-            decrementValue={14}
+              decrementValue={14}
 
-            label='NumericTextField'
-          />
+              label='NumericTextField'
+            />
+
+            <NumericTextField
+              color='secondary'
+
+              incrementValue={40}
+
+              decrementValue={14}
+
+              thousand
+
+              prefix='eur '
+
+              label='NumericTextField'
+            />
+
+            <NumericTextField
+              color='secondary'
+
+              incrementValue={40}
+
+              decrementValue={14}
+
+              mask={[
+                '(',
+                ...new Array(3).fill({
+                  pattern: '[0-9]'
+                }),
+                ')',
+                ' ',
+                ...new Array(3).fill({
+                  pattern: '[0-9]'
+                }),
+                '-',
+                ...new Array(4).fill({
+                  pattern: '[0-9]'
+                }),
+              ]}
+
+              label='NumericTextField'
+            />
+          </Line>
         </Accordion>
 
         <Accordion primary='NumericTextField prefix'>
