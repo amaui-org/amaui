@@ -573,7 +573,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
     };
   };
 
-  const [value, setValue] = React.useState((valueDefault !== undefined ? valueDefault : value_) || '');
+  const [value, setValue] = React.useState((valueDefault !== undefined ? valueDefault : value_));
   const [focus, setFocus] = React.useState(focus_);
   const [mouseDown, setMouseDown] = React.useState(false);
   const [hover, setHover] = React.useState(false);
@@ -762,6 +762,8 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
 
   if (mouseDown) refs.input.current.focus();
 
+  const valueWithData = value !== undefined && !!value.length;
+
   return (
     <Wrapper
       {...WrapperProps}
@@ -810,7 +812,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
             rows !== undefined && `AmauiTextField-rows-${rows}`,
             minRows !== undefined && `AmauiTextField-minRows-${minRows}`,
             maxRows !== undefined && `AmauiTextField-maxRows-${maxRows}`,
-            value && 'AmauiTextField-value',
+            valueWithData && 'AmauiTextField-value',
             enabled && 'AmauiTextField-enabled',
             hover && `AmauiTextField-hover`,
             mouseDown && `AmauiTextField-mouseDown`,
@@ -843,7 +845,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
               ],
 
               classes.background,
-              (enabled || value || focus) && classes.background_focus,
+              (enabled || valueWithData || focus) && classes.background_focus,
               hover && classes.background_hover
             ])}
 
@@ -886,7 +888,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
                 ],
 
                 classes.legend,
-                (enabled || value || focus) && label !== undefined && classes.legend_focus
+                (enabled || valueWithData || focus) && label !== undefined && classes.legend_focus
               ])}
             >
               {label}{required ? '*' : ''}{optional ? ` (${optionalText})` : ''}
@@ -906,7 +908,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
               classes.label,
               classes[`label_version_${version}`],
               classes[`label_version_${version}_size_${size}`],
-              (enabled || value || focus) && classes[`label_version_${version}_size_${size}_focus`],
+              (enabled || valueWithData || focus) && classes[`label_version_${version}_size_${size}_focus`],
               theme.direction === 'rtl' && classes.label_rtl,
               start && [
                 classes.label_icon_start,
@@ -964,7 +966,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
               (start || version === 'text') && classes.prefix_noStartMargin,
               classes[`addition_size_${size}`],
               classes[`addition_version_${version}_size_${size}`],
-              (enabled || value || focus) && classes.prefix_focus,
+              (enabled || valueWithData || focus) && classes.prefix_focus,
               noPrefixMargin && classes.noPrefixMargin
             ])}
 
@@ -984,7 +986,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
 
             classes.inputWrapper,
             InputWrapperProps?.className,
-            (enabled || label === undefined || value || focus) && classes.inputWrapper_focus,
+            (enabled || label === undefined || valueWithData || focus) && classes.inputWrapper_focus,
             classes[`input_version_${version}`],
             classes[`input_size_${size}`],
             classes[`input_version_${version}_size_${size}`],
@@ -1064,7 +1066,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
               (end || version === 'text') && classes.sufix_noEndMargin,
               classes[`addition_size_${size}`],
               classes[`addition_version_${version}_size_${size}`],
-              (enabled || value || focus) && classes.sufix_focus,
+              (enabled || valueWithData || focus) && classes.sufix_focus,
               noSufixMargin && classes.noSufixMargin
             ])}
 
