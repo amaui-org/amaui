@@ -2,7 +2,7 @@ import React from 'react';
 
 import { countries, random } from '@amaui/utils';
 import { AmauiTheme, AmauiThemeProvider, classNames, style, sy, useAmauiTheme } from '@amaui/style-react';
-import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationItem, NavigationRail, NavigationDrawer, BottomSheet, BottomAppBar, TopAppBar, Card, CardImage, CardMain, CardHeader, CardButton, CardFooter, Table, TableHead, TableRow, TableCell, TableHeader, TableFooter, TableBody, Placeholder, Snackbar, useSnackbars, Pagination, TablePagination, SpeedDial, SpeedDialItem, ImageList, ImageListItem, ImageListItemBox, Stepper, Step, Tabs, Tab, Timeline, TimelineItem, Tree, Masonry, Reveal, useConfirm, ViewSplit, WindowSplit, useMainProgress } from '@amaui/ui-react';
+import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationItem, NavigationRail, NavigationDrawer, BottomSheet, BottomAppBar, TopAppBar, Card, CardImage, CardMain, CardHeader, CardButton, CardFooter, Table, TableHead, TableRow, TableCell, TableHeader, TableFooter, TableBody, Placeholder, Snackbar, useSnackbars, Pagination, TablePagination, SpeedDial, SpeedDialItem, ImageList, ImageListItem, ImageListItemBox, Stepper, Step, Tabs, Tab, Timeline, TimelineItem, Tree, Masonry, Reveal, useConfirm, ViewSplit, WindowSplit, useMainProgress, Image } from '@amaui/ui-react';
 
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
@@ -218,6 +218,13 @@ const useStyle = style(theme => ({
 }), { name: 'App' });
 
 const styled: any = {
+  Image: sy(Image)((theme: AmauiTheme) => ({
+    root: {
+      '&:hover': {
+        opacity: 0.4
+      }
+    }
+  })),
   WindowSplit: sy(WindowSplit)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
@@ -1002,6 +1009,10 @@ function App() {
             width: '100%'
           }}
         >
+          <Image
+            src='./image.jpg'
+          />
+
           <Line
             gap={1}
 
@@ -1054,16 +1065,12 @@ function App() {
           </WindowSplit>
 
           <ViewSplit>
-            <img
+            <Image
               src='./image.jpg'
-
-              alt=''
             />
 
-            <img
+            <Image
               src='./image.jpg'
-
-              alt=''
 
               style={{
                 filter: 'hue-rotate(14deg)'
@@ -1372,7 +1379,7 @@ function App() {
               <ImageListItem
                 key={index}
               >
-                <img
+                <Image
                   src={`https://picsum.photos/140?random=${index}`}
 
                   alt={String(index)}
@@ -2001,6 +2008,188 @@ Please sign in again.`}
         </Line>
       </Accordion>
 
+      <Accordion primary='Image'>
+        <Accordion primary='Image' open>
+          <Image
+            src='./image.jpg'
+          />
+        </Accordion>
+
+        <Accordion primary='Image sources'>
+          <Image
+            src='./image.jpg'
+
+            sources={[
+              { srcset: './image.jpg' },
+              { srcset: './image.jpg' },
+              { srcset: './image.jpg' },
+              { srcset: './image.jpg' }
+            ]}
+          />
+        </Accordion>
+
+        <Accordion primary='Image description'>
+          <Image
+            src='./image.jpg'
+
+            description='Value, some decription value y'
+          />
+        </Accordion>
+
+        <Accordion primary='Image sources and description'>
+          <Image
+            src='./image.jpg'
+
+            sources={[
+              { srcset: './image.jpg' },
+              { srcset: './image.jpg' },
+              { srcset: './image.jpg' },
+              { srcset: './image.jpg' }
+            ]}
+
+            description='Value, some decription value y'
+          />
+        </Accordion>
+
+        <Accordion primary='Image responsive'>
+          <Line>
+            <Image
+              responsive={false}
+
+              src='./image.jpg'
+            />
+
+            <Image
+              responsive={false}
+
+              src='./image.jpg'
+
+              sources={[
+                { srcset: './image.jpg' },
+                { srcset: './image.jpg' },
+                { srcset: './image.jpg' },
+                { srcset: './image.jpg' }
+              ]}
+            />
+
+            <Image
+              responsive={false}
+
+              src='./image.jpg'
+
+              description='Value, some decription value y'
+            />
+
+            <Image
+              responsive={false}
+
+              src='./image.jpg'
+
+              sources={[
+                { srcset: './image.jpg' },
+                { srcset: './image.jpg' },
+                { srcset: './image.jpg' },
+                { srcset: './image.jpg' }
+              ]}
+
+              description='Value, some decription value y'
+            />
+          </Line>
+        </Accordion>
+
+        <Accordion primary='Image fullWidth'>
+          <Line>
+            <Image
+              fullWidth
+
+              src='./image.jpg'
+            />
+
+            <Image
+              fullWidth
+
+              src='./image.jpg'
+
+              sources={[
+                { srcset: './image.jpg' },
+                { srcset: './image.jpg' },
+                { srcset: './image.jpg' },
+                { srcset: './image.jpg' }
+              ]}
+            />
+
+            <Image
+              fullWidth
+
+              src='./image.jpg'
+
+              description='Value, some decription value y'
+            />
+
+            <Image
+              fullWidth
+
+              src='./image.jpg'
+
+              sources={[
+                { srcset: './image.jpg' },
+                { srcset: './image.jpg' },
+                { srcset: './image.jpg' },
+                { srcset: './image.jpg' }
+              ]}
+
+              description='Value, some decription value y'
+            />
+          </Line>
+        </Accordion>
+
+        <Accordion primary='Image maxWidth'>
+          <Line>
+            <Image
+              maxWidth='xs'
+
+              src='./image.jpg'
+            />
+
+            <Image
+              maxWidth='xs'
+
+              src='./image.jpg'
+
+              sources={[
+                { srcset: './image.jpg' },
+                { srcset: './image.jpg' },
+                { srcset: './image.jpg' },
+                { srcset: './image.jpg' }
+              ]}
+            />
+
+            <Image
+              maxWidth='xs'
+
+              src='./image.jpg'
+
+              description='Value, some decription value y'
+            />
+
+            <Image
+              maxWidth='xs'
+
+              src='./image.jpg'
+
+              sources={[
+                { srcset: './image.jpg' },
+                { srcset: './image.jpg' },
+                { srcset: './image.jpg' },
+                { srcset: './image.jpg' }
+              ]}
+
+              description='Value, some decription value y'
+            />
+          </Line>
+        </Accordion>
+      </Accordion>
+
       <Accordion primary='MainProgress'>
         <Accordion primary='MainProgress' open>
           <Line
@@ -2028,7 +2217,7 @@ Please sign in again.`}
       </Accordion>
 
       <Accordion primary='WindowSplit'>
-        <Accordion primary='WindowSplit'>
+        <Accordion primary='WindowSplit' open>
           <WindowSplit
             style={{
               width: '100%',
@@ -2556,16 +2745,12 @@ Please sign in again.`}
       <Accordion primary='ViewSplit'>
         <Accordion primary='ViewSplit' open>
           <ViewSplit>
-            <img
+            <Image
               src='./image.jpg'
-
-              alt=''
             />
 
-            <img
+            <Image
               src='./image.jpg'
-
-              alt=''
 
               style={{
                 filter: 'hue-rotate(14deg)'
@@ -2582,16 +2767,12 @@ Please sign in again.`}
 
             divider
           >
-            <img
+            <Image
               src='./image.jpg'
-
-              alt=''
             />
 
-            <img
+            <Image
               src='./image.jpg'
-
-              alt=''
 
               style={{
                 filter: 'hue-rotate(14deg)'
@@ -2604,16 +2785,12 @@ Please sign in again.`}
           <ViewSplit
             divider
           >
-            <img
+            <Image
               src='./image.jpg'
-
-              alt=''
             />
 
-            <img
+            <Image
               src='./image.jpg'
-
-              alt=''
 
               style={{
                 filter: 'hue-rotate(14deg)'
@@ -2626,16 +2803,12 @@ Please sign in again.`}
           <ViewSplit
             version='manual'
           >
-            <img
+            <Image
               src='./image.jpg'
-
-              alt=''
             />
 
-            <img
+            <Image
               src='./image.jpg'
-
-              alt=''
 
               style={{
                 filter: 'hue-rotate(14deg)'
@@ -2650,16 +2823,12 @@ Please sign in again.`}
 
             onChange={(value_: number) => updatePure(value_, 'viewSplit')}
           >
-            <img
+            <Image
               src='./image.jpg'
-
-              alt=''
             />
 
-            <img
+            <Image
               src='./image.jpg'
-
-              alt=''
 
               style={{
                 filter: 'hue-rotate(14deg)'
@@ -2673,16 +2842,12 @@ Please sign in again.`}
             <ViewSplit
               divider
             >
-              <img
+              <Image
                 src='./image.jpg'
-
-                alt=''
               />
 
-              <img
+              <Image
                 src='./image.jpg'
-
-                alt=''
 
                 style={{
                   filter: 'hue-rotate(14deg)'
@@ -2708,16 +2873,12 @@ Please sign in again.`}
                 <ViewSplit
                   divider
                 >
-                  <img
+                  <Image
                     src='./image.jpg'
-
-                    alt=''
                   />
 
-                  <img
+                  <Image
                     src='./image.jpg'
-
-                    alt=''
 
                     style={{
                       filter: 'hue-rotate(14deg)'
@@ -2750,16 +2911,12 @@ Please sign in again.`}
                 <ViewSplit
                   divider
                 >
-                  <img
+                  <Image
                     src='./image.jpg'
-
-                    alt=''
                   />
 
-                  <img
+                  <Image
                     src='./image.jpg'
-
-                    alt=''
 
                     style={{
                       filter: 'hue-rotate(14deg)'
@@ -2790,16 +2947,12 @@ Please sign in again.`}
                 <ViewSplit
                   divider
                 >
-                  <img
+                  <Image
                     src='./image.jpg'
-
-                    alt=''
                   />
 
-                  <img
+                  <Image
                     src='./image.jpg'
-
-                    alt=''
 
                     style={{
                       filter: 'hue-rotate(14deg)'
@@ -2828,16 +2981,12 @@ Please sign in again.`}
                 <ViewSplit
                   divider
                 >
-                  <img
+                  <Image
                     src='./image.jpg'
-
-                    alt=''
                   />
 
-                  <img
+                  <Image
                     src='./image.jpg'
-
-                    alt=''
 
                     style={{
                       filter: 'hue-rotate(14deg)'
@@ -2851,16 +3000,12 @@ Please sign in again.`}
               <styled.ViewSplit
                 divider
               >
-                <img
+                <Image
                   src='./image.jpg'
-
-                  alt=''
                 />
 
-                <img
+                <Image
                   src='./image.jpg'
-
-                  alt=''
 
                   style={{
                     filter: 'hue-rotate(14deg)'
@@ -6799,7 +6944,7 @@ Please sign in again.`}
               <ImageListItem
                 key={index}
               >
-                <img
+                <Image
                   src={`https://picsum.photos/140?random=${index}`}
 
                   alt={String(index)}
@@ -6822,7 +6967,7 @@ Please sign in again.`}
                 <ImageListItem
                   key={index}
                 >
-                  <img
+                  <Image
                     src={`https://picsum.photos/140?random=${index}`}
 
                     alt={String(index)}
@@ -6848,7 +6993,7 @@ Please sign in again.`}
 
                   columns={item.columns}
                 >
-                  <img
+                  <Image
                     key={index}
 
                     src={`https://picsum.photos/140?random=${index}`}
@@ -6872,7 +7017,7 @@ Please sign in again.`}
                 <ImageListItem
                   key={index}
                 >
-                  <img
+                  <Image
                     src={`https://picsum.photos/140/240?random=${index}`}
 
                     alt={String(index)}
@@ -6896,7 +7041,7 @@ Please sign in again.`}
                 <ImageListItem
                   key={index}
                 >
-                  <img
+                  <Image
                     src={`https://picsum.photos/140${index % 2 === 0 ? `/240` : ''}?random=${index}`}
 
                     alt={String(index)}
@@ -6921,7 +7066,7 @@ Please sign in again.`}
                   <ImageListItem
                     key={index}
                   >
-                    <img
+                    <Image
                       key={index}
 
                       src={`https://picsum.photos/140?random=${index}`}
@@ -6958,7 +7103,7 @@ Please sign in again.`}
 
                     columns={item.columns}
                   >
-                    <img
+                    <Image
                       key={index}
 
                       src={`https://picsum.photos/140?random=${index}`}
@@ -6991,7 +7136,7 @@ Please sign in again.`}
                   <ImageListItem
                     key={index}
                   >
-                    <img
+                    <Image
                       src={`https://picsum.photos/140/240?random=${index}`}
 
                       alt={String(index)}
@@ -7024,7 +7169,7 @@ Please sign in again.`}
                   <ImageListItem
                     key={index}
                   >
-                    <img
+                    <Image
                       src={`https://picsum.photos/140${index % 2 === 0 ? `/240` : ''}?random=${index}`}
 
                       alt={String(index)}
@@ -7057,7 +7202,7 @@ Please sign in again.`}
                   <ImageListItem
                     key={index}
                   >
-                    <img
+                    <Image
                       src={`https://picsum.photos/140?random=${index}`}
 
                       alt={String(index)}
@@ -7094,7 +7239,7 @@ Please sign in again.`}
 
                     columns={item.columns}
                   >
-                    <img
+                    <Image
                       src={`https://picsum.photos/140?random=${index}`}
 
                       alt={String(index)}
@@ -7127,7 +7272,7 @@ Please sign in again.`}
                   <ImageListItem
                     key={index}
                   >
-                    <img
+                    <Image
                       src={`https://picsum.photos/140/240?random=${index}`}
 
                       alt={String(index)}
@@ -7162,7 +7307,7 @@ Please sign in again.`}
                   <ImageListItem
                     key={index}
                   >
-                    <img
+                    <Image
                       src={`https://picsum.photos/140${index % 2 === 0 ? `/240` : ''}?random=${index}`}
 
                       alt={String(index)}
@@ -7197,7 +7342,7 @@ Please sign in again.`}
                   <ImageListItem
                     key={index}
                   >
-                    <img
+                    <Image
                       src={`https://picsum.photos/140?random=${index}`}
 
                       alt={String(index)}
@@ -7234,7 +7379,7 @@ Please sign in again.`}
 
                     columns={item.columns}
                   >
-                    <img
+                    <Image
                       key={index}
 
                       src={`https://picsum.photos/140?random=${index}`}
@@ -7269,7 +7414,7 @@ Please sign in again.`}
                   <ImageListItem
                     key={index}
                   >
-                    <img
+                    <Image
                       src={`https://picsum.photos/140/240?random=${index}`}
 
                       alt={String(index)}
@@ -7304,7 +7449,7 @@ Please sign in again.`}
                   <ImageListItem
                     key={index}
                   >
-                    <img
+                    <Image
                       src={`https://picsum.photos/140${index % 2 === 0 ? `/240` : ''}?random=${index}`}
 
                       alt={String(index)}
@@ -7341,7 +7486,7 @@ Please sign in again.`}
 
                     direction='column-reverse'
                   >
-                    <img
+                    <Image
                       src={`https://picsum.photos/140?random=${index}`}
 
                       alt={String(index)}
@@ -7378,7 +7523,7 @@ Please sign in again.`}
 
                     direction='column-reverse'
                   >
-                    <img
+                    <Image
                       src={`https://picsum.photos/140?random=${index}`}
 
                       alt={String(index)}
@@ -7411,7 +7556,7 @@ Please sign in again.`}
 
                     direction='column-reverse'
                   >
-                    <img
+                    <Image
                       src={`https://picsum.photos/140/240?random=${index}`}
 
                       alt={String(index)}
@@ -7446,7 +7591,7 @@ Please sign in again.`}
 
                     direction='column-reverse'
                   >
-                    <img
+                    <Image
                       src={`https://picsum.photos/140${index % 2 === 0 ? `/240` : ''}?random=${index}`}
 
                       alt={String(index)}
@@ -7478,7 +7623,7 @@ Please sign in again.`}
                 <ImageListItem
                   key={index}
                 >
-                  <img
+                  <Image
                     src={`https://picsum.photos/140?random=${index}`}
 
                     alt={String(index)}
@@ -7511,7 +7656,7 @@ Please sign in again.`}
                     <ImageListItem
                       key={index}
                     >
-                      <img
+                      <Image
                         src={`https://picsum.photos/140?random=${index}`}
 
                         alt={String(index)}
@@ -7551,7 +7696,7 @@ Please sign in again.`}
                     <ImageListItem
                       key={index}
                     >
-                      <img
+                      <Image
                         src={`https://picsum.photos/140?random=${index}`}
 
                         alt={String(index)}
@@ -7589,7 +7734,7 @@ Please sign in again.`}
                     <ImageListItem
                       key={index}
                     >
-                      <img
+                      <Image
                         src={`https://picsum.photos/140?random=${index}`}
 
                         alt={String(index)}
@@ -7625,7 +7770,7 @@ Please sign in again.`}
                     <ImageListItem
                       key={index}
                     >
-                      <img
+                      <Image
                         src={`https://picsum.photos/140?random=${index}`}
 
                         alt={String(index)}
@@ -7646,7 +7791,7 @@ Please sign in again.`}
                   <ImageListItem
                     key={index}
                   >
-                    <img
+                    <Image
                       src={`https://picsum.photos/140?random=${index}`}
 
                       alt={String(index)}

@@ -316,3 +316,6 @@ export * from './WindowSplit';
 
 export { default as MainProgress } from './MainProgress';
 export * from './MainProgress';
+
+export { default as Image } from './Image';
+export * from './Image';

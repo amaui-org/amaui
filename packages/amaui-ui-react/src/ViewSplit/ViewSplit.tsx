@@ -39,7 +39,7 @@ const useStyle = style(theme => ({
     zIndex: 1,
 
     '& > *': {
-      maxWidth: 'unset'
+      maxWidth: 'unset !important'
     }
   },
 
