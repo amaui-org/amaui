@@ -32,7 +32,9 @@ const useStyle = style(theme => ({
   },
 
   figcaption: {
-    padding: '12px 16px'
+    '&.AmauiType-root': {
+      padding: '12px 16px'
+    }
   },
 
   alignment_description_start: {
