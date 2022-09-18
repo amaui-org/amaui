@@ -1065,15 +1065,11 @@ function App() {
               </Line>
             </SpyScroll>
 
-            <Line
-              style={{
-                marginTop: 140
-              }}
-            >
+            <Line>
               <section
                 id='a1'
 
-                style={{ height: 140 }}
+                style={{ height: 40 }}
               >
                 <h4>Section a1</h4>
               </section>
@@ -1081,7 +1077,7 @@ function App() {
               <section
                 id='a14'
 
-                style={{ height: 140 }}
+                style={{ height: 40 }}
               >
                 <h4>Section a14</h4>
               </section>
@@ -1089,7 +1085,7 @@ function App() {
               <section
                 id='a114'
 
-                style={{ height: 140 }}
+                style={{ height: 40 }}
               >
                 <h4>Section a114</h4>
               </section>
@@ -2153,15 +2149,11 @@ Please sign in again.`}
               </Line>
             </SpyScroll>
 
-            <Line
-              style={{
-                marginTop: 140
-              }}
-            >
+            <Line>
               <section
                 id='a1'
 
-                style={{ height: 140 }}
+                style={{ height: 40 }}
               >
                 <h4>Section a1</h4>
               </section>
@@ -2169,7 +2161,7 @@ Please sign in again.`}
               <section
                 id='a14'
 
-                style={{ height: 140 }}
+                style={{ height: 40 }}
               >
                 <h4>Section a14</h4>
               </section>
@@ -2177,7 +2169,7 @@ Please sign in again.`}
               <section
                 id='a114'
 
-                style={{ height: 140 }}
+                style={{ height: 40 }}
               >
                 <h4>Section a114</h4>
               </section>
@@ -3374,7 +3366,7 @@ Please sign in again.`}
           <Line
             justify='flex-end'
 
-            style={{ height: '140vh' }}
+            style={{ height: '40vh' }}
           >
             <Reveal
               unreveal
