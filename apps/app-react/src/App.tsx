@@ -2122,7 +2122,7 @@ Please sign in again.`}
           />
         </Accordion>
 
-        <Accordion primary='NumericTextField increment and decrement value' open>
+        <Accordion primary='NumericTextField increment and decrement value'>
           <NumericTextField
             color='secondary'
 

@@ -1035,7 +1035,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
 
             onChange={onUpdate}
 
-            value={value}
+            value={value !== undefined ? value : ''}
 
             type={type}
 
