@@ -762,7 +762,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
 
   if (mouseDown) refs.input.current.focus();
 
-  const valueWithData = value !== undefined && !!value.length;
+  const valueWithData = value !== undefined && (!is('string', value) || !!value.length);
 
   return (
     <Wrapper

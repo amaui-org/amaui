@@ -47,11 +47,6 @@ const IconMaterialKeyboardArrowDownRounded = React.forwardRef((props: any, ref) 
   );
 });
 
-// To do
-
-// arrow up, and down increment and decrement, by default the value 1 y
-// arrow up, arrow down optional both, by default true (validate both)
-
 const NumericTextField = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 
@@ -138,7 +133,8 @@ const NumericTextField = React.forwardRef((props_: any, ref: any) => {
   const end = [];
 
   const iconButtonProps = {
-    size: 24
+    size: 24,
+    fontSize: 24
   };
 
   if (decrement) end.push(
