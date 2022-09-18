@@ -510,10 +510,10 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
     size = 'regular',
     label,
     align,
-    startIcon,
-    startIconVerticalAlign = 'start',
-    endIcon,
-    endIconVerticalAlign = 'start',
+    start,
+    startVerticalAlign = 'start',
+    end,
+    endVerticalAlign = 'start',
     placeholder,
     valueDefault,
     value: value_,
@@ -783,8 +783,8 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
             `AmauiTextField-version-${version}`,
             `AmauiSurface-color-${!theme.palette.color[color] && !['themed', 'inverted', 'default', 'inherit'].includes(color) ? 'new' : color}`,
             `AmauiTextField-size-${size}`,
-            `AmauiTextField-icon-end-vertical-align-${endIconVerticalAlign}`,
-            `AmauiTextField-icon-start-vertical-align-${startIconVerticalAlign}`,
+            `AmauiTextField-icon-end-vertical-align-${endVerticalAlign}`,
+            `AmauiTextField-icon-start-vertical-align-${startVerticalAlign}`,
             error && `AmauiTextField-error`,
             multiline && `AmauiTextField-multiline`,
             placeholder && `AmauiTextField-placeholder`,
@@ -796,10 +796,10 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
             counter && `AmauiTextField-counter`,
             align && `AmauiTextField-align-${align}`,
             theme.direction === 'rtl' ? 'AmauiTextField-direction-rtl' : 'AmauiTextFied-direction-ltr',
-            startIcon && 'AmauiTextField-icon-start',
-            startIconVerticalAlign && `AmauiTextField-icon-start-align-vertical-${startIconVerticalAlign}`,
-            endIcon && 'AmauiTextField-icon-end',
-            endIconVerticalAlign && `AmauiTextField-icon-end-align-vertical-${endIconVerticalAlign}`,
+            start && 'AmauiTextField-icon-start',
+            startVerticalAlign && `AmauiTextField-icon-start-align-vertical-${startVerticalAlign}`,
+            end && 'AmauiTextField-icon-end',
+            endVerticalAlign && `AmauiTextField-icon-end-align-vertical-${endVerticalAlign}`,
             fullWidth && !footer && 'AmauiTextField-fullWidth',
             noSufixMargin && 'AmauiTextField-sufix-no-margin',
             noPrefixMargin && 'AmauiTextField-prefix-no-margin',
@@ -908,7 +908,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
               classes[`label_version_${version}_size_${size}`],
               (enabled || value || focus) && classes[`label_version_${version}_size_${size}_focus`],
               theme.direction === 'rtl' && classes.label_rtl,
-              startIcon && [
+              start && [
                 classes.label_icon_start,
                 classes[`label_version_${version}_icon_start`]
               ]
@@ -920,7 +920,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
           </Type>
         )}
 
-        {startIcon && (
+        {start && (
           <span
             className={classNames([
               staticClassName('TextField', theme) && [
@@ -930,12 +930,12 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
 
               classes.icon,
               classes.icon_start,
-              classes[`icon${startIcon?.type?.displayName?.includes('IconButton') ? '_button' : ''}_size_${size}`],
+              classes[`icon${start?.type?.displayName?.includes('IconButton') ? '_button' : ''}_size_${size}`],
               classes[`icon_version_${version}`],
-              classes[`icon_vertical_align_${startIconVerticalAlign}`]
+              classes[`icon_vertical_align_${startVerticalAlign}`]
             ])}
           >
-            {React.Children.toArray(startIcon).map((item: any, index: number) => (
+            {React.Children.toArray(start).map((item: any, index: number) => (
               React.cloneElement(item, {
                 key: index,
 
@@ -961,7 +961,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
 
               classes.addition,
               classes.prefix,
-              (startIcon || version === 'text') && classes.prefix_noStartMargin,
+              (start || version === 'text') && classes.prefix_noStartMargin,
               classes[`addition_size_${size}`],
               classes[`addition_version_${version}_size_${size}`],
               (enabled || value || focus) && classes.prefix_focus,
@@ -988,8 +988,8 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
             classes[`input_version_${version}`],
             classes[`input_size_${size}`],
             classes[`input_version_${version}_size_${size}`],
-            (prefix || startIcon) && classes.input_start_icon,
-            (sufix || endIcon) && classes.input_end_icon
+            (prefix || start) && classes.input_start_icon,
+            (sufix || end) && classes.input_end_icon
           ])}
 
           onClick={onInputWrapperClick}
@@ -1061,7 +1061,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
 
               classes.addition,
               classes.sufix,
-              (endIcon || version === 'text') && classes.sufix_noEndMargin,
+              (end || version === 'text') && classes.sufix_noEndMargin,
               classes[`addition_size_${size}`],
               classes[`addition_version_${version}_size_${size}`],
               (enabled || value || focus) && classes.sufix_focus,
@@ -1074,7 +1074,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
           </Type>
         )}
 
-        {endIcon && (
+        {end && (
           <span
             className={classNames([
               staticClassName('TextField', theme) && [
@@ -1084,12 +1084,12 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
 
               classes.icon,
               classes.icon_end,
-              classes[`icon${endIcon?.type?.displayName?.includes('IconButton') ? '_button' : ''}_size_${size}`],
+              classes[`icon${end?.type?.displayName?.includes('IconButton') ? '_button' : ''}_size_${size}`],
               classes[`icon_version_${version}`],
-              classes[`icon_vertical_align_${endIconVerticalAlign}`]
+              classes[`icon_vertical_align_${endVerticalAlign}`]
             ])}
           >
-            {React.Children.toArray(endIcon).map((item: any, index: number) => (
+            {React.Children.toArray(end).map((item: any, index: number) => (
               React.cloneElement(item, {
                 key: index,
 

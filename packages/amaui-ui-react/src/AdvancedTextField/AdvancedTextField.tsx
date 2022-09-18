@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is, numberWithCommas } from '@amaui/utils';
+import { clamp, is, numberWithCommas } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import TextField from '../TextField';
@@ -69,7 +69,7 @@ const AdvancedTextField = React.forwardRef((props_: any, ref: any) => {
   }, [value]);
 
   const onChange = (value__: any) => {
-    let valueNew: string = value__;
+    let valueNew = value__;
 
     // Carret save previous value
     refs.carret.current = { start: refs.root.current.selectionStart, end: refs.root.current.selectionEnd };
@@ -108,7 +108,7 @@ const AdvancedTextField = React.forwardRef((props_: any, ref: any) => {
 
       valueNew = numberWithCommas(previousValue, thousandSeparator);
 
-      valueNew = `${prefix || ''}${valueNew}${decimal ? '.' : ''}${addition || ''}`;
+      valueNew = `${prefix !== undefined ? prefix : ''}${valueNew}${decimal ? '.' : ''}${addition !== undefined ? addition : ''}`;
     }
     // mask
     else if (is('array', mask)) {
@@ -139,7 +139,7 @@ const AdvancedTextField = React.forwardRef((props_: any, ref: any) => {
     // prefix
     if (prefix !== undefined) {
       if (!valueNew || prefix === valueNew) valueNew = '';
-      else if (!valueNew.startsWith(prefix)) valueNew = `${prefix}${valueNew} `;
+      else if (!valueNew.startsWith(prefix)) valueNew = `${prefix}${valueNew}`;
     }
 
     // Update inner or controlled

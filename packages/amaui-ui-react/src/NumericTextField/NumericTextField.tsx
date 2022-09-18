@@ -15,14 +15,8 @@ const useStyle = style(theme => ({
 
 // To do
 
-// min
-// max
-
 // arrow up, and down increment and decrement, by default the value 1 y
 // arrow up, arrow down optional both, by default true (validate both)
-// arrows disabled if up >= max, and down <= min if (max, min aren't undefined)
-
-// thousand
 
 const NumericTextField = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
@@ -32,6 +26,17 @@ const NumericTextField = React.forwardRef((props_: any, ref: any) => {
   const { classes } = useStyle(props);
 
   const {
+    increment = true,
+    decrement = true,
+
+    incrementValue = 1,
+    decrementValue = 1,
+
+    IconIncrement,
+    IconDecrement,
+
+    IconButtonProps,
+
     className,
 
     ...other
@@ -40,6 +45,22 @@ const NumericTextField = React.forwardRef((props_: any, ref: any) => {
   return (
     <AdvancedTextField
       ref={ref}
+
+      validate={(valueNew_: any) => {
+        if (valueNew_.startsWith(' ') || valueNew_.endsWith(' ')) return;
+
+        if (valueNew_ === '+' || valueNew_ === '-') return true;
+
+        let valueNew = valueNew_;
+
+        if (props.prefix !== undefined) valueNew = valueNew_.replace(props.prefix, '');
+
+        if (props.thousand) valueNew = valueNew.replace(new RegExp(`\\${props.thousandSeparator || ','}`, 'g'), '');
+
+        valueNew = +valueNew;
+
+        return is('number', valueNew) && valueNew >= Number.MIN_SAFE_INTEGER && valueNew <= Number.MAX_SAFE_INTEGER;
+      }}
 
       className={classNames([
         staticClassName('NumericTextField', theme) && [
