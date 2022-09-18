@@ -2097,6 +2097,56 @@ Please sign in again.`}
           </Line>
         </Accordion>
 
+        <Accordion primary='Image maxWidth'>
+          <Line
+            style={{
+              width: '100%'
+            }}
+          >
+            <Image
+              maxWidth='xs'
+
+              src='./image.jpg'
+            />
+
+            <Image
+              maxWidth='xs'
+
+              src='./image.jpg'
+
+              sources={[
+                { srcset: './image.jpg' },
+                { srcset: './image.jpg' },
+                { srcset: './image.jpg' },
+                { srcset: './image.jpg' }
+              ]}
+            />
+
+            <Image
+              maxWidth='xs'
+
+              src='./image.jpg'
+
+              description='Value, some decription value y'
+            />
+
+            <Image
+              maxWidth='xs'
+
+              src='./image.jpg'
+
+              sources={[
+                { srcset: './image.jpg' },
+                { srcset: './image.jpg' },
+                { srcset: './image.jpg' },
+                { srcset: './image.jpg' }
+              ]}
+
+              description='Value, some decription value y'
+            />
+          </Line>
+        </Accordion>
+
         <Accordion primary='Image fullWidth'>
           <Line>
             <Image
@@ -2143,50 +2193,123 @@ Please sign in again.`}
           </Line>
         </Accordion>
 
-        <Accordion primary='Image maxWidth'>
-          <Line>
+        <Accordion primary='AmauiTheme'>
+          <div className={classNames([classes.column])}>
             <Image
-              maxWidth='xs'
-
-              src='./image.jpg'
-            />
-
-            <Image
-              maxWidth='xs'
-
-              src='./image.jpg'
-
-              sources={[
-                { srcset: './image.jpg' },
-                { srcset: './image.jpg' },
-                { srcset: './image.jpg' },
-                { srcset: './image.jpg' }
-              ]}
-            />
-
-            <Image
-              maxWidth='xs'
-
               src='./image.jpg'
 
               description='Value, some decription value y'
             />
 
-            <Image
-              maxWidth='xs'
+            <Accordion primary='AmauiTheme nested value' open>
+              <AmauiThemeProvider
+                value={{
+                  palette: {
+                    color: {
+                      secondary: {
+                        main: '#008000'
+                      }
+                    }
+                  },
+                  space: {
+                    unit: 5
+                  }
+                }}
+              >
+                <Image
+                  src='./image.jpg'
 
-              src='./image.jpg'
+                  description='Value, some decription value y'
+                />
+              </AmauiThemeProvider>
+            </Accordion>
 
-              sources={[
-                { srcset: './image.jpg' },
-                { srcset: './image.jpg' },
-                { srcset: './image.jpg' },
-                { srcset: './image.jpg' }
-              ]}
+            <Accordion primary='AmauiTheme add' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiImage: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: 0.4
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Image
+                  src='./image.jpg'
 
-              description='Value, some decription value y'
-            />
-          </Line>
+                  description='Value, some decription value y'
+                />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme override' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiImage: {
+                        style: {
+                          override: {
+                            root: {
+                              padding: 40
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Image
+                  src='./image.jpg'
+
+                  description='Value, some decription value y'
+                />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme props' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiImage: {
+                        props: {
+                          default: {
+                            color: 'secondary'
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <Image
+                  src='./image.jpg'
+
+                  description='Value, some decription value y'
+                />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme styled' open>
+              <styled.Image
+                src='./image.jpg'
+
+                description='Value, some decription value y'
+              />
+            </Accordion>
+          </div>
         </Accordion>
       </Accordion>
 
