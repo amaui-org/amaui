@@ -286,7 +286,7 @@ const WidgetsProvider = React.forwardRef((props_: any, ref: any) => {
 
                           version='filled'
 
-                          elevation='0'
+                          elevation={false}
 
                           className={classNames([
                             staticClassName('Widgets', theme) && [

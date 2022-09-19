@@ -2159,7 +2159,7 @@ Please sign in again.`}
       </Accordion>
 
       <Accordion primary='Widgets'>
-        <Accordion primary='Widgets'>
+        <Accordion primary='Widgets' open>
           <Line
             direction='row'
           >
