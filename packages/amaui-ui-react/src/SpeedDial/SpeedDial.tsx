@@ -69,12 +69,16 @@ const useStyle = style(theme => ({
   },
 
   fab: {
-    boxShadow: theme.shadows.values.default[6],
-    transition: theme.methods.transitions.make('box-shadow')
+    '&.AmauiFab-root': {
+      boxShadow: theme.shadows.values.default[6],
+      transition: theme.methods.transitions.make('box-shadow')
+    }
   },
 
   fab_open: {
-    boxShadow: theme.shadows.values.default[8]
+    '&.AmauiFab-root': {
+      boxShadow: theme.shadows.values.default[8]
+    }
   },
 
   iconWrapper: {
@@ -82,6 +86,10 @@ const useStyle = style(theme => ({
     lineHeight: 0,
     transform: 'rotate(-45deg)',
     transition: theme.methods.transitions.make('transform')
+  },
+
+  iconWrapper_noRotate: {
+    transform: 'rotate(0deg)'
   },
 
   iconWrapper_open: {
@@ -145,6 +153,8 @@ const SpeedDial = React.forwardRef((props_: any, ref: any) => {
     direction: direction_ = 'top',
     closeOnClick,
     tooltipOpen,
+
+    noRotate,
 
     FabTransitionComponent = Zoom,
     FabTransitionComponentProps,
@@ -431,9 +441,12 @@ const SpeedDial = React.forwardRef((props_: any, ref: any) => {
       className={classNames([
         staticClassName('SpeedDial', theme) && [
           `AmauiSpeedDial-root`,
+          `AmauiSpeedDial-alignment-${alignment}`,
+          `AmauiSpeedDial-position-${position}`,
           open && `AmauiSpeedDial-open`,
           hover && `AmauiSpeedDial-hover`,
           focus && `AmauiSpeedDial-focus`,
+          noRotate && `AmauiSpeedDial-noRotate`,
           disabled && `AmauiSpeedDial-disabled`
         ],
 
@@ -467,7 +480,7 @@ const SpeedDial = React.forwardRef((props_: any, ref: any) => {
           open && classes.items_open
         ])}
       >
-        {children.map((item: any, index: number) => (
+        {children && children.map((item: any, index: number) => (
           <SpeeDialItemTransitionComponent
             key={index}
 
@@ -559,6 +572,7 @@ const SpeedDial = React.forwardRef((props_: any, ref: any) => {
                   ],
 
                   classes.iconWrapper,
+                  noRotate && classes.iconWrapper_noRotate,
                   open && classes.iconWrapper_open
                 ])}
               >

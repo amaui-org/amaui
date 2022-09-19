@@ -60,8 +60,8 @@ const ConfirmProvider = React.forwardRef((props_: any, ref: any) => {
   const {
     throwError,
 
-    onOpen: onOpen_,
-    onClose: onClose_,
+    onOpen,
+    onClose,
 
     className,
 
@@ -70,7 +70,7 @@ const ConfirmProvider = React.forwardRef((props_: any, ref: any) => {
     ...other
   } = props;
 
-  const [open, setOpen] = React.useState(false);
+  const [openModal, setOpenModal] = React.useState(false);
 
   const refs = {
     value: React.useRef<IConfirmProvider>({} as any),
@@ -89,8 +89,8 @@ const ConfirmProvider = React.forwardRef((props_: any, ref: any) => {
 
   refs.props.current = props;
 
-  const onOpen = React.useCallback((value?: IConfirmOpen) => {
-    if (!open) {
+  const open = React.useCallback((value?: IConfirmOpen) => {
+    if (!openModal) {
       refs.modal.current = { ...value };
 
       // Defaults
@@ -111,19 +111,19 @@ const ConfirmProvider = React.forwardRef((props_: any, ref: any) => {
         refs.promise.reject.current = reject;
       });
 
-      setOpen(true);
+      setOpenModal(true);
 
-      if (is('function', onOpen_)) onOpen_();
+      if (is('function', onOpen)) onOpen();
 
       return promise;
     }
-  }, [open, onOpen_]);
+  }, [openModal, onOpen]);
 
-  const onClose = React.useCallback((confirm = false) => {
-    if (open) {
-      setOpen(false);
+  const close = React.useCallback((confirm = false) => {
+    if (openModal) {
+      setOpenModal(false);
 
-      if (is('function', onClose_)) onClose_();
+      if (is('function', onClose)) onClose();
 
       // Resolve or reject
       if (confirm) refs.promise.resolve.current?.(true);
@@ -132,7 +132,7 @@ const ConfirmProvider = React.forwardRef((props_: any, ref: any) => {
       refs.promise.resolve.current = undefined;
       refs.promise.reject.current = undefined;
     }
-  }, [open, onClose_]);
+  }, [openModal, onClose]);
 
   const {
     title,
@@ -151,9 +151,9 @@ const ConfirmProvider = React.forwardRef((props_: any, ref: any) => {
   } = (refs.modal.current || {});
 
   // Add to the value
-  refs.value.current.open = onOpen;
+  refs.value.current.open = open;
 
-  refs.value.current.close = onClose;
+  refs.value.current.close = close;
 
   return (
     <ConfirmContext.Provider value={refs.value.current}>
@@ -162,9 +162,9 @@ const ConfirmProvider = React.forwardRef((props_: any, ref: any) => {
       <Modal
         ref={ref}
 
-        open={open}
+        open={openModal}
 
-        onClose={onClose}
+        onClose={close}
 
         className={classNames([
           staticClassName('Confirm', theme) && [
@@ -201,7 +201,7 @@ const ConfirmProvider = React.forwardRef((props_: any, ref: any) => {
 
                   tonal
 
-                  onClick={() => onClose()}
+                  onClick={close}
 
                   {...ButtonNegativeProps}
                 >
@@ -213,7 +213,7 @@ const ConfirmProvider = React.forwardRef((props_: any, ref: any) => {
 
                   tonal
 
-                  onClick={() => onClose(true)}
+                  onClick={() => close(true)}
 
                   {...ButtonPositiveProps}
                 >
