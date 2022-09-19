@@ -78,8 +78,9 @@ const useStyle = style(theme => ({
   },
 
   iconButton: {
-    top: 0,
-    insetInlineEnd: 0,
+    top: 8,
+    insetInlineEnd: 8,
+    zIndex: 1,
 
     '&.AmauiIconButton-root': {
       position: 'absolute'
