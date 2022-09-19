@@ -137,8 +137,8 @@ const Select = React.forwardRef((props_: any, ref: any) => {
     version = 'filled',
     prefix,
     sufix,
-    startIcon,
-    endIcon,
+    start,
+    end,
     autoWidth,
     getLabel,
     renderValues: renderValues_,
@@ -389,7 +389,7 @@ const Select = React.forwardRef((props_: any, ref: any) => {
   ));
 
   const endIcons = [
-    endIcon,
+    end,
 
     ...(!readOnly ? [
       <IconButton
@@ -454,13 +454,13 @@ const Select = React.forwardRef((props_: any, ref: any) => {
 
       sufix={sufix}
 
-      startIcon={startIcon}
+      start={start}
 
-      endIcon={endIcons}
+      end={endIcons}
 
       readOnly={readOnly}
 
-      endIconVerticalAlign='center'
+      endVerticalAlign='center'
 
       disabled={disabled}
 

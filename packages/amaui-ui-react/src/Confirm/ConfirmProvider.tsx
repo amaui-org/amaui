@@ -140,6 +140,8 @@ const ConfirmProvider = React.forwardRef((props_: any, ref: any) => {
 
     buttons,
 
+    throwError: throwError_,
+
     ButtonNegativeProps,
     ButtonPositiveProps,
 

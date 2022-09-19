@@ -152,8 +152,8 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
     version = 'filled',
     prefix,
     sufix,
-    startIcon,
-    endIcon,
+    start,
+    end,
     autoWidth,
     readOnly,
     getLabel,
@@ -675,7 +675,7 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
   ));
 
   const endIcons = [
-    endIcon,
+    end,
 
     ...(!readOnly ? [
       ...(loading ? [
@@ -777,13 +777,13 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
 
       sufix={sufix}
 
-      startIcon={startIcon}
+      start={start}
 
-      endIcon={endIcons}
+      end={endIcons}
 
       readOnly={readOnly}
 
-      endIconVerticalAlign='center'
+      endVerticalAlign='center'
 
       disabled={disabled}
 
