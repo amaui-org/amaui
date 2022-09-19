@@ -238,7 +238,7 @@ const WidgetsProvider = React.forwardRef((props_: any, ref: any) => {
 
           justify='flex-start'
 
-          align='center'
+          align={position === 'top' ? 'flex-start' : 'flex-end'}
 
           className={classNames([
             staticClassName('Widgets', theme) && [
