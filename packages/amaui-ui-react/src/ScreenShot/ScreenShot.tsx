@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { canvasCrop, download, elementToCanvas, is } from '@amaui/utils';
+import { canvasCrop, clamp, download, elementToCanvas, is } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Tooltip from '../Tooltip';
@@ -29,6 +29,18 @@ const useStyle = style(theme => ({
   image: {
     width: '100%',
     height: '100%'
+  },
+
+  imageSelector: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: 0,
+    height: 0,
+    border: '2px dashed white',
+    mixBlendMode: 'difference',
+    background: 'transparent',
+    touchAction: 'none'
   }
 }), { name: 'AmauiScreenShot' });
 
@@ -149,19 +161,21 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
   const [loading, setLoading] = React.useState([]);
   const [done, setDone] = React.useState([]);
   const [image, setImage] = React.useState<HTMLCanvasElement>();
-  const [freeFormValue, setFreeFormValue] = React.useState({
-    x: 0,
-    y: 0,
-    width: window.innerWidth,
-    height: window.innerHeight
-  });
+  const [mouseDown, setMouseDown] = React.useState<any>();
+  const [imageSelectorValue, setImageSelectorValue] = React.useState<any>();
 
   const refs = {
     imageWrapper: React.useRef<any>(),
-    image: React.useRef<any>()
+    image: React.useRef<any>(),
+    mouseDown: React.useRef<any>(),
+    imageSelectorValue: React.useRef<any>()
   };
 
   refs.image.current = image;
+
+  refs.mouseDown.current = mouseDown;
+
+  refs.imageSelectorValue.current = imageSelectorValue;
 
   React.useEffect(() => {
     const method = (event: KeyboardEvent) => {
@@ -207,13 +221,75 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
       }
     };
 
+    const onMouseUp = (event: MouseEvent) => {
+      setMouseDown(false);
+    };
+
+    // Move
+    const onMove = (x: number, y: number) => {
+      if (refs.mouseDown.current) {
+        const { top: previousTop, left: previousLeft } = refs.mouseDown.current;
+
+        const imageWrapperRect: DOMRect = refs.imageWrapper.current.getBoundingClientRect();
+
+        const top = clamp(y - imageWrapperRect.top, 0, imageWrapperRect.height);
+
+        const left = clamp(x - imageWrapperRect.left, 0, imageWrapperRect.width);
+
+        setImageSelectorValue({
+          ...refs.imageSelectorValue.current,
+
+          top: clamp(top, 0, previousTop),
+          left: clamp(left, 0, previousLeft),
+
+          height: Math.abs(top - previousTop),
+          width: Math.abs(left - previousLeft)
+        });
+      }
+    };
+
+    // Mouse move
+    const onMouseMove = (event: MouseEvent) => {
+      if (refs.mouseDown.current) {
+        const { clientY, clientX } = event;
+
+        onMove(clientX, clientY);
+      }
+    };
+
+    // Touch move
+    const onTouchMove = (event: TouchEvent) => {
+      if (refs.mouseDown.current) {
+        const { clientY, clientX } = event.touches[0];
+
+        onMove(clientX, clientY);
+      }
+    };
+
+
     window.addEventListener('keydown', method);
+
+    window.addEventListener('mousemove', onMouseMove);
+
+    window.addEventListener('mouseup', onMouseUp);
+
+    window.addEventListener('touchmove', onTouchMove, { passive: true });
+
+    window.addEventListener('touchend', onMouseUp);
 
     setInit(true);
 
     return () => {
       // Clean up
       window.removeEventListener('keydown', method);
+
+      window.removeEventListener('mousemove', onMouseMove);
+
+      window.removeEventListener('mouseup', onMouseUp);
+
+      window.removeEventListener('touchmove', onTouchMove);
+
+      window.removeEventListener('touchend', onMouseUp);
 
       if (refs.image.current) {
         setImage('' as any);
@@ -242,6 +318,8 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
       }
     }
     else {
+      setImageSelectorValue({});
+
       if (window.document.body.style.overflow === 'hidden') window.document.body.style.removeProperty('overflow');
     }
   }, [image]);
@@ -282,7 +360,7 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
 
     setTimeout(() => {
       setDone(items => items.filter(item => item !== 'view'));
-    }, 3000);
+    }, 1400);
 
     if (is('function', onView_)) onView_();
   };
@@ -309,7 +387,7 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
 
     setTimeout(() => {
       setDone(items => items.filter(item => item !== 'entirePage'));
-    }, 3000);
+    }, 1400);
 
     if (is('function', onEntirePage_)) onEntirePage_();
   };
@@ -347,7 +425,7 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
 
   const onFreeSave = () => {
     // Crop the canvas
-    const canvas = canvasCrop(refs.image.current, freeFormValue.x, freeFormValue.y, freeFormValue.width, freeFormValue.height);
+    const canvas = canvasCrop(refs.image.current, refs.imageSelectorValue.current.left, refs.imageSelectorValue.current.top, refs.imageSelectorValue.current.width, refs.imageSelectorValue.current.height);
 
     // Download the image fron canvas datauri
     // of the image type and quality, name
@@ -362,7 +440,7 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
 
     setTimeout(() => {
       setDone(items => items.filter(item => item !== 'free'));
-    }, 3000);
+    }, 1400);
 
     if (is('function', onFreeSave_)) onFreeSave_();
   };
@@ -373,6 +451,28 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
 
     if (is('function', onFreeClose_)) onFreeClose_();
   };
+
+  const onTouchStart = React.useCallback((event: React.TouchEvent<any>) => {
+    const { clientY, clientX } = event.touches[0];
+
+    const imageWrapperRect = refs.imageWrapper.current.getBoundingClientRect();
+
+    setMouseDown({
+      top: clientY - imageWrapperRect.top,
+      left: clientX - imageWrapperRect.left
+    });
+  }, []);
+
+  const onMouseDown = React.useCallback((event: React.MouseEvent<any>) => {
+    const { clientY, clientX } = event;
+
+    const imageWrapperRect = refs.imageWrapper.current.getBoundingClientRect();
+
+    setMouseDown({
+      top: clientY - imageWrapperRect.top,
+      left: clientX - imageWrapperRect.left
+    });
+  }, []);
 
   const iconButtonProps = {
     tonal,
@@ -445,6 +545,8 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
 
               loading={loading.includes('view')}
 
+              disabled={done.includes('view')}
+
               {...iconButtonProps}
 
               {...IconButtonProps}
@@ -467,6 +569,8 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
 
               loading={loading.includes('entirePage')}
 
+              disabled={done.includes('entirePage')}
+
               {...iconButtonProps}
 
               {...IconButtonProps}
@@ -478,7 +582,7 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
 
         {free && (
           <Tooltip
-            label='Free form'
+            label={image ? 'Save' : 'Free form'}
 
             {...tooltipProps}
 
@@ -489,6 +593,8 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
 
               loading={loading.includes('free')}
 
+              disabled={done.includes('free')}
+
               {...iconButtonProps}
 
               {...IconButtonProps}
@@ -497,7 +603,7 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
             </IconButton>
           </Tooltip>
         )}
-      </Line >
+      </Line>
 
       <TextField
         label='Name'
@@ -518,6 +624,10 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
           <div
             ref={refs.imageWrapper}
 
+            onTouchStart={onTouchStart}
+
+            onMouseDown={onMouseDown}
+
             className={classNames([
               staticClassName('ScreenShot', theme) && [
                 'AmauiScreenShot-imageWrapper'
@@ -526,7 +636,19 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
               classes.imageWrapper
             ])}
           >
+            <div
+              className={classNames([
+                staticClassName('ScreenShot', theme) && [
+                  'AmauiScreenShot-imageSelector'
+                ],
 
+                classes.imageSelector
+              ])}
+
+              style={{
+                ...imageSelectorValue
+              }}
+            />
           </div>
         </Portal>
       )}

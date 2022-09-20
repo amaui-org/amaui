@@ -68,7 +68,7 @@ const Menu = React.forwardRef((props_: any, ref: any) => {
   } = props;
 
   const id = React.useState(() => getID())[0];
-  const [preselected, setPreselected] = React.useState(undefined);
+  const [preselected, setPreselected] = React.useState<any>();
 
   const { classes } = useStyle(props);
 
@@ -183,7 +183,7 @@ const Menu = React.forwardRef((props_: any, ref: any) => {
   }, [open]);
 
   const onMouseLeave = React.useCallback(() => {
-    setPreselected(undefined);
+    setPreselected('');
   }, []);
 
   const onClose = () => {
@@ -193,7 +193,7 @@ const Menu = React.forwardRef((props_: any, ref: any) => {
       if (item && is('function', refs.props.current.onSelect)) refs.props.current.onSelect(item.props?.value !== undefined ? item.props?.value : item.props?.primary)
     }
 
-    setPreselected(undefined);
+    setPreselected('');
 
     if (is('function', refs.props.current.onClose)) refs.props.current.onClose();
   };
@@ -269,7 +269,7 @@ const Menu = React.forwardRef((props_: any, ref: any) => {
                   },
 
                   onMouseLeave: () => {
-                    setPreselected(undefined);
+                    setPreselected('');
                   },
 
                   preselected: index === preselected,

@@ -280,11 +280,11 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
 
   const onMouseDown = React.useCallback((event: React.MouseEvent<any>) => {
     if (!disabled && !readOnly) setMouseDown(true);
-  }, []);
+  }, [disabled, readOnly]);
 
   const onMouseUp = React.useCallback((event: React.MouseEvent<any>) => {
     if (!disabled && !readOnly) setMouseDown(false);
-  }, []);
+  }, [disabled, readOnly]);
 
   const onFocus = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
     if (!disabled && !readOnly) {
@@ -292,7 +292,7 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
 
       if (selectOnFocus) setTimeout(() => refs.input.current.select());
     }
-  }, []);
+  }, [disabled, readOnly]);
 
   const onBlur = (event: React.FocusEvent<HTMLInputElement>) => {
     if (!disabled && !readOnly) setFocus(false);
@@ -308,7 +308,7 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
 
       return !open;
     });
-  }, []);
+  }, [disabled, readOnly]);
 
   const onClickArrowDown = React.useCallback((event: React.MouseEvent) => {
     if (!disabled && !readOnly) setOpen(open => {
@@ -316,7 +316,7 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
 
       return !open;
     });
-  }, []);
+  }, [disabled, readOnly]);
 
   const onEnterKeyDown = React.useCallback((event: React.KeyboardEvent) => {
     if (event.key === 'Enter' && !disabled && !readOnly) setOpen(open => {
@@ -328,7 +328,7 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
 
       return !open;
     });
-  }, []);
+  }, [disabled, readOnly]);
 
   const onClose = (refocus = true) => {
     if (!disabled && !readOnly) {
