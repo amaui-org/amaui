@@ -191,7 +191,16 @@ const Append = (props_: any) => {
 
     const wrapperRect = (overflow || switch_) && (refs.root.current || refs.element.current).parentElement.getBoundingClientRect();
 
-    const scrollableParents = element_(refs.root.current).parents().filter(item => item instanceof Element && !['visible', 'initial'].includes(window.getComputedStyle(item).overflow));
+    const scrollableParents = element_(refs.root.current).parents().filter(item => {
+      if (!(item instanceof Element)) return;
+
+      const overflow = window.getComputedStyle(item).overflow;
+
+      return (
+        overflow.includes('hidden') ||
+        (item.clientHeight !== item.scrollHeight)
+      );
+    });
 
     let { position, alignment, inset, switch: switched } = value;
 

@@ -8,23 +8,27 @@ import Surface from '../Surface';
 import TextField from '../TextField';
 import IconButton from '../IconButton';
 import { IconDoneAnimated } from '../Buttons/Buttons';
-import Icon from '../Icon';
+import Portal from '../Portal';
 import Line from '../Line';
+import Icon from '../Icon';
 
 import { staticClassName } from '../utils';
-import Portal from '../Portal';
 
 const useStyle = style(theme => ({
   root: {
     padding: '8px 24px 12px',
-    borderRadius: theme.methods.shape.radius.value('rg'),
-    overflow: 'hidden'
+    borderRadius: theme.methods.shape.radius.value('rg')
   },
 
   imageWrapper: {
     position: 'fixed',
     inset: 0,
     zIndex: theme.z_index.modal + 11
+  },
+
+  image: {
+    width: '100%',
+    height: '100%'
   }
 }), { name: 'AmauiScreenShot' });
 
@@ -97,12 +101,6 @@ const IconMaterialDownloadRounded = React.forwardRef((props: any, ref) => {
 // Free
 // make it into a reusable component and update it here value y
 
-// If image, on keyboard escape method onFreeClose value y
-
-// Keyboard shortcuts for each one of the 3 options
-// and enter if in focus to save the value
-
-
 const ScreenShot = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 
@@ -151,7 +149,7 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
   const [loading, setLoading] = React.useState([]);
   const [done, setDone] = React.useState([]);
   const [image, setImage] = React.useState<HTMLCanvasElement>();
-  const [transform, setTransform] = React.useState({
+  const [freeFormValue, setFreeFormValue] = React.useState({
     x: 0,
     y: 0,
     width: window.innerWidth,
@@ -166,9 +164,57 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
   refs.image.current = image;
 
   React.useEffect(() => {
+    const method = (event: KeyboardEvent) => {
+      switch (event.key) {
+        case 'V':
+        case 'v':
+          if (event.metaKey && event.shiftKey) onView();
+
+          break;
+
+        case 'E':
+        case 'e':
+          if (event.metaKey && event.shiftKey) onEntirePage();
+
+          break;
+
+        case 'F':
+        case 'f':
+          if (event.metaKey && event.shiftKey) onFree();
+
+          break;
+
+        case 'S':
+        case 's':
+          if (event.metaKey) {
+            if (refs.image.current) onFreeSave();
+          }
+
+          break;
+
+        case 'Enter':
+          if (refs.image.current) onFreeSave();
+
+          break;
+
+        case 'Escape':
+          if (refs.image.current) onFreeClose();
+
+          break;
+
+        default:
+          break;
+      }
+    };
+
+    window.addEventListener('keydown', method);
+
     setInit(true);
 
     return () => {
+      // Clean up
+      window.removeEventListener('keydown', method);
+
       if (refs.image.current) {
         setImage('' as any);
 
@@ -187,12 +233,16 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
     if (image) {
       window.document.body.style.overflow = 'hidden';
 
-      console.log(1, refs.imageWrapper);
+      if (refs.imageWrapper.current) {
+        image.className = classNames([
+          classes.image
+        ]);
+
+        refs.imageWrapper.current.append(image);
+      }
     }
     else {
       if (window.document.body.style.overflow === 'hidden') window.document.body.style.removeProperty('overflow');
-
-      console.log(2, refs.imageWrapper);
     }
   }, [image]);
 
@@ -207,13 +257,15 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
     setLoading(items => [...items, 'view']);
 
     try {
-      await elementToCanvas(window.document.documentElement, {
+      await elementToCanvas(window.document.body, {
         response: 'download',
+
         download: {
           name,
           type,
           quality
         },
+
         crop: {
           y: window.scrollY,
           x: window.scrollX,
@@ -239,18 +291,13 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
     setLoading(items => [...items, 'entirePage']);
 
     try {
-      await elementToCanvas(window.document.documentElement, {
+      await elementToCanvas(window.document.body, {
         response: 'download',
+
         download: {
           name,
           type,
           quality
-        },
-        crop: {
-          y: window.scrollY,
-          x: window.scrollX,
-          width: window.innerWidth,
-          height: window.innerHeight
         }
       });
     }
@@ -272,13 +319,15 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
 
     // Update image
     try {
-      const canvas = await elementToCanvas(window.document.documentElement, {
+      const canvas = await elementToCanvas(window.document.body, {
         response: 'canvas',
+
         download: {
           name,
           type,
           quality
         },
+
         crop: {
           y: window.scrollY,
           x: window.scrollX,
@@ -298,7 +347,7 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
 
   const onFreeSave = () => {
     // Crop the canvas
-    const canvas = canvasCrop(image, transform.x, transform.y, transform.width, transform.height);
+    const canvas = canvasCrop(refs.image.current, freeFormValue.x, freeFormValue.y, freeFormValue.width, freeFormValue.height);
 
     // Download the image fron canvas datauri
     // of the image type and quality, name
@@ -342,10 +391,9 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
   const tooltipProps = {
     position: 'top',
     portal: false,
-    switch: true,
     disableInteractive: true
   };
-  console.log(1114, image);
+
   return (
     <Surface
       ref={ref}
@@ -359,6 +407,8 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
       direction='column'
 
       align='center'
+
+      elevation={6}
 
       Component={Line}
 
