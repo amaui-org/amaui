@@ -26,7 +26,7 @@ const useStyle = style(theme => ({
     width: '100%',
     padding: '0 104px',
     pointerEvents: 'none',
-    zIndex: theme.z_index.modal - 14
+    zIndex: theme.z_index.modal + 14
   },
 
   line: {

@@ -1,23 +1,30 @@
 import React from 'react';
 
-import { elementToCanvas, is, Try } from '@amaui/utils';
+import { canvasCrop, download, elementToCanvas, is } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Tooltip from '../Tooltip';
 import Surface from '../Surface';
 import TextField from '../TextField';
 import IconButton from '../IconButton';
+import { IconDoneAnimated } from '../Buttons/Buttons';
 import Icon from '../Icon';
 import Line from '../Line';
 
 import { staticClassName } from '../utils';
-import { IconDoneAnimated } from '../Buttons/Buttons';
+import Portal from '../Portal';
 
 const useStyle = style(theme => ({
   root: {
     padding: '8px 24px 12px',
     borderRadius: theme.methods.shape.radius.value('rg'),
     overflow: 'hidden'
+  },
+
+  imageWrapper: {
+    position: 'fixed',
+    inset: 0,
+    zIndex: theme.z_index.modal + 11
   }
 }), { name: 'AmauiScreenShot' });
 
@@ -69,13 +76,32 @@ const IconMaterialCropFreeRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+const IconMaterialDownloadRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='DownloadRounded'
+      short_name='Download'
+
+      {...props}
+    >
+      <path d="M12 15.575Q11.8 15.575 11.625 15.512Q11.45 15.45 11.3 15.3L7.7 11.7Q7.425 11.425 7.425 11Q7.425 10.575 7.7 10.3Q7.975 10.025 8.412 10.012Q8.85 10 9.125 10.275L11 12.15V5Q11 4.575 11.288 4.287Q11.575 4 12 4Q12.425 4 12.713 4.287Q13 4.575 13 5V12.15L14.875 10.275Q15.15 10 15.588 10.012Q16.025 10.025 16.3 10.3Q16.575 10.575 16.575 11Q16.575 11.425 16.3 11.7L12.7 15.3Q12.55 15.45 12.375 15.512Q12.2 15.575 12 15.575ZM6 20Q5.175 20 4.588 19.413Q4 18.825 4 18V16Q4 15.575 4.287 15.287Q4.575 15 5 15Q5.425 15 5.713 15.287Q6 15.575 6 16V18Q6 18 6 18Q6 18 6 18H18Q18 18 18 18Q18 18 18 18V16Q18 15.575 18.288 15.287Q18.575 15 19 15Q19.425 15 19.712 15.287Q20 15.575 20 16V18Q20 18.825 19.413 19.413Q18.825 20 18 20Z" />
+    </Icon>
+  );
+});
+
 // To do
 
-// image type: jpg, png, gif, etc.
-// quality (0 100)
+// Free
+// make it into a reusable component and update it here value y
+
+// If image, on keyboard escape method onFreeClose value y
 
 // Keyboard shortcuts for each one of the 3 options
 // and enter if in focus to save the value
+
 
 const ScreenShot = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
@@ -103,10 +129,13 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
     onView: onView_,
     onEntirePage: onEntirePage_,
     onFree: onFree_,
+    onFreeSave: onFreeSave_,
+    onFreeClose: onFreeClose_,
 
     IconView = IconMaterialFitScreenRounded,
     IconEntirePage = IconMaterialDocumentScannerRounded,
     IconFree = IconMaterialCropFreeRounded,
+    IconDownload = IconMaterialDownloadRounded,
 
     TextFieldProps,
     TooltipProps,
@@ -121,9 +150,31 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
   const [name, setName] = React.useState(nameDefault !== undefined ? nameDefault : name_);
   const [loading, setLoading] = React.useState([]);
   const [done, setDone] = React.useState([]);
+  const [image, setImage] = React.useState<HTMLCanvasElement>();
+  const [transform, setTransform] = React.useState({
+    x: 0,
+    y: 0,
+    width: window.innerWidth,
+    height: window.innerHeight
+  });
+
+  const refs = {
+    imageWrapper: React.useRef<any>(),
+    image: React.useRef<any>()
+  };
+
+  refs.image.current = image;
 
   React.useEffect(() => {
     setInit(true);
+
+    return () => {
+      if (refs.image.current) {
+        setImage('' as any);
+
+        if (window.document.body.style.overflow === 'hidden') window.document.body.style.removeProperty('overflow');
+      }
+    };
   }, []);
 
   React.useEffect(() => {
@@ -131,6 +182,19 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
       if (name_ !== name) setName(name_);
     }
   }, [name_]);
+
+  React.useEffect(() => {
+    if (image) {
+      window.document.body.style.overflow = 'hidden';
+
+      console.log(1, refs.imageWrapper);
+    }
+    else {
+      if (window.document.body.style.overflow === 'hidden') window.document.body.style.removeProperty('overflow');
+
+      console.log(2, refs.imageWrapper);
+    }
+  }, [image]);
 
   const onChange = (value_: any) => {
     // Update inner or controlled
@@ -181,6 +245,12 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
           name,
           type,
           quality
+        },
+        crop: {
+          y: window.scrollY,
+          x: window.scrollX,
+          width: window.innerWidth,
+          height: window.innerHeight
         }
       });
     }
@@ -198,9 +268,61 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
   };
 
   const onFree = async () => {
+    setLoading(items => [...items, 'free']);
 
+    // Update image
+    try {
+      const canvas = await elementToCanvas(window.document.documentElement, {
+        response: 'canvas',
+        download: {
+          name,
+          type,
+          quality
+        },
+        crop: {
+          y: window.scrollY,
+          x: window.scrollX,
+          width: window.innerWidth,
+          height: window.innerHeight
+        }
+      }) as HTMLCanvasElement;
+
+      setImage(canvas);
+    }
+    catch (error) { }
+
+    setLoading(items => items.filter(item => item !== 'free'));
 
     if (is('function', onFree_)) onFree_();
+  };
+
+  const onFreeSave = () => {
+    // Crop the canvas
+    const canvas = canvasCrop(image, transform.x, transform.y, transform.width, transform.height);
+
+    // Download the image fron canvas datauri
+    // of the image type and quality, name
+    const uri = canvas.toDataURL(type, quality);
+
+    download(name, uri, type);
+
+    // Clear the image
+    setImage('' as any);
+
+    setDone(items => [...items, 'free']);
+
+    setTimeout(() => {
+      setDone(items => items.filter(item => item !== 'free'));
+    }, 3000);
+
+    if (is('function', onFreeSave_)) onFreeSave_();
+  };
+
+  const onFreeClose = () => {
+    // Clear the image
+    setImage('' as any);
+
+    if (is('function', onFreeClose_)) onFreeClose_();
   };
 
   const iconButtonProps = {
@@ -223,7 +345,7 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
     switch: true,
     disableInteractive: true
   };
-
+  console.log(1114, image);
   return (
     <Surface
       ref={ref}
@@ -313,7 +435,7 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
             {...TooltipProps}
           >
             <IconButton
-              onClick={() => onFree()}
+              onClick={() => image ? onFreeSave() : onFree()}
 
               loading={loading.includes('free')}
 
@@ -321,11 +443,10 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
 
               {...IconButtonProps}
             >
-              {done.includes('free') ? <IconDoneAnimated add in /> : <IconFree />}
+              {done.includes('free') ? <IconDoneAnimated add in /> : image ? <IconDownload /> : <IconFree />}
             </IconButton>
           </Tooltip>
-        )
-        }
+        )}
       </Line >
 
       <TextField
@@ -339,7 +460,27 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
 
         {...TextFieldProps}
       />
-    </Surface >
+
+      {image && (
+        <Portal
+          element={window.document.body}
+        >
+          <div
+            ref={refs.imageWrapper}
+
+            className={classNames([
+              staticClassName('ScreenShot', theme) && [
+                'AmauiScreenShot-imageWrapper'
+              ],
+
+              classes.imageWrapper
+            ])}
+          >
+
+          </div>
+        </Portal>
+      )}
+    </Surface>
   );
 });
 
