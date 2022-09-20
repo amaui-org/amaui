@@ -110,8 +110,13 @@ const IconMaterialDownloadRounded = React.forwardRef((props: any, ref) => {
 
 // To do
 
-// Free
-// make it into a reusable component and update it here value y
+// Update
+
+// Top, left, right, bottom
+
+// Top left, top right, bottom left, bottom right
+
+// Move
 
 const ScreenShot = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
@@ -318,7 +323,7 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
       }
     }
     else {
-      setImageSelectorValue({});
+      setImageSelectorValue(false);
 
       if (window.document.body.style.overflow === 'hidden') window.document.body.style.removeProperty('overflow');
     }
