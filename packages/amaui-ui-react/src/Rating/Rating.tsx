@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { clamp, is } from '@amaui/utils';
+import { clamp, is, valueFromPercentageWithinRange } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
-import { staticClassName, valueWithinRangePercentage } from '../utils';
+import { staticClassName } from '../utils';
 
 import Icon from '../Icon';
 
@@ -160,7 +160,7 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
   const valueDecimals = (String(precision).includes('e-') ? +String(precision).split('e-')[1] : String(precision).split('.')[1]?.length) || 0;
 
   const valuePrecision = (valueMouse: number) => {
-    let value__ = valueWithinRangePercentage(valueMouse * 100, min, max);
+    let value__ = valueFromPercentageWithinRange(valueMouse * 100, min, max);
 
     if (refs.direction.current === 'rtl') value__ = (max + min) - value__;
 

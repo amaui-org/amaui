@@ -505,6 +505,8 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
 
               add
 
+              removeOnExited
+
               {...TransitionComponentProps}
             >
               <div
@@ -593,7 +595,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
           onTouchEnd
         })
       )}
-    </Append >
+    </Append>
   );
 });
 

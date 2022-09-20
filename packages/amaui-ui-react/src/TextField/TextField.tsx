@@ -581,7 +581,8 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
   const [rows, setRows] = React.useState<any>(1);
 
   const refs = {
-    input: React.useRef<HTMLInputElement>()
+    input: React.useRef<HTMLInputElement>(),
+    carret: React.useRef<any>()
   };
 
   const { classes } = useStyle(props);
@@ -613,6 +614,16 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
   }, []);
 
   React.useEffect(() => {
+    setTimeout(() => {
+      if (refs.carret.current) {
+        // Carret restore previous value
+        refs.input.current.selectionStart = refs.carret.current.start;
+        refs.input.current.selectionEnd = refs.carret.current.end;
+      }
+    });
+  }, [value]);
+
+  React.useEffect(() => {
     if (value_ !== undefined && value_ !== value) {
       setValue(value_);
     }
@@ -624,6 +635,12 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
 
   const onUpdate = (event: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = event.target.value;
+
+    // Carret save previous value
+    refs.carret.current = { start: refs.input.current.selectionStart, end: refs.input.current.selectionEnd };
+
+    // Only restore if it's not regular carret value
+    if (refs.carret.current.start === inputValue.length) refs.carret.current = undefined;
 
     if (multiline && row !== undefined) {
       const heightValue = refs.input.current.style.height;
@@ -1111,51 +1128,53 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
       {footer && <>
         {footer_}
 
-        <div
-          className={classNames([
-            staticClassName('TextField', theme) && [
-              'AmauiTextField-footer'
-            ],
+        {(helperText !== undefined || counter !== undefined || required) && (
+          <div
+            className={classNames([
+              staticClassName('TextField', theme) && [
+                'AmauiTextField-footer'
+              ],
 
-            classes.footer,
-            classes[`footer_version_${version}`]
-          ])}
-        >
-          {(helperText || required) && (
-            <Type
-              version='b3'
+              classes.footer,
+              classes[`footer_version_${version}`]
+            ])}
+          >
+            {(helperText || required) && (
+              <Type
+                version='b3'
 
-              className={classNames([
-                staticClassName('TextField', theme) && [
-                  'AmauiTextField-helperText',
-                  error && 'AmauiTextField-error'
-                ],
+                className={classNames([
+                  staticClassName('TextField', theme) && [
+                    'AmauiTextField-helperText',
+                    error && 'AmauiTextField-error'
+                  ],
 
-                classes.helperText,
-                error && classes.error_color
-              ])}
-            >
-              {helperText !== undefined ? helperText : required ? '*required' : ''}
-            </Type>
-          )}
+                  classes.helperText,
+                  error && classes.error_color
+                ])}
+              >
+                {helperText !== undefined ? helperText : required ? '*required' : ''}
+              </Type>
+            )}
 
-          {counter && (
-            <Type
-              version='b3'
+            {counter && (
+              <Type
+                version='b3'
 
-              className={classNames([
-                staticClassName('TextField', theme) && [
-                  'AmauiTextField-counter'
-                ],
+                className={classNames([
+                  staticClassName('TextField', theme) && [
+                    'AmauiTextField-counter'
+                  ],
 
-                classes.counterText,
-                error && classes.error_color
-              ])}
-            >
-              {value.length}/{counter}
-            </Type>
-          )}
-        </div>
+                  classes.counterText,
+                  error && classes.error_color
+                ])}
+              >
+                {value.length}/{counter}
+              </Type>
+            )}
+          </div>
+        )}
       </>}
     </Wrapper>
   );

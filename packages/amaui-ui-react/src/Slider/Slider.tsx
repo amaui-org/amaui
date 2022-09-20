@@ -1,13 +1,13 @@
 import React from 'react';
 
-import { clamp, equalDeep, is } from '@amaui/utils';
+import { clamp, equalDeep, is, percentageFromValueWithinRange, valueFromPercentageWithinRange } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import IconButton from '../IconButton';
 import Tooltip from '../Tooltip';
 import Zoom from '../Zoom';
 
-import { percentageWithinRange, staticClassName, valueWithinRangePercentage } from '../utils';
+import { staticClassName } from '../utils';
 
 const rail = {
   position: 'absolute',
@@ -483,7 +483,7 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
   const valueDecimals = (String(precision).includes('e-') ? +String(precision).split('e-')[1] : String(precision).split('.')[1]?.length) || 0;
 
   const valuePrecision = (valueMouse: number, mouseDownButtonUpdate = false) => {
-    let value__ = valueWithinRangePercentage(valueMouse * 100, min, max);
+    let value__ = valueFromPercentageWithinRange(valueMouse * 100, min, max);
 
     if (refs.direction.current === 'rtl' && orientation === 'horizontal') value__ = (max + min) - value__;
 
@@ -814,7 +814,7 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
 
     else if (value__ === max) valueNew = 100;
 
-    else valueNew = percentageWithinRange(value__, min, max);
+    else valueNew = percentageFromValueWithinRange(value__, min, max);
 
     return valueNew;
   };

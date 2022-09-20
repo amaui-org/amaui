@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { clamp, is } from '@amaui/utils';
+import { is, clamp, valueFromPercentageWithinRange } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Line from '../Line';
@@ -8,7 +8,7 @@ import Divider from '../Divider';
 import IconButton from '../IconButton';
 import Icon from '../Icon';
 
-import { staticClassName, valueWithinRangePercentage } from '../utils';
+import { staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
@@ -232,7 +232,7 @@ const ViewSplit = React.forwardRef((props_: any, ref: any) => {
   const max = 100;
 
   const valuePrecision = (valueMouse: number) => {
-    let valueNew = (max + min) - valueWithinRangePercentage(valueMouse * 100, min, max);
+    let valueNew = (max + min) - valueFromPercentageWithinRange(valueMouse * 100, min, max);
 
     if (refs.direction.current === 'rtl' && refs.orientation.current === 'horizontal') valueNew = (max + min) - valueNew;
 

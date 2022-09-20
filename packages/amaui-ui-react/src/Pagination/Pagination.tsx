@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { clamp, is } from '@amaui/utils';
+import { is, clamp, pagination } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Type from '../Type';
@@ -9,7 +9,7 @@ import Line from '../Line';
 import IconButton from '../IconButton';
 import PaginationItem from '../PaginationItem';
 
-import { pagination, staticClassName } from '../utils';
+import { staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
   root: {

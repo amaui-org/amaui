@@ -331,3 +331,6 @@ export * from './NumericTextField';
 
 export { default as Widgets } from './Widgets';
 export * from './Widgets';
+
+export { default as ScreenShot } from './ScreenShot';
+export * from './ScreenShot';

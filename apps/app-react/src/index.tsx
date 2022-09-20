@@ -1,11 +1,12 @@
 import ReactDOM from 'react-dom/client';
 
-import { Snackbars, Confirm, MainProgress, Widgets } from '@amaui/ui-react';
+import { Snackbars, Confirm, MainProgress, Widgets, ScreenShot } from '@amaui/ui-react';
 import { AmauiStyle, AmauiStyleProvider, AmauiThemeProvider, valueObject, prefix, rtl, unit } from '@amaui/style-react';
 
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
 import IconMaterialPottedPlantRounded from '@amaui/icons-material-react/build/IconMaterialPottedPlantRounded';
 import IconMaterialLightModeRounded from '@amaui/icons-material-react/build/IconMaterialLightModeRounded';
+import IconMaterialDocumentScannerRounded from '@amaui/icons-material-react/build/IconMaterialDocumentScannerRounded';
 
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -19,6 +20,11 @@ const amauiStyle = new AmauiStyle();
 amauiStyle.plugins.add = [unit, prefix, rtl, valueObject];
 
 const widgets = [
+  {
+    label: 'ScreenShot',
+    Icon: IconMaterialDocumentScannerRounded,
+    element: <ScreenShot />
+  },
   {
     label: 'light',
     Icon: IconMaterialLightModeRounded,

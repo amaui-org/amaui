@@ -10,7 +10,9 @@ import List from '../List';
 import { staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
-  root: {},
+  root: {
+
+  }
 }), { name: 'AmauiMenu' });
 
 export const MENUS = {

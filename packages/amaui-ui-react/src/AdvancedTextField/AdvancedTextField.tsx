@@ -44,8 +44,7 @@ const AdvancedTextField = React.forwardRef((props_: any, ref: any) => {
   const [value, setValue] = React.useState(valueDefault !== undefined ? valueDefault : value_);
 
   const refs = {
-    root: React.useRef<any>(),
-    carret: React.useRef<any>()
+    root: React.useRef<any>()
   };
 
   React.useEffect(() => {
@@ -58,24 +57,8 @@ const AdvancedTextField = React.forwardRef((props_: any, ref: any) => {
     }
   }, [value_]);
 
-  React.useEffect(() => {
-    setTimeout(() => {
-      if (refs.carret.current) {
-        // Carret restore previous value
-        refs.root.current.selectionStart = refs.carret.current.start;
-        refs.root.current.selectionEnd = refs.carret.current.end;
-      }
-    });
-  }, [value]);
-
   const onChange = (value__: any) => {
     let valueNew = value__;
-
-    // Carret save previous value
-    refs.carret.current = { start: refs.root.current.selectionStart, end: refs.root.current.selectionEnd };
-
-    // Only restore if it's not regular carret value
-    if (refs.carret.current.start === valueNew.length) refs.carret.current = undefined;
 
     // validate
     if (!(mask || thousand) && is('function', validate)) {

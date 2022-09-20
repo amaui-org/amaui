@@ -13,7 +13,7 @@ import { staticClassName } from '../utils';
 const useStyle = style(theme => ({
   root: {
     zIndex: theme.z_index.app_bar,
-    height: '100vh',
+    height: '100%',
     width: '80px',
     padding: '40px 0',
     overflow: 'auto'

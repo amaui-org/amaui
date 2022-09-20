@@ -1,8 +1,6 @@
 import React from 'react';
 
-import { clamp } from '@amaui/utils';
-
-import { percentageWithinRange } from '../utils';
+import { clamp, percentageFromValueWithinRange } from '@amaui/utils';
 
 export interface IOptionsUseSwipe {
   open?: boolean;
@@ -95,7 +93,7 @@ const useSwipe = (element: HTMLElement, options: IOptionsUseSwipe = {}) => {
 
     newResponse.value = clamp(value_, min, max);
 
-    newResponse.valuePercentage = percentageWithinRange(newResponse.value, min, max);
+    newResponse.valuePercentage = percentageFromValueWithinRange(newResponse.value, min, max);
 
     if (['bottom', 'right'].includes(refs.options.current.direction)) newResponse.valuePercentage = 100 - newResponse.valuePercentage;
 

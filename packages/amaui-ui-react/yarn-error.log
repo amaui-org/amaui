@@ -14,27 +14,23 @@ Platform:
   darwin x64
 
 Trace: 
-  Error: ENOENT: no such file or directory, scandir '/Users/lazareric/amaui/amaui/packages/amaui-style-react/node_modules/@types'
+  Error: EEXIST: file already exists, symlink '../../../../pacote/lib/bin.js' -> '/Users/lazareric/amaui/amaui/node_modules/@lerna/add/node_modules/.bin/pacote'
 
 npm manifest: 
   {
-    "name": "@amaui/style-react",
-    "version": "1.0.11144",
-    "description": "CSS in JS styling solution for React",
+    "name": "@amaui/ui-react",
+    "version": "1.0.1111",
+    "description": "UI for React",
     "repository": "https://github.com/amaui-org/amaui.git",
     "author": "Lazar <lazareric.com@gmail.com>",
     "license": "MIT",
     "private": false,
     "main": "./src/index.tsx",
     "keywords": [
+      "ui",
       "react",
-      "react-style",
-      "react-styling",
-      "css",
-      "css-in-js",
-      "style",
-      "styling",
-      "cascading-style-sheets",
+      "react-ui",
+      "user-interface",
       "frontend",
       "front-end",
       "backend",
@@ -65,8 +61,9 @@ npm manifest:
       "react": "^18.1.0"
     },
     "dependencies": {
-      "@amaui/style": "^1.0.14304",
-      "@amaui/utils": "^1.0.11434"
+      "@amaui/style-react": "^1.0.11144",
+      "@amaui/subscription": "^1.0.11147",
+      "@amaui/utils": "^1.0.11430"
     },
     "publishConfig": {
       "access": "public",
@@ -254,20 +251,20 @@ Lockfile:
       path-to-regexp "^6.2.0"
       uuid "^8.3.2"
   
-  "@amaui/utils@^1.0.11430":
-    version "1.0.11430"
-    resolved "https://registry.yarnpkg.com/@amaui/utils/-/utils-1.0.11430.tgz#410e2164b592f78422996395919e9eef4bf82d6b"
-    integrity sha512-9cYoZ/7uXVNR9A0xwm5anpEq9eaPEKxjiU1cJEfoG3OcXH/s4AzLxMvRjWPKSKSXrXPITbwcPPNrOzL+mYLA6g==
+  "@amaui/utils@^1.0.11427":
+    version "1.0.11427"
+    resolved "https://registry.yarnpkg.com/@amaui/utils/-/utils-1.0.11427.tgz#facefcb01cad00b7bb26939f6ef43b25c2540927"
+    integrity sha512-0NGKDwOBhsCZyAplF4ZSIHzZY/7MKUqmbkPyvSIFQUY+R4tMhF+qv674qbOkDLVYBfHUBxjIjg1WkmCK3vFwQw==
     dependencies:
       "@babel/runtime" "^7.18.3"
       crypto-js "^4.1.1"
       path-to-regexp "^6.2.0"
       uuid "^8.3.2"
   
-  "@amaui/utils@^1.0.11434":
-    version "1.0.11434"
-    resolved "https://registry.yarnpkg.com/@amaui/utils/-/utils-1.0.11434.tgz#64b6fb3949c379554b306464a7ac799aefcd3420"
-    integrity sha512-MTD6y96rY/wkxTdQ28HHEmvfoExHmLACKdxbDyi/Zi+AX+r4BQ40g2eZvo+Psw1qOHG3BzAaSwGrZ2KyVPLKZA==
+  "@amaui/utils@^1.0.11430":
+    version "1.0.11430"
+    resolved "https://registry.yarnpkg.com/@amaui/utils/-/utils-1.0.11430.tgz#410e2164b592f78422996395919e9eef4bf82d6b"
+    integrity sha512-9cYoZ/7uXVNR9A0xwm5anpEq9eaPEKxjiU1cJEfoG3OcXH/s4AzLxMvRjWPKSKSXrXPITbwcPPNrOzL+mYLA6g==
     dependencies:
       "@babel/runtime" "^7.18.3"
       crypto-js "^4.1.1"

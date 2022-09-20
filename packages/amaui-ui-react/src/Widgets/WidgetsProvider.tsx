@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { is, unique } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import SpeedDial from '../SpeedDial';
@@ -10,7 +11,6 @@ import Icon from '../Icon';
 import Line from '../Line';
 
 import { staticClassName } from '../utils';
-import { is, unique } from '@amaui/utils';
 import IconButton from '../IconButton';
 
 export interface IWidgetsProvider {
@@ -23,9 +23,14 @@ export interface IWidgetsProvider {
 
 const useStyle = style(theme => ({
   root: {
-    overflowX: 'auto',
+    width: '100%',
     padding: '0 104px',
+    pointerEvents: 'none',
     zIndex: theme.z_index.modal - 14
+  },
+
+  line: {
+    pointerEvents: 'auto'
   },
 
   fixed: {
@@ -79,7 +84,8 @@ const useStyle = style(theme => ({
 
   iconButton: {
     top: '8px',
-    insetInlineEnd: '8px',
+    insetInlineEnd: '-8px',
+    transform: 'translateX(100%)',
     zIndex: 1,
 
     '&.AmauiIconButton-root': {
@@ -197,7 +203,7 @@ const WidgetsProvider = React.forwardRef((props_: any, ref: any) => {
   refs.value.current.close = close;
 
   refs.value.current.closeAll = closeAll;
-  console.log(1, openItems);
+
   return (
     <WidgetsContext.Provider value={refs.value.current}>
       {widgets?.length && <>
@@ -232,13 +238,11 @@ const WidgetsProvider = React.forwardRef((props_: any, ref: any) => {
         </SpeedDial>
 
         <Line
-          gap={4}
+          gap={0}
 
           direction='row'
 
-          justify='flex-start'
-
-          align={position === 'top' ? 'flex-start' : 'flex-end'}
+          justify='center'
 
           className={classNames([
             staticClassName('Widgets', theme) && [
@@ -255,57 +259,79 @@ const WidgetsProvider = React.forwardRef((props_: any, ref: any) => {
 
           {...other}
         >
-          {
-            widgets
-              .map((item: any, index: number) => {
-                const valueItem = item.value !== undefined ? item.value : item.label;
+          <Line
+            gap={6}
 
-                return (
-                  <Transition
-                    key={index}
+            wrap='wrap'
 
-                    in={openItems.includes(valueItem)}
+            direction='row'
 
-                    removeOnExited
-                  >
-                    {(status: TTransitionStatus) => (
-                      <div
-                        className={classNames([
-                          staticClassName('Widgets', theme) && [
-                            `AmauiWidgets-item`
-                          ],
+            justify='flex-start'
 
-                          classes.item,
-                          status
-                        ])}
-                      >
-                        <IconButton
-                          onClick={() => close(valueItem)}
+            align={position === 'top' ? 'flex-start' : 'flex-end'}
 
-                          color='default'
+            className={classNames([
+              staticClassName('Widgets', theme) && [
+                `AmauiWidgets-line`
+              ],
 
-                          version='filled'
+              classes.line
+            ])}
+          >
+            {
+              widgets
+                .map((item: any, index: number) => {
+                  const valueItem = item.value !== undefined ? item.value : item.label;
 
-                          elevation={false}
+                  return (
+                    <Transition
+                      key={index}
 
+                      in={openItems.includes(valueItem)}
+
+                      removeOnExited
+                    >
+                      {(status: TTransitionStatus) => (
+                        <div
                           className={classNames([
                             staticClassName('Widgets', theme) && [
-                              `AmauiWidgets-iconButton`
+                              `AmauiWidgets-item`
                             ],
 
-                            classes.iconButton
+                            classes.item,
+                            status
                           ])}
                         >
-                          <IconCloseItem />
-                        </IconButton>
+                          <IconButton
+                            onClick={() => close(valueItem)}
 
-                        {item.element}
-                      </div>
-                    )}
-                  </Transition>
-                );
-              })
-          }
+                            color='default'
+
+                            version='filled'
+
+                            size='small'
+
+                            elevation={false}
+
+                            className={classNames([
+                              staticClassName('Widgets', theme) && [
+                                `AmauiWidgets-iconButton`
+                              ],
+
+                              classes.iconButton
+                            ])}
+                          >
+                            <IconCloseItem />
+                          </IconButton>
+
+                          {item.element}
+                        </div>
+                      )}
+                    </Transition>
+                  );
+                })
+            }
+          </Line>
         </Line>
       </>}
 
