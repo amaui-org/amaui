@@ -636,19 +636,21 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
               classes.imageWrapper
             ])}
           >
-            <div
-              className={classNames([
-                staticClassName('ScreenShot', theme) && [
-                  'AmauiScreenShot-imageSelector'
-                ],
+            {imageSelectorValue && (
+              <div
+                className={classNames([
+                  staticClassName('ScreenShot', theme) && [
+                    'AmauiScreenShot-imageSelector'
+                  ],
 
-                classes.imageSelector
-              ])}
+                  classes.imageSelector
+                ])}
 
-              style={{
-                ...imageSelectorValue
-              }}
-            />
+                style={{
+                  ...imageSelectorValue
+                }}
+              />
+            )}
           </div>
         </Portal>
       )}
