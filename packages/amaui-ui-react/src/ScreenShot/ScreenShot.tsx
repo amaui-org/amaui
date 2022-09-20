@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is } from '@amaui/utils';
+import { elementToCanvas, is, Try } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Tooltip from '../Tooltip';
@@ -11,6 +11,7 @@ import Icon from '../Icon';
 import Line from '../Line';
 
 import { staticClassName } from '../utils';
+import { IconDoneAnimated } from '../Buttons/Buttons';
 
 const useStyle = style(theme => ({
   root: {
@@ -70,12 +71,6 @@ const IconMaterialCropFreeRounded = React.forwardRef((props: any, ref) => {
 
 // To do
 
-// Line with 3 buttons View, Entire page, Free form
-// and text field for file name (auto added as well y)
-
-// download external link styleSheet resources
-// and image src data and insert instead of src in src value y
-
 // image type: jpg, png, gif, etc.
 // quality (0 100)
 
@@ -124,6 +119,8 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
 
   const [init, setInit] = React.useState(false);
   const [name, setName] = React.useState(nameDefault !== undefined ? nameDefault : name_);
+  const [loading, setLoading] = React.useState([]);
+  const [done, setDone] = React.useState([]);
 
   React.useEffect(() => {
     setInit(true);
@@ -142,8 +139,68 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
     if (is('function', onChangeName)) onChangeName(value_);
   };
 
-  const onView = () => {
+  const onView = async () => {
+    setLoading(items => [...items, 'view']);
 
+    try {
+      await elementToCanvas(window.document.documentElement, {
+        response: 'download',
+        download: {
+          name,
+          type,
+          quality
+        },
+        crop: {
+          y: window.scrollY,
+          x: window.scrollX,
+          width: window.innerWidth,
+          height: window.innerHeight
+        }
+      });
+    }
+    catch (error) { }
+
+    setLoading(items => items.filter(item => item !== 'view'));
+
+    setDone(items => [...items, 'view']);
+
+    setTimeout(() => {
+      setDone(items => items.filter(item => item !== 'view'));
+    }, 3000);
+
+    if (is('function', onView_)) onView_();
+  };
+
+  const onEntirePage = async () => {
+    setLoading(items => [...items, 'entirePage']);
+
+    try {
+      await elementToCanvas(window.document.documentElement, {
+        response: 'download',
+        download: {
+          name,
+          type,
+          quality
+        }
+      });
+    }
+    catch (error) { }
+
+    setLoading(items => items.filter(item => item !== 'entirePage'));
+
+    setDone(items => [...items, 'entirePage']);
+
+    setTimeout(() => {
+      setDone(items => items.filter(item => item !== 'entirePage'));
+    }, 3000);
+
+    if (is('function', onEntirePage_)) onEntirePage_();
+  };
+
+  const onFree = async () => {
+
+
+    if (is('function', onFree_)) onFree_();
   };
 
   const iconButtonProps = {
@@ -162,8 +219,8 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
 
   const tooltipProps = {
     position: 'top',
-    portal: true,
-    switch: false,
+    portal: false,
+    switch: true,
     disableInteractive: true
   };
 
@@ -212,11 +269,15 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
             {...TooltipProps}
           >
             <IconButton
+              onClick={() => onView()}
+
+              loading={loading.includes('view')}
+
               {...iconButtonProps}
 
               {...IconButtonProps}
             >
-              <IconView />
+              {done.includes('view') ? <IconDoneAnimated add in /> : <IconView />}
             </IconButton>
           </Tooltip>
         )}
@@ -230,11 +291,15 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
             {...TooltipProps}
           >
             <IconButton
+              onClick={() => onEntirePage()}
+
+              loading={loading.includes('entirePage')}
+
               {...iconButtonProps}
 
               {...IconButtonProps}
             >
-              <IconEntirePage />
+              {done.includes('entirePage') ? <IconDoneAnimated add in /> : <IconEntirePage />}
             </IconButton>
           </Tooltip>
         )}
@@ -248,11 +313,15 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
             {...TooltipProps}
           >
             <IconButton
+              onClick={() => onFree()}
+
+              loading={loading.includes('free')}
+
               {...iconButtonProps}
 
               {...IconButtonProps}
             >
-              <IconFree />
+              {done.includes('free') ? <IconDoneAnimated add in /> : <IconFree />}
             </IconButton>
           </Tooltip>
         )
