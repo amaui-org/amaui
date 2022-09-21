@@ -14,6 +14,16 @@ import Icon from '../Icon';
 
 import { staticClassName } from '../utils';
 
+const dot = {
+  display: 'inline-block',
+  position: 'absolute',
+  width: '6px',
+  height: '6px',
+  borderRadius: '50%',
+  background: '#a4a4a4',
+  outline: '1px solid white'
+};
+
 const useStyle = style(theme => ({
   root: {
     padding: '8px 24px 12px',
@@ -53,6 +63,30 @@ const useStyle = style(theme => ({
   mouseDown_bottom: {
     '& *': {
       cursor: 'ns-resize !important'
+    }
+  },
+
+  mouseDown_top_left: {
+    '& *': {
+      cursor: 'nwse-resize !important'
+    }
+  },
+
+  mouseDown_top_right: {
+    '& *': {
+      cursor: 'nesw-resize !important'
+    }
+  },
+
+  mouseDown_bottom_left: {
+    '& *': {
+      cursor: 'nesw-resize !important'
+    }
+  },
+
+  mouseDown_bottom_right: {
+    '& *': {
+      cursor: 'nwse-resize !important'
     }
   },
 
@@ -116,8 +150,40 @@ const useStyle = style(theme => ({
     cursor: 'grab',
 
     '&:active': {
-      cursor: 'grabbing'
+      cursor: 'grabbing !important'
     }
+  },
+
+  dot: {
+    ...dot
+  },
+
+  dot_top_left: {
+    top: 0,
+    left: 0,
+    transform: 'translate(-50%, -50%)',
+    cursor: 'nwse-resize'
+  },
+
+  dot_top_right: {
+    top: 0,
+    right: 0,
+    transform: 'translate(50%, -50%)',
+    cursor: 'nesw-resize'
+  },
+
+  dot_bottom_left: {
+    bottom: 0,
+    left: 0,
+    transform: 'translate(-50%, 50%)',
+    cursor: 'nesw-resize'
+  },
+
+  dot_bottom_right: {
+    bottom: 0,
+    right: 0,
+    transform: 'translate(50%, 50%)',
+    cursor: 'nwse-resize'
   },
 
   border: {
@@ -128,28 +194,64 @@ const useStyle = style(theme => ({
     top: '-2px',
     height: 2,
     width: '100%',
-    cursor: 'ns-resize'
+    cursor: 'ns-resize',
+
+    '&::before': {
+      ...dot,
+
+      content: '""',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)'
+    }
   },
 
   border_left: {
     left: '-2px',
     height: '100%',
     width: '2px',
-    cursor: 'ew-resize'
+    cursor: 'ew-resize',
+
+    '&::before': {
+      ...dot,
+
+      content: '""',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)'
+    }
   },
 
   border_right: {
     right: '-2px',
     height: '100%',
     width: '2px',
-    cursor: 'ew-resize'
+    cursor: 'ew-resize',
+
+    '&::before': {
+      ...dot,
+
+      content: '""',
+      top: '50%',
+      right: '50%',
+      transform: 'translate(50%, -50%)'
+    }
   },
 
   border_bottom: {
     bottom: '-2px',
     height: 2,
     width: '100%',
-    cursor: 'ns-resize'
+    cursor: 'ns-resize',
+
+    '&::before': {
+      ...dot,
+
+      content: '""',
+      bottom: '50%',
+      left: '50%',
+      transform: 'translate(-50%, 50%)'
+    }
   }
 }), { name: 'AmauiScreenShot' });
 
@@ -219,13 +321,8 @@ const IconMaterialDownloadRounded = React.forwardRef((props: any, ref) => {
 
 // To do
 
-// Update
-
-// Top, left, right, bottom
-
-// Top left, top right, bottom left, bottom right
-
-// Move
+// Add circles to top left, top right, bottom left, bottom right
+// and + separate mouseDown ignore and mouseMove else if
 
 // ltr
 
@@ -294,7 +391,11 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
     borderTop: React.useRef<HTMLDivElement>(),
     borderLeft: React.useRef<HTMLDivElement>(),
     borderRight: React.useRef<HTMLDivElement>(),
-    borderBottom: React.useRef<HTMLDivElement>()
+    borderBottom: React.useRef<HTMLDivElement>(),
+    dotTopLeft: React.useRef<HTMLDivElement>(),
+    dotTopRight: React.useRef<HTMLDivElement>(),
+    dotBottomLeft: React.useRef<HTMLDivElement>(),
+    dotBottomRight: React.useRef<HTMLDivElement>()
   };
 
   refs.image.current = image;
@@ -390,51 +491,53 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
         else if (refs.mouseDown.current?.version === 'top') {
           const inc = y - refs.previousMouseEvent.current.clientY;
 
-          const top = clamp(refs.imageSelectorValue.current.top + inc, 0);
+          const top = clamp(imageSelectorRect.top + inc, 0);
 
-          if (imageSelectorRect.bottom - top < 0) {
-            setMouseDown({
-              version: 'bottom'
-            });
-          }
-          else {
-            setImageSelectorValue({
-              ...refs.imageSelectorValue.current,
-
-              top,
-
-              height: clamp(imageSelectorRect.bottom - top, 0)
-            });
-          }
-        }
-        else if (refs.mouseDown.current?.version === 'bottom') {
-          const inc = y - refs.previousMouseEvent.current.clientY;
-
-          if (refs.imageSelectorValue.current.height + inc < 0) {
-            setMouseDown({
-              version: 'top'
-            });
-          }
-          else {
-            setImageSelectorValue({
-              ...refs.imageSelectorValue.current,
-
-              height: clamp(Math.abs(refs.imageSelectorValue.current.height + inc), 0, imageWrapperRect.height - refs.imageSelectorValue.current.top)
-            });
-          }
-        }
-        else if (['left', 'right'].includes(refs.mouseDown.current?.version)) {
-          const inc = x - refs.previousMouseEvent.current.clientX;
-
-          const values = [
-            refs.imageSelectorValue.current.left,
-            refs.imageWrapper.current.width - refs.imageSelectorValue.current.left
-          ];
+          if (imageSelectorRect.bottom - top < 0) refs.mouseDown.current.version = 'bottom';
 
           setImageSelectorValue({
             ...refs.imageSelectorValue.current,
 
-            width: clamp(Math.abs(refs.imageSelectorValue.current.width + inc), 0, Math.max(...values))
+            top,
+
+            height: clamp(imageSelectorRect.bottom - top, 0)
+          });
+        }
+        else if (refs.mouseDown.current?.version === 'bottom') {
+          const inc = y - refs.previousMouseEvent.current.clientY;
+
+          if (imageSelectorRect.height + inc < 0) refs.mouseDown.current.version = 'top';
+
+          setImageSelectorValue({
+            ...refs.imageSelectorValue.current,
+
+            height: clamp(Math.abs(imageSelectorRect.height + inc), 0, imageWrapperRect.height - imageSelectorRect.top)
+          });
+        }
+        else if (refs.mouseDown.current?.version === 'left') {
+          const inc = x - refs.previousMouseEvent.current.clientX;
+
+          const left = clamp(imageSelectorRect.left + inc, 0);
+
+          if (imageSelectorRect.right - left < 0) refs.mouseDown.current.version = 'right';
+
+          setImageSelectorValue({
+            ...refs.imageSelectorValue.current,
+
+            left,
+
+            width: clamp(imageSelectorRect.right - left, 0)
+          });
+        }
+        else if (refs.mouseDown.current?.version === 'right') {
+          const inc = x - refs.previousMouseEvent.current.clientX;
+
+          if (imageSelectorRect.width + inc < 0) refs.mouseDown.current.version = 'left';
+
+          setImageSelectorValue({
+            ...refs.imageSelectorValue.current,
+
+            width: clamp(Math.abs(imageSelectorRect.width + inc), 0, imageWrapperRect.width - imageSelectorRect.left)
           });
         }
       }
@@ -657,7 +760,11 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
         refs.borderTop.current,
         refs.borderLeft.current,
         refs.borderRight.current,
-        refs.borderBottom.current
+        refs.borderBottom.current,
+        refs.dotTopLeft.current,
+        refs.dotTopRight.current,
+        refs.dotBottomLeft.current,
+        refs.dotBottomRight.current
       ].includes(event.target)
     ) {
       const { clientY, clientX } = event.touches[0];
@@ -681,7 +788,11 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
         refs.borderTop.current,
         refs.borderLeft.current,
         refs.borderRight.current,
-        refs.borderBottom.current
+        refs.borderBottom.current,
+        refs.dotTopLeft.current,
+        refs.dotTopRight.current,
+        refs.dotBottomLeft.current,
+        refs.dotBottomRight.current
       ].includes(event.target)
     ) {
       const { clientY, clientX } = event;
@@ -751,7 +862,7 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
     portal: false,
     disableInteractive: true
   };
-  console.log(1, mouseDown);
+
   return (
     <Surface
       ref={ref}
@@ -956,6 +1067,78 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
               />
 
               <div
+                ref={refs.dotTopLeft}
+
+                onTouchStart={onTouchStartBorder('top_left')}
+
+                onMouseDown={onMouseDownBorder('top_left')}
+
+                className={classNames([
+                  staticClassName('ScreenShot', theme) && [
+                    'AmauiScreenShot-dot',
+                    'AmauiScreenShot-dot-top-left'
+                  ],
+
+                  classes.dot,
+                  classes.dot_top_left
+                ])}
+              />
+
+              <div
+                ref={refs.dotTopRight}
+
+                onTouchStart={onTouchStartBorder('top_right')}
+
+                onMouseDown={onMouseDownBorder('top_right')}
+
+                className={classNames([
+                  staticClassName('ScreenShot', theme) && [
+                    'AmauiScreenShot-dot',
+                    'AmauiScreenShot-dot-top-right'
+                  ],
+
+                  classes.dot,
+                  classes.dot_top_right
+                ])}
+              />
+
+              <div
+                ref={refs.dotBottomLeft}
+
+                onTouchStart={onTouchStartBorder('bottom_left')}
+
+                onMouseDown={onMouseDownBorder('bottom_left')}
+
+                className={classNames([
+                  staticClassName('ScreenShot', theme) && [
+                    'AmauiScreenShot-dot',
+                    'AmauiScreenShot-dot-bottom-left'
+                  ],
+
+                  classes.dot,
+                  classes.dot_bottom_left
+                ])}
+              />
+
+              <div
+                ref={refs.dotBottomRight}
+
+                onTouchStart={onTouchStartBorder('bottom_right')}
+
+                onMouseDown={onMouseDownBorder('bottom_right')}
+
+                className={classNames([
+                  staticClassName('ScreenShot', theme) && [
+                    'AmauiScreenShot-dot',
+                    'AmauiScreenShot-dot-bottom-right'
+                  ],
+
+                  classes.dot,
+                  classes.dot_bottom_right
+                ])}
+              />
+
+              <div
                 ref={refs.borderTop}
 
                 onTouchStart={onTouchStartBorder('top')}
@@ -974,7 +1157,7 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
               />
 
               <div
-                ref={refs.borderLeft}
+                ref={refs.borderRight}
 
                 onTouchStart={onTouchStartBorder('left')}
 
