@@ -1,7 +1,9 @@
 import React from 'react';
 
-import { clamp, is } from '@amaui/utils';
+import { is, clamp } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
+
+import Tooltip from '../Tooltip';
 
 import { staticClassName, image as imageMethod } from '../utils';
 
@@ -18,7 +20,9 @@ const dot = {
 const useStyle = style(theme => ({
   root: {
     width: '100%',
-    height: '100%'
+    minHeight: 1,
+    lineHeight: 0,
+    overflow: 'hidden'
   },
 
   mouseDown_move: {
@@ -81,8 +85,7 @@ const useStyle = style(theme => ({
   },
 
   canvas_main: {
-    top: 0,
-    left: 0
+    position: 'relative'
   },
 
   canvas_imageSelector: {
@@ -94,8 +97,14 @@ const useStyle = style(theme => ({
     inset: 0,
     width: '100%',
     height: '100%',
+    opacity: 0,
     background: theme.methods.palette.color.colorToRgb(theme.palette.text.default.primary, 44),
-    zIndex: 1,
+    transition: theme.methods.transitions.make('opacity', { duration: 'xxs' }),
+    zIndex: 1
+  },
+
+  background_in: {
+    opacity: 1
   },
 
   imageSelector_main: {
@@ -144,29 +153,29 @@ const useStyle = style(theme => ({
   },
 
   dot_top_left: {
-    top: 0,
-    left: 0,
+    top: '-1px',
+    left: '-1px',
     transform: 'translate(-50%, -50%)',
     cursor: 'nwse-resize'
   },
 
   dot_top_right: {
-    top: 0,
-    right: 0,
+    top: '-1px',
+    right: '-1px',
     transform: 'translate(50%, -50%)',
     cursor: 'nesw-resize'
   },
 
   dot_bottom_left: {
-    bottom: 0,
-    left: 0,
+    bottom: '-1px',
+    left: '-1px',
     transform: 'translate(-50%, 50%)',
     cursor: 'nesw-resize'
   },
 
   dot_bottom_right: {
-    bottom: 0,
-    right: 0,
+    bottom: '-1px',
+    right: '-1px',
     transform: 'translate(50%, 50%)',
     cursor: 'nwse-resize'
   },
@@ -244,9 +253,15 @@ const useStyle = style(theme => ({
 
 // aspect ratio
 
+// options to choose common aspect ratios
+// with aspect ratio and each with optional width and height
+
+// and 2 numeric text fields small to choose custom aspect ratio
+
 // Example with default selector width, height, top, left
 // min selector width, min selector height
 // max selector width and max selector height
+// min and max values are clamp value, 0, root width, root height y value y
 
 // Optional buttons to save or cancel
 // both buttons any component, React.cloneElement to add onClick to the buttons value y
@@ -275,6 +290,10 @@ const ImageResize = React.forwardRef((props_: any, ref: any) => {
     type = `image/png`,
     quality = 1,
 
+    dynamicParent,
+
+    TooltipProps,
+
     className,
 
     ...other
@@ -302,7 +321,9 @@ const ImageResize = React.forwardRef((props_: any, ref: any) => {
     dotTopLeft: React.useRef<HTMLDivElement>(),
     dotTopRight: React.useRef<HTMLDivElement>(),
     dotBottomLeft: React.useRef<HTMLDivElement>(),
-    dotBottomRight: React.useRef<HTMLDivElement>()
+    dotBottomRight: React.useRef<HTMLDivElement>(),
+    props: React.useRef<HTMLDivElement>(),
+    dynamicParent: React.useRef<any>()
   };
 
   refs.image.current = image;
@@ -310,6 +331,10 @@ const ImageResize = React.forwardRef((props_: any, ref: any) => {
   refs.mouseDown.current = mouseDown;
 
   refs.selector.current = selector;
+
+  refs.props.current = props;
+
+  refs.dynamicParent.current = dynamicParent;
 
   const onSelectorChange = (valueNew: any) => {
     // Update inner or controlled
@@ -347,13 +372,24 @@ const ImageResize = React.forwardRef((props_: any, ref: any) => {
       if (refs.mouseDown.current && refs.previousMouseEvent.current) {
         const { top: previousTop, left: previousLeft } = refs.mouseDown.current;
 
-        const imageWrapperRect: DOMRect = refs.root.current.getBoundingClientRect();
+        const rootRect: DOMRect = refs.root.current.getBoundingClientRect();
 
-        const imageSelectorRect: DOMRect = refs.imageSelector.current.getBoundingClientRect();
+        const selectorRect_: DOMRect = refs.imageSelectorMain.current.getBoundingClientRect();
+
+        const selectorRect: any = {};
+
+        // Normalize relative to root
+        selectorRect.width = selectorRect_.width;
+        selectorRect.height = selectorRect_.height;
+
+        selectorRect.top = selectorRect_.top - rootRect.top;
+        selectorRect.left = selectorRect_.left - rootRect.left;
+        selectorRect.right = selectorRect.left + selectorRect_.width;
+        selectorRect.bottom = selectorRect.top + selectorRect_.height;
 
         if (refs.mouseDown.current?.version === 'make') {
-          const top = clamp(y - imageWrapperRect.top, 0, imageWrapperRect.height);
-          const left = clamp(x - imageWrapperRect.left, 0, imageWrapperRect.width);
+          const top = clamp(y - rootRect.top, 0, rootRect.height);
+          const left = clamp(x - rootRect.left, 0, rootRect.width);
 
           onSelectorChange({
             ...refs.selector.current,
@@ -372,23 +408,23 @@ const ImageResize = React.forwardRef((props_: any, ref: any) => {
           onSelectorChange({
             ...refs.selector.current,
 
-            top: clamp(refs.selector.current.top + top, 0, imageWrapperRect.height - imageSelectorRect.height),
-            left: clamp(refs.selector.current.left + left, 0, imageWrapperRect.width - imageSelectorRect.width)
+            top: clamp(refs.selector.current.top + top, 0, rootRect.height - selectorRect.height),
+            left: clamp(refs.selector.current.left + left, 0, rootRect.width - selectorRect.width)
           });
         }
         else if (refs.mouseDown.current?.version === 'top_left') {
           const incY = y - refs.previousMouseEvent.current.clientY;
           const incX = x - refs.previousMouseEvent.current.clientX;
 
-          const top = clamp(imageSelectorRect.top + incY, 0);
-          const left = clamp(imageSelectorRect.left + incX, 0);
+          const top = clamp(selectorRect.top + incY, 0);
+          const left = clamp(selectorRect.left + incX, 0);
 
           if (
-            (imageSelectorRect.bottom - top < 0) &&
-            (imageSelectorRect.right - left < 0)
+            (selectorRect.bottom - top < 0) &&
+            (selectorRect.right - left < 0)
           ) refs.mouseDown.current.version = 'bottom_right';
-          else if (imageSelectorRect.bottom - top < 0) refs.mouseDown.current.version = 'bottom_left';
-          else if (imageSelectorRect.right - left < 0) refs.mouseDown.current.version = 'top_right';
+          else if (selectorRect.bottom - top < 0) refs.mouseDown.current.version = 'bottom_left';
+          else if (selectorRect.right - left < 0) refs.mouseDown.current.version = 'top_right';
 
           onSelectorChange({
             ...refs.selector.current,
@@ -396,116 +432,116 @@ const ImageResize = React.forwardRef((props_: any, ref: any) => {
             top,
             left,
 
-            width: clamp(imageSelectorRect.right - left, 0),
-            height: clamp(imageSelectorRect.bottom - top, 0)
+            width: clamp(selectorRect.right - left, 0),
+            height: clamp(selectorRect.bottom - top, 0)
           });
         }
         else if (refs.mouseDown.current?.version === 'top_right') {
           const incY = y - refs.previousMouseEvent.current.clientY;
           const incX = x - refs.previousMouseEvent.current.clientX;
 
-          const top = clamp(imageSelectorRect.top + incY, 0);
+          const top = clamp(selectorRect.top + incY, 0);
 
           if (
-            (imageSelectorRect.bottom - top < 0) &&
-            (imageSelectorRect.width + incX < 0)
+            (selectorRect.bottom - top < 0) &&
+            (selectorRect.width + incX < 0)
           ) refs.mouseDown.current.version = 'bottom_left';
-          else if (imageSelectorRect.bottom - top < 0) refs.mouseDown.current.version = 'bottom_right';
-          else if (imageSelectorRect.width + incX < 0) refs.mouseDown.current.version = 'top_left';
+          else if (selectorRect.bottom - top < 0) refs.mouseDown.current.version = 'bottom_right';
+          else if (selectorRect.width + incX < 0) refs.mouseDown.current.version = 'top_left';
 
           onSelectorChange({
             ...refs.selector.current,
 
             top,
 
-            width: clamp(Math.abs(imageSelectorRect.width + incX), 0, imageWrapperRect.width - imageSelectorRect.left),
-            height: clamp(imageSelectorRect.bottom - top, 0)
+            width: clamp(Math.abs(selectorRect.width + incX), 0, rootRect.width - selectorRect.left),
+            height: clamp(selectorRect.bottom - top, 0)
           });
         }
         else if (refs.mouseDown.current?.version === 'bottom_right') {
           const incY = y - refs.previousMouseEvent.current.clientY;
           const incX = x - refs.previousMouseEvent.current.clientX;
 
-          if ((imageSelectorRect.height + incY < 0) && (imageSelectorRect.width + incX < 0)) refs.mouseDown.current.version = 'top_left';
-          else if (imageSelectorRect.height + incY < 0) refs.mouseDown.current.version = 'top_right';
-          else if (imageSelectorRect.width + incX < 0) refs.mouseDown.current.version = 'bottom_left';
+          if ((selectorRect.height + incY < 0) && (selectorRect.width + incX < 0)) refs.mouseDown.current.version = 'top_left';
+          else if (selectorRect.height + incY < 0) refs.mouseDown.current.version = 'top_right';
+          else if (selectorRect.width + incX < 0) refs.mouseDown.current.version = 'bottom_left';
 
           onSelectorChange({
             ...refs.selector.current,
 
-            width: clamp(Math.abs(imageSelectorRect.width + incX), 0, imageWrapperRect.width - imageSelectorRect.left),
-            height: clamp(Math.abs(imageSelectorRect.height + incY), 0, imageWrapperRect.height - imageSelectorRect.top)
+            width: clamp(Math.abs(selectorRect.width + incX), 0, rootRect.width - selectorRect.left),
+            height: clamp(Math.abs(selectorRect.height + incY), 0, rootRect.height - selectorRect.top)
           });
         }
         else if (refs.mouseDown.current?.version === 'bottom_left') {
           const incY = y - refs.previousMouseEvent.current.clientY;
           const incX = x - refs.previousMouseEvent.current.clientX;
 
-          const left = clamp(imageSelectorRect.left + incX, 0);
+          const left = clamp(selectorRect.left + incX, 0);
 
-          if ((imageSelectorRect.height + incY < 0) && (imageSelectorRect.right - left < 0)) refs.mouseDown.current.version = 'top_right';
-          else if (imageSelectorRect.height + incY < 0) refs.mouseDown.current.version = 'top_left';
-          else if (imageSelectorRect.right - left < 0) refs.mouseDown.current.version = 'bottom_right';
+          if ((selectorRect.height + incY < 0) && (selectorRect.right - left < 0)) refs.mouseDown.current.version = 'top_right';
+          else if (selectorRect.height + incY < 0) refs.mouseDown.current.version = 'top_left';
+          else if (selectorRect.right - left < 0) refs.mouseDown.current.version = 'bottom_right';
 
           onSelectorChange({
             ...refs.selector.current,
 
             left,
 
-            width: clamp(imageSelectorRect.right - left, 0),
-            height: clamp(Math.abs(imageSelectorRect.height + incY), 0, imageWrapperRect.height - imageSelectorRect.top)
+            width: clamp(selectorRect.right - left, 0),
+            height: clamp(Math.abs(selectorRect.height + incY), 0, rootRect.height - selectorRect.top)
           });
         }
         else if (refs.mouseDown.current?.version === 'top') {
           const inc = y - refs.previousMouseEvent.current.clientY;
 
-          const top = clamp(imageSelectorRect.top + inc, 0);
+          const top = clamp(refs.selector.current.top + inc, 0);
 
-          if (imageSelectorRect.bottom - top < 0) refs.mouseDown.current.version = 'bottom';
+          if (selectorRect.bottom - top < 0) refs.mouseDown.current.version = 'bottom';
 
           onSelectorChange({
             ...refs.selector.current,
 
             top,
 
-            height: clamp(imageSelectorRect.bottom - top, 0)
+            height: clamp(selectorRect.bottom - top, 0)
           });
         }
         else if (refs.mouseDown.current?.version === 'bottom') {
           const inc = y - refs.previousMouseEvent.current.clientY;
 
-          if (imageSelectorRect.height + inc < 0) refs.mouseDown.current.version = 'top';
+          if (selectorRect.height + inc < 0) refs.mouseDown.current.version = 'top';
 
           onSelectorChange({
             ...refs.selector.current,
 
-            height: clamp(Math.abs(imageSelectorRect.height + inc), 0, imageWrapperRect.height - imageSelectorRect.top)
+            height: clamp(Math.abs(selectorRect.height + inc), 0, rootRect.height - selectorRect.top)
           });
         }
         else if (refs.mouseDown.current?.version === 'left') {
           const inc = x - refs.previousMouseEvent.current.clientX;
 
-          const left = clamp(imageSelectorRect.left + inc, 0);
+          const left = clamp(selectorRect.left + inc, 0);
 
-          if (imageSelectorRect.right - left < 0) refs.mouseDown.current.version = 'right';
+          if (selectorRect.right - left < 0) refs.mouseDown.current.version = 'right';
 
           onSelectorChange({
             ...refs.selector.current,
 
             left,
 
-            width: clamp(imageSelectorRect.right - left, 0)
+            width: clamp(selectorRect.right - left, 0)
           });
         }
         else if (refs.mouseDown.current?.version === 'right') {
           const inc = x - refs.previousMouseEvent.current.clientX;
 
-          if (imageSelectorRect.width + inc < 0) refs.mouseDown.current.version = 'left';
+          if (selectorRect.width + inc < 0) refs.mouseDown.current.version = 'left';
 
           onSelectorChange({
             ...refs.selector.current,
 
-            width: clamp(Math.abs(imageSelectorRect.width + inc), 0, imageWrapperRect.width - imageSelectorRect.left)
+            width: clamp(Math.abs(selectorRect.width + inc), 0, rootRect.width - selectorRect.left)
           });
         }
       }
@@ -571,9 +607,13 @@ const ImageResize = React.forwardRef((props_: any, ref: any) => {
   React.useEffect(() => {
     if (image_ !== image) {
       if (image_ instanceof HTMLCanvasElement) setImage(image_);
-      else if (is('string', image_)) makeImage(image_);
+      else if (is('string', image_)) !refs.dynamicParent.current ? makeImage() : setTimeout(() => makeImage(image_), 14);
     }
   }, [image_]);
+
+  React.useEffect(() => {
+    if (selector_ !== selector) setSelector(selector_);
+  }, [selector_]);
 
   React.useEffect(() => {
     if (image) {
@@ -588,7 +628,21 @@ const ImageResize = React.forwardRef((props_: any, ref: any) => {
 
     const canvas = window.document.createElement('canvas');
 
-    canvas.getContext('2d').drawImage(img, 0, 0);
+    const rootRect = refs.root.current.getBoundingClientRect();
+
+    const aspectRatioImg = img.width / img.height;
+
+    // width being parent width
+    img.width = rootRect.width;
+
+    // height keep aspect ratio of the img for the height
+    img.height = img.width / aspectRatioImg;
+
+    canvas.width = img.width;
+
+    canvas.height = img.height;
+
+    canvas.getContext('2d').drawImage(img, 0, 0, img.width, img.height);
 
     setImage(canvas);
   };
@@ -611,12 +665,12 @@ const ImageResize = React.forwardRef((props_: any, ref: any) => {
     ) {
       const { clientY, clientX } = event.touches[0];
 
-      const imageWrapperRect = refs.root.current.getBoundingClientRect();
+      const rootRect = refs.root.current.getBoundingClientRect();
 
       setMouseDown({
         version: 'make',
-        top: clientY - imageWrapperRect.top,
-        left: clientX - imageWrapperRect.left
+        top: clientY - rootRect.top,
+        left: clientX - rootRect.left
       });
     }
   }, []);
@@ -639,12 +693,12 @@ const ImageResize = React.forwardRef((props_: any, ref: any) => {
     ) {
       const { clientY, clientX } = event;
 
-      const imageWrapperRect = refs.root.current.getBoundingClientRect();
+      const rootRect = refs.root.current.getBoundingClientRect();
 
       setMouseDown({
         version: 'make',
-        top: clientY - imageWrapperRect.top,
-        left: clientX - imageWrapperRect.left
+        top: clientY - rootRect.top,
+        left: clientX - rootRect.left
       });
     }
   }, []);
@@ -652,24 +706,24 @@ const ImageResize = React.forwardRef((props_: any, ref: any) => {
   const onTouchStartImageSelector = React.useCallback((event: React.TouchEvent<any>) => {
     const { clientY, clientX } = event.touches[0];
 
-    const imageWrapperRect = refs.root.current.getBoundingClientRect();
+    const rootRect = refs.root.current.getBoundingClientRect();
 
     setMouseDown({
       version: 'move',
-      top: clientY - imageWrapperRect.top,
-      left: clientX - imageWrapperRect.left
+      top: clientY - rootRect.top,
+      left: clientX - rootRect.left
     });
   }, []);
 
   const onMouseDownImageSelector = React.useCallback((event: React.MouseEvent<any>) => {
     const { clientY, clientX } = event;
 
-    const imageWrapperRect = refs.root.current.getBoundingClientRect();
+    const rootRect = refs.root.current.getBoundingClientRect();
 
     setMouseDown({
       version: 'move',
-      top: clientY - imageWrapperRect.top,
-      left: clientX - imageWrapperRect.left
+      top: clientY - rootRect.top,
+      left: clientX - rootRect.left
     });
   }, []);
 
@@ -721,9 +775,9 @@ const ImageResize = React.forwardRef((props_: any, ref: any) => {
           classes.canvas_main
         ])}
 
-        width={image?.width}
+        width={image?.width || 0}
 
-        height={image?.height}
+        height={image?.height || 0}
       />
 
       <div
@@ -732,186 +786,199 @@ const ImageResize = React.forwardRef((props_: any, ref: any) => {
             'AmauiScreenCapture-background'
           ],
 
-          classes.background
+          classes.background,
+          image && classes.background_in
         ])}
       />
 
-      <div
-        ref={refs.imageSelectorMain}
+      <Tooltip
+        open={mouseDown}
 
-        className={classNames([
-          staticClassName('ScreenCapture', theme) && [
-            'AmauiScreenCapture-imageSelector-main'
-          ],
+        label={`${selector?.width || 0} x ${selector?.height || 0}`}
 
-          classes.imageSelector_main,
-          selector && classes.imageSelector_main_in
-        ])}
+        position='bottom'
 
-        style={{
-          ...selector
-        }}
+        portal={false}
+
+        {...TooltipProps}
       >
         <div
-          ref={refs.move}
-
-          onTouchStart={onTouchStartImageSelector}
-
-          onMouseDown={onMouseDownImageSelector}
+          ref={refs.imageSelectorMain}
 
           className={classNames([
             staticClassName('ScreenCapture', theme) && [
-              'AmauiScreenCapture-move'
+              'AmauiScreenCapture-imageSelector-main'
             ],
 
-            classes.move
+            classes.imageSelector_main,
+            selector && classes.imageSelector_main_in
           ])}
-        />
 
-        <div
-          ref={refs.dotTopLeft}
+          style={{
+            ...selector
+          }}
+        >
+          <div
+            ref={refs.move}
 
-          onTouchStart={onTouchStartBorder('top_left')}
+            onTouchStart={onTouchStartImageSelector}
 
-          onMouseDown={onMouseDownBorder('top_left')}
+            onMouseDown={onMouseDownImageSelector}
 
-          className={classNames([
-            staticClassName('ScreenCapture', theme) && [
-              'AmauiScreenCapture-dot',
-              'AmauiScreenCapture-dot-top-left'
-            ],
+            className={classNames([
+              staticClassName('ScreenCapture', theme) && [
+                'AmauiScreenCapture-move'
+              ],
 
-            classes.dot,
-            classes.dot_top_left
-          ])}
-        />
+              classes.move
+            ])}
+          />
 
-        <div
-          ref={refs.dotTopRight}
+          <div
+            ref={refs.dotTopLeft}
 
-          onTouchStart={onTouchStartBorder('top_right')}
+            onTouchStart={onTouchStartBorder('top_left')}
 
-          onMouseDown={onMouseDownBorder('top_right')}
+            onMouseDown={onMouseDownBorder('top_left')}
 
-          className={classNames([
-            staticClassName('ScreenCapture', theme) && [
-              'AmauiScreenCapture-dot',
-              'AmauiScreenCapture-dot-top-right'
-            ],
+            className={classNames([
+              staticClassName('ScreenCapture', theme) && [
+                'AmauiScreenCapture-dot',
+                'AmauiScreenCapture-dot-top-left'
+              ],
 
-            classes.dot,
-            classes.dot_top_right
-          ])}
-        />
+              classes.dot,
+              classes.dot_top_left
+            ])}
+          />
 
-        <div
-          ref={refs.dotBottomLeft}
+          <div
+            ref={refs.dotTopRight}
 
-          onTouchStart={onTouchStartBorder('bottom_left')}
+            onTouchStart={onTouchStartBorder('top_right')}
 
-          onMouseDown={onMouseDownBorder('bottom_left')}
+            onMouseDown={onMouseDownBorder('top_right')}
 
-          className={classNames([
-            staticClassName('ScreenCapture', theme) && [
-              'AmauiScreenCapture-dot',
-              'AmauiScreenCapture-dot-bottom-left'
-            ],
+            className={classNames([
+              staticClassName('ScreenCapture', theme) && [
+                'AmauiScreenCapture-dot',
+                'AmauiScreenCapture-dot-top-right'
+              ],
 
-            classes.dot,
-            classes.dot_bottom_left
-          ])}
-        />
+              classes.dot,
+              classes.dot_top_right
+            ])}
+          />
 
-        <div
-          ref={refs.dotBottomRight}
+          <div
+            ref={refs.dotBottomLeft}
 
-          onTouchStart={onTouchStartBorder('bottom_right')}
+            onTouchStart={onTouchStartBorder('bottom_left')}
 
-          onMouseDown={onMouseDownBorder('bottom_right')}
+            onMouseDown={onMouseDownBorder('bottom_left')}
 
-          className={classNames([
-            staticClassName('ScreenCapture', theme) && [
-              'AmauiScreenCapture-dot',
-              'AmauiScreenCapture-dot-bottom-right'
-            ],
+            className={classNames([
+              staticClassName('ScreenCapture', theme) && [
+                'AmauiScreenCapture-dot',
+                'AmauiScreenCapture-dot-bottom-left'
+              ],
 
-            classes.dot,
-            classes.dot_bottom_right
-          ])}
-        />
+              classes.dot,
+              classes.dot_bottom_left
+            ])}
+          />
 
-        <div
-          ref={refs.borderTop}
+          <div
+            ref={refs.dotBottomRight}
 
-          onTouchStart={onTouchStartBorder('top')}
+            onTouchStart={onTouchStartBorder('bottom_right')}
 
-          onMouseDown={onMouseDownBorder('top')}
+            onMouseDown={onMouseDownBorder('bottom_right')}
 
-          className={classNames([
-            staticClassName('ScreenCapture', theme) && [
-              'AmauiScreenCapture-border',
-              'AmauiScreenCapture-border-top'
-            ],
+            className={classNames([
+              staticClassName('ScreenCapture', theme) && [
+                'AmauiScreenCapture-dot',
+                'AmauiScreenCapture-dot-bottom-right'
+              ],
 
-            classes.border,
-            classes.border_top
-          ])}
-        />
+              classes.dot,
+              classes.dot_bottom_right
+            ])}
+          />
 
-        <div
-          ref={refs.borderLeft}
+          <div
+            ref={refs.borderTop}
 
-          onTouchStart={onTouchStartBorder('left')}
+            onTouchStart={onTouchStartBorder('top')}
 
-          onMouseDown={onMouseDownBorder('left')}
+            onMouseDown={onMouseDownBorder('top')}
 
-          className={classNames([
-            staticClassName('ScreenCapture', theme) && [
-              'AmauiScreenCapture-border',
-              'AmauiScreenCapture-border-left'
-            ],
+            className={classNames([
+              staticClassName('ScreenCapture', theme) && [
+                'AmauiScreenCapture-border',
+                'AmauiScreenCapture-border-top'
+              ],
 
-            classes.border,
-            classes.border_left
-          ])}
-        />
+              classes.border,
+              classes.border_top
+            ])}
+          />
 
-        <div
-          ref={refs.borderRight}
+          <div
+            ref={refs.borderLeft}
 
-          onTouchStart={onTouchStartBorder('right')}
+            onTouchStart={onTouchStartBorder('left')}
 
-          onMouseDown={onMouseDownBorder('right')}
+            onMouseDown={onMouseDownBorder('left')}
 
-          className={classNames([
-            staticClassName('ScreenCapture', theme) && [
-              'AmauiScreenCapture-border',
-              'AmauiScreenCapture-border-right'
-            ],
+            className={classNames([
+              staticClassName('ScreenCapture', theme) && [
+                'AmauiScreenCapture-border',
+                'AmauiScreenCapture-border-left'
+              ],
 
-            classes.border,
-            classes.border_right
-          ])}
-        />
+              classes.border,
+              classes.border_left
+            ])}
+          />
 
-        <div
-          ref={refs.borderBottom}
+          <div
+            ref={refs.borderRight}
 
-          onTouchStart={onTouchStartBorder('bottom')}
+            onTouchStart={onTouchStartBorder('right')}
 
-          onMouseDown={onMouseDownBorder('bottom')}
+            onMouseDown={onMouseDownBorder('right')}
 
-          className={classNames([
-            staticClassName('ScreenCapture', theme) && [
-              'AmauiScreenCapture-border',
-              'AmauiScreenCapture-border-bottom'
-            ],
+            className={classNames([
+              staticClassName('ScreenCapture', theme) && [
+                'AmauiScreenCapture-border',
+                'AmauiScreenCapture-border-right'
+              ],
 
-            classes.border,
-            classes.border_bottom
-          ])}
-        />
-      </div>
+              classes.border,
+              classes.border_right
+            ])}
+          />
+
+          <div
+            ref={refs.borderBottom}
+
+            onTouchStart={onTouchStartBorder('bottom')}
+
+            onMouseDown={onMouseDownBorder('bottom')}
+
+            className={classNames([
+              staticClassName('ScreenCapture', theme) && [
+                'AmauiScreenCapture-border',
+                'AmauiScreenCapture-border-bottom'
+              ],
+
+              classes.border,
+              classes.border_bottom
+            ])}
+          />
+        </div>
+      </Tooltip>
 
       <div
         ref={refs.imageSelector}
@@ -941,9 +1008,9 @@ const ImageResize = React.forwardRef((props_: any, ref: any) => {
             classes.canvas_imageSelector
           ])}
 
-          width={image?.width}
+          width={image?.width || 0}
 
-          height={image?.height}
+          height={image?.height || 0}
 
           style={{
             top: `${(selector?.top || 0) * -1}px`,

@@ -2158,6 +2158,28 @@ Please sign in again.`}
         </Line>
       </Accordion>
 
+      <Accordion primary='ImageResize'>
+        <Accordion primary='ImageResize' open>
+          <ImageResize
+            image='./image.jpg'
+
+            dynamicParent
+          />
+        </Accordion>
+
+        <Accordion primary='ImageResize within width, height'>
+          <ImageResize
+            image='./image.jpg'
+
+            dynamicParent
+
+            style={{
+              width: 440
+            }}
+          />
+        </Accordion>
+      </Accordion>
+
       <Accordion primary='Widgets'>
         <Accordion primary='Widgets' open>
           <Line
