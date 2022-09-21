@@ -332,5 +332,11 @@ export * from './NumericTextField';
 export { default as Widgets } from './Widgets';
 export * from './Widgets';
 
-export { default as ScreenShot } from './ScreenShot';
-export * from './ScreenShot';
+export { default as ScreenCapture } from './ScreenCapture';
+export * from './ScreenCapture';
+
+export { default as ImageResize } from './ImageResize';
+export * from './ImageResize';
+
+export { default as ImageEdit } from './ImageEdit';
+export * from './ImageEdit';

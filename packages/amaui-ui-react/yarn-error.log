@@ -14,7 +14,7 @@ Platform:
   darwin x64
 
 Trace: 
-  Error: EEXIST: file already exists, symlink '../../../../pacote/lib/bin.js' -> '/Users/lazareric/amaui/amaui/node_modules/@lerna/add/node_modules/.bin/pacote'
+  Error: EEXIST: file already exists, symlink '../react-scripts/bin/react-scripts.js' -> '/Users/lazareric/amaui/amaui/apps/app-react/node_modules/.bin/react-scripts'
 
 npm manifest: 
   {
@@ -63,7 +63,7 @@ npm manifest:
     "dependencies": {
       "@amaui/style-react": "^1.0.11144",
       "@amaui/subscription": "^1.0.11147",
-      "@amaui/utils": "^1.0.11430"
+      "@amaui/utils": "^1.0.11440"
     },
     "publishConfig": {
       "access": "public",
@@ -251,20 +251,10 @@ Lockfile:
       path-to-regexp "^6.2.0"
       uuid "^8.3.2"
   
-  "@amaui/utils@^1.0.11427":
-    version "1.0.11427"
-    resolved "https://registry.yarnpkg.com/@amaui/utils/-/utils-1.0.11427.tgz#facefcb01cad00b7bb26939f6ef43b25c2540927"
-    integrity sha512-0NGKDwOBhsCZyAplF4ZSIHzZY/7MKUqmbkPyvSIFQUY+R4tMhF+qv674qbOkDLVYBfHUBxjIjg1WkmCK3vFwQw==
-    dependencies:
-      "@babel/runtime" "^7.18.3"
-      crypto-js "^4.1.1"
-      path-to-regexp "^6.2.0"
-      uuid "^8.3.2"
-  
-  "@amaui/utils@^1.0.11430":
-    version "1.0.11430"
-    resolved "https://registry.yarnpkg.com/@amaui/utils/-/utils-1.0.11430.tgz#410e2164b592f78422996395919e9eef4bf82d6b"
-    integrity sha512-9cYoZ/7uXVNR9A0xwm5anpEq9eaPEKxjiU1cJEfoG3OcXH/s4AzLxMvRjWPKSKSXrXPITbwcPPNrOzL+mYLA6g==
+  "@amaui/utils@^1.0.11440":
+    version "1.0.11440"
+    resolved "https://registry.yarnpkg.com/@amaui/utils/-/utils-1.0.11440.tgz#2f725742957655968699ad05f5f8a24cae221153"
+    integrity sha512-QzMh7NCwgNVLs9FLNhL1y6MWl08tk9ilVXzuUvFHBG0xYQ3rGfKv9PRPXZCOE4QSpqhX+7tYMnP9wY/jsuT4qw==
     dependencies:
       "@babel/runtime" "^7.18.3"
       crypto-js "^4.1.1"

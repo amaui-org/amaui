@@ -47,7 +47,7 @@
   },
   "dependencies": {
     "@amaui/style": "^1.0.14304",
-    "@amaui/utils": "^1.0.11440"
+    "@amaui/utils": "^1.0.11441"
   },
   "publishConfig": {
     "access": "public",

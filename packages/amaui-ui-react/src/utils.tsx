@@ -48,3 +48,15 @@ export const valueBreakpoints = (item: any, value_: any, breakpoints: any, theme
 
   return value_;
 };
+
+export const image = (uri: string): Promise<HTMLImageElement> => new Promise((resolve, reject) => {
+  const img = document.createElement('img')
+
+  const method = () => resolve(img);
+
+  img.onload = method;
+
+  img.onerror = () => resolve('' as any);
+
+  img.src = uri;
+});
