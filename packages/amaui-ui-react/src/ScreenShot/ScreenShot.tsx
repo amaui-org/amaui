@@ -319,13 +319,6 @@ const IconMaterialDownloadRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
-// To do
-
-// Add circles to top left, top right, bottom left, bottom right
-// and + separate mouseDown ignore and mouseMove else if
-
-// ltr
-
 const ScreenShot = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 
@@ -486,6 +479,86 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
 
             top: clamp(refs.imageSelectorValue.current.top + top, 0, imageWrapperRect.height - imageSelectorRect.height),
             left: clamp(refs.imageSelectorValue.current.left + left, 0, imageWrapperRect.width - imageSelectorRect.width)
+          });
+        }
+        else if (refs.mouseDown.current?.version === 'top_left') {
+          const incY = y - refs.previousMouseEvent.current.clientY;
+          const incX = x - refs.previousMouseEvent.current.clientX;
+
+          const top = clamp(imageSelectorRect.top + incY, 0);
+          const left = clamp(imageSelectorRect.left + incX, 0);
+
+          if (
+            (imageSelectorRect.bottom - top < 0) &&
+            (imageSelectorRect.right - left < 0)
+          ) refs.mouseDown.current.version = 'bottom_right';
+          else if (imageSelectorRect.bottom - top < 0) refs.mouseDown.current.version = 'bottom_left';
+          else if (imageSelectorRect.right - left < 0) refs.mouseDown.current.version = 'top_right';
+
+          setImageSelectorValue({
+            ...refs.imageSelectorValue.current,
+
+            top,
+            left,
+
+            width: clamp(imageSelectorRect.right - left, 0),
+            height: clamp(imageSelectorRect.bottom - top, 0)
+          });
+        }
+        else if (refs.mouseDown.current?.version === 'top_right') {
+          const incY = y - refs.previousMouseEvent.current.clientY;
+          const incX = x - refs.previousMouseEvent.current.clientX;
+
+          const top = clamp(imageSelectorRect.top + incY, 0);
+
+          if (
+            (imageSelectorRect.bottom - top < 0) &&
+            (imageSelectorRect.width + incX < 0)
+          ) refs.mouseDown.current.version = 'bottom_left';
+          else if (imageSelectorRect.bottom - top < 0) refs.mouseDown.current.version = 'bottom_right';
+          else if (imageSelectorRect.width + incX < 0) refs.mouseDown.current.version = 'top_left';
+
+          setImageSelectorValue({
+            ...refs.imageSelectorValue.current,
+
+            top,
+
+            width: clamp(Math.abs(imageSelectorRect.width + incX), 0, imageWrapperRect.width - imageSelectorRect.left),
+            height: clamp(imageSelectorRect.bottom - top, 0)
+          });
+        }
+        else if (refs.mouseDown.current?.version === 'bottom_right') {
+          const incY = y - refs.previousMouseEvent.current.clientY;
+          const incX = x - refs.previousMouseEvent.current.clientX;
+
+          if ((imageSelectorRect.height + incY < 0) && (imageSelectorRect.width + incX < 0)) refs.mouseDown.current.version = 'top_left';
+          else if (imageSelectorRect.height + incY < 0) refs.mouseDown.current.version = 'top_right';
+          else if (imageSelectorRect.width + incX < 0) refs.mouseDown.current.version = 'top_left';
+
+          setImageSelectorValue({
+            ...refs.imageSelectorValue.current,
+
+            width: clamp(Math.abs(imageSelectorRect.width + incX), 0, imageWrapperRect.width - imageSelectorRect.left),
+            height: clamp(Math.abs(imageSelectorRect.height + incY), 0, imageWrapperRect.height - imageSelectorRect.top)
+          });
+        }
+        else if (refs.mouseDown.current?.version === 'bottom_left') {
+          const incY = y - refs.previousMouseEvent.current.clientY;
+          const incX = x - refs.previousMouseEvent.current.clientX;
+
+          const left = clamp(imageSelectorRect.left + incX, 0);
+
+          if ((imageSelectorRect.height + incY < 0) && (imageSelectorRect.right - left < 0)) refs.mouseDown.current.version = 'top_right';
+          else if (imageSelectorRect.height + incY < 0) refs.mouseDown.current.version = 'top_left';
+          else if (imageSelectorRect.right - left < 0) refs.mouseDown.current.version = 'bottom_right';
+
+          setImageSelectorValue({
+            ...refs.imageSelectorValue.current,
+
+            left,
+
+            width: clamp(imageSelectorRect.right - left, 0),
+            height: clamp(Math.abs(imageSelectorRect.height + incY), 0, imageWrapperRect.height - imageSelectorRect.top)
           });
         }
         else if (refs.mouseDown.current?.version === 'top') {
@@ -1157,7 +1230,7 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
               />
 
               <div
-                ref={refs.borderRight}
+                ref={refs.borderLeft}
 
                 onTouchStart={onTouchStartBorder('left')}
 
