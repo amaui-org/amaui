@@ -85,7 +85,7 @@ const useStyle = style(theme => ({
   iconButton: {
     top: '8px',
     insetInlineEnd: '-8px',
-    transform: 'translateX(100%)',
+    transform: `translateX(${theme.direction === 'ltr' ? '' : '-'}100%)`,
     zIndex: 1,
 
     '&.AmauiIconButton-root': {
