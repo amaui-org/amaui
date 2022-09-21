@@ -26,9 +26,27 @@ const useStyle = style(theme => ({
     zIndex: theme.z_index.modal + 11
   },
 
-  image: {
+  canvas: {
+    position: 'absolute',
+    zIndex: 0
+  },
+
+  canvas_main: {
+    top: 0,
+    left: 0
+  },
+
+  canvas_imageSelector: {
+    zIndex: -1
+  },
+
+  background: {
+    position: 'absolute',
+    inset: 0,
     width: '100%',
-    height: '100%'
+    height: '100%',
+    background: theme.methods.palette.color.colorToRgb(theme.palette.text.default.primary, 44),
+    zIndex: 1,
   },
 
   imageSelector: {
@@ -37,10 +55,36 @@ const useStyle = style(theme => ({
     left: 0,
     width: 0,
     height: 0,
-    border: '2px dashed white',
-    mixBlendMode: 'difference',
     background: 'transparent',
-    touchAction: 'none'
+    touchAction: 'none',
+    cursor: 'grab',
+    opacity: 0,
+    overflow: 'hidden',
+    zIndex: 14,
+    transition: theme.methods.transitions.make('opacity'),
+
+    '&::before': {
+      content: '""',
+      position: 'absolute',
+      inset: 0,
+      width: '100%',
+      height: '100%',
+      border: '2px dashed white',
+      mixBlendMode: 'difference',
+      boxSizing: 'border-box'
+    },
+
+    '&:active': {
+      cursor: 'grabbing'
+    },
+
+    '& > *': {
+      pointerEvents: 'none'
+    }
+  },
+
+  imageSelector_in: {
+    opacity: 1
   }
 }), { name: 'AmauiScreenShot' });
 
@@ -118,6 +162,8 @@ const IconMaterialDownloadRounded = React.forwardRef((props: any, ref) => {
 
 // Move
 
+// ltr
+
 const ScreenShot = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 
@@ -173,7 +219,11 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
     imageWrapper: React.useRef<any>(),
     image: React.useRef<any>(),
     mouseDown: React.useRef<any>(),
-    imageSelectorValue: React.useRef<any>()
+    imageSelectorValue: React.useRef<any>(),
+    imageSelector: React.useRef<any>(),
+    previousMouseEvent: React.useRef<any>(),
+    canvasMain: React.useRef<HTMLCanvasElement>(),
+    canvasImageSelector: React.useRef<HTMLCanvasElement>()
   };
 
   refs.image.current = image;
@@ -228,28 +278,44 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
 
     const onMouseUp = (event: MouseEvent) => {
       setMouseDown(false);
+
+      refs.previousMouseEvent.current = undefined;
     };
 
     // Move
     const onMove = (x: number, y: number) => {
-      if (refs.mouseDown.current) {
+      if (refs.mouseDown.current && refs.previousMouseEvent.current) {
         const { top: previousTop, left: previousLeft } = refs.mouseDown.current;
 
         const imageWrapperRect: DOMRect = refs.imageWrapper.current.getBoundingClientRect();
 
-        const top = clamp(y - imageWrapperRect.top, 0, imageWrapperRect.height);
+        const imageSelectorRect: DOMRect = refs.imageSelector.current.getBoundingClientRect();
 
-        const left = clamp(x - imageWrapperRect.left, 0, imageWrapperRect.width);
+        if (refs.mouseDown.current?.version === 'make') {
+          const top = clamp(y - imageWrapperRect.top, 0, imageWrapperRect.height);
+          const left = clamp(x - imageWrapperRect.left, 0, imageWrapperRect.width);
 
-        setImageSelectorValue({
-          ...refs.imageSelectorValue.current,
+          setImageSelectorValue({
+            ...refs.imageSelectorValue.current,
 
-          top: clamp(top, 0, previousTop),
-          left: clamp(left, 0, previousLeft),
+            top: clamp(top, 0, previousTop),
+            left: clamp(left, 0, previousLeft),
 
-          height: Math.abs(top - previousTop),
-          width: Math.abs(left - previousLeft)
-        });
+            height: Math.abs(top - previousTop),
+            width: Math.abs(left - previousLeft)
+          });
+        }
+        else if (refs.mouseDown.current?.version === 'move') {
+          const top = y - refs.previousMouseEvent.current.clientY;
+          const left = x - refs.previousMouseEvent.current.clientX;
+
+          setImageSelectorValue({
+            ...refs.imageSelectorValue.current,
+
+            top: clamp(refs.imageSelectorValue.current.top + top, 0, imageWrapperRect.height - imageSelectorRect.height),
+            left: clamp(refs.imageSelectorValue.current.left + left, 0, imageWrapperRect.width - imageSelectorRect.width)
+          });
+        }
       }
     };
 
@@ -259,6 +325,8 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
         const { clientY, clientX } = event;
 
         onMove(clientX, clientY);
+
+        refs.previousMouseEvent.current = event;
       }
     };
 
@@ -268,6 +336,13 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
         const { clientY, clientX } = event.touches[0];
 
         onMove(clientX, clientY);
+
+        refs.previousMouseEvent.current = event;
+
+        // Normalize for use as a mouseDown value
+        refs.previousMouseEvent.current.clientY = clientY;
+
+        refs.previousMouseEvent.current.clientX = clientX;
       }
     };
 
@@ -313,14 +388,10 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
   React.useEffect(() => {
     if (image) {
       window.document.body.style.overflow = 'hidden';
+      console.log(1, image);
+      refs.canvasMain.current.getContext('2d').drawImage(image, 0, 0);
 
-      if (refs.imageWrapper.current) {
-        image.className = classNames([
-          classes.image
-        ]);
-
-        refs.imageWrapper.current.append(image);
-      }
+      refs.canvasImageSelector.current.getContext('2d').drawImage(image, 0, 0);
     }
     else {
       setImageSelectorValue(false);
@@ -458,22 +529,53 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
   };
 
   const onTouchStart = React.useCallback((event: React.TouchEvent<any>) => {
+    if (event.target !== refs.imageSelector.current) {
+      const { clientY, clientX } = event.touches[0];
+
+      const imageWrapperRect = refs.imageWrapper.current.getBoundingClientRect();
+
+      setMouseDown({
+        version: 'make',
+        top: clientY - imageWrapperRect.top,
+        left: clientX - imageWrapperRect.left
+      });
+    }
+  }, []);
+
+  const onMouseDown = React.useCallback((event: React.MouseEvent<any>) => {
+    if (event.target !== refs.imageSelector.current) {
+      console.log(refs.imageSelector.current, event.target);
+      const { clientY, clientX } = event;
+
+      const imageWrapperRect = refs.imageWrapper.current.getBoundingClientRect();
+
+      setMouseDown({
+        version: 'make',
+        top: clientY - imageWrapperRect.top,
+        left: clientX - imageWrapperRect.left
+      });
+    }
+  }, []);
+
+  const onTouchStartImageSelector = React.useCallback((event: React.TouchEvent<any>) => {
     const { clientY, clientX } = event.touches[0];
 
     const imageWrapperRect = refs.imageWrapper.current.getBoundingClientRect();
 
     setMouseDown({
+      version: 'move',
       top: clientY - imageWrapperRect.top,
       left: clientX - imageWrapperRect.left
     });
   }, []);
 
-  const onMouseDown = React.useCallback((event: React.MouseEvent<any>) => {
+  const onMouseDownImageSelector = React.useCallback((event: React.MouseEvent<any>) => {
     const { clientY, clientX } = event;
 
     const imageWrapperRect = refs.imageWrapper.current.getBoundingClientRect();
 
     setMouseDown({
+      version: 'move',
       top: clientY - imageWrapperRect.top,
       left: clientX - imageWrapperRect.left
     });
@@ -641,21 +743,77 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
               classes.imageWrapper
             ])}
           >
-            {imageSelectorValue && (
-              <div
+            <canvas
+              ref={refs.canvasMain}
+
+              className={classNames([
+                staticClassName('ScreenShot', theme) && [
+                  'AmauiScreenShot-canvas',
+                  'AmauiScreenShot-canvas-main'
+                ],
+
+                classes.canvas,
+                classes.canvas_main
+              ])}
+
+              width={image?.width}
+
+              height={image?.height}
+            />
+
+            <div
+              className={classNames([
+                staticClassName('ScreenShot', theme) && [
+                  'AmauiScreenShot-background'
+                ],
+
+                classes.background
+              ])}
+            />
+
+            <div
+              ref={refs.imageSelector}
+
+              onTouchStart={onTouchStartImageSelector}
+
+              onMouseDown={onMouseDownImageSelector}
+
+              className={classNames([
+                staticClassName('ScreenShot', theme) && [
+                  'AmauiScreenShot-imageSelector'
+                ],
+
+                classes.imageSelector,
+                imageSelectorValue && classes.imageSelector_in
+              ])}
+
+              style={{
+                ...imageSelectorValue
+              }}
+            >
+              <canvas
+                ref={refs.canvasImageSelector}
+
                 className={classNames([
                   staticClassName('ScreenShot', theme) && [
-                    'AmauiScreenShot-imageSelector'
+                    'AmauiScreenShot-canvas',
+                    'AmauiScreenShot-canvas-imageSelector'
                   ],
 
-                  classes.imageSelector
+                  classes.canvas,
+                  classes.canvas_imageSelector
                 ])}
 
+                width={image?.width}
+
+                height={image?.height}
+
                 style={{
-                  ...imageSelectorValue
+                  top: `${(imageSelectorValue?.top || 0) * -1}px`,
+                  left: `${(imageSelectorValue?.left || 0) * -1}px`
                 }}
               />
-            )}
+            </div>
           </div>
         </Portal>
       )}
