@@ -49,42 +49,38 @@ const useStyle = style(theme => ({
     zIndex: 1,
   },
 
+  imageSelector_main: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: 0,
+    height: 0,
+    outline: '2px dashed white',
+    background: 'transparent',
+    touchAction: 'none',
+    cursor: 'grab',
+    opacity: 0,
+    zIndex: 14,
+    transition: theme.methods.transitions.make('opacity'),
+
+    '&:active': {
+      cursor: 'grabbing'
+    }
+  },
+
+  imageSelector_main_in: {
+    opacity: 1
+  },
+
   imageSelector: {
     position: 'absolute',
     top: 0,
     left: 0,
     width: 0,
     height: 0,
-    background: 'transparent',
     touchAction: 'none',
-    cursor: 'grab',
-    opacity: 0,
     overflow: 'hidden',
-    zIndex: 14,
-    transition: theme.methods.transitions.make('opacity'),
-
-    '&::before': {
-      content: '""',
-      position: 'absolute',
-      inset: 0,
-      width: '100%',
-      height: '100%',
-      border: '2px dashed white',
-      mixBlendMode: 'difference',
-      boxSizing: 'border-box'
-    },
-
-    '&:active': {
-      cursor: 'grabbing'
-    },
-
-    '& > *': {
-      pointerEvents: 'none'
-    }
-  },
-
-  imageSelector_in: {
-    opacity: 1
+    zIndex: 11
   }
 }), { name: 'AmauiScreenShot' });
 
@@ -220,6 +216,7 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
     image: React.useRef<any>(),
     mouseDown: React.useRef<any>(),
     imageSelectorValue: React.useRef<any>(),
+    imageSelectorMain: React.useRef<any>(),
     imageSelector: React.useRef<any>(),
     previousMouseEvent: React.useRef<any>(),
     canvasMain: React.useRef<HTMLCanvasElement>(),
@@ -529,7 +526,7 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
   };
 
   const onTouchStart = React.useCallback((event: React.TouchEvent<any>) => {
-    if (event.target !== refs.imageSelector.current) {
+    if (event.target !== refs.imageSelectorMain.current && event.target !== refs.imageSelector.current) {
       const { clientY, clientX } = event.touches[0];
 
       const imageWrapperRect = refs.imageWrapper.current.getBoundingClientRect();
@@ -543,7 +540,7 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
   }, []);
 
   const onMouseDown = React.useCallback((event: React.MouseEvent<any>) => {
-    if (event.target !== refs.imageSelector.current) {
+    if (event.target !== refs.imageSelectorMain.current && event.target !== refs.imageSelector.current) {
       console.log(refs.imageSelector.current, event.target);
       const { clientY, clientX } = event;
 
@@ -772,7 +769,7 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
             />
 
             <div
-              ref={refs.imageSelector}
+              ref={refs.imageSelectorMain}
 
               onTouchStart={onTouchStartImageSelector}
 
@@ -780,11 +777,27 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
 
               className={classNames([
                 staticClassName('ScreenShot', theme) && [
+                  'AmauiScreenShot-imageSelector-main'
+                ],
+
+                classes.imageSelector_main,
+                imageSelectorValue && classes.imageSelector_main_in
+              ])}
+
+              style={{
+                ...imageSelectorValue
+              }}
+            />
+
+            <div
+              ref={refs.imageSelector}
+
+              className={classNames([
+                staticClassName('ScreenShot', theme) && [
                   'AmauiScreenShot-imageSelector'
                 ],
 
-                classes.imageSelector,
-                imageSelectorValue && classes.imageSelector_in
+                classes.imageSelector
               ])}
 
               style={{
