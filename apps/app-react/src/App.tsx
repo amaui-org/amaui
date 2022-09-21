@@ -2167,7 +2167,57 @@ Please sign in again.`}
           />
         </Accordion>
 
-        <Accordion primary='ImageResize within width, height'>
+        <Accordion primary='ImageResize aspectRatio' open>
+          <Line
+            style={{
+              width: '100%'
+            }}
+          >
+            <ImageResize
+              aspectRatio={1 / 1}
+
+              image='./image.jpg'
+
+              dynamicParent
+            />
+
+            <ImageResize
+              aspectRatio={4 / 3}
+
+              image='./image.jpg'
+
+              dynamicParent
+            />
+
+            <ImageResize
+              aspectRatio={16 / 9}
+
+              image='./image.jpg'
+
+              dynamicParent
+            />
+
+            <ImageResize
+              aspectRatio={1 / 2}
+
+              image='./image.jpg'
+
+              dynamicParent
+            />
+          </Line>
+        </Accordion>
+
+        <Accordion primary='ImageResize gridLines' open>
+          <ImageResize
+            image='./image.jpg'
+
+            dynamicParent
+
+            gridLines
+          />
+        </Accordion>
+
+        <Accordion primary='ImageResize within width, height' open>
           <ImageResize
             image='./image.jpg'
 

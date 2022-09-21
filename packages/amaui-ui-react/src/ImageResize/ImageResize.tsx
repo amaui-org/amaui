@@ -22,6 +22,7 @@ const useStyle = style(theme => ({
     width: '100%',
     minHeight: 1,
     lineHeight: 0,
+    userSelect: 'none',
     overflow: 'hidden'
   },
 
@@ -118,6 +119,7 @@ const useStyle = style(theme => ({
     touchAction: 'none',
     opacity: 0,
     zIndex: 14,
+    userSelect: 'none',
     transition: theme.methods.transitions.make('opacity'),
   },
 
@@ -133,6 +135,7 @@ const useStyle = style(theme => ({
     height: 0,
     touchAction: 'none',
     overflow: 'hidden',
+    userSelect: 'none',
     zIndex: 11
   },
 
@@ -146,6 +149,40 @@ const useStyle = style(theme => ({
     '&:active': {
       cursor: 'grabbing !important'
     }
+  },
+
+  grid_line: {
+    position: 'absolute',
+    background: 'white',
+    mixBlendMode: 'difference'
+  },
+
+  grid_line_top_start: {
+    top: '33.3333%',
+    insetInline: 0,
+    width: '100%',
+    height: '1px'
+  },
+
+  grid_line_top_end: {
+    top: '66.6666%',
+    insetInline: 0,
+    width: '100%',
+    height: '1px'
+  },
+
+  grid_line_left_start: {
+    left: '33.3333%',
+    insetBlock: 0,
+    width: '1px',
+    height: '100%'
+  },
+
+  grid_line_left_end: {
+    left: '66.6666%',
+    insetBlock: 0,
+    width: '1px',
+    height: '100%'
   },
 
   dot: {
@@ -290,6 +327,8 @@ const ImageResize = React.forwardRef((props_: any, ref: any) => {
     type = `image/png`,
     quality = 1,
 
+    aspectRatio,
+    gridLines,
     dynamicParent,
 
     TooltipProps,
@@ -323,6 +362,7 @@ const ImageResize = React.forwardRef((props_: any, ref: any) => {
     dotBottomLeft: React.useRef<HTMLDivElement>(),
     dotBottomRight: React.useRef<HTMLDivElement>(),
     props: React.useRef<HTMLDivElement>(),
+    aspectRatio: React.useRef<any>(),
     dynamicParent: React.useRef<any>()
   };
 
@@ -335,6 +375,8 @@ const ImageResize = React.forwardRef((props_: any, ref: any) => {
   refs.props.current = props;
 
   refs.dynamicParent.current = dynamicParent;
+
+  refs.aspectRatio.current = aspectRatio;
 
   const onSelectorChange = (valueNew: any) => {
     // Update inner or controlled
@@ -388,17 +430,75 @@ const ImageResize = React.forwardRef((props_: any, ref: any) => {
         selectorRect.bottom = selectorRect.top + selectorRect_.height;
 
         if (refs.mouseDown.current?.version === 'make') {
-          const top = clamp(y - rootRect.top, 0, rootRect.height);
-          const left = clamp(x - rootRect.left, 0, rootRect.width);
+          let top = clamp(y - rootRect.top, 0, rootRect.height);
+          let left = clamp(x - rootRect.left, 0, rootRect.width);
+
+          let width = Math.abs(left - previousLeft);
+          let height = Math.abs(top - previousTop);
+
+          if (refs.aspectRatio.current !== undefined) {
+            width = Math.min(width, height * refs.aspectRatio.current);
+
+            height = width / refs.aspectRatio.current;
+          }
+
+          // if (refs.aspectRatio.current !== undefined) {
+          //   const incY = y - refs.previousMouseEvent.current.clientY;
+          //   const incX = x - refs.previousMouseEvent.current.clientX;
+
+          //   const selectorWidth = refs.selector.current?.width !== undefined ? refs.selector.current.width : 0;
+          //   const selectorHeight = refs.selector.current?.height !== undefined ? refs.selector.current.height : 0;
+
+          //   width = Math.abs(selectorWidth + incX);
+
+          //   height = Math.abs(selectorHeight + incY);
+
+          //   // width updated
+          //   if (selectorWidth + incX !== selectorWidth) {
+          //     height = width / refs.aspectRatio.current;
+          //   }
+
+          //   // max width
+          //   if (left + width > rootRect.width) {
+          //     width = rootRect.width - left;
+
+          //     height = width / aspectRatio;
+          //   }
+
+          //   // height updated
+          //   if (Math.abs(selectorHeight + incY) !== selectorHeight) {
+          //     height = Math.abs(selectorHeight + incY);
+
+          //     width = height * aspectRatio;
+          //   }
+
+          //   // If height is out of element update with per max height
+          //   if (top + height > rootRect.height) {
+          //     // height max
+          //     height = rootRect.height - top;
+
+          //     width = height * aspectRatio;
+          //   }
+
+          //   if (left + width === rootRect.width) top = refs.selector.current.top;
+          //   else top = clamp(top, 0, previousTop);
+
+          //   if (top + height === rootRect.height) left = refs.selector.current.left;
+          //   else left = clamp(left, 0, previousLeft);
+          // }
+
+          top = clamp(top, 0, previousTop);
+
+          left = clamp(left, 0, previousLeft);
 
           onSelectorChange({
             ...refs.selector.current,
 
-            top: clamp(top, 0, previousTop),
-            left: clamp(left, 0, previousLeft),
+            top,
+            left,
 
-            height: Math.abs(top - previousTop),
-            width: Math.abs(left - previousLeft)
+            width,
+            height
           });
         }
         else if (refs.mouseDown.current?.version === 'move') {
@@ -607,7 +707,7 @@ const ImageResize = React.forwardRef((props_: any, ref: any) => {
   React.useEffect(() => {
     if (image_ !== image) {
       if (image_ instanceof HTMLCanvasElement) setImage(image_);
-      else if (is('string', image_)) !refs.dynamicParent.current ? makeImage() : setTimeout(() => makeImage(image_), 14);
+      else if (is('string', image_)) !refs.dynamicParent.current ? makeImage() : setTimeout(() => makeImage(image_), 140);
     }
   }, [image_]);
 
@@ -794,7 +894,7 @@ const ImageResize = React.forwardRef((props_: any, ref: any) => {
       <Tooltip
         open={mouseDown}
 
-        label={`${selector?.width || 0} x ${selector?.height || 0}`}
+        label={`${Math.round(selector?.width || 0)} x ${Math.round(selector?.height || 0)}`}
 
         position='bottom'
 
@@ -833,6 +933,56 @@ const ImageResize = React.forwardRef((props_: any, ref: any) => {
               classes.move
             ])}
           />
+
+          {gridLines && <>
+            <div
+              className={classNames([
+                staticClassName('ScreenCapture', theme) && [
+                  'AmauiScreenCapture-grid-line',
+                  'AmauiScreenCapture-grid-line-top-start'
+                ],
+
+                classes.grid_line,
+                classes.grid_line_top_start
+              ])}
+            />
+
+            <div
+              className={classNames([
+                staticClassName('ScreenCapture', theme) && [
+                  'AmauiScreenCapture-grid-line',
+                  'AmauiScreenCapture-grid-line-top-end'
+                ],
+
+                classes.grid_line,
+                classes.grid_line_top_end
+              ])}
+            />
+
+            <div
+              className={classNames([
+                staticClassName('ScreenCapture', theme) && [
+                  'AmauiScreenCapture-grid-line',
+                  'AmauiScreenCapture-grid-line-left-start'
+                ],
+
+                classes.grid_line,
+                classes.grid_line_left_start
+              ])}
+            />
+
+            <div
+              className={classNames([
+                staticClassName('ScreenCapture', theme) && [
+                  'AmauiScreenCapture-grid-line',
+                  'AmauiScreenCapture-grid-line-left-end'
+                ],
+
+                classes.grid_line,
+                classes.grid_line_left_end
+              ])}
+            />
+          </>}
 
           <div
             ref={refs.dotTopLeft}
