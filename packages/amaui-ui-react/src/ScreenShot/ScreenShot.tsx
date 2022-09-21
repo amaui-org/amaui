@@ -533,7 +533,7 @@ const ScreenShot = React.forwardRef((props_: any, ref: any) => {
 
           if ((imageSelectorRect.height + incY < 0) && (imageSelectorRect.width + incX < 0)) refs.mouseDown.current.version = 'top_left';
           else if (imageSelectorRect.height + incY < 0) refs.mouseDown.current.version = 'top_right';
-          else if (imageSelectorRect.width + incX < 0) refs.mouseDown.current.version = 'top_left';
+          else if (imageSelectorRect.width + incX < 0) refs.mouseDown.current.version = 'bottom_left';
 
           setImageSelectorValue({
             ...refs.imageSelectorValue.current,
