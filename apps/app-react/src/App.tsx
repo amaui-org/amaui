@@ -2,7 +2,7 @@ import React from 'react';
 
 import { is, random, countries } from '@amaui/utils';
 import { AmauiTheme, AmauiThemeProvider, classNames, style, sy, useAmauiTheme } from '@amaui/style-react';
-import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationItem, NavigationRail, NavigationDrawer, BottomSheet, BottomAppBar, TopAppBar, Card, CardImage, CardMain, CardHeader, CardButton, CardFooter, Table, TableHead, TableRow, TableCell, TableHeader, TableFooter, TableBody, Placeholder, Snackbar, useSnackbars, Pagination, TablePagination, SpeedDial, SpeedDialItem, ImageList, ImageListItem, ImageListItemBox, Stepper, Step, Tabs, Tab, Timeline, TimelineItem, Tree, Masonry, Reveal, useConfirm, ViewSplit, WindowSplit, useMainProgress, Image, SpyScroll, AdvancedTextField, NumericTextField, useWidgets, ImageResize, ImageEdit } from '@amaui/ui-react';
+import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationItem, NavigationRail, NavigationDrawer, BottomSheet, BottomAppBar, TopAppBar, Card, CardImage, CardMain, CardHeader, CardButton, CardFooter, Table, TableHead, TableRow, TableCell, TableHeader, TableFooter, TableBody, Placeholder, Snackbar, useSnackbars, Pagination, TablePagination, SpeedDial, SpeedDialItem, ImageList, ImageListItem, ImageListItemBox, Stepper, Step, Tabs, Tab, Timeline, TimelineItem, Tree, Masonry, Reveal, useConfirm, ViewSplit, WindowSplit, useMainProgress, Image, SpyScroll, AdvancedTextField, NumericTextField, useWidgets, ImageCrop, ImageEdit } from '@amaui/ui-react';
 
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
@@ -2158,22 +2158,22 @@ Please sign in again.`}
         </Line>
       </Accordion>
 
-      <Accordion primary='ImageResize'>
-        <Accordion primary='ImageResize' open>
-          <ImageResize
+      <Accordion primary='ImageCrop'>
+        <Accordion primary='ImageCrop' open>
+          <ImageCrop
             image='./image.jpg'
 
             dynamicParent
           />
         </Accordion>
 
-        <Accordion primary='ImageResize aspectRatio' open>
+        <Accordion primary='ImageCrop aspectRatio' open>
           <Line
             style={{
               width: '100%'
             }}
           >
-            <ImageResize
+            <ImageCrop
               aspectRatio={1 / 1}
 
               image='./image.jpg'
@@ -2181,7 +2181,7 @@ Please sign in again.`}
               dynamicParent
             />
 
-            <ImageResize
+            <ImageCrop
               aspectRatio={4 / 3}
 
               image='./image.jpg'
@@ -2189,7 +2189,7 @@ Please sign in again.`}
               dynamicParent
             />
 
-            <ImageResize
+            <ImageCrop
               aspectRatio={16 / 9}
 
               image='./image.jpg'
@@ -2197,7 +2197,7 @@ Please sign in again.`}
               dynamicParent
             />
 
-            <ImageResize
+            <ImageCrop
               aspectRatio={1 / 2}
 
               image='./image.jpg'
@@ -2207,8 +2207,8 @@ Please sign in again.`}
           </Line>
         </Accordion>
 
-        <Accordion primary='ImageResize gridLines' open>
-          <ImageResize
+        <Accordion primary='ImageCrop gridLines' open>
+          <ImageCrop
             image='./image.jpg'
 
             dynamicParent
@@ -2217,8 +2217,8 @@ Please sign in again.`}
           />
         </Accordion>
 
-        <Accordion primary='ImageResize within width, height' open>
-          <ImageResize
+        <Accordion primary='ImageCrop within width, height' open>
+          <ImageCrop
             image='./image.jpg'
 
             dynamicParent

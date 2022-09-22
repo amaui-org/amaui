@@ -8,7 +8,7 @@ import Surface from '../Surface';
 import TextField from '../TextField';
 import IconButton from '../IconButton';
 import { IconDoneAnimated } from '../Buttons/Buttons';
-import ImageResize from '../ImageResize';
+import ImageCrop from '../ImageCrop';
 import Portal from '../Portal';
 import Line from '../Line';
 import Icon from '../Icon';
@@ -129,7 +129,7 @@ const ScreenCapture = React.forwardRef((props_: any, ref: any) => {
     TextFieldProps,
     TooltipProps,
     IconButtonProps,
-    ImageResizeProps = {
+    ImageCropProps = {
       type: `image/png`,
       quality: 1
     },
@@ -366,7 +366,7 @@ const ScreenCapture = React.forwardRef((props_: any, ref: any) => {
     if (is('function', onFreeClose_)) onFreeClose_();
   };
 
-  const onImageResizeSelectorChange = React.useCallback((values: any) => {
+  const onImageCropSelectorChange = React.useCallback((values: any) => {
     setImageSelectorValue(values);
   }, []);
 
@@ -528,12 +528,12 @@ const ScreenCapture = React.forwardRef((props_: any, ref: any) => {
               classes.imageWrapper
             ])}
           >
-            <ImageResize
+            <ImageCrop
               image={image}
 
-              onSelectorChange={onImageResizeSelectorChange}
+              onSelectorChange={onImageCropSelectorChange}
 
-              {...ImageResizeProps}
+              {...ImageCropProps}
             />
           </div>
         </Portal>

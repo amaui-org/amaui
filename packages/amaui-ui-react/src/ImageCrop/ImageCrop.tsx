@@ -284,18 +284,13 @@ const useStyle = style(theme => ({
       transform: 'translate(-50%, 50%)'
     }
   }
-}), { name: 'AmauiImageResize' });
+}), { name: 'AmauiImageCrop' });
 
 // To do
 
-// update all other width value y managers
-
 // default selector values capped to image width, height and then if aspect ratio to max width and height
 
-// options to choose common aspect ratios
-// with aspect ratio and each with optional width and height
-
-// and 2 numeric text fields small to choose custom aspect ratio
+// On aspect ratio update, recalculate the width and height, choose biggest surface and max height and width
 
 // Example with default selector width, height, top, left
 // min selector width, min selector height
@@ -305,16 +300,12 @@ const useStyle = style(theme => ({
 // Optional buttons to save or cancel
 // both buttons any component, React.cloneElement to add onClick to the buttons value y
 
-// Save
-// on save update image as new canvas
-// and call onChange method with new either datauri or canvas, depends on version
+// Escape, cancel the selection. make selection undefined value y
 
-// Escape, cancel the selection
-
-const ImageResize = React.forwardRef((props_: any, ref: any) => {
+const ImageCrop = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiImageResize?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiImageCrop?.props?.default }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -364,8 +355,8 @@ const ImageResize = React.forwardRef((props_: any, ref: any) => {
     dotBottomLeft: React.useRef<HTMLDivElement>(),
     dotBottomRight: React.useRef<HTMLDivElement>(),
     props: React.useRef<HTMLDivElement>(),
-    aspectRatio: React.useRef<any>(),
-    dynamicParent: React.useRef<any>()
+    dynamicParent: React.useRef<any>(),
+    aspectRatio: React.useRef<any>()
   };
 
   refs.image.current = image;
@@ -443,17 +434,11 @@ const ImageResize = React.forwardRef((props_: any, ref: any) => {
 
           if (refs.aspectRatio.current !== undefined) {
             if (left < previousLeft) {
-              if (
-                (refs.selector.current?.left < previousLeft && top >= previousTop && refs.selector.current?.top + refs.selector.current?.height >= rootRect.height) ||
-                (refs.selector.current?.left < previousLeft && refs.selector.current?.top < previousTop && top < previousTop && refs.selector.current?.height >= previousTop)
-              ) return;
+              if (left < refs.selector.current?.left && (top <= 0 || refs.selector.current?.top + refs.selector.current?.height >= rootRect.height)) return;
             }
 
             if (top < previousTop) {
-              if (
-                (refs.selector.current?.top < previousTop && left >= previousLeft && refs.selector.current?.left + refs.selector.current?.width >= rootRect.width) ||
-                (refs.selector.current?.top < previousTop && refs.selector.current?.left < previousLeft && left < previousLeft && refs.selector.current?.width >= previousLeft)
-              ) return;
+              if (top < refs.selector.current?.top && (left <= 0 || refs.selector.current?.left + refs.selector.current?.width >= rootRect.width)) return;
             }
 
             // Max surface
@@ -1115,8 +1100,8 @@ const ImageResize = React.forwardRef((props_: any, ref: any) => {
       onMouseDown={onMouseDown}
 
       className={classNames([
-        staticClassName('ImageResize', theme) && [
-          'AmauiImageResize-root'
+        staticClassName('ImageCrop', theme) && [
+          'AmauiImageCrop-root'
         ],
 
         className,
@@ -1435,6 +1420,6 @@ const ImageResize = React.forwardRef((props_: any, ref: any) => {
   );
 });
 
-ImageResize.displayName = 'AmauiImageResize';
+ImageCrop.displayName = 'AmauiImageCrop';
 
-export default ImageResize;
+export default ImageCrop;

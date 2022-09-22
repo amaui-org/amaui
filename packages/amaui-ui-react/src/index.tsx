@@ -335,8 +335,8 @@ export * from './Widgets';
 export { default as ScreenCapture } from './ScreenCapture';
 export * from './ScreenCapture';
 
-export { default as ImageResize } from './ImageResize';
-export * from './ImageResize';
+export { default as ImageCrop } from './ImageCrop';
+export * from './ImageCrop';
 
 export { default as ImageEdit } from './ImageEdit';
 export * from './ImageEdit';
