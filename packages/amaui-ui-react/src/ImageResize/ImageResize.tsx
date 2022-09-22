@@ -288,8 +288,6 @@ const useStyle = style(theme => ({
 
 // To do
 
-// aspect ratio
-
 // update all other width value y managers
 
 // options to choose common aspect ratios
@@ -448,9 +446,11 @@ const ImageResize = React.forwardRef((props_: any, ref: any) => {
                 (refs.selector.current?.left < previousLeft && refs.selector.current?.top < previousTop && top < previousTop && refs.selector.current?.height >= previousTop)
               ) return;
             }
-            else {
+
+            if (top < previousTop) {
               if (
-                (refs.selector.current?.left >= previousLeft && top < previousTop && refs.selector.current?.left + refs.selector.current?.width >= rootRect.width)
+                (refs.selector.current?.top < previousTop && left >= previousLeft && refs.selector.current?.left + refs.selector.current?.width >= rootRect.width) ||
+                (refs.selector.current?.top < previousTop && refs.selector.current?.left < previousLeft && left < previousLeft && refs.selector.current?.width >= previousLeft)
               ) return;
             }
 
