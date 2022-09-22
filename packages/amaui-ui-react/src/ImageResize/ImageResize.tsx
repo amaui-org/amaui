@@ -290,6 +290,8 @@ const useStyle = style(theme => ({
 
 // update all other width value y managers
 
+// default selector values capped to image width, height and then if aspect ratio to max width and height
+
 // options to choose common aspect ratios
 // with aspect ratio and each with optional width and height
 
@@ -526,8 +528,8 @@ const ImageResize = React.forwardRef((props_: any, ref: any) => {
           const incY = y - refs.previousMouseEvent.current.clientY;
           const incX = x - refs.previousMouseEvent.current.clientX;
 
-          const top = clamp(selectorRect.top + incY, 0);
-          const left = clamp(selectorRect.left + incX, 0);
+          let top = clamp(selectorRect.top + incY, 0);
+          let left = clamp(selectorRect.left + incX, 0);
 
           if (
             (selectorRect.bottom - top < 0) &&
@@ -536,14 +538,68 @@ const ImageResize = React.forwardRef((props_: any, ref: any) => {
           else if (selectorRect.bottom - top < 0) refs.mouseDown.current.version = 'bottom_left';
           else if (selectorRect.right - left < 0) refs.mouseDown.current.version = 'top_right';
 
+          let width = clamp(selectorRect.right - left, 0);
+          let height = clamp(selectorRect.bottom - top, 0);
+
+          if (refs.aspectRatio.current !== undefined) {
+            // Left
+            if (left < refs.selector.current.left && refs.selector.current?.top === 0) return;
+
+            // Max surface
+            if (width + (width / refs.aspectRatio.current) >= height + (height * refs.aspectRatio.current)) {
+              height = width / refs.aspectRatio.current;
+            }
+            else {
+              width = height * refs.aspectRatio.current;
+            }
+
+            // Moved left
+            if (left < previousLeft) {
+              left = clamp(previousLeft - width, 0, previousLeft);
+
+              // Update width, height upto the previousLeft
+              width = clamp(width, 0, previousLeft);
+              height = width / refs.aspectRatio.current;
+            }
+
+            // Moved top
+            if (top < previousTop) {
+              top = clamp(previousTop - height, 0, previousTop);
+
+              // Update width, height upto the previousTop
+              height = clamp(height, 0, previousTop);
+              width = height * refs.aspectRatio.current;
+            }
+
+            // Max width
+            if (left + width > rootRect.width) {
+              width = rootRect.width - left;
+
+              height = width / refs.aspectRatio.current;
+            }
+
+            // Max height
+            if (top + height > rootRect.height) {
+              height = rootRect.height - top;
+
+              width = height * refs.aspectRatio.current;
+            }
+
+            // Min left
+            if (left < previousLeft) left = previousLeft - width;
+
+            // Min top
+            if (top < previousTop) top = previousTop - height;
+          }
+
           onSelectorChange({
             ...refs.selector.current,
 
             top,
             left,
 
-            width: clamp(selectorRect.right - left, 0),
-            height: clamp(selectorRect.bottom - top, 0)
+            width,
+            height
           });
         }
         else if (refs.mouseDown.current?.version === 'top_right') {
@@ -559,13 +615,37 @@ const ImageResize = React.forwardRef((props_: any, ref: any) => {
           else if (selectorRect.bottom - top < 0) refs.mouseDown.current.version = 'bottom_right';
           else if (selectorRect.width + incX < 0) refs.mouseDown.current.version = 'top_left';
 
+          let width = clamp(Math.abs(selectorRect.width + incX), 0, rootRect.width - selectorRect.left);
+          let height = clamp(selectorRect.bottom - top, 0);
+
+          // Top
+          if (refs.aspectRatio.current !== undefined) {
+            width = height * refs.aspectRatio.current;
+
+            height = width / refs.aspectRatio.current;
+
+            // Max width
+            if (refs.selector.current.left + width > rootRect.width) {
+              width = rootRect.width - refs.selector.current.left;
+
+              height = width / refs.aspectRatio.current;
+            }
+
+            // Max height
+            if (refs.selector.current.top + height > rootRect.height) {
+              height = rootRect.height - refs.selector.current.top;
+
+              width = height * refs.aspectRatio.current;
+            }
+          }
+
           onSelectorChange({
             ...refs.selector.current,
 
             top,
 
-            width: clamp(Math.abs(selectorRect.width + incX), 0, rootRect.width - selectorRect.left),
-            height: clamp(selectorRect.bottom - top, 0)
+            width,
+            height
           });
         }
         else if (refs.mouseDown.current?.version === 'bottom_right') {
@@ -576,11 +656,49 @@ const ImageResize = React.forwardRef((props_: any, ref: any) => {
           else if (selectorRect.height + incY < 0) refs.mouseDown.current.version = 'top_right';
           else if (selectorRect.width + incX < 0) refs.mouseDown.current.version = 'bottom_left';
 
+          let width = clamp(Math.abs(selectorRect.width + incX), 0, rootRect.width - selectorRect.left);
+          let height = clamp(Math.abs(selectorRect.height + incY), 0, rootRect.height - selectorRect.top);
+
+          // Right
+          if (refs.aspectRatio.current !== undefined) {
+            height = width / refs.aspectRatio.current;
+
+            // Max width
+            if (refs.selector.current.left + width > rootRect.width) {
+              width = rootRect.width - refs.selector.current.left;
+
+              height = width / refs.aspectRatio.current;
+            }
+
+            // Max height
+            if (refs.selector.current.top + height > rootRect.height) {
+              height = rootRect.height - refs.selector.current.top;
+
+              width = height * refs.aspectRatio.current;
+            }
+
+            width = height * refs.aspectRatio.current;
+
+            // Max width
+            if (refs.selector.current.left + width > rootRect.width) {
+              width = rootRect.width - refs.selector.current.left;
+
+              height = width / refs.aspectRatio.current;
+            }
+
+            // Max height
+            if (refs.selector.current.top + height > rootRect.height) {
+              height = rootRect.height - refs.selector.current.top;
+
+              width = height * refs.aspectRatio.current;
+            }
+          }
+
           onSelectorChange({
             ...refs.selector.current,
 
-            width: clamp(Math.abs(selectorRect.width + incX), 0, rootRect.width - selectorRect.left),
-            height: clamp(Math.abs(selectorRect.height + incY), 0, rootRect.height - selectorRect.top)
+            width,
+            height
           });
         }
         else if (refs.mouseDown.current?.version === 'bottom_left') {
@@ -593,13 +711,54 @@ const ImageResize = React.forwardRef((props_: any, ref: any) => {
           else if (selectorRect.height + incY < 0) refs.mouseDown.current.version = 'top_left';
           else if (selectorRect.right - left < 0) refs.mouseDown.current.version = 'bottom_right';
 
+          let width = clamp(selectorRect.right - left, 0);
+          let height = clamp(Math.abs(selectorRect.height + incY), 0, rootRect.height - selectorRect.top);
+
+          // Left
+          if (refs.aspectRatio.current !== undefined) {
+            // Left
+            if (left < refs.selector.current.left && refs.selector.current?.top + refs.selector.current?.height >= rootRect.height) return;
+
+            height = width / refs.aspectRatio.current;
+
+            // Max width
+            if (refs.selector.current.left + width > rootRect.width) {
+              width = rootRect.width - refs.selector.current.left;
+
+              height = width / refs.aspectRatio.current;
+            }
+
+            // Max height
+            if (refs.selector.current.top + height > rootRect.height) {
+              height = rootRect.height - refs.selector.current.top;
+
+              width = height * refs.aspectRatio.current;
+            }
+
+            width = height * refs.aspectRatio.current;
+
+            // Max width
+            if (refs.selector.current.left + width > rootRect.width) {
+              width = rootRect.width - refs.selector.current.left;
+
+              height = width / refs.aspectRatio.current;
+            }
+
+            // Max height
+            if (refs.selector.current.top + height > rootRect.height) {
+              height = rootRect.height - refs.selector.current.top;
+
+              width = height * refs.aspectRatio.current;
+            }
+          }
+
           onSelectorChange({
             ...refs.selector.current,
 
             left,
 
-            width: clamp(selectorRect.right - left, 0),
-            height: clamp(Math.abs(selectorRect.height + incY), 0, rootRect.height - selectorRect.top)
+            width,
+            height
           });
         }
         else if (refs.mouseDown.current?.version === 'top') {
@@ -609,12 +768,34 @@ const ImageResize = React.forwardRef((props_: any, ref: any) => {
 
           if (selectorRect.bottom - top < 0) refs.mouseDown.current.version = 'bottom';
 
+          let width: number = refs.selector.current.width;
+          let height = clamp(selectorRect.bottom - top, 0);
+
+          if (refs.aspectRatio.current !== undefined) {
+            width = height * refs.aspectRatio.current;
+
+            // Max width
+            if (refs.selector.current.left + width > rootRect.width) {
+              width = rootRect.width - refs.selector.current.left;
+
+              height = width / refs.aspectRatio.current;
+            }
+
+            // Max height
+            if (top + height > rootRect.height) {
+              height = rootRect.height - top;
+
+              width = height * refs.aspectRatio.current;
+            }
+          }
+
           onSelectorChange({
             ...refs.selector.current,
 
             top,
 
-            height: clamp(selectorRect.bottom - top, 0)
+            width,
+            height
           });
         }
         else if (refs.mouseDown.current?.version === 'bottom') {
@@ -622,10 +803,32 @@ const ImageResize = React.forwardRef((props_: any, ref: any) => {
 
           if (selectorRect.height + inc < 0) refs.mouseDown.current.version = 'top';
 
+          let width: number = refs.selector.current.width;
+          let height = clamp(Math.abs(selectorRect.height + inc), 0, rootRect.height - selectorRect.top);
+
+          if (refs.aspectRatio.current !== undefined) {
+            width = height * refs.aspectRatio.current;
+
+            // Max width
+            if (refs.selector.current.left + width > rootRect.width) {
+              width = rootRect.width - refs.selector.current.left;
+
+              height = width / refs.aspectRatio.current;
+            }
+
+            // Max height
+            if (refs.selector.current.top + height > rootRect.height) {
+              height = rootRect.height - refs.selector.current.top;
+
+              width = height * refs.aspectRatio.current;
+            }
+          }
+
           onSelectorChange({
             ...refs.selector.current,
 
-            height: clamp(Math.abs(selectorRect.height + inc), 0, rootRect.height - selectorRect.top)
+            width,
+            height
           });
         }
         else if (refs.mouseDown.current?.version === 'left') {
@@ -635,12 +838,36 @@ const ImageResize = React.forwardRef((props_: any, ref: any) => {
 
           if (selectorRect.right - left < 0) refs.mouseDown.current.version = 'right';
 
+          let width = clamp(selectorRect.right - left, 0);
+          let height: number = refs.selector.current.height;
+
+          if (refs.aspectRatio.current !== undefined) {
+            if (left < refs.selector.current.left && refs.selector.current?.top + refs.selector.current?.height >= rootRect.height) return;
+
+            height = width / refs.aspectRatio.current;
+
+            // Max width
+            if (refs.selector.current.left + width > rootRect.width) {
+              width = rootRect.width - refs.selector.current.left;
+
+              height = width / refs.aspectRatio.current;
+            }
+
+            // Max height
+            if (refs.selector.current.top + height > rootRect.height) {
+              height = rootRect.height - refs.selector.current.top;
+
+              width = height * refs.aspectRatio.current;
+            }
+          }
+
           onSelectorChange({
             ...refs.selector.current,
 
             left,
 
-            width: clamp(selectorRect.right - left, 0)
+            width,
+            height
           });
         }
         else if (refs.mouseDown.current?.version === 'right') {
@@ -648,10 +875,32 @@ const ImageResize = React.forwardRef((props_: any, ref: any) => {
 
           if (selectorRect.width + inc < 0) refs.mouseDown.current.version = 'left';
 
+          let width = clamp(Math.abs(selectorRect.width + inc), 0, rootRect.width - selectorRect.left);
+          let height: number = refs.selector.current.height;
+
+          if (refs.aspectRatio.current !== undefined) {
+            height = width / refs.aspectRatio.current;
+
+            // Max width
+            if (refs.selector.current.left + width > rootRect.width) {
+              width = rootRect.width - refs.selector.current.left;
+
+              height = width / refs.aspectRatio.current;
+            }
+
+            // Max height
+            if (refs.selector.current.top + height > rootRect.height) {
+              height = rootRect.height - refs.selector.current.top;
+
+              width = height * refs.aspectRatio.current;
+            }
+          }
+
           onSelectorChange({
             ...refs.selector.current,
 
-            width: clamp(Math.abs(selectorRect.width + inc), 0, rootRect.width - selectorRect.left)
+            width,
+            height
           });
         }
       }
@@ -813,7 +1062,7 @@ const ImageResize = React.forwardRef((props_: any, ref: any) => {
     }
   }, []);
 
-  const onTouchStartImageSelector = React.useCallback((event: React.TouchEvent<any>) => {
+  const onTouchStartSelector = React.useCallback((event: React.TouchEvent<any>) => {
     const { clientY, clientX } = event.touches[0];
 
     const rootRect = refs.root.current.getBoundingClientRect();
@@ -825,7 +1074,7 @@ const ImageResize = React.forwardRef((props_: any, ref: any) => {
     });
   }, []);
 
-  const onMouseDownImageSelector = React.useCallback((event: React.MouseEvent<any>) => {
+  const onMouseDownSelector = React.useCallback((event: React.MouseEvent<any>) => {
     const { clientY, clientX } = event;
 
     const rootRect = refs.root.current.getBoundingClientRect();
@@ -839,13 +1088,17 @@ const ImageResize = React.forwardRef((props_: any, ref: any) => {
 
   const onTouchStartBorder = (version: string) => (event: React.TouchEvent<any>) => {
     setMouseDown({
-      version
+      version,
+      top: refs.selector.current?.top + refs.selector.current?.height,
+      left: refs.selector.current?.left + refs.selector.current?.width
     });
   };
 
   const onMouseDownBorder = (version: string) => (event: React.MouseEvent<any>) => {
     setMouseDown({
-      version
+      version,
+      top: refs.selector.current?.top + refs.selector.current?.height,
+      left: refs.selector.current?.left + refs.selector.current?.width
     });
   };
 
@@ -931,9 +1184,9 @@ const ImageResize = React.forwardRef((props_: any, ref: any) => {
           <div
             ref={refs.move}
 
-            onTouchStart={onTouchStartImageSelector}
+            onTouchStart={onTouchStartSelector}
 
-            onMouseDown={onMouseDownImageSelector}
+            onMouseDown={onMouseDownSelector}
 
             className={classNames([
               staticClassName('ScreenCapture', theme) && [
