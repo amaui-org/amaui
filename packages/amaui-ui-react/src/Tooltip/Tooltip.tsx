@@ -189,6 +189,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
     arrow,
     anchorElement,
     noMargin,
+    classNameSwitch,
     transformOrigin,
     transformOriginSwitch,
     transformOriginRtl,
@@ -483,7 +484,8 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
 
               className,
               classes.root,
-              ModalProps?.className
+              ModalProps?.className,
+              switched && classNameSwitch
             ])}
 
             {...ModalProps}

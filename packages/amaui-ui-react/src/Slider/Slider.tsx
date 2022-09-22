@@ -397,6 +397,26 @@ const useStyle = style(theme => ({
     }
   },
 
+  tooltip_switch_orientation_horizontal_ltr: {
+    '& .AmauiTooltip-label': {
+      transform: 'rotate(135deg)',
+
+      '& .AmauiTooltip-label-text': {
+        transform: 'translate(-50%, -50%) rotate(-135deg)'
+      }
+    }
+  },
+
+  tooltip_switch_orientation_horizontal_rtl: {
+    '& .AmauiTooltip-label': {
+      transform: 'rotate(135deg)',
+
+      '& .AmauiTooltip-label-text': {
+        transform: 'translate(-50%, -50%) rotate(-135deg)'
+      }
+    }
+  },
+
   disabled: {
     cursor: 'default',
     pointerEvents: 'none',
@@ -1080,8 +1100,11 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
           key={index}
 
           className={classNames([
-            classes.tooltip
+            classes.tooltip,
+            classes[`tooltip_orientation_${orientation}`]
           ])}
+
+          classNameSwitch={classes[`tooltip_switch_orientation_${orientation}_${theme.direction}`]}
 
           {...((tooltip === 'always') || (tooltip !== undefined && mouseDownButton === index) ? { open: true } : tooltip === undefined ? { open: false } : {})}
 
@@ -1091,13 +1114,17 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
 
           alignment='center'
 
-          noMargin
-
           TransitionComponent={Zoom}
 
-          transformOrigin={orientation === 'horizontal' ? 'bottom center' : 'center right'}
+          transformOrigin={orientation === 'horizontal' ? 'center bottom' : 'center right'}
 
-          transformOriginRtl={orientation === 'horizontal' ? 'bottom center' : 'center left'}
+          transformOriginSwitch={orientation === 'horizontal' ? 'center top' : 'center left'}
+
+          transformOriginRtl={orientation === 'horizontal' ? 'center bottom' : 'center left'}
+
+          transformOriginSwitchRtl={orientation === 'horizontal' ? 'center top' : 'center right'}
+
+          noMargin
 
           LabelProps={{
             style: styles.label

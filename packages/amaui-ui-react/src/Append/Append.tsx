@@ -197,8 +197,17 @@ const Append = (props_: any) => {
       const overflow = window.getComputedStyle(item).overflow;
 
       return (
-        overflow.includes('hidden') ||
-        (item.clientHeight !== item.scrollHeight)
+        (
+          overflow.includes('auto') ||
+          overflow.includes('hidden')
+        ) &&
+        (
+          (item.clientHeight !== item.scrollHeight) ||
+          (
+            (item.clientHeight > window.innerHeight) ||
+            (item.clientWidth > window.innerWidth)
+          )
+        )
       );
     });
 
