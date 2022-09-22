@@ -369,7 +369,6 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
     // + resolve it to max width and height for aspect ratio
     if (is('object', valueNew) && !!Object.keys(valueNew).length && refs.root.current) {
       const rootRect = refs.root.current.getBoundingClientRect();
-      const selectorRect = refs.imageSelectorMain.current.getBoundingClientRect();
 
       const minWidth_ = refs.props.current.minWidth !== undefined ? refs.props.current.minWidth : Number.MIN_SAFE_INTEGER;
       const minHeight_ = refs.props.current.minHeight !== undefined ? refs.props.current.minHeight : Number.MIN_SAFE_INTEGER;
@@ -420,12 +419,8 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
       // and left or top are not same as before
       // return
       if (!['move'].includes(refs.mouseDown.current?.version)) {
-        if (maxWidth_ !== undefined) {
-          if (valueNew.top < selectorRect.top && (refs.selector.current?.height === maxHeight_ || refs.selector.current?.width === maxWidth_)) return;
-        }
-
-        if (maxHeight_ !== undefined) {
-          if (valueNew.left < selectorRect.left && (refs.selector.current?.height === maxHeight_ || refs.selector.current?.width === maxWidth_)) return;
+        if (maxWidth_ !== undefined || maxHeight_ !== undefined) {
+          if ((valueNew.top < refs.selector.current?.top || valueNew.left < refs.selector.current?.left) && (refs.selector.current?.width === maxWidth_ || refs.selector.current?.height === maxHeight_)) return;
         }
       }
     }
