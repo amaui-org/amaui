@@ -218,6 +218,13 @@ const useStyle = style(theme => ({
 }), { name: 'App' });
 
 const styled: any = {
+  ImageCrop: sy(ImageCrop)((theme: AmauiTheme) => ({
+    root: {
+      '&:hover': {
+        opacity: 0.4
+      }
+    }
+  })),
   Image: sy(Image)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
@@ -1010,6 +1017,10 @@ function App() {
             width: '100%'
           }}
         >
+          <ImageCrop
+            image='./image.jpg'
+          />
+
           <Line
             direction='row'
           >
@@ -2365,6 +2376,142 @@ Please sign in again.`}
               width: 440
             }}
           />
+        </Accordion>
+
+        <Accordion primary='AmauiTheme'>
+          <div className={classNames([classes.column])}>
+            <ImageCrop
+              image='./image.jpg'
+
+              dynamicParent
+            />
+
+            <Accordion primary='AmauiTheme nested value' open>
+              <AmauiThemeProvider
+                value={{
+                  palette: {
+                    color: {
+                      secondary: {
+                        main: '#008000'
+                      }
+                    }
+                  },
+                  space: {
+                    unit: 5
+                  }
+                }}
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                <ImageCrop
+                  image='./image.jpg'
+
+                  dynamicParent
+                />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme add' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiImageCrop: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: 0.4
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                <ImageCrop
+                  image='./image.jpg'
+
+                  dynamicParent
+                />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme override' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiImageCrop: {
+                        style: {
+                          override: {
+                            root: {
+                              margin: 40,
+                              lineHeight: 0
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                <ImageCrop
+                  image='./image.jpg'
+
+                  dynamicParent
+                />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme props' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiImageCrop: {
+                        props: {
+                          default: {
+                            aspectRatio: 4 / 3
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                <ImageCrop
+                  image='./image.jpg'
+
+                  dynamicParent
+                />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme styled' open>
+              <styled.ImageCrop
+                image='./image.jpg'
+
+                dynamicParent
+              />
+            </Accordion>
+          </div>
         </Accordion>
       </Accordion>
 
