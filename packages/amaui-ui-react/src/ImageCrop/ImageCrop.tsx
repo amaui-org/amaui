@@ -1257,7 +1257,7 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
       />
 
       <Tooltip
-        open={mouseDown}
+        open={mouseDown && (refs.selector.current?.width + refs.selector.current?.height > 0)}
 
         label={`${Math.round(selector?.width || 0)} x ${Math.round(selector?.height || 0)}`}
 
