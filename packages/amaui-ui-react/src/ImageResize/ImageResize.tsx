@@ -444,11 +444,13 @@ const ImageResize = React.forwardRef((props_: any, ref: any) => {
           if (refs.aspectRatio.current !== undefined) {
             if (left < previousLeft) {
               if (
-                (refs.selector.current.left < previousLeft) &&
-                (
-                  (top < previousTop && refs.selector.current.height >= previousTop) ||
-                  (top >= previousTop && refs.selector.current.top + refs.selector.current.height >= rootRect.height)
-                )
+                (refs.selector.current?.left < previousLeft && top >= previousTop && refs.selector.current?.top + refs.selector.current?.height >= rootRect.height) ||
+                (refs.selector.current?.left < previousLeft && refs.selector.current?.top < previousTop && top < previousTop && refs.selector.current?.height >= previousTop)
+              ) return;
+            }
+            else {
+              if (
+                (refs.selector.current?.left >= previousLeft && top < previousTop && refs.selector.current?.left + refs.selector.current?.width >= rootRect.width)
               ) return;
             }
 
@@ -492,9 +494,11 @@ const ImageResize = React.forwardRef((props_: any, ref: any) => {
               width = height * refs.aspectRatio.current;
             }
 
-            // if (left < previousLeft) {
-            //   if (left >= 0 && (height === refs.selector.current.height && ((top === 0 && height === previousTop) || (top === previousTop && top + height >= rootRect.height)))) left = refs.selector.current.height;
-            // }
+            // Min left
+            if (left < previousLeft) left = previousLeft - width;
+
+            // Min top
+            if (top < previousTop) top = previousTop - height;
           }
 
           onSelectorChange({
