@@ -290,6 +290,8 @@ const useStyle = style(theme => ({
 
 // aspect ratio
 
+// update all other width value y managers
+
 // options to choose common aspect ratios
 // with aspect ratio and each with optional width and height
 
@@ -440,40 +442,46 @@ const ImageResize = React.forwardRef((props_: any, ref: any) => {
           let height = Math.abs(top_ - previousTop);
 
           if (refs.aspectRatio.current !== undefined) {
-            height = width / refs.aspectRatio.current;
-
-            if (left + width > rootRect.width || x - rootRect.left <= 0) {
-              if (left + refs.selector.current?.width < rootRect.width && left_ !== 0) {
-                // Max width
-                width = rootRect.width - left;
-
-                height = width / refs.aspectRatio.current;
-              }
-              else if (refs.selector.current?.left > 0 && x - rootRect.left < 0) {
-                left = 0;
-
-                width = previousLeft;
-
-                height = width / refs.aspectRatio.current;
-              }
-              else return;
+            // Max surface
+            if (width + (width / refs.aspectRatio.current) >= height + (height * refs.aspectRatio.current)) {
+              height = width / refs.aspectRatio.current;
+            }
+            else {
+              width = height * refs.aspectRatio.current;
             }
 
-            if (top + height > rootRect.height || y - rootRect.top <= 0) {
-              if (top + refs.selector.current?.height < rootRect.height && top_ !== 0) {
-                // Max height
-                height = rootRect.height - top;
+            // Moved left
+            if (left < previousLeft) {
+              left = clamp(previousLeft - width, 0, previousLeft);
 
-                width = height * refs.aspectRatio.current;
-              }
-              else if (refs.selector.current?.top > 0 && y - rootRect.top < 0) {
-                top = 0;
+              // Update width, height upto the previousLeft
+              width = clamp(width, 0, previousLeft);
+              height = width / refs.aspectRatio.current;
 
-                height = previousTop;
+              if (left >= 0 && (top + height >= rootRect.height || top <= 0)) return;
+            }
 
-                width = height * refs.aspectRatio.current;
-              }
-              else return;
+            // Moved top
+            if (top < previousTop) {
+              top = clamp(previousTop - height, 0, previousTop);
+
+              // Update width, height upto the previousTop
+              height = clamp(height, 0, previousTop);
+              width = height * refs.aspectRatio.current;
+            }
+
+            // Max width
+            if (left + width > rootRect.width) {
+              width = rootRect.width - left;
+
+              height = width / refs.aspectRatio.current;
+            }
+
+            // Max height
+            if (top + height > rootRect.height) {
+              height = rootRect.height - top;
+
+              width = height * refs.aspectRatio.current;
             }
           }
 
