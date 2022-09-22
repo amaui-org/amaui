@@ -442,6 +442,16 @@ const ImageResize = React.forwardRef((props_: any, ref: any) => {
           let height = Math.abs(top_ - previousTop);
 
           if (refs.aspectRatio.current !== undefined) {
+            if (left < previousLeft) {
+              if (
+                (refs.selector.current.left < previousLeft) &&
+                (
+                  (top < previousTop && refs.selector.current.height >= previousTop) ||
+                  (top >= previousTop && refs.selector.current.top + refs.selector.current.height >= rootRect.height)
+                )
+              ) return;
+            }
+
             // Max surface
             if (width + (width / refs.aspectRatio.current) >= height + (height * refs.aspectRatio.current)) {
               height = width / refs.aspectRatio.current;
@@ -457,8 +467,6 @@ const ImageResize = React.forwardRef((props_: any, ref: any) => {
               // Update width, height upto the previousLeft
               width = clamp(width, 0, previousLeft);
               height = width / refs.aspectRatio.current;
-
-              if (left >= 0 && (top + height >= rootRect.height || top <= 0)) return;
             }
 
             // Moved top
@@ -483,6 +491,10 @@ const ImageResize = React.forwardRef((props_: any, ref: any) => {
 
               width = height * refs.aspectRatio.current;
             }
+
+            // if (left < previousLeft) {
+            //   if (left >= 0 && (height === refs.selector.current.height && ((top === 0 && height === previousTop) || (top === previousTop && top + height >= rootRect.height)))) left = refs.selector.current.height;
+            // }
           }
 
           onSelectorChange({
