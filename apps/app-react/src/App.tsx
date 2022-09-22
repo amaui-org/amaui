@@ -2207,6 +2207,74 @@ Please sign in again.`}
           </Line>
         </Accordion>
 
+        <Accordion primary='ImageCrop aspectRatio, default selection' open>
+          <Line
+            style={{
+              width: '100%'
+            }}
+          >
+            <ImageCrop
+              aspectRatio={1 / 1}
+
+              selectorDefault={{
+                top: 40,
+                left: 40,
+                width: 140,
+                height: 140
+              }}
+
+              image='./image.jpg'
+
+              dynamicParent
+            />
+
+            <ImageCrop
+              aspectRatio={4 / 3}
+
+              selectorDefault={{
+                top: 40,
+                left: 40,
+                width: 140,
+                height: 140
+              }}
+
+              image='./image.jpg'
+
+              dynamicParent
+            />
+
+            <ImageCrop
+              aspectRatio={16 / 9}
+
+              selectorDefault={{
+                top: 40,
+                left: 40,
+                width: 140,
+                height: 140
+              }}
+
+              image='./image.jpg'
+
+              dynamicParent
+            />
+
+            <ImageCrop
+              aspectRatio={1 / 2}
+
+              selectorDefault={{
+                top: 40,
+                left: 40,
+                width: 140,
+                height: 140
+              }}
+
+              image='./image.jpg'
+
+              dynamicParent
+            />
+          </Line>
+        </Accordion>
+
         <Accordion primary='ImageCrop gridLines' open>
           <ImageCrop
             image='./image.jpg'

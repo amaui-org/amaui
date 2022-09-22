@@ -286,21 +286,10 @@ const useStyle = style(theme => ({
   }
 }), { name: 'AmauiImageCrop' });
 
-// To do
-
-// default selector values capped to image width, height and then if aspect ratio to max width and height
-
-// On aspect ratio update, recalculate the width and height, choose biggest surface and max height and width
-
 // Example with default selector width, height, top, left
 // min selector width, min selector height
 // max selector width and max selector height
 // min and max values are clamp value, 0, root width, root height y value y
-
-// Optional buttons to save or cancel
-// both buttons any component, React.cloneElement to add onClick to the buttons value y
-
-// Escape, cancel the selection. make selection undefined value y
 
 const ImageCrop = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
@@ -332,6 +321,7 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
   } = props;
 
   const [image, setImage] = React.useState<HTMLCanvasElement>();
+  const [focus, setFocus] = React.useState<any>();
   const [mouseDown, setMouseDown] = React.useState<any>();
   const [selector, setSelector] = React.useState<any>(selectorDefault !== undefined ? selectorDefault : selector_);
 
@@ -356,6 +346,7 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
     dotBottomRight: React.useRef<HTMLDivElement>(),
     props: React.useRef<HTMLDivElement>(),
     dynamicParent: React.useRef<any>(),
+    focus: React.useRef<any>(),
     aspectRatio: React.useRef<any>()
   };
 
@@ -366,6 +357,8 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
   refs.selector.current = selector;
 
   refs.props.current = props;
+
+  refs.focus.current = focus;
 
   refs.dynamicParent.current = dynamicParent;
 
@@ -381,13 +374,8 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
   React.useEffect(() => {
     const method = (event: KeyboardEvent) => {
       switch (event.key) {
-        case 'Enter':
-          // if (refs.image.current) onFreeSave();
-
-          break;
-
         case 'Escape':
-          // if (refs.image.current) onFreeClose();
+          if (refs.focus.current) setSelector({});
 
           break;
 
@@ -434,11 +422,11 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
 
           if (refs.aspectRatio.current !== undefined) {
             if (left < previousLeft) {
-              if (left < refs.selector.current?.left && (top <= 0 || refs.selector.current?.top + refs.selector.current?.height >= rootRect.height)) return;
+              if (refs.selector.current?.left < previousLeft && left < refs.selector.current?.left && (top <= 0 || refs.selector.current?.top + refs.selector.current?.height >= rootRect.height)) return;
             }
 
             if (top < previousTop) {
-              if (top < refs.selector.current?.top && (left <= 0 || refs.selector.current?.left + refs.selector.current?.width >= rootRect.width)) return;
+              if (refs.selector.current?.top < previousTop && top < refs.selector.current?.top && (left <= 0 || refs.selector.current?.left + refs.selector.current?.width >= rootRect.width)) return;
             }
 
             // Max surface
@@ -528,7 +516,7 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
 
           if (refs.aspectRatio.current !== undefined) {
             // Left
-            if (left < refs.selector.current.left && refs.selector.current?.top === 0) return;
+            if (left < refs.selector.current.left && refs.selector.current.left < previousLeft && refs.selector.current?.top === 0) return;
 
             // Max surface
             if (width + (width / refs.aspectRatio.current) >= height + (height * refs.aspectRatio.current)) {
@@ -605,6 +593,9 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
 
           // Top
           if (refs.aspectRatio.current !== undefined) {
+            // Top
+            if (top < refs.selector.current.top && refs.selector.current.top < previousTop && refs.selector.current.left + refs.selector.current.width >= rootRect.width) return;
+
             width = height * refs.aspectRatio.current;
 
             height = width / refs.aspectRatio.current;
@@ -754,9 +745,12 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
           if (selectorRect.bottom - top < 0) refs.mouseDown.current.version = 'bottom';
 
           let width: number = refs.selector.current.width;
-          let height = clamp(selectorRect.bottom - top, 0);
+          let height = clamp(Math.abs(refs.selector.current.height - inc), 0, previousTop - top);
 
           if (refs.aspectRatio.current !== undefined) {
+            // Top
+            if (top < refs.selector.current.top && refs.selector.current.top < previousTop && refs.selector.current.left + refs.selector.current.width >= rootRect.width) return;
+
             width = height * refs.aspectRatio.current;
 
             // Max width
@@ -789,23 +783,23 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
           if (selectorRect.height + inc < 0) refs.mouseDown.current.version = 'top';
 
           let width: number = refs.selector.current.width;
-          let height = clamp(Math.abs(selectorRect.height + inc), 0, rootRect.height - selectorRect.top);
+          let height = clamp(Math.abs(selectorRect.height + inc), 0, rootRect.height - refs.selector.current.top);
 
           if (refs.aspectRatio.current !== undefined) {
             width = height * refs.aspectRatio.current;
-
-            // Max width
-            if (refs.selector.current.left + width > rootRect.width) {
-              width = rootRect.width - refs.selector.current.left;
-
-              height = width / refs.aspectRatio.current;
-            }
 
             // Max height
             if (refs.selector.current.top + height > rootRect.height) {
               height = rootRect.height - refs.selector.current.top;
 
               width = height * refs.aspectRatio.current;
+            }
+
+            // Max width
+            if (refs.selector.current.left + width > rootRect.width) {
+              width = rootRect.width - refs.selector.current.left;
+
+              height = width / refs.aspectRatio.current;
             }
           }
 
@@ -955,8 +949,54 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
     }
   }, [image_]);
 
+  const updateSelector = (selector_: any = refs.selector.current, image_: any = refs.image.current) => {
+    if (selector_ !== undefined && image_ !== undefined) {
+      const rootRect = refs.root.current.getBoundingClientRect();
+
+      const selectorValue: any = {
+        top: clamp(selector_.top, 0, image_.height),
+        left: clamp(selector_.left, 0, image_.height)
+      };
+
+      selectorValue.width = clamp((selector_.width || 0), 0, rootRect.width - selectorValue.left);
+
+      selectorValue.height = clamp((selector_.height || 0), 0, rootRect.height - selectorValue.top);
+
+      // Aspect ratio
+      if (refs.aspectRatio.current !== undefined) {
+        // Max surface
+        if (selectorValue.width + (selectorValue.width / refs.aspectRatio.current) >= selectorValue.height + (selectorValue.height * refs.aspectRatio.current)) {
+          selectorValue.height = selectorValue.width / refs.aspectRatio.current;
+        }
+        else {
+          selectorValue.width = selectorValue.height * refs.aspectRatio.current;
+        }
+
+        // Max width
+        if (selectorValue.left + selectorValue.width > rootRect.width) {
+          selectorValue.width = rootRect.width - selectorValue.left;
+
+          selectorValue.height = selectorValue.width / refs.aspectRatio.current;
+        }
+
+        // Max height
+        if (selectorValue.top + selectorValue.height > rootRect.height) {
+          selectorValue.height = rootRect.height - selectorValue.top;
+
+          selectorValue.width = selectorValue.height * refs.aspectRatio.current;
+        }
+      }
+
+      setSelector(selectorValue);
+    }
+  };
+
   React.useEffect(() => {
-    if (selector_ !== selector) setSelector(selector_);
+    updateSelector();
+  }, [aspectRatio]);
+
+  React.useEffect(() => {
+    if (selector_ !== selector) updateSelector(selector_);
   }, [selector_]);
 
   React.useEffect(() => {
@@ -964,6 +1004,9 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
       refs.canvasMain.current.getContext('2d').drawImage(image, 0, 0);
 
       refs.canvasImageSelector.current.getContext('2d').drawImage(image, 0, 0);
+
+      // Update selector
+      updateSelector();
     }
   }, [image]);
 
@@ -990,6 +1033,14 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
 
     setImage(canvas);
   };
+
+  const onFocus = React.useCallback((event: React.FocusEvent<any>) => {
+    setFocus(true);
+  }, []);
+
+  const onBlur = React.useCallback((event: React.FocusEvent<any>) => {
+    setFocus(false);
+  }, []);
 
   const onTouchStart = React.useCallback((event: React.TouchEvent<any>) => {
     if (
@@ -1094,6 +1145,12 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
 
         refs.root.current = item;
       }}
+
+      tabIndex='0'
+
+      onFocus={onFocus}
+
+      onBlur={onBlur}
 
       onTouchStart={onTouchStart}
 
