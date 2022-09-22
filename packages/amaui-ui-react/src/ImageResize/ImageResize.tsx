@@ -430,66 +430,52 @@ const ImageResize = React.forwardRef((props_: any, ref: any) => {
         selectorRect.bottom = selectorRect.top + selectorRect_.height;
 
         if (refs.mouseDown.current?.version === 'make') {
-          let top = clamp(y - rootRect.top, 0, rootRect.height);
-          let left = clamp(x - rootRect.left, 0, rootRect.width);
+          const top_ = clamp(y - rootRect.top, 0, rootRect.height);
+          const left_ = clamp(x - rootRect.left, 0, rootRect.width);
 
-          let width = Math.abs(left - previousLeft);
-          let height = Math.abs(top - previousTop);
+          let top = clamp(top_, 0, previousTop);
+          let left = clamp(left_, 0, previousLeft);
+
+          let width = Math.abs(left_ - previousLeft);
+          let height = Math.abs(top_ - previousTop);
 
           if (refs.aspectRatio.current !== undefined) {
-            width = Math.min(width, height * refs.aspectRatio.current);
-
             height = width / refs.aspectRatio.current;
+
+            if (left + width > rootRect.width || x - rootRect.left <= 0) {
+              if (left + refs.selector.current?.width < rootRect.width && left_ !== 0) {
+                // Max width
+                width = rootRect.width - left;
+
+                height = width / refs.aspectRatio.current;
+              }
+              else if (refs.selector.current?.left > 0 && x - rootRect.left < 0) {
+                left = 0;
+
+                width = previousLeft;
+
+                height = width / refs.aspectRatio.current;
+              }
+              else return;
+            }
+
+            if (top + height > rootRect.height || y - rootRect.top <= 0) {
+              if (top + refs.selector.current?.height < rootRect.height && top_ !== 0) {
+                // Max height
+                height = rootRect.height - top;
+
+                width = height * refs.aspectRatio.current;
+              }
+              else if (refs.selector.current?.top > 0 && y - rootRect.top < 0) {
+                top = 0;
+
+                height = previousTop;
+
+                width = height * refs.aspectRatio.current;
+              }
+              else return;
+            }
           }
-
-          // if (refs.aspectRatio.current !== undefined) {
-          //   const incY = y - refs.previousMouseEvent.current.clientY;
-          //   const incX = x - refs.previousMouseEvent.current.clientX;
-
-          //   const selectorWidth = refs.selector.current?.width !== undefined ? refs.selector.current.width : 0;
-          //   const selectorHeight = refs.selector.current?.height !== undefined ? refs.selector.current.height : 0;
-
-          //   width = Math.abs(selectorWidth + incX);
-
-          //   height = Math.abs(selectorHeight + incY);
-
-          //   // width updated
-          //   if (selectorWidth + incX !== selectorWidth) {
-          //     height = width / refs.aspectRatio.current;
-          //   }
-
-          //   // max width
-          //   if (left + width > rootRect.width) {
-          //     width = rootRect.width - left;
-
-          //     height = width / aspectRatio;
-          //   }
-
-          //   // height updated
-          //   if (Math.abs(selectorHeight + incY) !== selectorHeight) {
-          //     height = Math.abs(selectorHeight + incY);
-
-          //     width = height * aspectRatio;
-          //   }
-
-          //   // If height is out of element update with per max height
-          //   if (top + height > rootRect.height) {
-          //     // height max
-          //     height = rootRect.height - top;
-
-          //     width = height * aspectRatio;
-          //   }
-
-          //   if (left + width === rootRect.width) top = refs.selector.current.top;
-          //   else top = clamp(top, 0, previousTop);
-
-          //   if (top + height === rootRect.height) left = refs.selector.current.left;
-          //   else left = clamp(left, 0, previousLeft);
-          // }
-
-          top = clamp(top, 0, previousTop);
-
-          left = clamp(left, 0, previousLeft);
 
           onSelectorChange({
             ...refs.selector.current,
