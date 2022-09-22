@@ -2167,6 +2167,76 @@ Please sign in again.`}
           />
         </Accordion>
 
+        <Accordion primary='ImageCrop min, max for width and height' open>
+          <Line
+            style={{
+              width: '100%'
+            }}
+          >
+            <ImageCrop
+              maxWidth={440}
+              minWidth={140}
+
+              image='./image.jpg'
+
+              dynamicParent
+            />
+
+            <ImageCrop
+              aspectRatio={1 / 1}
+
+              maxWidth={440}
+              minWidth={140}
+
+              image='./image.jpg'
+
+              dynamicParent
+            />
+
+            <ImageCrop
+              aspectRatio={4 / 3}
+
+              maxWidth={440}
+              minWidth={140}
+
+              image='./image.jpg'
+
+              dynamicParent
+            />
+
+            <ImageCrop
+              maxHeight={440}
+              minHeight={140}
+
+              image='./image.jpg'
+
+              dynamicParent
+            />
+
+            <ImageCrop
+              aspectRatio={1 / 1}
+
+              maxHeight={440}
+              minHeight={140}
+
+              image='./image.jpg'
+
+              dynamicParent
+            />
+
+            <ImageCrop
+              aspectRatio={4 / 3}
+
+              maxHeight={440}
+              minHeight={140}
+
+              image='./image.jpg'
+
+              dynamicParent
+            />
+          </Line>
+        </Accordion>
+
         <Accordion primary='ImageCrop aspectRatio' open>
           <Line
             style={{

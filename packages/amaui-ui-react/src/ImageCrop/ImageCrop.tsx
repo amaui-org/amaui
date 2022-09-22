@@ -286,11 +286,6 @@ const useStyle = style(theme => ({
   }
 }), { name: 'AmauiImageCrop' });
 
-// Example with default selector width, height, top, left
-// min selector width, min selector height
-// max selector width and max selector height
-// min and max values are clamp value, 0, root width, root height y value y
-
 const ImageCrop = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 
@@ -301,6 +296,11 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
   const {
     // url, datauri or canvas
     image: image_,
+
+    minWidth,
+    minHeight,
+    maxWidth,
+    maxHeight,
 
     selectorDefault,
     selector: selector_,
@@ -344,7 +344,7 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
     dotTopRight: React.useRef<HTMLDivElement>(),
     dotBottomLeft: React.useRef<HTMLDivElement>(),
     dotBottomRight: React.useRef<HTMLDivElement>(),
-    props: React.useRef<HTMLDivElement>(),
+    props: React.useRef<any>(),
     dynamicParent: React.useRef<any>(),
     focus: React.useRef<any>(),
     aspectRatio: React.useRef<any>()
@@ -365,6 +365,71 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
   refs.aspectRatio.current = aspectRatio;
 
   const onSelectorChange = (valueNew: any) => {
+    // min, max for width, height
+    // + resolve it to max width and height for aspect ratio
+    if (is('object', valueNew) && !!Object.keys(valueNew).length && refs.root.current) {
+      const rootRect = refs.root.current.getBoundingClientRect();
+      const selectorRect = refs.imageSelectorMain.current.getBoundingClientRect();
+
+      const minWidth_ = refs.props.current.minWidth !== undefined ? refs.props.current.minWidth : Number.MIN_SAFE_INTEGER;
+      const minHeight_ = refs.props.current.minHeight !== undefined ? refs.props.current.minHeight : Number.MIN_SAFE_INTEGER;
+
+      const maxWidth_ = refs.props.current.maxWidth !== undefined ? refs.props.current.maxWidth : Number.MAX_SAFE_INTEGER;
+      const maxHeight_ = refs.props.current.maxHeight !== undefined ? refs.props.current.maxHeight : Number.MAX_SAFE_INTEGER;
+
+      valueNew.width = clamp(valueNew.width, minWidth_, maxWidth_);
+      valueNew.height = clamp(valueNew.height, minHeight_, maxHeight_);
+
+      if (refs.aspectRatio.current !== undefined) {
+        if (valueNew.width + (valueNew.width / refs.aspectRatio.current) >= valueNew.height + (valueNew.height * refs.aspectRatio.current)) {
+          valueNew.height = valueNew.width / refs.aspectRatio.current;
+        }
+        else {
+          valueNew.width = valueNew.height * refs.aspectRatio.current;
+        }
+
+        // Max width
+        if (valueNew.left + valueNew.width > rootRect.width) {
+          valueNew.width = rootRect.width - valueNew.left;
+
+          valueNew.height = valueNew.width / refs.aspectRatio.current;
+        }
+
+        // Max height
+        if (valueNew.top + valueNew.height > rootRect.height) {
+          valueNew.height = rootRect.height - valueNew.top;
+
+          valueNew.width = valueNew.height * refs.aspectRatio.current;
+        }
+
+        // Max width, height per maxWidth and maxHeight
+        if (valueNew.width < minWidth_ || valueNew.width > maxWidth_) {
+          valueNew.width = clamp(valueNew.width, minWidth_, maxWidth_);
+
+          valueNew.height = valueNew.width / refs.aspectRatio.current;
+        }
+
+        if (valueNew.height < minHeight_ || valueNew.height > maxHeight_) {
+          valueNew.height = clamp(valueNew.height, minHeight_, maxHeight_);
+
+          valueNew.width = valueNew.height / refs.aspectRatio.current;
+        }
+      }
+
+      // If previous values are within maxWidth and/or maxHeight
+      // and left or top are not same as before
+      // return
+      if (!['move'].includes(refs.mouseDown.current?.version)) {
+        if (maxWidth_ !== undefined) {
+          if (valueNew.top < selectorRect.top && (refs.selector.current?.height === maxHeight_ || refs.selector.current?.width === maxWidth_)) return;
+        }
+
+        if (maxHeight_ !== undefined) {
+          if (valueNew.left < selectorRect.left && (refs.selector.current?.height === maxHeight_ || refs.selector.current?.width === maxWidth_)) return;
+        }
+      }
+    }
+
     // Update inner or controlled
     if (!props.hasOwnProperty('selector')) setSelector(valueNew);
 
