@@ -152,7 +152,7 @@ const NumericTextField = React.forwardRef((props_: any, ref: any) => {
 
     if (['', ' ', props.prefix, `${props.prefix} `, undefined].includes(valueNew)) valueNew = '';
 
-    if (!(['', ' ', '+', '-', undefined].includes(valueNew))) {
+    if (!(['', ' ', '+', '-', `${props.prefix}+`, `${props.prefix}-`, undefined].includes(valueNew))) {
       if (props.prefix !== undefined) valueNew = valueNew.replace(props.prefix, '');
 
       if (props.thousand) valueNew = valueNew.replace(new RegExp(`\\${props.thousandSeparator || ','}`, 'g'), '');
