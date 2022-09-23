@@ -262,7 +262,7 @@ const NumericTextField = React.forwardRef((props_: any, ref: any) => {
       validate={(valueNew_: any) => {
         if (valueNew_.startsWith(' ') || valueNew_.endsWith(' ')) return;
 
-        if (['', ' ', props.prefix, `${props.prefix} `, undefined].includes(valueNew_)) return true;
+        if (['', ' ', props.prefix, `${props.prefix} `, `${props.prefix}+`, `${props.prefix}-`, undefined].includes(valueNew_)) return true;
 
         let valueNew = valueNew_;
 

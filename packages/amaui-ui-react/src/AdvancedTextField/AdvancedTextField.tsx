@@ -74,7 +74,7 @@ const AdvancedTextField = React.forwardRef((props_: any, ref: any) => {
     // clean value from prefix and thousand separator
     // make value into value with thousand separators
     // make valueNew with prefix + valueNew
-    if (!['', ' ', '+', '-', prefix, `${prefix} `, undefined].includes(valueNew)) {
+    if (!['', ' ', '+', '-', prefix, `${prefix} `, `${prefix} `, `${prefix}+`, `${prefix}-`, undefined].includes(valueNew)) {
       if (thousand) {
         let previousValue = valueNew.replace(prefix, '').replace(new RegExp(`\\${thousandSeparator}`, 'g'), '');
         let addition = '';
@@ -98,7 +98,9 @@ const AdvancedTextField = React.forwardRef((props_: any, ref: any) => {
       }
       // mask
       else if (is('array', mask)) {
-        const previousValue = (valueNew || '').split('').filter(Boolean);
+        let previousValue = valueNew.replace(prefix, '');
+
+        previousValue = (valueNew || '').split('').filter(Boolean);
 
         valueNew = '';
 
