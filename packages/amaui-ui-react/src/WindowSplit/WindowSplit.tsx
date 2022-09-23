@@ -18,6 +18,18 @@ const useStyle = style(theme => ({
     overflow: 'hidden'
   },
 
+  mouseDown_orientation_horizontal: {
+    '& *': {
+      cursor: 'ew-resize !important'
+    }
+  },
+
+  mouseDown_orientation_vertical: {
+    '& *': {
+      cursor: 'ns-resize !important'
+    }
+  },
+
   focus: {
     outline: '4px solid currentColor',
     outlineOffset: '8px'
@@ -39,12 +51,12 @@ const useStyle = style(theme => ({
   },
 
   iconButton_orientation_horizontal: {
-    cursor: 'vertical-text',
+    cursor: 'ew-resize',
     transform: `translateX(${theme.direction === 'rtl' ? '-' : ''}50%)`
   },
 
   iconButton_orientation_vertical: {
-    cursor: 'text',
+    cursor: 'ns-resize',
     transform: `translateY(50%)`
   },
 
@@ -62,7 +74,7 @@ const useStyle = style(theme => ({
 
   divider_orientation_horizontal: {
     insetBlock: 0,
-    cursor: 'vertical-text',
+    cursor: 'ew-resize',
     transform: `translateX(${theme.direction === 'rtl' ? '-' : ''}50%)`,
 
     '&.AmauiDivider-root': {
@@ -72,7 +84,7 @@ const useStyle = style(theme => ({
 
   divider_orientation_vertical: {
     insetInline: 0,
-    cursor: 'text',
+    cursor: 'ns-resize',
     transform: `translateY(50%)`,
 
     '&.AmauiDivider-root': {
@@ -410,6 +422,7 @@ const WindowSplit = React.forwardRef((props_: any, ref: any) => {
 
         className,
         classes.root,
+        mouseDown && classes[`mouseDown_orientation_${orientation}`],
         focus && !mouseDown && classes.focus
       ])}
 

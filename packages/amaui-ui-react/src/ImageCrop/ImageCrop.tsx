@@ -313,6 +313,9 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
     gridLines,
     dynamicParent,
 
+    onFocus: onFocus_,
+    onBlur: onBlur_,
+
     TooltipProps,
 
     className,
@@ -1096,10 +1099,14 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
 
   const onFocus = React.useCallback((event: React.FocusEvent<any>) => {
     setFocus(true);
+
+    if (is('function', onFocus_)) onFocus_(event);
   }, []);
 
   const onBlur = React.useCallback((event: React.FocusEvent<any>) => {
     setFocus(false);
+
+    if (is('function', onBlur_)) onBlur_(event);
   }, []);
 
   const onTouchStart = React.useCallback((event: React.TouchEvent<any>) => {

@@ -229,7 +229,7 @@ const WidgetsProvider = React.forwardRef((props_: any, ref: any) => {
 
                 onClick={() => !openItems.includes(valueItem) ? open(valueItem) : close(valueItem)}
 
-                label={!openItems.includes(valueItem) ? `Open ${item.label}` : `Close ${item.label}`}
+                label={!openItems.includes(valueItem) ? item.label : `Close ${item.label}`}
 
                 Icon={item.Icon}
               />

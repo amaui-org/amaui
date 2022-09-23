@@ -1019,6 +1019,8 @@ function App() {
         >
           <ImageCrop
             image='./image.jpg'
+
+            dynamicParent
           />
 
           <Line
@@ -2170,7 +2172,7 @@ Please sign in again.`}
       </Accordion>
 
       <Accordion primary='ImageEdit'>
-        <Accordion primary='ImageEdit'>
+        <Accordion primary='ImageEdit' open>
 
         </Accordion>
       </Accordion>
@@ -2576,6 +2578,58 @@ Please sign in again.`}
 
             label='NumericTextField'
           />
+        </Accordion>
+
+        <Accordion primary='NumericTextField min, max'>
+          <Line
+            style={{
+              width: '100%'
+            }}
+          >
+            <NumericTextField
+              color='secondary'
+
+              min={-14}
+
+              max={140}
+
+              label='NumericTextField'
+            />
+
+            <NumericTextField
+              color='secondary'
+
+              min={140}
+
+              max={1400}
+
+              label='NumericTextField'
+            />
+
+            <NumericTextField
+              color='secondary'
+
+              min={-14}
+
+              max={140}
+
+              thousand
+
+              prefix='eur '
+
+              label='NumericTextField'
+            />
+
+            <NumericTextField
+              color='secondary'
+
+              min={140}
+
+              max={1400}
+
+              label='NumericTextField'
+            />
+          </Line>
         </Accordion>
 
         <Accordion primary='NumericTextField increment and decrement value'>

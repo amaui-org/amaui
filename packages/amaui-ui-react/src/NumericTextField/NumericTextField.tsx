@@ -1,13 +1,13 @@
 import React from 'react';
 
-import { is, numberWithCommas } from '@amaui/utils';
+import { is, clamp, numberWithCommas } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import AdvancedTextField from '../AdvancedTextField';
+import IconButton from '../IconButton';
 import Icon from '../Icon';
 
 import { staticClassName } from '../utils';
-import IconButton from '../IconButton';
 
 const useStyle = style(theme => ({
   root: {
@@ -60,11 +60,17 @@ const NumericTextField = React.forwardRef((props_: any, ref: any) => {
 
     onChange: onChange_,
 
+    min,
+    max,
+
     increment = true,
     decrement = true,
 
     incrementValue = 1,
     decrementValue = 1,
+
+    onFocus: onFocus_,
+    onBlur: onBlur_,
 
     IconIncrement = IconMaterialKeyboardArrowUpRounded,
     IconDecrement = IconMaterialKeyboardArrowDownRounded,
@@ -77,10 +83,43 @@ const NumericTextField = React.forwardRef((props_: any, ref: any) => {
   } = props;
 
   const [init, setInit] = React.useState(false);
+  const [focus, setFocus] = React.useState(false);
   const [value, setValue] = React.useState(valueDefault !== undefined ? valueDefault : value_);
+
+  const refs = {
+    focus: React.useRef<any>()
+  };
+
+  refs.focus.current = focus;
 
   React.useEffect(() => {
     setInit(true);
+  }, []);
+
+  React.useEffect(() => {
+    const method = (event: KeyboardEvent) => {
+      switch (event.key) {
+        case 'ArrowUp':
+          if (refs.focus.current) onIncrement();
+
+          return;
+
+        case 'ArrowDown':
+          if (refs.focus.current) onDecrement();
+
+          return;
+
+        default:
+          break;
+      }
+    };
+
+    window.addEventListener('keydown', method);
+
+    return () => {
+      // Clean up
+      window.removeEventListener('keydown', method);
+    };
   }, []);
 
   React.useEffect(() => {
@@ -89,7 +128,37 @@ const NumericTextField = React.forwardRef((props_: any, ref: any) => {
     }
   }, [value_]);
 
-  const onChange = (valueNew: any) => {
+  const onFocus = React.useCallback((event: React.FocusEvent<any>) => {
+    setFocus(true);
+
+    if (is('function', onFocus_)) onFocus_(event);
+  }, []);
+
+  const onBlur = React.useCallback((event: React.FocusEvent<any>) => {
+    setFocus(false);
+
+    if (is('function', onBlur_)) onBlur_(event);
+  }, []);
+
+  const onChange = (valueNew_: any) => {
+    let valueNew: any = valueNew_ || '0';
+
+    if (!(valueNew === '+' || valueNew === '-' || ['', undefined].includes(valueNew))) {
+      if (props.prefix !== undefined) valueNew = valueNew.replace(props.prefix, '');
+
+      if (props.thousand) valueNew = valueNew.replace(new RegExp(`\\${props.thousandSeparator || ','}`, 'g'), '');
+
+      const min_ = min !== undefined ? min : Number.MIN_SAFE_INTEGER;
+
+      const max_ = max !== undefined ? max : Number.MAX_SAFE_INTEGER;
+
+      valueNew = clamp(+valueNew, min_, max_);
+
+      if (props.thousand) valueNew = numberWithCommas(valueNew);
+
+      if (props.prefix !== undefined) valueNew = `${props.prefix}${valueNew}`;
+    }
+
     // Update inner or controlled
     if (!props.hasOwnProperty('value')) setValue(valueNew);
 
@@ -103,7 +172,11 @@ const NumericTextField = React.forwardRef((props_: any, ref: any) => {
 
     if (props.thousand) valueNew = valueNew.replace(new RegExp(`\\${props.thousandSeparator || ','}`, 'g'), '');
 
-    valueNew = +valueNew + incrementValue;
+    const min_ = min !== undefined ? min : Number.MIN_SAFE_INTEGER;
+
+    const max_ = max !== undefined ? max : Number.MAX_SAFE_INTEGER;
+
+    valueNew = clamp(+valueNew + incrementValue, min_, max_);
 
     if (props.thousand) valueNew = numberWithCommas(valueNew);
 
@@ -120,7 +193,11 @@ const NumericTextField = React.forwardRef((props_: any, ref: any) => {
 
     if (props.thousand) valueNew = valueNew.replace(new RegExp(`\\${props.thousandSeparator || ','}`, 'g'), '');
 
-    valueNew = +valueNew - decrementValue;
+    const min_ = min !== undefined ? min : Number.MIN_SAFE_INTEGER;
+
+    const max_ = max !== undefined ? max : Number.MAX_SAFE_INTEGER;
+
+    valueNew = clamp(+valueNew - decrementValue, min_, max_);
 
     if (props.thousand) valueNew = numberWithCommas(valueNew);
 
@@ -167,6 +244,10 @@ const NumericTextField = React.forwardRef((props_: any, ref: any) => {
 
       value={value}
 
+      onFocus={onFocus}
+
+      onBlur={onBlur}
+
       onChange={onChange}
 
       validate={(valueNew_: any) => {
@@ -182,7 +263,7 @@ const NumericTextField = React.forwardRef((props_: any, ref: any) => {
 
         valueNew = +valueNew;
 
-        return is('number', valueNew) && valueNew >= Number.MIN_SAFE_INTEGER && valueNew <= Number.MAX_SAFE_INTEGER;
+        return is('number', valueNew);
       }}
 
       end={end}

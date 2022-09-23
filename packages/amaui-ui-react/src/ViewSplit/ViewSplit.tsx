@@ -18,6 +18,18 @@ const useStyle = style(theme => ({
     overflow: 'hidden'
   },
 
+  mouseDown_orientation_horizontal: {
+    '& *': {
+      cursor: 'ew-resize !important'
+    }
+  },
+
+  mouseDown_orientation_vertical: {
+    '& *': {
+      cursor: 'ns-resize !important'
+    }
+  },
+
   focus: {
     outline: '4px solid currentColor',
     outlineOffset: '8px'
@@ -56,11 +68,11 @@ const useStyle = style(theme => ({
   },
 
   iconButton_manual_orientation_horizontal: {
-    cursor: 'vertical-text'
+    cursor: 'ew-resize'
   },
 
   iconButton_manual_orientation_vertical: {
-    cursor: 'text'
+    cursor: 'ns-resize'
   },
 
   iconButton_orientation_horizontal: {
@@ -82,11 +94,11 @@ const useStyle = style(theme => ({
   },
 
   divider_manual_orientation_horizontal: {
-    cursor: 'vertical-text'
+    cursor: 'ew-resize'
   },
 
   divider_manual_orientation_vertical: {
-    cursor: 'text'
+    cursor: 'ns-resize'
   },
 
   divider_orientation_horizontal: {
@@ -490,6 +502,7 @@ const ViewSplit = React.forwardRef((props_: any, ref: any) => {
 
         className,
         classes.root,
+        version === 'manual' && mouseDown && classes[`mouseDown_orientation_${orientation}`],
         focus && !(hover || mouseDown) && classes.focus
       ])}
 
