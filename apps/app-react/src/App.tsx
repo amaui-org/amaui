@@ -2169,6 +2169,12 @@ Please sign in again.`}
         </Line>
       </Accordion>
 
+      <Accordion primary='ImageEdit'>
+        <Accordion primary='ImageEdit'>
+
+        </Accordion>
+      </Accordion>
+
       <Accordion primary='ImageCrop'>
         <Accordion primary='ImageCrop' open>
           <ImageCrop

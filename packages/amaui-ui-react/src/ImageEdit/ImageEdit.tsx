@@ -14,24 +14,25 @@ const useStyle = style(theme => ({
 
 // To do
 
-// options to choose common aspect ratios
-// with aspect ratio and each with optional width and height
+// 0. Edits are made on canvas copy
+// and if saved, that canvas is drawImage to original canvas if no
+// that canvas is, reverted to original canvas and in memory but not on the page
 
-// and 2 numeric text fields small to choose custom aspect ratio
+// state when any option is open to show copied canvas or not
 
-// Example with default selector width, height, top, left
-// min selector width, min selector height
-// max selector width and max selector height
-// min and max values are clamp value, 0, root width, root height y value y
+// 1. Size edit
+// 2. Quality edit
+// 3. Image crop, with aspect ratios (1/1, 4/3, 16/9 and custom numeric text fields)
+// 4. Filters (brightness, contrast, saturation, color filters)
+// 4.1 Any custom filter somehow?
+// 5. Buttons to save, or cancel the current edit
 
-// Buttons to save or cancel
-// both buttons any component, React.cloneElement to add onClick to the buttons value y
+// 7. Render methods for both every icon, and slider
+// 7.1. Or just a some icons
 
-// Save
-// on save update image as new canvas
-// and call onChange method with new either datauri or canvas, depends on version
+// On any atm edit update call onChange method with the version: 'datauri', or canvas
 
-// Escape, cancel the selection
+// Enter save, or Escape cancel the selection
 
 const ImageEdit = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();

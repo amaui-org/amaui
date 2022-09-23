@@ -23,7 +23,8 @@ const Append = (props_: any) => {
     element: React.useRef<HTMLElement>(),
     values: React.useRef(values),
     alignment: React.useRef<any>(),
-    position: React.useRef<any>()
+    position: React.useRef<any>(),
+    portal: React.useRef<any>()
   };
 
   const {
@@ -49,7 +50,10 @@ const Append = (props_: any) => {
   } = props;
 
   refs.alignment.current = alignment_;
+
   refs.position.current = position_;
+
+  refs.portal.current = portal;
 
   if (anchorElement) refs.root.current = anchorElement;
 
@@ -61,7 +65,14 @@ const Append = (props_: any) => {
 
   const observerMethod = React.useCallback((mutations: Array<MutationRecord>) => {
     for (const mutation of mutations) {
-      if (['attributes', 'childList'].includes(mutation.type) && [null, undefined, 'style'].includes(mutation.attributeName)) {
+
+      if (
+        mutation.target === refs.root.current ?
+          // Root attributes or childList
+          ['attributes', 'childList'].includes(mutation.type) && [null, undefined, 'style'].includes(mutation.attributeName) :
+          // or subtree's childList
+          ['childList'].includes(mutation.type) && [null, undefined].includes(mutation.attributeName)
+      ) {
         if (anchor === undefined) make();
       }
     }
@@ -199,6 +210,7 @@ const Append = (props_: any) => {
           overflow.includes('hidden')
         ) &&
         (
+          !refs.portal.current ||
           (item.clientHeight !== item.scrollHeight) ||
           (
             (item.clientHeight > window.innerHeight) ||
