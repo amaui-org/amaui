@@ -85,25 +85,25 @@ const useStyle = style(theme => ({
 
   // Color
   // rail
-  rail_color_default: { background: theme.methods.palette.color.value('default', 90) },
+  rail_color_default: { background: theme.methods.palette.color.value('default', 80) },
 
-  rail_color_neutral: { background: theme.methods.palette.color.value('default', 90) },
+  rail_color_neutral: { background: theme.methods.palette.color.value('default', 80) },
 
-  rail_color_primary: { background: theme.methods.palette.color.value('primary', 90) },
+  rail_color_primary: { background: theme.methods.palette.color.value('primary', 80) },
 
-  rail_color_secondary: { background: theme.methods.palette.color.value('secondary', 90) },
+  rail_color_secondary: { background: theme.methods.palette.color.value('secondary', 80) },
 
-  rail_color_tertiary: { background: theme.methods.palette.color.value('tertiary', 90) },
+  rail_color_tertiary: { background: theme.methods.palette.color.value('tertiary', 80) },
 
-  rail_color_quaternary: { background: theme.methods.palette.color.value('quaternary', 90) },
+  rail_color_quaternary: { background: theme.methods.palette.color.value('quaternary', 80) },
 
-  rail_color_info: { background: theme.methods.palette.color.value('info', 90) },
+  rail_color_info: { background: theme.methods.palette.color.value('info', 80) },
 
-  rail_color_success: { background: theme.methods.palette.color.value('success', 90) },
+  rail_color_success: { background: theme.methods.palette.color.value('success', 80) },
 
-  rail_color_warning: { background: theme.methods.palette.color.value('warning', 90) },
+  rail_color_warning: { background: theme.methods.palette.color.value('warning', 80) },
 
-  rail_color_error: { background: theme.methods.palette.color.value('error', 90) },
+  rail_color_error: { background: theme.methods.palette.color.value('error', 80) },
 
   // track
   track_color_default: { background: theme.methods.palette.color.value('neutral', 0) },

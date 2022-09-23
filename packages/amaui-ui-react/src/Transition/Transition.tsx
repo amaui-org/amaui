@@ -85,7 +85,7 @@ function Transition(props_: IProps) {
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiTransition?.props?.default }), [props_]);
 
   const {
-    in: in_,
+    in: inProp_,
 
     className,
 
@@ -135,7 +135,7 @@ function Transition(props_: IProps) {
   } = props;
 
   const [init, setInit] = React.useState(false);
-  const [inProp, setInProp] = React.useState(in_);
+  const [inProp, setInProp] = React.useState(inProp_);
   const [status, setStatus] = React.useState<TTransitionStatus>(() => {
     let statusNew: TTransitionStatus = '' as any;
 
@@ -232,10 +232,10 @@ function Transition(props_: IProps) {
   }, [status]);
 
   React.useEffect(() => {
-    if (!in_ && noAbruption && ['enter', 'entering'].indexOf(subs.current.status.value) > -1) {
+    if (!inProp_ && noAbruption && ['enter', 'entering'].indexOf(subs.current.status.value) > -1) {
       const method = (item: TTransitionStatus) => {
         if (item === 'entered') {
-          setInProp(in_);
+          setInProp(inProp_);
 
           subs.current.status.unsubscribe(method);
         }
@@ -243,10 +243,10 @@ function Transition(props_: IProps) {
 
       subs.current.status.subscribe(method);
     }
-    else if (in_ && noAbruption && ['exit', 'exiting'].indexOf(subs.current.status.value) > -1) {
+    else if (inProp_ && noAbruption && ['exit', 'exiting'].indexOf(subs.current.status.value) > -1) {
       const method = (item: TTransitionStatus) => {
         if (item === 'exited') {
-          setInProp(in_);
+          setInProp(inProp_);
 
           subs.current.status.unsubscribe(method);
         }
@@ -255,11 +255,11 @@ function Transition(props_: IProps) {
       subs.current.status.subscribe(method);
     }
     else if (
-      (!in_ && noAbruption && subs.current.status.value === 'entered') ||
-      (in_ && noAbruption && subs.current.status.value === 'exited') ||
-      (in_ !== inProp)
-    ) setInProp(in_);
-  }, [in_]);
+      (!inProp_ && noAbruption && subs.current.status.value === 'entered') ||
+      (inProp_ && noAbruption && subs.current.status.value === 'exited') ||
+      (inProp_ !== inProp)
+    ) setInProp(inProp_);
+  }, [inProp_]);
 
   const update = async (status_: TTransitionStatus, pause?: number) => {
     if (pause !== undefined) await wait(pause);

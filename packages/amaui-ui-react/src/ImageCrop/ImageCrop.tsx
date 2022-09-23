@@ -1008,7 +1008,7 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
   React.useEffect(() => {
     if (image_ !== image) {
       if (image_ instanceof HTMLCanvasElement) setImage(image_);
-      else if (is('string', image_)) !refs.dynamicParent.current ? makeImage() : setTimeout(() => makeImage(image_), 140);
+      else if (is('string', image_)) !refs.dynamicParent.current ? makeImage(image_) : setTimeout(() => makeImage(image_), 140);
     }
   }, [image_]);
 

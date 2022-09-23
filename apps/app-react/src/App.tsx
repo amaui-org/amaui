@@ -2173,7 +2173,13 @@ Please sign in again.`}
 
       <Accordion primary='ImageEdit'>
         <Accordion primary='ImageEdit' open>
+          <ImageEdit
+            image='./image.jpg'
 
+            style={{
+              width: 340
+            }}
+          />
         </Accordion>
       </Accordion>
 
