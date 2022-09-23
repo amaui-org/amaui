@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { debounce, is, isEnvironment, element as element_, clamp } from '@amaui/utils';
+import { is, isEnvironment, element as element_, clamp } from '@amaui/utils';
 import { useAmauiTheme } from '@amaui/style-react';
 
 import Portal from '../Portal';
@@ -53,18 +53,21 @@ const Append = (props_: any) => {
 
   if (anchorElement) refs.root.current = anchorElement;
 
-  const onScroll = React.useCallback(debounce((event: any) => {
+  const onScroll = React.useCallback((event: any) => {
     // Only if it's parent's scroll event
     if (event.target.contains(refs.root.current) && anchor === undefined) make();
 
-    // More than 140 frames per second
-  }, 7), [anchor]);
+  }, [anchor]);
 
-  const observerMethod = React.useCallback(debounce(() => {
-    if (anchor === undefined) make();
+  const observerMethod = React.useCallback((mutations: Array<MutationRecord>) => {
+    for (const mutation of mutations) {
+      if (['attributes', 'childList'].includes(mutation.type) && [null, undefined, 'style'].includes(mutation.attributeName)) {
+        if (anchor === undefined) make();
+      }
+    }
 
     // More than 140 frames per second
-  }, 7), [anchor]);
+  }, [anchor]);
 
   React.useEffect(() => {
     make();
@@ -97,40 +100,34 @@ const Append = (props_: any) => {
   // Anchor element
   React.useEffect(() => {
     // Resize
-    const observerResize = new ResizeObserver(observerMethod);
     const observerMutation = new MutationObserver(observerMethod);
 
     if (refs.root.current) {
-      observerResize.observe(refs.root.current);
-      observerMutation.observe(refs.root.current, { attributes: true });
+      observerMutation.observe(refs.root.current, { attributes: true, childList: true, subtree: true });
     }
 
     return () => {
       if (refs.root.current) {
-        observerResize.disconnect();
         observerMutation.disconnect();
       }
     };
-  }, [refs.root.current]);
+  }, [anchor, refs.root.current]);
 
   // Element resize
   React.useEffect(() => {
     // Resize
-    const observerResize = new ResizeObserver(observerMethod);
     const observerMutation = new MutationObserver(observerMethod);
 
     if (refs.element.current) {
-      observerResize.observe(refs.element.current);
-      observerMutation.observe(refs.element.current, { attributes: true });
+      observerMutation.observe(refs.element.current, { attributes: true, childList: true, subtree: true });
     }
 
     return () => {
       if (refs.element.current) {
-        observerResize.disconnect();
         observerMutation.disconnect();
       }
     };
-  }, [refs.element.current]);
+  }, [anchor, refs.element.current]);
 
   // Update
   React.useEffect(() => {
