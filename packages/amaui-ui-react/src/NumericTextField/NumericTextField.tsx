@@ -87,8 +87,11 @@ const NumericTextField = React.forwardRef((props_: any, ref: any) => {
   const [value, setValue] = React.useState(valueDefault !== undefined ? valueDefault : value_);
 
   const refs = {
+    value: React.useRef<any>(),
     focus: React.useRef<any>()
   };
+
+  refs.value.current = value;
 
   refs.focus.current = focus;
 
@@ -98,6 +101,10 @@ const NumericTextField = React.forwardRef((props_: any, ref: any) => {
 
   React.useEffect(() => {
     const method = (event: KeyboardEvent) => {
+      if (['ArrowUp', 'ArrowDown'].includes(event.key)) {
+        event.preventDefault();
+      }
+
       switch (event.key) {
         case 'ArrowUp':
           if (refs.focus.current) onIncrement();
@@ -141,9 +148,11 @@ const NumericTextField = React.forwardRef((props_: any, ref: any) => {
   }, []);
 
   const onChange = (valueNew_: any) => {
-    let valueNew: any = valueNew_ || '0';
+    let valueNew: any = valueNew_;
 
-    if (!(valueNew === '+' || valueNew === '-' || ['', undefined].includes(valueNew))) {
+    if (['', ' ', props.prefix, `${props.prefix} `, undefined].includes(valueNew)) valueNew = '';
+
+    if (!(['', ' ', '+', '-', undefined].includes(valueNew))) {
       if (props.prefix !== undefined) valueNew = valueNew.replace(props.prefix, '');
 
       if (props.thousand) valueNew = valueNew.replace(new RegExp(`\\${props.thousandSeparator || ','}`, 'g'), '');
@@ -166,7 +175,7 @@ const NumericTextField = React.forwardRef((props_: any, ref: any) => {
   };
 
   const onIncrement = () => {
-    let valueNew: any = value || '0';
+    let valueNew: any = refs.value.current || '0';
 
     if (props.prefix !== undefined) valueNew = valueNew.replace(props.prefix, '');
 
@@ -187,7 +196,7 @@ const NumericTextField = React.forwardRef((props_: any, ref: any) => {
   };
 
   const onDecrement = () => {
-    let valueNew: any = value || '0';
+    let valueNew: any = refs.value.current || '0';
 
     if (props.prefix !== undefined) valueNew = valueNew.replace(props.prefix, '');
 
@@ -253,7 +262,7 @@ const NumericTextField = React.forwardRef((props_: any, ref: any) => {
       validate={(valueNew_: any) => {
         if (valueNew_.startsWith(' ') || valueNew_.endsWith(' ')) return;
 
-        if (valueNew_ === '+' || valueNew_ === '-') return true;
+        if (['', ' ', props.prefix, `${props.prefix} `, undefined].includes(valueNew_)) return true;
 
         let valueNew = valueNew_;
 

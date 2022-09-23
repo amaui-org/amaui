@@ -72,56 +72,58 @@ const AdvancedTextField = React.forwardRef((props_: any, ref: any) => {
     // clean value from prefix and thousand separator
     // make value into value with thousand separators
     // make valueNew with prefix + valueNew
-    if (thousand) {
-      let previousValue = valueNew.replace(prefix, '').replace(new RegExp(`\\${thousandSeparator}`, 'g'), '');
-      let addition = '';
+    if (!['', ' ', prefix, `${prefix} `, undefined].includes(valueNew)) {
+      if (thousand) {
+        let previousValue = valueNew.replace(prefix, '').replace(new RegExp(`\\${thousandSeparator}`, 'g'), '');
+        let addition = '';
 
-      if (!is('number', +previousValue) || +previousValue >= Number.MAX_SAFE_INTEGER) return;
+        if (!is('number', +previousValue) || +previousValue >= Number.MAX_SAFE_INTEGER) return;
 
-      if (is('function', validate)) {
-        try {
-          if (!validate(valueNew)) return;
+        if (is('function', validate)) {
+          try {
+            if (!validate(valueNew)) return;
+          }
+          catch (error) { return; }
         }
-        catch (error) { return; }
+
+        const decimal = previousValue.includes('.');
+
+        [previousValue, addition] = previousValue.split('.');
+
+        valueNew = numberWithCommas(previousValue, thousandSeparator);
+
+        valueNew = `${prefix !== undefined ? prefix : ''}${valueNew}${decimal ? '.' : ''}${addition !== undefined ? addition : ''}`;
       }
+      // mask
+      else if (is('array', mask)) {
+        const previousValue = (valueNew || '').split('').filter(Boolean);
 
-      const decimal = previousValue.includes('.');
+        valueNew = '';
 
-      [previousValue, addition] = previousValue.split('.');
+        // Update value based on mask value
+        for (let i = 0; i < mask.length; i++) {
+          if (!previousValue.length) break;
 
-      valueNew = numberWithCommas(previousValue, thousandSeparator);
+          // Constant
+          if (is('string', mask[i])) {
+            valueNew += mask[i];
 
-      valueNew = `${prefix !== undefined ? prefix : ''}${valueNew}${decimal ? '.' : ''}${addition !== undefined ? addition : ''}`;
-    }
-    // mask
-    else if (is('array', mask)) {
-      const previousValue = (valueNew || '').split('').filter(Boolean);
+            if (previousValue[0] === mask[i]) previousValue.shift();
+          }
+          else {
+            const { pattern } = mask[i];
 
-      valueNew = '';
+            if (new RegExp(pattern).test(previousValue[0])) valueNew += previousValue[0];
 
-      // Update value based on mask value
-      for (let i = 0; i < mask.length; i++) {
-        if (!previousValue.length) break;
-
-        // Constant
-        if (is('string', mask[i])) {
-          valueNew += mask[i];
-
-          if (previousValue[0] === mask[i]) previousValue.shift();
-        }
-        else {
-          const { pattern } = mask[i];
-
-          if (new RegExp(pattern).test(previousValue[0])) valueNew += previousValue[0];
-
-          previousValue.shift();
+            previousValue.shift();
+          }
         }
       }
     }
 
     // prefix
     if (prefix !== undefined) {
-      if (!valueNew || prefix === valueNew) valueNew = '';
+      if (['', ' ', prefix, `${prefix} `, undefined].includes(valueNew)) valueNew = '';
       else if (!valueNew.startsWith(prefix)) valueNew = `${prefix}${valueNew}`;
     }
 
