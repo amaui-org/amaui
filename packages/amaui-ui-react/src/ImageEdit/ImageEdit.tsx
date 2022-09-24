@@ -310,7 +310,8 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
     const method = (event: KeyboardEvent) => {
       if (
         ['Escape'].includes(event.key) ||
-        (['s', 'S'].includes(event.key) && event.metaKey)
+        (['s', 'S'].includes(event.key) && event.metaKey) ||
+        (['r', 'R'].includes(event.key) && event.metaKey)
       ) {
         event.preventDefault();
       }
@@ -319,6 +320,12 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
         case 's':
         case 'S':
           if (refs.open.current && event.metaKey) onSave();
+
+          return;
+
+        case 'r':
+        case 'R':
+          if (event.metaKey) onReset();
 
           return;
 
@@ -446,7 +453,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
     updateQuality(valueNew);
   };
 
-  const clear = (imageReset = true) => {
+  const onReset = (imageReset = true) => {
     setOpen(false);
     setQuality(100);
     setAspectRatio('');
@@ -475,12 +482,12 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
     onChange(canvas);
 
     // Reset
-    clear(false);
+    onReset(false);
   };
 
   const onCancel = () => {
     // Reset to unopen
-    clear(false);
+    onReset(false);
 
     // Make value copy into value
     const canvas = window.document.createElement('canvas');
@@ -801,7 +808,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
               )
             ))}
 
-            {is('function', renderOptionClear) ? renderOptionClear(clear) : (
+            {is('function', renderOptionClear) ? renderOptionClear(onReset) : (
               <Tooltip
                 label='Reset'
 
@@ -810,7 +817,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
                 <IconButton
                   version='text'
 
-                  onClick={clear}
+                  onClick={onReset}
 
                   {...IconButtonProps}
                 >
