@@ -208,20 +208,16 @@ const IconMaterialClearAllRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+
 // To do
 
 // 1. Size edit, with an aspectRatio: true, to respect it or not while updating width, height
+
 // 3. Image crop, with aspect ratios (1/1, 4/3, 16/9 and custom numeric text fields)
+
 // 4. Filters (brightness, contrast, saturation, color filters)
 // 4.1 Any custom filter somehow?
-// 5. Buttons to save, or cancel the current edit
 
-// 7. Render methods for both every icon, and slider
-// 7.1. Or just a some icons
-
-// On any atm edit update call onChange method with the version: 'datauri', or canvas
-
-// On any image update, call onChange method
 
 const ImageEdit = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
@@ -292,11 +288,14 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
   const refs = {
     root: React.useRef<any>(),
     value: React.useRef<any>(),
+    valueCopy: React.useRef<any>(),
     canvasMain: React.useRef<HTMLCanvasElement>(),
     open: React.useRef<HTMLCanvasElement>()
   };
 
   refs.value.current = value;
+
+  refs.valueCopy.current = valueCopy;
 
   refs.open.current = open;
 
@@ -467,11 +466,11 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
     // Make value copy into value
     const canvas = window.document.createElement('canvas');
 
-    canvas.width = valueCopy.width;
+    canvas.width = refs.valueCopy.current.width;
 
-    canvas.height = valueCopy.height;
+    canvas.height = refs.valueCopy.current.height;
 
-    canvas.getContext('2d').drawImage(valueCopy, 0, 0, valueCopy.width, valueCopy.height);
+    canvas.getContext('2d').drawImage(refs.valueCopy.current, 0, 0, refs.valueCopy.current.width, refs.valueCopy.current.height);
 
     onChange(canvas);
 
@@ -486,11 +485,11 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
     // Make value copy into value
     const canvas = window.document.createElement('canvas');
 
-    canvas.width = value.width;
+    canvas.width = refs.value.current.width;
 
-    canvas.height = value.height;
+    canvas.height = refs.value.current.height;
 
-    canvas.getContext('2d').drawImage(value, 0, 0, value.width, value.height);
+    canvas.getContext('2d').drawImage(refs.value.current, 0, 0, refs.value.current.width, refs.value.current.height);
 
     onChangeCopy(canvas);
   };
@@ -790,7 +789,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
                   <IconButton
                     version='outlined'
 
-                    selected={openedOption === item.value}
+                    selected={open && openedOption === item.value}
 
                     onClick={() => openOption(item.value)}
 
