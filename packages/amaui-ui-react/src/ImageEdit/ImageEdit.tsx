@@ -311,7 +311,10 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
       if (
         ['Escape'].includes(event.key) ||
         (['s', 'S'].includes(event.key) && event.metaKey) ||
-        (['r', 'R'].includes(event.key) && event.metaKey)
+        (['f', 'F'].includes(event.key) && event.metaKey && event.shiftKey) ||
+        (['c', 'C'].includes(event.key) && event.metaKey && event.shiftKey) ||
+        (['r', 'R'].includes(event.key) && (event.metaKey || event.shiftKey)) ||
+        (['q', 'Q'].includes(event.key) && event.metaKey && event.shiftKey)
       ) {
         event.preventDefault();
       }
@@ -323,9 +326,29 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
           return;
 
+        case 'f':
+        case 'F':
+          if (event.metaKey && event.shiftKey) openOption('filters');
+
+          return;
+
+        case 'c':
+        case 'C':
+          if (event.metaKey && event.shiftKey) openOption('crop');
+
+          return;
+
         case 'r':
         case 'R':
-          if (event.metaKey) onReset();
+          if (event.metaKey && !event.shiftKey) onReset();
+
+          if (event.metaKey && event.shiftKey) openOption('resize');
+
+          return;
+
+        case 'q':
+        case 'Q':
+          if (event.metaKey && event.shiftKey) openOption('quality');
 
           return;
 
