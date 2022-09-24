@@ -35,8 +35,7 @@ const useStyle = style(theme => ({
     display: 'inline-flex',
     alignItems: 'flex-start',
     position: 'relative',
-    borderRadius: `${theme.shape.radius.unit / 2}px ${theme.shape.radius.unit / 2}px 0 0`,
-    width: '100%'
+    borderRadius: `${theme.shape.radius.unit / 2}px ${theme.shape.radius.unit / 2}px 0 0`
   },
 
   // Color
@@ -102,7 +101,7 @@ const useStyle = style(theme => ({
     ...theme.typography.values.b2,
     ...overflow,
 
-    width: 'auto',
+    width: '100%',
     flex: '1 1 auto'
   },
 

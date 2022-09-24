@@ -15,6 +15,7 @@ import Icon from '../Icon';
 import Line from '../Line';
 
 import { staticClassName, image as imageMethod } from '../utils';
+import ImageCrop from '../ImageCrop';
 
 const useStyle = style(theme => ({
   root: {
@@ -45,7 +46,9 @@ const useStyle = style(theme => ({
   },
 
   imageWrapper: {
+    position: 'relative',
     height: '400px',
+    width: '100%',
 
     '&::before': {
       content: '""',
@@ -59,6 +62,11 @@ const useStyle = style(theme => ({
     }
   },
 
+  canvasWrapper: {
+    position: 'relative',
+    lineHeight: 0
+  },
+
   image: {
     width: '100%',
     height: 'auto'
@@ -67,6 +75,13 @@ const useStyle = style(theme => ({
   imageCopy: {
     width: '100%',
     height: 'auto'
+  },
+
+  imageCrop: {
+    position: 'absolute',
+    inset: 0,
+    width: '100%',
+    height: '100%'
   },
 
   meta: {
@@ -218,6 +233,8 @@ const IconMaterialClearAllRounded = React.forwardRef((props: any, ref) => {
 // 4. Filters (brightness, contrast, saturation, color filters)
 // 4.1 Any custom filter somehow?
 
+// On update filter, find filter responsible for that update, and call it's update method with valueCopy, to make updates to it, along with refs.canvasMain.current, to update
+
 
 const ImageEdit = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
@@ -229,6 +246,9 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
     color = 'primary',
 
     image,
+
+    openDefault,
+    openedOptionDefault,
 
     valueDefault,
     value: value_,
@@ -242,8 +262,10 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
     filters = true,
     crop = true,
-    resize = true,
+    resize: resize_ = true,
     quality: quality_ = true,
+
+    resizeAspectRatio = true,
 
     renderOption,
     renderOptionClear,
@@ -251,6 +273,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
     renderCancel,
     renderFilter,
     renderSlider,
+    renderResizeInput,
 
     IconSave = IconMaterialDoneRounded,
     IconCancel = IconMaterialCloseRounded,
@@ -276,9 +299,11 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
   const [init, setInit] = React.useState(false);
   const [value, setValue] = React.useState<HTMLCanvasElement>(valueDefault !== undefined ? valueDefault : value_);
   const [valueCopy, setValueCopy] = React.useState<HTMLCanvasElement>(valueCopyDefault !== undefined ? valueCopyDefault : valueCopy_);
-  const [open, setOpen] = React.useState<any>();
-  const [openedOption, setOpenedOption] = React.useState<any>();
+  const [open, setOpen] = React.useState<any>(openDefault);
+  const [openedOption, setOpenedOption] = React.useState<any>(openedOptionDefault);
   const [quality, setQuality] = React.useState<any>(100);
+  const [resize, setResize] = React.useState<any>();
+  const [selection, setSelection] = React.useState<any>();
   const [aspectRatio, setAspectRatio] = React.useState<any>();
   const [aspectRatioCustom, setAspectRatioCustom] = React.useState<any>();
   const [size, setSize] = React.useState('');
@@ -290,7 +315,8 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
     value: React.useRef<any>(),
     valueCopy: React.useRef<any>(),
     canvasMain: React.useRef<HTMLCanvasElement>(),
-    open: React.useRef<HTMLCanvasElement>()
+    open: React.useRef<HTMLCanvasElement>(),
+    resizeAspectRatio: React.useRef<any>()
   };
 
   refs.value.current = value;
@@ -298,6 +324,8 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
   refs.valueCopy.current = valueCopy;
 
   refs.open.current = open;
+
+  refs.resizeAspectRatio.current = resizeAspectRatio;
 
   const updateSize = (valueNew: any = refs.canvasMain.current) => {
     const uri = valueNew.toDataURL('image/png');
@@ -385,6 +413,10 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
     const valueToUse = !open ? value : valueCopy;
 
     if (valueToUse) {
+      refs.canvasMain.current.width = valueToUse.width;
+
+      refs.canvasMain.current.height = valueToUse.height;
+
       refs.canvasMain.current?.getContext('2d').drawImage(valueToUse, 0, 0, valueToUse.width, valueToUse.height);
 
       updateSize();
@@ -408,10 +440,6 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
     const canvas = window.document.createElement('canvas');
 
-    img.width = img.width;
-
-    img.height = img.height;
-
     canvas.width = img.width;
 
     canvas.height = img.height;
@@ -433,6 +461,66 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
     onChangeCopy(copy);
   };
 
+  const updateResize = debounce(async (width: number, height: number) => {
+    // Update value copy
+    const canvas = window.document.createElement('canvas');
+
+    canvas.width = width;
+
+    canvas.height = height;
+
+    canvas.getContext('2d').drawImage(refs.value.current, 0, 0, width, height);
+
+    // Value copy
+    onChangeCopy(canvas);
+
+    // Update the canvas value
+    refs.canvasMain.current.width = width;
+
+    refs.canvasMain.current.height = height;
+
+    refs.canvasMain.current.getContext('2d').drawImage(value, 0, 0, width, height);
+
+    // Update size
+    updateSize();
+  }, 140);
+
+  const onChangeResize = async (valueNew: any, width_ = true) => {
+    let width: number;
+    let height: number;
+
+    if (!refs.resizeAspectRatio.current) {
+      if (width_) {
+        width = +valueNew;
+        height = resize?.[1];
+      }
+      else {
+        width = resize?.[0];
+        height = +valueNew;
+      }
+    }
+    else {
+      const aspectRatio_ = value?.width / value?.height;
+
+      if (width_) {
+        width = +valueNew;
+        height = valueNew / aspectRatio_;
+      }
+      else {
+        height = +valueNew;
+        width = height * aspectRatio_;
+      }
+    }
+
+    width = clamp(width, 0);
+
+    height = clamp(height, 0);
+
+    setResize([width, height]);
+
+    await updateResize(width, height);
+  };
+
   const updateQuality = debounce(async (valueNew: any) => {
     // Update copy value
     const uri = value.toDataURL('image/jpeg', valueNew / 100);
@@ -450,11 +538,21 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
     onChangeCopy(canvas);
 
     // Update the canvas value
+    refs.canvasMain.current.width = canvas.width;
+
+    refs.canvasMain.current.height = canvas.height;
+
     refs.canvasMain.current?.getContext('2d').drawImage(canvas, 0, 0, canvas.width, canvas.height);
 
     // Update size
     updateSize();
   }, 40);
+
+  const onChangeQuality = async (valueNew: any) => {
+    setQuality(valueNew);
+
+    await updateQuality(valueNew);
+  };
 
   const onChange = (valueNew: any) => {
     // Update inner or controlled
@@ -470,17 +568,22 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
     if (is('function', onChangeCopy_)) onChangeCopy_(valueNew);
   };
 
-  const onChangeQuality = async (valueNew: any) => {
-    setQuality(valueNew);
-
-    updateQuality(valueNew);
-  };
-
   const onReset = (imageReset = true) => {
     setOpen(false);
+    setResize([value?.width, value?.height]);
     setQuality(100);
     setAspectRatio('');
     setAspectRatioCustom('');
+
+    const canvas = window.document.createElement('canvas');
+
+    canvas.width = refs.value.current.width;
+
+    canvas.height = refs.value.current.height;
+
+    canvas.getContext('2d').drawImage(refs.value.current, 0, 0, refs.value.current.width, refs.value.current.height);
+
+    onChangeCopy(canvas);
 
     if (imageReset) makeImage(image);
   };
@@ -488,7 +591,11 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
   const openOption = (valueNew: any) => {
     setOpenedOption(valueNew);
 
-    if (open && openedOption === valueNew) setOpen(false);
+    if (open && openedOption === valueNew) {
+      setOpen(false);
+
+      onReset(false);
+    }
     else if (!open) setOpen(true);
   };
 
@@ -501,6 +608,13 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
     canvas.height = refs.valueCopy.current.height;
 
     canvas.getContext('2d').drawImage(refs.valueCopy.current, 0, 0, refs.valueCopy.current.width, refs.valueCopy.current.height);
+
+    // Update the main canvas value
+    refs.canvasMain.current.width = canvas.width;
+
+    refs.canvasMain.current.height = canvas.height;
+
+    refs.canvasMain.current?.getContext('2d').drawImage(canvas, 0, 0, canvas.width, canvas.height);
 
     onChange(canvas);
 
@@ -522,6 +636,19 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
     canvas.getContext('2d').drawImage(refs.value.current, 0, 0, refs.value.current.width, refs.value.current.height);
 
     onChangeCopy(canvas);
+
+    // Update the main canvas value
+    refs.canvasMain.current.width = refs.value.current?.width;
+
+    refs.canvasMain.current.height = refs.value.current?.height;
+
+    refs.canvasMain.current?.getContext('2d').drawImage(refs.value.current, 0, 0, refs.value.current.width, refs.value.current.height);
+  };
+
+  const ImageCropProps = {
+    gridLines: true,
+
+    ...ImageCropProps_
   };
 
   const TooltipProps = {
@@ -547,13 +674,16 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
   const options = [
     filters && { label: 'Filters', value: 'filters', Icon: IconFilters },
     crop && { label: 'Crop', value: 'crop', Icon: IconCrop },
-    resize && { label: 'Resize', value: 'resize', Icon: IconResize },
+    resize_ && { label: 'Resize', value: 'resize', Icon: IconResize },
     quality_ && { label: 'Quality', value: 'quality', Icon: IconQuality }
   ].filter(Boolean);
 
   const MetaTypeProps = {
     version: 'b3'
   };
+  console.log(1, selection);
+
+  const rect = refs.root.current?.getBoundingClientRect();
 
   return (
     <Line
@@ -601,26 +731,55 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
           classes.imageWrapper
         ])}
       >
-        <canvas
-          ref={refs.canvasMain}
-
+        <div
           className={classNames([
             staticClassName('ScreenCapture', theme) && [
-              'AmauiScreenCapture-canvas',
-              'AmauiScreenCapture-canvas-main'
+              'AmauiScreenCapture-canvas-wrapper'
             ],
 
-            classes.canvas,
-            classes.canvas_main
+            classes.canvasWrapper
           ])}
+        >
+          <canvas
+            ref={refs.canvasMain}
 
-          width={(!open ? value : valueCopy)?.width || 0}
+            className={classNames([
+              staticClassName('ScreenCapture', theme) && [
+                'AmauiScreenCapture-canvas',
+                'AmauiScreenCapture-canvas-main'
+              ],
 
-          height={(!open ? value : valueCopy)?.height || 0}
-        />
+              classes.canvas,
+              classes.canvas_main
+            ])}
+          />
+
+          {open && openedOption === 'crop' && (
+            <ImageCrop
+              image={valueCopy}
+
+              onSelectorChange={(selector: any) => setSelection(selector)}
+
+              {...ImageCropProps}
+
+              className={classNames([
+                staticClassName('ScreenCapture', theme) && [
+                  'AmauiScreenCapture-image-crop'
+                ],
+
+                ImageCropProps.className,
+                classes.imageCrop
+              ])}
+
+              style={{
+                width: rect?.width
+              }}
+            />
+          )}
+        </div>
       </Line>
 
-      {(filters || crop || resize || quality_) && <>
+      {(filters || crop || resize_ || quality_) && <>
         <Expand
           in={!!open}
 
@@ -641,6 +800,68 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
               classes.option
             ])}
           >
+            {openedOption === 'resize' && (
+              <Line
+                direction='row'
+
+                align='center'
+
+                justify='center'
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                {is('function', renderResizeInput) ? renderResizeInput(value, valueCopy, resize, onChangeResize, 'width') : (
+                  <NumericTextField
+                    tonal={tonal}
+
+                    label='Width'
+
+                    color='default'
+
+                    version='text'
+
+                    size='small'
+
+                    min={1}
+
+                    max={value?.width}
+
+                    valueDefault={value?.width}
+
+                    value={resize?.[0]}
+
+                    onChange={(valueNew: string) => onChangeResize(valueNew)}
+                  />
+                )}
+
+                {is('function', renderResizeInput) ? renderResizeInput(value, valueCopy, resize, onChangeResize, 'height') : (
+                  <NumericTextField
+                    tonal={tonal}
+
+                    label='Height'
+
+                    color='default'
+
+                    version='text'
+
+                    size='small'
+
+                    min={1}
+
+                    max={value?.height}
+
+                    valueDefault={value?.height}
+
+                    value={resize?.[1]}
+
+                    onChange={(valueNew: string) => onChangeResize(valueNew, false)}
+                  />
+                )}
+              </Line>
+            )}
+
             {openedOption === 'quality' && (
               <Line
                 gap={3}
@@ -663,6 +884,12 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
                   max={100}
 
                   precision={1}
+
+                  marks={[
+                    { value: 1 },
+                    { value: 50 },
+                    { value: 100 }
+                  ]}
 
                   tooltip
 
@@ -699,7 +926,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
                   decrement={false}
 
-                  onChange={(valueNew: string) => onChangeQuality(clamp(+valueNew, 1, 100))}
+                  onChange={(valueNew: string) => onChangeQuality(+valueNew)}
 
                   className={classNames([
                     staticClassName('ImageEdit', theme) && [

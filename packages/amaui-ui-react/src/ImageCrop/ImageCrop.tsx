@@ -86,7 +86,9 @@ const useStyle = style(theme => ({
   },
 
   canvas_main: {
-    position: 'relative'
+    position: 'relative',
+    width: '100%',
+    height: 'auto'
   },
 
   canvas_imageSelector: {
@@ -327,6 +329,7 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
   const [focus, setFocus] = React.useState<any>();
   const [mouseDown, setMouseDown] = React.useState<any>();
   const [selector, setSelector] = React.useState<any>(selectorDefault !== undefined ? selectorDefault : selector_);
+  const [selectorRelative, setSelectorRelative] = React.useState<any>();
 
   const refs = {
     root: React.useRef<any>(),
@@ -428,10 +431,23 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
       }
     }
 
-    // Update inner or controlled
-    if (!props.hasOwnProperty('selector')) setSelector(valueNew);
+    const rootRect: DOMRect = refs.root.current.getBoundingClientRect();
 
-    if (is('function', onSelectorChange_)) onSelectorChange_(valueNew);
+    const selectorRelative_ = {
+      top: (valueNew.top / rootRect?.height) * refs.canvasMain.current?.height,
+      left: (valueNew.left / rootRect?.width) * refs.canvasMain.current?.width,
+      width: (valueNew.width / rootRect?.width) * refs.canvasMain.current?.width,
+      height: (valueNew.height / rootRect?.height) * refs.canvasMain.current?.height
+    };
+
+    // Update inner or controlled
+    if (!props.hasOwnProperty('selector')) {
+      setSelector(valueNew);
+
+      setSelectorRelative(selectorRelative_);
+    }
+
+    if (is('function', onSelectorChange_)) onSelectorChange_(selectorRelative_);
   };
 
   React.useEffect(() => {
@@ -1050,7 +1066,16 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
         }
       }
 
+      // Update selector
       setSelector(selectorValue);
+
+      // Update selector relative
+      setSelectorRelative({
+        top: (selectorValue.top / rootRect?.height) * refs.canvasMain.current?.height,
+        left: (selectorValue.left / rootRect?.width) * refs.canvasMain.current?.width,
+        width: (selectorValue.width / rootRect?.width) * refs.canvasMain.current?.width,
+        height: (selectorValue.height / rootRect?.height) * refs.canvasMain.current?.height
+      });
     }
   };
 
@@ -1064,9 +1089,17 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
 
   React.useEffect(() => {
     if (image) {
-      refs.canvasMain.current.getContext('2d').drawImage(image, 0, 0);
+      refs.canvasMain.current.width = image.width;
 
-      refs.canvasImageSelector.current.getContext('2d').drawImage(image, 0, 0);
+      refs.canvasMain.current.height = image.height;
+
+      refs.canvasMain.current.getContext('2d').drawImage(image, 0, 0), image.width, image.height;
+
+      refs.canvasImageSelector.current.width = image.width;
+
+      refs.canvasImageSelector.current.height = image.height;
+
+      refs.canvasImageSelector.current.getContext('2d').drawImage(image, 0, 0), image.width, image.height;
 
       // Update selector
       updateSelector();
@@ -1205,6 +1238,8 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
     });
   };
 
+  const rect = refs.root.current?.getBoundingClientRect();
+  console.log(1, selector, selectorRelative);
   return (
     <div
       ref={item => {
@@ -1246,10 +1281,6 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
           classes.canvas,
           classes.canvas_main
         ])}
-
-        width={image?.width || 0}
-
-        height={image?.height || 0}
       />
 
       <div
@@ -1264,13 +1295,11 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
       />
 
       <Tooltip
-        open={mouseDown && (refs.selector.current?.width + refs.selector.current?.height > 0)}
+        open={mouseDown && (selector?.width + selector?.height > 0)}
 
-        label={`${Math.round(selector?.width || 0)} x ${Math.round(selector?.height || 0)}`}
+        label={`${Math.round(selectorRelative?.width || 0)} x ${Math.round(selectorRelative?.height || 0)}`}
 
         position='bottom'
-
-        portal={false}
 
         {...TooltipProps}
       >
@@ -1536,7 +1565,9 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
 
           style={{
             top: `${(selector?.top || 0) * -1}px`,
-            left: `${(selector?.left || 0) * -1}px`
+            left: `${(selector?.left || 0) * -1}px`,
+            width: rect?.width,
+            height: rect?.height
           }}
         />
       </div>

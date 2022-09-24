@@ -533,6 +533,10 @@ const ScreenCapture = React.forwardRef((props_: any, ref: any) => {
 
               onSelectorChange={onImageCropSelectorChange}
 
+              TooltipProps={{
+                portal: false
+              }}
+
               {...ImageCropProps}
             />
           </div>
