@@ -226,8 +226,6 @@ const IconMaterialClearAllRounded = React.forwardRef((props: any, ref) => {
 
 // To do
 
-// 1. Size edit, with an aspectRatio: true, to respect it or not while updating width, height
-
 // 3. Image crop, with aspect ratios (1/1, 4/3, 16/9 and custom numeric text fields)
 
 // 4. Filters (brightness, contrast, saturation, color filters)
@@ -410,7 +408,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
   }, [image]);
 
   React.useEffect(() => {
-    const valueToUse = !open ? value : valueCopy;
+    const valueToUse = !open ? refs.value.current : refs.valueCopy.current;
 
     if (valueToUse) {
       refs.canvasMain.current.width = valueToUse.width;
@@ -568,7 +566,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
     if (is('function', onChangeCopy_)) onChangeCopy_(valueNew);
   };
 
-  const onReset = (imageReset = true) => {
+  const onReset = (imageReset = true, valueCopyReset = true) => {
     setOpen(false);
     setResize([value?.width, value?.height]);
     setQuality(100);
@@ -576,15 +574,17 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
     setAspectRatioCustom('');
     setSelection('');
 
-    const canvas = window.document.createElement('canvas');
+    if (valueCopyReset) {
+      const canvas = window.document.createElement('canvas');
 
-    canvas.width = refs.value.current.width;
+      canvas.width = refs.value.current.width;
 
-    canvas.height = refs.value.current.height;
+      canvas.height = refs.value.current.height;
 
-    canvas.getContext('2d').drawImage(refs.value.current, 0, 0, refs.value.current.width, refs.value.current.height);
+      canvas.getContext('2d').drawImage(refs.value.current, 0, 0, refs.value.current.width, refs.value.current.height);
 
-    onChangeCopy(canvas);
+      onChangeCopy(canvas);
+    }
 
     if (imageReset) makeImage(image);
   };
@@ -641,7 +641,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
     onChangeCopy(canvasCopy);
 
     // Reset
-    onReset(false);
+    onReset(false, false);
   };
 
   const onCancel = () => {
@@ -958,8 +958,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
                   ])}
 
                   style={{
-                    width: 25,
-                    textAlign: 'center'
+                    width: 34
                   }}
                 />
               </Line>

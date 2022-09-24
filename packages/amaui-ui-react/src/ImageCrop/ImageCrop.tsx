@@ -1239,7 +1239,7 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
   };
 
   const rect = refs.root.current?.getBoundingClientRect();
-  console.log(1, selector, selectorRelative);
+
   return (
     <div
       ref={item => {
