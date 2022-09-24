@@ -613,7 +613,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
     setResize([value?.width, value?.height]);
     setQuality(100);
     setAspectRatio('');
-    setAspectRatioCustom('');
+    setAspectRatioCustom([1, 1]);
     setSelection('');
 
     if (valueCopyReset) {
