@@ -3,6 +3,7 @@ import React from 'react';
 import { is, to, clamp, debounce, canvasCrop } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
+import Type from '../Type';
 import Expand from '../Expand';
 import Divider from '../Divider';
 import Surface from '../Surface';
@@ -10,12 +11,11 @@ import Tooltip from '../Tooltip';
 import IconButton from '../IconButton';
 import Slider from '../Slider';
 import NumericTextField from '../NumericTextField';
-import Type from '../Type';
+import ImageCrop from '../ImageCrop';
 import Icon from '../Icon';
 import Line from '../Line';
 
 import { staticClassName, image as imageMethod } from '../utils';
-import ImageCrop from '../ImageCrop';
 
 const useStyle = style(theme => ({
   root: {
@@ -223,7 +223,6 @@ const IconMaterialClearAllRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
-
 // To do
 
 // 3. Image crop, with aspect ratios (1/1, 4/3, 16/9 and custom numeric text fields)
@@ -232,7 +231,6 @@ const IconMaterialClearAllRounded = React.forwardRef((props: any, ref) => {
 // 4.1 Any custom filter somehow?
 
 // On update filter, find filter responsible for that update, and call it's update method with valueCopy, to make updates to it, along with refs.canvasMain.current, to update
-
 
 const ImageEdit = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
@@ -290,6 +288,8 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
     onChangeCopy: onChangeCopy_,
 
     className,
+
+    children,
 
     ...other
   } = props;
@@ -1098,6 +1098,8 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
           </Line>
         </Line>
       </>}
+
+      {children}
 
       {/* Meta */}
       {meta && value && <>
