@@ -306,7 +306,7 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
     selector: selector_,
     onSelectorChange: onSelectorChange_,
 
-    type = `image/png`,
+    type = `image/jpeg`,
     quality = 1,
 
     aspectRatio,

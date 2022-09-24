@@ -939,7 +939,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
           </Type>
         )}
 
-        {start && (
+        {!!React.Children.toArray(start).length && (
           <span
             className={classNames([
               staticClassName('TextField', theme) && [
@@ -1093,7 +1093,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
           </Type>
         )}
 
-        {end && (
+        {!!React.Children.toArray(end).length && (
           <span
             className={classNames([
               staticClassName('TextField', theme) && [

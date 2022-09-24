@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is, clamp } from '@amaui/utils';
+import { is, clamp, debounce, to } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Expand from '../Expand';
@@ -69,6 +69,11 @@ const useStyle = style(theme => ({
     height: 'auto'
   },
 
+  meta: {
+    width: '100%',
+    padding: '12px 24px'
+  },
+
   optionInput: {
     '& .AmauiTextField-inputWrapper': {
       padding: '0px',
@@ -80,10 +85,31 @@ const useStyle = style(theme => ({
     }
   },
 
+  action: {
+    width: '100%',
+    padding: '16px 24px'
+  },
+
   slider: {
     width: '100%'
   }
 }), { name: 'AmauiImageEdit' });
+
+const IconMaterialDoneRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='DoneRounded'
+      short_name='Done'
+
+      {...props}
+    >
+      <path d="M9.55 17.575Q9.35 17.575 9.175 17.512Q9 17.45 8.85 17.3L4.55 13Q4.275 12.725 4.287 12.287Q4.3 11.85 4.575 11.575Q4.85 11.3 5.275 11.3Q5.7 11.3 5.975 11.575L9.55 15.15L18.025 6.675Q18.3 6.4 18.738 6.4Q19.175 6.4 19.45 6.675Q19.725 6.95 19.725 7.387Q19.725 7.825 19.45 8.1L10.25 17.3Q10.1 17.45 9.925 17.512Q9.75 17.575 9.55 17.575Z" />
+    </Icon>
+  );
+});
 
 const IconMaterialCloseRounded = React.forwardRef((props: any, ref) => {
 
@@ -166,9 +192,32 @@ const IconMaterialHighQualityRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+const IconMaterialClearAllRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='ClearAllRounded'
+      short_name='ClearAll'
+
+      {...props}
+    >
+      <path d="M18 13H6Q5.575 13 5.287 12.712Q5 12.425 5 12Q5 11.575 5.287 11.287Q5.575 11 6 11H18Q18.425 11 18.712 11.287Q19 11.575 19 12Q19 12.425 18.712 12.712Q18.425 13 18 13ZM16 17H4Q3.575 17 3.288 16.712Q3 16.425 3 16Q3 15.575 3.288 15.287Q3.575 15 4 15H16Q16.425 15 16.712 15.287Q17 15.575 17 16Q17 16.425 16.712 16.712Q16.425 17 16 17ZM20 9H8Q7.575 9 7.287 8.712Q7 8.425 7 8Q7 7.575 7.287 7.287Q7.575 7 8 7H20Q20.425 7 20.712 7.287Q21 7.575 21 8Q21 8.425 20.712 8.712Q20.425 9 20 9Z" />
+    </Icon>
+  );
+});
+
+
 // To do
 
 // Quality
+
+// Update quality with debounce to image copy
+
+// If cancel or closed or openned another option reset image copy to the image
+
+// Save update image to image copy
 
 // Enter save, or Escape cancel the selection
 
@@ -197,6 +246,10 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
     image: image_,
 
+    type = 'image/jpeg',
+
+    meta = true,
+
     filters = true,
     crop = true,
     resize = true,
@@ -204,10 +257,14 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
     renderOption,
     renderOptionClear,
+    renderSave,
+    renderCancel,
     renderFilter,
     renderSlider,
 
-    IconClear = IconMaterialCloseRounded,
+    IconSave = IconMaterialDoneRounded,
+    IconCancel = IconMaterialCloseRounded,
+    IconClear = IconMaterialClearAllRounded,
     IconCrop = IconMaterialCropRounded,
     IconFilters = IconMaterialTuneRounded,
     IconResize = IconMaterialAspectRatioRounded,
@@ -230,6 +287,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
   const [quality, setQuality] = React.useState<any>(100);
   const [aspectRatio, setAspectRatio] = React.useState<any>();
   const [aspectRatioCustom, setAspectRatioCustom] = React.useState<any>();
+  const [size, setSize] = React.useState('');
 
   const { classes } = useStyle(props);
 
@@ -241,6 +299,13 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
   refs.image.current = image;
 
+  const updateSize = (value: any = refs.canvasMain.current) => {
+    const uri = value.toDataURL('image/png');
+
+    // Update size
+    setSize(to(to(uri, 'byte-size'), 'size-format') as any);
+  };
+
   React.useEffect(() => {
     if (image_ !== image) {
       if (image_ instanceof HTMLCanvasElement) setImage(image_);
@@ -251,7 +316,11 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
   React.useEffect(() => {
     const imageToUse = !open ? image : imageCopy;
 
-    if (imageToUse) refs.canvasMain.current?.getContext('2d').drawImage(imageToUse, 0, 0, imageToUse.width, imageToUse.height);
+    if (imageToUse) {
+      refs.canvasMain.current?.getContext('2d').drawImage(imageToUse, 0, 0, imageToUse.width, imageToUse.height);
+
+      updateSize();
+    }
   }, [image, open]);
 
   const makeImage = async (value: any = image) => {
@@ -284,19 +353,42 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
     setImageCopy(copy);
   };
 
-  const onChangeQuality = (value: any) => {
+  const updateQuality = debounce(async (value_: any) => {
+    // Update copy image
+    const uri = image.toDataURL('image/jpeg', value_ / 100);
+
+    const img = await imageMethod(uri);
+
+    const canvas = window.document.createElement('canvas');
+
+    canvas.width = img.width;
+
+    canvas.height = img.height;
+
+    canvas.getContext('2d').drawImage(img, 0, 0, img.width, img.height);
+
+    setImageCopy(canvas);
+
+    // Update the canvas value
+    refs.canvasMain.current?.getContext('2d').drawImage(canvas, 0, 0, canvas.width, canvas.height);
+
+    // Update size
+    updateSize();
+  }, 40);
+
+  const onChangeQuality = async (value: any) => {
     setQuality(value);
 
-    // Update copy image
+    updateQuality(value);
   };
 
-  const clear = () => {
+  const clear = (imageReset = true) => {
     setOpen(false);
-    setQuality(1);
+    setQuality(100);
     setAspectRatio('');
     setAspectRatioCustom('');
 
-    makeImage(image_);
+    if (imageReset) makeImage(image_);
   };
 
   const openOption = (value: any) => {
@@ -304,6 +396,38 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
     if (open && openedOption === value) setOpen(false);
     else if (!open) setOpen(true);
+  };
+
+  const onSave = () => {
+    // Make image copy into image
+    const canvas = window.document.createElement('canvas');
+
+    canvas.width = imageCopy.width;
+
+    canvas.height = imageCopy.height;
+
+    canvas.getContext('2d').drawImage(imageCopy, 0, 0, imageCopy.width, imageCopy.height);
+
+    setImage(canvas);
+
+    // Reset
+    clear(false);
+  };
+
+  const onCancel = () => {
+    // Reset to unopen
+    clear(false);
+
+    // Make image copy into image
+    const canvas = window.document.createElement('canvas');
+
+    canvas.width = image.width;
+
+    canvas.height = image.height;
+
+    canvas.getContext('2d').drawImage(image, 0, 0, image.width, image.height);
+
+    setImageCopy(canvas);
   };
 
   const TooltipProps = {
@@ -332,6 +456,10 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
     resize && { label: 'Resize', value: 'resize', Icon: IconResize },
     quality_ && { label: 'Quality', value: 'quality', Icon: IconQuality }
   ].filter(Boolean);
+
+  const MetaTypeProps = {
+    version: 'b3'
+  };
 
   return (
     <Line
@@ -399,18 +527,6 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
       </Line>
 
       {(filters || crop || resize || quality_) && <>
-        <Divider
-          color='inherit'
-
-          className={classNames([
-            staticClassName('ImageEdit', theme) && [
-              'AmauiImageEdit-divider'
-            ],
-
-            classes.divider
-          ])}
-        />
-
         <Expand
           in={!!open}
 
@@ -418,7 +534,11 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
             width: '100%'
           }}
         >
-          <div
+          <Line
+            gap={0}
+
+            direction='column'
+
             className={classNames([
               staticClassName('ImageEdit', theme) && [
                 'AmauiImageEdit-option'
@@ -485,7 +605,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
                   decrement={false}
 
-                  onChange={(value: string) => setQuality(clamp(+value, 1, 100))}
+                  onChange={(value: string) => onChangeQuality(clamp(+value, 1, 100))}
 
                   className={classNames([
                     staticClassName('ImageEdit', theme) && [
@@ -502,7 +622,49 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
                 />
               </Line>
             )}
-          </div>
+
+            <Line
+              gap={1}
+
+              direction='row'
+
+              align='center'
+
+              justify='center'
+
+              className={classNames([
+                staticClassName('ImageEdit', theme) && [
+                  'AmauiImageEdit-action'
+                ],
+
+                classes.action
+              ])}
+            >
+              {is('function', renderSave) ? renderSave(onSave) : (
+                <IconButton
+                  version='outlined'
+
+                  onClick={onSave}
+
+                  {...IconButtonProps}
+                >
+                  <IconSave />
+                </IconButton>
+              )}
+
+              {is('function', renderCancel) ? renderCancel(onSave) : (
+                <IconButton
+                  version='outlined'
+
+                  onClick={onCancel}
+
+                  {...IconButtonProps}
+                >
+                  <IconCancel />
+                </IconButton>
+              )}
+            </Line>
+          </Line>
 
           <Divider
             color='inherit'
@@ -581,6 +743,55 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
               </Tooltip>
             )}
           </Line>
+        </Line>
+      </>}
+
+      {/* Meta */}
+      {meta && <>
+        <Divider
+          color='inherit'
+
+          className={classNames([
+            staticClassName('ImageEdit', theme) && [
+              'AmauiImageEdit-divider'
+            ],
+
+            classes.divider
+          ])}
+        />
+
+        <Line
+          gap={1}
+
+          direction='row'
+
+          align='center'
+
+          className={classNames([
+            staticClassName('ImageEdit', theme) && [
+              'AmauiImageEdit-meta'
+            ],
+
+            classes.meta
+          ])}
+        >
+          <Type
+            {...MetaTypeProps}
+          >
+            Dimensions: {(!open ? image : imageCopy)?.width}x{(!open ? image : imageCopy)?.height}
+          </Type>
+
+          <Type
+            {...MetaTypeProps}
+          >
+            ·
+          </Type>
+
+          <Type
+            {...MetaTypeProps}
+          >
+            Size: {size}
+          </Type>
         </Line>
       </>}
     </Line>
