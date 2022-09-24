@@ -71,7 +71,7 @@ const Append = (props_: any) => {
           // Root attributes or childList
           ['attributes', 'childList'].includes(mutation.type) && [null, undefined, 'style'].includes(mutation.attributeName) :
           // or subtree's childList
-          ['childList'].includes(mutation.type) && [null, undefined].includes(mutation.attributeName)
+          ['attributes', 'childList'].includes(mutation.type) && [null, undefined, 'style'].includes(mutation.attributeName)
       ) {
         if (anchor === undefined) make();
       }
