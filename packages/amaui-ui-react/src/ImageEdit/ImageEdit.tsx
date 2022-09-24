@@ -208,12 +208,9 @@ const IconMaterialClearAllRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
-
 // To do
 
-// Enter save, or Escape cancel the selection
-
-// 1. Size edit
+// 1. Size edit, with an aspectRatio: true, to respect it or not while updating width, height
 // 3. Image crop, with aspect ratios (1/1, 4/3, 16/9 and custom numeric text fields)
 // 4. Filters (brightness, contrast, saturation, color filters)
 // 4.1 Any custom filter somehow?
@@ -324,8 +321,9 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
       }
 
       switch (event.key) {
-        case 'Enter':
-          if (refs.focus.current && refs.open.current) onSave();
+        case 's':
+        case 'S':
+          if (refs.focus.current && refs.open.current && event.metaKey) onSave();
 
           return;
 
