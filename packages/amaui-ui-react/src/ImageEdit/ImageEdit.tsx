@@ -269,9 +269,6 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
     ImageCropProps: ImageCropProps_,
     IconButtonProps: IconButtonProps_,
 
-    onFocus: onFocus_,
-    onBlur: onBlur_,
-
     onChange: onChange_,
     onChangeCopy: onChangeCopy_,
 
@@ -285,7 +282,6 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
   const [valueCopy, setValueCopy] = React.useState<HTMLCanvasElement>(valueCopyDefault !== undefined ? valueCopyDefault : valueCopy_);
   const [open, setOpen] = React.useState<any>();
   const [openedOption, setOpenedOption] = React.useState<any>();
-  const [focus, setFocus] = React.useState<any>();
   const [quality, setQuality] = React.useState<any>(100);
   const [aspectRatio, setAspectRatio] = React.useState<any>();
   const [aspectRatioCustom, setAspectRatioCustom] = React.useState<any>();
@@ -296,7 +292,6 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
   const refs = {
     root: React.useRef<any>(),
     value: React.useRef<any>(),
-    focus: React.useRef<any>(),
     canvasMain: React.useRef<HTMLCanvasElement>(),
     open: React.useRef<HTMLCanvasElement>()
   };
@@ -304,8 +299,6 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
   refs.value.current = value;
 
   refs.open.current = open;
-
-  refs.focus.current = focus;
 
   const updateSize = (valueNew: any = refs.canvasMain.current) => {
     const uri = valueNew.toDataURL('image/png');
@@ -316,19 +309,22 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
   React.useEffect(() => {
     const method = (event: KeyboardEvent) => {
-      if (['Enter', 'Escape'].includes(event.key)) {
+      if (
+        ['Escape'].includes(event.key) ||
+        (['s', 'S'].includes(event.key) && event.metaKey)
+      ) {
         event.preventDefault();
       }
 
       switch (event.key) {
         case 's':
         case 'S':
-          if (refs.focus.current && refs.open.current && event.metaKey) onSave();
+          if (refs.open.current && event.metaKey) onSave();
 
           return;
 
         case 'Escape':
-          if (refs.focus.current && refs.open.current) onCancel();
+          if (refs.open.current) onCancel();
 
           return;
 
@@ -499,18 +495,6 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
     onChangeCopy(canvas);
   };
 
-  const onFocus = React.useCallback((event: React.FocusEvent<any>) => {
-    setFocus(true);
-
-    if (is('function', onFocus_)) onFocus_(event);
-  }, []);
-
-  const onBlur = React.useCallback((event: React.FocusEvent<any>) => {
-    setFocus(false);
-
-    if (is('function', onBlur_)) onBlur_(event);
-  }, []);
-
   const TooltipProps = {
     position: 'bottom',
 
@@ -549,12 +533,6 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
         refs.root.current = item;
       }}
-
-      tabIndex='0'
-
-      onFocus={onFocus}
-
-      onBlur={onBlur}
 
       tonal={tonal}
 
