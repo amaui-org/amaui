@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is, clamp, debounce, to } from '@amaui/utils';
+import { is, to, clamp, debounce, canvasCrop } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Expand from '../Expand';
@@ -421,7 +421,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
       updateSize();
     }
-  }, [value, open]);
+  }, [value, valueCopy, open]);
 
   React.useEffect(() => {
     if (init) {
@@ -574,6 +574,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
     setQuality(100);
     setAspectRatio('');
     setAspectRatioCustom('');
+    setSelection('');
 
     const canvas = window.document.createElement('canvas');
 
@@ -601,13 +602,22 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
   const onSave = () => {
     // Make value copy into value
-    const canvas = window.document.createElement('canvas');
+    let canvas = window.document.createElement('canvas');
 
     canvas.width = refs.valueCopy.current.width;
 
     canvas.height = refs.valueCopy.current.height;
 
     canvas.getContext('2d').drawImage(refs.valueCopy.current, 0, 0, refs.valueCopy.current.width, refs.valueCopy.current.height);
+
+    if (openedOption === 'crop' && selection) {
+      // Crop the canvas
+      canvas.width = selection.width;
+
+      canvas.height = selection.height;
+
+      canvas = canvasCrop(refs.valueCopy.current, selection.left, selection.top, selection.width, selection.height);
+    }
 
     // Update the main canvas value
     refs.canvasMain.current.width = canvas.width;
@@ -616,7 +626,19 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
     refs.canvasMain.current?.getContext('2d').drawImage(canvas, 0, 0, canvas.width, canvas.height);
 
+    // Update value
     onChange(canvas);
+
+    const canvasCopy = window.document.createElement('canvas');
+
+    canvasCopy.width = canvas.width;
+
+    canvasCopy.height = canvas.height;
+
+    canvasCopy.getContext('2d').drawImage(canvas, 0, 0, canvasCopy.width, canvasCopy.height);
+
+    // Update value copy
+    onChangeCopy(canvasCopy);
 
     // Reset
     onReset(false);
@@ -681,7 +703,6 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
   const MetaTypeProps = {
     version: 'b3'
   };
-  console.log(1, selection);
 
   const rect = refs.root.current?.getBoundingClientRect();
 
