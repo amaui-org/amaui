@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is, to, clamp, debounce, canvasCrop } from '@amaui/utils';
+import { is, to, clamp, debounce, canvasCrop, download as downloadMethod } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Type from '../Type';
@@ -12,6 +12,7 @@ import IconButton from '../IconButton';
 import Slider from '../Slider';
 import NumericTextField from '../NumericTextField';
 import ImageCrop from '../ImageCrop';
+import Chip from '../Chip';
 import Icon from '../Icon';
 import Line from '../Line';
 
@@ -223,14 +224,27 @@ const IconMaterialClearAllRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+const IconMaterialDownloadRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='DownloadRounded'
+      short_name='Download'
+
+      {...props}
+    >
+      <path d="M12 15.575Q11.8 15.575 11.625 15.512Q11.45 15.45 11.3 15.3L7.7 11.7Q7.425 11.425 7.425 11Q7.425 10.575 7.7 10.3Q7.975 10.025 8.412 10.012Q8.85 10 9.125 10.275L11 12.15V5Q11 4.575 11.288 4.287Q11.575 4 12 4Q12.425 4 12.713 4.287Q13 4.575 13 5V12.15L14.875 10.275Q15.15 10 15.588 10.012Q16.025 10.025 16.3 10.3Q16.575 10.575 16.575 11Q16.575 11.425 16.3 11.7L12.7 15.3Q12.55 15.45 12.375 15.512Q12.2 15.575 12 15.575ZM6 20Q5.175 20 4.588 19.413Q4 18.825 4 18V16Q4 15.575 4.287 15.287Q4.575 15 5 15Q5.425 15 5.713 15.287Q6 15.575 6 16V18Q6 18 6 18Q6 18 6 18H18Q18 18 18 18Q18 18 18 18V16Q18 15.575 18.288 15.287Q18.575 15 19 15Q19.425 15 19.712 15.287Q20 15.575 20 16V18Q20 18.825 19.413 19.413Q18.825 20 18 20Z" />
+    </Icon>
+  );
+});
+
 // To do
 
-// 3. Image crop, with aspect ratios (1/1, 4/3, 16/9 and custom numeric text fields)
-
 // 4. Filters (brightness, contrast, saturation, color filters)
-// 4.1 Any custom filter somehow?
 
-// On update filter, find filter responsible for that update, and call it's update method with valueCopy, to make updates to it, along with refs.canvasMain.current, to update
+// Every filter has renderMethod and Icon, and method where we pass valueCopy do do something with it
 
 const ImageEdit = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
@@ -243,6 +257,9 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
     image,
 
+    name = 'amaui-image.jpg',
+    type = 'image/jpeg',
+
     openDefault,
     openedOptionDefault,
 
@@ -252,14 +269,13 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
     valueCopyDefault,
     valueCopy: valueCopy_,
 
-    type = 'image/jpeg',
-
     meta = true,
 
     filters = true,
     crop = true,
     resize: resize_ = true,
     quality: quality_ = true,
+    download = true,
 
     resizeAspectRatio = true,
 
@@ -269,7 +285,8 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
     renderCancel,
     renderFilter,
     renderSlider,
-    renderResizeInput,
+    renderDownload,
+    renderInput,
 
     IconSave = IconMaterialDoneRounded,
     IconCancel = IconMaterialCloseRounded,
@@ -278,7 +295,9 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
     IconFilters = IconMaterialTuneRounded,
     IconResize = IconMaterialAspectRatioRounded,
     IconQuality = IconMaterialHighQualityRounded,
+    IconDownload = IconMaterialDownloadRounded,
 
+    ChipProps: ChipProps_,
     SliderProps: SliderProps_,
     TooltipProps: TooltipProps_,
     ImageCropProps: ImageCropProps_,
@@ -303,7 +322,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
   const [resize, setResize] = React.useState<any>();
   const [selection, setSelection] = React.useState<any>();
   const [aspectRatio, setAspectRatio] = React.useState<any>();
-  const [aspectRatioCustom, setAspectRatioCustom] = React.useState<any>();
+  const [aspectRatioCustom, setAspectRatioCustom] = React.useState<any>([1, 1]);
   const [size, setSize] = React.useState('');
 
   const { classes } = useStyle(props);
@@ -326,7 +345,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
   refs.resizeAspectRatio.current = resizeAspectRatio;
 
   const updateSize = (valueNew: any = refs.canvasMain.current) => {
-    const uri = valueNew.toDataURL('image/png');
+    const uri = valueNew.toDataURL(type);
 
     // Update size
     setSize(to(to(uri, 'byte-size'), 'size-format') as any);
@@ -339,6 +358,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
         (['s', 'S'].includes(event.key) && event.metaKey) ||
         (['f', 'F'].includes(event.key) && event.metaKey && event.shiftKey) ||
         (['c', 'C'].includes(event.key) && event.metaKey && event.shiftKey) ||
+        (['d', 'D'].includes(event.key) && (event.metaKey || event.shiftKey)) ||
         (['r', 'R'].includes(event.key) && (event.metaKey || event.shiftKey)) ||
         (['q', 'Q'].includes(event.key) && event.metaKey && event.shiftKey)
       ) {
@@ -361,6 +381,12 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
         case 'c':
         case 'C':
           if (event.metaKey && event.shiftKey) openOption('crop');
+
+          return;
+
+        case 'd':
+        case 'D':
+          if (event.metaKey && event.shiftKey) onDownload();
 
           return;
 
@@ -482,6 +508,22 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
     // Update size
     updateSize();
   }, 140);
+
+  const onChangeAspectRatioCustom = (valueNew: any, left_ = true) => {
+    let left = aspectRatioCustom?.[0] || 1;
+    let right = aspectRatioCustom?.[1] || 1;
+
+    left_ ? left = valueNew : right = valueNew;
+
+    setAspectRatioCustom([left, right]);
+
+    onChangeAspectRatio(left / right);
+  };
+
+  const onChangeAspectRatio = (valueNew: any) => {
+    if (aspectRatio === valueNew) setAspectRatio('');
+    else setAspectRatio(valueNew);
+  };
 
   const onChangeResize = async (valueNew: any, width_ = true) => {
     let width: number;
@@ -644,6 +686,14 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
     onReset(false, false);
   };
 
+  const onDownload = () => {
+    // Download the image from canvas datauri
+    // of the image type and quality, name
+    const uri = refs.value.current.toDataURL(type);
+
+    downloadMethod(name, uri, type);
+  };
+
   const onCancel = () => {
     // Reset to unopen
     onReset(false);
@@ -692,6 +742,18 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
     ...SliderProps_
   };
+
+  const ChipProps = {
+    size: 'small',
+
+    ...ChipProps_
+  };
+
+  const chips = [
+    { label: '1:1', value: 1 / 1 },
+    { label: '4:3', value: 4 / 3 },
+    { label: '16:9', value: 16 / 9 }
+  ];
 
   const options = [
     filters && { label: 'Filters', value: 'filters', Icon: IconFilters },
@@ -779,6 +841,8 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
             <ImageCrop
               image={valueCopy}
 
+              aspectRatio={aspectRatio ? aspectRatio : undefined}
+
               onSelectorChange={(selector: any) => setSelection(selector)}
 
               {...ImageCropProps}
@@ -821,6 +885,118 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
               classes.option
             ])}
           >
+            {openedOption === 'crop' && (
+              <Line
+                gap={1}
+
+                direction='row'
+
+                align='center'
+
+                justify='center'
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                {chips.map((item: any, index: number) => (
+                  <Chip
+                    key={index}
+
+                    selected={aspectRatio === item.value}
+
+                    onClick={() => onChangeAspectRatio(item.value)}
+
+                    {...ChipProps}
+                  >
+                    {item.label}
+                  </Chip>
+                ))}
+
+                <Line
+                  gap={0}
+
+                  direction='row'
+
+                  align='center'
+
+                  justify='center'
+                >
+                  {is('function', renderInput) ? renderInput(aspectRatio, aspectRatioCustom, onChangeAspectRatioCustom, 'left') : (
+                    <NumericTextField
+                      tonal={tonal}
+
+                      color='default'
+
+                      version='text'
+
+                      size='small'
+
+                      min={1}
+
+                      value={aspectRatioCustom?.[0]}
+
+                      onChange={(valueNew: string) => onChangeAspectRatioCustom(+valueNew)}
+
+                      increment={false}
+
+                      decrement={false}
+
+                      className={classNames([
+                        staticClassName('ImageEdit', theme) && [
+                          'AmauiImageEdit-optionInput'
+                        ],
+
+                        classes.optionInput
+                      ])}
+
+                      style={{
+                        width: 24
+                      }}
+                    />
+                  )}
+
+                  <Type>
+                    :
+                  </Type>
+
+                  {is('function', renderInput) ? renderInput(aspectRatio, aspectRatioCustom, onChangeAspectRatioCustom, 'right') : (
+                    <NumericTextField
+                      tonal={tonal}
+
+                      color='default'
+
+                      version='text'
+
+                      size='small'
+
+                      min={1}
+
+                      value={aspectRatioCustom?.[1]}
+
+                      onChange={(valueNew: string) => onChangeAspectRatioCustom(+valueNew, false)}
+
+                      increment={false}
+
+                      decrement={false}
+
+                      className={classNames([
+                        staticClassName('ImageEdit', theme) && [
+                          'AmauiImageEdit-optionInput'
+                        ],
+
+                        classes.optionInput
+                      ])}
+
+                      style={{
+                        width: 24
+                      }}
+                    />
+                  )}
+                </Line>
+              </Line>
+            )}
+
             {openedOption === 'resize' && (
               <Line
                 direction='row'
@@ -833,7 +1009,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
                   width: '100%'
                 }}
               >
-                {is('function', renderResizeInput) ? renderResizeInput(value, valueCopy, resize, onChangeResize, 'width') : (
+                {is('function', renderInput) ? renderInput(value, valueCopy, resize, onChangeResize, 'width') : (
                   <NumericTextField
                     tonal={tonal}
 
@@ -857,7 +1033,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
                   />
                 )}
 
-                {is('function', renderResizeInput) ? renderResizeInput(value, valueCopy, resize, onChangeResize, 'height') : (
+                {is('function', renderInput) ? renderInput(value, valueCopy, resize, onChangeResize, 'height') : (
                   <NumericTextField
                     tonal={tonal}
 
@@ -1078,23 +1254,49 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
               )
             ))}
 
-            {is('function', renderOptionClear) ? renderOptionClear(onReset) : (
-              <Tooltip
-                label='Reset'
+            <Line
+              gap={0}
 
-                {...TooltipProps}
-              >
-                <IconButton
-                  version='text'
+              direction='row'
 
-                  onClick={onReset}
+              align='center'
+            >
+              {download && is('function', renderDownload) ? renderDownload(onDownload) : (
+                <Tooltip
+                  label='Download'
 
-                  {...IconButtonProps}
+                  {...TooltipProps}
                 >
-                  <IconClear />
-                </IconButton>
-              </Tooltip>
-            )}
+                  <IconButton
+                    version='text'
+
+                    onClick={onDownload}
+
+                    {...IconButtonProps}
+                  >
+                    <IconDownload />
+                  </IconButton>
+                </Tooltip>
+              )}
+
+              {is('function', renderOptionClear) ? renderOptionClear(onReset) : (
+                <Tooltip
+                  label='Reset'
+
+                  {...TooltipProps}
+                >
+                  <IconButton
+                    version='text'
+
+                    onClick={onReset}
+
+                    {...IconButtonProps}
+                  >
+                    <IconClear />
+                  </IconButton>
+                </Tooltip>
+              )}
+            </Line>
           </Line>
         </Line>
       </>}

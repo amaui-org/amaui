@@ -162,11 +162,9 @@ const Expand = React.forwardRef((props_: any, ref: any) => {
       }}
 
       onEnter={element => {
-        if (!refs.rectStart.current) {
-          refs.rectStart.current = element?.getBoundingClientRect();
+        refs.rectStart.current = element?.getBoundingClientRect();
 
-          if (refs.rectStart.current) refs.rectStart.current[prop] += addValue;
-        }
+        if (refs.rectStart.current) refs.rectStart.current[prop] += addValue;
       }}
     >
       {(status: TTransitionStatus, ref_) => {
