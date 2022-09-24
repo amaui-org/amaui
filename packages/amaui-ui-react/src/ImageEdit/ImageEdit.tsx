@@ -235,7 +235,13 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
     tonal = true,
     color = 'primary',
 
-    image: image_,
+    image,
+
+    valueDefault,
+    value: value_,
+
+    valueCopyDefault,
+    valueCopy: valueCopy_,
 
     type = 'image/jpeg',
 
@@ -266,13 +272,17 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
     ImageCropProps: ImageCropProps_,
     IconButtonProps: IconButtonProps_,
 
+    onChange: onChange_,
+    onChangeCopy: onChangeCopy_,
+
     className,
 
     ...other
   } = props;
 
-  const [image, setImage] = React.useState<HTMLCanvasElement>();
-  const [imageCopy, setImageCopy] = React.useState<HTMLCanvasElement>();
+  const [init, setInit] = React.useState(false);
+  const [value, setValue] = React.useState<HTMLCanvasElement>(valueDefault !== undefined ? valueDefault : value_);
+  const [valueCopy, setValueCopy] = React.useState<HTMLCanvasElement>(valueCopyDefault !== undefined ? valueCopyDefault : valueCopy_);
   const [open, setOpen] = React.useState<any>();
   const [openedOption, setOpenedOption] = React.useState<any>();
   const [quality, setQuality] = React.useState<any>(100);
@@ -284,38 +294,57 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
   const refs = {
     root: React.useRef<any>(),
-    image: React.useRef<any>(),
+    value: React.useRef<any>(),
     canvasMain: React.useRef<HTMLCanvasElement>()
   };
 
-  refs.image.current = image;
+  refs.value.current = value;
 
-  const updateSize = (value: any = refs.canvasMain.current) => {
-    const uri = value.toDataURL('image/png');
+  const updateSize = (valueNew: any = refs.canvasMain.current) => {
+    const uri = valueNew.toDataURL('image/png');
 
     // Update size
     setSize(to(to(uri, 'byte-size'), 'size-format') as any);
   };
 
   React.useEffect(() => {
-    if (image_ !== image) {
-      if (image_ instanceof HTMLCanvasElement) setImage(image_);
-      else if (is('string', image_)) makeImage(image_);
+    setInit(true);
+
+    if (!refs.value.current) {
+      if (image instanceof HTMLCanvasElement) onChange(image);
+      else if (is('string', image)) makeImage(image);
     }
-  }, [image_]);
+  }, []);
 
   React.useEffect(() => {
-    const imageToUse = !open ? image : imageCopy;
+    if (image instanceof HTMLCanvasElement) onChange(image);
+    else if (is('string', image)) makeImage(image);
+  }, [image]);
 
-    if (imageToUse) {
-      refs.canvasMain.current?.getContext('2d').drawImage(imageToUse, 0, 0, imageToUse.width, imageToUse.height);
+  React.useEffect(() => {
+    const valueToUse = !open ? value : valueCopy;
+
+    if (valueToUse) {
+      refs.canvasMain.current?.getContext('2d').drawImage(valueToUse, 0, 0, valueToUse.width, valueToUse.height);
 
       updateSize();
     }
-  }, [image, open]);
+  }, [value, open]);
 
-  const makeImage = async (value: any = image) => {
-    const img = await imageMethod(value);
+  React.useEffect(() => {
+    if (init) {
+      if (value_ !== value) onChange(value_);
+    }
+  }, [value_]);
+
+  React.useEffect(() => {
+    if (init) {
+      if (valueCopy_ !== valueCopy) onChangeCopy(valueCopy_);
+    }
+  }, [valueCopy_]);
+
+  const makeImage = async (valueNew: any = refs.value.current) => {
+    const img = await imageMethod(valueNew);
 
     const canvas = window.document.createElement('canvas');
 
@@ -330,7 +359,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
     canvas.getContext('2d').drawImage(img, 0, 0, img.width, img.height);
 
     // Image
-    setImage(canvas);
+    onChange(canvas);
 
     // Image copy
     const copy = window.document.createElement('canvas');
@@ -341,12 +370,12 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
     copy.getContext('2d').drawImage(canvas, 0, 0, canvas.width, canvas.height);
 
-    setImageCopy(copy);
+    onChangeCopy(copy);
   };
 
-  const updateQuality = debounce(async (value_: any) => {
-    // Update copy image
-    const uri = image.toDataURL('image/jpeg', value_ / 100);
+  const updateQuality = debounce(async (valueNew: any) => {
+    // Update copy value
+    const uri = value.toDataURL('image/jpeg', valueNew / 100);
 
     const img = await imageMethod(uri);
 
@@ -358,7 +387,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
     canvas.getContext('2d').drawImage(img, 0, 0, img.width, img.height);
 
-    setImageCopy(canvas);
+    onChangeCopy(canvas);
 
     // Update the canvas value
     refs.canvasMain.current?.getContext('2d').drawImage(canvas, 0, 0, canvas.width, canvas.height);
@@ -367,10 +396,24 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
     updateSize();
   }, 40);
 
-  const onChangeQuality = async (value: any) => {
-    setQuality(value);
+  const onChange = (valueNew: any) => {
+    // Update inner or controlled
+    if (!props.hasOwnProperty('value')) setValue(valueNew);
 
-    updateQuality(value);
+    if (is('function', onChange_)) onChange_(valueNew);
+  };
+
+  const onChangeCopy = (valueNew: any) => {
+    // Update inner or controlled
+    if (!props.hasOwnProperty('valueCopy')) setValueCopy(valueNew);
+
+    if (is('function', onChangeCopy_)) onChangeCopy_(valueNew);
+  };
+
+  const onChangeQuality = async (valueNew: any) => {
+    setQuality(valueNew);
+
+    updateQuality(valueNew);
   };
 
   const clear = (imageReset = true) => {
@@ -379,27 +422,27 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
     setAspectRatio('');
     setAspectRatioCustom('');
 
-    if (imageReset) makeImage(image_);
+    if (imageReset) makeImage(image);
   };
 
-  const openOption = (value: any) => {
-    setOpenedOption(value);
+  const openOption = (valueNew: any) => {
+    setOpenedOption(valueNew);
 
-    if (open && openedOption === value) setOpen(false);
+    if (open && openedOption === valueNew) setOpen(false);
     else if (!open) setOpen(true);
   };
 
   const onSave = () => {
-    // Make image copy into image
+    // Make value copy into value
     const canvas = window.document.createElement('canvas');
 
-    canvas.width = imageCopy.width;
+    canvas.width = valueCopy.width;
 
-    canvas.height = imageCopy.height;
+    canvas.height = valueCopy.height;
 
-    canvas.getContext('2d').drawImage(imageCopy, 0, 0, imageCopy.width, imageCopy.height);
+    canvas.getContext('2d').drawImage(valueCopy, 0, 0, valueCopy.width, valueCopy.height);
 
-    setImage(canvas);
+    onChange(canvas);
 
     // Reset
     clear(false);
@@ -409,16 +452,16 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
     // Reset to unopen
     clear(false);
 
-    // Make image copy into image
+    // Make value copy into value
     const canvas = window.document.createElement('canvas');
 
-    canvas.width = image.width;
+    canvas.width = value.width;
 
-    canvas.height = image.height;
+    canvas.height = value.height;
 
-    canvas.getContext('2d').drawImage(image, 0, 0, image.width, image.height);
+    canvas.getContext('2d').drawImage(value, 0, 0, value.width, value.height);
 
-    setImageCopy(canvas);
+    onChangeCopy(canvas);
   };
 
   const TooltipProps = {
@@ -511,9 +554,9 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
             classes.canvas_main
           ])}
 
-          width={(!open ? image : imageCopy)?.width || 0}
+          width={(!open ? value : valueCopy)?.width || 0}
 
-          height={(!open ? image : imageCopy)?.height || 0}
+          height={(!open ? value : valueCopy)?.height || 0}
         />
       </Line>
 
@@ -596,7 +639,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
                   decrement={false}
 
-                  onChange={(value: string) => onChangeQuality(clamp(+value, 1, 100))}
+                  onChange={(valueNew: string) => onChangeQuality(clamp(+valueNew, 1, 100))}
 
                   className={classNames([
                     staticClassName('ImageEdit', theme) && [
@@ -781,7 +824,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
           <Type
             {...MetaTypeProps}
           >
-            Dimensions: {(!open ? image : imageCopy)?.width}x{(!open ? image : imageCopy)?.height}
+            Dimensions: {(!open ? value : valueCopy)?.width}x{(!open ? value : valueCopy)?.height}
           </Type>
 
           <Type

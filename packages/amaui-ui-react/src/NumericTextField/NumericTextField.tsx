@@ -88,12 +88,18 @@ const NumericTextField = React.forwardRef((props_: any, ref: any) => {
 
   const refs = {
     value: React.useRef<any>(),
-    focus: React.useRef<any>()
+    focus: React.useRef<any>(),
+    min: React.useRef<any>(),
+    max: React.useRef<any>()
   };
 
   refs.value.current = value;
 
   refs.focus.current = focus;
+
+  refs.min.current = min;
+
+  refs.max.current = max;
 
   React.useEffect(() => {
     setInit(true);
@@ -101,11 +107,37 @@ const NumericTextField = React.forwardRef((props_: any, ref: any) => {
 
   React.useEffect(() => {
     const method = (event: KeyboardEvent) => {
-      if (['ArrowUp', 'ArrowDown'].includes(event.key)) {
+      if (['ArrowUp', 'ArrowDown', 'End', 'Home'].includes(event.key)) {
         event.preventDefault();
       }
 
       switch (event.key) {
+        case 'End':
+          if (refs.focus.current && refs.min.current !== undefined) {
+            let valueNew = refs.min.current;
+
+            if (props.thousand) valueNew = numberWithCommas(valueNew);
+
+            if (props.prefix !== undefined) valueNew = `${props.prefix}${valueNew}`;
+
+            onChange(valueNew);
+          }
+
+          return;
+
+        case 'Home':
+          if (refs.focus.current && refs.max.current !== undefined) {
+            let valueNew = refs.max.current;
+
+            if (props.thousand) valueNew = numberWithCommas(valueNew);
+
+            if (props.prefix !== undefined) valueNew = `${props.prefix}${valueNew}`;
+
+            onChange(valueNew);
+          }
+
+          return;
+
         case 'ArrowUp':
           if (refs.focus.current) onIncrement();
 
