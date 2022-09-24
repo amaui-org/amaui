@@ -87,7 +87,7 @@ const useStyle = style(theme => ({
 
   action: {
     width: '100%',
-    padding: '16px 24px'
+    paddingTop: '16px'
   },
 
   slider: {
@@ -211,18 +211,9 @@ const IconMaterialClearAllRounded = React.forwardRef((props: any, ref) => {
 
 // To do
 
-// Quality
-
-// Update quality with debounce to image copy
-
-// If cancel or closed or openned another option reset image copy to the image
-
-// Save update image to image copy
-
 // Enter save, or Escape cancel the selection
 
 // 1. Size edit
-// 2. Quality edit
 // 3. Image crop, with aspect ratios (1/1, 4/3, 16/9 and custom numeric text fields)
 // 4. Filters (brightness, contrast, saturation, color filters)
 // 4.1 Any custom filter somehow?
@@ -431,7 +422,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
   };
 
   const TooltipProps = {
-    position: 'top',
+    position: 'bottom',
 
     ...TooltipProps_
   };
@@ -641,27 +632,39 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
               ])}
             >
               {is('function', renderSave) ? renderSave(onSave) : (
-                <IconButton
-                  version='outlined'
+                <Tooltip
+                  label='Save'
 
-                  onClick={onSave}
-
-                  {...IconButtonProps}
+                  {...TooltipProps}
                 >
-                  <IconSave />
-                </IconButton>
+                  <IconButton
+                    version='outlined'
+
+                    onClick={onSave}
+
+                    {...IconButtonProps}
+                  >
+                    <IconSave />
+                  </IconButton>
+                </Tooltip>
               )}
 
               {is('function', renderCancel) ? renderCancel(onSave) : (
-                <IconButton
-                  version='outlined'
+                <Tooltip
+                  label='Cancel'
 
-                  onClick={onCancel}
-
-                  {...IconButtonProps}
+                  {...TooltipProps}
                 >
-                  <IconCancel />
-                </IconButton>
+                  <IconButton
+                    version='outlined'
+
+                    onClick={onCancel}
+
+                    {...IconButtonProps}
+                  >
+                    <IconCancel />
+                  </IconButton>
+                </Tooltip>
               )}
             </Line>
           </Line>
@@ -727,7 +730,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
             {is('function', renderOptionClear) ? renderOptionClear(clear) : (
               <Tooltip
-                label='Clear'
+                label='Reset'
 
                 {...TooltipProps}
               >
