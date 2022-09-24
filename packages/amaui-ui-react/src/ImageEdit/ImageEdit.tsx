@@ -311,10 +311,10 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
       if (
         ['Escape'].includes(event.key) ||
         (['s', 'S'].includes(event.key) && event.metaKey) ||
-        (['f', 'F'].includes(event.key) && event.metaKey && event.ctrlKey) ||
-        (['c', 'C'].includes(event.key) && event.metaKey && event.ctrlKey) ||
-        (['r', 'R'].includes(event.key) && (event.metaKey || event.ctrlKey)) ||
-        (['q', 'Q'].includes(event.key) && event.metaKey && event.ctrlKey)
+        (['f', 'F'].includes(event.key) && event.metaKey && event.shiftKey) ||
+        (['c', 'C'].includes(event.key) && event.metaKey && event.shiftKey) ||
+        (['r', 'R'].includes(event.key) && (event.metaKey || event.shiftKey)) ||
+        (['q', 'Q'].includes(event.key) && event.metaKey && event.shiftKey)
       ) {
         event.preventDefault();
       }
@@ -328,27 +328,27 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
         case 'f':
         case 'F':
-          if (event.metaKey && event.ctrlKey) openOption('filters');
+          if (event.metaKey && event.shiftKey) openOption('filters');
 
           return;
 
         case 'c':
         case 'C':
-          if (event.metaKey && event.ctrlKey) openOption('crop');
+          if (event.metaKey && event.shiftKey) openOption('crop');
 
           return;
 
         case 'r':
         case 'R':
-          if (event.metaKey && !event.ctrlKey) onReset();
+          if (event.metaKey && !event.shiftKey) onReset();
 
-          if (event.metaKey && event.ctrlKey) openOption('resize');
+          if (event.metaKey && event.shiftKey) openOption('resize');
 
           return;
 
         case 'q':
         case 'Q':
-          if (event.metaKey && event.ctrlKey) openOption('quality');
+          if (event.metaKey && event.shiftKey) openOption('quality');
 
           return;
 
