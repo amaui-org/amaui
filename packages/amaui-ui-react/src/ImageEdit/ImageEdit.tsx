@@ -547,7 +547,10 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
       if (filterValue) {
         const { method } = filterValue;
 
-        if (is('function', method)) method(refs.filterValuesCopy.current[item], canvas, refs.valueCopy.current);
+        if (
+          is('function', method) &&
+          refs.filterValuesCopy.current[item] !== undefined
+        ) method(refs.filterValuesCopy.current[item], canvas, refs.valueCopy.current);
       }
     });
   };
@@ -847,13 +850,13 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
       renderIconButton: (value_: string, selected_: boolean, onChangeFilter_: TMethod) => (
         <Tooltip
+          key={value_}
+
           label='Brightness'
 
           {...TooltipProps}
         >
           <IconButton
-            key={value_}
-
             version='outlined'
 
             selected={selected_}
@@ -916,13 +919,13 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
       renderIconButton: (value_: string, selected_: boolean, onChangeFilter_: TMethod) => (
         <Tooltip
+          key={value_}
+
           label='Contrast'
 
           {...TooltipProps}
         >
           <IconButton
-            key={value_}
-
             version='outlined'
 
             selected={selected_}
@@ -988,13 +991,13 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
       renderIconButton: (value_: string, selected_: boolean, onChangeFilter_: TMethod) => (
         <Tooltip
+          key={value_}
+
           label='Saturation'
 
           {...TooltipProps}
         >
           <IconButton
-            key={value_}
-
             version='outlined'
 
             selected={selected_}
@@ -1060,13 +1063,13 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
       renderIconButton: (value_: string, selected_: boolean, onChangeFilter_: TMethod) => (
         <Tooltip
+          key={value_}
+
           label='Fade'
 
           {...TooltipProps}
         >
           <IconButton
-            key={value_}
-
             version='outlined'
 
             selected={selected_}

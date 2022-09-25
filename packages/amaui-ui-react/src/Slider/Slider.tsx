@@ -1122,7 +1122,7 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
 
           transformOriginRtl={orientation === 'horizontal' ? 'center bottom' : 'center left'}
 
-          transformOriginSwitchRtl={orientation === 'horizontal' ? 'center top' : 'center right'}
+          transformOriginRtlSwitch={orientation === 'horizontal' ? 'center top' : 'center right'}
 
           noMargin
 
