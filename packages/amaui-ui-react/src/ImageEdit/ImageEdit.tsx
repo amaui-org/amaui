@@ -307,9 +307,7 @@ const IconMaterialWbSunnyRounded = React.forwardRef((props: any, ref) => {
 
 // To do
 
-// 4. Filters (brightness, contrast, saturation, color filters)
-
-// Every filter has renderMethod and Icon, and method where we pass valueCopy do do something with it, and renderSlider method in item
+// 4. Filters (brightness, contrast, saturation, fade and invert)
 
 const brightness = debounce(canvasBrightness, 140);
 
@@ -1135,6 +1133,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
   const TooltipProps = {
     position: 'bottom',
+    interactive: false,
 
     ...TooltipProps_
   };
