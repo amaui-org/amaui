@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { TMethod } from '@amaui/models';
 import { is, to, clamp, debounce, canvasCrop, download as downloadMethod } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
@@ -16,7 +17,7 @@ import Chip from '../Chip';
 import Icon from '../Icon';
 import Line from '../Line';
 
-import { staticClassName, image as imageMethod } from '../utils';
+import { staticClassName, image as imageMethod, canvasBrightness } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
@@ -240,11 +241,77 @@ const IconMaterialDownloadRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+const IconMaterialCloudRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='CloudRounded'
+      short_name='Cloud'
+
+      {...props}
+    >
+      <path d="M6.5 20Q4.225 20 2.613 18.425Q1 16.85 1 14.575Q1 12.625 2.175 11.1Q3.35 9.575 5.25 9.15Q5.875 6.85 7.75 5.425Q9.625 4 12 4Q14.925 4 16.962 6.037Q19 8.075 19 11Q20.725 11.2 21.863 12.487Q23 13.775 23 15.5Q23 17.375 21.688 18.688Q20.375 20 18.5 20ZM12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12ZM6.5 18H18.5Q19.55 18 20.275 17.275Q21 16.55 21 15.5Q21 14.45 20.275 13.725Q19.55 13 18.5 13H17V11Q17 8.925 15.538 7.462Q14.075 6 12 6Q9.925 6 8.463 7.462Q7 8.925 7 11H6.5Q5.05 11 4.025 12.025Q3 13.05 3 14.5Q3 15.95 4.025 16.975Q5.05 18 6.5 18Z" />
+    </Icon>
+  );
+});
+
+const IconMaterialWaterDropRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='WaterDropRounded'
+      short_name='WaterDrop'
+
+      {...props}
+    >
+      <path d="M12 22Q8.825 22 6.413 19.788Q4 17.575 4 13.8Q4 11.425 5.8 8.65Q7.6 5.875 11.25 2.65Q11.4 2.525 11.6 2.45Q11.8 2.375 12 2.375Q12.2 2.375 12.4 2.45Q12.6 2.525 12.75 2.65Q16.4 5.875 18.2 8.65Q20 11.425 20 13.8Q20 17.575 17.587 19.788Q15.175 22 12 22ZM12 20Q14.525 20 16.262 18.275Q18 16.55 18 13.8Q18 12.025 16.525 9.737Q15.05 7.45 12 4.65Q8.95 7.45 7.475 9.737Q6 12.025 6 13.8Q6 16.55 7.737 18.275Q9.475 20 12 20ZM12 13.8Q12 13.8 12 13.8Q12 13.8 12 13.8Q12 13.8 12 13.8Q12 13.8 12 13.8Q12 13.8 12 13.8Q12 13.8 12 13.8Q12 13.8 12 13.8Q12 13.8 12 13.8ZM12.275 19Q12.575 18.975 12.788 18.763Q13 18.55 13 18.25Q13 17.9 12.775 17.688Q12.55 17.475 12.2 17.5Q11.175 17.575 10.025 16.938Q8.875 16.3 8.575 14.625Q8.525 14.35 8.312 14.175Q8.1 14 7.825 14Q7.475 14 7.25 14.262Q7.025 14.525 7.1 14.875Q7.525 17.15 9.1 18.125Q10.675 19.1 12.275 19Z" />
+    </Icon>
+  );
+});
+
+const IconMaterialFlakyRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='FlakyRounded'
+      short_name='Flaky'
+
+      {...props}
+    >
+      <path d="M14.075 15.475 16.025 13.525Q16.25 13.3 16.55 13.3Q16.85 13.3 17.075 13.525Q17.3 13.75 17.3 14.05Q17.3 14.35 17.075 14.575L14.575 17.075Q14.35 17.3 14.05 17.3Q13.75 17.3 13.525 17.075L12.175 15.725Q11.95 15.5 11.95 15.188Q11.95 14.875 12.175 14.65Q12.4 14.425 12.7 14.425Q13 14.425 13.225 14.65ZM8.75 9.8 9.625 10.7Q9.85 10.925 10.15 10.925Q10.45 10.925 10.675 10.7Q10.9 10.475 10.9 10.162Q10.9 9.85 10.675 9.625L9.825 8.75L10.7 7.875Q10.925 7.65 10.925 7.35Q10.925 7.05 10.7 6.825Q10.475 6.6 10.163 6.6Q9.85 6.6 9.625 6.825L8.775 7.675L7.875 6.8Q7.65 6.575 7.35 6.575Q7.05 6.575 6.825 6.8Q6.6 7.025 6.6 7.337Q6.6 7.65 6.825 7.875L7.7 8.725L6.8 9.625Q6.575 9.85 6.575 10.15Q6.575 10.45 6.8 10.675Q7.025 10.9 7.338 10.9Q7.65 10.9 7.875 10.675ZM12 22Q9.925 22 8.1 21.212Q6.275 20.425 4.925 19.075Q3.575 17.725 2.788 15.9Q2 14.075 2 12Q2 9.925 2.788 8.1Q3.575 6.275 4.925 4.925Q6.275 3.575 8.1 2.787Q9.925 2 12 2Q14.075 2 15.9 2.787Q17.725 3.575 19.075 4.925Q20.425 6.275 21.212 8.1Q22 9.925 22 12Q22 14.075 21.212 15.9Q20.425 17.725 19.075 19.075Q17.725 20.425 15.9 21.212Q14.075 22 12 22ZM12 20Q15.325 20 17.663 17.663Q20 15.325 20 12Q20 10.35 19.375 8.9Q18.75 7.45 17.65 6.35L6.35 17.65Q7.45 18.75 8.9 19.375Q10.35 20 12 20Z" />
+    </Icon>
+  );
+});
+
+const IconMaterialWbSunnyRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='WbSunnyRounded'
+      short_name='WbSunny'
+
+      {...props}
+    >
+      <path d="M12 4Q11.575 4 11.288 3.712Q11 3.425 11 3V2Q11 1.575 11.288 1.287Q11.575 1 12 1Q12.425 1 12.713 1.287Q13 1.575 13 2V3Q13 3.425 12.713 3.712Q12.425 4 12 4ZM12 23Q11.575 23 11.288 22.712Q11 22.425 11 22V21Q11 20.575 11.288 20.288Q11.575 20 12 20Q12.425 20 12.713 20.288Q13 20.575 13 21V22Q13 22.425 12.713 22.712Q12.425 23 12 23ZM21 13Q20.575 13 20.288 12.712Q20 12.425 20 12Q20 11.575 20.288 11.287Q20.575 11 21 11H22Q22.425 11 22.712 11.287Q23 11.575 23 12Q23 12.425 22.712 12.712Q22.425 13 22 13ZM2 13Q1.575 13 1.288 12.712Q1 12.425 1 12Q1 11.575 1.288 11.287Q1.575 11 2 11H3Q3.425 11 3.713 11.287Q4 11.575 4 12Q4 12.425 3.713 12.712Q3.425 13 3 13ZM18 6Q17.725 5.725 17.725 5.325Q17.725 4.925 18 4.6L18.35 4.225Q18.625 3.925 19.05 3.925Q19.475 3.925 19.775 4.225Q20.075 4.525 20.088 4.962Q20.1 5.4 19.775 5.675L19.4 6.025Q19.125 6.3 18.712 6.3Q18.3 6.3 18 6ZM4.225 19.775Q3.925 19.475 3.913 19.038Q3.9 18.6 4.225 18.325L4.6 17.975Q4.875 17.7 5.287 17.7Q5.7 17.7 6 18Q6.275 18.275 6.275 18.688Q6.275 19.1 6 19.4L5.65 19.775Q5.375 20.075 4.95 20.075Q4.525 20.075 4.225 19.775ZM18.325 19.775 17.975 19.4Q17.7 19.125 17.7 18.712Q17.7 18.3 18 18Q18.275 17.725 18.688 17.725Q19.1 17.725 19.4 18L19.775 18.35Q20.075 18.625 20.075 19.05Q20.075 19.475 19.775 19.775Q19.475 20.075 19.038 20.087Q18.6 20.1 18.325 19.775ZM4.6 6 4.225 5.65Q3.925 5.375 3.925 4.95Q3.925 4.525 4.225 4.225Q4.525 3.925 4.963 3.912Q5.4 3.9 5.675 4.225L6.025 4.6Q6.3 4.875 6.3 5.287Q6.3 5.7 6 6Q5.725 6.275 5.325 6.275Q4.925 6.275 4.6 6ZM12 18Q9.5 18 7.75 16.25Q6 14.5 6 12Q6 9.5 7.75 7.75Q9.5 6 12 6Q14.5 6 16.25 7.75Q18 9.5 18 12Q18 14.5 16.25 16.25Q14.5 18 12 18ZM12 16Q13.675 16 14.838 14.837Q16 13.675 16 12Q16 10.325 14.838 9.162Q13.675 8 12 8Q10.325 8 9.163 9.162Q8 10.325 8 12Q8 13.675 9.163 14.837Q10.325 16 12 16ZM12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Z" />
+    </Icon>
+  );
+});
+
 // To do
 
 // 4. Filters (brightness, contrast, saturation, color filters)
 
-// Every filter has renderMethod and Icon, and method where we pass valueCopy do do something with it
+// Every filter has renderMethod and Icon, and method where we pass valueCopy do do something with it, and renderSlider method in item
+
+const brightness = debounce(canvasBrightness, 140);
 
 const ImageEdit = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
@@ -269,13 +336,15 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
     valueCopyDefault,
     valueCopy: valueCopy_,
 
+    filters: filters_,
+
     meta = true,
 
-    filters = true,
-    crop = true,
-    resize: resize_ = true,
-    quality: quality_ = true,
-    download = true,
+    filtersOption = true,
+    cropOption = true,
+    resizeOption = true,
+    qualityOption = true,
+    downloadOption = true,
 
     resizeAspectRatio = true,
 
@@ -287,6 +356,11 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
     renderSlider,
     renderDownload,
     renderInput,
+
+    IconBrightness = IconMaterialWbSunnyRounded,
+    IconContrast = IconMaterialFlakyRounded,
+    IconSaturation = IconMaterialWaterDropRounded,
+    IconFade = IconMaterialCloudRounded,
 
     IconSave = IconMaterialDoneRounded,
     IconCancel = IconMaterialCloseRounded,
@@ -319,6 +393,9 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
   const [open, setOpen] = React.useState<any>(openDefault);
   const [openedOption, setOpenedOption] = React.useState<any>(openedOptionDefault);
   const [quality, setQuality] = React.useState<any>(100);
+  const [filterValues, setFilterValues] = React.useState({});
+  const [filterValuesCopy, setFilterValuesCopy] = React.useState({});
+  const [filter, setFilter] = React.useState();
   const [resize, setResize] = React.useState<any>();
   const [selection, setSelection] = React.useState<any>();
   const [aspectRatio, setAspectRatio] = React.useState<any>();
@@ -333,7 +410,9 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
     valueCopy: React.useRef<any>(),
     canvasMain: React.useRef<HTMLCanvasElement>(),
     open: React.useRef<HTMLCanvasElement>(),
-    resizeAspectRatio: React.useRef<any>()
+    resizeAspectRatio: React.useRef<any>(),
+    filterValues: React.useRef<any>(),
+    filterValuesCopy: React.useRef<any>()
   };
 
   refs.value.current = value;
@@ -343,6 +422,10 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
   refs.open.current = open;
 
   refs.resizeAspectRatio.current = resizeAspectRatio;
+
+  refs.filterValues.current = filterValues;
+
+  refs.filterValuesCopy.current = filterValuesCopy;
 
   const updateSize = (valueNew: any = refs.canvasMain.current) => {
     const uri = valueNew.toDataURL(type);
@@ -413,7 +496,6 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
           break;
       }
     };
-    setInit(true);
 
     if (!refs.value.current) {
       if (image instanceof HTMLCanvasElement) onChange(image);
@@ -421,6 +503,8 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
     }
 
     window.addEventListener('keydown', method);
+
+    setInit(true);
 
     return () => {
       // Clean up
@@ -508,6 +592,25 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
     // Update size
     updateSize();
   }, 140);
+
+  const onFilterSliderChange = (valueNew: any, valueFilter: string) => {
+    setFilterValuesCopy(values_ => ({
+      ...values_,
+
+      [valueFilter]: valueNew
+    }));
+  };
+
+  const onChangeFilter = (valueNew: any) => {
+    // If moving to another filter or closing current one
+    // clean up previous one filter for mainCanvas
+    if (!!filter) {
+      refs.canvasMain.current?.getContext('2d').drawImage(refs.valueCopy.current, 0, 0, refs.valueCopy.current.width, refs.valueCopy.current.height);
+    }
+
+    if (filter === valueNew) setFilter('' as any);
+    else setFilter(valueNew);
+  };
 
   const onChangeAspectRatioCustom = (valueNew: any, left_ = true) => {
     let left = aspectRatioCustom?.[0] || 1;
@@ -615,6 +718,8 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
     setAspectRatio('');
     setAspectRatioCustom([1, 1]);
     setSelection('');
+    setFilter('' as any);
+    setFilterValuesCopy({ ...filterValues })
 
     if (valueCopyReset) {
       const canvas = window.document.createElement('canvas');
@@ -652,6 +757,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
     canvas.getContext('2d').drawImage(refs.valueCopy.current, 0, 0, refs.valueCopy.current.width, refs.valueCopy.current.height);
 
+    // Update crop
     if (openedOption === 'crop' && selection) {
       // Crop the canvas
       canvas.width = selection.width;
@@ -660,6 +766,17 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
       canvas = canvasCrop(refs.valueCopy.current, selection.left, selection.top, selection.width, selection.height);
     }
+
+    // Update filters
+    Object.keys(filterValuesCopy).forEach(item => {
+      const filterValue = filters.find(item_ => item_.value === item);
+
+      if (filterValue) {
+        const { method } = filterValue;
+
+        if (is('function', method)) method(filterValuesCopy[item], canvas, valueCopy);
+      }
+    });
 
     // Update the main canvas value
     refs.canvasMain.current.width = canvas.width;
@@ -717,6 +834,299 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
     refs.canvasMain.current?.getContext('2d').drawImage(refs.value.current, 0, 0, refs.value.current.width, refs.value.current.height);
   };
 
+  const filters = React.useMemo(() => [
+    {
+      label: 'Brightness',
+      Icon: IconBrightness,
+      value: 'brightness',
+
+      method: canvasBrightness,
+
+      renderIconButton: (value_: string, selected_: boolean, onChangeFilter_: TMethod) => (
+        <Tooltip
+          label='Brightness'
+
+          {...TooltipProps}
+        >
+          <IconButton
+            key={value_}
+
+            version='outlined'
+
+            selected={selected_}
+
+            onClick={() => onChangeFilter_(value_)}
+
+            {...IconButtonProps}
+          >
+            <IconBrightness />
+          </IconButton>
+        </Tooltip>
+      ),
+
+      renderSlider: (mainCanvas: HTMLCanvasElement, valueCopy_: HTMLCanvasElement, value_: string, filterValuesCopy_: any, onFilterSliderChange_: TMethod) => (
+        <Slider
+          key={value_}
+
+          valueDefault={filterValuesCopy_?.[value_] || 0}
+
+          value={filterValuesCopy_?.[value_] || 0}
+
+          min={-100}
+
+          max={100}
+
+          precision={1}
+
+          marks={[
+            { value: -100, label: '-100' },
+            { value: 0, label: '0' },
+            { value: 100, label: '100' }
+          ]}
+
+          labels
+
+          tooltip
+
+          onChange={(valueNew: any) => {
+            if (is('function', onFilterSliderChange_)) onFilterSliderChange_(valueNew, value_);
+
+            // Update value copy value
+            brightness(valueNew, mainCanvas, valueCopy_);
+          }}
+
+          {...SliderProps}
+
+          className={classNames([
+            staticClassName('ImageEdit', theme) && [
+              'AmauiImageEdit-slider'
+            ],
+
+            SliderProps.className,
+            classes.slider
+          ])}
+        />
+      )
+    },
+
+    {
+      label: 'Contrast',
+      Icon: IconContrast,
+      value: 'contrast',
+
+      renderIconButton: (value_: string, selected_: boolean, onChangeFilter_: TMethod) => (
+        <Tooltip
+          label='Contrast'
+
+          {...TooltipProps}
+        >
+          <IconButton
+            key={value_}
+
+            version='outlined'
+
+            selected={selected_}
+
+            onClick={() => onChangeFilter_(value_)}
+
+            {...IconButtonProps}
+          >
+            <IconContrast />
+          </IconButton>
+        </Tooltip>
+      ),
+
+      renderSlider: (valueCopy_: HTMLCanvasElement, value_: string, filterValues_: any, filterValuesCopy_: any, onFilterSliderChange_: TMethod) => (
+        <Slider
+          key={value_}
+
+          valueDefault={filterValuesCopy_?.[value_] || 0}
+
+          value={filterValuesCopy_?.[value_] || 0}
+
+          min={-100}
+
+          max={100}
+
+          precision={1}
+
+          marks={[
+            { value: -100, label: '-100' },
+            { value: 0, label: '0' },
+            { value: 100, label: '100' }
+          ]}
+
+          labels
+
+          tooltip
+
+          onChange={(valueNew: any) => {
+            if (is('function', onFilterSliderChange_)) onFilterSliderChange_(valueNew, value_);
+
+            // Update value copy value
+
+          }}
+
+          {...SliderProps}
+
+          className={classNames([
+            staticClassName('ImageEdit', theme) && [
+              'AmauiImageEdit-slider'
+            ],
+
+            SliderProps.className,
+            classes.slider
+          ])}
+        />
+      )
+    },
+
+    {
+      label: 'Saturation',
+      Icon: IconSaturation,
+      value: 'saturation',
+
+      renderIconButton: (value_: string, selected_: boolean, onChangeFilter_: TMethod) => (
+        <Tooltip
+          label='Saturation'
+
+          {...TooltipProps}
+        >
+          <IconButton
+            key={value_}
+
+            version='outlined'
+
+            selected={selected_}
+
+            onClick={() => onChangeFilter_(value_)}
+
+            {...IconButtonProps}
+          >
+            <IconSaturation />
+          </IconButton>
+        </Tooltip>
+      ),
+
+      renderSlider: (valueCopy_: HTMLCanvasElement, value_: string, filterValues_: any, filterValuesCopy_: any, onFilterSliderChange_: TMethod) => (
+        <Slider
+          key={value_}
+
+          valueDefault={filterValuesCopy_?.[value_] || 0}
+
+          value={filterValuesCopy_?.[value_] || 0}
+
+          min={-100}
+
+          max={100}
+
+          precision={1}
+
+          marks={[
+            { value: -100, label: '-100' },
+            { value: 0, label: '0' },
+            { value: 100, label: '100' }
+          ]}
+
+          labels
+
+          tooltip
+
+          onChange={(valueNew: any) => {
+            if (is('function', onFilterSliderChange_)) onFilterSliderChange_(valueNew, value_);
+
+            // Update value copy value
+
+          }}
+
+          {...SliderProps}
+
+          className={classNames([
+            staticClassName('ImageEdit', theme) && [
+              'AmauiImageEdit-slider'
+            ],
+
+            SliderProps.className,
+            classes.slider
+          ])}
+        />
+      )
+    },
+
+    {
+      label: 'Fade',
+      Icon: IconFade,
+      value: 'fade',
+
+      renderIconButton: (value_: string, selected_: boolean, onChangeFilter_: TMethod) => (
+        <Tooltip
+          label='Fade'
+
+          {...TooltipProps}
+        >
+          <IconButton
+            key={value_}
+
+            version='outlined'
+
+            selected={selected_}
+
+            onClick={() => onChangeFilter_(value_)}
+
+            {...IconButtonProps}
+          >
+            <IconFade />
+          </IconButton>
+        </Tooltip>
+      ),
+
+      renderSlider: (valueCopy_: HTMLCanvasElement, value_: string, filterValues_: any, filterValuesCopy_: any, onFilterSliderChange_: TMethod) => (
+        <Slider
+          key={value_}
+
+          valueDefault={filterValuesCopy_?.[value_] || 0}
+
+          value={filterValuesCopy_?.[value_] || 0}
+
+          min={0}
+
+          max={100}
+
+          precision={1}
+
+          marks={[
+            { value: 0, label: '0' },
+            { value: 100, label: '100' }
+          ]}
+
+          labels
+
+          tooltip
+
+          onChange={(valueNew: any) => {
+            if (is('function', onFilterSliderChange_)) onFilterSliderChange_(valueNew, value_);
+
+            // Update value copy value
+
+          }}
+
+          {...SliderProps}
+
+          className={classNames([
+            staticClassName('ImageEdit', theme) && [
+              'AmauiImageEdit-slider'
+            ],
+
+            SliderProps.className,
+            classes.slider
+          ])}
+        />
+      )
+    },
+
+    ...(filters_ || [])
+  ], [filters_]);
+
   const ImageCropProps = {
     gridLines: true,
 
@@ -756,15 +1166,18 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
   ];
 
   const options = [
-    filters && { label: 'Filters', value: 'filters', Icon: IconFilters },
-    crop && { label: 'Crop', value: 'crop', Icon: IconCrop },
-    resize_ && { label: 'Resize', value: 'resize', Icon: IconResize },
-    quality_ && { label: 'Quality', value: 'quality', Icon: IconQuality }
-  ].filter(Boolean);
+    filtersOption && { label: 'Filters', value: 'filters', Icon: IconFilters },
+    cropOption && { label: 'Crop', value: 'crop', Icon: IconCrop },
+    resizeOption && { label: 'Resize', value: 'resize', Icon: IconResize },
+    qualityOption && { label: 'Quality', value: 'quality', Icon: IconQuality }
+  ]
+    .filter(Boolean);
 
   const MetaTypeProps = {
     version: 'b3'
   };
+
+  const filterValue = filters.find(item_ => item_.value === filter);
 
   const rect = refs.root.current?.getBoundingClientRect();
 
@@ -864,7 +1277,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
         </div>
       </Line>
 
-      {(filters || crop || resize_ || quality_) && <>
+      {(filtersOption || cropOption || resizeOption || qualityOption) && <>
         <Expand
           in={!!open}
 
@@ -885,6 +1298,42 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
               classes.option
             ])}
           >
+            {openedOption === 'filters' && <>
+              <Expand
+                in={!!filterValue}
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                <div
+                  style={{
+                    paddingBottom: 40
+                  }}
+                >
+                  {is('function', filterValue?.renderSlider) && filterValue?.renderSlider(refs.canvasMain.current, refs.valueCopy.current, filterValue.value, refs.filterValuesCopy.current, onFilterSliderChange)}
+                </div>
+              </Expand>
+
+              <Line
+                gap={1}
+
+                direction='row'
+
+                align='center'
+
+                justify='flex-start'
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                {filters.map((item: any) => (
+                  is('function', item.renderIconButton) && item.renderIconButton(item.value, item.value === filter, onChangeFilter)
+                ))}
+              </Line>
+            </>}
+
             {openedOption === 'crop' && (
               <Line
                 gap={1}
@@ -1261,7 +1710,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
               align='center'
             >
-              {download && is('function', renderDownload) ? renderDownload(onDownload) : (
+              {downloadOption && is('function', renderDownload) ? renderDownload(onDownload) : (
                 <Tooltip
                   label='Download'
 

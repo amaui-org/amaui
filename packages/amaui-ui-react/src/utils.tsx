@@ -1,4 +1,4 @@
-import { is } from '@amaui/utils';
+import { is, clamp } from '@amaui/utils';
 import { AmauiTheme } from '@amaui/style-react';
 
 export function reflow(element: HTMLElement) {
@@ -60,3 +60,29 @@ export const image = (uri: string): Promise<HTMLImageElement> => new Promise((re
 
   img.src = uri;
 });
+
+export const canvasBrightness = (value: number, mainCanvas: HTMLCanvasElement, valueCopy: HTMLCanvasElement) => {
+  const canvas = window.document.createElement('canvas');
+
+  canvas.width = valueCopy.width;
+
+  canvas.height = valueCopy.height;
+
+  const context = canvas.getContext('2d');
+
+  context.drawImage(valueCopy, 0, 0);
+
+  const imageData = context.getImageData(0, 0, valueCopy.width, valueCopy.height);
+
+  const { data } = imageData;
+
+  for (let i = 0; i < data.length; i += 4) {
+    data[i + 0] = clamp(data[i + 0] + value, 0, 255);
+    data[i + 1] = clamp(data[i + 1] + value, 0, 255);
+    data[i + 2] = clamp(data[i + 2] + value, 0, 255);
+  }
+
+  context.putImageData(imageData, 0, 0);
+
+  mainCanvas?.getContext('2d').drawImage(canvas, 0, 0, valueCopy.width, valueCopy.height);
+};

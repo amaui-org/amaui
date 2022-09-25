@@ -14,6 +14,7 @@ const src = path.resolve(wd, './src');
 const prefix = 'IconMaterial';
 
 let made = 0;
+let icons_ = 0;
 
 const valueMake = async (url, name, short_name) => {
   let value = (await AmauiNode.file.get(url, false)).match(/<svg[^>]+?>([^$]+?)<\/svg>/)[1];
@@ -100,14 +101,22 @@ async function method() {
           [undefined, null].includes(grad) &&
           // Weights only 100, regular (400) and 700
           ['100', undefined, null].includes(weight)
-        ) await valueMake(url, name, iconName);
+        ) {
+          const exists = (await fs(path.join(src, `${prefix}${name}.tsx`)))[0];
+
+          if (!exists) await valueMake(url, name, iconName);
+        }
       }
     }
 
     // Two tone
     const twoTone = (await fs(path.join(rootSrc, `/**/${icon}/materialiconstwotone/24px.svg`), { onlyFiles: true }))[0];
 
-    await valueMake(twoTone || iconDefault, `${iconName}TwoTone`, iconName);
+    const exists_ = (await fs(path.join(src, `${prefix}${iconName}TwoTone.tsx`)))[0];
+
+    if (!exists_) await valueMake(twoTone || iconDefault, `${iconName}TwoTone`, iconName);
+
+    console.log('Icons', ++icons_);
 
     console.log('Made', made);
   }
@@ -115,7 +124,7 @@ async function method() {
   for (const icon of icons) await makeIcon(icon);
 
   // Make index.tsx
-  const allIcons = (await fs(path.join(src, `/**`), { onlyFiles: true }));
+  const allIcons = (await fs(path.join(src, `/**`), { onlyFiles: true })).filter(item => !item.startsWith('index'));
 
   let index = `\n`;
 
@@ -125,6 +134,10 @@ async function method() {
     index += `export { default as ${name} } from './${name}'\n`;
   }
 
+  // Remove previous index
+  await AmauiNode.file.remove(path.join(src, 'index.tsx'));
+
+  // Add new index
   await AmauiNode.file.add(path.join(src, 'index.tsx'), index);
 }
 

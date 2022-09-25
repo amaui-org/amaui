@@ -621,7 +621,7 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
   }, []);
 
   React.useEffect(() => {
-    if (init && value_ !== value) setValue(value_);
+    if (init && value_ !== refs.value.current) setValue(value_);
   }, [value_]);
 
   const move = React.useCallback((x: number, y: number) => {
