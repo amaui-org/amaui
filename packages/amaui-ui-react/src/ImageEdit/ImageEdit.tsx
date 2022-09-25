@@ -602,10 +602,6 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
   const onChangeFilter = (valueNew: any) => {
     // If moving to another filter or closing current one
     // clean up previous one filter for mainCanvas
-    if (!!filter) {
-      refs.canvasMain.current?.getContext('2d').drawImage(refs.valueCopy.current, 0, 0, refs.valueCopy.current.width, refs.valueCopy.current.height);
-    }
-
     if (filter === valueNew) setFilter('' as any);
     else setFilter(valueNew);
   };
@@ -765,17 +761,6 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
       canvas = canvasCrop(refs.valueCopy.current, selection.left, selection.top, selection.width, selection.height);
     }
 
-    // Update filters
-    Object.keys(filterValuesCopy).forEach(item => {
-      const filterValue = filters.find(item_ => item_.value === item);
-
-      if (filterValue) {
-        const { method } = filterValue;
-
-        if (is('function', method)) method(filterValuesCopy[item], canvas, valueCopy);
-      }
-    });
-
     // Update the main canvas value
     refs.canvasMain.current.width = canvas.width;
 
@@ -886,10 +871,15 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
           tooltip
 
-          onChange={(valueNew: any) => {
+          onChange={(valueNew_: any) => {
+            let valueNew = valueNew_;
+
             if (is('function', onFilterSliderChange_)) onFilterSliderChange_(valueNew, value_);
 
             // Update value copy value
+            // value relative to previous value
+            valueNew -= (filterValuesCopy_?.[value_] || 0);
+
             brightness(valueNew, mainCanvas, valueCopy_);
           }}
 
