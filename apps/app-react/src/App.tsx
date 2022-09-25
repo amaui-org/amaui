@@ -2181,6 +2181,154 @@ Please sign in again.`}
             }}
           />
         </Accordion>
+
+        <Accordion primary='AmauiTheme'>
+          <div className={classNames([classes.column])}>
+            <ImageEdit
+              image='./image.jpg'
+
+              style={{
+                width: 340
+              }}
+            />
+
+            <Accordion primary='AmauiTheme nested value' open>
+              <AmauiThemeProvider
+                value={{
+                  palette: {
+                    color: {
+                      secondary: {
+                        main: '#008000'
+                      }
+                    }
+                  },
+                  space: {
+                    unit: 5
+                  }
+                }}
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                <ImageEdit
+                  image='./image.jpg'
+
+                  style={{
+                    width: 340
+                  }}
+                />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme add' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiImageCrop: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: 0.4
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                <ImageEdit
+                  image='./image.jpg'
+
+                  style={{
+                    width: 340
+                  }}
+                />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme override' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiImageCrop: {
+                        style: {
+                          override: {
+                            root: {
+                              margin: 40,
+                              lineHeight: 0
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                <ImageEdit
+                  image='./image.jpg'
+
+                  style={{
+                    width: 340
+                  }}
+                />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme props' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiImageCrop: {
+                        props: {
+                          default: {
+                            color: 'secondary'
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                <ImageEdit
+                  image='./image.jpg'
+
+                  style={{
+                    width: 340
+                  }}
+                />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme styled' open>
+              <styled.ImageEdit
+                image='./image.jpg'
+
+                style={{
+                  width: 340
+                }}
+              />
+            </Accordion>
+          </div>
+        </Accordion>
       </Accordion>
 
       <Accordion primary='ImageCrop'>
