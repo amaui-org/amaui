@@ -346,10 +346,6 @@ const IconMaterialNightlightRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
-// To do
-
-// 4. Filters (brightness, contrast, saturation, fade and invert)
-
 const ImageEdit = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 
