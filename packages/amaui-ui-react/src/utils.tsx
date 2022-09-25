@@ -1,4 +1,4 @@
-import { is, clamp, canvasFilterBrightness, canvasFilterContrast, canvasFilterSaturation, canvasFilterFade, canvasFilterInvert, canvasFilterOldPhoto } from '@amaui/utils';
+import { is, canvasFilterBrightness, canvasFilterContrast, canvasFilterSaturation, canvasFilterFade, canvasFilterInvert, canvasFilterOldPhoto } from '@amaui/utils';
 import { AmauiTheme } from '@amaui/style-react';
 
 export function reflow(element: HTMLElement) {
