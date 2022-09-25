@@ -218,6 +218,13 @@ const useStyle = style(theme => ({
 }), { name: 'App' });
 
 const styled: any = {
+  ImageEdit: sy(ImageEdit)((theme: AmauiTheme) => ({
+    root: {
+      '&:hover': {
+        opacity: 0.4
+      }
+    }
+  })),
   ImageCrop: sy(ImageCrop)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
@@ -2226,7 +2233,7 @@ Please sign in again.`}
                 value={{
                   ui: {
                     elements: {
-                      AmauiImageCrop: {
+                      AmauiImageEditor: {
                         style: {
                           add: {
                             root: {
@@ -2260,7 +2267,7 @@ Please sign in again.`}
                 value={{
                   ui: {
                     elements: {
-                      AmauiImageCrop: {
+                      AmauiImageEditor: {
                         style: {
                           override: {
                             root: {
@@ -2293,7 +2300,7 @@ Please sign in again.`}
                 value={{
                   ui: {
                     elements: {
-                      AmauiImageCrop: {
+                      AmauiImageEditor: {
                         props: {
                           default: {
                             color: 'secondary'
