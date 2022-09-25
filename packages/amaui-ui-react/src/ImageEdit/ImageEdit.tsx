@@ -918,7 +918,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
         </Tooltip>
       ),
 
-      renderSlider: (mainCanvas: HTMLCanvasElement, valueCopy_: HTMLCanvasElement, value_: string, filterValuesCopy_: any, onFilterSliderChange_: TMethod) => (
+      renderSlider: (value_: string, filterValuesCopy_: any, onFilterSliderChange_: TMethod) => (
         <Slider
           key={value_}
 
@@ -989,7 +989,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
         </Tooltip>
       ),
 
-      renderSlider: (mainCanvas: HTMLCanvasElement, valueCopy_: HTMLCanvasElement, value_: string, filterValuesCopy_: any, onFilterSliderChange_: TMethod) => (
+      renderSlider: (value_: string, filterValuesCopy_: any, onFilterSliderChange_: TMethod) => (
         <Slider
           key={value_}
 
@@ -1060,7 +1060,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
         </Tooltip>
       ),
 
-      renderSlider: (mainCanvas: HTMLCanvasElement, valueCopy_: HTMLCanvasElement, value_: string, filterValuesCopy_: any, onFilterSliderChange_: TMethod) => (
+      renderSlider: (value_: string, filterValuesCopy_: any, onFilterSliderChange_: TMethod) => (
         <Slider
           key={value_}
 
@@ -1131,7 +1131,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
         </Tooltip>
       ),
 
-      renderSlider: (mainCanvas: HTMLCanvasElement, valueCopy_: HTMLCanvasElement, value_: string, filterValuesCopy_: any, onFilterSliderChange_: TMethod) => (
+      renderSlider: (value_: string, filterValuesCopy_: any, onFilterSliderChange_: TMethod) => (
         <Slider
           key={value_}
 
@@ -1201,7 +1201,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
         </Tooltip>
       ),
 
-      renderSlider: (mainCanvas: HTMLCanvasElement, valueCopy_: HTMLCanvasElement, value_: string, filterValuesCopy_: any, onFilterSliderChange_: TMethod) => (
+      renderSlider: (value_: string, filterValuesCopy_: any, onFilterSliderChange_: TMethod) => (
         <Slider
           key={value_}
 
@@ -1271,7 +1271,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
         </Tooltip>
       ),
 
-      renderSlider: (mainCanvas: HTMLCanvasElement, valueCopy_: HTMLCanvasElement, value_: string, filterValuesCopy_: any, onFilterSliderChange_: TMethod) => (
+      renderSlider: (value_: string, filterValuesCopy_: any, onFilterSliderChange_: TMethod) => (
         <Slider
           key={value_}
 
@@ -1502,7 +1502,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
                     paddingBottom: 40
                   }}
                 >
-                  {is('function', filterValue?.renderSlider) && filterValue?.renderSlider(refs.canvasMain.current, refs.valueCopy.current, filterValue.value, refs.filterValuesCopy.current, onFilterSliderChange)}
+                  {is('function', filterValue?.renderSlider) && filterValue?.renderSlider(filterValue.value, refs.filterValuesCopy.current, onFilterSliderChange)}
                 </div>
               </Expand>
 

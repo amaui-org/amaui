@@ -115,11 +115,7 @@ export const canvasSaturation = (value: number, mainCanvas: HTMLCanvasElement, v
   return canvas;
 };
 
-export const canvasFade = (value_: number, mainCanvas: HTMLCanvasElement, valueCopy: HTMLCanvasElement) => {
-  let value = value_;
-
-  if (value > 0) value *= -1;
-
+export const canvasFade = (value: number, mainCanvas: HTMLCanvasElement, valueCopy: HTMLCanvasElement) => {
   const canvas = window.document.createElement('canvas');
 
   canvas.width = valueCopy.width;

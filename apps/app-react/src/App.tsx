@@ -2233,7 +2233,7 @@ Please sign in again.`}
                 value={{
                   ui: {
                     elements: {
-                      AmauiImageEditor: {
+                      AmauiImageEdit: {
                         style: {
                           add: {
                             root: {
@@ -2267,7 +2267,7 @@ Please sign in again.`}
                 value={{
                   ui: {
                     elements: {
-                      AmauiImageEditor: {
+                      AmauiImageEdit: {
                         style: {
                           override: {
                             root: {
@@ -2300,7 +2300,7 @@ Please sign in again.`}
                 value={{
                   ui: {
                     elements: {
-                      AmauiImageEditor: {
+                      AmauiImageEdit: {
                         props: {
                           default: {
                             color: 'secondary'
