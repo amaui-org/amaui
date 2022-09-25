@@ -1,4 +1,4 @@
-import { is, clamp } from '@amaui/utils';
+import { is, clamp, canvasFilterBrightness, canvasFilterContrast, canvasFilterSaturation, canvasFilterFade, canvasFilterInvert, canvasFilterOldPhoto } from '@amaui/utils';
 import { AmauiTheme } from '@amaui/style-react';
 
 export function reflow(element: HTMLElement) {
@@ -72,17 +72,7 @@ export const canvasBrightness = (value: number, mainCanvas: HTMLCanvasElement, v
 
   context.drawImage(valueCopy, 0, 0);
 
-  const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
-
-  const { data } = imageData;
-
-  for (let i = 0; i < data.length; i += 4) {
-    data[i + 0] = clamp(data[i + 0] + value, 0, 255);
-    data[i + 1] = clamp(data[i + 1] + value, 0, 255);
-    data[i + 2] = clamp(data[i + 2] + value, 0, 255);
-  }
-
-  context.putImageData(imageData, 0, 0);
+  if (![0, undefined].includes(value)) canvasFilterBrightness(value, canvas);
 
   mainCanvas?.getContext('2d').drawImage(canvas, 0, 0, canvas.width, canvas.height);
 
@@ -100,19 +90,7 @@ export const canvasContrast = (value: number, mainCanvas: HTMLCanvasElement, val
 
   context.drawImage(valueCopy, 0, 0);
 
-  const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
-
-  const { data } = imageData;
-
-  const factor = (259 * (value + 255)) / (255 * (259 - value));
-
-  for (let i = 0; i < data.length; i += 4) {
-    data[i + 0] = clamp((factor * (data[i + 0] - 100)) + 100, 0, 255);
-    data[i + 1] = clamp((factor * (data[i + 1] - 100)) + 100, 0, 255);
-    data[i + 2] = clamp((factor * (data[i + 2] - 100)) + 100, 0, 255);
-  }
-
-  context.putImageData(imageData, 0, 0);
+  if (![0, undefined].includes(value)) canvasFilterContrast(value, canvas);
 
   mainCanvas?.getContext('2d').drawImage(canvas, 0, 0, canvas.width, canvas.height);
 
@@ -130,17 +108,7 @@ export const canvasSaturation = (value: number, mainCanvas: HTMLCanvasElement, v
 
   context.drawImage(valueCopy, 0, 0);
 
-  const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
-
-  const { data } = imageData;
-
-  for (let i = 0; i < data.length; i += 4) {
-    data[i + 0] = clamp(data[i + 0] + value, 0, 255);
-    data[i + 1] = clamp(data[i + 1] + value, 0, 255);
-    data[i + 2] = clamp(data[i + 2] + value, 0, 255);
-  }
-
-  context.putImageData(imageData, 0, 0);
+  if (![0, undefined].includes(value)) canvasFilterSaturation(value, canvas);
 
   mainCanvas?.getContext('2d').drawImage(canvas, 0, 0, canvas.width, canvas.height);
 
@@ -162,19 +130,7 @@ export const canvasFade = (value_: number, mainCanvas: HTMLCanvasElement, valueC
 
   context.drawImage(valueCopy, 0, 0);
 
-  const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
-
-  const { data } = imageData;
-
-  const factor = (259 * (value + 255)) / (255 * (259 - value));
-
-  for (let i = 0; i < data.length; i += 4) {
-    data[i + 0] = clamp((factor * (data[i + 0] - 100)) + 100, 0, 255);
-    data[i + 1] = clamp((factor * (data[i + 1] - 100)) + 100, 0, 255);
-    data[i + 2] = clamp((factor * (data[i + 2] - 100)) + 100, 0, 255);
-  }
-
-  context.putImageData(imageData, 0, 0);
+  if (![0, undefined].includes(value)) canvasFilterFade(value, canvas);
 
   mainCanvas?.getContext('2d').drawImage(canvas, 0, 0, canvas.width, canvas.height);
 
@@ -192,26 +148,14 @@ export const canvasInvert = (value: number, mainCanvas: HTMLCanvasElement, value
 
   context.drawImage(valueCopy, 0, 0);
 
-  const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
-
-  const { data } = imageData;
-
-  if (value === 1) {
-    for (let i = 0; i < data.length; i += 4) {
-      data[i + 0] = clamp(255 - data[i + 0], 0, 255);
-      data[i + 1] = clamp(255 - data[i + 1], 0, 255);
-      data[i + 2] = clamp(255 - data[i + 2], 0, 255);
-    }
-
-    context.putImageData(imageData, 0, 0);
-  }
+  if (![0, undefined].includes(value)) canvasFilterInvert(value, canvas);
 
   mainCanvas?.getContext('2d').drawImage(canvas, 0, 0, canvas.width, canvas.height);
 
   return canvas;
 };
 
-export const canvasOldTimePhotos = (value: number, mainCanvas: HTMLCanvasElement, valueCopy: HTMLCanvasElement) => {
+export const canvasOldPhoto = (value: number, mainCanvas: HTMLCanvasElement, valueCopy: HTMLCanvasElement) => {
   const canvas = window.document.createElement('canvas');
 
   canvas.width = valueCopy.width;
@@ -222,21 +166,7 @@ export const canvasOldTimePhotos = (value: number, mainCanvas: HTMLCanvasElement
 
   context.drawImage(valueCopy, 0, 0);
 
-  if (![0, undefined].includes(value)) {
-    const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
-
-    const { data } = imageData;
-
-    const percentage = (value_: number) => (Math.abs(value) / 100) * value_ * (value < 0 ? -1 : 1);
-
-    for (let i = 0; i < data.length; i += 4) {
-      data[i + 0] = clamp(((((data[i + 0] / 255) - 0.4) + (percentage(data[i + 0]) / 255)) + 0.4) * 255, 0, 255);
-      data[i + 1] = clamp(((((data[i + 0] / 255) - 0.4) + (percentage(data[i + 0]) / 255)) + 0.4) * 255, 0, 255);
-      data[i + 2] = clamp(((((data[i + 0] / 255) - 0.4) + (percentage(data[i + 0]) / 255)) + 0.4) * 255, 0, 255);
-    }
-
-    context.putImageData(imageData, 0, 0);
-  }
+  if (![0, undefined].includes(value)) canvasFilterOldPhoto(value, canvas);
 
   mainCanvas?.getContext('2d').drawImage(canvas, 0, 0, canvas.width, canvas.height);
 

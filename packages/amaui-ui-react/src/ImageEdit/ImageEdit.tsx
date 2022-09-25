@@ -17,7 +17,7 @@ import Chip from '../Chip';
 import Icon from '../Icon';
 import Line from '../Line';
 
-import { staticClassName, image as imageMethod, canvasBrightness, canvasContrast, canvasSaturation, canvasFade, canvasInvert, canvasOldTimePhotos } from '../utils';
+import { staticClassName, image as imageMethod, canvasBrightness, canvasContrast, canvasSaturation, canvasFade, canvasInvert, canvasOldPhoto } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
@@ -99,6 +99,15 @@ const useStyle = style(theme => ({
 
     '& .AmauiTextField-input': {
       textAlign: 'center'
+    }
+  },
+
+  filters: {
+    width: '100%',
+    overflowX: 'auto',
+
+    '& > *': {
+      flex: '0 0 auto'
     }
   },
 
@@ -390,7 +399,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
     IconSaturation = IconMaterialWaterDropRounded,
     IconFade = IconMaterialCloudRounded,
     IconInvert = IconMaterialTonalityRounded,
-    IconOldTimePhotos = IconMaterialNightlightRounded,
+    IconOldPhoto = IconMaterialNightlightRounded,
 
     IconSave = IconMaterialDoneRounded,
     IconCancel = IconMaterialCloseRounded,
@@ -783,7 +792,12 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
       onChangeCopy(canvas);
     }
 
-    if (imageReset) makeImage(image);
+    if (imageReset) {
+      setFilterValues({});
+      setFilterValuesCopy({});
+
+      makeImage(image);
+    }
   };
 
   const openOption = (valueNew: any) => {
@@ -1233,17 +1247,17 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
     },
 
     {
-      label: 'Old time photos',
-      Icon: IconOldTimePhotos,
-      value: 'old_time_photos',
+      label: 'Old photo',
+      Icon: IconOldPhoto,
+      value: 'old_photo',
 
-      method: canvasOldTimePhotos,
+      method: canvasOldPhoto,
 
       renderIconButton: (value_: string, selected_: boolean, onChangeFilter_: TMethod) => (
         <Tooltip
           key={value_}
 
-          label='Old time photos'
+          label='Old photo'
 
           {...TooltipProps}
         >
@@ -1256,7 +1270,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
             {...IconButtonProps}
           >
-            <IconOldTimePhotos />
+            <IconOldPhoto />
           </IconButton>
         </Tooltip>
       ),
@@ -1360,7 +1374,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
   const filterValue = filters.find(item_ => item_.value === filter);
 
   const rect = refs.root.current?.getBoundingClientRect();
-  console.log(1114, filterValuesCopy)
+
   return (
     <Line
       ref={item => {
@@ -1505,9 +1519,13 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
                 justify='flex-start'
 
-                style={{
-                  width: '100%'
-                }}
+                className={classNames([
+                  staticClassName('ImageEdit', theme) && [
+                    'AmauiImageEdit-filters'
+                  ],
+
+                  classes.filters
+                ])}
               >
                 {filters.map((item: any) => (
                   is('function', item.renderIconButton) && item.renderIconButton(item.value, item.value === filter, onChangeFilter)
