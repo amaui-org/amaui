@@ -369,6 +369,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
     valueCopyDefault,
     valueCopy: valueCopy_,
 
+    onlyFilters,
     filters: filters_,
 
     meta = true,
@@ -888,7 +889,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
     refs.canvasMain.current?.getContext('2d').drawImage(refs.value.current, 0, 0, refs.value.current.width, refs.value.current.height);
   };
 
-  const filters = React.useMemo(() => [
+  let filters = React.useMemo(() => [
     {
       label: 'Brightness',
       Icon: IconBrightness,
@@ -1315,6 +1316,9 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
     ...(filters_ || [])
   ], [filters_]);
+
+  // Only filters
+  if (is('array', onlyFilters)) filters = filters.filter(item => onlyFilters.includes(item.value));
 
   const ImageCropProps = {
     gridLines: true,
