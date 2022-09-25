@@ -17,7 +17,7 @@ import Chip from '../Chip';
 import Icon from '../Icon';
 import Line from '../Line';
 
-import { staticClassName, image as imageMethod, canvasBrightness } from '../utils';
+import { staticClassName, image as imageMethod, canvasBrightness, canvasContrast, canvasSaturation, canvasFade, canvasInvert, canvasOldTimePhotos } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
@@ -305,6 +305,38 @@ const IconMaterialWbSunnyRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+const IconMaterialTonalityRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='TonalityRounded'
+      short_name='Tonality'
+
+      {...props}
+    >
+      <path d="M11 19.95V4.05Q7.975 4.425 5.988 6.7Q4 8.975 4 12Q4 15.025 5.988 17.3Q7.975 19.575 11 19.95ZM13 5H15.85Q15.2 4.6 14.475 4.387Q13.75 4.175 13 4.05ZM13 8H18.9Q18.75 7.725 18.6 7.475Q18.45 7.225 18.25 7H13ZM13 11H19.95Q19.9 10.75 19.85 10.5Q19.8 10.25 19.75 10H13ZM13 19.95Q13.75 19.825 14.475 19.612Q15.2 19.4 15.85 19H13ZM13 17H18.25Q18.45 16.775 18.6 16.525Q18.75 16.275 18.9 16H13ZM13 14H19.75Q19.8 13.75 19.85 13.5Q19.9 13.25 19.95 13H13ZM12 22Q9.925 22 8.1 21.212Q6.275 20.425 4.925 19.075Q3.575 17.725 2.788 15.9Q2 14.075 2 12Q2 9.925 2.788 8.1Q3.575 6.275 4.925 4.925Q6.275 3.575 8.1 2.787Q9.925 2 12 2Q14.075 2 15.9 2.787Q17.725 3.575 19.075 4.925Q20.425 6.275 21.212 8.1Q22 9.925 22 12Q22 14.075 21.212 15.9Q20.425 17.725 19.075 19.075Q17.725 20.425 15.9 21.212Q14.075 22 12 22Z" />
+    </Icon>
+  );
+});
+
+const IconMaterialNightlightRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='NightlightRounded'
+      short_name='Nightlight'
+
+      {...props}
+    >
+      <path d="M14 4Q10.675 4 8.338 6.337Q6 8.675 6 12Q6 15.325 8.338 17.663Q10.675 20 14 20Q14.275 20 14.525 20Q14.775 20 15 19.95Q13.575 18.3 12.788 16.262Q12 14.225 12 12Q12 9.775 12.788 7.737Q13.575 5.7 15 4.05Q14.775 4 14.525 4Q14.275 4 14 4ZM14 22Q11.95 22 10.125 21.212Q8.3 20.425 6.938 19.062Q5.575 17.7 4.787 15.875Q4 14.05 4 12Q4 9.925 4.787 8.113Q5.575 6.3 6.938 4.938Q8.3 3.575 10.125 2.787Q11.95 2 14 2Q15.1 2 16.125 2.237Q17.15 2.475 18.1 2.9Q18.45 3.075 18.475 3.362Q18.5 3.65 18.15 3.9Q16.25 5.275 15.125 7.375Q14 9.475 14 12Q14 14.525 15.125 16.625Q16.25 18.725 18.15 20.1Q18.5 20.35 18.475 20.638Q18.45 20.925 18.1 21.1Q17.15 21.525 16.125 21.762Q15.1 22 14 22ZM10.5 12Q10.5 12 10.5 12Q10.5 12 10.5 12Q10.5 12 10.5 12Q10.5 12 10.5 12Q10.5 12 10.5 12Q10.5 12 10.5 12Q10.5 12 10.5 12Q10.5 12 10.5 12Q10.5 12 10.5 12Q10.5 12 10.5 12Q10.5 12 10.5 12Q10.5 12 10.5 12Z" />
+    </Icon>
+  );
+});
+
 // To do
 
 // 4. Filters (brightness, contrast, saturation, fade and invert)
@@ -357,6 +389,8 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
     IconContrast = IconMaterialFlakyRounded,
     IconSaturation = IconMaterialWaterDropRounded,
     IconFade = IconMaterialCloudRounded,
+    IconInvert = IconMaterialTonalityRounded,
+    IconOldTimePhotos = IconMaterialNightlightRounded,
 
     IconSave = IconMaterialDoneRounded,
     IconCancel = IconMaterialCloseRounded,
@@ -540,6 +574,8 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
   }, [valueCopy_]);
 
   const applyAllFilters = (canvas: HTMLCanvasElement) => {
+    let valueCopy_ = refs.valueCopy.current;
+
     // Update filters
     Object.keys(refs.filterValuesCopy.current).forEach(item => {
       const filterValue = filters.find(item_ => item_.value === item);
@@ -550,7 +586,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
         if (
           is('function', method) &&
           refs.filterValuesCopy.current[item] !== undefined
-        ) method(refs.filterValuesCopy.current[item], canvas, refs.valueCopy.current);
+        ) valueCopy_ = method(refs.filterValuesCopy.current[item], canvas, valueCopy_);
       }
     });
   };
@@ -782,6 +818,8 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
     }
 
     // Update filters
+    setFilterValues({ ...filterValuesCopy });
+
     applyAllFilters(canvas);
 
     // Update the main canvas value
@@ -917,6 +955,8 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
       Icon: IconContrast,
       value: 'contrast',
 
+      method: canvasContrast,
+
       renderIconButton: (value_: string, selected_: boolean, onChangeFilter_: TMethod) => (
         <Tooltip
           key={value_}
@@ -939,7 +979,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
         </Tooltip>
       ),
 
-      renderSlider: (valueCopy_: HTMLCanvasElement, value_: string, filterValues_: any, filterValuesCopy_: any, onFilterSliderChange_: TMethod) => (
+      renderSlider: (mainCanvas: HTMLCanvasElement, valueCopy_: HTMLCanvasElement, value_: string, filterValuesCopy_: any, onFilterSliderChange_: TMethod) => (
         <Slider
           key={value_}
 
@@ -965,9 +1005,6 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
           onChange={(valueNew: any) => {
             if (is('function', onFilterSliderChange_)) onFilterSliderChange_(valueNew, value_);
-
-            // Update value copy value
-
           }}
 
           {...SliderProps}
@@ -988,6 +1025,8 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
       label: 'Saturation',
       Icon: IconSaturation,
       value: 'saturation',
+
+      method: canvasSaturation,
 
       renderIconButton: (value_: string, selected_: boolean, onChangeFilter_: TMethod) => (
         <Tooltip
@@ -1011,7 +1050,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
         </Tooltip>
       ),
 
-      renderSlider: (valueCopy_: HTMLCanvasElement, value_: string, filterValues_: any, filterValuesCopy_: any, onFilterSliderChange_: TMethod) => (
+      renderSlider: (mainCanvas: HTMLCanvasElement, valueCopy_: HTMLCanvasElement, value_: string, filterValuesCopy_: any, onFilterSliderChange_: TMethod) => (
         <Slider
           key={value_}
 
@@ -1037,9 +1076,6 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
           onChange={(valueNew: any) => {
             if (is('function', onFilterSliderChange_)) onFilterSliderChange_(valueNew, value_);
-
-            // Update value copy value
-
           }}
 
           {...SliderProps}
@@ -1060,6 +1096,8 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
       label: 'Fade',
       Icon: IconFade,
       value: 'fade',
+
+      method: canvasFade,
 
       renderIconButton: (value_: string, selected_: boolean, onChangeFilter_: TMethod) => (
         <Tooltip
@@ -1083,7 +1121,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
         </Tooltip>
       ),
 
-      renderSlider: (valueCopy_: HTMLCanvasElement, value_: string, filterValues_: any, filterValuesCopy_: any, onFilterSliderChange_: TMethod) => (
+      renderSlider: (mainCanvas: HTMLCanvasElement, valueCopy_: HTMLCanvasElement, value_: string, filterValuesCopy_: any, onFilterSliderChange_: TMethod) => (
         <Slider
           key={value_}
 
@@ -1108,9 +1146,147 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
           onChange={(valueNew: any) => {
             if (is('function', onFilterSliderChange_)) onFilterSliderChange_(valueNew, value_);
+          }}
 
-            // Update value copy value
+          {...SliderProps}
 
+          className={classNames([
+            staticClassName('ImageEdit', theme) && [
+              'AmauiImageEdit-slider'
+            ],
+
+            SliderProps.className,
+            classes.slider
+          ])}
+        />
+      )
+    },
+
+    {
+      label: 'Invert',
+      Icon: IconInvert,
+      value: 'invert',
+
+      method: canvasInvert,
+
+      renderIconButton: (value_: string, selected_: boolean, onChangeFilter_: TMethod) => (
+        <Tooltip
+          key={value_}
+
+          label='Invert'
+
+          {...TooltipProps}
+        >
+          <IconButton
+            version='outlined'
+
+            selected={selected_}
+
+            onClick={() => onChangeFilter_(value_)}
+
+            {...IconButtonProps}
+          >
+            <IconInvert />
+          </IconButton>
+        </Tooltip>
+      ),
+
+      renderSlider: (mainCanvas: HTMLCanvasElement, valueCopy_: HTMLCanvasElement, value_: string, filterValuesCopy_: any, onFilterSliderChange_: TMethod) => (
+        <Slider
+          key={value_}
+
+          valueDefault={filterValuesCopy_?.[value_] || 0}
+
+          value={filterValuesCopy_?.[value_] || 0}
+
+          min={0}
+
+          max={1}
+
+          precision={1}
+
+          marks={[
+            { value: 0, label: 'Not inverted' },
+            { value: 1, label: 'Inverted' }
+          ]}
+
+          labels
+
+          tooltip
+
+          onChange={(valueNew: any) => {
+            if (is('function', onFilterSliderChange_)) onFilterSliderChange_(valueNew, value_);
+          }}
+
+          {...SliderProps}
+
+          className={classNames([
+            staticClassName('ImageEdit', theme) && [
+              'AmauiImageEdit-slider'
+            ],
+
+            SliderProps.className,
+            classes.slider
+          ])}
+        />
+      )
+    },
+
+    {
+      label: 'Old time photos',
+      Icon: IconOldTimePhotos,
+      value: 'old_time_photos',
+
+      method: canvasOldTimePhotos,
+
+      renderIconButton: (value_: string, selected_: boolean, onChangeFilter_: TMethod) => (
+        <Tooltip
+          key={value_}
+
+          label='Old time photos'
+
+          {...TooltipProps}
+        >
+          <IconButton
+            version='outlined'
+
+            selected={selected_}
+
+            onClick={() => onChangeFilter_(value_)}
+
+            {...IconButtonProps}
+          >
+            <IconOldTimePhotos />
+          </IconButton>
+        </Tooltip>
+      ),
+
+      renderSlider: (mainCanvas: HTMLCanvasElement, valueCopy_: HTMLCanvasElement, value_: string, filterValuesCopy_: any, onFilterSliderChange_: TMethod) => (
+        <Slider
+          key={value_}
+
+          valueDefault={filterValuesCopy_?.[value_] || 0}
+
+          value={filterValuesCopy_?.[value_] || 0}
+
+          min={-40}
+
+          max={40}
+
+          precision={1}
+
+          marks={[
+            { value: -40, label: '-40' },
+            { value: 0, label: 'No filter' },
+            { value: 40, label: '40' }
+          ]}
+
+          labels
+
+          tooltip
+
+          onChange={(valueNew: any) => {
+            if (is('function', onFilterSliderChange_)) onFilterSliderChange_(valueNew, value_);
           }}
 
           {...SliderProps}
@@ -1184,7 +1360,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
   const filterValue = filters.find(item_ => item_.value === filter);
 
   const rect = refs.root.current?.getBoundingClientRect();
-
+  console.log(1114, filterValuesCopy)
   return (
     <Line
       ref={item => {
@@ -1312,6 +1488,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
               >
                 <div
                   style={{
+                    paddingInline: 40,
                     paddingBottom: 40
                   }}
                 >
