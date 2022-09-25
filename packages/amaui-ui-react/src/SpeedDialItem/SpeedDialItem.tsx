@@ -46,7 +46,7 @@ const SpeedDialItem = React.forwardRef((props_: any, ref: any) => {
 
     TooltipProps = {
       alignment: 'center',
-      disableInteractive: true
+      interactive: false
     },
 
     className,

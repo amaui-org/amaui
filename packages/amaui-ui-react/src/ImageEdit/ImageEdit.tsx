@@ -309,8 +309,6 @@ const IconMaterialWbSunnyRounded = React.forwardRef((props: any, ref) => {
 
 // 4. Filters (brightness, contrast, saturation, fade and invert)
 
-const brightness = debounce(canvasBrightness, 140);
-
 const ImageEdit = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 
@@ -541,6 +539,25 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
     }
   }, [valueCopy_]);
 
+  const applyAllFilters = (canvas: HTMLCanvasElement) => {
+    // Update filters
+    Object.keys(refs.filterValuesCopy.current).forEach(item => {
+      const filterValue = filters.find(item_ => item_.value === item);
+
+      if (filterValue) {
+        const { method } = filterValue;
+
+        if (is('function', method)) method(refs.filterValuesCopy.current[item], canvas, refs.valueCopy.current);
+      }
+    });
+  };
+
+  const applyAllFiltersDebounced = React.useCallback(debounce(applyAllFilters, 140), []);
+
+  React.useEffect(() => {
+    applyAllFiltersDebounced(refs.canvasMain.current);
+  }, [filterValuesCopy]);
+
   const makeImage = async (valueNew: any = refs.value.current) => {
     const img = await imageMethod(valueNew);
 
@@ -761,6 +778,9 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
       canvas = canvasCrop(refs.valueCopy.current, selection.left, selection.top, selection.width, selection.height);
     }
 
+    // Update filters
+    applyAllFilters(canvas);
+
     // Update the main canvas value
     refs.canvasMain.current.width = canvas.width;
 
@@ -871,16 +891,8 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
           tooltip
 
-          onChange={(valueNew_: any) => {
-            let valueNew = valueNew_;
-
+          onChange={(valueNew: any) => {
             if (is('function', onFilterSliderChange_)) onFilterSliderChange_(valueNew, value_);
-
-            // Update value copy value
-            // value relative to previous value
-            valueNew -= (filterValuesCopy_?.[value_] || 0);
-
-            brightness(valueNew, mainCanvas, valueCopy_);
           }}
 
           {...SliderProps}

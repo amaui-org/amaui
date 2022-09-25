@@ -165,7 +165,7 @@ const SpeedDial = React.forwardRef((props_: any, ref: any) => {
     tooltipLabel,
     TooltipProps = {
       alignment: 'center',
-      disableInteractive: true
+      interactive: false
     },
     onKeyDown: onKeyDown_,
 

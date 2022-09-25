@@ -62,9 +62,17 @@ export const image = (uri: string): Promise<HTMLImageElement> => new Promise((re
 });
 
 export const canvasBrightness = (value: number, mainCanvas: HTMLCanvasElement, valueCopy: HTMLCanvasElement) => {
-  const context = valueCopy.getContext('2d');
+  const canvas = window.document.createElement('canvas');
 
-  const imageData = context.getImageData(0, 0, valueCopy.width, valueCopy.height);
+  canvas.width = valueCopy.width;
+
+  canvas.height = valueCopy.height;
+
+  const context = canvas.getContext('2d');
+
+  context.drawImage(valueCopy, 0, 0);
+
+  const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
 
   const { data } = imageData;
 
@@ -76,5 +84,5 @@ export const canvasBrightness = (value: number, mainCanvas: HTMLCanvasElement, v
 
   context.putImageData(imageData, 0, 0);
 
-  mainCanvas?.getContext('2d').drawImage(valueCopy, 0, 0, valueCopy.width, valueCopy.height);
+  mainCanvas?.getContext('2d').drawImage(canvas, 0, 0, canvas.width, canvas.height);
 };

@@ -213,7 +213,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
     ModalProps = {},
     LabelProps = {},
 
-    disableInteractive,
+    interactive,
 
     className,
     style,
@@ -444,7 +444,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
 
             open={open}
 
-            {...(!disableInteractive && {
+            {...(interactive && {
               onMouseEnter,
               onTouchStart,
 

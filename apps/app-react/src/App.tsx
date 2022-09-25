@@ -29362,12 +29362,12 @@ Please sign in again.`}
           </div>
         </Accordion>
 
-        <Accordion primary='Tooltip disableInteractive' open>
+        <Accordion primary='Tooltip interactive' open>
           <div className={classNames([classes.column])}>
             <Tooltip
               label='Label'
 
-              disableInteractive
+              interactive={false}
             >
               <Button color='secondary'>Append</Button>
             </Tooltip>

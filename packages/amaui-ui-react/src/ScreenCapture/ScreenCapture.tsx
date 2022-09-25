@@ -387,7 +387,7 @@ const ScreenCapture = React.forwardRef((props_: any, ref: any) => {
   const tooltipProps = {
     position: 'top',
     portal: false,
-    disableInteractive: true
+    interactive: false
   };
 
   return (
