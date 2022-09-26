@@ -2218,6 +2218,7 @@ Please sign in again.`}
         <Accordion primary='AmauiTheme'>
           <div className={classNames([classes.column])}>
             <DropZone
+              files
 
               multiple
             />

@@ -75,6 +75,8 @@ const DropZone = React.forwardRef((props_: any, ref: any) => {
 
     files,
 
+    multiple,
+
     max,
     allowedTypes,
 
@@ -253,6 +255,8 @@ const DropZone = React.forwardRef((props_: any, ref: any) => {
       version='text'
 
       files={files}
+
+      multiple={multiple}
 
       max={max}
 
