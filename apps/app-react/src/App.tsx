@@ -2187,7 +2187,11 @@ Please sign in again.`}
 
       <Accordion primary='FileChoose'>
         <Accordion primary='FileChoose' open>
-          <FileChoose />
+          <FileChoose
+            files
+
+            multiple
+          />
         </Accordion>
 
         <Accordion primary='FileChoose files'>
@@ -2200,7 +2204,10 @@ Please sign in again.`}
 
         <Accordion primary='AmauiTheme'>
           <div className={classNames([classes.column])}>
-            <FileChoose />
+            <FileChoose
+
+              multiple
+            />
 
             <Accordion primary='AmauiTheme nested value' open>
               <AmauiThemeProvider
@@ -2221,7 +2228,13 @@ Please sign in again.`}
                   width: '100%'
                 }}
               >
-                <FileChoose />
+                <FileChoose
+                  color='secondary'
+
+                  files
+
+                  multiple
+                />
               </AmauiThemeProvider>
             </Accordion>
 
@@ -2249,7 +2262,11 @@ Please sign in again.`}
                   width: '100%'
                 }}
               >
-                <FileChoose />
+                <FileChoose
+                  files
+
+                  multiple
+                />
               </AmauiThemeProvider>
             </Accordion>
 
@@ -2275,7 +2292,11 @@ Please sign in again.`}
                   width: '100%'
                 }}
               >
-                <FileChoose />
+                <FileChoose
+                  files
+
+                  multiple
+                />
               </AmauiThemeProvider>
             </Accordion>
 
@@ -2299,12 +2320,20 @@ Please sign in again.`}
                   width: '100%'
                 }}
               >
-                <FileChoose />
+                <FileChoose
+                  files
+
+                  multiple
+                />
               </AmauiThemeProvider>
             </Accordion>
 
             <Accordion primary='AmauiTheme styled' open>
-              <styled.FileChoose />
+              <styled.FileChoose
+                files
+
+                multiple
+              />
             </Accordion>
           </div>
         </Accordion>
