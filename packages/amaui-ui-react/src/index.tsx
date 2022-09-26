@@ -340,3 +340,6 @@ export * from './ImageCrop';
 
 export { default as ImageEdit } from './ImageEdit';
 export * from './ImageEdit';
+
+export { default as FileChoose } from './FileChoose';
+export * from './FileChoose';

@@ -349,16 +349,16 @@ const Button = React.forwardRef((props_: any, ref: any) => {
 
   // icon
   if (icon) {
-    if (!['small', 'regular', 'large'].includes(size)) {
-      const iconFontSize = fontSize !== undefined && 'inherit';
+    const iconFontSize = fontSize !== undefined && 'inherit';
 
+    if (!['small', 'regular', 'large'].includes(size)) {
       children_ = is('array', children_) ?
         children_.filter(Boolean).map(
           (item: any, index: number) => is('string', item.type) ?
             React.cloneElement(item, { key: index }) :
-            React.cloneElement(item, { key: index, size: iconFontSize || (item.props as any).size !== undefined ? (item.props as any).size : size / 1.667 } as any)
+            React.cloneElement(item, { key: index, size: iconFontSize !== undefined ? iconFontSize : (item.props as any).size !== undefined ? (item.props as any).size : size / 1.667 } as any)
         ) :
-        React.cloneElement(children_, { size: iconFontSize || children_.props?.size !== undefined ? children_.props.size : size / 1.667 });
+        React.cloneElement(children_, { size: iconFontSize !== undefined ? iconFontSize : children_.props?.size !== undefined ? children_.props.size : size / 1.667 });
 
       styles.root.width = size;
       styles.root.height = size;
@@ -371,9 +371,9 @@ const Button = React.forwardRef((props_: any, ref: any) => {
         children_.filter(Boolean).map(
           (item: any, index: number) => is('string', item.type) ?
             React.cloneElement(item, { key: index }) :
-            React.cloneElement(item, { key: index, size: children_.props?.size !== undefined ? children_.props?.size : (size === 'large' ? 'medium' : size) } as any)
+            React.cloneElement(item, { key: index, size: iconFontSize !== undefined ? iconFontSize : children_.props?.size !== undefined ? children_.props?.size : (size === 'large' ? 'medium' : size) } as any)
         ) :
-        React.cloneElement(children_, { size: children_.props?.size !== undefined ? children_.props?.size : (size === 'large' ? 'medium' : size) });
+        React.cloneElement(children_, { size: iconFontSize !== undefined ? iconFontSize : children_.props?.size !== undefined ? children_.props?.size : (size === 'large' ? 'medium' : size) });
 
       styles.root.fontSize = iconSizeToFontSize(size === 'large' ? 'medium' : size);
 

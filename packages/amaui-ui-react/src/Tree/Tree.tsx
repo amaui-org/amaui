@@ -216,7 +216,7 @@ const Tree = React.forwardRef((props_: any, ref: any) => {
       if (is('function', onChange)) onChange(valueNew);
     }
 
-    if (is('function', MiddleProps.onClick)) MiddleProps.onClick(event);
+    if (is('function', MiddleProps?.onClick)) MiddleProps.onClick(event);
   }, [open, noExpand, children_, disabled]);
 
   if (!noTransition) TransitionComponentProps.in = open;
@@ -236,7 +236,7 @@ const Tree = React.forwardRef((props_: any, ref: any) => {
   const start = React.Children.toArray(start_);
 
   // Icon
-  start.push(!open ? icon : iconOpen || icon);
+  if (!open ? icon : iconOpen || icon) start.push(!open ? icon : iconOpen || icon);
 
   const end = React.Children.toArray(end_);
 
