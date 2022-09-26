@@ -283,7 +283,7 @@ const FileChoose = React.forwardRef((props_: any, ref: any) => {
         {children}
       </Component>
 
-      {files && value?.length && (
+      {files && !!value?.length && (
         is('function', renderFiles) ? renderFiles(value) : (
           <Tree
             openDefault
