@@ -343,3 +343,6 @@ export * from './ImageEdit';
 
 export { default as FileChoose } from './FileChoose';
 export * from './FileChoose';
+
+export { default as DropZone } from './DropZone';
+export * from './DropZone';

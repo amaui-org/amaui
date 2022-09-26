@@ -708,7 +708,10 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
     backgroundOpacity,
     noOutline,
 
+    startIcon,
+
     Component = 'div',
+
     AdditionalProps,
 
     className,

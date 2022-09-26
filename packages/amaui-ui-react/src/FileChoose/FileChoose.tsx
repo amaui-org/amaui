@@ -32,7 +32,8 @@ const useStyle = style(theme => ({
   file: {
     maxWidth: '174px',
     overflow: 'hidden',
-    textOverflow: 'ellipsis'
+    textOverflow: 'ellipsis',
+    whiteSpace: 'nowrap'
   }
 }), { name: 'AmauiFileChoose' });
 
@@ -127,6 +128,8 @@ const FileChoose = React.forwardRef((props_: any, ref: any) => {
     tonal = true,
     color = 'default',
 
+    inputRef,
+
     max,
     allowedTypes,
 
@@ -143,17 +146,19 @@ const FileChoose = React.forwardRef((props_: any, ref: any) => {
 
     renderFiles,
 
+    onClick,
     onChange: onChange_,
 
     IconStart = IconMaterialCloudUploadRounded,
 
     Component = Button,
 
-    inputRef,
-
     inputProps,
+    WrapperProps: WrapperProps_,
+    ComponentProps: ComponentProps_,
 
     className,
+    style,
 
     children = 'Choose file',
 
@@ -214,23 +219,63 @@ const FileChoose = React.forwardRef((props_: any, ref: any) => {
     onChange(valueNew);
   };
 
-  const onReset = () => {
+  const onReset = (event: React.MouseEvent<any>) => {
     if (refs.input.current) refs.input.current.value = '';
+
+    if (is('function', onClick)) onClick(event);
   };
 
   const Wrapper = files ? Line : React.Fragment;
 
   const WrapperProps = files ? {
-    direction: 'column'
+    ref,
+
+    direction: 'column',
+
+    ...WrapperProps_,
+
+    className: classNames([
+      staticClassName('FileChoose', theme) && [
+        'AmauiFileChoose-root'
+      ],
+
+      className,
+      WrapperProps_?.className,
+      classes.root
+    ]),
+
+    ...other
   } : undefined;
+
+  let ComponentProps = {
+    ...ComponentProps_,
+  };
+
+  if (!files) {
+    ComponentProps = {
+      ...ComponentProps,
+
+      ref,
+
+      className: classNames([
+        staticClassName('FileChoose', theme) && [
+          'AmauiFileChoose-root'
+        ],
+
+        className,
+        ComponentProps_?.className,
+        classes.root
+      ]),
+
+      ...other
+    };
+  }
 
   return (
     <Wrapper
       {...WrapperProps}
     >
       <Component
-        ref={ref}
-
         Component='label'
 
         tonal={tonal}
@@ -245,20 +290,11 @@ const FileChoose = React.forwardRef((props_: any, ref: any) => {
 
         onClick={onReset}
 
-        className={classNames([
-          staticClassName('FileChoose', theme) && [
-            'AmauiFileChoose-root'
-          ],
-
-          className,
-          classes.root
-        ])}
-
-        {...other}
+        {...ComponentProps}
       >
         <input
           ref={item => {
-            if (inputRef) inputRef.current = inputRef;
+            if (inputRef) inputRef.current = item;
 
             refs.input.current = item;
           }}
@@ -289,7 +325,7 @@ const FileChoose = React.forwardRef((props_: any, ref: any) => {
       </Component>
 
       {files && !!value?.length && (
-        is('function', renderFiles) ? renderFiles(value) : (
+        is('function', renderFiles) ? renderFiles(value, onRemove) : (
           <Tree
             openDefault
 

@@ -75,7 +75,9 @@ const useStyle = style(theme => ({
 
   header_padding_horizontal_none: { paddingInline: '0px' },
 
-  main: {},
+  main: {
+    width: '100%'
+  },
 
   main_padding_vertical_start: { paddingBlockStart: '16px' },
 

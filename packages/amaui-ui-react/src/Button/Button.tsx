@@ -349,7 +349,7 @@ const Button = React.forwardRef((props_: any, ref: any) => {
 
   // icon
   if (icon) {
-    const iconFontSize = fontSize !== undefined && 'inherit';
+    const iconFontSize = fontSize !== undefined ? 'inherit' : undefined;
 
     if (!['small', 'regular', 'large'].includes(size)) {
       children_ = is('array', children_) ?
