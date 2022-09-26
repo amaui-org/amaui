@@ -1038,6 +1038,16 @@ function App() {
             width: '100%'
           }}
         >
+          <DropZone />
+
+          <FileChoose />
+
+          <ImageEdit
+            image='./image.jpg'
+
+            dynamicParent
+          />
+
           <ImageCrop
             image='./image.jpg'
 
