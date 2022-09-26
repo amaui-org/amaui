@@ -107,6 +107,7 @@ const DropZone = React.forwardRef((props_: any, ref: any) => {
 
   const refs = {
     value: React.useRef<any>(),
+    label: React.useRef<any>(),
     input: React.useRef<HTMLInputElement>(),
     focus: React.useRef<any>(),
     allowedTypes: React.useRef<any>(),
@@ -240,8 +241,6 @@ const DropZone = React.forwardRef((props_: any, ref: any) => {
     <FileChoose
       ref={ref}
 
-      tabIndex={0}
-
       inputRef={refs.input}
 
       valueDefault={valueDefault}
@@ -264,10 +263,6 @@ const DropZone = React.forwardRef((props_: any, ref: any) => {
 
       startIcon={undefined}
 
-      onFocus={onFocus}
-
-      onBlur={onBlur}
-
       onChange={onChange}
 
       Component={Surface}
@@ -283,6 +278,12 @@ const DropZone = React.forwardRef((props_: any, ref: any) => {
       ])}
 
       ComponentProps={{
+        tabIndex: 0,
+
+        onFocus,
+
+        onBlur,
+
         className: classNames([
           staticClassName('DropZone', theme) && [
             'AmauiDropZone-label'
