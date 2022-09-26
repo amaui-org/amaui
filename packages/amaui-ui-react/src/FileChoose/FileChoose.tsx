@@ -214,6 +214,10 @@ const FileChoose = React.forwardRef((props_: any, ref: any) => {
     onChange(valueNew);
   };
 
+  const onReset = () => {
+    if (refs.input.current) refs.input.current.value = '';
+  };
+
   const Wrapper = files ? Line : React.Fragment;
 
   const WrapperProps = files ? {
@@ -238,6 +242,8 @@ const FileChoose = React.forwardRef((props_: any, ref: any) => {
         startIcon={(
           <IconStart />
         )}
+
+        onClick={onReset}
 
         className={classNames([
           staticClassName('FileChoose', theme) && [
