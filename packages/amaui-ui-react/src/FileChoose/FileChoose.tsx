@@ -220,7 +220,6 @@ const FileChoose = React.forwardRef((props_: any, ref: any) => {
     direction: 'column'
   } : undefined;
 
-  console.log(1, value);
   return (
     <Wrapper
       {...WrapperProps}
