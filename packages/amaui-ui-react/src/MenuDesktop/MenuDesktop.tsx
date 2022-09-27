@@ -106,8 +106,6 @@ const IconMaterialExpandMoreRounded = React.forwardRef((props: any, ref) => {
 
 // additional menu example
 
-// wrap up
-
 const Wrapper = React.forwardRef((props: any, ref: any) => {
   const theme = useAmauiTheme();
 

@@ -2418,6 +2418,295 @@ Please sign in again.`}
           />
         </Accordion>
 
+        <Accordion primary='MenuDesktop additional menu' open>
+          <MenuDesktop
+            items={[
+              {
+                label: 'Product',
+                value: 'product',
+                menu: (
+                  <List
+                    tonal
+
+                    color='primary'
+
+                    menu
+
+                    style={{
+                      width: 214
+                    }}
+                  >
+                    <ListItem
+                      button
+
+                      primary='Bold'
+
+                      end={(
+                        <Type version='b2' color='secondary'>
+                          ⌘B
+                        </Type>
+                      )}
+                    />
+
+                    <ListItem
+                      button
+
+                      primary='Italic'
+
+                      end={(
+                        <Type version='b2' color='secondary'>
+                          ⌘I
+                        </Type>
+                      )}
+                    />
+
+                    <ListItem
+                      button
+
+                      primary='Underline'
+
+                      end={(
+                        <Type version='b2' color='secondary'>
+                          ⌘U
+                        </Type>
+                      )}
+                    />
+
+                    <ListItem
+                      button
+
+                      primary='Strikethrough'
+
+                      end={(
+                        <Type version='b2' color='secondary'>
+                          ⌘+Shift+X
+                        </Type>
+                      )}
+                    />
+
+                    <ListItem
+                      button
+
+                      primary='Superscript'
+
+                      end={(
+                        <Type version='b2' color='secondary'>
+                          ⌘.
+                        </Type>
+                      )}
+                    />
+
+                    <ListItem
+                      button
+
+                      primary='Subscript'
+
+                      end={(
+                        <Type version='b2' color='secondary'>
+                          ⌘,
+                        </Type>
+                      )}
+
+                      menuCloseOnClick
+                    />
+
+                    <Divider
+                      Component='li'
+                    />
+
+                    <ListItem
+                      button
+
+                      primary='Paragraph styles'
+                    />
+
+                    <ListItem
+                      button
+
+                      primary='Align'
+                    />
+
+                    <ListItem
+                      button
+
+                      primary='Line spacing'
+
+                      MenuProps={{
+                        ListProps: {
+                          color: 'secondary',
+
+                          style: {
+                            minWidth: 320
+                          }
+                        }
+                      }}
+
+                      menu={[
+                        <ListItem
+                          inset
+
+                          button
+
+                          primary='Single'
+                        />,
+
+                        <ListItem
+                          inset
+
+                          button
+
+                          primary='1.15'
+
+                          menuCloseOnClick
+                        />,
+
+                        <ListItem
+                          inset
+
+                          button
+
+                          primary='Double'
+                        />,
+
+                        <ListItem
+                          button
+
+                          primary='Custom: 1.2'
+
+                          start={(
+                            <IconMaterialCheckRounded />
+                          )}
+                        />,
+
+                        <Divider
+                          Component='li'
+                        />,
+
+                        <ListItem
+                          button
+
+                          primary='Add space before paragraph'
+                        />,
+
+                        <ListItem
+                          button
+
+                          primary='Add space after paragraph'
+                        />,
+
+                        <Divider
+                          Component='li'
+                        />,
+
+                        <ListItem
+                          button
+
+                          primary='Custom spacing...'
+                        />
+                      ]}
+                    />
+
+                    <ListItem
+                      button
+
+                      primary='Numbered lists'
+                    />
+
+                    <ListItem
+                      button
+
+                      primary='List options'
+                    />
+
+                    <Divider
+                      Component='li'
+                    />
+
+                    <ListItem
+                      button
+
+                      primary='Clear formating'
+
+                      end={(
+                        <Type version='b2' color='secondary'>
+                          ⌘/
+                        </Type>
+                      )}
+                    />
+                  </List>
+                )
+              },
+              {
+                label: 'Architecture',
+                value: 'architecture',
+                menu: (
+                  <List
+                    tonal
+
+                    color='primary'
+
+                    style={{
+                      width: 340
+                    }}
+                  >
+                    {new Array(4).fill(1).map(item => (
+                      <ListItem
+                        key={item}
+
+                        primary='Primary text'
+                        secondary='Secondary text'
+                        tertiary='Tertiary text'
+
+                        start={(
+                          <IconMaterialLightModeRounded />
+                        )}
+                      />
+                    ))}
+                  </List>
+                )
+              },
+              {
+                label: 'Open',
+                value: 'open',
+                disabled: true
+              },
+              {
+                label: 'Open Source',
+                value: 'open source'
+              },
+              {
+                label: 'Pricing',
+                value: 'pricing',
+                menu: (
+                  <List
+                    tonal
+
+                    color='primary'
+
+                    style={{
+                      width: 240
+                    }}
+                  >
+                    {new Array(1).fill(1).map(item => (
+                      <ListItem
+                        key={item}
+
+                        primary='Primary text'
+                        secondary='Secondary text'
+                        tertiary='Tertiary text'
+
+                        start={(
+                          <IconMaterialUndoRounded />
+                        )}
+                      />
+                    ))}
+                  </List>
+                )
+              }
+            ]}
+          />
+        </Accordion>
+
         <Accordion primary='MenuDesktop menuTransition' open>
           <MenuDesktop
             menuTransition={false}
