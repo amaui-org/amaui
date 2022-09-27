@@ -218,10 +218,14 @@ const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
 
   refs.props.current = props;
 
-  const onClose = () => {
+  const close = () => {
     setOpen(false);
 
     if (is('function', onClose_)) onClose_();
+  };
+
+  const onClose = () => {
+    setInProp(false);
   };
 
   const updateOpen = (value_: any) => {
@@ -243,7 +247,7 @@ const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
 
     if (refs.open.current) refs.previousOpen.current = refs.props.current.items.find(item_ => item_.value === refs.open.current);
 
-    if (!value_) setInProp(false);
+    if (!value_) onClose();
     else {
       setInProp(true);
       setOpen(value_);
@@ -588,7 +592,7 @@ const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
               <TransitionComponent
                 in={inProp}
 
-                onExited={onClose}
+                onExited={close}
 
                 add
 
@@ -623,6 +627,9 @@ const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
 
                           return (
                             React.cloneElement(menu, {
+                              // For manual onClose within the element
+                              onMenuDesktopClose: onClose,
+
                               className: classNames([
                                 staticClassName('Menu', theme) && [
                                   'AmauiMenu-menu',
@@ -650,11 +657,12 @@ const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
 
                   {menu && !menuTransition && (
                     React.cloneElement(menu, {
+                      // For manual onClose within the element
+                      onMenuDesktopClose: onClose,
+
                       className: classNames([
                         staticClassName('Menu', theme) && [
-                          'AmauiMenu-menu',
-
-                          status
+                          'AmauiMenu-menu'
                         ],
 
                         classes.menu
