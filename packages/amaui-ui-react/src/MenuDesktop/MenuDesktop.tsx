@@ -4,6 +4,9 @@ import { is } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Append from '../Append';
+import Surface from '../Surface';
+import Transition, { TTransitionStatus } from '../Transition';
+import Transitions from '../Transitions';
 import ClickListener from '../ClickListener';
 import Type from '../Type';
 import Line from '../Line';
@@ -16,13 +19,39 @@ const useStyle = style(theme => ({
     position: 'relative'
   },
 
-  menu: {
+  menuWrapper: {
+    position: 'relative',
     overflow: 'hidden',
     transition: theme.methods.transitions.make(['width', 'height', 'transform']),
     zIndex: theme.z_index.menu_modal,
 
     '& > *': {
-      transition: theme.methods.transitions.make(['width', 'height'])
+      transition: theme.methods.transitions.make(['width', 'height', 'opacity', 'transform'])
+    }
+  },
+
+  menu: {
+    position: 'absolute',
+    inset: 0,
+
+    '&.enter': {
+      opacity: '0',
+      transform: 'translateX(-100%)',
+    },
+
+    '&.entering': {
+      opacity: '1',
+      transform: 'translateX(0%)'
+    },
+
+    '&.exit': {
+      opacity: '1',
+      transform: 'translateX(0%)',
+    },
+
+    '&.exiting': {
+      opacity: '0',
+      transform: 'translateX(100%)'
     }
   },
 
@@ -70,9 +99,14 @@ const IconMaterialExpandMoreRounded = React.forwardRef((props: any, ref) => {
 
 // to do
 
-// Append has to be portal={false} so focus can continue to it as the child item
+// append on open false option to remove previous append value y
 
-// Transition, in and out, transitionY up and down, with fade in and out value y
+// transition in and out for the menu
+
+// No transition option
+// Custom transition styles option, method for styles maybe and class
+
+// additional menu example
 
 const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
@@ -82,6 +116,10 @@ const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
   const { classes } = useStyle(props);
 
   const {
+    tonal = true,
+    color = 'primary',
+    version = 'filled',
+
     items,
 
     valueDefault,
@@ -110,8 +148,10 @@ const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
 
   const [init, setInit] = React.useState(false);
   const [open, setOpen] = React.useState<any>();
+  const [openItem, setOpenItem] = React.useState<any>();
   const [focus, setFocus] = React.useState<any>();
   const [append, setAppend] = React.useState<any>();
+  const [menu, setMenu] = React.useState<any>();
 
   const refs = {
     root: React.useRef<any>(),
@@ -124,6 +164,7 @@ const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
     menu: React.useRef<any>(),
     menus: React.useRef<Array<HTMLElement>>([]),
     menuRects: React.useRef<Array<DOMRect>>([]),
+    previousOpen: React.useRef<any>(),
     anchorElement: React.useRef<HTMLElement>()
   };
 
@@ -145,10 +186,17 @@ const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
         if (itemHTML) {
           refs.anchorElement.current = itemHTML;
 
-          refs.menu.current = item.menu;
+          if (item.menu) setMenu(item.menu);
         }
       }
     }
+    else {
+      refs.anchorElement.current = undefined;
+    }
+
+    if (value_) setOpenItem(value_);
+
+    if (refs.open.current) refs.previousOpen.current = refs.props.current.items.find(item_ => item_.value === refs.open.current);
 
     setOpen(value_);
   };
@@ -331,7 +379,7 @@ const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
   // If no items don't render anything
   // not to waste html space
   if (!items?.length) return;
-  console.log(1, refs.menus.current, refs.menuRects.current, refs.append.current, append);
+  console.log(1, open);
   return (
     <ClickListener
       onClickOutside={onClickOutside}
@@ -455,6 +503,8 @@ const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
             <div
               ref={item => refs.menus.current[index] = item}
 
+              key={index}
+
               style={{
                 position: 'absolute',
                 visibility: 'hidden'
@@ -466,37 +516,68 @@ const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
         )}
 
         <Append
-          open
+          open={!!open}
+
+          anchorElement={refs.anchorElement.current}
 
           element={(
-            <div
+            <Surface
               ref={item => {
                 refs.append.current = item;
               }}
 
+              tonal={tonal}
+
+              color={color}
+
+              version={version}
+
+              onMouseEnter={() => onMouseEnter(refs.previousOpen.current)}
+
+              onMouseLeave={onMouseLeave}
+
               className={classNames([
                 staticClassName('Menu', theme) && [
-                  'AmauiMenu-menu'
+                  'AmauiMenu-menu-wrapper'
                 ],
 
-                classes.menu
+                classes.menuWrapper
               ])}
 
               style={{
                 ...append
               }}
             >
-              {React.cloneElement(refs.menu.current, {
-                style: {
-                  ...refs.menu.current?.style,
+              {menu && (
+                <Transitions switch mode='in-out-follow'>
+                  <Transition key={openItem}>
+                    {(status: TTransitionStatus) => {
 
-                  ...append
-                }
-              })}
-            </div>
+                      return (
+                        React.cloneElement(menu, {
+                          className: classNames([
+                            staticClassName('Menu', theme) && [
+                              'AmauiMenu-menu',
+
+                              status
+                            ],
+
+                            classes.menu
+                          ]),
+
+                          style: {
+                            ...refs.menu.current?.style,
+
+                            ...append
+                          }
+                        })
+                      )
+                    }}
+                  </Transition>
+                </Transitions>
+              )}
+            </Surface>
           )}
-
-          anchorElement={refs.anchorElement.current}
 
           position='bottom'
 

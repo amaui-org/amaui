@@ -2268,7 +2268,7 @@ Please sign in again.`}
                         tertiary='Tertiary text'
 
                         start={(
-                          <IconMaterialPottedPlantRounded />
+                          <IconMaterialLightModeRounded />
                         )}
                       />
                     ))}
@@ -2306,7 +2306,7 @@ Please sign in again.`}
                         tertiary='Tertiary text'
 
                         start={(
-                          <IconMaterialPottedPlantRounded />
+                          <IconMaterialUndoRounded />
                         )}
                       />
                     ))}
