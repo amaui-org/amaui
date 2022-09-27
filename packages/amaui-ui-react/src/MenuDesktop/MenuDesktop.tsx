@@ -102,10 +102,6 @@ const IconMaterialExpandMoreRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
-// to do
-
-// additional menu example
-
 const Wrapper = React.forwardRef((props: any, ref: any) => {
   const theme = useAmauiTheme();
 
@@ -341,6 +337,7 @@ const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
           // If any item is in the focus
           if (refs.focus.current) {
             event.preventDefault();
+            event.stopPropagation();
 
             const tabIndexItems: Array<HTMLElement> = Array.from(refs.root.current.querySelectorAll(`[tabindex='0']`));
 
@@ -635,16 +632,15 @@ const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
                                   status
                                 ],
 
-                                ...(is('function', menuTransitionClassName) && menuTransitionClassName(status, openItem)),
+                                ...(is('function', menuTransitionClassName) ? menuTransitionClassName(status, openItem) : []),
+
                                 classes.menu
                               ]),
 
                               style: {
-                                ...refs.menu.current?.style,
+                                ...refs.menu.current?.props.style,
 
-                                ...(is('function', menuTransitionStyle) && menuTransitionStyle(status, openItem)),
-
-                                ...append
+                                ...(is('function', menuTransitionStyle) && menuTransitionStyle(status, openItem))
                               }
                             })
                           )

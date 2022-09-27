@@ -2432,8 +2432,10 @@ Please sign in again.`}
 
                     menu
 
+                    elevation={0}
+
                     style={{
-                      width: 214
+                      width: 314
                     }}
                   >
                     <ListItem
@@ -2533,7 +2535,9 @@ Please sign in again.`}
 
                       MenuProps={{
                         ListProps: {
-                          color: 'secondary',
+                          color: 'primary',
+
+                          elevation: 0,
 
                           style: {
                             minWidth: 320
