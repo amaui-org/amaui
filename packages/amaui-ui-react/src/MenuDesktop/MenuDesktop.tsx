@@ -56,6 +56,31 @@ const useStyle = style(theme => ({
 
     '&.exiting': {
       opacity: '0',
+      transform: 'translateX(-100%)'
+    }
+  },
+
+  menu_reverse: {
+    position: 'absolute',
+    inset: 0,
+
+    '&.enter': {
+      opacity: '0',
+      transform: 'translateX(100%)',
+    },
+
+    '&.entering': {
+      opacity: '1',
+      transform: 'translateX(0%)'
+    },
+
+    '&.exit': {
+      opacity: '1',
+      transform: 'translateX(0%)',
+    },
+
+    '&.exiting': {
+      opacity: '0',
       transform: 'translateX(100%)'
     }
   },
@@ -201,6 +226,7 @@ const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
     menus: React.useRef<Array<HTMLElement>>([]),
     menuRects: React.useRef<Array<DOMRect>>([]),
     previousOpen: React.useRef<any>(),
+    previousOpenIndex: React.useRef<any>(),
     anchorElement: React.useRef<HTMLElement>()
   };
 
@@ -239,7 +265,11 @@ const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
 
     if (value_) setOpenItem(value_);
 
-    if (refs.open.current) refs.previousOpen.current = refs.props.current.items.find(item_ => item_.value === refs.open.current);
+    if (refs.open.current) {
+      refs.previousOpenIndex.current = refs.props.current.items.findIndex(item_ => item_.value === refs.open.current);
+
+      refs.previousOpen.current = refs.props.current.items[refs.previousOpenIndex.current];
+    }
 
     if (!value_) onClose();
     else {
@@ -429,6 +459,8 @@ const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
   // If no items don't render anything
   // not to waste html space
   if (!items?.length) return;
+
+  const openIndex = items.findIndex(item_ => item_?.value === open);
 
   return (
     <ClickListener
@@ -634,7 +666,7 @@ const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
 
                                 ...(is('function', menuTransitionClassName) ? menuTransitionClassName(status, openItem) : []),
 
-                                classes.menu
+                                classes[openIndex <= 0 || openIndex < refs.previousOpenIndex.current ? 'menu' : 'menu_reverse']
                               ]),
 
                               style: {
