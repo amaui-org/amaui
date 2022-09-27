@@ -1045,6 +1045,107 @@ function App() {
             width: '100%'
           }}
         >
+          <MenuDesktop
+            items={[
+              {
+                label: 'Product',
+                value: 'product',
+                menu: (
+                  <List
+                    tonal
+
+                    color='primary'
+
+                    style={{
+                      width: 214
+                    }}
+                  >
+                    {new Array(5).fill(1).map(item => (
+                      <ListItem
+                        key={item}
+
+                        primary='Primary text'
+                        secondary='Secondary text'
+                        tertiary='Tertiary text'
+
+                        start={(
+                          <IconMaterialPottedPlantRounded />
+                        )}
+                      />
+                    ))}
+                  </List>
+                )
+              },
+              {
+                label: 'Architecture',
+                value: 'architecture',
+                menu: (
+                  <List
+                    tonal
+
+                    color='primary'
+
+                    style={{
+                      width: 340
+                    }}
+                  >
+                    {new Array(4).fill(1).map(item => (
+                      <ListItem
+                        key={item}
+
+                        primary='Primary text'
+                        secondary='Secondary text'
+                        tertiary='Tertiary text'
+
+                        start={(
+                          <IconMaterialLightModeRounded />
+                        )}
+                      />
+                    ))}
+                  </List>
+                )
+              },
+              {
+                label: 'Open',
+                value: 'open',
+                disabled: true
+              },
+              {
+                label: 'Open Source',
+                value: 'open source'
+              },
+              {
+                label: 'Pricing',
+                value: 'pricing',
+                menu: (
+                  <List
+                    tonal
+
+                    color='primary'
+
+                    style={{
+                      width: 240
+                    }}
+                  >
+                    {new Array(1).fill(1).map(item => (
+                      <ListItem
+                        key={item}
+
+                        primary='Primary text'
+                        secondary='Secondary text'
+                        tertiary='Tertiary text'
+
+                        start={(
+                          <IconMaterialUndoRounded />
+                        )}
+                      />
+                    ))}
+                  </List>
+                )
+              }
+            ]}
+          />
+
           <DropZone />
 
           <FileChoose />
@@ -2315,6 +2416,818 @@ Please sign in again.`}
               }
             ]}
           />
+        </Accordion>
+
+        <Accordion primary='MenuDesktop menuTransition' open>
+          <MenuDesktop
+            menuTransition={false}
+
+            items={[
+              {
+                label: 'Product',
+                value: 'product',
+                menu: (
+                  <List
+                    tonal
+
+                    color='primary'
+
+                    style={{
+                      width: 214
+                    }}
+                  >
+                    {new Array(5).fill(1).map(item => (
+                      <ListItem
+                        key={item}
+
+                        primary='Primary text'
+                        secondary='Secondary text'
+                        tertiary='Tertiary text'
+
+                        start={(
+                          <IconMaterialPottedPlantRounded />
+                        )}
+                      />
+                    ))}
+                  </List>
+                )
+              },
+              {
+                label: 'Architecture',
+                value: 'architecture',
+                menu: (
+                  <List
+                    tonal
+
+                    color='primary'
+
+                    style={{
+                      width: 340
+                    }}
+                  >
+                    {new Array(4).fill(1).map(item => (
+                      <ListItem
+                        key={item}
+
+                        primary='Primary text'
+                        secondary='Secondary text'
+                        tertiary='Tertiary text'
+
+                        start={(
+                          <IconMaterialLightModeRounded />
+                        )}
+                      />
+                    ))}
+                  </List>
+                )
+              },
+              {
+                label: 'Open',
+                value: 'open',
+                disabled: true
+              },
+              {
+                label: 'Open Source',
+                value: 'open source'
+              },
+              {
+                label: 'Pricing',
+                value: 'pricing',
+                menu: (
+                  <List
+                    tonal
+
+                    color='primary'
+
+                    style={{
+                      width: 240
+                    }}
+                  >
+                    {new Array(1).fill(1).map(item => (
+                      <ListItem
+                        key={item}
+
+                        primary='Primary text'
+                        secondary='Secondary text'
+                        tertiary='Tertiary text'
+
+                        start={(
+                          <IconMaterialUndoRounded />
+                        )}
+                      />
+                    ))}
+                  </List>
+                )
+              }
+            ]}
+          />
+        </Accordion>
+
+        <Accordion primary='AmauiTheme'>
+          <div className={classNames([classes.column])}>
+            <MenuDesktop
+              items={[
+                {
+                  label: 'Product',
+                  value: 'product',
+                  menu: (
+                    <List
+                      tonal
+
+                      color='primary'
+
+                      style={{
+                        width: 214
+                      }}
+                    >
+                      {new Array(5).fill(1).map(item => (
+                        <ListItem
+                          key={item}
+
+                          primary='Primary text'
+                          secondary='Secondary text'
+                          tertiary='Tertiary text'
+
+                          start={(
+                            <IconMaterialPottedPlantRounded />
+                          )}
+                        />
+                      ))}
+                    </List>
+                  )
+                },
+                {
+                  label: 'Architecture',
+                  value: 'architecture',
+                  menu: (
+                    <List
+                      tonal
+
+                      color='primary'
+
+                      style={{
+                        width: 340
+                      }}
+                    >
+                      {new Array(4).fill(1).map(item => (
+                        <ListItem
+                          key={item}
+
+                          primary='Primary text'
+                          secondary='Secondary text'
+                          tertiary='Tertiary text'
+
+                          start={(
+                            <IconMaterialLightModeRounded />
+                          )}
+                        />
+                      ))}
+                    </List>
+                  )
+                },
+                {
+                  label: 'Open',
+                  value: 'open',
+                  disabled: true
+                },
+                {
+                  label: 'Open Source',
+                  value: 'open source'
+                },
+                {
+                  label: 'Pricing',
+                  value: 'pricing',
+                  menu: (
+                    <List
+                      tonal
+
+                      color='primary'
+
+                      style={{
+                        width: 240
+                      }}
+                    >
+                      {new Array(1).fill(1).map(item => (
+                        <ListItem
+                          key={item}
+
+                          primary='Primary text'
+                          secondary='Secondary text'
+                          tertiary='Tertiary text'
+
+                          start={(
+                            <IconMaterialUndoRounded />
+                          )}
+                        />
+                      ))}
+                    </List>
+                  )
+                }
+              ]}
+            />
+
+            <Accordion primary='AmauiTheme nested value' open>
+              <AmauiThemeProvider
+                value={{
+                  palette: {
+                    color: {
+                      secondary: {
+                        main: '#008000'
+                      }
+                    }
+                  },
+                  space: {
+                    unit: 5
+                  }
+                }}
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                <MenuDesktop
+                  color='secondary'
+
+                  items={[
+                    {
+                      label: 'Product',
+                      value: 'product',
+                      menu: (
+                        <List
+                          tonal
+
+                          color='primary'
+
+                          style={{
+                            width: 214
+                          }}
+                        >
+                          {new Array(5).fill(1).map(item => (
+                            <ListItem
+                              key={item}
+
+                              primary='Primary text'
+                              secondary='Secondary text'
+                              tertiary='Tertiary text'
+
+                              start={(
+                                <IconMaterialPottedPlantRounded />
+                              )}
+                            />
+                          ))}
+                        </List>
+                      )
+                    },
+                    {
+                      label: 'Architecture',
+                      value: 'architecture',
+                      menu: (
+                        <List
+                          tonal
+
+                          color='primary'
+
+                          style={{
+                            width: 340
+                          }}
+                        >
+                          {new Array(4).fill(1).map(item => (
+                            <ListItem
+                              key={item}
+
+                              primary='Primary text'
+                              secondary='Secondary text'
+                              tertiary='Tertiary text'
+
+                              start={(
+                                <IconMaterialLightModeRounded />
+                              )}
+                            />
+                          ))}
+                        </List>
+                      )
+                    },
+                    {
+                      label: 'Open',
+                      value: 'open',
+                      disabled: true
+                    },
+                    {
+                      label: 'Open Source',
+                      value: 'open source'
+                    },
+                    {
+                      label: 'Pricing',
+                      value: 'pricing',
+                      menu: (
+                        <List
+                          tonal
+
+                          color='primary'
+
+                          style={{
+                            width: 240
+                          }}
+                        >
+                          {new Array(1).fill(1).map(item => (
+                            <ListItem
+                              key={item}
+
+                              primary='Primary text'
+                              secondary='Secondary text'
+                              tertiary='Tertiary text'
+
+                              start={(
+                                <IconMaterialUndoRounded />
+                              )}
+                            />
+                          ))}
+                        </List>
+                      )
+                    }
+                  ]}
+                />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme add' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiMenuDesktop: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: 0.4
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                <MenuDesktop
+                  items={[
+                    {
+                      label: 'Product',
+                      value: 'product',
+                      menu: (
+                        <List
+                          tonal
+
+                          color='primary'
+
+                          style={{
+                            width: 214
+                          }}
+                        >
+                          {new Array(5).fill(1).map(item => (
+                            <ListItem
+                              key={item}
+
+                              primary='Primary text'
+                              secondary='Secondary text'
+                              tertiary='Tertiary text'
+
+                              start={(
+                                <IconMaterialPottedPlantRounded />
+                              )}
+                            />
+                          ))}
+                        </List>
+                      )
+                    },
+                    {
+                      label: 'Architecture',
+                      value: 'architecture',
+                      menu: (
+                        <List
+                          tonal
+
+                          color='primary'
+
+                          style={{
+                            width: 340
+                          }}
+                        >
+                          {new Array(4).fill(1).map(item => (
+                            <ListItem
+                              key={item}
+
+                              primary='Primary text'
+                              secondary='Secondary text'
+                              tertiary='Tertiary text'
+
+                              start={(
+                                <IconMaterialLightModeRounded />
+                              )}
+                            />
+                          ))}
+                        </List>
+                      )
+                    },
+                    {
+                      label: 'Open',
+                      value: 'open',
+                      disabled: true
+                    },
+                    {
+                      label: 'Open Source',
+                      value: 'open source'
+                    },
+                    {
+                      label: 'Pricing',
+                      value: 'pricing',
+                      menu: (
+                        <List
+                          tonal
+
+                          color='primary'
+
+                          style={{
+                            width: 240
+                          }}
+                        >
+                          {new Array(1).fill(1).map(item => (
+                            <ListItem
+                              key={item}
+
+                              primary='Primary text'
+                              secondary='Secondary text'
+                              tertiary='Tertiary text'
+
+                              start={(
+                                <IconMaterialUndoRounded />
+                              )}
+                            />
+                          ))}
+                        </List>
+                      )
+                    }
+                  ]}
+                />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme override' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiMenuDesktop: {
+                        style: {
+                          override: {
+                            root: {
+                              margin: 40
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                <MenuDesktop
+                  items={[
+                    {
+                      label: 'Product',
+                      value: 'product',
+                      menu: (
+                        <List
+                          tonal
+
+                          color='primary'
+
+                          style={{
+                            width: 214
+                          }}
+                        >
+                          {new Array(5).fill(1).map(item => (
+                            <ListItem
+                              key={item}
+
+                              primary='Primary text'
+                              secondary='Secondary text'
+                              tertiary='Tertiary text'
+
+                              start={(
+                                <IconMaterialPottedPlantRounded />
+                              )}
+                            />
+                          ))}
+                        </List>
+                      )
+                    },
+                    {
+                      label: 'Architecture',
+                      value: 'architecture',
+                      menu: (
+                        <List
+                          tonal
+
+                          color='primary'
+
+                          style={{
+                            width: 340
+                          }}
+                        >
+                          {new Array(4).fill(1).map(item => (
+                            <ListItem
+                              key={item}
+
+                              primary='Primary text'
+                              secondary='Secondary text'
+                              tertiary='Tertiary text'
+
+                              start={(
+                                <IconMaterialLightModeRounded />
+                              )}
+                            />
+                          ))}
+                        </List>
+                      )
+                    },
+                    {
+                      label: 'Open',
+                      value: 'open',
+                      disabled: true
+                    },
+                    {
+                      label: 'Open Source',
+                      value: 'open source'
+                    },
+                    {
+                      label: 'Pricing',
+                      value: 'pricing',
+                      menu: (
+                        <List
+                          tonal
+
+                          color='primary'
+
+                          style={{
+                            width: 240
+                          }}
+                        >
+                          {new Array(1).fill(1).map(item => (
+                            <ListItem
+                              key={item}
+
+                              primary='Primary text'
+                              secondary='Secondary text'
+                              tertiary='Tertiary text'
+
+                              start={(
+                                <IconMaterialUndoRounded />
+                              )}
+                            />
+                          ))}
+                        </List>
+                      )
+                    }
+                  ]}
+                />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme props' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiMenuDesktop: {
+                        props: {
+                          default: {
+                            menuTransition: false
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                <MenuDesktop
+                  items={[
+                    {
+                      label: 'Product',
+                      value: 'product',
+                      menu: (
+                        <List
+                          tonal
+
+                          color='primary'
+
+                          style={{
+                            width: 214
+                          }}
+                        >
+                          {new Array(5).fill(1).map(item => (
+                            <ListItem
+                              key={item}
+
+                              primary='Primary text'
+                              secondary='Secondary text'
+                              tertiary='Tertiary text'
+
+                              start={(
+                                <IconMaterialPottedPlantRounded />
+                              )}
+                            />
+                          ))}
+                        </List>
+                      )
+                    },
+                    {
+                      label: 'Architecture',
+                      value: 'architecture',
+                      menu: (
+                        <List
+                          tonal
+
+                          color='primary'
+
+                          style={{
+                            width: 340
+                          }}
+                        >
+                          {new Array(4).fill(1).map(item => (
+                            <ListItem
+                              key={item}
+
+                              primary='Primary text'
+                              secondary='Secondary text'
+                              tertiary='Tertiary text'
+
+                              start={(
+                                <IconMaterialLightModeRounded />
+                              )}
+                            />
+                          ))}
+                        </List>
+                      )
+                    },
+                    {
+                      label: 'Open',
+                      value: 'open',
+                      disabled: true
+                    },
+                    {
+                      label: 'Open Source',
+                      value: 'open source'
+                    },
+                    {
+                      label: 'Pricing',
+                      value: 'pricing',
+                      menu: (
+                        <List
+                          tonal
+
+                          color='primary'
+
+                          style={{
+                            width: 240
+                          }}
+                        >
+                          {new Array(1).fill(1).map(item => (
+                            <ListItem
+                              key={item}
+
+                              primary='Primary text'
+                              secondary='Secondary text'
+                              tertiary='Tertiary text'
+
+                              start={(
+                                <IconMaterialUndoRounded />
+                              )}
+                            />
+                          ))}
+                        </List>
+                      )
+                    }
+                  ]}
+                />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme styled' open>
+              <styled.MenuDesktop
+                items={[
+                  {
+                    label: 'Product',
+                    value: 'product',
+                    menu: (
+                      <List
+                        tonal
+
+                        color='primary'
+
+                        style={{
+                          width: 214
+                        }}
+                      >
+                        {new Array(5).fill(1).map(item => (
+                          <ListItem
+                            key={item}
+
+                            primary='Primary text'
+                            secondary='Secondary text'
+                            tertiary='Tertiary text'
+
+                            start={(
+                              <IconMaterialPottedPlantRounded />
+                            )}
+                          />
+                        ))}
+                      </List>
+                    )
+                  },
+                  {
+                    label: 'Architecture',
+                    value: 'architecture',
+                    menu: (
+                      <List
+                        tonal
+
+                        color='primary'
+
+                        style={{
+                          width: 340
+                        }}
+                      >
+                        {new Array(4).fill(1).map(item => (
+                          <ListItem
+                            key={item}
+
+                            primary='Primary text'
+                            secondary='Secondary text'
+                            tertiary='Tertiary text'
+
+                            start={(
+                              <IconMaterialLightModeRounded />
+                            )}
+                          />
+                        ))}
+                      </List>
+                    )
+                  },
+                  {
+                    label: 'Open',
+                    value: 'open',
+                    disabled: true
+                  },
+                  {
+                    label: 'Open Source',
+                    value: 'open source'
+                  },
+                  {
+                    label: 'Pricing',
+                    value: 'pricing',
+                    menu: (
+                      <List
+                        tonal
+
+                        color='primary'
+
+                        style={{
+                          width: 240
+                        }}
+                      >
+                        {new Array(1).fill(1).map(item => (
+                          <ListItem
+                            key={item}
+
+                            primary='Primary text'
+                            secondary='Secondary text'
+                            tertiary='Tertiary text'
+
+                            start={(
+                              <IconMaterialUndoRounded />
+                            )}
+                          />
+                        ))}
+                      </List>
+                    )
+                  }
+                ]}
+              />
+            </Accordion>
+          </div>
         </Accordion>
       </Accordion>
 

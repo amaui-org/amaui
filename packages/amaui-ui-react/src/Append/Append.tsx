@@ -5,27 +5,17 @@ import { useAmauiTheme } from '@amaui/style-react';
 
 import Portal from '../Portal';
 
+const valuesDefault = {
+  x: 0,
+  y: 0,
+  switch: false,
+  init: true
+};
+
 const Append = (props_: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiAppend?.props?.default }), [props_]);
-
-  const [init, setInit] = React.useState(false);
-  const [values, setValues] = React.useState<any>({
-    x: 0,
-    y: 0,
-    switch: false,
-    init: true
-  });
-
-  const refs = {
-    root: React.useRef<HTMLElement>(),
-    element: React.useRef<HTMLElement>(),
-    values: React.useRef(values),
-    alignment: React.useRef<any>(),
-    position: React.useRef<any>(),
-    portal: React.useRef<any>()
-  };
 
   const {
     open,
@@ -33,6 +23,7 @@ const Append = (props_: any) => {
     accelerated = true,
     anchor,
     anchorElement,
+    clearOnClose,
     offset = [0, 0],
     padding = [0, 0],
     paddingUnfollow = props.padding || [0, 0],
@@ -46,8 +37,23 @@ const Append = (props_: any) => {
     update,
     element,
 
+    onUpdate,
+
     children
   } = props;
+
+  const [init, setInit] = React.useState(false);
+  const [values, setValues] = React.useState<any>(valuesDefault);
+
+  const refs = {
+    root: React.useRef<HTMLElement>(),
+    element: React.useRef<HTMLElement>(),
+    values: React.useRef(values),
+    alignment: React.useRef<any>(),
+    position: React.useRef<any>(),
+    portal: React.useRef<any>(),
+    props: React.useRef<any>()
+  };
 
   refs.alignment.current = alignment_;
 
@@ -56,6 +62,8 @@ const Append = (props_: any) => {
   refs.portal.current = portal;
 
   if (anchorElement) refs.root.current = anchorElement;
+
+  refs.props.current = props;
 
   const onScroll = React.useCallback((event: any) => {
     // Only if it's parent's scroll event
@@ -98,6 +106,9 @@ const Append = (props_: any) => {
   React.useEffect(() => {
     if (init) {
       if (open) make();
+      else {
+        if (refs.props.current.clearOnClose) setValues(valuesDefault);
+      }
     }
   }, [open]);
 
@@ -149,6 +160,13 @@ const Append = (props_: any) => {
   React.useEffect(() => {
     if (init) make();
   }, [update]);
+
+  // Update
+  React.useEffect(() => {
+    if (init) {
+      if (is('function', refs.props.current.onUpdate)) refs.props.current.onUpdate(values);
+    }
+  }, [values]);
 
   const getValues = () => {
     if (!((refs.root.current || anchor) && refs.element.current)) return;
