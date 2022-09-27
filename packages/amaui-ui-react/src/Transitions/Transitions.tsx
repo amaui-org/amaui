@@ -41,6 +41,13 @@ function Transitions(props_: IProps) {
 
   const [element, setElement] = React.useState(React.cloneElement(children__, { in: true, ...other }));
 
+  const refs = {
+    element: React.useRef<any>(),
+    previousKeyValue: React.useRef<any>()
+  };
+
+  refs.element.current = element;
+
   React.useEffect(() => {
     setInit(true);
   }, []);
@@ -74,6 +81,8 @@ function Transitions(props_: IProps) {
 
   // Switch
   React.useEffect(() => {
+    refs.previousKeyValue.current = children__?.key;
+
     if (
       element !== children__ &&
       element.key !== children__.key &&
@@ -114,7 +123,7 @@ function Transitions(props_: IProps) {
     switch (status) {
       case STATUS.enter:
         if (mode === 'in-out') {
-          const newElement = React.cloneElement(children__, { in: true, ...other });
+          const newElement = React.cloneElement(refs.previousKeyValue.current !== children__.key ? element : children__, { in: true, ...other });
 
           children_ = [
             React.cloneElement(children_, {
@@ -145,7 +154,7 @@ function Transitions(props_: IProps) {
                 if (children__.props?.onEntered) children__.props?.onEntered();
 
                 setStatus(STATUS.entered);
-                setElement(React.cloneElement(children__, { in: true, ...other }));
+                setElement(React.cloneElement(refs.previousKeyValue.current !== children__.key ? element : children__, { in: true, ...other }));
               },
 
               enterOnAdd: true,
@@ -204,7 +213,7 @@ function Transitions(props_: IProps) {
               onEntered: () => {
                 if (children__.props?.onEntered) children__.props?.onEntered();
 
-                setElement(React.cloneElement(children__, { in: true, ...other }));
+                setElement(React.cloneElement(refs.previousKeyValue.current !== children__.key ? element : children__, { in: true, ...other }));
                 setStatus(STATUS.entered);
               },
 

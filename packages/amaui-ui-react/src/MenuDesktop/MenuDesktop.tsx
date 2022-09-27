@@ -371,10 +371,10 @@ const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
       }
     };
 
-    window.addEventListener('keydown', method);
+    window.document.addEventListener('keydown', method);
 
     return () => {
-      window.removeEventListener('keydown', method);
+      window.document.removeEventListener('keydown', method);
     };
   }, []);
 
@@ -429,7 +429,7 @@ const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
   // If no items don't render anything
   // not to waste html space
   if (!items?.length) return;
-
+  console.log(0, openItem);
   return (
     <ClickListener
       onClickOutside={onClickOutside}

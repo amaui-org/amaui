@@ -454,10 +454,10 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
       }
     };
 
-    window.document.addEventListener('keydown', onKeyDown);
+    window.addEventListener('keydown', onKeyDown);
 
     return () => {
-      window.document.removeEventListener('keydown', onKeyDown);
+      window.removeEventListener('keydown', onKeyDown);
     };
   }, []);
 
