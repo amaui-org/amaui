@@ -203,7 +203,7 @@ const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
             let item: any;
 
             while (indexNew === undefined && i >= 0 && i < refs.items.current.length) {
-              (['ArrowDown'].includes(event.key) || (theme.direction === 'ltr' ? event.key === 'ArrowLeft' : event.key === 'ArrowRight')) ? i-- : i++;
+              (['ArrowDown'].includes(event.key) || (theme.direction === 'ltr' && event.key === 'ArrowLeft') || (theme.direction === 'rtl' && event.key === 'ArrowRight')) ? i-- : i++;
 
               item = refs.items.current[i];
 
