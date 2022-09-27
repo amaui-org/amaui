@@ -346,3 +346,6 @@ export * from './FileChoose';
 
 export { default as DropZone } from './DropZone';
 export * from './DropZone';
+
+export { default as MenuDesktop } from './MenuDesktop';
+export * from './MenuDesktop';

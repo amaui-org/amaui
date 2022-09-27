@@ -402,7 +402,6 @@ const SpeedDial = React.forwardRef((props_: any, ref: any) => {
       case 'ArrowLeft':
       case 'ArrowRight':
         if (lineItemsDirection.includes('row')) {
-
           let index = clamp(allElements.findIndex(item => item === window.document.activeElement), 0);
 
           event.key === 'ArrowLeft' ? index++ : index--;

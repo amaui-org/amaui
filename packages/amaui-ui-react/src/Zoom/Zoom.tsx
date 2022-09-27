@@ -135,6 +135,8 @@ const Zoom = React.forwardRef((props_: any, ref: any) => {
 
             ...styles(status),
 
+            ...children?.props?.style,
+
             ...style
           }
         });
