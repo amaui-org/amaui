@@ -1,14 +1,14 @@
 import React from 'react';
 
-import { imageToPalette, is } from '@amaui/utils';
+import { is } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
+import ClickListener from '../ClickListener';
 import Type from '../Type';
 import Line from '../Line';
 import Icon from '../Icon';
 
 import { staticClassName } from '../utils';
-import ClickListener from '../ClickListener';
 
 const useStyle = style(theme => ({
   root: {
@@ -104,12 +104,15 @@ const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
     root: React.useRef<any>(),
     open: React.useRef<any>(),
     focus: React.useRef<any>(),
+    direction: React.useRef<any>(),
     items: React.useRef<any>()
   };
 
   refs.open.current = open;
 
   refs.focus.current = focus;
+
+  refs.direction.current = theme.direction;
 
   refs.items.current = items;
 
@@ -200,7 +203,7 @@ const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
             let item: any;
 
             while (indexNew === undefined && i >= 0 && i < refs.items.current.length) {
-              ['ArrowDown', 'ArrowLeft'].includes(event.key) ? i-- : i++;
+              (['ArrowDown'].includes(event.key) || (theme.direction === 'ltr' ? event.key === 'ArrowLeft' : event.key === 'ArrowRight')) ? i-- : i++;
 
               item = refs.items.current[i];
 
