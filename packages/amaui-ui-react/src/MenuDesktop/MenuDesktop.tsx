@@ -3,6 +3,7 @@ import React from 'react';
 import { is } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
+import Append from '../Append';
 import ClickListener from '../ClickListener';
 import Type from '../Type';
 import Line from '../Line';
@@ -12,7 +13,17 @@ import { staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
+    position: 'relative'
+  },
 
+  menu: {
+    overflow: 'hidden',
+    transition: theme.methods.transitions.make(['width', 'height', 'transform']),
+    zIndex: theme.z_index.menu_modal,
+
+    '& > *': {
+      transition: theme.methods.transitions.make(['width', 'height'])
+    }
   },
 
   item: {
@@ -97,15 +108,23 @@ const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
     ...other
   } = props;
 
+  const [init, setInit] = React.useState(false);
   const [open, setOpen] = React.useState<any>();
   const [focus, setFocus] = React.useState<any>();
+  const [append, setAppend] = React.useState<any>();
 
   const refs = {
     root: React.useRef<any>(),
     open: React.useRef<any>(),
+    append: React.useRef<any>(),
     focus: React.useRef<any>(),
     direction: React.useRef<any>(),
-    items: React.useRef<any>()
+    props: React.useRef<any>(),
+    items: React.useRef<any>([]),
+    menu: React.useRef<any>(),
+    menus: React.useRef<Array<HTMLElement>>([]),
+    menuRects: React.useRef<Array<DOMRect>>([]),
+    anchorElement: React.useRef<HTMLElement>()
   };
 
   refs.open.current = open;
@@ -114,21 +133,49 @@ const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
 
   refs.direction.current = theme.direction;
 
-  refs.items.current = items;
+  refs.props.current = props;
+
+  const updateOpen = (value_: any) => {
+    if (!!value_) {
+      const item = refs.props.current.items.find(item_ => item_.value === value_);
+
+      if (item) {
+        const itemHTML = refs.items.current.filter(Boolean).find(item_ => item_.dataset.value === item.value);
+
+        if (itemHTML) {
+          refs.anchorElement.current = itemHTML;
+
+          refs.menu.current = item.menu;
+        }
+      }
+    }
+
+    setOpen(value_);
+  };
+
+  React.useEffect(() => {
+    refs.menus.current.forEach((item: any, index: number) => {
+      if (item) {
+        refs.menuRects.current[index] = item.getBoundingClientRect();
+      }
+    });
+
+    setInit(true);
+  }, []);
 
   React.useEffect(() => {
     const method = (event: KeyboardEvent) => {
       switch (event.key) {
         case 'Enter':
           if (refs.focus.current) {
-            if (refs.open.current) setOpen('');
-            else setOpen(refs.focus.current?.value);
+            if (refs.open.current) updateOpen('');
+            else updateOpen(refs.focus.current?.value);
           }
 
           break;
 
         case 'Escape':
-          if (refs.open.current) setOpen('');
+          if (refs.open.current) updateOpen('');
 
           break;
 
@@ -139,21 +186,21 @@ const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
 
             const tabIndexItems: Array<HTMLElement> = Array.from(refs.root.current.querySelectorAll(`[tabindex='0']`));
 
-            refs.items.current.reverse();
+            refs.props.current.items.reverse();
 
-            let index = refs.items.current.findIndex(item_ => !item_.disabled);
+            let index = refs.props.current.items.findIndex(item_ => (!item_.disabled && item_.menu));
 
-            refs.items.current.reverse();
+            refs.props.current.items.reverse();
 
             if (index > -1) {
-              index = refs.items.current.length - 1 - index;
+              index = refs.props.current.items.length - 1 - index;
 
-              const item = refs.items.current[index];
+              const item = refs.props.current.items[index];
 
               if (item) {
                 const itemHTML: HTMLElement = tabIndexItems.find((item_: HTMLElement) => item_.dataset.value === item.value);
 
-                setOpen(item.value);
+                updateOpen(item.value);
 
                 if (itemHTML) itemHTML.focus();
               }
@@ -169,15 +216,15 @@ const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
 
             const tabIndexItems: Array<HTMLElement> = Array.from(refs.root.current.querySelectorAll(`[tabindex='0']`));
 
-            const index = refs.items.current.findIndex(item_ => !item_.disabled);
+            const index = refs.props.current.items.findIndex(item_ => (!item_.disabled && item_.menu));
 
             if (index > -1) {
-              const item = refs.items.current[index];
+              const item = refs.props.current.items[index];
 
               if (item) {
                 const itemHTML: HTMLElement = tabIndexItems.find((item_: HTMLElement) => item_.dataset.value === item.value);
 
-                setOpen(item.value);
+                updateOpen(item.value);
 
                 if (itemHTML) itemHTML.focus();
               }
@@ -196,24 +243,24 @@ const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
 
             const tabIndexItems: Array<HTMLElement> = Array.from(refs.root.current.querySelectorAll(`[tabindex='0']`));
 
-            const index = refs.items.current.findIndex(item_ => item_.value === refs.focus.current.value);
+            const index = refs.props.current.items.findIndex(item_ => item_.value === refs.focus.current.value);
 
             let indexNew = undefined;
             let i = index;
             let item: any;
 
-            while (indexNew === undefined && i >= 0 && i < refs.items.current.length) {
+            while (indexNew === undefined && i >= 0 && i < refs.props.current.items.length) {
               (['ArrowDown'].includes(event.key) || (theme.direction === 'ltr' && event.key === 'ArrowLeft') || (theme.direction === 'rtl' && event.key === 'ArrowRight')) ? i-- : i++;
 
-              item = refs.items.current[i];
+              item = refs.props.current.items[i];
 
-              if (!item?.disabled) indexNew = i;
+              if (!item?.disabled && item?.menu) indexNew = i;
             }
 
             if (item) {
               const itemHTML: HTMLElement = tabIndexItems.find((item_: HTMLElement) => item_.dataset.value === item.value);
 
-              setOpen(item.value);
+              updateOpen(item.value);
 
               if (itemHTML) itemHTML.focus();
             }
@@ -233,43 +280,58 @@ const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
     };
   }, []);
 
+  React.useEffect(() => {
+    if (open) {
+      const index = refs.props.current.items.findIndex(item => item?.value === open);
+
+      const rect = refs.menuRects.current[index];
+
+      if (rect) {
+        setAppend({
+          width: rect.width,
+          height: rect.height
+        });
+      }
+    }
+  }, [open]);
+
   const onBlur = React.useCallback((item: any) => {
-    setOpen('');
+    updateOpen('');
     setFocus('');
   }, []);
 
   const onFocus = React.useCallback((item: any) => {
-    if (item && !item.disabled) {
+    if (item && !item.disabled && item.menu) {
       setFocus(item);
 
-      if (open !== item.value) setOpen(item.value);
+      if (open !== item.value) updateOpen(item.value);
     }
   }, [open]);
 
   const onMouseLeave = React.useCallback((item: any) => {
-    setOpen('');
+    updateOpen('');
   }, []);
 
   const onMouseEnter = React.useCallback((item: any) => {
-    if (item && !item.disabled) {
-      setOpen(item.value);
+    if (item && !item.disabled && item.menu) {
+      updateOpen(item.value);
     }
   }, []);
 
   const onClick = React.useCallback((item: any) => {
-    if (item && !item.disabled) {
-      open ? setOpen('') : setOpen(item.value);
+    if (item && !item.disabled && item.menu) {
+      open ? updateOpen('') : updateOpen(item.value);
     }
   }, [open]);
 
   const onClickOutside = React.useCallback(() => {
-    if (open) setOpen('');
+    if (open) updateOpen('');
   }, [open]);
 
   // If no items don't render anything
   // not to waste html space
   if (!items?.length) return;
-
+  console.log(1, refs.menus.current, refs.menuRects.current, refs.append.current, append);
   return (
     <ClickListener
       onClickOutside={onClickOutside}
@@ -285,7 +347,7 @@ const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
 
         direction='column'
 
-        align='unset'
+        align='flex-end'
 
         justify='unset'
 
@@ -315,7 +377,11 @@ const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
               <Line
                 key={index}
 
-                tabIndex={!item.disabled ? 0 : undefined}
+                ref={item => {
+                  if (!refs.items.current.includes(item)) refs.items.current.push(item)
+                }}
+
+                tabIndex={!item.disabled && item.menu ? 0 : undefined}
 
                 data-value={item.value}
 
@@ -327,17 +393,17 @@ const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
 
                 {...ItemProps}
 
-                {...(openOnClick && {
+                {...((!!item.menu && openOnClick) && {
                   onClick: () => onClick(item)
                 })}
 
-                {...(openOnFocus && {
+                {...((!!item.menu && openOnFocus) && {
                   onFocus: () => onFocus(item),
 
                   onBlur: () => onBlur(item)
                 })}
 
-                {...(openOnHover && {
+                {...((!!item.menu && openOnHover) && {
                   onMouseEnter: () => onMouseEnter(item),
 
                   onMouseLeave: () => onMouseLeave(item)
@@ -363,24 +429,79 @@ const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
                   {item.label}
                 </Type>
 
-                <IconIndicator
-                  size={20}
+                {!!item.menu && (
+                  <IconIndicator
+                    size={20}
 
-                  className={classNames([
-                    staticClassName('MenuDesktop', theme) && [
-                      'AmauiMenuDesktop-indicator'
-                    ],
+                    className={classNames([
+                      staticClassName('MenuDesktop', theme) && [
+                        'AmauiMenuDesktop-indicator'
+                      ],
 
-                    classes.indicator,
-                    open === item.value && classes.indicator_open
-                  ])}
+                      classes.indicator,
+                      open === item.value && classes.indicator_open
+                    ])}
 
-                  {...IconProps}
-                />
+                    {...IconProps}
+                  />
+                )}
               </Line>
             )
           ))}
         </Line>
+
+        {!init && (
+          items.map((item: any, index: number) => (
+            <div
+              ref={item => refs.menus.current[index] = item}
+
+              style={{
+                position: 'absolute',
+                visibility: 'hidden'
+              }}
+            >
+              {item.menu}
+            </div>
+          ))
+        )}
+
+        <Append
+          open
+
+          element={(
+            <div
+              ref={item => {
+                refs.append.current = item;
+              }}
+
+              className={classNames([
+                staticClassName('Menu', theme) && [
+                  'AmauiMenu-menu'
+                ],
+
+                classes.menu
+              ])}
+
+              style={{
+                ...append
+              }}
+            >
+              {React.cloneElement(refs.menu.current, {
+                style: {
+                  ...refs.menu.current?.style,
+
+                  ...append
+                }
+              })}
+            </div>
+          )}
+
+          anchorElement={refs.anchorElement.current}
+
+          position='bottom'
+
+          alignment='start'
+        />
       </Line>
     </ClickListener>
   );

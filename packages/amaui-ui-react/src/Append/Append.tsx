@@ -108,6 +108,11 @@ const Append = (props_: any) => {
     }
   }, [anchor]);
 
+  // Anchor
+  React.useEffect(() => {
+    if (init) make();
+  }, [anchorElement]);
+
   // Anchor element
   React.useEffect(() => {
     // Resize
@@ -566,7 +571,7 @@ const Append = (props_: any) => {
   }
 
   style = {
-    ...element.props?.style,
+    ...element?.props?.style,
 
     ...style,
 
@@ -602,7 +607,14 @@ const Append = (props_: any) => {
               element({ ref: refs.element, values, style }) :
 
               React.cloneElement(element, {
-                ref: refs.element,
+                ref: item => {
+                  if (element?.ref) {
+                    if (is('function', element.ref)) element.ref(item);
+                    else element.ref.current = item;
+                  }
+
+                  refs.element.current = item;
+                },
 
                 style
               })

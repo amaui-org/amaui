@@ -2219,11 +2219,61 @@ Please sign in again.`}
             items={[
               {
                 label: 'Product',
-                value: 'product'
+                value: 'product',
+                menu: (
+                  <List
+                    tonal
+
+                    color='primary'
+
+                    style={{
+                      width: 214
+                    }}
+                  >
+                    {new Array(5).fill(1).map(item => (
+                      <ListItem
+                        key={item}
+
+                        primary='Primary text'
+                        secondary='Secondary text'
+                        tertiary='Tertiary text'
+
+                        start={(
+                          <IconMaterialPottedPlantRounded />
+                        )}
+                      />
+                    ))}
+                  </List>
+                )
               },
               {
                 label: 'Architecture',
-                value: 'architecture'
+                value: 'architecture',
+                menu: (
+                  <List
+                    tonal
+
+                    color='primary'
+
+                    style={{
+                      width: 340
+                    }}
+                  >
+                    {new Array(4).fill(1).map(item => (
+                      <ListItem
+                        key={item}
+
+                        primary='Primary text'
+                        secondary='Secondary text'
+                        tertiary='Tertiary text'
+
+                        start={(
+                          <IconMaterialPottedPlantRounded />
+                        )}
+                      />
+                    ))}
+                  </List>
+                )
               },
               {
                 label: 'Open',
@@ -2236,7 +2286,32 @@ Please sign in again.`}
               },
               {
                 label: 'Pricing',
-                value: 'pricing'
+                value: 'pricing',
+                menu: (
+                  <List
+                    tonal
+
+                    color='primary'
+
+                    style={{
+                      width: 240
+                    }}
+                  >
+                    {new Array(1).fill(1).map(item => (
+                      <ListItem
+                        key={item}
+
+                        primary='Primary text'
+                        secondary='Secondary text'
+                        tertiary='Tertiary text'
+
+                        start={(
+                          <IconMaterialPottedPlantRounded />
+                        )}
+                      />
+                    ))}
+                  </List>
+                )
               }
             ]}
           />
