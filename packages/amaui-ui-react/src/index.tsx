@@ -349,3 +349,6 @@ export * from './DropZone';
 
 export { default as MenuDesktop } from './MenuDesktop';
 export * from './MenuDesktop';
+
+export { default as Markdown } from './Markdown';
+export * from './Markdown';
