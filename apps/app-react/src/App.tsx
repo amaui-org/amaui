@@ -2381,6 +2381,13 @@ http://www.example.com or <http://www.example.com> and sometimes example.com (bu
 
 Some text to show that the reference links can follow later.
 
+Inline image:
+![An image](/image.jpg)
+
+Inline ref image:
+![An image with a ref][image]
+
+[image]: /image.jpg "An image"
 [arbitrary case-insensitive reference text]: https://www.mozilla.org "Mozilla website"
 [1]: http://slashdot.org
 [link text itself]: http://www.reddit.com "Reddit website"

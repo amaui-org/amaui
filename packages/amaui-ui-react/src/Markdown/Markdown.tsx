@@ -122,6 +122,16 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
         .replace(/^##### (.*)$/gm, `<h5${addClassName('h5')}${addStyle('h5')}>$1</h5>`)
         // h6
         .replace(/^###### (.*)$/gm, `<h6${addClassName('h6')}${addStyle('h6')}>$1</h6>`)
+        // img
+        .replace(/!\[(.*)\]\(([^\s]*)( "([^"]*)")?\)/g, `<img${addClassName('a')}${addStyle('a')} alt='$1' src='$2' title="$4" />`)
+        // img ref
+        .replace(/!\[(.*)\]\[(.*)\]/g, (match, a1, a2, offset, string) => {
+          const url = string.match(new RegExp(`\\[${a2}\\]: ([^\\s]*)( "([^"]*)")?`)) || string.match(new RegExp(`\\[${a2.toLowerCase()}\\]: ([^\\s]*)( "([^"]*)")?`));
+
+          if (!url) return '';
+
+          return `<img${addClassName('a')}${addStyle('a')} alt='${a1}' src='${url[1]}' title='${url[3] || ''}' />`;
+        })
         // a ref inline
         .replace(/(?:[^^]*)(\[([^\]]*)\])(?:[^:\[\(]*)/gm, (match, a1, a2, offset, string) => {
           const url = string.match(new RegExp(`\\[${a2}\\]: ([^\\s]*)( "([^"]*)")?`)) || string.match(new RegExp(`\\[${a2.toLowerCase()}\\]: ([^\\s]*)( "([^"]*)")?`));
@@ -151,7 +161,9 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
           return `<a${addClassName('a')}${addStyle('a')} href='${url[1]}' title='${url[3] || ''}' ref='nofollow'>${a1}</a>`;
         })
         // a clean up
-        .replace(/(<a.*)(title="" )([^<]*<\/a>)/g, '$1$3')
+        .replace(/(<a.*)(title="")([^<]*<\/a>)/g, '$1$3')
+        // img clean up
+        .replace(/(<img.*)(title="")([^<]*<\/a>)/g, '$1$3')
         // a refs clean up
         .replace(/<p.*>\[.*\]:[^<]*<\/p>/g, '')
         // bold
