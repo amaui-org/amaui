@@ -2323,7 +2323,47 @@ Please sign in again.`}
 
       <Accordion primary='Markdown'>
         <Accordion primary='Markdown' open>
+          <Markdown
+            value={`
+# h1
 
+alt h1
+=
+
+## h2
+
+alt h2
+-
+
+### h3
+
+#### h4
+
+##### h5
+
+###### h6
+
+Paragraph1
+Paragraph11
+Paragraph114
+
+Paragraph1114
+
+1
+14
+114
+
+1114
+
+Emphasis, aka italics, with *asterisks* or _underscores_.
+
+Strong emphasis, aka bold, with **asterisks** or __underscores__.
+
+Combined emphasis with **asterisks and _underscores_**.
+
+Strikethrough uses two tildes. ~~Scratch this.~~
+`}
+          />
         </Accordion>
       </Accordion>
 
