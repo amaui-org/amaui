@@ -2381,9 +2381,9 @@ http://www.example.com or <http://www.example.com> and sometimes example.com (bu
 
 Some text to show that the reference links can follow later.
 
-[arbitrary case-insensitive reference text]: https://www.mozilla.org
+[arbitrary case-insensitive reference text]: https://www.mozilla.org "Mozilla website"
 [1]: http://slashdot.org
-[link text itself]: http://www.reddit.com
+[link text itself]: http://www.reddit.com "Reddit website"
 `}
           />
         </Accordion>

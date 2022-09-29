@@ -124,11 +124,11 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
         .replace(/^###### (.*)$/gm, `<h6${addClassName('h6')}${addStyle('h6')}>$1</h6>`)
         // a ref inline
         .replace(/(?:[^^]*)(\[([^\]]*)\])(?:[^:\[\(]*)/gm, (match, a1, a2, offset, string) => {
-          const url = string.match(new RegExp(`\\[${a2}\\]: (.*)`))?.[1] || string.match(new RegExp(`\\[${a2.toLowerCase()}\\]: (.*)`))?.[1];
+          const url = string.match(new RegExp(`\\[${a2}\\]: ([^\\s]*)( "([^"]*)")?`)) || string.match(new RegExp(`\\[${a2.toLowerCase()}\\]: ([^\\s]*)( "([^"]*)")?`));
 
           if (!url) return '';
 
-          return match.replace(a1, `<a${addClassName('a')}${addStyle('a')} href='${url}' ref='nofollow'>${a2}</a>`);
+          return match.replace(a1, `<a${addClassName('a')}${addStyle('a')} href='${url[1]}' title='${url[3] || ''}' ref='nofollow'>${a2}</a>`);
         })
         // a urls inline
         .replace(/(?:[^:][\n <])((?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+))(?:>)?/g, (match, a1) => {
@@ -144,11 +144,11 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
         .replace(/\[(.*)\]\(([^\s]*)( "([^"]*)")?\)/g, `<a${addClassName('a')}${addStyle('a')} href='$2' title="$4" ref='nofollow'>$1</a>`)
         // a ref
         .replace(/\[(.*)\]\[(.*)\]/g, (match, a1, a2, offset, string) => {
-          const url = string.match(new RegExp(`\\[${a2}\\]: (.*)`))?.[1] || string.match(new RegExp(`\\[${a2.toLowerCase()}\\]: (.*)`))?.[1];
+          const url = string.match(new RegExp(`\\[${a2}\\]: ([^\\s]*)( "([^"]*)")?`)) || string.match(new RegExp(`\\[${a2.toLowerCase()}\\]: ([^\\s]*)( "([^"]*)")?`));
 
           if (!url) return '';
 
-          return `<a${addClassName('a')}${addStyle('a')} href='${url}' ref='nofollow'>${a1}</a>`;
+          return `<a${addClassName('a')}${addStyle('a')} href='${url[1]}' title='${url[3] || ''}' ref='nofollow'>${a1}</a>`;
         })
         // a clean up
         .replace(/(<a.*)(title="" )([^<]*<\/a>)/g, '$1$3')
