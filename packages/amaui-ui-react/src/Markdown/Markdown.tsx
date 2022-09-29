@@ -55,7 +55,33 @@ const useStyle = style(theme => ({
     textDecoration: 'underline'
   },
 
+  code: {
+    padding: '2px 4px',
+    borderRadius: '4px',
+    color: theme.palette.text.default.primary,
+    background: theme.methods.palette.color.colorToRgb(theme.palette.text.default.primary, theme.palette.light ? 0.04 : 0.1)
+  },
+
+  pre: {
+    margin: '16px 0',
+    padding: '16px',
+    borderRadius: '8px',
+    color: theme.palette.text.default.primary,
+    background: theme.methods.palette.color.colorToRgb(theme.palette.text.default.primary, theme.palette.light ? 0.04 : 0.1),
+
+    '& code': {
+      padding: '0px',
+      background: 'none'
+    }
+  }
+
 }), { name: 'AmauiMarkdown' });
+
+const escapeRegExp = (value: string) => value.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+
+// to do
+
+// add render method for every value
 
 const Markdown = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
@@ -148,8 +174,20 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
 
           return match_.replace(a1, `<a${addClassName('a')}${addStyle('a')} href='${a1}' ref='nofollow'>${a1}</a>`);
         })
+        // pre
+        .replace(/([^`])`{3}(.*)\n([^`]*)`{3}([^`])/g, `$1<pre${addClassName('pre')}${addStyle('pre')}><code${addClassName('code')}${addStyle('code')}>$3</code></pre>$4`)
         // p
-        .replace(/^([A-Za-z0-9\[(<a)].*(\n[A-Za-z0-9\[(<a)].*)*)/gm, `<p${addClassName('p')}${addStyle('p')}>$1</p>`)
+        .replace(/^((<(a|img)|[A-Za-z0-9\[]).*(\n(<(a|img)|[A-Za-z0-9\[]).*)*)/gm, (match, a1, ...args) => {
+          const string = args[6];
+
+          if (!a1.trim()) return '';
+
+          if (
+            (string.match(new RegExp(`<pre[\\s\\S]*${escapeRegExp(a1)}[\\s\\S]*pre>`, 'g')))
+          ) return match;
+
+          return `<p${addClassName('p')}${addStyle('p')}>${a1}</p>`;
+        })
         // a
         .replace(/\[(.*)\]\(([^\s]*)( "([^"]*)")?\)/g, `<a${addClassName('a')}${addStyle('a')} href='$2' title="$4" ref='nofollow'>$1</a>`)
         // a ref
@@ -163,17 +201,19 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
         // a clean up
         .replace(/(<a.*)(title="")([^<]*<\/a>)/g, '$1$3')
         // img clean up
-        .replace(/(<img.*)(title="")([^<]*<\/a>)/g, '$1$3')
+        .replace(/(<img.*)(title="")([^<]*\/>)/g, '$1$3')
         // a refs clean up
         .replace(/<p.*>\[.*\]:[^<]*<\/p>/g, '')
         // bold
-        .replace(/\_\_(.*)\_\_/g, `<strong${addClassName('strong')}${addStyle('strong')}>$1</strong>`)
-        .replace(/\*\*(.*)\*\*/g, `<strong${addClassName('strong')}${addStyle('strong')}>$1</strong>`)
+        .replace(/\_\_([^_]*)\_\_/g, `<strong${addClassName('strong')}${addStyle('strong')}>$1</strong>`)
+        .replace(/\*\*([^\*]*)\*\*/g, `<strong${addClassName('strong')}${addStyle('strong')}>$1</strong>`)
         // italic
-        .replace(/\_(.*)\_/g, `<em${addClassName('em')}${addStyle('em')}>$1</em>`)
-        .replace(/\*(.*)\*/g, `<em${addClassName('em')}${addStyle('em')}>$1</em>`)
+        .replace(/\_([^_]*)\_/g, `<em${addClassName('em')}${addStyle('em')}>$1</em>`)
+        .replace(/\*([^\*]*)\*/g, `<em${addClassName('em')}${addStyle('em')}>$1</em>`)
         // del
-        .replace(/\~\~(.*)\~\~/g, `<del${addClassName('del')}${addStyle('del')}>$1</del>`)
+        .replace(/\~\~([^~]*)\~\~/g, `<del${addClassName('del')}${addStyle('del')}>$1</del>`)
+        // code
+        .replace(/([^`])`{1}([^`]*)`{1}([^`])/g, `$1<code${addClassName('code')}${addStyle('code')}>$2</code>$3`)
         // other
         .trim();
     }

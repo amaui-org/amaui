@@ -2387,6 +2387,23 @@ Inline image:
 Inline ref image:
 ![An image with a ref][image]
 
+Inline \`code\` has \`back-ticks around\` it.
+
+\`\`\`javascript
+var s = "JavaScript syntax highlighting";
+alert(s);
+\`\`\`
+
+\`\`\`python
+s = "Python syntax highlighting"
+print s
+\`\`\`
+
+\`\`\`
+No language indicated, so no syntax highlighting.
+But let's throw in a <b>tag</b>.
+\`\`\`
+
 [image]: /image.jpg "An image"
 [arbitrary case-insensitive reference text]: https://www.mozilla.org "Mozilla website"
 [1]: http://slashdot.org
