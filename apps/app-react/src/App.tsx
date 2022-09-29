@@ -2399,10 +2399,44 @@ s = "Python syntax highlighting"
 print s
 \`\`\`
 
+a
+
 \`\`\`
 No language indicated, so no syntax highlighting.
 But let's throw in a <b>tag</b>.
 \`\`\`
+
+Runs the app in the development mode.\\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+<dl>
+  <dt>Definition list</dt>
+  <dd>Is something people use sometimes.</dd>
+
+  <dt>Markdown in HTML</dt>
+  <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd>
+</dl>
+
+Three or more
+
+Hyphens
+
+---
+
+Asterisks
+
+***
+
+Underscores
+
+___
+
+> Blockquotes are very handy in email to emulate reply text.
+> This line is part of the same quote.
+
+Quote break.
+
+> This is a very long line that will still be quoted properly when it wraps. Oh boy let's keep writing to make sure this is long enough to actually wrap for everyone. Oh, you can *put* **Markdown** into a blockquote.
 
 [image]: /image.jpg "An image"
 [arbitrary case-insensitive reference text]: https://www.mozilla.org "Mozilla website"

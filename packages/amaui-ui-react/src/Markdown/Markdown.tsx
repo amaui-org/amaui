@@ -73,8 +73,25 @@ const useStyle = style(theme => ({
       padding: '0px',
       background: 'none'
     }
-  }
+  },
 
+  hr: {
+    height: '4px',
+    width: '100%',
+    margin: '24px 0',
+    background: theme.methods.palette.color.colorToRgb(theme.palette.text.default.primary, theme.palette.light ? 0.04 : 0.2)
+  },
+
+  blockquote: {
+    margin: '16px 0',
+    paddingBlock: '4px',
+    paddingLeft: '16px',
+    borderLeft: `4px solid ${theme.methods.palette.color.colorToRgb(theme.palette.text.default.primary, theme.palette.light ? 0.04 : 0.2)}`,
+
+    '& > *': {
+      margin: '0px'
+    }
+  }
 }), { name: 'AmauiMarkdown' });
 
 const escapeRegExp = (value: string) => value.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
@@ -132,6 +149,10 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
       // add to the root programatically
       // in this version style can only be added as string not an object
       valueNew = value_
+        // hr
+        .replace(/^\*{3}$/gm, `<hr${addClassName('hr')}${addStyle('hr')}/>`)
+        .replace(/^\-{3}$/gm, `<hr${addClassName('hr')}${addStyle('hr')}/>`)
+        .replace(/^\_{3}$/gm, `<hr${addClassName('hr')}${addStyle('hr')}/>`)
         // h1
         .replace(/^# (.*)$/gm, `<h1${addClassName('h1')}${addStyle('h1')}>$1</h1>`)
         // h1
@@ -176,15 +197,35 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
         })
         // pre
         .replace(/([^`])`{3}(.*)\n([^`]*)`{3}([^`])/g, `$1<pre${addClassName('pre')}${addStyle('pre')}><code${addClassName('code')}${addStyle('code')}>$3</code></pre>$4`)
+        // blockquote
+        .replace(/^(> (<(a|img)|[A-Za-z0-9\[]).*(\n> (<(a|img)|[A-Za-z0-9\[]).*)*)/gm, (match, a1, ...args) => {
+          const valueAdd = a1.replace(/(^|\n)> /g, '$1');
+
+          return `<blockquote${addClassName('blockquote')}${addStyle('blockquote')}><p${addClassName('p')}${addStyle('p')}>${valueAdd}</p></blockquote>`;
+        })
         // p
         .replace(/^((<(a|img)|[A-Za-z0-9\[]).*(\n(<(a|img)|[A-Za-z0-9\[]).*)*)/gm, (match, a1, ...args) => {
           const string = args[6];
 
           if (!a1.trim()) return '';
 
-          if (
-            (string.match(new RegExp(`<pre[\\s\\S]*${escapeRegExp(a1)}[\\s\\S]*pre>`, 'g')))
-          ) return match;
+          // pre
+          const pre = string.match(new RegExp(`<pre|${escapeRegExp(a1)}|pre>`, 'g'));
+
+          if (pre) {
+            const index = pre.findIndex(item => item === a1);
+
+            if (pre[index - 1] === '<pre' && pre[index + 1] === 'pre>') return match;
+          }
+
+          // blockquote
+          const blockquote = string.match(new RegExp(`<blockquote|${escapeRegExp(a1)}|blockquote>`, 'g'));
+
+          if (blockquote) {
+            const index = blockquote.find(item => item === a1);
+
+            if (blockquote[index - 1] === '<blockquote' && blockquote[index + 1] === 'blockquote>') return match;
+          }
 
           return `<p${addClassName('p')}${addStyle('p')}>${a1}</p>`;
         })
@@ -214,6 +255,8 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
         .replace(/\~\~([^~]*)\~\~/g, `<del${addClassName('del')}${addStyle('del')}>$1</del>`)
         // code
         .replace(/([^`])`{1}([^`]*)`{1}([^`])/g, `$1<code${addClassName('code')}${addStyle('code')}>$2</code>$3`)
+        // line break
+        .replace(/\\/g, `<br />`)
         // other
         .trim();
     }
