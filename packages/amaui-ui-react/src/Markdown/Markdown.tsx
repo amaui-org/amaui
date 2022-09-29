@@ -127,10 +127,9 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
         // a
         .replace(/\[(.*)\]\(([^\s]*)( "([^"]*)")?\)/g, `<a${addClassName('a')}${addStyle('a')} href='$2' title="$4" ref='nofollow'>$1</a>`)
         // a clean up
-        .replace(/(<a.*)(title="" )(.*<\/a>)/g, '$1$3')
+        .replace(/(<a.*)(title="" )([^<]*<\/a>)/g, '$1$3')
         // refs clean up
-        .replace(/^\[.*\]:.*$/gm, '')
-        .replace(/^(<p.*>)(\[.*\]:.*)(<\/p>)$/gm, '')
+        .replace(/<p.*>\[.*\]:[^<]*<\/p>/g, '')
         // bold
         .replace(/\_\_(.*)\_\_/g, `<strong${addClassName('strong')}${addStyle('strong')}>$1</strong>`)
         .replace(/\*\*(.*)\*\*/g, `<strong${addClassName('strong')}${addStyle('strong')}>$1</strong>`)
