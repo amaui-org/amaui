@@ -76,7 +76,7 @@ const useStyle = style(theme => ({
   },
 
   hr: {
-    height: '4px',
+    height: '1px',
     width: '100%',
     margin: '24px 0',
     background: theme.methods.palette.color.colorToRgb(theme.palette.text.default.primary, theme.palette.light ? 0.04 : 0.2)
@@ -84,6 +84,7 @@ const useStyle = style(theme => ({
 
   blockquote: {
     margin: '16px 0',
+    marginInlineStart: '16px',
     paddingBlock: '4px',
     paddingInlineStart: '16px',
     borderInlineStart: `4px solid ${theme.methods.palette.color.colorToRgb(theme.palette.text.default.primary, theme.palette.light ? 0.04 : 0.2)}`,
@@ -113,6 +114,9 @@ const useStyle = style(theme => ({
 const escapeRegExp = (value: string) => value.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
 
 // to do
+
+// update listu u listi
+// method u sve item ubaciti opcioni  * za update listu
 
 // add render method for every value
 
@@ -164,154 +168,200 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
       // version string
       // add to the root programatically
       // in this version style can only be added as string not an object
-      const listItem = (valueListItem_: string, level = 2) => {
-        let valueListItem = valueListItem_;
+      const method = (valueNew_: string) => {
+        return valueNew_
+          // hr
+          .replace(/^\*{3}$/gm, `<hr${addClassName('hr')}${addStyle('hr')}/>`)
+          .replace(/^\-{3}$/gm, `<hr${addClassName('hr')}${addStyle('hr')}/>`)
+          .replace(/^\_{3}$/gm, `<hr${addClassName('hr')}${addStyle('hr')}/>`)
+          // h1
+          .replace(/^# (.*)$/gm, `<h1${addClassName('h1')}${addStyle('h1')}>$1</h1>`)
+          // h1
+          .replace(/^(.*)[\r\n]=+$/gm, `<h1${addClassName('h1')}${addStyle('h1')}>$1</h1>`)
+          // h2
+          .replace(/^## (.*)$/gm, `<h2${addClassName('h2')}${addStyle('h2')}>$1</h2>`)
+          // h2
+          .replace(/^(.*)[\r\n]-+$/gm, `<h2${addClassName('h2')}${addStyle('h2')}>$1</h2>`)
+          // h3
+          .replace(/^### (.*)$/gm, `<h3${addClassName('h3')}${addStyle('h3')}>$1</h3>`)
+          // h4
+          .replace(/^#### (.*)$/gm, `<h4${addClassName('h4')}${addStyle('h4')}>$1</h4>`)
+          // h5
+          .replace(/^##### (.*)$/gm, `<h5${addClassName('h5')}${addStyle('h5')}>$1</h5>`)
+          // h6
+          .replace(/^###### (.*)$/gm, `<h6${addClassName('h6')}${addStyle('h6')}>$1</h6>`)
+          // ol
+          .replace(/^ *(\d+\..*(\n+(\d+\.|\s{2}.*).*)*)/gm, (match, a1) => {
+            return `<ol${addClassName('ol')}${addStyle('ol')}>${list(match, `\\d\\.`)}</ol>`;
+          })
+          .replace(/^ *(\d+\).*(\n+(\d+\)|\s{2}.*).*)*)/gm, (match, a1) => {
+            return `<ol${addClassName('ol')}${addStyle('ol')}>${list(match, `\\d\\)`)}</ol>`;
+          })
+          // ul
+          .replace(/^ *(\*.*(\n+(\*|\s{2}.*).*)*)/gm, (match, a1) => {
+            return `<ul${addClassName('ul')}${addStyle('ul')}>${list(match, `\\*`)}</ul>`;
+          })
+          .replace(/^ *(\-.*(\n+(\-|\s{2}.*).*)*)/gm, (match, a1) => {
+            return `<ul${addClassName('ul')}${addStyle('ul')}>${list(match, `\\-`)}</ul>`;
+          })
+          .replace(/^ *(\+.*(\n+(\+|\s{2}.*).*)*)/gm, (match, a1) => {
+            return `<ul${addClassName('ul')}${addStyle('ul')}>${list(match, `\\+`)}</ul>`;
+          })
+          // img
+          .replace(/!\[(.*)\]\(([^\s]*)( "([^"]*)")?\)/g, `<img${addClassName('a')}${addStyle('a')} alt='$1' src='$2' title="$4" />`)
+          // img ref
+          .replace(/!\[(.*)\]\[(.*)\]/g, (match, a1, a2, offset, string) => {
+            const url = string.match(new RegExp(`\\[${a2}\\]: ([^\\s]*)( "([^"]*)")?`)) || string.match(new RegExp(`\\[${a2.toLowerCase()}\\]: ([^\\s]*)( "([^"]*)")?`));
 
-        return valueListItem;
+            if (!url) return '';
+
+            return `<img${addClassName('a')}${addStyle('a')} alt='${a1}' src='${url[1]}' title='${url[3] || ''}' />`;
+          })
+          // a ref inline
+          .replace(/(?:[^^]*)(\[([^\]]*)\])(?:[^:\[\(]*)/gm, (match, a1, a2, offset, string) => {
+            const url = string.match(new RegExp(`\\[${a2}\\]: ([^\\s]*)( "([^"]*)")?`)) || string.match(new RegExp(`\\[${a2.toLowerCase()}\\]: ([^\\s]*)( "([^"]*)")?`));
+
+            if (!url) return '';
+
+            return match.replace(a1, `<a${addClassName('a')}${addStyle('a')} href='${url[1]}' title='${url[3] || ''}' ref='nofollow'>${a2}</a>`);
+          })
+          // a urls inline
+          .replace(/(?:[^:][\n <])((?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+))(?:>)?/g, (match, a1) => {
+            let match_ = match;
+
+            if (match_.includes(`<${a1}>`)) match_ = match_.replace(`<${a1}>`, a1);
+
+            return match_.replace(a1, `<a${addClassName('a')}${addStyle('a')} href='${a1}' ref='nofollow'>${a1}</a>`);
+          })
+          // pre
+          .replace(/([^`])`{3}(.*)\n([^`]*)`{3}([^`])/g, `$1<pre${addClassName('pre')}${addStyle('pre')}><code${addClassName('code')}${addStyle('code')}>$3</code></pre>$4`)
+          // blockquote
+          .replace(/^(> (<(a|img|em|strong)|[A-Za-z0-9\[\]\(\)]).*(\n> (<(a|img|em|strong)|[A-Za-z0-9\[\]\(\)]).*)*)/gm, (match, a1, ...args) => {
+            const valueAdd = a1.replace(/(^|\n)> /g, '$1');
+
+            return `<blockquote${addClassName('blockquote')}${addStyle('blockquote')}><p${addClassName('p')}${addStyle('p')}>${valueAdd}</p></blockquote>`;
+          })
+          // p
+          .replace(/^( *(<(a|img|em|strong)|[A-Za-z0-9\[\]\(\)]).*(\n *(<(a|img|em|strong)|[A-Za-z0-9\[\]\(\)]).*)*)/gm, (match, a1, ...args) => {
+            const string = args[6];
+
+            if (!a1.trim()) return '';
+
+            // ul
+            const ul = string.match(new RegExp(`<ul|${escapeRegExp(a1)}|ul>`, 'g'));
+
+            if (ul) {
+              const index = ul.findIndex(item => item === a1);
+
+              if (
+                (ul[index - 1] === '<ul' && ul[index + 1] === 'ul>') ||
+                (ul[index - 1] === '<ul' && a1.endsWith('</ul>'))
+              ) return match;
+            }
+
+            // ol
+            const ol = string.match(new RegExp(`<ol|${escapeRegExp(a1)}|ol>`, 'g'));
+
+            if (ol) {
+              const index = ol.findIndex(item => item === a1);
+
+              if (
+                (ol[index - 1] === '<ol' && ol[index + 1] === 'ol>') ||
+                (ol[index - 1] === '<ol' && a1.endsWith('</ol>'))
+              ) return match;
+            }
+
+            // p
+            const p = string.match(new RegExp(`<p|${escapeRegExp(a1)}|p>`, 'g'));
+
+            if (p) {
+              const index = p.findIndex(item => item === a1);
+
+              if (
+                (p[index - 1] === '<p' && p[index + 1] === 'p>') ||
+                (p[index - 1] === '<p' && a1.endsWith('</p>'))
+              ) return match;
+            }
+
+            // pre
+            const pre = string.match(new RegExp(`<pre|${escapeRegExp(a1)}|pre>`, 'g'));
+
+            if (pre) {
+              const index = pre.findIndex(item => item === a1);
+
+              if (
+                (pre[index - 1] === '<pre' && pre[index + 1] === 'pre>') ||
+                (pre[index - 1] === '<pre' && a1.endsWith('</pre>'))
+              ) return match;
+            }
+
+            // blockquote
+            const blockquote = string.match(new RegExp(`<blockquote|${escapeRegExp(a1)}|blockquote>`, 'g'));
+
+            if (blockquote) {
+              const index = blockquote.find(item => item === a1);
+
+              if (
+                (blockquote[index - 1] === '<blockquote' && blockquote[index + 1] === 'blockquote>') ||
+                (blockquote[index - 1] === '<blockquote' && a1.endsWith('</blockquote>'))
+              ) return match;
+            }
+
+            return `<p${addClassName('p')}${addStyle('p')}>${a1.trim().replace(/ +/g, ' ')}</p>`;
+          })
+          // a
+          .replace(/\[(.*)\]\(([^\s]*)( "([^"]*)")?\)/g, `<a${addClassName('a')}${addStyle('a')} href='$2' title="$4" ref='nofollow'>$1</a>`)
+          // a ref
+          .replace(/\[(.*)\]\[(.*)\]/g, (match, a1, a2, offset, string) => {
+            const url = string.match(new RegExp(`\\[${a2}\\]: ([^\\s]*)( "([^"]*)")?`)) || string.match(new RegExp(`\\[${a2.toLowerCase()}\\]: ([^\\s]*)( "([^"]*)")?`));
+
+            if (!url) return '';
+
+            return `<a${addClassName('a')}${addStyle('a')} href='${url[1]}' title='${url[3] || ''}' ref='nofollow'>${a1}</a>`;
+          })
+          // a clean up
+          .replace(/(<a.*)(title="")([^<]*<\/a>)/g, '$1$3')
+          // img clean up
+          .replace(/(<img.*)(title="")([^<]*\/>)/g, '$1$3')
+          // a refs clean up
+          .replace(/<p.*>\[.*\]:[^<]*<\/p>/g, '')
+          // bold
+          .replace(/\_\_([^_]*)\_\_/g, `<strong${addClassName('strong')}${addStyle('strong')}>$1</strong>`)
+          .replace(/\*\*([^\*]*)\*\*/g, `<strong${addClassName('strong')}${addStyle('strong')}>$1</strong>`)
+          // italic
+          .replace(/\_([^_]*)\_/g, `<em${addClassName('em')}${addStyle('em')}>$1</em>`)
+          .replace(/\*([^\*]*)\*/g, `<em${addClassName('em')}${addStyle('em')}>$1</em>`)
+          // del
+          .replace(/\~\~([^~]*)\~\~/g, `<del${addClassName('del')}${addStyle('del')}>$1</del>`)
+          // code
+          .replace(/([^`])`{1}([^`]*)`{1}([^`])/g, `$1<code${addClassName('code')}${addStyle('code')}>$2</code>$3`)
+          // line break
+          .replace(/\\/g, `<br />`)
+          // other
+          .trim();
       };
 
-      const list = (valueList_: string, marker: string, level = 2) => {
-        let valueList = valueList_.replace(new RegExp(`(^(${marker} ?(.*))(\\n( {${level},}.*)?)*)`, 'gm'), (match, a1, a2, a3) => {
-          const other = match.replace(a2, '');
+      const listItem = (valueListItem_: string) => {
+        let valueListItem = valueListItem_;
 
+        return method(valueListItem);
+      };
+
+      const list = (valueList_: string, marker: string) => {
+        let valueList = valueList_.replace(new RegExp(`(^(${marker} ?(.*))(\\n( +.*)?)*)`, 'gm'), (match, a1, a2, a3) => {
+          const other = match.replace(a2, '');
+          console.log('list other', listItem(other));
           return `\n<li${addClassName('li')}${addStyle('li')}>
 <p${addClassName('p')}${addStyle('p')}>${a3}</p>
 
-${listItem(other, level)}
+${listItem(other)}
 </li>`;
         });
 
         return valueList;
       };
 
-      valueNew = value_
-        // hr
-        .replace(/^\*{3}$/gm, `<hr${addClassName('hr')}${addStyle('hr')}/>`)
-        .replace(/^\-{3}$/gm, `<hr${addClassName('hr')}${addStyle('hr')}/>`)
-        .replace(/^\_{3}$/gm, `<hr${addClassName('hr')}${addStyle('hr')}/>`)
-        // h1
-        .replace(/^# (.*)$/gm, `<h1${addClassName('h1')}${addStyle('h1')}>$1</h1>`)
-        // h1
-        .replace(/^(.*)[\r\n]=+$/gm, `<h1${addClassName('h1')}${addStyle('h1')}>$1</h1>`)
-        // h2
-        .replace(/^## (.*)$/gm, `<h2${addClassName('h2')}${addStyle('h2')}>$1</h2>`)
-        // h2
-        .replace(/^(.*)[\r\n]-+$/gm, `<h2${addClassName('h2')}${addStyle('h2')}>$1</h2>`)
-        // h3
-        .replace(/^### (.*)$/gm, `<h3${addClassName('h3')}${addStyle('h3')}>$1</h3>`)
-        // h4
-        .replace(/^#### (.*)$/gm, `<h4${addClassName('h4')}${addStyle('h4')}>$1</h4>`)
-        // h5
-        .replace(/^##### (.*)$/gm, `<h5${addClassName('h5')}${addStyle('h5')}>$1</h5>`)
-        // h6
-        .replace(/^###### (.*)$/gm, `<h6${addClassName('h6')}${addStyle('h6')}>$1</h6>`)
-        // ol
-        .replace(/^(\d+\..*(\n+(\d+\.|\s{2}.*).*)*)/gm, (match, a1) => {
-          return `<ol${addClassName('ol')}${addStyle('ol')}>${list(match, `\\d\\.`)}</ol>`;
-        })
-        .replace(/^(\d+\).*(\n+(\d+\)|\s{2}.*).*)*)/gm, (match, a1) => {
-          return `<ol${addClassName('ol')}${addStyle('ol')}>${list(match, `\\d\\)`)}</ol>`;
-        })
-        // ul
-        .replace(/^(\*.*(\n+(\*|\s{2}.*).*)*)/gm, (match, a1) => {
-          return `<ul${addClassName('ul')}${addStyle('ul')}>${list(match, `\\*`)}</ul>`;
-        })
-        .replace(/^(\-.*(\n+(\-|\s{2}.*).*)*)/gm, (match, a1) => {
-          return `<ul${addClassName('ul')}${addStyle('ul')}>${list(match, `\\-`)}</ul>`;
-        })
-        .replace(/^(\+.*(\n+(\+|\s{2}.*).*)*)/gm, (match, a1) => {
-          return `<ul${addClassName('ul')}${addStyle('ul')}>${list(match, `\\+`)}</ul>`;
-        })
-        // img
-        .replace(/!\[(.*)\]\(([^\s]*)( "([^"]*)")?\)/g, `<img${addClassName('a')}${addStyle('a')} alt='$1' src='$2' title="$4" />`)
-        // img ref
-        .replace(/!\[(.*)\]\[(.*)\]/g, (match, a1, a2, offset, string) => {
-          const url = string.match(new RegExp(`\\[${a2}\\]: ([^\\s]*)( "([^"]*)")?`)) || string.match(new RegExp(`\\[${a2.toLowerCase()}\\]: ([^\\s]*)( "([^"]*)")?`));
-
-          if (!url) return '';
-
-          return `<img${addClassName('a')}${addStyle('a')} alt='${a1}' src='${url[1]}' title='${url[3] || ''}' />`;
-        })
-        // a ref inline
-        .replace(/(?:[^^]*)(\[([^\]]*)\])(?:[^:\[\(]*)/gm, (match, a1, a2, offset, string) => {
-          const url = string.match(new RegExp(`\\[${a2}\\]: ([^\\s]*)( "([^"]*)")?`)) || string.match(new RegExp(`\\[${a2.toLowerCase()}\\]: ([^\\s]*)( "([^"]*)")?`));
-
-          if (!url) return '';
-
-          return match.replace(a1, `<a${addClassName('a')}${addStyle('a')} href='${url[1]}' title='${url[3] || ''}' ref='nofollow'>${a2}</a>`);
-        })
-        // a urls inline
-        .replace(/(?:[^:][\n <])((?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+))(?:>)?/g, (match, a1) => {
-          let match_ = match;
-
-          if (match_.includes(`<${a1}>`)) match_ = match_.replace(`<${a1}>`, a1);
-
-          return match_.replace(a1, `<a${addClassName('a')}${addStyle('a')} href='${a1}' ref='nofollow'>${a1}</a>`);
-        })
-        // pre
-        .replace(/([^`])`{3}(.*)\n([^`]*)`{3}([^`])/g, `$1<pre${addClassName('pre')}${addStyle('pre')}><code${addClassName('code')}${addStyle('code')}>$3</code></pre>$4`)
-        // blockquote
-        .replace(/^(> (<(a|img)|[A-Za-z0-9\[]).*(\n> (<(a|img)|[A-Za-z0-9\[]).*)*)/gm, (match, a1, ...args) => {
-          const valueAdd = a1.replace(/(^|\n)> /g, '$1');
-
-          return `<blockquote${addClassName('blockquote')}${addStyle('blockquote')}><p${addClassName('p')}${addStyle('p')}>${valueAdd}</p></blockquote>`;
-        })
-        // p
-        .replace(/^((<(a|img)|[A-Za-z0-9\[]).*(\n(<(a|img)|[A-Za-z0-9\[]).*)*)/gm, (match, a1, ...args) => {
-          const string = args[6];
-
-          if (!a1.trim()) return '';
-
-          // pre
-          const pre = string.match(new RegExp(`<pre|${escapeRegExp(a1)}|pre>`, 'g'));
-
-          if (pre) {
-            const index = pre.findIndex(item => item === a1);
-
-            if (pre[index - 1] === '<pre' && pre[index + 1] === 'pre>') return match;
-          }
-
-          // blockquote
-          const blockquote = string.match(new RegExp(`<blockquote|${escapeRegExp(a1)}|blockquote>`, 'g'));
-
-          if (blockquote) {
-            const index = blockquote.find(item => item === a1);
-
-            if (blockquote[index - 1] === '<blockquote' && blockquote[index + 1] === 'blockquote>') return match;
-          }
-
-          return `<p${addClassName('p')}${addStyle('p')}>${a1}</p>`;
-        })
-        // a
-        .replace(/\[(.*)\]\(([^\s]*)( "([^"]*)")?\)/g, `<a${addClassName('a')}${addStyle('a')} href='$2' title="$4" ref='nofollow'>$1</a>`)
-        // a ref
-        .replace(/\[(.*)\]\[(.*)\]/g, (match, a1, a2, offset, string) => {
-          const url = string.match(new RegExp(`\\[${a2}\\]: ([^\\s]*)( "([^"]*)")?`)) || string.match(new RegExp(`\\[${a2.toLowerCase()}\\]: ([^\\s]*)( "([^"]*)")?`));
-
-          if (!url) return '';
-
-          return `<a${addClassName('a')}${addStyle('a')} href='${url[1]}' title='${url[3] || ''}' ref='nofollow'>${a1}</a>`;
-        })
-        // a clean up
-        .replace(/(<a.*)(title="")([^<]*<\/a>)/g, '$1$3')
-        // img clean up
-        .replace(/(<img.*)(title="")([^<]*\/>)/g, '$1$3')
-        // a refs clean up
-        .replace(/<p.*>\[.*\]:[^<]*<\/p>/g, '')
-        // bold
-        .replace(/\_\_([^_]*)\_\_/g, `<strong${addClassName('strong')}${addStyle('strong')}>$1</strong>`)
-        .replace(/\*\*([^\*]*)\*\*/g, `<strong${addClassName('strong')}${addStyle('strong')}>$1</strong>`)
-        // italic
-        .replace(/\_([^_]*)\_/g, `<em${addClassName('em')}${addStyle('em')}>$1</em>`)
-        .replace(/\*([^\*]*)\*/g, `<em${addClassName('em')}${addStyle('em')}>$1</em>`)
-        // del
-        .replace(/\~\~([^~]*)\~\~/g, `<del${addClassName('del')}${addStyle('del')}>$1</del>`)
-        // code
-        .replace(/([^`])`{1}([^`]*)`{1}([^`])/g, `$1<code${addClassName('code')}${addStyle('code')}>$2</code>$3`)
-        // line break
-        .replace(/\\/g, `<br />`)
-        // other
-        .trim();
+      valueNew = method(value_);
     }
 
     console.log('value', valueNew);
