@@ -85,6 +85,9 @@ const List = React.forwardRef((props_: any, ref: any) => {
     indent,
     paddingHorizontal = 'none',
     paddingVertical = 'both',
+
+    onMenuDesktopClose,
+
     Component = 'ul',
 
     className,

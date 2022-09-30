@@ -1345,8 +1345,6 @@ Markdown 1 | Less | Pretty
           <ImageEdit
             image='./image.jpg'
 
-            dynamicParent
-
             style={{
               width: 340
             }}
