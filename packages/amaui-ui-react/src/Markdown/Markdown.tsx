@@ -115,9 +115,6 @@ const escapeRegExp = (value: string) => value.replace(/[-\/\\^$*+?.()|[\]{}]/g, 
 
 // to do
 
-// update listu u listi
-// method u sve item ubaciti opcioni  * za update listu
-
 // add render method for every value
 
 const Markdown = React.forwardRef((props_: any, ref: any) => {
@@ -168,43 +165,55 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
       // version string
       // add to the root programatically
       // in this version style can only be added as string not an object
+      const table = (valueTable_: string) => {
+        let valueTable = valueTable_;
+
+        return valueTable;
+      };
+
       const method = (valueNew_: string) => {
         return valueNew_
           // hr
-          .replace(/^\*{3}$/gm, `<hr${addClassName('hr')}${addStyle('hr')}/>`)
-          .replace(/^\-{3}$/gm, `<hr${addClassName('hr')}${addStyle('hr')}/>`)
-          .replace(/^\_{3}$/gm, `<hr${addClassName('hr')}${addStyle('hr')}/>`)
+          .replace(/^ *\*{3}$/gm, `<hr${addClassName('hr')}${addStyle('hr')}/>`)
+          .replace(/^ *\-{3}$/gm, `<hr${addClassName('hr')}${addStyle('hr')}/>`)
+          .replace(/^ *\_{3}$/gm, `<hr${addClassName('hr')}${addStyle('hr')}/>`)
           // h1
-          .replace(/^# (.*)$/gm, `<h1${addClassName('h1')}${addStyle('h1')}>$1</h1>`)
+          .replace(/^ *# (.*)$/gm, `<h1${addClassName('h1')}${addStyle('h1')}>$1</h1>`)
           // h1
-          .replace(/^(.*)[\r\n]=+$/gm, `<h1${addClassName('h1')}${addStyle('h1')}>$1</h1>`)
+          .replace(/^ *(.*)[\r\n]=+$/gm, `<h1${addClassName('h1')}${addStyle('h1')}>$1</h1>`)
           // h2
-          .replace(/^## (.*)$/gm, `<h2${addClassName('h2')}${addStyle('h2')}>$1</h2>`)
+          .replace(/^ *## (.*)$/gm, `<h2${addClassName('h2')}${addStyle('h2')}>$1</h2>`)
           // h2
-          .replace(/^(.*)[\r\n]-+$/gm, `<h2${addClassName('h2')}${addStyle('h2')}>$1</h2>`)
+          .replace(/^ *(.*)[\r\n]-+$/gm, `<h2${addClassName('h2')}${addStyle('h2')}>$1</h2>`)
           // h3
-          .replace(/^### (.*)$/gm, `<h3${addClassName('h3')}${addStyle('h3')}>$1</h3>`)
+          .replace(/^ *### (.*)$/gm, `<h3${addClassName('h3')}${addStyle('h3')}>$1</h3>`)
           // h4
-          .replace(/^#### (.*)$/gm, `<h4${addClassName('h4')}${addStyle('h4')}>$1</h4>`)
+          .replace(/^ *#### (.*)$/gm, `<h4${addClassName('h4')}${addStyle('h4')}>$1</h4>`)
           // h5
-          .replace(/^##### (.*)$/gm, `<h5${addClassName('h5')}${addStyle('h5')}>$1</h5>`)
+          .replace(/^ *##### (.*)$/gm, `<h5${addClassName('h5')}${addStyle('h5')}>$1</h5>`)
           // h6
-          .replace(/^###### (.*)$/gm, `<h6${addClassName('h6')}${addStyle('h6')}>$1</h6>`)
+          .replace(/^ *###### (.*)$/gm, `<h6${addClassName('h6')}${addStyle('h6')}>$1</h6>`)
+          // tables
+          .replace(/ *\|?([^\|\n]+(\|[^\|\n]+)+ *\|?(\n *\|? *:?\-{3,}:? *(\| *:?\-{3,}:? *)+ *\|?)(\n *\|?([^\|\n]+(\|[^\|\n]+)+) *\|?)*)/g, (match, ...args) => {
+            console.log('tables', match);
+
+            return `<table${addClassName('table')}${addStyle('table')}>${table(match)}</table>`;
+          })
           // ol
-          .replace(/^ *(\d+\..*(\n+(\d+\.|\s{2}.*).*)*)/gm, (match, a1) => {
+          .replace(/^ *(\d+\. .*(\n+(\d+\. |\s{2}.*).*)*)/gm, (match, a1) => {
             return `<ol${addClassName('ol')}${addStyle('ol')}>${list(match, `\\d\\.`)}</ol>`;
           })
-          .replace(/^ *(\d+\).*(\n+(\d+\)|\s{2}.*).*)*)/gm, (match, a1) => {
+          .replace(/^ *(\d+\) .*(\n+(\d+\) |\s{2}.*).*)*)/gm, (match, a1) => {
             return `<ol${addClassName('ol')}${addStyle('ol')}>${list(match, `\\d\\)`)}</ol>`;
           })
           // ul
-          .replace(/^ *(\*.*(\n+(\*|\s{2}.*).*)*)/gm, (match, a1) => {
+          .replace(/^ *(\* .*(\n+(\* |\s{2}.*).*)*)/gm, (match, a1) => {
             return `<ul${addClassName('ul')}${addStyle('ul')}>${list(match, `\\*`)}</ul>`;
           })
-          .replace(/^ *(\-.*(\n+(\-|\s{2}.*).*)*)/gm, (match, a1) => {
+          .replace(/^ *(\- .*(\n+(\- |\s{2}.*).*)*)/gm, (match, a1) => {
             return `<ul${addClassName('ul')}${addStyle('ul')}>${list(match, `\\-`)}</ul>`;
           })
-          .replace(/^ *(\+.*(\n+(\+|\s{2}.*).*)*)/gm, (match, a1) => {
+          .replace(/^ *(\+ .*(\n+(\+ |\s{2}.*).*)*)/gm, (match, a1) => {
             return `<ul${addClassName('ul')}${addStyle('ul')}>${list(match, `\\+`)}</ul>`;
           })
           // img
@@ -236,13 +245,13 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
           // pre
           .replace(/([^`])`{3}(.*)\n([^`]*)`{3}([^`])/g, `$1<pre${addClassName('pre')}${addStyle('pre')}><code${addClassName('code')}${addStyle('code')}>$3</code></pre>$4`)
           // blockquote
-          .replace(/^(> (<(a|img|em|strong)|[A-Za-z0-9\[\]\(\)]).*(\n> (<(a|img|em|strong)|[A-Za-z0-9\[\]\(\)]).*)*)/gm, (match, a1, ...args) => {
+          .replace(/^ *(> (<(a|img|em|strong)|[A-Za-z0-9\[\]\(\)]).*(\n *> (<(a|img|em|strong)|[A-Za-z0-9\[\]\(\)]).*)*)/gm, (match, a1, ...args) => {
             const valueAdd = a1.replace(/(^|\n)> /g, '$1');
 
             return `<blockquote${addClassName('blockquote')}${addStyle('blockquote')}><p${addClassName('p')}${addStyle('p')}>${valueAdd}</p></blockquote>`;
           })
           // p
-          .replace(/^( *(<(a|img|em|strong)|[A-Za-z0-9\[\]\(\)]).*(\n *(<(a|img|em|strong)|[A-Za-z0-9\[\]\(\)]).*)*)/gm, (match, a1, ...args) => {
+          .replace(/^ *((<(a|img|em|strong)|[A-Za-z0-9\[\]\(\)]).*(\n *(<(a|img|em|strong)|[A-Za-z0-9\[\]\(\)]).*)*)/gm, (match, a1, ...args) => {
             const string = args[6];
 
             if (!a1.trim()) return '';
@@ -307,6 +316,18 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
               ) return match;
             }
 
+            // table
+            const table = string.match(new RegExp(`<table|${escapeRegExp(a1)}|table>`, 'g'));
+
+            if (table) {
+              const index = table.findIndex(item => item === a1);
+
+              if (
+                (table[index - 1] === '<table' && table[index + 1] === 'table>') ||
+                (table[index - 1] === '<table' && a1.endsWith('</table>'))
+              ) return match;
+            }
+
             return `<p${addClassName('p')}${addStyle('p')}>${a1.trim().replace(/ +/g, ' ')}</p>`;
           })
           // a
@@ -348,9 +369,9 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
       };
 
       const list = (valueList_: string, marker: string) => {
-        let valueList = valueList_.replace(new RegExp(`(^(${marker} ?(.*))(\\n( +.*)?)*)`, 'gm'), (match, a1, a2, a3) => {
+        let valueList = valueList_.replace(new RegExp(`(^ *(${marker} ?(.*))(\\n( +.*)?)*)`, 'gm'), (match, a1, a2, a3) => {
           const other = match.replace(a2, '');
-          console.log('list other', listItem(other));
+
           return `\n<li${addClassName('li')}${addStyle('li')}>
 <p${addClassName('p')}${addStyle('p')}>${a3}</p>
 
@@ -363,8 +384,6 @@ ${listItem(other)}
 
       valueNew = method(value_);
     }
-
-    console.log('value', valueNew);
 
     return valueNew;
   };
