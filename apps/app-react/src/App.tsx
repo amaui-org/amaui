@@ -2438,6 +2438,39 @@ Quote break.
 
 > This is a very long line that will still be quoted properly when it wraps. Oh boy let's keep writing to make sure this is long enough to actually wrap for everyone. Oh, you can *put* **Markdown** into a blockquote.
 
+1. First ordered list item
+
+
+2. Another item
+    * Unordered sub-list.
+        * Unordered sub-list.
+            * Unordered sub-list.
+
+3. Actual numbers don't matter, just that it's a number
+
+    Indented ordered sub-list items.
+    a.
+
+    A aa aaaa.
+
+    1. Ordered sub-list
+
+4. And another item.
+
+    You can have properly indented paragraphs within list items. Notice the blank line above, and the leading spaces (at least one, but we'll use three here to also align the raw Markdown).
+
+    To have a line break without a paragraph, you will need to use two trailing spaces.
+    Note that this line is separate, but within the same paragraph.
+    (This is contrary to the typical GFM line break behaviour, where trailing spaces are not required.)
+
+5) A new ordered list
+
+* Unordered list can use asterisks
+- Or minuses
+  asd
+- one more minus
++ Or pluses
+
 [image]: /image.jpg "An image"
 [arbitrary case-insensitive reference text]: https://www.mozilla.org "Mozilla website"
 [1]: http://slashdot.org

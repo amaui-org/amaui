@@ -45,24 +45,31 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-[I'm an inline-style link](https://www.google.com)
+1. First ordered list item
 
-[I'm an inline-style link with title](https://www.google.com "Google's Homepage")
 
-[I'm a reference-style link][Arbitrary case-insensitive reference text]
+2. Another item
+    * Unordered sub-list.
+        * Unordered sub-list.
+            * Unordered sub-list.
 
-[I'm a relative reference to a repository file](../blob/master/LICENSE)
+3. Actual numbers don't matter, just that it's a number
 
-[You can use numbers for reference-style link definitions][1]
+    Indented ordered sub-list items.
+    a.
 
-Or leave it empty and use the [link text itself].
+    A aa aaaa.
 
-URLs and URLs in angle brackets will automatically get turned into links.
-http://www.example.com or <http://www.example.com> and sometimes
-example.com (but not on Github, for example).
+    1. Ordered sub-list
 
-Some text to show that the reference links can follow later.
+4. And another item.
 
-[arbitrary case-insensitive reference text]: https://www.mozilla.org
-[1]: http://slashdot.org
-[link text itself]: http://www.reddit.com
+    You can have properly indented paragraphs within list items. Notice the blank line above, and the leading spaces (at least one, but we'll use three here to also align the raw Markdown).
+
+    To have a line break without a paragraph, you will need to use two trailing spaces.
+    Note that this line is separate, but within the same paragraph.
+    (This is contrary to the typical GFM line break behaviour, where trailing spaces are not required.)
+
+* Unordered list can use asterisks
+- Or minuses
++ Or pluses

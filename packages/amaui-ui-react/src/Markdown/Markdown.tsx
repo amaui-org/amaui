@@ -85,13 +85,29 @@ const useStyle = style(theme => ({
   blockquote: {
     margin: '16px 0',
     paddingBlock: '4px',
-    paddingLeft: '16px',
-    borderLeft: `4px solid ${theme.methods.palette.color.colorToRgb(theme.palette.text.default.primary, theme.palette.light ? 0.04 : 0.2)}`,
+    paddingInlineStart: '16px',
+    borderInlineStart: `4px solid ${theme.methods.palette.color.colorToRgb(theme.palette.text.default.primary, theme.palette.light ? 0.04 : 0.2)}`,
 
     '& > *': {
       margin: '0px'
     }
-  }
+  },
+
+  ol: {
+    paddingInlineStart: '16px',
+    marginBottom: '16px'
+  },
+
+  ul: {
+
+    paddingInlineStart: '16px',
+    marginBottom: '16px'
+  },
+
+  li: {
+
+  },
+
 }), { name: 'AmauiMarkdown' });
 
 const escapeRegExp = (value: string) => value.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
@@ -148,6 +164,26 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
       // version string
       // add to the root programatically
       // in this version style can only be added as string not an object
+      const listItem = (valueListItem_: string, level = 2) => {
+        let valueListItem = valueListItem_;
+
+        return valueListItem;
+      };
+
+      const list = (valueList_: string, marker: string, level = 2) => {
+        let valueList = valueList_.replace(new RegExp(`(^(${marker} ?(.*))(\\n( {${level},}.*)?)*)`, 'gm'), (match, a1, a2, a3) => {
+          const other = match.replace(a2, '');
+
+          return `\n<li${addClassName('li')}${addStyle('li')}>
+<p${addClassName('p')}${addStyle('p')}>${a3}</p>
+
+${listItem(other, level)}
+</li>`;
+        });
+
+        return valueList;
+      };
+
       valueNew = value_
         // hr
         .replace(/^\*{3}$/gm, `<hr${addClassName('hr')}${addStyle('hr')}/>`)
@@ -169,6 +205,23 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
         .replace(/^##### (.*)$/gm, `<h5${addClassName('h5')}${addStyle('h5')}>$1</h5>`)
         // h6
         .replace(/^###### (.*)$/gm, `<h6${addClassName('h6')}${addStyle('h6')}>$1</h6>`)
+        // ol
+        .replace(/^(\d+\..*(\n+(\d+\.|\s{2}.*).*)*)/gm, (match, a1) => {
+          return `<ol${addClassName('ol')}${addStyle('ol')}>${list(match, `\\d\\.`)}</ol>`;
+        })
+        .replace(/^(\d+\).*(\n+(\d+\)|\s{2}.*).*)*)/gm, (match, a1) => {
+          return `<ol${addClassName('ol')}${addStyle('ol')}>${list(match, `\\d\\)`)}</ol>`;
+        })
+        // ul
+        .replace(/^(\*.*(\n+(\*|\s{2}.*).*)*)/gm, (match, a1) => {
+          return `<ul${addClassName('ul')}${addStyle('ul')}>${list(match, `\\*`)}</ul>`;
+        })
+        .replace(/^(\-.*(\n+(\-|\s{2}.*).*)*)/gm, (match, a1) => {
+          return `<ul${addClassName('ul')}${addStyle('ul')}>${list(match, `\\-`)}</ul>`;
+        })
+        .replace(/^(\+.*(\n+(\+|\s{2}.*).*)*)/gm, (match, a1) => {
+          return `<ul${addClassName('ul')}${addStyle('ul')}>${list(match, `\\+`)}</ul>`;
+        })
         // img
         .replace(/!\[(.*)\]\(([^\s]*)( "([^"]*)")?\)/g, `<img${addClassName('a')}${addStyle('a')} alt='$1' src='$2' title="$4" />`)
         // img ref
