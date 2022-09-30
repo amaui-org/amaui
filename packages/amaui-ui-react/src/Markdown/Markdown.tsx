@@ -100,7 +100,6 @@ const useStyle = style(theme => ({
   },
 
   ul: {
-
     paddingInlineStart: '16px',
     marginBottom: '16px'
   },
@@ -109,13 +108,27 @@ const useStyle = style(theme => ({
 
   },
 
+  table: {
+    margin: '16px 0',
+    borderCollapse: 'collapse',
+    border: `1px solid ${theme.palette.light ? theme.palette.color.neutral[80] : theme.palette.color.neutral[30]}`,
+
+    '& th,td': {
+      ...theme.typography.values.b2,
+      padding: '12px 16px',
+      borderBottom: `1px solid ${theme.palette.light ? theme.palette.color.neutral[80] : theme.palette.color.neutral[30]}`,
+      borderRight: `1px solid ${theme.palette.light ? theme.palette.color.neutral[80] : theme.palette.color.neutral[30]}`
+    },
+
+    '& th': {
+      fontWeight: 500,
+      borderBottom: `1px solid ${theme.palette.light ? theme.palette.color.neutral[50] : theme.palette.color.neutral[50]}`
+    }
+  }
+
 }), { name: 'AmauiMarkdown' });
 
 const escapeRegExp = (value: string) => value.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
-
-// to do
-
-// add render method for every value
 
 const Markdown = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
@@ -126,6 +139,8 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
 
   const {
     value,
+
+    render,
 
     elementClassNames,
     elementStyles,
@@ -168,7 +183,53 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
       const table = (valueTable_: string) => {
         let valueTable = valueTable_;
 
-        return valueTable;
+        const items = valueTable.split('\n').filter(Boolean).map(item_ => {
+          let item = item_.trim();
+
+          if (item.startsWith('|')) item = item.slice(1).trim();
+
+          if (item.endsWith('|')) item = item.slice(0, -1).trim();
+
+          return item;
+        });
+
+        const head = items[0].split('|').filter(Boolean).map(item => item.trim());
+
+        const tdAttributes = {};
+
+        items[1].split('|').filter(Boolean).map(item => item.trim()).forEach((item: string, index: number) => {
+          if (item.startsWith(':') && item.endsWith(':')) tdAttributes[index] = ` align='center'`;
+          else if (item.endsWith(':')) tdAttributes[index] = ` align='right'`;
+          else tdAttributes[index] = '';
+        });
+
+        const rowsHead = head.reduce((result: string, item: string, index: number) => {
+          result += `\n<th${tdAttributes[index] || ''}>${item}</th>`;
+
+          return result;
+        }, '');
+
+        let rowsBody = '';
+
+        items.slice(2).map(row_ => {
+          const row = row_.split('|').filter(Boolean).map(item => item.trim());
+
+          let tr = ``;
+
+          row.forEach((item: string, index: number) => tr += `\n<td${tdAttributes[index] || ''}>${item}</td>`);
+
+          rowsBody += `\n<tr>${tr}</tr>`;
+        });
+
+        return `<thead>
+  <tr>
+    ${rowsHead}
+  </tr>
+</thead>
+<tbody>
+  ${rowsBody}
+</tbody>
+`;
       };
 
       const method = (valueNew_: string) => {
@@ -195,8 +256,6 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
           .replace(/^ *###### (.*)$/gm, `<h6${addClassName('h6')}${addStyle('h6')}>$1</h6>`)
           // tables
           .replace(/ *\|?([^\|\n]+(\|[^\|\n]+)+ *\|?(\n *\|? *:?\-{3,}:? *(\| *:?\-{3,}:? *)+ *\|?)(\n *\|?([^\|\n]+(\|[^\|\n]+)+) *\|?)*)/g, (match, ...args) => {
-            console.log('tables', match);
-
             return `<table${addClassName('table')}${addStyle('table')}>${table(match)}</table>`;
           })
           // ol
