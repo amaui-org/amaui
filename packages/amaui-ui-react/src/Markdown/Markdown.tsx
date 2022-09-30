@@ -93,12 +93,16 @@ const useStyle = style(theme => ({
   blockquote: {
     margin: '16px 0',
     marginInlineStart: '16px',
-    paddingBlock: '4px',
-    paddingInlineStart: '16px',
+    padding: '20px 16px',
     borderInlineStart: `4px solid ${theme.methods.palette.color.colorToRgb(theme.palette.text.default.primary, theme.palette.light ? 0.04 : 0.2)}`,
+    background: theme.methods.palette.color.colorToRgb(theme.palette.text.default.primary, theme.palette.light ? 0.02 : 0.14),
 
     '& > *': {
       margin: '0px'
+    },
+
+    '& > $blockquote': {
+      marginBlock: '16px'
     }
   },
 
@@ -424,14 +428,14 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
             return `${a1}<pre${addClassName('pre')}${addStyle('pre')}><code${addClassName('code')}${addStyle('code')}>${a3}</code></pre>${a4}`;
           })
           // blockquote
-          .replace(/^ *(> (<(a|img|em|strong)|[A-Za-z0-9\[\]\(\)]).*(\n *> (<(a|img|em|strong)|[A-Za-z0-9\[\]\(\)]).*)*)/gm, (match, a1, ...args) => {
+          .replace(/^ *(>+ (<(a|img|em|strong)|[A-Za-z0-9\[\]\(\)])*.*(\n *>+.*)*)/gm, (match, a1, ...args) => {
             const valueRender = is('function', render) ? render('blockquote', addClassName('blockquote'), addStyle('blockquote'), match, a1, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
-            const valueAdd = a1.replace(/(^|\n)> /g, '$1');
+            const valueAdd = a1.replace(/^ *> */gm, ' ');
 
-            return `<blockquote${addClassName('blockquote')}${addStyle('blockquote')}><p${addClassName('p')}${addStyle('p')}>${valueAdd}</p></blockquote>`;
+            return `<blockquote${addClassName('blockquote')}${addStyle('blockquote')}>${method(valueAdd)}</blockquote>`;
           })
           // p
           .replace(/^ *((<(a|img|em|strong)|[A-Za-z0-9\[\]\(\)]).*(\n *(<(a|img|em|strong)|[A-Za-z0-9\[\]\(\)]).*)*)/gm, (match, a1, ...args) => {

@@ -2616,6 +2616,14 @@ ___
 
 > Blockquotes are very handy in email to emulate reply text.
 > This line is part of the same quote.
+>
+>> Nested item value y
+>>
+>> Nested item other
+>>> More nested value
+>> Nested value 2 level
+> Nested value 1 level
+> Another value 1 level
 
 Quote break.
 
