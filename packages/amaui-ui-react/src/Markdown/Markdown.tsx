@@ -243,21 +243,21 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
       const method = (valueNew_: string) => {
         return valueNew_
           // hr
-          .replace(/^ *\*{3}$/gm, (match: string, ...args) => {
+          .replace(/^ *\*{3}$/gm, (match, ...args) => {
             const valueRender = is('function', render) ? render('hr', addClassName('hr'), addStyle('hr'), match, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
             return `<hr${addClassName('hr')}${addStyle('hr')}/>`;
           })
-          .replace(/^ *\-{3}$/gm, (match: string, ...args) => {
+          .replace(/^ *\-{3}$/gm, (match, ...args) => {
             const valueRender = is('function', render) ? render('hr', addClassName('hr'), addStyle('hr'), match, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
             return `<hr${addClassName('hr')}${addStyle('hr')}/>`;
           })
-          .replace(/^ *\_{3}$/gm, (match: string, ...args) => {
+          .replace(/^ *\_{3}$/gm, (match, ...args) => {
             const valueRender = is('function', render) ? render('hr', addClassName('hr'), addStyle('hr'), match, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
@@ -265,15 +265,14 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
             return `<hr${addClassName('hr')}${addStyle('hr')}/>`;
           })
           // h1
-          .replace(/^ *# (.*)$/gm, (match: string, a1, ...args) => {
+          .replace(/^ *# (.*)$/gm, (match, a1, ...args) => {
             const valueRender = is('function', render) ? render('h1', addClassName('h1'), addStyle('h1'), match, a1, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
             return `<h1${addClassName('h1')}${addStyle('h1')}>${a1}</h1>`;
           })
-          // h1
-          .replace(/^ *(.*)[\r\n]=+$/gm, (match: string, a1, ...args) => {
+          .replace(/^ *(.*)[\r\n]=+$/gm, (match, a1, ...args) => {
             const valueRender = is('function', render) ? render('h1', addClassName('h1'), addStyle('h1'), match, a1, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
@@ -281,15 +280,14 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
             return `<h1${addClassName('h1')}${addStyle('h1')}>${a1}</h1>`;
           })
           // h2
-          .replace(/^ *## (.*)$/gm, (match: string, a1, ...args) => {
+          .replace(/^ *## (.*)$/gm, (match, a1, ...args) => {
             const valueRender = is('function', render) ? render('h2', addClassName('h2'), addStyle('h2'), match, a1, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
             return `<h2${addClassName('h2')}${addStyle('h2')}>${a1}</h2>`;
           })
-          // h2
-          .replace(/^ *(.*)[\r\n]-+$/gm, (match: string, a1, ...args) => {
+          .replace(/^ *(.*)[\r\n]-+$/gm, (match, a1, ...args) => {
             const valueRender = is('function', render) ? render('h2', addClassName('h2'), addStyle('h2'), match, a1, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
@@ -297,7 +295,7 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
             return `<h2${addClassName('h2')}${addStyle('h2')}>${a1}</h2>`;
           })
           // h3
-          .replace(/^ *### (.*)$/gm, (match: string, a1, ...args) => {
+          .replace(/^ *### (.*)$/gm, (match, a1, ...args) => {
             const valueRender = is('function', render) ? render('h3', addClassName('h3'), addStyle('h3'), match, a1, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
@@ -305,7 +303,7 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
             return `<h3${addClassName('h3')}${addStyle('h3')}>${a1}</h3>`;
           })
           // h4
-          .replace(/^ *#### (.*)$/gm, (match: string, a1, ...args) => {
+          .replace(/^ *#### (.*)$/gm, (match, a1, ...args) => {
             const valueRender = is('function', render) ? render('h4', addClassName('h4'), addStyle('h4'), match, a1, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
@@ -313,7 +311,7 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
             return `<h4${addClassName('h4')}${addStyle('h4')}>${a1}</h4>`;
           })
           // h5
-          .replace(/^ *##### (.*)$/gm, (match: string, a1, ...args) => {
+          .replace(/^ *##### (.*)$/gm, (match, a1, ...args) => {
             const valueRender = is('function', render) ? render('h5', addClassName('h5'), addStyle('h5'), match, a1, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
@@ -321,7 +319,7 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
             return `<h5${addClassName('h5')}${addStyle('h5')}>${a1}</h5>`;
           })
           // h6
-          .replace(/^ *###### (.*)$/gm, (match: string, a1, ...args) => {
+          .replace(/^ *###### (.*)$/gm, (match, a1, ...args) => {
             const valueRender = is('function', render) ? render('h6', addClassName('h6'), addStyle('h6'), match, a1, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
@@ -585,7 +583,7 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
           })
           // code
           .replace(/([^`])`{1}([^`]*)`{1}([^`])/g, (match, a1, a2, a3, ...args) => {
-            const valueRender = is('function', render) ? render('code', addClassName('code'), addStyle('code'), match, a1, ...args) : undefined;
+            const valueRender = is('function', render) ? render('code', addClassName('code'), addStyle('code'), match, a1, a2, a3, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
@@ -597,7 +595,7 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
 
             if (valueRender !== undefined) return valueRender;
 
-            return `<br />`;
+            return '<br />';
           })
           // other
           .trim();
