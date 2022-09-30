@@ -2565,7 +2565,7 @@ http://www.example.com or <http://www.example.com> and sometimes example.com (bu
 Some text to show that the reference links can follow later.
 
 Inline image:
-![An image](/image.jpg)
+![An image](/image.jpg "My image")
 
 Inline ref image:
 ![An image with a ref][image]

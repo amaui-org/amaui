@@ -371,7 +371,7 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
 
             if (valueRender !== undefined) return valueRender;
 
-            return `<img${addClassName('a')}${addStyle('a')} alt='${a1}' src='${a2}' title="${a4}" />`;
+            return `<img${addClassName('a')}${addStyle('a')} alt='${a1}' src='${a2}' title='${a4 || ''}' />`;
           })
           // img ref
           .replace(/!\[(.*)\]\[(.*)\]/g, (match, a1, a2, offset, string) => {
@@ -517,7 +517,7 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
 
             if (valueRender !== undefined) return valueRender;
 
-            return `<a${addClassName('a')}${addStyle('a')} href='${a2}' title="${a3}" ref='nofollow'>${a4}</a>`;
+            return `<a${addClassName('a')}${addStyle('a')} href='${a2}' title='${a4 || ''}' ref='nofollow'>${a1}</a>`;
           })
           // a ref
           .replace(/\[(.*)\]\[(.*)\]/g, (match, a1, a2, offset, string) => {
