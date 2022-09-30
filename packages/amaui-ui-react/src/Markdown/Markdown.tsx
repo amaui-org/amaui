@@ -7,7 +7,15 @@ import { staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
+    '& dt': {
+      marginTop: '16px',
+      fontWeight: 500
+    },
 
+    '& dd': {
+      paddingInlineStart: '16px',
+      marginBottom: '16px'
+    }
   },
 
   h1: {
@@ -532,9 +540,9 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
             return `<a${addClassName('a')}${addStyle('a')} href='${url[1]}' title='${url[3] || ''}' ref='nofollow'>${a1}</a>`;
           })
           // a clean up
-          .replace(/(<a.*)(title="")([^<]*<\/a>)/g, '$1$3')
+          .replace(/(<a.*)(title='')([^<]*<\/a>)/g, '$1$3')
           // img clean up
-          .replace(/(<img.*)(title="")([^<]*\/>)/g, '$1$3')
+          .replace(/(<img.*)(title='')([^<]*\/>)/g, '$1$3')
           // a refs clean up
           .replace(/<p.*>\[.*\]:[^<]*<\/p>/g, '')
           // bold
