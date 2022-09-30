@@ -236,21 +236,21 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
         return valueNew_
           // hr
           .replace(/^ *\*{3}$/gm, (match: string, ...args) => {
-            const valueRender = is('function', render) && render('hr', addClassName('hr'), addStyle('hr'), match, ...args);
+            const valueRender = is('function', render) ? render('hr', addClassName('hr'), addStyle('hr'), match, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
             return `<hr${addClassName('hr')}${addStyle('hr')}/>`;
           })
           .replace(/^ *\-{3}$/gm, (match: string, ...args) => {
-            const valueRender = is('function', render) && render('hr', addClassName('hr'), addStyle('hr'), match, ...args);
+            const valueRender = is('function', render) ? render('hr', addClassName('hr'), addStyle('hr'), match, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
             return `<hr${addClassName('hr')}${addStyle('hr')}/>`;
           })
           .replace(/^ *\_{3}$/gm, (match: string, ...args) => {
-            const valueRender = is('function', render) && render('hr', addClassName('hr'), addStyle('hr'), match, ...args);
+            const valueRender = is('function', render) ? render('hr', addClassName('hr'), addStyle('hr'), match, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
@@ -258,7 +258,7 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
           })
           // h1
           .replace(/^ *# (.*)$/gm, (match: string, a1, ...args) => {
-            const valueRender = is('function', render) && render('h1', addClassName('h1'), addStyle('h1'), match, a1, ...args);
+            const valueRender = is('function', render) ? render('h1', addClassName('h1'), addStyle('h1'), match, a1, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
@@ -266,7 +266,7 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
           })
           // h1
           .replace(/^ *(.*)[\r\n]=+$/gm, (match: string, a1, ...args) => {
-            const valueRender = is('function', render) && render('h1', addClassName('h1'), addStyle('h1'), match, a1, ...args);
+            const valueRender = is('function', render) ? render('h1', addClassName('h1'), addStyle('h1'), match, a1, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
@@ -274,7 +274,7 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
           })
           // h2
           .replace(/^ *## (.*)$/gm, (match: string, a1, ...args) => {
-            const valueRender = is('function', render) && render('h2', addClassName('h2'), addStyle('h2'), match, a1, ...args);
+            const valueRender = is('function', render) ? render('h2', addClassName('h2'), addStyle('h2'), match, a1, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
@@ -282,7 +282,7 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
           })
           // h2
           .replace(/^ *(.*)[\r\n]-+$/gm, (match: string, a1, ...args) => {
-            const valueRender = is('function', render) && render('h2', addClassName('h2'), addStyle('h2'), match, a1, ...args);
+            const valueRender = is('function', render) ? render('h2', addClassName('h2'), addStyle('h2'), match, a1, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
@@ -290,7 +290,7 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
           })
           // h3
           .replace(/^ *### (.*)$/gm, (match: string, a1, ...args) => {
-            const valueRender = is('function', render) && render('h3', addClassName('h3'), addStyle('h3'), match, a1, ...args);
+            const valueRender = is('function', render) ? render('h3', addClassName('h3'), addStyle('h3'), match, a1, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
@@ -298,7 +298,7 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
           })
           // h4
           .replace(/^ *#### (.*)$/gm, (match: string, a1, ...args) => {
-            const valueRender = is('function', render) && render('h4', addClassName('h4'), addStyle('h4'), match, a1, ...args);
+            const valueRender = is('function', render) ? render('h4', addClassName('h4'), addStyle('h4'), match, a1, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
@@ -306,7 +306,7 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
           })
           // h5
           .replace(/^ *##### (.*)$/gm, (match: string, a1, ...args) => {
-            const valueRender = is('function', render) && render('h5', addClassName('h5'), addStyle('h5'), match, a1, ...args);
+            const valueRender = is('function', render) ? render('h5', addClassName('h5'), addStyle('h5'), match, a1, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
@@ -314,7 +314,7 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
           })
           // h6
           .replace(/^ *###### (.*)$/gm, (match: string, a1, ...args) => {
-            const valueRender = is('function', render) && render('h6', addClassName('h6'), addStyle('h6'), match, a1, ...args);
+            const valueRender = is('function', render) ? render('h6', addClassName('h6'), addStyle('h6'), match, a1, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
@@ -322,7 +322,7 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
           })
           // tables
           .replace(/ *\|?([^\|\n]+(\|[^\|\n]+)+ *\|?(\n *\|? *:?\-{3,}:? *(\| *:?\-{3,}:? *)+ *\|?)(\n *\|?([^\|\n]+(\|[^\|\n]+)+) *\|?)*)/g, (match, ...args) => {
-            const valueRender = is('function', render) && render('table', addClassName('table'), addStyle('table'), match, ...args);
+            const valueRender = is('function', render) ? render('table', addClassName('table'), addStyle('table'), match, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
@@ -330,14 +330,14 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
           })
           // ol
           .replace(/^ *(\d+\. .*(\n+(\d+\. |\s{2}.*).*)*)/gm, (match, ...args) => {
-            const valueRender = is('function', render) && render('ol', addClassName('ol'), addStyle('ol'), match, ...args);
+            const valueRender = is('function', render) ? render('ol', addClassName('ol'), addStyle('ol'), match, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
             return `<ol${addClassName('ol')}${addStyle('ol')}>${list(match, `\\d\\.`)}</ol>`;
           })
           .replace(/^ *(\d+\) .*(\n+(\d+\) |\s{2}.*).*)*)/gm, (match, ...args) => {
-            const valueRender = is('function', render) && render('ol', addClassName('ol'), addStyle('ol'), match, ...args);
+            const valueRender = is('function', render) ? render('ol', addClassName('ol'), addStyle('ol'), match, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
@@ -345,21 +345,21 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
           })
           // ul
           .replace(/^ *(\* .*(\n+(\* |\s{2}.*).*)*)/gm, (match, ...args) => {
-            const valueRender = is('function', render) && render('ul', addClassName('ul'), addStyle('ul'), match, ...args);
+            const valueRender = is('function', render) ? render('ul', addClassName('ul'), addStyle('ul'), match, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
             return `<ul${addClassName('ul')}${addStyle('ul')}>${list(match, `\\*`)}</ul>`;
           })
           .replace(/^ *(\- .*(\n+(\- |\s{2}.*).*)*)/gm, (match, ...args) => {
-            const valueRender = is('function', render) && render('ul', addClassName('ul'), addStyle('ul'), match, ...args);
+            const valueRender = is('function', render) ? render('ul', addClassName('ul'), addStyle('ul'), match, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
             return `<ul${addClassName('ul')}${addStyle('ul')}>${list(match, `\\-`)}</ul>`;
           })
           .replace(/^ *(\+ .*(\n+(\+ |\s{2}.*).*)*)/gm, (match, ...args) => {
-            const valueRender = is('function', render) && render('ul', addClassName('ul'), addStyle('ul'), match, ...args);
+            const valueRender = is('function', render) ? render('ul', addClassName('ul'), addStyle('ul'), match, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
@@ -367,7 +367,7 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
           })
           // img
           .replace(/!\[(.*)\]\(([^\s]*)( "([^"]*)")?\)/g, (match, a1, a2, a3, a4, ...args) => {
-            const valueRender = is('function', render) && render('img', addClassName('img'), addStyle('img'), match, a1, a2, a3, a4, ...args);
+            const valueRender = is('function', render) ? render('img', addClassName('img'), addStyle('img'), match, a1, a2, a3, a4, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
@@ -377,7 +377,7 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
           .replace(/!\[(.*)\]\[(.*)\]/g, (match, a1, a2, offset, string) => {
             const url = string.match(new RegExp(`\\[${a2}\\]: ([^\\s]*)( "([^"]*)")?`)) || string.match(new RegExp(`\\[${a2.toLowerCase()}\\]: ([^\\s]*)( "([^"]*)")?`));
 
-            const valueRender = is('function', render) && render('img', addClassName('img'), addStyle('img'), url, match, a1, a2, offset, string);
+            const valueRender = is('function', render) ? render('img', addClassName('img'), addStyle('img'), url, match, a1, a2, offset, string) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
@@ -389,7 +389,7 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
           .replace(/(?:[^^]*)(\[([^\]]*)\])(?:[^:\[\(]*)/gm, (match, a1, a2, offset, string) => {
             const url = string.match(new RegExp(`\\[${a2}\\]: ([^\\s]*)( "([^"]*)")?`)) || string.match(new RegExp(`\\[${a2.toLowerCase()}\\]: ([^\\s]*)( "([^"]*)")?`));
 
-            const valueRender = is('function', render) && render('a', addClassName('a'), addStyle('a'), url, match, a1, a2, offset, string);
+            const valueRender = is('function', render) ? render('a', addClassName('a'), addStyle('a'), url, match, a1, a2, offset, string) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
@@ -399,7 +399,7 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
           })
           // a urls inline
           .replace(/(?:[^:][\n <])((?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+))(?:>)?/g, (match, a1, ...args) => {
-            const valueRender = is('function', render) && render('a', addClassName('a'), addStyle('a'), match, a1, ...args);
+            const valueRender = is('function', render) ? render('a', addClassName('a'), addStyle('a'), match, a1, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
@@ -411,7 +411,7 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
           })
           // pre
           .replace(/([^`])`{3}(.*)\n([^`]*)`{3}([^`])/g, (match, a1, a2, a3, a4, ...args) => {
-            const valueRender = is('function', render) && render('pre', addClassName('pre'), addStyle('pre'), match, a1, a2, a3, a4, ...args);
+            const valueRender = is('function', render) ? render('pre', addClassName('pre'), addStyle('pre'), match, a1, a2, a3, a4, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
@@ -419,7 +419,7 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
           })
           // blockquote
           .replace(/^ *(> (<(a|img|em|strong)|[A-Za-z0-9\[\]\(\)]).*(\n *> (<(a|img|em|strong)|[A-Za-z0-9\[\]\(\)]).*)*)/gm, (match, a1, ...args) => {
-            const valueRender = is('function', render) && render('blockquote', addClassName('blockquote'), addStyle('blockquote'), match, a1, ...args);
+            const valueRender = is('function', render) ? render('blockquote', addClassName('blockquote'), addStyle('blockquote'), match, a1, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
@@ -429,7 +429,7 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
           })
           // p
           .replace(/^ *((<(a|img|em|strong)|[A-Za-z0-9\[\]\(\)]).*(\n *(<(a|img|em|strong)|[A-Za-z0-9\[\]\(\)]).*)*)/gm, (match, a1, ...args) => {
-            const valueRender = is('function', render) && render('p', addClassName('p'), addStyle('p'), match, a1, ...args);
+            const valueRender = is('function', render) ? render('p', addClassName('p'), addStyle('p'), match, a1, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
@@ -513,7 +513,7 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
           })
           // a
           .replace(/\[(.*)\]\(([^\s]*)( "([^"]*)")?\)/g, (match, a1, a2, a3, a4, ...args) => {
-            const valueRender = is('function', render) && render('a', addClassName('a'), addStyle('a'), match, a1, a2, a3, a4, ...args);
+            const valueRender = is('function', render) ? render('a', addClassName('a'), addStyle('a'), match, a1, a2, a3, a4, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
@@ -523,7 +523,7 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
           .replace(/\[(.*)\]\[(.*)\]/g, (match, a1, a2, offset, string) => {
             const url = string.match(new RegExp(`\\[${a2}\\]: ([^\\s]*)( "([^"]*)")?`)) || string.match(new RegExp(`\\[${a2.toLowerCase()}\\]: ([^\\s]*)( "([^"]*)")?`));
 
-            const valueRender = is('function', render) && render('a', addClassName('a'), addStyle('a'), url, match, a1, a2, offset, string);
+            const valueRender = is('function', render) ? render('a', addClassName('a'), addStyle('a'), url, match, a1, a2, offset, string) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
@@ -539,14 +539,14 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
           .replace(/<p.*>\[.*\]:[^<]*<\/p>/g, '')
           // bold
           .replace(/\_\_([^_]*)\_\_/g, (match, a1, ...args) => {
-            const valueRender = is('function', render) && render('strong', addClassName('strong'), addStyle('strong'), match, a1, ...args);
+            const valueRender = is('function', render) ? render('strong', addClassName('strong'), addStyle('strong'), match, a1, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
             return `<strong${addClassName('strong')}${addStyle('strong')}>${a1}</strong>`;
           })
           .replace(/\*\*([^\*]*)\*\*/g, (match, a1, ...args) => {
-            const valueRender = is('function', render) && render('strong', addClassName('strong'), addStyle('strong'), match, a1, ...args);
+            const valueRender = is('function', render) ? render('strong', addClassName('strong'), addStyle('strong'), match, a1, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
@@ -554,14 +554,14 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
           })
           // italic
           .replace(/\_([^_]*)\_/g, (match, a1, ...args) => {
-            const valueRender = is('function', render) && render('italic', addClassName('italic'), addStyle('italic'), match, a1, ...args);
+            const valueRender = is('function', render) ? render('italic', addClassName('italic'), addStyle('italic'), match, a1, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
             return `<em${addClassName('em')}${addStyle('em')}>${a1}</em>`;
           })
           .replace(/\*([^\*]*)\*/g, (match, a1, ...args) => {
-            const valueRender = is('function', render) && render('italic', addClassName('italic'), addStyle('italic'), match, a1, ...args);
+            const valueRender = is('function', render) ? render('italic', addClassName('italic'), addStyle('italic'), match, a1, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
@@ -569,7 +569,7 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
           })
           // del
           .replace(/\~\~([^~]*)\~\~/g, (match, a1, ...args) => {
-            const valueRender = is('function', render) && render('del', addClassName('del'), addStyle('del'), match, a1, ...args);
+            const valueRender = is('function', render) ? render('del', addClassName('del'), addStyle('del'), match, a1, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
@@ -577,7 +577,7 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
           })
           // code
           .replace(/([^`])`{1}([^`]*)`{1}([^`])/g, (match, a1, a2, a3, ...args) => {
-            const valueRender = is('function', render) && render('code', addClassName('code'), addStyle('code'), match, a1, ...args);
+            const valueRender = is('function', render) ? render('code', addClassName('code'), addStyle('code'), match, a1, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
@@ -585,7 +585,7 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
           })
           // line break
           .replace(/\\/g, (match, ...args) => {
-            const valueRender = is('function', render) && render('br', addClassName('br'), addStyle('br'), match, ...args);
+            const valueRender = is('function', render) ? render('br', addClassName('br'), addStyle('br'), match, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
@@ -598,7 +598,7 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
       const listItem = (valueListItem_: string) => {
         let valueListItem = valueListItem_;
 
-        const valueRender = is('function', render) && render('li', addClassName('li'), addStyle('li'), valueListItem_);
+        const valueRender = is('function', render) ? render('li', addClassName('li'), addStyle('li'), valueListItem_) : undefined;
 
         if (valueRender !== undefined) return valueRender;
 
