@@ -2522,14 +2522,13 @@ Please sign in again.`}
       <Accordion primary='RichTextEditor'>
         <Accordion primary='RichTextEditor' open>
           <RichTextEditor
-
-            value={`
+            value={`<p>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lacinia elementum tincidunt. Morbi tristique nulla eu tellus posuere malesuada. Cras sed augue eget urna semper condimentum. In lobortis odio et quam lobortis ultricies. Duis nisi libero, pulvinar dignissim nibh quis, consectetur venenatis dui. Cras at tempus felis, id fringilla mi. Vestibulum faucibus vel libero et sagittis. Phasellus egestas consequat dolor a scelerisque. Duis at varius ipsum.
 
 Sed luctus quis felis sed dictum. Aenean hendrerit eros a dolor dictum, quis euismod erat fermentum. Curabitur vitae enim at turpis volutpat lobortis nec eu orci. Vestibulum placerat varius aliquam. Integer varius lorem pharetra aliquam aliquet. Donec non scelerisque leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris molestie diam et erat consequat efficitur. Proin ac sagittis dolor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
 
 Libero et sagittis. Phasellus egestas consequat dolor a scelerisque. Duis at varius ipsum.
-`}
+</p>`}
           />
         </Accordion>
       </Accordion>

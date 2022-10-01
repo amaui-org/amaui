@@ -150,18 +150,20 @@ const IconMaterialContentPasteRounded = React.forwardRef((props: any, ref) => {
 
 // to do
 
-// one action method for various use cases
-
 // updates
 
 // actions
+
+// onChange method for any onChange event, with valueDefault and value
+
+// update all toggle buttons selected
+// on click
+// + on current selection listen to selection window value y
 
 // to updates add
 // font family, with custom familes if user adds them
 
 // to actions add, save document, print
-
-// keyboard shortcuts same as in wysiwyg
 
 const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
@@ -210,6 +212,71 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
     ...other
   } = props;
 
+  const refs = {
+    value: React.useRef<HTMLElement>()
+  };
+
+  React.useEffect(() => {
+    // Add value as innerHTML
+    refs.value.current.innerHTML = value;
+  }, [value]);
+
+  const paste = async () => {
+    const value_ = await navigator.clipboard.read();
+
+    if (value_) {
+      let values: any = '';
+
+      for (const item of Array.from(value_)) {
+        const valueItem = await item.getType('text/html');
+
+        values += await valueItem.text();
+      }
+
+      window.document.execCommand('insertHTML', undefined, values);
+    }
+  };
+
+  const method = React.useCallback((command: string) => () => {
+    switch (command) {
+      // updates
+      case 'italic':
+        window.document.execCommand('italic');
+
+        break;
+
+      case 'underline':
+        window.document.execCommand('underline');
+
+        break;
+
+      case 'bold':
+        window.document.execCommand('bold');
+
+        break;
+
+      // actions
+      case 'copy':
+        window.document.execCommand('copy');
+
+        break;
+
+      case 'cut':
+        window.document.execCommand('cut');
+
+        break;
+
+      case 'paste':
+        if (window.document.queryCommandSupported('paste')) window.document.execCommand('paste');
+        else paste();
+
+        break;
+
+      default:
+        break;
+    }
+  }, []);
+
   const includes = (...args) => !is('array', exclude) || args.some(item => !exclude.includes(item));
 
   // italic, underline, bold
@@ -225,9 +292,10 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
     ...DividerProps_,
   };
+
   const TooltipProps = {
     position: 'bottom',
-    interaction: false,
+    interactive: false,
 
     ...TooltipProps_,
   };
@@ -358,6 +426,8 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                       {is('function', render) ? render('italic', ToggleButtonProps) : (
                         <ToggleButton
                           {...ToggleButtonProps}
+
+                          onClick={method('italic')}
                         >
                           <IconItalic {...IconProps} />
                         </ToggleButton>
@@ -372,6 +442,8 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                       {is('function', render) ? render('underline', ToggleButtonProps) : (
                         <ToggleButton
                           {...ToggleButtonProps}
+
+                          onClick={method('underline')}
                         >
                           <IconUnderline {...IconProps} />
                         </ToggleButton>
@@ -382,6 +454,8 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                   {includes('bold') && (
                     <WrapperToggleButton
                       label='Bold'
+
+                      onClick={method('bold')}
                     >
                       {is('function', render) ? render('bold', ToggleButtonProps) : (
                         <ToggleButton
@@ -446,6 +520,8 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                       {is('function', render) ? render('copy', ToggleButtonProps) : (
                         <ToggleButton
                           {...ToggleButtonProps}
+
+                          onClick={method('copy')}
                         >
                           <IconCopy {...IconProps} />
                         </ToggleButton>
@@ -460,6 +536,8 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                       {is('function', render) ? render('cut', ToggleButtonProps) : (
                         <ToggleButton
                           {...ToggleButtonProps}
+
+                          onClick={method('cut')}
                         >
                           <IconCut {...IconProps} />
                         </ToggleButton>
@@ -474,6 +552,8 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                       {is('function', render) ? render('paste', ToggleButtonProps) : (
                         <ToggleButton
                           {...ToggleButtonProps}
+
+                          onClick={method('paste')}
                         >
                           <IconPaste {...IconProps} />
                         </ToggleButton>
@@ -502,6 +582,8 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
       )}
 
       <Surface
+        ref={refs.value}
+
         color='default'
 
         className={classNames([
@@ -511,9 +593,9 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
           classes.value
         ])}
-      >
-        {value}
-      </Surface>
+
+        contentEditable
+      />
     </Line>
   );
 });
