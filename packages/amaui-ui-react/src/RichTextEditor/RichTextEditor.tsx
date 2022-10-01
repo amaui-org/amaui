@@ -501,7 +501,9 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
         </Line>
       )}
 
-      <div
+      <Surface
+        color='default'
+
         className={classNames([
           staticClassName('RichTextEditor', theme) && [
             'AmauiRichTextEditor-value'
@@ -511,7 +513,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
         ])}
       >
         {value}
-      </div>
+      </Surface>
     </Line>
   );
 });
