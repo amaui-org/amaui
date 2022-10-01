@@ -104,7 +104,7 @@ const useStyle = style(theme => ({
   },
 
   icon_open: {
-    transform: 'rotate(180deg)'
+    transform: 'rotate(-180deg)'
   },
 
   iconButton: {

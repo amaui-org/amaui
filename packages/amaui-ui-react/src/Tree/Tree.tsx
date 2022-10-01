@@ -67,7 +67,7 @@ const useStyle = style(theme => ({
   },
 
   indicator_open: {
-    transform: 'rotate(180deg)'
+    transform: 'rotate(-180deg)'
   },
 
   button: {

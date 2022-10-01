@@ -107,7 +107,7 @@ const useStyle = style(theme => ({
   },
 
   indicator_open: {
-    transform: 'rotate(180deg)'
+    transform: 'rotate(-180deg)'
   }
 }), { name: 'AmauiMenuDesktop' });
 
@@ -711,7 +711,7 @@ const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
 
           position='bottom'
 
-          alignment={theme.direction === 'ltr' ? 'start' : 'end'}
+          alignment='start'
 
           {...AppendProps}
         />
