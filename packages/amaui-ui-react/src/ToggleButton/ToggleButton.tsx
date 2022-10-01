@@ -7,7 +7,9 @@ import { staticClassName } from '../utils';
 import Chip from '../Chip';
 
 const useStyle = style(theme => ({
-  root: {},
+  root: {
+
+  },
 }), { name: 'AmauiToggleButton' });
 
 const ToggleButton = React.forwardRef((props_: any, ref: any) => {
@@ -18,6 +20,8 @@ const ToggleButton = React.forwardRef((props_: any, ref: any) => {
   const { classes } = useStyle(props);
 
   const {
+    icon = true,
+
     className,
 
     ...other
@@ -26,6 +30,8 @@ const ToggleButton = React.forwardRef((props_: any, ref: any) => {
   return (
     <Chip
       ref={ref}
+
+      icon={icon}
 
       className={classNames([
         staticClassName('ToggleButton', theme) && [
