@@ -20,6 +20,8 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
   const { classes } = useStyle(props);
 
   const {
+    value,
+
     Component = 'div',
 
     className,
@@ -46,7 +48,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
       {...other}
     >
-      {children}
+      {value}
     </Line>
   );
 });
