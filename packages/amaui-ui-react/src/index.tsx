@@ -352,3 +352,6 @@ export * from './MenuDesktop';
 
 export { default as Markdown } from './Markdown';
 export * from './Markdown';
+
+export { default as RichTextEditor } from './RichTextEditor';
+export * from './RichTextEditor';

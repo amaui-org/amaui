@@ -666,7 +666,10 @@ const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
 
                                 ...(is('function', menuTransitionClassName) ? menuTransitionClassName(status, openItem) : []),
 
-                                classes[openIndex <= 0 || openIndex < refs.previousOpenIndex.current ? 'menu' : 'menu_reverse']
+                                classes[theme.direction == 'ltr' ?
+                                  ((openIndex <= 0 || openIndex < refs.previousOpenIndex.current) ? 'menu' : 'menu_reverse') :
+                                  ((openIndex <= 0 || openIndex < refs.previousOpenIndex.current) ? 'menu_reverse' : 'menu')
+                                ]
                               ]),
 
                               style: {
@@ -708,7 +711,7 @@ const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
 
           position='bottom'
 
-          alignment='start'
+          alignment={theme.direction === 'ltr' ? 'start' : 'end'}
 
           {...AppendProps}
         />
