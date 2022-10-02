@@ -148,6 +148,118 @@ const IconMaterialContentPasteRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+const IconMaterialFormatAlignLeftRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='FormatAlignLeftRounded'
+      short_name='FormatAlignLeft'
+
+      {...props}
+    >
+      <path d="M4 17Q3.575 17 3.288 16.712Q3 16.425 3 16Q3 15.575 3.288 15.287Q3.575 15 4 15H14Q14.425 15 14.713 15.287Q15 15.575 15 16Q15 16.425 14.713 16.712Q14.425 17 14 17ZM4 9Q3.575 9 3.288 8.712Q3 8.425 3 8Q3 7.575 3.288 7.287Q3.575 7 4 7H14Q14.425 7 14.713 7.287Q15 7.575 15 8Q15 8.425 14.713 8.712Q14.425 9 14 9ZM4 13Q3.575 13 3.288 12.712Q3 12.425 3 12Q3 11.575 3.288 11.287Q3.575 11 4 11H20Q20.425 11 20.712 11.287Q21 11.575 21 12Q21 12.425 20.712 12.712Q20.425 13 20 13ZM4 21Q3.575 21 3.288 20.712Q3 20.425 3 20Q3 19.575 3.288 19.288Q3.575 19 4 19H20Q20.425 19 20.712 19.288Q21 19.575 21 20Q21 20.425 20.712 20.712Q20.425 21 20 21ZM4 5Q3.575 5 3.288 4.712Q3 4.425 3 4Q3 3.575 3.288 3.287Q3.575 3 4 3H20Q20.425 3 20.712 3.287Q21 3.575 21 4Q21 4.425 20.712 4.712Q20.425 5 20 5Z" />
+    </Icon>
+  );
+});
+
+const IconMaterialFormatAlignCenterRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='FormatAlignCenterRounded'
+      short_name='FormatAlignCenter'
+
+      {...props}
+    >
+      <path d="M4 21Q3.575 21 3.288 20.712Q3 20.425 3 20Q3 19.575 3.288 19.288Q3.575 19 4 19H20Q20.425 19 20.712 19.288Q21 19.575 21 20Q21 20.425 20.712 20.712Q20.425 21 20 21ZM8 17Q7.575 17 7.287 16.712Q7 16.425 7 16Q7 15.575 7.287 15.287Q7.575 15 8 15H16Q16.425 15 16.712 15.287Q17 15.575 17 16Q17 16.425 16.712 16.712Q16.425 17 16 17ZM4 13Q3.575 13 3.288 12.712Q3 12.425 3 12Q3 11.575 3.288 11.287Q3.575 11 4 11H20Q20.425 11 20.712 11.287Q21 11.575 21 12Q21 12.425 20.712 12.712Q20.425 13 20 13ZM8 9Q7.575 9 7.287 8.712Q7 8.425 7 8Q7 7.575 7.287 7.287Q7.575 7 8 7H16Q16.425 7 16.712 7.287Q17 7.575 17 8Q17 8.425 16.712 8.712Q16.425 9 16 9ZM4 5Q3.575 5 3.288 4.712Q3 4.425 3 4Q3 3.575 3.288 3.287Q3.575 3 4 3H20Q20.425 3 20.712 3.287Q21 3.575 21 4Q21 4.425 20.712 4.712Q20.425 5 20 5Z" />
+    </Icon>
+  );
+});
+
+const IconMaterialFormatAlignRightRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='FormatAlignRightRounded'
+      short_name='FormatAlignRight'
+
+      {...props}
+    >
+      <path d="M4 21Q3.575 21 3.288 20.712Q3 20.425 3 20Q3 19.575 3.288 19.288Q3.575 19 4 19H20Q20.425 19 20.712 19.288Q21 19.575 21 20Q21 20.425 20.712 20.712Q20.425 21 20 21ZM10 17Q9.575 17 9.288 16.712Q9 16.425 9 16Q9 15.575 9.288 15.287Q9.575 15 10 15H20Q20.425 15 20.712 15.287Q21 15.575 21 16Q21 16.425 20.712 16.712Q20.425 17 20 17ZM4 13Q3.575 13 3.288 12.712Q3 12.425 3 12Q3 11.575 3.288 11.287Q3.575 11 4 11H20Q20.425 11 20.712 11.287Q21 11.575 21 12Q21 12.425 20.712 12.712Q20.425 13 20 13ZM10 9Q9.575 9 9.288 8.712Q9 8.425 9 8Q9 7.575 9.288 7.287Q9.575 7 10 7H20Q20.425 7 20.712 7.287Q21 7.575 21 8Q21 8.425 20.712 8.712Q20.425 9 20 9ZM4 5Q3.575 5 3.288 4.712Q3 4.425 3 4Q3 3.575 3.288 3.287Q3.575 3 4 3H20Q20.425 3 20.712 3.287Q21 3.575 21 4Q21 4.425 20.712 4.712Q20.425 5 20 5Z" />
+    </Icon>
+  );
+});
+
+const IconMaterialFormatAlignJustifyRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='FormatAlignJustifyRounded'
+      short_name='FormatAlignJustify'
+
+      {...props}
+    >
+      <path d="M4 21Q3.575 21 3.288 20.712Q3 20.425 3 20Q3 19.575 3.288 19.288Q3.575 19 4 19H20Q20.425 19 20.712 19.288Q21 19.575 21 20Q21 20.425 20.712 20.712Q20.425 21 20 21ZM4 17Q3.575 17 3.288 16.712Q3 16.425 3 16Q3 15.575 3.288 15.287Q3.575 15 4 15H20Q20.425 15 20.712 15.287Q21 15.575 21 16Q21 16.425 20.712 16.712Q20.425 17 20 17ZM4 13Q3.575 13 3.288 12.712Q3 12.425 3 12Q3 11.575 3.288 11.287Q3.575 11 4 11H20Q20.425 11 20.712 11.287Q21 11.575 21 12Q21 12.425 20.712 12.712Q20.425 13 20 13ZM4 9Q3.575 9 3.288 8.712Q3 8.425 3 8Q3 7.575 3.288 7.287Q3.575 7 4 7H20Q20.425 7 20.712 7.287Q21 7.575 21 8Q21 8.425 20.712 8.712Q20.425 9 20 9ZM4 5Q3.575 5 3.288 4.712Q3 4.425 3 4Q3 3.575 3.288 3.287Q3.575 3 4 3H20Q20.425 3 20.712 3.287Q21 3.575 21 4Q21 4.425 20.712 4.712Q20.425 5 20 5Z" />
+    </Icon>
+  );
+});
+
+const IconMaterialStrikethroughSRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='StrikethroughSRounded'
+      short_name='StrikethroughS'
+
+      {...props}
+    >
+      <path d="M12.15 20Q10.525 20 9.225 19.188Q7.925 18.375 7.125 16.9Q6.9 16.475 7.075 16Q7.25 15.525 7.75 15.325Q8.175 15.125 8.613 15.3Q9.05 15.475 9.325 15.925Q9.775 16.675 10.512 17.138Q11.25 17.6 12.2 17.6Q13.25 17.6 14.1 17.1Q14.95 16.6 14.95 15.5Q14.95 15.05 14.775 14.675Q14.6 14.3 14.3 14H17.1Q17.225 14.35 17.288 14.712Q17.35 15.075 17.35 15.5Q17.35 17.65 15.812 18.825Q14.275 20 12.15 20ZM3 12Q2.575 12 2.288 11.712Q2 11.425 2 11Q2 10.575 2.288 10.287Q2.575 10 3 10H21Q21.425 10 21.712 10.287Q22 10.575 22 11Q22 11.425 21.712 11.712Q21.425 12 21 12ZM7.25 8Q7.25 8 7.25 8Q7.25 8 7.25 8Q7.3 6.275 8.613 5.062Q9.925 3.85 12.05 3.85Q13.4 3.85 14.475 4.387Q15.55 4.925 16.275 6.05Q16.55 6.475 16.375 6.95Q16.2 7.425 15.7 7.65Q15.325 7.825 14.888 7.688Q14.45 7.55 14.1 7.125Q13.775 6.75 13.275 6.5Q12.775 6.25 12.1 6.25Q11.075 6.25 10.4 6.713Q9.725 7.175 9.65 8Q9.65 8 9.65 8Q9.65 8 9.65 8Z" />
+    </Icon>
+  );
+});
+
+const IconMaterialUndoRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='UndoRounded'
+      short_name='Undo'
+
+      {...props}
+    >
+      <path d="M8 19Q7.575 19 7.287 18.712Q7 18.425 7 18Q7 17.575 7.287 17.288Q7.575 17 8 17H14.1Q15.675 17 16.837 16Q18 15 18 13.5Q18 12 16.837 11Q15.675 10 14.1 10H7.8L9.7 11.9Q9.975 12.175 9.975 12.6Q9.975 13.025 9.7 13.3Q9.425 13.575 9 13.575Q8.575 13.575 8.3 13.3L4.7 9.7Q4.55 9.55 4.487 9.375Q4.425 9.2 4.425 9Q4.425 8.8 4.487 8.625Q4.55 8.45 4.7 8.3L8.3 4.7Q8.575 4.425 9 4.425Q9.425 4.425 9.7 4.7Q9.975 4.975 9.975 5.4Q9.975 5.825 9.7 6.1L7.8 8H14.1Q16.525 8 18.263 9.575Q20 11.15 20 13.5Q20 15.85 18.263 17.425Q16.525 19 14.1 19Z" />
+    </Icon>
+  );
+});
+
+const IconMaterialRedoRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='RedoRounded'
+      short_name='Redo'
+
+      {...props}
+    >
+      <path d="M9.9 19Q7.475 19 5.738 17.425Q4 15.85 4 13.5Q4 11.15 5.738 9.575Q7.475 8 9.9 8H16.2L14.3 6.1Q14.025 5.825 14.025 5.4Q14.025 4.975 14.3 4.7Q14.575 4.425 15 4.425Q15.425 4.425 15.7 4.7L19.3 8.3Q19.45 8.45 19.513 8.625Q19.575 8.8 19.575 9Q19.575 9.2 19.513 9.375Q19.45 9.55 19.3 9.7L15.7 13.3Q15.425 13.575 15 13.575Q14.575 13.575 14.3 13.3Q14.025 13.025 14.025 12.6Q14.025 12.175 14.3 11.9L16.2 10H9.9Q8.325 10 7.163 11Q6 12 6 13.5Q6 15 7.163 16Q8.325 17 9.9 17H16Q16.425 17 16.712 17.288Q17 17.575 17 18Q17 18.425 16.712 18.712Q16.425 19 16 19Z" />
+    </Icon>
+  );
+});
+
 // to do
 
 // updates
@@ -186,13 +298,24 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
     updates = true,
     actions = true,
 
+    // Update
     IconItalic = IconMaterialFormatItalicRounded,
     IconUnderline = IconMaterialFormatUnderlinedRounded,
     IconBold = IconMaterialFormatBoldRounded,
+    IconStrikeLine = IconMaterialStrikethroughSRounded,
 
+    IconAlignLeft = IconMaterialFormatAlignLeftRounded,
+    IconAlignCenter = IconMaterialFormatAlignCenterRounded,
+    IconAlignRight = IconMaterialFormatAlignRightRounded,
+    IconAlignJustify = IconMaterialFormatAlignJustifyRounded,
+
+    // Action
     IconCopy = IconMaterialContentCopyRounded,
     IconCut = IconMaterialContentCutRounded,
     IconPaste = IconMaterialContentPasteRounded,
+
+    IconUndo = IconMaterialUndoRounded,
+    IconRedo = IconMaterialRedoRounded,
 
     ToolbarProps,
     ToolbarUpdatesProps,
@@ -255,6 +378,31 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
         break;
 
+      case 'strike-line':
+        window.document.execCommand('strikeThrough');
+
+        break;
+
+      case 'align-left':
+        window.document.execCommand('justifyLeft');
+
+        break;
+
+      case 'align-center':
+        window.document.execCommand('justifyCenter');
+
+        break;
+
+      case 'align-right':
+        window.document.execCommand('justifyRight');
+
+        break;
+
+      case 'align-justify':
+        window.document.execCommand('justifyFull');
+
+        break;
+
       // actions
       case 'copy':
         window.document.execCommand('copy');
@@ -269,6 +417,16 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
       case 'paste':
         if (window.document.queryCommandSupported('paste')) window.document.execCommand('paste');
         else paste();
+
+        break;
+
+      case 'undo':
+        window.document.execCommand('undo');
+
+        break;
+
+      case 'redo':
+        window.document.execCommand('redo');
 
         break;
 
@@ -415,7 +573,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                 classes.toolbar_updates
               ])}
             >
-              {includes('italic', 'underlined', 'bold') && (
+              {includes('italic', 'underlined', 'bold', 'strike-line') && (
                 <ToggleButtons
                   {...ToggleButtonsProps}
                 >
@@ -466,6 +624,92 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                       )}
                     </WrapperToggleButton>
                   )}
+
+                  {includes('strike-line') && (
+                    <WrapperToggleButton
+                      label='Strike Line'
+
+                      onClick={method('strike-line')}
+                    >
+                      {is('function', render) ? render('strike-line', ToggleButtonProps) : (
+                        <ToggleButton
+                          {...ToggleButtonProps}
+                        >
+                          <IconStrikeLine {...IconProps} />
+                        </ToggleButton>
+                      )}
+                    </WrapperToggleButton>
+                  )}
+                </ToggleButtons>
+              )}
+
+              {includes('align-left', 'align-center', 'align-right', 'align-justify') && (
+                <ToggleButtons
+                  {...ToggleButtonsProps}
+                >
+                  {includes('align-left') && (
+                    <WrapperToggleButton
+                      label='Align Left'
+                    >
+                      {is('function', render) ? render('align-left', ToggleButtonProps) : (
+                        <ToggleButton
+                          {...ToggleButtonProps}
+
+                          onClick={method('align-left')}
+                        >
+                          <IconAlignLeft {...IconProps} />
+                        </ToggleButton>
+                      )}
+                    </WrapperToggleButton>
+                  )}
+
+                  {includes('align-center') && (
+                    <WrapperToggleButton
+                      label='Align Center'
+                    >
+                      {is('function', render) ? render('align-center', ToggleButtonProps) : (
+                        <ToggleButton
+                          {...ToggleButtonProps}
+
+                          onClick={method('align-center')}
+                        >
+                          <IconAlignCenter {...IconProps} />
+                        </ToggleButton>
+                      )}
+                    </WrapperToggleButton>
+                  )}
+
+                  {includes('align-right') && (
+                    <WrapperToggleButton
+                      label='Align Right'
+                    >
+                      {is('function', render) ? render('align-right', ToggleButtonProps) : (
+                        <ToggleButton
+                          {...ToggleButtonProps}
+
+                          onClick={method('align-right')}
+                        >
+                          <IconAlignRight {...IconProps} />
+                        </ToggleButton>
+                      )}
+                    </WrapperToggleButton>
+                  )}
+
+                  {includes('align-justify') && (
+                    <WrapperToggleButton
+                      label='Align Justify'
+                    >
+                      {is('function', render) ? render('align-justify', ToggleButtonProps) : (
+                        <ToggleButton
+                          {...ToggleButtonProps}
+
+                          onClick={method('align-justify')}
+                        >
+                          <IconAlignJustify {...IconProps} />
+                        </ToggleButton>
+                      )}
+                    </WrapperToggleButton>
+                  )}
                 </ToggleButtons>
               )}
             </Line>
@@ -509,7 +753,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                 classes.toolbar_actions
               ])}
             >
-              {includes('italic', 'underlined', 'bold') && (
+              {includes('copy', 'cut', 'paste') && (
                 <ToggleButtons
                   {...ToggleButtonsProps}
                 >
@@ -556,6 +800,44 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                           onClick={method('paste')}
                         >
                           <IconPaste {...IconProps} />
+                        </ToggleButton>
+                      )}
+                    </WrapperToggleButton>
+                  )}
+                </ToggleButtons>
+              )}
+
+              {includes('undo', 'redo') && (
+                <ToggleButtons
+                  {...ToggleButtonsProps}
+                >
+                  {includes('undo') && (
+                    <WrapperToggleButton
+                      label='Undo'
+                    >
+                      {is('function', render) ? render('undo', ToggleButtonProps) : (
+                        <ToggleButton
+                          {...ToggleButtonProps}
+
+                          onClick={method('undo')}
+                        >
+                          <IconUndo {...IconProps} />
+                        </ToggleButton>
+                      )}
+                    </WrapperToggleButton>
+                  )}
+
+                  {includes('redo') && (
+                    <WrapperToggleButton
+                      label='Redo'
+
+                      onClick={method('redo')}
+                    >
+                      {is('function', render) ? render('redo', ToggleButtonProps) : (
+                        <ToggleButton
+                          {...ToggleButtonProps}
+                        >
+                          <IconRedo {...IconProps} />
                         </ToggleButton>
                       )}
                     </WrapperToggleButton>
