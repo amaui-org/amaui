@@ -753,97 +753,125 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                 classes.toolbar_actions
               ])}
             >
-              {includes('copy', 'cut', 'paste') && (
-                <ToggleButtons
-                  {...ToggleButtonsProps}
+              <Line
+                direction='row'
+
+                align='center'
+
+                justify='space-between'
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                <Line
+                  direction='row'
+
+                  align='center'
+
+                  justify='flex-start'
                 >
-                  {includes('copy') && (
-                    <WrapperToggleButton
-                      label='Copy'
+                  {includes('copy', 'cut', 'paste') && (
+                    <ToggleButtons
+                      {...ToggleButtonsProps}
                     >
-                      {is('function', render) ? render('copy', ToggleButtonProps) : (
-                        <ToggleButton
-                          {...ToggleButtonProps}
-
-                          onClick={method('copy')}
+                      {includes('copy') && (
+                        <WrapperToggleButton
+                          label='Copy'
                         >
-                          <IconCopy {...IconProps} />
-                        </ToggleButton>
+                          {is('function', render) ? render('copy', ToggleButtonProps) : (
+                            <ToggleButton
+                              {...ToggleButtonProps}
+
+                              onClick={method('copy')}
+                            >
+                              <IconCopy {...IconProps} />
+                            </ToggleButton>
+                          )}
+                        </WrapperToggleButton>
                       )}
-                    </WrapperToggleButton>
-                  )}
 
-                  {includes('cut') && (
-                    <WrapperToggleButton
-                      label='Cut'
-                    >
-                      {is('function', render) ? render('cut', ToggleButtonProps) : (
-                        <ToggleButton
-                          {...ToggleButtonProps}
-
-                          onClick={method('cut')}
+                      {includes('cut') && (
+                        <WrapperToggleButton
+                          label='Cut'
                         >
-                          <IconCut {...IconProps} />
-                        </ToggleButton>
+                          {is('function', render) ? render('cut', ToggleButtonProps) : (
+                            <ToggleButton
+                              {...ToggleButtonProps}
+
+                              onClick={method('cut')}
+                            >
+                              <IconCut {...IconProps} />
+                            </ToggleButton>
+                          )}
+                        </WrapperToggleButton>
                       )}
-                    </WrapperToggleButton>
-                  )}
 
-                  {includes('paste') && (
-                    <WrapperToggleButton
-                      label='Paste'
-                    >
-                      {is('function', render) ? render('paste', ToggleButtonProps) : (
-                        <ToggleButton
-                          {...ToggleButtonProps}
-
-                          onClick={method('paste')}
+                      {includes('paste') && (
+                        <WrapperToggleButton
+                          label='Paste'
                         >
-                          <IconPaste {...IconProps} />
-                        </ToggleButton>
-                      )}
-                    </WrapperToggleButton>
-                  )}
-                </ToggleButtons>
-              )}
+                          {is('function', render) ? render('paste', ToggleButtonProps) : (
+                            <ToggleButton
+                              {...ToggleButtonProps}
 
-              {includes('undo', 'redo') && (
-                <ToggleButtons
-                  {...ToggleButtonsProps}
+                              onClick={method('paste')}
+                            >
+                              <IconPaste {...IconProps} />
+                            </ToggleButton>
+                          )}
+                        </WrapperToggleButton>
+                      )}
+                    </ToggleButtons>
+                  )}
+                </Line>
+
+                <Line
+                  direction='row'
+
+                  align='center'
+
+                  justify='flex-start'
                 >
-                  {includes('undo') && (
-                    <WrapperToggleButton
-                      label='Undo'
+                  {includes('undo', 'redo') && (
+                    <ToggleButtons
+                      {...ToggleButtonsProps}
                     >
-                      {is('function', render) ? render('undo', ToggleButtonProps) : (
-                        <ToggleButton
-                          {...ToggleButtonProps}
-
-                          onClick={method('undo')}
+                      {includes('undo') && (
+                        <WrapperToggleButton
+                          label='Undo'
                         >
-                          <IconUndo {...IconProps} />
-                        </ToggleButton>
+                          {is('function', render) ? render('undo', ToggleButtonProps) : (
+                            <ToggleButton
+                              {...ToggleButtonProps}
+
+                              onClick={method('undo')}
+                            >
+                              <IconUndo {...IconProps} />
+                            </ToggleButton>
+                          )}
+                        </WrapperToggleButton>
                       )}
-                    </WrapperToggleButton>
-                  )}
 
-                  {includes('redo') && (
-                    <WrapperToggleButton
-                      label='Redo'
+                      {includes('redo') && (
+                        <WrapperToggleButton
+                          label='Redo'
 
-                      onClick={method('redo')}
-                    >
-                      {is('function', render) ? render('redo', ToggleButtonProps) : (
-                        <ToggleButton
-                          {...ToggleButtonProps}
+                          onClick={method('redo')}
                         >
-                          <IconRedo {...IconProps} />
-                        </ToggleButton>
+                          {is('function', render) ? render('redo', ToggleButtonProps) : (
+                            <ToggleButton
+                              {...ToggleButtonProps}
+                            >
+                              <IconRedo {...IconProps} />
+                            </ToggleButton>
+                          )}
+                        </WrapperToggleButton>
                       )}
-                    </WrapperToggleButton>
+                    </ToggleButtons>
                   )}
-                </ToggleButtons>
-              )}
+                </Line>
+              </Line>
             </Line>
           )}
 
