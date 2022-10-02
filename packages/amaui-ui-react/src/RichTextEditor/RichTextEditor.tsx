@@ -871,44 +871,6 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                 </ToggleButtons>
               )}
 
-              {includes('superscript', 'subscript') && (
-                <ToggleButtons
-                  {...ToggleButtonsProps}
-                >
-                  {includes('superscript') && (
-                    <WrapperToggleButton
-                      label='Superscript'
-
-                      onClick={method('superscript')}
-                    >
-                      {is('function', render) ? render('superscript', ToggleButtonProps, refs.value.current, method) : (
-                        <ToggleButton
-                          {...ToggleButtonProps}
-                        >
-                          <IconSuperscript {...IconProps} />
-                        </ToggleButton>
-                      )}
-                    </WrapperToggleButton>
-                  )}
-
-                  {includes('subscript') && (
-                    <WrapperToggleButton
-                      label='Subscript'
-
-                      onClick={method('subscript')}
-                    >
-                      {is('function', render) ? render('subscript', ToggleButtonProps, refs.value.current, method) : (
-                        <ToggleButton
-                          {...ToggleButtonProps}
-                        >
-                          <IconSubscript {...IconProps} />
-                        </ToggleButton>
-                      )}
-                    </WrapperToggleButton>
-                  )}
-                </ToggleButtons>
-              )}
-
               {includes('indent', 'outdent') && (
                 <ToggleButtons
                   {...ToggleButtonsProps}
@@ -940,6 +902,44 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                           {...ToggleButtonProps}
                         >
                           <IconOutdent {...IconProps} />
+                        </ToggleButton>
+                      )}
+                    </WrapperToggleButton>
+                  )}
+                </ToggleButtons>
+              )}
+
+              {includes('superscript', 'subscript') && (
+                <ToggleButtons
+                  {...ToggleButtonsProps}
+                >
+                  {includes('superscript') && (
+                    <WrapperToggleButton
+                      label='Superscript'
+
+                      onClick={method('superscript')}
+                    >
+                      {is('function', render) ? render('superscript', ToggleButtonProps, refs.value.current, method) : (
+                        <ToggleButton
+                          {...ToggleButtonProps}
+                        >
+                          <IconSuperscript {...IconProps} />
+                        </ToggleButton>
+                      )}
+                    </WrapperToggleButton>
+                  )}
+
+                  {includes('subscript') && (
+                    <WrapperToggleButton
+                      label='Subscript'
+
+                      onClick={method('subscript')}
+                    >
+                      {is('function', render) ? render('subscript', ToggleButtonProps, refs.value.current, method) : (
+                        <ToggleButton
+                          {...ToggleButtonProps}
+                        >
+                          <IconSubscript {...IconProps} />
                         </ToggleButton>
                       )}
                     </WrapperToggleButton>
