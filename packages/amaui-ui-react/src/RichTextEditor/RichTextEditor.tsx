@@ -260,6 +260,118 @@ const IconMaterialRedoRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+const IconMaterialFormatClearRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='FormatClearRounded'
+      short_name='FormatClear'
+
+      {...props}
+    >
+      <path d="M13.2 10.35 10.875 8.025 7.85 5H18.5Q19.125 5 19.562 5.438Q20 5.875 20 6.5Q20 7.125 19.562 7.562Q19.125 8 18.5 8H14.2ZM19.1 21.9 11.5 14.3 9.9 18.075Q9.725 18.5 9.338 18.75Q8.95 19 8.5 19Q7.7 19 7.25 18.325Q6.8 17.65 7.125 16.9L9.2 12L2.1 4.9Q1.825 4.625 1.825 4.2Q1.825 3.775 2.1 3.5Q2.375 3.225 2.8 3.225Q3.225 3.225 3.5 3.5L20.5 20.5Q20.775 20.775 20.775 21.2Q20.775 21.625 20.5 21.9Q20.225 22.175 19.8 22.175Q19.375 22.175 19.1 21.9Z" />
+    </Icon>
+  );
+});
+
+const IconMaterialSuperscriptRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='SuperscriptRounded'
+      short_name='Superscript'
+
+      {...props}
+    >
+      <path d="M20 9Q19.575 9 19.288 8.712Q19 8.425 19 8V7Q19 6.575 19.288 6.287Q19.575 6 20 6H22V5H19.5Q19.3 5 19.15 4.85Q19 4.7 19 4.5Q19 4.3 19.15 4.15Q19.3 4 19.5 4H22Q22.425 4 22.712 4.287Q23 4.575 23 5V6Q23 6.425 22.712 6.713Q22.425 7 22 7H20V8H22.5Q22.7 8 22.85 8.15Q23 8.3 23 8.5Q23 8.7 22.85 8.85Q22.7 9 22.5 9ZM7.925 20Q7.25 20 6.938 19.425Q6.625 18.85 6.975 18.275L10.5 12.725L7.3 7.725Q6.95 7.15 7.263 6.575Q7.575 6 8.225 6Q8.525 6 8.775 6.137Q9.025 6.275 9.175 6.525L11.95 11H12.05L14.8 6.525Q14.95 6.25 15.163 6.125Q15.375 6 15.75 6Q16.425 6 16.725 6.575Q17.025 7.15 16.675 7.725L13.475 12.725L17.025 18.25Q17.375 18.825 17.05 19.413Q16.725 20 16.075 20Q15.775 20 15.525 19.863Q15.275 19.725 15.125 19.475L12.05 14.575H11.95L8.875 19.475Q8.7 19.75 8.5 19.875Q8.3 20 7.925 20Z" />
+    </Icon>
+  );
+});
+
+const IconMaterialSubscriptRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='SubscriptRounded'
+      short_name='Subscript'
+
+      {...props}
+    >
+      <path d="M20 20Q19.575 20 19.288 19.712Q19 19.425 19 19V18Q19 17.575 19.288 17.288Q19.575 17 20 17H22V16H19.5Q19.3 16 19.15 15.85Q19 15.7 19 15.5Q19 15.3 19.15 15.15Q19.3 15 19.5 15H22Q22.425 15 22.712 15.287Q23 15.575 23 16V17Q23 17.425 22.712 17.712Q22.425 18 22 18H20V19H22.5Q22.7 19 22.85 19.15Q23 19.3 23 19.5Q23 19.7 22.85 19.85Q22.7 20 22.5 20ZM10.5 10.725 7.3 5.725Q6.95 5.15 7.263 4.575Q7.575 4 8.225 4Q8.525 4 8.775 4.137Q9.025 4.275 9.175 4.525L11.95 9H12.05L14.8 4.525Q14.95 4.25 15.2 4.125Q15.45 4 15.75 4Q16.425 4 16.725 4.575Q17.025 5.15 16.675 5.725L13.475 10.725L17.025 16.25Q17.375 16.825 17.05 17.413Q16.725 18 16.075 18Q15.775 18 15.525 17.863Q15.275 17.725 15.125 17.475L12.05 12.575H11.95L8.875 17.475Q8.7 17.75 8.463 17.875Q8.225 18 7.925 18Q7.25 18 6.938 17.425Q6.625 16.85 6.975 16.275Z" />
+    </Icon>
+  );
+});
+
+const IconMaterialFormatIndentIncreaseRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='FormatIndentIncreaseRounded'
+      short_name='FormatIndentIncrease'
+
+      {...props}
+    >
+      <path d="M4 21Q3.575 21 3.288 20.712Q3 20.425 3 20Q3 19.575 3.288 19.288Q3.575 19 4 19H20Q20.425 19 20.712 19.288Q21 19.575 21 20Q21 20.425 20.712 20.712Q20.425 21 20 21ZM3 14.8V9.2Q3 8.85 3.3 8.725Q3.6 8.6 3.85 8.85L6.65 11.65Q6.8 11.8 6.8 12Q6.8 12.2 6.65 12.35L3.85 15.15Q3.6 15.4 3.3 15.275Q3 15.15 3 14.8ZM12 17Q11.575 17 11.288 16.712Q11 16.425 11 16Q11 15.575 11.288 15.287Q11.575 15 12 15H20Q20.425 15 20.712 15.287Q21 15.575 21 16Q21 16.425 20.712 16.712Q20.425 17 20 17ZM4 5Q3.575 5 3.288 4.712Q3 4.425 3 4Q3 3.575 3.288 3.287Q3.575 3 4 3H20Q20.425 3 20.712 3.287Q21 3.575 21 4Q21 4.425 20.712 4.712Q20.425 5 20 5ZM12 9Q11.575 9 11.288 8.712Q11 8.425 11 8Q11 7.575 11.288 7.287Q11.575 7 12 7H20Q20.425 7 20.712 7.287Q21 7.575 21 8Q21 8.425 20.712 8.712Q20.425 9 20 9ZM12 13Q11.575 13 11.288 12.712Q11 12.425 11 12Q11 11.575 11.288 11.287Q11.575 11 12 11H20Q20.425 11 20.712 11.287Q21 11.575 21 12Q21 12.425 20.712 12.712Q20.425 13 20 13Z" />
+    </Icon>
+  );
+});
+
+const IconMaterialFormatIndentDecreaseRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='FormatIndentDecreaseRounded'
+      short_name='FormatIndentDecrease'
+
+      {...props}
+    >
+      <path d="M12 17Q11.575 17 11.288 16.712Q11 16.425 11 16Q11 15.575 11.288 15.287Q11.575 15 12 15H20Q20.425 15 20.712 15.287Q21 15.575 21 16Q21 16.425 20.712 16.712Q20.425 17 20 17ZM6.15 15.15 3.35 12.35Q3.2 12.2 3.2 12Q3.2 11.8 3.35 11.65L6.15 8.85Q6.4 8.6 6.7 8.725Q7 8.85 7 9.2V14.8Q7 15.15 6.7 15.275Q6.4 15.4 6.15 15.15ZM4 21Q3.575 21 3.288 20.712Q3 20.425 3 20Q3 19.575 3.288 19.288Q3.575 19 4 19H20Q20.425 19 20.712 19.288Q21 19.575 21 20Q21 20.425 20.712 20.712Q20.425 21 20 21ZM4 5Q3.575 5 3.288 4.712Q3 4.425 3 4Q3 3.575 3.288 3.287Q3.575 3 4 3H20Q20.425 3 20.712 3.287Q21 3.575 21 4Q21 4.425 20.712 4.712Q20.425 5 20 5ZM12 9Q11.575 9 11.288 8.712Q11 8.425 11 8Q11 7.575 11.288 7.287Q11.575 7 12 7H20Q20.425 7 20.712 7.287Q21 7.575 21 8Q21 8.425 20.712 8.712Q20.425 9 20 9ZM12 13Q11.575 13 11.288 12.712Q11 12.425 11 12Q11 11.575 11.288 11.287Q11.575 11 12 11H20Q20.425 11 20.712 11.287Q21 11.575 21 12Q21 12.425 20.712 12.712Q20.425 13 20 13Z" />
+    </Icon>
+  );
+});
+
+const IconMaterialFormatListNumberedRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='FormatListNumberedRounded'
+      short_name='FormatListNumbered'
+
+      {...props}
+    >
+      <path d="M3.5 20Q3.3 20 3.15 19.85Q3 19.7 3 19.5Q3 19.3 3.15 19.15Q3.3 19 3.5 19H5V18.5H4.5Q4.3 18.5 4.15 18.35Q4 18.2 4 18Q4 17.8 4.15 17.65Q4.3 17.5 4.5 17.5H5V17H3.5Q3.3 17 3.15 16.85Q3 16.7 3 16.5Q3 16.3 3.15 16.15Q3.3 16 3.5 16H5.5Q5.7 16 5.85 16.15Q6 16.3 6 16.5V19.5Q6 19.7 5.85 19.85Q5.7 20 5.5 20ZM4.5 8Q4.3 8 4.15 7.85Q4 7.7 4 7.5V5H3.5Q3.3 5 3.15 4.85Q3 4.7 3 4.5Q3 4.3 3.15 4.15Q3.3 4 3.5 4H4.5Q4.7 4 4.85 4.15Q5 4.3 5 4.5V7.5Q5 7.7 4.85 7.85Q4.7 8 4.5 8ZM3.5 14Q3.3 14 3.15 13.85Q3 13.7 3 13.5V13.275Q3 13.175 3.125 12.95L4.8 11H3.5Q3.3 11 3.15 10.85Q3 10.7 3 10.5Q3 10.3 3.15 10.15Q3.3 10 3.5 10H5.5Q5.7 10 5.85 10.15Q6 10.3 6 10.5V10.725Q6 10.825 5.875 11.05L4.2 13H5.5Q5.7 13 5.85 13.15Q6 13.3 6 13.5Q6 13.7 5.85 13.85Q5.7 14 5.5 14ZM9 19Q8.575 19 8.288 18.712Q8 18.425 8 18Q8 17.575 8.288 17.288Q8.575 17 9 17H20Q20.425 17 20.712 17.288Q21 17.575 21 18Q21 18.425 20.712 18.712Q20.425 19 20 19ZM9 13Q8.575 13 8.288 12.712Q8 12.425 8 12Q8 11.575 8.288 11.287Q8.575 11 9 11H20Q20.425 11 20.712 11.287Q21 11.575 21 12Q21 12.425 20.712 12.712Q20.425 13 20 13ZM9 7Q8.575 7 8.288 6.713Q8 6.425 8 6Q8 5.575 8.288 5.287Q8.575 5 9 5H20Q20.425 5 20.712 5.287Q21 5.575 21 6Q21 6.425 20.712 6.713Q20.425 7 20 7Z" />
+    </Icon>
+  );
+});
+
+const IconMaterialFormatListBulletedRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='FormatListBulletedRounded'
+      short_name='FormatListBulleted'
+
+      {...props}
+    >
+      <path d="M4.5 13.5Q3.875 13.5 3.438 13.062Q3 12.625 3 12Q3 11.375 3.438 10.938Q3.875 10.5 4.5 10.5Q5.125 10.5 5.562 10.938Q6 11.375 6 12Q6 12.625 5.562 13.062Q5.125 13.5 4.5 13.5ZM4.5 7.5Q3.875 7.5 3.438 7.062Q3 6.625 3 6Q3 5.375 3.438 4.938Q3.875 4.5 4.5 4.5Q5.125 4.5 5.562 4.938Q6 5.375 6 6Q6 6.625 5.562 7.062Q5.125 7.5 4.5 7.5ZM4.5 19.5Q3.875 19.5 3.438 19.062Q3 18.625 3 18Q3 17.375 3.438 16.938Q3.875 16.5 4.5 16.5Q5.125 16.5 5.562 16.938Q6 17.375 6 18Q6 18.625 5.562 19.062Q5.125 19.5 4.5 19.5ZM9 19Q8.575 19 8.288 18.712Q8 18.425 8 18Q8 17.575 8.288 17.288Q8.575 17 9 17H20Q20.425 17 20.712 17.288Q21 17.575 21 18Q21 18.425 20.712 18.712Q20.425 19 20 19ZM9 13Q8.575 13 8.288 12.712Q8 12.425 8 12Q8 11.575 8.288 11.287Q8.575 11 9 11H20Q20.425 11 20.712 11.287Q21 11.575 21 12Q21 12.425 20.712 12.712Q20.425 13 20 13ZM9 7Q8.575 7 8.288 6.713Q8 6.425 8 6Q8 5.575 8.288 5.287Q8.575 5 9 5H20Q20.425 5 20.712 5.287Q21 5.575 21 6Q21 6.425 20.712 6.713Q20.425 7 20 7Z" />
+    </Icon>
+  );
+});
+
 // to do
 
 // updates
@@ -309,6 +421,15 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
     IconAlignRight = IconMaterialFormatAlignRightRounded,
     IconAlignJustify = IconMaterialFormatAlignJustifyRounded,
 
+    IconListOrdered = IconMaterialFormatListNumberedRounded,
+    IconListUnordered = IconMaterialFormatListBulletedRounded,
+
+    IconIndent = IconMaterialFormatIndentIncreaseRounded,
+    IconOutdent = IconMaterialFormatIndentDecreaseRounded,
+
+    IconSuperscript = IconMaterialSuperscriptRounded,
+    IconSubscript = IconMaterialSubscriptRounded,
+
     // Action
     IconCopy = IconMaterialContentCopyRounded,
     IconCut = IconMaterialContentCutRounded,
@@ -316,6 +437,8 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
     IconUndo = IconMaterialUndoRounded,
     IconRedo = IconMaterialRedoRounded,
+
+    IconClear = IconMaterialFormatClearRounded,
 
     ToolbarProps,
     ToolbarUpdatesProps,
@@ -403,6 +526,36 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
         break;
 
+      case 'superscript':
+        window.document.execCommand('superscript');
+
+        break;
+
+      case 'subscript':
+        window.document.execCommand('subscript');
+
+        break;
+
+      case 'indent':
+        window.document.execCommand('indent');
+
+        break;
+
+      case 'outdent':
+        window.document.execCommand('outdent');
+
+        break;
+
+      case 'list-ordered':
+        window.document.execCommand('insertOrderedList');
+
+        break;
+
+      case 'list-unordered':
+        window.document.execCommand('insertUnorderedList');
+
+        break;
+
       // actions
       case 'copy':
         window.document.execCommand('copy');
@@ -430,6 +583,11 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
         break;
 
+      case 'clear':
+        window.document.execCommand('removeFormat');
+
+        break;
+
       default:
         break;
     }
@@ -439,11 +597,11 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
   // italic, underline, bold
   // updates toolbar
-  const updates_ = updates && (!is('array', exclude) || includes('italic', 'underline', 'bold'));
+  const updates_ = updates && (!is('array', exclude) || includes('italic', 'underline', 'bold', 'strike-line', 'align-left', 'align-center', 'align-right', 'align-justify', 'superscript', 'subscript', 'indent', 'outdent', 'list-ordered', 'list-unordered'));
 
   // copy, paste, cut
   // action toolbar
-  const actions_ = actions && (!is('array', exclude) || includes('copy', 'paste', 'cut'));
+  const actions_ = actions && (!is('array', exclude) || includes('copy', 'paste', 'cut', 'clear', 'undo', 'redo'));
 
   const DividerProps = {
     color: 'inherit',
@@ -581,7 +739,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                     <WrapperToggleButton
                       label='Italic'
                     >
-                      {is('function', render) ? render('italic', ToggleButtonProps) : (
+                      {is('function', render) ? render('italic', ToggleButtonProps, refs.value.current, method) : (
                         <ToggleButton
                           {...ToggleButtonProps}
 
@@ -597,7 +755,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                     <WrapperToggleButton
                       label='Underline'
                     >
-                      {is('function', render) ? render('underline', ToggleButtonProps) : (
+                      {is('function', render) ? render('underline', ToggleButtonProps, refs.value.current, method) : (
                         <ToggleButton
                           {...ToggleButtonProps}
 
@@ -615,7 +773,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
                       onClick={method('bold')}
                     >
-                      {is('function', render) ? render('bold', ToggleButtonProps) : (
+                      {is('function', render) ? render('bold', ToggleButtonProps, refs.value.current, method) : (
                         <ToggleButton
                           {...ToggleButtonProps}
                         >
@@ -631,7 +789,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
                       onClick={method('strike-line')}
                     >
-                      {is('function', render) ? render('strike-line', ToggleButtonProps) : (
+                      {is('function', render) ? render('strike-line', ToggleButtonProps, refs.value.current, method) : (
                         <ToggleButton
                           {...ToggleButtonProps}
                         >
@@ -651,7 +809,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                     <WrapperToggleButton
                       label='Align Left'
                     >
-                      {is('function', render) ? render('align-left', ToggleButtonProps) : (
+                      {is('function', render) ? render('align-left', ToggleButtonProps, refs.value.current, method) : (
                         <ToggleButton
                           {...ToggleButtonProps}
 
@@ -667,7 +825,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                     <WrapperToggleButton
                       label='Align Center'
                     >
-                      {is('function', render) ? render('align-center', ToggleButtonProps) : (
+                      {is('function', render) ? render('align-center', ToggleButtonProps, refs.value.current, method) : (
                         <ToggleButton
                           {...ToggleButtonProps}
 
@@ -683,7 +841,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                     <WrapperToggleButton
                       label='Align Right'
                     >
-                      {is('function', render) ? render('align-right', ToggleButtonProps) : (
+                      {is('function', render) ? render('align-right', ToggleButtonProps, refs.value.current, method) : (
                         <ToggleButton
                           {...ToggleButtonProps}
 
@@ -699,13 +857,127 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                     <WrapperToggleButton
                       label='Align Justify'
                     >
-                      {is('function', render) ? render('align-justify', ToggleButtonProps) : (
+                      {is('function', render) ? render('align-justify', ToggleButtonProps, refs.value.current, method) : (
                         <ToggleButton
                           {...ToggleButtonProps}
 
                           onClick={method('align-justify')}
                         >
                           <IconAlignJustify {...IconProps} />
+                        </ToggleButton>
+                      )}
+                    </WrapperToggleButton>
+                  )}
+                </ToggleButtons>
+              )}
+
+              {includes('superscript', 'subscript') && (
+                <ToggleButtons
+                  {...ToggleButtonsProps}
+                >
+                  {includes('superscript') && (
+                    <WrapperToggleButton
+                      label='Superscript'
+
+                      onClick={method('superscript')}
+                    >
+                      {is('function', render) ? render('superscript', ToggleButtonProps, refs.value.current, method) : (
+                        <ToggleButton
+                          {...ToggleButtonProps}
+                        >
+                          <IconSuperscript {...IconProps} />
+                        </ToggleButton>
+                      )}
+                    </WrapperToggleButton>
+                  )}
+
+                  {includes('subscript') && (
+                    <WrapperToggleButton
+                      label='Subscript'
+
+                      onClick={method('subscript')}
+                    >
+                      {is('function', render) ? render('subscript', ToggleButtonProps, refs.value.current, method) : (
+                        <ToggleButton
+                          {...ToggleButtonProps}
+                        >
+                          <IconSubscript {...IconProps} />
+                        </ToggleButton>
+                      )}
+                    </WrapperToggleButton>
+                  )}
+                </ToggleButtons>
+              )}
+
+              {includes('indent', 'outdent') && (
+                <ToggleButtons
+                  {...ToggleButtonsProps}
+                >
+                  {includes('indent') && (
+                    <WrapperToggleButton
+                      label='Indent'
+
+                      onClick={method('indent')}
+                    >
+                      {is('function', render) ? render('indent', ToggleButtonProps, refs.value.current, method) : (
+                        <ToggleButton
+                          {...ToggleButtonProps}
+                        >
+                          <IconIndent {...IconProps} />
+                        </ToggleButton>
+                      )}
+                    </WrapperToggleButton>
+                  )}
+
+                  {includes('outdent') && (
+                    <WrapperToggleButton
+                      label='Outdent'
+
+                      onClick={method('outdent')}
+                    >
+                      {is('function', render) ? render('outdent', ToggleButtonProps, refs.value.current, method) : (
+                        <ToggleButton
+                          {...ToggleButtonProps}
+                        >
+                          <IconOutdent {...IconProps} />
+                        </ToggleButton>
+                      )}
+                    </WrapperToggleButton>
+                  )}
+                </ToggleButtons>
+              )}
+
+              {includes('list-ordered', 'list-unordered') && (
+                <ToggleButtons
+                  {...ToggleButtonsProps}
+                >
+                  {includes('list-ordered') && (
+                    <WrapperToggleButton
+                      label='List Ordered'
+
+                      onClick={method('list-ordered')}
+                    >
+                      {is('function', render) ? render('list-ordered', ToggleButtonProps, refs.value.current, method) : (
+                        <ToggleButton
+                          {...ToggleButtonProps}
+                        >
+                          <IconListOrdered {...IconProps} />
+                        </ToggleButton>
+                      )}
+                    </WrapperToggleButton>
+                  )}
+
+                  {includes('list-unordered') && (
+                    <WrapperToggleButton
+                      label='List Unordered'
+
+                      onClick={method('list-unordered')}
+                    >
+                      {is('function', render) ? render('list-unordered', ToggleButtonProps, refs.value.current, method) : (
+                        <ToggleButton
+                          {...ToggleButtonProps}
+                        >
+                          <IconListUnordered {...IconProps} />
                         </ToggleButton>
                       )}
                     </WrapperToggleButton>
@@ -765,6 +1037,8 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                 }}
               >
                 <Line
+                  gap={2}
+
                   direction='row'
 
                   align='center'
@@ -779,7 +1053,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                         <WrapperToggleButton
                           label='Copy'
                         >
-                          {is('function', render) ? render('copy', ToggleButtonProps) : (
+                          {is('function', render) ? render('copy', ToggleButtonProps, refs.value.current, method) : (
                             <ToggleButton
                               {...ToggleButtonProps}
 
@@ -795,7 +1069,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                         <WrapperToggleButton
                           label='Cut'
                         >
-                          {is('function', render) ? render('cut', ToggleButtonProps) : (
+                          {is('function', render) ? render('cut', ToggleButtonProps, refs.value.current, method) : (
                             <ToggleButton
                               {...ToggleButtonProps}
 
@@ -811,7 +1085,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                         <WrapperToggleButton
                           label='Paste'
                         >
-                          {is('function', render) ? render('paste', ToggleButtonProps) : (
+                          {is('function', render) ? render('paste', ToggleButtonProps, refs.value.current, method) : (
                             <ToggleButton
                               {...ToggleButtonProps}
 
@@ -827,12 +1101,36 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                 </Line>
 
                 <Line
+                  gap={2}
+
                   direction='row'
 
                   align='center'
 
                   justify='flex-start'
                 >
+                  {includes('clear') && (
+                    <ToggleButtons
+                      {...ToggleButtonsProps}
+                    >
+                      {includes('clear') && (
+                        <WrapperToggleButton
+                          label='Clear'
+                        >
+                          {is('function', render) ? render('clear', ToggleButtonProps, refs.value.current, method) : (
+                            <ToggleButton
+                              {...ToggleButtonProps}
+
+                              onClick={method('clear')}
+                            >
+                              <IconClear {...IconProps} />
+                            </ToggleButton>
+                          )}
+                        </WrapperToggleButton>
+                      )}
+                    </ToggleButtons>
+                  )}
+
                   {includes('undo', 'redo') && (
                     <ToggleButtons
                       {...ToggleButtonsProps}
@@ -841,7 +1139,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                         <WrapperToggleButton
                           label='Undo'
                         >
-                          {is('function', render) ? render('undo', ToggleButtonProps) : (
+                          {is('function', render) ? render('undo', ToggleButtonProps, refs.value.current, method) : (
                             <ToggleButton
                               {...ToggleButtonProps}
 
@@ -859,7 +1157,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
                           onClick={method('redo')}
                         >
-                          {is('function', render) ? render('redo', ToggleButtonProps) : (
+                          {is('function', render) ? render('redo', ToggleButtonProps, refs.value.current, method) : (
                             <ToggleButton
                               {...ToggleButtonProps}
                             >
