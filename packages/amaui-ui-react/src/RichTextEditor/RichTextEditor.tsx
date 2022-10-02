@@ -68,13 +68,13 @@ const useStyle = style(theme => ({
 
   divider_middle: {
     '&.AmauiDivider-root': {
-      opacity: theme.palette.light ? 0.06 : 0.12
+      opacity: theme.palette.light ? 0.07 : 0.24
     }
   },
 
   divider_end: {
     '&.AmauiDivider-root': {
-      opacity: theme.palette.light ? 0.14 : 0.24
+      opacity: theme.palette.light ? 0.14 : 0.4
     }
   },
 
@@ -757,9 +757,6 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
   };
 
   const ListItemProps = {
-    tonal,
-    color,
-
     size: 'small',
 
     PrimaryProps: {
