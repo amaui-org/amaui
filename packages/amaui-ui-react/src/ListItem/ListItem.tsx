@@ -719,7 +719,11 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
 
                 {...PrimaryProps}
 
-                style={styles.primary}
+                style={{
+                  ...styles.primary,
+
+                  ...PrimaryProps.style
+                }}
               >
                 {primary}
               </Type>
@@ -729,8 +733,6 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
           {secondary !== undefined && (
             is('simple', secondary) ? (
               <Type
-                {...SecondaryProps}
-
                 version='b2'
 
                 className={classNames([
@@ -744,7 +746,13 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
                   SecondaryProps?.className
                 ])}
 
-                style={styles.secondary}
+                {...SecondaryProps}
+
+                style={{
+                  ...styles.secondary,
+
+                  ...SecondaryProps.style
+                }}
               >
                 {secondary}
               </Type>
@@ -754,8 +762,6 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
           {tertiary !== undefined && (
             is('simple', tertiary) ? (
               <Type
-                {...TertiaryProps}
-
                 version='b2'
 
                 className={classNames([
@@ -769,7 +775,13 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
                   TertiaryProps?.className
                 ])}
 
-                style={styles.tertiary}
+                {...TertiaryProps}
+
+                style={{
+                  ...styles.tertiary,
+
+                  ...TertiaryProps.style
+                }}
               >
                 {tertiary}
               </Type>

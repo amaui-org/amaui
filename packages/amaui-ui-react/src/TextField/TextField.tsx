@@ -740,9 +740,13 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
 
   const Wrapper = footer ? WrapperComponent : React.Fragment;
 
-  const WrapperProps = {};
+  let ComponentProps: any = {};
+
+  let WrapperProps: any = {};
 
   if (footer) {
+    WrapperProps.ref = ref;
+
     WrapperProps['className'] = classNames([
       staticClassName('TextField', theme) && [
         'AmauiTextField-wrapper',
@@ -750,10 +754,34 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
         disabled && 'AmauiTextField-disabled'
       ],
 
+      className,
       classes.wrapper,
       fullWidth && classes.fullWidth,
       disabled && classes.disabled
     ]);
+
+    WrapperProps.style = {
+      ...style,
+
+      ...styles.root
+    };
+
+    WrapperProps = {
+      ...WrapperProps,
+
+      ...other
+    };
+  }
+  else {
+    ComponentProps.ref = ref;
+
+    ComponentProps.className = className;
+
+    ComponentProps.style = {
+      ...style,
+
+      ...styles.root
+    };
   }
 
   let InputComponent = 'input';
@@ -794,6 +822,8 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
         onTouchStart={onMouseEnter}
 
         onTouchEnd={onMouseLeave}
+
+        {...ComponentProps}
 
         className={classNames([
           staticClassName('TextField', theme) && [
@@ -837,21 +867,13 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
             disabled && 'AmauiTextField-disabled'
           ],
 
-          className,
+          ComponentProps.className,
           classes.root,
           classes[`color_${color}`],
           fullWidth && !footer && classes.fullWidth,
           error && (hover ? classes.error_hover_color : classes.error_color),
           !footer && disabled && classes.disabled
         ])}
-
-        style={{
-          ...style,
-
-          ...styles.root
-        }}
-
-        {...other}
       >
         {['filled'].includes(version) && (
           <span

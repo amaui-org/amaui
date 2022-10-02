@@ -393,6 +393,10 @@ const Select = React.forwardRef((props_: any, ref: any) => {
 
     ...(!readOnly ? [
       <IconButton
+        size='small'
+
+        fontSize={24}
+
         onClick={onClickArrowDown}
       >
         <IconMaterialArrowDropDownRounded
@@ -404,8 +408,6 @@ const Select = React.forwardRef((props_: any, ref: any) => {
       </IconButton>
     ] : [])
   ];
-
-  if (mouseDown) refs.input.current.focus();
 
   return (
     <TextField

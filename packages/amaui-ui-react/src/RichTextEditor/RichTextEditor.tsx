@@ -4,11 +4,13 @@ import { is } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Icon from '../Icon';
+import Select from '../Select';
 import Tooltip from '../Tooltip';
 import ToggleButtons from '../ToggleButtons';
 import ToggleButton from '../ToggleButton';
 import Surface from '../Surface';
 import Divider from '../Divider';
+import ListItem from '../ListItem';
 import Line from '../Line';
 
 import { staticClassName } from '../utils';
@@ -49,7 +51,16 @@ const useStyle = style(theme => ({
     '&.AmauiDivider-root': {
       opacity: theme.palette.light ? 0.14 : 0.24
     }
-  }
+  },
+
+  select: {
+    maxWidth: '140px',
+
+    '& .AmauiTextField-inputWrapper': {
+      height: '40px',
+      paddingBlock: '11px'
+    }
+  },
 }), { name: 'AmauiRichTextEditor' });
 
 const IconMaterialFormatItalicRounded = React.forwardRef((props: any, ref) => {
@@ -441,6 +452,16 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
     updates = true,
     actions = true,
 
+    fontFamilies = [
+      { label: 'Arial', value: `Arial, sans-serif` },
+      { label: 'Verdana', value: `Verdana, sans-serif` },
+      { label: 'Helvetica', value: `Helvetica, sans-serif` },
+      { label: 'Georgia', value: `Georgia, sans-serif` },
+      { label: 'Roboto', value: `Roboto, sans-serif` }
+    ],
+
+    addFontFamilies = [],
+
     // Update
     IconItalic = IconMaterialFormatItalicRounded,
     IconUnderline = IconMaterialFormatUnderlinedRounded,
@@ -479,7 +500,9 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
     ToggleButtonProps: ToggleButtonProps_,
     ToggleButtonsProps: ToggleButtonsProps_,
     DividerProps: DividerProps_,
-    TooltipProps_: TooltipProps_,
+    SelectProps: SelectProps_,
+    ListItemProps: ListItemProps_,
+    TooltipProps: TooltipProps_,
     IconProps: IconProps_,
 
     Component = 'div',
@@ -492,7 +515,8 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
   } = props;
 
   const refs = {
-    value: React.useRef<HTMLElement>()
+    value: React.useRef<HTMLElement>(),
+    range: React.useRef<any>()
   };
 
   React.useEffect(() => {
@@ -516,7 +540,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
     }
   };
 
-  const method = React.useCallback((command: string) => () => {
+  const method = React.useCallback((command: string) => (argument: any) => {
     switch (command) {
       // updates
       case 'italic':
@@ -594,6 +618,29 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
         break;
 
+      case 'version':
+        window.document.execCommand('formatBlock', undefined, argument);
+
+        break;
+
+      case 'family':
+        window.document.execCommand('styleWithCSS', true);
+
+        window.document.execCommand('fontName', undefined, argument);
+
+        window.document.execCommand('styleWithCSS', false);
+
+        break;
+
+      case 'size':
+        window.document.execCommand('styleWithCSS', true);
+
+        window.document.execCommand('fontName', undefined, argument);
+
+        window.document.execCommand('styleWithCSS', false);
+
+        break;
+
       // actions
       case 'copy':
         window.document.execCommand('copy');
@@ -635,7 +682,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
   // italic, underline, bold
   // updates toolbar
-  const updates_ = updates && (!is('array', exclude) || includes('italic', 'underline', 'bold', 'strike-line', 'align-left', 'align-center', 'align-right', 'align-justify', 'superscript', 'subscript', 'indent', 'outdent', 'list-ordered', 'list-unordered', 'horizontal-rule'));
+  const updates_ = updates && (!is('array', exclude) || includes('family', 'version', 'size', 'color', 'background', 'italic', 'underline', 'bold', 'strike-line', 'align-left', 'align-center', 'align-right', 'align-justify', 'superscript', 'subscript', 'indent', 'outdent', 'list-ordered', 'list-unordered', 'horizontal-rule'));
 
   // copy, paste, cut
   // action toolbar
@@ -669,6 +716,36 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
     ...ToggleButtonProps_,
   };
 
+  const SelectProps = {
+    tonal,
+    color,
+
+    version: 'outlined',
+
+    size: 'small',
+
+    MenuProps: {
+      portal: true
+    },
+
+    ...SelectProps_
+  };
+
+  const ListItemProps = {
+    tonal,
+    color,
+
+    size: 'small',
+
+    PrimaryProps: {
+      style: {
+        fontFamily: 'inherit'
+      }
+    },
+
+    ...ListItemProps_
+  };
+
   const IconProps = {
     size: 'small',
 
@@ -698,6 +775,37 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
       </Tooltip>
     );
   }, []);
+
+  const onMouseDown = React.useCallback(() => {
+    const selection = window.getSelection();
+
+    refs.range.current = selection.getRangeAt(0);
+  }, []);
+
+  const onMouseUp = React.useCallback(() => {
+    if (refs.range.current) {
+      const selection = window.getSelection();
+
+      selection.removeAllRanges();
+      selection.addRange(refs.range.current);
+    }
+  }, []);
+
+  const font_families = [
+    ...fontFamilies,
+
+    ...addFontFamilies
+  ];
+
+  const font_sizes = [
+    { label: '11', value: 1 },
+    { label: '14', value: 2 },
+    { label: '16', value: 3 },
+    { label: '18', value: 4 },
+    { label: '24', value: 5 },
+    { label: '32', value: 6 },
+    { label: '48', value: 7 },
+  ];
 
   return (
     <Line
@@ -769,6 +877,88 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                 classes.toolbar_updates
               ])}
             >
+              {includes('family') && (
+                <Select
+                  label='Font Family'
+
+                  valueDefault={font_families.find(item => item.label.includes('Roboto')).value}
+
+                  onChange={(valueNew: string) => method('family')(valueNew)}
+
+                  onMouseUp={onMouseUp}
+
+                  onMouseDown={onMouseDown}
+
+                  {...SelectProps}
+
+                  className={classNames([
+                    staticClassName('RichTextEditor', theme) && [
+                      'AmauiRichTextEditor-select'
+                    ],
+
+                    SelectProps?.className,
+                    classes.select
+                  ])}
+                >
+                  {font_families.map(item => (
+                    <ListItem
+                      key={item.value}
+
+                      primary={item.label}
+
+                      value={item.value}
+
+                      button
+
+                      style={{
+                        fontFamily: item.value
+                      }}
+
+                      {...ListItemProps}
+                    />
+                  ))}
+                </Select>
+              )}
+
+              {includes('size') && (
+                <Select
+                  label='Font Size'
+
+                  valueDefault={font_sizes.find(item => item.label.includes('16')).value}
+
+                  onChange={(valueNew: string) => method('size')(valueNew)}
+
+                  onMouseUp={onMouseUp}
+
+                  onMouseDown={onMouseDown}
+
+                  {...SelectProps}
+
+                  className={classNames([
+                    staticClassName('RichTextEditor', theme) && [
+                      'AmauiRichTextEditor-select'
+                    ],
+
+                    SelectProps?.className,
+                    classes.select
+                  ])}
+                >
+                  {font_families.map(item => (
+                    <ListItem
+                      key={item.value}
+
+                      primary={item.label}
+
+                      value={item.value}
+
+                      button
+
+                      {...ListItemProps}
+                    />
+                  ))}
+                </Select>
+              )}
+
               {includes('italic', 'underlined', 'bold', 'strike-line') && (
                 <ToggleButtons
                   {...ToggleButtonsProps}

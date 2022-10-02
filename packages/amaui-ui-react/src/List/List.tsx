@@ -54,7 +54,6 @@ const useStyle = style(theme => ({
 
   menu: {
     width: 'auto',
-    minWidth: '112px',
     maxWidth: '280px'
   },
 
