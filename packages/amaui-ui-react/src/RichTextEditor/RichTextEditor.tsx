@@ -1,8 +1,9 @@
 import React from 'react';
 
 import { is } from '@amaui/utils';
-import { classNames, style, useAmauiTheme } from '@amaui/style-react';
+import { classNames, colors, style, useAmauiTheme } from '@amaui/style-react';
 
+import Fade from '../Fade';
 import Type from '../Type';
 import Icon from '../Icon';
 import Append from '../Append';
@@ -96,9 +97,16 @@ const useStyle = style(theme => ({
   },
 
   palette: {
-    padding: '8px',
+    padding: '12px',
     borderRadius: '8px',
-    boxShadow: theme.shadows.values.default[4]
+    boxShadow: theme.shadows.values.default[2]
+  },
+
+  paletteItem: {
+    width: '15px',
+    height: '15px',
+    cursor: 'pointer',
+    boxShadow: theme.shadows.values.default[1],
   }
 }), { name: 'AmauiRichTextEditor' });
 
@@ -715,6 +723,24 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
         break;
 
+      case 'font-color':
+        window.document.execCommand('styleWithCSS', true);
+
+        window.document.execCommand('foreColor', undefined, argument);
+
+        window.document.execCommand('styleWithCSS', false);
+
+        break;
+
+      case 'font-background':
+        window.document.execCommand('styleWithCSS', true);
+
+        window.document.execCommand('backColor', undefined, argument);
+
+        window.document.execCommand('styleWithCSS', false);
+
+        break;
+
       // actions
       case 'copy':
         window.document.execCommand('copy');
@@ -870,11 +896,21 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
       <Append
         open={open}
 
-        element={element}
+        element={(
+          <Fade
+            in={open}
+          >
+            {React.cloneElement(element)}
+          </Fade>
+        )}
 
         anchorElement={anchorElement}
 
         portal
+
+        alignment='center'
+
+        position='bottom'
 
         {...AppendProps}
       >
@@ -884,45 +920,6 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
           ...children.props
         })}
       </Append>
-    );
-  }, []);
-
-  const Palette = React.useCallback((props: any) => {
-    const {
-      onUpdate,
-      onClose,
-
-      ...other
-    } = props;
-
-    return (
-      <Line
-        gap={1}
-
-        direction='column'
-
-        tonal={tonal}
-
-        color={color}
-
-        Component={Surface}
-
-        className={classNames([
-          staticClassName('RichTextEditor', theme) && [
-            'AmauiRichTextEditor-palette'
-          ],
-
-          classes.palette
-        ])}
-
-        {...other}
-      >
-        {/* Colors */}
-
-
-        {/* Input color value */}
-
-      </Line>
     );
   }, []);
 
@@ -940,6 +937,137 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
       selection.addRange(refs.range.current);
     }
   }, []);
+
+  const PaletteItem = React.useCallback((props: any) => {
+    const {
+      color,
+
+      ...other
+    } = props;
+
+    return (
+      <span
+        className={classNames([
+          staticClassName('RichTextEditor', theme) && [
+            'AmauiRichTextEditor-palette-item'
+          ],
+
+          classes.paletteItem
+        ])}
+
+        style={{
+          background: color
+        }}
+
+        {...other}
+      />
+    );
+  }, []);
+
+  const Palette = React.useCallback(React.forwardRef((props: any, ref: any) => {
+    const {
+      onUpdate,
+      onClose,
+
+      ...other
+    } = props;
+
+    return (
+      <Line
+        ref={ref}
+
+        gap={1}
+
+        direction='column'
+
+        tonal={tonal}
+
+        color={color}
+
+        onMouseUp={onMouseUp}
+
+        onMouseDown={onMouseDown}
+
+        Component={Surface}
+
+        className={classNames([
+          staticClassName('RichTextEditor', theme) && [
+            'AmauiRichTextEditor-palette'
+          ],
+
+          classes.palette
+        ])}
+
+        {...other}
+      >
+        {/* Colors */}
+        <Line
+          gap={0.5}
+        >
+          <Line
+            gap={0.5}
+
+            direction='row'
+
+            style={{
+              width: '100%'
+            }}
+          >
+            <PaletteItem
+              color='#000000'
+
+              onClick={() => {
+                onUpdate('#000000');
+
+                onClose();
+              }}
+            />
+
+            <PaletteItem
+              color='#ffffff'
+
+              onClick={() => {
+                onUpdate('#ffffff');
+
+                onClose();
+              }}
+            />
+          </Line>
+
+          {Object.keys(colors).filter(item => !['black', 'white'].includes(item)).map((item: string, index: number) => (
+            <Line
+              key={index}
+
+              gap={0.5}
+
+              direction='row'
+
+              style={{
+                width: '100%'
+              }}
+            >
+              {Object.keys(colors[item]).map((item_: string, index_: number) => (
+                <PaletteItem
+                  key={index_}
+
+                  color={colors[item][item_]}
+
+                  onClick={() => {
+                    onUpdate(colors[item][item_]);
+
+                    onClose();
+                  }}
+                />
+              ))}
+            </Line>
+          ))}
+        </Line>
+
+        {/* Input color value */}
+
+      </Line>
+    );
+  }), []);
 
   const font_families = [
     ...fontFamilies,
