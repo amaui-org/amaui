@@ -1052,7 +1052,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
         tonal={tonal}
 
-        color={color}
+        color='themed'
 
         Component={Surface}
 
