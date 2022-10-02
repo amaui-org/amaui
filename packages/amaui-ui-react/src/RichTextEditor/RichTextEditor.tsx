@@ -372,20 +372,51 @@ const IconMaterialFormatListBulletedRounded = React.forwardRef((props: any, ref)
   );
 });
 
+const IconMaterialHorizontalRuleRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='HorizontalRuleRounded'
+      short_name='HorizontalRule'
+
+      {...props}
+    >
+      <path d="M5 13Q4.575 13 4.287 12.712Q4 12.425 4 12Q4 11.575 4.287 11.287Q4.575 11 5 11H19Q19.425 11 19.712 11.287Q20 11.575 20 12Q20 12.425 19.712 12.712Q19.425 13 19 13Z" />
+    </Icon>
+  );
+});
+
 // to do
 
-// updates
+// font version
 
-// actions
+// font family (font families prop, list of font families with values)
 
-// onChange method for any onChange event, with valueDefault and value
+// font size
+
+// font color
+
+// font background
+
+// insert image
+
+// insert video
+
+// insert youtube video
+
+// insert code (current selection value, insertHTML <pre><code> with inline style)
+
+// Optional, selection menu, with specific options within it, with some custom default values
+
+// any other update, action?
 
 // update all toggle buttons selected
 // on click
 // + on current selection listen to selection window value y
 
-// to updates add
-// font family, with custom familes if user adds them
+// onChange method for any onChange event, with valueDefault and value
 
 // to actions add, save document, print
 
@@ -421,14 +452,16 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
     IconAlignRight = IconMaterialFormatAlignRightRounded,
     IconAlignJustify = IconMaterialFormatAlignJustifyRounded,
 
-    IconListOrdered = IconMaterialFormatListNumberedRounded,
-    IconListUnordered = IconMaterialFormatListBulletedRounded,
-
     IconIndent = IconMaterialFormatIndentIncreaseRounded,
     IconOutdent = IconMaterialFormatIndentDecreaseRounded,
 
     IconSuperscript = IconMaterialSuperscriptRounded,
     IconSubscript = IconMaterialSubscriptRounded,
+
+    IconListOrdered = IconMaterialFormatListNumberedRounded,
+    IconListUnordered = IconMaterialFormatListBulletedRounded,
+
+    IconHorizontalRule = IconMaterialHorizontalRuleRounded,
 
     // Action
     IconCopy = IconMaterialContentCopyRounded,
@@ -556,6 +589,11 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
         break;
 
+      case 'horizontal-rule':
+        window.document.execCommand('insertHorizontalRule');
+
+        break;
+
       // actions
       case 'copy':
         window.document.execCommand('copy');
@@ -597,7 +635,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
   // italic, underline, bold
   // updates toolbar
-  const updates_ = updates && (!is('array', exclude) || includes('italic', 'underline', 'bold', 'strike-line', 'align-left', 'align-center', 'align-right', 'align-justify', 'superscript', 'subscript', 'indent', 'outdent', 'list-ordered', 'list-unordered'));
+  const updates_ = updates && (!is('array', exclude) || includes('italic', 'underline', 'bold', 'strike-line', 'align-left', 'align-center', 'align-right', 'align-justify', 'superscript', 'subscript', 'indent', 'outdent', 'list-ordered', 'list-unordered', 'horizontal-rule'));
 
   // copy, paste, cut
   // action toolbar
@@ -978,6 +1016,28 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                           {...ToggleButtonProps}
                         >
                           <IconListUnordered {...IconProps} />
+                        </ToggleButton>
+                      )}
+                    </WrapperToggleButton>
+                  )}
+                </ToggleButtons>
+              )}
+
+              {includes('horizontal-rule') && (
+                <ToggleButtons
+                  {...ToggleButtonsProps}
+                >
+                  {includes('horizontal-rule') && (
+                    <WrapperToggleButton
+                      label='Insert Horizontal Rule'
+
+                      onClick={method('horizontal-rule')}
+                    >
+                      {is('function', render) ? render('horizontal-rule', ToggleButtonProps, refs.value.current, method) : (
+                        <ToggleButton
+                          {...ToggleButtonProps}
+                        >
+                          <IconHorizontalRule {...IconProps} />
                         </ToggleButton>
                       )}
                     </WrapperToggleButton>
