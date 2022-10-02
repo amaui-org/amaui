@@ -21,7 +21,6 @@ const overflow = {
 
 const useStyle = style(theme => ({
   root: {
-    width: '100%',
     flex: 'unset',
 
     '& .AmauiTextField-input': {

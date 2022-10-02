@@ -27,8 +27,7 @@ const useStyle = style(theme => ({
   wrapper: {
     position: 'relative',
     display: 'inline-flex',
-    flexDirection: 'column',
-    width: '100%'
+    flexDirection: 'column'
   },
 
   root: {

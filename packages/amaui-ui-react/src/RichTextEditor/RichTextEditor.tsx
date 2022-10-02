@@ -54,8 +54,6 @@ const useStyle = style(theme => ({
   },
 
   select: {
-    maxWidth: '140px',
-
     '& .AmauiTextField-inputWrapper': {
       height: '40px',
       paddingBlock: '11px'
@@ -877,86 +875,102 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                 classes.toolbar_updates
               ])}
             >
-              {includes('family') && (
-                <Select
-                  label='Font Family'
+              {includes('family', 'size') && (
+                <Line
+                  gap={1}
 
-                  valueDefault={font_families.find(item => item.label.includes('Roboto')).value}
+                  direction='row'
 
-                  onChange={(valueNew: string) => method('family')(valueNew)}
+                  align='center'
 
-                  onMouseUp={onMouseUp}
-
-                  onMouseDown={onMouseDown}
-
-                  {...SelectProps}
-
-                  className={classNames([
-                    staticClassName('RichTextEditor', theme) && [
-                      'AmauiRichTextEditor-select'
-                    ],
-
-                    SelectProps?.className,
-                    classes.select
-                  ])}
+                  justify='flex-start'
                 >
-                  {font_families.map(item => (
-                    <ListItem
-                      key={item.value}
+                  {includes('family') && (
+                    <Select
+                      label='Font Family'
 
-                      primary={item.label}
+                      valueDefault={font_families.find(item => item.label.includes('Roboto')).value}
 
-                      value={item.value}
+                      onChange={(valueNew: string) => method('family')(valueNew)}
 
-                      button
+                      onMouseUp={onMouseUp}
+
+                      onMouseDown={onMouseDown}
+
+                      {...SelectProps}
+
+                      className={classNames([
+                        staticClassName('RichTextEditor', theme) && [
+                          'AmauiRichTextEditor-select'
+                        ],
+
+                        SelectProps?.className,
+                        classes.select
+                      ])}
 
                       style={{
-                        fontFamily: item.value
+                        minWidth: '140px'
                       }}
+                    >
+                      {font_families.map(item => (
+                        <ListItem
+                          key={item.value}
 
-                      {...ListItemProps}
-                    />
-                  ))}
-                </Select>
-              )}
+                          primary={item.label}
 
-              {includes('size') && (
-                <Select
-                  label='Font Size'
+                          value={item.value}
 
-                  valueDefault={font_sizes.find(item => item.label.includes('16')).value}
+                          button
 
-                  onChange={(valueNew: string) => method('size')(valueNew)}
+                          style={{
+                            fontFamily: item.value
+                          }}
 
-                  onMouseUp={onMouseUp}
+                          {...ListItemProps}
+                        />
+                      ))}
+                    </Select>
+                  )}
 
-                  onMouseDown={onMouseDown}
+                  {includes('size') && (
+                    <Select
+                      label='Font Size'
 
-                  {...SelectProps}
+                      valueDefault={font_sizes.find(item => item.label.includes('16')).value}
 
-                  className={classNames([
-                    staticClassName('RichTextEditor', theme) && [
-                      'AmauiRichTextEditor-select'
-                    ],
+                      onChange={(valueNew: string) => method('size')(+valueNew)}
 
-                    SelectProps?.className,
-                    classes.select
-                  ])}
-                >
-                  {font_families.map(item => (
-                    <ListItem
-                      key={item.value}
+                      onMouseUp={onMouseUp}
 
-                      primary={item.label}
+                      onMouseDown={onMouseDown}
 
-                      value={item.value}
+                      {...SelectProps}
 
-                      button
+                      className={classNames([
+                        staticClassName('RichTextEditor', theme) && [
+                          'AmauiRichTextEditor-select'
+                        ],
 
-                      {...ListItemProps}
-                    />
-                  ))}
-                </Select>
+                        SelectProps?.className,
+                        classes.select
+                      ])}
+                    >
+                      {font_sizes.map(item => (
+                        <ListItem
+                          key={item.value}
+
+                          primary={item.label}
+
+                          value={item.value}
+
+                          button
+
+                          {...ListItemProps}
+                        />
+                      ))}
+                    </Select>
+                  )}
+                </Line>
               )}
 
               {includes('italic', 'underlined', 'bold', 'strike-line') && (
