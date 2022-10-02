@@ -3,6 +3,7 @@ import React from 'react';
 import { is } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
+import Type from '../Type';
 import Icon from '../Icon';
 import Select from '../Select';
 import Tooltip from '../Tooltip';
@@ -17,7 +18,31 @@ import { staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
-    width: '100%'
+    width: '100%',
+
+    '& p': {
+      ...theme.typography.values.b2
+    },
+
+    '& h1': {
+      ...theme.typography.values.h1
+    },
+
+    '& h2': {
+      ...theme.typography.values.h2
+    },
+
+    '& h3': {
+      ...theme.typography.values.h3
+    },
+
+    '& h4': {
+      ...theme.typography.values.t1
+    },
+
+    '& h5': {
+      ...theme.typography.values.t2
+    }
   },
 
   value: {
@@ -57,6 +82,14 @@ const useStyle = style(theme => ({
     '& .AmauiTextField-inputWrapper': {
       height: '40px',
       paddingBlock: '11px'
+    },
+
+    '& .AmauiSelect-input': {
+      '& > *': {
+        ...theme.typography.values.b2,
+
+        fontWeight: 400
+      }
     }
   },
 }), { name: 'AmauiRichTextEditor' });
@@ -399,12 +432,6 @@ const IconMaterialHorizontalRuleRounded = React.forwardRef((props: any, ref) => 
 
 // to do
 
-// font version
-
-// font family (font families prop, list of font families with values)
-
-// font size
-
 // font color
 
 // font background
@@ -616,12 +643,12 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
         break;
 
-      case 'version':
+      case 'font-version':
         window.document.execCommand('formatBlock', undefined, argument);
 
         break;
 
-      case 'family':
+      case 'font-family':
         window.document.execCommand('styleWithCSS', true);
 
         window.document.execCommand('fontName', undefined, argument);
@@ -630,10 +657,10 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
         break;
 
-      case 'size':
+      case 'font-size':
         window.document.execCommand('styleWithCSS', true);
 
-        window.document.execCommand('fontName', undefined, argument);
+        window.document.execCommand('fontSize', undefined, argument);
 
         window.document.execCommand('styleWithCSS', false);
 
@@ -680,7 +707,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
   // italic, underline, bold
   // updates toolbar
-  const updates_ = updates && (!is('array', exclude) || includes('family', 'version', 'size', 'color', 'background', 'italic', 'underline', 'bold', 'strike-line', 'align-left', 'align-center', 'align-right', 'align-justify', 'superscript', 'subscript', 'indent', 'outdent', 'list-ordered', 'list-unordered', 'horizontal-rule'));
+  const updates_ = updates && (!is('array', exclude) || includes('font-family', 'font-version', 'font-size', 'font-color', 'font-background', 'italic', 'underline', 'bold', 'strike-line', 'align-left', 'align-center', 'align-right', 'align-justify', 'superscript', 'subscript', 'indent', 'outdent', 'list-ordered', 'list-unordered', 'horizontal-rule'));
 
   // copy, paste, cut
   // action toolbar
@@ -802,7 +829,16 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
     { label: '18', value: 4 },
     { label: '24', value: 5 },
     { label: '32', value: 6 },
-    { label: '48', value: 7 },
+    { label: '48', value: 7 }
+  ];
+
+  const font_versions = [
+    { label: <Type version='b2'>Normal text</Type>, value: 'p' },
+    { label: <Type version='h1'>Heading 1</Type>, value: 'h1' },
+    { label: <Type version='h2'>Heading 2</Type>, value: 'h2' },
+    { label: <Type version='h3'>Heading 3</Type>, value: 'h3' },
+    { label: <Type version='t1'>Heading 4</Type>, value: 'h4' },
+    { label: <Type version='t2'>Heading 5</Type>, value: 'h5' }
   ];
 
   return (
@@ -875,7 +911,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                 classes.toolbar_updates
               ])}
             >
-              {includes('family', 'size') && (
+              {includes('font-family', 'font-size', 'font-version') && (
                 <Line
                   gap={1}
 
@@ -885,13 +921,56 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
                   justify='flex-start'
                 >
-                  {includes('family') && (
+                  {includes('font-version') && (
+                    <Select
+                      label='Font Version'
+
+                      valueDefault={font_versions.find(item => item.value.includes('p')).value}
+
+                      onChange={(valueNew: string) => method('font-version')(valueNew)}
+
+                      onMouseUp={onMouseUp}
+
+                      onMouseDown={onMouseDown}
+
+                      {...SelectProps}
+
+                      className={classNames([
+                        staticClassName('RichTextEditor', theme) && [
+                          'AmauiRichTextEditor-select'
+                        ],
+
+                        SelectProps?.className,
+                        classes.select
+                      ])}
+
+                      style={{
+                        minWidth: '150px'
+                      }}
+                    >
+                      {font_versions.map(item => (
+                        <ListItem
+                          key={item.value}
+
+                          primary={item.label}
+
+                          value={item.value}
+
+                          button
+
+                          {...ListItemProps}
+                        />
+                      ))}
+                    </Select>
+                  )}
+
+                  {includes('font-family') && (
                     <Select
                       label='Font Family'
 
                       valueDefault={font_families.find(item => item.label.includes('Roboto')).value}
 
-                      onChange={(valueNew: string) => method('family')(valueNew)}
+                      onChange={(valueNew: string) => method('font-family')(valueNew)}
 
                       onMouseUp={onMouseUp}
 
@@ -932,13 +1011,13 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                     </Select>
                   )}
 
-                  {includes('size') && (
+                  {includes('font-size') && (
                     <Select
                       label='Font Size'
 
-                      valueDefault={font_sizes.find(item => item.label.includes('16')).value}
+                      valueDefault={font_sizes.find(item => item.label.includes('14')).value}
 
-                      onChange={(valueNew: string) => method('size')(+valueNew)}
+                      onChange={(valueNew: string) => method('font-size')(+valueNew)}
 
                       onMouseUp={onMouseUp}
 
