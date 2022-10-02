@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 
 import { is } from '@amaui/utils';
 import { classNames, colors, style, useAmauiTheme } from '@amaui/style-react';
@@ -18,7 +18,8 @@ import ListItem from '../ListItem';
 import Line from '../Line';
 
 import { staticClassName } from '../utils';
-import Interaction from '../Interaction';
+import TextField from '../TextField';
+import Button from '../Button';
 
 const useStyle = style(theme => ({
   root: {
@@ -104,10 +105,58 @@ const useStyle = style(theme => ({
   },
 
   paletteItem: {
-    width: '15px',
-    height: '15px',
+    position: 'relative',
+    width: '17px',
+    height: '17px',
+    cursor: 'pointer',
+    borderRadius: '50%',
+    boxShadow: theme.shadows.values.default[1],
+    transition: theme.methods.transitions.make('box-shadow'),
+
+    '&:hover': {
+      boxShadow: theme.shadows.values.default[2],
+    }
+  },
+
+  textFieldColor: {
+    flex: '1 1 auto',
+
+    '& .AmauiTextField-inputWrapper': {
+      height: '40px',
+      paddingBlock: '11px'
+    },
+
+    '&.AmauiTextField-version-outlined.AmauiTextField-size-small': {
+      '& .AmauiTextField-label': {
+        transform: 'translate(0, 10px) scale(1)'
+      },
+
+      '&.AmauiTextField-value .AmauiTextField-label': {
+        transform: 'translate(0, -5.5px) scale(0.667)'
+      },
+
+      '&.AmauiTextField-focus .AmauiTextField-label': {
+        transform: 'translate(0, -5.5px) scale(0.667)'
+      }
+    }
+  },
+
+  inputColor: {
+    border: 'none',
+    borderRadius: '50%',
+    overflow: 'hidden',
+    width: '17px',
+    height: '17px',
     cursor: 'pointer',
     boxShadow: theme.shadows.values.default[1],
+
+    '&::-webkit-color-swatch-wrapper': {
+      padding: '0px'
+    },
+
+    '&::-webkit-color-swatch': {
+      border: 'none'
+    }
   }
 }), { name: 'AmauiRichTextEditor' });
 
@@ -481,10 +530,6 @@ const IconMaterialFormatColorFillRounded = React.forwardRef((props: any, ref) =>
 
 // to do
 
-// font color
-
-// font background
-
 // insert image
 
 // insert video
@@ -592,6 +637,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
     ...other
   } = props;
 
+  const [inputValues, setInputValues] = React.useState<any>({});
   const [openColor, setOpenColor] = React.useState(false);
   const [openBackground, setOpenBackground] = React.useState(false);
 
@@ -599,13 +645,30 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
     value: React.useRef<HTMLElement>(),
     range: React.useRef<any>(),
     elementColor: React.useRef<any>(),
-    elementBackground: React.useRef<any>()
+    elementBackground: React.useRef<any>(),
+    inputValues: React.useRef<any>()
   };
+
+  refs.inputValues.current = inputValues;
 
   React.useEffect(() => {
     // Add value as innerHTML
     refs.value.current.innerHTML = value;
   }, [value]);
+
+  React.useEffect(() => {
+    const selection = window.getSelection();
+
+    if (selection.anchorNode) refs.range.current = selection.getRangeAt(0);
+  }, [openColor, openBackground]);
+
+  const updateInputValues = (property: string, itemValue: any) => {
+    setInputValues(values => ({
+      ...values,
+
+      [property]: itemValue
+    }));
+  };
 
   const paste = async () => {
     const value_ = await navigator.clipboard.read();
@@ -931,7 +994,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
   const onMouseDown = React.useCallback(() => {
     const selection = window.getSelection();
 
-    refs.range.current = selection.getRangeAt(0);
+    if (selection.anchorNode) refs.range.current = selection.getRangeAt(0);
   }, []);
 
   const onMouseUp = React.useCallback(() => {
@@ -965,14 +1028,14 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
         }}
 
         {...other}
-      >
-        <Interaction />
-      </span>
+      />
     );
   }, []);
 
   const Palette = React.useCallback(React.forwardRef((props: any, ref: any) => {
     const {
+      version,
+
       onUpdate,
       onClose,
 
@@ -991,10 +1054,6 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
         color={color}
 
-        onMouseUp={onMouseUp}
-
-        onMouseDown={onMouseDown}
-
         Component={Surface}
 
         className={classNames([
@@ -1010,6 +1069,10 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
         {/* Colors */}
         <Line
           gap={0.5}
+
+          onMouseUp={onMouseUp}
+
+          onMouseDown={onMouseDown}
         >
           <Line
             gap={0.5}
@@ -1060,6 +1123,13 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                   color={colors[item][item_]}
 
                   onClick={() => {
+                    if (refs.range.current) {
+                      const selection = window.getSelection();
+
+                      selection.removeAllRanges();
+                      selection.addRange(refs.range.current);
+                    }
+
                     onUpdate(colors[item][item_]);
 
                     onClose();
@@ -1071,7 +1141,88 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
         </Line>
 
         {/* Input color value */}
+        <Divider />
 
+        <Line
+          gap={0.5}
+
+          direction='row'
+
+          align='center'
+
+          style={{
+            width: '100%'
+          }}
+        >
+          <TextField
+            tonal={tonal}
+
+            color={color}
+
+            label='Custom color'
+
+            version='outlined'
+
+            size='small'
+
+            value={refs.inputValues.current[version]}
+
+            onChange={valueNew => updateInputValues(version, valueNew)}
+
+            endVerticalAlign='center'
+
+            end={(
+              <input
+                type='color'
+
+                value={refs.inputValues.current[version]}
+
+                onChange={(event: ChangeEvent) => updateInputValues(version, (event.target as any).value)}
+
+                className={classNames([
+                  staticClassName('RichTextEditor', theme) && [
+                    'AmauiRichTextEditor-inputColor'
+                  ],
+
+                  classes.inputColor
+                ])}
+              />
+            )}
+
+            className={classNames([
+              staticClassName('RichTextEditor', theme) && [
+                'AmauiRichTextEditor-textFieldColor'
+              ],
+
+              classes.textFieldColor
+            ])}
+          />
+
+          <Button
+            tonal={tonal}
+
+            color={color}
+
+            version='text'
+
+            size='small'
+
+            onClick={() => {
+              if (refs.range.current) {
+                const selection = window.getSelection();
+
+                selection.removeAllRanges();
+                selection.addRange(refs.range.current);
+              }
+
+              onUpdate(refs.inputValues.current[version]);
+
+              onClose();
+            }}
+          >
+            Apply
+          </Button>
+        </Line>
       </Line>
     );
   }), []);
@@ -1399,6 +1550,8 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                           include={[refs.elementColor.current]}
                         >
                           <Palette
+                            version='fontColor'
+
                             onClose={() => setOpenColor(false)}
 
                             onUpdate={method('font-color')}
@@ -1441,6 +1594,8 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                           include={[refs.elementBackground.current]}
                         >
                           <Palette
+                            version='fontBackground'
+
                             onClose={() => setOpenBackground(false)}
 
                             onUpdate={method('font-background')}
