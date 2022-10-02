@@ -18,6 +18,7 @@ import ListItem from '../ListItem';
 import Line from '../Line';
 
 import { staticClassName } from '../utils';
+import Interaction from '../Interaction';
 
 const useStyle = style(theme => ({
   root: {
@@ -897,11 +898,15 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
         open={open}
 
         element={(
-          <Fade
-            in={open}
-          >
-            {React.cloneElement(element)}
-          </Fade>
+          <div>
+            <Fade
+              in={open}
+
+              add
+            >
+              {React.cloneElement(element)}
+            </Fade>
+          </div>
         )}
 
         anchorElement={anchorElement}
@@ -960,7 +965,9 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
         }}
 
         {...other}
-      />
+      >
+        <Interaction />
+      </span>
     );
   }, []);
 

@@ -121,7 +121,7 @@ const Append = (props_: any) => {
 
   // Anchor
   React.useEffect(() => {
-    if (init) make();
+    make();
   }, [anchorElement]);
 
   // Anchor element
