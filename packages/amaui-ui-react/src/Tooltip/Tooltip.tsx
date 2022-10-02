@@ -4,12 +4,11 @@ import { clamp, is, isEnvironment } from '@amaui/utils';
 import { style, classNames, useAmauiTheme } from '@amaui/style-react';
 
 import Grow from '../Grow';
-
-import { staticClassName } from '../utils';
-
 import Modal from '../Modal';
 import Append from '../Append';
 import Surface from '../Surface';
+
+import { staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
@@ -235,8 +234,11 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
   const refs = {
     open: React.useRef(false),
     longPress: React.useRef(false),
-    longPressTimer: React.useRef<any>()
+    longPressTimer: React.useRef<any>(),
+    props: React.useRef<any>()
   };
+
+  refs.props.current = props;
 
   const { classes } = useStyle(props);
 
@@ -271,7 +273,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
     if (refs.longPress.current) {
       setLongPress(false);
 
-      if (!props.hasOwnProperty('open')) {
+      if (refs.props.current.open === undefined) {
         if (!inProp) onClose();
         else setInProp(false);
       }
@@ -304,7 +306,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
     if (refs.longPress.current) {
       setLongPress(false);
 
-      if (!props.hasOwnProperty('open')) {
+      if (refs.props.current.open === undefined) {
         if (!inProp) onClose();
         else setInProp(false);
       }
@@ -360,7 +362,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
   }, [open_]);
 
   React.useEffect(() => {
-    if (init && !props.hasOwnProperty('open')) {
+    if (init && refs.props.current.open === undefined) {
       refs.open.current = (touch || hover || longPress);
 
       if (refs.open.current) onOpen();
@@ -372,7 +374,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
   }, [touch, hover, longPress]);
 
   React.useEffect(() => {
-    if (init && !props.hasOwnProperty('open')) {
+    if (init && refs.props.current.open === undefined) {
       refs.open.current = focus;
 
       if (refs.open.current) onOpen();

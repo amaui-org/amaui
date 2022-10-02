@@ -23,7 +23,9 @@ const ClickListener = React.forwardRef((props_: any, ref: any) => {
     onClickInside,
     onClickOutside,
 
-    children
+    children,
+
+    ...other
   } = props;
 
   React.useEffect(() => {
@@ -57,7 +59,10 @@ const ClickListener = React.forwardRef((props_: any, ref: any) => {
       {children && (
         React.cloneElement(children, {
           ref: item => {
-            if (ref) ref.current = item;
+            if (ref) {
+              if (is('function', ref)) ref(item);
+              else ref.current = item;
+            }
 
             if (children.ref) {
               if (is('function', children.ref)) children.ref(item);
@@ -65,7 +70,9 @@ const ClickListener = React.forwardRef((props_: any, ref: any) => {
             }
 
             refs.root.current = item;
-          }
+          },
+
+          ...other
         })
       )}
     </React.Fragment>

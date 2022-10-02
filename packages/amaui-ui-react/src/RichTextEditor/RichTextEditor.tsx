@@ -5,10 +5,12 @@ import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Type from '../Type';
 import Icon from '../Icon';
+import Append from '../Append';
 import Select from '../Select';
 import Tooltip from '../Tooltip';
 import ToggleButtons from '../ToggleButtons';
 import ToggleButton from '../ToggleButton';
+import ClickListener from '../ClickListener';
 import Surface from '../Surface';
 import Divider from '../Divider';
 import ListItem from '../ListItem';
@@ -92,6 +94,12 @@ const useStyle = style(theme => ({
       }
     }
   },
+
+  palette: {
+    padding: '8px',
+    borderRadius: '8px',
+    boxShadow: theme.shadows.values.default[4]
+  }
 }), { name: 'AmauiRichTextEditor' });
 
 const IconMaterialFormatItalicRounded = React.forwardRef((props: any, ref) => {
@@ -430,6 +438,38 @@ const IconMaterialHorizontalRuleRounded = React.forwardRef((props: any, ref) => 
   );
 });
 
+const IconMaterialFormatColorTextRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='FormatColorTextRounded'
+      short_name='FormatColorText'
+
+      {...props}
+    >
+      <path d="M4 21Q3.175 21 2.588 20.413Q2 19.825 2 19Q2 18.175 2.588 17.587Q3.175 17 4 17H20Q20.825 17 21.413 17.587Q22 18.175 22 19Q22 19.825 21.413 20.413Q20.825 21 20 21ZM7.15 14Q6.475 14 6.15 13.55Q5.825 13.1 6.075 12.45L10.325 1.15Q10.525 0.675 11.012 0.337Q11.5 0 12.025 0Q12.525 0 13 0.337Q13.475 0.675 13.675 1.15L17.925 12.45Q18.175 13.1 17.85 13.55Q17.525 14 16.825 14Q16.525 14 16.238 13.8Q15.95 13.6 15.85 13.325L14.85 10.4H9.2L8.15 13.325Q8.05 13.6 7.763 13.8Q7.475 14 7.15 14ZM9.9 8.4H14.1L12.05 2.6H11.95Z" />
+    </Icon>
+  );
+});
+
+const IconMaterialFormatColorFillRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='FormatColorFillRounded'
+      short_name='FormatColorFill'
+
+      {...props}
+    >
+      <path d="M10 16.75Q9.6 16.75 9.238 16.6Q8.875 16.45 8.575 16.175L3.825 11.425Q3.55 11.125 3.4 10.762Q3.25 10.4 3.25 10Q3.25 9.6 3.4 9.225Q3.55 8.85 3.825 8.575L8.575 3.8L6.875 2.1Q6.6 1.825 6.6 1.412Q6.6 1 6.9 0.7Q7.2 0.425 7.6 0.412Q8 0.4 8.3 0.7L16.175 8.575Q16.475 8.85 16.613 9.225Q16.75 9.6 16.75 10Q16.75 10.4 16.613 10.762Q16.475 11.125 16.175 11.425L11.425 16.175Q11.15 16.45 10.775 16.6Q10.4 16.75 10 16.75ZM10 5.225 5.225 10Q5.225 10 5.225 10Q5.225 10 5.225 10H14.775Q14.775 10 14.775 10Q14.775 10 14.775 10ZM19 17Q18.175 17 17.587 16.413Q17 15.825 17 15Q17 14.475 17.312 13.875Q17.625 13.275 18 12.75Q18.225 12.45 18.475 12.125Q18.725 11.8 19 11.5Q19.275 11.8 19.525 12.125Q19.775 12.45 20 12.75Q20.375 13.275 20.688 13.875Q21 14.475 21 15Q21 15.825 20.413 16.413Q19.825 17 19 17ZM4 24Q3.175 24 2.588 23.413Q2 22.825 2 22Q2 21.175 2.588 20.587Q3.175 20 4 20H20Q20.825 20 21.413 20.587Q22 21.175 22 22Q22 22.825 21.413 23.413Q20.825 24 20 24Z" />
+    </Icon>
+  );
+});
+
 // to do
 
 // font color
@@ -493,6 +533,9 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
     IconBold = IconMaterialFormatBoldRounded,
     IconStrikeLine = IconMaterialStrikethroughSRounded,
 
+    IconColor = IconMaterialFormatColorTextRounded,
+    IconBackground = IconMaterialFormatColorFillRounded,
+
     IconAlignLeft = IconMaterialFormatAlignLeftRounded,
     IconAlignCenter = IconMaterialFormatAlignCenterRounded,
     IconAlignRight = IconMaterialFormatAlignRightRounded,
@@ -519,6 +562,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
     IconClear = IconMaterialFormatClearRounded,
 
+    AppendProps,
     ToolbarProps,
     ToolbarUpdatesProps,
     ToolbarActionsProps,
@@ -539,9 +583,14 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
     ...other
   } = props;
 
+  const [openColor, setOpenColor] = React.useState(false);
+  const [openBackground, setOpenBackground] = React.useState(false);
+
   const refs = {
     value: React.useRef<HTMLElement>(),
-    range: React.useRef<any>()
+    range: React.useRef<any>(),
+    elementColor: React.useRef<any>(),
+    elementBackground: React.useRef<any>()
   };
 
   React.useEffect(() => {
@@ -776,6 +825,8 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
   const WrapperToggleButton = React.useCallback((props: any) => {
     const {
+      open,
+
       label,
 
       children,
@@ -785,6 +836,8 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
     return (
       <Tooltip
+        open={open !== undefined ? open : undefined}
+
         label={label}
 
         {...TooltipProps}
@@ -795,6 +848,81 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
           ...children.props
         })}
       </Tooltip>
+    );
+  }, []);
+
+  const WrapperAppend = React.useCallback((props: any) => {
+    const {
+      open,
+
+      element,
+
+      anchorElement,
+
+      onClose,
+
+      children,
+
+      ...other
+    } = props;
+
+    return (
+      <Append
+        open={open}
+
+        element={element}
+
+        anchorElement={anchorElement}
+
+        portal
+
+        {...AppendProps}
+      >
+        {React.cloneElement(children, {
+          ...other,
+
+          ...children.props
+        })}
+      </Append>
+    );
+  }, []);
+
+  const Palette = React.useCallback((props: any) => {
+    const {
+      onUpdate,
+      onClose,
+
+      ...other
+    } = props;
+
+    return (
+      <Line
+        gap={1}
+
+        direction='column'
+
+        tonal={tonal}
+
+        color={color}
+
+        Component={Surface}
+
+        className={classNames([
+          staticClassName('RichTextEditor', theme) && [
+            'AmauiRichTextEditor-palette'
+          ],
+
+          classes.palette
+        ])}
+
+        {...other}
+      >
+        {/* Colors */}
+
+
+        {/* Input color value */}
+
+      </Line>
     );
   }, []);
 
@@ -1115,6 +1243,96 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                         </ToggleButton>
                       )}
                     </WrapperToggleButton>
+                  )}
+                </ToggleButtons>
+              )}
+
+              {includes('color', 'background') && (
+                <ToggleButtons
+                  {...ToggleButtonsProps}
+                >
+                  {includes('font-color') && (
+                    <WrapperAppend
+                      open={openColor}
+
+                      anchorElement={refs.elementColor.current}
+
+                      element={(
+                        <ClickListener
+                          onClickOutside={() => setOpenColor(false)}
+
+                          include={[refs.elementColor.current]}
+                        >
+                          <Palette
+                            onClose={() => setOpenColor(false)}
+
+                            onUpdate={method('font-color')}
+                          />
+                        </ClickListener>
+                      )}
+                    >
+                      <WrapperToggleButton
+                        label='Text Color'
+
+                        open={openColor ? false : undefined}
+                      >
+                        {is('function', render) ? render('font-color', ToggleButtonProps, refs.value.current, method) : (
+                          <ToggleButton
+                            ref={refs.elementColor}
+
+                            {...ToggleButtonProps}
+
+                            selected={openColor}
+
+                            onClick={() => setOpenColor(item => !item)}
+                          >
+                            <IconColor {...IconProps} />
+                          </ToggleButton>
+                        )}
+                      </WrapperToggleButton>
+                    </WrapperAppend>
+                  )}
+
+                  {includes('font-background') && (
+                    <WrapperAppend
+                      open={openBackground}
+
+                      anchorElement={refs.elementBackground.current}
+
+                      element={(
+                        <ClickListener
+                          onClickOutside={() => setOpenBackground(false)}
+
+                          include={[refs.elementBackground.current]}
+                        >
+                          <Palette
+                            onClose={() => setOpenBackground(false)}
+
+                            onUpdate={method('font-background')}
+                          />
+                        </ClickListener>
+                      )}
+                    >
+                      <WrapperToggleButton
+                        label='Background Color'
+
+                        open={openBackground ? false : undefined}
+                      >
+                        {is('function', render) ? render('font-background', ToggleButtonProps, refs.value.current, method) : (
+                          <ToggleButton
+                            ref={refs.elementBackground}
+
+                            {...ToggleButtonProps}
+
+                            selected={openBackground}
+
+                            onClick={() => setOpenBackground(item => !item)}
+                          >
+                            <IconBackground {...IconProps} />
+                          </ToggleButton>
+                        )}
+                      </WrapperToggleButton>
+                    </WrapperAppend>
                   )}
                 </ToggleButtons>
               )}
