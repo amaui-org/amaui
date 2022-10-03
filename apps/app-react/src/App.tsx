@@ -2544,6 +2544,18 @@ Libero et sagittis. Phasellus egestas consequat dolor a scelerisque. Duis at var
         <Accordion primary='Label' open>
           <Line>
             <Label>
+              <TextField
+                label='Some input label'
+
+                style={{
+                  width: 340
+                }}
+              />
+
+              Input label value
+            </Label>
+
+            <Label>
               <Checkbox />
 
               First checkbox value

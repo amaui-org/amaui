@@ -10,8 +10,7 @@ import { staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
-    cursor: 'pointer',
-    userSelect: 'none'
+    cursor: 'pointer'
   },
 
   text_disabled: {
@@ -32,9 +31,12 @@ const Label = React.forwardRef((props_: any, ref: any) => {
   const { classes } = useStyle(props);
 
   const {
-    position = 'start',
+    position: position_,
 
     size = 'regular',
+
+    input,
+    label,
 
     value,
 
@@ -51,9 +53,25 @@ const Label = React.forwardRef((props_: any, ref: any) => {
     ...other
   } = props;
 
+  let position = position_;
+
   const children: any[] = React.Children.toArray(children_);
 
-  const padding = ['AmauiSwitch'].includes(children[0]?.type?.displayName);
+  const Input = input !== undefined ? input : children[0];
+
+  const Text = label !== undefined ? label : children[1];
+
+  const inlineElement = ['AmauiCheckbox', 'AmauiRadio', 'AmauiSwitch'].includes(Input?.type?.displayName);
+
+  const padding = !['AmauiCheckbox', 'AmauiRadio'].includes(Input?.type?.displayName);
+
+  let align = 'center';
+
+  let justify = 'center';
+
+  if (!inlineElement) align = 'flex-start';
+
+  if (position === undefined) position = inlineElement ? 'start' : 'bottom';
 
   return (
     <Line
@@ -63,9 +81,9 @@ const Label = React.forwardRef((props_: any, ref: any) => {
 
       direction={['top', 'bottom'].includes(position) ? position === 'bottom' ? 'column-reverse' : 'column' : position === 'end' ? 'row-reverse' : 'row'}
 
-      align='center'
+      align={align}
 
-      justify='center'
+      justify={justify}
 
       Component={Component}
 
@@ -85,7 +103,7 @@ const Label = React.forwardRef((props_: any, ref: any) => {
 
       {...other}
     >
-      {children[0] && React.cloneElement(children[0], {
+      {Input && React.cloneElement(Input, {
         className: classNames([
           staticClassName('Label', theme) && [
             'AmauiLabel-input'
@@ -99,7 +117,7 @@ const Label = React.forwardRef((props_: any, ref: any) => {
         disabled
       })}
 
-      {children[1] !== undefined && is('simple', children[1]) ? (
+      {Text !== undefined && is('simple', Text) ? (
         <Type
           version={size === 'regular' ? 'b2' : size === 'large' ? 'b1' : 'b3'}
 
@@ -114,9 +132,9 @@ const Label = React.forwardRef((props_: any, ref: any) => {
 
           {...TypeProps}
         >
-          {children[1]}
+          {Text}
         </Type>
-      ) : children[1]}
+      ) : Text}
     </Line>
   );
 });
