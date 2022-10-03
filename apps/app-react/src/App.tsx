@@ -2487,9 +2487,57 @@ Please sign in again.`}
             />
           </List>
 
+          <Line>
+            <Label>
+              <TextField
+                label='Some input label'
+
+                style={{
+                  width: 340
+                }}
+              />
+
+              Input label value
+            </Label>
+
+            <Label>
+              <Checkbox />
+
+              First checkbox value
+            </Label>
+
+            <Label>
+              <Radio />
+
+              First radio value
+            </Label>
+
+            <Label>
+              <Switch />
+
+              First switch value
+            </Label>
+          </Line>
+
           <TextField color='secondary' label='Filled text' placeholder='Filled text' />
 
           <Switch color='secondary' />
+
+          <Radios
+            label='Items'
+          >
+            {new Array(4).fill(true).map((item: any, index: number) => (
+              <Label
+                value={`Item ${index + 1}`}
+
+                disabled={index === 3}
+              >
+                <Radio />
+
+                {index + 1}
+              </Label>
+            ))}
+          </Radios>
 
           <Radio color='secondary' />
 
@@ -42394,39 +42442,17 @@ Please sign in again.`}
           <Radios
             label='Items'
           >
-            <Label
-              value='Item 1'
-            >
-              <Radio />
+            {new Array(4).fill(true).map((item: any, index: number) => (
+              <Label
+                value={`Item ${index + 1}`}
 
-              Item 1
-            </Label>
+                disabled={index === 3}
+              >
+                <Radio />
 
-            <Label
-              value='Item 2'
-            >
-              <Radio />
-
-              Item 2
-            </Label>
-
-            <Label
-              value='Item 3'
-            >
-              <Radio />
-
-              Item 3
-            </Label>
-
-            <Label
-              value='Item 4'
-
-              disabled
-            >
-              <Radio />
-
-              Item 4
-            </Label>
+                {index + 1}
+              </Label>
+            ))}
           </Radios>
         </Accordion>
 
@@ -42436,39 +42462,17 @@ Please sign in again.`}
 
             direction='row'
           >
-            <Label
-              value='Item 1'
-            >
-              <Radio />
+            {new Array(4).fill(true).map((item: any, index: number) => (
+              <Label
+                value={`Item ${index + 1}`}
 
-              Item 1
-            </Label>
+                disabled={index === 3}
+              >
+                <Radio />
 
-            <Label
-              value='Item 2'
-            >
-              <Radio />
-
-              Item 2
-            </Label>
-
-            <Label
-              value='Item 3'
-            >
-              <Radio />
-
-              Item 3
-            </Label>
-
-            <Label
-              value='Item 4'
-
-              disabled
-            >
-              <Radio />
-
-              Item 4
-            </Label>
+                {index + 1}
+              </Label>
+            ))}
           </Radios>
         </Accordion>
 
@@ -42478,37 +42482,17 @@ Please sign in again.`}
 
             color='secondary'
           >
-            <Label
-              value='Item 1'
-            >
-              <Radio />
+            {new Array(4).fill(true).map((item: any, index: number) => (
+              <Label
+                value={`Item ${index + 1}`}
 
-              Item 1
-            </Label>
+                disabled={index === 3}
+              >
+                <Radio />
 
-            <Label
-              value='Item 2'
-            >
-              <Radio />
-
-              Item 2
-            </Label>
-
-            <Label
-              value='Item 3'
-            >
-              <Radio />
-
-              Item 3
-            </Label>
-
-            <Label
-              value='Item 4'
-            >
-              <Radio />
-
-              Item 4
-            </Label>
+                {index + 1}
+              </Label>
+            ))}
           </Radios>
         </Accordion>
 
@@ -42518,37 +42502,17 @@ Please sign in again.`}
 
             size='small'
           >
-            <Label
-              value='Item 1'
-            >
-              <Radio />
+            {new Array(4).fill(true).map((item: any, index: number) => (
+              <Label
+                value={`Item ${index + 1}`}
 
-              Item 1
-            </Label>
+                disabled={index === 3}
+              >
+                <Radio />
 
-            <Label
-              value='Item 2'
-            >
-              <Radio />
-
-              Item 2
-            </Label>
-
-            <Label
-              value='Item 3'
-            >
-              <Radio />
-
-              Item 3
-            </Label>
-
-            <Label
-              value='Item 4'
-            >
-              <Radio />
-
-              Item 4
-            </Label>
+                {index + 1}
+              </Label>
+            ))}
           </Radios>
         </Accordion>
 
@@ -42558,37 +42522,17 @@ Please sign in again.`}
 
             version='text'
           >
-            <Label
-              value='Item 1'
-            >
-              <Radio />
+            {new Array(4).fill(true).map((item: any, index: number) => (
+              <Label
+                value={`Item ${index + 1}`}
 
-              Item 1
-            </Label>
+                disabled={index === 3}
+              >
+                <Radio />
 
-            <Label
-              value='Item 2'
-            >
-              <Radio />
-
-              Item 2
-            </Label>
-
-            <Label
-              value='Item 3'
-            >
-              <Radio />
-
-              Item 3
-            </Label>
-
-            <Label
-              value='Item 4'
-            >
-              <Radio />
-
-              Item 4
-            </Label>
+                {index + 1}
+              </Label>
+            ))}
           </Radios>
         </Accordion>
 
@@ -42598,37 +42542,17 @@ Please sign in again.`}
 
             valueDefault='Item 2'
           >
-            <Label
-              value='Item 1'
-            >
-              <Radio />
+            {new Array(4).fill(true).map((item: any, index: number) => (
+              <Label
+                value={`Item ${index + 1}`}
 
-              Item 1
-            </Label>
+                disabled={index === 3}
+              >
+                <Radio />
 
-            <Label
-              value='Item 2'
-            >
-              <Radio />
-
-              Item 2
-            </Label>
-
-            <Label
-              value='Item 3'
-            >
-              <Radio />
-
-              Item 3
-            </Label>
-
-            <Label
-              value='Item 4'
-            >
-              <Radio />
-
-              Item 4
-            </Label>
+                {index + 1}
+              </Label>
+            ))}
           </Radios>
         </Accordion>
 
@@ -42640,37 +42564,17 @@ Please sign in again.`}
 
             onChange={(value: boolean) => updatePure(value, 'radios')}
           >
-            <Label
-              value='Item 1'
-            >
-              <Radio />
+            {new Array(4).fill(true).map((item: any, index: number) => (
+              <Label
+                value={`Item ${index + 1}`}
 
-              Item 1
-            </Label>
+                disabled={index === 3}
+              >
+                <Radio />
 
-            <Label
-              value='Item 2'
-            >
-              <Radio />
-
-              Item 2
-            </Label>
-
-            <Label
-              value='Item 3'
-            >
-              <Radio />
-
-              Item 3
-            </Label>
-
-            <Label
-              value='Item 4'
-            >
-              <Radio />
-
-              Item 4
-            </Label>
+                {index + 1}
+              </Label>
+            ))}
           </Radios>
         </Accordion>
 
@@ -42680,43 +42584,37 @@ Please sign in again.`}
 
             disabled
           >
-            <Label
-              value='Item 1'
-            >
-              <Radio />
+            {new Array(4).fill(true).map((item: any, index: number) => (
+              <Label
+                value={`Item ${index + 1}`}
 
-              Item 1
-            </Label>
+                disabled={index === 3}
+              >
+                <Radio />
 
-            <Label
-              value='Item 2'
-            >
-              <Radio />
-
-              Item 2
-            </Label>
-
-            <Label
-              value='Item 3'
-            >
-              <Radio />
-
-              Item 3
-            </Label>
-
-            <Label
-              value='Item 4'
-            >
-              <Radio />
-
-              Item 4
-            </Label>
+                {index + 1}
+              </Label>
+            ))}
           </Radios>
         </Accordion>
 
         <Accordion primary='AmauiTheme' open>
           <div className={classNames([classes.column])}>
-            <Radio color='secondary' />
+            <Radios
+              label='Items'
+            >
+              {new Array(4).fill(true).map((item: any, index: number) => (
+                <Label
+                  value={`Item ${index + 1}`}
+
+                  disabled={index === 3}
+                >
+                  <Radio />
+
+                  {index + 1}
+                </Label>
+              ))}
+            </Radios>
 
             <Accordion primary='AmauiTheme nested value' open>
               <AmauiThemeProvider
@@ -42733,7 +42631,23 @@ Please sign in again.`}
                   }
                 }}
               >
-                <Radio color='secondary' />
+                <Radios
+                  label='Items'
+
+                  color='secondary'
+                >
+                  {new Array(4).fill(true).map((item: any, index: number) => (
+                    <Label
+                      value={`Item ${index + 1}`}
+
+                      disabled={index === 3}
+                    >
+                      <Radio />
+
+                      {index + 1}
+                    </Label>
+                  ))}
+                </Radios>
               </AmauiThemeProvider>
             </Accordion>
 
@@ -42742,7 +42656,7 @@ Please sign in again.`}
                 value={{
                   ui: {
                     elements: {
-                      AmauiRadio: {
+                      AmauiRadios: {
                         style: {
                           add: {
                             root: {
@@ -42757,7 +42671,21 @@ Please sign in again.`}
                   }
                 }}
               >
-                <Radio color='secondary' />
+                <Radios
+                  label='Items'
+                >
+                  {new Array(4).fill(true).map((item: any, index: number) => (
+                    <Label
+                      value={`Item ${index + 1}`}
+
+                      disabled={index === 3}
+                    >
+                      <Radio />
+
+                      {index + 1}
+                    </Label>
+                  ))}
+                </Radios>
               </AmauiThemeProvider>
             </Accordion>
 
@@ -42766,13 +42694,11 @@ Please sign in again.`}
                 value={{
                   ui: {
                     elements: {
-                      AmauiRadio: {
+                      AmauiRadios: {
                         style: {
                           override: {
                             root: {
-                              display: 'inline-flex',
-                              position: 'relative',
-                              height: 44
+                              margin: 44
                             }
                           }
                         }
@@ -42781,7 +42707,21 @@ Please sign in again.`}
                   }
                 }}
               >
-                <Radio color='secondary' />
+                <Radios
+                  label='Items'
+                >
+                  {new Array(4).fill(true).map((item: any, index: number) => (
+                    <Label
+                      value={`Item ${index + 1}`}
+
+                      disabled={index === 3}
+                    >
+                      <Radio />
+
+                      {index + 1}
+                    </Label>
+                  ))}
+                </Radios>
               </AmauiThemeProvider>
             </Accordion>
 
@@ -42790,7 +42730,7 @@ Please sign in again.`}
                 value={{
                   ui: {
                     elements: {
-                      AmauiRadio: {
+                      AmauiRadios: {
                         props: {
                           default: {
                             color: 'secondary'
@@ -42801,12 +42741,40 @@ Please sign in again.`}
                   }
                 }}
               >
-                <Radio />
+                <Radios
+                  label='Items'
+                >
+                  {new Array(4).fill(true).map((item: any, index: number) => (
+                    <Label
+                      value={`Item ${index + 1}`}
+
+                      disabled={index === 3}
+                    >
+                      <Radio />
+
+                      {index + 1}
+                    </Label>
+                  ))}
+                </Radios>
               </AmauiThemeProvider>
             </Accordion>
 
             <Accordion primary='AmauiTheme styled' open>
-              <styled.Radio />
+              <styled.Radios
+                label='Items'
+              >
+                {new Array(4).fill(true).map((item: any, index: number) => (
+                  <Label
+                    value={`Item ${index + 1}`}
+
+                    disabled={index === 3}
+                  >
+                    <Radio />
+
+                    {index + 1}
+                  </Label>
+                ))}
+              </styled.Radios>
             </Accordion>
           </div>
         </Accordion>

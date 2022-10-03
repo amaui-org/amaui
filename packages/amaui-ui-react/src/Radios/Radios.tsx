@@ -18,7 +18,7 @@ const useStyle = style(theme => ({
   },
 
   disabled: {
-    cursor: 'pointer',
+    cursor: 'default',
     userSelect: 'none'
   }
 }), { name: 'AmauiRadios' });
