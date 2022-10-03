@@ -777,8 +777,6 @@ const IconMaterialTableRounded = React.forwardRef((props: any, ref) => {
 
 // to do
 
-// onChange method for any onChange event, with valueDefault and value
-
 // update all toggle buttons selected
 // on click
 // + on current selection listen to selection window value y
@@ -798,6 +796,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
     version = 'filled',
 
     value,
+    onChange,
 
     render,
 
@@ -924,6 +923,10 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
     if (selection.anchorNode) refs.range.current = selection.getRangeAt(0);
   }, [open]);
+
+  const onUpdate = (event: React.ChangeEvent<any>) => {
+    if (is('function', onChange)) onChange(event);
+  };
 
   const updateInputValues = (property: string, itemValue: any) => {
     setInputValues(values => ({
@@ -3095,6 +3098,8 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
         ref={refs.value}
 
         color='default'
+
+        onInput={onUpdate}
 
         className={classNames([
           staticClassName('RichTextEditor', theme) && [
