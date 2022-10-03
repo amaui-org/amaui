@@ -42,7 +42,7 @@ const Radios = React.forwardRef((props_: any, ref: any) => {
     justify = 'center',
 
     valueDefault,
-    checked,
+    value: value_,
     onChange,
 
     disabled,
@@ -58,7 +58,7 @@ const Radios = React.forwardRef((props_: any, ref: any) => {
     ...other
   } = props;
 
-  const [value, setValue] = React.useState(valueDefault !== undefined ? valueDefault : checked);
+  const [value, setValue] = React.useState(valueDefault !== undefined ? valueDefault : value_);
 
   const refs = {
     value: React.useRef<any>()
@@ -67,8 +67,8 @@ const Radios = React.forwardRef((props_: any, ref: any) => {
   refs.value.current = value;
 
   React.useEffect(() => {
-    if (checked !== undefined && checked !== refs.value.current) setValue(checked);
-  }, [checked]);
+    if (value_ !== undefined && value_ !== refs.value.current) setValue(value_);
+  }, [value_]);
 
   const children: any[] = React.Children.toArray(children_);
 

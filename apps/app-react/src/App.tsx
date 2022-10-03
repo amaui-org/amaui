@@ -42420,6 +42420,8 @@ Please sign in again.`}
 
             <Label
               value='Item 4'
+
+              disabled
             >
               <Radio />
 
@@ -42428,7 +42430,7 @@ Please sign in again.`}
           </Radios>
         </Accordion>
 
-        <Accordion primary='Radios horizontal' open>
+        <Accordion primary='Radios row' open>
           <Radios
             label='Items'
 
@@ -42460,6 +42462,8 @@ Please sign in again.`}
 
             <Label
               value='Item 4'
+
+              disabled
             >
               <Radio />
 
