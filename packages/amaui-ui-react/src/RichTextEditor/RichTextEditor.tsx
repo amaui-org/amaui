@@ -1,6 +1,6 @@
 import React, { ChangeEvent } from 'react';
 
-import { is } from '@amaui/utils';
+import { is, parse } from '@amaui/utils';
 import { classNames, colors, style, useAmauiTheme } from '@amaui/style-react';
 
 import Fade from '../Fade';
@@ -777,10 +777,6 @@ const IconMaterialTableRounded = React.forwardRef((props: any, ref) => {
 
 // to do
 
-// update all toggle buttons selected
-// on click
-// + on current selection listen to selection window value y
-
 // Optional, selection menu, with specific options within it, with some custom default values or render method for the element, with updateMethod as an argument
 
 const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
@@ -889,6 +885,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
   const [inputValues, setInputValues] = React.useState<any>({});
   const [open, setOpen] = React.useState<any>({});
+  const [selected, setSelected] = React.useState<any[]>([]);
 
   const refs = {
     value: React.useRef<HTMLElement>(),
@@ -924,7 +921,28 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
     if (selection.anchorNode) refs.range.current = selection.getRangeAt(0);
   }, [open]);
 
+  const clear = (element: HTMLElement = refs.value.current) => {
+    const children = Array.from(element.children);
+
+    const toRemove = [];
+    const other = [];
+
+    children.forEach((item: any, index: number) => {
+      (
+        (item.tagName === 'SPAN' && !item.innerHTML) ||
+        (item.tagName === 'BR' && index > 0 && (children[index - 1].tagName === 'SPAN' && !children[index - 1].innerHTML))
+      ) ? toRemove.push(item) : other.push(item);
+    });
+
+    toRemove.forEach((item: HTMLElement) => item.remove());
+
+    other.forEach(item => clear(item as any));
+  };
+
   const onUpdate = (event: React.ChangeEvent<any>) => {
+    // Clear from empty element values
+    clear();
+
     if (is('function', onChange)) onChange(event);
   };
 
@@ -1150,7 +1168,9 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
   // italic, underline, bold
   // updates toolbar
-  const updates_ = updates && (!is('array', exclude) || includes('font-family', 'font-version', 'font-size', 'font-color', 'font-background', 'italic', 'underline', 'bold', 'strike-line', 'align-left', 'align-center', 'align-right', 'align-justify', 'superscript', 'subscript', 'indent', 'outdent', 'list-ordered', 'list-unordered', 'horizontal-rule', 'link-add', 'link-remove', 'quote', 'image', 'video', 'video-youtube', 'table', 'code'));
+  const updateOptions = ['font-family', 'font-version', 'font-size', 'font-color', 'font-background', 'italic', 'underline', 'bold', 'strike-line', 'align-left', 'align-center', 'align-right', 'align-justify', 'superscript', 'subscript', 'indent', 'outdent', 'list-ordered', 'list-unordered', 'horizontal-rule', 'link-add', 'link-remove', 'quote', 'image', 'video', 'video-youtube', 'table', 'code'];
+
+  const updates_ = updates && (!is('array', exclude) || includes(...updateOptions));
 
   // copy, paste, cut
   // action toolbar
@@ -1654,6 +1674,65 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
     { label: <Type version='t2'>Heading 5</Type>, value: 'h5' }
   ];
 
+  const queryValueUpdate = () => {
+    const query = (command: string) => parse(window.document.queryCommandValue(command));
+
+    const selected_ = [];
+    const inputValues_ = { ...inputValues };
+
+    const updateOptionValues = [
+      { name: 'italic', command: 'italic' },
+      { name: 'underline', command: 'underline' },
+      { name: 'bold', command: 'bold' },
+      { name: 'strike-line', command: 'strikeThrough' },
+      { name: 'align-left', command: 'justifyLeft' },
+      { name: 'align-center', command: 'justifyCenter' },
+      { name: 'align-right', command: 'justifyRight' },
+      { name: 'align-justify', command: 'justifyFull' },
+      { name: 'superscript', command: 'superscript' },
+      { name: 'subscript', command: 'subscript' },
+      { name: 'list-ordered', command: 'insertOrderedList' },
+      { name: 'list-unordered', command: 'insertUnorderedList' }
+    ];
+
+    updateOptionValues.forEach(item => {
+      if (query(item.command)) selected_.push(item.name);
+    });
+
+    // Font version
+    const fontVersion = query('formatBlock');
+
+    const fontVersionValue = font_versions.find(item_ => item_.value === fontVersion) || font_versions[0];
+
+    inputValues_['font-version'] = fontVersionValue?.value;
+
+    // Font family
+    const fontFamily = query('fontName');
+
+    const fontFamilyValue = font_families.find(item_ => fontFamily?.includes(item_.label)) || font_families.find(item_ => item_.label === 'Roboto');
+
+    inputValues_['font-family'] = fontFamilyValue?.value;
+
+    // Font version
+    const fontSize = query('fontSize');
+
+    const fontSizeValue = font_sizes.find(item_ => item_.value === fontSize) || font_sizes.find(item_ => item_.label === '14');
+
+    inputValues_['font-size'] = fontSizeValue?.value;
+
+    setInputValues(inputValues_);
+
+    setSelected(selected_);
+  };
+
+  const onMouseUpValue = React.useCallback(() => {
+    queryValueUpdate();
+  }, []);
+
+  const onMouseDownValue = React.useCallback(() => {
+    queryValueUpdate();
+  }, []);
+
   return (
     <Line
       ref={ref}
@@ -1740,7 +1819,13 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
                       valueDefault={font_versions.find(item => item.value.includes('p')).value}
 
-                      onChange={(valueNew: string) => method('font-version')(valueNew)}
+                      value={inputValues['font-version']}
+
+                      onChange={(valueNew: string) => {
+                        updateInputValues('font-version', valueNew);
+
+                        method('font-version')(valueNew);
+                      }}
 
                       onMouseUp={onMouseUp}
 
@@ -1783,7 +1868,13 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
                       valueDefault={font_families.find(item => item.label.includes('Roboto')).value}
 
-                      onChange={(valueNew: string) => method('font-family')(valueNew)}
+                      value={inputValues['font-family']}
+
+                      onChange={(valueNew: string) => {
+                        updateInputValues('font-family', valueNew);
+
+                        method('font-family')(valueNew);
+                      }}
 
                       onMouseUp={onMouseUp}
 
@@ -1828,9 +1919,15 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                     <Select
                       label='Font Size'
 
-                      valueDefault={font_sizes.find(item => item.label.includes('14')).value}
+                      valueDefault={+font_sizes.find(item => item.label.includes('14')).value}
 
-                      onChange={(valueNew: string) => method('font-size')(+valueNew)}
+                      value={inputValues['font-size']}
+
+                      onChange={(valueNew: string) => {
+                        updateInputValues('font-size', +valueNew);
+
+                        method('font-size')(+valueNew);
+                      }}
 
                       onMouseUp={onMouseUp}
 
@@ -1877,6 +1974,8 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                         <ToggleButton
                           {...ToggleButtonProps}
 
+                          selected={selected.includes('italic')}
+
                           onClick={method('italic')}
                         >
                           <IconItalic {...IconProps} />
@@ -1892,6 +1991,8 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                       {is('function', render) ? render('underline', ToggleButtonProps, refs.value.current, method) : (
                         <ToggleButton
                           {...ToggleButtonProps}
+
+                          selected={selected.includes('underline')}
 
                           onClick={method('underline')}
                         >
@@ -1910,6 +2011,8 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                       {is('function', render) ? render('bold', ToggleButtonProps, refs.value.current, method) : (
                         <ToggleButton
                           {...ToggleButtonProps}
+
+                          selected={selected.includes('bold')}
                         >
                           <IconBold {...IconProps} />
                         </ToggleButton>
@@ -1926,6 +2029,8 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                       {is('function', render) ? render('strike-line', ToggleButtonProps, refs.value.current, method) : (
                         <ToggleButton
                           {...ToggleButtonProps}
+
+                          selected={selected.includes('strike-line')}
                         >
                           <IconStrikeLine {...IconProps} />
                         </ToggleButton>
@@ -2041,6 +2146,8 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                         <ToggleButton
                           {...ToggleButtonProps}
 
+                          selected={selected.includes('align-left')}
+
                           onClick={method('align-left')}
                         >
                           <IconAlignLeft {...IconProps} />
@@ -2056,6 +2163,8 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                       {is('function', render) ? render('align-center', ToggleButtonProps, refs.value.current, method) : (
                         <ToggleButton
                           {...ToggleButtonProps}
+
+                          selected={selected.includes('align-center')}
 
                           onClick={method('align-center')}
                         >
@@ -2073,6 +2182,8 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                         <ToggleButton
                           {...ToggleButtonProps}
 
+                          selected={selected.includes('align-right')}
+
                           onClick={method('align-right')}
                         >
                           <IconAlignRight {...IconProps} />
@@ -2088,6 +2199,8 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                       {is('function', render) ? render('align-justify', ToggleButtonProps, refs.value.current, method) : (
                         <ToggleButton
                           {...ToggleButtonProps}
+
+                          selected={selected.includes('align-justify')}
 
                           onClick={method('align-justify')}
                         >
@@ -2106,12 +2219,12 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                   {includes('indent') && (
                     <WrapperToggleButton
                       label='Indent'
-
-                      onClick={method('indent')}
                     >
                       {is('function', render) ? render('indent', ToggleButtonProps, refs.value.current, method) : (
                         <ToggleButton
                           {...ToggleButtonProps}
+
+                          onClick={method('indent')}
                         >
                           <IconIndent {...IconProps} />
                         </ToggleButton>
@@ -2122,12 +2235,12 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                   {includes('outdent') && (
                     <WrapperToggleButton
                       label='Outdent'
-
-                      onClick={method('outdent')}
                     >
                       {is('function', render) ? render('outdent', ToggleButtonProps, refs.value.current, method) : (
                         <ToggleButton
                           {...ToggleButtonProps}
+
+                          onClick={method('outdent')}
                         >
                           <IconOutdent {...IconProps} />
                         </ToggleButton>
@@ -2144,12 +2257,14 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                   {includes('superscript') && (
                     <WrapperToggleButton
                       label='Superscript'
-
-                      onClick={method('superscript')}
                     >
                       {is('function', render) ? render('superscript', ToggleButtonProps, refs.value.current, method) : (
                         <ToggleButton
                           {...ToggleButtonProps}
+
+                          selected={selected.includes('superscript')}
+
+                          onClick={method('superscript')}
                         >
                           <IconSuperscript {...IconProps} />
                         </ToggleButton>
@@ -2160,12 +2275,14 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                   {includes('subscript') && (
                     <WrapperToggleButton
                       label='Subscript'
-
-                      onClick={method('subscript')}
                     >
                       {is('function', render) ? render('subscript', ToggleButtonProps, refs.value.current, method) : (
                         <ToggleButton
                           {...ToggleButtonProps}
+
+                          selected={selected.includes('subscript')}
+
+                          onClick={method('subscript')}
                         >
                           <IconSubscript {...IconProps} />
                         </ToggleButton>
@@ -2182,12 +2299,14 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                   {includes('list-ordered') && (
                     <WrapperToggleButton
                       label='List Ordered'
-
-                      onClick={method('list-ordered')}
                     >
                       {is('function', render) ? render('list-ordered', ToggleButtonProps, refs.value.current, method) : (
                         <ToggleButton
                           {...ToggleButtonProps}
+
+                          selected={selected.includes('list-ordered')}
+
+                          onClick={method('list-ordered')}
                         >
                           <IconListOrdered {...IconProps} />
                         </ToggleButton>
@@ -2198,12 +2317,14 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                   {includes('list-unordered') && (
                     <WrapperToggleButton
                       label='List Unordered'
-
-                      onClick={method('list-unordered')}
                     >
                       {is('function', render) ? render('list-unordered', ToggleButtonProps, refs.value.current, method) : (
                         <ToggleButton
                           {...ToggleButtonProps}
+
+                          selected={selected.includes('list-unordered')}
+
+                          onClick={method('list-unordered')}
                         >
                           <IconListUnordered {...IconProps} />
                         </ToggleButton>
@@ -3021,12 +3142,12 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                       {includes('redo') && (
                         <WrapperToggleButton
                           label='Redo'
-
-                          onClick={method('redo')}
                         >
                           {is('function', render) ? render('redo', ToggleButtonProps, refs.value.current, method) : (
                             <ToggleButton
                               {...ToggleButtonProps}
+
+                              onClick={method('redo')}
                             >
                               <IconRedo {...IconProps} />
                             </ToggleButton>
@@ -3098,6 +3219,10 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
         ref={refs.value}
 
         color='default'
+
+        onMouseUp={onMouseUpValue}
+
+        onMouseDown={onMouseDownValue}
 
         onInput={onUpdate}
 
