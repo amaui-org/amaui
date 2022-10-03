@@ -2789,10 +2789,6 @@ Libero et sagittis. Phasellus egestas consequat dolor a scelerisque. Duis at var
                     unit: 5
                   }
                 }}
-
-                style={{
-                  width: '100%'
-                }}
               >
                 <Label>
                   <Checkbox />
@@ -2821,10 +2817,6 @@ Libero et sagittis. Phasellus egestas consequat dolor a scelerisque. Duis at var
                     }
                   }
                 }}
-
-                style={{
-                  width: '100%'
-                }}
               >
                 <Label>
                   <Checkbox />
@@ -2852,10 +2844,6 @@ Libero et sagittis. Phasellus egestas consequat dolor a scelerisque. Duis at var
                     }
                   }
                 }}
-
-                style={{
-                  width: '100%'
-                }}
               >
                 <Label>
                   <Checkbox />
@@ -2879,10 +2867,6 @@ Libero et sagittis. Phasellus egestas consequat dolor a scelerisque. Duis at var
                       }
                     }
                   }
-                }}
-
-                style={{
-                  width: '100%'
                 }}
               >
                 <Label>
