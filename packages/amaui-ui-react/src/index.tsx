@@ -113,6 +113,9 @@ export * from './Checkbox';
 export { default as Radio } from './Radio';
 export * from './Radio';
 
+export { default as Radios } from './Radios';
+export * from './Radios';
+
 export { default as Keyframes } from './Keyframes';
 export * from './Keyframes';
 

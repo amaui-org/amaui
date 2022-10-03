@@ -193,7 +193,7 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
     size = 'regular',
 
     valueDefault,
-    value: value_,
+    checked,
     onChange,
 
     Component = 'span',
@@ -213,7 +213,7 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
     ...other
   } = props;
 
-  const [value, setValue] = React.useState(valueDefault !== undefined ? valueDefault : value_);
+  const [value, setValue] = React.useState(valueDefault !== undefined ? valueDefault : checked);
 
   const refs = {
     value: React.useRef<any>(),
@@ -241,12 +241,12 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
   };
 
   React.useEffect(() => {
-    if (value_ !== undefined && value_ !== refs.value.current) {
-      setValue(value_);
+    if (checked !== undefined && checked !== refs.value.current) {
+      setValue(checked);
 
       refs.animation.current = true;
     }
-  }, [value_]);
+  }, [checked]);
 
   const onUpdate = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (!disabled && !refs.animation.current) {

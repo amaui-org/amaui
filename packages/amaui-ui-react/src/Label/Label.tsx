@@ -10,7 +10,8 @@ import { staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
-    cursor: 'pointer'
+    cursor: 'pointer',
+    userSelect: 'none'
   },
 
   text_disabled: {
@@ -31,6 +32,11 @@ const Label = React.forwardRef((props_: any, ref: any) => {
   const { classes } = useStyle(props);
 
   const {
+    tonal,
+    color,
+    colorUnchecked,
+    version,
+
     position: position_,
 
     size = 'regular',
@@ -39,6 +45,8 @@ const Label = React.forwardRef((props_: any, ref: any) => {
     label,
 
     value,
+
+    checked,
 
     disabled,
 
@@ -112,7 +120,14 @@ const Label = React.forwardRef((props_: any, ref: any) => {
           classes.input
         ]),
 
+        tonal,
+        color,
+        colorUnchecked,
+        version,
+
         size,
+
+        checked,
 
         disabled
       })}

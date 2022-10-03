@@ -222,7 +222,7 @@ const Checkbox = React.forwardRef((props_: any, ref: any) => {
     indeterminate: indeterminate_,
 
     valueDefault,
-    value: value_,
+    checked,
     onChange,
 
     disabled,
@@ -238,7 +238,7 @@ const Checkbox = React.forwardRef((props_: any, ref: any) => {
     ...other
   } = props;
 
-  const [value, setValue] = React.useState(valueDefault !== undefined ? valueDefault : value_);
+  const [value, setValue] = React.useState(valueDefault !== undefined ? valueDefault : checked);
   const [indeterminate, setIndeterminate] = React.useState(!value && indeterminate_);
 
   const refs = {
@@ -260,12 +260,12 @@ const Checkbox = React.forwardRef((props_: any, ref: any) => {
   };
 
   React.useEffect(() => {
-    if (value_ !== undefined && value_ !== refs.value.current) {
-      setValue(value_);
+    if (checked !== undefined && checked !== refs.value.current) {
+      setValue(checked);
 
       if (refs.indeterminate.current) setIndeterminate(false);
     }
-  }, [value_]);
+  }, [checked]);
 
   const onUpdate = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (!disabled) {

@@ -111,7 +111,7 @@ const Radio = React.forwardRef((props_: any, ref: any) => {
     version = 'text',
 
     valueDefault,
-    value: value_,
+    checked,
     onChange,
 
     disabled,
@@ -127,7 +127,7 @@ const Radio = React.forwardRef((props_: any, ref: any) => {
     ...other
   } = props;
 
-  const [value, setValue] = React.useState(valueDefault !== undefined ? valueDefault : value_);
+  const [value, setValue] = React.useState(valueDefault !== undefined ? valueDefault : checked);
 
   const refs = {
     value: React.useRef<any>(),
@@ -143,8 +143,8 @@ const Radio = React.forwardRef((props_: any, ref: any) => {
   };
 
   React.useEffect(() => {
-    if (value_ !== undefined && value_ !== value) setValue(value_);
-  }, [value_]);
+    if (checked !== undefined && checked !== value) setValue(checked);
+  }, [checked]);
 
   const onUpdate = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (!disabled) {
