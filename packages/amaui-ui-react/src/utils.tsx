@@ -200,6 +200,8 @@ export const save = (element: HTMLElement) => {
 
   const elementClone = element.cloneNode(true);
 
+  (elementClone as HTMLElement).contentEditable = 'false';
+
   clone.body.append(elementClone);
 
   download(`${window.document.title}.html`, clone.documentElement.innerHTML, 'text/html');
