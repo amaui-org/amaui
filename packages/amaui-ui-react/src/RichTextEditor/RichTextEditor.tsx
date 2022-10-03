@@ -987,6 +987,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
         window.document.execCommand('italic');
 
         if (query('italic')) setSelected(values => [...values, 'italic']);
+        else setSelected(values => values.filter(item => item !== 'italic'));
 
         break;
 
@@ -994,6 +995,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
         window.document.execCommand('underline');
 
         if (query('underline')) setSelected(values => [...values, 'underline']);
+        else setSelected(values => values.filter(item => item !== 'underline'));
 
         break;
 
@@ -1001,6 +1003,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
         window.document.execCommand('bold');
 
         if (query('bold')) setSelected(values => [...values, 'bold']);
+        else setSelected(values => values.filter(item => item !== 'bold'));
 
         break;
 
@@ -1008,34 +1011,39 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
         window.document.execCommand('strikeThrough');
 
         if (query('strikeThrough')) setSelected(values => [...values, 'strike-line']);
+        else setSelected(values => values.filter(item => item !== 'strike-line'));
 
         break;
 
       case 'align-left':
         window.document.execCommand('justifyLeft');
 
-        if (query('justifyLeft')) setSelected(values => [...values, 'align-left']);
+        if (query('justifyLeft')) setSelected(values => [...values.filter(item => !item.includes('align')), 'align-left']);
+        else setSelected(values => values.filter(item => item !== 'align-left'));
 
         break;
 
       case 'align-center':
         window.document.execCommand('justifyCenter');
 
-        if (query('justifyCenter')) setSelected(values => [...values, 'align-center']);
+        if (query('justifyCenter')) setSelected(values => [...values.filter(item => !item.includes('align')), 'align-center']);
+        else setSelected(values => values.filter(item => item !== 'align-center'));
 
         break;
 
       case 'align-right':
         window.document.execCommand('justifyRight');
 
-        if (query('justifyRight')) setSelected(values => [...values, 'align-right']);
+        if (query('justifyRight')) setSelected(values => [...values.filter(item => !item.includes('align')), 'align-right']);
+        else setSelected(values => values.filter(item => item !== 'align-right'));
 
         break;
 
       case 'align-justify':
         window.document.execCommand('justifyFull');
 
-        if (query('justifyFull')) setSelected(values => [...values, 'align-justify']);
+        if (query('justifyFull')) setSelected(values => [...values.filter(item => !item.includes('align')), 'align-justify']);
+        else setSelected(values => values.filter(item => item !== 'align-justify'));
 
         break;
 
@@ -1043,6 +1051,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
         window.document.execCommand('superscript');
 
         if (query('superscript')) setSelected(values => [...values, 'superscript']);
+        else setSelected(values => values.filter(item => item !== 'superscript'));
 
         break;
 
@@ -1050,6 +1059,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
         window.document.execCommand('subscript');
 
         if (query('subscript')) setSelected(values => [...values, 'subscript']);
+        else setSelected(values => values.filter(item => item !== 'subscript'));
 
         break;
 
@@ -1107,14 +1117,16 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
       case 'list-ordered':
         window.document.execCommand('insertOrderedList');
 
-        if (query('insertOrderedList')) setSelected(values => [...values, 'list-ordered']);
+        if (query('insertOrderedList')) setSelected(values => [...values.filter(item => !item.includes('list')), 'list-ordered']);
+        else setSelected(values => values.filter(item => item !== 'list-ordered'));
 
         break;
 
       case 'list-unordered':
         window.document.execCommand('insertUnorderedList');
 
-        if (query('insertUnorderedList')) setSelected(values => [...values, 'list-unordered']);
+        if (query('insertUnorderedList')) setSelected(values => [...values.filter(item => !item.includes('list')), 'list-unordered']);
+        else setSelected(values => values.filter(item => item !== 'list-unordered'));
 
         break;
 
