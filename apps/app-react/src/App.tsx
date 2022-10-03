@@ -42498,9 +42498,9 @@ Please sign in again.`}
             <Checkbox
               color='secondary'
 
-              onChange={(value: boolean) => updateValue(value, 'checkbox')}
               value={!!a.checkbox}
 
+              onChange={(value: boolean) => updateValue(value, 'checkbox')}
             />
           </div>
         </Accordion>
@@ -42510,9 +42510,9 @@ Please sign in again.`}
             <Checkbox
               color='secondary'
 
-              onChange={(value: boolean) => updateValue(value, 'checkbox')}
-
               value={!!a.checkbox}
+
+              onChange={(value: boolean) => updatePure(value, 'checkbox')}
 
               indeterminate
             />

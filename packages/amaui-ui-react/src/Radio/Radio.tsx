@@ -9,9 +9,21 @@ import { iconSizeToFontSize, staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
+    position: 'relative',
+
     '&$disabled': {
       cursor: 'default'
     }
+  },
+
+  input: {
+    position: 'absolute',
+    inset: 0,
+    width: '100%',
+    height: '100%',
+    opacity: 0,
+    cursor: 'inherit',
+    zIndex: 1
   },
 
   icon: {
@@ -92,13 +104,20 @@ const Radio = React.forwardRef((props_: any, ref: any) => {
   const {
     tonal,
     color = 'primary',
+
     colorUnchecked = 'default',
+
     version = 'text',
+
     valueDefault,
-    value,
+    value: value_,
     onChange,
-    Component = 'button',
+
     disabled,
+
+    inputRef,
+
+    Component = 'button',
 
     className,
 
@@ -107,7 +126,13 @@ const Radio = React.forwardRef((props_: any, ref: any) => {
     ...other
   } = props;
 
-  const [checked, setChecked] = React.useState(valueDefault !== undefined ? valueDefault : value);
+  const [value, setValue] = React.useState(valueDefault !== undefined ? valueDefault : value_);
+
+  const refs = {
+    value: React.useRef<any>()
+  };
+
+  refs.value.current = value;
 
   const { classes } = useStyle(props);
 
@@ -116,15 +141,15 @@ const Radio = React.forwardRef((props_: any, ref: any) => {
   };
 
   React.useEffect(() => {
-    if (value !== undefined && checked !== value) setChecked(value);
-  }, [value]);
+    if (value_ !== undefined && value_ !== value) setValue(value_);
+  }, [value_]);
 
   const onUpdate = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (!disabled) {
       // Inner controlled checkbox
-      if (!props.hasOwnProperty('value')) setChecked(!checked);
+      if (!props.hasOwnProperty('value')) setValue(event.target.checked);
 
-      if (is('function', onChange)) onChange(!checked, event);
+      if (is('function', onChange)) onChange(event.target.checked, event);
     }
   };
 
@@ -145,7 +170,7 @@ const Radio = React.forwardRef((props_: any, ref: any) => {
 
   let colorValue = color;
 
-  if (!checked) colorValue = colorUnchecked;
+  if (!value) colorValue = colorUnchecked;
 
   return (
     <IconButton
@@ -155,7 +180,7 @@ const Radio = React.forwardRef((props_: any, ref: any) => {
         staticClassName('Radio', theme) && [
           'AmauiRadio-root',
           `AmauiRadio-color-unchecked-${!theme.palette.color[colorUnchecked] && !['themed', 'inverted', 'default', 'inherit'].includes(colorUnchecked) ? 'new' : colorUnchecked}`,
-          checked && `AmauiRadio-checked`
+          value && `AmauiRadio-checked`
         ],
 
         className,
@@ -167,13 +192,33 @@ const Radio = React.forwardRef((props_: any, ref: any) => {
 
       color={colorValue}
 
-      onClick={onUpdate}
-
       Component={Component}
 
       tonal={tonal}
 
       version={version}
+
+      firstLevelChildren={(
+        <input
+          ref={inputRef}
+
+          type='checkbox'
+
+          value={value}
+
+          onChange={onUpdate}
+
+          className={classNames([
+            staticClassName('Checkbox', theme) && [
+              'AmauiCheckbox-input'
+            ],
+
+            classes.input
+          ])}
+
+          disabled={disabled}
+        />
+      )}
 
       disabled={disabled}
     >
@@ -206,7 +251,7 @@ const Radio = React.forwardRef((props_: any, ref: any) => {
 
           classes.icon,
           classes.iconDot,
-          checked && classes.checked
+          value && classes.checked
         ])}
       />
     </IconButton>

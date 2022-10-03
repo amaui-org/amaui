@@ -11,9 +11,21 @@ import { staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
+    position: 'relative',
+
     '&$disabled': {
       cursor: 'default'
     }
+  },
+
+  input: {
+    position: 'absolute',
+    inset: 0,
+    width: '100%',
+    height: '100%',
+    opacity: 0,
+    cursor: 'inherit',
+    zIndex: 1
   },
 
   icon: {
@@ -113,9 +125,10 @@ const IconMaterialIndeterminateCheckBoxSharp = React.forwardRef((props: any, ref
 
 const IconItem = (props: any) => {
   const {
-    Component = 'span',
     noFontSizeDownScale,
     size,
+
+    Component = 'span',
 
     className,
     style,
@@ -166,15 +179,23 @@ const Checkbox = React.forwardRef((props_: any, ref: any) => {
   const {
     tonal,
     color = 'primary',
+
     colorIndeterminate = props.color,
     colorUnchecked = 'default',
-    valueDefault,
-    value,
-    onChange,
-    indeterminate: indeterminate_,
-    Component = 'button',
+
     version = 'text',
+
+    indeterminate: indeterminate_,
+
+    valueDefault,
+    value: value_,
+    onChange,
+
     disabled,
+
+    inputRef,
+
+    Component = 'button',
 
     className,
 
@@ -183,8 +204,17 @@ const Checkbox = React.forwardRef((props_: any, ref: any) => {
     ...other
   } = props;
 
-  const [checked, setChecked] = React.useState(valueDefault !== undefined ? valueDefault : value);
-  const [indeterminate, setIndeterminate] = React.useState(!checked && indeterminate_);
+  const [value, setValue] = React.useState(valueDefault !== undefined ? valueDefault : value_);
+  const [indeterminate, setIndeterminate] = React.useState(!value && indeterminate_);
+
+  const refs = {
+    value: React.useRef<any>(),
+    indeterminate: React.useRef<any>()
+  };
+
+  refs.value.current = value;
+
+  refs.indeterminate.current = indeterminate;
 
   const { classes } = useStyle(props);
 
@@ -195,23 +225,23 @@ const Checkbox = React.forwardRef((props_: any, ref: any) => {
   };
 
   React.useEffect(() => {
-    if (value !== undefined && checked !== value) {
-      setChecked(value);
+    if (value_ !== undefined && value_ !== refs.value.current) {
+      setValue(value_);
 
-      if (indeterminate) setIndeterminate(false);
+      if (refs.indeterminate.current) setIndeterminate(false);
     }
-  }, [value]);
+  }, [value_]);
 
-  const onUpdate = (event: ChangeEvent<HTMLInputElement>) => {
+  const onUpdate = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (!disabled) {
-      if (is('function', onChange)) onChange(!checked, event);
-
       // Inner controlled value
       if (!props.hasOwnProperty('value')) {
-        setChecked(!checked);
+        setValue(event.target.checked);
 
         if (indeterminate) setIndeterminate(false);
       }
+
+      if (is('function', onChange)) onChange(event.target.checked, event);
     }
   };
 
@@ -249,7 +279,7 @@ const Checkbox = React.forwardRef((props_: any, ref: any) => {
 
   let colorValue = color;
 
-  if (!checked) colorValue = colorUnchecked;
+  if (!value) colorValue = colorUnchecked;
 
   if (indeterminate) colorValue = colorIndeterminate;
 
@@ -274,13 +304,33 @@ const Checkbox = React.forwardRef((props_: any, ref: any) => {
 
       color={colorValue}
 
-      onClick={onUpdate}
-
       Component={Component}
 
       tonal={tonal}
 
       version={version}
+
+      firstLevelChildren={(
+        <input
+          ref={inputRef}
+
+          type='checkbox'
+
+          value={value}
+
+          onChange={onUpdate}
+
+          className={classNames([
+            staticClassName('Checkbox', theme) && [
+              'AmauiCheckbox-input'
+            ],
+
+            classes.input
+          ])}
+
+          disabled={disabled}
+        />
+      )}
 
       disabled={disabled}
     >
@@ -288,7 +338,7 @@ const Checkbox = React.forwardRef((props_: any, ref: any) => {
         className={classNames([
           classes.iconItem,
           disabled && classes.disabled,
-          checked && classes.checked,
+          value && classes.checked,
           indeterminate && classes.indeterminate
         ])}
 
@@ -303,7 +353,7 @@ const Checkbox = React.forwardRef((props_: any, ref: any) => {
           classes.iconBox,
           classes[version],
           disabled && classes.disabled,
-          checked && classes.checked,
+          value && classes.checked,
           indeterminate && classes.indeterminate
         ])}
 
@@ -326,7 +376,7 @@ const Checkbox = React.forwardRef((props_: any, ref: any) => {
         </IconItem>
       )}
 
-      {checked && (
+      {value && (
         <IconDoneAnimated
           className={classNames([
             classes.icon,
@@ -335,7 +385,7 @@ const Checkbox = React.forwardRef((props_: any, ref: any) => {
 
           style={styles.iconDone}
 
-          in={checked}
+          in={value}
 
           add
         />

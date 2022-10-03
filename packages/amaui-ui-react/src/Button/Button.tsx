@@ -301,6 +301,7 @@ const Button = React.forwardRef((props_: any, ref: any) => {
     noIconRootFontSize,
     InteractionProps = {},
     Component = props.href ? 'a' : 'button',
+    firstLevelChildren,
     disabled: disabled_,
 
     className,
@@ -528,6 +529,8 @@ const Button = React.forwardRef((props_: any, ref: any) => {
 
         {...InteractionProps}
       />
+
+      {firstLevelChildren}
 
       {startIcon && (
         <span
