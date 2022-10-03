@@ -3,15 +3,30 @@ import React from 'react';
 import { is } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
-import IconButton from '../IconButton';
 import Keyframes from '../Keyframes';
+import IconButton from '../IconButton';
 
 import { staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
+    position: 'relative',
     display: 'inline-flex',
-    position: 'relative'
+    cursor: 'pointer',
+
+    '&$disabled': {
+      cursor: 'default'
+    }
+  },
+
+  input: {
+    position: 'absolute',
+    inset: 0,
+    width: '100%',
+    height: '100%',
+    opacity: 0,
+    cursor: 'inherit',
+    zIndex: 1
   },
 
   // Color
@@ -178,14 +193,21 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
   const {
     tonal: tonal_,
     color: color_ = 'primary',
+
     size = 'regular',
+
     valueDefault,
-    value,
+    value: value_,
     onChange,
+
     Component = 'span',
+
     OnIcon,
     OffIcon,
+
     disabled,
+
+    inputRef,
 
     className,
     style,
@@ -195,8 +217,15 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
     ...other
   } = props;
 
-  const [checked, setChecked] = React.useState(valueDefault !== undefined ? valueDefault : value);
-  const animation = React.useRef(false);
+  const [value, setValue] = React.useState(valueDefault !== undefined ? valueDefault : value_);
+
+  const refs = {
+    value: React.useRef<any>(),
+    input: React.useRef<any>(),
+    animation: React.useRef(false)
+  };
+
+  refs.value.current = value;
 
   const { classes } = useStyle(props);
 
@@ -210,29 +239,29 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
 
   const styles: any = {
     root: {},
-    background: {},
     border: {},
+    background: {},
     iconButton: {}
   };
 
   React.useEffect(() => {
-    if (value !== undefined && checked !== value) {
-      setChecked(value);
+    if (value_ !== undefined && value_ !== refs.value.current) {
+      setValue(value_);
 
-      animation.current = true;
+      refs.animation.current = true;
     }
-  }, [value]);
+  }, [value_]);
 
   const onUpdate = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (!disabled && !animation.current) {
+    if (!disabled && !refs.animation.current) {
       // Inner controlled value
       if (!props.hasOwnProperty('value')) {
-        setChecked(!checked);
+        setValue(event.target.checked);
 
-        animation.current = true;
+        refs.animation.current = true;
       }
 
-      if (is('function', onChange)) onChange(!checked, event);
+      if (is('function', onChange)) onChange(event.target.checked, event);
     }
   };
 
@@ -259,10 +288,10 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
     ]
   };
 
-  const ltrSign = (value: string = '') => {
-    if (theme.direction === 'ltr') return value;
+  const ltrSign = (item: string = '') => {
+    if (theme.direction === 'ltr') return item;
 
-    return !value ? '-' : '';
+    return !item ? '-' : '';
   };
 
   const sizes = (version, element): any => {
@@ -605,13 +634,23 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
     };
   };
 
+  const onKeyDown = (event: React.KeyboardEvent<any>) => {
+    switch (event.key) {
+      case 'Enter':
+        if (refs.input.current) refs.input.current.click();
+
+        break;
+
+      default:
+        break;
+    }
+  };
+
   return (
     <Component
       ref={ref}
 
       {...other}
-
-      onClick={onUpdate}
 
       className={classNames([
         staticClassName('Switch', theme) && [
@@ -638,20 +677,46 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
         ...styles.root
       }}
     >
+      <input
+        ref={item => {
+          if (inputRef) inputRef.current = item;
+
+          refs.input.current = item;
+        }}
+
+        tabIndex={-1}
+
+        type='checkbox'
+
+        checked={value}
+
+        onChange={onUpdate}
+
+        className={classNames([
+          staticClassName('Checkbox', theme) && [
+            'AmauiCheckbox-input'
+          ],
+
+          classes.input
+        ])}
+
+        disabled={disabled}
+      />
+
       <Keyframes
-        keyframes={keyframes[checked ? 'checked' : 'unchecked']}
+        keyframes={keyframes[refs.value.current ? 'checked' : 'unchecked']}
 
-        update={checked}
+        update={refs.value.current}
 
-        appendStatusPost={!checked ? 'doneStart' : 'doneEnd'}
+        appendStatusPost={!refs.value.current ? 'doneStart' : 'doneEnd'}
 
         append
       >
         {(status: any) => {
           if (
-            (checked && status === 'doneEnd') ||
-            (!checked && status === 'doneStart')
-          ) animation.current = false;
+            (refs.value.current && status === 'doneEnd') ||
+            (!refs.value.current && status === 'doneStart')
+          ) refs.animation.current = false;
 
           return <>
             <span
@@ -667,7 +732,7 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
               style={{
                 ...styles.background,
 
-                ...(status === 'appended' && initial().background[checked ? 'checked' : 'unchecked']),
+                ...(status === 'appended' && initial().background[refs.value.current ? 'checked' : 'unchecked']),
 
                 ...styleKeyframes().background[status]
               }}
@@ -687,7 +752,7 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
               style={{
                 ...styles.border,
 
-                ...(status === 'appended' && initial().border[checked ? 'checked' : 'unchecked']),
+                ...(status === 'appended' && initial().border[refs.value.current ? 'checked' : 'unchecked']),
 
                 ...styleKeyframes().border[status]
               }}
@@ -697,6 +762,8 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
               tabIndex={disabled ? -1 : undefined}
 
               size={size}
+
+              onKeyDown={onKeyDown}
 
               className={classNames([
                 staticClassName('Switch', theme) && [
@@ -709,7 +776,7 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
               style={{
                 ...styles.iconButton,
 
-                ...(status === 'appended' && initial().iconButton[checked ? 'checked' : 'unchecked']),
+                ...(status === 'appended' && initial().iconButton[refs.value.current ? 'checked' : 'unchecked']),
 
                 ...styleKeyframes().iconButton[status]
               }}
@@ -724,14 +791,14 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
                 ])}
 
                 style={{
-                  ...(status === 'appended' && initial().icon[checked ? 'checked' : 'unchecked']),
+                  ...(status === 'appended' && initial().icon[refs.value.current ? 'checked' : 'unchecked']),
 
                   ...styleKeyframes().icon[status]
                 }}
               >
                 {
-                  (((status === 'appended' && checked) || ['growEnd', 'doneEnd'].includes(status)) && OnIcon) ||
-                  (((status === 'appended' && !checked) || ['growStart', 'doneStart'].includes(status)) && OffIcon)
+                  (((status === 'appended' && refs.value.current) || ['growEnd', 'doneEnd'].includes(status)) && OnIcon) ||
+                  (((status === 'appended' && !refs.value.current) || ['growStart', 'doneStart'].includes(status)) && OffIcon)
                 }
               </Icon>
             </IconButton>

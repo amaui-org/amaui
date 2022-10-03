@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from 'react';
+import React from 'react';
 
 import { is } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
@@ -209,6 +209,7 @@ const Checkbox = React.forwardRef((props_: any, ref: any) => {
 
   const refs = {
     value: React.useRef<any>(),
+    input: React.useRef<any>(),
     indeterminate: React.useRef<any>()
   };
 
@@ -242,6 +243,18 @@ const Checkbox = React.forwardRef((props_: any, ref: any) => {
       }
 
       if (is('function', onChange)) onChange(event.target.checked, event);
+    }
+  };
+
+  const onKeyDown = (event: React.KeyboardEvent<any>) => {
+    switch (event.key) {
+      case 'Enter':
+        if (refs.input.current) refs.input.current.click();
+
+        break;
+
+      default:
+        break;
     }
   };
 
@@ -310,13 +323,21 @@ const Checkbox = React.forwardRef((props_: any, ref: any) => {
 
       version={version}
 
+      onKeyDown={onKeyDown}
+
       firstLevelChildren={(
         <input
-          ref={inputRef}
+          ref={item => {
+            if (inputRef) inputRef.current = item;
+
+            refs.input.current = item;
+          }}
+
+          tabIndex={-1}
 
           type='checkbox'
 
-          value={value}
+          checked={value}
 
           onChange={onUpdate}
 

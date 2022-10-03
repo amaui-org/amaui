@@ -129,7 +129,8 @@ const Radio = React.forwardRef((props_: any, ref: any) => {
   const [value, setValue] = React.useState(valueDefault !== undefined ? valueDefault : value_);
 
   const refs = {
-    value: React.useRef<any>()
+    value: React.useRef<any>(),
+    input: React.useRef<any>()
   };
 
   refs.value.current = value;
@@ -150,6 +151,18 @@ const Radio = React.forwardRef((props_: any, ref: any) => {
       if (!props.hasOwnProperty('value')) setValue(event.target.checked);
 
       if (is('function', onChange)) onChange(event.target.checked, event);
+    }
+  };
+
+  const onKeyDown = (event: React.KeyboardEvent<any>) => {
+    switch (event.key) {
+      case 'Enter':
+        if (refs.input.current) refs.input.current.click();
+
+        break;
+
+      default:
+        break;
     }
   };
 
@@ -198,13 +211,21 @@ const Radio = React.forwardRef((props_: any, ref: any) => {
 
       version={version}
 
+      onKeyDown={onKeyDown}
+
       firstLevelChildren={(
         <input
-          ref={inputRef}
+          ref={item => {
+            if (inputRef) inputRef.current = item;
+
+            refs.input.current = item;
+          }}
+
+          tabIndex={-1}
 
           type='checkbox'
 
-          value={value}
+          checked={value}
 
           onChange={onUpdate}
 

@@ -87,9 +87,11 @@ function Keyframes(props_: IProps) {
 
     return statusNew;
   });
+
   const subs = React.useRef({
     status: new AmauiSubscription()
   });
+
   const refs = {
     root: React.useRef<HTMLElement>(),
     status: React.useRef(status)
@@ -255,7 +257,6 @@ function Keyframes(props_: IProps) {
 
   return (
     <KeyframesContext.Provider value={value}>
-
       {
         is('function', children) ?
           children(status, refs.root) :
@@ -268,7 +269,6 @@ function Keyframes(props_: IProps) {
             }
           })
       }
-
     </KeyframesContext.Provider>
   );
 };
