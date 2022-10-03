@@ -28,6 +28,10 @@ const useStyle = style(theme => ({
   // Color
   color_default: { color: theme.palette.text.default.primary },
 
+  color_themed: { color: theme.palette.text.default.primary },
+
+  color_inverted: { color: theme.palette.background.default.primary },
+
   color_neutral: { color: theme.palette.color.neutral.main },
 
   color_primary: { color: theme.palette.color.primary.main },
@@ -263,7 +267,7 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
 
   let palette: any;
 
-  if (!theme.palette.color[color]) {
+  if (!theme.palette.color[color] && !['themed', 'inverted', 'default', 'inherit'].includes(color)) {
     palette = theme.methods.color(color);
 
     styles.root.color = color;
@@ -433,7 +437,9 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
   };
 
   const initial = () => {
-    const dynamicBackgroundColor = tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 95 : 10] : theme.methods.palette.color.text(color === 'default' ? theme.palette.color.neutral.main : (palette || theme.palette.color[color]).main, true, 'light');
+    const paletteColor = theme.palette.color[color] || palette || theme.palette.color.neutral;
+
+    const dynamicBackgroundColor = tonal ? paletteColor[theme.palette.light ? 95 : 10] : theme.methods.palette.color.text(color === 'default' ? theme.palette.color.neutral.main : (palette || theme.palette.color[color]).main, true, 'light');
 
     return ({
       background: {
@@ -459,11 +465,11 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
       iconButton: {
         checked: {
           transform: sizes('checked', 'iconButton'),
-          color: color === 'default' ? theme.palette.color.neutral.main : !tonal ? (theme.palette.color[color] || palette).main : 'currentColor'
+          color: color === 'default' ? theme.palette.color.neutral.main : !tonal ? paletteColor.main : 'currentColor'
         },
         unchecked: {
           transform: sizes('unchecked', 'iconButton'),
-          color: color === 'default' ? theme.palette.color.neutral.main : !tonal ? theme.palette.text.default.secondary : (theme.palette.color[color] || palette)[theme.palette.light ? 40 : 20]
+          color: color === 'default' ? theme.palette.color.neutral.main : !tonal ? theme.palette.text.default.secondary : paletteColor[theme.palette.light ? 40 : 20]
         }
       },
 
@@ -471,19 +477,21 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
         checked: {
           transform: sizes('checked', 'icon'),
           background: dynamicBackgroundColor,
-          color: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 30 : 80] : theme.methods.palette.color.text(dynamicBackgroundColor, true, 'light')
+          color: tonal ? paletteColor[theme.palette.light ? 30 : 80] : theme.methods.palette.color.text(dynamicBackgroundColor, true, 'light')
         },
         unchecked: {
           transform: sizes('unchecked', 'icon'),
-          background: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 40 : 20] : theme.palette.text.default.secondary,
-          color: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 90 : 0] : theme.palette.background.default.quaternary
+          background: tonal ? paletteColor[theme.palette.light ? 40 : 20] : theme.palette.text.default.secondary,
+          color: tonal ? paletteColor[theme.palette.light ? 90 : 0] : theme.palette.background.default.quaternary
         }
       }
     });
   };
 
   const styleKeyframes = () => {
-    const dynamicBackgroundColor = tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 95 : 10] : theme.methods.palette.color.text(color === 'default' ? theme.palette.color.neutral.main : (palette || theme.palette.color[color]).main, true, 'light');
+    const paletteColor = theme.palette.color[color] || palette || theme.palette.color.neutral;
+
+    const dynamicBackgroundColor = tonal ? paletteColor[theme.palette.light ? 95 : 10] : theme.methods.palette.color.text(color === 'default' ? theme.palette.color.neutral.main : (palette || theme.palette.color[color]).main, true, 'light');
 
     return {
       background: {
@@ -547,16 +555,16 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
       iconButton: {
         growStart: {
           transform: sizes('grow-start', 'iconButton'),
-          color: color === 'default' ? theme.palette.color.neutral.main : !tonal ? theme.palette.text.default.secondary : (theme.palette.color[color] || palette)[theme.palette.light ? 40 : 20],
+          color: color === 'default' ? theme.palette.color.neutral.main : !tonal ? theme.palette.text.default.secondary : paletteColor[theme.palette.light ? 40 : 20],
           transition: theme.methods.transitions.make('transform', { duration: 240, timing_function: 'decelerated' })
         },
         waitStart: {
           transform: sizes('grow-start', 'iconButton'),
-          color: color === 'default' ? theme.palette.color.neutral.main : !tonal ? theme.palette.text.default.secondary : (theme.palette.color[color] || palette)[theme.palette.light ? 40 : 20]
+          color: color === 'default' ? theme.palette.color.neutral.main : !tonal ? theme.palette.text.default.secondary : paletteColor[theme.palette.light ? 40 : 20]
         },
         moveEnd: {
           transform: sizes('move-end', 'iconButton'),
-          color: color === 'default' ? theme.palette.color.neutral.main : !tonal ? (theme.palette.color[color] || palette).main : 'currentColor',
+          color: color === 'default' ? theme.palette.color.neutral.main : !tonal ? paletteColor.main : 'currentColor',
           transition: `${theme.methods.transitions.make('width', { duration: 70 })}, ${theme.methods.transitions.make('transform', { duration: 70 })}, ${theme.methods.transitions.make('background', { duration: 35, delay: 35 })}`
         },
         doneEnd: {
@@ -565,16 +573,16 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
         },
         growEnd: {
           transform: sizes('grow-end', 'iconButton'),
-          color: color === 'default' ? theme.palette.color.neutral.main : !tonal ? (theme.palette.color[color] || palette).main : 'currentColor',
+          color: color === 'default' ? theme.palette.color.neutral.main : !tonal ? paletteColor.main : 'currentColor',
           transition: theme.methods.transitions.make('transform', { duration: 240, timing_function: 'decelerated' })
         },
         waitEnd: {
           transform: sizes('grow-end', 'iconButton'),
-          color: color === 'default' ? theme.palette.color.neutral.main : !tonal ? (theme.palette.color[color] || palette).main : 'currentColor'
+          color: color === 'default' ? theme.palette.color.neutral.main : !tonal ? paletteColor.main : 'currentColor'
         },
         moveStart: {
           transform: sizes('move-start', 'iconButton'),
-          color: color === 'default' ? theme.palette.color.neutral.main : !tonal ? theme.palette.text.default.secondary : (theme.palette.color[color] || palette)[theme.palette.light ? 40 : 20],
+          color: color === 'default' ? theme.palette.color.neutral.main : !tonal ? theme.palette.text.default.secondary : paletteColor[theme.palette.light ? 40 : 20],
           transition: `${theme.methods.transitions.make('width', { duration: 70 })}, ${theme.methods.transitions.make('transform', { duration: 70 })}, ${theme.methods.transitions.make('background', { duration: 35, delay: 35 })}`
         },
         doneStart: {
@@ -586,19 +594,19 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
       icon: {
         growStart: {
           transform: sizes('grow-start', 'icon'),
-          background: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 40 : 20] : theme.palette.text.default.secondary,
-          color: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 90 : 10] : theme.palette.background.default.quaternary,
+          background: tonal ? paletteColor[theme.palette.light ? 40 : 20] : theme.palette.text.default.secondary,
+          color: tonal ? paletteColor[theme.palette.light ? 90 : 10] : theme.palette.background.default.quaternary,
           transition: theme.methods.transitions.make('transform', { duration: 240, timing_function: 'decelerated' })
         },
         waitStart: {
           transform: sizes('grow-start', 'icon'),
-          background: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 40 : 20] : theme.palette.text.default.secondary,
-          color: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 90 : 10] : theme.palette.background.default.quaternary
+          background: tonal ? paletteColor[theme.palette.light ? 40 : 20] : theme.palette.text.default.secondary,
+          color: tonal ? paletteColor[theme.palette.light ? 90 : 10] : theme.palette.background.default.quaternary
         },
         moveEnd: {
           ...sizes('move-end', 'icon'),
           background: dynamicBackgroundColor,
-          color: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 30 : 80] : theme.methods.palette.color.text(dynamicBackgroundColor, true, 'light'),
+          color: tonal ? paletteColor[theme.palette.light ? 30 : 80] : theme.methods.palette.color.text(dynamicBackgroundColor, true, 'light'),
           transition: `${theme.methods.transitions.make('width', { duration: 70 })}, ${theme.methods.transitions.make('transform', { duration: 70 })}, ${theme.methods.transitions.make('background', { duration: 35, delay: 35 })}`
         },
         doneEnd: {
@@ -608,18 +616,18 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
         growEnd: {
           transform: sizes('grow-end', 'icon'),
           background: dynamicBackgroundColor,
-          color: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 30 : 80] : theme.methods.palette.color.text(dynamicBackgroundColor, true, 'light'),
+          color: tonal ? paletteColor[theme.palette.light ? 30 : 80] : theme.methods.palette.color.text(dynamicBackgroundColor, true, 'light'),
           transition: theme.methods.transitions.make('transform', { duration: 240, timing_function: 'decelerated' })
         },
         waitEnd: {
           transform: sizes('grow-end', 'icon'),
           background: dynamicBackgroundColor,
-          color: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 30 : 80] : theme.methods.palette.color.text(dynamicBackgroundColor, true, 'light'),
+          color: tonal ? paletteColor[theme.palette.light ? 30 : 80] : theme.methods.palette.color.text(dynamicBackgroundColor, true, 'light'),
         },
         moveStart: {
           ...sizes('move-start', 'icon'),
-          background: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 40 : 20] : theme.palette.text.default.secondary,
-          color: tonal ? (theme.palette.color[color] || palette)[theme.palette.light ? 90 : 0] : theme.palette.background.default.quaternary,
+          background: tonal ? paletteColor[theme.palette.light ? 40 : 20] : theme.palette.text.default.secondary,
+          color: tonal ? paletteColor[theme.palette.light ? 90 : 0] : theme.palette.background.default.quaternary,
           transition: `${theme.methods.transitions.make('width', { duration: 70 })}, ${theme.methods.transitions.make('transform', { duration: 70 })}, ${theme.methods.transitions.make('background', { duration: 35, delay: 35 })}`
         },
         doneStart: {

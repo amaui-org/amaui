@@ -20,10 +20,18 @@ import ListItem from '../ListItem';
 import Line from '../Line';
 
 import { print, save, staticClassName } from '../utils';
+import Switch from '../Switch';
+import Label from '../Label';
+import NumericTextField from '../NumericTextField';
 
 const useStyle = style(theme => ({
   root: {
-    width: '100%',
+    width: '100%'
+  },
+
+  value: {
+    padding: '16px',
+    whiteSpace: 'break-spaces',
 
     '& p': {
       ...theme.typography.values.b2
@@ -99,12 +107,26 @@ const useStyle = style(theme => ({
         padding: '0px',
         background: 'none'
       }
-    }
-  },
+    },
 
-  value: {
-    padding: '16px',
-    whiteSpace: 'break-spaces'
+    '& table': {
+      margin: '16px auto',
+      borderCollapse: 'collapse',
+      border: `1px solid ${theme.palette.light ? theme.palette.color.neutral[80] : theme.palette.color.neutral[30]}`,
+
+      '& th,td': {
+        ...theme.typography.values.b2,
+        height: '45px',
+        padding: '12px 16px',
+        borderBottom: `1px solid ${theme.palette.light ? theme.palette.color.neutral[80] : theme.palette.color.neutral[30]}`,
+        borderRight: `1px solid ${theme.palette.light ? theme.palette.color.neutral[80] : theme.palette.color.neutral[30]}`
+      },
+
+      '& th': {
+        fontWeight: 500,
+        borderBottom: `1px solid ${theme.palette.light ? theme.palette.color.neutral[50] : theme.palette.color.neutral[50]}`
+      }
+    }
   },
 
   toolbars: {
@@ -737,9 +759,23 @@ const IconMaterialDownloadRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
-// to do
+const IconMaterialTableRounded = React.forwardRef((props: any, ref) => {
 
-// insert table
+  return (
+    <Icon
+      ref={ref}
+
+      name='TableRounded'
+      short_name='Table'
+
+      {...props}
+    >
+      <path d="M3 21V3H21V21ZM5 9H19V5H5ZM10.325 14H13.675V11H10.325ZM10.325 19H13.675V16H10.325ZM5 14H8.325V11H5ZM15.675 14H19V11H15.675ZM5 19H8.325V16H5ZM15.675 19H19V16H15.675Z" />
+    </Icon>
+  );
+});
+
+// to do
 
 // onChange method for any onChange event, with valueDefault and value
 
@@ -812,6 +848,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
     IconImage = IconMaterialImageRounded,
     IconVideo = IconMaterialVideocamRounded,
     IconVideoYoutube = IconMaterialPlayArrowRounded,
+    IconTable = IconMaterialTableRounded,
     IconCode = IconMaterialCodeRounded,
 
     // Action
@@ -868,6 +905,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
       image: React.useRef<any>(),
       video: React.useRef<any>(),
       videoYoutube: React.useRef<any>(),
+      table: React.useRef<any>(),
       code: React.useRef<any>()
     }
   };
@@ -1109,7 +1147,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
   // italic, underline, bold
   // updates toolbar
-  const updates_ = updates && (!is('array', exclude) || includes('font-family', 'font-version', 'font-size', 'font-color', 'font-background', 'italic', 'underline', 'bold', 'strike-line', 'align-left', 'align-center', 'align-right', 'align-justify', 'superscript', 'subscript', 'indent', 'outdent', 'list-ordered', 'list-unordered', 'horizontal-rule', 'link-add', 'link-remove', 'quote', 'image', 'video', 'video-youtube', 'code'));
+  const updates_ = updates && (!is('array', exclude) || includes('font-family', 'font-version', 'font-size', 'font-color', 'font-background', 'italic', 'underline', 'bold', 'strike-line', 'align-left', 'align-center', 'align-right', 'align-justify', 'superscript', 'subscript', 'indent', 'outdent', 'list-ordered', 'list-unordered', 'horizontal-rule', 'link-add', 'link-remove', 'quote', 'image', 'video', 'video-youtube', 'table', 'code'));
 
   // copy, paste, cut
   // action toolbar
@@ -2277,7 +2315,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                 </ToggleButtons>
               )}
 
-              {includes('quote', 'image', 'video', 'video-youtube', 'code') && (
+              {includes('quote', 'image', 'video', 'video-youtube', 'table', 'code') && (
                 <ToggleButtons
                   {...ToggleButtonsProps}
                 >
@@ -2340,6 +2378,189 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                             onClick={() => updateOpen('quote', !refs.open.current.quote)}
                           >
                             <IconQuote {...IconProps} />
+                          </ToggleButton>
+                        )}
+                      </WrapperToggleButton>
+                    </WrapperAppend>
+                  )}
+
+                  {includes('table') && (
+                    <WrapperAppend
+                      open={refs.open.current.table}
+
+                      anchorElement={refs.elements.table.current}
+
+                      element={(
+                        <ClickListener
+                          onClickOutside={() => updateOpen('table', false)}
+
+                          include={[refs.elements.table.current]}
+                        >
+                          <Line
+                            gap={1}
+
+                            tonal={tonal}
+
+                            color='themed'
+
+                            Component={Surface}
+
+                            className={classNames([
+                              staticClassName('RichTextEditor', theme) && [
+                                'AmauiRichTextEditor-palette'
+                              ],
+
+                              classes.palette
+                            ])}
+                          >
+                            <Line
+                              gap={1}
+
+                              direction='row'
+
+                              align='center'
+
+                              justify='center'
+                            >
+                              <NumericTextField
+                                label='Rows'
+
+                                tonal={tonal}
+
+                                color={color}
+
+                                size='small'
+
+                                version='outlined'
+
+                                increment={false}
+
+                                decrement={false}
+
+                                value={refs.inputValues.current.tableRows}
+
+                                onChange={valueNew => updateInputValues('tableRows', valueNew)}
+                              />
+
+                              ×
+
+                              <NumericTextField
+                                label='Columns'
+
+                                tonal={tonal}
+
+                                color={color}
+
+                                size='small'
+
+                                version='outlined'
+
+                                increment={false}
+
+                                decrement={false}
+
+                                value={refs.inputValues.current.tableColumns}
+
+                                onChange={valueNew => updateInputValues('tableColumns', valueNew)}
+                              />
+                            </Line>
+
+                            <Line
+                              gap={1}
+
+                              direction='row'
+
+                              align='center'
+
+                              justify='space-between'
+
+                              style={{
+                                width: '100%'
+                              }}
+                            >
+                              <Label
+                                size='small'
+                              >
+                                <Switch
+                                  tonal={tonal}
+
+                                  color={color}
+
+                                  checked={refs.inputValues.current.tableHeader}
+
+                                  onChange={valueNew => updateInputValues('tableHeader', valueNew)}
+                                />
+
+                                Header
+                              </Label>
+
+                              <Button
+                                tonal={tonal}
+
+                                color='default'
+
+                                version='text'
+
+                                size='small'
+
+                                onClick={() => {
+                                  if (refs.range.current) {
+                                    const selection = window.getSelection();
+
+                                    selection.removeAllRanges();
+                                    selection.addRange(refs.range.current);
+                                  }
+
+                                  let table = `<table>`;
+
+                                  if (refs.inputValues.current.tableHeader && refs.inputValues.current.tableColumns > 0) {
+                                    table += `<thead><tr>${'<th></th>'.repeat(refs.inputValues.current.tableColumns)}</tr></thead>`;
+                                  }
+
+                                  if (refs.inputValues.current.tableRows > 0 && refs.inputValues.current.tableColumns > 0) {
+                                    table += `<tbody>`;
+
+                                    for (let i = 0; i < refs.inputValues.current.tableRows; i++) {
+                                      table += `<tr>${'<td></td>'.repeat(refs.inputValues.current.tableColumns)}</tr>`;
+                                    }
+
+                                    table += `</tbody>`;
+                                  }
+
+                                  table += `</table>`;
+
+                                  method('html')(table);
+
+                                  updateOpen('table', false);
+
+                                  updateInputValues('tableRows', '');
+                                  updateInputValues('tableColumns', '');
+                                  updateInputValues('tableHeader', '');
+                                }}
+                              >
+                                Add
+                              </Button>
+                            </Line>
+                          </Line>
+                        </ClickListener>
+                      )}
+                    >
+                      <WrapperToggleButton
+                        label='Insert Table'
+
+                        open={refs.open.current.table ? false : undefined}
+                      >
+                        {is('function', render) ? render('table', ToggleButtonProps, refs.value.current, method) : (
+                          <ToggleButton
+                            ref={refs.elements.table}
+
+                            {...ToggleButtonProps}
+
+                            selected={refs.open.current.table}
+
+                            onClick={() => updateOpen('table', !refs.open.current.table)}
+                          >
+                            <IconTable {...IconProps} />
                           </ToggleButton>
                         )}
                       </WrapperToggleButton>

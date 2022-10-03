@@ -325,7 +325,7 @@ const Buttons = React.forwardRef((props_: any, ref: any) => {
   const children = React.Children
     .toArray(children_)
     // Clamp array to max of 5 values
-    .slice(0, 5)
+    // .slice(0, 5)
     .map((item: any, index: number) => React.cloneElement(item, {
       key: index,
 

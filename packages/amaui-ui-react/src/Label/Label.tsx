@@ -120,12 +120,12 @@ const Label = React.forwardRef((props_: any, ref: any) => {
           classes.input
         ]),
 
-        tonal,
-        color,
-        colorUnchecked,
-        version,
+        tonal: Input?.props?.tonal !== undefined ? Input.props.tonal : tonal,
+        color: Input?.props?.color !== undefined ? Input.props.color : color,
+        colorUnchecked: Input?.props?.colorUnchecked !== undefined ? Input.props.colorUnchecked : colorUnchecked,
+        version: Input?.props?.version !== undefined ? Input.props.version : version,
 
-        size,
+        size: Input?.props?.size !== undefined ? Input.props.size : size,
 
         checked,
 
