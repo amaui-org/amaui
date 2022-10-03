@@ -1,4 +1,4 @@
-import { is, canvasFilterBrightness, canvasFilterContrast, canvasFilterSaturation, canvasFilterFade, canvasFilterInvert, canvasFilterOldPhoto } from '@amaui/utils';
+import { is, canvasFilterBrightness, canvasFilterContrast, canvasFilterSaturation, canvasFilterFade, canvasFilterInvert, canvasFilterOldPhoto, download } from '@amaui/utils';
 import { AmauiTheme } from '@amaui/style-react';
 
 export function reflow(element: HTMLElement) {
@@ -167,4 +167,40 @@ export const canvasOldPhoto = (value: number, mainCanvas: HTMLCanvasElement, val
   mainCanvas?.getContext('2d').drawImage(canvas, 0, 0, canvas.width, canvas.height);
 
   return canvas;
+};
+
+export const print = (element: HTMLElement) => {
+  const clone = window.document.cloneNode(true) as any;
+
+  clone.body.innerHTML = '';
+
+  const elementClone = element.cloneNode(true);
+
+  clone.body.append(elementClone);
+
+  const windowNew = window.open('', 'print');
+
+  windowNew.document.head.innerHTML = clone.head.innerHTML;
+
+  windowNew.document.body.innerHTML = clone.body.innerHTML;
+
+  windowNew.document.close();
+
+  windowNew.focus();
+
+  windowNew.print();
+
+  windowNew.close();
+};
+
+export const save = (element: HTMLElement) => {
+  const clone = window.document.cloneNode(true) as any;
+
+  clone.body.innerHTML = '';
+
+  const elementClone = element.cloneNode(true);
+
+  clone.body.append(elementClone);
+
+  download(`${window.document.title}.html`, clone.documentElement.innerHTML, 'text/html');
 };

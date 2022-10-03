@@ -19,7 +19,7 @@ import Divider from '../Divider';
 import ListItem from '../ListItem';
 import Line from '../Line';
 
-import { staticClassName } from '../utils';
+import { print, save, staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
@@ -673,26 +673,81 @@ const IconMaterialCodeRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+const IconMaterialDeleteSweepRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='DeleteSweepRounded'
+      short_name='DeleteSweep'
+
+      {...props}
+    >
+      <path d="M16 18Q15.575 18 15.288 17.712Q15 17.425 15 17Q15 16.575 15.288 16.288Q15.575 16 16 16H18Q18.425 16 18.712 16.288Q19 16.575 19 17Q19 17.425 18.712 17.712Q18.425 18 18 18ZM16 10Q15.575 10 15.288 9.712Q15 9.425 15 9Q15 8.575 15.288 8.287Q15.575 8 16 8H21Q21.425 8 21.712 8.287Q22 8.575 22 9Q22 9.425 21.712 9.712Q21.425 10 21 10ZM16 14Q15.575 14 15.288 13.712Q15 13.425 15 13Q15 12.575 15.288 12.287Q15.575 12 16 12H20Q20.425 12 20.712 12.287Q21 12.575 21 13Q21 13.425 20.712 13.712Q20.425 14 20 14ZM5 19Q4.175 19 3.587 18.413Q3 17.825 3 17V8Q2.575 8 2.288 7.713Q2 7.425 2 7Q2 6.575 2.288 6.287Q2.575 6 3 6H6V5.5Q6 5.075 6.287 4.787Q6.575 4.5 7 4.5H9Q9.425 4.5 9.713 4.787Q10 5.075 10 5.5V6H13Q13.425 6 13.713 6.287Q14 6.575 14 7Q14 7.425 13.713 7.713Q13.425 8 13 8V17Q13 17.825 12.413 18.413Q11.825 19 11 19ZM5 8V17Q5 17 5 17Q5 17 5 17H11Q11 17 11 17Q11 17 11 17V8ZM5 8V17Q5 17 5 17Q5 17 5 17Q5 17 5 17Q5 17 5 17Z" />
+    </Icon>
+  );
+});
+
+const IconMaterialSelectAllRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='SelectAllRounded'
+      short_name='SelectAll'
+
+      {...props}
+    >
+      <path d="M3 5Q3 4.175 3.587 3.587Q4.175 3 5 3V5ZM3 13V11H5V13ZM7 21V19H9V21ZM3 9V7H5V9ZM11 5V3H13V5ZM19 5V3Q19.825 3 20.413 3.587Q21 4.175 21 5ZM5 21Q4.175 21 3.587 20.413Q3 19.825 3 19H5ZM3 17V15H5V17ZM7 5V3H9V5ZM11 21V19H13V21ZM19 13V11H21V13ZM19 21V19H21Q21 19.825 20.413 20.413Q19.825 21 19 21ZM19 9V7H21V9ZM19 17V15H21V17ZM15 21V19H17V21ZM15 5V3H17V5ZM8 17Q7.575 17 7.287 16.712Q7 16.425 7 16V8Q7 7.575 7.287 7.287Q7.575 7 8 7H16Q16.425 7 16.712 7.287Q17 7.575 17 8V16Q17 16.425 16.712 16.712Q16.425 17 16 17ZM9 15H15V9H9Z" />
+    </Icon>
+  );
+});
+
+const IconMaterialPrintRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='PrintRounded'
+      short_name='Print'
+
+      {...props}
+    >
+      <path d="M16 8V5H8V8H6V4Q6 3.575 6.287 3.287Q6.575 3 7 3H17Q17.425 3 17.712 3.287Q18 3.575 18 4V8ZM4 10Q4 10 4.287 10Q4.575 10 5 10H19Q19.425 10 19.712 10Q20 10 20 10H18H6ZM18 12.5Q18.425 12.5 18.712 12.212Q19 11.925 19 11.5Q19 11.075 18.712 10.787Q18.425 10.5 18 10.5Q17.575 10.5 17.288 10.787Q17 11.075 17 11.5Q17 11.925 17.288 12.212Q17.575 12.5 18 12.5ZM8 19H16Q16 19 16 19Q16 19 16 19V15H8V19Q8 19 8 19Q8 19 8 19ZM8 21Q7.175 21 6.588 20.413Q6 19.825 6 19V17H3Q2.575 17 2.288 16.712Q2 16.425 2 16V11Q2 9.725 2.875 8.863Q3.75 8 5 8H19Q20.275 8 21.138 8.863Q22 9.725 22 11V16Q22 16.425 21.712 16.712Q21.425 17 21 17H18V19Q18 19.825 17.413 20.413Q16.825 21 16 21ZM20 15V11Q20 10.575 19.712 10.287Q19.425 10 19 10H5Q4.575 10 4.287 10.287Q4 10.575 4 11V15H6V13H18V15Z" />
+    </Icon>
+  );
+});
+
+const IconMaterialDownloadRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='DownloadRounded'
+      short_name='Download'
+
+      {...props}
+    >
+      <path d="M12 15.575Q11.8 15.575 11.625 15.512Q11.45 15.45 11.3 15.3L7.7 11.7Q7.425 11.425 7.425 11Q7.425 10.575 7.7 10.3Q7.975 10.025 8.412 10.012Q8.85 10 9.125 10.275L11 12.15V5Q11 4.575 11.288 4.287Q11.575 4 12 4Q12.425 4 12.713 4.287Q13 4.575 13 5V12.15L14.875 10.275Q15.15 10 15.588 10.012Q16.025 10.025 16.3 10.3Q16.575 10.575 16.575 11Q16.575 11.425 16.3 11.7L12.7 15.3Q12.55 15.45 12.375 15.512Q12.2 15.575 12 15.575ZM6 20Q5.175 20 4.588 19.413Q4 18.825 4 18V16Q4 15.575 4.287 15.287Q4.575 15 5 15Q5.425 15 5.713 15.287Q6 15.575 6 16V18Q6 18 6 18Q6 18 6 18H18Q18 18 18 18Q18 18 18 18V16Q18 15.575 18.288 15.287Q18.575 15 19 15Q19.425 15 19.712 15.287Q20 15.575 20 16V18Q20 18.825 19.413 19.413Q18.825 20 18 20Z" />
+    </Icon>
+  );
+});
 
 // to do
 
-// insert video
-
-// insert youtube video
-
-// insert code
-
-// to actions add, save document, print
-
-// Optional, selection menu, with specific options within it, with some custom default values or render method for the element, with updateMethod as an argument
-
-// any other update, action?
+// insert table
 
 // onChange method for any onChange event, with valueDefault and value
 
 // update all toggle buttons selected
 // on click
 // + on current selection listen to selection window value y
+
+// Optional, selection menu, with specific options within it, with some custom default values or render method for the element, with updateMethod as an argument
 
 const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
@@ -764,10 +819,16 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
     IconCut = IconMaterialContentCutRounded,
     IconPaste = IconMaterialContentPasteRounded,
 
-    IconUndo = IconMaterialUndoRounded,
-    IconRedo = IconMaterialRedoRounded,
+    IconDelete = IconMaterialDeleteSweepRounded,
 
     IconClear = IconMaterialFormatClearRounded,
+    IconSelectAll = IconMaterialSelectAllRounded,
+
+    IconSave = IconMaterialDownloadRounded,
+    IconPrint = IconMaterialPrintRounded,
+
+    IconUndo = IconMaterialUndoRounded,
+    IconRedo = IconMaterialRedoRounded,
 
     AppendProps,
     ToolbarProps,
@@ -1014,6 +1075,21 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
         break;
 
+      case 'delete':
+        window.document.execCommand('delete');
+
+        break;
+
+      case 'clear':
+        window.document.execCommand('removeFormat');
+
+        break;
+
+      case 'select-all':
+        window.document.execCommand('selectAll');
+
+        break;
+
       case 'undo':
         window.document.execCommand('undo');
 
@@ -1021,11 +1097,6 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
       case 'redo':
         window.document.execCommand('redo');
-
-        break;
-
-      case 'clear':
-        window.document.execCommand('removeFormat');
 
         break;
 
@@ -1042,7 +1113,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
   // copy, paste, cut
   // action toolbar
-  const actions_ = actions && (!is('array', exclude) || includes('copy', 'paste', 'cut', 'clear', 'undo', 'redo'));
+  const actions_ = actions && (!is('array', exclude) || includes('copy', 'paste', 'cut', 'clear', 'undo', 'redo', 'delete', 'select-all', 'save', 'print'));
 
   const DividerProps = {
     color: 'inherit',
@@ -2636,6 +2707,22 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                           )}
                         </WrapperToggleButton>
                       )}
+
+                      {includes('delete') && (
+                        <WrapperToggleButton
+                          label='Delete'
+                        >
+                          {is('function', render) ? render('delete', ToggleButtonProps, refs.value.current, method) : (
+                            <ToggleButton
+                              {...ToggleButtonProps}
+
+                              onClick={method('delete')}
+                            >
+                              <IconDelete {...IconProps} />
+                            </ToggleButton>
+                          )}
+                        </WrapperToggleButton>
+                      )}
                     </ToggleButtons>
                   )}
                 </Line>
@@ -2649,7 +2736,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
                   justify='flex-start'
                 >
-                  {includes('clear') && (
+                  {includes('clear', 'select-all') && (
                     <ToggleButtons
                       {...ToggleButtonsProps}
                     >
@@ -2664,6 +2751,22 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                               onClick={method('clear')}
                             >
                               <IconClear {...IconProps} />
+                            </ToggleButton>
+                          )}
+                        </WrapperToggleButton>
+                      )}
+
+                      {includes('select-all') && (
+                        <WrapperToggleButton
+                          label='Select All'
+                        >
+                          {is('function', render) ? render('select-all', ToggleButtonProps, refs.value.current, method) : (
+                            <ToggleButton
+                              {...ToggleButtonProps}
+
+                              onClick={method('select-all')}
+                            >
+                              <IconSelectAll {...IconProps} />
                             </ToggleButton>
                           )}
                         </WrapperToggleButton>
@@ -2702,6 +2805,44 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                               {...ToggleButtonProps}
                             >
                               <IconRedo {...IconProps} />
+                            </ToggleButton>
+                          )}
+                        </WrapperToggleButton>
+                      )}
+                    </ToggleButtons>
+                  )}
+
+                  {includes('save', 'print') && (
+                    <ToggleButtons
+                      {...ToggleButtonsProps}
+                    >
+                      {includes('save') && (
+                        <WrapperToggleButton
+                          label='Save'
+                        >
+                          {is('function', render) ? render('save', ToggleButtonProps, refs.value.current, method) : (
+                            <ToggleButton
+                              {...ToggleButtonProps}
+
+                              onClick={() => save(refs.value.current)}
+                            >
+                              <IconSave {...IconProps} />
+                            </ToggleButton>
+                          )}
+                        </WrapperToggleButton>
+                      )}
+
+                      {includes('print') && (
+                        <WrapperToggleButton
+                          label='Print'
+                        >
+                          {is('function', render) ? render('print', ToggleButtonProps, refs.value.current, method) : (
+                            <ToggleButton
+                              {...ToggleButtonProps}
+
+                              onClick={() => print(refs.value.current)}
+                            >
+                              <IconPrint {...IconProps} />
                             </ToggleButton>
                           )}
                         </WrapperToggleButton>
