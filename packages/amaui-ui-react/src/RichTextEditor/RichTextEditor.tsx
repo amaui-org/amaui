@@ -1247,7 +1247,8 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
   const SelectProps = {
     tonal,
-    color,
+
+    color: refs.props.current.color !== undefined ? refs.props.current.color : 'themed',
 
     version: 'outlined',
 
