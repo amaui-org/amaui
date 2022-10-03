@@ -15,6 +15,11 @@ const useStyle = style(theme => ({
 
   label_disabled: {
     opacity: theme.palette.visual_contrast.default.opacity.disabled
+  },
+
+  disabled: {
+    cursor: 'pointer',
+    userSelect: 'none'
   }
 }), { name: 'AmauiRadios' });
 
@@ -101,7 +106,8 @@ const Radios = React.forwardRef((props_: any, ref: any) => {
         ],
 
         className,
-        classes.root
+        classes.root,
+        disabled && classes.disabled
       ])}
 
       {...other}
