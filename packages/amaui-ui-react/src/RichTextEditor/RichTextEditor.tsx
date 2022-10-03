@@ -892,6 +892,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
     range: React.useRef<any>(),
     inputValues: React.useRef<any>(),
     open: React.useRef<any>(),
+    props: React.useRef<any>(),
     elements: {
       color: React.useRef<any>(),
       background: React.useRef<any>(),
@@ -909,6 +910,8 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
   refs.inputValues.current = inputValues;
 
   refs.open.current = open;
+
+  refs.props.current = props;
 
   React.useEffect(() => {
     // Add value as innerHTML
@@ -1414,7 +1417,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
         tonal={tonal}
 
-        color='themed'
+        color={refs.props.current.color !== undefined ? refs.props.current.color : 'themed'}
 
         Component={Surface}
 
@@ -1618,7 +1621,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
         tonal={tonal}
 
-        color='themed'
+        color={refs.props.current.color !== undefined ? refs.props.current.color : 'themed'}
 
         Component={Surface}
 
@@ -2561,7 +2564,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
                             tonal={tonal}
 
-                            color='themed'
+                            color={refs.props.current.color !== undefined ? refs.props.current.color : 'themed'}
 
                             Component={Surface}
 

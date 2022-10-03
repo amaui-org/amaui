@@ -2595,6 +2595,179 @@ Libero et sagittis. Phasellus egestas consequat dolor a scelerisque. Duis at var
 </p>`}
           />
         </Accordion>
+
+        <Accordion primary='RichTextEditor color' open>
+          <RichTextEditor
+            color='secondary'
+
+            value={`<p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lacinia elementum tincidunt. Morbi tristique nulla eu tellus posuere malesuada. Cras sed augue eget urna semper condimentum. In lobortis odio et quam lobortis ultricies. Duis nisi libero, pulvinar dignissim nibh quis, consectetur venenatis dui. Cras at tempus felis, id fringilla mi. Vestibulum faucibus vel libero et sagittis. Phasellus egestas consequat dolor a scelerisque. Duis at varius ipsum.
+
+Sed luctus quis felis sed dictum. Aenean hendrerit eros a dolor dictum, quis euismod erat fermentum. Curabitur vitae enim at turpis volutpat lobortis nec eu orci. Vestibulum placerat varius aliquam. Integer varius lorem pharetra aliquam aliquet. Donec non scelerisque leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris molestie diam et erat consequat efficitur. Proin ac sagittis dolor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+
+Libero et sagittis. Phasellus egestas consequat dolor a scelerisque. Duis at varius ipsum.
+</p>`}
+          />
+        </Accordion>
+
+        <Accordion primary='RichTextEditor exclude' open>
+          <RichTextEditor
+            exclude={['superscript', 'subscript', 'strike-line']}
+
+            value={`<p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lacinia elementum tincidunt. Morbi tristique nulla eu tellus posuere malesuada. Cras sed augue eget urna semper condimentum. In lobortis odio et quam lobortis ultricies. Duis nisi libero, pulvinar dignissim nibh quis, consectetur venenatis dui. Cras at tempus felis, id fringilla mi. Vestibulum faucibus vel libero et sagittis. Phasellus egestas consequat dolor a scelerisque. Duis at varius ipsum.
+
+Sed luctus quis felis sed dictum. Aenean hendrerit eros a dolor dictum, quis euismod erat fermentum. Curabitur vitae enim at turpis volutpat lobortis nec eu orci. Vestibulum placerat varius aliquam. Integer varius lorem pharetra aliquam aliquet. Donec non scelerisque leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris molestie diam et erat consequat efficitur. Proin ac sagittis dolor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+
+Libero et sagittis. Phasellus egestas consequat dolor a scelerisque. Duis at varius ipsum.
+</p>`}
+          />
+        </Accordion>
+
+        <Accordion primary='AmauiTheme' open>
+          <div className={classNames([classes.column])}>
+            <RichTextEditor
+              value={`<p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lacinia elementum tincidunt. Morbi tristique nulla eu tellus posuere malesuada. Cras sed augue eget urna semper condimentum. In lobortis odio et quam lobortis ultricies. Duis nisi libero, pulvinar dignissim nibh quis, consectetur venenatis dui. Cras at tempus felis, id fringilla mi. Vestibulum faucibus vel libero et sagittis. Phasellus egestas consequat dolor a scelerisque. Duis at varius ipsum.
+
+Sed luctus quis felis sed dictum. Aenean hendrerit eros a dolor dictum, quis euismod erat fermentum. Curabitur vitae enim at turpis volutpat lobortis nec eu orci. Vestibulum placerat varius aliquam. Integer varius lorem pharetra aliquam aliquet. Donec non scelerisque leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris molestie diam et erat consequat efficitur. Proin ac sagittis dolor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+
+Libero et sagittis. Phasellus egestas consequat dolor a scelerisque. Duis at varius ipsum.
+</p>`}
+            />
+
+            <Accordion primary='AmauiTheme nested value' open>
+              <AmauiThemeProvider
+                value={{
+                  palette: {
+                    color: {
+                      secondary: {
+                        main: '#008000'
+                      }
+                    }
+                  },
+                  space: {
+                    unit: 5
+                  }
+                }}
+              >
+                <RichTextEditor
+                  color='secondary'
+
+                  value={`<p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lacinia elementum tincidunt. Morbi tristique nulla eu tellus posuere malesuada. Cras sed augue eget urna semper condimentum. In lobortis odio et quam lobortis ultricies. Duis nisi libero, pulvinar dignissim nibh quis, consectetur venenatis dui. Cras at tempus felis, id fringilla mi. Vestibulum faucibus vel libero et sagittis. Phasellus egestas consequat dolor a scelerisque. Duis at varius ipsum.
+
+Sed luctus quis felis sed dictum. Aenean hendrerit eros a dolor dictum, quis euismod erat fermentum. Curabitur vitae enim at turpis volutpat lobortis nec eu orci. Vestibulum placerat varius aliquam. Integer varius lorem pharetra aliquam aliquet. Donec non scelerisque leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris molestie diam et erat consequat efficitur. Proin ac sagittis dolor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+
+Libero et sagittis. Phasellus egestas consequat dolor a scelerisque. Duis at varius ipsum.
+</p>`}
+                />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme add' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiRichTextEditor: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: 0.4
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <RichTextEditor
+                  value={`<p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lacinia elementum tincidunt. Morbi tristique nulla eu tellus posuere malesuada. Cras sed augue eget urna semper condimentum. In lobortis odio et quam lobortis ultricies. Duis nisi libero, pulvinar dignissim nibh quis, consectetur venenatis dui. Cras at tempus felis, id fringilla mi. Vestibulum faucibus vel libero et sagittis. Phasellus egestas consequat dolor a scelerisque. Duis at varius ipsum.
+
+Sed luctus quis felis sed dictum. Aenean hendrerit eros a dolor dictum, quis euismod erat fermentum. Curabitur vitae enim at turpis volutpat lobortis nec eu orci. Vestibulum placerat varius aliquam. Integer varius lorem pharetra aliquam aliquet. Donec non scelerisque leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris molestie diam et erat consequat efficitur. Proin ac sagittis dolor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+
+Libero et sagittis. Phasellus egestas consequat dolor a scelerisque. Duis at varius ipsum.
+</p>`}
+                />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme override' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiRichTextEditor: {
+                        style: {
+                          override: {
+                            root: {
+                              margin: 44
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <RichTextEditor
+                  value={`<p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lacinia elementum tincidunt. Morbi tristique nulla eu tellus posuere malesuada. Cras sed augue eget urna semper condimentum. In lobortis odio et quam lobortis ultricies. Duis nisi libero, pulvinar dignissim nibh quis, consectetur venenatis dui. Cras at tempus felis, id fringilla mi. Vestibulum faucibus vel libero et sagittis. Phasellus egestas consequat dolor a scelerisque. Duis at varius ipsum.
+
+Sed luctus quis felis sed dictum. Aenean hendrerit eros a dolor dictum, quis euismod erat fermentum. Curabitur vitae enim at turpis volutpat lobortis nec eu orci. Vestibulum placerat varius aliquam. Integer varius lorem pharetra aliquam aliquet. Donec non scelerisque leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris molestie diam et erat consequat efficitur. Proin ac sagittis dolor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+
+Libero et sagittis. Phasellus egestas consequat dolor a scelerisque. Duis at varius ipsum.
+</p>`}
+                />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme props' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiRichTextEditor: {
+                        props: {
+                          default: {
+                            color: 'secondary'
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+              >
+                <RichTextEditor
+                  value={`<p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lacinia elementum tincidunt. Morbi tristique nulla eu tellus posuere malesuada. Cras sed augue eget urna semper condimentum. In lobortis odio et quam lobortis ultricies. Duis nisi libero, pulvinar dignissim nibh quis, consectetur venenatis dui. Cras at tempus felis, id fringilla mi. Vestibulum faucibus vel libero et sagittis. Phasellus egestas consequat dolor a scelerisque. Duis at varius ipsum.
+
+Sed luctus quis felis sed dictum. Aenean hendrerit eros a dolor dictum, quis euismod erat fermentum. Curabitur vitae enim at turpis volutpat lobortis nec eu orci. Vestibulum placerat varius aliquam. Integer varius lorem pharetra aliquam aliquet. Donec non scelerisque leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris molestie diam et erat consequat efficitur. Proin ac sagittis dolor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+
+Libero et sagittis. Phasellus egestas consequat dolor a scelerisque. Duis at varius ipsum.
+</p>`}
+                />
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme styled' open>
+              <styled.RichTextEditor
+                value={`<p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lacinia elementum tincidunt. Morbi tristique nulla eu tellus posuere malesuada. Cras sed augue eget urna semper condimentum. In lobortis odio et quam lobortis ultricies. Duis nisi libero, pulvinar dignissim nibh quis, consectetur venenatis dui. Cras at tempus felis, id fringilla mi. Vestibulum faucibus vel libero et sagittis. Phasellus egestas consequat dolor a scelerisque. Duis at varius ipsum.
+
+Sed luctus quis felis sed dictum. Aenean hendrerit eros a dolor dictum, quis euismod erat fermentum. Curabitur vitae enim at turpis volutpat lobortis nec eu orci. Vestibulum placerat varius aliquam. Integer varius lorem pharetra aliquam aliquet. Donec non scelerisque leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris molestie diam et erat consequat efficitur. Proin ac sagittis dolor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+
+Libero et sagittis. Phasellus egestas consequat dolor a scelerisque. Duis at varius ipsum.
+</p>`}
+              />
+            </Accordion>
+          </div>
+        </Accordion>
       </Accordion>
 
       <Accordion primary='Markdown'>
