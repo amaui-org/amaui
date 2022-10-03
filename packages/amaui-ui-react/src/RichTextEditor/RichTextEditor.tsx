@@ -921,6 +921,8 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
     if (selection.anchorNode) refs.range.current = selection.getRangeAt(0);
   }, [open]);
 
+  const query = (command: string) => parse(window.document.queryCommandValue(command));
+
   const clear = (element: HTMLElement = refs.value.current) => {
     const children = Array.from(element.children);
 
@@ -984,50 +986,70 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
       case 'italic':
         window.document.execCommand('italic');
 
+        if (query('italic')) setSelected(values => [...values, 'italic']);
+
         break;
 
       case 'underline':
         window.document.execCommand('underline');
+
+        if (query('underline')) setSelected(values => [...values, 'underline']);
 
         break;
 
       case 'bold':
         window.document.execCommand('bold');
 
+        if (query('bold')) setSelected(values => [...values, 'bold']);
+
         break;
 
       case 'strike-line':
         window.document.execCommand('strikeThrough');
+
+        if (query('strikeThrough')) setSelected(values => [...values, 'strike-line']);
 
         break;
 
       case 'align-left':
         window.document.execCommand('justifyLeft');
 
+        if (query('justifyLeft')) setSelected(values => [...values, 'align-left']);
+
         break;
 
       case 'align-center':
         window.document.execCommand('justifyCenter');
+
+        if (query('justifyCenter')) setSelected(values => [...values, 'align-center']);
 
         break;
 
       case 'align-right':
         window.document.execCommand('justifyRight');
 
+        if (query('justifyRight')) setSelected(values => [...values, 'align-right']);
+
         break;
 
       case 'align-justify':
         window.document.execCommand('justifyFull');
+
+        if (query('justifyFull')) setSelected(values => [...values, 'align-justify']);
 
         break;
 
       case 'superscript':
         window.document.execCommand('superscript');
 
+        if (query('superscript')) setSelected(values => [...values, 'superscript']);
+
         break;
 
       case 'subscript':
         window.document.execCommand('subscript');
+
+        if (query('subscript')) setSelected(values => [...values, 'subscript']);
 
         break;
 
@@ -1085,10 +1107,14 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
       case 'list-ordered':
         window.document.execCommand('insertOrderedList');
 
+        if (query('insertOrderedList')) setSelected(values => [...values, 'list-ordered']);
+
         break;
 
       case 'list-unordered':
         window.document.execCommand('insertUnorderedList');
+
+        if (query('insertUnorderedList')) setSelected(values => [...values, 'list-unordered']);
 
         break;
 
@@ -1675,8 +1701,6 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
   ];
 
   const queryValueUpdate = () => {
-    const query = (command: string) => parse(window.document.queryCommandValue(command));
-
     const selected_ = [];
     const inputValues_ = { ...inputValues };
 
