@@ -1566,7 +1566,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
           <Button
             tonal={tonal}
 
-            color={color}
+            color='inherit'
 
             version='text'
 
@@ -1675,7 +1675,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
           <Button
             tonal={tonal}
 
-            color={color}
+            color='inherit'
 
             version='text'
 
@@ -2660,7 +2660,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                               <Button
                                 tonal={tonal}
 
-                                color='default'
+                                color='inherit'
 
                                 version='text'
 
