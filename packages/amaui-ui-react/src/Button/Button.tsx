@@ -314,6 +314,10 @@ const Button = React.forwardRef((props_: any, ref: any) => {
 
   const [focus, setFocus] = React.useState(focus_ !== undefined ? focus_ : false);
 
+  const refs = {
+    root: React.useRef<any>()
+  };
+
   const { classes } = useStyle(props);
 
   let color = color_;
@@ -426,26 +430,29 @@ const Button = React.forwardRef((props_: any, ref: any) => {
   }
 
   const onFocus = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
-    if (focus_ === undefined) {
-      setFocus(true);
+    if (focus_ === undefined && event.target === refs.root.current && !disabled) setFocus(true);
 
-      if (is('function', onFocus_)) onFocus_(event);
-    }
-  }, []);
+    if (is('function', onFocus_)) onFocus_(event);
+  }, [focus_, onFocus_, disabled]);
 
   const onBlur = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
-    if (focus_ === undefined) {
-      setFocus(false);
+    if (focus_ === undefined && !disabled) setFocus(false);
 
-      if (is('function', onBlur_)) onBlur_(event)
-    }
-  }, []);
+    if (is('function', onBlur_)) onBlur_(event);
+  }, [focus_, onBlur_, disabled]);
 
   const IconElement = (selected && iconSelected) || children_;
 
   return (
     <Surface
-      ref={ref}
+      ref={item => {
+        if (ref) {
+          if (is('function', ref)) ref(item);
+          else ref.current = item;
+        }
+
+        refs.root.current = item;
+      }}
 
       Component={Component}
 

@@ -9,11 +9,7 @@ import { iconSizeToFontSize, staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
-    position: 'relative',
-
-    '&$disabled': {
-      cursor: 'default'
-    }
+    position: 'relative'
   },
 
   input: {
@@ -55,13 +51,18 @@ const useStyle = style(theme => ({
 
   checked: {
     transform: 'scale(0.5)'
+  },
+
+  disabled: {
+    cursor: 'default'
   }
 }), { name: 'AmauiRadio' });
 
 const IconItem = (props: any) => {
   const {
-    Component = 'span',
     size,
+
+    Component = 'span',
 
     className,
     style,
@@ -117,7 +118,7 @@ const Radio = React.forwardRef((props_: any, ref: any) => {
 
     inputRef,
 
-    Component = 'button',
+    Component = 'span',
 
     className,
 
@@ -188,6 +189,8 @@ const Radio = React.forwardRef((props_: any, ref: any) => {
   return (
     <IconButton
       ref={ref}
+
+      tabIndex={!disabled ? 0 : -1}
 
       className={classNames([
         staticClassName('Radio', theme) && [

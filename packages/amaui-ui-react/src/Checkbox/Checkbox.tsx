@@ -3,19 +3,15 @@ import React from 'react';
 import { is } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
-import Icon from '../Icon';
-import IconButton from '../IconButton';
 import { IconDoneAnimated } from '../Buttons/Buttons';
+import IconButton from '../IconButton';
+import Icon from '../Icon';
 
 import { staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
-    position: 'relative',
-
-    '&$disabled': {
-      cursor: 'default'
-    }
+    position: 'relative'
   },
 
   input: {
@@ -39,21 +35,43 @@ const useStyle = style(theme => ({
     border: '0.125em solid currentColor',
     background: 'transparent',
     transition: theme.methods.transitions.make('background', { duration: 0, delay: 'xxs' }),
-    borderRadius: `calc(${theme.shape.radius.unit / 8} * 0.11em)`,
+    borderRadius: `calc(${theme.shape.radius.unit / 8} * 0.11em)`
+  },
 
-    '&$checked, &$indeterminate': {
-      background: 'currentColor',
-      transition: theme.methods.transitions.make('background', { duration: 0 }),
+  iconBox_checked: {
+    background: 'currentColor',
+    transition: theme.methods.transitions.make('background', { duration: 0 })
+  },
 
-      '&$filled, &$outlined': {
-        border: 'none'
-      }
-    },
+  iconBox_checked_version_filled: {
+    border: 'none'
+  },
 
-    '&$checked$disabled, &$indeterminate$disabled': {
-      background: 'currentColor',
-      border: 'none'
-    }
+  iconBox_checked_version_outlined: {
+    border: 'none'
+  },
+
+  iconBox_checked_disabled: {
+    background: 'currentColor',
+    border: 'none'
+  },
+
+  iconBox_indeterminate: {
+    background: 'currentColor',
+    transition: theme.methods.transitions.make('background', { duration: 0 })
+  },
+
+  iconBox_indeterminate_version_filled: {
+    border: 'none'
+  },
+
+  iconBox_indeterminate_version_outlined: {
+    border: 'none'
+  },
+
+  iconBox_indeterminate_disabled: {
+    background: 'currentColor',
+    border: 'none'
   },
 
   iconItem: {
@@ -77,16 +95,28 @@ const useStyle = style(theme => ({
       transform: 'scale(1)',
       opacity: 0,
       transition: `${theme.methods.transitions.make('transform', { duration: 'xxs' })}, ${theme.methods.transitions.make('opacity', { duration: 0, delay: 'xxs' })}`
-    },
+    }
+  },
 
-    '&$checked::before, &$indeterminate::before': {
+  iconItem_checked: {
+    '&::before': {
       transform: 'scale(0)',
       opacity: 1,
-      transition: `${theme.methods.transitions.make('transform', { duration: 'xxs' })}, ${theme.methods.transitions.make('opacity', { duration: 0 })}`,
-    },
+      transition: `${theme.methods.transitions.make('transform', { duration: 'xxs' })}, ${theme.methods.transitions.make('opacity', { duration: 0 })}`
+    }
+  },
 
-    '&$checked$disabled::before': {
+  'iconItem_checked_disabled': {
+    '&::before': {
       display: 'none'
+    }
+  },
+
+  iconItem_indeterminate: {
+    '&::before': {
+      transform: 'scale(0)',
+      opacity: 1,
+      transition: `${theme.methods.transitions.make('transform', { duration: 'xxs' })}, ${theme.methods.transitions.make('opacity', { duration: 0 })}`
     }
   },
 
@@ -103,6 +133,10 @@ const useStyle = style(theme => ({
     '&:not($indeterminate) > svg': {
       padding: '0.14em'
     }
+  },
+
+  disabled: {
+    cursor: 'default'
   }
 }), { name: 'AmauiCheckbox' });
 
@@ -195,7 +229,7 @@ const Checkbox = React.forwardRef((props_: any, ref: any) => {
 
     inputRef,
 
-    Component = 'button',
+    Component = 'span',
 
     className,
 
@@ -300,6 +334,8 @@ const Checkbox = React.forwardRef((props_: any, ref: any) => {
     <IconButton
       ref={ref}
 
+      tabIndex={!disabled ? 0 : -1}
+
       className={classNames([
         staticClassName('Checkbox', theme) && [
           'AmauiCheckbox-root',
@@ -358,9 +394,9 @@ const Checkbox = React.forwardRef((props_: any, ref: any) => {
       <IconItem
         className={classNames([
           classes.iconItem,
-          disabled && classes.disabled,
-          value && classes.checked,
-          indeterminate && classes.indeterminate
+          value && classes.iconItem_checked,
+          indeterminate && classes.iconItem_indeterminate,
+          (value && disabled) && classes.iconItem_checked_disabled
         ])}
 
         style={styles.iconItem}
@@ -372,10 +408,18 @@ const Checkbox = React.forwardRef((props_: any, ref: any) => {
         className={classNames([
           classes.icon,
           classes.iconBox,
-          classes[version],
-          disabled && classes.disabled,
-          value && classes.checked,
-          indeterminate && classes.indeterminate
+          value && [
+            classes.iconBox_checked,
+            classes[`iconBox_checked_version_${version}`]
+          ],
+          indeterminate && [
+            classes.iconBox_indeterminate,
+            classes[`iconBox_indeterminate_version_${version}`]
+          ],
+          disabled && [
+            value && classes.iconBox_checked_disabled,
+            indeterminate && classes.iconBox_indeterminate_disabled,
+          ]
         ])}
 
         style={styles.iconBox}

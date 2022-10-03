@@ -2,7 +2,7 @@ import React from 'react';
 
 import { is, random, countries } from '@amaui/utils';
 import { AmauiTheme, AmauiThemeProvider, classNames, style, sy, useAmauiTheme } from '@amaui/style-react';
-import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationItem, NavigationRail, NavigationDrawer, BottomSheet, BottomAppBar, TopAppBar, Card, CardImage, CardMain, CardHeader, CardButton, CardFooter, Table, TableHead, TableRow, TableCell, TableHeader, TableFooter, TableBody, Placeholder, Snackbar, useSnackbars, Pagination, TablePagination, SpeedDial, SpeedDialItem, ImageList, ImageListItem, ImageListItemBox, Stepper, Step, Tabs, Tab, Timeline, TimelineItem, Tree, Masonry, Reveal, useConfirm, ViewSplit, WindowSplit, useMainProgress, Image, SpyScroll, AdvancedTextField, NumericTextField, useWidgets, ImageCrop, ImageEdit, FileChoose, DropZone, MenuDesktop, Markdown, RichTextEditor } from '@amaui/ui-react';
+import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Keyframes, Switch, TextField, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationItem, NavigationRail, NavigationDrawer, BottomSheet, BottomAppBar, TopAppBar, Card, CardImage, CardMain, CardHeader, CardButton, CardFooter, Table, TableHead, TableRow, TableCell, TableHeader, TableFooter, TableBody, Placeholder, Snackbar, useSnackbars, Pagination, TablePagination, SpeedDial, SpeedDialItem, ImageList, ImageListItem, ImageListItemBox, Stepper, Step, Tabs, Tab, Timeline, TimelineItem, Tree, Masonry, Reveal, useConfirm, ViewSplit, WindowSplit, useMainProgress, Image, SpyScroll, AdvancedTextField, NumericTextField, useWidgets, ImageCrop, ImageEdit, FileChoose, DropZone, MenuDesktop, Markdown, RichTextEditor, Label } from '@amaui/ui-react';
 
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
@@ -218,6 +218,13 @@ const useStyle = style(theme => ({
 }), { name: 'App' });
 
 const styled: any = {
+  Label: sy(Label)((theme: AmauiTheme) => ({
+    root: {
+      '&:hover': {
+        opacity: 0.4
+      }
+    }
+  })),
   RichTextEditor: sy(RichTextEditor)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
@@ -2530,6 +2537,370 @@ Sed luctus quis felis sed dictum. Aenean hendrerit eros a dolor dictum, quis eui
 Libero et sagittis. Phasellus egestas consequat dolor a scelerisque. Duis at varius ipsum.
 </p>`}
           />
+        </Accordion>
+      </Accordion>
+
+      <Accordion primary='Label'>
+        <Accordion primary='Label' open>
+          <Line>
+            <Label>
+              <Checkbox />
+
+              First checkbox value
+            </Label>
+
+            <Label>
+              <Radio />
+
+              First radio value
+            </Label>
+
+            <Label>
+              <Switch />
+
+              First switch value
+            </Label>
+          </Line>
+        </Accordion>
+
+        <Accordion primary='Label size' open>
+          <Line>
+            <Line
+              direction='row'
+            >
+              <Label
+                size='small'
+              >
+                <Checkbox />
+
+                First checkbox value
+              </Label>
+
+              <Label
+                size='small'
+              >
+                <Radio />
+
+                First radio value
+              </Label>
+
+              <Label
+                size='small'
+              >
+                <Switch />
+
+                First switch value
+              </Label>
+            </Line>
+
+            <Line
+              direction='row'
+            >
+              <Label
+                size='regular'
+              >
+                <Checkbox />
+
+                First checkbox value
+              </Label>
+
+              <Label
+                size='regular'
+              >
+                <Radio />
+
+                First radio value
+              </Label>
+
+              <Label
+                size='regular'
+              >
+                <Switch />
+
+                First switch value
+              </Label>
+            </Line>
+
+            <Line
+              direction='row'
+            >
+              <Label
+                size='large'
+              >
+                <Checkbox />
+
+                First checkbox value
+              </Label>
+
+              <Label
+                size='large'
+              >
+                <Radio />
+
+                First radio value
+              </Label>
+
+              <Label
+                size='large'
+              >
+                <Switch />
+
+                First switch value
+              </Label>
+            </Line>
+          </Line>
+        </Accordion>
+
+        <Accordion primary='Label position' open>
+          <Line>
+            <Line
+              direction='row'
+            >
+              <Label position='start'>
+                <Checkbox />
+
+                First checkbox value
+              </Label>
+
+              <Label position='top'>
+                <Checkbox />
+
+                First checkbox value
+              </Label>
+
+              <Label position='bottom'>
+                <Checkbox />
+
+                First checkbox value
+              </Label>
+
+              <Label position='end'>
+                <Checkbox />
+
+                First checkbox value
+              </Label>
+            </Line>
+
+            <Line
+              direction='row'
+            >
+              <Label position='start'>
+                <Radio />
+
+                First radio value
+              </Label>
+
+              <Label position='top'>
+                <Radio />
+
+                First radio value
+              </Label>
+
+              <Label position='bottom'>
+                <Radio />
+
+                First radio value
+              </Label>
+
+              <Label position='end'>
+                <Radio />
+
+                First radio value
+              </Label>
+            </Line>
+
+            <Line
+              direction='row'
+            >
+              <Label position='start'>
+                <Switch />
+
+                First switch value
+              </Label>
+
+              <Label position='top'>
+                <Switch />
+
+                First switch value
+              </Label>
+
+              <Label position='bottom'>
+                <Switch />
+
+                First switch value
+              </Label>
+
+              <Label position='end'>
+                <Switch />
+
+                First switch value
+              </Label>
+            </Line>
+          </Line>
+        </Accordion>
+
+        <Accordion primary='Label disabled' open>
+          <Line>
+            <Label
+              disabled
+            >
+              <Checkbox />
+
+              First checkbox value
+            </Label>
+
+            <Label
+              disabled
+            >
+              <Radio />
+
+              First radio value
+            </Label>
+
+            <Label
+              disabled
+            >
+              <Switch />
+
+              First switch value
+            </Label>
+          </Line>
+        </Accordion>
+
+        <Accordion primary='AmauiTheme'>
+          <div className={classNames([classes.column])}>
+            <Label>
+              <Checkbox />
+
+              First checkbox value
+            </Label>
+
+            <Accordion primary='AmauiTheme nested value' open>
+              <AmauiThemeProvider
+                value={{
+                  palette: {
+                    color: {
+                      secondary: {
+                        main: '#008000'
+                      }
+                    }
+                  },
+                  space: {
+                    unit: 5
+                  }
+                }}
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                <Label>
+                  <Checkbox />
+
+                  First checkbox value
+                </Label>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme add' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiLabel: {
+                        style: {
+                          add: {
+                            root: {
+                              '&:hover': {
+                                opacity: 0.4
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                <Label>
+                  <Checkbox />
+
+                  First checkbox value
+                </Label>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme override' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiLabel: {
+                        style: {
+                          override: {
+                            root: {
+                              margin: 40,
+                              lineHeight: 0
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                <Label>
+                  <Checkbox />
+
+                  First checkbox value
+                </Label>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme props' open>
+              <AmauiThemeProvider
+                value={{
+                  ui: {
+                    elements: {
+                      AmauiLabel: {
+                        props: {
+                          default: {
+                            position: 'top'
+                          }
+                        }
+                      }
+                    }
+                  }
+                }}
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                <Label>
+                  <Checkbox />
+
+                  First checkbox value
+                </Label>
+              </AmauiThemeProvider>
+            </Accordion>
+
+            <Accordion primary='AmauiTheme styled' open>
+              <styled.Label>
+                <Checkbox />
+
+                First checkbox value
+              </styled.Label>
+            </Accordion>
+          </div>
         </Accordion>
       </Accordion>
 

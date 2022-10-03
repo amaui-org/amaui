@@ -355,3 +355,6 @@ export * from './Markdown';
 
 export { default as RichTextEditor } from './RichTextEditor';
 export * from './RichTextEditor';
+
+export { default as Label } from './Label';
+export * from './Label';

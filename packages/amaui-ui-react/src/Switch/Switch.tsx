@@ -12,11 +12,7 @@ const useStyle = style(theme => ({
   root: {
     position: 'relative',
     display: 'inline-flex',
-    cursor: 'pointer',
-
-    '&$disabled': {
-      cursor: 'default'
-    }
+    cursor: 'pointer'
   },
 
   input: {
@@ -87,12 +83,6 @@ const useStyle = style(theme => ({
     borderRadius: `${theme.shape.radius.unit * 2.5}px`
   },
 
-  disabled: {
-    cursor: 'default',
-    opacity: theme.palette.visual_contrast.default.opacity.disabled,
-    pointerEvents: 'none'
-  },
-
   background: {
     display: 'inline-flex',
     position: 'absolute',
@@ -146,6 +136,12 @@ const useStyle = style(theme => ({
     height: '1em',
     background: 'currentColor',
     borderRadius: `calc(${theme.shape.radius.unit / 8} * 0.5em)`
+  },
+
+  disabled: {
+    cursor: 'default',
+    opacity: theme.palette.light ? theme.palette.visual_contrast.default.opacity.disabled : 1,
+    pointerEvents: 'none'
   }
 }), { name: 'AmauiSwitch' });
 
