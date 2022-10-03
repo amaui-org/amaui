@@ -1190,7 +1190,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
                   error && classes.error_color
                 ])}
               >
-                {value.length}/{counter}
+                {value?.length}/{counter}
               </Type>
             )}
           </div>

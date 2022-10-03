@@ -12,14 +12,14 @@ import Tooltip from '../Tooltip';
 import ToggleButtons from '../ToggleButtons';
 import ToggleButton from '../ToggleButton';
 import ClickListener from '../ClickListener';
+import TextField from '../TextField';
+import Button from '../Button';
 import Surface from '../Surface';
 import Divider from '../Divider';
 import ListItem from '../ListItem';
 import Line from '../Line';
 
 import { staticClassName } from '../utils';
-import TextField from '../TextField';
-import Button from '../Button';
 
 const useStyle = style(theme => ({
   root: {
@@ -47,6 +47,58 @@ const useStyle = style(theme => ({
 
     '& h5': {
       ...theme.typography.values.t2
+    },
+
+    '& a': {
+      color: theme.palette.color.primary.main,
+      textDecoration: 'underline'
+    },
+
+    '&  blockquote': {
+      margin: '16px 0',
+      marginInlineStart: '16px',
+      padding: '20px 16px',
+      borderInlineStart: `4px solid ${theme.methods.palette.color.colorToRgb(theme.palette.text.default.primary, theme.palette.light ? 0.04 : 0.2)}`,
+      background: theme.methods.palette.color.colorToRgb(theme.palette.text.default.primary, theme.palette.light ? 0.02 : 0.14),
+
+      '& > *': {
+        margin: '0px'
+      },
+
+      '& > $blockquote': {
+        marginBlock: '16px'
+      }
+    },
+
+    '& iframe': {
+      display: 'block',
+      maxWidth: '100%',
+      margin: '16px auto'
+    },
+
+    '& video': {
+      display: 'block',
+      margin: '16px auto'
+    },
+
+    '& code': {
+      padding: '2px 4px',
+      borderRadius: '4px',
+      color: theme.palette.text.default.primary,
+      background: theme.methods.palette.color.colorToRgb(theme.palette.text.default.primary, theme.palette.light ? 0.04 : 0.1)
+    },
+
+    '& pre': {
+      margin: '16px 0',
+      padding: '16px',
+      borderRadius: '8px',
+      color: theme.palette.text.default.primary,
+      background: theme.methods.palette.color.colorToRgb(theme.palette.text.default.primary, theme.palette.light ? 0.04 : 0.1),
+
+      '& code': {
+        padding: '0px',
+        background: 'none'
+      }
     }
   },
 
@@ -119,26 +171,7 @@ const useStyle = style(theme => ({
   },
 
   textFieldColor: {
-    flex: '1 1 auto',
-
-    '& .AmauiTextField-inputWrapper': {
-      height: '40px',
-      paddingBlock: '11px'
-    },
-
-    '&.AmauiTextField-version-outlined.AmauiTextField-size-small': {
-      '& .AmauiTextField-label': {
-        transform: 'translate(0, 10px) scale(1)'
-      },
-
-      '&.AmauiTextField-value .AmauiTextField-label': {
-        transform: 'translate(0, -5.5px) scale(0.667)'
-      },
-
-      '&.AmauiTextField-focus .AmauiTextField-label': {
-        transform: 'translate(0, -5.5px) scale(0.667)'
-      }
-    }
+    flex: '1 1 auto'
   },
 
   inputColor: {
@@ -528,27 +561,138 @@ const IconMaterialFormatColorFillRounded = React.forwardRef((props: any, ref) =>
   );
 });
 
-// to do
+const IconMaterialAddLinkRounded = React.forwardRef((props: any, ref) => {
 
-// insert image
+  return (
+    <Icon
+      ref={ref}
+
+      name='AddLinkRounded'
+      short_name='AddLink'
+
+      {...props}
+    >
+      <path d="M7 17Q4.925 17 3.463 15.537Q2 14.075 2 12Q2 9.925 3.463 8.462Q4.925 7 7 7H10Q10.425 7 10.713 7.287Q11 7.575 11 8Q11 8.425 10.713 8.712Q10.425 9 10 9H7Q5.75 9 4.875 9.875Q4 10.75 4 12Q4 13.25 4.875 14.125Q5.75 15 7 15H10Q10.425 15 10.713 15.287Q11 15.575 11 16Q11 16.425 10.713 16.712Q10.425 17 10 17ZM9 13Q8.575 13 8.288 12.712Q8 12.425 8 12Q8 11.575 8.288 11.287Q8.575 11 9 11H15Q15.425 11 15.713 11.287Q16 11.575 16 12Q16 12.425 15.713 12.712Q15.425 13 15 13ZM22 12H20Q20 10.75 19.125 9.875Q18.25 9 17 9H14Q13.575 9 13.288 8.712Q13 8.425 13 8Q13 7.575 13.288 7.287Q13.575 7 14 7H17Q19.075 7 20.538 8.462Q22 9.925 22 12ZM18 20Q17.575 20 17.288 19.712Q17 19.425 17 19V17H15Q14.575 17 14.288 16.712Q14 16.425 14 16Q14 15.575 14.288 15.287Q14.575 15 15 15H17V13Q17 12.575 17.288 12.287Q17.575 12 18 12Q18.425 12 18.712 12.287Q19 12.575 19 13V15H21Q21.425 15 21.712 15.287Q22 15.575 22 16Q22 16.425 21.712 16.712Q21.425 17 21 17H19V19Q19 19.425 18.712 19.712Q18.425 20 18 20Z" />
+    </Icon>
+  );
+});
+
+const IconMaterialLinkOffRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='LinkOffRounded'
+      short_name='LinkOff'
+
+      {...props}
+    >
+      <path d="M15.825 13 13.825 11H15.825Q16.25 11 16.538 11.287Q16.825 11.575 16.825 12Q16.825 12.425 16.538 12.712Q16.25 13 15.825 13ZM19.25 16.45 17.75 14.9Q18.725 14.625 19.363 13.837Q20 13.05 20 12Q20 10.75 19.125 9.875Q18.25 9 17 9H14Q13.575 9 13.288 8.712Q13 8.425 13 8Q13 7.575 13.288 7.287Q13.575 7 14 7H17Q19.075 7 20.538 8.438Q22 9.875 22 12Q22 13.425 21.25 14.637Q20.5 15.85 19.25 16.45ZM19.1 21.9 2.1 4.9Q1.825 4.625 1.825 4.2Q1.825 3.775 2.1 3.5Q2.375 3.225 2.8 3.225Q3.225 3.225 3.5 3.5L20.5 20.5Q20.775 20.775 20.775 21.2Q20.775 21.625 20.5 21.9Q20.225 22.175 19.8 22.175Q19.375 22.175 19.1 21.9ZM10 17H7Q4.925 17 3.463 15.537Q2 14.075 2 12Q2 10.25 3.062 8.912Q4.125 7.575 5.75 7.15L7.6 9H7Q5.75 9 4.875 9.875Q4 10.75 4 12Q4 13.25 4.875 14.125Q5.75 15 7 15H10Q10.425 15 10.713 15.287Q11 15.575 11 16Q11 16.425 10.713 16.712Q10.425 17 10 17ZM11.6 13H8.175Q7.75 13 7.463 12.712Q7.175 12.425 7.175 12Q7.175 11.575 7.463 11.287Q7.75 11 8.175 11H9.625Z" />
+    </Icon>
+  );
+});
+
+const IconMaterialImageRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='ImageRounded'
+      short_name='Image'
+
+      {...props}
+    >
+      <path d="M7 17H17Q17.3 17 17.45 16.725Q17.6 16.45 17.4 16.2L14.65 12.525Q14.5 12.325 14.25 12.325Q14 12.325 13.85 12.525L11.25 16L9.4 13.525Q9.25 13.325 9 13.325Q8.75 13.325 8.6 13.525L6.6 16.2Q6.4 16.45 6.55 16.725Q6.7 17 7 17ZM5 21Q4.175 21 3.587 20.413Q3 19.825 3 19V5Q3 4.175 3.587 3.587Q4.175 3 5 3H19Q19.825 3 20.413 3.587Q21 4.175 21 5V19Q21 19.825 20.413 20.413Q19.825 21 19 21ZM5 19H19Q19 19 19 19Q19 19 19 19V5Q19 5 19 5Q19 5 19 5H5Q5 5 5 5Q5 5 5 5V19Q5 19 5 19Q5 19 5 19ZM5 5Q5 5 5 5Q5 5 5 5V19Q5 19 5 19Q5 19 5 19Q5 19 5 19Q5 19 5 19V5Q5 5 5 5Q5 5 5 5Z" />
+    </Icon>
+  );
+});
+
+const IconMaterialFormatQuoteRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='FormatQuoteRounded'
+      short_name='FormatQuote'
+
+      {...props}
+    >
+      <path d="M15 11H18V8H15ZM6 11H9V8H6ZM17.175 17Q16.425 17 16.025 16.363Q15.625 15.725 15.975 15.05L17 13H15Q14.175 13 13.588 12.412Q13 11.825 13 11V8Q13 7.175 13.588 6.588Q14.175 6 15 6H18Q18.825 6 19.413 6.588Q20 7.175 20 8V12.525Q20 12.75 19.962 12.988Q19.925 13.225 19.8 13.425L18.375 16.25Q18.2 16.6 17.875 16.8Q17.55 17 17.175 17ZM8.175 17Q7.425 17 7.025 16.363Q6.625 15.725 6.975 15.05L8 13H6Q5.175 13 4.588 12.412Q4 11.825 4 11V8Q4 7.175 4.588 6.588Q5.175 6 6 6H9Q9.825 6 10.413 6.588Q11 7.175 11 8V12.525Q11 12.75 10.963 12.988Q10.925 13.225 10.8 13.425L9.375 16.25Q9.2 16.6 8.875 16.8Q8.55 17 8.175 17ZM7.5 9.5ZM16.5 9.5Z" />
+    </Icon>
+  );
+});
+
+const IconMaterialVideocamRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='VideocamRounded'
+      short_name='Videocam'
+
+      {...props}
+    >
+      <path d="M4 20Q3.175 20 2.588 19.413Q2 18.825 2 18V6Q2 5.175 2.588 4.588Q3.175 4 4 4H16Q16.825 4 17.413 4.588Q18 5.175 18 6V10.5L21.15 7.35Q21.4 7.1 21.7 7.225Q22 7.35 22 7.7V16.3Q22 16.65 21.7 16.775Q21.4 16.9 21.15 16.65L18 13.5V18Q18 18.825 17.413 19.413Q16.825 20 16 20ZM4 18H16Q16 18 16 18Q16 18 16 18V6Q16 6 16 6Q16 6 16 6H4Q4 6 4 6Q4 6 4 6V18Q4 18 4 18Q4 18 4 18ZM4 18Q4 18 4 18Q4 18 4 18V6Q4 6 4 6Q4 6 4 6Q4 6 4 6Q4 6 4 6V18Q4 18 4 18Q4 18 4 18Z" />
+    </Icon>
+  );
+});
+
+const IconMaterialPlayArrowRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='PlayArrowRounded'
+      short_name='PlayArrow'
+
+      {...props}
+    >
+      <path d="M9.525 18.025Q9.025 18.35 8.512 18.062Q8 17.775 8 17.175V6.825Q8 6.225 8.512 5.937Q9.025 5.65 9.525 5.975L17.675 11.15Q18.125 11.45 18.125 12Q18.125 12.55 17.675 12.85ZM10 12ZM10 15.35 15.25 12 10 8.65Z" />
+    </Icon>
+  );
+});
+
+const IconMaterialCodeRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='CodeRounded'
+      short_name='Code'
+
+      {...props}
+    >
+      <path d="M16.7 17.3Q16.425 17.575 16.013 17.575Q15.6 17.575 15.3 17.275Q15 16.975 15 16.562Q15 16.15 15.3 15.85L19.175 11.975L15.275 8.075Q15 7.8 15.012 7.387Q15.025 6.975 15.3 6.7Q15.575 6.425 16 6.425Q16.425 6.425 16.7 6.7L21.3 11.3Q21.6 11.6 21.6 12Q21.6 12.4 21.3 12.7ZM7.3 17.3 2.7 12.7Q2.4 12.4 2.4 12Q2.4 11.6 2.7 11.3L7.3 6.7Q7.575 6.425 8 6.412Q8.425 6.4 8.725 6.7Q9.025 7 9.025 7.412Q9.025 7.825 8.725 8.125L4.825 12.025L8.725 15.925Q9 16.2 8.988 16.612Q8.975 17.025 8.7 17.3Q8.425 17.575 8 17.575Q7.575 17.575 7.3 17.3Z" />
+    </Icon>
+  );
+});
+
+
+// to do
 
 // insert video
 
 // insert youtube video
 
-// insert code (current selection value, insertHTML <pre><code> with inline style)
+// insert code
 
-// Optional, selection menu, with specific options within it, with some custom default values
+// to actions add, save document, print
+
+// Optional, selection menu, with specific options within it, with some custom default values or render method for the element, with updateMethod as an argument
 
 // any other update, action?
+
+// onChange method for any onChange event, with valueDefault and value
 
 // update all toggle buttons selected
 // on click
 // + on current selection listen to selection window value y
-
-// onChange method for any onChange event, with valueDefault and value
-
-// to actions add, save document, print
 
 const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
@@ -606,6 +750,15 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
     IconHorizontalRule = IconMaterialHorizontalRuleRounded,
 
+    IconLinkAdd = IconMaterialAddLinkRounded,
+    IconLinkRemove = IconMaterialLinkOffRounded,
+
+    IconQuote = IconMaterialFormatQuoteRounded,
+    IconImage = IconMaterialImageRounded,
+    IconVideo = IconMaterialVideocamRounded,
+    IconVideoYoutube = IconMaterialPlayArrowRounded,
+    IconCode = IconMaterialCodeRounded,
+
     // Action
     IconCopy = IconMaterialContentCopyRounded,
     IconCut = IconMaterialContentCutRounded,
@@ -638,18 +791,29 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
   } = props;
 
   const [inputValues, setInputValues] = React.useState<any>({});
-  const [openColor, setOpenColor] = React.useState(false);
-  const [openBackground, setOpenBackground] = React.useState(false);
+  const [open, setOpen] = React.useState<any>({});
 
   const refs = {
     value: React.useRef<HTMLElement>(),
     range: React.useRef<any>(),
-    elementColor: React.useRef<any>(),
-    elementBackground: React.useRef<any>(),
-    inputValues: React.useRef<any>()
+    inputValues: React.useRef<any>(),
+    open: React.useRef<any>(),
+    elements: {
+      color: React.useRef<any>(),
+      background: React.useRef<any>(),
+      linkAdd: React.useRef<any>(),
+      linkRemove: React.useRef<any>(),
+      quote: React.useRef<any>(),
+      image: React.useRef<any>(),
+      video: React.useRef<any>(),
+      videoYoutube: React.useRef<any>(),
+      code: React.useRef<any>()
+    }
   };
 
   refs.inputValues.current = inputValues;
+
+  refs.open.current = open;
 
   React.useEffect(() => {
     // Add value as innerHTML
@@ -660,10 +824,18 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
     const selection = window.getSelection();
 
     if (selection.anchorNode) refs.range.current = selection.getRangeAt(0);
-  }, [openColor, openBackground]);
+  }, [open]);
 
   const updateInputValues = (property: string, itemValue: any) => {
     setInputValues(values => ({
+      ...values,
+
+      [property]: itemValue
+    }));
+  };
+
+  const updateOpen = (property: string, itemValue: any) => {
+    setOpen(values => ({
       ...values,
 
       [property]: itemValue
@@ -749,21 +921,6 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
         break;
 
-      case 'list-ordered':
-        window.document.execCommand('insertOrderedList');
-
-        break;
-
-      case 'list-unordered':
-        window.document.execCommand('insertUnorderedList');
-
-        break;
-
-      case 'horizontal-rule':
-        window.document.execCommand('insertHorizontalRule');
-
-        break;
-
       case 'font-version':
         window.document.execCommand('formatBlock', undefined, argument);
 
@@ -802,6 +959,41 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
         window.document.execCommand('backColor', undefined, argument);
 
         window.document.execCommand('styleWithCSS', false);
+
+        break;
+
+      case 'list-ordered':
+        window.document.execCommand('insertOrderedList');
+
+        break;
+
+      case 'list-unordered':
+        window.document.execCommand('insertUnorderedList');
+
+        break;
+
+      case 'horizontal-rule':
+        window.document.execCommand('insertHorizontalRule');
+
+        break;
+
+      case 'link-add':
+        window.document.execCommand('createLink', undefined, argument);
+
+        break;
+
+      case 'link-remove':
+        window.document.execCommand('unlink');
+
+        break;
+
+      case 'image':
+        window.document.execCommand('insertImage', undefined, argument);
+
+        break;
+
+      case 'html':
+        window.document.execCommand('insertHTML', undefined, argument);
 
         break;
 
@@ -846,7 +1038,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
   // italic, underline, bold
   // updates toolbar
-  const updates_ = updates && (!is('array', exclude) || includes('font-family', 'font-version', 'font-size', 'font-color', 'font-background', 'italic', 'underline', 'bold', 'strike-line', 'align-left', 'align-center', 'align-right', 'align-justify', 'superscript', 'subscript', 'indent', 'outdent', 'list-ordered', 'list-unordered', 'horizontal-rule'));
+  const updates_ = updates && (!is('array', exclude) || includes('font-family', 'font-version', 'font-size', 'font-color', 'font-background', 'italic', 'underline', 'bold', 'strike-line', 'align-left', 'align-center', 'align-right', 'align-justify', 'superscript', 'subscript', 'indent', 'outdent', 'list-ordered', 'list-unordered', 'horizontal-rule', 'link-add', 'link-remove', 'quote', 'image', 'video', 'video-youtube', 'code'));
 
   // copy, paste, cut
   // action toolbar
@@ -1227,6 +1419,104 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
     );
   }), []);
 
+  const Input = React.useCallback(React.forwardRef((props: any, ref: any) => {
+    const {
+      label,
+
+      labelButton,
+
+      value,
+
+      onChange,
+
+      onClick,
+
+      InputComponent = TextField,
+
+      InputProps,
+
+      ...other
+    } = props;
+
+    return (
+      <Line
+        ref={ref}
+
+        gap={1}
+
+        direction='column'
+
+        tonal={tonal}
+
+        color='themed'
+
+        Component={Surface}
+
+        className={classNames([
+          staticClassName('RichTextEditor', theme) && [
+            'AmauiRichTextEditor-palette'
+          ],
+
+          classes.palette
+        ])}
+
+        {...other}
+      >
+        <Line
+          gap={0.5}
+
+          direction='row'
+
+          align='center'
+
+          style={{
+            width: '100%'
+          }}
+        >
+          <InputComponent
+            tonal={tonal}
+
+            color={color}
+
+            label={label}
+
+            version='outlined'
+
+            size='small'
+
+            value={value}
+
+            onChange={onChange}
+
+            className={classNames([
+              staticClassName('RichTextEditor', theme) && [
+                'AmauiRichTextEditor-textFieldColor'
+              ],
+
+              classes.textFieldColor
+            ])}
+
+            {...InputProps}
+          />
+
+          <Button
+            tonal={tonal}
+
+            color={color}
+
+            version='text'
+
+            size='small'
+
+            onClick={onClick}
+          >
+            {labelButton}
+          </Button>
+        </Line>
+      </Line>
+    );
+  }), []);
+
   const font_families = [
     ...fontFamilies,
 
@@ -1533,26 +1823,26 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                 </ToggleButtons>
               )}
 
-              {includes('color', 'background') && (
+              {includes('font-color', 'font-background') && (
                 <ToggleButtons
                   {...ToggleButtonsProps}
                 >
                   {includes('font-color') && (
                     <WrapperAppend
-                      open={openColor}
+                      open={refs.open.current.color}
 
-                      anchorElement={refs.elementColor.current}
+                      anchorElement={refs.elements.color.current}
 
                       element={(
                         <ClickListener
-                          onClickOutside={() => setOpenColor(false)}
+                          onClickOutside={() => updateOpen('color', false)}
 
-                          include={[refs.elementColor.current]}
+                          include={[refs.elements.color.current]}
                         >
                           <Palette
-                            version='fontColor'
+                            version='font-color'
 
-                            onClose={() => setOpenColor(false)}
+                            onClose={() => updateOpen('color', false)}
 
                             onUpdate={method('font-color')}
                           />
@@ -1562,17 +1852,17 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                       <WrapperToggleButton
                         label='Text Color'
 
-                        open={openColor ? false : undefined}
+                        open={refs.open.current.color ? false : undefined}
                       >
                         {is('function', render) ? render('font-color', ToggleButtonProps, refs.value.current, method) : (
                           <ToggleButton
-                            ref={refs.elementColor}
+                            ref={refs.elements.color}
 
                             {...ToggleButtonProps}
 
-                            selected={openColor}
+                            selected={refs.open.current.color}
 
-                            onClick={() => setOpenColor(item => !item)}
+                            onClick={() => updateOpen('color', !refs.open.current.color)}
                           >
                             <IconColor {...IconProps} />
                           </ToggleButton>
@@ -1583,20 +1873,20 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
                   {includes('font-background') && (
                     <WrapperAppend
-                      open={openBackground}
+                      open={refs.open.current.background}
 
-                      anchorElement={refs.elementBackground.current}
+                      anchorElement={refs.elements.background.current}
 
                       element={(
                         <ClickListener
-                          onClickOutside={() => setOpenBackground(false)}
+                          onClickOutside={() => updateOpen('background', false)}
 
-                          include={[refs.elementBackground.current]}
+                          include={[refs.elements.background.current]}
                         >
                           <Palette
-                            version='fontBackground'
+                            version='font-background'
 
-                            onClose={() => setOpenBackground(false)}
+                            onClose={() => updateOpen('background', false)}
 
                             onUpdate={method('font-background')}
                           />
@@ -1606,17 +1896,17 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                       <WrapperToggleButton
                         label='Background Color'
 
-                        open={openBackground ? false : undefined}
+                        open={refs.open.current.background ? false : undefined}
                       >
                         {is('function', render) ? render('font-background', ToggleButtonProps, refs.value.current, method) : (
                           <ToggleButton
-                            ref={refs.elementBackground}
+                            ref={refs.elements.background}
 
                             {...ToggleButtonProps}
 
-                            selected={openBackground}
+                            selected={refs.open.current.background}
 
-                            onClick={() => setOpenBackground(item => !item)}
+                            onClick={() => updateOpen('background', !refs.open.current.background)}
                           >
                             <IconBackground {...IconProps} />
                           </ToggleButton>
@@ -1829,6 +2119,408 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                         </ToggleButton>
                       )}
                     </WrapperToggleButton>
+                  )}
+                </ToggleButtons>
+              )}
+
+              {includes('link-add', 'link-remove') && (
+                <ToggleButtons
+                  {...ToggleButtonsProps}
+                >
+                  {includes('link-add') && (
+                    <WrapperAppend
+                      open={refs.open.current.link}
+
+                      anchorElement={refs.elements.linkAdd.current}
+
+                      element={(
+                        <ClickListener
+                          onClickOutside={() => updateOpen('link', false)}
+
+                          include={[refs.elements.linkAdd.current]}
+                        >
+                          <Input
+                            label='Link'
+
+                            labelButton='Add'
+
+                            value={refs.inputValues.current.link}
+
+                            onChange={valueNew => updateInputValues('link', valueNew)}
+
+                            onClick={() => {
+                              if (refs.range.current) {
+                                const selection = window.getSelection();
+
+                                selection.removeAllRanges();
+                                selection.addRange(refs.range.current);
+                              }
+
+                              method('link-add')(refs.inputValues.current.link);
+
+                              updateOpen('link', false);
+
+                              updateInputValues('link', '');
+                            }}
+                          />
+                        </ClickListener>
+                      )}
+                    >
+                      <WrapperToggleButton
+                        label='Insert Link'
+
+                        open={refs.open.current.link ? false : undefined}
+                      >
+                        {is('function', render) ? render('font-color', ToggleButtonProps, refs.value.current, method) : (
+                          <ToggleButton
+                            ref={refs.elements.linkAdd}
+
+                            {...ToggleButtonProps}
+
+                            selected={refs.open.current.link}
+
+                            onClick={() => updateOpen('link', !refs.open.current.link)}
+                          >
+                            <IconLinkAdd {...IconProps} />
+                          </ToggleButton>
+                        )}
+                      </WrapperToggleButton>
+                    </WrapperAppend>
+                  )}
+
+                  {includes('link-remove') && (
+                    <WrapperToggleButton
+                      label='Remove Link'
+                    >
+                      {is('function', render) ? render('link-remove', ToggleButtonProps, refs.value.current, method) : (
+                        <ToggleButton
+                          {...ToggleButtonProps}
+
+                          onClick={method('link-remove')}
+                        >
+                          <IconLinkRemove {...IconProps} />
+                        </ToggleButton>
+                      )}
+                    </WrapperToggleButton>
+                  )}
+                </ToggleButtons>
+              )}
+
+              {includes('quote', 'image', 'video', 'video-youtube', 'code') && (
+                <ToggleButtons
+                  {...ToggleButtonsProps}
+                >
+                  {includes('quote') && (
+                    <WrapperAppend
+                      open={refs.open.current.quote}
+
+                      anchorElement={refs.elements.quote.current}
+
+                      element={(
+                        <ClickListener
+                          onClickOutside={() => updateOpen('quote', false)}
+
+                          include={[refs.elements.quote.current]}
+                        >
+                          <Input
+                            label='Quote'
+
+                            labelButton='Add'
+
+                            value={refs.inputValues.current.quote}
+
+                            onChange={valueNew => updateInputValues('quote', valueNew)}
+
+                            InputProps={{
+                              multiline: true
+                            }}
+
+                            onClick={() => {
+                              if (refs.range.current) {
+                                const selection = window.getSelection();
+
+                                selection.removeAllRanges();
+                                selection.addRange(refs.range.current);
+                              }
+
+                              method('html')(`<blockquote>${refs.inputValues.current.quote}</blockquote>`);
+
+                              updateOpen('quote', false);
+
+                              updateInputValues('quote', '');
+                            }}
+                          />
+                        </ClickListener>
+                      )}
+                    >
+                      <WrapperToggleButton
+                        label='Insert Quote'
+
+                        open={refs.open.current.quote ? false : undefined}
+                      >
+                        {is('function', render) ? render('quote', ToggleButtonProps, refs.value.current, method) : (
+                          <ToggleButton
+                            ref={refs.elements.quote}
+
+                            {...ToggleButtonProps}
+
+                            selected={refs.open.current.quote}
+
+                            onClick={() => updateOpen('quote', !refs.open.current.quote)}
+                          >
+                            <IconQuote {...IconProps} />
+                          </ToggleButton>
+                        )}
+                      </WrapperToggleButton>
+                    </WrapperAppend>
+                  )}
+
+                  {includes('image') && (
+                    <WrapperAppend
+                      open={refs.open.current.image}
+
+                      anchorElement={refs.elements.image.current}
+
+                      element={(
+                        <ClickListener
+                          onClickOutside={() => updateOpen('image', false)}
+
+                          include={[refs.elements.image.current]}
+                        >
+                          <Input
+                            label='Image'
+
+                            labelButton='Add'
+
+                            value={refs.inputValues.current.image}
+
+                            onChange={valueNew => updateInputValues('image', valueNew)}
+
+                            onClick={() => {
+                              if (refs.range.current) {
+                                const selection = window.getSelection();
+
+                                selection.removeAllRanges();
+                                selection.addRange(refs.range.current);
+                              }
+
+                              method('image')(refs.inputValues.current.image);
+
+                              updateOpen('image', false);
+
+                              updateInputValues('image', '');
+                            }}
+                          />
+                        </ClickListener>
+                      )}
+                    >
+                      <WrapperToggleButton
+                        label='Insert Image'
+
+                        open={refs.open.current.image ? false : undefined}
+                      >
+                        {is('function', render) ? render('image', ToggleButtonProps, refs.value.current, method) : (
+                          <ToggleButton
+                            ref={refs.elements.image}
+
+                            {...ToggleButtonProps}
+
+                            selected={refs.open.current.image}
+
+                            onClick={() => updateOpen('image', !refs.open.current.image)}
+                          >
+                            <IconImage {...IconProps} />
+                          </ToggleButton>
+                        )}
+                      </WrapperToggleButton>
+                    </WrapperAppend>
+                  )}
+
+                  {includes('video') && (
+                    <WrapperAppend
+                      open={refs.open.current.video}
+
+                      anchorElement={refs.elements.video.current}
+
+                      element={(
+                        <ClickListener
+                          onClickOutside={() => updateOpen('video', false)}
+
+                          include={[refs.elements.video.current]}
+                        >
+                          <Input
+                            label='Video'
+
+                            labelButton='Add'
+
+                            value={refs.inputValues.current.video}
+
+                            onChange={valueNew => updateInputValues('video', valueNew)}
+
+                            onClick={() => {
+                              if (refs.range.current) {
+                                const selection = window.getSelection();
+
+                                selection.removeAllRanges();
+                                selection.addRange(refs.range.current);
+                              }
+
+                              method('html')(`<video controls><source src='${refs.inputValues.current.video}' /></video>`);
+
+                              updateOpen('video', false);
+
+                              updateInputValues('video', '');
+                            }}
+                          />
+                        </ClickListener>
+                      )}
+                    >
+                      <WrapperToggleButton
+                        label='Insert Video'
+
+                        open={refs.open.current.video ? false : undefined}
+                      >
+                        {is('function', render) ? render('video', ToggleButtonProps, refs.value.current, method) : (
+                          <ToggleButton
+                            ref={refs.elements.video}
+
+                            {...ToggleButtonProps}
+
+                            selected={refs.open.current.video}
+
+                            onClick={() => updateOpen('video', !refs.open.current.video)}
+                          >
+                            <IconVideo {...IconProps} />
+                          </ToggleButton>
+                        )}
+                      </WrapperToggleButton>
+                    </WrapperAppend>
+                  )}
+
+                  {includes('video-youtube') && (
+                    <WrapperAppend
+                      open={refs.open.current.videoYoutube}
+
+                      anchorElement={refs.elements.videoYoutube.current}
+
+                      element={(
+                        <ClickListener
+                          onClickOutside={() => updateOpen('videoYoutube', false)}
+
+                          include={[refs.elements.videoYoutube.current]}
+                        >
+                          <Input
+                            label='Youtube Video ID'
+
+                            labelButton='Add'
+
+                            value={refs.inputValues.current.videoYoutube}
+
+                            onChange={valueNew => updateInputValues('videoYoutube', valueNew)}
+
+                            onClick={() => {
+                              if (refs.range.current) {
+                                const selection = window.getSelection();
+
+                                selection.removeAllRanges();
+                                selection.addRange(refs.range.current);
+                              }
+
+                              method('html')(`<iframe width="560" height="315" src="https://www.youtube.com/embed/${refs.inputValues.current.videoYoutube}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`);
+
+                              updateOpen('videoYoutube', false);
+
+                              updateInputValues('videoYoutube', '');
+                            }}
+                          />
+                        </ClickListener>
+                      )}
+                    >
+                      <WrapperToggleButton
+                        label='Insert Youtube Video'
+
+                        open={refs.open.current.videoYoutube ? false : undefined}
+                      >
+                        {is('function', render) ? render('videoYoutube', ToggleButtonProps, refs.value.current, method) : (
+                          <ToggleButton
+                            ref={refs.elements.videoYoutube}
+
+                            {...ToggleButtonProps}
+
+                            selected={refs.open.current.videoYoutube}
+
+                            onClick={() => updateOpen('videoYoutube', !refs.open.current.videoYoutube)}
+                          >
+                            <IconVideoYoutube {...IconProps} />
+                          </ToggleButton>
+                        )}
+                      </WrapperToggleButton>
+                    </WrapperAppend>
+                  )}
+
+                  {includes('code') && (
+                    <WrapperAppend
+                      open={refs.open.current.code}
+
+                      anchorElement={refs.elements.code.current}
+
+                      element={(
+                        <ClickListener
+                          onClickOutside={() => updateOpen('code', false)}
+
+                          include={[refs.elements.code.current]}
+                        >
+                          <Input
+                            label='Code'
+
+                            labelButton='Add'
+
+                            value={refs.inputValues.current.code}
+
+                            onChange={valueNew => updateInputValues('code', valueNew)}
+
+                            InputProps={{
+                              multiline: true
+                            }}
+
+                            onClick={() => {
+                              if (refs.range.current) {
+                                const selection = window.getSelection();
+
+                                selection.removeAllRanges();
+                                selection.addRange(refs.range.current);
+                              }
+
+                              method('html')(`<pre><code>${refs.inputValues.current.code}</code></pre>`);
+
+                              updateOpen('code', false);
+
+                              updateInputValues('code', '');
+                            }}
+                          />
+                        </ClickListener>
+                      )}
+                    >
+                      <WrapperToggleButton
+                        label='Insert Code'
+
+                        open={refs.open.current.code ? false : undefined}
+                      >
+                        {is('function', render) ? render('code', ToggleButtonProps, refs.value.current, method) : (
+                          <ToggleButton
+                            ref={refs.elements.code}
+
+                            {...ToggleButtonProps}
+
+                            selected={refs.open.current.code}
+
+                            onClick={() => updateOpen('code', !refs.open.current.code)}
+                          >
+                            <IconCode {...IconProps} />
+                          </ToggleButton>
+                        )}
+                      </WrapperToggleButton>
+                    </WrapperAppend>
                   )}
                 </ToggleButtons>
               )}
