@@ -2124,7 +2124,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
           <ClickListener
             onClickOutside={() => updateOpen('colorMiniMenu', false)}
 
-            include={[refs.miniMenu, refs.miniMenuElements.color]}
+            include={[refs.miniMenuElements.color]}
           >
             <Palette
               ref={refs.miniMenuElements.colorPalette}
@@ -3557,16 +3557,10 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                 >
                   <ClickListener
                     onClickOutside={() => {
-                      const selection_ = window.getSelection();
-
-                      if (!selection_.anchorNode || !refs.value.current.contains(selection_.anchorNode)) return setSelection('' as any);
-
-                      const rect = selection_.getRangeAt(0).getBoundingClientRect();
-
-                      setSelection(!!Math.round(rect.width) ? rect : '' as any);
+                      setSelection('' as any);
                     }}
 
-                    include={[refs.miniMenuElements.colorPalette, refs.miniMenuElements.backgroundPalette, refs.miniMenuElements.linkAddInput]}
+                    include={[refs.miniMenu.current, refs.miniMenuElements.colorPalette.current, refs.miniMenuElements.backgroundPalette.current, refs.miniMenuElements.linkAddInput.current, refs.miniMenu, refs.miniMenuElements.colorPalette, refs.miniMenuElements.backgroundPalette, refs.miniMenuElements.linkAddInput]}
                   >
                     <Line
                       gap={2}
