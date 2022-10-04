@@ -2206,7 +2206,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
       <WrapperAppend
         open={refs.open.current.backgroundMiniMenu}
 
-        anchorElement={refs.miniMenuElements.background.current}
+        anchorElement={refs.miniMenuElements.background}
 
         element={(
           <ClickListener
@@ -2215,7 +2215,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
             include={[refs.miniMenuElements.background]}
           >
             <Palette
-              refs={refs.miniMenuElements.backgroundPalette}
+              ref={refs.miniMenuElements.backgroundPalette}
 
               version='font-background'
 
@@ -2227,7 +2227,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
         )}
       >
         <WrapperToggleButton
-          label='Background Color'
+          label='Text Color'
 
           open={refs.open.current.backgroundMiniMenu ? false : undefined}
         >
@@ -2498,15 +2498,17 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
       <WrapperAppend
         open={refs.open.current.linkMiniMenu}
 
-        anchorElement={refs.miniMenuElements.linkAdd.current}
+        anchorElement={refs.miniMenuElements.linkAdd}
 
         element={(
           <ClickListener
             onClickOutside={() => updateOpen('linkMiniMenu', false)}
 
-            include={[refs.miniMenuElements.linkAdd.current]}
+            include={[refs.miniMenuElements.linkAdd]}
           >
             <Input
+              ref={refs.miniMenuElements.linkAddInput}
+
               label='Link'
 
               labelButton='Add'
@@ -3061,7 +3063,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
       </WrapperAppend>
     )
   };
-  console.log(1, selection)
+
   return (
     <Line
       ref={ref}
@@ -3562,7 +3564,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                       setSelection('' as any);
                     }}
 
-                    include={[refs.miniMenu.current, refs.miniMenuElements.colorPalette.current, refs.miniMenuElements.backgroundPalette.current, refs.miniMenuElements.linkAddInput.current, refs.miniMenu, refs.miniMenuElements.colorPalette, refs.miniMenuElements.backgroundPalette, refs.miniMenuElements.linkAddInput]}
+                    include={[refs.miniMenu, refs.miniMenu.current, refs.miniMenuElements.colorPalette, refs.miniMenuElements.colorPalette.current, refs.miniMenuElements.backgroundPalette, refs.miniMenuElements.backgroundPalette.current, refs.miniMenuElements.linkAddInput, refs.miniMenuElements.linkAddInput.current]}
                   >
                     <Line
                       gap={2}
