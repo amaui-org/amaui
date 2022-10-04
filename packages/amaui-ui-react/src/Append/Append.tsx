@@ -23,7 +23,6 @@ const Append = (props_: any) => {
     accelerated = true,
     anchor,
     anchorElement,
-    clearOnClose,
     offset = [0, 0],
     padding = [0, 0],
     paddingUnfollow = props.padding || [0, 0],
@@ -36,6 +35,8 @@ const Append = (props_: any) => {
     style: style_,
     update,
     element,
+
+    clearOnClose,
 
     onUpdate,
 
@@ -616,7 +617,7 @@ const Append = (props_: any) => {
       })}
 
       {/* Method or value */}
-      {open && (
+      {open && (children || anchorElement || anchor) && (
         <PortalComponent
           {...PortalComponentProps}
         >

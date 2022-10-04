@@ -9,6 +9,9 @@ import Icon from '../Icon';
 import Append from '../Append';
 import Select from '../Select';
 import Tooltip from '../Tooltip';
+import Switch from '../Switch';
+import Label from '../Label';
+import NumericTextField from '../NumericTextField';
 import ToggleButtons from '../ToggleButtons';
 import ToggleButton from '../ToggleButton';
 import ClickListener from '../ClickListener';
@@ -20,9 +23,6 @@ import ListItem from '../ListItem';
 import Line from '../Line';
 
 import { print, save, staticClassName } from '../utils';
-import Switch from '../Switch';
-import Label from '../Label';
-import NumericTextField from '../NumericTextField';
 
 const useStyle = style(theme => ({
   root: {
@@ -170,6 +170,12 @@ const useStyle = style(theme => ({
         fontWeight: 400
       }
     }
+  },
+
+  miniMenu: {
+    padding: '12px',
+    borderRadius: theme.methods.shape.radius.value(140, 'px'),
+    boxShadow: theme.shadows.values.default[2]
   },
 
   palette: {
@@ -796,6 +802,25 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
     render,
 
+    miniMenu = true,
+    miniMenuInclude = [
+      'italic',
+      'underline',
+      'bold',
+      'strike-line',
+
+      'font-color',
+      'font-background',
+
+      'align-left',
+      'align-center',
+      'align-right',
+      'align-justify',
+
+      'link-add',
+      'link-remove'
+    ],
+
     exclude,
 
     updates = true,
@@ -872,6 +897,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
     SelectProps: SelectProps_,
     ListItemProps: ListItemProps_,
     TooltipProps: TooltipProps_,
+    MiniMenuProps: MiniMenuProps_,
     IconProps: IconProps_,
 
     Component = 'div',
@@ -886,6 +912,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
   const [inputValues, setInputValues] = React.useState<any>({});
   const [open, setOpen] = React.useState<any>({});
   const [selected, setSelected] = React.useState<any[]>([]);
+  const [selection, setSelection] = React.useState<DOMRect>();
 
   const refs = {
     value: React.useRef<HTMLElement>(),
@@ -903,7 +930,8 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
       video: React.useRef<any>(),
       videoYoutube: React.useRef<any>(),
       table: React.useRef<any>(),
-      code: React.useRef<any>()
+      code: React.useRef<any>(),
+      miniMenu: React.useRef<any>()
     }
   };
 
@@ -919,9 +947,9 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
   }, [value]);
 
   React.useEffect(() => {
-    const selection = window.getSelection();
+    const selection_ = window.getSelection();
 
-    if (selection.anchorNode) refs.range.current = selection.getRangeAt(0);
+    if (selection_.anchorNode) refs.range.current = selection_.getRangeAt(0);
   }, [open]);
 
   const query = (command: string) => parse(window.document.queryCommandValue(command));
@@ -1245,6 +1273,14 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
     ...ToggleButtonProps_,
   };
 
+  const MiniMenuProps = {
+    tonal,
+
+    color: refs.props.current.color !== undefined ? refs.props.current.color : 'themed',
+
+    ...MiniMenuProps_
+  };
+
   const SelectProps = {
     tonal,
 
@@ -1364,17 +1400,17 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
   }, []);
 
   const onMouseDown = React.useCallback(() => {
-    const selection = window.getSelection();
+    const selection_ = window.getSelection();
 
-    if (selection.anchorNode) refs.range.current = selection.getRangeAt(0);
+    if (selection_.anchorNode) refs.range.current = selection_.getRangeAt(0);
   }, []);
 
   const onMouseUp = React.useCallback(() => {
     if (refs.range.current) {
-      const selection = window.getSelection();
+      const selection_ = window.getSelection();
 
-      selection.removeAllRanges();
-      selection.addRange(refs.range.current);
+      selection_.removeAllRanges();
+      selection_.addRange(refs.range.current);
     }
   }, []);
 
@@ -1496,10 +1532,10 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
                   onClick={() => {
                     if (refs.range.current) {
-                      const selection = window.getSelection();
+                      const selection_ = window.getSelection();
 
-                      selection.removeAllRanges();
-                      selection.addRange(refs.range.current);
+                      selection_.removeAllRanges();
+                      selection_.addRange(refs.range.current);
                     }
 
                     onUpdate(colors[item][item_]);
@@ -1581,10 +1617,10 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
             onClick={() => {
               if (refs.range.current) {
-                const selection = window.getSelection();
+                const selection_ = window.getSelection();
 
-                selection.removeAllRanges();
-                selection.addRange(refs.range.current);
+                selection_.removeAllRanges();
+                selection_.addRange(refs.range.current);
               }
 
               onUpdate(refs.inputValues.current[version]);
@@ -1697,6 +1733,85 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
     );
   }), []);
 
+  const MiniMenu = React.useCallback(React.forwardRef((props: any, ref: any) => {
+    const includes = (...args) => args.some(item => miniMenuInclude.includes(item));
+
+    return (
+      <Line
+        ref={ref}
+
+        gap={2}
+
+        direction='row'
+
+        align='center'
+
+        justify='flex-start'
+
+        Component={Surface}
+
+        {...MiniMenuProps}
+
+        className={classNames([
+          staticClassName('RichTextEditor', theme) && [
+            'AmauiRichTextEditor-mini-menu'
+          ],
+
+          MiniMenuProps?.className,
+          classes.miniMenu
+        ])}
+      >
+        {includes('italic', 'underlined', 'bold', 'strike-line') && (
+          <ToggleButtons
+            {...ToggleButtonsProps}
+          >
+            {includes('italic') && updateElements['italic']}
+
+            {includes('underline') && updateElements['underline']}
+
+            {includes('bold') && updateElements['bold']}
+
+            {includes('strike-line') && updateElements['strike-line']}
+          </ToggleButtons>
+        )}
+
+        {includes('font-color', 'font-background') && (
+          <ToggleButtons
+            {...ToggleButtonsProps}
+          >
+            {includes('font-color') && updateElements['font-color']}
+
+            {includes('font-background') && updateElements['font-background']}
+          </ToggleButtons>
+        )}
+
+        {includes('align-left', 'align-center', 'align-right', 'align-justify') && (
+          <ToggleButtons
+            {...ToggleButtonsProps}
+          >
+            {includes('align-left') && updateElements['align-left']}
+
+            {includes('align-center') && updateElements['align-center']}
+
+            {includes('align-right') && updateElements['align-right']}
+
+            {includes('align-justify') && updateElements['align-justify']}
+          </ToggleButtons>
+        )}
+
+        {includes('link-add', 'link-remove') && (
+          <ToggleButtons
+            {...ToggleButtonsProps}
+          >
+            {includes('link-add') && updateElements['link-add']}
+
+            {includes('link-remove') && updateElements['link-remove']}
+          </ToggleButtons>
+        )}
+      </Line>
+    );
+  }), [miniMenuInclude]);
+
   const font_families = [
     ...fontFamilies,
 
@@ -1773,12 +1888,1078 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
   const onMouseUpValue = React.useCallback(() => {
     queryValueUpdate();
+
+    setTimeout(() => {
+      const selection_ = window.getSelection();
+
+      if (!selection_.anchorNode || !refs.value.current.contains(selection_.anchorNode)) return setSelection('' as any);
+
+      const rect = selection_.getRangeAt(0).getBoundingClientRect();
+
+      setSelection(!!Math.round(rect.width) ? rect : '' as any);
+    });
   }, []);
 
   const onMouseDownValue = React.useCallback(() => {
     queryValueUpdate();
   }, []);
 
+  const updateElements = {
+    'font-version': (
+      <Select
+        label='Font Version'
+
+        valueDefault={font_versions.find(item => item.value.includes('p')).value}
+
+        value={inputValues['font-version']}
+
+        onChange={(valueNew: string) => {
+          updateInputValues('font-version', valueNew);
+
+          method('font-version')(valueNew);
+        }}
+
+        onMouseUp={onMouseUp}
+
+        onMouseDown={onMouseDown}
+
+        {...SelectProps}
+
+        className={classNames([
+          staticClassName('RichTextEditor', theme) && [
+            'AmauiRichTextEditor-select'
+          ],
+
+          SelectProps?.className,
+          classes.select
+        ])}
+
+        style={{
+          minWidth: '150px'
+        }}
+      >
+        {font_versions.map(item => (
+          <ListItem
+            key={item.value}
+
+            primary={item.label}
+
+            value={item.value}
+
+            button
+
+            {...ListItemProps}
+          />
+        ))}
+      </Select>
+    ),
+    'font-family': (
+      <Select
+        label='Font Family'
+
+        valueDefault={font_families.find(item => item.label.includes('Roboto')).value}
+
+        value={inputValues['font-family']}
+
+        onChange={(valueNew: string) => {
+          updateInputValues('font-family', valueNew);
+
+          method('font-family')(valueNew);
+        }}
+
+        onMouseUp={onMouseUp}
+
+        onMouseDown={onMouseDown}
+
+        {...SelectProps}
+
+        className={classNames([
+          staticClassName('RichTextEditor', theme) && [
+            'AmauiRichTextEditor-select'
+          ],
+
+          SelectProps?.className,
+          classes.select
+        ])}
+
+        style={{
+          minWidth: '140px'
+        }}
+      >
+        {font_families.map(item => (
+          <ListItem
+            key={item.value}
+
+            primary={item.label}
+
+            value={item.value}
+
+            button
+
+            style={{
+              fontFamily: item.value
+            }}
+
+            {...ListItemProps}
+          />
+        ))}
+      </Select>
+    ),
+    'font-size': (
+      <Select
+        label='Font Size'
+
+        valueDefault={+font_sizes.find(item => item.label.includes('14')).value}
+
+        value={inputValues['font-size']}
+
+        onChange={(valueNew: string) => {
+          updateInputValues('font-size', +valueNew);
+
+          method('font-size')(+valueNew);
+        }}
+
+        onMouseUp={onMouseUp}
+
+        onMouseDown={onMouseDown}
+
+        {...SelectProps}
+
+        className={classNames([
+          staticClassName('RichTextEditor', theme) && [
+            'AmauiRichTextEditor-select'
+          ],
+
+          SelectProps?.className,
+          classes.select
+        ])}
+      >
+        {font_sizes.map(item => (
+          <ListItem
+            key={item.value}
+
+            primary={item.label}
+
+            value={item.value}
+
+            button
+
+            {...ListItemProps}
+          />
+        ))}
+      </Select>
+    ),
+
+    'italic': (
+      <WrapperToggleButton
+        label='Italic'
+      >
+        {is('function', render) ? render('italic', ToggleButtonProps, refs.value.current, method) : (
+          <ToggleButton
+            {...ToggleButtonProps}
+
+            selected={selected.includes('italic')}
+
+            onClick={method('italic')}
+          >
+            <IconItalic {...IconProps} />
+          </ToggleButton>
+        )}
+      </WrapperToggleButton>
+    ),
+    'underline': (
+      <WrapperToggleButton
+        label='Underline'
+      >
+        {is('function', render) ? render('underline', ToggleButtonProps, refs.value.current, method) : (
+          <ToggleButton
+            {...ToggleButtonProps}
+
+            selected={selected.includes('underline')}
+
+            onClick={method('underline')}
+          >
+            <IconUnderline {...IconProps} />
+          </ToggleButton>
+        )}
+      </WrapperToggleButton>
+    ),
+    'bold': (
+      <WrapperToggleButton
+        label='Bold'
+
+        onClick={method('bold')}
+      >
+        {is('function', render) ? render('bold', ToggleButtonProps, refs.value.current, method) : (
+          <ToggleButton
+            {...ToggleButtonProps}
+
+            selected={selected.includes('bold')}
+          >
+            <IconBold {...IconProps} />
+          </ToggleButton>
+        )}
+      </WrapperToggleButton>
+    ),
+    'strike-line': (
+      <WrapperToggleButton
+        label='Strike Line'
+
+        onClick={method('strike-line')}
+      >
+        {is('function', render) ? render('strike-line', ToggleButtonProps, refs.value.current, method) : (
+          <ToggleButton
+            {...ToggleButtonProps}
+
+            selected={selected.includes('strike-line')}
+          >
+            <IconStrikeLine {...IconProps} />
+          </ToggleButton>
+        )}
+      </WrapperToggleButton>
+    ),
+
+    'font-color': (
+      <WrapperAppend
+        open={refs.open.current.color}
+
+        anchorElement={refs.elements.color.current}
+
+        element={(
+          <ClickListener
+            onClickOutside={() => updateOpen('color', false)}
+
+            include={[refs.elements.color.current]}
+          >
+            <Palette
+              version='font-color'
+
+              onClose={() => updateOpen('color', false)}
+
+              onUpdate={method('font-color')}
+            />
+          </ClickListener>
+        )}
+      >
+        <WrapperToggleButton
+          label='Text Color'
+
+          open={refs.open.current.color ? false : undefined}
+        >
+          {is('function', render) ? render('font-color', ToggleButtonProps, refs.value.current, method) : (
+            <ToggleButton
+              ref={refs.elements.color}
+
+              {...ToggleButtonProps}
+
+              selected={refs.open.current.color}
+
+              onClick={() => updateOpen('color', !refs.open.current.color)}
+            >
+              <IconColor {...IconProps} />
+            </ToggleButton>
+          )}
+        </WrapperToggleButton>
+      </WrapperAppend>
+    ),
+    'font-background': (
+      <WrapperAppend
+        open={refs.open.current.background}
+
+        anchorElement={refs.elements.background.current}
+
+        element={(
+          <ClickListener
+            onClickOutside={() => updateOpen('background', false)}
+
+            include={[refs.elements.background.current]}
+          >
+            <Palette
+              version='font-background'
+
+              onClose={() => updateOpen('background', false)}
+
+              onUpdate={method('font-background')}
+            />
+          </ClickListener>
+        )}
+      >
+        <WrapperToggleButton
+          label='Background Color'
+
+          open={refs.open.current.background ? false : undefined}
+        >
+          {is('function', render) ? render('font-background', ToggleButtonProps, refs.value.current, method) : (
+            <ToggleButton
+              ref={refs.elements.background}
+
+              {...ToggleButtonProps}
+
+              selected={refs.open.current.background}
+
+              onClick={() => updateOpen('background', !refs.open.current.background)}
+            >
+              <IconBackground {...IconProps} />
+            </ToggleButton>
+          )}
+        </WrapperToggleButton>
+      </WrapperAppend>
+    ),
+
+    'align-left': (
+      <WrapperToggleButton
+        label='Align Left'
+      >
+        {is('function', render) ? render('align-left', ToggleButtonProps, refs.value.current, method) : (
+          <ToggleButton
+            {...ToggleButtonProps}
+
+            selected={selected.includes('align-left')}
+
+            onClick={method('align-left')}
+          >
+            <IconAlignLeft {...IconProps} />
+          </ToggleButton>
+        )}
+      </WrapperToggleButton>
+    ),
+    'align-center': (
+      <WrapperToggleButton
+        label='Align Center'
+      >
+        {is('function', render) ? render('align-center', ToggleButtonProps, refs.value.current, method) : (
+          <ToggleButton
+            {...ToggleButtonProps}
+
+            selected={selected.includes('align-center')}
+
+            onClick={method('align-center')}
+          >
+            <IconAlignCenter {...IconProps} />
+          </ToggleButton>
+        )}
+      </WrapperToggleButton>
+    ),
+    'align-right': (
+      <WrapperToggleButton
+        label='Align Right'
+      >
+        {is('function', render) ? render('align-right', ToggleButtonProps, refs.value.current, method) : (
+          <ToggleButton
+            {...ToggleButtonProps}
+
+            selected={selected.includes('align-right')}
+
+            onClick={method('align-right')}
+          >
+            <IconAlignRight {...IconProps} />
+          </ToggleButton>
+        )}
+      </WrapperToggleButton>
+    ),
+    'align-justify': (
+      <WrapperToggleButton
+        label='Align Justify'
+      >
+        {is('function', render) ? render('align-justify', ToggleButtonProps, refs.value.current, method) : (
+          <ToggleButton
+            {...ToggleButtonProps}
+
+            selected={selected.includes('align-justify')}
+
+            onClick={method('align-justify')}
+          >
+            <IconAlignJustify {...IconProps} />
+          </ToggleButton>
+        )}
+      </WrapperToggleButton>
+    ),
+
+    'indent': (
+      <WrapperToggleButton
+        label='Indent'
+      >
+        {is('function', render) ? render('indent', ToggleButtonProps, refs.value.current, method) : (
+          <ToggleButton
+            {...ToggleButtonProps}
+
+            onClick={method('indent')}
+          >
+            <IconIndent {...IconProps} />
+          </ToggleButton>
+        )}
+      </WrapperToggleButton>
+    ),
+    'outdent': (
+      <WrapperToggleButton
+        label='Outdent'
+      >
+        {is('function', render) ? render('outdent', ToggleButtonProps, refs.value.current, method) : (
+          <ToggleButton
+            {...ToggleButtonProps}
+
+            onClick={method('outdent')}
+          >
+            <IconOutdent {...IconProps} />
+          </ToggleButton>
+        )}
+      </WrapperToggleButton>
+    ),
+
+    'superscript': (
+      <WrapperToggleButton
+        label='Superscript'
+      >
+        {is('function', render) ? render('superscript', ToggleButtonProps, refs.value.current, method) : (
+          <ToggleButton
+            {...ToggleButtonProps}
+
+            selected={selected.includes('superscript')}
+
+            onClick={method('superscript')}
+          >
+            <IconSuperscript {...IconProps} />
+          </ToggleButton>
+        )}
+      </WrapperToggleButton>
+    ),
+    'subscript': (
+      <WrapperToggleButton
+        label='Subscript'
+      >
+        {is('function', render) ? render('subscript', ToggleButtonProps, refs.value.current, method) : (
+          <ToggleButton
+            {...ToggleButtonProps}
+
+            selected={selected.includes('subscript')}
+
+            onClick={method('subscript')}
+          >
+            <IconSubscript {...IconProps} />
+          </ToggleButton>
+        )}
+      </WrapperToggleButton>
+    ),
+
+    'link-ordered': (
+      <WrapperToggleButton
+        label='List Ordered'
+      >
+        {is('function', render) ? render('list-ordered', ToggleButtonProps, refs.value.current, method) : (
+          <ToggleButton
+            {...ToggleButtonProps}
+
+            selected={selected.includes('list-ordered')}
+
+            onClick={method('list-ordered')}
+          >
+            <IconListOrdered {...IconProps} />
+          </ToggleButton>
+        )}
+      </WrapperToggleButton>
+    ),
+    'link-unordered': (
+      <WrapperToggleButton
+        label='List Unordered'
+      >
+        {is('function', render) ? render('list-unordered', ToggleButtonProps, refs.value.current, method) : (
+          <ToggleButton
+            {...ToggleButtonProps}
+
+            selected={selected.includes('list-unordered')}
+
+            onClick={method('list-unordered')}
+          >
+            <IconListUnordered {...IconProps} />
+          </ToggleButton>
+        )}
+      </WrapperToggleButton>
+    ),
+
+    'horizontal-rule': (
+      <WrapperToggleButton
+        label='Insert Horizontal Rule'
+
+        onClick={method('horizontal-rule')}
+      >
+        {is('function', render) ? render('horizontal-rule', ToggleButtonProps, refs.value.current, method) : (
+          <ToggleButton
+            {...ToggleButtonProps}
+          >
+            <IconHorizontalRule {...IconProps} />
+          </ToggleButton>
+        )}
+      </WrapperToggleButton>
+    ),
+
+    'link-add': (
+      <WrapperAppend
+        open={refs.open.current.link}
+
+        anchorElement={refs.elements.linkAdd.current}
+
+        element={(
+          <ClickListener
+            onClickOutside={() => updateOpen('link', false)}
+
+            include={[refs.elements.linkAdd.current]}
+          >
+            <Input
+              label='Link'
+
+              labelButton='Add'
+
+              value={refs.inputValues.current.link}
+
+              onChange={valueNew => updateInputValues('link', valueNew)}
+
+              onClick={() => {
+                if (refs.range.current) {
+                  const selection_ = window.getSelection();
+
+                  selection_.removeAllRanges();
+                  selection_.addRange(refs.range.current);
+                }
+
+                method('link-add')(refs.inputValues.current.link);
+
+                updateOpen('link', false);
+
+                updateInputValues('link', '');
+              }}
+            />
+          </ClickListener>
+        )}
+      >
+        <WrapperToggleButton
+          label='Insert Link'
+
+          open={refs.open.current.link ? false : undefined}
+        >
+          {is('function', render) ? render('font-color', ToggleButtonProps, refs.value.current, method) : (
+            <ToggleButton
+              ref={refs.elements.linkAdd}
+
+              {...ToggleButtonProps}
+
+              selected={refs.open.current.link}
+
+              onClick={() => updateOpen('link', !refs.open.current.link)}
+            >
+              <IconLinkAdd {...IconProps} />
+            </ToggleButton>
+          )}
+        </WrapperToggleButton>
+      </WrapperAppend>
+    ),
+    'link-remove': (
+      <WrapperToggleButton
+        label='Remove Link'
+      >
+        {is('function', render) ? render('link-remove', ToggleButtonProps, refs.value.current, method) : (
+          <ToggleButton
+            {...ToggleButtonProps}
+
+            onClick={method('link-remove')}
+          >
+            <IconLinkRemove {...IconProps} />
+          </ToggleButton>
+        )}
+      </WrapperToggleButton>
+    ),
+
+    'quote': (
+      <WrapperAppend
+        open={refs.open.current.quote}
+
+        anchorElement={refs.elements.quote.current}
+
+        element={(
+          <ClickListener
+            onClickOutside={() => updateOpen('quote', false)}
+
+            include={[refs.elements.quote.current]}
+          >
+            <Input
+              label='Quote'
+
+              labelButton='Add'
+
+              value={refs.inputValues.current.quote}
+
+              onChange={valueNew => updateInputValues('quote', valueNew)}
+
+              InputProps={{
+                multiline: true
+              }}
+
+              onClick={() => {
+                if (refs.range.current) {
+                  const selection_ = window.getSelection();
+
+                  selection_.removeAllRanges();
+                  selection_.addRange(refs.range.current);
+                }
+
+                method('html')(`<blockquote>${refs.inputValues.current.quote}</blockquote>`);
+
+                updateOpen('quote', false);
+
+                updateInputValues('quote', '');
+              }}
+            />
+          </ClickListener>
+        )}
+      >
+        <WrapperToggleButton
+          label='Insert Quote'
+
+          open={refs.open.current.quote ? false : undefined}
+        >
+          {is('function', render) ? render('quote', ToggleButtonProps, refs.value.current, method) : (
+            <ToggleButton
+              ref={refs.elements.quote}
+
+              {...ToggleButtonProps}
+
+              selected={refs.open.current.quote}
+
+              onClick={() => updateOpen('quote', !refs.open.current.quote)}
+            >
+              <IconQuote {...IconProps} />
+            </ToggleButton>
+          )}
+        </WrapperToggleButton>
+      </WrapperAppend>
+    ),
+    'table': (
+      <WrapperAppend
+        open={refs.open.current.table}
+
+        anchorElement={refs.elements.table.current}
+
+        element={(
+          <ClickListener
+            onClickOutside={() => updateOpen('table', false)}
+
+            include={[refs.elements.table.current]}
+          >
+            <Line
+              gap={1}
+
+              tonal={tonal}
+
+              color={refs.props.current.color !== undefined ? refs.props.current.color : 'themed'}
+
+              Component={Surface}
+
+              className={classNames([
+                staticClassName('RichTextEditor', theme) && [
+                  'AmauiRichTextEditor-palette'
+                ],
+
+                classes.palette
+              ])}
+            >
+              <Line
+                gap={1}
+
+                direction='row'
+
+                align='center'
+
+                justify='center'
+              >
+                <NumericTextField
+                  label='Rows'
+
+                  tonal={tonal}
+
+                  color={color}
+
+                  size='small'
+
+                  version='outlined'
+
+                  increment={false}
+
+                  decrement={false}
+
+                  value={refs.inputValues.current.tableRows}
+
+                  onChange={valueNew => updateInputValues('tableRows', valueNew)}
+                />
+
+                ×
+
+                <NumericTextField
+                  label='Columns'
+
+                  tonal={tonal}
+
+                  color={color}
+
+                  size='small'
+
+                  version='outlined'
+
+                  increment={false}
+
+                  decrement={false}
+
+                  value={refs.inputValues.current.tableColumns}
+
+                  onChange={valueNew => updateInputValues('tableColumns', valueNew)}
+                />
+              </Line>
+
+              <Line
+                gap={1}
+
+                direction='row'
+
+                align='center'
+
+                justify='space-between'
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                <Label
+                  size='small'
+                >
+                  <Switch
+                    tonal={tonal}
+
+                    color={color}
+
+                    checked={refs.inputValues.current.tableHeader}
+
+                    onChange={valueNew => updateInputValues('tableHeader', valueNew)}
+                  />
+
+                  Header
+                </Label>
+
+                <Button
+                  tonal={tonal}
+
+                  color='inherit'
+
+                  version='text'
+
+                  size='small'
+
+                  onClick={() => {
+                    if (refs.range.current) {
+                      const selection_ = window.getSelection();
+
+                      selection_.removeAllRanges();
+                      selection_.addRange(refs.range.current);
+                    }
+
+                    let table = `<table>`;
+
+                    if (refs.inputValues.current.tableHeader && refs.inputValues.current.tableColumns > 0) {
+                      table += `<thead><tr>${'<th></th>'.repeat(refs.inputValues.current.tableColumns)}</tr></thead>`;
+                    }
+
+                    if (refs.inputValues.current.tableRows > 0 && refs.inputValues.current.tableColumns > 0) {
+                      table += `<tbody>`;
+
+                      for (let i = 0; i < refs.inputValues.current.tableRows; i++) {
+                        table += `<tr>${'<td></td>'.repeat(refs.inputValues.current.tableColumns)}</tr>`;
+                      }
+
+                      table += `</tbody>`;
+                    }
+
+                    table += `</table>`;
+
+                    method('html')(table);
+
+                    updateOpen('table', false);
+
+                    updateInputValues('tableRows', '');
+                    updateInputValues('tableColumns', '');
+                    updateInputValues('tableHeader', '');
+                  }}
+                >
+                  Add
+                </Button>
+              </Line>
+            </Line>
+          </ClickListener>
+        )}
+      >
+        <WrapperToggleButton
+          label='Insert Table'
+
+          open={refs.open.current.table ? false : undefined}
+        >
+          {is('function', render) ? render('table', ToggleButtonProps, refs.value.current, method) : (
+            <ToggleButton
+              ref={refs.elements.table}
+
+              {...ToggleButtonProps}
+
+              selected={refs.open.current.table}
+
+              onClick={() => updateOpen('table', !refs.open.current.table)}
+            >
+              <IconTable {...IconProps} />
+            </ToggleButton>
+          )}
+        </WrapperToggleButton>
+      </WrapperAppend>
+    ),
+    'image': (
+      <WrapperAppend
+        open={refs.open.current.image}
+
+        anchorElement={refs.elements.image.current}
+
+        element={(
+          <ClickListener
+            onClickOutside={() => updateOpen('image', false)}
+
+            include={[refs.elements.image.current]}
+          >
+            <Input
+              label='Image'
+
+              labelButton='Add'
+
+              value={refs.inputValues.current.image}
+
+              onChange={valueNew => updateInputValues('image', valueNew)}
+
+              onClick={() => {
+                if (refs.range.current) {
+                  const selection_ = window.getSelection();
+
+                  selection_.removeAllRanges();
+                  selection_.addRange(refs.range.current);
+                }
+
+                method('image')(refs.inputValues.current.image);
+
+                updateOpen('image', false);
+
+                updateInputValues('image', '');
+              }}
+            />
+          </ClickListener>
+        )}
+      >
+        <WrapperToggleButton
+          label='Insert Image'
+
+          open={refs.open.current.image ? false : undefined}
+        >
+          {is('function', render) ? render('image', ToggleButtonProps, refs.value.current, method) : (
+            <ToggleButton
+              ref={refs.elements.image}
+
+              {...ToggleButtonProps}
+
+              selected={refs.open.current.image}
+
+              onClick={() => updateOpen('image', !refs.open.current.image)}
+            >
+              <IconImage {...IconProps} />
+            </ToggleButton>
+          )}
+        </WrapperToggleButton>
+      </WrapperAppend>
+    ),
+    'video': (
+      <WrapperAppend
+        open={refs.open.current.video}
+
+        anchorElement={refs.elements.video.current}
+
+        element={(
+          <ClickListener
+            onClickOutside={() => updateOpen('video', false)}
+
+            include={[refs.elements.video.current]}
+          >
+            <Input
+              label='Video'
+
+              labelButton='Add'
+
+              value={refs.inputValues.current.video}
+
+              onChange={valueNew => updateInputValues('video', valueNew)}
+
+              onClick={() => {
+                if (refs.range.current) {
+                  const selection_ = window.getSelection();
+
+                  selection_.removeAllRanges();
+                  selection_.addRange(refs.range.current);
+                }
+
+                method('html')(`<video controls><source src='${refs.inputValues.current.video}' /></video>`);
+
+                updateOpen('video', false);
+
+                updateInputValues('video', '');
+              }}
+            />
+          </ClickListener>
+        )}
+      >
+        <WrapperToggleButton
+          label='Insert Video'
+
+          open={refs.open.current.video ? false : undefined}
+        >
+          {is('function', render) ? render('video', ToggleButtonProps, refs.value.current, method) : (
+            <ToggleButton
+              ref={refs.elements.video}
+
+              {...ToggleButtonProps}
+
+              selected={refs.open.current.video}
+
+              onClick={() => updateOpen('video', !refs.open.current.video)}
+            >
+              <IconVideo {...IconProps} />
+            </ToggleButton>
+          )}
+        </WrapperToggleButton>
+      </WrapperAppend>
+    ),
+    'video-youtube': (
+      <WrapperAppend
+        open={refs.open.current.videoYoutube}
+
+        anchorElement={refs.elements.videoYoutube.current}
+
+        element={(
+          <ClickListener
+            onClickOutside={() => updateOpen('videoYoutube', false)}
+
+            include={[refs.elements.videoYoutube.current]}
+          >
+            <Input
+              label='Youtube Video ID'
+
+              labelButton='Add'
+
+              value={refs.inputValues.current.videoYoutube}
+
+              onChange={valueNew => updateInputValues('videoYoutube', valueNew)}
+
+              onClick={() => {
+                if (refs.range.current) {
+                  const selection_ = window.getSelection();
+
+                  selection_.removeAllRanges();
+                  selection_.addRange(refs.range.current);
+                }
+
+                method('html')(`<iframe width="560" height="315" src="https://www.youtube.com/embed/${refs.inputValues.current.videoYoutube}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`);
+
+                updateOpen('videoYoutube', false);
+
+                updateInputValues('videoYoutube', '');
+              }}
+            />
+          </ClickListener>
+        )}
+      >
+        <WrapperToggleButton
+          label='Insert Youtube Video'
+
+          open={refs.open.current.videoYoutube ? false : undefined}
+        >
+          {is('function', render) ? render('videoYoutube', ToggleButtonProps, refs.value.current, method) : (
+            <ToggleButton
+              ref={refs.elements.videoYoutube}
+
+              {...ToggleButtonProps}
+
+              selected={refs.open.current.videoYoutube}
+
+              onClick={() => updateOpen('videoYoutube', !refs.open.current.videoYoutube)}
+            >
+              <IconVideoYoutube {...IconProps} />
+            </ToggleButton>
+          )}
+        </WrapperToggleButton>
+      </WrapperAppend>
+    ),
+    'code': (
+      <WrapperAppend
+        open={refs.open.current.code}
+
+        anchorElement={refs.elements.code.current}
+
+        element={(
+          <ClickListener
+            onClickOutside={() => updateOpen('code', false)}
+
+            include={[refs.elements.code.current]}
+          >
+            <Input
+              label='Code'
+
+              labelButton='Add'
+
+              value={refs.inputValues.current.code}
+
+              onChange={valueNew => updateInputValues('code', valueNew)}
+
+              InputProps={{
+                multiline: true
+              }}
+
+              onClick={() => {
+                if (refs.range.current) {
+                  const selection_ = window.getSelection();
+
+                  selection_.removeAllRanges();
+                  selection_.addRange(refs.range.current);
+                }
+
+                method('html')(`<pre><code>${refs.inputValues.current.code}</code></pre>`);
+
+                updateOpen('code', false);
+
+                updateInputValues('code', '');
+              }}
+            />
+          </ClickListener>
+        )}
+      >
+        <WrapperToggleButton
+          label='Insert Code'
+
+          open={refs.open.current.code ? false : undefined}
+        >
+          {is('function', render) ? render('code', ToggleButtonProps, refs.value.current, method) : (
+            <ToggleButton
+              ref={refs.elements.code}
+
+              {...ToggleButtonProps}
+
+              selected={refs.open.current.code}
+
+              onClick={() => updateOpen('code', !refs.open.current.code)}
+            >
+              <IconCode {...IconProps} />
+            </ToggleButton>
+          )}
+        </WrapperToggleButton>
+      </WrapperAppend>
+    )
+  };
+  console.log(1, selection);
   return (
     <Line
       ref={ref}
@@ -1859,152 +3040,11 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
                   justify='flex-start'
                 >
-                  {includes('font-version') && (
-                    <Select
-                      label='Font Version'
+                  {includes('font-version') && updateElements['font-version']}
 
-                      valueDefault={font_versions.find(item => item.value.includes('p')).value}
+                  {includes('font-family') && updateElements['font-family']}
 
-                      value={inputValues['font-version']}
-
-                      onChange={(valueNew: string) => {
-                        updateInputValues('font-version', valueNew);
-
-                        method('font-version')(valueNew);
-                      }}
-
-                      onMouseUp={onMouseUp}
-
-                      onMouseDown={onMouseDown}
-
-                      {...SelectProps}
-
-                      className={classNames([
-                        staticClassName('RichTextEditor', theme) && [
-                          'AmauiRichTextEditor-select'
-                        ],
-
-                        SelectProps?.className,
-                        classes.select
-                      ])}
-
-                      style={{
-                        minWidth: '150px'
-                      }}
-                    >
-                      {font_versions.map(item => (
-                        <ListItem
-                          key={item.value}
-
-                          primary={item.label}
-
-                          value={item.value}
-
-                          button
-
-                          {...ListItemProps}
-                        />
-                      ))}
-                    </Select>
-                  )}
-
-                  {includes('font-family') && (
-                    <Select
-                      label='Font Family'
-
-                      valueDefault={font_families.find(item => item.label.includes('Roboto')).value}
-
-                      value={inputValues['font-family']}
-
-                      onChange={(valueNew: string) => {
-                        updateInputValues('font-family', valueNew);
-
-                        method('font-family')(valueNew);
-                      }}
-
-                      onMouseUp={onMouseUp}
-
-                      onMouseDown={onMouseDown}
-
-                      {...SelectProps}
-
-                      className={classNames([
-                        staticClassName('RichTextEditor', theme) && [
-                          'AmauiRichTextEditor-select'
-                        ],
-
-                        SelectProps?.className,
-                        classes.select
-                      ])}
-
-                      style={{
-                        minWidth: '140px'
-                      }}
-                    >
-                      {font_families.map(item => (
-                        <ListItem
-                          key={item.value}
-
-                          primary={item.label}
-
-                          value={item.value}
-
-                          button
-
-                          style={{
-                            fontFamily: item.value
-                          }}
-
-                          {...ListItemProps}
-                        />
-                      ))}
-                    </Select>
-                  )}
-
-                  {includes('font-size') && (
-                    <Select
-                      label='Font Size'
-
-                      valueDefault={+font_sizes.find(item => item.label.includes('14')).value}
-
-                      value={inputValues['font-size']}
-
-                      onChange={(valueNew: string) => {
-                        updateInputValues('font-size', +valueNew);
-
-                        method('font-size')(+valueNew);
-                      }}
-
-                      onMouseUp={onMouseUp}
-
-                      onMouseDown={onMouseDown}
-
-                      {...SelectProps}
-
-                      className={classNames([
-                        staticClassName('RichTextEditor', theme) && [
-                          'AmauiRichTextEditor-select'
-                        ],
-
-                        SelectProps?.className,
-                        classes.select
-                      ])}
-                    >
-                      {font_sizes.map(item => (
-                        <ListItem
-                          key={item.value}
-
-                          primary={item.label}
-
-                          value={item.value}
-
-                          button
-
-                          {...ListItemProps}
-                        />
-                      ))}
-                    </Select>
-                  )}
+                  {includes('font-size') && updateElements['font-size']}
                 </Line>
               )}
 
@@ -2012,77 +3052,13 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                 <ToggleButtons
                   {...ToggleButtonsProps}
                 >
-                  {includes('italic') && (
-                    <WrapperToggleButton
-                      label='Italic'
-                    >
-                      {is('function', render) ? render('italic', ToggleButtonProps, refs.value.current, method) : (
-                        <ToggleButton
-                          {...ToggleButtonProps}
+                  {includes('italic') && updateElements['italic']}
 
-                          selected={selected.includes('italic')}
+                  {includes('underline') && updateElements['underline']}
 
-                          onClick={method('italic')}
-                        >
-                          <IconItalic {...IconProps} />
-                        </ToggleButton>
-                      )}
-                    </WrapperToggleButton>
-                  )}
+                  {includes('bold') && updateElements['bold']}
 
-                  {includes('underline') && (
-                    <WrapperToggleButton
-                      label='Underline'
-                    >
-                      {is('function', render) ? render('underline', ToggleButtonProps, refs.value.current, method) : (
-                        <ToggleButton
-                          {...ToggleButtonProps}
-
-                          selected={selected.includes('underline')}
-
-                          onClick={method('underline')}
-                        >
-                          <IconUnderline {...IconProps} />
-                        </ToggleButton>
-                      )}
-                    </WrapperToggleButton>
-                  )}
-
-                  {includes('bold') && (
-                    <WrapperToggleButton
-                      label='Bold'
-
-                      onClick={method('bold')}
-                    >
-                      {is('function', render) ? render('bold', ToggleButtonProps, refs.value.current, method) : (
-                        <ToggleButton
-                          {...ToggleButtonProps}
-
-                          selected={selected.includes('bold')}
-                        >
-                          <IconBold {...IconProps} />
-                        </ToggleButton>
-                      )}
-                    </WrapperToggleButton>
-                  )}
-
-                  {includes('strike-line') && (
-                    <WrapperToggleButton
-                      label='Strike Line'
-
-                      onClick={method('strike-line')}
-                    >
-                      {is('function', render) ? render('strike-line', ToggleButtonProps, refs.value.current, method) : (
-                        <ToggleButton
-                          {...ToggleButtonProps}
-
-                          selected={selected.includes('strike-line')}
-                        >
-                          <IconStrikeLine {...IconProps} />
-                        </ToggleButton>
-                      )}
-                    </WrapperToggleButton>
-                  )}
+                  {includes('strike-line') && updateElements['strike-line']}
                 </ToggleButtons>
               )}
 
@@ -2090,93 +3066,9 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                 <ToggleButtons
                   {...ToggleButtonsProps}
                 >
-                  {includes('font-color') && (
-                    <WrapperAppend
-                      open={refs.open.current.color}
+                  {includes('font-color') && updateElements['font-color']}
 
-                      anchorElement={refs.elements.color.current}
-
-                      element={(
-                        <ClickListener
-                          onClickOutside={() => updateOpen('color', false)}
-
-                          include={[refs.elements.color.current]}
-                        >
-                          <Palette
-                            version='font-color'
-
-                            onClose={() => updateOpen('color', false)}
-
-                            onUpdate={method('font-color')}
-                          />
-                        </ClickListener>
-                      )}
-                    >
-                      <WrapperToggleButton
-                        label='Text Color'
-
-                        open={refs.open.current.color ? false : undefined}
-                      >
-                        {is('function', render) ? render('font-color', ToggleButtonProps, refs.value.current, method) : (
-                          <ToggleButton
-                            ref={refs.elements.color}
-
-                            {...ToggleButtonProps}
-
-                            selected={refs.open.current.color}
-
-                            onClick={() => updateOpen('color', !refs.open.current.color)}
-                          >
-                            <IconColor {...IconProps} />
-                          </ToggleButton>
-                        )}
-                      </WrapperToggleButton>
-                    </WrapperAppend>
-                  )}
-
-                  {includes('font-background') && (
-                    <WrapperAppend
-                      open={refs.open.current.background}
-
-                      anchorElement={refs.elements.background.current}
-
-                      element={(
-                        <ClickListener
-                          onClickOutside={() => updateOpen('background', false)}
-
-                          include={[refs.elements.background.current]}
-                        >
-                          <Palette
-                            version='font-background'
-
-                            onClose={() => updateOpen('background', false)}
-
-                            onUpdate={method('font-background')}
-                          />
-                        </ClickListener>
-                      )}
-                    >
-                      <WrapperToggleButton
-                        label='Background Color'
-
-                        open={refs.open.current.background ? false : undefined}
-                      >
-                        {is('function', render) ? render('font-background', ToggleButtonProps, refs.value.current, method) : (
-                          <ToggleButton
-                            ref={refs.elements.background}
-
-                            {...ToggleButtonProps}
-
-                            selected={refs.open.current.background}
-
-                            onClick={() => updateOpen('background', !refs.open.current.background)}
-                          >
-                            <IconBackground {...IconProps} />
-                          </ToggleButton>
-                        )}
-                      </WrapperToggleButton>
-                    </WrapperAppend>
-                  )}
+                  {includes('font-background') && updateElements['font-background']}
                 </ToggleButtons>
               )}
 
@@ -2184,77 +3076,13 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                 <ToggleButtons
                   {...ToggleButtonsProps}
                 >
-                  {includes('align-left') && (
-                    <WrapperToggleButton
-                      label='Align Left'
-                    >
-                      {is('function', render) ? render('align-left', ToggleButtonProps, refs.value.current, method) : (
-                        <ToggleButton
-                          {...ToggleButtonProps}
+                  {includes('align-left') && updateElements['align-left']}
 
-                          selected={selected.includes('align-left')}
+                  {includes('align-center') && updateElements['align-center']}
 
-                          onClick={method('align-left')}
-                        >
-                          <IconAlignLeft {...IconProps} />
-                        </ToggleButton>
-                      )}
-                    </WrapperToggleButton>
-                  )}
+                  {includes('align-right') && updateElements['align-right']}
 
-                  {includes('align-center') && (
-                    <WrapperToggleButton
-                      label='Align Center'
-                    >
-                      {is('function', render) ? render('align-center', ToggleButtonProps, refs.value.current, method) : (
-                        <ToggleButton
-                          {...ToggleButtonProps}
-
-                          selected={selected.includes('align-center')}
-
-                          onClick={method('align-center')}
-                        >
-                          <IconAlignCenter {...IconProps} />
-                        </ToggleButton>
-                      )}
-                    </WrapperToggleButton>
-                  )}
-
-                  {includes('align-right') && (
-                    <WrapperToggleButton
-                      label='Align Right'
-                    >
-                      {is('function', render) ? render('align-right', ToggleButtonProps, refs.value.current, method) : (
-                        <ToggleButton
-                          {...ToggleButtonProps}
-
-                          selected={selected.includes('align-right')}
-
-                          onClick={method('align-right')}
-                        >
-                          <IconAlignRight {...IconProps} />
-                        </ToggleButton>
-                      )}
-                    </WrapperToggleButton>
-                  )}
-
-                  {includes('align-justify') && (
-                    <WrapperToggleButton
-                      label='Align Justify'
-                    >
-                      {is('function', render) ? render('align-justify', ToggleButtonProps, refs.value.current, method) : (
-                        <ToggleButton
-                          {...ToggleButtonProps}
-
-                          selected={selected.includes('align-justify')}
-
-                          onClick={method('align-justify')}
-                        >
-                          <IconAlignJustify {...IconProps} />
-                        </ToggleButton>
-                      )}
-                    </WrapperToggleButton>
-                  )}
+                  {includes('align-justify') && updateElements['align-justify']}
                 </ToggleButtons>
               )}
 
@@ -2262,37 +3090,9 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                 <ToggleButtons
                   {...ToggleButtonsProps}
                 >
-                  {includes('indent') && (
-                    <WrapperToggleButton
-                      label='Indent'
-                    >
-                      {is('function', render) ? render('indent', ToggleButtonProps, refs.value.current, method) : (
-                        <ToggleButton
-                          {...ToggleButtonProps}
+                  {includes('indent') && updateElements['indent']}
 
-                          onClick={method('indent')}
-                        >
-                          <IconIndent {...IconProps} />
-                        </ToggleButton>
-                      )}
-                    </WrapperToggleButton>
-                  )}
-
-                  {includes('outdent') && (
-                    <WrapperToggleButton
-                      label='Outdent'
-                    >
-                      {is('function', render) ? render('outdent', ToggleButtonProps, refs.value.current, method) : (
-                        <ToggleButton
-                          {...ToggleButtonProps}
-
-                          onClick={method('outdent')}
-                        >
-                          <IconOutdent {...IconProps} />
-                        </ToggleButton>
-                      )}
-                    </WrapperToggleButton>
-                  )}
+                  {includes('outdent') && updateElements['outdent']}
                 </ToggleButtons>
               )}
 
@@ -2300,41 +3100,9 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                 <ToggleButtons
                   {...ToggleButtonsProps}
                 >
-                  {includes('superscript') && (
-                    <WrapperToggleButton
-                      label='Superscript'
-                    >
-                      {is('function', render) ? render('superscript', ToggleButtonProps, refs.value.current, method) : (
-                        <ToggleButton
-                          {...ToggleButtonProps}
+                  {includes('superscript') && updateElements['superscript']}
 
-                          selected={selected.includes('superscript')}
-
-                          onClick={method('superscript')}
-                        >
-                          <IconSuperscript {...IconProps} />
-                        </ToggleButton>
-                      )}
-                    </WrapperToggleButton>
-                  )}
-
-                  {includes('subscript') && (
-                    <WrapperToggleButton
-                      label='Subscript'
-                    >
-                      {is('function', render) ? render('subscript', ToggleButtonProps, refs.value.current, method) : (
-                        <ToggleButton
-                          {...ToggleButtonProps}
-
-                          selected={selected.includes('subscript')}
-
-                          onClick={method('subscript')}
-                        >
-                          <IconSubscript {...IconProps} />
-                        </ToggleButton>
-                      )}
-                    </WrapperToggleButton>
-                  )}
+                  {includes('subscript') && updateElements['subscript']}
                 </ToggleButtons>
               )}
 
@@ -2342,41 +3110,9 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                 <ToggleButtons
                   {...ToggleButtonsProps}
                 >
-                  {includes('list-ordered') && (
-                    <WrapperToggleButton
-                      label='List Ordered'
-                    >
-                      {is('function', render) ? render('list-ordered', ToggleButtonProps, refs.value.current, method) : (
-                        <ToggleButton
-                          {...ToggleButtonProps}
+                  {includes('list-ordered') && updateElements['link-ordered']}
 
-                          selected={selected.includes('list-ordered')}
-
-                          onClick={method('list-ordered')}
-                        >
-                          <IconListOrdered {...IconProps} />
-                        </ToggleButton>
-                      )}
-                    </WrapperToggleButton>
-                  )}
-
-                  {includes('list-unordered') && (
-                    <WrapperToggleButton
-                      label='List Unordered'
-                    >
-                      {is('function', render) ? render('list-unordered', ToggleButtonProps, refs.value.current, method) : (
-                        <ToggleButton
-                          {...ToggleButtonProps}
-
-                          selected={selected.includes('list-unordered')}
-
-                          onClick={method('list-unordered')}
-                        >
-                          <IconListUnordered {...IconProps} />
-                        </ToggleButton>
-                      )}
-                    </WrapperToggleButton>
-                  )}
+                  {includes('list-unordered') && updateElements['link-unordered']}
                 </ToggleButtons>
               )}
 
@@ -2384,21 +3120,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                 <ToggleButtons
                   {...ToggleButtonsProps}
                 >
-                  {includes('horizontal-rule') && (
-                    <WrapperToggleButton
-                      label='Insert Horizontal Rule'
-
-                      onClick={method('horizontal-rule')}
-                    >
-                      {is('function', render) ? render('horizontal-rule', ToggleButtonProps, refs.value.current, method) : (
-                        <ToggleButton
-                          {...ToggleButtonProps}
-                        >
-                          <IconHorizontalRule {...IconProps} />
-                        </ToggleButton>
-                      )}
-                    </WrapperToggleButton>
-                  )}
+                  {includes('horizontal-rule') && updateElements['horizontal-rule']}
                 </ToggleButtons>
               )}
 
@@ -2406,82 +3128,9 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                 <ToggleButtons
                   {...ToggleButtonsProps}
                 >
-                  {includes('link-add') && (
-                    <WrapperAppend
-                      open={refs.open.current.link}
+                  {includes('link-add') && updateElements['link-add']}
 
-                      anchorElement={refs.elements.linkAdd.current}
-
-                      element={(
-                        <ClickListener
-                          onClickOutside={() => updateOpen('link', false)}
-
-                          include={[refs.elements.linkAdd.current]}
-                        >
-                          <Input
-                            label='Link'
-
-                            labelButton='Add'
-
-                            value={refs.inputValues.current.link}
-
-                            onChange={valueNew => updateInputValues('link', valueNew)}
-
-                            onClick={() => {
-                              if (refs.range.current) {
-                                const selection = window.getSelection();
-
-                                selection.removeAllRanges();
-                                selection.addRange(refs.range.current);
-                              }
-
-                              method('link-add')(refs.inputValues.current.link);
-
-                              updateOpen('link', false);
-
-                              updateInputValues('link', '');
-                            }}
-                          />
-                        </ClickListener>
-                      )}
-                    >
-                      <WrapperToggleButton
-                        label='Insert Link'
-
-                        open={refs.open.current.link ? false : undefined}
-                      >
-                        {is('function', render) ? render('font-color', ToggleButtonProps, refs.value.current, method) : (
-                          <ToggleButton
-                            ref={refs.elements.linkAdd}
-
-                            {...ToggleButtonProps}
-
-                            selected={refs.open.current.link}
-
-                            onClick={() => updateOpen('link', !refs.open.current.link)}
-                          >
-                            <IconLinkAdd {...IconProps} />
-                          </ToggleButton>
-                        )}
-                      </WrapperToggleButton>
-                    </WrapperAppend>
-                  )}
-
-                  {includes('link-remove') && (
-                    <WrapperToggleButton
-                      label='Remove Link'
-                    >
-                      {is('function', render) ? render('link-remove', ToggleButtonProps, refs.value.current, method) : (
-                        <ToggleButton
-                          {...ToggleButtonProps}
-
-                          onClick={method('link-remove')}
-                        >
-                          <IconLinkRemove {...IconProps} />
-                        </ToggleButton>
-                      )}
-                    </WrapperToggleButton>
-                  )}
+                  {includes('link-remove') && updateElements['link-remove']}
                 </ToggleButtons>
               )}
 
@@ -2489,501 +3138,17 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                 <ToggleButtons
                   {...ToggleButtonsProps}
                 >
-                  {includes('quote') && (
-                    <WrapperAppend
-                      open={refs.open.current.quote}
+                  {includes('quote') && updateElements['quote']}
 
-                      anchorElement={refs.elements.quote.current}
+                  {includes('table') && updateElements['table']}
 
-                      element={(
-                        <ClickListener
-                          onClickOutside={() => updateOpen('quote', false)}
+                  {includes('image') && updateElements['image']}
 
-                          include={[refs.elements.quote.current]}
-                        >
-                          <Input
-                            label='Quote'
+                  {includes('video') && updateElements['video']}
 
-                            labelButton='Add'
+                  {includes('video-youtube') && updateElements['video-youtube']}
 
-                            value={refs.inputValues.current.quote}
-
-                            onChange={valueNew => updateInputValues('quote', valueNew)}
-
-                            InputProps={{
-                              multiline: true
-                            }}
-
-                            onClick={() => {
-                              if (refs.range.current) {
-                                const selection = window.getSelection();
-
-                                selection.removeAllRanges();
-                                selection.addRange(refs.range.current);
-                              }
-
-                              method('html')(`<blockquote>${refs.inputValues.current.quote}</blockquote>`);
-
-                              updateOpen('quote', false);
-
-                              updateInputValues('quote', '');
-                            }}
-                          />
-                        </ClickListener>
-                      )}
-                    >
-                      <WrapperToggleButton
-                        label='Insert Quote'
-
-                        open={refs.open.current.quote ? false : undefined}
-                      >
-                        {is('function', render) ? render('quote', ToggleButtonProps, refs.value.current, method) : (
-                          <ToggleButton
-                            ref={refs.elements.quote}
-
-                            {...ToggleButtonProps}
-
-                            selected={refs.open.current.quote}
-
-                            onClick={() => updateOpen('quote', !refs.open.current.quote)}
-                          >
-                            <IconQuote {...IconProps} />
-                          </ToggleButton>
-                        )}
-                      </WrapperToggleButton>
-                    </WrapperAppend>
-                  )}
-
-                  {includes('table') && (
-                    <WrapperAppend
-                      open={refs.open.current.table}
-
-                      anchorElement={refs.elements.table.current}
-
-                      element={(
-                        <ClickListener
-                          onClickOutside={() => updateOpen('table', false)}
-
-                          include={[refs.elements.table.current]}
-                        >
-                          <Line
-                            gap={1}
-
-                            tonal={tonal}
-
-                            color={refs.props.current.color !== undefined ? refs.props.current.color : 'themed'}
-
-                            Component={Surface}
-
-                            className={classNames([
-                              staticClassName('RichTextEditor', theme) && [
-                                'AmauiRichTextEditor-palette'
-                              ],
-
-                              classes.palette
-                            ])}
-                          >
-                            <Line
-                              gap={1}
-
-                              direction='row'
-
-                              align='center'
-
-                              justify='center'
-                            >
-                              <NumericTextField
-                                label='Rows'
-
-                                tonal={tonal}
-
-                                color={color}
-
-                                size='small'
-
-                                version='outlined'
-
-                                increment={false}
-
-                                decrement={false}
-
-                                value={refs.inputValues.current.tableRows}
-
-                                onChange={valueNew => updateInputValues('tableRows', valueNew)}
-                              />
-
-                              ×
-
-                              <NumericTextField
-                                label='Columns'
-
-                                tonal={tonal}
-
-                                color={color}
-
-                                size='small'
-
-                                version='outlined'
-
-                                increment={false}
-
-                                decrement={false}
-
-                                value={refs.inputValues.current.tableColumns}
-
-                                onChange={valueNew => updateInputValues('tableColumns', valueNew)}
-                              />
-                            </Line>
-
-                            <Line
-                              gap={1}
-
-                              direction='row'
-
-                              align='center'
-
-                              justify='space-between'
-
-                              style={{
-                                width: '100%'
-                              }}
-                            >
-                              <Label
-                                size='small'
-                              >
-                                <Switch
-                                  tonal={tonal}
-
-                                  color={color}
-
-                                  checked={refs.inputValues.current.tableHeader}
-
-                                  onChange={valueNew => updateInputValues('tableHeader', valueNew)}
-                                />
-
-                                Header
-                              </Label>
-
-                              <Button
-                                tonal={tonal}
-
-                                color='inherit'
-
-                                version='text'
-
-                                size='small'
-
-                                onClick={() => {
-                                  if (refs.range.current) {
-                                    const selection = window.getSelection();
-
-                                    selection.removeAllRanges();
-                                    selection.addRange(refs.range.current);
-                                  }
-
-                                  let table = `<table>`;
-
-                                  if (refs.inputValues.current.tableHeader && refs.inputValues.current.tableColumns > 0) {
-                                    table += `<thead><tr>${'<th></th>'.repeat(refs.inputValues.current.tableColumns)}</tr></thead>`;
-                                  }
-
-                                  if (refs.inputValues.current.tableRows > 0 && refs.inputValues.current.tableColumns > 0) {
-                                    table += `<tbody>`;
-
-                                    for (let i = 0; i < refs.inputValues.current.tableRows; i++) {
-                                      table += `<tr>${'<td></td>'.repeat(refs.inputValues.current.tableColumns)}</tr>`;
-                                    }
-
-                                    table += `</tbody>`;
-                                  }
-
-                                  table += `</table>`;
-
-                                  method('html')(table);
-
-                                  updateOpen('table', false);
-
-                                  updateInputValues('tableRows', '');
-                                  updateInputValues('tableColumns', '');
-                                  updateInputValues('tableHeader', '');
-                                }}
-                              >
-                                Add
-                              </Button>
-                            </Line>
-                          </Line>
-                        </ClickListener>
-                      )}
-                    >
-                      <WrapperToggleButton
-                        label='Insert Table'
-
-                        open={refs.open.current.table ? false : undefined}
-                      >
-                        {is('function', render) ? render('table', ToggleButtonProps, refs.value.current, method) : (
-                          <ToggleButton
-                            ref={refs.elements.table}
-
-                            {...ToggleButtonProps}
-
-                            selected={refs.open.current.table}
-
-                            onClick={() => updateOpen('table', !refs.open.current.table)}
-                          >
-                            <IconTable {...IconProps} />
-                          </ToggleButton>
-                        )}
-                      </WrapperToggleButton>
-                    </WrapperAppend>
-                  )}
-
-                  {includes('image') && (
-                    <WrapperAppend
-                      open={refs.open.current.image}
-
-                      anchorElement={refs.elements.image.current}
-
-                      element={(
-                        <ClickListener
-                          onClickOutside={() => updateOpen('image', false)}
-
-                          include={[refs.elements.image.current]}
-                        >
-                          <Input
-                            label='Image'
-
-                            labelButton='Add'
-
-                            value={refs.inputValues.current.image}
-
-                            onChange={valueNew => updateInputValues('image', valueNew)}
-
-                            onClick={() => {
-                              if (refs.range.current) {
-                                const selection = window.getSelection();
-
-                                selection.removeAllRanges();
-                                selection.addRange(refs.range.current);
-                              }
-
-                              method('image')(refs.inputValues.current.image);
-
-                              updateOpen('image', false);
-
-                              updateInputValues('image', '');
-                            }}
-                          />
-                        </ClickListener>
-                      )}
-                    >
-                      <WrapperToggleButton
-                        label='Insert Image'
-
-                        open={refs.open.current.image ? false : undefined}
-                      >
-                        {is('function', render) ? render('image', ToggleButtonProps, refs.value.current, method) : (
-                          <ToggleButton
-                            ref={refs.elements.image}
-
-                            {...ToggleButtonProps}
-
-                            selected={refs.open.current.image}
-
-                            onClick={() => updateOpen('image', !refs.open.current.image)}
-                          >
-                            <IconImage {...IconProps} />
-                          </ToggleButton>
-                        )}
-                      </WrapperToggleButton>
-                    </WrapperAppend>
-                  )}
-
-                  {includes('video') && (
-                    <WrapperAppend
-                      open={refs.open.current.video}
-
-                      anchorElement={refs.elements.video.current}
-
-                      element={(
-                        <ClickListener
-                          onClickOutside={() => updateOpen('video', false)}
-
-                          include={[refs.elements.video.current]}
-                        >
-                          <Input
-                            label='Video'
-
-                            labelButton='Add'
-
-                            value={refs.inputValues.current.video}
-
-                            onChange={valueNew => updateInputValues('video', valueNew)}
-
-                            onClick={() => {
-                              if (refs.range.current) {
-                                const selection = window.getSelection();
-
-                                selection.removeAllRanges();
-                                selection.addRange(refs.range.current);
-                              }
-
-                              method('html')(`<video controls><source src='${refs.inputValues.current.video}' /></video>`);
-
-                              updateOpen('video', false);
-
-                              updateInputValues('video', '');
-                            }}
-                          />
-                        </ClickListener>
-                      )}
-                    >
-                      <WrapperToggleButton
-                        label='Insert Video'
-
-                        open={refs.open.current.video ? false : undefined}
-                      >
-                        {is('function', render) ? render('video', ToggleButtonProps, refs.value.current, method) : (
-                          <ToggleButton
-                            ref={refs.elements.video}
-
-                            {...ToggleButtonProps}
-
-                            selected={refs.open.current.video}
-
-                            onClick={() => updateOpen('video', !refs.open.current.video)}
-                          >
-                            <IconVideo {...IconProps} />
-                          </ToggleButton>
-                        )}
-                      </WrapperToggleButton>
-                    </WrapperAppend>
-                  )}
-
-                  {includes('video-youtube') && (
-                    <WrapperAppend
-                      open={refs.open.current.videoYoutube}
-
-                      anchorElement={refs.elements.videoYoutube.current}
-
-                      element={(
-                        <ClickListener
-                          onClickOutside={() => updateOpen('videoYoutube', false)}
-
-                          include={[refs.elements.videoYoutube.current]}
-                        >
-                          <Input
-                            label='Youtube Video ID'
-
-                            labelButton='Add'
-
-                            value={refs.inputValues.current.videoYoutube}
-
-                            onChange={valueNew => updateInputValues('videoYoutube', valueNew)}
-
-                            onClick={() => {
-                              if (refs.range.current) {
-                                const selection = window.getSelection();
-
-                                selection.removeAllRanges();
-                                selection.addRange(refs.range.current);
-                              }
-
-                              method('html')(`<iframe width="560" height="315" src="https://www.youtube.com/embed/${refs.inputValues.current.videoYoutube}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`);
-
-                              updateOpen('videoYoutube', false);
-
-                              updateInputValues('videoYoutube', '');
-                            }}
-                          />
-                        </ClickListener>
-                      )}
-                    >
-                      <WrapperToggleButton
-                        label='Insert Youtube Video'
-
-                        open={refs.open.current.videoYoutube ? false : undefined}
-                      >
-                        {is('function', render) ? render('videoYoutube', ToggleButtonProps, refs.value.current, method) : (
-                          <ToggleButton
-                            ref={refs.elements.videoYoutube}
-
-                            {...ToggleButtonProps}
-
-                            selected={refs.open.current.videoYoutube}
-
-                            onClick={() => updateOpen('videoYoutube', !refs.open.current.videoYoutube)}
-                          >
-                            <IconVideoYoutube {...IconProps} />
-                          </ToggleButton>
-                        )}
-                      </WrapperToggleButton>
-                    </WrapperAppend>
-                  )}
-
-                  {includes('code') && (
-                    <WrapperAppend
-                      open={refs.open.current.code}
-
-                      anchorElement={refs.elements.code.current}
-
-                      element={(
-                        <ClickListener
-                          onClickOutside={() => updateOpen('code', false)}
-
-                          include={[refs.elements.code.current]}
-                        >
-                          <Input
-                            label='Code'
-
-                            labelButton='Add'
-
-                            value={refs.inputValues.current.code}
-
-                            onChange={valueNew => updateInputValues('code', valueNew)}
-
-                            InputProps={{
-                              multiline: true
-                            }}
-
-                            onClick={() => {
-                              if (refs.range.current) {
-                                const selection = window.getSelection();
-
-                                selection.removeAllRanges();
-                                selection.addRange(refs.range.current);
-                              }
-
-                              method('html')(`<pre><code>${refs.inputValues.current.code}</code></pre>`);
-
-                              updateOpen('code', false);
-
-                              updateInputValues('code', '');
-                            }}
-                          />
-                        </ClickListener>
-                      )}
-                    >
-                      <WrapperToggleButton
-                        label='Insert Code'
-
-                        open={refs.open.current.code ? false : undefined}
-                      >
-                        {is('function', render) ? render('code', ToggleButtonProps, refs.value.current, method) : (
-                          <ToggleButton
-                            ref={refs.elements.code}
-
-                            {...ToggleButtonProps}
-
-                            selected={refs.open.current.code}
-
-                            onClick={() => updateOpen('code', !refs.open.current.code)}
-                          >
-                            <IconCode {...IconProps} />
-                          </ToggleButton>
-                        )}
-                      </WrapperToggleButton>
-                    </WrapperAppend>
-                  )}
+                  {includes('code') && updateElements['code']}
                 </ToggleButtons>
               )}
             </Line>
@@ -3259,6 +3424,60 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
             ])}
           />
         </Line>
+      )}
+
+      {miniMenu && !!miniMenuInclude.length && (
+        <Append
+          open={selection}
+
+          element={
+            ({ ref, values, style }) => (
+              <div
+                ref={ref}
+
+                style={{
+                  ...((values?.x === 0 && values?.y === 0) ? {
+                    visibility: 'hidden'
+                  } : undefined),
+
+                  ...style
+                }}
+              >
+                <Fade
+                  in={selection}
+
+                  add
+                >
+                  <ClickListener
+                    onClickOutside={() => {
+                      const selection_ = window.getSelection();
+
+                      if (!selection_.anchorNode || !refs.value.current.contains(selection_.anchorNode)) return setSelection('' as any);
+
+                      const rect = selection_.getRangeAt(0).getBoundingClientRect();
+
+                      setSelection(!!Math.round(rect.width) ? rect : '' as any);
+                    }}
+                  >
+                    <MiniMenu />
+                  </ClickListener>
+                </Fade>
+              </div>
+            )
+          }
+
+          anchor={selection}
+
+          portal
+
+          alignment='center'
+
+          position='bottom'
+
+          clearOnClose
+
+          {...AppendProps}
+        />
       )}
 
       <Surface

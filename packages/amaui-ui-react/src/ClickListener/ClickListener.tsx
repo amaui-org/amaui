@@ -33,7 +33,7 @@ const ClickListener = React.forwardRef((props_: any, ref: any) => {
       if (refs.root.current) {
         if (
           refs.root.current.contains(event.target as any) ||
-          include.some(item => item.contains(event.target))
+          include.filter(Boolean).some(item => item.contains(event.target))
         ) {
           if (is('function', onClickInside)) onClickInside();
         }
