@@ -178,7 +178,9 @@ const Append = (props_: any) => {
   const getValues = () => {
     if (!((refs.root.current || anchor) && refs.element.current)) return;
 
-    const wrapperRect = (refs.root.current || refs.element.current).parentElement.getBoundingClientRect();
+    const wrapperRect = (refs.root.current || refs.element.current)?.parentElement?.getBoundingClientRect();
+
+    if (!wrapperRect) return;
 
     const resolve = () => {
       if (!anchor) return;
@@ -608,7 +610,7 @@ const Append = (props_: any) => {
   const PortalComponentProps: any = {};
 
   if (portal) PortalComponentProps.element = window.document.body;
-  if (open) console.log(1411, anchorElement, values);
+
   return (
     <React.Fragment>
       {children && React.cloneElement(children, {

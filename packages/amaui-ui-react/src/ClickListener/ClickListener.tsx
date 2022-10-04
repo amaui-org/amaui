@@ -10,10 +10,6 @@ const ClickListener = React.forwardRef((props_: any, ref: any) => {
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiClickListener?.props?.default }), [props_]);
 
-  const refs = {
-    root: React.useRef<HTMLElement>()
-  };
-
   const {
     mouseEvent = 'onClick',
     touchEvent = 'onTouchEnd',
@@ -28,12 +24,19 @@ const ClickListener = React.forwardRef((props_: any, ref: any) => {
     ...other
   } = props;
 
+  const refs = {
+    root: React.useRef<HTMLElement>(),
+    include: React.useRef<any>()
+  };
+
+  refs.include.current = include;
+
   React.useEffect(() => {
     const onMethod = (event: MouseEvent) => {
       if (refs.root.current) {
         if (
           refs.root.current.contains(event.target as any) ||
-          include.map(item => item?.current || item).filter(Boolean).some(item => item.contains(event.target))
+          refs.include.current.map(item => item?.current || item).filter(Boolean).some(item => item.contains?.(event.target))
         ) {
           if (is('function', onClickInside)) onClickInside();
         }

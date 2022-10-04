@@ -920,11 +920,16 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
     inputValues: React.useRef<any>(),
     open: React.useRef<any>(),
     props: React.useRef<any>(),
+    selected: React.useRef<any>(),
     miniMenu: React.useRef<any>(),
+    miniMenuInclude: React.useRef<any>(),
     miniMenuElements: {
       color: React.useRef<any>(),
+      colorPalette: React.useRef<any>(),
       background: React.useRef<any>(),
+      backgroundPalette: React.useRef<any>(),
       linkAdd: React.useRef<any>(),
+      linkAddInput: React.useRef<any>(),
       linkRemove: React.useRef<any>(),
       quote: React.useRef<any>(),
       image: React.useRef<any>(),
@@ -953,6 +958,10 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
   refs.props.current = props;
 
+  refs.selected.current = selected;
+
+  refs.miniMenuInclude.current = miniMenuInclude;
+
   React.useEffect(() => {
     // Add value as innerHTML
     refs.value.current.innerHTML = value;
@@ -964,7 +973,17 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
     if (selection_.anchorNode) refs.range.current = selection_.getRangeAt(0);
   }, [open]);
 
+  React.useEffect(() => {
+    if (!selection) {
+      updateOpen('colorMiniMenu', false);
+      updateOpen('backgroundMiniMenu', false);
+      updateOpen('linkMiniMenu', false);
+    }
+  }, [selection]);
+
   const query = (command: string) => parse(window.document.queryCommandValue(command));
+
+  const includesMinMenu = (...args) => args.some(item => refs.miniMenuInclude.current.includes(item));
 
   const clear = (element: HTMLElement = refs.value.current) => {
     const children = Array.from(element.children);
@@ -1745,85 +1764,6 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
     );
   }), []);
 
-  const MiniMenu = React.useCallback(React.forwardRef((props: any, ref: any) => {
-    const includes = (...args) => args.some(item => miniMenuInclude.includes(item));
-
-    return (
-      <Line
-        ref={ref}
-
-        gap={2}
-
-        direction='row'
-
-        align='center'
-
-        justify='flex-start'
-
-        Component={Surface}
-
-        {...MiniMenuProps}
-
-        className={classNames([
-          staticClassName('RichTextEditor', theme) && [
-            'AmauiRichTextEditor-mini-menu'
-          ],
-
-          MiniMenuProps?.className,
-          classes.miniMenu
-        ])}
-      >
-        {includes('italic', 'underlined', 'bold', 'strike-line') && (
-          <ToggleButtons
-            {...ToggleButtonsProps}
-          >
-            {includes('italic') && updateElements['italic']}
-
-            {includes('underline') && updateElements['underline']}
-
-            {includes('bold') && updateElements['bold']}
-
-            {includes('strike-line') && updateElements['strike-line']}
-          </ToggleButtons>
-        )}
-
-        {includes('font-color', 'font-background') && (
-          <ToggleButtons
-            {...ToggleButtonsProps}
-          >
-            {includes('font-color') && React.cloneElement(updateElements['font-color-mini-menu'])}
-
-            {includes('font-background') && updateElements['font-background-mini-menu']}
-          </ToggleButtons>
-        )}
-
-        {includes('align-left', 'align-center', 'align-right', 'align-justify') && (
-          <ToggleButtons
-            {...ToggleButtonsProps}
-          >
-            {includes('align-left') && updateElements['align-left']}
-
-            {includes('align-center') && updateElements['align-center']}
-
-            {includes('align-right') && updateElements['align-right']}
-
-            {includes('align-justify') && updateElements['align-justify']}
-          </ToggleButtons>
-        )}
-
-        {includes('link-add', 'link-remove') && (
-          <ToggleButtons
-            {...ToggleButtonsProps}
-          >
-            {includes('link-add') && updateElements['link-add-mini-menu']}
-
-            {includes('link-remove') && updateElements['link-remove']}
-          </ToggleButtons>
-        )}
-      </Line>
-    );
-  }), [miniMenuInclude]);
-
   const font_families = [
     ...fontFamilies,
 
@@ -2070,7 +2010,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
           <ToggleButton
             {...ToggleButtonProps}
 
-            selected={selected.includes('italic')}
+            selected={refs.selected.current.includes('italic')}
 
             onClick={method('italic')}
           >
@@ -2087,7 +2027,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
           <ToggleButton
             {...ToggleButtonProps}
 
-            selected={selected.includes('underline')}
+            selected={refs.selected.current.includes('underline')}
 
             onClick={method('underline')}
           >
@@ -2106,7 +2046,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
           <ToggleButton
             {...ToggleButtonProps}
 
-            selected={selected.includes('bold')}
+            selected={refs.selected.current.includes('bold')}
           >
             <IconBold {...IconProps} />
           </ToggleButton>
@@ -2123,7 +2063,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
           <ToggleButton
             {...ToggleButtonProps}
 
-            selected={selected.includes('strike-line')}
+            selected={refs.selected.current.includes('strike-line')}
           >
             <IconStrikeLine {...IconProps} />
           </ToggleButton>
@@ -2187,6 +2127,8 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
             include={[refs.miniMenu, refs.miniMenuElements.color]}
           >
             <Palette
+              ref={refs.miniMenuElements.colorPalette}
+
               version='font-color'
 
               onClose={() => updateOpen('colorMiniMenu', false)}
@@ -2270,7 +2212,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
           <ClickListener
             onClickOutside={() => updateOpen('background', false)}
 
-            include={[refs.miniMenu.current, refs.miniMenuElements.background.current]}
+            include={[refs.miniMenuElements.background.current]}
           >
             <Palette
               version='font-background'
@@ -2312,7 +2254,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
           <ToggleButton
             {...ToggleButtonProps}
 
-            selected={selected.includes('align-left')}
+            selected={refs.selected.current.includes('align-left')}
 
             onClick={method('align-left')}
           >
@@ -2329,7 +2271,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
           <ToggleButton
             {...ToggleButtonProps}
 
-            selected={selected.includes('align-center')}
+            selected={refs.selected.current.includes('align-center')}
 
             onClick={method('align-center')}
           >
@@ -2346,7 +2288,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
           <ToggleButton
             {...ToggleButtonProps}
 
-            selected={selected.includes('align-right')}
+            selected={refs.selected.current.includes('align-right')}
 
             onClick={method('align-right')}
           >
@@ -2363,7 +2305,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
           <ToggleButton
             {...ToggleButtonProps}
 
-            selected={selected.includes('align-justify')}
+            selected={refs.selected.current.includes('align-justify')}
 
             onClick={method('align-justify')}
           >
@@ -2412,7 +2354,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
           <ToggleButton
             {...ToggleButtonProps}
 
-            selected={selected.includes('superscript')}
+            selected={refs.selected.current.includes('superscript')}
 
             onClick={method('superscript')}
           >
@@ -2429,7 +2371,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
           <ToggleButton
             {...ToggleButtonProps}
 
-            selected={selected.includes('subscript')}
+            selected={refs.selected.current.includes('subscript')}
 
             onClick={method('subscript')}
           >
@@ -2447,7 +2389,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
           <ToggleButton
             {...ToggleButtonProps}
 
-            selected={selected.includes('list-ordered')}
+            selected={refs.selected.current.includes('list-ordered')}
 
             onClick={method('list-ordered')}
           >
@@ -2464,7 +2406,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
           <ToggleButton
             {...ToggleButtonProps}
 
-            selected={selected.includes('list-unordered')}
+            selected={refs.selected.current.includes('list-unordered')}
 
             onClick={method('list-unordered')}
           >
@@ -3117,7 +3059,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
       </WrapperAppend>
     )
   };
-  console.log(0, refs.miniMenuElements.color.current);
+  console.log(1, selection)
   return (
     <Line
       ref={ref}
@@ -3584,7 +3526,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
         </Line>
       )}
 
-      {miniMenu && !!miniMenuInclude.length && (
+      {miniMenu && !!refs.miniMenuInclude.current.length && (
         <Append
           open={selection}
 
@@ -3623,8 +3565,79 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
                       setSelection(!!Math.round(rect.width) ? rect : '' as any);
                     }}
+
+                    include={[refs.miniMenuElements.colorPalette, refs.miniMenuElements.backgroundPalette, refs.miniMenuElements.linkAddInput]}
                   >
-                    <MiniMenu />
+                    <Line
+                      gap={2}
+
+                      direction='row'
+
+                      align='center'
+
+                      justify='flex-start'
+
+                      Component={Surface}
+
+                      {...MiniMenuProps}
+
+                      className={classNames([
+                        staticClassName('RichTextEditor', theme) && [
+                          'AmauiRichTextEditor-mini-menu'
+                        ],
+
+                        MiniMenuProps?.className,
+                        classes.miniMenu
+                      ])}
+                    >
+                      {includesMinMenu('italic', 'underlined', 'bold', 'strike-line') && (
+                        <ToggleButtons
+                          {...ToggleButtonsProps}
+                        >
+                          {includesMinMenu('italic') && updateElements['italic']}
+
+                          {includesMinMenu('underline') && updateElements['underline']}
+
+                          {includesMinMenu('bold') && updateElements['bold']}
+
+                          {includesMinMenu('strike-line') && updateElements['strike-line']}
+                        </ToggleButtons>
+                      )}
+
+                      {includesMinMenu('font-color', 'font-background') && (
+                        <ToggleButtons
+                          {...ToggleButtonsProps}
+                        >
+                          {includesMinMenu('font-color') && updateElements['font-color-mini-menu']}
+
+                          {includesMinMenu('font-background') && updateElements['font-background-mini-menu']}
+                        </ToggleButtons>
+                      )}
+
+                      {includesMinMenu('align-left', 'align-center', 'align-right', 'align-justify') && (
+                        <ToggleButtons
+                          {...ToggleButtonsProps}
+                        >
+                          {includesMinMenu('align-left') && updateElements['align-left']}
+
+                          {includesMinMenu('align-center') && updateElements['align-center']}
+
+                          {includesMinMenu('align-right') && updateElements['align-right']}
+
+                          {includesMinMenu('align-justify') && updateElements['align-justify']}
+                        </ToggleButtons>
+                      )}
+
+                      {includesMinMenu('link-add', 'link-remove') && (
+                        <ToggleButtons
+                          {...ToggleButtonsProps}
+                        >
+                          {includesMinMenu('link-add') && updateElements['link-add-mini-menu']}
+
+                          {includesMinMenu('link-remove') && updateElements['link-remove']}
+                        </ToggleButtons>
+                      )}
+                    </Line>
                   </ClickListener>
                 </Fade>
               </div>
