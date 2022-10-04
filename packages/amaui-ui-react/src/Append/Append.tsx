@@ -22,7 +22,7 @@ const Append = (props_: any) => {
     portal = false,
     accelerated = true,
     anchor,
-    anchorElement,
+    anchorElement: anchorElement_,
     offset = [0, 0],
     padding = [0, 0],
     paddingUnfollow = props.padding || [0, 0],
@@ -61,6 +61,8 @@ const Append = (props_: any) => {
   refs.position.current = position_;
 
   refs.portal.current = portal;
+
+  const anchorElement = anchorElement_?.current ? anchorElement_?.current : anchorElement_;
 
   if (anchorElement) refs.root.current = anchorElement;
 
@@ -130,9 +132,11 @@ const Append = (props_: any) => {
     // Resize
     const observerMutation = new MutationObserver(observerMethod);
 
-    if (refs.root.current) {
-      observerMutation.observe(refs.root.current, { attributes: true, childList: true, subtree: true });
-    }
+    try {
+      if (refs.root.current) {
+        observerMutation.observe(refs.root.current, { attributes: true, childList: true, subtree: true });
+      }
+    } catch (error) { }
 
     return () => {
       if (refs.root.current) {
@@ -146,9 +150,11 @@ const Append = (props_: any) => {
     // Resize
     const observerMutation = new MutationObserver(observerMethod);
 
-    if (refs.element.current) {
-      observerMutation.observe(refs.element.current, { attributes: true, childList: true, subtree: true });
-    }
+    try {
+      if (refs.element.current) {
+        observerMutation.observe(refs.element.current, { attributes: true, childList: true, subtree: true });
+      }
+    } catch (error) { }
 
     return () => {
       if (refs.element.current) {
@@ -602,7 +608,7 @@ const Append = (props_: any) => {
   const PortalComponentProps: any = {};
 
   if (portal) PortalComponentProps.element = window.document.body;
-
+  if (open) console.log(1411, anchorElement, values);
   return (
     <React.Fragment>
       {children && React.cloneElement(children, {

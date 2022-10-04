@@ -920,6 +920,19 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
     inputValues: React.useRef<any>(),
     open: React.useRef<any>(),
     props: React.useRef<any>(),
+    miniMenu: React.useRef<any>(),
+    miniMenuElements: {
+      color: React.useRef<any>(),
+      background: React.useRef<any>(),
+      linkAdd: React.useRef<any>(),
+      linkRemove: React.useRef<any>(),
+      quote: React.useRef<any>(),
+      image: React.useRef<any>(),
+      video: React.useRef<any>(),
+      videoYoutube: React.useRef<any>(),
+      table: React.useRef<any>(),
+      code: React.useRef<any>()
+    },
     elements: {
       color: React.useRef<any>(),
       background: React.useRef<any>(),
@@ -930,8 +943,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
       video: React.useRef<any>(),
       videoYoutube: React.useRef<any>(),
       table: React.useRef<any>(),
-      code: React.useRef<any>(),
-      miniMenu: React.useRef<any>()
+      code: React.useRef<any>()
     }
   };
 
@@ -1779,9 +1791,9 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
           <ToggleButtons
             {...ToggleButtonsProps}
           >
-            {includes('font-color') && updateElements['font-color']}
+            {includes('font-color') && React.cloneElement(updateElements['font-color-mini-menu'])}
 
-            {includes('font-background') && updateElements['font-background']}
+            {includes('font-background') && updateElements['font-background-mini-menu']}
           </ToggleButtons>
         )}
 
@@ -1803,7 +1815,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
           <ToggleButtons
             {...ToggleButtonsProps}
           >
-            {includes('link-add') && updateElements['link-add']}
+            {includes('link-add') && updateElements['link-add-mini-menu']}
 
             {includes('link-remove') && updateElements['link-remove']}
           </ToggleButtons>
@@ -2162,6 +2174,49 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
         </WrapperToggleButton>
       </WrapperAppend>
     ),
+    'font-color-mini-menu': (
+      <WrapperAppend
+        open={refs.open.current.colorMiniMenu}
+
+        anchorElement={refs.miniMenuElements.color}
+
+        element={(
+          <ClickListener
+            onClickOutside={() => updateOpen('colorMiniMenu', false)}
+
+            include={[refs.miniMenu, refs.miniMenuElements.color]}
+          >
+            <Palette
+              version='font-color'
+
+              onClose={() => updateOpen('colorMiniMenu', false)}
+
+              onUpdate={method('font-color')}
+            />
+          </ClickListener>
+        )}
+      >
+        <WrapperToggleButton
+          label='Text Color'
+
+          open={refs.open.current.colorMiniMenu ? false : undefined}
+        >
+          {is('function', render) ? render('font-color', ToggleButtonProps, refs.value.current, method) : (
+            <ToggleButton
+              ref={refs.miniMenuElements.color}
+
+              {...ToggleButtonProps}
+
+              selected={refs.open.current.colorMiniMenu}
+
+              onClick={() => updateOpen('colorMiniMenu', !refs.open.current.colorMiniMenu)}
+            >
+              <IconColor {...IconProps} />
+            </ToggleButton>
+          )}
+        </WrapperToggleButton>
+      </WrapperAppend>
+    ),
     'font-background': (
       <WrapperAppend
         open={refs.open.current.background}
@@ -2192,6 +2247,49 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
           {is('function', render) ? render('font-background', ToggleButtonProps, refs.value.current, method) : (
             <ToggleButton
               ref={refs.elements.background}
+
+              {...ToggleButtonProps}
+
+              selected={refs.open.current.background}
+
+              onClick={() => updateOpen('background', !refs.open.current.background)}
+            >
+              <IconBackground {...IconProps} />
+            </ToggleButton>
+          )}
+        </WrapperToggleButton>
+      </WrapperAppend>
+    ),
+    'font-background-mini-menu': (
+      <WrapperAppend
+        open={refs.open.current.background}
+
+        anchorElement={refs.miniMenuElements.background.current}
+
+        element={(
+          <ClickListener
+            onClickOutside={() => updateOpen('background', false)}
+
+            include={[refs.miniMenu.current, refs.miniMenuElements.background.current]}
+          >
+            <Palette
+              version='font-background'
+
+              onClose={() => updateOpen('background', false)}
+
+              onUpdate={method('font-background')}
+            />
+          </ClickListener>
+        )}
+      >
+        <WrapperToggleButton
+          label='Background Color'
+
+          open={refs.open.current.background ? false : undefined}
+        >
+          {is('function', render) ? render('font-background', ToggleButtonProps, refs.value.current, method) : (
+            <ToggleButton
+              ref={refs.miniMenuElements.background}
 
               {...ToggleButtonProps}
 
@@ -2439,6 +2537,66 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
           {is('function', render) ? render('font-color', ToggleButtonProps, refs.value.current, method) : (
             <ToggleButton
               ref={refs.elements.linkAdd}
+
+              {...ToggleButtonProps}
+
+              selected={refs.open.current.link}
+
+              onClick={() => updateOpen('link', !refs.open.current.link)}
+            >
+              <IconLinkAdd {...IconProps} />
+            </ToggleButton>
+          )}
+        </WrapperToggleButton>
+      </WrapperAppend>
+    ),
+    'link-add-mini-menu': (
+      <WrapperAppend
+        open={refs.open.current.link}
+
+        anchorElement={refs.miniMenuElements.linkAdd.current}
+
+        element={(
+          <ClickListener
+            onClickOutside={() => updateOpen('link', false)}
+
+            include={[refs.miniMenuElements.linkAdd.current]}
+          >
+            <Input
+              label='Link'
+
+              labelButton='Add'
+
+              value={refs.inputValues.current.link}
+
+              onChange={valueNew => updateInputValues('link', valueNew)}
+
+              onClick={() => {
+                if (refs.range.current) {
+                  const selection_ = window.getSelection();
+
+                  selection_.removeAllRanges();
+                  selection_.addRange(refs.range.current);
+                }
+
+                method('link-add')(refs.inputValues.current.link);
+
+                updateOpen('link', false);
+
+                updateInputValues('link', '');
+              }}
+            />
+          </ClickListener>
+        )}
+      >
+        <WrapperToggleButton
+          label='Insert Link'
+
+          open={refs.open.current.link ? false : undefined}
+        >
+          {is('function', render) ? render('font-color', ToggleButtonProps, refs.value.current, method) : (
+            <ToggleButton
+              ref={refs.miniMenuElements.linkAdd}
 
               {...ToggleButtonProps}
 
@@ -2959,7 +3117,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
       </WrapperAppend>
     )
   };
-  console.log(1, selection);
+  console.log(0, refs.miniMenuElements.color.current);
   return (
     <Line
       ref={ref}
@@ -3433,7 +3591,14 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
           element={
             ({ ref, values, style }) => (
               <div
-                ref={ref}
+                ref={item => {
+                  if (ref) {
+                    if (is('function', ref)) ref(item);
+                    else ref.current = item;
+
+                    refs.miniMenu.current = item;
+                  }
+                }}
 
                 style={{
                   ...((values?.x === 0 && values?.y === 0) ? {
