@@ -1254,6 +1254,12 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
     size: 'small',
 
+    ListProps: {
+      tonal,
+
+      color: refs.props.current.color !== undefined ? refs.props.current.color : 'themed'
+    },
+
     MenuProps: {
       portal: true
     },
