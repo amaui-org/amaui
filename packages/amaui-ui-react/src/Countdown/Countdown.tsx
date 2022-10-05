@@ -35,20 +35,20 @@ const useStyle = style(theme => ({
   actions: {
     marginTop: '8px'
   }
-}), { name: 'AmauiTimer' });
+}), { name: 'AmauiCountdown' });
 
-const IconMaterialTimerRounded = React.forwardRef((props: any, ref) => {
+const IconMaterialAvTimerRounded = React.forwardRef((props: any, ref) => {
 
   return (
     <Icon
       ref={ref}
 
-      name='TimerRounded'
-      short_name='Timer'
+      name='AvTimerRounded'
+      short_name='AvTimer'
 
       {...props}
     >
-      <path d="M10 3Q9.575 3 9.288 2.712Q9 2.425 9 2Q9 1.575 9.288 1.287Q9.575 1 10 1H14Q14.425 1 14.713 1.287Q15 1.575 15 2Q15 2.425 14.713 2.712Q14.425 3 14 3ZM12 14Q12.425 14 12.713 13.712Q13 13.425 13 13V9Q13 8.575 12.713 8.287Q12.425 8 12 8Q11.575 8 11.288 8.287Q11 8.575 11 9V13Q11 13.425 11.288 13.712Q11.575 14 12 14ZM12 22Q10.15 22 8.512 21.288Q6.875 20.575 5.65 19.35Q4.425 18.125 3.712 16.488Q3 14.85 3 13Q3 11.15 3.712 9.512Q4.425 7.875 5.65 6.65Q6.875 5.425 8.512 4.713Q10.15 4 12 4Q13.55 4 14.975 4.5Q16.4 5 17.65 5.95L18.375 5.225Q18.65 4.95 19.05 4.95Q19.45 4.95 19.75 5.25Q20.025 5.525 20.025 5.95Q20.025 6.375 19.75 6.65L19.05 7.35Q20 8.6 20.5 10.025Q21 11.45 21 13Q21 14.85 20.288 16.488Q19.575 18.125 18.35 19.35Q17.125 20.575 15.488 21.288Q13.85 22 12 22ZM12 20Q14.9 20 16.95 17.95Q19 15.9 19 13Q19 10.1 16.95 8.05Q14.9 6 12 6Q9.1 6 7.05 8.05Q5 10.1 5 13Q5 15.9 7.05 17.95Q9.1 20 12 20ZM12 13Q12 13 12 13Q12 13 12 13Q12 13 12 13Q12 13 12 13Q12 13 12 13Q12 13 12 13Q12 13 12 13Q12 13 12 13Z" />
+      <path d="M12 18Q11.575 18 11.288 17.712Q11 17.425 11 17Q11 16.575 11.288 16.288Q11.575 16 12 16Q12.425 16 12.713 16.288Q13 16.575 13 17Q13 17.425 12.713 17.712Q12.425 18 12 18ZM12 21Q10.15 21 8.512 20.288Q6.875 19.575 5.65 18.35Q4.425 17.125 3.712 15.488Q3 13.85 3 12Q3 10.05 3.75 8.375Q4.5 6.7 5.825 5.45Q6.15 5.15 6.575 5.175Q7 5.2 7.3 5.5L12.7 10.9Q12.85 11.05 12.913 11.225Q12.975 11.4 12.975 11.6Q12.975 11.8 12.913 11.975Q12.85 12.15 12.7 12.3Q12.425 12.575 12 12.575Q11.575 12.575 11.3 12.3L6.6 7.6Q5.85 8.5 5.425 9.613Q5 10.725 5 12Q5 14.9 7.05 16.95Q9.1 19 12 19Q14.9 19 16.95 16.95Q19 14.9 19 12Q19 9.325 17.288 7.387Q15.575 5.45 13 5.1V6Q13 6.425 12.713 6.713Q12.425 7 12 7Q11.575 7 11.288 6.713Q11 6.425 11 6V4Q11 3.575 11.338 3.287Q11.675 3 12.125 3Q13.925 3 15.538 3.712Q17.15 4.425 18.363 5.65Q19.575 6.875 20.288 8.512Q21 10.15 21 12Q21 13.85 20.288 15.488Q19.575 17.125 18.35 18.35Q17.125 19.575 15.488 20.288Q13.85 21 12 21ZM17 13Q16.575 13 16.288 12.712Q16 12.425 16 12Q16 11.575 16.288 11.287Q16.575 11 17 11Q17.425 11 17.712 11.287Q18 11.575 18 12Q18 12.425 17.712 12.712Q17.425 13 17 13ZM7 13Q6.575 13 6.287 12.712Q6 12.425 6 12Q6 11.575 6.287 11.287Q6.575 11 7 11Q7.425 11 7.713 11.287Q8 11.575 8 12Q8 12.425 7.713 12.712Q7.425 13 7 13Z" />
     </Icon>
   );
 });
@@ -101,26 +101,10 @@ const IconMaterialStopRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
-const IconMaterialFlagRounded = React.forwardRef((props: any, ref) => {
-
-  return (
-    <Icon
-      ref={ref}
-
-      name='FlagRounded'
-      short_name='Flag'
-
-      {...props}
-    >
-      <path d="M6 21Q5.575 21 5.287 20.712Q5 20.425 5 20V5Q5 4.575 5.287 4.287Q5.575 4 6 4H13.175Q13.525 4 13.8 4.225Q14.075 4.45 14.15 4.8L14.4 6H19Q19.425 6 19.712 6.287Q20 6.575 20 7V15Q20 15.425 19.712 15.712Q19.425 16 19 16H13.825Q13.475 16 13.2 15.775Q12.925 15.55 12.85 15.2L12.6 14H7V20Q7 20.425 6.713 20.712Q6.425 21 6 21ZM12.5 10ZM14.65 14H18V8H12.75L12.35 6H7V12H14.25Z" />
-    </Icon>
-  );
-});
-
-const Timer = React.forwardRef((props_: any, ref: any) => {
+const Countdown = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiTimer?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiCountdown?.props?.default }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -131,17 +115,15 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
     render,
 
     onStart: onStart_,
-    onFlag: onFlag_,
     onPause: onPause_,
     onStop: onStop_,
     onResume: onResume_,
 
     icon = true,
 
-    Icon = IconMaterialTimerRounded,
+    Icon = IconMaterialAvTimerRounded,
     IconStart = IconMaterialPlayArrowRounded,
     IconPause = IconMaterialPauseRounded,
-    IconFlag = IconMaterialFlagRounded,
     IconStop = IconMaterialStopRounded,
 
     TreeProps: TreeProps_,
@@ -157,8 +139,6 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
   } = props;
 
   const [status, setStatus] = React.useState('initial');
-  const [flags, setFlags] = React.useState([]);
-  const [expand, setExpand] = React.useState<any>();
   const [value, setValue] = React.useState<number>(0);
 
   const refs = {
@@ -192,14 +172,6 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
     if (is('function', onStart_)) onStart_();
   }, []);
 
-  const onFlag = React.useCallback(() => {
-    if (!expand) setExpand(true);
-
-    setFlags(values => [...values, refs.value.current]);
-
-    if (is('function', onFlag_)) onFlag_();
-  }, [expand]);
-
   const onPause = React.useCallback(() => {
     clearInterval(refs.interval.current);
 
@@ -215,8 +187,6 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
     clearInterval(refs.interval.current);
 
     setStatus('initial');
-
-    setExpand(false);
 
     setValue(0);
 
@@ -239,10 +209,6 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
     setStatus('running');
 
     if (is('function', onResume_)) onResume_();
-  }, []);
-
-  const onExited = React.useCallback(() => {
-    setFlags([]);
   }, []);
 
   const IconProps = {
@@ -277,18 +243,16 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
 
     const valueDuration: any = duration(valueNew_, undefined, true, undefined, ['hour', 'minute', 'second', 'millisecond']);
 
-    if (valueDuration.hour > 0) valueNew += `${getLeadingZerosNumber(valueDuration.hour)}:`;
+    valueNew += `${getLeadingZerosNumber(valueDuration.hour || 0)}:`;
 
     valueNew += `${getLeadingZerosNumber(valueDuration.minute || 0)}:`;
 
-    valueNew += `${getLeadingZerosNumber(valueDuration.second || 0)}.`;
-
-    valueNew += `${getLeadingZerosNumber(Math.floor((valueDuration.millisecond || 0) / 10))}`;
+    valueNew += `${getLeadingZerosNumber(valueDuration.second || 0)}`;
 
     return valueNew;
   };
 
-  const value_ = status === 'initial' ? '00:00.00' : valueFormat(value);
+  const value_ = status === 'initial' ? '00:00:00' : valueFormat(value);
 
   return (
     <Line
@@ -309,8 +273,8 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
       Component={Surface}
 
       className={classNames([
-        staticClassName('Timer', theme) && [
-          'AmauiTimer-root'
+        staticClassName('Countdown', theme) && [
+          'AmauiCountdown-root'
         ],
 
         className,
@@ -334,8 +298,8 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
           version='h1'
 
           className={classNames([
-            staticClassName('Timer', theme) && [
-              'AmauiTimer-value'
+            staticClassName('Countdown', theme) && [
+              'AmauiCountdown-value'
             ],
 
             classes.value
@@ -344,89 +308,6 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
           {value_}
         </Type>
       )}
-
-      {/* Flags */}
-      <Expand
-        in={expand}
-
-        onExited={onExited}
-
-        className={classNames([
-          staticClassName('Timer', theme) && [
-            'AmauiTimer-flags'
-          ],
-
-          classes.flags
-        ])}
-      >
-        <Tree
-          openDefault
-
-          middle='Flags'
-
-          indicator
-
-          indicatorPosition='end'
-
-          style={{
-            width: '100%'
-          }}
-
-          {...TreeProps}
-        >
-          {flags.map((item: number, index: number) => (
-            <Tree
-              key={index}
-
-              icon={<IconFlag size='small' />}
-
-              middle={(
-                <Line
-                  direction='row'
-
-                  align='center'
-
-                  justify='center'
-
-                  style={{
-                    marginInlineStart: '4px'
-                  }}
-                >
-                  <Type
-                    version='b2'
-                  >
-                    {getLeadingZerosNumber(index + 1)}
-                  </Type>
-
-                  <Type
-                    version='b2'
-
-                    style={{
-                      opacity: '0.7'
-                    }}
-                  >
-                    +{valueFormat(item - (flags[index - 1] || 0))}
-                  </Type>
-
-                  <Type
-                    version='b2'
-                  >
-                    {valueFormat(item)}
-                  </Type>
-                </Line>
-              )}
-
-              noPadding
-
-              indicator
-
-              indicatorPosition='end'
-
-              {...TreeProps}
-            />
-          ))}
-        </Tree>
-      </Expand>
 
       {/* Controls */}
       <Line
@@ -439,8 +320,8 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
         justify='center'
 
         className={classNames([
-          staticClassName('Timer', theme) && [
-            'AmauiTimer-actions'
+          staticClassName('Countdown', theme) && [
+            'AmauiCountdown-actions'
           ],
 
           classes.actions
@@ -478,18 +359,18 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
             add
           >
             <span>
-              {/* Flag */}
+              {/* Stop */}
               <Tooltip
-                label='Flag'
+                label='Stop'
 
                 {...TooltipProps}
               >
                 <IconButton
-                  onClick={onFlag}
+                  onClick={onStop}
 
                   {...IconButtonProps}
                 >
-                  <IconFlag />
+                  <IconStop />
                 </IconButton>
               </Tooltip>
 
@@ -555,6 +436,6 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
   );
 });
 
-Timer.displayName = 'AmauiTimer';
+Countdown.displayName = 'AmauiCountdown';
 
-export default Timer;
+export default Countdown;

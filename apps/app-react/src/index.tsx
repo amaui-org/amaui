@@ -1,12 +1,12 @@
 import ReactDOM from 'react-dom/client';
 
-import { Snackbars, Confirm, MainProgress, Widgets, ScreenCapture, Timer } from '@amaui/ui-react';
+import { Snackbars, Confirm, MainProgress, Widgets, ScreenCapture, Timer, Countdown } from '@amaui/ui-react';
 import { AmauiStyle, AmauiStyleProvider, AmauiThemeProvider, valueObject, prefix, rtl, unit } from '@amaui/style-react';
 
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
-import IconMaterialPottedPlantRounded from '@amaui/icons-material-react/build/IconMaterialPottedPlantRounded';
 import IconMaterialTimerRounded from '@amaui/icons-material-react/build/IconMaterialTimerRounded';
 import IconMaterialVideocamRounded from '@amaui/icons-material-react/build/IconMaterialVideocamRounded';
+import IconMaterialAvTimerRounded from '@amaui/icons-material-react/build/IconMaterialAvTimerRounded';
 
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -31,9 +31,9 @@ const widgets = [
     element: <Timer />
   },
   {
-    label: 'plant',
-    Icon: IconMaterialPottedPlantRounded,
-    element: <div style={{ width: 440, height: 440, background: 'orange' }} />
+    label: 'Countdown',
+    Icon: IconMaterialAvTimerRounded,
+    element: <Countdown />
   },
   {
     label: 'add',
