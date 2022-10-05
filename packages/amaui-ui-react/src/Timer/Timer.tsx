@@ -14,6 +14,7 @@ import Icon from '../Icon';
 
 import { staticClassName } from '../utils';
 import Expand from '../Expand';
+import Fade from '../Fade';
 
 const useStyle = style(theme => ({
   root: {
@@ -446,85 +447,109 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
         ])}
       >
         {status === 'initial' && (
-          // Start
-          <Tooltip
-            label='Start'
+          <Fade
+            in
 
-            {...TooltipProps}
+            add
           >
-            <IconButton
-              onClick={onStart}
+            <span>
+              {/* Start */}
+              <Tooltip
+                label='Start'
 
-              {...IconButtonProps}
-            >
-              <IconStart />
-            </IconButton>
-          </Tooltip>
+                {...TooltipProps}
+              >
+                <IconButton
+                  onClick={onStart}
+
+                  {...IconButtonProps}
+                >
+                  <IconStart />
+                </IconButton>
+              </Tooltip>
+            </span>
+          </Fade>
         )}
 
-        {status === 'running' && <>
-          {/* Flag */}
-          <Tooltip
-            label='Flag'
+        {status === 'running' && (
+          <Fade
+            in
 
-            {...TooltipProps}
+            add
           >
-            <IconButton
-              onClick={onFlag}
+            <span>
+              {/* Flag */}
+              <Tooltip
+                label='Flag'
 
-              {...IconButtonProps}
-            >
-              <IconFlag />
-            </IconButton>
-          </Tooltip>
+                {...TooltipProps}
+              >
+                <IconButton
+                  onClick={onFlag}
 
-          {/* Pause */}
-          <Tooltip
-            label='Pause'
+                  {...IconButtonProps}
+                >
+                  <IconFlag />
+                </IconButton>
+              </Tooltip>
 
-            {...TooltipProps}
+              {/* Pause */}
+              <Tooltip
+                label='Pause'
+
+                {...TooltipProps}
+              >
+                <IconButton
+                  onClick={onPause}
+
+                  {...IconButtonProps}
+                >
+                  <IconPause />
+                </IconButton>
+              </Tooltip>
+            </span>
+          </Fade>
+        )}
+
+        {status === 'paused' && (
+          <Fade
+            in
+
+            add
           >
-            <IconButton
-              onClick={onPause}
+            <span>
+              {/* Stop */}
+              <Tooltip
+                label='Stop'
 
-              {...IconButtonProps}
-            >
-              <IconPause />
-            </IconButton>
-          </Tooltip>
-        </>}
+                {...TooltipProps}
+              >
+                <IconButton
+                  onClick={onStop}
 
-        {status === 'paused' && <>
-          {/* Stop */}
-          <Tooltip
-            label='Stop'
+                  {...IconButtonProps}
+                >
+                  <IconStop />
+                </IconButton>
+              </Tooltip>
 
-            {...TooltipProps}
-          >
-            <IconButton
-              onClick={onStop}
+              {/* Resume */}
+              <Tooltip
+                label='Resume'
 
-              {...IconButtonProps}
-            >
-              <IconStop />
-            </IconButton>
-          </Tooltip>
+                {...TooltipProps}
+              >
+                <IconButton
+                  onClick={onResume}
 
-          {/* Resume */}
-          <Tooltip
-            label='Resume'
-
-            {...TooltipProps}
-          >
-            <IconButton
-              onClick={onResume}
-
-              {...IconButtonProps}
-            >
-              <IconStart />
-            </IconButton>
-          </Tooltip>
-        </>}
+                  {...IconButtonProps}
+                >
+                  <IconStart />
+                </IconButton>
+              </Tooltip>
+            </span>
+          </Fade>
+        )}
       </Line>
     </Line>
   );
