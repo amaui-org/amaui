@@ -803,6 +803,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
     render,
 
     miniMenu = true,
+
     miniMenuInclude = [
       'italic',
       'underline',
@@ -824,6 +825,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
     exclude,
 
     updates = true,
+
     actions = true,
 
     fontFamilies = [

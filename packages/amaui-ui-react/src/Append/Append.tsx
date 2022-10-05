@@ -252,6 +252,10 @@ const Append = (props_: any) => {
       );
     });
 
+    // If no parents, ie. anchor
+    // add window.document.body as an only value
+    if (!scrollableParents.length) scrollableParents.push(window.document.body);
+
     let { position, alignment, inset, switch: switched } = value;
 
     let { rect, rectOffset } = values__;
