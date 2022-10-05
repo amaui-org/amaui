@@ -6,6 +6,7 @@ import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Fade from '../Fade';
 import Type from '../Type';
+import Expand from '../Expand';
 import Tooltip from '../Tooltip';
 import Surface from '../Surface';
 import NumericTextField from '../NumericTextField';
@@ -390,147 +391,96 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
 
       {/* Inputs */}
       {status === 'initial' && (
-        <Line
-          gap={1}
+        <Fade
+          in
 
-          direction='row'
-
-          align='flex-end'
-
-          style={{
-            marginTop: 8
-          }}
+          add
         >
-          <NumericTextField
-            label='Hours'
+          <Line
+            gap={1}
 
-            min={0}
+            direction='row'
 
-            max={23}
+            align='flex-end'
 
-            value={values.hours}
+            style={{
+              marginTop: 8
+            }}
+          >
+            <NumericTextField
+              label='Hours'
 
-            onChange={valueNew => updateValues('hours', valueNew)}
+              min={0}
 
-            className={classNames([
-              staticClassName('Countdown', theme) && [
-                'AmauiCountdown-numericTextField'
-              ],
+              max={23}
 
-              classes.numericTextField
-            ])}
+              value={values.hours}
 
-            {...NumericTextFieldProps}
-          />
+              onChange={valueNew => updateValues('hours', valueNew)}
 
-          <NumericTextField
-            label='Minutes'
+              className={classNames([
+                staticClassName('Countdown', theme) && [
+                  'AmauiCountdown-numericTextField'
+                ],
 
-            min={0}
+                classes.numericTextField
+              ])}
 
-            max={59}
+              {...NumericTextFieldProps}
+            />
 
-            value={values.minutes}
+            <NumericTextField
+              label='Minutes'
 
-            onChange={valueNew => updateValues('minutes', valueNew)}
+              min={0}
 
-            className={classNames([
-              staticClassName('Countdown', theme) && [
-                'AmauiCountdown-numericTextField'
-              ],
+              max={59}
 
-              classes.numericTextField
-            ])}
+              value={values.minutes}
 
-            {...NumericTextFieldProps}
-          />
+              onChange={valueNew => updateValues('minutes', valueNew)}
 
-          <NumericTextField
-            label='Seconds'
+              className={classNames([
+                staticClassName('Countdown', theme) && [
+                  'AmauiCountdown-numericTextField'
+                ],
 
-            min={0}
+                classes.numericTextField
+              ])}
 
-            max={59}
+              {...NumericTextFieldProps}
+            />
 
-            value={values.seconds}
+            <NumericTextField
+              label='Seconds'
 
-            onChange={valueNew => updateValues('seconds', valueNew)}
+              min={0}
 
-            className={classNames([
-              staticClassName('Countdown', theme) && [
-                'AmauiCountdown-numericTextField'
-              ],
+              max={59}
 
-              classes.numericTextField
-            ])}
+              value={values.seconds}
 
-            {...NumericTextFieldProps}
-          />
-        </Line>
+              onChange={valueNew => updateValues('seconds', valueNew)}
+
+              className={classNames([
+                staticClassName('Countdown', theme) && [
+                  'AmauiCountdown-numericTextField'
+                ],
+
+                classes.numericTextField
+              ])}
+
+              {...NumericTextFieldProps}
+            />
+          </Line>
+        </Fade>
       )}
 
       {/* Time */}
-      {status !== 'initial' && ['regular', 'linear'].includes(version) && <>
-        {is('function', render) ? render(value_) : (
-          <Type
-            version='h1'
-          >
-            {value_}
-          </Type>
-        )}
-
-        {version === 'linear' && (
-          <LinearProgress
-            version='determinate'
-
-            value={clamp(Math.round((((value - 1000) / 1000) / (refs.total.current / 1000)) * 100), 0, 100)}
-
-            reverse
-
-            style={{
-              margin: '4px 0 8px'
-            }}
-
-            {...LinearProgressProps}
-          />
-        )}
-      </>}
-
-      {status !== 'initial' && ['round'].includes(version) && (
-        <Line
-          gap={0.5}
-
-          direction='column'
-
-          align='center'
-
-          justify='center'
-
-          className={classNames([
-            staticClassName('Countdown', theme) && [
-              'AmauiCountdown-roundWrapper'
-            ],
-
-            classes.roundWrapper
-          ])}
+      {status !== 'initial' && ['regular', 'linear'].includes(version) && (
+        <Expand
+          in
         >
-          <RoundProgress
-            version='determinate'
-
-            value={clamp(Math.round((((value - 1000) / 1000) / (refs.total.current / 1000)) * 100), 0, 100)}
-
-            {...RoundProgressProps}
-
-            className={classNames([
-              staticClassName('Countdown', theme) && [
-                'AmauiCountdown-roundProgress'
-              ],
-
-              RoundProgressProps?.className,
-              classes.roundProgress
-            ])}
-          />
-
           {is('function', render) ? render(value_) : (
             <Type
               version='h1'
@@ -539,20 +489,85 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
             </Type>
           )}
 
-          <Type
-            version='b3'
+          {version === 'linear' && (
+            <LinearProgress
+              version='determinate'
+
+              value={clamp(Math.round((((value - 1000) / 1000) / (refs.total.current / 1000)) * 100), 0, 100)}
+
+              reverse
+
+              style={{
+                margin: '4px 0 8px'
+              }}
+
+              {...LinearProgressProps}
+            />
+          )}
+        </Expand>
+      )}
+
+      {status !== 'initial' && ['round'].includes(version) && (
+        <Expand
+          in
+        >
+          <Line
+            gap={0.5}
+
+            direction='column'
+
+            align='center'
+
+            justify='center'
 
             className={classNames([
               staticClassName('Countdown', theme) && [
-                'AmauiCountdown-meta'
+                'AmauiCountdown-roundWrapper'
               ],
 
-              classes.meta
+              classes.roundWrapper
             ])}
           >
-            Total {duration(refs.total.current - 1000, false)}
-          </Type>
-        </Line>
+            <RoundProgress
+              version='determinate'
+
+              value={clamp(Math.round((((value - 1000) / 1000) / (refs.total.current / 1000)) * 100), 0, 100)}
+
+              {...RoundProgressProps}
+
+              className={classNames([
+                staticClassName('Countdown', theme) && [
+                  'AmauiCountdown-roundProgress'
+                ],
+
+                RoundProgressProps?.className,
+                classes.roundProgress
+              ])}
+            />
+
+            {is('function', render) ? render(value_) : (
+              <Type
+                version='h1'
+              >
+                {value_}
+              </Type>
+            )}
+
+            <Type
+              version='b3'
+
+              className={classNames([
+                staticClassName('Countdown', theme) && [
+                  'AmauiCountdown-meta'
+                ],
+
+                classes.meta
+              ])}
+            >
+              Total {duration(refs.total.current - 1000, false)}
+            </Type>
+          </Line>
+        </Expand>
       )}
 
       {/* Controls */}
