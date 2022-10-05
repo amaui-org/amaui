@@ -1,11 +1,11 @@
 import ReactDOM from 'react-dom/client';
 
-import { Snackbars, Confirm, MainProgress, Widgets, ScreenCapture } from '@amaui/ui-react';
+import { Snackbars, Confirm, MainProgress, Widgets, ScreenCapture, Timer } from '@amaui/ui-react';
 import { AmauiStyle, AmauiStyleProvider, AmauiThemeProvider, valueObject, prefix, rtl, unit } from '@amaui/style-react';
 
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
 import IconMaterialPottedPlantRounded from '@amaui/icons-material-react/build/IconMaterialPottedPlantRounded';
-import IconMaterialLightModeRounded from '@amaui/icons-material-react/build/IconMaterialLightModeRounded';
+import IconMaterialTimerRounded from '@amaui/icons-material-react/build/IconMaterialTimerRounded';
 import IconMaterialVideocamRounded from '@amaui/icons-material-react/build/IconMaterialVideocamRounded';
 
 import App from './App';
@@ -26,9 +26,9 @@ const widgets = [
     element: <ScreenCapture />
   },
   {
-    label: 'light',
-    Icon: IconMaterialLightModeRounded,
-    element: <div style={{ width: 140, height: 140, background: 'orange' }} />
+    label: 'Timer',
+    Icon: IconMaterialTimerRounded,
+    element: <Timer />
   },
   {
     label: 'plant',

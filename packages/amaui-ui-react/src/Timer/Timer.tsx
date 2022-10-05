@@ -16,6 +16,7 @@ import { staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
+    minWidth: '240px',
     padding: '16px 24px',
     borderRadius: theme.methods.shape.radius.value('rg')
   }
@@ -152,6 +153,13 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
   };
 
   refs.value.current = value;
+
+  React.useEffect(() => {
+    return () => {
+      // Clean up
+      clearInterval(refs.interval.current);
+    };
+  }, []);
 
   const update = () => {
     setValue(refs.valuePaused.current + (AmauiDate.milliseconds - refs.start.current));

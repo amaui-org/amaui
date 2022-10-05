@@ -1087,6 +1087,8 @@ function App() {
             width: '100%'
           }}
         >
+          <Timer />
+
           <RichTextEditor
             value={`<p>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lacinia elementum tincidunt. Morbi tristique nulla eu tellus posuere malesuada. Cras sed augue eget urna semper condimentum. In lobortis odio et quam lobortis ultricies. Duis nisi libero, pulvinar dignissim nibh quis, consectetur venenatis dui. Cras at tempus felis, id fringilla mi. Vestibulum faucibus vel libero et sagittis. Phasellus egestas consequat dolor a scelerisque. Duis at varius ipsum.
@@ -1408,6 +1410,8 @@ Markdown 1 | Less | Pretty
 
             dynamicParent
           />
+
+          <ScreenCapture />
 
           <Line
             direction='row'
