@@ -113,7 +113,7 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
   const { classes } = useStyle(props);
 
   const {
-    version = 'regular',
+    version = 'linear',
 
     tonal = true,
     color = 'primary',
