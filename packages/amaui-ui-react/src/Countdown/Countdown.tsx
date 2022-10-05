@@ -482,29 +482,31 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
 
           add
         >
-          {is('function', render) ? render(value_) : (
-            <Type
-              version='h1'
-            >
-              {value_}
-            </Type>
-          )}
+          <div>
+            {is('function', render) ? render(value_) : (
+              <Type
+                version='h1'
+              >
+                {value_}
+              </Type>
+            )}
 
-          {version === 'linear' && (
-            <LinearProgress
-              version='determinate'
+            {version === 'linear' && (
+              <LinearProgress
+                version='determinate'
 
-              value={clamp(Math.round((((value - 1000) / 1000) / (refs.total.current / 1000)) * 100), 0, 100)}
+                value={clamp(Math.round((((value - 1000) / 1000) / (refs.total.current / 1000)) * 100), 0, 100)}
 
-              reverse
+                reverse
 
-              style={{
-                margin: '4px 0 8px'
-              }}
+                style={{
+                  margin: '4px 0 8px'
+                }}
 
-              {...LinearProgressProps}
-            />
-          )}
+                {...LinearProgressProps}
+              />
+            )}
+          </div>
         </Fade>
       )}
 
