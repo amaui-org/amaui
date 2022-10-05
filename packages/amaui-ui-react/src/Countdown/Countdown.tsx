@@ -6,7 +6,6 @@ import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Fade from '../Fade';
 import Type from '../Type';
-import Expand from '../Expand';
 import Tooltip from '../Tooltip';
 import Surface from '../Surface';
 import NumericTextField from '../NumericTextField';
@@ -478,8 +477,10 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
 
       {/* Time */}
       {status !== 'initial' && ['regular', 'linear'].includes(version) && (
-        <Expand
+        <Fade
           in
+
+          add
         >
           {is('function', render) ? render(value_) : (
             <Type
@@ -504,12 +505,14 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
               {...LinearProgressProps}
             />
           )}
-        </Expand>
+        </Fade>
       )}
 
       {status !== 'initial' && ['round'].includes(version) && (
-        <Expand
+        <Fade
           in
+
+          add
         >
           <Line
             gap={0.5}
@@ -567,7 +570,7 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
               Total {duration(refs.total.current - 1000, false)}
             </Type>
           </Line>
-        </Expand>
+        </Fade>
       )}
 
       {/* Controls */}
