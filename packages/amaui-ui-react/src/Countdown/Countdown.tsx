@@ -48,6 +48,11 @@ const useStyle = style(theme => ({
     }
   },
 
+  meta: {
+    maxWidth: '114px',
+    textAlign: 'center'
+  },
+
   numericTextField: {
     width: '70px',
 
@@ -537,10 +542,13 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
           <Type
             version='b3'
 
-            style={{
-              maxWidth: '114px',
-              textAlign: 'center'
-            }}
+            className={classNames([
+              staticClassName('Countdown', theme) && [
+                'AmauiCountdown-meta'
+              ],
+
+              classes.meta
+            ])}
           >
             Total {duration(refs.total.current - 1000, false)}
           </Type>
