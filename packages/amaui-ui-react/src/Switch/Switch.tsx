@@ -139,7 +139,8 @@ const useStyle = style(theme => ({
     width: '1em',
     height: '1em',
     background: 'currentColor',
-    borderRadius: `calc(${theme.shape.radius.unit / 8} * 0.5em)`
+    borderRadius: `calc(${theme.shape.radius.unit / 8} * 0.5em)`,
+    transition: theme.methods.transitions.make('background')
   },
 
   disabled: {
@@ -594,14 +595,14 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
       icon: {
         growStart: {
           transform: sizes('grow-start', 'icon'),
-          background: tonal ? paletteColor[theme.palette.light ? 40 : 20] : theme.palette.text.default.secondary,
-          color: (['default', 'themed', 'inherit'].includes(color) && !theme.palette.light) ? theme.palette.text.default.secondary : tonal ? paletteColor[theme.palette.light ? 90 : 10] : theme.palette.background.default.quaternary,
+          background: (['default', 'themed', 'inherit'].includes(color) && !theme.palette.light) ? theme.palette.text.default.secondary : tonal ? paletteColor[theme.palette.light ? 40 : 20] : theme.palette.text.default.secondary,
+          color: tonal ? paletteColor[theme.palette.light ? 90 : 10] : theme.palette.background.default.quaternary,
           transition: theme.methods.transitions.make('transform', { duration: 240, timing_function: 'decelerated' })
         },
         waitStart: {
           transform: sizes('grow-start', 'icon'),
-          background: tonal ? paletteColor[theme.palette.light ? 40 : 20] : theme.palette.text.default.secondary,
-          color: (['default', 'themed', 'inherit'].includes(color) && !theme.palette.light) ? theme.palette.text.default.secondary : tonal ? paletteColor[theme.palette.light ? 90 : 10] : theme.palette.background.default.quaternary
+          background: (['default', 'themed', 'inherit'].includes(color) && !theme.palette.light) ? theme.palette.text.default.secondary : tonal ? paletteColor[theme.palette.light ? 40 : 20] : theme.palette.text.default.secondary,
+          color: tonal ? paletteColor[theme.palette.light ? 90 : 10] : theme.palette.background.default.quaternary
         },
         moveEnd: {
           ...sizes('move-end', 'icon'),

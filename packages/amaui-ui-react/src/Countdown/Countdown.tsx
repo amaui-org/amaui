@@ -5,10 +5,8 @@ import { AmauiDate, duration } from '@amaui/date';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Fade from '../Fade';
-import Expand from '../Expand';
 import Type from '../Type';
 import Tooltip from '../Tooltip';
-import Tree from '../Tree';
 import Surface from '../Surface';
 import Line from '../Line';
 import IconButton from '../IconButton';
