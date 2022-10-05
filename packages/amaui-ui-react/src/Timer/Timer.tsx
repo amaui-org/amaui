@@ -13,6 +13,7 @@ import IconButton from '../IconButton';
 import Icon from '../Icon';
 
 import { staticClassName } from '../utils';
+import Expand from '../Expand';
 
 const useStyle = style(theme => ({
   root: {
@@ -316,7 +317,13 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
       )}
 
       {/* Flags */}
-      {!!flags.length && (
+      <Expand
+        in={!!flags.length}
+
+        style={{
+          width: '100%'
+        }}
+      >
         <Tree
           openDefault
 
@@ -384,7 +391,7 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
             />
           ))}
         </Tree>
-      )}
+      </Expand>
 
       {/* Controls */}
       <Line
