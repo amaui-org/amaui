@@ -448,6 +448,10 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
 
             reverse
 
+            style={{
+              margin: '4px 0 8px'
+            }}
+
             {...LinearProgressProps}
           />
         )}
@@ -488,89 +492,85 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
           </Fade>
         )}
 
-        {
-          status === 'running' && (
-            <Fade
-              in
+        {status === 'running' && (
+          <Fade
+            in
 
-              add
-            >
-              <span>
-                {/* Stop */}
-                <Tooltip
-                  label='Stop'
+            add
+          >
+            <span>
+              {/* Stop */}
+              <Tooltip
+                label='Stop'
 
-                  {...TooltipProps}
+                {...TooltipProps}
+              >
+                <IconButton
+                  onClick={onStop}
+
+                  {...IconButtonProps}
                 >
-                  <IconButton
-                    onClick={onStop}
+                  <IconStop />
+                </IconButton>
+              </Tooltip>
 
-                    {...IconButtonProps}
-                  >
-                    <IconStop />
-                  </IconButton>
-                </Tooltip>
+              {/* Pause */}
+              <Tooltip
+                label='Pause'
 
-                {/* Pause */}
-                <Tooltip
-                  label='Pause'
+                {...TooltipProps}
+              >
+                <IconButton
+                  onClick={onPause}
 
-                  {...TooltipProps}
+                  {...IconButtonProps}
                 >
-                  <IconButton
-                    onClick={onPause}
+                  <IconPause />
+                </IconButton>
+              </Tooltip>
+            </span>
+          </Fade>
+        )}
 
-                    {...IconButtonProps}
-                  >
-                    <IconPause />
-                  </IconButton>
-                </Tooltip>
-              </span>
-            </Fade>
-          )
-        }
+        {status === 'paused' && (
+          <Fade
+            in
 
-        {
-          status === 'paused' && (
-            <Fade
-              in
+            add
+          >
+            <span>
+              {/* Stop */}
+              <Tooltip
+                label='Stop'
 
-              add
-            >
-              <span>
-                {/* Stop */}
-                <Tooltip
-                  label='Stop'
+                {...TooltipProps}
+              >
+                <IconButton
+                  onClick={onStop}
 
-                  {...TooltipProps}
+                  {...IconButtonProps}
                 >
-                  <IconButton
-                    onClick={onStop}
+                  <IconStop />
+                </IconButton>
+              </Tooltip>
 
-                    {...IconButtonProps}
-                  >
-                    <IconStop />
-                  </IconButton>
-                </Tooltip>
+              {/* Resume */}
+              <Tooltip
+                label='Resume'
 
-                {/* Resume */}
-                <Tooltip
-                  label='Resume'
+                {...TooltipProps}
+              >
+                <IconButton
+                  onClick={onResume}
 
-                  {...TooltipProps}
+                  {...IconButtonProps}
                 >
-                  <IconButton
-                    onClick={onResume}
-
-                    {...IconButtonProps}
-                  >
-                    <IconStart />
-                  </IconButton>
-                </Tooltip>
-              </span>
-            </Fade>
-          )
-        }
+                  <IconStart />
+                </IconButton>
+              </Tooltip>
+            </span>
+          </Fade>
+        )}
       </Line>
     </Line>
   );
