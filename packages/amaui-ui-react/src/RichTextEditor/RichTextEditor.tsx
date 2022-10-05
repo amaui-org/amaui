@@ -889,7 +889,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
     IconUndo = IconMaterialUndoRounded,
     IconRedo = IconMaterialRedoRounded,
 
-    AppendProps,
+    AppendProps: AppendProps_,
     ToolbarProps,
     ToolbarUpdatesProps,
     ToolbarActionsProps,
@@ -1277,6 +1277,12 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
   // copy, paste, cut
   // action toolbar
   const actions_ = actions && (!is('array', exclude) || includes('copy', 'paste', 'cut', 'clear', 'undo', 'redo', 'delete', 'select-all', 'save', 'print'));
+
+  const AppendProps = {
+    padding: [14, 14],
+
+    ...AppendProps_
+  };
 
   const DividerProps = {
     color: 'inherit',
