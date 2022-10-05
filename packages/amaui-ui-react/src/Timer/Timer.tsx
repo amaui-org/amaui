@@ -352,6 +352,12 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
                 >
                   <Type
                     version='b2'
+                  >
+                    {getLeadingZerosNumber(index + 1)}
+                  </Type>
+
+                  <Type
+                    version='b2'
 
                     style={{
                       opacity: '0.7'
