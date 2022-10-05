@@ -131,7 +131,11 @@ const Tree = React.forwardRef((props_: any, ref: any) => {
     noTransition,
     noExpand,
 
-    Component = 'div',
+    noPadding,
+
+    parentDisabled,
+    disabled,
+
     ExpandProps,
     TransitionComponent: TransitionComponent_ = Fade,
     TransitionComponentProps: TransitionComponentProps_ = { add: true },
@@ -141,8 +145,7 @@ const Tree = React.forwardRef((props_: any, ref: any) => {
     EndProps,
     IndicatorProps,
 
-    parentDisabled,
-    disabled,
+    Component = 'div',
 
     className,
     style,
@@ -281,7 +284,7 @@ const Tree = React.forwardRef((props_: any, ref: any) => {
     MainProps.onFocus = onFocus;
   }
 
-  if (level > 0) {
+  if (level > 0 && !noPadding) {
     styles.root.marginInlineStart = `${theme.space.unit * 2.5}px`;
   }
 
@@ -490,7 +493,7 @@ const Tree = React.forwardRef((props_: any, ref: any) => {
 
       {noExpand && children}
 
-      {children && !noExpand && (
+      {!noExpand && children && (
         <Expand
           in={open}
 

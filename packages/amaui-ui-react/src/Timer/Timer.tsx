@@ -236,19 +236,23 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
     ...IconButtonProps_
   };
 
-  const valueDuration: any = duration(value, undefined, true, undefined, ['hour', 'minute', 'second', 'millisecond']);
+  const valueFormat = (valueNew_: number) => {
+    let valueNew = '';
 
-  let value_ = status === 'initial' ? '00:00.00' : '';
+    const valueDuration: any = duration(valueNew_, undefined, true, undefined, ['hour', 'minute', 'second', 'millisecond']);
 
-  if (status !== 'initial') {
-    if (valueDuration.hour > 0) value_ += `${getLeadingZerosNumber(valueDuration.hour)}:`;
+    if (valueDuration.hour > 0) valueNew += `${getLeadingZerosNumber(valueDuration.hour)}:`;
 
-    value_ += `${getLeadingZerosNumber(valueDuration.minute || 0)}:`;
+    valueNew += `${getLeadingZerosNumber(valueDuration.minute || 0)}:`;
 
-    value_ += `${getLeadingZerosNumber(valueDuration.second || 0)}.`;
+    valueNew += `${getLeadingZerosNumber(valueDuration.second || 0)}.`;
 
-    value_ += `${getLeadingZerosNumber(Math.floor((valueDuration.millisecond || 0) / 10))}`;
-  }
+    valueNew += `${getLeadingZerosNumber(Math.floor((valueDuration.millisecond || 0) / 10))}`;
+
+    return valueNew;
+  };
+
+  const value_ = status === 'initial' ? '00:00.00' : valueFormat(value);
 
   return (
     <Line
@@ -299,63 +303,61 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
 
       {/* Flags */}
       {!!flags.length && (
-        <Line
+        <Tree
+          openDefault
+
+          middle='Flags'
+
+          indicator
+
+          indicatorPosition='end'
+
           style={{
             width: '100%'
           }}
+
+          {...TreeProps}
         >
-          <Tree
-            openDefault
+          {flags.map((item: number, index: number) => (
+            <Tree
+              key={index}
 
-            middle='Flags'
+              icon={<IconFlag size='small' />}
 
-            indicator
+              middle={(
+                <Line
+                  direction='row'
 
-            indicatorPosition='end'
+                  align='center'
 
-            {...TreeProps}
-          >
-            {flags.map((item: number, index: number) => {
-              <Tree
-                key={index}
+                  justify='center'
+                >
+                  <Type
+                    version='b2'
 
-                openDefault
-
-                icon={<IconFlag size='small' />}
-
-                middle={(
-                  <Line
-                    direction='row'
-
-                    align='center'
-
-                    justify='center'
+                    color='secondary'
                   >
-                    <Type
-                      version='b2'
+                    +{valueFormat(item - (flags[index - 1] || 0))}
+                  </Type>
 
-                      color='secondary'
-                    >
-                      a
-                    </Type>
+                  <Type
+                    version='b2'
+                  >
+                    {valueFormat(item)}
+                  </Type>
+                </Line>
+              )}
 
-                    <Type
-                      version='b2'
-                    >
-                      a1
-                    </Type>
-                  </Line>
-                )}
+              noPadding
 
-                indicator
+              indicator
 
-                indicatorPosition='end'
+              indicatorPosition='end'
 
-                {...TreeProps}
-              />
-            })}
-          </Tree>
-        </Line>
+              {...TreeProps}
+            />
+          ))}
+        </Tree>
       )}
 
       {/* Controls */}
