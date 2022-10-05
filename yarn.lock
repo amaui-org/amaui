@@ -24,6 +24,14 @@
     "@amaui/utils" "^1.0.11411"
     "@babel/runtime" "^7.18.3"
 
+"@amaui/date@^1.0.11415":
+  version "1.0.11415"
+  resolved "https://registry.yarnpkg.com/@amaui/date/-/date-1.0.11415.tgz#be2707e0ba1aff2a318965647299e98db34e41b8"
+  integrity sha512-wtfZ9IF2b05G3O+inZE6OzJzBrns81coPdQXhRI5ZDvVtCQSwkOqe7TSwH161k4xKynzvvH1zUzxn6poUvzsIQ==
+  dependencies:
+    "@amaui/utils" "^1.0.11411"
+    "@babel/runtime" "^7.18.3"
+
 "@amaui/diff@^1.0.11141":
   version "1.0.11141"
   resolved "https://registry.yarnpkg.com/@amaui/diff/-/diff-1.0.11141.tgz#1ee029920521779b5836bf011d9284345adb3ea1"

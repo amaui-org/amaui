@@ -391,7 +391,7 @@ const ScreenCapture = React.forwardRef((props_: any, ref: any) => {
   };
 
   return (
-    <Surface
+    <Line
       ref={ref}
 
       id='amaui-screen-capture'
@@ -408,7 +408,7 @@ const ScreenCapture = React.forwardRef((props_: any, ref: any) => {
 
       elevation={6}
 
-      Component={Line}
+      Component={Surface}
 
       className={classNames([
         staticClassName('ScreenCapture', theme) && [
@@ -542,7 +542,7 @@ const ScreenCapture = React.forwardRef((props_: any, ref: any) => {
           </div>
         </Portal>
       )}
-    </Surface>
+    </Line>
   );
 });
 
