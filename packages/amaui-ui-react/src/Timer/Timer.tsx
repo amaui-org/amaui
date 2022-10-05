@@ -20,6 +20,19 @@ const useStyle = style(theme => ({
     minWidth: '270px',
     padding: '16px 24px',
     borderRadius: theme.methods.shape.radius.value('rg')
+  },
+
+  value: {
+    marginTop: '8px'
+  },
+
+  flags: {
+    width: '100%',
+    paddingTop: '8px'
+  },
+
+  actions: {
+    marginTop: '8px'
   }
 }), { name: 'AmauiTimer' });
 
@@ -284,7 +297,7 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
 
       color={color}
 
-      gap={1}
+      gap={0}
 
       direction='column'
 
@@ -295,8 +308,8 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
       Component={Surface}
 
       className={classNames([
-        staticClassName('ScreenCapture', theme) && [
-          'AmauiScreenCapture-root'
+        staticClassName('Timer', theme) && [
+          'AmauiTimer-root'
         ],
 
         className,
@@ -318,6 +331,14 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
       {is('function', render) ? render(value_) : (
         <Type
           version='h1'
+
+          className={classNames([
+            staticClassName('Timer', theme) && [
+              'AmauiTimer-value'
+            ],
+
+            classes.value
+          ])}
         >
           {value_}
         </Type>
@@ -329,9 +350,13 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
 
         onExited={onExited}
 
-        style={{
-          width: '100%'
-        }}
+        className={classNames([
+          staticClassName('Timer', theme) && [
+            'AmauiTimer-flags'
+          ],
+
+          classes.flags
+        ])}
       >
         <Tree
           openDefault
@@ -411,6 +436,14 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
         align='center'
 
         justify='center'
+
+        className={classNames([
+          staticClassName('Timer', theme) && [
+            'AmauiTimer-actions'
+          ],
+
+          classes.actions
+        ])}
       >
         {status === 'initial' && (
           // Start
