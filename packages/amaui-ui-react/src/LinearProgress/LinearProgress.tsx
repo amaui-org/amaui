@@ -237,14 +237,16 @@ const useStyle = style(theme => ({
 
   buffer: {
     ...other,
-    background: theme.palette.color.neutral[theme.palette.light ? 90 : 20],
+    background: 'currentColor',
+    opacity: 0.24,
     transition: theme.methods.transitions.make('transform')
   },
 
   bufferDots: {
     ...other,
-    backgroundImage: `radial-gradient(2px 2px at center, ${theme.palette.color.neutral[theme.palette.light ? 90 : 20]} 4px, transparent 4px)`,
+    backgroundImage: `radial-gradient(2px 2px at center, currentColor 4px, transparent 4px)`,
     backgroundSize: '10px 4px',
+    opacity: 0.24,
     animation: '$bufferDots .3s infinite linear'
   },
 
@@ -283,6 +285,7 @@ const LinearProgress = React.forwardRef((props_: any, ref: any) => {
   const styles: any = {
     root: {},
     buffer: {},
+    bufferDots: {},
     line: {}
   };
 
@@ -312,7 +315,10 @@ const LinearProgress = React.forwardRef((props_: any, ref: any) => {
       values.line = clamp(value, 0, 100);
     }
 
+    styles.bufferDots.left = `${values.buffer}%`;
+
     styles.buffer.transform = `scaleX(${values.buffer / 100})`;
+
     styles.line.transform = `scaleX(${values.line / 100})`;
   }
 
@@ -351,6 +357,8 @@ const LinearProgress = React.forwardRef((props_: any, ref: any) => {
             classes.bufferDots,
             reverse && classes.bufferDots_reverse
           ])}
+
+          style={styles.bufferDots}
         />
       )}
 

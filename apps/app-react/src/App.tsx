@@ -2624,6 +2624,16 @@ Please sign in again.`}
         <Accordion primary='Countdown' open>
           <Countdown />
         </Accordion>
+
+        <Accordion primary='Countdown version' open>
+          <Line>
+            <Countdown version='regular' />
+
+            <Countdown version='linear' />
+
+            <Countdown version='round' />
+          </Line>
+        </Accordion>
       </Accordion>
 
       <Accordion primary='Timer'>

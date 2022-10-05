@@ -9,6 +9,8 @@ import Type from '../Type';
 import Tooltip from '../Tooltip';
 import Surface from '../Surface';
 import NumericTextField from '../NumericTextField';
+import RoundProgress from '../RoundProgress';
+import LinearProgress from '../LinearProgress';
 import Line from '../Line';
 import IconButton from '../IconButton';
 import Icon from '../Icon';
@@ -26,7 +28,9 @@ const useStyle = style(theme => ({
     width: '70px',
 
     '& .AmauiTextField-inputWrapper': {
-      paddingInline: '0px'
+      paddingInline: '0px',
+      paddingBlock: '11px',
+      height: 'auto'
     },
 
     '& .AmauiTextField-input': {
@@ -109,6 +113,8 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
   const { classes } = useStyle(props);
 
   const {
+    version = 'regular',
+
     tonal = true,
     color = 'primary',
 
@@ -130,6 +136,7 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
     TooltipProps: TooltipProps_,
     NumericTextFieldProps: NumericTextFieldProps_,
     IconButtonProps: IconButtonProps_,
+    LinearProgressProps: LinearProgressProps_,
     IconProps: IconProps_,
 
     Component = 'div',
@@ -190,20 +197,22 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
   };
 
   const onStart = React.useCallback(() => {
-    refs.start.current = AmauiDate.milliseconds;
-
     refs.total.current = refs.valuePaused.current = (
       ((refs.values.current.hours || 0) * (60 ** 2) * 1e3) +
       ((refs.values.current.minutes || 0) * (60 ** 1) * 1e3) +
-      ((refs.values.current.seconds || 0) * 1e3)
+      ((refs.values.current.seconds || 0) * 1e3) +
+      1000
     );
-
-    // ~60+ fps
-    refs.interval.current = setInterval(update, 14);
 
     setValue(refs.valuePaused.current);
 
     setStatus('running');
+
+    setTimeout(() => {
+      refs.start.current = AmauiDate.milliseconds;
+
+      refs.interval.current = setInterval(update, 14);
+    }, 14);
 
     if (is('function', onStart_)) onStart_();
   }, []);
@@ -269,6 +278,13 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
     decrement: false,
 
     ...NumericTextFieldProps_
+  };
+
+  const LinearProgressProps = {
+    tonal,
+    color,
+
+    ...LinearProgressProps_
   };
 
   const IconButtonProps = {
@@ -415,15 +431,27 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
       )}
 
       {/* Time */}
-      {status !== 'initial' && (
-        is('function', render) ? render(value_) : (
+      {status !== 'initial' && ['regular', 'linear'].includes(version) && <>
+        {is('function', render) ? render(value_) : (
           <Type
             version='h1'
           >
             {value_}
           </Type>
-        )
-      )}
+        )}
+
+        {version === 'linear' && (
+          <LinearProgress
+            version='determinate'
+
+            value={Math.round((((value - 1000) / 1000) / (refs.total.current / 1000)) * 100)}
+
+            reverse
+
+            {...LinearProgressProps}
+          />
+        )}
+      </>}
 
       {/* Controls */}
       <Line
@@ -460,85 +488,89 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
           </Fade>
         )}
 
-        {status === 'running' && (
-          <Fade
-            in
+        {
+          status === 'running' && (
+            <Fade
+              in
 
-            add
-          >
-            <span>
-              {/* Stop */}
-              <Tooltip
-                label='Stop'
+              add
+            >
+              <span>
+                {/* Stop */}
+                <Tooltip
+                  label='Stop'
 
-                {...TooltipProps}
-              >
-                <IconButton
-                  onClick={onStop}
-
-                  {...IconButtonProps}
+                  {...TooltipProps}
                 >
-                  <IconStop />
-                </IconButton>
-              </Tooltip>
+                  <IconButton
+                    onClick={onStop}
 
-              {/* Pause */}
-              <Tooltip
-                label='Pause'
+                    {...IconButtonProps}
+                  >
+                    <IconStop />
+                  </IconButton>
+                </Tooltip>
 
-                {...TooltipProps}
-              >
-                <IconButton
-                  onClick={onPause}
+                {/* Pause */}
+                <Tooltip
+                  label='Pause'
 
-                  {...IconButtonProps}
+                  {...TooltipProps}
                 >
-                  <IconPause />
-                </IconButton>
-              </Tooltip>
-            </span>
-          </Fade>
-        )}
+                  <IconButton
+                    onClick={onPause}
 
-        {status === 'paused' && (
-          <Fade
-            in
+                    {...IconButtonProps}
+                  >
+                    <IconPause />
+                  </IconButton>
+                </Tooltip>
+              </span>
+            </Fade>
+          )
+        }
 
-            add
-          >
-            <span>
-              {/* Stop */}
-              <Tooltip
-                label='Stop'
+        {
+          status === 'paused' && (
+            <Fade
+              in
 
-                {...TooltipProps}
-              >
-                <IconButton
-                  onClick={onStop}
+              add
+            >
+              <span>
+                {/* Stop */}
+                <Tooltip
+                  label='Stop'
 
-                  {...IconButtonProps}
+                  {...TooltipProps}
                 >
-                  <IconStop />
-                </IconButton>
-              </Tooltip>
+                  <IconButton
+                    onClick={onStop}
 
-              {/* Resume */}
-              <Tooltip
-                label='Resume'
+                    {...IconButtonProps}
+                  >
+                    <IconStop />
+                  </IconButton>
+                </Tooltip>
 
-                {...TooltipProps}
-              >
-                <IconButton
-                  onClick={onResume}
+                {/* Resume */}
+                <Tooltip
+                  label='Resume'
 
-                  {...IconButtonProps}
+                  {...TooltipProps}
                 >
-                  <IconStart />
-                </IconButton>
-              </Tooltip>
-            </span>
-          </Fade>
-        )}
+                  <IconButton
+                    onClick={onResume}
+
+                    {...IconButtonProps}
+                  >
+                    <IconStart />
+                  </IconButton>
+                </Tooltip>
+              </span>
+            </Fade>
+          )
+        }
       </Line>
     </Line>
   );
