@@ -481,7 +481,7 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
         },
         unchecked: {
           transform: sizes('unchecked', 'icon'),
-          background: tonal ? paletteColor[theme.palette.light ? 40 : 20] : theme.palette.text.default.secondary,
+          background: (['default', 'themed', 'inherit'].includes(color) && !theme.palette.light) ? theme.palette.text.default.secondary : (tonal ? paletteColor[theme.palette.light ? 40 : 20] : theme.palette.text.default.secondary),
           color: tonal ? paletteColor[theme.palette.light ? 90 : 0] : theme.palette.background.default.quaternary
         }
       }
@@ -595,13 +595,13 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
         growStart: {
           transform: sizes('grow-start', 'icon'),
           background: tonal ? paletteColor[theme.palette.light ? 40 : 20] : theme.palette.text.default.secondary,
-          color: tonal ? paletteColor[theme.palette.light ? 90 : 10] : theme.palette.background.default.quaternary,
+          color: (['default', 'themed', 'inherit'].includes(color) && !theme.palette.light) ? theme.palette.text.default.secondary : tonal ? paletteColor[theme.palette.light ? 90 : 10] : theme.palette.background.default.quaternary,
           transition: theme.methods.transitions.make('transform', { duration: 240, timing_function: 'decelerated' })
         },
         waitStart: {
           transform: sizes('grow-start', 'icon'),
           background: tonal ? paletteColor[theme.palette.light ? 40 : 20] : theme.palette.text.default.secondary,
-          color: tonal ? paletteColor[theme.palette.light ? 90 : 10] : theme.palette.background.default.quaternary
+          color: (['default', 'themed', 'inherit'].includes(color) && !theme.palette.light) ? theme.palette.text.default.secondary : tonal ? paletteColor[theme.palette.light ? 90 : 10] : theme.palette.background.default.quaternary
         },
         moveEnd: {
           ...sizes('move-end', 'icon'),

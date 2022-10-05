@@ -2744,7 +2744,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                   <Switch
                     tonal={tonal}
 
-                    color={color}
+                    color={props.color !== undefined ? props.color : 'default'}
 
                     checked={refs.inputValues.current.tableHeader}
 
