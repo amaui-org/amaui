@@ -821,6 +821,8 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
 
           const top = clamp(refs.selector.current.top + inc, 0);
 
+          if (refs.selector.current.top <= 0 && top <= 0) return;
+
           if (selectorRect.bottom - top < 0) refs.mouseDown.current.version = 'bottom';
 
           let width: number = refs.selector.current.width;
