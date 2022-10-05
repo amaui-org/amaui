@@ -229,6 +229,8 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
   };
 
   const TooltipProps = {
+    portal: true,
+
     ...TooltipProps_
   };
 
