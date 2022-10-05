@@ -8,6 +8,7 @@ import Fade from '../Fade';
 import Type from '../Type';
 import Tooltip from '../Tooltip';
 import Surface from '../Surface';
+import NumericTextField from '../NumericTextField';
 import Line from '../Line';
 import IconButton from '../IconButton';
 import Icon from '../Icon';
@@ -21,17 +22,18 @@ const useStyle = style(theme => ({
     borderRadius: theme.methods.shape.radius.value('rg')
   },
 
-  value: {
-    marginTop: '8px'
-  },
+  numericTextField: {
+    width: '70px',
 
-  flags: {
-    width: '100%',
-    paddingTop: '8px'
-  },
+    '& .AmauiTextField-inputWrapper': {
+      paddingInline: '0px'
+    },
 
-  actions: {
-    marginTop: '8px'
+    '& .AmauiTextField-input': {
+      ...theme.typography.values.t1,
+
+      textAlign: 'center'
+    }
   }
 }), { name: 'AmauiCountdown' });
 
@@ -126,6 +128,7 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
 
     TreeProps: TreeProps_,
     TooltipProps: TooltipProps_,
+    NumericTextFieldProps: NumericTextFieldProps_,
     IconButtonProps: IconButtonProps_,
     IconProps: IconProps_,
 
@@ -138,32 +141,67 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
 
   const [status, setStatus] = React.useState('initial');
   const [value, setValue] = React.useState<number>(0);
+  const [values, setValues] = React.useState<any>({
+    hours: 0,
+    minutes: 0,
+    seconds: 0
+  });
 
   const refs = {
     start: React.useRef<number>(0),
     valuePaused: React.useRef<any>(0),
     value: React.useRef<any>(),
+    total: React.useRef<any>(),
+    values: React.useRef<any>(),
     interval: React.useRef<any>()
   };
 
   refs.value.current = value;
 
+  refs.values.current = values;
+
+  const updateValues = (property: string, valueItem: any) => {
+    setValues(values_ => ({
+      ...values_,
+
+      [property]: valueItem
+    }));
+  };
+
+  const clear = () => {
+    clearInterval(refs.interval.current);
+  };
+
   React.useEffect(() => {
     return () => {
       // Clean up
-      clearInterval(refs.interval.current);
+      clear();
     };
   }, []);
 
   const update = () => {
-    setValue(refs.valuePaused.current + (AmauiDate.milliseconds - refs.start.current));
+    if (refs.value.current <= 0) {
+      setStatus('initial');
+
+      return clear();
+    }
+
+    setValue(refs.valuePaused.current - (AmauiDate.milliseconds - refs.start.current));
   };
 
   const onStart = React.useCallback(() => {
     refs.start.current = AmauiDate.milliseconds;
 
+    refs.total.current = refs.valuePaused.current = (
+      ((refs.values.current.hours || 0) * (60 ** 2) * 1e3) +
+      ((refs.values.current.minutes || 0) * (60 ** 1) * 1e3) +
+      ((refs.values.current.seconds || 0) * 1e3)
+    );
+
     // ~60+ fps
     refs.interval.current = setInterval(update, 14);
+
+    setValue(refs.valuePaused.current);
 
     setStatus('running');
 
@@ -171,7 +209,7 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
   }, []);
 
   const onPause = React.useCallback(() => {
-    clearInterval(refs.interval.current);
+    clear();
 
     // Remember previous value
     refs.valuePaused.current = refs.value.current;
@@ -182,11 +220,7 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
   }, []);
 
   const onStop = React.useCallback(() => {
-    clearInterval(refs.interval.current);
-
-    setStatus('initial');
-
-    setValue(0);
+    clear();
 
     refs.start.current = 0;
 
@@ -194,15 +228,19 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
 
     refs.value.current = 0;
 
+    setStatus('initial');
+
+    setValue(0);
+
     if (is('function', onStop_)) onStop_();
   }, []);
 
   const onResume = React.useCallback(() => {
-    // ~60+ fps
-    refs.interval.current = setInterval(update, 14);
-
     // Update start, valuePaused value
     refs.start.current = AmauiDate.milliseconds;
+
+    // ~60+ fps
+    refs.interval.current = setInterval(update, 14);
 
     setStatus('running');
 
@@ -221,11 +259,16 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
     ...TooltipProps_
   };
 
-  const TreeProps = {
+  const NumericTextFieldProps = {
     tonal,
     color: 'inherit',
+    size: 'small',
+    version: 'outlined',
 
-    ...TreeProps_
+    increment: false,
+    decrement: false,
+
+    ...NumericTextFieldProps_
   };
 
   const IconButtonProps = {
@@ -239,7 +282,7 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
   const valueFormat = (valueNew_: number) => {
     let valueNew = '';
 
-    const valueDuration: any = duration(valueNew_, undefined, true, undefined, ['hour', 'minute', 'second', 'millisecond']);
+    const valueDuration: any = duration(valueNew_, undefined, true, undefined, ['hour', 'minute', 'second']);
 
     valueNew += `${getLeadingZerosNumber(valueDuration.hour || 0)}:`;
 
@@ -260,7 +303,7 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
 
       color={color}
 
-      gap={0}
+      gap={1}
 
       direction='column'
 
@@ -290,21 +333,96 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
         />
       )}
 
-      {/* Time */}
-      {is('function', render) ? render(value_) : (
-        <Type
-          version='h1'
+      {/* Inputs */}
+      {status === 'initial' && (
+        <Line
+          gap={1}
 
-          className={classNames([
-            staticClassName('Countdown', theme) && [
-              'AmauiCountdown-value'
-            ],
+          direction='row'
 
-            classes.value
-          ])}
+          align='flex-end'
+
+          style={{
+            marginTop: 8
+          }}
         >
-          {value_}
-        </Type>
+          <NumericTextField
+            label='Hours'
+
+            min={0}
+
+            max={23}
+
+            value={values.hours}
+
+            onChange={valueNew => updateValues('hours', valueNew)}
+
+            className={classNames([
+              staticClassName('Countdown', theme) && [
+                'AmauiCountdown-numericTextField'
+              ],
+
+              classes.numericTextField
+            ])}
+
+            {...NumericTextFieldProps}
+          />
+
+          <NumericTextField
+            label='Minutes'
+
+            min={0}
+
+            max={59}
+
+            value={values.minutes}
+
+            onChange={valueNew => updateValues('minutes', valueNew)}
+
+            className={classNames([
+              staticClassName('Countdown', theme) && [
+                'AmauiCountdown-numericTextField'
+              ],
+
+              classes.numericTextField
+            ])}
+
+            {...NumericTextFieldProps}
+          />
+
+          <NumericTextField
+            label='Seconds'
+
+            min={0}
+
+            max={59}
+
+            value={values.seconds}
+
+            onChange={valueNew => updateValues('seconds', valueNew)}
+
+            className={classNames([
+              staticClassName('Countdown', theme) && [
+                'AmauiCountdown-numericTextField'
+              ],
+
+              classes.numericTextField
+            ])}
+
+            {...NumericTextFieldProps}
+          />
+        </Line>
+      )}
+
+      {/* Time */}
+      {status !== 'initial' && (
+        is('function', render) ? render(value_) : (
+          <Type
+            version='h1'
+          >
+            {value_}
+          </Type>
+        )
       )}
 
       {/* Controls */}
@@ -316,14 +434,6 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
         align='center'
 
         justify='center'
-
-        className={classNames([
-          staticClassName('Countdown', theme) && [
-            'AmauiCountdown-actions'
-          ],
-
-          classes.actions
-        ])}
       >
         {status === 'initial' && (
           <Fade

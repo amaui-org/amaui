@@ -170,10 +170,14 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
 
   refs.value.current = value;
 
+  const clear = () => {
+    clearInterval(refs.interval.current);
+  };
+
   React.useEffect(() => {
     return () => {
       // Clean up
-      clearInterval(refs.interval.current);
+      clear();
     };
   }, []);
 
@@ -201,7 +205,7 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
   }, [expand]);
 
   const onPause = React.useCallback(() => {
-    clearInterval(refs.interval.current);
+    clear();
 
     // Remember previous value
     refs.valuePaused.current = refs.value.current;
@@ -212,7 +216,7 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
   }, []);
 
   const onStop = React.useCallback(() => {
-    clearInterval(refs.interval.current);
+    clear();
 
     setStatus('initial');
 
