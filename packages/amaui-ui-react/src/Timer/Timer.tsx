@@ -353,7 +353,9 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
                   <Type
                     version='b2'
 
-                    color='secondary'
+                    style={{
+                      opacity: '0.7'
+                    }}
                   >
                     +{valueFormat(item - (flags[index - 1] || 0))}
                   </Type>
