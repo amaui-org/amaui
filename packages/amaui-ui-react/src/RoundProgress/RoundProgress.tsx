@@ -160,6 +160,8 @@ const RoundProgress = React.forwardRef((props_: any, ref: any) => {
     className,
     style,
 
+    children,
+
     ...other
   } = props;
 
@@ -251,9 +253,9 @@ const RoundProgress = React.forwardRef((props_: any, ref: any) => {
               'AmauiRoundedProgress-pathBackground'
             ],
 
+            pathBackgroundProps.className,
             classes.pathBackground,
-            classes[`path_${version}`],
-            pathBackgroundProps.className
+            classes[`path_${version}`]
           ])}
         />
 
@@ -281,6 +283,8 @@ const RoundProgress = React.forwardRef((props_: any, ref: any) => {
           {...pathProps}
         />
       </svg>
+
+      {children}
     </span>
   );
 });

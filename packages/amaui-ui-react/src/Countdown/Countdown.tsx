@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { getLeadingZerosNumber, is } from '@amaui/utils';
+import { clamp, getLeadingZerosNumber, is } from '@amaui/utils';
 import { AmauiDate, duration } from '@amaui/date';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
@@ -22,6 +22,30 @@ const useStyle = style(theme => ({
     minWidth: '270px',
     padding: '16px 24px',
     borderRadius: theme.methods.shape.radius.value('rg')
+  },
+
+  roundWrapper: {
+    position: 'relative',
+    width: '240px',
+    height: '240px'
+  },
+
+  roundProgress: {
+    '&.AmauiRoundedProgress-root': {
+      position: 'absolute',
+      inset: 0
+    },
+
+    '& .AmauiRoundedProgress-svg': {
+      width: '100%',
+      height: '100%',
+      margin: 0
+    },
+
+    '& .AmauiRoundedProgress-pathBackground': {
+      stroke: 'currentColor',
+      opacity: 0.24
+    }
   },
 
   numericTextField: {
@@ -134,6 +158,7 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
 
     TreeProps: TreeProps_,
     TooltipProps: TooltipProps_,
+    RoundProgressProps: RoundProgressProps_,
     NumericTextFieldProps: NumericTextFieldProps_,
     IconButtonProps: IconButtonProps_,
     LinearProgressProps: LinearProgressProps_,
@@ -278,6 +303,15 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
     decrement: false,
 
     ...NumericTextFieldProps_
+  };
+
+  const RoundProgressProps = {
+    tonal,
+    color,
+
+    thickness: 1,
+
+    ...RoundProgressProps_
   };
 
   const LinearProgressProps = {
@@ -444,7 +478,7 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
           <LinearProgress
             version='determinate'
 
-            value={Math.round((((value - 1000) / 1000) / (refs.total.current / 1000)) * 100)}
+            value={clamp(Math.round((((value - 1000) / 1000) / (refs.total.current / 1000)) * 100), 0, 100)}
 
             reverse
 
@@ -456,6 +490,62 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
           />
         )}
       </>}
+
+      {status !== 'initial' && ['round'].includes(version) && (
+        <Line
+          gap={0.5}
+
+          direction='column'
+
+          align='center'
+
+          justify='center'
+
+          className={classNames([
+            staticClassName('Countdown', theme) && [
+              'AmauiCountdown-roundWrapper'
+            ],
+
+            classes.roundWrapper
+          ])}
+        >
+          <RoundProgress
+            version='determinate'
+
+            value={clamp(Math.round((((value - 1000) / 1000) / (refs.total.current / 1000)) * 100), 0, 100)}
+
+            {...RoundProgressProps}
+
+            className={classNames([
+              staticClassName('Countdown', theme) && [
+                'AmauiCountdown-roundProgress'
+              ],
+
+              RoundProgressProps?.className,
+              classes.roundProgress
+            ])}
+          />
+
+          {is('function', render) ? render(value_) : (
+            <Type
+              version='h1'
+            >
+              {value_}
+            </Type>
+          )}
+
+          <Type
+            version='b3'
+
+            style={{
+              maxWidth: '114px',
+              textAlign: 'center'
+            }}
+          >
+            Total {duration(refs.total.current - 1000, false)}
+          </Type>
+        </Line>
+      )}
 
       {/* Controls */}
       <Line
