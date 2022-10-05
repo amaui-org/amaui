@@ -144,6 +144,7 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
 
   const [status, setStatus] = React.useState('initial');
   const [flags, setFlags] = React.useState([]);
+  const [expand, setExpand] = React.useState<any>();
   const [value, setValue] = React.useState<number>(0);
 
   const refs = {
@@ -178,10 +179,12 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
   }, []);
 
   const onFlag = React.useCallback(() => {
+    if (!expand) setExpand(true);
+
     setFlags(values => [...values, refs.value.current]);
 
     if (is('function', onFlag_)) onFlag_();
-  }, []);
+  }, [expand]);
 
   const onPause = React.useCallback(() => {
     clearInterval(refs.interval.current);
@@ -199,7 +202,7 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
 
     setStatus('initial');
 
-    setFlags([]);
+    setExpand(false);
 
     setValue(0);
 
@@ -222,6 +225,10 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
     setStatus('running');
 
     if (is('function', onResume_)) onResume_();
+  }, []);
+
+  const onExited = React.useCallback(() => {
+    setFlags([]);
   }, []);
 
   const IconProps = {
@@ -318,7 +325,9 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
 
       {/* Flags */}
       <Expand
-        in={!!flags.length}
+        in={expand}
+
+        onExited={onExited}
 
         style={{
           width: '100%'
