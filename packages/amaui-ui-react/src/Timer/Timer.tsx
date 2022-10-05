@@ -236,6 +236,9 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
   };
 
   const TreeProps = {
+    tonal,
+    color: 'inherit',
+
     ...TreeProps_
   };
 
@@ -342,6 +345,10 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
                   align='center'
 
                   justify='center'
+
+                  style={{
+                    marginInlineStart: '4px'
+                  }}
                 >
                   <Type
                     version='b2'
