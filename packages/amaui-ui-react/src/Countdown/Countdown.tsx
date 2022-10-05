@@ -19,7 +19,7 @@ import { staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
-    minWidth: '270px',
+    minWidth: '314px',
     padding: '16px 24px',
     borderRadius: theme.methods.shape.radius.value('rg')
   },
@@ -482,7 +482,19 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
 
           add
         >
-          <div>
+          <Line
+            gap={1}
+
+            direction='column'
+
+            align='center'
+
+            justify='center'
+
+            style={{
+              width: '100%'
+            }}
+          >
             {is('function', render) ? render(value_) : (
               <Type
                 version='h1'
@@ -506,7 +518,7 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
                 {...LinearProgressProps}
               />
             )}
-          </div>
+          </Line>
         </Fade>
       )}
 
