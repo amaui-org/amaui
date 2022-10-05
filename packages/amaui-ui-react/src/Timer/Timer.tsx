@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { getLeadingZerosNumber, is } from '@amaui/utils';
+import { AmauiDate, duration } from '@amaui/date';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Type from '../Type';
@@ -138,9 +140,80 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
     ...other
   } = props;
 
-  const [start, setStart] = React.useState(0);
   const [status, setStatus] = React.useState('initial');
   const [flags, setFlags] = React.useState([]);
+  const [value, setValue] = React.useState<number>(0);
+
+  const refs = {
+    start: React.useRef<number>(0),
+    valuePaused: React.useRef<any>(0),
+    value: React.useRef<any>(),
+    interval: React.useRef<any>()
+  };
+
+  refs.value.current = value;
+
+  const update = () => {
+    setValue(refs.valuePaused.current + (AmauiDate.milliseconds - refs.start.current));
+  };
+
+  const onStart = React.useCallback(() => {
+    refs.start.current = AmauiDate.milliseconds;
+
+    // ~60+ fps
+    refs.interval.current = setInterval(update, 14);
+
+    setStatus('running');
+
+    if (is('function', onStart_)) onStart_();
+  }, []);
+
+  const onFlag = React.useCallback(() => {
+    setFlags(values => [...values, refs.value.current]);
+
+    if (is('function', onFlag_)) onFlag_();
+  }, []);
+
+  const onPause = React.useCallback(() => {
+    clearInterval(refs.interval.current);
+
+    // Remember previous value
+    refs.valuePaused.current = refs.value.current;
+
+    setStatus('paused');
+
+    if (is('function', onPause_)) onPause_();
+  }, []);
+
+  const onStop = React.useCallback(() => {
+    clearInterval(refs.interval.current);
+
+    setStatus('initial');
+
+    setFlags([]);
+
+    setValue(0);
+
+    refs.start.current = 0;
+
+    refs.valuePaused.current = 0;
+
+    refs.value.current = 0;
+
+    if (is('function', onStop_)) onStop_();
+  }, []);
+
+  const onResume = React.useCallback(() => {
+    // ~60+ fps
+    refs.interval.current = setInterval(update, 14);
+
+    // Update start, valuePaused value
+    refs.start.current = AmauiDate.milliseconds;
+
+    setStatus('running');
+
+    if (is('function', onResume_)) onResume_();
+  }, []);
 
   const IconProps = {
 
@@ -162,6 +235,20 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
 
     ...IconButtonProps_
   };
+
+  const valueDuration: any = duration(value, undefined, true, undefined, ['hour', 'minute', 'second', 'millisecond']);
+
+  let value_ = status === 'initial' ? '00:00.00' : '';
+
+  if (status !== 'initial') {
+    if (valueDuration.hour > 0) value_ += `${getLeadingZerosNumber(valueDuration.hour)}:`;
+
+    value_ += `${getLeadingZerosNumber(valueDuration.minute || 0)}:`;
+
+    value_ += `${getLeadingZerosNumber(valueDuration.second || 0)}.`;
+
+    value_ += `${getLeadingZerosNumber(Math.floor((valueDuration.millisecond || 0) / 10))}`;
+  }
 
   return (
     <Line
@@ -202,65 +289,73 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
       )}
 
       {/* Time */}
-      <Type
-        version='h1'
-      >
-        00:00.00
-      </Type>
+      {is('function', render) ? render(value_) : (
+        <Type
+          version='h1'
+        >
+          {value_}
+        </Type>
+      )}
 
       {/* Flags */}
       {!!flags.length && (
-        <Tree
-          openDefault
-
-          middle='Flags'
-
-          indicator
-
-          indicatorPosition='end'
-
-          {...TreeProps}
+        <Line
+          style={{
+            width: '100%'
+          }}
         >
-          {flags.map((item: number, index: number) => {
-            <Tree
-              key={index}
+          <Tree
+            openDefault
 
-              openDefault
+            middle='Flags'
 
-              icon={<IconFlag size='small' />}
+            indicator
 
-              middle={(
-                <Line
-                  direction='row'
+            indicatorPosition='end'
 
-                  align='center'
+            {...TreeProps}
+          >
+            {flags.map((item: number, index: number) => {
+              <Tree
+                key={index}
 
-                  justify='center'
-                >
-                  <Type
-                    version='b2'
+                openDefault
 
-                    color='secondary'
+                icon={<IconFlag size='small' />}
+
+                middle={(
+                  <Line
+                    direction='row'
+
+                    align='center'
+
+                    justify='center'
                   >
-                    a
-                  </Type>
+                    <Type
+                      version='b2'
 
-                  <Type
-                    version='b2'
-                  >
-                    a1
-                  </Type>
-                </Line>
-              )}
+                      color='secondary'
+                    >
+                      a
+                    </Type>
 
-              indicator
+                    <Type
+                      version='b2'
+                    >
+                      a1
+                    </Type>
+                  </Line>
+                )}
 
-              indicatorPosition='end'
+                indicator
 
-              {...TreeProps}
-            />
-          })}
-        </Tree>
+                indicatorPosition='end'
+
+                {...TreeProps}
+              />
+            })}
+          </Tree>
+        </Line>
       )}
 
       {/* Controls */}
@@ -281,6 +376,8 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
             {...TooltipProps}
           >
             <IconButton
+              onClick={onStart}
+
               {...IconButtonProps}
             >
               <IconStart />
@@ -296,6 +393,8 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
             {...TooltipProps}
           >
             <IconButton
+              onClick={onFlag}
+
               {...IconButtonProps}
             >
               <IconFlag />
@@ -309,6 +408,8 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
             {...TooltipProps}
           >
             <IconButton
+              onClick={onPause}
+
               {...IconButtonProps}
             >
               <IconPause />
@@ -324,6 +425,8 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
             {...TooltipProps}
           >
             <IconButton
+              onClick={onStop}
+
               {...IconButtonProps}
             >
               <IconStop />
@@ -337,6 +440,8 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
             {...TooltipProps}
           >
             <IconButton
+              onClick={onResume}
+
               {...IconButtonProps}
             >
               <IconStart />
