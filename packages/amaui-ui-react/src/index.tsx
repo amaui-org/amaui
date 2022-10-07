@@ -367,3 +367,6 @@ export * from './Timer';
 
 export { default as Countdown } from './Countdown';
 export * from './Countdown';
+
+export { default as Drawing } from './Drawing';
+export * from './Drawing';
