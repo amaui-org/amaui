@@ -243,7 +243,7 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
       // transitions to end
       setTimeout(() => {
         setStatus('initial');
-      }, 2400);
+      }, 1400);
 
       return clear();
     }
