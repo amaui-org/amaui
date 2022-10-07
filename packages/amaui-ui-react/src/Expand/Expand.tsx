@@ -171,6 +171,8 @@ const Expand = React.forwardRef((props_: any, ref: any) => {
         return React.cloneElement(children_, {
           ...other,
 
+          className,
+
           ref: item => {
             refs.root.current = item;
 

@@ -375,7 +375,7 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
   };
 
   const value_ = status === 'initial' ? '00:00:00' : valueFormat(value);
-  console.log(1, value, refs.total.current, clamp(Math.round(((value / 1000) / (refs.total.current / 1000)) * 100), 0, 100));
+
   return (
     <Line
       ref={ref}
@@ -441,7 +441,7 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
 
               value={values.hours}
 
-              onChange={valueNew => updateValues('hours', valueNew)}
+              onChange={valueNew => updateValues('hours', !valueNew ? 0 : valueNew)}
 
               className={classNames([
                 staticClassName('Countdown', theme) && [
@@ -463,7 +463,7 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
 
               value={values.minutes}
 
-              onChange={valueNew => updateValues('minutes', valueNew)}
+              onChange={valueNew => updateValues('minutes', !valueNew ? 0 : valueNew)}
 
               className={classNames([
                 staticClassName('Countdown', theme) && [
@@ -485,7 +485,7 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
 
               value={values.seconds}
 
-              onChange={valueNew => updateValues('seconds', valueNew)}
+              onChange={valueNew => updateValues('seconds', !valueNew ? 0 : valueNew)}
 
               className={classNames([
                 staticClassName('Countdown', theme) && [
@@ -614,7 +614,7 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
                 classes.meta
               ])}
             >
-              Total {duration(refs.total.current - 1000, false)}
+              Total {duration(refs.total.current, false)}
             </Type>
           </Line>
         </Fade>
