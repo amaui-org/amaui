@@ -14,6 +14,13 @@ const useStyle = style(theme => ({
   }
 }), { name: 'AmauiDrawing' });
 
+// to do
+
+// draw
+
+// download drawing only if not mouseDown
+// and download is true value y
+
 const Drawing = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 
@@ -24,6 +31,10 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
   const {
     tonal,
     color = 'default',
+
+    download = true,
+
+    downloadType = 'image/png',
 
     viewBox = '0 0 340 140',
 
