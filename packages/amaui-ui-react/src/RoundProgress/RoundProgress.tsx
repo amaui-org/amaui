@@ -82,23 +82,23 @@ const useStyle = style(theme => ({
   color_error: { color: theme.palette.color.error.main },
 
   // Tonal
-  tonal_color_neutral: { color: theme.methods.palette.color.value('neutral', 70) },
+  tonal_color_neutral: { color: theme.methods.palette.color.value('neutral', 50) },
 
-  tonal_color_primary: { color: theme.methods.palette.color.value('primary', 70) },
+  tonal_color_primary: { color: theme.methods.palette.color.value('primary', 50) },
 
-  tonal_color_secondary: { color: theme.methods.palette.color.value('secondary', 70) },
+  tonal_color_secondary: { color: theme.methods.palette.color.value('secondary', 50) },
 
-  tonal_color_tertiary: { color: theme.methods.palette.color.value('tertiary', 70) },
+  tonal_color_tertiary: { color: theme.methods.palette.color.value('tertiary', 50) },
 
-  tonal_color_quaternary: { color: theme.methods.palette.color.value('quaternary', 70) },
+  tonal_color_quaternary: { color: theme.methods.palette.color.value('quaternary', 50) },
 
-  tonal_color_info: { color: theme.methods.palette.color.value('info', 70) },
+  tonal_color_info: { color: theme.methods.palette.color.value('info', 50) },
 
-  tonal_color_success: { color: theme.methods.palette.color.value('success', 70) },
+  tonal_color_success: { color: theme.methods.palette.color.value('success', 50) },
 
-  tonal_color_warning: { color: theme.methods.palette.color.value('warning', 70) },
+  tonal_color_warning: { color: theme.methods.palette.color.value('warning', 50) },
 
-  tonal_color_error: { color: theme.methods.palette.color.value('error', 70) },
+  tonal_color_error: { color: theme.methods.palette.color.value('error', 50) },
 
   svg: {
     width: '1em',
@@ -180,7 +180,7 @@ const RoundProgress = React.forwardRef((props_: any, ref: any) => {
     if (tonal) {
       const palette = theme.methods.color(color);
 
-      styles.root.color = theme.methods.palette.color.value(undefined, 70, true, palette);
+      styles.root.color = theme.methods.palette.color.value(undefined, 50, true, palette);
     }
   }
 

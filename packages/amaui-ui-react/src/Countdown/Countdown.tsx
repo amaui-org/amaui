@@ -30,6 +30,18 @@ const useStyle = style(theme => ({
     height: '240px'
   },
 
+  linearProgress: {
+    borderRadius: '140px',
+
+    '&.AmauiLinearProgress-root': {
+      height: '8px'
+    },
+
+    '& .AmauiLinearProgress-line, & .AmauiLinearProgress-buffer': {
+      borderRadius: '140px'
+    }
+  },
+
   roundProgress: {
     '&.AmauiRoundedProgress-root': {
       position: 'absolute',
@@ -45,6 +57,10 @@ const useStyle = style(theme => ({
     '& .AmauiRoundedProgress-pathBackground': {
       stroke: 'currentColor',
       opacity: 0.24
+    },
+
+    '& .AmauiRoundedProgress-path, & .AmauiRoundedProgress-pathBackground': {
+      strokeLinecap: 'round'
     }
   },
 
@@ -58,8 +74,13 @@ const useStyle = style(theme => ({
 
     '& .AmauiTextField-inputWrapper': {
       paddingInline: '0px',
-      paddingBlock: '11px',
+      paddingBlock: '8px',
       height: 'auto'
+    },
+
+    '&.AmauiTextField-value .AmauiTextField-label, &.AmauiTextField-focus .AmauiTextField-label': {
+      left: '60%',
+      transform: 'translate(-50%, -16px) scale(0.667)'
     },
 
     '& .AmauiTextField-input': {
@@ -230,8 +251,7 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
     refs.total.current = refs.valuePaused.current = (
       ((refs.values.current.hours || 0) * (60 ** 2) * 1e3) +
       ((refs.values.current.minutes || 0) * (60 ** 1) * 1e3) +
-      ((refs.values.current.seconds || 0) * 1e3) +
-      1000
+      ((refs.values.current.seconds || 0) * 1e3)
     );
 
     setValue(refs.valuePaused.current);
@@ -302,7 +322,7 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
     tonal,
     color: 'inherit',
     size: 'small',
-    version: 'outlined',
+    version: 'text',
 
     increment: false,
     decrement: false,
@@ -313,6 +333,8 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
   const RoundProgressProps = {
     tonal,
     color,
+
+    rounded: true,
 
     thickness: 1,
 
@@ -349,7 +371,7 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
   };
 
   const value_ = status === 'initial' ? '00:00:00' : valueFormat(value);
-
+  console.log(1, value, refs.total.current, clamp(Math.round(((value / 1000) / (refs.total.current / 1000)) * 100), 0, 100));
   return (
     <Line
       ref={ref}
@@ -507,15 +529,22 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
               <LinearProgress
                 version='determinate'
 
-                value={clamp(Math.round((((value - 1000) / 1000) / (refs.total.current / 1000)) * 100), 0, 100)}
-
-                reverse
+                value={clamp(Math.round(((value / 1000) / (refs.total.current / 1000)) * 100), 0, 100)}
 
                 style={{
                   margin: '4px 0 8px'
                 }}
 
                 {...LinearProgressProps}
+
+                className={classNames([
+                  staticClassName('Countdown', theme) && [
+                    'AmauiCountdown-linear-progress'
+                  ],
+
+                  LinearProgressProps?.className,
+                  classes.linearProgress
+                ])}
               />
             )}
           </Line>
@@ -548,13 +577,13 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
             <RoundProgress
               version='determinate'
 
-              value={clamp(Math.round((((value - 1000) / 1000) / (refs.total.current / 1000)) * 100), 0, 100)}
+              value={clamp(Math.round(((value / 1000) / (refs.total.current / 1000)) * 100), 0, 100)}
 
               {...RoundProgressProps}
 
               className={classNames([
                 staticClassName('Countdown', theme) && [
-                  'AmauiCountdown-roundProgress'
+                  'AmauiCountdown-round-progress'
                 ],
 
                 RoundProgressProps?.className,
