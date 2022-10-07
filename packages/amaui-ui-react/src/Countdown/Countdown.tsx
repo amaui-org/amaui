@@ -239,7 +239,11 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
 
   const update = () => {
     if (refs.value.current <= 0) {
-      setStatus('initial');
+      // Wait for linear, round progress
+      // transitions to end
+      setTimeout(() => {
+        setStatus('initial');
+      }, 1400);
 
       return clear();
     }
