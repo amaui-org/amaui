@@ -1178,17 +1178,9 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
 
                                 decrement={false}
 
-                                value={refs.inputValues.current.width}
+                                value={refs.inputValues.current.widthInput}
 
-                                onChange={valueNew => {
-                                  const viewBox = refs.inputValues.current.viewBox?.split(' ');
-
-                                  if (viewBox) viewBox[2] = !valueNew ? 1 : valueNew;
-
-                                  updateInputValues('viewBox', viewBox.join(' '));
-
-                                  updateInputValues('width', !valueNew ? 1 : valueNew);
-                                }}
+                                onChange={valueNew => updateInputValues('widthInput', !valueNew ? 1 : valueNew)}
                               />
 
                               ×
@@ -1210,18 +1202,52 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
 
                                 decrement={false}
 
-                                value={refs.inputValues.current.height}
+                                value={refs.inputValues.current.heightInput}
 
-                                onChange={valueNew => {
+                                onChange={valueNew => updateInputValues('heightInput', !valueNew ? 1 : valueNew)}
+                              />
+                            </Line>
+
+                            <Line
+                              gap={1}
+
+                              direction='row'
+
+                              align='center'
+
+                              justify='flex-end'
+
+                              style={{
+                                width: '100%'
+                              }}
+                            >
+                              <Button
+                                tonal={tonal}
+
+                                color='inherit'
+
+                                version='text'
+
+                                size='small'
+
+                                onClick={() => {
                                   const viewBox = refs.inputValues.current.viewBox?.split(' ');
 
-                                  if (viewBox) viewBox[3] = !valueNew ? 1 : valueNew;
+                                  if (viewBox) {
+                                    viewBox[3] = refs.inputValues.current.widthInput
+
+                                    viewBox[3] = refs.inputValues.current.heightInput
+                                  }
 
                                   updateInputValues('viewBox', viewBox.join(' '));
 
-                                  updateInputValues('height', !valueNew ? 1 : valueNew);
+                                  updateInputValues('width', refs.inputValues.current.widthInput);
+
+                                  updateInputValues('height', refs.inputValues.current.heightInput);
                                 }}
-                              />
+                              >
+                                Add
+                              </Button>
                             </Line>
                           </Line>
                         </ClickListener>
