@@ -1011,7 +1011,10 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
   React.useEffect(() => {
     const selection_ = window.getSelection();
 
-    if (selection_.anchorNode) refs.range.current = selection_.getRangeAt(0);
+    if (
+      selection_.anchorNode &&
+      !(selection_.anchorNode as any)?.className.includes('TextField')
+    ) refs.range.current = selection_.getRangeAt(0);
   }, [open]);
 
   React.useEffect(() => {
@@ -1522,8 +1525,6 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
     const {
       version,
 
-      updateRangeSelection = true,
-
       onUpdate,
       onClose,
 
@@ -1611,7 +1612,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                   color={colors[item][item_]}
 
                   onClick={() => {
-                    if (updateRangeSelection && refs.range.current) {
+                    if (refs.range.current) {
                       const selection_ = window.getSelection();
 
                       selection_.removeAllRanges();
@@ -3162,8 +3163,6 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                           onClose={() => updateOpen('drawingStrokeColor', false)}
 
                           onUpdate={(valueNew: any) => updateInputValues('drawingStrokeColor', valueNew)}
-
-                          updateRangeSelection={false}
                         />
                       </ClickListener>
                     )}
