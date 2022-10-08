@@ -3046,7 +3046,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
             includeParentQueries={['.AmauiDrawing-palette', '.AmauiDrawing-modal']}
 
-            includeQueries={['a[download]', 'svg']}
+            includeQueries={['a[download]', 'svg', 'path']}
           >
             <Line
               gap={2}
