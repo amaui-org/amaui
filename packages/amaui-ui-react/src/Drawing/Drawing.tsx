@@ -257,7 +257,9 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
   const [inputValues, setInputValues] = React.useState<any>({
     viewBox: '0 0 340 140',
     width: 340,
+    widthInput: 340,
     height: 140,
+    heightInput: 140,
     strokeWidth: 1,
     strokeColor: '#000000'
   });
@@ -1234,9 +1236,9 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
                                   const viewBox = refs.inputValues.current.viewBox?.split(' ');
 
                                   if (viewBox) {
-                                    viewBox[3] = refs.inputValues.current.widthInput
+                                    viewBox[2] = refs.inputValues.current.widthInput;
 
-                                    viewBox[3] = refs.inputValues.current.heightInput
+                                    viewBox[3] = refs.inputValues.current.heightInput;
                                   }
 
                                   updateInputValues('viewBox', viewBox.join(' '));
@@ -1244,9 +1246,11 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
                                   updateInputValues('width', refs.inputValues.current.widthInput);
 
                                   updateInputValues('height', refs.inputValues.current.heightInput);
+
+                                  updateOpen('size', false);
                                 }}
                               >
-                                Add
+                                Update
                               </Button>
                             </Line>
                           </Line>
