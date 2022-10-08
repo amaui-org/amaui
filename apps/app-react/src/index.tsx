@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 import { Snackbars, Confirm, MainProgress, Widgets, ScreenCapture, Timer, Countdown } from '@amaui/ui-react';
 import { AmauiStyle, AmauiStyleProvider, AmauiThemeProvider, valueObject, prefix, rtl, unit } from '@amaui/style-react';
 
-import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
 import IconMaterialTimerRounded from '@amaui/icons-material-react/build/IconMaterialTimerRounded';
 import IconMaterialVideocamRounded from '@amaui/icons-material-react/build/IconMaterialVideocamRounded';
 import IconMaterialAvTimerRounded from '@amaui/icons-material-react/build/IconMaterialAvTimerRounded';
@@ -34,11 +33,6 @@ const widgets = [
     label: 'Countdown',
     Icon: IconMaterialAvTimerRounded,
     element: <Countdown />
-  },
-  {
-    label: 'add',
-    Icon: IconMaterialAddRounded,
-    element: <div style={{ width: 240, height: 240, background: 'orange' }} />
   }
 ];
 
