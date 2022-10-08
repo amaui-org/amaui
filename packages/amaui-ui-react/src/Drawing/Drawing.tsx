@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is } from '@amaui/utils';
+import { elementToCanvas, is } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Fade from '../Fade';
@@ -86,7 +86,9 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
     clear = true,
     download = true,
 
+    downloadName = `amaui-drawing.png`,
     downloadType = 'image/png',
+    downloadQuality = 1,
 
     viewBox = '0 0 340 140',
 
@@ -122,12 +124,14 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
   const [move, setMove] = React.useState<any>({});
 
   const refs = {
+    root: React.useRef<any>(),
     svg: React.useRef<any>(),
     value: React.useRef<any>(),
     strokeColor: React.useRef<any>(),
     strokeWidth: React.useRef<any>(),
     mouseDown: React.useRef<any>(),
-    move: React.useRef<any>()
+    move: React.useRef<any>(),
+    download: React.useRef<any>()
   };
 
   refs.value.current = value;
@@ -135,6 +139,12 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
   refs.strokeColor.current = strokeColor;
 
   refs.strokeWidth.current = strokeWidth;
+
+  refs.download.current = {
+    name: downloadName,
+    type: downloadType,
+    quality: downloadQuality
+  };
 
   refs.mouseDown.current = mouseDown;
 
@@ -248,8 +258,17 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
     if (is('function', onClear_)) onClear_();
   }, []);
 
-  const onDownload = React.useCallback(() => {
+  const onDownload = React.useCallback(async () => {
+    const cloneRoot = refs.root.current.cloneNode(true);
+    const cloneSvg = refs.root.current.cloneNode(true);
 
+    await elementToCanvas(refs.download.current.type.includes('png') ? cloneSvg : cloneRoot, {
+      response: 'download',
+
+      filter: ['.AmauiDrawing-methods', '.AmauiDrawing-pointer'],
+
+      download: refs.download.current
+    });
 
     if (is('function', onDownload_)) onDownload_();
   }, []);
@@ -262,7 +281,11 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
 
   return (
     <Surface
-      ref={ref}
+      ref={item => {
+        if (ref) ref.current = item;
+
+        refs.root.current = item;
+      }}
 
       tonal={tonal}
 
@@ -312,6 +335,8 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
 
         {/* Pointer  */}
         <circle
+          className='AmauiDrawing-pointer'
+
           cx={move?.x}
 
           cy={move?.y}
