@@ -3044,7 +3044,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
             include={[refs.elements.drawing, refs.elements.drawingSelect, refs.elements.drawingSelect.current, refs.elements.drawingPalette, refs.elements.drawingPalette.current, refs.elements.drawingSize, refs.elements.drawingSize.current]}
 
-            includeQueries={['.AmauiDrawing-palette']}
+            includeQueries={['.AmauiDrawing-palette', '.AmauiDrawing-modal']}
           >
             <Line
               gap={2}
