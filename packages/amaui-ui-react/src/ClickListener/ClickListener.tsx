@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is } from '@amaui/utils';
+import { is, element } from '@amaui/utils';
 import { useAmauiTheme } from '@amaui/style-react';
 
 const resolve = (value: string) => value.replace(/^on/, '').toLowerCase();
@@ -16,6 +16,10 @@ const ClickListener = React.forwardRef((props_: any, ref: any) => {
 
     include = [],
 
+    // Means it will fail if it's empty
+    // as with empty array all parents are returned
+    includeQueries = ['amaui'],
+
     onClickInside,
     onClickOutside,
 
@@ -26,17 +30,23 @@ const ClickListener = React.forwardRef((props_: any, ref: any) => {
 
   const refs = {
     root: React.useRef<HTMLElement>(),
-    include: React.useRef<any>()
+    include: React.useRef<any>(),
+    includeQueries: React.useRef<any>()
   };
 
   refs.include.current = include;
 
+  refs.includeQueries.current = includeQueries;
+
   React.useEffect(() => {
     const onMethod = (event: MouseEvent) => {
       if (refs.root.current) {
+        const eventElement = element(event.target as any);
+
         if (
           refs.root.current.contains(event.target as any) ||
-          refs.include.current.map(item => item?.current || item).filter(Boolean).some(item => item.contains?.(event.target))
+          refs.include.current.map(item => item?.current || item).filter(Boolean).some(item => item.contains?.(event.target)) ||
+          !!eventElement.parents(refs.includeQueries.current).length
         ) {
           if (is('function', onClickInside)) onClickInside();
         }

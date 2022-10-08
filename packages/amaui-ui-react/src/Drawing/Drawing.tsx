@@ -653,8 +653,8 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
     return (
       <span
         className={classNames([
-          staticClassName('RichTextEditor', theme) && [
-            'AmauiRichTextEditor-palette-item'
+          staticClassName('Drawing', theme) && [
+            'AmauiDrawing-palette-item'
           ],
 
           classes.paletteItem
@@ -694,8 +694,8 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
         Component={Surface}
 
         className={classNames([
-          staticClassName('RichTextEditor', theme) && [
-            'AmauiRichTextEditor-palette'
+          staticClassName('Drawing', theme) && [
+            'AmauiDrawing-palette'
           ],
 
           classes.palette
@@ -806,8 +806,8 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
                 onChange={(event: React.ChangeEvent<any>) => updateInputValues(version, (event.target as any).value)}
 
                 className={classNames([
-                  staticClassName('RichTextEditor', theme) && [
-                    'AmauiRichTextEditor-inputColor'
+                  staticClassName('Drawing', theme) && [
+                    'AmauiDrawing-inputColor'
                   ],
 
                   classes.inputColor
@@ -816,8 +816,8 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
             )}
 
             className={classNames([
-              staticClassName('RichTextEditor', theme) && [
-                'AmauiRichTextEditor-textFieldColor'
+              staticClassName('Drawing', theme) && [
+                'AmauiDrawing-textFieldColor'
               ],
 
               classes.textFieldColor
@@ -984,8 +984,8 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
           {...ToolbarProps}
 
           className={classNames([
-            staticClassName('RichTextEditor', theme) && [
-              'AmauiRichTextEditor-toolbars'
+            staticClassName('Drawing', theme) && [
+              'AmauiDrawing-toolbars'
             ],
 
             ToolbarProps?.className,
@@ -1005,8 +1005,8 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
               {...ToolbarUpdatesProps}
 
               className={classNames([
-                staticClassName('RichTextEditor', theme) && [
-                  'AmauiRichTextEditor-toolbar'
+                staticClassName('Drawing', theme) && [
+                  'AmauiDrawing-toolbar'
                 ],
 
                 ToolbarUpdatesProps?.className,
@@ -1037,8 +1037,8 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
                       {...SelectProps}
 
                       className={classNames([
-                        staticClassName('RichTextEditor', theme) && [
-                          'AmauiRichTextEditor-select'
+                        staticClassName('Drawing', theme) && [
+                          'AmauiDrawing-select'
                         ],
 
                         SelectProps?.className,
@@ -1143,8 +1143,8 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
                             Component={Surface}
 
                             className={classNames([
-                              staticClassName('RichTextEditor', theme) && [
-                                'AmauiRichTextEditor-modal'
+                              staticClassName('Drawing', theme) && [
+                                'AmauiDrawing-modal'
                               ],
 
                               classes.modal
@@ -1258,8 +1258,8 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
               {...DividerProps}
 
               className={classNames([
-                staticClassName('RichTextEditor', theme) && [
-                  'AmauiRichTextEditor-divider'
+                staticClassName('Drawing', theme) && [
+                  'AmauiDrawing-divider'
                 ],
 
                 DividerProps?.className,
@@ -1282,8 +1282,8 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
               {...ToolbarActionsProps}
 
               className={classNames([
-                staticClassName('RichTextEditor', theme) && [
-                  'AmauiRichTextEditor-toolbar'
+                staticClassName('Drawing', theme) && [
+                  'AmauiDrawing-toolbar'
                 ],
 
                 ToolbarActionsProps?.className,
@@ -1375,8 +1375,8 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
             {...DividerProps}
 
             className={classNames([
-              staticClassName('RichTextEditor', theme) && [
-                'AmauiRichTextEditor-divider'
+              staticClassName('Drawing', theme) && [
+                'AmauiDrawing-divider'
               ],
 
               DividerProps?.className,

@@ -3043,6 +3043,8 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
             onClickOutside={() => updateOpen('drawing', false)}
 
             include={[refs.elements.drawing, refs.elements.drawingSelect, refs.elements.drawingSelect.current, refs.elements.drawingPalette, refs.elements.drawingPalette.current, refs.elements.drawingSize, refs.elements.drawingSize.current]}
+
+            includeQueries={['.AmauiDrawing-palette']}
           >
             <Line
               gap={2}
