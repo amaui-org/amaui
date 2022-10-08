@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from 'react';
+import React from 'react';
 
 import { is, parse } from '@amaui/utils';
 import { classNames, colors, style, useAmauiTheme } from '@amaui/style-react';
@@ -804,22 +804,6 @@ const IconMaterialDrawRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
-const IconMaterialPaletteRounded = React.forwardRef((props: any, ref) => {
-
-  return (
-    <Icon
-      ref={ref}
-
-      name='PaletteRounded'
-      short_name='Palette'
-
-      {...props}
-    >
-      <path d="M12 22Q9.95 22 8.125 21.212Q6.3 20.425 4.938 19.062Q3.575 17.7 2.788 15.875Q2 14.05 2 12Q2 9.925 2.812 8.1Q3.625 6.275 5.013 4.925Q6.4 3.575 8.25 2.787Q10.1 2 12.2 2Q14.2 2 15.975 2.688Q17.75 3.375 19.087 4.588Q20.425 5.8 21.212 7.463Q22 9.125 22 11.05Q22 13.925 20.25 15.462Q18.5 17 16 17H14.15Q13.925 17 13.838 17.125Q13.75 17.25 13.75 17.4Q13.75 17.7 14.125 18.262Q14.5 18.825 14.5 19.55Q14.5 20.8 13.812 21.4Q13.125 22 12 22ZM12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12ZM6.5 13Q7.15 13 7.575 12.575Q8 12.15 8 11.5Q8 10.85 7.575 10.425Q7.15 10 6.5 10Q5.85 10 5.425 10.425Q5 10.85 5 11.5Q5 12.15 5.425 12.575Q5.85 13 6.5 13ZM9.5 9Q10.15 9 10.575 8.575Q11 8.15 11 7.5Q11 6.85 10.575 6.425Q10.15 6 9.5 6Q8.85 6 8.425 6.425Q8 6.85 8 7.5Q8 8.15 8.425 8.575Q8.85 9 9.5 9ZM14.5 9Q15.15 9 15.575 8.575Q16 8.15 16 7.5Q16 6.85 15.575 6.425Q15.15 6 14.5 6Q13.85 6 13.425 6.425Q13 6.85 13 7.5Q13 8.15 13.425 8.575Q13.85 9 14.5 9ZM17.5 13Q18.15 13 18.575 12.575Q19 12.15 19 11.5Q19 10.85 18.575 10.425Q18.15 10 17.5 10Q16.85 10 16.425 10.425Q16 10.85 16 11.5Q16 12.15 16.425 12.575Q16.85 13 17.5 13ZM12 20Q12.225 20 12.363 19.875Q12.5 19.75 12.5 19.55Q12.5 19.2 12.125 18.725Q11.75 18.25 11.75 17.3Q11.75 16.25 12.475 15.625Q13.2 15 14.25 15H16Q17.65 15 18.825 14.037Q20 13.075 20 11.05Q20 8.025 17.688 6.012Q15.375 4 12.2 4Q8.8 4 6.4 6.325Q4 8.65 4 12Q4 15.325 6.338 17.663Q8.675 20 12 20Z" />
-    </Icon>
-  );
-});
-
 const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 
@@ -908,7 +892,6 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
     IconTable = IconMaterialTableRounded,
     IconCode = IconMaterialCodeRounded,
     IconDrawing = IconMaterialDrawRounded,
-    IconDrawingStrokeColor = IconMaterialPaletteRounded,
 
     // Action
     IconCopy = IconMaterialContentCopyRounded,
@@ -949,10 +932,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
     ...other
   } = props;
 
-  const [inputValues, setInputValues] = React.useState<any>({
-    drawingWidth: 300,
-    drawingHeight: 140
-  });
+  const [inputValues, setInputValues] = React.useState<any>({});
   const [open, setOpen] = React.useState<any>({});
   const [selected, setSelected] = React.useState<any[]>([]);
   const [selection, setSelection] = React.useState<DOMRect>();
@@ -987,9 +967,9 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
       table: React.useRef<any>(),
       drawing: React.useRef<any>(),
       drawingSvg: React.useRef<any>(),
+      drawingSize: React.useRef<any>(),
+      drawingSelect: React.useRef<any>(),
       drawingPalette: React.useRef<any>(),
-      drawingStrokeColor: React.useRef<any>(),
-      drawingStrokeWidth: React.useRef<any>(),
       code: React.useRef<any>()
     }
   };
@@ -1670,7 +1650,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
                 value={refs.inputValues.current[version]}
 
-                onChange={(event: ChangeEvent) => updateInputValues(version, (event.target as any).value)}
+                onChange={(event: React.ChangeEvent<any>) => updateInputValues(version, (event.target as any).value)}
 
                 className={classNames([
                   staticClassName('RichTextEditor', theme) && [
@@ -1841,89 +1821,6 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
     { label: <Type version='h3'>Heading 3</Type>, value: 'h3' },
     { label: <Type version='t1'>Heading 4</Type>, value: 'h4' },
     { label: <Type version='t2'>Heading 5</Type>, value: 'h5' }
-  ];
-
-  const drawing_stroke_width = [
-    {
-      label: (
-        <Line
-          direction='row'
-
-          align='center'
-        >
-          <div
-            style={{
-              width: 14,
-              height: 1,
-              background: theme.palette.text.default.primary
-            }}
-          />
-
-          <Type version='b2'>1</Type>
-        </Line>
-      ),
-      value: 1
-    },
-    {
-      label: (
-        <Line
-          direction='row'
-
-          align='center'
-        >
-          <div
-            style={{
-              width: 14,
-              height: 2,
-              background: theme.palette.text.default.primary
-            }}
-          />
-
-          <Type version='b2'>2</Type>
-        </Line>
-      ),
-      value: 2
-    },
-    {
-      label: (
-        <Line
-          direction='row'
-
-          align='center'
-        >
-          <div
-            style={{
-              width: 14,
-              height: 4,
-              background: theme.palette.text.default.primary
-            }}
-          />
-
-          <Type version='b2'>4</Type>
-        </Line>
-      ),
-      value: 4
-    },
-    {
-      label: (
-        <Line
-          direction='row'
-
-          align='center'
-        >
-          <div
-            style={{
-              width: 14,
-              height: 8,
-              background: theme.palette.text.default.primary
-            }}
-          />
-
-          <Type version='b2'>8</Type>
-        </Line>
-      ),
-      value: 8
-    }
   ];
 
   const queryValueUpdate = () => {
@@ -3145,7 +3042,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
           <ClickListener
             onClickOutside={() => updateOpen('drawing', false)}
 
-            include={[refs.elements.drawing, refs.elements.drawingPalette, refs.elements.drawingPalette.current, refs.elements.drawingStrokeWidth, refs.elements.drawingStrokeWidth.current]}
+            include={[refs.elements.drawing, refs.elements.drawingSelect, refs.elements.drawingSelect.current, refs.elements.drawingPalette, refs.elements.drawingPalette.current, refs.elements.drawingSize, refs.elements.drawingSize.current]}
           >
             <Line
               gap={2}
@@ -3164,189 +3061,34 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                 classes.palette
               ])}
             >
-              <Line
-                gap={1}
+              <Drawing
+                tonal={tonal}
 
-                direction='row'
+                color={refs.props.current.color !== undefined ? refs.props.current.color : 'themed'}
 
-                align='center'
+                version={version}
 
-                justify='center'
-              >
-                <NumericTextField
-                  label='Width'
+                svgRef={refs.elements.drawingSvg}
 
-                  tonal={tonal}
-
-                  color={color}
-
-                  size='small'
-
-                  version='outlined'
-
-                  increment={false}
-
-                  decrement={false}
-
-                  value={refs.inputValues.current.drawingWidth}
-
-                  onChange={valueNew => updateInputValues('drawingWidth', valueNew)}
-                />
-
-                ×
-
-                <NumericTextField
-                  label='Height'
-
-                  tonal={tonal}
-
-                  color={color}
-
-                  size='small'
-
-                  version='outlined'
-
-                  increment={false}
-
-                  decrement={false}
-
-                  value={refs.inputValues.current.drawingHeight}
-
-                  onChange={valueNew => updateInputValues('drawingHeight', valueNew)}
-                />
-              </Line>
-
-              <Line
-                gap={1}
-
-                direction='row'
-
-                align='center'
-
-                justify='flex-start'
-
-                style={{
-                  width: '100%'
+                SizeProps={{
+                  ref: refs.elements.drawingSize
                 }}
-              >
-                {/* Stroke color */}
-                <ToggleButtons
-                  {...ToggleButtonsProps}
-                >
-                  <WrapperAppend
-                    open={refs.open.current.drawingStrokeColor}
 
-                    anchorElement={refs.elements.drawingStrokeColor.current}
-
-                    element={(
-                      <ClickListener
-                        onClickOutside={() => updateOpen('drawingStrokeColor', false)}
-
-                        include={[refs.elements.drawingStrokeColor.current]}
-                      >
-                        <Palette
-                          ref={refs.elements.drawingPalette}
-
-                          onClose={() => updateOpen('drawingStrokeColor', false)}
-
-                          onUpdate={(valueNew: any) => updateInputValues('drawingStrokeColor', valueNew)}
-                        />
-                      </ClickListener>
-                    )}
-                  >
-                    <WrapperToggleButton
-                      label='Stroke Color'
-
-                      open={refs.open.current.drawingStrokeColor ? false : undefined}
-                    >
-                      {is('function', render) ? render('drawing-stroke-color', ToggleButtonProps, refs.value.current, method) : (
-                        <ToggleButton
-                          ref={refs.elements.drawingStrokeColor}
-
-                          {...ToggleButtonProps}
-
-                          selected={refs.open.current.drawingStrokeColor}
-
-                          onClick={() => updateOpen('drawingStrokeColor', !refs.open.current.drawingStrokeColor)}
-                        >
-                          <IconDrawingStrokeColor {...IconProps} />
-                        </ToggleButton>
-                      )}
-                    </WrapperToggleButton>
-                  </WrapperAppend>
-                </ToggleButtons>
-
-                {/* Stroke width */}
-                <Select
-                  label='Stroke Width'
-
-                  valueDefault={drawing_stroke_width.find(item => String(item.value).includes('1')).value}
-
-                  value={inputValues['strokeWidth']}
-
-                  onChange={(valueNew: string) => updateInputValues('strokeWidth', valueNew)}
-
-                  onMouseUp={onMouseUp}
-
-                  onMouseDown={onMouseDown}
-
-                  {...SelectProps}
-
-                  MenuProps={{
+                SelectProps={{
+                  MenuProps: {
                     ListProps: {
-                      ref: refs.elements.drawingStrokeWidth
+                      ref: refs.elements.drawingSelect
                     },
 
                     ...SelectProps?.MenuProps
-                  }}
+                  }
+                }}
 
-                  className={classNames([
-                    staticClassName('RichTextEditor', theme) && [
-                      'AmauiRichTextEditor-select'
-                    ],
-
-                    SelectProps?.className,
-                    classes.select
-                  ])}
-
-                  style={{
-                    minWidth: '90px'
-                  }}
-                >
-                  {drawing_stroke_width.map(item => (
-                    <ListItem
-                      key={item.value}
-
-                      primary={item.label}
-
-                      value={item.value}
-
-                      button
-
-                      {...ListItemProps}
-                    />
-                  ))}
-                </Select>
-              </Line>
-
-              <Drawing
-                svgRef={refs.elements.drawingSvg}
-
-                viewBox={`0 0 ${inputValues.drawingWidth} ${inputValues.drawingHeight}`}
-
-                strokeColor={refs.inputValues.current.drawingStrokeColor}
-
-                strokeWidth={refs.inputValues.current.strokeWidth}
+                PaletteProps={{
+                  ref: refs.elements.drawingPalette
+                }}
 
                 {...DrawingProps}
-
-                style={{
-                  margin: '0 auto',
-                  width: inputValues.drawingWidth,
-                  height: inputValues.drawingHeight,
-
-                  ...DrawingProps?.style
-                }}
               />
 
               <Line
@@ -3400,11 +3142,6 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                     method('html')(valueNew);
 
                     updateOpen('drawing', false);
-
-                    updateInputValues('svgWidth', '300');
-                    updateInputValues('svgHeight', '140');
-                    updateInputValues('drawingStrokeColor', '');
-                    updateInputValues('drawingStrokeWidth', 1);
                   }}
                 >
                   Add
@@ -3755,7 +3492,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
                   justify='flex-start'
                 >
-                  {includes('copy', 'cut', 'paste') && (
+                  {includes('copy', 'cut', 'paste', 'delete') && (
                     <ToggleButtons
                       {...ToggleButtonsProps}
                     >
