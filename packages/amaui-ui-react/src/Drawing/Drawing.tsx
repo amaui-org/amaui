@@ -147,6 +147,12 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
 
   refs.move.current = move;
 
+  const updateValue = (valueNew: any) => {
+    if (!props.hasOwnProperty('value')) setValue(valueNew);
+
+    if (is('function', onChange)) onChange(valueNew);
+  };
+
   React.useEffect(() => {
     const onMouseUp = () => {
       if (refs.mouseDown.current) setMouseDown(false);
@@ -197,7 +203,7 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
           if (!(x === 0 && y === 0)) {
             previous.d += ` ${x},${y}`;
 
-            setValue([...refs.value.current]);
+            updateValue([...refs.value.current]);
           }
         }
       }
@@ -236,8 +242,8 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
     setMove({ x, y });
 
     // Create new value path
-    setValue((values: any[]) => [
-      ...(values || []),
+    updateValue([
+      ...(refs.value.current || []),
 
       {
         d: `M ${x},${y} l 1,1`,
@@ -250,7 +256,7 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
   }, []);
 
   const onClear = React.useCallback(() => {
-    setValue([]);
+    updateValue([]);
 
     if (is('function', onClear_)) onClear_();
   }, []);
@@ -325,7 +331,11 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
       {...other}
     >
       <svg
-        ref={refs.svg}
+        ref={item => {
+          if (svgRef) svgRef.current = item;
+
+          refs.svg.current = item;
+        }}
 
         viewBox={viewBox}
 

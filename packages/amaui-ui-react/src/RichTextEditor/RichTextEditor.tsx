@@ -16,6 +16,7 @@ import ToggleButtons from '../ToggleButtons';
 import ToggleButton from '../ToggleButton';
 import ClickListener from '../ClickListener';
 import TextField from '../TextField';
+import Drawing from '../Drawing';
 import Button from '../Button';
 import Surface from '../Surface';
 import Divider from '../Divider';
@@ -126,6 +127,12 @@ const useStyle = style(theme => ({
         fontWeight: 500,
         borderBottom: `1px solid ${theme.palette.light ? theme.palette.color.neutral[50] : theme.palette.color.neutral[50]}`
       }
+    },
+
+    '& .AmauiDrawing-svg': {
+      display: 'block',
+      margin: '16px auto',
+      background: theme.palette.color.neutral[100]
     }
   },
 
@@ -781,9 +788,37 @@ const IconMaterialTableRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
-// to do
+const IconMaterialDrawRounded = React.forwardRef((props: any, ref) => {
 
-// Optional, selection menu, with specific options within it, with some custom default values or render method for the element, with updateMethod as an argument
+  return (
+    <Icon
+      ref={ref}
+
+      name='DrawRounded'
+      short_name='Draw'
+
+      {...props}
+    >
+      <path d="M14 21Q13.575 21 13.288 20.712Q13 20.425 13 20Q13 19.575 13.288 19.288Q13.575 19 14 19Q15.175 19 16.087 18.538Q17 18.075 17 17.5Q17 17.15 16.675 16.85Q16.35 16.55 15.775 16.3L17.25 14.825Q18.05 15.3 18.525 15.95Q19 16.6 19 17.5Q19 19.15 17.425 20.075Q15.85 21 14 21ZM4.575 13.35Q3.85 12.925 3.425 12.362Q3 11.8 3 11Q3 9.95 3.775 9.237Q4.55 8.525 6.55 7.65Q8.125 6.925 8.562 6.637Q9 6.35 9 6Q9 5.6 8.512 5.3Q8.025 5 7 5Q6.375 5 5.95 5.15Q5.525 5.3 5.175 5.65Q4.9 5.925 4.5 5.975Q4.1 6.025 3.775 5.75Q3.45 5.5 3.4 5.1Q3.35 4.7 3.625 4.375Q4.1 3.8 4.988 3.4Q5.875 3 7 3Q8.8 3 9.9 3.812Q11 4.625 11 6Q11 6.975 10.275 7.75Q9.55 8.525 7.35 9.475Q5.9 10.1 5.45 10.4Q5 10.7 5 11Q5 11.225 5.287 11.438Q5.575 11.65 6.075 11.85ZM18.85 10.4 14.6 6.15 15.65 5.1Q16.25 4.5 17.087 4.5Q17.925 4.5 18.5 5.1L19.9 6.5Q20.5 7.075 20.5 7.912Q20.5 8.75 19.9 9.35ZM6 19H7.4L14.6 11.8L13.2 10.4L6 17.6ZM4.5 21Q4.3 21 4.15 20.85Q4 20.7 4 20.5V16.95Q4 16.9 4.15 16.6L13.2 7.55L17.45 11.8L8.4 20.85Q8.35 20.9 8.05 21ZM13.2 10.4 14.6 11.8Z" />
+    </Icon>
+  );
+});
+
+const IconMaterialPaletteRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='PaletteRounded'
+      short_name='Palette'
+
+      {...props}
+    >
+      <path d="M12 22Q9.95 22 8.125 21.212Q6.3 20.425 4.938 19.062Q3.575 17.7 2.788 15.875Q2 14.05 2 12Q2 9.925 2.812 8.1Q3.625 6.275 5.013 4.925Q6.4 3.575 8.25 2.787Q10.1 2 12.2 2Q14.2 2 15.975 2.688Q17.75 3.375 19.087 4.588Q20.425 5.8 21.212 7.463Q22 9.125 22 11.05Q22 13.925 20.25 15.462Q18.5 17 16 17H14.15Q13.925 17 13.838 17.125Q13.75 17.25 13.75 17.4Q13.75 17.7 14.125 18.262Q14.5 18.825 14.5 19.55Q14.5 20.8 13.812 21.4Q13.125 22 12 22ZM12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12ZM6.5 13Q7.15 13 7.575 12.575Q8 12.15 8 11.5Q8 10.85 7.575 10.425Q7.15 10 6.5 10Q5.85 10 5.425 10.425Q5 10.85 5 11.5Q5 12.15 5.425 12.575Q5.85 13 6.5 13ZM9.5 9Q10.15 9 10.575 8.575Q11 8.15 11 7.5Q11 6.85 10.575 6.425Q10.15 6 9.5 6Q8.85 6 8.425 6.425Q8 6.85 8 7.5Q8 8.15 8.425 8.575Q8.85 9 9.5 9ZM14.5 9Q15.15 9 15.575 8.575Q16 8.15 16 7.5Q16 6.85 15.575 6.425Q15.15 6 14.5 6Q13.85 6 13.425 6.425Q13 6.85 13 7.5Q13 8.15 13.425 8.575Q13.85 9 14.5 9ZM17.5 13Q18.15 13 18.575 12.575Q19 12.15 19 11.5Q19 10.85 18.575 10.425Q18.15 10 17.5 10Q16.85 10 16.425 10.425Q16 10.85 16 11.5Q16 12.15 16.425 12.575Q16.85 13 17.5 13ZM12 20Q12.225 20 12.363 19.875Q12.5 19.75 12.5 19.55Q12.5 19.2 12.125 18.725Q11.75 18.25 11.75 17.3Q11.75 16.25 12.475 15.625Q13.2 15 14.25 15H16Q17.65 15 18.825 14.037Q20 13.075 20 11.05Q20 8.025 17.688 6.012Q15.375 4 12.2 4Q8.8 4 6.4 6.325Q4 8.65 4 12Q4 15.325 6.338 17.663Q8.675 20 12 20Z" />
+    </Icon>
+  );
+});
 
 const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
@@ -872,6 +907,8 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
     IconVideoYoutube = IconMaterialPlayArrowRounded,
     IconTable = IconMaterialTableRounded,
     IconCode = IconMaterialCodeRounded,
+    IconDrawing = IconMaterialDrawRounded,
+    IconDrawingStrokeColor = IconMaterialPaletteRounded,
 
     // Action
     IconCopy = IconMaterialContentCopyRounded,
@@ -900,6 +937,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
     ListItemProps: ListItemProps_,
     TooltipProps: TooltipProps_,
     MiniMenuProps: MiniMenuProps_,
+    DrawingProps,
     IconProps: IconProps_,
 
     Component = 'div',
@@ -911,7 +949,10 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
     ...other
   } = props;
 
-  const [inputValues, setInputValues] = React.useState<any>({});
+  const [inputValues, setInputValues] = React.useState<any>({
+    drawingWidth: 300,
+    drawingHeight: 140
+  });
   const [open, setOpen] = React.useState<any>({});
   const [selected, setSelected] = React.useState<any[]>([]);
   const [selection, setSelection] = React.useState<DOMRect>();
@@ -933,12 +974,6 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
       linkAdd: React.useRef<any>(),
       linkAddInput: React.useRef<any>(),
       linkRemove: React.useRef<any>(),
-      quote: React.useRef<any>(),
-      image: React.useRef<any>(),
-      video: React.useRef<any>(),
-      videoYoutube: React.useRef<any>(),
-      table: React.useRef<any>(),
-      code: React.useRef<any>()
     },
     elements: {
       color: React.useRef<any>(),
@@ -950,6 +985,10 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
       video: React.useRef<any>(),
       videoYoutube: React.useRef<any>(),
       table: React.useRef<any>(),
+      drawing: React.useRef<any>(),
+      drawingSvg: React.useRef<any>(),
+      drawingPalette: React.useRef<any>(),
+      drawingStrokeColor: React.useRef<any>(),
       code: React.useRef<any>()
     }
   };
@@ -1270,7 +1309,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
   // italic, underline, bold
   // updates toolbar
-  const updateOptions = ['font-family', 'font-version', 'font-size', 'font-color', 'font-background', 'italic', 'underline', 'bold', 'strike-line', 'align-left', 'align-center', 'align-right', 'align-justify', 'superscript', 'subscript', 'indent', 'outdent', 'list-ordered', 'list-unordered', 'horizontal-rule', 'link-add', 'link-remove', 'quote', 'image', 'video', 'video-youtube', 'table', 'code'];
+  const updateOptions = ['font-family', 'font-version', 'font-size', 'font-color', 'font-background', 'italic', 'underline', 'bold', 'strike-line', 'align-left', 'align-center', 'align-right', 'align-justify', 'superscript', 'subscript', 'indent', 'outdent', 'list-ordered', 'list-unordered', 'horizontal-rule', 'link-add', 'link-remove', 'quote', 'image', 'video', 'video-youtube', 'table', 'drawing', 'code'];
 
   const updates_ = updates && (!is('array', exclude) || includes(...updateOptions));
 
@@ -1483,6 +1522,8 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
     const {
       version,
 
+      updateRangeSelection = true,
+
       onUpdate,
       onClose,
 
@@ -1570,7 +1611,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                   color={colors[item][item_]}
 
                   onClick={() => {
-                    if (refs.range.current) {
+                    if (updateRangeSelection && refs.range.current) {
                       const selection_ = window.getSelection();
 
                       selection_.removeAllRanges();
@@ -3006,6 +3047,258 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
         </WrapperToggleButton>
       </WrapperAppend>
     ),
+    'drawing': (
+      <WrapperAppend
+        open={refs.open.current.drawing}
+
+        anchorElement={refs.elements.drawing.current}
+
+        element={(
+          <ClickListener
+            onClickOutside={() => { console.log(123); updateOpen('drawing', false) }}
+
+            include={[refs.elements.drawing, refs.elements.drawingPalette, refs.elements.drawingPalette.current]}
+          >
+            <Line
+              gap={1}
+
+              tonal={tonal}
+
+              color={refs.props.current.color !== undefined ? refs.props.current.color : 'themed'}
+
+              Component={Surface}
+
+              className={classNames([
+                staticClassName('RichTextEditor', theme) && [
+                  'AmauiRichTextEditor-palette'
+                ],
+
+                classes.palette
+              ])}
+            >
+              <Line
+                gap={1}
+
+                direction='row'
+
+                align='center'
+
+                justify='center'
+              >
+                <NumericTextField
+                  label='Width'
+
+                  tonal={tonal}
+
+                  color={color}
+
+                  size='small'
+
+                  version='outlined'
+
+                  increment={false}
+
+                  decrement={false}
+
+                  value={refs.inputValues.current.drawingWidth}
+
+                  onChange={valueNew => updateInputValues('drawingWidth', valueNew)}
+                />
+
+                ×
+
+                <NumericTextField
+                  label='Height'
+
+                  tonal={tonal}
+
+                  color={color}
+
+                  size='small'
+
+                  version='outlined'
+
+                  increment={false}
+
+                  decrement={false}
+
+                  value={refs.inputValues.current.drawingHeight}
+
+                  onChange={valueNew => updateInputValues('drawingHeight', valueNew)}
+                />
+              </Line>
+
+              <Line
+                gap={1}
+
+                direction='row'
+
+                align='center'
+
+                justify='space-between'
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                {/* Stroke color */}
+                <ToggleButtons
+                  {...ToggleButtonsProps}
+                >
+                  <WrapperAppend
+                    open={refs.open.current.drawingStrokeColor}
+
+                    anchorElement={refs.elements.drawingStrokeColor.current}
+
+                    element={(
+                      <ClickListener
+                        onClickOutside={() => updateOpen('drawingStrokeColor', false)}
+
+                        include={[refs.elements.drawingStrokeColor.current]}
+                      >
+                        <Palette
+                          ref={refs.elements.drawingPalette}
+
+                          onClose={() => updateOpen('drawingStrokeColor', false)}
+
+                          onUpdate={(valueNew: any) => updateInputValues('drawingStrokeColor', valueNew)}
+
+                          updateRangeSelection={false}
+                        />
+                      </ClickListener>
+                    )}
+                  >
+                    <WrapperToggleButton
+                      label='Stroke Color'
+
+                      open={refs.open.current.drawingStrokeColor ? false : undefined}
+                    >
+                      {is('function', render) ? render('drawing-stroke-color', ToggleButtonProps, refs.value.current, method) : (
+                        <ToggleButton
+                          ref={refs.elements.drawingStrokeColor}
+
+                          {...ToggleButtonProps}
+
+                          selected={refs.open.current.drawingStrokeColor}
+
+                          onClick={() => updateOpen('drawingStrokeColor', !refs.open.current.drawingStrokeColor)}
+                        >
+                          <IconDrawingStrokeColor {...IconProps} />
+                        </ToggleButton>
+                      )}
+                    </WrapperToggleButton>
+                  </WrapperAppend>
+                </ToggleButtons>
+
+                {/* Stroke width */}
+              </Line>
+
+              <Drawing
+                svgRef={refs.elements.drawingSvg}
+
+                viewBox={`0 0 ${inputValues.drawingWidth} ${inputValues.drawingHeight}`}
+
+                strokeColor={refs.inputValues.current.drawingStrokeColor}
+
+                strokeWidth={refs.inputValues.current.strokeWidth}
+
+                {...DrawingProps}
+
+                style={{
+                  margin: '0 auto',
+                  width: inputValues.drawingWidth,
+                  height: inputValues.drawingHeight,
+
+                  ...DrawingProps?.style
+                }}
+              />
+
+              <Line
+                gap={1}
+
+                direction='row'
+
+                align='center'
+
+                justify='flex-end'
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                <Button
+                  tonal={tonal}
+
+                  color='inherit'
+
+                  version='text'
+
+                  size='small'
+
+                  onClick={() => {
+                    if (refs.range.current) {
+                      const selection_ = window.getSelection();
+
+                      selection_.removeAllRanges();
+                      selection_.addRange(refs.range.current);
+                    }
+
+                    // Get svg html element
+                    // clone it, remove circle
+                    // and add it as outer html
+                    // to the rich text editor
+                    const svg = refs.elements.drawingSvg.current;
+
+                    const svgClone = svg.cloneNode(true);
+
+                    svgClone.style.width = refs.inputValues.current.drawingWidth;
+
+                    svgClone.style.height = refs.inputValues.current.drawingHeight;
+
+                    const pointers = Array.from(svgClone.querySelectorAll('.AmauiDrawing-pointer')) as Array<HTMLElement>;
+
+                    pointers.forEach(pointer => pointer.remove());
+
+                    const valueNew = svgClone.outerHTML;
+
+                    method('html')(valueNew);
+
+                    updateOpen('drawing', false);
+
+                    updateInputValues('svgWidth', '300');
+                    updateInputValues('svgHeight', '140');
+                    updateInputValues('drawingStrokeColor', '');
+                    updateInputValues('drawingStrokeWidth', 1);
+                  }}
+                >
+                  Add
+                </Button>
+              </Line>
+            </Line>
+          </ClickListener>
+        )}
+      >
+        <WrapperToggleButton
+          label='Insert Drawing'
+
+          open={refs.open.current.drawing ? false : undefined}
+        >
+          {is('function', render) ? render('drawing', ToggleButtonProps, refs.value.current, method) : (
+            <ToggleButton
+              ref={refs.elements.drawing}
+
+              {...ToggleButtonProps}
+
+              selected={refs.open.current.drawing}
+
+              onClick={() => updateOpen('drawing', !refs.open.current.drawing)}
+            >
+              <IconDrawing {...IconProps} />
+            </ToggleButton>
+          )}
+        </WrapperToggleButton>
+      </WrapperAppend>
+    ),
     'code': (
       <WrapperAppend
         open={refs.open.current.code}
@@ -3246,7 +3539,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                 </ToggleButtons>
               )}
 
-              {includes('quote', 'image', 'video', 'video-youtube', 'table', 'code') && (
+              {includes('quote', 'image', 'video', 'video-youtube', 'table', 'drawing', 'code') && (
                 <ToggleButtons
                   {...ToggleButtonsProps}
                 >
@@ -3259,6 +3552,8 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                   {includes('video') && updateElements['video']}
 
                   {includes('video-youtube') && updateElements['video-youtube']}
+
+                  {includes('drawing') && updateElements['drawing']}
 
                   {includes('code') && updateElements['code']}
                 </ToggleButtons>

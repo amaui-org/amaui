@@ -1101,6 +1101,8 @@ function App() {
             width: '100%'
           }}
         >
+          <Drawing />
+
           <Countdown />
 
           <Timer />
@@ -2712,7 +2714,7 @@ Libero et sagittis. Phasellus egestas consequat dolor a scelerisque. Duis at var
           />
         </Accordion>
 
-        <Accordion primary='AmauiTheme' open>
+        <Accordion primary='AmauiTheme'>
           <div className={classNames([classes.column])}>
             <RichTextEditor
               value={`<p>
