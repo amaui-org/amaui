@@ -2632,11 +2632,11 @@ Please sign in again.`}
           <Drawing />
         </Accordion>
 
-        <Accordion primary='Drawing strokeColor' >
+        <Accordion primary='Drawing strokeColor'>
           <Drawing strokeColor={theme.palette.color?.secondary?.main} />
         </Accordion>
 
-        <Accordion primary='Drawing strokeWidth' >
+        <Accordion primary='Drawing strokeWidth'>
           <Drawing strokeWidth={4} strokeColor={theme.palette.color?.warning?.main} />
         </Accordion>
       </Accordion>

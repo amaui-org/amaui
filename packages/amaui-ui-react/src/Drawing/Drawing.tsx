@@ -10,6 +10,7 @@ import Line from '../Line';
 import Icon from '../Icon';
 
 import { staticClassName } from '../utils';
+import Tooltip from '../Tooltip';
 
 const useStyle = style(theme => ({
   root: {
@@ -64,13 +65,6 @@ const IconMaterialDownloadRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
-// to do
-
-// download drawing only if not mouseDown
-// and download is true value y
-
-// make an svg clone and remove the pointer
-
 const Drawing = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 
@@ -86,8 +80,8 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
     clear = true,
     download = true,
 
-    downloadName = `amaui-drawing.png`,
-    downloadType = 'image/png',
+    downloadName = `amaui-drawing.jpeg`,
+    downloadType = 'image/jpeg',
     downloadQuality = 1,
 
     viewBox = '0 0 340 140',
@@ -110,6 +104,7 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
     IconDownload = IconMaterialDownloadRounded,
 
     IconProps,
+    TooltipProps,
     IconButtonProps,
 
     Component = 'div',
@@ -259,8 +254,8 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
   }, []);
 
   const onDownload = React.useCallback(async () => {
-    const cloneRoot = refs.root.current.cloneNode(true);
-    const cloneSvg = refs.root.current.cloneNode(true);
+    const cloneRoot = refs.root.current;
+    const cloneSvg = refs.svg.current;
 
     await elementToCanvas(refs.download.current.type.includes('png') ? cloneSvg : cloneRoot, {
       response: 'download',
@@ -376,39 +371,51 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
             ])}
           >
             {clear && (
-              <IconButton
-                tonal={tonal}
+              <Tooltip
+                label='Clear'
 
-                color={color}
-
-                version='text'
-
-                size='small'
-
-                onClick={onClear}
-
-                {...IconButtonProps}
+                {...TooltipProps}
               >
-                <IconClear />
-              </IconButton>
+                <IconButton
+                  tonal={tonal}
+
+                  color={color}
+
+                  version='text'
+
+                  size='small'
+
+                  onClick={onClear}
+
+                  {...IconButtonProps}
+                >
+                  <IconClear />
+                </IconButton>
+              </Tooltip>
             )}
 
             {download && (
-              <IconButton
-                tonal={tonal}
+              <Tooltip
+                label='Download'
 
-                color={color}
-
-                version='text'
-
-                size='small'
-
-                onClick={onDownload}
-
-                {...IconButtonProps}
+                {...TooltipProps}
               >
-                <IconDownload />
-              </IconButton>
+                <IconButton
+                  tonal={tonal}
+
+                  color={color}
+
+                  version='text'
+
+                  size='small'
+
+                  onClick={onDownload}
+
+                  {...IconButtonProps}
+                >
+                  <IconDownload />
+                </IconButton>
+              </Tooltip>
             )}
           </Line>
         </Fade>
