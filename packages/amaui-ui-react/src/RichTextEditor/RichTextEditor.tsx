@@ -989,6 +989,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
       drawingSvg: React.useRef<any>(),
       drawingPalette: React.useRef<any>(),
       drawingStrokeColor: React.useRef<any>(),
+      drawingStrokeWidth: React.useRef<any>(),
       code: React.useRef<any>()
     }
   };
@@ -1013,7 +1014,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
     if (
       selection_.anchorNode &&
-      !(selection_.anchorNode as any)?.className.includes('TextField')
+      !(selection_.anchorNode as any)?.className?.includes('TextField')
     ) refs.range.current = selection_.getRangeAt(0);
   }, [open]);
 
@@ -1483,7 +1484,10 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
   const onMouseDown = React.useCallback(() => {
     const selection_ = window.getSelection();
 
-    if (selection_.anchorNode) refs.range.current = selection_.getRangeAt(0);
+    if (
+      selection_.anchorNode &&
+      !(selection_.anchorNode as any)?.className?.includes('TextField')
+    ) refs.range.current = selection_.getRangeAt(0);
   }, []);
 
   const onMouseUp = React.useCallback(() => {
@@ -1837,6 +1841,89 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
     { label: <Type version='h3'>Heading 3</Type>, value: 'h3' },
     { label: <Type version='t1'>Heading 4</Type>, value: 'h4' },
     { label: <Type version='t2'>Heading 5</Type>, value: 'h5' }
+  ];
+
+  const drawing_stroke_width = [
+    {
+      label: (
+        <Line
+          direction='row'
+
+          align='center'
+        >
+          <div
+            style={{
+              width: 14,
+              height: 1,
+              background: theme.palette.text.default.primary
+            }}
+          />
+
+          <Type version='b2'>1</Type>
+        </Line>
+      ),
+      value: 1
+    },
+    {
+      label: (
+        <Line
+          direction='row'
+
+          align='center'
+        >
+          <div
+            style={{
+              width: 14,
+              height: 2,
+              background: theme.palette.text.default.primary
+            }}
+          />
+
+          <Type version='b2'>2</Type>
+        </Line>
+      ),
+      value: 2
+    },
+    {
+      label: (
+        <Line
+          direction='row'
+
+          align='center'
+        >
+          <div
+            style={{
+              width: 14,
+              height: 4,
+              background: theme.palette.text.default.primary
+            }}
+          />
+
+          <Type version='b2'>4</Type>
+        </Line>
+      ),
+      value: 4
+    },
+    {
+      label: (
+        <Line
+          direction='row'
+
+          align='center'
+        >
+          <div
+            style={{
+              width: 14,
+              height: 8,
+              background: theme.palette.text.default.primary
+            }}
+          />
+
+          <Type version='b2'>8</Type>
+        </Line>
+      ),
+      value: 8
+    }
   ];
 
   const queryValueUpdate = () => {
@@ -3056,12 +3143,12 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
         element={(
           <ClickListener
-            onClickOutside={() => { console.log(123); updateOpen('drawing', false) }}
+            onClickOutside={() => updateOpen('drawing', false)}
 
-            include={[refs.elements.drawing, refs.elements.drawingPalette, refs.elements.drawingPalette.current]}
+            include={[refs.elements.drawing, refs.elements.drawingPalette, refs.elements.drawingPalette.current, refs.elements.drawingStrokeWidth, refs.elements.drawingStrokeWidth.current]}
           >
             <Line
-              gap={1}
+              gap={2}
 
               tonal={tonal}
 
@@ -3136,7 +3223,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
                 align='center'
 
-                justify='space-between'
+                justify='flex-start'
 
                 style={{
                   width: '100%'
@@ -3190,6 +3277,56 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                 </ToggleButtons>
 
                 {/* Stroke width */}
+                <Select
+                  label='Stroke Width'
+
+                  valueDefault={drawing_stroke_width.find(item => String(item.value).includes('1')).value}
+
+                  value={inputValues['strokeWidth']}
+
+                  onChange={(valueNew: string) => updateInputValues('strokeWidth', valueNew)}
+
+                  onMouseUp={onMouseUp}
+
+                  onMouseDown={onMouseDown}
+
+                  {...SelectProps}
+
+                  MenuProps={{
+                    ListProps: {
+                      ref: refs.elements.drawingStrokeWidth
+                    },
+
+                    ...SelectProps?.MenuProps
+                  }}
+
+                  className={classNames([
+                    staticClassName('RichTextEditor', theme) && [
+                      'AmauiRichTextEditor-select'
+                    ],
+
+                    SelectProps?.className,
+                    classes.select
+                  ])}
+
+                  style={{
+                    minWidth: '90px'
+                  }}
+                >
+                  {drawing_stroke_width.map(item => (
+                    <ListItem
+                      key={item.value}
+
+                      primary={item.label}
+
+                      value={item.value}
+
+                      button
+
+                      {...ListItemProps}
+                    />
+                  ))}
+                </Select>
               </Line>
 
               <Drawing
