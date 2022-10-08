@@ -3,6 +3,8 @@ import React from 'react';
 import { is, element } from '@amaui/utils';
 import { useAmauiTheme } from '@amaui/style-react';
 
+import { matches } from '../utils';
+
 const resolve = (value: string) => value.replace(/^on/, '').toLowerCase();
 
 const ClickListener = React.forwardRef((props_: any, ref: any) => {
@@ -16,9 +18,9 @@ const ClickListener = React.forwardRef((props_: any, ref: any) => {
 
     include = [],
 
-    // Means it will fail if it's empty
-    // as with empty array all parents are returned
-    includeQueries = ['amaui'],
+    includeParentQueries = [],
+
+    includeQueries = [],
 
     onClickInside,
     onClickOutside,
@@ -31,22 +33,28 @@ const ClickListener = React.forwardRef((props_: any, ref: any) => {
   const refs = {
     root: React.useRef<HTMLElement>(),
     include: React.useRef<any>(),
-    includeQueries: React.useRef<any>()
+    includeQueries: React.useRef<any>(),
+    includeParentQueries: React.useRef<any>()
   };
 
   refs.include.current = include;
 
   refs.includeQueries.current = includeQueries;
 
+  refs.includeParentQueries.current = includeParentQueries;
+
   React.useEffect(() => {
     const onMethod = (event: MouseEvent) => {
       if (refs.root.current) {
-        const eventElement = element(event.target as any);
+        const elementParents = element(event.target as any).parents();
 
         if (
-          refs.root.current.contains(event.target as any) ||
-          refs.include.current.map(item => item?.current || item).filter(Boolean).some(item => item.contains?.(event.target)) ||
-          !!eventElement.parents(refs.includeQueries.current).length
+          (
+            refs.root.current.contains(event.target as any) ||
+            refs.include.current.map(item => item?.current || item).filter(Boolean).some(item => item.contains?.(event.target)) ||
+            refs.includeParentQueries.current.some((query: string) => elementParents.some(item => matches(item)(query))) ||
+            refs.includeQueries.current.some((query: string) => matches(event.target)(query))
+          )
         ) {
           if (is('function', onClickInside)) onClickInside();
         }

@@ -24,7 +24,7 @@ export const iconSizeToFontSize = (value: string | number) => {
 };
 
 // Media query value or value
-export const valueBreakpoints = (item: any, value_: any, breakpoints: any, theme: any) => {
+export const valueBreakpoints = (item: any, value: any, breakpoints: any, theme: any) => {
   // Simple
   if (is('simple', item) && item !== undefined) return item;
 
@@ -38,15 +38,15 @@ export const valueBreakpoints = (item: any, value_: any, breakpoints: any, theme
   }
 
   // Value
-  if (is('object', value_)) {
+  if (is('object', value)) {
     for (const breakpoint of theme.breakpoints.keys) {
-      if (breakpoints[breakpoint] && value_?.[breakpoint] !== undefined) return value_[breakpoint];
+      if (breakpoints[breakpoint] && value?.[breakpoint] !== undefined) return value[breakpoint];
     }
 
-    if (value_?.default !== undefined) return value_?.default;
+    if (value?.default !== undefined) return value?.default;
   }
 
-  return value_;
+  return value;
 };
 
 export const image = (uri: string): Promise<HTMLImageElement> => new Promise((resolve, reject) => {
@@ -205,4 +205,12 @@ export const save = (element: HTMLElement) => {
   clone.body.append(elementClone);
 
   download(`${window.document.title}.html`, clone.documentElement.innerHTML, 'text/html');
+};
+
+export const matches = (value: any) => {
+  const method = is('element', value) && (value.matches || value['webkitMatchesSelector'] || value['mozMatchesSelector'] || value['oMatchesSelector'] || value['msMatchesSelector']);
+
+  if (!method) return () => false;
+
+  return method.bind(value);
 };
