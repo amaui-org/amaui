@@ -29,7 +29,8 @@ const useStyle = style(theme => ({
   },
 
   svg: {
-    cursor: 'none'
+    cursor: 'none',
+    touchAction: 'none'
   }
 }), { name: 'AmauiDrawing' });
 
@@ -117,6 +118,7 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
   const [value, setValue] = React.useState((valueDefault !== undefined ? valueDefault : value_) || []);
   const [mouseDown, setMouseDown] = React.useState(false);
   const [move, setMove] = React.useState<any>({});
+  const [loading, setLoading] = React.useState(false);
 
   const refs = {
     root: React.useRef<any>(),
@@ -254,27 +256,37 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
   }, []);
 
   const onDownload = React.useCallback(async () => {
-    const cloneRoot = refs.root.current.cloneNode(true);
+    const root = refs.root.current;
+
+    const rect = root.getBoundingClientRect();
 
     // Clean up
-    cloneRoot.style.outline = 'none';
+    const rootClone = root.cloneNode(true);
 
-    const cloneSvg = refs.svg.current.cloneNode(true);
+    rootClone.style.outline = 'none';
 
-    const wrapperSvg = window.document.createElement('span');
-
-    wrapperSvg.append(cloneSvg);
+    if (refs.download.current.type?.includes('png')) {
+      rootClone.style.background = 'transparent';
+    }
 
     try {
-      await elementToCanvas(refs.download.current.type?.includes('png') ? wrapperSvg : cloneRoot, {
+      setLoading(true);
+
+      await elementToCanvas(rootClone, {
         response: 'download',
 
         filter: ['.AmauiDrawing-methods', '.AmauiDrawing-pointer', '.AmauiTooltip-root'],
 
-        download: refs.download.current
+        download: refs.download.current,
+
+        width: rect.width,
+
+        height: rect.height
       });
     }
     catch (error) { }
+
+    setLoading(false);
 
     if (is('function', onDownload_)) onDownload_();
   }, []);
@@ -419,6 +431,8 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
                   version='text'
 
                   size='small'
+
+                  loading={loading}
 
                   onClick={onDownload}
 
