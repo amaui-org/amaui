@@ -5,12 +5,12 @@ import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Fade from '../Fade';
 import Surface from '../Surface';
+import Tooltip from '../Tooltip';
 import IconButton from '../IconButton';
 import Line from '../Line';
 import Icon from '../Icon';
 
 import { staticClassName } from '../utils';
-import Tooltip from '../Tooltip';
 
 const useStyle = style(theme => ({
   root: {
@@ -80,8 +80,8 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
     clear = true,
     download = true,
 
-    downloadName = `amaui-drawing.jpeg`,
-    downloadType = 'image/jpeg',
+    downloadName = `amaui-drawing.png`,
+    downloadType = 'image/png',
     downloadQuality = 1,
 
     viewBox = '0 0 340 140',
@@ -254,16 +254,27 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
   }, []);
 
   const onDownload = React.useCallback(async () => {
-    const cloneRoot = refs.root.current;
-    const cloneSvg = refs.svg.current;
+    const cloneRoot = refs.root.current.cloneNode(true);
 
-    await elementToCanvas(refs.download.current.type.includes('png') ? cloneSvg : cloneRoot, {
-      response: 'download',
+    // Clean up
+    cloneRoot.style.outline = 'none';
 
-      filter: ['.AmauiDrawing-methods', '.AmauiDrawing-pointer'],
+    const cloneSvg = refs.svg.current.cloneNode(true);
 
-      download: refs.download.current
-    });
+    const wrapperSvg = window.document.createElement('span');
+
+    wrapperSvg.append(cloneSvg);
+
+    try {
+      await elementToCanvas(refs.download.current.type?.includes('png') ? wrapperSvg : cloneRoot, {
+        response: 'download',
+
+        filter: ['.AmauiDrawing-methods', '.AmauiDrawing-pointer', '.AmauiTooltip-root'],
+
+        download: refs.download.current
+      });
+    }
+    catch (error) { }
 
     if (is('function', onDownload_)) onDownload_();
   }, []);

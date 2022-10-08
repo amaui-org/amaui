@@ -2639,6 +2639,14 @@ Please sign in again.`}
         <Accordion primary='Drawing strokeWidth'>
           <Drawing strokeWidth={4} strokeColor={theme.palette.color?.warning?.main} />
         </Accordion>
+
+        <Accordion primary='Drawing download'>
+          <Line>
+            <Drawing downloadType='image/png' downloadName='amaui-drawing.png' />
+
+            <Drawing downloadType='image/jpeg' downloadName='amaui-drawing.jpeg' />
+          </Line>
+        </Accordion>
       </Accordion>
 
       <Accordion primary='Countdown'>
