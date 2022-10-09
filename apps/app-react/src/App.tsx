@@ -2689,20 +2689,20 @@ Please sign in again.`}
 
       <Accordion primary='Weather'>
         <Accordion primary='Weather' open>
-          <Weather />
+          <Weather temperature='14°' weather='sunny' />
         </Accordion>
 
         <Accordion primary='Weather color' open>
-          <Weather color='secondary' />
+          <Weather temperature='14°' weather='sunny' color='secondary' />
         </Accordion>
 
         <Accordion primary='Weather size' open>
           <Line>
-            <Weather size='small' />
+            <Weather temperature='14°' weather='sunny' size='small' />
 
-            <Weather size='regular' />
+            <Weather temperature='14°' weather='sunny' size='regular' />
 
-            <Weather size='large' />
+            <Weather temperature='14°' weather='sunny' size='large' />
           </Line>
         </Accordion>
       </Accordion>

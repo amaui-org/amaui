@@ -4,6 +4,7 @@ import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Surface from '../Surface';
 import Type from '../Type';
+import Fade from '../Fade';
 
 import { staticClassName } from '../utils';
 
@@ -20,7 +21,8 @@ const useStyle = style(theme => ({
 
   text: {
     position: 'absolute',
-    textAlign: 'center'
+    textAlign: 'center',
+    lineHeight: '1'
   },
 
   text_regular: {
@@ -136,6 +138,9 @@ const Weather = React.forwardRef((props_: any, ref: any) => {
 
     shadow,
 
+    temperature: temperature_,
+    weather: weather_,
+
     Component = 'div',
 
     className,
@@ -144,13 +149,31 @@ const Weather = React.forwardRef((props_: any, ref: any) => {
     ...other
   } = props;
 
+  const [temperature, setTemperature] = React.useState(temperature_ !== undefined ? temperature_ : '');
+  const [weather, setWeather] = React.useState(weather_ !== undefined ? weather_ : '');
+
+  const refs = {
+    temperature: React.useRef<any>(),
+    weather: React.useRef<any>()
+  };
+
+  refs.temperature.current = temperature;
+
+  refs.weather.current = weather;
+
   const styles: any = {
     root: {}
   };
 
-  if (!['small', 'regular', 'large'].includes(size)) styles.root.fontSize = size;
+  React.useEffect(() => {
+    if (temperature_ !== undefined && temperature_ !== refs.temperature.current) setTemperature(temperature_);
+  }, [temperature_]);
 
-  let value = '41°';
+  React.useEffect(() => {
+    if (weather_ !== undefined && weather_ !== refs.weather.current) setWeather(weather_);
+  }, [weather_]);
+
+  if (!['small', 'regular', 'large'].includes(size)) styles.root.fontSize = size;
 
   return (
     <Surface
@@ -199,20 +222,24 @@ const Weather = React.forwardRef((props_: any, ref: any) => {
         ])}
       />
 
-      <Type
-        version='d1'
-
-        className={classNames([
-          staticClassName('Weather', theme) && [
-            'AmauiWeather-text'
-          ],
-
-          classes.text,
-          classes[`text_${value.length === 3 ? 'regular' : 'large'}`]
-        ])}
+      <Fade
+        in={temperature}
       >
-        {value}
-      </Type>
+        <Type
+          version='d1'
+
+          className={classNames([
+            staticClassName('Weather', theme) && [
+              'AmauiWeather-text'
+            ],
+
+            classes.text,
+            classes[`text_${temperature.length === 3 ? 'regular' : 'large'}`]
+          ])}
+        >
+          {temperature}
+        </Type>
+      </Fade>
     </Surface>
   );
 });
