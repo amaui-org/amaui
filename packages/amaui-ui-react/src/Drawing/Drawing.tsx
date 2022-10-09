@@ -1136,7 +1136,7 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
                           include={[refs.elements.size]}
                         >
                           <Line
-                            gap={2}
+                            gap={1}
 
                             tonal={tonal}
 
