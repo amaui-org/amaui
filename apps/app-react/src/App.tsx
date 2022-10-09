@@ -2691,6 +2691,20 @@ Please sign in again.`}
         <Accordion primary='Weather' open>
           <Weather />
         </Accordion>
+
+        <Accordion primary='Weather color' open>
+          <Weather color='secondary' />
+        </Accordion>
+
+        <Accordion primary='Weather size' open>
+          <Line>
+            <Weather size='small' />
+
+            <Weather size='regular' />
+
+            <Weather size='large' />
+          </Line>
+        </Accordion>
       </Accordion>
 
       <Accordion primary='Parallax'>

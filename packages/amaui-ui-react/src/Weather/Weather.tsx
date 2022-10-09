@@ -3,6 +3,7 @@ import React from 'react';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Surface from '../Surface';
+import Type from '../Type';
 
 import { staticClassName } from '../utils';
 
@@ -17,8 +18,34 @@ const useStyle = style(theme => ({
     }
   },
 
-  icon: {
+  text: {
+    position: 'absolute',
+    textAlign: 'center'
+  },
 
+  text_regular: {
+    top: '24%',
+    width: '100%',
+    paddingLeft: '30%',
+    paddingRight: '11%',
+    fontSize: '34%'
+  },
+
+  text_large: {
+    top: '24%',
+    width: '100%',
+    paddingLeft: '27%',
+    paddingRight: '11%',
+    fontSize: '30%'
+  },
+
+  icon: {
+    width: '100%',
+    height: 'auto'
+  },
+
+  icon_shadow: {
+    filter: `drop-shadow(0px 6px 10px rgb(0 0 0 / 7%)) drop-shadow(0px 1px 18px rgb(0 0 0 / 4%)) drop-shadow(0px 3px 5px rgb(0 0 0 / 10%))`
   },
 
   size_small: {
@@ -79,11 +106,10 @@ const IconWeather = React.forwardRef((props: any, ref: any) => {
 
 // to do
 
-// shape
+// text
+// text size in width as a percentage % value y
 
-// color
-
-// make regular, small and large and custom sizes
+// icon
 
 // Text for degrese
 
@@ -108,6 +134,8 @@ const Weather = React.forwardRef((props_: any, ref: any) => {
 
     size = 'regular',
 
+    shadow,
+
     Component = 'div',
 
     className,
@@ -121,6 +149,8 @@ const Weather = React.forwardRef((props_: any, ref: any) => {
   };
 
   if (!['small', 'regular', 'large'].includes(size)) styles.root.fontSize = size;
+
+  let value = '41°';
 
   return (
     <Surface
@@ -137,7 +167,8 @@ const Weather = React.forwardRef((props_: any, ref: any) => {
       className={classNames([
         staticClassName('Weather', theme) && [
           'AmauiWeather-root',
-          `AmauiWeather-size-${size}`
+          `AmauiWeather-size-${size}`,
+          shadow && `AmauiWeather-shadow`
         ],
 
         className,
@@ -163,9 +194,25 @@ const Weather = React.forwardRef((props_: any, ref: any) => {
             'AmauiWeather-icon'
           ],
 
-          classes.icon
+          classes.icon,
+          shadow && classes.icon_shadow
         ])}
       />
+
+      <Type
+        version='d1'
+
+        className={classNames([
+          staticClassName('Weather', theme) && [
+            'AmauiWeather-text'
+          ],
+
+          classes.text,
+          classes[`text_${value.length === 3 ? 'regular' : 'large'}`]
+        ])}
+      >
+        {value}
+      </Type>
     </Surface>
   );
 });

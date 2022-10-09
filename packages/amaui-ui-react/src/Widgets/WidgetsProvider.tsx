@@ -333,7 +333,15 @@ const WidgetsProvider = React.forwardRef((props_: any, ref: any) => {
                           ],
 
                           classes.widget
-                        ])
+                        ]),
+
+                        ...(((item.element.type?.displayName === 'AmauiWeather')) ? {
+                          shadow: true,
+
+                          style: {
+                            boxShadow: 'none'
+                          }
+                        } : undefined)
                       })}
                     </div>
                   )}

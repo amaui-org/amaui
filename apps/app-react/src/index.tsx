@@ -1,11 +1,12 @@
 import ReactDOM from 'react-dom/client';
 
-import { Snackbars, Confirm, MainProgress, Widgets, ScreenCapture, Timer, Countdown } from '@amaui/ui-react';
+import { Snackbars, Confirm, MainProgress, Widgets, ScreenCapture, Timer, Countdown, Weather } from '@amaui/ui-react';
 import { AmauiStyle, AmauiStyleProvider, AmauiThemeProvider, valueObject, prefix, rtl, unit } from '@amaui/style-react';
 
 import IconMaterialTimerRounded from '@amaui/icons-material-react/build/IconMaterialTimerRounded';
 import IconMaterialVideocamRounded from '@amaui/icons-material-react/build/IconMaterialVideocamRounded';
 import IconMaterialAvTimerRounded from '@amaui/icons-material-react/build/IconMaterialAvTimerRounded';
+import IconMaterialWeatherRounded from '@amaui/icons-material-react/build/IconMaterialClearDayRounded';
 
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -19,6 +20,11 @@ const amauiStyle = new AmauiStyle();
 amauiStyle.plugins.add = [unit, prefix, rtl, valueObject];
 
 const widgets = [
+  {
+    label: 'Weather',
+    Icon: IconMaterialWeatherRounded,
+    element: <Weather />
+  },
   {
     label: 'Screen Capture',
     Icon: IconMaterialVideocamRounded,
