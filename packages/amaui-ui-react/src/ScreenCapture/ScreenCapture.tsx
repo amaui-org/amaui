@@ -17,13 +17,13 @@ import { staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
-    padding: '8px 24px 12px',
+    padding: '16px 32px 20px',
     borderRadius: theme.methods.shape.radius.value('rg')
   },
 
   imageWrapper: {
-    position: 'fixed',
     inset: 0,
+    position: 'fixed',
     zIndex: theme.z_index.modal + 11
   }
 }), { name: 'AmauiScreenCapture' });
@@ -405,8 +405,6 @@ const ScreenCapture = React.forwardRef((props_: any, ref: any) => {
       direction='column'
 
       align='center'
-
-      elevation={6}
 
       Component={Surface}
 

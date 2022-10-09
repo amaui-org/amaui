@@ -34,7 +34,7 @@ const useStyle = style(theme => ({
     borderRadius: '140px',
 
     '&.AmauiLinearProgress-root': {
-      height: '8px'
+      height: '6px'
     },
 
     '& .AmauiLinearProgress-line, & .AmauiLinearProgress-buffer': {
@@ -390,8 +390,6 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
 
       align='center'
 
-      elevation={6}
-
       Component={Surface}
 
       className={classNames([
@@ -429,7 +427,7 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
             align='flex-end'
 
             style={{
-              marginTop: 8
+              marginTop: 12
             }}
           >
             <NumericTextField

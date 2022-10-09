@@ -7,11 +7,11 @@ import SpeedDial from '../SpeedDial';
 import SpeedDialItem from '../SpeedDialItem';
 import WidgetsContext from './WidgetsContext';
 import Transition, { TTransitionStatus } from '../Transition';
-import Icon from '../Icon';
+import IconButton from '../IconButton';
 import Line from '../Line';
+import Icon from '../Icon';
 
 import { staticClassName } from '../utils';
-import IconButton from '../IconButton';
 
 export interface IWidgetsProvider {
   open: (value?: string) => void;
@@ -43,6 +43,10 @@ const useStyle = style(theme => ({
 
   position_bottom: {
     bottom: '24px'
+  },
+
+  widget: {
+    boxShadow: theme.shadows.values.default[6]
   },
 
   item: {
@@ -278,59 +282,64 @@ const WidgetsProvider = React.forwardRef((props_: any, ref: any) => {
               classes.line
             ])}
           >
-            {
-              widgets
-                .map((item: any, index: number) => {
-                  const valueItem = item.value !== undefined ? item.value : item.label;
+            {widgets.map((item: any, index: number) => {
+              const valueItem = item.value !== undefined ? item.value : item.label;
 
-                  return (
-                    <Transition
-                      key={index}
+              return (
+                <Transition
+                  key={index}
 
-                      in={openItems.includes(valueItem)}
+                  in={openItems.includes(valueItem)}
 
-                      removeOnExited
+                  removeOnExited
+                >
+                  {(status: TTransitionStatus) => (
+                    <div
+                      className={classNames([
+                        staticClassName('Widgets', theme) && [
+                          `AmauiWidgets-item`
+                        ],
+
+                        classes.item,
+                        status
+                      ])}
                     >
-                      {(status: TTransitionStatus) => (
-                        <div
-                          className={classNames([
-                            staticClassName('Widgets', theme) && [
-                              `AmauiWidgets-item`
-                            ],
+                      <IconButton
+                        onClick={() => close(valueItem)}
 
-                            classes.item,
-                            status
-                          ])}
-                        >
-                          <IconButton
-                            onClick={() => close(valueItem)}
+                        color='default'
 
-                            color='default'
+                        version='filled'
 
-                            version='filled'
+                        size='small'
 
-                            size='small'
+                        elevation={false}
 
-                            elevation={false}
+                        className={classNames([
+                          staticClassName('Widgets', theme) && [
+                            `AmauiWidgets-iconButton`
+                          ],
 
-                            className={classNames([
-                              staticClassName('Widgets', theme) && [
-                                `AmauiWidgets-iconButton`
-                              ],
+                          classes.iconButton
+                        ])}
+                      >
+                        <IconCloseItem />
+                      </IconButton>
 
-                              classes.iconButton
-                            ])}
-                          >
-                            <IconCloseItem />
-                          </IconButton>
+                      {React.cloneElement(item.element, {
+                        className: classNames([
+                          staticClassName('Widgets', theme) && [
+                            `AmauiWidgets-widget`
+                          ],
 
-                          {item.element}
-                        </div>
-                      )}
-                    </Transition>
-                  );
-                })
-            }
+                          classes.widget
+                        ])
+                      })}
+                    </div>
+                  )}
+                </Transition>
+              );
+            })}
           </Line>
         </Line>
       </>}

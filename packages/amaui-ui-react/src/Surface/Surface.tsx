@@ -474,7 +474,7 @@ const useStyle = style(theme => ({
     outlineColor: theme.methods.palette.color.value('error', 10)
   },
 
-  // Outlined without background
+  // Outlined without backgroundColor
   'version_outlined-without-background': {
     outlineWidth: '1px',
     outlineStyle: 'solid',
@@ -640,52 +640,52 @@ const useStyle = style(theme => ({
 
   elevation_1: {
     boxShadow: theme.palette.light ? theme.shadows.values.neutral[1] : undefined,
-    backgroundImage: !theme.palette.light ? 'linear-gradient(rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.04))' : undefined,
+    backgroundColorImage: !theme.palette.light ? 'linear-gradient(rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.04))' : undefined,
   },
 
   elevation_2: {
     boxShadow: theme.palette.light ? theme.shadows.values.neutral[2] : undefined,
-    backgroundImage: !theme.palette.light ? 'linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05))' : undefined,
+    backgroundColorImage: !theme.palette.light ? 'linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05))' : undefined,
   },
 
   elevation_3: {
     boxShadow: theme.palette.light ? theme.shadows.values.neutral[3] : undefined,
-    backgroundImage: !theme.palette.light ? 'linear-gradient(rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.07))' : undefined,
+    backgroundColorImage: !theme.palette.light ? 'linear-gradient(rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.07))' : undefined,
   },
 
   elevation_4: {
     boxShadow: theme.palette.light ? theme.shadows.values.neutral[4] : undefined,
-    backgroundImage: !theme.palette.light ? 'linear-gradient(rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.08))' : undefined,
+    backgroundColorImage: !theme.palette.light ? 'linear-gradient(rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.08))' : undefined,
   },
 
   elevation_6: {
     boxShadow: theme.palette.light ? theme.shadows.values.neutral[6] : undefined,
-    backgroundImage: !theme.palette.light ? 'linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1))' : undefined,
+    backgroundColorImage: !theme.palette.light ? 'linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1))' : undefined,
   },
 
   elevation_8: {
     boxShadow: theme.palette.light ? theme.shadows.values.neutral[8] : undefined,
-    backgroundImage: !theme.palette.light ? 'linear-gradient(rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.12))' : undefined,
+    backgroundColorImage: !theme.palette.light ? 'linear-gradient(rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.12))' : undefined,
   },
 
   elevation_9: {
     boxShadow: theme.palette.light ? theme.shadows.values.neutral[9] : undefined,
-    backgroundImage: !theme.palette.light ? 'linear-gradient(rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.13))' : undefined,
+    backgroundColorImage: !theme.palette.light ? 'linear-gradient(rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.13))' : undefined,
   },
 
   elevation_12: {
     boxShadow: theme.palette.light ? theme.shadows.values.neutral[12] : undefined,
-    backgroundImage: !theme.palette.light ? 'linear-gradient(rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.16))' : undefined,
+    backgroundColorImage: !theme.palette.light ? 'linear-gradient(rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.16))' : undefined,
   },
 
   elevation_16: {
     boxShadow: theme.palette.light ? theme.shadows.values.neutral[16] : undefined,
-    backgroundImage: !theme.palette.light ? 'linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2))' : undefined,
+    backgroundColorImage: !theme.palette.light ? 'linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2))' : undefined,
   },
 
   elevation_24: {
     boxShadow: theme.palette.light ? theme.shadows.values.neutral[24] : undefined,
-    backgroundImage: !theme.palette.light ? 'linear-gradient(rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.28))' : undefined,
+    backgroundColorImage: !theme.palette.light ? 'linear-gradient(rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.28))' : undefined,
   },
 
   noOutline: {
@@ -704,7 +704,7 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
     tonal,
     color: color_ = props.tonal ? 'neutral' : 'default',
     version = 'filled',
-    elevation = 0,
+    elevation,
     backgroundOpacity,
     noOutline,
 
@@ -723,7 +723,8 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
   } = props;
 
   const styles: any = {
-    root: {}
+    root: {},
+    children: {}
   };
 
   let color = color_;
@@ -734,11 +735,11 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
     if (tonal) {
       styles.root.color = theme.methods.palette.color.value(color, 10, true, palette);
 
-      if (version === 'filled') styles.root.background = theme.methods.palette.color.value(color, tonal === 'secondary' ? 80 : 95, true, palette);
+      if (version === 'filled') styles.root.backgroundColor = theme.methods.palette.color.value(color, tonal === 'secondary' ? 80 : 95, true, palette);
 
       if (version === 'outlined') {
         styles.root.color = theme.methods.palette.color.value(color, tonal === 'secondary' ? 10 : 5, true, palette);
-        styles.root.background = theme.methods.palette.color.value(color, tonal === 'secondary' ? 95 : 99, true, palette);
+        styles.root.backgroundColor = theme.methods.palette.color.value(color, tonal === 'secondary' ? 95 : 99, true, palette);
         styles.root.outlineColor = theme.methods.palette.color.value(color, tonal === 'secondary' ? 20 : 10, true, palette);
       }
 
@@ -746,7 +747,7 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
         styles.root.color = theme.methods.palette.color.value(color, tonal === 'secondary' ? 40 : 50, true, palette);
         styles.root.outlineColor = theme.methods.palette.color.value(color, tonal === 'secondary' ? 20 : 30, true, palette);
 
-        delete styles.root.background;
+        delete styles.root.backgroundColor;
       }
 
       if (version === 'text') styles.root.color = theme.methods.palette.color.value(color, tonal === 'secondary' ? 30 : 40, true, palette);
@@ -754,7 +755,7 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
     else {
       styles.root.color = theme.methods.palette.color.text(palette.main, true);
 
-      if (['outlined', 'filled'].includes(version)) styles.root.background = palette.main;
+      if (['outlined', 'filled'].includes(version)) styles.root.backgroundColor = palette.main;
 
       if (version === 'outlined') styles.root.outlineColor = palette[10];
 
@@ -764,6 +765,134 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
       }
 
       if (version === 'text') styles.root.color = palette.main;
+    }
+
+    styles.children.color = styles.root.backgroundColor;
+  }
+  else {
+    if (version === 'filled') {
+      if (color === 'themed') {
+        styles.children.color = theme.palette.text.default.primary;
+        styles.children.backgroundColor = theme.palette.light ? theme.palette.background.default.primary : theme.palette.background.default.quaternary;
+      }
+      else if (color === 'inverted') {
+        styles.children.color = theme.palette.background.default.primary;
+        styles.children.backgroundColor = theme.palette.light ? theme.palette.background.dark.primary : theme.palette.background.light.primary;
+      }
+      else if (color === 'default') {
+        styles.children.color = theme.palette.text.default.primary;
+        styles.children.backgroundColor = theme.palette.background.default.primary;
+      }
+      else if (color === 'inherit') {
+        styles.children.color = 'inherit';
+      }
+      else {
+        if (!tonal) {
+          styles.children.color = theme.methods.palette.color.text((theme.palette.color[color] as any).main, true, 'light');
+          styles.children.backgroundColor = (theme.palette.color[color] as any).main;
+        }
+        else if (tonal === 'secondary') {
+          styles.children.color = theme.methods.palette.color.value(color, 10);
+          styles.children.backgroundColor = theme.methods.palette.color.value(color, 80);
+        }
+        else {
+          styles.children.color = theme.methods.palette.color.value(color, 10);
+          styles.children.backgroundColor = theme.methods.palette.color.value(color, 95);
+        }
+      }
+    }
+    else if (version === 'text') {
+      if (color === 'themed') {
+        styles.children.color = theme.palette.light ? theme.palette.text.default.primary : theme.palette.text.default.secondary;
+      }
+      else if (color === 'inverted') {
+        styles.children.color = theme.palette.background.default.primary;
+      }
+      else if (color === 'default') {
+        styles.children.color = theme.palette.text.default.primary;
+      }
+      else if (color === 'inherit') {
+        styles.children.color = 'inherit';
+      }
+      else {
+        if (!tonal) {
+          styles.children.color = (theme.palette.color[color] as any).main;
+        }
+        else if (tonal === 'secondary') {
+          styles.children.color = theme.methods.palette.color.value(color, 30);
+        }
+        else {
+          styles.children.color = theme.methods.palette.color.value(color, 40);
+        }
+      }
+    }
+    else if (version === 'outlined') {
+      if (color === 'themed') {
+        styles.children.color = theme.palette.text.default.primary;
+        styles.children.backgroundColor = theme.palette.light ? theme.palette.background.default.primary : theme.palette.background.default.quaternary;
+        styles.children.outlineColor = theme.palette.color.neutral[theme.palette.light ? 40 : 60];
+      }
+      else if (color === 'inverted') {
+        styles.children.color = theme.palette.background.default.primary;
+        styles.children.backgroundColor = theme.palette.light ? theme.palette.background.dark.primary : theme.palette.background.light.primary;
+        styles.children.outlineColor = theme.palette.color.neutral[theme.palette.light ? 60 : 40];
+      }
+      else if (color === 'default') {
+        styles.children.color = theme.palette.text.default.primary;
+        styles.children.backgroundColor = theme.palette.background.default.primary;
+        styles.children.outlineColor = theme.palette.color.neutral[theme.palette.light ? 40 : 60];
+      }
+      else if (color === 'inherit') {
+        styles.children.color = 'inherit';
+      }
+      else {
+        if (!tonal) {
+          styles.children.color = theme.methods.palette.color.text(theme.palette.color.neutral.main, true, 'light');
+          styles.children.backgroundColor = theme.palette.color.neutral.main;
+          styles.children.outlineColor = theme.palette.color.neutral[10];
+        }
+        else if (tonal === 'secondary') {
+          styles.children.color = theme.methods.palette.color.value(color, 10);
+          styles.children.backgroundColor = theme.methods.palette.color.value(color, 95);
+          styles.children.outlineColor = theme.methods.palette.color.value(color, 10);
+        }
+        else {
+          styles.children.color = theme.methods.palette.color.value(color, 5);
+          styles.children.backgroundColor = theme.methods.palette.color.value(color, 99);
+          styles.children.outlineColor = theme.methods.palette.color.value(color, 10);
+        }
+      }
+    }
+    else if (version === 'outlined-without-background') {
+      if (color === 'themed') {
+        styles.children.color = theme.palette.light ? theme.palette.text.default.primary : theme.palette.background.default.secondary;
+        styles.children.outlineColor = theme.palette.light ? theme.palette.text.default.primary : theme.palette.background.default.secondary;
+      }
+      else if (color === 'inverted') {
+        styles.children.color = theme.palette.background.default.primary;
+        styles.children.outlineColor = theme.palette.background.default.primary;
+      }
+      else if (color === 'default') {
+        styles.children.color = theme.palette.text.default.primary;
+        styles.children.outlineColor = theme.palette.color.neutral[theme.palette.light ? 40 : 60];
+      }
+      else if (color === 'inherit') {
+        styles.children.color = 'inherit';
+      }
+      else {
+        if (!tonal) {
+          styles.children.color = theme.palette.text.default.primary;
+          styles.children.outlineColor = theme.palette.text.default.primary;
+        }
+        else if (tonal === 'secondary') {
+          styles.children.color = theme.methods.palette.color.value(color, 40);
+          styles.children.outlineColor = theme.methods.palette.color.value(color, 20);
+        }
+        else {
+          styles.children.color = theme.methods.palette.color.value(color, 50);
+          styles.children.outlineColor = theme.methods.palette.color.value(color, 30);
+        }
+      }
     }
   }
 
@@ -776,18 +905,20 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
     const palette = theme.methods.color(color);
 
     if (tonal) {
-      if (version === 'filled') styles.root.background = theme.methods.palette.color.value(color, tonal === 'secondary' ? 80 : 95, true, palette);
+      if (version === 'filled') styles.root.backgroundColor = theme.methods.palette.color.value(color, tonal === 'secondary' ? 80 : 95, true, palette);
 
       if (version === 'outlined') {
-        styles.root.background = theme.methods.palette.color.value(color, tonal === 'secondary' ? 95 : 99, true, palette);
+        styles.root.backgroundColor = theme.methods.palette.color.value(color, tonal === 'secondary' ? 95 : 99, true, palette);
       }
     }
     else {
-      if (['outlined', 'filled'].includes(version)) styles.root.background = palette.main;
+      if (['outlined', 'filled'].includes(version)) styles.root.backgroundColor = palette.main;
     }
 
-    if (styles.root.background) styles.root.background = theme.methods.palette.color.colorToRgb(styles.root.background, backgroundOpacity);
+    if (styles.root.backgroundColor) styles.root.backgroundColor = theme.methods.palette.color.colorToRgb(styles.root.backgroundColor, backgroundOpacity);
   }
+
+  if (is('function', children)) return children({ ...styles.children });
 
   return (
     <Component
@@ -822,19 +953,17 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
 
       {...other}
     >
-      {(
-        children && React.Children.toArray(children)
-          .filter(Boolean)
-          .map((item: any, index: number) => {
-            if (is('simple', item)) return item;
+      {children && React.Children.toArray(children)
+        .filter(Boolean)
+        .map((item: any, index: number) => {
+          if (is('simple', item)) return item;
 
-            return (
-              React.cloneElement(item, {
-                key: `${item.key || ''}${index}`
-              })
-            );
-          })
-      )}
+          return (
+            React.cloneElement(item, {
+              key: `${item.key || ''}${index}`
+            })
+          );
+        })}
     </Component>
   );
 });

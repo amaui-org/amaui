@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { getLeadingZerosNumber, is } from '@amaui/utils';
+import { is, getLeadingZerosNumber } from '@amaui/utils';
 import { AmauiDate, duration } from '@amaui/date';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
@@ -307,8 +307,6 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
       direction='column'
 
       align='center'
-
-      elevation={6}
 
       Component={Surface}
 

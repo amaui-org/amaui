@@ -373,3 +373,6 @@ export * from './Drawing';
 
 export { default as Parallax } from './Parallax';
 export * from './Parallax';
+
+export { default as Weather } from './Weather';
+export * from './Weather';
