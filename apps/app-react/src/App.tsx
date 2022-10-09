@@ -1101,6 +1101,57 @@ function App() {
             width: '100%'
           }}
         >
+          <Line
+            tonal
+
+            color='primary'
+
+            align='center'
+
+            justify='center'
+
+            gap={1}
+
+            direction='row'
+
+            Component={Surface}
+
+            style={{
+              width: 700,
+              height: 700
+            }}
+          >
+            <Parallax>
+              <Type
+                version='h1'
+              >
+                Pa
+              </Type>
+            </Parallax>
+
+            <Parallax
+              rate={0.4}
+
+              transformDirection='horizontal'
+            >
+              <Type
+                version='h1'
+              >
+                ral
+              </Type>
+            </Parallax>
+
+            <Parallax
+              rate={1.14}
+            >
+              <Type
+                version='h1'
+              >
+                lax
+              </Type>
+            </Parallax>
+          </Line>
+
           <Drawing />
 
           <Countdown />
