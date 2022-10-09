@@ -330,7 +330,9 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
       const x: number = event.clientX;
       const y: number = event.clientY;
 
-      const rect = refs.svg.current.getBoundingClientRect();
+      const rect = refs.svg.current?.getBoundingClientRect();
+
+      if (!rect) return;
 
       const { x: xRoot, y: yRoot } = rect;
 
@@ -346,7 +348,9 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
       const x: number = event.touches[0].clientX;
       const y: number = event.touches[0].clientY;
 
-      const rect = refs.svg.current.getBoundingClientRect();
+      const rect = refs.svg.current?.getBoundingClientRect();
+
+      if (!rect) return;
 
       const { x: xRoot, y: yRoot } = rect;
 
