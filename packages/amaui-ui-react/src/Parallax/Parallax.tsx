@@ -3,6 +3,10 @@ import React from 'react';
 import { is, clamp } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
+import useMediaQuery from '../useMediaQuery';
+
+import { valueBreakpoints } from '../utils';
+
 const useStyle = style(theme => ({
   root: {
 
@@ -13,6 +17,12 @@ const Parallax = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiParallax?.props?.default }), [props_]);
+
+  const breakpoints = {};
+
+  theme.breakpoints.keys.forEach(key => {
+    if (theme.breakpoints.media[key]) breakpoints[key] = useMediaQuery(theme.breakpoints.media[key]);
+  });
 
   const { classes } = useStyle(props);
 
@@ -25,15 +35,14 @@ const Parallax = React.forwardRef((props_: any, ref: any) => {
     render,
 
     // value or a method
-    rate = -0.14,
-
-    min,
-    max,
+    rate = -1,
 
     scrollDirection = 'vertical',
     transformDirection = 'vertical',
 
     transition = `transform ${theme.transitions.duration.xxs}`,
+
+    disabled: disabled_,
 
     className,
     style,
@@ -45,15 +54,15 @@ const Parallax = React.forwardRef((props_: any, ref: any) => {
 
   const [value, setValue] = React.useState(0);
 
+  const disabled = valueBreakpoints(disabled_, 'flex-start', breakpoints, theme);
+
   const refs = {
     root: React.useRef<any>(),
-    rect: React.useRef<any>(),
     value: React.useRef<any>(),
     scrollDirection: React.useRef<any>(),
     transformDirection: React.useRef<any>(),
     rate: React.useRef<any>(),
-    min: React.useRef<any>(),
-    max: React.useRef<any>()
+    disabled: React.useRef<any>()
   };
 
   refs.value.current = value;
@@ -64,83 +73,50 @@ const Parallax = React.forwardRef((props_: any, ref: any) => {
 
   refs.rate.current = rate;
 
-  refs.min.current = min;
-
-  refs.max.current = max;
+  refs.disabled.current = disabled;
 
   const update = () => {
     let valueNew: number;
 
-    if (!refs.visible.current) {
-      if (refs.version.current === 'window') valueNew = window.document.body[refs.scrollDirection.current === 'vertical' ? 'scrollTop' : 'scrollLeft'];
-      else if (refs.version.current === 'parent') valueNew = window.document.body[refs.scrollDirection.current === 'vertical' ? 'scrollTop' : 'scrollLeft'];
-    }
-    else {
-      const rect = refs.root.current?.getBoundingClientRect();
+    if (refs.disabled.current) return;
 
-      if (refs.version.current === 'window') {
-        if (rect) {
-          if (
-            // Vertically
-            (
-              // Element in view
-              (rect.y >= 0 && rect.bottom <= window.innerHeight) ||
-              // Element y out of view, but bottom in view
-              (rect.y < 0 && rect.bottom >= 0) ||
-              // Element bottom out of view, but y in view
-              (rect.bottom > window.innerHeight && rect.y <= window.innerHeight)
-            ) &&
-            // Horizontally
-            (
-              // Element in view
-              (rect.x >= 0 && rect.right <= window.innerWidth) ||
-              // Element x out of view, but right in view
-              (rect.x < 0 && rect.right >= 0) ||
-              // Element right out of view, but x in view
-              (rect.right > window.innerWidth && rect.y <= window.innerWidth)
-            )
-          ) valueNew = refs.scrollDirection.current === 'vertical' ? rect.y - window.scrollY : rect.x - window.scrollX;
-        }
-      }
-      else if (refs.version.current === 'parent') {
-        const rectParent = refs.root.current?.parentNode?.getBoundingClientRect();
+    // Element rect
+    const rect = refs.root.current.getBoundingClientRect();
 
-        if (rect && rectParent) {
-          const x = rect.x - rectParent.x;
-          const right = x + rect.width;
+    // Viewport
+    if (
+      // Vertically
+      (
+        // Element in view
+        (rect.y >= 0 && rect.bottom <= window.innerHeight) ||
+        // Element y out of view, but bottom in view
+        (rect.y < 0 && rect.bottom >= 0) ||
+        // Element bottom out of view, but y in view
+        (rect.bottom > window.innerHeight && rect.y <= window.innerHeight)
+      ) &&
+      // Horizontally
+      (
+        // Element in view
+        (rect.x >= 0 && rect.right <= window.innerWidth) ||
+        // Element x out of view, but right in view
+        (rect.x < 0 && rect.right >= 0) ||
+        // Element right out of view, but x in view
+        (rect.right > window.innerWidth && rect.y <= window.innerWidth)
+      )
+    ) {
+      const padding = Math.abs((window.innerHeight - rect.height) / 2);
 
-          const y = rect.y - rectParent.y;
-          const bottom = y + rect.height;
+      const max = rect.height + padding;
 
-          if (
-            // Vertically
-            (
-              // Element in view
-              (y >= 0 && bottom <= rectParent.height) ||
-              // Element y out of view, but bottom in view
-              (y < 0 && bottom >= 0) ||
-              // Element bottom out of view, but y in view
-              (bottom > rectParent.height && y <= rectParent.height)
-            ) &&
-            // Horizontally
-            (
-              // Element in view
-              (x >= 0 && right <= rectParent.width) ||
-              // Element x out of view, but right in view
-              (x < 0 && right >= 0) ||
-              // Element right out of view, but x in view
-              (right > rectParent.width && y <= rectParent.width)
-            )
-          ) valueNew = refs.scrollDirection.current === 'vertical' ? y - window.scrollY : x - window.scrollX;
-        }
-      }
+      valueNew = (((window.innerHeight - rect.y) / max) - 1) * 100;
     }
 
-    if (valueNew !== undefined && valueNew !== refs.value.current) setValue(clamp(valueNew, refs.min.current !== undefined ? refs.min.current : Number.MIN_SAFE_INTEGER, refs.max.current !== undefined ? refs.max.current : Number.MAX_SAFE_INTEGER));
+    if (valueNew !== undefined && valueNew !== refs.value.current) setValue(clamp(valueNew, -100, 100));
   };
 
   React.useEffect(() => {
-    refs.rect.current = refs.root.current?.getBoundingClientRect();
+    // Update on init
+    update();
   }, []);
 
   React.useEffect(() => {
@@ -157,15 +133,15 @@ const Parallax = React.forwardRef((props_: any, ref: any) => {
 
   let styles: any = {};
 
-  if (is('function', render)) styles = { ...render(value, version, root, rate, scrollDirection, transformDirection, visible, transition, props) };
+  if (is('function', render)) styles = { ...render(value, root, rate, scrollDirection, transformDirection, transition, props) };
   else {
     let valueUpdate = 0;
 
     if (is('function', rate)) valueUpdate = rate(value);
     else valueUpdate = value * rate;
 
-    if (transformDirection === 'vertical') styles.transform = `translate3d(0, ${valueUpdate}px, 0)`;
-    else styles.transform = `translate3d(${valueUpdate}px, 0, 0)`;
+    if (transformDirection === 'vertical') styles.transform = `translate3d(0, ${valueUpdate}%, 0)`;
+    else styles.transform = `translate3d(${valueUpdate}%, 0, 0)`;
 
     styles.transition = transition;
   }

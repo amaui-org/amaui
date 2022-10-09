@@ -2660,7 +2660,7 @@ Please sign in again.`}
             </Parallax>
 
             <Parallax
-              rate={0.04}
+              rate={0.4}
 
               transformDirection='horizontal'
             >
@@ -2672,7 +2672,7 @@ Please sign in again.`}
             </Parallax>
 
             <Parallax
-              rate={0.14}
+              rate={1.14}
             >
               <Type
                 version='h1'
