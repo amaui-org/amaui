@@ -10,7 +10,11 @@ const useStyle = style(theme => ({
   root: {
     position: 'relative',
     width: '1em',
-    height: '1em'
+    height: '1em',
+
+    '&.AmauiSurface-root': {
+      background: 'none'
+    }
   },
 
   icon: {
