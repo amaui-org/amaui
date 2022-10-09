@@ -3133,9 +3133,12 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
                     const svgClone = svg.cloneNode(true);
 
+                    // Clean up
                     svgClone.style.width = refs.inputValues.current.drawingWidth;
 
                     svgClone.style.height = refs.inputValues.current.drawingHeight;
+
+                    svgClone.style.boxShadow = 'none';
 
                     const pointers = Array.from(svgClone.querySelectorAll('.AmauiDrawing-pointer')) as Array<HTMLElement>;
 
