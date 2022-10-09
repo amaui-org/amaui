@@ -370,3 +370,6 @@ export * from './Countdown';
 
 export { default as Drawing } from './Drawing';
 export * from './Drawing';
+
+export { default as Parallax } from './Parallax';
+export * from './Parallax';
