@@ -108,9 +108,6 @@ const IconWeather = React.forwardRef((props: any, ref: any) => {
 
 // to do
 
-// text
-// text size in width as a percentage % value y
-
 // icon
 
 // Text for degrese
@@ -121,6 +118,9 @@ const IconWeather = React.forwardRef((props: any, ref: any) => {
 
 // based on current local hour if it's day, make it a day color
 // else swithch to night version
+
+// Make recurring checks and only if corrdinates differ from a min limit, ie. person change towns make another check
+// and then update the value saved json for that town
 
 const Weather = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
@@ -234,10 +234,10 @@ const Weather = React.forwardRef((props_: any, ref: any) => {
             ],
 
             classes.text,
-            classes[`text_${temperature.length === 3 ? 'regular' : 'large'}`]
+            classes[`text_${temperature < 100 ? 'regular' : 'large'}`]
           ])}
         >
-          {temperature}
+          {temperature}°
         </Type>
       </Fade>
     </Surface>

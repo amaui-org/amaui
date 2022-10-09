@@ -1108,6 +1108,8 @@ function App() {
             width: '100%'
           }}
         >
+          <Weather temperature='14°' weather='sunny' />
+
           <Line
             tonal
 
@@ -2689,20 +2691,20 @@ Please sign in again.`}
 
       <Accordion primary='Weather'>
         <Accordion primary='Weather' open>
-          <Weather temperature='14°' weather='sunny' />
+          <Weather temperature={14} weather='sunny' />
         </Accordion>
 
         <Accordion primary='Weather color' open>
-          <Weather temperature='14°' weather='sunny' color='secondary' />
+          <Weather temperature={14} weather='sunny' color='secondary' />
         </Accordion>
 
         <Accordion primary='Weather size' open>
           <Line>
-            <Weather temperature='14°' weather='sunny' size='small' />
+            <Weather temperature={14} weather='sunny' size='small' />
 
-            <Weather temperature='14°' weather='sunny' size='regular' />
+            <Weather temperature={14} weather='sunny' size='regular' />
 
-            <Weather temperature='14°' weather='sunny' size='large' />
+            <Weather temperature={14} weather='sunny' size='large' />
           </Line>
         </Accordion>
       </Accordion>

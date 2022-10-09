@@ -23,7 +23,7 @@ const widgets = [
   {
     label: 'Weather',
     Icon: IconMaterialWeatherRounded,
-    element: <Weather temperature='14°' weather='sunny' />
+    element: <Weather temperature={14} weather='sunny' />
   },
   {
     label: 'Screen Capture',
