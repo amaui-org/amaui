@@ -54,7 +54,7 @@ const Parallax = React.forwardRef((props_: any, ref: any) => {
 
   const [value, setValue] = React.useState(0);
 
-  const disabled = valueBreakpoints(disabled_, 'flex-start', breakpoints, theme);
+  const disabled = valueBreakpoints(disabled_, false, breakpoints, theme);
 
   const refs = {
     root: React.useRef<any>(),
