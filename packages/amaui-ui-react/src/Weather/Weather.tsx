@@ -82,9 +82,9 @@ const useStyle = style(theme => ({
   },
 
   icon_arrangement_regular: {
-    bottom: '21%',
-    fontSize: '40% !important',
-    left: '12%'
+    bottom: '22%',
+    left: '15%',
+    fontSize: '40% !important'
   },
 
   icon_arrangement_pair: {
@@ -102,13 +102,13 @@ const useStyle = style(theme => ({
 
   icon_weather_rainy: {
     '&.AmauiIcon-root': {
-      color: '#f1f3f4'
+      color: '#e6f5fc'
     }
   },
 
   icon_weather_snowy: {
     '&.AmauiIcon-root': {
-      color: '#f1f3f4'
+      color: '#dcf0ff'
     }
   },
 
@@ -247,27 +247,6 @@ const IconMaterialCloudySnowingRoundedFilled = React.forwardRef((props: any, ref
     </Icon>
   );
 });
-
-// to do
-
-// Add possible icons for weather
-
-// based on current local hour if it's day, make it a day color
-// else swithch to night version
-
-// Make recurring checks and only if corrdinates differ from a min limit, ie. person change towns make another check
-// and then update the value saved json for that town
-
-// timeinterval to check for hour change
-// for weathers that show day or night icon as well
-// update that icon
-
-// weather
-
-// clear (sun or moon, as in day or night), partly clear
-// cloudy
-// rain
-// snow
 
 const Weather = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
