@@ -24,6 +24,7 @@ const useStyle = style(theme => ({
   text: {
     position: 'absolute',
     textAlign: 'center',
+    fontWeight: 500,
     lineHeight: '1'
   },
 
