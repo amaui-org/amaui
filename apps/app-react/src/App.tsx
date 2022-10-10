@@ -1108,7 +1108,7 @@ function App() {
             width: '100%'
           }}
         >
-          <Weather temperature='14°' weather='sunny' />
+          <Weather temperature='14°' weather='clear' />
 
           <Line
             tonal
@@ -2691,20 +2691,54 @@ Please sign in again.`}
 
       <Accordion primary='Weather'>
         <Accordion primary='Weather' open>
-          <Weather temperature={14} weather='sunny' />
+          <Weather temperature={14} weather='clear' />
+        </Accordion>
+
+        <Accordion primary='Weather dayTime, weathers' open>
+          <Line>
+            <Weather temperature={14} weather='clear' dayTime='day' />
+
+            <Weather temperature={14} weather='partly clear' dayTime='day' />
+
+            <Weather temperature={14} weather='clear' dayTime='night' />
+
+            <Weather temperature={14} weather='partly clear' dayTime='night' />
+
+            <Weather temperature={14} weather='cloudy' dayTime='day' />
+
+            <Weather temperature={14} weather='rainy' dayTime='day' />
+
+            <Weather temperature={14} weather='snowy' dayTime='day' />
+          </Line>
+        </Accordion>
+
+        <Accordion primary='Weather temperatures' open>
+          <Line>
+            <Weather temperature={-41} weather='clear' />
+
+            <Weather temperature={0} weather='clear' />
+
+            <Weather temperature={1} weather='clear' />
+
+            <Weather temperature={14} weather='clear' />
+
+            <Weather temperature={41} weather='clear' />
+
+            <Weather temperature={114} weather='clear' />
+          </Line>
         </Accordion>
 
         <Accordion primary='Weather color' open>
-          <Weather temperature={14} weather='sunny' color='secondary' />
+          <Weather temperature={14} weather='clear' color='secondary' />
         </Accordion>
 
         <Accordion primary='Weather size' open>
           <Line>
-            <Weather temperature={14} weather='sunny' size='small' />
+            <Weather temperature={14} weather='clear' size='small' />
 
-            <Weather temperature={14} weather='sunny' size='regular' />
+            <Weather temperature={14} weather='clear' size='regular' />
 
-            <Weather temperature={14} weather='sunny' size='large' />
+            <Weather temperature={14} weather='clear' size='large' />
           </Line>
         </Accordion>
       </Accordion>

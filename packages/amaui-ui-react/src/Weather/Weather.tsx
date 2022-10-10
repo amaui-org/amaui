@@ -5,6 +5,8 @@ import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 import Surface from '../Surface';
 import Type from '../Type';
 import Fade from '../Fade';
+import Transitions from '../Transitions';
+import Icon from '../Icon';
 
 import { staticClassName } from '../utils';
 
@@ -26,7 +28,7 @@ const useStyle = style(theme => ({
   },
 
   text_regular: {
-    top: '24%',
+    top: '22%',
     width: '100%',
     paddingLeft: '30%',
     paddingRight: '11%',
@@ -34,20 +36,80 @@ const useStyle = style(theme => ({
   },
 
   text_large: {
-    top: '24%',
+    top: '22%',
     width: '100%',
     paddingLeft: '27%',
     paddingRight: '11%',
     fontSize: '30%'
   },
 
-  icon: {
-    width: '100%',
-    height: 'auto'
+  icon_background: {
+    '&.AmauiIcon-root': {
+      width: '100%',
+      height: 'auto'
+    }
   },
 
-  icon_shadow: {
-    filter: `drop-shadow(0px 6px 10px rgb(0 0 0 / 7%)) drop-shadow(0px 1px 18px rgb(0 0 0 / 4%)) drop-shadow(0px 3px 5px rgb(0 0 0 / 10%))`
+  icon_background_shadow: {
+    filter: `drop-shadow(0px 6px 10px rgb(0 0 0 / 4%)) drop-shadow(0px 1px 18px rgb(0 0 0 / 1%)) drop-shadow(0px 3px 5px rgb(0 0 0 / 7%))`
+  },
+
+  icon_dayTime: {
+    '&.AmauiIcon-root': {
+      position: 'absolute',
+      zIndex: '1',
+      bottom: '21%',
+      fontSize: '40% !important',
+      left: '12%'
+    }
+  },
+
+  icon_dayTime_day: {
+    '&.AmauiIcon-root': {
+      color: '#fcc21d'
+    }
+  },
+
+  icon_dayTime_night: {
+    '&.AmauiIcon-root': {
+      color: '#dfe0e2'
+    }
+  },
+
+  icon_weather: {
+    position: 'absolute',
+    zIndex: 4
+  },
+
+  icon_arrangement_regular: {
+    bottom: '21%',
+    fontSize: '40% !important',
+    left: '12%'
+  },
+
+  icon_arrangement_pair: {
+    bottom: '8%',
+    left: '24%',
+    fontSize: '40% !important',
+    opacity: '0.94 !important'
+  },
+
+  icon_weather_cloudy: {
+    '&.AmauiIcon-root': {
+      color: '#f1f3f4'
+    }
+  },
+
+  icon_weather_rainy: {
+    '&.AmauiIcon-root': {
+      color: '#f1f3f4'
+    }
+  },
+
+  icon_weather_snowy: {
+    '&.AmauiIcon-root': {
+      color: '#f1f3f4'
+    }
   },
 
   size_small: {
@@ -106,13 +168,87 @@ const IconWeather = React.forwardRef((props: any, ref: any) => {
   );
 });
 
+const IconMaterialCircleRoundedFilled = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='CircleRoundedFilled'
+      short_name='Circle'
+
+      {...props}
+    >
+      <path d="M12 22Q9.925 22 8.1 21.212Q6.275 20.425 4.925 19.075Q3.575 17.725 2.788 15.9Q2 14.075 2 12Q2 9.925 2.788 8.1Q3.575 6.275 4.925 4.925Q6.275 3.575 8.1 2.787Q9.925 2 12 2Q14.075 2 15.9 2.787Q17.725 3.575 19.075 4.925Q20.425 6.275 21.212 8.1Q22 9.925 22 12Q22 14.075 21.212 15.9Q20.425 17.725 19.075 19.075Q17.725 20.425 15.9 21.212Q14.075 22 12 22Z" />
+    </Icon>
+  );
+});
+
+const IconMaterialNightlightRoundedFilled = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='NightlightRoundedFilled'
+      short_name='Nightlight'
+
+      {...props}
+    >
+      <path d="M14 22Q11.95 22 10.125 21.212Q8.3 20.425 6.938 19.062Q5.575 17.7 4.787 15.875Q4 14.05 4 12Q4 9.925 4.787 8.113Q5.575 6.3 6.938 4.938Q8.3 3.575 10.125 2.787Q11.95 2 14 2Q15.1 2 16.125 2.237Q17.15 2.475 18.1 2.9Q18.45 3.075 18.475 3.362Q18.5 3.65 18.15 3.9Q16.25 5.275 15.125 7.375Q14 9.475 14 12Q14 14.525 15.125 16.625Q16.25 18.725 18.15 20.1Q18.5 20.35 18.475 20.638Q18.45 20.925 18.1 21.1Q17.15 21.525 16.125 21.762Q15.1 22 14 22Z" />
+    </Icon>
+  );
+});
+
+const IconMaterialCloudRoundedFilled = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='CloudRoundedFilled'
+      short_name='Cloud'
+
+      {...props}
+    >
+      <path d="M6.5 20Q4.225 20 2.613 18.425Q1 16.85 1 14.575Q1 12.625 2.175 11.1Q3.35 9.575 5.25 9.15Q5.875 6.85 7.75 5.425Q9.625 4 12 4Q14.925 4 16.962 6.037Q19 8.075 19 11Q20.725 11.2 21.863 12.487Q23 13.775 23 15.5Q23 17.375 21.688 18.688Q20.375 20 18.5 20Z" />
+    </Icon>
+  );
+});
+
+const IconMaterialRainyRoundedFilled = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='RainyRoundedFilled'
+      short_name='Rainy'
+
+      {...props}
+    >
+      <path d="M13.95 21.9q-.375.2-.762.062-.388-.137-.588-.512l-1.5-3q-.2-.375-.062-.762.137-.388.512-.588.375-.2.762-.062.388.137.588.512l1.5 3q.2.375.063.762-.138.388-.513.588Zm6 0q-.375.2-.762.062-.388-.137-.588-.512l-1.5-3q-.2-.375-.062-.762.137-.388.512-.588.375-.2.762-.062.388.137.588.512l1.5 3q.2.375.063.762-.138.388-.513.588Zm-12 0q-.375.2-.762.062-.388-.137-.588-.512l-1.5-3q-.2-.375-.062-.762.137-.388.512-.588.375-.2.762-.062.388.137.588.512l1.5 3q.2.375.063.762-.138.388-.513.588ZM7.5 16q-2.275 0-3.887-1.613Q2 12.775 2 10.5q0-2.075 1.375-3.625 1.375-1.55 3.4-1.825.8-1.425 2.188-2.238Q10.35 2 12 2q2.25 0 3.912 1.438 1.663 1.437 2.013 3.587 1.725.15 2.9 1.425Q22 9.725 22 11.5q0 1.875-1.312 3.188Q19.375 16 17.5 16Z" />
+    </Icon>
+  );
+});
+
+const IconMaterialCloudySnowingRoundedFilled = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='CloudySnowingRoundedFilled'
+      short_name='CloudySnowing'
+
+      {...props}
+    >
+      <path d="M6 19Q5.575 19 5.287 18.712Q5 18.425 5 18Q5 17.575 5.287 17.288Q5.575 17 6 17Q6.425 17 6.713 17.288Q7 17.575 7 18Q7 18.425 6.713 18.712Q6.425 19 6 19ZM18 19Q17.575 19 17.288 18.712Q17 18.425 17 18Q17 17.575 17.288 17.288Q17.575 17 18 17Q18.425 17 18.712 17.288Q19 17.575 19 18Q19 18.425 18.712 18.712Q18.425 19 18 19ZM9 23Q8.575 23 8.288 22.712Q8 22.425 8 22Q8 21.575 8.288 21.288Q8.575 21 9 21Q9.425 21 9.713 21.288Q10 21.575 10 22Q10 22.425 9.713 22.712Q9.425 23 9 23ZM12 19Q11.575 19 11.288 18.712Q11 18.425 11 18Q11 17.575 11.288 17.288Q11.575 17 12 17Q12.425 17 12.713 17.288Q13 17.575 13 18Q13 18.425 12.713 18.712Q12.425 19 12 19ZM15 23Q14.575 23 14.288 22.712Q14 22.425 14 22Q14 21.575 14.288 21.288Q14.575 21 15 21Q15.425 21 15.713 21.288Q16 21.575 16 22Q16 22.425 15.713 22.712Q15.425 23 15 23ZM7.5 16Q5.225 16 3.613 14.387Q2 12.775 2 10.5Q2 8.425 3.375 6.875Q4.75 5.325 6.775 5.05Q7.575 3.625 8.963 2.812Q10.35 2 12 2Q14.25 2 15.912 3.438Q17.575 4.875 17.925 7.025Q19.65 7.175 20.825 8.45Q22 9.725 22 11.5Q22 13.375 20.688 14.688Q19.375 16 17.5 16Z" />
+    </Icon>
+  );
+});
+
 // to do
-
-// icon
-
-// Text for degrese
-
-// an option for ferenhite
 
 // Add possible icons for weather
 
@@ -121,6 +257,17 @@ const IconWeather = React.forwardRef((props: any, ref: any) => {
 
 // Make recurring checks and only if corrdinates differ from a min limit, ie. person change towns make another check
 // and then update the value saved json for that town
+
+// timeinterval to check for hour change
+// for weathers that show day or night icon as well
+// update that icon
+
+// weather
+
+// clear (sun or moon, as in day or night), partly clear
+// cloudy
+// rain
+// snow
 
 const Weather = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
@@ -138,8 +285,27 @@ const Weather = React.forwardRef((props_: any, ref: any) => {
 
     shadow,
 
-    temperature: temperature_,
+    dayTime: dayTime_,
     weather: weather_,
+    temperature: temperature_,
+
+    values: values_,
+
+    update: update_,
+
+    onChange,
+
+    // Once every 1 hour
+    interval = 60 * 60 * 1e3,
+
+    IconDay = IconMaterialCircleRoundedFilled,
+    IconNight = IconMaterialNightlightRoundedFilled,
+
+    IconCloud = IconMaterialCloudRoundedFilled,
+    IconRain = IconMaterialRainyRoundedFilled,
+    IconSnow = IconMaterialCloudySnowingRoundedFilled,
+
+    IconProps: IconProps_,
 
     Component = 'div',
 
@@ -149,31 +315,75 @@ const Weather = React.forwardRef((props_: any, ref: any) => {
     ...other
   } = props;
 
-  const [temperature, setTemperature] = React.useState(temperature_ !== undefined ? temperature_ : '');
-  const [weather, setWeather] = React.useState(weather_ !== undefined ? weather_ : '');
+  const [values, setValues] = React.useState(values_ !== undefined ? values_ : {
+    dayTime: dayTime_ !== undefined ? dayTime_ : 'day',
+    weather: weather_ !== undefined ? weather_ : '',
+    temperature: temperature_ !== undefined ? temperature_ : ''
+  });
 
   const refs = {
-    temperature: React.useRef<any>(),
-    weather: React.useRef<any>()
+    values: React.useRef<any>()
   };
 
-  refs.temperature.current = temperature;
-
-  refs.weather.current = weather;
+  refs.values.current = values;
 
   const styles: any = {
     root: {}
   };
 
   React.useEffect(() => {
-    if (temperature_ !== undefined && temperature_ !== refs.temperature.current) setTemperature(temperature_);
-  }, [temperature_]);
+    if (values_ !== undefined && values_ !== refs.values.current) setValues(values_);
+  }, [values_]);
 
   React.useEffect(() => {
-    if (weather_ !== undefined && weather_ !== refs.weather.current) setWeather(weather_);
+    if (dayTime_ !== undefined && dayTime_ !== refs.values.current.dayTime) setValues(values_ => ({
+      ...values_,
+
+      dayTime: dayTime_
+    }));
+  }, [dayTime_]);
+
+  React.useEffect(() => {
+    if (weather_ !== undefined && weather_ !== refs.values.current.weather) setValues(values_ => ({
+      ...values_,
+
+      weather: weather_
+    }));
   }, [weather_]);
 
+  React.useEffect(() => {
+    if (temperature_ !== undefined && temperature_ !== refs.values.current.temperature) setValues(values_ => ({
+      ...values_,
+
+      temperature: temperature_
+    }));
+  }, [temperature_]);
+
   if (!['small', 'regular', 'large'].includes(size)) styles.root.fontSize = size;
+
+  const IconProps = {
+    color: 'unset',
+
+    ...IconProps_
+  };
+
+  let IconDayTime = IconDay;
+
+  if (['day'].includes(values.dayTime)) IconDayTime = IconDay;
+
+  if (['night'].includes(values.dayTime)) IconDayTime = IconNight;
+
+  let IconWeather_ = IconCloud;
+
+  if (['partly clear', 'cloudy'].includes(values.weather)) IconWeather_ = IconCloud;
+
+  if (['rainy'].includes(values.weather)) IconWeather_ = IconRain;
+
+  if (['snowy'].includes(values.weather)) IconWeather_ = IconSnow;
+
+  const useDayTime = ['clear', 'partly clear'].includes(values.weather);
+
+  const useWeather = !['clear'].includes(values.weather);
 
   return (
     <Surface
@@ -214,16 +424,16 @@ const Weather = React.forwardRef((props_: any, ref: any) => {
 
         className={classNames([
           staticClassName('Weather', theme) && [
-            'AmauiWeather-icon'
+            'AmauiWeather-icon-background'
           ],
 
-          classes.icon,
-          shadow && classes.icon_shadow
+          classes.icon_background,
+          shadow && classes.icon_background_shadow
         ])}
       />
 
       <Fade
-        in={temperature}
+        in={values.temperature !== undefined}
       >
         <Type
           version='d1'
@@ -234,12 +444,59 @@ const Weather = React.forwardRef((props_: any, ref: any) => {
             ],
 
             classes.text,
-            classes[`text_${temperature < 100 ? 'regular' : 'large'}`]
+            classes[`text_${values.temperature < 100 ? 'regular' : 'large'}`]
           ])}
         >
-          {temperature}°
+          {values.temperature}°
         </Type>
       </Fade>
+
+      {/* Day time */}
+      {useDayTime && (
+        <Transitions>
+          <Fade
+            key={values.dayTime}
+          >
+            <IconDayTime
+              className={classNames([
+                staticClassName('Weather', theme) && [
+                  'AmauiWeather-icon',
+                  'AmauiWeather-icon-day-time'
+                ],
+
+                classes.icon_dayTime,
+                classes[`icon_dayTime_${values.dayTime}`]
+              ])}
+
+              {...IconProps}
+            />
+          </Fade>
+        </Transitions>
+      )}
+
+      {/* Weather */}
+      {useWeather && values.weather && (
+        <Transitions>
+          <Fade
+            key={values.weather}
+          >
+            <IconWeather_
+              className={classNames([
+                staticClassName('Weather', theme) && [
+                  'AmauiWeather-icon',
+                  'AmauiWeather-icon-weather'
+                ],
+
+                classes.icon_weather,
+                classes[`icon_weather_${values.weather === 'partly clear' ? 'cloudy' : values.weather}`],
+                classes[`icon_arrangement_${useDayTime ? 'pair' : 'regular'}`]
+              ])}
+
+              {...IconProps}
+            />
+          </Fade>
+        </Transitions>
+      )}
     </Surface>
   );
 });
