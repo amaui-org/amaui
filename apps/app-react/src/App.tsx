@@ -1108,7 +1108,7 @@ function App() {
             width: '100%'
           }}
         >
-          <Weather temperature='14°' weather='clear' />
+          <Weather temperature={14} weather='partly clear' />
 
           <Line
             tonal
