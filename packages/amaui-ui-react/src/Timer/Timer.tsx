@@ -165,13 +165,13 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
     start: React.useRef<number>(0),
     valuePaused: React.useRef<any>(0),
     value: React.useRef<any>(),
-    interval: React.useRef<any>()
+    animationFrame: React.useRef<any>()
   };
 
   refs.value.current = value;
 
   const clear = () => {
-    clearInterval(refs.interval.current);
+    cancelAnimationFrame(refs.animationFrame.current);
   };
 
   React.useEffect(() => {
@@ -183,13 +183,15 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
 
   const update = () => {
     setValue(refs.valuePaused.current + (AmauiDate.milliseconds - refs.start.current));
+
+    refs.animationFrame.current = requestAnimationFrame(update);
   };
 
   const onStart = React.useCallback(() => {
     refs.start.current = AmauiDate.milliseconds;
 
     // ~60+ fps
-    refs.interval.current = setInterval(update, 14);
+    refs.animationFrame.current = requestAnimationFrame(update);
 
     setStatus('running');
 
@@ -235,7 +237,7 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
 
   const onResume = React.useCallback(() => {
     // ~60+ fps
-    refs.interval.current = setInterval(update, 14);
+    refs.animationFrame.current = requestAnimationFrame(update);
 
     // Update start, valuePaused value
     refs.start.current = AmauiDate.milliseconds;

@@ -211,7 +211,7 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
     value: React.useRef<any>(),
     total: React.useRef<any>(),
     values: React.useRef<any>(),
-    interval: React.useRef<any>()
+    animationFrame: React.useRef<any>()
   };
 
   refs.value.current = value;
@@ -227,7 +227,7 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
   };
 
   const clear = () => {
-    clearInterval(refs.interval.current);
+    cancelAnimationFrame(refs.animationFrame.current);
   };
 
   React.useEffect(() => {
@@ -249,6 +249,8 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
     }
 
     setValue(refs.valuePaused.current - (AmauiDate.milliseconds - refs.start.current));
+
+    refs.animationFrame.current = requestAnimationFrame(update);
   };
 
   const onStart = React.useCallback(() => {
@@ -265,7 +267,7 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
     setTimeout(() => {
       refs.start.current = AmauiDate.milliseconds;
 
-      refs.interval.current = setInterval(update, 14);
+      refs.animationFrame.current = requestAnimationFrame(update);
     }, 14);
 
     if (is('function', onStart_)) onStart_();
@@ -303,7 +305,7 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
     refs.start.current = AmauiDate.milliseconds;
 
     // ~60+ fps
-    refs.interval.current = setInterval(update, 14);
+    refs.animationFrame.current = requestAnimationFrame(update);
 
     setStatus('running');
 

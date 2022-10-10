@@ -61,7 +61,7 @@ const useStyle = style(theme => ({
       zIndex: '1',
       bottom: '21%',
       fontSize: '40% !important',
-      left: '12%'
+      left: '13%'
     }
   },
 
@@ -90,7 +90,7 @@ const useStyle = style(theme => ({
 
   icon_arrangement_pair: {
     bottom: '8%',
-    left: '24%',
+    left: '25%',
     fontSize: '40% !important',
     opacity: '0.94 !important'
   },

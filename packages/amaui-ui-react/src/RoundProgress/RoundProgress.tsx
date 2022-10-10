@@ -172,7 +172,7 @@ const RoundProgress = React.forwardRef((props_: any, ref: any) => {
     circle: {}
   };
 
-  if (!classes[size]) styles.root.fontSize = is('number', size) ? `${size}px` : size;
+  if (!classes[`size_${size}`]) styles.root.fontSize = is('number', size) ? `${size}px` : size;
 
   if (!classes[color]) {
     styles.root.color = color;
