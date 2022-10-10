@@ -87,3 +87,9 @@ Build
 ### Docs
 
 Might be soon...
+
+<br>
+
+## Disclaimer
+
+AMAUI UI elements library is mostly based on the UI design rules of Open Source Google Material Design 3 design principles. The project is not in any way affiliated with Alphabet Inc., Google Inc. or any of their projects.
