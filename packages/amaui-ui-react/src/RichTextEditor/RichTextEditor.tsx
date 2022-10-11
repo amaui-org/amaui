@@ -838,7 +838,9 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
       'align-justify',
 
       'link-add',
-      'link-remove'
+      'link-remove',
+
+      'clear'
     ],
 
     exclude,
@@ -3245,6 +3247,24 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
     )
   };
 
+  const actionElements = {
+    'clear': (
+      <WrapperToggleButton
+        label='Clear'
+      >
+        {is('function', render) ? render('clear', ToggleButtonProps, refs.value.current, method) : (
+          <ToggleButton
+            {...ToggleButtonProps}
+
+            onClick={method('clear')}
+          >
+            <IconClear {...IconProps} />
+          </ToggleButton>
+        )}
+      </WrapperToggleButton>
+    )
+  };
+
   return (
     <Line
       ref={ref}
@@ -3583,21 +3603,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                     <ToggleButtons
                       {...ToggleButtonsProps}
                     >
-                      {includes('clear') && (
-                        <WrapperToggleButton
-                          label='Clear'
-                        >
-                          {is('function', render) ? render('clear', ToggleButtonProps, refs.value.current, method) : (
-                            <ToggleButton
-                              {...ToggleButtonProps}
-
-                              onClick={method('clear')}
-                            >
-                              <IconClear {...IconProps} />
-                            </ToggleButton>
-                          )}
-                        </WrapperToggleButton>
-                      )}
+                      {includes('clear') && actionElements['clear']}
 
                       {includes('select-all') && (
                         <WrapperToggleButton
@@ -3816,6 +3822,14 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                           {includesMinMenu('link-add') && updateElements['link-add-mini-menu']}
 
                           {includesMinMenu('link-remove') && updateElements['link-remove']}
+                        </ToggleButtons>
+                      )}
+
+                      {includesMinMenu('clear') && (
+                        <ToggleButtons
+                          {...ToggleButtonsProps}
+                        >
+                          {includesMinMenu('clear') && actionElements['clear']}
                         </ToggleButtons>
                       )}
                     </Line>
