@@ -13,8 +13,8 @@ import { staticClassName } from '../utils';
 const useStyle = style(theme => ({
   root: {
     position: 'relative',
-    width: '1em',
-    height: '1em',
+    aspectRatio: '1',
+    width: '100vw',
 
     '&.AmauiSurface-root': {
       background: 'none'
@@ -60,7 +60,8 @@ const useStyle = style(theme => ({
       position: 'absolute',
       zIndex: '1',
       bottom: '21%',
-      fontSize: '40% !important',
+      width: '40% !important',
+      height: 'auto',
       left: '13%'
     }
   },
@@ -79,19 +80,19 @@ const useStyle = style(theme => ({
 
   icon_weather: {
     position: 'absolute',
+    width: '40% !important',
+    height: 'auto',
     zIndex: 4
   },
 
   icon_arrangement_regular: {
     bottom: '22%',
     left: '15%',
-    fontSize: '40% !important'
   },
 
   icon_arrangement_pair: {
     bottom: '8%',
     left: '25%',
-    fontSize: '40% !important',
     opacity: '0.94 !important'
   },
 
@@ -114,15 +115,15 @@ const useStyle = style(theme => ({
   },
 
   size_small: {
-    fontSize: '8rem'
+    maxWidth: '120px'
   },
 
   size_regular: {
-    fontSize: '12rem'
+    maxWidth: '180px'
   },
 
   size_large: {
-    fontSize: '16rem'
+    maxWidth: '240px'
   }
 }), { name: 'AmauiWeather' });
 
@@ -295,6 +296,7 @@ const Weather = React.forwardRef((props_: any, ref: any) => {
     ...other
   } = props;
 
+  const [rect, setRect] = React.useState<DOMRect>();
   const [values, setValues] = React.useState(values_ !== undefined ? values_ : {
     dayTime: dayTime_ !== undefined ? dayTime_ : 'day',
     weather: weather_ !== undefined ? weather_ : '',
@@ -302,6 +304,7 @@ const Weather = React.forwardRef((props_: any, ref: any) => {
   });
 
   const refs = {
+    root: React.useRef<any>(),
     values: React.useRef<any>()
   };
 
@@ -310,6 +313,20 @@ const Weather = React.forwardRef((props_: any, ref: any) => {
   const styles: any = {
     root: {}
   };
+
+  React.useEffect(() => {
+    const method = () => setRect(refs.root.current.getBoundingClientRect());
+
+    const observer = new ResizeObserver(method);
+
+    method();
+
+    observer.observe(refs.root.current);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
 
   React.useEffect(() => {
     if (values_ !== undefined && values_ !== refs.values.current) setValues(values_);
@@ -367,7 +384,11 @@ const Weather = React.forwardRef((props_: any, ref: any) => {
 
   return (
     <Surface
-      ref={ref}
+      ref={item => {
+        if (ref) ref.current = item;
+
+        refs.root.current = item;
+      }}
 
       tonal={tonal}
 
@@ -424,8 +445,12 @@ const Weather = React.forwardRef((props_: any, ref: any) => {
             ],
 
             classes.text,
-            classes[`text_${values.temperature < 100 ? 'regular' : 'large'}`]
+            classes[`text_${(values.temperature < 100 && values.temperature > -9) ? 'regular' : 'large'}`]
           ])}
+
+          style={{
+            fontSize: `${(rect?.width || 0) * ((values.temperature < 100 && values.temperature > -9) ? 0.34 : 0.27)}px`
+          }}
         >
           {values.temperature}°
         </Type>
@@ -435,7 +460,7 @@ const Weather = React.forwardRef((props_: any, ref: any) => {
       {useDayTime && (
         <Transitions>
           <Fade
-            key={values.dayTime}
+            key={String(values.dayTime)}
           >
             <IconDayTime
               className={classNames([
@@ -458,7 +483,7 @@ const Weather = React.forwardRef((props_: any, ref: any) => {
       {useWeather && values.weather && (
         <Transitions>
           <Fade
-            key={values.weather}
+            key={String(values.weather)}
           >
             <IconWeather_
               className={classNames([

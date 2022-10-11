@@ -439,7 +439,7 @@ function Transition(props_: IProps) {
 
     // Add className
     if (className && is('element', refs.root.current)) {
-      let className = classNames([refs.root.current.className.split(' ')]);
+      let className = classNames([refs.root.current.className?.split(' ')]);
 
       // Remove all previous classes
       className = className.replace(new RegExp(`${prefix || ''}(add|enter|exit)(ed|ing)?`, 'g'), '');
