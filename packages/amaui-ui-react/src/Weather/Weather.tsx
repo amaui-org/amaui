@@ -356,7 +356,7 @@ const Weather = React.forwardRef((props_: any, ref: any) => {
     }));
   }, [temperature_]);
 
-  if (!['small', 'regular', 'large'].includes(size)) styles.root.fontSize = size;
+  if (!['small', 'regular', 'large'].includes(size)) styles.root.maxWidth = size;
 
   const IconProps = {
     color: 'unset',
