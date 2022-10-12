@@ -43,8 +43,6 @@ const useStyle = style(theme => ({
 
 // to do
 
-// multiple parts
-
 // padding between parts
 
 // parts being rounded as well
@@ -381,17 +379,17 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
           const part = (total / parts) - (gap * (parts - 1));
 
           const angles: any = {
-            0: angleToCoordinates(315, center, center, radius)
+            0: angleToCoordinates(225, center, center, radius)
           };
 
           for (let i = 0; i < parts; i++) {
-            // Move to 315 deg
+            // Move to 225 deg
             if (i === 0) value.push(
               // Move to 0 deg
               'M', angles[0].x, angles[0].y
             );
 
-            angles.end = angleToCoordinates(315 + (i * part + (gap * (parts - 1))) + part, center, center, radius);
+            angles.end = angleToCoordinates(225 + (i * part + (gap * (parts - 1))) + part, center, center, radius);
 
             angles.move = angleToCoordinates((i * part + (gap * (parts - 1))) + part + gap, center, center, radius);
 
