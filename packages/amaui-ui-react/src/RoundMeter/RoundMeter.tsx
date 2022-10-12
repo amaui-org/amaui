@@ -44,6 +44,8 @@ const useStyle = style(theme => ({
 
 // make more paths
 // 1 arc, 1 bottom border, 1 background
+// and add prop options which ones is visible
+// a default only arc
 
 // account for any boundary thickness
 

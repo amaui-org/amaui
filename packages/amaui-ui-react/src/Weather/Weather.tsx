@@ -460,7 +460,7 @@ const Weather = React.forwardRef((props_: any, ref: any) => {
       {useDayTime && (
         <Transitions>
           <Fade
-            key={String(values.dayTime)}
+            key={values.dayTime}
           >
             <IconDayTime
               className={classNames([
@@ -483,7 +483,7 @@ const Weather = React.forwardRef((props_: any, ref: any) => {
       {useWeather && values.weather && (
         <Transitions>
           <Fade
-            key={String(values.weather)}
+            key={values.weather}
           >
             <IconWeather_
               className={classNames([
