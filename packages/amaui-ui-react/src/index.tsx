@@ -376,3 +376,6 @@ export * from './Parallax';
 
 export { default as Weather } from './Weather';
 export * from './Weather';
+
+export { default as RoundMeter } from './RoundMeter';
+export * from './RoundMeter';

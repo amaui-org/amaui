@@ -2,7 +2,7 @@ import React from 'react';
 
 import { is, random, countries } from '@amaui/utils';
 import { AmauiTheme, AmauiThemeProvider, classNames, style, sy, useAmauiTheme } from '@amaui/style-react';
-import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Radios, Keyframes, Switch, TextField, Label, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationItem, NavigationRail, NavigationDrawer, BottomSheet, BottomAppBar, TopAppBar, Card, CardImage, CardMain, CardHeader, CardButton, CardFooter, Table, TableHead, TableRow, TableCell, TableHeader, TableFooter, TableBody, Placeholder, Snackbar, useSnackbars, Pagination, TablePagination, SpeedDial, SpeedDialItem, ImageList, ImageListItem, ImageListItemBox, Stepper, Step, Tabs, Tab, Timeline, TimelineItem, Tree, Masonry, Reveal, useConfirm, ViewSplit, WindowSplit, useMainProgress, Image, SpyScroll, AdvancedTextField, NumericTextField, useWidgets, ImageCrop, ImageEdit, FileChoose, DropZone, MenuDesktop, Markdown, RichTextEditor, ScreenCapture, Timer, Countdown, Drawing, Parallax, Weather } from '@amaui/ui-react';
+import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Radios, Keyframes, Switch, TextField, Label, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationItem, NavigationRail, NavigationDrawer, BottomSheet, BottomAppBar, TopAppBar, Card, CardImage, CardMain, CardHeader, CardButton, CardFooter, Table, TableHead, TableRow, TableCell, TableHeader, TableFooter, TableBody, Placeholder, Snackbar, useSnackbars, Pagination, TablePagination, SpeedDial, SpeedDialItem, ImageList, ImageListItem, ImageListItemBox, Stepper, Step, Tabs, Tab, Timeline, TimelineItem, Tree, Masonry, Reveal, useConfirm, ViewSplit, WindowSplit, useMainProgress, Image, SpyScroll, AdvancedTextField, NumericTextField, useWidgets, ImageCrop, ImageEdit, FileChoose, DropZone, MenuDesktop, Markdown, RichTextEditor, ScreenCapture, Timer, Countdown, Drawing, Parallax, Weather, RoundMeter } from '@amaui/ui-react';
 
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
@@ -218,6 +218,13 @@ const useStyle = style(theme => ({
 }), { name: 'App' });
 
 const styled: any = {
+  RoundMeter: sy(RoundMeter)((theme: AmauiTheme) => ({
+    root: {
+      '&:hover': {
+        opacity: 0.4
+      }
+    }
+  })),
   Weather: sy(Weather)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
@@ -1108,6 +1115,8 @@ function App() {
             width: '100%'
           }}
         >
+          <RoundMeter />
+
           <Weather temperature={14} weather='partly clear' />
 
           <Line
@@ -2687,6 +2696,58 @@ Please sign in again.`}
 
           <IconMaterialPottedPlantRounded color='secondary' />
         </Line>
+      </Accordion>
+
+      <Accordion primary='RoundMeter'>
+        <Accordion primary='RoundMeter' open>
+          <RoundMeter />
+        </Accordion>
+
+        <Accordion primary='RoundMeter size'>
+          <Line>
+            <RoundMeter size='small' />
+
+            <RoundMeter size='regular' />
+
+            <RoundMeter size='large' />
+          </Line>
+        </Accordion>
+
+        <Accordion primary='RoundMeter boundary'>
+          <Line>
+            <Line>
+              <RoundMeter boundary={1} size='small' />
+
+              <RoundMeter boundary={1} size='regular' />
+
+              <RoundMeter boundary={1} size='large' />
+            </Line>
+
+            <Line>
+              <RoundMeter boundary={0.75} size='small' />
+
+              <RoundMeter boundary={0.75} size='regular' />
+
+              <RoundMeter boundary={0.75} size='large' />
+            </Line>
+
+            <Line>
+              <RoundMeter boundary={0.5} size='small' />
+
+              <RoundMeter boundary={0.5} size='regular' />
+
+              <RoundMeter boundary={0.5} size='large' />
+            </Line>
+
+            <Line>
+              <RoundMeter boundary={0.25} size='small' />
+
+              <RoundMeter boundary={0.25} size='regular' />
+
+              <RoundMeter boundary={0.25} size='large' />
+            </Line>
+          </Line>
+        </Accordion>
       </Accordion>
 
       <Accordion primary='Weather'>
