@@ -18,7 +18,7 @@ import { staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
-    minWidth: '270px',
+    minWidth: '300px',
     padding: '24px 40px',
     borderRadius: theme.methods.shape.radius.value('rg')
   },

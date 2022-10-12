@@ -156,7 +156,9 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
           const radius = ((rect.width / 2) - ((boundaryWidth / 2) + padding));
 
-          const part = (360 / parts) - (gap * (parts - 1));
+          const total = 360;
+
+          const part = (total / parts) - (gap * (parts - 1));
 
           const angles: any = {
             0: angleToCoordinates(0, center, center, radius)
@@ -206,17 +208,67 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
         const radius = ((rect.width / 2) - ((boundaryWidth / 2) + padding));
 
         const angles = {
-          45: angleToCoordinates(45, center, center, radius),
-          135: angleToCoordinates(135, center, center, radius)
+          end: angleToCoordinates(45, center, center, radius),
+          start: angleToCoordinates(135, center, center, radius)
         };
 
-        value.push(
-          // Line middle bottom
-          'M', angles[135].x, angles[135].y,
+        if (parts === 1) {
+          values.push(
+            {
+              d: [
+                // Line middle bottom
+                'M', angles.start.x, angles.start.y,
 
-          // Arc
-          'A', radius, radius, 0, 1, 1, angles[45].x, angles[45].y
-        );
+                // Arc
+                'A', radius, radius, 0, 1, 1, angles.end.x, angles.end.y
+              ].join(' ')
+            }
+          );
+        }
+        else {
+          const center = rect.width / 2;
+
+          const radius = ((rect.width / 2) - ((boundaryWidth / 2) + padding));
+
+          const total = 270;
+
+          const part = (total / parts) - (gap * (parts - 1));
+
+          const angles: any = {
+            0: angleToCoordinates(135, center, center, radius)
+          };
+
+          for (let i = 0; i < parts; i++) {
+            // Move to 135 deg
+            if (i === 0) value.push(
+              // Move to 0 deg
+              'M', angles[0].x, angles[0].y
+            );
+
+            angles.end = angleToCoordinates(135 + (i * part + (gap * (parts - 1))) + part, center, center, radius);
+
+            angles.move = angleToCoordinates((i * part + (gap * (parts - 1))) + part + gap, center, center, radius);
+
+            // Arc
+            value.push(
+              'A', radius, radius, 0, 0, 1, angles.end.x, angles.end.y
+            );
+
+            // Move the gap if there's a gap
+            if (gap > 0) {
+              values.push(
+                'M', angles.move.x, angles.move.y
+              );
+            }
+
+            values.push({ d: value.join(' ') });
+
+            // Move for the next value
+            value = [
+              'M', angles[!gap ? 'end' : 'move'].x, angles[!gap ? 'end' : 'move'].y
+            ];
+          }
+        }
       }
 
       // 0.5
@@ -228,13 +280,63 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
         // 0 0 100 100
         // M 0.5 49.5 A 49.54 49.54 0 0 1 99.5 49.5 Z
 
-        value.push(
-          // Move
-          'M', (boundaryWidth / 2) + padding, (rect.height - ((boundaryWidth / 2) + padding)),
+        if (parts === 1) {
+          values.push(
+            {
+              d: [
+                // Move
+                'M', (boundaryWidth / 2) + padding, (rect.height - ((boundaryWidth / 2) + padding)),
 
-          // Arc
-          'A', (rect.height - ((boundaryWidth / 2) + padding)) + 0.1, (rect.height - ((boundaryWidth / 2) + padding)) + 0.1, 0, 0, 1, (rect.width - ((boundaryWidth / 2) + padding)), (rect.height - ((boundaryWidth / 2) + padding))
-        );
+                // Arc
+                'A', (rect.height - ((boundaryWidth / 2) + padding)) + 0.1, (rect.height - ((boundaryWidth / 2) + padding)) + 0.1, 0, 0, 1, (rect.width - ((boundaryWidth / 2) + padding)), (rect.height - ((boundaryWidth / 2) + padding))
+              ].join(' ')
+            }
+          );
+        }
+        else {
+          const center = rect.width / 2;
+
+          const radius = ((rect.width / 2) - ((boundaryWidth / 2) + padding));
+
+          const total = 180;
+
+          const part = (total / parts) - (gap * (parts - 1));
+
+          const angles: any = {
+            0: angleToCoordinates(180, center, center, radius)
+          };
+
+          for (let i = 0; i < parts; i++) {
+            // Move to 180 deg
+            if (i === 0) value.push(
+              // Move to 0 deg
+              'M', angles[0].x, angles[0].y
+            );
+
+            angles.end = angleToCoordinates(180 + (i * part + (gap * (parts - 1))) + part, center, center, radius);
+
+            angles.move = angleToCoordinates((i * part + (gap * (parts - 1))) + part + gap, center, center, radius);
+
+            // Arc
+            value.push(
+              'A', radius, radius, 0, 0, 1, angles.end.x, angles.end.y
+            );
+
+            // Move the gap if there's a gap
+            if (gap > 0) {
+              values.push(
+                'M', angles.move.x, angles.move.y
+              );
+            }
+
+            values.push({ d: value.join(' ') });
+
+            // Move for the next value
+            value = [
+              'M', angles[!gap ? 'end' : 'move'].x, angles[!gap ? 'end' : 'move'].y
+            ];
+          }
+        }
       }
 
       // 0.25
@@ -256,13 +358,63 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
           315: angleToCoordinates(315, center, center, radius)
         };
 
-        value.push(
-          // Line middle bottom, top quarter left
-          'M', angles[315].x, angles[315].y,
+        if (parts === 1) {
+          values.push(
+            {
+              d: [
+                // Line middle bottom, top quarter left
+                'M', angles[315].x, angles[315].y,
 
-          // Arc
-          'A', radius, radius, 0, 0, 0, angles[225].x, angles[225].y
-        );
+                // Arc
+                'A', radius, radius, 0, 0, 0, angles[225].x, angles[225].y
+              ].join(' ')
+            }
+          );
+        }
+        else {
+          const center = rect.width / 2;
+
+          const radius = ((rect.width / 2) - ((boundaryWidth / 2) + padding));
+
+          const total = 90;
+
+          const part = (total / parts) - (gap * (parts - 1));
+
+          const angles: any = {
+            0: angleToCoordinates(315, center, center, radius)
+          };
+
+          for (let i = 0; i < parts; i++) {
+            // Move to 315 deg
+            if (i === 0) value.push(
+              // Move to 0 deg
+              'M', angles[0].x, angles[0].y
+            );
+
+            angles.end = angleToCoordinates(315 + (i * part + (gap * (parts - 1))) + part, center, center, radius);
+
+            angles.move = angleToCoordinates((i * part + (gap * (parts - 1))) + part + gap, center, center, radius);
+
+            // Arc
+            value.push(
+              'A', radius, radius, 0, 0, 1, angles.end.x, angles.end.y
+            );
+
+            // Move the gap if there's a gap
+            if (gap > 0) {
+              values.push(
+                'M', angles.move.x, angles.move.y
+              );
+            }
+
+            values.push({ d: value.join(' ') });
+
+            // Move for the next value
+            value = [
+              'M', angles[!gap ? 'end' : 'move'].x, angles[!gap ? 'end' : 'move'].y
+            ];
+          }
+        }
       }
     }
 
