@@ -87,6 +87,10 @@ const useStyle = style(theme => ({
       ...theme.typography.values.t1,
 
       textAlign: 'center'
+    },
+
+    '& .AmauiTextField-border': {
+      boxShadow: 'none'
     }
   }
 }), { name: 'AmauiCountdown' });
@@ -429,7 +433,8 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
             align='flex-end'
 
             style={{
-              marginTop: 12
+              marginTop: 12,
+              marginBottom: -4
             }}
           >
             <NumericTextField
