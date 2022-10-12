@@ -2713,6 +2713,180 @@ Please sign in again.`}
           </Line>
         </Accordion>
 
+        <Accordion primary='RoundMeter parts'>
+          <Line>
+            <Line>
+              <Line>
+                <RoundMeter parts={1} boundary={1} size='small' />
+
+                <RoundMeter parts={1} boundary={1} size='regular' />
+
+                <RoundMeter parts={1} boundary={1} size='large' />
+              </Line>
+
+              <Line>
+                <RoundMeter parts={1} boundary={0.75} size='small' />
+
+                <RoundMeter parts={1} boundary={0.75} size='regular' />
+
+                <RoundMeter parts={1} boundary={0.75} size='large' />
+              </Line>
+
+              <Line>
+                <RoundMeter parts={1} boundary={0.5} size='small' />
+
+                <RoundMeter parts={1} boundary={0.5} size='regular' />
+
+                <RoundMeter parts={1} boundary={0.5} size='large' />
+              </Line>
+
+              <Line>
+                <RoundMeter parts={1} boundary={0.25} size='small' />
+
+                <RoundMeter parts={1} boundary={0.25} size='regular' />
+
+                <RoundMeter parts={1} boundary={0.25} size='large' />
+              </Line>
+            </Line>
+
+            <Line>
+              <Line>
+                <RoundMeter parts={2} boundary={1} size='small' />
+
+                <RoundMeter parts={2} boundary={1} size='regular' />
+
+                <RoundMeter parts={2} boundary={1} size='large' />
+              </Line>
+
+              <Line>
+                <RoundMeter parts={2} boundary={0.75} size='small' />
+
+                <RoundMeter parts={2} boundary={0.75} size='regular' />
+
+                <RoundMeter parts={2} boundary={0.75} size='large' />
+              </Line>
+
+              <Line>
+                <RoundMeter parts={2} boundary={0.5} size='small' />
+
+                <RoundMeter parts={2} boundary={0.5} size='regular' />
+
+                <RoundMeter parts={2} boundary={0.5} size='large' />
+              </Line>
+
+              <Line>
+                <RoundMeter parts={2} boundary={0.25} size='small' />
+
+                <RoundMeter parts={2} boundary={0.25} size='regular' />
+
+                <RoundMeter parts={2} boundary={0.25} size='large' />
+              </Line>
+            </Line>
+
+            <Line>
+              <Line>
+                <RoundMeter parts={3} boundary={1} size='small' />
+
+                <RoundMeter parts={3} boundary={1} size='regular' />
+
+                <RoundMeter parts={3} boundary={1} size='large' />
+              </Line>
+
+              <Line>
+                <RoundMeter parts={3} boundary={0.75} size='small' />
+
+                <RoundMeter parts={3} boundary={0.75} size='regular' />
+
+                <RoundMeter parts={3} boundary={0.75} size='large' />
+              </Line>
+
+              <Line>
+                <RoundMeter parts={3} boundary={0.5} size='small' />
+
+                <RoundMeter parts={3} boundary={0.5} size='regular' />
+
+                <RoundMeter parts={3} boundary={0.5} size='large' />
+              </Line>
+
+              <Line>
+                <RoundMeter parts={3} boundary={0.25} size='small' />
+
+                <RoundMeter parts={3} boundary={0.25} size='regular' />
+
+                <RoundMeter parts={3} boundary={0.25} size='large' />
+              </Line>
+            </Line>
+
+            <Line>
+              <Line>
+                <RoundMeter parts={4} boundary={1} size='small' />
+
+                <RoundMeter parts={4} boundary={1} size='regular' />
+
+                <RoundMeter parts={4} boundary={1} size='large' />
+              </Line>
+
+              <Line>
+                <RoundMeter parts={4} boundary={0.75} size='small' />
+
+                <RoundMeter parts={4} boundary={0.75} size='regular' />
+
+                <RoundMeter parts={4} boundary={0.75} size='large' />
+              </Line>
+
+              <Line>
+                <RoundMeter parts={4} boundary={0.5} size='small' />
+
+                <RoundMeter parts={4} boundary={0.5} size='regular' />
+
+                <RoundMeter parts={4} boundary={0.5} size='large' />
+              </Line>
+
+              <Line>
+                <RoundMeter parts={4} boundary={0.25} size='small' />
+
+                <RoundMeter parts={4} boundary={0.25} size='regular' />
+
+                <RoundMeter parts={4} boundary={0.25} size='large' />
+              </Line>
+            </Line>
+
+            <Line>
+              <Line>
+                <RoundMeter parts={8} boundary={1} size='small' />
+
+                <RoundMeter parts={8} boundary={1} size='regular' />
+
+                <RoundMeter parts={8} boundary={1} size='large' />
+              </Line>
+
+              <Line>
+                <RoundMeter parts={8} boundary={0.75} size='small' />
+
+                <RoundMeter parts={8} boundary={0.75} size='regular' />
+
+                <RoundMeter parts={8} boundary={0.75} size='large' />
+              </Line>
+
+              <Line>
+                <RoundMeter parts={8} boundary={0.5} size='small' />
+
+                <RoundMeter parts={8} boundary={0.5} size='regular' />
+
+                <RoundMeter parts={8} boundary={0.5} size='large' />
+              </Line>
+
+              <Line>
+                <RoundMeter parts={8} boundary={0.25} size='small' />
+
+                <RoundMeter parts={8} boundary={0.25} size='regular' />
+
+                <RoundMeter parts={8} boundary={0.25} size='large' />
+              </Line>
+            </Line>
+          </Line>
+        </Accordion>
+
         <Accordion primary='RoundMeter boundary'>
           <Line>
             <Line>

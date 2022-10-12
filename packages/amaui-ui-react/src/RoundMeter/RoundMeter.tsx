@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { clamp } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Surface from '../Surface';
@@ -60,6 +61,10 @@ const useStyle = style(theme => ({
 
 // value only be pre, equal or post available marks
 
+// mouse move controll
+
+// keyboard focus and arrow up, down move value y
+
 const RoundMeter = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 
@@ -72,6 +77,10 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
     color = 'primary',
 
     size = 'regular',
+
+    parts: parts_ = 1,
+
+    gap = 0,
 
     background = false,
 
@@ -98,6 +107,8 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
     root: {}
   };
 
+  const parts = clamp(parts_, 1, 180);
+
   React.useEffect(() => {
     const method = () => setRect(refs.root.current.getBoundingClientRect());
 
@@ -114,8 +125,10 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
   if (!['small', 'regular', 'large'].includes(size)) styles.root.maxWidth = size;
 
-  const makeArc = React.useCallback(() => {
+  const arcs = React.useMemo(() => {
     const values = [];
+
+    let value = [];
 
     if (rect) {
       // 1
@@ -125,17 +138,67 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
         // 0 0 100 100
         // M 0.5 50.001 A 49.5 49.5 0 1 0 0.5 50 Z
 
-        values.push(
-          // Move
-          'M', ((boundaryWidth / 2) + padding), (rect.width / 2) + 0.001,
+        if (parts === 1) {
+          values.push(
+            {
+              d: [
+                // Move
+                'M', ((boundaryWidth / 2) + padding), (rect.width / 2) + 0.001,
 
-          // Arc
-          'A', ((rect.width / 2) - (boundaryWidth / 2) - padding), ((rect.width / 2) - (boundaryWidth / 2) - padding), 0, 1, 0, ((boundaryWidth / 2) + padding), rect.width / 2
-        );
+                // Arc
+                'A', ((rect.width / 2) - (boundaryWidth / 2) - padding), ((rect.width / 2) - (boundaryWidth / 2) - padding), 0, 1, 0, ((boundaryWidth / 2) + padding), rect.width / 2
+              ].join(' ')
+            }
+          );
+        }
+        else {
+          const center = rect.width / 2;
+
+          const radius = ((rect.width / 2) - ((boundaryWidth / 2) + padding));
+
+          const part = (360 / parts) - (gap * (parts - 1));
+
+          const angles: any = {
+            0: angleToCoordinates(0, center, center, radius)
+          };
+
+          for (let i = 0; i < parts; i++) {
+            // Move to 0 deg
+            if (i === 0) value.push(
+              // Move to 0 deg
+              'M', angles[0].x, angles[0].y
+            );
+
+            angles.end = angleToCoordinates((i * part + (gap * (parts - 1))) + part, center, center, radius);
+
+            angles.move = angleToCoordinates((i * part + (gap * (parts - 1))) + part + gap, center, center, radius);
+
+            // Arc
+            value.push(
+              'A', radius, radius, 0, 0, 1, angles.end.x, angles.end.y
+            );
+
+            // Move the gap if there's a gap
+            if (gap > 0) {
+              values.push(
+                'M', angles.move.x, angles.move.y
+              );
+            }
+
+            values.push({ d: value.join(' ') });
+
+            // Move for the next value
+            value = [
+              'M', angles[!gap ? 'end' : 'move'].x, angles[!gap ? 'end' : 'move'].y
+            ];
+          }
+        }
       }
 
       // 0.75
       if (boundary === 0.75) {
+        value = [];
+
         const padding = 0;
 
         const center = rect.width / 2;
@@ -147,7 +210,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
           135: angleToCoordinates(135, center, center, radius)
         };
 
-        values.push(
+        value.push(
           // Line middle bottom
           'M', angles[135].x, angles[135].y,
 
@@ -158,12 +221,14 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
       // 0.5
       if (boundary === 0.5) {
+        value = [];
+
         const padding = 0;
 
         // 0 0 100 100
         // M 0.5 49.5 A 49.54 49.54 0 0 1 99.5 49.5 Z
 
-        values.push(
+        value.push(
           // Move
           'M', (boundaryWidth / 2) + padding, (rect.height - ((boundaryWidth / 2) + padding)),
 
@@ -174,6 +239,8 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
       // 0.25
       if (boundary === 0.25) {
+        value = [];
+
         const padding = 0;
 
         // 0 0 100 133.3333
@@ -189,7 +256,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
           315: angleToCoordinates(315, center, center, radius)
         };
 
-        values.push(
+        value.push(
           // Line middle bottom, top quarter left
           'M', angles[315].x, angles[315].y,
 
@@ -199,10 +266,10 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
       }
     }
 
-    return values.join(' ');
-  }, [rect, boundary, boundaryWidth]);
+    return values;
+  }, [rect, parts, boundary, boundaryWidth, gap]);
 
-  const makeBackground = React.useCallback(() => {
+  const pathBackground = React.useMemo(() => {
     const values = [];
 
     if (rect) {
@@ -308,7 +375,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
     return values.join(' ');
   }, [rect, boundary, boundaryWidth]);
 
-  const makeBorder = React.useCallback(() => {
+  const pathBorder = React.useMemo(() => {
     const values = [];
 
     if (rect) {
@@ -429,7 +496,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
             {/* Background */}
             {background && (
               <path
-                d={makeBackground()}
+                d={pathBackground}
 
                 fill={backgroundColor}
 
@@ -440,7 +507,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
             {/* Border */}
             {border && (
               <path
-                d={makeBorder()}
+                d={pathBorder}
 
                 fill='none'
 
@@ -460,15 +527,19 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
                 classes.arcs
               ])}
             >
-              <path
-                d={makeArc()}
+              {(arcs.map((item: any, index: number) => (
+                <path
+                  key={index}
 
-                fill='none'
+                  d={item.d}
 
-                stroke={color}
+                  fill='none'
 
-                strokeWidth={boundaryWidth}
-              />
+                  stroke={color}
+
+                  strokeWidth={boundaryWidth}
+                />
+              )))}
             </g>
           </svg>
         )}

@@ -19,7 +19,7 @@ import { staticClassName } from '../utils';
 const useStyle = style(theme => ({
   root: {
     minWidth: '270px',
-    padding: '16px 24px',
+    padding: '24px 40px',
     borderRadius: theme.methods.shape.radius.value('rg')
   },
 
@@ -331,7 +331,7 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
           {...IconProps}
 
           style={{
-            margin: '4px 0',
+            marginBottom: 4,
 
             ...IconProps?.style
           }}
