@@ -329,6 +329,12 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
           size='medium'
 
           {...IconProps}
+
+          style={{
+            margin: '4px 0',
+
+            ...IconProps?.style
+          }}
         />
       )}
 
