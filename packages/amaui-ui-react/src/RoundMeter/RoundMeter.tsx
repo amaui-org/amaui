@@ -124,35 +124,27 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
     if (rect) {
       // 1
       if (boundary === 1) {
-        const padding = 1;
+        const padding = 0;
 
         // 0 0 100 100
-        // M 0 50 A 1 1 0 0 1 100 50 A 1 1 0 0 1 0 50
-        // M 1.5 50 A 1 1 0 0 1 98.5 50 A 1 1 0 0 1 1.5 50
+        // M 0.5 50.01 A 49.5 49.5 0 1 0 0.5 50 Z
 
         values.push(
           // Move
-          'M', ((boundaryWidth / 2) + padding), rect.height / 2,
+          'M', ((boundaryWidth / 2) + padding), (rect.width / 2) + 0.01,
 
-          // Arc top
-          'A', 1, 1, 0, 0, 1, (rect.width - (boundaryWidth / 2) - padding), rect.height / 2,
-
-          // Arc bottom
-          'A', 1, 1, 0, 0, 1, ((boundaryWidth / 2) + padding), rect.height / 2
+          // Arc
+          'A', ((rect.width / 2) - (boundaryWidth / 2) - padding), ((rect.width / 2) - (boundaryWidth / 2) - padding), 0, 1, 0, ((boundaryWidth / 2) + padding), rect.width / 2
         );
       }
 
       // 0.75
       if (boundary === 0.75) {
-        const padding = 1;
-
-        // 0 0 100 100
-        // M 50 50 L 25 93.25 A 50 50 0 1 1 75 93.25 L 50 50
-        // M 50 50 L 25 91.5 A 48.5 48.5 0 1 1 75 91.5 L 50 50
+        const padding = 0;
 
         const center = rect.width / 2;
 
-        const radius = ((rect.width / 2) - (boundaryWidth + padding));
+        const radius = ((rect.width / 2) - ((boundaryWidth / 2) + padding));
 
         const angles = {
           45: angleToCoordinates(45, center, center, radius),
@@ -178,11 +170,10 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
       // 0.5
       if (boundary === 0.5) {
-        const padding = 1;
+        const padding = 0;
 
         // 0 0 100 100
-        // M 0 100 A 1 1 0 0 1 100 100 Z
-        // M 1.5 88.5 A 88.51 88.51 0 0 1 178.5 88.5 Z
+        // M 0.5 49.5 A 49.54 49.54 0 0 1 99.5 49.5 Z
 
         values.push(
           // Move
