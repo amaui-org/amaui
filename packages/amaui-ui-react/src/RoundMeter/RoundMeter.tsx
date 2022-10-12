@@ -28,7 +28,7 @@ const useStyle = style(theme => ({
   },
 
   boundary_075: {
-    aspectRatio: '4 / 3'
+    aspectRatio: '1'
   },
 
   boundary_05: {
@@ -45,8 +45,8 @@ const useStyle = style(theme => ({
 // arc, background
 // for each boundary
 
-// make 2 paths, one is for arcs
-// another is for only background
+// make more paths
+// 1 arc, 1 bottom border, 1 background
 
 // account for any boundary thickness
 
@@ -120,21 +120,71 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
   if (!['small', 'regular', 'large'].includes(size)) styles.root.maxWidth = size;
 
   const make = React.useCallback(() => {
-    // M 1.5 120 A 1 1 0 0 1 238.5 120 A 1 1 0 0 1 1.5 120
     const values = [];
 
     if (rect) {
-      const padding = 1;
-
+      // 1
       if (boundary === 1) {
-        // Move
-        values.push('M', ((boundaryWidth / 2) + padding), rect.height / 2);
+        const padding = 1;
 
-        // Arc top
-        values.push('A', 1, 1, 0, 0, 1, (rect.width - (boundaryWidth / 2) - padding), rect.height / 2);
+        // 0 0 100 100
+        // M 0 50 A 1 1 0 0 1 100 50 A 1 1 0 0 1 0 50
+        // M 1.5 50 A 1 1 0 0 1 98.5 50 A 1 1 0 0 1 1.5 50
 
-        // Arc bottom
-        values.push('A', 1, 1, 0, 0, 1, ((boundaryWidth / 2) + padding), rect.height / 2);
+        values.push(
+          // Move
+          'M', ((boundaryWidth / 2) + padding), rect.height / 2,
+
+          // Arc top
+          'A', 1, 1, 0, 0, 1, (rect.width - (boundaryWidth / 2) - padding), rect.height / 2,
+
+          // Arc bottom
+          'A', 1, 1, 0, 0, 1, ((boundaryWidth / 2) + padding), rect.height / 2
+        );
+      }
+
+      // 0.75
+      if (boundary === 0.75) {
+        const padding = 1;
+
+        // 0 0 100 100
+        // M 50 50 L 25 93.25 A 50 50 0 1 1 75 93.25 L 50 50
+        // M 50 50 L 25 91.5 A 48.5 48.5 0 1 1 75 91.5 L 50 50
+
+        values.push(
+          // Move
+          'M', rect.height / 2, rect.height / 2,
+
+          // Line middle bottom
+          'L', rect.height / 4, ((rect.width * 0.9325) - ((boundaryWidth / 2) + padding)),
+
+          // Arc
+          'A', ((rect.width / 2) - ((boundaryWidth / 2) + padding)), ((rect.width / 2) - ((boundaryWidth / 2) + padding)), 0, 1, 1, rect.width * 0.75, ((rect.width * 0.9325) - ((boundaryWidth / 2) + padding)),
+
+          // Line bottom middle
+          'L', rect.width / 2, rect.width / 2,
+
+          'Z'
+        );
+      }
+
+      // 0.5
+      if (boundary === 0.5) {
+        const padding = 1;
+
+        // 0 0 100 100
+        // M 0 100 A 1 1 0 0 1 100 100 Z
+        // M 1.5 88.5 A 88.51 88.51 0 0 1 178.5 88.5 Z
+
+        values.push(
+          // Move
+          'M', (boundaryWidth / 2) + padding, (rect.height - ((boundaryWidth / 2) + padding)),
+
+          // Arc
+          'A', (rect.height - ((boundaryWidth / 2) + padding)) + 0.01, (rect.height - ((boundaryWidth / 2) + padding)) + 0.01, 0, 0, 1, (rect.width - ((boundaryWidth / 2) + padding)), (rect.height - ((boundaryWidth / 2) + padding)),
+
+          'Z'
+        );
       }
     }
 

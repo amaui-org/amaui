@@ -646,6 +646,8 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
                 <IconButton
                   onClick={onStart}
 
+                  disabled={!((values.hours || 0) + (values.minutes || 0) + (values.seconds || 0))}
+
                   {...IconButtonProps}
                 >
                   <IconStart />
