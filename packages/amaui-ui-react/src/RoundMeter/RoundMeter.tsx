@@ -47,7 +47,7 @@ const useStyle = style(theme => ({
 // and add prop options which ones is visible
 // a default only arc
 
-// account for any boundary thickness
+// try various boundary thickness's on all boundaries and multiple sizes
 
 // multiple parts
 

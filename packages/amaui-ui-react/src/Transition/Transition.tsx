@@ -449,7 +449,8 @@ function Transition(props_: IProps) {
 
       className = className.replace(/ +/g, ' ').trim();
 
-      refs.root.current.className = className;
+      if ((refs.root.current.className as unknown as SVGAnimatedString)?.baseVal) (refs.root.current.className as unknown as SVGAnimatedString).baseVal = className;
+      else refs.root.current.className = className;
     }
   };
 
