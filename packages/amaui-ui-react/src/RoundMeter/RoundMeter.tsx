@@ -223,7 +223,9 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
           const total = 270;
 
-          const part = (total / parts) - gap;
+          const gapPerPart = (((parts - 1) * gap) / parts);
+
+          const part = (total / parts) - gapPerPart;
 
           const angles: any = {
             0: angleToCoordinates(135, center, center, radius)
@@ -236,9 +238,9 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
               'M', angles[0].x, angles[0].y
             );
 
-            angles.end = angleToCoordinates(135 + (i * (part + gap)) + part, center, center, radius);
+            angles.end = angleToCoordinates(135 + (i * (part + gap)) + part + (i === parts - 1 ? gapPerPart : 0), center, center, radius);
 
-            angles.move = angleToCoordinates((i * (part + gap)) + part + gap, center, center, radius);
+            angles.move = angleToCoordinates(135 + (i * (part + gap)) + part + gap, center, center, radius);
 
             // Arc
             value.push(
@@ -255,9 +257,11 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
             values.push({ d: value.join(' ') });
 
             // Move for the next value
-            value = [
-              'M', angles.move.x, angles.move.y
-            ];
+            if (i < parts - 1) {
+              value = [
+                'M', angles.move.x, angles.move.y
+              ];
+            }
           }
         }
       }
@@ -291,7 +295,9 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
           const total = 180;
 
-          const part = (total / parts) - gap;
+          const gapPerPart = (((parts - 1) * gap) / parts);
+
+          const part = (total / parts) - gapPerPart;
 
           const angles: any = {
             0: angleToCoordinates(180, center, center, radius)
@@ -304,9 +310,9 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
               'M', angles[0].x, angles[0].y
             );
 
-            angles.end = angleToCoordinates(180 + (i * (part + gap)) + part, center, center, radius);
+            angles.end = angleToCoordinates(180 + (i * (part + gap)) + part + (i === parts - 1 ? gapPerPart : 0), center, center, radius);
 
-            angles.move = angleToCoordinates((i * (part + gap)) + part + gap, center, center, radius);
+            angles.move = angleToCoordinates(180 + (i * (part + gap)) + part + gap, center, center, radius);
 
             // Arc
             value.push(
@@ -323,9 +329,11 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
             values.push({ d: value.join(' ') });
 
             // Move for the next value
-            value = [
-              'M', angles.move.x, angles.move.y
-            ];
+            if (i < parts - 1) {
+              value = [
+                'M', angles.move.x, angles.move.y
+              ];
+            }
           }
         }
       }
@@ -369,7 +377,9 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
           const total = 90;
 
-          const part = (total / parts) - gap;
+          const gapPerPart = (((parts - 1) * gap) / parts);
+
+          const part = (total / parts) - gapPerPart;
 
           const angles: any = {
             0: angleToCoordinates(225, center, center, radius)
@@ -382,9 +392,9 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
               'M', angles[0].x, angles[0].y
             );
 
-            angles.end = angleToCoordinates(225 + (i * (part + gap)) + part, center, center, radius);
+            angles.end = angleToCoordinates(225 + (i * (part + gap)) + part + (i === parts - 1 ? gapPerPart : 0), center, center, radius);
 
-            angles.move = angleToCoordinates((i * (part + gap)) + part + gap, center, center, radius);
+            angles.move = angleToCoordinates(225 + (i * (part + gap)) + part + gap, center, center, radius);
 
             // Arc
             value.push(
@@ -401,9 +411,11 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
             values.push({ d: value.join(' ') });
 
             // Move for the next value
-            value = [
-              'M', angles.move.x, angles.move.y
-            ];
+            if (i < parts - 1) {
+              value = [
+                'M', angles.move.x, angles.move.y
+              ];
+            }
           }
         }
       }
