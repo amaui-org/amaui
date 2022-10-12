@@ -36,7 +36,7 @@ const useStyle = style(theme => ({
   },
 
   boundary_025: {
-    aspectRatio: '3 / 4'
+    aspectRatio: '4 / 3'
   }
 }), { name: 'AmauiRoundMeter' });
 
@@ -180,7 +180,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
           'M', (boundaryWidth / 2) + padding, (rect.height - ((boundaryWidth / 2) + padding)),
 
           // Arc
-          'A', (rect.height - ((boundaryWidth / 2) + padding)) + 0.04, (rect.height - ((boundaryWidth / 2) + padding)) + 0.04, 0, 0, 1, (rect.width - ((boundaryWidth / 2) + padding)), (rect.height - ((boundaryWidth / 2) + padding)),
+          'A', (rect.height - ((boundaryWidth / 2) + padding)) + 0.001, (rect.height - ((boundaryWidth / 2) + padding)) + 0.001, 0, 0, 1, (rect.width - ((boundaryWidth / 2) + padding)), (rect.height - ((boundaryWidth / 2) + padding)),
 
           'Z'
         );
@@ -188,24 +188,33 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
       // 0.25
       if (boundary === 0.25) {
-        const padding = 1;
+        const padding = 0;
 
         // 0 0 100 133.3333
         // M 50 100 L 0 25 A 50 50  0 0 1 100 25 L 50 100 Z
         // M 50 131.8333 L 1.5 25 A 61.5 61.5 0 0 1 98.5 25 L 50 131.8333 Z
 
+        const center = rect.height / 2;
+
+        const radius = ((rect.height / 2) - ((boundaryWidth / 2) + padding));
+
+        const angles = {
+          225: angleToCoordinates(225, center, center, radius),
+          315: angleToCoordinates(315, center, center, radius)
+        };
+
         values.push(
           // Move
-          'M', rect.width / 2, (rect.height - ((boundaryWidth / 2) + padding)),
+          'M', center, (rect.height - ((boundaryWidth / 2) + padding)),
 
           // Line middle bottom, top quarter left
-          'L', (boundaryWidth / 2) + padding, rect.width * 0.25,
+          'L', angles[315].x, angles[315].y,
 
           // Arc
-          'A', ((rect.height * 0.4687) + ((boundaryWidth / 2) + padding)), ((rect.height * 0.4687) + ((boundaryWidth / 2) + padding)), 0, 0, 1, (rect.width - ((boundaryWidth / 2) + padding)), rect.width * 0.25,
+          'A', radius, radius, 0, 0, 0, angles[225].x, angles[225].y,
 
           // Line top quarter right, middle bottom
-          'L', rect.width / 2, (rect.height - ((boundaryWidth / 2) + padding)),
+          'L', center, (rect.height - ((boundaryWidth / 2) + padding)),
 
           'Z'
         );
