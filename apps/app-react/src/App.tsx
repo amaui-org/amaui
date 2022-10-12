@@ -2748,6 +2748,216 @@ Please sign in again.`}
             </Line>
           </Line>
         </Accordion>
+
+        <Accordion primary='RoundMeter boundary background'>
+          <Line>
+            <Line>
+              <RoundMeter background boundary={1} size='small' />
+
+              <RoundMeter background boundary={1} size='regular' />
+
+              <RoundMeter background boundary={1} size='large' />
+            </Line>
+
+            <Line>
+              <RoundMeter background boundary={0.75} size='small' />
+
+              <RoundMeter background boundary={0.75} size='regular' />
+
+              <RoundMeter background boundary={0.75} size='large' />
+            </Line>
+
+            <Line>
+              <RoundMeter background boundary={0.5} size='small' />
+
+              <RoundMeter background boundary={0.5} size='regular' />
+
+              <RoundMeter background boundary={0.5} size='large' />
+            </Line>
+
+            <Line>
+              <RoundMeter background boundary={0.25} size='small' />
+
+              <RoundMeter background boundary={0.25} size='regular' />
+
+              <RoundMeter background boundary={0.25} size='large' />
+            </Line>
+          </Line>
+        </Accordion>
+
+        <Accordion primary='RoundMeter boundary background, border'>
+          <Line>
+            <Line>
+              <RoundMeter background border boundary={1} size='small' />
+
+              <RoundMeter background border boundary={1} size='regular' />
+
+              <RoundMeter background border boundary={1} size='large' />
+            </Line>
+
+            <Line>
+              <RoundMeter background border boundary={0.75} size='small' />
+
+              <RoundMeter background border boundary={0.75} size='regular' />
+
+              <RoundMeter background border boundary={0.75} size='large' />
+            </Line>
+
+            <Line>
+              <RoundMeter background border boundary={0.5} size='small' />
+
+              <RoundMeter background border boundary={0.5} size='regular' />
+
+              <RoundMeter background border boundary={0.5} size='large' />
+            </Line>
+
+            <Line>
+              <RoundMeter background border boundary={0.25} size='small' />
+
+              <RoundMeter background border boundary={0.25} size='regular' />
+
+              <RoundMeter background border boundary={0.25} size='large' />
+            </Line>
+          </Line>
+        </Accordion>
+
+        <Accordion primary='RoundMeter boundary width'>
+          <Line>
+            <Line>
+              <RoundMeter boundaryWidth={0.5} background border boundary={1} size='small' />
+
+              <RoundMeter boundaryWidth={0.5} background border boundary={1} size='regular' />
+
+              <RoundMeter boundaryWidth={0.5} background border boundary={1} size='large' />
+            </Line>
+
+            <Line>
+              <RoundMeter boundaryWidth={0.5} background border boundary={0.75} size='small' />
+
+              <RoundMeter boundaryWidth={0.5} background border boundary={0.75} size='regular' />
+
+              <RoundMeter boundaryWidth={0.5} background border boundary={0.75} size='large' />
+            </Line>
+
+            <Line>
+              <RoundMeter boundaryWidth={0.5} background border boundary={0.5} size='small' />
+
+              <RoundMeter boundaryWidth={0.5} background border boundary={0.5} size='regular' />
+
+              <RoundMeter boundaryWidth={0.5} background border boundary={0.5} size='large' />
+            </Line>
+
+            <Line>
+              <RoundMeter boundaryWidth={0.5} background border boundary={0.25} size='small' />
+
+              <RoundMeter boundaryWidth={0.5} background border boundary={0.25} size='regular' />
+
+              <RoundMeter boundaryWidth={0.5} background border boundary={0.25} size='large' />
+            </Line>
+          </Line>
+
+          <Line>
+            <Line>
+              <RoundMeter boundaryWidth={2} background border boundary={1} size='small' />
+
+              <RoundMeter boundaryWidth={2} background border boundary={1} size='regular' />
+
+              <RoundMeter boundaryWidth={2} background border boundary={1} size='large' />
+            </Line>
+
+            <Line>
+              <RoundMeter boundaryWidth={2} background border boundary={0.75} size='small' />
+
+              <RoundMeter boundaryWidth={2} background border boundary={0.75} size='regular' />
+
+              <RoundMeter boundaryWidth={2} background border boundary={0.75} size='large' />
+            </Line>
+
+            <Line>
+              <RoundMeter boundaryWidth={2} background border boundary={0.5} size='small' />
+
+              <RoundMeter boundaryWidth={2} background border boundary={0.5} size='regular' />
+
+              <RoundMeter boundaryWidth={2} background border boundary={0.5} size='large' />
+            </Line>
+
+            <Line>
+              <RoundMeter boundaryWidth={2} background border boundary={0.25} size='small' />
+
+              <RoundMeter boundaryWidth={2} background border boundary={0.25} size='regular' />
+
+              <RoundMeter boundaryWidth={2} background border boundary={0.25} size='large' />
+            </Line>
+          </Line>
+
+          <Line>
+            <Line>
+              <RoundMeter boundaryWidth={4} background border boundary={1} size='small' />
+
+              <RoundMeter boundaryWidth={4} background border boundary={1} size='regular' />
+
+              <RoundMeter boundaryWidth={4} background border boundary={1} size='large' />
+            </Line>
+
+            <Line>
+              <RoundMeter boundaryWidth={4} background border boundary={0.75} size='small' />
+
+              <RoundMeter boundaryWidth={4} background border boundary={0.75} size='regular' />
+
+              <RoundMeter boundaryWidth={4} background border boundary={0.75} size='large' />
+            </Line>
+
+            <Line>
+              <RoundMeter boundaryWidth={4} background border boundary={0.5} size='small' />
+
+              <RoundMeter boundaryWidth={4} background border boundary={0.5} size='regular' />
+
+              <RoundMeter boundaryWidth={4} background border boundary={0.5} size='large' />
+            </Line>
+
+            <Line>
+              <RoundMeter boundaryWidth={4} background border boundary={0.25} size='small' />
+
+              <RoundMeter boundaryWidth={4} background border boundary={0.25} size='regular' />
+
+              <RoundMeter boundaryWidth={4} background border boundary={0.25} size='large' />
+            </Line>
+          </Line>
+
+          <Line>
+            <Line>
+              <RoundMeter boundaryWidth={8} background border boundary={1} size='small' />
+
+              <RoundMeter boundaryWidth={8} background border boundary={1} size='regular' />
+
+              <RoundMeter boundaryWidth={8} background border boundary={1} size='large' />
+            </Line>
+
+            <Line>
+              <RoundMeter boundaryWidth={8} background border boundary={0.75} size='small' />
+
+              <RoundMeter boundaryWidth={8} background border boundary={0.75} size='regular' />
+
+              <RoundMeter boundaryWidth={8} background border boundary={0.75} size='large' />
+            </Line>
+
+            <Line>
+              <RoundMeter boundaryWidth={8} background border boundary={0.5} size='small' />
+
+              <RoundMeter boundaryWidth={8} background border boundary={0.5} size='regular' />
+
+              <RoundMeter boundaryWidth={8} background border boundary={0.5} size='large' />
+            </Line>
+
+            <Line>
+              <RoundMeter boundaryWidth={8} background border boundary={0.25} size='small' />
+
+              <RoundMeter boundaryWidth={8} background border boundary={0.25} size='regular' />
+
+              <RoundMeter boundaryWidth={8} background border boundary={0.25} size='large' />
+            </Line>
+          </Line>
+        </Accordion>
       </Accordion>
 
       <Accordion primary='Weather'>

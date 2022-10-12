@@ -84,7 +84,7 @@ const useStyle = style(theme => ({
     },
 
     '& .AmauiTextField-input': {
-      ...theme.typography.values.t1,
+      ...theme.typography.values.h2,
 
       textAlign: 'center'
     },
