@@ -3110,53 +3110,53 @@ Please sign in again.`}
         <Accordion primary='RoundMeter round'>
           <Line>
             <Line>
-              <RoundMeter ArcProps={{ strokeLinecap: 'round' }} boundaryWidth={16} gap={8} parts={1} boundary={1} size='regular' />
+              <RoundMeter lineCap='round' boundaryWidth={16} gap={8} parts={1} boundary={1} size='regular' />
 
-              <RoundMeter ArcProps={{ strokeLinecap: 'round' }} boundaryWidth={16} gap={8} parts={1} boundary={0.75} size='regular' />
+              <RoundMeter lineCap='round' boundaryWidth={16} gap={8} parts={1} boundary={0.75} size='regular' />
 
-              <RoundMeter ArcProps={{ strokeLinecap: 'round' }} boundaryWidth={16} gap={8} parts={1} boundary={0.5} size='regular' />
+              <RoundMeter lineCap='round' boundaryWidth={16} gap={8} parts={1} boundary={0.5} size='regular' />
 
-              <RoundMeter ArcProps={{ strokeLinecap: 'round' }} boundaryWidth={16} gap={8} parts={1} boundary={0.25} size='regular' />
+              <RoundMeter lineCap='round' boundaryWidth={16} gap={8} parts={1} boundary={0.25} size='regular' />
             </Line>
 
             <Line>
-              <RoundMeter ArcProps={{ strokeLinecap: 'round' }} boundaryWidth={16} gap={8} parts={2} boundary={1} size='regular' />
+              <RoundMeter lineCap='round' boundaryWidth={16} gap={8} parts={2} boundary={1} size='regular' />
 
-              <RoundMeter ArcProps={{ strokeLinecap: 'round' }} boundaryWidth={16} gap={8} parts={2} boundary={0.75} size='regular' />
+              <RoundMeter lineCap='round' boundaryWidth={16} gap={8} parts={2} boundary={0.75} size='regular' />
 
-              <RoundMeter ArcProps={{ strokeLinecap: 'round' }} boundaryWidth={16} gap={8} parts={2} boundary={0.5} size='regular' />
+              <RoundMeter lineCap='round' boundaryWidth={16} gap={8} parts={2} boundary={0.5} size='regular' />
 
-              <RoundMeter ArcProps={{ strokeLinecap: 'round' }} boundaryWidth={16} gap={8} parts={2} boundary={0.25} size='regular' />
+              <RoundMeter lineCap='round' boundaryWidth={16} gap={8} parts={2} boundary={0.25} size='regular' />
             </Line>
 
             <Line>
-              <RoundMeter ArcProps={{ strokeLinecap: 'round' }} boundaryWidth={16} gap={8} parts={3} boundary={1} size='regular' />
+              <RoundMeter lineCap='round' boundaryWidth={16} gap={8} parts={3} boundary={1} size='regular' />
 
-              <RoundMeter ArcProps={{ strokeLinecap: 'round' }} boundaryWidth={16} gap={8} parts={3} boundary={0.75} size='regular' />
+              <RoundMeter lineCap='round' boundaryWidth={16} gap={8} parts={3} boundary={0.75} size='regular' />
 
-              <RoundMeter ArcProps={{ strokeLinecap: 'round' }} boundaryWidth={16} gap={8} parts={3} boundary={0.5} size='regular' />
+              <RoundMeter lineCap='round' boundaryWidth={16} gap={8} parts={3} boundary={0.5} size='regular' />
 
-              <RoundMeter ArcProps={{ strokeLinecap: 'round' }} boundaryWidth={16} gap={8} parts={3} boundary={0.25} size='regular' />
+              <RoundMeter lineCap='round' boundaryWidth={16} gap={8} parts={3} boundary={0.25} size='regular' />
             </Line>
 
             <Line>
-              <RoundMeter ArcProps={{ strokeLinecap: 'round' }} boundaryWidth={16} gap={8} parts={4} boundary={1} size='regular' />
+              <RoundMeter lineCap='round' boundaryWidth={16} gap={8} parts={4} boundary={1} size='regular' />
 
-              <RoundMeter ArcProps={{ strokeLinecap: 'round' }} boundaryWidth={16} gap={8} parts={4} boundary={0.75} size='regular' />
+              <RoundMeter lineCap='round' boundaryWidth={16} gap={8} parts={4} boundary={0.75} size='regular' />
 
-              <RoundMeter ArcProps={{ strokeLinecap: 'round' }} boundaryWidth={16} gap={8} parts={4} boundary={0.5} size='regular' />
+              <RoundMeter lineCap='round' boundaryWidth={16} gap={8} parts={4} boundary={0.5} size='regular' />
 
-              <RoundMeter ArcProps={{ strokeLinecap: 'round' }} boundaryWidth={16} gap={8} parts={4} boundary={0.25} size='regular' />
+              <RoundMeter lineCap='round' boundaryWidth={16} gap={8} parts={4} boundary={0.25} size='regular' />
             </Line>
 
             <Line>
-              <RoundMeter ArcProps={{ strokeLinecap: 'round' }} boundaryWidth={16} gap={8} parts={8} boundary={1} size='regular' />
+              <RoundMeter lineCap='round' boundaryWidth={16} gap={8} parts={8} boundary={1} size='regular' />
 
-              <RoundMeter ArcProps={{ strokeLinecap: 'round' }} boundaryWidth={16} gap={8} parts={8} boundary={0.75} size='regular' />
+              <RoundMeter lineCap='round' boundaryWidth={16} gap={8} parts={8} boundary={0.75} size='regular' />
 
-              <RoundMeter ArcProps={{ strokeLinecap: 'round' }} boundaryWidth={16} gap={8} parts={8} boundary={0.5} size='regular' />
+              <RoundMeter lineCap='round' boundaryWidth={16} gap={8} parts={8} boundary={0.5} size='regular' />
 
-              <RoundMeter ArcProps={{ strokeLinecap: 'round' }} boundaryWidth={16} gap={8} parts={8} boundary={0.25} size='regular' />
+              <RoundMeter lineCap='round' boundaryWidth={16} gap={8} parts={8} boundary={0.25} size='regular' />
             </Line>
           </Line>
         </Accordion>

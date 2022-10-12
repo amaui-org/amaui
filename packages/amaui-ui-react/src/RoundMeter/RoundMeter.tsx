@@ -72,7 +72,9 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
     parts: parts_ = 1,
 
-    gap = 0,
+    lineCap,
+
+    gap: gap_ = 0,
 
     background = false,
 
@@ -104,6 +106,8 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
   const styles: any = {
     root: {}
   };
+
+  const gap = ['round', 'square'].includes(lineCap) ? gap_ + (boundaryWidth / 2) : gap_;
 
   const parts = clamp(parts_, 1, 180);
 
@@ -662,6 +666,8 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
                   stroke={color}
 
                   strokeWidth={boundaryWidth}
+
+                  strokeLinecap={lineCap}
 
                   {...pathProps}
 
