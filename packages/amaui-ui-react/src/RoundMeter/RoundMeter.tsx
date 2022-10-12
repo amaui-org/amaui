@@ -178,7 +178,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
           'M', (boundaryWidth / 2) + padding, (rect.height - ((boundaryWidth / 2) + padding)),
 
           // Arc
-          'A', (rect.height - ((boundaryWidth / 2) + padding)) + 0.01, (rect.height - ((boundaryWidth / 2) + padding)) + 0.01, 0, 0, 1, (rect.width - ((boundaryWidth / 2) + padding)), (rect.height - ((boundaryWidth / 2) + padding)),
+          'A', (rect.height - ((boundaryWidth / 2) + padding)) + 0.075, (rect.height - ((boundaryWidth / 2) + padding)) + 0.075, 0, 0, 1, (rect.width - ((boundaryWidth / 2) + padding)), (rect.height - ((boundaryWidth / 2) + padding)),
 
           'Z'
         );
@@ -200,7 +200,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
           'L', (boundaryWidth / 2) + padding, rect.width * 0.25,
 
           // Arc
-          'A', ((rect.height * 0.4625) + ((boundaryWidth / 2) + padding)), ((rect.height * 0.4625) + ((boundaryWidth / 2) + padding)), 0, 0, 1, (rect.width - ((boundaryWidth / 2) + padding)), rect.width * 0.25,
+          'A', ((rect.height * 0.4687) + ((boundaryWidth / 2) + padding)), ((rect.height * 0.4687) + ((boundaryWidth / 2) + padding)), 0, 0, 1, (rect.width - ((boundaryWidth / 2) + padding)), rect.width * 0.25,
 
           // Line top quarter right, middle bottom
           'L', rect.width / 2, (rect.height - ((boundaryWidth / 2) + padding)),
