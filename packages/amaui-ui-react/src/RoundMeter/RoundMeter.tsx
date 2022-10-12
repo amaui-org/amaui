@@ -42,9 +42,6 @@ const useStyle = style(theme => ({
 
 // to do
 
-// arc, background
-// for each boundary
-
 // make more paths
 // 1 arc, 1 bottom border, 1 background
 
@@ -182,6 +179,31 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
           // Arc
           'A', (rect.height - ((boundaryWidth / 2) + padding)) + 0.01, (rect.height - ((boundaryWidth / 2) + padding)) + 0.01, 0, 0, 1, (rect.width - ((boundaryWidth / 2) + padding)), (rect.height - ((boundaryWidth / 2) + padding)),
+
+          'Z'
+        );
+      }
+
+      // 0.25
+      if (boundary === 0.25) {
+        const padding = 1;
+
+        // 0 0 100 133.3333
+        // M 50 100 L 0 25 A 50 50  0 0 1 100 25 L 50 100 Z
+        // M 50 131.8333 L 1.5 25 A 61.5 61.5 0 0 1 98.5 25 L 50 131.8333 Z
+
+        values.push(
+          // Move
+          'M', rect.width / 2, (rect.height - ((boundaryWidth / 2) + padding)),
+
+          // Line middle bottom, top quarter left
+          'L', (boundaryWidth / 2) + padding, rect.width * 0.25,
+
+          // Arc
+          'A', ((rect.height * 0.4625) + ((boundaryWidth / 2) + padding)), ((rect.height * 0.4625) + ((boundaryWidth / 2) + padding)), 0, 0, 1, (rect.width - ((boundaryWidth / 2) + padding)), rect.width * 0.25,
+
+          // Line top quarter right, middle bottom
+          'L', rect.width / 2, (rect.height - ((boundaryWidth / 2) + padding)),
 
           'Z'
         );
