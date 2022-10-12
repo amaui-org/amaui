@@ -214,3 +214,12 @@ export const matches = (value: any) => {
 
   return method.bind(value);
 };
+
+export const angleToCoordinates = (degrees: number, centerX: number, centerY: number, radius: number) => {
+  const radians = degrees * Math.PI / 180;
+
+  return {
+    x: centerX + (radius * Math.cos(radians)),
+    y: centerY + (radius * Math.sin(radians))
+  };
+};

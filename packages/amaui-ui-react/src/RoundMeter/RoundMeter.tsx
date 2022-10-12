@@ -4,7 +4,7 @@ import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Surface from '../Surface';
 
-import { staticClassName } from '../utils';
+import { angleToCoordinates, staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
@@ -150,18 +150,27 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
         // M 50 50 L 25 93.25 A 50 50 0 1 1 75 93.25 L 50 50
         // M 50 50 L 25 91.5 A 48.5 48.5 0 1 1 75 91.5 L 50 50
 
+        const center = rect.width / 2;
+
+        const radius = ((rect.width / 2) - (boundaryWidth + padding));
+
+        const angles = {
+          45: angleToCoordinates(45, center, center, radius),
+          135: angleToCoordinates(135, center, center, radius)
+        };
+
         values.push(
           // Move
-          'M', rect.height / 2, rect.height / 2,
+          'M', center, center,
 
           // Line middle bottom
-          'L', rect.height / 4, ((rect.width * 0.9325) - ((boundaryWidth / 2) + padding)),
+          'L', angles[135].x, angles[135].y,
 
           // Arc
-          'A', ((rect.width / 2) - ((boundaryWidth / 2) + padding)), ((rect.width / 2) - ((boundaryWidth / 2) + padding)), 0, 1, 1, rect.width * 0.75, ((rect.width * 0.9325) - ((boundaryWidth / 2) + padding)),
+          'A', radius, radius, 0, 1, 1, angles[45].x, angles[45].y,
 
           // Line bottom middle
-          'L', rect.width / 2, rect.width / 2,
+          'L', center, center,
 
           'Z'
         );
