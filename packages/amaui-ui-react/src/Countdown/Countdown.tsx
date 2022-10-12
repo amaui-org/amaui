@@ -434,7 +434,7 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
 
             style={{
               marginTop: 12,
-              marginBottom: -4
+              marginBottom: -8
             }}
           >
             <NumericTextField
