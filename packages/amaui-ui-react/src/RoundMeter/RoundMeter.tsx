@@ -43,12 +43,6 @@ const useStyle = style(theme => ({
 
 // to do
 
-// padding between parts, with any thickness
-
-// parts being rounded as well
-
-// parts and any boundary, boundaryWidth
-
 // add marks
 // by default marks go from 1, 60
 // to fit a clock by default
@@ -86,6 +80,12 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
     boundary = 1,
     boundaryWidth = 1,
+
+    pathProps,
+
+    BackgroundProps,
+    BorderProps,
+    ArcProps,
 
     Component = 'div',
 
@@ -617,6 +617,10 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
                 fill={backgroundColor}
 
                 stroke='none'
+
+                {...pathProps}
+
+                {...BackgroundProps}
               />
             )}
 
@@ -630,6 +634,10 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
                 stroke={color}
 
                 strokeWidth={boundaryWidth}
+
+                {...pathProps}
+
+                {...BorderProps}
               />
             )}
 
@@ -654,6 +662,10 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
                   stroke={color}
 
                   strokeWidth={boundaryWidth}
+
+                  {...pathProps}
+
+                  {...ArcProps}
                 />
               )))}
             </g>
