@@ -43,7 +43,7 @@ const useStyle = style(theme => ({
 
 // to do
 
-// padding between parts
+// padding between parts, with any thickness
 
 // parts being rounded as well
 
@@ -156,7 +156,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
           const total = 360;
 
-          const part = (total / parts) - (gap * (parts - 1));
+          const part = (total / parts) - gap;
 
           const angles: any = {
             0: angleToCoordinates(0, center, center, radius)
@@ -169,27 +169,20 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
               'M', angles[0].x, angles[0].y
             );
 
-            angles.end = angleToCoordinates((i * part + (gap * (parts - 1))) + part, center, center, radius);
+            angles.end = angleToCoordinates((i * (part + gap)) + part, center, center, radius);
 
-            angles.move = angleToCoordinates((i * part + (gap * (parts - 1))) + part + gap, center, center, radius);
+            angles.move = angleToCoordinates((i * (part + gap)) + part + gap, center, center, radius);
 
             // Arc
             value.push(
               'A', radius, radius, 0, 0, 1, angles.end.x, angles.end.y
             );
 
-            // Move the gap if there's a gap
-            if (gap > 0) {
-              values.push(
-                'M', angles.move.x, angles.move.y
-              );
-            }
-
             values.push({ d: value.join(' ') });
 
             // Move for the next value
             value = [
-              'M', angles[!gap ? 'end' : 'move'].x, angles[!gap ? 'end' : 'move'].y
+              'M', angles.move.x, angles.move.y
             ];
           }
         }
@@ -230,7 +223,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
           const total = 270;
 
-          const part = (total / parts) - (gap * (parts - 1));
+          const part = (total / parts) - gap;
 
           const angles: any = {
             0: angleToCoordinates(135, center, center, radius)
@@ -243,9 +236,9 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
               'M', angles[0].x, angles[0].y
             );
 
-            angles.end = angleToCoordinates(135 + (i * part + (gap * (parts - 1))) + part, center, center, radius);
+            angles.end = angleToCoordinates(135 + (i * (part + gap)) + part, center, center, radius);
 
-            angles.move = angleToCoordinates((i * part + (gap * (parts - 1))) + part + gap, center, center, radius);
+            angles.move = angleToCoordinates((i * (part + gap)) + part + gap, center, center, radius);
 
             // Arc
             value.push(
@@ -254,7 +247,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
             // Move the gap if there's a gap
             if (gap > 0) {
-              values.push(
+              value.push(
                 'M', angles.move.x, angles.move.y
               );
             }
@@ -263,7 +256,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
             // Move for the next value
             value = [
-              'M', angles[!gap ? 'end' : 'move'].x, angles[!gap ? 'end' : 'move'].y
+              'M', angles.move.x, angles.move.y
             ];
           }
         }
@@ -298,7 +291,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
           const total = 180;
 
-          const part = (total / parts) - (gap * (parts - 1));
+          const part = (total / parts) - gap;
 
           const angles: any = {
             0: angleToCoordinates(180, center, center, radius)
@@ -311,9 +304,9 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
               'M', angles[0].x, angles[0].y
             );
 
-            angles.end = angleToCoordinates(180 + (i * part + (gap * (parts - 1))) + part, center, center, radius);
+            angles.end = angleToCoordinates(180 + (i * (part + gap)) + part, center, center, radius);
 
-            angles.move = angleToCoordinates((i * part + (gap * (parts - 1))) + part + gap, center, center, radius);
+            angles.move = angleToCoordinates((i * (part + gap)) + part + gap, center, center, radius);
 
             // Arc
             value.push(
@@ -322,7 +315,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
             // Move the gap if there's a gap
             if (gap > 0) {
-              values.push(
+              value.push(
                 'M', angles.move.x, angles.move.y
               );
             }
@@ -331,7 +324,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
             // Move for the next value
             value = [
-              'M', angles[!gap ? 'end' : 'move'].x, angles[!gap ? 'end' : 'move'].y
+              'M', angles.move.x, angles.move.y
             ];
           }
         }
@@ -376,7 +369,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
           const total = 90;
 
-          const part = (total / parts) - (gap * (parts - 1));
+          const part = (total / parts) - gap;
 
           const angles: any = {
             0: angleToCoordinates(225, center, center, radius)
@@ -389,9 +382,9 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
               'M', angles[0].x, angles[0].y
             );
 
-            angles.end = angleToCoordinates(225 + (i * part + (gap * (parts - 1))) + part, center, center, radius);
+            angles.end = angleToCoordinates(225 + (i * (part + gap)) + part, center, center, radius);
 
-            angles.move = angleToCoordinates((i * part + (gap * (parts - 1))) + part + gap, center, center, radius);
+            angles.move = angleToCoordinates((i * (part + gap)) + part + gap, center, center, radius);
 
             // Arc
             value.push(
@@ -400,7 +393,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
             // Move the gap if there's a gap
             if (gap > 0) {
-              values.push(
+              value.push(
                 'M', angles.move.x, angles.move.y
               );
             }
@@ -409,7 +402,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
             // Move for the next value
             value = [
-              'M', angles[!gap ? 'end' : 'move'].x, angles[!gap ? 'end' : 'move'].y
+              'M', angles.move.x, angles.move.y
             ];
           }
         }
