@@ -2889,57 +2889,57 @@ Please sign in again.`}
 
         <Accordion primary='RoundMeter gap'>
           <Accordion primary='RoundMeter gap 0.5'>
-          <Line>
             <Line>
-              <RoundMeter gap={0.5} parts={1} boundary={1} size='regular' />
+              <Line>
+                <RoundMeter gap={0.5} parts={1} boundary={1} size='regular' />
 
-              <RoundMeter gap={0.5} parts={1} boundary={0.75} size='regular' />
+                <RoundMeter gap={0.5} parts={1} boundary={0.75} size='regular' />
 
-              <RoundMeter gap={0.5} parts={1} boundary={0.5} size='regular' />
+                <RoundMeter gap={0.5} parts={1} boundary={0.5} size='regular' />
 
-              <RoundMeter gap={0.5} parts={1} boundary={0.25} size='regular' />
+                <RoundMeter gap={0.5} parts={1} boundary={0.25} size='regular' />
+              </Line>
+
+              <Line>
+                <RoundMeter gap={0.5} parts={2} boundary={1} size='regular' />
+
+                <RoundMeter gap={0.5} parts={2} boundary={0.75} size='regular' />
+
+                <RoundMeter gap={0.5} parts={2} boundary={0.5} size='regular' />
+
+                <RoundMeter gap={0.5} parts={2} boundary={0.25} size='regular' />
+              </Line>
+
+              <Line>
+                <RoundMeter gap={0.5} parts={3} boundary={1} size='regular' />
+
+                <RoundMeter gap={0.5} parts={3} boundary={0.75} size='regular' />
+
+                <RoundMeter gap={0.5} parts={3} boundary={0.5} size='regular' />
+
+                <RoundMeter gap={0.5} parts={3} boundary={0.25} size='regular' />
+              </Line>
+
+              <Line>
+                <RoundMeter gap={0.5} parts={4} boundary={1} size='regular' />
+
+                <RoundMeter gap={0.5} parts={4} boundary={0.75} size='regular' />
+
+                <RoundMeter gap={0.5} parts={4} boundary={0.5} size='regular' />
+
+                <RoundMeter gap={0.5} parts={4} boundary={0.25} size='regular' />
+              </Line>
+
+              <Line>
+                <RoundMeter gap={0.5} parts={8} boundary={1} size='regular' />
+
+                <RoundMeter gap={0.5} parts={8} boundary={0.75} size='regular' />
+
+                <RoundMeter gap={0.5} parts={8} boundary={0.5} size='regular' />
+
+                <RoundMeter gap={0.5} parts={8} boundary={0.25} size='regular' />
+              </Line>
             </Line>
-
-            <Line>
-              <RoundMeter gap={0.5} parts={2} boundary={1} size='regular' />
-
-              <RoundMeter gap={0.5} parts={2} boundary={0.75} size='regular' />
-
-              <RoundMeter gap={0.5} parts={2} boundary={0.5} size='regular' />
-
-              <RoundMeter gap={0.5} parts={2} boundary={0.25} size='regular' />
-            </Line>
-
-            <Line>
-              <RoundMeter gap={0.5} parts={3} boundary={1} size='regular' />
-
-              <RoundMeter gap={0.5} parts={3} boundary={0.75} size='regular' />
-
-              <RoundMeter gap={0.5} parts={3} boundary={0.5} size='regular' />
-
-              <RoundMeter gap={0.5} parts={3} boundary={0.25} size='regular' />
-            </Line>
-
-            <Line>
-              <RoundMeter gap={0.5} parts={4} boundary={1} size='regular' />
-
-              <RoundMeter gap={0.5} parts={4} boundary={0.75} size='regular' />
-
-              <RoundMeter gap={0.5} parts={4} boundary={0.5} size='regular' />
-
-              <RoundMeter gap={0.5} parts={4} boundary={0.25} size='regular' />
-            </Line>
-
-            <Line>
-              <RoundMeter gap={0.5} parts={8} boundary={1} size='regular' />
-
-              <RoundMeter gap={0.5} parts={8} boundary={0.75} size='regular' />
-
-              <RoundMeter gap={0.5} parts={8} boundary={0.5} size='regular' />
-
-              <RoundMeter gap={0.5} parts={8} boundary={0.25} size='regular' />
-            </Line>
-          </Line>
           </Accordion>
 
           <Accordion primary='RoundMeter gap 8'>
@@ -2992,6 +2992,116 @@ Please sign in again.`}
                 <RoundMeter gap={8} parts={8} boundary={0.5} size='regular' />
 
                 <RoundMeter gap={8} parts={8} boundary={0.25} size='regular' />
+              </Line>
+            </Line>
+          </Accordion>
+        </Accordion>
+
+        <Accordion primary='RoundMeter boundaryWidth, gap'>
+          <Accordion primary='RoundMeter boundaryWidth 16px, gap 0.5'>
+            <Line>
+              <Line>
+                <RoundMeter boundaryWidth={16} gap={0.5} parts={1} boundary={1} size='regular' />
+
+                <RoundMeter boundaryWidth={16} gap={0.5} parts={1} boundary={0.75} size='regular' />
+
+                <RoundMeter boundaryWidth={16} gap={0.5} parts={1} boundary={0.5} size='regular' />
+
+                <RoundMeter boundaryWidth={16} gap={0.5} parts={1} boundary={0.25} size='regular' />
+              </Line>
+
+              <Line>
+                <RoundMeter boundaryWidth={16} gap={0.5} parts={2} boundary={1} size='regular' />
+
+                <RoundMeter boundaryWidth={16} gap={0.5} parts={2} boundary={0.75} size='regular' />
+
+                <RoundMeter boundaryWidth={16} gap={0.5} parts={2} boundary={0.5} size='regular' />
+
+                <RoundMeter boundaryWidth={16} gap={0.5} parts={2} boundary={0.25} size='regular' />
+              </Line>
+
+              <Line>
+                <RoundMeter boundaryWidth={16} gap={0.5} parts={3} boundary={1} size='regular' />
+
+                <RoundMeter boundaryWidth={16} gap={0.5} parts={3} boundary={0.75} size='regular' />
+
+                <RoundMeter boundaryWidth={16} gap={0.5} parts={3} boundary={0.5} size='regular' />
+
+                <RoundMeter boundaryWidth={16} gap={0.5} parts={3} boundary={0.25} size='regular' />
+              </Line>
+
+              <Line>
+                <RoundMeter boundaryWidth={16} gap={0.5} parts={4} boundary={1} size='regular' />
+
+                <RoundMeter boundaryWidth={16} gap={0.5} parts={4} boundary={0.75} size='regular' />
+
+                <RoundMeter boundaryWidth={16} gap={0.5} parts={4} boundary={0.5} size='regular' />
+
+                <RoundMeter boundaryWidth={16} gap={0.5} parts={4} boundary={0.25} size='regular' />
+              </Line>
+
+              <Line>
+                <RoundMeter boundaryWidth={16} gap={0.5} parts={8} boundary={1} size='regular' />
+
+                <RoundMeter boundaryWidth={16} gap={0.5} parts={8} boundary={0.75} size='regular' />
+
+                <RoundMeter boundaryWidth={16} gap={0.5} parts={8} boundary={0.5} size='regular' />
+
+                <RoundMeter boundaryWidth={16} gap={0.5} parts={8} boundary={0.25} size='regular' />
+              </Line>
+            </Line>
+          </Accordion>
+
+          <Accordion primary='RoundMeter boundaryWidth 16, gap 8'>
+            <Line>
+              <Line>
+                <RoundMeter boundaryWidth={16} gap={8} parts={1} boundary={1} size='regular' />
+
+                <RoundMeter boundaryWidth={16} gap={8} parts={1} boundary={0.75} size='regular' />
+
+                <RoundMeter boundaryWidth={16} gap={8} parts={1} boundary={0.5} size='regular' />
+
+                <RoundMeter boundaryWidth={16} gap={8} parts={1} boundary={0.25} size='regular' />
+              </Line>
+
+              <Line>
+                <RoundMeter boundaryWidth={16} gap={8} parts={2} boundary={1} size='regular' />
+
+                <RoundMeter boundaryWidth={16} gap={8} parts={2} boundary={0.75} size='regular' />
+
+                <RoundMeter boundaryWidth={16} gap={8} parts={2} boundary={0.5} size='regular' />
+
+                <RoundMeter boundaryWidth={16} gap={8} parts={2} boundary={0.25} size='regular' />
+              </Line>
+
+              <Line>
+                <RoundMeter boundaryWidth={16} gap={8} parts={3} boundary={1} size='regular' />
+
+                <RoundMeter boundaryWidth={16} gap={8} parts={3} boundary={0.75} size='regular' />
+
+                <RoundMeter boundaryWidth={16} gap={8} parts={3} boundary={0.5} size='regular' />
+
+                <RoundMeter boundaryWidth={16} gap={8} parts={3} boundary={0.25} size='regular' />
+              </Line>
+
+              <Line>
+                <RoundMeter boundaryWidth={16} gap={8} parts={4} boundary={1} size='regular' />
+
+                <RoundMeter boundaryWidth={16} gap={8} parts={4} boundary={0.75} size='regular' />
+
+                <RoundMeter boundaryWidth={16} gap={8} parts={4} boundary={0.5} size='regular' />
+
+                <RoundMeter boundaryWidth={16} gap={8} parts={4} boundary={0.25} size='regular' />
+              </Line>
+
+              <Line>
+                <RoundMeter boundaryWidth={16} gap={8} parts={8} boundary={1} size='regular' />
+
+                <RoundMeter boundaryWidth={16} gap={8} parts={8} boundary={0.75} size='regular' />
+
+                <RoundMeter boundaryWidth={16} gap={8} parts={8} boundary={0.5} size='regular' />
+
+                <RoundMeter boundaryWidth={16} gap={8} parts={8} boundary={0.25} size='regular' />
               </Line>
             </Line>
           </Accordion>
