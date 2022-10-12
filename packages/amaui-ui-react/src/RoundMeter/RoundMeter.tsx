@@ -178,7 +178,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
           'M', (boundaryWidth / 2) + padding, (rect.height - ((boundaryWidth / 2) + padding)),
 
           // Arc
-          'A', (rect.height - ((boundaryWidth / 2) + padding)) + 0.075, (rect.height - ((boundaryWidth / 2) + padding)) + 0.075, 0, 0, 1, (rect.width - ((boundaryWidth / 2) + padding)), (rect.height - ((boundaryWidth / 2) + padding)),
+          'A', (rect.height - ((boundaryWidth / 2) + padding)) + 0.04, (rect.height - ((boundaryWidth / 2) + padding)) + 0.04, 0, 0, 1, (rect.width - ((boundaryWidth / 2) + padding)), (rect.height - ((boundaryWidth / 2) + padding)),
 
           'Z'
         );
