@@ -194,9 +194,9 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
         // M 50 100 L 0 25 A 50 50  0 0 1 100 25 L 50 100 Z
         // M 50 131.8333 L 1.5 25 A 61.5 61.5 0 0 1 98.5 25 L 50 131.8333 Z
 
-        const center = rect.height / 2;
+        const center = rect.width / 2;
 
-        const radius = ((rect.height / 2) - ((boundaryWidth / 2) + padding));
+        const radius = ((rect.width / 2) - ((boundaryWidth / 2) + padding));
 
         const angles = {
           225: angleToCoordinates(225, center, center, radius),
