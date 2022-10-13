@@ -60,7 +60,7 @@ const useStyle = style(theme => ({
 
 // add labels
 
-// Update labels angle based on font width
+// labels with value fontSize value y
 
 // marks, labels, any thickness
 
