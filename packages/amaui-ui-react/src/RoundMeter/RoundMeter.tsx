@@ -56,10 +56,6 @@ const useStyle = style(theme => ({
 
 // to do
 
-// update background, border
-
-// update parts without the gap value y
-
 // marks with any item.width || markWidth
 // adjust angle by (item.width || markWidth) / 2
 
@@ -362,7 +358,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
           // Arc
           value.push(
-            'A', radius, radius, 0, 0, 1, angles.end.x, Math.ceil(angles.end.y)
+            'A', radius, radius, 0, 0, 1, angles.end.x, angles.end.y
           );
 
           // Move the gap if there's a gap
@@ -441,7 +437,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
           // Arc
           value.push(
-            'A', radius, radius, 0, 0, 1, angles.end.x, Math.ceil(angles.end.y)
+            'A', radius, radius, 0, 0, 1, angles.end.x, angles.end.y
           );
 
           // Move the gap if there's a gap
@@ -501,7 +497,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
         // Arc
         value.push(
-          'A', radius, radius, 0, 0, 1, angles.end.x, Math.ceil(angles.end.y)
+          'A', radius, radius, 0, 0, 1, angles.end.x, angles.end.y
         );
 
         // Move the gap if there's a gap
@@ -562,7 +558,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
         // Arc
         value.push(
-          'A', radius, radius, 0, 0, 1, angles.end.x, Math.ceil(angles.end.y)
+          'A', radius, radius, 0, 0, 1, angles.end.x, angles.end.y
         );
 
         // Move the gap if there's a gap
@@ -664,7 +660,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
         'M', angles.start.x, angles.start.y,
 
         // Arc
-        'A', radius, radius, 0, 0, 1, angles.end.x, Math.ceil(angles.end.y),
+        'A', radius, radius, 0, 0, 1, angles.end.x, angles.end.y,
 
         'Z'
       );
@@ -704,7 +700,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
         'L', angles.start.x, angles.start.y,
 
         // Arc
-        'A', radius, radius, 0, 0, 1, angles.end.x, Math.ceil(angles.end.y),
+        'A', radius, radius, 0, 0, 1, angles.end.x, angles.end.y,
 
         // Line top quarter right, middle bottom
         'L', center, ((height / 2) - (boundaryWidth + padding)),
@@ -911,7 +907,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
             </g>
 
             {/* Marks */}
-            {marksVisible && (
+            {marksVisible && !!marks_.length && (
               <g
                 className={classNames([
                   staticClassName('RoundMeter', theme) && [
@@ -944,7 +940,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
             )}
 
             {/* Labels */}
-            {labelsVisible && (
+            {labelsVisible && !!labels_.length && (
               <g
                 className={classNames([
                   staticClassName('RoundMeter', theme) && [
