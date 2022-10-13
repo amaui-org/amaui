@@ -298,7 +298,9 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
         const gapPerPart = (((parts - 1) * gap) / parts);
 
-        const part = (total / parts) - gapPerPart;
+        let part = (total / parts) - gapPerPart;
+
+        if (lineCapAdjustment) part -= lineCapAdjustment / parts;
 
         const angles: any = {
           0: angleToCoordinates(180, center, center, radius)
@@ -308,16 +310,18 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
           // Move to 180 deg
           if (i === 0) value.push(
             // Move to 0 deg
-            'M', angles[0].x, angles[0].y
+            'M', angles[0].x, angles[0].y - lineCapAdjustment
           );
 
-          angles.end = angleToCoordinates(180 + (i * (part + gap)) + part, center, center, radius);
+          let angleEnd = 180 + (i * (part + gap)) + part + (lineCapAdjustment ? lineCapAdjustment / 2 : 0);
 
-          angles.move = angleToCoordinates(180 + (i * (part + gap)) + part + gap, center, center, radius);
+          angles.end = angleToCoordinates(angleEnd, center, center, radius);
+
+          angles.move = angleToCoordinates(angleEnd + gap, center, center, radius);
 
           // Arc
           value.push(
-            'A', radius, radius, 0, 0, 1, angles.end.x, angles.end.y
+            'A', radius + 0.2, radius + 0.2, 0, 0, 1, angles.end.x, angles.end.y
           );
 
           // Move the gap if there's a gap
