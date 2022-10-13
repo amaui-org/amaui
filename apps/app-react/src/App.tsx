@@ -1143,6 +1143,28 @@ function App() {
 
         position: index * (100 / 30)
       }))),
+    ], 'position'),
+
+    '0.25': unique([
+      // Motor speed major
+      ...(Array.from({ length: 3 }).map((item: any, index: number) => ({
+        height: 8,
+
+        position: index * (100 / 3)
+      }))),
+
+      {
+        height: 8,
+
+        position: 100
+      },
+
+      // Motor speed minor
+      ...(Array.from({ length: 15 }).map((item: any, index: number) => ({
+        height: 4,
+
+        position: index * (100 / 15)
+      }))),
     ], 'position')
   };
 
@@ -1205,6 +1227,33 @@ function App() {
 
       {
         value: 6,
+
+        padding: 4,
+
+        style: {
+          fontSize: 14
+        },
+
+        position: 100
+      }
+    ], 'position'),
+
+    '0.25': unique([
+      // Motor speed
+      ...(Array.from({ length: 3 }).map((item: any, index: number) => ({
+        value: index,
+
+        padding: 4,
+
+        style: {
+          fontSize: 14
+        },
+
+        position: index * (100 / 3)
+      }))),
+
+      {
+        value: 3,
 
         padding: 4,
 
@@ -2844,7 +2893,7 @@ Please sign in again.`}
 
             <RoundMeter marks={marks['0.5']} labels={labels['0.5']} boundary='0.5' />
 
-            {/* <RoundMeter marks={marksWatch} boundary='0.25'/> */}
+            <RoundMeter marks={marks['0.25']} labels={labels['0.25']} boundary='0.25' />
           </Line>
         </Accordion>
 
