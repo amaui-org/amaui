@@ -688,6 +688,14 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
         start: angleToCoordinates(225, center, center, radius)
       };
 
+      let anglePrevious = 225;
+
+      let angleEnd = anglePrevious + part;
+
+      angles.end = angleToCoordinates(angleEnd, center, center, radius);
+
+      angles.move = angleToCoordinates(angleEnd + gap, center, center, radius);
+
       values.push(
         // Move
         'M', center, ((height / 2) - (boundaryWidth + padding)),
