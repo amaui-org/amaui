@@ -176,6 +176,8 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
           const {
             height,
 
+            padding: markPadding = 0,
+
             position,
 
             ...other
@@ -183,9 +185,9 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
           const angle = valueFromPercentageWithinRange(position, min, max);
 
-          const start = angleToCoordinates(angle, center, center, radius);
+          const start = angleToCoordinates(angle, center, center, radius - markPadding);
 
-          const end = angleToCoordinates(angle, center, center, radius - (height !== undefined ? height : markHeight));
+          const end = angleToCoordinates(angle, center, center, radius - (height !== undefined ? height : markHeight) - markPadding);
 
           values.push({
             d: [
@@ -225,6 +227,8 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
           const {
             value,
 
+            padding: labelPadding = 0,
+
             position,
 
             ...other
@@ -234,7 +238,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
           const angle = valueFromPercentageWithinRange(position, min, max);
 
-          const start = angleToCoordinates(angle, center, center, radius - (fontSize / 2) - padding);
+          const start = angleToCoordinates(angle, center, center, radius - (fontSize / 2) - padding - labelPadding);
 
           values.push({
             x: start.x,
