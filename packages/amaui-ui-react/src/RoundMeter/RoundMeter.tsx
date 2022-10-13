@@ -694,7 +694,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
       values.push(
         // Move
-        'M', center, ((height / 2) - (boundaryWidth + padding)),
+        'M', center, ((width / 2) - (boundaryWidth + padding)),
 
         // Line middle bottom, top quarter left
         'L', angles.start.x, angles.start.y,
@@ -703,7 +703,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
         'A', radius, radius, 0, 0, 1, angles.end.x, angles.end.y,
 
         // Line top quarter right, middle bottom
-        'L', center, ((height / 2) - (boundaryWidth + padding)),
+        'L', center, ((width / 2) - (boundaryWidth + padding)),
 
         'Z'
       );
@@ -785,7 +785,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
         'M', angles.start.x, angles.start.y,
 
         // Line middle bottom
-        'L', center, ((height / 2) - (boundaryWidth + padding)),
+        'L', center, ((width / 2) - (boundaryWidth + padding)),
 
         // Arc  top quarter right, middle bottom
         'L', angles.end.x, angles.end.y
