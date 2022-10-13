@@ -1084,34 +1084,138 @@ function App() {
     },
   ];
 
-  const marksWatch = unique([
-    // Hours
-    ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
-      height: 8,
+  const marks: any = {
+    '1': unique([
+      // Hours
+      ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
+        height: 8,
 
-      position: index * (100 / 12)
-    }))),
+        position: index * (100 / 12)
+      }))),
 
-    // Minutes
-    ...(Array.from({ length: 60 }).map((item: any, index: number) => ({
-      height: 4,
+      // Minutes
+      ...(Array.from({ length: 60 }).map((item: any, index: number) => ({
+        height: 4,
 
-      position: index * (100 / 60)
-    }))),
-  ], 'position');
+        position: index * (100 / 60)
+      }))),
+    ], 'position'),
 
-  const labelsWatch = unique([
-    // Hours
-    ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
-      value: index === 0 ? 12 : index,
+    '0.75': unique([
+      // Motor speed major
+      ...(Array.from({ length: 9 }).map((item: any, index: number) => ({
+        height: 8,
 
-      style: {
-        fontSize: 14
+        position: index * (100 / 9)
+      }))),
+
+      {
+        height: 8,
+
+        position: 100
       },
 
-      position: index * (100 / 12)
-    })))
-  ], 'position');
+      // Motor speed minor
+      ...(Array.from({ length: 45 }).map((item: any, index: number) => ({
+        height: 4,
+
+        position: index * (100 / 45)
+      }))),
+    ], 'position'),
+
+    '0.5': unique([
+      // Motor speed major
+      ...(Array.from({ length: 6 }).map((item: any, index: number) => ({
+        height: 8,
+
+        position: index * (100 / 6)
+      }))),
+
+      {
+        height: 8,
+
+        position: 100
+      },
+
+      // Motor speed minor
+      ...(Array.from({ length: 30 }).map((item: any, index: number) => ({
+        height: 4,
+
+        position: index * (100 / 30)
+      }))),
+    ], 'position')
+  };
+
+  const labels: any = {
+    '1': unique([
+      // Hours
+      ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
+        value: index === 0 ? 12 : index,
+
+        padding: 4,
+
+        style: {
+          fontSize: 14
+        },
+
+        position: index * (100 / 12)
+      })))
+    ], 'position'),
+
+    '0.75': unique([
+      // Motor speed
+      ...(Array.from({ length: 9 }).map((item: any, index: number) => ({
+        value: index * 40,
+
+        padding: 6,
+
+        style: {
+          fontSize: 14
+        },
+
+        position: index * (100 / 9)
+      }))),
+
+      {
+        value: 9 * 40,
+
+        padding: 6,
+
+        style: {
+          fontSize: 14
+        },
+
+        position: 100
+      }
+    ], 'position'),
+
+    '0.5': unique([
+      // Motor speed
+      ...(Array.from({ length: 6 }).map((item: any, index: number) => ({
+        value: index,
+
+        padding: 4,
+
+        style: {
+          fontSize: 14
+        },
+
+        position: index * (100 / 6)
+      }))),
+
+      {
+        value: 6,
+
+        padding: 4,
+
+        style: {
+          fontSize: 14
+        },
+
+        position: 100
+      }
+    ], 'position')
+  };
 
   return (
     <div className={classes.root}>
@@ -2734,13 +2838,13 @@ Please sign in again.`}
 
         <Accordion primary='RoundMeter marks'>
           <Line>
-            <RoundMeter marks={marksWatch} labels={labelsWatch} />
+            <RoundMeter marks={marks['1']} labels={labels['1']} />
 
-            {/* <RoundMeter marks={marksWatch} boundary='0.75'/>
+            <RoundMeter marks={marks['0.75']} labels={labels['0.75']} boundary='0.75' />
 
-            <RoundMeter marks={marksWatch} boundary='0.5'/>
+            <RoundMeter marks={marks['0.5']} labels={labels['0.5']} boundary='0.5' />
 
-            <RoundMeter marks={marksWatch} boundary='0.25'/> */}
+            {/* <RoundMeter marks={marksWatch} boundary='0.25'/> */}
           </Line>
         </Accordion>
 

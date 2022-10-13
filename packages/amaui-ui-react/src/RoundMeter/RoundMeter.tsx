@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { clamp, valueFromPercentageWithinRange } from '@amaui/utils';
+import { clamp, parse, valueFromPercentageWithinRange } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Surface from '../Surface';
@@ -33,7 +33,7 @@ const useStyle = style(theme => ({
   },
 
   boundary_05: {
-    aspectRatio: '2 / 1'
+    aspectRatio: '3 / 2'
   },
 
   boundary_025: {
@@ -66,7 +66,9 @@ const useStyle = style(theme => ({
 
 // marks and labels outside the circle?
 
-// add pointers
+// add pointer/s
+
+// render pointer, and render pointers methods
 
 // value only be pre, equal or post available marks
 
@@ -97,8 +99,11 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
     border = false,
 
-    boundary = 1,
+    boundary: boundary_ = 1,
     boundaryWidth = 1,
+
+    marksVisible = true,
+    labelsVisible = true,
 
     marks: marks_ = [],
 
@@ -134,6 +139,8 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
     root: {}
   };
 
+  const boundary = parse(boundary_);
+
   const gap = ['round', 'square'].includes(lineCap) ? gap_ + (boundaryWidth / 2) : gap_;
 
   const parts = clamp(parts_, 1, 180);
@@ -165,39 +172,66 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
       const radius = (rect.width / 2) - (boundaryWidth + padding);
 
+      let min = 0;
+      let max = 360;
+
       // 1
       if (boundary === 1) {
         // 0 is middle top
         // ie. 270 degreese
-        const min = 270;
-        const max = 270 + 360;
-
-        marks_.forEach((mark: any) => {
-          const {
-            height,
-
-            padding: markPadding = 0,
-
-            position,
-
-            ...other
-          } = mark;
-
-          const angle = valueFromPercentageWithinRange(position, min, max);
-
-          const start = angleToCoordinates(angle, center, center, radius - markPadding);
-
-          const end = angleToCoordinates(angle, center, center, radius - (height !== undefined ? height : markHeight) - markPadding);
-
-          values.push({
-            d: [
-              'M', start.x, start.y,
-
-              'L', end.x, end.y
-            ].join(' ')
-          });
-        });
+        min = 270;
+        max = 270 + 360;
       }
+
+      // 0.75
+      if (boundary === 0.75) {
+        // 0 is angle bottom left
+        // ie. 270 degreese
+        min = 135;
+        max = 135 + 270;
+      }
+
+      // 0.5
+      if (boundary === 0.5) {
+        // 0 is left
+        // ie. 180 degreese
+        min = 180;
+        max = 180 + 180;
+      }
+
+      // 0.25
+      if (boundary === 0.25) {
+        // 0 is angle top left
+        // ie. 225 degreese
+        min = 225;
+        max = 225 + 90;
+      }
+
+      marks_.forEach((mark: any) => {
+        const {
+          height,
+
+          padding: markPadding = 0,
+
+          position,
+
+          ...other
+        } = mark;
+
+        const angle = valueFromPercentageWithinRange(position, min, max);
+
+        const start = angleToCoordinates(angle, center, center, radius - markPadding);
+
+        const end = angleToCoordinates(angle, center, center, radius - (height !== undefined ? height : markHeight) - markPadding);
+
+        values.push({
+          d: [
+            'M', start.x, start.y,
+
+            'L', end.x, end.y
+          ].join(' ')
+        });
+      });
     }
 
     return values;
@@ -216,40 +250,67 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
       const radius = (rect.width / 2) - (boundaryWidth + padding) - marksPadding;
 
+      let min = 0;
+      let max = 360;
+
       // 1
       if (boundary === 1) {
         // 0 is middle top
         // ie. 270 degreese
-        const min = 270;
-        const max = 270 + 360;
-
-        labels_.forEach((label: any) => {
-          const {
-            value,
-
-            padding: labelPadding = 0,
-
-            position,
-
-            ...other
-          } = label;
-
-          const fontSize = label.style?.fontSize !== undefined ? label.style.fontSize : 14;
-
-          const angle = valueFromPercentageWithinRange(position, min, max);
-
-          const start = angleToCoordinates(angle, center, center, radius - (fontSize / 2) - padding - labelPadding);
-
-          values.push({
-            x: start.x,
-            y: start.y,
-
-            value,
-
-            ...other
-          });
-        });
+        min = 270;
+        max = 270 + 360;
       }
+
+      // 0.75
+      if (boundary === 0.75) {
+        // 0 is angle bottom left
+        // ie. 270 degreese
+        min = 135;
+        max = 135 + 270;
+      }
+
+      // 0.5
+      if (boundary === 0.5) {
+        // 0 is left
+        // ie. 180 degreese
+        min = 180;
+        max = 180 + 180;
+      }
+
+      // 0.25
+      if (boundary === 0.25) {
+        // 0 is angle top left
+        // ie. 225 degreese
+        min = 225;
+        max = 225 + 90;
+      }
+
+      labels_.forEach((label: any) => {
+        const {
+          value,
+
+          padding: labelPadding = 0,
+
+          position,
+
+          ...other
+        } = label;
+
+        const fontSize = label.style?.fontSize !== undefined ? label.style.fontSize : 14;
+
+        const angle = valueFromPercentageWithinRange(position, min, max);
+
+        const start = angleToCoordinates(angle, center, center, radius - (fontSize / 2) - padding - labelPadding);
+
+        values.push({
+          x: start.x,
+          y: start.y,
+
+          value,
+
+          ...other
+        });
+      });
     }
 
     return values;
@@ -426,7 +487,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
         const gapPerPart = (((parts - 1) * gap) / parts);
 
-        let part = (total / parts) - gapPerPart;
+        let part = (total / parts) - gapPerPart + ((boundaryWidth / 2) / parts);
 
         if (lineCapAdjustment) part -= lineCapAdjustment / parts;
 
@@ -438,7 +499,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
           // Move to 180 deg
           if (i === 0) value.push(
             // Move to 0 deg
-            'M', angles[0].x, angles[0].y - lineCapAdjustment
+            'M', angles[0].x, angles[0].y - lineCapAdjustment + (boundaryWidth / 2)
           );
 
           let angleEnd = 180 + (i * (part + gap)) + part + (lineCapAdjustment ? lineCapAdjustment / 2 : 0);
@@ -448,8 +509,10 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
           angles.move = angleToCoordinates(angleEnd + gap, center, center, radius);
 
           // Arc
+          const arcWidth = (rect.width / 2) - 1;
+
           value.push(
-            'A', radius + 0.2, radius + 0.2, 0, 0, 1, angles.end.x, Math.floor(angles.end.y)
+            'A', arcWidth, arcWidth, 0, 0, 1, angles.end.x, Math.floor(angles.end.y)
           );
 
           // Move the gap if there's a gap
@@ -820,89 +883,93 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
             </g>
 
             {/* Marks */}
-            <g
-              className={classNames([
-                staticClassName('RoundMeter', theme) && [
-                  'AmauiRoundMeter-marks'
-                ],
+            {marksVisible && (
+              <g
+                className={classNames([
+                  staticClassName('RoundMeter', theme) && [
+                    'AmauiRoundMeter-marks'
+                  ],
 
-                classes.marks
-              ])}
-            >
-              {(marks.map((item: any, index: number) => (
-                <path
-                  key={index}
-
-                  d={item.d}
-
-                  fill='none'
-
-                  stroke={color}
-
-                  strokeWidth={item.width !== undefined ? item.width : markWidth}
-
-                  strokeLinecap={lineCap}
-
-                  {...pathProps}
-
-                  {...MarksProps}
-                />
-              )))}
-            </g>
-
-            {/* Labels */}
-            <g
-              className={classNames([
-                staticClassName('RoundMeter', theme) && [
-                  'AmauiRoundMeter-labels'
-                ],
-
-                classes.labels
-              ])}
-            >
-              {(labels.map((item: any, index: number) => {
-                const { x, y, value, ...other } = item;
-
-                return (
-                  <text
+                  classes.marks
+                ])}
+              >
+                {(marks.map((item: any, index: number) => (
+                  <path
                     key={index}
 
-                    x={x}
+                    d={item.d}
 
-                    y={y}
+                    fill='none'
 
-                    {...other}
+                    stroke={color}
 
-                    {...textProps}
+                    strokeWidth={item.width !== undefined ? item.width : markWidth}
 
-                    {...LabelsProps}
+                    strokeLinecap={lineCap}
 
-                    className={classNames([
-                      staticClassName('RoundMeter', theme) && [
-                        'AmauiRoundMeter-label'
-                      ],
+                    {...pathProps}
 
-                      other?.className,
-                      textProps?.className,
-                      LabelsProps?.className,
-                      classes.label
-                    ])}
+                    {...MarksProps}
+                  />
+                )))}
+              </g>
+            )}
 
-                    style={{
-                      fill: color,
+            {/* Labels */}
+            {labelsVisible && (
+              <g
+                className={classNames([
+                  staticClassName('RoundMeter', theme) && [
+                    'AmauiRoundMeter-labels'
+                  ],
 
-                      ...other.style,
+                  classes.labels
+                ])}
+              >
+                {(labels.map((item: any, index: number) => {
+                  const { x, y, value, ...other } = item;
 
-                      ...textProps?.style,
+                  return (
+                    <text
+                      key={index}
 
-                      ...LabelsProps?.style
-                    }}
-                  >
-                    {value}
-                  </text>
-                );
-              }))}
-            </g>
+                      x={x}
+
+                      y={y}
+
+                      {...other}
+
+                      {...textProps}
+
+                      {...LabelsProps}
+
+                      className={classNames([
+                        staticClassName('RoundMeter', theme) && [
+                          'AmauiRoundMeter-label'
+                        ],
+
+                        other?.className,
+                        textProps?.className,
+                        LabelsProps?.className,
+                        classes.label
+                      ])}
+
+                      style={{
+                        fill: color,
+
+                        ...other.style,
+
+                        ...textProps?.style,
+
+                        ...LabelsProps?.style
+                      }}
+                    >
+                      {value}
+                    </text>
+                  );
+                }))}
+              </g>
+            )}
           </svg>
         )}
       </Surface>
