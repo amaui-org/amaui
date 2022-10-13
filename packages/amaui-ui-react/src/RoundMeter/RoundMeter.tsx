@@ -287,35 +287,28 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
         // 0 0 100 100
         // M 0.5 49.5 A 49.54 49.54 0 0 1 99.5 49.5 Z
-        // round
-        // M 8 42 A 43.01 43.01 0 0 1 92 42
 
         const center = rect.width / 2;
 
         const lineCapAdjustment = ['round', 'square'].includes(lineCap) ? boundaryWidth / 2 : 0;
 
-        const radius = ((rect.width / 2) - ((boundaryWidth / 2) + padding)) - ((lineCapAdjustment / 2) / parts);
+        const radius = ((rect.width / 2) - ((boundaryWidth / 2) + padding));
 
         const total = 180;
 
         const gapPerPart = (((parts - 1) * gap) / parts);
 
-        let part = (total / parts) - gapPerPart;
+        const part = (total / parts) - gapPerPart;
 
-        // if (lineCapAdjustment) {
-        //   if (parts === 1) part -= lineCapAdjustment / 4;
-        //   else part -= (lineCapAdjustment / 3) / (parts - 1);
-        // }
-
-        console.log(1, part, parts, gap, center, radius);
         const angles: any = {
           0: angleToCoordinates(180, center, center, radius)
         };
 
         for (let i = 0; i < parts; i++) {
-          // Move to 180 + lineCapAdjustment deg
+          // Move to 180 deg
           if (i === 0) value.push(
-            'M', angles[0].x - (lineCapAdjustment / 2), angles[0].y - lineCapAdjustment
+            // Move to 0 deg
+            'M', angles[0].x, angles[0].y
           );
 
           angles.end = angleToCoordinates(180 + (i * (part + gap)) + part, center, center, radius);
