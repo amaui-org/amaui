@@ -90,7 +90,13 @@ const useStyle = style(theme => ({
     flexDirection: 'column',
     alignItems: 'flex-start',
     gap: 40,
-    padding: '14vw'
+    padding: '14vw',
+
+    '& .AmauiAccordion-root': {
+      '& .AmauiLine-root': {
+        width: '100%'
+      }
+    }
   },
   section: {
     display: 'flex',

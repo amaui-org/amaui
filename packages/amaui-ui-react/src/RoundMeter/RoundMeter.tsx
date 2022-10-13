@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { clamp, parse, valueFromPercentageWithinRange } from '@amaui/utils';
+import { clamp, debounce, parse, valueFromPercentageWithinRange } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Surface from '../Surface';
@@ -9,7 +9,7 @@ import { angleToCoordinates, staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
-    width: '100vw'
+    width: '100%'
   },
 
   size_small: {
@@ -46,6 +46,11 @@ const useStyle = style(theme => ({
     textAnchor: 'middle',
     alignmentBaseline: 'central',
     dominantBaseline: 'central'
+  },
+
+  svg: {
+    width: '100%',
+    height: 'auto'
   }
 }), { name: 'AmauiRoundMeter' });
 
@@ -58,7 +63,7 @@ const useStyle = style(theme => ({
 
 // marks, labels, any thickness
 
-// marks and labels outside the circle?
+// marks, labels outside the circle?
 
 // add pointer/s
 
@@ -69,6 +74,9 @@ const useStyle = style(theme => ({
 // mouse move controll
 
 // keyboard focus and arrow up, down move value y
+
+// Arc progress, or progress per each part
+// animate value y
 
 const RoundMeter = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
@@ -123,8 +131,6 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
     ...other
   } = props;
 
-  const [rect, setRect] = React.useState<DOMRect>();
-
   const refs = {
     root: React.useRef<any>()
   };
@@ -135,36 +141,26 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
   const boundary = parse(boundary_);
 
+  const width = 240;
+
+  const height = boundary === 0.5 ? width * 0.6666 : boundary === 0.25 ? width * 0.25 : width;
+
   let gap = ['round', 'square'].includes(lineCap) ? gap_ + (boundaryWidth / 2) : gap_;
 
   const parts = clamp(parts_, 1, 180);
-
-  React.useEffect(() => {
-    const method = () => setRect(refs.root.current.getBoundingClientRect());
-
-    const observer = new ResizeObserver(method);
-
-    method();
-
-    observer.observe(refs.root.current);
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
 
   if (!['small', 'regular', 'large'].includes(size)) styles.root.maxWidth = size;
 
   const marks = React.useMemo(() => {
     const values = [];
 
-    if (rect && marks_.length) {
+    if (marks_.length) {
       // Minus the inner thickness + padding
       const padding = 4;
 
-      const center = rect.width / 2;
+      const center = width / 2;
 
-      const radius = (rect.width / 2) - (boundaryWidth + padding);
+      const radius = (width / 2) - (boundaryWidth + padding);
 
       let min = 0;
       let max = 360;
@@ -229,20 +225,20 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
     }
 
     return values;
-  }, [rect, parts, marks_, markWidth, markHeight, boundary, boundaryWidth, lineCap, gap]);
+  }, [width, height, parts, marks_, markWidth, markHeight, boundary, boundaryWidth, lineCap, gap]);
 
   const labels = React.useMemo(() => {
     const values = [];
 
-    if (rect && labels_.length) {
+    if (labels_.length) {
       // Minus the inner thickness + padding
       const padding = 4;
 
-      const center = rect.width / 2;
+      const center = width / 2;
 
       const marksPadding = marks_?.length ? (marks_ || []).sort((a, b) => b.height - a.height)[0]?.height || markHeight : 0;
 
-      const radius = (rect.width / 2) - (boundaryWidth + padding) - marksPadding;
+      const radius = (width / 2) - (boundaryWidth + padding) - marksPadding;
 
       let min = 0;
       let max = 360;
@@ -308,187 +304,126 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
     }
 
     return values;
-  }, [rect, parts, marks_, markWidth, markHeight, boundary, boundaryWidth, lineCap, gap]);
+  }, [width, height, parts, marks_, markWidth, markHeight, boundary, boundaryWidth, lineCap, gap]);
 
   const arcs = React.useMemo(() => {
     const values = [];
 
     let value = [];
 
-    if (rect) {
-      // 1
-      if (boundary === 1) {
-        const padding = 0;
+    // 1
+    if (boundary === 1) {
+      const padding = 0;
 
-        if (parts === 1) {
-          values.push(
-            {
-              d: [
-                // Move
-                'M', ((boundaryWidth / 2) + padding), (rect.width / 2) + 0.001,
+      if (parts === 1) {
+        values.push(
+          {
+            d: [
+              // Move
+              'M', ((boundaryWidth / 2) + padding), (width / 2) + 0.001,
 
-                // Arc
-                'A', ((rect.width / 2) - (boundaryWidth / 2) - padding), ((rect.width / 2) - (boundaryWidth / 2) - padding), 0, 1, 0, ((boundaryWidth / 2) + padding), rect.width / 2
-              ].join(' ')
-            }
-          );
-        }
-        else {
-          const center = rect.width / 2;
-
-          const radius = ((rect.width / 2) - ((boundaryWidth / 2) + padding));
-
-          const total = 360;
-
-          let part = (total - (parts * gap)) / parts;
-
-          const angles: any = {
-            0: angleToCoordinates(0, center, center, radius)
-          };
-
-          let anglePrevious = 0;
-
-          for (let i = 0; i < parts; i++) {
-            // Move to 0 deg
-            if (i === 0) value.push(
-              // Move to 0 deg
-              'M', angles[0].x, angles[0].y
-            );
-
-            let angleEnd = anglePrevious + part;
-
-            angles.end = angleToCoordinates(angleEnd, center, center, radius);
-
-            angles.move = angleToCoordinates(angleEnd + gap, center, center, radius);
-
-            // Arc
-            value.push(
-              'A', radius, radius, 0, 0, 1, angles.end.x, Math.ceil(angles.end.y)
-            );
-
-            // Move the gap if there's a gap
-            if (gap > 0 && i < parts - 1) {
-              value.push(
-                'M', angles.move.x, angles.move.y
-              );
-
-              anglePrevious = angleEnd + gap;
-            }
-            else anglePrevious = angleEnd;
-
-            values.push({ d: value.join(' ') });
-
-            // Move for the next value
-            if (i < parts - 1) {
-              value = [
-                'M', angles.move.x, angles.move.y
-              ];
-            }
+              // Arc
+              'A', ((width / 2) - (boundaryWidth / 2) - padding), ((width / 2) - (boundaryWidth / 2) - padding), 0, 1, 0, ((boundaryWidth / 2) + padding), width / 2
+            ].join(' ')
           }
-        }
+        );
       }
+      else {
+        const center = width / 2;
 
-      // 0.75
-      if (boundary === 0.75) {
-        value = [];
+        const radius = ((width / 2) - ((boundaryWidth / 2) + padding));
 
-        const padding = 0;
+        const total = 360;
 
-        const center = rect.width / 2;
+        let part = (total - (parts * gap)) / parts;
 
-        const radius = ((rect.width / 2) - ((boundaryWidth / 2) + padding));
-
-        const angles = {
-          end: angleToCoordinates(45, center, center, radius),
-          start: angleToCoordinates(135, center, center, radius)
+        const angles: any = {
+          0: angleToCoordinates(0, center, center, radius)
         };
 
-        if (parts === 1) {
-          values.push(
-            {
-              d: [
-                // Line middle bottom
-                'M', angles.start.x, angles.start.y,
+        let anglePrevious = 0;
 
-                // Arc
-                'A', radius, radius, 0, 1, 1, angles.end.x, angles.end.y
-              ].join(' ')
-            }
+        for (let i = 0; i < parts; i++) {
+          // Move to 0 deg
+          if (i === 0) value.push(
+            // Move to 0 deg
+            'M', angles[0].x, angles[0].y
           );
-        }
-        else {
-          const total = 270;
 
-          let part = (total - ((parts - 1) * gap)) / parts;
+          let angleEnd = anglePrevious + part;
 
-          const angles: any = {
-            0: angleToCoordinates(135, center, center, radius)
-          };
+          angles.end = angleToCoordinates(angleEnd, center, center, radius);
 
-          let anglePrevious = 135;
+          angles.move = angleToCoordinates(angleEnd + gap, center, center, radius);
 
-          for (let i = 0; i < parts; i++) {
-            // Move to 135 deg
-            if (i === 0) value.push(
-              // Move to 0 deg
-              'M', angles[0].x, angles[0].y
-            );
+          // Arc
+          value.push(
+            'A', radius, radius, 0, 0, 1, angles.end.x, Math.ceil(angles.end.y)
+          );
 
-            let angleEnd = anglePrevious + part;
-
-            angles.end = angleToCoordinates(angleEnd, center, center, radius);
-
-            angles.move = angleToCoordinates(angleEnd + gap, center, center, radius);
-
-            // Arc
+          // Move the gap if there's a gap
+          if (gap > 0 && i < parts - 1) {
             value.push(
-              'A', radius, radius, 0, 0, 1, angles.end.x, Math.ceil(angles.end.y)
+              'M', angles.move.x, angles.move.y
             );
 
-            // Move the gap if there's a gap
-            if (gap > 0 && i < parts - 1) {
-              value.push(
-                'M', angles.move.x, angles.move.y
-              );
+            anglePrevious = angleEnd + gap;
+          }
+          else anglePrevious = angleEnd;
 
-              anglePrevious = angleEnd + gap;
-            }
-            else anglePrevious = angleEnd;
+          values.push({ d: value.join(' ') });
 
-            values.push({ d: value.join(' ') });
-
-            // Move for the next value
-            if (i < parts - 1) {
-              value = [
-                'M', angles.move.x, angles.move.y
-              ];
-            }
+          // Move for the next value
+          if (i < parts - 1) {
+            value = [
+              'M', angles.move.x, angles.move.y
+            ];
           }
         }
       }
+    }
 
-      // 0.5
-      if (boundary === 0.5) {
-        value = [];
+    // 0.75
+    if (boundary === 0.75) {
+      value = [];
 
-        const padding = 0;
+      const padding = 0;
 
-        const center = rect.width / 2;
+      const center = width / 2;
 
-        const radius = ((rect.width / 2) - ((boundaryWidth / 2) + padding));
+      const radius = ((width / 2) - ((boundaryWidth / 2) + padding));
 
-        const total = 180;
+      const angles = {
+        end: angleToCoordinates(45, center, center, radius),
+        start: angleToCoordinates(135, center, center, radius)
+      };
+
+      if (parts === 1) {
+        values.push(
+          {
+            d: [
+              // Line middle bottom
+              'M', angles.start.x, angles.start.y,
+
+              // Arc
+              'A', radius, radius, 0, 1, 1, angles.end.x, angles.end.y
+            ].join(' ')
+          }
+        );
+      }
+      else {
+        const total = 270;
 
         let part = (total - ((parts - 1) * gap)) / parts;
 
         const angles: any = {
-          0: angleToCoordinates(180, center, center, radius)
+          0: angleToCoordinates(135, center, center, radius)
         };
 
-        let anglePrevious = 180;
+        let anglePrevious = 135;
 
         for (let i = 0; i < parts; i++) {
-          // Move to 180 deg
+          // Move to 135 deg
           if (i === 0) value.push(
             // Move to 0 deg
             'M', angles[0].x, angles[0].y
@@ -525,256 +460,311 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
           }
         }
       }
+    }
 
-      // 0.25
-      if (boundary === 0.25) {
-        value = [];
+    // 0.5
+    if (boundary === 0.5) {
+      value = [];
 
-        const padding = 0;
+      const padding = 0;
 
-        const center = rect.width / 2;
+      const center = width / 2;
 
-        const radius = ((rect.width / 2) - ((boundaryWidth / 2) + padding));
+      const radius = ((width / 2) - ((boundaryWidth / 2) + padding));
 
-        const total = 90;
+      const total = 180;
 
-        let part = clamp((total - ((parts - 1) * gap)) / parts, 0.01);
+      let part = (total - ((parts - 1) * gap)) / parts;
 
-        gap = clamp(gap, 0, ((total - (part * parts)) / (parts - 1)));
-        console.log(11, gap);
+      const angles: any = {
+        0: angleToCoordinates(180, center, center, radius)
+      };
 
-        const angles: any = {
-          0: angleToCoordinates(225, center, center, radius)
-        };
+      let anglePrevious = 180;
 
-        let anglePrevious = 225;
+      for (let i = 0; i < parts; i++) {
+        // Move to 180 deg
+        if (i === 0) value.push(
+          // Move to 0 deg
+          'M', angles[0].x, angles[0].y
+        );
 
-        for (let i = 0; i < parts; i++) {
-          // Move to 225 deg
-          if (i === 0) value.push(
-            // Move to 0 deg
-            'M', angles[0].x, angles[0].y
-          );
+        let angleEnd = anglePrevious + part;
 
-          let angleEnd = anglePrevious + part;
+        angles.end = angleToCoordinates(angleEnd, center, center, radius);
 
-          angles.end = angleToCoordinates(angleEnd, center, center, radius);
+        angles.move = angleToCoordinates(angleEnd + gap, center, center, radius);
 
-          angles.move = angleToCoordinates(angleEnd + gap, center, center, radius);
+        // Arc
+        value.push(
+          'A', radius, radius, 0, 0, 1, angles.end.x, Math.ceil(angles.end.y)
+        );
 
-          // Arc
+        // Move the gap if there's a gap
+        if (gap > 0 && i < parts - 1) {
           value.push(
-            'A', radius, radius, 0, 0, 1, angles.end.x, Math.ceil(angles.end.y)
+            'M', angles.move.x, angles.move.y
           );
 
-          // Move the gap if there's a gap
-          if (gap > 0 && i < parts - 1) {
-            value.push(
-              'M', angles.move.x, angles.move.y
-            );
+          anglePrevious = angleEnd + gap;
+        }
+        else anglePrevious = angleEnd;
 
-            anglePrevious = angleEnd + gap;
-          }
-          else anglePrevious = angleEnd;
+        values.push({ d: value.join(' ') });
 
-          values.push({ d: value.join(' ') });
+        // Move for the next value
+        if (i < parts - 1) {
+          value = [
+            'M', angles.move.x, angles.move.y
+          ];
+        }
+      }
+    }
 
-          // Move for the next value
-          if (i < parts - 1) {
-            value = [
-              'M', angles.move.x, angles.move.y
-            ];
-          }
+    // 0.25
+    if (boundary === 0.25) {
+      value = [];
+
+      const padding = 0;
+
+      const center = width / 2;
+
+      const radius = ((width / 2) - ((boundaryWidth / 2) + padding));
+
+      const total = 90;
+
+      let part = clamp((total - ((parts - 1) * gap)) / parts, 0.01);
+
+      gap = clamp(gap, 0, ((total - (part * parts)) / (parts - 1)));
+      console.log(11, gap);
+
+      const angles: any = {
+        0: angleToCoordinates(225, center, center, radius)
+      };
+
+      let anglePrevious = 225;
+
+      for (let i = 0; i < parts; i++) {
+        // Move to 225 deg
+        if (i === 0) value.push(
+          // Move to 0 deg
+          'M', angles[0].x, angles[0].y
+        );
+
+        let angleEnd = anglePrevious + part;
+
+        angles.end = angleToCoordinates(angleEnd, center, center, radius);
+
+        angles.move = angleToCoordinates(angleEnd + gap, center, center, radius);
+
+        // Arc
+        value.push(
+          'A', radius, radius, 0, 0, 1, angles.end.x, Math.ceil(angles.end.y)
+        );
+
+        // Move the gap if there's a gap
+        if (gap > 0 && i < parts - 1) {
+          value.push(
+            'M', angles.move.x, angles.move.y
+          );
+
+          anglePrevious = angleEnd + gap;
+        }
+        else anglePrevious = angleEnd;
+
+        values.push({ d: value.join(' ') });
+
+        // Move for the next value
+        if (i < parts - 1) {
+          value = [
+            'M', angles.move.x, angles.move.y
+          ];
         }
       }
     }
 
     return values;
-  }, [rect, parts, boundary, boundaryWidth, lineCap, gap, gap_]);
+  }, [width, height, parts, boundary, boundaryWidth, lineCap, gap, gap_]);
 
   const pathBackground = React.useMemo(() => {
     const values = [];
 
-    if (rect) {
-      // 1
-      if (boundary === 1) {
-        const padding = 0;
+    // 1
+    if (boundary === 1) {
+      const padding = 0;
 
-        // 0 0 100 100
-        // M 0.5 50.001 A 49.5 49.5 0 1 0 0.5 50 Z
+      // 0 0 100 100
+      // M 0.5 50.001 A 49.5 49.5 0 1 0 0.5 50 Z
 
-        values.push(
-          // Move
-          'M', ((boundaryWidth / 2) + padding), (rect.width / 2) + 0.001,
+      values.push(
+        // Move
+        'M', ((boundaryWidth / 2) + padding), (width / 2) + 0.001,
 
-          // Arc
-          'A', ((rect.width / 2) - (boundaryWidth / 2) - padding), ((rect.width / 2) - (boundaryWidth / 2) - padding), 0, 1, 0, ((boundaryWidth / 2) + padding), rect.width / 2
-        );
-      }
+        // Arc
+        'A', ((width / 2) - (boundaryWidth / 2) - padding), ((width / 2) - (boundaryWidth / 2) - padding), 0, 1, 0, ((boundaryWidth / 2) + padding), width / 2
+      );
+    }
 
-      // 0.75
-      if (boundary === 0.75) {
-        const padding = 0;
+    // 0.75
+    if (boundary === 0.75) {
+      const padding = 0;
 
-        const center = rect.width / 2;
+      const center = width / 2;
 
-        const radius = ((rect.width / 2) - ((boundaryWidth / 2) + padding));
+      const radius = ((width / 2) - ((boundaryWidth / 2) + padding));
 
-        const angles = {
-          45: angleToCoordinates(45, center, center, radius),
-          135: angleToCoordinates(135, center, center, radius)
-        };
+      const angles = {
+        45: angleToCoordinates(45, center, center, radius),
+        135: angleToCoordinates(135, center, center, radius)
+      };
 
-        values.push(
-          // Move
-          'M', center, center,
+      values.push(
+        // Move
+        'M', center, center,
 
-          // Line middle bottom
-          'L', angles[135].x, angles[135].y,
+        // Line middle bottom
+        'L', angles[135].x, angles[135].y,
 
-          // Arc
-          'A', radius, radius, 0, 1, 1, angles[45].x, angles[45].y,
+        // Arc
+        'A', radius, radius, 0, 1, 1, angles[45].x, angles[45].y,
 
-          // Line bottom middle
-          'L', center, center,
+        // Line bottom middle
+        'L', center, center,
 
-          'Z'
-        );
-      }
+        'Z'
+      );
+    }
 
-      // 0.5
-      if (boundary === 0.5) {
-        const padding = 0;
+    // 0.5
+    if (boundary === 0.5) {
+      const padding = 0;
 
-        // 0 0 100 100
-        // M 0.5 49.5 A 49.54 49.54 0 0 1 99.5 49.5 Z
+      // 0 0 100 100
+      // M 0.5 49.5 A 49.54 49.54 0 0 1 99.5 49.5 Z
 
-        values.push(
-          // Move
-          'M', (boundaryWidth / 2) + padding, (rect.height - ((boundaryWidth / 2) + padding)),
+      values.push(
+        // Move
+        'M', (boundaryWidth / 2) + padding, (height - ((boundaryWidth / 2) + padding)),
 
-          // Arc
-          'A', (rect.height - ((boundaryWidth / 2) + padding)) + 0.1, (rect.height - ((boundaryWidth / 2) + padding)) + 0.1, 0, 0, 1, (rect.width - ((boundaryWidth / 2) + padding)), (rect.height - ((boundaryWidth / 2) + padding)),
+        // Arc
+        'A', (height - ((boundaryWidth / 2) + padding)) + 0.1, (height - ((boundaryWidth / 2) + padding)) + 0.1, 0, 0, 1, (width - ((boundaryWidth / 2) + padding)), (height - ((boundaryWidth / 2) + padding)),
 
-          'Z'
-        );
-      }
+        'Z'
+      );
+    }
 
-      // 0.25
-      if (boundary === 0.25) {
-        const padding = 0;
+    // 0.25
+    if (boundary === 0.25) {
+      const padding = 0;
 
-        // 0 0 100 133.3333
-        // M 50 100 L 0 25 A 50 50  0 0 1 100 25 L 50 100 Z
-        // M 50 131.8333 L 1.5 25 A 61.5 61.5 0 0 1 98.5 25 L 50 131.8333 Z
+      // 0 0 100 133.3333
+      // M 50 100 L 0 25 A 50 50  0 0 1 100 25 L 50 100 Z
+      // M 50 131.8333 L 1.5 25 A 61.5 61.5 0 0 1 98.5 25 L 50 131.8333 Z
 
-        const center = rect.width / 2;
+      const center = width / 2;
 
-        const radius = ((rect.width / 2) - ((boundaryWidth / 2) + padding));
+      const radius = ((width / 2) - ((boundaryWidth / 2) + padding));
 
-        const angles = {
-          225: angleToCoordinates(225, center, center, radius),
-          315: angleToCoordinates(315, center, center, radius)
-        };
+      const angles = {
+        225: angleToCoordinates(225, center, center, radius),
+        315: angleToCoordinates(315, center, center, radius)
+      };
 
-        values.push(
-          // Move
-          'M', center, (rect.height - (boundaryWidth + padding)),
+      values.push(
+        // Move
+        'M', center, (height - (boundaryWidth + padding)),
 
-          // Line middle bottom, top quarter left
-          'L', angles[315].x, angles[315].y,
+        // Line middle bottom, top quarter left
+        'L', angles[315].x, angles[315].y,
 
-          // Arc
-          'A', radius, radius, 0, 0, 0, angles[225].x, angles[225].y,
+        // Arc
+        'A', radius, radius, 0, 0, 0, angles[225].x, angles[225].y,
 
-          // Line top quarter right, middle bottom
-          'L', center, (rect.height - (boundaryWidth + padding)),
+        // Line top quarter right, middle bottom
+        'L', center, (height - (boundaryWidth + padding)),
 
-          'Z'
-        );
-      }
+        'Z'
+      );
     }
 
     return values.join(' ');
-  }, [rect, boundary, boundaryWidth]);
+  }, [width, height, boundary, boundaryWidth]);
 
   const pathBorder = React.useMemo(() => {
     const values = [];
 
-    if (rect) {
-      // 0.75
-      if (boundary === 0.75) {
-        const padding = 0;
+    // 0.75
+    if (boundary === 0.75) {
+      const padding = 0;
 
-        const center = rect.width / 2;
+      const center = width / 2;
 
-        const radius = ((rect.width / 2) - ((boundaryWidth / 2) + padding));
+      const radius = ((width / 2) - ((boundaryWidth / 2) + padding));
 
-        const angles = {
-          45: angleToCoordinates(45, center, center, radius),
-          135: angleToCoordinates(135, center, center, radius)
-        };
+      const angles = {
+        45: angleToCoordinates(45, center, center, radius),
+        135: angleToCoordinates(135, center, center, radius)
+      };
 
-        values.push(
-          // Move bottom angle left
-          'M', angles[135].x, angles[135].y,
+      values.push(
+        // Move bottom angle left
+        'M', angles[135].x, angles[135].y,
 
-          // Line middle
-          'L', center, center,
+        // Line middle
+        'L', center, center,
 
-          // Line bottom angle right
-          'L', angles[45].x, angles[45].y
-        );
-      }
+        // Line bottom angle right
+        'L', angles[45].x, angles[45].y
+      );
+    }
 
-      // 0.5
-      if (boundary === 0.5) {
-        const padding = 0;
+    // 0.5
+    if (boundary === 0.5) {
+      const padding = 0;
 
-        // 0 0 100 100
-        // M 0.5 49.5 A 49.54 49.54 0 0 1 99.5 49.5 Z
+      // 0 0 100 100
+      // M 0.5 49.5 A 49.54 49.54 0 0 1 99.5 49.5 Z
 
-        values.push(
-          // Move
-          'M', (boundaryWidth / 2) + padding, (rect.height - ((boundaryWidth / 2) + padding)),
+      values.push(
+        // Move
+        'M', (boundaryWidth / 2) + padding, (height - ((boundaryWidth / 2) + padding)),
 
-          // Line
-          'L', (rect.width - ((boundaryWidth / 2) + padding)), (rect.height - ((boundaryWidth / 2) + padding))
-        );
-      }
+        // Line
+        'L', (width - ((boundaryWidth / 2) + padding)), (height - ((boundaryWidth / 2) + padding))
+      );
+    }
 
-      // 0.25
-      if (boundary === 0.25) {
-        const padding = 0;
+    // 0.25
+    if (boundary === 0.25) {
+      const padding = 0;
 
-        // 0 0 100 133.3333
-        // M 50 100 L 0 25 A 50 50  0 0 1 100 25 L 50 100 Z
-        // M 50 131.8333 L 1.5 25 A 61.5 61.5 0 0 1 98.5 25 L 50 131.8333 Z
+      // 0 0 100 133.3333
+      // M 50 100 L 0 25 A 50 50  0 0 1 100 25 L 50 100 Z
+      // M 50 131.8333 L 1.5 25 A 61.5 61.5 0 0 1 98.5 25 L 50 131.8333 Z
 
-        const center = rect.width / 2;
+      const center = width / 2;
 
-        const radius = ((rect.width / 2) - ((boundaryWidth / 2) + padding));
+      const radius = ((width / 2) - ((boundaryWidth / 2) + padding));
 
-        const angles = {
-          225: angleToCoordinates(225, center, center, radius),
-          315: angleToCoordinates(315, center, center, radius)
-        };
+      const angles = {
+        225: angleToCoordinates(225, center, center, radius),
+        315: angleToCoordinates(315, center, center, radius)
+      };
 
-        values.push(
-          // Move middle bottom, top quarter left
-          'M', angles[315].x, angles[315].y,
+      values.push(
+        // Move middle bottom, top quarter left
+        'M', angles[315].x, angles[315].y,
 
-          // Line middle bottom
-          'L', center, (rect.height - (boundaryWidth + padding)),
+        // Line middle bottom
+        'L', center, (height - (boundaryWidth + padding)),
 
-          // Arc  top quarter right, middle bottom
-          'L', angles[225].x, angles[225].y
-        );
-      }
+        // Arc  top quarter right, middle bottom
+        'L', angles[225].x, angles[225].y
+      );
     }
 
     return values.join(' ');
-  }, [rect, boundary, boundaryWidth]);
+  }, [width, height, boundary, boundaryWidth]);
 
   return (
     <Component
@@ -814,7 +804,15 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
           <svg
             xmlns='http://www.w3.org/2000/svg'
 
-            viewBox={`0 0 ${rect?.width || 0} ${rect?.height || 0}`}
+            viewBox={`0 0 ${width || 0} ${height || 0}`}
+
+            className={classNames([
+              staticClassName('RoundMeter', theme) && [
+                'AmauiRoundMeter-svg'
+              ],
+
+              classes.svg
+            ])}
           >
             {/* Background */}
             {background && (
