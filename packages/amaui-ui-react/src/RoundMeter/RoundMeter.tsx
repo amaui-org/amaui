@@ -321,7 +321,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
           // Arc
           value.push(
-            'A', radius + 0.2, radius + 0.2, 0, 0, 1, angles.end.x, angles.end.y
+            'A', radius + 0.2, radius + 0.2, 0, 0, 1, angles.end.x, Math.floor(angles.end.y)
           );
 
           // Move the gap if there's a gap
