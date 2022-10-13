@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { clamp } from '@amaui/utils';
+import { clamp, valueFromPercentageWithinRange } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Surface from '../Surface';
@@ -38,6 +38,14 @@ const useStyle = style(theme => ({
 
   boundary_025: {
     aspectRatio: '4 / 3'
+  },
+
+  label: {
+    ...theme.typography.values.b2,
+
+    textAnchor: 'middle',
+    alignmentBaseline: 'central',
+    dominantBaseline: 'central'
   }
 }), { name: 'AmauiRoundMeter' });
 
@@ -47,7 +55,16 @@ const useStyle = style(theme => ({
 // by default marks go from 1, 60
 // to fit a clock by default
 
+// marks with any item.width || markWidth
+// adjust angle by (item.width || markWidth) / 2
+
 // add labels
+
+// Update labels angle based on font width
+
+// marks, labels, any thickness
+
+// marks and labels outside the circle?
 
 // add pointers
 
@@ -83,8 +100,18 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
     boundary = 1,
     boundaryWidth = 1,
 
+    marks: marks_ = [],
+
+    markHeight = 4,
+    markWidth = 1,
+
+    labels: labels_ = [],
+
+    textProps,
     pathProps,
 
+    MarksProps,
+    LabelsProps,
     BackgroundProps,
     BorderProps,
     ArcProps,
@@ -126,6 +153,103 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
   }, []);
 
   if (!['small', 'regular', 'large'].includes(size)) styles.root.maxWidth = size;
+
+  const marks = React.useMemo(() => {
+    const values = [];
+
+    if (rect && marks_.length) {
+      // Minus the inner thickness + padding
+      const padding = 4;
+
+      const center = rect.width / 2;
+
+      const radius = (rect.width / 2) - (boundaryWidth + padding);
+
+      // 1
+      if (boundary === 1) {
+        // 0 is middle top
+        // ie. 270 degreese
+        const min = 270;
+        const max = 270 + 360;
+
+        marks_.forEach((mark: any) => {
+          const {
+            height,
+
+            position,
+
+            ...other
+          } = mark;
+
+          const angle = valueFromPercentageWithinRange(position, min, max);
+
+          const start = angleToCoordinates(angle, center, center, radius);
+
+          const end = angleToCoordinates(angle, center, center, radius - (height !== undefined ? height : markHeight));
+
+          values.push({
+            d: [
+              'M', start.x, start.y,
+
+              'L', end.x, end.y
+            ].join(' ')
+          });
+        });
+      }
+    }
+
+    return values;
+  }, [rect, parts, marks_, markWidth, markHeight, boundary, boundaryWidth, lineCap, gap]);
+
+  const labels = React.useMemo(() => {
+    const values = [];
+
+    if (rect && labels_.length) {
+      // Minus the inner thickness + padding
+      const padding = 4;
+
+      const center = rect.width / 2;
+
+      const marksPadding = marks_?.length ? (marks_ || []).sort((a, b) => b.height - a.height)[0]?.height || markHeight : 0;
+
+      const radius = (rect.width / 2) - (boundaryWidth + padding) - marksPadding;
+
+      // 1
+      if (boundary === 1) {
+        // 0 is middle top
+        // ie. 270 degreese
+        const min = 270;
+        const max = 270 + 360;
+
+        labels_.forEach((label: any) => {
+          const {
+            value,
+
+            position,
+
+            ...other
+          } = label;
+
+          const fontSize = label.style?.fontSize !== undefined ? label.style.fontSize : 14;
+
+          const angle = valueFromPercentageWithinRange(position, min, max);
+
+          const start = angleToCoordinates(angle, center, center, radius - (fontSize / 2) - padding);
+
+          values.push({
+            x: start.x,
+            y: start.y,
+
+            value,
+
+            ...other
+          });
+        });
+      }
+    }
+
+    return values;
+  }, [rect, parts, marks_, markWidth, markHeight, boundary, boundaryWidth, lineCap, gap]);
 
   const arcs = React.useMemo(() => {
     const values = [];
@@ -689,6 +813,91 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
                   {...ArcProps}
                 />
               )))}
+            </g>
+
+            {/* Marks */}
+            <g
+              className={classNames([
+                staticClassName('RoundMeter', theme) && [
+                  'AmauiRoundMeter-marks'
+                ],
+
+                classes.marks
+              ])}
+            >
+              {(marks.map((item: any, index: number) => (
+                <path
+                  key={index}
+
+                  d={item.d}
+
+                  fill='none'
+
+                  stroke={color}
+
+                  strokeWidth={item.width !== undefined ? item.width : markWidth}
+
+                  strokeLinecap={lineCap}
+
+                  {...pathProps}
+
+                  {...MarksProps}
+                />
+              )))}
+            </g>
+
+            {/* Labels */}
+            <g
+              className={classNames([
+                staticClassName('RoundMeter', theme) && [
+                  'AmauiRoundMeter-labels'
+                ],
+
+                classes.labels
+              ])}
+            >
+              {(labels.map((item: any, index: number) => {
+                const { x, y, value, ...other } = item;
+
+                return (
+                  <text
+                    key={index}
+
+                    x={x}
+
+                    y={y}
+
+                    {...other}
+
+                    {...textProps}
+
+                    {...LabelsProps}
+
+                    className={classNames([
+                      staticClassName('RoundMeter', theme) && [
+                        'AmauiRoundMeter-label'
+                      ],
+
+                      other?.className,
+                      textProps?.className,
+                      LabelsProps?.className,
+                      classes.label
+                    ])}
+
+                    style={{
+                      fill: color,
+
+                      ...other.style,
+
+                      ...textProps?.style,
+
+                      ...LabelsProps?.style
+                    }}
+                  >
+                    {value}
+                  </text>
+                );
+              }))}
             </g>
           </svg>
         )}

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is, random, countries } from '@amaui/utils';
+import { is, unique, random, countries } from '@amaui/utils';
 import { AmauiTheme, AmauiThemeProvider, classNames, style, sy, useAmauiTheme } from '@amaui/style-react';
 import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Radios, Keyframes, Switch, TextField, Label, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationItem, NavigationRail, NavigationDrawer, BottomSheet, BottomAppBar, TopAppBar, Card, CardImage, CardMain, CardHeader, CardButton, CardFooter, Table, TableHead, TableRow, TableCell, TableHeader, TableFooter, TableBody, Placeholder, Snackbar, useSnackbars, Pagination, TablePagination, SpeedDial, SpeedDialItem, ImageList, ImageListItem, ImageListItemBox, Stepper, Step, Tabs, Tab, Timeline, TimelineItem, Tree, Masonry, Reveal, useConfirm, ViewSplit, WindowSplit, useMainProgress, Image, SpyScroll, AdvancedTextField, NumericTextField, useWidgets, ImageCrop, ImageEdit, FileChoose, DropZone, MenuDesktop, Markdown, RichTextEditor, ScreenCapture, Timer, Countdown, Drawing, Parallax, Weather, RoundMeter } from '@amaui/ui-react';
 
@@ -1083,6 +1083,35 @@ function App() {
       columns: 2,
     },
   ];
+
+  const marksWatch = unique([
+    // Hours
+    ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
+      height: 8,
+
+      position: index * (100 / 12)
+    }))),
+
+    // Minutes
+    ...(Array.from({ length: 60 }).map((item: any, index: number) => ({
+      height: 4,
+
+      position: index * (100 / 60)
+    }))),
+  ], 'position');
+
+  const labelsWatch = unique([
+    // Hours
+    ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
+      value: index === 0 ? 12 : index,
+
+      style: {
+        fontSize: 14
+      },
+
+      position: index * (100 / 12)
+    })))
+  ], 'position');
 
   return (
     <div className={classes.root}>
@@ -2701,6 +2730,18 @@ Please sign in again.`}
       <Accordion primary='RoundMeter'>
         <Accordion primary='RoundMeter' open>
           <RoundMeter />
+        </Accordion>
+
+        <Accordion primary='RoundMeter marks'>
+          <Line>
+            <RoundMeter marks={marksWatch} labels={labelsWatch} />
+
+            {/* <RoundMeter marks={marksWatch} boundary='0.75'/>
+
+            <RoundMeter marks={marksWatch} boundary='0.5'/>
+
+            <RoundMeter marks={marksWatch} boundary='0.25'/> */}
+          </Line>
         </Accordion>
 
         <Accordion primary='RoundMeter size'>
