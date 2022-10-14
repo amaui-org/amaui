@@ -1217,7 +1217,7 @@ function App() {
       ...(Array.from({ length: 9 }).map((item: any, index: number) => ({
         value: index * 40,
 
-        padding: 16,
+        padding: 14,
 
         style: {
           fontSize: 14
@@ -1229,7 +1229,7 @@ function App() {
       {
         value: 9 * 40,
 
-        padding: 16,
+        padding: 14,
 
         style: {
           fontSize: 14
