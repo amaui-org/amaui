@@ -384,3 +384,6 @@ export * from './RoundMeter';
 
 export { default as Path } from './Path';
 export * from './Path';
+
+export { default as Watch } from './Watch';
+export * from './Watch';
