@@ -156,7 +156,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
     if (marks_.length) {
       // Minus the inner thickness + padding
-      const padding = 4;
+      const padding = 0;
 
       const center = width / 2;
 
@@ -232,7 +232,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
     if (labels_.length) {
       // Minus the inner thickness + padding
-      const padding = 4;
+      const padding = 0;
 
       const center = width / 2;
 

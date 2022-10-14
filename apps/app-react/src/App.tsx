@@ -1096,12 +1096,16 @@ function App() {
       ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
         height: 8,
 
+        padding: 4,
+
         position: index * (100 / 12)
       }))),
 
       // Minutes
       ...(Array.from({ length: 60 }).map((item: any, index: number) => ({
         height: 4,
+
+        padding: 4,
 
         position: index * (100 / 60)
       }))),
@@ -1112,11 +1116,15 @@ function App() {
       ...(Array.from({ length: 9 }).map((item: any, index: number) => ({
         height: 8,
 
+        padding: 4,
+
         position: index * (100 / 9)
       }))),
 
       {
         height: 8,
+
+        padding: 4,
 
         position: 100
       },
@@ -1124,6 +1132,8 @@ function App() {
       // Motor speed minor
       ...(Array.from({ length: 45 }).map((item: any, index: number) => ({
         height: 4,
+
+        padding: 4,
 
         position: index * (100 / 45)
       }))),
@@ -1134,11 +1144,15 @@ function App() {
       ...(Array.from({ length: 6 }).map((item: any, index: number) => ({
         height: 8,
 
+        padding: 4,
+
         position: index * (100 / 6)
       }))),
 
       {
         height: 8,
+
+        padding: 4,
 
         position: 100
       },
@@ -1146,6 +1160,8 @@ function App() {
       // Motor speed minor
       ...(Array.from({ length: 30 }).map((item: any, index: number) => ({
         height: 4,
+
+        padding: 4,
 
         position: index * (100 / 30)
       }))),
@@ -1156,11 +1172,15 @@ function App() {
       ...(Array.from({ length: 3 }).map((item: any, index: number) => ({
         height: 8,
 
+        padding: 4,
+
         position: index * (100 / 3)
       }))),
 
       {
         height: 8,
+
+        padding: 4,
 
         position: 100
       },
@@ -1168,6 +1188,8 @@ function App() {
       // Motor speed minor
       ...(Array.from({ length: 15 }).map((item: any, index: number) => ({
         height: 4,
+
+        padding: 4,
 
         position: index * (100 / 15)
       }))),
@@ -1180,7 +1202,7 @@ function App() {
       ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
         value: index === 0 ? 12 : index,
 
-        padding: 4,
+        padding: 12,
 
         style: {
           fontSize: 14
@@ -1195,7 +1217,7 @@ function App() {
       ...(Array.from({ length: 9 }).map((item: any, index: number) => ({
         value: index * 40,
 
-        padding: 6,
+        padding: 14,
 
         style: {
           fontSize: 14
@@ -1207,7 +1229,7 @@ function App() {
       {
         value: 9 * 40,
 
-        padding: 6,
+        padding: 14,
 
         style: {
           fontSize: 14
@@ -1222,7 +1244,7 @@ function App() {
       ...(Array.from({ length: 6 }).map((item: any, index: number) => ({
         value: index,
 
-        padding: 4,
+        padding: 10,
 
         style: {
           fontSize: 14
@@ -1234,7 +1256,7 @@ function App() {
       {
         value: 6,
 
-        padding: 4,
+        padding: 10,
 
         style: {
           fontSize: 14
@@ -1249,7 +1271,7 @@ function App() {
       ...(Array.from({ length: 3 }).map((item: any, index: number) => ({
         value: index,
 
-        padding: 4,
+        padding: 10,
 
         style: {
           fontSize: 14
@@ -1261,7 +1283,7 @@ function App() {
       {
         value: 3,
 
-        padding: 4,
+        padding: 10,
 
         style: {
           fontSize: 14
