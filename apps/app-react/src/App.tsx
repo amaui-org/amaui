@@ -1202,7 +1202,7 @@ function App() {
       ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
         value: index === 0 ? 12 : index,
 
-        padding: 10,
+        padding: 12,
 
         style: {
           fontSize: 14
