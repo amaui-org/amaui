@@ -92,7 +92,8 @@ const Watch = React.forwardRef((props_: any, ref: any) => {
         ],
 
         className,
-        classes.root
+        classes.root,
+        classes[`version_${version}`]
       ])}
 
       {...other}
@@ -104,6 +105,8 @@ const Watch = React.forwardRef((props_: any, ref: any) => {
 
           color={color}
 
+          gap={0.5}
+
           direction='column'
 
           align='center'
@@ -114,10 +117,10 @@ const Watch = React.forwardRef((props_: any, ref: any) => {
 
           className={classNames([
             staticClassName('Watch', theme) && [
-              'AmauiWatch-version-regular'
+              'AmauiWatch-regular'
             ],
 
-            classes.version_regular
+            classes.regular
           ])}
         >
           {timeVisible && (
@@ -133,7 +136,7 @@ const Watch = React.forwardRef((props_: any, ref: any) => {
           {dateVisible && (
             is('function', renderDate) ? renderDate(value) : (
               <Type
-                version='h3'
+                version='b2'
 
                 color='secondary'
               >
