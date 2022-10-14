@@ -113,6 +113,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
     textProps,
     pathProps,
 
+    SvgProps,
     MarksProps,
     LabelsProps,
     BackgroundProps,
@@ -820,11 +821,14 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
             viewBox={`0 ${yViewBox} ${width || 0} ${height || 0}`}
 
+            {...SvgProps}
+
             className={classNames([
               staticClassName('RoundMeter', theme) && [
                 'AmauiRoundMeter-svg'
               ],
 
+              SvgProps?.className,
               classes.svg
             ])}
           >
