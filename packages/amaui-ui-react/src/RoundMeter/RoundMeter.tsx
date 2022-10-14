@@ -152,6 +152,8 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
   let min = 0;
   let max = 360;
 
+  let yViewBox = 0;
+
   // 1
   if (boundary === 1) {
     // 0 is middle top
@@ -166,6 +168,8 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
     // ie. 270 degreese
     min = 135;
     max = 135 + 270;
+
+    yViewBox = -15;
   }
 
   // 0.5
@@ -174,6 +178,8 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
     // ie. 180 degreese
     min = 180;
     max = 180 + 180;
+
+    yViewBox = -50;
   }
 
   // 0.25
@@ -182,6 +188,8 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
     // ie. 225 degreese
     min = 225;
     max = 225 + 90;
+
+    yViewBox = -60;
   }
 
   if (!['small', 'regular', 'large'].includes(size)) styles.root.maxWidth = size;
@@ -810,7 +818,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
           <svg
             xmlns='http://www.w3.org/2000/svg'
 
-            viewBox={`0 0 ${width || 0} ${height || 0}`}
+            viewBox={`0 ${yViewBox} ${width || 0} ${height || 0}`}
 
             className={classNames([
               staticClassName('RoundMeter', theme) && [

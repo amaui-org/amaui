@@ -2929,7 +2929,7 @@ Please sign in again.`}
           <Line>
             <RoundMeter marks={marks['1']} labels={labels['1']}>
               <Path
-                d={`M 120 120 L ${angleToCoordinates(0, 120, 120, 80).x} ${angleToCoordinates(0, 120, 120, 80).y}`}
+                d={`M 120 120 L ${angleToCoordinates(0, 120, 120, 70).x} ${angleToCoordinates(0, 120, 120, 70).y}`}
 
                 value={0}
 
@@ -2953,7 +2953,7 @@ Please sign in again.`}
 
             <RoundMeter marks={marks['0.5']} labels={labels['0.5']} boundary='0.5'>
               <Path
-                d={`M 120 120 L ${angleToCoordinates(0, 120, 120, 80).x} ${angleToCoordinates(0, 120, 120, 80).y}`}
+                d={`M 120 120 L ${angleToCoordinates(0, 120, 120, 70).x} ${angleToCoordinates(0, 120, 120, 70).y}`}
 
                 value={0}
 
@@ -2965,7 +2965,7 @@ Please sign in again.`}
 
             <RoundMeter marks={marks['0.25']} labels={labels['0.25']} boundary='0.25'>
               <Path
-                d={`M 120 120 L ${angleToCoordinates(0, 120, 120, 80).x} ${angleToCoordinates(0, 120, 120, 80).y}`}
+                d={`M 120 120 L ${angleToCoordinates(0, 120, 120, 70).x} ${angleToCoordinates(0, 120, 120, 70).y}`}
 
                 value={0}
 
