@@ -2913,6 +2913,18 @@ Please sign in again.`}
           <RoundMeter />
         </Accordion>
 
+        <Accordion primary='RoundMeter padding'>
+          <Line>
+            <RoundMeter marks={marks['1']} labels={labels['1']} padding={40} />
+
+            <RoundMeter marks={marks['0.75']} labels={labels['0.75']} boundary='0.75' padding={40} />
+
+            <RoundMeter marks={marks['0.5']} labels={labels['0.5']} boundary='0.5' padding={40} />
+
+            <RoundMeter marks={marks['0.25']} labels={labels['0.25']} boundary='0.25' padding={40} />
+          </Line>
+        </Accordion>
+
         <Accordion primary='RoundMeter marks'>
           <Line>
             <RoundMeter marks={marks['1']} labels={labels['1']} />
@@ -3383,6 +3395,60 @@ Please sign in again.`}
           </Line>
         </Accordion>
 
+        <Accordion primary='RoundMeter round with padding'>
+          <Line>
+            <Line>
+              <RoundMeter padding={14} lineCap='round' boundaryWidth={16} gap={8} parts={1} boundary={1} size='regular' />
+
+              <RoundMeter padding={14} lineCap='round' boundaryWidth={16} gap={8} parts={1} boundary={0.75} size='regular' />
+
+              <RoundMeter padding={14} lineCap='round' boundaryWidth={16} gap={8} parts={1} boundary={0.5} size='regular' />
+
+              <RoundMeter padding={14} lineCap='round' boundaryWidth={16} gap={8} parts={1} boundary={0.25} size='regular' />
+            </Line>
+
+            <Line>
+              <RoundMeter padding={14} lineCap='round' boundaryWidth={16} gap={8} parts={2} boundary={1} size='regular' />
+
+              <RoundMeter padding={14} lineCap='round' boundaryWidth={16} gap={8} parts={2} boundary={0.75} size='regular' />
+
+              <RoundMeter padding={14} lineCap='round' boundaryWidth={16} gap={8} parts={2} boundary={0.5} size='regular' />
+
+              <RoundMeter padding={14} lineCap='round' boundaryWidth={16} gap={8} parts={2} boundary={0.25} size='regular' />
+            </Line>
+
+            <Line>
+              <RoundMeter padding={14} lineCap='round' boundaryWidth={16} gap={8} parts={3} boundary={1} size='regular' />
+
+              <RoundMeter padding={14} lineCap='round' boundaryWidth={16} gap={8} parts={3} boundary={0.75} size='regular' />
+
+              <RoundMeter padding={14} lineCap='round' boundaryWidth={16} gap={8} parts={3} boundary={0.5} size='regular' />
+
+              <RoundMeter padding={14} lineCap='round' boundaryWidth={16} gap={8} parts={3} boundary={0.25} size='regular' />
+            </Line>
+
+            <Line>
+              <RoundMeter padding={14} lineCap='round' boundaryWidth={16} gap={8} parts={4} boundary={1} size='regular' />
+
+              <RoundMeter padding={14} lineCap='round' boundaryWidth={16} gap={8} parts={4} boundary={0.75} size='regular' />
+
+              <RoundMeter padding={14} lineCap='round' boundaryWidth={16} gap={8} parts={4} boundary={0.5} size='regular' />
+
+              <RoundMeter padding={14} lineCap='round' boundaryWidth={16} gap={8} parts={4} boundary={0.25} size='regular' />
+            </Line>
+
+            <Line>
+              <RoundMeter padding={14} lineCap='round' boundaryWidth={16} gap={8} parts={8} boundary={1} size='regular' />
+
+              <RoundMeter padding={14} lineCap='round' boundaryWidth={16} gap={8} parts={8} boundary={0.75} size='regular' />
+
+              <RoundMeter padding={14} lineCap='round' boundaryWidth={16} gap={8} parts={8} boundary={0.5} size='regular' />
+
+              <RoundMeter padding={14} lineCap='round' boundaryWidth={16} gap={8} parts={8} boundary={0.25} size='regular' />
+            </Line>
+          </Line>
+        </Accordion>
+
         <Accordion primary='RoundMeter boundary'>
           <Line>
             <Line>
@@ -3487,6 +3553,42 @@ Please sign in again.`}
               <RoundMeter background border boundary={0.25} size='regular' />
 
               <RoundMeter background border boundary={0.25} size='large' />
+            </Line>
+          </Line>
+        </Accordion>
+
+        <Accordion primary='RoundMeter boundary background, border with padding'>
+          <Line>
+            <Line>
+              <RoundMeter background border boundary={1} size='small' padding={40} />
+
+              <RoundMeter background border boundary={1} size='regular' padding={40} />
+
+              <RoundMeter background border boundary={1} size='large' padding={40} />
+            </Line>
+
+            <Line>
+              <RoundMeter background border boundary={0.75} size='small' padding={40} />
+
+              <RoundMeter background border boundary={0.75} size='regular' padding={40} />
+
+              <RoundMeter background border boundary={0.75} size='large' padding={40} />
+            </Line>
+
+            <Line>
+              <RoundMeter background border boundary={0.5} size='small' padding={40} />
+
+              <RoundMeter background border boundary={0.5} size='regular' padding={40} />
+
+              <RoundMeter background border boundary={0.5} size='large' padding={40} />
+            </Line>
+
+            <Line>
+              <RoundMeter background border boundary={0.25} size='small' padding={40} />
+
+              <RoundMeter background border boundary={0.25} size='regular' padding={40} />
+
+              <RoundMeter background border boundary={0.25} size='large' padding={40} />
             </Line>
           </Line>
         </Accordion>
