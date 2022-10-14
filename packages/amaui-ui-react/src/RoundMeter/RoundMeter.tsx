@@ -56,20 +56,22 @@ const useStyle = style(theme => ({
 
 // to do
 
-// marks, labels outside the circle?
+// any item (children), pointers array?
 
-// pointer/s
-// they are just array of pointers
-// where their value, rotate is normalized based on the boundary with valueFromPercentageWithinRange
+// where their value, rotate is if prop normalize true, normalized based on the boundary with valueFromPercentageWithinRange
 // and then it's added to the ui
 
 // render pointer, and render pointers methods
 
 // value only be pre, equal or post available marks
 
-// mouse move controll
+// mouse move control?
 
 // keyboard focus and arrow up, down move value y
+
+// mark and label styles
+// so if pointer/s are pointing towards it
+// we can update that 1 label color value y
 
 // option to add any other object into the svg
 // maybe with children value y
