@@ -2937,6 +2937,42 @@ Please sign in again.`}
           </Line>
         </Accordion>
 
+        <Accordion primary='RoundMeter marks width'>
+          <Line>
+            <RoundMeter marks={marks['1'].map((item: any) => ({ ...item, width: 3 }))} labels={labels['1']} />
+
+            <RoundMeter marks={marks['0.75'].map((item: any) => ({ ...item, width: 3 }))} labels={labels['0.75']} boundary='0.75' />
+
+            <RoundMeter marks={marks['0.5'].map((item: any) => ({ ...item, width: 3 }))} labels={labels['0.5']} boundary='0.5' />
+
+            <RoundMeter marks={marks['0.25'].map((item: any) => ({ ...item, width: 3 }))} labels={labels['0.25']} boundary='0.25' />
+          </Line>
+        </Accordion>
+
+        <Accordion primary='RoundMeter labels font size'>
+          <Line>
+            <RoundMeter marks={marks['1']} labels={labels['1'].map((item: any) => ({ ...item, style: { fontSize: 17 } }))} />
+
+            <RoundMeter marks={marks['0.75']} labels={labels['0.75'].map((item: any) => ({ ...item, style: { fontSize: 17 } }))} boundary='0.75' />
+
+            <RoundMeter marks={marks['0.5']} labels={labels['0.5'].map((item: any) => ({ ...item, style: { fontSize: 17 } }))} boundary='0.5' />
+
+            <RoundMeter marks={marks['0.25']} labels={labels['0.25'].map((item: any) => ({ ...item, style: { fontSize: 17 } }))} boundary='0.25' />
+          </Line>
+        </Accordion>
+
+        <Accordion primary='RoundMeter marks width, labels font size, boundaryWidth'>
+          <Line>
+            <RoundMeter boundaryWidth={16} marks={marks['1']} labels={labels['1'].map((item: any) => ({ ...item, style: { fontSize: 17 } }))} />
+
+            <RoundMeter boundaryWidth={16} marks={marks['0.75']} labels={labels['0.75'].map((item: any) => ({ ...item, style: { fontSize: 17 } }))} boundary='0.75' />
+
+            <RoundMeter boundaryWidth={16} marks={marks['0.5']} labels={labels['0.5'].map((item: any) => ({ ...item, style: { fontSize: 17 } }))} boundary='0.5' />
+
+            <RoundMeter boundaryWidth={16} marks={marks['0.25']} labels={labels['0.25'].map((item: any) => ({ ...item, style: { fontSize: 17 } }))} boundary='0.25' />
+          </Line>
+        </Accordion>
+
         <Accordion primary='RoundMeter size'>
           <Line>
             <RoundMeter size='small' />

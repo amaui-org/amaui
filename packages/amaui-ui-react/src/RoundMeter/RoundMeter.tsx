@@ -56,13 +56,6 @@ const useStyle = style(theme => ({
 
 // to do
 
-// marks with any item.width || markWidth
-// adjust angle by (item.width || markWidth) / 2
-
-// labels with value fontSize value y
-
-// marks, labels, any thickness
-
 // marks, labels outside the circle?
 
 // pointer/s
@@ -77,6 +70,9 @@ const useStyle = style(theme => ({
 // mouse move controll
 
 // keyboard focus and arrow up, down move value y
+
+// option to add any other object into the svg
+// maybe with children value y
 
 // Arc progress, or progress per each part
 // animate value y
@@ -224,7 +220,9 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
             'M', start.x, start.y,
 
             'L', end.x, end.y
-          ].join(' ')
+          ].join(' '),
+
+          ...other
         });
       });
     }
