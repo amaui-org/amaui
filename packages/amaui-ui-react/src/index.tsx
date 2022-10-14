@@ -1,4 +1,6 @@
 
+export * from './utils';
+
 export { default as Reset } from './Reset';
 export * from './Reset';
 
@@ -379,3 +381,6 @@ export * from './Weather';
 
 export { default as RoundMeter } from './RoundMeter';
 export * from './RoundMeter';
+
+export { default as Path } from './Path';
+export * from './Path';
