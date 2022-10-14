@@ -126,7 +126,7 @@ const Watch = React.forwardRef((props_: any, ref: any) => {
           {timeVisible && (
             is('function', renderTime) ? renderTime(value) : (
               <Type
-                version='h1'
+                version='h2'
               >
                 {format(new AmauiDate(value), timeFormatString)}
               </Type>
