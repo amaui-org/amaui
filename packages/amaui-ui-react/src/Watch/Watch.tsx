@@ -136,7 +136,7 @@ const Watch = React.forwardRef((props_: any, ref: any) => {
           {dateVisible && (
             is('function', renderDate) ? renderDate(value) : (
               <Type
-                version='b3'
+                version='b2'
 
                 color='secondary'
               >
