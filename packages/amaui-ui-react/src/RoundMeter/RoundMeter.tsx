@@ -100,6 +100,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
     boundary: boundary_ = 1,
     boundaryWidth = 1,
 
+    arcsVisible = true,
     marksVisible = true,
     labelsVisible = true,
 
@@ -865,35 +866,37 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
             )}
 
             {/* Arcs */}
-            <g
-              className={classNames([
-                staticClassName('RoundMeter', theme) && [
-                  'AmauiRoundMeter-arcs'
-                ],
+            {arcsVisible && (
+              <g
+                className={classNames([
+                  staticClassName('RoundMeter', theme) && [
+                    'AmauiRoundMeter-arcs'
+                  ],
 
-                classes.arcs
-              ])}
-            >
-              {(arcs.map((item: any, index: number) => (
-                <path
-                  key={index}
+                  classes.arcs
+                ])}
+              >
+                {(arcs.map((item: any, index: number) => (
+                  <path
+                    key={index}
 
-                  d={item.d}
+                    d={item.d}
 
-                  fill='none'
+                    fill='none'
 
-                  stroke={color}
+                    stroke={color}
 
-                  strokeWidth={boundaryWidth}
+                    strokeWidth={boundaryWidth}
 
-                  strokeLinecap={lineCap}
+                    strokeLinecap={lineCap}
 
-                  {...pathProps}
+                    {...pathProps}
 
-                  {...ArcProps}
-                />
-              )))}
-            </g>
+                    {...ArcProps}
+                  />
+                )))}
+              </g>
+            )}
 
             {/* Marks */}
             {marksVisible && !!marks_.length && (
