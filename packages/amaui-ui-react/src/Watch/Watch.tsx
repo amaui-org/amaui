@@ -82,8 +82,14 @@ const Watch = React.forwardRef((props_: any, ref: any) => {
   }, []);
 
   return (
-    <Component
+    <Surface
       ref={ref}
+
+      tonal={tonal}
+
+      color={color}
+
+      Component={Component}
 
       className={classNames([
         staticClassName('Watch', theme) && [
@@ -101,10 +107,6 @@ const Watch = React.forwardRef((props_: any, ref: any) => {
       {/* Regular  */}
       {version === 'regular' && (
         <Line
-          tonal={tonal}
-
-          color={color}
-
           gap={0.5}
 
           direction='column'
@@ -112,8 +114,6 @@ const Watch = React.forwardRef((props_: any, ref: any) => {
           align='center'
 
           justify='center'
-
-          Component={Surface}
 
           className={classNames([
             staticClassName('Watch', theme) && [
@@ -146,7 +146,7 @@ const Watch = React.forwardRef((props_: any, ref: any) => {
           )}
         </Line>
       )}
-    </Component>
+    </Surface>
   );
 });
 
