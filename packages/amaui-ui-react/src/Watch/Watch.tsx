@@ -23,7 +23,11 @@ const useStyle = style(theme => ({
   },
 
   version_analog: {
-    background: 'none'
+    background: 'none',
+
+    '& .AmauiRoundMeter-marks': {
+      opacity: '0.74'
+    }
   }
 }), { name: 'AmauiWatch' });
 
@@ -207,15 +211,15 @@ const Watch = React.forwardRef((props_: any, ref: any) => {
 
           color={color}
 
-          backgroundVisible
-
           marks={marks.analog}
 
           labels={labels.analog}
 
+          background
+
           {...AnalogProps}
         >
-          {/* Seconds */}
+          {/* Second */}
           <Path
             d={`M 120 120 L ${angleToCoordinates(0, 120, 120, 115).x} ${angleToCoordinates(0, 120, 120, 115).y}`}
 
@@ -223,6 +227,48 @@ const Watch = React.forwardRef((props_: any, ref: any) => {
 
             style={{
               transformOrigin: '50% 50%'
+            }}
+          />
+
+          {/* Minute */}
+          <Path
+            Component='rect'
+
+            value={(100 / 60) * new AmauiDate(value).minute}
+
+            x={120}
+
+            y={120 - (3 / 2)}
+
+            height={3}
+
+            width={110}
+
+            style={{
+              transformOrigin: '50% 50%',
+              stroke: 'none',
+              fill: 'currentColor'
+            }}
+          />
+
+          {/* Hour */}
+          <Path
+            Component='rect'
+
+            value={(100 / 24) * new AmauiDate(value).hour}
+
+            x={120}
+
+            y={120 - (7 / 2)}
+
+            height={7}
+
+            width={74}
+
+            style={{
+              transformOrigin: '50% 50%',
+              stroke: 'none',
+              fill: 'currentColor'
             }}
           />
         </RoundMeter>

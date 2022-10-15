@@ -20,13 +20,15 @@ const Path = React.forwardRef((props_: any, ref: any) => {
   const {
     value,
 
+    Component = 'path',
+
     className,
 
     ...other
   } = props;
 
   return (
-    <path
+    <Component
       ref={ref}
 
       className={classNames([
