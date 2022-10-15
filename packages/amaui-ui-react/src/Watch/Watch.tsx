@@ -164,7 +164,7 @@ const Watch = React.forwardRef((props_: any, ref: any) => {
 
         color={color}
       >
-        {({ color, backgroundColor }) => <>
+        {({ backgroundColor }) => <>
           {/* Regular  */}
           {version === 'regular' && (
             <Line
