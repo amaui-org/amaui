@@ -2919,6 +2919,18 @@ Please sign in again.`}
         <Accordion primary='Watch' open>
           <Watch />
         </Accordion>
+
+        <Accordion primary='Watch versions' open>
+          <Line>
+            <Watch
+              version='regular'
+            />
+
+            <Watch
+              version='analog'
+            />
+          </Line>
+        </Accordion>
       </Accordion>
 
       <Accordion primary='RoundMeter'>

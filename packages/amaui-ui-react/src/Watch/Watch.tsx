@@ -1,14 +1,16 @@
 import React from 'react';
 
-import { is } from '@amaui/utils';
+import { is, unique } from '@amaui/utils';
 import { AmauiDate, format } from '@amaui/date';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
+import Path from '../Path';
 import Type from '../Type';
 import Surface from '../Surface';
+import RoundMeter from '../RoundMeter';
 import Line from '../Line';
 
-import { staticClassName } from '../utils';
+import { angleToCoordinates, staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
@@ -18,6 +20,10 @@ const useStyle = style(theme => ({
   version_regular: {
     padding: '24px 40px',
     borderRadius: theme.methods.shape.radius.value('rg')
+  },
+
+  version_analog: {
+    background: 'none'
   }
 }), { name: 'AmauiWatch' });
 
@@ -36,6 +42,9 @@ const Watch = React.forwardRef((props_: any, ref: any) => {
     // regular, analog, google, apple
     version = 'regular',
 
+    marksAnalog,
+    labelsAnalog,
+
     timeVisible = true,
     dateVisible = true,
 
@@ -44,6 +53,9 @@ const Watch = React.forwardRef((props_: any, ref: any) => {
 
     renderTime,
     renderDate,
+
+    RegularProps,
+    AnalogProps,
 
     Component = 'div',
 
@@ -69,6 +81,45 @@ const Watch = React.forwardRef((props_: any, ref: any) => {
 
   const clear = () => {
     cancelAnimationFrame(refs.animationFrame.current);
+  };
+
+  const marks: any = {
+    analog: unique([
+      // Hours
+      ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
+        height: 8,
+
+        padding: 4,
+
+        position: index * (100 / 12)
+      }))),
+
+      // Minutes
+      ...(Array.from({ length: 60 }).map((item: any, index: number) => ({
+        height: 4,
+
+        padding: 4,
+
+        position: index * (100 / 60)
+      }))),
+    ], 'position')
+  };
+
+  const labels: any = {
+    analog: unique([
+      // Hours
+      ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
+        value: index === 0 ? 12 : index,
+
+        padding: 12,
+
+        style: {
+          fontSize: 14
+        },
+
+        position: index * (100 / 12)
+      })))
+    ], 'position')
   };
 
   React.useEffect(() => {
@@ -122,6 +173,8 @@ const Watch = React.forwardRef((props_: any, ref: any) => {
 
             classes.regular
           ])}
+
+          {...RegularProps}
         >
           {timeVisible && (
             is('function', renderTime) ? renderTime(value) : (
@@ -145,6 +198,34 @@ const Watch = React.forwardRef((props_: any, ref: any) => {
             )
           )}
         </Line>
+      )}
+
+      {/* Analog */}
+      {version === 'analog' && (
+        <RoundMeter
+          tonal={tonal}
+
+          color={color}
+
+          backgroundVisible
+
+          marks={marks.analog}
+
+          labels={labels.analog}
+
+          {...AnalogProps}
+        >
+          {/* Seconds */}
+          <Path
+            d={`M 120 120 L ${angleToCoordinates(0, 120, 120, 115).x} ${angleToCoordinates(0, 120, 120, 115).y}`}
+
+            value={(100 / 60) * new AmauiDate(value).second}
+
+            style={{
+              transformOrigin: '50% 50%'
+            }}
+          />
+        </RoundMeter>
       )}
     </Surface>
   );
