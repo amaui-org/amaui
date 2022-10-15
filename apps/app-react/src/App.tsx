@@ -2916,18 +2916,28 @@ Please sign in again.`}
       </Accordion>
 
       <Accordion primary='Watch'>
-        <Accordion primary='Watch' open>
+        <Accordion primary='Watch'>
           <Watch />
         </Accordion>
 
         <Accordion primary='Watch versions' open>
-          <Line>
+          <Line
+            gap={4}
+          >
             <Watch
               version='regular'
             />
 
             <Watch
               version='analog'
+            />
+
+            <Watch
+              version='minimal'
+            />
+
+            <Watch
+              version='modern'
             />
           </Line>
         </Accordion>

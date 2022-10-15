@@ -335,7 +335,7 @@ const WidgetsProvider = React.forwardRef((props_: any, ref: any) => {
                           classes.widget
                         ]),
 
-                        ...(((item.element.type?.displayName === 'AmauiWeather')) ? {
+                        ...(((['AmauiWeather', 'AmauiWatch'].includes(item.element.type?.displayName))) ? {
                           shadow: true,
 
                           style: {

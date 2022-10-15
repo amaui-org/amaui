@@ -8,6 +8,7 @@ import IconMaterialVideocamRounded from '@amaui/icons-material-react/build/IconM
 import IconMaterialAvTimerRounded from '@amaui/icons-material-react/build/IconMaterialAvTimerRounded';
 import IconMaterialWeatherRounded from '@amaui/icons-material-react/build/IconMaterialClearDayRounded';
 import IconMaterialNestClockFarsightDigitalRounded from '@amaui/icons-material-react/build/IconMaterialNestClockFarsightDigitalRounded';
+import IconMaterialNestClockFarsightAnalogRounded from '@amaui/icons-material-react/build/IconMaterialNestClockFarsightAnalogRounded';
 
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -25,6 +26,11 @@ const widgets = [
     label: 'Regular Clock',
     Icon: IconMaterialNestClockFarsightDigitalRounded,
     element: <Watch />
+  },
+  {
+    label: 'Modern Clock',
+    Icon: IconMaterialNestClockFarsightAnalogRounded,
+    element: <Watch version='minimal' size='small' />
   },
   {
     label: 'Weather',

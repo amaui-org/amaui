@@ -49,6 +49,7 @@ const useStyle = style(theme => ({
   },
 
   svg: {
+    position: 'relative',
     width: '100%',
     height: 'auto'
   }
@@ -111,12 +112,14 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
     labels: labels_ = [],
 
+    additional,
+
     textProps,
     pathProps,
 
     SvgProps,
-    MarksProps,
-    LabelsProps,
+    MarkProps,
+    LabelProps,
     BackgroundProps,
     BorderProps,
     ArcProps,
@@ -811,6 +814,8 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
       {...other}
     >
+      {additional}
+
       <Surface
         tonal={tonal}
 
@@ -925,7 +930,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
                     {...pathProps}
 
-                    {...MarksProps}
+                    {...MarkProps}
                   />
                 )))}
               </g>
@@ -957,7 +962,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
                       {...textProps}
 
-                      {...LabelsProps}
+                      {...LabelProps}
 
                       className={classNames([
                         staticClassName('RoundMeter', theme) && [
@@ -966,7 +971,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
                         other?.className,
                         textProps?.className,
-                        LabelsProps?.className,
+                        LabelProps?.className,
                         classes.label
                       ])}
 
@@ -977,7 +982,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
                         ...textProps?.style,
 
-                        ...LabelsProps?.style
+                        ...LabelProps?.style
                       }}
                     >
                       {value}
