@@ -556,7 +556,7 @@ const Watch = React.forwardRef((props_: any, ref: any) => {
                 {...ModernProps}
               >
                 <Path
-                  Component='tspan'
+                  Component='g'
 
                   value={(100 / 60) * new AmauiDate(value).second}
 
@@ -567,11 +567,11 @@ const Watch = React.forwardRef((props_: any, ref: any) => {
                   <text
                     x={25}
 
-                    y={120}
+                    y={130}
 
                     stroke='none'
 
-                    fill='currentColor'
+                    fill={theme.methods.palette.color.value(undefined, 90, true, palette)}
 
                     transform='rotate(-90, 25, 120)'
 
@@ -584,7 +584,7 @@ const Watch = React.forwardRef((props_: any, ref: any) => {
                     ])}
 
                     style={{
-                      fontSize: 21
+                      fontSize: 20
                     }}
                   >
                     {format(new AmauiDate(value), `d DD`)}
@@ -631,7 +631,7 @@ const Watch = React.forwardRef((props_: any, ref: any) => {
 
                   style={{
                     stroke: 'none',
-                    fill: theme.methods.palette.color.value(undefined, 50, true, palette),
+                    fill: palette[theme.palette.light ? 50 : 40],
                     transformOrigin: 'center'
                   }}
                 />
