@@ -159,120 +159,143 @@ const Watch = React.forwardRef((props_: any, ref: any) => {
 
       {...other}
     >
-      {/* Regular  */}
-      {version === 'regular' && (
-        <Line
-          gap={0.5}
+      <Surface
+        tonal={tonal}
 
-          direction='column'
+        color={color}
+      >
+        {({ color, backgroundColor }) => <>
+          {/* Regular  */}
+          {version === 'regular' && (
+            <Line
+              gap={0.5}
 
-          align='center'
+              direction='column'
 
-          justify='center'
+              align='center'
 
-          className={classNames([
-            staticClassName('Watch', theme) && [
-              'AmauiWatch-regular'
-            ],
+              justify='center'
 
-            classes.regular
-          ])}
+              className={classNames([
+                staticClassName('Watch', theme) && [
+                  'AmauiWatch-regular'
+                ],
 
-          {...RegularProps}
-        >
-          {timeVisible && (
-            is('function', renderTime) ? renderTime(value) : (
-              <Type
-                version='h2'
-              >
-                {format(new AmauiDate(value), timeFormatString)}
-              </Type>
-            )
+                classes.regular
+              ])}
+
+              {...RegularProps}
+            >
+              {timeVisible && (
+                is('function', renderTime) ? renderTime(value) : (
+                  <Type
+                    version='h2'
+                  >
+                    {format(new AmauiDate(value), timeFormatString)}
+                  </Type>
+                )
+              )}
+
+              {dateVisible && (
+                is('function', renderDate) ? renderDate(value) : (
+                  <Type
+                    version='b3'
+
+                    color='secondary'
+                  >
+                    {format(new AmauiDate(value), dateFormatString)}
+                  </Type>
+                )
+              )}
+            </Line>
           )}
 
-          {dateVisible && (
-            is('function', renderDate) ? renderDate(value) : (
-              <Type
-                version='b3'
+          {/* Analog */}
+          {version === 'analog' && (
+            <RoundMeter
+              tonal={tonal}
 
-                color='secondary'
-              >
-                {format(new AmauiDate(value), dateFormatString)}
-              </Type>
-            )
+              color={color}
+
+              marks={marks.analog}
+
+              labels={labels.analog}
+
+              background
+
+              {...AnalogProps}
+            >
+              {/* Second */}
+              <Path
+                d={`M 120 120 L ${angleToCoordinates(0, 120, 120, 115).x} ${angleToCoordinates(0, 120, 120, 115).y}`}
+
+                value={(100 / 60) * new AmauiDate(value).second}
+
+                style={{
+                  transformOrigin: '50% 50%'
+                }}
+              />
+
+              {/* Minute */}
+              <Path
+                Component='rect'
+
+                value={(100 / 60) * new AmauiDate(value).minute}
+
+                x={120}
+
+                y={120 - (3 / 2)}
+
+                height={3}
+
+                width={105}
+
+                style={{
+                  transformOrigin: '50% 50%',
+                  stroke: 'none',
+                  fill: 'currentColor'
+                }}
+              />
+
+              {/* Hour */}
+              <Path
+                Component='rect'
+
+                value={(100 / 12) * new AmauiDate(value).hour}
+
+                x={120}
+
+                y={120 - (5 / 2)}
+
+                height={5}
+
+                width={54}
+
+                style={{
+                  transformOrigin: '50% 50%',
+                  stroke: 'none',
+                  fill: 'currentColor'
+                }}
+              />
+
+              {/* Pointers pin */}
+              <circle
+                r='4'
+
+                cx='120'
+
+                cy='120'
+
+                style={{
+                  fill: backgroundColor,
+                  stroke: color,
+                  strokeWidth: 1
+                }}
+              />
+            </RoundMeter>
           )}
-        </Line>
-      )}
-
-      {/* Analog */}
-      {version === 'analog' && (
-        <RoundMeter
-          tonal={tonal}
-
-          color={color}
-
-          marks={marks.analog}
-
-          labels={labels.analog}
-
-          background
-
-          {...AnalogProps}
-        >
-          {/* Second */}
-          <Path
-            d={`M 120 120 L ${angleToCoordinates(0, 120, 120, 115).x} ${angleToCoordinates(0, 120, 120, 115).y}`}
-
-            value={(100 / 60) * new AmauiDate(value).second}
-
-            style={{
-              transformOrigin: '50% 50%'
-            }}
-          />
-
-          {/* Minute */}
-          <Path
-            Component='rect'
-
-            value={(100 / 60) * new AmauiDate(value).minute}
-
-            x={120}
-
-            y={120 - (3 / 2)}
-
-            height={3}
-
-            width={110}
-
-            style={{
-              transformOrigin: '50% 50%',
-              stroke: 'none',
-              fill: 'currentColor'
-            }}
-          />
-
-          {/* Hour */}
-          <Path
-            Component='rect'
-
-            value={(100 / 24) * new AmauiDate(value).hour}
-
-            x={120}
-
-            y={120 - (7 / 2)}
-
-            height={7}
-
-            width={74}
-
-            style={{
-              transformOrigin: '50% 50%',
-              stroke: 'none',
-              fill: 'currentColor'
-            }}
-          />
-        </RoundMeter>
-      )}
+        </>}
+      </Surface>
     </Surface>
   );
 });
