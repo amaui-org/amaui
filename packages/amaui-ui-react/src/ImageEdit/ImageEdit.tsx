@@ -633,24 +633,26 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
     // Update value copy
     const canvas = window.document.createElement('canvas');
 
-    canvas.width = width;
+    if (width > 1 && height > 1) {
+      canvas.width = width;
 
-    canvas.height = height;
+      canvas.height = height;
 
-    canvas.getContext('2d').drawImage(refs.value.current, 0, 0, width, height);
+      canvas.getContext('2d').drawImage(refs.value.current, 0, 0, width, height);
 
-    // Value copy
-    onChangeCopy(canvas);
+      // Value copy
+      onChangeCopy(canvas);
 
-    // Update the canvas value
-    refs.canvasMain.current.width = width;
+      // Update the canvas value
+      refs.canvasMain.current.width = width;
 
-    refs.canvasMain.current.height = height;
+      refs.canvasMain.current.height = height;
 
-    refs.canvasMain.current.getContext('2d').drawImage(value, 0, 0, width, height);
+      refs.canvasMain.current.getContext('2d').drawImage(value, 0, 0, width, height);
 
-    // Update size
-    updateSize();
+      // Update size
+      updateSize();
+    }
   }, 140);
 
   const onFilterSliderChange = (valueNew: any, valueFilter: string) => {
@@ -668,7 +670,9 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
     else setFilter(valueNew);
   };
 
-  const onChangeAspectRatioCustom = (valueNew: any, left_ = true) => {
+  const onChangeAspectRatioCustom = (valueNew_: any, left_ = true) => {
+    const valueNew = !valueNew_ ? 1 : valueNew_;
+
     let left = aspectRatioCustom?.[0] || 1;
     let right = aspectRatioCustom?.[1] || 1;
 
@@ -767,15 +771,16 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
     if (is('function', onChangeCopy_)) onChangeCopy_(valueNew);
   };
 
-  const onReset = (imageReset = true, valueCopyReset = true) => {
+  const onReset = (imageReset = true, valueCopyReset = true, resizeReset = true) => {
     setOpen(false);
-    setResize([value?.width, value?.height]);
     setQuality(100);
     setAspectRatio('');
     setAspectRatioCustom([1, 1]);
     setSelection('');
     setFilter('' as any);
-    setFilterValuesCopy({ ...filterValues })
+    setFilterValuesCopy({ ...filterValues });
+
+    if (resizeReset) setResize([value?.width, value?.height]);
 
     if (valueCopyReset) {
       const canvas = window.document.createElement('canvas');
@@ -855,7 +860,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
     onChangeCopy(canvasCopy);
 
     // Reset
-    onReset(false, false);
+    onReset(false, false, false);
   };
 
   const onDownload = () => {
@@ -1464,7 +1469,8 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
               ])}
 
               style={{
-                width: rect?.width
+                width: valueCopy?.width,
+                height: valueCopy?.height
               }}
             />
           )}
