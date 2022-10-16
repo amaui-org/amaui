@@ -2,7 +2,7 @@ import React from 'react';
 
 import { is, unique, random, countries } from '@amaui/utils';
 import { AmauiTheme, AmauiThemeProvider, classNames, style, sy, useAmauiTheme } from '@amaui/style-react';
-import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Radios, Keyframes, Switch, TextField, Label, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationItem, NavigationRail, NavigationDrawer, BottomSheet, BottomAppBar, TopAppBar, Card, CardImage, CardMain, CardHeader, CardButton, CardFooter, Table, TableHead, TableRow, TableCell, TableHeader, TableFooter, TableBody, Placeholder, Snackbar, useSnackbars, Pagination, TablePagination, SpeedDial, SpeedDialItem, ImageList, ImageListItem, ImageListItemBox, Stepper, Step, Tabs, Tab, Timeline, TimelineItem, Tree, Masonry, Reveal, useConfirm, ViewSplit, WindowSplit, useMainProgress, Image, SpyScroll, AdvancedTextField, NumericTextField, useWidgets, ImageCrop, ImageEdit, FileChoose, DropZone, MenuDesktop, Markdown, RichTextEditor, ScreenCapture, Timer, Countdown, Drawing, Parallax, Weather, RoundMeter, Path, angleToCoordinates, Watch } from '@amaui/ui-react';
+import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Radios, Keyframes, Switch, TextField, Label, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationItem, NavigationRail, NavigationDrawer, BottomSheet, BottomAppBar, TopAppBar, Card, CardImage, CardMain, CardHeader, CardButton, CardFooter, Table, TableHead, TableRow, TableCell, TableHeader, TableFooter, TableBody, Placeholder, Snackbar, useSnackbars, Pagination, TablePagination, SpeedDial, SpeedDialItem, ImageList, ImageListItem, ImageListItemBox, Stepper, Step, Tabs, Tab, Timeline, TimelineItem, Tree, Masonry, Reveal, useConfirm, ViewSplit, WindowSplit, useMainProgress, Image, SpyScroll, AdvancedTextField, NumericTextField, useWidgets, ImageCrop, ImageEdit, FileChoose, DropZone, MenuDesktop, Markdown, RichTextEditor, ScreenCapture, Timer, Countdown, Drawing, Parallax, Weather, RoundMeter, Path, Watch } from '@amaui/ui-react';
 
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
@@ -220,6 +220,15 @@ const useStyle = style(theme => ({
     borderRadius: '8px',
     background: 'hsl(106deg 67% 70%)',
     color: 'white'
+  },
+
+  arcProgress: {
+    '& path:nth-child(1)': {
+      strokeDasharray: '1501',
+      strokeDashoffset: '801',
+      transform: 'rotate(90deg)',
+      transformOrigin: 'center'
+    }
   }
 }), { name: 'App' });
 
@@ -2948,6 +2957,38 @@ Please sign in again.`}
           <RoundMeter />
         </Accordion>
 
+        <Accordion primary='RoundMeter arcProgress'>
+          <Line>
+            <RoundMeter
+              marks={marks['1']}
+
+              labels={labels['1']}
+
+              ArcsProgressProps={{
+                className: classes.arcProgress
+              }}
+
+              ArcProgressProps={{
+                stroke: theme?.palette?.color?.primary?.[50]
+              }}
+
+              arcProgress
+            >
+              <Path
+                d='M 120 119.5 L 195 119.5 A 1 1 0 0 1 195 120.5 L 120 120.5 A 1 1 0 0 1 120 119.5'
+
+                value={0}
+
+                style={{
+                  transformOrigin: '50% 50%',
+                  fill: 'currentColor',
+                  stroke: 'none'
+                }}
+              />
+            </RoundMeter>
+          </Line>
+        </Accordion>
+
         <Accordion primary='RoundMeter padding'>
           <Line>
             <RoundMeter marks={marks['1']} labels={labels['1']} padding={40} />
@@ -2970,6 +3011,7 @@ Please sign in again.`}
 
                 style={{
                   transformOrigin: '50% 50%',
+                  fill: 'currentColor',
                   stroke: 'none'
                 }}
               />
@@ -2983,6 +3025,7 @@ Please sign in again.`}
 
                 style={{
                   transformOrigin: '50% 50%',
+                  fill: 'currentColor',
                   stroke: 'none'
                 }}
               />
@@ -2996,6 +3039,7 @@ Please sign in again.`}
 
                 style={{
                   transformOrigin: '50% 50%',
+                  fill: 'currentColor',
                   stroke: 'none'
                 }}
               />
@@ -3009,6 +3053,7 @@ Please sign in again.`}
 
                 style={{
                   transformOrigin: '50% 50%',
+                  fill: 'currentColor',
                   stroke: 'none'
                 }}
               />

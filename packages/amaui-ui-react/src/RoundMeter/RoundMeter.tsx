@@ -83,6 +83,8 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
     boundary: boundary_ = 1,
     boundaryWidth = 1,
 
+    arcProgress = false,
+
     arcsVisible = true,
     marksVisible = true,
     labelsVisible = true,
@@ -105,6 +107,9 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
     BackgroundProps,
     BorderProps,
     ArcProps,
+    ArcMainProps,
+    ArcsProgressProps,
+    ArcProgressProps,
 
     Component = 'div',
 
@@ -880,6 +885,46 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
                     {...pathProps}
 
                     {...ArcProps}
+
+                    {...ArcMainProps}
+                  />
+                )))}
+              </g>
+            )}
+
+            {/* Arcs progress */}
+            {arcsVisible && arcProgress && (
+              <g
+                {...ArcsProgressProps}
+
+                className={classNames([
+                  staticClassName('RoundMeter', theme) && [
+                    'AmauiRoundMeter-arcs-progress'
+                  ],
+
+                  ArcsProgressProps?.className,
+                  classes.arcs_progress
+                ])}
+              >
+                {(arcs.map((item: any, index: number) => (
+                  <path
+                    key={index}
+
+                    d={item.d}
+
+                    fill='none'
+
+                    stroke={color}
+
+                    strokeWidth={boundaryWidth}
+
+                    strokeLinecap={lineCap}
+
+                    {...pathProps}
+
+                    {...ArcProps}
+
+                    {...ArcProgressProps}
                   />
                 )))}
               </g>
