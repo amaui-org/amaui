@@ -2964,7 +2964,7 @@ Please sign in again.`}
           <Line>
             <RoundMeter marks={marks['1']} labels={labels['1']}>
               <Path
-                d='M 120 119 L 195 119.5 A 1 1 0 0 1 195 120.5 L 120 120.5 A 1 1 0 0 1 120 119.5'
+                d='M 120 119.5 L 195 119.5 A 1 1 0 0 1 195 120.5 L 120 120.5 A 1 1 0 0 1 120 119.5'
 
                 value={0}
 
@@ -2977,7 +2977,7 @@ Please sign in again.`}
 
             <RoundMeter marks={marks['0.75']} labels={labels['0.75']} boundary='0.75'>
               <Path
-                d='M 120 119 L 195 119.5 A 1 1 0 0 1 195 120.5 L 120 120.5 A 1 1 0 0 1 120 119.5'
+                d='M 120 119.5 L 195 119.5 A 1 1 0 0 1 195 120.5 L 120 120.5 A 1 1 0 0 1 120 119.5'
 
                 value={0}
 
@@ -2990,7 +2990,7 @@ Please sign in again.`}
 
             <RoundMeter marks={marks['0.5']} labels={labels['0.5']} boundary='0.5'>
               <Path
-                d='M 120 119 L 195 119.5 A 1 1 0 0 1 195 120.5 L 120 120.5 A 1 1 0 0 1 120 119.5'
+                d='M 120 119.5 L 195 119.5 A 1 1 0 0 1 195 120.5 L 120 120.5 A 1 1 0 0 1 120 119.5'
 
                 value={0}
 
@@ -3003,7 +3003,7 @@ Please sign in again.`}
 
             <RoundMeter marks={marks['0.25']} labels={labels['0.25']} boundary='0.25'>
               <Path
-                d='M 120 119 L 195 119.5 A 1 1 0 0 1 195 120.5 L 120 120.5 A 1 1 0 0 1 120 119.5'
+                d='M 120 119.5 L 195 119.5 A 1 1 0 0 1 195 120.5 L 120 120.5 A 1 1 0 0 1 120 119.5'
 
                 value={0}
 
