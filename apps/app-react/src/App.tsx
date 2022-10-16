@@ -1341,6 +1341,10 @@ function App() {
             width: '100%'
           }}
         >
+          <Watch
+            version='minimal'
+          />
+
           <RoundMeter />
 
           <Weather temperature={14} weather='partly clear' />
