@@ -55,24 +55,6 @@ const useStyle = style(theme => ({
   }
 }), { name: 'AmauiRoundMeter' });
 
-// to do
-
-// value only be pre, equal or post available marks
-
-// mouse move control?
-
-// keyboard focus and arrow up, down move value y
-
-// mark and label styles
-// so if pointer/s are pointing towards it
-// we can update that 1 label color value y
-
-// option to add any other object into the svg
-// maybe with children value y
-
-// Arc progress, or progress per each part
-// animate value y
-
 const RoundMeter = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 
