@@ -539,7 +539,7 @@ const Watch = React.forwardRef((props_: any, ref: any) => {
 
                     xmlns='http://www.w3.org/2000/svg'
 
-                    fill={theme.methods.palette.color.value(undefined, 10, true, palette)}
+                    fill={theme.methods.palette.color.value(undefined, 10, false, palette)}
 
                     className={classNames([
                       staticClassName('Watch', theme) && [
@@ -571,7 +571,7 @@ const Watch = React.forwardRef((props_: any, ref: any) => {
 
                     stroke='none'
 
-                    fill={theme.methods.palette.color.value(undefined, 90, true, palette)}
+                    fill={theme.methods.palette.color.value(undefined, 90, false, palette)}
 
                     transform='rotate(-90, 25, 120)'
 
@@ -584,7 +584,7 @@ const Watch = React.forwardRef((props_: any, ref: any) => {
                     ])}
 
                     style={{
-                      fontSize: 20
+                      fontSize: 19
                     }}
                   >
                     {format(new AmauiDate(value), `d DD`)}
@@ -631,7 +631,7 @@ const Watch = React.forwardRef((props_: any, ref: any) => {
 
                   style={{
                     stroke: 'none',
-                    fill: palette[theme.palette.light ? 50 : 40],
+                    fill: palette[50],
                     transformOrigin: 'center'
                   }}
                 />

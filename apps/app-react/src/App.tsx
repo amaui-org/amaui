@@ -2916,11 +2916,11 @@ Please sign in again.`}
       </Accordion>
 
       <Accordion primary='Watch'>
-        <Accordion primary='Watch'>
+        <Accordion primary='Watch' open>
           <Watch />
         </Accordion>
 
-        <Accordion primary='Watch versions' open>
+        <Accordion primary='Watch versions'>
           <Line
             gap={4}
           >
