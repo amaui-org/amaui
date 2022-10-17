@@ -1007,6 +1007,8 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
                     React.cloneElement(item, {
                       key: index,
 
+                      fill: item.props.fill !== undefined ? item.props.fill : color,
+
                       stroke: item.props.stroke !== undefined ? item.props.stroke : color,
 
                       // clean up

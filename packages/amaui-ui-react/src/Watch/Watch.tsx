@@ -104,7 +104,7 @@ const Watch = React.forwardRef((props_: any, ref: any) => {
     timeOfDayVisible = true,
     dateVisible = true,
 
-    timeFormatString = `hh:mm:ss`,
+    timeFormatString = `HH:mm:ss`,
     dateFormatString = `d, DD.MM.YYYY`,
 
     renderTime,

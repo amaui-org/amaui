@@ -2992,8 +2992,6 @@ Please sign in again.`}
               linePosition='end'
             >
               <Path
-                fill='currentColor'
-
                 Component='circle'
 
                 cx='0'
@@ -3006,8 +3004,6 @@ Please sign in again.`}
               />
 
               <Path
-                fill='currentColor'
-
                 Component='circle'
 
                 cx='0'
@@ -3020,8 +3016,6 @@ Please sign in again.`}
               />
 
               <Path
-                fill='currentColor'
-
                 Component='circle'
 
                 cx='0'
@@ -3046,8 +3040,6 @@ Please sign in again.`}
               linePosition='start'
             >
               <Path
-                fill='currentColor'
-
                 Component='circle'
 
                 cx='54'
@@ -3060,8 +3052,6 @@ Please sign in again.`}
               />
 
               <Path
-                fill='currentColor'
-
                 Component='circle'
 
                 cx='54'
@@ -3074,8 +3064,6 @@ Please sign in again.`}
               />
 
               <Path
-                fill='currentColor'
-
                 Component='circle'
 
                 cx='54'

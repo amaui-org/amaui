@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { clamp, parse, valueFromPercentageWithinRange } from '@amaui/utils';
+import { clamp, parse } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Surface from '../Surface';
@@ -825,6 +825,8 @@ const LinearMeter = React.forwardRef((props_: any, ref: any) => {
                   return (
                     React.cloneElement(item, {
                       key: index,
+
+                      fill: item.props.fill !== undefined ? item.props.fill : color,
 
                       stroke: item.props.stroke !== undefined ? item.props.stroke : color,
 
