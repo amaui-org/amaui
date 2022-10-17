@@ -384,221 +384,144 @@ const LinearMeter = React.forwardRef((props_: any, ref: any) => {
     return values;
   }, [width, height, parts, boundaryWidth, lineCap, orientation, linePosition, paddingVertical, paddingHorizontal, outsidePadding, gap]);
 
-  // const pathBackground = React.useMemo(() => {
-  //   const values = [];
+  const pathBackground = React.useMemo(() => {
+    const values = [];
 
-  //   const offset = outsidePadding;
+    const paddings = {
+      x: paddingHorizontal !== undefined ? paddingHorizontal : outsidePadding || 0,
+      y: paddingVertical !== undefined ? paddingVertical : outsidePadding || 0
+    };
 
-  //   // 1
-  //   if (boundary === 1) {
-  //     const padding = 0;
+    if (orientation === 'horizontal') {
+      values.push(
+        // Move
+        'M', paddings.x, height - paddings.y,
 
-  //     radius = ((width / 2) - (boundaryWidth / 2) - padding) - offset;
+        'L', paddings.x, paddings.y,
 
-  //     values.push(
-  //       // Move
-  //       'M', offset + ((boundaryWidth / 2) + padding), (width / 2) + 0.001,
+        'L', width - paddings.x, paddings.y,
 
-  //       // Arc
-  //       'A', radius, radius, 0, 1, 0, offset + ((boundaryWidth / 2) + padding), (width / 2)
-  //     );
-  //   }
+        'L', width - paddings.x, height - paddings.y,
 
-  //   // 0.75
-  //   if (boundary === 0.75) {
-  //     const padding = 0;
+        'Z'
+      );
+    }
 
-  //     const center = width / 2;
+    if (orientation === 'vertical') {
+      values.push(
+        // Move
+        'M', width - paddings.x, paddings.y,
 
-  //     radius = ((width / 2) - ((boundaryWidth / 2) + padding)) - offset;
+        'L', paddings.x, paddings.y,
 
-  //     const angles = {
-  //       end: angleToCoordinates(45, center, center, radius),
-  //       start: angleToCoordinates(135, center, center, radius)
-  //     };
+        'L', paddings.x, height - paddings.y,
 
-  //     values.push(
-  //       // Move
-  //       'M', center, center,
+        'L', width - paddings.x, height - paddings.y,
 
-  //       // Line middle bottom
-  //       'L', angles.start.x, angles.start.y,
+        'Z'
+      );
+    }
 
-  //       // Arc
-  //       'A', radius, radius, 0, 1, 1, angles.end.x, angles.end.y,
+    return values.join(' ');
+  }, [orientation, linePosition, width, height, boundaryWidth, outsidePadding, paddingVertical, paddingHorizontal]);
 
-  //       // Line bottom middle
-  //       'L', center, center,
 
-  //       'Z'
-  //     );
-  //   }
+  const pathBorder = React.useMemo(() => {
+    const values = [];
 
-  //   // 0.5
-  //   if (boundary === 0.5) {
-  //     const padding = 0;
+    const paddings = {
+      x: paddingHorizontal !== undefined ? paddingHorizontal : outsidePadding || 0,
+      y: paddingVertical !== undefined ? paddingVertical : outsidePadding || 0
+    };
 
-  //     const center = width / 2;
+    if (orientation === 'horizontal') {
+      if (linePosition === 'start') {
+        values.push(
+          // Move
+          'M', paddings.x, paddings.y,
 
-  //     radius = ((width / 2) - ((boundaryWidth / 2) + padding)) - offset;
+          'L', paddings.x, height - paddings.y,
 
-  //     const total = 180;
+          'L', width - paddings.x, height - paddings.y,
 
-  //     let part = (total - ((parts - 1) * gap)) / parts;
+          'L', width - paddings.x, paddings.y
+        );
+      }
 
-  //     const angles: any = {
-  //       start: angleToCoordinates(180, center, center, radius)
-  //     };
+      if (linePosition === 'center') {
+        values.push(
+          // Move
+          'M', paddings.x, height - paddings.y,
 
-  //     let anglePrevious = 180;
+          'L', paddings.x, paddings.y,
 
-  //     let angleEnd = anglePrevious + part;
+          'L', width - paddings.x, paddings.y,
 
-  //     angles.end = angleToCoordinates(angleEnd, center, center, radius);
+          'L', width - paddings.x, height - paddings.y,
 
-  //     angles.move = angleToCoordinates(angleEnd + gap, center, center, radius);
+          'Z'
+        );
+      }
 
-  //     values.push(
-  //       // Move
-  //       'M', angles.start.x, angles.start.y,
+      if (linePosition === 'end') {
+        values.push(
+          // Move
+          'M', paddings.x, height - paddings.y,
 
-  //       // Arc
-  //       'A', radius, radius, 0, 0, 1, angles.end.x, angles.end.y,
+          'L', paddings.x, paddings.y,
 
-  //       'Z'
-  //     );
-  //   }
+          'L', width - paddings.x, paddings.y,
 
-  //   // 0.25
-  //   if (boundary === 0.25) {
-  //     const padding = 0;
+          'L', width - paddings.x, height - paddings.y
+        );
+      }
+    }
 
-  //     const center = width / 2;
+    if (orientation === 'vertical') {
+      if (linePosition === 'start') {
+        values.push(
+          // Move
+          'M', paddings.x, height - paddings.y,
 
-  //     radius = ((width / 2) - ((boundaryWidth / 2) + padding)) - offset;
+          'L', width - paddings.x, height - paddings.y,
 
-  //     const total = 90;
+          'L', width - paddings.x, paddings.y,
 
-  //     let part = clamp((total - ((parts - 1) * gap)) / parts, 0.01);
+          'L', paddings.x, paddings.y
+        );
+      }
 
-  //     gap = clamp(gap, 0, ((total - (part * parts)) / (parts - 1)));
+      if (linePosition === 'center') {
+        values.push(
+          // Move
+          'M', width - paddings.x, paddings.y,
 
-  //     const angles: any = {
-  //       start: angleToCoordinates(225, center, center, radius)
-  //     };
+          'L', paddings.x, paddings.y,
 
-  //     let anglePrevious = 225;
+          'L', paddings.x, height - paddings.y,
 
-  //     let angleEnd = anglePrevious + part;
+          'L', width - paddings.x, height - paddings.y,
 
-  //     angles.end = angleToCoordinates(angleEnd, center, center, radius);
+          'Z'
+        );
+      }
 
-  //     angles.move = angleToCoordinates(angleEnd + gap, center, center, radius);
+      if (linePosition === 'end') {
+        values.push(
+          // Move
+          'M', width - paddings.x, paddings.y,
 
-  //     values.push(
-  //       // Move
-  //       'M', center, ((width / 2) - (boundaryWidth + padding)),
+          'L', paddings.x, paddings.y,
 
-  //       // Line middle bottom, top quarter left
-  //       'L', angles.start.x, angles.start.y,
+          'L', paddings.x, height - paddings.y,
 
-  //       // Arc
-  //       'A', radius, radius, 0, 0, 1, angles.end.x, angles.end.y,
+          'L', width - paddings.x, height - paddings.y
+        );
+      }
+    }
 
-  //       // Line top quarter right, middle bottom
-  //       'L', center, ((width / 2) - (boundaryWidth + padding)),
-
-  //       'Z'
-  //     );
-  //   }
-
-  //   return values.join(' ');
-  // }, [width, height, boundaryWidth, outsidePadding]);
-
-  // const pathBorder = React.useMemo(() => {
-  //   const values = [];
-
-  //   const offset = outsidePadding;
-
-  //   // 0.75
-  //   if (boundary === 0.75) {
-  //     const padding = 0;
-
-  //     const center = width / 2;
-
-  //     radius = ((width / 2) - ((boundaryWidth / 2) + padding)) - offset;
-
-  //     const angles = {
-  //       end: angleToCoordinates(45, center, center, radius),
-  //       start: angleToCoordinates(135, center, center, radius)
-  //     };
-
-  //     values.push(
-  //       // Move bottom angle left
-  //       'M', angles.start.x, angles.start.y,
-
-  //       // Line middle
-  //       'L', center, center,
-
-  //       // Line bottom angle right
-  //       'L', angles.end.x, angles.end.y
-  //     );
-  //   }
-
-  //   // 0.5
-  //   if (boundary === 0.5) {
-  //     const padding = 0;
-
-  //     const center = width / 2;
-
-  //     radius = ((width / 2) - ((boundaryWidth / 2) + padding)) - offset;
-
-  //     const angles: any = {
-  //       start: angleToCoordinates(180, center, center, radius)
-  //     };
-
-  //     values.push(
-  //       // Move
-  //       'M', angles.start.x, angles.start.y,
-
-  //       // Line
-  //       'L', (width - ((boundaryWidth / 2) + padding)) - offset, angles.start.y
-  //     );
-  //   }
-
-  //   // 0.25
-  //   if (boundary === 0.25) {
-  //     const padding = 0;
-
-  //     const center = width / 2;
-
-  //     radius = ((width / 2) - ((boundaryWidth / 2) + padding)) - offset;
-
-  //     const total = 90;
-
-  //     let part = clamp((total - ((parts - 1) * gap)) / parts, 0.01);
-
-  //     gap = clamp(gap, 0, ((total - (part * parts)) / (parts - 1)));
-
-  //     const angles: any = {
-  //       start: angleToCoordinates(225, center, center, radius),
-  //       end: angleToCoordinates(315, center, center, radius)
-  //     };
-
-  //     values.push(
-  //       // Move middle bottom, top quarter left
-  //       'M', angles.start.x, angles.start.y,
-
-  //       // Line middle bottom
-  //       'L', center, ((width / 2) - (boundaryWidth + padding)),
-
-  //       // Arc  top quarter right, middle bottom
-  //       'L', angles.end.x, angles.end.y
-  //     );
-  //   }
-
-  //   return values.join(' ');
-  // }, [width, height, boundaryWidth, outsidePadding]);
+    return values.join(' ');
+  }, [orientation, linePosition, width, height, boundaryWidth, outsidePadding, paddingVertical, paddingHorizontal]);
 
   return (
     <Component
@@ -654,7 +577,7 @@ const LinearMeter = React.forwardRef((props_: any, ref: any) => {
             ])}
           >
             {/* Background */}
-            {/* {background && (
+            {background && (
               <path
                 d={pathBackground}
 
@@ -666,10 +589,10 @@ const LinearMeter = React.forwardRef((props_: any, ref: any) => {
 
                 {...BackgroundProps}
               />
-            )} */}
+            )}
 
             {/* Border */}
-            {/* {border && (
+            {border && (
               <path
                 d={pathBorder}
 
@@ -683,7 +606,7 @@ const LinearMeter = React.forwardRef((props_: any, ref: any) => {
 
                 {...BorderProps}
               />
-            )} */}
+            )}
 
             {/* Lines */}
             {linesVisible && (

@@ -4892,6 +4892,1026 @@ Please sign in again.`}
             </Accordion>
           </Accordion>
         </Accordion>
+
+        <Accordion primary='LinearMeter parts background'>
+          <Accordion primary='LinearMeter orientation horizontal'>
+            <Accordion primary='LinearMeter orientation horizontal linePosition start' open>
+              <Line>
+                <LinearMeter
+                  background
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='1'
+
+                  orientation='horizontal'
+
+                  linePosition='start'
+                />
+
+                <LinearMeter
+                  background
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='2'
+
+                  orientation='horizontal'
+
+                  linePosition='start'
+                />
+
+                <LinearMeter
+                  background
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='3'
+
+                  orientation='horizontal'
+
+                  linePosition='start'
+                />
+
+                <LinearMeter
+                  background
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='4'
+
+                  orientation='horizontal'
+
+                  linePosition='start'
+                />
+
+                <LinearMeter
+                  background
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='8'
+
+                  orientation='horizontal'
+
+                  linePosition='start'
+                />
+              </Line>
+            </Accordion>
+
+            <Accordion primary='LinearMeter orientation horizontal linePosition center' open>
+              <Line>
+                <LinearMeter
+                  background
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='1'
+
+                  orientation='horizontal'
+
+                  linePosition='center'
+                />
+
+                <LinearMeter
+                  background
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='2'
+
+                  orientation='horizontal'
+
+                  linePosition='center'
+                />
+
+                <LinearMeter
+                  background
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='3'
+
+                  orientation='horizontal'
+
+                  linePosition='center'
+                />
+
+                <LinearMeter
+                  background
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='4'
+
+                  orientation='horizontal'
+
+                  linePosition='center'
+                />
+
+                <LinearMeter
+                  background
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='8'
+
+                  orientation='horizontal'
+
+                  linePosition='center'
+                />
+              </Line>
+            </Accordion>
+
+            <Accordion primary='LinearMeter orientation horizontal linePosition end' open>
+              <Line>
+                <LinearMeter
+                  background
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='1'
+
+                  orientation='horizontal'
+
+                  linePosition='end'
+                />
+
+                <LinearMeter
+                  background
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='2'
+
+                  orientation='horizontal'
+
+                  linePosition='end'
+                />
+
+                <LinearMeter
+                  background
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='3'
+
+                  orientation='horizontal'
+
+                  linePosition='end'
+                />
+
+                <LinearMeter
+                  background
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='4'
+
+                  orientation='horizontal'
+
+                  linePosition='end'
+                />
+
+                <LinearMeter
+                  background
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='8'
+
+                  orientation='horizontal'
+
+                  linePosition='end'
+                />
+              </Line>
+            </Accordion>
+          </Accordion>
+
+          <Accordion primary='LinearMeter orientation vertical'>
+            <Accordion primary='LinearMeter orientation vertical linePosition start' open>
+              <Line>
+                <LinearMeter
+                  background
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='1'
+
+                  orientation='vertical'
+
+                  linePosition='start'
+                />
+
+                <LinearMeter
+                  background
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='2'
+
+                  orientation='vertical'
+
+                  linePosition='start'
+                />
+
+                <LinearMeter
+                  background
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='3'
+
+                  orientation='vertical'
+
+                  linePosition='start'
+                />
+
+                <LinearMeter
+                  background
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='4'
+
+                  orientation='vertical'
+
+                  linePosition='start'
+                />
+
+                <LinearMeter
+                  background
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='8'
+
+                  orientation='vertical'
+
+                  linePosition='start'
+                />
+              </Line>
+            </Accordion>
+
+            <Accordion primary='LinearMeter orientation vertical linePosition center' open>
+              <Line>
+                <LinearMeter
+                  background
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='1'
+
+                  orientation='vertical'
+
+                  linePosition='center'
+                />
+
+                <LinearMeter
+                  background
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='2'
+
+                  orientation='vertical'
+
+                  linePosition='center'
+                />
+
+                <LinearMeter
+                  background
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='3'
+
+                  orientation='vertical'
+
+                  linePosition='center'
+                />
+
+                <LinearMeter
+                  background
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='4'
+
+                  orientation='vertical'
+
+                  linePosition='center'
+                />
+
+                <LinearMeter
+                  background
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='8'
+
+                  orientation='vertical'
+
+                  linePosition='center'
+                />
+              </Line>
+            </Accordion>
+
+            <Accordion primary='LinearMeter orientation vertical linePosition end' open>
+              <Line>
+                <LinearMeter
+                  background
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='1'
+
+                  orientation='vertical'
+
+                  linePosition='end'
+                />
+
+                <LinearMeter
+                  background
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='2'
+
+                  orientation='vertical'
+
+                  linePosition='end'
+                />
+
+                <LinearMeter
+                  background
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='3'
+
+                  orientation='vertical'
+
+                  linePosition='end'
+                />
+
+                <LinearMeter
+                  background
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='4'
+
+                  orientation='vertical'
+
+                  linePosition='end'
+                />
+
+                <LinearMeter
+                  background
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='8'
+
+                  orientation='vertical'
+
+                  linePosition='end'
+                />
+              </Line>
+            </Accordion>
+          </Accordion>
+        </Accordion>
+
+        <Accordion primary='LinearMeter parts border'>
+          <Accordion primary='LinearMeter orientation horizontal'>
+            <Accordion primary='LinearMeter orientation horizontal linePosition start' open>
+              <Line>
+                <LinearMeter
+                  border
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='1'
+
+                  orientation='horizontal'
+
+                  linePosition='start'
+                />
+
+                <LinearMeter
+                  border
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='2'
+
+                  orientation='horizontal'
+
+                  linePosition='start'
+                />
+
+                <LinearMeter
+                  border
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='3'
+
+                  orientation='horizontal'
+
+                  linePosition='start'
+                />
+
+                <LinearMeter
+                  border
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='4'
+
+                  orientation='horizontal'
+
+                  linePosition='start'
+                />
+
+                <LinearMeter
+                  border
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='8'
+
+                  orientation='horizontal'
+
+                  linePosition='start'
+                />
+              </Line>
+            </Accordion>
+
+            <Accordion primary='LinearMeter orientation horizontal linePosition center' open>
+              <Line>
+                <LinearMeter
+                  border
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='1'
+
+                  orientation='horizontal'
+
+                  linePosition='center'
+                />
+
+                <LinearMeter
+                  border
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='2'
+
+                  orientation='horizontal'
+
+                  linePosition='center'
+                />
+
+                <LinearMeter
+                  border
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='3'
+
+                  orientation='horizontal'
+
+                  linePosition='center'
+                />
+
+                <LinearMeter
+                  border
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='4'
+
+                  orientation='horizontal'
+
+                  linePosition='center'
+                />
+
+                <LinearMeter
+                  border
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='8'
+
+                  orientation='horizontal'
+
+                  linePosition='center'
+                />
+              </Line>
+            </Accordion>
+
+            <Accordion primary='LinearMeter orientation horizontal linePosition end' open>
+              <Line>
+                <LinearMeter
+                  border
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='1'
+
+                  orientation='horizontal'
+
+                  linePosition='end'
+                />
+
+                <LinearMeter
+                  border
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='2'
+
+                  orientation='horizontal'
+
+                  linePosition='end'
+                />
+
+                <LinearMeter
+                  border
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='3'
+
+                  orientation='horizontal'
+
+                  linePosition='end'
+                />
+
+                <LinearMeter
+                  border
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='4'
+
+                  orientation='horizontal'
+
+                  linePosition='end'
+                />
+
+                <LinearMeter
+                  border
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='8'
+
+                  orientation='horizontal'
+
+                  linePosition='end'
+                />
+              </Line>
+            </Accordion>
+          </Accordion>
+
+          <Accordion primary='LinearMeter orientation vertical'>
+            <Accordion primary='LinearMeter orientation vertical linePosition start' open>
+              <Line>
+                <LinearMeter
+                  border
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='1'
+
+                  orientation='vertical'
+
+                  linePosition='start'
+                />
+
+                <LinearMeter
+                  border
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='2'
+
+                  orientation='vertical'
+
+                  linePosition='start'
+                />
+
+                <LinearMeter
+                  border
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='3'
+
+                  orientation='vertical'
+
+                  linePosition='start'
+                />
+
+                <LinearMeter
+                  border
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='4'
+
+                  orientation='vertical'
+
+                  linePosition='start'
+                />
+
+                <LinearMeter
+                  border
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='8'
+
+                  orientation='vertical'
+
+                  linePosition='start'
+                />
+              </Line>
+            </Accordion>
+
+            <Accordion primary='LinearMeter orientation vertical linePosition center' open>
+              <Line>
+                <LinearMeter
+                  border
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='1'
+
+                  orientation='vertical'
+
+                  linePosition='center'
+                />
+
+                <LinearMeter
+                  border
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='2'
+
+                  orientation='vertical'
+
+                  linePosition='center'
+                />
+
+                <LinearMeter
+                  border
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='3'
+
+                  orientation='vertical'
+
+                  linePosition='center'
+                />
+
+                <LinearMeter
+                  border
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='4'
+
+                  orientation='vertical'
+
+                  linePosition='center'
+                />
+
+                <LinearMeter
+                  border
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='8'
+
+                  orientation='vertical'
+
+                  linePosition='center'
+                />
+              </Line>
+            </Accordion>
+
+            <Accordion primary='LinearMeter orientation vertical linePosition end' open>
+              <Line>
+                <LinearMeter
+                  border
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='1'
+
+                  orientation='vertical'
+
+                  linePosition='end'
+                />
+
+                <LinearMeter
+                  border
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='2'
+
+                  orientation='vertical'
+
+                  linePosition='end'
+                />
+
+                <LinearMeter
+                  border
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='3'
+
+                  orientation='vertical'
+
+                  linePosition='end'
+                />
+
+                <LinearMeter
+                  border
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='4'
+
+                  orientation='vertical'
+
+                  linePosition='end'
+                />
+
+                <LinearMeter
+                  border
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='8'
+
+                  orientation='vertical'
+
+                  linePosition='end'
+                />
+              </Line>
+            </Accordion>
+          </Accordion>
+        </Accordion>
       </Accordion>
 
       <Accordion primary='Watch'>
