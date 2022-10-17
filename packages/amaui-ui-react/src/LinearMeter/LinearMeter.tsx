@@ -57,18 +57,6 @@ const useStyle = style(theme => ({
 
 // to do
 
-// lines with multiple parts with orientation, linePosition
-
-// padding
-
-// paddingVertical
-
-// paddingHorizontal
-
-// boundaryWidth
-
-// boundaryWidth with lineCap
-
 // marks, labels
 
 // marks, labels, boundaryWidth, with parts, lineCap
@@ -100,8 +88,8 @@ const LinearMeter = React.forwardRef((props_: any, ref: any) => {
     height: height_,
 
     padding: outsidePadding = 0,
-    paddingVertical = 0,
-    paddingHorizontal = 0,
+    paddingVertical,
+    paddingHorizontal,
 
     gap = 0,
 
@@ -268,67 +256,122 @@ const LinearMeter = React.forwardRef((props_: any, ref: any) => {
 
     let value = [];
 
+    const paddings = {
+      x: paddingHorizontal !== undefined ? paddingHorizontal : outsidePadding || 0,
+      y: paddingVertical !== undefined ? paddingVertical : outsidePadding || 0
+    };
+
     if (orientation === 'horizontal') {
       let lineCapOffset = ['round', 'square'].includes(lineCap) ? boundaryWidth / 2 : 0;
 
-      let offset = (paddingHorizontal * 2) + (outsidePadding * 2) + (lineCapOffset ? boundaryWidth * parts : 0);
+      let offset = (paddings.x * 2) + (lineCapOffset ? boundaryWidth * parts : 0);
 
       const total = width;
 
       let part = (total - ((parts - 1) * gap) - offset) / parts;
 
+      let previousValue = 0;
+
+      const x = 0 + lineCapOffset + paddings.x;
+      let y = height - (boundaryWidth / 2);
+
       if (linePosition === 'start') {
+        y = boundaryWidth / 2;
 
+        y += paddings.y;
       }
 
-      if (linePosition === 'center') {
-
-      }
+      if (linePosition === 'center') y = height / 2;
 
       if (linePosition === 'end') {
-        let previousValue = 0;
-        const x = 0 + lineCapOffset;
-        const y = height - (boundaryWidth / 2);
+        y = height - (boundaryWidth / 2);
 
-        for (let i = 0; i < parts; i++) {
-          // move to bottom left
-          if (i === 0) value.push(
-            // Move to bottom left
-            'm', x, y
-          );
+        y -= paddings.y;
+      }
 
-          // line
-          value.push(
-            'l', part, 0
-          );
+      for (let i = 0; i < parts; i++) {
+        // move to bottom left
+        if (i === 0) value.push(
+          // Move to bottom left
+          'm', x, y
+        );
 
-          // Previous value with/out the gap value
-          if (gap > 0 && i < parts - 1) previousValue += part + gap + (lineCapOffset ? boundaryWidth + (boundaryWidth / 2) : 0);
-          else previousValue += part + (lineCapOffset ? boundaryWidth + (boundaryWidth / 2) : 0);
+        // line
+        value.push(
+          'l', part, 0
+        );
 
-          values.push({ d: value.join(' ') });
+        // Previous value with/out the gap value
+        if (gap > 0 && i < parts - 1) previousValue += part + gap + (lineCapOffset ? boundaryWidth : 0);
+        else previousValue += part + (lineCapOffset ? boundaryWidth : 0);
 
-          // move for the next value
-          if (i < parts - 1) {
-            value = [
-              'm', previousValue - lineCapOffset, y
-            ];
-          }
+        values.push({ d: value.join(' ') });
+
+        if (i === 0) previousValue += lineCapOffset + paddings.x;
+
+        // move for the next value
+        if (i < parts - 1) {
+          value = [
+            'm', previousValue, y
+          ];
         }
       }
     }
 
     if (orientation === 'vertical') {
+      let lineCapOffset = ['round', 'square'].includes(lineCap) ? boundaryWidth / 2 : 0;
+
+      let offset = (paddings.y * 2) + (lineCapOffset ? boundaryWidth * parts : 0);
+
+      const total = height;
+
+      let part = (total - ((parts - 1) * gap) - offset) / parts;
+
+      let previousValue = 0;
+
+      let x = width - (boundaryWidth / 2);
+      const y = 0 + lineCapOffset + paddings.y;
+
       if (linePosition === 'start') {
+        x = boundaryWidth / 2;
 
+        x += paddings.x;
       }
 
-      if (linePosition === 'center') {
-
-      }
+      if (linePosition === 'center') x = width / 2;
 
       if (linePosition === 'end') {
+        x = width - (boundaryWidth / 2);
 
+        x -= paddings.x;
+      }
+
+      for (let i = 0; i < parts; i++) {
+        // move to bottom left
+        if (i === 0) value.push(
+          // Move to bottom left
+          'm', x, y
+        );
+
+        // line
+        value.push(
+          'l', 0, part
+        );
+
+        // Previous value with/out the gap value
+        if (gap > 0 && i < parts - 1) previousValue += part + gap + (lineCapOffset ? boundaryWidth : 0);
+        else previousValue += part + (lineCapOffset ? boundaryWidth : 0);
+
+        values.push({ d: value.join(' ') });
+
+        if (i === 0) previousValue += lineCapOffset + paddings.y;
+
+        // move for the next value
+        if (i < parts - 1) {
+          value = [
+            'm', x, previousValue
+          ];
+        }
       }
     }
 
