@@ -57,9 +57,15 @@ const useStyle = style(theme => ({
 
 // to do
 
+// background
+
+// border
+
 // marks, labels
 
 // marks, labels, boundaryWidth, with parts, lineCap
+
+// pointer/s
 
 const LinearMeter = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
@@ -715,7 +721,7 @@ const LinearMeter = React.forwardRef((props_: any, ref: any) => {
             )}
 
             {/* Lines progress */}
-            {/* {linesVisible && lineProgress && (
+            {linesVisible && lineProgress && (
               <g
                 {...LinesProgressProps}
 
@@ -750,7 +756,7 @@ const LinearMeter = React.forwardRef((props_: any, ref: any) => {
                   />
                 )))}
               </g>
-            )} */}
+            )}
 
             {/* Marks */}
             {/* {marksVisible && !!marks_.length && (
