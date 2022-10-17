@@ -1115,10 +1115,30 @@ function App() {
   ];
 
   const marks: any = {
+    'linearMeter': unique([
+      // Major
+      ...(Array.from({ length: 5 }).map((item: any, index: number) => ({
+        size: 8,
+
+        padding: 4,
+
+        position: index * (100 / 4)
+      }))),
+
+      // Minor
+      ...(Array.from({ length: 20 }).map((item: any, index: number) => ({
+        size: 4,
+
+        padding: 4,
+
+        position: index * (100 / 20)
+      }))),
+    ], 'position'),
+
     '1': unique([
       // Hours
       ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
-        height: 8,
+        size: 8,
 
         padding: 4,
 
@@ -1127,7 +1147,7 @@ function App() {
 
       // Minutes
       ...(Array.from({ length: 60 }).map((item: any, index: number) => ({
-        height: 4,
+        size: 4,
 
         padding: 4,
 
@@ -1138,7 +1158,7 @@ function App() {
     '0.75': unique([
       // Motor speed major
       ...(Array.from({ length: 9 }).map((item: any, index: number) => ({
-        height: 8,
+        size: 8,
 
         padding: 4,
 
@@ -1146,7 +1166,7 @@ function App() {
       }))),
 
       {
-        height: 8,
+        size: 8,
 
         padding: 4,
 
@@ -1155,7 +1175,7 @@ function App() {
 
       // Motor speed minor
       ...(Array.from({ length: 45 }).map((item: any, index: number) => ({
-        height: 4,
+        size: 4,
 
         padding: 4,
 
@@ -1166,7 +1186,7 @@ function App() {
     '0.5': unique([
       // Motor speed major
       ...(Array.from({ length: 6 }).map((item: any, index: number) => ({
-        height: 8,
+        size: 8,
 
         padding: 4,
 
@@ -1174,7 +1194,7 @@ function App() {
       }))),
 
       {
-        height: 8,
+        size: 8,
 
         padding: 4,
 
@@ -1183,7 +1203,7 @@ function App() {
 
       // Motor speed minor
       ...(Array.from({ length: 30 }).map((item: any, index: number) => ({
-        height: 4,
+        size: 4,
 
         padding: 4,
 
@@ -1194,7 +1214,7 @@ function App() {
     '0.25': unique([
       // Motor speed major
       ...(Array.from({ length: 3 }).map((item: any, index: number) => ({
-        height: 8,
+        size: 8,
 
         padding: 4,
 
@@ -1202,7 +1222,7 @@ function App() {
       }))),
 
       {
-        height: 8,
+        size: 8,
 
         padding: 4,
 
@@ -1211,7 +1231,7 @@ function App() {
 
       // Motor speed minor
       ...(Array.from({ length: 15 }).map((item: any, index: number) => ({
-        height: 4,
+        size: 4,
 
         padding: 4,
 
@@ -1221,6 +1241,21 @@ function App() {
   };
 
   const labels: any = {
+    'linearMeter': unique([
+      // Hours
+      ...(Array.from({ length: 5 }).map((item: any, index: number) => ({
+        value: index,
+
+        padding: 12,
+
+        style: {
+          fontSize: 14
+        },
+
+        position: index * (100 / 4)
+      })))
+    ], 'position'),
+
     '1': unique([
       // Hours
       ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
@@ -2941,6 +2976,736 @@ Please sign in again.`}
       <Accordion primary='LinearMeter'>
         <Accordion primary='LinearMeter' open>
           <LinearMeter />
+        </Accordion>
+
+        <Accordion primary='LinearMeter pointer/s' >
+          <Line>
+            <LinearMeter
+              marks={marks.linearMeter}
+
+              labels={labels.linearMeter}
+
+              paddingHorizontal={14}
+
+              orientation='horizontal'
+
+              linePosition='end'
+            >
+              <Path
+                Component='circle'
+
+                cx='0'
+
+                cy='54'
+
+                r='3'
+
+                value={0}
+              />
+
+              <Path
+                Component='circle'
+
+                cx='0'
+
+                cy='54'
+
+                r='3'
+
+                value={40}
+              />
+
+              <Path
+                Component='circle'
+
+                cx='0'
+
+                cy='54'
+
+                r='3'
+
+                value={100}
+              />
+            </LinearMeter>
+
+            <LinearMeter
+              marks={marks.linearMeter}
+
+              labels={labels.linearMeter}
+
+              paddingVertical={14}
+
+              orientation='vertical'
+
+              linePosition='start'
+            >
+              <Path
+                Component='circle'
+
+                cx='54'
+
+                cy='0'
+
+                r='3'
+
+                value={0}
+              />
+
+              <Path
+                Component='circle'
+
+                cx='54'
+
+                cy='0'
+
+                r='3'
+
+                value={40}
+              />
+
+              <Path
+                Component='circle'
+
+                cx='54'
+
+                cy='0'
+
+                r='3'
+
+                value={100}
+              />
+            </LinearMeter>
+          </Line>
+        </Accordion>
+
+        <Accordion primary='LinearMeter parts marks, labels'>
+          <Accordion primary='LinearMeter orientation horizontal'>
+            <Accordion primary='LinearMeter orientation horizontal linePosition start' open>
+              <Line>
+                <LinearMeter
+                  marks={marks.linearMeter}
+
+                  labels={labels.linearMeter}
+
+                  padding={14}
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='1'
+
+                  orientation='horizontal'
+
+                  linePosition='start'
+                />
+
+                <LinearMeter
+                  marks={marks.linearMeter}
+
+                  labels={labels.linearMeter}
+
+                  padding={14}
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='2'
+
+                  orientation='horizontal'
+
+                  linePosition='start'
+                />
+
+                <LinearMeter
+                  marks={marks.linearMeter}
+
+                  labels={labels.linearMeter}
+
+                  padding={14}
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='3'
+
+                  orientation='horizontal'
+
+                  linePosition='start'
+                />
+
+                <LinearMeter
+                  marks={marks.linearMeter}
+
+                  labels={labels.linearMeter}
+
+                  padding={14}
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='4'
+
+                  orientation='horizontal'
+
+                  linePosition='start'
+                />
+
+                <LinearMeter
+                  marks={marks.linearMeter}
+
+                  labels={labels.linearMeter}
+
+                  padding={14}
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='8'
+
+                  orientation='horizontal'
+
+                  linePosition='start'
+                />
+              </Line>
+            </Accordion>
+
+            <Accordion primary='LinearMeter orientation horizontal linePosition center' open>
+              <Line>
+                <LinearMeter
+                  marks={marks.linearMeter}
+
+                  labels={labels.linearMeter}
+
+                  padding={14}
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='1'
+
+                  orientation='horizontal'
+
+                  linePosition='center'
+                />
+
+                <LinearMeter
+                  marks={marks.linearMeter}
+
+                  labels={labels.linearMeter}
+
+                  padding={14}
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='2'
+
+                  orientation='horizontal'
+
+                  linePosition='center'
+                />
+
+                <LinearMeter
+                  marks={marks.linearMeter}
+
+                  labels={labels.linearMeter}
+
+                  padding={14}
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='3'
+
+                  orientation='horizontal'
+
+                  linePosition='center'
+                />
+
+                <LinearMeter
+                  marks={marks.linearMeter}
+
+                  labels={labels.linearMeter}
+
+                  padding={14}
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='4'
+
+                  orientation='horizontal'
+
+                  linePosition='center'
+                />
+
+                <LinearMeter
+                  marks={marks.linearMeter}
+
+                  labels={labels.linearMeter}
+
+                  padding={14}
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='8'
+
+                  orientation='horizontal'
+
+                  linePosition='center'
+                />
+              </Line>
+            </Accordion>
+
+            <Accordion primary='LinearMeter orientation horizontal linePosition end' open>
+              <Line>
+                <LinearMeter
+                  marks={marks.linearMeter}
+
+                  labels={labels.linearMeter}
+
+                  padding={14}
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='1'
+
+                  orientation='horizontal'
+
+                  linePosition='end'
+                />
+
+                <LinearMeter
+                  marks={marks.linearMeter}
+
+                  labels={labels.linearMeter}
+
+                  padding={14}
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='2'
+
+                  orientation='horizontal'
+
+                  linePosition='end'
+                />
+
+                <LinearMeter
+                  marks={marks.linearMeter}
+
+                  labels={labels.linearMeter}
+
+                  padding={14}
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='3'
+
+                  orientation='horizontal'
+
+                  linePosition='end'
+                />
+
+                <LinearMeter
+                  marks={marks.linearMeter}
+
+                  labels={labels.linearMeter}
+
+                  padding={14}
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='4'
+
+                  orientation='horizontal'
+
+                  linePosition='end'
+                />
+
+                <LinearMeter
+                  marks={marks.linearMeter}
+
+                  labels={labels.linearMeter}
+
+                  padding={14}
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='8'
+
+                  orientation='horizontal'
+
+                  linePosition='end'
+                />
+              </Line>
+            </Accordion>
+          </Accordion>
+
+          <Accordion primary='LinearMeter orientation vertical'>
+            <Accordion primary='LinearMeter orientation vertical linePosition start' open>
+              <Line>
+                <LinearMeter
+                  marks={marks.linearMeter}
+
+                  labels={labels.linearMeter}
+
+                  padding={14}
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='1'
+
+                  orientation='vertical'
+
+                  linePosition='start'
+                />
+
+                <LinearMeter
+                  marks={marks.linearMeter}
+
+                  labels={labels.linearMeter}
+
+                  padding={14}
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='2'
+
+                  orientation='vertical'
+
+                  linePosition='start'
+                />
+
+                <LinearMeter
+                  marks={marks.linearMeter}
+
+                  labels={labels.linearMeter}
+
+                  padding={14}
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='3'
+
+                  orientation='vertical'
+
+                  linePosition='start'
+                />
+
+                <LinearMeter
+                  marks={marks.linearMeter}
+
+                  labels={labels.linearMeter}
+
+                  padding={14}
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='4'
+
+                  orientation='vertical'
+
+                  linePosition='start'
+                />
+
+                <LinearMeter
+                  marks={marks.linearMeter}
+
+                  labels={labels.linearMeter}
+
+                  padding={14}
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='8'
+
+                  orientation='vertical'
+
+                  linePosition='start'
+                />
+              </Line>
+            </Accordion>
+
+            <Accordion primary='LinearMeter orientation vertical linePosition center' open>
+              <Line>
+                <LinearMeter
+                  marks={marks.linearMeter}
+
+                  labels={labels.linearMeter}
+
+                  padding={14}
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='1'
+
+                  orientation='vertical'
+
+                  linePosition='center'
+                />
+
+                <LinearMeter
+                  marks={marks.linearMeter}
+
+                  labels={labels.linearMeter}
+
+                  padding={14}
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='2'
+
+                  orientation='vertical'
+
+                  linePosition='center'
+                />
+
+                <LinearMeter
+                  marks={marks.linearMeter}
+
+                  labels={labels.linearMeter}
+
+                  padding={14}
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='3'
+
+                  orientation='vertical'
+
+                  linePosition='center'
+                />
+
+                <LinearMeter
+                  marks={marks.linearMeter}
+
+                  labels={labels.linearMeter}
+
+                  padding={14}
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='4'
+
+                  orientation='vertical'
+
+                  linePosition='center'
+                />
+
+                <LinearMeter
+                  marks={marks.linearMeter}
+
+                  labels={labels.linearMeter}
+
+                  padding={14}
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='8'
+
+                  orientation='vertical'
+
+                  linePosition='center'
+                />
+              </Line>
+            </Accordion>
+
+            <Accordion primary='LinearMeter orientation vertical linePosition end' open>
+              <Line>
+                <LinearMeter
+                  marks={marks.linearMeter}
+
+                  labels={labels.linearMeter}
+
+                  padding={14}
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='1'
+
+                  orientation='vertical'
+
+                  linePosition='end'
+                />
+
+                <LinearMeter
+                  marks={marks.linearMeter}
+
+                  labels={labels.linearMeter}
+
+                  padding={14}
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='2'
+
+                  orientation='vertical'
+
+                  linePosition='end'
+                />
+
+                <LinearMeter
+                  marks={marks.linearMeter}
+
+                  labels={labels.linearMeter}
+
+                  padding={14}
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='3'
+
+                  orientation='vertical'
+
+                  linePosition='end'
+                />
+
+                <LinearMeter
+                  marks={marks.linearMeter}
+
+                  labels={labels.linearMeter}
+
+                  padding={14}
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='4'
+
+                  orientation='vertical'
+
+                  linePosition='end'
+                />
+
+                <LinearMeter
+                  marks={marks.linearMeter}
+
+                  labels={labels.linearMeter}
+
+                  padding={14}
+
+                  lineCap='round'
+
+                  boundaryWidth={16}
+
+                  gap={8}
+
+                  parts='8'
+
+                  orientation='vertical'
+
+                  linePosition='end'
+                />
+              </Line>
+            </Accordion>
+          </Accordion>
         </Accordion>
 
         <Accordion primary='LinearMeter parts'>

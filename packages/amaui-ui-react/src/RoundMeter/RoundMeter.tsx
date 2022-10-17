@@ -91,7 +91,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
     marks: marks_ = [],
 
-    markHeight = 4,
+    markSize = 4,
     markWidth = 1,
 
     labels: labels_ = [],
@@ -190,16 +190,13 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
     const values = [];
 
     if (marks_.length) {
-      // Minus the inner thickness + padding
-      const padding = 0;
-
       const center = width / 2;
 
-      radius = (width / 2) - (boundaryWidth + padding) - outsidePadding;
+      radius = (width / 2) - boundaryWidth - outsidePadding;
 
       marks_.forEach((mark: any) => {
         const {
-          height,
+          size,
 
           padding: markPadding = 0,
 
@@ -212,7 +209,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
         const start = angleToCoordinates(angle, center, center, radius - markPadding);
 
-        const end = angleToCoordinates(angle, center, center, radius - (height !== undefined ? height : markHeight) - markPadding);
+        const end = angleToCoordinates(angle, center, center, radius - (size !== undefined ? size : markSize) - markPadding);
 
         values.push({
           d: [
@@ -227,20 +224,17 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
     }
 
     return values;
-  }, [width, height, parts, marks_, markWidth, markHeight, boundary, boundaryWidth, lineCap, outsidePadding, gap]);
+  }, [width, height, parts, marks_, markSize, boundary, boundaryWidth, lineCap, outsidePadding, gap]);
 
   const labels = React.useMemo(() => {
     const values = [];
 
     if (labels_.length) {
-      // Minus the inner thickness + padding
-      const padding = 0;
-
       const center = width / 2;
 
-      const marksPadding = marks_?.length ? (marks_ || []).sort((a, b) => b.height - a.height)[0]?.height || markHeight : 0;
+      const marksPadding = marks_?.length ? (marks_ || []).sort((a, b) => b.size - a.size)[0]?.size || markSize : 0;
 
-      radius = (width / 2) - (boundaryWidth + padding) - marksPadding - outsidePadding;
+      radius = (width / 2) - boundaryWidth - marksPadding - outsidePadding;
 
       labels_.forEach((label: any) => {
         const {
@@ -257,7 +251,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
         const angle = valueFromPercentageWithinRange(position, min, max);
 
-        const start = angleToCoordinates(angle, center, center, radius - (fontSize / 2) - padding - labelPadding);
+        const start = angleToCoordinates(angle, center, center, radius - (fontSize / 2) - labelPadding);
 
         values.push({
           x: start.x,
@@ -271,7 +265,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
     }
 
     return values;
-  }, [width, height, parts, marks_, markWidth, markHeight, boundary, boundaryWidth, lineCap, outsidePadding, gap]);
+  }, [width, height, parts, marks_, markSize, boundary, boundaryWidth, lineCap, outsidePadding, gap]);
 
   const arcs = React.useMemo(() => {
     const values = [];
@@ -282,19 +276,17 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
     // 1
     if (boundary === 1) {
-      const padding = 0;
-
       if (parts === 1) {
-        radius = ((width / 2) - (boundaryWidth / 2) - padding) - offset;
+        radius = ((width / 2) - (boundaryWidth / 2)) - offset;
 
         values.push(
           {
             d: [
               // Move
-              'M', offset + ((boundaryWidth / 2) + padding), (width / 2) + 0.001,
+              'M', offset + (boundaryWidth / 2), (width / 2) + 0.001,
 
               // Arc
-              'A', radius, radius, 0, 1, 0, offset + ((boundaryWidth / 2) + padding), (width / 2)
+              'A', radius, radius, 0, 1, 0, offset + (boundaryWidth / 2), (width / 2)
             ].join(' ')
           }
         );
@@ -302,7 +294,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
       else {
         const center = width / 2;
 
-        radius = ((width / 2) - ((boundaryWidth / 2) + padding)) - offset;
+        radius = (width / 2) - (boundaryWidth / 2) - offset;
 
         const total = 360;
 
@@ -358,11 +350,9 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
     if (boundary === 0.75) {
       value = [];
 
-      const padding = 0;
-
       const center = width / 2;
 
-      radius = ((width / 2) - ((boundaryWidth / 2) + padding)) - offset;
+      radius = ((width / 2) - (boundaryWidth / 2)) - offset;
 
       const angles = {
         end: angleToCoordinates(45, center, center, radius),
@@ -437,11 +427,9 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
     if (boundary === 0.5) {
       value = [];
 
-      const padding = 0;
-
       const center = width / 2;
 
-      radius = ((width / 2) - ((boundaryWidth / 2) + padding)) - offset;
+      radius = ((width / 2) - (boundaryWidth / 2)) - offset;
 
       const total = 180;
 
@@ -496,11 +484,9 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
     if (boundary === 0.25) {
       value = [];
 
-      const padding = 0;
-
       const center = width / 2;
 
-      radius = ((width / 2) - ((boundaryWidth / 2) + padding)) - offset;
+      radius = ((width / 2) - (boundaryWidth / 2)) - offset;
 
       const total = 90;
 
@@ -563,26 +549,22 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
     // 1
     if (boundary === 1) {
-      const padding = 0;
-
-      radius = ((width / 2) - (boundaryWidth / 2) - padding) - offset;
+      radius = ((width / 2) - (boundaryWidth / 2)) - offset;
 
       values.push(
         // Move
-        'M', offset + ((boundaryWidth / 2) + padding), (width / 2) + 0.001,
+        'M', offset + (boundaryWidth / 2), (width / 2) + 0.001,
 
         // Arc
-        'A', radius, radius, 0, 1, 0, offset + ((boundaryWidth / 2) + padding), (width / 2)
+        'A', radius, radius, 0, 1, 0, offset + (boundaryWidth / 2), (width / 2)
       );
     }
 
     // 0.75
     if (boundary === 0.75) {
-      const padding = 0;
-
       const center = width / 2;
 
-      radius = ((width / 2) - ((boundaryWidth / 2) + padding)) - offset;
+      radius = ((width / 2) - (boundaryWidth / 2)) - offset;
 
       const angles = {
         end: angleToCoordinates(45, center, center, radius),
@@ -608,11 +590,9 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
     // 0.5
     if (boundary === 0.5) {
-      const padding = 0;
-
       const center = width / 2;
 
-      radius = ((width / 2) - ((boundaryWidth / 2) + padding)) - offset;
+      radius = ((width / 2) - (boundaryWidth / 2)) - offset;
 
       const total = 180;
 
@@ -643,11 +623,9 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
     // 0.25
     if (boundary === 0.25) {
-      const padding = 0;
-
       const center = width / 2;
 
-      radius = ((width / 2) - ((boundaryWidth / 2) + padding)) - offset;
+      radius = ((width / 2) - (boundaryWidth / 2)) - offset;
 
       const total = 90;
 
@@ -669,7 +647,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
       values.push(
         // Move
-        'M', center, ((width / 2) - (boundaryWidth + padding)),
+        'M', center, ((width / 2) - boundaryWidth),
 
         // Line middle bottom, top quarter left
         'L', angles.start.x, angles.start.y,
@@ -678,7 +656,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
         'A', radius, radius, 0, 0, 1, angles.end.x, angles.end.y,
 
         // Line top quarter right, middle bottom
-        'L', center, ((width / 2) - (boundaryWidth + padding)),
+        'L', center, ((width / 2) - boundaryWidth),
 
         'Z'
       );
@@ -694,11 +672,9 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
     // 0.75
     if (boundary === 0.75) {
-      const padding = 0;
-
       const center = width / 2;
 
-      radius = ((width / 2) - ((boundaryWidth / 2) + padding)) - offset;
+      radius = ((width / 2) - (boundaryWidth / 2)) - offset;
 
       const angles = {
         end: angleToCoordinates(45, center, center, radius),
@@ -719,11 +695,9 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
     // 0.5
     if (boundary === 0.5) {
-      const padding = 0;
-
       const center = width / 2;
 
-      radius = ((width / 2) - ((boundaryWidth / 2) + padding)) - offset;
+      radius = ((width / 2) - (boundaryWidth / 2)) - offset;
 
       const angles: any = {
         start: angleToCoordinates(180, center, center, radius)
@@ -734,17 +708,15 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
         'M', angles.start.x, angles.start.y,
 
         // Line
-        'L', (width - ((boundaryWidth / 2) + padding)) - offset, angles.start.y
+        'L', (width - (boundaryWidth / 2)) - offset, angles.start.y
       );
     }
 
     // 0.25
     if (boundary === 0.25) {
-      const padding = 0;
-
       const center = width / 2;
 
-      radius = ((width / 2) - ((boundaryWidth / 2) + padding)) - offset;
+      radius = ((width / 2) - (boundaryWidth / 2)) - offset;
 
       const total = 90;
 
@@ -762,7 +734,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
         'M', angles.start.x, angles.start.y,
 
         // Line middle bottom
-        'L', center, ((width / 2) - (boundaryWidth + padding)),
+        'L', center, ((width / 2) - boundaryWidth),
 
         // Arc  top quarter right, middle bottom
         'L', angles.end.x, angles.end.y
@@ -1019,27 +991,39 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
               </g>
             )}
 
-            {React.Children.toArray(children).map((item: any, index: number) => {
+            {children && (
+              <g
+                className={classNames([
+                  staticClassName('LinearMeter', theme) && [
+                    'AmauiLinearMeter-children'
+                  ],
 
-              return (
-                React.cloneElement(item, {
-                  key: index,
+                  classes.children
+                ])}
+              >
+                {React.Children.toArray(children).map((item: any, index: number) => {
 
-                  stroke: item.props.stroke !== undefined ? item.props.stroke : color,
+                  return (
+                    React.cloneElement(item, {
+                      key: index,
 
-                  // clean up
-                  value: undefined,
+                      stroke: item.props.stroke !== undefined ? item.props.stroke : color,
 
-                  style: {
-                    ...(item.props.value !== undefined ? {
-                      transform: `rotate(${valueFromPercentageWithinRange(item.props.value, min, max)}deg)`
-                    } : undefined),
+                      // clean up
+                      value: undefined,
 
-                    ...item.props.style
-                  }
-                })
-              );
-            })}
+                      style: {
+                        ...(item.props.value !== undefined ? {
+                          transform: `rotate(${valueFromPercentageWithinRange(item.props.value, min, max)}deg)`
+                        } : undefined),
+
+                        ...item.props.style
+                      }
+                    })
+                  );
+                })}
+              </g>
+            )}
           </svg>
         )}
       </Surface>

@@ -5,7 +5,7 @@ import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Surface from '../Surface';
 
-import { angleToCoordinates, staticClassName } from '../utils';
+import { staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
@@ -24,22 +24,6 @@ const useStyle = style(theme => ({
     maxWidth: '300px'
   },
 
-  boundary_1: {
-    aspectRatio: '1'
-  },
-
-  boundary_075: {
-    aspectRatio: '1'
-  },
-
-  boundary_05: {
-    aspectRatio: '1'
-  },
-
-  boundary_025: {
-    aspectRatio: '1'
-  },
-
   label: {
     ...theme.typography.values.b2,
 
@@ -54,18 +38,6 @@ const useStyle = style(theme => ({
     height: 'auto'
   }
 }), { name: 'AmauiLinearMeter' });
-
-// to do
-
-// background
-
-// border
-
-// marks, labels
-
-// marks, labels, boundaryWidth, with parts, lineCap
-
-// pointer/s
 
 const LinearMeter = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
@@ -113,7 +85,7 @@ const LinearMeter = React.forwardRef((props_: any, ref: any) => {
 
     marks: marks_ = [],
 
-    markHeight = 4,
+    markSize = 4,
     markWidth = 1,
 
     labels: labels_ = [],
@@ -168,104 +140,183 @@ const LinearMeter = React.forwardRef((props_: any, ref: any) => {
 
   const parts = clamp(parse(parts_), 1, 1000);
 
+  const paddings = {
+    x: paddingHorizontal !== undefined ? paddingHorizontal : outsidePadding || 0,
+    y: paddingVertical !== undefined ? paddingVertical : outsidePadding || 0
+  };
+
   if (!['small', 'regular', 'large'].includes(size)) styles.root.maxWidth = size;
 
-  // const marks = React.useMemo(() => {
-  //   const values = [];
+  const marks = React.useMemo(() => {
+    const values = [];
 
-  //   if (marks_.length) {
-  //     // Minus the inner thickness + padding
-  //     const padding = 0;
+    if (marks_.length) {
+      marks_.forEach((mark: any) => {
+        const {
+          size,
 
-  //     const center = width / 2;
+          padding: markPadding = 0,
 
-  //     radius = (width / 2) - (boundaryWidth + padding) - outsidePadding;
+          position,
 
-  //     marks_.forEach((mark: any) => {
-  //       const {
-  //         height,
+          ...other
+        } = mark;
 
-  //         padding: markPadding = 0,
+        if (orientation === 'horizontal') {
+          const total = width - (paddings.x * 2);
 
-  //         position,
+          let x = total * (position / 100);
+          let y = height - paddings.y - boundaryWidth - markPadding;
+          let yl = y - size;
 
-  //         ...other
-  //       } = mark;
+          if (linePosition === 'start') {
+            y = paddings.y + boundaryWidth + markPadding;
+            yl = y + size;
+          }
 
-  //       const angle = valueFromPercentageWithinRange(position, min, max);
+          if (linePosition === 'center') {
+            y = (height / 2) - (boundaryWidth / 2) - markPadding;
+            yl = y - size;
+          }
 
-  //       const start = angleToCoordinates(angle, center, center, radius - markPadding);
+          if (linePosition === 'end') {
+            y = height - paddings.y - boundaryWidth - markPadding;
+            yl = y - size;
+          }
 
-  //       const end = angleToCoordinates(angle, center, center, radius - (height !== undefined ? height : markHeight) - markPadding);
+          values.push({
+            d: [
+              'M', x + paddings.x, y,
 
-  //       values.push({
-  //         d: [
-  //           'M', start.x, start.y,
+              'L', x + paddings.x, yl
+            ].join(' '),
 
-  //           'L', end.x, end.y
-  //         ].join(' '),
+            ...other
+          });
+        }
 
-  //         ...other
-  //       });
-  //     });
-  //   }
+        if (orientation === 'vertical') {
+          const total = height - (paddings.y * 2);
 
-  //   return values;
-  // }, [width, height, parts, marks_, markWidth, markHeight, boundaryWidth, lineCap, outsidePadding, gap]);
+          let y = total * (position / 100);
+          let x = width - paddings.x - boundaryWidth - markPadding;
+          let xl = x - size;
 
-  // const labels = React.useMemo(() => {
-  //   const values = [];
+          if (linePosition === 'start') {
+            x = paddings.x + boundaryWidth + markPadding;
+            xl = x + size;
+          }
 
-  //   if (labels_.length) {
-  //     // Minus the inner thickness + padding
-  //     const padding = 0;
+          if (linePosition === 'center') {
+            x = (width / 2) + (boundaryWidth / 2) + markPadding;
+            xl = x + size;
+          }
 
-  //     const center = width / 2;
+          if (linePosition === 'end') {
+            x = width - paddings.y - boundaryWidth - markPadding;
+            xl = x - size;
+          }
 
-  //     const marksPadding = marks_?.length ? (marks_ || []).sort((a, b) => b.height - a.height)[0]?.height || markHeight : 0;
+          values.push({
+            d: [
+              'M', x, y + paddings.y,
 
-  //     radius = (width / 2) - (boundaryWidth + padding) - marksPadding - outsidePadding;
+              'L', xl, y + paddings.y
+            ].join(' '),
 
-  //     labels_.forEach((label: any) => {
-  //       const {
-  //         value,
+            ...other
+          });
+        }
+      });
+    }
 
-  //         padding: labelPadding = 0,
+    return values;
+  }, [orientation, linePosition, width, height, parts, marks_, markWidth, markSize, boundaryWidth, lineCap, paddingVertical, paddingHorizontal, outsidePadding, gap]);
 
-  //         position,
+  const labels = React.useMemo(() => {
+    const values = [];
 
-  //         ...other
-  //       } = label;
+    if (labels_.length) {
+      const marksPadding = marks_?.length ? (marks_ || []).sort((a, b) => b.size - a.size)[0]?.size || markSize : 0;
 
-  //       const fontSize = label.style?.fontSize !== undefined ? label.style.fontSize : 14;
+      labels_.forEach((label: any) => {
+        const {
+          value,
 
-  //       const angle = valueFromPercentageWithinRange(position, min, max);
+          padding: labelPadding = 0,
 
-  //       const start = angleToCoordinates(angle, center, center, radius - (fontSize / 2) - padding - labelPadding);
+          position,
 
-  //       values.push({
-  //         x: start.x,
-  //         y: start.y,
+          ...other
+        } = label;
 
-  //         value,
+        const fontSize = label.style?.fontSize !== undefined ? label.style.fontSize : 14;
 
-  //         ...other
-  //       });
-  //     });
-  //   }
+        if (orientation === 'horizontal') {
+          const total = width - (paddings.x * 2);
 
-  //   return values;
-  // }, [width, height, parts, marks_, markWidth, markHeight, boundaryWidth, lineCap, outsidePadding, gap]);
+          let x = total * (position / 100);
+          let y = height - paddings.y - boundaryWidth - labelPadding;
+
+          if (linePosition === 'start') {
+            y = paddings.y + boundaryWidth + labelPadding + (fontSize / 2) + marksPadding;
+          }
+
+          if (linePosition === 'center') {
+            y = (height / 2) - (boundaryWidth / 2) - labelPadding - (fontSize / 2) - marksPadding;
+          }
+
+          if (linePosition === 'end') {
+            y = height - paddings.y - boundaryWidth - labelPadding - (fontSize / 2) - marksPadding;
+          }
+
+          values.push({
+            x: x + paddings.x,
+            y,
+
+            value,
+
+            ...other
+          });
+        }
+
+        if (orientation === 'vertical') {
+          const total = height - (paddings.y * 2);
+
+          let y = total * (position / 100);
+          let x = width - paddings.x - boundaryWidth - labelPadding;
+
+          if (linePosition === 'start') {
+            x = paddings.x + boundaryWidth + labelPadding + (fontSize / 2) + marksPadding;
+          }
+
+          if (linePosition === 'center') {
+            x = (width / 2) + (boundaryWidth / 2) + labelPadding + (fontSize / 2) + marksPadding;
+          }
+
+          if (linePosition === 'end') {
+            x = width - paddings.y - boundaryWidth - labelPadding - (fontSize / 2) - marksPadding;
+          }
+
+          values.push({
+            x,
+            y: y + paddings.y,
+
+            value,
+
+            ...other
+          });
+        }
+      });
+    }
+
+    return values;
+  }, [orientation, linePosition, width, height, parts, marks_, markWidth, markSize, boundaryWidth, lineCap, outsidePadding, gap]);
 
   const lines = React.useMemo(() => {
     const values = [];
 
     let value = [];
-
-    const paddings = {
-      x: paddingHorizontal !== undefined ? paddingHorizontal : outsidePadding || 0,
-      y: paddingVertical !== undefined ? paddingVertical : outsidePadding || 0
-    };
 
     if (orientation === 'horizontal') {
       let lineCapOffset = ['round', 'square'].includes(lineCap) ? boundaryWidth / 2 : 0;
@@ -387,11 +438,6 @@ const LinearMeter = React.forwardRef((props_: any, ref: any) => {
   const pathBackground = React.useMemo(() => {
     const values = [];
 
-    const paddings = {
-      x: paddingHorizontal !== undefined ? paddingHorizontal : outsidePadding || 0,
-      y: paddingVertical !== undefined ? paddingVertical : outsidePadding || 0
-    };
-
     if (orientation === 'horizontal') {
       values.push(
         // Move
@@ -425,14 +471,8 @@ const LinearMeter = React.forwardRef((props_: any, ref: any) => {
     return values.join(' ');
   }, [orientation, linePosition, width, height, boundaryWidth, outsidePadding, paddingVertical, paddingHorizontal]);
 
-
   const pathBorder = React.useMemo(() => {
     const values = [];
-
-    const paddings = {
-      x: paddingHorizontal !== undefined ? paddingHorizontal : outsidePadding || 0,
-      y: paddingVertical !== undefined ? paddingVertical : outsidePadding || 0
-    };
 
     if (orientation === 'horizontal') {
       if (linePosition === 'start') {
@@ -682,7 +722,7 @@ const LinearMeter = React.forwardRef((props_: any, ref: any) => {
             )}
 
             {/* Marks */}
-            {/* {marksVisible && !!marks_.length && (
+            {marksVisible && !!marks_.length && (
               <g
                 className={classNames([
                   staticClassName('LinearMeter', theme) && [
@@ -712,10 +752,10 @@ const LinearMeter = React.forwardRef((props_: any, ref: any) => {
                   />
                 )))}
               </g>
-            )} */}
+            )}
 
             {/* Labels */}
-            {/* {labelsVisible && !!labels_.length && (
+            {labelsVisible && !!labels_.length && (
               <g
                 className={classNames([
                   staticClassName('LinearMeter', theme) && [
@@ -768,29 +808,43 @@ const LinearMeter = React.forwardRef((props_: any, ref: any) => {
                   );
                 }))}
               </g>
-            )} */}
+            )}
 
-            {/* {React.Children.toArray(children).map((item: any, index: number) => {
+            {children && (
+              <g
+                className={classNames([
+                  staticClassName('LinearMeter', theme) && [
+                    'AmauiLinearMeter-children'
+                  ],
 
-              return (
-                React.cloneElement(item, {
-                  key: index,
+                  classes.children
+                ])}
+              >
+                {React.Children.toArray(children).map((item: any, index: number) => {
 
-                  stroke: item.props.stroke !== undefined ? item.props.stroke : color,
+                  return (
+                    React.cloneElement(item, {
+                      key: index,
 
-                  // clean up
-                  value: undefined,
+                      stroke: item.props.stroke !== undefined ? item.props.stroke : color,
 
-                  style: {
-                    ...(item.props.value !== undefined ? {
-                      transform: orientation === 'horizontal' ? `translate3d(${valueFromPercentageWithinRange(item.props.value, 0, width)}%, 0)` : `translate3d(0, ${valueFromPercentageWithinRange(item.props.value, 0, width)}%)`
-                    } : undefined),
+                      // clean up
+                      value: undefined,
 
-                    ...item.props.style
-                  }
-                })
-              );
-            })} */}
+                      style: {
+                        ...(item.props.value !== undefined ? {
+                          transform: orientation === 'horizontal' ?
+                            `translate3d(${paddings.x + (((item.props.value / 100) || 0) * (width - (paddings.x * 2)))}px, 0, 0)` :
+                            `translate3d(0, ${paddings.y + (((item.props.value / 100) || 0) * (height - (paddings.y * 2)))}px, 0)`
+                        } : undefined),
+
+                        ...item.props.style
+                      }
+                    })
+                  );
+                })}
+              </g>
+            )}
           </svg>
         )}
       </Surface>
