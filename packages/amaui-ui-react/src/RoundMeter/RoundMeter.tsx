@@ -139,7 +139,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
   let gap = ['round', 'square'].includes(lineCap) ? gap_ + (boundaryWidth / 2) : gap_;
 
-  const parts = clamp(parts_, 1, 180);
+  const parts = clamp(parse(parts_), 1, 180);
 
   let min = 0;
   let max = 360;

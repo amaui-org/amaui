@@ -387,3 +387,6 @@ export * from './Path';
 
 export { default as Watch } from './Watch';
 export * from './Watch';
+
+export { default as LinearMeter } from './LinearMeter';
+export * from './LinearMeter';

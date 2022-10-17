@@ -2,7 +2,7 @@ import React from 'react';
 
 import { is, unique, random, countries } from '@amaui/utils';
 import { AmauiTheme, AmauiThemeProvider, classNames, style, sy, useAmauiTheme } from '@amaui/style-react';
-import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Radios, Keyframes, Switch, TextField, Label, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationItem, NavigationRail, NavigationDrawer, BottomSheet, BottomAppBar, TopAppBar, Card, CardImage, CardMain, CardHeader, CardButton, CardFooter, Table, TableHead, TableRow, TableCell, TableHeader, TableFooter, TableBody, Placeholder, Snackbar, useSnackbars, Pagination, TablePagination, SpeedDial, SpeedDialItem, ImageList, ImageListItem, ImageListItemBox, Stepper, Step, Tabs, Tab, Timeline, TimelineItem, Tree, Masonry, Reveal, useConfirm, ViewSplit, WindowSplit, useMainProgress, Image, SpyScroll, AdvancedTextField, NumericTextField, useWidgets, ImageCrop, ImageEdit, FileChoose, DropZone, MenuDesktop, Markdown, RichTextEditor, ScreenCapture, Timer, Countdown, Drawing, Parallax, Weather, RoundMeter, Path, Watch } from '@amaui/ui-react';
+import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Radios, Keyframes, Switch, TextField, Label, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationItem, NavigationRail, NavigationDrawer, BottomSheet, BottomAppBar, TopAppBar, Card, CardImage, CardMain, CardHeader, CardButton, CardFooter, Table, TableHead, TableRow, TableCell, TableHeader, TableFooter, TableBody, Placeholder, Snackbar, useSnackbars, Pagination, TablePagination, SpeedDial, SpeedDialItem, ImageList, ImageListItem, ImageListItemBox, Stepper, Step, Tabs, Tab, Timeline, TimelineItem, Tree, Masonry, Reveal, useConfirm, ViewSplit, WindowSplit, useMainProgress, Image, SpyScroll, AdvancedTextField, NumericTextField, useWidgets, ImageCrop, ImageEdit, FileChoose, DropZone, MenuDesktop, Markdown, RichTextEditor, ScreenCapture, Timer, Countdown, Drawing, Parallax, Weather, RoundMeter, Path, Watch, LinearMeter } from '@amaui/ui-react';
 
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
@@ -227,6 +227,20 @@ const useStyle = style(theme => ({
 }), { name: 'App' });
 
 const styled: any = {
+  LinearMeter: sy(LinearMeter)((theme: AmauiTheme) => ({
+    root: {
+      '&:hover': {
+        opacity: 0.4
+      }
+    }
+  })),
+  Path: sy(Path)((theme: AmauiTheme) => ({
+    root: {
+      '&:hover': {
+        opacity: 0.4
+      }
+    }
+  })),
   Watch: sy(Watch)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
@@ -1335,6 +1349,8 @@ function App() {
             width: '100%'
           }}
         >
+          <LinearMeter />
+
           <Watch
             version='minimal'
           />
@@ -2922,6 +2938,256 @@ Please sign in again.`}
         </Line>
       </Accordion>
 
+      <Accordion primary='LinearMeter'>
+        <Accordion primary='LinearMeter' open>
+          <LinearMeter />
+        </Accordion>
+
+        <Accordion primary='LinearMeter parts'>
+          <Accordion primary='LinearMeter orientation horizontal position end' open>
+            <Line>
+              <LinearMeter
+                parts='1'
+
+                orientation='horizontal'
+
+                position='end'
+              />
+
+              <LinearMeter
+                parts='2'
+
+                orientation='horizontal'
+
+                position='end'
+              />
+
+              <LinearMeter
+                parts='3'
+
+                orientation='horizontal'
+
+                position='end'
+              />
+
+              <LinearMeter
+                parts='4'
+
+                orientation='horizontal'
+
+                position='end'
+              />
+
+              <LinearMeter
+                parts='8'
+
+                orientation='horizontal'
+
+                position='end'
+              />
+            </Line>
+          </Accordion>
+        </Accordion>
+
+        <Accordion primary='LinearMeter parts gap'>
+          <Accordion primary='LinearMeter orientation horizontal position end' open>
+            <Line>
+              <LinearMeter
+                gap={8}
+
+                parts='1'
+
+                orientation='horizontal'
+
+                position='end'
+              />
+
+              <LinearMeter
+                gap={8}
+
+                parts='2'
+
+                orientation='horizontal'
+
+                position='end'
+              />
+
+              <LinearMeter
+                gap={8}
+
+                parts='3'
+
+                orientation='horizontal'
+
+                position='end'
+              />
+
+              <LinearMeter
+                gap={8}
+
+                parts='4'
+
+                orientation='horizontal'
+
+                position='end'
+              />
+
+              <LinearMeter
+                gap={8}
+
+                parts='8'
+
+                orientation='horizontal'
+
+                position='end'
+              />
+            </Line>
+          </Accordion>
+        </Accordion>
+
+        <Accordion primary='LinearMeter parts boundaryWidth'>
+          <Accordion primary='LinearMeter orientation horizontal position end' open>
+            <Line>
+              <LinearMeter
+                boundaryWidth={16}
+
+                gap={8}
+
+                parts='1'
+
+                orientation='horizontal'
+
+                position='end'
+              />
+
+              <LinearMeter
+                boundaryWidth={16}
+
+                gap={8}
+
+                parts='2'
+
+                orientation='horizontal'
+
+                position='end'
+              />
+
+              <LinearMeter
+                boundaryWidth={16}
+
+                gap={8}
+
+                parts='3'
+
+                orientation='horizontal'
+
+                position='end'
+              />
+
+              <LinearMeter
+                boundaryWidth={16}
+
+                gap={8}
+
+                parts='4'
+
+                orientation='horizontal'
+
+                position='end'
+              />
+
+              <LinearMeter
+                boundaryWidth={16}
+
+                gap={8}
+
+                parts='8'
+
+                orientation='horizontal'
+
+                position='end'
+              />
+            </Line>
+          </Accordion>
+        </Accordion>
+
+        <Accordion primary='LinearMeter parts lineCap'>
+          <Accordion primary='LinearMeter orientation horizontal position end' open>
+            <Line>
+              <LinearMeter
+                lineCap='round'
+
+                boundaryWidth={16}
+
+                gap={8}
+
+                parts='1'
+
+                orientation='horizontal'
+
+                position='end'
+              />
+
+              <LinearMeter
+                lineCap='round'
+
+                boundaryWidth={16}
+
+                gap={8}
+
+                parts='2'
+
+                orientation='horizontal'
+
+                position='end'
+              />
+
+              <LinearMeter
+                lineCap='round'
+
+                boundaryWidth={16}
+
+                gap={8}
+
+                parts='3'
+
+                orientation='horizontal'
+
+                position='end'
+              />
+
+              <LinearMeter
+                lineCap='round'
+
+                boundaryWidth={16}
+
+                gap={8}
+
+                parts='4'
+
+                orientation='horizontal'
+
+                position='end'
+              />
+
+              <LinearMeter
+                lineCap='round'
+
+                boundaryWidth={16}
+
+                gap={8}
+
+                parts='8'
+
+                orientation='horizontal'
+
+                position='end'
+              />
+            </Line>
+          </Accordion>
+        </Accordion>
+      </Accordion>
+
       <Accordion primary='Watch'>
         <Accordion primary='Watch' open>
           <Watch />
@@ -2980,6 +3246,7 @@ Please sign in again.`}
                 style={{
                   transformOrigin: '50% 50%',
                   fill: 'currentColor',
+                  strokeWidth: 1.4,
                   stroke: 'none'
                 }}
               />
