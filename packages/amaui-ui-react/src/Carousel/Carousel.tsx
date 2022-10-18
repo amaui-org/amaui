@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is, unique } from '@amaui/utils';
+import { is, unique, clamp } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Icon from '../Icon';
@@ -11,6 +11,7 @@ import Transitions from '../Transitions';
 import useMediaQuery from '../useMediaQuery';
 
 import { staticClassName } from '../utils';
+import Surface from '../Surface';
 
 const useStyle = style(theme => ({
   root: {
@@ -34,6 +35,27 @@ const useStyle = style(theme => ({
     width: '100%',
     height: '100%',
     overflow: 'hidden'
+  },
+
+  progress: {
+    position: 'absolute',
+    width: '100%',
+    left: '50%',
+    transform: 'translateX(-50%)',
+    bottom: '24px'
+  },
+
+  progress_item: {
+    width: '5px',
+    height: '5px',
+    backgroundColor: 'currentColor',
+    borderRadius: '50%',
+    cursor: 'pointer',
+    transition: theme.methods.transitions.make('transform')
+  },
+
+  progress_item_active: {
+    transform: 'scale(1.4)'
   },
 
   arrow: {
@@ -87,8 +109,6 @@ const IconMaterialNavigateNextRounded = React.forwardRef((props: any, ref) => {
 
 // To do
 
-// progress
-
 // auto height, example with actual elements + images
 // meaning get rects
 // and on carousel update, update root height
@@ -97,6 +117,8 @@ const IconMaterialNavigateNextRounded = React.forwardRef((props: any, ref) => {
 
 // version regular
 
+// move + gap
+
 // on mouse done, mouse move
 // and touch start and touch move
 // if prop true, move the track
@@ -104,9 +126,17 @@ const IconMaterialNavigateNextRounded = React.forwardRef((props: any, ref) => {
 
 // min flick update
 
+// amount of items in view per breakpoint, or auto
+// based on width and gap, add += on 1 item with gap (without gap for last)
+// and if enough space use those items
+// and per breakpoint other options
+
 // free update
 
 // method for track update
+
+// focus for slider
+// keyboard left right, and space for pause, unpause for autoplay
 
 const Carousel = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
@@ -140,10 +170,17 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
     pauseOnHover = true,
 
+    round = true,
+
     arrows = true,
 
     // on mobile visible
     arrowsVisibility = 'hover',
+
+    renderProgress,
+
+    renderArrowPrevious,
+    renderArrowNext,
 
     progress = true,
 
@@ -154,6 +191,8 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     onMouseLeave: onMouseLeave_,
 
     TransitionComponent = Fade,
+
+    ProgressTransitionComponent = Fade,
 
     ArrowTransitionComponent = Fade,
     ArrowPreviousTransitionComponent,
@@ -171,6 +210,10 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     CarouselProps,
     TransitionsProps,
     TransitionComponentProps,
+    ArrowTransitionComponentProps,
+    ArrowPreviousTransitionComponentProps,
+    ArrowNextTransitionComponentProps,
+    ProgressTransitionComponentProps,
 
     Component = 'div',
 
@@ -196,10 +239,11 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
   refs.itemActive.current = itemActive;
 
-  const onUpdate = React.useCallback((to = 'next', values: any[] = refs.items.current) => {
+  const onUpdate = React.useCallback((to: string | number = 'next', values: any[] = refs.items.current) => {
     let index = refs.itemActive.current?.index;
 
     if (index === undefined) index = 0;
+    else if (is('number', to)) index = clamp(to as number, 0, refs.items.current.length - 1);
     else {
       index = to === 'next' ? index + 1 : index - 1;
 
@@ -299,8 +343,14 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
   const ArrowNextTransitionComponent_ = ArrowNextTransitionComponent || ArrowTransitionComponent;
 
   return (
-    <Component
+    <Surface
       ref={ref}
+
+      tonal={tonal}
+
+      color={color}
+
+      Component={Component}
 
       onMouseEnter={onMouseEnter}
 
@@ -323,7 +373,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
       {/* Version transition */}
       {version === 'transition' && (
         <Line
-          gap={0}
+          gap={0.5}
 
           direction='column'
 
@@ -372,67 +422,123 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
       )}
 
       {/* Progress */}
+      {progress && (
+        <ProgressTransitionComponent
+          in={mobile || (progressVisibility === 'hover' && hover) || progressVisibility === 'visible'}
+
+          {...ProgressTransitionComponentProps}
+        >
+          {is('function', renderProgress) ?
+            renderProgress(onUpdate) :
+
+            <Line
+              gap={1}
+
+              direction='row'
+
+              align='center'
+
+              justify='center'
+
+              wrap='wrap'
+
+              className={classNames([
+                staticClassName('Carousel', theme) && [
+                  'AmauiCarousel-progress'
+                ],
+
+                classes.progress
+              ])}
+            >
+              {Array.from({ length: items.length }).map((item: any, index: number) => (
+                <span
+                  key={index}
+
+                  onClick={() => onUpdate(index)}
+
+                  className={classNames([
+                    staticClassName('Carousel', theme) && [
+                      'AmauiCarousel-progress-item'
+                    ],
+
+                    classes.progress_item,
+                    itemActive?.index === index && classes.progress_item_active
+                  ])}
+                />
+              ))}
+            </Line>
+          }
+        </ProgressTransitionComponent>
+      )}
 
       {/* Arrows */}
       {arrows && (
         <ArrowPreviousTransitionComponent_
           in={mobile || (arrowsVisibility === 'hover' && hover) || arrowsVisibility === 'visible'}
+
+          {...ArrowTransitionComponentProps}
+
+          {...ArrowPreviousTransitionComponentProps}
         >
           {(
-            IconButtonPrevious ?
-              React.cloneElement(IconButtonPrevious, {
-                tonal,
-                color,
+            is('function', renderArrowPrevious) ?
+              renderArrowPrevious(() => onUpdate('previous')) :
 
-                onClick: onPrevious,
+              IconButtonPrevious ?
+                React.cloneElement(IconButtonPrevious, {
+                  tonal,
+                  color,
 
-                onMouseEnter: onArrowMouseEnter,
+                  onClick: onPrevious,
 
-                className: classNames([
-                  staticClassName('Carousel', theme) && [
-                    'AmauiCarousel-arrow',
-                    'AmauiCarousel-arrow-previous'
-                  ],
+                  onMouseEnter: onArrowMouseEnter,
 
-                  classes.arrow,
-                  classes.arrow_previous
-                ]),
+                  className: classNames([
+                    staticClassName('Carousel', theme) && [
+                      'AmauiCarousel-arrow',
+                      'AmauiCarousel-arrow-previous'
+                    ],
 
-                disabled: itemActive?.index === 0,
+                    classes.arrow,
+                    classes.arrow_previous
+                  ]),
 
-                ...ArrowProps,
+                  disabled: !round && itemActive?.index === 0,
 
-                ...ArrowPreviousProps
-              }) :
-              <IconButton
-                tonal={tonal}
+                  ...ArrowProps,
 
-                color={color}
+                  ...ArrowPreviousProps
+                }) :
 
-                version='filled'
+                <IconButton
+                  tonal={tonal}
 
-                onClick={onPrevious}
+                  color={color}
 
-                onMouseEnter={onArrowMouseEnter}
+                  version='filled'
 
-                className={classNames([
-                  staticClassName('Carousel', theme) && [
-                    'AmauiCarousel-arrow',
-                    'AmauiCarousel-arrow-previous'
-                  ],
+                  onClick={onPrevious}
 
-                  classes.arrow,
-                  classes.arrow_previous
-                ])}
+                  onMouseEnter={onArrowMouseEnter}
 
-                disabled={itemActive?.index === 0}
+                  className={classNames([
+                    staticClassName('Carousel', theme) && [
+                      'AmauiCarousel-arrow',
+                      'AmauiCarousel-arrow-previous'
+                    ],
 
-                {...ArrowProps}
+                    classes.arrow,
+                    classes.arrow_previous
+                  ])}
 
-                {...ArrowPreviousProps}
-              >
-                <IconPrevious />
-              </IconButton>
+                  disabled={!round && itemActive?.index === 0}
+
+                  {...ArrowProps}
+
+                  {...ArrowPreviousProps}
+                >
+                  <IconPrevious />
+                </IconButton>
           )}
         </ArrowPreviousTransitionComponent_>
       )}
@@ -440,67 +546,73 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
       {arrows && (
         <ArrowNextTransitionComponent_
           in={mobile || (arrowsVisibility === 'hover' && hover) || arrowsVisibility === 'visible'}
+
+          {...ArrowTransitionComponentProps}
+
+          {...ArrowNextTransitionComponentProps}
         >
           {(
-            IconButtonNext ?
-              React.cloneElement(IconButtonNext, {
-                tonal,
-                color,
+            is('function', renderArrowNext) ?
 
-                onClick: onNext,
+              renderArrowNext(() => onUpdate('next')) : IconButtonNext ?
+                React.cloneElement(IconButtonNext, {
+                  tonal,
+                  color,
 
-                onMouseEnter: onArrowMouseEnter,
+                  onClick: onNext,
 
-                className: classNames([
-                  staticClassName('Carousel', theme) && [
-                    'AmauiCarousel-arrow',
-                    'AmauiCarousel-arrow-next'
-                  ],
+                  onMouseEnter: onArrowMouseEnter,
 
-                  classes.arrow,
-                  classes.arrow_next
-                ]),
+                  className: classNames([
+                    staticClassName('Carousel', theme) && [
+                      'AmauiCarousel-arrow',
+                      'AmauiCarousel-arrow-next'
+                    ],
 
-                disabled: itemActive?.index === items.length - 1,
+                    classes.arrow,
+                    classes.arrow_next
+                  ]),
 
-                ...ArrowProps,
+                  disabled: !round && itemActive?.index === items.length - 1,
 
-                ...ArrowNextProps
-              }) :
-              <IconButton
-                tonal={tonal}
+                  ...ArrowProps,
 
-                color={color}
+                  ...ArrowNextProps
+                }) :
 
-                version='filled'
+                <IconButton
+                  tonal={tonal}
 
-                onClick={onNext}
+                  color={color}
 
-                onMouseEnter={onArrowMouseEnter}
+                  version='filled'
 
-                className={classNames([
-                  staticClassName('Carousel', theme) && [
-                    'AmauiCarousel-arrow',
-                    'AmauiCarousel-arrow-next'
-                  ],
+                  onClick={onNext}
 
-                  classes.arrow,
-                  classes.arrow_next
-                ])}
+                  onMouseEnter={onArrowMouseEnter}
 
-                disabled={itemActive?.index === items.length - 1}
+                  className={classNames([
+                    staticClassName('Carousel', theme) && [
+                      'AmauiCarousel-arrow',
+                      'AmauiCarousel-arrow-next'
+                    ],
 
-                {...ArrowProps}
+                    classes.arrow,
+                    classes.arrow_next
+                  ])}
 
-                {...ArrowNextProps}
-              >
-                <IconNext />
-              </IconButton>
+                  disabled={!round && itemActive?.index === items.length - 1}
+
+                  {...ArrowProps}
+
+                  {...ArrowNextProps}
+                >
+                  <IconNext />
+                </IconButton>
           )}
         </ArrowNextTransitionComponent_>
       )}
-
-    </Component>
+    </Surface>
   );
 });
 
