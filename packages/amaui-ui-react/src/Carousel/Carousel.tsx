@@ -146,14 +146,16 @@ const IconMaterialNavigateNextRounded = React.forwardRef((props: any, ref) => {
 
 // To do
 
-// version regular
-
-// move + gap
+// move
 
 // on mouse done, mouse move
 // and touch start and touch move
 // if prop true, move the track
 // on let go, return or update depending if < 50 value y
+
+// options per breakpoints value y
+
+// example with gap
 
 // min flick update
 
@@ -170,6 +172,9 @@ const IconMaterialNavigateNextRounded = React.forwardRef((props: any, ref) => {
 // keyboard left right, and space for pause, unpause for autoplay
 
 // orientation vertical
+
+// Swipe for version transition
+// as an option true
 
 // example for tabs
 
@@ -201,6 +206,10 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
     gap = 0,
 
+    move = true,
+
+    swipe = true,
+
     background = true,
 
     autoPlay = true,
@@ -231,6 +240,8 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     progressVisibility = 'hover',
 
     noTransition,
+
+    onUpdatePosition: onUpdatePosition_,
 
     onMouseEnter: onMouseEnter_,
     onMouseLeave: onMouseLeave_,
@@ -271,8 +282,9 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
   const [items, setItems] = React.useState([]);
   const [itemActive, setItemActive] = React.useState<any>();
-  const [position, setPosition] = React.useState<any>(0);
+  const [position, setPosition] = React.useState<any>();
   const [hover, setHover] = React.useState<any>();
+  const [mouseDown, setMouseDown] = React.useState<any>();
 
   const refs = {
     root: React.useRef<any>(),
@@ -282,7 +294,11 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     autoPlayTimeout: React.useRef<any>(),
     autoPlay: React.useRef<any>(),
     carousel: React.useRef<any>(),
-    position: React.useRef<any>()
+    position: React.useRef<any>(),
+    mouseDown: React.useRef<any>(),
+    previousMouseEvent: React.useRef<any>(),
+    move: React.useRef<any>(),
+    swipe: React.useRef<any>()
   };
 
   const styles: any = {
@@ -294,6 +310,18 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
   refs.itemActive.current = itemActive;
 
   refs.position.current = position;
+
+  refs.mouseDown.current = mouseDown;
+
+  refs.move.current = move;
+
+  refs.swipe.current = swipe;
+
+  const onUpdatePosition = (value: any) => {
+    setPosition(value);
+
+    if (is('function', onUpdatePosition_)) onUpdatePosition_(value);
+  };
 
   const onUpdate = React.useCallback((to: string | number = 'next', values: any[] = refs.items.current) => {
     let index = version === 'regular' ? refs.position.current?.index : refs.itemActive.current?.index;
@@ -311,16 +339,15 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     // Regular
     if (version === 'regular') {
       const width = refs.carousel.current.getBoundingClientRect().width;
-      const scrollWidth = refs.carousel.current.scrollWidth;
 
       const x = (index * width) + (index * gap);
 
-      setPosition({
+      onUpdatePosition({
         index,
 
         x
       });
-    }
+    };
 
     // Transition
     if (version === 'transition') {
@@ -340,6 +367,77 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     }
   }, [gap, version, autoHeight, autoHeightDelay]);
 
+  React.useEffect(() => {
+    const onMouseUp_ = () => {
+      refs.previousMouseEvent.current = undefined;
+
+      if (refs.mouseDown.current) {
+        setMouseDown(false);
+
+        (refs.carousel.current as HTMLElement).style.removeProperty('transition');
+      }
+    };
+
+    const onMove = (x: number, y: number) => {
+      if (refs.move.current && refs.mouseDown.current && refs.previousMouseEvent.current) {
+        const inc = x - refs.previousMouseEvent.current.clientX;
+
+        if (inc !== 0) {
+          onUpdatePosition({
+            ...refs.position.current,
+
+            x: (refs.position.current?.x || 0) - inc
+          });
+        }
+      }
+    };
+
+    // Mouse move
+    const onMouseMove = (event: MouseEvent) => {
+      if (refs.mouseDown.current) {
+        const { clientY, clientX } = event;
+
+        onMove(clientX, clientY);
+
+        refs.previousMouseEvent.current = event;
+      }
+    };
+
+    // Touch move
+    const onTouchMove = (event: TouchEvent) => {
+      if (refs.mouseDown.current) {
+        const { clientY, clientX } = event.touches[0];
+
+        onMove(clientX, clientY);
+
+        refs.previousMouseEvent.current = event;
+
+        // Normalize for use as a mouseDown value
+        refs.previousMouseEvent.current.clientY = clientY;
+
+        refs.previousMouseEvent.current.clientX = clientX;
+      }
+    };
+
+    window.addEventListener('mouseup', onMouseUp_);
+
+    window.addEventListener('mousemove', onMouseMove);
+
+    window.addEventListener('touchend', onMouseUp_);
+
+    window.addEventListener('touchmove', onTouchMove, { passive: true });
+
+    return () => {
+      window.removeEventListener('mousemove', onMouseMove);
+
+      window.removeEventListener('mouseup', onMouseUp_);
+
+      window.removeEventListener('touchmove', onTouchMove);
+
+      window.removeEventListener('touchend', onMouseUp_);
+    };
+  }, []);
+
   const onPrevious = () => onUpdate('previous');
 
   const onNext = () => onUpdate('next');
@@ -353,7 +451,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
   const start = () => {
     clear();
 
-    if (!autoPlay) return;
+    if (!autoPlay || mouseDown) return;
 
     if (pauseOnHover && hover) return;
 
@@ -416,6 +514,20 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
     setItems(values);
   }, [items_, background, children]);
+
+  const onMouseDown = React.useCallback((event: React.MouseEvent<any>) => {
+    setMouseDown(true);
+
+    refs.carousel.current.style.transition = 'none';
+  }, [pauseOnHover]);
+
+  const onMouseUp = React.useCallback((event: React.MouseEvent<any>) => {
+    setMouseDown(false);
+
+    refs.previousMouseEvent.current = undefined;
+
+    if (refs.mouseDown.current) (refs.carousel.current as HTMLElement).style.removeProperty('transition');
+  }, [pauseOnHover]);
 
   const onMouseEnter = React.useCallback((event: React.MouseEvent<any>) => {
     setHover(true);
@@ -498,6 +610,14 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
           align='center'
 
           justify='flex-start'
+
+          onMouseDown={onMouseDown}
+
+          onTouchStart={onMouseDown}
+
+          onMouseUp={onMouseUp}
+
+          onTouchEnd={onMouseUp}
 
           {...CarouselProps}
 
