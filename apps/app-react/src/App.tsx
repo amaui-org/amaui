@@ -2982,9 +2982,15 @@ Please sign in again.`}
 
       <Accordion primary='Carousel'>
         <Accordion primary='Carousel' open>
-          {/* <Carousel
-            items={[]}
-          /> */}
+          <Carousel
+            items={[
+              'https://picsum.photos/seed/a/1500/540',
+              'https://picsum.photos/seed/a/400/400',
+              'https://picsum.photos/seed/a/1400/340',
+              'https://picsum.photos/seed/a/1700/400',
+              'https://picsum.photos/seed/a/400/1400'
+            ]}
+          />
         </Accordion>
 
         <Accordion primary='Carousel version' open>
@@ -2993,7 +2999,7 @@ Please sign in again.`}
               width: '100%'
             }}
           >
-            {/* <Carousel
+            <Carousel
               version='regular'
 
               items={[
@@ -3003,7 +3009,7 @@ Please sign in again.`}
                 'https://picsum.photos/seed/a/1700/400',
                 'https://picsum.photos/seed/a/400/1400'
               ]}
-            /> */}
+            />
 
             <Carousel
               version='transition'

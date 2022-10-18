@@ -21,7 +21,17 @@ const useStyle = style(theme => ({
     overflow: 'hidden'
   },
 
+  autoHeight: {
+    transition: theme.methods.transitions.make('height')
+  },
+
   item: {
+    width: '100%',
+    height: '100%',
+    flex: '0 0 auto'
+  },
+
+  item_transition: {
     position: 'absolute',
     width: '100%',
     height: '100%',
@@ -32,6 +42,19 @@ const useStyle = style(theme => ({
     }
   },
 
+  item_transition_autoHeight: {
+    width: 'unset',
+    height: 'unset'
+  },
+
+  background: {
+    width: '100%',
+    height: '100%',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+    backgroundSize: 'contain'
+  },
+
   itemRects: {
     position: 'absolute',
     visibility: 'hidden'
@@ -40,8 +63,11 @@ const useStyle = style(theme => ({
   carousel: {
     position: 'relative',
     width: '100%',
-    height: '100%',
-    overflow: 'hidden'
+    height: '100%'
+  },
+
+  carousel_version_regular: {
+    transition: theme.methods.transitions.make('transform')
   },
 
   progress: {
@@ -120,14 +146,6 @@ const IconMaterialNavigateNextRounded = React.forwardRef((props: any, ref) => {
 
 // To do
 
-// cover
-
-// auto height, example with actual elements + images
-// meaning get rects
-// and on carousel update, update root height
-// with height transition, to the biggest height of itemActive
-// in the view
-
 // version regular
 
 // move + gap
@@ -150,6 +168,10 @@ const IconMaterialNavigateNextRounded = React.forwardRef((props: any, ref) => {
 
 // focus for slider
 // keyboard left right, and space for pause, unpause for autoplay
+
+// orientation vertical
+
+// example for tabs
 
 const Carousel = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
@@ -177,7 +199,15 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     // and a transition element
     items: items_,
 
+    gap = 0,
+
+    background = true,
+
     autoPlay = true,
+
+    autoHeight,
+
+    autoHeightDelay = theme.transitions.duration.rg + 14,
 
     autoPlayInterval = 4000,
 
@@ -241,21 +271,32 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
   const [items, setItems] = React.useState([]);
   const [itemActive, setItemActive] = React.useState<any>();
+  const [position, setPosition] = React.useState<any>(0);
   const [hover, setHover] = React.useState<any>();
 
   const refs = {
+    root: React.useRef<any>(),
+    item: React.useRef<any>(),
     items: React.useRef<any>(),
     itemActive: React.useRef<any>(),
     autoPlayTimeout: React.useRef<any>(),
-    autoPlay: React.useRef<any>()
+    autoPlay: React.useRef<any>(),
+    carousel: React.useRef<any>(),
+    position: React.useRef<any>()
+  };
+
+  const styles: any = {
+    carousel: {}
   };
 
   refs.items.current = items;
 
   refs.itemActive.current = itemActive;
 
+  refs.position.current = position;
+
   const onUpdate = React.useCallback((to: string | number = 'next', values: any[] = refs.items.current) => {
-    let index = refs.itemActive.current?.index;
+    let index = version === 'regular' ? refs.position.current?.index : refs.itemActive.current?.index;
 
     if (index === undefined) index = 0;
     else if (is('number', to)) index = clamp(to as number, 0, refs.items.current.length - 1);
@@ -267,10 +308,37 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
       if (index > refs.items.current.length - 1) index = 0;
     }
 
-    const itemNew = values[index];
+    // Regular
+    if (version === 'regular') {
+      const width = refs.carousel.current.getBoundingClientRect().width;
+      const scrollWidth = refs.carousel.current.scrollWidth;
 
-    if (itemNew) setItemActive({ index, element: itemNew });
-  }, []);
+      const x = (index * width) + (index * gap);
+
+      setPosition({
+        index,
+
+        x
+      });
+    }
+
+    // Transition
+    if (version === 'transition') {
+      const itemNew = values[index];
+
+      if (itemNew) {
+        setItemActive({ index, element: itemNew });
+
+        if (autoHeight) {
+          setTimeout(() => {
+            const height = refs.carousel.current.children[0]?.children[0]?.getBoundingClientRect().height;
+
+            if (height > 0) refs.root.current.style.height = `${height}px`;
+          }, autoHeightDelay);
+        }
+      }
+    }
+  }, [gap, version, autoHeight, autoHeightDelay]);
 
   const onPrevious = () => onUpdate('previous');
 
@@ -307,15 +375,33 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     ])
       .filter(Boolean)
       .map((Item: any, index: number) => {
-        if (is('string', Item)) return (
-          <img
-            key={index}
+        if (is('string', Item)) {
+          if (background) return (
+            <div
+              className={classNames([
+                staticClassName('Carousel', theme) && [
+                  'AmauiCarousel-background'
+                ],
 
-            src={Item}
+                classes.background
+              ])}
 
-            alt=''
-          />
-        );
+              style={{
+                backgroundImage: `url(${Item})`
+              }}
+            />
+          );
+
+          return (
+            <img
+              key={index}
+
+              src={Item}
+
+              alt=''
+            />
+          );
+        }
 
         if (Item?.element) return React.cloneElement(Item.element, { key: index });
 
@@ -329,7 +415,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     onUpdate('next', values);
 
     setItems(values);
-  }, [items_, children]);
+  }, [items_, background, children]);
 
   const onMouseEnter = React.useCallback((event: React.MouseEvent<any>) => {
     setHover(true);
@@ -361,9 +447,19 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
   if (noTransition) TransitionComponent = React.Fragment;
 
+  if (version === 'regular') {
+    styles.carousel.transform = `translate3d(${-(position?.x || 0)}px, 0, 0)`;
+  }
+
+  const indexActive = version === 'regular' ? position?.index : itemActive?.index;
+
   return (
     <Surface
-      ref={ref}
+      ref={item => {
+        if (ref) ref.current = item;
+
+        refs.root.current = item;
+      }}
 
       tonal={tonal}
 
@@ -378,37 +474,98 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
       className={classNames([
         staticClassName('Carousel', theme) && [
           'AmauiCarousel-root',
-          `AmauiCarousel-version-${version}`
+          `AmauiCarousel-version-${version}`,
+          autoPlay && `AmauiCarousel-autoPlay`,
+          autoHeight && `AmauiCarousel-autoHeight`
         ],
 
         className,
-        classes.root
+        classes.root,
+        autoHeight && classes.autoHeight
       ])}
 
       {...other}
     >
       {/* Version regular */}
-
-      {/* Version transition */}
-      {version === 'transition' && (
+      {version === 'regular' && (
         <Line
-          gap={0.5}
+          ref={refs.carousel}
 
-          direction='column'
+          gap={gap}
+
+          direction='row'
 
           align='center'
 
-          justify='center'
+          justify='flex-start'
+
+          {...CarouselProps}
 
           className={classNames([
             staticClassName('Carousel', theme) && [
               'AmauiCarousel-carousel'
             ],
 
-            classes.carousel
+            CarouselProps?.className,
+            classes.carousel,
+            classes[`carousel_version_${version}`]
           ])}
 
+          style={{
+            ...styles.carousel,
+
+            ...CarouselProps?.style
+          }}
+        >
+          {items.map((item: any, index: number) => (
+            <Line
+              key={index}
+
+              gap={0}
+
+              direction='column'
+
+              align='center'
+
+              justify='center'
+
+              className={classNames([
+                staticClassName('Carousel', theme) && [
+                  'AmauiCarousel-item'
+                ],
+
+                classes.item
+              ])}
+            >
+              {item}
+            </Line>
+          ))}
+        </Line>
+      )}
+
+      {/* Version transition */}
+      {version === 'transition' && (
+        <Line
+          ref={refs.carousel}
+
+          gap={0.5}
+
+          direction='row'
+
+          align='center'
+
+          justify='center'
+
           {...CarouselProps}
+
+          className={classNames([
+            staticClassName('Carousel', theme) && [
+              'AmauiCarousel-carousel'
+            ],
+
+            CarouselProps?.className,
+            classes.carousel
+          ])}
         >
           {itemActive && (
             <Transitions
@@ -424,6 +581,8 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
                 {...TransitionComponentProps}
               >
                 <Line
+                  ref={refs.item}
+
                   gap={0}
 
                   direction='column'
@@ -434,10 +593,11 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
                   className={classNames([
                     staticClassName('Carousel', theme) && [
-                      'AmauiCarousel-item'
+                      'AmauiCarousel-item-transition'
                     ],
 
-                    classes.item
+                    classes.item_transition,
+                    autoHeight && classes.item_transition_autoHeight
                   ])}
                 >
                   {itemActive?.element}
@@ -489,7 +649,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
                     ],
 
                     classes.progress_item,
-                    itemActive?.index === index && classes.progress_item_active
+                    indexActive === index && classes.progress_item_active
                   ])}
                 />
               ))}
