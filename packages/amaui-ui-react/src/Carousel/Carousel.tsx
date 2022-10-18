@@ -367,7 +367,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     }
   }, [gap, version, autoHeight, autoHeightDelay]);
 
-  const onMouseUp = React.useCallback((event: React.MouseEvent<any>) => {
+  const onMouseUp = React.useCallback((event: any) => {
     if (refs.mouseDown.current) {
       setMouseDown(false);
 
@@ -419,22 +419,22 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
       }
     };
 
-    window.addEventListener('mouseup', onMouseUp_);
+    window.addEventListener('mouseup', onMouseUp);
 
     window.addEventListener('mousemove', onMouseMove);
 
-    window.addEventListener('touchend', onMouseUp_);
+    window.addEventListener('touchend', onMouseUp);
 
     window.addEventListener('touchmove', onTouchMove, { passive: true });
 
     return () => {
       window.removeEventListener('mousemove', onMouseMove);
 
-      window.removeEventListener('mouseup', onMouseUp_);
+      window.removeEventListener('mouseup', onMouseUp);
 
       window.removeEventListener('touchmove', onTouchMove);
 
-      window.removeEventListener('touchend', onMouseUp_);
+      window.removeEventListener('touchend', onMouseUp);
     };
   }, []);
 
