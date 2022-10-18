@@ -9,9 +9,9 @@ import Fade from '../Fade';
 import IconButton from '../IconButton';
 import Transitions from '../Transitions';
 import useMediaQuery from '../useMediaQuery';
+import Surface from '../Surface';
 
 import { staticClassName } from '../utils';
-import Surface from '../Surface';
 
 const useStyle = style(theme => ({
   root: {
@@ -51,11 +51,15 @@ const useStyle = style(theme => ({
     backgroundColor: 'currentColor',
     borderRadius: '50%',
     cursor: 'pointer',
-    transition: theme.methods.transitions.make('transform')
+    transition: theme.methods.transitions.make('transform'),
+
+    '&:hover': {
+      transform: 'scale(1.4)'
+    }
   },
 
   progress_item_active: {
-    transform: 'scale(1.4)'
+    transform: 'scale(1.7)'
   },
 
   arrow: {
