@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { clamp, is, unique } from '@amaui/utils';
+import { is, unique } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Icon from '../Icon';
@@ -43,13 +43,13 @@ const useStyle = style(theme => ({
   arrow_previous: {
     top: '50%',
     transform: 'translateY(-50%)',
-    left: '40px'
+    left: '24px'
   },
 
   arrow_next: {
     top: '50%',
     transform: 'translateY(-50%)',
-    right: '40px'
+    right: '24px'
   }
 }), { name: 'AmauiCarousel' });
 
@@ -94,6 +94,19 @@ const IconMaterialNavigateNextRounded = React.forwardRef((props: any, ref) => {
 // and on carousel update, update root height
 // with height transition, to the biggest height of itemActive
 // in the view
+
+// version regular
+
+// on mouse done, mouse move
+// and touch start and touch move
+// if prop true, move the track
+// on let go, return or update depending if < 50 value y
+
+// min flick update
+
+// free update
+
+// method for track update
 
 const Carousel = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
@@ -175,7 +188,8 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
   const refs = {
     items: React.useRef<any>(),
     itemActive: React.useRef<any>(),
-    autoPlayTimeout: React.useRef<any>()
+    autoPlayTimeout: React.useRef<any>(),
+    autoPlay: React.useRef<any>()
   };
 
   refs.items.current = items;
@@ -203,12 +217,20 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
   const onNext = () => onUpdate('next');
 
-  const clear = () => clearTimeout(refs.autoPlayTimeout.current);
+  const clear = () => {
+    clearTimeout(refs.autoPlayTimeout.current);
+
+    refs.autoPlay.current = false;
+  };
 
   const start = () => {
     clear();
 
+    if (pauseOnHover && hover) return;
+
     refs.autoPlayTimeout.current = setTimeout(onUpdate, autoPlayInterval);
+
+    refs.autoPlay.current = true;
   };
 
   // autoPlay
@@ -253,7 +275,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
   const onMouseEnter = React.useCallback((event: React.MouseEvent<any>) => {
     setHover(true);
 
-    if (pauseOnHover) clear();
+    if (refs.autoPlay.current) clear();
 
     if (is('function', onMouseEnter_)) onMouseEnter_(event);
   }, [pauseOnHover]);
@@ -261,9 +283,15 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
   const onMouseLeave = React.useCallback((event: React.MouseEvent<any>) => {
     setHover(false);
 
-    if (pauseOnHover) start();
+    if (!refs.autoPlay.current) start();
 
     if (is('function', onMouseLeave_)) onMouseLeave_(event);
+  }, [pauseOnHover]);
+
+  const onArrowMouseEnter = React.useCallback((event: React.MouseEvent<any>) => {
+    setHover(true);
+
+    if (refs.autoPlay.current) clear();
   }, [pauseOnHover]);
 
   const ArrowPreviousTransitionComponent_ = ArrowPreviousTransitionComponent || ArrowTransitionComponent;
@@ -358,6 +386,8 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
                 onClick: onPrevious,
 
+                onMouseEnter: onArrowMouseEnter,
+
                 className: classNames([
                   staticClassName('Carousel', theme) && [
                     'AmauiCarousel-arrow',
@@ -382,6 +412,8 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
                 version='filled'
 
                 onClick={onPrevious}
+
+                onMouseEnter={onArrowMouseEnter}
 
                 className={classNames([
                   staticClassName('Carousel', theme) && [
@@ -417,6 +449,8 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
                 onClick: onNext,
 
+                onMouseEnter: onArrowMouseEnter,
+
                 className: classNames([
                   staticClassName('Carousel', theme) && [
                     'AmauiCarousel-arrow',
@@ -441,6 +475,8 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
                 version='filled'
 
                 onClick={onNext}
+
+                onMouseEnter={onArrowMouseEnter}
 
                 className={classNames([
                   staticClassName('Carousel', theme) && [
