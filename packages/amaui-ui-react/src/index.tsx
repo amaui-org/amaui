@@ -390,3 +390,6 @@ export * from './Watch';
 
 export { default as LinearMeter } from './LinearMeter';
 export * from './LinearMeter';
+
+export { default as Carousel } from './Carousel';
+export * from './Carousel';
