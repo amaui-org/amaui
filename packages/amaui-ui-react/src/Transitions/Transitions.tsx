@@ -88,7 +88,6 @@ function Transitions(props_: IProps) {
 
     // Abrupted value update
     if (refs.status.current !== 'entered') {
-      console.log(0, refs.status.current, children__?.key);
       setStatus(STATUS.entered);
 
       setElement(
@@ -148,6 +147,8 @@ function Transitions(props_: IProps) {
               in: false,
 
               onExited: () => {
+                if (refs.status.current === 'entered') return;
+
                 if (children__.props?.onExited) children__.props?.onExited();
 
                 setStatus(STATUS.entered);
@@ -169,6 +170,8 @@ function Transitions(props_: IProps) {
               in: true,
 
               onEntered: () => {
+                if (refs.status.current === 'entered') return;
+
                 if (children__.props?.onEntered) children__.props?.onEntered();
 
                 setStatus(STATUS.entered);
@@ -193,6 +196,8 @@ function Transitions(props_: IProps) {
               in: true,
 
               onEntered: () => {
+                if (refs.status.current === 'entered') return;
+
                 if (children__.props?.onEnter) children__.props?.onEnter();
 
                 setStatus(STATUS.enter);
@@ -210,6 +215,8 @@ function Transitions(props_: IProps) {
               in: false,
 
               onExited: () => {
+                if (refs.status.current === 'entered') return;
+
                 if (children__.props?.onExited) children__.props?.onExited();
 
                 setStatus(STATUS.enter);
@@ -229,6 +236,8 @@ function Transitions(props_: IProps) {
               in: true,
 
               onEntered: () => {
+                if (refs.status.current === 'entered') return;
+
                 if (children__.props?.onEntered) children__.props?.onEntered();
 
                 setElement(React.cloneElement(refs.previousKeyValue.current !== children__.key ? element : children__, { in: true, ...other }));

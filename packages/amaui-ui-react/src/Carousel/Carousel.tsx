@@ -87,13 +87,7 @@ const IconMaterialNavigateNextRounded = React.forwardRef((props: any, ref) => {
 
 // To do
 
-// fix arrows fast switching in transitions
-
 // progress
-
-// custom transition component
-
-// or custom transitions items
 
 // auto height, example with actual elements + images
 // meaning get rects
@@ -130,6 +124,8 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     autoPlay = true,
 
     autoPlayInterval = 4000,
+
+    pauseOnHover = true,
 
     arrows = true,
 
@@ -207,11 +203,19 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
   const onNext = () => onUpdate('next');
 
+  const clear = () => clearTimeout(refs.autoPlayTimeout.current);
+
+  const start = () => {
+    clear();
+
+    refs.autoPlayTimeout.current = setTimeout(onUpdate, autoPlayInterval);
+  };
+
   // autoPlay
   React.useEffect(() => {
-    clearTimeout(refs.autoPlayTimeout.current);
+    clear();
 
-    if (autoPlay) refs.autoPlayTimeout.current = setTimeout(onUpdate, autoPlayInterval);
+    if (autoPlay) start();
   }, [items, itemActive, autoPlay, autoPlayInterval]);
 
   React.useEffect(() => {
@@ -249,14 +253,18 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
   const onMouseEnter = React.useCallback((event: React.MouseEvent<any>) => {
     setHover(true);
 
+    if (pauseOnHover) clear();
+
     if (is('function', onMouseEnter_)) onMouseEnter_(event);
-  }, []);
+  }, [pauseOnHover]);
 
   const onMouseLeave = React.useCallback((event: React.MouseEvent<any>) => {
     setHover(false);
 
+    if (pauseOnHover) start();
+
     if (is('function', onMouseLeave_)) onMouseLeave_(event);
-  }, []);
+  }, [pauseOnHover]);
 
   const ArrowPreviousTransitionComponent_ = ArrowPreviousTransitionComponent || ArrowTransitionComponent;
 
