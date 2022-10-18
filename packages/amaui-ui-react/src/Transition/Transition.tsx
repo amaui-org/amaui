@@ -442,7 +442,7 @@ function Transition(props_: IProps) {
       let className = classNames([((refs.root.current.className as unknown as SVGAnimatedString)?.baseVal || refs.root.current.className)?.split(' ')]);
 
       // Remove all previous classes
-      className = className.replace(new RegExp(`${prefix || ''}(add|enter|exit)(ed|ing)?`, 'g'), '');
+      className = className.replace(new RegExp(`(^| )${prefix || ''}(add|enter|exit)(ed|ing)?($| )`, 'g'), ' ');
 
       // Add
       className += ` ${prefix || ''}${status_}`;

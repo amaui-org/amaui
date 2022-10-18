@@ -22,7 +22,14 @@ const useStyle = style(theme => ({
   },
 
   item: {
-    position: 'absolute'
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
+
+    '& img': {
+      width: 'auto',
+      maxHeight: '100%'
+    }
   },
 
   itemRects: {
@@ -113,6 +120,8 @@ const IconMaterialNavigateNextRounded = React.forwardRef((props: any, ref) => {
 
 // To do
 
+// cover
+
 // auto height, example with actual elements + images
 // meaning get rects
 // and on carousel update, update root height
@@ -191,10 +200,12 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     // on mobile visible
     progressVisibility = 'hover',
 
+    noTransition,
+
     onMouseEnter: onMouseEnter_,
     onMouseLeave: onMouseLeave_,
 
-    TransitionComponent = Fade,
+    TransitionComponent: TransitionComponent_ = Fade,
 
     ProgressTransitionComponent = Fade,
 
@@ -274,6 +285,8 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
   const start = () => {
     clear();
 
+    if (!autoPlay) return;
+
     if (pauseOnHover && hover) return;
 
     refs.autoPlayTimeout.current = setTimeout(onUpdate, autoPlayInterval);
@@ -283,9 +296,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
   // autoPlay
   React.useEffect(() => {
-    clear();
-
-    if (autoPlay) start();
+    start();
   }, [items, itemActive, autoPlay, autoPlayInterval]);
 
   React.useEffect(() => {
@@ -345,6 +356,10 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
   const ArrowPreviousTransitionComponent_ = ArrowPreviousTransitionComponent || ArrowTransitionComponent;
 
   const ArrowNextTransitionComponent_ = ArrowNextTransitionComponent || ArrowTransitionComponent;
+
+  let TransitionComponent = TransitionComponent_;
+
+  if (noTransition) TransitionComponent = React.Fragment;
 
   return (
     <Surface
@@ -408,7 +423,15 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
                 {...TransitionComponentProps}
               >
-                <div
+                <Line
+                  gap={0}
+
+                  direction='column'
+
+                  align='center'
+
+                  justify='center'
+
                   className={classNames([
                     staticClassName('Carousel', theme) && [
                       'AmauiCarousel-item'
@@ -418,7 +441,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
                   ])}
                 >
                   {itemActive?.element}
-                </div>
+                </Line>
               </TransitionComponent>
             </Transitions>
           )}
