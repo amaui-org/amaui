@@ -39,14 +39,17 @@ function Transitions(props_: IProps) {
     ...(TransitionProps || {})
   };
 
-  const [element, setElement] = React.useState(React.cloneElement(children__, { in: true, ...other }));
+  const [element, setElement] = React.useState<any>(React.cloneElement(children__, { in: true, ...other }));
 
   const refs = {
     element: React.useRef<any>(),
-    previousKeyValue: React.useRef<any>()
+    previousKeyValue: React.useRef<any>(),
+    status: React.useRef<any>()
   };
 
   refs.element.current = element;
+
+  refs.status.current = status;
 
   React.useEffect(() => {
     setInit(true);
@@ -83,17 +86,32 @@ function Transitions(props_: IProps) {
   React.useEffect(() => {
     refs.previousKeyValue.current = children__?.key;
 
-    if (
+    // Abrupted value update
+    if (refs.status.current !== 'entered') {
+      console.log(0, refs.status.current, children__?.key);
+      setStatus(STATUS.entered);
+
+      setElement(
+        React.cloneElement(children__, {
+          in: true,
+
+          enterOnAdd: true,
+
+          ...other
+        })
+      );
+    }
+    else if (
       element !== children__ &&
       element.key !== children__.key &&
       // Lets transition run properly
-      status === 'entered'
+      refs.status.current === 'entered'
     ) {
       setStatus(STATUS.exit);
     }
   }, [children__.key]);
 
-  const onExited = (element_: React.ReactElement<any>) => (elementHTML: HTMLElement) => {
+  const onExited = (element_?: React.ReactElement<any>) => (elementHTML: HTMLElement) => {
     // Invoke a method
     if (is('function', element_.props.onExited)) element_.props.onExited(elementHTML);
 

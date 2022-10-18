@@ -20,6 +20,10 @@ const useStyle = style(theme => ({
     overflow: 'hidden'
   },
 
+  item: {
+    position: 'absolute'
+  },
+
   itemRects: {
     position: 'absolute',
     visibility: 'hidden'
@@ -83,11 +87,7 @@ const IconMaterialNavigateNextRounded = React.forwardRef((props: any, ref) => {
 
 // To do
 
-// make transitions cross fade
-
 // fix arrows fast switching in transitions
-
-// Transitions custom Transition Component including Transition
 
 // progress
 
@@ -96,6 +96,10 @@ const IconMaterialNavigateNextRounded = React.forwardRef((props: any, ref) => {
 // or custom transitions items
 
 // auto height, example with actual elements + images
+// meaning get rects
+// and on carousel update, update root height
+// with height transition, to the biggest height of itemActive
+// in the view
 
 const Carousel = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
@@ -140,6 +144,8 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     onMouseEnter: onMouseEnter_,
     onMouseLeave: onMouseLeave_,
 
+    TransitionComponent = Fade,
+
     ArrowTransitionComponent = Fade,
     ArrowPreviousTransitionComponent,
     ArrowNextTransitionComponent,
@@ -155,6 +161,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     ArrowNextProps,
     CarouselProps,
     TransitionsProps,
+    TransitionComponentProps,
 
     Component = 'div',
 
@@ -184,7 +191,11 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
     if (index === undefined) index = 0;
     else {
-      index = clamp(is('number', to) ? to : to === 'next' ? index + 1 : index - 1, 0, refs.items.current.length - 1);
+      index = to === 'next' ? index + 1 : index - 1;
+
+      if (index < 0) index = refs.items.current.length - 1;
+
+      if (index > refs.items.current.length - 1) index = 0;
     }
 
     const itemNew = values[index];
@@ -296,15 +307,29 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
         >
           {itemActive && (
             <Transitions
+              mode='in-out-follow'
+
               switch
 
               {...TransitionsProps}
             >
-              <Fade
+              <TransitionComponent
                 key={itemActive?.index}
+
+                {...TransitionComponentProps}
               >
-                {itemActive?.element}
-              </Fade>
+                <div
+                  className={classNames([
+                    staticClassName('Carousel', theme) && [
+                      'AmauiCarousel-item'
+                    ],
+
+                    classes.item
+                  ])}
+                >
+                  {itemActive?.element}
+                </div>
+              </TransitionComponent>
             </Transitions>
           )}
         </Line>
