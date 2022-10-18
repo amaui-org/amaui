@@ -159,7 +159,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
   const {
     tonal = true,
-    color = 'primary',
+    color = 'default',
 
     version = 'regular',
 
@@ -372,7 +372,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
       {...other}
     >
-      {/* Carousel */}
+      {/* Version regular */}
 
       {/* Version transition */}
       {version === 'transition' && (
@@ -476,6 +476,8 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
       )}
 
       {/* Arrows */}
+
+      {/* Arrow previous */}
       {arrows && (
         <ArrowPreviousTransitionComponent_
           in={mobile || (arrowsVisibility === 'hover' && hover) || arrowsVisibility === 'visible'}
@@ -547,6 +549,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
         </ArrowPreviousTransitionComponent_>
       )}
 
+      {/* Arrow next */}
       {arrows && (
         <ArrowNextTransitionComponent_
           in={mobile || (arrowsVisibility === 'hover' && hover) || arrowsVisibility === 'visible'}
