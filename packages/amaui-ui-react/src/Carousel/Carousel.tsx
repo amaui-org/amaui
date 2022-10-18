@@ -367,17 +367,17 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     }
   }, [gap, version, autoHeight, autoHeightDelay]);
 
-  React.useEffect(() => {
-    const onMouseUp_ = () => {
+  const onMouseUp = React.useCallback((event: React.MouseEvent<any>) => {
+    if (refs.mouseDown.current) {
+      setMouseDown(false);
+
       refs.previousMouseEvent.current = undefined;
 
-      if (refs.mouseDown.current) {
-        setMouseDown(false);
+      if (refs.mouseDown.current) (refs.carousel.current as HTMLElement).style.removeProperty('transition');
+    }
+  }, []);
 
-        (refs.carousel.current as HTMLElement).style.removeProperty('transition');
-      }
-    };
-
+  React.useEffect(() => {
     const onMove = (x: number, y: number) => {
       if (refs.move.current && refs.mouseDown.current && refs.previousMouseEvent.current) {
         const inc = x - refs.previousMouseEvent.current.clientX;
@@ -519,15 +519,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     setMouseDown(true);
 
     refs.carousel.current.style.transition = 'none';
-  }, [pauseOnHover]);
-
-  const onMouseUp = React.useCallback((event: React.MouseEvent<any>) => {
-    setMouseDown(false);
-
-    refs.previousMouseEvent.current = undefined;
-
-    if (refs.mouseDown.current) (refs.carousel.current as HTMLElement).style.removeProperty('transition');
-  }, [pauseOnHover]);
+  }, []);
 
   const onMouseEnter = React.useCallback((event: React.MouseEvent<any>) => {
     setHover(true);
@@ -535,7 +527,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     if (refs.autoPlay.current) clear();
 
     if (is('function', onMouseEnter_)) onMouseEnter_(event);
-  }, [pauseOnHover]);
+  }, []);
 
   const onMouseLeave = React.useCallback((event: React.MouseEvent<any>) => {
     setHover(false);
@@ -543,13 +535,13 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     if (!refs.autoPlay.current) start();
 
     if (is('function', onMouseLeave_)) onMouseLeave_(event);
-  }, [pauseOnHover]);
+  }, []);
 
   const onArrowMouseEnter = React.useCallback((event: React.MouseEvent<any>) => {
     setHover(true);
 
     if (refs.autoPlay.current) clear();
-  }, [pauseOnHover]);
+  }, []);
 
   const ArrowPreviousTransitionComponent_ = ArrowPreviousTransitionComponent || ArrowTransitionComponent;
 
