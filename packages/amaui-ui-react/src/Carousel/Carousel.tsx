@@ -28,7 +28,17 @@ const useStyle = style(theme => ({
   item: {
     width: '100%',
     height: '100%',
-    flex: '0 0 auto'
+    flex: '0 0 auto',
+
+    '& img': {
+      width: 'auto',
+      maxHeight: '100%'
+    }
+  },
+
+  item_itemSize_auto: {
+    width: 'auto',
+    height: 'auto'
   },
 
   item_transition: {
@@ -181,10 +191,8 @@ const IconMaterialNavigateNextRounded = React.forwardRef((props: any, ref) => {
 
 // To do
 
-// amount of items in view per breakpoint, or auto
-// based on width and gap, add += on 1 item with gap (without gap for last)
-// and if enough space use those items
-// and per breakpoint other options
+// slide to 2 items per time
+// or custom width to scroll
 
 // free update
 
@@ -216,9 +224,13 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
     orientation: orientation_,
 
+    itemSize: itemSize_,
+
     gap: gap_,
 
     move: move_,
+
+    moveWithoutSnap: moveWithoutSnap_,
 
     swipe: swipe_,
 
@@ -240,6 +252,8 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
     // on mobile visible
     arrowsVisibility: arrowsVisibility_,
+
+    arrowHideOnStartEnd: arrowHideOnStartEnd_,
 
     renderProgress,
 
@@ -296,8 +310,10 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
   const version = valueBreakpoints(version_, 'regular', breakpoints, theme);
   const orientation = valueBreakpoints(orientation_, 'horizontal', breakpoints, theme);
+  const itemSize = valueBreakpoints(itemSize_, undefined, breakpoints, theme);
   const gap = valueBreakpoints(gap_, 4, breakpoints, theme);
   const move = valueBreakpoints(move_, true, breakpoints, theme);
+  const moveWithoutSnap = valueBreakpoints(moveWithoutSnap_, undefined, breakpoints, theme);
   const swipe = valueBreakpoints(swipe_, true, breakpoints, theme);
   const background = valueBreakpoints(background_, true, breakpoints, theme);
   const autoPlay = valueBreakpoints(autoPlay_, true, breakpoints, theme);
@@ -305,6 +321,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
   const round = valueBreakpoints(round_, true, breakpoints, theme);
   const arrows = valueBreakpoints(arrows_, true, breakpoints, theme);
   const arrowsVisibility = valueBreakpoints(arrowsVisibility_, 'hover', breakpoints, theme);
+  const arrowHideOnStartEnd = valueBreakpoints(arrowHideOnStartEnd_, undefined, breakpoints, theme);
   const progress = valueBreakpoints(progress_, true, breakpoints, theme);
   const progressVisibility = valueBreakpoints(progressVisibility_, 'hover', breakpoints, theme);
   const noTransition = valueBreakpoints(noTransition_, undefined, breakpoints, theme);
@@ -330,11 +347,13 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     gap: React.useRef<any>(),
     previousMouseEvent: React.useRef<any>(),
     move: React.useRef<any>(),
+    moveWithoutSnap: React.useRef<any>(),
     swipe: React.useRef<any>(),
     mouseDownStart: React.useRef<any>(),
     mouseDownDuration: React.useRef<any>(),
     orientation: React.useRef<any>(),
-    version: React.useRef<any>()
+    version: React.useRef<any>(),
+    itemSize: React.useRef<any>()
   };
 
   const styles: any = {
@@ -355,11 +374,15 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
   refs.move.current = move;
 
+  refs.moveWithoutSnap.current = moveWithoutSnap;
+
   refs.swipe.current = swipe;
 
   refs.orientation.current = orientation;
 
   refs.version.current = version;
+
+  refs.itemSize.current = itemSize;
 
   const onUpdatePosition = (value: any) => {
     setPosition(value);
@@ -384,8 +407,11 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     if (version === 'regular' && refs.carousel.current) {
       if (refs.orientation.current === 'horizontal') {
         const width = refs.carousel.current.getBoundingClientRect().width;
+        const scrollWidth = refs.carousel.current.scrollWidth;
 
-        const x = (index * width) + (index * (gap * theme.space.unit));
+        const part = refs.itemSize.current === 'auto' ? scrollWidth / refs.items.current.length : width;
+
+        const x = (index * part) + (index * (gap * theme.space.unit));
 
         onUpdatePosition({
           index,
@@ -396,8 +422,11 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
       if (refs.orientation.current === 'vertical') {
         const height = refs.carousel.current.getBoundingClientRect().height;
+        const scrollHeight = refs.carousel.current.scrollHeight;
 
-        const y = (index * height) + (index * (gap * theme.space.unit));
+        const part = refs.itemSize.current === 'auto' ? scrollHeight / refs.items.current.length : height;
+
+        const y = (index * part) + (index * (gap * theme.space.unit));
 
         onUpdatePosition({
           index,
@@ -432,6 +461,12 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
       if (refs.mouseDown.current) (refs.carousel.current as HTMLElement).style.removeProperty('transition');
 
       refs.mouseDownDuration.current = new Date().getTime() - refs.mouseDownStart.current;
+
+      if (refs.moveWithoutSnap.current) {
+        setMouseDown(false);
+
+        return;
+      }
 
       // Swipe
       // less than 140 ms
@@ -501,24 +536,36 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
       }
     };
 
-    const onMove = (x: number, y: number) => {
+    const onMove = (x_: number, y_: number) => {
       if (refs.move.current && refs.mouseDown.current && refs.previousMouseEvent.current) {
-        const incX = x - refs.previousMouseEvent.current.clientX;
-        const incY = y - refs.previousMouseEvent.current.clientY;
+        const incX = x_ - refs.previousMouseEvent.current.clientX;
+        const incY = y_ - refs.previousMouseEvent.current.clientY;
+
+        const { width, height } = refs.carousel.current.getBoundingClientRect();
+
+        const { scrollWidth, scrollHeight } = refs.carousel.current;
 
         if (refs.orientation.current === 'horizontal' && incX !== 0) {
+          const x = clamp((refs.position.current?.x || 0) - incX, 0, scrollWidth);
+
           onUpdatePosition({
             ...refs.position.current,
 
-            x: (refs.position.current?.x || 0) - incX
+            index: refs.itemSize.current === 'auto' ? Math.floor(scrollWidth / x) : Math.floor(x / width),
+
+            x
           });
         }
 
         if (refs.orientation.current === 'vertical' && incY !== 0) {
+          const y = clamp((refs.position.current?.y || 0) - incY, 0, scrollHeight);
+
           onUpdatePosition({
             ...refs.position.current,
 
-            y: (refs.position.current?.y || 0) - incY
+            index: refs.itemSize.current === 'auto' ? Math.floor(scrollHeight / y) : Math.floor(y / height),
+
+            y
           });
         }
       }
@@ -718,6 +765,18 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
   const indexActive = version === 'regular' ? position?.index : itemActive?.index;
 
+  let arrowPreviousIn = focus || (arrowsVisibility === 'hover' && hover) || arrowsVisibility === 'visible';
+
+  let arrowNextIn = focus || (arrowsVisibility === 'hover' && hover) || arrowsVisibility === 'visible';
+
+  if (arrowHideOnStartEnd) {
+    const { scrollWidth, scrollHeight } = (refs.carousel.current || {});
+
+    if (position?.x === 0 || position?.y === 0) arrowPreviousIn = false;
+
+    if ((position?.x !== undefined && position?.x === scrollWidth) || (position?.y !== undefined && position?.y === scrollHeight)) arrowNextIn = false;
+  }
+
   return (
     <Surface
       ref={item => {
@@ -814,7 +873,8 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
                   'AmauiCarousel-item'
                 ],
 
-                classes.item
+                classes.item,
+                itemSize && classes[`item_itemSize_${itemSize}`]
               ])}
             >
               {item}
@@ -952,7 +1012,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
       {/* Arrow previous */}
       {arrows && (
         <ArrowPreviousTransitionComponent_
-          in={focus || (arrowsVisibility === 'hover' && hover) || arrowsVisibility === 'visible'}
+          in={arrowPreviousIn}
 
           {...ArrowTransitionComponentProps}
 
@@ -1030,7 +1090,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
       {/* Arrow next */}
       {arrows && (
         <ArrowNextTransitionComponent_
-          in={focus || (arrowsVisibility === 'hover' && hover) || arrowsVisibility === 'visible'}
+          in={arrowNextIn}
 
           {...ArrowTransitionComponentProps}
 

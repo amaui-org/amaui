@@ -2993,6 +2993,126 @@ Please sign in again.`}
           />
         </Accordion>
 
+        <Accordion primary='Carousel arrowHideOnStartEnd'>
+          <Line
+            style={{
+              width: '100%'
+            }}
+          >
+            <Carousel
+              arrowHideOnStartEnd
+
+              moveWithoutSnap
+
+              orientation='horizontal'
+
+              items={[
+                'https://picsum.photos/seed/a/1500/540',
+                'https://picsum.photos/seed/a/400/400',
+                'https://picsum.photos/seed/a/1400/340',
+                'https://picsum.photos/seed/a/1700/400',
+                'https://picsum.photos/seed/a/400/1400'
+              ]}
+            />
+
+            <Carousel
+              arrowHideOnStartEnd
+
+              moveWithoutSnap
+
+              orientation='vertical'
+
+              items={[
+                'https://picsum.photos/seed/a/1500/540',
+                'https://picsum.photos/seed/a/400/400',
+                'https://picsum.photos/seed/a/1400/340',
+                'https://picsum.photos/seed/a/1700/400',
+                'https://picsum.photos/seed/a/400/1400'
+              ]}
+            />
+          </Line>
+        </Accordion>
+
+        <Accordion primary='Carousel moveWithoutSnap'>
+          <Line
+            style={{
+              width: '100%'
+            }}
+          >
+            <Carousel
+              moveWithoutSnap
+
+              orientation='horizontal'
+
+              items={[
+                'https://picsum.photos/seed/a/1500/540',
+                'https://picsum.photos/seed/a/400/400',
+                'https://picsum.photos/seed/a/1400/340',
+                'https://picsum.photos/seed/a/1700/400',
+                'https://picsum.photos/seed/a/400/1400'
+              ]}
+            />
+
+            <Carousel
+              moveWithoutSnap
+
+              orientation='vertical'
+
+              items={[
+                'https://picsum.photos/seed/a/1500/540',
+                'https://picsum.photos/seed/a/400/400',
+                'https://picsum.photos/seed/a/1400/340',
+                'https://picsum.photos/seed/a/1700/400',
+                'https://picsum.photos/seed/a/400/1400'
+              ]}
+            />
+          </Line>
+        </Accordion>
+
+        <Accordion primary='Carousel itemSize'>
+          <Line
+            style={{
+              width: '100%'
+            }}
+          >
+            <Carousel
+              moveWithoutSnap
+
+              itemSize='auto'
+
+              background={false}
+
+              orientation='horizontal'
+
+              items={[
+                'https://picsum.photos/seed/a/1500/540',
+                'https://picsum.photos/seed/a/400/400',
+                'https://picsum.photos/seed/a/1400/340',
+                'https://picsum.photos/seed/a/1700/400',
+                'https://picsum.photos/seed/a/400/1400'
+              ]}
+            />
+
+            <Carousel
+              moveWithoutSnap
+
+              itemSize='auto'
+
+              background={false}
+
+              orientation='vertical'
+
+              items={[
+                'https://picsum.photos/seed/a/1500/540',
+                'https://picsum.photos/seed/a/400/400',
+                'https://picsum.photos/seed/a/1400/340',
+                'https://picsum.photos/seed/a/1700/400',
+                'https://picsum.photos/seed/a/400/1400'
+              ]}
+            />
+          </Line>
+        </Accordion>
+
         <Accordion primary='Carousel orientation'>
           <Line
             style={{
@@ -3012,7 +3132,7 @@ Please sign in again.`}
             />
 
             <Carousel
-            version='transition'
+              version='transition'
 
               orientation='horizontal'
 
@@ -3038,7 +3158,7 @@ Please sign in again.`}
             />
 
             <Carousel
-            version='transition'
+              version='transition'
 
               orientation='vertical'
 
