@@ -349,6 +349,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     move: React.useRef<any>(),
     moveWithoutSnap: React.useRef<any>(),
     swipe: React.useRef<any>(),
+    mouseDownPosition: React.useRef<any>(),
     mouseDownStart: React.useRef<any>(),
     mouseDownDuration: React.useRef<any>(),
     orientation: React.useRef<any>(),
@@ -494,7 +495,11 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
       // Move
       if (refs.version.current === 'regular' && refs.position.current) {
         if (refs.orientation.current === 'horizontal') {
-          const { index, x } = refs.position.current;
+          const { x } = refs.position.current;
+
+          let index = refs.position.current.index;
+
+          if (refs.mouseDownPosition.current?.x > x) index++;
 
           const width = refs.carousel.current.getBoundingClientRect().width;
 
@@ -506,7 +511,11 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
         }
 
         if (refs.orientation.current === 'vertical') {
-          const { index, y } = refs.position.current;
+          const { y } = refs.position.current;
+
+          let index = refs.position.current.index;
+
+          if (refs.mouseDownPosition.current?.y > y) index++;
 
           const height = refs.carousel.current.getBoundingClientRect().height;
 
@@ -738,6 +747,8 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
   const onMouseDown = React.useCallback((event: React.MouseEvent<any>) => {
     setMouseDown(event);
+
+    refs.mouseDownPosition.current = { ...refs.position.current };
 
     refs.mouseDownStart.current = new Date().getTime();
 
