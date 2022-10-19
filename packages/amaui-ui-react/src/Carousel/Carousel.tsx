@@ -191,8 +191,6 @@ const IconMaterialNavigateNextRounded = React.forwardRef((props: any, ref) => {
 
 // To do
 
-// move index update for itemSize === 'auto'
-
 // slide to 2 items per time
 // or custom width to scroll
 
@@ -553,8 +551,6 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
           if (refs.itemSize.current === 'auto') {
             max = (scrollWidth - (scrollWidth / refs.items.current.length)) + ((gap * theme.space.unit) * (refs.items.current.length - 1));
-
-            console.log(0, max);
           }
 
           const x = clamp((refs.position.current?.x || 0) - incX, min, max);
@@ -562,7 +558,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
           onUpdatePosition({
             ...refs.position.current,
 
-            index: refs.itemSize.current === 'auto' ? Math.floor(scrollWidth / x) : Math.floor(x / width),
+            index: Math.floor(x / (max / (refs.items.current.length - 1))),
 
             x
           });
@@ -581,7 +577,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
           onUpdatePosition({
             ...refs.position.current,
 
-            index: refs.itemSize.current === 'auto' ? Math.floor(scrollHeight / y) : Math.floor(y / height),
+            index: Math.floor(y / (max / (refs.items.current.length - 1))),
 
             y
           });
