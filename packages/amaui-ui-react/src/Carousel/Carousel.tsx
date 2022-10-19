@@ -546,7 +546,12 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
         const { scrollWidth, scrollHeight } = refs.carousel.current;
 
         if (refs.orientation.current === 'horizontal' && incX !== 0) {
-          const x = clamp((refs.position.current?.x || 0) - incX, 0, scrollWidth);
+          const min = 0;
+          let max = ((width + (gap * theme.space.unit)) * (refs.items.current.length - 1));
+
+
+
+          const x = clamp((refs.position.current?.x || 0) - incX, min, max);
 
           onUpdatePosition({
             ...refs.position.current,
@@ -558,7 +563,10 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
         }
 
         if (refs.orientation.current === 'vertical' && incY !== 0) {
-          const y = clamp((refs.position.current?.y || 0) - incY, 0, scrollHeight);
+          const min = 0;
+          let max = ((height + (gap * theme.space.unit)) * (refs.items.current.length - 1));
+
+          const y = clamp((refs.position.current?.y || 0) - incY, min, max);
 
           onUpdatePosition({
             ...refs.position.current,
@@ -779,10 +787,10 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
       if ((position?.x !== undefined && position?.x >= scrollWidth) || (position?.y !== undefined && position?.y >= scrollHeight)) arrowNextIn = false;
     }
     else {
-      if ((position?.x !== undefined && position?.x >= (scrollWidth - width)) || (position?.y !== undefined && position?.y >= (scrollHeight - height))) arrowNextIn = false;
+      if ((position?.x !== undefined && position?.x + 1 >= (scrollWidth - width)) || (position?.y + 1 !== undefined && position?.y >= (scrollHeight - height))) arrowNextIn = false;
     }
   }
-
+  console.log(1, itemSize, position?.x);
   return (
     <Surface
       ref={item => {
