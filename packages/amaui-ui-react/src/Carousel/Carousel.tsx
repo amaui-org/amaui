@@ -8,8 +8,8 @@ import Line from '../Line';
 import Fade from '../Fade';
 import IconButton from '../IconButton';
 import Transitions from '../Transitions';
-import useMediaQuery from '../useMediaQuery';
 import Surface from '../Surface';
+import useMediaQuery from '../useMediaQuery';
 
 import { staticClassName, valueBreakpoints } from '../utils';
 
@@ -477,13 +477,15 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
         setMouseDown(false);
 
         if (refs.orientation.current === 'horizontal') {
-          if (previousClientX < clientX) return onUpdate('previous');
+          // As move already updates the index
+          // so move to that index
+          if (previousClientX < clientX) return onUpdate(refs.version.current === 'regular' ? refs.position.current?.index : 'previous');
 
           if (previousClientX > clientX) return onUpdate('next');
         }
 
         if (refs.orientation.current === 'vertical') {
-          if (previousClientY < clientY) return onUpdate('previous');
+          if (previousClientY < clientY) return onUpdate(refs.version.current === 'regular' ? refs.position.current?.index : 'previous');
 
           if (previousClientY > clientY) return onUpdate('next');
         }
