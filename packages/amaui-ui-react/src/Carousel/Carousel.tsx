@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is, unique, clamp } from '@amaui/utils';
+import { is, unique, clamp, debounce } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 import AmauiSubscription from '@amaui/subscription';
 
@@ -254,6 +254,8 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
     arrows: arrows_,
 
+    mouseScroll,
+
     // AmauiSubscription methods
     previousSub,
     nextSub,
@@ -368,7 +370,8 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     orientation: React.useRef<any>(),
     version: React.useRef<any>(),
     itemSize: React.useRef<any>(),
-    itemsLength: React.useRef<any>()
+    itemsLength: React.useRef<any>(),
+    round: React.useRef<any>()
   };
 
   const styles: any = {
@@ -403,7 +406,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
   refs.itemSize.current = itemSize;
 
-  refs.itemSize.current = itemSize;
+  refs.round.current = round;
 
   const { scrollWidth, scrollHeight } = (refs.carousel.current || {});
 
@@ -431,9 +434,10 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     else {
       index = to === 'next' ? index + 1 : index - 1;
 
-      if (index < 0) index = refs.itemsLength.current - 1;
 
-      if (index > refs.itemsLength.current - 1) index = 0;
+      if (index < 0) index = refs.round.current ? refs.itemsLength.current - 1 : 0;
+
+      if (index > refs.itemsLength.current - 1) index = refs.round.current ? 0 : refs.itemsLength.current - 1;
     }
 
     // Regular
@@ -648,7 +652,9 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
             max = (scrollWidth_ - (scrollWidth_ / refs.itemsLength.current)) + ((gap * theme.space.unit) * (refs.itemsLength.current - 1));
           }
 
-          const x = clamp((refs.position.current?.x || 0) - incX, min, max);
+          let x = (refs.position.current?.x || 0) - incX;
+
+          if (refs.moveWithoutSnap.current) x = clamp(x, min, max);
 
           onUpdatePosition({
             ...refs.position.current,
@@ -667,7 +673,9 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
             max = (scrollHeight_ - (scrollHeight_ / refs.itemsLength.current)) + ((gap * theme.space.unit) * (refs.itemsLength.current - 1));
           }
 
-          const y = clamp((refs.position.current?.y || 0) - incY, min, max);
+          let y = (refs.position.current?.y || 0) - incY;
+
+          if (refs.moveWithoutSnap.current) y = clamp(y, min, max);
 
           onUpdatePosition({
             ...refs.position.current,
@@ -848,6 +856,28 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     setItems(values);
   }, [items_, background, children]);
 
+  const onWheel = React.useCallback(debounce((event: React.WheelEvent<any>) => {
+    if (
+      (refs.orientation.current === 'horizontal' && event.deltaX < 0) ||
+      (refs.orientation.current === 'vertical' && event.deltaY < 0)
+    ) {
+      event.preventDefault();
+      event.stopPropagation();
+
+      return onUpdate('previous');
+    }
+
+    if (
+      (refs.orientation.current === 'horizontal' && event.deltaX > 0) ||
+      (refs.orientation.current === 'vertical' && event.deltaY > 0)
+    ) {
+      event.preventDefault();
+      event.stopPropagation();
+
+      return onUpdate('next');
+    }
+  }, 40), []);
+
   const onBlur = React.useCallback((event: React.FocusEvent<any>) => {
     setFocus(false);
 
@@ -984,6 +1014,8 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
           justify='flex-start'
 
+          onWheel={mouseScroll && onWheel}
+
           onMouseDown={onMouseDown}
 
           onTouchStart={onMouseDown}
@@ -1050,6 +1082,8 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
           justify='center'
 
+          onWheel={mouseScroll && onWheel}
+
           onMouseDown={onMouseDown}
 
           onTouchStart={onMouseDown}
@@ -1078,7 +1112,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
               {...TransitionsProps}
             >
               <TransitionComponent
-                key={itemActive?.index}
+                key={indexActive}
 
                 {...TransitionComponentProps}
               >
@@ -1196,7 +1230,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
                     classes[`arrow_previous_orientation_${orientation}`]
                   ]),
 
-                  disabled: !round && itemActive?.index === 0,
+                  disabled: !round && indexActive === 0,
 
                   ...ArrowProps,
 
@@ -1225,7 +1259,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
                     classes[`arrow_previous_orientation_${orientation}`]
                   ])}
 
-                  disabled={!round && itemActive?.index === 0}
+                  disabled={!round && indexActive === 0}
 
                   {...ArrowProps}
 
@@ -1275,7 +1309,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
                     classes[`arrow_next_orientation_${orientation}`]
                   ]),
 
-                  disabled: !round && itemActive?.index === items.length - 1,
+                  disabled: !round && indexActive === items.length - 1,
 
                   ...ArrowProps,
 
@@ -1304,7 +1338,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
                     classes[`arrow_next_orientation_${orientation}`]
                   ])}
 
-                  disabled={!round && itemActive?.index === items.length - 1}
+                  disabled={!round && indexActive === items.length - 1}
 
                   {...ArrowProps}
 
