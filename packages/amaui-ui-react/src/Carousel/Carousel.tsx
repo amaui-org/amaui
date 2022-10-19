@@ -63,7 +63,8 @@ const useStyle = style(theme => ({
   carousel: {
     position: 'relative',
     width: '100%',
-    height: '100%'
+    height: '100%',
+    touchAction: 'none'
   },
 
   carousel_version_regular: {
