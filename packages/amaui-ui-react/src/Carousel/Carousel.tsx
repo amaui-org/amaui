@@ -377,7 +377,8 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     momentum: React.useRef<any>(),
     round: React.useRef<any>(),
     velocity: React.useRef<any>(),
-    momentumID: React.useRef<any>()
+    momentumID: React.useRef<any>(),
+    width: React.useRef<any>()
   };
 
   const styles: any = {
@@ -419,6 +420,8 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
   const { scrollWidth, scrollHeight } = (refs.carousel.current || {});
 
   const { width, height } = (refs.carousel.current?.getBoundingClientRect() || {});
+
+  refs.width.current = width;
 
   refs.itemsLength.current = items.length;
 
@@ -510,11 +513,25 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     refs.momentumID.current = requestAnimationFrame(momentumMethod);
   };
 
-  const onUpdatePosition = (value: any) => {
+  const onUpdatePosition = (value_: any) => {
     // Momentum
     momentumClear();
 
-    setPosition(value);
+    setPosition(value_);
+
+    const value = {
+      ...value_
+    };
+
+    if (refs.version.current === 'regular' && refs.itemSize.current !== 'auto') {
+      const max = refs.width.current / 2;
+      const valuePosition = value[refs.orientation.current === 'horizontal' ? 'x' : 'y'];
+      let part = valuePosition - (refs.mouseDownPosition.current?.[refs.orientation.current === 'horizontal' ? 'x' : 'y'] || 0);
+
+      const additional = (part / max) * 100;
+
+      value.additional = additional;
+    }
 
     if (is('function', onUpdatePosition_)) onUpdatePosition_(value);
   };
