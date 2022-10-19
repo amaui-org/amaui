@@ -82,7 +82,7 @@ const useStyle = style(theme => ({
   },
 
   progress_orientation_vertical: {
-    width: '100%',
+    height: '100%',
     top: '50%',
     transform: 'translateY(-50%)',
     right: '24px'
@@ -117,7 +117,7 @@ const useStyle = style(theme => ({
     left: '24px'
   },
 
-  arrow_previous_orientation_Vertical: {
+  arrow_previous_orientation_vertical: {
     left: '50%',
     transform: 'translateX(-50%)',
     top: '24px'
@@ -137,11 +137,11 @@ const useStyle = style(theme => ({
     bottom: '24px'
   },
 
-  icon_previous_orientation_horizontal: {
+  icon_previous_orientation_vertical: {
     transform: 'rotate(90deg)'
   },
 
-  icon_next_orientation_horizontal: {
+  icon_next_orientation_vertical: {
     transform: 'rotate(90deg)'
   }
 }), { name: 'AmauiCarousel' });
@@ -517,7 +517,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
           onUpdatePosition({
             ...refs.position.current,
 
-            x: (refs.position.current?.x || 0) - incY
+            y: (refs.position.current?.y || 0) - incY
           });
         }
       }
@@ -712,7 +712,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
   if (noTransition) TransitionComponent = React.Fragment;
 
   if (version === 'regular') {
-    styles.carousel.transform = `translate3d(${-(position?.x || 0)}px, 0, 0)`;
+    styles.carousel.transform = `translate3d(${orientation === 'horizontal' ? `${-(position?.x || 0)}px, 0` : `0, ${-(position?.y || 0)}px`}, 0)`;
   }
 
   const indexActive = version === 'regular' ? position?.index : itemActive?.index;
@@ -745,6 +745,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
         staticClassName('Carousel', theme) && [
           'AmauiCarousel-root',
           `AmauiCarousel-version-${version}`,
+          `AmauiCarousel-orientation-${orientation}`,
           autoPlay && `AmauiCarousel-autoPlay`,
           autoHeight && `AmauiCarousel-autoHeight`
         ],
@@ -907,7 +908,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
             <Line
               gap={1}
 
-              direction='row'
+              direction={orientation === 'horizontal' ? 'row' : 'column'}
 
               align='center'
 
@@ -1005,7 +1006,8 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
                     ],
 
                     classes.arrow,
-                    classes.arrow_previous
+                    classes.arrow_previous,
+                    classes[`arrow_previous_orientation_${orientation}`]
                   ])}
 
                   disabled={!round && itemActive?.index === 0}
@@ -1081,7 +1083,8 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
                     ],
 
                     classes.arrow,
-                    classes.arrow_next
+                    classes.arrow_next,
+                    classes[`arrow_next_orientation_${orientation}`]
                   ])}
 
                   disabled={!round && itemActive?.index === items.length - 1}
