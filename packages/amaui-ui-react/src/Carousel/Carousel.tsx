@@ -771,10 +771,16 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
   if (arrowHideOnStartEnd) {
     const { scrollWidth, scrollHeight } = (refs.carousel.current || {});
+    const { width, height } = (refs.carousel.current?.getBoundingClientRect() || {});
 
     if (position?.x === 0 || position?.y === 0) arrowPreviousIn = false;
 
-    if ((position?.x !== undefined && position?.x === scrollWidth) || (position?.y !== undefined && position?.y === scrollHeight)) arrowNextIn = false;
+    if (itemSize === 'auto') {
+      if ((position?.x !== undefined && position?.x >= scrollWidth) || (position?.y !== undefined && position?.y >= scrollHeight)) arrowNextIn = false;
+    }
+    else {
+      if ((position?.x !== undefined && position?.x >= (scrollWidth - width)) || (position?.y !== undefined && position?.y >= (scrollHeight - height))) arrowNextIn = false;
+    }
   }
 
   return (

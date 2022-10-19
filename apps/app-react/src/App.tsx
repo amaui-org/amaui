@@ -3018,6 +3018,46 @@ Please sign in again.`}
             <Carousel
               arrowHideOnStartEnd
 
+              itemSize='auto'
+
+              background={false}
+
+              moveWithoutSnap
+
+              orientation='horizontal'
+
+              items={[
+                'https://picsum.photos/seed/a/1500/540',
+                'https://picsum.photos/seed/a/400/400',
+                'https://picsum.photos/seed/a/1400/340',
+                'https://picsum.photos/seed/a/1700/400',
+                'https://picsum.photos/seed/a/400/1400'
+              ]}
+            />
+
+            <Carousel
+              arrowHideOnStartEnd
+
+              moveWithoutSnap
+
+              orientation='vertical'
+
+              items={[
+                'https://picsum.photos/seed/a/1500/540',
+                'https://picsum.photos/seed/a/400/400',
+                'https://picsum.photos/seed/a/1400/340',
+                'https://picsum.photos/seed/a/1700/400',
+                'https://picsum.photos/seed/a/400/1400'
+              ]}
+            />
+
+            <Carousel
+              arrowHideOnStartEnd
+
+              itemSize='auto'
+
+              background={false}
+
               moveWithoutSnap
 
               orientation='vertical'
