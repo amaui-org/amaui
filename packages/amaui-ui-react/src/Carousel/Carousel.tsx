@@ -191,6 +191,8 @@ const IconMaterialNavigateNextRounded = React.forwardRef((props: any, ref) => {
 
 // To do
 
+// move index update for itemSize === 'auto'
+
 // slide to 2 items per time
 // or custom width to scroll
 
@@ -549,7 +551,11 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
           const min = 0;
           let max = ((width + (gap * theme.space.unit)) * (refs.items.current.length - 1));
 
+          if (refs.itemSize.current === 'auto') {
+            max = (scrollWidth - (scrollWidth / refs.items.current.length)) + ((gap * theme.space.unit) * (refs.items.current.length - 1));
 
+            console.log(0, max);
+          }
 
           const x = clamp((refs.position.current?.x || 0) - incX, min, max);
 
@@ -565,6 +571,10 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
         if (refs.orientation.current === 'vertical' && incY !== 0) {
           const min = 0;
           let max = ((height + (gap * theme.space.unit)) * (refs.items.current.length - 1));
+
+          if (refs.itemSize.current === 'auto') {
+            max = (scrollHeight - (scrollHeight / refs.items.current.length)) + ((gap * theme.space.unit) * (refs.items.current.length - 1));
+          }
 
           const y = clamp((refs.position.current?.y || 0) - incY, min, max);
 
@@ -781,16 +791,25 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     const { scrollWidth, scrollHeight } = (refs.carousel.current || {});
     const { width, height } = (refs.carousel.current?.getBoundingClientRect() || {});
 
-    if (position?.x === 0 || position?.y === 0) arrowPreviousIn = false;
+    const min = 0;
+    let maxX = ((width + (gap * theme.space.unit)) * (refs.items.current.length - 1));
+    let maxY = ((height + (gap * theme.space.unit)) * (refs.items.current.length - 1));
+
+    if (refs.itemSize.current === 'auto') {
+      maxX = (scrollWidth - (scrollWidth / refs.items.current.length)) + ((gap * theme.space.unit) * (refs.items.current.length - 1));
+      maxY = (scrollHeight - (scrollHeight / refs.items.current.length)) + ((gap * theme.space.unit) * (refs.items.current.length - 1));
+    }
+
+    if (position?.x === min || position?.y === min) arrowPreviousIn = false;
 
     if (itemSize === 'auto') {
-      if ((position?.x !== undefined && position?.x >= scrollWidth) || (position?.y !== undefined && position?.y >= scrollHeight)) arrowNextIn = false;
+      if ((position?.x !== undefined && position?.x + 1 >= maxX) || (position?.y !== undefined && position?.y + 1 >= maxY)) arrowNextIn = false;
     }
     else {
-      if ((position?.x !== undefined && position?.x + 1 >= (scrollWidth - width)) || (position?.y + 1 !== undefined && position?.y >= (scrollHeight - height))) arrowNextIn = false;
+      if ((position?.x !== undefined && position?.x + 1 >= maxX) || (position?.y + 1 !== undefined && position?.y >= maxY)) arrowNextIn = false;
     }
   }
-  console.log(1, itemSize, position?.x);
+
   return (
     <Surface
       ref={item => {
