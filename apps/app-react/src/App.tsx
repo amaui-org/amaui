@@ -2993,6 +2993,40 @@ Please sign in again.`}
           />
         </Accordion>
 
+        <Accordion primary='Carousel free'>
+          <Line
+            style={{
+              width: '100%'
+            }}
+          >
+            <Carousel
+              free
+
+              items={[
+                'https://picsum.photos/seed/a/1500/540',
+                'https://picsum.photos/seed/a/400/400',
+                'https://picsum.photos/seed/a/1400/340',
+                'https://picsum.photos/seed/a/1700/400',
+                'https://picsum.photos/seed/a/400/1400'
+              ]}
+            />
+
+            <Carousel
+              free
+
+              orientation='vertical'
+
+              items={[
+                'https://picsum.photos/seed/a/1500/540',
+                'https://picsum.photos/seed/a/400/400',
+                'https://picsum.photos/seed/a/1400/340',
+                'https://picsum.photos/seed/a/1700/400',
+                'https://picsum.photos/seed/a/400/1400'
+              ]}
+            />
+          </Line>
+        </Accordion>
+
         <Accordion primary='Carousel round'>
           <Carousel
             round={false}
