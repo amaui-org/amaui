@@ -204,6 +204,8 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
     version: version_,
 
+    item,
+
     valueDefault,
     value: value_,
 
@@ -341,6 +343,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
   if (free && momentum === undefined) momentum = true;
 
+  const [init, setInit] = React.useState<any>();
   const [items, setItems] = React.useState([]);
   const [value, setValue] = React.useState<any>(valueDefault !== undefined ? valueDefault : value_);
   const [hover, setHover] = React.useState<any>();
@@ -851,6 +854,8 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
     window.addEventListener('touchmove', onTouchMove, { passive: true });
 
+    setInit(true);
+
     return () => {
       observer.disconnect();
 
@@ -869,6 +874,12 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
   React.useEffect(() => {
     if (value_ !== undefined && !equalDeep(value_, refs.value.current)) setValue((valuePrevious: any) => ({ ...valuePrevious, ...value_ }));
   }, [value_]);
+
+  React.useEffect(() => {
+    if (init) {
+      if (item >= 0 && item <= refs.itemsLength.current && item !== refs.value.current?.index) onUpdate(item);
+    }
+  }, [item]);
 
   const onPrevious = () => onUpdate('previous');
 

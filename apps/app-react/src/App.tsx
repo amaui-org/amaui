@@ -859,13 +859,6 @@ const SliderMiUI = sy(Slider)(() => ({
 
 const TabsCarousel = () => {
   const [value, setValue] = React.useState<any>();
-  const [position, setPosition] = React.useState<any>();
-
-  const onUpdatePosition = (value_: any) => {
-    setValue(value_);
-
-    setPosition(value_);
-  };
 
   return (
     <div
@@ -874,9 +867,9 @@ const TabsCarousel = () => {
       }}
     >
       <Tabs
-        value={value?.index}
+        value={value}
 
-        onChange={(value_: any) => setValue({ ...value, index: value_ })}
+        onChange={(value_: any) => setValue(value_)}
       >
         {new Array(4).fill(1).map((item: any, index: number) => (
           <Tab
@@ -892,11 +885,9 @@ const TabsCarousel = () => {
       <Carousel
         autoHeight
 
-        value={value}
+        item={value}
 
-        onChange={(value_: any) => setValue(value_)}
-
-        onUpdatePosition={onUpdatePosition}
+        onChange={(value_: any) => setValue(value_?.index)}
 
         items={(
           Array
@@ -938,7 +929,7 @@ const TabsCarousel = () => {
             })
         )}
       />
-    </div>
+    </div >
   );
 };
 

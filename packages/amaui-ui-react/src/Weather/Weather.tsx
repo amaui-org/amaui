@@ -315,7 +315,7 @@ const Weather = React.forwardRef((props_: any, ref: any) => {
   };
 
   React.useEffect(() => {
-    const method = () => setRect(refs.root.current.getBoundingClientRect());
+    const method = () => setRect(refs.root.current?.getBoundingClientRect());
 
     const observer = new ResizeObserver(method);
 
