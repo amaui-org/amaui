@@ -187,8 +187,6 @@ const IconMaterialNavigateNextRounded = React.forwardRef((props: any, ref) => {
 
 // to do
 
-// free update
-
 // example for tabs
 
 // example parallax based on the slide position in 100% for items in the slide.
@@ -499,7 +497,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
       }
     }
 
-    refs.velocity.current *= 0.94;
+    refs.velocity.current *= 0.95;
 
     if (Math.abs(refs.velocity.current) > 0.5) refs.momentumID.current = requestAnimationFrame(momentumMethod);
     else {
