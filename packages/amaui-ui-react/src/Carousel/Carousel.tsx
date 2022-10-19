@@ -2,6 +2,7 @@ import React from 'react';
 
 import { is, unique, clamp } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
+import AmauiSubscription from '@amaui/subscription';
 
 import Icon from '../Icon';
 import Line from '../Line';
@@ -189,14 +190,13 @@ const IconMaterialNavigateNextRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
-// To do
-
-// slide to 2 items per time
-// or custom width to scroll
+// to do
 
 // free update
 
 // example for tabs
+
+// example parallax based on the slide position in 100% for items in the slide.
 
 const Carousel = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
@@ -230,6 +230,10 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
     move: move_,
 
+    moveValue: moveValue_,
+
+    moveItems: moveItems_,
+
     moveWithoutSnap: moveWithoutSnap_,
 
     swipe: swipe_,
@@ -249,6 +253,11 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     round: round_,
 
     arrows: arrows_,
+
+    // AmauiSubscription methods
+    previousSub,
+    nextSub,
+    updateSub,
 
     // on mobile visible
     arrowsVisibility: arrowsVisibility_,
@@ -313,6 +322,8 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
   const itemSize = valueBreakpoints(itemSize_, undefined, breakpoints, theme);
   const gap = valueBreakpoints(gap_, 4, breakpoints, theme);
   const move = valueBreakpoints(move_, true, breakpoints, theme);
+  const moveValue = valueBreakpoints(moveValue_, undefined, breakpoints, theme);
+  const moveItems = valueBreakpoints(moveItems_, undefined, breakpoints, theme);
   const moveWithoutSnap = valueBreakpoints(moveWithoutSnap_, undefined, breakpoints, theme);
   const swipe = valueBreakpoints(swipe_, true, breakpoints, theme);
   const background = valueBreakpoints(background_, true, breakpoints, theme);
@@ -347,6 +358,8 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     gap: React.useRef<any>(),
     previousMouseEvent: React.useRef<any>(),
     move: React.useRef<any>(),
+    moveValue: React.useRef<any>(),
+    moveItems: React.useRef<any>(),
     moveWithoutSnap: React.useRef<any>(),
     swipe: React.useRef<any>(),
     mouseDownPosition: React.useRef<any>(),
@@ -354,7 +367,8 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     mouseDownDuration: React.useRef<any>(),
     orientation: React.useRef<any>(),
     version: React.useRef<any>(),
-    itemSize: React.useRef<any>()
+    itemSize: React.useRef<any>(),
+    itemsLength: React.useRef<any>()
   };
 
   const styles: any = {
@@ -375,6 +389,10 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
   refs.move.current = move;
 
+  refs.moveValue.current = moveValue;
+
+  refs.moveItems.current = moveItems;
+
   refs.moveWithoutSnap.current = moveWithoutSnap;
 
   refs.swipe.current = swipe;
@@ -384,6 +402,20 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
   refs.version.current = version;
 
   refs.itemSize.current = itemSize;
+
+  refs.itemSize.current = itemSize;
+
+  const { scrollWidth, scrollHeight } = (refs.carousel.current || {});
+
+  const { width, height } = (refs.carousel.current?.getBoundingClientRect() || {});
+
+  refs.itemsLength.current = items.length;
+
+  if (itemSize === 'auto') {
+    if (moveValue) refs.itemsLength.current = orientation === 'horizontal' ? Math.ceil(scrollWidth / moveValue) : Math.ceil(scrollHeight / moveValue);
+
+    if (moveItems) refs.itemsLength.current = Math.ceil(items.length / clamp(moveItems, 1, items.length));
+  }
 
   const onUpdatePosition = (value: any) => {
     setPosition(value);
@@ -395,45 +427,97 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     let index = version === 'regular' ? refs.position.current?.index : refs.itemActive.current?.index;
 
     if (index === undefined) index = 0;
-    else if (is('number', to)) index = clamp(to as number, 0, refs.items.current.length - 1);
+    else if (is('number', to)) index = clamp(to as number, 0, refs.itemsLength.current - 1);
     else {
       index = to === 'next' ? index + 1 : index - 1;
 
-      if (index < 0) index = refs.items.current.length - 1;
+      if (index < 0) index = refs.itemsLength.current - 1;
 
-      if (index > refs.items.current.length - 1) index = 0;
+      if (index > refs.itemsLength.current - 1) index = 0;
     }
 
     // Regular
     if (version === 'regular' && refs.carousel.current) {
       if (refs.orientation.current === 'horizontal') {
-        const width = refs.carousel.current.getBoundingClientRect().width;
-        const scrollWidth = refs.carousel.current.scrollWidth;
+        if (refs.itemSize.current === 'auto' && refs.moveValue.current !== undefined) {
+          const x = index * refs.moveValue.current;
 
-        const part = refs.itemSize.current === 'auto' ? scrollWidth / refs.items.current.length : width;
+          onUpdatePosition({
+            index,
 
-        const x = (index * part) + (index * (gap * theme.space.unit));
+            x
+          });
+        }
+        else if (refs.itemSize.current === 'auto' && refs.moveItems.current !== undefined) {
+          let item: any = index * clamp(moveItems, 1, refs.items.current.length);
 
-        onUpdatePosition({
-          index,
+          item = refs.carousel.current.children[item];
 
-          x
-        });
+          if (item) {
+            const x = item.offsetLeft;
+
+            onUpdatePosition({
+              index,
+
+              x
+            });
+          }
+        }
+        else {
+          const width_ = refs.carousel.current.getBoundingClientRect().width;
+          const scrollWidth_ = refs.carousel.current.scrollWidth;
+
+          const part = refs.itemSize.current === 'auto' ? scrollWidth_ / refs.itemsLength.current : width_;
+
+          const x = (index * part) + (index * (gap * theme.space.unit));
+
+          onUpdatePosition({
+            index,
+
+            x
+          });
+        }
       }
 
       if (refs.orientation.current === 'vertical') {
-        const height = refs.carousel.current.getBoundingClientRect().height;
-        const scrollHeight = refs.carousel.current.scrollHeight;
+        if (refs.itemSize.current === 'auto' && refs.moveValue.current !== undefined) {
+          const y = index * refs.moveValue.current;
 
-        const part = refs.itemSize.current === 'auto' ? scrollHeight / refs.items.current.length : height;
+          onUpdatePosition({
+            index,
 
-        const y = (index * part) + (index * (gap * theme.space.unit));
+            y
+          });
+        }
+        else if (refs.itemSize.current === 'auto' && refs.moveItems.current !== undefined) {
+          let item: any = index * clamp(moveItems, 1, refs.items.current.length);
 
-        onUpdatePosition({
-          index,
+          item = refs.carousel.current.children[item];
 
-          y
-        });
+          if (item) {
+            const y = item.offsetTop;
+
+            onUpdatePosition({
+              index,
+
+              y
+            });
+          }
+        }
+        else {
+          const height_ = refs.carousel.current.getBoundingClientRect().height;
+          const scrollHeight_ = refs.carousel.current.scrollHeight;
+
+          const part = refs.itemSize.current === 'auto' ? scrollHeight_ / refs.itemsLength.current : height_;
+
+          const y = (index * part) + (index * (gap * theme.space.unit));
+
+          onUpdatePosition({
+            index,
+
+            y
+          });
+        }
       }
     };
 
@@ -446,9 +530,9 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
         if (autoHeight) {
           setTimeout(() => {
-            const height = refs.carousel.current.children[0]?.children[0]?.getBoundingClientRect().height;
+            const height_ = refs.carousel.current.children[0]?.children[0]?.getBoundingClientRect().height;
 
-            if (height > 0) refs.root.current.style.height = `${height}px`;
+            if (height_ > 0) refs.root.current.style.height = `${height_}px`;
           }, autoHeightDelay);
         }
       }
@@ -501,12 +585,12 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
           if (refs.mouseDownPosition.current?.x > x) index++;
 
-          const width = refs.carousel.current.getBoundingClientRect().width;
+          const width_ = refs.carousel.current.getBoundingClientRect().width;
 
-          const original = (index * width) + (index * (gap * theme.space.unit));
+          const original = (index * width_) + (index * (gap * theme.space.unit));
 
-          if (x <= original && original - x >= width / 4) onUpdate(index - 1);
-          else if (x >= original && x - original >= width / 4) onUpdate('next');
+          if (x <= original && original - x >= width_ / 4) onUpdate(index - 1);
+          else if (x >= original && x - original >= width_ / 4) onUpdate('next');
           else onUpdate(index);
         }
 
@@ -517,12 +601,12 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
           if (refs.mouseDownPosition.current?.y > y) index++;
 
-          const height = refs.carousel.current.getBoundingClientRect().height;
+          const height_ = refs.carousel.current.getBoundingClientRect().height;
 
-          const original = (index * height) + (index * (gap * theme.space.unit));
+          const original = (index * height_) + (index * (gap * theme.space.unit));
 
-          if (y <= original && original - y >= height / 4) onUpdate(index - 1);
-          else if (y >= original && y - original >= height / 4) onUpdate('next');
+          if (y <= original && original - y >= height_ / 4) onUpdate(index - 1);
+          else if (y >= original && y - original >= height_ / 4) onUpdate('next');
           else onUpdate(index);
         }
       }
@@ -552,16 +636,16 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
         const incX = x_ - refs.previousMouseEvent.current.clientX;
         const incY = y_ - refs.previousMouseEvent.current.clientY;
 
-        const { width, height } = refs.carousel.current.getBoundingClientRect();
+        const { width: width_, height: height_ } = refs.carousel.current.getBoundingClientRect();
 
-        const { scrollWidth, scrollHeight } = refs.carousel.current;
+        const { scrollWidth: scrollWidth_, scrollHeight: scrollHeight_ } = refs.carousel.current;
 
         if (refs.orientation.current === 'horizontal' && incX !== 0) {
           const min = 0;
-          let max = ((width + (gap * theme.space.unit)) * (refs.items.current.length - 1));
+          let max = ((width_ + (gap * theme.space.unit)) * (refs.itemsLength.current - 1));
 
           if (refs.itemSize.current === 'auto') {
-            max = (scrollWidth - (scrollWidth / refs.items.current.length)) + ((gap * theme.space.unit) * (refs.items.current.length - 1));
+            max = (scrollWidth_ - (scrollWidth_ / refs.itemsLength.current)) + ((gap * theme.space.unit) * (refs.itemsLength.current - 1));
           }
 
           const x = clamp((refs.position.current?.x || 0) - incX, min, max);
@@ -569,7 +653,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
           onUpdatePosition({
             ...refs.position.current,
 
-            index: Math.floor(x / (max / (refs.items.current.length - 1))),
+            index: Math.floor(x / (max / (refs.itemsLength.current - 1))),
 
             x
           });
@@ -577,10 +661,10 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
         if (refs.orientation.current === 'vertical' && incY !== 0) {
           const min = 0;
-          let max = ((height + (gap * theme.space.unit)) * (refs.items.current.length - 1));
+          let max = ((height_ + (gap * theme.space.unit)) * (refs.itemsLength.current - 1));
 
           if (refs.itemSize.current === 'auto') {
-            max = (scrollHeight - (scrollHeight / refs.items.current.length)) + ((gap * theme.space.unit) * (refs.items.current.length - 1));
+            max = (scrollHeight_ - (scrollHeight_ / refs.itemsLength.current)) + ((gap * theme.space.unit) * (refs.itemsLength.current - 1));
           }
 
           const y = clamp((refs.position.current?.y || 0) - incY, min, max);
@@ -588,7 +672,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
           onUpdatePosition({
             ...refs.position.current,
 
-            index: Math.floor(y / (max / (refs.items.current.length - 1))),
+            index: Math.floor(y / (max / (refs.itemsLength.current - 1))),
 
             y
           });
@@ -682,6 +766,37 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
   React.useEffect(() => {
     start();
   }, [items, itemActive, autoPlay, autoPlayInterval]);
+
+  // AmauiSubscription methods
+  React.useEffect(() => {
+    const method = (...args: any[]) => onUpdate(...args);
+
+    if (is('function', updateSub?.subscribe)) (updateSub as AmauiSubscription)?.subscribe(method);
+
+    return () => {
+      if (is('function', updateSub?.unsubscribe)) (updateSub as AmauiSubscription)?.unsubscribe(method)
+    };
+  }, [updateSub]);
+
+  React.useEffect(() => {
+    const method = (...args: any[]) => onUpdate(...args);
+
+    if (is('function', previousSub?.subscribe)) (previousSub as AmauiSubscription)?.subscribe(method);
+
+    return () => {
+      if (is('function', previousSub?.unsubscribe)) (previousSub as AmauiSubscription)?.unsubscribe(method)
+    };
+  }, [previousSub]);
+
+  React.useEffect(() => {
+    const method = (...args: any[]) => onUpdate(...args);
+
+    if (is('function', nextSub?.subscribe)) (nextSub as AmauiSubscription)?.subscribe(method);
+
+    return () => {
+      if (is('function', nextSub?.unsubscribe)) (nextSub as AmauiSubscription)?.unsubscribe(method)
+    };
+  }, [nextSub]);
 
   React.useEffect(() => {
     const values = unique([
@@ -797,16 +912,13 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
   let arrowNextIn = focus || (arrowsVisibility === 'hover' && hover) || arrowsVisibility === 'visible';
 
   if (arrowHideOnStartEnd) {
-    const { scrollWidth, scrollHeight } = (refs.carousel.current || {});
-    const { width, height } = (refs.carousel.current?.getBoundingClientRect() || {});
-
     const min = 0;
-    let maxX = ((width + (gap * theme.space.unit)) * (refs.items.current.length - 1));
-    let maxY = ((height + (gap * theme.space.unit)) * (refs.items.current.length - 1));
+    let maxX = ((width + (gap * theme.space.unit)) * (refs.itemsLength.current - 1));
+    let maxY = ((height + (gap * theme.space.unit)) * (refs.itemsLength.current - 1));
 
     if (refs.itemSize.current === 'auto') {
-      maxX = (scrollWidth - (scrollWidth / refs.items.current.length)) + ((gap * theme.space.unit) * (refs.items.current.length - 1));
-      maxY = (scrollHeight - (scrollHeight / refs.items.current.length)) + ((gap * theme.space.unit) * (refs.items.current.length - 1));
+      maxX = (scrollWidth - (scrollWidth / refs.itemsLength.current)) + ((gap * theme.space.unit) * (refs.itemsLength.current - 1));
+      maxY = (scrollHeight - (scrollHeight / refs.itemsLength.current)) + ((gap * theme.space.unit) * (refs.itemsLength.current - 1));
     }
 
     if (position?.x === min || position?.y === min) arrowPreviousIn = false;
@@ -1028,7 +1140,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
                 classes[`progress_orientation_${orientation}`]
               ])}
             >
-              {Array.from({ length: items.length }).map((item: any, index: number) => (
+              {Array.from({ length: refs.itemsLength.current }).map((item: any, index: number) => (
                 <span
                   key={index}
 

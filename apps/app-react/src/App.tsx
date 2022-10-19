@@ -2993,6 +2993,90 @@ Please sign in again.`}
           />
         </Accordion>
 
+        <Accordion primary='Carousel moveItems'>
+          <Line
+            style={{
+              width: '100%'
+            }}
+          >
+            <Carousel
+              moveItems={2}
+
+              background={false}
+
+              itemSize='auto'
+
+              items={[
+                'https://picsum.photos/seed/a/1500/540',
+                'https://picsum.photos/seed/a/400/400',
+                'https://picsum.photos/seed/a/1400/340',
+                'https://picsum.photos/seed/a/1700/400',
+                'https://picsum.photos/seed/a/400/1400'
+              ]}
+            />
+
+            <Carousel
+              moveItems={2}
+
+              background={false}
+
+              itemSize='auto'
+
+              orientation='vertical'
+
+              items={[
+                'https://picsum.photos/seed/a/1500/540',
+                'https://picsum.photos/seed/a/400/400',
+                'https://picsum.photos/seed/a/1400/340',
+                'https://picsum.photos/seed/a/1700/400',
+                'https://picsum.photos/seed/a/400/1400'
+              ]}
+            />
+          </Line>
+        </Accordion>
+
+        <Accordion primary='Carousel moveValue'>
+          <Line
+            style={{
+              width: '100%'
+            }}
+          >
+            <Carousel
+              moveValue={700}
+
+              background={false}
+
+              itemSize='auto'
+
+              items={[
+                'https://picsum.photos/seed/a/1500/540',
+                'https://picsum.photos/seed/a/400/400',
+                'https://picsum.photos/seed/a/1400/340',
+                'https://picsum.photos/seed/a/1700/400',
+                'https://picsum.photos/seed/a/400/1400'
+              ]}
+            />
+
+            <Carousel
+              moveValue={700}
+
+              background={false}
+
+              itemSize='auto'
+
+              orientation='vertical'
+
+              items={[
+                'https://picsum.photos/seed/a/1500/540',
+                'https://picsum.photos/seed/a/400/400',
+                'https://picsum.photos/seed/a/1400/340',
+                'https://picsum.photos/seed/a/1700/400',
+                'https://picsum.photos/seed/a/400/1400'
+              ]}
+            />
+          </Line>
+        </Accordion>
+
         <Accordion primary='Carousel arrowHideOnStartEnd'>
           <Line
             style={{
