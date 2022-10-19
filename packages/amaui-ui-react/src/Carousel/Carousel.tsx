@@ -505,7 +505,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
           const original = (index * width) + (index * (gap * theme.space.unit));
 
-          if (x <= original && original - x >= width / 4) onUpdate('previous');
+          if (x <= original && original - x >= width / 4) onUpdate(index - 1);
           else if (x >= original && x - original >= width / 4) onUpdate('next');
           else onUpdate(index);
         }
@@ -521,7 +521,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
           const original = (index * height) + (index * (gap * theme.space.unit));
 
-          if (y <= original && original - y >= height / 4) onUpdate('previous');
+          if (y <= original && original - y >= height / 4) onUpdate(index - 1);
           else if (y >= original && y - original >= height / 4) onUpdate('next');
           else onUpdate(index);
         }
