@@ -866,7 +866,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
           gap={gap}
 
-          direction={orientation === 'horizontal' ? 'row' : 'column'}
+          direction={orientation === 'horizontal' ? theme.direction === 'ltr' ? 'row' : 'row-reverse' : 'column'}
 
           align='center'
 
@@ -932,7 +932,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
           gap={0.5}
 
-          direction={orientation === 'horizontal' ? 'row' : 'column'}
+          direction={orientation === 'horizontal' ? theme.direction === 'ltr' ? 'row' : 'row-reverse' : 'column'}
 
           align='center'
 
@@ -1011,7 +1011,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
             <Line
               gap={1}
 
-              direction={orientation === 'horizontal' ? 'row' : 'column'}
+              direction={orientation === 'horizontal' ? theme.direction === 'ltr' ? 'row' : 'row-reverse' : 'column'}
 
               align='center'
 
@@ -1120,6 +1120,8 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
                   {...ArrowPreviousProps}
                 >
                   <IconPrevious
+                    noRtl
+
                     className={classNames([
                       classes[`icon_previous_orientation_${orientation}`]
                     ])}
@@ -1197,6 +1199,8 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
                   {...ArrowNextProps}
                 >
                   <IconNext
+                    noRtl
+
                     className={classNames([
                       classes[`icon_next_orientation_${orientation}`]
                     ])}

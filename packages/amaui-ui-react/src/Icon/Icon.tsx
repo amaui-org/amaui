@@ -42,14 +42,20 @@ const Icon = React.forwardRef((props_: any, ref: any) => {
 
   const {
     viewBox = '0 0 24 24',
+
     name,
     short_name,
+
     tonal,
     tone = '60',
     color: color_ = 'inherit',
     size = 'regular',
-    Component = 'svg',
+
+    noRtl,
+
     disabled,
+
+    Component = 'svg',
 
     className,
     style,
@@ -102,13 +108,13 @@ const Icon = React.forwardRef((props_: any, ref: any) => {
           `AmauiIcon-color-${!theme.palette.color[color] && !['themed', 'inverted', 'default', 'inherit'].includes(color) ? 'new' : color}`,
           `AmauiIcon-size-${size}`,
           tonal && `AmauiButton-tonal`,
-          (rtl && isRtlIcon) ? 'AmauiIcon-direction-rtl' : 'AmauiIcon-direction-ltr',
+          (!noRtl && rtl && isRtlIcon) ? 'AmauiIcon-direction-rtl' : 'AmauiIcon-direction-ltr',
           disabled && `AmauiIcon-disabled`
         ],
 
         className,
         classes.root,
-        (rtl && isRtlIcon) && classes.rtl,
+        (!noRtl && rtl && isRtlIcon) && classes.rtl,
         disabled && classes.disabled
       ])}
 
