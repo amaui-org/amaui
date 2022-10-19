@@ -857,6 +857,91 @@ const SliderMiUI = sy(Slider)(() => ({
   }
 }));
 
+const TabsCarousel = () => {
+  const [value, setValue] = React.useState<any>();
+  const [position, setPosition] = React.useState<any>();
+
+  const onUpdatePosition = (value_: any) => {
+    setValue(value_);
+
+    setPosition(value_);
+  };
+
+  return (
+    <div
+      style={{
+        width: 400
+      }}
+    >
+      <Tabs
+        value={value?.index}
+
+        onChange={(value_: any) => setValue({ ...value, index: value_ })}
+      >
+        {new Array(4).fill(1).map((item: any, index: number) => (
+          <Tab
+            key={index}
+
+            label={`Tab ${index}`}
+
+            value={index}
+          />
+        ))}
+      </Tabs>
+
+      <Carousel
+        autoHeight
+
+        value={value}
+
+        onChange={(value_: any) => setValue(value_)}
+
+        onUpdatePosition={onUpdatePosition}
+
+        items={(
+          Array
+            .from({ length: 4 })
+            .map((item: any, index: number) => (position: any) => {
+              return (
+                <Line
+                  gap={1}
+
+                  align='center'
+
+                  justify='center'
+
+                  style={{
+                    width: '100%',
+                    height: index === 1 ? 700 : '100%',
+                    background: 'beige'
+                  }}
+                >
+                  <Type
+                    version='h2'
+                  >
+                    First
+                  </Type>
+
+                  <Type
+                    version='h2'
+                  >
+                    Second
+                  </Type>
+
+                  <Type
+                    version='h2'
+                  >
+                    Third
+                  </Type>
+                </Line>
+              );
+            })
+        )}
+      />
+    </div>
+  );
+};
+
 const ParallaxCarousel = () => {
 
   return (
@@ -3070,6 +3155,10 @@ Please sign in again.`}
               'https://picsum.photos/seed/a/400/1400'
             ]}
           />
+        </Accordion>
+
+        <Accordion primary='Carousel example tabs'>
+          <TabsCarousel />
         </Accordion>
 
         <Accordion primary='Carousel example parallax'>
