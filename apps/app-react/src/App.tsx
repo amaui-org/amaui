@@ -857,6 +857,75 @@ const SliderMiUI = sy(Slider)(() => ({
   }
 }));
 
+const ParallaxCarousel = () => {
+
+  return (
+    <Carousel
+      items={(
+        Array
+          .from({ length: 4 })
+          .map((item: any, index: number) => (position: any) => {
+            return (
+              <Line
+                gap={1}
+
+                align='center'
+
+                justify='center'
+
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  background: 'beige'
+                }}
+              >
+                <Parallax
+                  value={position?.additional}
+
+                  transformDirection='horizontal'
+                >
+                  <Type
+                    version='h2'
+                  >
+                    First
+                  </Type>
+                </Parallax>
+
+                <Parallax
+                  value={position?.additional}
+
+                  transformDirection='horizontal'
+
+                  rate={-0.14}
+                >
+                  <Type
+                    version='h2'
+                  >
+                    Second
+                  </Type>
+                </Parallax>
+
+                <Parallax
+                  value={position?.additional}
+
+                  transformDirection='horizontal'
+
+                  rate={0.14}
+                >
+                  <Type
+                    version='h2'
+                  >
+                    Third
+                  </Type>
+                </Parallax>
+              </Line>
+            );
+          })
+      )}
+    />
+  );
+};
+
 let inc = 0;
 
 function App() {
@@ -1391,6 +1460,16 @@ function App() {
             width: '100%'
           }}
         >
+          <Carousel
+            items={[
+              'https://picsum.photos/seed/a/1500/540',
+              'https://picsum.photos/seed/a/400/400',
+              'https://picsum.photos/seed/a/1400/340',
+              'https://picsum.photos/seed/a/1700/400',
+              'https://picsum.photos/seed/a/400/1400'
+            ]}
+          />
+
           <LinearMeter />
 
           <Watch
@@ -2991,6 +3070,10 @@ Please sign in again.`}
               'https://picsum.photos/seed/a/400/1400'
             ]}
           />
+        </Accordion>
+
+        <Accordion primary='Carousel example parallax'>
+          <ParallaxCarousel />
         </Accordion>
 
         <Accordion primary='Carousel free'>

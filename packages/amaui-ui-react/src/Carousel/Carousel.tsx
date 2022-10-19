@@ -517,10 +517,10 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     // Momentum
     momentumClear();
 
-    setPosition(value_);
-
     const value = {
-      ...value_
+      ...value_,
+
+      additional: 0
     };
 
     if (refs.version.current === 'regular' && refs.itemSize.current !== 'auto') {
@@ -532,6 +532,8 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
       value.additional = additional;
     }
+
+    setPosition(value);
 
     if (is('function', onUpdatePosition_)) onUpdatePosition_(value);
   };
@@ -931,44 +933,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
       ...React.Children.toArray(children)
     ])
-      .filter(Boolean)
-      .map((Item: any, index: number) => {
-        if (is('string', Item)) {
-          if (background) return (
-            <div
-              className={classNames([
-                staticClassName('Carousel', theme) && [
-                  'AmauiCarousel-background'
-                ],
-
-                classes.background
-              ])}
-
-              style={{
-                backgroundImage: `url(${Item})`
-              }}
-            />
-          );
-
-          return (
-            <img
-              key={index}
-
-              src={Item}
-
-              alt=''
-            />
-          );
-        }
-
-        if (Item?.element) return React.cloneElement(Item.element, { key: index });
-
-        return (
-          <Item
-            key={index}
-          />
-        );
-      });
+      .filter(Boolean);
 
     onUpdate('next', values);
 
@@ -1083,6 +1048,40 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     }
   }
 
+  const resolveItem = (Item: any) => {
+    if (is('string', Item)) {
+      if (background) return (
+        <div
+          className={classNames([
+            staticClassName('Carousel', theme) && [
+              'AmauiCarousel-background'
+            ],
+
+            classes.background
+          ])}
+
+          style={{
+            backgroundImage: `url(${Item})`
+          }}
+        />
+      );
+
+      return (
+        <img
+          src={Item}
+
+          alt=''
+        />
+      );
+    }
+
+    if (is('function', Item)) return Item(refs.position.current);
+
+    if (Item?.element) return React.cloneElement(Item.element);
+
+    return React.cloneElement(Item);
+  };
+
   return (
     <Surface
       ref={item => {
@@ -1185,7 +1184,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
                 itemSize && classes[`item_itemSize_${itemSize}`]
               ])}
             >
-              {item}
+              {resolveItem(item)}
             </Line>
           ))}
         </Line>
@@ -1258,7 +1257,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
                     autoHeight && classes.item_transition_autoHeight
                   ])}
                 >
-                  {itemActive?.element}
+                  {resolveItem(itemActive.element)}
                 </Line>
               </TransitionComponent>
             </Transitions>

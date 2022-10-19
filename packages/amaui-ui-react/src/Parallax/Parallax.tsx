@@ -116,14 +116,14 @@ const Parallax = React.forwardRef((props_: any, ref: any) => {
 
   React.useEffect(() => {
     // Update on init
-    update();
+    if (!props.hasOwnProperty('value')) update();
   }, []);
 
   React.useEffect(() => {
-    if (root?.addEventListener) root.addEventListener('scroll', update);
+    if (!props.hasOwnProperty('value') && root?.addEventListener) root.addEventListener('scroll', update);
 
     return () => {
-      if (root?.addEventListener) root.removeEventListener('scroll', update);
+      if (!props.hasOwnProperty('value') && root?.addEventListener) root.removeEventListener('scroll', update);
     };
   }, [root]);
 
