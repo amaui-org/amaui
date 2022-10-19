@@ -11,7 +11,7 @@ import Transitions from '../Transitions';
 import useMediaQuery from '../useMediaQuery';
 import Surface from '../Surface';
 
-import { staticClassName } from '../utils';
+import { staticClassName, valueBreakpoints } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
@@ -146,9 +146,7 @@ const IconMaterialNavigateNextRounded = React.forwardRef((props: any, ref) => {
 
 // To do
 
-// options per breakpoints value y
-
-// example with gap
+// orientation vertical
 
 // amount of items in view per breakpoint, or auto
 // based on width and gap, add += on 1 item with gap (without gap for last)
@@ -156,16 +154,6 @@ const IconMaterialNavigateNextRounded = React.forwardRef((props: any, ref) => {
 // and per breakpoint other options
 
 // free update
-
-// method for track update
-
-// focus for slider
-// keyboard left right, and space for pause, unpause for autoplay
-
-// orientation vertical
-
-// Swipe for version transition
-// as an option true
 
 // example for tabs
 
@@ -186,24 +174,24 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     tonal = true,
     color = 'default',
 
-    version = 'regular',
+    version: version_ = 'regular',
 
     // Array of string or object
     // object having element as a string or element
     // and a transition element
     items: items_,
 
-    gap = 0,
+    gap: gap_ = 0,
 
-    move = true,
+    move: move_ = true,
 
-    swipe = true,
+    swipe: swipe_ = true,
 
-    background = true,
+    background: background_ = true,
 
-    autoPlay = true,
+    autoPlay: autoPlay_ = true,
 
-    autoHeight,
+    autoHeight: autoHeight_,
 
     autoHeightDelay = theme.transitions.duration.rg + 14,
 
@@ -211,27 +199,29 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
     pauseOnHover = true,
 
-    round = true,
+    round: round_ = true,
 
-    arrows = true,
+    arrows: arrows_ = true,
 
     // on mobile visible
-    arrowsVisibility = 'hover',
+    arrowsVisibility: arrowsVisibility_ = 'hover',
 
     renderProgress,
 
     renderArrowPrevious,
     renderArrowNext,
 
-    progress = true,
+    progress: progress_ = true,
 
     // on mobile visible
-    progressVisibility = 'hover',
+    progressVisibility: progressVisibility_ = 'hover',
 
-    noTransition,
+    noTransition: noTransition_,
 
     onUpdatePosition: onUpdatePosition_,
 
+    onBlur: onBlur_,
+    onFocus: onFocus_,
     onMouseEnter: onMouseEnter_,
     onMouseLeave: onMouseLeave_,
 
@@ -269,11 +259,26 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     ...other
   } = props;
 
+  const version = valueBreakpoints(version_, 'regular', breakpoints, theme);
+  const gap = valueBreakpoints(gap_, 4, breakpoints, theme);
+  const move = valueBreakpoints(move_, true, breakpoints, theme);
+  const swipe = valueBreakpoints(swipe_, true, breakpoints, theme);
+  const background = valueBreakpoints(background_, true, breakpoints, theme);
+  const autoPlay = valueBreakpoints(autoPlay_, true, breakpoints, theme);
+  const autoHeight = valueBreakpoints(autoHeight_, undefined, breakpoints, theme);
+  const round = valueBreakpoints(round_, true, breakpoints, theme);
+  const arrows = valueBreakpoints(arrows_, true, breakpoints, theme);
+  const arrowsVisibility = valueBreakpoints(arrowsVisibility_, 'hover', breakpoints, theme);
+  const progress = valueBreakpoints(progress_, true, breakpoints, theme);
+  const progressVisibility = valueBreakpoints(progressVisibility_, 'hover', breakpoints, theme);
+  const noTransition = valueBreakpoints(noTransition_, undefined, breakpoints, theme);
+
   const [items, setItems] = React.useState([]);
   const [itemActive, setItemActive] = React.useState<any>();
   const [position, setPosition] = React.useState<any>();
   const [hover, setHover] = React.useState<any>();
   const [mouseDown, setMouseDown] = React.useState<any>();
+  const [focus, setFocus] = React.useState<any>();
 
   const refs = {
     root: React.useRef<any>(),
@@ -285,6 +290,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     carousel: React.useRef<any>(),
     position: React.useRef<any>(),
     mouseDown: React.useRef<any>(),
+    focus: React.useRef<any>(),
     gap: React.useRef<any>(),
     previousMouseEvent: React.useRef<any>(),
     move: React.useRef<any>(),
@@ -307,6 +313,8 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
   refs.position.current = position;
 
   refs.mouseDown.current = mouseDown;
+
+  refs.focus.current = focus;
 
   refs.move.current = move;
 
@@ -334,7 +342,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     }
 
     // Regular
-    if (version === 'regular') {
+    if (version === 'regular' && refs.carousel.current) {
       const width = refs.carousel.current.getBoundingClientRect().width;
 
       const x = (index * width) + (index * (gap * theme.space.unit));
@@ -403,6 +411,21 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
   }, []);
 
   React.useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (refs.focus.current) {
+        switch (event.key) {
+          case 'ArrowLeft':
+            return onUpdate('previous');
+
+          case 'ArrowRight':
+            return onUpdate('next');
+
+          default:
+            break;
+        }
+      }
+    };
+
     const onMove = (x: number, y: number) => {
       if (refs.move.current && refs.mouseDown.current && refs.previousMouseEvent.current) {
         const inc = x - refs.previousMouseEvent.current.clientX;
@@ -452,6 +475,8 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
     observer.observe(refs.root.current);
 
+    window.addEventListener('keydown', onKeyDown);
+
     window.addEventListener('mouseup', onMouseUp);
 
     window.addEventListener('mousemove', onMouseMove);
@@ -462,6 +487,8 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
     return () => {
       observer.disconnect();
+
+      window.removeEventListener('keydown', onKeyDown);
 
       window.removeEventListener('mousemove', onMouseMove);
 
@@ -550,6 +577,18 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     setItems(values);
   }, [items_, background, children]);
 
+  const onBlur = React.useCallback((event: React.FocusEvent<any>) => {
+    setFocus(false);
+
+    if (is('function', onBlur_)) onBlur_(event);
+  }, []);
+
+  const onFocus = React.useCallback((event: React.FocusEvent<any>) => {
+    setFocus(true);
+
+    if (is('function', onFocus_)) onFocus_(event);
+  }, []);
+
   const onMouseDown = React.useCallback((event: React.MouseEvent<any>) => {
     setMouseDown(event);
 
@@ -602,11 +641,17 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
         refs.root.current = item;
       }}
 
+      tabIndex='0'
+
       tonal={tonal}
 
       color={color}
 
       Component={Component}
+
+      onFocus={onFocus}
+
+      onBlur={onBlur}
 
       onMouseEnter={onMouseEnter}
 
@@ -768,7 +813,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
       {/* Progress */}
       {progress && (
         <ProgressTransitionComponent
-          in={(progressVisibility === 'hover' && hover) || progressVisibility === 'visible'}
+          in={focus || (progressVisibility === 'hover' && hover) || progressVisibility === 'visible'}
 
           {...ProgressTransitionComponentProps}
         >
@@ -820,7 +865,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
       {/* Arrow previous */}
       {arrows && (
         <ArrowPreviousTransitionComponent_
-          in={(arrowsVisibility === 'hover' && hover) || arrowsVisibility === 'visible'}
+          in={focus || (arrowsVisibility === 'hover' && hover) || arrowsVisibility === 'visible'}
 
           {...ArrowTransitionComponentProps}
 
@@ -892,7 +937,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
       {/* Arrow next */}
       {arrows && (
         <ArrowNextTransitionComponent_
-          in={(arrowsVisibility === 'hover' && hover) || arrowsVisibility === 'visible'}
+          in={focus || (arrowsVisibility === 'hover' && hover) || arrowsVisibility === 'visible'}
 
           {...ArrowTransitionComponentProps}
 

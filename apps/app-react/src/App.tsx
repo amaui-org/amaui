@@ -2993,7 +2993,7 @@ Please sign in again.`}
           />
         </Accordion>
 
-        <Accordion primary='Carousel version' open>
+        <Accordion primary='Carousel version'>
           <Line
             style={{
               width: '100%'
@@ -3023,6 +3023,20 @@ Please sign in again.`}
               ]}
             />
           </Line>
+        </Accordion>
+
+        <Accordion primary='Carousel gap'>
+          <Carousel
+            gap={4}
+
+            items={[
+              'https://picsum.photos/seed/a/1500/540',
+              'https://picsum.photos/seed/a/400/400',
+              'https://picsum.photos/seed/a/1400/340',
+              'https://picsum.photos/seed/a/1700/400',
+              'https://picsum.photos/seed/a/400/1400'
+            ]}
+          />
         </Accordion>
       </Accordion>
 
