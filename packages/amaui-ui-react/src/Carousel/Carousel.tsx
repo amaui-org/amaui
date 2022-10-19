@@ -174,22 +174,22 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     tonal = true,
     color = 'default',
 
-    version: version_ = 'regular',
+    version: version_,
 
     // Array of string or object
     // object having element as a string or element
     // and a transition element
     items: items_,
 
-    gap: gap_ = 0,
+    gap: gap_,
 
-    move: move_ = true,
+    move: move_,
 
-    swipe: swipe_ = true,
+    swipe: swipe_,
 
-    background: background_ = true,
+    background: background_,
 
-    autoPlay: autoPlay_ = true,
+    autoPlay: autoPlay_,
 
     autoHeight: autoHeight_,
 
@@ -199,22 +199,22 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
     pauseOnHover = true,
 
-    round: round_ = true,
+    round: round_,
 
-    arrows: arrows_ = true,
+    arrows: arrows_,
 
     // on mobile visible
-    arrowsVisibility: arrowsVisibility_ = 'hover',
+    arrowsVisibility: arrowsVisibility_,
 
     renderProgress,
 
     renderArrowPrevious,
     renderArrowNext,
 
-    progress: progress_ = true,
+    progress: progress_,
 
     // on mobile visible
-    progressVisibility: progressVisibility_ = 'hover',
+    progressVisibility: progressVisibility_,
 
     noTransition: noTransition_,
 
@@ -513,7 +513,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
   const start = () => {
     clear();
 
-    if (!autoPlay || mouseDown) return;
+    if (!autoPlay || mouseDown || focus) return;
 
     if (pauseOnHover && hover) return;
 
@@ -606,6 +606,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
   }, []);
 
   const onMouseLeave = React.useCallback((event: React.MouseEvent<any>) => {
+    setFocus(false);
     setHover(false);
 
     if (!refs.autoPlay.current) start();
