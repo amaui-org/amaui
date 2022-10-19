@@ -71,11 +71,21 @@ const useStyle = style(theme => ({
   },
 
   progress: {
-    position: 'absolute',
+    position: 'absolute'
+  },
+
+  progress_orientation_horizontal: {
     width: '100%',
     left: '50%',
     transform: 'translateX(-50%)',
     bottom: '24px'
+  },
+
+  progress_orientation_vertical: {
+    width: '100%',
+    top: '50%',
+    transform: 'translateY(-50%)',
+    right: '24px'
   },
 
   progress_item: {
@@ -99,16 +109,40 @@ const useStyle = style(theme => ({
     position: 'absolute'
   },
 
-  arrow_previous: {
+  arrow_previous: {},
+
+  arrow_previous_orientation_horizontal: {
     top: '50%',
     transform: 'translateY(-50%)',
     left: '24px'
   },
 
-  arrow_next: {
+  arrow_previous_orientation_Vertical: {
+    left: '50%',
+    transform: 'translateX(-50%)',
+    top: '24px'
+  },
+
+  arrow_next: {},
+
+  arrow_next_orientation_horizontal: {
     top: '50%',
     transform: 'translateY(-50%)',
     right: '24px'
+  },
+
+  arrow_next_orientation_vertical: {
+    left: '50%',
+    transform: 'translateX(-50%)',
+    bottom: '24px'
+  },
+
+  icon_previous_orientation_horizontal: {
+    transform: 'rotate(90deg)'
+  },
+
+  icon_next_orientation_horizontal: {
+    transform: 'rotate(90deg)'
   }
 }), { name: 'AmauiCarousel' });
 
@@ -146,8 +180,6 @@ const IconMaterialNavigateNextRounded = React.forwardRef((props: any, ref) => {
 
 // To do
 
-// orientation vertical
-
 // amount of items in view per breakpoint, or auto
 // based on width and gap, add += on 1 item with gap (without gap for last)
 // and if enough space use those items
@@ -180,6 +212,8 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     // object having element as a string or element
     // and a transition element
     items: items_,
+
+    orientation: orientation_,
 
     gap: gap_,
 
@@ -260,6 +294,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
   } = props;
 
   const version = valueBreakpoints(version_, 'regular', breakpoints, theme);
+  const orientation = valueBreakpoints(orientation_, 'horizontal', breakpoints, theme);
   const gap = valueBreakpoints(gap_, 4, breakpoints, theme);
   const move = valueBreakpoints(move_, true, breakpoints, theme);
   const swipe = valueBreakpoints(swipe_, true, breakpoints, theme);
@@ -297,6 +332,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     swipe: React.useRef<any>(),
     mouseDownStart: React.useRef<any>(),
     mouseDownDuration: React.useRef<any>(),
+    orientation: React.useRef<any>(),
     version: React.useRef<any>()
   };
 
@@ -319,6 +355,8 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
   refs.move.current = move;
 
   refs.swipe.current = swipe;
+
+  refs.orientation.current = orientation;
 
   refs.version.current = version;
 
@@ -343,15 +381,29 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
     // Regular
     if (version === 'regular' && refs.carousel.current) {
-      const width = refs.carousel.current.getBoundingClientRect().width;
+      if (refs.orientation.current === 'horizontal') {
+        const width = refs.carousel.current.getBoundingClientRect().width;
 
-      const x = (index * width) + (index * (gap * theme.space.unit));
+        const x = (index * width) + (index * (gap * theme.space.unit));
 
-      onUpdatePosition({
-        index,
+        onUpdatePosition({
+          index,
 
-        x
-      });
+          x
+        });
+      }
+
+      if (refs.orientation.current === 'vertical') {
+        const height = refs.carousel.current.getBoundingClientRect().height;
+
+        const y = (index * height) + (index * (gap * theme.space.unit));
+
+        onUpdatePosition({
+          index,
+
+          y
+        });
+      }
     };
 
     // Transition
@@ -383,27 +435,49 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
       // Swipe
       // less than 140 ms
       if (refs.swipe.current && refs.mouseDownDuration.current <= 140) {
-        const { clientX: previousClientX } = refs.mouseDown.current.touches?.[0] || refs.mouseDown.current;
-        const { clientX } = event.touches?.[0] || event;
+        const { clientX: previousClientX, clientY: previousClientY } = refs.mouseDown.current.touches?.[0] || refs.mouseDown.current;
+        const { clientX, clientY } = event.touches?.[0] || event;
 
         setMouseDown(false);
 
-        if (previousClientX < clientX) return onUpdate('previous');
+        if (refs.orientation.current === 'horizontal') {
+          if (previousClientX < clientX) return onUpdate('previous');
 
-        if (previousClientX > clientX) return onUpdate('next');
+          if (previousClientX > clientX) return onUpdate('next');
+        }
+
+        if (refs.orientation.current === 'vertical') {
+          if (previousClientY < clientY) return onUpdate('previous');
+
+          if (previousClientY > clientY) return onUpdate('next');
+        }
       }
 
       // Move
       if (refs.version.current === 'regular' && refs.position.current) {
-        const { index, x } = refs.position.current;
+        if (refs.orientation.current === 'horizontal') {
+          const { index, x } = refs.position.current;
 
-        const width = refs.carousel.current.getBoundingClientRect().width;
+          const width = refs.carousel.current.getBoundingClientRect().width;
 
-        const original = (index * width) + (index * (gap * theme.space.unit));
+          const original = (index * width) + (index * (gap * theme.space.unit));
 
-        if (x <= original && original - x >= width / 4) onUpdate('previous');
-        else if (x >= original && x - original >= width / 4) onUpdate('next');
-        else onUpdate(index);
+          if (x <= original && original - x >= width / 4) onUpdate('previous');
+          else if (x >= original && x - original >= width / 4) onUpdate('next');
+          else onUpdate(index);
+        }
+
+        if (refs.orientation.current === 'vertical') {
+          const { index, y } = refs.position.current;
+
+          const height = refs.carousel.current.getBoundingClientRect().height;
+
+          const original = (index * height) + (index * (gap * theme.space.unit));
+
+          if (y <= original && original - y >= height / 4) onUpdate('previous');
+          else if (y >= original && y - original >= height / 4) onUpdate('next');
+          else onUpdate(index);
+        }
       }
 
       setMouseDown(false);
@@ -428,13 +502,22 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
     const onMove = (x: number, y: number) => {
       if (refs.move.current && refs.mouseDown.current && refs.previousMouseEvent.current) {
-        const inc = x - refs.previousMouseEvent.current.clientX;
+        const incX = x - refs.previousMouseEvent.current.clientX;
+        const incY = y - refs.previousMouseEvent.current.clientY;
 
-        if (inc !== 0) {
+        if (refs.orientation.current === 'horizontal' && incX !== 0) {
           onUpdatePosition({
             ...refs.position.current,
 
-            x: (refs.position.current?.x || 0) - inc
+            x: (refs.position.current?.x || 0) - incX
+          });
+        }
+
+        if (refs.orientation.current === 'vertical' && incY !== 0) {
+          onUpdatePosition({
+            ...refs.position.current,
+
+            x: (refs.position.current?.x || 0) - incY
           });
         }
       }
@@ -680,7 +763,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
           gap={gap}
 
-          direction='row'
+          direction={orientation === 'horizontal' ? 'row' : 'column'}
 
           align='center'
 
@@ -745,7 +828,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
           gap={0.5}
 
-          direction='row'
+          direction={orientation === 'horizontal' ? 'row' : 'column'}
 
           align='center'
 
@@ -837,7 +920,8 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
                   'AmauiCarousel-progress'
                 ],
 
-                classes.progress
+                classes.progress,
+                classes[`progress_orientation_${orientation}`]
               ])}
             >
               {Array.from({ length: items.length }).map((item: any, index: number) => (
@@ -892,7 +976,8 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
                     ],
 
                     classes.arrow,
-                    classes.arrow_previous
+                    classes.arrow_previous,
+                    classes[`arrow_previous_orientation_${orientation}`]
                   ]),
 
                   disabled: !round && itemActive?.index === 0,
@@ -929,7 +1014,11 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
                   {...ArrowPreviousProps}
                 >
-                  <IconPrevious />
+                  <IconPrevious
+                    className={classNames([
+                      classes[`icon_previous_orientation_${orientation}`]
+                    ])}
+                  />
                 </IconButton>
           )}
         </ArrowPreviousTransitionComponent_>
@@ -963,7 +1052,8 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
                     ],
 
                     classes.arrow,
-                    classes.arrow_next
+                    classes.arrow_next,
+                    classes[`arrow_next_orientation_${orientation}`]
                   ]),
 
                   disabled: !round && itemActive?.index === items.length - 1,
@@ -1000,7 +1090,11 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
                   {...ArrowNextProps}
                 >
-                  <IconNext />
+                  <IconNext
+                    className={classNames([
+                      classes[`icon_next_orientation_${orientation}`]
+                    ])}
+                  />
                 </IconButton>
           )}
         </ArrowNextTransitionComponent_>
