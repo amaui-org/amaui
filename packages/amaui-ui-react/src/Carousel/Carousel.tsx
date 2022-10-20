@@ -228,6 +228,8 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
     moveItems: moveItems_,
 
+    moveBeyondEdge: moveBeyondEdge_,
+
     free: free_,
 
     swipe: swipe_,
@@ -322,9 +324,10 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
   const move = valueBreakpoints(move_, true, breakpoints, theme);
   const moveValue = valueBreakpoints(moveValue_, undefined, breakpoints, theme);
   const moveItems = valueBreakpoints(moveItems_, undefined, breakpoints, theme);
+  const moveBeyondEdge = valueBreakpoints(moveBeyondEdge_, true, breakpoints, theme);
   const swipe = valueBreakpoints(swipe_, true, breakpoints, theme);
   const background = valueBreakpoints(background_, true, breakpoints, theme);
-  const autoPlay = valueBreakpoints(autoPlay_, true, breakpoints, theme);
+  const autoPlay = valueBreakpoints(autoPlay_, undefined, breakpoints, theme);
   const autoHeight = valueBreakpoints(autoHeight_, undefined, breakpoints, theme);
   const round = valueBreakpoints(round_, true, breakpoints, theme);
   const arrows = valueBreakpoints(arrows_, true, breakpoints, theme);
@@ -365,6 +368,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     move: React.useRef<any>(),
     moveValue: React.useRef<any>(),
     moveItems: React.useRef<any>(),
+    moveBeyondEdge: React.useRef<any>(),
     free: React.useRef<any>(),
     swipe: React.useRef<any>(),
     mouseDownPosition: React.useRef<any>(),
@@ -400,6 +404,8 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
   refs.moveValue.current = moveValue;
 
   refs.moveItems.current = moveItems;
+
+  refs.moveBeyondEdge.current = moveBeyondEdge;
 
   refs.free.current = free;
 
@@ -775,7 +781,10 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
           let x = (refs.value.current?.x || 0) - incX;
 
-          if (refs.free.current) x = clamp(x, min, max);
+          if (refs.free.current || !refs.moveBeyondEdge.current) x = clamp(x, min, max);
+
+          // Move beyond min, max
+          if (x < min || x > max) x = (refs.value.current?.x || 0) - (incX / 1.7);
 
           refs.velocity.current = x - (refs.value.current?.x || 0);
 
@@ -796,7 +805,10 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
           let y = (refs.value.current?.y || 0) - incY;
 
-          if (refs.free.current) y = clamp(y, min, max);
+          if (refs.free.current || !refs.moveBeyondEdge.current) y = clamp(y, min, max);
+
+          // Move beyond min, max
+          if (y < min || y > max) y = (refs.value.current?.y || 0) - (incY / 1.7);
 
           refs.velocity.current = y - (refs.value.current?.y || 0);
 
