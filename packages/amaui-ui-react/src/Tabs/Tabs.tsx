@@ -53,20 +53,26 @@ const useStyle = style(theme => ({
     transition: theme.methods.transitions.make(['top', 'left', 'width'])
   },
 
-  line_orientation_horizontal: {
+  line_version_primary_orientation_horizontal: {
     height: '3px',
     bottom: 0,
     borderRadius: '16px 16px 0 0'
   },
 
-  line_orientation_vertical: {
+  line_version_primary_orientation_vertical: {
     width: '3px',
     insetInlineEnd: 0,
     borderRadius: '16px 0 0 16px'
   },
 
-  line_orientation_vertical_rtl: {
-    borderRadius: '0 16px 16px 0'
+  line_version_secondary_orientation_horizontal: {
+    height: '2px',
+    bottom: 0
+  },
+
+  line_version_secondary_orientation_vertical: {
+    width: '2px',
+    insetInlineEnd: 0
   },
 
   fixed: {
@@ -149,6 +155,8 @@ const Tabs = React.forwardRef((props_: any, ref: any) => {
     tonal = true,
     color = 'primary',
 
+    version = 'primary',
+
     value: value_ = 0,
     valueDefault,
 
@@ -194,12 +202,17 @@ const Tabs = React.forwardRef((props_: any, ref: any) => {
     tabs: React.useRef<any>([]),
     value: React.useRef<any>(),
     props: React.useRef<any>(),
-    mobile: React.useRef<any>()
+    mobile: React.useRef<any>(),
+    version: React.useRef<any>()
   };
 
   refs.value.current = value;
+
   refs.props.current = props;
+
   refs.mobile.current = mobile;
+
+  refs.version.current = version;
 
   React.useEffect(() => {
     // Update lineValues value
@@ -288,7 +301,7 @@ const Tabs = React.forwardRef((props_: any, ref: any) => {
       const rect = {
         parent: refs.tabsRoot.current?.getBoundingClientRect(),
         tab: tab.getBoundingClientRect(),
-        line: tab.children[1]?.getBoundingClientRect()
+        line: (refs.version.current === 'primary' ? tab.children[1] : tab)?.getBoundingClientRect()
       };
 
       // Update
@@ -440,8 +453,8 @@ const Tabs = React.forwardRef((props_: any, ref: any) => {
             ],
 
             classes.line,
-            classes[`line_orientation_${orientation}`],
-            orientation === 'vertical' && theme.direction === 'rtl' && classes.line_orientation_vertical_rtl
+            classes[`line_version_${version}_orientation_${orientation}`],
+            orientation === 'vertical' && theme.direction === 'rtl' && classes[`line_version_${version}_orientation_vertical_rtl`]
           ])}
 
           style={{
@@ -471,6 +484,8 @@ const Tabs = React.forwardRef((props_: any, ref: any) => {
               tonal: item.props.tonal !== undefined ? item.props.tonal : tonal,
 
               color: item.props.color !== undefined ? item.props.color : color,
+
+              version: item.props.version !== undefined ? item.props.version : version,
 
               index,
 

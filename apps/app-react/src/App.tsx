@@ -16641,6 +16641,38 @@ Markdown 1 | Less | Pretty
           </Tabs>
         </Accordion>
 
+        <Accordion primary='Tabs version' open>
+          <Line>
+            <Tabs
+              version='primary'
+            >
+              {new Array(44).fill(1).map((item: any, index: number) => (
+                <Tab
+                  key={index}
+
+                  label={`Tab ${index}`}
+
+                  value={index}
+                />
+              ))}
+            </Tabs>
+
+            <Tabs
+              version='secondary'
+            >
+              {new Array(44).fill(1).map((item: any, index: number) => (
+                <Tab
+                  key={index}
+
+                  label={`Tab ${index}`}
+
+                  value={index}
+                />
+              ))}
+            </Tabs>
+          </Line>
+        </Accordion>
+
         <Accordion primary='Tabs icons' open>
           <Line
             style={{
