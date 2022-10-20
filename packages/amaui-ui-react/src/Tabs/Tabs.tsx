@@ -216,7 +216,7 @@ const Tabs = React.forwardRef((props_: any, ref: any) => {
     ...other
   } = props;
 
-  const mobile = useMediaQuery('(max-width: 767px)');
+  const mobile = useMediaQuery('(pointer: coarse)');
 
   const setMoveValue = React.useState<any>({})[1];
   const [init, setInit] = React.useState(false);
