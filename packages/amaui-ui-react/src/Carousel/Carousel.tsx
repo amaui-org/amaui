@@ -557,6 +557,9 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     // Momentum
     momentumClear();
 
+    // Momentum clean up
+    (refs.carousel.current as HTMLElement).style.removeProperty('transition');
+
     let index = refs.value.current?.index;
 
     if (index === undefined) index = 0;
@@ -659,14 +662,24 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     const itemNew = values[index];
 
     if (itemNew) {
-      updateValue({ index, element: itemNew });
+      if (version === 'transition') updateValue({ index, element: itemNew });
 
       if (autoHeight) {
-        setTimeout(() => {
-          const height_ = (version === 'transition' ? refs.carousel.current.children[0]?.children[0] : refs.carousel.current.children[refs.value.current.index]?.children[0])?.getBoundingClientRect().height;
+        if (version === 'regular') {
+          setTimeout(() => {
+            const height_ = refs.carousel.current.children[refs.value.current?.index]?.children[0]?.getBoundingClientRect().height;
 
-          if (height_ > 0) refs.root.current.style.height = `${height_}px`;
-        }, autoHeightDelay);
+            if (height_ > 0) refs.root.current.style.height = `${height_}px`;
+          }, 1);
+        }
+
+        if (version === 'transition') {
+          setTimeout(() => {
+            const height_ = refs.carousel.current.children[0]?.children[0]?.getBoundingClientRect().height;
+
+            if (height_ > 0) refs.root.current.style.height = `${height_}px`;
+          }, autoHeightDelay);
+        }
       }
     }
   }, [gap, version, autoHeight, autoHeightDelay]);
@@ -723,7 +736,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
           const original = (index * width_) + (index * (gap * theme.space.unit));
 
-          if (x <= original && original - x >= width_ / 4) onUpdate(index - 1);
+          if (x <= original && original - x >= width_ / 4) onUpdate('previous');
           else if (x >= original && x - original >= width_ / 4) onUpdate('next');
           else onUpdate(index);
         }
@@ -739,7 +752,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
           const original = (index * height_) + (index * (gap * theme.space.unit));
 
-          if (y <= original && original - y >= height_ / 4) onUpdate(index - 1);
+          if (y <= original && original - y >= height_ / 4) onUpdate('previous');
           else if (y >= original && y - original >= height_ / 4) onUpdate('next');
           else onUpdate(index);
         }
@@ -766,7 +779,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     };
 
     const onMove = (x_: number, y_: number) => {
-      if (refs.move.current && refs.mouseDown.current && refs.previousMouseEvent.current) {
+      if (refs.version.current === 'regular' && refs.move.current && refs.mouseDown.current && refs.previousMouseEvent.current) {
         const incX = x_ - refs.previousMouseEvent.current.clientX;
         const incY = y_ - refs.previousMouseEvent.current.clientY;
 
@@ -1082,6 +1095,8 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
   }
 
   const resolveItem = (Item: any) => {
+    if (!Item) return null;
+
     if (is('string', Item)) {
       if (background) return (
         <div
