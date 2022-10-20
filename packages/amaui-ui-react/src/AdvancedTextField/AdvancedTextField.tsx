@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is, numberWithCommas } from '@amaui/utils';
+import { is, numberWithCommas, Try } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import TextField from '../TextField';
@@ -30,6 +30,8 @@ const AdvancedTextField = React.forwardRef((props_: any, ref: any) => {
 
     mask,
 
+    maskProactive = true,
+
     thousand,
     thousandSeparator = ',',
 
@@ -58,6 +60,18 @@ const AdvancedTextField = React.forwardRef((props_: any, ref: any) => {
       if (value_ !== value) setValue(value_);
     }
   }, [value_]);
+
+  const maskConstsFromIndex = (index: number) => {
+    const values = [];
+
+    for (const item of mask.slice(index)) {
+      if (!is('simple', item)) break;
+
+      values.push(item);
+    }
+
+    return values;
+  };
 
   const onChange = (value__: any) => {
     let valueNew = value__;
@@ -110,14 +124,35 @@ const AdvancedTextField = React.forwardRef((props_: any, ref: any) => {
 
           // Constant
           if (is('string', mask[i])) {
-            valueNew += mask[i];
+            if (valueNew[i] !== mask[i]) valueNew += mask[i];
 
             if (previousValue[0] === mask[i]) previousValue.shift();
           }
           else {
-            const { pattern } = mask[i];
+            let added = false;
 
-            if (new RegExp(pattern).test(previousValue[0])) valueNew += previousValue[0];
+            if (is('function', mask[i])) {
+              if (Try(() => mask[i](previousValue[0], valueNew, value__))) {
+                valueNew += previousValue[0];
+
+                added = true;
+              }
+            }
+            else if (is('object', mask[i])) {
+              const { pattern } = mask[i];
+
+              if (new RegExp(pattern).test(previousValue[0])) {
+                valueNew += previousValue[0];
+
+                added = true;
+              }
+            }
+
+            if (added && maskProactive) {
+              const items: any[] = maskConstsFromIndex(i + 1);
+
+              items.forEach((item: any) => valueNew += item);
+            }
 
             previousValue.shift();
           }
