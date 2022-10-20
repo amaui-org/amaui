@@ -83,7 +83,8 @@ const useStyle = style(theme => ({
     '&.AmauiDivider-root': {
       margin: '0px',
       background: 'currentColor',
-      opacity: '0.14'
+      opacity: '0.14',
+      zIndex: 1
     }
   },
 
@@ -91,8 +92,7 @@ const useStyle = style(theme => ({
     '&.AmauiDivider-root': {
       left: 0,
       right: 0,
-      bottom: 0,
-      zIndex: 0
+      bottom: 0
     }
   },
 
@@ -100,8 +100,7 @@ const useStyle = style(theme => ({
     '&.AmauiDivider-root': {
       top: 0,
       bottom: 0,
-      insetInlineEnd: 0,
-      zIndex: 0
+      insetInlineEnd: 0
     }
   },
 

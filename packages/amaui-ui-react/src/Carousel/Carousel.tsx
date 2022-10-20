@@ -37,11 +37,6 @@ const useStyle = style(theme => ({
     }
   },
 
-  item_itemSize_auto: {
-    width: 'auto',
-    height: 'auto'
-  },
-
   item_transition: {
     position: 'absolute',
     width: '100%',
@@ -53,9 +48,19 @@ const useStyle = style(theme => ({
     }
   },
 
-  item_transition_autoHeight: {
-    width: 'unset',
+  item_version_regular_autoHeight: {
+    width: '100%',
     height: 'unset'
+  },
+
+  item_version_transition_autoHeight: {
+    width: '100%',
+    height: 'unset'
+  },
+
+  item_itemSize_auto: {
+    width: 'auto',
+    height: 'auto'
   },
 
   background: {
@@ -651,19 +656,17 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     };
 
     // Transition
-    if (version === 'transition') {
-      const itemNew = values[index];
+    const itemNew = values[index];
 
-      if (itemNew) {
-        updateValue({ index, element: itemNew });
+    if (itemNew) {
+      updateValue({ index, element: itemNew });
 
-        if (autoHeight) {
-          setTimeout(() => {
-            const height_ = refs.carousel.current.children[0]?.children[0]?.getBoundingClientRect().height;
+      if (autoHeight) {
+        setTimeout(() => {
+          const height_ = (version === 'transition' ? refs.carousel.current.children[0]?.children[0] : refs.carousel.current.children[refs.value.current.index]?.children[0])?.getBoundingClientRect().height;
 
-            if (height_ > 0) refs.root.current.style.height = `${height_}px`;
-          }, autoHeightDelay);
-        }
+          if (height_ > 0) refs.root.current.style.height = `${height_}px`;
+        }, autoHeightDelay);
       }
     }
   }, [gap, version, autoHeight, autoHeightDelay]);
@@ -1211,6 +1214,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
                 ],
 
                 classes.item,
+                autoHeight && classes[`item_version_${version}_autoHeight`],
                 itemSize && classes[`item_itemSize_${itemSize}`]
               ])}
             >
@@ -1284,7 +1288,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
                     ],
 
                     classes.item_transition,
-                    autoHeight && classes.item_transition_autoHeight
+                    autoHeight && classes[`item_version_${version}_autoHeight`],
                   ])}
                 >
                   {resolveItem(value.element)}

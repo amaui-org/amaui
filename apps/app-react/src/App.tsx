@@ -903,7 +903,7 @@ const TabsCarousel = () => {
 
                   style={{
                     width: '100%',
-                    height: index === 1 ? 700 : '100%',
+                    height: index === 1 ? 700 : 400,
                     background: 'beige'
                   }}
                 >
