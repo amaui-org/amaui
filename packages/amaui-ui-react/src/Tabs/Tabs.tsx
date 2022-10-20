@@ -10,6 +10,7 @@ import IconButton from '../IconButton';
 import useMediaQuery from '../useMediaQuery';
 
 import { staticClassName } from '../utils';
+import Divider from '../Divider';
 
 const useStyle = style(theme => ({
   root: {
@@ -47,10 +48,11 @@ const useStyle = style(theme => ({
   },
 
   line: {
+    display: 'inline-block',
     position: 'absolute',
     background: 'currentColor',
-    zIndex: 1,
-    transition: theme.methods.transitions.make(['top', 'left', 'width'])
+    transition: theme.methods.transitions.make(['top', 'left', 'width']),
+    zIndex: 1
   },
 
   line_version_primary_orientation_horizontal: {
@@ -73,6 +75,34 @@ const useStyle = style(theme => ({
   line_version_secondary_orientation_vertical: {
     width: '2px',
     insetInlineEnd: 0
+  },
+
+  divider: {
+    position: 'absolute',
+
+    '&.AmauiDivider-root': {
+      margin: '0px',
+      background: 'currentColor',
+      opacity: '0.14'
+    }
+  },
+
+  divider_orientation_horizontal: {
+    '&.AmauiDivider-root': {
+      left: 0,
+      right: 0,
+      bottom: 0,
+      zIndex: 0
+    }
+  },
+
+  divider_orientation_vertical: {
+    '&.AmauiDivider-root': {
+      top: 0,
+      bottom: 0,
+      insetInlineEnd: 0,
+      zIndex: 0
+    }
   },
 
   fixed: {
@@ -446,7 +476,24 @@ const Tabs = React.forwardRef((props_: any, ref: any) => {
           classes[`tabs_orientation_${orientation}`]
         ])}
       >
-        <div
+        <Divider
+          tonal={tonal}
+
+          color={color}
+
+          orientation={orientation}
+
+          className={classNames([
+            staticClassName('Tabs', theme) && [
+              'AmauiTabs-divider'
+            ],
+
+            classes.divider,
+            classes[`divider_orientation_${orientation}`]
+          ])}
+        />
+
+        <span
           className={classNames([
             staticClassName('Tabs', theme) && [
               'AmauiTabs-line'

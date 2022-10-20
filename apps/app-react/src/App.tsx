@@ -16642,7 +16642,11 @@ Markdown 1 | Less | Pretty
         </Accordion>
 
         <Accordion primary='Tabs version' open>
-          <Line>
+          <Line
+            style={{
+              width: '100%'
+            }}
+          >
             <Tabs
               version='primary'
             >
@@ -16658,7 +16662,47 @@ Markdown 1 | Less | Pretty
             </Tabs>
 
             <Tabs
+              version='primary'
+
+              orientation='vertical'
+
+              style={{
+                maxHeight: 440
+              }}
+            >
+              {new Array(44).fill(1).map((item: any, index: number) => (
+                <Tab
+                  key={index}
+
+                  label={`Tab ${index}`}
+
+                  value={index}
+                />
+              ))}
+            </Tabs>
+
+            <Tabs
               version='secondary'
+            >
+              {new Array(44).fill(1).map((item: any, index: number) => (
+                <Tab
+                  key={index}
+
+                  label={`Tab ${index}`}
+
+                  value={index}
+                />
+              ))}
+            </Tabs>
+
+            <Tabs
+              version='secondary'
+
+              orientation='vertical'
+
+              style={{
+                maxHeight: 440
+              }}
             >
               {new Array(44).fill(1).map((item: any, index: number) => (
                 <Tab

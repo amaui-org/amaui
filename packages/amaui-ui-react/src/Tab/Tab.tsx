@@ -54,6 +54,8 @@ const Tab = React.forwardRef((props_: any, ref: any) => {
     tonal = true,
     color = 'primary',
 
+    version = 'primary',
+
     value,
     active,
     index,
