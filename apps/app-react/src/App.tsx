@@ -3157,6 +3157,12 @@ Please sign in again.`}
             />
           </Line>
         </Accordion>
+
+        <Accordion primary='TimePicker seconds'>
+          <TimePicker
+            seconds
+          />
+        </Accordion>
       </Accordion>
 
       <Accordion primary='Carousel'>

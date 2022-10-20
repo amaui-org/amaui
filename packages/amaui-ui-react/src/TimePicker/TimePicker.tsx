@@ -33,8 +33,6 @@ const IconMaterialScheduleRounded = React.forwardRef((props: any, ref) => {
 
 // to do
 
-// mobile, desktop
-
 // picker
 
 // picker vertical, horizontal
@@ -43,6 +41,10 @@ const IconMaterialScheduleRounded = React.forwardRef((props: any, ref) => {
 // min, max date
 
 // validate
+
+// value
+
+// onChange
 
 // read only
 
