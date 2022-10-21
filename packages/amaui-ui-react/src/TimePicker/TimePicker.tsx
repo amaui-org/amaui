@@ -145,6 +145,8 @@ const IconMaterialKeyboardAltRounded = React.forwardRef((props: any, ref) => {
 
 // disabled
 
+// on escape close the modeOpen and focus the icon button if version 'desktop'
+
 const TimePicker = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 
@@ -184,6 +186,8 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
     hours = true,
     minutes = true,
     seconds = false,
+
+    switch: switch_ = true,
 
     onClick: onClick_,
 
@@ -463,7 +467,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
             align='center'
 
-            justify='space-between'
+            justify={switch_ ? 'space-between' : 'flex-end'}
 
             className={classNames([
               staticClassName('TimePicker', theme) && [
@@ -473,19 +477,21 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
               classes.footer
             ])}
           >
-            <Tooltip
-              label={mode === 'select' ? 'Enter' : 'Select'}
-            >
-              <IconButton
-                tonal={tonal}
-
-                color='default'
-
-                onClick={onModeSwitch}
+            {switch_ && (
+              <Tooltip
+                label={mode === 'select' ? 'Enter' : 'Select'}
               >
-                {mode === 'select' ? <IconEnter /> : <Icon />}
-              </IconButton>
-            </Tooltip>
+                <IconButton
+                  tonal={tonal}
+
+                  color='default'
+
+                  onClick={onModeSwitch}
+                >
+                  {mode === 'select' ? <IconEnter /> : <Icon />}
+                </IconButton>
+              </Tooltip>
+            )}
 
             <Line
               gap={0}
@@ -501,6 +507,8 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
                 version='text'
 
+                onClick={onCancel}
+
                 {...ButtonProps}
               >
                 Cancel
@@ -512,6 +520,8 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
                 color={color}
 
                 version='text'
+
+                onClick={onOk}
 
                 {...ButtonProps}
               >
@@ -777,7 +787,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
             align='center'
 
-            justify='space-between'
+            justify={switch_ ? 'space-between' : 'flex-end'}
 
             className={classNames([
               staticClassName('TimePicker', theme) && [
@@ -787,19 +797,21 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
               classes.footer
             ])}
           >
-            <Tooltip
-              label={mode === 'select' ? 'Enter' : 'Select'}
-            >
-              <IconButton
-                tonal={tonal}
-
-                color='default'
-
-                onClick={onModeSwitch}
+            {switch_ && (
+              <Tooltip
+                label={mode === 'select' ? 'Enter' : 'Select'}
               >
-                {mode === 'select' ? <IconEnter /> : <Icon />}
-              </IconButton>
-            </Tooltip>
+                <IconButton
+                  tonal={tonal}
+
+                  color='default'
+
+                  onClick={onModeSwitch}
+                >
+                  {mode === 'select' ? <IconEnter /> : <Icon />}
+                </IconButton>
+              </Tooltip>
+            )}
 
             <Line
               gap={0}
@@ -840,7 +852,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
         </Line>
       </Surface>
     );
-  }), [version, format, hours, minutes, seconds, inputModeHeadingText, mode, tonal, color, InputProps]);
+  }), [version, format, hours, minutes, seconds, inputModeHeadingText, mode, tonal, color, switch_, InputProps]);
 
   if (hours) {
     if (format === '12') {
