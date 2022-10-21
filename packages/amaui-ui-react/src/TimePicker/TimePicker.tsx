@@ -406,6 +406,20 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
       <AdvancedTextField
         helperText='Hour'
 
+        placeholder='hh'
+
+        mask={[
+          ...(format === '12' ? [
+            { pattern: '[0-1]' },
+
+            (item: string, result: string, valueInput: string) => /^([0][0-9]|1[0-2]).*/.test(valueInput)
+          ] : [
+            { pattern: '[0-2]' },
+
+            (item: string, result: string, valueInput: string) => /^([01][0-9]|2[0-3]).*/.test(valueInput)
+          ])
+        ]}
+
         {...inputProps}
       />
     ];
@@ -416,6 +430,14 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
         <AdvancedTextField
           helperText='Minute'
+
+          placeholder='mm'
+
+          mask={[
+            { pattern: '[0-5]' },
+
+            { pattern: '[0-9]' }
+          ]}
 
           {...inputProps}
         />
@@ -428,6 +450,14 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
         <AdvancedTextField
           helperText='Second'
+
+          placeholder='ss'
+
+          mask={[
+            { pattern: '[0-5]' },
+
+            { pattern: '[0-9]' }
+          ]}
 
           {...inputProps}
         />
@@ -628,7 +658,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
       mask.push(
         { pattern: '[0-1]' },
 
-        { pattern: '[0-9]' }
+        (item: string, result: string, valueInput: string) => /^([0][0-9]|1[0-2]).*/.test(valueInput)
       );
     }
 
