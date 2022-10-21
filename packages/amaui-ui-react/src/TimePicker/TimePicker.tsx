@@ -447,7 +447,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
       tonal: 'secondary',
       color,
       version: 'filled',
-      backgroundOpacity: 0.14,
+      backgroundOpacity: theme.palette.light ? 0.24 : 0.14,
       elevation: false,
 
       className: classNames([
@@ -479,8 +479,6 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
       <Button
         {...buttonProps}
 
-        color={refs.values.current.selecting === 'hour' ? 'primary' : 'default'}
-
         selected={refs.values.current.selecting === 'hour'}
 
         onClick={() => updateValues('selecting', 'hour')}
@@ -495,8 +493,6 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
         <Button
           {...buttonProps}
-
-          color={refs.values.current.selecting === 'minute' ? 'primary' : 'default'}
 
           selected={refs.values.current.selecting === 'minute'}
 
@@ -513,8 +509,6 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
         <Button
           {...buttonProps}
-
-          color={refs.values.current.selecting === 'second' ? 'primary' : 'default'}
 
           selected={refs.values.current.selecting === 'second'}
 
@@ -736,7 +730,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
         </Line>
       </Surface>
     );
-  }), [version, format, hours, minutes, seconds, selectModeHeadingText, mode, tonal, color, switch_, InputProps]);
+  }), [version, format, hours, minutes, seconds, selectModeHeadingText, mode, tonal, color, switch_, InputProps, theme]);
 
   const ModeInput = React.useCallback(React.forwardRef((props: any, ref: any) => {
     const inputProps = {
