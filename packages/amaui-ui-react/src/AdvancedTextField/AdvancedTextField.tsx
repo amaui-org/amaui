@@ -150,7 +150,7 @@ const AdvancedTextField = React.forwardRef((props_: any, ref: any) => {
 
             // Only if new values are added
             // do not use on removing values
-            if (added && value__.length >= value.length && maskProactive) {
+            if (added && value__?.length >= value.length && maskProactive) {
               const items: any[] = maskConstsFromIndex(i + 1);
 
               items.forEach((item: any) => valueNew += item);

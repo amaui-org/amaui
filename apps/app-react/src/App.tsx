@@ -3138,7 +3138,7 @@ Please sign in again.`}
       <Accordion primary='TimePicker'>
         <Accordion primary='TimePicker' open>
           <TimePicker
-
+            label='Time'
           />
         </Accordion>
 
@@ -3149,10 +3149,14 @@ Please sign in again.`}
             }}
           >
             <TimePicker
+              label='12 hour'
+
               format='12'
             />
 
             <TimePicker
+              label='24 hour'
+
               format='24'
             />
           </Line>
@@ -3160,6 +3164,8 @@ Please sign in again.`}
 
         <Accordion primary='TimePicker seconds'>
           <TimePicker
+            label='Seconds'
+
             seconds
           />
         </Accordion>

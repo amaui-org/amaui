@@ -66,7 +66,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
     // mobile, desktop & auto
     version: version_ = 'auto',
 
-    label = 'Time',
+    label,
 
     min,
     max,
@@ -99,7 +99,11 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
     else version = 'desktop';
   }
 
-  let mask = [];
+  let mask: any = [
+    'a',
+    'b',
+    'c'
+  ];
 
   let placeholder = '';
 
@@ -116,11 +120,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
       mask.push(
         { pattern: '[0-2]' },
 
-        (item: string, result: string, valueInput: string) => {
-          console.log(1, item, result, valueInput);
-
-          return /^([01][0-9]|2[0-3]).*/.test(valueInput);
-        },
+        (item: string, result: string, valueInput: string) => /^([01][0-9]|2[0-3]).*/.test(valueInput),
       );
     }
 
