@@ -418,8 +418,6 @@ const Button = React.forwardRef((props_: any, ref: any) => {
     else if (loadingIconPosition === 'end') endIcon = iconLoading;
   }
 
-  if (backgroundOpacity !== undefined) styles.background.opacity = backgroundOpacity;
-
   if (disabled) {
     InteractionProps.wave = false;
     InteractionProps.border = false;
@@ -463,6 +461,8 @@ const Button = React.forwardRef((props_: any, ref: any) => {
       version={version === 'outlined' ? 'outlined-without-background' : version}
 
       elevation={(elevation && !disabled && ['filled', 'tonal'].includes(version)) ? 1 : 0}
+
+      backgroundOpacity={backgroundOpacity}
 
       onFocus={onFocus}
 

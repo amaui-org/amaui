@@ -442,9 +442,10 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
   const ModeSelect = React.useCallback(React.forwardRef((props: any, ref: any) => {
     const buttonProps = {
-      tonal,
+      tonal: 'secondary',
       color,
       version: 'filled',
+      backgroundOpacity: 0.54,
       elevation: false,
 
       className: classNames([
@@ -474,13 +475,13 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
     const buttons = [
       <Button
+        {...buttonProps}
+
         color={refs.values.current.selecting === 'hour' ? 'primary' : 'default'}
 
         selected={refs.values.current.selecting === 'hour'}
 
         onClick={() => updateValues('selecting', 'hour')}
-
-        {...buttonProps}
       >
         {refs.values.current.hour}
       </Button>
@@ -491,13 +492,13 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
         separator,
 
         <Button
+          {...buttonProps}
+
           color={refs.values.current.selecting === 'minute' ? 'primary' : 'default'}
 
           selected={refs.values.current.selecting === 'minute'}
 
           onClick={() => updateValues('selecting', 'minute')}
-
-          {...buttonProps}
         >
           {refs.values.current.minute}
         </Button>
@@ -509,13 +510,13 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
         separator,
 
         <Button
+          {...buttonProps}
+
           color={refs.values.current.selecting === 'second' ? 'primary' : 'default'}
 
           selected={refs.values.current.selecting === 'second'}
 
           onClick={() => updateValues('selecting', 'second')}
-
-          {...buttonProps}
         >
           {refs.values.current.second}
         </Button>
