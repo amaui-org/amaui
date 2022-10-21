@@ -126,8 +126,6 @@ const IconMaterialKeyboardAltRounded = React.forwardRef((props: any, ref) => {
 
 // to do
 
-// if no minutes, or seconds, they default to 0
-
 // picker
 
 // picker vertical, horizontal
@@ -289,7 +287,14 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
     if (hour.startsWith('0')) hour = +hour.slice(1);
 
-    amauiDate = set(+hour + ((format === '12' && values_.dayTime === 'pm') ? 12 : 0), 'hour', amauiDate);
+    if (format === '12') {
+      if (+hour === 0 || +hour === 12) {
+        if (values_.dayTime === 'am') amauiDate = set(0, 'hour', amauiDate);
+        else if (values_.dayTime === 'pm') amauiDate = set(12, 'hour', amauiDate);
+      }
+      else amauiDate = set(+hour + (values_.dayTime === 'pm' ? 12 : 0), 'hour', amauiDate);
+    }
+    else amauiDate = set(+hour, 'hour', amauiDate);
 
     // minute
     let minute = values_.minute || '00';
