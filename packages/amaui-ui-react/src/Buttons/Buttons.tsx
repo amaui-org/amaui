@@ -272,7 +272,7 @@ const Buttons = React.forwardRef((props_: any, ref: any) => {
       else {
         if (select === 'single') valueNew = [itemProps.value];
 
-        if (select === 'multi') valueNew = unique([...selected, itemProps.value]);
+        if (select === 'multiple') valueNew = unique([...selected, itemProps.value]);
       }
     }
     else {
@@ -294,7 +294,7 @@ const Buttons = React.forwardRef((props_: any, ref: any) => {
           }
           else valueNew = [itemProps.value];
         }
-        if (select === 'multi') {
+        if (select === 'multiple') {
           if (!noCheckIcon) {
             setPreSelected(items => unique([...items, itemProps.value]));
 

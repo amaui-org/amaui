@@ -31536,7 +31536,7 @@ Markdown 1 | Less | Pretty
 
         <Accordion primary='Toggle buttons select multi' open>
           <Line>
-            <ToggleButtons select='multi'>
+            <ToggleButtons select='multiple'>
               <ToggleButton value='1' icon><IconMaterialFormatAlignLeftRounded /></ToggleButton>
               <ToggleButton value='2' icon><IconMaterialFormatAlignCenterRounded /></ToggleButton>
               <ToggleButton value='3' icon><IconMaterialFormatAlignRightRounded /></ToggleButton>
@@ -31547,7 +31547,7 @@ Markdown 1 | Less | Pretty
 
         <Accordion primary='Toggle buttons chip colorSelected' open>
           <Line>
-            <ToggleButtons colorSelected='secondary' select='multi'>
+            <ToggleButtons colorSelected='secondary' select='multiple'>
               <ToggleButton value='1' icon><IconMaterialFormatAlignLeftRounded /></ToggleButton>
               <ToggleButton value='2' icon><IconMaterialFormatAlignCenterRounded /></ToggleButton>
               <ToggleButton value='3' icon><IconMaterialFormatAlignRightRounded /></ToggleButton>
@@ -54353,7 +54353,7 @@ Please sign in again.`}
 
         <Accordion primary='Buttons select multi' open>
           <div className={classNames([classes.row, classes.center])}>
-            <Buttons version='filled' size='large' select='multi'>
+            <Buttons version='filled' size='large' select='multiple'>
               {new Array(7).fill(true).map((item: any, index: number) => (
                 <Button
                   key={index}
@@ -54385,7 +54385,7 @@ Please sign in again.`}
 
         <Accordion primary='Buttons select multi noCheckIcon' open>
           <div className={classNames([classes.row, classes.center])}>
-            <Buttons version='filled' size='large' select='multi' noCheckIcon>
+            <Buttons version='filled' size='large' select='multiple' noCheckIcon>
               {new Array(7).fill(true).map((item: any, index: number) => (
                 <Button
                   key={index}
@@ -54417,7 +54417,7 @@ Please sign in again.`}
 
         <Accordion primary='Buttons vertical select multi' open>
           <div className={classNames([classes.row, classes.center])}>
-            <Buttons color='default' version='text' select='multi' fullWidth vertical>
+            <Buttons color='default' version='text' select='multiple' fullWidth vertical>
               {new Array(7).fill(true).map((item: any, index: number) => (
                 <Button
                   key={index}
@@ -54431,7 +54431,7 @@ Please sign in again.`}
               ))}
             </Buttons>
 
-            <Buttons color='default' version='outlined' select='multi' fullWidth vertical>
+            <Buttons color='default' version='outlined' select='multiple' fullWidth vertical>
               {new Array(7).fill(true).map((item: any, index: number) => (
                 <Button
                   key={index}
@@ -54445,7 +54445,7 @@ Please sign in again.`}
               ))}
             </Buttons>
 
-            <Buttons color='default' version='filled' select='multi' fullWidth vertical>
+            <Buttons color='default' version='filled' select='multiple' fullWidth vertical>
               {new Array(7).fill(true).map((item: any, index: number) => (
                 <Button
                   key={index}

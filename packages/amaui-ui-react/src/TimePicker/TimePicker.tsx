@@ -397,8 +397,14 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
     setMode(refs.mode.current === 'select' ? 'input' : 'select');
   }, []);
 
-  const onSave = React.useCallback(() => {
+  const onOk = React.useCallback(() => {
     updateValuesToInput();
+
+    onModeClose();
+  }, []);
+
+  const onCancel = React.useCallback(() => {
+    updateInputToValues();
 
     onModeClose();
   }, []);
@@ -551,7 +557,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
       <AdvancedTextField
         helperText='Hour'
 
-        value={values.hour}
+        value={refs.values.current.hour}
 
         onChange={(valueNew: any) => updateValues('hour', valueNew)}
 
@@ -580,7 +586,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
         <AdvancedTextField
           helperText='Minute'
 
-          value={values.minute}
+          value={refs.values.current.minute}
 
           onChange={(valueNew: any) => updateValues('minute', valueNew)}
 
@@ -604,7 +610,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
         <AdvancedTextField
           helperText='Second'
 
-          value={values.second}
+          value={refs.values.current.second}
 
           onChange={(valueNew: any) => updateValues('second', valueNew)}
 
@@ -717,11 +723,15 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
                 orientation='vertical'
 
-                value={values.dayTime}
+                value={refs.values.current.dayTime}
 
-                onChange={(valueNew: any) => updateValues('dayTime', valueNew)}
+                onChange={(valueNew: any) => {
+                  if (!valueNew.length) return;
 
-                select
+                  updateValues('dayTime', valueNew);
+                }}
+
+                select='single'
 
                 {...ToggleButtonsProps}
 
@@ -799,7 +809,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
                 version='text'
 
-                onClick={onModeClose}
+                onClick={onCancel}
 
                 {...ButtonProps}
               >
@@ -813,7 +823,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
                 version='text'
 
-                onClick={onSave}
+                onClick={onOk}
 
                 {...ButtonProps}
               >
@@ -824,7 +834,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
         </Line>
       </Surface>
     );
-  }), [values, version, format, hours, minutes, seconds, inputModeHeadingText, mode, tonal, color, InputProps]);
+  }), [version, format, hours, minutes, seconds, inputModeHeadingText, mode, tonal, color, InputProps]);
 
   if (hours) {
     if (format === '12') {
