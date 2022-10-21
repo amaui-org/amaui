@@ -744,7 +744,9 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
   let WrapperProps: any = {};
 
   if (footer) {
-    WrapperProps.ref = ref;
+    WrapperProps = {
+      ...other
+    };
 
     WrapperProps['className'] = classNames([
       staticClassName('TextField', theme) && [
@@ -764,15 +766,11 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
 
       ...styles.root
     };
-
-    WrapperProps = {
-      ...WrapperProps,
-
-      ...other
-    };
   }
   else {
-    ComponentProps.ref = ref;
+    ComponentProps = {
+      ...other
+    };
 
     ComponentProps.className = className;
 

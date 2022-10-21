@@ -1,13 +1,17 @@
 import React from 'react';
 
+import { is } from '@amaui/utils'
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Icon from '../Icon';
 import IconButton from '../IconButton';
 import AdvancedTextField from '../AdvancedTextField';
 import useMediaQuery from '../useMediaQuery';
+import Modal from '../Modal';
 
 import { staticClassName } from '../utils';
+import ClickListener from '../ClickListener';
+import Tooltip from '../Tooltip';
 
 const useStyle = style(theme => ({
   root: {
@@ -33,6 +37,10 @@ const IconMaterialScheduleRounded = React.forwardRef((props: any, ref) => {
 
 // to do
 
+// desktop wrapper
+
+// mobile wrapper
+
 // picker
 
 // picker vertical, horizontal
@@ -57,8 +65,6 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
   const { classes } = useStyle(props);
 
-  const touch = useMediaQuery('(pointer: coarse)');
-
   const {
     tonal = true,
     color = 'primary',
@@ -73,14 +79,26 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
     validate,
 
+    openMobile = 'select',
+
+    openDesktop = 'select',
+
+    selectModeText = 'Select time',
+
+    inputModeText = 'Enter time',
+
     format = '12',
 
     hours = true,
     minutes = true,
     seconds = false,
 
+    onClick: onClick_,
+
     Icon = IconMaterialScheduleRounded,
 
+    TooltipProps,
+    ModalProps,
     IconButtonProps,
 
     AdvancedTextFieldProps = {
@@ -92,6 +110,19 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
     ...other
   } = props;
 
+  const touch = useMediaQuery('(pointer: coarse)');
+
+  const [modeOpen, setModeOpen] = React.useState(false);
+  const [mode, setMode] = React.useState((touch ? openMobile : openDesktop) || 'select');
+
+  const refs = {
+    root: React.useRef<any>(),
+    iconButton: React.useRef<any>(),
+    version: React.useRef<any>(),
+    modeOpen: React.useRef<any>(),
+    mode: React.useRef<any>()
+  };
+
   let version = version_;
 
   if (version === 'auto') {
@@ -99,9 +130,33 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
     else version = 'desktop';
   }
 
+  refs.version.current = version;
+
+  refs.modeOpen.current = modeOpen;
+
+  refs.mode.current = mode;
+
   let mask: any = [];
 
   let placeholder = '';
+
+  const onMode = React.useCallback(() => {
+    setMode((refs.version.current === 'mobile' ? openMobile : openDesktop) || 'select');
+
+    setModeOpen(!refs.modeOpen.current);
+  }, [openMobile, openDesktop]);
+
+  const onModeClose = React.useCallback(() => {
+    setModeOpen(false);
+  }, []);
+
+  const onModal = React.useCallback((event: React.MouseEvent<any>) => {
+    setMode((refs.version.current === 'mobile' ? openMobile : openDesktop) || 'select');
+
+    setModeOpen(true);
+
+    if (is('function', onClick_)) onClick_(event);
+  }, [openMobile, openDesktop, onClick_]);
 
   if (hours) {
     if (format === '12') {
@@ -172,11 +227,15 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
   if (version === 'desktop') {
     moreProps.end = (
       <IconButton
+        ref={refs.iconButton}
+
         tonal={tonal}
 
         color={color}
 
         version='text'
+
+        onClick={onMode}
 
         {...IconButtonProps}
       >
@@ -185,9 +244,17 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
     );
   }
 
+  if (version === 'mobile') {
+    moreProps.onClick = onModal;
+  }
+
   return <>
     <AdvancedTextField
-      ref={ref}
+      rootRef={item => {
+        if (ref) ref.current = item;
+
+        refs.root.current = item;
+      }}
 
       tonal={tonal}
 
@@ -216,6 +283,70 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
       {...AdvancedTextFieldProps}
     />
+
+    {/* Mobile */}
+    {version === 'mobile' && (
+      <Modal
+        open={modeOpen}
+
+        modalWrapperSurface={false}
+
+        onClose={onModeClose}
+
+        {...ModalProps}
+      >
+        <div
+          style={{
+            padding: 40,
+            background: 'beige'
+          }}
+        >
+          {mode === 'select' ? selectModeText : inputModeText}
+        </div>
+      </Modal>
+    )}
+
+    {/* Desktop */}
+    {version === 'desktop' && (
+      <Tooltip
+        open={modeOpen}
+
+        anchorElement={refs.root.current}
+
+        alignment='center'
+
+        position='bottom'
+
+        hover={false}
+
+        focus={false}
+
+        longPress={false}
+
+        noMargin
+
+        label={(
+          <div>
+            <ClickListener
+              onClickOutside={onModeClose}
+
+              include={[refs.iconButton, refs.iconButton.current]}
+            >
+              <div
+                style={{
+                  padding: 40,
+                  background: 'beige'
+                }}
+              >
+                {mode === 'select' ? selectModeText : inputModeText}
+              </div>
+            </ClickListener>
+          </div>
+        )}
+
+        {...TooltipProps}
+      />
+    )}
   </>;
 });
 

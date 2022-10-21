@@ -29,7 +29,7 @@ const Append = (props_: any) => {
     inset: inset_,
     position: position_ = 'bottom',
     alignment: alignment_ = 'end',
-    switch: switch_ = false,
+    switch: switch_ = true,
     overflow = true,
     unfollow = false,
     style: style_,

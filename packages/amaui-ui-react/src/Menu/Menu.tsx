@@ -82,7 +82,9 @@ const Menu = React.forwardRef((props_: any, ref: any) => {
   };
 
   refs.id.current = id;
+
   refs.preselected.current = preselected;
+
   refs.props.current = props;
 
   React.useEffect(() => {
@@ -297,8 +299,11 @@ const Menu = React.forwardRef((props_: any, ref: any) => {
         )}
 
         arrow={arrow}
+
         hover={false}
+
         focus={false}
+
         longPress={false}
 
         noMargin={!arrow}

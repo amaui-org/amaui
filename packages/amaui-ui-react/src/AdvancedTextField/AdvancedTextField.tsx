@@ -177,7 +177,10 @@ const AdvancedTextField = React.forwardRef((props_: any, ref: any) => {
   return (
     <TextField
       ref={item => {
-        if (ref) ref.current = item;
+        if (ref) {
+          if (is('function', ref)) ref(item);
+          else ref.current = item;
+        }
 
         refs.root.current = item;
       }}
