@@ -283,23 +283,23 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
     // and am, pm
     let hour = values_.hour || '00';
 
-    if (hour.startsWith('0')) hour = +(hour.slice(1));
+    if (hour.startsWith('0')) hour = +hour.slice(1);
 
-    amauiDate = set(hour + ((format === '12' && values_.dayTime === 'pm') ? 12 : 0), 'hour', amauiDate);
+    amauiDate = set(+hour + ((format === '12' && values_.dayTime === 'pm') ? 12 : 0), 'hour', amauiDate);
 
     // minute
     let minute = values_.minute || '00';
 
-    if (minute.startsWith('0')) minute = +(minute.slice(1));
+    if (minute.startsWith('0')) minute = +minute.slice(1);
 
-    amauiDate = set(minute, 'minute', amauiDate);
+    amauiDate = set(+minute, 'minute', amauiDate);
 
     // second
     let second = values_.second || '00';
 
-    if (second.startsWith('0')) second = +(second.slice(1));
+    if (second.startsWith('0')) second = +second.slice(1);
 
-    amauiDate = set(second, 'second', amauiDate);
+    amauiDate = set(+second, 'second', amauiDate);
 
     return amauiDate;
   };
