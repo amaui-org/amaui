@@ -734,7 +734,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
                 onChange={(valueNew: any) => {
                   if (!valueNew.length) return;
 
-                  updateValues('dayTime', valueNew);
+                  updateValues('dayTime', is('array', valueNew) ? valueNew[0] : valueNew);
                 }}
 
                 select='single'
