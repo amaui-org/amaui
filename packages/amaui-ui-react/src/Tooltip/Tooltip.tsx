@@ -403,7 +403,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
     if (position === 'right') return 'left';
     if (position === 'bottom') return 'top';
   };
-  console.log('tooltip', open, inProp, anchorElement);
+
   return (
     <Append
       open={open}
