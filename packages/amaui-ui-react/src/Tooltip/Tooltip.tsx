@@ -160,6 +160,8 @@ const useStyle = style(theme => ({
 
   maxWidth_xxl: { maxWidth: `1360px` },
 
+  maxWidth_unset: { maxWidth: `unset` },
+
   fullWidth: { maxWidth: `${(isEnvironment('browser') ? window.innerWidth : 1400) - +theme.methods.space.value('rg', '', 1)}px` },
 
   nowrap: {

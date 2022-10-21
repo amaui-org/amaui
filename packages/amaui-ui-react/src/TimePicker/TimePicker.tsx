@@ -13,6 +13,8 @@ import Tooltip from '../Tooltip';
 import Surface from '../Surface';
 import Line from '../Line';
 import Type from '../Type';
+import ToggleButtons from '../ToggleButtons';
+import ToggleButton from '../ToggleButton';
 import Button from '../Button';
 
 import { staticClassName } from '../utils';
@@ -24,6 +26,7 @@ const useStyle = style(theme => ({
 
   mode: {
     padding: '24px',
+    marginInline: '24px',
     borderRadius: '28px'
   },
 
@@ -31,7 +34,64 @@ const useStyle = style(theme => ({
     width: '100%'
   },
 
+  inputs: {
+    width: '100%',
+    marginTop: '24px'
+  },
+
+  input: {
+    '& .AmauiTextField-inputWrapper': {
+      paddingInline: '0px',
+      paddingBlock: '11px 8px',
+      height: '72px'
+    },
+
+    '& .AmauiTextField-input': {
+      ...theme.typography.values.d2,
+
+      lineHeight: '1',
+
+      textAlign: 'center'
+    },
+
+    '& .AmauiTextField-footer': {
+      marginTop: '8px',
+      padding: '0px'
+    },
+
+    '& .AmauiTextField-helperText': {
+      color: theme.palette.text.default.primary
+    }
+  },
+
+  input_version_mobile: {
+    flexBasis: '96px'
+  },
+
+  input_version_desktop: {
+    width: '96px'
+  },
+
+  inputSeparator: {
+    marginTop: '7px',
+    paddingInline: '6px',
+    userSelect: 'none'
+  },
+
+  toggleButtons: {
+    height: '72px',
+
+    '& > *': {
+      flex: '1 1 auto'
+    }
+  },
+
+  toggleButton: {
+
+  },
+
   footer: {
+    width: '100%',
     marginTop: '24px'
   }
 }), { name: 'AmauiTimePicker' });
@@ -69,6 +129,8 @@ const IconMaterialKeyboardAltRounded = React.forwardRef((props: any, ref) => {
 });
 
 // to do
+
+// if no minutes, or seconds, they default to 0
 
 // picker
 
@@ -130,7 +192,10 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
     ButtonProps,
     ModalProps,
     TooltipProps,
+    ToggleButtonsProps,
+    ToggleButtonProps,
     IconButtonProps,
+    InputProps,
 
     AdvancedTextFieldProps = {
       version: 'outlined'
@@ -195,6 +260,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
   const ModeSelect = React.useCallback(React.forwardRef((props: any, ref: any) => {
 
+
     return (
       <Surface
         ref={ref}
@@ -225,12 +291,14 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
             classes.mode_wrapper
           ])}
         >
+          {/* Heading */}
           <Type
             version='l2'
           >
             {selectModeHeadingText}
           </Type>
 
+          {/* Footer */}
           <Line
             direction='row'
 
@@ -248,15 +316,19 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
               classes.footer
             ])}
           >
-            <IconButton
-              tonal={tonal}
-
-              color={color}
-
-              onClick={onModeSwitch}
+            <Tooltip
+              label={mode === 'select' ? 'Enter' : 'Select'}
             >
-              {mode === 'select' ? <IconEnter /> : <Icon />}
-            </IconButton>
+              <IconButton
+                tonal={tonal}
+
+                color='default'
+
+                onClick={onModeSwitch}
+              >
+                {mode === 'select' ? <IconEnter /> : <Icon />}
+              </IconButton>
+            </Tooltip>
 
             <Line
               gap={0}
@@ -296,6 +368,86 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
   }), [selectModeHeadingText, mode]);
 
   const ModeInput = React.useCallback(React.forwardRef((props: any, ref: any) => {
+    const inputProps = {
+      tonal,
+      color,
+      version: 'outlined',
+      size: 'large',
+
+      className: classNames([
+        staticClassName('TimePicker', theme) && [
+          'AmauiTimePicker-input'
+        ],
+
+        classes.input,
+        classes[`input_version_${version}`]
+      ]),
+
+      ...InputProps
+    };
+
+    const separator = (
+      <Type
+        version='d2'
+
+        className={classNames([
+          staticClassName('TimePicker', theme) && [
+            'AmauiTimePicker-input-separator'
+          ],
+
+          classes.inputSeparator
+        ])}
+      >
+        :
+      </Type>
+    );
+
+    const inputs = [
+      <AdvancedTextField
+        helperText='Hour'
+
+        {...inputProps}
+      />
+    ];
+
+    if (minutes) {
+      inputs.push(
+        separator,
+
+        <AdvancedTextField
+          helperText='Minute'
+
+          {...inputProps}
+        />
+      );
+    }
+
+    if (seconds) {
+      inputs.push(
+        separator,
+
+        <AdvancedTextField
+          helperText='Second'
+
+          {...inputProps}
+        />
+      );
+    }
+
+    const toggleButtonProps = {
+      icon: false,
+
+      ...ToggleButtonProps,
+
+      className: classNames([
+        staticClassName('TimePicker', theme) && [
+          'AmauiTimePicker-toggle-button'
+        ],
+
+        ToggleButtonProps?.className,
+        classes.toggleButton
+      ])
+    };
 
     return (
       <Surface
@@ -327,12 +479,82 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
             classes.mode_wrapper
           ])}
         >
+          {/* Heading */}
           <Type
             version='l2'
           >
             {inputModeHeadingText}
           </Type>
 
+          {/* Inputs, am, pm */}
+          <Line
+            gap={1.5}
+
+            direction='row'
+
+            align='unset'
+
+            justify='center'
+
+            className={classNames([
+              staticClassName('TimePicker', theme) && [
+                'AmauiTimePicker-inputs'
+              ],
+
+              classes.inputs
+            ])}
+          >
+            <Line
+              gap={0}
+
+              direction='row'
+
+              align='flex-start'
+
+              justify='unset'
+            >
+              {inputs.map((item: any, index: number) => (
+                React.cloneElement(item, {
+                  key: index
+                })
+              ))}
+            </Line>
+
+            <ToggleButtons
+              tonal={tonal}
+
+              color='default'
+
+              version='outlined'
+
+              orientation='vertical'
+
+              {...ToggleButtonsProps}
+
+              className={classNames([
+                staticClassName('TimePicker', theme) && [
+                  'AmauiTimePicker-toggle-buttons'
+                ],
+
+                ToggleButtonsProps?.className,
+                classes.toggleButtons
+              ])}
+            >
+              <ToggleButton
+                {...toggleButtonProps}
+              >
+                AM
+              </ToggleButton>
+
+              <ToggleButton
+                {...toggleButtonProps}
+              >
+                PM
+              </ToggleButton>
+            </ToggleButtons>
+          </Line>
+
+          {/* Footer */}
           <Line
             direction='row'
 
@@ -350,15 +572,19 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
               classes.footer
             ])}
           >
-            <IconButton
-              tonal={tonal}
-
-              color={color}
-
-              onClick={onModeSwitch}
+            <Tooltip
+              label={mode === 'select' ? 'Enter' : 'Select'}
             >
-              {mode === 'select' ? <IconEnter /> : <Icon />}
-            </IconButton>
+              <IconButton
+                tonal={tonal}
+
+                color='default'
+
+                onClick={onModeSwitch}
+              >
+                {mode === 'select' ? <IconEnter /> : <Icon />}
+              </IconButton>
+            </Tooltip>
 
             <Line
               gap={0}
@@ -395,7 +621,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
         </Line>
       </Surface>
     );
-  }), [inputModeHeadingText, mode]);
+  }), [version, hours, minutes, seconds, inputModeHeadingText, mode, tonal, color, InputProps]);
 
   if (hours) {
     if (format === '12') {
@@ -554,6 +780,8 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
         focus={false}
 
         longPress={false}
+
+        maxWidth='unset'
 
         noMargin
 

@@ -15,7 +15,7 @@ const useStyle = style(theme => ({
     borderRadius: theme.methods.space.value('xl', 'px')
   },
 
-  vertical: {
+  orientation_vertical: {
     flexDirection: 'column'
   },
 
@@ -43,7 +43,7 @@ const useStyle = style(theme => ({
     }
   },
 
-  start: {
+  start_orientation_horizontal: {
     '&:not(:first-of-type)': {
       borderStartStartRadius: '0px',
       borderEndStartRadius: '0px',
@@ -58,14 +58,14 @@ const useStyle = style(theme => ({
     }
   },
 
-  end: {
+  end_orientation_horizontal: {
     '&:not(:last-of-type)': {
       borderStartEndRadius: '0px',
       borderEndEndRadius: '0px'
     }
   },
 
-  vertical_start: {
+  start_orientation_vertical: {
     '&:not(:first-of-type)': {
       borderStartStartRadius: '0px',
       borderStartEndRadius: '0px',
@@ -80,7 +80,7 @@ const useStyle = style(theme => ({
     }
   },
 
-  vertical_end: {
+  end_orientation_vertical: {
     '&:not(:last-of-type)': {
       borderEndEndRadius: '0px',
       borderEndStartRadius: '0px'
@@ -226,7 +226,7 @@ const Buttons = React.forwardRef((props_: any, ref: any) => {
     color = 'primary',
     colorSelected = props.color,
     size = 'regular',
-    vertical,
+    orientation = 'horizontal',
     value,
     valueDefault,
     onChange,
@@ -333,13 +333,8 @@ const Buttons = React.forwardRef((props_: any, ref: any) => {
         item.className,
         classes.item,
         classes[version],
-        !vertical ? [
-          classes.start,
-          classes.end
-        ] : [
-          classes.vertical_start,
-          classes.vertical_end
-        ],
+        classes[`start_orientation_${orientation}`],
+        classes[`end_orientation_${orientation}`],
         selected.includes(item.props.value) && classes.selected,
         border && classes.border
       ]),
@@ -392,11 +387,11 @@ const Buttons = React.forwardRef((props_: any, ref: any) => {
           `AmauiButtons-version-${version}`,
           `AmauiButtons-color-${!theme.palette.color[color] && !['themed', 'inverted', 'default', 'inherit'].includes(color) ? 'new' : color}`,
           `AmauiButtons-size-${size}`,
+          `AmauiButtons-orientation-${orientation}`,
           elevation && !disabled && ['filled', 'tonal'].includes(version) && `AmauiButtons-elevation`,
           tonal && `AmauiButtons-tonal`,
           chip && `AmauiButtons-chip`,
           border && `AmauiButtons-border`,
-          vertical && `AmauiButtons-vertical`,
           fullWidth && `AmauiButtons-fullWidth`,
           noCheckIcon && `AmauiButtons-noCheckIcon`,
           disabled && `AmauiButtons-disabled`,
@@ -406,7 +401,7 @@ const Buttons = React.forwardRef((props_: any, ref: any) => {
         classes.root,
         classes[`size_${size}`],
         chip && classes[`chip_size_${size}`],
-        vertical && classes.vertical,
+        classes[`orientation_${orientation}`],
         fullWidth && classes.fullWidth,
         elevation && !disabled && ['filled', 'tonal'].includes(version) && classes.elevation,
         disabled && classes.disabled

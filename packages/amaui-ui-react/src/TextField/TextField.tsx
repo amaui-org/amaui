@@ -34,7 +34,7 @@ const useStyle = style(theme => ({
     display: 'inline-flex',
     alignItems: 'flex-start',
     position: 'relative',
-    borderRadius: `${theme.shape.radius.unit / 2}px ${theme.shape.radius.unit / 2}px 0 0`
+    borderRadius: `${theme.shape.radius.unit}px ${theme.shape.radius.unit}px 0 0`
   },
 
   // Color
@@ -77,7 +77,7 @@ const useStyle = style(theme => ({
     alignItems: 'flex-start',
     opacity: 0,
     transition: theme.methods.transitions.make('opacity'),
-    borderRadius: `${theme.shape.radius.unit / 2}px ${theme.shape.radius.unit / 2}px 0 0`,
+    borderRadius: `${theme.shape.radius.unit}px ${theme.shape.radius.unit}px 0 0`,
     width: '100%',
     cursor: 'text',
     ...theme.typography.values.b2
@@ -96,7 +96,7 @@ const useStyle = style(theme => ({
     background: 'transparent',
     '-webkit-tap-highlight-color': 'transparent',
     textAlign: 'start',
-    borderRadius: `${theme.shape.radius.unit / 2}px ${theme.shape.radius.unit / 2}px 0 0`,
+    borderRadius: `${theme.shape.radius.unit}px ${theme.shape.radius.unit}px 0 0`,
     ...theme.typography.values.b2,
     ...overflow,
 
@@ -271,7 +271,7 @@ const useStyle = style(theme => ({
   background: {
     ...other,
     background: 'currentColor',
-    borderRadius: `${theme.shape.radius.unit / 2}px ${theme.shape.radius.unit / 2}px 0 0`,
+    borderRadius: `${theme.shape.radius.unit}px ${theme.shape.radius.unit}px 0 0`,
     opacity: theme.palette.light ? theme.palette.visual_contrast.default.opacity.hover : theme.palette.visual_contrast.default.opacity.selected,
 
     transition: theme.methods.transitions.make(['opacity'])
@@ -287,7 +287,7 @@ const useStyle = style(theme => ({
 
   border: {
     ...other,
-    borderRadius: `${theme.shape.radius.unit / 2}px ${theme.shape.radius.unit / 2}px 0 0`,
+    borderRadius: `${theme.shape.radius.unit}px ${theme.shape.radius.unit}px 0 0`,
     boxShadow: 'inset 0px -1px 0px 0px currentColor',
 
     transition: theme.methods.transitions.make(['box-shadow'])
@@ -301,7 +301,7 @@ const useStyle = style(theme => ({
     ...other,
     top: '-5px',
     height: 'calc(100% + 5px)',
-    borderRadius: `${theme.shape.radius.unit / 2}px`,
+    borderRadius: `${theme.shape.radius.unit}px`,
     border: '1px solid currentColor',
     padding: 0,
     paddingInline: '12px 16px',
@@ -762,9 +762,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
     ]);
 
     WrapperProps.style = {
-      ...style,
-
-      ...styles.root
+      ...style
     };
   }
   else {
@@ -775,11 +773,15 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
     ComponentProps.className = className;
 
     ComponentProps.style = {
-      ...style,
-
-      ...styles.root
+      ...style
     };
   }
+
+  ComponentProps.style = {
+    ...ComponentProps.style,
+
+    ...styles.root
+  };
 
   let InputComponent = 'input';
 
@@ -833,7 +835,6 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
             error && `AmauiTextField-error`,
             multiline && `AmauiTextField-multiline`,
             placeholder && `AmauiTextField-placeholder`,
-            helperText && `AmauiTextField-helperText`,
             prefix && `AmauiTextField-prefix`,
             sufix && `AmauiTextField-sufix`,
             autoFocus && `AmauiTextField-autoFocus`,
