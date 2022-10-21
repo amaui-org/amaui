@@ -99,11 +99,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
     else version = 'desktop';
   }
 
-  let mask: any = [
-    'a',
-    'b',
-    'c'
-  ];
+  let mask: any = [];
 
   let placeholder = '';
 
