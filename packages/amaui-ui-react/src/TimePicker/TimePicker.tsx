@@ -71,6 +71,8 @@ const useStyle = style(theme => ({
   button: {
     height: '72px',
     width: '96px',
+    padding: '0',
+    paddingTop: '4px',
     borderRadius: theme.methods.shape.radius.value('sm'),
     cursor: 'pointer',
     userSelect: 'none',
