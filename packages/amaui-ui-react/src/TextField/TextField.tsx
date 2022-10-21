@@ -96,7 +96,6 @@ const useStyle = style(theme => ({
     background: 'transparent',
     '-webkit-tap-highlight-color': 'transparent',
     textAlign: 'start',
-    borderRadius: `${theme.shape.radius.unit}px ${theme.shape.radius.unit}px 0 0`,
     ...theme.typography.values.b2,
     ...overflow,
 

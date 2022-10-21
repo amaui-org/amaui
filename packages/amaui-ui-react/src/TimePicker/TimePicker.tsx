@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { is } from '@amaui/utils'
+import { AmauiDate, format as formatMethod, set } from '@amaui/date';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Icon from '../Icon';
@@ -40,6 +41,9 @@ const useStyle = style(theme => ({
   },
 
   input: {
+    maxWidth: '96px',
+    flex: '1 1 auto',
+
     '& .AmauiTextField-inputWrapper': {
       paddingInline: '0px',
       paddingBlock: '11px 8px',
@@ -62,14 +66,6 @@ const useStyle = style(theme => ({
     '& .AmauiTextField-helperText': {
       color: theme.palette.text.default.primary
     }
-  },
-
-  input_version_mobile: {
-    flexBasis: '96px'
-  },
-
-  input_version_desktop: {
-    width: '96px'
   },
 
   inputSeparator: {
@@ -163,6 +159,11 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
     // mobile, desktop & auto
     version: version_ = 'auto',
 
+    value: value_,
+    valueDefault,
+
+    onChange,
+
     label,
 
     min,
@@ -206,17 +207,56 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
     ...other
   } = props;
 
+  const valueToValues = (valueNew: AmauiDate) => {
+    const values_: any = {};
+
+    if (valueNew) {
+      // hour
+      if (format === '12') values_.hour = formatMethod(valueNew, 'hh');
+      else values_.hour = formatMethod(valueNew, 'HH');
+
+      // minute
+      values_.minute = formatMethod(valueNew, 'mm');
+
+      // second
+      values_.second = formatMethod(valueNew, 'ss');
+
+      // am, pm
+      values_.dayTime = formatMethod(valueNew, 'a');
+
+      // input
+      let format_ = '';
+
+      if (format === '12') format_ += `hh`;
+      else format_ += `HH`;
+
+      if (minutes) format_ += `:mm`;
+
+      if (seconds) format_ += `:ss`;
+
+      if (format === '12') format_ += ` a`;
+
+      values_.input = formatMethod(valueNew, format_);
+    }
+
+    return values_;
+  };
+
   const touch = useMediaQuery('(pointer: coarse)');
 
   const [modeOpen, setModeOpen] = React.useState(false);
   const [mode, setMode] = React.useState((touch ? openMobile : openDesktop) || 'select');
+  const [value, setValue] = React.useState((valueDefault !== undefined ? valueDefault : value_) || new AmauiDate());
+  const [values, setValues] = React.useState<any>(() => valueToValues(value));
 
   const refs = {
     root: React.useRef<any>(),
     iconButton: React.useRef<any>(),
     version: React.useRef<any>(),
     modeOpen: React.useRef<any>(),
-    mode: React.useRef<any>()
+    mode: React.useRef<any>(),
+    values: React.useRef<any>(),
+    value: React.useRef<any>()
   };
 
   let version = version_;
@@ -232,12 +272,109 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
   refs.mode.current = mode;
 
+  refs.values.current = values;
+
+  refs.value.current = value;
+
+  const valuesToValue = (values_: any) => {
+    let amauiDate = refs.value.current;
+
+    // hour
+    // and am, pm
+    let hour = values_.hour || '00';
+
+    if (hour.startsWith('0')) hour = +hour.slice(1);
+
+    amauiDate = set(hour + ((format === '12' && values_.dayTime === 'pm') ? 12 : 0), 'hour', amauiDate);
+
+    // minute
+    let minute = values_.minute || '00';
+
+    if (minute.startsWith('0')) minute = +minute.slice(1);
+
+    amauiDate = set(minute, 'minute', amauiDate);
+
+    // second
+    let second = values_.second || '00';
+
+    if (second.startsWith('0')) second = +second.slice(1);
+
+    amauiDate = set(second, 'second', amauiDate);
+
+    return amauiDate;
+  };
+
+  const inputToValues = (valueNew: any) => {
+    const values_: any = {};
+
+    const amauiDate = refs.value.current;
+
+    // input
+    const [valuesTime, dayTime] = valueNew.split(' ');
+
+    const [hour, minute, second] = (valuesTime || '').split(':');
+
+    if (hour) values_.hour = hour;
+
+    if (minute) values_.minute = minute;
+
+    if (second) values_.second = second;
+
+    if (dayTime) values_.dayTime = dayTime;
+
+    return [amauiDate, values_];
+  };
+
+  const updateValue = (valueNew: any) => {
+    if (!props.hasOwnProperty('value')) setValue(valueNew);
+
+    if (is('function', onChange)) onChange(valueNew);
+  };
+
+  const updateFromValue = (valueNew: number) => {
+    const amauiDate = new AmauiDate(valueNew);
+
+    // Update values
+    setValues(amauiDate);
+
+    // Update value
+    updateValue(amauiDate);
+  };
+
+  const updateValues = (property: string, value_: any) => {
+    setValues((values_: any) => ({
+      ...values_,
+
+      [property]: value_
+    }));
+  };
+
+  const updateInputToValues = () => {
+    setValues((values_: any) => ({
+      ...values_,
+
+      ...inputToValues(values_.input)
+    }));
+  };
+
+  const updateValuesToInput = () => {
+    const amauiDate = valuesToValue(refs.values.current);
+
+    setValues(valueToValues(amauiDate));
+  };
+
+  React.useEffect(() => {
+    if (value_ !== undefined && value_ !== refs.value.current) updateFromValue(value_);
+  }, [value_]);
+
   let mask: any = [];
 
   let placeholder = '';
 
   const onMode = React.useCallback(() => {
     setMode((refs.version.current === 'mobile' ? openMobile : openDesktop) || 'select');
+
+    if (!refs.modeOpen.current) updateInputToValues();
 
     setModeOpen(!refs.modeOpen.current);
   }, [openMobile, openDesktop]);
@@ -249,6 +386,8 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
   const onModal = React.useCallback((event: React.MouseEvent<any>) => {
     setMode((refs.version.current === 'mobile' ? openMobile : openDesktop) || 'select');
 
+    updateInputToValues();
+
     setModeOpen(true);
 
     if (is('function', onClick_)) onClick_(event);
@@ -256,6 +395,12 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
   const onModeSwitch = React.useCallback(() => {
     setMode(refs.mode.current === 'select' ? 'input' : 'select');
+  }, []);
+
+  const onSave = React.useCallback(() => {
+    updateValuesToInput();
+
+    onModeClose();
   }, []);
 
   const ModeSelect = React.useCallback(React.forwardRef((props: any, ref: any) => {
@@ -406,7 +551,11 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
       <AdvancedTextField
         helperText='Hour'
 
-        placeholder='hh'
+        value={values.hour}
+
+        onChange={(valueNew: any) => updateValues('hour', valueNew)}
+
+        placeholder='00'
 
         mask={[
           ...(format === '12' ? [
@@ -431,7 +580,11 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
         <AdvancedTextField
           helperText='Minute'
 
-          placeholder='mm'
+          value={values.minute}
+
+          onChange={(valueNew: any) => updateValues('minute', valueNew)}
+
+          placeholder='00'
 
           mask={[
             { pattern: '[0-5]' },
@@ -451,7 +604,11 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
         <AdvancedTextField
           helperText='Second'
 
-          placeholder='ss'
+          value={values.second}
+
+          onChange={(valueNew: any) => updateValues('second', valueNew)}
+
+          placeholder='00'
 
           mask={[
             { pattern: '[0-5]' },
@@ -550,38 +707,50 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
               ))}
             </Line>
 
-            <ToggleButtons
-              tonal={tonal}
+            {format === '12' && (
+              <ToggleButtons
+                tonal={tonal}
 
-              color='default'
+                color='default'
 
-              version='outlined'
+                version='outlined'
 
-              orientation='vertical'
+                orientation='vertical'
 
-              {...ToggleButtonsProps}
+                value={values.dayTime}
 
-              className={classNames([
-                staticClassName('TimePicker', theme) && [
-                  'AmauiTimePicker-toggle-buttons'
-                ],
+                onChange={(valueNew: any) => updateValues('dayTime', valueNew)}
 
-                ToggleButtonsProps?.className,
-                classes.toggleButtons
-              ])}
-            >
-              <ToggleButton
-                {...toggleButtonProps}
+                select
+
+                {...ToggleButtonsProps}
+
+                className={classNames([
+                  staticClassName('TimePicker', theme) && [
+                    'AmauiTimePicker-toggle-buttons'
+                  ],
+
+                  ToggleButtonsProps?.className,
+                  classes.toggleButtons
+                ])}
               >
-                AM
-              </ToggleButton>
+                <ToggleButton
+                  value='am'
 
-              <ToggleButton
-                {...toggleButtonProps}
-              >
-                PM
-              </ToggleButton>
-            </ToggleButtons>
+                  {...toggleButtonProps}
+                >
+                  AM
+                </ToggleButton>
+
+                <ToggleButton
+                  value='pm'
+
+                  {...toggleButtonProps}
+                >
+                  PM
+                </ToggleButton>
+              </ToggleButtons>
+            )}
           </Line>
 
           {/* Footer */}
@@ -630,6 +799,8 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
                 version='text'
 
+                onClick={onModeClose}
+
                 {...ButtonProps}
               >
                 Cancel
@@ -642,6 +813,8 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
                 version='text'
 
+                onClick={onSave}
+
                 {...ButtonProps}
               >
                 Ok
@@ -651,7 +824,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
         </Line>
       </Surface>
     );
-  }), [version, hours, minutes, seconds, inputModeHeadingText, mode, tonal, color, InputProps]);
+  }), [values, version, format, hours, minutes, seconds, inputModeHeadingText, mode, tonal, color, InputProps]);
 
   if (hours) {
     if (format === '12') {
@@ -742,7 +915,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
   if (version === 'mobile') {
     moreProps.onClick = onModal;
   }
-
+  console.log(1114, value, values);
   return <>
     <AdvancedTextField
       rootRef={item => {
@@ -762,6 +935,10 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
       mask={mask}
 
       placeholder={placeholder}
+
+      value={values.input}
+
+      onChange={(valueNew: any) => updateValues('input', valueNew)}
 
       className={classNames([
         staticClassName('TimePicker', theme) && [
