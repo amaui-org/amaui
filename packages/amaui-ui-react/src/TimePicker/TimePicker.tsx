@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is } from '@amaui/utils'
+import { is, unique } from '@amaui/utils'
 import { AmauiDate, format as formatMethod, set } from '@amaui/date';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
@@ -17,6 +17,8 @@ import Type from '../Type';
 import ToggleButtons from '../ToggleButtons';
 import ToggleButton from '../ToggleButton';
 import Button from '../Button';
+import RoundMeter from '../RoundMeter';
+import Path from '../Path';
 
 import { staticClassName } from '../utils';
 
@@ -29,6 +31,14 @@ const useStyle = style(theme => ({
     padding: '24px',
     marginInline: '24px',
     borderRadius: '28px'
+  },
+
+  heading: {
+    width: '100%'
+  },
+
+  roundMeter: {
+    marginTop: '36px'
   },
 
   modeWrapper: {
@@ -213,6 +223,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
     ToggleButtonProps,
     IconButtonProps,
     InputProps,
+    RoundMeterProps,
 
     AdvancedTextFieldProps = {
       version: 'outlined'
@@ -534,6 +545,23 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
       ])
     };
 
+    let labels = [];
+
+    labels = unique([
+      // Hours
+      ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
+        value: index === 0 ? 12 : index,
+
+        padding: 12,
+
+        style: {
+          fontSize: 14
+        },
+
+        position: index * (100 / 12)
+      })))
+    ], 'position');
+
     return (
       <Surface
         ref={ref}
@@ -556,6 +584,8 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
           direction='column'
 
+          align='center'
+
           className={classNames([
             staticClassName('TimePicker', theme) && [
               'AmauiTimePicker-mode-wrapper'
@@ -567,6 +597,14 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
           {/* Heading */}
           <Type
             version='l2'
+
+            className={classNames([
+              staticClassName('TimePicker', theme) && [
+                'AmauiTimePicker-heading'
+              ],
+
+              classes.heading
+            ])}
           >
             {selectModeHeadingText}
           </Type>
@@ -656,6 +694,54 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
               </ToggleButtons>
             )}
           </Line>
+
+          {/* Watch */}
+          <Surface
+            tonal={tonal}
+
+            color={color}
+          >
+            {({ palette }) => (
+              <RoundMeter
+                tonal={tonal}
+
+                color={color}
+
+                labels={labels}
+
+                arcsVisible={false}
+
+                background
+
+                BackgroundProps={{
+                  fill: theme.methods.palette.color.value(undefined, 90, true, palette)
+                }}
+
+                {...RoundMeterProps}
+
+                className={classNames([
+                  staticClassName('TimePicker', theme) && [
+                    'AmauiTimePicker-round-meter'
+                  ],
+
+                  RoundMeterProps?.className,
+                  classes.roundMeter
+                ])}
+              >
+                <Path
+                  d='M 120 119.5 L 195 119.5 A 1 1 0 0 1 195 120.5 L 120 120.5 A 1 1 0 0 1 120 119.5'
+
+                  value={0}
+
+                  style={{
+                    transformOrigin: '50% 50%',
+                    fill: 'currentColor',
+                    stroke: 'none'
+                  }}
+                />
+              </RoundMeter>
+            )}
+          </Surface>
 
           {/* Footer */}
           <Line
@@ -889,6 +975,14 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
           {/* Heading */}
           <Type
             version='l2'
+
+            className={classNames([
+              staticClassName('TimePicker', theme) && [
+                'AmauiTimePicker-heading'
+              ],
+
+              classes.heading
+            ])}
           >
             {inputModeHeadingText}
           </Type>
