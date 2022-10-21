@@ -68,6 +68,20 @@ const useStyle = style(theme => ({
     }
   },
 
+  button: {
+    height: '72px',
+    width: '96px',
+    borderRadius: theme.methods.shape.radius.value('sm'),
+    cursor: 'pointer',
+    userSelect: 'none',
+
+    '& .AmauiButton-label': {
+      ...theme.typography.values.d2,
+
+      lineHeight: '1',
+    }
+  },
+
   inputSeparator: {
     marginTop: '7px',
     paddingInline: '6px',
@@ -135,9 +149,7 @@ const IconMaterialKeyboardAltRounded = React.forwardRef((props: any, ref) => {
 
 // validate
 
-// value
-
-// onChange
+// input error if error
 
 // read only
 
@@ -210,7 +222,9 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
   } = props;
 
   const valueToValues = (valueNew: AmauiDate) => {
-    const values_: any = {};
+    const values_: any = {
+      selecting: 'hour'
+    };
 
     if (valueNew) {
       // hour
@@ -314,7 +328,9 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
   };
 
   const inputToValues = (valueNew: any) => {
-    const values_: any = {};
+    const values_: any = {
+      selecting: 'hour'
+    };
 
     // input
     const [valuesTime, dayTime] = valueNew.split(' ');
@@ -425,7 +441,101 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
   }, []);
 
   const ModeSelect = React.useCallback(React.forwardRef((props: any, ref: any) => {
+    const buttonProps = {
+      tonal,
+      color,
+      version: 'filled',
+      elevation: false,
 
+      className: classNames([
+        staticClassName('TimePicker', theme) && [
+          'AmauiTimePicker-button'
+        ],
+
+        classes.button
+      ])
+    };
+
+    const separator = (
+      <Type
+        version='d2'
+
+        className={classNames([
+          staticClassName('TimePicker', theme) && [
+            'AmauiTimePicker-input-separator'
+          ],
+
+          classes.inputSeparator
+        ])}
+      >
+        :
+      </Type>
+    );
+
+    const buttons = [
+      <Button
+        color={refs.values.current.selecting === 'hour' ? 'primary' : 'default'}
+
+        selected={refs.values.current.selecting === 'hour'}
+
+        onClick={() => updateValues('selecting', 'hour')}
+
+        {...buttonProps}
+      >
+        {refs.values.current.hour}
+      </Button>
+    ];
+
+    if (minutes) {
+      buttons.push(
+        separator,
+
+        <Button
+          color={refs.values.current.selecting === 'minute' ? 'primary' : 'default'}
+
+          selected={refs.values.current.selecting === 'minute'}
+
+          onClick={() => updateValues('selecting', 'minute')}
+
+          {...buttonProps}
+        >
+          {refs.values.current.minute}
+        </Button>
+      );
+    }
+
+    if (seconds) {
+      buttons.push(
+        separator,
+
+        <Button
+          color={refs.values.current.selecting === 'second' ? 'primary' : 'default'}
+
+          selected={refs.values.current.selecting === 'second'}
+
+          onClick={() => updateValues('selecting', 'second')}
+
+          {...buttonProps}
+        >
+          {refs.values.current.second}
+        </Button>
+      );
+    }
+
+    const toggleButtonProps = {
+      icon: false,
+
+      ...ToggleButtonProps,
+
+      className: classNames([
+        staticClassName('TimePicker', theme) && [
+          'AmauiTimePicker-toggle-button'
+        ],
+
+        ToggleButtonProps?.className,
+        classes.toggleButton
+      ])
+    };
 
     return (
       <Surface
@@ -441,7 +551,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
           ],
 
           classes.mode,
-          classes.mode_select
+          classes.model_input
         ])}
       >
         <Line
@@ -463,6 +573,92 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
           >
             {selectModeHeadingText}
           </Type>
+
+          {/* Inputs, am, pm */}
+          <Line
+            gap={1.5}
+
+            direction='row'
+
+            align='unset'
+
+            justify='center'
+
+            className={classNames([
+              staticClassName('TimePicker', theme) && [
+                'AmauiTimePicker-inputs'
+              ],
+
+              classes.inputs
+            ])}
+          >
+            <Line
+              gap={0}
+
+              direction='row'
+
+              wrap='wrap'
+
+              align='flex-start'
+
+              justify='unset'
+            >
+              {buttons.map((item: any, index: number) => (
+                React.cloneElement(item, {
+                  key: index
+                })
+              ))}
+            </Line>
+
+            {format === '12' && (
+              <ToggleButtons
+                tonal={tonal}
+
+                color='default'
+
+                version='outlined'
+
+                orientation='vertical'
+
+                value={refs.values.current.dayTime}
+
+                onChange={(valueNew: any) => {
+                  if (!valueNew.length) return;
+
+                  updateValues('dayTime', is('array', valueNew) ? valueNew[0] : valueNew);
+                }}
+
+                select='single'
+
+                {...ToggleButtonsProps}
+
+                className={classNames([
+                  staticClassName('TimePicker', theme) && [
+                    'AmauiTimePicker-toggle-buttons'
+                  ],
+
+                  ToggleButtonsProps?.className,
+                  classes.toggleButtons
+                ])}
+              >
+                <ToggleButton
+                  value='am'
+
+                  {...toggleButtonProps}
+                >
+                  AM
+                </ToggleButton>
+
+                <ToggleButton
+                  value='pm'
+
+                  {...toggleButtonProps}
+                >
+                  PM
+                </ToggleButton>
+              </ToggleButtons>
+            )}
+          </Line>
 
           {/* Footer */}
           <Line
@@ -537,7 +733,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
         </Line>
       </Surface>
     );
-  }), [selectModeHeadingText, mode]);
+  }), [version, format, hours, minutes, seconds, selectModeHeadingText, mode, tonal, color, switch_, InputProps]);
 
   const ModeInput = React.useCallback(React.forwardRef((props: any, ref: any) => {
     const inputProps = {
@@ -948,7 +1144,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
   if (version === 'mobile') {
     moreProps.onClick = onModal;
   }
-  console.log(1114, value, values);
+  console.log(value, values);
   return <>
     <AdvancedTextField
       rootRef={item => {
