@@ -3162,9 +3162,19 @@ Please sign in again.`}
           </Line>
         </Accordion>
 
-        <Accordion primary='TimePicker seconds'>
+        <Accordion primary='TimePicker hours, minutes & seconds'>
           <TimePicker
-            label='Seconds'
+            label='Hours'
+
+            minutes={false}
+          />
+
+          <TimePicker
+            label='Hours & minutes'
+          />
+
+          <TimePicker
+            label='Hours, minutes & seconds'
 
             seconds
           />

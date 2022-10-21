@@ -8,14 +8,31 @@ import IconButton from '../IconButton';
 import AdvancedTextField from '../AdvancedTextField';
 import useMediaQuery from '../useMediaQuery';
 import Modal from '../Modal';
-
-import { staticClassName } from '../utils';
 import ClickListener from '../ClickListener';
 import Tooltip from '../Tooltip';
+import Surface from '../Surface';
+import Line from '../Line';
+import Type from '../Type';
+import Button from '../Button';
+
+import { staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
 
+  },
+
+  mode: {
+    padding: '24px',
+    borderRadius: '28px'
+  },
+
+  modeWrapper: {
+    width: '100%'
+  },
+
+  footer: {
+    marginTop: '24px'
   }
 }), { name: 'AmauiTimePicker' });
 
@@ -35,11 +52,23 @@ const IconMaterialScheduleRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+const IconMaterialKeyboardAltRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='KeyboardAltRounded'
+      short_name='KeyboardAlt'
+
+      {...props}
+    >
+      <path d="M3 21Q2.175 21 1.588 20.413Q1 19.825 1 19V6Q1 5.175 1.588 4.588Q2.175 4 3 4H21Q21.825 4 22.413 4.588Q23 5.175 23 6V19Q23 19.825 22.413 20.413Q21.825 21 21 21ZM3 19H21Q21 19 21 19Q21 19 21 19V6Q21 6 21 6Q21 6 21 6H3Q3 6 3 6Q3 6 3 6V19Q3 19 3 19Q3 19 3 19ZM9 10H11V8H9ZM5 10H7V8H5ZM8.5 17H15.5Q15.7 17 15.85 16.85Q16 16.7 16 16.5Q16 16.3 15.85 16.15Q15.7 16 15.5 16H8.5Q8.3 16 8.15 16.15Q8 16.3 8 16.5Q8 16.7 8.15 16.85Q8.3 17 8.5 17ZM13 10H15V8H13ZM9 14H11V12H9ZM5 14H7V12H5ZM13 14H15V12H13ZM17 10H19V8H17ZM17 14H19V12H17ZM3 19Q3 19 3 19Q3 19 3 19V6Q3 6 3 6Q3 6 3 6Q3 6 3 6Q3 6 3 6V19Q3 19 3 19Q3 19 3 19Z" />
+    </Icon>
+  );
+});
+
 // to do
-
-// desktop wrapper
-
-// mobile wrapper
 
 // picker
 
@@ -83,9 +112,9 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
     openDesktop = 'select',
 
-    selectModeText = 'Select time',
+    selectModeHeadingText = 'Select time',
 
-    inputModeText = 'Enter time',
+    inputModeHeadingText = 'Enter time',
 
     format = '12',
 
@@ -96,9 +125,11 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
     onClick: onClick_,
 
     Icon = IconMaterialScheduleRounded,
+    IconEnter = IconMaterialKeyboardAltRounded,
 
-    TooltipProps,
+    ButtonProps,
     ModalProps,
+    TooltipProps,
     IconButtonProps,
 
     AdvancedTextFieldProps = {
@@ -157,6 +188,214 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
     if (is('function', onClick_)) onClick_(event);
   }, [openMobile, openDesktop, onClick_]);
+
+  const onModeSwitch = React.useCallback(() => {
+    setMode(refs.mode.current === 'select' ? 'input' : 'select');
+  }, []);
+
+  const ModeSelect = React.useCallback(React.forwardRef((props: any, ref: any) => {
+
+    return (
+      <Surface
+        ref={ref}
+
+        tonal={tonal}
+
+        color={color}
+
+        className={classNames([
+          staticClassName('TimePicker', theme) && [
+            'AmauiTimePicker-mode'
+          ],
+
+          classes.mode,
+          classes.mode_select
+        ])}
+      >
+        <Line
+          gap={0}
+
+          direction='column'
+
+          className={classNames([
+            staticClassName('TimePicker', theme) && [
+              'AmauiTimePicker-mode-wrapper'
+            ],
+
+            classes.mode_wrapper
+          ])}
+        >
+          <Type
+            version='l2'
+          >
+            {selectModeHeadingText}
+          </Type>
+
+          <Line
+            direction='row'
+
+            wrap='wrap'
+
+            align='center'
+
+            justify='space-between'
+
+            className={classNames([
+              staticClassName('TimePicker', theme) && [
+                'AmauiTimePicker-footer'
+              ],
+
+              classes.footer
+            ])}
+          >
+            <IconButton
+              tonal={tonal}
+
+              color={color}
+
+              onClick={onModeSwitch}
+            >
+              {mode === 'select' ? <IconEnter /> : <Icon />}
+            </IconButton>
+
+            <Line
+              gap={0}
+
+              direction='row'
+
+              align='center'
+            >
+              <Button
+                tonal={tonal}
+
+                color={color}
+
+                version='text'
+
+                {...ButtonProps}
+              >
+                Cancel
+              </Button>
+
+              <Button
+                tonal={tonal}
+
+                color={color}
+
+                version='text'
+
+                {...ButtonProps}
+              >
+                Ok
+              </Button>
+            </Line>
+          </Line>
+        </Line>
+      </Surface>
+    );
+  }), [selectModeHeadingText, mode]);
+
+  const ModeInput = React.useCallback(React.forwardRef((props: any, ref: any) => {
+
+    return (
+      <Surface
+        ref={ref}
+
+        tonal={tonal}
+
+        color={color}
+
+        className={classNames([
+          staticClassName('TimePicker', theme) && [
+            'AmauiTimePicker-mode'
+          ],
+
+          classes.mode,
+          classes.model_input
+        ])}
+      >
+        <Line
+          gap={0}
+
+          direction='column'
+
+          className={classNames([
+            staticClassName('TimePicker', theme) && [
+              'AmauiTimePicker-mode-wrapper'
+            ],
+
+            classes.mode_wrapper
+          ])}
+        >
+          <Type
+            version='l2'
+          >
+            {inputModeHeadingText}
+          </Type>
+
+          <Line
+            direction='row'
+
+            wrap='wrap'
+
+            align='center'
+
+            justify='space-between'
+
+            className={classNames([
+              staticClassName('TimePicker', theme) && [
+                'AmauiTimePicker-footer'
+              ],
+
+              classes.footer
+            ])}
+          >
+            <IconButton
+              tonal={tonal}
+
+              color={color}
+
+              onClick={onModeSwitch}
+            >
+              {mode === 'select' ? <IconEnter /> : <Icon />}
+            </IconButton>
+
+            <Line
+              gap={0}
+
+              direction='row'
+
+              align='center'
+            >
+              <Button
+                tonal={tonal}
+
+                color={color}
+
+                version='text'
+
+                {...ButtonProps}
+              >
+                Cancel
+              </Button>
+
+              <Button
+                tonal={tonal}
+
+                color={color}
+
+                version='text'
+
+                {...ButtonProps}
+              >
+                Ok
+              </Button>
+            </Line>
+          </Line>
+        </Line>
+      </Surface>
+    );
+  }), [inputModeHeadingText, mode]);
 
   if (hours) {
     if (format === '12') {
@@ -295,14 +534,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
         {...ModalProps}
       >
-        <div
-          style={{
-            padding: 40,
-            background: 'beige'
-          }}
-        >
-          {mode === 'select' ? selectModeText : inputModeText}
-        </div>
+        {mode === 'select' ? <ModeSelect /> : <ModeInput />}
       </Modal>
     )}
 
@@ -330,16 +562,11 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
             <ClickListener
               onClickOutside={onModeClose}
 
+              includeParentQueries={['.AmauiTimePicker-mode']}
+
               include={[refs.iconButton, refs.iconButton.current]}
             >
-              <div
-                style={{
-                  padding: 40,
-                  background: 'beige'
-                }}
-              >
-                {mode === 'select' ? selectModeText : inputModeText}
-              </div>
+              {mode === 'select' ? <ModeSelect /> : <ModeInput />}
             </ClickListener>
           </div>
         )}
