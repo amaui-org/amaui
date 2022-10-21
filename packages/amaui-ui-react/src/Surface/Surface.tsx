@@ -922,7 +922,7 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
   }
 
   if (is('function', children)) return children({ ...styles.children, palette });
-  if (backgroundOpacity) console.log(1, backgroundOpacity, styles.root);
+
   return (
     <Component
       ref={ref}
