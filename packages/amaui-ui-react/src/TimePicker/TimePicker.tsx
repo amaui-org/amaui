@@ -125,6 +125,11 @@ const useStyle = style(theme => ({
     }
   },
 
+  toggleButtons_input: {
+    width: '52px',
+    height: '72px'
+  },
+
   toggleButtons_orientation_vertical: {
     width: '52px',
     height: '72px'
@@ -1525,7 +1530,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
                     ToggleButtonsProps?.className,
                     classes.toggleButtons,
-                    classes[`toggleButtons_orientation_${refs.orientation.current}`]
+                    classes.toggleButtons_input
                   ])}
                 >
                   <ToggleButton
