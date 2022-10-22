@@ -172,6 +172,10 @@ const IconMaterialKeyboardAltRounded = React.forwardRef((props: any, ref) => {
 // picker vertical, horizontal
 // horizontal only when there's enough space in the screen for it value y
 
+// automatic switch after select a prop value
+
+// automatic close after last a prop value
+
 // min, max date
 
 // validate
@@ -202,6 +206,8 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
     valueDefault,
 
     onChange,
+
+    now = true,
 
     label,
 
@@ -290,7 +296,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
   const [modeOpen, setModeOpen] = React.useState(false);
   const [mode, setMode] = React.useState((touch ? openMobile : openDesktop) || 'select');
-  const [value, setValue] = React.useState((valueDefault !== undefined ? valueDefault : value_) || new AmauiDate());
+  const [value, setValue] = React.useState((valueDefault !== undefined ? valueDefault : value_) || (now && new AmauiDate()));
   const [values, setValues] = React.useState<any>(() => valueToValues(value));
   const [mouseDown, setMouseDown] = React.useState<any>(false);
 
