@@ -120,11 +120,17 @@ const useStyle = style(theme => ({
   },
 
   toggleButtons: {
-    height: '72px',
-
     '& > *': {
       flex: '1 1 auto'
     }
+  },
+
+  toggleButtons_orientation_vertical: {
+    height: '72px'
+  },
+
+  toggleButtons_orientation_horizontal: {
+    height: '38px'
   },
 
   toggleButton: {
@@ -891,7 +897,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
               <Line
                 gap={0}
 
-                direction='row'
+                direction={refs.orientation.current === 'vertical' ? 'row' : 'column'}
 
                 wrap='wrap'
 
@@ -914,7 +920,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
                   version='outlined'
 
-                  orientation='vertical'
+                  orientation={refs.orientation.current}
 
                   value={refs.values.current.dayTime}
 
@@ -934,7 +940,8 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
                     ],
 
                     ToggleButtonsProps?.className,
-                    classes.toggleButtons
+                    classes.toggleButtons,
+                    classes[`toggleButtons_orientation_${refs.orientation.current}`]
                   ])}
                 >
                   <ToggleButton
