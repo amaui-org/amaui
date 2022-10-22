@@ -177,10 +177,6 @@ const IconMaterialKeyboardAltRounded = React.forwardRef((props: any, ref) => {
 
 // input error if error
 
-// read only
-
-// disabled
-
 // on escape close the modeOpen and focus the icon button if version 'desktop'
 
 const TimePicker = React.forwardRef((props_: any, ref: any) => {
@@ -240,6 +236,8 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
     switch: switch__,
 
     onClick: onClick_,
+
+    readOnly,
 
     Icon = IconMaterialScheduleRounded,
     IconEnter = IconMaterialKeyboardAltRounded,
@@ -1632,6 +1630,8 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
         onClick={onMode}
 
+        disabled={readOnly}
+
         {...IconButtonProps}
       >
         <Icon />
@@ -1640,7 +1640,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
   }
 
   if (version === 'mobile') {
-    moreProps.onClick = onModal;
+    if (!readOnly) moreProps.onClick = onModal;
   }
 
   if (version === 'static') return mode === 'select' ? <ModeSelect /> : <ModeInput />;
@@ -1664,6 +1664,8 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
       mask={mask}
 
       placeholder={placeholder}
+
+      readOnly={readOnly}
 
       value={values.input}
 

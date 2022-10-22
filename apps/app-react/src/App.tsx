@@ -3277,6 +3277,22 @@ Please sign in again.`}
             seconds
           />
         </Accordion>
+
+        <Accordion primary='TimePicker readOnly' open>
+          <TimePicker
+            label='Time'
+
+            readOnly
+          />
+        </Accordion>
+
+        <Accordion primary='TimePicker disabled' open>
+          <TimePicker
+            label='Time'
+
+            disabled
+          />
+        </Accordion>
       </Accordion>
 
       <Accordion primary='Carousel'>
