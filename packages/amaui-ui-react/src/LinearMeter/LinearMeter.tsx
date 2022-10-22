@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { clamp, parse } from '@amaui/utils';
+import { clamp, is, parse } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Surface from '../Surface';
@@ -151,82 +151,91 @@ const LinearMeter = React.forwardRef((props_: any, ref: any) => {
     const values = [];
 
     if (marks_.length) {
-      marks_.forEach((mark: any) => {
-        const {
-          size,
 
-          padding: markPadding = 0,
+      let marksValues = marks_;
 
-          position,
+      if (!is('array', marksValues[0])) marksValues = [marksValues];
 
-          ...other
-        } = mark;
+      marksValues.forEach((marksValue: any, index: number) => {
+        values[index] = [];
 
-        if (orientation === 'horizontal') {
-          const total = width - (paddings.x * 2);
+        marksValue.forEach((mark: any) => {
+          const {
+            size,
 
-          let x = total * (position / 100);
-          let y = height - paddings.y - boundaryWidth - markPadding;
-          let yl = y - size;
+            padding: markPadding = 0,
 
-          if (linePosition === 'start') {
-            y = paddings.y + boundaryWidth + markPadding;
-            yl = y + size;
-          }
-
-          if (linePosition === 'center') {
-            y = (height / 2) - (boundaryWidth / 2) - markPadding;
-            yl = y - size;
-          }
-
-          if (linePosition === 'end') {
-            y = height - paddings.y - boundaryWidth - markPadding;
-            yl = y - size;
-          }
-
-          values.push({
-            d: [
-              'M', x + paddings.x, y,
-
-              'L', x + paddings.x, yl
-            ].join(' '),
+            position,
 
             ...other
-          });
-        }
+          } = mark;
 
-        if (orientation === 'vertical') {
-          const total = height - (paddings.y * 2);
+          if (orientation === 'horizontal') {
+            const total = width - (paddings.x * 2);
 
-          let y = total * (position / 100);
-          let x = width - paddings.x - boundaryWidth - markPadding;
-          let xl = x - size;
+            let x = total * (position / 100);
+            let y = height - paddings.y - boundaryWidth - markPadding;
+            let yl = y - size;
 
-          if (linePosition === 'start') {
-            x = paddings.x + boundaryWidth + markPadding;
-            xl = x + size;
+            if (linePosition === 'start') {
+              y = paddings.y + boundaryWidth + markPadding;
+              yl = y + size;
+            }
+
+            if (linePosition === 'center') {
+              y = (height / 2) - (boundaryWidth / 2) - markPadding;
+              yl = y - size;
+            }
+
+            if (linePosition === 'end') {
+              y = height - paddings.y - boundaryWidth - markPadding;
+              yl = y - size;
+            }
+
+            values.push({
+              d: [
+                'M', x + paddings.x, y,
+
+                'L', x + paddings.x, yl
+              ].join(' '),
+
+              ...other
+            });
           }
 
-          if (linePosition === 'center') {
-            x = (width / 2) + (boundaryWidth / 2) + markPadding;
-            xl = x + size;
+          if (orientation === 'vertical') {
+            const total = height - (paddings.y * 2);
+
+            let y = total * (position / 100);
+            let x = width - paddings.x - boundaryWidth - markPadding;
+            let xl = x - size;
+
+            if (linePosition === 'start') {
+              x = paddings.x + boundaryWidth + markPadding;
+              xl = x + size;
+            }
+
+            if (linePosition === 'center') {
+              x = (width / 2) + (boundaryWidth / 2) + markPadding;
+              xl = x + size;
+            }
+
+            if (linePosition === 'end') {
+              x = width - paddings.y - boundaryWidth - markPadding;
+              xl = x - size;
+            }
+
+            values.push({
+              d: [
+                'M', x, y + paddings.y,
+
+                'L', xl, y + paddings.y
+              ].join(' '),
+
+              ...other
+            });
           }
-
-          if (linePosition === 'end') {
-            x = width - paddings.y - boundaryWidth - markPadding;
-            xl = x - size;
-          }
-
-          values.push({
-            d: [
-              'M', x, y + paddings.y,
-
-              'L', xl, y + paddings.y
-            ].join(' '),
-
-            ...other
-          });
-        }
+        });
       });
     }
 
@@ -239,74 +248,82 @@ const LinearMeter = React.forwardRef((props_: any, ref: any) => {
     if (labels_.length) {
       const marksPadding = marks_?.length ? (marks_ || []).sort((a, b) => b.size - a.size)[0]?.size || markSize : 0;
 
-      labels_.forEach((label: any) => {
-        const {
-          value,
+      let labelsValues = labels_;
 
-          padding: labelPadding = 0,
+      if (!is('array', labelsValues[0])) labelsValues = [labelsValues];
 
-          position,
+      labelsValues.forEach((labelsValue: any, index: number) => {
+        values[index] = [];
 
-          ...other
-        } = label;
-
-        const fontSize = label.style?.fontSize !== undefined ? label.style.fontSize : 14;
-
-        if (orientation === 'horizontal') {
-          const total = width - (paddings.x * 2);
-
-          let x = total * (position / 100);
-          let y = height - paddings.y - boundaryWidth - labelPadding;
-
-          if (linePosition === 'start') {
-            y = paddings.y + boundaryWidth + labelPadding + (fontSize / 2) + marksPadding;
-          }
-
-          if (linePosition === 'center') {
-            y = (height / 2) - (boundaryWidth / 2) - labelPadding - (fontSize / 2) - marksPadding;
-          }
-
-          if (linePosition === 'end') {
-            y = height - paddings.y - boundaryWidth - labelPadding - (fontSize / 2) - marksPadding;
-          }
-
-          values.push({
-            x: x + paddings.x,
-            y,
-
+        labelsValue.forEach((label: any) => {
+          const {
             value,
 
-            ...other
-          });
-        }
+            padding: labelPadding = 0,
 
-        if (orientation === 'vertical') {
-          const total = height - (paddings.y * 2);
-
-          let y = total * (position / 100);
-          let x = width - paddings.x - boundaryWidth - labelPadding;
-
-          if (linePosition === 'start') {
-            x = paddings.x + boundaryWidth + labelPadding + (fontSize / 2) + marksPadding;
-          }
-
-          if (linePosition === 'center') {
-            x = (width / 2) + (boundaryWidth / 2) + labelPadding + (fontSize / 2) + marksPadding;
-          }
-
-          if (linePosition === 'end') {
-            x = width - paddings.y - boundaryWidth - labelPadding - (fontSize / 2) - marksPadding;
-          }
-
-          values.push({
-            x,
-            y: y + paddings.y,
-
-            value,
+            position,
 
             ...other
-          });
-        }
+          } = label;
+
+          const fontSize = label.style?.fontSize !== undefined ? label.style.fontSize : 14;
+
+          if (orientation === 'horizontal') {
+            const total = width - (paddings.x * 2);
+
+            let x = total * (position / 100);
+            let y = height - paddings.y - boundaryWidth - labelPadding;
+
+            if (linePosition === 'start') {
+              y = paddings.y + boundaryWidth + labelPadding + (fontSize / 2) + marksPadding;
+            }
+
+            if (linePosition === 'center') {
+              y = (height / 2) - (boundaryWidth / 2) - labelPadding - (fontSize / 2) - marksPadding;
+            }
+
+            if (linePosition === 'end') {
+              y = height - paddings.y - boundaryWidth - labelPadding - (fontSize / 2) - marksPadding;
+            }
+
+            values.push({
+              x: x + paddings.x,
+              y,
+
+              value,
+
+              ...other
+            });
+          }
+
+          if (orientation === 'vertical') {
+            const total = height - (paddings.y * 2);
+
+            let y = total * (position / 100);
+            let x = width - paddings.x - boundaryWidth - labelPadding;
+
+            if (linePosition === 'start') {
+              x = paddings.x + boundaryWidth + labelPadding + (fontSize / 2) + marksPadding;
+            }
+
+            if (linePosition === 'center') {
+              x = (width / 2) + (boundaryWidth / 2) + labelPadding + (fontSize / 2) + marksPadding;
+            }
+
+            if (linePosition === 'end') {
+              x = width - paddings.y - boundaryWidth - labelPadding - (fontSize / 2) - marksPadding;
+            }
+
+            values.push({
+              x,
+              y: y + paddings.y,
+
+              value,
+
+              ...other
+            });
+          }
+        });
       });
     }
 
@@ -721,95 +738,7 @@ const LinearMeter = React.forwardRef((props_: any, ref: any) => {
               </g>
             )}
 
-            {/* Marks */}
-            {marksVisible && !!marks_.length && (
-              <g
-                className={classNames([
-                  staticClassName('LinearMeter', theme) && [
-                    'AmauiLinearMeter-marks'
-                  ],
-
-                  classes.marks
-                ])}
-              >
-                {(marks.map((item: any, index: number) => (
-                  <path
-                    key={index}
-
-                    d={item.d}
-
-                    fill='none'
-
-                    stroke={color}
-
-                    strokeWidth={item.width !== undefined ? item.width : markWidth}
-
-                    strokeLinecap={lineCap}
-
-                    {...pathProps}
-
-                    {...MarkProps}
-                  />
-                )))}
-              </g>
-            )}
-
-            {/* Labels */}
-            {labelsVisible && !!labels_.length && (
-              <g
-                className={classNames([
-                  staticClassName('LinearMeter', theme) && [
-                    'AmauiLinearMeter-labels'
-                  ],
-
-                  classes.labels
-                ])}
-              >
-                {(labels.map((item: any, index: number) => {
-                  const { x, y, value, ...other } = item;
-
-                  return (
-                    <text
-                      key={index}
-
-                      x={x}
-
-                      y={y}
-
-                      {...other}
-
-                      {...textProps}
-
-                      {...LabelProps}
-
-                      className={classNames([
-                        staticClassName('LinearMeter', theme) && [
-                          'AmauiLinearMeter-label'
-                        ],
-
-                        other?.className,
-                        textProps?.className,
-                        LabelProps?.className,
-                        classes.label
-                      ])}
-
-                      style={{
-                        fill: color,
-
-                        ...other.style,
-
-                        ...textProps?.style,
-
-                        ...LabelProps?.style
-                      }}
-                    >
-                      {value}
-                    </text>
-                  );
-                }))}
-              </g>
-            )}
-
+            {/* Children */}
             {children && (
               <g
                 className={classNames([
@@ -846,6 +775,103 @@ const LinearMeter = React.forwardRef((props_: any, ref: any) => {
                   );
                 })}
               </g>
+            )}
+
+            {/* Marks */}
+            {marksVisible && !!marks_.length && (
+              marks.map((markValue: any, index: number) => (
+                <g
+                  key={index}
+
+                  className={classNames([
+                    staticClassName('LinearMeter', theme) && [
+                      'AmauiLinearMeter-marks'
+                    ],
+
+                    classes.marks
+                  ])}
+                >
+                  {(markValue.map((item: any, index: number) => (
+                    <path
+                      key={index}
+
+                      d={item.d}
+
+                      fill='none'
+
+                      stroke={color}
+
+                      strokeWidth={item.width !== undefined ? item.width : markWidth}
+
+                      strokeLinecap={lineCap}
+
+                      {...pathProps}
+
+                      {...MarkProps}
+                    />
+                  )))}
+                </g>
+              ))
+            )}
+
+            {/* Labels */}
+            {labelsVisible && !!labels_.length && (
+              labels.map((labelValue: any, index: number) => (
+                <g
+                  key={index}
+
+                  className={classNames([
+                    staticClassName('LinearMeter', theme) && [
+                      'AmauiLinearMeter-labels'
+                    ],
+
+                    classes.labels
+                  ])}
+                >
+                  {(labelValue.map((item: any, index: number) => {
+                    const { x, y, value, ...other } = item;
+
+                    return (
+                      <text
+                        key={index}
+
+                        x={x}
+
+                        y={y}
+
+                        {...other}
+
+                        {...textProps}
+
+                        {...LabelProps}
+
+                        className={classNames([
+                          staticClassName('LinearMeter', theme) && [
+                            'AmauiLinearMeter-label'
+                          ],
+
+                          other?.className,
+                          textProps?.className,
+                          LabelProps?.className,
+                          classes.label
+                        ])}
+
+                        style={{
+                          fill: color,
+
+                          ...other.style,
+
+                          ...textProps?.style,
+
+                          ...LabelProps?.style
+                        }}
+                      >
+                        {value}
+                      </text>
+                    );
+                  }))}
+                </g>
+              ))
             )}
           </svg>
         )}
