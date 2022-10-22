@@ -169,16 +169,6 @@ const IconMaterialKeyboardAltRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
-// to do
-
-// min, max date
-// validate
-
-// validate on:
-
-// values update
-// input update
-
 const TimePicker = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 
@@ -437,6 +427,9 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
     };
 
     setValues(values_);
+
+    // Error
+    setError(!validItem('', '', property === 'input' ? inputToValues(value_) : values_));
   };
 
   const updateInputToValues = () => {
@@ -461,12 +454,12 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
     updateValue(amauiDate);
   };
 
-  const validItem = (item: number, version: string) => {
+  const validItem = (item: number | string = '', version: string = '', values__ = refs.values.current) => {
     const values_ = {
-      ...refs.values.current,
-
-      [version]: getLeadingZerosNumber(item)
+      ...values__
     };
+
+    if (version) values_[version] = is('number', item) ? getLeadingZerosNumber(item as number) : item;
 
     const amauiDate = valuesToValue(values_);
 
@@ -699,11 +692,17 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
   const onOk = React.useCallback(() => {
     updateValuesToInput();
 
+    // Error
+    setError(!validItem());
+
     onModeClose();
   }, []);
 
   const onCancel = React.useCallback(() => {
     updateInputToValues();
+
+    // Error
+    setError(!validItem());
 
     onModeClose();
   }, []);
