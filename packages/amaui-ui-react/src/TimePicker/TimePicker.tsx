@@ -177,8 +177,6 @@ const IconMaterialKeyboardAltRounded = React.forwardRef((props: any, ref) => {
 
 // input error if error
 
-// on escape close the modeOpen and focus the icon button if version 'desktop'
-
 const TimePicker = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 
@@ -306,7 +304,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
   const touch = useMediaQuery('(pointer: coarse)');
 
-  const [modeOpen, setModeOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(false);
   const [mode, setMode] = React.useState((touch ? openMobile : openDesktop) || 'select');
   const [value, setValue] = React.useState((valueDefault !== undefined ? valueDefault : value_) || (now && new AmauiDate()));
   const [values, setValues] = React.useState<any>(() => valueToValues(value));
@@ -318,7 +316,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
     roundMeter: React.useRef<any>(),
     middle: React.useRef<any>(),
     version: React.useRef<any>(),
-    modeOpen: React.useRef<any>(),
+    open: React.useRef<any>(),
     mode: React.useRef<any>(),
     values: React.useRef<any>(),
     value: React.useRef<any>(),
@@ -338,7 +336,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
   refs.version.current = version;
 
-  refs.modeOpen.current = modeOpen;
+  refs.open.current = open;
 
   refs.mode.current = mode;
 
@@ -461,6 +459,18 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
   };
 
   React.useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (refs.open.current) {
+        switch (event.key) {
+          case 'Escape':
+            return onCancel();
+
+          default:
+            break;
+        }
+      }
+    };
+
     const onMouseUp = () => {
       if (refs.mouseDown.current) {
         setMouseDown(false);
@@ -588,6 +598,8 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
       }
     };
 
+    window.addEventListener('keydown', onKeyDown);
+
     window.addEventListener('mouseup', onMouseUp);
 
     window.addEventListener('mousemove', onMouseMove);
@@ -597,6 +609,8 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
     window.addEventListener('touchmove', onTouchMove, { passive: true });
 
     return () => {
+      window.removeEventListener('keydown', onKeyDown);
+
       window.removeEventListener('mousemove', onMouseMove);
 
       window.removeEventListener('mouseup', onMouseUp);
@@ -618,13 +632,13 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
   const onMode = React.useCallback(() => {
     setMode((refs.version.current === 'mobile' ? openMobile : openDesktop) || 'select');
 
-    if (!refs.modeOpen.current) updateInputToValues();
+    if (!refs.open.current) updateInputToValues();
 
-    setModeOpen(!refs.modeOpen.current);
+    setOpen(!refs.open.current);
   }, [openMobile, openDesktop]);
 
   const onModeClose = React.useCallback(() => {
-    setModeOpen(false);
+    setOpen(false);
   }, []);
 
   const onModal = React.useCallback((event: React.MouseEvent<any>) => {
@@ -632,7 +646,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
     updateInputToValues();
 
-    setModeOpen(true);
+    setOpen(true);
 
     if (is('function', onClick_)) onClick_(event);
   }, [openMobile, openDesktop, onClick_]);
@@ -1694,7 +1708,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
     {/* Mobile */}
     {version === 'mobile' && (
       <Modal
-        open={modeOpen}
+        open={open}
 
         modalWrapperSurface={false}
 
@@ -1709,7 +1723,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
     {/* Desktop */}
     {version === 'desktop' && (
       <Tooltip
-        open={modeOpen}
+        open={open}
 
         anchorElement={refs.root.current}
 
