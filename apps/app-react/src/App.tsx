@@ -3142,6 +3142,64 @@ Please sign in again.`}
           />
         </Accordion>
 
+        <Accordion primary='TimePicker autoNext, autoCloseOnLast'>
+          <Line
+            style={{
+              width: '100%'
+            }}
+          >
+            <TimePicker
+              label='hour autoNext'
+
+              minutes={false}
+
+              autoNext
+            />
+
+            <TimePicker
+              label='hour, minute autoNext'
+
+              autoNext
+            />
+
+            <TimePicker
+              label='hour, minute and second autoNext'
+
+              seconds
+
+              autoNext
+            />
+
+            <TimePicker
+              label='hour autoNext, autoCloseOnLast'
+
+              minutes={false}
+
+              autoNext
+
+              autoCloseOnLast
+            />
+
+            <TimePicker
+              label='hour, minute autoNext, autoCloseOnLast'
+
+              autoNext
+
+              autoCloseOnLast
+            />
+
+            <TimePicker
+              label='hour, minute and second autoNext, autoCloseOnLast'
+
+              seconds
+
+              autoNext
+
+              autoCloseOnLast
+            />
+          </Line>
+        </Accordion>
+
         <Accordion primary='TimePicker orientation'>
           <Line
             style={{

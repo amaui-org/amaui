@@ -171,10 +171,6 @@ const IconMaterialKeyboardAltRounded = React.forwardRef((props: any, ref) => {
 
 // to do
 
-// automatic switch after select a prop value
-
-// automatic close after last a prop value
-
 // min, max date
 
 // validate
@@ -221,6 +217,10 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
     validate,
 
+    autoNext: autoNext_,
+
+    autoCloseOnLast: autoCloseOnLast_,
+
     openMobile = 'select',
 
     openDesktop = 'select',
@@ -264,6 +264,8 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
   const orientation = valueBreakpoints(orientation_, 'vertical', breakpoints, theme);
   const switch_ = valueBreakpoints(switch__, true, breakpoints, theme);
+  const autoNext = valueBreakpoints(autoNext_, undefined, breakpoints, theme);
+  const autoCloseOnLast = valueBreakpoints(autoCloseOnLast_, undefined, breakpoints, theme);
 
   const valueToValues = (valueNew: AmauiDate) => {
     const values_: any = {
@@ -322,7 +324,9 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
     value: React.useRef<any>(),
     mouseDown: React.useRef<any>(),
     format: React.useRef<any>(),
-    orientation: React.useRef<any>()
+    orientation: React.useRef<any>(),
+    autoNext: React.useRef<any>(),
+    autoCloseOnLast: React.useRef<any>()
   };
 
   let version = version_;
@@ -347,6 +351,10 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
   refs.format.current = format;
 
   refs.orientation.current = orientation;
+
+  refs.autoNext.current = autoNext;
+
+  refs.autoCloseOnLast.current = autoCloseOnLast;
 
   const valuesToValue = (values_: any) => {
     let amauiDate = refs.value.current;
@@ -421,11 +429,13 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
   };
 
   const updateValues = (property: string, value_: any) => {
-    setValues((values_: any) => ({
-      ...values_,
+    const values_ = {
+      ...refs.values.current,
 
       [property]: value_
-    }));
+    };
+
+    setValues(values_);
   };
 
   const updateInputToValues = () => {
@@ -452,7 +462,37 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
   React.useEffect(() => {
     const onMouseUp = () => {
-      if (refs.mouseDown.current) setMouseDown(false);
+      if (refs.mouseDown.current) {
+        setMouseDown(false);
+
+        const property = refs.values.current.selecting;
+
+        // Auto close on last
+        if (refs.autoCloseOnLast.current && refs.mode.current === 'select') {
+          if (['hour', 'minute', 'second'].includes(property)) {
+            if (
+              (property === 'second') ||
+              (property === 'minute' && !seconds) ||
+              (property === 'hour' && !minutes)
+            ) return onOk();
+          }
+        }
+
+        // Auto next
+        if (refs.autoNext.current && refs.mode.current === 'select') {
+          if (['hour', 'minute', 'second'].includes(property)) {
+            const values_: any = {};
+
+            if (property === 'second') values_.selecting = 'hour';
+
+            if (property === 'minute') values_.selecting = seconds ? 'second' : 'hour';
+
+            if (property === 'hour' && minutes) values_.selecting = 'minute';
+
+            setValues({ ...refs.values.current, ...values_ });
+          }
+        }
+      }
     };
 
     const onMove = (x_: number, y_: number) => {
