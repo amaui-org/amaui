@@ -444,6 +444,8 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
     setValues(values_);
 
     updateValue(amauiDate);
+
+    return values_;
   };
 
   const updateValuesToInput = () => {
@@ -699,10 +701,10 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
   }, []);
 
   const onCancel = React.useCallback(() => {
-    updateInputToValues();
+    const values_ = updateInputToValues();
 
     // Error
-    setError(!validItem());
+    setError(!validItem('', '', values_));
 
     onModeClose();
   }, []);
