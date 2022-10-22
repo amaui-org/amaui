@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { is, unique, random, countries } from '@amaui/utils';
+import { AmauiDate, set } from '@amaui/date';
 import { AmauiTheme, AmauiThemeProvider, classNames, style, sy, useAmauiTheme } from '@amaui/style-react';
 import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Radios, Keyframes, Switch, TextField, Label, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationItem, NavigationRail, NavigationDrawer, BottomSheet, BottomAppBar, TopAppBar, Card, CardImage, CardMain, CardHeader, CardButton, CardFooter, Table, TableHead, TableRow, TableCell, TableHeader, TableFooter, TableBody, Placeholder, Snackbar, useSnackbars, Pagination, TablePagination, SpeedDial, SpeedDialItem, ImageList, ImageListItem, ImageListItemBox, Stepper, Step, Tabs, Tab, Timeline, TimelineItem, Tree, Masonry, Reveal, useConfirm, ViewSplit, WindowSplit, useMainProgress, Image, SpyScroll, AdvancedTextField, NumericTextField, useWidgets, ImageCrop, ImageEdit, FileChoose, DropZone, MenuDesktop, Markdown, RichTextEditor, ScreenCapture, Timer, Countdown, Drawing, Parallax, Weather, RoundMeter, Path, Watch, LinearMeter, Carousel, TimePicker, TimeRangePicker, DatePicker, DateRangePicker, DateTimePicker, DateTimeRangePicker } from '@amaui/ui-react';
 
@@ -3142,6 +3143,28 @@ Please sign in again.`}
           />
         </Accordion>
 
+        <Accordion primary='TimePicker validate'>
+          <TimePicker
+            label='Time'
+
+            validate={(value: number, values: any, selecting: string) => {
+              if (selecting === 'minute') return !(value % 10);
+
+              return true;
+            }}
+          />
+        </Accordion>
+
+        <Accordion primary='TimePicker min, max'>
+          <TimePicker
+            label='Time'
+
+            min={set(11, 'hour', new AmauiDate())}
+
+            max={set(19, 'hour', set(44, 'minute', new AmauiDate()))}
+          />
+        </Accordion>
+
         <Accordion primary='TimePicker autoNext, autoCloseOnLast'>
           <Line
             style={{
@@ -3278,7 +3301,7 @@ Please sign in again.`}
           />
         </Accordion>
 
-        <Accordion primary='TimePicker readOnly' open>
+        <Accordion primary='TimePicker readOnly'>
           <TimePicker
             label='Time'
 
@@ -3286,7 +3309,7 @@ Please sign in again.`}
           />
         </Accordion>
 
-        <Accordion primary='TimePicker disabled' open>
+        <Accordion primary='TimePicker disabled'>
           <TimePicker
             label='Time'
 

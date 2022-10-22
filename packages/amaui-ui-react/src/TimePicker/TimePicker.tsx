@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { clamp, getLeadingZerosNumber, is, unique } from '@amaui/utils'
-import { AmauiDate, format as formatMethod, set } from '@amaui/date';
+import { AmauiDate, format as formatMethod, set, is as isMethod } from '@amaui/date';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Icon from '../Icon';
@@ -172,10 +172,12 @@ const IconMaterialKeyboardAltRounded = React.forwardRef((props: any, ref) => {
 // to do
 
 // min, max date
-
 // validate
 
-// input error if error
+// validate on:
+
+// values update
+// input update
 
 const TimePicker = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
@@ -309,6 +311,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
   const [value, setValue] = React.useState((valueDefault !== undefined ? valueDefault : value_) || (now && new AmauiDate()));
   const [values, setValues] = React.useState<any>(() => valueToValues(value));
   const [mouseDown, setMouseDown] = React.useState<any>(false);
+  const [error, setError] = React.useState(false);
 
   const refs = {
     root: React.useRef<any>(),
@@ -458,6 +461,38 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
     updateValue(amauiDate);
   };
 
+  const validItem = (item: number, version: string) => {
+    const values_ = {
+      ...refs.values.current,
+
+      [version]: getLeadingZerosNumber(item)
+    };
+
+    const amauiDate = valuesToValue(values_);
+
+    Object.keys(values_).forEach((item_: any) => {
+      if (is('string', values_[item_])) {
+        if (values_[item_].startsWith('0')) values_[item_] = values_[item_].slice(1);
+      }
+    });
+
+    if (values_.hour !== undefined) values_.hour = +values_.hour;
+
+    if (values_.minute !== undefined) values_.minute = +values_.minute;
+
+    if (values_.second !== undefined) values_.second = +values_.second;
+
+    let valid = true;
+
+    if (is('function', validate)) valid = validate(item, values_, values_.selecting);
+
+    if (min !== undefined) valid = valid && isMethod(amauiDate, 'after or same', min);
+
+    if (max !== undefined) valid = valid && isMethod(amauiDate, 'before or same', max);
+
+    return valid;
+  };
+
   React.useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
       if (refs.open.current) {
@@ -562,6 +597,9 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
           index = clamp(index, 0, 23);
         }
 
+        // Validate
+        if (!validItem(index, 'hour')) return;
+
         // Update values
         updateValues('hour', getLeadingZerosNumber(index));
       }
@@ -574,6 +612,9 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
         let index = valuesAll.findIndex((item: [number, number]) => angle >= item[0] && angle <= item[1]);
 
         if (index === -1 || index === 0) index = 0;
+
+        // Validate
+        if (!validItem(index, refs.values.current.selecting)) return;
 
         // Update values
         updateValues(refs.values.current.selecting, getLeadingZerosNumber(index));
@@ -978,6 +1019,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
                       style: {
                         fontSize: 14,
+                        opacity: validItem(index === 0 ? 12 : index, 'hour') ? 1 : 0.27,
                         fill: ((valueValue === 12 && index === 0) || (valueValue === index)) ? colors.inverse : colors.regular
                       },
 
@@ -995,6 +1037,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
                           style: {
                             fontSize: 14,
+                            opacity: validItem(index === 0 ? 0 : index, 'hour') ? 1 : 0.27,
                             fill: valueValue === index ? colors.inverse : colors.regular
                           },
 
@@ -1011,6 +1054,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
                           style: {
                             fontSize: 14,
+                            opacity: validItem(12 + index, 'hour') ? 1 : 0.27,
                             fill: valueValue === (12 + index) ? colors.inverse : colors.regular
                           },
 
@@ -1030,6 +1074,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
                       style: {
                         fontSize: 14,
+                        opacity: validItem(index === 0 ? 0 : (60 / 12) * index, 'minute') ? 1 : 0.27,
                         fill: (valueValue === ((60 / 12) * index)) ? colors.inverse : colors.regular
                       },
 
@@ -1047,6 +1092,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
                       style: {
                         fontSize: 14,
+                        opacity: validItem(index === 0 ? 0 : (60 / 12) * index, 'second') ? 1 : 0.27,
                         fill: (valueValue === ((60 / 12) * index)) ? colors.inverse : colors.regular
                       },
 
@@ -1684,6 +1730,8 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
       value={values.input}
 
       onChange={(valueNew: any) => updateValues('input', valueNew)}
+
+      error={error}
 
       readOnly={readOnly}
 
