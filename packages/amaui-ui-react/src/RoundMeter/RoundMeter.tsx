@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { clamp, parse, valueFromPercentageWithinRange } from '@amaui/utils';
+import { clamp, is, parse, valueFromPercentageWithinRange } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Surface from '../Surface';
@@ -194,31 +194,39 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
       radius = (width / 2) - boundaryWidth - outsidePadding;
 
-      marks_.forEach((mark: any) => {
-        const {
-          size,
+      let marksValues = marks_;
 
-          padding: markPadding = 0,
+      if (!is('array', marksValues[0])) marksValues = [marksValues];
 
-          position,
+      marksValues.forEach((marksValue: any, index: number) => {
+        values[index] = [];
 
-          ...other
-        } = mark;
+        marksValue.forEach((mark: any) => {
+          const {
+            size,
 
-        const angle = valueFromPercentageWithinRange(position, min, max);
+            padding: markPadding = 0,
 
-        const start = angleToCoordinates(angle, center, center, radius - markPadding);
+            position,
 
-        const end = angleToCoordinates(angle, center, center, radius - (size !== undefined ? size : markSize) - markPadding);
+            ...other
+          } = mark;
 
-        values.push({
-          d: [
-            'M', start.x, start.y,
+          const angle = valueFromPercentageWithinRange(position, min, max);
 
-            'L', end.x, end.y
-          ].join(' '),
+          const start = angleToCoordinates(angle, center, center, radius - markPadding);
 
-          ...other
+          const end = angleToCoordinates(angle, center, center, radius - (size !== undefined ? size : markSize) - markPadding);
+
+          values[index].push({
+            d: [
+              'M', start.x, start.y,
+
+              'L', end.x, end.y
+            ].join(' '),
+
+            ...other
+          });
         });
       });
     }
@@ -236,30 +244,38 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
       radius = (width / 2) - boundaryWidth - marksPadding - outsidePadding;
 
-      labels_.forEach((label: any) => {
-        const {
-          value,
+      let labelsValues = labels_;
 
-          padding: labelPadding = 0,
+      if (!is('array', labelsValues[0])) labelsValues = [labelsValues];
 
-          position,
+      labelsValues.forEach((labelsValue: any, index: number) => {
+        values[index] = [];
 
-          ...other
-        } = label;
+        labelsValue.forEach((label: any) => {
+          const {
+            value,
 
-        const fontSize = label.style?.fontSize !== undefined ? label.style.fontSize : 14;
+            padding: labelPadding = 0,
 
-        const angle = valueFromPercentageWithinRange(position, min, max);
+            position,
 
-        const start = angleToCoordinates(angle, center, center, radius - (fontSize / 2) - labelPadding);
+            ...other
+          } = label;
 
-        values.push({
-          x: start.x,
-          y: start.y,
+          const fontSize = label.style?.fontSize !== undefined ? label.style.fontSize : 14;
 
-          value,
+          const angle = valueFromPercentageWithinRange(position, min, max);
 
-          ...other
+          const start = angleToCoordinates(angle, center, center, radius - (fontSize / 2) - labelPadding);
+
+          values[index].push({
+            x: start.x,
+            y: start.y,
+
+            value,
+
+            ...other
+          });
         });
       });
     }
@@ -902,100 +918,12 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
               </g>
             )}
 
-            {/* Marks */}
-            {marksVisible && !!marks_.length && (
-              <g
-                className={classNames([
-                  staticClassName('RoundMeter', theme) && [
-                    'AmauiRoundMeter-marks'
-                  ],
-
-                  classes.marks
-                ])}
-              >
-                {(marks.map((item: any, index: number) => (
-                  <path
-                    key={index}
-
-                    d={item.d}
-
-                    fill='none'
-
-                    stroke={color}
-
-                    strokeWidth={item.width !== undefined ? item.width : markWidth}
-
-                    strokeLinecap={lineCap}
-
-                    {...pathProps}
-
-                    {...MarkProps}
-                  />
-                )))}
-              </g>
-            )}
-
-            {/* Labels */}
-            {labelsVisible && !!labels_.length && (
-              <g
-                className={classNames([
-                  staticClassName('RoundMeter', theme) && [
-                    'AmauiRoundMeter-labels'
-                  ],
-
-                  classes.labels
-                ])}
-              >
-                {(labels.map((item: any, index: number) => {
-                  const { x, y, value, ...other } = item;
-
-                  return (
-                    <text
-                      key={index}
-
-                      x={x}
-
-                      y={y}
-
-                      {...other}
-
-                      {...textProps}
-
-                      {...LabelProps}
-
-                      className={classNames([
-                        staticClassName('RoundMeter', theme) && [
-                          'AmauiRoundMeter-label'
-                        ],
-
-                        other?.className,
-                        textProps?.className,
-                        LabelProps?.className,
-                        classes.label
-                      ])}
-
-                      style={{
-                        fill: color,
-
-                        ...other.style,
-
-                        ...textProps?.style,
-
-                        ...LabelProps?.style
-                      }}
-                    >
-                      {value}
-                    </text>
-                  );
-                }))}
-              </g>
-            )}
-
+            {/* Children */}
             {children && (
               <g
                 className={classNames([
-                  staticClassName('LinearMeter', theme) && [
-                    'AmauiLinearMeter-children'
+                  staticClassName('RoundMeter', theme) && [
+                    'AmauiRoundMeter-children'
                   ],
 
                   classes.children
@@ -1025,6 +953,103 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
                   );
                 })}
               </g>
+            )}
+
+            {/* Marks */}
+            {marksVisible && !!marks_.length && (
+              marks.map((marksValue: any, index: number) => (
+                <g
+                  key={index}
+
+                  className={classNames([
+                    staticClassName('RoundMeter', theme) && [
+                      'AmauiRoundMeter-marks'
+                    ],
+
+                    classes.marks
+                  ])}
+                >
+                  {(marksValue.map((item: any, index: number) => (
+                    <path
+                      key={index}
+
+                      d={item.d}
+
+                      fill='none'
+
+                      stroke={color}
+
+                      strokeWidth={item.width !== undefined ? item.width : markWidth}
+
+                      strokeLinecap={lineCap}
+
+                      {...pathProps}
+
+                      {...MarkProps}
+                    />
+                  )))}
+                </g>
+              ))
+            )}
+
+            {/* Labels */}
+            {labelsVisible && !!labels_.length && (
+              labels.map((labelValue: any, index: number) => (
+                <g
+                  key={index}
+
+                  className={classNames([
+                    staticClassName('RoundMeter', theme) && [
+                      'AmauiRoundMeter-labels'
+                    ],
+
+                    classes.labels
+                  ])}
+                >
+                  {(labelValue.map((item: any, index: number) => {
+                    const { x, y, value, ...other } = item;
+
+                    return (
+                      <text
+                        key={index}
+
+                        x={x}
+
+                        y={y}
+
+                        {...other}
+
+                        {...textProps}
+
+                        {...LabelProps}
+
+                        className={classNames([
+                          staticClassName('RoundMeter', theme) && [
+                            'AmauiRoundMeter-label'
+                          ],
+
+                          other?.className,
+                          textProps?.className,
+                          LabelProps?.className,
+                          classes.label
+                        ])}
+
+                        style={{
+                          fill: color,
+
+                          ...other.style,
+
+                          ...textProps?.style,
+
+                          ...LabelProps?.style
+                        }}
+                      >
+                        {value}
+                      </text>
+                    );
+                  }))}
+                </g>
+              ))
             )}
           </svg>
         )}

@@ -428,7 +428,9 @@ const Watch = React.forwardRef((props_: any, ref: any) => {
                 />
 
                 {/* Pointers pin */}
-                <circle
+                <Path
+                  Component='circle'
+
                   r='4'
 
                   cx='120'
@@ -507,7 +509,9 @@ const Watch = React.forwardRef((props_: any, ref: any) => {
                 />
 
                 {/* Pointers pin */}
-                <circle
+                <Path
+                  Component='circle'
+
                   r='3'
 
                   cx='120'

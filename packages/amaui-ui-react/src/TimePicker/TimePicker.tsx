@@ -38,7 +38,22 @@ const useStyle = style(theme => ({
   },
 
   roundMeter: {
-    marginTop: '36px'
+    marginTop: '36px',
+    userSelect: 'none',
+
+    '& .AmauiRoundMeter-children, & .AmauiRoundMeter-labels': {
+      pointerEvents: 'none'
+    },
+
+    '& svg > *': {
+      cursor: 'grab'
+    }
+  },
+
+  roundMeter_mouseDown: {
+    '& svg > *': {
+      cursor: 'grabbing'
+    }
   },
 
   modeWrapper: {
@@ -277,6 +292,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
   const [mode, setMode] = React.useState((touch ? openMobile : openDesktop) || 'select');
   const [value, setValue] = React.useState((valueDefault !== undefined ? valueDefault : value_) || new AmauiDate());
   const [values, setValues] = React.useState<any>(() => valueToValues(value));
+  const [mouseDown, setMouseDown] = React.useState<any>(false);
 
   const refs = {
     root: React.useRef<any>(),
@@ -285,7 +301,8 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
     modeOpen: React.useRef<any>(),
     mode: React.useRef<any>(),
     values: React.useRef<any>(),
-    value: React.useRef<any>()
+    value: React.useRef<any>(),
+    mouseDown: React.useRef<any>()
   };
 
   let version = version_;
@@ -304,6 +321,8 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
   refs.values.current = values;
 
   refs.value.current = value;
+
+  refs.mouseDown.current = mouseDown;
 
   const valuesToValue = (values_: any) => {
     let amauiDate = refs.value.current;
@@ -408,6 +427,22 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
   };
 
   React.useEffect(() => {
+    const onMouseUp = () => {
+      if (refs.mouseDown.current) setMouseDown(false);
+    };
+
+    window.addEventListener('mouseup', onMouseUp);
+
+    window.addEventListener('touchend', onMouseUp);
+
+    return () => {
+      window.removeEventListener('mouseup', onMouseUp);
+
+      window.removeEventListener('touchend', onMouseUp);
+    };
+  }, []);
+
+  React.useEffect(() => {
     if (value_ !== undefined && value_ !== refs.value.current) updateFromValue(value_);
   }, [value_]);
 
@@ -451,6 +486,10 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
     updateInputToValues();
 
     onModeClose();
+  }, []);
+
+  const onMouseDown = React.useCallback(() => {
+    setMouseDown(true);
   }, []);
 
   const ModeSelect = React.useCallback(React.forwardRef((props: any, ref: any) => {
@@ -544,23 +583,6 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
         classes.toggleButton
       ])
     };
-
-    let labels = [];
-
-    labels = unique([
-      // Hours
-      ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
-        value: index === 0 ? 12 : index,
-
-        padding: 12,
-
-        style: {
-          fontSize: 14
-        },
-
-        position: index * (100 / 12)
-      })))
-    ], 'position');
 
     return (
       <Surface
@@ -701,46 +723,148 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
             color={color}
           >
-            {({ palette }) => (
-              <RoundMeter
-                tonal={tonal}
+            {({ palette }) => {
+              let labels = [];
 
-                color={color}
+              const colors = {
+                regular: 'currentColor',
+                inverse: theme.methods.palette.color.value(undefined, 90, true, palette)
+              };
 
-                labels={labels}
+              if (format === '12') labels = unique([
+                // Hours
+                ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
+                  value: index === 0 ? 12 : index,
 
-                arcsVisible={false}
+                  padding: 20,
 
-                background
+                  style: {
+                    fontSize: 14,
+                    fill: index === 0 ? colors.inverse : colors.regular
+                  },
 
-                BackgroundProps={{
-                  fill: theme.methods.palette.color.value(undefined, 90, true, palette)
-                }}
+                  position: index * (100 / 12)
+                })))
+              ], 'position');
+              else {
+                labels = [
+                  unique([
+                    // Hours
+                    ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
+                      value: index === 0 ? '00' : index,
 
-                {...RoundMeterProps}
+                      padding: 20,
 
-                className={classNames([
-                  staticClassName('TimePicker', theme) && [
-                    'AmauiTimePicker-round-meter'
-                  ],
+                      style: {
+                        fontSize: 14,
+                        fill: index === 0 ? colors.inverse : colors.regular
+                      },
 
-                  RoundMeterProps?.className,
-                  classes.roundMeter
-                ])}
-              >
-                <Path
-                  d='M 120 119.5 L 195 119.5 A 1 1 0 0 1 195 120.5 L 120 120.5 A 1 1 0 0 1 120 119.5'
+                      position: index * (100 / 12)
+                    })))
+                  ], 'position'),
 
-                  value={0}
+                  unique([
+                    // Hours
+                    ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
+                      value: index === 0 ? 12 : 12 + index,
 
-                  style={{
-                    transformOrigin: '50% 50%',
-                    fill: 'currentColor',
-                    stroke: 'none'
+                      padding: 49.5,
+
+                      style: {
+                        fontSize: 14,
+                        fill: colors.regular
+                        // fill: index === 0 ? colors.inverse : colors.regular
+                      },
+
+                      position: index * (100 / 12)
+                    })))
+                  ], 'position')
+                ];
+              }
+
+              return (
+                <RoundMeter
+                  tonal={tonal}
+
+                  color={color}
+
+                  labels={labels}
+
+                  arcsVisible={false}
+
+                  background
+
+                  BackgroundProps={{
+                    fill: theme.methods.palette.color.value(undefined, 90, true, palette),
+
+                    onMouseDown: onMouseDown,
+
+                    onTouchStart: onMouseDown
                   }}
-                />
-              </RoundMeter>
-            )}
+
+                  {...RoundMeterProps}
+
+                  className={classNames([
+                    staticClassName('TimePicker', theme) && [
+                      'AmauiTimePicker-round-meter'
+                    ],
+
+                    RoundMeterProps?.className,
+                    classes.roundMeter,
+                    refs.mouseDown.current && classes.roundMeter_mouseDown
+                  ])}
+                >
+                  {/* Center */}
+                  <Path
+                    Component='circle'
+
+                    r='4'
+
+                    cx='120'
+
+                    cy='120'
+
+                    style={{
+                      stroke: 'none',
+                      fill: theme.methods.palette.color.value(undefined, 40, true, palette)
+                    }}
+                  />
+
+                  {/* Pointer */}
+                  <Path
+                    d='M 120 119 L 195 119 A 1 1 0 0 1 195 121 L 120 121 A 1 1 0 0 1 121 119'
+
+                    value={0}
+
+                    style={{
+                      transformOrigin: '50% 50%',
+                      fill: theme.methods.palette.color.value(undefined, 40, true, palette),
+                      stroke: 'none'
+                    }}
+                  />
+
+                  {/* Pointer circle */}
+                  <Path
+                    Component='circle'
+
+                    r='24'
+
+                    cx='212.5'
+
+                    cy='120'
+
+                    value={0}
+
+                    style={{
+                      transformOrigin: 'center',
+                      fill: theme.methods.palette.color.value(undefined, 40, true, palette),
+                      stroke: 'none'
+                    }}
+                  />
+                </RoundMeter>
+              );
+            }}
           </Surface>
 
           {/* Footer */}
@@ -1235,7 +1359,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
   if (version === 'mobile') {
     moreProps.onClick = onModal;
   }
-  console.log(value, values);
+  console.log(1, value, values, mouseDown);
   return <>
     <AdvancedTextField
       rootRef={item => {
