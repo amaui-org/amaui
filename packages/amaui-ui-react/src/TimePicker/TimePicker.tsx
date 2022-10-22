@@ -1442,6 +1442,9 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
   if (version === 'mobile') {
     moreProps.onClick = onModal;
   }
+
+  if (version === 'static') return mode === 'select' ? <ModeSelect /> : <ModeInput />;
+
   console.log(1, value, values, mouseDown);
   return <>
     <AdvancedTextField
