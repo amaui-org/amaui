@@ -216,7 +216,7 @@ export const matches = (value: any) => {
 };
 
 export const angleToCoordinates = (degrees: number, centerX: number, centerY: number, radius: number) => {
-  const radians = degrees * Math.PI / 180;
+  const radians = (degrees * Math.PI) / 180;
 
   return {
     x: centerX + (radius * Math.cos(radians)),

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { getLeadingZerosNumber, is, unique } from '@amaui/utils'
+import { clamp, getLeadingZerosNumber, is, unique } from '@amaui/utils'
 import { AmauiDate, format as formatMethod, set } from '@amaui/date';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
@@ -39,6 +39,7 @@ const useStyle = style(theme => ({
 
   roundMeter: {
     marginTop: '36px',
+    touchAction: 'none',
     userSelect: 'none',
 
     '& .AmauiRoundMeter-children, & .AmauiRoundMeter-labels': {
@@ -303,12 +304,14 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
   const refs = {
     root: React.useRef<any>(),
     iconButton: React.useRef<any>(),
+    middle: React.useRef<any>(),
     version: React.useRef<any>(),
     modeOpen: React.useRef<any>(),
     mode: React.useRef<any>(),
     values: React.useRef<any>(),
     value: React.useRef<any>(),
-    mouseDown: React.useRef<any>()
+    mouseDown: React.useRef<any>(),
+    format: React.useRef<any>()
   };
 
   let version = version_;
@@ -329,6 +332,8 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
   refs.value.current = value;
 
   refs.mouseDown.current = mouseDown;
+
+  refs.format.current = format;
 
   const valuesToValue = (values_: any) => {
     let amauiDate = refs.value.current;
@@ -437,12 +442,89 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
       if (refs.mouseDown.current) setMouseDown(false);
     };
 
+    const onMove = (x_: number, y_: number) => {
+      const rectMiddle = refs.middle.current.getBoundingClientRect();
+
+      const x = x_ - rectMiddle.x;
+
+      const y = y_ - rectMiddle.y;
+
+      const radians = Math.atan2(x, y);
+
+      const degrees = (radians * 180) / Math.PI;
+
+      const angle = 180 - degrees;
+
+      // Make array of values
+      // for hours, minutes and seconds
+      // with +- 50% around the value
+
+      // Find item in that array that this angle fits within
+      let valuesAll = [];
+
+      if (refs.values.current.selecting === 'hour') {
+        const part = 360 / 12;
+
+        valuesAll = Array.from({ length: 12 }).map((item: any, index: number) => [(part * index) - (part / 2), (part * index) + (part / 2)]);
+
+        let index = valuesAll.findIndex((item: [number, number]) => angle >= item[0] && angle <= item[1]);
+
+        if (index === -1 || index === 0) index = 12;
+
+        if (refs.format.current === '24') {
+          index = clamp(index, 0, 23);
+        }
+
+        // Update values
+        updateValues('hour', getLeadingZerosNumber(index));
+      }
+
+      if (['minute', 'second'].includes(refs.values.current.selecting)) {
+        const part = 360 / 60;
+
+        valuesAll = Array.from({ length: 60 }).map((item: any, index: number) => [(part * index) - (part / 2), (part * index) + (part / 2)]);
+
+        let index = valuesAll.findIndex((item: [number, number]) => angle >= item[0] && angle <= item[1]);
+
+        if (index === -1 || index === 0) index = 0;
+
+        // Update values
+        updateValues(refs.values.current.selecting, getLeadingZerosNumber(index));
+      }
+    };
+
+    // Mouse move
+    const onMouseMove = (event: MouseEvent) => {
+      if (refs.mouseDown.current) {
+        const { clientY, clientX } = event;
+
+        onMove(clientX, clientY);
+      }
+    };
+
+    // Touch move
+    const onTouchMove = (event: TouchEvent) => {
+      if (refs.mouseDown.current) {
+        const { clientY, clientX } = event.touches[0];
+
+        onMove(clientX, clientY);
+      }
+    };
+
     window.addEventListener('mouseup', onMouseUp);
+
+    window.addEventListener('mousemove', onMouseMove);
 
     window.addEventListener('touchend', onMouseUp);
 
+    window.addEventListener('touchmove', onTouchMove, { passive: true });
+
     return () => {
+      window.removeEventListener('mousemove', onMouseMove);
+
       window.removeEventListener('mouseup', onMouseUp);
+
+      window.removeEventListener('touchmove', onTouchMove);
 
       window.removeEventListener('touchend', onMouseUp);
     };
@@ -900,6 +982,8 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
                 >
                   {/* Center */}
                   <Path
+                    ref={refs.middle}
+
                     Component='circle'
 
                     r='4'
@@ -910,7 +994,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
                     style={{
                       stroke: 'none',
-                      fill: theme.methods.palette.color.value(undefined, 40, true, palette)
+                      fill: palette[40]
                     }}
                   />
 
@@ -922,7 +1006,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
                     style={{
                       transformOrigin: '50% 50%',
-                      fill: theme.methods.palette.color.value(undefined, 40, true, palette),
+                      fill: palette[40],
                       stroke: 'none'
                     }}
                   />
@@ -941,7 +1025,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
                     style={{
                       transformOrigin: 'center',
-                      fill: theme.methods.palette.color.value(undefined, 40, true, palette),
+                      fill: palette[40],
                       stroke: 'none'
                     }}
                   />
@@ -1445,7 +1529,6 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
   if (version === 'static') return mode === 'select' ? <ModeSelect /> : <ModeInput />;
 
-  console.log(1, value, values, mouseDown);
   return <>
     <AdvancedTextField
       rootRef={item => {
