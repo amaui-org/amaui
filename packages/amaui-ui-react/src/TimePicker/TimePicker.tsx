@@ -880,7 +880,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
             <Line
               gap={1.5}
 
-              direction='row'
+              direction={refs.orientation.current === 'vertical' ? 'row' : 'column'}
 
               align='unset'
 
@@ -897,7 +897,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
               <Line
                 gap={0}
 
-                direction={refs.orientation.current === 'vertical' ? 'row' : 'column'}
+                direction='row'
 
                 wrap='wrap'
 
