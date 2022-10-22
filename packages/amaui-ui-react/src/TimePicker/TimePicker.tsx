@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is, unique } from '@amaui/utils'
+import { getLeadingZerosNumber, is, unique } from '@amaui/utils'
 import { AmauiDate, format as formatMethod, set } from '@amaui/date';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
@@ -767,55 +767,91 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
                 valueTime = (100 / 60) * valueTime;
               }
 
-              if (format === '12') labels = unique([
-                // 12 hours
-                ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
-                  value: index === 0 ? 12 : index,
+              if (refs.values.current.selecting === 'hour') {
+                if (format === '12') labels = unique([
+                  // 12 hours
+                  ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
+                    value: index === 0 ? 12 : index,
 
-                  padding: 20,
+                    padding: 20,
 
-                  style: {
-                    fontSize: 14,
-                    fill: ((valueValue === 12 && index === 0) || (valueValue === index)) ? colors.inverse : colors.regular
-                  },
+                    style: {
+                      fontSize: 14,
+                      fill: ((valueValue === 12 && index === 0) || (valueValue === index)) ? colors.inverse : colors.regular
+                    },
 
-                  position: index * (100 / 12)
-                })))
-              ], 'position');
-              else {
-                labels = [
-                  unique([
-                    // 0-11 hours
-                    ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
-                      value: index === 0 ? '00' : index,
+                    position: index * (100 / 12)
+                  })))
+                ], 'position');
+                else {
+                  labels = [
+                    unique([
+                      // 0-11 hours
+                      ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
+                        value: index === 0 ? '00' : index,
 
-                      padding: 20,
+                        padding: 20,
 
-                      style: {
-                        fontSize: 14,
-                        fill: valueValue === index ? colors.inverse : colors.regular
-                      },
+                        style: {
+                          fontSize: 14,
+                          fill: valueValue === index ? colors.inverse : colors.regular
+                        },
 
-                      position: index * (100 / 12)
-                    })))
-                  ], 'position'),
+                        position: index * (100 / 12)
+                      })))
+                    ], 'position'),
 
-                  unique([
-                    // 12-23 hours
-                    ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
-                      value: 12 + index,
+                    unique([
+                      // 12-23 hours
+                      ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
+                        value: 12 + index,
 
-                      padding: 49.5,
+                        padding: 49.5,
 
-                      style: {
-                        fontSize: 14,
-                        fill: valueValue === index ? colors.inverse : colors.regular
-                      },
+                        style: {
+                          fontSize: 14,
+                          fill: valueValue === (12 + index) ? colors.inverse : colors.regular
+                        },
 
-                      position: index * (100 / 12)
-                    })))
-                  ], 'position')
-                ];
+                        position: index * (100 / 12)
+                      })))
+                    ], 'position')
+                  ];
+                }
+              }
+              else if (refs.values.current.selecting === 'minute') {
+                labels = unique([
+                  // 59 minutes
+                  ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
+                    value: index === 0 ? '00' : getLeadingZerosNumber((60 / 12) * index),
+
+                    padding: 20,
+
+                    style: {
+                      fontSize: 14,
+                      fill: ((valueValue === 12 && index === 0) || (valueValue === index)) ? colors.inverse : colors.regular
+                    },
+
+                    position: index * (100 / 12)
+                  })))
+                ], 'position');
+              }
+              else if (refs.values.current.selecting === 'second') {
+                labels = unique([
+                  // 59 seconds
+                  ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
+                    value: index === 0 ? '00' : getLeadingZerosNumber((60 / 12) * index),
+
+                    padding: 20,
+
+                    style: {
+                      fontSize: 14,
+                      fill: ((valueValue === 12 && index === 0) || (valueValue === index)) ? colors.inverse : colors.regular
+                    },
+
+                    position: index * (100 / 12)
+                  })))
+                ], 'position');
               }
 
               return (
