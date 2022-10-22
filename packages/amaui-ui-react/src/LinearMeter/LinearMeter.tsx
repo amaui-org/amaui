@@ -192,7 +192,7 @@ const LinearMeter = React.forwardRef((props_: any, ref: any) => {
               yl = y - size;
             }
 
-            values.push({
+            values[index].push({
               d: [
                 'M', x + paddings.x, y,
 
@@ -225,7 +225,7 @@ const LinearMeter = React.forwardRef((props_: any, ref: any) => {
               xl = x - size;
             }
 
-            values.push({
+            values[index].push({
               d: [
                 'M', x, y + paddings.y,
 
@@ -286,7 +286,7 @@ const LinearMeter = React.forwardRef((props_: any, ref: any) => {
               y = height - paddings.y - boundaryWidth - labelPadding - (fontSize / 2) - marksPadding;
             }
 
-            values.push({
+            values[index].push({
               x: x + paddings.x,
               y,
 
@@ -314,7 +314,7 @@ const LinearMeter = React.forwardRef((props_: any, ref: any) => {
               x = width - paddings.y - boundaryWidth - labelPadding - (fontSize / 2) - marksPadding;
             }
 
-            values.push({
+            values[index].push({
               x,
               y: y + paddings.y,
 
@@ -779,7 +779,7 @@ const LinearMeter = React.forwardRef((props_: any, ref: any) => {
 
             {/* Marks */}
             {marksVisible && !!marks_.length && (
-              marks.map((markValue: any, index: number) => (
+              marks.map((marksValue: any, index: number) => (
                 <g
                   key={index}
 
@@ -791,7 +791,7 @@ const LinearMeter = React.forwardRef((props_: any, ref: any) => {
                     classes.marks
                   ])}
                 >
-                  {(markValue.map((item: any, index: number) => (
+                  {(marksValue.map((item: any, index: number) => (
                     <path
                       key={index}
 
@@ -816,7 +816,7 @@ const LinearMeter = React.forwardRef((props_: any, ref: any) => {
 
             {/* Labels */}
             {labelsVisible && !!labels_.length && (
-              labels.map((labelValue: any, index: number) => (
+              labels.map((labelsValue: any, index: number) => (
                 <g
                   key={index}
 
@@ -828,7 +828,7 @@ const LinearMeter = React.forwardRef((props_: any, ref: any) => {
                     classes.labels
                   ])}
                 >
-                  {(labelValue.map((item: any, index: number) => {
+                  {(labelsValue.map((item: any, index: number) => {
                     const { x, y, value, ...other } = item;
 
                     return (

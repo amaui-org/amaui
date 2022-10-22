@@ -994,7 +994,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
             {/* Labels */}
             {labelsVisible && !!labels_.length && (
-              labels.map((labelValue: any, index: number) => (
+              labels.map((labelsValue: any, index: number) => (
                 <g
                   key={index}
 
@@ -1006,7 +1006,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
                     classes.labels
                   ])}
                 >
-                  {(labelValue.map((item: any, index: number) => {
+                  {(labelsValue.map((item: any, index: number) => {
                     const { x, y, value, ...other } = item;
 
                     return (
