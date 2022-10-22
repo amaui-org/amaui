@@ -126,6 +126,7 @@ const useStyle = style(theme => ({
   },
 
   toggleButtons_orientation_vertical: {
+    width: '52px',
     height: '72px'
   },
 
@@ -878,7 +879,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
           >
             {/* Inputs, am, pm */}
             <Line
-              gap={1.5}
+              gap={refs.orientation.current === 'vertical' ? 1.5 : 2}
 
               direction={refs.orientation.current === 'vertical' ? 'row' : 'column'}
 
@@ -903,7 +904,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
                 align='flex-start'
 
-                justify='unset'
+                justify='center'
               >
                 {buttons.map((item: any, index: number) => (
                   React.cloneElement(item, {

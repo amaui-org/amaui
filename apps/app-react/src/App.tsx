@@ -3254,6 +3254,16 @@ Please sign in again.`}
             />
 
             <TimePicker
+              label='Horizontal, with seconds and 12'
+
+              orientation='horizontal'
+
+              seconds
+
+              format='12'
+            />
+
+            <TimePicker
               label='Horizontal 24'
 
               orientation='horizontal'
