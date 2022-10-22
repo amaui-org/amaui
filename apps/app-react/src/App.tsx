@@ -1537,6 +1537,10 @@ function App() {
             width: '100%'
           }}
         >
+          <TimePicker
+            label='Time picker'
+          />
+
           <Carousel
             items={[
               'https://picsum.photos/seed/a/1500/540',
