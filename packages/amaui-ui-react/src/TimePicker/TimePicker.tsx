@@ -731,8 +731,44 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
                 inverse: theme.methods.palette.color.value(undefined, 90, true, palette)
               };
 
+              let valueTime: any = '';
+
+              let valueValue: any = '';
+
+              if (refs.values.current.selecting === 'hour') {
+                valueTime = refs.values.current.hour;
+
+                if (valueTime.startsWith('0')) valueTime = valueTime.slice(1);
+
+                valueValue = valueTime = +valueTime;
+
+                if (valueTime > 12) valueTime -= 12;
+
+                valueTime = (100 / 12) * valueTime;
+              }
+
+              if (refs.values.current.selecting === 'minute') {
+                valueTime = refs.values.current.minute;
+
+                if (valueTime.startsWith('0')) valueTime = valueTime.slice(1);
+
+                valueTime = +valueTime;
+
+                valueTime = (100 / 60) * valueTime;
+              }
+
+              if (refs.values.current.selecting === 'second') {
+                valueTime = refs.values.current.second;
+
+                if (valueTime.startsWith('0')) valueTime = valueTime.slice(1);
+
+                valueTime = +valueTime;
+
+                valueTime = (100 / 60) * valueTime;
+              }
+
               if (format === '12') labels = unique([
-                // Hours
+                // 12 hours
                 ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
                   value: index === 0 ? 12 : index,
 
@@ -740,7 +776,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
                   style: {
                     fontSize: 14,
-                    fill: index === 0 ? colors.inverse : colors.regular
+                    fill: ((valueValue === 12 && index === 0) || (valueValue === index)) ? colors.inverse : colors.regular
                   },
 
                   position: index * (100 / 12)
@@ -749,7 +785,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
               else {
                 labels = [
                   unique([
-                    // Hours
+                    // 0-11 hours
                     ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
                       value: index === 0 ? '00' : index,
 
@@ -757,7 +793,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
                       style: {
                         fontSize: 14,
-                        fill: index === 0 ? colors.inverse : colors.regular
+                        fill: valueValue === index ? colors.inverse : colors.regular
                       },
 
                       position: index * (100 / 12)
@@ -765,16 +801,15 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
                   ], 'position'),
 
                   unique([
-                    // Hours
+                    // 12-23 hours
                     ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
-                      value: index === 0 ? 12 : 12 + index,
+                      value: 12 + index,
 
                       padding: 49.5,
 
                       style: {
                         fontSize: 14,
-                        fill: colors.regular
-                        // fill: index === 0 ? colors.inverse : colors.regular
+                        fill: valueValue === index ? colors.inverse : colors.regular
                       },
 
                       position: index * (100 / 12)
@@ -835,7 +870,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
                   <Path
                     d='M 120 119 L 195 119 A 1 1 0 0 1 195 121 L 120 121 A 1 1 0 0 1 121 119'
 
-                    value={0}
+                    value={valueTime}
 
                     style={{
                       transformOrigin: '50% 50%',
@@ -854,7 +889,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
                     cy='120'
 
-                    value={0}
+                    value={valueTime}
 
                     style={{
                       transformOrigin: 'center',
