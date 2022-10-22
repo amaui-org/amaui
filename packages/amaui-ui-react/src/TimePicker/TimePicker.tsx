@@ -735,6 +735,8 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
               let valueValue: any = '';
 
+              let lowerPointer = false;
+
               if (refs.values.current.selecting === 'hour') {
                 valueTime = refs.values.current.hour;
 
@@ -742,7 +744,11 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
                 valueValue = valueTime = +valueTime;
 
-                if (valueTime > 12) valueTime -= 12;
+                if (valueTime > 12) {
+                  valueTime -= 12;
+
+                  lowerPointer = true;
+                }
 
                 valueTime = (100 / 12) * valueTime;
               }
@@ -921,7 +927,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
                     r='24'
 
-                    cx='212.5'
+                    cx={lowerPointer ? 182 : 212.5}
 
                     cy='120'
 
