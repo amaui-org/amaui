@@ -304,6 +304,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
   const refs = {
     root: React.useRef<any>(),
     iconButton: React.useRef<any>(),
+    roundMeter: React.useRef<any>(),
     middle: React.useRef<any>(),
     version: React.useRef<any>(),
     modeOpen: React.useRef<any>(),
@@ -469,9 +470,33 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
         let index = valuesAll.findIndex((item: [number, number]) => angle >= item[0] && angle <= item[1]);
 
-        if (index === -1 || index === 0) index = 12;
+        if (index === -1 || index === 0) index = refs.format.current === '24' ? 0 : 12;
 
         if (refs.format.current === '24') {
+          let within = false;
+
+          const labels = refs.roundMeter.current.querySelectorAll('.AmauiRoundMeter-labels');
+
+          const elements = {
+            outer: labels[0],
+            inner: labels[1]
+          };
+
+          const rects = {
+            outer: elements.outer.getBoundingClientRect(),
+            inner: elements.outer.getBoundingClientRect()
+          };
+
+          const part = rects.outer.x - rects.inner.x;
+
+          const valueMoved = Math.max(Math.abs(x), Math.abs(y));
+
+          const middleInner = Math.abs(rects.inner.x - rectMiddle.x);
+
+          if (valueMoved <= (middleInner - (part / 2))) within = true;
+
+          if (within) index += 12;
+
           index = clamp(index, 0, 23);
         }
 
@@ -950,6 +975,8 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
               return (
                 <RoundMeter
+                  ref={refs.roundMeter}
+
                   tonal={tonal}
 
                   color={color}
