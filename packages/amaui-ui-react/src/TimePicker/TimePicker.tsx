@@ -271,7 +271,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
   const valueToValues = (valueNew: AmauiDate) => {
     const values_: any = {
-      selecting: 'hour'
+      selecting: refs.values.current.selecting || 'hour'
     };
 
     if (valueNew) {
@@ -396,7 +396,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
   const inputToValues = (valueNew: any) => {
     const values_: any = {
-      selecting: 'hour'
+      selecting: refs.values.current.selecting || 'hour'
     };
 
     // input
@@ -685,7 +685,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
     setOpen(!refs.open.current);
   }, [openMobile, openDesktop]);
 
-  const onModeClose = React.useCallback(() => {
+  const onClose = React.useCallback(() => {
     setOpen(false);
   }, []);
 
@@ -709,7 +709,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
     // Error
     setError(!validItem());
 
-    onModeClose();
+    onClose();
   }, []);
 
   const onCancel = React.useCallback(() => {
@@ -718,7 +718,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
     // Error
     setError(!validItem('', '', values_));
 
-    onModeClose();
+    onClose();
   }, []);
 
   const onMouseDown = React.useCallback(() => {
@@ -1775,7 +1775,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
         modalWrapperSurface={false}
 
-        onClose={onModeClose}
+        onClose={onClose}
 
         {...ModalProps}
       >
@@ -1807,7 +1807,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
         label={(
           <div>
             <ClickListener
-              onClickOutside={onModeClose}
+              onClickOutside={onClose}
 
               includeParentQueries={['.AmauiTimePicker-mode']}
 
