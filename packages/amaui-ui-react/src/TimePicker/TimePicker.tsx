@@ -239,6 +239,8 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
     readOnly,
 
+    disabled,
+
     Icon = IconMaterialScheduleRounded,
     IconEnter = IconMaterialKeyboardAltRounded,
 
@@ -1630,7 +1632,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
         onClick={onMode}
 
-        disabled={readOnly}
+        disabled={disabled || readOnly}
 
         {...IconButtonProps}
       >
@@ -1665,11 +1667,13 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
       placeholder={placeholder}
 
-      readOnly={readOnly}
-
       value={values.input}
 
       onChange={(valueNew: any) => updateValues('input', valueNew)}
+
+      readOnly={readOnly}
+
+      disabled={disabled}
 
       className={classNames([
         staticClassName('TimePicker', theme) && [
