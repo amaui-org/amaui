@@ -752,7 +752,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
                 if (valueTime.startsWith('0')) valueTime = valueTime.slice(1);
 
-                valueTime = +valueTime;
+                valueValue = valueTime = +valueTime;
 
                 valueTime = (100 / 60) * valueTime;
               }
@@ -762,7 +762,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
                 if (valueTime.startsWith('0')) valueTime = valueTime.slice(1);
 
-                valueTime = +valueTime;
+                valueValue = valueTime = +valueTime;
 
                 valueTime = (100 / 60) * valueTime;
               }
@@ -829,7 +829,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
                     style: {
                       fontSize: 14,
-                      fill: ((valueValue === 12 && index === 0) || (valueValue === index)) ? colors.inverse : colors.regular
+                      fill: (valueValue === ((60 / 12) * index)) ? colors.inverse : colors.regular
                     },
 
                     position: index * (100 / 12)
@@ -846,7 +846,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
                     style: {
                       fontSize: 14,
-                      fill: ((valueValue === 12 && index === 0) || (valueValue === index)) ? colors.inverse : colors.regular
+                      fill: (valueValue === ((60 / 12) * index)) ? colors.inverse : colors.regular
                     },
 
                     position: index * (100 / 12)
