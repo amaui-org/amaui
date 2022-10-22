@@ -269,9 +269,26 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
   const autoNext = valueBreakpoints(autoNext_, undefined, breakpoints, theme);
   const autoCloseOnLast = valueBreakpoints(autoCloseOnLast_, undefined, breakpoints, theme);
 
+  const refs = {
+    root: React.useRef<any>(),
+    iconButton: React.useRef<any>(),
+    roundMeter: React.useRef<any>(),
+    middle: React.useRef<any>(),
+    version: React.useRef<any>(),
+    open: React.useRef<any>(),
+    mode: React.useRef<any>(),
+    values: React.useRef<any>(),
+    value: React.useRef<any>(),
+    mouseDown: React.useRef<any>(),
+    format: React.useRef<any>(),
+    orientation: React.useRef<any>(),
+    autoNext: React.useRef<any>(),
+    autoCloseOnLast: React.useRef<any>()
+  };
+
   const valueToValues = (valueNew: AmauiDate) => {
     const values_: any = {
-      selecting: refs.values.current.selecting || 'hour'
+      selecting: refs.values.current?.selecting || 'hour'
     };
 
     if (valueNew) {
@@ -314,23 +331,6 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
   const [values, setValues] = React.useState<any>(() => valueToValues(value));
   const [mouseDown, setMouseDown] = React.useState<any>(false);
   const [error, setError] = React.useState(false);
-
-  const refs = {
-    root: React.useRef<any>(),
-    iconButton: React.useRef<any>(),
-    roundMeter: React.useRef<any>(),
-    middle: React.useRef<any>(),
-    version: React.useRef<any>(),
-    open: React.useRef<any>(),
-    mode: React.useRef<any>(),
-    values: React.useRef<any>(),
-    value: React.useRef<any>(),
-    mouseDown: React.useRef<any>(),
-    format: React.useRef<any>(),
-    orientation: React.useRef<any>(),
-    autoNext: React.useRef<any>(),
-    autoCloseOnLast: React.useRef<any>()
-  };
 
   let version = version_;
 
@@ -396,7 +396,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
   const inputToValues = (valueNew: any) => {
     const values_: any = {
-      selecting: refs.values.current.selecting || 'hour'
+      selecting: refs.values.current?.selecting || 'hour'
     };
 
     // input
@@ -423,6 +423,9 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
   const updateFromValue = (valueNew: number) => {
     const amauiDate = new AmauiDate(valueNew);
+
+    // Error
+    setError(!validItem('', '', valueToValues(amauiDate)));
 
     // Update values
     setValues(amauiDate);
@@ -645,6 +648,9 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
         onMove(clientX, clientY);
       }
     };
+
+    // Error
+    setError(!validItem('', '', inputToValues(refs.values.current.input)));
 
     window.addEventListener('keydown', onKeyDown);
 
