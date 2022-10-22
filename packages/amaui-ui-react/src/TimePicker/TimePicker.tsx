@@ -484,16 +484,16 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
           const rects = {
             outer: elements.outer.getBoundingClientRect(),
-            inner: elements.outer.getBoundingClientRect()
+            inner: elements.inner.getBoundingClientRect()
           };
 
-          const part = rects.outer.x - rects.inner.x;
+          const part = Math.abs(Math.abs(rects.outer.x) - Math.abs(rects.inner.x));
 
-          const valueMoved = Math.max(Math.abs(x), Math.abs(y));
+          const valueMoved = Math.sqrt(x ** 2 + y ** 2);
 
-          const middleInner = Math.abs(rects.inner.x - rectMiddle.x);
+          const middleInner = Math.abs(Math.abs(rectMiddle.x) - Math.abs(rects.inner.x));
 
-          if (valueMoved <= (middleInner - (part / 2))) within = true;
+          if (valueMoved <= (middleInner + (part / 2))) within = true;
 
           if (within) index += 12;
 
@@ -857,11 +857,9 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
                 valueValue = valueTime = +valueTime;
 
-                if (valueTime > 12) {
-                  valueTime -= 12;
+                if (refs.format.current === '24' && valueTime > 11) lowerPointer = true;
 
-                  lowerPointer = true;
-                }
+                if (valueTime > 12) valueTime -= 12;
 
                 valueTime = (100 / 12) * valueTime;
               }
