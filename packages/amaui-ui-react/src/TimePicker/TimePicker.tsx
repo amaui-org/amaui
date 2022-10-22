@@ -1524,7 +1524,8 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
                     ],
 
                     ToggleButtonsProps?.className,
-                    classes.toggleButtons
+                    classes.toggleButtons,
+                    classes[`toggleButtons_orientation_${refs.orientation.current}`]
                   ])}
                 >
                   <ToggleButton
