@@ -20,7 +20,7 @@ import Button from '../Button';
 import RoundMeter from '../RoundMeter';
 import Path from '../Path';
 
-import { staticClassName } from '../utils';
+import { staticClassName, valueBreakpoints } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
@@ -38,7 +38,6 @@ const useStyle = style(theme => ({
   },
 
   roundMeter: {
-    marginTop: '36px',
     touchAction: 'none',
     userSelect: 'none',
 
@@ -62,6 +61,10 @@ const useStyle = style(theme => ({
   },
 
   inputs: {
+    width: '100%'
+  },
+
+  middle: {
     width: '100%',
     marginTop: '24px'
   },
@@ -168,11 +171,6 @@ const IconMaterialKeyboardAltRounded = React.forwardRef((props: any, ref) => {
 
 // to do
 
-// picker
-
-// picker vertical, horizontal
-// horizontal only when there's enough space in the screen for it value y
-
 // automatic switch after select a prop value
 
 // automatic close after last a prop value
@@ -193,6 +191,12 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiTimePicker?.props?.default }), [props_]);
+
+  const breakpoints = {};
+
+  theme.breakpoints.keys.sort((a, b) => theme.breakpoints.values[b] - theme.breakpoints.values[a]).forEach(key => {
+    if (theme.breakpoints.media[key]) breakpoints[key] = useMediaQuery(`(min-width: ${theme.breakpoints.values[key]}px)`);
+  });
 
   const { classes } = useStyle(props);
 
@@ -225,13 +229,15 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
     inputModeHeadingText = 'Enter time',
 
+    orientation: orientation_,
+
     format = '12',
 
     hours = true,
     minutes = true,
     seconds = false,
 
-    switch: switch_ = true,
+    switch: switch__,
 
     onClick: onClick_,
 
@@ -255,6 +261,9 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
     ...other
   } = props;
+
+  const orientation = valueBreakpoints(orientation_, 'vertical', breakpoints, theme);
+  const switch_ = valueBreakpoints(switch__, true, breakpoints, theme);
 
   const valueToValues = (valueNew: AmauiDate) => {
     const values_: any = {
@@ -312,7 +321,8 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
     values: React.useRef<any>(),
     value: React.useRef<any>(),
     mouseDown: React.useRef<any>(),
-    format: React.useRef<any>()
+    format: React.useRef<any>(),
+    orientation: React.useRef<any>()
   };
 
   let version = version_;
@@ -335,6 +345,8 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
   refs.mouseDown.current = mouseDown;
 
   refs.format.current = format;
+
+  refs.orientation.current = orientation;
 
   const valuesToValue = (values_: any) => {
     let amauiDate = refs.value.current;
@@ -744,320 +756,339 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
             {selectModeHeadingText}
           </Type>
 
-          {/* Inputs, am, pm */}
+          {/* Middle */}
           <Line
-            gap={1.5}
+            gap={4.5}
 
-            direction='row'
+            direction={refs.orientation.current === 'vertical' ? 'column' : 'row'}
 
-            align='unset'
+            align='center'
 
-            justify='center'
+            justify='unset'
 
             className={classNames([
               staticClassName('TimePicker', theme) && [
-                'AmauiTimePicker-inputs'
+                'AmauiTimePicker-middle'
               ],
 
-              classes.inputs
+              classes.middle
             ])}
           >
+            {/* Inputs, am, pm */}
             <Line
-              gap={0}
+              gap={1.5}
 
               direction='row'
 
-              wrap='wrap'
+              align='unset'
 
-              align='flex-start'
+              justify='center'
 
-              justify='unset'
+              className={classNames([
+                staticClassName('TimePicker', theme) && [
+                  'AmauiTimePicker-inputs'
+                ],
+
+                classes.inputs
+              ])}
             >
-              {buttons.map((item: any, index: number) => (
-                React.cloneElement(item, {
-                  key: index
-                })
-              ))}
-            </Line>
+              <Line
+                gap={0}
 
-            {format === '12' && (
-              <ToggleButtons
-                tonal={tonal}
+                direction='row'
 
-                color='default'
+                wrap='wrap'
 
-                version='outlined'
+                align='flex-start'
 
-                orientation='vertical'
-
-                value={refs.values.current.dayTime}
-
-                onChange={(valueNew: any) => {
-                  if (!valueNew.length) return;
-
-                  updateValues('dayTime', is('array', valueNew) ? valueNew[0] : valueNew);
-                }}
-
-                select='single'
-
-                {...ToggleButtonsProps}
-
-                className={classNames([
-                  staticClassName('TimePicker', theme) && [
-                    'AmauiTimePicker-toggle-buttons'
-                  ],
-
-                  ToggleButtonsProps?.className,
-                  classes.toggleButtons
-                ])}
+                justify='unset'
               >
-                <ToggleButton
-                  value='am'
+                {buttons.map((item: any, index: number) => (
+                  React.cloneElement(item, {
+                    key: index
+                  })
+                ))}
+              </Line>
 
-                  {...toggleButtonProps}
-                >
-                  AM
-                </ToggleButton>
-
-                <ToggleButton
-                  value='pm'
-
-                  {...toggleButtonProps}
-                >
-                  PM
-                </ToggleButton>
-              </ToggleButtons>
-            )}
-          </Line>
-
-          {/* Watch */}
-          <Surface
-            tonal={tonal}
-
-            color={color}
-          >
-            {({ palette }) => {
-              let labels = [];
-
-              const colors = {
-                regular: 'currentColor',
-                inverse: theme.methods.palette.color.value(undefined, 90, true, palette)
-              };
-
-              let valueTime: any = '';
-
-              let valueValue: any = '';
-
-              let lowerPointer = false;
-
-              if (refs.values.current.selecting === 'hour') {
-                valueTime = refs.values.current.hour;
-
-                if (valueTime.startsWith('0')) valueTime = valueTime.slice(1);
-
-                valueValue = valueTime = +valueTime;
-
-                if (refs.format.current === '24' && valueTime > 11) lowerPointer = true;
-
-                if (valueTime > 12) valueTime -= 12;
-
-                valueTime = (100 / 12) * valueTime;
-              }
-
-              if (refs.values.current.selecting === 'minute') {
-                valueTime = refs.values.current.minute;
-
-                if (valueTime.startsWith('0')) valueTime = valueTime.slice(1);
-
-                valueValue = valueTime = +valueTime;
-
-                valueTime = (100 / 60) * valueTime;
-              }
-
-              if (refs.values.current.selecting === 'second') {
-                valueTime = refs.values.current.second;
-
-                if (valueTime.startsWith('0')) valueTime = valueTime.slice(1);
-
-                valueValue = valueTime = +valueTime;
-
-                valueTime = (100 / 60) * valueTime;
-              }
-
-              if (refs.values.current.selecting === 'hour') {
-                if (format === '12') labels = unique([
-                  // 12 hours
-                  ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
-                    value: index === 0 ? 12 : index,
-
-                    padding: 20,
-
-                    style: {
-                      fontSize: 14,
-                      fill: ((valueValue === 12 && index === 0) || (valueValue === index)) ? colors.inverse : colors.regular
-                    },
-
-                    position: index * (100 / 12)
-                  })))
-                ], 'position');
-                else {
-                  labels = [
-                    unique([
-                      // 0-11 hours
-                      ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
-                        value: index === 0 ? '00' : index,
-
-                        padding: 20,
-
-                        style: {
-                          fontSize: 14,
-                          fill: valueValue === index ? colors.inverse : colors.regular
-                        },
-
-                        position: index * (100 / 12)
-                      })))
-                    ], 'position'),
-
-                    unique([
-                      // 12-23 hours
-                      ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
-                        value: 12 + index,
-
-                        padding: 49.5,
-
-                        style: {
-                          fontSize: 14,
-                          fill: valueValue === (12 + index) ? colors.inverse : colors.regular
-                        },
-
-                        position: index * (100 / 12)
-                      })))
-                    ], 'position')
-                  ];
-                }
-              }
-              else if (refs.values.current.selecting === 'minute') {
-                labels = unique([
-                  // 59 minutes
-                  ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
-                    value: index === 0 ? '00' : getLeadingZerosNumber((60 / 12) * index),
-
-                    padding: 20,
-
-                    style: {
-                      fontSize: 14,
-                      fill: (valueValue === ((60 / 12) * index)) ? colors.inverse : colors.regular
-                    },
-
-                    position: index * (100 / 12)
-                  })))
-                ], 'position');
-              }
-              else if (refs.values.current.selecting === 'second') {
-                labels = unique([
-                  // 59 seconds
-                  ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
-                    value: index === 0 ? '00' : getLeadingZerosNumber((60 / 12) * index),
-
-                    padding: 20,
-
-                    style: {
-                      fontSize: 14,
-                      fill: (valueValue === ((60 / 12) * index)) ? colors.inverse : colors.regular
-                    },
-
-                    position: index * (100 / 12)
-                  })))
-                ], 'position');
-              }
-
-              return (
-                <RoundMeter
-                  ref={refs.roundMeter}
-
+              {format === '12' && (
+                <ToggleButtons
                   tonal={tonal}
 
-                  color={color}
+                  color='default'
 
-                  labels={labels}
+                  version='outlined'
 
-                  arcsVisible={false}
+                  orientation='vertical'
 
-                  background
+                  value={refs.values.current.dayTime}
 
-                  BackgroundProps={{
-                    fill: theme.methods.palette.color.value(undefined, 90, true, palette),
+                  onChange={(valueNew: any) => {
+                    if (!valueNew.length) return;
 
-                    onMouseDown: onMouseDown,
-
-                    onTouchStart: onMouseDown
+                    updateValues('dayTime', is('array', valueNew) ? valueNew[0] : valueNew);
                   }}
 
-                  {...RoundMeterProps}
+                  select='single'
+
+                  {...ToggleButtonsProps}
 
                   className={classNames([
                     staticClassName('TimePicker', theme) && [
-                      'AmauiTimePicker-round-meter'
+                      'AmauiTimePicker-toggle-buttons'
                     ],
 
-                    RoundMeterProps?.className,
-                    classes.roundMeter,
-                    refs.mouseDown.current && classes.roundMeter_mouseDown
+                    ToggleButtonsProps?.className,
+                    classes.toggleButtons
                   ])}
                 >
-                  {/* Center */}
-                  <Path
-                    ref={refs.middle}
+                  <ToggleButton
+                    value='am'
 
-                    Component='circle'
+                    {...toggleButtonProps}
+                  >
+                    AM
+                  </ToggleButton>
 
-                    r='4'
+                  <ToggleButton
+                    value='pm'
 
-                    cx='120'
+                    {...toggleButtonProps}
+                  >
+                    PM
+                  </ToggleButton>
+                </ToggleButtons>
+              )}
+            </Line>
 
-                    cy='120'
+            {/* Watch */}
+            <Surface
+              tonal={tonal}
 
-                    style={{
-                      stroke: 'none',
-                      fill: palette[40]
+              color={color}
+            >
+              {({ palette }) => {
+                let labels = [];
+
+                const colors = {
+                  regular: 'currentColor',
+                  inverse: theme.methods.palette.color.value(undefined, 90, true, palette)
+                };
+
+                let valueTime: any = '';
+
+                let valueValue: any = '';
+
+                let lowerPointer = false;
+
+                if (refs.values.current.selecting === 'hour') {
+                  valueTime = refs.values.current.hour;
+
+                  if (valueTime.startsWith('0')) valueTime = valueTime.slice(1);
+
+                  valueValue = valueTime = +valueTime;
+
+                  if (refs.format.current === '24' && valueTime > 11) lowerPointer = true;
+
+                  if (valueTime > 12) valueTime -= 12;
+
+                  valueTime = (100 / 12) * valueTime;
+                }
+
+                if (refs.values.current.selecting === 'minute') {
+                  valueTime = refs.values.current.minute;
+
+                  if (valueTime.startsWith('0')) valueTime = valueTime.slice(1);
+
+                  valueValue = valueTime = +valueTime;
+
+                  valueTime = (100 / 60) * valueTime;
+                }
+
+                if (refs.values.current.selecting === 'second') {
+                  valueTime = refs.values.current.second;
+
+                  if (valueTime.startsWith('0')) valueTime = valueTime.slice(1);
+
+                  valueValue = valueTime = +valueTime;
+
+                  valueTime = (100 / 60) * valueTime;
+                }
+
+                if (refs.values.current.selecting === 'hour') {
+                  if (format === '12') labels = unique([
+                    // 12 hours
+                    ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
+                      value: index === 0 ? 12 : index,
+
+                      padding: 20,
+
+                      style: {
+                        fontSize: 14,
+                        fill: ((valueValue === 12 && index === 0) || (valueValue === index)) ? colors.inverse : colors.regular
+                      },
+
+                      position: index * (100 / 12)
+                    })))
+                  ], 'position');
+                  else {
+                    labels = [
+                      unique([
+                        // 0-11 hours
+                        ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
+                          value: index === 0 ? '00' : index,
+
+                          padding: 20,
+
+                          style: {
+                            fontSize: 14,
+                            fill: valueValue === index ? colors.inverse : colors.regular
+                          },
+
+                          position: index * (100 / 12)
+                        })))
+                      ], 'position'),
+
+                      unique([
+                        // 12-23 hours
+                        ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
+                          value: 12 + index,
+
+                          padding: 49.5,
+
+                          style: {
+                            fontSize: 14,
+                            fill: valueValue === (12 + index) ? colors.inverse : colors.regular
+                          },
+
+                          position: index * (100 / 12)
+                        })))
+                      ], 'position')
+                    ];
+                  }
+                }
+                else if (refs.values.current.selecting === 'minute') {
+                  labels = unique([
+                    // 59 minutes
+                    ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
+                      value: index === 0 ? '00' : getLeadingZerosNumber((60 / 12) * index),
+
+                      padding: 20,
+
+                      style: {
+                        fontSize: 14,
+                        fill: (valueValue === ((60 / 12) * index)) ? colors.inverse : colors.regular
+                      },
+
+                      position: index * (100 / 12)
+                    })))
+                  ], 'position');
+                }
+                else if (refs.values.current.selecting === 'second') {
+                  labels = unique([
+                    // 59 seconds
+                    ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
+                      value: index === 0 ? '00' : getLeadingZerosNumber((60 / 12) * index),
+
+                      padding: 20,
+
+                      style: {
+                        fontSize: 14,
+                        fill: (valueValue === ((60 / 12) * index)) ? colors.inverse : colors.regular
+                      },
+
+                      position: index * (100 / 12)
+                    })))
+                  ], 'position');
+                }
+
+                return (
+                  <RoundMeter
+                    ref={refs.roundMeter}
+
+                    tonal={tonal}
+
+                    color={color}
+
+                    labels={labels}
+
+                    arcsVisible={false}
+
+                    background
+
+                    BackgroundProps={{
+                      fill: theme.methods.palette.color.value(undefined, 90, true, palette),
+
+                      onMouseDown: onMouseDown,
+
+                      onTouchStart: onMouseDown
                     }}
-                  />
 
-                  {/* Pointer */}
-                  <Path
-                    d='M 120 119 L 195 119 A 1 1 0 0 1 195 121 L 120 121 A 1 1 0 0 1 121 119'
+                    {...RoundMeterProps}
 
-                    value={valueTime}
+                    className={classNames([
+                      staticClassName('TimePicker', theme) && [
+                        'AmauiTimePicker-round-meter'
+                      ],
 
-                    style={{
-                      transformOrigin: '50% 50%',
-                      fill: palette[40],
-                      stroke: 'none'
-                    }}
-                  />
+                      RoundMeterProps?.className,
+                      classes.roundMeter,
+                      refs.mouseDown.current && classes.roundMeter_mouseDown
+                    ])}
+                  >
+                    {/* Center */}
+                    <Path
+                      ref={refs.middle}
 
-                  {/* Pointer circle */}
-                  <Path
-                    Component='circle'
+                      Component='circle'
 
-                    r='24'
+                      r='4'
 
-                    cx={lowerPointer ? 182 : 212.5}
+                      cx='120'
 
-                    cy='120'
+                      cy='120'
 
-                    value={valueTime}
+                      style={{
+                        stroke: 'none',
+                        fill: palette[40]
+                      }}
+                    />
 
-                    style={{
-                      transformOrigin: 'center',
-                      fill: palette[40],
-                      stroke: 'none'
-                    }}
-                  />
-                </RoundMeter>
-              );
-            }}
-          </Surface>
+                    {/* Pointer */}
+                    <Path
+                      d='M 120 119 L 195 119 A 1 1 0 0 1 195 121 L 120 121 A 1 1 0 0 1 121 119'
+
+                      value={valueTime}
+
+                      style={{
+                        transformOrigin: '50% 50%',
+                        fill: palette[40],
+                        stroke: 'none'
+                      }}
+                    />
+
+                    {/* Pointer circle */}
+                    <Path
+                      Component='circle'
+
+                      r='24'
+
+                      cx={lowerPointer ? 182 : 212.5}
+
+                      cy='120'
+
+                      value={valueTime}
+
+                      style={{
+                        transformOrigin: 'center',
+                        fill: palette[40],
+                        stroke: 'none'
+                      }}
+                    />
+                  </RoundMeter>
+                );
+              }}
+            </Surface>
+          </Line>
 
           {/* Footer */}
           <Line
@@ -1303,88 +1334,108 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
             {inputModeHeadingText}
           </Type>
 
-          {/* Inputs, am, pm */}
+
+          {/* Middle */}
           <Line
-            gap={1.5}
+            gap={4.5}
 
-            direction='row'
+            direction={refs.orientation.current === 'vertical' ? 'column' : 'row'}
 
-            align='unset'
+            align='center'
 
-            justify='center'
+            justify='unset'
 
             className={classNames([
               staticClassName('TimePicker', theme) && [
-                'AmauiTimePicker-inputs'
+                'AmauiTimePicker-middle'
               ],
 
-              classes.inputs
+              classes.middle
             ])}
           >
+            {/* Inputs, am, pm */}
             <Line
-              gap={0}
+              gap={1.5}
 
               direction='row'
 
-              align='flex-start'
+              align='unset'
 
-              justify='unset'
+              justify='center'
+
+              className={classNames([
+                staticClassName('TimePicker', theme) && [
+                  'AmauiTimePicker-inputs'
+                ],
+
+                classes.inputs
+              ])}
             >
-              {inputs.map((item: any, index: number) => (
-                React.cloneElement(item, {
-                  key: index
-                })
-              ))}
-            </Line>
+              <Line
+                gap={0}
 
-            {format === '12' && (
-              <ToggleButtons
-                tonal={tonal}
+                direction='row'
 
-                color='default'
+                align='flex-start'
 
-                version='outlined'
-
-                orientation='vertical'
-
-                value={refs.values.current.dayTime}
-
-                onChange={(valueNew: any) => {
-                  if (!valueNew.length) return;
-
-                  updateValues('dayTime', is('array', valueNew) ? valueNew[0] : valueNew);
-                }}
-
-                select='single'
-
-                {...ToggleButtonsProps}
-
-                className={classNames([
-                  staticClassName('TimePicker', theme) && [
-                    'AmauiTimePicker-toggle-buttons'
-                  ],
-
-                  ToggleButtonsProps?.className,
-                  classes.toggleButtons
-                ])}
+                justify='unset'
               >
-                <ToggleButton
-                  value='am'
+                {inputs.map((item: any, index: number) => (
+                  React.cloneElement(item, {
+                    key: index
+                  })
+                ))}
+              </Line>
 
-                  {...toggleButtonProps}
+              {format === '12' && (
+                <ToggleButtons
+                  tonal={tonal}
+
+                  color='default'
+
+                  version='outlined'
+
+                  orientation='vertical'
+
+                  value={refs.values.current.dayTime}
+
+                  onChange={(valueNew: any) => {
+                    if (!valueNew.length) return;
+
+                    updateValues('dayTime', is('array', valueNew) ? valueNew[0] : valueNew);
+                  }}
+
+                  select='single'
+
+                  {...ToggleButtonsProps}
+
+                  className={classNames([
+                    staticClassName('TimePicker', theme) && [
+                      'AmauiTimePicker-toggle-buttons'
+                    ],
+
+                    ToggleButtonsProps?.className,
+                    classes.toggleButtons
+                  ])}
                 >
-                  AM
-                </ToggleButton>
+                  <ToggleButton
+                    value='am'
 
-                <ToggleButton
-                  value='pm'
+                    {...toggleButtonProps}
+                  >
+                    AM
+                  </ToggleButton>
 
-                  {...toggleButtonProps}
-                >
-                  PM
-                </ToggleButton>
-              </ToggleButtons>
-            )}
+                  <ToggleButton
+                    value='pm'
+
+                    {...toggleButtonProps}
+                  >
+                    PM
+                  </ToggleButton>
+                </ToggleButtons>
+              )}
+            </Line>
           </Line>
 
           {/* Footer */}

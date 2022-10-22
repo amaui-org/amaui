@@ -3142,6 +3142,46 @@ Please sign in again.`}
           />
         </Accordion>
 
+        <Accordion primary='TimePicker orientation'>
+          <Line
+            style={{
+              width: '100%'
+            }}
+          >
+            <TimePicker
+              label='Vertical 12'
+
+              orientation='vertical'
+
+              format='12'
+            />
+
+            <TimePicker
+              label='Vertical 24'
+
+              orientation='vertical'
+
+              format='24'
+            />
+
+            <TimePicker
+              label='Horizontal 12'
+
+              orientation='horizontal'
+
+              format='12'
+            />
+
+            <TimePicker
+              label='Horizontal 24'
+
+              orientation='horizontal'
+
+              format='24'
+            />
+          </Line>
+        </Accordion>
+
         <Accordion primary='TimePicker format'>
           <Line
             style={{
