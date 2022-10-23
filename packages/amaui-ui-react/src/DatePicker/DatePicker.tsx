@@ -263,7 +263,9 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
   };
 
   const inputToValues = (valueNew: any) => {
-    const values_: any = {};
+    const values_: any = {
+      ...refs.values.current
+    };
 
     // input
     const [day, month, year] = (valueNew || '').split('/');
