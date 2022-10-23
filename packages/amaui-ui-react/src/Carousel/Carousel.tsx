@@ -685,8 +685,6 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
   const onMouseUp = React.useCallback((event: any) => {
     if (refs.mouseDown.current) {
-      refs.previousMouseEvent.current = undefined;
-
       if (refs.mouseDown.current && !refs.momentum.current) (refs.carousel.current as HTMLElement).style.removeProperty('transition');
 
       refs.mouseDownDuration.current = new Date().getTime() - refs.mouseDownStart.current;
@@ -704,6 +702,8 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
       if (refs.swipe.current && refs.mouseDownDuration.current <= 140) {
         const { clientX: previousClientX, clientY: previousClientY } = refs.mouseDown.current.touches?.[0] || refs.mouseDown.current;
         const { clientX, clientY } = refs.previousMouseEvent.current || event;
+
+        refs.previousMouseEvent.current = undefined;
 
         setMouseDown(false);
 
@@ -1156,10 +1156,10 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
       className={classNames([
         staticClassName('Carousel', theme) && [
           'AmauiCarousel-root',
-          `AmauiCarousel - version - ${version} `,
-          `AmauiCarousel - orientation - ${orientation} `,
-          autoPlay && `AmauiCarousel - autoPlay`,
-          autoHeight && `AmauiCarousel - autoHeight`
+          `AmauiCarousel-version-${version}`,
+          `AmauiCarousel-orientation-${orientation}`,
+          autoPlay && `AmauiCarousel-autoPlay`,
+          autoHeight && `AmauiCarousel-autoHeight`
         ],
 
         className,

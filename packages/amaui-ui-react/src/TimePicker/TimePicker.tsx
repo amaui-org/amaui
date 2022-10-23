@@ -38,7 +38,6 @@ const useStyle = style(theme => ({
   },
 
   roundMeter: {
-    touchAction: 'none',
     userSelect: 'none',
 
     '& .AmauiRoundMeter-children, & .AmauiRoundMeter-labels': {

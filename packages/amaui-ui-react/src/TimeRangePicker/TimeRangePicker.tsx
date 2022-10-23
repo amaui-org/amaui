@@ -13,17 +13,23 @@ import AdvancedTextField from '../AdvancedTextField';
 import Surface from '../Surface';
 import TimePicker from '../TimePicker';
 import useMediaQuery from '../useMediaQuery';
+import Carousel from '../Carousel';
 import Line from '../Line';
 
 import { staticClassName, valueBreakpoints } from '../utils';
-import Carousel from '../Carousel';
 
 const useStyle = style(theme => ({
   root: {
 
   },
 
-  modal: {},
+  modal: {
+    width: 'calc(100% - 48px)',
+    maxWidth: '500px',
+    margin: '0 auto',
+    borderRadius: '28px',
+    overflow: 'hidden'
+  },
 
   mode: {
     marginInline: '24px',
@@ -557,7 +563,6 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
     if (!readOnly) moreProps.onClick = onModal;
   }
 
-  console.log(1, value);
   return <>
     <AdvancedTextField
       rootRef={item => {
@@ -611,7 +616,15 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
 
         onClose={onClose}
 
-        maxWidth='xs'
+        NoSurfaceProps={{
+          className: classNames([
+            staticClassName('TimeRangePicker', theme) && [
+              'AmauiTimeRangePicker-modal'
+            ],
+
+            classes.modal
+          ])
+        }}
 
         {...ModalProps}
       >
@@ -629,21 +642,15 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
           justify='center'
 
           Component={Surface}
-
-          className={classNames([
-            staticClassName('TimeRangePicker', theme) && [
-              'AmauiTimeRangePicker-modal'
-            ],
-
-            classes.modal
-          ])}
         >
           <Carousel
             tonal={tonal}
 
             color={color}
 
-            arrows
+            move={false}
+
+            arrowsVisibility='visible'
 
             progress={false}
 

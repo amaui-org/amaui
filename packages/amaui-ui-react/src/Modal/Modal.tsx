@@ -154,13 +154,14 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
     disableBackgroundClose,
     backgroundInvisible,
     BackgroundComponent = Fade,
-    BackgroundProps,
+
 
     TransitionComponent = Fade,
     TransitionComponentProps,
 
+    NoSurfaceProps,
     SurfaceProps,
-
+    BackgroundProps,
     PortalProps: PortalProps_,
 
     onClose: onClose_,
@@ -285,6 +286,7 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
                     'AmauiModal-noSurface'
                   ],
 
+                  NoSurfaceProps?.className,
                   classes.noSurface
                 ])}
               >
