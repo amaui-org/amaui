@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { clamp, getLeadingZerosNumber, is, unique } from '@amaui/utils'
+import { is, unique, getLeadingZerosNumber, clamp } from '@amaui/utils'
 import { AmauiDate, format as formatMethod, set, is as isMethod } from '@amaui/date';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
@@ -231,7 +231,9 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
     format = '12',
 
     hours = true,
+
     minutes = true,
+
     seconds = false,
 
     switch: switch__,
@@ -255,7 +257,6 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
     RoundMeterProps,
     ModeSelectProps,
     ModeInputProps,
-
     AdvancedTextFieldProps,
 
     className,
