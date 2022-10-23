@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is } from '@amaui/utils';
-import { AmauiDate, format as formatMethod } from '@amaui/date';
+import { AmauiDate, format as formatMethod, set } from '@amaui/date';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Icon from '../Icon';
@@ -43,6 +43,10 @@ const IconMaterialScheduleRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+const SEPARATOR_SYMBOL = `–`;
+
+const SEPARATOR = ` ${SEPARATOR_SYMBOL} `;
+
 const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 
@@ -74,6 +78,8 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
 
     min,
     max,
+
+    autoValidation = true,
 
     validate,
 
@@ -197,7 +203,7 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
         return formatMethod(value__, format_);
       });
 
-      values_.input = items.join(' – ');
+      values_.input = items.join(SEPARATOR);
     }
 
     return values_;
@@ -227,10 +233,98 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
 
   refs.value.current = value;
 
+  React.useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (refs.open.current) {
+        switch (event.key) {
+          case 'Escape':
+            return onClose();
+
+          default:
+            break;
+        }
+      }
+    };
+
+    window.addEventListener('keydown', onKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', onKeyDown);
+    };
+  }, []);
+
+  const valuesToValue = (values_: any, index: number) => {
+    let amauiDate = refs.value.current[index];
+
+    // hour
+    // and am, pm
+    let hour = values_.hour || '00';
+
+    if (hour.startsWith('0')) hour = +hour.slice(1);
+
+    if (format === '12') {
+      if (+hour === 0 || +hour === 12) {
+        if (values_.dayTime === 'am') amauiDate = set(0, 'hour', amauiDate);
+        else if (values_.dayTime === 'pm') amauiDate = set(12, 'hour', amauiDate);
+      }
+      else amauiDate = set(+hour + (values_.dayTime === 'pm' ? 12 : 0), 'hour', amauiDate);
+    }
+    else amauiDate = set(+hour, 'hour', amauiDate);
+
+    // minute
+    let minute = values_.minute || '00';
+
+    if (minute.startsWith('0')) minute = +minute.slice(1);
+
+    amauiDate = set(+minute, 'minute', amauiDate);
+
+    // second
+    let second = values_.second || '00';
+
+    if (second.startsWith('0')) second = +second.slice(1);
+
+    amauiDate = set(+second, 'second', amauiDate);
+
+    return amauiDate;
+  };
+
+  const inputToValues = (valueNew: any) => {
+    const values_: any = {};
+
+    // input
+    const [valuesTime, dayTime] = valueNew.split(' ');
+
+    const [hour, minute, second] = (valuesTime || '').split(':');
+
+    if (hour) values_.hour = hour;
+
+    if (minute) values_.minute = minute;
+
+    if (second) values_.second = second;
+
+    if (dayTime) values_.dayTime = dayTime;
+
+    return values_;
+  };
+
   const updateValue = (valueNew: any) => {
     if (!props.hasOwnProperty('value')) setValue(valueNew);
 
     if (is('function', onChange)) onChange(valueNew);
+  };
+
+  const updateValueFromValues = (valueNew: any) => {
+    const values_ = {
+      ...valueNew
+    };
+
+    const inputs = values_?.input?.split(SEPARATOR);
+
+    const value__ = inputs.map((item: string, index: number) => valuesToValue(inputToValues(item), index));
+
+    console.log(1114, inputs, value__);
+
+    updateValue(value__);
   };
 
   const updateValues = (property: string, value_: any) => {
@@ -240,6 +334,10 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
       [property]: value_
     };
 
+    // Value
+    updateValueFromValues(values_);
+
+    // Values
     setValues(values_);
   };
 
@@ -341,11 +439,11 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
     if (index === 0) {
       mask.push(
         ' ',
-        '–',
+        SEPARATOR_SYMBOL,
         ' '
       );
 
-      placeholder += ` – `;
+      placeholder += SEPARATOR;
     }
   });
 
@@ -373,6 +471,7 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
     );
   }
 
+  console.log(1, value);
   return <>
     <AdvancedTextField
       rootRef={item => {
@@ -461,54 +560,68 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
 
             include={[refs.iconButton, refs.iconButton.current]}
           >
-            <Line
-              tonal={tonal}
+            <div>
+              <Line
+                tonal={tonal}
 
-              color={color}
+                color={color}
 
-              gap={0}
+                gap={0}
 
-              direction='row'
+                direction='row'
 
-              align='flex-start'
+                align='flex-start'
 
-              justify='center'
+                justify='center'
 
-              Component={Surface}
+                Component={Surface}
 
-              className={classNames([
-                staticClassName('TimeRangePicker', theme) && [
-                  'AmauiTimeRangePicker-mode'
-                ],
+                className={classNames([
+                  staticClassName('TimeRangePicker', theme) && [
+                    'AmauiTimeRangePicker-mode'
+                  ],
 
-                classes.mode
-              ])}
-            >
-              {/* From */}
-              <TimePicker
-                {...mergeProps(FromProps)}
+                  classes.mode
+                ])}
+              >
+                {/* From */}
+                <TimePicker
+                  {...mergeProps(FromProps)}
 
-                version='static'
+                  version='static'
 
-                openDesktop={mode}
+                  openDesktop={mode}
 
-                value={value[0]}
+                  max={autoValidation ? new AmauiDate(refs.value.current[1]) : undefined}
 
-                onChange={(valueNew: any) => updateFromValue([valueNew, value[1]])}
-              />
+                  selectModeHeadingText='Select from time'
 
-              <TimePicker
-                {...mergeProps(ToProps)}
+                  inputModeHeadingText='Enter from time'
 
-                version='static'
+                  value={new AmauiDate(refs.value.current[0])}
 
-                openDesktop={mode}
+                  onChange={(valueNew: any) => updateFromValue([valueNew, refs.value.current[1]])}
+                />
 
-                value={value[1]}
+                <TimePicker
+                  {...mergeProps(ToProps)}
 
-                onChange={(valueNew: any) => updateFromValue([value[0], valueNew])}
-              />
-            </Line>
+                  version='static'
+
+                  openDesktop={mode}
+
+                  min={autoValidation ? new AmauiDate(refs.value.current[0]) : undefined}
+
+                  selectModeHeadingText='Select to time'
+
+                  inputModeHeadingText='Enter to time'
+
+                  value={new AmauiDate(refs.value.current[1])}
+
+                  onChange={(valueNew: any) => updateFromValue([refs.value.current[0], valueNew])}
+                />
+              </Line>
+            </div>
           </ClickListener>
         )}
 

@@ -281,7 +281,10 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
     format: React.useRef<any>(),
     orientation: React.useRef<any>(),
     autoNext: React.useRef<any>(),
-    autoCloseOnLast: React.useRef<any>()
+    autoCloseOnLast: React.useRef<any>(),
+    min: React.useRef<any>(),
+    max: React.useRef<any>(),
+    validate: React.useRef<any>()
   };
 
   const valueToValues = (valueNew: AmauiDate) => {
@@ -356,6 +359,14 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
   refs.autoNext.current = autoNext;
 
   refs.autoCloseOnLast.current = autoCloseOnLast;
+
+  refs.autoCloseOnLast.current = autoCloseOnLast;
+
+  refs.min.current = min;
+
+  refs.max.current = max;
+
+  refs.validate.current = validate;
 
   const valuesToValue = (values_: any) => {
     let amauiDate = refs.value.current;
@@ -492,11 +503,11 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
     let valid = true;
 
-    if (is('function', validate)) valid = validate(item, values_, values_.selecting);
+    if (is('function', refs.validate.current)) valid = refs.validate.current(item, values_, values_.selecting);
 
-    if (min !== undefined) valid = valid && isMethod(amauiDate, 'after or same', min);
+    if (refs.min.current !== undefined) valid = valid && isMethod(amauiDate, 'after or same', refs.min.current);
 
-    if (max !== undefined) valid = valid && isMethod(amauiDate, 'before or same', max);
+    if (refs.max.current !== undefined) valid = valid && isMethod(amauiDate, 'before or same', refs.max.current);
 
     return valid;
   };
@@ -1283,7 +1294,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
         </Line>
       </Surface>
     );
-  }), [version, format, hours, minutes, seconds, selectModeHeadingText, mode, tonal, color, switch_, InputProps, theme]);
+  }), [min, max, validate, version, format, hours, minutes, seconds, selectModeHeadingText, mode, tonal, color, switch_, InputProps, theme]);
 
   const ModeInput = React.useCallback(React.forwardRef((props: any, ref: any) => {
     const inputProps = {
@@ -1632,7 +1643,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
         </Line>
       </Surface>
     );
-  }), [version, format, hours, minutes, seconds, inputModeHeadingText, mode, tonal, color, switch_, InputProps]);
+  }), [min, max, validate, version, format, hours, minutes, seconds, inputModeHeadingText, mode, tonal, color, switch_, InputProps]);
 
   let mask: any = [];
 
