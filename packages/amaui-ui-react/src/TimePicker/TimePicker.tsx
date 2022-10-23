@@ -823,6 +823,243 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
       ])
     };
 
+    const Watch = (
+      <Surface
+        tonal={tonal}
+
+        color={color}
+      >
+        {({ palette }) => {
+          let labels = [];
+
+          const colors = {
+            regular: 'currentColor',
+            inverse: theme.methods.palette.color.value(undefined, 90, true, palette)
+          };
+
+          let valueTime: any = '';
+
+          let valueValue: any = '';
+
+          let lowerPointer = false;
+
+          if (refs.values.current.selecting === 'hour') {
+            valueTime = refs.values.current.hour;
+
+            if (valueTime.startsWith('0')) valueTime = valueTime.slice(1);
+
+            valueValue = valueTime = +valueTime;
+
+            if (refs.format.current === '24' && valueTime > 11) lowerPointer = true;
+
+            if (valueTime > 12) valueTime -= 12;
+
+            valueTime = (100 / 12) * valueTime;
+          }
+
+          if (refs.values.current.selecting === 'minute') {
+            valueTime = refs.values.current.minute;
+
+            if (valueTime.startsWith('0')) valueTime = valueTime.slice(1);
+
+            valueValue = valueTime = +valueTime;
+
+            valueTime = (100 / 60) * valueTime;
+          }
+
+          if (refs.values.current.selecting === 'second') {
+            valueTime = refs.values.current.second;
+
+            if (valueTime.startsWith('0')) valueTime = valueTime.slice(1);
+
+            valueValue = valueTime = +valueTime;
+
+            valueTime = (100 / 60) * valueTime;
+          }
+
+          if (refs.values.current.selecting === 'hour') {
+            if (format === '12') labels = unique([
+              // 12 hours
+              ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
+                value: index === 0 ? 12 : index,
+
+                padding: 20,
+
+                style: {
+                  fontSize: 14,
+                  opacity: validItem(index === 0 ? 12 : index, 'hour') ? 1 : 0.27,
+                  fill: ((valueValue === 12 && index === 0) || (valueValue === index)) ? colors.inverse : colors.regular
+                },
+
+                position: index * (100 / 12)
+              })))
+            ], 'position');
+            else {
+              labels = [
+                unique([
+                  // 0-11 hours
+                  ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
+                    value: index === 0 ? '00' : index,
+
+                    padding: 20,
+
+                    style: {
+                      fontSize: 14,
+                      opacity: validItem(index === 0 ? 0 : index, 'hour') ? 1 : 0.27,
+                      fill: valueValue === index ? colors.inverse : colors.regular
+                    },
+
+                    position: index * (100 / 12)
+                  })))
+                ], 'position'),
+
+                unique([
+                  // 12-23 hours
+                  ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
+                    value: 12 + index,
+
+                    padding: 49.5,
+
+                    style: {
+                      fontSize: 14,
+                      opacity: validItem(12 + index, 'hour') ? 1 : 0.27,
+                      fill: valueValue === (12 + index) ? colors.inverse : colors.regular
+                    },
+
+                    position: index * (100 / 12)
+                  })))
+                ], 'position')
+              ];
+            }
+          }
+          else if (refs.values.current.selecting === 'minute') {
+            labels = unique([
+              // 59 minutes
+              ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
+                value: index === 0 ? '00' : getLeadingZerosNumber((60 / 12) * index),
+
+                padding: 20,
+
+                style: {
+                  fontSize: 14,
+                  opacity: validItem(index === 0 ? 0 : (60 / 12) * index, 'minute') ? 1 : 0.27,
+                  fill: (valueValue === ((60 / 12) * index)) ? colors.inverse : colors.regular
+                },
+
+                position: index * (100 / 12)
+              })))
+            ], 'position');
+          }
+          else if (refs.values.current.selecting === 'second') {
+            labels = unique([
+              // 59 seconds
+              ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
+                value: index === 0 ? '00' : getLeadingZerosNumber((60 / 12) * index),
+
+                padding: 20,
+
+                style: {
+                  fontSize: 14,
+                  opacity: validItem(index === 0 ? 0 : (60 / 12) * index, 'second') ? 1 : 0.27,
+                  fill: (valueValue === ((60 / 12) * index)) ? colors.inverse : colors.regular
+                },
+
+                position: index * (100 / 12)
+              })))
+            ], 'position');
+          }
+
+          return (
+            <RoundMeter
+              ref={refs.roundMeter}
+
+              tonal={tonal}
+
+              color={color}
+
+              labels={labels}
+
+              arcsVisible={false}
+
+              background
+
+              BackgroundProps={{
+                fill: theme.methods.palette.color.value(undefined, 90, true, palette),
+
+                onMouseDown: onMouseDown,
+
+                onTouchStart: onMouseDown
+              }}
+
+              {...RoundMeterProps}
+
+              className={classNames([
+                staticClassName('TimePicker', theme) && [
+                  'AmauiTimePicker-round-meter'
+                ],
+
+                RoundMeterProps?.className,
+                classes.roundMeter,
+                refs.mouseDown.current && classes.roundMeter_mouseDown
+              ])}
+            >
+              {/* Center */}
+              <Path
+                ref={refs.middle}
+
+                Component='circle'
+
+                r='4'
+
+                cx='120'
+
+                cy='120'
+
+                style={{
+                  stroke: 'none',
+                  fill: palette[40]
+                }}
+              />
+
+              {/* Pointer */}
+              <Path
+                d='M 120 119 L 195 119 A 1 1 0 0 1 195 121 L 120 121 A 1 1 0 0 1 121 119'
+
+                value={valueTime}
+
+                style={{
+                  transformOrigin: '50% 50%',
+                  fill: palette[40],
+                  stroke: 'none'
+                }}
+              />
+
+              {/* Pointer circle */}
+              <Path
+                Component='circle'
+
+                r='24'
+
+                cx={lowerPointer ? 182 : 212.5}
+
+                cy='120'
+
+                value={valueTime}
+
+                style={{
+                  transformOrigin: 'center',
+                  fill: palette[40],
+                  stroke: 'none'
+                }}
+              />
+            </RoundMeter>
+          );
+        }}
+      </Surface>
+    );
+
+    if (refs.version.current === 'static-watch') return Watch;
+
     return (
       <Surface
         ref={ref}
@@ -976,238 +1213,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
             </Line>
 
             {/* Watch */}
-            <Surface
-              tonal={tonal}
-
-              color={color}
-            >
-              {({ palette }) => {
-                let labels = [];
-
-                const colors = {
-                  regular: 'currentColor',
-                  inverse: theme.methods.palette.color.value(undefined, 90, true, palette)
-                };
-
-                let valueTime: any = '';
-
-                let valueValue: any = '';
-
-                let lowerPointer = false;
-
-                if (refs.values.current.selecting === 'hour') {
-                  valueTime = refs.values.current.hour;
-
-                  if (valueTime.startsWith('0')) valueTime = valueTime.slice(1);
-
-                  valueValue = valueTime = +valueTime;
-
-                  if (refs.format.current === '24' && valueTime > 11) lowerPointer = true;
-
-                  if (valueTime > 12) valueTime -= 12;
-
-                  valueTime = (100 / 12) * valueTime;
-                }
-
-                if (refs.values.current.selecting === 'minute') {
-                  valueTime = refs.values.current.minute;
-
-                  if (valueTime.startsWith('0')) valueTime = valueTime.slice(1);
-
-                  valueValue = valueTime = +valueTime;
-
-                  valueTime = (100 / 60) * valueTime;
-                }
-
-                if (refs.values.current.selecting === 'second') {
-                  valueTime = refs.values.current.second;
-
-                  if (valueTime.startsWith('0')) valueTime = valueTime.slice(1);
-
-                  valueValue = valueTime = +valueTime;
-
-                  valueTime = (100 / 60) * valueTime;
-                }
-
-                if (refs.values.current.selecting === 'hour') {
-                  if (format === '12') labels = unique([
-                    // 12 hours
-                    ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
-                      value: index === 0 ? 12 : index,
-
-                      padding: 20,
-
-                      style: {
-                        fontSize: 14,
-                        opacity: validItem(index === 0 ? 12 : index, 'hour') ? 1 : 0.27,
-                        fill: ((valueValue === 12 && index === 0) || (valueValue === index)) ? colors.inverse : colors.regular
-                      },
-
-                      position: index * (100 / 12)
-                    })))
-                  ], 'position');
-                  else {
-                    labels = [
-                      unique([
-                        // 0-11 hours
-                        ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
-                          value: index === 0 ? '00' : index,
-
-                          padding: 20,
-
-                          style: {
-                            fontSize: 14,
-                            opacity: validItem(index === 0 ? 0 : index, 'hour') ? 1 : 0.27,
-                            fill: valueValue === index ? colors.inverse : colors.regular
-                          },
-
-                          position: index * (100 / 12)
-                        })))
-                      ], 'position'),
-
-                      unique([
-                        // 12-23 hours
-                        ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
-                          value: 12 + index,
-
-                          padding: 49.5,
-
-                          style: {
-                            fontSize: 14,
-                            opacity: validItem(12 + index, 'hour') ? 1 : 0.27,
-                            fill: valueValue === (12 + index) ? colors.inverse : colors.regular
-                          },
-
-                          position: index * (100 / 12)
-                        })))
-                      ], 'position')
-                    ];
-                  }
-                }
-                else if (refs.values.current.selecting === 'minute') {
-                  labels = unique([
-                    // 59 minutes
-                    ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
-                      value: index === 0 ? '00' : getLeadingZerosNumber((60 / 12) * index),
-
-                      padding: 20,
-
-                      style: {
-                        fontSize: 14,
-                        opacity: validItem(index === 0 ? 0 : (60 / 12) * index, 'minute') ? 1 : 0.27,
-                        fill: (valueValue === ((60 / 12) * index)) ? colors.inverse : colors.regular
-                      },
-
-                      position: index * (100 / 12)
-                    })))
-                  ], 'position');
-                }
-                else if (refs.values.current.selecting === 'second') {
-                  labels = unique([
-                    // 59 seconds
-                    ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
-                      value: index === 0 ? '00' : getLeadingZerosNumber((60 / 12) * index),
-
-                      padding: 20,
-
-                      style: {
-                        fontSize: 14,
-                        opacity: validItem(index === 0 ? 0 : (60 / 12) * index, 'second') ? 1 : 0.27,
-                        fill: (valueValue === ((60 / 12) * index)) ? colors.inverse : colors.regular
-                      },
-
-                      position: index * (100 / 12)
-                    })))
-                  ], 'position');
-                }
-
-                return (
-                  <RoundMeter
-                    ref={refs.roundMeter}
-
-                    tonal={tonal}
-
-                    color={color}
-
-                    labels={labels}
-
-                    arcsVisible={false}
-
-                    background
-
-                    BackgroundProps={{
-                      fill: theme.methods.palette.color.value(undefined, 90, true, palette),
-
-                      onMouseDown: onMouseDown,
-
-                      onTouchStart: onMouseDown
-                    }}
-
-                    {...RoundMeterProps}
-
-                    className={classNames([
-                      staticClassName('TimePicker', theme) && [
-                        'AmauiTimePicker-round-meter'
-                      ],
-
-                      RoundMeterProps?.className,
-                      classes.roundMeter,
-                      refs.mouseDown.current && classes.roundMeter_mouseDown
-                    ])}
-                  >
-                    {/* Center */}
-                    <Path
-                      ref={refs.middle}
-
-                      Component='circle'
-
-                      r='4'
-
-                      cx='120'
-
-                      cy='120'
-
-                      style={{
-                        stroke: 'none',
-                        fill: palette[40]
-                      }}
-                    />
-
-                    {/* Pointer */}
-                    <Path
-                      d='M 120 119 L 195 119 A 1 1 0 0 1 195 121 L 120 121 A 1 1 0 0 1 121 119'
-
-                      value={valueTime}
-
-                      style={{
-                        transformOrigin: '50% 50%',
-                        fill: palette[40],
-                        stroke: 'none'
-                      }}
-                    />
-
-                    {/* Pointer circle */}
-                    <Path
-                      Component='circle'
-
-                      r='24'
-
-                      cx={lowerPointer ? 182 : 212.5}
-
-                      cy='120'
-
-                      value={valueTime}
-
-                      style={{
-                        transformOrigin: 'center',
-                        fill: palette[40],
-                        stroke: 'none'
-                      }}
-                    />
-                  </RoundMeter>
-                );
-              }}
-            </Surface>
+            {Watch}
           </Line>
 
           {/* Footer */}
