@@ -415,7 +415,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     mask.push(
       { pattern: '[0-1]' },
 
-      (item: string, result: string, valueInput: string) => /^(0[0-9]|1[0-2]).*/.test(valueInput)
+      (item: string, result: string, valueInput: string) => day ? /^(0[0-9]|1[0-9]|2[0-9]|3[0-1])\/(0[0-9]|1[0-2])/.test(valueInput) : /^(0[0-9]|1[0-2]).*/.test(valueInput)
     );
 
     placeholder.push('MM');
