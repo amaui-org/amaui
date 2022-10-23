@@ -113,6 +113,10 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
 
     orientation: orientation_,
 
+    to = 'to',
+
+    from = 'from',
+
     format = '12',
 
     hours = true,
@@ -486,9 +490,9 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
 
       max={autoValidation ? new AmauiDate(refs.value.current[1]) : undefined}
 
-      selectModeHeadingText='Select from time'
+      selectModeHeadingText={`Select ${from} time`}
 
-      inputModeHeadingText='Enter from time'
+      inputModeHeadingText={`Enter ${from} time`}
 
       value={new AmauiDate(refs.value.current[0])}
 
@@ -515,9 +519,9 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
 
       min={autoValidation ? new AmauiDate(refs.value.current[0]) : undefined}
 
-      selectModeHeadingText='Select to time'
+      selectModeHeadingText={`Select ${to} time`}
 
-      inputModeHeadingText='Enter to time'
+      inputModeHeadingText={`Enter ${to} time`}
 
       value={new AmauiDate(refs.value.current[1])}
 
