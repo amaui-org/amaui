@@ -23,10 +23,7 @@ const useStyle = style(theme => ({
 
   },
 
-  modal: {
-    width: '100%',
-    maxWidth: '230px'
-  },
+  modal: {},
 
   mode: {
     marginInline: '24px',
@@ -129,6 +126,7 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
     FromProps,
     ToProps,
 
+    CarouselProps,
     TooltipProps,
     IconButtonProps,
     AdvancedTextFieldProps,
@@ -613,6 +611,8 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
 
         onClose={onClose}
 
+        maxWidth='xs'
+
         {...ModalProps}
       >
         <Line
@@ -639,6 +639,20 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
           ])}
         >
           <Carousel
+            tonal={tonal}
+
+            color={color}
+
+            arrows
+
+            progress={false}
+
+            round={false}
+
+            moveBeyondEdge={false}
+
+            autoHeight
+
             items={
               TimePickers.map((item: any, index: number) => (
                 React.cloneElement(item, {
@@ -646,6 +660,8 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
                 })
               ))
             }
+
+            {...CarouselProps}
           />
         </Line>
       </Modal>

@@ -567,7 +567,6 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     else {
       index = to === 'next' ? index + 1 : index - 1;
 
-
       if (index < 0) index = refs.round.current ? refs.itemsLength.current - 1 : 0;
 
       if (index > refs.itemsLength.current - 1) index = refs.round.current ? 0 : refs.itemsLength.current - 1;
@@ -704,20 +703,20 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
       // less than 140 ms
       if (refs.swipe.current && refs.mouseDownDuration.current <= 140) {
         const { clientX: previousClientX, clientY: previousClientY } = refs.mouseDown.current.touches?.[0] || refs.mouseDown.current;
-        const { clientX, clientY } = event.touches?.[0] || event;
+        const { clientX, clientY } = refs.previousMouseEvent.current || event;
 
         setMouseDown(false);
 
         if (refs.orientation.current === 'horizontal') {
           // As move already updates the index
           // so move to that index
-          if (previousClientX < clientX) return onUpdate(refs.version.current === 'regular' ? refs.value.current?.index : 'previous');
+          if (previousClientX < clientX) return onUpdate(refs.value.current?.index);
 
           if (previousClientX > clientX) return onUpdate('next');
         }
 
         if (refs.orientation.current === 'vertical') {
-          if (previousClientY < clientY) return onUpdate(refs.version.current === 'regular' ? refs.value.current?.index : 'previous');
+          if (previousClientY < clientY) return onUpdate(refs.value.current?.index);
 
           if (previousClientY > clientY) return onUpdate('next');
         }
@@ -1366,7 +1365,6 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
       )}
 
       {/* Arrows */}
-
       {/* Arrow previous */}
       {arrows && (
         <ArrowPreviousTransitionComponent_
