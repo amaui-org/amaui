@@ -198,7 +198,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
     tonal = true,
     color = 'primary',
 
-    // mobile, desktop & auto
+    // mobile, desktop, static & auto
     version: version_ = 'auto',
 
     value: value_,
@@ -255,9 +255,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
     InputProps,
     RoundMeterProps,
 
-    AdvancedTextFieldProps = {
-      version: 'outlined'
-    },
+    AdvancedTextFieldProps,
 
     className,
 
@@ -277,8 +275,8 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
     version: React.useRef<any>(),
     open: React.useRef<any>(),
     mode: React.useRef<any>(),
-    values: React.useRef<any>(),
     value: React.useRef<any>(),
+    values: React.useRef<any>(),
     mouseDown: React.useRef<any>(),
     format: React.useRef<any>(),
     orientation: React.useRef<any>(),
@@ -428,10 +426,10 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
     setError(!validItem('', '', valueToValues(amauiDate)));
 
     // Update values
-    setValues(amauiDate);
+    setValues(valueToValues(amauiDate));
 
     // Update value
-    updateValue(amauiDate);
+    setValue(amauiDate);
   };
 
   const updateValues = (property: string, value_: any) => {
@@ -678,10 +676,6 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
   React.useEffect(() => {
     if (value_ !== undefined && value_ !== refs.value.current) updateFromValue(value_);
   }, [value_]);
-
-  let mask: any = [];
-
-  let placeholder = '';
 
   const onMode = React.useCallback(() => {
     setMode((refs.version.current === 'mobile' ? openMobile : openDesktop) || 'select');
@@ -1640,6 +1634,10 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
     );
   }), [version, format, hours, minutes, seconds, inputModeHeadingText, mode, tonal, color, switch_, InputProps]);
 
+  let mask: any = [];
+
+  let placeholder = '';
+
   if (hours) {
     if (format === '12') {
       mask.push(
@@ -1746,7 +1744,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
       color={color}
 
-      version={version}
+      version='outlined'
 
       label={label}
 
@@ -1817,17 +1815,15 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
         noMargin
 
         label={(
-          <div>
-            <ClickListener
-              onClickOutside={onClose}
+          <ClickListener
+            onClickOutside={onClose}
 
-              includeParentQueries={['.AmauiTimePicker-mode']}
+            includeParentQueries={['.AmauiTimePicker-mode']}
 
-              include={[refs.iconButton, refs.iconButton.current]}
-            >
-              {mode === 'select' ? <ModeSelect /> : <ModeInput />}
-            </ClickListener>
-          </div>
+            include={[refs.iconButton, refs.iconButton.current]}
+          >
+            {mode === 'select' ? <ModeSelect /> : <ModeInput />}
+          </ClickListener>
         )}
 
         {...TooltipProps}

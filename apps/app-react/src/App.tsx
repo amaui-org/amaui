@@ -1537,6 +1537,10 @@ function App() {
             width: '100%'
           }}
         >
+          <TimeRangePicker
+            label='Time range'
+          />
+
           <TimePicker
             label='Time picker'
           />
@@ -3138,6 +3142,198 @@ Please sign in again.`}
 
           <IconMaterialPottedPlantRounded color='secondary' />
         </Line>
+      </Accordion>
+
+      <Accordion primary='TimeRangePicker'>
+        <Accordion primary='TimeRangePicker' open>
+          <TimeRangePicker
+            label='Time range'
+          />
+        </Accordion>
+
+        <Accordion primary='TimePicker validate'>
+          <TimePicker
+            label='Time'
+
+            validate={(value: number, values: any, selecting: string) => {
+              if (selecting === 'minute') return !(value % 10);
+
+              return true;
+            }}
+          />
+        </Accordion>
+
+        <Accordion primary='TimePicker min, max'>
+          <TimePicker
+            label='Time'
+
+            min={set(11, 'hour', new AmauiDate())}
+
+            max={set(19, 'hour', set(44, 'minute', new AmauiDate()))}
+          />
+        </Accordion>
+
+        <Accordion primary='TimePicker autoNext, autoCloseOnLast'>
+          <Line
+            style={{
+              width: '100%'
+            }}
+          >
+            <TimePicker
+              label='hour autoNext'
+
+              minutes={false}
+
+              autoNext
+            />
+
+            <TimePicker
+              label='hour, minute autoNext'
+
+              autoNext
+            />
+
+            <TimePicker
+              label='hour, minute and second autoNext'
+
+              seconds
+
+              autoNext
+            />
+
+            <TimePicker
+              label='hour autoNext, autoCloseOnLast'
+
+              minutes={false}
+
+              autoNext
+
+              autoCloseOnLast
+            />
+
+            <TimePicker
+              label='hour, minute autoNext, autoCloseOnLast'
+
+              autoNext
+
+              autoCloseOnLast
+            />
+
+            <TimePicker
+              label='hour, minute and second autoNext, autoCloseOnLast'
+
+              seconds
+
+              autoNext
+
+              autoCloseOnLast
+            />
+          </Line>
+        </Accordion>
+
+        <Accordion primary='TimePicker orientation'>
+          <Line
+            style={{
+              width: '100%'
+            }}
+          >
+            <TimePicker
+              label='Vertical 12'
+
+              orientation='vertical'
+
+              format='12'
+            />
+
+            <TimePicker
+              label='Vertical 24'
+
+              orientation='vertical'
+
+              format='24'
+            />
+
+            <TimePicker
+              label='Horizontal 12'
+
+              orientation='horizontal'
+
+              format='12'
+            />
+
+            <TimePicker
+              label='Horizontal, with seconds and 12'
+
+              orientation='horizontal'
+
+              seconds
+
+              format='12'
+            />
+
+            <TimePicker
+              label='Horizontal 24'
+
+              orientation='horizontal'
+
+              format='24'
+            />
+          </Line>
+        </Accordion>
+
+        <Accordion primary='TimePicker format'>
+          <Line
+            style={{
+              width: '100%'
+            }}
+          >
+            <TimePicker
+              label='12 hour'
+
+              format='12'
+            />
+
+            <TimePicker
+              label='24 hour'
+
+              format='24'
+            />
+          </Line>
+        </Accordion>
+
+        <Accordion primary='TimePicker hours, minutes & seconds'>
+          <TimePicker
+            label='Hours'
+
+            minutes={false}
+          />
+
+          <TimePicker
+            label='Hours & minutes'
+          />
+
+          <TimePicker
+            label='Hours, minutes & seconds'
+
+            seconds
+          />
+        </Accordion>
+
+        <Accordion primary='TimePicker readOnly'>
+          <TimePicker
+            label='Time'
+
+            readOnly
+          />
+        </Accordion>
+
+        <Accordion primary='TimePicker disabled'>
+          <TimePicker
+            label='Time'
+
+            disabled
+          />
+        </Accordion>
       </Accordion>
 
       <Accordion primary='TimePicker'>
