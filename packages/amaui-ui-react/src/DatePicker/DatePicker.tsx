@@ -210,7 +210,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     const values_ = {
       ...refs.values.current,
 
-      ...inputToValues(refs.values.current.input)
+      ...inputToValues(refs.values.current?.input)
     };
 
     const amauiDate = valuesToValue(values_);
@@ -467,6 +467,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     if (!readOnly) moreProps.onClick = onModal;
   }
 
+  console.log(1, value, values);
   return <>
     <AdvancedTextField
       rootRef={item => {
