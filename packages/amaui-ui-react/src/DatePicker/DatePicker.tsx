@@ -167,6 +167,24 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     else version = 'desktop';
   }
 
+  refs.version.current = version;
+
+  refs.open.current = open;
+
+  refs.mode.current = mode;
+
+  refs.values.current = values;
+
+  refs.value.current = value;
+
+  refs.autoCloseOnPick.current = autoCloseOnPick;
+
+  refs.min.current = min;
+
+  refs.max.current = max;
+
+  refs.validate.current = validate;
+
   const valuesToValue = (values_: any) => {
     let amauiDate = refs.value.current;
 
