@@ -16,15 +16,28 @@ import useMediaQuery from '../useMediaQuery';
 import Line from '../Line';
 
 import { staticClassName, valueBreakpoints } from '../utils';
+import Carousel from '../Carousel';
 
 const useStyle = style(theme => ({
   root: {
 
   },
 
+  modal: {
+    width: '100%',
+    maxWidth: '230px'
+  },
+
   mode: {
+    marginInline: '24px',
     borderRadius: '28px'
   },
+
+  timePicker: {
+    '&.AmauiTimePicker-mode': {
+      marginInline: '0px'
+    }
+  }
 }), { name: 'AmauiTimeRangePicker' });
 
 const IconMaterialScheduleRounded = React.forwardRef((props: any, ref) => {
@@ -109,6 +122,8 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
 
     disabled,
 
+    onClick: onClick_,
+
     Icon = IconMaterialScheduleRounded,
 
     FromProps,
@@ -117,6 +132,7 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
     TooltipProps,
     IconButtonProps,
     AdvancedTextFieldProps,
+    ModalProps,
 
     className,
 
@@ -361,6 +377,14 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
     setOpen(!refs.open.current);
   }, [openMobile, openDesktop]);
 
+  const onModal = React.useCallback((event: React.MouseEvent<any>) => {
+    setMode((refs.version.current === 'mobile' ? openMobile : openDesktop) || 'select');
+
+    setOpen(true);
+
+    if (is('function', onClick_)) onClick_(event);
+  }, [openMobile, openDesktop, onClick_]);
+
   const onClose = React.useCallback(() => {
     setOpen(false);
   }, []);
@@ -447,6 +471,66 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
     }
   });
 
+  const TimePickers = [
+    // From
+    <TimePicker
+      {...mergeProps(FromProps)}
+
+      version='static'
+
+      openDesktop={mode}
+
+      max={autoValidation ? new AmauiDate(refs.value.current[1]) : undefined}
+
+      selectModeHeadingText='Select from time'
+
+      inputModeHeadingText='Enter from time'
+
+      value={new AmauiDate(refs.value.current[0])}
+
+      onChange={(valueNew: any) => updateFromValue([valueNew, refs.value.current[1]])}
+
+      ModeSelectProps={{
+        className: classNames([
+          staticClassName('TimeRangePicker', theme) && [
+            'AmauiTimeRangePicker-timePicker'
+          ],
+
+          classes.timePicker
+        ])
+      }}
+    />,
+
+    // To
+    <TimePicker
+      {...mergeProps(ToProps)}
+
+      version='static'
+
+      openDesktop={mode}
+
+      min={autoValidation ? new AmauiDate(refs.value.current[0]) : undefined}
+
+      selectModeHeadingText='Select to time'
+
+      inputModeHeadingText='Enter to time'
+
+      value={new AmauiDate(refs.value.current[1])}
+
+      onChange={(valueNew: any) => updateFromValue([refs.value.current[0], valueNew])}
+
+      ModeSelectProps={{
+        className: classNames([
+          staticClassName('TimeRangePicker', theme) && [
+            'AmauiTimeRangePicker-timePicker'
+          ],
+
+          classes.timePicker
+        ])
+      }}
+    />
+  ];
+
   const moreProps: any = {};
 
   if (version === 'desktop') {
@@ -469,6 +553,10 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
         <Icon />
       </IconButton>
     );
+  }
+
+  if (version === 'mobile') {
+    if (!readOnly) moreProps.onClick = onModal;
   }
 
   console.log(1, value);
@@ -517,7 +605,7 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
     />
 
     {/* Mobile */}
-    {/* {version === 'mobile' && (
+    {version === 'mobile' && (
       <Modal
         open={open}
 
@@ -527,9 +615,41 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
 
         {...ModalProps}
       >
-        {mode === 'select' ? <ModeSelect /> : <ModeInput />}
+        <Line
+          tonal={tonal}
+
+          color={color}
+
+          gap={0}
+
+          direction='row'
+
+          align='flex-start'
+
+          justify='center'
+
+          Component={Surface}
+
+          className={classNames([
+            staticClassName('TimeRangePicker', theme) && [
+              'AmauiTimeRangePicker-modal'
+            ],
+
+            classes.modal
+          ])}
+        >
+          <Carousel
+            items={
+              TimePickers.map((item: any, index: number) => (
+                React.cloneElement(item, {
+                  key: index
+                })
+              ))
+            }
+          />
+        </Line>
       </Modal>
-    )} */}
+    )}
 
     {/* Desktop */}
     {version === 'desktop' && (
@@ -584,42 +704,11 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
                   classes.mode
                 ])}
               >
-                {/* From */}
-                <TimePicker
-                  {...mergeProps(FromProps)}
-
-                  version='static'
-
-                  openDesktop={mode}
-
-                  max={autoValidation ? new AmauiDate(refs.value.current[1]) : undefined}
-
-                  selectModeHeadingText='Select from time'
-
-                  inputModeHeadingText='Enter from time'
-
-                  value={new AmauiDate(refs.value.current[0])}
-
-                  onChange={(valueNew: any) => updateFromValue([valueNew, refs.value.current[1]])}
-                />
-
-                <TimePicker
-                  {...mergeProps(ToProps)}
-
-                  version='static'
-
-                  openDesktop={mode}
-
-                  min={autoValidation ? new AmauiDate(refs.value.current[0]) : undefined}
-
-                  selectModeHeadingText='Select to time'
-
-                  inputModeHeadingText='Enter to time'
-
-                  value={new AmauiDate(refs.value.current[1])}
-
-                  onChange={(valueNew: any) => updateFromValue([refs.value.current[0], valueNew])}
-                />
+                {TimePickers.map((item: any, index: number) => (
+                  React.cloneElement(item, {
+                    key: index
+                  })
+                ))}
               </Line>
             </div>
           </ClickListener>

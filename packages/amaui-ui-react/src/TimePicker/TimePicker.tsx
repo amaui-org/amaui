@@ -237,11 +237,11 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
     switch: switch__,
 
-    onClick: onClick_,
-
     readOnly,
 
     disabled,
+
+    onClick: onClick_,
 
     Icon = IconMaterialScheduleRounded,
     IconEnter = IconMaterialKeyboardAltRounded,
@@ -254,6 +254,8 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
     IconButtonProps,
     InputProps,
     RoundMeterProps,
+    ModeSelectProps,
+    ModeInputProps,
 
     AdvancedTextFieldProps,
 
@@ -1078,6 +1080,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
             'AmauiTimePicker-mode'
           ],
 
+          ModeSelectProps?.className,
           classes.mode,
           classes.model_input
         ])}
@@ -1433,6 +1436,8 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
             'AmauiTimePicker-mode'
           ],
 
+
+          ModeInputProps?.className,
           classes.mode,
           classes.model_input
         ])}
