@@ -517,8 +517,8 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
                                 } : undefined),
 
                                 ...(day.selected ? {
-                                  color: palette[90],
-                                  backgroundColor: palette[40]
+                                  color: theme.methods.palette.color.value(undefined, 90, true, palette),
+                                  backgroundColor: theme.methods.palette.color.value(undefined, 40, true, palette)
                                 } : undefined)
                               }}
                             >
