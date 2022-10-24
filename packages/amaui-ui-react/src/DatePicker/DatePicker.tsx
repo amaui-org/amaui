@@ -78,8 +78,7 @@ const useStyle = style(theme => ({
   dayName: {
     width: '40px',
     height: '40px',
-    userSelect: 'none',
-    fontWeight: 500
+    userSelect: 'none'
   },
 
   day: {
@@ -197,6 +196,8 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
     now = true,
 
+    today = true,
+
     label,
 
     min,
@@ -267,7 +268,8 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     min: React.useRef<any>(),
     max: React.useRef<any>(),
     validate: React.useRef<any>(),
-    weekStartDay: React.useRef<any>()
+    weekStartDay: React.useRef<any>(),
+    today: React.useRef<any>()
   };
 
   const valueToValues = (valueNew: AmauiDate) => {
@@ -335,6 +337,8 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
   refs.validate.current = validate;
 
   refs.weekStartDay.current = weekStartDay;
+
+  refs.today.current = today;
 
   const valuesToValue = (values_: any) => {
     let amauiDate = refs.value.current;
@@ -556,6 +560,8 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
     const days = [];
 
+    const monthNow = new AmauiDate();
+
     const month = refs.value.current;
 
     const monthName = formatMethod(month, 'MMMM');
@@ -579,7 +585,9 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
         dayWeek: day.dayWeek,
 
-        weekend: [0, 6].includes(day.dayWeek)
+        weekend: [0, 6].includes(day.dayWeek),
+
+        today: day.year === monthNow.year && day.dayYear === monthNow.dayYear
       });
     }
 
@@ -595,7 +603,9 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
           dayWeek: day.dayWeek,
 
-          weekend: [0, 6].includes(day.dayWeek)
+          weekend: [0, 6].includes(day.dayWeek),
+
+          today: day.year === monthNow.year && day.dayYear === monthNow.dayYear
         });
       }
     }
@@ -604,7 +614,11 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     const dayLast = days[days.length - 1];
 
     if (dayLast.dayWeek < 7) {
-      for (let i = 0; i < 7 - dayLast.dayWeek; i++) {
+      let toAdd = 7 - dayLast.dayWeek;
+
+      if (days.length + toAdd - 1 < 42) toAdd += 41 - (days.length + toAdd - 1);
+
+      for (let i = 0; i < toAdd; i++) {
         const day = set(i + 1, 'day', nextMonth);
 
         days.push({
@@ -614,7 +628,9 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
           dayWeek: day.dayWeek,
 
-          weekend: [0, 6].includes(day.dayWeek)
+          weekend: [0, 6].includes(day.dayWeek),
+
+          today: day.year === monthNow.year && day.dayYear === monthNow.dayYear
         });
       }
     }
@@ -694,31 +710,16 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
             {(status: TTransitionStatus) => {
 
               return (
-                <Line
-                  gap={0}
+                <Surface
+                  tonal={tonal}
 
-                  direction='column'
-
-                  align='unset'
-
-                  justify='unset'
-
-                  className={classNames([
-                    staticClassName('DatePicker', theme) && [
-                      'AmauiDatePicker-weeks'
-                    ],
-
-                    classes.weeks
-                  ])}
+                  color={color}
                 >
-                  {weeks.map((week: any, index: number) => (
-                    // Week
+                  {({ palette }) => (
                     <Line
-                      key={index}
-
                       gap={0}
 
-                      direction='row'
+                      direction='column'
 
                       align='unset'
 
@@ -726,52 +727,82 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
                       className={classNames([
                         staticClassName('DatePicker', theme) && [
-                          'AmauiDatePicker-week'
+                          'AmauiDatePicker-weeks'
                         ],
 
-                        classes.week
+                        classes.weeks
                       ])}
                     >
-                      {week.map((day: any, index_: number) => (
-                        <div
-                          key={index_}
+                      {weeks.map((week: any, index: number) => (
+                        // Week
+                        <Line
+                          key={index}
+
+                          gap={0}
+
+                          direction='row'
+
+                          align='unset'
+
+                          justify='unset'
 
                           className={classNames([
                             staticClassName('DatePicker', theme) && [
-                              'AmauiDatePicker-day',
-                              `AmauiDatePicker-day-${day.in ? 'in' : 'out'}`
+                              'AmauiDatePicker-week'
                             ],
 
-                            classes.day,
-                            classes[`day_${day.in ? 'in' : 'out'}`]
+                            classes.week
                           ])}
                         >
-                          <PaginationItem
-                            tonal={tonal}
+                          {week.map((day: any, index_: number) => (
+                            <div
+                              key={index_}
 
-                            color='inherit'
+                              className={classNames([
+                                staticClassName('DatePicker', theme) && [
+                                  'AmauiDatePicker-day',
+                                  `AmauiDatePicker-day-${day.in ? 'in' : 'out'}`
+                                ],
 
-                            TypeProps={{
-                              version: 'b3',
+                                classes.day,
+                                classes[`day_${day.in ? 'in' : 'out'}`]
+                              ])}
+                            >
+                              <PaginationItem
+                                tonal={tonal}
 
-                              color: !day.weekend ? 'primary' : 'secondary'
-                            }}
+                                color='inherit'
 
-                            className={classNames([
-                              staticClassName('DatePicker', theme) && [
-                                'AmauiDatePicker-day-value'
-                              ],
+                                TypeProps={{
+                                  version: 'b3',
 
-                              classes.dayValue
-                            ])}
-                          >
-                            {day.value}
-                          </PaginationItem>
-                        </div>
+                                  color: !day.weekend ? 'primary' : 'secondary'
+                                }}
+
+                                className={classNames([
+                                  staticClassName('DatePicker', theme) && [
+                                    'AmauiDatePicker-day-value'
+                                  ],
+
+                                  classes.dayValue
+                                ])}
+
+                                style={{
+                                  ...(day.today ? {
+                                    outline: `1px solid ${palette[40]}`,
+                                    outlineOffset: '-1px'
+                                  } : undefined)
+                                }}
+                              >
+                                {day.value}
+                              </PaginationItem>
+                            </div>
+                          ))}
+                        </Line>
                       ))}
                     </Line>
-                  ))}
-                </Line>
+                  )}
+                </Surface>
               );
             }}
           </Transition>
