@@ -499,6 +499,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
           classes.mode_docked
         ])}
       >
+        {/* Header */}
         <Line
           gap={0.5}
 
@@ -620,6 +621,8 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
             </IconButton>
           </Line>
         </Line>
+
+        {/* Main */}
       </Surface>
     );
   }), []);
