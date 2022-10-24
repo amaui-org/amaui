@@ -760,18 +760,16 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     setError(!validItem('', '', property === 'input' ? inputToValues(value_) : values_));
   };
 
-  const updateInputToValues = (toAdd?: any) => {
+  const updateInputToValues = () => {
     const values_ = {
       ...refs.values.current,
-
-      ...toAdd,
 
       ...inputToValues(refs.values.current?.input)
     };
 
     const amauiDate = valuesToValue(values_);
 
-    values_.date = new AmauiDate(amauiDate);
+    values_.selected = values_.date = new AmauiDate(amauiDate);
 
     setValues(values_);
 
@@ -904,7 +902,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
   const onMode = React.useCallback(() => {
     setMode(refs.version.current === 'mobile' ? openMobile : 'select');
 
-    if (!refs.open.current) updateInputToValues({ selected: new AmauiDate(refs.value.current), date: new AmauiDate(refs.value.current) });
+    if (!refs.open.current) updateInputToValues();
 
     setOpen(!refs.open.current);
   }, [openMobile]);
@@ -1363,7 +1361,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
   if (version === 'mobile') {
     if (!readOnly) moreProps.onClick = onModal;
   }
-
+  console.log(1, open, value, values);
   return <>
     <AdvancedTextField
       rootRef={item => {
@@ -1450,9 +1448,9 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
         label={(
           <ClickListener
-            onClickOutside={onClose}
+            onClickOutside={() => { console.log('outside'); onClose() }}
 
-            includeParentQueries={['.AmauiDatePicker-mode']}
+            includeParentQueries={['.AmauiDatePicker-mode', '.AmauiDatePicker-day']}
 
             include={[refs.iconButton, refs.iconButton.current]}
           >
