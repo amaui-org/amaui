@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is, getLeadingZerosNumber, arrayToParts } from '@amaui/utils'
-import { AmauiDate, format as formatMethod, set, is as isMethod, startOf, endOf, remove, add } from '@amaui/date';
+import { AmauiDate, format as formatMethod, set, is as isMethod, startOf, endOf, remove, add, TTimeUnits } from '@amaui/date';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Icon from '../Icon';
@@ -28,7 +28,8 @@ const useStyle = style(theme => ({
   },
 
   mode_docked: {
-    borderRadius: '28px'
+    borderRadius: '28px',
+    minWidth: '320px'
   },
 
   mode_docked_header: {
@@ -88,6 +89,58 @@ const useStyle = style(theme => ({
 
   day_out: {
     opacity: '0.4'
+  },
+
+  weeks: {
+    position: 'absolute',
+    top: '40px',
+    left: '0px',
+    width: '100%',
+    transition: theme.methods.transitions.make(['opacity', 'transform'])
+  },
+
+  weeks_previous: {
+    '&.enter': {
+      opacity: '0',
+      transform: 'translateX(100%)',
+    },
+
+    '&.entering': {
+      opacity: '1',
+      transform: 'translateX(0%)'
+    },
+
+    '&.exit': {
+      opacity: '1',
+      transform: 'translateX(0%)',
+    },
+
+    '&.exiting': {
+      opacity: '0',
+      transform: 'translateX(100%)'
+    }
+  },
+
+  weeks_next: {
+    '&.enter': {
+      opacity: '0',
+      transform: 'translateX(-100%)',
+    },
+
+    '&.entering': {
+      opacity: '1',
+      transform: 'translateX(0%)'
+    },
+
+    '&.exit': {
+      opacity: '1',
+      transform: 'translateX(0%)',
+    },
+
+    '&.exiting': {
+      opacity: '0',
+      transform: 'translateX(-100%)'
+    }
   },
 
   arrow: {
@@ -168,6 +221,291 @@ const IconMaterialArrowDropDownRounded = React.forwardRef((props: any, ref) => {
 // method for returning array of years
 
 // method for returning array of months
+
+// min, max, validate
+// arrows disable for docked, modal
+
+const CalendarDays = React.forwardRef((props: any, ref: any) => {
+  const theme = useAmauiTheme();
+
+  const { classes } = useStyle(props);
+
+  const {
+    color,
+
+    tonal,
+
+    outside = true,
+
+    value,
+
+    values,
+
+    weekStartDay,
+
+    className,
+
+    ...other
+  } = props;
+
+  const dayNames = ['M', 'T', 'W', 'T', 'F', 'S'];
+
+  if (weekStartDay === 'Monday') dayNames.push('S');
+  else dayNames.unshift('S');
+
+  const days = [];
+
+  const monthNow = new AmauiDate();
+
+  const month = values?.date || value;
+
+  const milliseconds = month.milliseconds;
+
+  const monthStart = startOf(month, 'month');
+
+  const previousMonth = remove(1, 'month', month);
+
+  const previousMonthEnd = endOf(previousMonth, 'month');
+
+  const nextMonth = add(1, 'month', month);
+
+  // Add all month days
+  for (let i = 0; i < month.daysInMonth; i++) {
+    const day = set(i + 1, 'day', month);
+
+    days.push({
+      value: i + 1,
+
+      in: true,
+
+      dayWeek: day.dayWeek,
+
+      weekend: [0, 6].includes(day.dayWeek),
+
+      today: day.year === monthNow.year && day.dayYear === monthNow.dayYear
+    });
+  }
+
+  // Add to start
+  if (monthStart.dayWeek > 1) {
+    for (let i = 0; i < monthStart.dayWeek - 1; i++) {
+      const day = set(previousMonthEnd.day - i, 'day', previousMonth);
+
+      days.unshift({
+        value: day.day,
+
+        in: false,
+
+        dayWeek: day.dayWeek,
+
+        weekend: [0, 6].includes(day.dayWeek),
+
+        today: day.year === monthNow.year && day.dayYear === monthNow.dayYear
+      });
+    }
+  }
+
+  // Add to end
+  const dayLast = days[days.length - 1];
+
+  if (dayLast.dayWeek < 7) {
+    let toAdd = 7 - dayLast.dayWeek;
+
+    if (days.length + toAdd - 1 < 42) toAdd += 41 - (days.length + toAdd - 1);
+
+    for (let i = 0; i < toAdd; i++) {
+      const day = set(i + 1, 'day', nextMonth);
+
+      days.push({
+        value: i + 1,
+
+        in: false,
+
+        dayWeek: day.dayWeek,
+
+        weekend: [0, 6].includes(day.dayWeek),
+
+        today: day.year === monthNow.year && day.dayYear === monthNow.dayYear
+      });
+    }
+  }
+
+  const weeks = arrayToParts(days, 7);
+  console.log('calendar days', month, weeks);
+  return (
+    <Line
+      ref={ref}
+
+      gap={0}
+
+      direction='column'
+
+      className={classNames([
+        staticClassName('DatePicker', theme) && [
+          'AmauiDatePicker-calendar'
+        ],
+
+        className,
+        classes.calendar
+      ])}
+
+      {...other}
+    >
+      {/* Day names */}
+      <Line
+        gap={0}
+
+        direction='row'
+
+        align='center'
+
+        justify='space-between'
+
+        className={classNames([
+          staticClassName('DatePicker', theme) && [
+            'AmauiDatePicker-day-names'
+          ],
+
+          classes.dayNames
+        ])}
+      >
+        {dayNames.map((day: string, index: number) => (
+          <Line
+            key={index}
+
+            version='b3'
+
+            direction='row'
+
+            align='center'
+
+            justify='center'
+
+            Component={Type}
+
+            className={classNames([
+              staticClassName('DatePicker', theme) && [
+                'AmauiDatePicker-day-name'
+              ],
+
+              classes.dayName
+            ])}
+          >
+            {day}
+          </Line>
+        ))}
+      </Line>
+
+      {/* Weeks */}
+      <Transitions switch mode='in-out-follow'>
+        <Transition key={milliseconds}>
+          {(status: TTransitionStatus) => {
+            console.log(1, status);
+            return (
+              <Surface
+                tonal={tonal}
+
+                color={color}
+              >
+                {({ palette }) => (
+                  <Line
+                    gap={0}
+
+                    direction='column'
+
+                    align='unset'
+
+                    justify='unset'
+
+                    className={classNames([
+                      staticClassName('DatePicker', theme) && [
+                        'AmauiDatePicker-weeks',
+                        `AmauiDatePicker-weeks-${values?.move}`,
+                        `AmauiDatePicker-${status}`
+                      ],
+
+                      status,
+                      classes.weeks,
+                      classes[`weeks_${values?.move}`]
+                    ])}
+                  >
+                    {weeks.map((week: any, index: number) => (
+                      // Week
+                      <Line
+                        key={index}
+
+                        gap={0}
+
+                        direction='row'
+
+                        align='unset'
+
+                        justify='unset'
+
+                        className={classNames([
+                          staticClassName('DatePicker', theme) && [
+                            'AmauiDatePicker-week'
+                          ],
+
+                          classes.week
+                        ])}
+                      >
+                        {week.map((day: any, index_: number) => (
+                          <div
+                            key={index_}
+
+                            className={classNames([
+                              staticClassName('DatePicker', theme) && [
+                                'AmauiDatePicker-day',
+                                `AmauiDatePicker-day-${day.in ? 'in' : 'out'}`
+                              ],
+
+                              classes.day,
+                              classes[`day_${day.in ? 'in' : 'out'}`]
+                            ])}
+                          >
+                            <PaginationItem
+                              tonal={tonal}
+
+                              color='inherit'
+
+                              TypeProps={{
+                                version: 'b3',
+
+                                color: !day.weekend ? 'primary' : 'secondary'
+                              }}
+
+                              className={classNames([
+                                staticClassName('DatePicker', theme) && [
+                                  'AmauiDatePicker-day-value'
+                                ],
+
+                                classes.dayValue
+                              ])}
+
+                              style={{
+                                ...(day.today ? {
+                                  outline: `1px solid ${palette[40]}`,
+                                  outlineOffset: '-1px'
+                                } : undefined)
+                              }}
+                            >
+                              {day.value}
+                            </PaginationItem>
+                          </div>
+                        ))}
+                      </Line>
+                    ))}
+                  </Line>
+                )}
+              </Surface>
+            );
+          }}
+        </Transition>
+      </Transitions>
+    </Line>
+  );
+});
 
 const DatePicker = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
@@ -388,6 +726,8 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
     const amauiDate = valuesToValue(values_);
 
+    values_.date = new AmauiDate(amauiDate);
+
     setValues(values_);
 
     updateValue(amauiDate);
@@ -542,279 +882,21 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     onClose();
   }, []);
 
-  const Calendar = React.useCallback(React.forwardRef((props_: any, ref: any) => {
-    const {
-      outside = true,
+  const move = (next = true, unit: TTimeUnits = 'month') => {
+    setValues(values_ => ({
+      ...values_,
 
-      value: valueNew = refs.value.current,
+      move: next ? 'next' : 'previous',
 
-      className,
+      date: (next ? add : remove)(1, unit, values_.date)
+    }));
+  };
 
-      ...other
-    } = props_;
+  const ModeDocked = React.useCallback(React.forwardRef((props__: any, ref: any) => {
+    const valueMonth = refs.values.current.date || refs.value.current;
 
-    const dayNames = ['M', 'T', 'W', 'T', 'F', 'S'];
-
-    if (refs.weekStartDay.current === 'Monday') dayNames.push('S');
-    else dayNames.unshift('S');
-
-    const days = [];
-
-    const monthNow = new AmauiDate();
-
-    const month = refs.value.current;
-
-    const monthName = formatMethod(month, 'MMMM');
-
-    const monthStart = startOf(month, 'month');
-
-    const previousMonth = remove(1, 'month', month);
-
-    const previousMonthEnd = endOf(previousMonth, 'month');
-
-    const nextMonth = add(1, 'month', month);
-
-    // Add all month days
-    for (let i = 0; i < month.daysInMonth; i++) {
-      const day = set(i + 1, 'day', month);
-
-      days.push({
-        value: i + 1,
-
-        in: true,
-
-        dayWeek: day.dayWeek,
-
-        weekend: [0, 6].includes(day.dayWeek),
-
-        today: day.year === monthNow.year && day.dayYear === monthNow.dayYear
-      });
-    }
-
-    // Add to start
-    if (monthStart.dayWeek > 1) {
-      for (let i = 0; i < monthStart.dayWeek - 1; i++) {
-        const day = set(previousMonthEnd.day - i, 'day', previousMonth);
-
-        days.unshift({
-          value: day.day,
-
-          in: false,
-
-          dayWeek: day.dayWeek,
-
-          weekend: [0, 6].includes(day.dayWeek),
-
-          today: day.year === monthNow.year && day.dayYear === monthNow.dayYear
-        });
-      }
-    }
-
-    // Add to end
-    const dayLast = days[days.length - 1];
-
-    if (dayLast.dayWeek < 7) {
-      let toAdd = 7 - dayLast.dayWeek;
-
-      if (days.length + toAdd - 1 < 42) toAdd += 41 - (days.length + toAdd - 1);
-
-      for (let i = 0; i < toAdd; i++) {
-        const day = set(i + 1, 'day', nextMonth);
-
-        days.push({
-          value: i + 1,
-
-          in: false,
-
-          dayWeek: day.dayWeek,
-
-          weekend: [0, 6].includes(day.dayWeek),
-
-          today: day.year === monthNow.year && day.dayYear === monthNow.dayYear
-        });
-      }
-    }
-
-    const weeks = arrayToParts(days, 7);
-
-    return (
-      <Line
-        ref={ref}
-
-        gap={0}
-
-        direction='column'
-
-        className={classNames([
-          staticClassName('DatePicker', theme) && [
-            'AmauiDatePicker-calendar'
-          ],
-
-          CalendarProps?.className,
-          className,
-          classes.calendar
-        ])}
-
-        {...other}
-
-        {...CalendarProps}
-      >
-        {/* Day names */}
-        <Line
-          gap={0}
-
-          direction='row'
-
-          align='center'
-
-          justify='space-between'
-
-          className={classNames([
-            staticClassName('DatePicker', theme) && [
-              'AmauiDatePicker-day-names'
-            ],
-
-            classes.dayNames
-          ])}
-        >
-          {dayNames.map((day: string, index: number) => (
-            <Line
-              key={index}
-
-              version='b3'
-
-              direction='row'
-
-              align='center'
-
-              justify='center'
-
-              Component={Type}
-
-              className={classNames([
-                staticClassName('DatePicker', theme) && [
-                  'AmauiDatePicker-day-name'
-                ],
-
-                classes.dayName
-              ])}
-            >
-              {day}
-            </Line>
-          ))}
-        </Line>
-
-        {/* Weeks */}
-        <Transitions switch mode='in-out-follow'>
-          <Transition key={monthName}>
-            {(status: TTransitionStatus) => {
-
-              return (
-                <Surface
-                  tonal={tonal}
-
-                  color={color}
-                >
-                  {({ palette }) => (
-                    <Line
-                      gap={0}
-
-                      direction='column'
-
-                      align='unset'
-
-                      justify='unset'
-
-                      className={classNames([
-                        staticClassName('DatePicker', theme) && [
-                          'AmauiDatePicker-weeks'
-                        ],
-
-                        classes.weeks
-                      ])}
-                    >
-                      {weeks.map((week: any, index: number) => (
-                        // Week
-                        <Line
-                          key={index}
-
-                          gap={0}
-
-                          direction='row'
-
-                          align='unset'
-
-                          justify='unset'
-
-                          className={classNames([
-                            staticClassName('DatePicker', theme) && [
-                              'AmauiDatePicker-week'
-                            ],
-
-                            classes.week
-                          ])}
-                        >
-                          {week.map((day: any, index_: number) => (
-                            <div
-                              key={index_}
-
-                              className={classNames([
-                                staticClassName('DatePicker', theme) && [
-                                  'AmauiDatePicker-day',
-                                  `AmauiDatePicker-day-${day.in ? 'in' : 'out'}`
-                                ],
-
-                                classes.day,
-                                classes[`day_${day.in ? 'in' : 'out'}`]
-                              ])}
-                            >
-                              <PaginationItem
-                                tonal={tonal}
-
-                                color='inherit'
-
-                                TypeProps={{
-                                  version: 'b3',
-
-                                  color: !day.weekend ? 'primary' : 'secondary'
-                                }}
-
-                                className={classNames([
-                                  staticClassName('DatePicker', theme) && [
-                                    'AmauiDatePicker-day-value'
-                                  ],
-
-                                  classes.dayValue
-                                ])}
-
-                                style={{
-                                  ...(day.today ? {
-                                    outline: `1px solid ${palette[40]}`,
-                                    outlineOffset: '-1px'
-                                  } : undefined)
-                                }}
-                              >
-                                {day.value}
-                              </PaginationItem>
-                            </div>
-                          ))}
-                        </Line>
-                      ))}
-                    </Line>
-                  )}
-                </Surface>
-              );
-            }}
-          </Transition>
-        </Transitions>
-      </Line>
-    );
-  }), [tonal, color]);
-
-  const ModeDocked = React.useCallback(React.forwardRef((props_: any, ref: any) => {
-    const month = formatMethod(refs.value.current, 'MM');
-    const monthAbr = formatMethod(refs.value.current, 'MMM');
-    const year = formatMethod(refs.value.current, 'YYYY');
+    const month = formatMethod(valueMonth, 'MMM');
+    const year = formatMethod(valueMonth, 'YYYY');
 
     const buttonsProps = {
       color: 'inherit',
@@ -876,6 +958,8 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
             align='center'
           >
             <IconButton
+              onClick={() => move(false)}
+
               {...buttonsProps}
             >
               <IconPrevious />
@@ -909,10 +993,12 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
                 classes.mode_docked_header_button
               ])}
             >
-              {monthAbr}
+              {month}
             </Button>
 
             <IconButton
+              onClick={() => move()}
+
               {...buttonsProps}
             >
               <IconNext />
@@ -928,6 +1014,8 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
             align='center'
           >
             <IconButton
+              onClick={() => move(false, 'year')}
+
               {...buttonsProps}
             >
               <IconPrevious />
@@ -965,6 +1053,8 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
             </Button>
 
             <IconButton
+              onClick={() => move(true, 'year')}
+
               {...buttonsProps}
             >
               <IconNext />
@@ -998,7 +1088,19 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
                 classes.calendar_wrapper
               ])}
             >
-              <Calendar
+              <CalendarDays
+                tonal={tonal}
+
+                color={color}
+
+                weekStartDay={weekStartDay}
+
+                value={refs.value.current}
+
+                values={refs.values.current}
+
+                outside
+
                 className={classNames([
                   staticClassName('DatePicker', theme) && [
                     'AmauiDatePicker-calendar-transition'
@@ -1059,7 +1161,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
         {/* Menu year */}
       </Surface>
     );
-  }), [tonal, color]);
+  }), [tonal, color, weekStartDay]);
 
   const ModeModal = React.useCallback(React.forwardRef((props_: any, ref: any) => {
 
