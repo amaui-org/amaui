@@ -24,10 +24,10 @@
     "@amaui/utils" "^1.0.11411"
     "@babel/runtime" "^7.18.3"
 
-"@amaui/date@^1.0.11424":
-  version "1.0.11424"
-  resolved "https://registry.yarnpkg.com/@amaui/date/-/date-1.0.11424.tgz#4108f90111cb18d14e868de00209ba01ad167d73"
-  integrity sha512-nvMHXyHqL14fTP7EelVpdRRpaFKoCVWQLRKhs0qGBXyFIrDKSoanxEbK7uKGHUN3/VypyJBxinqNN8sUOZCTtw==
+"@amaui/date@^1.0.11425":
+  version "1.0.11425"
+  resolved "https://registry.yarnpkg.com/@amaui/date/-/date-1.0.11425.tgz#aa1efbb9366072637db38207c49cd067e49ffe93"
+  integrity sha512-ho8Nk7f8x0HtQUheP9csZar6iXNDzdA5xx3aibdORyBIqkj4BSMz5mKjYLt4xQgQJ+0G+/772YmnEv9bZLno8Q==
   dependencies:
     "@amaui/utils" "^1.0.11411"
     "@babel/runtime" "^7.18.3"

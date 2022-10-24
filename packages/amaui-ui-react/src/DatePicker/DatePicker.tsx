@@ -250,6 +250,8 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
 
     weekStartDay,
 
+    onDayClick,
+
     className,
 
     ...other
@@ -266,6 +268,8 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
 
   const month: AmauiDate = values?.date || value;
 
+  const selected: AmauiDate = values?.selected || value;
+
   const id = month.year + month.month + month.day;
 
   const monthStart = startOf(month, 'month');
@@ -275,6 +279,8 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
   const previousMonthEnd = endOf(previousMonth, 'month');
 
   const nextMonth = add(1, 'month', month);
+
+  const monthSame = month.year === values?.previous?.year && month.month === values?.previous?.month;
 
   // Add all month days
   for (let i = 0; i < month.daysInMonth; i++) {
@@ -289,7 +295,11 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
 
       weekend: [0, 6].includes(day.dayWeek),
 
-      today: day.year === monthNow.year && day.dayYear === monthNow.dayYear
+      today: day.year === monthNow.year && day.dayYear === monthNow.dayYear,
+
+      selected: selected.year === day.year && selected.month === day.month && selected.day === day.day,
+
+      amauiDate: day
     });
   }
 
@@ -307,7 +317,11 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
 
         weekend: [0, 6].includes(day.dayWeek),
 
-        today: day.year === monthNow.year && day.dayYear === monthNow.dayYear
+        today: day.year === monthNow.year && day.dayYear === monthNow.dayYear,
+
+        selected: selected.year === day.year && selected.month === day.month && selected.day === day.day,
+
+        amauiDate: day
       });
     }
   }
@@ -332,7 +346,11 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
 
         weekend: [0, 6].includes(day.dayWeek),
 
-        today: day.year === monthNow.year && day.dayYear === monthNow.dayYear
+        today: day.year === monthNow.year && day.dayYear === monthNow.dayYear,
+
+        selected: selected.year === day.year && selected.month === day.month && selected.day === day.day,
+
+        amauiDate: day
       });
     }
   }
@@ -433,7 +451,7 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
                       ],
 
                       classes.weeks,
-                      [`weeks_${status}`]
+                      !monthSame && [`weeks_${status}`]
                     ])}
                   >
                     {weeks.map((week: any, index: number) => (
@@ -464,7 +482,7 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
                             className={classNames([
                               staticClassName('DatePicker', theme) && [
                                 'AmauiDatePicker-day',
-                                `AmauiDatePicker - day - ${day.in ? 'in' : 'out'}`
+                                `AmauiDatePicker-day-${day.in ? 'in' : 'out'}`
                               ],
 
                               classes.day,
@@ -474,13 +492,25 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
                             <PaginationItem
                               tonal={tonal}
 
-                              color='inherit'
+                              {...(day.selected ? {
+                                tonal: false,
+
+                                color,
+
+                                version: 'filled',
+
+                                elevation: false
+                              } : {
+                                color: 'inherit'
+                              })}
 
                               TypeProps={{
                                 version: 'b3',
 
-                                color: !day.weekend ? 'primary' : 'secondary'
+                                color: !day.selected ? !day.weekend ? 'primary' : 'secondary' : undefined
                               }}
+
+                              onClick={() => onDayClick(day.amauiDate)}
 
                               className={classNames([
                                 staticClassName('DatePicker', theme) && [
@@ -873,7 +903,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
   const onMode = React.useCallback(() => {
     setMode(refs.version.current === 'mobile' ? openMobile : 'select');
 
-    if (!refs.open.current) updateInputToValues({ date: new AmauiDate(refs.value.current) });
+    if (!refs.open.current) updateInputToValues({ selected: new AmauiDate(refs.value.current), date: new AmauiDate(refs.value.current) });
 
     setOpen(!refs.open.current);
   }, [openMobile]);
@@ -926,9 +956,27 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     onClose();
   }, []);
 
+  const onDayClick = (amauiDate: AmauiDate) => {
+    const valueNew = new AmauiDate(amauiDate);
+
+    setValues(values_ => ({
+      ...values_,
+
+      previous: values_.date,
+
+      move: valueNew.milliseconds > values_?.date?.milliseconds ? 'next' : 'previous',
+
+      selected: new AmauiDate(valueNew),
+
+      date: valueNew
+    }));
+  };
+
   const move = (next = true, unit: TTimeUnits = 'month') => {
     setValues(values_ => ({
       ...values_,
+
+      previous: values_.date,
 
       move: next ? 'next' : 'previous',
 
@@ -1145,6 +1193,8 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
                 value={refs.value.current}
 
                 values={refs.values.current}
+
+                onDayClick={onDayClick}
 
                 outside
 

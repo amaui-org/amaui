@@ -67,8 +67,6 @@ const PaginationItem = React.forwardRef((props_: any, ref) => {
     <Button
       ref={ref}
 
-      {...other}
-
       tonal={tonal}
 
       color={color}
@@ -78,6 +76,8 @@ const PaginationItem = React.forwardRef((props_: any, ref) => {
       elevation={elevation}
 
       size={size}
+
+      icon
 
       className={classNames([
         staticClassName('PaginationItem', theme) && [
@@ -89,7 +89,7 @@ const PaginationItem = React.forwardRef((props_: any, ref) => {
         classes[`size_${size}`]
       ])}
 
-      icon
+      {...other}
     >
       {is('simple', children) ?
         (
