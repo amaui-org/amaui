@@ -15,7 +15,7 @@ import { staticClassName } from '../utils';
 const useStyle = style(theme => ({
   root: {
     position: 'fixed',
-    zIndex: theme.z_index.modal
+    zIndex: theme.z_index.tooltip + 14
   },
 
   position_top: {

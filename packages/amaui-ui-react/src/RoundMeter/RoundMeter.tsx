@@ -96,6 +96,8 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
     labels: labels_ = [],
 
+    childrenPosition = 'post',
+
     additional,
 
     textProps,
@@ -760,6 +762,42 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
     return values.join(' ');
   }, [width, height, boundary, boundaryWidth, outsidePadding]);
 
+  const children_ = children && (
+    <g
+      className={classNames([
+        staticClassName('RoundMeter', theme) && [
+          'AmauiRoundMeter-children'
+        ],
+
+        classes.children
+      ])}
+    >
+      {React.Children.toArray(children).map((item: any, index: number) => {
+
+        return (
+          React.cloneElement(item, {
+            key: index,
+
+            fill: item.props.fill !== undefined ? item.props.fill : color,
+
+            stroke: item.props.stroke !== undefined ? item.props.stroke : color,
+
+            // clean up
+            value: undefined,
+
+            style: {
+              ...(item.props.value !== undefined ? {
+                transform: `rotate(${valueFromPercentageWithinRange(item.props.value, min, max)}deg)`
+              } : undefined),
+
+              ...item.props.style
+            }
+          })
+        );
+      })}
+    </g>
+  );
+
   return (
     <Component
       ref={item => {
@@ -813,6 +851,9 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
               classes.svg
             ])}
           >
+            {/* Children */}
+            {childrenPosition === 'pre' && children_}
+
             {/* Background */}
             {background && (
               <path
@@ -919,41 +960,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
             )}
 
             {/* Children */}
-            {children && (
-              <g
-                className={classNames([
-                  staticClassName('RoundMeter', theme) && [
-                    'AmauiRoundMeter-children'
-                  ],
-
-                  classes.children
-                ])}
-              >
-                {React.Children.toArray(children).map((item: any, index: number) => {
-
-                  return (
-                    React.cloneElement(item, {
-                      key: index,
-
-                      fill: item.props.fill !== undefined ? item.props.fill : color,
-
-                      stroke: item.props.stroke !== undefined ? item.props.stroke : color,
-
-                      // clean up
-                      value: undefined,
-
-                      style: {
-                        ...(item.props.value !== undefined ? {
-                          transform: `rotate(${valueFromPercentageWithinRange(item.props.value, min, max)}deg)`
-                        } : undefined),
-
-                        ...item.props.style
-                      }
-                    })
-                  );
-                })}
-              </g>
-            )}
+            {childrenPosition === 'pre-marks' && children_}
 
             {/* Marks */}
             {marksVisible && !!marks_.length && (
@@ -991,6 +998,9 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
                 </g>
               ))
             )}
+
+            {/* Children */}
+            {childrenPosition === 'pre-labels' && children_}
 
             {/* Labels */}
             {labelsVisible && !!labels_.length && (
@@ -1051,6 +1061,9 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
                 </g>
               ))
             )}
+
+            {/* Children */}
+            {childrenPosition === 'post' && children_}
           </svg>
         )}
       </Surface>

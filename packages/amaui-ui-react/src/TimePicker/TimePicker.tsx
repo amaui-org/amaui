@@ -738,7 +738,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
     setMouseDown(true);
   }, []);
 
-  const ModeSelect = React.useCallback(React.forwardRef((props: any, ref: any) => {
+  const ModeSelect = React.useCallback(React.forwardRef((props_: any, ref: any) => {
     const buttonProps = {
       tonal: 'secondary',
       color,
@@ -987,6 +987,8 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
               labels={labels}
 
               arcsVisible={false}
+
+              childrenPosition='pre-marks'
 
               background
 
@@ -1299,7 +1301,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
     );
   }), [min, max, validate, version, format, hours, minutes, seconds, selectModeHeadingText, mode, tonal, color, switch_, InputProps, theme]);
 
-  const ModeInput = React.useCallback(React.forwardRef((props: any, ref: any) => {
+  const ModeInput = React.useCallback(React.forwardRef((props_: any, ref: any) => {
     const inputProps = {
       tonal,
       color,

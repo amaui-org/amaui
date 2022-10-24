@@ -747,6 +747,8 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
       ...other
     };
 
+    WrapperProps.ref = rootRef;
+
     WrapperProps['className'] = classNames([
       staticClassName('TextField', theme) && [
         'AmauiTextField-wrapper',
@@ -768,6 +770,8 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
     ComponentProps = {
       ...other
     };
+
+    ComponentProps.ref = rootRef;
 
     ComponentProps.className = className;
 
@@ -811,8 +815,6 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
       {...WrapperProps}
     >
       <Component
-        ref={rootRef}
-
         onMouseEnter={onMouseEnter}
 
         onMouseLeave={onMouseLeave}
