@@ -39,7 +39,8 @@ function Transitions(props_: IProps) {
 
   const other = {
     className: true,
-    ...(TransitionProps || {})
+
+    ...TransitionProps
   };
 
   const [element, setElement] = React.useState<any>(React.cloneElement(children__, { in: true, ...other }));
@@ -98,6 +99,8 @@ function Transitions(props_: IProps) {
 
       setElement(
         React.cloneElement(children__, {
+          in: true,
+
           ...other
         })
       );

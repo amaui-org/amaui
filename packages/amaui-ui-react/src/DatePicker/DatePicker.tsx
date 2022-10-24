@@ -270,7 +270,7 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
 
   const selected: AmauiDate = values?.selected || value;
 
-  const id = month.year + month.month + month.day;
+  const id = (month.year + month.month + month.day) + (selected.year + selected.month + selected.day);
 
   const monthStart = startOf(month, 'month');
 
@@ -424,7 +424,7 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
 
       {/* Weeks */}
       <Transitions
-        noTransition={!monthSame}
+        noTransition={monthSame}
 
         mode='in-out-follow'
 
@@ -457,7 +457,7 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
                       ],
 
                       classes.weeks,
-                      !monthSame && [`weeks_${status}`]
+                      [`weeks_${status}`]
                     ])}
                   >
                     {weeks.map((week: any, index: number) => (
