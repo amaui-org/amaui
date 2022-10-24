@@ -492,17 +492,7 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
                             <PaginationItem
                               tonal={tonal}
 
-                              {...(day.selected ? {
-                                tonal: false,
-
-                                color,
-
-                                version: 'filled',
-
-                                elevation: false
-                              } : {
-                                color: 'inherit'
-                              })}
+                              color='inherit'
 
                               TypeProps={{
                                 version: 'b3',
@@ -524,6 +514,11 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
                                 ...(day.today ? {
                                   outline: `1px solid ${palette[40]}`,
                                   outlineOffset: '-1px'
+                                } : undefined),
+
+                                ...(day.selected ? {
+                                  color: palette[90],
+                                  backgroundColor: palette[40]
                                 } : undefined)
                               }}
                             >
