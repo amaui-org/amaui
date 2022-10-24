@@ -423,7 +423,13 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
       </Line>
 
       {/* Weeks */}
-      <Transitions switch mode='in-out-follow'>
+      <Transitions
+        noTransition={!monthSame}
+
+        mode='in-out-follow'
+
+        switch
+      >
         <Transition
           key={id}
         >
@@ -926,6 +932,8 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
     setValues(values_ => ({
       ...values_,
+
+      previous: values_.date,
 
       move: valueNew.milliseconds > values_?.date?.milliseconds ? 'next' : 'previous',
 

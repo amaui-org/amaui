@@ -921,11 +921,7 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
     if (styles.root.backgroundColor) styles.root.backgroundColor = theme.methods.palette.color.colorToRgb(styles.root.backgroundColor, backgroundOpacity);
   }
 
-  if (is('function', children)) {
-    console.log(1, version, color, styles.children);
-
-    return children({ ...styles.children, palette });
-  }
+  if (is('function', children)) return children({ ...styles.children, palette });
 
   return (
     <Component

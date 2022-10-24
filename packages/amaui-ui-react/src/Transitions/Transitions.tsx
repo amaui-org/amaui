@@ -25,6 +25,9 @@ function Transitions(props_: IProps) {
   const {
     mode = 'out-in',
     switch: switch_,
+
+    noTransition,
+
     TransitionProps,
 
     children: children__
@@ -44,12 +47,15 @@ function Transitions(props_: IProps) {
   const refs = {
     element: React.useRef<any>(),
     previousKeyValue: React.useRef<any>(),
-    status: React.useRef<any>()
+    status: React.useRef<any>(),
+    noTransition: React.useRef<any>()
   };
 
   refs.element.current = element;
 
   refs.status.current = status;
+
+  refs.noTransition.current = noTransition;
 
   React.useEffect(() => {
     setInit(true);
@@ -87,7 +93,16 @@ function Transitions(props_: IProps) {
     refs.previousKeyValue.current = children__?.key;
 
     // Abrupted value update
-    if (refs.status.current !== 'entered') {
+    if (refs.noTransition.current) {
+      setStatus(STATUS.entered);
+
+      setElement(
+        React.cloneElement(children__, {
+          ...other
+        })
+      );
+    }
+    else if (refs.status.current !== 'entered') {
       setStatus(STATUS.entered);
 
       setElement(
