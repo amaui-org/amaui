@@ -708,7 +708,7 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
     backgroundOpacity,
     noOutline,
 
-    startIcon,
+    start,
 
     Component = 'div',
 

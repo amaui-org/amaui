@@ -112,11 +112,11 @@ const useStyle = style(theme => ({
   },
 
   // Icons
-  startIcon: {
+  start: {
     paddingInlineStart: 0
   },
 
-  endIcon: {
+  end: {
     paddingInlineEnd: 0
   },
 
@@ -276,10 +276,10 @@ const Button = React.forwardRef((props_: any, ref: any) => {
     fontSize,
     selected,
     iconSelected,
-    startIcon: startIcon_,
-    startIconSelected,
-    endIcon: endIcon_,
-    endIconSelected,
+    start: start_,
+    startSelected,
+    end: end_,
+    endSelected,
     elevation = true,
     backgroundOpacity,
     align = 'center',
@@ -321,8 +321,8 @@ const Button = React.forwardRef((props_: any, ref: any) => {
   const { classes } = useStyle(props);
 
   let color = color_;
-  let startIcon = (selected && startIconSelected) || startIcon_;
-  let endIcon = (selected && endIconSelected) || endIcon_;
+  let start = (selected && startSelected) || start_;
+  let end = (selected && endSelected) || end_;
   let disabled = disabled_ || loading;
   let TypeProps = { version: 'l2' };
 
@@ -349,6 +349,8 @@ const Button = React.forwardRef((props_: any, ref: any) => {
 
     TypeProps.version = 'l1';
   }
+
+  if (fontSize !== undefined) styles.Icon.fontSize = fontSize;
 
   let children_ = children;
 
@@ -414,8 +416,8 @@ const Button = React.forwardRef((props_: any, ref: any) => {
       styles.label.lineHeight = 0;
     }
 
-    if (loadingIconPosition === 'start') startIcon = iconLoading;
-    else if (loadingIconPosition === 'end') endIcon = iconLoading;
+    if (loadingIconPosition === 'start') start = iconLoading;
+    else if (loadingIconPosition === 'end') end = iconLoading;
   }
 
   if (disabled) {
@@ -476,8 +478,8 @@ const Button = React.forwardRef((props_: any, ref: any) => {
           `AmauiButton-align-${align}`,
           (elevation && !disabled && ['filled', 'tonal'].includes(version)) && `AmauiButton-elevation`,
           fullWidth && `AmauiButton-fullWidth`,
-          startIcon && `AmauiButton-startIcon`,
-          endIcon && `AmauiButton-endIcon`,
+          start && `AmauiButton-start`,
+          end && `AmauiButton-end`,
           selected && `AmauiButton-selected`,
           loading && `AmauiButton-loading`,
           icon && `AmauiButton-icon`,
@@ -494,8 +496,8 @@ const Button = React.forwardRef((props_: any, ref: any) => {
         classes[`version_${version}`],
         classes[`color_${color}`],
         (elevation && !disabled && ['filled', 'tonal'].includes(version)) && classes.elevation,
-        startIcon && classes.startIcon,
-        endIcon && classes.endIcon,
+        start && classes.start,
+        end && classes.end,
         fullWidth && classes.fullWidth,
         icon && [
           classes.icon,
@@ -539,12 +541,12 @@ const Button = React.forwardRef((props_: any, ref: any) => {
 
       {firstLevelChildren}
 
-      {startIcon && (
+      {start && (
         <span
           className={classNames([
             staticClassName('Button', theme) && [
               'AmauiButton-icon',
-              'AmauiButton-startIcon'
+              'AmauiButton-start'
             ],
 
             classes.Icon,
@@ -553,7 +555,7 @@ const Button = React.forwardRef((props_: any, ref: any) => {
             chip && classes[`chip_start_size_${size}`]
           ])}
         >
-          {React.cloneElement(startIcon, { style: styles.Icon })}
+          {React.cloneElement(start, { style: styles.Icon })}
         </span>
       )}
 
@@ -599,12 +601,12 @@ const Button = React.forwardRef((props_: any, ref: any) => {
         </Type>
       )}
 
-      {endIcon && (
+      {end && (
         <span
           className={classNames([
             staticClassName('Button', theme) && [
               'AmauiButton-icon',
-              'AmauiButton-endIcon'
+              'AmauiButton-end'
             ],
 
             classes.Icon,
@@ -613,7 +615,7 @@ const Button = React.forwardRef((props_: any, ref: any) => {
             chip && classes[`chip_end_size_${size}`]
           ])}
         >
-          {React.cloneElement(endIcon, { style: styles.Icon })}
+          {React.cloneElement(end, { style: styles.Icon })}
         </span>
       )}
     </Surface>

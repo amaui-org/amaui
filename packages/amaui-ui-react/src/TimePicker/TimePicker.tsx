@@ -1438,8 +1438,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
 
           ModeInputProps?.className,
-          classes.mode,
-          classes.model_input
+          classes.mode
         ])}
       >
         <Line

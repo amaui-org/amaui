@@ -284,7 +284,7 @@ const FileChoose = React.forwardRef((props_: any, ref: any) => {
 
         version='outlined'
 
-        startIcon={(
+        start={(
           <IconStart />
         )}
 

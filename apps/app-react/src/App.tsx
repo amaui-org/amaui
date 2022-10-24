@@ -50466,9 +50466,9 @@ Please sign in again.`}
 
         <Accordion primary='Chip icon selected' open>
           <div className={classNames([classes.row, classes.center])}>
-            <Chip start={<IconMaterialPottedPlantRounded />} startIconSelected={<IconMaterialPottedPlantRoundedFilled />} end={<IconMaterialPottedPlantRounded />} endIconSelected={<IconMaterialPottedPlantRoundedFilled />}>Regular</Chip>
+            <Chip start={<IconMaterialPottedPlantRounded />} startSelected={<IconMaterialPottedPlantRoundedFilled />} end={<IconMaterialPottedPlantRounded />} endSelected={<IconMaterialPottedPlantRoundedFilled />}>Regular</Chip>
 
-            <Chip start={<IconMaterialPottedPlantRounded />} startIconSelected={<IconMaterialPottedPlantRoundedFilled />} end={<IconMaterialPottedPlantRounded />} endIconSelected={<IconMaterialPottedPlantRoundedFilled />} selected>Regular</Chip>
+            <Chip start={<IconMaterialPottedPlantRounded />} startSelected={<IconMaterialPottedPlantRoundedFilled />} end={<IconMaterialPottedPlantRounded />} endSelected={<IconMaterialPottedPlantRoundedFilled />} selected>Regular</Chip>
           </div>
         </Accordion>
 
@@ -54967,8 +54967,8 @@ Please sign in again.`}
 
         <Accordion primary='Button icons selected' open>
           <div className={classNames([classes.row, classes.center])}>
-            <Button color='secondary' start={<IconMaterialPottedPlantRounded />} startIconSelected={<IconMaterialPottedPlantRoundedFilled />} end={<IconMaterialPottedPlantRounded />} endIconSelected={<IconMaterialPottedPlantRoundedFilled />}>Regular</Button>
-            <Button color='secondary' start={<IconMaterialPottedPlantRounded />} startIconSelected={<IconMaterialPottedPlantRoundedFilled />} end={<IconMaterialPottedPlantRounded />} endIconSelected={<IconMaterialPottedPlantRoundedFilled />} selected>Regular</Button>
+            <Button color='secondary' start={<IconMaterialPottedPlantRounded />} startSelected={<IconMaterialPottedPlantRoundedFilled />} end={<IconMaterialPottedPlantRounded />} endSelected={<IconMaterialPottedPlantRoundedFilled />}>Regular</Button>
+            <Button color='secondary' start={<IconMaterialPottedPlantRounded />} startSelected={<IconMaterialPottedPlantRoundedFilled />} end={<IconMaterialPottedPlantRounded />} endSelected={<IconMaterialPottedPlantRoundedFilled />} selected>Regular</Button>
           </div>
         </Accordion>
 

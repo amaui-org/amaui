@@ -262,10 +262,10 @@ const Buttons = React.forwardRef((props_: any, ref: any) => {
     if (init && value !== selected) setSelected(is('array', value) ? value : [value]);
   }, [value]);
 
-  const onSelect = (itemProps: any, startIcon = false) => {
+  const onSelect = (itemProps: any, start = false) => {
     let valueNew: any;
 
-    if (startIcon) {
+    if (start) {
       if (selected.includes(itemProps.value)) {
         valueNew = selected.filter(item => item !== itemProps.value);
       }
@@ -340,22 +340,22 @@ const Buttons = React.forwardRef((props_: any, ref: any) => {
       ]),
 
       onClick: () => {
-        onSelect(item.props, !!item.props.startIcon);
+        onSelect(item.props, !!item.props.start);
 
         // Invoke items on click method
         if (is('function', item.props.onClick)) item.props.onClick();
       },
 
-      ...(!noCheckIcon && item.props.startIcon && selected.includes(item.props.value) ? {
-        startIcon: (
+      ...(!noCheckIcon && item.props.start && selected.includes(item.props.value) ? {
+        start: (
           <IconDoneAnimated simple in add />
         )
       } : {}),
 
-      ...(!noCheckIcon && (!item.props.startIcon && (selected.includes(item.props.value) || preSelected.includes(item.props.value))) ? {
-        startIcon: (
+      ...(!noCheckIcon && (!item.props.start && (selected.includes(item.props.value) || preSelected.includes(item.props.value))) ? {
+        start: (
           <IconDoneAnimated
-            in={(item.props.startIcon ? selected : preSelected).includes(index)}
+            in={(item.props.start ? selected : preSelected).includes(index)}
 
             onExited={() => updateSelected(item.props)}
 

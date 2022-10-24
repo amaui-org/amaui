@@ -71,7 +71,7 @@ const DropZone = React.forwardRef((props_: any, ref: any) => {
 
     version,
 
-    startIcon,
+    start,
 
     files,
 
@@ -261,7 +261,7 @@ const DropZone = React.forwardRef((props_: any, ref: any) => {
 
       allowedTypes={allowedTypes}
 
-      startIcon={undefined}
+      start={undefined}
 
       onChange={onChange}
 

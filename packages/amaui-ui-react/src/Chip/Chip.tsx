@@ -45,7 +45,7 @@ const Chip = React.forwardRef((props_: any, ref: any) => {
     onSelected,
     onUnselected,
     selected: selected_,
-    startIcon,
+    start,
     focus,
 
     className,
@@ -69,7 +69,7 @@ const Chip = React.forwardRef((props_: any, ref: any) => {
   const OtherProps: any = {};
 
   if (input) {
-    OtherProps.endIcon = <IconMaterialCloseSharp
+    OtherProps.end = <IconMaterialCloseSharp
       onClick={(event: React.MouseEvent<any>) => {
         if (is('function', onRemove)) onRemove(event);
       }}
@@ -78,7 +78,7 @@ const Chip = React.forwardRef((props_: any, ref: any) => {
 
   const onSelect = () => {
     if (filter) {
-      if (startIcon) {
+      if (start) {
         if (selected) {
           setSelected(false);
 
@@ -141,18 +141,18 @@ const Chip = React.forwardRef((props_: any, ref: any) => {
         if (is('function', onClick)) onClick(event);
       }}
 
-      startIcon={startIcon}
+      start={start}
 
-      {...(startIcon && selected ? {
-        startIcon: (
+      {...(start && selected ? {
+        start: (
           <IconDoneAnimated simple in add />
         )
       } : {})}
 
-      {...(!startIcon && (selected || preSelected) ? {
-        startIcon: (
+      {...(!start && (selected || preSelected) ? {
+        start: (
           <IconDoneAnimated
-            in={(startIcon ? selected : preSelected)}
+            in={(start ? selected : preSelected)}
 
             onExited={() => updateSelected()}
 

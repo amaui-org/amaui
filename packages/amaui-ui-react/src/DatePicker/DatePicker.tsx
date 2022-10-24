@@ -6,6 +6,7 @@ import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Icon from '../Icon';
 import IconButton from '../IconButton';
+import Button from '../Button';
 import AdvancedTextField from '../AdvancedTextField';
 import useMediaQuery from '../useMediaQuery';
 import Modal from '../Modal';
@@ -13,13 +14,38 @@ import ClickListener from '../ClickListener';
 import Tooltip from '../Tooltip';
 import Surface from '../Surface';
 import Line from '../Line';
-import Type from '../Type';
 
 import { staticClassName, valueBreakpoints } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
 
+  },
+
+  mode_docked: {
+    borderRadius: '28px'
+  },
+
+  mode_docked_header: {
+    padding: '12px 8px'
+  },
+
+  mode_docked_header_button: {
+    '&.AmauiButton-root': {
+      paddingInline: '8px 0px'
+    },
+
+    '& .AmauiButton-end': {
+      paddingInline: '8px 0px'
+    }
+  },
+
+  arrow: {
+    transition: theme.methods.transitions.make('transform')
+  },
+
+  arrow_open: {
+    transform: 'rotate(-180deg)'
   }
 }), { name: 'AmauiDatePicker' });
 
@@ -35,6 +61,54 @@ const IconMaterialCalendarTodayRounded = React.forwardRef((props: any, ref) => {
       {...props}
     >
       <path d="M5 22Q4.175 22 3.587 21.413Q3 20.825 3 20V6Q3 5.175 3.587 4.588Q4.175 4 5 4H6V2.975Q6 2.55 6.287 2.275Q6.575 2 7 2Q7.425 2 7.713 2.287Q8 2.575 8 3V4H16V2.975Q16 2.55 16.288 2.275Q16.575 2 17 2Q17.425 2 17.712 2.287Q18 2.575 18 3V4H19Q19.825 4 20.413 4.588Q21 5.175 21 6V20Q21 20.825 20.413 21.413Q19.825 22 19 22ZM5 20H19Q19 20 19 20Q19 20 19 20V10H5V20Q5 20 5 20Q5 20 5 20ZM5 8H19V6Q19 6 19 6Q19 6 19 6H5Q5 6 5 6Q5 6 5 6ZM5 8V6Q5 6 5 6Q5 6 5 6Q5 6 5 6Q5 6 5 6V8Z" />
+    </Icon>
+  );
+});
+
+const IconMaterialNavigateBeforeRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='NavigateBeforeRounded'
+      short_name='NavigateBefore'
+
+      {...props}
+    >
+      <path d="M13.3 17.3 8.7 12.7Q8.55 12.55 8.488 12.375Q8.425 12.2 8.425 12Q8.425 11.8 8.488 11.625Q8.55 11.45 8.7 11.3L13.3 6.7Q13.575 6.425 14 6.425Q14.425 6.425 14.7 6.7Q14.975 6.975 14.975 7.4Q14.975 7.825 14.7 8.1L10.8 12L14.7 15.9Q14.975 16.175 14.975 16.6Q14.975 17.025 14.7 17.3Q14.425 17.575 14 17.575Q13.575 17.575 13.3 17.3Z" />
+    </Icon>
+  );
+});
+
+const IconMaterialNavigateNextRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='NavigateNextRounded'
+      short_name='NavigateNext'
+
+      {...props}
+    >
+      <path d="M8.7 17.3Q8.425 17.025 8.425 16.6Q8.425 16.175 8.7 15.9L12.6 12L8.7 8.1Q8.425 7.825 8.425 7.4Q8.425 6.975 8.7 6.7Q8.975 6.425 9.4 6.425Q9.825 6.425 10.1 6.7L14.7 11.3Q14.85 11.45 14.913 11.625Q14.975 11.8 14.975 12Q14.975 12.2 14.913 12.375Q14.85 12.55 14.7 12.7L10.1 17.3Q9.825 17.575 9.4 17.575Q8.975 17.575 8.7 17.3Z" />
+    </Icon>
+  );
+});
+
+const IconMaterialArrowDropDownRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='ArrowDropDownRounded'
+      short_name='ArrowDropDown'
+
+      {...props}
+    >
+      <path d="M11.3 14.3 8.7 11.7Q8.225 11.225 8.488 10.613Q8.75 10 9.425 10H14.575Q15.25 10 15.512 10.613Q15.775 11.225 15.3 11.7L12.7 14.3Q12.55 14.45 12.375 14.525Q12.2 14.6 12 14.6Q11.8 14.6 11.625 14.525Q11.45 14.45 11.3 14.3Z" />
     </Icon>
   );
 });
@@ -96,11 +170,18 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     onClick: onClick_,
 
     Icon = IconMaterialCalendarTodayRounded,
+    IconPrevious = IconMaterialNavigateBeforeRounded,
+    IconNext = IconMaterialNavigateNextRounded,
+    IconDropDown = IconMaterialArrowDropDownRounded,
 
     ModalProps,
     TooltipProps,
     IconButtonProps,
     AdvancedTextFieldProps,
+    ModeDockedProps,
+    ModeModalProps,
+    ModeFullScreenProps,
+    ModeInputProps,
 
     className,
 
@@ -115,6 +196,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     iconButton: React.useRef<any>(),
     version: React.useRef<any>(),
     open: React.useRef<any>(),
+    openMenu: React.useRef<any>(),
     mode: React.useRef<any>(),
     value: React.useRef<any>(),
     values: React.useRef<any>(),
@@ -155,6 +237,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
   const touch = useMediaQuery('(pointer: coarse)');
 
   const [open, setOpen] = React.useState(false);
+  const [openMenu, setOpenMenu] = React.useState(false);
   const [mode, setMode] = React.useState(touch ? openMobile : 'select');
   const [value, setValue] = React.useState((valueDefault !== undefined ? valueDefault : value_) || (now && new AmauiDate()));
   const [values, setValues] = React.useState<any>(() => valueToValues(value));
@@ -170,6 +253,8 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
   refs.version.current = version;
 
   refs.open.current = open;
+
+  refs.openMenu.current = openMenu;
 
   refs.mode.current = mode;
 
@@ -388,9 +473,154 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
   }, []);
 
   const ModeDocked = React.useCallback(React.forwardRef((props: any, ref: any) => {
+    const monthAbr = formatMethod(refs.value.current, 'MMM');
+    const year = formatMethod(refs.value.current, 'YYYY');
+
+    const buttonsProps = {
+      color: 'inherit'
+    };
 
     return (
-      <div />
+      <Surface
+        ref={ref}
+
+        tonal={tonal}
+
+        color={color}
+
+        className={classNames([
+          staticClassName('TimePicker', theme) && [
+            'AmauiTimePicker-mode',
+            'AmauiTimePicker-mode-docked'
+          ],
+
+          ModeDockedProps?.className,
+          classes.mode,
+          classes.mode_docked
+        ])}
+      >
+        <Line
+          gap={1}
+
+          direction='row'
+
+          align='center'
+
+          justify='space-between'
+
+          className={classNames([
+            staticClassName('TimePicker', theme) && [
+              'AmauiTimePicker-mode-docked-header'
+            ],
+
+            classes.mode_docked_header
+          ])}
+        >
+          {/* Month */}
+          <Line
+            gap={0}
+
+            direction='row'
+
+            align='center'
+          >
+            <IconButton
+              {...buttonsProps}
+            >
+              <IconPrevious />
+            </IconButton>
+
+            <Button
+              version='text'
+
+              {...buttonsProps}
+
+              fontSize={24}
+
+              end={(
+                <IconDropDown
+                  className={classNames([
+                    staticClassName('TimePicker', theme) && [
+                      'AmauiTimePicker-arrow'
+                    ],
+
+                    classes.arrow,
+                    refs.openMenu.current === 'month' && classes.arrow_open
+                  ])}
+                />
+              )}
+
+              className={classNames([
+                staticClassName('TimePicker', theme) && [
+                  'AmauiTimePicker-mode-docked-header-button'
+                ],
+
+                classes.mode_docked_header_button
+              ])}
+            >
+              {monthAbr}
+            </Button>
+
+            <IconButton
+              {...buttonsProps}
+            >
+              <IconNext />
+            </IconButton>
+          </Line>
+
+          {/* Year */}
+          <Line
+            gap={0}
+
+            direction='row'
+
+            align='center'
+          >
+            <IconButton
+              {...buttonsProps}
+            >
+              <IconPrevious />
+            </IconButton>
+
+            <Button
+              version='text'
+
+              {...buttonsProps}
+
+              fontSize={24}
+
+              end={(
+                <IconDropDown
+                  className={classNames([
+                    staticClassName('TimePicker', theme) && [
+                      'AmauiTimePicker-arrow'
+                    ],
+
+                    classes.arrow,
+                    refs.openMenu.current === 'year' && classes.arrow_open
+                  ])}
+                />
+              )}
+
+              className={classNames([
+                staticClassName('TimePicker', theme) && [
+                  'AmauiTimePicker-mode-docked-header-button'
+                ],
+
+                classes.mode_docked_header_button
+              ])}
+            >
+              {year}
+            </Button>
+
+            <IconButton
+              {...buttonsProps}
+            >
+              <IconNext />
+            </IconButton>
+          </Line>
+        </Line>
+      </Surface>
     );
   }), []);
 
