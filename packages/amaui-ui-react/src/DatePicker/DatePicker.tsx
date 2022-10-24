@@ -929,6 +929,8 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
       move: valueNew.milliseconds > values_?.date?.milliseconds ? 'next' : 'previous',
 
+      selected: new AmauiDate(valueNew),
+
       date: valueNew
     }));
   }, []);
