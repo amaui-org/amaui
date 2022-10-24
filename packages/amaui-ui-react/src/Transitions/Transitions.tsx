@@ -97,13 +97,7 @@ function Transitions(props_: IProps) {
     if (refs.noTransition.current) {
       setStatus(STATUS.entered);
 
-      setElement(
-        React.cloneElement(children__, {
-          in: true,
-
-          ...other
-        })
-      );
+      setElement(children__);
     }
     else if (refs.status.current !== 'entered') {
       setStatus(STATUS.entered);

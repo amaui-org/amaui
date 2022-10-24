@@ -432,6 +432,8 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
       >
         <Transition
           key={id}
+
+          in
         >
           {(status: TTransitionStatus) => {
 
