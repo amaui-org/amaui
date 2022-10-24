@@ -65,7 +65,8 @@ const useStyle = style(theme => ({
     top: '0',
     left: '0',
     width: '100%',
-    height: '100%'
+    height: '100%',
+    overflow: 'hidden'
   },
 
   calendar: {
@@ -99,45 +100,45 @@ const useStyle = style(theme => ({
     transition: theme.methods.transitions.make(['opacity', 'transform'])
   },
 
-  weeks_previous: {
-    '&.enter': {
+  move_previous: {
+    '& .weeks_enter': {
       opacity: '0',
-      transform: 'translateX(100%)',
+      transform: 'translateX(-100%)',
     },
 
-    '&.entering': {
+    '& .weeks_entering': {
       opacity: '1',
       transform: 'translateX(0%)'
     },
 
-    '&.exit': {
+    '& .weeks_exit': {
       opacity: '1',
       transform: 'translateX(0%)',
     },
 
-    '&.exiting': {
+    '& .weeks_exiting': {
       opacity: '0',
       transform: 'translateX(100%)'
     }
   },
 
-  weeks_next: {
-    '&.enter': {
+  move_next: {
+    '& .weeks_enter': {
       opacity: '0',
-      transform: 'translateX(-100%)',
+      transform: 'translateX(100%)',
     },
 
-    '&.entering': {
+    '& .weeks_entering': {
       opacity: '1',
       transform: 'translateX(0%)'
     },
 
-    '&.exit': {
+    '& .weeks_exit': {
       opacity: '1',
       transform: 'translateX(0%)',
     },
 
-    '&.exiting': {
+    '& .weeks_exiting': {
       opacity: '0',
       transform: 'translateX(-100%)'
     }
@@ -331,7 +332,7 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
   }
 
   const weeks = arrayToParts(days, 7);
-  console.log('calendar days', month, weeks);
+  console.log('calendar days', values.move);
   return (
     <Line
       ref={ref}
@@ -346,7 +347,8 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
         ],
 
         className,
-        classes.calendar
+        classes.calendar,
+        classes[`move_${values?.move}`]
       ])}
 
       {...other}
@@ -398,9 +400,13 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
 
       {/* Weeks */}
       <Transitions switch mode='in-out-follow'>
-        <Transition key={milliseconds}>
+        <Transition
+          key={milliseconds}
+
+          prefix='weeks_'
+        >
           {(status: TTransitionStatus) => {
-            console.log(1, status);
+
             return (
               <Surface
                 tonal={tonal}
@@ -419,14 +425,11 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
 
                     className={classNames([
                       staticClassName('DatePicker', theme) && [
-                        'AmauiDatePicker-weeks',
-                        `AmauiDatePicker-weeks-${values?.move}`,
-                        `AmauiDatePicker-${status}`
+                        'AmauiDatePicker-weeks'
                       ],
 
                       status,
-                      classes.weeks,
-                      classes[`weeks_${values?.move}`]
+                      classes.weeks
                     ])}
                   >
                     {weeks.map((week: any, index: number) => (
@@ -457,7 +460,7 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
                             className={classNames([
                               staticClassName('DatePicker', theme) && [
                                 'AmauiDatePicker-day',
-                                `AmauiDatePicker-day-${day.in ? 'in' : 'out'}`
+                                `AmauiDatePicker - day - ${day.in ? 'in' : 'out'}`
                               ],
 
                               classes.day,
@@ -515,7 +518,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
   const breakpoints = {};
 
   theme.breakpoints.keys.sort((a, b) => theme.breakpoints.values[b] - theme.breakpoints.values[a]).forEach(key => {
-    if (theme.breakpoints.media[key]) breakpoints[key] = useMediaQuery(`(min-width: ${theme.breakpoints.values[key]}px)`);
+    if (theme.breakpoints.media[key]) breakpoints[key] = useMediaQuery(`(min - width: ${theme.breakpoints.values[key]}px)`);
   });
 
   const { classes } = useStyle(props);
@@ -681,25 +684,30 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
   const valuesToValue = (values_: any) => {
     let amauiDate = refs.value.current;
 
-    // day
-    let day = values_.day || '01';
+    if (values_.date) {
+      amauiDate = new AmauiDate(values_.date);
+    }
+    else {
+      // day
+      let day = values_.day || '01';
 
-    if (day.startsWith('0')) day = +day.slice(1);
+      if (day.startsWith('0')) day = +day.slice(1);
 
-    amauiDate = set(+day, 'day', amauiDate);
+      amauiDate = set(+day, 'day', amauiDate);
 
-    // month
-    let month = values_.month || '01';
+      // month
+      let month = values_.month || '01';
 
-    if (month.startsWith('0')) month = +month.slice(1);
+      if (month.startsWith('0')) month = +month.slice(1);
 
-    // months start from 0
-    amauiDate = set(+month - 1, 'month', amauiDate);
+      // months start from 0
+      amauiDate = set(+month - 1, 'month', amauiDate);
 
-    // year
-    let year = values_.year || new AmauiDate().year;
+      // year
+      let year = values_.year || new AmauiDate().year;
 
-    amauiDate = set(+year, 'year', amauiDate);
+      amauiDate = set(+year, 'year', amauiDate);
+    }
 
     return amauiDate;
   };
@@ -862,6 +870,14 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
   const onModeSwitch = React.useCallback(() => {
     setMode(refs.mode.current === 'select' ? 'input' : 'select');
+  }, []);
+
+  const onClear = React.useCallback(() => {
+    setValues(values_ => ({
+      ...values_,
+
+      date: new AmauiDate()
+    }));
   }, []);
 
   const onOk = React.useCallback(() => {
@@ -1128,6 +1144,8 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
               ])}
             >
               <Button
+                onClick={onClear}
+
                 {...actionsButtonsProps}
               >
                 Clear
@@ -1141,12 +1159,16 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
                 align='center'
               >
                 <Button
+                  onClick={onCancel}
+
                   {...actionsButtonsProps}
                 >
                   Cancel
                 </Button>
 
                 <Button
+                  onClick={onOk}
+
                   {...actionsButtonsProps}
                 >
                   Ok
