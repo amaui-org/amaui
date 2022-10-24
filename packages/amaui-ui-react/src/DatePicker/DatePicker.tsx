@@ -500,7 +500,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
         ])}
       >
         <Line
-          gap={1}
+          gap={0.5}
 
           direction='row'
 
