@@ -260,7 +260,7 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
 
   const month = values?.date || value;
 
-  const milliseconds = month.milliseconds;
+  const id = month.year + month.dayYear;
 
   const monthStart = startOf(month, 'month');
 
@@ -332,7 +332,7 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
   }
 
   const weeks = arrayToParts(days, 7);
-  console.log('calendar days', values.move);
+
   return (
     <Line
       ref={ref}
@@ -401,9 +401,7 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
       {/* Weeks */}
       <Transitions switch mode='in-out-follow'>
         <Transition
-          key={milliseconds}
-
-          prefix='weeks_'
+          key={id}
         >
           {(status: TTransitionStatus) => {
 
@@ -428,8 +426,8 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
                         'AmauiDatePicker-weeks'
                       ],
 
-                      status,
-                      classes.weeks
+                      classes.weeks,
+                      [`weeks_${status}`]
                     ])}
                   >
                     {weeks.map((week: any, index: number) => (
@@ -725,9 +723,11 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     setError(!validItem('', '', property === 'input' ? inputToValues(value_) : values_));
   };
 
-  const updateInputToValues = () => {
+  const updateInputToValues = (toAdd: any) => {
     const values_ = {
       ...refs.values.current,
+
+      ...toAdd,
 
       ...inputToValues(refs.values.current?.input)
     };
@@ -849,7 +849,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
   const onMode = React.useCallback(() => {
     setMode(refs.version.current === 'mobile' ? openMobile : 'select');
 
-    if (!refs.open.current) updateInputToValues();
+    if (!refs.open.current) updateInputToValues({ date: new AmauiDate(refs.value.current) });
 
     setOpen(!refs.open.current);
   }, [openMobile]);
@@ -873,10 +873,14 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
   }, []);
 
   const onClear = React.useCallback(() => {
+    const valueNew = new AmauiDate();
+
     setValues(values_ => ({
       ...values_,
 
-      date: new AmauiDate()
+      move: valueNew.milliseconds > values_?.date?.milliseconds ? 'next' : 'previous',
+
+      date: valueNew
     }));
   }, []);
 

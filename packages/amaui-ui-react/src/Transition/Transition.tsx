@@ -161,12 +161,16 @@ function Transition(props_: IProps) {
 
   const refs = {
     root: React.useRef<HTMLElement>(),
-    status: React.useRef(status),
-    inProp: React.useRef(inProp)
+    status: React.useRef<any>(),
+    inProp: React.useRef<any>(),
+    prefix: React.useRef<any>()
   };
 
   refs.status.current = status;
+
   refs.inProp.current = inProp;
+
+  refs.prefix.current = prefix;
 
   React.useEffect(() => {
     let statusNew: TTransitionStatus;
@@ -442,10 +446,10 @@ function Transition(props_: IProps) {
       let className = classNames([((refs.root.current.className as unknown as SVGAnimatedString)?.baseVal || refs.root.current.className)?.split(' ')]);
 
       // Remove all previous classes
-      className = className.replace(new RegExp(`(^| )${prefix || ''}(add|enter|exit)(ed|ing)?($| )`, 'g'), ' ');
+      className = className.replace(new RegExp(`(^| )${refs.prefix.current || ''}(add|enter|exit)(ed|ing)?($| )`, 'g'), ' ');
 
       // Add
-      className += ` ${prefix || ''}${status_}`;
+      className += ` ${refs.prefix.current || ''}${status_}`;
 
       className = className.replace(/ +/g, ' ').trim();
 
