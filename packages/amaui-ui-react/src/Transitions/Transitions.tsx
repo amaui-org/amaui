@@ -113,7 +113,7 @@ function Transitions(props_: IProps) {
     }
   }, [children__.key]);
 
-  if (noTransition) return children__;
+  if (noTransition) return React.cloneElement(children__, { in: true });
 
   const onExited = (element_?: React.ReactElement<any>) => (elementHTML: HTMLElement) => {
     // Invoke a method

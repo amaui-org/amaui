@@ -1361,7 +1361,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
   if (version === 'mobile') {
     if (!readOnly) moreProps.onClick = onModal;
   }
-  console.log(1, open, value, values);
+
   return <>
     <AdvancedTextField
       rootRef={item => {
@@ -1448,7 +1448,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
         label={(
           <ClickListener
-            onClickOutside={() => { console.log('outside'); onClose() }}
+            onClickOutside={() => onClose()}
 
             includeParentQueries={['.AmauiDatePicker-mode', '.AmauiDatePicker-day']}
 
