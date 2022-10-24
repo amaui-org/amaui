@@ -219,9 +219,15 @@ const IconMaterialArrowDropDownRounded = React.forwardRef((props: any, ref) => {
 
 // to do
 
+// menus for month
+
+// menu for year
+
 // method for returning array of years
 
 // method for returning array of months
+
+// day atm with filled version for pagination item
 
 // min, max, validate
 // arrows disable for docked, modal
@@ -258,9 +264,9 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
 
   const monthNow = new AmauiDate();
 
-  const month = values?.date || value;
+  const month: AmauiDate = values?.date || value;
 
-  const id = month.year + month.dayYear;
+  const id = month.year + month.month + month.day;
 
   const monthStart = startOf(month, 'month');
 
@@ -723,7 +729,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     setError(!validItem('', '', property === 'input' ? inputToValues(value_) : values_));
   };
 
-  const updateInputToValues = (toAdd: any) => {
+  const updateInputToValues = (toAdd?: any) => {
     const values_ = {
       ...refs.values.current,
 
@@ -788,14 +794,32 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
       ...refs.values.current
     };
 
+    values_.date = new AmauiDate();
+
     // input
     const [day, month, year] = (valueNew || '').split('/');
 
-    if (day) values_.day = day;
+    if (day) {
+      values_.day = day.startsWith('0') ? day.slice(1) : day;
 
-    if (month) values_.month = month;
+      values_.day = +day;
 
-    if (year) values_.year = year;
+      values_.date = set(values_.day, 'day', values_.date);
+    }
+
+    if (month) {
+      values_.month = month.startsWith('0') ? month.slice(1) : month;
+
+      values_.month = +month;
+
+      values_.date = set(values_.month - 1, 'month', values_.date);
+    }
+
+    if (year) {
+      values_.year = +year;
+
+      values_.date = set(values_.year, 'year', values_.date);
+    }
 
     return values_;
   };
@@ -1084,6 +1108,9 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
         {/* Main */}
         {/* Calendar */}
+
+        {/* Add transitions, fade for menus */}
+
         <Fade
           in={!openMenu}
         >
@@ -1282,7 +1309,6 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     if (!readOnly) moreProps.onClick = onModal;
   }
 
-  console.log(1, value, values);
   return <>
     <AdvancedTextField
       rootRef={item => {
