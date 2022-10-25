@@ -47,9 +47,19 @@ const useStyle = style(theme => ({
     width: '100%'
   },
 
+  mode_modal_middle: {
+    position: 'relative',
+    width: '100%',
+    padding: '8px 12px 8px'
+  },
+
+  mode_modal_header_select: {
+    width: '100%'
+  },
+
   mode_modal_header: {
     width: '100%',
-    padding: '16px 20px 0px'
+    padding: '16px 24px 0px'
   },
 
   mode_docked: {
@@ -95,7 +105,7 @@ const useStyle = style(theme => ({
   calendar_wrapper: {
     position: 'relative',
     width: '100%',
-    maxWidth: '280px',
+    maxWidth: '305px',
     height: '280px',
     flex: '1 1 auto'
   },
@@ -138,12 +148,19 @@ const useStyle = style(theme => ({
     opacity: '0.4'
   },
 
+  week: {
+    width: '100%'
+  },
+
   weeks: {
-    position: 'absolute',
-    top: '40px',
-    left: '0px',
     width: '100%',
     transition: theme.methods.transitions.make(['opacity', 'transform'])
+  },
+
+  weeks_absolute: {
+    position: 'absolute',
+    top: '40px',
+    left: '0px'
   },
 
   move_previous: {
@@ -335,6 +352,8 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
     weekStartDay,
 
     onDayClick,
+
+    relative = true,
 
     className,
 
@@ -543,6 +562,7 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
                       ],
 
                       classes.weeks,
+                      !relative && classes.weeks_absolute,
                       [`weeks_${status}`]
                     ])}
                   >
@@ -557,7 +577,7 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
 
                         align='unset'
 
-                        justify='unset'
+                        justify='space-between'
 
                         className={classNames([
                           staticClassName('DatePicker', theme) && [
@@ -781,6 +801,23 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     }
 
     return values_;
+  };
+
+  const valueToInputModal = (value_ = refs.values.current.date) => {
+    let inputModal = '';
+
+    const format_: any = [];
+
+    // day
+    if (day) format_.push('DD');
+
+    if (month) format_.push('MM');
+
+    if (year) format_.push('YYYY');
+
+    inputModal = formatMethod(value_, format_.join('/'));
+
+    return inputModal;
   };
 
   const touch = useMediaQuery('(pointer: coarse)');
@@ -1099,6 +1136,8 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
       selected: new AmauiDate(valueNew),
 
+      inputModal: valueToInputModal(valueNew),
+
       date: valueNew
     }));
   }, []);
@@ -1114,6 +1153,8 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
       previous: values_.date,
 
       move: valueNew.milliseconds > values_?.date?.milliseconds ? 'next' : 'previous',
+
+      inputModal: valueToInputModal(valueNew),
 
       date: valueNew
     }));
@@ -1132,6 +1173,8 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
       previous: values_.date,
 
       move: valueNew.milliseconds > values_?.date?.milliseconds ? 'next' : 'previous',
+
+      inputModal: valueToInputModal(valueNew),
 
       date: valueNew
     }));
@@ -1209,6 +1252,8 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
       selected: new AmauiDate(valueNew),
 
+      inputModal: valueToInputModal(valueNew),
+
       date: valueNew
     }));
   }, []);
@@ -1231,16 +1276,22 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     onClose();
   }, []);
 
-  const move = (next = true, unit: TTimeUnits = 'month') => {
-    setValues(values_ => ({
-      ...values_,
+  const move = (next = true, unit: TTimeUnits = 'month', selected = false) => {
+    const values_ = ({
+      ...refs.values.current,
 
-      previous: values_.date,
+      previous: refs.values.current.date,
 
       move: next ? 'next' : 'previous',
 
-      date: (next ? add : remove)(1, unit, values_.date)
-    }));
+      date: (next ? add : remove)(1, unit, refs.values.current.date)
+    });
+
+    values_.inputModal = valueToInputModal(values_.date);
+
+    if (selected) values_.selected = values_.date;
+
+    setValues(values_);
   };
 
   const ModeDocked = React.useCallback(React.forwardRef((props__: any, ref: any) => {
@@ -1488,6 +1539,8 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
                   onDayClick={onDayClick}
 
+                  relative={false}
+
                   outside
 
                   className={classNames([
@@ -1713,9 +1766,11 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
   }), [tonal, color, weekStartDay]);
 
   const ModeModal = React.useCallback(React.forwardRef((props_: any, ref: any) => {
-    const month = refs.values.current.selected || refs.values.current.date;
+    const month = refs.values.current.date || refs.value.current;
 
-    const monthName = formatMethod(month, 'MMM');
+    const year = formatMethod(month, 'YYYY');
+    const monthName = formatMethod(month, 'MMMM');
+    const monthNameAbr = formatMethod(month, 'MMM');
     const dayName = formatMethod(month, 'd');
     const day = getLeadingZerosNumber(month.day);
 
@@ -1788,7 +1843,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
               <Type
                 version='h1'
               >
-                {dayName}, {monthName} {day}
+                {dayName}, {monthNameAbr} {day}
               </Type>
 
               {switch_ && (
@@ -1862,18 +1917,167 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
         {/* Select */}
         {refs.mode.current === 'select' && (
           <Line
-            direction='row'
+            gap={0}
 
-            align='center'
-
-            justify='space-between'
-
-            style={{
-              width: '100%',
-              marginBottom: '12px'
-            }}
+            direction='column'
           >
+            <Line
+              gap={0}
 
+              direction='column'
+
+              align='center'
+
+              className={classNames([
+                staticClassName('DatePicker', theme) && [
+                  'AmauiDatePicker-mode-modal-middle'
+                ],
+
+                classes.mode_modal_middle
+              ])}
+            >
+              {/* Header */}
+              <Line
+                gap={0.5}
+
+                direction='row'
+
+                align='center'
+
+                justify='space-between'
+
+                className={classNames([
+                  staticClassName('DatePicker', theme) && [
+                    'AmauiDatePicker-mode-modal-header-select'
+                  ],
+
+                  classes.mode_modal_header_select
+                ])}
+              >
+                {/* Month year */}
+                <Button
+                  tonal={tonal}
+
+                  color='inherit'
+
+                  version='text'
+
+                  onClick={() => onOpenMenu('year')}
+
+                  fontSize={24}
+
+                  end={(
+                    <IconDropDown
+                      className={classNames([
+                        staticClassName('DatePicker', theme) && [
+                          'AmauiDatePicker-arrow'
+                        ],
+
+                        classes.arrow,
+                        refs.openMenu.current === 'year' && classes.arrow_open
+                      ])}
+                    />
+                  )}
+
+                  className={classNames([
+                    staticClassName('DatePicker', theme) && [
+                      'AmauiDatePicker-mode-docked-header-button'
+                    ],
+
+                    classes.mode_docked_header_button
+                  ])}
+                >
+                  {monthName} {year}
+                </Button>
+
+                {/* Arrows */}
+                <Line
+                  gap={0}
+
+                  direction='row'
+
+                  align='center'
+                >
+                  <Fade
+                    in={!refs.openMenu.current}
+                  >
+                    <IconButton
+                      tonal={tonal}
+
+                      color='inherit'
+
+                      onClick={() => move(false, 'month', true)}
+
+                      disabled={refs.openMenu.current}
+                    >
+                      <IconPrevious />
+                    </IconButton>
+                  </Fade>
+
+                  <Fade
+                    in={!refs.openMenu.current}
+                  >
+                    <IconButton
+                      tonal={tonal}
+
+                      color='inherit'
+
+                      onClick={() => move(true, 'month', true)}
+
+                      disabled={refs.openMenu.current}
+                    >
+                      <IconNext />
+                    </IconButton>
+                  </Fade>
+                </Line>
+              </Line>
+
+              {/* Calendar */}
+              {!refs.openMenu.current && (
+                <Fade
+                  in
+                >
+                  {/* Calendar */}
+                  <div
+                    className={classNames([
+                      staticClassName('DatePicker', theme) && [
+                        'AmauiDatePicker-calendar-wrapper'
+                      ],
+
+                      classes.calendar_wrapper
+                    ])}
+                  >
+                    <CalendarDays
+                      tonal={tonal}
+
+                      color={color}
+
+                      weekStartDay={weekStartDay}
+
+                      value={refs.value.current}
+
+                      values={refs.values.current}
+
+                      onDayClick={onDayClick}
+
+                      relative={false}
+
+                      outside={false}
+
+                      className={classNames([
+                        staticClassName('DatePicker', theme) && [
+                          'AmauiDatePicker-calendar-transition'
+                        ],
+
+                        classes.calendar_transition
+                      ])}
+                    />
+                  </div>
+                </Fade>
+              )}
+
+              {/* Menu */}
+            </Line>
           </Line>
         )}
 
@@ -1925,7 +2129,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
           align='center'
 
-          justify='flex-end'
+          justify='space-between'
 
           className={classNames([
             staticClassName('DatePicker', theme) && [
@@ -1935,6 +2139,14 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
             classes.mode_docked_footer
           ])}
         >
+          <Button
+            onClick={onClear}
+
+            {...actionsButtonsProps}
+          >
+            Clear
+          </Button>
+
           <Line
             gap={0}
 
