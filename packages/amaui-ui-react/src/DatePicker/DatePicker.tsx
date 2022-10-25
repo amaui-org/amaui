@@ -2484,7 +2484,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
           <div
             style={{
               width: '100%',
-              padding: '0 16px 8px'
+              padding: '0 16px 16px'
             }}
           >
             {/* Select */}
