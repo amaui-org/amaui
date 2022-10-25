@@ -1035,7 +1035,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     updateValue(amauiDate);
   };
 
-  const validItem = (item: number | string = '', version: string = '', values__ = refs.values.current) => {
+  const validItem = (item: number | string = '', version: string = '', values__ = refs.values.current, withDate = false) => {
     const values_ = {
       ...refs.values.current,
 
@@ -1043,7 +1043,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     };
 
     // Only validate against day, month, year values
-    delete values_.date;
+    if (!withDate) delete values_.date;
 
     if (version) values_[version] = is('number', item) ? getLeadingZerosNumber(item as number) : item;
 
@@ -1210,7 +1210,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
       date: valueNew
     });
 
-    if (selected && validItem(undefined, undefined, values_)) values_.selected = values_.date;
+    if (selected && validItem(undefined, undefined, values_, true)) values_.selected = values_.date;
 
     setValues(values_);
 
@@ -1327,7 +1327,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
     values_.inputModal = valueToInputModal(values_.date);
 
-    if (selected && validItem(undefined, undefined, values_)) values_.selected = values_.date;
+    if (selected && validItem(undefined, undefined, values_, true)) values_.selected = values_.date;
 
     setValues(values_);
   };
