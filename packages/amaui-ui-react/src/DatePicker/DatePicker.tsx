@@ -2461,7 +2461,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
             style={{
               width: '100%',
-              margin: '0px 8px 8px'
+              padding: '0px 8px 8px'
             }}
           >
             <IconButton
