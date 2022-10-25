@@ -1253,6 +1253,8 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
   const onClear = React.useCallback(() => {
     const valueNew = new AmauiDate();
 
+    setOpenMenu(false);
+
     setValues(values_ => ({
       ...values_,
 
