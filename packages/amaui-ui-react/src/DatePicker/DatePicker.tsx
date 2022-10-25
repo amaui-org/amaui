@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is, getLeadingZerosNumber, arrayToParts } from '@amaui/utils'
+import { is, getLeadingZerosNumber, arrayToParts, clamp } from '@amaui/utils'
 import { AmauiDate, format as formatMethod, set, is as isMethod, startOf, endOf, remove, add, TTimeUnits, months as monthsValue } from '@amaui/date';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
@@ -1037,7 +1037,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
           try {
             const item = list.querySelector(`[data-value="${valueItem}"]`);
 
-            if (item) list.scrollTo(0, item.offsetTop - 150, { behavior: 'smooth' });
+            if (item) list.scrollTo(0, clamp(item.offsetTop - 145, 0), { behavior: 'smooth' });
           } catch (error) { }
         }
       }
