@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is, unique, random, countries } from '@amaui/utils';
-import { AmauiDate, set } from '@amaui/date';
+import { AmauiDate, add, remove, set } from '@amaui/date';
 import { AmauiTheme, AmauiThemeProvider, classNames, style, sy, useAmauiTheme } from '@amaui/style-react';
 import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Radios, Keyframes, Switch, TextField, Label, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationItem, NavigationRail, NavigationDrawer, BottomSheet, BottomAppBar, TopAppBar, Card, CardImage, CardMain, CardHeader, CardButton, CardFooter, Table, TableHead, TableRow, TableCell, TableHeader, TableFooter, TableBody, Placeholder, Snackbar, useSnackbars, Pagination, TablePagination, SpeedDial, SpeedDialItem, ImageList, ImageListItem, ImageListItemBox, Stepper, Step, Tabs, Tab, Timeline, TimelineItem, Tree, Masonry, Reveal, useConfirm, ViewSplit, WindowSplit, useMainProgress, Image, SpyScroll, AdvancedTextField, NumericTextField, useWidgets, ImageCrop, ImageEdit, FileChoose, DropZone, MenuDesktop, Markdown, RichTextEditor, ScreenCapture, Timer, Countdown, Drawing, Parallax, Weather, RoundMeter, Path, Watch, LinearMeter, Carousel, TimePicker, TimeRangePicker, DatePicker, DateRangePicker, DateTimePicker, DateTimeRangePicker } from '@amaui/ui-react';
 
@@ -3152,6 +3152,28 @@ Please sign in again.`}
         <Accordion primary='DatePicker' open>
           <DatePicker
             label='Date'
+          />
+        </Accordion>
+
+        <Accordion primary='DatePicker validate'>
+          <DatePicker
+            label='Date picker'
+
+            validate={(value: number, values: any, version: string) => {
+              if (version === 'day') return !(value % 10);
+
+              return true;
+            }}
+          />
+        </Accordion>
+
+        <Accordion primary='DatePicker min, max'>
+          <DatePicker
+            label='Date picker'
+
+            min={remove(4, 'month', new AmauiDate())}
+
+            max={add(3, 'month', add(4, 'day', new AmauiDate()))}
           />
         </Accordion>
       </Accordion>

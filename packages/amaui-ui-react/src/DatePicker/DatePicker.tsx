@@ -340,8 +340,7 @@ const IconMaterialEditRounded = React.forwardRef((props: any, ref) => {
 
 // to do
 
-// min, max, validate
-// arrows disable for docked, modal
+// jan, oct 2023 to fix
 
 const CalendarDays = React.forwardRef((props: any, ref: any) => {
   const theme = useAmauiTheme();
@@ -358,6 +357,8 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
     value,
 
     values,
+
+    valid,
 
     weekStartDay,
 
@@ -623,6 +624,19 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
                               }}
 
                               onClick={() => onDayClick(day.amauiDate)}
+
+                              disabled={(
+                                !valid(
+                                  getLeadingZerosNumber(day.amauiDate.day),
+
+                                  'day',
+
+                                  {
+                                    month: getLeadingZerosNumber(day.amauiDate.month),
+                                    year: day.amauiDate.year
+                                  }
+                                )
+                              )}
 
                               className={classNames([
                                 staticClassName('DatePicker', theme) && [
@@ -1023,8 +1037,13 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
   const validItem = (item: number | string = '', version: string = '', values__ = refs.values.current) => {
     const values_ = {
+      ...refs.values.current,
+
       ...values__
     };
+
+    // Only validate against day, month, year values
+    delete values_.date;
 
     if (version) values_[version] = is('number', item) ? getLeadingZerosNumber(item as number) : item;
 
@@ -1049,6 +1068,8 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     if (refs.min.current !== undefined) valid = valid && isMethod(amauiDate, 'after or same', refs.min.current);
 
     if (refs.max.current !== undefined) valid = valid && isMethod(amauiDate, 'before or same', refs.max.current);
+
+    console.log(item, version, values_, amauiDate, valid);
 
     return valid;
   };
@@ -1237,6 +1258,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
   }, [openMobile]);
 
   const onClose = React.useCallback(() => {
+    setOpenMenu(false);
     setOpen(false);
   }, []);
 
@@ -1553,6 +1575,8 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
                   values={refs.values.current}
 
+                  valid={validItem}
+
                   onDayClick={onDayClick}
 
                   relative={false}
@@ -1686,6 +1710,14 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
                       />
                     ) : undefined}
 
+                    disabled={(
+                      !validItem(
+                        getLeadingZerosNumber(index + 1),
+
+                        'month'
+                      )
+                    )}
+
                     selected={selected}
 
                     button
@@ -1759,6 +1791,14 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
                     ) : undefined}
 
                     selected={selected}
+
+                    disabled={(
+                      !validItem(
+                        getLeadingZerosNumber(item.value),
+
+                        'year'
+                      )
+                    )}
 
                     button
 
@@ -2080,6 +2120,8 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
                           values={refs.values.current}
 
+                          valid={validItem}
+
                           onDayClick={onDayClick}
 
                           relative={false}
@@ -2147,6 +2189,14 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
                               onClick={() => onYearClick(item.value, true)}
 
                               data-value={item.value}
+
+                              disabled={(
+                                !validItem(
+                                  getLeadingZerosNumber(item.value),
+
+                                  'year'
+                                )
+                              )}
 
                               className={classNames([
                                 staticClassName('DatePicker', theme) && [
