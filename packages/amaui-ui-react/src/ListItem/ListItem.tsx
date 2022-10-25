@@ -65,15 +65,18 @@ const useStyle = style(theme => ({
   },
 
   size_small: {
-    padding: `${theme.methods.space.value('rg') * 0.5}px ${theme.methods.space.value('rg') * 0.75}px`
+    padding: `${theme.methods.space.value('rg') * 0.5}px ${theme.methods.space.value('rg') * 0.75}px`,
+    minHeight: '24px'
   },
 
   size_regular: {
-    padding: `${theme.methods.space.value('rg', 'px')} ${theme.methods.space.value('rg', 'px')}`
+    padding: `${theme.methods.space.value('rg', 'px')} ${theme.methods.space.value('rg', 'px')}`,
+    minHeight: '40px'
   },
 
   size_large: {
-    padding: `${theme.methods.space.value('rg') * 1.5}px ${theme.methods.space.value('rg') * 1.25}px`
+    padding: `${theme.methods.space.value('rg') * 1.5}px ${theme.methods.space.value('rg') * 1.25}px`,
+    minHeight: '56px'
   },
 
   menuItem_size_small: {
@@ -182,7 +185,7 @@ const useStyle = style(theme => ({
   },
 
   menuItem_start_icon: {
-    paddingInlineEnd: '12px'
+    paddingInlineEnd: '16px'
   },
 
   menuItem_start_button: {

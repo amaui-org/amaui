@@ -59,7 +59,6 @@ const ClickListener = React.forwardRef((props_: any, ref: any) => {
           if (is('function', onClickInside)) onClickInside();
         }
         else {
-          console.log(1, event.target);
           if (is('function', onClickOutside)) onClickOutside();
         }
       }
