@@ -682,6 +682,8 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
   const refs = {
     root: React.useRef<any>(),
     iconButton: React.useRef<any>(),
+    months: React.useRef<any>(),
+    years: React.useRef<any>(),
     version: React.useRef<any>(),
     open: React.useRef<any>(),
     openMenu: React.useRef<any>(),
@@ -774,7 +776,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
   const getYears = is('function', getYears_) ? getYears_ : React.useCallback(() => {
     const years_ = [];
 
-    for (let i = 0; i < 130; i++) years_.push({ value: 1971 + i });
+    for (let i = 0; i < 129; i++) years_.push({ value: 1971 + i });
 
     return years_;
   }, []);
@@ -1015,7 +1017,29 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
   }, []);
 
   const onOpenMenu = React.useCallback((menu_ = 'month') => {
-    setOpenMenu(refs.openMenu.current === menu_ ? false : menu_);
+    const valueNew = refs.openMenu.current === menu_ ? false : menu_;
+
+    setOpenMenu(valueNew);
+
+    // scroll to the value
+    setTimeout(() => {
+      if (valueNew) {
+        const date = refs.values.current.date;
+
+        let valueItem: any = '';
+
+        if (valueNew === 'month') valueItem = date.month - 1;
+        else if (valueNew === 'year') valueItem = date.year;
+
+        const list = refs.months.current;
+
+        try {
+          const item = list.querySelector(`[data-value="${valueItem}"]`);
+
+          if (item) list.scrollTo(0, item.offsetTop - 200, { behavior: 'smooth' });
+        } catch (error) { }
+      }
+    });
   }, []);
 
   const onCloseMenu = React.useCallback(() => {
@@ -1425,6 +1449,8 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
             in
           >
             <List
+              ref={refs.months}
+
               tonal={tonal}
 
               color={color}
@@ -1473,6 +1499,8 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
                     button
 
+                    data-value={index}
+
                     className={classNames([
                       staticClassName('DatePicker', theme) && [
                         'AmauiDatePicker-list-item'
@@ -1493,6 +1521,8 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
             in
           >
             <List
+              ref={refs.years}
+
               tonal={tonal}
 
               color={color}
@@ -1540,6 +1570,8 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
                     selected={selected}
 
                     button
+
+                    data-value={year}
 
                     className={classNames([
                       staticClassName('DatePicker', theme) && [
