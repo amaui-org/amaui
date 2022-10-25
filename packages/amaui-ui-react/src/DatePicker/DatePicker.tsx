@@ -338,10 +338,6 @@ const IconMaterialEditRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
-// to do
-
-// jan, oct 2023 to fix
-
 const CalendarDays = React.forwardRef((props: any, ref: any) => {
   const theme = useAmauiTheme();
 
@@ -418,8 +414,10 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
   }
 
   // Add to start
-  if (monthStart.dayWeek > 1) {
-    for (let i = 0; i < monthStart.dayWeek - 1; i++) {
+  if (monthStart.dayWeek !== 1) {
+    const toAdd = monthStart.dayWeek === 0 ? 6 : monthStart.dayWeek - 1;
+
+    for (let i = 0; i < toAdd; i++) {
       const day = set(previousMonthEnd.day - i, 'day', previousMonth);
 
       days.unshift({
@@ -470,8 +468,6 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
   }
 
   const weeks = arrayToParts(days, 7);
-
-  console.log(1, days, previousMonth, month, nextMonth);
 
   return (
     <Line
