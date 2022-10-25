@@ -1036,7 +1036,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
         try {
           const item = list.querySelector(`[data-value="${valueItem}"]`);
 
-          if (item) list.scrollTo(0, item.offsetTop - 200, { behavior: 'smooth' });
+          if (item) list.scrollTo(0, item.offsetTop - 150, { behavior: 'smooth' });
         } catch (error) { }
       }
     });
@@ -1571,7 +1571,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
                     button
 
-                    data-value={year}
+                    data-value={item.value}
 
                     className={classNames([
                       staticClassName('DatePicker', theme) && [
