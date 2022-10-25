@@ -1210,7 +1210,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
       date: valueNew
     });
 
-    if (selected) values_.selected = values_.date;
+    if (selected && validItem(undefined, undefined, values_)) values_.selected = values_.date;
 
     setValues(values_);
 
@@ -1327,7 +1327,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
     values_.inputModal = valueToInputModal(values_.date);
 
-    if (selected) values_.selected = values_.date;
+    if (selected && validItem(undefined, undefined, values_)) values_.selected = values_.date;
 
     setValues(values_);
   };
