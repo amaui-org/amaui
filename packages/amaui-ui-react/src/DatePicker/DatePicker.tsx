@@ -1172,22 +1172,26 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     if (refs.menuCloseOnSelect.current) onCloseMenu();
   }, []);
 
-  const onYearClick = React.useCallback((year: number) => {
+  const onYearClick = React.useCallback((year: number, selected = false) => {
     let valueNew = new AmauiDate(refs.values.current.date);
 
     valueNew = set(year, 'year', valueNew);
 
-    setValues(values_ => ({
-      ...values_,
+    const values_ = ({
+      ...refs.values.current,
 
-      previous: values_.date,
+      previous: refs.values.current.date,
 
-      move: valueNew.milliseconds > values_?.date?.milliseconds ? 'next' : 'previous',
+      move: valueNew.milliseconds > refs.values.current?.date?.milliseconds ? 'next' : 'previous',
 
       inputModal: valueToInputModal(valueNew),
 
       date: valueNew
-    }));
+    });
+
+    if (selected) values_.selected = values_.date;
+
+    setValues(values_);
 
     if (refs.menuCloseOnSelect.current) onCloseMenu();
   }, []);
@@ -2140,7 +2144,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
                                 color: !selected ? 'primary' : undefined
                               }}
 
-                              onClick={() => onYearClick(item.value)}
+                              onClick={() => onYearClick(item.value, true)}
 
                               data-value={item.value}
 
