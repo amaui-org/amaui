@@ -224,8 +224,9 @@ const useStyle = style(theme => ({
 
   list_modal: {
     width: '100%',
-    maxHeight: '279px',
-    overflowY: 'auto'
+    maxHeight: '271px',
+    overflowY: 'auto',
+    marginTop: '8px'
   },
 
   listItem: {
