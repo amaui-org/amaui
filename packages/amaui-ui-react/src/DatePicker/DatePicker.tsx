@@ -956,14 +956,14 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     }
     else {
       // day
-      let day = values_.day || '01';
+      let day: any = String(values_.day || '01');
 
       if (day.startsWith('0')) day = +day.slice(1);
 
       amauiDate = set(+day, 'day', amauiDate);
 
       // month
-      let month = values_.month || '01';
+      let month: any = String(values_.month || '01');
 
       if (month.startsWith('0')) month = +month.slice(1);
 
@@ -971,7 +971,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
       amauiDate = set(+month - 1, 'month', amauiDate);
 
       // year
-      let year = values_.year || new AmauiDate().year;
+      let year: any = String(values_.year || new AmauiDate().year);
 
       amauiDate = set(+year, 'year', amauiDate);
     }
