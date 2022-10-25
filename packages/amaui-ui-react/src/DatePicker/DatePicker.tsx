@@ -25,6 +25,7 @@ import { IconDoneAnimated } from '../Buttons/Buttons';
 import Divider from '../Divider';
 
 import { staticClassName, valueBreakpoints } from '../utils';
+import Slide from '../Slide';
 
 const useStyle = style(theme => ({
   root: {
@@ -43,8 +44,21 @@ const useStyle = style(theme => ({
     overflow: 'hidden'
   },
 
+  modal_fullScreen: {
+    width: '100%',
+    height: '100%',
+    maxWidth: 'unset',
+    borderRadius: '0px',
+    overflow: 'hidden'
+  },
+
   mode_modal: {
     width: '100%'
+  },
+
+  mode_modal_fullScreen: {
+    width: '100%',
+    height: '100%'
   },
 
   mode_modal_middle: {
@@ -95,6 +109,23 @@ const useStyle = style(theme => ({
 
   open_secondary: {
     opacity: '0.4'
+  },
+
+  mode_modal_fullScreen_header: {
+    width: '100%',
+    padding: '16px 0px 0px',
+    flex: '0 0 auto'
+  },
+
+  mode_modal_fullScreen_main: {
+    width: '100%',
+    flex: '1 1 auto'
+  },
+
+  mode_modal_fullScreen_footer: {
+    width: '100%',
+    padding: '8px 12px 12px',
+    flex: '0 0 auto'
   },
 
   mode_docked_footer: {
@@ -341,6 +372,22 @@ const IconMaterialEditRounded = React.forwardRef((props: any, ref) => {
       {...props}
     >
       <path d="M5 19H6.4L15.025 10.375L13.625 8.975L5 17.6ZM19.3 8.925 15.05 4.725 16.45 3.325Q17.025 2.75 17.863 2.75Q18.7 2.75 19.275 3.325L20.675 4.725Q21.25 5.3 21.275 6.113Q21.3 6.925 20.725 7.5ZM4 21Q3.575 21 3.288 20.712Q3 20.425 3 20V17.175Q3 16.975 3.075 16.788Q3.15 16.6 3.3 16.45L13.6 6.15L17.85 10.4L7.55 20.7Q7.4 20.85 7.213 20.925Q7.025 21 6.825 21ZM14.325 9.675 13.625 8.975 15.025 10.375Z" />
+    </Icon>
+  );
+});
+
+const IconMaterialCloseRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='CloseRounded'
+      short_name='Close'
+
+      {...props}
+    >
+      <path d="M12 13.4 7.1 18.3Q6.825 18.575 6.4 18.575Q5.975 18.575 5.7 18.3Q5.425 18.025 5.425 17.6Q5.425 17.175 5.7 16.9L10.6 12L5.7 7.1Q5.425 6.825 5.425 6.4Q5.425 5.975 5.7 5.7Q5.975 5.425 6.4 5.425Q6.825 5.425 7.1 5.7L12 10.6L16.9 5.7Q17.175 5.425 17.6 5.425Q18.025 5.425 18.3 5.7Q18.575 5.975 18.575 6.4Q18.575 6.825 18.3 7.1L13.4 12L18.3 16.9Q18.575 17.175 18.575 17.6Q18.575 18.025 18.3 18.3Q18.025 18.575 17.6 18.575Q17.175 18.575 16.9 18.3Z" />
     </Icon>
   );
 });
@@ -745,6 +792,8 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
     switch: switch__,
 
+    fullScreen,
+
     readOnly,
 
     disabled,
@@ -761,6 +810,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     IconDropDown = IconMaterialArrowDropDownRounded,
     IconCheck = IconMaterialDoneRounded,
     IconEnter = IconMaterialEditRounded,
+    IconClose = IconMaterialCloseRounded,
 
     ModalProps,
     TooltipProps,
@@ -1860,6 +1910,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
           classes.mode_modal
         ])}
       >
+        {/* Header */}
         <Line
           gap={0}
 
@@ -2340,11 +2391,318 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
   }), [tonal, color, switch_, modeModalHeadingText, inputModeHeadingText]);
 
   const ModeFullScreen = React.useCallback(React.forwardRef((props_: any, ref: any) => {
+    const month = refs.values.current.date || refs.value.current;
+
+    const year = formatMethod(month, 'YYYY');
+    const monthName = formatMethod(month, 'MMMM');
+    const monthNameAbr = formatMethod(month, 'MMM');
+    const dayName = formatMethod(month, 'd');
+    const day = getLeadingZerosNumber(month.day);
+
+    const buttonsProps = {
+      color: 'inherit',
+      version: 'text'
+    };
+
+    const actionsButtonsProps = {
+      tonal,
+      color,
+      version: 'text'
+    };
 
     return (
-      <div />
+      <Surface
+        ref={ref}
+
+        tonal={tonal}
+
+        color={color}
+
+        gap={0}
+
+        direction='column'
+
+        Component={Line}
+
+        className={classNames([
+          staticClassName('DatePicker', theme) && [
+            'AmauiDatePicker-mode',
+            'AmauiDatePicker-mode-fullScreen'
+          ],
+
+          ModeInputProps?.className,
+          classes.mode,
+          classes.mode_modal_fullScreen
+        ])}
+      >
+        {/* Header */}
+        <Line
+          gap={0}
+
+          direction='column'
+
+          className={classNames([
+            staticClassName('DatePicker', theme) && [
+              'AmauiDatePicker-mode-modal-fullScreen-header'
+            ],
+
+            classes.mode_modal_fullScreen_header
+          ])}
+        >
+          {/* Actions */}
+          <Line
+            gap={0}
+
+            direction='row'
+
+            align='center'
+
+            justify='space-between'
+
+            style={{
+              width: '100%',
+              margin: '0px 8px 8px'
+            }}
+          >
+            <IconButton
+              onClick={onClose}
+
+              {...buttonsProps}
+            >
+              <IconClose />
+            </IconButton>
+
+            <Button
+              onClick={onOk}
+
+              {...actionsButtonsProps}
+            >
+              Save
+            </Button>
+          </Line>
+
+          <div
+            style={{
+              padding: '0 16px 8px'
+            }}
+          >
+            {/* Select */}
+            {refs.mode.current === 'select' && (
+              <Line
+                direction='row'
+
+                align='center'
+
+                justify='space-between'
+
+                style={{
+                  width: '100%',
+                  paddingInlineStart: '48px'
+                }}
+              >
+                <Type
+                  version='h1'
+                >
+                  {dayName}, {monthNameAbr} {day}
+                </Type>
+
+                {switch_ && (
+                  <Tooltip
+                    label='Enter date'
+                  >
+                    <IconButton
+                      tonal={tonal}
+
+                      color='inherit'
+
+                      onClick={onModeSwitch}
+                    >
+                      <IconEnter />
+                    </IconButton>
+                  </Tooltip>
+                )}
+              </Line>
+            )}
+
+            {/* Input */}
+            {refs.mode.current === 'input' && (
+              <Line
+                direction='row'
+
+                align='center'
+
+                justify='space-between'
+
+                style={{
+                  width: '100%'
+                }}
+              >
+                <Type
+                  version='h1'
+                >
+                  {inputModeHeadingText}
+                </Type>
+
+                {switch_ && (
+                  <Tooltip
+                    label='Select date'
+                  >
+                    <IconButton
+                      tonal={tonal}
+
+                      color='inherit'
+
+                      onClick={onModeSwitch}
+                    >
+                      <Icon />
+                    </IconButton>
+                  </Tooltip>
+                )}
+              </Line>
+            )}
+          </div>
+        </Line>
+
+        <Divider
+          className={classNames([
+            staticClassName('DatePicker', theme) && [
+              'AmauiDatePicker-divider'
+            ],
+
+            classes.divider
+          ])}
+        />
+
+        {/* Main */}
+        <main
+          className={classNames([
+            staticClassName('DatePicker', theme) && [
+              'AmauiDatePicker-mode-modal-fullScreen-main'
+            ],
+
+            classes.mode_modal_fullScreen_main
+          ])}
+        >
+          {/* Select */}
+          {refs.mode.current === 'select' && (
+            <Line
+              direction='column'
+
+              style={{
+                width: '100%',
+                padding: '16px 24px 8px'
+              }}
+            >
+
+            </Line>
+          )}
+
+          {/* Input */}
+          {refs.mode.current === 'input' && (
+            <Line
+              direction='column'
+
+              style={{
+                width: '100%',
+                padding: '16px 24px 8px'
+              }}
+            >
+              <AdvancedTextField
+                tonal={tonal}
+
+                color={color}
+
+                version='outlined'
+
+                label={label}
+
+                mask={mask}
+
+                placeholder={placeholder}
+
+                value={refs.values.current.inputModal}
+
+                onChange={(valueNew: any) => updateValuesInputModal(valueNew)}
+
+                helperText={useHelperText ? placeholder : undefined}
+
+                className={classNames([
+                  staticClassName('DatePicker', theme) && [
+                    'AmauiDatePicker-input'
+                  ],
+
+                  classes.input
+                ])}
+
+                {...AdvancedTextFieldProps}
+              />
+            </Line>
+          )}
+        </main>
+
+        <Divider
+          className={classNames([
+            staticClassName('DatePicker', theme) && [
+              'AmauiDatePicker-divider'
+            ],
+
+            classes.divider
+          ])}
+        />
+
+        {/* Footer */}
+
+        {/* Actions */}
+        <Line
+          direction='row'
+
+          align='center'
+
+          justify='space-between'
+
+          className={classNames([
+            staticClassName('DatePicker', theme) && [
+              'AmauiDatePicker-mode-modal-fullScreen-footer'
+            ],
+
+            classes.mode_modal_fullScreen_footer
+          ])}
+        >
+          <Button
+            onClick={onClear}
+
+            {...actionsButtonsProps}
+          >
+            Clear
+          </Button>
+
+          <Line
+            gap={0}
+
+            direction='row'
+
+            align='center'
+          >
+            <Button
+              onClick={onCancel}
+
+              {...actionsButtonsProps}
+            >
+              Cancel
+            </Button>
+
+            <Button
+              onClick={onOk}
+
+              {...actionsButtonsProps}
+            >
+              Ok
+            </Button>
+          </Line>
+        </Line>
+      </Surface>
     );
-  }), [tonal, color]);
+  }), [tonal, color, switch_, fullScreen, modeModalHeadingText, inputModeHeadingText]);
 
   if (version === 'desktop') {
     moreProps.end = (
@@ -2431,19 +2789,25 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
         onClose={onClose}
 
+        TransitionComponent={Slide}
+
+        fullScreen={fullScreen}
+
         NoSurfaceProps={{
           className: classNames([
             staticClassName('DatePicker', theme) && [
-              'AmauiDatePicker-modal'
+              'AmauiDatePicker-modal',
+              fullScreen && `AmauiDatePicker-modal-fullScreen`
             ],
 
-            classes.modal
+            classes.modal,
+            fullScreen && classes.modal_fullScreen
           ])
         }}
 
         {...ModalProps}
       >
-        <ModeModal />
+        {fullScreen ? <ModeFullScreen /> : <ModeModal />}
       </Modal>
     )}
 

@@ -3155,6 +3155,14 @@ Please sign in again.`}
           />
         </Accordion>
 
+        <Accordion primary='DatePicker fullScreen'>
+          <DatePicker
+            label='Date'
+
+            fullScreen
+          />
+        </Accordion>
+
         <Accordion primary='DatePicker validate'>
           <DatePicker
             label='Date picker'

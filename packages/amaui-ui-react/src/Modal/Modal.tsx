@@ -132,29 +132,37 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
   const mobile = useMediaQuery('(max-width: 767px)');
 
   const {
-    open: open_,
-    openDefault,
-    partialyOpened,
-    mainRef,
-    backgroundRef,
     tonal = true,
     color = 'primary',
     size = 'regular',
+
+    open: open_,
+    openDefault,
+
+    partialyOpened,
+    mainRef,
+    backgroundRef,
+
     minWidth = !mobile ? 'sm' : undefined,
     maxWidth: maxWidth_ = 'rg',
+
     fullScreen,
     fullWidth,
+
     background = true,
     modalWrapper = true,
     modalWrapperSurface = true,
+
     portal = true,
     focus = true,
     freezeScroll = true,
+
     disableKeyboardClose,
     disableBackgroundClose,
-    backgroundInvisible,
-    BackgroundComponent = Fade,
 
+    backgroundInvisible,
+
+    BackgroundComponent = Fade,
 
     TransitionComponent = Fade,
     TransitionComponentProps,
