@@ -21,10 +21,10 @@ import Type from '../Type';
 import PaginationItem from '../PaginationItem';
 import List from '../List';
 import ListItem from '../ListItem';
-
-import { staticClassName, valueBreakpoints } from '../utils';
 import { IconDoneAnimated } from '../Buttons/Buttons';
 import Divider from '../Divider';
+
+import { staticClassName, valueBreakpoints } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
@@ -1165,6 +1165,8 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
               <IconButton
                 onClick={() => move(false)}
 
+                disabled={refs.openMenu.current}
+
                 {...buttonsProps}
               >
                 <IconPrevious />
@@ -1215,6 +1217,8 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
               <IconButton
                 onClick={() => move()}
 
+                disabled={refs.openMenu.current}
+
                 {...buttonsProps}
               >
                 <IconNext />
@@ -1235,6 +1239,8 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
             >
               <IconButton
                 onClick={() => move(false, 'year')}
+
+                disabled={refs.openMenu.current}
 
                 {...buttonsProps}
               >
@@ -1285,6 +1291,8 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
             >
               <IconButton
                 onClick={() => move(true, 'year')}
+
+                disabled={refs.openMenu.current}
 
                 {...buttonsProps}
               >
