@@ -224,7 +224,7 @@ const useStyle = style(theme => ({
 
   list_modal: {
     width: '100%',
-    maxHeight: '280px',
+    maxHeight: '279px',
     overflowY: 'auto'
   },
 
@@ -235,7 +235,8 @@ const useStyle = style(theme => ({
   },
 
   dayValue_modal: {
-    flex: '0 1 72px'
+    flex: '0 1 72px',
+    height: '36px'
   },
 
   arrow: {
@@ -2270,6 +2271,19 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
               {...AdvancedTextFieldProps}
             />
           </Line>
+        )}
+
+        {/* Divider */}
+        {!!refs.openMenu.current && (
+          <Divider
+            className={classNames([
+              staticClassName('DatePicker', theme) && [
+                'AmauiDatePicker-divider'
+              ],
+
+              classes.divider
+            ])}
+          />
         )}
 
         {/* Actions */}
