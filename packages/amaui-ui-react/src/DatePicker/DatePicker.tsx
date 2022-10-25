@@ -471,6 +471,8 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
 
   const weeks = arrayToParts(days, 7);
 
+  console.log(1, days, previousMonth, month, nextMonth);
+
   return (
     <Line
       ref={ref}
@@ -1063,13 +1065,11 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
     let valid = true;
 
-    if (is('function', refs.validate.current)) valid = refs.validate.current(item, values_, values_.selecting);
+    if (is('function', refs.validate.current)) valid = refs.validate.current(values_[version], values_, version);
 
     if (refs.min.current !== undefined) valid = valid && isMethod(amauiDate, 'after or same', refs.min.current);
 
     if (refs.max.current !== undefined) valid = valid && isMethod(amauiDate, 'before or same', refs.max.current);
-
-    console.log(item, version, values_, amauiDate, valid);
 
     return valid;
   };
