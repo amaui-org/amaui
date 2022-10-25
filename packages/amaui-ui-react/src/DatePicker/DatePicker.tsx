@@ -24,6 +24,7 @@ import ListItem from '../ListItem';
 
 import { staticClassName, valueBreakpoints } from '../utils';
 import { IconDoneAnimated } from '../Buttons/Buttons';
+import Divider from '../Divider';
 
 const useStyle = style(theme => ({
   root: {
@@ -81,6 +82,12 @@ const useStyle = style(theme => ({
 
   calendar: {
 
+  },
+
+  divider: {
+    '&.AmauiDivider-root': {
+      margin: '0px'
+    }
   },
 
   dayNames: {
@@ -1389,6 +1396,19 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
               </Line>
             </Line>
           </Fade>
+        )}
+
+        {/* Divider */}
+        {!!refs.openMenu.current && (
+          <Divider
+            className={classNames([
+              staticClassName('DatePicker', theme) && [
+                'AmauiDatePicker-divider'
+              ],
+
+              classes.divider
+            ])}
+          />
         )}
 
         {/* Menu month */}
