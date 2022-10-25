@@ -148,6 +148,11 @@ const useStyle = style(theme => ({
     opacity: '0.4'
   },
 
+  day_out_no: {
+    visibility: 'hidden',
+    opacity: '0'
+  },
+
   week: {
     width: '100%'
   },
@@ -607,7 +612,8 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
                               ],
 
                               classes.day,
-                              classes[`day_${day.in ? 'in' : 'out'}`]
+                              classes[`day_${day.in ? 'in' : 'out'}`],
+                              (!day.in && !outside) && classes.day_out_no
                             ])}
                           >
                             <PaginationItem
@@ -624,6 +630,8 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
                               onClick={() => onDayClick(day.amauiDate)}
 
                               disabled={(
+                                (!day.in && !outside) ||
+
                                 !valid(
                                   getLeadingZerosNumber(day.amauiDate.day),
 
