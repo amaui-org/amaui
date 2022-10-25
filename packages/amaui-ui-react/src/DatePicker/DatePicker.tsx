@@ -682,8 +682,8 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
   const refs = {
     root: React.useRef<any>(),
     iconButton: React.useRef<any>(),
-    months: React.useRef<any>(),
-    years: React.useRef<any>(),
+    month: React.useRef<any>(),
+    year: React.useRef<any>(),
     version: React.useRef<any>(),
     open: React.useRef<any>(),
     openMenu: React.useRef<any>(),
@@ -1031,13 +1031,15 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
         if (valueNew === 'month') valueItem = date.month - 1;
         else if (valueNew === 'year') valueItem = date.year;
 
-        const list = refs.months.current;
+        const list = refs[valueNew].current;
 
-        try {
-          const item = list.querySelector(`[data-value="${valueItem}"]`);
+        if (list) {
+          try {
+            const item = list.querySelector(`[data-value="${valueItem}"]`);
 
-          if (item) list.scrollTo(0, item.offsetTop - 150, { behavior: 'smooth' });
-        } catch (error) { }
+            if (item) list.scrollTo(0, item.offsetTop - 150, { behavior: 'smooth' });
+          } catch (error) { }
+        }
       }
     });
   }, []);
@@ -1449,7 +1451,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
             in
           >
             <List
-              ref={refs.months}
+              ref={refs.month}
 
               tonal={tonal}
 
@@ -1521,7 +1523,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
             in
           >
             <List
-              ref={refs.years}
+              ref={refs.year}
 
               tonal={tonal}
 
