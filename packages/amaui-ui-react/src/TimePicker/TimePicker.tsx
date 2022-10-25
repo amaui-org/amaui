@@ -200,6 +200,8 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
     // mobile, desktop, static & auto
     version: version_ = 'auto',
 
+    versionStatic = 'select',
+
     value: value_,
     valueDefault,
 
@@ -1175,7 +1177,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
                 <ToggleButtons
                   tonal={tonal}
 
-                  color='default'
+                  color='inherit'
 
                   version='outlined'
 
@@ -1246,12 +1248,12 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
           >
             {switch_ && (
               <Tooltip
-                label={mode === 'select' ? 'Enter' : 'Select'}
+                label={mode === 'select' ? 'Enter time' : 'Select time'}
               >
                 <IconButton
                   tonal={tonal}
 
-                  color='default'
+                  color='inherit'
 
                   onClick={onModeSwitch}
                 >
@@ -1528,7 +1530,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
                 <ToggleButtons
                   tonal={tonal}
 
-                  color='default'
+                  color='inherit'
 
                   version='outlined'
 
@@ -1601,7 +1603,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
                 <IconButton
                   tonal={tonal}
 
-                  color='default'
+                  color='inherit'
 
                   onClick={onModeSwitch}
                 >
@@ -1747,7 +1749,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
     if (!readOnly) moreProps.onClick = onModal;
   }
 
-  if (version === 'static') return mode === 'select' ? <ModeSelect /> : <ModeInput />;
+  if (version === 'static') return versionStatic === 'select' ? <ModeSelect /> : <ModeInput />;
 
   return <>
     <AdvancedTextField

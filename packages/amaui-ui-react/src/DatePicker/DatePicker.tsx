@@ -31,10 +31,30 @@ const useStyle = style(theme => ({
 
   },
 
+  mode: {
+    overflow: 'hidden'
+  },
+
+  modal: {
+    width: 'calc(100% - 48px)',
+    maxWidth: '330px',
+    margin: '0 auto',
+    borderRadius: '28px',
+    overflow: 'hidden'
+  },
+
+  mode_modal: {
+    width: '100%'
+  },
+
+  mode_modal_header: {
+    width: '100%',
+    padding: '16px 20px 0px'
+  },
+
   mode_docked: {
     borderRadius: '28px',
-    minWidth: '320px',
-    overflow: 'hidden'
+    minWidth: '320px'
   },
 
   mode_docked_header: {
@@ -52,6 +72,15 @@ const useStyle = style(theme => ({
     '& .AmauiButton-end': {
       paddingInline: '8px 0px'
     }
+  },
+
+  input: {
+    width: '100%'
+  },
+
+  heading: {
+    width: '100%',
+    marginBottom: '36px'
   },
 
   open_secondary: {
@@ -262,6 +291,22 @@ const IconMaterialDoneRounded = React.forwardRef((props: any, ref) => {
       {...props}
     >
       <path d="M9.55 17.575Q9.35 17.575 9.175 17.512Q9 17.45 8.85 17.3L4.55 13Q4.275 12.725 4.287 12.287Q4.3 11.85 4.575 11.575Q4.85 11.3 5.275 11.3Q5.7 11.3 5.975 11.575L9.55 15.15L18.025 6.675Q18.3 6.4 18.738 6.4Q19.175 6.4 19.45 6.675Q19.725 6.95 19.725 7.387Q19.725 7.825 19.45 8.1L10.25 17.3Q10.1 17.45 9.925 17.512Q9.75 17.575 9.55 17.575Z" />
+    </Icon>
+  );
+});
+
+const IconMaterialEditRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='EditRounded'
+      short_name='Edit'
+
+      {...props}
+    >
+      <path d="M5 19H6.4L15.025 10.375L13.625 8.975L5 17.6ZM19.3 8.925 15.05 4.725 16.45 3.325Q17.025 2.75 17.863 2.75Q18.7 2.75 19.275 3.325L20.675 4.725Q21.25 5.3 21.275 6.113Q21.3 6.925 20.725 7.5ZM4 21Q3.575 21 3.288 20.712Q3 20.425 3 20V17.175Q3 16.975 3.075 16.788Q3.15 16.6 3.3 16.45L13.6 6.15L17.85 10.4L7.55 20.7Q7.4 20.85 7.213 20.925Q7.025 21 6.825 21ZM14.325 9.675 13.625 8.975 15.025 10.375Z" />
     </Icon>
   );
 });
@@ -606,6 +651,8 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     // mobile, desktop, static & auto
     version: version_ = 'auto',
 
+    versionStatic = 'docked',
+
     value: value_,
     valueDefault,
 
@@ -625,6 +672,8 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     autoCloseOnPick: autoCloseOnPick_,
 
     openMobile = 'select',
+
+    modeModalHeadingText = 'Select date',
 
     selectModeHeadingText = 'Select date',
 
@@ -659,6 +708,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     IconNext = IconMaterialNavigateNextRounded,
     IconDropDown = IconMaterialArrowDropDownRounded,
     IconCheck = IconMaterialDoneRounded,
+    IconEnter = IconMaterialEditRounded,
 
     ModalProps,
     TooltipProps,
@@ -669,6 +719,8 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     ModeFullScreenProps,
     ModeInputProps,
     CalendarProps,
+    ButtonProps,
+    InputProps,
 
     className,
 
@@ -696,11 +748,15 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     validate: React.useRef<any>(),
     weekStartDay: React.useRef<any>(),
     today: React.useRef<any>(),
-    menuCloseOnSelect: React.useRef<any>()
+    menuCloseOnSelect: React.useRef<any>(),
+    mask: React.useRef<any>(),
+    placeholder: React.useRef<any>()
   };
 
   const valueToValues = (valueNew: AmauiDate) => {
-    const values_: any = {};
+    const values_: any = {
+      ...refs.values.current
+    };
 
     if (valueNew) {
       // day
@@ -769,6 +825,56 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
   refs.menuCloseOnSelect.current = menuCloseOnSelect;
 
+  let mask: any = [];
+
+  let placeholder: any = [];
+
+  if (day) {
+    mask.push(
+      { pattern: '[0-3]' },
+
+      (item: string, result: string, valueInput: string) => /^(0[0-9]|1[0-9]|2[0-9]|3[0-1]).*/.test(valueInput)
+    );
+
+    placeholder.push('DD');
+  }
+
+  if (month) {
+    if (!!mask.length) mask.push('/');
+
+    mask.push(
+      { pattern: '[0-1]' },
+
+      (item: string, result: string, valueInput: string) => day ? /^(0[0-9]|1[0-9]|2[0-9]|3[0-1])\/(0[0-9]|1[0-2])/.test(valueInput) : /^(0[0-9]|1[0-2]).*/.test(valueInput)
+    );
+
+    placeholder.push('MM');
+  }
+
+  if (year) {
+    if (!!mask.length) mask.push('/');
+
+    mask.push(
+      { pattern: '[1-2]' },
+
+      { pattern: '[0-9]' },
+
+      { pattern: '[0-9]' },
+
+      { pattern: '[0-9]' }
+    );
+
+    placeholder.push('YYYY');
+  }
+
+  placeholder = placeholder.join('/');
+
+  refs.mask.current = mask;
+
+  refs.placeholder.current = placeholder;
+
+  const moreProps: any = {};
+
   const getMonths = is('function', getMonths_) ? getMonths_ : React.useCallback(() => {
     return monthsValue.map((item: any) => ({ value: item }));
   }, []);
@@ -812,6 +918,21 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     return amauiDate;
   };
 
+  const updateValuesInputModal = (value_: any) => {
+    const values_ = {
+      ...refs.values.current,
+
+      ...inputToValues(value_),
+
+      inputModal: value_
+    };
+
+    // Selected
+    values_.selected = values_.date;
+
+    setValues(values_);
+  };
+
   const updateValues = (property: string, value_: any) => {
     const values_ = {
       ...refs.values.current,
@@ -835,6 +956,8 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     const amauiDate = valuesToValue(values_);
 
     values_.selected = values_.date = new AmauiDate(amauiDate);
+
+    values_.inputModal = values_.input;
 
     setValues(values_);
 
@@ -1128,15 +1251,12 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
     const buttonsProps = {
       color: 'inherit',
-
       version: 'text'
     };
 
     const actionsButtonsProps = {
       tonal,
-
       color,
-
       version: 'text'
     };
 
@@ -1593,71 +1713,262 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
   }), [tonal, color, weekStartDay]);
 
   const ModeModal = React.useCallback(React.forwardRef((props_: any, ref: any) => {
+    const month = refs.values.current.selected || refs.values.current.date;
+
+    const monthName = formatMethod(month, 'MMM');
+    const dayName = formatMethod(month, 'd');
+    const day = getLeadingZerosNumber(month.day);
+
+    const actionsButtonsProps = {
+      tonal,
+      color,
+      version: 'text'
+    };
 
     return (
-      <div />
+      <Surface
+        ref={ref}
+
+        tonal={tonal}
+
+        color={color}
+
+        className={classNames([
+          staticClassName('DatePicker', theme) && [
+            'AmauiDatePicker-mode'
+          ],
+
+          ModeInputProps?.className,
+          classes.mode,
+          classes.mode_modal
+        ])}
+      >
+        <Line
+          gap={0}
+
+          direction='column'
+
+          className={classNames([
+            staticClassName('DatePicker', theme) && [
+              'AmauiDatePicker-mode-modal-header'
+            ],
+
+            classes.mode_modal_header
+          ])}
+        >
+          {/* Heading */}
+          <Type
+            version='l2'
+
+            className={classNames([
+              staticClassName('TimePicker', theme) && [
+                'AmauiTimePicker-heading'
+              ],
+
+              classes.heading
+            ])}
+          >
+            {modeModalHeadingText}
+          </Type>
+
+          {/* Select */}
+          {refs.mode.current === 'select' && (
+            <Line
+              direction='row'
+
+              align='center'
+
+              justify='space-between'
+
+              style={{
+                width: '100%',
+                marginBottom: '12px'
+              }}
+            >
+              <Type
+                version='h1'
+              >
+                {dayName}, {monthName} {day}
+              </Type>
+
+              {switch_ && (
+                <Tooltip
+                  label='Enter date'
+                >
+                  <IconButton
+                    tonal={tonal}
+
+                    color='inherit'
+
+                    onClick={onModeSwitch}
+                  >
+                    <IconEnter />
+                  </IconButton>
+                </Tooltip>
+              )}
+            </Line>
+          )}
+
+          {/* Input */}
+          {refs.mode.current === 'input' && (
+            <Line
+              direction='row'
+
+              align='center'
+
+              justify='space-between'
+
+              style={{
+                width: '100%',
+                marginBottom: '12px'
+              }}
+            >
+              <Type
+                version='h1'
+              >
+                {inputModeHeadingText}
+              </Type>
+
+              {switch_ && (
+                <Tooltip
+                  label='Select date'
+                >
+                  <IconButton
+                    tonal={tonal}
+
+                    color='inherit'
+
+                    onClick={onModeSwitch}
+                  >
+                    <Icon />
+                  </IconButton>
+                </Tooltip>
+              )}
+            </Line>
+          )}
+        </Line>
+
+        {/* Divider */}
+        <Divider
+          className={classNames([
+            staticClassName('DatePicker', theme) && [
+              'AmauiDatePicker-divider'
+            ],
+
+            classes.divider
+          ])}
+        />
+
+        {/* Select */}
+        {refs.mode.current === 'select' && (
+          <Line
+            direction='row'
+
+            align='center'
+
+            justify='space-between'
+
+            style={{
+              width: '100%',
+              marginBottom: '12px'
+            }}
+          >
+
+          </Line>
+        )}
+
+        {/* Input */}
+        {refs.mode.current === 'input' && (
+          <Line
+            direction='column'
+
+            style={{
+              width: '100%',
+              padding: '16px 24px 8px'
+            }}
+          >
+            <AdvancedTextField
+              tonal={tonal}
+
+              color={color}
+
+              version='outlined'
+
+              label={label}
+
+              mask={mask}
+
+              placeholder={placeholder}
+
+              value={refs.values.current.inputModal}
+
+              onChange={(valueNew: any) => updateValuesInputModal(valueNew)}
+
+              helperText={useHelperText ? placeholder : undefined}
+
+              className={classNames([
+                staticClassName('DatePicker', theme) && [
+                  'AmauiDatePicker-input'
+                ],
+
+                classes.input
+              ])}
+
+              {...AdvancedTextFieldProps}
+            />
+          </Line>
+        )}
+
+        {/* Actions */}
+        <Line
+          direction='row'
+
+          align='center'
+
+          justify='flex-end'
+
+          className={classNames([
+            staticClassName('DatePicker', theme) && [
+              'AmauiDatePicker-mode-docked-footer'
+            ],
+
+            classes.mode_docked_footer
+          ])}
+        >
+          <Line
+            gap={0}
+
+            direction='row'
+
+            align='center'
+          >
+            <Button
+              onClick={onCancel}
+
+              {...actionsButtonsProps}
+            >
+              Cancel
+            </Button>
+
+            <Button
+              onClick={onOk}
+
+              {...actionsButtonsProps}
+            >
+              Ok
+            </Button>
+          </Line>
+        </Line>
+      </Surface>
     );
-  }), []);
+  }), [tonal, color, switch_, modeModalHeadingText, inputModeHeadingText]);
 
   const ModeFullScreen = React.useCallback(React.forwardRef((props_: any, ref: any) => {
 
     return (
       <div />
     );
-  }), []);
-
-  const ModeInput = React.useCallback(React.forwardRef((props_: any, ref: any) => {
-
-    return (
-      <div />
-    );
-  }), []);
-
-  let mask: any = [];
-
-  let placeholder: any = [];
-
-  if (day) {
-    mask.push(
-      { pattern: '[0-3]' },
-
-      (item: string, result: string, valueInput: string) => /^(0[0-9]|1[0-9]|2[0-9]|3[0-1]).*/.test(valueInput)
-    );
-
-    placeholder.push('DD');
-  }
-
-  if (month) {
-    if (!!mask.length) mask.push('/');
-
-    mask.push(
-      { pattern: '[0-1]' },
-
-      (item: string, result: string, valueInput: string) => day ? /^(0[0-9]|1[0-9]|2[0-9]|3[0-1])\/(0[0-9]|1[0-2])/.test(valueInput) : /^(0[0-9]|1[0-2]).*/.test(valueInput)
-    );
-
-    placeholder.push('MM');
-  }
-
-  if (year) {
-    if (!!mask.length) mask.push('/');
-
-    mask.push(
-      { pattern: '[1-2]' },
-
-      { pattern: '[0-9]' },
-
-      { pattern: '[0-9]' },
-
-      { pattern: '[0-9]' }
-    );
-
-    placeholder.push('YYYY');
-  }
-
-  placeholder = placeholder.join('/');
-
-  const moreProps: any = {};
+  }), [tonal, color]);
 
   if (version === 'desktop') {
     moreProps.end = (
@@ -1684,6 +1995,8 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
   if (version === 'mobile') {
     if (!readOnly) moreProps.onClick = onModal;
   }
+
+  if (version === 'static') return versionStatic === 'docked' ? <ModeDocked /> : versionStatic === 'modal' ? <ModeModal /> : <ModeFullScreen />;
 
   return <>
     <AdvancedTextField
@@ -1742,9 +2055,19 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
         onClose={onClose}
 
+        NoSurfaceProps={{
+          className: classNames([
+            staticClassName('DatePicker', theme) && [
+              'AmauiDatePicker-modal'
+            ],
+
+            classes.modal
+          ])
+        }}
+
         {...ModalProps}
       >
-        {mode === 'select' ? <ModeModal /> : <ModeInput />}
+        <ModeModal />
       </Modal>
     )}
 

@@ -486,7 +486,7 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
 
       version='static'
 
-      openDesktop={mode}
+      versionStatic={mode}
 
       max={autoValidation ? new AmauiDate(refs.value.current[1]) : undefined}
 
@@ -515,7 +515,7 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
 
       version='static'
 
-      openDesktop={mode}
+      versionStatic={mode}
 
       min={autoValidation ? new AmauiDate(refs.value.current[0]) : undefined}
 
