@@ -1234,7 +1234,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
           try {
             const item = list.querySelector(`[data-value="${valueItem}"]`);
 
-            if (item) list.scrollTo(0, clamp(item.offsetTop - (refs.mode.current !== 'docked' ? 124 : 194), 0), { behavior: 'smooth' });
+            if (item) list.scrollTo(0, clamp(item.offsetTop - (refs.version.current !== 'desktop' ? 124 : 195), 0), { behavior: 'smooth' });
           } catch (error) { }
         }
       }
