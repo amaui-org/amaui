@@ -3682,7 +3682,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
   }
 
   if (version === 'static') return versionStatic === 'docked' ? <ModeDocked /> : versionStatic === 'modal' ? <ModeModal /> : <ModeFullScreen />;
-  console.log(1, carouselValue);
+
   return <>
     <AdvancedTextField
       rootRef={item => {
