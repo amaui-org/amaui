@@ -216,6 +216,10 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
     onChange,
 
+    // id if it updates
+    // update items
+    id,
+
     // Array of string or object
     // object having element as a string or element
     // and a transition element
@@ -312,6 +316,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     ArrowPreviousTransitionComponentProps,
     ArrowNextTransitionComponentProps,
     ProgressTransitionComponentProps,
+    ItemWrapperProps,
 
     Component = 'div',
 
@@ -475,7 +480,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
       if (valueNew <= min || valueNew >= max) {
         // Done
-        return (refs.carousel.current as HTMLElement).style.removeProperty('transition');
+        return (refs.carousel.current as HTMLElement)?.style.removeProperty('transition');
       }
       else {
         refs.value.current = {
@@ -500,7 +505,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
       if (valueNew <= min || valueNew >= max) {
         // Done
-        return (refs.carousel.current as HTMLElement).style.removeProperty('transition');
+        return (refs.carousel.current as HTMLElement)?.style.removeProperty('transition');
       }
       else {
         refs.value.current = {
@@ -520,7 +525,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     if (Math.abs(refs.velocity.current) > 0.5) refs.momentumID.current = requestAnimationFrame(momentumMethod);
     else {
       // Done
-      (refs.carousel.current as HTMLElement).style.removeProperty('transition');
+      (refs.carousel.current as HTMLElement)?.style.removeProperty('transition');
     }
   };
 
@@ -558,7 +563,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     momentumClear();
 
     // Momentum clean up
-    (refs.carousel.current as HTMLElement).style.removeProperty('transition');
+    (refs.carousel.current as HTMLElement)?.style.removeProperty('transition');
 
     let index = refs.value.current?.index;
 
@@ -685,7 +690,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
   const onMouseUp = React.useCallback((event: any) => {
     if (refs.mouseDown.current) {
-      if (refs.mouseDown.current && !refs.momentum.current) (refs.carousel.current as HTMLElement).style.removeProperty('transition');
+      if (refs.mouseDown.current && !refs.momentum.current) (refs.carousel.current as HTMLElement)?.style.removeProperty('transition');
 
       refs.mouseDownDuration.current = new Date().getTime() - refs.mouseDownStart.current;
 
@@ -907,6 +912,10 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
       if (item >= 0 && item <= refs.itemsLength.current && item !== refs.value.current?.index) onUpdate(item);
     }
   }, [item]);
+
+  React.useEffect(() => {
+    if (init) setItems(items_);
+  }, [id]);
 
   const onPrevious = () => onUpdate('previous');
 
@@ -1222,11 +1231,14 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
               justify='center'
 
+              {...ItemWrapperProps}
+
               className={classNames([
                 staticClassName('Carousel', theme) && [
                   'AmauiCarousel-item'
                 ],
 
+                ItemWrapperProps?.className,
                 classes.item,
                 autoHeight && classes[`item_version_${version}_autoHeight`],
                 itemSize && classes[`item_itemSize_${itemSize}`]

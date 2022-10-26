@@ -23,9 +23,10 @@ import List from '../List';
 import ListItem from '../ListItem';
 import { IconDoneAnimated } from '../Buttons/Buttons';
 import Divider from '../Divider';
+import Slide from '../Slide';
 
 import { staticClassName, valueBreakpoints } from '../utils';
-import Slide from '../Slide';
+import Carousel from '../Carousel';
 
 const useStyle = style(theme => ({
   root: {
@@ -64,6 +65,7 @@ const useStyle = style(theme => ({
   mode_modal_middle: {
     position: 'relative',
     width: '100%',
+    height: '100%',
     padding: '8px 12px 8px'
   },
 
@@ -141,6 +143,10 @@ const useStyle = style(theme => ({
     flex: '1 1 auto'
   },
 
+  calendar_wrapper_fullScreen: {
+    maxWidth: 'unset'
+  },
+
   calendar_transition: {
     position: 'absolute',
     top: '0',
@@ -152,6 +158,12 @@ const useStyle = style(theme => ({
 
   calendar: {
 
+  },
+
+  carousel: {
+    '&.AmauiCarousel-root': {
+      height: '100%'
+    }
   },
 
   divider: {
@@ -258,6 +270,10 @@ const useStyle = style(theme => ({
     maxHeight: '271px',
     overflowY: 'auto',
     marginTop: '8px'
+  },
+
+  list_modal_fullScreen: {
+    maxHeight: 'unset'
   },
 
   listItem: {
@@ -415,6 +431,8 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
     onDayClick,
 
     relative = true,
+
+    noTransition,
 
     className,
 
@@ -589,146 +607,276 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
       </Line>
 
       {/* Weeks */}
-      <Transitions
-        noTransition={monthSame}
+      {!noTransition && (
+        <Transitions
+          noTransition={monthSame}
 
-        mode='in-out-follow'
+          mode='in-out-follow'
 
-        switch
-      >
-        <Transition
-          key={id}
-
-          in
+          switch
         >
-          {(status: TTransitionStatus) => {
+          <Transition
+            key={id}
 
-            return (
-              <Surface
-                tonal={tonal}
+            in
+          >
+            {(status: TTransitionStatus) => {
 
-                color={color}
-              >
-                {({ palette }) => (
-                  <Line
-                    gap={0}
+              return (
+                <Surface
+                  tonal={tonal}
 
-                    direction='column'
+                  color={color}
+                >
+                  {({ palette }) => (
+                    <Line
+                      gap={0}
 
-                    align='unset'
+                      direction='column'
 
-                    justify='unset'
+                      align='unset'
 
-                    className={classNames([
-                      staticClassName('DatePicker', theme) && [
-                        'AmauiDatePicker-weeks'
-                      ],
+                      justify='unset'
 
-                      classes.weeks,
-                      !relative && classes.weeks_absolute,
-                      [`weeks_${status}`]
-                    ])}
-                  >
-                    {weeks.map((week: any, index: number) => (
-                      // Week
-                      <Line
-                        key={index}
+                      className={classNames([
+                        staticClassName('DatePicker', theme) && [
+                          'AmauiDatePicker-weeks'
+                        ],
 
-                        gap={0}
+                        classes.weeks,
+                        !relative && classes.weeks_absolute,
+                        [`weeks_${status}`]
+                      ])}
+                    >
+                      {weeks.map((week: any, index: number) => (
+                        // Week
+                        <Line
+                          key={index}
 
-                        direction='row'
+                          gap={0}
 
-                        align='unset'
+                          direction='row'
 
-                        justify='space-between'
+                          align='unset'
 
-                        className={classNames([
-                          staticClassName('DatePicker', theme) && [
-                            'AmauiDatePicker-week'
-                          ],
+                          justify='space-between'
 
-                          classes.week
-                        ])}
-                      >
-                        {week.map((day: any, index_: number) => (
-                          <div
-                            key={index_}
+                          className={classNames([
+                            staticClassName('DatePicker', theme) && [
+                              'AmauiDatePicker-week'
+                            ],
 
-                            className={classNames([
-                              staticClassName('DatePicker', theme) && [
-                                'AmauiDatePicker-day',
-                                `AmauiDatePicker-day-${day.in ? 'in' : 'out'}`
-                              ],
-
-                              classes.day,
-                              classes[`day_${day.in ? 'in' : 'out'}`],
-                              (!day.in && !outside) && classes.day_out_no
-                            ])}
-                          >
-                            <PaginationItem
-                              tonal={tonal}
-
-                              color='inherit'
-
-                              TypeProps={{
-                                version: 'b3',
-
-                                color: !day.selected ? !day.weekend ? 'primary' : 'secondary' : undefined
-                              }}
-
-                              onClick={() => onDayClick(day.amauiDate)}
-
-                              disabled={(
-                                (!day.in && !outside) ||
-
-                                !valid(
-                                  getLeadingZerosNumber(day.amauiDate.day),
-
-                                  'day',
-
-                                  {
-                                    month: getLeadingZerosNumber(day.amauiDate.month),
-                                    year: day.amauiDate.year
-                                  }
-                                )
-                              )}
+                            classes.week
+                          ])}
+                        >
+                          {week.map((day: any, index_: number) => (
+                            <div
+                              key={index_}
 
                               className={classNames([
                                 staticClassName('DatePicker', theme) && [
-                                  'AmauiDatePicker-day-value'
+                                  'AmauiDatePicker-day',
+                                  `AmauiDatePicker-day-${day.in ? 'in' : 'out'}`
                                 ],
 
-                                classes.dayValue
+                                classes.day,
+                                classes[`day_${day.in ? 'in' : 'out'}`],
+                                (!day.in && !outside) && classes.day_out_no
                               ])}
-
-                              style={{
-                                ...(day.today ? {
-                                  outline: `1px solid ${palette[40]}`,
-                                  outlineOffset: '-1px'
-                                } : undefined),
-
-                                ...(day.selected ? {
-                                  color: theme.methods.palette.color.value(undefined, 90, true, palette),
-                                  backgroundColor: theme.methods.palette.color.value(undefined, 40, true, palette)
-                                } : undefined)
-                              }}
                             >
-                              {day.value}
-                            </PaginationItem>
-                          </div>
-                        ))}
-                      </Line>
-                    ))}
-                  </Line>
-                )}
-              </Surface>
-            );
-          }}
-        </Transition>
-      </Transitions>
+                              <PaginationItem
+                                tonal={tonal}
+
+                                color='inherit'
+
+                                TypeProps={{
+                                  version: 'b3',
+
+                                  color: !day.selected ? !day.weekend ? 'primary' : 'secondary' : undefined
+                                }}
+
+                                onClick={() => onDayClick(day.amauiDate)}
+
+                                disabled={(
+                                  (!day.in && !outside) ||
+
+                                  !valid(
+                                    getLeadingZerosNumber(day.amauiDate.day),
+
+                                    'day',
+
+                                    {
+                                      month: getLeadingZerosNumber(day.amauiDate.month),
+                                      year: day.amauiDate.year
+                                    }
+                                  )
+                                )}
+
+                                className={classNames([
+                                  staticClassName('DatePicker', theme) && [
+                                    'AmauiDatePicker-day-value'
+                                  ],
+
+                                  classes.dayValue
+                                ])}
+
+                                style={{
+                                  ...(day.today ? {
+                                    outline: `1px solid ${palette[40]}`,
+                                    outlineOffset: '-1px'
+                                  } : undefined),
+
+                                  ...(day.selected ? {
+                                    color: theme.methods.palette.color.value(undefined, 90, true, palette),
+                                    backgroundColor: theme.methods.palette.color.value(undefined, 40, true, palette)
+                                  } : undefined)
+                                }}
+                              >
+                                {day.value}
+                              </PaginationItem>
+                            </div>
+                          ))}
+                        </Line>
+                      ))}
+                    </Line>
+                  )}
+                </Surface>
+              );
+            }}
+          </Transition>
+        </Transitions>
+      )}
+
+      {/* Without the transition */}
+      {noTransition && (
+        <Surface
+          tonal={tonal}
+
+          color={color}
+        >
+          {({ palette }) => (
+            <Line
+              gap={0}
+
+              direction='column'
+
+              align='unset'
+
+              justify='unset'
+
+              className={classNames([
+                staticClassName('DatePicker', theme) && [
+                  'AmauiDatePicker-weeks'
+                ],
+
+                classes.weeks,
+                !relative && classes.weeks_absolute,
+                [`weeks_${status}`]
+              ])}
+            >
+              {weeks.map((week: any, index: number) => (
+                // Week
+                <Line
+                  key={index}
+
+                  gap={0}
+
+                  direction='row'
+
+                  align='unset'
+
+                  justify='space-between'
+
+                  className={classNames([
+                    staticClassName('DatePicker', theme) && [
+                      'AmauiDatePicker-week'
+                    ],
+
+                    classes.week
+                  ])}
+                >
+                  {week.map((day: any, index_: number) => (
+                    <div
+                      key={index_}
+
+                      className={classNames([
+                        staticClassName('DatePicker', theme) && [
+                          'AmauiDatePicker-day',
+                          `AmauiDatePicker-day-${day.in ? 'in' : 'out'}`
+                        ],
+
+                        classes.day,
+                        classes[`day_${day.in ? 'in' : 'out'}`],
+                        (!day.in && !outside) && classes.day_out_no
+                      ])}
+                    >
+                      <PaginationItem
+                        tonal={tonal}
+
+                        color='inherit'
+
+                        TypeProps={{
+                          version: 'b3',
+
+                          color: !day.selected ? !day.weekend ? 'primary' : 'secondary' : undefined
+                        }}
+
+                        onClick={() => onDayClick(day.amauiDate)}
+
+                        disabled={(
+                          (!day.in && !outside) ||
+
+                          !valid(
+                            getLeadingZerosNumber(day.amauiDate.day),
+
+                            'day',
+
+                            {
+                              month: getLeadingZerosNumber(day.amauiDate.month),
+                              year: day.amauiDate.year
+                            }
+                          )
+                        )}
+
+                        className={classNames([
+                          staticClassName('DatePicker', theme) && [
+                            'AmauiDatePicker-day-value'
+                          ],
+
+                          classes.dayValue
+                        ])}
+
+                        style={{
+                          ...(day.today ? {
+                            outline: `1px solid ${palette[40]}`,
+                            outlineOffset: '-1px'
+                          } : undefined),
+
+                          ...(day.selected ? {
+                            color: theme.methods.palette.color.value(undefined, 90, true, palette),
+                            backgroundColor: theme.methods.palette.color.value(undefined, 40, true, palette)
+                          } : undefined)
+                        }}
+                      >
+                        {day.value}
+                      </PaginationItem>
+                    </div>
+                  ))}
+                </Line>
+              ))}
+            </Line>
+          )}
+        </Surface>
+      )}
     </Line>
   );
 });
+
+// to do
+
+// carousel move starting x fix
+
+// range
 
 const DatePicker = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
@@ -1007,7 +1155,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
   }, []);
 
   const valuesToValue = (values_: any) => {
-    let amauiDate = refs.value.current;
+    let amauiDate = new AmauiDate(refs.value.current);
 
     if (values_.date) {
       amauiDate = new AmauiDate(values_.date);
@@ -1294,7 +1442,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
           try {
             const item = list.querySelector(`[data-value="${valueItem}"]`);
 
-            if (item) list.scrollTo(0, clamp(item.offsetTop - (refs.version.current !== 'desktop' ? 104 : 195), 0), { behavior: 'smooth' });
+            if (item) list.scrollTo(0, clamp(item.offsetTop - (refs.version.current !== 'desktop' ? 104 : 200), 0), { behavior: 'smooth' });
           } catch (error) { }
         }
       }
@@ -2398,6 +2546,8 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     const monthNameAbr = formatMethod(month, 'MMM');
     const dayName = formatMethod(month, 'd');
     const day = getLeadingZerosNumber(month.day);
+    const months = monthsValue;
+    const millisecondsSelected = refs.values.current.selected?.milliseconds;
 
     const buttonsProps = {
       color: 'inherit',
@@ -2583,19 +2733,344 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
             classes.mode_modal_fullScreen_main
           ])}
+
+          style={{
+            // without range date value
+            maxHeight: 'calc(100% - 181px)'
+          }}
         >
           {/* Select */}
           {refs.mode.current === 'select' && (
-            <Line
-              direction='column'
+            <Surface
+              tonal={tonal}
 
-              style={{
-                width: '100%',
-                padding: '16px 24px 8px'
-              }}
+              color={color}
             >
+              {({ palette }) => (
+                <Line
+                  gap={0}
 
-            </Line>
+                  direction='column'
+
+                  style={{
+                    height: '100%'
+                  }}
+                >
+                  <Line
+                    gap={0}
+
+                    direction='column'
+
+                    align='center'
+
+                    className={classNames([
+                      staticClassName('DatePicker', theme) && [
+                        'AmauiDatePicker-mode-modal-middle'
+                      ],
+
+                      classes.mode_modal_middle
+                    ])}
+                  >
+                    {/* Header */}
+                    <Line
+                      gap={0.5}
+
+                      direction='row'
+
+                      align='center'
+
+                      justify='space-between'
+
+                      className={classNames([
+                        staticClassName('DatePicker', theme) && [
+                          'AmauiDatePicker-mode-modal-header-select'
+                        ],
+
+                        classes.mode_modal_header_select
+                      ])}
+                    >
+                      {/* Month year */}
+                      <Button
+                        tonal={tonal}
+
+                        color='inherit'
+
+                        version='text'
+
+                        onClick={() => onOpenMenu('year')}
+
+                        fontSize={24}
+
+                        end={(
+                          <IconDropDown
+                            className={classNames([
+                              staticClassName('DatePicker', theme) && [
+                                'AmauiDatePicker-arrow'
+                              ],
+
+                              classes.arrow,
+                              refs.openMenu.current === 'year' && classes.arrow_open
+                            ])}
+                          />
+                        )}
+
+                        className={classNames([
+                          staticClassName('DatePicker', theme) && [
+                            'AmauiDatePicker-mode-docked-header-button'
+                          ],
+
+                          classes.mode_docked_header_button
+                        ])}
+                      >
+                        {monthName} {year}
+                      </Button>
+
+                      {/* Arrows */}
+                      <Line
+                        gap={0}
+
+                        direction='row'
+
+                        align='center'
+                      >
+                        <Fade
+                          in={!refs.openMenu.current}
+                        >
+                          <IconButton
+                            tonal={tonal}
+
+                            color='inherit'
+
+                            onClick={() => move(false, 'year', true)}
+
+                            disabled={refs.openMenu.current}
+                          >
+                            <IconPrevious />
+                          </IconButton>
+                        </Fade>
+
+                        <Fade
+                          in={!refs.openMenu.current}
+                        >
+                          <IconButton
+                            tonal={tonal}
+
+                            color='inherit'
+
+                            onClick={() => move(true, 'year', true)}
+
+                            disabled={refs.openMenu.current}
+                          >
+                            <IconNext />
+                          </IconButton>
+                        </Fade>
+                      </Line>
+                    </Line>
+
+                    {/* Calendar */}
+                    {!refs.openMenu.current && (
+                      <Fade
+                        in
+                      >
+                        {/* Calendars */}
+                        <Carousel
+                          tonal={tonal}
+
+                          color={color}
+
+                          id={millisecondsSelected + year}
+
+                          arrows={false}
+
+                          progress={false}
+
+                          orientation='vertical'
+
+                          moveBeyondEdge={false}
+
+                          itemSize='auto'
+
+                          gap={0}
+
+                          free
+
+                          items={Array.from({ length: 12 }).map((item: any, index: number) => {
+                            const values_ = {
+                              ...refs.values.current,
+
+                              year,
+
+                              month: getLeadingZerosNumber(index + 1)
+                            };
+
+                            delete values_.date;
+
+                            // date
+                            values_.date = valuesToValue(values_);
+
+                            return (
+                              <Line
+                                key={index}
+
+                                gap={1.5}
+
+                                direction='column'
+
+                                style={{
+                                  width: '100%',
+                                  marginTop: '16px'
+                                }}
+                              >
+                                <Type
+                                  version='l2'
+
+                                  style={{
+                                    paddingInlineStart: '16px'
+                                  }}
+                                >
+                                  {months[index]} {year}
+                                </Type>
+
+                                <div
+                                  className={classNames([
+                                    staticClassName('DatePicker', theme) && [
+                                      'AmauiDatePicker-calendar-wrapper',
+                                      'AmauiDatePicker-calendar-wrapper-fullScreen'
+                                    ],
+
+                                    classes.calendar_wrapper,
+                                    classes.calendar_wrapper_fullScreen
+                                  ])}
+                                >
+                                  <CalendarDays
+                                    tonal={tonal}
+
+                                    color={color}
+
+                                    weekStartDay={weekStartDay}
+
+                                    value={refs.value.current}
+
+                                    values={values_}
+
+                                    valid={validItem}
+
+                                    onDayClick={onDayClick}
+
+                                    relative
+
+                                    outside={false}
+
+                                    noTransition
+                                  />
+                                </div>
+                              </Line>
+                            );
+                          })}
+
+                          ItemWrapperProps={{
+                            style: {
+                              width: '100%'
+                            }
+                          }}
+
+                          className={classNames([
+                            staticClassName('DatePicker', theme) && [
+                              'AmauiDatePicker-carousel'
+                            ],
+
+                            classes.carousel
+                          ])}
+                        />
+                      </Fade>
+                    )}
+
+                    {/* Menu */}
+                    {refs.openMenu.current === 'year' && (
+                      <Fade
+                        in
+                      >
+                        <Line
+                          ref={refs.year}
+
+                          tonal={tonal}
+
+                          color={color}
+
+                          direction='row'
+
+                          wrap='wrap'
+
+                          justify='space-evenly'
+
+                          className={classNames([
+                            staticClassName('DatePicker', theme) && [
+                              'AmauiDatePicker-list-modal',
+                              'AmauiDatePicker-list-modal-fullScreen'
+                            ],
+
+                            classes.list_modal,
+                            classes.list_modal_fullScreen
+                          ])}
+                        >
+                          {getYears(refs.value.current, refs.values.current).map((item: any, index: number) => {
+                            const monthValue = refs.values.current.date;
+                            const year = +formatMethod(monthValue, 'YYYY');
+
+                            const selected = year === item.value;
+
+                            return (
+                              <PaginationItem
+                                key={index}
+
+                                tonal={tonal}
+
+                                color='inherit'
+
+                                TypeProps={{
+                                  version: 'b2',
+
+                                  color: !selected ? 'primary' : undefined
+                                }}
+
+                                onClick={() => onYearClick(item.value, true)}
+
+                                data-value={item.value}
+
+                                disabled={(
+                                  !validItem(
+                                    getLeadingZerosNumber(item.value),
+
+                                    'year'
+                                  )
+                                )}
+
+                                className={classNames([
+                                  staticClassName('DatePicker', theme) && [
+                                    'AmauiDatePicker-day-value-modal'
+                                  ],
+
+                                  classes.dayValue_modal
+                                ])}
+
+                                style={{
+                                  ...(selected ? {
+                                    color: theme.methods.palette.color.value(undefined, 90, true, palette),
+                                    backgroundColor: theme.methods.palette.color.value(undefined, 40, true, palette)
+                                  } : undefined)
+                                }}
+                              >
+                                {item.value}
+                              </PaginationItem>
+                            );
+                          })}
+                        </Line>
+                      </Fade>
+                    )}
+                  </Line>
+                </Line>
+              )}
+            </Surface>
           )}
 
           {/* Input */}
