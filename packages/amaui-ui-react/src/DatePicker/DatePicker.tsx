@@ -212,28 +212,26 @@ const useStyle = style(theme => ({
 
   dayStartSelected: {
     '&::before': {
+      content: '""',
       position: 'absolute',
       left: '50%',
       top: '0',
       height: '100%',
       width: '50%',
-      background: 'currentColor',
-      content: '""',
-      borderRadius: 'inherit'
+      background: 'currentColor'
     }
   },
 
   dayEndSelected: {
     '&::before': {
+      content: '""',
       position: 'absolute',
       left: '0',
       right: '50%',
       top: '0',
       height: '100%',
       width: '50%',
-      background: 'currentColor',
-      content: '""',
-      borderRadius: 'inherit'
+      background: 'currentColor'
     }
   },
 
@@ -472,6 +470,8 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
     calendar,
 
     valid,
+
+    range,
 
     weekStartDay,
 
@@ -768,7 +768,7 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
                                 classes.day,
                                 classes[`day_${day.in ? 'in' : 'out'}`],
                                 (!day.in && !outside) && classes.day_out_no,
-                                !day.selectedSame && [
+                                !day.selectedSame && range && [
                                   (day.dayWeek === 1 || (day.selected && day.selectedIndex === 0) || (day.start && !outside)) && classes.dayStart,
                                   (day.dayWeek === 0 || (day.selected && day.selectedIndex === 1) || (day.end && !outside)) && classes.dayEnd,
                                   ((day.dayWeek === 1 || (day.selected && day.selectedIndex === 0) || (day.start && !outside)) && (day.dayWeek === 0 || (day.selected && day.selectedIndex === 1) || (day.end && !outside))) && classes.dayStartEnd,
@@ -778,11 +778,11 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
                               ])}
 
                               style={{
-                                ...(!day.selected && !day.selectedSame && day.between ? {
+                                ...(range && !day.selected && !day.selectedSame && day.between ? {
                                   background: theme.methods.palette.color.value(undefined, 80, true, palette)
                                 } : undefined),
 
-                                ...(day.selected && !day.selectedSame ? {
+                                ...(range && day.selected && !day.selectedSame ? {
                                   color: theme.methods.palette.color.value(undefined, 80, true, palette)
                                 } : undefined)
                               }}
@@ -917,7 +917,7 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
                         classes.day,
                         classes[`day_${day.in ? 'in' : 'out'}`],
                         (!day.in && !outside) && classes.day_out_no,
-                        !day.selectedSame && [
+                        !day.selectedSame && range && [
                           (day.dayWeek === 1 || (day.selected && day.selectedIndex === 0) || (day.start && !outside)) && classes.dayStart,
                           (day.dayWeek === 0 || (day.selected && day.selectedIndex === 1) || (day.end && !outside)) && classes.dayEnd,
                           ((day.dayWeek === 1 || (day.selected && day.selectedIndex === 0) || (day.start && !outside)) && (day.dayWeek === 0 || (day.selected && day.selectedIndex === 1) || (day.end && !outside))) && classes.dayStartEnd,
@@ -927,11 +927,11 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
                       ])}
 
                       style={{
-                        ...(!day.selected && !day.selectedSame && day.between ? {
+                        ...(range && !day.selected && !day.selectedSame && day.between ? {
                           background: theme.methods.palette.color.value(undefined, 80, true, palette)
                         } : undefined),
 
-                        ...(day.selected && !day.selectedSame ? {
+                        ...(range && day.selected && !day.selectedSame ? {
                           color: theme.methods.palette.color.value(undefined, 80, true, palette)
                         } : undefined)
                       }}
@@ -999,9 +999,6 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
 });
 
 // to do
-
-// make days with colors if they are inbetween the range
-// if the range is true value y
 
 // with hover trail for days out of bounds
 
@@ -1778,6 +1775,15 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
   const onMode = React.useCallback(() => {
     setMode(refs.version.current === 'mobile' ? openMobile : 'select');
 
+    // Update calendar to from value view
+    if (!refs.open.current) {
+      setCalendar(calendar_ => ({
+        ...calendar_,
+
+        ...refs.values.current[0]
+      }));
+    }
+
     setOpen(!refs.open.current);
   }, [openMobile]);
 
@@ -1790,6 +1796,13 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     setMode(refs.version.current === 'mobile' ? openMobile : 'select');
 
     setOpen(true);
+
+    // Update calendar to from value view
+    setCalendar(calendar_ => ({
+      ...calendar_,
+
+      ...refs.values.current[0]
+    }));
 
     if (is('function', onClick_)) onClick_(event);
   }, [openMobile, onClick_]);
@@ -2144,6 +2157,8 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
                   onDayClick={onDayClick}
 
+                  range={range}
+
                   relative={false}
 
                   outside
@@ -2384,7 +2399,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
         )}
       </Surface>
     );
-  }), [tonal, color, weekStartDay]);
+  }), [tonal, color, range, weekStartDay]);
 
   const ModeModal = React.useCallback(React.forwardRef((props_: any, ref: any) => {
     const month = refs.calendar.current?.date;
@@ -2700,6 +2715,8 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
                           onDayClick={onDayClick}
 
                           relative={false}
+
+                          range={range}
 
                           outside={false}
 
@@ -3348,9 +3365,11 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
                                     onDayClick={onDayClick}
 
-                                    relative
+                                    range={range}
 
                                     outside={false}
+
+                                    relative
 
                                     noTransition
                                   />
@@ -3607,7 +3626,6 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
   if (version === 'static') return versionStatic === 'docked' ? <ModeDocked /> : versionStatic === 'modal' ? <ModeModal /> : <ModeFullScreen />;
 
-  console.log(1, value, values, calendar);
   return <>
     <AdvancedTextField
       rootRef={item => {
