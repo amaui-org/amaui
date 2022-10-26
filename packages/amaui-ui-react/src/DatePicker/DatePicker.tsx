@@ -1015,7 +1015,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     calendar: React.useRef<any>()
   };
 
-  const valueToValues = (valueNew: AmauiDate) => {
+  const valueToValues = (valueNew: AmauiDate, input = true) => {
     const values_: any = {
       ...refs.values.current
     };
@@ -1039,7 +1039,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
       if (year) format_.push('YYYY');
 
-      values_.input = formatMethod(valueNew, format_.join('/'));
+      if (input) values_.input = formatMethod(valueNew, format_.join('/'));
     }
 
     return values_;
@@ -1285,14 +1285,6 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     return values_;
   };
 
-  const updateValuesToInput = () => {
-    const amauiDate = valuesToValue(refs.values.current);
-
-    setValues(valueToValues(amauiDate));
-
-    updateValue(amauiDate);
-  };
-
   const validItem = (item: number | string = '', version: string = '', values__ = refs.values.current, withDate = false) => {
     const values_ = {
       ...refs.values.current,
@@ -1420,7 +1412,9 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     let [from, to] = refs.values.current;
 
     from = {
-      ...refs.calendar.current,
+      ...from,
+
+      ...valueToValues(valueNew, false),
 
       previous: refs.calendar.current.date,
 
@@ -1538,7 +1532,13 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
   const onClear = React.useCallback(() => {
     setOpenMenu(false);
 
-    setValues((range ? [new AmauiDate(), new AmauiDate()] : [new AmauiDate()]).map(item => valueToValues(item)));
+    setValues((range ? [new AmauiDate(), new AmauiDate()] : [new AmauiDate()]).map(item => {
+      const values_ = valueToValues(item);
+
+      values_.date = values_.selected = valueToValues(values_);
+
+      return values_;
+    }));
   }, [range]);
 
   const onOk = React.useCallback(() => {
@@ -1559,7 +1559,19 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
   }, []);
 
   const reset = () => {
-    const values_ = refs.values.current.map(item => ({ ...item, ...inputToValues(item.input), input: item.input }));
+    const values_ = refs.values.current.map(item => {
+      const item_ = {
+        ...item,
+
+        ...inputToValues(item.input),
+
+        input: item.input
+      };
+
+      item_.date = item_.selected = valueToValues(item_);
+
+      return item_;
+    });
 
     setValues(values_);
   };
