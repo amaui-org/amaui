@@ -534,9 +534,17 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
 
   const selectedSame = (day: any) => selecteds.filter((item: any) => item.year === day.year && item.month === day.month && item.day === day.day).length === 2;
 
+  let isMonthFrom = false;
+  let isMonthTo = false;
+
   // Add all month days
   for (let i = 0; i < month.daysInMonth; i++) {
     const day = set(i + 1, 'day', month);
+
+    const selectedIndex_ = selectedIndex(day);
+
+    if (selectedIndex_ === 0) isMonthFrom = true;
+    else if (selectedIndex_ === 1) isMonthTo = true;
 
     days.push({
       value: i + 1,
@@ -553,7 +561,7 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
 
       selected: isSelected(day),
 
-      selectedIndex: selectedIndex(day),
+      selectedIndex: selectedIndex_,
 
       selectedSame: selectedSame(day),
 
@@ -650,6 +658,10 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
         classes.calendar,
         classes[`move_${calendar?.move}`]
       ])}
+
+      {...(isMonthFrom && { 'data-month-from': true })}
+
+      {...(isMonthTo && { 'data-month-to': true })}
 
       {...other}
     >
@@ -1018,11 +1030,6 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
   );
 });
 
-// to do
-
-// carousel vertical default values
-// on open, on mode switch, on clear, on cancel value y
-
 const DatePicker = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 
@@ -1154,7 +1161,9 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     maskInput: React.useRef<any>(),
     placeholder: React.useRef<any>(),
     placeholderInput: React.useRef<any>(),
-    calendar: React.useRef<any>()
+    calendar: React.useRef<any>(),
+    carousel: React.useRef<any>(),
+    carouselValue: React.useRef<any>()
   };
 
   const valueToValues = (valueNew: AmauiDate, index: number, input = true) => {
@@ -1259,6 +1268,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
     return calendar_;
   });
+  const [carouselValue, setCarouselValue] = React.useState<any>();
   const [error, setError] = React.useState(false);
 
   let version = version_;
@@ -1295,6 +1305,8 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
   refs.menuCloseOnSelect.current = menuCloseOnSelect;
 
   refs.calendar.current = calendar;
+
+  refs.carouselValue.current = carouselValue;
 
   let mask: any = [];
 
@@ -1603,6 +1615,19 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
   React.useEffect(() => {
     if (value_ !== undefined && value_ !== refs.value.current) updateFromValue(value_);
   }, [value_]);
+
+  const updateCarouselPosition = () => {
+    // scroll to the value
+    try {
+      let item: any = window.document.body.querySelector('[data-month-from]');
+
+      if (item) {
+        item = item.parentElement.parentElement.parentElement;
+
+        setCarouselValue({ y: item.offsetTop });
+      }
+    } catch (error) { }
+  };
 
   const onDayClick = React.useCallback((amauiDate: AmauiDate) => {
     const valueNew = new AmauiDate(amauiDate);
@@ -3302,11 +3327,15 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
                       >
                         {/* Calendars */}
                         <Carousel
+                          ref={refs.carousel}
+
                           tonal={tonal}
 
                           color={color}
 
                           id={millisecondsSelected + year}
+
+                          value={refs.carouselValue.current}
 
                           arrows={false}
 
@@ -3321,6 +3350,8 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
                           gap={0}
 
                           free
+
+                          onUpdateItems={updateCarouselPosition}
 
                           items={Array.from({ length: 12 }).map((item: any, index: number) => {
                             const calendar_ = {
@@ -3651,7 +3682,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
   }
 
   if (version === 'static') return versionStatic === 'docked' ? <ModeDocked /> : versionStatic === 'modal' ? <ModeModal /> : <ModeFullScreen />;
-
+  console.log(1, carouselValue);
   return <>
     <AdvancedTextField
       rootRef={item => {

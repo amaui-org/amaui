@@ -287,6 +287,8 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
     onUpdatePosition: onUpdatePosition_,
 
+    onUpdateItems,
+
     onBlur: onBlur_,
     onFocus: onFocus_,
     onMouseEnter: onMouseEnter_,
@@ -916,6 +918,10 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
       if (item >= 0 && item <= refs.itemsLength.current && item !== refs.value.current?.index) onUpdate(item);
     }
   }, [item]);
+
+  React.useEffect(() => {
+    if (is('function', onUpdateItems)) onUpdateItems();
+  }, [items, onUpdateItems]);
 
   React.useEffect(() => {
     if (init) setItems(items_);
