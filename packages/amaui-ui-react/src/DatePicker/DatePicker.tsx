@@ -3191,7 +3191,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
           style={{
             // without range date value
-            maxHeight: `calc(100% - ${range ? 222 : 181}px)`
+            maxHeight: `calc(100% - ${(range && refs.mode.current === 'select') ? 222 : 181}px)`
           }}
         >
           {/* Select */}
