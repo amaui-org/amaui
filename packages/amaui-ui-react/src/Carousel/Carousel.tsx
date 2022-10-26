@@ -287,6 +287,8 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
     onUpdatePosition: onUpdatePosition_,
 
+    onInit,
+
     onUpdateItems,
 
     onBlur: onBlur_,
@@ -394,7 +396,8 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     round: React.useRef<any>(),
     velocity: React.useRef<any>(),
     momentumID: React.useRef<any>(),
-    width: React.useRef<any>()
+    width: React.useRef<any>(),
+    onInit: React.useRef<any>()
   };
 
   const styles: any = {
@@ -432,6 +435,8 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
   refs.momentum.current = momentum;
 
   refs.round.current = round;
+
+  refs.onInit.current = onInit;
 
   const { scrollWidth, scrollHeight } = (refs.carousel.current || {});
 
@@ -893,6 +898,8 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     window.addEventListener('touchmove', onTouchMove, { passive: true });
 
     setInit(true);
+
+    if (is('function', refs.onInit.current)) refs.onInit.current();
 
     return () => {
       observer.disconnect();

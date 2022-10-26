@@ -3351,7 +3351,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
                           free
 
-                          onUpdateItems={updateCarouselPosition}
+                          onInit={updateCarouselPosition}
 
                           items={Array.from({ length: 12 }).map((item: any, index: number) => {
                             const calendar_ = {
