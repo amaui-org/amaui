@@ -459,9 +459,11 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
   const month: AmauiDate = calendar?.date || value[0];
 
   // value or value range selected y value y
-  const selected: AmauiDate = from?.selected || value[0];
+  const selecteds: [AmauiDate, AmauiDate] = values.map(item => item.selected);
 
-  const id = (month.year + month.month + month.day) + (selected.year + selected.month + selected.day);
+  let id = `${month.year} ${month.month} ${month.day}`;
+
+  selecteds.forEach(item => id += ` ${item.year} ${item.month} ${item.day}`);
 
   const monthStart = startOf(month, 'month');
 
@@ -488,7 +490,7 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
 
       today: day.year === monthNow.year && day.dayYear === monthNow.dayYear,
 
-      selected: selected.year === day.year && selected.month === day.month && selected.day === day.day,
+      selected: selecteds.some(item => item.year === day.year && item.month === day.month && item.day === day.day),
 
       amauiDate: day
     });
@@ -512,7 +514,7 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
 
         today: day.year === monthNow.year && day.dayYear === monthNow.dayYear,
 
-        selected: selected.year === day.year && selected.month === day.month && selected.day === day.day,
+        selected: selecteds.some(item => item.year === day.year && item.month === day.month && item.day === day.day),
 
         amauiDate: day
       });
@@ -541,7 +543,7 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
 
         today: day.year === monthNow.year && day.dayYear === monthNow.dayYear,
 
-        selected: selected.year === day.year && selected.month === day.month && selected.day === day.day,
+        selected: selecteds.some(item => item.year === day.year && item.month === day.month && item.day === day.day),
 
         amauiDate: day
       });
@@ -883,9 +885,11 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
 
 // to do
 
-// make all into array of value
+// make days with colors if they are inbetween the range
+// if the range is true value y
 
-// make visible the range value y
+// carousel vertical default values
+// on open, on mode switch, on clear, on cancel value y
 
 const DatePicker = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
@@ -919,6 +923,10 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     today = true,
 
     label,
+
+    labelFrom = `Date from`,
+
+    labelTo = `Date to`,
 
     min,
     max,
@@ -1011,13 +1019,15 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     today: React.useRef<any>(),
     menuCloseOnSelect: React.useRef<any>(),
     mask: React.useRef<any>(),
+    maskInput: React.useRef<any>(),
     placeholder: React.useRef<any>(),
+    placeholderInput: React.useRef<any>(),
     calendar: React.useRef<any>()
   };
 
-  const valueToValues = (valueNew: AmauiDate, input = true) => {
+  const valueToValues = (valueNew: AmauiDate, index: number, input = true) => {
     const values_: any = {
-      ...refs.values.current
+      ...refs.values.current?.[index]
     };
 
     if (valueNew) {
@@ -1039,16 +1049,16 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
       if (year) format_.push('YYYY');
 
-      if (input) values_.input = formatMethod(valueNew, format_.join('/'));
+      if (input) values_.input = values_.inputModal = formatMethod(valueNew, format_.join('/'));
     }
 
     return values_;
   };
 
-  const valuesToValue = (values_: any) => {
+  const valuesToValue = (values_: any, date = true) => {
     let amauiDate = new AmauiDate(refs.value.current);
 
-    if (values_.date) {
+    if (values_.date && date) {
       amauiDate = new AmauiDate(values_.date);
     }
     else {
@@ -1076,7 +1086,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     return amauiDate;
   };
 
-  const valueToInputModal = (value_ = refs.values.current.date) => {
+  const valueToInputModal = (value_: any) => {
     let inputModal = '';
 
     const format_: any = [];
@@ -1103,7 +1113,13 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
     return is('array', value__) ? value__ : [value__];
   });
-  const [values, setValues] = React.useState<any>(() => value.map(item => valueToValues(item)));
+  const [values, setValues] = React.useState<any>(() => value.map((item: any, index: number) => {
+    const item_ = valueToValues(item, index);
+
+    item_.date = item_.selected = item;
+
+    return item_;
+  }));
   const [calendar, setCalendar] = React.useState<any>(() => {
     const calendar_ = { ...values[0] };
 
@@ -1192,6 +1208,10 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
   placeholder = placeholder.join('/');
 
+  refs.maskInput.current = [...mask];
+
+  refs.placeholderInput.current = placeholder;
+
   // range
   if (range) {
     mask.push(
@@ -1223,21 +1243,6 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     return years_;
   }, []);
 
-  const updateValuesInputModal = (value_: any) => {
-    const values_ = {
-      ...refs.values.current,
-
-      ...inputToValues(value_),
-
-      inputModal: value_
-    };
-
-    // Selected
-    values_.selected = values_.date;
-
-    setValues(values_);
-  };
-
   const updateInput = (valueNew: any) => {
     const [from, to] = valueNew.split(SEPARATOR);
 
@@ -1248,7 +1253,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     values_[0] = {
       ...values_[0],
 
-      ...(from && inputToValues(from)),
+      ...(from && inputToValues(from, 0)),
 
       input: from,
 
@@ -1257,18 +1262,37 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
     values_[0].selected = values_[0].date;
 
-    if (to) {
-      values_[1] = {
-        ...values_[1],
+    if (range) {
+      if (to) {
+        values_[1] = {
+          ...values_[1],
 
-        ...(to && inputToValues(to, 1)),
+          ...(to && inputToValues(to, 1)),
 
-        input: to,
+          input: to,
 
-        inputModal: to
-      };
+          inputModal: to
+        };
 
-      values_[1].selected = values_[1].date;
+        values_[1].selected = values_[1].date;
+      }
+
+      const amauiDates = values_.map(item => item.selected);
+
+      if (amauiDates[0].milliseconds > amauiDates[1].milliseconds) {
+        values_[0] = { ...values_[1] };
+
+        values_[0].date = new AmauiDate(values_[0].date);
+
+        values_[0].selected = new AmauiDate(values_[0].selected);
+      }
+      else if (amauiDates[1].milliseconds < amauiDates[0].milliseconds) {
+        values_[1] = { ...values_[0] };
+
+        values_[1].date = new AmauiDate(values_[1].date);
+
+        values_[1].selected = new AmauiDate(values_[1].selected);
+      }
     }
 
     values_ = values_.filter(Boolean);
@@ -1285,11 +1309,59 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     return values_;
   };
 
-  const validItem = (item: number | string = '', version: string = '', values__ = refs.values.current, withDate = false) => {
-    const values_ = {
-      ...refs.values.current,
+  const updateInputModal = (valueNew: any, index: number) => {
+    const [from, to] = valueNew.split(SEPARATOR);
 
-      ...values__
+    let values_ = [
+      ...refs.values.current
+    ];
+
+    values_[index] = {
+      ...values_[index],
+
+      ...inputToValues(valueNew, index),
+
+      inputModal: valueNew
+    };
+
+    values_[index].selected = values_[index].date;
+
+    values_ = values_.filter(Boolean);
+
+    if (range) {
+      const amauiDates = values_.map(item => item.selected);
+
+      if (amauiDates[0].milliseconds > amauiDates[1].milliseconds) {
+        values_[0] = { ...values_[1] };
+
+        values_[0].date = new AmauiDate(values_[0].date);
+
+        values_[0].selected = new AmauiDate(values_[0].selected);
+      }
+      else if (amauiDates[1].milliseconds < amauiDates[0].milliseconds) {
+        values_[1] = { ...values_[0] };
+
+        values_[1].date = new AmauiDate(values_[1].date);
+
+        values_[1].selected = new AmauiDate(values_[1].selected);
+      }
+    }
+
+    setValues(values_);
+
+    setCalendar({ ...values_[index], previous: values_[index].date });
+
+    updateValue(values_.map(item => valuesToValue(item)));
+
+    // Error
+    setError([from, to].filter(Boolean).some((item: any, index_: number) => !validItem('', '', inputToValues(item, index_))));
+
+    return values_;
+  };
+
+  const validItem = (item: number | string = '', version: string = '', calendar_ = refs.calendar.current, withDate = false) => {
+    const values_ = {
+      ...calendar_
     };
 
     // Only validate against day, month, year values
@@ -1322,7 +1394,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     return valid;
   };
 
-  const inputToValues = (valueNew: any, index = 0) => {
+  const inputToValues = (valueNew: any, index: number) => {
     const values_: any = {
       ...refs.values.current[index]
     };
@@ -1368,11 +1440,15 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
     const amauiDates = valueNew.map(item => new AmauiDate(item));
 
+    if (amauiDates[0].milliseconds > amauiDates[1].milliseconds) amauiDates[0] = new AmauiDate(amauiDates[1]);
+
+    if (amauiDates[1].milliseconds < amauiDates[0].milliseconds) amauiDates[1] = new AmauiDate(amauiDates[0]);
+
     // Error
-    setError(amauiDates.some(item => !validItem('', '', valueToValues(item))));
+    setError(amauiDates.some((item: any, index: number) => !validItem('', '', valueToValues(item, index))));
 
     // Update values
-    setValues(amauiDates.map(item => valueToValues(item)));
+    setValues(amauiDates.map((item: any, index: number) => valueToValues(item, index)));
 
     // Update value
     setValue(amauiDates);
@@ -1392,7 +1468,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     };
 
     // Error
-    setError((refs.values.current || []).some(values_ => !validItem('', '', inputToValues(values_?.input))));
+    setError((refs.values.current || []).some((item: any, index: number) => !validItem('', '', inputToValues(item?.input, index))));
 
     window.addEventListener('keydown', onKeyDown);
 
@@ -1411,26 +1487,111 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     // value or value range update
     let [from, to] = refs.values.current;
 
-    from = {
-      ...from,
+    if (!range) {
+      from = {
+        ...from,
 
-      ...valueToValues(valueNew, false),
+        ...valueToValues(valueNew, 0, false),
 
-      previous: refs.calendar.current.date,
+        previous: refs.calendar.current.date,
 
-      move: valueNew.milliseconds > refs.calendar.current?.date?.milliseconds ? 'next' : 'previous',
+        move: valueNew.milliseconds > refs.calendar.current?.date?.milliseconds ? 'next' : 'previous',
 
-      selected: new AmauiDate(valueNew),
+        selected: new AmauiDate(valueNew),
 
-      inputModal: valueToInputModal(valueNew),
+        inputModal: valueToInputModal(valueNew),
 
-      date: valueNew
-    };
+        date: valueNew
+      };
 
-    setCalendar(from);
+      setCalendar(from);
 
-    setValues([from, to].filter(Boolean));
-  }, []);
+      setValues([from, to].filter(Boolean));
+
+      return;
+    }
+
+    // update the value closest to from, to value
+    // if value is same (in terms of day, month, year as from or to)
+    // make a reset, ie. make both values that same date
+    // as a selected value
+    const selecteds = refs.values.current.map(item => item.selected);
+
+    // if day, month, year
+    // is same as one of the selected, reset
+    // make both selected values the same value
+    if (selecteds.filter(Boolean).some(item => valueNew.year === item.year && valueNew.month === item.month && valueNew.day === item.day)) {
+      return setValues(values_ => {
+        const values__ = values_.map((item_: any, index_: number) => {
+          const item = {
+            ...item_,
+
+            ...valueToValues(valueNew, index_, false),
+
+            previous: refs.calendar.current.date,
+
+            move: valueNew.milliseconds > refs.calendar.current?.date?.milliseconds ? 'next' : 'previous',
+
+            selected: new AmauiDate(valueNew),
+
+            inputModal: valueToInputModal(valueNew),
+
+            date: valueNew
+          };
+
+          return item;
+        });
+
+        // Calendar
+        setCalendar(values__[0]);
+
+        return values__;
+      });
+    }
+
+    let index: number;
+
+    if (!selecteds[0]) index = 0;
+    else if (!selecteds[1]) index = 1;
+    else if (valueNew.milliseconds < selecteds[0].milliseconds) index = 0;
+    else if (valueNew.milliseconds > selecteds[1].milliseconds) index = 1;
+    else {
+      const part = Math.abs(selecteds[1].milliseconds - selecteds[0].milliseconds) / 2;
+
+      index = valueNew.milliseconds <= (selecteds[0].milliseconds + part) ? 0 : 1;
+    }
+
+    setValues(values_ => {
+      const values__ = values_.map((item_: any, index_: number) => {
+        if (index_ === index) {
+          const item = {
+            ...item_,
+
+            ...valueToValues(valueNew, index_, false),
+
+            previous: refs.calendar.current.date,
+
+            move: valueNew.milliseconds > refs.calendar.current?.date?.milliseconds ? 'next' : 'previous',
+
+            selected: new AmauiDate(valueNew),
+
+            inputModal: valueToInputModal(valueNew),
+
+            date: valueNew
+          };
+
+          // Calendar
+          setCalendar(item);
+
+          return item;
+        }
+
+        return item_;
+      });
+
+      return values__;
+    });
+  }, [range]);
 
   const onMonthClick = React.useCallback((index: number) => {
     let valueNew = new AmauiDate(refs.calendar.current.date);
@@ -1532,13 +1693,29 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
   const onClear = React.useCallback(() => {
     setOpenMenu(false);
 
-    setValues((range ? [new AmauiDate(), new AmauiDate()] : [new AmauiDate()]).map(item => {
-      const values_ = valueToValues(item);
+    const values_ = (range ? [new AmauiDate(), new AmauiDate()] : [new AmauiDate()]).map((item: any, index: number) => {
+      const item_ = valueToValues(item, index);
 
-      values_.date = values_.selected = valueToValues(values_);
+      item_.date = item_.selected = item;
 
-      return values_;
-    }));
+      item_.inputModal = valueToInputModal(item_.date);
+
+      return item_;
+    });
+
+    setValues(values_);
+
+    setCalendar(() => {
+      const calendar_ = { ...refs.calendar.current, ...values_[0] };
+
+      calendar_.previous = refs.calendar.current?.date;
+
+      calendar_.date = valuesToValue(values_[0]);
+
+      calendar_.move = calendar_.date.milliseconds > calendar_.previous?.milliseconds ? 'next' : 'previous';
+
+      return calendar_;
+    });
   }, [range]);
 
   const onOk = React.useCallback(() => {
@@ -1546,7 +1723,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
     const amauiDates = values_.map((item => valuesToValue(item)));
 
-    values_ = amauiDates.map(item => valueToValues(item));
+    values_ = amauiDates.map((item: any, index: number) => valueToValues(item, index));
 
     setValues(values_);
 
@@ -1559,21 +1736,35 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
   }, []);
 
   const reset = () => {
-    const values_ = refs.values.current.map(item => {
+    const values_ = refs.values.current.map((item: any, index: number) => {
       const item_ = {
         ...item,
 
-        ...inputToValues(item.input),
+        ...inputToValues(item.input, index),
 
-        input: item.input
+        input: item.input,
+
+        inputModal: item.input
       };
 
-      item_.date = item_.selected = valueToValues(item_);
+      item_.date = item_.selected = valuesToValue(item_);
 
       return item_;
     });
 
     setValues(values_);
+
+    setCalendar(() => {
+      const calendar_ = { ...refs.calendar.current, ...values_[0] };
+
+      calendar_.previous = refs.calendar.current?.date;
+
+      calendar_.date = valuesToValue(values_[0]);
+
+      calendar_.move = calendar_.date.milliseconds > calendar_.previous?.milliseconds ? 'next' : 'previous';
+
+      return calendar_;
+    });
   };
 
   const onCancel = React.useCallback(() => {
@@ -2088,13 +2279,20 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
   }), [tonal, color, weekStartDay]);
 
   const ModeModal = React.useCallback(React.forwardRef((props_: any, ref: any) => {
-    const month = refs.calendar.current;
+    const month = refs.calendar.current?.date;
 
     const year = formatMethod(month, 'YYYY');
     const monthName = formatMethod(month, 'MMMM');
-    const monthNameAbr = formatMethod(month, 'MMM');
-    const dayName = formatMethod(month, 'd');
-    const day = getLeadingZerosNumber(month.day);
+
+    const text = refs.values.current.map(item => {
+      const selected = item.selected;
+
+      const monthNameAbr = formatMethod(selected, 'MMM');
+      const dayName = formatMethod(selected, 'd');
+      const day = getLeadingZerosNumber(selected.day);
+
+      return `${dayName}, ${monthNameAbr} ${day}`;
+    }).join(SEPARATOR);
 
     const actionsButtonsProps = {
       tonal,
@@ -2166,7 +2364,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
               <Type
                 version='h1'
               >
-                {dayName}, {monthNameAbr} {day}
+                {text}
               </Type>
 
               {switch_ && (
@@ -2498,42 +2696,48 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
         {/* Input */}
         {refs.mode.current === 'input' && (
           <Line
-            direction='column'
+            direction='row'
+
+            align='center'
 
             style={{
               width: '100%',
               padding: '16px 24px 8px'
             }}
           >
-            <AdvancedTextField
-              tonal={tonal}
+            {refs.values.current.map((item: any, index: number) => (
+              <AdvancedTextField
+                key={index}
 
-              color={color}
+                tonal={tonal}
 
-              version='outlined'
+                color={color}
 
-              label={label}
+                version='outlined'
 
-              mask={mask}
+                label={index === 0 ? !range ? label : labelFrom : labelTo}
 
-              placeholder={placeholder}
+                mask={refs.maskInput.current}
 
-              value={refs.values.current.inputModal}
+                placeholder={refs.placeholderInput.current}
 
-              onChange={(valueNew: any) => updateValuesInputModal(valueNew)}
+                value={item.inputModal}
 
-              helperText={useHelperText ? placeholder : undefined}
+                onChange={(valueNew: any) => updateInputModal(valueNew, index)}
 
-              className={classNames([
-                staticClassName('DatePicker', theme) && [
-                  'AmauiDatePicker-input'
-                ],
+                helperText={useHelperText ? placeholder : undefined}
 
-                classes.input
-              ])}
+                className={classNames([
+                  staticClassName('DatePicker', theme) && [
+                    'AmauiDatePicker-input'
+                  ],
 
-              {...AdvancedTextFieldProps}
-            />
+                  classes.input
+                ])}
+
+                {...AdvancedTextFieldProps}
+              />
+            ))}
           </Line>
         )}
 
@@ -2600,21 +2804,29 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
         </Line>
       </Surface>
     );
-  }), [tonal, color, switch_, modeModalHeadingText, inputModeHeadingText]);
+  }), [tonal, color, range, switch_, labelFrom, labelTo, modeModalHeadingText, inputModeHeadingText]);
 
   const ModeFullScreen = React.useCallback(React.forwardRef((props_: any, ref: any) => {
-    const month = refs.calendar.current;
+    const month = refs.calendar.current?.date;
 
     const year = formatMethod(month, 'YYYY');
     const monthName = formatMethod(month, 'MMMM');
-    const monthNameAbr = formatMethod(month, 'MMM');
-    const dayName = formatMethod(month, 'd');
-    const day = getLeadingZerosNumber(month.day);
+
+    let millisecondsSelected = 0;
+
+    const text = refs.values.current.map(item => {
+      const selected = item.selected;
+
+      millisecondsSelected += selected.milliseconds;
+
+      const monthNameAbr = formatMethod(selected, 'MMM');
+      const dayName = formatMethod(selected, 'd');
+      const day = getLeadingZerosNumber(selected.day);
+
+      return `${dayName}, ${monthNameAbr} ${day}`;
+    }).join(SEPARATOR);
+
     const months = monthsValue;
-
-    const [from, to] = refs.values.current;
-
-    const millisecondsSelected = from.selected?.milliseconds;
 
     const buttonsProps = {
       color: 'inherit',
@@ -2721,7 +2933,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
                 <Type
                   version='h1'
                 >
-                  {dayName}, {monthNameAbr} {day}
+                  {text}
                 </Type>
 
                 {switch_ && (
@@ -3145,42 +3357,48 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
           {/* Input */}
           {refs.mode.current === 'input' && (
             <Line
-              direction='column'
+              direction='row'
+
+              align='center'
 
               style={{
                 width: '100%',
                 padding: '16px 24px 8px'
               }}
             >
-              <AdvancedTextField
-                tonal={tonal}
+              {refs.values.current.map((item: any, index: number) => (
+                <AdvancedTextField
+                  key={index}
 
-                color={color}
+                  tonal={tonal}
 
-                version='outlined'
+                  color={color}
 
-                label={label}
+                  version='outlined'
 
-                mask={mask}
+                  label={index === 0 ? !range ? label : labelFrom : labelTo}
 
-                placeholder={placeholder}
+                  mask={refs.maskInput.current}
 
-                value={refs.values.current.inputModal}
+                  placeholder={refs.placeholderInput.current}
 
-                onChange={(valueNew: any) => updateValuesInputModal(valueNew)}
+                  value={item.inputModal}
 
-                helperText={useHelperText ? placeholder : undefined}
+                  onChange={(valueNew: any) => updateInputModal(valueNew, index)}
 
-                className={classNames([
-                  staticClassName('DatePicker', theme) && [
-                    'AmauiDatePicker-input'
-                  ],
+                  helperText={useHelperText ? placeholder : undefined}
 
-                  classes.input
-                ])}
+                  className={classNames([
+                    staticClassName('DatePicker', theme) && [
+                      'AmauiDatePicker-input'
+                    ],
 
-                {...AdvancedTextFieldProps}
-              />
+                    classes.input
+                  ])}
+
+                  {...AdvancedTextFieldProps}
+                />
+              ))}
             </Line>
           )}
         </main>
@@ -3247,7 +3465,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
         </Line>
       </Surface>
     );
-  }), [tonal, color, switch_, fullScreen, modeModalHeadingText, inputModeHeadingText]);
+  }), [tonal, color, range, switch_, fullScreen, labelFrom, labelTo, modeModalHeadingText, inputModeHeadingText]);
 
   if (version === 'desktop') {
     moreProps.end = (

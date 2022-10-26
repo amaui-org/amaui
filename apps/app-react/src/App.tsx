@@ -3155,7 +3155,7 @@ Please sign in again.`}
           />
         </Accordion>
 
-        <Accordion primary='DatePicker range' open>
+        <Accordion primary='DatePicker range'>
           <DatePicker
             label='Date'
 
@@ -3172,6 +3172,14 @@ Please sign in again.`}
             label='Date'
 
             fullScreen
+          />
+
+          <DatePicker
+            label='Date range'
+
+            fullScreen
+
+            range
           />
         </Accordion>
 
