@@ -2851,7 +2851,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
             style={{
               width: '100%',
-              padding: '16px 24px 8px'
+              padding: '16px 24px 16px'
             }}
           >
             {refs.values.current.map((item: any, index: number) => (
@@ -3520,7 +3520,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
               style={{
                 width: '100%',
-                padding: '16px 24px 8px'
+                padding: '16px 24px 16px'
               }}
             >
               {refs.values.current.map((item: any, index: number) => (
