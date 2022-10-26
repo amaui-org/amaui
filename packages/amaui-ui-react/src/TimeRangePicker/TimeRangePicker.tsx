@@ -15,6 +15,7 @@ import TimePicker from '../TimePicker';
 import useMediaQuery from '../useMediaQuery';
 import Carousel from '../Carousel';
 import Line from '../Line';
+import Slide from '../Slide';
 
 import { staticClassName, valueBreakpoints } from '../utils';
 
@@ -619,6 +620,8 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
         modalWrapperSurface={false}
 
         onClose={onClose}
+
+        TransitionComponent={Slide}
 
         NoSurfaceProps={{
           className: classNames([

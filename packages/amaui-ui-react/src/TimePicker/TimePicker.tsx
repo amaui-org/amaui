@@ -19,6 +19,7 @@ import ToggleButton from '../ToggleButton';
 import Button from '../Button';
 import RoundMeter from '../RoundMeter';
 import Path from '../Path';
+import Slide from '../Slide';
 
 import { staticClassName, valueBreakpoints } from '../utils';
 
@@ -1803,6 +1804,8 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
         open={open}
 
         modalWrapperSurface={false}
+
+        TransitionComponent={Slide}
 
         onClose={onClose}
 

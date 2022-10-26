@@ -888,6 +888,8 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
 // make days with colors if they are inbetween the range
 // if the range is true value y
 
+// with hover trail for days out of bounds
+
 // carousel vertical default values
 // on open, on mode switch, on clear, on cancel value y
 
@@ -2687,6 +2689,8 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
         {/* Input */}
         {refs.mode.current === 'input' && (
           <Line
+            gap={1.5}
+
             direction='row'
 
             align='center'
@@ -3348,6 +3352,8 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
           {/* Input */}
           {refs.mode.current === 'input' && (
             <Line
+              gap={1.5}
+
               direction='row'
 
               align='center'
