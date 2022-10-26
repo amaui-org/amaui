@@ -699,6 +699,8 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
         if (refs.momentum.current) momentumStart();
 
+        refs.previousMouseEvent.current = undefined;
+
         return;
       }
 
@@ -763,6 +765,8 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
       }
 
       setMouseDown(false);
+
+      refs.previousMouseEvent.current = undefined;
     }
   }, []);
 
