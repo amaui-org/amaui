@@ -3155,6 +3155,18 @@ Please sign in again.`}
           />
         </Accordion>
 
+        <Accordion primary='DatePicker range' open>
+          <DatePicker
+            label='Date'
+
+            range
+
+            style={{
+              minWidth: '270px'
+            }}
+          />
+        </Accordion>
+
         <Accordion primary='DatePicker fullScreen'>
           <DatePicker
             label='Date'
