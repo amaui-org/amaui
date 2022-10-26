@@ -321,9 +321,21 @@ const useStyle = style(theme => ({
     }
   },
 
+  dayValue: {
+    '&:hover': {
+      outline: '1px solid currentColor',
+      outlineOffset: '-1px'
+    }
+  },
+
   dayValue_modal: {
     flex: '0 1 72px',
-    height: '36px'
+    height: '36px',
+
+    '&:hover': {
+      outline: '1px solid currentColor',
+      outlineOffset: '-1px'
+    }
   },
 
   arrow: {
@@ -792,6 +804,10 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
 
                                 color='inherit'
 
+                                InteractionProps={{
+                                  background: false
+                                }}
+
                                 TypeProps={{
                                   version: 'b3',
 
@@ -941,6 +957,10 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
 
                         color='inherit'
 
+                        InteractionProps={{
+                          background: false
+                        }}
+
                         TypeProps={{
                           version: 'b3',
 
@@ -999,8 +1019,6 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
 });
 
 // to do
-
-// with hover trail for days out of bounds
 
 // carousel vertical default values
 // on open, on mode switch, on clear, on cancel value y
@@ -2772,6 +2790,10 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
                               color='inherit'
 
+                              InteractionProps={{
+                                background: false
+                              }}
+
                               TypeProps={{
                                 version: 'b2',
 
@@ -3436,6 +3458,10 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
                                 tonal={tonal}
 
                                 color='inherit'
+
+                                InteractionProps={{
+                                  background: false
+                                }}
 
                                 TypeProps={{
                                   version: 'b2',
