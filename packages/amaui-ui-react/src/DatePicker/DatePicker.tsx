@@ -1618,15 +1618,17 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
   const updateCarouselPosition = () => {
     // scroll to the value
-    try {
-      let item: any = window.document.body.querySelector('[data-month-from]');
+    setTimeout(() => {
+      try {
+        let item: any = window.document.body.querySelector('[data-month-from]');
 
-      if (item) {
-        item = item.parentElement.parentElement.parentElement;
+        if (item) {
+          item = item.parentElement.parentElement.parentElement;
 
-        setCarouselValue({ y: item.offsetTop });
-      }
-    } catch (error) { }
+          setCarouselValue({ y: item.offsetTop });
+        }
+      } catch (error) { }
+    }, 140);
   };
 
   const onDayClick = React.useCallback((amauiDate: AmauiDate) => {
@@ -3189,7 +3191,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
           style={{
             // without range date value
-            maxHeight: 'calc(100% - 181px)'
+            maxHeight: `calc(100% - ${range ? 222 : 181}px)`
           }}
         >
           {/* Select */}
