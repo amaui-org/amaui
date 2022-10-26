@@ -139,7 +139,7 @@ const useStyle = style(theme => ({
     position: 'relative',
     width: '100%',
     maxWidth: '305px',
-    height: '280px',
+    height: '300px',
     flex: '1 1 auto'
   },
 
@@ -177,14 +177,16 @@ const useStyle = style(theme => ({
   },
 
   dayName: {
-    width: '40px',
+    width: 'auto',
     height: '40px',
+    flex: '1 1 auto',
     userSelect: 'none'
   },
 
   day: {
     width: '40px',
-    height: '40px'
+    height: '40px',
+    flex: '1 1 auto'
   },
 
   day_out: {
@@ -194,6 +196,45 @@ const useStyle = style(theme => ({
   day_out_no: {
     visibility: 'hidden',
     opacity: '0'
+  },
+
+  dayStart: {
+    borderRadius: '140px 0 0 140px'
+  },
+
+  dayEnd: {
+    borderRadius: '0 140px 140px 0'
+  },
+
+  dayStartEnd: {
+    borderRadius: '140px'
+  },
+
+  dayStartSelected: {
+    '&::before': {
+      position: 'absolute',
+      left: '50%',
+      top: '0',
+      height: '100%',
+      width: '50%',
+      background: 'currentColor',
+      content: '""',
+      borderRadius: 'inherit'
+    }
+  },
+
+  dayEndSelected: {
+    '&::before': {
+      position: 'absolute',
+      left: '0',
+      right: '50%',
+      top: '0',
+      height: '100%',
+      width: '50%',
+      background: 'currentColor',
+      content: '""',
+      borderRadius: 'inherit'
+    }
   },
 
   week: {
@@ -452,8 +493,6 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
 
   const days = [];
 
-  const [from, to] = values;
-
   const monthNow = new AmauiDate();
 
   const month: AmauiDate = calendar?.date || value[0];
@@ -475,6 +514,14 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
 
   const monthSame = month.year === calendar?.previous?.year && month.month === calendar?.previous?.month;
 
+  const isBetween = (day: any) => day.milliseconds >= selecteds[0]?.milliseconds && day.milliseconds <= (selecteds[1]?.milliseconds + 4000);
+
+  const isSelected = (day: any) => selecteds.some((item: any) => item.year === day.year && item.month === day.month && item.day === day.day);
+
+  const selectedIndex = (day: any) => selecteds.findIndex((item: any) => item.year === day.year && item.month === day.month && item.day === day.day);
+
+  const selectedSame = (day: any) => selecteds.filter((item: any) => item.year === day.year && item.month === day.month && item.day === day.day).length === 2;
+
   // Add all month days
   for (let i = 0; i < month.daysInMonth; i++) {
     const day = set(i + 1, 'day', month);
@@ -490,11 +537,21 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
 
       today: day.year === monthNow.year && day.dayYear === monthNow.dayYear,
 
-      selected: selecteds.some(item => item.year === day.year && item.month === day.month && item.day === day.day),
+      between: isBetween(day),
+
+      selected: isSelected(day),
+
+      selectedIndex: selectedIndex(day),
+
+      selectedSame: selectedSame(day),
 
       amauiDate: day
     });
   }
+
+  days[0].start = true;
+
+  days[days.length - 1].end = true;
 
   // Add to start
   if (monthStart.dayWeek !== 1) {
@@ -514,7 +571,13 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
 
         today: day.year === monthNow.year && day.dayYear === monthNow.dayYear,
 
-        selected: selecteds.some(item => item.year === day.year && item.month === day.month && item.day === day.day),
+        between: isBetween(day),
+
+        selected: isSelected(day),
+
+        selectedIndex: selectedIndex(day),
+
+        selectedSame: selectedSame(day),
 
         amauiDate: day
       });
@@ -543,7 +606,13 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
 
         today: day.year === monthNow.year && day.dayYear === monthNow.dayYear,
 
-        selected: selecteds.some(item => item.year === day.year && item.month === day.month && item.day === day.day),
+        between: isBetween(day),
+
+        selected: isSelected(day),
+
+        selectedIndex: selectedIndex(day),
+
+        selectedSame: selectedSame(day),
 
         amauiDate: day
       });
@@ -641,7 +710,7 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
                 >
                   {({ palette }) => (
                     <Line
-                      gap={0}
+                      gap={0.5}
 
                       direction='column'
 
@@ -681,8 +750,14 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
                           ])}
                         >
                           {week.map((day: any, index_: number) => (
-                            <div
+                            <Line
                               key={index_}
+
+                              direction='row'
+
+                              align='center'
+
+                              justify='center'
 
                               className={classNames([
                                 staticClassName('DatePicker', theme) && [
@@ -692,8 +767,25 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
 
                                 classes.day,
                                 classes[`day_${day.in ? 'in' : 'out'}`],
-                                (!day.in && !outside) && classes.day_out_no
+                                (!day.in && !outside) && classes.day_out_no,
+                                !day.selectedSame && [
+                                  (day.dayWeek === 1 || (day.selected && day.selectedIndex === 0) || (day.start && !outside)) && classes.dayStart,
+                                  (day.dayWeek === 0 || (day.selected && day.selectedIndex === 1) || (day.end && !outside)) && classes.dayEnd,
+                                  ((day.dayWeek === 1 || (day.selected && day.selectedIndex === 0) || (day.start && !outside)) && (day.dayWeek === 0 || (day.selected && day.selectedIndex === 1) || (day.end && !outside))) && classes.dayStartEnd,
+                                  (day.selected && day.selectedIndex === 0 && !day.selectedSame) && classes.dayStartSelected,
+                                  (day.selected && day.selectedIndex === 1 && !day.selectedSame) && classes.dayEndSelected
+                                ]
                               ])}
+
+                              style={{
+                                ...(!day.selected && !day.selectedSame && day.between ? {
+                                  background: theme.methods.palette.color.value(undefined, 80, true, palette)
+                                } : undefined),
+
+                                ...(day.selected && !day.selectedSame ? {
+                                  color: theme.methods.palette.color.value(undefined, 80, true, palette)
+                                } : undefined)
+                              }}
                             >
                               <PaginationItem
                                 tonal={tonal}
@@ -745,7 +837,7 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
                               >
                                 {day.value}
                               </PaginationItem>
-                            </div>
+                            </Line>
                           ))}
                         </Line>
                       ))}
@@ -767,7 +859,7 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
         >
           {({ palette }) => (
             <Line
-              gap={0}
+              gap={0.5}
 
               direction='column'
 
@@ -807,8 +899,14 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
                   ])}
                 >
                   {week.map((day: any, index_: number) => (
-                    <div
+                    <Line
                       key={index_}
+
+                      direction='row'
+
+                      align='center'
+
+                      justify='center'
 
                       className={classNames([
                         staticClassName('DatePicker', theme) && [
@@ -818,8 +916,25 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
 
                         classes.day,
                         classes[`day_${day.in ? 'in' : 'out'}`],
-                        (!day.in && !outside) && classes.day_out_no
+                        (!day.in && !outside) && classes.day_out_no,
+                        !day.selectedSame && [
+                          (day.dayWeek === 1 || (day.selected && day.selectedIndex === 0) || (day.start && !outside)) && classes.dayStart,
+                          (day.dayWeek === 0 || (day.selected && day.selectedIndex === 1) || (day.end && !outside)) && classes.dayEnd,
+                          ((day.dayWeek === 1 || (day.selected && day.selectedIndex === 0) || (day.start && !outside)) && (day.dayWeek === 0 || (day.selected && day.selectedIndex === 1) || (day.end && !outside))) && classes.dayStartEnd,
+                          (day.selected && day.selectedIndex === 0 && !day.selectedSame) && classes.dayStartSelected,
+                          (day.selected && day.selectedIndex === 1 && !day.selectedSame) && classes.dayEndSelected
+                        ]
                       ])}
+
+                      style={{
+                        ...(!day.selected && !day.selectedSame && day.between ? {
+                          background: theme.methods.palette.color.value(undefined, 80, true, palette)
+                        } : undefined),
+
+                        ...(day.selected && !day.selectedSame ? {
+                          color: theme.methods.palette.color.value(undefined, 80, true, palette)
+                        } : undefined)
+                      }}
                     >
                       <PaginationItem
                         tonal={tonal}
@@ -871,7 +986,7 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
                       >
                         {day.value}
                       </PaginationItem>
-                    </div>
+                    </Line>
                   ))}
                 </Line>
               ))}
