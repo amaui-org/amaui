@@ -1286,13 +1286,6 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
         values_[0].selected = new AmauiDate(values_[0].selected);
       }
-      else if (amauiDates[1].milliseconds < amauiDates[0].milliseconds) {
-        values_[1] = { ...values_[0] };
-
-        values_[1].date = new AmauiDate(values_[1].date);
-
-        values_[1].selected = new AmauiDate(values_[1].selected);
-      }
     }
 
     values_ = values_.filter(Boolean);
@@ -1331,19 +1324,19 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     if (range) {
       const amauiDates = values_.map(item => item.selected);
 
-      if (amauiDates[0].milliseconds > amauiDates[1].milliseconds) {
-        values_[0] = { ...values_[1] };
-
-        values_[0].date = new AmauiDate(values_[0].date);
-
-        values_[0].selected = new AmauiDate(values_[0].selected);
-      }
-      else if (amauiDates[1].milliseconds < amauiDates[0].milliseconds) {
+      if (amauiDates[1].milliseconds < amauiDates[0].milliseconds && index === 1) {
         values_[1] = { ...values_[0] };
 
         values_[1].date = new AmauiDate(values_[1].date);
 
         values_[1].selected = new AmauiDate(values_[1].selected);
+      }
+      else if (amauiDates[0].milliseconds > amauiDates[1].milliseconds) {
+        values_[0] = { ...values_[1] };
+
+        values_[0].date = new AmauiDate(values_[0].date);
+
+        values_[0].selected = new AmauiDate(values_[0].selected);
       }
     }
 
@@ -1441,8 +1434,6 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     const amauiDates = valueNew.map(item => new AmauiDate(item));
 
     if (amauiDates[0].milliseconds > amauiDates[1].milliseconds) amauiDates[0] = new AmauiDate(amauiDates[1]);
-
-    if (amauiDates[1].milliseconds < amauiDates[0].milliseconds) amauiDates[1] = new AmauiDate(amauiDates[0]);
 
     // Error
     setError(amauiDates.some((item: any, index: number) => !validItem('', '', valueToValues(item, index))));
