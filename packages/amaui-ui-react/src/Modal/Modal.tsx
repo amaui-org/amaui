@@ -69,7 +69,8 @@ const useStyle = style(theme => ({
   },
 
   noSurface: {
-    pointerEvents: 'all'
+    pointerEvents: 'all',
+    maxWidth: '100%'
   },
 
   fullScreen: {

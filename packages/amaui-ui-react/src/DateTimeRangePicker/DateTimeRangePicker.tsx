@@ -36,6 +36,31 @@ const useStyle = style(theme => ({
       marginInline: '0px'
     }
   },
+
+  modal_fullScreen: {
+    width: '100%',
+    height: '100vh',
+    maxWidth: 'unset',
+    borderRadius: '0px',
+    overflow: 'hidden',
+
+    '& .AmauiDateTimeRangePicker-mode': {
+      marginInline: '0px',
+      borderRadius: '0px',
+      height: '100vh'
+    },
+
+    '& .AmauiDatePicker-mode-modal-fullScreen-main': {
+      maxHeight: 'calc(100vh - 283px) !important'
+    }
+  },
+
+  mode_modal: {},
+
+  mode_modal_fullScreen: {
+    width: '100%',
+    height: '100%'
+  },
 }), { name: 'AmauiDateTimeRangePicker' });
 
 const IconMaterialDateRangeRoundedFilled = React.forwardRef((props: any, ref) => {
@@ -101,7 +126,7 @@ const DateTimeRangePicker = React.forwardRef((props_: any, ref: any) => {
 
     range,
 
-    fullScreen,
+    fullScreen = true,
 
     useHelperText: useHelperText_,
 
@@ -147,7 +172,8 @@ const DateTimeRangePicker = React.forwardRef((props_: any, ref: any) => {
     openVersion: React.useRef<any>(),
     validate: React.useRef<any>(),
     min: React.useRef<any>(),
-    max: React.useRef<any>()
+    max: React.useRef<any>(),
+    version: React.useRef<any>()
   };
 
   const valueToInput = (value__ = refs.value.current) => {
@@ -223,6 +249,8 @@ const DateTimeRangePicker = React.forwardRef((props_: any, ref: any) => {
     if (touch) version = 'mobile';
     else version = 'desktop';
   }
+
+  refs.version.current = version;
 
   const updateValue = (valueNew: any) => {
     setValue(valueNew);
@@ -508,6 +536,10 @@ const DateTimeRangePicker = React.forwardRef((props_: any, ref: any) => {
 
           direction='column'
 
+          align='center'
+
+          justify='center'
+
           style={{
             width: '100%'
           }}
@@ -527,6 +559,8 @@ const DateTimeRangePicker = React.forwardRef((props_: any, ref: any) => {
               year={year}
 
               value={refs.value.current}
+
+              onClose={onClose}
 
               onCancel={onClose}
 
@@ -551,6 +585,8 @@ const DateTimeRangePicker = React.forwardRef((props_: any, ref: any) => {
               second={second}
 
               value={refs.value.current}
+
+              onClose={onClose}
 
               onCancel={onClose}
 
@@ -622,6 +658,10 @@ const DateTimeRangePicker = React.forwardRef((props_: any, ref: any) => {
 
           direction='column'
 
+          align='center'
+
+          justify='center'
+
           style={{
             width: '100%'
           }}
@@ -640,7 +680,11 @@ const DateTimeRangePicker = React.forwardRef((props_: any, ref: any) => {
 
               year={year}
 
+              fullScreen={fullScreen}
+
               value={refs.value.current}
+
+              onClose={onClose}
 
               onCancel={onClose}
 
@@ -666,6 +710,8 @@ const DateTimeRangePicker = React.forwardRef((props_: any, ref: any) => {
 
               value={refs.value.current}
 
+              onClose={onClose}
+
               onCancel={onClose}
 
               onChange={(valueNew: any) => updateValueFromPicker(valueNew)}
@@ -676,7 +722,7 @@ const DateTimeRangePicker = React.forwardRef((props_: any, ref: any) => {
         </Line>
       </Surface>
     );
-  }), [tonal, color, day, month, year, hour, minute, second, format]);
+  }), [tonal, color, day, month, year, hour, minute, second, format, fullScreen]);
 
   const moreProps: any = {};
 
@@ -711,7 +757,7 @@ const DateTimeRangePicker = React.forwardRef((props_: any, ref: any) => {
 
     return <ModeMobile />;
   }
-
+  console.log(1, value);
   return <>
     <AdvancedTextField
       rootRef={item => {
@@ -771,15 +817,17 @@ const DateTimeRangePicker = React.forwardRef((props_: any, ref: any) => {
 
         TransitionComponent={Slide}
 
-        fullScreen
+        fullScreen={fullScreen}
 
         NoSurfaceProps={{
           className: classNames([
             staticClassName('DateTimeRangePicker', theme) && [
-              'AmauiDateTimeRangePicker-modal'
+              'AmauiDatePicker-modal',
+              fullScreen && `AmauiDatePicker-modal-fullScreen`
             ],
 
-            classes.modal
+            classes.modal,
+            fullScreen && classes.modal_fullScreen
           ])
         }}
 
@@ -814,7 +862,7 @@ const DateTimeRangePicker = React.forwardRef((props_: any, ref: any) => {
           <ClickListener
             onClickOutside={onClose}
 
-            includeParentQueries={['.AmauiDateTimeRangePicker-mode', '.AmauiDateRangePicker-list', '.AmauiDateRangePicker-day', '.AmauiTimePicker-mode']}
+            includeParentQueries={['.AmauiDateTimeRangePicker-mode', '.AmauiDatePicker-list', '.AmauiDatePicker-day', '.AmauiTimePicker-mode']}
 
             include={[refs.iconButton, refs.iconButton.current]}
           >

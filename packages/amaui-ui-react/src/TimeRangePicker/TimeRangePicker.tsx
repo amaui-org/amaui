@@ -102,11 +102,12 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
     label,
 
     min,
+
     max,
 
-    autoValidation = true,
-
     validate,
+
+    autoValidation = true,
 
     autoNext: autoNext_,
 
@@ -139,6 +140,8 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
     disabled,
 
     onClick: onClick_,
+
+    onClose: onClose_,
 
     Icon = IconMaterialScheduleRounded,
 
@@ -179,6 +182,7 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
       label,
 
       min,
+
       max,
 
       validate,
@@ -342,7 +346,7 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
   };
 
   const updateValue = (valueNew: any) => {
-    if (!props.hasOwnProperty('value')) setValue(valueNew);
+    setValue(valueNew);
 
     if (is('function', onChange)) onChange(valueNew);
   };
@@ -355,8 +359,6 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
     const inputs = values_?.input?.split(SEPARATOR);
 
     const value__ = inputs.map((item: string, index: number) => valuesToValue(inputToValues(item), index));
-
-    console.log(1114, inputs, value__);
 
     updateValue(value__);
   };
@@ -375,7 +377,7 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
     setValues(values_);
   };
 
-  const updateFromValue = (valueNew_: [number | AmauiDate, number | AmauiDate]) => {
+  const updateFromValuePicker = (valueNew_: [number | AmauiDate, number | AmauiDate]) => {
     const valueNew = valueNew_.map(item => new AmauiDate(item)) as [AmauiDate, AmauiDate];
 
     // Update values
@@ -383,6 +385,16 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
 
     // Update value
     updateValue(valueNew);
+  };
+
+  const updateFromValue = (valueNew_: [number | AmauiDate, number | AmauiDate]) => {
+    const valueNew = valueNew_.map(item => new AmauiDate(item)) as [AmauiDate, AmauiDate];
+
+    // Update values
+    setValues(valueToValues(valueNew));
+
+    // Update value
+    setValue(valueNew);
   };
 
   React.useEffect(() => {
@@ -405,7 +417,9 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
 
   const onClose = React.useCallback(() => {
     setOpen(false);
-  }, []);
+
+    if (is('function', onClose_)) onClose_();
+  }, [onClose_]);
 
   let mask: any = [];
 
@@ -502,9 +516,11 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
 
       inputModeHeadingText={`Enter ${from} time`}
 
-      value={new AmauiDate(refs.value.current[0])}
+      value={refs.value.current[0]}
 
-      onChange={(valueNew: any) => updateFromValue([valueNew, refs.value.current[1]])}
+      onCancel={onClose}
+
+      onChange={(valueNew: any) => updateFromValuePicker([valueNew, refs.value.current[1]])}
 
       ModeSelectProps={{
         className: classNames([
@@ -529,9 +545,11 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
 
       inputModeHeadingText={`Enter ${to} time`}
 
-      value={new AmauiDate(refs.value.current[1])}
+      value={refs.value.current[1]}
 
-      onChange={(valueNew: any) => updateFromValue([refs.value.current[0], valueNew])}
+      onCancel={onClose}
+
+      onChange={(valueNew: any) => updateFromValuePicker([refs.value.current[0], valueNew])}
 
       ModeSelectProps={{
         className: classNames([
@@ -601,6 +619,10 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
         justify='center'
 
         Component={Surface}
+
+        style={{
+          width: '100%'
+        }}
       >
         <Carousel
           tonal={tonal}
@@ -664,7 +686,7 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
   if (version === 'static') {
     if (versionStatic !== undefined) return 'desktop' ? <ModeDesktop /> : <ModeMobile />;
 
-    if (touch) return <ModeDesktop />;
+    if (!touch) return <ModeDesktop />;
 
     return <ModeMobile />;
   }

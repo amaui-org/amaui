@@ -3166,6 +3166,14 @@ Please sign in again.`}
             label='Date time range'
           />
         </Accordion>
+
+        <Accordion primary='DateTimeRangePicker without fullScreen' >
+          <DateTimeRangePicker
+            label='Date time range'
+
+            fullScreen={false}
+          />
+        </Accordion>
       </Accordion>
 
       <Accordion primary='DateTimePicker'>

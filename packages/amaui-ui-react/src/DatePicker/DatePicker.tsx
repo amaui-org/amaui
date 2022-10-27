@@ -121,7 +121,8 @@ const useStyle = style(theme => ({
 
   mode_modal_fullScreen_main: {
     width: '100%',
-    flex: '1 1 auto'
+    flex: '1 1 auto',
+    overflow: 'hidden'
   },
 
   mode_modal_fullScreen_footer: {
@@ -1078,6 +1079,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     labelTo = `Date to`,
 
     min,
+
     max,
 
     validate,
@@ -1119,6 +1121,8 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     geYears: getYears_,
 
     onClick: onClick_,
+
+    onClose: onClose_,
 
     onCancel: onCancel_,
 
@@ -1903,8 +1907,11 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
   const onClose = React.useCallback(() => {
     setOpenMenu(false);
+
     setOpen(false);
-  }, []);
+
+    if (is('function', onClose_)) onClose_();
+  }, [onClose_]);
 
   const onModal = React.useCallback((event: React.MouseEvent<any>) => {
     setMode(refs.version.current === 'mobile' ? openMobile : 'select');
@@ -1967,7 +1974,9 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     // Error
     setError(values_.some(item => !validItem('', '', item)));
 
-    onClose();
+    setOpenMenu(false);
+
+    setOpen(false);
   }, []);
 
   const reset = () => {
@@ -3335,7 +3344,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
           style={{
             // without range date value
-            maxHeight: `calc(100% - ${(range && refs.mode.current === 'select') ? 222 : 181}px)`
+            maxHeight: `calc(100vh - ${(range && refs.mode.current === 'select') ? 222 : 181}px)`
           }}
         >
           {/* Select */}

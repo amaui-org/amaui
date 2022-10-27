@@ -213,6 +213,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
     label,
 
     min,
+
     max,
 
     validate,
@@ -438,6 +439,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
   };
 
   const updateFromValue = (valueNew: number) => {
+    console.log('update from value');
     const amauiDate = new AmauiDate(valueNew);
 
     // Error
@@ -474,7 +476,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
     setValues(values_);
 
-    updateValue(amauiDate);
+    setValue(amauiDate);
 
     return values_;
   };
@@ -629,8 +631,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
         // Update values
         updateValues('hour', getLeadingZerosNumber(index));
       }
-
-      if (['minute', 'second'].includes(refs.values.current.selecting)) {
+      else if (['minute', 'second'].includes(refs.values.current.selecting)) {
         const part = 360 / 60;
 
         valuesAll = Array.from({ length: 60 }).map((item: any, index: number) => [(part * index) - (part / 2), (part * index) + (part / 2)]);
@@ -1306,7 +1307,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
         </Line>
       </Surface>
     );
-  }), [min, max, validate, version, format, hour, minute, second, selectModeHeadingText, mode, tonal, color, switch_, InputProps, theme]);
+  }), [version, format, hour, minute, second, selectModeHeadingText, mode, tonal, color, switch_, InputProps, theme]);
 
   const ModeInput = React.useCallback(React.forwardRef((props_: any, ref: any) => {
     const inputProps = {
@@ -1656,7 +1657,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
         </Line>
       </Surface>
     );
-  }), [min, max, validate, version, format, hour, minute, second, inputModeHeadingText, mode, tonal, color, switch_, InputProps]);
+  }), [version, format, hour, minute, second, inputModeHeadingText, mode, tonal, color, switch_, InputProps]);
 
   let mask: any = [];
 
@@ -1757,7 +1758,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
   if (version === 'static') {
     if (versionStatic !== undefined) return versionStatic === 'select' ? <ModeSelect /> : <ModeInput />;
 
-    return mode === 'select' ? <ModeSelect /> : <ModeInput />
+    return mode === 'select' ? <ModeSelect /> : <ModeInput />;
   }
 
   return <>
