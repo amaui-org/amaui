@@ -16,7 +16,6 @@ import useMediaQuery from '../useMediaQuery';
 import Carousel from '../Carousel';
 import Line from '../Line';
 import Slide from '../Slide';
-import Divider from '../Divider';
 
 import { staticClassName, valueBreakpoints } from '../utils';
 
@@ -35,8 +34,7 @@ const useStyle = style(theme => ({
 
   mode: {
     marginInline: '24px',
-    borderRadius: '28px',
-    height: '501px'
+    borderRadius: '28px'
   },
 
   timePicker: {
@@ -150,7 +148,6 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
     IconButtonProps,
     AdvancedTextFieldProps,
     ModalProps,
-    DividerProps,
 
     className,
 
@@ -496,8 +493,6 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
 
       version='static'
 
-      versionStatic={mode}
-
       max={autoValidation ? new AmauiDate(refs.value.current[1]) : undefined}
 
       selectModeHeadingText={`Select ${from} time`}
@@ -519,30 +514,11 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
       }}
     />,
 
-    <Divider
-      orientation='vertical'
-
-      flex
-
-      {...DividerProps}
-
-      className={classNames([
-        staticClassName('TimeRangePicker', theme) && [
-          'AmauiTimeRangePicker-divider'
-        ],
-
-        DividerProps?.className,
-        classes.divider
-      ])}
-    />,
-
     // To
     <TimePicker
       {...mergeProps(ToProps)}
 
       version='static'
-
-      versionStatic={mode}
 
       min={autoValidation ? new AmauiDate(refs.value.current[0]) : undefined}
 

@@ -201,7 +201,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
     // mobile, desktop, static & auto
     version: version_ = 'auto',
 
-    versionStatic = 'select',
+    versionStatic,
 
     value: value_,
     valueDefault,
@@ -1750,7 +1750,11 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
     if (!readOnly) moreProps.onClick = onModal;
   }
 
-  if (version === 'static') return versionStatic === 'select' ? <ModeSelect /> : <ModeInput />;
+  if (version === 'static') {
+    if (versionStatic !== undefined) return versionStatic === 'select' ? <ModeSelect /> : <ModeInput />;
+
+    return mode === 'select' ? <ModeSelect /> : <ModeInput />
+  }
 
   return <>
     <AdvancedTextField

@@ -3158,6 +3158,14 @@ Please sign in again.`}
             label='Date range'
           />
         </Accordion>
+
+        <Accordion primary='DateRangePicker caledars' open>
+          <DateRangePicker
+            label='Date range'
+
+            calendars={3}
+          />
+        </Accordion>
       </Accordion>
 
       <Accordion primary='DatePicker'>

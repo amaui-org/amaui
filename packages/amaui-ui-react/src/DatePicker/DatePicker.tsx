@@ -138,7 +138,7 @@ const useStyle = style(theme => ({
   calendar_wrapper: {
     position: 'relative',
     width: '100%',
-    maxWidth: '305px',
+    minWidth: '305px',
     height: '300px',
     flex: '1 1 auto'
   },
@@ -491,6 +491,8 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
 
     relative = true,
 
+    noMove,
+
     noTransition,
 
     className,
@@ -524,7 +526,7 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
 
   const nextMonth = add(1, 'month', month);
 
-  const monthSame = month.year === calendar?.previous?.year && month.month === calendar?.previous?.month;
+  let monthSame = month.year === calendar?.previous?.year && month.month === calendar?.previous?.month;
 
   const isBetween = (day: any) => day.milliseconds >= selecteds[0]?.milliseconds && day.milliseconds <= (selecteds[1]?.milliseconds + 4000);
 
@@ -638,6 +640,8 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
       });
     }
   }
+
+  if (noMove) monthSame = true;
 
   const weeks = arrayToParts(days, 7);
 
@@ -1050,7 +1054,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     // mobile, desktop, static & auto
     version: version_ = 'auto',
 
-    versionStatic = 'docked',
+    versionStatic,
 
     value: value_,
     valueDefault,
@@ -1060,6 +1064,8 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     calendar: calendar__,
 
     onChangeCalendar,
+
+    calendars = props.range ? 2 : 1,
 
     now = true,
 
@@ -1668,7 +1674,22 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
         date: valueNew
       };
 
-      updateCalendar(from);
+      // Calendar
+      let calendarValue = {
+        ...from
+      };
+
+      if (calendars > 1) {
+        calendarValue = {
+          ...refs.calendar.current,
+
+          update: 'day'
+        };
+
+        calendarValue.previous = new AmauiDate(calendarValue.date);
+      }
+
+      updateCalendar(calendarValue);
 
       setValues([from, to].filter(Boolean));
 
@@ -1707,7 +1728,21 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
         });
 
         // Calendar
-        updateCalendar(values__[0]);
+        let calendarValue = {
+          ...values__[0]
+        };
+
+        if (calendars > 1) {
+          calendarValue = {
+            ...refs.calendar.current,
+
+            update: 'day'
+          };
+
+          calendarValue.previous = new AmauiDate(calendarValue.date);
+        }
+
+        updateCalendar(calendarValue);
 
         return values__;
       });
@@ -1745,7 +1780,21 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
           };
 
           // Calendar
-          updateCalendar(item);
+          let calendarValue = {
+            ...item
+          };
+
+          if (calendars > 1) {
+            calendarValue = {
+              ...refs.calendar.current,
+
+              update: 'day'
+            };
+
+            calendarValue.previous = new AmauiDate(calendarValue.date);
+          }
+
+          updateCalendar(calendarValue);
 
           return item;
         }
@@ -1755,7 +1804,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
       return values__;
     });
-  }, [range]);
+  }, [range, calendars]);
 
   const onMonthClick = React.useCallback((index: number) => {
     let valueNew = new AmauiDate(refs.calendar.current.date);
@@ -1836,11 +1885,15 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
     // Update calendar to from value view
     if (!refs.open.current) {
-      updateCalendar({
+      const calendarValue = {
         ...refs.calendar.current,
 
         ...refs.values.current[0]
-      });
+      };
+
+      calendarValue.previous = new AmauiDate(calendarValue.date);
+
+      updateCalendar(calendarValue);
     }
 
     setOpen(!refs.open.current);
@@ -1961,6 +2014,22 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     });
 
     updateCalendar(calendar_);
+  };
+
+  const moveCalendar = (units = 1, calendarValue: any = refs.calendar.current, next = true, unit: TTimeUnits = 'month') => {
+    const previousCalendar: any = (calendarValue?.move === 'next' ? remove : add)(units - 1, unit, calendarValue.date);
+
+    const valueNew: any = (next ? add : remove)(units, unit, calendarValue.date);
+
+    const calendar_ = ({
+      ...calendarValue,
+
+      previous: previousCalendar,
+
+      date: valueNew
+    });
+
+    return calendar_;
   };
 
   const ModeDocked = React.useCallback(React.forwardRef((props__: any, ref: any) => {
@@ -2185,48 +2254,97 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
                 width: '100%'
               }}
             >
-              {/* Calendar */}
-              <div
-                className={classNames([
-                  staticClassName('DatePicker', theme) && [
-                    'AmauiDatePicker-calendar-wrapper'
-                  ],
+              {/* Calendar/s */}
+              <Line
+                direction='row'
 
-                  classes.calendar_wrapper
-                ])}
+                align='center'
+
+                style={{
+                  width: '100%',
+                  padding: '0 8px'
+                }}
               >
-                <CalendarDays
-                  tonal={tonal}
+                {Array.from({ length: calendars }).map((item: any, index: number) => {
+                  const calendarValue = index === 0 ? refs.calendar.current : moveCalendar(index, refs.calendar.current);
 
-                  color={color}
+                  if (refs.calendar.current.update === 'day') {
+                    calendarValue.previous = new AmauiDate(calendarValue.date);
+                  }
 
-                  weekStartDay={weekStartDay}
+                  const month = calendarValue?.date?.month - 1;
 
-                  value={refs.value.current}
+                  return (
+                    <Line
+                      key={index}
 
-                  values={refs.values.current}
+                      gap={1}
 
-                  calendar={refs.calendar.current}
+                      direction='column'
 
-                  valid={validItem}
+                      style={{
+                        width: '100%'
+                      }}
+                    >
+                      {calendars > 1 && (
+                        <Type
+                          version='l2'
 
-                  onDayClick={onDayClick}
+                          style={{
+                            paddingInlineStart: '16px'
+                          }}
+                        >
+                          {monthsValue[month]}
+                        </Type>
+                      )}
 
-                  range={range}
+                      <div
+                        className={classNames([
+                          staticClassName('DatePicker', theme) && [
+                            'AmauiDatePicker-calendar-wrapper'
+                          ],
 
-                  relative={false}
+                          classes.calendar_wrapper
+                        ])}
+                      >
+                        <CalendarDays
+                          tonal={tonal}
 
-                  outside
+                          color={color}
 
-                  className={classNames([
-                    staticClassName('DatePicker', theme) && [
-                      'AmauiDatePicker-calendar-transition'
-                    ],
+                          weekStartDay={weekStartDay}
 
-                    classes.calendar_transition
-                  ])}
-                />
-              </div>
+                          value={refs.value.current}
+
+                          values={refs.values.current}
+
+                          calendar={calendarValue}
+
+                          valid={validItem}
+
+                          onDayClick={onDayClick}
+
+                          range={range}
+
+                          relative={false}
+
+                          outside={calendars === 1}
+
+                          monthName={calendars > 1}
+
+                          className={classNames([
+                            staticClassName('DatePicker', theme) && [
+                              'AmauiDatePicker-calendar-transition'
+                            ],
+
+                            classes.calendar_transition
+                          ])}
+                        />
+                      </div>
+                    </Line>
+                  );
+                })}
+              </Line>
 
               {/* Actions */}
               <Line
@@ -3694,6 +3812,12 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
   }
 
   if (version === 'static') return versionStatic === 'docked' ? <ModeDocked /> : versionStatic === 'modal' ? <ModeModal /> : <ModeFullScreen />;
+
+  if (version === 'static') {
+    if (versionStatic !== undefined) return versionStatic === 'docked' ? <ModeDocked /> : versionStatic === 'modal' ? <ModeModal /> : <ModeFullScreen />;
+
+    return mode === 'docked' ? <ModeDocked /> : mode === 'modal' ? <ModeModal /> : <ModeFullScreen />;
+  }
 
   return <>
     <AdvancedTextField
