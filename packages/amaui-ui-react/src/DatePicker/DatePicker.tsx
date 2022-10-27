@@ -1946,7 +1946,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
     calendar_.move = calendar_.date.milliseconds > calendar_.previous?.milliseconds ? 'next' : 'previous';
 
-    if (calendar_.update !== 'day') calendar_.update = 'clear';
+    calendar_.update = 'clear';
 
     updateCalendar(calendar_);
   }, [range]);
@@ -1995,7 +1995,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
     calendar_.move = calendar_.date.milliseconds > calendar_.previous?.milliseconds ? 'next' : 'previous';
 
-    if (calendar_.update !== 'day') calendar_.update = 'clear';
+    calendar_.update = 'clear';
 
     updateCalendar(calendar_);
   };
@@ -2274,7 +2274,13 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
                 {Array.from({ length: calendars }).map((item: any, index: number) => {
                   const calendarValue = index === 0 ? refs.calendar.current : moveCalendar(index, refs.calendar.current);
 
-                  if (refs.calendar.current.update === 'day') {
+                  if (
+                    (refs.calendar.current.update === 'day') ||
+                    (
+                      (['clear', 'reset'].includes(refs.calendar.current.update)) &&
+                      (refs.calendar.current.previous.month === refs.calendar.current.date.month && refs.calendar.current.previous.year === refs.calendar.current.date.year)
+                    )
+                  ) {
                     calendarValue.previous = new AmauiDate(calendarValue.date);
                   }
 
