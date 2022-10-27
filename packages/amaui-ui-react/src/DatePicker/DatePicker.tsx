@@ -1057,6 +1057,10 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
     onChange,
 
+    calendar: calendar__,
+
+    onChangeCalendar,
+
     now = true,
 
     today = true,
@@ -1387,6 +1391,12 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     return years_;
   }, []);
 
+  const updateCalendar = (valueNew: any) => {
+    setCalendar(valueNew);
+
+    if (is('function', onChangeCalendar)) onChangeCalendar(valueNew);
+  };
+
   const updateInput = (valueNew: any) => {
     const [from, to] = valueNew.split(SEPARATOR);
 
@@ -1436,7 +1446,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
     setValues(values_);
 
-    setCalendar({ ...values_[0], previous: values_[0].date });
+    updateCalendar({ ...values_[0], previous: values_[0].date });
 
     updateValue(values_.map(item => valuesToValue(item)));
 
@@ -1486,7 +1496,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
     setValues(values_);
 
-    setCalendar({ ...values_[index], previous: values_[index].date });
+    updateCalendar({ ...values_[index], previous: values_[index].date });
 
     updateValue(values_.map(item => valuesToValue(item)));
 
@@ -1616,6 +1626,10 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     if (value_ !== undefined && value_ !== refs.value.current) updateFromValue(value_);
   }, [value_]);
 
+  React.useEffect(() => {
+    if (calendar__ !== undefined && calendar__ !== refs.calendar.current) setCalendar(calendarValue => ({ ...calendarValue, ...calendar__ }));
+  }, [calendar__]);
+
   const updateCarouselPosition = () => {
     // scroll to the value
     setTimeout(() => {
@@ -1654,7 +1668,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
         date: valueNew
       };
 
-      setCalendar(from);
+      updateCalendar(from);
 
       setValues([from, to].filter(Boolean));
 
@@ -1693,7 +1707,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
         });
 
         // Calendar
-        setCalendar(values__[0]);
+        updateCalendar(values__[0]);
 
         return values__;
       });
@@ -1731,7 +1745,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
           };
 
           // Calendar
-          setCalendar(item);
+          updateCalendar(item);
 
           return item;
         }
@@ -1748,17 +1762,17 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
     valueNew = set(index, 'month', valueNew);
 
-    setCalendar(calendar_ => ({
-      ...calendar_,
+    updateCalendar({
+      ...refs.calendar.current,
 
-      previous: calendar_.date,
+      previous: refs.calendar.current.date,
 
-      move: valueNew.milliseconds > calendar_?.date?.milliseconds ? 'next' : 'previous',
+      move: valueNew.milliseconds > refs.calendar.current?.date?.milliseconds ? 'next' : 'previous',
 
       inputModal: valueToInputModal(valueNew),
 
       date: valueNew
-    }));
+    });
 
     if (refs.menuCloseOnSelect.current) onCloseMenu();
   }, []);
@@ -1780,7 +1794,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
       date: valueNew
     };
 
-    setCalendar(calendar_);
+    updateCalendar(calendar_);
 
     if (refs.menuCloseOnSelect.current) onCloseMenu();
   }, []);
@@ -1822,11 +1836,11 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
     // Update calendar to from value view
     if (!refs.open.current) {
-      setCalendar(calendar_ => ({
-        ...calendar_,
+      updateCalendar({
+        ...refs.calendar.current,
 
         ...refs.values.current[0]
-      }));
+      });
     }
 
     setOpen(!refs.open.current);
@@ -1843,11 +1857,11 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     setOpen(true);
 
     // Update calendar to from value view
-    setCalendar(calendar_ => ({
-      ...calendar_,
+    updateCalendar({
+      ...refs.calendar.current,
 
       ...refs.values.current[0]
-    }));
+    });
 
     if (is('function', onClick_)) onClick_(event);
   }, [openMobile, onClick_]);
@@ -1871,17 +1885,15 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
     setValues(values_);
 
-    setCalendar(() => {
-      const calendar_ = { ...refs.calendar.current, ...values_[0] };
+    const calendar_ = { ...refs.calendar.current, ...values_[0] };
 
-      calendar_.previous = refs.calendar.current?.date;
+    calendar_.previous = refs.calendar.current?.date;
 
-      calendar_.date = valuesToValue(values_[0]);
+    calendar_.date = valuesToValue(values_[0]);
 
-      calendar_.move = calendar_.date.milliseconds > calendar_.previous?.milliseconds ? 'next' : 'previous';
+    calendar_.move = calendar_.date.milliseconds > calendar_.previous?.milliseconds ? 'next' : 'previous';
 
-      return calendar_;
-    });
+    updateCalendar(calendar_);
   }, [range]);
 
   const onOk = React.useCallback(() => {
@@ -1920,17 +1932,15 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
     setValues(values_);
 
-    setCalendar(() => {
-      const calendar_ = { ...refs.calendar.current, ...values_[0] };
+    const calendar_ = { ...refs.calendar.current, ...values_[0] };
 
-      calendar_.previous = refs.calendar.current?.date;
+    calendar_.previous = refs.calendar.current?.date;
 
-      calendar_.date = valuesToValue(values_[0]);
+    calendar_.date = valuesToValue(values_[0]);
 
-      calendar_.move = calendar_.date.milliseconds > calendar_.previous?.milliseconds ? 'next' : 'previous';
+    calendar_.move = calendar_.date.milliseconds > calendar_.previous?.milliseconds ? 'next' : 'previous';
 
-      return calendar_;
-    });
+    updateCalendar(calendar_);
   };
 
   const onCancel = React.useCallback(() => {
@@ -1950,7 +1960,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
       date: (next ? add : remove)(1, unit, refs.calendar.current.date)
     });
 
-    setCalendar(calendar_);
+    updateCalendar(calendar_);
   };
 
   const ModeDocked = React.useCallback(React.forwardRef((props__: any, ref: any) => {

@@ -16,6 +16,7 @@ import useMediaQuery from '../useMediaQuery';
 import Carousel from '../Carousel';
 import Line from '../Line';
 import Slide from '../Slide';
+import Divider from '../Divider';
 
 import { staticClassName, valueBreakpoints } from '../utils';
 
@@ -34,12 +35,19 @@ const useStyle = style(theme => ({
 
   mode: {
     marginInline: '24px',
-    borderRadius: '28px'
+    borderRadius: '28px',
+    height: '501px'
   },
 
   timePicker: {
     '&.AmauiTimePicker-mode': {
       marginInline: '0px'
+    }
+  },
+
+  divider: {
+    '&.AmauiDivider-root': {
+      margin: '0px'
     }
   }
 }), { name: 'AmauiTimeRangePicker' });
@@ -142,6 +150,7 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
     IconButtonProps,
     AdvancedTextFieldProps,
     ModalProps,
+    DividerProps,
 
     className,
 
@@ -508,6 +517,23 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
           classes.timePicker
         ])
       }}
+    />,
+
+    <Divider
+      orientation='vertical'
+
+      flex
+
+      {...DividerProps}
+
+      className={classNames([
+        staticClassName('TimeRangePicker', theme) && [
+          'AmauiTimeRangePicker-divider'
+        ],
+
+        DividerProps?.className,
+        classes.divider
+      ])}
     />,
 
     // To
