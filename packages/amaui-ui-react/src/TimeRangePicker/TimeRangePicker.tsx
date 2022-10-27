@@ -126,9 +126,9 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
 
     format = '12',
 
-    hours = true,
-    minutes = true,
-    seconds = false,
+    hour = true,
+    minute = true,
+    second = false,
 
     switch: switch__,
 
@@ -196,9 +196,9 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
 
       format,
 
-      hours,
-      minutes,
-      seconds,
+      hour,
+      minute,
+      second,
 
       switch: switch_,
     };
@@ -225,9 +225,9 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
         if (props_?.format === '12') format_ += `hh`;
         else format_ += `HH`;
 
-        if (props_?.minutes) format_ += `:mm`;
+        if (props_?.minute) format_ += `:mm`;
 
-        if (props_?.seconds) format_ += `:ss`;
+        if (props_?.second) format_ += `:ss`;
 
         if (props_?.format === '12') format_ += ` a`;
 
@@ -411,7 +411,7 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
   [FromProps, ToProps].forEach((props__: any, index: number) => {
     const props_ = mergeProps(props__);
 
-    if (props_?.hours) {
+    if (props_?.hour) {
       if (props_?.format === '12') {
         mask.push(
           { pattern: '[0-1]' },
@@ -430,14 +430,14 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
 
       placeholder += 'hh';
 
-      if (props_?.minutes || props_?.seconds) {
+      if (props_?.minute || props_?.second) {
         mask.push(':');
 
         placeholder += ':';
       }
     }
 
-    if (props_?.minutes) {
+    if (props_?.minute) {
       mask.push(
         { pattern: '[0-5]' },
 
@@ -446,14 +446,14 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
 
       placeholder += 'mm';
 
-      if (props_?.seconds) {
+      if (props_?.second) {
         mask.push(':');
 
         placeholder += ':';
       }
     }
 
-    if (props_?.seconds) {
+    if (props_?.second) {
       mask.push(
         { pattern: '[0-5]' },
 

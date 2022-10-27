@@ -34,6 +34,7 @@ const useStyle = style(theme => ({
   },
 
   mode: {
+    marginInline: '24px',
     overflow: 'hidden'
   },
 
@@ -1084,7 +1085,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
     autoCloseOnPick: autoCloseOnPick_,
 
-    openMobile = 'select',
+    openMobile,
 
     modeModalHeadingText = 'Select date',
 
@@ -1119,6 +1120,8 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     geYears: getYears_,
 
     onClick: onClick_,
+
+    onCancel: onCancel_,
 
     Icon = IconMaterialCalendarTodayRoundedFilled,
     IconPrevious = IconMaterialNavigateBeforeRounded,
@@ -1258,7 +1261,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
   const [open, setOpen] = React.useState(false);
   const [openMenu, setOpenMenu] = React.useState<any>(false);
-  const [mode, setMode] = React.useState(touch ? openMobile : 'select');
+  const [mode, setMode] = React.useState((touch ? openMobile : 'docked') || 'docked');
   const [value, setValue] = React.useState(() => {
     const value__ = (valueDefault !== undefined ? valueDefault : value_) || (now && (range ? [new AmauiDate(), new AmauiDate()] : [new AmauiDate()]));
 
@@ -1593,7 +1596,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
     const amauiDates = valueNew.map(item => new AmauiDate(item));
 
-    if (amauiDates[0].milliseconds > amauiDates[1].milliseconds) amauiDates[0] = new AmauiDate(amauiDates[1]);
+    if (amauiDates[0].milliseconds > amauiDates[1]?.milliseconds) amauiDates[0] = new AmauiDate(amauiDates[1]);
 
     // Error
     setError(amauiDates.some((item: any, index: number) => !validItem('', '', valueToValues(item, index))));
@@ -2004,7 +2007,9 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     reset();
 
     onClose();
-  }, []);
+
+    if (is('function', onCancel_)) onCancel_();
+  }, [onCancel_]);
 
   const move = (next = true, unit: TTimeUnits = 'month') => {
     const calendar_ = ({
@@ -3823,8 +3828,6 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     if (!readOnly) moreProps.onClick = onModal;
   }
 
-  if (version === 'static') return versionStatic === 'docked' ? <ModeDocked /> : versionStatic === 'modal' ? <ModeModal /> : <ModeFullScreen />;
-
   if (version === 'static') {
     if (versionStatic !== undefined) return versionStatic === 'docked' ? <ModeDocked /> : versionStatic === 'modal' ? <ModeModal /> : <ModeFullScreen />;
 
@@ -3933,7 +3936,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
         label={(
           <ClickListener
-            onClickOutside={() => onClose()}
+            onClickOutside={onCancel}
 
             includeParentQueries={['.AmauiDatePicker-mode', '.AmauiDatePicker-list', '.AmauiDatePicker-day']}
 

@@ -233,11 +233,11 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
     format = '12',
 
-    hours = true,
+    hour = true,
 
-    minutes = true,
+    minute = true,
 
-    seconds = false,
+    second = false,
 
     switch: switch__,
 
@@ -246,6 +246,8 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
     disabled,
 
     onClick: onClick_,
+
+    onCancel: onCancel_,
 
     Icon = IconMaterialScheduleRounded,
     IconEnter = IconMaterialKeyboardAltRounded,
@@ -317,9 +319,9 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
       if (format === '12') format_ += `hh`;
       else format_ += `HH`;
 
-      if (minutes) format_ += `:mm`;
+      if (minute) format_ += `:mm`;
 
-      if (seconds) format_ += `:ss`;
+      if (second) format_ += `:ss`;
 
       if (format === '12') format_ += ` a`;
 
@@ -541,8 +543,8 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
           if (['hour', 'minute', 'second'].includes(property)) {
             if (
               (property === 'second') ||
-              (property === 'minute' && !seconds) ||
-              (property === 'hour' && !minutes)
+              (property === 'minute' && !second) ||
+              (property === 'hour' && !minute)
             ) return onOk();
           }
         }
@@ -554,9 +556,9 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
             if (property === 'second') values_.selecting = 'hour';
 
-            if (property === 'minute') values_.selecting = seconds ? 'second' : 'hour';
+            if (property === 'minute') values_.selecting = second ? 'second' : 'hour';
 
-            if (property === 'hour' && minutes) values_.selecting = 'minute';
+            if (property === 'hour' && minute) values_.selecting = 'minute';
 
             setValues({ ...refs.values.current, ...values_ });
           }
@@ -735,7 +737,9 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
     setError(!validItem('', '', values_));
 
     onClose();
-  }, []);
+
+    if (is('function', onCancel_)) onCancel_();
+  }, [onCancel_]);
 
   const onMouseDown = React.useCallback(() => {
     setMouseDown(true);
@@ -786,7 +790,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
       </Button>
     ];
 
-    if (minutes) {
+    if (minute) {
       buttons.push(
         separator,
 
@@ -802,7 +806,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
       );
     }
 
-    if (seconds) {
+    if (second) {
       buttons.push(
         separator,
 
@@ -1302,7 +1306,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
         </Line>
       </Surface>
     );
-  }), [min, max, validate, version, format, hours, minutes, seconds, selectModeHeadingText, mode, tonal, color, switch_, InputProps, theme]);
+  }), [min, max, validate, version, format, hour, minute, second, selectModeHeadingText, mode, tonal, color, switch_, InputProps, theme]);
 
   const ModeInput = React.useCallback(React.forwardRef((props_: any, ref: any) => {
     const inputProps = {
@@ -1365,7 +1369,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
       />
     ];
 
-    if (minutes) {
+    if (minute) {
       inputs.push(
         separator,
 
@@ -1389,7 +1393,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
       );
     }
 
-    if (seconds) {
+    if (second) {
       inputs.push(
         separator,
 
@@ -1652,13 +1656,13 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
         </Line>
       </Surface>
     );
-  }), [min, max, validate, version, format, hours, minutes, seconds, inputModeHeadingText, mode, tonal, color, switch_, InputProps]);
+  }), [min, max, validate, version, format, hour, minute, second, inputModeHeadingText, mode, tonal, color, switch_, InputProps]);
 
   let mask: any = [];
 
   let placeholder = '';
 
-  if (hours) {
+  if (hour) {
     if (format === '12') {
       mask.push(
         { pattern: '[0-1]' },
@@ -1677,14 +1681,14 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
     placeholder += 'hh';
 
-    if (minutes || seconds) {
+    if (minute || second) {
       mask.push(':');
 
       placeholder += ':';
     }
   }
 
-  if (minutes) {
+  if (minute) {
     mask.push(
       { pattern: '[0-5]' },
 
@@ -1693,14 +1697,14 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
     placeholder += 'mm';
 
-    if (seconds) {
+    if (second) {
       mask.push(':');
 
       placeholder += ':';
     }
   }
 
-  if (seconds) {
+  if (second) {
     mask.push(
       { pattern: '[0-5]' },
 
@@ -1842,7 +1846,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
         label={(
           <ClickListener
-            onClickOutside={onClose}
+            onClickOutside={onCancel}
 
             includeParentQueries={['.AmauiTimePicker-mode']}
 

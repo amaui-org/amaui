@@ -1537,6 +1537,10 @@ function App() {
             width: '100%'
           }}
         >
+          <DateTimePicker
+            label='Date time'
+          />
+
           <DateRangePicker
             label='Date range'
           />
@@ -3150,6 +3154,14 @@ Please sign in again.`}
 
           <IconMaterialPottedPlantRounded color='secondary' />
         </Line>
+      </Accordion>
+
+      <Accordion primary='DateTimePicker'>
+        <Accordion primary='DateTimePicker' open>
+          <DateTimePicker
+            label='Date time'
+          />
+        </Accordion>
       </Accordion>
 
       <Accordion primary='DateRangePicker'>

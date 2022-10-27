@@ -197,6 +197,8 @@ const Tabs = React.forwardRef((props_: any, ref: any) => {
     justify = 'flex-start',
     orientation = 'horizontal',
 
+    initialLineUpdateTimeout = 0,
+
     arrows,
     arrowsMobile,
     fixed,
@@ -232,7 +234,8 @@ const Tabs = React.forwardRef((props_: any, ref: any) => {
     value: React.useRef<any>(),
     props: React.useRef<any>(),
     mobile: React.useRef<any>(),
-    version: React.useRef<any>()
+    version: React.useRef<any>(),
+    initialLineUpdateTimeout: React.useRef<any>()
   };
 
   refs.value.current = value;
@@ -243,10 +246,14 @@ const Tabs = React.forwardRef((props_: any, ref: any) => {
 
   refs.version.current = version;
 
+  refs.initialLineUpdateTimeout.current = initialLineUpdateTimeout;
+
   React.useEffect(() => {
     // Update lineValues value
     // with the first tab
-    updateLine(refs.tabs.current[0]?.value);
+    // For elements within a modal
+    // being transitioned, minor bug fix
+    setTimeout(() => updateLine(refs.tabs.current[0]?.value), refs.initialLineUpdateTimeout.current);
 
     const observerMethod = () => updateLine(refs.value.current);
 
