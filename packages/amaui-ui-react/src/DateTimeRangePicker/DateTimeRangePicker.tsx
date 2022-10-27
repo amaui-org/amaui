@@ -757,7 +757,7 @@ const DateTimeRangePicker = React.forwardRef((props_: any, ref: any) => {
 
     return <ModeMobile />;
   }
-  console.log(1, value);
+
   return <>
     <AdvancedTextField
       rootRef={item => {

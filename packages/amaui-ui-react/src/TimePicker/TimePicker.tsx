@@ -439,7 +439,6 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
   };
 
   const updateFromValue = (valueNew: number) => {
-    console.log('update from value');
     const amauiDate = new AmauiDate(valueNew);
 
     // Error
