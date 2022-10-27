@@ -90,6 +90,8 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
     // mobile, desktop & auto
     version: version_ = 'auto',
 
+    versionStatic,
+
     value: value_,
     valueDefault,
 
@@ -167,6 +169,7 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
     mode: React.useRef<any>(),
     value: React.useRef<any>(),
     values: React.useRef<any>(),
+    timePickers: React.useRef<any>()
   };
 
   const mergeProps = (propsValue: any) => {
@@ -542,6 +545,94 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
     />
   ];
 
+  refs.timePickers.current = TimePickers;
+
+  const ModeDesktop = React.useCallback(React.forwardRef((props__: any, ref_: any) => {
+
+    return (
+      <Line
+        ref={ref_}
+
+        tonal={tonal}
+
+        color={color}
+
+        gap={0}
+
+        direction='row'
+
+        align='flex-start'
+
+        justify='center'
+
+        Component={Surface}
+
+        className={classNames([
+          staticClassName('TimeRangePicker', theme) && [
+            'AmauiTimeRangePicker-mode'
+          ],
+
+          classes.mode
+        ])}
+      >
+        {refs.timePickers.current.map((item: any, index: number) => (
+          React.cloneElement(item, {
+            key: index
+          })
+        ))}
+      </Line>
+    );
+  }), [tonal, color]);
+
+  const ModeMobile = React.useCallback(React.forwardRef((props__: any, ref_: any) => {
+
+    return (
+      <Line
+        tonal={tonal}
+
+        color={color}
+
+        gap={0}
+
+        direction='row'
+
+        align='flex-start'
+
+        justify='center'
+
+        Component={Surface}
+      >
+        <Carousel
+          tonal={tonal}
+
+          color={color}
+
+          move={false}
+
+          arrowsVisibility='visible'
+
+          progress={false}
+
+          round={false}
+
+          moveBeyondEdge={false}
+
+          autoHeight
+
+          items={
+            refs.timePickers.current.map((item: any, index: number) => (
+              React.cloneElement(item, {
+                key: index
+              })
+            ))
+          }
+
+          {...CarouselProps}
+        />
+      </Line>
+    );
+  }), [tonal, color]);
+
   const moreProps: any = {};
 
   if (version === 'desktop') {
@@ -568,6 +659,14 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
 
   if (version === 'mobile') {
     if (!readOnly) moreProps.onClick = onModal;
+  }
+
+  if (version === 'static') {
+    if (versionStatic !== undefined) return 'desktop' ? <ModeDesktop /> : <ModeMobile />;
+
+    if (touch) return <ModeDesktop />;
+
+    return <ModeMobile />;
   }
 
   return <>
@@ -637,49 +736,7 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
 
         {...ModalProps}
       >
-        <Line
-          tonal={tonal}
-
-          color={color}
-
-          gap={0}
-
-          direction='row'
-
-          align='flex-start'
-
-          justify='center'
-
-          Component={Surface}
-        >
-          <Carousel
-            tonal={tonal}
-
-            color={color}
-
-            move={false}
-
-            arrowsVisibility='visible'
-
-            progress={false}
-
-            round={false}
-
-            moveBeyondEdge={false}
-
-            autoHeight
-
-            items={
-              TimePickers.map((item: any, index: number) => (
-                React.cloneElement(item, {
-                  key: index
-                })
-              ))
-            }
-
-            {...CarouselProps}
-          />
-        </Line>
+        <ModeMobile />
       </Modal>
     )}
 
@@ -712,37 +769,7 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
 
             include={[refs.iconButton, refs.iconButton.current]}
           >
-            <div>
-              <Line
-                tonal={tonal}
-
-                color={color}
-
-                gap={0}
-
-                direction='row'
-
-                align='flex-start'
-
-                justify='center'
-
-                Component={Surface}
-
-                className={classNames([
-                  staticClassName('TimeRangePicker', theme) && [
-                    'AmauiTimeRangePicker-mode'
-                  ],
-
-                  classes.mode
-                ])}
-              >
-                {TimePickers.map((item: any, index: number) => (
-                  React.cloneElement(item, {
-                    key: index
-                  })
-                ))}
-              </Line>
-            </div>
+            <ModeDesktop />
           </ClickListener>
         )}
 

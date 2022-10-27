@@ -74,6 +74,8 @@ const DateTimePicker = React.forwardRef((props_: any, ref: any) => {
     // mobile, desktop, static & auto
     version: version_ = 'auto',
 
+    versionStatic,
+
     value: value_,
     valueDefault,
 
@@ -681,6 +683,8 @@ const DateTimePicker = React.forwardRef((props_: any, ref: any) => {
   }
 
   if (version === 'static') {
+    if (versionStatic !== undefined) return 'desktop' ? <ModeDesktop /> : <ModeMobile />;
+
     if (touch) return <ModeDesktop />;
 
     return <ModeMobile />;
