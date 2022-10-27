@@ -3159,7 +3159,7 @@ Please sign in again.`}
           />
         </Accordion>
 
-        <Accordion primary='DateRangePicker caledars' open>
+        <Accordion primary='DateRangePicker calendars' open>
           <DateRangePicker
             label='Date range'
 
