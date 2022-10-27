@@ -434,7 +434,7 @@ const DateTimePicker = React.forwardRef((props_: any, ref: any) => {
 
           initialLineUpdateTimeout={314}
 
-          value={openVersion}
+          value={refs.openVersion.current}
 
           onChange={(valueNew: string) => setOpenVersion(valueNew)}
 
