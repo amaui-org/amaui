@@ -1946,7 +1946,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
     calendar_.move = calendar_.date.milliseconds > calendar_.previous?.milliseconds ? 'next' : 'previous';
 
-    calendar_.update = 'clear';
+    if (calendar_.update !== 'day') calendar_.update = 'clear';
 
     updateCalendar(calendar_);
   }, [range]);
@@ -1995,7 +1995,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
     calendar_.move = calendar_.date.milliseconds > calendar_.previous?.milliseconds ? 'next' : 'previous';
 
-    calendar_.update = 'reset';
+    if (calendar_.update !== 'day') calendar_.update = 'clear';
 
     updateCalendar(calendar_);
   };
