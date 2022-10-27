@@ -290,7 +290,7 @@ const Tabs = React.forwardRef((props_: any, ref: any) => {
 
   React.useEffect(() => {
     if (init) {
-      if (value_ !== value) {
+      if (value_ !== refs.value.current) {
         setValue(value_);
 
         // Update lineValues value
@@ -330,7 +330,7 @@ const Tabs = React.forwardRef((props_: any, ref: any) => {
     refs.tabsRoot.current.scrollTo(moveValue_);
   };
 
-  const updateLine = (valueItem: number = refs.value.current) => {
+  const updateLine = (valueItem: string | number = refs.value.current) => {
     const tab: HTMLElement = refs.tabs.current.find(item => String(item.value) === String(valueItem));
 
     if (tab) {
