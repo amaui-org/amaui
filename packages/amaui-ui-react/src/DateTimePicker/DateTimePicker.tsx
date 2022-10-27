@@ -2,7 +2,7 @@ import React from 'react';
 
 import { is } from '@amaui/utils'
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
-import { AmauiDate, format as formatMethod, set } from '@amaui/date';
+import { AmauiDate, format as formatMethod, set, is as isMethod } from '@amaui/date';
 
 import useMediaQuery from '../useMediaQuery';
 import AdvancedTextField from '../AdvancedTextField';
@@ -38,10 +38,6 @@ const useStyle = style(theme => ({
   },
 }), { name: 'AmauiDateTimePicker' });
 
-const SEPARATOR_SYMBOL = `–`;
-
-const SEPARATOR = ` ${SEPARATOR_SYMBOL} `;
-
 const IconMaterialDateRangeRoundedFilled = React.forwardRef((props: any, ref) => {
 
   return (
@@ -57,14 +53,6 @@ const IconMaterialDateRangeRoundedFilled = React.forwardRef((props: any, ref) =>
     </Icon>
   );
 });
-
-// to do
-
-// onCancel close for both at docked mode value y
-
-// min, max, validate
-
-// error
 
 const DateTimePicker = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
@@ -94,6 +82,12 @@ const DateTimePicker = React.forwardRef((props_: any, ref: any) => {
     label,
 
     now = true,
+
+    validate,
+
+    min,
+
+    max,
 
     format = '12',
 
@@ -129,7 +123,8 @@ const DateTimePicker = React.forwardRef((props_: any, ref: any) => {
     DatePickerProps,
     TimePickerProps,
     IconButtonProps,
-    ModeDockedProps,
+    ModeDesktopProps,
+    ModeMobileProps,
     TabsProps,
     TabProps,
 
@@ -145,7 +140,10 @@ const DateTimePicker = React.forwardRef((props_: any, ref: any) => {
     iconButton: React.useRef<any>(),
     value: React.useRef<any>(),
     open: React.useRef<any>(),
-    openVersion: React.useRef<any>()
+    openVersion: React.useRef<any>(),
+    validate: React.useRef<any>(),
+    min: React.useRef<any>(),
+    max: React.useRef<any>()
   };
 
   const valueToInput = (value__ = refs.value.current) => {
@@ -205,6 +203,12 @@ const DateTimePicker = React.forwardRef((props_: any, ref: any) => {
 
   refs.openVersion.current = openVersion;
 
+  refs.validate.current = validate;
+
+  refs.min.current = min;
+
+  refs.max.current = max;
+
   let version = version_;
 
   if (version === 'auto') {
@@ -214,6 +218,8 @@ const DateTimePicker = React.forwardRef((props_: any, ref: any) => {
 
   const updateValue = (valueNew: any) => {
     setValue(valueNew);
+
+    setError(!valid(valueNew));
 
     if (is('function', onChange)) onChange(valueNew);
   };
@@ -290,6 +296,8 @@ const DateTimePicker = React.forwardRef((props_: any, ref: any) => {
 
   const onClose = React.useCallback(() => {
     setOpen(false);
+
+    setOpenVersion((touch ? openVersionMobile : openVersionDesktop) || 'date');
   }, []);
 
   let mask: any = [];
@@ -404,7 +412,19 @@ const DateTimePicker = React.forwardRef((props_: any, ref: any) => {
     placeholder += ' (a|p)m';
   }
 
-  const ModeDocked = React.useCallback(React.forwardRef((props_: any, ref_: any) => {
+  const valid = (valueNew = refs.value.current) => {
+    let valid = true;
+
+    if (is('function', refs.validate.current)) valid = refs.validate.current(valueNew);
+
+    if (refs.min.current !== undefined) valid = valid && isMethod(valueNew, 'after or same', refs.min.current);
+
+    if (refs.max.current !== undefined) valid = valid && isMethod(valueNew, 'before or same', refs.max.current);
+
+    return valid;
+  };
+
+  const ModeDesktop = React.useCallback(React.forwardRef((props_: any, ref_: any) => {
 
     return (
       <Surface
@@ -420,9 +440,123 @@ const DateTimePicker = React.forwardRef((props_: any, ref: any) => {
             'AmauiDateTimePicker-mode-docked'
           ],
 
-          ModeDockedProps?.className,
+          ModeDesktopProps?.className,
           classes.mode,
           classes.mode_docked
+        ])}
+      >
+        <Tabs
+          tonal={tonal}
+
+          color={color}
+
+          justify='center'
+
+          initialLineUpdateTimeout={314}
+
+          value={refs.openVersion.current}
+
+          onChange={(valueNew: string) => setOpenVersion(valueNew)}
+
+          {...TabsProps}
+        >
+          <Tab
+            value='date'
+
+            label='Date'
+
+            {...TabProps}
+          />
+
+          <Tab
+            value='time'
+
+            label='Time'
+
+            {...TabProps}
+          />
+        </Tabs>
+
+        <Line
+          gap={0}
+
+          direction='column'
+
+          style={{
+            width: '100%'
+          }}
+        >
+          {refs.openVersion.current === 'date' ? (
+            <DatePicker
+              tonal={tonal}
+
+              color={color}
+
+              version='static'
+
+              day={day}
+
+              month={month}
+
+              year={year}
+
+              value={refs.value.current}
+
+              onCancel={onClose}
+
+              onChange={(valueNew: any) => updateValueFromPicker(valueNew)}
+
+              {...DatePickerProps}
+            />
+          ) : (
+            <TimePicker
+              tonal={tonal}
+
+              color={color}
+
+              version='static'
+
+              format={format}
+
+              hour={hour}
+
+              minute={minute}
+
+              second={second}
+
+              value={refs.value.current}
+
+              onCancel={onClose}
+
+              onChange={(valueNew: any) => updateValueFromPicker(valueNew)}
+
+              {...TimePickerProps}
+            />
+          )}
+        </Line>
+      </Surface>
+    );
+  }), [tonal, color, day, month, year, hour, minute, second, format]);
+
+  const ModeMobile = React.useCallback(React.forwardRef((props_: any, ref_: any) => {
+
+    return (
+      <Surface
+        ref={ref_}
+
+        tonal={tonal}
+
+        color={color}
+
+        className={classNames([
+          staticClassName('DatePicker', theme) && [
+            'AmauiDateTimePicker-mode',
+            'AmauiDateTimePicker-mode-modal'
+          ],
+
+          ModeMobileProps?.className,
+          classes.mode,
+          classes.mode_modal
         ])}
       >
         <Tabs
@@ -546,7 +680,12 @@ const DateTimePicker = React.forwardRef((props_: any, ref: any) => {
     if (!readOnly) moreProps.onClick = onOpen;
   }
 
-  console.log(1, value);
+  if (version === 'static') {
+    if (touch) return <ModeDesktop />;
+
+    return <ModeMobile />;
+  }
+
   return <>
     <AdvancedTextField
       rootRef={item => {
@@ -611,18 +750,16 @@ const DateTimePicker = React.forwardRef((props_: any, ref: any) => {
         NoSurfaceProps={{
           className: classNames([
             staticClassName('DateTimePicker', theme) && [
-              'AmauiDateTimePicker-modal',
-              fullScreen && `AmauiDateTimePicker-modal-fullScreen`
+              'AmauiDateTimePicker-modal'
             ],
 
-            classes.modal,
-            fullScreen && classes.modal_fullScreen
+            classes.modal
           ])
         }}
 
         {...ModalProps}
       >
-        <div />
+        <ModeMobile />
       </Modal>
     )}
 
@@ -655,7 +792,7 @@ const DateTimePicker = React.forwardRef((props_: any, ref: any) => {
 
             include={[refs.iconButton, refs.iconButton.current]}
           >
-            <ModeDocked />
+            <ModeDesktop />
           </ClickListener>
         )}
 

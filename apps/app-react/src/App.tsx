@@ -3162,6 +3162,24 @@ Please sign in again.`}
             label='Date time'
           />
         </Accordion>
+
+        <Accordion primary='DateTimePicker validate'>
+          <DateTimePicker
+            label='Date time validate'
+
+            validate={(value: AmauiDate) => value.milliseconds < add(4, 'month').milliseconds}
+          />
+        </Accordion>
+
+        <Accordion primary='DateTimePicker min, max'>
+          <DateTimePicker
+            label='Date time min'
+
+            min={remove(4, 'month', new AmauiDate())}
+
+            max={add(4, 'month', add(4, 'hour', new AmauiDate()))}
+          />
+        </Accordion>
       </Accordion>
 
       <Accordion primary='DateRangePicker'>

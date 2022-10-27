@@ -34,7 +34,6 @@ const useStyle = style(theme => ({
   },
 
   mode: {
-    marginInline: '24px',
     overflow: 'hidden'
   },
 
@@ -1085,7 +1084,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
     autoCloseOnPick: autoCloseOnPick_,
 
-    openMobile,
+    openMobile = 'select',
 
     modeModalHeadingText = 'Select date',
 
@@ -1261,7 +1260,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
   const [open, setOpen] = React.useState(false);
   const [openMenu, setOpenMenu] = React.useState<any>(false);
-  const [mode, setMode] = React.useState((touch ? openMobile : 'docked') || 'docked');
+  const [mode, setMode] = React.useState((touch ? openMobile : 'select') || 'select');
   const [value, setValue] = React.useState(() => {
     const value__ = (valueDefault !== undefined ? valueDefault : value_) || (now && (range ? [new AmauiDate(), new AmauiDate()] : [new AmauiDate()]));
 
@@ -2591,7 +2590,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     );
   }), [tonal, color, range, weekStartDay]);
 
-  const ModeModal = React.useCallback(React.forwardRef((props_: any, ref: any) => {
+  const ModeModal = React.useCallback(React.forwardRef((props_: any, ref_: any) => {
     const month = refs.calendar.current?.date;
 
     const year = formatMethod(month, 'YYYY');
@@ -2615,7 +2614,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
     return (
       <Surface
-        ref={ref}
+        ref={ref_}
 
         tonal={tonal}
 
@@ -3831,7 +3830,9 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
   if (version === 'static') {
     if (versionStatic !== undefined) return versionStatic === 'docked' ? <ModeDocked /> : versionStatic === 'modal' ? <ModeModal /> : <ModeFullScreen />;
 
-    return mode === 'docked' ? <ModeDocked /> : mode === 'modal' ? <ModeModal /> : <ModeFullScreen />;
+    if (!touch) return <ModeDocked />;
+
+    return !fullScreen ? <ModeModal /> : <ModeFullScreen />;
   }
 
   return <>
