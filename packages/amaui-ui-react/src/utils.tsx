@@ -223,3 +223,30 @@ export const angleToCoordinates = (degrees: number, centerX: number, centerY: nu
     y: centerY + (radius * Math.sin(radians))
   };
 };
+
+type TPoint = [number, number];
+
+export const line = (pointA: TPoint, pointB: TPoint) => {
+  const lengthX = pointB[0] - pointA[0];
+  const lengthY = pointB[1] - pointA[1];
+
+  return {
+    length: Math.sqrt(Math.pow(lengthX, 2) + Math.pow(lengthY, 2)),
+    angle: Math.atan2(lengthY, lengthX)
+  }
+};
+
+export const controlPoint = (current: TPoint, previous_: TPoint, next_: TPoint, reverse = false, smoothRatio = 0.2) => {
+  const previous = previous_ || current;
+  const next = next_ || current;
+
+  const opposed = line(previous, next);
+
+  const angle = opposed.angle + (reverse ? Math.PI : 0);
+  const length = opposed.length * smoothRatio;
+
+  const x = current[0] + Math.cos(angle) * length;
+  const y = current[1] + Math.sin(angle) * length;
+
+  return [x, y];
+};

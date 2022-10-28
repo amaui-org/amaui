@@ -6,7 +6,7 @@ import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 import Chart from '../Chart';
 import Path from '../Path';
 
-import { staticClassName } from '../utils';
+import { controlPoint, staticClassName } from '../utils';
 
 export interface IItem {
   color: string;
@@ -59,6 +59,8 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
     maxPaddingY,
 
     smooth = true,
+
+    smoothRatio = 0.2,
 
     className,
 
@@ -176,13 +178,17 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
           }, '');
         }
         else {
-          d = values.reduce((result: string, value, index: number) => {
+          d = values.reduce((result: string, value: [number, number], index: number, array: Array<[number, number]>) => {
             const [x, y] = value;
 
             // Move
             if (index === 0) return result += `M ${x} ${y}`;
 
-            return result += `C ${x} ${y} ${x} ${y} ${x} ${y}`;
+            const [x1, y1] = controlPoint(array[index - 1], array[index - 2], value, false, smoothRatio);
+
+            const [x2, y2] = controlPoint(value, array[index - 1], array[index + 1], true, smoothRatio);
+
+            return result += `C ${x1} ${y1} ${x2} ${y2} ${x} ${y}`;
           }, '');
         }
 
