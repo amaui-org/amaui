@@ -43,8 +43,20 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
 
     maxY,
 
-    // Add 20% of the min, max range for min and max
+    // Add % of the min, max range for min and max, y, x
     minMaxPadding,
+
+    minPadding,
+
+    maxPadding,
+
+    minPaddingX,
+
+    minPaddingY,
+
+    maxPaddingX,
+
+    maxPaddingY,
 
     smooth = true,
 
@@ -90,8 +102,29 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
       });
     }
 
+    const minPaddingY_ = minPaddingY !== undefined ? minPaddingY : minPadding !== undefined ? minPadding : minMaxPadding;
+
+    const maxPaddingY_ = maxPaddingY !== undefined ? maxPaddingY : maxPadding !== undefined ? maxPadding : minMaxPadding;
+
+    const minPaddingX_ = minPaddingX !== undefined ? minPaddingX : minPadding !== undefined ? minPadding : minMaxPadding;
+
+    const maxPaddingX_ = maxPaddingX !== undefined ? maxPaddingX : maxPadding !== undefined ? maxPadding : minMaxPadding;
+
+    const totals = {
+      x: values.max.x - values.min.x,
+      y: values.max.y - values.min.y
+    };
+
+    if (minPaddingY_ !== undefined) values.min.y -= totals.y * minPaddingY_;
+
+    if (maxPaddingY_ !== undefined) values.max.y += totals.y * maxPaddingY_;
+
+    if (minPaddingX_ !== undefined) values.min.x -= totals.x * minPaddingX_;
+
+    if (maxPaddingX_ !== undefined) values.max.x += totals.x * maxPaddingX_;
+
     return values;
-  }, [items, minX, maxX, minY, maxY]);
+  }, [items, minX, maxX, minY, maxY, minMaxPadding, minPadding, maxPadding, minPaddingX, minPaddingY, maxPaddingX, maxPaddingY]);
 
   refs.minMax.current = minMax;
 
@@ -130,16 +163,28 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
             return [values.x, height - values.y].map(item_ => Math.abs(item_));
           });
 
-        // if (!refs.smooth.current) {
-        let d = values.reduce((result: string, value, index: number) => {
-          const [x, y] = value;
+        let d = '';
 
-          // Move
-          if (index === 0) return result += `M ${x} ${y}`;
+        if (!refs.smooth.current) {
+          d = values.reduce((result: string, value, index: number) => {
+            const [x, y] = value;
 
-          return result += `L ${x} ${y}`;
-        }, '');
-        // }
+            // Move
+            if (index === 0) return result += `M ${x} ${y}`;
+
+            return result += `L ${x} ${y}`;
+          }, '');
+        }
+        else {
+          d = values.reduce((result: string, value, index: number) => {
+            const [x, y] = value;
+
+            // Move
+            if (index === 0) return result += `M ${x} ${y}`;
+
+            return result += `C ${x} ${y} ${x} ${y} ${x} ${y}`;
+          }, '');
+        }
 
         return (
           <Path

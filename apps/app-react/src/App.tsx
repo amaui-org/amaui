@@ -3184,9 +3184,66 @@ Please sign in again.`}
           />
         </Accordion>
 
-        <Accordion primary='LineChart title' >
+        <Accordion primary='LineChart title'>
           <LineChart
             title='Line chart'
+
+            items={[
+              {
+                color: 'primary',
+
+                values: [
+                  [5, 10],
+                  [10, 40],
+                  [40, 30],
+                  [60, 5],
+                  [90, 45],
+                  [120, 10],
+                  [150, 45],
+                  [200, 10]
+                ]
+              }
+            ]}
+          />
+        </Accordion>
+
+        <Accordion primary='LineChart minPadding, maxPadding'>
+          <LineChart
+            title='Line minPadding, maxPadding'
+
+            minPadding={0.2}
+
+            maxPadding={0.4}
+
+            items={[
+              {
+                color: 'primary',
+
+                values: [
+                  [5, 10],
+                  [10, 40],
+                  [40, 30],
+                  [60, 5],
+                  [90, 45],
+                  [120, 10],
+                  [150, 45],
+                  [200, 10]
+                ]
+              }
+            ]}
+          />
+        </Accordion>
+
+        <Accordion primary='LineChart not smooth'>
+          <LineChart
+            title='Line not smooth'
+
+            smooth={false}
+
+            minPadding={0.2}
+
+            maxPadding={0.4}
+
             items={[
               {
                 color: 'primary',
