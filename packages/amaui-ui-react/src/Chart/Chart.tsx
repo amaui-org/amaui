@@ -75,6 +75,9 @@ const useStyle = style(theme => ({
 // to do
 
 // vertical guide line on mouse move in the ui value y
+// only snaps to points, 50% between any previous and next point
+// if multiple points are on same x axes hightlight all those points
+// same for y axes?
 
 // axes names (top, bottom, start, end, left, right)
 
