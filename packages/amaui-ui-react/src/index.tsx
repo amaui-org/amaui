@@ -411,3 +411,9 @@ export * from './DateTimePicker';
 
 export { default as DateTimeRangePicker } from './DateTimeRangePicker';
 export * from './DateTimeRangePicker';
+
+export { default as Chart } from './Chart';
+export * from './Chart';
+
+export { default as LineChart } from './LineChart';
+export * from './LineChart';

@@ -3,7 +3,7 @@ import React from 'react';
 import { is, unique, random, countries } from '@amaui/utils';
 import { AmauiDate, add, remove, set } from '@amaui/date';
 import { AmauiTheme, AmauiThemeProvider, classNames, style, sy, useAmauiTheme } from '@amaui/style-react';
-import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Radios, Keyframes, Switch, TextField, Label, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationItem, NavigationRail, NavigationDrawer, BottomSheet, BottomAppBar, TopAppBar, Card, CardImage, CardMain, CardHeader, CardButton, CardFooter, Table, TableHead, TableRow, TableCell, TableHeader, TableFooter, TableBody, Placeholder, Snackbar, useSnackbars, Pagination, TablePagination, SpeedDial, SpeedDialItem, ImageList, ImageListItem, ImageListItemBox, Stepper, Step, Tabs, Tab, Timeline, TimelineItem, Tree, Masonry, Reveal, useConfirm, ViewSplit, WindowSplit, useMainProgress, Image, SpyScroll, AdvancedTextField, NumericTextField, useWidgets, ImageCrop, ImageEdit, FileChoose, DropZone, MenuDesktop, Markdown, RichTextEditor, ScreenCapture, Timer, Countdown, Drawing, Parallax, Weather, RoundMeter, Path, Watch, LinearMeter, Carousel, TimePicker, TimeRangePicker, DatePicker, DateRangePicker, DateTimePicker, DateTimeRangePicker } from '@amaui/ui-react';
+import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Radios, Keyframes, Switch, TextField, Label, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationItem, NavigationRail, NavigationDrawer, BottomSheet, BottomAppBar, TopAppBar, Card, CardImage, CardMain, CardHeader, CardButton, CardFooter, Table, TableHead, TableRow, TableCell, TableHeader, TableFooter, TableBody, Placeholder, Snackbar, useSnackbars, Pagination, TablePagination, SpeedDial, SpeedDialItem, ImageList, ImageListItem, ImageListItemBox, Stepper, Step, Tabs, Tab, Timeline, TimelineItem, Tree, Masonry, Reveal, useConfirm, ViewSplit, WindowSplit, useMainProgress, Image, SpyScroll, AdvancedTextField, NumericTextField, useWidgets, ImageCrop, ImageEdit, FileChoose, DropZone, MenuDesktop, Markdown, RichTextEditor, ScreenCapture, Timer, Countdown, Drawing, Parallax, Weather, RoundMeter, Path, Watch, LinearMeter, Carousel, TimePicker, TimeRangePicker, DatePicker, DateRangePicker, DateTimePicker, DateTimeRangePicker, LineChart } from '@amaui/ui-react';
 
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
@@ -1537,6 +1537,8 @@ function App() {
             width: '100%'
           }}
         >
+          <LineChart />
+
           <DateTimeRangePicker
             label='Date time range'
           />
@@ -3158,6 +3160,51 @@ Please sign in again.`}
 
           <IconMaterialPottedPlantRounded color='secondary' />
         </Line>
+      </Accordion>
+
+      <Accordion primary='LineChart'>
+        <Accordion primary='LineChart' open>
+          <LineChart
+            items={[
+              {
+                color: 'primary',
+
+                values: [
+                  [5, 10],
+                  [10, 40],
+                  [40, 30],
+                  [60, 5],
+                  [90, 45],
+                  [120, 10],
+                  [150, 45],
+                  [200, 10]
+                ]
+              }
+            ]}
+          />
+        </Accordion>
+
+        <Accordion primary='LineChart title' >
+          <LineChart
+            title='Line chart'
+            items={[
+              {
+                color: 'primary',
+
+                values: [
+                  [5, 10],
+                  [10, 40],
+                  [40, 30],
+                  [60, 5],
+                  [90, 45],
+                  [120, 10],
+                  [150, 45],
+                  [200, 10]
+                ]
+              }
+            ]}
+          />
+        </Accordion>
       </Accordion>
 
       <Accordion primary='DateTimeRangePicker'>

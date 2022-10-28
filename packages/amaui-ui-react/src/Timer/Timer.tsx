@@ -369,73 +369,92 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
           classes.flags
         ])}
       >
-        <Tree
-          openDefault
+        <div>
+          <Surface
+            tonal={tonal}
 
-          middle='Flags'
+            color={color}
+          >
+            {({ palette }) => {
 
-          indicator
+              return (
+                <Tree
+                  openDefault
 
-          indicatorPosition='end'
+                  middle='Flags'
 
-          style={{
-            width: '100%'
-          }}
+                  indicator
 
-          {...TreeProps}
-        >
-          {flags.map((item: number, index: number) => (
-            <Tree
-              key={index}
-
-              icon={<IconFlag size='small' />}
-
-              middle={(
-                <Line
-                  direction='row'
-
-                  align='center'
-
-                  justify='center'
+                  indicatorPosition='end'
 
                   style={{
-                    marginInlineStart: '4px'
+                    width: '100%'
                   }}
+
+                  {...TreeProps}
                 >
-                  <Type
-                    version='b2'
-                  >
-                    {getLeadingZerosNumber(index + 1)}
-                  </Type>
+                  {flags.map((item: number, index: number) => (
+                    <Tree
+                      key={index}
 
-                  <Type
-                    version='b2'
+                      icon={(
+                        <IconFlag
+                          size='small'
 
-                    style={{
-                      opacity: '0.7'
-                    }}
-                  >
-                    +{valueFormat(item - (flags[index - 1] || 0))}
-                  </Type>
+                          color={palette[40]}
+                        />
+                      )}
 
-                  <Type
-                    version='b2'
-                  >
-                    {valueFormat(item)}
-                  </Type>
-                </Line>
-              )}
+                      middle={(
+                        <Line
+                          direction='row'
 
-              noPadding
+                          align='center'
 
-              indicator
+                          justify='center'
 
-              indicatorPosition='end'
+                          style={{
+                            marginInlineStart: '4px'
+                          }}
+                        >
+                          <Type
+                            version='b2'
+                          >
+                            {getLeadingZerosNumber(index + 1)}
+                          </Type>
 
-              {...TreeProps}
-            />
-          ))}
-        </Tree>
+                          <Type
+                            version='b2'
+
+                            style={{
+                              opacity: '0.7'
+                            }}
+                          >
+                            +{valueFormat(item - (flags[index - 1] || 0))}
+                          </Type>
+
+                          <Type
+                            version='b2'
+                          >
+                            {valueFormat(item)}
+                          </Type>
+                        </Line>
+                      )}
+
+                      noPadding
+
+                      indicator
+
+                      indicatorPosition='end'
+
+                      {...TreeProps}
+                    />
+                  ))}
+                </Tree>
+              );
+            }}
+          </Surface>
+        </div>
       </Expand>
 
       {/* Controls */}

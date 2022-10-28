@@ -834,7 +834,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
         color={color}
       >
-        {({ color, backgroundColor }) => (
+        {({ color: color_, backgroundColor }) => (
           <svg
             xmlns='http://www.w3.org/2000/svg'
 
@@ -876,7 +876,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
                 fill='none'
 
-                stroke={color}
+                stroke={color_}
 
                 strokeWidth={boundaryWidth}
 
@@ -905,7 +905,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
                     fill='none'
 
-                    stroke={color}
+                    stroke={color_}
 
                     strokeWidth={boundaryWidth}
 
@@ -943,7 +943,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
                     fill='none'
 
-                    stroke={color}
+                    stroke={color_}
 
                     strokeWidth={boundaryWidth}
 
@@ -984,7 +984,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
                       fill='none'
 
-                      stroke={color}
+                      stroke={color_}
 
                       strokeWidth={item.width !== undefined ? item.width : markWidth}
 
@@ -1045,7 +1045,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
                         ])}
 
                         style={{
-                          fill: color,
+                          fill: color_,
 
                           ...other.style,
 
