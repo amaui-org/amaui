@@ -29,16 +29,28 @@ const useStyle = style(theme => ({
     maxWidth: '1000px'
   },
 
+  wrapper_label_x: {
+    margin: '0 0 30px 0'
+  },
+
+  wrapper_label_y: {
+    margin: '0 0 0 40px'
+  },
+
+  wrapper_labels: {
+    margin: '0 0 30px 40px'
+  },
+
   wrapper_name_x: {
-    margin: '0 0 50px 0'
+    margin: '0 0 60px 0'
   },
 
   wrapper_name_y: {
-    margin: '0 0 0 50px'
+    margin: '0 0 0 70px'
   },
 
   wrapper_names: {
-    margin: '0 0 50px 50px'
+    margin: '0 0 60px 70px'
   },
 
   header: {
@@ -676,6 +688,8 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
         </Line>
       )}
 
+      {/* Legend top */}
+
       <Line
         ref={refs.wrapper}
 
@@ -685,6 +699,9 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
           ],
 
           classes.wrapper,
+          (labels?.x && labels?.y && labelsX && labelsY) && classes.wrapper_labels,
+          (!(labels?.x && labels?.y && labelsX && labelsY) && labels?.x && labelsX) && classes.wrapper_label_x,
+          (!(labels?.x && labels?.y && labelsX && labelsY) && labels?.y && labelsY) && classes.wrapper_label_y,
           (names?.x && names?.y && nameX && nameY) && classes.wrapper_names,
           (!(names?.x && names?.y && nameX && nameY) && names?.x && nameX) && classes.wrapper_name_x,
           (!(names?.x && names?.y && nameX && nameY) && names?.y && nameY) && classes.wrapper_name_y
@@ -1109,10 +1126,10 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
                                 version='b3'
 
                                 style={{
-                                  fontWeight: 500
+                                  fontWeight: 600
                                 }}
                               >
-                                {names?.y || 'y'}:
+                                {names?.y || 'y'}
                               </Type>
 
                               <Type
@@ -1133,10 +1150,10 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
                                 version='b3'
 
                                 style={{
-                                  fontWeight: 500
+                                  fontWeight: 600
                                 }}
                               >
-                                {names?.x || 'x'}:
+                                {names?.x || 'x'}
                               </Type>
 
                               <Type
@@ -1165,6 +1182,8 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
             );
           }}
         </Surface>
+
+        {/* Legend bottom*/}
 
       </Line>
     </Line>
