@@ -250,3 +250,15 @@ export const controlPoint = (current: TPoint, previous_: TPoint, next_: TPoint, 
 
   return [x, y];
 };
+
+export const minMaxBetweenNumbers = (value = 10, min = 0, max = 100) => {
+  const part = (max - min) / (value - 1);
+
+  const values = [min];
+
+  for (let i = 0; i < (value - 2); i++) values.push(values[values.length - 1] + part);
+
+  values.push(max);
+
+  return values;
+};

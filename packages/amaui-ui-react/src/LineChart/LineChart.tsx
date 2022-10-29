@@ -41,6 +41,18 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
 
     nameY,
 
+    labels = 'auto',
+
+    labelsX = true,
+
+    labelsY = true,
+
+    labelDecimalPlaces,
+
+    labelsYAutoNumber,
+
+    labelsXAutoNumber,
+
     minX,
 
     maxX,
@@ -245,6 +257,12 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
       nameX={nameX}
 
       nameY={nameY}
+
+      labels={labels}
+
+      labelsX={labelsX}
+
+      labelsY={labelsY}
 
       minX={minX}
 

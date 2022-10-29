@@ -9,7 +9,7 @@ import Type from '../Type';
 import { IItem } from '../LineChart/LineChart';
 import Path from '../Path';
 
-import { staticClassName } from '../utils';
+import { minMaxBetweenNumbers, staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
@@ -53,16 +53,40 @@ const useStyle = style(theme => ({
   },
 
   name_x: {
-    bottom: '-50px',
+    bottom: '-61px',
     left: '50%',
     transform: 'translateX(-50%)'
   },
 
   name_y: {
-    left: '-67px',
+    left: '-87px',
     top: '50%',
     transform: 'translateY(-50%) rotate(-90deg)'
   },
+
+  labels: {
+    position: 'absolute'
+  },
+
+  labels_x: {
+    top: 'calc(100% + 12px)',
+    left: '-8px',
+    width: '100%'
+  },
+
+  labels_y: {
+    top: '8px',
+    right: 'calc(100% + 12px)',
+    height: '100%'
+  },
+
+  label: {
+    position: 'absolute'
+  },
+
+  label_x: {},
+
+  labels_: {},
 
   border: {
     position: 'absolute',
@@ -117,17 +141,17 @@ const useStyle = style(theme => ({
 
 // to do
 
-// tooltip (true, optional)
-
 // labels, array (value and font style + optional offset, and position) (optional)
 // labelsX, labelsY positions
 
 // marks, array (value and size to add + optional offset, and position) (optional)
 // marksX, marksY positions
 
+// tooltip (true, optional)
+
 // vertical guide line on mouse move in the ui value y
 // only snaps to points, 50% between any previous and next point
-// if multiple points are on same x axes hightlight all those points
+// if multiple points are on same x axes hightlig ht all those points
 // same for y axes?
 
 // legend (expandable) (optional)
@@ -160,16 +184,35 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
     subtitle,
 
+    // Items
     items,
 
+    // Names
     names,
 
     nameX,
 
     nameY,
 
+    // Labels
+    labels: labels_ = 'auto',
+
+    labelsX = true,
+
+    labelsY = true,
+
+    labelDecimalPlaces = 0,
+
+    labelsAutoNumber = 10,
+
+    labelsYAutoNumber,
+
+    labelsXAutoNumber,
+
+    // Points
     points: pointsVisible = true,
 
+    // Borders
     borders = true,
 
     borderStart = false,
@@ -184,6 +227,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
     borderBottom = true,
 
+    // Min, max
     minX,
 
     maxX,
@@ -228,6 +272,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
   const [rect, setRect] = React.useState<DOMRect>();
   const [points, setPoints] = React.useState<any>();
+  const [labels, setLabels] = React.useState<any>();
 
   const refs = {
     root: React.useRef<any>(),
@@ -327,7 +372,34 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
     if (refs.rect.current && valueNew) {
       const { width, height } = refs.rect.current;
 
-      // points
+      // Labels
+      const labelsValues: any = {
+        x: is('array', labels_?.x) ? labels_.x : minMaxBetweenNumbers(labelsXAutoNumber !== undefined ? labelsXAutoNumber : labelsAutoNumber !== undefined ? labelsAutoNumber : 10, refs.minMax.current.min.x, refs.minMax.current.max.x).map(item => ({
+          value: item,
+
+          label: (item).toFixed(labelDecimalPlaces || 0)
+        })),
+
+        y: is('array', labels_?.y) ? labels_.y : minMaxBetweenNumbers(labelsYAutoNumber !== undefined ? labelsYAutoNumber : labelsAutoNumber !== undefined ? labelsAutoNumber : 10, refs.minMax.current.min.y, refs.minMax.current.max.y).map(item => ({
+          value: item,
+
+          label: (item).toFixed(labelDecimalPlaces || 0)
+        }))
+      };
+
+      labelsValues.x = labelsValues.x.map(item => ({
+        ...item,
+
+        percentage: percentageFromValueWithinRange(item.value, refs.minMax.current.min.x, refs.minMax.current.max.x)
+      }));
+
+      labelsValues.y = labelsValues.y.map(item => ({
+        ...item,
+
+        percentage: percentageFromValueWithinRange(item.value, refs.minMax.current.min.y, refs.minMax.current.max.y)
+      }));
+
+      // Points
       const points_ = copy(valueNew).flatMap((item: IItem) => {
         const {
           color: color_,
@@ -378,6 +450,9 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
           />
         ));
       });
+
+      // Labels
+      setLabels(labelsValues);
 
       // Update children value
       setPoints(points_);
@@ -654,6 +729,97 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
                     />
                   )}
                 </>}
+
+                {/* Labels */}
+                {!!labels_ && labelsX && labels?.x && (
+                  <Line
+                    gap={0}
+
+                    direction='row'
+
+                    align='flex-start'
+
+                    className={classNames([
+                      staticClassName('Chart', theme) && [
+                        'AmauiChart-labels',
+                        'AmauiChart-labels-x'
+                      ],
+
+                      classes.labels,
+                      classes.labels_x
+                    ])}
+                  >
+                    {labels.x.map((item: any, index: number) => (
+                      <Type
+                        key={index}
+
+                        version='b3'
+
+                        className={classNames([
+                          staticClassName('Chart', theme) && [
+                            'AmauiChart-label',
+                            'AmauiChart-label-x'
+                          ],
+
+                          classes.label,
+                          classes.label_x
+                        ])}
+
+                        style={{
+                          left: `${item.percentage}%`
+                        }}
+                      >
+                        {item.label}
+                      </Type>
+                    ))}
+                  </Line>
+                )}
+
+                {!!labels_ && labelsY && labels?.y && (
+                  <Line
+                    gap={0}
+
+                    direction='column'
+
+                    align='flex-end'
+
+                    justify='center'
+
+                    className={classNames([
+                      staticClassName('Chart', theme) && [
+                        'AmauiChart-labels',
+                        'AmauiChart-labels-y'
+                      ],
+
+                      classes.labels,
+                      classes.labels_y
+                    ])}
+                  >
+                    {labels.y.map((item: any, index: number) => (
+                      <Type
+                        key={index}
+
+                        version='b3'
+
+                        className={classNames([
+                          staticClassName('Chart', theme) && [
+                            'AmauiChart-label',
+                            'AmauiChart-label-y'
+                          ],
+
+                          classes.label,
+                          classes.label_y
+                        ])}
+
+                        style={{
+                          bottom: `${item.percentage}%`
+                        }}
+                      >
+                        {item.label}
+                      </Type>
+                    ))}
+                  </Line>
+                )}
 
                 {/* Axes names */}
                 {names?.x && nameX && (
