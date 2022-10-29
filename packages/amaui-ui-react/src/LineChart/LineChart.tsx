@@ -41,17 +41,31 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
 
     nameY,
 
-    labels = 'auto',
+    labels,
 
-    labelsX = true,
+    labelsX,
 
-    labelsY = true,
+    labelsY,
 
     labelDecimalPlaces,
+
+    labelAutoNumber,
 
     labelsYAutoNumber,
 
     labelsXAutoNumber,
+
+    marks,
+
+    marksX,
+
+    marksY,
+
+    markAutoNumber,
+
+    marksYAutoNumber,
+
+    marksXAutoNumber,
 
     minX,
 
@@ -264,6 +278,26 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
 
       labelsY={labelsY}
 
+      labelDecimalPlaces={labelDecimalPlaces}
+
+      labelAutoNumber={labelAutoNumber}
+
+      labelsYAutoNumber={labelsYAutoNumber}
+
+      labelsXAutoNumber={labelsXAutoNumber}
+
+      marks={marks}
+
+      marksX={marksX}
+
+      marksY={marksY}
+
+      markAutoNumber={markAutoNumber}
+
+      marksYAutoNumber={marksYAutoNumber}
+
+      marksXAutoNumber={marksXAutoNumber}
+
       minX={minX}
 
       maxX={maxX}
@@ -272,7 +306,6 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
 
       maxY={maxY}
 
-      // Add % of the min, max range for min and max, y, x
       minMaxPadding={minMaxPadding}
 
       minPadding={minPadding}

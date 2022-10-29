@@ -70,12 +70,12 @@ const useStyle = style(theme => ({
 
   labels_x: {
     top: 'calc(100% + 12px)',
-    left: '-8px',
+    left: '0',
     width: '100%'
   },
 
   labels_y: {
-    top: '8px',
+    top: '0',
     right: 'calc(100% + 12px)',
     height: '100%'
   },
@@ -84,9 +84,45 @@ const useStyle = style(theme => ({
     position: 'absolute'
   },
 
-  label_x: {},
+  label_x: {
+    transform: 'translateX(-50%)'
+  },
 
-  labels_: {},
+  label_y: {
+    transform: 'translateY(50%)'
+  },
+
+  marks: {
+    position: 'absolute'
+  },
+
+  marks_x: {
+    top: 'calc(100% + 0px)',
+    left: '0',
+    width: '100%'
+  },
+
+  marks_y: {
+    top: '0',
+    right: 'calc(100% + 0px)',
+    height: '100%'
+  },
+
+  mark: {
+    position: 'absolute'
+  },
+
+  mark_x: {
+    width: '1px',
+    height: '7px',
+    background: 'currentColor'
+  },
+
+  mark_y: {
+    width: '7px',
+    height: '1px',
+    background: 'currentColor'
+  },
 
   border: {
     position: 'absolute',
@@ -95,7 +131,7 @@ const useStyle = style(theme => ({
 
   borderX: {
     height: '1px',
-    width: '100%',
+    width: 'calc(100% + 1px)',
     left: '0'
   },
 
@@ -109,8 +145,8 @@ const useStyle = style(theme => ({
 
   borderY: {
     width: '1px',
-    height: '100%',
-    top: '0'
+    height: 'calc(100% + 1px)',
+    top: '-1px'
   },
 
   borderStart: {
@@ -141,9 +177,6 @@ const useStyle = style(theme => ({
 
 // to do
 
-// labels, array (value and font style + optional offset, and position) (optional)
-// labelsX, labelsY positions
-
 // marks, array (value and size to add + optional offset, and position) (optional)
 // marksX, marksY positions
 
@@ -154,15 +187,15 @@ const useStyle = style(theme => ({
 // if multiple points are on same x axes hightlig ht all those points
 // same for y axes?
 
-// legend (expandable) (optional)
-// position top, bottom, left, right, start, end
-// legend items icon custom and color custom
+// array, guidelines (style, dashed, solid, stroke width, color x,y to x1, y1 (either as % or values))
 
 // grid (number or { x, y }), gridX & gridY (optional)
 
 // gridLabelsY, gridLabelsX
 
-// array, guidelines (style, dashed, solid, stroke width, color x,y to x1, y1 (either as % or values))
+// legend (expandable) (optional)
+// position top, bottom, left, right, start, end
+// legend items icon custom and color custom
 
 // all above options area valueBreakpoints value y
 
@@ -203,11 +236,26 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
     labelDecimalPlaces = 0,
 
+    // valueBreakpoint xs 4, sm 8, md 10
     labelsAutoNumber = 10,
 
     labelsYAutoNumber,
 
     labelsXAutoNumber,
+
+    // Marks
+    marks: marks_ = 'auto',
+
+    marksX = true,
+
+    marksY = true,
+
+    // valueBreakpoint xs 4, sm 8, md 10
+    marksAutoNumber = 10,
+
+    marksYAutoNumber,
+
+    marksXAutoNumber,
 
     // Points
     points: pointsVisible = true,
@@ -236,7 +284,6 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
     maxY,
 
-    // Add % of the min, max range for min and max, y, x
     minMaxPadding,
 
     minPadding,
@@ -273,6 +320,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
   const [rect, setRect] = React.useState<DOMRect>();
   const [points, setPoints] = React.useState<any>();
   const [labels, setLabels] = React.useState<any>();
+  const [marks, setMarks] = React.useState<any>();
 
   const refs = {
     root: React.useRef<any>(),
@@ -399,6 +447,29 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
         percentage: percentageFromValueWithinRange(item.value, refs.minMax.current.min.y, refs.minMax.current.max.y)
       }));
 
+      // Marks
+      const marksValues: any = {
+        x: is('array', marks_?.x) ? marks_.x : minMaxBetweenNumbers(marksXAutoNumber !== undefined ? marksXAutoNumber : marksAutoNumber !== undefined ? marksAutoNumber : 10, refs.minMax.current.min.x, refs.minMax.current.max.x).map(item => ({
+          value: item
+        })),
+
+        y: is('array', marks_?.y) ? marks_.y : minMaxBetweenNumbers(marksYAutoNumber !== undefined ? marksYAutoNumber : marksAutoNumber !== undefined ? marksAutoNumber : 10, refs.minMax.current.min.y, refs.minMax.current.max.y).map(item => ({
+          value: item
+        }))
+      };
+
+      marksValues.x = marksValues.x.map(item => ({
+        ...item,
+
+        percentage: percentageFromValueWithinRange(item.value, refs.minMax.current.min.x, refs.minMax.current.max.x)
+      }));
+
+      marksValues.y = marksValues.y.map(item => ({
+        ...item,
+
+        percentage: percentageFromValueWithinRange(item.value, refs.minMax.current.min.y, refs.minMax.current.max.y)
+      }));
+
       // Points
       const points_ = copy(valueNew).flatMap((item: IItem) => {
         const {
@@ -453,6 +524,9 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
       // Labels
       setLabels(labelsValues);
+
+      // Marks
+      setMarks(marksValues);
 
       // Update children value
       setPoints(points_);
@@ -817,6 +891,93 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
                       >
                         {item.label}
                       </Type>
+                    ))}
+                  </Line>
+                )}
+
+                {/* Marks */}
+                {!!marks_ && marksX && marks?.x && (
+                  <Line
+                    gap={0}
+
+                    direction='row'
+
+                    align='flex-start'
+
+                    className={classNames([
+                      staticClassName('Chart', theme) && [
+                        'AmauiChart-marks',
+                        'AmauiChart-marks-x'
+                      ],
+
+                      classes.marks,
+                      classes.marks_x
+                    ])}
+                  >
+                    {marks.x.map((item: any, index: number) => (
+                      <span
+                        key={index}
+
+                        className={classNames([
+                          staticClassName('Chart', theme) && [
+                            'AmauiChart-mark',
+                            'AmauiChart-mark-x'
+                          ],
+
+                          classes.mark,
+                          classes.mark_x
+                        ])}
+
+                        style={{
+                          left: `${item.percentage}%`
+                        }}
+                      >
+                        {item.mark}
+                      </span>
+                    ))}
+                  </Line>
+                )}
+
+                {!!marks_ && marksY && marks?.y && (
+                  <Line
+                    gap={0}
+
+                    direction='column'
+
+                    align='flex-end'
+
+                    justify='center'
+
+                    className={classNames([
+                      staticClassName('Chart', theme) && [
+                        'AmauiChart-marks',
+                        'AmauiChart-marks-y'
+                      ],
+
+                      classes.marks,
+                      classes.marks_y
+                    ])}
+                  >
+                    {marks.y.map((item: any, index: number) => (
+                      <span
+                        key={index}
+
+                        className={classNames([
+                          staticClassName('Chart', theme) && [
+                            'AmauiChart-mark',
+                            'AmauiChart-mark-y'
+                          ],
+
+                          classes.mark,
+                          classes.mark_y
+                        ])}
+
+                        style={{
+                          bottom: `${item.percentage}%`
+                        }}
+                      >
+                        {item.mark}
+                      </span>
                     ))}
                   </Line>
                 )}
