@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is, percentageFromValueWithinRange, valueFromPercentageWithinRange } from '@amaui/utils';
+import { copy, is, percentageFromValueWithinRange, valueFromPercentageWithinRange } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Chart from '../Chart';
@@ -35,6 +35,12 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
 
     items,
 
+    names,
+
+    nameX,
+
+    nameY,
+
     minX,
 
     maxX,
@@ -60,7 +66,7 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
 
     smooth = true,
 
-    smoothRatio = 0.2,
+    smoothRatio = 0.14,
 
     className,
 
@@ -140,7 +146,7 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
     if (refs.rect.current && items) {
       const { width, height } = refs.rect.current;
 
-      const children_ = items.map((item: IItem) => {
+      const children_ = copy(items).map((item: IItem) => {
         const {
           color: color_,
 
@@ -208,6 +214,10 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
     }
   };
 
+  React.useEffect(() => {
+    make();
+  }, [items]);
+
   const onUpdateRect = (valueNew: any) => {
     refs.rect.current = valueNew;
 
@@ -221,6 +231,37 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
       tonal={tonal}
 
       color={color}
+
+      items={items}
+
+      names={names}
+
+      nameX={nameX}
+
+      nameY={nameY}
+
+      minX={minX}
+
+      maxX={maxX}
+
+      minY={minY}
+
+      maxY={maxY}
+
+      // Add % of the min, max range for min and max, y, x
+      minMaxPadding={minMaxPadding}
+
+      minPadding={minPadding}
+
+      maxPadding={maxPadding}
+
+      minPaddingX={minPaddingX}
+
+      minPaddingY={minPaddingY}
+
+      maxPaddingX={maxPaddingX}
+
+      maxPaddingY={maxPaddingY}
 
       onUpdateRect={onUpdateRect}
 

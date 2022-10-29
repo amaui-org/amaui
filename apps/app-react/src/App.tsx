@@ -1537,7 +1537,19 @@ function App() {
             width: '100%'
           }}
         >
-          <LineChart />
+          <LineChart
+            minPaddingY={0.14}
+
+            maxPaddingY={0.14}
+
+            items={[
+              {
+                color: 'primary',
+
+                values: Array.from({ length: 14 }).map(() => [random(-40, 400), random(-40, 400)])
+              }
+            ]}
+          />
 
           <DateTimeRangePicker
             label='Date time range'
@@ -3165,43 +3177,98 @@ Please sign in again.`}
       <Accordion primary='LineChart'>
         <Accordion primary='LineChart' open>
           <LineChart
+            names={{
+              x: 'Name x',
+              y: 'Name y'
+            }}
+
+            nameX
+
+            nameY
+
+            minPaddingY={0.14}
+
+            maxPaddingY={0.14}
+
             items={[
               {
                 color: 'primary',
 
-                values: [
-                  [5, 10],
-                  [10, 40],
-                  [40, 30],
-                  [60, 5],
-                  [90, 45],
-                  [120, 10],
-                  [150, 45],
-                  [200, 10]
-                ]
+                values: Array.from({ length: 14 }).map(() => [random(-40, 400), random(-40, 400)])
               }
             ]}
           />
         </Accordion>
 
-        <Accordion primary='LineChart title'>
+        <Accordion primary='LineChart names'>
           <LineChart
-            title='Line chart'
+            names={{
+              x: 'Name x',
+              y: 'Name y'
+            }}
+
+            nameX
+
+            nameY
+
+            minPaddingY={0.14}
+
+            maxPaddingY={0.14}
 
             items={[
               {
                 color: 'primary',
 
-                values: [
-                  [5, 10],
-                  [10, 40],
-                  [40, 30],
-                  [60, 5],
-                  [90, 45],
-                  [120, 10],
-                  [150, 45],
-                  [200, 10]
-                ]
+                values: Array.from({ length: 14 }).map(() => [random(-40, 400), random(-40, 400)])
+              }
+            ]}
+          />
+        </Accordion>
+
+        <Accordion primary='LineChart multiple'>
+          <LineChart
+            title='Line chart multiple'
+
+            minPaddingY={0.14}
+
+            maxPaddingY={0.14}
+
+            items={[
+              {
+                color: 'primary',
+
+                values: Array.from({ length: 14 }).map(() => [random(-40, 400), random(-40, 400)])
+              },
+              {
+                color: 'secondary',
+
+                values: Array.from({ length: 14 }).map(() => [random(-40, 400), random(-40, 400)])
+              },
+              {
+                color: 'tertiary',
+
+                values: Array.from({ length: 14 }).map(() => [random(-40, 400), random(-40, 400)])
+              },
+              {
+                color: 'quaternary',
+
+                values: Array.from({ length: 14 }).map(() => [random(-40, 400), random(-40, 400)])
+              }
+            ]}
+          />
+        </Accordion>
+
+        <Accordion primary='LineChart title, subtitle'>
+          <LineChart
+            title='Line chart'
+
+            subtitle='In millions of eur'
+
+            items={[
+              {
+                color: 'primary',
+
+                values: Array.from({ length: 14 }).map(() => [random(-40, 400), random(-40, 400)])
               }
             ]}
           />
@@ -3219,16 +3286,7 @@ Please sign in again.`}
               {
                 color: 'primary',
 
-                values: [
-                  [5, 10],
-                  [10, 40],
-                  [40, 30],
-                  [60, 5],
-                  [90, 45],
-                  [120, 10],
-                  [150, 45],
-                  [200, 10]
-                ]
+                values: Array.from({ length: 14 }).map(() => [random(-40, 400), random(-40, 400)])
               }
             ]}
           />
@@ -3248,16 +3306,7 @@ Please sign in again.`}
               {
                 color: 'primary',
 
-                values: [
-                  [5, 10],
-                  [10, 40],
-                  [40, 30],
-                  [60, 5],
-                  [90, 45],
-                  [120, 10],
-                  [150, 45],
-                  [200, 10]
-                ]
+                values: Array.from({ length: 14 }).map(() => [random(-40, 400), random(-40, 400)])
               }
             ]}
           />
