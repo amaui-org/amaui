@@ -3200,6 +3200,33 @@ Please sign in again.`}
           />
         </Accordion>
 
+        <Accordion primary='LineChart grid'>
+          <LineChart
+            grid='auto'
+
+            names={{
+              x: 'Name x',
+              y: 'Name y'
+            }}
+
+            nameX
+
+            nameY
+
+            minPaddingY={0.14}
+
+            maxPaddingY={0.14}
+
+            items={[
+              {
+                color: 'primary',
+
+                values: Array.from({ length: 14 }).map(() => [random(-40, 400), random(-40, 400)])
+              }
+            ]}
+          />
+        </Accordion>
+
         <Accordion primary='LineChart names'>
           <LineChart
             names={{

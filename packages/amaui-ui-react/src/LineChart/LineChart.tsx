@@ -69,6 +69,18 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
 
     marksXAutoNumber,
 
+    grid,
+
+    gridX,
+
+    gridY,
+
+    gridAutoNumber,
+
+    gridYAutoNumber,
+
+    gridXAutoNumber,
+
     minX,
 
     maxX,
@@ -301,6 +313,18 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
       marksYAutoNumber={marksYAutoNumber}
 
       marksXAutoNumber={marksXAutoNumber}
+
+      grid={grid}
+
+      gridX={gridX}
+
+      gridY={gridY}
+
+      gridAutoNumber={gridAutoNumber}
+
+      gridYAutoNumber={gridYAutoNumber}
+
+      gridXAutoNumber={gridXAutoNumber}
 
       minX={minX}
 

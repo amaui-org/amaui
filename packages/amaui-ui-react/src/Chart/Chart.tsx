@@ -53,6 +53,10 @@ const useStyle = style(theme => ({
     margin: '0 0 60px 70px'
   },
 
+  svg: {
+    position: 'relative'
+  },
+
   header: {
     width: '100%',
     marginBottom: '24px'
@@ -63,13 +67,14 @@ const useStyle = style(theme => ({
   },
 
   append: {
-    padding: '10px 20px',
+    padding: '12px 20px',
     borderRadius: '12px',
     marginBottom: '16px'
   },
 
   name: {
-    position: 'absolute'
+    position: 'absolute',
+    userSelect: 'none'
   },
 
   name_x: {
@@ -85,7 +90,8 @@ const useStyle = style(theme => ({
   },
 
   labels: {
-    position: 'absolute'
+    position: 'absolute',
+    userSelect: 'none'
   },
 
   labels_x: {
@@ -144,6 +150,39 @@ const useStyle = style(theme => ({
     background: 'currentColor'
   },
 
+  grids: {
+    position: 'absolute',
+    width: '100%',
+    height: '100%'
+  },
+
+  grids_x: {
+    top: '0',
+    left: '0'
+  },
+
+  grids_y: {
+    top: '0',
+    left: '0'
+  },
+
+  grid: {
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
+    opacity: theme.palette.light ? '0.07' : '0.14'
+  },
+
+  grid_x: {
+    width: '1px',
+    background: 'currentColor'
+  },
+
+  grid_y: {
+    height: '1px',
+    background: 'currentColor'
+  },
+
   border: {
     position: 'absolute',
     background: 'currentColor'
@@ -196,10 +235,6 @@ const useStyle = style(theme => ({
 }), { name: 'AmauiChart' });
 
 // to do
-
-// grid (number or { x, y }), gridX & gridY (optional)
-
-// gridLabelsY, gridLabelsX
 
 // array, guidelines (style, dashed, solid, stroke width, color x,y to x1, y1 (either as % or values))
 
@@ -276,6 +311,20 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
     marksXAutoNumber,
 
+    // Grid
+    grid: grid_,
+
+    gridX = true,
+
+    gridY = true,
+
+    // valueBreakpoint xs 4, sm 8, md 10
+    gridAutoNumber = 10,
+
+    gridYAutoNumber,
+
+    gridXAutoNumber,
+
     // Points
     points: pointsVisible = true,
 
@@ -341,6 +390,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
   const [points, setPoints] = React.useState<any>();
   const [labels, setLabels] = React.useState<any>();
   const [marks, setMarks] = React.useState<any>();
+  const [grid, setGrid] = React.useState<any>();
   const [append, setAppend] = React.useState<any>();
 
   const refs = {
@@ -507,6 +557,29 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
         percentage: percentageFromValueWithinRange(item.value, refs.minMax.current.min.y, refs.minMax.current.max.y)
       }));
 
+      // Grid
+      const gridsValues: any = {
+        x: is('array', grid_?.x) ? grid_.x : minMaxBetweenNumbers(gridXAutoNumber !== undefined ? gridXAutoNumber : gridAutoNumber !== undefined ? gridAutoNumber : 10, refs.minMax.current.min.x, refs.minMax.current.max.x).map(item => ({
+          value: item
+        })),
+
+        y: is('array', grid_?.y) ? grid_.y : minMaxBetweenNumbers(gridYAutoNumber !== undefined ? gridYAutoNumber : gridAutoNumber !== undefined ? gridAutoNumber : 10, refs.minMax.current.min.y, refs.minMax.current.max.y).map(item => ({
+          value: item
+        }))
+      };
+
+      gridsValues.x = gridsValues.x.map(item => ({
+        ...item,
+
+        percentage: percentageFromValueWithinRange(item.value, refs.minMax.current.min.x, refs.minMax.current.max.x)
+      }));
+
+      gridsValues.y = gridsValues.y.map(item => ({
+        ...item,
+
+        percentage: percentageFromValueWithinRange(item.value, refs.minMax.current.min.y, refs.minMax.current.max.y)
+      }));
+
       // Points
       const points_ = copy(valueNew).flatMap((item: IItem) => {
         const {
@@ -579,6 +652,9 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
       // Marks
       setMarks(marksValues);
+
+      // Grid
+      setGrid(gridsValues);
 
       // Update children value
       setPoints(points_);
@@ -716,6 +792,89 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
             return (
               <>
+                {/* Grid */}
+                {!!grid_ && gridX && grid?.x && (
+                  <Line
+                    gap={0}
+
+                    direction='row'
+
+                    align='flex-start'
+
+                    className={classNames([
+                      staticClassName('Chart', theme) && [
+                        'AmauiChart-grids',
+                        'AmauiChart-grids-x'
+                      ],
+
+                      classes.grids,
+                      classes.grids_x
+                    ])}
+                  >
+                    {grid.x.map((item: any, index: number) => (
+                      <div
+                        key={index}
+
+                        className={classNames([
+                          staticClassName('Chart', theme) && [
+                            'AmauiChart-grid',
+                            'AmauiChart-grid-x'
+                          ],
+
+                          classes.grid,
+                          classes.grid_x
+                        ])}
+
+                        style={{
+                          left: `${item.percentage}%`
+                        }}
+                      />
+                    ))}
+                  </Line>
+                )}
+
+                {!!grid_ && gridY && grid?.y && (
+                  <Line
+                    gap={0}
+
+                    direction='column'
+
+                    align='flex-end'
+
+                    justify='center'
+
+                    className={classNames([
+                      staticClassName('Chart', theme) && [
+                        'AmauiChart-grids',
+                        'AmauiChart-grids-y'
+                      ],
+
+                      classes.grids,
+                      classes.grids_y
+                    ])}
+                  >
+                    {grid.y.map((item: any, index: number) => (
+                      <div
+                        key={index}
+
+                        className={classNames([
+                          staticClassName('Chart', theme) && [
+                            'AmauiChart-grid',
+                            'AmauiChart-grid-y'
+                          ],
+
+                          classes.grid,
+                          classes.grid_y
+                        ])}
+
+                        style={{
+                          bottom: `${item.percentage}%`
+                        }}
+                      />
+                    ))}
+                  </Line>
+                )}
+
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
 
@@ -732,8 +891,6 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
                     classes.svg
                   ])}
                 >
-                  {/* Grid */}
-
                   {/* Children */}
                   {children}
 
