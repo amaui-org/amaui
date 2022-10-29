@@ -236,16 +236,14 @@ const useStyle = style(theme => ({
 
 // to do
 
-// array, guidelines (style, dashed, solid, stroke width, color x,y to x1, y1 (either as % or values))
+// legend (expandable) (optional)
+// position top, bottom, left, right, start, end
+// legend items icon custom and color custom
 
 // vertical guide line on mouse move in the ui value y
 // only snaps to points, 50% between any previous and next point
 // if multiple points are on same x axes hightlig ht all those points
 // same for y axes?
-
-// legend (expandable) (optional)
-// position top, bottom, left, right, start, end
-// legend items icon custom and color custom
 
 // all above options area valueBreakpoints value y
 
@@ -280,6 +278,8 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
     nameY,
 
     tooltip = true,
+
+    guidelines: guidelines__,
 
     // Labels
     labels: labels_ = 'auto',
@@ -378,6 +378,8 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
     PointProps,
     HeaderProps,
     AppendProps,
+    GuidelineProps,
+    GuidelinesProps,
 
     className,
 
@@ -391,6 +393,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
   const [labels, setLabels] = React.useState<any>();
   const [marks, setMarks] = React.useState<any>();
   const [grid, setGrid] = React.useState<any>();
+  const [guidelines, setGuidelines] = React.useState<any>();
   const [append, setAppend] = React.useState<any>();
 
   const refs = {
@@ -647,6 +650,54 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
         ));
       });
 
+      // Guidelines
+      const guidelines_ = guidelines__ && guidelines__.map((item: any) => {
+        const {
+          color: color_,
+
+          tone = 'main',
+
+          style
+        } = item;
+
+        const values = {
+          x1: percentageFromValueWithinRange(item.x1, refs.minMax.current.min.x, refs.minMax.current.max.x),
+          y1: percentageFromValueWithinRange(item.y1, refs.minMax.current.min.y, refs.minMax.current.max.y),
+
+          x2: percentageFromValueWithinRange(item.x2, refs.minMax.current.min.x, refs.minMax.current.max.x),
+          y2: percentageFromValueWithinRange(item.y2, refs.minMax.current.min.y, refs.minMax.current.max.y),
+        };
+
+        values.x1 = valueFromPercentageWithinRange(values.x1, 0, width);
+
+        values.y1 = valueFromPercentageWithinRange(values.y1, 0, height);
+
+        values.x2 = valueFromPercentageWithinRange(values.x2, 0, width);
+
+        values.y2 = valueFromPercentageWithinRange(values.y2, 0, height);
+
+        return (
+          <Path
+            d={`M ${values.x1} ${height - values.y1} L ${values.x2} ${height - values.y2}`}
+
+            fill='none'
+
+            stroke={!theme.palette.color[color_] ? color_ : theme.palette.color[color_][tone]}
+
+            className={classNames([
+              staticClassName('Chart', theme) && [
+                'AmauiChart-guidelines'
+              ],
+
+              GuidelineProps?.className,
+              classes.guidelines
+            ])}
+
+            style={style}
+          />
+        );
+      });
+
       // Labels
       setLabels(labelsValues);
 
@@ -655,6 +706,9 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
       // Grid
       setGrid(gridsValues);
+
+      // Guidelines
+      setGuidelines(guidelines_);
 
       // Update children value
       setPoints(points_);
@@ -895,6 +949,22 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
                   {children}
 
                   {/* Guidelines */}
+                  {guidelines && (
+                    <g
+                      {...GuidelinesProps}
+
+                      className={classNames([
+                        staticClassName('Chart', theme) && [
+                          'AmauiChart-guidelines'
+                        ],
+
+                        GuidelinesProps?.className,
+                        classes.guidelines
+                      ])}
+                    >
+                      {guidelines}
+                    </g>
+                  )}
 
                   {/* Points */}
                   {pointsVisible && points && (

@@ -3200,6 +3200,62 @@ Please sign in again.`}
           />
         </Accordion>
 
+        <Accordion primary='LineChart guidelines'>
+          <LineChart
+            guidelines={[
+              {
+                color: 'secondary',
+
+                x1: -40,
+                y1: 140,
+
+                x2: 400,
+                y2: 140,
+
+                style: {
+                  strokeWidth: '2px',
+                  strokeDasharray: '4'
+                }
+              },
+
+              {
+                color: 'warning',
+
+                x1: -40,
+                y1: 40,
+
+                x2: 400,
+                y2: 340,
+
+                style: {
+                  strokeWidth: '3px'
+                }
+              }
+            ]}
+
+            names={{
+              x: 'Name x',
+              y: 'Name y'
+            }}
+
+            nameX
+
+            nameY
+
+            minPaddingY={0.14}
+
+            maxPaddingY={0.14}
+
+            items={[
+              {
+                color: 'primary',
+
+                values: Array.from({ length: 14 }).map(() => [random(-40, 400), random(-40, 400)])
+              }
+            ]}
+          />
+        </Accordion>
+
         <Accordion primary='LineChart grid'>
           <LineChart
             grid='auto'

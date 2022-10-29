@@ -11,6 +11,7 @@ import { controlPoint, staticClassName } from '../utils';
 export interface IItem {
   color: string;
   tone?: string;
+  style?: Record<string, any>;
 
   values: Array<[number, number]>;
 }
@@ -42,6 +43,8 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
     nameY,
 
     tooltip,
+
+    guidelines,
 
     labels,
 
@@ -287,6 +290,8 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
       nameY={nameY}
 
       tooltip={tooltip}
+
+      guidelines={guidelines}
 
       labels={labels}
 
