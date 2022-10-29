@@ -202,6 +202,8 @@ const useStyle = style(theme => ({
 
 // all above options area valueBreakpoints value y
 
+// smooth bug fix
+
 // example youtube video watch user value
 
 const Chart = React.forwardRef((props_: any, ref: any) => {
@@ -420,11 +422,19 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
   }, [items, rect]);
 
   const onPointMouseEnter = React.useCallback((values: any) => {
-    setAppend(values);
+    setAppend({
+      ...values,
+
+      open: true
+    });
   }, []);
 
   const onPointMouseLeave = React.useCallback(() => {
-    setAppend('');
+    setAppend(append_ => ({
+      ...append_,
+
+      open: false
+    }));
   }, []);
 
   const make = (valueNew: any = items) => {
@@ -1057,7 +1067,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
                     element={(
                       <div>
                         <Grow
-                          in={!!append}
+                          in={append?.open}
 
                           add
                         >
