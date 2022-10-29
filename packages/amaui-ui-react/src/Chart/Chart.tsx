@@ -59,7 +59,7 @@ const useStyle = style(theme => ({
   },
 
   name_y: {
-    left: '-64px',
+    left: '-67px',
     top: '50%',
     transform: 'translateY(-50%) rotate(-90deg)'
   },
@@ -141,10 +141,6 @@ const useStyle = style(theme => ({
 // array, guidelines (style, dashed, solid, stroke width, color x,y to x1, y1 (either as % or values))
 
 // all above options area valueBreakpoints value y
-
-// any children within the chart (minX, maxX, minY, maxY as an option value y)
-
-// mobile resize test
 
 // example youtube video watch user value
 

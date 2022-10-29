@@ -68,6 +68,8 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
 
     smoothRatio = 0.14,
 
+    PathProps,
+
     className,
 
     ...other
@@ -205,6 +207,10 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
             fill='none'
 
             stroke={!theme.palette.color[color_] ? color_ : theme.palette.color[color_][tone]}
+
+            strokeWidth='2px'
+
+            {...PathProps}
           />
         );
       });
