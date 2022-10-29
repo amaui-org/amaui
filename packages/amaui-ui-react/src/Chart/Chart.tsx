@@ -8,6 +8,8 @@ import Line from '../Line';
 import Type from '../Type';
 import { IItem } from '../LineChart/LineChart';
 import Path from '../Path';
+import Append from '../Append';
+import Grow from '../Grow';
 
 import { minMaxBetweenNumbers, staticClassName } from '../utils';
 
@@ -46,6 +48,12 @@ const useStyle = style(theme => ({
 
   subtitle: {
     opacity: '0.74'
+  },
+
+  append: {
+    padding: '12px 20px',
+    borderRadius: '12px',
+    marginBottom: '16px'
   },
 
   name: {
@@ -177,21 +185,16 @@ const useStyle = style(theme => ({
 
 // to do
 
-// marks, array (value and size to add + optional offset, and position) (optional)
-// marksX, marksY positions
+// grid (number or { x, y }), gridX & gridY (optional)
 
-// tooltip (true, optional)
+// gridLabelsY, gridLabelsX
+
+// array, guidelines (style, dashed, solid, stroke width, color x,y to x1, y1 (either as % or values))
 
 // vertical guide line on mouse move in the ui value y
 // only snaps to points, 50% between any previous and next point
 // if multiple points are on same x axes hightlig ht all those points
 // same for y axes?
-
-// array, guidelines (style, dashed, solid, stroke width, color x,y to x1, y1 (either as % or values))
-
-// grid (number or { x, y }), gridX & gridY (optional)
-
-// gridLabelsY, gridLabelsX
 
 // legend (expandable) (optional)
 // position top, bottom, left, right, start, end
@@ -226,6 +229,8 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
     nameX,
 
     nameY,
+
+    tooltip = true,
 
     // Labels
     labels: labels_ = 'auto',
@@ -309,6 +314,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
     PointsProps,
     PointProps,
     HeaderProps,
+    AppendProps,
 
     className,
 
@@ -321,6 +327,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
   const [points, setPoints] = React.useState<any>();
   const [labels, setLabels] = React.useState<any>();
   const [marks, setMarks] = React.useState<any>();
+  const [append, setAppend] = React.useState<any>();
 
   const refs = {
     root: React.useRef<any>(),
@@ -412,6 +419,14 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
     make();
   }, [items, rect]);
 
+  const onPointMouseEnter = React.useCallback((values: any) => {
+    setAppend(values);
+  }, []);
+
+  const onPointMouseLeave = React.useCallback(() => {
+    setAppend('');
+  }, []);
+
   const make = (valueNew: any = items) => {
     // Make values into x, y, coordinates
     // normalized in rect width, height values
@@ -493,7 +508,10 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
             values.y = valueFromPercentageWithinRange(values.y, 0, height);
 
-            return [values.x, height - values.y].map(item_ => Math.abs(item_));
+            return {
+              value: [x, y],
+              normalized: [values.x, height - values.y].map(item_ => Math.abs(item_))
+            };
           });
 
         return values.map((item, index: number) => (
@@ -502,13 +520,25 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
             r={4}
 
-            cx={item[0]}
+            cx={item.normalized[0]}
 
-            cy={item[1]}
+            cy={item.normalized[1]}
 
             fill={!theme.palette.color[color_] ? color_ : theme.palette.color[color_][tone]}
 
             stroke='none'
+
+            onMouseEnter={event => {
+              const rect_ = event.target.getBoundingClientRect();
+
+              onPointMouseEnter({
+                value: item.value,
+
+                rect: rect_
+              });
+            }}
+
+            onMouseLeave={onPointMouseLeave}
 
             className={classNames([
               staticClassName('Chart', theme) && [
@@ -1017,6 +1047,109 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
                   >
                     {names.y}
                   </Type>
+                )}
+
+                {/* Append */}
+                {tooltip && (
+                  <Append
+                    open
+
+                    element={(
+                      <div>
+                        <Grow
+                          in={!!append}
+
+                          add
+                        >
+                          <Line
+                            tonal={tonal}
+
+                            color={color}
+
+                            elevation={1}
+
+                            gap={0.25}
+
+                            direction='column'
+
+                            offset={[14, 14]}
+
+                            padding={[14, 14]}
+
+                            switch
+
+                            Component={Surface}
+
+                            className={classNames([
+                              staticClassName('Chart', theme) && [
+                                'AmauiChart-append'
+                              ],
+
+                              classes.append
+                            ])}
+                          >
+                            <Line
+                              gap={1}
+
+                              direction='row'
+
+                              align='center'
+                            >
+                              <Type
+                                version='b3'
+
+                                style={{
+                                  fontWeight: 500
+                                }}
+                              >
+                                {names?.y || 'y'}:
+                              </Type>
+
+                              <Type
+                                version='b3'
+                              >
+                                {append?.value?.[1]}
+                              </Type>
+                            </Line>
+
+                            <Line
+                              gap={1}
+
+                              direction='row'
+
+                              align='center'
+                            >
+                              <Type
+                                version='b3'
+
+                                style={{
+                                  fontWeight: 500
+                                }}
+                              >
+                                {names?.x || 'x'}:
+                              </Type>
+
+                              <Type
+                                version='b3'
+                              >
+                                {append?.value?.[0]}
+                              </Type>
+                            </Line>
+                          </Line>
+                        </Grow>
+                      </div>
+                    )}
+
+                    anchor={append?.rect}
+
+                    portal
+
+                    alignment='center'
+
+                    position='top'
+
+                    {...AppendProps}
+                  />
                 )}
               </>
             );

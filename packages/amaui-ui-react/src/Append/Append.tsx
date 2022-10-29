@@ -35,6 +35,7 @@ const Append = (props_: any) => {
     style: style_,
     update,
     element,
+    parent: parentElement,
 
     clearOnClose,
 
@@ -273,7 +274,7 @@ const Append = (props_: any) => {
     const rootBottom = portal ? rect.root.bottom : rectOffset.root.y + rect.root.height;
     const rootRight = portal ? rect.root.right : rectOffset.root.x + rect.root.width;
 
-    const parent_ = (portal ? window.document.body : refs.root.current?.parentElement)?.getBoundingClientRect();
+    const parent_ = (parentElement !== undefined ? parentElement : portal ? window.document.body : refs.root.current?.parentElement)?.getBoundingClientRect();
 
     if (theme.direction === 'rtl' && ['top', 'bottom'].includes(position)) {
       if (alignment === 'start') alignment = 'end';

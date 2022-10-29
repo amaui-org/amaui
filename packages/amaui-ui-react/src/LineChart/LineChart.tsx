@@ -41,6 +41,8 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
 
     nameY,
 
+    tooltip,
+
     labels,
 
     labelsX,
@@ -49,7 +51,7 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
 
     labelDecimalPlaces,
 
-    labelAutoNumber,
+    labelsAutoNumber,
 
     labelsYAutoNumber,
 
@@ -61,7 +63,7 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
 
     marksY,
 
-    markAutoNumber,
+    marksAutoNumber,
 
     marksYAutoNumber,
 
@@ -272,6 +274,8 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
 
       nameY={nameY}
 
+      tooltip={tooltip}
+
       labels={labels}
 
       labelsX={labelsX}
@@ -280,7 +284,7 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
 
       labelDecimalPlaces={labelDecimalPlaces}
 
-      labelAutoNumber={labelAutoNumber}
+      labelsAutoNumber={labelsAutoNumber}
 
       labelsYAutoNumber={labelsYAutoNumber}
 
@@ -292,7 +296,7 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
 
       marksY={marksY}
 
-      markAutoNumber={markAutoNumber}
+      marksAutoNumber={marksAutoNumber}
 
       marksYAutoNumber={marksYAutoNumber}
 
