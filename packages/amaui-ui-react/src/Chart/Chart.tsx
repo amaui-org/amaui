@@ -63,7 +63,7 @@ const useStyle = style(theme => ({
   },
 
   append: {
-    padding: '12px 20px',
+    padding: '10px 20px',
     borderRadius: '12px',
     marginBottom: '16px'
   },
