@@ -3206,6 +3206,60 @@ Please sign in again.`}
           />
         </Accordion>
 
+        <Accordion primary='AreaChart linearGradient'>
+          <AreaChart
+            linearGradient
+
+            guideline='both'
+
+            title='Area chart multiple'
+
+            names={{
+              x: 'Name x',
+              y: 'Name y'
+            }}
+
+            nameX
+
+            nameY
+
+            minPaddingY={0.14}
+
+            maxPaddingY={0.14}
+
+            values={[
+              {
+                color: 'primary',
+
+                name: 'a',
+
+                values: Array.from({ length: 14 }).map(() => [random(-40, 400), random(-40, 400)])
+              },
+              {
+                color: 'secondary',
+
+                name: 'a1',
+
+                values: Array.from({ length: 14 }).map(() => [random(-40, 400), random(-40, 400)])
+              },
+              {
+                color: 'tertiary',
+
+                name: 'a114',
+
+                values: Array.from({ length: 14 }).map(() => [random(-40, 400), random(-40, 400)])
+              },
+              {
+                color: 'quaternary',
+
+                name: 'a1114',
+
+                values: Array.from({ length: 14 }).map(() => [random(-40, 400), random(-40, 400)])
+              }
+            ]}
+          />
+        </Accordion>
+
         <Accordion primary='AreaChart multiple'>
           <AreaChart
             guideline='both'

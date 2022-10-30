@@ -81,6 +81,8 @@ const AreaChart = React.forwardRef((props_: any, ref: any) => {
 
     smoothRatio = 0.14,
 
+    linearGradient,
+
     PathProps,
     LegendItemProps,
 
@@ -249,12 +251,17 @@ const AreaChart = React.forwardRef((props_: any, ref: any) => {
         };
       });
 
+      // Pre
+      const pre = [];
+
       // Elements
       const elements_ = copy(values).map((item: IItem) => {
         const {
           color: color_,
 
-          tone = 'main'
+          tone = 'main',
+
+          name
         } = item;
 
         const values = item.values
@@ -337,6 +344,35 @@ const AreaChart = React.forwardRef((props_: any, ref: any) => {
           d.background += `L ${lastX} ${height} Z`;
         }
 
+        // Linear gradient
+        pre.push(
+          <linearGradient
+            id={`areaChart_id_${name}`}
+
+            x1='0%'
+            x2='0%'
+
+            y1='0%'
+            y2='100%'
+          >
+            <stop
+              offset='0%'
+
+              stopColor={!theme.palette.color[color_] ? color_ : theme.palette.color[color_][tone]}
+
+              stopOpacity='0.54'
+            />
+
+            <stop
+              offset='74%'
+
+              stopColor={theme.palette.background.default.primary}
+
+              stopOpacity='0'
+            />
+          </linearGradient>
+        );
+
         return {
           item,
 
@@ -359,7 +395,7 @@ const AreaChart = React.forwardRef((props_: any, ref: any) => {
               <Path
                 d={d.background}
 
-                fill={theme.methods.palette.color.colorToRgb(!theme.palette.color[color_] ? color_ : theme.palette.color[color_][tone], 0.14)}
+                fill={linearGradient ? `url('#areaChart_id_${name}')` : theme.methods.palette.color.colorToRgb(!theme.palette.color[color_] ? color_ : theme.palette.color[color_][tone], 0.14)}
 
                 stroke='none'
 
@@ -373,6 +409,16 @@ const AreaChart = React.forwardRef((props_: any, ref: any) => {
       // Update children value
       setValue({
         legend: legend_,
+
+        pre: pre.length ? (
+          <defs>
+            {pre.map((item: any, index: number) => (
+              React.cloneElement(item, {
+                key: index
+              })
+            ))}
+          </defs>
+        ) : undefined,
 
         elements: elements_
       });
@@ -420,6 +466,8 @@ const AreaChart = React.forwardRef((props_: any, ref: any) => {
       maxPaddingX={maxPaddingX}
 
       maxPaddingY={maxPaddingY}
+
+      pre={value?.pre}
 
       elements={value?.elements}
 

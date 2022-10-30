@@ -334,6 +334,9 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
     // Values
     values,
 
+    // Pre
+    pre,
+
     // Elements
     elements,
 
@@ -1602,6 +1605,9 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
                     classes.svg
                   ])}
                 >
+                  {/* Pre */}
+                  {pre}
+
                   {/* Elements */}
                   {elements && elements.map(({ item, element }, index: number) => (
                     React.cloneElement(element, {
