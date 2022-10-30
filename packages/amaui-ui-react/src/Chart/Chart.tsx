@@ -264,6 +264,10 @@ const useStyle = style(theme => ({
     opacity: 1
   },
 
+  point_visibility_hidden: {
+    opacity: 0
+  },
+
   // Legend
   legend: {},
 
