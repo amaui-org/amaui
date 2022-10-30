@@ -977,7 +977,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
       setPoints(points_);
     }
   };
-  console.log(1, guidelinePosition);
+
   return (
     <Line
       ref={item => {
