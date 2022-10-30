@@ -151,12 +151,14 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
     const {
       item = {},
 
-      className_
+      className_,
+
+      ...other
     } = props__;
 
     const {
       color: color_,
-      tone,
+      tone = 'main',
 
       name = 'No name'
     } = item;
@@ -172,19 +174,21 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
         {...LegendItemProps}
 
         className={classNames([
-          staticClassName('Chart', theme) && [
-            'AmauiChart-legend-item'
+          staticClassName('LineChart', theme) && [
+            'AmauiLineChart-legend-item'
           ],
 
           className_,
           LegendItemProps?.className,
           classes.legend_item
         ])}
+
+        {...other}
       >
         <span
           className={classNames([
             staticClassName('Chart', theme) && [
-              'AmauiChart-legend-icon'
+              'AmauiLineChart-legend-icon'
             ],
 
             classes.legend_icon
@@ -196,7 +200,7 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
         />
 
         <Type
-          version='b2'
+          version='b3'
         >
           {name}
         </Type>
