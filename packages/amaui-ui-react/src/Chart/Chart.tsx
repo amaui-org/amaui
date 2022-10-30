@@ -925,7 +925,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
           {/* Title */}
           {is('simple', title) ? (
             <Type
-              version='t1'
+              version='t2'
 
               color='inherit'
 
