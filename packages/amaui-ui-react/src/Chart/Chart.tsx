@@ -590,7 +590,10 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
       groups[color].push(item);
     });
-    console.log(14, items, groups);
+
+    // Each group sort by y
+    Object.keys(groups).forEach(group => groups[group].sort((a, b) => a.normalized[1] - b.normalized[1]));
+
     const element = (
       <Line
         tonal={tonal}
