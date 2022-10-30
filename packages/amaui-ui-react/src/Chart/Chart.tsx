@@ -54,7 +54,11 @@ const useStyle = style(theme => ({
   },
 
   svg: {
-    position: 'relative'
+    position: 'relative',
+
+    '& path': {
+      transition: theme.methods.transitions.make('opacity', { duration: 'xs' })
+    }
   },
 
   header: {
@@ -248,6 +252,15 @@ const useStyle = style(theme => ({
     userSelect: 'none'
   },
 
+  legend_item_manage_visiblity: {
+    cursor: 'pointer',
+    transition: theme.methods.transitions.make('opacity')
+  },
+
+  legend_item_hidden: {
+    opacity: '0.4'
+  },
+
   legend_icon: {
     width: '10px',
     height: '10px',
@@ -256,6 +269,10 @@ const useStyle = style(theme => ({
 }), { name: 'AmauiChart' });
 
 // to do
+
+// legend toggle (optional)
+
+// lineChart legend value y
 
 // vertical guide line on mouse move in the ui value y
 // only snaps to points, 50% between any previous and next point
@@ -287,6 +304,9 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
     // Items
     items,
 
+    // Elements
+    elements,
+
     // Names
     names,
 
@@ -300,6 +320,8 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
     // Legend
     legend: legend__ = 'auto',
+
+    legendManageVisibility = true,
 
     legendPosition = 'bottom',
 
@@ -422,6 +444,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
   const [guidelines, setGuidelines] = React.useState<any>();
   const [legend, setLegend] = React.useState<any>();
   const [append, setAppend] = React.useState<any>();
+  const [visible, setVisible] = React.useState<any>({});
 
   const refs = {
     root: React.useRef<any>(),
@@ -528,6 +551,16 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
       open: false
     }));
   }, []);
+
+  const onLegendClick = (value: any) => {
+    if (value !== undefined && legendManageVisibility) {
+      setVisible((visible_: any) => ({
+        ...visible_,
+
+        [value]: ![undefined, true].includes(visible_[value])
+      }));
+    }
+  };
 
   const make = (valueNew: any = items) => {
     // Make values into x, y, coordinates
@@ -735,7 +768,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
       });
 
       // Legend
-      const legend_ = legend__ !== 'auto' ? legend__ : items.map((item: any) => {
+      let legend_ = legend__ !== 'auto' ? legend__ : items.map((item: any) => {
         const {
           color: color_,
 
@@ -746,47 +779,62 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
         const name = name_ || 'No name';
 
-        return (
-          <Line
-            gap={1}
+        return {
+          item,
 
-            direction='row'
+          element: (
+            <Line
+              gap={1}
 
-            align='center'
+              direction='row'
 
-            {...LegendItemProps}
+              align='center'
 
-            className={classNames([
-              staticClassName('Chart', theme) && [
-                'AmauiChart-legend-item'
-              ],
+              {...LegendItemProps}
 
-              LegendItemProps?.className,
-              classes.legend_item
-            ])}
-          >
-            <span
               className={classNames([
                 staticClassName('Chart', theme) && [
-                  'AmauiChart-legend-icon'
+                  'AmauiChart-legend-item'
                 ],
 
-                classes.legend_icon
+                LegendItemProps?.className,
+                classes.legend_item,
+                legendManageVisibility && classes.legend_item_manage_visiblity,
+                visible[name] === false && classes.legend_item_hidden
               ])}
-
-              style={{
-                background: !theme.palette.color[color_] ? color_ : theme.palette.color[color_][tone]
-              }}
-            />
-
-            <Type
-              version='b2'
             >
-              {name}
-            </Type>
-          </Line>
-        );
+              <span
+                className={classNames([
+                  staticClassName('Chart', theme) && [
+                    'AmauiChart-legend-icon'
+                  ],
+
+                  classes.legend_icon
+                ])}
+
+                style={{
+                  background: !theme.palette.color[color_] ? color_ : theme.palette.color[color_][tone]
+                }}
+              />
+
+              <Type
+                version='b2'
+              >
+                {name}
+              </Type>
+            </Line>
+          )
+        };
       });
+
+      legend_ = legend_?.map(({ item, element }: any) => {
+
+        return (
+          React.cloneElement(element, {
+            onClick: () => onLegendClick(item.name)
+          })
+        );
+      })
 
       // Labels
       setLabels(labels_);
@@ -807,7 +855,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
       setPoints(points_);
     }
   };
-
+  console.log(1, visible);
   return (
     <Line
       ref={item => {
@@ -945,6 +993,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
         </Line>
       )}
 
+      {/* Main */}
       <Line
         ref={refs.wrapper}
 
@@ -1070,8 +1119,18 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
                     classes.svg
                   ])}
                 >
-                  {/* Children */}
-                  {children}
+                  {/* Elements */}
+                  {elements && elements.map(({ item, element }, index: number) => (
+                    React.cloneElement(element, {
+                      key: index,
+
+                      style: {
+                        ...element?.props?.style,
+
+                        opacity: (visible[item?.name] === undefined || !!visible[item?.name]) ? 1 : 0
+                      }
+                    })
+                  ))}
 
                   {/* Guidelines */}
                   {guidelines && (

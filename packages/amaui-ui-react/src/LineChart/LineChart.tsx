@@ -70,7 +70,7 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
     ...other
   } = props;
 
-  const [children, setChildren] = React.useState();
+  const [elements, setElements] = React.useState();
 
   const refs = {
     rect: React.useRef<any>(),
@@ -143,7 +143,7 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
     if (refs.rect.current && items) {
       const { width, height } = refs.rect.current;
 
-      const children_ = copy(items).map((item: IItem) => {
+      const elements_ = copy(items).map((item: IItem) => {
         const {
           color: color_,
 
@@ -195,23 +195,27 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
           }, '');
         }
 
-        return (
-          <Path
-            d={d}
+        return {
+          item,
 
-            fill='none'
+          element: (
+            <Path
+              d={d}
 
-            stroke={!theme.palette.color[color_] ? color_ : theme.palette.color[color_][tone]}
+              fill='none'
 
-            strokeWidth='2px'
+              stroke={!theme.palette.color[color_] ? color_ : theme.palette.color[color_][tone]}
 
-            {...PathProps}
-          />
-        );
+              strokeWidth='2px'
+
+              {...PathProps}
+            />
+          )
+        };
       });
 
       // Update children value
-      setChildren(children_);
+      setElements(elements_);
     }
   };
 
@@ -257,6 +261,8 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
 
       maxPaddingY={maxPaddingY}
 
+      elements={elements}
+
       onUpdateRect={onUpdateRect}
 
       className={classNames([
@@ -269,9 +275,7 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
       ])}
 
       {...other}
-    >
-      {children}
-    </Chart>
+    />
   );
 });
 
