@@ -254,7 +254,7 @@ const useStyle = style(theme => ({
 
   legend_item_manage_visiblity: {
     cursor: 'pointer',
-    transition: theme.methods.transitions.make('opacity')
+    transition: theme.methods.transitions.make('opacity', { duration: 'xs' })
   },
 
   legend_item_hidden: {
@@ -269,8 +269,6 @@ const useStyle = style(theme => ({
 }), { name: 'AmauiChart' });
 
 // to do
-
-// legend toggle (optional)
 
 // lineChart legend value y
 
@@ -534,7 +532,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
   React.useEffect(() => {
     make();
-  }, [items, labels__, marks__, grid__, guidelines__, legend__, rect]);
+  }, [items, labels__, marks__, grid__, guidelines__, legend__, visible, rect]);
 
   const onPointMouseEnter = React.useCallback((values: any) => {
     setAppend({
