@@ -3292,6 +3292,15 @@ Please sign in again.`}
 
               title='Line chart multiple'
 
+              names={{
+                x: 'Name x',
+                y: 'Name y'
+              }}
+
+              nameX
+
+              nameY
+
               minPaddingY={0.14}
 
               maxPaddingY={0.14}
