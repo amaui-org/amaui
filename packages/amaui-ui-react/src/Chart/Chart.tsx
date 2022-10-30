@@ -339,6 +339,8 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
     tooltipIndividually = true,
 
+    tooltipCloseOnMouseLeave = true,
+
     // Guideline
     guideline,
 
@@ -570,7 +572,13 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
   const onWrapperMouseLeave = React.useCallback(() => {
     setHover(false);
-  }, []);
+
+    if (tooltipCloseOnMouseLeave) setAppend(values_ => ({
+      ...values_,
+
+      open: false
+    }));
+  }, [tooltipCloseOnMouseLeave]);
 
   const makeGroupTooltip = (x_: number, y_: number) => {
     const items = refs.allValues.current.filter(item => item.normalized[0] === x_);
