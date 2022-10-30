@@ -5,6 +5,8 @@ import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Chart from '../Chart';
 import Path from '../Path';
+import Line from '../Line';
+import Type from '../Type';
 
 import { controlPoint, staticClassName } from '../utils';
 
@@ -20,6 +22,15 @@ export interface IItem {
 const useStyle = style(theme => ({
   root: {
 
+  },
+
+  legend_item: {
+    userSelect: 'none'
+  },
+
+  legend_icon: {
+    width: '10px',
+    height: '2px'
   }
 }), { name: 'AmauiLineChart' });
 
@@ -64,13 +75,14 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
     smoothRatio = 0.14,
 
     PathProps,
+    LegendItemProps,
 
     className,
 
     ...other
   } = props;
 
-  const [elements, setElements] = React.useState();
+  const [value, setValue] = React.useState<any>();
 
   const refs = {
     rect: React.useRef<any>(),
@@ -143,6 +155,65 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
     if (refs.rect.current && items) {
       const { width, height } = refs.rect.current;
 
+      // Legend
+      const legend_ = items.map((item: any) => {
+        const {
+          color: color_,
+
+          tone = 'main',
+
+          name: name_
+        } = item;
+
+        const name = name_ || 'No name';
+
+        return {
+          item,
+
+          element: (
+            <Line
+              gap={1}
+
+              direction='row'
+
+              align='center'
+
+              {...LegendItemProps}
+
+              className={classNames([
+                staticClassName('Chart', theme) && [
+                  'AmauiChart-legend-item'
+                ],
+
+                LegendItemProps?.className,
+                classes.legend_item
+              ])}
+            >
+              <span
+                className={classNames([
+                  staticClassName('Chart', theme) && [
+                    'AmauiChart-legend-icon'
+                  ],
+
+                  classes.legend_icon
+                ])}
+
+                style={{
+                  background: !theme.palette.color[color_] ? color_ : theme.palette.color[color_][tone]
+                }}
+              />
+
+              <Type
+                version='b2'
+              >
+                {name}
+              </Type>
+            </Line>
+          )
+        };
+      });
+
+      // Elements
       const elements_ = copy(items).map((item: IItem) => {
         const {
           color: color_,
@@ -215,7 +286,11 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
       });
 
       // Update children value
-      setElements(elements_);
+      setValue({
+        legend: legend_,
+
+        elements: elements_
+      });
     }
   };
 
@@ -261,7 +336,9 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
 
       maxPaddingY={maxPaddingY}
 
-      elements={elements}
+      elements={value?.elements}
+
+      legend={value?.legend}
 
       onUpdateRect={onUpdateRect}
 
