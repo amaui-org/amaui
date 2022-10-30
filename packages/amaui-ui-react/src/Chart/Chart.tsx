@@ -770,7 +770,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
             style={{
               ...(visible[name] === false ? {
                 opacity: 0,
-                pointerEvents: false
+                pointerEvents: 'none'
               } : undefined),
 
               ...PointProps?.style
