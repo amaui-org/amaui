@@ -247,13 +247,17 @@ const useStyle = style(theme => ({
     right: '0'
   },
 
-  point_hover: {
+  point_visibility__hover: {
     opacity: '0',
     transition: theme.methods.transitions.make('opacity', { duration: 'xxs' }),
 
     '&:hover': {
       opacity: 1
     }
+  },
+
+  point_visibility_visible: {
+    opacity: 1
   },
 
   point_active: {
@@ -275,7 +279,7 @@ const useStyle = style(theme => ({
     userSelect: 'none'
   },
 
-  legend_item_manage_visiblity: {
+  legend_item_manage_visibility: {
     cursor: 'pointer',
     transition: theme.methods.transitions.make('opacity', { duration: 'xs' })
   },
@@ -1209,7 +1213,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
               PointProps?.className,
               classes.point,
-              classes[`point_${pointsVisibility}`],
+              classes[`point_visibility_${pointsVisibility}`],
               (refs.guidelineAppend.current && refs.guidelinePosition.current.x === item.normalized[0]) && classes.point_active
             ])}
 
@@ -1303,7 +1307,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
             className: classNames([
               element?.props?.className,
-              legendManageVisibility && classes.legend_item_manage_visiblity,
+              legendManageVisibility && classes.legend_item_manage_visibility,
               visible[item.name] === false && classes.legend_item_hidden
             ])
           })
