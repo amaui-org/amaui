@@ -147,6 +147,63 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
 
   refs.smooth.current = smooth;
 
+  const LegendItem = React.useCallback((props__: any) => {
+    const {
+      item = {},
+
+      className_
+    } = props__;
+
+    const {
+      color: color_,
+      tone,
+
+      name = 'No name'
+    } = item;
+
+    return (
+      <Line
+        gap={1}
+
+        direction='row'
+
+        align='center'
+
+        {...LegendItemProps}
+
+        className={classNames([
+          staticClassName('Chart', theme) && [
+            'AmauiChart-legend-item'
+          ],
+
+          className_,
+          LegendItemProps?.className,
+          classes.legend_item
+        ])}
+      >
+        <span
+          className={classNames([
+            staticClassName('Chart', theme) && [
+              'AmauiChart-legend-icon'
+            ],
+
+            classes.legend_icon
+          ])}
+
+          style={{
+            background: !theme.palette.color[color_] ? color_ : theme.palette.color[color_][tone]
+          }}
+        />
+
+        <Type
+          version='b2'
+        >
+          {name}
+        </Type>
+      </Line>
+    );
+  }, []);
+
   const make = () => {
     // Make values into x, y, coordinates
     // normalized in rect width, height values
@@ -157,58 +214,14 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
 
       // Legend
       const legend_ = items.map((item: any) => {
-        const {
-          color: color_,
-
-          tone = 'main',
-
-          name: name_
-        } = item;
-
-        const name = name_ || 'No name';
 
         return {
           item,
 
           element: (
-            <Line
-              gap={1}
-
-              direction='row'
-
-              align='center'
-
-              {...LegendItemProps}
-
-              className={classNames([
-                staticClassName('Chart', theme) && [
-                  'AmauiChart-legend-item'
-                ],
-
-                LegendItemProps?.className,
-                classes.legend_item
-              ])}
-            >
-              <span
-                className={classNames([
-                  staticClassName('Chart', theme) && [
-                    'AmauiChart-legend-icon'
-                  ],
-
-                  classes.legend_icon
-                ])}
-
-                style={{
-                  background: !theme.palette.color[color_] ? color_ : theme.palette.color[color_][tone]
-                }}
-              />
-
-              <Type
-                version='b2'
-              >
-                {name}
-              </Type>
-            </Line>
+            <LegendItem
+              item={item}
+            />
           )
         };
       });

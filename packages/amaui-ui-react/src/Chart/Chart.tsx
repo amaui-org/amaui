@@ -270,8 +270,6 @@ const useStyle = style(theme => ({
 
 // to do
 
-// lineChart legend value y
-
 // vertical guide line on mouse move in the ui value y
 // only snaps to points, 50% between any previous and next point
 // if multiple points are on same x axes hightlig ht all those points
@@ -560,6 +558,63 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
     }
   };
 
+  const LegendItem = React.useCallback((props__: any) => {
+    const {
+      item = {},
+
+      className_
+    } = props__;
+
+    const {
+      color: color_,
+      tone,
+
+      name = 'No name'
+    } = item;
+
+    return (
+      <Line
+        gap={1}
+
+        direction='row'
+
+        align='center'
+
+        {...LegendItemProps}
+
+        className={classNames([
+          staticClassName('Chart', theme) && [
+            'AmauiChart-legend-item'
+          ],
+
+          className_,
+          LegendItemProps?.className,
+          classes.legend_item
+        ])}
+      >
+        <span
+          className={classNames([
+            staticClassName('Chart', theme) && [
+              'AmauiChart-legend-icon'
+            ],
+
+            classes.legend_icon
+          ])}
+
+          style={{
+            background: !theme.palette.color[color_] ? color_ : theme.palette.color[color_][tone]
+          }}
+        />
+
+        <Type
+          version='b2'
+        >
+          {name}
+        </Type>
+      </Line>
+    );
+  }, []);
+
   const make = (valueNew: any = items) => {
     // Make values into x, y, coordinates
     // normalized in rect width, height values
@@ -767,60 +822,14 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
       // Legend
       let legend_ = legend__ !== 'auto' ? legend__ : items.map((item: any) => {
-        const {
-          color: color_,
-
-          tone = 'main',
-
-          name: name_
-        } = item;
-
-        const name = name_ || 'No name';
 
         return {
           item,
 
           element: (
-            <Line
-              gap={1}
-
-              direction='row'
-
-              align='center'
-
-              {...LegendItemProps}
-
-              className={classNames([
-                staticClassName('Chart', theme) && [
-                  'AmauiChart-legend-item'
-                ],
-
-                LegendItemProps?.className,
-                classes.legend_item,
-                legendManageVisibility && classes.legend_item_manage_visiblity,
-                visible[name] === false && classes.legend_item_hidden
-              ])}
-            >
-              <span
-                className={classNames([
-                  staticClassName('Chart', theme) && [
-                    'AmauiChart-legend-icon'
-                  ],
-
-                  classes.legend_icon
-                ])}
-
-                style={{
-                  background: !theme.palette.color[color_] ? color_ : theme.palette.color[color_][tone]
-                }}
-              />
-
-              <Type
-                version='b2'
-              >
-                {name}
-              </Type>
-            </Line>
+            <LegendItem
+              item={item}
+            />
           )
         };
       });
@@ -829,7 +838,13 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
         return (
           React.cloneElement(element, {
-            onClick: () => onLegendClick(item.name)
+            onClick: () => onLegendClick(item.name),
+
+            className: classNames([
+              element?.props?.className,
+              legendManageVisibility && classes.legend_item_manage_visiblity,
+              visible[item.name] === false && classes.legend_item_hidden
+            ])
           })
         );
       })
@@ -853,7 +868,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
       setPoints(points_);
     }
   };
-  console.log(1, visible);
+
   return (
     <Line
       ref={item => {
