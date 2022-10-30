@@ -85,7 +85,7 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
   const [value, setValue] = React.useState<any>();
 
   const refs = {
-    rect: React.useRef<any>(),
+    rects: React.useRef<any>(),
     minMax: React.useRef<any>(),
     smooth: React.useRef<any>()
   };
@@ -213,8 +213,8 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
     // normalized in rect width, height values
 
     // invert y so 0, 0 is at bottom left
-    if (refs.rect.current && items) {
-      const { width, height } = refs.rect.current;
+    if (refs.rects.current && items) {
+      const { width, height } = refs.rects.current?.wrapper;
 
       // Legend
       const legend_ = items.map((item: any) => {
@@ -315,8 +315,8 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
     make();
   }, [items]);
 
-  const onUpdateRect = (valueNew: any) => {
-    refs.rect.current = valueNew;
+  const onUpdateRects = (valueNew: any) => {
+    refs.rects.current = valueNew;
 
     make();
   };
@@ -357,7 +357,7 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
 
       legend={value?.legend}
 
-      onUpdateRect={onUpdateRect}
+      onUpdateRects={onUpdateRects}
 
       className={classNames([
         staticClassName('LineChart', theme) && [

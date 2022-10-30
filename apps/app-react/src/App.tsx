@@ -3202,9 +3202,9 @@ Please sign in again.`}
           />
         </Accordion>
 
-        <Accordion primary='LineChart guidelines'>
+        <Accordion primary='LineChart additional_lines'>
           <LineChart
-            guidelines={[
+            additional_lines={[
               {
                 color: 'secondary',
 

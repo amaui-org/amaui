@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { copy, is, percentageFromValueWithinRange, valueFromPercentageWithinRange } from '@amaui/utils';
+import { clamp, copy, is, percentageFromValueWithinRange, valueFromPercentageWithinRange } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Surface from '../Surface';
@@ -51,6 +51,14 @@ const useStyle = style(theme => ({
 
   wrapper_names: {
     margin: '0 0 60px 70px'
+  },
+
+  legend_offset_labels_y: {
+    paddingLeft: '40px'
+  },
+
+  legend_offset_names_y: {
+    paddingLeft: '70px'
   },
 
   svg: {
@@ -265,6 +273,21 @@ const useStyle = style(theme => ({
     width: '10px',
     height: '10px',
     borderRadius: '50%'
+  },
+
+  // Guideline
+  guideline: {
+    position: 'absolute',
+    border: '1px dashed',
+    borderColor: 'currentColor',
+    opacity: '0.44'
+  },
+
+  guideline_vertical: {
+    top: '0',
+    left: '0',
+    width: '0px',
+    height: '100%'
   }
 }), { name: 'AmauiChart' });
 
@@ -310,7 +333,15 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
     tooltip = true,
 
-    guidelines: guidelines__,
+    // Guideline
+    guideline = true,
+
+    guidelineAllAppends = true,
+
+    guidelineAppend = true,
+
+    // Additional lines
+    additional_lines: additional_lines__,
 
     // Legend
     legend: legend__ = 'auto',
@@ -406,7 +437,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
     maxPaddingY,
 
-    onUpdateRect,
+    onUpdateRects,
 
     Component = 'div',
 
@@ -418,10 +449,11 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
     PointProps,
     HeaderProps,
     AppendProps,
-    GuidelineProps,
-    GuidelinesProps,
+    AdditionalLineProps,
+    AdditionalLinesProps,
     LegendProps,
     LegendItemProps,
+    GuidelineProps,
 
     className,
 
@@ -430,24 +462,37 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
     ...other
   } = props;
 
-  const [rect, setRect] = React.useState<DOMRect>();
+  const [rects, setRects] = React.useState<Record<string, DOMRect>>();
   const [points, setPoints] = React.useState<any>();
   const [labels, setLabels] = React.useState<any>();
   const [marks, setMarks] = React.useState<any>();
   const [grid, setGrid] = React.useState<any>();
-  const [guidelines, setGuidelines] = React.useState<any>();
+  const [additionalLines, setAdditionalLines] = React.useState<any>();
   const [legend, setLegend] = React.useState<any>();
   const [append, setAppend] = React.useState<any>();
   const [visible, setVisible] = React.useState<any>({});
+  const [guidelineIn, setGuidelineIn] = React.useState(false);
+  const [guidelinePosition, setGuidelinePosition] = React.useState<any>({});
+  const [hover, setHover] = React.useState(false);
 
   const refs = {
     root: React.useRef<any>(),
     wrapper: React.useRef<any>(),
+    svg: React.useRef<any>(),
     minMax: React.useRef<any>(),
-    rect: React.useRef<any>()
+    rects: React.useRef<any>(),
+    guideline: React.useRef<any>(),
+    guidelineIn: React.useRef<any>(),
+    hover: React.useRef<any>()
   };
 
-  refs.rect.current = rect;
+  refs.rects.current = rects;
+
+  refs.guideline.current = guideline;
+
+  refs.guidelineIn.current = guidelineIn;
+
+  refs.hover.current = hover;
 
   const minMax = React.useMemo(() => {
     const values = {
@@ -504,14 +549,60 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
   refs.minMax.current = minMax;
 
+  const onWrapperMouseEnter = React.useCallback(() => {
+    if (!refs.guidelineIn.current) setGuidelineIn(true);
+
+    setHover(true);
+  }, []);
+
+  const onWrapperMouseLeave = React.useCallback(() => {
+    setHover(false);
+  }, []);
+
   React.useEffect(() => {
+    const onMove = (x: number, y: number) => {
+      // Only horizontal move at the moment
+      // ie. vertical guideline
+      const rects_ = refs.rects.current;
+
+      setGuidelinePosition(value_ => ({
+        ...value_,
+
+        x: clamp(x - rects_?.svg?.x, 0, rects_?.wrapper?.width)
+      }));
+    };
+
+    const onMouseMove = (event: MouseEvent) => {
+      if (refs.hover.current) {
+        const x: number = event.clientX;
+        const y: number = event.clientY;
+
+        onMove(x, y);
+      }
+    };
+
+    const onTouchMove = (event: TouchEvent) => {
+      if (refs.hover.current) {
+        const x: number = event.touches[0].clientX;
+        const y: number = event.touches[0].clientY;
+
+        onMove(x, y);
+      }
+    };
+
     const method = () => {
       if (refs.wrapper.current) {
-        const rect_ = refs.wrapper.current.getBoundingClientRect();
+        const rectWrapper = refs.wrapper.current.getBoundingClientRect();
+        const rectSvg = refs.svg.current.getBoundingClientRect();
 
-        setRect(rect_);
+        const rects_ = {
+          wrapper: rectWrapper,
+          svg: rectSvg
+        };
 
-        if (is('function', onUpdateRect)) onUpdateRect(rect_);
+        setRects(rects_);
+
+        if (is('function', onUpdateRects)) onUpdateRects(rects_);
       }
     };
 
@@ -521,14 +612,22 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
     observer.observe(refs.root.current);
 
+    window.addEventListener('mousemove', onMouseMove);
+    window.addEventListener('touchmove', onTouchMove);
+    window.addEventListener('touchend', onWrapperMouseLeave);
+
     return () => {
       observer.disconnect();
+
+      window.removeEventListener('mousemove', onMouseMove);
+      window.removeEventListener('touchmove', onTouchMove);
+      window.removeEventListener('touchend', onWrapperMouseLeave);
     };
   }, []);
 
   React.useEffect(() => {
     make();
-  }, [items, labels__, marks__, grid__, guidelines__, legend__, visible, rect]);
+  }, [items, labels__, marks__, grid__, additional_lines__, legend__, visible, rects]);
 
   const onPointMouseEnter = React.useCallback((values: any) => {
     setAppend({
@@ -622,8 +721,8 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
     // normalized in rect width, height values
 
     // invert y so 0, 0 is at bottom left
-    if (refs.rect.current && valueNew) {
-      const { width, height } = refs.rect.current;
+    if (refs.rects.current && valueNew) {
+      const { width, height } = refs.rects.current.wrapper;
 
       // Labels
       const labels_: any = {
@@ -780,7 +879,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
       });
 
       // Guidelines
-      const guidelines_ = guidelines__ && guidelines__.map((item: any) => {
+      const additional_lines_ = additional_lines__ && additional_lines__.map((item: any) => {
         const {
           color: color_,
 
@@ -813,21 +912,21 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
             stroke={!theme.palette.color[color_] ? color_ : theme.palette.color[color_][tone]}
 
-            {...GuidelineProps}
+            {...AdditionalLineProps}
 
             className={classNames([
               staticClassName('Chart', theme) && [
-                'AmauiChart-guidelines'
+                'AmauiChart-additional-lines'
               ],
 
-              GuidelineProps?.className,
-              classes.guidelines
+              AdditionalLineProps?.className,
+              classes.additionalLines
             ])}
 
             style={{
               ...style,
 
-              ...GuidelineProps?.style
+              ...AdditionalLineProps?.style
             }}
           />
         );
@@ -872,7 +971,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
       setGrid(grid_);
 
       // Guidelines
-      setGuidelines(guidelines_);
+      setAdditionalLines(additional_lines_);
 
       // Legend
       setLegend(legend_);
@@ -1008,7 +1107,9 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
             LegendProps?.className,
             classes.legend,
-            classes[`legend_position_${legendPosition}`]
+            classes[`legend_position_${legendPosition}`],
+            (labels?.y && labelsY) && classes.legend_offset_labels_y,
+            (names?.y && nameY) && classes.legend_offset_names_y
           ])}
         >
           {legend.map((item: any, index: number) => (
@@ -1130,11 +1231,21 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
                 )}
 
                 <svg
+                  ref={refs.svg}
+
                   xmlns='http://www.w3.org/2000/svg'
 
-                  viewBox={`0 0 ${rect?.width || 0} ${rect?.height || 0}`}
+                  viewBox={`0 0 ${rects?.wrapper?.width || 0} ${rects?.wrapper?.height || 0}`}
 
                   {...SvgProps}
+
+                  {...(guideline ? {
+                    onMouseEnter: onWrapperMouseEnter,
+
+                    onTouchStart: onWrapperMouseEnter,
+
+                    onMouseLeave: onWrapperMouseLeave
+                  } : undefined)}
 
                   className={classNames([
                     staticClassName('Chart', theme) && [
@@ -1158,21 +1269,21 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
                     })
                   ))}
 
-                  {/* Guidelines */}
-                  {guidelines && (
+                  {/* Additional lines */}
+                  {additionalLines && (
                     <g
-                      {...GuidelinesProps}
+                      {...AdditionalLinesProps}
 
                       className={classNames([
                         staticClassName('Chart', theme) && [
-                          'AmauiChart-guidelines'
+                          'AmauiChart-additional-lines'
                         ],
 
-                        GuidelinesProps?.className,
-                        classes.guidelines
+                        AdditionalLinesProps?.className,
+                        classes.additionalLines
                       ])}
                     >
-                      {guidelines}
+                      {additionalLines}
                     </g>
                   )}
 
@@ -1513,6 +1624,28 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
                   </Type>
                 )}
 
+                {/* Guideline */}
+                {guideline && guidelineIn && (
+                  <div
+                    {...GuidelineProps}
+
+                    className={classNames([
+                      staticClassName('Chart', theme) && [
+                        'AmauiChart-guideline',
+                        'AmauiChart-guideline-vertical'
+                      ],
+
+                      GuidelineProps?.className,
+                      classes.guideline,
+                      classes.guideline_vertical
+                    ])}
+
+                    style={{
+                      left: guidelinePosition?.x
+                    }}
+                  />
+                )}
+
                 {/* Append */}
                 {tooltip && (
                   <Append
@@ -1644,7 +1777,9 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
             LegendProps?.className,
             classes.legend,
-            classes[`legend_position_${legendPosition}`]
+            classes[`legend_position_${legendPosition}`],
+            (labels?.y && labelsY) && classes.legend_offset_labels_y,
+            (names?.y && nameY) && classes.legend_offset_names_y
           ])}
         >
           {legend.map((item: any, index: number) => (
