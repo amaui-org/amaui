@@ -305,6 +305,10 @@ const useStyle = style(theme => ({
   }
 }), { name: 'AmauiChart' });
 
+// to do
+
+// render label method
+
 const Chart = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 

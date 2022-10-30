@@ -417,3 +417,6 @@ export * from './Chart';
 
 export { default as LineChart } from './LineChart';
 export * from './LineChart';
+
+export { default as AreaChart } from './AreaChart';
+export * from './AreaChart';
