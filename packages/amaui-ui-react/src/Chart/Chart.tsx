@@ -703,7 +703,9 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
         const {
           color: color_,
 
-          tone = 'main'
+          tone = 'main',
+
+          name
         } = item;
 
         const values = item.values
@@ -764,6 +766,15 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
               classes.point,
               classes[`point_${pointsVisibility}`]
             ])}
+
+            style={{
+              ...(visible[name] === false ? {
+                opacity: 0,
+                pointerEvents: false
+              } : undefined),
+
+              ...PointProps?.style
+            }}
           />
         ));
       });
@@ -950,7 +961,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
           {/* Subtitle */}
           {is('simple', subtitle) ? (
             <Type
-              version='b2'
+              version='b3'
 
               color='inherit'
 
