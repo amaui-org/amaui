@@ -246,6 +246,8 @@ export const controlPoint = (current: TPoint, previous_: TPoint, next_: TPoint, 
 
   const length = opposed.length * smoothRatio;
 
+  // Bug fix, prevent knots if x are the same
+  // for previous, and current value
   const x = clamp(current[0] + Math.cos(angle) * length, previous[0], next[0]);
 
   const y = current[1] + Math.sin(angle) * length;
