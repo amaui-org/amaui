@@ -1,4 +1,4 @@
-import { is, canvasFilterBrightness, canvasFilterContrast, canvasFilterSaturation, canvasFilterFade, canvasFilterInvert, canvasFilterOldPhoto, download } from '@amaui/utils';
+import { is, canvasFilterBrightness, canvasFilterContrast, canvasFilterSaturation, canvasFilterFade, canvasFilterInvert, canvasFilterOldPhoto, download, clamp } from '@amaui/utils';
 import { AmauiTheme } from '@amaui/style-react';
 
 export function reflow(element: HTMLElement) {
@@ -236,16 +236,18 @@ export const line = (pointA: TPoint, pointB: TPoint) => {
   }
 };
 
-export const controlPoint = (current: TPoint, previous_: TPoint, next_: TPoint, reverse = false, smoothRatio = 0.2) => {
+export const controlPoint = (current: TPoint, previous_: TPoint, next_: TPoint, reverse = false, smoothRatio = 0.24) => {
   const previous = previous_ || current;
   const next = next_ || current;
 
   const opposed = line(previous, next);
 
   const angle = opposed.angle + (reverse ? Math.PI : 0);
+
   const length = opposed.length * smoothRatio;
 
-  const x = current[0] + Math.cos(angle) * length;
+  const x = clamp(current[0] + Math.cos(angle) * length, previous[0], next[0]);
+
   const y = current[1] + Math.sin(angle) * length;
 
   return [x, y];

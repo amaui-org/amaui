@@ -3202,6 +3202,40 @@ Please sign in again.`}
           />
         </Accordion>
 
+        <Accordion primary='LineChart simple' open>
+          <LineChart
+            names={{
+              x: 'Name x',
+              y: 'Name y'
+            }}
+
+            nameX
+
+            nameY
+
+            minPaddingY={0.14}
+
+            maxPaddingY={0.14}
+
+            values={[
+              {
+                color: 'primary',
+
+                name: 'a',
+
+                values: [
+                  [0, 15],
+                  [20, 40],
+                  [80, 10],
+                  [120, 70],
+                  [140, 140],
+                  [170, 40]
+                ]
+              }
+            ]}
+          />
+        </Accordion>
+
         <Accordion primary='LineChart guideline' >
           <Line
             style={{ width: '100%' }}

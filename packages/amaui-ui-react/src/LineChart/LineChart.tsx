@@ -79,7 +79,7 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
 
     smooth = true,
 
-    smoothRatio = 0.14,
+    smoothRatio = 0.24,
 
     PathProps,
     LegendItemProps,
