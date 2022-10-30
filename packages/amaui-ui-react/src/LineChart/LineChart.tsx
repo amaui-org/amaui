@@ -36,54 +36,6 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
 
     items,
 
-    names,
-
-    nameX,
-
-    nameY,
-
-    tooltip,
-
-    guidelines,
-
-    labels,
-
-    labelsX,
-
-    labelsY,
-
-    labelDecimalPlaces,
-
-    labelsAutoNumber,
-
-    labelsYAutoNumber,
-
-    labelsXAutoNumber,
-
-    marks,
-
-    marksX,
-
-    marksY,
-
-    marksAutoNumber,
-
-    marksYAutoNumber,
-
-    marksXAutoNumber,
-
-    grid,
-
-    gridX,
-
-    gridY,
-
-    gridAutoNumber,
-
-    gridYAutoNumber,
-
-    gridXAutoNumber,
-
     minX,
 
     maxX,
@@ -92,7 +44,6 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
 
     maxY,
 
-    // Add % of the min, max range for min and max, y, x
     minMaxPadding,
 
     minPadding,
@@ -282,54 +233,6 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
       color={color}
 
       items={items}
-
-      names={names}
-
-      nameX={nameX}
-
-      nameY={nameY}
-
-      tooltip={tooltip}
-
-      guidelines={guidelines}
-
-      labels={labels}
-
-      labelsX={labelsX}
-
-      labelsY={labelsY}
-
-      labelDecimalPlaces={labelDecimalPlaces}
-
-      labelsAutoNumber={labelsAutoNumber}
-
-      labelsYAutoNumber={labelsYAutoNumber}
-
-      labelsXAutoNumber={labelsXAutoNumber}
-
-      marks={marks}
-
-      marksX={marksX}
-
-      marksY={marksY}
-
-      marksAutoNumber={marksAutoNumber}
-
-      marksYAutoNumber={marksYAutoNumber}
-
-      marksXAutoNumber={marksXAutoNumber}
-
-      grid={grid}
-
-      gridX={gridX}
-
-      gridY={gridY}
-
-      gridAutoNumber={gridAutoNumber}
-
-      gridYAutoNumber={gridYAutoNumber}
-
-      gridXAutoNumber={gridXAutoNumber}
 
       minX={minX}
 

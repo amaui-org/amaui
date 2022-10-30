@@ -224,7 +224,7 @@ const useStyle = style(theme => ({
     right: '0'
   },
 
-  point: {
+  point_hover: {
     opacity: '0',
     transition: theme.methods.transitions.make('opacity', { duration: 'xxs' }),
 
@@ -327,6 +327,8 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
     // Points
     points: pointsVisible = true,
+
+    pointsVisibility = 'hover',
 
     // Borders
     borders = true,
@@ -644,7 +646,8 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
               ],
 
               PointProps?.className,
-              classes.point
+              classes.point,
+              classes[`point_${pointsVisibility}`]
             ])}
           />
         ));
