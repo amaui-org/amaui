@@ -565,7 +565,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
         x: clamp(x - rectSvg?.x, 0, rectWrapper?.width),
 
-        y: rectSvg?.height - clamp(y - rectSvg?.y, 0, rectWrapper?.height)
+        y: clamp(y - rectSvg?.y, 0, rectWrapper?.height)
       }));
     };
 
@@ -1307,7 +1307,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
                     {['both', 'horizontal'].includes(guideline) && (
                       <path
-                        d={`M 0 ${rects?.wrapper?.height - guidelinePosition?.y} ${rects?.wrapper?.width || 0} ${rects?.wrapper?.height - guidelinePosition?.y}`}
+                        d={`M 0 ${guidelinePosition?.y} ${rects?.wrapper?.width || 0} ${guidelinePosition?.y}`}
 
                         {...GuidelineProps}
 
