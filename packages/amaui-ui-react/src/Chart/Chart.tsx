@@ -1989,7 +1989,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
                     elevation={1}
 
-                    gap={0.25}
+                    gap={0.5}
 
                     direction='column'
 
