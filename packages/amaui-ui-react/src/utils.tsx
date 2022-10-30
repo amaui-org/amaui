@@ -248,9 +248,7 @@ export const controlPoint = (current: TPoint, previous_: TPoint, next_: TPoint, 
 
   // Bug fix, prevent ties if x are the same
   // for previous, and current value
-  let x = clamp(current[0] + Math.cos(angle) * length, previous[0]);
-
-  if (next[0] - current[0] <= 4) x = clamp(x, current[0], next[0]);
+  const x = clamp(current[0] + Math.cos(angle) * length, previous[0], next[0]);
 
   const y = current[1] + Math.sin(angle) * length;
 
