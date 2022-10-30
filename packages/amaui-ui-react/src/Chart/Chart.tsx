@@ -304,10 +304,6 @@ const useStyle = style(theme => ({
   }
 }), { name: 'AmauiChart' });
 
-// to do
-
-// smooth bug fix
-
 const Chart = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 

@@ -236,7 +236,7 @@ export const line = (pointA: TPoint, pointB: TPoint) => {
   }
 };
 
-export const controlPoint = (current: TPoint, previous_: TPoint, next_: TPoint, reverse = false, smoothRatio = 0.24) => {
+export const controlPoint = (current: TPoint, previous_: TPoint, next_: TPoint, reverse = false, smoothRatio = 0.17) => {
   const previous = previous_ || current;
   const next = next_ || current;
 
