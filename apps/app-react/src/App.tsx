@@ -3202,7 +3202,7 @@ Please sign in again.`}
           />
         </Accordion>
 
-        <Accordion primary='LineChart guideline' open>
+        <Accordion primary='LineChart guideline' >
           <Line
             style={{ width: '100%' }}
           >
