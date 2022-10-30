@@ -280,7 +280,8 @@ const useStyle = style(theme => ({
     position: 'absolute',
     border: '1px dashed',
     borderColor: 'currentColor',
-    opacity: '0.44'
+    opacity: '0.44',
+    pointerEvents: 'none'
   },
 
   guideline_vertical: {
@@ -1124,6 +1125,14 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
       <Line
         ref={refs.wrapper}
 
+        {...(guideline ? {
+          onMouseEnter: onWrapperMouseEnter,
+
+          onTouchStart: onWrapperMouseEnter,
+
+          onMouseLeave: onWrapperMouseLeave
+        } : undefined)}
+
         className={classNames([
           staticClassName('Chart', theme) && [
             'AmauiChart-wrapper'
@@ -1238,14 +1247,6 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
                   viewBox={`0 0 ${rects?.wrapper?.width || 0} ${rects?.wrapper?.height || 0}`}
 
                   {...SvgProps}
-
-                  {...(guideline ? {
-                    onMouseEnter: onWrapperMouseEnter,
-
-                    onTouchStart: onWrapperMouseEnter,
-
-                    onMouseLeave: onWrapperMouseLeave
-                  } : undefined)}
 
                   className={classNames([
                     staticClassName('Chart', theme) && [
