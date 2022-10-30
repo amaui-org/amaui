@@ -46,7 +46,7 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
 
     color = 'primary',
 
-    items,
+    values,
 
     minX,
 
@@ -91,7 +91,7 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
   };
 
   const minMax = React.useMemo(() => {
-    const values = {
+    const values_ = {
       min: {
         x: minX || Number.MAX_SAFE_INTEGER,
         y: minY || Number.MAX_SAFE_INTEGER
@@ -103,19 +103,19 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
       }
     };
 
-    const allItems = items.flatMap(item => item.values);
+    const allItems = values.flatMap(item => item.values);
 
-    if (is('array', items)) {
+    if (is('array', values)) {
       allItems.forEach((item: [number, number]) => {
         const [x, y] = item;
 
-        if (minX === undefined) values.min.x = Math.min(values.min.x, x);
+        if (minX === undefined) values_.min.x = Math.min(values_.min.x, x);
 
-        if (maxX === undefined) values.max.x = Math.max(values.max.x, x);
+        if (maxX === undefined) values_.max.x = Math.max(values_.max.x, x);
 
-        if (minY === undefined) values.min.y = Math.min(values.min.y, y);
+        if (minY === undefined) values_.min.y = Math.min(values_.min.y, y);
 
-        if (maxY === undefined) values.max.y = Math.max(values.max.y, y);
+        if (maxY === undefined) values_.max.y = Math.max(values_.max.y, y);
       });
     }
 
@@ -128,20 +128,20 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
     const maxPaddingX_ = maxPaddingX !== undefined ? maxPaddingX : maxPadding !== undefined ? maxPadding : minMaxPadding;
 
     const totals = {
-      x: values.max.x - values.min.x,
-      y: values.max.y - values.min.y
+      x: values_.max.x - values_.min.x,
+      y: values_.max.y - values_.min.y
     };
 
-    if (minPaddingY_ !== undefined) values.min.y -= totals.y * minPaddingY_;
+    if (minPaddingY_ !== undefined) values_.min.y -= totals.y * minPaddingY_;
 
-    if (maxPaddingY_ !== undefined) values.max.y += totals.y * maxPaddingY_;
+    if (maxPaddingY_ !== undefined) values_.max.y += totals.y * maxPaddingY_;
 
-    if (minPaddingX_ !== undefined) values.min.x -= totals.x * minPaddingX_;
+    if (minPaddingX_ !== undefined) values_.min.x -= totals.x * minPaddingX_;
 
-    if (maxPaddingX_ !== undefined) values.max.x += totals.x * maxPaddingX_;
+    if (maxPaddingX_ !== undefined) values_.max.x += totals.x * maxPaddingX_;
 
-    return values;
-  }, [items, minX, maxX, minY, maxY, minMaxPadding, minPadding, maxPadding, minPaddingX, minPaddingY, maxPaddingX, maxPaddingY]);
+    return values_;
+  }, [values, minX, maxX, minY, maxY, minMaxPadding, minPadding, maxPadding, minPaddingX, minPaddingY, maxPaddingX, maxPaddingY]);
 
   refs.minMax.current = minMax;
 
@@ -213,11 +213,11 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
     // normalized in rect width, height values
 
     // invert y so 0, 0 is at bottom left
-    if (refs.rects.current && items) {
+    if (refs.rects.current && values) {
       const { width, height } = refs.rects.current?.wrapper;
 
       // Legend
-      const legend_ = items.map((item: any) => {
+      const legend_ = values.map((item: any) => {
 
         return {
           item,
@@ -231,7 +231,7 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
       });
 
       // Elements
-      const elements_ = copy(items).map((item: IItem) => {
+      const elements_ = copy(values).map((item: IItem) => {
         const {
           color: color_,
 
@@ -313,7 +313,7 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
 
   React.useEffect(() => {
     make();
-  }, [items]);
+  }, [values]);
 
   const onUpdateRects = (valueNew: any) => {
     refs.rects.current = valueNew;
@@ -329,7 +329,7 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
 
       color={color}
 
-      items={items}
+      values={values}
 
       minX={minX}
 

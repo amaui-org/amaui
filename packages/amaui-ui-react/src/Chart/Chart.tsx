@@ -245,6 +245,10 @@ const useStyle = style(theme => ({
     }
   },
 
+  point_active: {
+    opacity: 1
+  },
+
   // Legend
   legend: {},
 
@@ -311,8 +315,8 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
     subtitle,
 
-    // Items
-    items,
+    // Values
+    values,
 
     // Elements
     elements,
@@ -467,6 +471,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
   const [guidelineIn, setGuidelineIn] = React.useState(false);
   const [guidelinePosition, setGuidelinePosition] = React.useState<any>({});
   const [hover, setHover] = React.useState(false);
+  const [active, setActive] = React.useState({});
 
   const refs = {
     root: React.useRef<any>(),
@@ -476,7 +481,10 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
     rects: React.useRef<any>(),
     guideline: React.useRef<any>(),
     guidelineIn: React.useRef<any>(),
-    hover: React.useRef<any>()
+    guidelinePosition: React.useRef<any>(),
+    guidelineAllAppends: React.useRef<any>(),
+    hover: React.useRef<any>(),
+    allValues: React.useRef<any>([])
   };
 
   refs.rects.current = rects;
@@ -485,10 +493,14 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
   refs.guidelineIn.current = guidelineIn;
 
+  refs.guidelinePosition.current = guidelinePosition;
+
+  refs.guidelineAllAppends.current = guidelineAllAppends;
+
   refs.hover.current = hover;
 
   const minMax = React.useMemo(() => {
-    const values = {
+    const values_ = {
       min: {
         x: minX || Number.MAX_SAFE_INTEGER,
         y: minY || Number.MAX_SAFE_INTEGER
@@ -500,19 +512,19 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
       }
     };
 
-    const allItems = items.flatMap(item => item.values);
+    const allItems = values.flatMap(item => item.values);
 
-    if (is('array', items)) {
+    if (is('array', values)) {
       allItems.forEach((item: [number, number]) => {
         const [x, y] = item;
 
-        if (minX === undefined) values.min.x = Math.min(values.min.x, x);
+        if (minX === undefined) values_.min.x = Math.min(values_.min.x, x);
 
-        if (maxX === undefined) values.max.x = Math.max(values.max.x, x);
+        if (maxX === undefined) values_.max.x = Math.max(values_.max.x, x);
 
-        if (minY === undefined) values.min.y = Math.min(values.min.y, y);
+        if (minY === undefined) values_.min.y = Math.min(values_.min.y, y);
 
-        if (maxY === undefined) values.max.y = Math.max(values.max.y, y);
+        if (maxY === undefined) values_.max.y = Math.max(values_.max.y, y);
       });
     }
 
@@ -525,20 +537,20 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
     const maxPaddingX_ = maxPaddingX !== undefined ? maxPaddingX : maxPadding !== undefined ? maxPadding : minMaxPadding;
 
     const totals = {
-      x: values.max.x - values.min.x,
-      y: values.max.y - values.min.y
+      x: values_.max.x - values_.min.x,
+      y: values_.max.y - values_.min.y
     };
 
-    if (minPaddingY_ !== undefined) values.min.y -= totals.y * minPaddingY_;
+    if (minPaddingY_ !== undefined) values_.min.y -= totals.y * minPaddingY_;
 
-    if (maxPaddingY_ !== undefined) values.max.y += totals.y * maxPaddingY_;
+    if (maxPaddingY_ !== undefined) values_.max.y += totals.y * maxPaddingY_;
 
-    if (minPaddingX_ !== undefined) values.min.x -= totals.x * minPaddingX_;
+    if (minPaddingX_ !== undefined) values_.min.x -= totals.x * minPaddingX_;
 
-    if (maxPaddingX_ !== undefined) values.max.x += totals.x * maxPaddingX_;
+    if (maxPaddingX_ !== undefined) values_.max.x += totals.x * maxPaddingX_;
 
-    return values;
-  }, [items, minX, maxX, minY, maxY, minMaxPadding, minPadding, maxPadding, minPaddingX, minPaddingY, maxPaddingX, maxPaddingY]);
+    return values_;
+  }, [values, minX, maxX, minY, maxY, minMaxPadding, minPadding, maxPadding, minPaddingX, minPaddingY, maxPaddingX, maxPaddingY]);
 
   refs.minMax.current = minMax;
 
@@ -553,19 +565,57 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
   }, []);
 
   React.useEffect(() => {
-    const onMove = (x: number, y: number) => {
+    const onMove = (x_: number, y_: number) => {
       // Only horizontal move at the moment
       // ie. vertical guideline
       const rectWrapper = refs.rects.current.wrapper;
 
       const rectSvg = refs.svg.current.getBoundingClientRect();
 
+      let x = clamp(x_ - rectSvg?.x, 0, rectWrapper?.width);
+
+      if (refs.guidelineAllAppends.current) {
+        const allValues = refs.allValues.current;
+
+        let index = undefined;
+        let previous: any;
+        let item: any;
+
+        for (let i = 0; i < allValues.length; i++) {
+          previous = allValues[i - 1];
+          item = allValues[i];
+
+          if (previous?.normalized?.[0] <= x && x <= item?.normalized?.[0]) {
+            index = i;
+
+            break;
+          }
+        }
+
+        if (index === undefined) {
+          index = allValues.length - 1;
+
+          previous = allValues[index - 1];
+          item = allValues[index];
+        }
+
+        if (!previous) x = item.normalized?.[0];
+        else if (!item) x = previous.normalized?.[0];
+        else {
+          const len = item.normalized[0] - previous.normalized[0];
+          const part = len / 2;
+
+          x = x < (previous.normalized[0] + part) ? previous.normalized[0] : item.normalized[0];
+        }
+      }
+
+      const y = clamp(y_ - rectSvg?.y, 0, rectWrapper?.height);
+
       setGuidelinePosition(value_ => ({
         ...value_,
 
-        x: clamp(x - rectSvg?.x, 0, rectWrapper?.width),
-
-        y: clamp(y - rectSvg?.y, 0, rectWrapper?.height)
+        x,
+        y
       }));
     };
 
@@ -624,11 +674,11 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
   React.useEffect(() => {
     make();
-  }, [items, labels__, marks__, grid__, additional_lines__, legend__, visible, rects]);
+  }, [values, labels__, marks__, grid__, additional_lines__, legend__, visible, (guidelineAllAppends && guidelinePosition), rects]);
 
-  const onPointMouseEnter = React.useCallback((values: any) => {
+  const onPointMouseEnter = React.useCallback((values_: any) => {
     setAppend({
-      ...values,
+      ...values_,
 
       open: true
     });
@@ -713,7 +763,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
     );
   }, []);
 
-  const make = (valueNew: any = items) => {
+  const make = (valueNew: any = values) => {
     // Make values into x, y, coordinates
     // normalized in rect width, height values
 
@@ -794,6 +844,8 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
         percentage: percentageFromValueWithinRange(item.value, refs.minMax.current.min.y, refs.minMax.current.max.y)
       }));
 
+      refs.allValues.current = [];
+
       // Points
       const points_ = copy(valueNew).flatMap((item: IItem) => {
         const {
@@ -804,28 +856,34 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
           name
         } = item;
 
-        const values = item.values
+        const values_ = item.values
           // Sort for x from smallest to largest
           .sort((a, b) => a[0] - b[0])
           .map(value => {
             const [x, y] = value;
 
-            const values = {
+            const values__ = {
               x: percentageFromValueWithinRange(x, refs.minMax.current.min.x, refs.minMax.current.max.x),
               y: percentageFromValueWithinRange(y, refs.minMax.current.min.y, refs.minMax.current.max.y)
             };
 
-            values.x = valueFromPercentageWithinRange(values.x, 0, width);
+            values__.x = valueFromPercentageWithinRange(values__.x, 0, width);
 
-            values.y = valueFromPercentageWithinRange(values.y, 0, height);
+            values__.y = valueFromPercentageWithinRange(values__.y, 0, height);
+
+            refs.allValues.current.push({
+              item,
+              value: [x, y],
+              normalized: [values__.x, height - values__.y].map(item_ => Math.abs(item_))
+            });
 
             return {
               value: [x, y],
-              normalized: [values.x, height - values.y].map(item_ => Math.abs(item_))
+              normalized: [values__.x, height - values__.y].map(item_ => Math.abs(item_))
             };
           });
 
-        return values.map((item, index: number) => (
+        return values_.map((item, index: number) => (
           <Path
             Component='circle'
 
@@ -860,7 +918,8 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
               PointProps?.className,
               classes.point,
-              classes[`point_${pointsVisibility}`]
+              classes[`point_${pointsVisibility}`],
+              (refs.guidelineAllAppends.current && refs.guidelinePosition.current.x === item.normalized[0]) && classes.point_active
             ])}
 
             style={{
@@ -885,7 +944,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
           style
         } = item;
 
-        const values = {
+        const values_ = {
           x1: percentageFromValueWithinRange(item.x1, refs.minMax.current.min.x, refs.minMax.current.max.x),
           y1: percentageFromValueWithinRange(item.y1, refs.minMax.current.min.y, refs.minMax.current.max.y),
 
@@ -893,17 +952,17 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
           y2: percentageFromValueWithinRange(item.y2, refs.minMax.current.min.y, refs.minMax.current.max.y),
         };
 
-        values.x1 = valueFromPercentageWithinRange(values.x1, 0, width);
+        values_.x1 = valueFromPercentageWithinRange(values_.x1, 0, width);
 
-        values.y1 = valueFromPercentageWithinRange(values.y1, 0, height);
+        values_.y1 = valueFromPercentageWithinRange(values_.y1, 0, height);
 
-        values.x2 = valueFromPercentageWithinRange(values.x2, 0, width);
+        values_.x2 = valueFromPercentageWithinRange(values_.x2, 0, width);
 
-        values.y2 = valueFromPercentageWithinRange(values.y2, 0, height);
+        values_.y2 = valueFromPercentageWithinRange(values_.y2, 0, height);
 
         return (
           <Path
-            d={`M ${values.x1} ${height - values.y1} L ${values.x2} ${height - values.y2}`}
+            d={`M ${values_.x1} ${height - values_.y1} L ${values_.x2} ${height - values_.y2}`}
 
             fill='none'
 
@@ -930,7 +989,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
       });
 
       // Legend
-      let legend_ = legend__ !== 'auto' ? legend__ : items.map((item: any) => {
+      let legend_ = legend__ !== 'auto' ? legend__ : values.map((item: any) => {
 
         return {
           item,
