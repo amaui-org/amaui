@@ -573,11 +573,13 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
   const onWrapperMouseLeave = React.useCallback(() => {
     setHover(false);
 
-    if (tooltipCloseOnMouseLeave) setAppend(values_ => ({
-      ...values_,
+    setTimeout(() => {
+      if (tooltipCloseOnMouseLeave) setAppend(values_ => ({
+        ...values_,
 
-      open: false
-    }));
+        open: false
+      }));
+    });
   }, [tooltipCloseOnMouseLeave]);
 
   const makeGroupTooltip = (x_: number, y_: number) => {
