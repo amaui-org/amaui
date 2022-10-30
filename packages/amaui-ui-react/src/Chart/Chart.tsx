@@ -284,6 +284,12 @@ const useStyle = style(theme => ({
     borderRadius: '50%'
   },
 
+  append_icon: {
+    width: '8px',
+    height: '8px',
+    borderRadius: '50%'
+  },
+
   // Guideline
   guideline: {
     stroke: 'currentColor',
@@ -670,10 +676,10 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
                 <span
                   className={classNames([
                     staticClassName('Chart', theme) && [
-                      'AmauiLineChart-legend-icon'
+                      'AmauiLineChart-append-icon'
                     ],
 
-                    classes.legend_icon
+                    classes.append_icon
                   ])}
 
                   style={{
