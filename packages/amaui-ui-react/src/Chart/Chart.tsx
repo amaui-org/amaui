@@ -247,7 +247,7 @@ const useStyle = style(theme => ({
     right: '0'
   },
 
-  point_visibility__hover: {
+  point_visibility_hover: {
     opacity: '0',
     transition: theme.methods.transitions.make('opacity', { duration: 'xxs' }),
 
