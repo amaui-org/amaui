@@ -871,17 +871,21 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
             values__.y = valueFromPercentageWithinRange(values__.y, 0, height);
 
-            refs.allValues.current.push({
-              item,
-              value: [x, y],
-              normalized: [values__.x, height - values__.y].map(item_ => Math.abs(item_))
-            });
+            if (visible[name]) {
+              refs.allValues.current.push({
+                item,
+                value: [x, y],
+                normalized: [values__.x, height - values__.y].map(item_ => Math.abs(item_))
+              });
+            }
 
             return {
               value: [x, y],
               normalized: [values__.x, height - values__.y].map(item_ => Math.abs(item_))
             };
           });
+
+        refs.allValues.current.sort((a, b) => a.normalized[0] - b.normalized[0]);
 
         return values_.map((item, index: number) => (
           <Path
