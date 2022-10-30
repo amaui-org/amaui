@@ -23,6 +23,10 @@ const useStyle = style(theme => ({
     }
   },
 
+  additionalLines: {
+    pointerEvents: 'none'
+  },
+
   append_wrapper: {
     userSelect: 'none',
     pointerEvents: 'none'
