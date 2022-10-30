@@ -3202,6 +3202,93 @@ Please sign in again.`}
           />
         </Accordion>
 
+        <Accordion primary='LineChart guideline' open>
+          <Line
+            style={{ width: '100%' }}
+          >
+            <LineChart
+              guideline='vertical'
+
+              names={{
+                x: 'Name x',
+                y: 'Name y'
+              }}
+
+              nameX
+
+              nameY
+
+              minPaddingY={0.14}
+
+              maxPaddingY={0.14}
+
+              items={[
+                {
+                  color: 'primary',
+
+                  name: 'a',
+
+                  values: Array.from({ length: 14 }).map(() => [random(-40, 400), random(-40, 400)])
+                }
+              ]}
+            />
+
+            <LineChart
+              guideline='horizontal'
+
+              names={{
+                x: 'Name x',
+                y: 'Name y'
+              }}
+
+              nameX
+
+              nameY
+
+              minPaddingY={0.14}
+
+              maxPaddingY={0.14}
+
+              items={[
+                {
+                  color: 'primary',
+
+                  name: 'a',
+
+                  values: Array.from({ length: 14 }).map(() => [random(-40, 400), random(-40, 400)])
+                }
+              ]}
+            />
+
+            <LineChart
+              guideline='both'
+
+              names={{
+                x: 'Name x',
+                y: 'Name y'
+              }}
+
+              nameX
+
+              nameY
+
+              minPaddingY={0.14}
+
+              maxPaddingY={0.14}
+
+              items={[
+                {
+                  color: 'primary',
+
+                  name: 'a',
+
+                  values: Array.from({ length: 14 }).map(() => [random(-40, 400), random(-40, 400)])
+                }
+              ]}
+            />
+          </Line>
+        </Accordion>
+
         <Accordion primary='LineChart additional_lines'>
           <LineChart
             additional_lines={[
