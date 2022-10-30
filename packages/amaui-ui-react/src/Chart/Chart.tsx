@@ -581,7 +581,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
     const y = itemsY[0].normalized[1];
 
-    const groups: any = {};
+    const groups: any = [];
 
     items.forEach(item => {
       const color = item.item?.color || 'primary';
@@ -593,6 +593,9 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
     // Each group sort by y
     Object.keys(groups).forEach(group => groups[group].sort((a, b) => a.normalized[1] - b.normalized[1]));
+
+    // Groups sorted by lowest y
+    const groupsSorted = Object.keys(groups).sort((a, b) => groups[a][0]?.normalized?.[1] - groups[b][0]?.normalized?.[1]);
 
     const element = (
       <Line
@@ -664,7 +667,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
             direction='column'
           >
-            {Object.keys(groups).map((group: string, index: number) => (
+            {groupsSorted.map((group: string, index: number) => (
               <Line
                 key={index}
 
