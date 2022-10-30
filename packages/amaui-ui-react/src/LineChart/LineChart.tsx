@@ -7,8 +7,9 @@ import Chart from '../Chart';
 import Path from '../Path';
 import Line from '../Line';
 import Type from '../Type';
+import useMediaQuery from '../useMediaQuery';
 
-import { controlPoint, staticClassName } from '../utils';
+import { controlPoint, staticClassName, valueBreakpoints } from '../utils';
 
 export interface IItem {
   color: string;
@@ -39,6 +40,12 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiLineChart?.props?.default }), [props_]);
 
+  const breakpoints = {};
+
+  theme.breakpoints.keys.sort((a, b) => theme.breakpoints.values[b] - theme.breakpoints.values[a]).forEach(key => {
+    if (theme.breakpoints.media[key]) breakpoints[key] = useMediaQuery(`(min-width: ${theme.breakpoints.values[key]}px)`);
+  });
+
   const { classes } = useStyle(props);
 
   const {
@@ -48,27 +55,27 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
 
     values,
 
-    minX,
+    minX: minX_,
 
-    maxX,
+    maxX: maxX_,
 
-    minY,
+    minY: minY_,
 
-    maxY,
+    maxY: maxY_,
 
-    minMaxPadding,
+    minMaxPadding: minMaxPadding_,
 
-    minPadding,
+    minPadding: minPadding_,
 
-    maxPadding,
+    maxPadding: maxPadding_,
 
-    minPaddingX,
+    minPaddingX: minPaddingX_,
 
-    minPaddingY,
+    minPaddingY: minPaddingY_,
 
-    maxPaddingX,
+    maxPaddingX: maxPaddingX_,
 
-    maxPaddingY,
+    maxPaddingY: maxPaddingY_,
 
     smooth = true,
 
@@ -81,6 +88,18 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
 
     ...other
   } = props;
+
+  const minX = valueBreakpoints(minX_, undefined, breakpoints, theme);
+  const maxX = valueBreakpoints(maxX_, undefined, breakpoints, theme);
+  const minY = valueBreakpoints(minY_, undefined, breakpoints, theme);
+  const maxY = valueBreakpoints(maxY_, undefined, breakpoints, theme);
+  const minMaxPadding = valueBreakpoints(minMaxPadding_, undefined, breakpoints, theme);
+  const minPadding = valueBreakpoints(minPadding_, undefined, breakpoints, theme);
+  const maxPadding = valueBreakpoints(maxPadding_, undefined, breakpoints, theme);
+  const minPaddingX = valueBreakpoints(minPaddingX_, undefined, breakpoints, theme);
+  const minPaddingY = valueBreakpoints(minPaddingY_, undefined, breakpoints, theme);
+  const maxPaddingX = valueBreakpoints(maxPaddingX_, undefined, breakpoints, theme);
+  const maxPaddingY = valueBreakpoints(maxPaddingY_, undefined, breakpoints, theme);
 
   const [value, setValue] = React.useState<any>();
 

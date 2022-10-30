@@ -10,8 +10,9 @@ import { IItem } from '../LineChart/LineChart';
 import Path from '../Path';
 import Append from '../Append';
 import Grow from '../Grow';
+import useMediaQuery from '../useMediaQuery';
 
-import { minMaxBetweenNumbers, staticClassName } from '../utils';
+import { staticClassName, valueBreakpoints, minMaxBetweenNumbers } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
@@ -301,14 +302,18 @@ const useStyle = style(theme => ({
 
 // to do
 
-// all above options area valueBreakpoints value y
-
 // smooth bug fix
 
 const Chart = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiChart?.props?.default }), [props_]);
+
+  const breakpoints = {};
+
+  theme.breakpoints.keys.sort((a, b) => theme.breakpoints.values[b] - theme.breakpoints.values[a]).forEach(key => {
+    if (theme.breakpoints.media[key]) breakpoints[key] = useMediaQuery(`(min-width: ${theme.breakpoints.values[key]}px)`);
+  });
 
   const { classes } = useStyle(props);
 
@@ -330,120 +335,115 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
     // Names
     names,
 
-    nameX,
+    nameX: nameX_,
 
-    nameY,
+    nameY: nameY_,
 
     // Tooltip
-    tooltip = true,
+    tooltip: tooltip_,
 
-    tooltipIndividually = true,
+    tooltipIndividually: tooltipIndividually_,
 
-    tooltipCloseOnMouseLeave = true,
+    tooltipCloseOnMouseLeave: tooltipCloseOnMouseLeave_,
 
     // Guideline
-    guideline,
+    guideline: guideline_,
 
-    guidelineAllAppends = true,
-
-    guidelineAppend = true,
+    guidelineAppend: guidelineAppend_,
 
     // Additional lines
     additional_lines: additional_lines__,
 
     // Legend
-    legend: legend__ = 'auto',
+    legend: legend___,
 
     legendManageVisibility = true,
 
     legendPosition = 'bottom',
 
     // Labels
-    labels: labels__ = 'auto',
+    labels: labels___,
 
-    labelsX = true,
+    labelsX: labelsX_,
 
-    labelsY = true,
+    labelsY: labelsY_,
 
-    labelDecimalPlaces = 0,
+    labelDecimalPlaces: labelDecimalPlaces_,
 
-    // valueBreakpoint xs 4, sm 8, md 10
-    labelsAutoNumber = 10,
+    labelsAutoNumber: labelsAutoNumber_,
 
-    labelsYAutoNumber,
+    labelsYAutoNumber: labelsYAutoNumber_,
 
-    labelsXAutoNumber,
+    labelsXAutoNumber: labelsXAutoNumber_,
 
     // Marks
-    marks: marks__ = 'auto',
+    marks: marks___,
 
-    marksX = true,
+    marksX: marksX_,
 
-    marksY = true,
+    marksY: marksY_,
 
-    // valueBreakpoint xs 4, sm 8, md 10
-    marksAutoNumber = 10,
+    marksAutoNumber: marksAutoNumber_,
 
-    marksYAutoNumber,
+    marksYAutoNumber: marksYAutoNumber_,
 
-    marksXAutoNumber,
+    marksXAutoNumber: marksXAutoNumber_,
 
     // Grid
-    grid: grid__,
+    grid: grid___,
 
-    gridX = true,
+    gridX: gridX_,
 
-    gridY = true,
+    gridY: gridY_,
 
-    // valueBreakpoint xs 4, sm 8, md 10
-    gridAutoNumber = 10,
+    gridAutoNumber: gridAutoNumber_,
 
-    gridYAutoNumber,
+    gridYAutoNumber: gridYAutoNumber_,
 
-    gridXAutoNumber,
+    gridXAutoNumber: gridXAutoNumber_,
 
     // Points
-    points: points__ = true,
+    points: points___,
 
-    pointsVisibility = 'hover',
+    pointsVisibility: pointsVisibility_,
 
     // Borders
-    borders = true,
+    borders: borders_ = true,
 
-    borderStart = false,
+    borderStart: borderStart_ = false,
 
-    borderLeft = true,
+    borderLeft: borderLeft_ = true,
 
-    borderEnd = false,
+    borderEnd: borderEnd_ = false,
 
-    borderRight = false,
+    borderRight: borderRight_ = false,
 
-    borderTop = false,
+    borderTop: borderTop_ = false,
 
-    borderBottom = true,
+    borderBottom: borderBottom_ = true,
 
     // Min, max
-    minX,
+    minX: minX_,
 
-    maxX,
+    maxX: maxX_,
 
-    minY,
+    minY: minY_,
 
-    maxY,
+    maxY: maxY_,
 
-    minMaxPadding,
+    minMaxPadding: minMaxPadding_,
 
-    minPadding,
+    minPadding: minPadding_,
 
-    maxPadding,
+    maxPadding: maxPadding_,
 
-    minPaddingX,
+    minPaddingX: minPaddingX_,
 
-    minPaddingY,
+    minPaddingY: minPaddingY_,
 
-    maxPaddingX,
+    maxPaddingX: maxPaddingX_,
 
-    maxPaddingY,
+    maxPaddingY: maxPaddingY_,
 
     onUpdateRects,
 
@@ -470,6 +470,70 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
     ...other
   } = props;
 
+  const nameX = valueBreakpoints(nameX_, undefined, breakpoints, theme);
+  const nameY = valueBreakpoints(nameY_, undefined, breakpoints, theme);
+
+  const tooltip = valueBreakpoints(tooltip_, true, breakpoints, theme);
+  const tooltipIndividually = valueBreakpoints(tooltipIndividually_, true, breakpoints, theme);
+  const tooltipCloseOnMouseLeave = valueBreakpoints(tooltipCloseOnMouseLeave_, true, breakpoints, theme);
+
+  const guideline = valueBreakpoints(guideline_, undefined, breakpoints, theme);
+  const guidelineAppend = valueBreakpoints(guidelineAppend_, true, breakpoints, theme);
+
+  const legend__ = valueBreakpoints(legend___, 'auto', breakpoints, theme);
+
+  const labels__ = valueBreakpoints(labels___, 'auto', breakpoints, theme);
+
+  const labelsX = valueBreakpoints(labelsX_, true, breakpoints, theme);
+  const labelsY = valueBreakpoints(labelsY_, true, breakpoints, theme);
+
+  const labelDecimalPlaces = valueBreakpoints(labelDecimalPlaces_, 0, breakpoints, theme);
+
+  const labelsAutoNumber = valueBreakpoints(labelsAutoNumber_, 10, breakpoints, theme);
+  const labelsYAutoNumber = valueBreakpoints(labelsYAutoNumber_, undefined, breakpoints, theme);
+  const labelsXAutoNumber = valueBreakpoints(labelsXAutoNumber_, undefined, breakpoints, theme);
+
+  const marks__ = valueBreakpoints(marks___, 'auto', breakpoints, theme);
+
+  const marksX = valueBreakpoints(marksX_, true, breakpoints, theme);
+  const marksY = valueBreakpoints(marksY_, true, breakpoints, theme);
+
+  const marksAutoNumber = valueBreakpoints(marksAutoNumber_, 10, breakpoints, theme);
+  const marksYAutoNumber = valueBreakpoints(marksYAutoNumber_, undefined, breakpoints, theme);
+  const marksXAutoNumber = valueBreakpoints(marksXAutoNumber_, undefined, breakpoints, theme);
+
+  const grid__ = valueBreakpoints(grid___, undefined, breakpoints, theme);
+
+  const gridX = valueBreakpoints(gridX_, true, breakpoints, theme);
+  const gridY = valueBreakpoints(gridY_, true, breakpoints, theme);
+
+  const gridAutoNumber = valueBreakpoints(gridAutoNumber_, 10, breakpoints, theme);
+  const gridYAutoNumber = valueBreakpoints(gridYAutoNumber_, undefined, breakpoints, theme);
+  const gridXAutoNumber = valueBreakpoints(gridXAutoNumber_, undefined, breakpoints, theme);
+
+  const points__ = valueBreakpoints(points___, true, breakpoints, theme);
+  const pointsVisibility = valueBreakpoints(pointsVisibility_, 'hover', breakpoints, theme);
+
+  const borders = valueBreakpoints(borders_, true, breakpoints, theme);
+  const borderStart = valueBreakpoints(borderStart_, false, breakpoints, theme);
+  const borderLeft = valueBreakpoints(borderLeft_, true, breakpoints, theme);
+  const borderEnd = valueBreakpoints(borderEnd_, false, breakpoints, theme);
+  const borderRight = valueBreakpoints(borderRight_, false, breakpoints, theme);
+  const borderTop = valueBreakpoints(borderTop_, false, breakpoints, theme);
+  const borderBottom = valueBreakpoints(borderBottom_, true, breakpoints, theme);
+
+  const minX = valueBreakpoints(minX_, undefined, breakpoints, theme);
+  const maxX = valueBreakpoints(maxX_, undefined, breakpoints, theme);
+  const minY = valueBreakpoints(minY_, undefined, breakpoints, theme);
+  const maxY = valueBreakpoints(maxY_, undefined, breakpoints, theme);
+  const minMaxPadding = valueBreakpoints(minMaxPadding_, undefined, breakpoints, theme);
+  const minPadding = valueBreakpoints(minPadding_, undefined, breakpoints, theme);
+  const maxPadding = valueBreakpoints(maxPadding_, undefined, breakpoints, theme);
+  const minPaddingX = valueBreakpoints(minPaddingX_, undefined, breakpoints, theme);
+  const minPaddingY = valueBreakpoints(minPaddingY_, undefined, breakpoints, theme);
+  const maxPaddingX = valueBreakpoints(maxPaddingX_, undefined, breakpoints, theme);
+  const maxPaddingY = valueBreakpoints(maxPaddingY_, undefined, breakpoints, theme);
+
   const [rects, setRects] = React.useState<Record<string, DOMRect>>();
   const [points, setPoints] = React.useState<any>();
   const [labels, setLabels] = React.useState<any>();
@@ -492,7 +556,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
     guideline: React.useRef<any>(),
     guidelineIn: React.useRef<any>(),
     guidelinePosition: React.useRef<any>(),
-    guidelineAllAppends: React.useRef<any>(),
+    guidelineAppend: React.useRef<any>(),
     hover: React.useRef<any>(),
     allValues: React.useRef<any>([])
   };
@@ -505,7 +569,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
   refs.guidelinePosition.current = guidelinePosition;
 
-  refs.guidelineAllAppends.current = guidelineAllAppends;
+  refs.guidelineAppend.current = guidelineAppend;
 
   refs.hover.current = hover;
 
@@ -787,7 +851,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
       const y = clamp(y_ - rectSvg?.y, 0, rectWrapper?.height);
 
-      if (refs.guidelineAllAppends.current && ['both', 'vertical'].includes(refs.guideline.current)) {
+      if (refs.guidelineAppend.current && ['both', 'vertical'].includes(refs.guideline.current)) {
         const allValues = refs.allValues.current;
 
         let index = undefined;
@@ -889,7 +953,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
   React.useEffect(() => {
     make();
-  }, [values, labels__, marks__, grid__, additional_lines__, legend__, visible, (guidelineAllAppends && guidelinePosition), rects]);
+  }, [values, labels__, marks__, grid__, additional_lines__, legend__, visible, (guidelineAppend && guidelinePosition), rects]);
 
   const onPointMouseEnter = React.useCallback((values_: any) => {
     if (tooltipIndividually) {
@@ -1138,7 +1202,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
               PointProps?.className,
               classes.point,
               classes[`point_${pointsVisibility}`],
-              (refs.guidelineAllAppends.current && refs.guidelinePosition.current.x === item.normalized[0]) && classes.point_active
+              (refs.guidelineAppend.current && refs.guidelinePosition.current.x === item.normalized[0]) && classes.point_active
             ])}
 
             style={{
