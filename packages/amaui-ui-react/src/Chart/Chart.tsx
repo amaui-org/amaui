@@ -885,8 +885,6 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
             };
           });
 
-        refs.allValues.current.sort((a, b) => a.normalized[0] - b.normalized[0]);
-
         return values_.map((item, index: number) => (
           <Path
             Component='circle'
@@ -937,6 +935,8 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
           />
         ));
       });
+
+      refs.allValues.current.sort((a, b) => a?.normalized[0] - b?.normalized[0]);
 
       // Guidelines
       const additional_lines_ = additional_lines__ && additional_lines__.map((item: any) => {
