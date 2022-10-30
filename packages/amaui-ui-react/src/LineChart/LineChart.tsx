@@ -151,7 +151,7 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
     const {
       item = {},
 
-      className_,
+      className: className_,
 
       ...other
     } = props__;
