@@ -11,6 +11,7 @@ import { controlPoint, staticClassName } from '../utils';
 export interface IItem {
   color: string;
   tone?: string;
+  name?: string;
   style?: Record<string, any>;
 
   values: Array<[number, number]>;

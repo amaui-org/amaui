@@ -231,14 +231,31 @@ const useStyle = style(theme => ({
     '&:hover': {
       opacity: 1
     }
+  },
+
+  // Legend
+  legend: {},
+
+  legend_position_top: {
+    marginBottom: '16px'
+  },
+
+  legend_position_bottom: {
+    marginTop: '16px'
+  },
+
+  legend_item: {
+    userSelect: 'none'
+  },
+
+  legend_icon: {
+    width: '10px',
+    height: '10px',
+    borderRadius: '50%'
   }
 }), { name: 'AmauiChart' });
 
 // to do
-
-// legend (expandable) (optional)
-// position top, bottom, left, right, start, end
-// legend items icon custom and color custom
 
 // vertical guide line on mouse move in the ui value y
 // only snaps to points, 50% between any previous and next point
@@ -281,8 +298,13 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
     guidelines: guidelines__,
 
+    // Legend
+    legend: legend__ = 'auto',
+
+    legendPosition = 'bottom',
+
     // Labels
-    labels: labels_ = 'auto',
+    labels: labels__ = 'auto',
 
     labelsX = true,
 
@@ -298,7 +320,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
     labelsXAutoNumber,
 
     // Marks
-    marks: marks_ = 'auto',
+    marks: marks__ = 'auto',
 
     marksX = true,
 
@@ -312,7 +334,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
     marksXAutoNumber,
 
     // Grid
-    grid: grid_,
+    grid: grid__,
 
     gridX = true,
 
@@ -326,7 +348,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
     gridXAutoNumber,
 
     // Points
-    points: pointsVisible = true,
+    points: points__ = true,
 
     pointsVisibility = 'hover',
 
@@ -382,6 +404,8 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
     AppendProps,
     GuidelineProps,
     GuidelinesProps,
+    LegendProps,
+    LegendItemProps,
 
     className,
 
@@ -396,6 +420,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
   const [marks, setMarks] = React.useState<any>();
   const [grid, setGrid] = React.useState<any>();
   const [guidelines, setGuidelines] = React.useState<any>();
+  const [legend, setLegend] = React.useState<any>();
   const [append, setAppend] = React.useState<any>();
 
   const refs = {
@@ -486,7 +511,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
   React.useEffect(() => {
     make();
-  }, [items, rect]);
+  }, [items, labels__, marks__, grid__, guidelines__, legend__, rect]);
 
   const onPointMouseEnter = React.useCallback((values: any) => {
     setAppend({
@@ -513,73 +538,73 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
       const { width, height } = refs.rect.current;
 
       // Labels
-      const labelsValues: any = {
-        x: is('array', labels_?.x) ? labels_.x : minMaxBetweenNumbers(labelsXAutoNumber !== undefined ? labelsXAutoNumber : labelsAutoNumber !== undefined ? labelsAutoNumber : 10, refs.minMax.current.min.x, refs.minMax.current.max.x).map(item => ({
+      const labels_: any = {
+        x: is('array', labels__?.x) ? labels__.x : minMaxBetweenNumbers(labelsXAutoNumber !== undefined ? labelsXAutoNumber : labelsAutoNumber !== undefined ? labelsAutoNumber : 10, refs.minMax.current.min.x, refs.minMax.current.max.x).map(item => ({
           value: item,
 
           label: (item).toFixed(labelDecimalPlaces || 0)
         })),
 
-        y: is('array', labels_?.y) ? labels_.y : minMaxBetweenNumbers(labelsYAutoNumber !== undefined ? labelsYAutoNumber : labelsAutoNumber !== undefined ? labelsAutoNumber : 10, refs.minMax.current.min.y, refs.minMax.current.max.y).map(item => ({
+        y: is('array', labels__?.y) ? labels__.y : minMaxBetweenNumbers(labelsYAutoNumber !== undefined ? labelsYAutoNumber : labelsAutoNumber !== undefined ? labelsAutoNumber : 10, refs.minMax.current.min.y, refs.minMax.current.max.y).map(item => ({
           value: item,
 
           label: (item).toFixed(labelDecimalPlaces || 0)
         }))
       };
 
-      labelsValues.x = labelsValues.x.map(item => ({
+      labels_.x = labels_.x.map(item => ({
         ...item,
 
         percentage: percentageFromValueWithinRange(item.value, refs.minMax.current.min.x, refs.minMax.current.max.x)
       }));
 
-      labelsValues.y = labelsValues.y.map(item => ({
+      labels_.y = labels_.y.map(item => ({
         ...item,
 
         percentage: percentageFromValueWithinRange(item.value, refs.minMax.current.min.y, refs.minMax.current.max.y)
       }));
 
       // Marks
-      const marksValues: any = {
-        x: is('array', marks_?.x) ? marks_.x : minMaxBetweenNumbers(marksXAutoNumber !== undefined ? marksXAutoNumber : marksAutoNumber !== undefined ? marksAutoNumber : 10, refs.minMax.current.min.x, refs.minMax.current.max.x).map(item => ({
+      const marks_: any = {
+        x: is('array', marks__?.x) ? marks__.x : minMaxBetweenNumbers(marksXAutoNumber !== undefined ? marksXAutoNumber : marksAutoNumber !== undefined ? marksAutoNumber : 10, refs.minMax.current.min.x, refs.minMax.current.max.x).map(item => ({
           value: item
         })),
 
-        y: is('array', marks_?.y) ? marks_.y : minMaxBetweenNumbers(marksYAutoNumber !== undefined ? marksYAutoNumber : marksAutoNumber !== undefined ? marksAutoNumber : 10, refs.minMax.current.min.y, refs.minMax.current.max.y).map(item => ({
+        y: is('array', marks__?.y) ? marks__.y : minMaxBetweenNumbers(marksYAutoNumber !== undefined ? marksYAutoNumber : marksAutoNumber !== undefined ? marksAutoNumber : 10, refs.minMax.current.min.y, refs.minMax.current.max.y).map(item => ({
           value: item
         }))
       };
 
-      marksValues.x = marksValues.x.map(item => ({
+      marks_.x = marks_.x.map(item => ({
         ...item,
 
         percentage: percentageFromValueWithinRange(item.value, refs.minMax.current.min.x, refs.minMax.current.max.x)
       }));
 
-      marksValues.y = marksValues.y.map(item => ({
+      marks_.y = marks_.y.map(item => ({
         ...item,
 
         percentage: percentageFromValueWithinRange(item.value, refs.minMax.current.min.y, refs.minMax.current.max.y)
       }));
 
       // Grid
-      const gridsValues: any = {
-        x: is('array', grid_?.x) ? grid_.x : minMaxBetweenNumbers(gridXAutoNumber !== undefined ? gridXAutoNumber : gridAutoNumber !== undefined ? gridAutoNumber : 10, refs.minMax.current.min.x, refs.minMax.current.max.x).map(item => ({
+      const grid_: any = {
+        x: is('array', grid__?.x) ? grid__.x : minMaxBetweenNumbers(gridXAutoNumber !== undefined ? gridXAutoNumber : gridAutoNumber !== undefined ? gridAutoNumber : 10, refs.minMax.current.min.x, refs.minMax.current.max.x).map(item => ({
           value: item
         })),
 
-        y: is('array', grid_?.y) ? grid_.y : minMaxBetweenNumbers(gridYAutoNumber !== undefined ? gridYAutoNumber : gridAutoNumber !== undefined ? gridAutoNumber : 10, refs.minMax.current.min.y, refs.minMax.current.max.y).map(item => ({
+        y: is('array', grid__?.y) ? grid__.y : minMaxBetweenNumbers(gridYAutoNumber !== undefined ? gridYAutoNumber : gridAutoNumber !== undefined ? gridAutoNumber : 10, refs.minMax.current.min.y, refs.minMax.current.max.y).map(item => ({
           value: item
         }))
       };
 
-      gridsValues.x = gridsValues.x.map(item => ({
+      grid_.x = grid_.x.map(item => ({
         ...item,
 
         percentage: percentageFromValueWithinRange(item.value, refs.minMax.current.min.x, refs.minMax.current.max.x)
       }));
 
-      gridsValues.y = gridsValues.y.map(item => ({
+      grid_.y = grid_.y.map(item => ({
         ...item,
 
         percentage: percentageFromValueWithinRange(item.value, refs.minMax.current.min.y, refs.minMax.current.max.y)
@@ -640,6 +665,8 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
             onMouseLeave={onPointMouseLeave}
 
+            {...PointProps}
+
             className={classNames([
               staticClassName('Chart', theme) && [
                 'AmauiChart-point'
@@ -687,6 +714,8 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
             stroke={!theme.palette.color[color_] ? color_ : theme.palette.color[color_][tone]}
 
+            {...GuidelineProps}
+
             className={classNames([
               staticClassName('Chart', theme) && [
                 'AmauiChart-guidelines'
@@ -696,22 +725,83 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
               classes.guidelines
             ])}
 
-            style={style}
+            style={{
+              ...style,
+
+              ...GuidelineProps?.style
+            }}
           />
         );
       });
 
+      // Legend
+      const legend_ = legend__ !== 'auto' ? legend__ : items.map((item: any) => {
+        const {
+          color: color_,
+
+          tone = 'main',
+
+          name: name_
+        } = item;
+
+        const name = name_ || 'No name';
+
+        return (
+          <Line
+            gap={1}
+
+            direction='row'
+
+            align='center'
+
+            {...LegendItemProps}
+
+            className={classNames([
+              staticClassName('Chart', theme) && [
+                'AmauiChart-legend-item'
+              ],
+
+              LegendItemProps?.className,
+              classes.legend_item
+            ])}
+          >
+            <span
+              className={classNames([
+                staticClassName('Chart', theme) && [
+                  'AmauiChart-legend-icon'
+                ],
+
+                classes.legend_icon
+              ])}
+
+              style={{
+                background: !theme.palette.color[color_] ? color_ : theme.palette.color[color_][tone]
+              }}
+            />
+
+            <Type
+              version='b2'
+            >
+              {name}
+            </Type>
+          </Line>
+        );
+      });
+
       // Labels
-      setLabels(labelsValues);
+      setLabels(labels_);
 
       // Marks
-      setMarks(marksValues);
+      setMarks(marks_);
 
       // Grid
-      setGrid(gridsValues);
+      setGrid(grid_);
 
       // Guidelines
       setGuidelines(guidelines_);
+
+      // Legend
+      setLegend(legend_);
 
       // Update children value
       setPoints(points_);
@@ -822,6 +912,38 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
       )}
 
       {/* Legend top */}
+      {(legend__ && legendPosition === 'top' && legend) && (
+        <Line
+          gap={2}
+
+          direction='row'
+
+          align='center'
+
+          justify='center'
+
+          wrap='wrap'
+
+          {...LegendProps}
+
+          className={classNames([
+            staticClassName('Chart', theme) && [
+              'AmauiChart-legend',
+              `AmauiChart-legend-position-${legendPosition}`
+            ],
+
+            LegendProps?.className,
+            classes.legend,
+            classes[`legend_position_${legendPosition}`]
+          ])}
+        >
+          {legend.map((item: any, index: number) => (
+            React.cloneElement(item, {
+              key: index
+            })
+          ))}
+        </Line>
+      )}
 
       <Line
         ref={refs.wrapper}
@@ -850,7 +972,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
             return (
               <>
                 {/* Grid */}
-                {!!grid_ && gridX && grid?.x && (
+                {!!grid__ && gridX && grid?.x && (
                   <Line
                     gap={0}
 
@@ -890,7 +1012,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
                   </Line>
                 )}
 
-                {!!grid_ && gridY && grid?.y && (
+                {!!grid__ && gridY && grid?.y && (
                   <Line
                     gap={0}
 
@@ -970,7 +1092,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
                   )}
 
                   {/* Points */}
-                  {pointsVisible && points && (
+                  {points__ && points && (
                     <g
                       {...PointsProps}
 
@@ -1092,7 +1214,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
                 </>}
 
                 {/* Labels */}
-                {!!labels_ && labelsX && labels?.x && (
+                {!!labels__ && labelsX && labels?.x && (
                   <Line
                     gap={0}
 
@@ -1136,7 +1258,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
                   </Line>
                 )}
 
-                {!!labels_ && labelsY && labels?.y && (
+                {!!labels__ && labelsY && labels?.y && (
                   <Line
                     gap={0}
 
@@ -1183,7 +1305,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
                 )}
 
                 {/* Marks */}
-                {!!marks_ && marksX && marks?.x && (
+                {!!marks__ && marksX && marks?.x && (
                   <Line
                     gap={0}
 
@@ -1225,7 +1347,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
                   </Line>
                 )}
 
-                {!!marks_ && marksY && marks?.y && (
+                {!!marks__ && marksY && marks?.y && (
                   <Line
                     gap={0}
 
@@ -1412,10 +1534,41 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
             );
           }}
         </Surface>
-
-        {/* Legend bottom*/}
-
       </Line>
+
+      {/* Legend bottom */}
+      {(legend__ && legendPosition === 'bottom' && legend) && (
+        <Line
+          gap={2}
+
+          direction='row'
+
+          align='center'
+
+          justify='center'
+
+          wrap='wrap'
+
+          {...LegendProps}
+
+          className={classNames([
+            staticClassName('Chart', theme) && [
+              'AmauiChart-legend',
+              `AmauiChart-legend-position-${legendPosition}`
+            ],
+
+            LegendProps?.className,
+            classes.legend,
+            classes[`legend_position_${legendPosition}`]
+          ])}
+        >
+          {legend.map((item: any, index: number) => (
+            React.cloneElement(item, {
+              key: index
+            })
+          ))}
+        </Line>
+      )}
     </Line>
   );
 });
