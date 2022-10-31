@@ -1549,9 +1549,9 @@ function App() {
 
             nameY
 
-            minPaddingY={0.14}
+            minPadding={0.14}
 
-            maxPaddingY={0.14}
+            maxPadding={0.14}
 
             values={[
               {
@@ -3359,9 +3359,9 @@ Please sign in again.`}
 
             nameY
 
-            minPaddingY={0.14}
+            minPadding={0.14}
 
-            maxPaddingY={0.14}
+            maxPadding={0.14}
 
             values={[
               {
@@ -3411,9 +3411,9 @@ Please sign in again.`}
 
             nameY
 
-            minPaddingY={0.14}
+            minPadding={0.14}
 
-            maxPaddingY={0.14}
+            maxPadding={0.14}
 
             values={[
               {
