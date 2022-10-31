@@ -426,3 +426,6 @@ export * from './ScatterChart';
 
 export { default as BubbleChart } from './BubbleChart';
 export * from './BubbleChart';
+
+export { default as ColumnChart } from './ColumnChart';
+export * from './ColumnChart';
