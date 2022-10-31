@@ -3,7 +3,7 @@ import React from 'react';
 import { is, unique, random, countries } from '@amaui/utils';
 import { AmauiDate, add, remove, set } from '@amaui/date';
 import { AmauiTheme, AmauiThemeProvider, classNames, style, sy, useAmauiTheme } from '@amaui/style-react';
-import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Radios, Keyframes, Switch, TextField, Label, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationItem, NavigationRail, NavigationDrawer, BottomSheet, BottomAppBar, TopAppBar, Card, CardImage, CardMain, CardHeader, CardButton, CardFooter, Table, TableHead, TableRow, TableCell, TableHeader, TableFooter, TableBody, Placeholder, Snackbar, useSnackbars, Pagination, TablePagination, SpeedDial, SpeedDialItem, ImageList, ImageListItem, ImageListItemBox, Stepper, Step, Tabs, Tab, Timeline, TimelineItem, Tree, Masonry, Reveal, useConfirm, ViewSplit, WindowSplit, useMainProgress, Image, SpyScroll, AdvancedTextField, NumericTextField, useWidgets, ImageCrop, ImageEdit, FileChoose, DropZone, MenuDesktop, Markdown, RichTextEditor, ScreenCapture, Timer, Countdown, Drawing, Parallax, Weather, RoundMeter, Path, Watch, LinearMeter, Carousel, TimePicker, TimeRangePicker, DatePicker, DateRangePicker, DateTimePicker, DateTimeRangePicker, LineChart, AreaChart, ScatterChart, BubbleChart, ColumnChart, PieChart } from '@amaui/ui-react';
+import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Radios, Keyframes, Switch, TextField, Label, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationItem, NavigationRail, NavigationDrawer, BottomSheet, BottomAppBar, TopAppBar, Card, CardImage, CardMain, CardHeader, CardButton, CardFooter, Table, TableHead, TableRow, TableCell, TableHeader, TableFooter, TableBody, Placeholder, Snackbar, useSnackbars, Pagination, TablePagination, SpeedDial, SpeedDialItem, ImageList, ImageListItem, ImageListItemBox, Stepper, Step, Tabs, Tab, Timeline, TimelineItem, Tree, Masonry, Reveal, useConfirm, ViewSplit, WindowSplit, useMainProgress, Image, SpyScroll, AdvancedTextField, NumericTextField, useWidgets, ImageCrop, ImageEdit, FileChoose, DropZone, MenuDesktop, Markdown, RichTextEditor, ScreenCapture, Timer, Countdown, Drawing, Parallax, Weather, RoundMeter, Path, Watch, LinearMeter, Carousel, TimePicker, TimeRangePicker, DatePicker, DateRangePicker, DateTimePicker, DateTimeRangePicker, LineChart, AreaChart, ScatterChart, BubbleChart, ColumnChart, PieChart, DonutChart } from '@amaui/ui-react';
 
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
@@ -1537,6 +1537,80 @@ function App() {
             width: '100%'
           }}
         >
+          <DonutChart
+            title='Donut chart'
+
+            subtitle='In millions'
+
+            values={[
+              {
+                color: 'primary',
+
+                name: 'a',
+
+                values: Array.from({ length: 1 }).map(() => random(40, 400))
+              },
+              {
+                color: 'secondary',
+
+                name: 'a1',
+
+                values: Array.from({ length: 1 }).map(() => random(40, 400))
+              },
+              {
+                color: 'tertiary',
+
+                name: 'a14',
+
+                values: Array.from({ length: 1 }).map(() => random(40, 400))
+              },
+              {
+                color: 'quaternary',
+
+                name: 'a114',
+
+                values: Array.from({ length: 1 }).map(() => random(40, 400))
+              }
+            ]}
+          />
+
+          <PieChart
+            title='Pie chart'
+
+            subtitle='In millions'
+
+            values={[
+              {
+                color: 'primary',
+
+                name: 'a',
+
+                values: Array.from({ length: 1 }).map(() => random(40, 400))
+              },
+              {
+                color: 'secondary',
+
+                name: 'a1',
+
+                values: Array.from({ length: 1 }).map(() => random(40, 400))
+              },
+              {
+                color: 'tertiary',
+
+                name: 'a14',
+
+                values: Array.from({ length: 1 }).map(() => random(40, 400))
+              },
+              {
+                color: 'quaternary',
+
+                name: 'a114',
+
+                values: Array.from({ length: 1 }).map(() => random(40, 400))
+              }
+            ]}
+          />
+
           <ColumnChart
             title='Column chart'
 
@@ -3345,6 +3419,199 @@ Please sign in again.`}
         </Line>
       </Accordion>
 
+      <Accordion primary='DonutChart'>
+        <Accordion primary='DonutChart' open>
+          <DonutChart
+            title='Donut chart'
+
+            subtitle='In millions'
+
+            values={[
+              {
+                color: 'primary',
+
+                name: 'a',
+
+                values: Array.from({ length: 1 }).map(() => random(40, 400))
+              },
+              {
+                color: 'secondary',
+
+                name: 'a1',
+
+                values: Array.from({ length: 1 }).map(() => random(40, 400))
+              },
+              {
+                color: 'tertiary',
+
+                name: 'a14',
+
+                values: Array.from({ length: 1 }).map(() => random(40, 400))
+              },
+              {
+                color: 'quaternary',
+
+                name: 'a114',
+
+                values: Array.from({ length: 1 }).map(() => random(40, 400))
+              }
+            ]}
+          />
+        </Accordion>
+
+        <Accordion primary='DonutChart simple'>
+          <Line>
+            <DonutChart
+              title='Donut chart'
+
+              subtitle='In millions'
+
+              values={[
+                {
+                  color: 'primary',
+
+                  name: 'a',
+
+                  values: [70]
+                },
+                {
+                  color: 'secondary',
+
+                  name: 'a1',
+
+                  values: [14]
+                },
+                {
+                  color: 'tertiary',
+
+                  name: 'a14',
+
+                  values: [12]
+                },
+                {
+                  color: 'quaternary',
+
+                  name: 'a114',
+
+                  values: [4]
+                }
+              ]}
+            />
+
+            <DonutChart
+              title='Donut chart'
+
+              subtitle='In millions'
+
+              values={[
+                {
+                  color: 'primary',
+
+                  name: 'a',
+
+                  values: [50]
+                },
+                {
+                  color: 'secondary',
+
+                  name: 'a1',
+
+                  values: [25]
+                },
+                {
+                  color: 'tertiary',
+
+                  name: 'a14',
+
+                  values: [21]
+                },
+                {
+                  color: 'quaternary',
+
+                  name: 'a114',
+
+                  values: [4]
+                }
+              ]}
+            />
+
+            <DonutChart
+              title='Donut chart'
+
+              subtitle='In millions'
+
+              values={[
+                {
+                  color: 'primary',
+
+                  name: 'a',
+
+                  values: [51]
+                },
+                {
+                  color: 'secondary',
+
+                  name: 'a1',
+
+                  values: [24]
+                },
+                {
+                  color: 'tertiary',
+
+                  name: 'a14',
+
+                  values: [21]
+                },
+                {
+                  color: 'quaternary',
+
+                  name: 'a114',
+
+                  values: [4]
+                }
+              ]}
+            />
+
+            <DonutChart
+              title='Donut chart'
+
+              subtitle='In millions'
+
+              values={[
+                {
+                  color: 'primary',
+
+                  name: 'a',
+
+                  values: [49]
+                },
+                {
+                  color: 'secondary',
+
+                  name: 'a1',
+
+                  values: [26]
+                },
+                {
+                  color: 'tertiary',
+
+                  name: 'a14',
+
+                  values: [21]
+                },
+                {
+                  color: 'quaternary',
+
+                  name: 'a114',
+
+                  values: [4]
+                }
+              ]}
+            />
+          </Line>
+        </Accordion>
+      </Accordion>
+
       <Accordion primary='PieChart'>
         <Accordion primary='PieChart' open>
           <PieChart
@@ -3535,47 +3802,6 @@ Please sign in again.`}
               ]}
             />
           </Line>
-        </Accordion>
-
-        <Accordion primary='PieChart donut'>
-          <PieChart
-            title='Pie chart donut'
-
-            subtitle='In millions'
-
-            innerOffset={0.4}
-
-            values={[
-              {
-                color: 'primary',
-
-                name: 'a',
-
-                values: Array.from({ length: 1 }).map(() => random(40, 400))
-              },
-              {
-                color: 'secondary',
-
-                name: 'a1',
-
-                values: Array.from({ length: 1 }).map(() => random(40, 400))
-              },
-              {
-                color: 'tertiary',
-
-                name: 'a14',
-
-                values: Array.from({ length: 1 }).map(() => random(40, 400))
-              },
-              {
-                color: 'quaternary',
-
-                name: 'a114',
-
-                values: Array.from({ length: 1 }).map(() => random(40, 400))
-              }
-            ]}
-          />
         </Accordion>
       </Accordion>
 

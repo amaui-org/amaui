@@ -207,12 +207,6 @@ const PieChart = React.forwardRef((props_: any, ref: any) => {
 
       let d = '';
 
-      const innerCenter = center - (center * innerOffset);
-
-      const getCenter = ({ x, y }) => {
-        return center;
-      };
-
       // Elements
       const elements_ = copy(values).map((item: IItem, index: number) => {
         const {
@@ -225,9 +219,11 @@ const PieChart = React.forwardRef((props_: any, ref: any) => {
 
         const part = (total * (partPercentage / 100)) - (index * gap);
 
+        let startCenter = angleToCoordinates(anglePrevious, center, center, radius * innerOffset);
+
         // Move to 0 deg
         if (index === 0) value_.push(
-          'M', getCenter(angles.start), getCenter(angles.start),
+          'M', startCenter.x, startCenter.y,
           // Move to 0 deg
           'L', angles.start.x, angles.start.y
         );
@@ -236,7 +232,7 @@ const PieChart = React.forwardRef((props_: any, ref: any) => {
 
         const angleText = anglePrevious + (part / 2);
 
-        const angleTextCoordinates = angleToCoordinates(angleText, center, center, radius / 2);
+        const angleTextCoordinates = angleToCoordinates(angleText, center, center, (radius - (radius - (radius * innerOffset)) / 2));
 
         angles.end = angleToCoordinates(angleEnd, center, center, radius);
 
@@ -252,8 +248,20 @@ const PieChart = React.forwardRef((props_: any, ref: any) => {
         );
 
         // To donut value or center
+        const endCenter = angleToCoordinates(angleEnd, center, center, radius * innerOffset);
+
         value_.push(
-          'L', center, center
+          'L', endCenter.x, endCenter.y
+        );
+
+        if (innerOffset) {
+          value_.push(
+            'A', radius * innerOffset, radius * innerOffset, 0, invert, 1, startCenter.x, startCenter.y
+          );
+        }
+
+        value_.push(
+          'Z'
         );
 
         // path
@@ -271,8 +279,10 @@ const PieChart = React.forwardRef((props_: any, ref: any) => {
 
         // Move for the next value
         if (index < values.length - 1) {
+          startCenter = angleToCoordinates(anglePrevious, center, center, radius * innerOffset);
+
           value_ = [
-            'M', getCenter(angles.end), getCenter(angles.end),
+            'M', startCenter.x, startCenter.y,
             'L', angles.move.x, angles.move.y
           ];
         }

@@ -432,3 +432,6 @@ export * from './ColumnChart';
 
 export { default as PieChart } from './PieChart';
 export * from './PieChart';
+
+export { default as DonutChart } from './DonutChart';
+export * from './DonutChart';
