@@ -75,7 +75,7 @@ const useStyle = style(theme => ({
     position: 'relative',
     touchAction: 'none',
 
-    '& path': {
+    '& path, & circle, & rect, & g': {
       transition: theme.methods.transitions.make('opacity', { duration: 'xs' })
     }
   },
@@ -265,7 +265,8 @@ const useStyle = style(theme => ({
   },
 
   point_visibility_hidden: {
-    opacity: 0
+    opacity: 0,
+    pointerEvents: 'none'
   },
 
   // Legend
@@ -313,10 +314,6 @@ const useStyle = style(theme => ({
   }
 }), { name: 'AmauiChart' });
 
-// to do
-
-// render label method
-
 const Chart = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 
@@ -361,6 +358,8 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
     tooltipIndividually: tooltipIndividually_,
 
     tooltipCloseOnMouseLeave: tooltipCloseOnMouseLeave_,
+
+    elementTooltip: elementTooltip_,
 
     // Guideline
     guideline: guideline_,
@@ -461,6 +460,12 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
     maxPaddingY: maxPaddingY_,
 
+    tooltipRender,
+
+    tooltipGroupRender,
+
+    labelRender,
+
     onUpdateRects,
 
     Component = 'div',
@@ -492,6 +497,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
   const tooltip = valueBreakpoints(tooltip_, true, breakpoints, theme);
   const tooltipIndividually = valueBreakpoints(tooltipIndividually_, true, breakpoints, theme);
   const tooltipCloseOnMouseLeave = valueBreakpoints(tooltipCloseOnMouseLeave_, true, breakpoints, theme);
+  const elementTooltip = valueBreakpoints(elementTooltip_, undefined, breakpoints, theme);
 
   const guideline = valueBreakpoints(guideline_, undefined, breakpoints, theme);
   const guidelineAppend = valueBreakpoints(guidelineAppend_, true, breakpoints, theme);
@@ -602,7 +608,9 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
       }
     };
 
-    const allItems = values.flatMap(item => item.values);
+    const itemArrayNested = is('array', values[0]?.values?.[0]);
+
+    const allItems = values[itemArrayNested ? 'flatMap' : 'map'](item => item.values);
 
     if (is('array', values)) {
       allItems.forEach((item: [number, number]) => {
@@ -687,7 +695,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
     // Groups sorted by lowest y
     const groupsSorted = Object.keys(groups).sort((a, b) => groups[a][0]?.normalized?.[1] - groups[b][0]?.normalized?.[1]);
 
-    const element = (
+    const element = is('function', tooltipGroupRender) ? tooltipGroupRender(groups, groupsSorted) : (
       <Line
         tonal={tonal}
 
@@ -807,13 +815,13 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
                       <Type
                         version='b3'
                       >
-                        {item?.value?.[0]}
+                        {item?.values?.[0]}
                       </Type>
 
                       <Type
                         version='b3'
                       >
-                        {item?.value?.[1]}
+                        {item?.values?.[1]}
                       </Type>
                     </Line>
                   ))}
@@ -974,12 +982,14 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
   const onPointMouseEnter = React.useCallback((values_: any) => {
     if (tooltipIndividually) {
       setAppend({
-        ...values_,
+        ...(is('function', tooltipRender) ? tooltipRender(values_) : values_),
+
+        rect: values_.rect,
 
         open: true
       });
     }
-  }, [tooltipIndividually]);
+  }, [tooltipRender, tooltipIndividually]);
 
   const onPointMouseLeave = React.useCallback(() => {
     setAppend(append_ => ({
@@ -1153,34 +1163,36 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
           name
         } = item;
 
-        const values_ = item.values
+        const itemValues = ([x, y, ...args]) => {
+          const values__ = {
+            x: percentageFromValueWithinRange(x, refs.minMax.current.min.x, refs.minMax.current.max.x),
+            y: percentageFromValueWithinRange(y, refs.minMax.current.min.y, refs.minMax.current.max.y)
+          };
+
+          values__.x = valueFromPercentageWithinRange(values__.x, 0, width);
+
+          values__.y = valueFromPercentageWithinRange(values__.y, 0, height);
+
+          if (visible[name] !== false) {
+            refs.allValues.current.push({
+              item,
+              values: [x, y, ...args],
+              normalized: [values__.x, height - values__.y].map(item_ => Math.abs(item_))
+            });
+          }
+
+          return {
+            values: [x, y, ...args],
+            normalized: [values__.x, height - values__.y].map(item_ => Math.abs(item_))
+          };
+        };
+
+        const itemArrayNested = is('array', item.values?.[0]);
+
+        const values_ = itemArrayNested ? item.values
           // Sort for x from smallest to largest
           .sort((a, b) => a[0] - b[0])
-          .map(value => {
-            const [x, y] = value;
-
-            const values__ = {
-              x: percentageFromValueWithinRange(x, refs.minMax.current.min.x, refs.minMax.current.max.x),
-              y: percentageFromValueWithinRange(y, refs.minMax.current.min.y, refs.minMax.current.max.y)
-            };
-
-            values__.x = valueFromPercentageWithinRange(values__.x, 0, width);
-
-            values__.y = valueFromPercentageWithinRange(values__.y, 0, height);
-
-            if (visible[name] !== false) {
-              refs.allValues.current.push({
-                item,
-                value: [x, y],
-                normalized: [values__.x, height - values__.y].map(item_ => Math.abs(item_))
-              });
-            }
-
-            return {
-              value: [x, y],
-              normalized: [values__.x, height - values__.y].map(item_ => Math.abs(item_))
-            };
-          });
+          .map(itemValues) : [itemValues(item.values as any)];
 
         return values_.map((item, index: number) => (
           <Path
@@ -1196,17 +1208,19 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
             stroke='none'
 
-            onMouseEnter={event => {
-              const rect_ = event.target.getBoundingClientRect();
+            {...(!elementTooltip ? {
+              onMouseEnter: event => {
+                const rect_ = event.target.getBoundingClientRect();
 
-              onPointMouseEnter({
-                value: item.value,
+                onPointMouseEnter({
+                  values: item.values,
 
-                rect: rect_
-              });
-            }}
+                  rect: rect_
+                });
+              },
 
-            onMouseLeave={onPointMouseLeave}
+              onMouseLeave: onPointMouseLeave
+            } : undefined)}
 
             {...PointProps}
 
@@ -1621,6 +1635,20 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
                     React.cloneElement(element, {
                       key: index,
 
+                      ...(elementTooltip ? {
+                        onMouseEnter: event => {
+                          const rect_ = (event.target as any).getBoundingClientRect();
+
+                          onPointMouseEnter({
+                            values: item.values,
+
+                            rect: rect_
+                          });
+                        },
+
+                        onMouseLeave: onPointMouseLeave
+                      } : undefined),
+
                       style: {
                         ...element?.props?.style,
 
@@ -1830,27 +1858,30 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
                     ])}
                   >
                     {labels.x.map((item: any, index: number) => (
-                      <Type
-                        key={index}
+                      is('function', labelRender) ?
+                        labelRender(item) :
 
-                        version='b3'
+                        <Type
+                          key={index}
 
-                        className={classNames([
-                          staticClassName('Chart', theme) && [
-                            'AmauiChart-label',
-                            'AmauiChart-label-x'
-                          ],
+                          version='b3'
 
-                          classes.label,
-                          classes.label_x
-                        ])}
+                          className={classNames([
+                            staticClassName('Chart', theme) && [
+                              'AmauiChart-label',
+                              'AmauiChart-label-x'
+                            ],
 
-                        style={{
-                          left: `${item.percentage}%`
-                        }}
-                      >
-                        {item.label}
-                      </Type>
+                            classes.label,
+                            classes.label_x
+                          ])}
+
+                          style={{
+                            left: `${item.percentage}%`
+                          }}
+                        >
+                          {item.label}
+                        </Type>
                     ))}
                   </Line>
                 )}
@@ -1876,27 +1907,30 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
                     ])}
                   >
                     {labels.y.map((item: any, index: number) => (
-                      <Type
-                        key={index}
+                      is('function', labelRender) ?
+                        labelRender(item) :
 
-                        version='b3'
+                        <Type
+                          key={index}
 
-                        className={classNames([
-                          staticClassName('Chart', theme) && [
-                            'AmauiChart-label',
-                            'AmauiChart-label-y'
-                          ],
+                          version='b3'
 
-                          classes.label,
-                          classes.label_y
-                        ])}
+                          className={classNames([
+                            staticClassName('Chart', theme) && [
+                              'AmauiChart-label',
+                              'AmauiChart-label-y'
+                            ],
 
-                        style={{
-                          bottom: `${item.percentage}%`
-                        }}
-                      >
-                        {item.label}
-                      </Type>
+                            classes.label,
+                            classes.label_y
+                          ])}
+
+                          style={{
+                            bottom: `${item.percentage}%`
+                          }}
+                        >
+                          {item.label}
+                        </Type>
                     ))}
                   </Line>
                 )}
@@ -2134,7 +2168,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
                       <Type
                         version='b3'
                       >
-                        {append?.value?.[1]}
+                        {append?.values?.[1]}
                       </Type>
                     </Line>
 
@@ -2158,7 +2192,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
                       <Type
                         version='b3'
                       >
-                        {append?.value?.[0]}
+                        {append?.values?.[0]}
                       </Type>
                     </Line>
                   </Line>

@@ -257,28 +257,28 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
           tone = 'main'
         } = item;
 
-        const values = item.values
+        const values_ = item.values
           // Sort for x from smallest to largest
           .sort((a, b) => a[0] - b[0])
           .map(value => {
             const [x, y] = value;
 
-            const values = {
+            const values__ = {
               x: percentageFromValueWithinRange(x, refs.minMax.current.min.x, refs.minMax.current.max.x),
               y: percentageFromValueWithinRange(y, refs.minMax.current.min.y, refs.minMax.current.max.y)
             };
 
-            values.x = valueFromPercentageWithinRange(values.x, 0, width);
+            values__.x = valueFromPercentageWithinRange(values__.x, 0, width);
 
-            values.y = valueFromPercentageWithinRange(values.y, 0, height);
+            values__.y = valueFromPercentageWithinRange(values__.y, 0, height);
 
-            return [values.x, height - values.y].map(item_ => Math.abs(item_));
+            return [values__.x, height - values__.y].map(item_ => Math.abs(item_));
           });
 
         let d = '';
 
         if (!refs.smooth.current) {
-          d = values.reduce((result: string, value, index: number) => {
+          d = values_.reduce((result: string, value, index: number) => {
             const [x, y] = value;
 
             // Move
@@ -288,7 +288,7 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
           }, '');
         }
         else {
-          d = values.reduce((result: string, value: [number, number], index: number, array: Array<[number, number]>) => {
+          d = values_.reduce((result: string, value: [number, number], index: number, array: Array<[number, number]>) => {
             const [x, y] = value;
 
             // Move

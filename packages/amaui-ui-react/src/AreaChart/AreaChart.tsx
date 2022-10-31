@@ -264,22 +264,22 @@ const AreaChart = React.forwardRef((props_: any, ref: any) => {
           name
         } = item;
 
-        const values = item.values
+        const values_ = item.values
           // Sort for x from smallest to largest
           .sort((a, b) => a[0] - b[0])
           .map(value => {
             const [x, y] = value;
 
-            const values = {
+            const values__ = {
               x: percentageFromValueWithinRange(x, refs.minMax.current.min.x, refs.minMax.current.max.x),
               y: percentageFromValueWithinRange(y, refs.minMax.current.min.y, refs.minMax.current.max.y)
             };
 
-            values.x = valueFromPercentageWithinRange(values.x, 0, width);
+            values__.x = valueFromPercentageWithinRange(values__.x, 0, width);
 
-            values.y = valueFromPercentageWithinRange(values.y, 0, height);
+            values__.y = valueFromPercentageWithinRange(values__.y, 0, height);
 
-            return [values.x, height - values.y].map(item_ => Math.abs(item_));
+            return [values__.x, height - values__.y].map(item_ => Math.abs(item_));
           });
 
         const d = {
@@ -290,7 +290,7 @@ const AreaChart = React.forwardRef((props_: any, ref: any) => {
         let lastX = 0;
 
         if (!refs.smooth.current) {
-          d.border = values.reduce((result: string, value, index: number) => {
+          d.border = values_.reduce((result: string, value, index: number) => {
             const [x, y] = value;
 
             // Move
@@ -299,13 +299,13 @@ const AreaChart = React.forwardRef((props_: any, ref: any) => {
             return result += `L ${x} ${y}`;
           }, '');
 
-          d.background = values.reduce((result: string, value, index: number) => {
+          d.background = values_.reduce((result: string, value, index: number) => {
             const [x, y] = value;
 
             // Move
             if (index === 0) return result += `M ${x} ${height} L ${x} ${y}`;
 
-            if (index === values.length - 1) lastX = x;
+            if (index === values_.length - 1) lastX = x;
 
             return result += `L ${x} ${y}`;
           }, '');
@@ -313,7 +313,7 @@ const AreaChart = React.forwardRef((props_: any, ref: any) => {
           d.background += `L ${lastX} ${height} Z`;
         }
         else {
-          d.border = values.reduce((result: string, value: [number, number], index: number, array: Array<[number, number]>) => {
+          d.border = values_.reduce((result: string, value: [number, number], index: number, array: Array<[number, number]>) => {
             const [x, y] = value;
 
             // Move
@@ -326,13 +326,13 @@ const AreaChart = React.forwardRef((props_: any, ref: any) => {
             return result += `C ${x1} ${y1} ${x2} ${y2} ${x} ${y}`;
           }, '');
 
-          d.background = values.reduce((result: string, value: [number, number], index: number, array: Array<[number, number]>) => {
+          d.background = values_.reduce((result: string, value: [number, number], index: number, array: Array<[number, number]>) => {
             const [x, y] = value;
 
             // Move
             if (index === 0) return result += `M ${x} ${height} L ${x} ${y}`;
 
-            if (index === values.length - 1) lastX = x;
+            if (index === values_.length - 1) lastX = x;
 
             const [x1, y1] = controlPoint(array[index - 1], array[index - 2], value, false, smoothRatio);
 

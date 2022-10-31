@@ -423,3 +423,6 @@ export * from './AreaChart';
 
 export { default as ScatterChart } from './ScatterChart';
 export * from './ScatterChart';
+
+export { default as BubbleChart } from './BubbleChart';
+export * from './BubbleChart';
