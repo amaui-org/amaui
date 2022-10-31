@@ -42,11 +42,12 @@ const Label = React.forwardRef((props_: any, ref: any) => {
     size = 'regular',
 
     input,
+
     label,
 
-    value,
-
     checked,
+    valueDefault,
+    onChange,
 
     disabled,
 
@@ -60,6 +61,17 @@ const Label = React.forwardRef((props_: any, ref: any) => {
 
     ...other
   } = props;
+
+  const [value, setValue] = React.useState((valueDefault !== undefined ? valueDefault : checked) || false);
+
+  const onUpdate = (value_: any, event: React.ChangeEvent<HTMLInputElement>) => {
+    if (!disabled && event) {
+      // Inner controlled checkbox
+      if (!props.hasOwnProperty('checked')) setValue(event.target.checked);
+
+      if (is('function', onChange)) onChange(event.target.checked, event);
+    }
+  };
 
   let position = position_;
 
@@ -127,7 +139,9 @@ const Label = React.forwardRef((props_: any, ref: any) => {
 
         size: Input?.props?.size !== undefined ? Input.props.size : size,
 
-        checked,
+        onChange: onUpdate,
+
+        checked: value,
 
         disabled
       })}
