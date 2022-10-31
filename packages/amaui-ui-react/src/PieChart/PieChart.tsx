@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { copy, percentageFromValueWithinRange } from '@amaui/utils';
+import { is, copy, percentageFromValueWithinRange } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Chart from '../Chart';
@@ -82,6 +82,8 @@ const PieChart = React.forwardRef((props_: any, ref: any) => {
 
     color = 'primary',
 
+    values,
+
     names,
 
     gap = 0,
@@ -90,7 +92,7 @@ const PieChart = React.forwardRef((props_: any, ref: any) => {
 
     innerOffset = 0,
 
-    values,
+    tooltipRender: tooltipRender_,
 
     PathProps,
     LegendItemProps,
@@ -345,7 +347,7 @@ const PieChart = React.forwardRef((props_: any, ref: any) => {
     make();
   };
 
-  const tooltipRender = (values_: any) => {
+  const tooltipRender = is('function', tooltipRender_) ? tooltipRender_ : (values_: any) => {
     const {
       name,
 

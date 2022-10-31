@@ -314,13 +314,6 @@ const useStyle = style(theme => ({
   }
 }), { name: 'AmauiChart' });
 
-// to do
-
-// only other charts that use, add as well value y:
-// labelMethod
-// tooltipRender
-// tooltipGroupMethod
-
 const Chart = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 

@@ -105,6 +105,10 @@ const BubbleChart = React.forwardRef((props_: any, ref: any) => {
 
     maxPaddingY: maxPaddingY_,
 
+    tooltipRender: tooltipRender_,
+
+    tooltipGroupRender: tooltipGroupRender_,
+
     PathProps,
     LegendItemProps,
 
@@ -370,7 +374,7 @@ const BubbleChart = React.forwardRef((props_: any, ref: any) => {
     make();
   };
 
-  const tooltipRender = (values_: any) => {
+  const tooltipRender = is('function', tooltipRender_) ? tooltipRender_ : (values_: any) => {
     const {
       values
     } = values_;
@@ -494,7 +498,7 @@ const BubbleChart = React.forwardRef((props_: any, ref: any) => {
     };
   };
 
-  const tooltipGroupRender = (groups: any, groupsSorted: string[]) => {
+  const tooltipGroupRender = is('function', tooltipGroupRender_) ? tooltipGroupRender_ : (groups: any, groupsSorted: string[]) => {
 
     return (
       <Line
