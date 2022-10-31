@@ -50695,6 +50695,28 @@ Please sign in again.`}
           </Radios>
         </Accordion>
 
+        <Accordion primary='Radios uncheck' open>
+          <Radios
+            label='Items'
+
+            uncheck={false}
+          >
+            {new Array(4).fill(true).map((item: any, index: number) => (
+              <Label
+                key={index}
+
+                value={`Item ${index + 1}`}
+
+                disabled={index === 3}
+              >
+                <Radio />
+
+                {`Item ${index + 1}`}
+              </Label>
+            ))}
+          </Radios>
+        </Accordion>
+
         <Accordion primary='Radios row' open>
           <Radios
             label='Items'

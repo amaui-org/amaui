@@ -149,7 +149,7 @@ const Radio = React.forwardRef((props_: any, ref: any) => {
   const onUpdate = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (!disabled) {
       // Inner controlled checkbox
-      if (!props.hasOwnProperty('value')) setValue(event.target.checked);
+      if (!props.hasOwnProperty('checked')) setValue(event.target.checked);
 
       if (is('function', onChange)) onChange(event.target.checked, event);
     }

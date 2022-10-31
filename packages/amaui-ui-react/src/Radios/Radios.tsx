@@ -40,7 +40,7 @@ const Radios = React.forwardRef((props_: any, ref: any) => {
 
     label,
 
-    empty = false,
+    uncheck = true,
 
     direction = 'column',
     align = 'center',
@@ -77,13 +77,15 @@ const Radios = React.forwardRef((props_: any, ref: any) => {
 
   const children: any[] = React.Children.toArray(children_);
 
-  const onUpdate = React.useCallback((valueNew: any) => {
-    if (!empty && refs.value.current === valueNew) return;
+  const onUpdate = React.useCallback((valueNew_: any) => {
+    let valueNew = valueNew_;
+
+    if (uncheck && refs.value.current === valueNew) valueNew = '';
 
     if (!props.hasOwnProperty('value')) setValue(valueNew);
 
     if (is('function', onChange)) onChange(valueNew);
-  }, [empty]);
+  }, [uncheck]);
 
   return (
     <Line
