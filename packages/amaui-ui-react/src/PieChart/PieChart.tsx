@@ -53,8 +53,7 @@ const useStyle = style(theme => ({
 
   append: {
     padding: '12px 20px',
-    borderRadius: '12px',
-    marginBottom: '16px'
+    borderRadius: '12px'
   },
 
   append_icon: {
@@ -86,7 +85,7 @@ const PieChart = React.forwardRef((props_: any, ref: any) => {
 
     names,
 
-    gap = 0,
+    gap = 2,
 
     boundaryWidth = 1,
 
@@ -205,6 +204,8 @@ const PieChart = React.forwardRef((props_: any, ref: any) => {
 
       let anglePrevious = 0;
 
+      let anglePreviousInner = 0;
+
       let value_ = [];
 
       let d = '';
@@ -219,18 +220,20 @@ const PieChart = React.forwardRef((props_: any, ref: any) => {
 
         const partPercentage = percentageFromValueWithinRange(item.values[0] as number, 0, valueTotal);
 
-        const part = (total * (partPercentage / 100)) - (index * gap);
+        const part = (total * (partPercentage / 100)) - gap;
 
-        let startCenter = angleToCoordinates(anglePrevious, center, center, radius * innerOffset);
+        let startInner = angleToCoordinates(anglePreviousInner, center, center, radius * innerOffset);
 
-        // Move to 0 deg
+        // Move from inner value
         if (index === 0) value_.push(
-          'M', startCenter.x, startCenter.y,
+          'M', startInner.x, startInner.y,
           // Move to 0 deg
           'L', angles.start.x, angles.start.y
         );
 
         let angleEnd = anglePrevious + part;
+
+        let angleEndInner = anglePreviousInner + part;
 
         const angleText = anglePrevious + (part / 2);
 
@@ -238,7 +241,11 @@ const PieChart = React.forwardRef((props_: any, ref: any) => {
 
         angles.end = angleToCoordinates(angleEnd, center, center, radius);
 
+        angles.endInner = angleToCoordinates(angleEndInner, center, center, radius * innerOffset);
+
         angles.move = angleToCoordinates(angleEnd + gap, center, center, radius);
+
+        angles.moveInner = angleToCoordinates(angleEnd + gap, center, center, radius * innerOffset);
 
         // Arc
         let invert = 0;
@@ -250,15 +257,15 @@ const PieChart = React.forwardRef((props_: any, ref: any) => {
         );
 
         // To donut value or center
-        const endCenter = angleToCoordinates(angleEnd, center, center, radius * innerOffset);
+        const endInner = angleToCoordinates(angleEndInner, center, center, radius * innerOffset);
 
         value_.push(
-          'L', endCenter.x, endCenter.y
+          'L', endInner.x, endInner.y
         );
 
         if (innerOffset) {
           value_.push(
-            'A', radius * innerOffset, radius * innerOffset, 0, invert, 0, startCenter.x, startCenter.y
+            'A', radius * innerOffset, radius * innerOffset, 0, invert, 0, startInner.x, startInner.y
           );
         }
 
@@ -270,21 +277,14 @@ const PieChart = React.forwardRef((props_: any, ref: any) => {
         d = value_.join(' ');
 
         // Move the gap if there's a gap
-        if (gap > 0 && index < values.length - 1) {
-          value_.push(
-            'M', angles.move.x, angles.move.y
-          );
+        anglePrevious = angleEnd + gap;
 
-          anglePrevious = angleEnd + gap;
-        }
-        else anglePrevious = angleEnd;
+        anglePreviousInner = angleEndInner + gap;
 
         // Move for the next value
         if (index < values.length - 1) {
-          startCenter = angleToCoordinates(anglePrevious, center, center, radius * innerOffset);
-
           value_ = [
-            'M', startCenter.x, startCenter.y,
+            'M', angles.moveInner.x, angles.moveInner.y,
             'L', angles.move.x, angles.move.y
           ];
         }
@@ -376,12 +376,6 @@ const PieChart = React.forwardRef((props_: any, ref: any) => {
           gap={0.5}
 
           direction='column'
-
-          offset={[14, 14]}
-
-          padding={[14, 14]}
-
-          switch
 
           Component={Surface}
 

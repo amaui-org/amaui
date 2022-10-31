@@ -50,8 +50,7 @@ const useStyle = style(theme => ({
 
   append: {
     padding: '12px 20px',
-    borderRadius: '12px',
-    marginBottom: '16px'
+    borderRadius: '12px'
   },
 
   append_icon: {
@@ -392,12 +391,6 @@ const BubbleChart = React.forwardRef((props_: any, ref: any) => {
 
           direction='column'
 
-          offset={[14, 14]}
-
-          padding={[14, 14]}
-
-          switch
-
           Component={Surface}
 
           className={classNames([
@@ -511,12 +504,6 @@ const BubbleChart = React.forwardRef((props_: any, ref: any) => {
         gap={0.25}
 
         direction='column'
-
-        offset={[14, 14]}
-
-        padding={[14, 14]}
-
-        switch
 
         Component={Surface}
 

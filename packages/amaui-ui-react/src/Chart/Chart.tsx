@@ -91,8 +91,7 @@ const useStyle = style(theme => ({
 
   append: {
     padding: '12px 20px',
-    borderRadius: '12px',
-    marginBottom: '16px'
+    borderRadius: '12px'
   },
 
   name: {
@@ -708,12 +707,6 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
         gap={0.25}
 
         direction='column'
-
-        offset={[14, 14]}
-
-        padding={[14, 14]}
-
-        switch
 
         Component={Surface}
 
@@ -2110,6 +2103,10 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
         <Append
           open
 
+          offset={[16, 16]}
+
+          padding={[14, 14]}
+
           element={(
             <div
               className={classNames([
@@ -2136,12 +2133,6 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
                     gap={0.5}
 
                     direction='column'
-
-                    offset={[14, 14]}
-
-                    padding={[14, 14]}
-
-                    switch
 
                     Component={Surface}
 
