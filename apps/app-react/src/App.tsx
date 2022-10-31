@@ -3477,6 +3477,170 @@ Please sign in again.`}
           />
         </Accordion>
 
+        <Accordion primary='DonutChart gaps'>
+          <Line
+            style={{
+              width: '100%'
+            }}
+          >
+            <DonutChart
+              title='Donut chart'
+
+              subtitle='In millions'
+
+              gap={0}
+
+              values={[
+                {
+                  color: 'primary',
+
+                  name: 'a',
+
+                  values: Array.from({ length: 1 }).map(() => random(40, 400))
+                },
+                {
+                  color: 'secondary',
+
+                  name: 'a1',
+
+                  values: Array.from({ length: 1 }).map(() => random(40, 400))
+                },
+                {
+                  color: 'tertiary',
+
+                  name: 'a14',
+
+                  values: Array.from({ length: 1 }).map(() => random(40, 400))
+                },
+                {
+                  color: 'quaternary',
+
+                  name: 'a114',
+
+                  values: Array.from({ length: 1 }).map(() => random(40, 400))
+                }
+              ]}
+            />
+
+            <DonutChart
+              title='Donut chart'
+
+              subtitle='In millions'
+
+              gap={2}
+
+              values={[
+                {
+                  color: 'primary',
+
+                  name: 'a',
+
+                  values: Array.from({ length: 1 }).map(() => random(40, 400))
+                },
+                {
+                  color: 'secondary',
+
+                  name: 'a1',
+
+                  values: Array.from({ length: 1 }).map(() => random(40, 400))
+                },
+                {
+                  color: 'tertiary',
+
+                  name: 'a14',
+
+                  values: Array.from({ length: 1 }).map(() => random(40, 400))
+                },
+                {
+                  color: 'quaternary',
+
+                  name: 'a114',
+
+                  values: Array.from({ length: 1 }).map(() => random(40, 400))
+                }
+              ]}
+            />
+
+            <DonutChart
+              title='Donut chart'
+
+              subtitle='In millions'
+
+              gap={4}
+
+              values={[
+                {
+                  color: 'primary',
+
+                  name: 'a',
+
+                  values: Array.from({ length: 1 }).map(() => random(40, 400))
+                },
+                {
+                  color: 'secondary',
+
+                  name: 'a1',
+
+                  values: Array.from({ length: 1 }).map(() => random(40, 400))
+                },
+                {
+                  color: 'tertiary',
+
+                  name: 'a14',
+
+                  values: Array.from({ length: 1 }).map(() => random(40, 400))
+                },
+                {
+                  color: 'quaternary',
+
+                  name: 'a114',
+
+                  values: Array.from({ length: 1 }).map(() => random(40, 400))
+                }
+              ]}
+            />
+
+            <DonutChart
+              title='Donut chart'
+
+              subtitle='In millions'
+
+              gap={14}
+
+              values={[
+                {
+                  color: 'primary',
+
+                  name: 'a',
+
+                  values: Array.from({ length: 1 }).map(() => random(40, 400))
+                },
+                {
+                  color: 'secondary',
+
+                  name: 'a1',
+
+                  values: Array.from({ length: 1 }).map(() => random(40, 400))
+                },
+                {
+                  color: 'tertiary',
+
+                  name: 'a14',
+
+                  values: Array.from({ length: 1 }).map(() => random(40, 400))
+                },
+                {
+                  color: 'quaternary',
+
+                  name: 'a114',
+
+                  values: Array.from({ length: 1 }).map(() => random(40, 400))
+                }
+              ]}
+            />
+          </Line>
+        </Accordion>
+
         <Accordion primary='DonutChart simple'>
           <Line>
             <DonutChart

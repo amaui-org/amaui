@@ -87,8 +87,6 @@ const PieChart = React.forwardRef((props_: any, ref: any) => {
 
     gap = 2,
 
-    boundaryWidth = 1,
-
     innerOffset = 0,
 
     tooltipRender: tooltipRender_,
@@ -192,7 +190,7 @@ const PieChart = React.forwardRef((props_: any, ref: any) => {
 
       const center = width / 2;
 
-      const radius = (width / 2) - (boundaryWidth / 2);
+      const radius = (width / 2) - (gap / 2);
 
       const total = 360;
 
@@ -220,7 +218,7 @@ const PieChart = React.forwardRef((props_: any, ref: any) => {
 
         const partPercentage = percentageFromValueWithinRange(item.values[0] as number, 0, valueTotal);
 
-        const part = (total * (partPercentage / 100)) - gap;
+        const part = total * (partPercentage / 100);
 
         let startInner = angleToCoordinates(anglePreviousInner, center, center, radius * innerOffset);
 
@@ -243,9 +241,9 @@ const PieChart = React.forwardRef((props_: any, ref: any) => {
 
         angles.endInner = angleToCoordinates(angleEndInner, center, center, radius * innerOffset);
 
-        angles.move = angleToCoordinates(angleEnd + gap, center, center, radius);
+        angles.move = angleToCoordinates(angleEnd, center, center, radius);
 
-        angles.moveInner = angleToCoordinates(angleEnd + gap, center, center, radius * innerOffset);
+        angles.moveInner = angleToCoordinates(angleEnd, center, center, radius * innerOffset);
 
         // Arc
         let invert = 0;
@@ -257,13 +255,13 @@ const PieChart = React.forwardRef((props_: any, ref: any) => {
         );
 
         // To donut value or center
-        const endInner = angleToCoordinates(angleEndInner, center, center, radius * innerOffset);
-
-        value_.push(
-          'L', endInner.x, endInner.y
-        );
-
         if (innerOffset) {
+          const endInner = angleToCoordinates(angleEndInner, center, center, radius * innerOffset);
+
+          value_.push(
+            'L', endInner.x, endInner.y
+          );
+
           value_.push(
             'A', radius * innerOffset, radius * innerOffset, 0, invert, 0, startInner.x, startInner.y
           );
@@ -276,10 +274,9 @@ const PieChart = React.forwardRef((props_: any, ref: any) => {
         // path
         d = value_.join(' ');
 
-        // Move the gap if there's a gap
-        anglePrevious = angleEnd + gap;
+        anglePrevious = angleEnd;
 
-        anglePreviousInner = angleEndInner + gap;
+        anglePreviousInner = angleEndInner;
 
         // Move for the next value
         if (index < values.length - 1) {
@@ -299,7 +296,9 @@ const PieChart = React.forwardRef((props_: any, ref: any) => {
 
                 fill={!theme.palette.color[color_] ? color_ : theme.palette.color[color_][tone]}
 
-                stroke='none'
+                stroke={gap > 0 ? theme.palette.background.default.primary : 'none'}
+
+                strokeWidth={gap}
 
                 {...PathProps}
               />
