@@ -246,9 +246,6 @@ const ColumnChart = React.forwardRef((props_: any, ref: any) => {
         };
       });
 
-      // Sort based on 3rd value
-      values.sort((a, b) => a.values?.[2] - b.values?.[2]);
-
       const widthItem = clamp(width / (values.length * 2), undefined, 40);
 
       // Elements

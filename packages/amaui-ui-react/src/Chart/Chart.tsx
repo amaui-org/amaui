@@ -673,7 +673,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
   const makeGroupTooltip = (x_: number, y_: number) => {
     const items = refs.allValues.current.filter(item => item.normalized[0] === x_);
 
-    const itemsY = [...items].sort((a, b) => a.normalized[1] - b.normalized[1]);
+    const itemsY = copy(items).sort((a, b) => a.normalized[1] - b.normalized[1]);
 
     const x = x_;
 
@@ -812,13 +812,13 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
                       <Type
                         version='b3'
                       >
-                        {item?.values?.[0]}
+                        {item?.values?.[1]}
                       </Type>
 
                       <Type
                         version='b3'
                       >
-                        {item?.values?.[1]}
+                        {item?.values?.[0]}
                       </Type>
                     </Line>
                   ))}
@@ -1186,7 +1186,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
         const itemArrayNested = is('array', item.values?.[0]);
 
-        const values_ = itemArrayNested ? item.values
+        const values_ = itemArrayNested ? copy(item.values)
           // Sort for x from smallest to largest
           .sort((a, b) => a[0] - b[0])
           .map(itemValues) : [itemValues(item.values as any)];
