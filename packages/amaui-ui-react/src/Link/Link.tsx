@@ -93,15 +93,16 @@ const Link = React.forwardRef((props_: any, ref: any) => {
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiLink?.props?.default }), [props_]);
 
-  const [focus, setFocus] = React.useState(false);
-  const [hover, setHover] = React.useState(false);
-
   const { classes } = useStyle(props);
 
   const {
     tonal,
     color: color_ = 'primary',
     underline = true,
+
+    version = 'b2',
+
+    Component = 'a',
 
     className,
     style,
@@ -110,6 +111,9 @@ const Link = React.forwardRef((props_: any, ref: any) => {
 
     ...other
   } = props;
+
+  const [focus, setFocus] = React.useState(false);
+  const [hover, setHover] = React.useState(false);
 
   const styles: any = {
     root: {}
@@ -134,7 +138,7 @@ const Link = React.forwardRef((props_: any, ref: any) => {
   let color = color_;
   let palette: IColor;
 
-  if (!classes[color]) {
+  if (!classes[`color_${color}`]) {
     styles.root.color = color;
 
     palette = theme.methods.color(color);
@@ -155,13 +159,20 @@ const Link = React.forwardRef((props_: any, ref: any) => {
       ref={ref}
 
       onFocus={onFocus}
+
       onBlur={onBlur}
 
       onMouseEnter={onMouseEnter}
+
       onMouseLeave={onMouseLeave}
 
       onTouchStart={onMouseEnter}
+
       onTouchEnd={onMouseLeave}
+
+      version={version}
+
+      Component={Component}
 
       className={classNames([
         staticClassName('Link', theme) && [
@@ -189,9 +200,6 @@ const Link = React.forwardRef((props_: any, ref: any) => {
       }}
 
       {...other}
-
-      version={other.version || 'b2'}
-      Component={other.Component || 'a'}
     >
       {children}
     </Type>

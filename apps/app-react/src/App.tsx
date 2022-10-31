@@ -56473,7 +56473,7 @@ Please sign in again.`}
 
         <Accordion primary='Buttons vertical select multi' open>
           <div className={classNames([classes.row, classes.center])}>
-            <Buttons color='default' version='text' select='multiple' fullWidth vertical>
+            <Buttons color='default' version='text' select='multiple' fullWidth orientation='vertical'>
               {new Array(7).fill(true).map((item: any, index: number) => (
                 <Button
                   key={index}
@@ -56487,7 +56487,7 @@ Please sign in again.`}
               ))}
             </Buttons>
 
-            <Buttons color='default' version='outlined' select='multiple' fullWidth vertical>
+            <Buttons color='default' version='outlined' select='multiple' fullWidth orientation='vertical'>
               {new Array(7).fill(true).map((item: any, index: number) => (
                 <Button
                   key={index}
@@ -56501,7 +56501,7 @@ Please sign in again.`}
               ))}
             </Buttons>
 
-            <Buttons color='default' version='filled' select='multiple' fullWidth vertical>
+            <Buttons color='default' version='filled' select='multiple' fullWidth orientation='vertical'>
               {new Array(7).fill(true).map((item: any, index: number) => (
                 <Button
                   key={index}
@@ -57288,13 +57288,17 @@ Please sign in again.`}
           <Transitions>
             {items.map((item: any, index: number) => (
               <Transition
-                key={index}
+                key={item}
               >
-                <div className={classNames([classes.div, classes.a1])} onClick={() => {
-                  setItems(items =>
-                    items.filter(i => i !== item)
-                  );
-                }}>
+                <div
+                  className={classNames([classes.div, classes.a1])}
+
+                  onClick={() => {
+                    setItems(items =>
+                      items.filter(i => i !== item)
+                    );
+                  }}
+                >
                   {item}
                 </div>
               </Transition>

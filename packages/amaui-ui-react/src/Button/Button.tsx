@@ -593,10 +593,14 @@ const Button = React.forwardRef((props_: any, ref: any) => {
 
           {...TypeProps}
         >
-          {React.Children.toArray(children_).map((item: any) => {
-            if (selected && item.type?.displayName?.includes('AmauiIcon') && iconSelected) return iconSelected;
+          {React.Children.toArray(children_).map((item_: any, index: number) => {
+            const item = (selected && item_.type?.displayName?.includes('AmauiIcon') && iconSelected) ? iconSelected : item_;
 
-            return item;
+            if (is('simple', item)) return item;
+
+            return React.cloneElement((selected && item.type?.displayName?.includes('AmauiIcon') && iconSelected) ? iconSelected : item, {
+              key: index
+            });
           })}
         </Type>
       )}

@@ -127,7 +127,7 @@ const Radio = React.forwardRef((props_: any, ref: any) => {
     ...other
   } = props;
 
-  const [value, setValue] = React.useState(valueDefault !== undefined ? valueDefault : checked);
+  const [value, setValue] = React.useState((valueDefault !== undefined ? valueDefault : checked) || false);
 
   const refs = {
     value: React.useRef<any>(),

@@ -76,10 +76,10 @@ const useStyle = style(theme => ({
   fullScreen: {
     width: '100%',
     height: '100%',
-    borderRadius: '0',
+    borderRadius: '0 !important',
     maxWidth: 'unset !important',
-    maxHeight: 'unset',
-    margin: '0'
+    maxHeight: 'unset !important',
+    margin: '0 !important'
   },
 
   fullWidth: { width: `calc(100% - ${theme.methods.space.value('xl') * 2}px)` },
