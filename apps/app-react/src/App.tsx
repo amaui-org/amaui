@@ -3359,9 +3359,9 @@ Please sign in again.`}
 
             nameY
 
-            minPaddingX={0.14}
+            minPaddingY={0.14}
 
-            maxPaddingX={0.14}
+            maxPaddingY={0.14}
 
             values={[
               {
