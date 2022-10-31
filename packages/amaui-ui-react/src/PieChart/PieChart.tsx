@@ -190,7 +190,7 @@ const PieChart = React.forwardRef((props_: any, ref: any) => {
 
       const center = width / 2;
 
-      const radius = (width / 2) - (gap / 2);
+      const radius = width / 2;
 
       const total = 360;
 
