@@ -85,7 +85,7 @@ const PieChart = React.forwardRef((props_: any, ref: any) => {
 
     names,
 
-    gap = 4,
+    gap = 2,
 
     innerOffset = 0,
 

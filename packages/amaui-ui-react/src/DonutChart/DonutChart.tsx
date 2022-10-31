@@ -29,7 +29,7 @@ const DonutChart = React.forwardRef((props_: any, ref: any) => {
     <PieChart
       ref={ref}
 
-      innerOffset={0.54}
+      innerOffset={0.7}
 
       className={classNames([
         staticClassName('DonutChart', theme) && [
