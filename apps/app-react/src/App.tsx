@@ -1614,6 +1614,8 @@ function App() {
           <ColumnChart
             title='Column chart'
 
+            subtitle='In millions'
+
             names={{
               x: 'Name x',
               y: 'Name y'
@@ -1626,6 +1628,8 @@ function App() {
             minPadding={0.14}
 
             maxPadding={0.14}
+
+            guideline='both'
 
             values={[
               {
@@ -1662,6 +1666,8 @@ function App() {
           <BubbleChart
             title='Bubble chart'
 
+            subtitle='In millions'
+
             names={{
               x: 'Name x',
               y: 'Name y',
@@ -1675,6 +1681,8 @@ function App() {
             minPaddingY={0.14}
 
             maxPaddingY={0.14}
+
+            guideline='both'
 
             values={[
               {
@@ -1725,9 +1733,9 @@ function App() {
           />
 
           <ScatterChart
-            guideline='both'
-
             title='Scatter chart'
+
+            subtitle='In millions'
 
             names={{
               x: 'Name x',
@@ -1741,6 +1749,8 @@ function App() {
             minPaddingY={0.14}
 
             maxPaddingY={0.14}
+
+            guideline='both'
 
             values={[
               {
@@ -1754,9 +1764,9 @@ function App() {
           />
 
           <AreaChart
-            guideline='both'
-
             title='Area chart'
+
+            subtitle='In millions'
 
             names={{
               x: 'Name x',
@@ -1771,6 +1781,8 @@ function App() {
 
             maxPaddingY={0.14}
 
+            guideline='both'
+
             values={[
               {
                 color: 'primary',
@@ -1783,9 +1795,15 @@ function App() {
           />
 
           <LineChart
+            title='Line chart'
+
+            subtitle='In millions'
+
             minPaddingY={0.14}
 
             maxPaddingY={0.14}
+
+            guideline='both'
 
             values={[
               {
