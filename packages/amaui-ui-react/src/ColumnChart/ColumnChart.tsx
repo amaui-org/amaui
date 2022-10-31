@@ -279,11 +279,11 @@ const ColumnChart = React.forwardRef((props_: any, ref: any) => {
             <Path
               x={value_[0] - (widthItem / 2)}
 
-              y={height - value_[1]}
+              y={value_[1]}
 
               width={widthItem}
 
-              height={value_[1]}
+              height={height - value_[1]}
 
               fill={!theme.palette.color[color_] ? color_ : theme.palette.color[color_][tone]}
 
