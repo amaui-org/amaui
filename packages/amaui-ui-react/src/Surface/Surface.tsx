@@ -915,7 +915,7 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
       }
     }
     else {
-      if (['outlined', 'filled'].includes(version)) styles.root.backgroundColor = palette.main;
+      if (['outlined', 'filled'].includes(version)) styles.root.backgroundColor = theme.methods.palette.color.value(color, 'main', true, palette);
     }
 
     if (styles.root.backgroundColor) styles.root.backgroundColor = theme.methods.palette.color.colorToRgb(styles.root.backgroundColor, backgroundOpacity);
