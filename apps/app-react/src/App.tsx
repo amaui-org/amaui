@@ -50528,8 +50528,9 @@ Please sign in again.`}
             <Switch
               color='secondary'
 
+              checked={!!a.switch}
+
               onChange={(value: boolean) => updateValue(value, 'switch')}
-              value={!!a.switch}
             />
           </div>
         </Accordion>
