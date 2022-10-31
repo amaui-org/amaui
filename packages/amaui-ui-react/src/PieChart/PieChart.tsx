@@ -41,7 +41,6 @@ const useStyle = style(theme => ({
 
   text: {
     ...theme.typography.values.b3,
-    fill: 'currentColor',
     textAnchor: 'middle',
     alignmentBaseline: 'middle',
     userSelect: 'none'
@@ -351,7 +350,7 @@ const PieChart = React.forwardRef((props_: any, ref: any) => {
 
     const valueValue = values__[0];
 
-    const valuePercentage = ((valueValue / valueTotal) * 100).toFixed(1).replace('.0%', '%');
+    const valuePercentage = (((valueValue / valueTotal) * 100).toFixed(1)).replace('.0', '');
 
     return {
       element: (
