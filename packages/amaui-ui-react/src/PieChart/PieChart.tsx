@@ -256,7 +256,7 @@ const PieChart = React.forwardRef((props_: any, ref: any) => {
 
         if (innerOffset) {
           value_.push(
-            'A', radius * innerOffset, radius * innerOffset, 0, invert, 1, startCenter.x, startCenter.y
+            'A', radius * innerOffset, radius * innerOffset, 0, invert, 0, startCenter.x, startCenter.y
           );
         }
 
