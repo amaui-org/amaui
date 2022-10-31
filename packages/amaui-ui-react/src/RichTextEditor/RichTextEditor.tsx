@@ -63,7 +63,7 @@ const useStyle = style(theme => ({
       textDecoration: 'underline'
     },
 
-    '&  blockquote': {
+    '& blockquote': {
       margin: '16px 0',
       marginInlineStart: '16px',
       padding: '20px 16px',
@@ -115,7 +115,7 @@ const useStyle = style(theme => ({
       borderCollapse: 'collapse',
       border: `1px solid ${theme.palette.light ? theme.palette.color.neutral[80] : theme.palette.color.neutral[30]}`,
 
-      '& th,td': {
+      '& th, & td': {
         ...theme.typography.values.b2,
         height: '45px',
         padding: '12px 16px',
