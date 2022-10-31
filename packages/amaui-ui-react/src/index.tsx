@@ -429,3 +429,6 @@ export * from './BubbleChart';
 
 export { default as ColumnChart } from './ColumnChart';
 export * from './ColumnChart';
+
+export { default as PieChart } from './PieChart';
+export * from './PieChart';

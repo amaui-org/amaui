@@ -314,6 +314,13 @@ const useStyle = style(theme => ({
   }
 }), { name: 'AmauiChart' });
 
+// to do
+
+// only other charts that use, add as well value y:
+// labelMethod
+// tooltipRender
+// tooltipGroupMethod
+
 const Chart = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 
@@ -460,6 +467,8 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
     maxPaddingY: maxPaddingY_,
 
+    noMain,
+
     tooltipRender,
 
     tooltipGroupRender,
@@ -483,6 +492,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
     LegendProps,
     LegendItemProps,
     GuidelineProps,
+    WrapperProps,
 
     className,
 
@@ -608,47 +618,49 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
       }
     };
 
-    const itemArrayNested = is('array', values[0]?.values?.[0]);
+    if (!noMain) {
+      const itemArrayNested = is('array', values[0]?.values?.[0]);
 
-    const allItems = values[itemArrayNested ? 'flatMap' : 'map'](item => item.values);
+      const allItems = values[itemArrayNested ? 'flatMap' : 'map'](item => item.values);
 
-    if (is('array', values)) {
-      allItems.forEach((item: [number, number]) => {
-        const [x, y] = item;
+      if (is('array', values)) {
+        allItems.forEach((item: [number, number]) => {
+          const [x, y] = item;
 
-        if (minX === undefined) values_.min.x = Math.min(values_.min.x, x);
+          if (minX === undefined) values_.min.x = Math.min(values_.min.x, x);
 
-        if (maxX === undefined) values_.max.x = Math.max(values_.max.x, x);
+          if (maxX === undefined) values_.max.x = Math.max(values_.max.x, x);
 
-        if (minY === undefined) values_.min.y = Math.min(values_.min.y, y);
+          if (minY === undefined) values_.min.y = Math.min(values_.min.y, y);
 
-        if (maxY === undefined) values_.max.y = Math.max(values_.max.y, y);
-      });
+          if (maxY === undefined) values_.max.y = Math.max(values_.max.y, y);
+        });
+      }
+
+      const minPaddingY_ = minPaddingY !== undefined ? minPaddingY : minPadding !== undefined ? minPadding : minMaxPadding;
+
+      const maxPaddingY_ = maxPaddingY !== undefined ? maxPaddingY : maxPadding !== undefined ? maxPadding : minMaxPadding;
+
+      const minPaddingX_ = minPaddingX !== undefined ? minPaddingX : minPadding !== undefined ? minPadding : minMaxPadding;
+
+      const maxPaddingX_ = maxPaddingX !== undefined ? maxPaddingX : maxPadding !== undefined ? maxPadding : minMaxPadding;
+
+      const totals = {
+        x: values_.max.x - values_.min.x,
+        y: values_.max.y - values_.min.y
+      };
+
+      if (minPaddingY_ !== undefined) values_.min.y -= totals.y * minPaddingY_;
+
+      if (maxPaddingY_ !== undefined) values_.max.y += totals.y * maxPaddingY_;
+
+      if (minPaddingX_ !== undefined) values_.min.x -= totals.x * minPaddingX_;
+
+      if (maxPaddingX_ !== undefined) values_.max.x += totals.x * maxPaddingX_;
     }
 
-    const minPaddingY_ = minPaddingY !== undefined ? minPaddingY : minPadding !== undefined ? minPadding : minMaxPadding;
-
-    const maxPaddingY_ = maxPaddingY !== undefined ? maxPaddingY : maxPadding !== undefined ? maxPadding : minMaxPadding;
-
-    const minPaddingX_ = minPaddingX !== undefined ? minPaddingX : minPadding !== undefined ? minPadding : minMaxPadding;
-
-    const maxPaddingX_ = maxPaddingX !== undefined ? maxPaddingX : maxPadding !== undefined ? maxPadding : minMaxPadding;
-
-    const totals = {
-      x: values_.max.x - values_.min.x,
-      y: values_.max.y - values_.min.y
-    };
-
-    if (minPaddingY_ !== undefined) values_.min.y -= totals.y * minPaddingY_;
-
-    if (maxPaddingY_ !== undefined) values_.max.y += totals.y * maxPaddingY_;
-
-    if (minPaddingX_ !== undefined) values_.min.x -= totals.x * minPaddingX_;
-
-    if (maxPaddingX_ !== undefined) values_.max.x += totals.x * maxPaddingX_;
-
     return values_;
-  }, [values, minX, maxX, minY, maxY, minMaxPadding, minPadding, maxPadding, minPaddingX, minPaddingY, maxPaddingX, maxPaddingY]);
+  }, [values, minX, maxX, minY, maxY, minMaxPadding, minPadding, maxPadding, minPaddingX, minPaddingY, maxPaddingX, maxPaddingY, noMain]);
 
   refs.minMax.current = minMax;
 
@@ -1072,7 +1084,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
     // normalized in rect width, height values
 
     // invert y so 0, 0 is at bottom left
-    if (refs.rects.current && valueNew) {
+    if (refs.rects.current && valueNew && !noMain) {
       const { width, height } = refs.rects.current.wrapper;
 
       // Labels
@@ -1300,35 +1312,6 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
         );
       });
 
-      // Legend
-      let legend_ = legend__ !== 'auto' ? legend__ : values.map((item: any) => {
-
-        return {
-          item,
-
-          element: (
-            <LegendItem
-              item={item}
-            />
-          )
-        };
-      });
-
-      legend_ = legend_?.map(({ item, element }: any) => {
-
-        return (
-          React.cloneElement(element, {
-            onClick: () => onLegendClick(item.name),
-
-            className: classNames([
-              element?.props?.className,
-              legendManageVisibility && classes.legend_item_manage_visibility,
-              visible[item.name] === false && classes.legend_item_hidden
-            ])
-          })
-        );
-      })
-
       // Labels
       setLabels(labels_);
 
@@ -1341,12 +1324,41 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
       // Guidelines
       setAdditionalLines(additional_lines_);
 
-      // Legend
-      setLegend(legend_);
-
       // Update children value
       setPoints(points_);
     }
+
+    // Legend
+    let legend_ = legend__ !== 'auto' ? legend__ : values.map((item: any) => {
+
+      return {
+        item,
+
+        element: (
+          <LegendItem
+            item={item}
+          />
+        )
+      };
+    });
+
+    legend_ = legend_?.map(({ item, element }: any) => {
+
+      return (
+        React.cloneElement(element, {
+          onClick: () => onLegendClick(item.name),
+
+          className: classNames([
+            element?.props?.className,
+            legendManageVisibility && classes.legend_item_manage_visibility,
+            visible[item.name] === false && classes.legend_item_hidden
+          ])
+        })
+      );
+    });
+
+    // Legend
+    setLegend(legend_);
   };
 
   return (
@@ -1500,11 +1512,14 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
           onMouseLeave: onWrapperMouseLeave
         } : undefined)}
 
+        {...WrapperProps}
+
         className={classNames([
           staticClassName('Chart', theme) && [
             'AmauiChart-wrapper'
           ],
 
+          WrapperProps?.className,
           classes.wrapper,
           (labels?.x && labels?.y && labelsX && labelsY) && classes.wrapper_labels,
           (!(labels?.x && labels?.y && labelsX && labelsY) && labels?.x && labelsX) && classes.wrapper_label_x,
@@ -1637,7 +1652,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
                           const rect_ = (event.target as any).getBoundingClientRect();
 
                           onPointMouseEnter({
-                            values: item.values,
+                            ...item,
 
                             rect: rect_
                           });

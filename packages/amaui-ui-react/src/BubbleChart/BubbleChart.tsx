@@ -58,7 +58,7 @@ const useStyle = style(theme => ({
     width: '8px',
     height: '8px',
     borderRadius: '50%'
-  },
+  }
 }), { name: 'AmauiBubbleChart' });
 
 const BubbleChart = React.forwardRef((props_: any, ref: any) => {
@@ -311,24 +311,6 @@ const BubbleChart = React.forwardRef((props_: any, ref: any) => {
 
           element: (
             <g>
-              {(r >= 20 && value_[3]) && (
-                <text
-                  x={value_[0]}
-
-                  y={value_[1]}
-
-                  className={classNames([
-                    staticClassName('BubbleChart', theme) && [
-                      'AmauiBubbleChart-text'
-                    ],
-
-                    classes.text
-                  ])}
-                >
-                  {value_[3]}
-                </text>
-              )}
-
               <Path
                 r={r}
 
@@ -346,6 +328,24 @@ const BubbleChart = React.forwardRef((props_: any, ref: any) => {
 
                 {...PathProps}
               />
+
+              {(r >= 20 && value_[3]) && (
+                <text
+                  x={value_[0]}
+
+                  y={value_[1]}
+
+                  className={classNames([
+                    staticClassName('BubbleChart', theme) && [
+                      'AmauiBubbleChart-text'
+                    ],
+
+                    classes.text
+                  ])}
+                >
+                  {value_[3]}
+                </text>
+              )}
             </g>
           )
         };
