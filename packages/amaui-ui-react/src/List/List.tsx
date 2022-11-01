@@ -6,6 +6,7 @@ import Surface from '../Surface'
 import useMediaQuery from '../useMediaQuery';
 
 import { staticClassName } from '../utils';
+import Line from '../Line';
 
 const useStyle = style(theme => ({
   root: {
@@ -13,11 +14,9 @@ const useStyle = style(theme => ({
     margin: 0,
     listStyle: 'none',
 
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'flex-start',
     width: '100%',
-    borderRadius: `${theme.shape.radius.unit / 2}px`
+    position: 'relative',
+    borderRadius: `${theme.shape.radius.unit / 2}px`,
   },
 
   padding_vertical_both: {
@@ -104,16 +103,24 @@ const List = React.forwardRef((props_: any, ref: any) => {
   if (indent !== undefined) styles.root.paddingInlineStart = `${indent * theme.space.unit}px`;
 
   return (
-    <Surface
+    <Line
       ref={ref}
-
-      Component={Component}
 
       tonal={tonal}
 
       color={color}
 
       elevation={elevation}
+
+      direction='column'
+
+      align='flex-start'
+
+      Component={Surface}
+
+      AdditionalProps={{
+        Component
+      }}
 
       className={classNames([
         staticClassName('List', theme) && [
@@ -156,7 +163,7 @@ const List = React.forwardRef((props_: any, ref: any) => {
           ...item.props
         } : {})
       }))}
-    </Surface>
+    </Line>
   );
 });
 

@@ -17,7 +17,3 @@
 <br />
 
 <br />
-
-### Other
-
-This project is tested with BrowserStack.
