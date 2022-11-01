@@ -683,7 +683,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
     const y = itemsY[0].normalized[1];
 
-    const groups: any = [];
+    const groups: any = {};
 
     items.forEach(item => {
       const color = item.item?.color || 'primary';
@@ -693,8 +693,11 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
       groups[color].push(item);
     });
 
+    // Sort within each group by y largest, to smallest
+    Object.keys(groups).forEach(group => groups[group].sort((a, b) => b.value?.[1] - a.value?.[1]));
+
     // Groups sorted by lowest y
-    const groupsSorted = Object.keys(groups).sort((a, b) => groups[a][0]?.normalized?.[1] - groups[b][0]?.normalized?.[1]);
+    const groupsSorted = Object.keys(groups).sort((a, b) => groups[b][0]?.value?.[1] - groups[a][0]?.value?.[1]);
 
     const element = is('function', tooltipGroupRender) ? tooltipGroupRender(groups, groupsSorted) : (
       <Line
@@ -1677,7 +1680,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
                   {guideline && guidelineIn && <>
                     {['both', 'vertical'].includes(guideline) && (
                       <path
-                        d={`M ${guidelinePosition?.x} 0 ${guidelinePosition?.x} ${rects?.wrapper?.height || 0}`}
+                        d={`M ${guidelinePosition?.x || 0} 0 ${guidelinePosition?.x || 0} ${rects?.wrapper?.height || 0}`}
 
                         {...GuidelineProps}
 
@@ -1696,7 +1699,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
                     {['both', 'horizontal'].includes(guideline) && (
                       <path
-                        d={`M 0 ${guidelinePosition?.y} ${rects?.wrapper?.width || 0} ${guidelinePosition?.y}`}
+                        d={`M 0 ${guidelinePosition?.y || 0} ${rects?.wrapper?.width || 0} ${guidelinePosition?.y || 0}`}
 
                         {...GuidelineProps}
 
