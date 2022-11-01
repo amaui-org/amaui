@@ -405,7 +405,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
 
   let end = end_;
 
-  if (menu) end = end_ || <IconMaterialArrowRightRounded size={20} />;
+  if (menu) end = end_ || <IconMaterialArrowRightRounded />;
 
   if (list) end = end_ || (
     <IconButton
