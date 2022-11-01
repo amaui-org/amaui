@@ -173,6 +173,7 @@ const Reveal = React.forwardRef((props_: any, ref: any) => {
         className: classNames([
           staticClassName('Reveal', theme) && [
             'AmauiReveal-root',
+            unreveal && `AmauiReveal-unreveal`,
             inProp ? `AmauiReveal-revealed` : `AmauiReveal-unrevealed`
           ],
 

@@ -5,7 +5,7 @@ import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import useMediaQuery from '../useMediaQuery';
 
-import { valueBreakpoints } from '../utils';
+import { staticClassName, valueBreakpoints } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
@@ -152,6 +152,12 @@ const Parallax = React.forwardRef((props_: any, ref: any) => {
 
       React.cloneElement(children, {
         className: classNames([
+          staticClassName('Parallax', theme) && [
+            `AmauiParallax-root`,
+            `AmauiParallax-scroll-direction-${scrollDirection}`,
+            `AmauiParallax-transform-direction-${transformDirection}`
+          ],
+
           className,
           classes.root
         ]),

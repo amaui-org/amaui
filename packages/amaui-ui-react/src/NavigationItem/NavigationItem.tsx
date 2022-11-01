@@ -122,7 +122,7 @@ const useStyle = style(theme => ({
 
 // To do
 
-// Long press label in tooltip value y
+// Long press label in tooltip
 
 const NavigationItem = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
@@ -135,15 +135,16 @@ const NavigationItem = React.forwardRef((props_: any, ref: any) => {
     tonal = true,
     color = 'primary',
     version = 'regular',
+
+    value,
     vertical,
     label,
     icon,
     iconSelected,
-    value,
     selected,
-    IconWrapperComponent = 'span',
-    IconWrapperProps = {},
     disabled,
+
+    IconWrapperComponent = 'span',
 
     onFocus: onFocus_,
     onBlur: onBlur_,
@@ -153,7 +154,8 @@ const NavigationItem = React.forwardRef((props_: any, ref: any) => {
     onMouseLeave: onMouseLeave_,
     onTouchStart: onTouchStart_,
 
-    TooltipProps = {},
+    TooltipProps,
+    IconWrapperProps,
 
     className,
     style,
@@ -416,15 +418,16 @@ const NavigationItem = React.forwardRef((props_: any, ref: any) => {
               </Transition>
 
               <IconWrapperComponent
+                {...IconWrapperProps}
+
                 className={classNames([
                   staticClassName('NavigationItem', theme) && [
                     'AmauiNavigationItem-icon'
                   ],
 
+                  IconWrapperProps?.className,
                   classes.icon
                 ])}
-
-                {...IconWrapperProps}
               >
                 {React.cloneElement(Icon, {
                   style: {

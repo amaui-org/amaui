@@ -78,7 +78,6 @@ const PieChart = React.forwardRef((props_: any, ref: any) => {
 
   const {
     tonal = true,
-
     color = 'primary',
 
     values,

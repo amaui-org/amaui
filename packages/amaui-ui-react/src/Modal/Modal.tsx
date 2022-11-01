@@ -140,9 +140,10 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
     open: open_,
     openDefault,
 
-    partialyOpened,
     mainRef,
     backgroundRef,
+
+    partialyOpened,
 
     minWidth = !mobile ? 'sm' : undefined,
     maxWidth: maxWidth_ = 'rg',
@@ -164,14 +165,13 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
     backgroundInvisible,
 
     BackgroundComponent = Fade,
-
     TransitionComponent = Fade,
-    TransitionComponentProps,
 
     NoSurfaceProps,
     SurfaceProps,
     BackgroundProps,
     PortalProps: PortalProps_,
+    TransitionComponentProps,
 
     onClose: onClose_,
 
@@ -372,9 +372,9 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
             portal && `AmauiButton-portal`,
             focus && `AmauiButton-focus`,
             freezeScroll && `AmauiButton-freezeScroll`,
+            backgroundInvisible && 'AmauiModal-background-invisible',
             disableKeyboardClose && `AmauiButton-disableKeyboardClose`,
             disableBackgroundClose && `AmauiButton-disableBackgroundClose`,
-            backgroundInvisible && 'AmauiModal-background-invisible'
           ],
 
           className,
@@ -398,6 +398,8 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
               <div
                 ref={backgroundRef}
 
+                onClick={() => !disableBackgroundClose && onClose()}
+
                 className={classNames([
                   staticClassName('Modal', theme) && [
                     'AmauiModal-background'
@@ -406,8 +408,6 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
                   classes.background,
                   backgroundInvisible && classes.backgroundInvisible
                 ])}
-
-                onClick={() => !disableBackgroundClose && onClose()}
               />
             </BackgroundComponent>
           )}

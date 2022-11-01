@@ -33,6 +33,8 @@ const ModalTitle = React.forwardRef((props_: any, ref: any) => {
     <Type
       ref={ref}
 
+      version='t1'
+
       className={classNames([
         staticClassName('ModalTitle', theme) && [
           'AmauiModalTitle-root'
@@ -41,8 +43,6 @@ const ModalTitle = React.forwardRef((props_: any, ref: any) => {
         className,
         classes.root
       ])}
-
-      version='t1'
 
       {...other}
     >

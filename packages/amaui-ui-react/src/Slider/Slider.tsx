@@ -922,7 +922,10 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
   return (
     <Component
       ref={item => {
-        if (ref) ref.current = item;
+        if (ref) {
+          if (is('function', ref)) ref(item);
+          else ref.current = item;
+        }
 
         refs.root.current = item;
       }}

@@ -4,9 +4,9 @@ import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Surface from '../Surface'
 import useMediaQuery from '../useMediaQuery';
+import Line from '../Line';
 
 import { staticClassName } from '../utils';
-import Line from '../Line';
 
 const useStyle = style(theme => ({
   root: {
@@ -71,13 +71,13 @@ const List = React.forwardRef((props_: any, ref: any) => {
   const { classes } = useStyle(props);
 
   const {
-    menu,
-    menuOpen,
-
     tonal = true,
     color = 'themed',
     size = mobile ? 'small' : 'regular',
     elevation = (props.menu && theme.palette.light) ? 2 : 0,
+
+    menu,
+    menuOpen,
 
     noMaxWidth = true,
     indent,
@@ -156,10 +156,13 @@ const List = React.forwardRef((props_: any, ref: any) => {
           key: index,
 
           menuItem: menu,
+
           menuOpen,
 
           tonal: item.props.tonal !== undefined ? item.props.tonal : tonal,
+
           color: item.props.color !== undefined ? item.props.color : color,
+
           size: item.props.size !== undefined ? item.props.size : size,
 
           ...other,

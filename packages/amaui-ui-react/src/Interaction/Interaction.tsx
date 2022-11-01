@@ -1,7 +1,6 @@
 import React from 'react';
 
-import getID from '@amaui/utils/getID';
-import debounce from '@amaui/utils/debounce';
+import { is, getID, debounce } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import { Transition, Transitions, TTransitionStatus } from '..';
@@ -422,7 +421,10 @@ const Interaction = React.forwardRef((props_: any, ref: any) => {
   return (
     <span
       ref={item => {
-        if (ref) ref.current = item;
+        if (ref) {
+          if (is('function', ref)) ref(item);
+          else ref.current = item;
+        }
 
         refs.root.current = item;
       }}

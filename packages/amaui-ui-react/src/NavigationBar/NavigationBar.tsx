@@ -33,10 +33,12 @@ const NavigationBar = React.forwardRef((props_: any, ref: any) => {
     color = 'primary',
     tonal = true,
     version = 'regular',
-    fixed,
+
     value,
     valueDefault,
     onChange,
+
+    fixed,
 
     className,
     style,

@@ -107,10 +107,9 @@ const Radio = React.forwardRef((props_: any, ref: any) => {
   const {
     tonal,
     color = 'primary',
+    version = 'text',
 
     colorUnchecked = 'default',
-
-    version = 'text',
 
     valueDefault,
     checked,
@@ -194,25 +193,9 @@ const Radio = React.forwardRef((props_: any, ref: any) => {
 
       tabIndex={!disabled ? 0 : -1}
 
-      className={classNames([
-        staticClassName('Radio', theme) && [
-          'AmauiRadio-root',
-          `AmauiRadio-color-unchecked-${!theme.palette.color[colorUnchecked] && !['themed', 'inverted', 'default', 'inherit'].includes(colorUnchecked) ? 'new' : colorUnchecked}`,
-          value && `AmauiRadio-checked`
-        ],
-
-        className,
-        classes.root,
-        disabled && classes.disabled
-      ])}
-
-      {...other}
+      tonal={tonal}
 
       color={colorValue}
-
-      Component={Component}
-
-      tonal={tonal}
 
       version={version}
 
@@ -247,6 +230,22 @@ const Radio = React.forwardRef((props_: any, ref: any) => {
       )}
 
       disabled={disabled}
+
+      Component={Component}
+
+      className={classNames([
+        staticClassName('Radio', theme) && [
+          'AmauiRadio-root',
+          `AmauiRadio-color-unchecked-${!theme.palette.color[colorUnchecked] && !['themed', 'inverted', 'default', 'inherit'].includes(colorUnchecked) ? 'new' : colorUnchecked}`,
+          value && `AmauiRadio-checked`
+        ],
+
+        className,
+        classes.root,
+        disabled && classes.disabled
+      ])}
+
+      {...other}
     >
       <IconItem
         Component='div'

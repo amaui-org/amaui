@@ -283,24 +283,29 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiListItem?.props?.default }), [props_]);
 
   const {
+    tonal,
+    color = 'default',
+    colorSelected = props.color,
+
     menu,
     menuId,
+
     menuOpen,
+
     openMenu: openMenu_,
     openMenuDefault,
-    menuItem,
-    list: list_,
+
     openList: openList_,
     openListDefault,
+
+    menuItem,
+    list: list_,
     inset,
     primary = props.children,
     secondary,
     tertiary,
     preselected,
     selected,
-    tonal,
-    color = 'default',
-    colorSelected = props.color,
     start,
     startAlign = 'start',
     end: end_,
@@ -316,31 +321,34 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
     tabIndex,
     menuCloseOnClick,
     listCloseOnClick,
+    noOutline,
+    disabled,
+
     onClick: onClick_,
     onFocus: onFocus_,
     onBlur: onBlur_,
     onMouseEnter: onMouseEnter_,
     onMouseLeave: onMouseLeave_,
     onClose: onClose_,
-    Component = 'li',
+
     RootComponent: RootComponent_ = 'div',
-    WrapperProps = {},
-    ListProps = {},
-    RootProps = {},
-    InteractionProps = {},
-    PrimaryProps = {},
-    SecondaryProps = {},
-    TertiaryProps = {},
     ExpandIcon = IconMaterialExpandMoreRounded,
     ListTransitionComponent = Fade,
+
+    WrapperProps,
+    ListProps,
+    RootProps,
+    InteractionProps,
+    PrimaryProps,
+    SecondaryProps,
+    TertiaryProps,
     ListTransitionComponentProps = { add: true },
-    ExpandProps = {},
-    MenuListProps = {},
+    ExpandProps,
     MenuProps = {
       autoSelect: true
     },
-    noOutline,
-    disabled,
+
+    Component = 'li',
 
     className,
     style,
@@ -557,7 +565,10 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
   return (
     <Surface
       ref={item => {
-        if (ref) ref.current = item;
+        if (ref) {
+          if (is('function', ref)) ref(item);
+          else ref.current = item;
+        }
 
         refs.root.current = item;
       }}
@@ -708,19 +719,19 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
               <Type
                 version='b2'
 
+                {...PrimaryProps}
+
                 className={classNames([
                   staticClassName('ListItem', theme) && [
                     'AmauiListItem-text',
                     'AmauiListItem-text-primary'
                   ],
 
+                  PrimaryProps?.className,
                   classes.text,
                   classes.text_primary,
-                  PrimaryProps?.className,
                   !menuItem && classes.text_primary_weight
                 ])}
-
-                {...PrimaryProps}
 
                 style={{
                   ...styles.primary,
@@ -738,18 +749,18 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
               <Type
                 version='b2'
 
+                {...SecondaryProps}
+
                 className={classNames([
                   staticClassName('ListItem', theme) && [
                     'AmauiListItem-text',
                     'AmauiListItem-text-secondary'
                   ],
 
+                  SecondaryProps?.className,
                   classes.text,
-                  classes.text_secondary,
-                  SecondaryProps?.className
+                  classes.text_secondary
                 ])}
-
-                {...SecondaryProps}
 
                 style={{
                   ...styles.secondary,
@@ -767,18 +778,18 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
               <Type
                 version='b2'
 
+                {...TertiaryProps}
+
                 className={classNames([
                   staticClassName('ListItem', theme) && [
                     'AmauiListItem-text',
                     'AmauiListItem-text-tertiary'
                   ],
 
+                  TertiaryProps?.className,
                   classes.text,
-                  classes.text_tertiary,
-                  TertiaryProps?.className
+                  classes.text_tertiary
                 ])}
-
-                {...TertiaryProps}
 
                 style={{
                   ...styles.tertiary,
@@ -833,15 +844,16 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
           <List
             indent={5}
 
+            {...ListProps}
+
             className={classNames([
               staticClassName('Accordion', theme) && [
                 'AmauiListItem-list'
               ],
 
+              ListProps?.className,
               classes.list
             ])}
-
-            {...ListProps}
           >
             {list}
           </List>

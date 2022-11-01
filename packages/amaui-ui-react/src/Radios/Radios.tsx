@@ -35,7 +35,6 @@ const Radios = React.forwardRef((props_: any, ref: any) => {
     color = 'primary',
     colorUnchecked,
     version = 'text',
-
     size = 'regular',
 
     label,
@@ -52,9 +51,9 @@ const Radios = React.forwardRef((props_: any, ref: any) => {
 
     disabled,
 
-    Component = 'div',
-
     LabelProps,
+
+    Component = 'div',
 
     className,
 
@@ -104,6 +103,7 @@ const Radios = React.forwardRef((props_: any, ref: any) => {
       className={classNames([
         staticClassName('Radios', theme) && [
           'AmauiRadios-root',
+          uncheck && `AmauiRadios-uncheck`,
           disabled && `AmauiRadios-disabled`
         ],
 
@@ -117,16 +117,17 @@ const Radios = React.forwardRef((props_: any, ref: any) => {
       <Type
         version={size === 'regular' ? 'l2' : size === 'large' ? 'l1' : 'l3'}
 
+        {...LabelProps}
+
         className={classNames([
           staticClassName('Radios', theme) && [
             'AmauiRadios-label'
           ],
 
+          LabelProps?.className,
           classes.label,
           disabled && classes.label_disabled
         ])}
-
-        {...LabelProps}
       >
         {label}
       </Type>

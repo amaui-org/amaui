@@ -311,7 +311,9 @@ const NumericTextField = React.forwardRef((props_: any, ref: any) => {
 
       className={classNames([
         staticClassName('NumericTextField', theme) && [
-          'AmauiNumericTextField-root'
+          'AmauiNumericTextField-root',
+          increment && 'AmauiNumericTextField-increment',
+          decrement && 'AmauiNumericTextField-decrement'
         ],
 
         className,

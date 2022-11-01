@@ -94,11 +94,13 @@ const Placeholder = React.forwardRef((props_: any, ref: any) => {
   const {
     color = 'default',
     version = 'rounded',
+
     width,
     height,
     animation = 'pulse',
-    Component = 'div',
     text,
+
+    Component = 'div',
 
     className,
     style,

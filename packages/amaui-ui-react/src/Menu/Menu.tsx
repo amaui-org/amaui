@@ -45,20 +45,20 @@ const Menu = React.forwardRef((props_: any, ref: any) => {
   const {
     open,
 
-    anchorElement,
     arrow,
-    closeOnClickAway = true,
+    anchorElement,
     include,
-    resetKeyboardNavigation = false,
     autoSelect,
     autoSelectOnBlur,
+    resetKeyboardNavigation = false,
+    closeOnClickAway = true,
 
     onSelect,
     onOpen: onOpen_,
     onClose: onClose_,
 
-    ListProps = {},
-    ModalProps = {},
+    ListProps,
+    ModalProps,
 
     className,
 
@@ -220,7 +220,10 @@ const Menu = React.forwardRef((props_: any, ref: any) => {
     >
       <Tooltip
         ref={item => {
-          if (ref) ref.current = item;
+          if (ref) {
+            if (is('function', ref)) ref(item);
+            else ref.current = item;
+          }
 
           refs.root.current = item;
         }}

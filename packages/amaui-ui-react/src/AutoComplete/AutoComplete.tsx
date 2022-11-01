@@ -688,7 +688,10 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
         ref={refs.input}
 
         rootRef={item => {
-          if (ref) ref.current = item;
+          if (ref) {
+            if (is('function', ref)) ref(item);
+            else ref.current = item;
+          }
 
           refs.root.current = item;
         }}

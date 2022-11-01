@@ -192,7 +192,7 @@ const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
     onChange,
 
     TransitionComponent = Grow,
-    TransitionComponentProps = {},
+    TransitionComponentProps,
 
     IconIndicator = IconMaterialExpandMoreRounded,
 
@@ -468,7 +468,10 @@ const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
     >
       <Line
         ref={item => {
-          if (ref) ref.current = item;
+          if (ref) {
+            if (is('function', ref)) ref(item);
+            else ref.current = item;
+          }
 
           refs.root.current = item;
         }}
@@ -483,7 +486,12 @@ const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
 
         className={classNames([
           staticClassName('MenuDesktop', theme) && [
-            'AmauiMenuDesktop-root'
+            'AmauiMenuDesktop-root',
+            openOnHover && `AmauiMenuDesktop-open-on-hover`,
+            openOnClick && `AmauiMenuDesktop-open-on-click`,
+            openOnFocus && `AmauiMenuDesktop-open-on-focus`,
+            indicator && `AmauiMenuDesktop-indicator`,
+            menuTransition && `AmauiMenuDesktop-menuTransition`
           ],
 
           className,

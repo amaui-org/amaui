@@ -11,9 +11,7 @@ const Reset = (props: any) => {
 
   return (
     <React.Fragment>
-
       {children}
-
     </React.Fragment>
   );
 };

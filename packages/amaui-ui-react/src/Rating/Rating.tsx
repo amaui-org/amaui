@@ -104,22 +104,27 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
     color = 'primary',
     colorInactive = 'default',
     size = 'regular',
-    values = 5,
-    precision = 1,
+
     value: value_,
     valueDefault,
     valueActive: valueActive_,
     valueActiveDefault,
+
     onChange,
     onChangeActive,
-    Component = 'span',
+
+    values = 5,
+    precision = 1,
+    onlyValue,
+    readOnly,
+    disabled,
+
     icon,
     icons,
     iconInactive = <IconMaterialGradeRounded />,
     iconActive = <IconMaterialGradeRoundedFilled />,
-    onlyValue,
-    readOnly,
-    disabled,
+
+    Component = 'span',
 
     className,
 
@@ -410,7 +415,10 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
   return (
     <Component
       ref={item => {
-        if (ref) ref.current = ref;
+        if (ref) {
+          if (is('function', ref)) ref(item);
+          else ref.current = ref;
+        }
 
         refs.root.current = item;
       }}

@@ -66,11 +66,8 @@ const NavigationRail = React.forwardRef((props_: any, ref: any) => {
 
   const {
     tonal = true,
-
     color = 'primary',
-
     version = 'regular',
-
     size = 'regular',
 
     value,

@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { is } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import useMediaQuery from '../useMediaQuery';
@@ -145,7 +146,10 @@ const Masonry = React.forwardRef((props_: any, ref: any) => {
   return (
     <Line
       ref={item => {
-        if (ref) ref.current = item;
+        if (ref) {
+          if (is('function', ref)) ref(item);
+          else ref.current = item;
+        }
 
         refs.root.current = item;
       }}

@@ -83,14 +83,16 @@ const NavigationDrawer = React.forwardRef((props_: any, ref: any) => {
     tonal = false,
     color = [undefined, 'modal'].includes(props.version) ? 'themed' : 'default',
     version = 'modal',
+
+    open: open_,
+    openDefault,
+
     direction: direction_ = 'left',
-    removeOnExited,
     swipe = true,
     swipeTouchAnywhere = true,
     swipeBackgroundFollow = true,
     min,
-    open: open_,
-    openDefault,
+    removeOnExited,
     onClose: onClose_,
 
     TransitionComponentProps = {},
@@ -247,7 +249,10 @@ const NavigationDrawer = React.forwardRef((props_: any, ref: any) => {
         staticClassName('Modal', theme) && [
           'AmauiNavigationDrawer-root',
           `AmauiNavigationDrawer-version-${version}`,
-          `AmauiNavigationDrawer-direction-${direction}`
+          `AmauiNavigationDrawer-direction-${direction}`,
+          swipe && `AmauiNavigationDrawer-swipe`,
+          swipeTouchAnywhere && `AmauiNavigationDrawer-swipe-touch-anywhere`,
+          swipeBackgroundFollow && `AmauiNavigationDrawer-swipe-background-follow`
         ],
 
         className,

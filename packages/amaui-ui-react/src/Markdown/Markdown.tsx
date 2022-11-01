@@ -155,6 +155,7 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
     render,
 
     elementClassNames,
+
     elementStyles,
 
     Component = 'div',
@@ -642,7 +643,10 @@ ${listItem(other)}
   return (
     <Component
       ref={item => {
-        if (ref) ref.current = item;
+        if (ref) {
+          if (is('function', ref)) ref(item);
+          else ref.current = item;
+        }
 
         refs.root.current = item;
       }}

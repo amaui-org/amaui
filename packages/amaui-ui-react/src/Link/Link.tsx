@@ -98,9 +98,10 @@ const Link = React.forwardRef((props_: any, ref: any) => {
   const {
     tonal,
     color: color_ = 'primary',
-    underline = true,
 
     version = 'b2',
+
+    underline = true,
 
     Component = 'a',
 

@@ -109,21 +109,25 @@ const Pagination = React.forwardRef((props_: any, ref: any) => {
     version = 'text',
     elevation = false,
     size = 'regular',
-    total = 1,
+
     value: value_ = 1,
     valueDefault,
+    onChange: onChange_,
+
+    total = 1,
     boundary = 1,
     middle = 1,
     first = false,
     before = true,
     next = true,
     last = false,
+    renderItem: renderItem_,
+
     IconFirst = IconMaterialFirstPageRounded,
     IconBefore = IconMaterialNavigateBeforeRounded,
     IconNext = IconMaterialNavigateNextRounded,
     IconLast = IconMaterialLastPageRounded,
-    renderItem: renderItem_,
-    onChange: onChange_,
+
     Component = 'div',
 
     className,
@@ -215,7 +219,11 @@ const Pagination = React.forwardRef((props_: any, ref: any) => {
 
       className={classNames([
         staticClassName('Pagination', theme) && [
-          `AmauiPagination-root`
+          `AmauiPagination-root`,
+          first && `AmauiPagination-first`,
+          before && `AmauiPagination-before`,
+          next && `AmauiPagination-next`,
+          last && `AmauiPagination-last`
         ],
 
         className,
