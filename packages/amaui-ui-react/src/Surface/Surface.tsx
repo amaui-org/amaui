@@ -766,8 +766,6 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
       }
 
       if (version === 'text') styles.root.color = palette.main;
-
-      console.log(11, palette.main, styles.root.color, styles.root.backgroundColor);
     }
 
     styles.children.backgroundColor = styles.root.backgroundColor;
@@ -927,7 +925,7 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
   }
 
   if (is('function', children)) return children({ ...styles.children, palette });
-  console.log(1, version, color, styles.root);
+
   return (
     <Component
       ref={ref}
