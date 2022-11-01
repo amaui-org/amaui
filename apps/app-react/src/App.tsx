@@ -29979,7 +29979,7 @@ Markdown 1 | Less | Pretty
       </Accordion>
 
       <Accordion primary='NavigationRail'>
-        <Accordion primary='NavigationRail'>
+        <Accordion primary='NavigationRail' open>
           <NavigationRail
             header={[
               <IconButton version='filled' elevation={0}>

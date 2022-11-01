@@ -396,7 +396,7 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
       return `${(value__ % 1) * 100}%`;
     }
 
-    if (value__ !== undefined && index < +(value__).toFixed(1) && !onlyValue) return '100%';
+    if (is('number', value__) && index < +(value__).toFixed(1) && !onlyValue) return '100%';
   };
 
   const getIcon = (index: number, inactive = true) => {

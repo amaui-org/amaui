@@ -113,6 +113,7 @@ const NavigationBar = React.forwardRef((props_: any, ref: any) => {
       } : {}),
 
       color: item.props.color !== undefined ? item.props.color : (['AmauiNavigationItem'].includes(item.type?.displayName) ? color : styles.icon.color),
+
       tonal: item.props.tonal !== undefined ? item.props.tonal : tonal,
 
       selected: selected.includes(item.props.value),

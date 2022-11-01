@@ -754,7 +754,7 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
       if (version === 'text') styles.root.color = theme.methods.palette.color.value(color, tonal === 'secondary' ? 30 : 40, true, palette);
     }
     else {
-      styles.root.color = theme.methods.palette.color.text(palette.main, true);
+      styles.root.color = theme.methods.palette.color.text(palette.main, true, 'light');
 
       if (['outlined', 'filled'].includes(version)) styles.root.backgroundColor = palette.main;
 
@@ -766,6 +766,8 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
       }
 
       if (version === 'text') styles.root.color = palette.main;
+
+      console.log(11, palette.main, styles.root.color, styles.root.backgroundColor);
     }
 
     styles.children.backgroundColor = styles.root.backgroundColor;
@@ -901,8 +903,11 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
 
   if (backgroundOpacity !== undefined) {
     if (color === 'themed') color = theme.palette.light ? theme.palette.background.default.primary : theme.palette.background.default.quaternary;
+
     if (color === 'inverted') color = theme.palette.light ? theme.palette.background.dark.primary : theme.palette.background.light.primary;
+
     if (color === 'default') color = theme.palette.background.default.primary;
+
     if (color === 'inherit') color = theme.palette.background.default.primary;
 
     palette = theme.methods.color(color);
@@ -922,7 +927,7 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
   }
 
   if (is('function', children)) return children({ ...styles.children, palette });
-
+  console.log(1, version, color, styles.root);
   return (
     <Component
       ref={ref}

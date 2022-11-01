@@ -35,10 +35,6 @@ const useStyle = style(theme => ({
   },
 
   // flex
-  flex_orientation_horizontal: {
-    flex: '1 1'
-  },
-
   flex_orientation_vertical: {
     flex: '1 1 auto'
   },
@@ -149,15 +145,24 @@ const Divider = React.forwardRef((props_: any, ref: any) => {
 
   const {
     tonal,
+
     color = 'inverted',
+
     inset,
+
     middle,
+
     padding,
+
     opacity = theme.palette.visual_contrast.default.opacity.divider,
+
     alignment = 'center',
+
     orientation = 'horizontal',
-    Component: Component_ = 'hr',
+
     flex,
+
+    Component: Component_ = 'hr',
 
     className,
     style,

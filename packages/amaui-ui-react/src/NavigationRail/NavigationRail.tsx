@@ -50,8 +50,9 @@ const useStyle = style(theme => ({
     insetBlock: 0,
     insetInlineEnd: 0,
 
-    '&.AmauiDivider': {
-      margin: '0'
+    '&.AmauiDivider-root': {
+      margin: '0',
+      opacity: theme.palette.light ? '0.07' : '0.11'
     }
   }
 }), { name: 'AmauiNavigationRail' });
@@ -65,17 +66,27 @@ const NavigationRail = React.forwardRef((props_: any, ref: any) => {
 
   const {
     tonal = true,
+
     color = 'primary',
+
     version = 'regular',
+
     size = 'regular',
-    alignment = 'center',
-    border,
-    header: header_,
-    fixed,
+
     value,
     valueDefault,
     onChange,
-    NavigationBarProps = {},
+
+    alignment = 'center',
+
+    border,
+
+    header: header_,
+
+    fixed,
+
+    NavigationBarProps,
+    DividerProps,
 
     className,
     style,
@@ -221,15 +232,16 @@ const NavigationRail = React.forwardRef((props_: any, ref: any) => {
 
           tonal={tonal}
 
+          {...NavigationBarProps}
+
           className={classNames([
             staticClassName('NavigationRail', theme) && [
               'AmauiNavigationRail-main'
             ],
 
+            NavigationBarProps?.className,
             classes.main
           ])}
-
-          {...NavigationBarProps}
         >
           {children}
         </NavigationBar>
@@ -237,19 +249,18 @@ const NavigationRail = React.forwardRef((props_: any, ref: any) => {
 
       {border && (
         <Divider
+          orientation='vertical'
+
+          {...DividerProps}
 
           className={classNames([
             staticClassName('NavigationRail', theme) && [
               'AmauiNavigationRail-divider'
             ],
 
+            DividerProps?.className,
             classes.divider
           ])}
-
-          color={color}
-          tonal={tonal}
-
-          orientation='vertical'
         />
       )}
     </Surface>
