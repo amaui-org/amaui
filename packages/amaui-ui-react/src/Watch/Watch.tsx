@@ -424,8 +424,7 @@ const Watch = React.forwardRef((props_: any, ref: any) => {
 
                   style={{
                     transformOrigin: '50% 50%',
-                    stroke: 'none',
-                    fill: 'currentColor'
+                    stroke: 'currentColor'
                   }}
                 />
 
