@@ -120,9 +120,9 @@ const DateTimeRangePicker = React.forwardRef((props_: any, ref: any) => {
 
     format = '12',
 
-    openVersionMobile = 'date',
+    openMobile = 'date',
 
-    openVersionDesktop = 'date',
+    openDesktop = 'date',
 
     range,
 
@@ -224,7 +224,7 @@ const DateTimeRangePicker = React.forwardRef((props_: any, ref: any) => {
   const touch = useMediaQuery('(pointer: coarse)');
 
   const [open, setOpen] = React.useState(false);
-  const [openVersion, setOpenVersion] = React.useState((touch ? openVersionMobile : openVersionDesktop) || 'date');
+  const [openVersion, setOpenVersion] = React.useState((touch ? openMobile : openDesktop) || 'date');
   const [value, setValue] = React.useState((valueDefault !== undefined ? valueDefault : value_) || (now && [new AmauiDate(), new AmauiDate()]));
   const [values, setValues] = React.useState<any>({
     input: valueToInput(value)
@@ -339,7 +339,7 @@ const DateTimeRangePicker = React.forwardRef((props_: any, ref: any) => {
   const onClose = React.useCallback(() => {
     setOpen(false);
 
-    setOpenVersion((touch ? openVersionMobile : openVersionDesktop) || 'date');
+    setOpenVersion((touch ? openMobile : openDesktop) || 'date');
   }, []);
 
   let mask: any = [];
@@ -758,122 +758,147 @@ const DateTimeRangePicker = React.forwardRef((props_: any, ref: any) => {
     return <ModeMobile />;
   }
 
-  return <>
-    <AdvancedTextField
-      rootRef={item => {
-        if (ref) ref.current = item;
+  return (
+    <Line
+      gap={0}
 
-        refs.root.current = item;
-      }}
-
-      tonal={tonal}
-
-      color={color}
-
-      version='outlined'
-
-      label={label}
-
-      mask={mask}
-
-      placeholder={placeholder}
-
-      value={values.input}
-
-      onChange={(valueNew: any) => updateInput(valueNew)}
-
-      helperText={useHelperText ? placeholder : undefined}
-
-      error={error}
-
-      readOnly={readOnly}
-
-      disabled={disabled}
+      direction='column'
 
       className={classNames([
         staticClassName('DateTimeRangePicker', theme) && [
-          'AmauiDateTimeRangePicker-root'
+          'AmauiDateTimeRangePicker-root',
+          `AmauiDateTimeRangePicker-version-${version}`,
+          `AmauiDateTimeRangePicker-open-mobile-${openMobile}`,
+          `AmauiDateTimeRangePicker-open-desktop-${openDesktop}`,
+          `AmauiDateTimeRangePicker-format-${format}`,
+          useHelperText && `AmauiDateTimeRangePicker-use-helper-text`,
+          now && `AmauiDateTimeRangePicker-now`,
+          label && `AmauiDateTimeRangePicker-label`,
+          min && `AmauiDateTimeRangePicker-min`,
+          max && `AmauiDateTimeRangePicker-max`,
+          day && `AmauiDateTimeRangePicker-day`,
+          month && `AmauiDateTimeRangePicker-month`,
+          year && `AmauiDateTimeRangePicker-year`,
+          hour && `AmauiDateTimeRangePicker-hour`,
+          minute && `AmauiDateTimeRangePicker-minute`,
+          second && `AmauiDateTimeRangePicker-second`,
+          range && `AmauiDateTimeRangePicker-range`,
+          fullScreen && `AmauiDateTimeRangePicker-full-screen`,
+          readOnly && `AmauiDateTimeRangePicker-read-only`,
+          disabled && `AmauiDateTimeRangePicker-disabled`
         ],
 
         className,
         classes.root
       ])}
+    >
+      <AdvancedTextField
+        rootRef={item => {
+          if (ref) ref.current = item;
 
-      {...moreProps}
-
-      {...other}
-
-      {...AdvancedTextFieldProps}
-    />
-
-    {/* Mobile */}
-    {version === 'mobile' && (
-      <Modal
-        open={open}
-
-        modalWrapperSurface={false}
-
-        onClose={onClose}
-
-        TransitionComponent={Slide}
-
-        fullScreen={fullScreen}
-
-        NoSurfaceProps={{
-          className: classNames([
-            staticClassName('DateTimeRangePicker', theme) && [
-              'AmauiDatePicker-modal',
-              fullScreen && `AmauiDatePicker-modal-fullScreen`
-            ],
-
-            classes.modal,
-            fullScreen && classes.modal_fullScreen
-          ])
+          refs.root.current = item;
         }}
 
-        {...ModalProps}
-      >
-        <ModeMobile />
-      </Modal>
-    )}
+        tonal={tonal}
 
-    {/* Desktop */}
-    {version === 'desktop' && (
-      <Tooltip
-        open={open}
+        color={color}
 
-        anchorElement={refs.root.current}
+        version='outlined'
 
-        alignment='center'
+        label={label}
 
-        position='bottom'
+        mask={mask}
 
-        hover={false}
+        placeholder={placeholder}
 
-        focus={false}
+        value={values.input}
 
-        longPress={false}
+        onChange={(valueNew: any) => updateInput(valueNew)}
 
-        maxWidth='unset'
+        helperText={useHelperText ? placeholder : undefined}
 
-        noMargin
+        error={error}
 
-        label={(
-          <ClickListener
-            onClickOutside={onClose}
+        readOnly={readOnly}
 
-            includeParentQueries={['.AmauiDateTimeRangePicker-mode', '.AmauiDatePicker-list', '.AmauiDatePicker-day', '.AmauiTimePicker-mode']}
+        disabled={disabled}
 
-            include={[refs.iconButton, refs.iconButton.current]}
-          >
-            <ModeDesktop />
-          </ClickListener>
-        )}
+        {...moreProps}
 
-        {...TooltipProps}
+        {...other}
+
+        {...AdvancedTextFieldProps}
       />
-    )}
-  </>;
+
+      {/* Mobile */}
+      {version === 'mobile' && (
+        <Modal
+          open={open}
+
+          modalWrapperSurface={false}
+
+          onClose={onClose}
+
+          TransitionComponent={Slide}
+
+          fullScreen={fullScreen}
+
+          NoSurfaceProps={{
+            className: classNames([
+              staticClassName('DateTimeRangePicker', theme) && [
+                'AmauiDatePicker-modal',
+                fullScreen && `AmauiDatePicker-modal-fullScreen`
+              ],
+
+              classes.modal,
+              fullScreen && classes.modal_fullScreen
+            ])
+          }}
+
+          {...ModalProps}
+        >
+          <ModeMobile />
+        </Modal>
+      )}
+
+      {/* Desktop */}
+      {version === 'desktop' && (
+        <Tooltip
+          open={open}
+
+          anchorElement={refs.root.current}
+
+          alignment='center'
+
+          position='bottom'
+
+          hover={false}
+
+          focus={false}
+
+          longPress={false}
+
+          maxWidth='unset'
+
+          noMargin
+
+          label={(
+            <ClickListener
+              onClickOutside={onClose}
+
+              includeParentQueries={['.AmauiDateTimeRangePicker-mode', '.AmauiDatePicker-list', '.AmauiDatePicker-day', '.AmauiTimePicker-mode']}
+
+              include={[refs.iconButton, refs.iconButton.current]}
+            >
+              <ModeDesktop />
+            </ClickListener>
+          )}
+
+          {...TooltipProps}
+        />
+      )}
+    </Line>
+  );
 });
 
 DateTimeRangePicker.displayName = 'AmauiDateTimeRangePicker';

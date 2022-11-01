@@ -691,114 +691,138 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
     return <ModeMobile />;
   }
 
-  return <>
-    <AdvancedTextField
-      rootRef={item => {
-        if (ref) ref.current = item;
+  return (
+    <Line
+      gap={0}
 
-        refs.root.current = item;
-      }}
-
-      tonal={tonal}
-
-      color={color}
-
-      version='outlined'
-
-      label={label}
-
-      mask={mask}
-
-      placeholder={placeholder}
-
-      value={values.input}
-
-      onChange={(valueNew: any) => updateValues('input', valueNew)}
-
-      readOnly={readOnly}
-
-      disabled={disabled}
+      direction='column'
 
       className={classNames([
         staticClassName('TimeRangePicker', theme) && [
-          'AmauiTimeRangePicker-root'
+          'AmauiTimeRangePicker-root',
+          `AmauiTimeRangePicker-version-${version}`,
+          `AmauiTimeRangePicker-orientation-${orientation}`,
+          `AmauiTimeRangePicker-open-mobile-${openMobile}`,
+          `AmauiTimeRangePicker-open-desktop-${openDesktop}`,
+          `AmauiTimeRangePicker-format-${format}`,
+          now && `AmauiTimeRangePicker-now`,
+          label && `AmauiTimeRangePicker-label`,
+          min && `AmauiTimeRangePicker-min`,
+          max && `AmauiTimeRangePicker-max`,
+          hour && `AmauiTimeRangePicker-hour`,
+          minute && `AmauiTimeRangePicker-minute`,
+          second && `AmauiTimeRangePicker-second`,
+          autoNext && `AmauiTimeRangePicker-auto-next`,
+          autoCloseOnLast && `AmauiTimeRangePicker-auto-close-on-last`,
+          autoValidation && `AmauiTimeRangePicker-auto-validation`,
+          switch_ && `AmauiTimeRangePicker-switch`,
+          readOnly && `AmauiTimeRangePicker-read-only`,
+          disabled && `AmauiTimeRangePicker-disabled`
         ],
 
         className,
         classes.root
       ])}
+    >
+      <AdvancedTextField
+        rootRef={item => {
+          if (ref) ref.current = item;
 
-      {...moreProps}
-
-      {...other}
-
-      {...AdvancedTextFieldProps}
-    />
-
-    {/* Mobile */}
-    {version === 'mobile' && (
-      <Modal
-        open={open}
-
-        modalWrapperSurface={false}
-
-        onClose={onClose}
-
-        TransitionComponent={Slide}
-
-        NoSurfaceProps={{
-          className: classNames([
-            staticClassName('TimeRangePicker', theme) && [
-              'AmauiTimeRangePicker-modal'
-            ],
-
-            classes.modal
-          ])
+          refs.root.current = item;
         }}
 
-        {...ModalProps}
-      >
-        <ModeMobile />
-      </Modal>
-    )}
+        tonal={tonal}
 
-    {/* Desktop */}
-    {version === 'desktop' && (
-      <Tooltip
-        open={open}
+        color={color}
 
-        anchorElement={refs.root.current}
+        version='outlined'
 
-        alignment='center'
+        label={label}
 
-        position='bottom'
+        mask={mask}
 
-        hover={false}
+        placeholder={placeholder}
 
-        focus={false}
+        value={values.input}
 
-        longPress={false}
+        onChange={(valueNew: any) => updateValues('input', valueNew)}
 
-        maxWidth='unset'
+        readOnly={readOnly}
 
-        noMargin
+        disabled={disabled}
 
-        label={(
-          <ClickListener
-            onClickOutside={onClose}
+        {...moreProps}
 
-            includeParentQueries={['.AmauiTimePicker-mode', '.AmauiTimeRangePicker-mode']}
+        {...other}
 
-            include={[refs.iconButton, refs.iconButton.current]}
-          >
-            <ModeDesktop />
-          </ClickListener>
-        )}
-
-        {...TooltipProps}
+        {...AdvancedTextFieldProps}
       />
-    )}
-  </>;
+
+      {/* Mobile */}
+      {version === 'mobile' && (
+        <Modal
+          open={open}
+
+          modalWrapperSurface={false}
+
+          onClose={onClose}
+
+          TransitionComponent={Slide}
+
+          NoSurfaceProps={{
+            className: classNames([
+              staticClassName('TimeRangePicker', theme) && [
+                'AmauiTimeRangePicker-modal'
+              ],
+
+              classes.modal
+            ])
+          }}
+
+          {...ModalProps}
+        >
+          <ModeMobile />
+        </Modal>
+      )}
+
+      {/* Desktop */}
+      {version === 'desktop' && (
+        <Tooltip
+          open={open}
+
+          anchorElement={refs.root.current}
+
+          alignment='center'
+
+          position='bottom'
+
+          hover={false}
+
+          focus={false}
+
+          longPress={false}
+
+          maxWidth='unset'
+
+          noMargin
+
+          label={(
+            <ClickListener
+              onClickOutside={onClose}
+
+              includeParentQueries={['.AmauiTimePicker-mode', '.AmauiTimeRangePicker-mode']}
+
+              include={[refs.iconButton, refs.iconButton.current]}
+            >
+              <ModeDesktop />
+            </ClickListener>
+          )}
+
+          {...TooltipProps}
+        />
+      )}
+    </Line>
+  );
 });
 
 TimeRangePicker.displayName = 'AmauiTimeRangePicker';

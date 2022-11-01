@@ -1760,106 +1760,129 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
     return mode === 'select' ? <ModeSelect /> : <ModeInput />;
   }
 
-  return <>
-    <AdvancedTextField
-      rootRef={item => {
-        if (ref) ref.current = item;
+  return (
+    <Line
+      gap={0}
 
-        refs.root.current = item;
-      }}
-
-      tonal={tonal}
-
-      color={color}
-
-      version='outlined'
-
-      label={label}
-
-      mask={mask}
-
-      placeholder={placeholder}
-
-      value={values.input}
-
-      onChange={(valueNew: any) => updateValues('input', valueNew)}
-
-      error={error}
-
-      readOnly={readOnly}
-
-      disabled={disabled}
+      direction='column'
 
       className={classNames([
         staticClassName('TimePicker', theme) && [
-          'AmauiTimePicker-root'
+          'AmauiTimePicker-root',
+          `AmauiTimePicker-version-${version}`,
+          `AmauiTimePicker-orientation-${orientation}`,
+          `AmauiTimePicker-open-mobile-${openMobile}`,
+          `AmauiTimePicker-open-desktop-${openDesktop}`,
+          `AmauiTimePicker-format-${format}`,
+          now && `AmauiTimePicker-now`,
+          label && `AmauiTimePicker-label`,
+          min && `AmauiTimePicker-min`,
+          max && `AmauiTimePicker-max`,
+          hour && `AmauiTimePicker-hour`,
+          minute && `AmauiTimePicker-minute`,
+          second && `AmauiTimePicker-second`,
+          autoNext && `AmauiTimePicker-auto-next`,
+          autoCloseOnLast && `AmauiTimePicker-auto-close-on-last`,
+          switch_ && `AmauiTimePicker-switch`,
+          readOnly && `AmauiTimePicker-read-only`,
+          disabled && `AmauiTimePicker-disabled`
         ],
 
         className,
         classes.root
       ])}
+    >
+      <AdvancedTextField
+        rootRef={item => {
+          if (ref) ref.current = item;
 
-      {...moreProps}
+          refs.root.current = item;
+        }}
 
-      {...other}
+        tonal={tonal}
 
-      {...AdvancedTextFieldProps}
-    />
+        color={color}
 
-    {/* Mobile */}
-    {version === 'mobile' && (
-      <Modal
-        open={open}
+        version='outlined'
 
-        modalWrapperSurface={false}
+        label={label}
 
-        TransitionComponent={Slide}
+        mask={mask}
 
-        onClose={onClose}
+        placeholder={placeholder}
 
-        {...ModalProps}
-      >
-        {mode === 'select' ? <ModeSelect /> : <ModeInput />}
-      </Modal>
-    )}
+        value={values.input}
 
-    {/* Desktop */}
-    {version === 'desktop' && (
-      <Tooltip
-        open={open}
+        onChange={(valueNew: any) => updateValues('input', valueNew)}
 
-        anchorElement={refs.root.current}
+        error={error}
 
-        alignment='center'
+        readOnly={readOnly}
 
-        position='bottom'
+        disabled={disabled}
 
-        hover={false}
+        {...moreProps}
 
-        focus={false}
+        {...other}
 
-        longPress={false}
-
-        maxWidth='unset'
-
-        noMargin
-
-        label={(
-          <ClickListener
-            onClickOutside={onCancel}
-
-            includeParentQueries={['.AmauiTimePicker-mode']}
-
-            include={[refs.iconButton, refs.iconButton.current]}
-          >
-            {mode === 'select' ? <ModeSelect /> : <ModeInput />}
-          </ClickListener>
-        )}
-
-        {...TooltipProps}
+        {...AdvancedTextFieldProps}
       />
-    )}
-  </>;
+
+      {/* Mobile */}
+      {version === 'mobile' && (
+        <Modal
+          open={open}
+
+          modalWrapperSurface={false}
+
+          TransitionComponent={Slide}
+
+          onClose={onClose}
+
+          {...ModalProps}
+        >
+          {mode === 'select' ? <ModeSelect /> : <ModeInput />}
+        </Modal>
+      )}
+
+      {/* Desktop */}
+      {version === 'desktop' && (
+        <Tooltip
+          open={open}
+
+          anchorElement={refs.root.current}
+
+          alignment='center'
+
+          position='bottom'
+
+          hover={false}
+
+          focus={false}
+
+          longPress={false}
+
+          maxWidth='unset'
+
+          noMargin
+
+          label={(
+            <ClickListener
+              onClickOutside={onCancel}
+
+              includeParentQueries={['.AmauiTimePicker-mode']}
+
+              include={[refs.iconButton, refs.iconButton.current]}
+            >
+              {mode === 'select' ? <ModeSelect /> : <ModeInput />}
+            </ClickListener>
+          )}
+
+          {...TooltipProps}
+        />
+      )}
+    </Line>
+  );
 });
 
 TimePicker.displayName = 'AmauiTimePicker';

@@ -3844,122 +3844,146 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     return !fullScreen ? <ModeModal /> : <ModeFullScreen />;
   }
 
-  return <>
-    <AdvancedTextField
-      rootRef={item => {
-        if (ref) ref.current = item;
+  return (
+    <Line
+      gap={0}
 
-        refs.root.current = item;
-      }}
-
-      tonal={tonal}
-
-      color={color}
-
-      version='outlined'
-
-      label={label}
-
-      mask={mask}
-
-      placeholder={placeholder}
-
-      value={values.map(item => item.input).join(SEPARATOR)}
-
-      onChange={(valueNew: any) => updateInput(valueNew)}
-
-      helperText={useHelperText ? placeholder : undefined}
-
-      error={error}
-
-      readOnly={readOnly}
-
-      disabled={disabled}
+      direction='column'
 
       className={classNames([
         staticClassName('DatePicker', theme) && [
-          'AmauiDatePicker-root'
+          'AmauiDatePicker-root',
+          `AmauiDatePicker-version-${version}`,
+          `AmauiDatePicker-open-mobile-${openMobile}`,
+          `AmauiDatePicker-week-start-day-${weekStartDay}`,
+          versionStatic && `AmauiDatePicker-version-static-${versionStatic}`,
+          calendar && `AmauiDatePicker-calendar`,
+          now && `AmauiDatePicker-now`,
+          today && `AmauiDatePicker-today`,
+          label && `AmauiDatePicker-label`,
+          min && `AmauiDatePicker-min`,
+          max && `AmauiDatePicker-max`,
+          day && `AmauiDatePicker-day`,
+          month && `AmauiDatePicker-month`,
+          year && `AmauiDatePicker-year`,
+          range && `AmauiDatePicker-range`,
+          switch_ && `AmauiDatePicker-switch`,
+          fullScreen && `AmauiDatePicker-full-screen`,
+          readOnly && `AmauiDatePicker-read-only`,
+          disabled && `AmauiDatePicker-disabled`
         ],
 
         className,
         classes.root
       ])}
+    >
+      <AdvancedTextField
+        rootRef={item => {
+          if (ref) ref.current = item;
 
-      {...moreProps}
-
-      {...other}
-
-      {...AdvancedTextFieldProps}
-    />
-
-    {/* Mobile */}
-    {version === 'mobile' && (
-      <Modal
-        open={open}
-
-        modalWrapperSurface={false}
-
-        onClose={onClose}
-
-        TransitionComponent={Slide}
-
-        fullScreen={fullScreen}
-
-        NoSurfaceProps={{
-          className: classNames([
-            staticClassName('DatePicker', theme) && [
-              'AmauiDatePicker-modal',
-              fullScreen && `AmauiDatePicker-modal-fullScreen`
-            ],
-
-            classes.modal,
-            fullScreen && classes.modal_fullScreen
-          ])
+          refs.root.current = item;
         }}
 
-        {...ModalProps}
-      >
-        {fullScreen ? <ModeFullScreen /> : <ModeModal />}
-      </Modal>
-    )}
+        tonal={tonal}
 
-    {/* Desktop */}
-    {version === 'desktop' && (
-      <Tooltip
-        open={open}
+        color={color}
 
-        anchorElement={refs.root.current}
+        version='outlined'
 
-        alignment='center'
+        label={label}
 
-        position='bottom'
+        mask={mask}
 
-        hover={false}
+        placeholder={placeholder}
 
-        focus={false}
+        value={values.map(item => item.input).join(SEPARATOR)}
 
-        longPress={false}
+        onChange={(valueNew: any) => updateInput(valueNew)}
 
-        maxWidth='unset'
+        helperText={useHelperText ? placeholder : undefined}
 
-        noMargin
+        error={error}
 
-        label={(
-          <ClickListener
-            onClickOutside={onCancel}
+        readOnly={readOnly}
 
-            includeParentQueries={['.AmauiDatePicker-mode', '.AmauiDatePicker-list', '.AmauiDatePicker-day']}
+        disabled={disabled}
 
-            include={[refs.iconButton, refs.iconButton.current]}
-          >
-            <ModeDocked />
-          </ClickListener>
-        )}
+        {...moreProps}
 
-        {...TooltipProps}
+        {...other}
+
+        {...AdvancedTextFieldProps}
       />
-    )}
-  </>;
+
+      {/* Mobile */}
+      {version === 'mobile' && (
+        <Modal
+          open={open}
+
+          modalWrapperSurface={false}
+
+          onClose={onClose}
+
+          TransitionComponent={Slide}
+
+          fullScreen={fullScreen}
+
+          NoSurfaceProps={{
+            className: classNames([
+              staticClassName('DatePicker', theme) && [
+                'AmauiDatePicker-modal',
+                fullScreen && `AmauiDatePicker-modal-fullScreen`
+              ],
+
+              classes.modal,
+              fullScreen && classes.modal_fullScreen
+            ])
+          }}
+
+          {...ModalProps}
+        >
+          {fullScreen ? <ModeFullScreen /> : <ModeModal />}
+        </Modal>
+      )}
+
+      {/* Desktop */}
+      {version === 'desktop' && (
+        <Tooltip
+          open={open}
+
+          anchorElement={refs.root.current}
+
+          alignment='center'
+
+          position='bottom'
+
+          hover={false}
+
+          focus={false}
+
+          longPress={false}
+
+          maxWidth='unset'
+
+          noMargin
+
+          label={(
+            <ClickListener
+              onClickOutside={onCancel}
+
+              includeParentQueries={['.AmauiDatePicker-mode', '.AmauiDatePicker-list', '.AmauiDatePicker-day']}
+
+              include={[refs.iconButton, refs.iconButton.current]}
+            >
+              <ModeDocked />
+            </ClickListener>
+          )}
+
+          {...TooltipProps}
+        />
+      )}
+    </ Line>
+  );
 });
 
 DatePicker.displayName = 'AmauiDatePicker';
