@@ -5506,14 +5506,16 @@ Please sign in again.`}
           </Line>
         </Accordion>
 
-        <Accordion primary='Carousel moveWithoutSnap'>
+        <Accordion primary='Carousel free, without momentum'>
           <Line
             style={{
               width: '100%'
             }}
           >
             <Carousel
-              moveWithoutSnap
+              free
+
+              momentum={false}
 
               orientation='horizontal'
 
@@ -5527,7 +5529,9 @@ Please sign in again.`}
             />
 
             <Carousel
-              moveWithoutSnap
+              free
+
+              momentum={false}
 
               orientation='vertical'
 
