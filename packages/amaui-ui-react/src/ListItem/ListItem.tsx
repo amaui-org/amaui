@@ -736,7 +736,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
                 style={{
                   ...styles.primary,
 
-                  ...PrimaryProps.style
+                  ...PrimaryProps?.style
                 }}
               >
                 {primary}
@@ -765,7 +765,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
                 style={{
                   ...styles.secondary,
 
-                  ...SecondaryProps.style
+                  ...SecondaryProps?.style
                 }}
               >
                 {secondary}
@@ -794,7 +794,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
                 style={{
                   ...styles.tertiary,
 
-                  ...TertiaryProps.style
+                  ...TertiaryProps?.style
                 }}
               >
                 {tertiary}

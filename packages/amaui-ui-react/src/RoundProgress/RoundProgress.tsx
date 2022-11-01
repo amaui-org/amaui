@@ -258,7 +258,7 @@ const RoundProgress = React.forwardRef((props_: any, ref: any) => {
               'AmauiRoundedProgress-pathBackground'
             ],
 
-            pathBackgroundProps.className,
+            pathBackgroundProps?.className,
             classes.pathBackground,
             classes[`path_${version}`]
           ])}
