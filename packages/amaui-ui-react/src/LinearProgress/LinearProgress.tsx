@@ -315,11 +315,11 @@ const LinearProgress = React.forwardRef((props_: any, ref: any) => {
       values.line = clamp(value, 0, 100);
     }
 
-    styles.bufferDots.left = `${values.buffer}%`;
+    styles.bufferDots[!reverse ? 'left' : 'right'] = `${values.buffer}%`;
 
-    styles.buffer.transform = `translateX(${reverse ? '-' : ''}${100 - values.buffer}%)`;
+    styles.buffer.transform = `translateX(${!reverse ? '-' : ''}${100 - values.buffer}%)`;
 
-    styles.line.transform = `translateX(${reverse ? '-' : ''}${100 - values.line}%)`;
+    styles.line.transform = `translateX(${!reverse ? '-' : ''}${100 - values.line}%)`;
   }
 
   return (
