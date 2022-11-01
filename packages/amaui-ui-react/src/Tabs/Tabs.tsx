@@ -8,9 +8,9 @@ import Line from '../Line';
 import Icon from '../Icon';
 import IconButton from '../IconButton';
 import useMediaQuery from '../useMediaQuery';
+import Divider from '../Divider';
 
 import { staticClassName } from '../utils';
-import Divider from '../Divider';
 
 const useStyle = style(theme => ({
   root: {
@@ -189,9 +189,9 @@ const Tabs = React.forwardRef((props_: any, ref: any) => {
     value: value_ = 0,
     valueDefault,
 
-    activateOnFocus,
-
     onChange: onChange_,
+
+    activateOnFocus,
 
     align = 'flex-start',
     justify = 'flex-start',
@@ -447,6 +447,9 @@ const Tabs = React.forwardRef((props_: any, ref: any) => {
         staticClassName('Tabs', theme) && [
           'AmauiTabs-root',
           `AmauiTabs-orientation-horizontal`,
+          activateOnFocus && `AmauiTabs-activate-on-focus`,
+          arrows && `AmauiTabs-arrows`,
+          arrowsMobile && `AmauiTabs-arrows-mobile`,
           fixed && `AmauiTabs-fixed`
         ],
 

@@ -27,7 +27,9 @@ const TableHead = React.forwardRef((props_: any, ref: any) => {
     tonal,
     color = 'themed',
     size = 'regular',
+
     sticky,
+
     Component = 'thead',
 
     className,

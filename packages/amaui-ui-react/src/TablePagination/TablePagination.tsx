@@ -96,24 +96,28 @@ const TablePagination = React.forwardRef((props_: any, ref: any) => {
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiTablePagination?.props?.default }), [props_]);
 
   const {
-    total,
-    first = false,
-    before = true,
-    next = true,
-    last = false,
     tonal = false,
     color = 'default',
     version = 'text',
     elevation = false,
     size = 'regular',
+
     page: page_ = 0,
     pageDefault,
+    onChange,
+
     rowsPerPage: rowsPerPage_ = props.total < 4 ? props.total : props.total * 0.05,
     rowsPerPageDefault,
     rowsPerPageOptions = props.total < 4 ? [props.total] : [props.total * 0.05, props.total * 0.1, props.total * 0.25, props.total * 0.5, props.total],
     rowsPerPageText = 'Rows per page',
     onRowsPerPageChange,
-    onChange,
+
+    total,
+    first = false,
+    before = true,
+    next = true,
+    last = false,
+
     IconFirst = IconMaterialFirstPageRounded,
     IconBefore = IconMaterialNavigateBeforeRounded,
     IconNext = IconMaterialNavigateNextRounded,
@@ -179,7 +183,12 @@ const TablePagination = React.forwardRef((props_: any, ref: any) => {
 
       className={classNames([
         staticClassName('TablePagination', theme) && [
-          `AmauiTablePagination-root`
+          `AmauiTablePagination-root`,
+          `AmauiTablePagination-size-${size}`,
+          first && `AmauiTablePagination-first`,
+          before && `AmauiTablePagination-before`,
+          next && `AmauiTablePagination-next`,
+          last && `AmauiTablePagination-last`
         ],
 
         className,

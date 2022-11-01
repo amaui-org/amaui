@@ -33,6 +33,7 @@ const TableFooter = React.forwardRef((props_: any, ref: any) => {
     tonal,
     color = 'themed',
     size = 'regular',
+
     Component = 'div',
 
     className,

@@ -46,6 +46,7 @@ const TableRow = React.forwardRef((props_: any, ref: any) => {
     tonal,
     color = 'themed',
     size = 'regular',
+
     hover = true,
     selected,
     position = 'body',
@@ -75,6 +76,7 @@ const TableRow = React.forwardRef((props_: any, ref: any) => {
         staticClassName('TableRow', theme) && [
           `AmauiTableRow-root`,
           `AmauiTableRow-position-${position}`,
+          `AmauiTableRow-size-${size}`,
           (hover && position === 'body') && `AmauiTableRow-hover`,
           selected && `AmauiTableRow-selected`
         ],

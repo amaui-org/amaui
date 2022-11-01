@@ -57,6 +57,8 @@ const Tab = React.forwardRef((props_: any, ref: any) => {
     version = 'primary',
 
     value,
+    onChange,
+
     active,
     index,
 
@@ -65,17 +67,16 @@ const Tab = React.forwardRef((props_: any, ref: any) => {
     icon,
     iconPosition = 'start',
 
+    activateOnFocus,
+
+    disabled,
+
     onBlur: onBlur_,
     onFocus: onFocus_,
 
-    activateOnFocus,
-
-    onChange,
-
-    Component = 'button',
     LineProps = {},
 
-    disabled,
+    Component = 'button',
 
     className,
 
@@ -116,15 +117,17 @@ const Tab = React.forwardRef((props_: any, ref: any) => {
 
       color={color}
 
-      Component={Component}
-
       onBlur={onBlur}
 
       onFocus={onFocus}
 
+      Component={Component}
+
       className={classNames([
         staticClassName('Tab', theme) && [
           'AmauiTab-root',
+          `AmauiTab-icon-position-${iconPosition}`,
+          icon && `AmauiTab-icon`,
           active && `AmauiTab-active`,
           disabled && `AmauiTab-disabled`
         ],
@@ -150,15 +153,16 @@ const Tab = React.forwardRef((props_: any, ref: any) => {
 
         justify='center'
 
+        {...LineProps}
+
         className={classNames([
           staticClassName('Tab', theme) && [
             'AmauiTab-line'
           ],
 
+          LineProps?.className,
           classes.line
         ])}
-
-        {...LineProps}
       >
         {icon}
 

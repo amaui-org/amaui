@@ -34,12 +34,16 @@ const Table = React.forwardRef((props_: any, ref: any) => {
     color = 'themed',
     size = 'regular',
     elevation = 1,
+
     header,
     footer,
+
+    WrapperComponentProps,
+
     TableComponent = 'table',
     WrapperComponent = 'div',
+
     Component = 'div',
-    WrapperComponentProps,
 
     className,
 
@@ -83,15 +87,16 @@ const Table = React.forwardRef((props_: any, ref: any) => {
       })}
 
       <WrapperComponent
+        {...WrapperComponentProps}
+
         className={classNames([
           staticClassName('Table', theme) && [
             `AmauiTable-wrapper`
           ],
 
+          WrapperComponentProps?.className,
           classes.wrapper
         ])}
-
-        {...WrapperComponentProps}
       >
         <TableComponent
           className={classNames([

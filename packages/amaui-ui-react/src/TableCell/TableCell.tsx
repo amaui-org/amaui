@@ -19,7 +19,7 @@ const useStyle = style(theme => ({
     }
   },
 
-  data: {
+  value: {
 
   },
 
@@ -57,13 +57,15 @@ const TableCell = React.forwardRef((props_: any, ref: any) => {
     tonal,
     color,
     size = 'regular',
+
     position = 'body',
     align = 'center',
     justify = 'flex-end',
     noWeight,
 
-    Component = props.position === 'head' ? 'th' : 'td',
     DividerProps,
+
+    Component = props.position === 'head' ? 'th' : 'td',
 
     className,
 
@@ -103,10 +105,10 @@ const TableCell = React.forwardRef((props_: any, ref: any) => {
 
         className={classNames([
           staticClassName('TableCell', theme) && [
-            `AmauiTableCell-data`
+            `AmauiTableCell-value`
           ],
 
-          classes.data,
+          classes.value,
           classes[`size_${size}`]
         ])}
       >
