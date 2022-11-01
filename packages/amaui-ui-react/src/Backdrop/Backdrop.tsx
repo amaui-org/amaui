@@ -68,10 +68,10 @@ const Backdrop = React.forwardRef((props_: any, ref: any) => {
     disableBackgroundClose,
 
     BackgroundComponent = Fade,
-    BackgroundProps = {},
-
     ModalComponent = Fade,
-    ModalProps = {},
+
+    BackgroundProps,
+    ModalProps,
 
     onClose: onClose_,
 

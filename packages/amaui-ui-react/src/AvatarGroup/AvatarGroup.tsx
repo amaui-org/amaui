@@ -35,13 +35,16 @@ const AvatarGroup = React.forwardRef((props_: any, ref: any) => {
   const { classes } = useStyle(props);
 
   const {
-    max,
     total,
     color = 'primary',
     size = 'regular',
-    AdditionalAvatar,
-    AdditionalAvatarProps = { color: 'neutral', tonal: true },
+
+    max,
     disabled,
+
+    AdditionalAvatar,
+
+    AdditionalAvatarProps = {},
 
     className,
     style,
@@ -81,6 +84,10 @@ const AvatarGroup = React.forwardRef((props_: any, ref: any) => {
       AdditionalAvatar ||
 
       <Avatar
+        tonal
+
+        color='neutral'
+
         {...other}
 
         {...AdditionalAvatarProps}
@@ -119,15 +126,18 @@ const AvatarGroup = React.forwardRef((props_: any, ref: any) => {
       {children.map((item: any, index: number) => React.cloneElement(item, {
         key: index,
 
-        className: classes.item,
+        className: classNames([
+          item?.props?.className,
+          classes.item
+        ]),
 
-        size,
+        size: item.props.size || size,
+
+        color: item.props.color || color,
 
         ...other,
 
-        ...item.props,
-
-        color: item.props.color || color
+        ...item.props
       }))}
     </div>
   );

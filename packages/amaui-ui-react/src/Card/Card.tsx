@@ -53,16 +53,19 @@ const Card = React.forwardRef((props_: any, ref: any) => {
     color: color_ = 'primary',
     version = 'filled',
     elevation: elevation_ = 0,
+
     focus: focus_,
-    onFocus: onFocus_,
-    onBlur: onBlur_,
     selected,
     button,
     href,
     disabled,
 
-    Component = props.href ? 'a' : 'div',
+    onFocus: onFocus_,
+    onBlur: onBlur_,
+
     InteractionProps,
+
+    Component = props.href ? 'a' : 'div',
 
     className,
 
@@ -105,10 +108,6 @@ const Card = React.forwardRef((props_: any, ref: any) => {
 
       tabIndex={(href || button) && !disabled ? 0 : undefined}
 
-      href={href}
-
-      Component={Component}
-
       color={color}
 
       tonal={tonal}
@@ -117,9 +116,15 @@ const Card = React.forwardRef((props_: any, ref: any) => {
 
       elevation={elevation}
 
+      href={href}
+
       onFocus={onFocus}
 
       onBlur={onBlur}
+
+      disabled={disabled}
+
+      Component={Component}
 
       className={classNames([
         staticClassName('Card', theme) && [
@@ -139,8 +144,6 @@ const Card = React.forwardRef((props_: any, ref: any) => {
           classes[`disabled_version_${version}`]
         ]
       ])}
-
-      disabled={disabled}
 
       {...other}
     >

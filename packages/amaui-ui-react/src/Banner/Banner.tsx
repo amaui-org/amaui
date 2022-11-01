@@ -57,9 +57,11 @@ const Banner = React.forwardRef((props_: any, ref: any) => {
   const { classes } = useStyle(props);
 
   const {
+    size = 'regular',
+
     maxWidth,
     actions,
-    size = 'regular',
+
     Component = 'div',
 
     style,

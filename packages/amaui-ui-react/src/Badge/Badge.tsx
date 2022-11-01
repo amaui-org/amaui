@@ -73,13 +73,16 @@ const Badge = React.forwardRef((props_: any, ref: any) => {
   const { classes } = useStyle(props);
 
   const {
-    max,
-    value: value_,
     tonal = false,
     color = 'primary',
+
+    value: value_,
+
+    max,
     vertical = 'top',
     horizontal = 'right',
     indicator,
+
     Component = 'span',
 
     className,
@@ -119,11 +122,11 @@ const Badge = React.forwardRef((props_: any, ref: any) => {
       {children}
 
       <Surface
-        Component='span'
-
         tonal={tonal}
 
         color={color}
+
+        Component='span'
 
         className={classNames([
           staticClassName('Badge', theme) && [

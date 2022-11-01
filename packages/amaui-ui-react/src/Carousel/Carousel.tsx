@@ -352,6 +352,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
   const noTransition = valueBreakpoints(noTransition_, undefined, breakpoints, theme);
 
   let free = valueBreakpoints(free_, undefined, breakpoints, theme);
+
   let momentum = valueBreakpoints(momentum_, undefined, breakpoints, theme);
 
   if (momentum && version !== 'regular') momentum = false;

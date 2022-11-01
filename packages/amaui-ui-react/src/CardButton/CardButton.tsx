@@ -21,14 +21,16 @@ const CardButton = React.forwardRef((props_: any, ref: any) => {
 
   const {
     focus: focus_,
-    onFocus: onFocus_,
-    onBlur: onBlur_,
     selected,
     href,
     disabled,
 
-    Component = props.href ? 'a' : 'div',
+    onFocus: onFocus_,
+    onBlur: onBlur_,
+
     InteractionProps,
+
+    Component = props.href ? 'a' : 'div',
 
     className,
 

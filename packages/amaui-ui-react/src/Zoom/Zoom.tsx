@@ -118,9 +118,15 @@ const Zoom = React.forwardRef((props_: any, ref: any) => {
           ref: item => {
             refs.root.current = item;
 
-            if (ref) ref.current = item;
+            if (ref) {
+              if (is('function', ref)) ref(item);
+              else ref.current = item;
+            }
 
-            if (ref_) ref_.current = item;
+            if (ref_) {
+              if (is('function', ref_)) ref_(item);
+              else ref_.current = item;
+            }
 
             if (children.ref) {
               if (is('function', children.ref)) children.ref(item);

@@ -220,16 +220,18 @@ const Buttons = React.forwardRef((props_: any, ref: any) => {
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiButtons?.props?.default }), [props_]);
 
   const {
-    select,
     tonal,
-    version = 'outlined',
     color = 'primary',
+    version = 'outlined',
     colorSelected = props.color,
     size = 'regular',
-    orientation = 'horizontal',
+
     value,
     valueDefault,
     onChange,
+
+    select,
+    orientation = 'horizontal',
     noCheckIcon,
     elevation = true,
     border = true,

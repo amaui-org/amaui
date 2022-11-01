@@ -168,12 +168,15 @@ const Accordion = React.forwardRef((props_: any, ref: any) => {
     noTransition,
     disabled,
 
-    Component = 'div',
-    ExpandProps,
     ExpandIcon = IconMaterialExpandMoreRounded,
     TransitionComponent: TransitionComponent_ = Fade,
+
+    Component = 'div',
+
+    ExpandProps,
     TransitionComponentProps: TransitionComponentProps_ = { add: true },
     WrapperHeaderProps,
+    IconButtonProps,
 
     className,
 
@@ -252,6 +255,7 @@ const Accordion = React.forwardRef((props_: any, ref: any) => {
             `AmauiAccordion-expanded-margin-vertical-${expandedMarginVertical}`,
             `AmauiAccordion-expanded-header-padding-vertical-${expandedHeaderPaddingVertical}`
           ],
+          noExpandButton && `AmauiAccordion-noExpandButton`,
           noBackground && `AmauiAccordion-noBackground`,
           noTransition && `AmauiAccordion-noTransition`,
           disabled && `AmauiAccordion-disabled`
@@ -275,11 +279,14 @@ const Accordion = React.forwardRef((props_: any, ref: any) => {
 
         onClick={onClick}
 
+        {...WrapperHeaderProps}
+
         className={classNames([
           staticClassName('Accordion', theme) && [
             'AmauiAccordion-wrapperHeader'
           ],
 
+          WrapperHeaderProps?.className,
           classes.wrapperHeader,
           classes[`header_padding_vertical_${headerPaddingVertical}`],
           classes[`header_padding_horizontal_${headerPaddingHorizontal}`],
@@ -287,8 +294,6 @@ const Accordion = React.forwardRef((props_: any, ref: any) => {
             classes[`expanded_header_padding_vertical_${expandedHeaderPaddingVertical}`]
           ]
         ])}
-
-        {...WrapperHeaderProps}
       >
         <Grid
           gap={{ xs: 0.5, sm: 3 }}
@@ -380,11 +385,14 @@ const Accordion = React.forwardRef((props_: any, ref: any) => {
           <IconButton
             color='inherit'
 
+            {...IconButtonProps}
+
             className={classNames([
               staticClassName('Accordion', theme) && [
                 'AmauiAccordion-iconButton'
               ],
 
+              IconButtonProps?.className,
               classes.iconButton
             ])}
           >

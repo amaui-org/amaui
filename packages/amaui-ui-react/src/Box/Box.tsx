@@ -5,7 +5,9 @@ import { classNames, style, useAmauiTheme, className } from '@amaui/style-react'
 import { staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
-  root: {},
+  root: {
+
+  },
 }), { name: 'AmauiBox' });
 
 const Box = React.forwardRef((props_: any, ref: any) => {
@@ -17,6 +19,7 @@ const Box = React.forwardRef((props_: any, ref: any) => {
 
   const {
     styles,
+
     Component = 'div',
 
     className: className_,

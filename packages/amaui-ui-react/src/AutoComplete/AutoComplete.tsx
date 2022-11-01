@@ -144,13 +144,18 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
   const {
     tonal,
     color = 'primary',
-    multiple,
-    valueInput: valueInput_,
-    valueInputDefault,
-    value: value_,
-    valueDefault,
     size = 'regular',
     version = 'filled',
+
+    valueInput: valueInput_,
+    valueInputDefault,
+    onChangeInput,
+
+    value: value_,
+    valueDefault,
+    onChange,
+
+    multiple,
     prefix,
     sufix,
     start,
@@ -178,13 +183,14 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
     filterOutSelectedOptions,
     selectOnFocus,
     clearOnBlur,
-    onChangeInput,
-    onChange,
-    IconClear = IconMaterialCloseRounded,
-    ChipGroupProps = {},
-    ListProps = {},
-    MenuProps = {},
+
     disabled,
+
+    IconClear = IconMaterialCloseRounded,
+
+    ChipGroupProps,
+    ListProps,
+    MenuProps,
 
     className,
     style,
@@ -868,11 +874,12 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
 
             size,
 
+            ...ListProps,
+
             className: classNames([
+              ListProps?.className,
               classes.list
             ]),
-
-            ...ListProps
           }}
 
           {...MenuProps}

@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { is } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Fade from '../Fade';
@@ -161,7 +162,10 @@ const Reveal = React.forwardRef((props_: any, ref: any) => {
     >
       {React.cloneElement(children, {
         ref: item => {
-          if (ref) ref.current = item;
+          if (ref) {
+            if (is('function', ref)) ref(item);
+            else ref.current = item;
+          }
 
           refs.root.current = item;
         },

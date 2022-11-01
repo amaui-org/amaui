@@ -253,11 +253,11 @@ const BottomAppBar = React.forwardRef((props_: any, ref: any) => {
     <Surface
       ref={ref}
 
-      Component={Line}
-
       color={color}
 
       tonal={tonal}
+
+      gap={4}
 
       direction='row'
 
@@ -265,7 +265,7 @@ const BottomAppBar = React.forwardRef((props_: any, ref: any) => {
 
       justify='space-between'
 
-      gap={4}
+      Component={Line}
 
       className={classNames([
         staticClassName('BottomAppBar', theme) && [

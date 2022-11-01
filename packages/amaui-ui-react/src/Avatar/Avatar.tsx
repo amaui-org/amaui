@@ -42,20 +42,20 @@ const Avatar = React.forwardRef((props_: any, ref) => {
   const { classes } = useStyle(props);
 
   const {
-    image,
-    alt,
-    square,
     tonal = false,
     version = 'filled',
     size = 'regular',
+
+    image,
+    alt,
+    square,
     elevation = 0,
-    Component = 'span',
-    TypeProps = {},
-    InteractionProps = {
-      background: false,
-      wave: false
-    },
     disabled,
+
+    TypeProps,
+    InteractionProps,
+
+    Component = 'span',
 
     className,
 
@@ -113,19 +113,26 @@ const Avatar = React.forwardRef((props_: any, ref) => {
     <Button
       ref={ref}
 
-      {...other}
-
       tonal={tonal}
 
       elevation={elevation}
 
       version={version}
 
-      Component={Component}
-
-      InteractionProps={InteractionProps}
-
       size={size}
+
+      disabled={disabled}
+
+      icon
+
+      InteractionProps={{
+        background: false,
+        wave: false,
+
+        ...InteractionProps
+      }}
+
+      Component={Component}
 
       className={classNames([
         staticClassName('Avatar', theme) && [
@@ -139,9 +146,7 @@ const Avatar = React.forwardRef((props_: any, ref) => {
         square && classes.square
       ])}
 
-      disabled={disabled}
-
-      icon
+      {...other}
     >
       {children}
     </Button>

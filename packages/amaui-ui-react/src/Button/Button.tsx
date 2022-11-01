@@ -272,6 +272,7 @@ const Button = React.forwardRef((props_: any, ref: any) => {
     color: color_ = 'primary',
     version = 'outlined',
     size = 'regular',
+
     fullWidth,
     fontSize,
     selected,
@@ -283,8 +284,6 @@ const Button = React.forwardRef((props_: any, ref: any) => {
     elevation = true,
     backgroundOpacity,
     align = 'center',
-    IconWrapperComponent = 'span',
-    IconWrapperProps = {},
     loading,
     loadingLabel,
     loadingIcon = <RoundProgress size='small' />,
@@ -294,15 +293,22 @@ const Button = React.forwardRef((props_: any, ref: any) => {
     icon,
     focus: focus_,
     value,
+    noIconRootFontSize,
+    firstLevelChildren,
+
+    disabled: disabled_,
+
     onFocus: onFocus_,
     onBlur: onBlur_,
     onSelected,
     onUnselected,
-    noIconRootFontSize,
+
+    IconWrapperComponent = 'span',
+
     InteractionProps = {},
+    IconWrapperProps = {},
+
     Component = props.href ? 'a' : 'button',
-    firstLevelChildren,
-    disabled: disabled_,
 
     className,
     style,
@@ -324,7 +330,7 @@ const Button = React.forwardRef((props_: any, ref: any) => {
   let start = (selected && startSelected) || start_;
   let end = (selected && endSelected) || end_;
   let disabled = disabled_ || loading;
-  let TypeProps = { version: 'l2' };
+  let TypeProps: any = { version: 'l2' };
 
   if (disabled) color = 'default';
 
@@ -454,8 +460,6 @@ const Button = React.forwardRef((props_: any, ref: any) => {
         refs.root.current = item;
       }}
 
-      Component={Component}
-
       color={color}
 
       tonal={tonal}
@@ -469,6 +473,8 @@ const Button = React.forwardRef((props_: any, ref: any) => {
       onFocus={onFocus}
 
       onBlur={onBlur}
+
+      Component={Component}
 
       className={classNames([
         staticClassName('Button', theme) && [
@@ -561,27 +567,35 @@ const Button = React.forwardRef((props_: any, ref: any) => {
 
       {icon ? (
         <IconWrapperComponent
+          {...IconWrapperProps}
+
           className={classNames([
             staticClassName('Button', theme) && [
               'AmauiButton-iconRoot'
             ],
 
+            IconWrapperProps?.className,
             classes.iconRoot
           ])}
 
-          style={styles.iconRoot}
+          style={{
+            ...styles.iconRoot,
 
-          {...IconWrapperProps}
+            ...IconWrapperProps?.style
+          }}
         >
           {IconElement}
         </IconWrapperComponent>
       ) : (
         <Type
+          {...TypeProps}
+
           className={classNames([
             staticClassName('Button', theme) && [
               'AmauiButton-label'
             ],
 
+            TypeProps?.className,
             classes.label,
             classes[`label_size_${size}`],
             classes[`align_${align}`]
@@ -589,9 +603,11 @@ const Button = React.forwardRef((props_: any, ref: any) => {
 
           Component='span'
 
-          style={styles.label}
+          style={{
+            ...styles.label,
 
-          {...TypeProps}
+            ...TypeProps?.style
+          }}
         >
           {React.Children.toArray(children_).map((item_: any, index: number) => {
             const item = (selected && item_.type?.displayName?.includes('AmauiIcon') && iconSelected) ? iconSelected : item_;
