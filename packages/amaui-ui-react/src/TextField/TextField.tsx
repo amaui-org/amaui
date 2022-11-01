@@ -584,7 +584,9 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
   let type = type_;
 
   const styles: any = {
-    root: {},
+    root: {
+
+    },
     input: {},
     inputWrapper: {},
     background: {

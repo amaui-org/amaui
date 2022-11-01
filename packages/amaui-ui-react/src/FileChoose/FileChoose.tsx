@@ -236,11 +236,13 @@ const FileChoose = React.forwardRef((props_: any, ref: any) => {
 
     className: classNames([
       staticClassName('FileChoose', theme) && [
-        'AmauiFileChoose-root'
+        'AmauiFileChoose-root',
+        multiple && `AmauiFileChoose-multiple`,
+        remove && `AmauiFileChoose-remove`
       ],
 
-      className,
       WrapperProps_?.className,
+      className,
       classes.root
     ]),
 
@@ -259,11 +261,13 @@ const FileChoose = React.forwardRef((props_: any, ref: any) => {
 
       className: classNames([
         staticClassName('FileChoose', theme) && [
-          'AmauiFileChoose-root'
+          'AmauiFileChoose-root',
+          multiple && `AmauiFileChoose-multiple`,
+          remove && `AmauiFileChoose-remove`
         ],
 
-        className,
         ComponentProps_?.className,
+        className,
         classes.root
       ]),
 

@@ -371,7 +371,9 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
   refs.focus.current = focus;
 
   const styles: any = {
-    root: {},
+    root: {
+
+    },
     icon: { color: 'default' },
     wrapper: {},
     primary: {},

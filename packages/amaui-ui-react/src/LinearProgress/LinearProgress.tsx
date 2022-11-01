@@ -273,7 +273,10 @@ const LinearProgress = React.forwardRef((props_: any, ref: any) => {
     buffer,
     reverse: reverse_,
 
+    Component = 'div',
+
     className,
+    style,
 
     ...other
   } = props;
@@ -283,7 +286,9 @@ const LinearProgress = React.forwardRef((props_: any, ref: any) => {
   if (theme.direction === 'rtl' && version === 'indeterminate') reverse = !reverse;
 
   const styles: any = {
-    root: {},
+    root: {
+
+    },
     buffer: {},
     bufferDots: {},
     line: {}
@@ -323,7 +328,7 @@ const LinearProgress = React.forwardRef((props_: any, ref: any) => {
   }
 
   return (
-    <div
+    <Component
       ref={ref}
 
       className={classNames([
@@ -343,7 +348,11 @@ const LinearProgress = React.forwardRef((props_: any, ref: any) => {
         reverse && classes.reverse
       ])}
 
-      style={styles.root}
+      style={{
+        ...styles.root,
+
+        ...style
+      }}
 
       {...other}
     >
@@ -429,7 +438,7 @@ const LinearProgress = React.forwardRef((props_: any, ref: any) => {
           style={styles.line}
         />
       )}
-    </div>
+    </Component>
   );
 });
 

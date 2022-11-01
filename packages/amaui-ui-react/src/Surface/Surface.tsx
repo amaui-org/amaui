@@ -723,7 +723,9 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
   } = props;
 
   const styles: any = {
-    root: {},
+    root: {
+
+    },
     children: {}
   };
 

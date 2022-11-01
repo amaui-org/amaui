@@ -33,7 +33,9 @@ const ModalHeader = React.forwardRef((props_: any, ref: any) => {
   } = props;
 
   const styles: any = {
-    root: {}
+    root: {
+
+    }
   };
 
   if (React.Children.toArray(children).length > 1) styles.root.alignItems = align !== undefined ? align : 'center';

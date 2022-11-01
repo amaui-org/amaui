@@ -168,7 +168,9 @@ const RoundProgress = React.forwardRef((props_: any, ref: any) => {
   let rounded = rounded_;
 
   const styles: any = {
-    root: {},
+    root: {
+
+    },
     circle: {}
   };
 

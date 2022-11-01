@@ -801,7 +801,9 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
   }, [disabled, readOnly]);
 
   const styles: any = {
-    root: {},
+    root: {
+
+    },
     icon: {},
     iconButton: {},
     rail: {},

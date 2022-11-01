@@ -239,7 +239,9 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
   }
 
   const styles: any = {
-    root: {},
+    root: {
+
+    },
     border: {},
     background: {},
     iconButton: {}

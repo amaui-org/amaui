@@ -50,7 +50,9 @@ const Masonry = React.forwardRef((props_: any, ref: any) => {
   const { classes } = useStyle(props);
 
   const styles: any = {
-    root: {},
+    root: {
+
+    },
     item: {}
   };
 

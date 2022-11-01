@@ -128,7 +128,9 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
   };
 
   const styles: any = {
-    root: {}
+    root: {
+
+    }
   };
 
   let radius: number;

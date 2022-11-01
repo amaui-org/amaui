@@ -959,7 +959,9 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
 
       className={classNames([
         staticClassName('Drawing', theme) && [
-          'AmauiDrawing-root'
+          'AmauiDrawing-root',
+          updates && `AmauiDrawing-updates`,
+          actions && `AmauiDrawing-actions`
         ],
 
         className,

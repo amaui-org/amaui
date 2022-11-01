@@ -73,7 +73,9 @@ const Banner = React.forwardRef((props_: any, ref: any) => {
   } = props;
 
   const styles: any = {
-    root: {}
+    root: {
+
+    }
   };
 
   if (actions) {

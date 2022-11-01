@@ -120,7 +120,9 @@ const Container = React.forwardRef((props_: any, ref: any) => {
   const maxWidth = valueBreakpoints(maxWidth_, undefined, breakpoints, theme);
 
   const styles: any = {
-    root: {}
+    root: {
+
+    }
   };
 
   if (!classes[maxWidth]) styles.root.maxWidth = maxWidth;

@@ -7,7 +7,9 @@ import Buttons from '../Buttons';
 import { staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
-  root: {},
+  root: {
+
+  },
 }), { name: 'AmauiToggleButtons' });
 
 const ToggleButtons = React.forwardRef((props_: any, ref: any) => {

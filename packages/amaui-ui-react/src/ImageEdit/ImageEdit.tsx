@@ -1381,8 +1381,6 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
   const filterValue = filters.find(item_ => item_.value === filter);
 
-  const rect = refs.root.current?.getBoundingClientRect();
-
   return (
     <Line
       ref={item => {
@@ -1403,7 +1401,14 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
       className={classNames([
         staticClassName('ImageEdit', theme) && [
-          'AmauiImageEdit-root'
+          'AmauiImageEdit-root',
+          meta && `AmauiImageEdit-meta`,
+          filtersOption && `AmauiImageEdit-filters-option`,
+          cropOption && `AmauiImageEdit-crop-option`,
+          resizeOption && `AmauiImageEdit-resize-option`,
+          qualityOption && `AmauiImageEdit-quality-option`,
+          downloadOption && `AmauiImageEdit-download-option`,
+          resizeAspectRatio && `AmauiImageEdit-resize-aspect-ratio`
         ],
 
         className,

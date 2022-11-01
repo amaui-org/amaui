@@ -380,7 +380,8 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
 
       className={classNames([
         staticClassName('LineChart', theme) && [
-          'AmauiLineChart-root'
+          'AmauiLineChart-root',
+          smooth && `AmauiLineChart-smooth`
         ],
 
         className,

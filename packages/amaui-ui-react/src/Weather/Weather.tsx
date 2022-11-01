@@ -311,7 +311,9 @@ const Weather = React.forwardRef((props_: any, ref: any) => {
   refs.values.current = values;
 
   const styles: any = {
-    root: {}
+    root: {
+
+    }
   };
 
   React.useEffect(() => {

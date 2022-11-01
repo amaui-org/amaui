@@ -55,7 +55,9 @@ const ImageListItem = React.forwardRef((props_: any, ref: any) => {
   } = props;
 
   const styles: any = {
-    root: {}
+    root: {
+
+    }
   };
 
   const rows = valueBreakpoints(rows_, 1, breakpoints, theme);

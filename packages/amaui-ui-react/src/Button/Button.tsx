@@ -335,7 +335,9 @@ const Button = React.forwardRef((props_: any, ref: any) => {
   if (disabled) color = 'default';
 
   const styles: any = {
-    root: {},
+    root: {
+
+    },
     background: {},
     border: {},
     iconRoot: {},

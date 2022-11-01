@@ -73,7 +73,9 @@ const IconItem = (props: any) => {
   } = props;
 
   const styles: any = {
-    root: {}
+    root: {
+
+    }
   };
 
   const fontSize = iconSizeToFontSize(size);

@@ -87,7 +87,9 @@ const Type = React.forwardRef((props_: any, ref: any) => {
   } = props;
 
   const styles: any = {
-    root: {}
+    root: {
+
+    }
   };
 
   let Component: any = Component_;

@@ -173,7 +173,9 @@ const IconItem = (props: any) => {
   } = props;
 
   const styles: any = {
-    root: {}
+    root: {
+
+    }
   };
 
   let fontSize = '24px';

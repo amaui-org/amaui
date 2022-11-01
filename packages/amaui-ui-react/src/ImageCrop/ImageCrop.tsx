@@ -1262,7 +1262,10 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
 
       className={classNames([
         staticClassName('ImageCrop', theme) && [
-          'AmauiImageCrop-root'
+          'AmauiImageCrop-root',
+          aspectRatio && `AmauiImageCrop-aspect-ratio`,
+          gridLines && `AmauiImageCrop-grid-lines`,
+          dynamicParent && `AmauiImageCrop-dynamic-parent`
         ],
 
         className,

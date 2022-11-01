@@ -143,8 +143,9 @@ const Line = React.forwardRef((props_: any, ref: any) => {
     divider: divider_,
     wrap: wrap_,
 
+    DividerProps,
+
     Component = 'div',
-    DividerProps = {},
 
     className,
     style,
@@ -164,7 +165,9 @@ const Line = React.forwardRef((props_: any, ref: any) => {
   const wrap = valueBreakpoints(wrap_, undefined, breakpoints, theme);
 
   const styles: any = {
-    root: {},
+    root: {
+
+    },
     divider: {}
   };
 

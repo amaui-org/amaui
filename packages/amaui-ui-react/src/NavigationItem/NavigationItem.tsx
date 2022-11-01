@@ -173,7 +173,9 @@ const NavigationItem = React.forwardRef((props_: any, ref: any) => {
   };
 
   const styles: any = {
-    root: {},
+    root: {
+
+    },
     icon: {},
     label: {},
     indicator: {}

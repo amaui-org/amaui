@@ -97,7 +97,9 @@ const List = React.forwardRef((props_: any, ref: any) => {
   } = props;
 
   const styles: any = {
-    root: {}
+    root: {
+
+    }
   };
 
   if (indent !== undefined) styles.root.paddingInlineStart = `${indent * theme.space.unit}px`;

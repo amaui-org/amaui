@@ -179,7 +179,9 @@ const Select = React.forwardRef((props_: any, ref: any) => {
   };
 
   const styles: any = {
-    root: {},
+    root: {
+
+    },
 
     menu: {
       ...menuStyle

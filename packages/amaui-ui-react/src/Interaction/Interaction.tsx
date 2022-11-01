@@ -160,8 +160,9 @@ const Interaction = React.forwardRef((props_: any, ref: any) => {
   const {
     wave = true,
     background = true,
-    border: border_ = false,
+    border: border_,
     pulse,
+
     origin,
     preselected,
     selected,
@@ -189,7 +190,9 @@ const Interaction = React.forwardRef((props_: any, ref: any) => {
   const { classes } = useStyle(props);
 
   refs.props.current = props;
+
   refs.wave.current = wave;
+
   refs.pulse.current = pulse;
 
   React.useEffect(() => {

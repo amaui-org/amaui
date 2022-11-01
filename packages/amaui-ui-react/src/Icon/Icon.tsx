@@ -123,6 +123,7 @@ const Icon = React.forwardRef((props_: any, ref: any) => {
 
       // Prevents svg oversize on load
       width='1em'
+
       height='1em'
 
       style={{

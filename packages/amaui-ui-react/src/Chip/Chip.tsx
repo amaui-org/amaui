@@ -10,7 +10,9 @@ import { IconDoneAnimated } from '../Buttons/Buttons';
 import { staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
-  root: {},
+  root: {
+
+  },
 }), { name: 'AmauiChip' });
 
 const IconMaterialCloseSharp = React.forwardRef((props: any, ref) => {

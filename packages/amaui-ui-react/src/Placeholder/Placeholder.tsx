@@ -111,7 +111,9 @@ const Placeholder = React.forwardRef((props_: any, ref: any) => {
   const { classes } = useStyle(props);
 
   const styles: any = {
-    root: {}
+    root: {
+
+    }
   };
 
   if (width !== undefined) styles.root.width = width;

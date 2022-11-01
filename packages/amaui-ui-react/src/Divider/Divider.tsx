@@ -178,7 +178,9 @@ const Divider = React.forwardRef((props_: any, ref: any) => {
   } = props;
 
   const styles: any = {
-    root: {},
+    root: {
+
+    },
     divider: {},
     start: {},
     end: {}

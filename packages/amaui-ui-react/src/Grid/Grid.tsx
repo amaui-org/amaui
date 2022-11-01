@@ -104,7 +104,8 @@ const Grid = React.forwardRef((props_: any, ref: any) => {
     offsets,
     values,
 
-    RootProps = {},
+    RootProps,
+
     Component: Component_ = 'div',
 
     style,
@@ -121,7 +122,9 @@ const Grid = React.forwardRef((props_: any, ref: any) => {
   const direction = valueBreakpoints(direction_, 'row', breakpoints, theme);
 
   const styles: any = {
-    root: {},
+    root: {
+
+    },
     divider: {}
   };
 

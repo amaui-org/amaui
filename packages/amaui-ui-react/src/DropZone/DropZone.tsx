@@ -68,7 +68,6 @@ const DropZone = React.forwardRef((props_: any, ref: any) => {
   const {
     tonal = true,
     color = 'default',
-
     version,
 
     start,
@@ -218,9 +217,9 @@ const DropZone = React.forwardRef((props_: any, ref: any) => {
 
   other.onDragOver = onDragOver;
 
-  let WrapperProps = {};
+  let WrapperProps: any = {};
 
-  let ComponentProps = {};
+  let ComponentProps: any = {};
 
   if (files) {
     WrapperProps = {
@@ -270,6 +269,7 @@ const DropZone = React.forwardRef((props_: any, ref: any) => {
       className={classNames([
         staticClassName('DropZone', theme) && [
           'AmauiDropZone-root',
+          multiple && `AmauiDropZone-multiple`,
           dragOver && `AmauiDropZone-drag-over`
         ],
 
@@ -284,27 +284,29 @@ const DropZone = React.forwardRef((props_: any, ref: any) => {
 
         onBlur,
 
+        ...ComponentProps,
+
         className: classNames([
           staticClassName('DropZone', theme) && [
             'AmauiDropZone-label'
           ],
 
+          ComponentProps?.className,
           classes.label
-        ]),
-
-        ...ComponentProps
+        ])
       }}
 
       WrapperProps={{
+        ...WrapperProps,
+
         className: classNames([
           staticClassName('DropZone', theme) && [
             'AmauiDropZone-wrapper'
           ],
 
+          WrapperProps?.className,
           classes.wrapper
-        ]),
-
-        ...WrapperProps
+        ])
       }}
     >
       <Interaction

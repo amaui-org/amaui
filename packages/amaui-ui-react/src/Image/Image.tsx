@@ -231,17 +231,18 @@ const Image = React.forwardRef((props_: any, ref: any) => {
 
         version='b3'
 
+        {...DescriptionProps}
+
         className={classNames([
           staticClassName('Image', theme) && [
             'AmauiImage-figcaption'
           ],
 
+          DescriptionProps?.className,
           className,
           classes.figcaption,
           classes[`alignment_description_${alignmentDescription}`]
         ])}
-
-        {...DescriptionProps}
       >
         {description}
       </Type>
@@ -260,9 +261,9 @@ const Image = React.forwardRef((props_: any, ref: any) => {
           responsive && `AmauiContainer-responsive`,
           maxWidth && `AmauiContainer-maxWidth-${maxWidth}`,
           fullWidth && `AmauiContainer-fullWidth-${fullWidth}`,
-          img && `AmauiImage-root-img`,
-          (picture && !description) && `AmauiImage-root-picture`,
-          description && `AmauiImage-root-figure`,
+          img && `AmauiImage-img`,
+          (picture && !description) && `AmauiImage-picture`,
+          description && `AmauiImage-figure`,
         ],
 
         className,

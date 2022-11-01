@@ -120,7 +120,9 @@ const LinearMeter = React.forwardRef((props_: any, ref: any) => {
   };
 
   const styles: any = {
-    root: {}
+    root: {
+
+    }
   };
 
   let width = width_ !== undefined ? width_ : size === 'regular' ? 240 : size === 'large' ? 300 : 180;
@@ -593,7 +595,15 @@ const LinearMeter = React.forwardRef((props_: any, ref: any) => {
           'AmauiLinearMeter-root',
           `AmauiLinearMeter-orientation-${orientation}`,
           `AmauiLinearMeter-line-position-${linePosition}`,
-          `AmauiLinearMeter-size-${size}`
+          `AmauiLinearMeter-size-${size}`,
+          `AmauiLinearMeter-parts-${parts}`,
+          `AmauiLinearMeter-line-cap-${lineCap}`,
+          border && `AmauiLinearMeter-border`,
+          background && `AmauiLinearMeter-background`,
+          lineProgress && `AmauiLinearMeter-line-progress`,
+          linesVisible && `AmauiLinearMeter-lines-visible`,
+          marksVisible && `AmauiLinearMeter-marks-visible`,
+          labelsVisible && `AmauiLinearMeter-labels-visible`
         ],
 
         className,
@@ -829,7 +839,7 @@ const LinearMeter = React.forwardRef((props_: any, ref: any) => {
                   ])}
                 >
                   {(labelsValue.map((item: any, index: number) => {
-                    const { x, y, value, ...other } = item;
+                    const { x, y, value, ...other_ } = item;
 
                     return (
                       <text
@@ -839,7 +849,7 @@ const LinearMeter = React.forwardRef((props_: any, ref: any) => {
 
                         y={y}
 
-                        {...other}
+                        {...other_}
 
                         {...textProps}
 
@@ -850,7 +860,7 @@ const LinearMeter = React.forwardRef((props_: any, ref: any) => {
                             'AmauiLinearMeter-label'
                           ],
 
-                          other?.className,
+                          other_?.className,
                           textProps?.className,
                           LabelProps?.className,
                           classes.label
@@ -859,7 +869,7 @@ const LinearMeter = React.forwardRef((props_: any, ref: any) => {
                         style={{
                           fill: color,
 
-                          ...other.style,
+                          ...other_.style,
 
                           ...textProps?.style,
 

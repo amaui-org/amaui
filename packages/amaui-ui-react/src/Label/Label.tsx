@@ -51,9 +51,9 @@ const Label = React.forwardRef((props_: any, ref: any) => {
 
     disabled,
 
-    Component = 'label',
-
     TypeProps,
+
+    Component = 'label',
 
     className,
 
@@ -107,10 +107,14 @@ const Label = React.forwardRef((props_: any, ref: any) => {
 
       Component={Component}
 
+      disabled={disabled}
+
       className={classNames([
         staticClassName('Label', theme) && [
           'AmauiLabel-root',
+          `AmauiLabel-version-${version}`,
           `AmauiLabel-position-${position}`,
+          `AmauiLabel-size-${size}`,
           disabled && `AmauiLabel-disabled`
         ],
 
@@ -118,8 +122,6 @@ const Label = React.forwardRef((props_: any, ref: any) => {
         classes.root,
         disabled && classes.disabled
       ])}
-
-      disabled={disabled}
 
       {...other}
     >
@@ -135,6 +137,7 @@ const Label = React.forwardRef((props_: any, ref: any) => {
         tonal: Input?.props?.tonal !== undefined ? Input.props.tonal : tonal,
         color: Input?.props?.color !== undefined ? Input.props.color : color,
         colorUnchecked: Input?.props?.colorUnchecked !== undefined ? Input.props.colorUnchecked : colorUnchecked,
+
         version: Input?.props?.version !== undefined ? Input.props.version : version,
 
         size: Input?.props?.size !== undefined ? Input.props.size : size,
@@ -150,16 +153,17 @@ const Label = React.forwardRef((props_: any, ref: any) => {
         <Type
           version={size === 'regular' ? 'b2' : size === 'large' ? 'b1' : 'b3'}
 
+          {...TypeProps}
+
           className={classNames([
             staticClassName('Label', theme) && [
               'AmauiLabel-text'
             ],
 
+            TypeProps?.className,
             classes.text,
             disabled && classes.text_disabled
           ])}
-
-          {...TypeProps}
         >
           {Text}
         </Type>
