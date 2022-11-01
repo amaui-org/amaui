@@ -20,15 +20,15 @@ const useStyle = style(theme => ({
     whiteSpace: 'nowrap'
   },
 
-  labelRoot_position_top: { marginBottom: '16px' },
+  labelRoot_position_top: { paddingBottom: '16px' },
 
-  labelRoot_position_bottom: { marginTop: '16px' },
+  labelRoot_position_bottom: { paddingTop: '16px' },
 
-  labelRoot_position_left: { marginRight: '16px' },
+  labelRoot_position_left: { paddingRight: '16px' },
 
-  labelRoot_position_right: { marginLeft: '16px' },
+  labelRoot_position_right: { paddingLeft: '16px' },
 
-  labelRoot_noMargin: { margin: 0 },
+  labelRoot_noMargin: { padding: 0 },
 
   label: {
     ...theme.typography.values.b3,
@@ -202,6 +202,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
     inset,
     nowrap,
     follow,
+    interactive,
 
     onOpen: onOpen_,
     onClose: onClose_,
@@ -213,8 +214,6 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
     AppendProps = {},
     ModalProps = {},
     LabelProps = {},
-
-    interactive,
 
     className,
     style,
@@ -334,6 +333,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
 
   const onOpen = () => {
     if (!open) setOpen(true);
+
     if (!inProp) setInProp(true);
 
     if (is('function', onOpen_) && open) onOpen_();
@@ -411,11 +411,17 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
       open={open}
 
       portal={portal}
+
       anchor={anchor}
+
       anchorElement={anchorElement}
+
       position={position}
+
       alignment={alignment}
+
       switch={switch_}
+
       inset={inset}
 
       padding={[8, 8]}
@@ -457,9 +463,13 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
             })}
 
             modalWrapper={false}
+
             portal={false}
+
             background={false}
+
             freezeScroll={false}
+
             focus={false}
 
             disableKeyboardClose

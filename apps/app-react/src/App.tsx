@@ -41127,7 +41127,7 @@ Please sign in again.`}
             <Tooltip
               label='Label'
 
-              interactive={false}
+              interactive
             >
               <Button color='secondary'>Append</Button>
             </Tooltip>
