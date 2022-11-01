@@ -97,8 +97,7 @@ const useStyle = style(theme => ({
     '-webkit-tap-highlight-color': 'transparent',
     textAlign: 'start',
     ...theme.typography.values.b2,
-    ...overflow,
-    width: 'auto'
+    ...overflow
   },
 
   multiline: {

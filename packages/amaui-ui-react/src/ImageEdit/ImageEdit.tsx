@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { TMethod } from '@amaui/models';
 import { is, to, clamp, debounce, canvasCrop, download as downloadMethod } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
+import { TMethod } from '@amaui/models';
 
 import Type from '../Type';
 import Expand from '../Expand';
@@ -39,6 +39,10 @@ const useStyle = style(theme => ({
     width: '100%',
     height: 'auto',
     zIndex: 1
+  },
+
+  inputs: {
+    width: '100%'
   },
 
   divider: {
@@ -82,8 +86,8 @@ const useStyle = style(theme => ({
   imageCrop: {
     position: 'absolute',
     inset: 0,
-    width: '100%',
-    height: '100%'
+    width: '100% !important',
+    height: '100% !important'
   },
 
   meta: {
@@ -184,7 +188,6 @@ const IconMaterialCropRounded = React.forwardRef((props: any, ref) => {
     </Icon>
   );
 });
-
 
 const IconMaterialAspectRatioRounded = React.forwardRef((props: any, ref) => {
 
@@ -1659,9 +1662,13 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
                 justify='center'
 
-                style={{
-                  width: '100%'
-                }}
+                className={classNames([
+                  staticClassName('ImageEdit', theme) && [
+                    'AmauiImageEdit-inputs'
+                  ],
+
+                  classes.inputs
+                ])}
               >
                 {is('function', renderInput) ? renderInput(value, valueCopy, resize, onChangeResize, 'width') : (
                   <NumericTextField
@@ -1977,6 +1984,8 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
           direction='row'
 
           align='center'
+
+          justify='center'
 
           className={classNames([
             staticClassName('ImageEdit', theme) && [

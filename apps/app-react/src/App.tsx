@@ -14375,30 +14375,6 @@ Markdown 1 | Less | Pretty
             label='NumericTextField'
           />
         </Accordion>
-
-        <Accordion primary='NumericTextField mask'>
-          <NumericTextField
-            color='secondary'
-
-            mask={[
-              '(',
-              ...new Array(3).fill({
-                pattern: '[0-9]'
-              }),
-              ')',
-              ' ',
-              ...new Array(3).fill({
-                pattern: '[0-9]'
-              }),
-              '-',
-              ...new Array(4).fill({
-                pattern: '[0-9]'
-              }),
-            ]}
-
-            label='NumericTextField'
-          />
-        </Accordion>
       </Accordion>
 
       <Accordion primary='AdvancedTextField'>

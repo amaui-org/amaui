@@ -546,6 +546,8 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
 
                 value={clamp(Math.round(((value / 1000) / (refs.total.current / 1000)) * 100), 0, 100)}
 
+                reverse
+
                 style={{
                   margin: '4px 0 8px'
                 }}
