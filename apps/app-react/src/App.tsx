@@ -4311,39 +4311,6 @@ Please sign in again.`}
             ]}
           />
         </Accordion>
-
-        <Accordion primary='ScatterChart not smooth'>
-          <ScatterChart
-            guideline='both'
-
-            title='Area chart'
-
-            names={{
-              x: 'Name x',
-              y: 'Name y'
-            }}
-
-            nameX
-
-            nameY
-
-            minPaddingY={0.14}
-
-            maxPaddingY={0.14}
-
-            smooth={false}
-
-            values={[
-              {
-                color: 'primary',
-
-                name: 'a',
-
-                values: Array.from({ length: 14 }).map(() => [random(-40, 400), random(-40, 400)])
-              }
-            ]}
-          />
-        </Accordion>
       </Accordion>
 
       <Accordion primary='AreaChart'>

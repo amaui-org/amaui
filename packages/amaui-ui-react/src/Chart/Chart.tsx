@@ -892,7 +892,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
         }
 
         if (index === undefined) {
-          index = allValues.length - 1;
+          index = x <= allValues[0]?.normalized?.[0] ? 0 : allValues.length - 1;
 
           previous = allValues[index - 1];
           item = allValues[index];
