@@ -694,10 +694,10 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
     });
 
     // Group sorted by y largest, to smallest
-    Object.keys(groups).forEach(group => groups[group].sort((a, b) => b.value?.[1] - a.value?.[1]));
+    Object.keys(groups).forEach(group => groups[group].sort((a, b) => a.normalized?.[1] - b.normalized?.[1]));
 
     // Groups sorted by y largest, to smallest
-    const groupsSorted = Object.keys(groups).sort((a, b) => groups[b][0]?.value?.[1] - groups[a][0]?.value?.[1]);
+    const groupsSorted = Object.keys(groups).sort((a, b) => groups[a][0]?.normalized?.[1] - groups[b][0]?.normalized?.[1]);
 
     const element = is('function', tooltipGroupRender) ? tooltipGroupRender(groups, groupsSorted) : (
       <Line
