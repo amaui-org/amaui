@@ -326,6 +326,9 @@ const PieChart = React.forwardRef((props_: any, ref: any) => {
         };
       });
 
+      // Sort
+      elements_.sort((a, b) => a?.item?.values?.[0] - b?.item?.values?.[0]);
+
       // Update children value
       setValue({
         legend: legend_,
