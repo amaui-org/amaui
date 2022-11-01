@@ -65,7 +65,6 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
   const {
     tonal = true,
     color = 'primary',
-
     size = 'regular',
 
     parts: parts_ = 1,
@@ -76,9 +75,9 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
     gap: gap_ = 0,
 
-    background = false,
-
     border = false,
+
+    background = false,
 
     boundary: boundary_ = 1,
     boundaryWidth = 1,
@@ -815,7 +814,14 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
         staticClassName('RoundMeter', theme) && [
           'AmauiRoundMeter-root',
           `AmauiRoundMeter-boundary-${String(boundary).replace('.', '')}`,
-          `AmauiRoundMeter-size-${size}`
+          `AmauiRoundMeter-size-${size}`,
+          lineCap && `AmauiRoundMeter-line-cap`,
+          border && `AmauiRoundMeter-border`,
+          background && `AmauiRoundMeter-background`,
+          arcProgress && `AmauiRoundMeter-arc-progress`,
+          arcsVisible && `AmauiRoundMeter-arcs-visible`,
+          marksVisible && `AmauiRoundMeter-marks-visible`,
+          labelsVisible && `AmauiRoundMeter-labels-visible`
         ],
 
         className,

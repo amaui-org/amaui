@@ -410,7 +410,10 @@ const ScreenCapture = React.forwardRef((props_: any, ref: any) => {
 
       className={classNames([
         staticClassName('ScreenCapture', theme) && [
-          'AmauiScreenCapture-root'
+          'AmauiScreenCapture-root',
+          view && `AmauiScreenCapture-view`,
+          entirePage && `AmauiScreenCapture-entire-page`,
+          free && `AmauiScreenCapture-free`
         ],
 
         className,

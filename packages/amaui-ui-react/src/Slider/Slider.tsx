@@ -433,11 +433,13 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
     tonal,
     color: color_ = 'primary',
     size = 'regular',
-    orientation = 'horizontal',
+
     value: value_,
     valueDefault,
     onChange,
-    readOnly,
+
+    orientation = 'horizontal',
+
     marks,
     precision = 0.001,
     min = 0,
@@ -451,10 +453,12 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
     noButtons,
     square,
     inverted,
+    readOnly,
     disabled,
 
-    IconButtonProps = {},
-    TooltipProps = {},
+    IconButtonProps,
+    TooltipProps,
+
     Component = 'span',
 
     style,

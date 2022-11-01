@@ -149,13 +149,16 @@ const RoundProgress = React.forwardRef((props_: any, ref: any) => {
     tonal,
     color = 'primary',
     size = 'regular',
-    pathProps = {},
-    pathBackgroundProps = {},
+
+    version = 'indeterminate',
+
+    value,
     noShrink,
     thickness = 2,
     rounded: rounded_ = true,
-    version = 'indeterminate',
-    value,
+
+    pathProps,
+    pathBackgroundProps,
 
     className,
     style,
@@ -270,19 +273,24 @@ const RoundProgress = React.forwardRef((props_: any, ref: any) => {
 
           {...(!rounded && { strokeLinecap: 'butt' })}
 
+          {...pathProps}
+
           className={classNames([
             staticClassName('RoundedProgress', theme) && [
               'AmauiRoundedProgress-path'
             ],
 
+            pathProps?.className,
             classes.path,
             classes[`path_${version}`],
             noShrink && classes.path_indeterminate_noShrink
           ])}
 
-          style={styles.circle}
+          style={{
+            ...styles.circle,
 
-          {...pathProps}
+            ...pathProps?.style
+          }}
         />
       </svg>
 

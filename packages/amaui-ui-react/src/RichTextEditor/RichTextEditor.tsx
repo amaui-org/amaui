@@ -3275,7 +3275,10 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
       className={classNames([
         staticClassName('RichTextEditor', theme) && [
-          'AmauiRichTextEditor-root'
+          'AmauiRichTextEditor-root',
+          miniMenu && `AmauiRichTextEditor-${miniMenu}`,
+          updates && `AmauiRichTextEditor-${updates}`,
+          actions && `AmauiRichTextEditor-${actions}`
         ],
 
         className,
@@ -3864,6 +3867,8 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
         onInput={onUpdate}
 
+        contentEditable
+
         className={classNames([
           staticClassName('RichTextEditor', theme) && [
             'AmauiRichTextEditor-value'
@@ -3871,8 +3876,6 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
           classes.value
         ])}
-
-        contentEditable
       />
     </Line>
   );

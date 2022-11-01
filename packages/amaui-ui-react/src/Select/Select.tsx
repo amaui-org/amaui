@@ -131,25 +131,29 @@ const Select = React.forwardRef((props_: any, ref: any) => {
   const {
     tonal,
     color = 'primary',
-    multiple,
-    value: value_,
-    valueDefault,
     size = 'regular',
     version = 'filled',
+
+    value: value_,
+    valueDefault,
+    onChange,
+
+    multiple,
     prefix,
     sufix,
     start,
     end,
     autoWidth,
     getLabel,
-    renderValues: renderValues_,
     chip,
-    onChange,
     readOnly,
-    ChipGroupProps = {},
-    ListProps = {},
-    MenuProps = {},
     disabled,
+
+    renderValues: renderValues_,
+
+    ChipGroupProps,
+    ListProps,
+    MenuProps,
 
     className,
     style,
