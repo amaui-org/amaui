@@ -264,7 +264,7 @@ const Tree = React.forwardRef((props_: any, ref: any) => {
         <Checkbox
           size='small'
 
-          value={open}
+          checked={open}
 
           {...IndicatorProps}
         />

@@ -27756,7 +27756,7 @@ Markdown 1 | Less | Pretty
                   <IconMaterialUndoRounded />
                 </IconButton>
               ].map((item: any, index: number) => (
-                React.cloneElement(item, { key: index })
+                React.cloneElement(item, { key: a.babanimated + index })
               ))}
             </BottomAppBar>
           </Line>

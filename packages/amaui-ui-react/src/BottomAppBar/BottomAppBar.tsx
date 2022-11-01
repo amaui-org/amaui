@@ -14,8 +14,7 @@ const useStyle = style(theme => ({
     width: '100%',
     height: '80px',
     paddingBlock: '12px',
-    paddingInline: '4px 16px',
-    overflow: 'auto'
+    paddingInline: '4px 16px'
   },
 
   size_small: { height: '72px' },
@@ -112,10 +111,15 @@ const BottomAppBar = React.forwardRef((props_: any, ref: any) => {
 
   const {
     tonal = true,
+
     color = 'primary',
+
     size = 'regular',
+
     main: main_,
+
     fixed,
+
     noTransition,
 
     className,

@@ -34,11 +34,6 @@ const useStyle = style(theme => ({
     height: `calc(100% - 32px)`
   },
 
-  // flex
-  flex_orientation_vertical: {
-    flex: '1 1 auto'
-  },
-
   // Orientation
   orientation_horizontal: {
     margin: '8px 0',
@@ -85,6 +80,16 @@ const useStyle = style(theme => ({
   rootWithChildren_orientation_vertical_middle: {
     margin: `16px 0`,
     height: `calc(100% - 32px)`
+  },
+
+  // flex
+  flex_orientation_horizontal: {
+    flex: '1 1 auto',
+    width: 'auto'
+  },
+
+  flex_orientation_vertical: {
+    flex: '1 1 auto'
   },
 
   text: {

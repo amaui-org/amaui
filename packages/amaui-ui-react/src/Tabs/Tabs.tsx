@@ -460,6 +460,23 @@ const Tabs = React.forwardRef((props_: any, ref: any) => {
     >
       {useArrows && ArrowPre}
 
+      <Divider
+        tonal={tonal}
+
+        color={color}
+
+        orientation={orientation}
+
+        className={classNames([
+          staticClassName('Tabs', theme) && [
+            'AmauiTabs-divider'
+          ],
+
+          classes.divider,
+          classes[`divider_orientation_${orientation}`]
+        ])}
+      />
+
       <Line
         ref={refs.tabsRoot}
 
@@ -482,23 +499,6 @@ const Tabs = React.forwardRef((props_: any, ref: any) => {
           classes[`tabs_orientation_${orientation}`]
         ])}
       >
-        <Divider
-          tonal={tonal}
-
-          color={color}
-
-          orientation={orientation}
-
-          className={classNames([
-            staticClassName('Tabs', theme) && [
-              'AmauiTabs-divider'
-            ],
-
-            classes.divider,
-            classes[`divider_orientation_${orientation}`]
-          ])}
-        />
-
         <span
           className={classNames([
             staticClassName('Tabs', theme) && [
