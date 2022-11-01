@@ -112,6 +112,8 @@ const List = React.forwardRef((props_: any, ref: any) => {
 
       elevation={elevation}
 
+      gap={0}
+
       direction='column'
 
       align='flex-start'
