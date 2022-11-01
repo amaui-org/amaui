@@ -38,15 +38,17 @@ const Chip = React.forwardRef((props_: any, ref: any) => {
     tonal = false,
     color = props.version === 'filled' ? 'inverted' : 'default',
     version = 'outlined',
+
     input,
     filter,
+    selected: selected_,
+    start,
+    focus,
+
     onClick,
     onRemove,
     onSelected,
     onUnselected,
-    selected: selected_,
-    start,
-    focus,
 
     className,
 
@@ -118,21 +120,11 @@ const Chip = React.forwardRef((props_: any, ref: any) => {
     <Button
       ref={ref}
 
-      {...other}
+      tonal={tonal}
 
-      {...OtherProps}
+      version={version}
 
-      className={classNames([
-        staticClassName('Chip', theme) && [
-          'AmauiChip-root',
-          input && `AmauiChip-selected`,
-          filter && `AmauiChip-filter`,
-          selected && `AmauiChip-selected`
-        ],
-
-        className,
-        classes.root
-      ])}
+      color={color || (tonal ? 'neutral' : 'default')}
 
       onClick={(event: React.MouseEvent<any>) => {
         onSelect();
@@ -165,13 +157,23 @@ const Chip = React.forwardRef((props_: any, ref: any) => {
 
       selected={selected}
 
-      version={version}
-
-      color={color || (tonal ? 'neutral' : 'default')}
-
-      tonal={tonal}
-
       chip
+
+      className={classNames([
+        staticClassName('Chip', theme) && [
+          'AmauiChip-root',
+          input && `AmauiChip-selected`,
+          filter && `AmauiChip-filter`,
+          selected && `AmauiChip-selected`
+        ],
+
+        className,
+        classes.root
+      ])}
+
+      {...other}
+
+      {...OtherProps}
     >
       {children}
     </Button>

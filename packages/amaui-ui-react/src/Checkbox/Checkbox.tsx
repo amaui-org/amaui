@@ -213,17 +213,16 @@ const Checkbox = React.forwardRef((props_: any, ref: any) => {
   const {
     tonal,
     color = 'primary',
+    version = 'text',
 
     colorIndeterminate = props.color,
     colorUnchecked = 'default',
 
-    version = 'text',
-
-    indeterminate: indeterminate_,
-
     valueDefault,
     checked,
     onChange,
+
+    indeterminate: indeterminate_,
 
     disabled,
 
@@ -336,24 +335,7 @@ const Checkbox = React.forwardRef((props_: any, ref: any) => {
 
       tabIndex={!disabled ? 0 : -1}
 
-      className={classNames([
-        staticClassName('Checkbox', theme) && [
-          'AmauiCheckbox-root',
-          `AmauiCheckbox-color-indeterminate-${(!theme.palette.color[colorIndeterminate] && !['themed', 'inverted', 'default', 'inherit'].includes(colorIndeterminate)) ? 'new' : colorIndeterminate}`,
-          `AmauiCheckbox-color-unchecked-${!theme.palette.color[colorUnchecked] && !['themed', 'inverted', 'default', 'inherit'].includes(colorUnchecked) ? 'new' : colorUnchecked}`,
-          indeterminate && `AmauiCheckbox-indeterminate`
-        ],
-
-        className,
-        classes.root,
-        disabled && classes.disabled
-      ])}
-
-      {...other}
-
       color={colorValue}
-
-      Component={Component}
 
       tonal={tonal}
 
@@ -390,6 +372,23 @@ const Checkbox = React.forwardRef((props_: any, ref: any) => {
       )}
 
       disabled={disabled}
+
+      Component={Component}
+
+      className={classNames([
+        staticClassName('Checkbox', theme) && [
+          'AmauiCheckbox-root',
+          `AmauiCheckbox-color-indeterminate-${(!theme.palette.color[colorIndeterminate] && !['themed', 'inverted', 'default', 'inherit'].includes(colorIndeterminate)) ? 'new' : colorIndeterminate}`,
+          `AmauiCheckbox-color-unchecked-${!theme.palette.color[colorUnchecked] && !['themed', 'inverted', 'default', 'inherit'].includes(colorUnchecked) ? 'new' : colorUnchecked}`,
+          indeterminate && `AmauiCheckbox-indeterminate`
+        ],
+
+        className,
+        classes.root,
+        disabled && classes.disabled
+      ])}
+
+      {...other}
     >
       <IconItem
         className={classNames([

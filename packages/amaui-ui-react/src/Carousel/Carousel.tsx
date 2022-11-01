@@ -1170,8 +1170,6 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
       color={color}
 
-      Component={Component}
-
       onFocus={onFocus}
 
       onBlur={onBlur}
@@ -1180,13 +1178,32 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
       onMouseLeave={onMouseLeave}
 
+      Component={Component}
+
       className={classNames([
         staticClassName('Carousel', theme) && [
           'AmauiCarousel-root',
           `AmauiCarousel-version-${version}`,
           `AmauiCarousel-orientation-${orientation}`,
+          `AmauiCarousel-arrows-visibility-${arrowsVisibility}`,
+          `AmauiCarousel-progress-visibility-${progressVisibility}`,
           autoPlay && `AmauiCarousel-autoPlay`,
-          autoHeight && `AmauiCarousel-autoHeight`
+          autoHeight && `AmauiCarousel-autoHeight`,
+          itemSize && `AmauiCarousel-item-size-${itemSize}`,
+          move && `AmauiCarousel-move`,
+          moveBeyondEdge && `AmauiCarousel-moveBeyondEdge`,
+          free && `AmauiCarousel-free`,
+          swipe && `AmauiCarousel-swipe`,
+          background && `AmauiCarousel-background`,
+          pauseOnHover && `AmauiCarousel-pauseOnHover`,
+          round && `AmauiCarousel-round`,
+          arrows && `AmauiCarousel-arrows`,
+          mouseScroll && `AmauiCarousel-mouseScroll`,
+          momentum && `AmauiCarousel-momentum`,
+          round && `AmauiCarousel-round`,
+          arrowHideOnStartEnd && `AmauiCarousel-arrowHideOnStartEnd`,
+          progress && `AmauiCarousel-progress`,
+          noTransition && `AmauiCarousel-noTransition`
         ],
 
         className,
@@ -1417,22 +1434,24 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
                   onMouseEnter: onArrowMouseEnter,
 
+                  ...ArrowProps,
+
+                  ...ArrowPreviousProps,
+
+                  disabled: !round && indexActive === 0,
+
                   className: classNames([
                     staticClassName('Carousel', theme) && [
                       'AmauiCarousel-arrow',
                       'AmauiCarousel-arrow-previous'
                     ],
 
+                    ArrowProps?.className,
+                    ArrowPreviousProps?.className,
                     classes.arrow,
                     classes.arrow_previous,
                     classes[`arrow_previous_orientation_${orientation}`]
-                  ]),
-
-                  disabled: !round && indexActive === 0,
-
-                  ...ArrowProps,
-
-                  ...ArrowPreviousProps
+                  ])
                 }) :
 
                 <IconButton
@@ -1446,22 +1465,24 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
                   onMouseEnter={onArrowMouseEnter}
 
+                  {...ArrowProps}
+
+                  {...ArrowPreviousProps}
+
+                  disabled={!round && indexActive === 0}
+
                   className={classNames([
                     staticClassName('Carousel', theme) && [
                       'AmauiCarousel-arrow',
                       'AmauiCarousel-arrow-previous'
                     ],
 
+                    ArrowProps?.className,
+                    ArrowPreviousProps?.className,
                     classes.arrow,
                     classes.arrow_previous,
                     classes[`arrow_previous_orientation_${orientation}`]
                   ])}
-
-                  disabled={!round && indexActive === 0}
-
-                  {...ArrowProps}
-
-                  {...ArrowPreviousProps}
                 >
                   <IconPrevious
                     noRtl
@@ -1496,22 +1517,24 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
                   onMouseEnter: onArrowMouseEnter,
 
+                  ...ArrowProps,
+
+                  ...ArrowNextProps,
+
+                  disabled: !round && indexActive === items.length - 1,
+
                   className: classNames([
                     staticClassName('Carousel', theme) && [
                       'AmauiCarousel-arrow',
                       'AmauiCarousel-arrow-next'
                     ],
 
+                    ArrowProps?.className,
+                    ArrowNextProps?.className,
                     classes.arrow,
                     classes.arrow_next,
                     classes[`arrow_next_orientation_${orientation}`]
-                  ]),
-
-                  disabled: !round && indexActive === items.length - 1,
-
-                  ...ArrowProps,
-
-                  ...ArrowNextProps
+                  ])
                 }) :
 
                 <IconButton
@@ -1525,22 +1548,24 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
                   onMouseEnter={onArrowMouseEnter}
 
+                  {...ArrowProps}
+
+                  {...ArrowNextProps}
+
+                  disabled={!round && indexActive === items.length - 1}
+
                   className={classNames([
                     staticClassName('Carousel', theme) && [
                       'AmauiCarousel-arrow',
                       'AmauiCarousel-arrow-next'
                     ],
 
+                    ArrowProps?.className,
+                    ArrowNextProps?.className,
                     classes.arrow,
                     classes.arrow_next,
                     classes[`arrow_next_orientation_${orientation}`]
                   ])}
-
-                  disabled={!round && indexActive === items.length - 1}
-
-                  {...ArrowProps}
-
-                  {...ArrowNextProps}
                 >
                   <IconNext
                     noRtl

@@ -167,19 +167,18 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
   const { classes } = useStyle(props);
 
   const {
-    version = 'linear',
-
     tonal = true,
     color = 'primary',
 
+    version = 'linear',
+
     render,
+    icon = true,
 
     onStart: onStart_,
     onPause: onPause_,
     onStop: onStop_,
     onResume: onResume_,
-
-    icon = true,
 
     Icon = IconMaterialAvTimerRounded,
     IconStart = IconMaterialPlayArrowRounded,
@@ -400,7 +399,9 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
 
       className={classNames([
         staticClassName('Countdown', theme) && [
-          'AmauiCountdown-root'
+          'AmauiCountdown-root',
+          `AmauiCountdown-version-${version}`,
+          icon && 'AmauiCountdown-icon',
         ],
 
         className,
@@ -454,15 +455,16 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
 
               onChange={valueNew => updateValues('hours', !valueNew ? 0 : valueNew)}
 
+              {...NumericTextFieldProps}
+
               className={classNames([
                 staticClassName('Countdown', theme) && [
                   'AmauiCountdown-numericTextField'
                 ],
 
+                NumericTextFieldProps?.className,
                 classes.numericTextField
               ])}
-
-              {...NumericTextFieldProps}
             />
 
             <NumericTextField
@@ -476,15 +478,16 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
 
               onChange={valueNew => updateValues('minutes', !valueNew ? 0 : valueNew)}
 
+              {...NumericTextFieldProps}
+
               className={classNames([
                 staticClassName('Countdown', theme) && [
                   'AmauiCountdown-numericTextField'
                 ],
 
+                NumericTextFieldProps?.className,
                 classes.numericTextField
               ])}
-
-              {...NumericTextFieldProps}
             />
 
             <NumericTextField
@@ -498,15 +501,16 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
 
               onChange={valueNew => updateValues('seconds', !valueNew ? 0 : valueNew)}
 
+              {...NumericTextFieldProps}
+
               className={classNames([
                 staticClassName('Countdown', theme) && [
                   'AmauiCountdown-numericTextField'
                 ],
 
+                NumericTextFieldProps?.className,
                 classes.numericTextField
               ])}
-
-              {...NumericTextFieldProps}
             />
           </Line>
         </Fade>

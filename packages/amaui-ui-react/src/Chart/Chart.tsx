@@ -1372,7 +1372,22 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
       className={classNames([
         staticClassName('Chart', theme) && [
-          'AmauiChart-root'
+          'AmauiChart-root',
+          tooltip && `AmauiChart-tooltip`,
+          tooltipIndividually && `AmauiChart-tooltip-individually`,
+          elementTooltip && `AmauiChart-element-tooltip`,
+          guideline && `AmauiChart-guideline`,
+          additionalLines && `AmauiChart-additional-lines`,
+          (names?.x && nameX) && `AmauiChart-name-x`,
+          (names?.y && nameY) && `AmauiChart-name-y`,
+          legend && `AmauiChart-legend`,
+          legendManageVisibility && `AmauiChart-legend-manage-visibility`,
+          labels && `AmauiChart-labels`,
+          marks && `AmauiChart-marks`,
+          grid && `AmauiChart-grid`,
+          points && `AmauiChart-points`,
+          noMain && `AmauiChart-no-main`
+
         ],
 
         className,

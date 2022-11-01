@@ -65,8 +65,9 @@ const Chips = React.forwardRef((props_: any, ref: any) => {
   const { classes } = useStyle(props);
 
   const {
-    wrap,
     size = 'regular',
+
+    wrap,
 
     className,
     style,
