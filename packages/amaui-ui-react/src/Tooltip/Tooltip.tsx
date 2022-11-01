@@ -175,12 +175,13 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiTooltip?.props?.default }), [props_]);
 
   const {
+    tonal = true,
+    color = 'inverted',
+
     open: open_,
 
     label,
 
-    tonal = true,
-    color = 'inverted',
     position = 'bottom',
     switch: switch_ = true,
     alignment = 'center',
@@ -209,11 +210,11 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
     onExited,
 
     TransitionComponent = Grow,
-    TransitionComponentProps = {},
 
-    AppendProps = {},
-    ModalProps = {},
-    LabelProps = {},
+    TransitionComponentProps,
+    AppendProps,
+    ModalProps,
+    LabelProps,
 
     className,
     style,
@@ -474,10 +475,12 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
 
             disableKeyboardClose
 
+            {...ModalProps}
+
             className={classNames([
               staticClassName('Tooltip', theme) && [
                 'AmauiTooltip-root',
-                `AmauiTooltip-maxWidth-${maxWidth}`,
+                `AmauiTooltip-max-width-${maxWidth}`,
                 `AmauiTooltip-position-${position}`,
                 `AmauiTooltip-alignment-${alignment}`,
                 switch_ && `AmauiButton-switch`,
@@ -485,6 +488,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
                 anchorElement && `AmauiButton-anchorElement`,
                 fullWidth && `AmauiButton-fullWidth`,
                 follow && 'AmauiTooltip-follow',
+                interactive && 'AmauiTooltip-interactive',
                 open && `AmauiButton-open`,
                 touch && 'AmauiTooltip-touch',
                 longPress && 'AmauiTooltip-longPress',
@@ -501,8 +505,6 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
               ModalProps?.className,
               switched && classNameSwitch
             ])}
-
-            {...ModalProps}
 
             style={{
               ...items.style,
@@ -547,19 +549,20 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
 
                     color={color}
 
+                    {...LabelProps}
+
                     className={classNames([
                       staticClassName('Tooltip', theme) && [
                         'AmauiTooltip-label'
                       ],
 
+                      LabelProps?.className,
                       classes.label,
                       arrow && [
                         classes.arrow,
                         classes[`arrow_position_${position}_alignment_${alignment}`]
                       ]
                     ])}
-
-                    {...LabelProps}
 
                     style={{
                       ...styles.label,
@@ -590,7 +593,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
                 }
               </div>
             </TransitionComponent>
-          </Modal >
+          </Modal>
         );
       }}
     >

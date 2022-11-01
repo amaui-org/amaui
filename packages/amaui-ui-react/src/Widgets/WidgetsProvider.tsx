@@ -142,9 +142,6 @@ const WidgetsProvider = React.forwardRef((props_: any, ref: any) => {
 
     fixed = true,
 
-    Icon = IconMaterialWidgetsRounded,
-    IconCloseItem = IconMaterialCloseRounded,
-
     onOpen,
     onOpenAll,
 
@@ -152,6 +149,9 @@ const WidgetsProvider = React.forwardRef((props_: any, ref: any) => {
     onCloseAll,
 
     SpeedDialProps,
+
+    Icon = IconMaterialWidgetsRounded,
+    IconCloseItem = IconMaterialCloseRounded,
 
     className,
 

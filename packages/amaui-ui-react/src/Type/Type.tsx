@@ -75,8 +75,10 @@ const Type = React.forwardRef((props_: any, ref: any) => {
     color = 'inherit',
     version = 'b2',
     size,
-    Component: Component_,
+
     disabled,
+
+    Component: Component_,
 
     className,
     style = {},

@@ -137,6 +137,8 @@ const WindowSplit = React.forwardRef((props_: any, ref: any) => {
     valueDefault,
     value: value_ = 50,
 
+    onChange: onChange_,
+
     padding,
     paddingStart,
     paddingEnd,
@@ -148,8 +150,6 @@ const WindowSplit = React.forwardRef((props_: any, ref: any) => {
     onBlur: onBlur_,
     onMouseEnter: onMouseEnter_,
     onMouseLeave: onMouseLeave_,
-
-    onChange: onChange_,
 
     iconButtonComponent,
     iconOrientationHorizontal = <IconMaterialSwapHorizRounded />,
@@ -419,6 +419,7 @@ const WindowSplit = React.forwardRef((props_: any, ref: any) => {
         staticClassName('WindowSplit', theme) && [
           'AmauiWindowSplit-root',
           `AmauiWindowSplit-orientation-${orientation}`,
+          iconButton && `AmauiButton-icon-button`,
           focus && `AmauiButton-focus`,
           mouseDown && `AmauiButton-mouseDown`,
         ],
@@ -510,16 +511,17 @@ const WindowSplit = React.forwardRef((props_: any, ref: any) => {
 
         orientation={orientation === 'vertical' ? 'horizontal' : 'vertical'}
 
+        {...DividerProps}
+
         className={classNames([
           staticClassName('WindowSplit', theme) && [
             'AmauiWindowSplit-divider'
           ],
 
+          DividerProps?.className,
           classes.divider,
           classes[`divider_orientation_${orientation}`]
         ])}
-
-        {...DividerProps}
 
         style={{
           ...styles.divider,
@@ -553,16 +555,17 @@ const WindowSplit = React.forwardRef((props_: any, ref: any) => {
             if (is('function', IconButtonProps?.onMouseDown)) IconButtonProps.onMouseDown(event);
           }}
 
+          {...IconButtonProps}
+
           className={classNames([
             staticClassName('WindowSplit', theme) && [
               'AmauiWindowSplit-iconButton'
             ],
 
+            IconButtonProps?.className,
             classes.iconButton,
             classes[`iconButton_orientation_${orientation}`]
           ])}
-
-          {...IconButtonProps}
 
           style={{
             ...styles.divider,

@@ -116,7 +116,6 @@ const Tree = React.forwardRef((props_: any, ref: any) => {
     indicator,
     arrow = true,
     checkbox,
-    IconArrow = IconMaterialExpandMoreRounded,
     indicatorPosition = 'start',
 
     level = 0,
@@ -137,13 +136,15 @@ const Tree = React.forwardRef((props_: any, ref: any) => {
     disabled,
 
     ExpandProps,
-    TransitionComponent: TransitionComponent_ = Fade,
-    TransitionComponentProps: TransitionComponentProps_ = { add: true },
     MainProps: MainProps_,
     StartProps,
     MiddleProps,
     EndProps,
     IndicatorProps,
+    TransitionComponentProps: TransitionComponentProps_ = { add: true },
+
+    IconArrow = IconMaterialExpandMoreRounded,
+    TransitionComponent: TransitionComponent_ = Fade,
 
     Component = 'div',
 
@@ -347,13 +348,27 @@ const Tree = React.forwardRef((props_: any, ref: any) => {
 
       Component={Line}
 
+      AdditionalProps={{
+        Component
+      }}
+
       className={classNames([
         staticClassName('Tree', theme) && [
           'AmauiTree-root',
           `AmauiTree-level-${level}`,
           (level > 0 && line) && `AmauiTree-line`,
           children ? `AmauiTree-children` : `AmauiTree-empty`,
+          indicator && [
+            `AmauiTree-indicator`,
+            `AmauiTree-indicator-position-${indicatorPosition}`
+          ],
+          arrow && `AmauiTree-arrow`,
+          checkbox && `AmauiTree-checkbox`,
           button && `AmauiTree-button`,
+          noTransition && `AmauiTree-no-transition`,
+          noExpand && `AmauiTree-no-expand`,
+          noPadding && `AmauiTree-no-padding`,
+          parentDisabled && `AmauiTree-parent-disabled`,
           disabled && `AmauiTree-disabled`
         ],
 
@@ -362,10 +377,6 @@ const Tree = React.forwardRef((props_: any, ref: any) => {
         (level > 0 && line) && classes.line,
         disabled && classes.disabled
       ])}
-
-      AdditionalProps={{
-        Component
-      }}
 
       style={{
         ...styles.root,
@@ -390,17 +401,18 @@ const Tree = React.forwardRef((props_: any, ref: any) => {
 
         Component={(button && children) ? 'button' : 'div'}
 
+        {...MainProps}
+
         className={classNames([
           staticClassName('Tree', theme) && [
             'AmauiTree-main'
           ],
 
+          MainProps?.className,
           classes.main,
           button && classes.button,
           (level > 0 && line) && classes.main_line
         ])}
-
-        {...MainProps}
       >
         {button && (
           <Interaction
@@ -418,6 +430,8 @@ const Tree = React.forwardRef((props_: any, ref: any) => {
 
             justify='unset'
 
+            {...StartProps}
+
             className={classNames([
               staticClassName('Tree', theme) && [
                 'AmauiTree-item',
@@ -425,12 +439,11 @@ const Tree = React.forwardRef((props_: any, ref: any) => {
                 'AmauiTree-start'
               ],
 
+              StartProps?.className,
               classes.item,
               classes.aside,
               classes.start
             ])}
-
-            {...StartProps}
           >
             {start.map((item: any, index: number) => (
               React.cloneElement(item, {
@@ -446,6 +459,8 @@ const Tree = React.forwardRef((props_: any, ref: any) => {
 
             Component={is('simple', middle) ? Type : undefined}
 
+            {...MiddleProps}
+
             className={classNames([
               staticClassName('Tree', theme) && [
                 'AmauiTree-item',
@@ -453,11 +468,10 @@ const Tree = React.forwardRef((props_: any, ref: any) => {
                 'AmauiTree-end'
               ],
 
+              MiddleProps?.className,
               classes.item,
               classes.middle
             ])}
-
-            {...MiddleProps}
           >
             {middle}
           </Line>
@@ -473,6 +487,8 @@ const Tree = React.forwardRef((props_: any, ref: any) => {
 
             justify='unset'
 
+            {...EndProps}
+
             className={classNames([
               staticClassName('Tree', theme) && [
                 'AmauiTree-item',
@@ -480,12 +496,11 @@ const Tree = React.forwardRef((props_: any, ref: any) => {
                 'AmauiTree-end'
               ],
 
+              EndProps?.className,
               classes.item,
               classes.aside,
               classes.end
             ])}
-
-            {...EndProps}
           >
             {end.map((item: any, index: number) => (
               React.cloneElement(item, {

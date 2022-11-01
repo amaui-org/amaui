@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { is } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Surface from '../Surface';
@@ -406,7 +407,10 @@ const Weather = React.forwardRef((props_: any, ref: any) => {
       className={classNames([
         staticClassName('Weather', theme) && [
           'AmauiWeather-root',
+          `AmauiWeather-version-${version}`,
           `AmauiWeather-size-${size}`,
+          dayTime_ && `AmauiWeather-day-time`,
+          `AmauiWeather-weather-${weather_}`,
           shadow && `AmauiWeather-shadow`
         ],
 
@@ -468,17 +472,18 @@ const Weather = React.forwardRef((props_: any, ref: any) => {
             key={values.dayTime}
           >
             <IconDayTime
+              {...IconProps}
+
               className={classNames([
                 staticClassName('Weather', theme) && [
                   'AmauiWeather-icon',
                   'AmauiWeather-icon-day-time'
                 ],
 
+                IconProps?.className,
                 classes.icon_dayTime,
                 classes[`icon_dayTime_${values.dayTime}`]
               ])}
-
-              {...IconProps}
             />
           </Fade>
         </Transitions>
@@ -491,18 +496,19 @@ const Weather = React.forwardRef((props_: any, ref: any) => {
             key={values.weather}
           >
             <IconWeather_
+              {...IconProps}
+
               className={classNames([
                 staticClassName('Weather', theme) && [
                   'AmauiWeather-icon',
                   'AmauiWeather-icon-weather'
                 ],
 
+                IconProps?.className,
                 classes.icon_weather,
                 classes[`icon_weather_${values.weather === 'partly clear' ? 'cloudy' : values.weather}`],
                 classes[`icon_arrangement_${useDayTime ? 'pair' : 'regular'}`]
               ])}
-
-              {...IconProps}
             />
           </Fade>
         </Transitions>

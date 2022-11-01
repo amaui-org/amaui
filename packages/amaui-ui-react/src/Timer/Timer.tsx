@@ -130,13 +130,13 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
 
     render,
 
+    icon = true,
+
     onStart: onStart_,
     onFlag: onFlag_,
     onPause: onPause_,
     onStop: onStop_,
     onResume: onResume_,
-
-    icon = true,
 
     Icon = IconMaterialTimerRounded,
     IconStart = IconMaterialPlayArrowRounded,
@@ -314,7 +314,8 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
 
       className={classNames([
         staticClassName('Timer', theme) && [
-          'AmauiTimer-root'
+          'AmauiTimer-root',
+          icon && `AmauiTimer-icon`
         ],
 
         className,

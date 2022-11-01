@@ -110,6 +110,8 @@ const TopAppBar = React.forwardRef((props_: any, ref: any) => {
     end: end_,
     fixed,
 
+    Component = 'div',
+
     className,
 
     children: children_,
@@ -209,15 +211,19 @@ const TopAppBar = React.forwardRef((props_: any, ref: any) => {
     <Surface
       ref={ref}
 
-      Component={Line}
-
       color={color}
 
       tonal={tonal}
 
+      gap={0}
+
       justify='space-between'
 
-      gap={0}
+      Component={Line}
+
+      AdditionalProps={{
+        Component
+      }}
 
       className={classNames([
         staticClassName('TopAppBar', theme) && [

@@ -197,7 +197,6 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
   const {
     tonal = true,
     color = 'primary',
-
     // mobile, desktop, static & auto
     version: version_ = 'auto',
 
@@ -205,7 +204,6 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
     value: value_,
     valueDefault,
-
     onChange,
 
     now = true,

@@ -164,6 +164,8 @@ const ViewSplit = React.forwardRef((props_: any, ref: any) => {
     valueDefault,
     value: value_ = 50,
 
+    onChange: onChange_,
+
     version = 'auto',
     orientation = 'horizontal',
     divider = props.version === 'manual',
@@ -172,8 +174,6 @@ const ViewSplit = React.forwardRef((props_: any, ref: any) => {
     onBlur: onBlur_,
     onMouseEnter: onMouseEnter_,
     onMouseLeave: onMouseLeave_,
-
-    onChange: onChange_,
 
     iconButtonComponent,
     iconOrientationHorizontal = <IconMaterialSwapHorizRounded />,
@@ -498,9 +498,10 @@ const ViewSplit = React.forwardRef((props_: any, ref: any) => {
           'AmauiViewSplit-root',
           `AmauiViewSplit-orientation-${orientation}`,
           `AmauiViewSplit-version-${version}`,
-          hover && `AmauiButton-hover`,
-          focus && `AmauiButton-focus`,
-          mouseDown && `AmauiButton-mouseDown`,
+          divider && `AmauiViewSplit-divider`,
+          hover && `AmauiViewSplit-hover`,
+          focus && `AmauiViewSplit-focus`,
+          mouseDown && `AmauiViewSplit-mouseDown`,
         ],
 
         className,
@@ -558,17 +559,18 @@ const ViewSplit = React.forwardRef((props_: any, ref: any) => {
 
           orientation={orientation === 'vertical' ? 'horizontal' : 'vertical'}
 
+          {...DividerProps}
+
           className={classNames([
             staticClassName('ViewSplit', theme) && [
               'AmauiViewSplit-divider'
             ],
 
+            DividerProps?.className,
             classes.divider,
             classes[`divider_orientation_${orientation}`],
             version === 'manual' && classes[`divider_manual_orientation_${orientation}`]
           ])}
-
-          {...DividerProps}
 
           style={{
             ...styles.divider,
@@ -602,17 +604,18 @@ const ViewSplit = React.forwardRef((props_: any, ref: any) => {
             if (is('function', IconButtonProps?.onMouseDown)) IconButtonProps.onMouseDown(event);
           }}
 
+          {...IconButtonProps}
+
           className={classNames([
             staticClassName('ViewSplit', theme) && [
               'AmauiViewSplit-iconButton'
             ],
 
+            IconButtonProps?.className,
             classes.iconButton,
             classes[`iconButton_orientation_${orientation}`],
             version === 'manual' && classes[`iconButton_manual_orientation_${orientation}`]
           ])}
-
-          {...IconButtonProps}
 
           style={{
             ...styles.start,

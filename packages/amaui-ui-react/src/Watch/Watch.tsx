@@ -89,7 +89,6 @@ const Watch = React.forwardRef((props_: any, ref: any) => {
 
   const {
     tonal = true,
-
     color = 'primary',
 
     // regular, analog, minimal, modern
@@ -266,6 +265,10 @@ const Watch = React.forwardRef((props_: any, ref: any) => {
         staticClassName('Watch', theme) && [
           'AmauiWatch-root',
           `AmauiWatch-version-${version}`,
+          `AmauiWatch-size-${size}`,
+          timeVisible && `AmauiWatch-time-visible`,
+          timeOfDayVisible && `AmauiWatch-time-of-day-visible`,
+          dateVisible && `AmauiWatch-date-visible`,
           shadow && `AmauiWatch-shadow`
         ],
 
@@ -296,15 +299,16 @@ const Watch = React.forwardRef((props_: any, ref: any) => {
 
                 justify='center'
 
+                {...RegularProps}
+
                 className={classNames([
                   staticClassName('Watch', theme) && [
                     'AmauiWatch-regular'
                   ],
 
+                  RegularProps?.className,
                   classes.regular
                 ])}
-
-                {...RegularProps}
               >
                 {timeVisible && (
                   is('function', renderTime) ? renderTime(value) : (

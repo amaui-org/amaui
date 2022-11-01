@@ -502,6 +502,13 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
     color = 'primary',
     version = 'filled',
     size = 'regular',
+
+    rootRef,
+
+    valueDefault,
+    value: value_,
+    onChange,
+
     label,
     align,
     start,
@@ -509,28 +516,17 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
     end,
     endVerticalAlign = 'start',
     placeholder,
-    valueDefault,
-    value: value_,
-    onChange,
-    onFocus: onFocus_,
-    onBlur: onBlur_,
-    onMouseEnter: onMouseEnter_,
-    onMouseLeave: onMouseLeave_,
     fullWidth,
-    Component = 'div',
-    WrapperComponent = 'div',
     helperText,
     counter,
     prefix,
     sufix,
-    rootRef,
     noPrefixMargin,
     noSufixMargin,
     enabled,
     name,
     autoFocus,
     autoComplete,
-    readOnly,
     type: type_ = 'text',
     required,
     optional,
@@ -542,10 +538,20 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
     maxRows,
     focus: focus_,
     footer: footer_,
+    readOnly,
     disabled,
+
+    onFocus: onFocus_,
+    onBlur: onBlur_,
+    onMouseEnter: onMouseEnter_,
+    onMouseLeave: onMouseLeave_,
 
     inputProps = {},
     InputWrapperProps = {},
+
+    WrapperComponent = 'div',
+
+    Component = 'div',
 
     className,
     style,
@@ -1036,7 +1042,11 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
 
           onMouseDown={onInputWrapperMouseDown}
 
-          style={styles.inputWrapper}
+          style={{
+            ...styles.inputWrapper,
+
+            ...InputWrapperProps.style
+          }}
         >
           {children}
 
@@ -1085,7 +1095,11 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
 
             disabled={disabled}
 
-            style={styles.input}
+            style={{
+              ...styles.input,
+
+              ...inputProps.style
+            }}
           />
         </div>
 

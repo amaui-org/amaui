@@ -81,12 +81,9 @@ const TimelineItem = React.forwardRef((props_: any, ref: any) => {
   const {
     orientation = 'vertical',
 
-    Icon,
-    Divider: Divider_,
     start,
     end,
 
-    Component = 'li',
     DividerProps: DividerProps_ = !props.Divider ? {
       tonal: 'secondary',
       color: 'neutral'
@@ -96,6 +93,11 @@ const TimelineItem = React.forwardRef((props_: any, ref: any) => {
       color: 'neutral',
       version: 'filled'
     } : undefined,
+
+    Icon,
+    Divider: Divider_,
+
+    Component = 'li',
 
     className,
 
@@ -132,7 +134,8 @@ const TimelineItem = React.forwardRef((props_: any, ref: any) => {
 
       className={classNames([
         staticClassName('TimelineItem', theme) && [
-          'AmauiTimelineItem-root'
+          'AmauiTimelineItem-root',
+          `AmauiTimelineItem-orientation-${orientation}`
         ],
 
         className,
@@ -192,33 +195,35 @@ const TimelineItem = React.forwardRef((props_: any, ref: any) => {
         >
           {Icon ? Icon : (
             <Surface
+              {...IconProps}
+
               className={classNames([
                 staticClassName('TimelineItem', theme) && [
                   'AmauiTimelineItem-icon'
                 ],
 
+                IconProps?.className,
                 classes.icon
               ])}
-
-              {...IconProps}
             />
           )}
         </div>
 
         {Divider_ ? Divider_ : (
           <Divider
+            {...DividerProps}
+
             className={classNames([
               staticClassName('TimelineItem', theme) && [
                 'AmauiTimelineItem-divider'
               ],
 
+              DividerProps?.className,
               classes.divider,
               classes[`divider_orientation_${orientation}`]
             ])}
 
             flex
-
-            {...DividerProps}
           />
         )}
       </Line>
