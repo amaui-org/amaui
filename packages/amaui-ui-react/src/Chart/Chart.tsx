@@ -1632,31 +1632,38 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
                   {pre}
 
                   {/* Elements */}
-                  {elements && elements.map(({ item, element }, index: number) => (
-                    React.cloneElement(element, {
-                      key: index,
+                  {elements && elements.map(({ item, element }, index: number) => {
+                    const itemVisible = (visible[item?.name] === undefined || !!visible[item?.name]);
 
-                      ...(elementTooltip ? {
-                        onMouseEnter: event => {
-                          const rect_ = (event.target as any).getBoundingClientRect();
+                    return (
+                      React.cloneElement(element, {
+                        key: index,
 
-                          onPointMouseEnter({
-                            ...item,
+                        ...(elementTooltip ? {
+                          onMouseEnter: event => {
+                            const rect_ = (event.target as any).getBoundingClientRect();
 
-                            rect: rect_
-                          });
-                        },
+                            onPointMouseEnter({
+                              ...item,
 
-                        onMouseLeave: onPointMouseLeave
-                      } : undefined),
+                              rect: rect_
+                            });
+                          },
 
-                      style: {
-                        ...element?.props?.style,
+                          onMouseLeave: onPointMouseLeave
+                        } : undefined),
 
-                        opacity: (visible[item?.name] === undefined || !!visible[item?.name]) ? 1 : 0
-                      }
-                    })
-                  ))}
+                        style: {
+                          ...element?.props?.style,
+
+                          ...(!itemVisible ? {
+                            opacity: '0',
+                            pointerEvents: 'none'
+                          } : undefined)
+                        }
+                      })
+                    );
+                  })}
 
                   {/* Additional lines */}
                   {additionalLines && (
