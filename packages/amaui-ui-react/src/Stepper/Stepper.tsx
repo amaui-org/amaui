@@ -90,8 +90,9 @@ const Stepper = React.forwardRef((props_: any, ref: any) => {
     individualDividers = props.stepDirection === 'column' && orientation !== 'vertical',
     free,
 
-    Component = 'div',
     DividerProps,
+
+    Component = 'div',
 
     className,
 
@@ -115,7 +116,11 @@ const Stepper = React.forwardRef((props_: any, ref: any) => {
       className={classNames([
         staticClassName('Stepper', theme) && [
           'AmauiStepper-root',
-          `AmauiStepper-orientation-${orientation}`
+          `AmauiStep-orientation-${orientation}`,
+          `AmauiStep-direction-${stepDirection}`,
+          dividerActive && `AmauiStep-divider-active`,
+          individualDividers && `AmauiStep-individual-dividers`,
+          free && `AmauiStep-free`
         ],
 
         className,
@@ -182,19 +187,20 @@ const Stepper = React.forwardRef((props_: any, ref: any) => {
 
               flex
 
+              {...DividerProps}
+
               className={classNames([
                 staticClassName('Stepper', theme) && [
                   'AmauiStepper-divider',
                   active_ && dividerActive && `AmauiStepper-divider-active`
                 ],
 
+                DividerProps?.className,
                 classes.divider,
                 classes[`divider_orientation_${orientation}`],
                 classes[`divider_orientation_${orientation}_stepDirection_${stepDirection}`],
                 active_ && dividerActive && classes[`divider_active_orientation_${orientation}`]
               ])}
-
-              {...DividerProps}
             />
           );
 

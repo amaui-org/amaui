@@ -142,11 +142,16 @@ const SpeedDial = React.forwardRef((props_: any, ref: any) => {
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiSpeedDial?.props?.default }), [props_]);
 
   const {
-    in: inProp = true,
-
     tonal = true,
     color = 'primary',
     version = 'filled',
+
+    open: open_,
+    openDefault,
+    onOpen: onOpen_,
+    onClose: onClose_,
+
+    in: inProp = true,
 
     position = 'bottom',
     alignment = 'end',
@@ -156,30 +161,26 @@ const SpeedDial = React.forwardRef((props_: any, ref: any) => {
 
     noRotate,
 
-    FabTransitionComponent = Zoom,
-    FabTransitionComponentProps,
-
-    SpeeDialItemTransitionComponent: SpeeDialItemTransitionComponent_ = Zoom,
-    SpeeDialItemTransitionComponentProps,
-
     tooltipLabel,
+
+    onKeyDown: onKeyDown_,
+
+    disabled,
+
+    IconOpen,
+    Icon = IconMaterialCloseRounded,
+    FabTransitionComponent = Zoom,
+    SpeeDialItemTransitionComponent: SpeeDialItemTransitionComponent_ = Zoom,
+
     TooltipProps = {
       alignment: 'center',
       interactive: false
     },
-    onKeyDown: onKeyDown_,
-
-    Icon = IconMaterialCloseRounded,
-    IconOpen,
     FabProps = {
       elevation: false
     },
-
-    open: open_,
-    openDefault,
-    onOpen: onOpen_,
-    onClose: onClose_,
-    disabled,
+    FabTransitionComponentProps,
+    SpeeDialItemTransitionComponentProps,
 
     Component = 'div',
 
@@ -445,6 +446,7 @@ const SpeedDial = React.forwardRef((props_: any, ref: any) => {
           `AmauiSpeedDial-root`,
           `AmauiSpeedDial-alignment-${alignment}`,
           `AmauiSpeedDial-position-${position}`,
+          `AmauiSpeedDial-direction-${direction}`,
           open && `AmauiSpeedDial-open`,
           hover && `AmauiSpeedDial-hover`,
           focus && `AmauiSpeedDial-focus`,

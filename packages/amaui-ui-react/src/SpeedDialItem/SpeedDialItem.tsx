@@ -34,8 +34,8 @@ const SpeedDialItem = React.forwardRef((props_: any, ref: any) => {
 
   const {
     open,
+
     label,
-    Icon,
     alignment = 'top',
     tooltipOpen,
     closeOnClick,
@@ -43,6 +43,8 @@ const SpeedDialItem = React.forwardRef((props_: any, ref: any) => {
 
     onBlur,
     onFocus,
+
+    Icon,
 
     TooltipProps = {
       alignment: 'center',
@@ -66,7 +68,8 @@ const SpeedDialItem = React.forwardRef((props_: any, ref: any) => {
 
       className={classNames([
         staticClassName('SpeedDialItem', theme) && [
-          `AmauiSpeedDialItem-root`
+          `AmauiSpeedDialItem-root`,
+          `AmauiSpeedDialItem-alignment-${alignment}`
         ],
 
         className,
@@ -84,6 +87,7 @@ const SpeedDialItem = React.forwardRef((props_: any, ref: any) => {
       >
         <IconButton
           onBlur={onBlur}
+
           onFocus={onFocus}
 
           {...other}

@@ -20,7 +20,7 @@ const useStyle = style(theme => ({
     boxShadow: 'rgb(0 0 0 / 1%) 0px 4px 5px 0px, rgb(0 0 0 / 1%) 0px 1px 10px 0px, rgb(0 0 0 / 1%) 0px 2px 4px -1px'
   },
 
-  aside: {
+  end: {
     marginInlineStart: 'auto'
   },
 
@@ -98,24 +98,30 @@ const Snackbar = React.forwardRef((props_: any, ref: any) => {
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiSnackbar?.props?.default }), [props_]);
 
   const {
-    open = true,
     tonal = true,
     color = 'primary',
     size = 'regular',
     elevation = 0,
+
+    open = true,
+
     primary,
-    aside: aside_,
+    end: end_,
     position = 'bottom',
     alignment = 'start',
     autoHide = true,
     autoHideDuration = 4000,
     fixed = props.open !== undefined,
     closeButton = true,
+
     onMouseEnter: onMouseEnter_,
     onMouseLeave: onMouseLeave_,
     onClose: onClose_,
+
     TransitionComponent = Grow,
+
     TransitionComponentProps,
+
     Component = 'div',
 
     className,
@@ -137,7 +143,7 @@ const Snackbar = React.forwardRef((props_: any, ref: any) => {
 
   refs.autoHideDuration.current = autoHideDuration;
 
-  const aside = React.Children.toArray(aside_);
+  const end = React.Children.toArray(end_);
 
   const addTimeout = (value = autoHideDuration) => {
     refs.timeout.current = setTimeout(() => onClose(), value);
@@ -218,7 +224,7 @@ const Snackbar = React.forwardRef((props_: any, ref: any) => {
 
   if (props.open !== undefined) {
     if (closeButton) {
-      aside.push(
+      end.push(
         <IconButton
           version='text'
 
@@ -254,7 +260,7 @@ const Snackbar = React.forwardRef((props_: any, ref: any) => {
 
         elevation={elevation}
 
-        Component={Line}
+        gap={2}
 
         wrap='wrap'
 
@@ -264,16 +270,20 @@ const Snackbar = React.forwardRef((props_: any, ref: any) => {
 
         justify='space-between'
 
-        gap={2}
-
         onMouseEnter={onMouseEnter}
 
         onMouseLeave={onMouseLeave}
 
+        Component={Line}
+
         className={classNames([
           staticClassName('Snackbar', theme) && [
             `AmauiSnackbar-root`,
-            `AmauiSnackbar-size-${size}`
+            `AmauiSnackbar-position-${position}`,
+            `AmauiSnackbar-alignment-${alignment}`,
+            `AmauiSnackbar-size-${size}`,
+            autoHide && `AmauiSnackbar-auto-hide`,
+            fixed && `AmauiSnackbar-fixed`
           ],
 
           className,
@@ -312,8 +322,10 @@ const Snackbar = React.forwardRef((props_: any, ref: any) => {
           </div>
         )}
 
-        {!!aside.length && (
+        {!!end.length && (
           <Line
+            gap={0}
+
             direction='row'
 
             wrap='wrap'
@@ -322,17 +334,15 @@ const Snackbar = React.forwardRef((props_: any, ref: any) => {
 
             justify='flex-end'
 
-            gap={0}
-
             className={classNames([
               staticClassName('Snackbar', theme) && [
-                `AmauiSnackbar-aside`
+                `AmauiSnackbar-end`
               ],
 
-              classes.aside
+              classes.end
             ])}
           >
-            {aside}
+            {end}
           </Line>
         )}
       </Surface>

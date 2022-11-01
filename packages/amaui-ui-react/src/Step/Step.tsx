@@ -122,9 +122,10 @@ const Step = React.forwardRef((props_: any, ref: any) => {
 
     renderIcon: renderIcon_,
 
-    Component = Surface,
     ListItemProps,
     DividerProps,
+
+    Component = Surface,
 
     className,
 
@@ -229,18 +230,19 @@ const Step = React.forwardRef((props_: any, ref: any) => {
 
           flex
 
+          {...DividerProps}
+
           className={classNames([
             staticClassName('Stepper', theme) && [
               'AmauiStepper-divider',
               activeDivider && `AmauiStepper-divider-active`
             ],
 
+            DividerProps?.className,
             classes.divider,
             classes[`divider_orientation_${orientation}`],
             activeDivider && classes[`divider_active_orientation_${orientation}`]
           ])}
-
-          {...DividerProps}
         />
       )}
     </Line>

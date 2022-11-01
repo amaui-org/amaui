@@ -194,21 +194,20 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
   const {
     tonal: tonal_,
     color: color_ = 'primary',
-
     size = 'regular',
+
+    inputRef,
 
     valueDefault,
     checked,
     onChange,
-
-    Component = 'span',
 
     OnIcon,
     OffIcon,
 
     disabled,
 
-    inputRef,
+    Component = 'span',
 
     className,
     style,
@@ -223,7 +222,7 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
   const refs = {
     value: React.useRef<any>(),
     input: React.useRef<any>(),
-    animation: React.useRef(false)
+    animation: React.useRef<any>()
   };
 
   refs.value.current = value;
@@ -664,8 +663,8 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
           'AmauiSwitch-root',
           `AmauiSwitch-color-${!theme.palette.color[color] && !['themed', 'inverted', 'default', 'inherit'].includes(color) ? 'new' : color}`,
           `AmauiSwitch-size-${size}`,
-          OnIcon && `AmauiSwitch-OnIcon`,
-          OffIcon && `AmauiSwitch-OffIcon`,
+          OnIcon && `AmauiSwitch-on-icon`,
+          OffIcon && `AmauiSwitch-off-icon`,
           tonal && `AmauiSwitch-tonal`,
           disabled && `AmauiSwitch-disabled`
         ],

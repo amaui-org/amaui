@@ -705,14 +705,15 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
     color: color_ = props.tonal ? 'neutral' : 'default',
     version = 'filled',
     elevation,
+
     backgroundOpacity,
     noOutline,
 
     start,
 
-    Component = 'div',
-
     AdditionalProps,
+
+    Component = 'div',
 
     className,
     style,
@@ -723,13 +724,12 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
   } = props;
 
   const styles: any = {
-    root: {
-
-    },
+    root: {},
     children: {}
   };
 
   let color = color_;
+
   let palette: any = {};
 
   if (!theme.palette.color[color] && !['themed', 'inverted', 'default', 'inherit'].includes(color)) {
@@ -932,6 +932,8 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
     <Component
       ref={ref}
 
+      {...AdditionalProps}
+
       className={classNames([
         staticClassName('Surface', theme) && [
           'AmauiSurface-root',
@@ -942,6 +944,7 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
           noOutline && `AmauiSurface-noOutlined`
         ],
 
+        AdditionalProps?.className,
         className,
         classes.root,
         classes[`version_${version}`],
@@ -956,8 +959,6 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
 
         ...styles.root
       }}
-
-      {...AdditionalProps}
 
       {...other}
     >
