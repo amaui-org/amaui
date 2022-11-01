@@ -395,9 +395,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
 
   const onClick = React.useCallback((event?: React.FocusEvent<any>) => {
     if (!refs.props.current.disabled) {
-      if (refs.props.current.list) {
-        setOpenList(!refs.openList.current);
-      }
+      if (refs.props.current.list) setOpenList(!refs.openList.current);
     }
 
     if (is('function', refs.props.current.onClick)) refs.props.current.onClick(event);
@@ -450,7 +448,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
           if (event.key === 'Enter' && refs.focus.current) onClick();
         }
         else {
-          if (event.key === 'Enter' && refs.focus.current) {
+          if (event.key === 'Enter' && !refs.props.current.button && refs.focus.current) {
             if (is('function', refs.props.current.onClick)) refs.props.current.onClick(event);
           }
         }

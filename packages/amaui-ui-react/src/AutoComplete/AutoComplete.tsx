@@ -13,6 +13,7 @@ import TextField from '../TextField';
 import IconButton from '../IconButton';
 import RoundProgress from '../RoundProgress';
 import ListSubheader from '../ListSubheader';
+import Line from '../Line';
 
 import { staticClassName } from '../utils';
 
@@ -203,6 +204,7 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
   const [mouseDown, setMouseDown] = React.useState(false);
   const [options, setOptions] = React.useState(options_);
   const [free, setFree] = React.useState(false);
+  const [menuStyle, setMenuStyle] = React.useState<any>({});
 
   const { classes } = useStyle(props);
 
@@ -214,7 +216,10 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
 
   const styles: any = {
     root: {},
-    menu: {}
+
+    menu: {
+      ...menuStyle
+    }
   };
 
   React.useEffect(() => {
@@ -226,6 +231,20 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
       }
     };
 
+    const onResize = () => {
+      const rect = refs.root.current.getBoundingClientRect();
+
+      if (!autoWidth) setMenuStyle(values => ({
+        ...values,
+
+        minWidth: rect.width
+      }));
+    };
+
+    const observer = new ResizeObserver(onResize);
+
+    observer.observe(refs.root.current);
+
     window.addEventListener('keydown', method);
 
     window.addEventListener('mouseup', onMouseUp as any);
@@ -234,6 +253,8 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
 
     return () => {
       // Clean up
+      observer.disconnect();
+
       window.removeEventListener('mouseup', onMouseUp as any);
 
       window.removeEventListener('keydown', method);
@@ -415,12 +436,10 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
     }
   };
 
-  if (refs.root.current) {
+  if (refs.root.current && !styles.menu.minWidth) {
     const rect = refs.root.current.getBoundingClientRect();
 
-    if (!autoWidth) {
-      styles.menu.minWidth = rect.width;
-    }
+    if (!autoWidth) styles.menu.minWidth = rect.width;
   }
 
   const renderValue = (value_: any) => {
@@ -547,24 +566,6 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
               }
               else if (closeOnSelect) onClose();
             }
-          },
-
-          onKeyDown: (event: React.KeyboardEvent) => {
-            if (event.key === 'Enter') {
-              if (multiple && value.includes(item.label)) onUnselect(item.label);
-              else onSelect(item.label);
-
-              if (is('function', item.props?.onClick)) item.props?.onClick(event);
-
-              if (!multiple) {
-                if (blurOnSelect) {
-                  if (closeOnSelect) setOpen(false);
-
-                  refs.input.current.blur();
-                }
-                else if (closeOnSelect) onClose();
-              }
-            }
           }
         };
       }
@@ -624,56 +625,6 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
     else return renderOptionValue(optionsToUse);
   };
 
-  const MenuValue = (children && (
-    <Menu
-      open={open}
-
-      autoSelectOnBlur={autoSelectOnBlur}
-
-      onSelect={onSelect}
-
-      portal={false}
-
-      onClose={() => onClose(false)}
-
-      onExited={onExited}
-
-      anchorElement={refs.root.current}
-
-      transformOrigin='center top'
-
-      transformOriginSwitch='center bottom'
-
-      maxWidth='unset'
-
-      ModalProps={{
-        // focus: !MenuProps.portal
-
-        freezeScroll: false
-      }}
-
-      style={styles.menu}
-
-      ListProps={{
-        menu: true,
-
-        paddingVertical: (is('function', groupBy) && !!options.length) ? 'none' : undefined,
-
-        size,
-
-        className: classNames([
-          classes.list
-        ]),
-
-        ...ListProps
-      }}
-
-      {...MenuProps}
-    >
-      {renderList()}
-    </Menu>
-  ));
-
   const endIcons = [
     end,
 
@@ -714,162 +665,222 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
   if (mouseDown) refs.input.current.focus();
 
   return (
-    <TextField
-      ref={refs.input}
+    <Line
+      gap={0}
 
-      rootRef={item => {
-        if (ref) ref.current = item;
+      direction='column'
 
-        refs.root.current = item;
-      }}
-
-      onBlur={onBlur}
-
-      onFocus={onFocus}
-
-      value={valueInput}
-
-      onChange={onChangeValue}
-
-      enabled={open || focus || mouseDown || !!(multiple ? (value.length || valueInput) : valueInput)}
-
-      focus={open || focus || mouseDown}
-
-      className={
-        classNames([
-          staticClassName('AutoComplete', theme) && [
-            'AmauiAutoComplete-root',
-            open && `AmauiAutoComplete-open`,
-            mouseDown && `AmauiAutoComplete-mouseDown`,
-            focus && `AmauiAutoComplete-focus`,
-            chip && `AmauiAutoComplete-chip`,
-            multiple && `AmauiAutoComplete-multiple`,
-            autoWidth && `AmauiAutoComplete-autoWidth`,
-            clear && `AmauiAutoComplete-clear`,
-            loading && `AmauiAutoComplete-loading`,
-            autoSelectOnBlur && `AmauiAutoComplete-autoSelectOnBlur`,
-            blurOnSelect && `AmauiAutoComplete-blurOnSelect`,
-            openOnFocus && `AmauiAutoComplete-openOnFocus`,
-            noOptions && `AmauiAutoComplete-noOptions`,
-            closeOnSelect && `AmauiAutoComplete-closeOnSelect`,
-            clearOnEscape && `AmauiAutoComplete-clearOnEscape`,
-            limit !== undefined && `AmauiAutoComplete-limit`,
-            selectOnFocus && `AmauiAutoComplete-selectOnFocus`,
-            clearOnBlur && `AmauiAutoComplete-clearOnBlur`
-          ],
-
-          className,
-          classes.root,
-          open && classes.open,
-          disabled && classes.disabled
-        ])
-      }
-
-      tonal={tonal}
-
-      color={color}
-
-      size={size}
-
-      version={version}
-
-      prefix={prefix}
-
-      sufix={sufix}
-
-      start={start}
-
-      end={endIcons}
-
-      readOnly={readOnly}
-
-      endVerticalAlign='center'
-
-      disabled={disabled}
-
-      InputWrapperProps={{
-        className: classNames([
-          staticClassName('AutoComplete', theme) && [
-            'AmauiAutoComplete-inputWrapper'
-          ],
-
-          classes.inputWrapper,
-          multiple && [
-            classes.multiple,
-            classes[`inputWrapper_multiple_size_${size}`]
-          ],
-          chip && classes.chip,
-          open && classes.open,
-          readOnly && classes.readOnly
-        ]),
-
-        onMouseDown,
-        onMouseUp,
-
-        onClick,
-
-        onKeyDown: onEnterKeyDown
-      }}
-
-      inputProps={{
-        className: classNames([
-          multiple && classes.input_
-        ]),
-
-        disabled: multiple,
-
-        readOnly: multiple
-      }}
-
-      footer={MenuValue}
-
-      style={{
-        ...style,
-
-        ...styles.root
-      }}
-
-      {...other}
+      className={classNames([
+        staticClassName('Select', theme) && [
+          'AmauiAutoComplete-wrapper'
+        ]
+      ])}
     >
-      {multiple && !chip && !!value.length && (
-        <div
-          ref={refs.value}
+      <TextField
+        ref={refs.input}
 
-          tabIndex={0}
+        rootRef={item => {
+          if (ref) ref.current = item;
 
-          onFocus={onFocus}
+          refs.root.current = item;
+        }}
 
-          onBlur={onBlur}
+        onBlur={onBlur}
 
-          onMouseDown={onMouseDown}
+        onFocus={onFocus}
 
-          onKeyDown={onEnterKeyDown}
+        value={valueInput}
 
-          className={classNames([
+        onChange={onChangeValue}
+
+        enabled={open || focus || mouseDown || !!(multiple ? (value.length || valueInput) : valueInput)}
+
+        focus={open || focus || mouseDown}
+
+        className={
+          classNames([
             staticClassName('AutoComplete', theme) && [
-              'AmauiAutoComplete-input',
+              'AmauiAutoComplete-root',
+              open && `AmauiAutoComplete-open`,
+              mouseDown && `AmauiAutoComplete-mouseDown`,
+              focus && `AmauiAutoComplete-focus`,
+              chip && `AmauiAutoComplete-chip`,
+              multiple && `AmauiAutoComplete-multiple`,
+              autoWidth && `AmauiAutoComplete-autoWidth`,
+              clear && `AmauiAutoComplete-clear`,
+              loading && `AmauiAutoComplete-loading`,
+              autoSelectOnBlur && `AmauiAutoComplete-autoSelectOnBlur`,
+              blurOnSelect && `AmauiAutoComplete-blurOnSelect`,
+              openOnFocus && `AmauiAutoComplete-openOnFocus`,
+              noOptions && `AmauiAutoComplete-noOptions`,
+              closeOnSelect && `AmauiAutoComplete-closeOnSelect`,
+              clearOnEscape && `AmauiAutoComplete-clearOnEscape`,
+              limit !== undefined && `AmauiAutoComplete-limit`,
+              selectOnFocus && `AmauiAutoComplete-selectOnFocus`,
+              clearOnBlur && `AmauiAutoComplete-clearOnBlur`
+            ],
+
+            className,
+            classes.root,
+            open && classes.open,
+            disabled && classes.disabled
+          ])
+        }
+
+        tonal={tonal}
+
+        color={color}
+
+        size={size}
+
+        version={version}
+
+        prefix={prefix}
+
+        sufix={sufix}
+
+        start={start}
+
+        end={endIcons}
+
+        readOnly={readOnly}
+
+        endVerticalAlign='center'
+
+        disabled={disabled}
+
+        InputWrapperProps={{
+          className: classNames([
+            staticClassName('AutoComplete', theme) && [
+              'AmauiAutoComplete-inputWrapper'
+            ],
+
+            classes.inputWrapper,
+            multiple && [
+              classes.multiple,
+              classes[`inputWrapper_multiple_size_${size}`]
+            ],
+            chip && classes.chip,
+            open && classes.open,
+            readOnly && classes.readOnly
+          ]),
+
+          onMouseDown,
+          onMouseUp,
+
+          onClick,
+
+          onKeyDown: onEnterKeyDown
+        }}
+
+        inputProps={{
+          className: classNames([
+            multiple && classes.input_
+          ]),
+
+          disabled: multiple,
+
+          readOnly: multiple
+        }}
+
+        style={{
+          ...style,
+
+          ...styles.root
+        }}
+
+        {...other}
+      >
+        {multiple && !chip && !!value.length && (
+          <div
+            ref={refs.value}
+
+            tabIndex={0}
+
+            onFocus={onFocus}
+
+            onBlur={onBlur}
+
+            onMouseDown={onMouseDown}
+
+            onKeyDown={onEnterKeyDown}
+
+            className={classNames([
+              staticClassName('AutoComplete', theme) && [
+                'AmauiAutoComplete-input',
+
+                multiple && [
+                  chip && `AmauiAutoComplete-chip`,
+                  open && `AmauiAutoComplete-open`,
+                  readOnly && `AmauiSelect-readOnly`
+                ],
+              ],
 
               multiple && [
-                chip && `AmauiAutoComplete-chip`,
-                open && `AmauiAutoComplete-open`,
-                readOnly && `AmauiSelect-readOnly`
+                classes.input,
+                chip && classes.chip,
+                open && classes.open,
+                readOnly && classes.readOnly
               ],
-            ],
+            ])}
+          >
+            {renderValues()}
+          </div>
+        )}
 
-            multiple && [
-              classes.input,
-              chip && classes.chip,
-              open && classes.open,
-              readOnly && classes.readOnly
-            ],
-          ])}
+        {multiple && chip && !!value.length && renderValues()}
+      </TextField>
+
+      {children && (
+        <Menu
+          open={open}
+
+          autoSelectOnBlur={autoSelectOnBlur}
+
+          onSelect={onSelect}
+
+          portal={false}
+
+          onClose={() => onClose(false)}
+
+          onExited={onExited}
+
+          anchorElement={refs.root.current}
+
+          transformOrigin='center top'
+
+          transformOriginSwitch='center bottom'
+
+          maxWidth='unset'
+
+          ModalProps={{
+            // focus: !MenuProps.portal
+
+            freezeScroll: false
+          }}
+
+          style={styles.menu}
+
+          ListProps={{
+            menu: true,
+
+            paddingVertical: (is('function', groupBy) && !!options.length) ? 'none' : undefined,
+
+            size,
+
+            className: classNames([
+              classes.list
+            ]),
+
+            ...ListProps
+          }}
+
+          {...MenuProps}
         >
-          {renderValues()}
-        </div>
+          {renderList()}
+        </Menu>
       )}
-
-      {multiple && chip && !!value.length && renderValues()}
-    </TextField>
+    </Line>
   );
 });
 

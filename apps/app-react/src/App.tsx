@@ -39484,7 +39484,7 @@ Please sign in again.`}
                 primary={`Item ${item}`}
 
                 start={(
-                  <Checkbox value={selected.includes(item)} />
+                  <Checkbox checked={selected.includes(item)} />
                 )}
 
                 value={item}

@@ -156,7 +156,7 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
 
     portal = true,
     focus = true,
-    freezeScroll = true,
+    freezeScroll = false,
 
     disableKeyboardClose,
     disableBackgroundClose,
@@ -186,10 +186,14 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
   const [inProp, setInProp] = React.useState(open_);
 
   const refs = {
-    focus: React.useRef<HTMLDivElement>()
+    focus: React.useRef<HTMLDivElement>(),
+    freezeScroll: React.useRef<any>(),
+    interval: React.useRef<any>()
   };
 
   const { classes } = useStyle(props);
+
+  refs.freezeScroll.current = freezeScroll;
 
   const modal = {
     open: () => {
@@ -219,8 +223,17 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
   React.useEffect(() => {
     if (open) modal.open();
 
+    // Bug clean up fix
+    refs.interval.current = setInterval(() => {
+      if (MODALS_OPEN <= 0 && refs.freezeScroll.current && window.document.body.style.overflow === 'hidden') {
+        window.document.body.style.removeProperty('overflow');
+      }
+    }, 1400);
+
     return () => {
       if (open) modal.close();
+
+      clearInterval(refs.interval.current);
     };
   }, []);
 

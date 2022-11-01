@@ -9,6 +9,7 @@ import Chip from '../Chip';
 import TextField from '../TextField';
 import ChipGroup from '../Chips';
 import IconButton from '../IconButton';
+import Line from '../Line';
 
 import { staticClassName } from '../utils';
 
@@ -22,6 +23,7 @@ const overflow = {
 const useStyle = style(theme => ({
   root: {
     flex: 'unset',
+    minWidth: '140px',
 
     '& .AmauiTextField-input': {
       position: 'absolute',
@@ -167,6 +169,7 @@ const Select = React.forwardRef((props_: any, ref: any) => {
   const [open, setOpen] = React.useState(false);
   const [mouseDown, setMouseDown] = React.useState(false);
   const [focus, setFocus] = React.useState(false);
+  const [menuStyle, setMenuStyle] = React.useState<any>({});
 
   const { classes } = useStyle(props);
 
@@ -177,7 +180,10 @@ const Select = React.forwardRef((props_: any, ref: any) => {
 
   const styles: any = {
     root: {},
-    menu: {}
+
+    menu: {
+      ...menuStyle
+    }
   };
 
   React.useEffect(() => {
@@ -185,9 +191,26 @@ const Select = React.forwardRef((props_: any, ref: any) => {
       if (event.key === 'Escape') onClose();
     };
 
+    const onResize = () => {
+      const rect = refs.root.current.getBoundingClientRect();
+
+      if (!autoWidth) setMenuStyle(values => ({
+        ...values,
+
+        minWidth: rect.width
+      }));
+    };
+
+    const observer = new ResizeObserver(onResize);
+
+    observer.observe(refs.root.current);
+
     window.addEventListener('keydown', method);
 
     return () => {
+      // Clean up
+      observer.disconnect();
+
       window.removeEventListener('keydown', method);
     };
   }, []);
@@ -266,12 +289,10 @@ const Select = React.forwardRef((props_: any, ref: any) => {
     }
   };
 
-  if (refs.root.current) {
+  if (refs.root.current && !styles.menu.minWidth) {
     const rect = refs.root.current.getBoundingClientRect();
 
-    if (!autoWidth) {
-      styles.menu.minWidth = rect.width;
-    }
+    if (!autoWidth) styles.menu.minWidth = rect.width;
   }
 
   const renderValue = (values: any = value) => {
@@ -319,74 +340,6 @@ const Select = React.forwardRef((props_: any, ref: any) => {
     return renderValue(value);
   });
 
-  const MenuValue = (children && (
-    <Menu
-      open={open}
-
-      portal={false}
-
-      onClose={() => onClose(false)}
-
-      anchorElement={refs.root.current}
-
-      transformOrigin='center top'
-
-      transformOriginSwitch='center bottom'
-
-      maxWidth='unset'
-
-      ModalProps={{
-        focus: !MenuProps.portal
-      }}
-
-      style={styles.menu}
-
-      ListProps={{
-        menu: true,
-
-        size,
-
-        ...ListProps
-      }}
-
-      {...MenuProps}
-    >
-      {children.map((item: any, index: number) => (
-        React.cloneElement(item, {
-          key: index,
-
-          selected: multiple ? value.includes(item.props?.value) : value === item.props?.value,
-
-          preselected: !(multiple ? value.includes(item.props?.value) : value === item.props?.value),
-
-          onMouseUp,
-
-          onMouseDown,
-
-          onClick: (event: React.MouseEvent) => {
-            if (multiple && value.includes(item.props?.value)) onUnselect(item.props?.value);
-            else onSelect(item.props?.value);
-
-            if (is('function', item.props?.onClick)) item.props?.onClick(event);
-
-            if (!multiple) setOpen(false);
-          },
-
-          onKeyDown: (event: React.KeyboardEvent) => {
-            if (event.key === 'Enter') {
-              if (multiple && value.includes(item.props?.value)) onUnselect(item.props?.value);
-              else onSelect(item.props?.value);
-
-              if (is('function', item.props?.onClick)) item.props?.onClick(event);
-
-              if (!multiple) setOpen(false);
-            }
-          }
-        })
-      ))}
-    </Menu>
-  ));
-
   const endIcons = [
     end,
 
@@ -409,115 +362,182 @@ const Select = React.forwardRef((props_: any, ref: any) => {
   ];
 
   return (
-    <TextField
-      ref={refs.input}
+    <Line
+      gap={0}
 
-      rootRef={item => {
-        if (ref) ref.current = item;
-
-        refs.root.current = item;
-      }}
-
-      onBlur={onBlur}
-
-      onFocus={onFocus}
-
-      enabled={open || focus || mouseDown || !!(is('array', value) ? value.length : value)}
-
-      focus={open || focus || mouseDown}
+      direction='column'
 
       className={classNames([
         staticClassName('Select', theme) && [
-          'AmauiSelect-root',
-          open && `AmauiSelect-open`,
-          mouseDown && `AmauiSelect-mouseDown`,
-          focus && `AmauiSelect-focus`,
-          multiple && `AmauiSelect-multiple`,
-          autoWidth && `AmauiSelect-autoWidth`,
-          chip && `AmauiSelect-chip`
-        ],
-
-        className,
-        classes.root,
-        open && classes.open,
-        disabled && classes.disabled
+          'AmauiSelect-wrapper'
+        ]
       ])}
-
-      tonal={tonal}
-
-      color={color}
-
-      size={size}
-
-      version={version}
-
-      prefix={prefix}
-
-      sufix={sufix}
-
-      start={start}
-
-      end={endIcons}
-
-      readOnly={readOnly}
-
-      endVerticalAlign='center'
-
-      disabled={disabled}
-
-      InputWrapperProps={{
-        className: classNames([
-          staticClassName('Select', theme) && [
-            'AmauiSelect-inputWrapper'
-          ],
-
-          classes.inputWrapper,
-          chip && [
-            classes.chip,
-            classes[`inputWrapper_chip_size_${size}`]
-          ],
-          open && classes.open,
-          readOnly && classes.readOnly
-        ]),
-
-        onMouseDown,
-        onMouseUp,
-
-        onClick,
-        onKeyDown: onEnterKeyDown
-      }}
-
-      inputProps={{
-        disabled: true,
-
-        readOnly: true
-      }}
-
-      footer={MenuValue}
-
-      style={{
-        ...style,
-
-        ...styles.root
-      }}
-
-      {...other}
     >
-      <div
+      <TextField
+        ref={refs.input}
+
+        rootRef={item => {
+          if (ref) ref.current = item;
+
+          refs.root.current = item;
+        }}
+
+        onBlur={onBlur}
+
+        onFocus={onFocus}
+
+        enabled={open || focus || mouseDown || !!(is('array', value) ? value.length : value)}
+
+        focus={open || focus || mouseDown}
+
         className={classNames([
           staticClassName('Select', theme) && [
-            'AmauiSelect-input'
+            'AmauiSelect-root',
+            open && `AmauiSelect-open`,
+            mouseDown && `AmauiSelect-mouseDown`,
+            focus && `AmauiSelect-focus`,
+            multiple && `AmauiSelect-multiple`,
+            autoWidth && `AmauiSelect-autoWidth`,
+            chip && `AmauiSelect-chip`
           ],
 
-          classes.input,
-          chip && classes.chip,
+          className,
+          classes.root,
           open && classes.open,
-          readOnly && classes.readOnly
+          disabled && classes.disabled
         ])}
+
+        tonal={tonal}
+
+        color={color}
+
+        size={size}
+
+        version={version}
+
+        prefix={prefix}
+
+        sufix={sufix}
+
+        start={start}
+
+        end={endIcons}
+
+        readOnly={readOnly}
+
+        endVerticalAlign='center'
+
+        disabled={disabled}
+
+        InputWrapperProps={{
+          className: classNames([
+            staticClassName('Select', theme) && [
+              'AmauiSelect-inputWrapper'
+            ],
+
+            classes.inputWrapper,
+            chip && [
+              classes.chip,
+              classes[`inputWrapper_chip_size_${size}`]
+            ],
+            open && classes.open,
+            readOnly && classes.readOnly
+          ]),
+
+          onMouseDown,
+          onMouseUp,
+
+          onClick,
+          onKeyDown: onEnterKeyDown
+        }}
+
+        inputProps={{
+          disabled: true,
+
+          readOnly: true
+        }}
+
+        style={{
+          ...style,
+
+          ...styles.root
+        }}
+
+        {...other}
       >
-        {renderValues()}
-      </div>
-    </TextField>
+        <div
+          className={classNames([
+            staticClassName('Select', theme) && [
+              'AmauiSelect-input'
+            ],
+
+            classes.input,
+            chip && classes.chip,
+            open && classes.open,
+            readOnly && classes.readOnly
+          ])}
+        >
+          {renderValues()}
+        </div>
+      </TextField>
+
+      {children && (
+        <Menu
+          open={open}
+
+          portal={false}
+
+          onClose={() => onClose(false)}
+
+          anchorElement={refs.root.current}
+
+          transformOrigin='center top'
+
+          transformOriginSwitch='center bottom'
+
+          maxWidth='unset'
+
+          ModalProps={{
+            // focus: !MenuProps.portal
+          }}
+
+          style={styles.menu}
+
+          ListProps={{
+            menu: true,
+
+            size,
+
+            ...ListProps
+          }}
+
+          {...MenuProps}
+        >
+          {children.map((item: any, index: number) => (
+            React.cloneElement(item, {
+              key: index,
+
+              selected: multiple ? value.includes(item.props?.value) : value === item.props?.value,
+
+              preselected: !(multiple ? value.includes(item.props?.value) : value === item.props?.value),
+
+              onMouseUp,
+
+              onMouseDown,
+
+              onClick: (event: React.MouseEvent) => {
+                if (multiple && value.includes(item.props?.value)) onUnselect(item.props?.value);
+                else onSelect(item.props?.value);
+
+                if (is('function', item.props?.onClick)) item.props?.onClick(event);
+
+                if (!multiple) setOpen(false);
+              }
+            })
+          ))}
+        </Menu>
+      )}
+    </Line>
   );
 });
 

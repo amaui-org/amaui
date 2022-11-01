@@ -103,7 +103,7 @@ const List = React.forwardRef((props_: any, ref: any) => {
   if (indent !== undefined) styles.root.paddingInlineStart = `${indent * theme.space.unit}px`;
 
   return (
-    <Line
+    <Surface
       ref={ref}
 
       tonal={tonal}
@@ -118,7 +118,7 @@ const List = React.forwardRef((props_: any, ref: any) => {
 
       align='flex-start'
 
-      Component={Surface}
+      Component={Line}
 
       AdditionalProps={{
         Component
@@ -165,7 +165,7 @@ const List = React.forwardRef((props_: any, ref: any) => {
           ...item.props
         } : {})
       }))}
-    </Line>
+    </Surface>
   );
 });
 

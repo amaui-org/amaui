@@ -98,9 +98,7 @@ const useStyle = style(theme => ({
     textAlign: 'start',
     ...theme.typography.values.b2,
     ...overflow,
-
-    width: '100%',
-    flex: '1 1 auto'
+    width: 'auto'
   },
 
   multiline: {
@@ -667,6 +665,8 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
     if (!disabled) {
       setMouseDown(true);
 
+      refs.input.current.focus();
+
       if (is('function', InputWrapperProps.onMouseDown)) InputWrapperProps.onMouseDown(event);
     }
   }, []);
@@ -805,8 +805,6 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
       }
     }
   }
-
-  if (mouseDown) refs.input.current.focus();
 
   const valueWithData = value !== undefined && String(value);
 
