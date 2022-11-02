@@ -233,9 +233,9 @@ const Step = React.forwardRef((props_: any, ref: any) => {
           {...DividerProps}
 
           className={classNames([
-            staticClassName('Stepper', theme) && [
-              'AmauiStepper-divider',
-              activeDivider && `AmauiStepper-divider-active`
+            staticClassName('Step', theme) && [
+              'AmauiStep-divider',
+              activeDivider && `AmauiStep-divider-active`
             ],
 
             DividerProps?.className,

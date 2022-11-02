@@ -450,7 +450,7 @@ const SpeedDial = React.forwardRef((props_: any, ref: any) => {
           open && `AmauiSpeedDial-open`,
           hover && `AmauiSpeedDial-hover`,
           focus && `AmauiSpeedDial-focus`,
-          noRotate && `AmauiSpeedDial-noRotate`,
+          noRotate && `AmauiSpeedDial-no-rotate`,
           disabled && `AmauiSpeedDial-disabled`
         ],
 
@@ -572,7 +572,7 @@ const SpeedDial = React.forwardRef((props_: any, ref: any) => {
               <IconWrapper
                 className={classNames([
                   staticClassName('SpeedDial', theme) && [
-                    `AmauiSpeedDial-iconWrapper`
+                    `AmauiSpeedDial-icon-wrapper`
                   ],
 
                   classes.iconWrapper,

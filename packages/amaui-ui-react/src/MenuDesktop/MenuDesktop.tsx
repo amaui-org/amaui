@@ -491,7 +491,7 @@ const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
             openOnClick && `AmauiMenuDesktop-open-on-click`,
             openOnFocus && `AmauiMenuDesktop-open-on-focus`,
             indicator && `AmauiMenuDesktop-indicator`,
-            menuTransition && `AmauiMenuDesktop-menuTransition`
+            menuTransition && `AmauiMenuDesktop-menu-transition`
           ],
 
           className,
@@ -643,8 +643,8 @@ const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
                   version={version}
 
                   className={classNames([
-                    staticClassName('Menu', theme) && [
-                      'AmauiMenu-menu-wrapper'
+                    staticClassName('MenuDesktop', theme) && [
+                      'AmauiMenuDesktop-menu-wrapper'
                     ],
 
                     classes.menuWrapper,
@@ -666,8 +666,8 @@ const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
                               onMenuDesktopClose: onClose,
 
                               className: classNames([
-                                staticClassName('Menu', theme) && [
-                                  'AmauiMenu-menu',
+                                staticClassName('MenuDesktop', theme) && [
+                                  'AmauiMenuDesktop-menu',
 
                                   status
                                 ],
@@ -698,8 +698,8 @@ const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
                       onMenuDesktopClose: onClose,
 
                       className: classNames([
-                        staticClassName('Menu', theme) && [
-                          'AmauiMenu-menu'
+                        staticClassName('MenuDesktop', theme) && [
+                          'AmauiMenuDesktop-menu'
                         ],
 
                         classes.menu

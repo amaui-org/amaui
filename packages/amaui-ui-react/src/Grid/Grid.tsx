@@ -178,8 +178,8 @@ const Grid = React.forwardRef((props_: any, ref: any) => {
           `AmauiGrid-gap-${gap}`,
           line && 'AmauiGrid-root-line',
           auto && 'AmauiGrid-root-auto',
-          rowGap !== undefined && 'AmauiGrid-rowGap-${rowGap',
-          columnGap !== undefined && 'AmauiGrid-columnGap-${columnGap'
+          rowGap !== undefined && 'AmauiGrid-row-gap-${rowGap',
+          columnGap !== undefined && 'AmauiGrid-column-gap-${columnGap'
         ],
 
         className,

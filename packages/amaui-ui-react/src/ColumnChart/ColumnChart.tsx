@@ -203,7 +203,7 @@ const ColumnChart = React.forwardRef((props_: any, ref: any) => {
       >
         <span
           className={classNames([
-            staticClassName('Chart', theme) && [
+            staticClassName('ColumnChart', theme) && [
               'AmauiColumnChart-legend-icon'
             ],
 

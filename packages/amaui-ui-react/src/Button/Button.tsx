@@ -485,7 +485,7 @@ const Button = React.forwardRef((props_: any, ref: any) => {
           `AmauiButton-size-${size}`,
           `AmauiButton-align-${align}`,
           (elevation && !disabled && ['filled', 'tonal'].includes(version)) && `AmauiButton-elevation`,
-          fullWidth && `AmauiButton-fullWidth`,
+          fullWidth && `AmauiButton-full-width`,
           start && `AmauiButton-start`,
           end && `AmauiButton-end`,
           selected && `AmauiButton-selected`,
@@ -493,7 +493,7 @@ const Button = React.forwardRef((props_: any, ref: any) => {
           icon && `AmauiButton-icon`,
           fab && `AmauiButton-fab`,
           chip && `AmauiButton-chip`,
-          noIconRootFontSize && `AmauiButton-noIconRootFontSize`,
+          noIconRootFontSize && `AmauiButton-no-icon-root-font-size`,
           focus && `AmauiButton-focus`,
           disabled && `AmauiButton-disabled`
         ],
@@ -573,7 +573,7 @@ const Button = React.forwardRef((props_: any, ref: any) => {
 
           className={classNames([
             staticClassName('Button', theme) && [
-              'AmauiButton-iconRoot'
+              'AmauiButton-icon-root'
             ],
 
             IconWrapperProps?.className,

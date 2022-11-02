@@ -1431,7 +1431,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
         className={classNames([
           staticClassName('ImageEdit', theme) && [
-            'AmauiImageEdit-imageWrapper'
+            'AmauiImageEdit-image-wrapper'
           ],
 
           classes.imageWrapper
@@ -1439,8 +1439,8 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
       >
         <div
           className={classNames([
-            staticClassName('ScreenCapture', theme) && [
-              'AmauiScreenCapture-canvas-wrapper'
+            staticClassName('ImageEdit', theme) && [
+              'AmauiImageEdit-canvas-wrapper'
             ],
 
             classes.canvasWrapper
@@ -1450,9 +1450,9 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
             ref={refs.canvasMain}
 
             className={classNames([
-              staticClassName('ScreenCapture', theme) && [
-                'AmauiScreenCapture-canvas',
-                'AmauiScreenCapture-canvas-main'
+              staticClassName('ImageEdit', theme) && [
+                'AmauiImageEdit-canvas',
+                'AmauiImageEdit-canvas-main'
               ],
 
               classes.canvas,
@@ -1471,8 +1471,8 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
               {...ImageCropProps}
 
               className={classNames([
-                staticClassName('ScreenCapture', theme) && [
-                  'AmauiScreenCapture-image-crop'
+                staticClassName('ImageEdit', theme) && [
+                  'AmauiImageEdit-image-crop'
                 ],
 
                 ImageCropProps.className,
@@ -1609,7 +1609,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
                       className={classNames([
                         staticClassName('ImageEdit', theme) && [
-                          'AmauiImageEdit-optionInput'
+                          'AmauiImageEdit-option-input'
                         ],
 
                         classes.optionInput
@@ -1647,7 +1647,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
                       className={classNames([
                         staticClassName('ImageEdit', theme) && [
-                          'AmauiImageEdit-optionInput'
+                          'AmauiImageEdit-option-input'
                         ],
 
                         classes.optionInput
@@ -1796,7 +1796,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
                   className={classNames([
                     staticClassName('ImageEdit', theme) && [
-                      'AmauiImageEdit-optionInput'
+                      'AmauiImageEdit-option-input'
                     ],
 
                     classes.optionInput

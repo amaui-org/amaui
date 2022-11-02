@@ -197,7 +197,7 @@ const Masonry = React.forwardRef((props_: any, ref: any) => {
 
           className={classNames([
             staticClassName('Masonry', theme) && [
-              'AmauiMasonry-lineBreak'
+              'AmauiMasonry-line-break'
             ],
 
             classes.lineBreak

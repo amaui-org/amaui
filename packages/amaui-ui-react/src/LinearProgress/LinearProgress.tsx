@@ -360,7 +360,7 @@ const LinearProgress = React.forwardRef((props_: any, ref: any) => {
         <div
           className={classNames([
             staticClassName('LinearProgress', theme) && [
-              'AmauiLinearProgress-bufferDots'
+              'AmauiLinearProgress-buffer-dots'
             ],
 
             classes.bufferDots,
@@ -388,7 +388,7 @@ const LinearProgress = React.forwardRef((props_: any, ref: any) => {
           <div
             className={classNames([
               staticClassName('LinearProgress', theme) && [
-                'AmauiLinearProgress-lineIndeterminate'
+                'AmauiLinearProgress-line-indeterminate'
               ],
 
               classes[!reverse ? 'lineIndeterminate' : 'lineIndeterminate_reverse']
@@ -408,7 +408,7 @@ const LinearProgress = React.forwardRef((props_: any, ref: any) => {
           <div
             className={classNames([
               staticClassName('LinearProgress', theme) && [
-                'AmauiLinearProgress-lineIndeterminate1'
+                'AmauiLinearProgress-line-indeterminate-1'
               ],
 
               classes[!reverse ? 'lineIndeterminate1' : 'lineIndeterminate1_reverse']
@@ -417,7 +417,7 @@ const LinearProgress = React.forwardRef((props_: any, ref: any) => {
             <div
               className={classNames([
                 staticClassName('LinearProgress', theme) && [
-                  'AmauiLinearProgress-inner1'
+                  'AmauiLinearProgress-inner-1'
                 ],
 
                 classes.inner1

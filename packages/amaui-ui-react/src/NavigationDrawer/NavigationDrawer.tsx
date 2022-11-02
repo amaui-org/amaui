@@ -246,7 +246,7 @@ const NavigationDrawer = React.forwardRef((props_: any, ref: any) => {
       TransitionComponent={Slide}
 
       className={classNames([
-        staticClassName('Modal', theme) && [
+        staticClassName('NavigationDrawer', theme) && [
           'AmauiNavigationDrawer-root',
           `AmauiNavigationDrawer-version-${version}`,
           `AmauiNavigationDrawer-direction-${direction}`,

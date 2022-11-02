@@ -235,11 +235,11 @@ const Menu = React.forwardRef((props_: any, ref: any) => {
             'AmauiMenu-root',
             open && `AmauiMenu-open`,
             arrow && `AmauiMenu-arrow`,
-            anchorElement && `AmauiMenu-anchorElement`,
-            closeOnClickAway && `AmauiMenu-closeOnClickAway`,
-            resetKeyboardNavigation && `AmauiMenu-resetKeyboardNavigation`,
-            autoSelect && `AmauiMenu-autoSelect`,
-            autoSelectOnBlur && `AmauiMenu-autoSelectOnBlur`
+            anchorElement && `AmauiMenu-anchor-element`,
+            closeOnClickAway && `AmauiMenu-close-on-click-away`,
+            resetKeyboardNavigation && `AmauiMenu-reset-keyboard-navigation`,
+            autoSelect && `AmauiMenu-auto-select`,
+            autoSelectOnBlur && `AmauiMenu-auto-select-on-blur`
           ],
 
           className,

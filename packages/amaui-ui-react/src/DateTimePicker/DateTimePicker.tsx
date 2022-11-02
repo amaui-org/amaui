@@ -437,7 +437,7 @@ const DateTimePicker = React.forwardRef((props_: any, ref: any) => {
         color={color}
 
         className={classNames([
-          staticClassName('DatePicker', theme) && [
+          staticClassName('DateTimePicker', theme) && [
             'AmauiDateTimePicker-mode',
             'AmauiDateTimePicker-mode-docked'
           ],
@@ -551,7 +551,7 @@ const DateTimePicker = React.forwardRef((props_: any, ref: any) => {
         color={color}
 
         className={classNames([
-          staticClassName('DatePicker', theme) && [
+          staticClassName('DateTimePicker', theme) && [
             'AmauiDateTimePicker-mode',
             'AmauiDateTimePicker-mode-modal'
           ],

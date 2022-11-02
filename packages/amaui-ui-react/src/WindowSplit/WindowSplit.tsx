@@ -421,7 +421,7 @@ const WindowSplit = React.forwardRef((props_: any, ref: any) => {
           `AmauiWindowSplit-orientation-${orientation}`,
           iconButton && `AmauiButton-icon-button`,
           focus && `AmauiButton-focus`,
-          mouseDown && `AmauiButton-mouseDown`,
+          mouseDown && `AmauiButton-mouse-down`,
         ],
 
         className,
@@ -533,8 +533,8 @@ const WindowSplit = React.forwardRef((props_: any, ref: any) => {
       {iconButton && (
         (iconButtonComponent && React.cloneElement(iconButtonComponent, {
           className: classNames([
-            staticClassName('ViewSplit', theme) && [
-              'AmauiViewSplit-iconButton'
+            staticClassName('WindowSplit', theme) && [
+              'AmauiWindowSplit-icon-button'
             ],
 
             classes.iconButton,
@@ -559,7 +559,7 @@ const WindowSplit = React.forwardRef((props_: any, ref: any) => {
 
           className={classNames([
             staticClassName('WindowSplit', theme) && [
-              'AmauiWindowSplit-iconButton'
+              'AmauiWindowSplit-icon-button'
             ],
 
             IconButtonProps?.className,

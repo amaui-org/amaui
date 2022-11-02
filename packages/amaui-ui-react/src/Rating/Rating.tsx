@@ -448,14 +448,14 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
           values && `AmauiButton-values`,
           precision && `AmauiButton-precision`,
           hover && `AmauiButton-hover`,
-          mouseDown && `AmauiButton-mouseDown`,
+          mouseDown && `AmauiButton-mouse-down`,
           focus && [
             `AmauiButton-focus`,
             [undefined, 0].includes(value) && `AmauiButton-focus-noValue`
           ],
           tonal && `AmauiButton-tonal`,
-          onlyValue && `AmauiButton-onlyValue`,
-          readOnly && `AmauiRating-readOnly`,
+          onlyValue && `AmauiButton-only-value`,
+          readOnly && `AmauiRating-read-only`,
           disabled && `AmauiRating-disabled`
         ],
 

@@ -204,8 +204,8 @@ const Line = React.forwardRef((props_: any, ref: any) => {
           align && `AmauiLine-align-${align}`,
           justify && `AmauiLine-justify-${justify}`,
           gap && `AmauiLine-gap-${gap}`,
-          rowGap !== undefined && `AmauiLine-rowGap-${rowGap}`,
-          columnGap !== undefined && `AmauiLine-columnGap-${columnGap}`,
+          rowGap !== undefined && `AmauiLine-row-gap-${rowGap}`,
+          columnGap !== undefined && `AmauiLine-column-gap-${columnGap}`,
           divider && `AmauiLine-divider`
         ],
 

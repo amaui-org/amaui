@@ -403,10 +403,10 @@ const Select = React.forwardRef((props_: any, ref: any) => {
           staticClassName('Select', theme) && [
             'AmauiSelect-root',
             open && `AmauiSelect-open`,
-            mouseDown && `AmauiSelect-mouseDown`,
+            mouseDown && `AmauiSelect-mouse-down`,
             focus && `AmauiSelect-focus`,
             multiple && `AmauiSelect-multiple`,
-            autoWidth && `AmauiSelect-autoWidth`,
+            autoWidth && `AmauiSelect-auto-width`,
             chip && `AmauiSelect-chip`
           ],
 
@@ -441,7 +441,7 @@ const Select = React.forwardRef((props_: any, ref: any) => {
         InputWrapperProps={{
           className: classNames([
             staticClassName('Select', theme) && [
-              'AmauiSelect-inputWrapper'
+              'AmauiSelect-input-wrapper'
             ],
 
             classes.inputWrapper,

@@ -134,7 +134,7 @@ const List = React.forwardRef((props_: any, ref: any) => {
           `AmauiList-padding-vertical-${paddingVertical}`,
           menu && `AmauiList-menu`,
           indent && `AmauiList-indent`,
-          noMaxWidth && `AmauiList-noMaxWidth`
+          noMaxWidth && `AmauiList-no-max-width`
         ],
 
         className,

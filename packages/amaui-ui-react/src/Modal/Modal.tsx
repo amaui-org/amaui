@@ -284,7 +284,7 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
     <div
       className={classNames([
         staticClassName('Modal', theme) && [
-          'AmauiModal-modalRoot'
+          'AmauiModal-modal-root'
         ],
 
         classes.modalRoot
@@ -305,7 +305,7 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
               <div
                 className={classNames([
                   staticClassName('Modal', theme) && [
-                    'AmauiModal-noSurface'
+                    'AmauiModal-no-surface'
                   ],
 
                   NoSurfaceProps?.className,
@@ -362,19 +362,19 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
           staticClassName('Modal', theme) && [
             'AmauiModal-root',
             `AmauiModal-size-${size}`,
-            `AmauiModal-minWidth-${minWidth}`,
-            `AmauiModal-maxWidth-${maxWidth}`,
+            `AmauiModal-min-width-${minWidth}`,
+            `AmauiModal-max-width-${maxWidth}`,
             open && `AmauiButton-open`,
-            fullScreen && `AmauiButton-fullScreen`,
-            fullWidth && `AmauiButton-fullWidth`,
+            fullScreen && `AmauiButton-full-screen`,
+            fullWidth && `AmauiButton-full-width`,
             background && `AmauiButton-background`,
-            modalWrapper && `AmauiButton-modalWrapper`,
+            modalWrapper && `AmauiButton-modal-wrapper`,
             portal && `AmauiButton-portal`,
             focus && `AmauiButton-focus`,
-            freezeScroll && `AmauiButton-freezeScroll`,
+            freezeScroll && `AmauiButton-freeze-scroll`,
             backgroundInvisible && 'AmauiModal-background-invisible',
-            disableKeyboardClose && `AmauiButton-disableKeyboardClose`,
-            disableBackgroundClose && `AmauiButton-disableBackgroundClose`,
+            disableKeyboardClose && `AmauiButton-disable-keyboard-close`,
+            disableBackgroundClose && `AmauiButton-disable-background-close`,
           ],
 
           className,

@@ -941,7 +941,7 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
           `AmauiSurface-version-${version}`,
           tonal && `AmauiSurface-tonal${is('string', tonal) ? `-${tonal}` : ''}`,
           elevation && `AmauiSurface-elevation-${elevation}`,
-          noOutline && `AmauiSurface-noOutlined`
+          noOutline && `AmauiSurface-no-outlined`
         ],
 
         AdditionalProps?.className,

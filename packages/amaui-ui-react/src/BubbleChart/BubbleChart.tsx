@@ -231,7 +231,7 @@ const BubbleChart = React.forwardRef((props_: any, ref: any) => {
       >
         <span
           className={classNames([
-            staticClassName('Chart', theme) && [
+            staticClassName('BubbleChart', theme) && [
               'AmauiBubbleChart-legend-icon'
             ],
 
@@ -394,8 +394,8 @@ const BubbleChart = React.forwardRef((props_: any, ref: any) => {
           Component={Surface}
 
           className={classNames([
-            staticClassName('Chart', theme) && [
-              'AmauiChart-append'
+            staticClassName('BubbleChart', theme) && [
+              'AmauiBubbleChart-append'
             ],
 
             classes.append
@@ -508,8 +508,8 @@ const BubbleChart = React.forwardRef((props_: any, ref: any) => {
         Component={Surface}
 
         className={classNames([
-          staticClassName('Chart', theme) && [
-            'AmauiChart-append'
+          staticClassName('BubbleChart', theme) && [
+            'AmauiBubbleChart-append'
           ],
 
           classes.append
@@ -591,8 +591,8 @@ const BubbleChart = React.forwardRef((props_: any, ref: any) => {
               >
                 <span
                   className={classNames([
-                    staticClassName('Chart', theme) && [
-                      'AmauiLineChart-append-icon'
+                    staticClassName('BubbleChart', theme) && [
+                      'AmauiBubbleChart-append-icon'
                     ],
 
                     classes.append_icon

@@ -1281,9 +1281,9 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
         ref={refs.canvasMain}
 
         className={classNames([
-          staticClassName('ScreenCapture', theme) && [
-            'AmauiScreenCapture-canvas',
-            'AmauiScreenCapture-canvas-main'
+          staticClassName('ImageCrop', theme) && [
+            'AmauiImageCrop-canvas',
+            'AmauiImageCrop-canvas-main'
           ],
 
           classes.canvas,
@@ -1293,8 +1293,8 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
 
       <div
         className={classNames([
-          staticClassName('ScreenCapture', theme) && [
-            'AmauiScreenCapture-background'
+          staticClassName('ImageCrop', theme) && [
+            'AmauiImageCrop-background'
           ],
 
           classes.background,
@@ -1315,8 +1315,8 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
           ref={refs.imageSelectorMain}
 
           className={classNames([
-            staticClassName('ScreenCapture', theme) && [
-              'AmauiScreenCapture-imageSelector-main'
+            staticClassName('ImageCrop', theme) && [
+              'AmauiImageCrop-image-selector-main'
             ],
 
             classes.imageSelector_main,
@@ -1335,8 +1335,8 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
             onMouseDown={onMouseDownSelector}
 
             className={classNames([
-              staticClassName('ScreenCapture', theme) && [
-                'AmauiScreenCapture-move'
+              staticClassName('ImageCrop', theme) && [
+                'AmauiImageCrop-move'
               ],
 
               classes.move
@@ -1346,9 +1346,9 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
           {gridLines && <>
             <div
               className={classNames([
-                staticClassName('ScreenCapture', theme) && [
-                  'AmauiScreenCapture-grid-line',
-                  'AmauiScreenCapture-grid-line-top-start'
+                staticClassName('ImageCrop', theme) && [
+                  'AmauiImageCrop-grid-line',
+                  'AmauiImageCrop-grid-line-top-start'
                 ],
 
                 classes.grid_line,
@@ -1358,9 +1358,9 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
 
             <div
               className={classNames([
-                staticClassName('ScreenCapture', theme) && [
-                  'AmauiScreenCapture-grid-line',
-                  'AmauiScreenCapture-grid-line-top-end'
+                staticClassName('ImageCrop', theme) && [
+                  'AmauiImageCrop-grid-line',
+                  'AmauiImageCrop-grid-line-top-end'
                 ],
 
                 classes.grid_line,
@@ -1370,9 +1370,9 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
 
             <div
               className={classNames([
-                staticClassName('ScreenCapture', theme) && [
-                  'AmauiScreenCapture-grid-line',
-                  'AmauiScreenCapture-grid-line-left-start'
+                staticClassName('ImageCrop', theme) && [
+                  'AmauiImageCrop-grid-line',
+                  'AmauiImageCrop-grid-line-left-start'
                 ],
 
                 classes.grid_line,
@@ -1382,9 +1382,9 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
 
             <div
               className={classNames([
-                staticClassName('ScreenCapture', theme) && [
-                  'AmauiScreenCapture-grid-line',
-                  'AmauiScreenCapture-grid-line-left-end'
+                staticClassName('ImageCrop', theme) && [
+                  'AmauiImageCrop-grid-line',
+                  'AmauiImageCrop-grid-line-left-end'
                 ],
 
                 classes.grid_line,
@@ -1401,9 +1401,9 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
             onMouseDown={onMouseDownBorder('top_left')}
 
             className={classNames([
-              staticClassName('ScreenCapture', theme) && [
-                'AmauiScreenCapture-dot',
-                'AmauiScreenCapture-dot-top-left'
+              staticClassName('ImageCrop', theme) && [
+                'AmauiImageCrop-dot',
+                'AmauiImageCrop-dot-top-left'
               ],
 
               classes.dot,
@@ -1419,9 +1419,9 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
             onMouseDown={onMouseDownBorder('top_right')}
 
             className={classNames([
-              staticClassName('ScreenCapture', theme) && [
-                'AmauiScreenCapture-dot',
-                'AmauiScreenCapture-dot-top-right'
+              staticClassName('ImageCrop', theme) && [
+                'AmauiImageCrop-dot',
+                'AmauiImageCrop-dot-top-right'
               ],
 
               classes.dot,
@@ -1437,9 +1437,9 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
             onMouseDown={onMouseDownBorder('bottom_left')}
 
             className={classNames([
-              staticClassName('ScreenCapture', theme) && [
-                'AmauiScreenCapture-dot',
-                'AmauiScreenCapture-dot-bottom-left'
+              staticClassName('ImageCrop', theme) && [
+                'AmauiImageCrop-dot',
+                'AmauiImageCrop-dot-bottom-left'
               ],
 
               classes.dot,
@@ -1455,9 +1455,9 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
             onMouseDown={onMouseDownBorder('bottom_right')}
 
             className={classNames([
-              staticClassName('ScreenCapture', theme) && [
-                'AmauiScreenCapture-dot',
-                'AmauiScreenCapture-dot-bottom-right'
+              staticClassName('ImageCrop', theme) && [
+                'AmauiImageCrop-dot',
+                'AmauiImageCrop-dot-bottom-right'
               ],
 
               classes.dot,
@@ -1473,9 +1473,9 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
             onMouseDown={onMouseDownBorder('top')}
 
             className={classNames([
-              staticClassName('ScreenCapture', theme) && [
-                'AmauiScreenCapture-border',
-                'AmauiScreenCapture-border-top'
+              staticClassName('ImageCrop', theme) && [
+                'AmauiImageCrop-border',
+                'AmauiImageCrop-border-top'
               ],
 
               classes.border,
@@ -1491,9 +1491,9 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
             onMouseDown={onMouseDownBorder('left')}
 
             className={classNames([
-              staticClassName('ScreenCapture', theme) && [
-                'AmauiScreenCapture-border',
-                'AmauiScreenCapture-border-left'
+              staticClassName('ImageCrop', theme) && [
+                'AmauiImageCrop-border',
+                'AmauiImageCrop-border-left'
               ],
 
               classes.border,
@@ -1509,9 +1509,9 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
             onMouseDown={onMouseDownBorder('right')}
 
             className={classNames([
-              staticClassName('ScreenCapture', theme) && [
-                'AmauiScreenCapture-border',
-                'AmauiScreenCapture-border-right'
+              staticClassName('ImageCrop', theme) && [
+                'AmauiImageCrop-border',
+                'AmauiImageCrop-border-right'
               ],
 
               classes.border,
@@ -1527,9 +1527,9 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
             onMouseDown={onMouseDownBorder('bottom')}
 
             className={classNames([
-              staticClassName('ScreenCapture', theme) && [
-                'AmauiScreenCapture-border',
-                'AmauiScreenCapture-border-bottom'
+              staticClassName('ImageCrop', theme) && [
+                'AmauiImageCrop-border',
+                'AmauiImageCrop-border-bottom'
               ],
 
               classes.border,
@@ -1543,8 +1543,8 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
         ref={refs.imageSelector}
 
         className={classNames([
-          staticClassName('ScreenCapture', theme) && [
-            'AmauiScreenCapture-imageSelector'
+          staticClassName('ImageCrop', theme) && [
+            'AmauiImageCrop-image-selector'
           ],
 
           classes.imageSelector
@@ -1558,9 +1558,9 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
           ref={refs.canvasImageSelector}
 
           className={classNames([
-            staticClassName('ScreenCapture', theme) && [
-              'AmauiScreenCapture-canvas',
-              'AmauiScreenCapture-canvas-imageSelector'
+            staticClassName('ImageCrop', theme) && [
+              'AmauiImageCrop-canvas',
+              'AmauiImageCrop-canvas-image-selector'
             ],
 
             classes.canvas,

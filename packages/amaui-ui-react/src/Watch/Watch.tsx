@@ -364,7 +364,7 @@ const Watch = React.forwardRef((props_: any, ref: any) => {
 
                     className={classNames([
                       staticClassName('Watch', theme) && [
-                        'AmauiWatch-timeOfDay'
+                        'AmauiWatch-time-of-day'
                       ],
 
                       classes.timeOfDay
@@ -586,7 +586,7 @@ const Watch = React.forwardRef((props_: any, ref: any) => {
 
                     className={classNames([
                       staticClassName('Watch', theme) && [
-                        'AmauiWatch-modernDate'
+                        'AmauiWatch-modern-date'
                       ],
 
                       classes.modernDate

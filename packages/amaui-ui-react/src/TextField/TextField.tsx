@@ -759,7 +759,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
     WrapperProps['className'] = classNames([
       staticClassName('TextField', theme) && [
         'AmauiTextField-wrapper',
-        fullWidth && 'AmauiTextField-fullWidth',
+        fullWidth && 'AmauiTextField-full-width',
         disabled && 'AmauiTextField-disabled'
       ],
 
@@ -843,8 +843,8 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
             placeholder && `AmauiTextField-placeholder`,
             prefix && `AmauiTextField-prefix`,
             sufix && `AmauiTextField-sufix`,
-            autoFocus && `AmauiTextField-autoFocus`,
-            autoComplete && `AmauiTextField-autoComplete`,
+            autoFocus && `AmauiTextField-auto-focus`,
+            autoComplete && `AmauiTextField-auto-complete`,
             counter && `AmauiTextField-counter`,
             align && `AmauiTextField-align-${align}`,
             theme.direction === 'rtl' ? 'AmauiTextField-direction-rtl' : 'AmauiTextFied-direction-ltr',
@@ -852,7 +852,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
             startVerticalAlign && `AmauiTextField-icon-start-align-vertical-${startVerticalAlign}`,
             end && 'AmauiTextField-icon-end',
             endVerticalAlign && `AmauiTextField-icon-end-align-vertical-${endVerticalAlign}`,
-            fullWidth && !footer && 'AmauiTextField-fullWidth',
+            fullWidth && !footer && 'AmauiTextField-full-width',
             noSufixMargin && 'AmauiTextField-sufix-no-margin',
             noPrefixMargin && 'AmauiTextField-prefix-no-margin',
             type && `AmauiTextField-type-${type}`,
@@ -860,14 +860,14 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
             required && 'AmauiTextField-required',
             optional && 'AmauiTextField-optional',
             rows !== undefined && `AmauiTextField-rows-${rows}`,
-            minRows !== undefined && `AmauiTextField-minRows-${minRows}`,
-            maxRows !== undefined && `AmauiTextField-maxRows-${maxRows}`,
+            minRows !== undefined && `AmauiTextField-min-rows-${minRows}`,
+            maxRows !== undefined && `AmauiTextField-max-rows-${maxRows}`,
             valueWithData && 'AmauiTextField-value',
             enabled && 'AmauiTextField-enabled',
             hover && `AmauiTextField-hover`,
-            mouseDown && `AmauiTextField-mouseDown`,
+            mouseDown && `AmauiTextField-mouse-down`,
             focus && `AmauiTextField-focus`,
-            readOnly && `AmauiTextField-readOnly`,
+            readOnly && `AmauiTextField-read-only`,
             disabled && 'AmauiTextField-disabled'
           ],
 
@@ -1023,7 +1023,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
 
           className={classNames([
             staticClassName('TextField', theme) && [
-              'AmauiTextField-inputWrapper'
+              'AmauiTextField-input-wrapper'
             ],
 
             classes.inputWrapper,
@@ -1178,7 +1178,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
 
                 className={classNames([
                   staticClassName('TextField', theme) && [
-                    'AmauiTextField-helperText',
+                    'AmauiTextField-helper-text',
                     error && 'AmauiTextField-error'
                   ],
 

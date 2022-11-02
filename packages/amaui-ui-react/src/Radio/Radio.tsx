@@ -218,8 +218,8 @@ const Radio = React.forwardRef((props_: any, ref: any) => {
           onChange={onUpdate}
 
           className={classNames([
-            staticClassName('Checkbox', theme) && [
-              'AmauiCheckbox-input'
+            staticClassName('Radio', theme) && [
+              'AmauiRadio-input'
             ],
 
             classes.input
@@ -253,7 +253,7 @@ const Radio = React.forwardRef((props_: any, ref: any) => {
         className={classNames([
           staticClassName('Radio', theme) && [
             'AmauiRadio-icon',
-            'AmauiRadio-iconBox'
+            'AmauiRadio-icon-box'
           ],
 
           classes.icon,
@@ -271,7 +271,7 @@ const Radio = React.forwardRef((props_: any, ref: any) => {
         className={classNames([
           staticClassName('Radio', theme) && [
             'AmauiRadio-icon',
-            'AmauiRadio-iconDot'
+            'AmauiRadio-icon-dot'
           ],
 
           classes.icon,

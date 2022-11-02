@@ -459,7 +459,7 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
 
               className={classNames([
                 staticClassName('Countdown', theme) && [
-                  'AmauiCountdown-numericTextField'
+                  'AmauiCountdown-numeric-text-field'
                 ],
 
                 NumericTextFieldProps?.className,
@@ -482,7 +482,7 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
 
               className={classNames([
                 staticClassName('Countdown', theme) && [
-                  'AmauiCountdown-numericTextField'
+                  'AmauiCountdown-numeric-text-field'
                 ],
 
                 NumericTextFieldProps?.className,
@@ -505,7 +505,7 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
 
               className={classNames([
                 staticClassName('Countdown', theme) && [
-                  'AmauiCountdown-numericTextField'
+                  'AmauiCountdown-numeric-text-field'
                 ],
 
                 NumericTextFieldProps?.className,
@@ -589,7 +589,7 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
 
             className={classNames([
               staticClassName('Countdown', theme) && [
-                'AmauiCountdown-roundWrapper'
+                'AmauiCountdown-round-wrapper'
               ],
 
               classes.roundWrapper

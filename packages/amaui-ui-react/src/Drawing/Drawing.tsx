@@ -813,7 +813,7 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
 
                 className={classNames([
                   staticClassName('Drawing', theme) && [
-                    'AmauiDrawing-inputColor'
+                    'AmauiDrawing-input-color'
                   ],
 
                   classes.inputColor
@@ -823,7 +823,7 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
 
             className={classNames([
               staticClassName('Drawing', theme) && [
-                'AmauiDrawing-textFieldColor'
+                'AmauiDrawing-text-field-color'
               ],
 
               classes.textFieldColor

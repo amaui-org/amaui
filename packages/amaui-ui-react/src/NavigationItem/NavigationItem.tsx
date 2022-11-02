@@ -333,12 +333,12 @@ const NavigationItem = React.forwardRef((props_: any, ref: any) => {
             `AmauiNavigationItem-color-${!theme.palette.color[color] && !['themed', 'inverted', 'default', 'inherit'].includes(color) ? 'new' : color}`,
             label && 'AmauiNavigationItem-label',
             icon && 'AmauiNavigationItem-icon',
-            iconSelected && 'AmauiNavigationItem-iconSelected',
+            iconSelected && 'AmauiNavigationItem-icon-selected',
             selected && 'AmauiNavigationItem-selected',
             vertical && 'AmauiNavigationItem-vertical',
             tonal && `AmauiNavigationItem-tonal`,
             hover && `AmauiNavigationItem-hover`,
-            mouseDown && `AmauiNavigationItem-mouseDown`,
+            mouseDown && `AmauiNavigationItem-mouse-down`,
             focus && `AmauiNavigationItem-focus`,
             disabled && `AmauiNavigationItem-disabled`
           ],
@@ -386,7 +386,7 @@ const NavigationItem = React.forwardRef((props_: any, ref: any) => {
 
               className={classNames([
                 staticClassName('NavigationItem', theme) && [
-                  'AmauiNavigationItem-iconWrapper'
+                  'AmauiNavigationItem-icon-wrapper'
                 ],
 
                 classes.iconWrapper,

@@ -699,8 +699,8 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
         onChange={onUpdate}
 
         className={classNames([
-          staticClassName('Checkbox', theme) && [
-            'AmauiCheckbox-input'
+          staticClassName('Switch', theme) && [
+            'AmauiSwitch-input'
           ],
 
           classes.input
@@ -773,7 +773,7 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
 
               className={classNames([
                 staticClassName('Switch', theme) && [
-                  'AmauiSwitch-iconButton'
+                  'AmauiSwitch-icon-button'
                 ],
 
                 classes.iconButton

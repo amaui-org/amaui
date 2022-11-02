@@ -501,7 +501,7 @@ const ViewSplit = React.forwardRef((props_: any, ref: any) => {
           divider && `AmauiViewSplit-divider`,
           hover && `AmauiViewSplit-hover`,
           focus && `AmauiViewSplit-focus`,
-          mouseDown && `AmauiViewSplit-mouseDown`,
+          mouseDown && `AmauiViewSplit-mouse-down`,
         ],
 
         className,
@@ -584,7 +584,7 @@ const ViewSplit = React.forwardRef((props_: any, ref: any) => {
         (iconButtonComponent && React.cloneElement(iconButtonComponent, {
           className: classNames([
             staticClassName('ViewSplit', theme) && [
-              'AmauiViewSplit-iconButton'
+              'AmauiViewSplit-icon-button'
             ],
 
             classes.iconButton,
@@ -608,7 +608,7 @@ const ViewSplit = React.forwardRef((props_: any, ref: any) => {
 
           className={classNames([
             staticClassName('ViewSplit', theme) && [
-              'AmauiViewSplit-iconButton'
+              'AmauiViewSplit-icon-button'
             ],
 
             IconButtonProps?.className,

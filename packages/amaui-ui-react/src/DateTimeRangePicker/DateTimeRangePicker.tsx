@@ -489,7 +489,7 @@ const DateTimeRangePicker = React.forwardRef((props_: any, ref: any) => {
         color={color}
 
         className={classNames([
-          staticClassName('DateRangePicker', theme) && [
+          staticClassName('DateTimeRangePicker', theme) && [
             'AmauiDateTimeRangePicker-mode',
             'AmauiDateTimeRangePicker-mode-docked'
           ],
@@ -850,7 +850,7 @@ const DateTimeRangePicker = React.forwardRef((props_: any, ref: any) => {
             className: classNames([
               staticClassName('DateTimeRangePicker', theme) && [
                 'AmauiDatePicker-modal',
-                fullScreen && `AmauiDatePicker-modal-fullScreen`
+                fullScreen && `AmauiDatePicker-modal-full-screen`
               ],
 
               classes.modal,

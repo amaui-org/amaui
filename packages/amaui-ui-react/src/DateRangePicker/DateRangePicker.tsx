@@ -30,7 +30,7 @@ const DateRangePicker = React.forwardRef((props_: any, ref: any) => {
       range
 
       className={classNames([
-        staticClassName('DatePicker', theme) && [
+        staticClassName('DateRangePicker', theme) && [
           'AmauiDateRangePicker-root'
         ],
 

@@ -85,7 +85,7 @@ const TableCell = React.forwardRef((props_: any, ref: any) => {
           `AmauiTableCell-root`,
           `AmauiTableCell-position-${position}`,
           `AmauiTableCell-size-${size}`,
-          noWeight && `AmauiTableCell-noWeight`
+          noWeight && `AmauiTableCell-no-weight`
         ],
 
         className,

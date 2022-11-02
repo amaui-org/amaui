@@ -122,7 +122,7 @@ const Banner = React.forwardRef((props_: any, ref: any) => {
         staticClassName('Banner', theme) && [
           'AmauiBanner-root',
           `AmauiBanner-size-${size}`,
-          `AmauiBanner-maxWidth-${maxWidth}`
+          `AmauiBanner-max-width-${maxWidth}`
         ],
 
         className,
@@ -148,7 +148,7 @@ const Banner = React.forwardRef((props_: any, ref: any) => {
 
         className={classNames([
           staticClassName('Banner', theme) && [
-            'AmauiBanner-listItem'
+            'AmauiBanner-list-item'
           ],
 
           classes.listItem,

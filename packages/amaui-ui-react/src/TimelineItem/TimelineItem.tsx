@@ -186,7 +186,7 @@ const TimelineItem = React.forwardRef((props_: any, ref: any) => {
         <div
           className={classNames([
             staticClassName('TimelineItem', theme) && [
-              'AmauiTimelineItem-iconWrapper'
+              'AmauiTimelineItem-icon-wrapper'
             ],
 
             classes.iconWrapper,

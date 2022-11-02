@@ -144,7 +144,7 @@ const PieChart = React.forwardRef((props_: any, ref: any) => {
       >
         <span
           className={classNames([
-            staticClassName('Chart', theme) && [
+            staticClassName('PieChart', theme) && [
               'AmauiPieChart-legend-icon'
             ],
 
@@ -381,8 +381,8 @@ const PieChart = React.forwardRef((props_: any, ref: any) => {
           Component={Surface}
 
           className={classNames([
-            staticClassName('Chart', theme) && [
-              'AmauiChart-append'
+            staticClassName('PieChart', theme) && [
+              'AmauiPieChart-append'
             ],
 
             classes.append
@@ -397,7 +397,7 @@ const PieChart = React.forwardRef((props_: any, ref: any) => {
           >
             <span
               className={classNames([
-                staticClassName('Chart', theme) && [
+                staticClassName('PieChart', theme) && [
                   'AmauiLineChart-append-icon'
                 ],
 

@@ -778,7 +778,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
                 <span
                   className={classNames([
                     staticClassName('Chart', theme) && [
-                      'AmauiLineChart-append-icon'
+                      'AmauiChart-append-icon'
                     ],
 
                     classes.append_icon
@@ -1034,8 +1034,8 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
         {...LegendItemProps}
 
         className={classNames([
-          staticClassName('LineChart', theme) && [
-            'AmauiLineChart-legend-item'
+          staticClassName('Chart', theme) && [
+            'AmauiChart-legend-item'
           ],
 
           className_,
@@ -1048,7 +1048,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
         <span
           className={classNames([
             staticClassName('Chart', theme) && [
-              'AmauiLineChart-legend-icon'
+              'AmauiChart-legend-icon'
             ],
 
             classes.legend_icon

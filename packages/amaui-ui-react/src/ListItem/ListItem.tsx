@@ -426,8 +426,8 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
       onClick={onClick}
 
       className={classNames([
-        staticClassName('Accordion', theme) && [
-          'AmauiAccordion-iconButton'
+        staticClassName('ListItem', theme) && [
+          'AmauiListItem-icon-button'
         ],
 
         classes.iconButton
@@ -622,7 +622,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
             `AmauiListItem-end-align-${endAlign}`,
             menu && `AmauiListItem-menu`,
             list && `AmauiListItem-list`,
-            menuItem && `AmauiListItem-menuItem`,
+            menuItem && `AmauiListItem-menu-item`,
             menuOpen && `AmauiListItem-menu-open`,
             openMenu && `AmauiListItem-open-menu`,
             openList && `AmauiListItem-open-list`,
@@ -637,7 +637,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
             inset && `AmauiListItem-inset`,
             hover && `AmauiListItem-hover`,
             focus && `AmauiListItem-focus`,
-            noPadding && `AmauiListItem-noPadding`,
+            noPadding && `AmauiListItem-no-padding`,
             disabled && `AmauiListItem-disabled`
           ],
 
@@ -847,7 +847,7 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
             {...ListProps}
 
             className={classNames([
-              staticClassName('Accordion', theme) && [
+              staticClassName('ListItem', theme) && [
                 'AmauiListItem-list'
               ],
 

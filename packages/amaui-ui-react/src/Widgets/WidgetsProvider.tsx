@@ -317,7 +317,7 @@ const WidgetsProvider = React.forwardRef((props_: any, ref: any) => {
 
                         className={classNames([
                           staticClassName('Widgets', theme) && [
-                            `AmauiWidgets-iconButton`
+                            `AmauiWidgets-icon-button`
                           ],
 
                           classes.iconButton

@@ -525,7 +525,7 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
       ModeSelectProps={{
         className: classNames([
           staticClassName('TimeRangePicker', theme) && [
-            'AmauiTimeRangePicker-timePicker'
+            'AmauiTimeRangePicker-time-picker'
           ],
 
           classes.timePicker
@@ -554,7 +554,7 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
       ModeSelectProps={{
         className: classNames([
           staticClassName('TimeRangePicker', theme) && [
-            'AmauiTimeRangePicker-timePicker'
+            'AmauiTimeRangePicker-time-picker'
           ],
 
           classes.timePicker

@@ -394,8 +394,8 @@ const Buttons = React.forwardRef((props_: any, ref: any) => {
           tonal && `AmauiButtons-tonal`,
           chip && `AmauiButtons-chip`,
           border && `AmauiButtons-border`,
-          fullWidth && `AmauiButtons-fullWidth`,
-          noCheckIcon && `AmauiButtons-noCheckIcon`,
+          fullWidth && `AmauiButtons-full-width`,
+          noCheckIcon && `AmauiButtons-no-check-icon`,
           disabled && `AmauiButtons-disabled`,
         ],
 

@@ -679,7 +679,7 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
       direction='column'
 
       className={classNames([
-        staticClassName('Select', theme) && [
+        staticClassName('AutoComplete', theme) && [
           'AmauiAutoComplete-wrapper'
         ]
       ])}
@@ -713,22 +713,22 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
             staticClassName('AutoComplete', theme) && [
               'AmauiAutoComplete-root',
               open && `AmauiAutoComplete-open`,
-              mouseDown && `AmauiAutoComplete-mouseDown`,
+              mouseDown && `AmauiAutoComplete-mouse-down`,
               focus && `AmauiAutoComplete-focus`,
               chip && `AmauiAutoComplete-chip`,
               multiple && `AmauiAutoComplete-multiple`,
-              autoWidth && `AmauiAutoComplete-autoWidth`,
+              autoWidth && `AmauiAutoComplete-auto-width`,
               clear && `AmauiAutoComplete-clear`,
               loading && `AmauiAutoComplete-loading`,
-              autoSelectOnBlur && `AmauiAutoComplete-autoSelectOnBlur`,
-              blurOnSelect && `AmauiAutoComplete-blurOnSelect`,
-              openOnFocus && `AmauiAutoComplete-openOnFocus`,
-              noOptions && `AmauiAutoComplete-noOptions`,
-              closeOnSelect && `AmauiAutoComplete-closeOnSelect`,
-              clearOnEscape && `AmauiAutoComplete-clearOnEscape`,
+              autoSelectOnBlur && `AmauiAutoComplete-auto-select-on-blur`,
+              blurOnSelect && `AmauiAutoComplete-blur-on-select`,
+              openOnFocus && `AmauiAutoComplete-open-on-focus`,
+              noOptions && `AmauiAutoComplete-no-options`,
+              closeOnSelect && `AmauiAutoComplete-close-on-select`,
+              clearOnEscape && `AmauiAutoComplete-clear-on-escape`,
               limit !== undefined && `AmauiAutoComplete-limit`,
-              selectOnFocus && `AmauiAutoComplete-selectOnFocus`,
-              clearOnBlur && `AmauiAutoComplete-clearOnBlur`
+              selectOnFocus && `AmauiAutoComplete-select-on-focus`,
+              clearOnBlur && `AmauiAutoComplete-clear-on-blur`
             ],
 
             className,
@@ -763,7 +763,7 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
         InputWrapperProps={{
           className: classNames([
             staticClassName('AutoComplete', theme) && [
-              'AmauiAutoComplete-inputWrapper'
+              'AmauiAutoComplete-input-wrapper'
             ],
 
             classes.inputWrapper,

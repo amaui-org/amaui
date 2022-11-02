@@ -206,7 +206,7 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
       >
         <span
           className={classNames([
-            staticClassName('Chart', theme) && [
+            staticClassName('LineChart', theme) && [
               'AmauiLineChart-legend-icon'
             ],
 

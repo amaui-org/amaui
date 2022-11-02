@@ -1,15 +1,14 @@
 import React from 'react';
 
-import { copy, is, percentageFromValueWithinRange, valueFromPercentageWithinRange } from '@amaui/utils';
+import { is } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import Chart from '../Chart';
-import Path from '../Path';
 import Line from '../Line';
 import Type from '../Type';
 import useMediaQuery from '../useMediaQuery';
 
-import { controlPoint, staticClassName, valueBreakpoints } from '../utils';
+import { staticClassName, valueBreakpoints } from '../utils';
 
 export interface IItem {
   color: string;
@@ -36,7 +35,7 @@ const useStyle = style(theme => ({
   }
 }), { name: 'AmauiAreaChart' });
 
-const AreaChart = React.forwardRef((props_: any, ref: any) => {
+const ScatterChart = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiAreaChart?.props?.default }), [props_]);
@@ -188,8 +187,8 @@ const AreaChart = React.forwardRef((props_: any, ref: any) => {
         {...LegendItemProps}
 
         className={classNames([
-          staticClassName('AreaChart', theme) && [
-            'AmauiAreaChart-legend-item'
+          staticClassName('ScatterChart', theme) && [
+            'AmauiScatterChart-legend-item'
           ],
 
           className_,
@@ -201,8 +200,8 @@ const AreaChart = React.forwardRef((props_: any, ref: any) => {
       >
         <span
           className={classNames([
-            staticClassName('Chart', theme) && [
-              'AmauiAreaChart-legend-icon'
+            staticClassName('ScatterChart', theme) && [
+              'AmauiScatterChart-legend-icon'
             ],
 
             classes.legend_icon
@@ -298,8 +297,8 @@ const AreaChart = React.forwardRef((props_: any, ref: any) => {
       onUpdateRects={onUpdateRects}
 
       className={classNames([
-        staticClassName('AreaChart', theme) && [
-          'AmauiAreaChart-root'
+        staticClassName('ScatterChart', theme) && [
+          'AmauiScatterChart-root'
         ],
 
         className,
@@ -311,6 +310,6 @@ const AreaChart = React.forwardRef((props_: any, ref: any) => {
   );
 });
 
-AreaChart.displayName = 'AmauiAreaChart';
+ScatterChart.displayName = 'AmauiScatterChart';
 
-export default AreaChart;
+export default ScatterChart;

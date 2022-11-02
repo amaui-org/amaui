@@ -322,7 +322,7 @@ const DropZone = React.forwardRef((props_: any, ref: any) => {
 
         className={classNames([
           staticClassName('DropZone', theme) && [
-            'AmauiDropZone-wrapperText'
+            'AmauiDropZone-wrapper-text'
           ],
 
           classes.wrapperText

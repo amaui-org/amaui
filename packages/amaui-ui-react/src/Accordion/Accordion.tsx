@@ -255,9 +255,9 @@ const Accordion = React.forwardRef((props_: any, ref: any) => {
             `AmauiAccordion-expanded-margin-vertical-${expandedMarginVertical}`,
             `AmauiAccordion-expanded-header-padding-vertical-${expandedHeaderPaddingVertical}`
           ],
-          noExpandButton && `AmauiAccordion-noExpandButton`,
-          noBackground && `AmauiAccordion-noBackground`,
-          noTransition && `AmauiAccordion-noTransition`,
+          noExpandButton && `AmauiAccordion-no-expand-button`,
+          noBackground && `AmauiAccordion-no-background`,
+          noTransition && `AmauiAccordion-no-transition`,
           disabled && `AmauiAccordion-disabled`
         ],
 
@@ -283,7 +283,7 @@ const Accordion = React.forwardRef((props_: any, ref: any) => {
 
         className={classNames([
           staticClassName('Accordion', theme) && [
-            'AmauiAccordion-wrapperHeader'
+            'AmauiAccordion-wrapper-header'
           ],
 
           WrapperHeaderProps?.className,
@@ -389,7 +389,7 @@ const Accordion = React.forwardRef((props_: any, ref: any) => {
 
             className={classNames([
               staticClassName('Accordion', theme) && [
-                'AmauiAccordion-iconButton'
+                'AmauiAccordion-icon-button'
               ],
 
               IconButtonProps?.className,

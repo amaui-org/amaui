@@ -1656,7 +1656,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
                 className={classNames([
                   staticClassName('RichTextEditor', theme) && [
-                    'AmauiRichTextEditor-inputColor'
+                    'AmauiRichTextEditor-input-color'
                   ],
 
                   classes.inputColor
@@ -1666,7 +1666,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
             className={classNames([
               staticClassName('RichTextEditor', theme) && [
-                'AmauiRichTextEditor-textFieldColor'
+                'AmauiRichTextEditor-text-field-color'
               ],
 
               classes.textFieldColor
@@ -1773,7 +1773,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
             className={classNames([
               staticClassName('RichTextEditor', theme) && [
-                'AmauiRichTextEditor-textFieldColor'
+                'AmauiRichTextEditor-text-field-color'
               ],
 
               classes.textFieldColor

@@ -3185,7 +3185,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
         className={classNames([
           staticClassName('DatePicker', theme) && [
             'AmauiDatePicker-mode',
-            'AmauiDatePicker-mode-fullScreen'
+            'AmauiDatePicker-mode-full-screen'
           ],
 
           ModeInputProps?.className,
@@ -3201,7 +3201,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
           className={classNames([
             staticClassName('DatePicker', theme) && [
-              'AmauiDatePicker-mode-modal-fullScreen-header'
+              'AmauiDatePicker-mode-modal-full-screen-header'
             ],
 
             classes.mode_modal_fullScreen_header
@@ -3336,7 +3336,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
         <main
           className={classNames([
             staticClassName('DatePicker', theme) && [
-              'AmauiDatePicker-mode-modal-fullScreen-main'
+              'AmauiDatePicker-mode-modal-full-screen-main'
             ],
 
             classes.mode_modal_fullScreen_main
@@ -3549,7 +3549,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
                                   className={classNames([
                                     staticClassName('DatePicker', theme) && [
                                       'AmauiDatePicker-calendar-wrapper',
-                                      'AmauiDatePicker-calendar-wrapper-fullScreen'
+                                      'AmauiDatePicker-calendar-wrapper-full-screen'
                                     ],
 
                                     classes.calendar_wrapper,
@@ -3624,7 +3624,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
                           className={classNames([
                             staticClassName('DatePicker', theme) && [
                               'AmauiDatePicker-list-modal',
-                              'AmauiDatePicker-list-modal-fullScreen'
+                              'AmauiDatePicker-list-modal-full-screen'
                             ],
 
                             classes.list_modal,
@@ -3768,7 +3768,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
           className={classNames([
             staticClassName('DatePicker', theme) && [
-              'AmauiDatePicker-mode-modal-fullScreen-footer'
+              'AmauiDatePicker-mode-modal-full-screen-footer'
             ],
 
             classes.mode_modal_fullScreen_footer

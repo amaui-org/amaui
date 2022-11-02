@@ -957,14 +957,14 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
           max && `AmauiSlider-max`,
           precision && `AmauiSlider-precision`,
           tooltip && `AmauiSlider-tooltip`,
-          onlyMarks && `AmauiSlider-onlyMarks`,
-          noTrack && `AmauiSlider-noTrack`,
-          noButtons && `AmauiSlider-noButtons`,
+          onlyMarks && `AmauiSlider-only-marks`,
+          noTrack && `AmauiSlider-no-track`,
+          noButtons && `AmauiSlider-no-buttons`,
           inverted && `AmauiSlider-inverted`,
           square && `AmauiSlider-square`,
-          mouseDown && `AmauiSlider-mouseDown`,
+          mouseDown && `AmauiSlider-mouse-down`,
           focus && `AmauiSlider-focus`,
-          readOnly && `AmauiSlider-readOnly`,
+          readOnly && `AmauiSlider-read-only`,
           disabled && `AmauiSlider-disabled`
         ],
 
@@ -1162,7 +1162,7 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
 
             className={classNames([
               staticClassName('Slider', theme) && [
-                'AmauiSlider-iconButton'
+                'AmauiSlider-icon-button'
               ],
 
               classes.iconButton,
