@@ -234,7 +234,7 @@ const WidgetsProvider = React.forwardRef((props_: any, ref: any) => {
 
           Icon={Icon_}
 
-          IconOpen={IconCloseItem}
+          noRotate
 
           {...SpeedDialProps}
         >

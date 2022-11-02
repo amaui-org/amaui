@@ -244,29 +244,29 @@ const Select = React.forwardRef((props_: any, ref: any) => {
   }, []);
 
   const onClick = React.useCallback((event: React.MouseEvent) => {
-    if (!disabled && !readOnly) setOpen(open => {
-      if (open) setFocus(false);
+    if (!disabled && !readOnly) setOpen(open_ => {
+      if (open_) setFocus(false);
 
-      return !open;
+      return !open_;
     });
   }, []);
 
   const onClickArrowDown = React.useCallback((event: React.MouseEvent) => {
-    if (!disabled && !readOnly) setOpen(open => !open);
+    if (!disabled && !readOnly) setOpen(open_ => !open_);
   }, []);
 
   const onEnterKeyDown = React.useCallback((event: React.KeyboardEvent) => {
-    if (event.key === 'Enter' && !disabled && !readOnly) setOpen(open => {
-      if (open) refs.input.current.focus();
+    if (event.key === 'Enter' && !disabled && !readOnly) setOpen(open_ => {
+      if (open_) refs.input.current.focus();
 
-      return !open;
+      return !open_;
     });
   }, []);
 
   const onClose = React.useCallback((refocus = true) => {
     if (!disabled && !readOnly) {
-      setOpen(open => {
-        if (open && refocus) refs.input.current.focus();
+      setOpen(open_ => {
+        if (open_ && refocus) refs.input.current.focus();
 
         return false;
       });

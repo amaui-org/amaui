@@ -198,10 +198,10 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
 
         const rect = refs.root.current.getBoundingClientRect();
 
-        const { width } = rect;
+        const { width: width_ } = rect;
 
         // Value to the precision point value
-        const value__ = valuePrecision((x - rect.x) / width);
+        const value__ = valuePrecision((x - rect.x) / width_);
 
         const valueNew = value__;
 
@@ -229,10 +229,10 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
 
         const rect = refs.root.current.getBoundingClientRect();
 
-        const { width } = rect;
+        const { width: width_ } = rect;
 
         // Value to the precision point value
-        const value__ = valuePrecision((x - rect.x) / width);
+        const value__ = valuePrecision((x - rect.x) / width_);
 
         const valueNew = value__;
 
@@ -281,9 +281,9 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
 
       const rect = refs.root.current.getBoundingClientRect();
 
-      const { width } = rect;
+      const { width: width_ } = rect;
 
-      const valueNew = valuePrecision((x - rect.x) / width);
+      const valueNew = valuePrecision((x - rect.x) / width_);
 
       if (value === valueNew) onClear();
       else {
@@ -477,7 +477,7 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
 
         return (
           <span
-            ref={item => refs.values.current.push(item)}
+            ref={item_ => refs.values.current.push(item_)}
 
             key={index}
 

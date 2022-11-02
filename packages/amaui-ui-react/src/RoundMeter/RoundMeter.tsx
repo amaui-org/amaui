@@ -206,20 +206,20 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
         marksValue.forEach((mark: any) => {
           const {
-            size,
+            size: size_,
 
             padding: markPadding = 0,
 
             position,
 
-            ...other
+            ...other_
           } = mark;
 
           const angle = valueFromPercentageWithinRange(position, min, max);
 
           const start = angleToCoordinates(angle, center, center, radius - markPadding);
 
-          const end = angleToCoordinates(angle, center, center, radius - (size !== undefined ? size : markSize) - markPadding);
+          const end = angleToCoordinates(angle, center, center, radius - (size_ !== undefined ? size_ : markSize) - markPadding);
 
           values[index].push({
             d: [
@@ -228,7 +228,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
               'L', end.x, end.y
             ].join(' '),
 
-            ...other
+            ...other_
           });
         });
       });
@@ -262,7 +262,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
             position,
 
-            ...other
+            ...other_
           } = label;
 
           const fontSize = label.style?.fontSize !== undefined ? label.style.fontSize : 14;
@@ -277,7 +277,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
             value,
 
-            ...other
+            ...other_
           });
         });
       });
@@ -396,7 +396,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
         const part = (total - ((parts - 1) * gap)) / parts;
 
-        const angles: any = {
+        const angles_: any = {
           0: angleToCoordinates(135, center, center, radius)
         };
 
@@ -406,24 +406,24 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
           // Move to 135 deg
           if (i === 0) value.push(
             // Move to 0 deg
-            'M', angles[0].x, angles[0].y
+            'M', angles_[0].x, angles_[0].y
           );
 
           const angleEnd = anglePrevious + part;
 
-          angles.end = angleToCoordinates(angleEnd, center, center, radius);
+          angles_.end = angleToCoordinates(angleEnd, center, center, radius);
 
-          angles.move = angleToCoordinates(angleEnd + gap, center, center, radius);
+          angles_.move = angleToCoordinates(angleEnd + gap, center, center, radius);
 
           // Arc
           value.push(
-            'A', radius, radius, 0, 0, 1, angles.end.x, angles.end.y
+            'A', radius, radius, 0, 0, 1, angles_.end.x, angles_.end.y
           );
 
           // Move the gap if there's a gap
           if (gap > 0 && i < parts - 1) {
             value.push(
-              'M', angles.move.x, angles.move.y
+              'M', angles_.move.x, angles_.move.y
             );
 
             anglePrevious = angleEnd + gap;
@@ -435,7 +435,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
           // Move for the next value
           if (i < parts - 1) {
             value = [
-              'M', angles.move.x, angles.move.y
+              'M', angles_.move.x, angles_.move.y
             ];
           }
         }
@@ -987,9 +987,9 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
                     classes.marks
                   ])}
                 >
-                  {(marksValue.map((item: any, index: number) => (
+                  {(marksValue.map((item: any, index_: number) => (
                     <path
-                      key={index}
+                      key={index_}
 
                       d={item.d}
 
@@ -1027,18 +1027,18 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
                     classes.labels
                   ])}
                 >
-                  {(labelsValue.map((item: any, index: number) => {
-                    const { x, y, value, ...other } = item;
+                  {(labelsValue.map((item: any, index_: number) => {
+                    const { x, y, value, ...other_ } = item;
 
                     return (
                       <text
-                        key={index}
+                        key={index_}
 
                         x={x}
 
                         y={y}
 
-                        {...other}
+                        {...other_}
 
                         {...textProps}
 
@@ -1049,7 +1049,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
                             'AmauiRoundMeter-label'
                           ],
 
-                          other?.className,
+                          other_?.className,
                           textProps?.className,
                           LabelProps?.className,
                           classes.label
@@ -1058,7 +1058,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
                         style={{
                           fill: color_,
 
-                          ...other.style,
+                          ...other_.style,
 
                           ...textProps?.style,
 

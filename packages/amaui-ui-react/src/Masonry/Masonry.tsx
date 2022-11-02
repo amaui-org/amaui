@@ -72,10 +72,10 @@ const Masonry = React.forwardRef((props_: any, ref: any) => {
 
       const width = refs.columns.current === 1 ? '100%' : `calc(${100 / refs.columns.current}% - ${(gap * theme.space.unit * (refs.columns.current - 1)) / refs.columns.current}px)`;
 
-      const columns_ = {};
+      const columns__ = {};
       const order = {};
 
-      for (let i = 1; i < refs.columns.current + 1; i++) columns_[i] = 0;
+      for (let i = 1; i < refs.columns.current + 1; i++) columns__[i] = 0;
 
       // order them by adding to lowest available order value
       let lowestColumn = 1;
@@ -89,16 +89,16 @@ const Masonry = React.forwardRef((props_: any, ref: any) => {
         // Update lowest column
         lowestValue = Number.MAX_SAFE_INTEGER;
 
-        Object.keys(columns_).forEach(column => {
-          if (columns_[column] < lowestValue) {
+        Object.keys(columns__).forEach(column => {
+          if (columns__[column] < lowestValue) {
             lowestColumn = +column;
-            lowestValue = columns_[column];
+            lowestValue = columns__[column];
           }
         });
 
-        const addition = columns_[lowestColumn] === 0 ? 0 : (refs.gap.current * theme.space.unit);
+        const addition = columns__[lowestColumn] === 0 ? 0 : (refs.gap.current * theme.space.unit);
 
-        columns_[lowestColumn] += element.clientHeight + addition;
+        columns__[lowestColumn] += element.clientHeight + addition;
 
         order[index] = lowestColumn;
 
@@ -107,8 +107,8 @@ const Masonry = React.forwardRef((props_: any, ref: any) => {
       });
 
       // update height (biggest column height)
-      Object.keys(columns_).forEach(column => {
-        if (columns_[column] > highestValue) highestValue = columns_[column];
+      Object.keys(columns__).forEach(column => {
+        if (columns__[column] > highestValue) highestValue = columns__[column];
       });
 
       // Height
