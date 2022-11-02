@@ -85,7 +85,7 @@ const Move = React.forwardRef((props_: any, ref: any) => {
 
         const transform = (refs.root.current as HTMLElement).style.transform;
 
-        const [xTransform, yTransform] = (transform?.match(/\d+/g) || [0, 0]).map(item => +item);
+        const [xTransform = 0, yTransform = 0] = (transform?.match(/[\-\+]\d+/g) || [0, 0]).map(item => Number(item));
 
         setValues(values_ => ({
           ...values_,

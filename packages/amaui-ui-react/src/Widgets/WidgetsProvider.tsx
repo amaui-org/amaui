@@ -212,7 +212,7 @@ const WidgetsProvider = React.forwardRef((props_: any, ref: any) => {
 
   refs.value.current.closeAll = closeAll;
 
-  const WidgetWrapper = move ? Move : 'div';
+  const WidgetWrapper = move ? Move : React.Fragment;
 
   const WidgetWrapperProps = move ? MoveProps : undefined;
 
@@ -303,59 +303,60 @@ const WidgetsProvider = React.forwardRef((props_: any, ref: any) => {
                   removeOnExited
                 >
                   {(status: TTransitionStatus) => (
-                    <WidgetWrapper
-                      {...WidgetWrapperProps}
-
+                    <div
                       className={classNames([
                         staticClassName('Widgets', theme) && [
                           `AmauiWidgets-item`
                         ],
 
-                        WidgetWrapperProps?.className,
                         classes.item,
                         status
                       ])}
                     >
-                      <IconButton
-                        onClick={() => close(valueItem)}
-
-                        color='default'
-
-                        version='filled'
-
-                        size='small'
-
-                        elevation={false}
-
-                        className={classNames([
-                          staticClassName('Widgets', theme) && [
-                            `AmauiWidgets-icon-button`
-                          ],
-
-                          classes.iconButton
-                        ])}
+                      <WidgetWrapper
+                        {...WidgetWrapperProps}
                       >
-                        <IconCloseItem />
-                      </IconButton>
+                        <IconButton
+                          onClick={() => close(valueItem)}
 
-                      {React.cloneElement(item.element, {
-                        className: classNames([
-                          staticClassName('Widgets', theme) && [
-                            `AmauiWidgets-widget`
-                          ],
+                          color='default'
 
-                          classes.widget
-                        ]),
+                          version='filled'
 
-                        ...(((['AmauiWeather', 'AmauiWatch'].includes(item.element.type?.displayName))) ? {
-                          shadow: true,
+                          size='small'
 
-                          style: {
-                            boxShadow: 'none'
-                          }
-                        } : undefined)
-                      })}
-                    </WidgetWrapper>
+                          elevation={false}
+
+                          className={classNames([
+                            staticClassName('Widgets', theme) && [
+                              `AmauiWidgets-icon-button`
+                            ],
+
+                            classes.iconButton
+                          ])}
+                        >
+                          <IconCloseItem />
+                        </IconButton>
+
+                        {React.cloneElement(item.element, {
+                          className: classNames([
+                            staticClassName('Widgets', theme) && [
+                              `AmauiWidgets-widget`
+                            ],
+
+                            classes.widget
+                          ]),
+
+                          ...(((['AmauiWeather', 'AmauiWatch'].includes(item.element.type?.displayName))) ? {
+                            shadow: true,
+
+                            style: {
+                              boxShadow: 'none'
+                            }
+                          } : undefined)
+                        })}
+                      </WidgetWrapper>
+                    </div>
                   )}
                 </Transition>
               );
