@@ -147,7 +147,14 @@ const Move = React.forwardRef((props_: any, ref: any) => {
 
   return (
     <Component
-      ref={ref}
+      ref={item => {
+        if (ref) {
+          if (is('function', ref)) ref(item);
+          else ref.current = item;
+        }
+
+        refs.root.current = item;
+      }}
 
       onMouseDown={onMouseDown}
 
