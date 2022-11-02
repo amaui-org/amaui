@@ -4525,7 +4525,7 @@ Please sign in again.`}
           />
         </Accordion>
 
-        <Accordion primary='LineChart labelResolve' open>
+        <Accordion primary='LineChart labelResolve'>
           <LineChart
             names={{
               x: 'Name x',

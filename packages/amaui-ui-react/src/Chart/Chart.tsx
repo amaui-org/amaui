@@ -816,13 +816,13 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
                       <Type
                         version='b3'
                       >
-                        {item?.values?.[1]}
+                        {is('function', labelResolve) ? labelResolve(item?.values?.[1], 'y', item, 'group') : item?.values?.[1]}
                       </Type>
 
                       <Type
                         version='b3'
                       >
-                        {item?.values?.[0]}
+                        {is('function', labelResolve) ? labelResolve(item?.values?.[0], 'x', item, 'group') : item?.values?.[0]}
                       </Type>
                     </Line>
                   ))}
@@ -2195,7 +2195,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
                       <Type
                         version='b3'
                       >
-                        {append?.values?.[1]}
+                        {is('function', labelResolve) ? labelResolve(append?.values?.[1], 'y', append, 'individual') : append?.values?.[1]}
                       </Type>
                     </Line>
 
@@ -2219,7 +2219,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
                       <Type
                         version='b3'
                       >
-                        {append?.values?.[0]}
+                        {is('function', labelResolve) ? labelResolve(append?.values?.[0], 'x', append, 'individual') : append?.values?.[0]}
                       </Type>
                     </Line>
                   </Line>
