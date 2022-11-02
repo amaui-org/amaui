@@ -366,8 +366,8 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
       if (refs.mouseDown.current) {
         // Update
         // relative value from the previous one how much x and y moved
-        const x = valueNew?.x - (refs.move.current?.x || 0);
-        const y = valueNew?.y - (refs.move.current?.y || 0);
+        const x = valueNew?.x;
+        const y = valueNew?.y;
 
         const previous = refs.value.current?.[refs.value.current?.length - 1];
 
@@ -434,7 +434,7 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
       ...(refs.value.current || []),
 
       {
-        d: `M ${x},${y} l 1,1`,
+        d: `M ${x},${y} L ${x} ${y}`,
         stroke: refs.inputValues.current.strokeColor,
         strokeWidth: refs.inputValues.current.strokeWidth
       }
