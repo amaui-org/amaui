@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is, parse } from '@amaui/utils';
-import { classNames, colors, style, useAmauiTheme } from '@amaui/style-react';
+import { classNames, colors, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Fade from '../Fade';
 import Type from '../Type';
@@ -26,7 +26,7 @@ import Line from '../Line';
 
 import { print, save, staticClassName } from '../utils';
 
-const useStyle = style(theme => ({
+const useStyle = styleMethod(theme => ({
   root: {
     width: '100%'
   },

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is } from '@amaui/utils';
-import { classNames, style, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Divider from '../Divider';
 import Interaction from '../Interaction';
@@ -13,7 +13,7 @@ import Line from '../Line';
 
 import { staticClassName } from '../utils';
 
-const useStyle = style(theme => ({
+const useStyle = styleMethod(theme => ({
   root: {
     position: 'relative',
     transition: theme.methods.transitions.make('opacity'),

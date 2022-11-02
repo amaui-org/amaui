@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is, copy, percentageFromValueWithinRange } from '@amaui/utils';
-import { classNames, style, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Chart from '../Chart';
 import Path from '../Path';
@@ -21,7 +21,7 @@ export interface IItem {
   values: Array<[number, number]> | [number, number];
 }
 
-const useStyle = style(theme => ({
+const useStyle = styleMethod(theme => ({
   root: {
     '& .AmauiChart-wrapper': {
       aspectRatio: '1',
@@ -219,7 +219,7 @@ const PieChart = React.forwardRef((props_: any, ref: any) => {
 
         const part = total * (partPercentage / 100);
 
-        let startInner = angleToCoordinates(anglePreviousInner, center, center, radius * innerOffset);
+        const startInner = angleToCoordinates(anglePreviousInner, center, center, radius * innerOffset);
 
         // Move from inner value
         if (index === 0) value_.push(
@@ -228,9 +228,9 @@ const PieChart = React.forwardRef((props_: any, ref: any) => {
           'L', angles.start.x, angles.start.y
         );
 
-        let angleEnd = anglePrevious + part;
+        const angleEnd = anglePrevious + part;
 
-        let angleEndInner = anglePreviousInner + part;
+        const angleEndInner = anglePreviousInner + part;
 
         const angleText = anglePrevious + (part / 2);
 

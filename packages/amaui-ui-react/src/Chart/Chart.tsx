@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { clamp, copy, is, percentageFromValueWithinRange, valueFromPercentageWithinRange } from '@amaui/utils';
-import { classNames, style, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Surface from '../Surface';
 import Line from '../Line';
@@ -14,7 +14,7 @@ import useMediaQuery from '../useMediaQuery';
 
 import { staticClassName, valueBreakpoints, minMaxBetweenNumbers } from '../utils';
 
-const useStyle = style(theme => ({
+const useStyle = styleMethod(theme => ({
   root: {
     width: '100%',
 
@@ -445,19 +445,19 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
     maxY: maxY_,
 
-    minMaxPadding: minMaxPadding_,
+    minMaxPadding: minMaxPadding__,
 
-    minPadding: minPadding_,
+    minPadding: minPadding__,
 
-    maxPadding: maxPadding_,
+    maxPadding: maxPadding__,
 
-    minPaddingX: minPaddingX_,
+    minPaddingX: minPaddingX__,
 
-    minPaddingY: minPaddingY_,
+    minPaddingY: minPaddingY__,
 
-    maxPaddingX: maxPaddingX_,
+    maxPaddingX: maxPaddingX__,
 
-    maxPaddingY: maxPaddingY_,
+    maxPaddingY: maxPaddingY__,
 
     noMain,
 
@@ -550,13 +550,13 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
   const maxX = valueBreakpoints(maxX_, undefined, breakpoints, theme);
   const minY = valueBreakpoints(minY_, undefined, breakpoints, theme);
   const maxY = valueBreakpoints(maxY_, undefined, breakpoints, theme);
-  const minMaxPadding = valueBreakpoints(minMaxPadding_, undefined, breakpoints, theme);
-  const minPadding = valueBreakpoints(minPadding_, undefined, breakpoints, theme);
-  const maxPadding = valueBreakpoints(maxPadding_, undefined, breakpoints, theme);
-  const minPaddingX = valueBreakpoints(minPaddingX_, undefined, breakpoints, theme);
-  const minPaddingY = valueBreakpoints(minPaddingY_, undefined, breakpoints, theme);
-  const maxPaddingX = valueBreakpoints(maxPaddingX_, undefined, breakpoints, theme);
-  const maxPaddingY = valueBreakpoints(maxPaddingY_, undefined, breakpoints, theme);
+  const minMaxPadding = valueBreakpoints(minMaxPadding__, undefined, breakpoints, theme);
+  const minPadding = valueBreakpoints(minPadding__, undefined, breakpoints, theme);
+  const maxPadding = valueBreakpoints(maxPadding__, undefined, breakpoints, theme);
+  const minPaddingX = valueBreakpoints(minPaddingX__, undefined, breakpoints, theme);
+  const minPaddingY = valueBreakpoints(minPaddingY__, undefined, breakpoints, theme);
+  const maxPaddingX = valueBreakpoints(maxPaddingX__, undefined, breakpoints, theme);
+  const maxPaddingY = valueBreakpoints(maxPaddingY__, undefined, breakpoints, theme);
 
   const [rects, setRects] = React.useState<Record<string, DOMRect>>();
   const [points, setPoints] = React.useState<any>();
@@ -686,11 +686,11 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
     const groups: any = {};
 
     items.forEach(item => {
-      const color = item.item?.color || 'primary';
+      const color_ = item.item?.color || 'primary';
 
-      if (!groups[color]) groups[color] = [];
+      if (!groups[color_]) groups[color_] = [];
 
-      groups[color].push(item);
+      groups[color_].push(item);
     });
 
     // Group sorted by y largest, to smallest
@@ -876,7 +876,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
       if (refs.guidelineAppend.current && ['both', 'vertical'].includes(refs.guideline.current)) {
         const allValues = refs.allValues.current;
 
-        let index = undefined;
+        let index;
         let previous: any;
         let item: any;
 
@@ -1013,7 +1013,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
       className: className_,
 
-      ...other
+      ...other_
     } = props__;
 
     const {
@@ -1043,7 +1043,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
           classes.legend_item
         ])}
 
-        {...other}
+        {...other_}
       >
         <span
           className={classNames([
@@ -1192,15 +1192,15 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
           .sort((a, b) => a[0] - b[0])
           .map(itemValues) : [itemValues(item.values as any)];
 
-        return values_.map((item, index: number) => (
+        return values_.map((item_, index: number) => (
           <Path
             Component='circle'
 
             r={4}
 
-            cx={item.normalized[0]}
+            cx={item_.normalized[0]}
 
-            cy={item.normalized[1]}
+            cy={item_.normalized[1]}
 
             fill={!theme.palette.color[color_] ? color_ : theme.palette.color[color_][tone]}
 
@@ -1211,7 +1211,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
                 const rect_ = event.target.getBoundingClientRect();
 
                 onPointMouseEnter({
-                  values: item.values,
+                  values: item_.values,
 
                   rect: rect_
                 });

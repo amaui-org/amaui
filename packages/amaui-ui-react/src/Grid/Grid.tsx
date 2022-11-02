@@ -1,14 +1,14 @@
 import React from 'react';
 
 import { is } from '@amaui/utils';
-import { classNames, style, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import useMediaQuery from '../useMediaQuery';
 import Line from '../Line';
 
 import { staticClassName, valueBreakpoints } from '../utils';
 
-const useStyle = style(theme => ({
+const useStyle = styleMethod(theme => ({
   root: {
     display: 'flex',
     width: '100%',
@@ -154,7 +154,7 @@ const Grid = React.forwardRef((props_: any, ref: any) => {
   const breakpoint = values && Object.keys(breakpoints).find(item => values && !!values[item] && breakpoints[item]);
 
   let width = values?.[breakpoint] || columns;
-  let offset = offsets?.[breakpoint] || 0;
+  const offset = offsets?.[breakpoint] || 0;
 
   const valueGap = columnGap !== undefined ? columnGap : gap;
 

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is, getID } from '@amaui/utils';
-import { classNames, style, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Snackbar from '../Snackbar';
 import SnackbarsContext from './SnackbarsContext';
@@ -16,7 +16,7 @@ export interface ISnackbarsProvider {
   remove: (value: 'first' | 'last' | string) => void;
 }
 
-const useStyle = style(theme => ({
+const useStyle = styleMethod(theme => ({
   root: {
     position: 'fixed',
     zIndex: theme.z_index.modal,
@@ -205,7 +205,7 @@ const SnackbarsProvider = React.forwardRef((props_: any, ref: any) => {
 
   const onExpandExited = (id: string) => {
     setOpen(items => {
-      let itemsNew = [...items];
+      const itemsNew = [...items];
 
       const index = itemsNew.findIndex(item_ => item_.id === id);
 
@@ -271,9 +271,9 @@ const SnackbarsProvider = React.forwardRef((props_: any, ref: any) => {
                 onExited: (...args: any) => {
                   onSnackbarExited(item.id);
 
-                  if (is('function', SnackbarProps?.TransitionComponentProps?.onExited)) SnackbarProps.TransitionComponentProps.onExited(...args)
+                  if (is('function', SnackbarProps?.TransitionComponentProps?.onExited)) SnackbarProps.TransitionComponentProps.onExited(...args);
 
-                  if (is('function', item.Snackbar?.onExited)) item.Snackbar.onExited(...args)
+                  if (is('function', item.Snackbar?.onExited)) item.Snackbar.onExited(...args);
                 }
               }}
 

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is, to, clamp, debounce, canvasCrop, download as downloadMethod } from '@amaui/utils';
-import { classNames, style, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 import { TMethod } from '@amaui/models';
 
 import Type from '../Type';
@@ -19,7 +19,7 @@ import Line from '../Line';
 
 import { staticClassName, image as imageMethod, canvasBrightness, canvasContrast, canvasSaturation, canvasFade, canvasInvert, canvasOldPhoto } from '../utils';
 
-const useStyle = style(theme => ({
+const useStyle = styleMethod(theme => ({
   root: {
 
   },

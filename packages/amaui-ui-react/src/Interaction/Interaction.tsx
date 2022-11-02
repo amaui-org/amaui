@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is, getID, debounce } from '@amaui/utils';
-import { classNames, style, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import { Transition, Transitions, TTransitionStatus } from '..';
 
@@ -16,7 +16,7 @@ const other = {
   height: '100%'
 };
 
-const useStyle = style(theme => ({
+const useStyle = styleMethod(theme => ({
   '@keyframes pulse': {
     '0%': {
       transform: 'scale(0.77)'

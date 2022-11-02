@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is } from '@amaui/utils';
-import { classNames, style, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Grow from '../Grow';
 import Icon from '../Icon';
@@ -12,7 +12,7 @@ import Line from '../Line';
 
 import { staticClassName } from '../utils';
 
-const useStyle = style(theme => ({
+const useStyle = styleMethod(theme => ({
   root: {
     minWidth: '340px',
     minHeight: '50px',
@@ -234,7 +234,7 @@ const Snackbar = React.forwardRef((props_: any, ref: any) => {
         >
           <IconMaterialCloseRounded />
         </IconButton>
-      )
+      );
     }
   }
 

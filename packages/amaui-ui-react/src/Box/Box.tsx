@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { classNames, style, useAmauiTheme, className } from '@amaui/style-react';
+import { style as styleMethod, classNames, useAmauiTheme, className as classNameMethod } from '@amaui/style-react';
 
 import { staticClassName } from '../utils';
 
-const useStyle = style(theme => ({
+const useStyle = styleMethod(theme => ({
   root: {
 
   },
@@ -22,7 +22,7 @@ const Box = React.forwardRef((props_: any, ref: any) => {
 
     Component = 'div',
 
-    className: className_,
+    className,
 
     children,
 
@@ -33,12 +33,12 @@ const Box = React.forwardRef((props_: any, ref: any) => {
     <Component
       ref={ref}
 
-      className={className(styles, props, classNames([
+      className={classNameMethod(styles, props, classNames([
         staticClassName('Box', theme) && [
           'AmauiBox-root'
         ],
 
-        className_,
+        className,
         classes.root
       ]), { name: 'AmauiBoxClassNameRoot' })}
 

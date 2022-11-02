@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { copy, is, percentageFromValueWithinRange, valueFromPercentageWithinRange } from '@amaui/utils';
-import { classNames, style, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Chart from '../Chart';
 import Path from '../Path';
@@ -20,7 +20,7 @@ export interface IItem {
   values: Array<[number, number]>;
 }
 
-const useStyle = style(theme => ({
+const useStyle = styleMethod(theme => ({
   root: {
 
   },
@@ -63,19 +63,19 @@ const AreaChart = React.forwardRef((props_: any, ref: any) => {
 
     maxY: maxY_,
 
-    minMaxPadding: minMaxPadding_,
+    minMaxPadding: minMaxPadding__,
 
-    minPadding: minPadding_,
+    minPadding: minPadding__,
 
-    maxPadding: maxPadding_,
+    maxPadding: maxPadding__,
 
-    minPaddingX: minPaddingX_,
+    minPaddingX: minPaddingX__,
 
-    minPaddingY: minPaddingY_,
+    minPaddingY: minPaddingY__,
 
-    maxPaddingX: maxPaddingX_,
+    maxPaddingX: maxPaddingX__,
 
-    maxPaddingY: maxPaddingY_,
+    maxPaddingY: maxPaddingY__,
 
     smooth = true,
 
@@ -95,13 +95,13 @@ const AreaChart = React.forwardRef((props_: any, ref: any) => {
   const maxX = valueBreakpoints(maxX_, undefined, breakpoints, theme);
   const minY = valueBreakpoints(minY_, undefined, breakpoints, theme);
   const maxY = valueBreakpoints(maxY_, undefined, breakpoints, theme);
-  const minMaxPadding = valueBreakpoints(minMaxPadding_, undefined, breakpoints, theme);
-  const minPadding = valueBreakpoints(minPadding_, undefined, breakpoints, theme);
-  const maxPadding = valueBreakpoints(maxPadding_, undefined, breakpoints, theme);
-  const minPaddingX = valueBreakpoints(minPaddingX_, undefined, breakpoints, theme);
-  const minPaddingY = valueBreakpoints(minPaddingY_, undefined, breakpoints, theme);
-  const maxPaddingX = valueBreakpoints(maxPaddingX_, undefined, breakpoints, theme);
-  const maxPaddingY = valueBreakpoints(maxPaddingY_, undefined, breakpoints, theme);
+  const minMaxPadding = valueBreakpoints(minMaxPadding__, undefined, breakpoints, theme);
+  const minPadding = valueBreakpoints(minPadding__, undefined, breakpoints, theme);
+  const maxPadding = valueBreakpoints(maxPadding__, undefined, breakpoints, theme);
+  const minPaddingX = valueBreakpoints(minPaddingX__, undefined, breakpoints, theme);
+  const minPaddingY = valueBreakpoints(minPaddingY__, undefined, breakpoints, theme);
+  const maxPaddingX = valueBreakpoints(maxPaddingX__, undefined, breakpoints, theme);
+  const maxPaddingY = valueBreakpoints(maxPaddingY__, undefined, breakpoints, theme);
 
   const [value, setValue] = React.useState<any>();
 
@@ -174,7 +174,7 @@ const AreaChart = React.forwardRef((props_: any, ref: any) => {
 
       className: className_,
 
-      ...other
+      ...other_
     } = props__;
 
     const {
@@ -204,7 +204,7 @@ const AreaChart = React.forwardRef((props_: any, ref: any) => {
           classes.legend_item
         ])}
 
-        {...other}
+        {...other_}
       >
         <span
           className={classNames([
@@ -267,8 +267,8 @@ const AreaChart = React.forwardRef((props_: any, ref: any) => {
         const values_ = item.values
           // Sort for x from smallest to largest
           .sort((a, b) => a[0] - b[0])
-          .map(value => {
-            const [x, y] = value;
+          .map(item_ => {
+            const [x, y] = item_;
 
             const values__ = {
               x: percentageFromValueWithinRange(x, refs.minMax.current.min.x, refs.minMax.current.max.x),
@@ -279,7 +279,7 @@ const AreaChart = React.forwardRef((props_: any, ref: any) => {
 
             values__.y = valueFromPercentageWithinRange(values__.y, 0, height);
 
-            return [values__.x, height - values__.y].map(item_ => Math.abs(item_));
+            return [values__.x, height - values__.y].map(item__ => Math.abs(item__));
           });
 
         const d = {
@@ -290,8 +290,8 @@ const AreaChart = React.forwardRef((props_: any, ref: any) => {
         let lastX = 0;
 
         if (!refs.smooth.current) {
-          d.border = values_.reduce((result: string, value, index: number) => {
-            const [x, y] = value;
+          d.border = values_.reduce((result: string, item_, index: number) => {
+            const [x, y] = item_;
 
             // Move
             if (index === 0) return result += `M ${x} ${y}`;
@@ -299,8 +299,8 @@ const AreaChart = React.forwardRef((props_: any, ref: any) => {
             return result += `L ${x} ${y}`;
           }, '');
 
-          d.background = values_.reduce((result: string, value, index: number) => {
-            const [x, y] = value;
+          d.background = values_.reduce((result: string, item_, index: number) => {
+            const [x, y] = item_;
 
             // Move
             if (index === 0) return result += `M ${x} ${height} L ${x} ${y}`;
@@ -313,30 +313,30 @@ const AreaChart = React.forwardRef((props_: any, ref: any) => {
           d.background += `L ${lastX} ${height} Z`;
         }
         else {
-          d.border = values_.reduce((result: string, value: [number, number], index: number, array: Array<[number, number]>) => {
-            const [x, y] = value;
+          d.border = values_.reduce((result: string, item_: [number, number], index: number, array: Array<[number, number]>) => {
+            const [x, y] = item_;
 
             // Move
             if (index === 0) return result += `M ${x} ${y}`;
 
-            const [x1, y1] = controlPoint(array[index - 1], array[index - 2], value, false, smoothRatio);
+            const [x1, y1] = controlPoint(array[index - 1], array[index - 2], item_, false, smoothRatio);
 
-            const [x2, y2] = controlPoint(value, array[index - 1], array[index + 1], true, smoothRatio);
+            const [x2, y2] = controlPoint(item_, array[index - 1], array[index + 1], true, smoothRatio);
 
             return result += `C ${x1} ${y1} ${x2} ${y2} ${x} ${y}`;
           }, '');
 
-          d.background = values_.reduce((result: string, value: [number, number], index: number, array: Array<[number, number]>) => {
-            const [x, y] = value;
+          d.background = values_.reduce((result: string, item_: [number, number], index: number, array: Array<[number, number]>) => {
+            const [x, y] = item_;
 
             // Move
             if (index === 0) return result += `M ${x} ${height} L ${x} ${y}`;
 
             if (index === values_.length - 1) lastX = x;
 
-            const [x1, y1] = controlPoint(array[index - 1], array[index - 2], value, false, smoothRatio);
+            const [x1, y1] = controlPoint(array[index - 1], array[index - 2], item_, false, smoothRatio);
 
-            const [x2, y2] = controlPoint(value, array[index - 1], array[index + 1], true, smoothRatio);
+            const [x2, y2] = controlPoint(item_, array[index - 1], array[index + 1], true, smoothRatio);
 
             return result += `C ${x1} ${y1} ${x2} ${y2} ${x} ${y}`;
           }, '');

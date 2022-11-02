@@ -42,7 +42,7 @@ const Focus = React.forwardRef((props_: any, ref: any) => {
     while (element) {
       if (element.nodeType === 1 && element !== value) allElements.push(element);
 
-      element = element.nextSibling
+      element = element.nextSibling;
     }
 
     const focusEndIndex = allElements.findIndex(item => item === refs.focusEnd.current);

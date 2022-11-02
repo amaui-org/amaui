@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is } from '@amaui/utils';
-import { classNames, style, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Surface from '../Surface';
 import Fade from '../Fade';
@@ -14,7 +14,7 @@ import Type from '../Type';
 
 import { staticClassName } from '../utils';
 
-const useStyle = style(theme => ({
+const useStyle = styleMethod(theme => ({
   root: {
     position: 'relative',
     display: 'flex',
@@ -214,7 +214,7 @@ const Accordion = React.forwardRef((props_: any, ref: any) => {
   }
 
   let addValue = 0;
-  let firstAccordionLevel = undefined;
+  let firstAccordionLevel: any;
 
   const method = (children_: any, level = 0) => {
     const items = React.Children.toArray(children_);

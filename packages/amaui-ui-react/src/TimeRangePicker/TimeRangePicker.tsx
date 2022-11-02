@@ -2,7 +2,7 @@ import React from 'react';
 
 import { is } from '@amaui/utils';
 import { AmauiDate, format as formatMethod, set } from '@amaui/date';
-import { classNames, style, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Icon from '../Icon';
 import Modal from '../Modal';
@@ -19,7 +19,7 @@ import Slide from '../Slide';
 
 import { staticClassName, valueBreakpoints } from '../utils';
 
-const useStyle = style(theme => ({
+const useStyle = styleMethod(theme => ({
   root: {
 
   },
@@ -421,7 +421,7 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
     if (is('function', onClose_)) onClose_();
   }, [onClose_]);
 
-  let mask: any = [];
+  const mask: any = [];
 
   let placeholder = '';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is } from '@amaui/utils';
-import { classNames, style, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import { IconDoneAnimated } from '../Buttons/Buttons';
 import IconButton from '../IconButton';
@@ -9,7 +9,7 @@ import Icon from '../Icon';
 
 import { staticClassName } from '../utils';
 
-const useStyle = style(theme => ({
+const useStyle = styleMethod(theme => ({
   root: {
     position: 'relative'
   },
@@ -293,7 +293,7 @@ const Checkbox = React.forwardRef((props_: any, ref: any) => {
     }
   };
 
-  let color_ = indeterminate ? colorIndeterminate : color;
+  const color_ = indeterminate ? colorIndeterminate : color;
   let palette: any;
 
   if (!theme.palette.color[color]) palette = theme.methods.color(color_);

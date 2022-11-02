@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is, clamp, valueFromPercentageWithinRange } from '@amaui/utils';
-import { classNames, style, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Line from '../Line';
 import Divider from '../Divider';
@@ -10,7 +10,7 @@ import Icon from '../Icon';
 
 import { staticClassName } from '../utils';
 
-const useStyle = style(theme => ({
+const useStyle = styleMethod(theme => ({
   root: {
     position: 'relative',
     color: theme.palette.text.default.primary,
@@ -583,4 +583,3 @@ const WindowSplit = React.forwardRef((props_: any, ref: any) => {
 WindowSplit.displayName = 'AmauiWindowSplit';
 
 export default WindowSplit;
-

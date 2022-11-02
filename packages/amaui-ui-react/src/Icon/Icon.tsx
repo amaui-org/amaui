@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { AmauiTheme, classNames, style, useAmauiTheme } from '@amaui/style-react';
+import { AmauiTheme, classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import { iconSizeToFontSize, staticClassName } from '../utils';
 
@@ -8,7 +8,7 @@ export const rtl_icons = [
   'ArrowForwardIos', 'ArrowBackIos', 'ArrowBack', 'ArrowForward', 'ArrowLeft', 'ArrowRight', 'AssignmentReturn', 'CallMade', 'CallMissedOutgoing', 'ChevronLeft', 'ChevronRight', 'DeviceUnknown', 'FeaturedPlayList', 'FlightLand', 'FormatIndentIncrease', 'Functions', 'Input', 'Label', 'LastPage', 'LiveHelp', 'NavigateBefore', 'Note', 'QueueMusic', 'ReplyAll', 'ShortText', 'StarHalf', 'Toc', 'Undo', 'WrapText', 'FirstPage', 'LastPage', 'NavigateNext', 'NavigateBefore'
 ];
 
-const useStyle = style(theme => ({
+const useStyle = styleMethod(theme => ({
   root: {
     userSelect: 'none',
     display: 'inline-flex',

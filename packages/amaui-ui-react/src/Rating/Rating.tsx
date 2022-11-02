@@ -1,13 +1,13 @@
 import React from 'react';
 
 import { clamp, is, valueFromPercentageWithinRange } from '@amaui/utils';
-import { classNames, style, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import { staticClassName } from '../utils';
 
 import Icon from '../Icon';
 
-const useStyle = style(theme => ({
+const useStyle = styleMethod(theme => ({
   root: {
     display: 'inline-flex',
     alignItems: 'flex-start',
@@ -179,7 +179,7 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
     if (value__ < 0) previous -= precision;
 
     // next value
-    let next = clamp(+(previous + precision).toFixed(valueDecimals), min, max);
+    const next = clamp(+(previous + precision).toFixed(valueDecimals), min, max);
 
     const valueNew = value__ > next ? previous : next;
 
@@ -193,7 +193,7 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
 
     const onMouseMove = (event: MouseEvent) => {
       if (!refs.props.current.disabled && !refs.props.current.readOnly && (refs.mouseDown.current || refs.hover.current)) {
-        let valuePrevious = refs.hover.current ? refs.valueActive.current : refs.value.current;
+        const valuePrevious = refs.hover.current ? refs.valueActive.current : refs.value.current;
         const x: number = event.clientX;
 
         const rect = refs.root.current.getBoundingClientRect();
@@ -224,7 +224,7 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
 
     const onTouchMove = (event: TouchEvent) => {
       if (!refs.props.current.disabled && !refs.props.current.readOnly && refs.mouseDown.current) {
-        let valuePrevious = refs.hover.current ? refs.valueActive.current : refs.value.current;
+        const valuePrevious = refs.hover.current ? refs.valueActive.current : refs.value.current;
         const x: number = event.touches[0].clientX;
 
         const rect = refs.root.current.getBoundingClientRect();
@@ -300,10 +300,10 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
     let value__ = refs.value.current || 0;
 
     // previous value
-    let previous = clamp(+(value__ - precision).toFixed(valueDecimals), min, max);
+    const previous = clamp(+(value__ - precision).toFixed(valueDecimals), min, max);
 
     // next value
-    let next = clamp(+(value__ + precision).toFixed(valueDecimals), min, max);
+    const next = clamp(+(value__ + precision).toFixed(valueDecimals), min, max);
 
     value__ = forward ? next : previous;
 

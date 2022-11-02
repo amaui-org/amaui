@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { is, unique, getLeadingZerosNumber, clamp } from '@amaui/utils'
+import { is, unique, getLeadingZerosNumber, clamp } from '@amaui/utils';
 import { AmauiDate, format as formatMethod, set, is as isMethod } from '@amaui/date';
-import { classNames, style, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Icon from '../Icon';
 import IconButton from '../IconButton';
@@ -23,7 +23,7 @@ import Slide from '../Slide';
 
 import { staticClassName, valueBreakpoints } from '../utils';
 
-const useStyle = style(theme => ({
+const useStyle = styleMethod(theme => ({
   root: {
 
   },
@@ -1443,7 +1443,6 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
             'AmauiTimePicker-mode'
           ],
 
-
           ModeInputProps?.className,
           classes.mode
         ])}
@@ -1475,7 +1474,6 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
           >
             {inputModeHeadingText}
           </Type>
-
 
           {/* Middle */}
           <Line
@@ -1656,7 +1654,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
     );
   }), [version, format, hour, minute, second, inputModeHeadingText, mode, tonal, color, switch_, InputProps]);
 
-  let mask: any = [];
+  const mask: any = [];
 
   let placeholder = '';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is } from '@amaui/utils';
-import { classNames, style, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Transition, { TTransitionStatus } from '../Transition';
 import Type from '../Type';
@@ -11,7 +11,7 @@ import Tooltip from '../Tooltip';
 
 import { staticClassName } from '../utils';
 
-const useStyle = style(theme => ({
+const useStyle = styleMethod(theme => ({
   root: {
     display: 'inline-flex',
     justifyContent: 'center',
@@ -273,7 +273,7 @@ const NavigationItem = React.forwardRef((props_: any, ref: any) => {
     styles.icon.color = styles.label.color = theme.methods.palette.color.value(color, 5, true, palette);
   }
 
-  let LabelWrapper = version === 'auto' ? Fade : React.Fragment;
+  const LabelWrapper = version === 'auto' ? Fade : React.Fragment;
 
   const LabelWrapperProps: any = {};
 

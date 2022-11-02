@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is, clamp } from '@amaui/utils';
-import { classNames, style, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Zoom from '../Zoom';
 import Fade from '../Fade';
@@ -12,7 +12,7 @@ import Line from '../Line';
 
 import { staticClassName } from '../utils';
 
-const useStyle = style(theme => ({
+const useStyle = styleMethod(theme => ({
   root: {
     position: 'fixed',
     zIndex: theme.z_index.modal
@@ -133,7 +133,7 @@ const IconWrapper = (props: any) => {
         })
       ))}
     </span>
-  )
+  );
 };
 
 const SpeedDial = React.forwardRef((props_: any, ref: any) => {
@@ -203,7 +203,7 @@ const SpeedDial = React.forwardRef((props_: any, ref: any) => {
     line: React.useRef<any>()
   };
 
-  let direction = direction_;
+  const direction = direction_;
   let SpeeDialItemTransitionComponent = SpeeDialItemTransitionComponent_;
 
   if (tooltipOpen) SpeeDialItemTransitionComponent = Fade;

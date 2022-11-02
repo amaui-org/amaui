@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { classNames, style, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Avatar from '../Avatar';
 
 import { staticClassName } from '../utils';
 
-const useStyle = style(theme => ({
+const useStyle = styleMethod(theme => ({
   root: {
     display: 'flex',
     flexDirection: 'row-reverse'
@@ -61,7 +61,7 @@ const AvatarGroup = React.forwardRef((props_: any, ref: any) => {
     item: {}
   };
 
-  let children = React.Children.toArray(children_).slice(0, max || children_.length).reverse();
+  const children = React.Children.toArray(children_).slice(0, max || children_.length).reverse();
 
   if (size !== undefined) {
     if (size === 'small') styles.item.outlineWidth = 2;

@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { classNames, IColor, style, useAmauiTheme } from '@amaui/style-react';
+import { classNames, IColor, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Type from '../Type';
 
 import { staticClassName } from '../utils';
 
-const useStyle = style(theme => ({
+const useStyle = styleMethod(theme => ({
   root: {
     position: 'relative',
     display: 'inline-flex',
@@ -138,7 +138,7 @@ const Link = React.forwardRef((props_: any, ref: any) => {
     setHover(false);
   }, []);
 
-  let color = color_;
+  const color = color_;
   let palette: IColor;
 
   if (!classes[`color_${color}`]) {

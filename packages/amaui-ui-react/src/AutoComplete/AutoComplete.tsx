@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is, unique } from '@amaui/utils';
-import { classNames, style, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Icon from '../Icon';
 import Menu from '../Menu';
@@ -17,7 +17,7 @@ import Line from '../Line';
 
 import { staticClassName } from '../utils';
 
-const useStyle = style(theme => ({
+const useStyle = styleMethod(theme => ({
   root: {
     width: '100%',
     flex: 'unset'
@@ -328,41 +328,41 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
   };
 
   const onClick = React.useCallback((event: React.MouseEvent) => {
-    if (!disabled && !readOnly) setOpen(open => {
-      if (!open) {
-        if (!openOnFocus) return open;
+    if (!disabled && !readOnly) setOpen(open_ => {
+      if (!open_) {
+        if (!openOnFocus) return open_;
 
         refs.input.current.focus();
       }
 
-      return !open;
+      return !open_;
     });
   }, [disabled, readOnly]);
 
   const onClickArrowDown = React.useCallback((event: React.MouseEvent) => {
-    if (!disabled && !readOnly) setOpen(open => {
-      if (!open) refs.input.current.focus();
+    if (!disabled && !readOnly) setOpen(open_ => {
+      if (!open_) refs.input.current.focus();
 
-      return !open;
+      return !open_;
     });
   }, [disabled, readOnly]);
 
   const onEnterKeyDown = React.useCallback((event: React.KeyboardEvent) => {
-    if (event.key === 'Enter' && !disabled && !readOnly) setOpen(open => {
-      if (!open) {
-        if (!openOnFocus) return open;
+    if (event.key === 'Enter' && !disabled && !readOnly) setOpen(open_ => {
+      if (!open_) {
+        if (!openOnFocus) return open_;
 
         refs.input.current.focus();
       }
 
-      return !open;
+      return !open_;
     });
   }, [disabled, readOnly]);
 
   const onClose = (refocus = true) => {
     if (!disabled && !readOnly) {
-      setOpen(open => {
-        if (open) {
+      setOpen(open_ => {
+        if (open_) {
           if (refocus) refs.input.current.focus();
 
           if (clearOnBlur) {
@@ -450,14 +450,14 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
     if (!autoWidth) styles.menu.minWidth = rect.width;
   }
 
-  const renderValue = (value_: any) => {
-    const item: any = children.find((item_: any) => item_.props?.value === value_);
+  const renderValue = (itemValue: any) => {
+    const item: any = children.find((item_: any) => item_.props?.value === itemValue);
 
     const getItemLabel = getLabel || (() => {
       return (item.props?.label || item.props?.primary || item.props?.secondary || item.props?.tertiary || item.props?.children);
     });
 
-    return item ? getItemLabel(item, props) : value_;
+    return item ? getItemLabel(item, props) : itemValue;
   };
 
   const renderValues = renderValues_ || (() => {
@@ -468,7 +468,7 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
         if (is('number', limit) && !open) values = values.slice(0, limit);
 
         values = values.map(item => {
-          const other = {
+          const other_ = {
             key: item,
 
             onClick: (event: React.MouseEvent<any>) => {
@@ -486,11 +486,11 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
             input: true
           };
 
-          if (is('function', renderChip)) return renderChip(renderValue(item), other);
+          if (is('function', renderChip)) return renderChip(renderValue(item), other_);
 
           return (
             <Chip
-              {...other}
+              {...other_}
             >
               {renderValue(item)}
             </Chip>
@@ -795,9 +795,9 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
         }}
 
         style={{
-          ...style,
+          ...styles.root,
 
-          ...styles.root
+          ...style
         }}
 
         {...other}

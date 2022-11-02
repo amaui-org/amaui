@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { canvasCrop, download, elementToCanvas, is } from '@amaui/utils';
-import { classNames, style, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Tooltip from '../Tooltip';
 import Surface from '../Surface';
@@ -15,7 +15,7 @@ import Icon from '../Icon';
 
 import { staticClassName } from '../utils';
 
-const useStyle = style(theme => ({
+const useStyle = styleMethod(theme => ({
   root: {
     padding: '20px 40px 24px',
     borderRadius: theme.methods.shape.radius.value('rg')

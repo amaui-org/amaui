@@ -1,11 +1,11 @@
 import React from 'react';
 
 import { is } from '@amaui/utils';
-import { classNames, style, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import { staticClassName } from '../utils';
 
-const useStyle = style(theme => ({
+const useStyle = styleMethod(theme => ({
   root: {
     '& dt': {
       marginTop: '16px',
@@ -194,7 +194,7 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
       // add to the root programatically
       // in this version style can only be added as string not an object
       const table = (valueTable_: string) => {
-        let valueTable = valueTable_;
+        const valueTable = valueTable_;
 
         const items = valueTable.split('\n').filter(Boolean).map(item_ => {
           let item = item_.trim();
@@ -607,7 +607,7 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
       };
 
       const listItem = (valueListItem_: string) => {
-        let valueListItem = valueListItem_;
+        const valueListItem = valueListItem_;
 
         const valueRender = is('function', render) ? render('li', addClassName('li'), addStyle('li'), valueListItem_) : undefined;
 
@@ -617,7 +617,7 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
       };
 
       const list = (valueList_: string, marker: string) => {
-        let valueList = valueList_.replace(new RegExp(`(^ *(${marker} ?(.*))(\\n( +.*)?)*)`, 'gm'), (match, a1, a2, a3) => {
+        const valueList = valueList_.replace(new RegExp(`(^ *(${marker} ?(.*))(\\n( +.*)?)*)`, 'gm'), (match, a1, a2, a3) => {
           const other = match.replace(a2, '');
 
           return `\n<li${addClassName('li')}${addStyle('li')}>

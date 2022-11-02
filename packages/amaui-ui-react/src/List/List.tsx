@@ -1,14 +1,14 @@
 import React from 'react';
 
-import { classNames, style, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Surface from '../Surface'
+import Surface from '../Surface';
 import useMediaQuery from '../useMediaQuery';
 import Line from '../Line';
 
 import { staticClassName } from '../utils';
 
-const useStyle = style(theme => ({
+const useStyle = styleMethod(theme => ({
   root: {
     // Reset
     margin: 0,

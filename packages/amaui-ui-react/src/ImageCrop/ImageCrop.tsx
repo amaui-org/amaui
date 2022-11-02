@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is, clamp } from '@amaui/utils';
-import { classNames, style, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Tooltip from '../Tooltip';
 
@@ -17,7 +17,7 @@ const dot = {
   outline: '1px solid white'
 };
 
-const useStyle = style(theme => ({
+const useStyle = styleMethod(theme => ({
   root: {
     width: '100%',
     minHeight: 1,

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { getID, is } from '@amaui/utils';
-import { style, classNames, useAmauiTheme } from '@amaui/style-react';
+import { style as styleMethod, classNames, useAmauiTheme } from '@amaui/style-react';
 
 import Tooltip from '../Tooltip';
 import ClickListener from '../ClickListener';
@@ -9,7 +9,7 @@ import List from '../List';
 
 import { staticClassName } from '../utils';
 
-const useStyle = style(theme => ({
+const useStyle = styleMethod(theme => ({
   root: {
 
   }
@@ -193,7 +193,7 @@ const Menu = React.forwardRef((props_: any, ref: any) => {
     if (refs.props.current.autoSelectOnBlur) {
       const item: any = React.Children.toArray(refs.props.current.children)[refs.preselected.current];
 
-      if (item && is('function', refs.props.current.onSelect)) refs.props.current.onSelect(item.props?.value !== undefined ? item.props?.value : item.props?.primary)
+      if (item && is('function', refs.props.current.onSelect)) refs.props.current.onSelect(item.props?.value !== undefined ? item.props?.value : item.props?.primary);
     }
 
     setPreselected('');

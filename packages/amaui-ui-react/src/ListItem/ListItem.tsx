@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is } from '@amaui/utils';
-import { classNames, style, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Surface from '../Surface';
 import Icon from '../Icon';
@@ -21,7 +21,7 @@ const overflow = {
   textOverflow: 'ellipsis'
 };
 
-const useStyle = style(theme => ({
+const useStyle = styleMethod(theme => ({
   wrapper: {
     width: '100%'
   },

@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { is, getLeadingZerosNumber, arrayToParts, clamp } from '@amaui/utils'
+import { is, getLeadingZerosNumber, arrayToParts, clamp } from '@amaui/utils';
 import { AmauiDate, format as formatMethod, set, is as isMethod, startOf, endOf, remove, add, TTimeUnits, months as monthsValue } from '@amaui/date';
-import { classNames, style, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Icon from '../Icon';
 import IconButton from '../IconButton';
@@ -28,7 +28,7 @@ import Slide from '../Slide';
 
 import { staticClassName, valueBreakpoints } from '../utils';
 
-const useStyle = style(theme => ({
+const useStyle = styleMethod(theme => ({
   root: {
 
   },
@@ -1235,7 +1235,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
       amauiDate = set(+month - 1, 'month', amauiDate);
 
       // year
-      let year: any = String(values_.year || new AmauiDate().year);
+      const year: any = String(values_.year || new AmauiDate().year);
 
       amauiDate = set(+year, 'year', amauiDate);
     }
@@ -1324,7 +1324,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
   refs.carouselValue.current = carouselValue;
 
-  let mask: any = [];
+  const mask: any = [];
 
   let placeholder: any = [];
 

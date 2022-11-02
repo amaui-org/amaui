@@ -274,7 +274,7 @@ function Keyframes(props_: IProps) {
       }
     </KeyframesContext.Provider>
   );
-};
+}
 
 Keyframes.displayName = 'AmauiKeyframes';
 

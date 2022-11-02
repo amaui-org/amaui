@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { clamp, is, isEnvironment } from '@amaui/utils';
-import { classNames, style, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Type from '../Type';
 
@@ -23,7 +23,7 @@ const overflow = {
   textOverflow: 'ellipsis'
 };
 
-const useStyle = style(theme => ({
+const useStyle = styleMethod(theme => ({
   wrapper: {
     position: 'relative',
     display: 'inline-flex',

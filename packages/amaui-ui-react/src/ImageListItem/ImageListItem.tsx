@@ -1,13 +1,13 @@
 import React from 'react';
 
-import { classNames, style, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Line from '../Line';
 import useMediaQuery from '../useMediaQuery';
 
 import { staticClassName, valueBreakpoints } from '../utils';
 
-const useStyle = style(theme => ({
+const useStyle = styleMethod(theme => ({
   root: {
     position: 'relative',
 

@@ -50,7 +50,7 @@ export const valueBreakpoints = (item: any, value: any, breakpoints: any, theme:
 };
 
 export const image = (uri: string): Promise<HTMLImageElement> => new Promise((resolve, reject) => {
-  const img = document.createElement('img')
+  const img = document.createElement('img');
 
   const method = () => resolve(img);
 
@@ -233,7 +233,7 @@ export const line = (pointA: TPoint, pointB: TPoint) => {
   return {
     length: Math.sqrt(Math.pow(lengthX, 2) + Math.pow(lengthY, 2)),
     angle: Math.atan2(lengthY, lengthX)
-  }
+  };
 };
 
 export const controlPoint = (current: TPoint, previous_: TPoint, next_: TPoint, reverse = false, smoothRatio = 0.14) => {

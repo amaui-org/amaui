@@ -1,14 +1,14 @@
 import React from 'react';
 
 import { is, unique } from '@amaui/utils';
-import { classNames, style, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Icon from '../Icon';
 import Transition, { TTransitionStatus } from '../Transition';
 
 import { staticClassName } from '../utils';
 
-const useStyle = style(theme => ({
+const useStyle = styleMethod(theme => ({
   root: {
     display: 'inline-flex',
     position: 'relative',

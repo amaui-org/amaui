@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is } from '@amaui/utils';
-import { classNames, style, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Surface from '../Surface';
 import Interaction from '../Interaction';
@@ -10,7 +10,7 @@ import Type from '../Type';
 
 import { iconSizeToFontSize, staticClassName } from '../utils';
 
-const useStyle = style(theme => ({
+const useStyle = styleMethod(theme => ({
   root: {
     display: 'inline-flex',
     justifyContent: 'space-around',
@@ -329,8 +329,8 @@ const Button = React.forwardRef((props_: any, ref: any) => {
   let color = color_;
   let start = (selected && startSelected) || start_;
   let end = (selected && endSelected) || end_;
-  let disabled = disabled_ || loading;
-  let TypeProps: any = { version: 'l2' };
+  const disabled = disabled_ || loading;
+  const TypeProps: any = { version: 'l2' };
 
   if (disabled) color = 'default';
 

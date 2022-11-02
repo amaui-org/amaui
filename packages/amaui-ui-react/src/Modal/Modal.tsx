@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is, isEnvironment } from '@amaui/utils';
-import { style, classNames, useAmauiTheme } from '@amaui/style-react';
+import { style as styleMethod, classNames, useAmauiTheme } from '@amaui/style-react';
 
 import Portal from '../Portal';
 import Focus from '../Focus';
@@ -11,7 +11,7 @@ import useMediaQuery from '../useMediaQuery';
 
 import { staticClassName } from '../utils';
 
-const useStyle = style(theme => ({
+const useStyle = styleMethod(theme => ({
   root: {
     position: 'fixed',
     inset: 0,
@@ -261,7 +261,7 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
 
   if (!open && !partialyOpened) return null;
 
-  let PortalComponent: any = portal ? Portal : React.Fragment;
+  const PortalComponent: any = portal ? Portal : React.Fragment;
 
   const PortalProps = {
     ...(portal && PortalProps_)
@@ -271,7 +271,7 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
     if (isEnvironment('browser')) PortalProps.element = window.document.body;
   }
 
-  let FocusComponent = focus ? Focus : React.Fragment;
+  const FocusComponent = focus ? Focus : React.Fragment;
 
   const FocusProps = focus ? {
     ref: refs.focus,

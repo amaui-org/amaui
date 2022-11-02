@@ -483,7 +483,7 @@ function Transition(props_: IProps) {
       }
     </TransitionContext.Provider>
   );
-};
+}
 
 Transition.displayName = 'AmauiTransition';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { clamp, is, isEnvironment } from '@amaui/utils';
-import { style, classNames, useAmauiTheme } from '@amaui/style-react';
+import { style as styleMethod, classNames, useAmauiTheme } from '@amaui/style-react';
 
 import Grow from '../Grow';
 import Modal from '../Modal';
@@ -10,7 +10,7 @@ import Surface from '../Surface';
 
 import { staticClassName } from '../utils';
 
-const useStyle = style(theme => ({
+const useStyle = styleMethod(theme => ({
   root: {
     inset: '0px auto auto 0px'
   },

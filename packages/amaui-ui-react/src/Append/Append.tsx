@@ -235,12 +235,12 @@ const Append = (props_: any) => {
     const scrollableParents = element_(refs.root.current).parents().filter(item => {
       if (!(item instanceof Element)) return;
 
-      const overflow = window.getComputedStyle(item).overflow;
+      const overflow_ = window.getComputedStyle(item).overflow;
 
       return (
         (
-          overflow.includes('auto') ||
-          overflow.includes('hidden')
+          overflow_.includes('auto') ||
+          overflow_.includes('hidden')
         ) &&
         (
           !refs.portal.current ||
@@ -257,9 +257,13 @@ const Append = (props_: any) => {
     // add window.document.body as an only value
     if (!scrollableParents.length) scrollableParents.push(window.document.body);
 
-    let { position, alignment, inset, switch: switched } = value;
+    const { position, inset, switch: switched } = value;
 
-    let { rect, rectOffset } = values__;
+    let { alignment } = value;
+
+    const { rect } = values__;
+
+    let { rectOffset } = values__;
 
     // We need both root and element refs
     // to make our values for it
@@ -339,10 +343,10 @@ const Append = (props_: any) => {
       const top = (portal ? window.document.documentElement.scrollTop : 0);
       const left = (portal ? window.document.documentElement.scrollLeft : 0);
 
-      const rootY = !portal ? wrapperRect.y + rectOffset.root.y : rect.root.y;
+      const rootY_ = !portal ? wrapperRect.y + rectOffset.root.y : rect.root.y;
       const valueY = !portal ? wrapperRect.y + values_.y : values_.y;
 
-      const rootX = !portal ? wrapperRect.x + rectOffset.root.x : rect.root.x;
+      const rootX_ = !portal ? wrapperRect.x + rectOffset.root.x : rect.root.x;
       const valueX = !portal ? wrapperRect.x + values_.x : values_.x;
 
       const wrapperRectY = !portal ? wrapperRect.y : 0;
@@ -365,7 +369,7 @@ const Append = (props_: any) => {
             (valueY - top <= 0 + padding[1]) ||
             (valueScrollParentY - top <= 0 + padding[1])
           ) {
-            if ((rootY + rect.root.height) > 0 || unfollow) {
+            if ((rootY_ + rect.root.height) > 0 || unfollow) {
               const mathValues = [
                 values_.y,
                 top,
@@ -374,7 +378,7 @@ const Append = (props_: any) => {
                 0
               ];
 
-              if (!portal) mathValues.push(rectOffset.root.y - rootY);
+              if (!portal) mathValues.push(rectOffset.root.y - rootY_);
 
               values_.y = Math.max(...mathValues);
 
@@ -454,7 +458,7 @@ const Append = (props_: any) => {
             (valueX - left <= 0 + padding[0]) ||
             (valueScrollParentX - left <= 0 + padding[0])
           ) {
-            if ((rootX + rect.root.width) > 0 || unfollow) {
+            if ((rootX_ + rect.root.width) > 0 || unfollow) {
               const mathValues = [
                 values_.x,
                 left,
@@ -463,7 +467,7 @@ const Append = (props_: any) => {
                 0
               ];
 
-              if (!portal) mathValues.push(rectOffset.root.x - rootX);
+              if (!portal) mathValues.push(rectOffset.root.x - rootX_);
 
               values_.x = Math.max(...mathValues);
 

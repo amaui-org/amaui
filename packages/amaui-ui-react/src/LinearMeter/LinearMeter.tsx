@@ -1,13 +1,13 @@
 import React from 'react';
 
 import { clamp, is, parse } from '@amaui/utils';
-import { classNames, style, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Surface from '../Surface';
 
 import { staticClassName } from '../utils';
 
-const useStyle = style(theme => ({
+const useStyle = styleMethod(theme => ({
   root: {
     width: '100%'
   },
@@ -175,7 +175,7 @@ const LinearMeter = React.forwardRef((props_: any, ref: any) => {
           if (orientation === 'horizontal') {
             const total = width - (paddings.x * 2);
 
-            let x = total * (position / 100);
+            const x = total * (position / 100);
             let y = height - paddings.y - boundaryWidth - markPadding;
             let yl = y - size;
 
@@ -208,7 +208,7 @@ const LinearMeter = React.forwardRef((props_: any, ref: any) => {
           if (orientation === 'vertical') {
             const total = height - (paddings.y * 2);
 
-            let y = total * (position / 100);
+            const y = total * (position / 100);
             let x = width - paddings.x - boundaryWidth - markPadding;
             let xl = x - size;
 
@@ -273,7 +273,7 @@ const LinearMeter = React.forwardRef((props_: any, ref: any) => {
           if (orientation === 'horizontal') {
             const total = width - (paddings.x * 2);
 
-            let x = total * (position / 100);
+            const x = total * (position / 100);
             let y = height - paddings.y - boundaryWidth - labelPadding;
 
             if (linePosition === 'start') {
@@ -301,7 +301,7 @@ const LinearMeter = React.forwardRef((props_: any, ref: any) => {
           if (orientation === 'vertical') {
             const total = height - (paddings.y * 2);
 
-            let y = total * (position / 100);
+            const y = total * (position / 100);
             let x = width - paddings.x - boundaryWidth - labelPadding;
 
             if (linePosition === 'start') {
@@ -338,13 +338,13 @@ const LinearMeter = React.forwardRef((props_: any, ref: any) => {
     let value = [];
 
     if (orientation === 'horizontal') {
-      let lineCapOffset = ['round', 'square'].includes(lineCap) ? boundaryWidth / 2 : 0;
+      const lineCapOffset = ['round', 'square'].includes(lineCap) ? boundaryWidth / 2 : 0;
 
-      let offset = (paddings.x * 2) + (lineCapOffset ? boundaryWidth * parts : 0);
+      const offset = (paddings.x * 2) + (lineCapOffset ? boundaryWidth * parts : 0);
 
       const total = width;
 
-      let part = (total - ((parts - 1) * gap) - offset) / parts;
+      const part = (total - ((parts - 1) * gap) - offset) / parts;
 
       let previousValue = 0;
 
@@ -395,13 +395,13 @@ const LinearMeter = React.forwardRef((props_: any, ref: any) => {
     }
 
     if (orientation === 'vertical') {
-      let lineCapOffset = ['round', 'square'].includes(lineCap) ? boundaryWidth / 2 : 0;
+      const lineCapOffset = ['round', 'square'].includes(lineCap) ? boundaryWidth / 2 : 0;
 
-      let offset = (paddings.y * 2) + (lineCapOffset ? boundaryWidth * parts : 0);
+      const offset = (paddings.y * 2) + (lineCapOffset ? boundaryWidth * parts : 0);
 
       const total = height;
 
-      let part = (total - ((parts - 1) * gap) - offset) / parts;
+      const part = (total - ((parts - 1) * gap) - offset) / parts;
 
       let previousValue = 0;
 

@@ -142,7 +142,7 @@ function Transitions(props_: IProps) {
 
   // Init
   if (!init && !switch_) {
-    children_ = children_.map(item => React.cloneElement(item, { in: true, onExited: onExited(item), ...other }))
+    children_ = children_.map(item => React.cloneElement(item, { in: true, onExited: onExited(item), ...other }));
   }
 
   // Switch
@@ -283,7 +283,7 @@ function Transitions(props_: IProps) {
       {children_}
     </TransitionsContext.Provider>
   );
-};
+}
 
 Transitions.displayName = 'AmauiTransitions';
 

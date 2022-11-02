@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { copy, is, percentageFromValueWithinRange, valueFromPercentageWithinRange } from '@amaui/utils';
-import { classNames, style, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Chart from '../Chart';
 import Path from '../Path';
@@ -21,7 +21,7 @@ interface IItem {
   values: [number, number, number, string];
 }
 
-const useStyle = style(theme => ({
+const useStyle = styleMethod(theme => ({
   root: {
 
   },
@@ -92,17 +92,17 @@ const BubbleChart = React.forwardRef((props_: any, ref: any) => {
 
     minMaxPadding: minMaxPadding_,
 
-    minPadding: minPadding_,
+    minPadding: minPadding__,
 
-    maxPadding: maxPadding_,
+    maxPadding: maxPadding__,
 
-    minPaddingX: minPaddingX_,
+    minPaddingX: minPaddingX__,
 
-    minPaddingY: minPaddingY_,
+    minPaddingY: minPaddingY__,
 
-    maxPaddingX: maxPaddingX_,
+    maxPaddingX: maxPaddingX__,
 
-    maxPaddingY: maxPaddingY_,
+    maxPaddingY: maxPaddingY__,
 
     tooltipRender: tooltipRender_,
 
@@ -121,12 +121,12 @@ const BubbleChart = React.forwardRef((props_: any, ref: any) => {
   const minY = valueBreakpoints(minY_, undefined, breakpoints, theme);
   const maxY = valueBreakpoints(maxY_, undefined, breakpoints, theme);
   const minMaxPadding = valueBreakpoints(minMaxPadding_, undefined, breakpoints, theme);
-  const minPadding = valueBreakpoints(minPadding_, undefined, breakpoints, theme);
-  const maxPadding = valueBreakpoints(maxPadding_, undefined, breakpoints, theme);
-  const minPaddingX = valueBreakpoints(minPaddingX_, undefined, breakpoints, theme);
-  const minPaddingY = valueBreakpoints(minPaddingY_, undefined, breakpoints, theme);
-  const maxPaddingX = valueBreakpoints(maxPaddingX_, undefined, breakpoints, theme);
-  const maxPaddingY = valueBreakpoints(maxPaddingY_, undefined, breakpoints, theme);
+  const minPadding = valueBreakpoints(minPadding__, undefined, breakpoints, theme);
+  const maxPadding = valueBreakpoints(maxPadding__, undefined, breakpoints, theme);
+  const minPaddingX = valueBreakpoints(minPaddingX__, undefined, breakpoints, theme);
+  const minPaddingY = valueBreakpoints(minPaddingY__, undefined, breakpoints, theme);
+  const maxPaddingX = valueBreakpoints(maxPaddingX__, undefined, breakpoints, theme);
+  const maxPaddingY = valueBreakpoints(maxPaddingY__, undefined, breakpoints, theme);
 
   const [value, setValue] = React.useState<any>();
 
@@ -197,7 +197,7 @@ const BubbleChart = React.forwardRef((props_: any, ref: any) => {
 
       className: className_,
 
-      ...other
+      ...other_
     } = props__;
 
     const {
@@ -227,7 +227,7 @@ const BubbleChart = React.forwardRef((props_: any, ref: any) => {
           classes.legend_item
         ])}
 
-        {...other}
+        {...other_}
       >
         <span
           className={classNames([
@@ -375,7 +375,7 @@ const BubbleChart = React.forwardRef((props_: any, ref: any) => {
 
   const tooltipRender = is('function', tooltipRender_) ? tooltipRender_ : (values_: any) => {
     const {
-      values
+      values: values__
     } = values_;
 
     return {
@@ -411,7 +411,7 @@ const BubbleChart = React.forwardRef((props_: any, ref: any) => {
             <Type
               version='b3'
             >
-              {values?.[3]}
+              {values__?.[3]}
             </Type>
           </Line>
 
@@ -435,7 +435,7 @@ const BubbleChart = React.forwardRef((props_: any, ref: any) => {
             <Type
               version='b3'
             >
-              {values?.[1]}
+              {values__?.[1]}
             </Type>
           </Line>
 
@@ -459,7 +459,7 @@ const BubbleChart = React.forwardRef((props_: any, ref: any) => {
             <Type
               version='b3'
             >
-              {values?.[0]}
+              {values__?.[0]}
             </Type>
           </Line>
 
@@ -483,7 +483,7 @@ const BubbleChart = React.forwardRef((props_: any, ref: any) => {
             <Type
               version='b3'
             >
-              {values?.[2]}
+              {values__?.[2]}
             </Type>
           </Line>
         </Line>

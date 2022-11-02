@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is } from '@amaui/utils';
-import { classNames, style, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Button from '../Button';
 import Icon from '../Icon';
@@ -9,7 +9,7 @@ import { IconDoneAnimated } from '../Buttons/Buttons';
 
 import { staticClassName } from '../utils';
 
-const useStyle = style(theme => ({
+const useStyle = styleMethod(theme => ({
   root: {
 
   },
@@ -64,7 +64,7 @@ const Chip = React.forwardRef((props_: any, ref: any) => {
 
   const { classes } = useStyle(props);
 
-  let children = children_;
+  const children = children_;
 
   React.useEffect(() => {
     if (selected !== selected_) setSelected(selected_);
@@ -77,7 +77,7 @@ const Chip = React.forwardRef((props_: any, ref: any) => {
       onClick={(event: React.MouseEvent<any>) => {
         if (is('function', onRemove)) onRemove(event);
       }}
-    />
+    />;
   }
 
   const onSelect = () => {

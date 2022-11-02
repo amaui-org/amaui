@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { elementToCanvas, is } from '@amaui/utils';
-import { classNames, colors, style, useAmauiTheme } from '@amaui/style-react';
+import { classNames, colors, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Select from '../Select';
 import ListItem from '../ListItem';
@@ -22,7 +22,7 @@ import Icon from '../Icon';
 
 import { staticClassName } from '../utils';
 
-const useStyle = style(theme => ({
+const useStyle = styleMethod(theme => ({
   root: {
     position: 'relative'
   },

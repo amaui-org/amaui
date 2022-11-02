@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is } from '@amaui/utils';
-import { classNames, style, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Grow from '../Grow';
 import Append from '../Append';
@@ -15,7 +15,7 @@ import Icon from '../Icon';
 
 import { staticClassName } from '../utils';
 
-const useStyle = style(theme => ({
+const useStyle = styleMethod(theme => ({
   root: {
     position: 'relative'
   },
@@ -373,7 +373,7 @@ const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
 
             const index = refs.props.current.items.findIndex(item_ => item_.value === refs.focus.current.value);
 
-            let indexNew = undefined;
+            let indexNew;
             let i = index;
             let item: any;
 
@@ -516,7 +516,7 @@ const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
                 key={index}
 
                 ref={item => {
-                  if (!refs.items.current.includes(item)) refs.items.current.push(item)
+                  if (!refs.items.current.includes(item)) refs.items.current.push(item);
                 }}
 
                 tabIndex={!item.disabled && item.menu ? 0 : undefined}
@@ -686,7 +686,7 @@ const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
                                 ...(is('function', menuTransitionStyle) && menuTransitionStyle(status, openItem))
                               }
                             })
-                          )
+                          );
                         }}
                       </Transition>
                     </Transitions>

@@ -3,7 +3,7 @@ import React from 'react';
 export interface IUseScroll {
   threshold?: number;
   direction?: 'up' | 'down';
-  target?: HTMLElement | Window
+  target?: HTMLElement | Window;
 }
 
 const useScroll = (props: IUseScroll) => {

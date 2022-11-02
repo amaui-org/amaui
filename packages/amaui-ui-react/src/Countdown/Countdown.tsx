@@ -2,7 +2,7 @@ import React from 'react';
 
 import { clamp, getLeadingZerosNumber, is } from '@amaui/utils';
 import { AmauiDate, duration } from '@amaui/date';
-import { classNames, style, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Fade from '../Fade';
 import Type from '../Type';
@@ -17,7 +17,7 @@ import Icon from '../Icon';
 
 import { staticClassName } from '../utils';
 
-const useStyle = style(theme => ({
+const useStyle = styleMethod(theme => ({
   root: {
     minWidth: '314px',
     padding: '24px 40px',
@@ -180,7 +180,7 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
     onStop: onStop_,
     onResume: onResume_,
 
-    Icon = IconMaterialAvTimerRounded,
+    Icon: Icon_ = IconMaterialAvTimerRounded,
     IconStart = IconMaterialPlayArrowRounded,
     IconPause = IconMaterialPauseRounded,
     IconStop = IconMaterialStopRounded,
@@ -412,7 +412,7 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
     >
       {/* Icon  */}
       {icon && (
-        <Icon
+        <Icon_
           size='medium'
 
           {...IconProps}

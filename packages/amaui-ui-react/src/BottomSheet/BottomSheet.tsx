@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { classNames, style, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import NavigationDrawer from '../NavigationDrawer';
 
 import { staticClassName } from '../utils';
 
-const useStyle = style(theme => ({
+const useStyle = styleMethod(theme => ({
   root: {
     '&.AmauiModal-root .AmauiModal-surface': {
       paddingTop: '50px',

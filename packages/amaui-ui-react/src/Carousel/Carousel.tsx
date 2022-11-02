@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is, unique, clamp, debounce, equalDeep } from '@amaui/utils';
-import { classNames, style, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 import AmauiSubscription from '@amaui/subscription';
 
 import Icon from '../Icon';
@@ -14,7 +14,7 @@ import useMediaQuery from '../useMediaQuery';
 
 import { staticClassName, valueBreakpoints } from '../utils';
 
-const useStyle = style(theme => ({
+const useStyle = styleMethod(theme => ({
   root: {
     position: 'relative',
     width: '100%',
@@ -209,8 +209,6 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
     version: version_,
 
-    item,
-
     valueDefault,
     value: value_,
 
@@ -244,6 +242,8 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     swipe: swipe_,
 
     background: background_,
+
+    index: index_,
 
     autoPlay: autoPlay_,
 
@@ -541,20 +541,20 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     refs.momentumID.current = requestAnimationFrame(momentumMethod);
   };
 
-  const onUpdatePosition = (valuePosition: any) => {
+  const onUpdatePosition = (valuePosition_: any) => {
     // Momentum
     momentumClear();
 
     const valueNew = {
-      ...valuePosition,
+      ...valuePosition_,
 
       additional: 0
     };
 
-    if (valuePosition.additional === undefined && refs.version.current === 'regular' && refs.itemSize.current !== 'auto') {
+    if (valuePosition_.additional === undefined && refs.version.current === 'regular' && refs.itemSize.current !== 'auto') {
       const max = refs.width.current / 2;
       const valuePosition = valueNew[refs.orientation.current === 'horizontal' ? 'x' : 'y'];
-      let part = valuePosition - (refs.mouseDownPosition.current?.[refs.orientation.current === 'horizontal' ? 'x' : 'y'] || 0);
+      const part = valuePosition - (refs.mouseDownPosition.current?.[refs.orientation.current === 'horizontal' ? 'x' : 'y'] || 0);
 
       const additional = (part / max) * 100;
 
@@ -668,7 +668,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
           });
         }
       }
-    };
+    }
 
     // Transition
     const itemNew = values[index];
@@ -923,9 +923,9 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
 
   React.useEffect(() => {
     if (init) {
-      if (item >= 0 && item <= refs.itemsLength.current && item !== refs.value.current?.index) onUpdate(item);
+      if (index_ >= 0 && index_ <= refs.itemsLength.current && index_ !== refs.value.current?.index) onUpdate(index_);
     }
-  }, [item]);
+  }, [index_]);
 
   React.useEffect(() => {
     if (is('function', onUpdateItems)) onUpdateItems();
@@ -969,7 +969,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     if (is('function', updateSub?.subscribe)) (updateSub as AmauiSubscription)?.subscribe(method);
 
     return () => {
-      if (is('function', updateSub?.unsubscribe)) (updateSub as AmauiSubscription)?.unsubscribe(method)
+      if (is('function', updateSub?.unsubscribe)) (updateSub as AmauiSubscription)?.unsubscribe(method);
     };
   }, [updateSub]);
 
@@ -979,7 +979,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     if (is('function', previousSub?.subscribe)) (previousSub as AmauiSubscription)?.subscribe(method);
 
     return () => {
-      if (is('function', previousSub?.unsubscribe)) (previousSub as AmauiSubscription)?.unsubscribe(method)
+      if (is('function', previousSub?.unsubscribe)) (previousSub as AmauiSubscription)?.unsubscribe(method);
     };
   }, [previousSub]);
 
@@ -989,7 +989,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
     if (is('function', nextSub?.subscribe)) (nextSub as AmauiSubscription)?.subscribe(method);
 
     return () => {
-      if (is('function', nextSub?.unsubscribe)) (nextSub as AmauiSubscription)?.unsubscribe(method)
+      if (is('function', nextSub?.unsubscribe)) (nextSub as AmauiSubscription)?.unsubscribe(method);
     };
   }, [nextSub]);
 

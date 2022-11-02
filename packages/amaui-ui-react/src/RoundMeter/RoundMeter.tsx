@@ -1,13 +1,13 @@
 import React from 'react';
 
 import { clamp, is, parse, valueFromPercentageWithinRange } from '@amaui/utils';
-import { classNames, style, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Surface from '../Surface';
 
 import { angleToCoordinates, staticClassName } from '../utils';
 
-const useStyle = style(theme => ({
+const useStyle = styleMethod(theme => ({
   root: {
     width: '100%'
   },
@@ -291,7 +291,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
     let value = [];
 
-    let offset = outsidePadding;
+    const offset = outsidePadding;
 
     // 1
     if (boundary === 1) {
@@ -317,7 +317,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
         const total = 360;
 
-        let part = (total - (parts * gap)) / parts;
+        const part = (total - (parts * gap)) / parts;
 
         const angles: any = {
           start: angleToCoordinates(0, center, center, radius)
@@ -332,7 +332,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
             'M', angles.start.x, angles.start.y
           );
 
-          let angleEnd = anglePrevious + part;
+          const angleEnd = anglePrevious + part;
 
           angles.end = angleToCoordinates(angleEnd, center, center, radius);
 
@@ -394,7 +394,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
       else {
         const total = 270;
 
-        let part = (total - ((parts - 1) * gap)) / parts;
+        const part = (total - ((parts - 1) * gap)) / parts;
 
         const angles: any = {
           0: angleToCoordinates(135, center, center, radius)
@@ -409,7 +409,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
             'M', angles[0].x, angles[0].y
           );
 
-          let angleEnd = anglePrevious + part;
+          const angleEnd = anglePrevious + part;
 
           angles.end = angleToCoordinates(angleEnd, center, center, radius);
 
@@ -452,7 +452,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
       const total = 180;
 
-      let part = (total - ((parts - 1) * gap)) / parts;
+      const part = (total - ((parts - 1) * gap)) / parts;
 
       const angles: any = {
         start: angleToCoordinates(180, center, center, radius)
@@ -467,7 +467,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
           'M', angles.start.x, angles.start.y
         );
 
-        let angleEnd = anglePrevious + part;
+        const angleEnd = anglePrevious + part;
 
         angles.end = angleToCoordinates(angleEnd, center, center, radius);
 
@@ -509,7 +509,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
       const total = 90;
 
-      let part = clamp((total - ((parts - 1) * gap)) / parts, 0.01);
+      const part = clamp((total - ((parts - 1) * gap)) / parts, 0.01);
 
       gap = clamp(gap, 0, ((total - (part * parts)) / (parts - 1)));
 
@@ -526,7 +526,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
           'M', angles.start.x, angles.start.y
         );
 
-        let angleEnd = anglePrevious + part;
+        const angleEnd = anglePrevious + part;
 
         angles.end = angleToCoordinates(angleEnd, center, center, radius);
 
@@ -615,15 +615,15 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
       const total = 180;
 
-      let part = (total - ((parts - 1) * gap)) / parts;
+      const part = (total - ((parts - 1) * gap)) / parts;
 
       const angles: any = {
         start: angleToCoordinates(180, center, center, radius)
       };
 
-      let anglePrevious = 180;
+      const anglePrevious = 180;
 
-      let angleEnd = anglePrevious + part;
+      const angleEnd = anglePrevious + part;
 
       angles.end = angleToCoordinates(angleEnd, center, center, radius);
 
@@ -648,7 +648,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
       const total = 90;
 
-      let part = clamp((total - ((parts - 1) * gap)) / parts, 0.01);
+      const part = clamp((total - ((parts - 1) * gap)) / parts, 0.01);
 
       gap = clamp(gap, 0, ((total - (part * parts)) / (parts - 1)));
 
@@ -656,9 +656,9 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
         start: angleToCoordinates(225, center, center, radius)
       };
 
-      let anglePrevious = 225;
+      const anglePrevious = 225;
 
-      let angleEnd = anglePrevious + part;
+      const angleEnd = anglePrevious + part;
 
       angles.end = angleToCoordinates(angleEnd, center, center, radius);
 
@@ -739,7 +739,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
 
       const total = 90;
 
-      let part = clamp((total - ((parts - 1) * gap)) / parts, 0.01);
+      const part = clamp((total - ((parts - 1) * gap)) / parts, 0.01);
 
       gap = clamp(gap, 0, ((total - (part * parts)) / (parts - 1)));
 

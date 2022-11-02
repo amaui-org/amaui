@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { classNames, style, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import ListItem from '../ListItem';
 import Grid from '../Grid';
@@ -8,7 +8,7 @@ import Line from '../Line';
 
 import { staticClassName } from '../utils';
 
-const useStyle = style(theme => ({
+const useStyle = styleMethod(theme => ({
   root: {
     width: '100%',
 

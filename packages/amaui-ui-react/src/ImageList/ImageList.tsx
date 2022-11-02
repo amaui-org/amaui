@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { classNames, style, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import useMediaQuery from '../useMediaQuery';
 
 import { staticClassName, valueBreakpoints } from '../utils';
 
-const useStyle = style(theme => ({
+const useStyle = styleMethod(theme => ({
   root: {
     listStyleType: 'none'
   },
@@ -100,7 +100,7 @@ const ImageList = React.forwardRef((props_: any, ref: any) => {
 
   const Wrapper = version !== 'masonry' ? React.Fragment : 'div';
 
-  let WrapperProps: any = {};
+  const WrapperProps: any = {};
 
   if (version === 'masonry') {
     WrapperProps.ref = ref;

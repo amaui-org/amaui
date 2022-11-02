@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { clamp, equalDeep, is, percentageFromValueWithinRange, valueFromPercentageWithinRange } from '@amaui/utils';
-import { classNames, style, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import IconButton from '../IconButton';
 import Tooltip from '../Tooltip';
@@ -27,7 +27,7 @@ const vertical = {
   transform: 'translateX(-50%)'
 };
 
-const useStyle = style(theme => ({
+const useStyle = styleMethod(theme => ({
   root: {
     position: 'relative',
     display: 'inline-flex',

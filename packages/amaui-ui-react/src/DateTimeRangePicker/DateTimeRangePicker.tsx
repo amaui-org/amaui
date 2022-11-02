@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { is } from '@amaui/utils'
-import { classNames, style, useAmauiTheme } from '@amaui/style-react';
+import { is } from '@amaui/utils';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 import { AmauiDate, format as formatMethod, set, is as isMethod } from '@amaui/date';
 
 import useMediaQuery from '../useMediaQuery';
@@ -21,7 +21,7 @@ import TimeRangePicker from '../TimeRangePicker';
 
 import { staticClassName, valueBreakpoints } from '../utils';
 
-const useStyle = style(theme => ({
+const useStyle = styleMethod(theme => ({
   root: {
 
   },
@@ -178,7 +178,7 @@ const DateTimeRangePicker = React.forwardRef((props_: any, ref: any) => {
 
   const valueToInput = (value__ = refs.value.current) => {
     const valuesInput = value__.map((item: any) => {
-      let amauiDate = new AmauiDate(item);
+      const amauiDate = new AmauiDate(item);
 
       let format_ = '';
 
@@ -211,7 +211,7 @@ const DateTimeRangePicker = React.forwardRef((props_: any, ref: any) => {
         if (second) format_ += `:`;
       }
 
-      if (second) format_ += `ss`
+      if (second) format_ += `ss`;
 
       if (format === '12') format_ += ` a`;
 
@@ -342,7 +342,7 @@ const DateTimeRangePicker = React.forwardRef((props_: any, ref: any) => {
     setOpenVersion((touch ? openMobile : openDesktop) || 'date');
   }, []);
 
-  let mask: any = [];
+  const mask: any = [];
 
   let placeholder: any = [];
 

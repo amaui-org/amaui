@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is, unique } from '@amaui/utils';
-import { classNames, style, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Icon from '../Icon';
 import Menu from '../Menu';
@@ -20,7 +20,7 @@ const overflow = {
   textOverflow: 'ellipsis'
 };
 
-const useStyle = style(theme => ({
+const useStyle = styleMethod(theme => ({
   root: {
     flex: 'unset',
     minWidth: '140px',
