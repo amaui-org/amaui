@@ -54,12 +54,12 @@ const useStyle = styleMethod(theme => ({
       margin: 0
     },
 
-    '& .AmauiRoundedProgress-pathBackground': {
+    '& .AmauiRoundedProgress-path-background': {
       stroke: 'currentColor',
       opacity: 0.24
     },
 
-    '& .AmauiRoundedProgress-path, & .AmauiRoundedProgress-pathBackground': {
+    '& .AmauiRoundedProgress-path, & .AmauiRoundedProgress-path-background': {
       strokeLinecap: 'round'
     }
   },
@@ -72,7 +72,7 @@ const useStyle = styleMethod(theme => ({
   numericTextField: {
     width: '70px',
 
-    '& .AmauiTextField-inputWrapper': {
+    '& .AmauiTextField-input-wrapper': {
       paddingInline: '0px',
       paddingBlock: '8px',
       height: 'auto'

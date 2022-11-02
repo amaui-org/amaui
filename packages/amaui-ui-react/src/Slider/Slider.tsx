@@ -147,116 +147,116 @@ const useStyle = styleMethod(theme => ({
 
   // iconButton
   iconButton_color_default: {
-    '&.AmauiIconButton': {
+    '&.AmauiIconButton-root': {
       color: theme.palette.text.default.primary
     }
   },
 
   iconButton_color_neutral: {
-    '&.AmauiIconButton': {
+    '&.AmauiIconButton-root': {
       color: theme.palette.color.neutral.main
     }
   },
 
   iconButton_color_primary: {
-    '&.AmauiIconButton': {
+    '&.AmauiIconButton-root': {
       color: theme.palette.color.primary.main
     }
   },
 
   iconButton_color_secondary: {
-    '&.AmauiIconButton': {
+    '&.AmauiIconButton-root': {
       color: theme.palette.color.secondary.main
     }
   },
 
   iconButton_color_tertiary: {
-    '&.AmauiIconButton': {
+    '&.AmauiIconButton-root': {
       color: theme.palette.color.tertiary.main
     }
   },
 
   iconButton_color_quaternary: {
-    '&.AmauiIconButton': {
+    '&.AmauiIconButton-root': {
       color: theme.palette.color.quaternary.main
     }
   },
 
   iconButton_color_info: {
-    '&.AmauiIconButton': {
+    '&.AmauiIconButton-root': {
       color: theme.palette.color.info.main
     }
   },
 
   iconButton_color_success: {
-    '&.AmauiIconButton': {
+    '&.AmauiIconButton-root': {
       color: theme.palette.color.success.main
     }
   },
 
   iconButton_color_warning: {
-    '&.AmauiIconButton': {
+    '&.AmauiIconButton-root': {
       color: theme.palette.color.warning.main
     }
   },
 
   iconButton_color_error: {
-    '&.AmauiIconButton': {
+    '&.AmauiIconButton-root': {
       color: theme.palette.color.error.main
     }
   },
 
   // Tonal
   iconButton_tonal_color_neutral: {
-    '&.AmauiIconButton': {
+    '&.AmauiIconButton-root': {
       color: theme.methods.palette.color.value('default', 70)
     }
   },
 
   iconButton_tonal_color_primary: {
-    '&.AmauiIconButton': {
+    '&.AmauiIconButton-root': {
       color: theme.methods.palette.color.value('primary', 70)
     }
   },
 
   iconButton_tonal_color_secondary: {
-    '&.AmauiIconButton': {
+    '&.AmauiIconButton-root': {
       color: theme.methods.palette.color.value('secondary', 70)
     }
   },
 
   iconButton_tonal_color_tertiary: {
-    '&.AmauiIconButton': {
+    '&.AmauiIconButton-root': {
       color: theme.methods.palette.color.value('tertiary', 70)
     }
   },
 
   iconButton_tonal_color_quaternary: {
-    '&.AmauiIconButton': {
+    '&.AmauiIconButton-root': {
       color: theme.methods.palette.color.value('quaternary', 70)
     }
   },
 
   iconButton_tonal_color_info: {
-    '&.AmauiIconButton': {
+    '&.AmauiIconButton-root': {
       color: theme.methods.palette.color.value('info', 70)
     }
   },
 
   iconButton_tonal_color_success: {
-    '&.AmauiIconButton': {
+    '&.AmauiIconButton-root': {
       color: theme.methods.palette.color.value('success', 70)
     }
   },
 
   iconButton_tonal_color_warning: {
-    '&.AmauiIconButton': {
+    '&.AmauiIconButton-root': {
       color: theme.methods.palette.color.value('warning', 70)
     }
   },
 
   iconButton_tonal_color_error: {
-    '&.AmauiIconButton': {
+    '&.AmauiIconButton-root': {
       color: theme.methods.palette.color.value('error', 70)
     }
   },

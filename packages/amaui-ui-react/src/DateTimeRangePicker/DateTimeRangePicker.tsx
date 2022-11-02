@@ -50,7 +50,7 @@ const useStyle = styleMethod(theme => ({
       height: '100vh'
     },
 
-    '& .AmauiDatePicker-mode-modal-fullScreen-main': {
+    '& .AmauiDatePicker-mode-modal-full-screen-main': {
       maxHeight: 'calc(100vh - 283px) !important'
     }
   },

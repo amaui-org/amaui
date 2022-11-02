@@ -31,13 +31,17 @@ const useStyle = styleMethod(theme => ({
       bottom: 0,
       pointerEvents: 'none',
       opacity: 0
+    },
+
+    '& .AmauiTextField-input-wrapper': {
+      cursor: 'pointer'
     }
   },
 
   inputWrapper: {
     cursor: 'pointer',
 
-    '&.AmauiTextField-inputWrapper': {
+    '&.AmauiTextField-input-wrapper': {
       cursor: 'pointer'
     }
   },
@@ -70,7 +74,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   chip: {
-    '&.AmauiTextField-inputWrapper': {
+    '&.AmauiTextField-input-wrapper': {
       height: 'unset'
     }
   },

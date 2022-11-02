@@ -166,7 +166,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   select: {
-    '& .AmauiTextField-inputWrapper': {
+    '& .AmauiTextField-input-wrapper': {
       height: '40px',
       paddingBlock: '11px'
     },

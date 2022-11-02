@@ -73,7 +73,7 @@ const useStyle = styleMethod(theme => ({
     maxWidth: '96px',
     flex: '1 1 auto',
 
-    '& .AmauiTextField-inputWrapper': {
+    '& .AmauiTextField-input-wrapper': {
       paddingInline: '0px',
       paddingBlock: '11px 8px',
       height: '72px'
@@ -92,7 +92,7 @@ const useStyle = styleMethod(theme => ({
       padding: '0px'
     },
 
-    '& .AmauiTextField-helperText': {
+    '& .AmauiTextField-helper-text': {
       color: theme.palette.text.default.primary
     }
   },

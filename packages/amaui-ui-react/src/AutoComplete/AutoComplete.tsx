@@ -58,7 +58,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   multiple: {
-    '&.AmauiTextField-inputWrapper': {
+    '&.AmauiTextField-input-wrapper': {
       height: 'unset'
     }
   },
@@ -78,7 +78,7 @@ const useStyle = styleMethod(theme => ({
   open: {},
 
   readOnly: {
-    '&.AmauiTextField-inputWrapper': {
+    '&.AmauiTextField-input-wrapper': {
       cursor: 'default'
     }
   },
@@ -98,7 +98,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   disabled: {
-    '&.AmauiTextField-inputWrapper': {
+    '&.AmauiTextField-input-wrapper': {
       cursor: 'default'
     }
   }
