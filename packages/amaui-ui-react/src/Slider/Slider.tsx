@@ -856,24 +856,24 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
   const propInset = orientation === 'horizontal' ? 'insetInlineStart' : 'insetBlockEnd';
 
   const iconButtonStyles = (value__: number) => {
-    const style = {};
+    const style_ = {};
 
-    if (is('function', iconButtonPosition)) style[propInset] = iconButtonPosition(value__, valueValue(value__), size);
+    if (is('function', iconButtonPosition)) style_[propInset] = iconButtonPosition(value__, valueValue(value__), size);
     else {
       if (size === 'small') {
-        style[propInset] = `calc(${valueValue(value__)}% - 15px)`;
+        style_[propInset] = `calc(${valueValue(value__)}% - 15px)`;
       }
 
       if (size === 'regular') {
-        style[propInset] = `calc(${valueValue(value__)}% - 20px)`;
+        style_[propInset] = `calc(${valueValue(value__)}% - 20px)`;
       }
 
       if (size === 'large') {
-        style[propInset] = `calc(${valueValue(value__)}% - 25px)`;
+        style_[propInset] = `calc(${valueValue(value__)}% - 25px)`;
       }
     }
 
-    return style;
+    return style_;
   };
 
   const propTrac = orientation === 'horizontal' ? 'width' : 'height';

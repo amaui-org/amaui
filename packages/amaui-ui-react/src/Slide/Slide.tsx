@@ -90,10 +90,10 @@ const Slide = React.forwardRef((props_: any, ref: any) => {
 
     const translateValue = translate();
 
-    const other: any = {};
+    const other_: any = {};
 
     if (min === undefined) {
-      other.visibility = 'hidden';
+      other_.visibility = 'hidden';
     }
 
     const allStyles = {
@@ -106,7 +106,7 @@ const Slide = React.forwardRef((props_: any, ref: any) => {
 
         transform: translateValue,
 
-        ...other
+        ...other_
       },
       adding: {
         transform: 'translate(0, 0)',
@@ -122,7 +122,7 @@ const Slide = React.forwardRef((props_: any, ref: any) => {
 
         transform: min !== undefined ? transform : translateValue,
 
-        ...other
+        ...other_
       },
       entering: {
         transform: 'translate(0, 0)',
@@ -144,7 +144,7 @@ const Slide = React.forwardRef((props_: any, ref: any) => {
       exited: {
         transform: min !== undefined ? translateValueMin : transform,
 
-        ...other
+        ...other_
       }
     };
 

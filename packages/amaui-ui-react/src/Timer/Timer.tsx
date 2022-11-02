@@ -138,7 +138,7 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
     onStop: onStop_,
     onResume: onResume_,
 
-    Icon_ = IconMaterialTimerRounded,
+    Icon: Icon_ = IconMaterialTimerRounded,
     IconStart = IconMaterialPlayArrowRounded,
     IconPause = IconMaterialPauseRounded,
     IconFlag = IconMaterialFlagRounded,

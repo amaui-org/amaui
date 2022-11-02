@@ -168,7 +168,7 @@ const SpeedDial = React.forwardRef((props_: any, ref: any) => {
     disabled,
 
     IconOpen,
-    Icon = IconMaterialCloseRounded,
+    Icon: Icon_ = IconMaterialCloseRounded,
     FabTransitionComponent = Zoom,
     SpeeDialItemTransitionComponent: SpeeDialItemTransitionComponent_ = Zoom,
 
@@ -580,11 +580,11 @@ const SpeedDial = React.forwardRef((props_: any, ref: any) => {
                   open && classes.iconWrapper_open
                 ])}
               >
-                {!IconOpen ? <Icon /> : <>
+                {!IconOpen ? <Icon_ /> : <>
                   <Fade
                     in={!open}
                   >
-                    <Icon
+                    <Icon_
                       className={classNames([
                         classes.icon_absolute
                       ])}

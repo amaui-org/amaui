@@ -143,7 +143,7 @@ const TimeRangePicker = React.forwardRef((props__: any, ref: any) => {
 
     onClose: onClose_,
 
-    Icon_ = IconMaterialScheduleRounded,
+    Icon: Icon_ = IconMaterialScheduleRounded,
 
     FromProps,
     ToProps,

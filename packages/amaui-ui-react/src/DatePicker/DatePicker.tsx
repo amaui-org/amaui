@@ -1126,7 +1126,7 @@ const DatePicker = React.forwardRef((props__: any, ref: any) => {
 
     onCancel: onCancel_,
 
-    Icon_ = IconMaterialCalendarTodayRoundedFilled,
+    Icon: Icon_ = IconMaterialCalendarTodayRoundedFilled,
     IconPrevious = IconMaterialNavigateBeforeRounded,
     IconNext = IconMaterialNavigateNextRounded,
     IconDropDown = IconMaterialArrowDropDownRounded,

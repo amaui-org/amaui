@@ -7,7 +7,7 @@ import Type from '../Type';
 
 import { staticClassName } from '../utils';
 
-const other = {
+const other_ = {
   pointerEvents: 'none',
   borderRadius: 'inherit',
   position: 'absolute',
@@ -265,7 +265,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   background: {
-    ...other,
+    ...other_,
     background: 'currentColor',
     borderRadius: `${theme.shape.radius.unit}px ${theme.shape.radius.unit}px 0 0`,
     opacity: theme.palette.light ? theme.palette.visual_contrast.default.opacity.hover : theme.palette.visual_contrast.default.opacity.selected,
@@ -282,7 +282,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   border: {
-    ...other,
+    ...other_,
     borderRadius: `${theme.shape.radius.unit}px ${theme.shape.radius.unit}px 0 0`,
     boxShadow: 'inset 0px -1px 0px 0px currentColor',
 
@@ -294,7 +294,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   fieldset: {
-    ...other,
+    ...other_,
     top: '-5px',
     height: 'calc(100% + 5px)',
     borderRadius: `${theme.shape.radius.unit}px`,
@@ -565,10 +565,10 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
     const htmlFontSize = isEnvironment('browser') ? +window.getComputedStyle(window.document.documentElement).fontSize.slice(0, -2) : 16;
     const padding = size === 'small' ? 28 : size === 'regular' ? 36 : 44;
 
-    const row = Math.round(htmlFontSize * 0.875 * 1.4285714285714286);
+    const row_ = Math.round(htmlFontSize * 0.875 * 1.4285714285714286);
 
     return {
-      height: row,
+      height: row_,
       padding
     };
   };

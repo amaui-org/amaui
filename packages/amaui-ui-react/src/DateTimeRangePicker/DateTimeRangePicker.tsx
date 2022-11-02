@@ -144,7 +144,7 @@ const DateTimeRangePicker = React.forwardRef((props__: any, ref: any) => {
     minute = true,
     second = false,
 
-    Icon_ = IconMaterialDateRangeRoundedFilled,
+    Icon: Icon_ = IconMaterialDateRangeRoundedFilled,
 
     ModalProps,
     TooltipProps,

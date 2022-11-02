@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is } from '@amaui/utils';
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { style as styleMethod, classNames, useAmauiTheme } from '@amaui/style-react';
 
 import Surface from '../Surface';
 import Line from '../Line';
@@ -525,12 +525,12 @@ const Tabs = React.forwardRef((props_: any, ref: any) => {
 
           return (
             React.cloneElement(item, {
-              ref: item => {
+              ref: item_ => {
                 if (children.length !== refs.tabs.current.length) {
-                  if (!refs.tabs.current.includes(item)) {
-                    item.value = valueItem;
+                  if (!refs.tabs.current.includes(item_)) {
+                    item_.value = valueItem;
 
-                    refs.tabs.current.push(item);
+                    refs.tabs.current.push(item_);
                   }
 
                   refs.tabs.current = refs.tabs.current.filter(Boolean);
