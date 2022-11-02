@@ -270,12 +270,12 @@ const ViewSplit = React.forwardRef((props_: any, ref: any) => {
         const x: number = event.clientX;
         const y: number = event.clientY;
 
-        const rect = refs.root.current.getBoundingClientRect();
+        const rect_ = refs.root.current.getBoundingClientRect();
 
-        const { width, height } = rect;
+        const { width, height } = rect_;
 
         // Value to the precision point value
-        let valueNew = refs.orientation.current === 'horizontal' ? (x - rect.x) / width : (y - rect.y) / height;
+        let valueNew = refs.orientation.current === 'horizontal' ? (x - rect_.x) / width : (y - rect_.y) / height;
 
         valueNew = valuePrecision(valueNew);
 
@@ -288,12 +288,12 @@ const ViewSplit = React.forwardRef((props_: any, ref: any) => {
         const x: number = event.touches[0].clientX;
         const y: number = event.touches[0].clientY;
 
-        const rect = refs.root.current.getBoundingClientRect();
+        const rect_ = refs.root.current.getBoundingClientRect();
 
-        const { width, height } = rect;
+        const { width, height } = rect_;
 
         // Value to the precision point value
-        let valueNew = refs.orientation.current === 'horizontal' ? (x - rect.x) / width : (y - rect.y) / height;
+        let valueNew = refs.orientation.current === 'horizontal' ? (x - rect_.x) / width : (y - rect_.y) / height;
 
         valueNew = valuePrecision(valueNew);
 
@@ -303,9 +303,9 @@ const ViewSplit = React.forwardRef((props_: any, ref: any) => {
 
     const method = () => {
       if (refs.root.current) {
-        const rect = refs.root.current.getBoundingClientRect();
+        const rect_ = refs.root.current.getBoundingClientRect();
 
-        setRect(rect);
+        setRect(rect_);
       }
     };
 
@@ -343,12 +343,12 @@ const ViewSplit = React.forwardRef((props_: any, ref: any) => {
     const x: number = event.touches[0].clientX;
     const y: number = event.touches[0].clientY;
 
-    const rect = refs.root.current.getBoundingClientRect();
+    const rect_ = refs.root.current.getBoundingClientRect();
 
-    const { width, height } = rect;
+    const { width, height } = rect_;
 
     // Value to the precision point value
-    let valueNew = refs.orientation.current === 'horizontal' ? (x - rect.x) / width : (y - rect.y) / height;
+    let valueNew = refs.orientation.current === 'horizontal' ? (x - rect_.x) / width : (y - rect_.y) / height;
 
     valueNew = valuePrecision(valueNew);
 

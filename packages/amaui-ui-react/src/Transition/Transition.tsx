@@ -443,18 +443,18 @@ function Transition(props_: IProps) {
 
     // Add className
     if (className && is('element', refs.root.current)) {
-      let className = classNames([((refs.root.current.className as unknown as SVGAnimatedString)?.baseVal || refs.root.current.className)?.split(' ')]);
+      let className_ = classNames([((refs.root.current.className as unknown as SVGAnimatedString)?.baseVal || refs.root.current.className)?.split(' ')]);
 
       // Remove all previous classes
-      className = className.replace(new RegExp(`(^| )${refs.prefix.current || ''}(add|enter|exit)(ed|ing)?($| )`, 'g'), ' ');
+      className_ = className_.replace(new RegExp(`(^| )${refs.prefix.current || ''}(add|enter|exit)(ed|ing)?($| )`, 'g'), ' ');
 
       // Add
-      className += ` ${refs.prefix.current || ''}${status_}`;
+      className_ += ` ${refs.prefix.current || ''}${status_}`;
 
-      className = className.replace(/ +/g, ' ').trim();
+      className_ = className_.replace(/ +/g, ' ').trim();
 
-      if ((refs.root.current.className as unknown as SVGAnimatedString)?.baseVal) (refs.root.current.className as unknown as SVGAnimatedString).baseVal = className;
-      else refs.root.current.className = className;
+      if ((refs.root.current.className as unknown as SVGAnimatedString)?.baseVal) (refs.root.current.className as unknown as SVGAnimatedString).baseVal = className_;
+      else refs.root.current.className = className_;
     }
   };
 

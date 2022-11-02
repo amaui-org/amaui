@@ -70,10 +70,10 @@ const SEPARATOR_SYMBOL = `–`;
 
 const SEPARATOR = ` ${SEPARATOR_SYMBOL} `;
 
-const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
+const TimeRangePicker = React.forwardRef((props__: any, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiTimeRangePicker?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...props__, ...theme?.ui?.elements?.AmauiTimeRangePicker?.props?.default }), [props__]);
 
   const breakpoints = {};
 
@@ -143,7 +143,7 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
 
     onClose: onClose_,
 
-    Icon = IconMaterialScheduleRounded,
+    Icon_ = IconMaterialScheduleRounded,
 
     FromProps,
     ToProps,
@@ -296,32 +296,32 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
 
     // hour
     // and am, pm
-    let hour = values_.hour || '00';
+    let hour_ = values_.hour || '00';
 
-    if (hour.startsWith('0')) hour = +hour.slice(1);
+    if (hour_.startsWith('0')) hour_ = +hour_.slice(1);
 
     if (format === '12') {
-      if (+hour === 0 || +hour === 12) {
+      if (+hour_ === 0 || +hour_ === 12) {
         if (values_.dayTime === 'am') amauiDate = set(0, 'hour', amauiDate);
         else if (values_.dayTime === 'pm') amauiDate = set(12, 'hour', amauiDate);
       }
-      else amauiDate = set(+hour + (values_.dayTime === 'pm' ? 12 : 0), 'hour', amauiDate);
+      else amauiDate = set(+hour_ + (values_.dayTime === 'pm' ? 12 : 0), 'hour', amauiDate);
     }
-    else amauiDate = set(+hour, 'hour', amauiDate);
+    else amauiDate = set(+hour_, 'hour', amauiDate);
 
     // minute
-    let minute = values_.minute || '00';
+    let minute_ = values_.minute || '00';
 
-    if (minute.startsWith('0')) minute = +minute.slice(1);
+    if (minute.startsWith('0')) minute_ = +minute.slice(1);
 
-    amauiDate = set(+minute, 'minute', amauiDate);
+    amauiDate = set(+minute_, 'minute', amauiDate);
 
     // second
-    let second = values_.second || '00';
+    let second_ = values_.second || '00';
 
-    if (second.startsWith('0')) second = +second.slice(1);
+    if (second_.startsWith('0')) second_ = +second_.slice(1);
 
-    amauiDate = set(+second, 'second', amauiDate);
+    amauiDate = set(+second_, 'second', amauiDate);
 
     return amauiDate;
   };
@@ -330,17 +330,17 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
     const values_: any = {};
 
     // input
-    const [valuesTime, dayTime] = valueNew.split(' ');
+    const [valuesTime, dayTime_] = valueNew.split(' ');
 
-    const [hour, minute, second] = (valuesTime || '').split(':');
+    const [hour_, minute_, second_] = (valuesTime || '').split(':');
 
-    if (hour) values_.hour = hour;
+    if (hour_) values_.hour = hour_;
 
-    if (minute) values_.minute = minute;
+    if (minute_) values_.minute = minute_;
 
-    if (second) values_.second = second;
+    if (second_) values_.second = second_;
 
-    if (dayTime) values_.dayTime = dayTime;
+    if (dayTime_) values_.dayTime = dayTime_;
 
     return values_;
   };
@@ -363,11 +363,11 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
     updateValue(value__);
   };
 
-  const updateValues = (property: string, value_: any) => {
+  const updateValues = (property: string, itemValue: any) => {
     const values_ = {
       ...refs.values.current,
 
-      [property]: value_
+      [property]: itemValue
     };
 
     // Value
@@ -425,8 +425,8 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
 
   let placeholder = '';
 
-  [FromProps, ToProps].forEach((props__: any, index: number) => {
-    const props_ = mergeProps(props__);
+  [FromProps, ToProps].forEach((value__: any, index: number) => {
+    const props_ = mergeProps(value__);
 
     if (props_?.hour) {
       if (props_?.format === '12') {
@@ -565,7 +565,7 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
 
   refs.timePickers.current = TimePickers;
 
-  const ModeDesktop = React.useCallback(React.forwardRef((props__: any, ref_: any) => {
+  const ModeDesktop = React.useCallback(React.forwardRef((props_: any, ref_: any) => {
 
     return (
       <Line
@@ -602,7 +602,7 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
     );
   }), [tonal, color]);
 
-  const ModeMobile = React.useCallback(React.forwardRef((props__: any, ref_: any) => {
+  const ModeMobile = React.useCallback(React.forwardRef((props_: any, ref_: any) => {
 
     return (
       <Line
@@ -674,7 +674,7 @@ const TimeRangePicker = React.forwardRef((props_: any, ref: any) => {
 
         {...IconButtonProps}
       >
-        <Icon />
+        <Icon_ />
       </IconButton>
     );
   }

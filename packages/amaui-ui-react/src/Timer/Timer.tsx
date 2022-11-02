@@ -138,7 +138,7 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
     onStop: onStop_,
     onResume: onResume_,
 
-    Icon = IconMaterialTimerRounded,
+    Icon_ = IconMaterialTimerRounded,
     IconStart = IconMaterialPlayArrowRounded,
     IconPause = IconMaterialPauseRounded,
     IconFlag = IconMaterialFlagRounded,
@@ -326,7 +326,7 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
     >
       {/* Icon  */}
       {icon && (
-        <Icon
+        <Icon_
           size='medium'
 
           {...IconProps}

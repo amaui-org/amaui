@@ -154,7 +154,7 @@ const WidgetsProvider = React.forwardRef((props_: any, ref: any) => {
     SpeedDialProps,
     MoveProps,
 
-    Icon = IconMaterialWidgetsRounded,
+    Icon_ = IconMaterialWidgetsRounded,
     IconCloseItem = IconMaterialCloseRounded,
 
     className,
@@ -232,7 +232,7 @@ const WidgetsProvider = React.forwardRef((props_: any, ref: any) => {
 
           alignment='start'
 
-          Icon={Icon}
+          Icon={Icon_}
 
           noRotate
 

@@ -131,7 +131,7 @@ const useStyle = styleMethod(theme => ({
 const IconWeather = React.forwardRef((props: any, ref: any) => {
   const {
     tonal,
-    color,
+    color: color_,
 
     style,
 
@@ -142,7 +142,7 @@ const IconWeather = React.forwardRef((props: any, ref: any) => {
     <Surface
       tonal={tonal}
 
-      color={color}
+      color={color_}
     >
       {({ color, backgroundColor }) => (
         <svg
@@ -336,24 +336,24 @@ const Weather = React.forwardRef((props_: any, ref: any) => {
   }, [values_]);
 
   React.useEffect(() => {
-    if (dayTime_ !== undefined && dayTime_ !== refs.values.current.dayTime) setValues(values_ => ({
-      ...values_,
+    if (dayTime_ !== undefined && dayTime_ !== refs.values.current.dayTime) setValues(values__ => ({
+      ...values__,
 
       dayTime: dayTime_
     }));
   }, [dayTime_]);
 
   React.useEffect(() => {
-    if (weather_ !== undefined && weather_ !== refs.values.current.weather) setValues(values_ => ({
-      ...values_,
+    if (weather_ !== undefined && weather_ !== refs.values.current.weather) setValues(values__ => ({
+      ...values__,
 
       weather: weather_
     }));
   }, [weather_]);
 
   React.useEffect(() => {
-    if (temperature_ !== undefined && temperature_ !== refs.values.current.temperature) setValues(values_ => ({
-      ...values_,
+    if (temperature_ !== undefined && temperature_ !== refs.values.current.temperature) setValues(values__ => ({
+      ...values__,
 
       temperature: temperature_
     }));
