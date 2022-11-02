@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is } from '@amaui/utils';
+import { element, is } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import { staticClassName } from '../utils';
@@ -23,6 +23,8 @@ const Move = React.forwardRef((props_: any, ref: any) => {
     onTouchStart: onTouchStart_,
 
     manage = false,
+
+    manageLevel = 0,
 
     Component = 'div',
 
@@ -145,9 +147,11 @@ const Move = React.forwardRef((props_: any, ref: any) => {
     styles.root.transform = `translate(${values.x}px, ${values.y}px)`;
 
     if (manage && refs.root.current) {
-      const parent = refs.root.current.parentElement;
+      const parents = element(refs.root.current).parents();
 
-      if (!['HTML', 'html', 'BODY', 'body', 'HEAD', 'head'].includes((parent as HTMLElement).tagName)) {
+      const parent = parents[manageLevel || 0] as HTMLElement;
+
+      if (parent && !['HTML', 'html', 'BODY', 'body', 'HEAD', 'head'].includes((parent as HTMLElement).tagName)) {
         parent.style.pointerEvents = 'none';
 
         styles.root.pointerEvents = 'auto';

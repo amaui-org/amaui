@@ -217,6 +217,8 @@ const WidgetsProvider = React.forwardRef((props_: any, ref: any) => {
   const WidgetWrapperProps = move ? {
     manage: true,
 
+    manageLevel: 1,
+
     ...MoveProps
   } : undefined;
 
