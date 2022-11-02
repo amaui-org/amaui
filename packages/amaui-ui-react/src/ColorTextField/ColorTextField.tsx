@@ -19,7 +19,7 @@ const useStyle = style(theme => ({
     width: '17px',
     height: '17px',
     cursor: 'pointer',
-    boxShadow: theme.shadows.values.default[1],
+    boxShadow: theme.methods.shadow(theme.palette.text.default.primary, theme.palette.light ? [7, 4, 11] : [27, 24, 31])[1],
 
     '&::-webkit-color-swatch-wrapper': {
       padding: '0px'
