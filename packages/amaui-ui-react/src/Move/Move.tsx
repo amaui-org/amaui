@@ -7,7 +7,7 @@ import { staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
-
+    pointerEvents: 'auto'
   }
 }), { name: 'AmauiMove' });
 
