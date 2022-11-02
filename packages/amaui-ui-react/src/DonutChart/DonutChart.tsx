@@ -8,7 +8,11 @@ import { staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
-
+    '& .AmauiChart-legend-icon': {
+      position: 'relative',
+      background: 'none !important',
+      border: '2px solid currentColor'
+    }
   }
 }), { name: 'AmauiDonutChart' });
 

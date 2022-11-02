@@ -25,8 +25,6 @@ const useStyle = styleMethod(theme => ({
   root: {
     '& .AmauiChart-legend-icon': {
       position: 'relative',
-      width: '11px',
-      height: '11px',
       background: 'none !important',
       border: '2px solid currentColor',
 
