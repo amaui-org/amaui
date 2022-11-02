@@ -3,8 +3,6 @@ import React from 'react';
 import { is } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
-import Button from '../Button';
-
 import { staticClassName } from '../utils';
 
 const useStyle = style(theme => ({
@@ -23,6 +21,8 @@ const Move = React.forwardRef((props_: any, ref: any) => {
   const {
     onMouseDown: onMouseDown_,
     onTouchStart: onTouchStart_,
+
+    manage = false,
 
     Component = 'div',
 
@@ -85,13 +85,13 @@ const Move = React.forwardRef((props_: any, ref: any) => {
 
         const transform = (refs.root.current as HTMLElement).style.transform;
 
-        const [xTransform = 0, yTransform = 0] = (transform?.match(/[\-\+]\d+/g) || [0, 0]).map(item => Number(item));
+        const [xTransform, yTransform] = (transform?.match(/[\-\+]?\d+/g) || [0, 0]).map(item => Number(item));
 
         setValues(values_ => ({
           ...values_,
 
-          x: x + xTransform,
-          y: y + yTransform
+          x: x + (xTransform || 0),
+          y: y + (yTransform || 0)
         }));
       }
     };
@@ -143,6 +143,16 @@ const Move = React.forwardRef((props_: any, ref: any) => {
   // Update
   if (values?.x !== undefined && values?.y !== undefined) {
     styles.root.transform = `translate(${values.x}px, ${values.y}px)`;
+
+    if (manage && refs.root.current) {
+      const parent = refs.root.current.parentElement;
+
+      if (!['HTML', 'html', 'BODY', 'body', 'HEAD', 'head'].includes((parent as HTMLElement).tagName)) {
+        parent.style.pointerEvents = 'none';
+
+        styles.root.pointerEvents = 'auto';
+      }
+    }
   }
 
   return (
@@ -162,7 +172,8 @@ const Move = React.forwardRef((props_: any, ref: any) => {
 
       className={classNames([
         staticClassName('Move', theme) && [
-          'AmauiMove-root'
+          'AmauiMove-root',
+          manage && `AmauiMove-manage`
         ],
 
         className,

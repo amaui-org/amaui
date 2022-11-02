@@ -214,7 +214,11 @@ const WidgetsProvider = React.forwardRef((props_: any, ref: any) => {
 
   const WidgetWrapper = move ? Move : React.Fragment;
 
-  const WidgetWrapperProps = move ? MoveProps : undefined;
+  const WidgetWrapperProps = move ? {
+    manage: true,
+
+    ...MoveProps
+  } : undefined;
 
   return (
     <WidgetsContext.Provider value={refs.value.current}>
