@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { clamp, copy, is, percentageFromValueWithinRange, valueFromPercentageWithinRange } from '@amaui/utils';
+import { castParam, clamp, copy, is, percentageFromValueWithinRange, valueFromPercentageWithinRange } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Surface from '../Surface';
@@ -129,7 +129,8 @@ const useStyle = styleMethod(theme => ({
   },
 
   label: {
-    position: 'absolute'
+    position: 'absolute',
+    whiteSpace: 'nowrap'
   },
 
   label_x: {
@@ -466,6 +467,8 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
     tooltipGroupRender,
 
     labelRender,
+
+    labelResolve,
 
     onUpdateRects,
 
@@ -1081,13 +1084,13 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
         x: is('array', labels__?.x) ? labels__.x : minMaxBetweenNumbers(labelsXAutoNumber !== undefined ? labelsXAutoNumber : labelsAutoNumber !== undefined ? labelsAutoNumber : 10, refs.minMax.current.min.x, refs.minMax.current.max.x).map(item => ({
           value: item,
 
-          label: (item).toFixed(labelDecimalPlaces || 0)
+          label: castParam((item).toFixed(labelDecimalPlaces || 0))
         })),
 
         y: is('array', labels__?.y) ? labels__.y : minMaxBetweenNumbers(labelsYAutoNumber !== undefined ? labelsYAutoNumber : labelsAutoNumber !== undefined ? labelsAutoNumber : 10, refs.minMax.current.min.y, refs.minMax.current.max.y).map(item => ({
           value: item,
 
-          label: (item).toFixed(labelDecimalPlaces || 0)
+          label: castParam((item).toFixed(labelDecimalPlaces || 0))
         }))
       };
 
@@ -1906,7 +1909,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
                             left: `${item.percentage}%`
                           }}
                         >
-                          {item.label}
+                          {is('function', labelResolve) ? labelResolve(item.label, 'x', item) : item.label}
                         </Type>
                     ))}
                   </Line>
@@ -1955,7 +1958,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
                             bottom: `${item.percentage}%`
                           }}
                         >
-                          {item.label}
+                          {is('function', labelResolve) ? labelResolve(item.label, 'y', item) : item.label}
                         </Type>
                     ))}
                   </Line>

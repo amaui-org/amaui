@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is, unique, random, countries } from '@amaui/utils';
-import { AmauiDate, add, remove, set } from '@amaui/date';
+import { AmauiDate, format, add, remove, set } from '@amaui/date';
 import { AmauiTheme, AmauiThemeProvider, classNames, style, sy, useAmauiTheme } from '@amaui/style-react';
 import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Radios, Keyframes, Switch, TextField, Label, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationItem, NavigationRail, NavigationDrawer, BottomSheet, BottomAppBar, TopAppBar, Card, CardImage, CardMain, CardHeader, CardButton, CardFooter, Table, TableHead, TableRow, TableCell, TableHeader, TableFooter, TableBody, Placeholder, Snackbar, useSnackbars, Pagination, TablePagination, SpeedDial, SpeedDialItem, ImageList, ImageListItem, ImageListItemBox, Stepper, Step, Tabs, Tab, Timeline, TimelineItem, Tree, Masonry, Reveal, useConfirm, ViewSplit, WindowSplit, useMainProgress, Image, SpyScroll, AdvancedTextField, NumericTextField, ColorTextField, useWidgets, ImageCrop, ImageEdit, FileChoose, DropZone, MenuDesktop, Markdown, RichTextEditor, ScreenCapture, Timer, Countdown, Drawing, Parallax, Weather, RoundMeter, Path, Watch, LinearMeter, Carousel, TimePicker, TimeRangePicker, DatePicker, DateRangePicker, DateTimePicker, DateTimeRangePicker, LineChart, AreaChart, ScatterChart, BubbleChart, ColumnChart, PieChart, DonutChart } from '@amaui/ui-react';
 
@@ -4520,6 +4520,35 @@ Please sign in again.`}
                 name: 'a',
 
                 values: Array.from({ length: 14 }).map(() => [random(-40, 400), random(-40, 400)])
+              }
+            ]}
+          />
+        </Accordion>
+
+        <Accordion primary='LineChart labelResolve' open>
+          <LineChart
+            names={{
+              x: 'Name x',
+              y: 'Name y'
+            }}
+
+            nameX
+
+            nameY
+
+            minPaddingY={0.14}
+
+            maxPaddingY={0.14}
+
+            labelResolve={(value_: any, axes: any) => axes === 'x' ? format(new AmauiDate(value_), 'DD, MM YYYY') : value_}
+
+            values={[
+              {
+                color: 'primary',
+
+                name: 'a',
+
+                values: Array.from({ length: 14 }).map(() => [add(random(0, 14), 'day').milliseconds, random(-40, 400)])
               }
             ]}
           />
