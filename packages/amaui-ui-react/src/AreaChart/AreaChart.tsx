@@ -38,7 +38,7 @@ const useStyle = styleMethod(theme => ({
         height: '4px',
         width: '100%',
         background: 'currentColor',
-        opacity: '0.4'
+        opacity: '0.14'
       }
     }
   },

@@ -23,7 +23,7 @@ interface IItem {
 const useStyle = styleMethod(theme => ({
   root: {
     '& .AmauiChart-legend-icon': {
-      width: '7px',
+      width: '6px',
       height: '12px',
       borderRadius: 'unset'
     }

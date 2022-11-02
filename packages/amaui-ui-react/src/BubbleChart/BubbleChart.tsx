@@ -37,7 +37,7 @@ const useStyle = styleMethod(theme => ({
         width: '100%',
         borderRadius: 'inherit',
         background: 'currentColor',
-        opacity: '0.4'
+        opacity: '0.14'
       }
     }
   },
