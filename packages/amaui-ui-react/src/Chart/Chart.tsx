@@ -1420,7 +1420,9 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
             ],
 
             HeaderProps?.className,
-            classes.header
+            classes.header,
+            (labels?.y && labelsY) && classes.legend_offset_labels_y,
+            (names?.y && nameY) && classes.legend_offset_names_y
           ])}
         >
           {/* Title */}
