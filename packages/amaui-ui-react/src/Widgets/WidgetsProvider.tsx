@@ -10,6 +10,7 @@ import Transition, { TTransitionStatus } from '../Transition';
 import IconButton from '../IconButton';
 import Line from '../Line';
 import Icon from '../Icon';
+import Move from '../Move';
 
 import { staticClassName } from '../utils';
 
@@ -140,6 +141,8 @@ const WidgetsProvider = React.forwardRef((props_: any, ref: any) => {
 
     position = 'bottom',
 
+    move = true,
+
     fixed = true,
 
     onOpen,
@@ -149,6 +152,7 @@ const WidgetsProvider = React.forwardRef((props_: any, ref: any) => {
     onCloseAll,
 
     SpeedDialProps,
+    MoveProps,
 
     Icon = IconMaterialWidgetsRounded,
     IconCloseItem = IconMaterialCloseRounded,
@@ -208,6 +212,10 @@ const WidgetsProvider = React.forwardRef((props_: any, ref: any) => {
 
   refs.value.current.closeAll = closeAll;
 
+  const WidgetWrapper = move ? Move : 'div';
+
+  const WidgetWrapperProps = move ? MoveProps : undefined;
+
   return (
     <WidgetsContext.Provider value={refs.value.current}>
       {widgets?.length && <>
@@ -252,6 +260,7 @@ const WidgetsProvider = React.forwardRef((props_: any, ref: any) => {
             staticClassName('Widgets', theme) && [
               `AmauiWidgets-root`,
               position && `AmauiWidgets-position-${position}`,
+              move && `AmauiWidgets-move`,
               fixed && `AmauiWidgets-fixed`
             ],
 
@@ -294,12 +303,15 @@ const WidgetsProvider = React.forwardRef((props_: any, ref: any) => {
                   removeOnExited
                 >
                   {(status: TTransitionStatus) => (
-                    <div
+                    <WidgetWrapper
+                      {...WidgetWrapperProps}
+
                       className={classNames([
                         staticClassName('Widgets', theme) && [
                           `AmauiWidgets-item`
                         ],
 
+                        WidgetWrapperProps?.className,
                         classes.item,
                         status
                       ])}
@@ -343,7 +355,7 @@ const WidgetsProvider = React.forwardRef((props_: any, ref: any) => {
                           }
                         } : undefined)
                       })}
-                    </div>
+                    </WidgetWrapper>
                   )}
                 </Transition>
               );

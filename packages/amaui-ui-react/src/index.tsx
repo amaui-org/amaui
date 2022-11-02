@@ -438,3 +438,6 @@ export * from './PieChart';
 
 export { default as DonutChart } from './DonutChart';
 export * from './DonutChart';
+
+export { default as Move } from './Move';
+export * from './Move';
