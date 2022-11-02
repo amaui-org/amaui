@@ -184,10 +184,10 @@ const IconMaterialPaletteRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
-const Drawing = React.forwardRef((props_: any, ref: any) => {
+const Drawing = React.forwardRef((props__: any, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiDrawing?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...props__, ...theme?.ui?.elements?.AmauiDrawing?.props?.default }), [props__]);
 
   const { classes } = useStyle(props);
 
@@ -572,27 +572,27 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
     ...IconProps_
   };
 
-  const WrapperToggleButton = React.useCallback((props: any) => {
+  const WrapperToggleButton = React.useCallback((props_: any) => {
     const {
-      open,
+      open: open_,
 
       label,
 
       children,
 
-      ...other
-    } = props;
+      ...other_
+    } = props_;
 
     return (
       <Tooltip
-        open={open !== undefined ? open : undefined}
+        open={open_ !== undefined ? open_ : undefined}
 
         label={label}
 
         {...TooltipProps}
       >
         {React.cloneElement(children, {
-          ...other,
+          ...other_,
 
           ...children.props
         })}
@@ -600,9 +600,9 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
     );
   }, []);
 
-  const WrapperAppend = React.useCallback((props: any) => {
+  const WrapperAppend = React.useCallback((props_: any) => {
     const {
-      open,
+      open: open_,
 
       element,
 
@@ -612,17 +612,17 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
 
       children,
 
-      ...other
-    } = props;
+      ...other_
+    } = props_;
 
     return (
       <Append
-        open={open}
+        open={open_}
 
         element={(
           <div>
             <Fade
-              in={open}
+              in={open_}
 
               add
             >
@@ -642,7 +642,7 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
         {...AppendProps}
       >
         {React.cloneElement(children, {
-          ...other,
+          ...other_,
 
           ...children.props
         })}
@@ -650,12 +650,12 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
     );
   }, []);
 
-  const PaletteItem = React.useCallback((props: any) => {
+  const PaletteItem = React.useCallback((props_: any) => {
     const {
-      color,
+      color: color_,
 
-      ...other
-    } = props;
+      ...other_
+    } = props_;
 
     return (
       <span
@@ -668,27 +668,27 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
         ])}
 
         style={{
-          background: color
+          background: color_
         }}
 
-        {...other}
+        {...other_}
       />
     );
   }, []);
 
-  const Palette = React.useCallback(React.forwardRef((props: any, ref: any) => {
+  const Palette = React.useCallback(React.forwardRef((props_: any, ref_: any) => {
     const {
-      version,
+      version: version_,
 
       onUpdate,
       onClose,
 
-      ...other
-    } = props;
+      ...other_
+    } = props_;
 
     return (
       <Line
-        ref={ref}
+        ref={ref_}
 
         gap={1}
 
@@ -708,7 +708,7 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
           classes.palette
         ])}
 
-        {...other}
+        {...other_}
       >
         {/* Colors */}
         <Line
@@ -798,9 +798,9 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
 
             size='small'
 
-            value={refs.inputValues.current[version]}
+            value={refs.inputValues.current[version_]}
 
-            onChange={valueNew => updateInputValues(version, valueNew)}
+            onChange={valueNew => updateInputValues(version_, valueNew)}
 
             {...ColorTextFieldProps}
 
@@ -824,7 +824,7 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
             size='small'
 
             onClick={() => {
-              onUpdate(refs.inputValues.current[version]);
+              onUpdate(refs.inputValues.current[version_]);
 
               onClose();
             }}
@@ -836,9 +836,9 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
     );
   }), []);
 
-  const valueNew = (is('array', value) ? value : [value]).filter(Boolean);
+  const valueNew_ = (is('array', value) ? value : [value]).filter(Boolean);
 
-  const valueNewActive = mouseDown && valueNew[valueNew.length - 1];
+  const valueNewActive = mouseDown && valueNew_[valueNew_.length - 1];
 
   const circleStrokeWidth = +(valueNewActive ? valueNewActive.strokeWidth : refs.inputValues.current.strokeWidth);
 
@@ -1226,15 +1226,15 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
                                 size='small'
 
                                 onClick={() => {
-                                  const viewBox = refs.inputValues.current.viewBox?.split(' ');
+                                  const viewBox_ = refs.inputValues.current.viewBox?.split(' ');
 
-                                  if (viewBox) {
-                                    viewBox[2] = refs.inputValues.current.widthInput;
+                                  if (viewBox_) {
+                                    viewBox_[2] = refs.inputValues.current.widthInput;
 
-                                    viewBox[3] = refs.inputValues.current.heightInput;
+                                    viewBox_[3] = refs.inputValues.current.heightInput;
                                   }
 
-                                  updateInputValues('viewBox', viewBox.join(' '));
+                                  updateInputValues('viewBox', viewBox_.join(' '));
 
                                   updateInputValues('width', refs.inputValues.current.widthInput);
 

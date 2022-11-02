@@ -181,10 +181,10 @@ const IconMaterialKeyboardAltRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
-const TimePicker = React.forwardRef((props_: any, ref: any) => {
+const TimePicker = React.forwardRef((props__: any, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiTimePicker?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...props__, ...theme?.ui?.elements?.AmauiTimePicker?.props?.default }), [props__]);
 
   const breakpoints = {};
 
@@ -248,7 +248,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
     onCancel: onCancel_,
 
-    Icon = IconMaterialScheduleRounded,
+    Icon: Icon_ = IconMaterialScheduleRounded,
     IconEnter = IconMaterialKeyboardAltRounded,
 
     ButtonProps,
@@ -379,32 +379,32 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
     // hour
     // and am, pm
-    let hour = values_.hour || '00';
+    let hour_ = values_.hour || '00';
 
-    if (hour.startsWith('0')) hour = +hour.slice(1);
+    if (hour_.startsWith('0')) hour_ = +hour_.slice(1);
 
     if (format === '12') {
-      if (+hour === 0 || +hour === 12) {
+      if (+hour_ === 0 || +hour_ === 12) {
         if (values_.dayTime === 'am') amauiDate = set(0, 'hour', amauiDate);
         else if (values_.dayTime === 'pm') amauiDate = set(12, 'hour', amauiDate);
       }
-      else amauiDate = set(+hour + (values_.dayTime === 'pm' ? 12 : 0), 'hour', amauiDate);
+      else amauiDate = set(+hour_ + (values_.dayTime === 'pm' ? 12 : 0), 'hour', amauiDate);
     }
-    else amauiDate = set(+hour, 'hour', amauiDate);
+    else amauiDate = set(+hour_, 'hour', amauiDate);
 
     // minute
-    let minute = values_.minute || '00';
+    let minute_ = values_.minute || '00';
 
-    if (minute.startsWith('0')) minute = +minute.slice(1);
+    if (minute_.startsWith('0')) minute_ = +minute_.slice(1);
 
-    amauiDate = set(+minute, 'minute', amauiDate);
+    amauiDate = set(+minute_, 'minute', amauiDate);
 
     // second
-    let second = values_.second || '00';
+    let second_ = values_.second || '00';
 
-    if (second.startsWith('0')) second = +second.slice(1);
+    if (second_.startsWith('0')) second_ = +second_.slice(1);
 
-    amauiDate = set(+second, 'second', amauiDate);
+    amauiDate = set(+second_, 'second', amauiDate);
 
     return amauiDate;
   };
@@ -415,17 +415,17 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
     };
 
     // input
-    const [valuesTime, dayTime] = valueNew.split(' ');
+    const [valuesTime, dayTime_] = valueNew.split(' ');
 
-    const [hour, minute, second] = (valuesTime || '').split(':');
+    const [hour_, minute_, second_] = (valuesTime || '').split(':');
 
-    if (hour) values_.hour = hour;
+    if (hour_) values_.hour = hour_;
 
-    if (minute) values_.minute = minute;
+    if (minute_) values_.minute = minute_;
 
-    if (second) values_.second = second;
+    if (second_) values_.second = second_;
 
-    if (dayTime) values_.dayTime = dayTime;
+    if (dayTime_) values_.dayTime = dayTime_;
 
     return values_;
   };
@@ -449,17 +449,17 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
     setValue(amauiDate);
   };
 
-  const updateValues = (property: string, value_: any) => {
+  const updateValues = (property: string, value__: any) => {
     const values_ = {
       ...refs.values.current,
 
-      [property]: value_
+      [property]: value__
     };
 
     setValues(values_);
 
     // Error
-    setError(!validItem('', '', property === 'input' ? inputToValues(value_) : values_));
+    setError(!validItem('', '', property === 'input' ? inputToValues(value__) : values_));
   };
 
   const updateInputToValues = () => {
@@ -486,12 +486,12 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
     updateValue(amauiDate);
   };
 
-  const validItem = (item: number | string = '', version: string = '', values__ = refs.values.current) => {
+  const validItem = (item: number | string = '', version__: string = '', values__ = refs.values.current) => {
     const values_ = {
       ...values__
     };
 
-    if (version) values_[version] = is('number', item) ? getLeadingZerosNumber(item as number) : item;
+    if (version__) values_[version__] = is('number', item) ? getLeadingZerosNumber(item as number) : item;
 
     const amauiDate = valuesToValue(values_);
 
@@ -588,7 +588,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
       if (refs.values.current.selecting === 'hour') {
         const part = 360 / 12;
 
-        valuesAll = Array.from({ length: 12 }).map((item: any, index: number) => [(part * index) - (part / 2), (part * index) + (part / 2)]);
+        valuesAll = Array.from({ length: 12 }).map((item: any, index_: number) => [(part * index_) - (part / 2), (part * index_) + (part / 2)]);
 
         let index = valuesAll.findIndex((item: [number, number]) => angle >= item[0] && angle <= item[1]);
 
@@ -609,13 +609,13 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
             inner: elements.inner.getBoundingClientRect()
           };
 
-          const part = Math.abs(Math.abs(rects.outer.x) - Math.abs(rects.inner.x));
+          const part_ = Math.abs(Math.abs(rects.outer.x) - Math.abs(rects.inner.x));
 
           const valueMoved = Math.sqrt(x ** 2 + y ** 2);
 
           const middleInner = Math.abs(Math.abs(rectMiddle.x) - Math.abs(rects.inner.x));
 
-          if (valueMoved <= (middleInner + (part / 2))) within = true;
+          if (valueMoved <= (middleInner + (part_ / 2))) within = true;
 
           if (within) index += 12;
 
@@ -631,7 +631,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
       else if (['minute', 'second'].includes(refs.values.current.selecting)) {
         const part = 360 / 60;
 
-        valuesAll = Array.from({ length: 60 }).map((item: any, index: number) => [(part * index) - (part / 2), (part * index) + (part / 2)]);
+        valuesAll = Array.from({ length: 60 }).map((item: any, index_: number) => [(part * index_) - (part / 2), (part * index_) + (part / 2)]);
 
         let index = valuesAll.findIndex((item: [number, number]) => angle >= item[0] && angle <= item[1]);
 
@@ -743,7 +743,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
     setMouseDown(true);
   }, []);
 
-  const ModeSelect = React.useCallback(React.forwardRef((props_: any, ref: any) => {
+  const ModeSelect = React.useCallback(React.forwardRef((props_: any, ref_: any) => {
     const buttonProps = {
       tonal: 'secondary',
       color,
@@ -1076,7 +1076,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
     return (
       <Surface
-        ref={ref}
+        ref={ref_}
 
         tonal={tonal}
 
@@ -1260,7 +1260,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
                   onClick={onModeSwitch}
                 >
-                  {mode === 'select' ? <IconEnter /> : <Icon />}
+                  {mode === 'select' ? <IconEnter /> : <Icon_ />}
                 </IconButton>
               </Tooltip>
             )}
@@ -1306,7 +1306,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
     );
   }), [version, format, hour, minute, second, selectModeHeadingText, mode, tonal, color, switch_, InputProps, theme]);
 
-  const ModeInput = React.useCallback(React.forwardRef((props_: any, ref: any) => {
+  const ModeInput = React.useCallback(React.forwardRef((props_: any, ref_: any) => {
     const inputProps = {
       tonal,
       color,
@@ -1432,7 +1432,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
     return (
       <Surface
-        ref={ref}
+        ref={ref_}
 
         tonal={tonal}
 
@@ -1608,7 +1608,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
                   onClick={onModeSwitch}
                 >
-                  {mode === 'select' ? <IconEnter /> : <Icon />}
+                  {mode === 'select' ? <IconEnter /> : <Icon_ />}
                 </IconButton>
               </Tooltip>
             )}
@@ -1741,7 +1741,7 @@ const TimePicker = React.forwardRef((props_: any, ref: any) => {
 
         {...IconButtonProps}
       >
-        <Icon />
+        <Icon_ />
       </IconButton>
     );
   }
