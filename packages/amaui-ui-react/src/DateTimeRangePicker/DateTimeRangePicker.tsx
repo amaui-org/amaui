@@ -83,10 +83,10 @@ const SEPARATOR_SYMBOL = `–`;
 
 const SEPARATOR = ` ${SEPARATOR_SYMBOL} `;
 
-const DateTimeRangePicker = React.forwardRef((props_: any, ref: any) => {
+const DateTimeRangePicker = React.forwardRef((props__: any, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiDateTimeRangePicker?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...props__, ...theme?.ui?.elements?.AmauiDateTimeRangePicker?.props?.default }), [props__]);
 
   const breakpoints = {};
 
@@ -144,7 +144,7 @@ const DateTimeRangePicker = React.forwardRef((props_: any, ref: any) => {
     minute = true,
     second = false,
 
-    Icon = IconMaterialDateRangeRoundedFilled,
+    Icon_ = IconMaterialDateRangeRoundedFilled,
 
     ModalProps,
     TooltipProps,
@@ -274,10 +274,12 @@ const DateTimeRangePicker = React.forwardRef((props_: any, ref: any) => {
     const [from, to] = valueNew.split(SEPARATOR);
 
     const amauiDates = [from, to].map(item => {
+      // tslint:disable-next-line
       let [date, ...time] = valueNew.split(' ');
 
       time = time.join(' ').replace(/ +/, ' ');
 
+      // tslint:disable-next-line
       let [day_, month_, year_] = date.split('/');
 
       if (day_ && day_.startsWith('0')) day_ = day_.slice(1);
@@ -286,6 +288,7 @@ const DateTimeRangePicker = React.forwardRef((props_: any, ref: any) => {
 
       const [timeValue, dayTime] = time.split(' ');
 
+      // tslint:disable-next-line
       let [hour_, minute_, second_] = timeValue.split(':');
 
       if (hour_ && hour_.startsWith('0')) hour_ = hour_.slice(1);
@@ -466,15 +469,15 @@ const DateTimeRangePicker = React.forwardRef((props_: any, ref: any) => {
 
   const valid = (valueNew = refs.value.current) => {
     return valueNew.every((item: any) => {
-      let valid = true;
+      let valid_ = true;
 
-      if (is('function', refs.validate.current)) valid = refs.validate.current(item);
+      if (is('function', refs.validate.current)) valid_ = refs.validate.current(item);
 
-      if (refs.min.current !== undefined) valid = valid && isMethod(item, 'after or same', refs.min.current);
+      if (refs.min.current !== undefined) valid_ = valid_ && isMethod(item, 'after or same', refs.min.current);
 
-      if (refs.max.current !== undefined) valid = valid && isMethod(item, 'before or same', refs.max.current);
+      if (refs.max.current !== undefined) valid_ = valid_ && isMethod(item, 'before or same', refs.max.current);
 
-      return valid;
+      return valid_;
     });
   };
 
@@ -743,7 +746,7 @@ const DateTimeRangePicker = React.forwardRef((props_: any, ref: any) => {
 
         {...IconButtonProps}
       >
-        <Icon />
+        <Icon_ />
       </IconButton>
     );
   }

@@ -583,19 +583,19 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
   }, [valueCopy_]);
 
   const applyAllFilters = (canvas: HTMLCanvasElement) => {
-    let valueCopy_ = refs.valueCopy.current;
+    let valueCopy__ = refs.valueCopy.current;
 
     // Update filters
     Object.keys(refs.filterValuesCopy.current).forEach(item => {
-      const filterValue = filters.find(item_ => item_.value === item);
+      const filterValue_ = filters.find(item_ => item_.value === item);
 
-      if (filterValue) {
-        const { method } = filterValue;
+      if (filterValue_) {
+        const { method } = filterValue_;
 
         if (
           is('function', method) &&
           refs.filterValuesCopy.current[item] !== undefined
-        ) valueCopy_ = method(refs.filterValuesCopy.current[item], canvas, valueCopy_);
+        ) valueCopy__ = method(refs.filterValuesCopy.current[item], canvas, valueCopy__);
       }
     });
   };
@@ -905,9 +905,9 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
       method: canvasBrightness,
 
-      renderIconButton: (value_: string, selected_: boolean, onChangeFilter_: TMethod) => (
+      renderIconButton: (value__: string, selected_: boolean, onChangeFilter_: TMethod) => (
         <Tooltip
-          key={value_}
+          key={value__}
 
           label='Brightness'
 
@@ -918,7 +918,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
             selected={selected_}
 
-            onClick={() => onChangeFilter_(value_)}
+            onClick={() => onChangeFilter_(value__)}
 
             {...IconButtonProps}
           >
@@ -927,13 +927,13 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
         </Tooltip>
       ),
 
-      renderSlider: (value_: string, filterValuesCopy_: any, onFilterSliderChange_: TMethod) => (
+      renderSlider: (value__: string, filterValuesCopy_: any, onFilterSliderChange_: TMethod) => (
         <Slider
-          key={value_}
+          key={value__}
 
-          valueDefault={filterValuesCopy_?.[value_] || 0}
+          valueDefault={filterValuesCopy_?.[value__] || 0}
 
-          value={filterValuesCopy_?.[value_] || 0}
+          value={filterValuesCopy_?.[value__] || 0}
 
           min={-100}
 
@@ -952,7 +952,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
           tooltip
 
           onChange={(valueNew: any) => {
-            if (is('function', onFilterSliderChange_)) onFilterSliderChange_(valueNew, value_);
+            if (is('function', onFilterSliderChange_)) onFilterSliderChange_(valueNew, value__);
           }}
 
           {...SliderProps}
@@ -976,9 +976,9 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
       method: canvasContrast,
 
-      renderIconButton: (value_: string, selected_: boolean, onChangeFilter_: TMethod) => (
+      renderIconButton: (value__: string, selected_: boolean, onChangeFilter_: TMethod) => (
         <Tooltip
-          key={value_}
+          key={value__}
 
           label='Contrast'
 
@@ -989,7 +989,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
             selected={selected_}
 
-            onClick={() => onChangeFilter_(value_)}
+            onClick={() => onChangeFilter_(value__)}
 
             {...IconButtonProps}
           >
@@ -998,13 +998,13 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
         </Tooltip>
       ),
 
-      renderSlider: (value_: string, filterValuesCopy_: any, onFilterSliderChange_: TMethod) => (
+      renderSlider: (value__: string, filterValuesCopy_: any, onFilterSliderChange_: TMethod) => (
         <Slider
-          key={value_}
+          key={value__}
 
-          valueDefault={filterValuesCopy_?.[value_] || 0}
+          valueDefault={filterValuesCopy_?.[value__] || 0}
 
-          value={filterValuesCopy_?.[value_] || 0}
+          value={filterValuesCopy_?.[value__] || 0}
 
           min={-100}
 
@@ -1023,7 +1023,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
           tooltip
 
           onChange={(valueNew: any) => {
-            if (is('function', onFilterSliderChange_)) onFilterSliderChange_(valueNew, value_);
+            if (is('function', onFilterSliderChange_)) onFilterSliderChange_(valueNew, value__);
           }}
 
           {...SliderProps}
@@ -1047,9 +1047,9 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
       method: canvasSaturation,
 
-      renderIconButton: (value_: string, selected_: boolean, onChangeFilter_: TMethod) => (
+      renderIconButton: (value__: string, selected_: boolean, onChangeFilter_: TMethod) => (
         <Tooltip
-          key={value_}
+          key={value__}
 
           label='Saturation'
 
@@ -1060,7 +1060,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
             selected={selected_}
 
-            onClick={() => onChangeFilter_(value_)}
+            onClick={() => onChangeFilter_(value__)}
 
             {...IconButtonProps}
           >
@@ -1069,13 +1069,13 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
         </Tooltip>
       ),
 
-      renderSlider: (value_: string, filterValuesCopy_: any, onFilterSliderChange_: TMethod) => (
+      renderSlider: (value__: string, filterValuesCopy_: any, onFilterSliderChange_: TMethod) => (
         <Slider
-          key={value_}
+          key={value__}
 
-          valueDefault={filterValuesCopy_?.[value_] || 0}
+          valueDefault={filterValuesCopy_?.[value__] || 0}
 
-          value={filterValuesCopy_?.[value_] || 0}
+          value={filterValuesCopy_?.[value__] || 0}
 
           min={-100}
 
@@ -1094,7 +1094,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
           tooltip
 
           onChange={(valueNew: any) => {
-            if (is('function', onFilterSliderChange_)) onFilterSliderChange_(valueNew, value_);
+            if (is('function', onFilterSliderChange_)) onFilterSliderChange_(valueNew, value__);
           }}
 
           {...SliderProps}
@@ -1118,9 +1118,9 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
       method: canvasFade,
 
-      renderIconButton: (value_: string, selected_: boolean, onChangeFilter_: TMethod) => (
+      renderIconButton: (value__: string, selected_: boolean, onChangeFilter_: TMethod) => (
         <Tooltip
-          key={value_}
+          key={value__}
 
           label='Fade'
 
@@ -1131,7 +1131,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
             selected={selected_}
 
-            onClick={() => onChangeFilter_(value_)}
+            onClick={() => onChangeFilter_(value__)}
 
             {...IconButtonProps}
           >
@@ -1140,13 +1140,13 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
         </Tooltip>
       ),
 
-      renderSlider: (value_: string, filterValuesCopy_: any, onFilterSliderChange_: TMethod) => (
+      renderSlider: (value__: string, filterValuesCopy_: any, onFilterSliderChange_: TMethod) => (
         <Slider
-          key={value_}
+          key={value__}
 
-          valueDefault={filterValuesCopy_?.[value_] || 0}
+          valueDefault={filterValuesCopy_?.[value__] || 0}
 
-          value={filterValuesCopy_?.[value_] || 0}
+          value={filterValuesCopy_?.[value__] || 0}
 
           min={0}
 
@@ -1164,7 +1164,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
           tooltip
 
           onChange={(valueNew: any) => {
-            if (is('function', onFilterSliderChange_)) onFilterSliderChange_(valueNew, value_);
+            if (is('function', onFilterSliderChange_)) onFilterSliderChange_(valueNew, value__);
           }}
 
           {...SliderProps}
@@ -1188,9 +1188,9 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
       method: canvasInvert,
 
-      renderIconButton: (value_: string, selected_: boolean, onChangeFilter_: TMethod) => (
+      renderIconButton: (value__: string, selected_: boolean, onChangeFilter_: TMethod) => (
         <Tooltip
-          key={value_}
+          key={value__}
 
           label='Invert'
 
@@ -1201,7 +1201,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
             selected={selected_}
 
-            onClick={() => onChangeFilter_(value_)}
+            onClick={() => onChangeFilter_(value__)}
 
             {...IconButtonProps}
           >
@@ -1210,13 +1210,13 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
         </Tooltip>
       ),
 
-      renderSlider: (value_: string, filterValuesCopy_: any, onFilterSliderChange_: TMethod) => (
+      renderSlider: (value__: string, filterValuesCopy_: any, onFilterSliderChange_: TMethod) => (
         <Slider
-          key={value_}
+          key={value__}
 
-          valueDefault={filterValuesCopy_?.[value_] || 0}
+          valueDefault={filterValuesCopy_?.[value__] || 0}
 
-          value={filterValuesCopy_?.[value_] || 0}
+          value={filterValuesCopy_?.[value__] || 0}
 
           min={0}
 
@@ -1234,7 +1234,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
           tooltip
 
           onChange={(valueNew: any) => {
-            if (is('function', onFilterSliderChange_)) onFilterSliderChange_(valueNew, value_);
+            if (is('function', onFilterSliderChange_)) onFilterSliderChange_(valueNew, value__);
           }}
 
           {...SliderProps}
@@ -1258,9 +1258,9 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
       method: canvasOldPhoto,
 
-      renderIconButton: (value_: string, selected_: boolean, onChangeFilter_: TMethod) => (
+      renderIconButton: (value__: string, selected_: boolean, onChangeFilter_: TMethod) => (
         <Tooltip
-          key={value_}
+          key={value__}
 
           label='Old photo'
 
@@ -1271,7 +1271,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
             selected={selected_}
 
-            onClick={() => onChangeFilter_(value_)}
+            onClick={() => onChangeFilter_(value__)}
 
             {...IconButtonProps}
           >
@@ -1280,13 +1280,13 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
         </Tooltip>
       ),
 
-      renderSlider: (value_: string, filterValuesCopy_: any, onFilterSliderChange_: TMethod) => (
+      renderSlider: (value__: string, filterValuesCopy_: any, onFilterSliderChange_: TMethod) => (
         <Slider
-          key={value_}
+          key={value__}
 
-          valueDefault={filterValuesCopy_?.[value_] || 0}
+          valueDefault={filterValuesCopy_?.[value__] || 0}
 
-          value={filterValuesCopy_?.[value_] || 0}
+          value={filterValuesCopy_?.[value__] || 0}
 
           min={-40}
 
@@ -1305,7 +1305,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
           tooltip
 
           onChange={(valueNew: any) => {
-            if (is('function', onFilterSliderChange_)) onFilterSliderChange_(valueNew, value_);
+            if (is('function', onFilterSliderChange_)) onFilterSliderChange_(valueNew, value__);
           }}
 
           {...SliderProps}

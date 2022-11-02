@@ -154,7 +154,7 @@ const Pagination = React.forwardRef((props_: any, ref: any) => {
 
   const values = pagination(value, total, boundary, middle);
 
-  const renderItem = is('function', renderItem_) ? renderItem_ : (value_: number, item: string | number) => {
+  const renderItem = is('function', renderItem_) ? renderItem_ : (value__: number, item: string | number) => {
     if (is('string', item)) return (
       <Type
         version={props.size === 'large' ? 'b1' : props.size === 'small' ? 'b3' : 'b2'}
@@ -186,7 +186,7 @@ const Pagination = React.forwardRef((props_: any, ref: any) => {
 
         onClick={() => onChange(item as number)}
 
-        selected={value_ === item}
+        selected={value__ === item}
       >
         {item}
       </PaginationItem>

@@ -163,13 +163,13 @@ const LinearMeter = React.forwardRef((props_: any, ref: any) => {
 
         marksValue.forEach((mark: any) => {
           const {
-            size,
+            size: size_,
 
             padding: markPadding = 0,
 
             position,
 
-            ...other
+            ...other_
           } = mark;
 
           if (orientation === 'horizontal') {
@@ -177,21 +177,21 @@ const LinearMeter = React.forwardRef((props_: any, ref: any) => {
 
             const x = total * (position / 100);
             let y = height - paddings.y - boundaryWidth - markPadding;
-            let yl = y - size;
+            let yl = y - size_;
 
             if (linePosition === 'start') {
               y = paddings.y + boundaryWidth + markPadding;
-              yl = y + size;
+              yl = y + size_;
             }
 
             if (linePosition === 'center') {
               y = (height / 2) - (boundaryWidth / 2) - markPadding;
-              yl = y - size;
+              yl = y - size_;
             }
 
             if (linePosition === 'end') {
               y = height - paddings.y - boundaryWidth - markPadding;
-              yl = y - size;
+              yl = y - size_;
             }
 
             values[index].push({
@@ -201,7 +201,7 @@ const LinearMeter = React.forwardRef((props_: any, ref: any) => {
                 'L', x + paddings.x, yl
               ].join(' '),
 
-              ...other
+              ...other_
             });
           }
 
@@ -210,21 +210,21 @@ const LinearMeter = React.forwardRef((props_: any, ref: any) => {
 
             const y = total * (position / 100);
             let x = width - paddings.x - boundaryWidth - markPadding;
-            let xl = x - size;
+            let xl = x - size_;
 
             if (linePosition === 'start') {
               x = paddings.x + boundaryWidth + markPadding;
-              xl = x + size;
+              xl = x + size_;
             }
 
             if (linePosition === 'center') {
               x = (width / 2) + (boundaryWidth / 2) + markPadding;
-              xl = x + size;
+              xl = x + size_;
             }
 
             if (linePosition === 'end') {
               x = width - paddings.y - boundaryWidth - markPadding;
-              xl = x - size;
+              xl = x - size_;
             }
 
             values[index].push({
@@ -234,7 +234,7 @@ const LinearMeter = React.forwardRef((props_: any, ref: any) => {
                 'L', xl, y + paddings.y
               ].join(' '),
 
-              ...other
+              ...other_
             });
           }
         });
@@ -265,7 +265,7 @@ const LinearMeter = React.forwardRef((props_: any, ref: any) => {
 
             position,
 
-            ...other
+            ...other_
           } = label;
 
           const fontSize = label.style?.fontSize !== undefined ? label.style.fontSize : 14;
@@ -294,7 +294,7 @@ const LinearMeter = React.forwardRef((props_: any, ref: any) => {
 
               value,
 
-              ...other
+              ...other_
             });
           }
 
@@ -629,7 +629,7 @@ const LinearMeter = React.forwardRef((props_: any, ref: any) => {
 
         color={color}
       >
-        {({ color, backgroundColor }) => (
+        {({ color: color_, backgroundColor }) => (
           <svg
             xmlns='http://www.w3.org/2000/svg'
 
@@ -668,7 +668,7 @@ const LinearMeter = React.forwardRef((props_: any, ref: any) => {
 
                 fill='none'
 
-                stroke={color}
+                stroke={color_}
 
                 strokeWidth={boundaryWidth}
 
@@ -697,7 +697,7 @@ const LinearMeter = React.forwardRef((props_: any, ref: any) => {
 
                     fill='none'
 
-                    stroke={color}
+                    stroke={color_}
 
                     strokeWidth={boundaryWidth}
 
@@ -735,7 +735,7 @@ const LinearMeter = React.forwardRef((props_: any, ref: any) => {
 
                     fill='none'
 
-                    stroke={color}
+                    stroke={color_}
 
                     strokeWidth={boundaryWidth}
 
@@ -768,9 +768,9 @@ const LinearMeter = React.forwardRef((props_: any, ref: any) => {
                     React.cloneElement(item, {
                       key: index,
 
-                      fill: item.props.fill !== undefined ? item.props.fill : color,
+                      fill: item.props.fill !== undefined ? item.props.fill : color_,
 
-                      stroke: item.props.stroke !== undefined ? item.props.stroke : color,
+                      stroke: item.props.stroke !== undefined ? item.props.stroke : color_,
 
                       // clean up
                       value: undefined,
@@ -804,15 +804,15 @@ const LinearMeter = React.forwardRef((props_: any, ref: any) => {
                     classes.marks
                   ])}
                 >
-                  {(marksValue.map((item: any, index: number) => (
+                  {(marksValue.map((item: any, index_: number) => (
                     <path
-                      key={index}
+                      key={index_}
 
                       d={item.d}
 
                       fill='none'
 
-                      stroke={color}
+                      stroke={color_}
 
                       strokeWidth={item.width !== undefined ? item.width : markWidth}
 
@@ -841,12 +841,12 @@ const LinearMeter = React.forwardRef((props_: any, ref: any) => {
                     classes.labels
                   ])}
                 >
-                  {(labelsValue.map((item: any, index: number) => {
+                  {(labelsValue.map((item: any, index_: number) => {
                     const { x, y, value, ...other_ } = item;
 
                     return (
                       <text
-                        key={index}
+                        key={index_}
 
                         x={x}
 
@@ -870,7 +870,7 @@ const LinearMeter = React.forwardRef((props_: any, ref: any) => {
                         ])}
 
                         style={{
-                          fill: color,
+                          fill: color_,
 
                           ...other_.style,
 

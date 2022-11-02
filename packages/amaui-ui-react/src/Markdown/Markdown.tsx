@@ -509,14 +509,14 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
             }
 
             // table
-            const table = string.match(new RegExp(`<table|${escapeRegExp(a1)}|table>`, 'g'));
+            const table_ = string.match(new RegExp(`<table|${escapeRegExp(a1)}|table>`, 'g'));
 
-            if (table) {
-              const index = table.findIndex(item => item === a1);
+            if (table_) {
+              const index = table_.findIndex(item => item === a1);
 
               if (
-                (table[index - 1] === '<table' && table[index + 1] === 'table>') ||
-                (table[index - 1] === '<table' && a1.endsWith('</table>'))
+                (table_[index - 1] === '<table' && table_[index + 1] === 'table>') ||
+                (table_[index - 1] === '<table' && a1.endsWith('</table>'))
               ) return match;
             }
 
@@ -618,12 +618,12 @@ const Markdown = React.forwardRef((props_: any, ref: any) => {
 
       const list = (valueList_: string, marker: string) => {
         const valueList = valueList_.replace(new RegExp(`(^ *(${marker} ?(.*))(\\n( +.*)?)*)`, 'gm'), (match, a1, a2, a3) => {
-          const other = match.replace(a2, '');
+          const other_ = match.replace(a2, '');
 
           return `\n<li${addClassName('li')}${addStyle('li')}>
 <p${addClassName('p')}${addStyle('p')}>${a3}</p>
 
-${listItem(other)}
+${listItem(other_)}
 </li>`;
         });
 

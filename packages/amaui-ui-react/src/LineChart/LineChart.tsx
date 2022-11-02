@@ -65,17 +65,17 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
 
     minMaxPadding: minMaxPadding_,
 
-    minPadding: minPadding_,
+    minPadding: minPadding__,
 
-    maxPadding: maxPadding_,
+    maxPadding: maxPadding__,
 
-    minPaddingX: minPaddingX_,
+    minPaddingX: minPaddingX__,
 
-    minPaddingY: minPaddingY_,
+    minPaddingY: minPaddingY__,
 
-    maxPaddingX: maxPaddingX_,
+    maxPaddingX: maxPaddingX__,
 
-    maxPaddingY: maxPaddingY_,
+    maxPaddingY: maxPaddingY__,
 
     smooth = true,
 
@@ -94,12 +94,12 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
   const minY = valueBreakpoints(minY_, undefined, breakpoints, theme);
   const maxY = valueBreakpoints(maxY_, undefined, breakpoints, theme);
   const minMaxPadding = valueBreakpoints(minMaxPadding_, undefined, breakpoints, theme);
-  const minPadding = valueBreakpoints(minPadding_, undefined, breakpoints, theme);
-  const maxPadding = valueBreakpoints(maxPadding_, undefined, breakpoints, theme);
-  const minPaddingX = valueBreakpoints(minPaddingX_, undefined, breakpoints, theme);
-  const minPaddingY = valueBreakpoints(minPaddingY_, undefined, breakpoints, theme);
-  const maxPaddingX = valueBreakpoints(maxPaddingX_, undefined, breakpoints, theme);
-  const maxPaddingY = valueBreakpoints(maxPaddingY_, undefined, breakpoints, theme);
+  const minPadding = valueBreakpoints(minPadding__, undefined, breakpoints, theme);
+  const maxPadding = valueBreakpoints(maxPadding__, undefined, breakpoints, theme);
+  const minPaddingX = valueBreakpoints(minPaddingX__, undefined, breakpoints, theme);
+  const minPaddingY = valueBreakpoints(minPaddingY__, undefined, breakpoints, theme);
+  const maxPaddingX = valueBreakpoints(maxPaddingX__, undefined, breakpoints, theme);
+  const maxPaddingY = valueBreakpoints(maxPaddingY__, undefined, breakpoints, theme);
 
   const [value, setValue] = React.useState<any>();
 
@@ -172,7 +172,7 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
 
       className: className_,
 
-      ...other
+      ...other_
     } = props__;
 
     const {
@@ -202,7 +202,7 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
           classes.legend_item
         ])}
 
-        {...other}
+        {...other_}
       >
         <span
           className={classNames([
@@ -260,8 +260,8 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
         const values_ = item.values
           // Sort for x from smallest to largest
           .sort((a, b) => a[0] - b[0])
-          .map(value => {
-            const [x, y] = value;
+          .map(itemValue => {
+            const [x, y] = itemValue;
 
             const values__ = {
               x: percentageFromValueWithinRange(x, refs.minMax.current.min.x, refs.minMax.current.max.x),
@@ -278,8 +278,8 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
         let d = '';
 
         if (!refs.smooth.current) {
-          d = values_.reduce((result: string, value, index: number) => {
-            const [x, y] = value;
+          d = values_.reduce((result: string, itemValue, index: number) => {
+            const [x, y] = itemValue;
 
             // Move
             if (index === 0) return result += `M ${x} ${y}`;
@@ -288,15 +288,15 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
           }, '');
         }
         else {
-          d = values_.reduce((result: string, value: [number, number], index: number, array: Array<[number, number]>) => {
-            const [x, y] = value;
+          d = values_.reduce((result: string, itemValue: [number, number], index: number, array: Array<[number, number]>) => {
+            const [x, y] = itemValue;
 
             // Move
             if (index === 0) return result += `M ${x} ${y}`;
 
-            const [x1, y1] = controlPoint(array[index - 1], array[index - 2], value, false, smoothRatio);
+            const [x1, y1] = controlPoint(array[index - 1], array[index - 2], itemValue, false, smoothRatio);
 
-            const [x2, y2] = controlPoint(value, array[index - 1], array[index + 1], true, smoothRatio);
+            const [x2, y2] = controlPoint(itemValue, array[index - 1], array[index + 1], true, smoothRatio);
 
             return result += `C ${x1} ${y1} ${x2} ${y2} ${x} ${y}`;
           }, '');

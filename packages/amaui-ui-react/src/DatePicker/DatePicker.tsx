@@ -1035,10 +1035,10 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
   );
 });
 
-const DatePicker = React.forwardRef((props_: any, ref: any) => {
+const DatePicker = React.forwardRef((props__: any, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiDatePicker?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...props__, ...theme?.ui?.elements?.AmauiDatePicker?.props?.default }), [props__]);
 
   const breakpoints = {};
 
@@ -1126,7 +1126,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
     onCancel: onCancel_,
 
-    Icon = IconMaterialCalendarTodayRoundedFilled,
+    Icon_ = IconMaterialCalendarTodayRoundedFilled,
     IconPrevious = IconMaterialNavigateBeforeRounded,
     IconNext = IconMaterialNavigateNextRounded,
     IconDropDown = IconMaterialArrowDropDownRounded,
@@ -1220,30 +1220,30 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     }
     else {
       // day
-      let day: any = String(values_.day || '01');
+      let day_: any = String(values_.day || '01');
 
-      if (day.startsWith('0')) day = +day.slice(1);
+      if (day_.startsWith('0')) day_ = +day_.slice(1);
 
-      amauiDate = set(+day, 'day', amauiDate);
+      amauiDate = set(+day_, 'day', amauiDate);
 
       // month
-      let month: any = String(values_.month || '01');
+      let month_: any = String(values_.month || '01');
 
-      if (month.startsWith('0')) month = +month.slice(1);
+      if (month_.startsWith('0')) month_ = +month_.slice(1);
 
       // months start from 0
-      amauiDate = set(+month - 1, 'month', amauiDate);
+      amauiDate = set(+month_ - 1, 'month', amauiDate);
 
       // year
-      const year: any = String(values_.year || new AmauiDate().year);
+      const year_: any = String(values_.year || new AmauiDate().year);
 
-      amauiDate = set(+year, 'year', amauiDate);
+      amauiDate = set(+year_, 'year', amauiDate);
     }
 
     return amauiDate;
   };
 
-  const valueToInputModal = (value_: any) => {
+  const valueToInputModal = (value__: any) => {
     let inputModal = '';
 
     const format_: any = [];
@@ -1255,7 +1255,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
     if (year) format_.push('YYYY');
 
-    inputModal = formatMethod(value_, format_.join('/'));
+    inputModal = formatMethod(value__, format_.join('/'));
 
     return inputModal;
   };
@@ -1518,7 +1518,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     return values_;
   };
 
-  const validItem = (item: number | string = '', version: string = '', calendar_ = refs.calendar.current, withDate = false) => {
+  const validItem = (item: number | string = '', version__: string = '', calendar_ = refs.calendar.current, withDate = false) => {
     const values_ = {
       ...calendar_
     };
@@ -1526,7 +1526,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     // Only validate against day, month, year values
     if (!withDate) delete values_.date;
 
-    if (version) values_[version] = is('number', item) ? getLeadingZerosNumber(item as number) : item;
+    if (version__) values_[version__] = is('number', item) ? getLeadingZerosNumber(item as number) : item;
 
     const amauiDate = valuesToValue(values_);
 
@@ -1561,26 +1561,26 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     values_.date = new AmauiDate();
 
     // input
-    const [day, month, year] = (valueNew || '').split('/');
+    const [day_, month_, year_] = (valueNew || '').split('/');
 
-    if (day) {
-      values_.day = day.startsWith('0') ? day.slice(1) : day;
+    if (day_) {
+      values_.day = day_.startsWith('0') ? day_.slice(1) : day_;
 
-      values_.day = +day;
+      values_.day = +day_;
 
       values_.date = set(values_.day, 'day', values_.date);
     }
 
-    if (month) {
-      values_.month = month.startsWith('0') ? month.slice(1) : month;
+    if (month_) {
+      values_.month = month_.startsWith('0') ? month_.slice(1) : month_;
 
-      values_.month = +month;
+      values_.month = +month_;
 
       values_.date = set(values_.month - 1, 'month', values_.date);
     }
 
-    if (year) {
-      values_.year = +year;
+    if (year_) {
+      values_.year = +year_;
 
       values_.date = set(values_.year, 'year', values_.date);
     }
@@ -1661,7 +1661,9 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     const valueNew = new AmauiDate(amauiDate);
 
     // value or value range update
-    let [from, to] = refs.values.current;
+    const to = refs.values.current.to;
+
+    let [from] = refs.values.current;
 
     if (!range) {
       from = {
@@ -1832,10 +1834,10 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     if (refs.menuCloseOnSelect.current) onCloseMenu();
   }, []);
 
-  const onYearClick = React.useCallback((year: number) => {
+  const onYearClick = React.useCallback((year_: number) => {
     let valueNew = new AmauiDate(refs.calendar.current.date);
 
-    valueNew = set(year, 'year', valueNew);
+    valueNew = set(year_, 'year', valueNew);
 
     const calendar_ = {
       ...refs.calendar.current,
@@ -2051,11 +2053,11 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     return calendar_;
   };
 
-  const ModeDocked = React.useCallback(React.forwardRef((props__: any, ref: any) => {
+  const ModeDocked = React.useCallback(React.forwardRef((props_: any, ref_: any) => {
     const valueMonth = refs.calendar.current.date;
 
-    const month = formatMethod(valueMonth, 'MMM');
-    const year = formatMethod(valueMonth, 'YYYY');
+    const month_ = formatMethod(valueMonth, 'MMM');
+    const year_ = formatMethod(valueMonth, 'YYYY');
 
     const buttonsProps = {
       color: 'inherit',
@@ -2070,7 +2072,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
     return (
       <Surface
-        ref={ref}
+        ref={ref_}
 
         tonal={tonal}
 
@@ -2162,7 +2164,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
                 refs.openMenu.current === 'year' && classes.open_secondary
               ])}
             >
-              {month}
+              {month_}
             </Button>
 
             <Fade
@@ -2237,7 +2239,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
                 refs.openMenu.current === 'month' && classes.open_secondary
               ])}
             >
-              {year}
+              {year_}
             </Button>
 
             <Fade
@@ -2297,7 +2299,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
                     calendarValue.previous = new AmauiDate(calendarValue.date);
                   }
 
-                  const month = calendarValue?.date?.month - 1;
+                  const month__ = calendarValue?.date?.month - 1;
 
                   return (
                     <Line
@@ -2319,7 +2321,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
                             paddingInlineStart: '16px'
                           }}
                         >
-                          {monthsValue[month]}
+                          {monthsValue[month__]}
                         </Type>
                       )}
 
@@ -2462,9 +2464,9 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
             >
               {getMonths(refs.value.current, refs.values.current, refs.calendar.current).map((item: any, index: number) => {
                 const monthValue = refs.calendar.current.date;
-                const month = formatMethod(monthValue, 'MMMM');
+                const month__ = formatMethod(monthValue, 'MMMM');
 
-                const selected = month === item.value;
+                const selected = month__ === item.value;
 
                 return (
                   <ListItem
@@ -2542,9 +2544,9 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
             >
               {getYears(refs.value.current, refs.values.current, refs.calendar.current).map((item: any, index: number) => {
                 const monthValue = refs.calendar.current.date;
-                const year = +formatMethod(monthValue, 'YYYY');
+                const year__ = +formatMethod(monthValue, 'YYYY');
 
-                const selected = year === item.value;
+                const selected = year__ === item.value;
 
                 return (
                   <ListItem
@@ -2600,19 +2602,19 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
   }), [tonal, color, range, weekStartDay]);
 
   const ModeModal = React.useCallback(React.forwardRef((props_: any, ref_: any) => {
-    const month = refs.calendar.current?.date;
+    const month_ = refs.calendar.current?.date;
 
-    const year = formatMethod(month, 'YYYY');
-    const monthName = formatMethod(month, 'MMMM');
+    const year_ = formatMethod(month_, 'YYYY');
+    const monthName = formatMethod(month_, 'MMMM');
 
     const text = refs.values.current.map(item => {
       const selected = item.selected;
 
       const monthNameAbr = formatMethod(selected, 'MMM');
       const dayName = formatMethod(selected, 'd');
-      const day = getLeadingZerosNumber(selected.day);
+      const day_ = getLeadingZerosNumber(selected.day);
 
-      return `${dayName}, ${monthNameAbr} ${day}`;
+      return `${dayName}, ${monthNameAbr} ${day_}`;
     }).join(SEPARATOR);
 
     const actionsButtonsProps = {
@@ -2737,7 +2739,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
                     onClick={onModeSwitch}
                   >
-                    <Icon />
+                    <Icon_ />
                   </IconButton>
                 </Tooltip>
               )}
@@ -2835,7 +2837,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
                         classes.mode_docked_header_button
                       ])}
                     >
-                      {monthName} {year}
+                      {monthName} {year_}
                     </Button>
 
                     {/* Arrows */}
@@ -2958,9 +2960,9 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
                       >
                         {getYears(refs.value.current, refs.values.current, refs.calendar.current).map((item: any, index: number) => {
                           const monthValue = refs.calendar.current.date;
-                          const year = +formatMethod(monthValue, 'YYYY');
+                          const year__ = +formatMethod(monthValue, 'YYYY');
 
-                          const selected = year === item.value;
+                          const selected = year__ === item.value;
 
                           return (
                             <PaginationItem
@@ -3135,11 +3137,11 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
     );
   }), [tonal, color, range, switch_, labelFrom, labelTo, modeModalHeadingText, inputModeHeadingText]);
 
-  const ModeFullScreen = React.useCallback(React.forwardRef((props_: any, ref: any) => {
-    const month = refs.calendar.current?.date;
+  const ModeFullScreen = React.useCallback(React.forwardRef((props_: any, ref_: any) => {
+    const month_ = refs.calendar.current?.date;
 
-    const year = formatMethod(month, 'YYYY');
-    const monthName = formatMethod(month, 'MMMM');
+    const year_ = formatMethod(month_, 'YYYY');
+    const monthName = formatMethod(month_, 'MMMM');
 
     let millisecondsSelected = 0;
 
@@ -3150,9 +3152,9 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
       const monthNameAbr = formatMethod(selected, 'MMM');
       const dayName = formatMethod(selected, 'd');
-      const day = getLeadingZerosNumber(selected.day);
+      const day_ = getLeadingZerosNumber(selected.day);
 
-      return `${dayName}, ${monthNameAbr} ${day}`;
+      return `${dayName}, ${monthNameAbr} ${day_}`;
     }).join(SEPARATOR);
 
     const months = monthsValue;
@@ -3170,7 +3172,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
     return (
       <Surface
-        ref={ref}
+        ref={ref_}
 
         tonal={tonal}
 
@@ -3313,7 +3315,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
                       onClick={onModeSwitch}
                     >
-                      <Icon />
+                      <Icon_ />
                     </IconButton>
                   </Tooltip>
                 )}
@@ -3430,7 +3432,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
                           classes.mode_docked_header_button
                         ])}
                       >
-                        {monthName} {year}
+                        {monthName} {year_}
                       </Button>
 
                       {/* Arrows */}
@@ -3488,7 +3490,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
                           color={color}
 
-                          id={millisecondsSelected + year}
+                          id={millisecondsSelected + year_}
 
                           value={refs.carouselValue.current}
 
@@ -3512,7 +3514,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
                             const calendar_ = {
                               ...refs.calendar.current,
 
-                              year,
+                              year: year_,
 
                               month: getLeadingZerosNumber(index + 1)
                             };
@@ -3542,7 +3544,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
                                     paddingInlineStart: '16px'
                                   }}
                                 >
-                                  {months[index]} {year}
+                                  {months[index]} {year_}
                                 </Type>
 
                                 <div
@@ -3633,9 +3635,9 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
                         >
                           {getYears(refs.value.current, refs.values.current, refs.calendar.current).map((item: any, index: number) => {
                             const monthValue = refs.calendar.current.date;
-                            const year = +formatMethod(monthValue, 'YYYY');
+                            const year__ = +formatMethod(monthValue, 'YYYY');
 
-                            const selected = year === item.value;
+                            const selected = year__ === item.value;
 
                             return (
                               <PaginationItem
@@ -3827,7 +3829,7 @@ const DatePicker = React.forwardRef((props_: any, ref: any) => {
 
         {...IconButtonProps}
       >
-        <Icon />
+        <Icon_ />
       </IconButton>
     );
   }

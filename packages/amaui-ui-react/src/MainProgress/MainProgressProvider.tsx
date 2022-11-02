@@ -146,24 +146,24 @@ const MainProgressProvider = React.forwardRef((props_: any, ref: any) => {
     setInProp(true);
 
     // Set initial value to min
-    const min = refs.min.current !== undefined ? refs.min.current : 0;
+    const min_ = refs.min.current !== undefined ? refs.min.current : 0;
 
-    const max = refs.max.current !== undefined ? refs.max.current : 0;
+    const max_ = refs.max.current !== undefined ? refs.max.current : 0;
 
-    setValue(min);
+    setValue(min_);
 
     // start inc interval for steps
     // in refs.interval
 
     // in interval, remove interval if value is >= max
-    if (min < max) {
-      const stepInterval = refs.stepInterval.current !== undefined ? refs.stepInterval.current : 700;
+    if (min_ < max_) {
+      const stepInterval_ = refs.stepInterval.current !== undefined ? refs.stepInterval.current : 700;
 
       refs.interval.current = setInterval(() => {
-        if (refs.value.current >= max) clearInterval(refs.interval.current);
+        if (refs.value.current >= max_) clearInterval(refs.interval.current);
 
         setValue(previousValue => clamp(previousValue + random(refs.stepMin.current, refs.stepMax.current), refs.min.current, refs.max.current));
-      }, stepInterval);
+      }, stepInterval_);
     }
 
     if (is('function', onStart)) onStart();

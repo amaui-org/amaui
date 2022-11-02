@@ -5,7 +5,7 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import { staticClassName } from '../utils';
 
-const other = {
+const other_ = {
   position: 'absolute',
   inset: 0,
   height: '100%',
@@ -184,13 +184,13 @@ const useStyle = styleMethod(theme => ({
   tonal_color_error: { color: theme.methods.palette.color.value('error', 50) },
 
   line: {
-    ...other,
+    ...other_,
     transition: theme.methods.transitions.make('transform'),
     background: 'currentColor'
   },
 
   lineIndeterminate: {
-    ...other,
+    ...other_,
     width: '100%',
     left: '-145.166611%',
     transformOrigin: 'initial',
@@ -198,7 +198,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   lineIndeterminate_reverse: {
-    ...other,
+    ...other_,
     width: '100%',
     right: '-145.166611%',
     transformOrigin: 'initial',
@@ -206,14 +206,14 @@ const useStyle = styleMethod(theme => ({
   },
 
   inner: {
-    ...other,
+    ...other_,
     width: '100%',
     background: 'currentColor',
     animation: '$inner 2s infinite linear'
   },
 
   lineIndeterminate1: {
-    ...other,
+    ...other_,
     width: '100%',
     left: '-54.888891%',
     transformOrigin: 'initial',
@@ -221,7 +221,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   lineIndeterminate1_reverse: {
-    ...other,
+    ...other_,
     width: '100%',
     right: '-54.888891%',
     transformOrigin: 'initial',
@@ -229,21 +229,21 @@ const useStyle = styleMethod(theme => ({
   },
 
   inner1: {
-    ...other,
+    ...other_,
     width: '100%',
     background: 'currentColor',
     animation: '$inner1 2s infinite linear'
   },
 
   buffer: {
-    ...other,
+    ...other_,
     background: 'currentColor',
     opacity: 0.24,
     transition: theme.methods.transitions.make('transform')
   },
 
   bufferDots: {
-    ...other,
+    ...other_,
     backgroundImage: `radial-gradient(2px 2px at center, currentColor 4px, transparent 4px)`,
     backgroundSize: '10px 4px',
     opacity: 0.24,

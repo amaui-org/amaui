@@ -141,9 +141,9 @@ function Keyframes(props_: IProps) {
     }
   };
 
-  const runKeyframe = async (value: IKeyframe) => {
-    if (value) {
-      const { name, timeout: timeout__ } = value;
+  const runKeyframe = async (value_: IKeyframe) => {
+    if (value_) {
+      const { name, timeout: timeout__ } = value_;
 
       updateStatus(name as any);
 
@@ -228,24 +228,24 @@ function Keyframes(props_: IProps) {
 
     // Add className
     if (className && is('element', refs.root.current)) {
-      let className = classNames([refs.root.current.className.split(' ')]);
+      let className_ = classNames([refs.root.current.className.split(' ')]);
 
       // Remove all previous state classes
-      className = className.replace(new RegExp(`${prefix || ''}(add)(ed|ing)?`, 'g'), '');
+      className_ = className_.replace(new RegExp(`${prefix || ''}(add)(ed|ing)?`, 'g'), '');
 
       // Remove all previous keyframes classes
       if (is('array', keyframes)) {
         const regex = new RegExp(`${keyframes.reduce((result, item, index) => result += `${index !== 0 ? '|' : ''}${item}`, '')}`, 'g');
 
-        className = className.replace(regex, '');
+        className_ = className_.replace(regex, '');
       }
 
       // Add
-      className += ` ${prefix || ''}${status_}`;
+      className_ += ` ${prefix || ''}${status_}`;
 
-      className = className.replace(/ +/g, ' ').trim();
+      className_ = className_.replace(/ +/g, ' ').trim();
 
-      refs.root.current.className = className;
+      refs.root.current.className = className_;
     }
   };
 

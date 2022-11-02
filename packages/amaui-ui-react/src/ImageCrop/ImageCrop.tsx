@@ -431,13 +431,13 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
       }
     }
 
-    const rootRect: DOMRect = refs.root.current.getBoundingClientRect();
+    const rootRect_: DOMRect = refs.root.current.getBoundingClientRect();
 
     const selectorRelative_ = {
-      top: (valueNew.top / rootRect?.height) * refs.canvasMain.current?.height,
-      left: (valueNew.left / rootRect?.width) * refs.canvasMain.current?.width,
-      width: (valueNew.width / rootRect?.width) * refs.canvasMain.current?.width,
-      height: (valueNew.height / rootRect?.height) * refs.canvasMain.current?.height
+      top: (valueNew.top / rootRect_?.height) * refs.canvasMain.current?.height,
+      left: (valueNew.left / rootRect_?.width) * refs.canvasMain.current?.width,
+      width: (valueNew.width / rootRect_?.width) * refs.canvasMain.current?.width,
+      height: (valueNew.height / rootRect_?.height) * refs.canvasMain.current?.height
     };
 
     // Update inner or controlled
@@ -1030,18 +1030,18 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
     }
   }, [image_]);
 
-  const updateSelector = (selector_: any = refs.selector.current, image_: any = refs.image.current) => {
-    if (selector_ !== undefined && image_ !== undefined) {
+  const updateSelector = (selector__: any = refs.selector.current, image__: any = refs.image.current) => {
+    if (selector__ !== undefined && image__ !== undefined) {
       const rootRect = refs.root.current.getBoundingClientRect();
 
       const selectorValue: any = {
-        top: clamp(selector_.top, 0, image_.height),
-        left: clamp(selector_.left, 0, image_.height)
+        top: clamp(selector__.top, 0, image__.height),
+        left: clamp(selector__.left, 0, image__.height)
       };
 
-      selectorValue.width = clamp((selector_.width || 0), 0, rootRect.width - selectorValue.left);
+      selectorValue.width = clamp((selector__.width || 0), 0, rootRect.width - selectorValue.left);
 
-      selectorValue.height = clamp((selector_.height || 0), 0, rootRect.height - selectorValue.top);
+      selectorValue.height = clamp((selector__.height || 0), 0, rootRect.height - selectorValue.top);
 
       // Aspect ratio
       if (refs.aspectRatio.current !== undefined) {

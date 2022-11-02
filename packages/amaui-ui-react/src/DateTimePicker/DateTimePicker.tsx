@@ -54,10 +54,10 @@ const IconMaterialDateRangeRoundedFilled = React.forwardRef((props: any, ref) =>
   );
 });
 
-const DateTimePicker = React.forwardRef((props_: any, ref: any) => {
+const DateTimePicker = React.forwardRef((props__: any, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiDateTimePicker?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...props__, ...theme?.ui?.elements?.AmauiDateTimePicker?.props?.default }), [props__]);
 
   const breakpoints = {};
 
@@ -117,7 +117,7 @@ const DateTimePicker = React.forwardRef((props_: any, ref: any) => {
     minute = true,
     second = false,
 
-    Icon = IconMaterialDateRangeRoundedFilled,
+    Icon_ = IconMaterialDateRangeRoundedFilled,
 
     ModalProps,
     TooltipProps,
@@ -237,10 +237,12 @@ const DateTimePicker = React.forwardRef((props_: any, ref: any) => {
   };
 
   const updateInput = (valueNew: any) => {
+    // tslint:disable-next-line
     let [date, ...time] = valueNew.split(' ');
 
     time = time.join(' ').replace(/ +/, ' ');
 
+    // tslint:disable-next-line
     let [day_, month_, year_] = date.split('/');
 
     if (day_ && day_.startsWith('0')) day_ = day_.slice(1);
@@ -249,6 +251,7 @@ const DateTimePicker = React.forwardRef((props_: any, ref: any) => {
 
     const [timeValue, dayTime] = time.split(' ');
 
+    // tslint:disable-next-line
     let [hour_, minute_, second_] = timeValue.split(':');
 
     if (hour_ && hour_.startsWith('0')) hour_ = hour_.slice(1);
@@ -415,15 +418,15 @@ const DateTimePicker = React.forwardRef((props_: any, ref: any) => {
   }
 
   const valid = (valueNew = refs.value.current) => {
-    let valid = true;
+    let valid_ = true;
 
-    if (is('function', refs.validate.current)) valid = refs.validate.current(valueNew);
+    if (is('function', refs.validate.current)) valid_ = refs.validate.current(valueNew);
 
-    if (refs.min.current !== undefined) valid = valid && isMethod(valueNew, 'after or same', refs.min.current);
+    if (refs.min.current !== undefined) valid_ = valid_ && isMethod(valueNew, 'after or same', refs.min.current);
 
-    if (refs.max.current !== undefined) valid = valid && isMethod(valueNew, 'before or same', refs.max.current);
+    if (refs.max.current !== undefined) valid_ = valid_ && isMethod(valueNew, 'before or same', refs.max.current);
 
-    return valid;
+    return valid_;
   };
 
   const ModeDesktop = React.useCallback(React.forwardRef((props_: any, ref_: any) => {
@@ -673,7 +676,7 @@ const DateTimePicker = React.forwardRef((props_: any, ref: any) => {
 
         {...IconButtonProps}
       >
-        <Icon />
+        <Icon_ />
       </IconButton>
     );
   }

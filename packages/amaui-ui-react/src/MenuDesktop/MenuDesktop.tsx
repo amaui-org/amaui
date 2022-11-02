@@ -248,9 +248,9 @@ const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
     setInProp(false);
   };
 
-  const updateOpen = (value_: any) => {
-    if (!!value_) {
-      const item = refs.props.current.items.find(item_ => item_.value === value_);
+  const updateOpen = (value__: any) => {
+    if (!!value__) {
+      const item = refs.props.current.items.find(item_ => item_.value === value__);
 
       if (item) {
         const itemHTML = refs.items.current.filter(Boolean).find(item_ => item_.dataset.value === item.value);
@@ -263,7 +263,7 @@ const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
       }
     }
 
-    if (value_) setOpenItem(value_);
+    if (value__) setOpenItem(value__);
 
     if (refs.open.current) {
       refs.previousOpenIndex.current = refs.props.current.items.findIndex(item_ => item_.value === refs.open.current);
@@ -271,10 +271,10 @@ const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
       refs.previousOpen.current = refs.props.current.items[refs.previousOpenIndex.current];
     }
 
-    if (!value_) onClose();
+    if (!value__) onClose();
     else {
       setInProp(true);
-      setOpen(value_);
+      setOpen(value__);
 
       if (is('function', onOpen)) onOpen();
     }
@@ -515,8 +515,8 @@ const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
               <Line
                 key={index}
 
-                ref={item => {
-                  if (!refs.items.current.includes(item)) refs.items.current.push(item);
+                ref={item_ => {
+                  if (!refs.items.current.includes(item)) refs.items.current.push(item_);
                 }}
 
                 tabIndex={!item.disabled && item.menu ? 0 : undefined}
@@ -591,7 +591,7 @@ const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
         {!init && (
           items.map((item: any, index: number) => (
             <div
-              ref={item => refs.menus.current[index] = item}
+              ref={item_ => refs.menus.current[index] = item_}
 
               key={index}
 
@@ -674,7 +674,7 @@ const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
 
                                 ...(is('function', menuTransitionClassName) ? menuTransitionClassName(status, openItem) : []),
 
-                                classes[theme.direction == 'ltr' ?
+                                classes[theme.direction === 'ltr' ?
                                   ((openIndex <= 0 || openIndex < refs.previousOpenIndex.current) ? 'menu' : 'menu_reverse') :
                                   ((openIndex <= 0 || openIndex < refs.previousOpenIndex.current) ? 'menu_reverse' : 'menu')
                                 ]

@@ -110,7 +110,7 @@ const PieChart = React.forwardRef((props_: any, ref: any) => {
 
       className: className_,
 
-      ...other
+      ...other_
     } = props__;
 
     const {
@@ -140,7 +140,7 @@ const PieChart = React.forwardRef((props_: any, ref: any) => {
           classes.legend_item
         ])}
 
-        {...other}
+        {...other_}
       >
         <span
           className={classNames([
@@ -193,7 +193,7 @@ const PieChart = React.forwardRef((props_: any, ref: any) => {
 
       const total = 360;
 
-      const valueTotal = values.reduce((result, value) => result += value.values[0], 0);
+      const valueTotal = values.reduce((result, itemValue) => result += itemValue.values[0], 0);
 
       const angles: any = {
         start: angleToCoordinates(0, center, center, radius)
@@ -359,7 +359,7 @@ const PieChart = React.forwardRef((props_: any, ref: any) => {
       values: values__
     } = values_;
 
-    const valueTotal = values.reduce((result, value) => result += value.values[0], 0);
+    const valueTotal = values.reduce((result, itemValue) => result += itemValue.values[0], 0);
 
     const valueValue = values__[0];
 
