@@ -572,7 +572,7 @@ const Drawing = React.forwardRef((props__: any, ref: any) => {
     ...IconProps_
   };
 
-  const WrapperToggleButton = React.useCallback((props_: any) => {
+  const WrapperToggleButton = React.useCallback(React.forwardRef((props_: any, ref_: any) => {
     const {
       open: open_,
 
@@ -598,7 +598,7 @@ const Drawing = React.forwardRef((props__: any, ref: any) => {
         })}
       </Tooltip>
     );
-  }, []);
+  }), []);
 
   const WrapperAppend = React.useCallback((props_: any) => {
     const {
@@ -1436,7 +1436,7 @@ const Drawing = React.forwardRef((props__: any, ref: any) => {
           height: refs.inputValues.current.height
         }}
       >
-        {valueNew.map((item: any, index: number) => (
+        {valueNew_.map((item: any, index: number) => (
           <path
             key={index}
 

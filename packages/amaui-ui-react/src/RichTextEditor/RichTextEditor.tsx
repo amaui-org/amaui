@@ -1387,7 +1387,7 @@ const RichTextEditor = React.forwardRef((props__: any, ref: any) => {
     ...IconProps_
   };
 
-  const WrapperToggleButton = React.useCallback((props_: any) => {
+  const WrapperToggleButton = React.useCallback(React.forwardRef((props_: any, ref_: any) => {
     const {
       open: open_,
 
@@ -1413,7 +1413,7 @@ const RichTextEditor = React.forwardRef((props__: any, ref: any) => {
         })}
       </Tooltip>
     );
-  }, []);
+  }), []);
 
   const WrapperAppend = React.useCallback((props_: any) => {
     const {

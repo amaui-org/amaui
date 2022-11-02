@@ -314,7 +314,7 @@ const Menu = React.forwardRef((props_: any, ref: any) => {
         ModalProps={{
           background: true,
           backgroundInvisible: true,
-          freezeScroll: true,
+          freezeScroll: false,
 
           onClose,
 

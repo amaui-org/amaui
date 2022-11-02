@@ -558,6 +558,9 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
 
     children,
 
+    // Other
+    colorUnchecked,
+
     ...other
   } = props;
 
