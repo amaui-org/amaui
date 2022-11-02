@@ -1629,7 +1629,7 @@ function App() {
 
             maxPadding={0.14}
 
-            guideline='both'
+            guidelines='both'
 
             values={[
               {
@@ -1682,7 +1682,7 @@ function App() {
 
             maxPaddingY={0.14}
 
-            guideline='both'
+            guidelines='both'
 
             values={[
               {
@@ -1750,7 +1750,7 @@ function App() {
 
             maxPaddingY={0.14}
 
-            guideline='both'
+            guidelines='both'
 
             values={[
               {
@@ -1781,7 +1781,7 @@ function App() {
 
             maxPaddingY={0.14}
 
-            guideline='both'
+            guidelines='both'
 
             values={[
               {
@@ -1803,7 +1803,7 @@ function App() {
 
             maxPaddingY={0.14}
 
-            guideline='both'
+            guidelines='both'
 
             values={[
               {
@@ -4050,9 +4050,9 @@ Please sign in again.`}
           />
         </Accordion>
 
-        <Accordion primary='ColumnChart guidelines'>
+        <Accordion primary='ColumnChart guideliness'>
           <ColumnChart
-            guideline='both'
+            guidelines='both'
 
             title='Column chart'
 
@@ -4171,9 +4171,9 @@ Please sign in again.`}
           />
         </Accordion>
 
-        <Accordion primary='BubbleChart guidelines'>
+        <Accordion primary='BubbleChart guideliness'>
           <BubbleChart
-            guideline='both'
+            guidelines='both'
 
             title='BubbleChart chart'
 
@@ -4243,7 +4243,7 @@ Please sign in again.`}
       <Accordion primary='ScatterChart'>
         <Accordion primary='ScatterChart' open>
           <ScatterChart
-            guideline='both'
+            guidelines='both'
 
             title='Scatter chart'
 
@@ -4274,7 +4274,7 @@ Please sign in again.`}
 
         <Accordion primary='ScatterChart multiple'>
           <ScatterChart
-            guideline='both'
+            guidelines='both'
 
             title='Scatter chart multiple'
 
@@ -4328,7 +4328,7 @@ Please sign in again.`}
       <Accordion primary='AreaChart'>
         <Accordion primary='AreaChart' open>
           <AreaChart
-            guideline='both'
+            guidelines='both'
 
             title='Area chart'
 
@@ -4361,7 +4361,7 @@ Please sign in again.`}
           <AreaChart
             linearGradient
 
-            guideline='both'
+            guidelines='both'
 
             title='Area chart multiple'
 
@@ -4413,7 +4413,7 @@ Please sign in again.`}
 
         <Accordion primary='AreaChart multiple'>
           <AreaChart
-            guideline='both'
+            guidelines='both'
 
             title='Area chart multiple'
 
@@ -4465,7 +4465,7 @@ Please sign in again.`}
 
         <Accordion primary='AreaChart not smooth'>
           <AreaChart
-            guideline='both'
+            guidelines='both'
 
             title='Area chart'
 
@@ -4526,35 +4526,70 @@ Please sign in again.`}
         </Accordion>
 
         <Accordion primary='LineChart labelResolve'>
-          <LineChart
-            names={{
-              x: 'Name x',
-              y: 'Name y'
+          <Line
+            style={{
+              width: '100%'
             }}
+          >
+            <LineChart
+              names={{
+                x: 'Name x',
+                y: 'Name y'
+              }}
 
-            nameX
+              nameX
 
-            nameY
+              nameY
 
-            minPaddingY={0.14}
+              minPaddingY={0.14}
 
-            maxPaddingY={0.14}
+              maxPaddingY={0.14}
 
-            labelResolve={(value_: any, axes: any) => axes === 'x' ? format(new AmauiDate(value_), 'DD, MM YYYY') : value_}
+              labelResolve={(value_: any, axes: any) => axes === 'x' ? format(new AmauiDate(value_), 'DD, MM YYYY') : value_}
 
-            values={[
-              {
-                color: 'primary',
+              values={[
+                {
+                  color: 'primary',
 
-                name: 'a',
+                  name: 'a',
 
-                values: Array.from({ length: 14 }).map(() => [add(random(0, 14), 'day').milliseconds, random(-40, 400)])
-              }
-            ]}
-          />
+                  values: Array.from({ length: 14 }).map(() => [add(random(0, 14), 'day').milliseconds, random(-40, 400)])
+                }
+              ]}
+            />
+
+            <LineChart
+              guidelines='both'
+
+              names={{
+                x: 'Name x',
+                y: 'Name y'
+              }}
+
+              nameX
+
+              nameY
+
+              minPaddingY={0.14}
+
+              maxPaddingY={0.14}
+
+              labelResolve={(value_: any, axes: any) => axes === 'x' ? format(new AmauiDate(value_), 'DD, MM YYYY') : value_}
+
+              values={[
+                {
+                  color: 'primary',
+
+                  name: 'a',
+
+                  values: Array.from({ length: 14 }).map(() => [add(random(0, 14), 'day').milliseconds, random(-40, 400)])
+                }
+              ]}
+            />
+          </Line>
         </Accordion>
 
-        <Accordion primary='LineChart simple' open>
+        <Accordion primary='LineChart simple'>
           <LineChart
             names={{
               x: 'Name x',
@@ -4588,12 +4623,12 @@ Please sign in again.`}
           />
         </Accordion>
 
-        <Accordion primary='LineChart guideline' >
+        <Accordion primary='LineChart guidelines' >
           <Line
             style={{ width: '100%' }}
           >
             <LineChart
-              guideline='vertical'
+              guidelines='vertical'
 
               names={{
                 x: 'Name x',
@@ -4620,7 +4655,7 @@ Please sign in again.`}
             />
 
             <LineChart
-              guideline='horizontal'
+              guidelines='horizontal'
 
               names={{
                 x: 'Name x',
@@ -4647,7 +4682,7 @@ Please sign in again.`}
             />
 
             <LineChart
-              guideline='both'
+              guidelines='both'
 
               names={{
                 x: 'Name x',
@@ -4674,7 +4709,7 @@ Please sign in again.`}
             />
 
             <LineChart
-              guideline='both'
+              guidelines='both'
 
               title='Line chart multiple'
 

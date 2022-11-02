@@ -306,7 +306,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   // Guideline
-  guideline: {
+  guidelines: {
     stroke: 'currentColor',
     strokeDasharray: '4',
     opacity: '0.44',
@@ -362,9 +362,9 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
     elementTooltip: elementTooltip_,
 
     // Guideline
-    guideline: guideline_,
+    guidelines: guidelines_,
 
-    guidelineAppend: guidelineAppend_,
+    guidelinesAppend: guidelinesAppend_,
 
     // Additional lines
     additional_lines: additional_lines__,
@@ -504,8 +504,8 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
   const tooltipCloseOnMouseLeave = valueBreakpoints(tooltipCloseOnMouseLeave_, true, breakpoints, theme);
   const elementTooltip = valueBreakpoints(elementTooltip_, undefined, breakpoints, theme);
 
-  const guideline = valueBreakpoints(guideline_, undefined, breakpoints, theme);
-  const guidelineAppend = valueBreakpoints(guidelineAppend_, true, breakpoints, theme);
+  const guidelines = valueBreakpoints(guidelines_, undefined, breakpoints, theme);
+  const guidelinesAppend = valueBreakpoints(guidelinesAppend_, true, breakpoints, theme);
 
   const legend__ = valueBreakpoints(legend___, 'auto', breakpoints, theme);
 
@@ -570,8 +570,8 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
   const [legend, setLegend] = React.useState<any>();
   const [append, setAppend] = React.useState<any>();
   const [visible, setVisible] = React.useState<any>({});
-  const [guidelineIn, setGuidelineIn] = React.useState(false);
-  const [guidelinePosition, setGuidelinePosition] = React.useState<any>({});
+  const [guidelinesIn, setGuidelineIn] = React.useState(false);
+  const [guidelinesPosition, setGuidelinePosition] = React.useState<any>({});
   const [hover, setHover] = React.useState(false);
 
   const refs = {
@@ -580,23 +580,23 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
     svg: React.useRef<any>(),
     minMax: React.useRef<any>(),
     rects: React.useRef<any>(),
-    guideline: React.useRef<any>(),
-    guidelineIn: React.useRef<any>(),
-    guidelinePosition: React.useRef<any>(),
-    guidelineAppend: React.useRef<any>(),
+    guidelines: React.useRef<any>(),
+    guidelinesIn: React.useRef<any>(),
+    guidelinesPosition: React.useRef<any>(),
+    guidelinesAppend: React.useRef<any>(),
     hover: React.useRef<any>(),
     allValues: React.useRef<any>([])
   };
 
   refs.rects.current = rects;
 
-  refs.guideline.current = guideline;
+  refs.guidelines.current = guidelines;
 
-  refs.guidelineIn.current = guidelineIn;
+  refs.guidelinesIn.current = guidelinesIn;
 
-  refs.guidelinePosition.current = guidelinePosition;
+  refs.guidelinesPosition.current = guidelinesPosition;
 
-  refs.guidelineAppend.current = guidelineAppend;
+  refs.guidelinesAppend.current = guidelinesAppend;
 
   refs.hover.current = hover;
 
@@ -660,7 +660,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
   refs.minMax.current = minMax;
 
   const onWrapperMouseEnter = React.useCallback(() => {
-    if (!refs.guidelineIn.current) setGuidelineIn(true);
+    if (!refs.guidelinesIn.current) setGuidelineIn(true);
 
     setHover(true);
   }, []);
@@ -867,7 +867,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
   React.useEffect(() => {
     const onMove = (x_: number, y_: number) => {
       // Only horizontal move at the moment
-      // ie. vertical guideline
+      // ie. vertical guidelines
       const rectWrapper = refs.rects.current.wrapper;
 
       const rectSvg = refs.svg.current.getBoundingClientRect();
@@ -876,7 +876,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
       const y = clamp(y_ - rectSvg?.y, 0, rectWrapper?.height);
 
-      if (refs.guidelineAppend.current && ['both', 'vertical'].includes(refs.guideline.current)) {
+      if (refs.guidelinesAppend.current && ['both', 'vertical'].includes(refs.guidelines.current)) {
         const allValues = refs.allValues.current;
 
         let index;
@@ -978,7 +978,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
   React.useEffect(() => {
     make();
-  }, [values, labels__, marks__, grid__, additional_lines__, legend__, visible, (guidelineAppend && guidelinePosition), rects]);
+  }, [values, labels__, marks__, grid__, additional_lines__, legend__, visible, (guidelinesAppend && guidelinesPosition), rects]);
 
   const onPointMouseEnter = React.useCallback((values_: any) => {
     if (tooltipIndividually) {
@@ -1233,7 +1233,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
               PointProps?.className,
               classes.point,
               classes[`point_visibility_${pointsVisibility}`],
-              (refs.guidelineAppend.current && refs.guidelinePosition.current.x === item_.normalized[0]) && classes.point_active
+              (refs.guidelinesAppend.current && refs.guidelinesPosition.current.x === item_.normalized[0]) && classes.point_active
             ])}
 
             style={{
@@ -1382,7 +1382,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
           tooltip && `AmauiChart-tooltip`,
           tooltipIndividually && `AmauiChart-tooltip-individually`,
           elementTooltip && `AmauiChart-element-tooltip`,
-          guideline && `AmauiChart-guideline`,
+          guidelines && `AmauiChart-guidelines`,
           additionalLines && `AmauiChart-additional-lines`,
           (names?.x && nameX) && `AmauiChart-name-x`,
           (names?.y && nameY) && `AmauiChart-name-y`,
@@ -1514,7 +1514,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
       <Line
         ref={refs.wrapper}
 
-        {...(guideline ? {
+        {...(guidelines ? {
           onMouseEnter: onWrapperMouseEnter,
 
           onTouchStart: onWrapperMouseEnter,
@@ -1705,41 +1705,41 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
                   )}
 
                   {/* Guideline */}
-                  {guideline && guidelineIn && <>
-                    {['both', 'vertical'].includes(guideline) && (
+                  {guidelines && guidelinesIn && <>
+                    {['both', 'vertical'].includes(guidelines) && (
                       <path
-                        d={`M ${guidelinePosition?.x || 0} 0 ${guidelinePosition?.x || 0} ${rects?.wrapper?.height || 0}`}
+                        d={`M ${guidelinesPosition?.x || 0} 0 ${guidelinesPosition?.x || 0} ${rects?.wrapper?.height || 0}`}
 
                         {...GuidelineProps}
 
                         className={classNames([
                           staticClassName('Chart', theme) && [
-                            'AmauiChart-guideline',
-                            'AmauiChart-guideline-vertical'
+                            'AmauiChart-guidelines',
+                            'AmauiChart-guidelines-vertical'
                           ],
 
                           GuidelineProps?.className,
-                          classes.guideline,
-                          classes.guideline_vertical
+                          classes.guidelines,
+                          classes.guidelines_vertical
                         ])}
                       />
                     )}
 
-                    {['both', 'horizontal'].includes(guideline) && (
+                    {['both', 'horizontal'].includes(guidelines) && (
                       <path
-                        d={`M 0 ${guidelinePosition?.y || 0} ${rects?.wrapper?.width || 0} ${guidelinePosition?.y || 0}`}
+                        d={`M 0 ${guidelinesPosition?.y || 0} ${rects?.wrapper?.width || 0} ${guidelinesPosition?.y || 0}`}
 
                         {...GuidelineProps}
 
                         className={classNames([
                           staticClassName('Chart', theme) && [
-                            'AmauiChart-guideline',
-                            'AmauiChart-guideline-horizontal'
+                            'AmauiChart-guidelines',
+                            'AmauiChart-guidelines-horizontal'
                           ],
 
                           GuidelineProps?.className,
-                          classes.guideline,
-                          classes.guideline_horizontal
+                          classes.guidelines,
+                          classes.guidelines_horizontal
                         ])}
                       />
                     )}
