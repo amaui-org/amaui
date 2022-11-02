@@ -334,6 +334,9 @@ export * from './AdvancedTextField';
 export { default as NumericTextField } from './NumericTextField';
 export * from './NumericTextField';
 
+export { default as ColorTextField } from './ColorTextField';
+export * from './ColorTextField';
+
 export { default as Widgets } from './Widgets';
 export * from './Widgets';
 

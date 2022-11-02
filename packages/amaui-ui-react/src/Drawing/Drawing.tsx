@@ -13,7 +13,7 @@ import ToggleButtons from '../ToggleButtons';
 import Divider from '../Divider';
 import Type from '../Type';
 import ToggleButton from '../ToggleButton';
-import TextField from '../TextField';
+import ColorTextField from '../ColorTextField';
 import Button from '../Button';
 import Append from '../Append';
 import Fade from '../Fade';
@@ -242,6 +242,7 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
     TooltipProps: TooltipProps_,
     PaletteProps,
     IconButtonProps,
+    ColorTextFieldProps,
 
     Component = 'div',
 
@@ -786,7 +787,7 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
             width: '100%'
           }}
         >
-          <TextField
+          <ColorTextField
             tonal={tonal}
 
             color={color}
@@ -801,31 +802,14 @@ const Drawing = React.forwardRef((props_: any, ref: any) => {
 
             onChange={valueNew => updateInputValues(version, valueNew)}
 
-            endVerticalAlign='center'
-
-            end={(
-              <input
-                type='color'
-
-                value={refs.inputValues.current[version]}
-
-                onChange={(event: React.ChangeEvent<any>) => updateInputValues(version, (event.target as any).value)}
-
-                className={classNames([
-                  staticClassName('Drawing', theme) && [
-                    'AmauiDrawing-input-color'
-                  ],
-
-                  classes.inputColor
-                ])}
-              />
-            )}
+            {...ColorTextFieldProps}
 
             className={classNames([
               staticClassName('Drawing', theme) && [
                 'AmauiDrawing-text-field-color'
               ],
 
+              ColorTextFieldProps?.className,
               classes.textFieldColor
             ])}
           />

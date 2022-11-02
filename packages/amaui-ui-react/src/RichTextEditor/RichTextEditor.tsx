@@ -12,6 +12,7 @@ import Tooltip from '../Tooltip';
 import Switch from '../Switch';
 import Label from '../Label';
 import NumericTextField from '../NumericTextField';
+import ColorTextField from '../ColorTextField';
 import ToggleButtons from '../ToggleButtons';
 import ToggleButton from '../ToggleButton';
 import ClickListener from '../ClickListener';
@@ -924,6 +925,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
     MiniMenuProps: MiniMenuProps_,
     DrawingProps,
     IconProps: IconProps_,
+    ColorTextFieldProps,
 
     Component = 'div',
 
@@ -1629,7 +1631,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
             width: '100%'
           }}
         >
-          <TextField
+          <ColorTextField
             tonal={tonal}
 
             color={color}
@@ -1644,31 +1646,14 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
             onChange={valueNew => updateInputValues(version, valueNew)}
 
-            endVerticalAlign='center'
-
-            end={(
-              <input
-                type='color'
-
-                value={refs.inputValues.current[version]}
-
-                onChange={(event: React.ChangeEvent<any>) => updateInputValues(version, (event.target as any).value)}
-
-                className={classNames([
-                  staticClassName('RichTextEditor', theme) && [
-                    'AmauiRichTextEditor-input-color'
-                  ],
-
-                  classes.inputColor
-                ])}
-              />
-            )}
+            {...ColorTextFieldProps}
 
             className={classNames([
               staticClassName('RichTextEditor', theme) && [
                 'AmauiRichTextEditor-text-field-color'
               ],
 
+              ColorTextFieldProps?.className,
               classes.textFieldColor
             ])}
           />
