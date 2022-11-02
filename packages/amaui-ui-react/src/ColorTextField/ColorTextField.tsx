@@ -50,7 +50,7 @@ const ColorTextField = React.forwardRef((props_: any, ref: any) => {
   } = props;
 
   const [init, setInit] = React.useState(false);
-  const [value, setValue] = React.useState(valueDefault !== undefined ? valueDefault : value_);
+  const [value, setValue] = React.useState((valueDefault !== undefined ? valueDefault : value_) || '');
 
   const refs = {
     value: React.useRef<any>()
@@ -75,8 +75,6 @@ const ColorTextField = React.forwardRef((props_: any, ref: any) => {
 
   return (
     <TextField
-      version='outlined'
-
       value={value}
 
       onChange={onChange}
