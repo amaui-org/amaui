@@ -157,7 +157,7 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
 
     portal = true,
     focus = true,
-    freezeScroll = false,
+    freezeScroll = true,
 
     disableKeyboardClose,
     disableBackgroundClose,
