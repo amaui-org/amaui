@@ -35,6 +35,8 @@ const useStyle = styleMethod(theme => ({
   },
 
   inputWrapper: {
+    cursor: 'pointer',
+
     '&.AmauiTextField-inputWrapper': {
       cursor: 'pointer'
     }
@@ -63,7 +65,8 @@ const useStyle = styleMethod(theme => ({
     borderRadius: `${theme.shape.radius.unit / 2}px ${theme.shape.radius.unit / 2}px 0 0`,
     ...theme.typography.values.b2,
     ...overflow,
-    cursor: 'pointer'
+    cursor: 'pointer',
+    pointerEvents: 'none'
   },
 
   chip: {
