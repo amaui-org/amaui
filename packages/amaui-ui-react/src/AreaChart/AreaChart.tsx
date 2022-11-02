@@ -22,7 +22,25 @@ export interface IItem {
 
 const useStyle = styleMethod(theme => ({
   root: {
+    '& .AmauiChart-legend-icon': {
+      width: '14px',
+      position: 'relative',
+      background: 'none',
+      borderTop: '2px solid currentColor',
+      borderRadius: 'unset',
+      height: 'unset',
 
+      '&::before': {
+        content: "''",
+        position: 'absolute',
+        top: '0',
+        left: '0',
+        height: '4px',
+        width: '100%',
+        background: 'currentColor',
+        opacity: '0.4'
+      }
+    }
   },
 
   legend_item: {

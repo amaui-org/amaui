@@ -1058,6 +1058,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
           ])}
 
           style={{
+            color: !theme.palette.color[color_] ? color_ : theme.palette.color[color_][tone],
             background: !theme.palette.color[color_] ? color_ : theme.palette.color[color_][tone]
           }}
         />

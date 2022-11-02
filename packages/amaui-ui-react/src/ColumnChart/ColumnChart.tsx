@@ -8,7 +8,6 @@ import Path from '../Path';
 import Line from '../Line';
 import Type from '../Type';
 import useMediaQuery from '../useMediaQuery';
-import Surface from '../Surface';
 
 import { staticClassName, valueBreakpoints } from '../utils';
 
@@ -23,7 +22,11 @@ interface IItem {
 
 const useStyle = styleMethod(theme => ({
   root: {
-
+    '& .AmauiChart-legend-icon': {
+      width: '7px',
+      height: '12px',
+      borderRadius: 'unset'
+    }
   },
 
   legend_item: {

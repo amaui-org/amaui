@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { copy, is, percentageFromValueWithinRange, valueFromPercentageWithinRange } from '@amaui/utils';
+import { is, copy, percentageFromValueWithinRange, valueFromPercentageWithinRange } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Chart from '../Chart';
@@ -23,7 +23,25 @@ interface IItem {
 
 const useStyle = styleMethod(theme => ({
   root: {
+    '& .AmauiChart-legend-icon': {
+      position: 'relative',
+      width: '11px',
+      height: '11px',
+      background: 'none !important',
+      border: '2px solid currentColor',
 
+      '&::before': {
+        content: "''",
+        position: 'absolute',
+        top: '0',
+        left: '0',
+        height: '100%',
+        width: '100%',
+        borderRadius: 'inherit',
+        background: 'currentColor',
+        opacity: '0.4'
+      }
+    }
   },
 
   legend_item: {

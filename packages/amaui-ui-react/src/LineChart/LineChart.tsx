@@ -22,7 +22,11 @@ export interface IItem {
 
 const useStyle = styleMethod(theme => ({
   root: {
-
+    '& .AmauiChart-legend-icon': {
+      width: '11px',
+      height: '2px',
+      borderRadius: 'unset'
+    }
   },
 
   legend_item: {
