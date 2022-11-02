@@ -240,13 +240,15 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
     };
 
     const onResize = () => {
-      const rect = refs.root.current.getBoundingClientRect();
+      if (refs.root.current) {
+        const rect = refs.root.current.getBoundingClientRect();
 
-      if (!autoWidth) setMenuStyle(values => ({
-        ...values,
+        if (!autoWidth) setMenuStyle(values => ({
+          ...values,
 
-        minWidth: rect.width
-      }));
+          minWidth: rect.width
+        }));
+      }
     };
 
     const observer = new ResizeObserver(onResize);

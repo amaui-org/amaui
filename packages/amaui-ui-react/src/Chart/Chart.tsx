@@ -1230,7 +1230,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
               PointProps?.className,
               classes.point,
               classes[`point_visibility_${pointsVisibility}`],
-              (refs.guidelineAppend.current && refs.guidelinePosition.current.x === item.normalized[0]) && classes.point_active
+              (refs.guidelineAppend.current && refs.guidelinePosition.current.x === item_.normalized[0]) && classes.point_active
             ])}
 
             style={{

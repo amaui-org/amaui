@@ -374,7 +374,7 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
     // min, max for width, height
     // + resolve it to max width and height for aspect ratio
     if (is('object', valueNew) && !!Object.keys(valueNew).length && refs.root.current) {
-      const rootRect = refs.root.current.getBoundingClientRect();
+      const rootRect = refs.root.current?.getBoundingClientRect();
 
       const minWidth_ = refs.props.current.minWidth !== undefined ? refs.props.current.minWidth : Number.MIN_SAFE_INTEGER;
       const minHeight_ = refs.props.current.minHeight !== undefined ? refs.props.current.minHeight : Number.MIN_SAFE_INTEGER;
