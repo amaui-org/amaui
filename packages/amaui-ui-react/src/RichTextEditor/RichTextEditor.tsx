@@ -805,10 +805,10 @@ const IconMaterialDrawRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
-const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
+const RichTextEditor = React.forwardRef((props__: any, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiRichTextEditor?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...props__, ...theme?.ui?.elements?.AmauiRichTextEditor?.props?.default }), [props__]);
 
   const { classes } = useStyle(props);
 
@@ -1015,21 +1015,21 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
   const includesMinMenu = (...args) => args.some(item => refs.miniMenuInclude.current.includes(item));
 
   const clear = (element: HTMLElement = refs.value.current) => {
-    const children = Array.from(element.children);
+    const children_ = Array.from(element.children);
 
     const toRemove = [];
-    const other = [];
+    const other_ = [];
 
-    children.forEach((item: any, index: number) => {
+    children_.forEach((item: any, index: number) => {
       (
         (item.tagName === 'SPAN' && !item.innerHTML) ||
-        (item.tagName === 'BR' && index > 0 && (children[index - 1].tagName === 'SPAN' && !children[index - 1].innerHTML))
-      ) ? toRemove.push(item) : other.push(item);
+        (item.tagName === 'BR' && index > 0 && (children_[index - 1].tagName === 'SPAN' && !children_[index - 1].innerHTML))
+      ) ? toRemove.push(item) : other_.push(item);
     });
 
     toRemove.forEach((item: HTMLElement) => item.remove());
 
-    other.forEach(item => clear(item as any));
+    other_.forEach(item => clear(item as any));
   };
 
   const onUpdate = (event: React.ChangeEvent<any>) => {
@@ -1387,37 +1387,37 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
     ...IconProps_
   };
 
-  const WrapperToggleButton = React.useCallback((props: any) => {
+  const WrapperToggleButton = React.useCallback((props_: any) => {
     const {
-      open,
+      open: open_,
 
       label,
 
-      children,
+      children: children_,
 
-      ...other
-    } = props;
+      ...other_
+    } = props_;
 
     return (
       <Tooltip
-        open={open !== undefined ? open : undefined}
+        open={open_ !== undefined ? open_ : undefined}
 
         label={label}
 
         {...TooltipProps}
       >
-        {React.cloneElement(children, {
-          ...other,
+        {React.cloneElement(children_, {
+          ...other_,
 
-          ...children.props
+          ...children_.props
         })}
       </Tooltip>
     );
   }, []);
 
-  const WrapperAppend = React.useCallback((props: any) => {
+  const WrapperAppend = React.useCallback((props_: any) => {
     const {
-      open,
+      open: open_,
 
       element,
 
@@ -1425,19 +1425,19 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
       onClose,
 
-      children,
+      children: children_,
 
-      ...other
-    } = props;
+      ...other_
+    } = props_;
 
     return (
       <Append
-        open={open}
+        open={open_}
 
         element={(
           <div>
             <Fade
-              in={open}
+              in={open_}
 
               add
             >
@@ -1456,10 +1456,10 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
         {...AppendProps}
       >
-        {React.cloneElement(children, {
-          ...other,
+        {React.cloneElement(children_, {
+          ...other_,
 
-          ...children.props
+          ...children_.props
         })}
       </Append>
     );
@@ -1483,12 +1483,12 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
     }
   }, []);
 
-  const PaletteItem = React.useCallback((props: any) => {
+  const PaletteItem = React.useCallback((props_: any) => {
     const {
-      color,
+      color: color_,
 
-      ...other
-    } = props;
+      ...other_
+    } = props_;
 
     return (
       <span
@@ -1501,27 +1501,28 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
         ])}
 
         style={{
-          background: color
+          background: color_
         }}
 
-        {...other}
+        {...other_}
       />
     );
   }, []);
 
-  const Palette = React.useCallback(React.forwardRef((props: any, ref: any) => {
+  const Palette = React.useCallback(React.forwardRef((props_: any, ref_: any) => {
     const {
-      version,
+      version: version_,
 
-      onUpdate,
+      onUpdate: onUpdate_,
+
       onClose,
 
-      ...other
-    } = props;
+      ...other_
+    } = props_;
 
     return (
       <Line
-        ref={ref}
+        ref={ref_}
 
         gap={1}
 
@@ -1541,7 +1542,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
           classes.palette
         ])}
 
-        {...other}
+        {...other_}
       >
         {/* Colors */}
         <Line
@@ -1564,7 +1565,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
               color='#000000'
 
               onClick={() => {
-                onUpdate('#000000');
+                onUpdate_('#000000');
 
                 onClose();
               }}
@@ -1574,7 +1575,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
               color='#ffffff'
 
               onClick={() => {
-                onUpdate('#ffffff');
+                onUpdate_('#ffffff');
 
                 onClose();
               }}
@@ -1607,7 +1608,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                       selection_.addRange(refs.range.current);
                     }
 
-                    onUpdate(colors[item][item_]);
+                    onUpdate_(colors[item][item_]);
 
                     onClose();
                   }}
@@ -1642,9 +1643,9 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
             size='small'
 
-            value={refs.inputValues.current[version]}
+            value={refs.inputValues.current[version_]}
 
-            onChange={valueNew => updateInputValues(version, valueNew)}
+            onChange={valueNew => updateInputValues(version_, valueNew)}
 
             {...ColorTextFieldProps}
 
@@ -1675,7 +1676,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
                 selection_.addRange(refs.range.current);
               }
 
-              onUpdate(refs.inputValues.current[version]);
+              onUpdate_(refs.inputValues.current[version_]);
 
               onClose();
             }}
@@ -1687,15 +1688,15 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
     );
   }), []);
 
-  const Input = React.useCallback(React.forwardRef((props: any, ref: any) => {
+  const Input = React.useCallback(React.forwardRef((props_: any, ref_: any) => {
     const {
       label,
 
       labelButton,
 
-      value,
+      value: value__,
 
-      onChange,
+      onChange: onChange__,
 
       onClick,
 
@@ -1703,12 +1704,12 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
       InputProps,
 
-      ...other
-    } = props;
+      ...other_
+    } = props_;
 
     return (
       <Line
-        ref={ref}
+        ref={ref_}
 
         gap={1}
 
@@ -1728,7 +1729,7 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
           classes.palette
         ])}
 
-        {...other}
+        {...other_}
       >
         <Line
           gap={0.5}
@@ -1752,9 +1753,9 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
 
             size='small'
 
-            value={value}
+            value={value__}
 
-            onChange={onChange}
+            onChange={onChange__}
 
             className={classNames([
               staticClassName('RichTextEditor', theme) && [
@@ -3712,12 +3713,12 @@ const RichTextEditor = React.forwardRef((props_: any, ref: any) => {
           open={selection}
 
           element={
-            ({ ref, values, style }) => (
+            ({ ref: ref_, values, style }) => (
               <div
                 ref={item => {
-                  if (ref) {
-                    if (is('function', ref)) ref(item);
-                    else ref.current = item;
+                  if (ref_) {
+                    if (is('function', ref_)) ref_(item);
+                    else ref_.current = item;
 
                     refs.miniMenu.current = item;
                   }
