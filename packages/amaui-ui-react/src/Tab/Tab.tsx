@@ -8,7 +8,8 @@ import Surface from '../Surface';
 import Line from '../Line';
 import Interaction from '../Interaction';
 
-import { staticClassName } from '../utils';
+import { staticClassName, TElement, TPropsAny } from '../utils';
+import { ISurface } from '../Surface/Surface';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -43,7 +44,31 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiTab' });
 
-const Tab = React.forwardRef((props_: any, ref: any) => {
+export interface ITab extends Omit<ISurface, 'version'> {
+  version?: 'primary' | 'secondary';
+
+  value?: number;
+  onChange?: (value: number, index: number) => any;
+
+  active?: boolean;
+  index?: number;
+
+  label?: TElement;
+
+  icon?: TElement;
+  iconPosition?: 'start' | 'top' | 'bottom' | 'end';
+
+  activateOnFocus?: boolean;
+
+  disabled?: boolean;
+
+  onBlur?: (event: React.FocusEvent<any>) => any;
+  onFocus?: (event: React.FocusEvent<any>) => any;
+
+  LineProps?: TPropsAny;
+}
+
+const Tab = React.forwardRef((props_: ITab, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiTab?.props?.default }), [props_]);

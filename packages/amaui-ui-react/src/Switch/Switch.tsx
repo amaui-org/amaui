@@ -6,7 +6,7 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 import Keyframes from '../Keyframes';
 import IconButton from '../IconButton';
 
-import { staticClassName } from '../utils';
+import { IBaseElement, staticClassName, TColor, TElementReference, TRef, TSize, TTonal } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -186,7 +186,24 @@ const Icon = (props: any) => {
   );
 };
 
-const Switch = React.forwardRef((props_: any, ref: any) => {
+export interface ISwitch extends IBaseElement {
+  tonal?: TTonal;
+  color?: TColor;
+  size?: TSize;
+
+  inputRef?: TRef;
+
+  valueDefault?: boolean;
+  checked?: boolean;
+  onChange?: (value: boolean, event: React.ChangeEvent<any>) => any;
+
+  OnIcon?: TElementReference;
+  OffIcon?: TElementReference;
+
+  disabled?: boolean;
+}
+
+const Switch = React.forwardRef((props_: ISwitch, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiSwitch?.props?.default }), [props_]);
@@ -659,8 +676,6 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
     <Component
       ref={ref}
 
-      {...other}
-
       className={classNames([
         staticClassName('Switch', theme) && [
           'AmauiSwitch-root',
@@ -685,6 +700,8 @@ const Switch = React.forwardRef((props_: any, ref: any) => {
 
         ...styles.root
       }}
+
+      {...other}
     >
       <input
         ref={item => {
