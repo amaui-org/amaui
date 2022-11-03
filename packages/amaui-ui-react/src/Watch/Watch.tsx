@@ -10,7 +10,8 @@ import Surface from '../Surface';
 import RoundMeter from '../RoundMeter';
 import Line from '../Line';
 
-import { angleToCoordinates, staticClassName } from '../utils';
+import { angleToCoordinates, staticClassName, TElement, TPropsAny, TSize } from '../utils';
+import { ISurface } from '../Surface/Surface';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -80,7 +81,30 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiWatch' });
 
-const Watch = React.forwardRef((props_: any, ref: any) => {
+export interface IWatch extends Omit<ISurface, 'version'> {
+  version?: 'regular' | 'analog' | 'modern' | 'minimal';
+
+  size?: TSize;
+
+  timeVisible?: boolean;
+  timeOfDayVisible?: boolean;
+  dateVisible?: boolean;
+
+  timeFormatString?: string;
+  dateFormatString?: string;
+
+  renderTime?: (value: number) => TElement;
+  renderDate?: (value: number) => TElement;
+
+  shadow?: boolean;
+
+  AnalogProps?: TPropsAny;
+  RegularProps?: TPropsAny;
+  MinimalProps?: TPropsAny;
+  ModernProps?: TPropsAny;
+}
+
+const Watch = React.forwardRef((props_: IWatch, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiWatch?.props?.default }), [props_]);
@@ -95,9 +119,6 @@ const Watch = React.forwardRef((props_: any, ref: any) => {
     version = 'regular',
 
     size = 'regular',
-
-    marksAnalog,
-    labelsAnalog,
 
     timeVisible = true,
     timeOfDayVisible = true,

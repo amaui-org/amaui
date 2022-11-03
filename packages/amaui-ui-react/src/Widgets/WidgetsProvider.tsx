@@ -12,7 +12,7 @@ import Line from '../Line';
 import Icon from '../Icon';
 import Move from '../Move';
 
-import { staticClassName } from '../utils';
+import { IBaseElement, staticClassName, TElement, TElementReference, TPropsAny } from '../utils';
 
 export interface IWidgetsProvider {
   open: (value?: string) => void;
@@ -132,7 +132,29 @@ const IconMaterialWidgetsRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
-const WidgetsProvider = React.forwardRef((props_: any, ref: any) => {
+export interface IWidgetsProvider extends IBaseElement {
+  widgets?: TElement;
+
+  position?: 'top' | 'bottom';
+
+  move?: boolean;
+
+  fixed?: boolean;
+
+  onOpen?: (value: string) => any;
+  onOpenAll?: () => any;
+
+  onClose?: (value: string) => any;
+  onCloseAll?: () => any;
+
+  SpeedDialProps?: TPropsAny;
+  MoveProps?: TPropsAny;
+
+  Icon?: TElementReference;
+  IconCloseItem?: TElementReference;
+}
+
+const WidgetsProvider = React.forwardRef((props_: IWidgetsProvider, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiWidgetsProvider?.props?.default }), [props_]);
@@ -183,7 +205,7 @@ const WidgetsProvider = React.forwardRef((props_: any, ref: any) => {
   }, []);
 
   const openAll = React.useCallback(() => {
-    setOpenItems(() => unique((widgets || []).map((item: any) => {
+    setOpenItems(() => unique(((widgets || []) as any).map((item: any) => {
       const valueItem = item.value !== undefined ? item.value : item.label;
 
       return valueItem;
@@ -225,7 +247,7 @@ const WidgetsProvider = React.forwardRef((props_: any, ref: any) => {
 
   return (
     <WidgetsContext.Provider value={refs.value.current}>
-      {widgets?.length && <>
+      {(widgets as any)?.length && <>
         <SpeedDial
           ref={ref}
 
@@ -239,7 +261,7 @@ const WidgetsProvider = React.forwardRef((props_: any, ref: any) => {
 
           {...SpeedDialProps}
         >
-          {widgets.map((item: any, index: number) => {
+          {(widgets as any).map((item: any, index: number) => {
             const valueItem = item.value !== undefined ? item.value : item.label;
 
             return (
@@ -298,7 +320,7 @@ const WidgetsProvider = React.forwardRef((props_: any, ref: any) => {
               classes.line
             ])}
           >
-            {widgets.map((item: any, index: number) => {
+            {(widgets as any).map((item: any, index: number) => {
               const valueItem = item.value !== undefined ? item.value : item.label;
 
               return (

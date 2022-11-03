@@ -8,7 +8,7 @@ import Divider from '../Divider';
 import IconButton from '../IconButton';
 import Icon from '../Icon';
 
-import { staticClassName } from '../utils';
+import { IBaseElement, staticClassName, TColor, TElement, TPropsAny, TTonal } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -152,7 +152,33 @@ const IconMaterialSwapVertRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
-const ViewSplit = React.forwardRef((props_: any, ref: any) => {
+export interface IViewSplit extends IBaseElement {
+  tonal?: TTonal;
+  color?: TColor;
+
+  valueDefault?: number;
+  value?: number;
+
+  onChange?: (value: number) => any;
+
+  version?: 'auto' | 'manual';
+  orientation?: 'vertical' | 'horizontal';
+  divider?: boolean;
+
+  onFocus?: (event: React.FocusEvent<any>) => any;
+  onBlur?: (event: React.FocusEvent<any>) => any;
+  onMouseEnter?: (event: React.MouseEvent<any>) => any;
+  onMouseLeave?: (event: React.MouseEvent<any>) => any;
+
+  iconButtonComponent?: TElement;
+  iconOrientationHorizontal?: TElement;
+  iconOrientationVertical?: TElement;
+
+  IconButtonProps?: TPropsAny;
+  DividerProps?: TPropsAny;
+}
+
+const ViewSplit = React.forwardRef((props_: IViewSplit, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiViewSplit?.props?.default }), [props_]);
@@ -184,6 +210,8 @@ const ViewSplit = React.forwardRef((props_: any, ref: any) => {
       elevation: false
     },
     DividerProps = {},
+
+    Component = 'div',
 
     className,
 
@@ -493,6 +521,8 @@ const ViewSplit = React.forwardRef((props_: any, ref: any) => {
 
       onKeyDown={onKeyDown}
 
+      Component={Component}
+
       className={classNames([
         staticClassName('ViewSplit', theme) && [
           'AmauiViewSplit-root',
@@ -581,7 +611,7 @@ const ViewSplit = React.forwardRef((props_: any, ref: any) => {
       )}
 
       {version === 'manual' && (
-        (iconButtonComponent && React.cloneElement(iconButtonComponent, {
+        (iconButtonComponent && React.cloneElement(iconButtonComponent as any, {
           className: classNames([
             staticClassName('ViewSplit', theme) && [
               'AmauiViewSplit-icon-button'

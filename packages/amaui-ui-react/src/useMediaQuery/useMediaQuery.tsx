@@ -1,6 +1,6 @@
 import React from 'react';
 
-const useMediaQuery = (props: any) => {
+const useMediaQuery = (props: string) => {
   const [media, setMedia] = React.useState(props);
   const [mediaQuery, setMediaQuery] = React.useState<MediaQueryList>(window.matchMedia(media));
   const [response, setResponse] = React.useState<MediaQueryList | MediaQueryListEvent>(mediaQuery);

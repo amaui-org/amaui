@@ -12,7 +12,7 @@ import Interaction from '../Interaction';
 import Line from '../Line';
 import Icon from '../Icon';
 
-import { staticClassName } from '../utils';
+import { IBaseElement, staticClassName, TElement, TElementReference, TPropsAny } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -98,7 +98,48 @@ const IconMaterialExpandMoreRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
-const Tree = React.forwardRef((props_: any, ref: any) => {
+export interface ITree extends IBaseElement {
+  open?: boolean;
+  openDefault?: boolean;
+
+  onChange?: (value: boolean) => any;
+
+  line?: boolean;
+  indicator?: boolean;
+  arrow?: boolean;
+  checkbox?: boolean;
+  indicatorPosition?: 'start' | 'end';
+
+  level?: number;
+
+  icon?: TElement;
+  iconOpen?: TElement;
+  start?: TElement;
+  middle?: TElement;
+  end?: TElement;
+
+  button?: boolean;
+  noTransition?: boolean;
+  noExpand?: boolean;
+
+  noPadding?: boolean;
+
+  parentDisabled?: boolean;
+  disabled?: boolean;
+
+  ExpandProps?: TPropsAny;
+  MainProps?: TPropsAny;
+  StartProps?: TPropsAny;
+  MiddleProps?: TPropsAny;
+  EndProps?: TPropsAny;
+  IndicatorProps?: TPropsAny;
+  TransitionComponentProps?: TPropsAny;
+
+  IconArrow?: TElementReference;
+  TransitionComponent?: TElementReference;
+}
+
+const Tree = React.forwardRef((props_: ITree, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiTree?.props?.default }), [props_]);
@@ -242,7 +283,7 @@ const Tree = React.forwardRef((props_: any, ref: any) => {
   const start = React.Children.toArray(start_);
 
   // Icon
-  if (!open ? icon : iconOpen || icon) start.push(!open ? icon : iconOpen || icon);
+  if (!open ? icon : iconOpen || icon) start.push((!open ? icon : iconOpen || icon) as any);
 
   const end = React.Children.toArray(end_);
 

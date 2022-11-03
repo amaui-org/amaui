@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, TTypographyItem, useAmauiTheme } from '@amaui/style-react';
 
-import { staticClassName } from '../utils';
+import { IBaseElement, staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -64,7 +64,15 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiType' });
 
-const Type = React.forwardRef((props_: any, ref: any) => {
+export interface IType extends IBaseElement {
+  color?: 'inherit' | 'themed' | 'inverted' | 'default' | 'primary' | 'secondary' | 'tertiary' | 'quaternary';
+  version?: TTypographyItem;
+  size?: string | number;
+
+  disabled?: boolean;
+}
+
+const Type = React.forwardRef((props_: IType, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiType?.props?.default }), [props_]);
@@ -81,7 +89,7 @@ const Type = React.forwardRef((props_: any, ref: any) => {
     Component: Component_,
 
     className,
-    style = {},
+    style,
 
     children,
 

@@ -8,8 +8,9 @@ import Type from '../Type';
 import Fade from '../Fade';
 import Transitions from '../Transitions';
 import Icon from '../Icon';
+import { ISurface } from '../Surface/Surface';
 
-import { staticClassName } from '../utils';
+import { staticClassName, TElementReference, TPropsAny, TSize } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -251,7 +252,44 @@ const IconMaterialCloudySnowingRoundedFilled = React.forwardRef((props: any, ref
   );
 });
 
-const Weather = React.forwardRef((props_: any, ref: any) => {
+export type TWeatherDayTime = 'day' | 'night';
+
+export type TWeather = 'clear' | 'partly clear' | 'rainy' | 'partly rainy' | 'snowy' | 'partly snowy';
+
+export type TTemperature = number;
+
+export interface IWeather extends ISurface {
+  size?: TSize;
+
+  shadow?: boolean;
+
+  dayTime?: TWeatherDayTime;
+
+  weather?: TWeather;
+
+  temperature?: TTemperature;
+
+  values: {
+    dayTime?: TWeatherDayTime;
+
+    weather?: TWeather;
+
+    temperature?: TTemperature;
+  };
+
+  // Once every 1 hour
+  interval?: number;
+
+  IconDay?: TElementReference;
+  IconNight?: TElementReference;
+  IconCloud?: TElementReference;
+  IconRain?: TElementReference;
+  IconSnow?: TElementReference;
+
+  IconProps?: TPropsAny;
+}
+
+const Weather = React.forwardRef((props_: IWeather, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiWeather?.props?.default }), [props_]);
@@ -272,10 +310,6 @@ const Weather = React.forwardRef((props_: any, ref: any) => {
     temperature: temperature_,
 
     values: values_,
-
-    update: update_,
-
-    onChange,
 
     // Once every 1 hour
     interval = 60 * 60 * 1e3,
@@ -361,7 +395,7 @@ const Weather = React.forwardRef((props_: any, ref: any) => {
 
   if (!['small', 'regular', 'large'].includes(size)) styles.root.maxWidth = size;
 
-  const IconProps = {
+  const IconProps: any = {
     color: 'unset',
 
     ...IconProps_
