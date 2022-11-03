@@ -5,7 +5,8 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import TextField from '../TextField';
 
-import { staticClassName } from '../utils';
+import { staticClassName, TPropsAny } from '../utils';
+import { ITextField } from '../TextField/TextField';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -13,7 +14,21 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiAdvancedTextField' });
 
-const AdvancedTextField = React.forwardRef((props_: any, ref: any) => {
+export interface IAdvancedTextField extends ITextField {
+  validate?: (value: string) => boolean;
+
+  mask?: Array<any>;
+
+  maskProactive?: boolean;
+
+  thousand?: boolean;
+
+  thousandSeparator?: ',' | '.';
+
+  TextFieldProps?: TPropsAny;
+}
+
+const AdvancedTextField = React.forwardRef((props_: IAdvancedTextField, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiAdvancedTextField?.props?.default }), [props_]);

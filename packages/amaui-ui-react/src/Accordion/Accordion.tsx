@@ -12,7 +12,7 @@ import Grid from '../Grid';
 import Line from '../Line';
 import Type from '../Type';
 
-import { staticClassName } from '../utils';
+import { staticClassName, TChildren, TColor, TElement, TElementReference, TElevation, TPropsAny, TTonal } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -140,7 +140,47 @@ const IconMaterialExpandMoreRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
-const Accordion = React.forwardRef((props_: any, ref: any) => {
+type TPadding = 'start' | 'end' | 'both' | 'none';
+
+export interface IAccordion {
+  tonal?: TTonal;
+  color?: TColor;
+  elevation?: TElevation;
+
+  primary?: TElement;
+  secondary?: TElement;
+
+  openDefault?: boolean;
+  open?: boolean;
+  onChange?: (open: boolean) => any;
+
+  noBackground?: boolean;
+  noExpandButton?: boolean;
+  expandedMarginVertical?: TPadding;
+  expandedHeaderPaddingVertical?: TPadding;
+  headerPaddingVertical?: TPadding;
+  headerPaddingHorizontal?: TPadding;
+  mainPaddingVertical?: TPadding;
+  mainPaddingHorizontal?: TPadding;
+  noTransition?: boolean;
+  disabled?: boolean;
+
+  ExpandProps?: TPropsAny;
+  TransitionComponentProps?: TPropsAny;
+  WrapperHeaderProps?: TPropsAny;
+  IconButtonProps?: TPropsAny;
+
+  ExpandIcon?: TElementReference;
+  TransitionComponent?: TElementReference;
+
+  Component?: TElementReference;
+
+  className?: string;
+
+  children?: TChildren;
+};
+
+const Accordion = React.forwardRef((props_: IAccordion, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiAccordion?.props?.default }), [props_]);

@@ -1,5 +1,5 @@
-import { is, canvasFilterBrightness, canvasFilterContrast, canvasFilterSaturation, canvasFilterFade, canvasFilterInvert, canvasFilterOldPhoto, download, clamp } from '@amaui/utils';
-import { AmauiTheme } from '@amaui/style-react';
+import { is, canvasFilterBrightness, canvasFilterContrast, canvasFilterSaturation, canvasFilterFade, canvasFilterInvert, canvasFilterOldPhoto, download, clamp, TMethod } from '@amaui/utils';
+import { AmauiTheme, TPaletteVersion } from '@amaui/style-react';
 
 export function reflow(element: HTMLElement) {
   element?.offsetHeight;
@@ -266,3 +266,35 @@ export const minMaxBetweenNumbers = (value = 10, min = 0, max = 100) => {
 
   return values;
 };
+
+export type TTonal = true | false | 'secondary';
+
+type RGB = `rgb(${number}, ${number}, ${number})`;
+type RGBA = `rgba(${number}, ${number}, ${number}, ${number})`;
+type HSL = `hsl(${number}, ${number}, ${number})`;
+type HSLA = `hsla(${number}, ${number}, ${number}, ${number})`;
+type HEX = `#${string}`;
+
+type Color = RGB | RGBA | HSL | HSLA | HEX;
+
+export type TColor = 'default' | 'themed' | 'inverted' | 'inherit' | TPaletteVersion | Color;
+
+export type TVersion = 'filled' | 'outlined' | 'text';
+
+export type TSize = 'small' | 'regular' | 'large';
+
+export type TSizeAny = TSize | number;
+
+export type TElevation = 0 | 1 | 2 | 3 | 4 | 6 | 8 | 9 | 12 | 16 | 24;
+
+export type TElementReference = React.ForwardRefExoticComponent<Pick<any, string | number | symbol> & React.RefAttributes<unknown>>;
+
+export type TElement = React.ReactNode | React.ReactNode[];
+
+export type TElementAny = TElement | string | number | boolean | null | undefined;
+
+export type TPropsAny = Record<string, any>;
+
+export type TChildren = React.ReactNode | React.ReactNode[];
+
+export type TRef = React.MutableRefObject<any> | TMethod;

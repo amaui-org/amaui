@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { clamp, is, isEnvironment } from '@amaui/utils';
+import { clamp, is, isEnvironment, TMethod } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Type from '../Type';
 
-import { staticClassName } from '../utils';
+import { staticClassName, TChildren, TColor, TElement, TElementReference, TPropsAny, TRef, TSize, TTonal, TVersion } from '../utils';
 
 const other_ = {
   pointerEvents: 'none',
@@ -492,7 +492,72 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiTextField' });
 
-const TextField = React.forwardRef((props_: any, ref: any) => {
+export interface ITextField {
+  tonal?: TTonal;
+  color?: TColor;
+  version?: TVersion;
+  size?: TSize;
+
+  rootRef?: TRef;
+
+  valueDefault?: string;
+  value?: string;
+  onChange?: (value: string, event?: React.ChangeEvent<HTMLInputElement>) => any;
+
+  label?: string;
+  align?: 'start' | 'end',
+  start?: TElement;
+  startVerticalAlign?: 'start' | 'center' | 'end',
+  end?: TElement;
+  endVerticalAlign?: 'start' | 'center' | 'end',
+  placeholder?: string;
+  fullWidth?: boolean;
+  helperText?: string;
+  counter?: number;
+  prefix?: string;
+  sufix?: string;
+  noPrefixMargin?: boolean;
+  noSufixMargin?: boolean;
+  enabled?: boolean;
+  name?: string;
+  autoFocus?: boolean;
+  autoComplete?: boolean;
+  type?: React.HTMLInputTypeAttribute,
+  required?: boolean;
+  optional?: boolean;
+  optionalText?: string,
+  error?: boolean;
+  multiline?: boolean;
+  rows?: number;
+  minRows?: number;
+  maxRows?: number;
+  focus?: boolean;
+  footer?: TElement;
+  readOnly?: boolean;
+  disabled?: boolean;
+
+  onFocus?: TMethod;
+  onBlur?: TMethod;
+  onMouseEnter?: TMethod;
+  onMouseLeave?: TMethod;
+
+  inputProps?: TPropsAny;
+  InputWrapperProps?: TPropsAny;
+
+  WrapperComponent?: TElementReference;
+
+  Component?: TElementReference;
+
+  className?: string;
+  style?: React.StyleHTMLAttributes<any>;
+
+  children: TChildren;
+
+  // Other
+  colorUnchecked: any;
+}
+
+const TextField = React.forwardRef((props_: ITextField, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiTextField?.props?.default }), [props_]);
@@ -735,14 +800,14 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
     styles.root.color = theme.palette.text.default.secondary;
   }
   else {
-    styles.root.color = styles.input.caretColor = tonal ? theme.methods.palette.color.value(color, 30, true, palette) : (color === 'default' ? theme.palette.text.default.primary : (theme.palette.color[color] as any)?.main || color);
+    styles.root.color = styles.input.caretColor = tonal ? theme.methods.palette.color.value(color as any, 30, true, palette) : (color === 'default' ? theme.palette.text.default.primary : (theme.palette.color[color] as any)?.main || color);
   }
 
   if (error) {
     styles.input.caretColor = theme.palette.light ? theme.palette.color.error[40] : theme.palette.color.error[80];
   }
 
-  if (tonal) styles.background.color = theme.methods.palette.color.value(color, 20, true, palette);
+  if (tonal) styles.background.color = theme.methods.palette.color.value(color as any, 20, true, palette);
 
   const footer = (footer_ || helperText !== undefined || counter !== undefined || required);
 
@@ -796,7 +861,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
     ...styles.root
   };
 
-  let InputComponent = 'input';
+  let InputComponent: any = 'input';
 
   if (multiline) {
     InputComponent = 'textarea';
@@ -977,7 +1042,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
 
               classes.icon,
               classes.icon_start,
-              classes[`icon${start?.type?.displayName?.includes('IconButton') ? '_button' : ''}_size_${size}`],
+              classes[`icon${(start as any)?.type?.displayName?.includes('IconButton') ? '_button' : ''}_size_${size}`],
               classes[`icon_version_${version}`],
               classes[`icon_vertical_align_${startVerticalAlign}`]
             ])}
@@ -1139,7 +1204,7 @@ const TextField = React.forwardRef((props_: any, ref: any) => {
 
               classes.icon,
               classes.icon_end,
-              classes[`icon${end?.type?.displayName?.includes('IconButton') ? '_button' : ''}_size_${size}`],
+              classes[`icon${(end as any)?.type?.displayName?.includes('IconButton') ? '_button' : ''}_size_${size}`],
               classes[`icon_version_${version}`],
               classes[`icon_vertical_align_${endVerticalAlign}`]
             ])}

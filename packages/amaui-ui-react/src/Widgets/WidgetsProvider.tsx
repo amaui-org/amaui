@@ -47,6 +47,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   widget: {
+    userSelect: 'none',
     boxShadow: theme.shadows.values.default[6]
   },
 
