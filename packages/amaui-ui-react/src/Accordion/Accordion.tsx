@@ -178,6 +178,8 @@ export interface IAccordion {
   className?: string;
 
   children?: TChildren;
+
+  [key: string]: any;
 };
 
 const Accordion = React.forwardRef((props_: IAccordion, ref: any) => {

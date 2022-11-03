@@ -295,6 +295,8 @@ export type TElementAny = TElement | string | number | boolean | null | undefine
 
 export type TPropsAny = Record<string, any>;
 
+export type TStyle = React.CSSProperties | undefined;
+
 export type TChildren = React.ReactNode | React.ReactNode[];
 
 export type TRef = React.MutableRefObject<any> | TMethod;
