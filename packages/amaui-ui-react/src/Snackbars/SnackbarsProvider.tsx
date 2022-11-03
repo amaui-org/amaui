@@ -9,7 +9,7 @@ import Slide from '../Slide';
 import Expand from '../Expand';
 import Line from '../Line';
 
-import { staticClassName } from '../utils';
+import { IBaseElement, staticClassName, TPropsAny } from '../utils';
 
 export interface ISnackbarsProvider {
   add: (value: any) => void;
@@ -65,7 +65,15 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiSnackbarsProvider' });
 
-const SnackbarsProvider = React.forwardRef((props_: any, ref: any) => {
+export interface ISnackbarsProvider extends IBaseElement {
+  max?: number;
+  position?: 'top' | 'bottom';
+  alignment?: 'start' | 'left' | 'center' | 'right' | 'end';
+
+  SnackbarProps?: TPropsAny;
+}
+
+const SnackbarsProvider = React.forwardRef((props_: ISnackbarsProvider, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiSnackbarsProvider?.props?.default }), [props_]);

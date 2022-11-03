@@ -10,7 +10,8 @@ import Surface from '../Surface';
 import IconButton from '../IconButton';
 import Line from '../Line';
 
-import { staticClassName } from '../utils';
+import { IBaseElement, staticClassName, TElement, TElementReference, TPropsAny, TSize } from '../utils';
+import { ISurface } from '../Surface/Surface';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -92,7 +93,30 @@ const IconMaterialCloseRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
-const Snackbar = React.forwardRef((props_: any, ref: any) => {
+export interface ISnackbar extends ISurface {
+  size?: TSize;
+
+  open?: boolean;
+
+  primary?: TElement;
+  end?: TElement;
+  position?: 'top' | 'bottom';
+  alignment?: 'start' | 'left' | 'center' | 'right' | 'end';
+  autoHide?: boolean;
+  autoHideDuration?: number;
+  fixed?: boolean;
+  closeButton?: boolean;
+
+  onMouseEnter?: (event: React.MouseEvent<any>) => any;
+  onMouseLeave?: (event: React.MouseEvent<any>) => any;
+  onClose?: () => any;
+
+  TransitionComponent?: TElementReference;
+
+  TransitionComponentProps?: TPropsAny;
+}
+
+const Snackbar = React.forwardRef((props_: ISnackbar, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiSnackbar?.props?.default }), [props_]);
@@ -157,16 +181,16 @@ const Snackbar = React.forwardRef((props_: any, ref: any) => {
     refs.timeoutLeftOver.current = refs.autoHideDuration.current - (new Date().getTime() - refs.timeoutStart.current);
   };
 
-  const onMouseEnter = React.useCallback(() => {
+  const onMouseEnter = React.useCallback((event: React.MouseEvent<any>) => {
     if (refs.timeout.current !== undefined) removeTimeout();
 
-    if (is('function', onMouseEnter_)) onMouseEnter_();
+    if (is('function', onMouseEnter_)) onMouseEnter_(event);
   }, [onMouseEnter_]);
 
-  const onMouseLeave = React.useCallback(() => {
+  const onMouseLeave = React.useCallback((event: React.MouseEvent<any>) => {
     if (refs.timeoutLeftOver.current !== undefined) addTimeout(refs.timeoutLeftOver.current);
 
-    if (is('function', onMouseLeave_)) onMouseLeave_();
+    if (is('function', onMouseLeave_)) onMouseLeave_(event);
   }, [onMouseLeave_]);
 
   const onClose = React.useCallback(() => {
