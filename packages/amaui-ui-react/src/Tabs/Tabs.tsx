@@ -9,8 +9,10 @@ import Icon from '../Icon';
 import IconButton from '../IconButton';
 import useMediaQuery from '../useMediaQuery';
 import Divider from '../Divider';
+import { ISurface } from '../Surface/Surface';
+import { TLineAlign, TLineJustify } from '../Line/Line';
 
-import { staticClassName } from '../utils';
+import { staticClassName, TElementReference, TPropsAny } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -175,7 +177,36 @@ const IconMaterialNavigateBeforeRounded = React.forwardRef((props: any, ref) => 
   );
 });
 
-const Tabs = React.forwardRef((props_: any, ref: any) => {
+export interface ITabs extends Omit<ISurface, 'version'> {
+  version?: 'primary' | 'secondary';
+
+  value?: number;
+  valueDefault?: number;
+
+  onChange?: (value: number) => any;
+
+  activateOnFocus?: boolean;
+
+  align?: TLineAlign;
+  justify?: TLineJustify;
+  orientation?: 'vertical' | 'horizontal';
+
+  initialLineUpdateTimeout?: number;
+
+  arrows?: boolean;
+  arrowsMobile?: boolean;
+  fixed?: boolean;
+
+  IconStart?: TElementReference;
+  IconEnd?: TElementReference;
+
+  IconTop?: TElementReference;
+  IconBottom?: TElementReference;
+
+  SurfaceProps?: TPropsAny;
+}
+
+const Tabs = React.forwardRef((props_: ITabs, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiTabs?.props?.default }), [props_]);
@@ -208,6 +239,8 @@ const Tabs = React.forwardRef((props_: any, ref: any) => {
 
     IconTop = IconMaterialExpandLessRounded,
     IconBottom = IconMaterialExpandMoreRounded,
+
+    SurfaceProps,
 
     Component = 'div',
 
@@ -443,6 +476,12 @@ const Tabs = React.forwardRef((props_: any, ref: any) => {
 
       Component={Line}
 
+      AdditionalProps={{
+        Component
+      }}
+
+      {...SurfaceProps}
+
       className={classNames([
         staticClassName('Tabs', theme) && [
           'AmauiTabs-root',
@@ -453,6 +492,7 @@ const Tabs = React.forwardRef((props_: any, ref: any) => {
           fixed && `AmauiTabs-fixed`
         ],
 
+        SurfaceProps?.className,
         className,
         classes.root,
         classes[`orientation_${orientation}`],

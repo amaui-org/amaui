@@ -3,8 +3,9 @@ import React from 'react';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Surface from '../Surface';
+import { ISurface } from '../Surface/Surface';
 
-import { staticClassName } from '../utils';
+import { staticClassName, TElement, TElementReference, TPropsAny, TSize } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -24,7 +25,19 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiTable' });
 
-const Table = React.forwardRef((props_: any, ref: any) => {
+export interface ITable extends ISurface {
+  size?: TSize;
+
+  header?: TElement;
+  footer?: TElement;
+
+  WrapperComponentProps?: TPropsAny;
+
+  TableComponent?: TElementReference;
+  WrapperComponent?: TElementReference;
+}
+
+const Table = React.forwardRef((props_: ITable, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiTable?.props?.default }), [props_]);
@@ -78,12 +91,12 @@ const Table = React.forwardRef((props_: any, ref: any) => {
 
       {...other}
     >
-      {header && React.cloneElement(header, {
-        tonal: header.props.tonal !== undefined ? header.props.tonal : tonal,
+      {header && React.cloneElement(header as any, {
+        tonal: (header as any).props.tonal !== undefined ? (header as any).props.tonal : tonal,
 
-        color: header.props.color !== undefined ? header.props.color : color,
+        color: (header as any).props.color !== undefined ? (header as any).props.color : color,
 
-        size: header.props.size !== undefined ? header.props.size : size
+        size: (header as any).props.size !== undefined ? (header as any).props.size : size
       })}
 
       <WrapperComponent
@@ -115,18 +128,18 @@ const Table = React.forwardRef((props_: any, ref: any) => {
 
               color: item.props.color !== undefined ? item.props.color : color,
 
-              size: header.props.size !== undefined ? header.props.size : size
+              size: item.props.size !== undefined ? item.props.size : size
             })
           ))}
         </TableComponent>
       </WrapperComponent>
 
-      {footer && React.cloneElement(footer, {
-        tonal: footer.props.tonal !== undefined ? footer.props.tonal : tonal,
+      {footer && React.cloneElement(footer as any, {
+        tonal: (footer as any).props.tonal !== undefined ? (footer as any).props.tonal : tonal,
 
-        color: footer.props.color !== undefined ? footer.props.color : color,
+        color: (footer as any).props.color !== undefined ? (footer as any).props.color : color,
 
-        size: header.props.size !== undefined ? header.props.size : size
+        size: (footer as any).props.size !== undefined ? (footer as any).props.size : size
       })}
     </Surface>
   );

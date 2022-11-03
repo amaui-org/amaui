@@ -4,8 +4,9 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import Line from '../Line';
 import Divider from '../Divider';
+import { TLineAlign, TLineJustify } from '../Line/Line';
 
-import { staticClassName } from '../utils';
+import { IBaseElement, staticClassName, TColor, TPropsAny, TSize, TTonal } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -48,7 +49,20 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiTableCell' });
 
-const TableCell = React.forwardRef((props_: any, ref: any) => {
+export interface ITableCell extends IBaseElement {
+  tonal?: TTonal;
+  color?: TColor;
+  size?: TSize;
+
+  position?: 'head' | 'body';
+  align?: TLineAlign;
+  justify?: TLineJustify;
+  noWeight?: boolean
+
+  DividerProps?: TPropsAny;
+}
+
+const TableCell = React.forwardRef((props_: ITableCell, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiTableCell?.props?.default }), [props_]);

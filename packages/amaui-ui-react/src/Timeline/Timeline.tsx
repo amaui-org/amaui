@@ -4,7 +4,7 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import Line from '../Line';
 
-import { staticClassName } from '../utils';
+import { IBaseElement, staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -12,7 +12,11 @@ const useStyle = styleMethod(theme => ({
   },
 }), { name: 'AmauiTimeline' });
 
-const Timeline = React.forwardRef((props_: any, ref: any) => {
+export interface ITimeline extends IBaseElement {
+  orientation?: 'vertical' | 'horizontal';
+}
+
+const Timeline = React.forwardRef((props_: ITimeline, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiTimeline?.props?.default }), [props_]);

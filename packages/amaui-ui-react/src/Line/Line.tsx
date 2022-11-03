@@ -125,6 +125,10 @@ const useStyle = styleMethod(theme => ({
   'columnGap_16': { columnGap: `${16 * theme.space.unit}px` }
 }), { name: 'AmauiLine' });
 
+export type TLineAlign = 'inherit' | 'initial' | 'flex-start' | 'center' | 'flex-end' | 'baseline' | 'stretch';
+
+export type TLineJustify = 'inherit' | 'initial' | 'flex-start' | 'center' | 'flex-end' | 'space-around' | 'space-between' | 'space-evenly';
+
 const Line = React.forwardRef((props_: any, ref: any) => {
   const theme = useAmauiTheme();
 

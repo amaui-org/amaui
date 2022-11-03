@@ -39,7 +39,7 @@ export interface IAppend {
   unfollow?: boolean;
   style?: TStyle;
   update?: any;
-  element?: (value: { ref: TRef; values: IAppendValue; style: TStyle; }) => any | TElement;
+  element?: (value: { ref: TRef; values: IAppendValue; style: TStyle; }) => any | TElement | Element;
   parent?: THTMLElement;
 
   children?: TChildren;

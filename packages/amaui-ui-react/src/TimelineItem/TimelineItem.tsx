@@ -6,7 +6,7 @@ import Surface from '../Surface';
 import Divider from '../Divider';
 import Line from '../Line';
 
-import { staticClassName } from '../utils';
+import { IBaseElement, staticClassName, TElement, TElementReference, TPropsAny } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -71,7 +71,20 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiTimelineItem' });
 
-const TimelineItem = React.forwardRef((props_: any, ref: any) => {
+export interface ITimelineItem extends IBaseElement {
+  orientation?: 'vertical' | 'horizontal';
+
+  start?: TElement;
+  end?: TElement;
+
+  DividerProps?: TPropsAny
+  IconProps?: TPropsAny;
+
+  Icon?: TElementReference;
+  Divider?: TElementReference;
+}
+
+const TimelineItem = React.forwardRef((props_: ITimelineItem, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiTimelineItem?.props?.default }), [props_]);
@@ -193,7 +206,7 @@ const TimelineItem = React.forwardRef((props_: any, ref: any) => {
             classes[`iconWrapper_orientation_${orientation}`]
           ])}
         >
-          {Icon ? Icon : (
+          {Icon ? Icon as any : (
             <Surface
               {...IconProps}
 

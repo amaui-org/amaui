@@ -3,8 +3,9 @@ import React from 'react';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Surface from '../Surface';
+import { ISurface } from '../Surface/Surface';
 
-import { staticClassName } from '../utils';
+import { staticClassName, TSize } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -18,7 +19,13 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiTableHead' });
 
-const TableHead = React.forwardRef((props_: any, ref: any) => {
+export interface ITableHead extends ISurface {
+  size?: TSize;
+
+  sticky?: boolean;
+}
+
+const TableHead = React.forwardRef((props_: ITableHead, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiTableHead?.props?.default }), [props_]);

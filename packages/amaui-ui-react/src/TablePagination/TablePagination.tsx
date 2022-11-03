@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { clamp, is } from '@amaui/utils';
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, string, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Line from '../Line';
 import Type from '../Type';
@@ -10,7 +10,7 @@ import ListItem from '../ListItem';
 import Icon from '../Icon';
 import IconButton from '../IconButton';
 
-import { staticClassName } from '../utils';
+import { IBaseElement, staticClassName, TColor, TElementReference, TSize, TTonal, TVersion } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -90,7 +90,38 @@ const IconMaterialNavigateBeforeRounded = React.forwardRef((props: any, ref) => 
   );
 });
 
-const TablePagination = React.forwardRef((props_: any, ref: any) => {
+export interface ITableRow extends IBaseElement {
+  tonal?: TTonal;
+  color?: TColor;
+  version?: TVersion;
+  elevation?: boolean;
+  size?: TSize;
+
+  page?: number;
+  pageDefault?: number;
+
+  onChange?: (value: number) => any;
+
+  rowsPerPage?: number;
+  rowsPerPageDefault?: number;
+  rowsPerPageOptions?: Array<number>;
+  rowsPerPageText?: string;
+
+  onRowsPerPageChange?: (value: number) => any;
+
+  total?: number;
+  first?: boolean;
+  before?: boolean;
+  next?: boolean;
+  last?: boolean;
+
+  IconFirst?: TElementReference;
+  IconBefore?: TElementReference;
+  IconNext?: TElementReference;
+  IconLast?: TElementReference;
+}
+
+const TablePagination = React.forwardRef((props_: ITableRow, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiTablePagination?.props?.default }), [props_]);
