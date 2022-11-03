@@ -8,17 +8,9 @@ import Path from '../Path';
 import Line from '../Line';
 import Type from '../Type';
 import useMediaQuery from '../useMediaQuery';
+import { IChart } from '../Chart/Chart';
 
 import { staticClassName, valueBreakpoints } from '../utils';
-
-interface IItem {
-  color: string;
-  tone?: string;
-  name?: string;
-  style?: Record<string, any>;
-
-  values: [number, number, number, string];
-}
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -39,7 +31,9 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiColumnChart' });
 
-const ColumnChart = React.forwardRef((props_: any, ref: any) => {
+export interface IColumnChart extends IChart { }
+
+const ColumnChart = React.forwardRef((props_: IColumnChart, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiColumnChart?.props?.default }), [props_]);
@@ -252,7 +246,7 @@ const ColumnChart = React.forwardRef((props_: any, ref: any) => {
       const widthItem = clamp(width / (values.length * 2), undefined, 40);
 
       // Elements
-      const elements_ = copy(values).map((item: IItem) => {
+      const elements_ = copy(values).map(item => {
         const {
           color: color_,
 

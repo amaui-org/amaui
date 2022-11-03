@@ -6,7 +6,6 @@ import { classNames, style as styleMethod, TColorValues, useAmauiTheme } from '@
 import Surface from '../Surface';
 import Line from '../Line';
 import Type from '../Type';
-import { IItem } from '../LineChart/LineChart';
 import Path from '../Path';
 import Append from '../Append';
 import Grow from '../Grow';
@@ -1224,7 +1223,7 @@ const Chart = React.forwardRef((props_: IChart, ref: any) => {
     );
   }, []);
 
-  const make = (valueNew: any = values) => {
+  const make = (valueNew = values) => {
     // Make values into x, y, coordinates
     // normalized in rect width, height values
 
@@ -1308,7 +1307,7 @@ const Chart = React.forwardRef((props_: IChart, ref: any) => {
       refs.allValues.current = [];
 
       // Points
-      const points_ = copy(valueNew).flatMap((item: IItem) => {
+      const points_ = copy(valueNew).flatMap(item => {
         const {
           color: color_,
 

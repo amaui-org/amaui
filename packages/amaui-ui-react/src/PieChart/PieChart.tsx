@@ -9,17 +9,9 @@ import Line from '../Line';
 import Type from '../Type';
 import useMediaQuery from '../useMediaQuery';
 import Surface from '../Surface';
+import { IChart } from '../Chart/Chart';
 
 import { angleToCoordinates, staticClassName } from '../utils';
-
-export interface IItem {
-  color: string;
-  tone?: string;
-  name?: string;
-  style?: Record<string, any>;
-
-  values: Array<[number, number]> | [number, number];
-}
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -63,7 +55,9 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiPieChart' });
 
-const PieChart = React.forwardRef((props_: any, ref: any) => {
+export interface IPieChart extends IChart { }
+
+const PieChart = React.forwardRef((props_: IPieChart, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiPieChart?.props?.default }), [props_]);
@@ -208,7 +202,7 @@ const PieChart = React.forwardRef((props_: any, ref: any) => {
       let d = '';
 
       // Elements
-      const elements_ = copy(values).map((item: IItem, index: number) => {
+      const elements_ = copy(values).map((item, index: number) => {
         const {
           color: color_,
 

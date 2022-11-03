@@ -13,15 +13,6 @@ import { IChart } from '../Chart/Chart';
 
 import { staticClassName, valueBreakpoints } from '../utils';
 
-interface IItem {
-  color: string;
-  tone?: string;
-  name?: string;
-  style?: Record<string, any>;
-
-  values: [number, number, number, string];
-}
-
 const useStyle = styleMethod(theme => ({
   root: {
     '& .AmauiChart-legend-icon': {

@@ -7,6 +7,7 @@ import Chart from '../Chart';
 import Line from '../Line';
 import Type from '../Type';
 import useMediaQuery from '../useMediaQuery';
+import { IChart } from '../Chart/Chart';
 
 import { staticClassName, valueBreakpoints } from '../utils';
 
@@ -35,7 +36,9 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiAreaChart' });
 
-const ScatterChart = React.forwardRef((props_: any, ref: any) => {
+export interface IScatterChart extends IChart { }
+
+const ScatterChart = React.forwardRef((props_: IScatterChart, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiAreaChart?.props?.default }), [props_]);

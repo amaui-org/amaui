@@ -10,15 +10,7 @@ import Type from '../Type';
 import useMediaQuery from '../useMediaQuery';
 
 import { controlPoint, staticClassName, valueBreakpoints } from '../utils';
-
-export interface IItem {
-  color: string;
-  tone?: string;
-  name?: string;
-  style?: Record<string, any>;
-
-  values: Array<[number, number]>;
-}
+import { IChart } from '../Chart/Chart';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -39,7 +31,13 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiLineChart' });
 
-const LineChart = React.forwardRef((props_: any, ref: any) => {
+export interface ILineChart extends IChart {
+  smooth?: boolean;
+
+  smoothRatio?: number;
+}
+
+const LineChart = React.forwardRef((props_: ILineChart, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiLineChart?.props?.default }), [props_]);
@@ -254,7 +252,7 @@ const LineChart = React.forwardRef((props_: any, ref: any) => {
       });
 
       // Elements
-      const elements_ = copy(values).map((item: IItem) => {
+      const elements_ = copy(values).map(item => {
         const {
           color: color_,
 
