@@ -2,12 +2,12 @@ import React from 'react';
 
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import { staticClassName } from '../utils';
+import Line from '../Line';
+
+import { IBaseElement, staticClassName, TSize } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
-    display: 'flex',
-    flexDirection: 'row',
     width: '100%',
     padding: '1px',
 
@@ -57,7 +57,13 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiChips' });
 
-const Chips = React.forwardRef((props_: any, ref: any) => {
+export interface IChips extends IBaseElement {
+  size?: TSize;
+
+  wrap?: boolean;
+}
+
+const Chips = React.forwardRef((props_: IChips, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiChips?.props?.default }), [props_]);
@@ -69,6 +75,8 @@ const Chips = React.forwardRef((props_: any, ref: any) => {
 
     wrap,
 
+    Component = 'div',
+
     className,
     style,
 
@@ -78,8 +86,14 @@ const Chips = React.forwardRef((props_: any, ref: any) => {
   } = props;
 
   return (
-    <div
+    <Line
       ref={ref}
+
+      gap={0}
+
+      direction='row'
+
+      Component={Component}
 
       className={classNames([
         staticClassName('Chips', theme) && [
@@ -99,7 +113,7 @@ const Chips = React.forwardRef((props_: any, ref: any) => {
 
       style={style}
     >
-      {children.map((item: any, index: number) => React.cloneElement(item, {
+      {(children as any).map((item: any, index: number) => React.cloneElement(item, {
         key: index,
 
         size,
@@ -108,7 +122,7 @@ const Chips = React.forwardRef((props_: any, ref: any) => {
 
         ...item.props
       }))}
-    </div>
+    </Line>
   );
 });
 

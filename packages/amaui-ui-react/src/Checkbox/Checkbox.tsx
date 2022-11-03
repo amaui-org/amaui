@@ -6,8 +6,9 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 import { IconDoneAnimated } from '../Buttons/Buttons';
 import IconButton from '../IconButton';
 import Icon from '../Icon';
+import { IIconButton } from '../IconButton/IconButton';
 
-import { staticClassName } from '../utils';
+import { staticClassName, TColor, TRef } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -207,7 +208,22 @@ const IconItem = (props: any) => {
   );
 };
 
-const Checkbox = React.forwardRef((props_: any, ref: any) => {
+export interface ICheckbox extends IIconButton {
+  inputRef?: TRef;
+
+  colorIndeterminate?: TColor;
+  colorUnchecked?: TColor;
+
+  valueDefault?: any;
+  checked?: boolean;
+  onChange?: (value: boolean, event: React.ChangeEvent<any>) => any;
+
+  indeterminate?: boolean;
+
+  disabled?: boolean;
+}
+
+const Checkbox = React.forwardRef((props_: ICheckbox, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiCheckbox?.props?.default }), [props_]);
@@ -348,7 +364,10 @@ const Checkbox = React.forwardRef((props_: any, ref: any) => {
       firstLevelChildren={(
         <input
           ref={item => {
-            if (inputRef) inputRef.current = item;
+            if (inputRef) {
+              if (is('function', inputRef)) (inputRef as any)(item);
+              else inputRef.current = item;;
+            }
 
             refs.input.current = item;
           }}

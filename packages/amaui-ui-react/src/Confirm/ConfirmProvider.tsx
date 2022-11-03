@@ -12,7 +12,7 @@ import ModalMain from '../ModalMain';
 import ModalText from '../ModalText';
 import Modal from '../Modal';
 
-import { staticClassName } from '../utils';
+import { IBaseElement, staticClassName } from '../utils';
 
 export interface IConfirmOpen {
   modal?: (promise: IConfirmPromiseArgument) => React.ReactElement;
@@ -52,7 +52,15 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiConfirmProvider' });
 
-const ConfirmProvider = React.forwardRef((props_: any, ref: any) => {
+export interface IConfirmProvider extends IBaseElement {
+  throwError?: boolean;
+
+  onOpen?: () => any;
+
+  onClose?: () => any;
+}
+
+const ConfirmProvider = React.forwardRef((props_: IConfirmProvider, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiConfirmProvider?.props?.default }), [props_]);

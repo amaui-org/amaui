@@ -3,6 +3,7 @@ import React from 'react';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Button from '../Button';
+import { IButton } from '../Button/Button';
 
 import { staticClassName } from '../utils';
 
@@ -12,7 +13,11 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiIconButton' });
 
-const IconButton = React.forwardRef((props_: any, ref: any) => {
+export interface IIconButton extends IButton {
+
+}
+
+const IconButton = React.forwardRef((props_: IIconButton, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiIconButton?.props?.default }), [props_]);

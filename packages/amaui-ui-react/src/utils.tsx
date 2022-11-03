@@ -301,7 +301,7 @@ export type TStyle = React.CSSProperties | undefined;
 
 export type TChildren = React.ReactNode | React.ReactNode[];
 
-export type TRef = React.MutableRefObject<any> | TMethod;
+export type TRef = React.MutableRefObject<any>;
 
 export interface IBaseElement {
   Component?: TElementReference;

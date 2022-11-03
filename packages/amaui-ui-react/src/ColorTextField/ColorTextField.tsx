@@ -4,6 +4,7 @@ import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import TextField from '../TextField';
+import { ITextField } from '../TextField/TextField';
 
 import { staticClassName } from '../utils';
 
@@ -31,7 +32,11 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiColorTextField' });
 
-const ColorTextField = React.forwardRef((props_: any, ref: any) => {
+export interface IColorTextField extends ITextField {
+
+}
+
+const ColorTextField = React.forwardRef((props_: IColorTextField, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiColorTextField?.props?.default }), [props_]);

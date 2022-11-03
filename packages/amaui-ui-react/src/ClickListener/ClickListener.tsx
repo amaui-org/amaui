@@ -1,13 +1,29 @@
 import React from 'react';
 
-import { is, element } from '@amaui/utils';
+import { is, element, TMethod } from '@amaui/utils';
 import { useAmauiTheme } from '@amaui/style-react';
 
-import { matches } from '../utils';
+import { IBaseElement, matches, THTMLElement } from '../utils';
 
 const resolve = (value: string) => value.replace(/^on/, '').toLowerCase();
 
-const ClickListener = React.forwardRef((props_: any, ref: any) => {
+export interface IClickListener extends IBaseElement {
+  mouseEvent?: 'onClick' | 'onMove' | 'onMouseDown' | 'onMouseUp' | 'onMouseEnter' | 'onMouseLeave';
+
+  touchEvent?: 'onTouchStart' | 'onTouchEnd' | 'onTouchMove';
+
+  include?: Array<THTMLElement>;
+
+  includeParentQueries?: Array<string>;
+
+  includeQueries?: Array<string>;
+
+  onClickInside?: () => any;
+
+  onClickOutside?: () => any;
+}
+
+const ClickListener = React.forwardRef((props_: IClickListener, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiClickListener?.props?.default }), [props_]);
@@ -78,16 +94,16 @@ const ClickListener = React.forwardRef((props_: any, ref: any) => {
   return (
     <React.Fragment>
       {children && (
-        React.cloneElement(children, {
+        React.cloneElement(children as any, {
           ref: item => {
             if (ref) {
               if (is('function', ref)) ref(item);
               else ref.current = item;
             }
 
-            if (children.ref) {
-              if (is('function', children.ref)) children.ref(item);
-              else children.ref.current = item;
+            if ((children as any).ref) {
+              if (is('function', (children as any).ref)) (children as any).ref(item);
+              else (children as any).ref.current = item;
             }
 
             refs.root.current = item;

@@ -8,6 +8,7 @@ import Icon from '../Icon';
 import { IconDoneAnimated } from '../Buttons/Buttons';
 
 import { staticClassName } from '../utils';
+import { IButton } from '../Button/Button';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -31,7 +32,17 @@ const IconMaterialCloseSharp = React.forwardRef((props: any, ref) => {
   );
 });
 
-const Chip = React.forwardRef((props_: any, ref: any) => {
+export interface IChip extends IButton {
+  input?: boolean;
+  filter?: boolean;
+
+  onClick?: (event: React.MouseEvent<any>) => any;
+  onRemove?: (event: React.MouseEvent<any>) => any;
+  onSelected?: () => any;
+  onUnselected?: () => any;
+}
+
+const Chip = React.forwardRef((props_: IChip, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiChip?.props?.default }), [props_]);

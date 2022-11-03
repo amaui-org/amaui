@@ -5,7 +5,7 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import useMediaQuery from '../useMediaQuery';
 
-import { staticClassName, valueBreakpoints } from '../utils';
+import { IBaseElement, staticClassName, valueBreakpoints } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -83,7 +83,19 @@ const useStyle = styleMethod(theme => ({
   },
 }), { name: 'AmauiContainer' });
 
-const Container = React.forwardRef((props_: any, ref: any) => {
+export interface IContainer extends IBaseElement {
+  alignment?: 'start' | 'center' | 'end';
+
+  paddingVertical?: 'both' | 'start' | 'end' | 'none';
+
+  paddingHorizontal?: 'both' | 'start' | 'end' | 'none';
+
+  fullWidth?: boolean;
+
+  maxWidth?: 'xxs' | 'xs' | 'sm' | 'rg' | 'lg' | 'xl' | 'unset';
+}
+
+const Container = React.forwardRef((props_: IContainer, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiContainer?.props?.default }), [props_]);
@@ -98,9 +110,13 @@ const Container = React.forwardRef((props_: any, ref: any) => {
 
   const {
     alignment: alignment_,
+
     paddingVertical: paddingVertical_,
+
     paddingHorizontal: paddingHorizontal_,
+
     fullWidth: fullWidth_,
+
     maxWidth: maxWidth_,
 
     Component = 'div',
