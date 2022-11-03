@@ -14,8 +14,9 @@ import LinearProgress from '../LinearProgress';
 import Line from '../Line';
 import IconButton from '../IconButton';
 import Icon from '../Icon';
+import { ISurface } from '../Surface/Surface';
 
-import { staticClassName } from '../utils';
+import { staticClassName, TElement, TElementReference, TPropsAny } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -159,7 +160,32 @@ const IconMaterialStopRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
-const Countdown = React.forwardRef((props_: any, ref: any) => {
+export interface ICountdown extends Omit<ISurface, 'version'> {
+  version?: 'linear' | 'round';
+
+  renderValue?: (value: string) => TElement;
+  icon?: boolean;
+
+  onStart?: () => any;
+  onPause?: () => any;
+  onStop?: () => any;
+  onResume?: () => any;
+
+  Icon?: TElementReference;
+  IconStart?: TElementReference;
+  IconPause?: TElementReference;
+  IconStop?: TElementReference;
+
+  TreeProps?: TPropsAny;
+  TooltipProps?: TPropsAny;
+  RoundProgressProps?: TPropsAny;
+  NumericTextFieldProps?: TPropsAny;
+  IconButtonProps?: TPropsAny;
+  LinearProgressProps?: TPropsAny;
+  IconProps?: TPropsAny;
+}
+
+const Countdown = React.forwardRef((props_: ICountdown, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiCountdown?.props?.default }), [props_]);
@@ -172,7 +198,7 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
 
     version = 'linear',
 
-    render,
+    renderValue,
     icon = true,
 
     onStart: onStart_,
@@ -327,7 +353,7 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
     ...TooltipProps_
   };
 
-  const NumericTextFieldProps = {
+  const NumericTextFieldProps: any = {
     tonal,
     color: 'inherit',
     size: 'small',
@@ -339,7 +365,7 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
     ...NumericTextFieldProps_
   };
 
-  const RoundProgressProps = {
+  const RoundProgressProps: any = {
     tonal,
     color,
 
@@ -350,7 +376,7 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
     ...RoundProgressProps_
   };
 
-  const LinearProgressProps = {
+  const LinearProgressProps: any = {
     tonal,
     color,
 
@@ -536,7 +562,7 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
               width: '100%'
             }}
           >
-            {is('function', render) ? render(value_) : (
+            {is('function', renderValue) ? renderValue(value_) : (
               <Type
                 version='h1'
               >
@@ -612,7 +638,7 @@ const Countdown = React.forwardRef((props_: any, ref: any) => {
               ])}
             />
 
-            {is('function', render) ? render(value_) : (
+            {is('function', renderValue) ? renderValue(value_) : (
               <Type
                 version='h1'
               >
