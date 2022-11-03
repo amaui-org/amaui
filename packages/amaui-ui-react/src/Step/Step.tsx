@@ -11,7 +11,7 @@ import Surface from '../Surface';
 import ListItem from '../ListItem';
 import Line from '../Line';
 
-import { staticClassName } from '../utils';
+import { IBaseElement, staticClassName, TColor, TElement, TPropsAny, TTonal, TVersion } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -91,7 +91,35 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiStep' });
 
-const Step = React.forwardRef((props_: any, ref: any) => {
+export interface IStep extends IBaseElement {
+  tonal?: TTonal;
+  color?: TColor;
+  version?: TVersion;
+
+  iconColor?: TColor;
+  iconColorActive?: TColor;
+
+  dividerColor?: TColor;
+  dividerColorActive?: TColor;
+
+  step?: number;
+  activeStep?: number;
+  active?: boolean;
+  completed?: boolean;
+  primary?: TElement;
+  secondary?: TElement;
+  stepDirection?: 'row' | 'column';
+  orientation?: 'vertical' | 'horizontal',
+  button?: boolean;
+  divider?: boolean;
+
+  renderIcon?: (step: number, active: boolean, completed: boolean, activeStep: number) => TElement;
+
+  ListItemProps?: TPropsAny;
+  DividerProps?: TPropsAny;
+}
+
+const Step = React.forwardRef((props_: IStep, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiStep?.props?.default }), [props_]);

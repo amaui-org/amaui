@@ -3,7 +3,7 @@ import React from 'react';
 import { is, unique } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import { staticClassName } from '../utils';
+import { IBaseElement, staticClassName, TStyle } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -11,7 +11,18 @@ const useStyle = styleMethod(theme => ({
   },
 }), { name: 'AmauiSpyScroll' });
 
-const SpyScroll = React.forwardRef((props_: any, ref: any) => {
+export interface ISpyScroll extends IBaseElement {
+  ids?: Array<string>;
+
+  offset?: number;
+  offsetStart?: number;
+  offsetEnd?: number;
+
+  addClassName?: string;
+  addStyle?: TStyle;
+}
+
+const SpyScroll = React.forwardRef((props_: ISpyScroll, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiSpyScroll?.props?.default }), [props_]);
@@ -184,7 +195,7 @@ const SpyScroll = React.forwardRef((props_: any, ref: any) => {
 
   return (
     <React.Fragment>
-      {React.cloneElement(children, {
+      {React.cloneElement(children as any, {
         ref: item => {
           if (ref) {
             if (is('function', ref)) ref(item);

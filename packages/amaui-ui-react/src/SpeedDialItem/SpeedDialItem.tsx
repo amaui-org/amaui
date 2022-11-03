@@ -4,8 +4,9 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import Tooltip from '../Tooltip';
 import IconButton from '../IconButton';
+import { IIconButton } from '../IconButton/IconButton';
 
-import { staticClassName } from '../utils';
+import { staticClassName, TElement, TElementReference, TPropsAny, TRef } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -25,7 +26,22 @@ const useStyle = styleMethod(theme => ({
   },
 }), { name: 'AmauiSpeedDialItem' });
 
-const SpeedDialItem = React.forwardRef((props_: any, ref: any) => {
+export interface ISpeedDialItem extends IIconButton {
+  open?: boolean;
+
+  label?: TElement;
+  tooltipOpen?: boolean;
+  closeOnClick?: boolean;
+
+  onBlur?: (event: React.FocusEvent<any>) => any;
+  onFocus?: (event: React.FocusEvent<any>) => any;
+
+  Icon?: TElementReference;
+
+  TooltipProps?: TPropsAny;
+}
+
+const SpeedDialItem = React.forwardRef((props_: ISpeedDialItem, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiSpeedDialItem?.props?.default }), [props_]);
@@ -36,10 +52,8 @@ const SpeedDialItem = React.forwardRef((props_: any, ref: any) => {
     open,
 
     label,
-    alignment = 'top',
     tooltipOpen,
     closeOnClick,
-    buttonRef,
 
     onBlur,
     onFocus,
@@ -50,6 +64,8 @@ const SpeedDialItem = React.forwardRef((props_: any, ref: any) => {
       alignment: 'center',
       interactive: false
     },
+
+    Component = 'div',
 
     className,
 
@@ -63,13 +79,12 @@ const SpeedDialItem = React.forwardRef((props_: any, ref: any) => {
   if (tooltipOpen) TooltipProps.open = true;
 
   return (
-    <div
+    <Component
       ref={ref}
 
       className={classNames([
         staticClassName('SpeedDialItem', theme) && [
-          `AmauiSpeedDialItem-root`,
-          `AmauiSpeedDialItem-alignment-${alignment}`
+          `AmauiSpeedDialItem-root`
         ],
 
         className,
@@ -95,7 +110,7 @@ const SpeedDialItem = React.forwardRef((props_: any, ref: any) => {
           <Icon />
         </IconButton>
       </Tooltip>
-    </div>
+    </Component>
   );
 });
 

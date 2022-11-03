@@ -5,7 +5,7 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 import Divider from '../Divider';
 import Line from '../Line';
 
-import { staticClassName } from '../utils';
+import { IBaseElement, staticClassName, TColor, TPropsAny, TTonal, TVersion } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -63,7 +63,29 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiStepper' });
 
-const Stepper = React.forwardRef((props_: any, ref: any) => {
+export interface IStepper extends IBaseElement {
+  tonal?: TTonal;
+  color?: TColor;
+  version?: TVersion;
+
+  iconColor?: TColor;
+  iconColorActive?: TColor;
+
+  dividerColor?: TColor;
+  dividerColorActive?: TColor;
+
+  active?: number;
+  completed?: boolean;
+
+  stepDirection?: 'row' | 'column';
+  orientation?: 'vertical' | 'horizontal',
+  dividerActive?: boolean;
+  individualDividers?: boolean;
+
+  DividerProps?: TPropsAny;
+}
+
+const Stepper = React.forwardRef((props_: IStepper, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiStepper?.props?.default }), [props_]);
@@ -179,7 +201,7 @@ const Stepper = React.forwardRef((props_: any, ref: any) => {
 
           const values = [item];
 
-          if (!individualDividers && index !== children.length - 1) values.push(
+          if (!individualDividers && index !== (children as any).length - 1) values.push(
             <Divider
               orientation={orientation}
 
