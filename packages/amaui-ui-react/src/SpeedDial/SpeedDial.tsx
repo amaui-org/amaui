@@ -10,7 +10,7 @@ import Icon from '../Icon';
 import Tooltip from '../Tooltip';
 import Line from '../Line';
 
-import { staticClassName } from '../utils';
+import { IBaseElement, staticClassName, TColor, TElement, TElementReference, TPropsAny, TTonal, TVersion } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -136,7 +136,45 @@ const IconWrapper = (props: any) => {
   );
 };
 
-const SpeedDial = React.forwardRef((props_: any, ref: any) => {
+export interface ISpeedDial extends IBaseElement {
+  tonal?: TTonal;
+  color?: TColor;
+  version?: TVersion;
+
+  open?: boolean;
+  openDefault?: boolean;
+
+  onOpen?: () => any;
+  onClose?: () => any;
+
+  in?: boolean;
+
+  position?: 'top' | 'bottom';
+  alignment?: 'start' | 'left' | 'center' | 'right' | 'end';
+  direction?: 'top' | 'left' | 'right' | 'bottom';
+  closeOnClick?: boolean;
+  tooltipOpen?: boolean;
+
+  noRotate?: boolean;
+
+  tooltipLabel?: TElement;
+
+  onKeyDown?: (event: React.KeyboardEvent<any>) => any;
+
+  disabled?: boolean;
+
+  IconOpen?: TElementReference;
+  Icon?: TElementReference;
+  FabTransitionComponent?: TElementReference;
+  SpeeDialItemTransitionComponent?: TElementReference;
+
+  TooltipProps?: TPropsAny;
+  FabProps?: TPropsAny;
+  FabTransitionComponentProps?: TPropsAny;
+  SpeeDialItemTransitionComponentProps?: TPropsAny;
+}
+
+const SpeedDial = React.forwardRef((props_: ISpeedDial, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiSpeedDial?.props?.default }), [props_]);
@@ -484,13 +522,13 @@ const SpeedDial = React.forwardRef((props_: any, ref: any) => {
           open && classes.items_open
         ])}
       >
-        {children && children.map((item: any, index: number) => (
+        {children && (children as any).map((item: any, index: number) => (
           <SpeeDialItemTransitionComponent
             key={index}
 
             in={open}
 
-            delay={(open ? index : children.length - 1 - index) * 30}
+            delay={(open ? index : (children as any).length - 1 - index) * 30}
 
             append
 
@@ -508,12 +546,7 @@ const SpeedDial = React.forwardRef((props_: any, ref: any) => {
               tonal,
               color,
               version,
-              alignment,
 
-              onBlur,
-              onFocus,
-
-              TooltipProps: { ...TooltipProps },
               tooltipOpen,
 
               onClick: (event: React.MouseEvent<any>) => {
@@ -521,6 +554,11 @@ const SpeedDial = React.forwardRef((props_: any, ref: any) => {
 
                 if (is('function', item.props.onClick)) item.props.onClick(event);
               },
+
+              onBlur,
+              onFocus,
+
+              TooltipProps: { ...TooltipProps }
             })}
           </SpeeDialItemTransitionComponent>
         ))}
