@@ -417,51 +417,57 @@ const PieChart = React.forwardRef((props_: any, ref: any) => {
           </Line>
 
           <Line
-            gap={1}
+            gap={0.4}
 
-            direction='row'
-
-            align='center'
+            direction='column'
           >
-            <Type
-              version='b3'
+            <Line
+              gap={1}
 
-              style={{
-                fontWeight: 600
-              }}
+              direction='row'
+
+              align='center'
             >
-              {names?.value || 'Value'}
-            </Type>
+              <Type
+                version='b3'
 
-            <Type
-              version='b3'
+                style={{
+                  fontWeight: 600
+                }}
+              >
+                {names?.value || 'Value'}
+              </Type>
+
+              <Type
+                version='b3'
+              >
+                {valueValue}
+              </Type>
+            </Line>
+
+            <Line
+              gap={1}
+
+              direction='row'
+
+              align='center'
             >
-              {valueValue}
-            </Type>
-          </Line>
+              <Type
+                version='b3'
 
-          <Line
-            gap={1}
+                style={{
+                  fontWeight: 600
+                }}
+              >
+                {names?.percentage || 'Percentage'}
+              </Type>
 
-            direction='row'
-
-            align='center'
-          >
-            <Type
-              version='b3'
-
-              style={{
-                fontWeight: 600
-              }}
-            >
-              {names?.percentage || 'Percentage'}
-            </Type>
-
-            <Type
-              version='b3'
-            >
-              {valuePercentage}%
-            </Type>
+              <Type
+                version='b3'
+              >
+                {valuePercentage}%
+              </Type>
+            </Line>
           </Line>
         </Line>
       )

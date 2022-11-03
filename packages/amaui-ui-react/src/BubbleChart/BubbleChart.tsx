@@ -9,6 +9,7 @@ import Line from '../Line';
 import Type from '../Type';
 import useMediaQuery from '../useMediaQuery';
 import Surface from '../Surface';
+import { IChart } from '../Chart/Chart';
 
 import { staticClassName, valueBreakpoints } from '../utils';
 
@@ -76,7 +77,15 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiBubbleChart' });
 
-const BubbleChart = React.forwardRef((props_: any, ref: any) => {
+export interface IBubbleChart extends IChart {
+  smooth?: boolean;
+
+  smoothRatio?: number;
+
+  linearGradient?: boolean;
+}
+
+const BubbleChart = React.forwardRef((props_: IBubbleChart, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiBubbleChart?.props?.default }), [props_]);
@@ -298,7 +307,7 @@ const BubbleChart = React.forwardRef((props_: any, ref: any) => {
       const maxSize = values[values.length - 1]?.values?.[2];
 
       // Elements
-      const elements_ = copy(values).map((item: IItem) => {
+      const elements_ = copy(values).map(item => {
         const {
           color: color_,
 
@@ -432,75 +441,81 @@ const BubbleChart = React.forwardRef((props_: any, ref: any) => {
           </Line>
 
           <Line
-            gap={1}
+            gap={0.4}
 
-            direction='row'
-
-            align='center'
+            direction='column'
           >
-            <Type
-              version='b3'
+            <Line
+              gap={1}
 
-              style={{
-                fontWeight: 600
-              }}
+              direction='row'
+
+              align='center'
             >
-              {names?.y || 'y'}
-            </Type>
+              <Type
+                version='b3'
 
-            <Type
-              version='b3'
+                style={{
+                  fontWeight: 600
+                }}
+              >
+                {names?.y || 'y'}
+              </Type>
+
+              <Type
+                version='b3'
+              >
+                {values__?.[1]}
+              </Type>
+            </Line>
+
+            <Line
+              gap={1}
+
+              direction='row'
+
+              align='center'
             >
-              {values__?.[1]}
-            </Type>
-          </Line>
+              <Type
+                version='b3'
 
-          <Line
-            gap={1}
+                style={{
+                  fontWeight: 600
+                }}
+              >
+                {names?.x || 'x'}
+              </Type>
 
-            direction='row'
+              <Type
+                version='b3'
+              >
+                {values__?.[0]}
+              </Type>
+            </Line>
 
-            align='center'
-          >
-            <Type
-              version='b3'
+            <Line
+              gap={1}
 
-              style={{
-                fontWeight: 600
-              }}
+              direction='row'
+
+              align='center'
             >
-              {names?.x || 'x'}
-            </Type>
+              <Type
+                version='b3'
 
-            <Type
-              version='b3'
-            >
-              {values__?.[0]}
-            </Type>
-          </Line>
+                style={{
+                  fontWeight: 600
+                }}
+              >
+                {names?.size || 'Size'}
+              </Type>
 
-          <Line
-            gap={1}
-
-            direction='row'
-
-            align='center'
-          >
-            <Type
-              version='b3'
-
-              style={{
-                fontWeight: 600
-              }}
-            >
-              {names?.size || 'Size'}
-            </Type>
-
-            <Type
-              version='b3'
-            >
-              {values__?.[2]}
-            </Type>
+              <Type
+                version='b3'
+              >
+                {values__?.[2]}
+              </Type>
+            </Line>
           </Line>
         </Line>
       )

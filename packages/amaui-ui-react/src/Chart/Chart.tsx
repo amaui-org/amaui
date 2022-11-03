@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { castParam, clamp, copy, is, percentageFromValueWithinRange, valueFromPercentageWithinRange } from '@amaui/utils';
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, TColorValues, useAmauiTheme } from '@amaui/style-react';
 
 import Surface from '../Surface';
 import Line from '../Line';
@@ -12,7 +12,7 @@ import Append from '../Append';
 import Grow from '../Grow';
 import useMediaQuery from '../useMediaQuery';
 
-import { staticClassName, valueBreakpoints, minMaxBetweenNumbers } from '../utils';
+import { staticClassName, valueBreakpoints, minMaxBetweenNumbers, IBaseElement, TTonal, TColor, TElementAny, TStyle, TElement, TElementReference, TPropsAny } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -314,7 +314,159 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiChart' });
 
-const Chart = React.forwardRef((props_: any, ref: any) => {
+export type TChartValueValues = Array<any>;
+
+export interface IChartValue {
+  color?: TColor;
+  tone?: TColorValues;
+  name?: string;
+  style?: TStyle;
+
+  percentage?: string | number;
+
+  values: TChartValueValues | Array<TChartValueValues>;
+};
+
+export interface IChart extends IBaseElement {
+  tonal?: TTonal;
+  color?: TColor;
+  title?: TElementAny;
+  subtitle?: TElementAny;
+
+  // Values
+  values?: Array<IChartValue>;
+
+  // Pre
+  pre?: TElement;
+
+  // Elements
+  elements?: Array<{
+    item: IChartValue;
+
+    element?: TElement;
+    elements?: TElement;
+  }>;
+
+  // Names
+  names?: {
+    x?: string;
+    y?: string;
+
+    [property: string]: string;
+  };
+  nameX?: boolean;
+  nameY?: boolean;
+
+  // Tooltip
+  tooltip?: boolean;
+  tooltipIndividually?: boolean;
+  tooltipCloseOnMouseLeave?: boolean;
+  elementTooltip?: boolean;
+
+  // Guideline
+  guidelines?: 'both' | 'vertical' | 'horizontal';
+  guidelinesAppend?: boolean;
+
+  // Additional lines
+  additional_lines?: TElement;
+
+  // Legend
+  legend?: 'auto' | false | TElement;
+  legendManageVisibility?: boolean;
+  legendPosition?: 'top' | 'bottom';
+
+  // Labels
+  labels?: 'auto' | false | Array<{
+    value?: number;
+
+    label?: string | number;
+  }>;
+  labelsX?: boolean;
+  labelsY?: boolean;
+  labelDecimalPlaces?: number;
+  labelsAutoNumber?: number;
+  labelsYAutoNumber?: number;
+  labelsXAutoNumber?: number;
+
+  // Marks
+  marks?: 'auto' | false | Array<{
+    value?: number;
+  }>;
+  marksX?: boolean;
+  marksY?: boolean;
+  marksAutoNumber?: number;
+  marksYAutoNumber?: number;
+  marksXAutoNumber?: number;
+
+  // Grid
+  grid?: 'auto' | false | Array<{
+    value?: number;
+  }>;
+  gridX?: boolean;
+  gridY?: boolean;
+  gridAutoNumber?: number;
+  gridYAutoNumber?: number;
+  gridXAutoNumber?: number;
+
+  // Points
+  points?: boolean;
+  pointsVisibility?: 'hover' | 'visible' | 'hidden';
+
+  // Borders
+  borders?: boolean;
+  borderStart?: boolean;
+  borderLeft?: boolean;
+  borderEnd?: boolean;
+  borderRight?: boolean;
+  borderTop?: boolean;
+  borderBottom?: boolean;
+
+  // Min, max
+  minX?: number;
+  maxX?: number;
+  minY?: number;
+  maxY?: number;
+  minMaxPadding?: number;
+  minPadding?: number;
+  maxPadding?: number;
+  minPaddingX?: number;
+  minPaddingY?: number;
+  maxPaddingX?: number;
+  maxPaddingY?: number;
+
+  noMain?: boolean;
+
+  // Methods
+  tooltipRender: (values: IChartValue) => any;
+  tooltipGroupRender: (groups: Array<IChartValue>, groupsSorted: string[]) => any,
+  labelRender: (value: IChartValue) => any;
+  labelResolve: (value: number, axes: 'x' | 'y', item: IChartValue, version?: 'group' | 'individual') => string;
+  onUpdateRects?: (rects: {
+    wrapper: DOMRect;
+    svg: DOMRect;
+  }) => any;
+
+  Component?: TElementReference;
+
+  // Element Props
+  SvgProps?: TPropsAny;
+  TypeProps?: TPropsAny;
+  TitleProps?: TPropsAny;
+  SubtitleProps?: TPropsAny;
+  PathProps?: TPropsAny;
+  PointsProps?: TPropsAny;
+  PointProps?: TPropsAny;
+  HeaderProps?: TPropsAny;
+  AppendProps?: TPropsAny;
+  AdditionalLineProps?: TPropsAny;
+  AdditionalLinesProps?: TPropsAny;
+  LegendProps?: TPropsAny;
+  LegendItemProps?: TPropsAny;
+  GuidelineProps?: TPropsAny;
+  WrapperProps?: TPropsAny;
+}
+
+const Chart = React.forwardRef((props_: IChart, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiChart?.props?.default }), [props_]);
@@ -616,7 +768,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
     if (!noMain) {
       const itemArrayNested = is('array', values[0]?.values?.[0]);
 
-      const allItems = values[itemArrayNested ? 'flatMap' : 'map'](item => item.values);
+      const allItems = (values as any)[itemArrayNested ? 'flatMap' : 'map'](item => item.values);
 
       if (is('array', values)) {
         allItems.forEach((item: [number, number]) => {
@@ -1252,7 +1404,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
       refs.allValues.current.sort((a, b) => a?.normalized[0] - b?.normalized[0]);
 
       // Guidelines
-      const additional_lines_ = additional_lines__ && additional_lines__.map((item: any) => {
+      const additional_lines_ = additional_lines__ && (additional_lines__ as React.ReactNode[]).map((item: any) => {
         const {
           color: color_,
 
@@ -1322,7 +1474,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
     }
 
     // Legend
-    let legend_ = legend__ !== 'auto' ? legend__ : values.map((item: any) => {
+    let legend_ = legend__ !== 'auto' ? legend__ : (values as IChartValue[]).map((item: any) => {
 
       return {
         item,
@@ -1660,7 +1812,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
                     const itemVisible = (visible[item?.name] === undefined || !!visible[item?.name]);
 
                     return (
-                      React.cloneElement(element, {
+                      React.cloneElement(element as any, {
                         key: index,
 
                         ...(elementTooltip ? {
@@ -1678,7 +1830,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
                         } : undefined),
 
                         style: {
-                          ...element?.props?.style,
+                          ...(element as any)?.props?.style,
 
                           ...(!itemVisible ? {
                             opacity: '0',
@@ -2164,7 +2316,7 @@ const Chart = React.forwardRef((props_: any, ref: any) => {
 
                     elevation={1}
 
-                    gap={0.5}
+                    gap={0.4}
 
                     direction='column'
 

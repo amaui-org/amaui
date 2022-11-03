@@ -5,7 +5,7 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import Type from '../Type';
 
-import { staticClassName, TChildren, TColor, TElement, TElementReference, TPropsAny, TRef, TSize, TStyle, TTonal, TVersion } from '../utils';
+import { IBaseElement, staticClassName, TChildren, TColor, TElement, TElementReference, TPropsAny, TRef, TSize, TStyle, TTonal, TVersion } from '../utils';
 
 const other_ = {
   pointerEvents: 'none',
@@ -492,7 +492,7 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiTextField' });
 
-export interface ITextField {
+export interface ITextField extends IBaseElement {
   tonal?: TTonal;
   color?: TColor;
   version?: TVersion;
@@ -547,16 +547,6 @@ export interface ITextField {
   WrapperComponent?: TElementReference;
 
   Component?: TElementReference;
-
-  className?: string;
-  style?: TStyle;
-
-  children?: TChildren;
-
-  // Other
-  colorUnchecked?: any;
-
-  [key: string]: any;
 }
 
 const TextField = React.forwardRef((props_: ITextField, ref: any) => {

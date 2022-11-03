@@ -4,6 +4,7 @@ import { is, isEnvironment, element as element_, clamp } from '@amaui/utils';
 import { useAmauiTheme } from '@amaui/style-react';
 
 import Portal from '../Portal';
+import { TChildren, TElement, THTMLElement, TStyle } from '../utils';
 
 const valuesDefault = {
   x: 0,
@@ -12,7 +13,34 @@ const valuesDefault = {
   init: true
 };
 
-const Append = (props_: any) => {
+type TArrayTuple = [number, number];
+
+export interface IAppend {
+  open?: boolean;
+  portal?: boolean;
+  accelerated?: boolean;
+  anchor?: DOMRect;
+  anchorElement?: THTMLElement,
+  offset?: TArrayTuple;
+  padding?: TArrayTuple;
+  paddingUnfollow?: TArrayTuple;
+  inset?: boolean;
+  position?: 'top' | 'left' | 'bottom' | 'right';
+  alignment?: 'start' | 'center' | 'end';
+  switch?: boolean;
+  overflow?: boolean;
+  unfollow?: boolean;
+  style?: TStyle;
+  update?: any;
+  element?: TElement;
+  parent?: THTMLElement;
+
+  children?: TChildren;
+
+  [property: string]: any;
+}
+
+const Append = (props_: IAppend) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiAppend?.props?.default }), [props_]);
@@ -37,10 +65,6 @@ const Append = (props_: any) => {
     element,
     parent: parentElement,
 
-    clearOnClose,
-
-    onUpdate,
-
     children
   } = props;
 
@@ -63,7 +87,7 @@ const Append = (props_: any) => {
 
   refs.portal.current = portal;
 
-  const anchorElement = anchorElement_?.current ? anchorElement_?.current : anchorElement_;
+  const anchorElement = (anchorElement_ as any)?.current ? (anchorElement_ as any)?.current : anchorElement_;
 
   if (anchorElement) refs.root.current = anchorElement;
 
@@ -607,7 +631,7 @@ const Append = (props_: any) => {
   }
 
   style = {
-    ...element?.props?.style,
+    ...(element as any)?.props?.style,
 
     ...style,
 
@@ -622,11 +646,11 @@ const Append = (props_: any) => {
 
   return (
     <React.Fragment>
-      {children && React.cloneElement(children, {
+      {children && React.cloneElement(children as any, {
         ref: item => {
-          if (children.ref) {
-            if (is('function', children.ref)) children.ref(item);
-            else children.ref.current = item;
+          if ((children as any).ref) {
+            if (is('function', (children as any).ref)) (children as any).ref(item);
+            else (children as any).ref.current = item;
           }
 
           refs.root.current = item;
@@ -640,13 +664,13 @@ const Append = (props_: any) => {
         >
           {
             is('function', element) ?
-              element({ ref: refs.element, values, style }) :
+              (element as any)({ ref: refs.element, values, style }) :
 
-              React.cloneElement(element, {
+              React.cloneElement(element as any, {
                 ref: item => {
-                  if (element?.ref) {
-                    if (is('function', element.ref)) element.ref(item);
-                    else element.ref.current = item;
+                  if ((element as any)?.ref) {
+                    if (is('function', (element as any).ref)) (element as any).ref(item);
+                    else (element as any).ref.current = item;
                   }
 
                   refs.element.current = item;

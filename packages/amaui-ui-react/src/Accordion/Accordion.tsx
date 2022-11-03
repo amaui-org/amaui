@@ -12,7 +12,7 @@ import Grid from '../Grid';
 import Line from '../Line';
 import Type from '../Type';
 
-import { staticClassName, TChildren, TColor, TElement, TElementReference, TElevation, TPropsAny, TTonal } from '../utils';
+import { IBaseElement, staticClassName, TColor, TElement, TElementReference, TElevation, TPropsAny, TTonal } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -142,7 +142,7 @@ const IconMaterialExpandMoreRounded = React.forwardRef((props: any, ref) => {
 
 type TPadding = 'start' | 'end' | 'both' | 'none';
 
-export interface IAccordion {
+export interface IAccordion extends IBaseElement {
   tonal?: TTonal;
   color?: TColor;
   elevation?: TElevation;
@@ -174,12 +174,6 @@ export interface IAccordion {
   TransitionComponent?: TElementReference;
 
   Component?: TElementReference;
-
-  className?: string;
-
-  children?: TChildren;
-
-  [key: string]: any;
 };
 
 const Accordion = React.forwardRef((props_: IAccordion, ref: any) => {

@@ -8,6 +8,7 @@ import Path from '../Path';
 import Line from '../Line';
 import Type from '../Type';
 import useMediaQuery from '../useMediaQuery';
+import { IChart } from '../Chart/Chart';
 
 import { controlPoint, staticClassName, valueBreakpoints } from '../utils';
 
@@ -53,7 +54,15 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiAreaChart' });
 
-const AreaChart = React.forwardRef((props_: any, ref: any) => {
+export interface IAreaChart extends IChart {
+  smooth?: boolean;
+
+  smoothRatio?: number;
+
+  linearGradient?: boolean;
+}
+
+const AreaChart = React.forwardRef((props_: IAreaChart, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiAreaChart?.props?.default }), [props_]);
@@ -273,7 +282,7 @@ const AreaChart = React.forwardRef((props_: any, ref: any) => {
       const pre = [];
 
       // Elements
-      const elements_ = copy(values).map((item: IItem) => {
+      const elements_ = copy(values).map(item => {
         const {
           color: color_,
 
