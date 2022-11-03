@@ -3,9 +3,18 @@ import React from 'react';
 import is from '@amaui/utils/is';
 import { useAmauiTheme } from '@amaui/style-react';
 
-import { Transition, TTransitionStatus } from '..';
+import { ITransition, Transition, TTransitionStatus } from '..';
 
-const Slide = React.forwardRef((props_: any, ref: any) => {
+export interface ISlide extends ITransition {
+  root?: HTMLElement;
+  min?: number;
+  direction?: 'top' | 'left' | 'bottom' | 'right';
+  timing_function?: string | Record<string, string>;
+  addTransition?: string;
+  delay?: number;
+}
+
+const Slide = React.forwardRef((props_: ISlide, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiSlide?.props?.default }), [props_]);
@@ -17,9 +26,6 @@ const Slide = React.forwardRef((props_: any, ref: any) => {
 
   const {
     in: inProp,
-    root,
-    min,
-    direction = 'bottom',
     prefix,
     run,
     append,
@@ -30,9 +36,7 @@ const Slide = React.forwardRef((props_: any, ref: any) => {
     exitOnAdd,
     noAbruption,
     removeOnExited,
-    delay,
     timeout: timeout_,
-    addTransition,
     onTransition,
     onAppended,
     onAdd,
@@ -45,7 +49,13 @@ const Slide = React.forwardRef((props_: any, ref: any) => {
     onExiting,
     onExited,
     onRemoved,
+
+    root,
+    min,
+    direction = 'bottom',
     timing_function,
+    addTransition,
+    delay,
 
     className,
     style,
@@ -191,7 +201,7 @@ const Slide = React.forwardRef((props_: any, ref: any) => {
       {...props}
     >
       {(status: TTransitionStatus, ref_) => {
-        return React.cloneElement(children, {
+        return React.cloneElement(children as any, {
           ...other,
 
           ref: item => {
@@ -203,13 +213,13 @@ const Slide = React.forwardRef((props_: any, ref: any) => {
             }
 
             if (ref_) {
-              if (is('function', ref_)) ref_(item);
+              if (is('function', ref_)) (ref_ as any)(item);
               else ref_.current = item;
             }
 
-            if (children.ref) {
-              if (is('function', children.ref)) children.ref(item);
-              else children.ref.current = item;
+            if ((children as any).ref) {
+              if (is('function', (children as any).ref)) (children as any).ref(item);
+              else (children as any).ref.current = item;
             }
           },
 

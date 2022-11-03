@@ -13,7 +13,8 @@ import Portal from '../Portal';
 import Line from '../Line';
 import Icon from '../Icon';
 
-import { staticClassName } from '../utils';
+import { staticClassName, TElementReference, TPropsAny } from '../utils';
+import { ISurface } from '../Surface/Surface';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -92,7 +93,37 @@ const IconMaterialDownloadRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
-const ScreenCapture = React.forwardRef((props_: any, ref: any) => {
+export interface IScreenCapture extends ISurface {
+  nameDefault?: string;
+  name?: string;
+
+  onChangeName?: (value: string) => any;
+
+  view?: boolean;
+  entirePage?: boolean;
+  free?: boolean;
+
+  type?: string;
+  quality?: number;
+
+  onView?: (event: React.MouseEvent<any> | KeyboardEvent) => any;
+  onEntirePage?: (event: React.MouseEvent<any> | KeyboardEvent) => any;
+  onFree?: (event: React.MouseEvent<any> | KeyboardEvent) => any;
+  onFreeSave?: (event: React.MouseEvent<any> | KeyboardEvent) => any;
+  onFreeClose?: (event: React.MouseEvent<any> | KeyboardEvent) => any;
+
+  IconView?: TElementReference;
+  IconEntirePage?: TElementReference;
+  IconFree?: TElementReference;
+  IconDownload?: TElementReference;
+
+  TextFieldProps?: TPropsAny;
+  TooltipProps?: TPropsAny;
+  IconButtonProps?: TPropsAny;
+  ImageCropProps?: TPropsAny;
+}
+
+const ScreenCapture = React.forwardRef((props_: IScreenCapture, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiScreenCapture?.props?.default }), [props_]);
@@ -104,7 +135,7 @@ const ScreenCapture = React.forwardRef((props_: any, ref: any) => {
     color = 'primary',
 
     nameDefault,
-    name_ = `amaui-screenshot.${props.type !== undefined ? props.type.split('/')[1] : 'png'}`,
+    name: name_ = `amaui-screenshot.${props.type !== undefined ? props.type.split('/')[1] : 'png'}`,
 
     onChangeName,
 
@@ -134,6 +165,8 @@ const ScreenCapture = React.forwardRef((props_: any, ref: any) => {
       quality: 1
     },
 
+    Component = 'div',
+
     className,
 
     ...other
@@ -160,37 +193,37 @@ const ScreenCapture = React.forwardRef((props_: any, ref: any) => {
       switch (event.key) {
         case 'V':
         case 'v':
-          if (event.metaKey && event.shiftKey) onView();
+          if (event.metaKey && event.shiftKey) onView(event as any);
 
           break;
 
         case 'E':
         case 'e':
-          if (event.metaKey && event.shiftKey) onEntirePage();
+          if (event.metaKey && event.shiftKey) onEntirePage(event as any);
 
           break;
 
         case 'F':
         case 'f':
-          if (event.metaKey && event.shiftKey) onFree();
+          if (event.metaKey && event.shiftKey) onFree(event as any);
 
           break;
 
         case 'S':
         case 's':
           if (event.metaKey) {
-            if (refs.image.current) onFreeSave();
+            if (refs.image.current) onFreeSave(event as any);
           }
 
           break;
 
         case 'Enter':
-          if (refs.image.current) onFreeSave();
+          if (refs.image.current) onFreeSave(event as any);
 
           break;
 
         case 'Escape':
-          if (refs.image.current) onFreeClose();
+          if (refs.image.current) onFreeClose(event as any);
 
           break;
 
@@ -239,7 +272,7 @@ const ScreenCapture = React.forwardRef((props_: any, ref: any) => {
     if (is('function', onChangeName)) onChangeName(value_);
   };
 
-  const onView = async () => {
+  const onView = async (event: React.MouseEvent<any>) => {
     setLoading(items => [...items, 'view']);
 
     try {
@@ -272,10 +305,10 @@ const ScreenCapture = React.forwardRef((props_: any, ref: any) => {
       setDone(items => items.filter(item => item !== 'view'));
     }, 1400);
 
-    if (is('function', onView_)) onView_();
+    if (is('function', onView_)) onView_(event);
   };
 
-  const onEntirePage = async () => {
+  const onEntirePage = async (event: React.MouseEvent<any>) => {
     setLoading(items => [...items, 'entirePage']);
 
     try {
@@ -301,10 +334,10 @@ const ScreenCapture = React.forwardRef((props_: any, ref: any) => {
       setDone(items => items.filter(item => item !== 'entirePage'));
     }, 1400);
 
-    if (is('function', onEntirePage_)) onEntirePage_();
+    if (is('function', onEntirePage_)) onEntirePage_(event);
   };
 
-  const onFree = async () => {
+  const onFree = async (event: React.MouseEvent<any>) => {
     setLoading(items => [...items, 'free']);
 
     // Update image
@@ -334,10 +367,10 @@ const ScreenCapture = React.forwardRef((props_: any, ref: any) => {
 
     setLoading(items => items.filter(item => item !== 'free'));
 
-    if (is('function', onFree_)) onFree_();
+    if (is('function', onFree_)) onFree_(event);
   };
 
-  const onFreeSave = () => {
+  const onFreeSave = (event: React.MouseEvent<any>) => {
     // Crop the canvas
     const canvas = canvasCrop(refs.image.current, refs.imageSelectorValue.current.left, refs.imageSelectorValue.current.top, refs.imageSelectorValue.current.width, refs.imageSelectorValue.current.height);
 
@@ -356,14 +389,14 @@ const ScreenCapture = React.forwardRef((props_: any, ref: any) => {
       setDone(items => items.filter(item => item !== 'free'));
     }, 1400);
 
-    if (is('function', onFreeSave_)) onFreeSave_();
+    if (is('function', onFreeSave_)) onFreeSave_(event);
   };
 
-  const onFreeClose = () => {
+  const onFreeClose = (event: React.MouseEvent<any>) => {
     // Clear the image
     setImage('' as any);
 
-    if (is('function', onFreeClose_)) onFreeClose_();
+    if (is('function', onFreeClose_)) onFreeClose_(event);
   };
 
   const onImageCropSelectorChange = React.useCallback((values: any) => {
@@ -391,7 +424,7 @@ const ScreenCapture = React.forwardRef((props_: any, ref: any) => {
   };
 
   return (
-    <Line
+    <Surface
       ref={ref}
 
       id='amaui-screen-capture'
@@ -406,7 +439,11 @@ const ScreenCapture = React.forwardRef((props_: any, ref: any) => {
 
       align='center'
 
-      Component={Surface}
+      Component={Line}
+
+      AdditionalProps={{
+        Component
+      }}
 
       className={classNames([
         staticClassName('ScreenCapture', theme) && [
@@ -440,7 +477,7 @@ const ScreenCapture = React.forwardRef((props_: any, ref: any) => {
             {...TooltipProps}
           >
             <IconButton
-              onClick={() => onView()}
+              onClick={onView}
 
               loading={loading.includes('view')}
 
@@ -464,7 +501,7 @@ const ScreenCapture = React.forwardRef((props_: any, ref: any) => {
             {...TooltipProps}
           >
             <IconButton
-              onClick={() => onEntirePage()}
+              onClick={onEntirePage}
 
               loading={loading.includes('entirePage')}
 
@@ -488,7 +525,7 @@ const ScreenCapture = React.forwardRef((props_: any, ref: any) => {
             {...TooltipProps}
           >
             <IconButton
-              onClick={() => image ? onFreeSave() : onFree()}
+              onClick={(event: React.MouseEvent<any>) => image ? onFreeSave(event) : onFree(event)}
 
               loading={loading.includes('free')}
 
@@ -543,7 +580,7 @@ const ScreenCapture = React.forwardRef((props_: any, ref: any) => {
           </div>
         </Portal>
       )}
-    </Line>
+    </Surface>
   );
 });
 

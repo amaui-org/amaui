@@ -11,7 +11,8 @@ import ChipGroup from '../Chips';
 import IconButton from '../IconButton';
 import Line from '../Line';
 
-import { staticClassName } from '../utils';
+import { staticClassName, TElement, TPropsAny } from '../utils';
+import { ITextField } from '../TextField/TextField';
 
 const overflow = {
   width: '100%',
@@ -130,7 +131,20 @@ const IconMaterialArrowDropDownRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
-const Select = React.forwardRef((props_: any, ref: any) => {
+export interface ISelect extends ITextField {
+  multiple?: boolean;
+  autoWidth?: boolean;
+  getLabel?: (item: TElement, props: any) => TElement;
+  chip?: boolean;
+
+  renderValues?: (value: string | string[]) => TElement;
+
+  ChipGroupProps?: TPropsAny;
+  ListProps?: TPropsAny;
+  MenuProps?: TPropsAny;
+}
+
+const Select = React.forwardRef((props_: ISelect, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiSelect?.props?.default }), [props_]);
@@ -175,7 +189,7 @@ const Select = React.forwardRef((props_: any, ref: any) => {
   const [value, setValue] = React.useState(() => {
     const values = valueDefault !== undefined ? valueDefault : value_;
 
-    return multiple ? (is('array', values) ? values : [values]).filter(Boolean) : values;
+    return multiple ? ((is('array', values) ? values : [values]) as any).filter(Boolean) : values;
   });
   const [open, setOpen] = React.useState(false);
   const [mouseDown, setMouseDown] = React.useState(false);
@@ -320,7 +334,7 @@ const Select = React.forwardRef((props_: any, ref: any) => {
     return item ? getItemLabel(item, props) : value;
   };
 
-  const renderValues = renderValues_ || (() => {
+  const renderValues = renderValues_ || ((value__ = value) => {
     if (multiple) {
       if (chip) {
         return (
@@ -336,7 +350,7 @@ const Select = React.forwardRef((props_: any, ref: any) => {
 
             {...ChipGroupProps}
           >
-            {value.map(item => (
+            {(value__ as any).map(item => (
               <Chip
                 key={item}
 
@@ -495,7 +509,7 @@ const Select = React.forwardRef((props_: any, ref: any) => {
             readOnly && classes.readOnly
           ])}
         >
-          {renderValues()}
+          {renderValues(value)}
         </div>
       </TextField>
 
