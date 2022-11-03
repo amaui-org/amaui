@@ -3,7 +3,7 @@ import React from 'react';
 import { is } from '@amaui/utils';
 import { useAmauiTheme } from '@amaui/style-react';
 
-import { Transition, TTransitionStatus } from '..';
+import { ITransition, TPropsAny, Transition, TTransitionStatus } from '..';
 
 const Wrapper = React.forwardRef((props: any, ref: any) => {
   const {
@@ -23,7 +23,15 @@ const Wrapper = React.forwardRef((props: any, ref: any) => {
   );
 });
 
-const Expand = React.forwardRef((props_: any, ref: any) => {
+export interface IExpand extends ITransition {
+  expandSize?: number;
+
+  orientation?: 'veritcal' | 'horizontal';
+
+  WrapperProps?: TPropsAny;
+}
+
+const Expand = React.forwardRef((props_: IExpand, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiExpand?.props?.default }), [props_]);
@@ -63,6 +71,7 @@ const Expand = React.forwardRef((props_: any, ref: any) => {
     onExiting,
     onExited,
     onRemoved,
+
     expandSize,
     orientation,
     WrapperProps,
@@ -182,7 +191,7 @@ const Expand = React.forwardRef((props_: any, ref: any) => {
             }
 
             if (ref_) {
-              if (is('function', ref_)) ref_(item);
+              if (is('function', ref_)) (ref_ as any)(item);
               else ref_.current = item;
             }
 

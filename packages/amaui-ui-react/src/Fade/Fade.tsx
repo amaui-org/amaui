@@ -3,9 +3,13 @@ import React from 'react';
 import is from '@amaui/utils/is';
 import { useAmauiTheme } from '@amaui/style-react';
 
-import { Transition, TTransitionStatus } from '..';
+import { ITransition, Transition, TTransitionStatus } from '..';
 
-const Fade = React.forwardRef((props_: any, ref: any) => {
+export interface IFade extends ITransition {
+
+}
+
+const Fade = React.forwardRef((props_: IFade, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiFade?.props?.default }), [props_]);
@@ -112,7 +116,7 @@ const Fade = React.forwardRef((props_: any, ref: any) => {
       {...props}
     >
       {(status: TTransitionStatus, ref_) => {
-        return React.cloneElement(children, {
+        return React.cloneElement(children as any, {
           ...other,
 
           ref: item => {
@@ -124,13 +128,13 @@ const Fade = React.forwardRef((props_: any, ref: any) => {
             }
 
             if (ref_) {
-              if (is('function', ref_)) ref_(item);
+              if (is('function', ref_)) (ref_ as any)(item);
               else ref_.current = item;
             }
 
-            if (children.ref) {
-              if (is('function', children.ref)) children.ref(item);
-              else children.ref.current = item;
+            if ((children as any).ref) {
+              if (is('function', (children as any).ref)) (children as any).ref(item);
+              else (children as any).ref.current = item;
             }
           },
 
@@ -141,7 +145,7 @@ const Fade = React.forwardRef((props_: any, ref: any) => {
 
             ...styles(status),
 
-            ...children?.props?.style,
+            ...(children as any)?.props?.style,
 
             ...style
           }

@@ -5,7 +5,7 @@ import AmauiSubscription from '@amaui/subscription';
 import { classNames, useAmauiTheme, TTransitionsDurationProperties } from '@amaui/style-react';
 
 import TransitionContext from './TransitionContext';
-import { reflow } from '../utils';
+import { IBaseElement, reflow, TElement, TRef } from '../utils';
 
 export type TTransitionStatus = 'appended' | 'add' | 'adding' | 'added' | 'enter' | 'entering' | 'entered' | 'exit' | 'exiting' | 'exited' | 'removed';
 
@@ -27,10 +27,8 @@ export const STATUS: Record<TTransitionStatus, TTransitionStatus> = {
   removed: 'removed'
 };
 
-export interface IProps {
+export interface ITransition extends Omit<IBaseElement, 'children'> {
   in?: boolean;
-
-  className?: boolean;
 
   prefix?: string;
 
@@ -47,6 +45,8 @@ export interface IProps {
   noAbruption?: boolean;
 
   removeOnExited?: boolean;
+
+  preEnterAppendTimeout?: number;
 
   timeout?: TTransitionsDurationProperties | number | {
     default?: number;
@@ -76,18 +76,18 @@ export interface IProps {
 
   onRemoved?: (element: HTMLElement) => void;
 
+  children?: (status: TTransitionStatus, ref: TRef) => TElement | TElement;
+
   [p: string]: any;
 }
 
-function Transition(props_: IProps) {
+function Transition(props_: ITransition) {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiTransition?.props?.default }), [props_]);
 
   const {
     in: inProp_,
-
-    className,
 
     prefix,
 
@@ -128,6 +128,8 @@ function Transition(props_: IProps) {
     onExited,
 
     onRemoved,
+
+    className,
 
     children,
 
@@ -468,9 +470,9 @@ function Transition(props_: IProps) {
     <TransitionContext.Provider value={value}>
       {
         is('function', children) ?
-          children(status, refs.root) :
+          (children as any)(status, refs.root) :
 
-          React.cloneElement(children, {
+          React.cloneElement(children as any, {
             ref: item => {
               if (ref) {
                 if (is('function', ref)) ref(item);
