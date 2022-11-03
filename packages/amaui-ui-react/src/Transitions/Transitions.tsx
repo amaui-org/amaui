@@ -3,21 +3,24 @@ import React from 'react';
 import { is, unique } from '@amaui/utils';
 import { useAmauiTheme } from '@amaui/style-react';
 
-import { STATUS, TTransitionStatus } from '..';
-
-export type TMode = 'in-out' | 'in-out-follow' | 'out-in';
-
-export interface IProps {
-  switch?: boolean;
-
-  mode?: TMode;
-
-  [p: string]: any;
-}
+import { STATUS, TPropsAny, TTransitionStatus } from '..';
 
 const TransitionsContext = React.createContext(undefined);
 
-function Transitions(props_: IProps) {
+export type TTransitionsMode = 'in-out' | 'in-out-follow' | 'out-in';
+
+export interface ITransitions {
+  mode?: TTransitionsMode;
+  switch?: boolean;
+
+  noTransition?: boolean;
+
+  TransitionProps?: TPropsAny;
+
+  children?: any;
+}
+
+function Transitions(props_: ITransitions) {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiTransitions?.props?.default }), [props_]);
