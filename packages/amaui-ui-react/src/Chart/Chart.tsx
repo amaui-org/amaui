@@ -11,7 +11,7 @@ import Append from '../Append';
 import Grow from '../Grow';
 import useMediaQuery from '../useMediaQuery';
 
-import { staticClassName, valueBreakpoints, minMaxBetweenNumbers, IBaseElement, TTonal, TColor, TElementAny, TStyle, TElement, TElementReference, TPropsAny } from '../utils';
+import { staticClassName, valueBreakpoints, minMaxBetweenNumbers, IBaseElement, TTonal, TColor, TElementAny, TStyle, TElement, TPropsAny } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -444,8 +444,6 @@ export interface IChart extends IBaseElement {
     wrapper: DOMRect;
     svg: DOMRect;
   }) => any;
-
-  Component?: TElementReference;
 
   // Element Props
   SvgProps?: TPropsAny;

@@ -172,8 +172,6 @@ export interface IAccordion extends IBaseElement {
 
   ExpandIcon?: TElementReference;
   TransitionComponent?: TElementReference;
-
-  Component?: TElementReference;
 };
 
 const Accordion = React.forwardRef((props_: IAccordion, ref: any) => {

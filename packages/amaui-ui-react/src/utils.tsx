@@ -304,6 +304,8 @@ export type TChildren = React.ReactNode | React.ReactNode[];
 export type TRef = React.MutableRefObject<any> | TMethod;
 
 export interface IBaseElement {
+  Component?: TElementReference;
+
   className?: string;
   style?: TStyle;
 

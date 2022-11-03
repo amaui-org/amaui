@@ -3,7 +3,7 @@ import React from 'react';
 import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import { IBaseElement, staticClassName, TColor, TElementReference, TElevation, TPropsAny, TTonal, TVersion } from '../utils';
+import { IBaseElement, staticClassName, TColor, TElevation, TPropsAny, TTonal, TVersion } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -703,8 +703,6 @@ export interface ISurface extends IBaseElement {
   noOutline?: boolean;
 
   AdditionalProps?: TPropsAny;
-
-  Component?: TElementReference;
 }
 
 const Surface = React.forwardRef((props_: ISurface, ref: any) => {

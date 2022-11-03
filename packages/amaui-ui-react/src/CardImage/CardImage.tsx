@@ -2,7 +2,7 @@ import React from 'react';
 
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import { staticClassName } from '../utils';
+import { IBaseElement, staticClassName, TColor, TElevation, TTonal, TVersion } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -44,7 +44,19 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiCardImage' });
 
-const CardImage = React.forwardRef((props_: any, ref: any) => {
+export interface ICardImage extends IBaseElement {
+  tonal?: TTonal;
+  color?: TColor;
+  version?: TVersion;
+  elevation?: TElevation;
+
+  alt?: string;
+  image?: string;
+  shape?: 'all' | 'none' | 'top' | 'left' | 'bottom' | 'right';
+  marginHorizontal?: boolean;
+}
+
+const CardImage = React.forwardRef((props_: ICardImage, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiCardImage?.props?.default }), [props_]);

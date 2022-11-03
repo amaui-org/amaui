@@ -4,7 +4,7 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import Line from '../Line';
 
-import { staticClassName } from '../utils';
+import { IBaseElement, staticClassName, TColor, TElevation, TTonal, TVersion } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -12,7 +12,14 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiCardMain' });
 
-const CardMain = React.forwardRef((props_: any, ref: any) => {
+export interface ICardMain extends IBaseElement {
+  tonal?: TTonal;
+  color?: TColor;
+  version?: TVersion;
+  elevation?: TElevation;
+}
+
+const CardMain = React.forwardRef((props_: ICardMain, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiCardMain?.props?.default }), [props_]);

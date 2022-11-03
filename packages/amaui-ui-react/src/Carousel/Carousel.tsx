@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is, unique, clamp, debounce, equalDeep } from '@amaui/utils';
+import { is, unique, clamp, debounce, equalDeep, TMethod } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 import AmauiSubscription from '@amaui/subscription';
 
@@ -12,7 +12,8 @@ import Transitions from '../Transitions';
 import Surface from '../Surface';
 import useMediaQuery from '../useMediaQuery';
 
-import { staticClassName, valueBreakpoints } from '../utils';
+import { staticClassName, TElement, TElementReference, TPropsAny, valueBreakpoints } from '../utils';
+import { ISurface } from '../Surface/Surface';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -190,7 +191,136 @@ const IconMaterialNavigateNextRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
-const Carousel = React.forwardRef((props_: any, ref: any) => {
+export interface ICarouselValue {
+  index?: number;
+  x?: number;
+  y?: number;
+}
+
+export type TCarouselItem = string | null | TElement | { element: TElement; };
+
+export type TCarouseOnUpdate = (to: string | number, values: TCarouselItem[]) => any;
+
+export interface ICarousel extends Omit<ISurface, 'version'> {
+  version?: 'regular' | 'transition';
+
+  valueDefault?: ICarouselValue;
+  value?: ICarouselValue;
+
+  onChange?: (value: ICarouselValue) => any;
+
+  // id if it updates
+  // update items
+  id?: any;
+
+  // Array of string or object
+  // object having element as a string or element
+  // and a transition element
+  items?: Array<TCarouselItem>;
+
+  orientation?: 'vertical' | 'horizontal';
+
+  itemSize?: 'auto';
+
+  gap?: number,
+
+  move?: boolean;
+
+  // How much in value to move on move
+  moveValue?: number;
+
+  // How many items to move on move
+  moveItems?: number;
+
+  moveBeyondEdge?: boolean;
+
+  free?: boolean;
+
+  swipe?: boolean;
+
+  background?: boolean;
+
+  index?: number;
+
+  autoPlay?: boolean;
+
+  autoHeight?: boolean;
+
+  autoHeightDelay?: number;
+
+  autoPlayInterval?: number;
+
+  pauseOnHover?: boolean;
+
+  round?: boolean;
+
+  arrows?: boolean;
+
+  mouseScroll?: boolean;
+
+  momentum?: boolean;
+
+  // AmauiSubscription methods
+  previousSub?: AmauiSubscription;
+  nextSub?: AmauiSubscription;
+  updateSub?: AmauiSubscription;
+
+  // on mobile visible
+  arrowsVisibility?: 'hover' | 'visible';
+
+  arrowHideOnStartEnd?: boolean;
+
+  renderProgress?: (update: TCarouseOnUpdate) => TElement;
+
+  renderArrowPrevious?: (update: () => any) => TElement;
+  renderArrowNext?: (update: () => any) => TElement;
+
+  progress?: boolean;
+
+  // on mobile visible
+  progressVisibility?: 'hover' | 'visible';
+
+  noTransition?: boolean;
+
+  onUpdatePosition?: (value: ICarouselValue) => any;
+
+  onInit?: TMethod;
+
+  onUpdateItems?: TMethod;
+
+  onBlur?: (event: React.FocusEvent<any>) => any;
+  onFocus?: (event: React.FocusEvent<any>) => any;
+  onMouseEnte?: (event: React.MouseEvent<any>) => any;
+  onMouseLeave?: (event: React.MouseEvent<any>) => any;
+
+  TransitionComponent?: TElementReference;
+
+  ProgressTransitionComponent?: TElementReference;
+
+  ArrowTransitionComponent?: TElementReference;
+  ArrowPreviousTransitionComponent?: TElementReference;
+  ArrowNextTransitionComponent?: TElementReference;
+
+  IconButtonPrevious?: TElement;
+  IconButtonNext?: TElement;
+
+  IconPrevious?: TElementReference;
+  IconNext?: TElementReference;
+
+  ArrowProps?: TPropsAny;
+  ArrowPreviousProps?: TPropsAny;
+  ArrowNextProps?: TPropsAny;
+  CarouselProps?: TPropsAny;
+  TransitionsProps?: TPropsAny;
+  TransitionComponentProps?: TPropsAny;
+  ArrowTransitionComponentProps?: TPropsAny;
+  ArrowPreviousTransitionComponentProps?: TPropsAny;
+  ArrowNextTransitionComponentProps?: TPropsAny;
+  ProgressTransitionComponentProps?: TPropsAny;
+  ItemWrapperProps?: TPropsAny;
+}
+
+const Carousel = React.forwardRef((props_: ICarousel, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiCarousel?.props?.default }), [props_]);
@@ -1429,7 +1559,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
               renderArrowPrevious(() => onUpdate('previous')) :
 
               IconButtonPrevious ?
-                React.cloneElement(IconButtonPrevious, {
+                React.cloneElement(IconButtonPrevious as any, {
                   tonal,
                   color,
 
@@ -1512,7 +1642,7 @@ const Carousel = React.forwardRef((props_: any, ref: any) => {
             is('function', renderArrowNext) ?
 
               renderArrowNext(() => onUpdate('next')) : IconButtonNext ?
-                React.cloneElement(IconButtonNext, {
+                React.cloneElement(IconButtonNext as any, {
                   tonal,
                   color,
 

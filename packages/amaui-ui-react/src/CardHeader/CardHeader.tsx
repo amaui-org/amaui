@@ -4,7 +4,7 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import Line from '../Line';
 
-import { staticClassName } from '../utils';
+import { IBaseElement, staticClassName, TColor, TElevation, TTonal, TVersion } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -12,7 +12,14 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiCardHeader' });
 
-const CardHeader = React.forwardRef((props_: any, ref: any) => {
+export interface ICardHeader extends IBaseElement {
+  tonal?: TTonal;
+  color?: TColor;
+  version?: TVersion;
+  elevation?: TElevation;
+}
+
+const CardHeader = React.forwardRef((props_: ICardHeader, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiCardHeader?.props?.default }), [props_]);
@@ -57,14 +64,14 @@ const CardHeader = React.forwardRef((props_: any, ref: any) => {
 
       {...other}
     >
-      {React.cloneElement(children, {
-        tonal: children.props.tonal !== undefined ? children.props.tonal : tonal,
+      {React.cloneElement(children as any, {
+        tonal: (children as any).props.tonal !== undefined ? (children as any).props.tonal : tonal,
 
-        version: children.props.version !== undefined ? children.props.version : version,
+        version: (children as any).props.version !== undefined ? (children as any).props.version : version,
 
-        elevation: children.props.elevation !== undefined ? children.props.elevation : elevation,
+        elevation: (children as any).props.elevation !== undefined ? (children as any).props.elevation : elevation,
 
-        color: children.props.color !== undefined ? children.props.color : color
+        color: (children as any).props.color !== undefined ? (children as any).props.color : color
       })}
     </Line>
   );

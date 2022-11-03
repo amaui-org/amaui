@@ -545,8 +545,6 @@ export interface ITextField extends IBaseElement {
   InputWrapperProps?: TPropsAny;
 
   WrapperComponent?: TElementReference;
-
-  Component?: TElementReference;
 }
 
 const TextField = React.forwardRef((props_: ITextField, ref: any) => {

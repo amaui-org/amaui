@@ -4,7 +4,7 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import Surface from '../Surface';
 
-import { IBaseElement, staticClassName, TColor, TElementReference, TTonal } from '../utils';
+import { IBaseElement, staticClassName, TColor, TTonal } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -75,8 +75,6 @@ export interface IBadge extends IBaseElement {
   vertical?: 'top' | 'bottom';
   horizontal?: 'left' | 'right';
   indicator?: boolean;
-
-  Component?: TElementReference;
 }
 
 const Badge = React.forwardRef((props_: IBadge, ref: any) => {

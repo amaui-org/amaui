@@ -5,7 +5,7 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import Interaction from '../Interaction';
 
-import { staticClassName } from '../utils';
+import { IBaseElement, staticClassName, TPropsAny } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -14,7 +14,19 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiCardButton' });
 
-const CardButton = React.forwardRef((props_: any, ref: any) => {
+export interface ICardButton extends IBaseElement {
+  focus?: boolean;
+  selected?: boolean;
+  href?: boolean;
+  disabled?: boolean;
+
+  onFocus?: (event: React.FocusEvent<any>) => any;
+  onBlur?: (event: React.FocusEvent<any>) => any;
+
+  InteractionProps?: TPropsAny;
+}
+
+const CardButton = React.forwardRef((props_: ICardButton, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiCardButton?.props?.default }), [props_]);
@@ -30,7 +42,7 @@ const CardButton = React.forwardRef((props_: any, ref: any) => {
 
     InteractionProps,
 
-    Component = props.href ? 'a' : 'div',
+    Component: Component_ = props.href ? 'a' : 'div',
 
     className,
 
@@ -58,6 +70,8 @@ const CardButton = React.forwardRef((props_: any, ref: any) => {
       if (is('function', onBlur_)) onBlur_(event);
     }
   }, [focus_, disabled, onBlur_]);
+
+  const Component: any = Component_;
 
   return (
     <Component

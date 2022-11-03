@@ -6,7 +6,8 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 import Surface from '../Surface';
 import Interaction from '../Interaction';
 
-import { staticClassName } from '../utils';
+import { staticClassName, TPropsAny } from '../utils';
+import { ISurface } from '../Surface/Surface';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -43,7 +44,20 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiCard' });
 
-const Card = React.forwardRef((props_: any, ref: any) => {
+export interface ICard extends ISurface {
+  focus?: boolean;
+  selected?: boolean;
+  button?: boolean;
+  href?: boolean;
+  disabled?: boolean;
+
+  onFocus?: (event: React.FocusEvent<any>) => any;
+  onBlur?: (event: React.FocusEvent<any>) => any;
+
+  InteractionProps?: TPropsAny;
+}
+
+const Card = React.forwardRef((props_: ICard, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiCard?.props?.default }), [props_]);

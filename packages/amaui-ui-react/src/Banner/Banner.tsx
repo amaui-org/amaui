@@ -6,7 +6,7 @@ import ListItem from '../ListItem';
 import Grid from '../Grid';
 import Line from '../Line';
 
-import { IBaseElement, staticClassName, TElement, TElementReference, TSize } from '../utils';
+import { IBaseElement, staticClassName, TElement, TSize } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -54,8 +54,6 @@ export interface IBanner extends IBaseElement {
 
   maxWidth?: string | number;
   actions?: TElement;
-
-  Component?: TElementReference;
 }
 
 const Banner = React.forwardRef((props_: IBanner, ref: any) => {
