@@ -14,7 +14,8 @@ import Line from '../Line';
 import IconButton from '../IconButton';
 import Icon from '../Icon';
 
-import { staticClassName } from '../utils';
+import { staticClassName, TElementReference, TPropsAny } from '../utils';
+import { ISurface } from '../Surface/Surface';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -117,7 +118,30 @@ const IconMaterialFlagRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
-const Timer = React.forwardRef((props_: any, ref: any) => {
+export interface ITimer extends ISurface {
+  renderValue?: (value: string) => any;
+
+  icon?: boolean;
+
+  onStart?: (event: React.MouseEvent<any>) => any;
+  onFlag?: (event: React.MouseEvent<any>) => any;
+  onPause?: (event: React.MouseEvent<any>) => any;
+  onStop?: (event: React.MouseEvent<any>) => any;
+  onResume?: (event: React.MouseEvent<any>) => any;
+
+  Icon?: TElementReference;
+  IconStart?: TElementReference;
+  IconPause?: TElementReference;
+  IconFlag?: TElementReference;
+  IconStop?: TElementReference;
+
+  TreeProps?: TPropsAny;
+  TooltipProps?: TPropsAny;
+  IconButtonProps?: TPropsAny;
+  IconProps?: TPropsAny;
+}
+
+const Timer = React.forwardRef((props_: ITimer, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiTimer?.props?.default }), [props_]);
@@ -128,7 +152,7 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
     tonal = true,
     color = 'primary',
 
-    render,
+    renderValue,
 
     icon = true,
 
@@ -187,7 +211,7 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
     refs.animationFrame.current = requestAnimationFrame(update);
   };
 
-  const onStart = React.useCallback(() => {
+  const onStart = React.useCallback((event: React.MouseEvent<any>) => {
     refs.start.current = AmauiDate.milliseconds;
 
     // ~60+ fps
@@ -195,18 +219,18 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
 
     setStatus('running');
 
-    if (is('function', onStart_)) onStart_();
+    if (is('function', onStart_)) onStart_(event);
   }, []);
 
-  const onFlag = React.useCallback(() => {
+  const onFlag = React.useCallback((event: React.MouseEvent<any>) => {
     if (!expand) setExpand(true);
 
     setFlags(values => [...values, refs.value.current]);
 
-    if (is('function', onFlag_)) onFlag_();
+    if (is('function', onFlag_)) onFlag_(event);
   }, [expand]);
 
-  const onPause = React.useCallback(() => {
+  const onPause = React.useCallback((event: React.MouseEvent<any>) => {
     clear();
 
     // Remember previous value
@@ -214,10 +238,10 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
 
     setStatus('paused');
 
-    if (is('function', onPause_)) onPause_();
+    if (is('function', onPause_)) onPause_(event);
   }, []);
 
-  const onStop = React.useCallback(() => {
+  const onStop = React.useCallback((event: React.MouseEvent<any>) => {
     clear();
 
     setStatus('initial');
@@ -232,10 +256,10 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
 
     refs.value.current = 0;
 
-    if (is('function', onStop_)) onStop_();
+    if (is('function', onStop_)) onStop_(event);
   }, []);
 
-  const onResume = React.useCallback(() => {
+  const onResume = React.useCallback((event: React.MouseEvent<any>) => {
     // ~60+ fps
     refs.animationFrame.current = requestAnimationFrame(update);
 
@@ -244,7 +268,7 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
 
     setStatus('running');
 
-    if (is('function', onResume_)) onResume_();
+    if (is('function', onResume_)) onResume_(event);
   }, []);
 
   const onExited = React.useCallback(() => {
@@ -340,7 +364,7 @@ const Timer = React.forwardRef((props_: any, ref: any) => {
       )}
 
       {/* Time */}
-      {is('function', render) ? render(value_) : (
+      {is('function', renderValue) ? renderValue(value_) : (
         <Type
           version='h1'
 

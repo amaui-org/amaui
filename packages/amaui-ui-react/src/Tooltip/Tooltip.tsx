@@ -8,7 +8,8 @@ import Modal from '../Modal';
 import Append from '../Append';
 import Surface from '../Surface';
 
-import { staticClassName } from '../utils';
+import { staticClassName, TColor, TElement, TElementReference, TMethodTransition, TPropsAny, TTonal } from '../utils';
+import { IModal } from '../Modal/Modal';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -169,7 +170,49 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiTooltip' });
 
-const Tooltip = React.forwardRef((props_: any, ref: any) => {
+export interface ITooltip extends Omit<IModal, 'maxWidth'> {
+  tonal?: TTonal;
+  color?: TColor;
+
+  open?: boolean;
+
+  label?: TElement;
+
+  position?: 'top' | 'left' | 'bottom' | 'right';
+  switch?: boolean;
+  alignment?: 'start' | 'center' | 'end';
+  portal?: boolean;
+  fullWidth?: boolean;
+  maxWidth?: 'xxs' | 'xs' | 'sm' | 'rg' | 'lg' | 'xl' | 'xxl' | 'unset';
+  arrow?: boolean;
+  noMargin?: string;
+  classNameSwitch?: string;
+  transformOrigin?: string;
+  transformOriginSwitch?: string;
+  transformOriginRtl?: string;
+  transformOriginRtlSwitch?: string;
+  touch?: boolean;
+  longPress?: boolean;
+  hover?: boolean;
+  focus?: boolean;
+  inset?: boolean;
+  nowrap?: boolean;
+  follow?: boolean;
+  interactive?: boolean;
+
+  onOpen?: () => any;
+  onClose?: () => any;
+  onExited?: TMethodTransition;
+
+  TransitionComponent?: TElementReference;
+
+  TransitionComponentProps?: TPropsAny;
+  AppendProps?: TPropsAny;
+  ModalProps?: TPropsAny;
+  LabelProps?: TPropsAny;
+}
+
+const Tooltip = React.forwardRef((props_: ITooltip, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiTooltip?.props?.default }), [props_]);
@@ -252,7 +295,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
   const onMouseDown = React.useCallback((event: React.MouseEvent<any>) => {
     if (longPress_) refs.longPressTimer.current = setTimeout(() => setLongPress(true), 700);
 
-    if (is('function', children?.props.onMouseDown)) children.props.onMouseDown(event);
+    if (is('function', (children as any)?.props.onMouseDown)) (children as any).props.onMouseDown(event);
   }, []);
 
   const onMouseUp = React.useCallback((event: React.MouseEvent<any>) => {
@@ -262,13 +305,13 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
       setLongPress(false);
     }
 
-    if (is('function', children?.props.onMouseUp)) children.props.onMouseUp(event);
+    if (is('function', (children as any)?.props.onMouseUp)) (children as any).props.onMouseUp(event);
   }, []);
 
   const onMouseEnter = React.useCallback((event: React.MouseEvent<any>) => {
     if (hover_) setHover(true);
 
-    if (is('function', children?.props.onMouseEnter)) children.props.onMouseEnter(event);
+    if (is('function', (children as any)?.props.onMouseEnter)) (children as any).props.onMouseEnter(event);
   }, []);
 
   const onMouseLeave = React.useCallback((event: React.MouseEvent<any>) => {
@@ -283,25 +326,25 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
 
     if (hover_) setHover(false);
 
-    if (is('function', children?.props.onMouseLeave)) children.props.onMouseLeave(event);
+    if (is('function', (children as any)?.props.onMouseLeave)) (children as any).props.onMouseLeave(event);
   }, []);
 
   const onTouchStart = React.useCallback((event: React.MouseEvent<any>) => {
     if (touch_) setTouch(true);
 
-    if (is('function', children?.props.onTouchStart)) children.props.onTouchStart(event);
+    if (is('function', (children as any)?.props.onTouchStart)) (children as any).props.onTouchStart(event);
   }, []);
 
   const onTouchEnd = React.useCallback((event: React.MouseEvent<any>) => {
     if (touch_) setTouch(false);
 
-    if (is('function', children?.props.onTouchEnd)) children.props.onTouchEnd(event);
+    if (is('function', (children as any)?.props.onTouchEnd)) (children as any).props.onTouchEnd(event);
   }, []);
 
   const onFocus = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
     if (focus_) setFocus(true);
 
-    if (is('function', children?.props.onFocus)) children.props.onFocus(event);
+    if (is('function', (children as any)?.props.onFocus)) (children as any).props.onFocus(event);
   }, []);
 
   const onBlur = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
@@ -316,7 +359,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
 
     if (focus_) setFocus(false);
 
-    if (is('function', children?.props.onBlur)) children.props.onBlur(event);
+    if (is('function', (children as any)?.props.onBlur)) (children as any).props.onBlur(event);
   }, []);
 
   const onMouseMove = React.useCallback((event: MouseEvent) => {
@@ -329,7 +372,7 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
       });
     }
 
-    if (is('function', children?.props.onMouseMove)) children.props.onMouseMove(event);
+    if (is('function', (children as any)?.props.onMouseMove)) (children as any).props.onMouseMove(event);
   }, []);
 
   const onOpen = () => {
@@ -581,9 +624,9 @@ const Tooltip = React.forwardRef((props_: any, ref: any) => {
                     </span>
                   </Surface> :
 
-                  React.cloneElement(label, {
+                  React.cloneElement(label as any, {
                     className: classNames([
-                      label?.props?.className,
+                      (label as any)?.props?.className,
                       arrow && [
                         classes.arrow,
                         classes[`arrow_position_${position}_alignment_${alignment}`]

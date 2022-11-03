@@ -166,10 +166,10 @@ export interface ICountdown extends Omit<ISurface, 'version'> {
   renderValue?: (value: string) => TElement;
   icon?: boolean;
 
-  onStart?: () => any;
-  onPause?: () => any;
-  onStop?: () => any;
-  onResume?: () => any;
+  onStart?: (event: React.MouseEvent<any>) => any;
+  onPause?: (event: React.MouseEvent<any>) => any;
+  onStop?: (event: React.MouseEvent<any>) => any;
+  onResume?: (event: React.MouseEvent<any>) => any;
 
   Icon?: TElementReference;
   IconStart?: TElementReference;
@@ -282,7 +282,7 @@ const Countdown = React.forwardRef((props_: ICountdown, ref: any) => {
     refs.animationFrame.current = requestAnimationFrame(update);
   };
 
-  const onStart = React.useCallback(() => {
+  const onStart = React.useCallback((event: React.MouseEvent<any>) => {
     refs.total.current = refs.valuePaused.current = (
       ((refs.values.current.hours || 0) * (60 ** 2) * 1e3) +
       ((refs.values.current.minutes || 0) * (60 ** 1) * 1e3) +
@@ -299,10 +299,10 @@ const Countdown = React.forwardRef((props_: ICountdown, ref: any) => {
       refs.animationFrame.current = requestAnimationFrame(update);
     }, 14);
 
-    if (is('function', onStart_)) onStart_();
+    if (is('function', onStart_)) onStart_(event);
   }, []);
 
-  const onPause = React.useCallback(() => {
+  const onPause = React.useCallback((event: React.MouseEvent<any>) => {
     clear();
 
     // Remember previous value
@@ -310,10 +310,10 @@ const Countdown = React.forwardRef((props_: ICountdown, ref: any) => {
 
     setStatus('paused');
 
-    if (is('function', onPause_)) onPause_();
+    if (is('function', onPause_)) onPause_(event);
   }, []);
 
-  const onStop = React.useCallback(() => {
+  const onStop = React.useCallback((event: React.MouseEvent<any>) => {
     clear();
 
     refs.start.current = 0;
@@ -326,10 +326,10 @@ const Countdown = React.forwardRef((props_: ICountdown, ref: any) => {
 
     setValue(0);
 
-    if (is('function', onStop_)) onStop_();
+    if (is('function', onStop_)) onStop_(event);
   }, []);
 
-  const onResume = React.useCallback(() => {
+  const onResume = React.useCallback((event: React.MouseEvent<any>) => {
     // Update start, valuePaused value
     refs.start.current = AmauiDate.milliseconds;
 
@@ -338,7 +338,7 @@ const Countdown = React.forwardRef((props_: ICountdown, ref: any) => {
 
     setStatus('running');
 
-    if (is('function', onResume_)) onResume_();
+    if (is('function', onResume_)) onResume_(event);
   }, []);
 
   const IconProps = {

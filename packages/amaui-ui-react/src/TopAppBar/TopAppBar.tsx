@@ -6,8 +6,9 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 import Line from '../Line';
 import Surface from '../Surface';
 import Type from '../Type';
+import { ISurface } from '../Surface/Surface';
 
-import { staticClassName } from '../utils';
+import { staticClassName, TElement, TSize } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -92,7 +93,17 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiTopAppBar' });
 
-const TopAppBar = React.forwardRef((props_: any, ref: any) => {
+export interface ITopAppBar extends Omit<ISurface, 'version'> {
+  version?: 'small' | 'center' | 'medium' | 'large';
+  size?: TSize;
+
+  title?: TElement;
+  start?: TElement;
+  end?: TElement;
+  fixed?: boolean;
+}
+
+const TopAppBar = React.forwardRef((props_: ITopAppBar, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiTopAppBar?.props?.default }), [props_]);
@@ -168,10 +179,10 @@ const TopAppBar = React.forwardRef((props_: any, ref: any) => {
       {title_}
     </Type>
   ) : (
-    React.cloneElement(title_, {
-      tonal: title_.props.tonal !== undefined ? title_.props.tonal : tonal,
+    React.cloneElement(title_ as any, {
+      tonal: (title_ as any).props.tonal !== undefined ? (title_ as any).props.tonal : tonal,
 
-      color: title_.props.color !== undefined ? title_.props.color : 'inherit',
+      color: (title_ as any).props.color !== undefined ? (title_ as any).props.color : 'inherit',
 
       className: classNameTitle
     })
@@ -198,10 +209,10 @@ const TopAppBar = React.forwardRef((props_: any, ref: any) => {
       {title_}
     </Type>
   ) : (
-    React.cloneElement(title_, {
-      tonal: title_.props.tonal !== undefined ? title_.props.tonal : tonal,
+    React.cloneElement(title_ as any, {
+      tonal: (title_ as any).props.tonal !== undefined ? (title_ as any).props.tonal : tonal,
 
-      color: title_.props.color !== undefined ? title_.props.color : 'inherit',
+      color: (title_ as any).props.color !== undefined ? (title_ as any).props.color : 'inherit',
 
       className: classNameTitleMedium
     })

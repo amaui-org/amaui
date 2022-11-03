@@ -3,6 +3,7 @@ import React from 'react';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Buttons from '../Buttons';
+import { IButtons } from '../Buttons/Buttons';
 
 import { staticClassName } from '../utils';
 
@@ -12,7 +13,11 @@ const useStyle = styleMethod(theme => ({
   },
 }), { name: 'AmauiToggleButtons' });
 
-const ToggleButtons = React.forwardRef((props_: any, ref: any) => {
+export interface IToggleButtons extends IButtons {
+
+}
+
+const ToggleButtons = React.forwardRef((props_: IToggleButtons, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiToggleButtons?.props?.default }), [props_]);

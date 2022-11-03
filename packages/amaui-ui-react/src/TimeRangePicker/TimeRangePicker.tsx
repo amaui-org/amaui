@@ -16,8 +16,9 @@ import useMediaQuery from '../useMediaQuery';
 import Carousel from '../Carousel';
 import Line from '../Line';
 import Slide from '../Slide';
+import { ITimePicker } from '../TimePicker/TimePicker';
 
-import { staticClassName, valueBreakpoints } from '../utils';
+import { staticClassName, TPropsAny, valueBreakpoints } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -70,7 +71,17 @@ const SEPARATOR_SYMBOL = `–`;
 
 const SEPARATOR = ` ${SEPARATOR_SYMBOL} `;
 
-const TimeRangePicker = React.forwardRef((props__: any, ref: any) => {
+export interface ITimeRangePicker extends ITimePicker {
+  to?: string;
+  from?: string;
+
+  ToProps?: TPropsAny;
+  FromProps?: TPropsAny;
+
+  CarouselProps?: TPropsAny;
+}
+
+const TimeRangePicker = React.forwardRef((props__: ITimeRangePicker, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props__, ...theme?.ui?.elements?.AmauiTimeRangePicker?.props?.default }), [props__]);
@@ -312,7 +323,7 @@ const TimeRangePicker = React.forwardRef((props__: any, ref: any) => {
     // minute
     let minute_ = values_.minute || '00';
 
-    if (minute.startsWith('0')) minute_ = +minute.slice(1);
+    if (minute_.startsWith('0')) minute_ = +minute_.slice(1);
 
     amauiDate = set(+minute_, 'minute', amauiDate);
 

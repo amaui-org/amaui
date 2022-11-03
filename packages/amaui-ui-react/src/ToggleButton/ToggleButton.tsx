@@ -2,9 +2,10 @@ import React from 'react';
 
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import { staticClassName } from '../utils';
-
 import Chip from '../Chip';
+import { IChip } from '../Chip/Chip';
+
+import { staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -12,7 +13,11 @@ const useStyle = styleMethod(theme => ({
   },
 }), { name: 'AmauiToggleButton' });
 
-const ToggleButton = React.forwardRef((props_: any, ref: any) => {
+export interface IToggleButton extends IChip {
+
+}
+
+const ToggleButton = React.forwardRef((props_: IToggleButton, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiToggleButton?.props?.default }), [props_]);

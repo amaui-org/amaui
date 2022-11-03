@@ -314,4 +314,4 @@ export interface IBaseElement {
   [property: string]: any;
 }
 
-export type TMethodTransition = (element: THTMLElement) => any;
+export type TMethodTransition = (element?: THTMLElement) => any;

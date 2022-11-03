@@ -20,8 +20,9 @@ import Button from '../Button';
 import RoundMeter from '../RoundMeter';
 import Path from '../Path';
 import Slide from '../Slide';
+import { IAdvancedTextField } from '../AdvancedTextField/AdvancedTextField';
 
-import { staticClassName, valueBreakpoints } from '../utils';
+import { staticClassName, TElementReference, TPropsAny, valueBreakpoints } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -181,7 +182,68 @@ const IconMaterialKeyboardAltRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
-const TimePicker = React.forwardRef((props__: any, ref: any) => {
+export interface ITimePicker extends Omit<IAdvancedTextField, 'version'> {
+  version?: 'auto' | 'mobile' | 'desktop' | 'static';
+
+  versionStatic?: 'select' | 'input';
+
+  now?: boolean;
+
+  min?: number;
+
+  max?: number;
+
+  validate?: (value: number | string, values: any, selecting: 'hour' | 'minute' | 'second') => boolean;
+
+  autoNext?: boolean;
+
+  autoCloseOnLast?: boolean;
+
+  openMobile?: 'input' | 'select';
+
+  openDesktop?: 'input' | 'select';
+
+  selectModeHeadingText?: string;
+
+  inputModeHeadingText?: string;
+
+  orientation?: 'vertical' | 'horizontal';
+
+  format?: '12' | '24';
+
+  hour?: boolean;
+
+  minute?: boolean;
+
+  second?: boolean;
+
+  switch?: boolean;
+
+  readOnly?: boolean;
+
+  disabled?: boolean;
+
+  onClick?: (event: React.MouseEvent<any>) => any;
+
+  onCancel: () => any;
+
+  Icon?: TElementReference;
+  IconEnter?: TElementReference;
+
+  ButtonProps?: TPropsAny;
+  ModalProps?: TPropsAny;
+  TooltipProps?: TPropsAny;
+  ToggleButtonsProps?: TPropsAny;
+  ToggleButtonProps?: TPropsAny;
+  IconButtonProps?: TPropsAny;
+  InputProps?: TPropsAny;
+  RoundMeterProps?: TPropsAny;
+  ModeSelectProps?: TPropsAny;
+  ModeInputProps?: TPropsAny;
+  AdvancedTextFieldProps?: TPropsAny;
+}
+
+const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props__, ...theme?.ui?.elements?.AmauiTimePicker?.props?.default }), [props__]);

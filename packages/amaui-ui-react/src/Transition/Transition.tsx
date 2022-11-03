@@ -27,8 +27,10 @@ export const STATUS: Record<TTransitionStatus, TTransitionStatus> = {
   removed: 'removed'
 };
 
-export interface ITransition extends Omit<IBaseElement, 'children'> {
+export interface ITransition extends Omit<IBaseElement, 'children' | 'className'> {
   in?: boolean;
+
+  className?: boolean;
 
   prefix?: string;
 

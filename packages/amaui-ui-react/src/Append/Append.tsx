@@ -4,7 +4,7 @@ import { is, isEnvironment, element as element_, clamp } from '@amaui/utils';
 import { useAmauiTheme } from '@amaui/style-react';
 
 import Portal from '../Portal';
-import { TChildren, TElement, THTMLElement, TStyle } from '../utils';
+import { TChildren, TElement, THTMLElement, TRef, TStyle } from '../utils';
 
 const valuesDefault = {
   x: 0,
@@ -14,6 +14,13 @@ const valuesDefault = {
 };
 
 type TArrayTuple = [number, number];
+
+export interface IAppendValue {
+  x?: number;
+  y?: number;
+  switch?: boolean;
+  init?: boolean;
+};
 
 export interface IAppend {
   open?: boolean;
@@ -32,7 +39,7 @@ export interface IAppend {
   unfollow?: boolean;
   style?: TStyle;
   update?: any;
-  element?: TElement;
+  element?: (value: { ref: TRef; values: IAppendValue; style: TStyle; }) => any | TElement;
   parent?: THTMLElement;
 
   children?: TChildren;
