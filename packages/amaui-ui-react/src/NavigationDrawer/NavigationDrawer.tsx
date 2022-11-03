@@ -7,8 +7,9 @@ import Modal from '../Modal';
 import Slide from '../Slide';
 import useSwipe from '../useSwipe';
 import { IOptionsUseSwipe, IResponseUseSwipe } from '../useSwipe/useSwipe';
+import { IModal } from '../Modal/Modal';
 
-import { staticClassName } from '../utils';
+import { staticClassName, TMethodTransition, TPropsAny } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -74,7 +75,18 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiNavigationDrawer' });
 
-const NavigationDrawer = React.forwardRef((props_: any, ref: any) => {
+export interface INavigationDrawer extends IModal {
+  direction?: 'top' | 'left' | 'bottom' | 'right';
+  swipe?: boolean;
+  swipeTouchAnywhere?: boolean;
+  swipeBackgroundFollow?: boolean;
+  min?: number;
+  removeOnExited?: TMethodTransition;
+
+  TransitionComponentProps?: TPropsAny;
+}
+
+const NavigationDrawer = React.forwardRef((props_: INavigationDrawer, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiNavigationDrawer?.props?.default }), [props_]);

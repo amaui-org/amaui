@@ -4,8 +4,9 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import Button from '../Button';
 import Type from '../Type';
+import { IButton } from '../Button/Button';
 
-import { staticClassName } from '../utils';
+import { staticClassName, TElevation, TPropsAny } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -34,7 +35,17 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiAvatar' });
 
-const Avatar = React.forwardRef((props_: any, ref) => {
+export interface IAvatar extends Omit<IButton, 'elevation'> {
+  image?: string;
+  alt?: string;
+  square?: boolean;
+  elevation?: TElevation;
+
+  TypeProps?: TPropsAny;
+  InteractionProps?: TPropsAny;
+}
+
+const Avatar = React.forwardRef((props_: IAvatar, ref) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiAvatar?.props?.default }), [props_]);
@@ -83,6 +94,7 @@ const Avatar = React.forwardRef((props_: any, ref) => {
           className={classes.image}
 
           src={image}
+
           alt={alt}
 
           {...imageProps}

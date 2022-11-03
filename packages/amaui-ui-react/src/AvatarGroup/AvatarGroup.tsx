@@ -2,14 +2,14 @@ import React from 'react';
 
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
+import Line from '../Line';
 import Avatar from '../Avatar';
 
-import { staticClassName } from '../utils';
+import { IBaseElement, staticClassName, TColor, TElement, TPropsAny, TSizeAny, TTonal } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
-    display: 'flex',
-    flexDirection: 'row-reverse'
+
   },
 
   disabled: {
@@ -27,7 +27,21 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiAvatarGroup' });
 
-const AvatarGroup = React.forwardRef((props_: any, ref: any) => {
+export interface IAvatarGroup extends IBaseElement {
+  tonal?: TTonal;
+  color?: TColor;
+  size?: TSizeAny;
+
+  total?: number;
+  max?: number;
+  disabled?: boolean;
+
+  AdditionalAvatar?: TElement;
+
+  AdditionalAvatarProps?: TPropsAny;
+}
+
+const AvatarGroup = React.forwardRef((props_: IAvatarGroup, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiAvatarGroup?.props?.default }), [props_]);
@@ -35,16 +49,19 @@ const AvatarGroup = React.forwardRef((props_: any, ref: any) => {
   const { classes } = useStyle(props);
 
   const {
-    total,
+    tonal = true,
     color = 'primary',
     size = 'regular',
 
+    total,
     max,
     disabled,
 
     AdditionalAvatar,
 
     AdditionalAvatarProps = {},
+
+    Component = 'div',
 
     className,
     style,
@@ -61,7 +78,7 @@ const AvatarGroup = React.forwardRef((props_: any, ref: any) => {
     item: {}
   };
 
-  const children = React.Children.toArray(children_).slice(0, max || children_.length).reverse();
+  const children = React.Children.toArray(children_).slice(0, max || (children_ as any).length).reverse();
 
   if (size !== undefined) {
     if (size === 'small') styles.item.outlineWidth = 2;
@@ -72,21 +89,21 @@ const AvatarGroup = React.forwardRef((props_: any, ref: any) => {
 
   other.style = styles.item;
 
-  if ((total !== undefined && total - children_.length >= 1) || max < children_.length) {
+  if ((total !== undefined && total - (children_ as any).length >= 1) || max < (children_ as any).length) {
     let value: any;
 
-    if ((total !== undefined && total - children_.length >= 1)) value = `+${total - children_.length}`;
-    else value = `+${Math.abs(children_.length - max)}`;
+    if ((total !== undefined && total - (children_ as any).length >= 1)) value = `+${total - (children_ as any).length}`;
+    else value = `+${Math.abs((children_ as any).length - max)}`;
 
     if (!AdditionalAvatarProps.TypeProps) AdditionalAvatarProps.TypeProps = {};
 
     AdditionalAvatarProps.TypeProps.size = '0.44em';
 
     children.unshift(
-      AdditionalAvatar ||
+      (AdditionalAvatar as any) ||
 
       <Avatar
-        tonal
+        tonal={tonal}
 
         color='neutral'
 
@@ -104,8 +121,14 @@ const AvatarGroup = React.forwardRef((props_: any, ref: any) => {
   if (AdditionalAvatarProps?.size !== undefined) styles.root.fontSize = AdditionalAvatarProps.size;
 
   return (
-    <div
+    <Line
       ref={ref}
+
+      gap={0}
+
+      direction='row-reverse'
+
+      Component={Component}
 
       className={classNames([
         staticClassName('AvatarGroup', theme) && [
@@ -133,15 +156,17 @@ const AvatarGroup = React.forwardRef((props_: any, ref: any) => {
           classes.item
         ]),
 
-        size: item.props.size || size,
+        tonal: item.props.tonal || tonal,
 
         color: item.props.color || color,
+
+        size: item.props.size || size,
 
         ...other,
 
         ...item.props
       }))}
-    </div>
+    </Line>
   );
 });
 

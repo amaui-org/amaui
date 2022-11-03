@@ -4,7 +4,7 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import Surface from '../Surface';
 
-import { staticClassName } from '../utils';
+import { IBaseElement, staticClassName, TColor, TElementReference, TTonal } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -25,35 +25,35 @@ const useStyle = styleMethod(theme => ({
   },
 
   // Vertical & horizontal
-  left: {
+  horizontal_left: {
     insetInlineStart: 0
   },
 
-  right: {
+  horizontal_right: {
     insetInlineEnd: 0
   },
 
-  top: {
+  vertical_top: {
     top: 0
   },
 
-  top_right: {
+  vertical_horizontal_top_right: {
     transform: `translate(${theme.direction === 'rtl' ? '-' : ''}50%, -50%)`
   },
 
-  top_left: {
+  vertical_horizontal_top_left: {
     transform: `translate(${theme.direction === 'rtl' ? '' : '-'}50%, -50%)`
   },
 
-  bottom: {
+  vertical_bottom: {
     bottom: 0
   },
 
-  bottom_right: {
+  vertical_horizontal_bottom_right: {
     transform: `translate(${theme.direction === 'rtl' ? '-' : ''}50%, 50%)`
   },
 
-  bottom_left: {
+  vertical_horizontal_bottom_left: {
     transform: `translate(${theme.direction === 'rtl' ? '' : '-'}50%, 50%)`
   },
 
@@ -65,7 +65,21 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiBadge' });
 
-const Badge = React.forwardRef((props_: any, ref: any) => {
+export interface IBadge extends IBaseElement {
+  tonal?: TTonal;
+  color?: TColor;
+
+  value?: number;
+
+  max?: number;
+  vertical?: 'top' | 'bottom';
+  horizontal?: 'left' | 'right';
+  indicator?: boolean;
+
+  Component?: TElementReference;
+}
+
+const Badge = React.forwardRef((props_: IBadge, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiBadge?.props?.default }), [props_]);
@@ -96,7 +110,7 @@ const Badge = React.forwardRef((props_: any, ref: any) => {
     badge: {}
   };
 
-  let value = value_;
+  let value: any = value_;
 
   if (max !== undefined && value > max) value = `${max}+`;
 
@@ -134,9 +148,9 @@ const Badge = React.forwardRef((props_: any, ref: any) => {
           ],
 
           classes.badge,
-          classes[vertical],
-          classes[horizontal],
-          classes[`${vertical}_${horizontal}`],
+          classes[`vertical_${vertical}`],
+          classes[`horizontal_${horizontal}`],
+          classes[`vertical_horizontal_${vertical}_${horizontal}`],
           indicator && classes.indicator
         ])}
 

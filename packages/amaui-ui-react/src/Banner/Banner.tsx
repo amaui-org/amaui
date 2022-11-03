@@ -6,7 +6,7 @@ import ListItem from '../ListItem';
 import Grid from '../Grid';
 import Line from '../Line';
 
-import { staticClassName } from '../utils';
+import { IBaseElement, staticClassName, TElement, TElementReference, TSize } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -49,7 +49,16 @@ const useStyle = styleMethod(theme => ({
   maxWidth_unset: { maxWidth: 'unset' }
 }), { name: 'AmauiBanner' });
 
-const Banner = React.forwardRef((props_: any, ref: any) => {
+export interface IBanner extends IBaseElement {
+  size?: TSize;
+
+  maxWidth?: string | number;
+  actions?: TElement;
+
+  Component?: TElementReference;
+}
+
+const Banner = React.forwardRef((props_: IBanner, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiBanner?.props?.default }), [props_]);

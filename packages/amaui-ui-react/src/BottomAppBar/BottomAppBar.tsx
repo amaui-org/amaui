@@ -5,8 +5,9 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 import Line from '../Line';
 import Surface from '../Surface';
 import Transition, { TTransitionStatus } from '../Transition';
+import { ISurface } from '../Surface/Surface';
 
-import { staticClassName } from '../utils';
+import { staticClassName, TElement, TSize } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -102,7 +103,15 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiBottomAppBar' });
 
-const BottomAppBar = React.forwardRef((props_: any, ref: any) => {
+export interface IBottomAppBar extends ISurface {
+  size?: TSize;
+
+  main?: TElement;
+  fixed?: boolean;
+  noTransition?: boolean;
+}
+
+const BottomAppBar = React.forwardRef((props_: IBottomAppBar, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiBottomAppBar?.props?.default }), [props_]);
@@ -111,15 +120,11 @@ const BottomAppBar = React.forwardRef((props_: any, ref: any) => {
 
   const {
     tonal = true,
-
     color = 'primary',
-
     size = 'regular',
 
     main: main_,
-
     fixed,
-
     noTransition,
 
     className,

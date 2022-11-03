@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is, isEnvironment } from '@amaui/utils';
+import { is, isEnvironment, TMethod } from '@amaui/utils';
 import { style as styleMethod, classNames, useAmauiTheme } from '@amaui/style-react';
 
 import Portal from '../Portal';
@@ -9,7 +9,7 @@ import Fade from '../Fade';
 import Surface from '../Surface';
 import useMediaQuery from '../useMediaQuery';
 
-import { staticClassName } from '../utils';
+import { IBaseElement, staticClassName, TColor, TElementReference, TPropsAny, TRef, TSize, TTonal } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -125,7 +125,53 @@ let MODALS_OPEN = 0;
 
 // 1. Add padding right for freezeScroll for the scroll bar if it exists and width that it is
 
-const Modal = React.forwardRef((props_: any, ref: any) => {
+export interface IModal extends IBaseElement {
+  tonal?: TTonal;
+  color?: TColor;
+  size?: TSize;
+
+  open?: boolean;
+  openDefault?: boolean;
+
+  mainRef?: TRef;
+  backgroundRef?: TRef;
+
+  partialyOpened?: number;
+
+  minWidth?: 'xss' | 'xs' | 'sm' | 'rg' | 'lg' | 'xl' | 'xxl';
+
+  maxWidth?: 'xss' | 'xs' | 'sm' | 'rg' | 'lg' | 'xl' | 'xxl';
+
+  fullScreen?: boolean;
+
+  fullWidth?: boolean;
+
+  background?: boolean;
+  modalWrapper?: boolean;
+  modalWrapperSurface?: boolean;
+
+  portal?: boolean;
+  focus?: boolean;
+  freezeScroll?: boolean;
+
+  disableKeyboardClose?: boolean;
+  disableBackgroundClose?: boolean;
+
+  backgroundInvisible?: boolean;
+
+  onClose?: TMethod;
+
+  NoSurfaceProps?: TPropsAny;
+  SurfaceProps?: TPropsAny;
+  BackgroundProps?: TPropsAny;
+  PortalProps?: TPropsAny;
+  TransitionComponentProps?: TPropsAny;
+
+  BackgroundComponent?: TElementReference;
+  TransitionComponent?: TElementReference;
+}
+
+const Modal = React.forwardRef((props_: IModal, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiModal?.props?.default }), [props_]);
@@ -164,8 +210,7 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
 
     backgroundInvisible,
 
-    BackgroundComponent = Fade,
-    TransitionComponent = Fade,
+    onClose: onClose_,
 
     NoSurfaceProps,
     SurfaceProps,
@@ -173,7 +218,10 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
     PortalProps: PortalProps_,
     TransitionComponentProps,
 
-    onClose: onClose_,
+    BackgroundComponent = Fade,
+    TransitionComponent = Fade,
+
+    Component = 'div',
 
     className,
 
@@ -355,7 +403,7 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
     <PortalComponent
       {...PortalProps}
     >
-      <div
+      <Component
         ref={ref}
 
         className={classNames([
@@ -415,7 +463,7 @@ const Modal = React.forwardRef((props_: any, ref: any) => {
           {/* Main */}
           {Main}
         </FocusComponent>
-      </div>
+      </Component>
     </PortalComponent>
   );
 });

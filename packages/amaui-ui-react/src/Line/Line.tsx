@@ -13,6 +13,11 @@ const useStyle = styleMethod(theme => ({
     display: 'flex'
   },
 
+  // display
+  display_flex: { display: 'flex' },
+
+  display_inline_flex: { display: 'inline-flex' },
+
   // wrap
   wrap_nowrap: { flexWrap: 'nowrap' },
 
@@ -134,6 +139,7 @@ const Line = React.forwardRef((props_: any, ref: any) => {
   const { classes } = useStyle(props);
 
   const {
+    display: display_,
     align: align_,
     justify: justify_,
     direction: direction_,
@@ -155,6 +161,7 @@ const Line = React.forwardRef((props_: any, ref: any) => {
     ...other
   } = props;
 
+  const display = valueBreakpoints(display_, 'flex', breakpoints, theme);
   const align = valueBreakpoints(align_, 'flex-start', breakpoints, theme);
   const justify = valueBreakpoints(justify_, 'flex-start', breakpoints, theme);
   const direction = valueBreakpoints(direction_, 'column', breakpoints, theme);
@@ -199,6 +206,7 @@ const Line = React.forwardRef((props_: any, ref: any) => {
       className={classNames([
         staticClassName('Line', theme) && [
           'AmauiLine-root',
+          display && `AmauiLine-display-${display}`,
           wrap && `AmauiLine-wrap-${wrap}`,
           direction && `AmauiLine-direction-${direction}`,
           align && `AmauiLine-align-${align}`,
@@ -211,6 +219,7 @@ const Line = React.forwardRef((props_: any, ref: any) => {
 
         className,
         classes.root,
+        classes[`display_${display.replace('-', '_')}`],
         classes[`wrap_${wrap}`],
         classes[`direction_${direction}`],
         classes[`align_${align}`],

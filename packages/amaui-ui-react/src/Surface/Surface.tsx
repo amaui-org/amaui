@@ -3,7 +3,7 @@ import React from 'react';
 import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import { staticClassName } from '../utils';
+import { IBaseElement, staticClassName, TColor, TElementReference, TElevation, TPropsAny, TTonal, TVersion } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -693,7 +693,21 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiSurface' });
 
-const Surface = React.forwardRef((props_: any, ref: any) => {
+export interface ISurface extends IBaseElement {
+  tonal?: TTonal;
+  color?: TColor;
+  version?: TVersion;
+  elevation?: TElevation;
+
+  backgroundOpacity?: number;
+  noOutline?: boolean;
+
+  AdditionalProps?: TPropsAny;
+
+  Component?: TElementReference;
+}
+
+const Surface = React.forwardRef((props_: ISurface, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiSurface?.props?.default }), [props_]);
@@ -708,8 +722,6 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
 
     backgroundOpacity,
     noOutline,
-
-    start,
 
     AdditionalProps,
 
@@ -728,7 +740,7 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
     children: {}
   };
 
-  let color = color_;
+  let color: any = color_;
 
   let palette: any = {};
 
@@ -736,24 +748,24 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
     palette = theme.methods.color(color);
 
     if (tonal) {
-      styles.root.color = theme.methods.palette.color.value(color, 10, true, palette);
+      styles.root.color = theme.methods.palette.color.value(color as any, 10, true, palette);
 
-      if (version === 'filled') styles.root.backgroundColor = theme.methods.palette.color.value(color, tonal === 'secondary' ? 80 : 95, true, palette);
+      if (version === 'filled') styles.root.backgroundColor = theme.methods.palette.color.value(color as any, tonal === 'secondary' ? 80 : 95, true, palette);
 
       if (version === 'outlined') {
-        styles.root.color = theme.methods.palette.color.value(color, tonal === 'secondary' ? 10 : 5, true, palette);
-        styles.root.backgroundColor = theme.methods.palette.color.value(color, tonal === 'secondary' ? 95 : 99, true, palette);
-        styles.root.outlineColor = theme.methods.palette.color.value(color, tonal === 'secondary' ? 20 : 10, true, palette);
+        styles.root.color = theme.methods.palette.color.value(color as any, tonal === 'secondary' ? 10 : 5, true, palette);
+        styles.root.backgroundColor = theme.methods.palette.color.value(color as any, tonal === 'secondary' ? 95 : 99, true, palette);
+        styles.root.outlineColor = theme.methods.palette.color.value(color as any, tonal === 'secondary' ? 20 : 10, true, palette);
       }
 
       if (version === 'outlined-without-background') {
-        styles.root.color = theme.methods.palette.color.value(color, tonal === 'secondary' ? 40 : 50, true, palette);
-        styles.root.outlineColor = theme.methods.palette.color.value(color, tonal === 'secondary' ? 20 : 30, true, palette);
+        styles.root.color = theme.methods.palette.color.value(color as any, tonal === 'secondary' ? 40 : 50, true, palette);
+        styles.root.outlineColor = theme.methods.palette.color.value(color as any, tonal === 'secondary' ? 20 : 30, true, palette);
 
         delete styles.root.backgroundColor;
       }
 
-      if (version === 'text') styles.root.color = theme.methods.palette.color.value(color, tonal === 'secondary' ? 30 : 40, true, palette);
+      if (version === 'text') styles.root.color = theme.methods.palette.color.value(color as any, tonal === 'secondary' ? 30 : 40, true, palette);
     }
     else {
       styles.root.color = theme.methods.palette.color.text(palette.main, true, 'light');
@@ -795,12 +807,12 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
           styles.children.backgroundColor = (theme.palette.color[color] as any).main;
         }
         else if (tonal === 'secondary') {
-          styles.children.color = theme.methods.palette.color.value(color, 10);
-          styles.children.backgroundColor = theme.methods.palette.color.value(color, 80);
+          styles.children.color = theme.methods.palette.color.value(color as any, 10);
+          styles.children.backgroundColor = theme.methods.palette.color.value(color as any, 80);
         }
         else {
-          styles.children.color = theme.methods.palette.color.value(color, 10);
-          styles.children.backgroundColor = theme.methods.palette.color.value(color, 95);
+          styles.children.color = theme.methods.palette.color.value(color as any, 10);
+          styles.children.backgroundColor = theme.methods.palette.color.value(color as any, 95);
         }
       }
     }
@@ -822,10 +834,10 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
           styles.children.color = (theme.palette.color[color] as any).main;
         }
         else if (tonal === 'secondary') {
-          styles.children.color = theme.methods.palette.color.value(color, 30);
+          styles.children.color = theme.methods.palette.color.value(color as any, 30);
         }
         else {
-          styles.children.color = theme.methods.palette.color.value(color, 40);
+          styles.children.color = theme.methods.palette.color.value(color as any, 40);
         }
       }
     }
@@ -855,14 +867,14 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
           styles.children.outlineColor = theme.palette.color.neutral[10];
         }
         else if (tonal === 'secondary') {
-          styles.children.color = theme.methods.palette.color.value(color, 10);
-          styles.children.backgroundColor = theme.methods.palette.color.value(color, 95);
-          styles.children.outlineColor = theme.methods.palette.color.value(color, 10);
+          styles.children.color = theme.methods.palette.color.value(color as any, 10);
+          styles.children.backgroundColor = theme.methods.palette.color.value(color as any, 95);
+          styles.children.outlineColor = theme.methods.palette.color.value(color as any, 10);
         }
         else {
-          styles.children.color = theme.methods.palette.color.value(color, 5);
-          styles.children.backgroundColor = theme.methods.palette.color.value(color, 99);
-          styles.children.outlineColor = theme.methods.palette.color.value(color, 10);
+          styles.children.color = theme.methods.palette.color.value(color as any, 5);
+          styles.children.backgroundColor = theme.methods.palette.color.value(color as any, 99);
+          styles.children.outlineColor = theme.methods.palette.color.value(color as any, 10);
         }
       }
     }
@@ -926,7 +938,7 @@ const Surface = React.forwardRef((props_: any, ref: any) => {
     if (styles.root.backgroundColor) styles.root.backgroundColor = theme.methods.palette.color.colorToRgb(styles.root.backgroundColor, backgroundOpacity);
   }
 
-  if (is('function', children)) return children({ ...styles.children, palette });
+  if (is('function', children)) return (children as any)({ ...styles.children, palette });
 
   return (
     <Component

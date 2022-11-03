@@ -1,16 +1,21 @@
 import React from 'react';
 
+import { TValue } from '@amaui/style';
 import { style as styleMethod, classNames, useAmauiTheme, className as classNameMethod } from '@amaui/style-react';
 
-import { staticClassName } from '../utils';
+import { IBaseElement, staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
 
-  },
+  }
 }), { name: 'AmauiBox' });
 
-const Box = React.forwardRef((props_: any, ref: any) => {
+export interface IBox extends IBaseElement {
+  styles?: string | TValue;
+}
+
+const Box = React.forwardRef((props_: IBox, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiBox?.props?.default }), [props_]);

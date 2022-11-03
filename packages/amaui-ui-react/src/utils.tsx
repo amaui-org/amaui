@@ -279,7 +279,7 @@ type Color = RGB | RGBA | HSL | HSLA | HEX;
 
 export type TColor = 'default' | 'themed' | 'inverted' | 'inherit' | TPaletteVersion | Color;
 
-export type TVersion = 'filled' | 'outlined' | 'text';
+export type TVersion = 'filled' | 'outlined' | 'outlined-without-background' | 'text';
 
 export type TSize = 'small' | 'regular' | 'large';
 
@@ -311,3 +311,5 @@ export interface IBaseElement {
 
   [property: string]: any;
 }
+
+export type TMethodTransition = (element: THTMLElement) => any;

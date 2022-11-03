@@ -6,11 +6,11 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 import Icon from '../Icon';
 import Transition, { TTransitionStatus } from '../Transition';
 
-import { staticClassName } from '../utils';
+import { IBaseElement, staticClassName, TColor, TSize, TTonal, TVersion } from '../utils';
+import Line from '../Line';
 
 const useStyle = styleMethod(theme => ({
   root: {
-    display: 'inline-flex',
     position: 'relative',
     borderRadius: theme.methods.space.value('xl', 'px')
   },
@@ -214,7 +214,28 @@ export const IconDoneAnimated = (props: any) => {
   );
 };
 
-const Buttons = React.forwardRef((props_: any, ref: any) => {
+export interface IButtons extends IBaseElement {
+  tonal?: TTonal;
+  color?: TColor;
+  version?: TVersion;
+  colorSelected?: TColor;
+  size?: TSize;
+
+  value?: any;
+  valueDefault?: any;
+  onChange?: (value: any) => any;
+
+  select?: 'single' | 'multiple';
+  orientation?: 'vertical' | 'horizontal';
+  noCheckIcon?: boolean;
+  elevation?: boolean;
+  border?: boolean;
+  chip?: boolean;
+  fullWidth?: boolean;
+  disabled?: boolean;
+}
+
+const Buttons = React.forwardRef((props_: IButtons, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiButtons?.props?.default }), [props_]);
@@ -379,8 +400,14 @@ const Buttons = React.forwardRef((props_: any, ref: any) => {
     }));
 
   return (
-    <div
+    <Line
       ref={ref}
+
+      gap={0}
+
+      direction='row'
+
+      display='inline-flex'
 
       className={classNames([
         staticClassName('Buttons', theme) && [
@@ -412,7 +439,7 @@ const Buttons = React.forwardRef((props_: any, ref: any) => {
       {...other}
     >
       {children}
-    </div>
+    </Line>
   );
 });
 

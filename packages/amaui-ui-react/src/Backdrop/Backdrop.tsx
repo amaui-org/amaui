@@ -1,18 +1,16 @@
 import React from 'react';
 
-import { is } from '@amaui/utils';
+import { is, TMethod } from '@amaui/utils';
 import { style as styleMethod, classNames, useAmauiTheme } from '@amaui/style-react';
 
+import Line from '../Line';
 import Focus from '../Focus';
 import Fade from '../Fade';
 
-import { staticClassName } from '../utils';
+import { IBaseElement, staticClassName, TElementReference, TPropsAny } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
     position: 'fixed',
     inset: 0,
     zIndex: theme.z_index.modal
@@ -55,7 +53,23 @@ const backdrop = {
   }
 };
 
-const Backdrop = React.forwardRef((props_: any, ref: any) => {
+export interface IBackdrop extends IBaseElement {
+  open?: boolean;
+  invisible?: boolean;
+
+  disableKeyboardClose?: boolean;
+  disableBackgroundClose?: boolean;
+
+  BackgroundComponent?: TElementReference;
+  ModalComponent?: TElementReference;
+
+  BackgroundProps?: TPropsAny;
+  ModalProps?: TPropsAny;
+
+  onClose?: TMethod;
+}
+
+const Backdrop = React.forwardRef((props_: IBackdrop, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiBackdrop?.props?.default }), [props_]);
@@ -74,6 +88,8 @@ const Backdrop = React.forwardRef((props_: any, ref: any) => {
     ModalProps,
 
     onClose: onClose_,
+
+    Component = 'div',
 
     className,
 
@@ -128,8 +144,18 @@ const Backdrop = React.forwardRef((props_: any, ref: any) => {
   if (!open) return null;
 
   return (
-    <div
+    <Line
       ref={ref}
+
+      gap={0}
+
+      direction='row'
+
+      align='center'
+
+      justify='center'
+
+      Component={Component}
 
       className={classNames([
         staticClassName('Backdrop', theme) && [
@@ -195,7 +221,7 @@ const Backdrop = React.forwardRef((props_: any, ref: any) => {
           </ModalComponent>
         </div>
       </Focus>
-    </div>
+    </Line>
   );
 });
 

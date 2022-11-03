@@ -7,8 +7,9 @@ import Surface from '../Surface';
 import Interaction from '../Interaction';
 import RoundProgress from '../RoundProgress';
 import Type from '../Type';
+import { ISurface } from '../Surface/Surface';
 
-import { iconSizeToFontSize, staticClassName } from '../utils';
+import { iconSizeToFontSize, staticClassName, TElement, TElementReference, TPropsAny, TSizeAny } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -262,7 +263,44 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiButton' });
 
-const Button = React.forwardRef((props_: any, ref: any) => {
+export interface IButton extends Omit<ISurface, 'elevation'> {
+  size?: TSizeAny;
+
+  fullWidth?: boolean;
+  fontSize?: number;
+  selected?: boolean;
+  iconSelected?: TElement;
+  start?: TElement;
+  startSelected?: TElement;
+  end?: TElement;
+  endSelected?: TElement;
+  elevation?: boolean;
+  backgroundOpacity?: number
+  align?: 'start' | 'center' | 'end';
+  loading?: boolean;
+  loadingLabel?: TElement;
+  loadingIcon?: TElement;
+  loadingIconPosition?: 'start' | 'center' | 'end';
+  fab?: boolean;
+  chip?: boolean;
+  icon?: boolean;
+  focus?: boolean;
+  value?: any;
+  noIconRootFontSize?: boolean;
+  firstLevelChildren?: TElement;
+
+  disabled?: boolean;
+
+  onFocus?: (event: React.FocusEvent<any>) => any;
+  onBlur?: (event: React.FocusEvent<any>) => any;
+
+  IconWrapperComponent?: TElementReference;
+
+  InteractionProps?: TPropsAny;
+  IconWrapperProps?: TPropsAny;
+}
+
+const Button = React.forwardRef((props_: IButton, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiButton?.props?.default }), [props_]);
@@ -300,8 +338,6 @@ const Button = React.forwardRef((props_: any, ref: any) => {
 
     onFocus: onFocus_,
     onBlur: onBlur_,
-    onSelected,
-    onUnselected,
 
     IconWrapperComponent = 'span',
 
@@ -366,29 +402,29 @@ const Button = React.forwardRef((props_: any, ref: any) => {
   if (icon) {
     const iconFontSize = fontSize !== undefined ? 'inherit' : undefined;
 
-    if (!['small', 'regular', 'large'].includes(size)) {
+    if (!['small', 'regular', 'large'].includes(size as any)) {
       children_ = is('array', children_) ?
-        children_.filter(Boolean).map(
+        (children_ as any).filter(Boolean).map(
           (item: any, index: number) => is('string', item.type) ?
             React.cloneElement(item, { key: index }) :
-            React.cloneElement(item, { key: index, size: iconFontSize !== undefined ? iconFontSize : (item.props as any).size !== undefined ? (item.props as any).size : size / 1.667 } as any)
+            React.cloneElement(item, { key: index, size: iconFontSize !== undefined ? iconFontSize : (item.props as any).size !== undefined ? (item.props as any).size : size as any / 1.667 } as any)
         ) :
-        React.cloneElement(children_, { size: iconFontSize !== undefined ? iconFontSize : children_.props?.size !== undefined ? children_.props.size : size / 1.667 });
+        React.cloneElement(children_ as any, { size: iconFontSize !== undefined ? iconFontSize : (children_ as any).props?.size !== undefined ? (children_ as any).props.size : size as any / 1.667 });
 
       styles.root.width = size;
       styles.root.height = size;
-      styles.root.fontSize = size / 1.667;
+      styles.root.fontSize = size as any / 1.667;
 
       if (!noIconRootFontSize) styles.iconRoot.fontSize = size;
     }
     else {
       children_ = is('array', children_) ?
-        children_.filter(Boolean).map(
+        (children_ as any).filter(Boolean).map(
           (item: any, index: number) => is('string', item.type) ?
             React.cloneElement(item, { key: index }) :
-            React.cloneElement(item, { key: index, size: iconFontSize !== undefined ? iconFontSize : children_.props?.size !== undefined ? children_.props?.size : (size === 'large' ? 'medium' : size) } as any)
+            React.cloneElement(item, { key: index, size: iconFontSize !== undefined ? iconFontSize : (children_ as any).props?.size !== undefined ? (children_ as any).props?.size : (size === 'large' ? 'medium' : size) } as any)
         ) :
-        React.cloneElement(children_, { size: iconFontSize !== undefined ? iconFontSize : children_.props?.size !== undefined ? children_.props?.size : (size === 'large' ? 'medium' : size) });
+        React.cloneElement((children_ as any), { size: iconFontSize !== undefined ? iconFontSize : (children_ as any).props?.size !== undefined ? (children_ as any).props?.size : (size === 'large' ? 'medium' : size) });
 
       styles.root.fontSize = iconSizeToFontSize(size === 'large' ? 'medium' : size);
 
@@ -415,11 +451,11 @@ const Button = React.forwardRef((props_: any, ref: any) => {
 
   // loading
   if (loading) {
-    const iconLoading = React.cloneElement(loadingIcon, { color: 'inherit', style: styles.Icon });
+    const iconLoading = React.cloneElement(loadingIcon as any, { color: 'inherit', style: styles.Icon });
 
     if (loadingLabel) children_ = loadingLabel;
     else if (loadingIconPosition === 'center') {
-      children_ = icon ? React.cloneElement(loadingIcon, { color: 'inherit', size: size === 'small' ? 18 : size === 'regular' ? 24 : 36 }) : iconLoading;
+      children_ = icon ? React.cloneElement(loadingIcon as any, { color: 'inherit', size: size === 'small' ? 18 : size === 'regular' ? 24 : 36 }) : iconLoading;
 
       styles.label.lineHeight = 0;
     }
@@ -563,7 +599,7 @@ const Button = React.forwardRef((props_: any, ref: any) => {
             chip && classes[`chip_start_size_${size}`]
           ])}
         >
-          {React.cloneElement(start, { style: styles.Icon })}
+          {React.cloneElement(start as any, { style: styles.Icon })}
         </span>
       )}
 
@@ -637,7 +673,7 @@ const Button = React.forwardRef((props_: any, ref: any) => {
             chip && classes[`chip_end_size_${size}`]
           ])}
         >
-          {React.cloneElement(end, { style: styles.Icon })}
+          {React.cloneElement(end as any, { style: styles.Icon })}
         </span>
       )}
     </Surface>
