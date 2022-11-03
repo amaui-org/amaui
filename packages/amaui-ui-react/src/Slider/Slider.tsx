@@ -7,7 +7,7 @@ import IconButton from '../IconButton';
 import Tooltip from '../Tooltip';
 import Zoom from '../Zoom';
 
-import { staticClassName } from '../utils';
+import { IBaseElement, staticClassName, TColor, TElement, TPropsAny, TSize, TTonal } from '../utils';
 
 const rail = {
   position: 'absolute',
@@ -424,7 +424,44 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiSlider' });
 
-const Slider = React.forwardRef((props_: any, ref: any) => {
+export type TSliderValue = number | Array<number>;
+
+export interface ISlider extends IBaseElement {
+  tonal?: TTonal;
+  color?: TColor;
+  size?: TSize;
+
+  value?: TSliderValue;
+  valueDefault?: TSliderValue;
+  onChange?: (value: TSliderValue) => any;
+
+  orientation?: 'vertical' | 'horizontal';
+
+  marks?: Array<{
+    value?: number;
+
+    label?: TElement;
+  }>;
+  precision?: number;
+  min?: number;
+  max?: number;
+  tooltip?: 'always' | boolean;
+  labels?: boolean;
+  onlyMarks?: boolean;
+  labelTooltipResolve?: (value: number) => TElement;
+  iconButtonPositionResolve?: (value: number, normalized: number, size: TSize) => string;
+  noTrack?: boolean;
+  noButtons?: boolean;
+  square?: boolean;
+  inverted?: boolean;
+  readOnly?: boolean;
+  disabled?: boolean;
+
+  IconButtonProps?: TPropsAny;
+  TooltipProps?: TPropsAny;
+}
+
+const Slider = React.forwardRef((props_: ISlider, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiSlider?.props?.default }), [props_]);
@@ -447,8 +484,8 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
     tooltip,
     labels,
     onlyMarks,
-    makeLabelTooltip,
-    iconButtonPosition,
+    labelTooltipResolve,
+    iconButtonPositionResolve,
     noTrack,
     noButtons,
     square,
@@ -473,7 +510,7 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
   const [value, setValue] = React.useState(() => {
     const valueNew = (valueDefault !== undefined ? valueDefault : value_) || 0;
 
-    return is('array', valueNew) ? valueNew.sort((a, b) => a - b) : valueNew;
+    return is('array', valueNew) ? (valueNew as any).sort((a, b) => a - b) : valueNew;
   });
   const [mouseDown, setMouseDown] = React.useState<any>(false);
   const [mouseDownButton, setMouseDownButton] = React.useState<any>(false);
@@ -492,10 +529,15 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
   };
 
   refs.value.current = value;
+
   refs.props.current = props;
+
   refs.mouseDown.current = mouseDown;
+
   refs.mouseDownButton.current = mouseDownButton;
+
   refs.focusButton.current = focusButton;
+
   refs.direction.current = theme.direction;
 
   const { classes } = useStyle(props);
@@ -827,7 +869,7 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
     styles.label.color = theme.methods.palette.color.text(styles.label.background, true, 'light');
   }
 
-  styles.label.background = !tonal ? (palette?.main || (color === 'default' ? theme.palette.text.default.primary : (theme.palette.color[color] as any).main)) : theme.methods.palette.color.value(color, 70, true, palette);
+  styles.label.background = !tonal ? (palette?.main || (color === 'default' ? theme.palette.text.default.primary : (theme.palette.color[color] as any).main)) : theme.methods.palette.color.value(color as any, 70, true, palette);
 
   styles.label.color = theme.methods.palette.color.text(styles.label.background, true, 'light');
 
@@ -858,7 +900,7 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
   const iconButtonStyles = (value__: number) => {
     const style_ = {};
 
-    if (is('function', iconButtonPosition)) style_[propInset] = iconButtonPosition(value__, valueValue(value__), size);
+    if (is('function', iconButtonPositionResolve)) style_[propInset] = iconButtonPositionResolve(value__, valueValue(value__), size);
     else {
       if (size === 'small') {
         style_[propInset] = `calc(${valueValue(value__)}% - 15px)`;
@@ -921,7 +963,7 @@ const Slider = React.forwardRef((props_: any, ref: any) => {
     else return !inverted ? value__ >= values[0] && value__ <= values[values.length - 1] : value__ < values[0] || value__ > values[values.length - 1];
   };
 
-  const labelMethod = is('function', makeLabelTooltip) ? makeLabelTooltip : (value__: number) => +(value__).toFixed();
+  const labelMethod = is('function', labelTooltipResolve) ? labelTooltipResolve : (value__: number) => +(value__).toFixed();
 
   return (
     <Component
