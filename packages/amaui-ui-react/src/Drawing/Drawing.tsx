@@ -20,7 +20,8 @@ import Fade from '../Fade';
 import Line from '../Line';
 import Icon from '../Icon';
 
-import { staticClassName } from '../utils';
+import { staticClassName, TElement, TElementReference, TPropsAny, TRef } from '../utils';
+import { ISurface } from '../Surface/Surface';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -184,7 +185,64 @@ const IconMaterialPaletteRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
-const Drawing = React.forwardRef((props__: any, ref: any) => {
+export type TDrawingValue = Array<{
+  d?: string;
+  stroke?: string;
+  strokeWidth?: number;
+}>;
+
+export interface IDrawing extends ISurface {
+  render?: (element: string, props: TPropsAny, value: TDrawingValue) => TElement;
+
+  svgRef?: TRef;
+
+  updates?: boolean;
+  actions?: boolean;
+
+  exclude?: Array<string>;
+
+  downloadName?: string;
+  downloadType?: string;
+  downloadQuality?: number;
+
+  viewBox?: string;
+
+  strokeColor?: string;
+  strokeWidth?: number;
+
+  valueDefault?: TDrawingValue;
+  value?: TDrawingValue;
+
+  onChange?: (value: TDrawingValue) => any;
+
+  onMouseDown?: (event: React.MouseEvent<any>) => any;
+
+  onClear?: (event?: React.MouseEvent<any>) => any;
+  onDownload?: (event?: React.MouseEvent<any>) => any;
+
+  IconClear?: TElementReference;
+  IconDownload?: TElementReference;
+  IconSize?: TElementReference;
+  IconStrokeColor?: TElementReference;
+
+  IconProps?: TPropsAny;
+  SizeProps?: TPropsAny;
+  AppendProps?: TPropsAny;
+  ToolbarProps?: TPropsAny;
+  ToolbarUpdatesProps?: TPropsAny;
+  ToolbarActionsProps?: TPropsAny;
+  ToggleButtonProps?: TPropsAny;
+  ToggleButtonsProps?: TPropsAny;
+  DividerProps?: TPropsAny;
+  SelectProps?: TPropsAny;
+  ListItemProps?: TPropsAny;
+  TooltipProps?: TPropsAny;
+  PaletteProps?: TPropsAny;
+  IconButtonProps?: TPropsAny;
+  ColorTextFieldProps?: TPropsAny;
+}
+
+const Drawing = React.forwardRef((props__: IDrawing, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props__, ...theme?.ui?.elements?.AmauiDrawing?.props?.default }), [props__]);
@@ -441,7 +499,7 @@ const Drawing = React.forwardRef((props__: any, ref: any) => {
       }
     ]);
 
-    if (is('function', onMouseDown_)) onMouseDown_(event);
+    if (is('function', onMouseDown_)) onMouseDown_(event as any);
   }, []);
 
   const onClear = React.useCallback(() => {
@@ -498,26 +556,26 @@ const Drawing = React.forwardRef((props__: any, ref: any) => {
   // action toolbar
   const actions_ = actions && (!is('array', exclude) || includes('clear', 'download'));
 
-  const AppendProps = {
+  const AppendProps: any = {
     padding: [14, 14],
 
     ...AppendProps_
   };
 
-  const DividerProps = {
+  const DividerProps: any = {
     color: 'inherit',
 
     ...DividerProps_,
   };
 
-  const TooltipProps = {
+  const TooltipProps: any = {
     position: 'bottom',
     interactive: false,
 
     ...TooltipProps_,
   };
 
-  const ToggleButtonsProps = {
+  const ToggleButtonsProps: any = {
     tonal,
     color,
     version: 'text',
@@ -526,13 +584,13 @@ const Drawing = React.forwardRef((props__: any, ref: any) => {
     ...ToggleButtonsProps_,
   };
 
-  const ToggleButtonProps = {
+  const ToggleButtonProps: any = {
     size: 'small',
 
     ...ToggleButtonProps_,
   };
 
-  const SelectProps = {
+  const SelectProps: any = {
     tonal,
 
     color: refs.props.current.color !== undefined ? refs.props.current.color : 'themed',
@@ -554,7 +612,7 @@ const Drawing = React.forwardRef((props__: any, ref: any) => {
     ...SelectProps_
   };
 
-  const ListItemProps = {
+  const ListItemProps: any = {
     size: 'small',
 
     PrimaryProps: {
@@ -566,7 +624,7 @@ const Drawing = React.forwardRef((props__: any, ref: any) => {
     ...ListItemProps_
   };
 
-  const IconProps = {
+  const IconProps: any = {
     size: 'small',
 
     ...IconProps_
@@ -836,7 +894,7 @@ const Drawing = React.forwardRef((props__: any, ref: any) => {
     );
   }), []);
 
-  const valueNew_ = (is('array', value) ? value : [value]).filter(Boolean);
+  const valueNew_ = ((is('array', value) ? value : [value]) as any).filter(Boolean);
 
   const valueNewActive = mouseDown && valueNew_[valueNew_.length - 1];
 

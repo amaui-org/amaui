@@ -6,6 +6,7 @@ import Type from '../Type';
 import Surface from '../Surface';
 
 import { staticClassName } from '../utils';
+import { ISurface } from '../Surface/Surface';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -141,7 +142,17 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiDivider' });
 
-const Divider = React.forwardRef((props_: any, ref: any) => {
+export interface IDivider extends ISurface {
+  inset?: boolean;
+  middle?: boolean;
+  padding?: number;
+  opacity?: number;
+  alignment?: 'start' | 'center' | 'end';
+  orientation?: 'vertical' | 'horizontal';
+  flex?: boolean;
+}
+
+const Divider = React.forwardRef((props_: IDivider, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiDivider?.props?.default }), [props_]);
@@ -150,21 +161,14 @@ const Divider = React.forwardRef((props_: any, ref: any) => {
 
   const {
     tonal,
-
     color = 'inverted',
 
     inset,
-
     middle,
-
     padding,
-
     opacity = theme.palette.visual_contrast.default.opacity.divider,
-
     alignment = 'center',
-
     orientation = 'horizontal',
-
     flex,
 
     Component: Component_ = 'hr',
