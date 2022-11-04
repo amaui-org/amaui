@@ -87,6 +87,12 @@ const Label = React.forwardRef((props_: ILabel, ref: any) => {
 
   const [value, setValue] = React.useState((valueDefault !== undefined ? valueDefault : checked) || false);
 
+  const refs = {
+    value: React.useRef<any>()
+  };
+
+  refs.value.current = value;
+
   const onUpdate = (value_: any, event: React.ChangeEvent<HTMLInputElement>) => {
     if (!disabled && event) {
       // Inner controlled checkbox
@@ -95,6 +101,10 @@ const Label = React.forwardRef((props_: ILabel, ref: any) => {
       if (is('function', onChange)) onChange(event.target.checked, event);
     }
   };
+
+  React.useEffect(() => {
+    if (checked !== undefined && checked !== refs.value.current) setValue(checked);
+  }, [checked]);
 
   let position = position_;
 

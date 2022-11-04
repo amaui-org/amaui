@@ -157,7 +157,7 @@ const Radio = React.forwardRef((props_: IRadio, ref: any) => {
   };
 
   React.useEffect(() => {
-    if (checked !== undefined && checked !== value) setValue(checked);
+    if (checked !== undefined && checked !== refs.value.current) setValue(checked);
   }, [checked]);
 
   const onUpdate = (event: React.ChangeEvent<HTMLInputElement>) => {
