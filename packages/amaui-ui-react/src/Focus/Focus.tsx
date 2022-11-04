@@ -3,6 +3,8 @@ import React from 'react';
 import { is } from '@amaui/utils';
 import { useAmauiTheme } from '@amaui/style-react';
 
+import { IBaseElement } from '../utils';
+
 const KEYCODES = {
   tab: 'Tab'
 };
@@ -17,7 +19,11 @@ export const matches = (value: Element) => {
 
 export const queryMatchFocusable = 'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"]):not([disabled]), details:not([disabled]), summary:not(:disabled)';
 
-const Focus = React.forwardRef((props_: any, ref: any) => {
+export interface IFocus extends IBaseElement {
+
+}
+
+const Focus = React.forwardRef((props_: IFocus, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiFocus?.props?.default }), [props_]);
