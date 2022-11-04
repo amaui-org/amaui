@@ -119,7 +119,7 @@ const Banner = React.forwardRef((props_: IBanner, ref: any) => {
     );
   }
 
-  if (!classes[maxWidth]) styles.root.maxWidth = maxWidth;
+  if (!classes[`maxWidth_${maxWidth}`]) styles.root.maxWidth = maxWidth;
 
   return (
     <Component

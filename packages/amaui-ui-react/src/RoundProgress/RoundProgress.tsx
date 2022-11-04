@@ -195,7 +195,7 @@ const RoundProgress = React.forwardRef((props_: IRoundProgress, ref: any) => {
 
   if (!classes[`size_${size}`]) styles.root.fontSize = is('number', size) ? `${size}px` : size;
 
-  if (!classes[color]) {
+  if (!classes[`color_${color}`]) {
     styles.root.color = color;
 
     if (tonal) {

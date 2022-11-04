@@ -1,15 +1,15 @@
 import React from 'react';
 
-import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
+import Line from '../Line';
+import { ILine } from '../Line/Line';
 import useMediaQuery from '../useMediaQuery';
 
-import { IBaseElement, staticClassName, TValueBreakpoints, valueBreakpoints } from '../utils';
+import { staticClassName, TValueBreakpoints, valueBreakpoints } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
-    display: 'flex',
     width: '100%'
   },
 
@@ -83,7 +83,7 @@ const useStyle = styleMethod(theme => ({
   },
 }), { name: 'AmauiContainer' });
 
-export interface IContainer extends IBaseElement {
+export interface IContainer extends ILine {
   alignment?: 'start' | 'center' | 'end' | Record<TValueBreakpoints, 'start' | 'center' | 'end'>;
 
   paddingVertical?: 'both' | 'start' | 'end' | 'none' | Record<TValueBreakpoints, 'both' | 'start' | 'end' | 'none'>;
@@ -141,15 +141,19 @@ const Container = React.forwardRef((props_: IContainer, ref: any) => {
     }
   };
 
-  if (!classes[maxWidth]) styles.root.maxWidth = maxWidth;
+  if (!classes[`maxWidth_${maxWidth}`]) styles.root.maxWidth = maxWidth;
 
   if (!['both', 'start', 'end', 'none'].includes(paddingHorizontal)) styles.root.paddingInline = paddingHorizontal;
 
   if (!['both', 'start', 'end', 'none'].includes(paddingVertical)) styles.root.paddingBlock = paddingVertical;
 
   return (
-    <Component
+    <Line
       ref={ref}
+
+      gap={0}
+
+      direction='row'
 
       className={classNames([
         staticClassName('Container', theme) && [
@@ -179,7 +183,7 @@ const Container = React.forwardRef((props_: IContainer, ref: any) => {
       {...other}
     >
       {children}
-    </Component>
+    </Line>
   );
 });
 

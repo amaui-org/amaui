@@ -305,7 +305,7 @@ const LinearProgress = React.forwardRef((props_: ILinearProress, ref: any) => {
     line: {}
   };
 
-  if (!classes[color]) {
+  if (!classes[`color_${color}`]) {
     styles.root.color = color;
 
     if (tonal) {
