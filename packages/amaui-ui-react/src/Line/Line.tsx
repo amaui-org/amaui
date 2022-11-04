@@ -6,7 +6,7 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 import Divider from '../Divider';
 import useMediaQuery from '../useMediaQuery';
 
-import { IBaseElement, staticClassName, TPropsAny, valueBreakpoints } from '../utils';
+import { IBaseElement, staticClassName, TPropsAny, TValueBreakpoints, valueBreakpoints } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -142,15 +142,20 @@ export type TLineWrap = 'inherit' | 'wrap' | 'nowrap' | 'wrap-reverse';
 export type TLineDisplay = 'inherit' | 'flex' | 'inline-flex';
 
 export interface ILine extends IBaseElement {
-  display?: TLineDisplay;
-  align?: TLineAlign;
-  justify?: TLineJustify;
-  direction?: TLineDirection;
-  gap?: number;
-  rowGap?: number;
-  columnGap?: number;
-  divider?: boolean;
-  wrap?: TLineWrap;
+  display?: TLineDisplay | Record<TValueBreakpoints, TLineDisplay>;
+
+  direction?: TLineDirection | Record<TValueBreakpoints, TLineDirection>;
+
+  align?: TLineAlign | Record<TValueBreakpoints, TLineAlign>;
+  justify?: TLineJustify | Record<TValueBreakpoints, TLineJustify>;
+
+  wrap?: TLineWrap | Record<TValueBreakpoints, TLineWrap>;
+
+  gap?: number | Record<TValueBreakpoints, number>;
+  rowGap?: number | Record<TValueBreakpoints, number>;
+  columnGap?: number | Record<TValueBreakpoints, number>;
+
+  divider?: boolean | Record<TValueBreakpoints, boolean>;
 
   DividerProps?: TPropsAny;
 }

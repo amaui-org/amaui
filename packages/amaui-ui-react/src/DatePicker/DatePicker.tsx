@@ -27,7 +27,7 @@ import Carousel from '../Carousel';
 import Slide from '../Slide';
 import { ILine } from '../Line/Line';
 
-import { staticClassName, TColor, TElement, TElementReference, TPropsAny, TTonal, valueBreakpoints } from '../utils';
+import { staticClassName, TColor, TElement, TElementReference, TPropsAny, TTonal, TValueBreakpoints, valueBreakpoints } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -1078,7 +1078,7 @@ export interface IDatePicker extends ILine {
 
   validate?: (value: AmauiDate) => boolean;
 
-  autoCloseOnPick?: boolean;
+  autoCloseOnPick?: boolean | Record<TValueBreakpoints, boolean>;
 
   openMobile?: 'input' | 'select';
 
@@ -1088,7 +1088,7 @@ export interface IDatePicker extends ILine {
 
   inputModeHeadingText?: string;
 
-  useHelperText?: boolean;
+  useHelperText?: boolean | Record<TValueBreakpoints, boolean>;
 
   weekStartDay?: 'Monday' | 'Sunday';
 
@@ -1102,7 +1102,7 @@ export interface IDatePicker extends ILine {
 
   range?: boolean;
 
-  switch?: boolean;
+  switch?: boolean | Record<TValueBreakpoints, boolean>;
 
   fullScreen?: boolean;
 

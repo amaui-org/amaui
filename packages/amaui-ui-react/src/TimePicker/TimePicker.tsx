@@ -22,7 +22,7 @@ import Path from '../Path';
 import Slide from '../Slide';
 import { IAdvancedTextField } from '../AdvancedTextField/AdvancedTextField';
 
-import { staticClassName, TElementReference, TPropsAny, valueBreakpoints } from '../utils';
+import { staticClassName, TElementReference, TPropsAny, TValueBreakpoints, valueBreakpoints } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -195,9 +195,9 @@ export interface ITimePicker extends Omit<IAdvancedTextField, 'version'> {
 
   validate?: (value: number | string, values: any, selecting: 'hour' | 'minute' | 'second') => boolean;
 
-  autoNext?: boolean;
+  autoNext?: boolean | Record<TValueBreakpoints, boolean>;
 
-  autoCloseOnLast?: boolean;
+  autoCloseOnLast?: boolean | Record<TValueBreakpoints, boolean>;
 
   openMobile?: 'input' | 'select';
 
@@ -207,7 +207,7 @@ export interface ITimePicker extends Omit<IAdvancedTextField, 'version'> {
 
   inputModeHeadingText?: string;
 
-  orientation?: 'vertical' | 'horizontal';
+  orientation?: 'vertical' | 'horizontal' | Record<TValueBreakpoints, 'vertical' | 'horizontal'>;
 
   format?: '12' | '24';
 
@@ -217,7 +217,7 @@ export interface ITimePicker extends Omit<IAdvancedTextField, 'version'> {
 
   second?: boolean;
 
-  switch?: boolean;
+  switch?: boolean | Record<TValueBreakpoints, boolean>;
 
   readOnly?: boolean;
 

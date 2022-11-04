@@ -83,7 +83,7 @@ export interface IGrid extends ILine {
   auto?: boolean;
   line?: boolean;
 
-  columns?: number;
+  columns?: number | Record<TValueBreakpoints, number>;
 
   offsets?: Record<TValueBreakpoints, number>;
   values?: Record<TValueBreakpoints, number>;
@@ -175,19 +175,15 @@ const Grid = React.forwardRef((props_: IGrid, ref: any) => {
   const valueGap = columnGap !== undefined ? columnGap : gap;
 
   if (auto) width = undefined;
-  else width = `calc(${(width / columns) * 100}% - ${(valueGap * theme.space.unit)}px)`;
+  else width = `calc(${(width / (columns as number)) * 100}% - ${(valueGap * theme.space.unit)}px)`;
 
   styles.root.width = width;
 
-  if (offset > 0) styles.root.marginInlineStart = `${(offset / columns) * 100}%`;
+  if (offset > 0) styles.root.marginInlineStart = `${(offset / (columns as number)) * 100}%`;
 
   return (
-    <Line
+    <Component
       ref={ref}
-
-      gap={0}
-
-      direction={direction}
 
       className={classNames([
         staticClassName('Grid', theme) && [
@@ -229,7 +225,7 @@ const Grid = React.forwardRef((props_: IGrid, ref: any) => {
           ...other
         })
       ))}
-    </Line>
+    </Component>
   );
 });
 

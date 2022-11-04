@@ -78,7 +78,7 @@ export interface ITimelineItem extends ILine {
   start?: TElement;
   end?: TElement;
 
-  DividerProps?: TPropsAny
+  DividerProps?: TPropsAny;
   IconProps?: TPropsAny;
 
   Icon?: TElementReference;

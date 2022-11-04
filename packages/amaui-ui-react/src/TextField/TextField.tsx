@@ -505,11 +505,11 @@ export interface ITextField extends IBaseElement {
   onChange?: (value: any, event?: React.ChangeEvent<HTMLInputElement>) => any;
 
   label?: string;
-  align?: 'start' | 'end',
+  align?: 'start' | 'end';
   start?: TElement;
-  startVerticalAlign?: 'start' | 'center' | 'end',
+  startVerticalAlign?: 'start' | 'center' | 'end';
   end?: TElement;
-  endVerticalAlign?: 'start' | 'center' | 'end',
+  endVerticalAlign?: 'start' | 'center' | 'end';
   placeholder?: string;
   fullWidth?: boolean;
   helperText?: string;
@@ -522,10 +522,10 @@ export interface ITextField extends IBaseElement {
   name?: string;
   autoFocus?: boolean;
   autoComplete?: boolean;
-  type?: React.HTMLInputTypeAttribute,
+  type?: React.HTMLInputTypeAttribute;
   required?: boolean;
   optional?: boolean;
-  optionalText?: string,
+  optionalText?: string;
   error?: boolean;
   multiline?: boolean;
   rows?: number;

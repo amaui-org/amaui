@@ -12,7 +12,7 @@ import Transitions from '../Transitions';
 import Surface from '../Surface';
 import useMediaQuery from '../useMediaQuery';
 
-import { staticClassName, TElement, TElementReference, TPropsAny, valueBreakpoints } from '../utils';
+import { staticClassName, TElement, TElementReference, TPropsAny, TValueBreakpoints, valueBreakpoints } from '../utils';
 import { ISurface } from '../Surface/Surface';
 
 const useStyle = styleMethod(theme => ({
@@ -202,7 +202,7 @@ export type TCarouselItem = string | null | TElement | { element: TElement; };
 export type TCarouseOnUpdate = (to: string | number, values: TCarouselItem[]) => any;
 
 export interface ICarousel extends Omit<ISurface, 'version'> {
-  version?: 'regular' | 'transition';
+  version?: 'regular' | 'transition' | Record<TValueBreakpoints, 'regular' | 'transition'>;
 
   valueDefault?: ICarouselValue;
   value?: ICarouselValue;
@@ -218,33 +218,33 @@ export interface ICarousel extends Omit<ISurface, 'version'> {
   // and a transition element
   items?: Array<TCarouselItem>;
 
-  orientation?: 'vertical' | 'horizontal';
+  orientation?: 'vertical' | 'horizontal' | Record<TValueBreakpoints, 'vertical' | 'horizontal'>;
 
-  itemSize?: 'auto';
+  itemSize?: 'auto' | Record<TValueBreakpoints, 'auto' | false>;
 
-  gap?: number,
+  gap?: number | Record<TValueBreakpoints, number>;
 
-  move?: boolean;
+  move?: boolean | Record<TValueBreakpoints, boolean>;
 
   // How much in value to move on move
-  moveValue?: number;
+  moveValue?: number | Record<TValueBreakpoints, number>;
 
   // How many items to move on move
-  moveItems?: number;
+  moveItems?: number | Record<TValueBreakpoints, number>;
 
-  moveBeyondEdge?: boolean;
+  moveBeyondEdge?: boolean | Record<TValueBreakpoints, boolean>;
 
-  free?: boolean;
+  free?: boolean | Record<TValueBreakpoints, boolean>;
 
-  swipe?: boolean;
+  swipe?: boolean | Record<TValueBreakpoints, boolean>;
 
-  background?: boolean;
+  background?: boolean | Record<TValueBreakpoints, boolean>;
 
   index?: number;
 
-  autoPlay?: boolean;
+  autoPlay?: boolean | Record<TValueBreakpoints, boolean>;
 
-  autoHeight?: boolean;
+  autoHeight?: boolean | Record<TValueBreakpoints, boolean>;
 
   autoHeightDelay?: number;
 
@@ -252,13 +252,13 @@ export interface ICarousel extends Omit<ISurface, 'version'> {
 
   pauseOnHover?: boolean;
 
-  round?: boolean;
+  round?: boolean | Record<TValueBreakpoints, boolean>;
 
-  arrows?: boolean;
+  arrows?: boolean | Record<TValueBreakpoints, boolean>;
 
   mouseScroll?: boolean;
 
-  momentum?: boolean;
+  momentum?: boolean | Record<TValueBreakpoints, boolean>;
 
   // AmauiSubscription methods
   previousSub?: AmauiSubscription;
@@ -266,21 +266,21 @@ export interface ICarousel extends Omit<ISurface, 'version'> {
   updateSub?: AmauiSubscription;
 
   // on mobile visible
-  arrowsVisibility?: 'hover' | 'visible';
+  arrowsVisibility?: 'hover' | 'visible' | Record<TValueBreakpoints, 'hover' | 'visible'>;
 
-  arrowHideOnStartEnd?: boolean;
+  arrowHideOnStartEnd?: boolean | Record<TValueBreakpoints, boolean>;
 
   renderProgress?: (update: TCarouseOnUpdate) => TElement;
 
   renderArrowPrevious?: (update: () => any) => TElement;
   renderArrowNext?: (update: () => any) => TElement;
 
-  progress?: boolean;
+  progress?: boolean | Record<TValueBreakpoints, boolean>;
 
   // on mobile visible
-  progressVisibility?: 'hover' | 'visible';
+  progressVisibility?: 'hover' | 'visible' | Record<TValueBreakpoints, 'hover' | 'visible'>;
 
-  noTransition?: boolean;
+  noTransition?: boolean | Record<TValueBreakpoints, boolean>;
 
   onUpdatePosition?: (value: ICarouselValue) => any;
 

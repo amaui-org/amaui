@@ -275,7 +275,7 @@ export interface IButton extends Omit<ISurface, 'elevation'> {
   end?: TElement;
   endSelected?: TElement;
   elevation?: boolean;
-  backgroundOpacity?: number
+  backgroundOpacity?: number;
   align?: 'start' | 'center' | 'end';
   loading?: boolean;
   loadingLabel?: TElement;

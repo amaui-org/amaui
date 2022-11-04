@@ -57,7 +57,7 @@ export interface ITableCell extends IBaseElement {
   position?: 'head' | 'body';
   align?: TLineAlign;
   justify?: TLineJustify;
-  noWeight?: boolean
+  noWeight?: boolean;
 
   DividerProps?: TPropsAny;
 }

@@ -366,7 +366,7 @@ const Checkbox = React.forwardRef((props_: ICheckbox, ref: any) => {
           ref={item => {
             if (inputRef) {
               if (is('function', inputRef)) (inputRef as any)(item);
-              else inputRef.current = item;;
+              else inputRef.current = item;
             }
 
             refs.input.current = item;

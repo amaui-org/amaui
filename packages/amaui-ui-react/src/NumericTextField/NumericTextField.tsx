@@ -49,8 +49,8 @@ const IconMaterialKeyboardArrowDownRounded = React.forwardRef((props: any, ref) 
 });
 
 export interface INumericTextField extends IAdvancedTextField {
-  min?: number
-  max?: number
+  min?: number;
+  max?: number;
 
   increment?: boolean;
   decrement?: boolean;

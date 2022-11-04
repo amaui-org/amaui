@@ -11,7 +11,7 @@ import Append from '../Append';
 import Grow from '../Grow';
 import useMediaQuery from '../useMediaQuery';
 
-import { staticClassName, valueBreakpoints, minMaxBetweenNumbers, IBaseElement, TTonal, TColor, TElementAny, TStyle, TElement, TPropsAny } from '../utils';
+import { staticClassName, valueBreakpoints, minMaxBetweenNumbers, IBaseElement, TTonal, TColor, TElementAny, TStyle, TElement, TPropsAny, TValueBreakpoints } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -324,7 +324,7 @@ export interface IChartValue {
   percentage?: string | number;
 
   values: TChartValueValues | Array<TChartValueValues>;
-};
+}
 
 export interface IChart extends IBaseElement {
   tonal?: TTonal;
@@ -353,24 +353,24 @@ export interface IChart extends IBaseElement {
 
     [property: string]: string;
   };
-  nameX?: boolean;
-  nameY?: boolean;
+  nameX?: boolean | Record<TValueBreakpoints, boolean>;
+  nameY?: boolean | Record<TValueBreakpoints, boolean>;
 
   // Tooltip
-  tooltip?: boolean;
-  tooltipIndividually?: boolean;
-  tooltipCloseOnMouseLeave?: boolean;
-  elementTooltip?: boolean;
+  tooltip?: boolean | Record<TValueBreakpoints, boolean>;
+  tooltipIndividually?: boolean | Record<TValueBreakpoints, boolean>;
+  tooltipCloseOnMouseLeave?: boolean | Record<TValueBreakpoints, boolean>;
+  elementTooltip?: boolean | Record<TValueBreakpoints, boolean>;
 
   // Guideline
-  guidelines?: 'both' | 'vertical' | 'horizontal';
-  guidelinesAppend?: boolean;
+  guidelines?: 'both' | 'vertical' | 'horizontal' | Record<TValueBreakpoints, 'both' | 'vertical' | 'horizontal'>;
+  guidelinesAppend?: boolean | Record<TValueBreakpoints, boolean>;
 
   // Additional lines
   additional_lines?: TElement;
 
   // Legend
-  legend?: 'auto' | false | TElement;
+  legend?: 'auto' | false | TElement | Record<TValueBreakpoints, 'auto' | false | TElement>;
   legendManageVisibility?: boolean;
   legendPosition?: 'top' | 'bottom';
 
@@ -379,65 +379,65 @@ export interface IChart extends IBaseElement {
     value?: number;
 
     label?: string | number;
-  }>;
-  labelsX?: boolean;
-  labelsY?: boolean;
-  labelDecimalPlaces?: number;
-  labelsAutoNumber?: number;
-  labelsYAutoNumber?: number;
-  labelsXAutoNumber?: number;
+  }> | Record<TValueBreakpoints, 'auto' | false | Array<{
+    value?: number;
+
+    label?: string | number;
+  }>>;
+  labelsX?: boolean | Record<TValueBreakpoints, boolean>;
+  labelsY?: boolean | Record<TValueBreakpoints, boolean>;
+  labelDecimalPlaces?: number | Record<TValueBreakpoints, number>;
+  labelsAutoNumber?: number | Record<TValueBreakpoints, number>;
+  labelsYAutoNumber?: number | Record<TValueBreakpoints, number>;
+  labelsXAutoNumber?: number | Record<TValueBreakpoints, number>;
 
   // Marks
-  marks?: 'auto' | false | Array<{
-    value?: number;
-  }>;
-  marksX?: boolean;
-  marksY?: boolean;
-  marksAutoNumber?: number;
-  marksYAutoNumber?: number;
-  marksXAutoNumber?: number;
+  marks?: 'auto' | false | Array<{ value?: number; }> | Record<TValueBreakpoints, 'auto' | false | Array<{ value?: number; }>>;
+  marksX?: boolean | Record<TValueBreakpoints, boolean>;
+  marksY?: boolean | Record<TValueBreakpoints, boolean>;
+  marksAutoNumber?: number | Record<TValueBreakpoints, number>;
+  marksYAutoNumber?: number | Record<TValueBreakpoints, number>;
+  marksXAutoNumber?: number | Record<TValueBreakpoints, number>;
 
   // Grid
-  grid?: 'auto' | false | Array<{
-    value?: number;
-  }>;
-  gridX?: boolean;
-  gridY?: boolean;
-  gridAutoNumber?: number;
-  gridYAutoNumber?: number;
-  gridXAutoNumber?: number;
+  grid?: 'auto' | false | Array<{ value?: number; }> | Record<TValueBreakpoints, 'auto' | false | Array<{ value?: number; }>>;
+  gridX?: boolean | Record<TValueBreakpoints, boolean>;
+  gridY?: boolean | Record<TValueBreakpoints, boolean>;
+  gridAutoNumber?: number | Record<TValueBreakpoints, number>;
+  gridYAutoNumber?: number | Record<TValueBreakpoints, number>;
+  gridXAutoNumber?: number | Record<TValueBreakpoints, number>;
 
   // Points
-  points?: boolean;
-  pointsVisibility?: 'hover' | 'visible' | 'hidden';
+  points?: boolean | Record<TValueBreakpoints, boolean>;
+  pointsVisibility?: 'hover' | 'visible' | 'hidden' | Record<TValueBreakpoints, 'hover' | 'visible' | 'hidden'>;
 
   // Borders
-  borders?: boolean;
-  borderStart?: boolean;
-  borderLeft?: boolean;
-  borderEnd?: boolean;
-  borderRight?: boolean;
-  borderTop?: boolean;
-  borderBottom?: boolean;
+  borders?: boolean | Record<TValueBreakpoints, boolean>;
+  borderStart?: boolean | Record<TValueBreakpoints, boolean>;
+  borderLeft?: boolean | Record<TValueBreakpoints, boolean>;
+  borderEnd?: boolean | Record<TValueBreakpoints, boolean>;
+  borderRight?: boolean | Record<TValueBreakpoints, boolean>;
+  borderTop?: boolean | Record<TValueBreakpoints, boolean>;
+  borderBottom?: boolean | Record<TValueBreakpoints, boolean>;
 
   // Min, max
-  minX?: number;
-  maxX?: number;
-  minY?: number;
-  maxY?: number;
-  minMaxPadding?: number;
-  minPadding?: number;
-  maxPadding?: number;
-  minPaddingX?: number;
-  minPaddingY?: number;
-  maxPaddingX?: number;
-  maxPaddingY?: number;
+  minX?: number | Record<TValueBreakpoints, number>;
+  maxX?: number | Record<TValueBreakpoints, number>;
+  minY?: number | Record<TValueBreakpoints, number>;
+  maxY?: number | Record<TValueBreakpoints, number>;
+  minMaxPadding?: number | Record<TValueBreakpoints, number>;
+  minPadding?: number | Record<TValueBreakpoints, number>;
+  maxPadding?: number | Record<TValueBreakpoints, number>;
+  minPaddingX?: number | Record<TValueBreakpoints, number>;
+  minPaddingY?: number | Record<TValueBreakpoints, number>;
+  maxPaddingX?: number | Record<TValueBreakpoints, number>;
+  maxPaddingY?: number | Record<TValueBreakpoints, number>;
 
   noMain?: boolean;
 
   // Methods
   tooltipRender: (values: IChartValue) => any;
-  tooltipGroupRender: (groups: Array<IChartValue>, groupsSorted: string[]) => any,
+  tooltipGroupRender: (groups: Array<IChartValue>, groupsSorted: string[]) => any;
   labelRender: (value: IChartValue) => any;
   labelResolve: (value: number, axes: 'x' | 'y', item: IChartValue, version?: 'group' | 'individual') => string;
   onUpdateRects?: (rects: {

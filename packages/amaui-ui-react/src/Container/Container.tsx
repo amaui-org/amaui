@@ -5,7 +5,7 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import useMediaQuery from '../useMediaQuery';
 
-import { IBaseElement, staticClassName, valueBreakpoints } from '../utils';
+import { IBaseElement, staticClassName, TValueBreakpoints, valueBreakpoints } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -84,15 +84,15 @@ const useStyle = styleMethod(theme => ({
 }), { name: 'AmauiContainer' });
 
 export interface IContainer extends IBaseElement {
-  alignment?: 'start' | 'center' | 'end';
+  alignment?: 'start' | 'center' | 'end' | Record<TValueBreakpoints, 'start' | 'center' | 'end'>;
 
-  paddingVertical?: 'both' | 'start' | 'end' | 'none';
+  paddingVertical?: 'both' | 'start' | 'end' | 'none' | Record<TValueBreakpoints, 'both' | 'start' | 'end' | 'none'>;
 
-  paddingHorizontal?: 'both' | 'start' | 'end' | 'none';
+  paddingHorizontal?: 'both' | 'start' | 'end' | 'none' | Record<TValueBreakpoints, 'both' | 'start' | 'end' | 'none'>;
 
-  fullWidth?: boolean;
+  fullWidth?: boolean | Record<TValueBreakpoints, boolean>;
 
-  maxWidth?: 'xxs' | 'xs' | 'sm' | 'rg' | 'lg' | 'xl' | 'unset';
+  maxWidth?: 'xxs' | 'xs' | 'sm' | 'rg' | 'lg' | 'xl' | 'unset' | Record<TValueBreakpoints, 'xxs' | 'xs' | 'sm' | 'rg' | 'lg' | 'xl' | 'unset'>;
 }
 
 const Container = React.forwardRef((props_: IContainer, ref: any) => {

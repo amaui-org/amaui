@@ -18,9 +18,9 @@ import Tab from '../Tab';
 import Line from '../Line';
 import DatePicker from '../DatePicker';
 import TimePicker from '../TimePicker';
-
-import { staticClassName, TColor, TElement, TElementReference, TPropsAny, TTonal, valueBreakpoints } from '../utils';
 import { IAdvancedTextField } from '../AdvancedTextField/AdvancedTextField';
+
+import { staticClassName, TColor, TElement, TElementReference, TPropsAny, TTonal, TValueBreakpoints, valueBreakpoints } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -61,7 +61,7 @@ export interface IDateTimePicker extends Omit<IAdvancedTextField, 'version'> {
   tonal?: TTonal;
   color?: TColor;
 
-  version?: 'auto' | 'mobile' | 'desktop' | 'static',
+  version?: 'auto' | 'mobile' | 'desktop' | 'static';
 
   versionStatic?: 'mobile' | 'desktop';
 
@@ -90,7 +90,7 @@ export interface IDateTimePicker extends Omit<IAdvancedTextField, 'version'> {
 
   fullScreen?: boolean;
 
-  useHelperText?: boolean;
+  useHelperText?: boolean | Record<TValueBreakpoints, boolean>;
 
   onClick?: (event: React.MouseEvent<any>) => any;
 

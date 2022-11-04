@@ -20,7 +20,7 @@ export interface IAppendValue {
   y?: number;
   switch?: boolean;
   init?: boolean;
-};
+}
 
 export interface IAppend {
   open?: boolean;

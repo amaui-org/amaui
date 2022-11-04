@@ -110,7 +110,7 @@ export interface IStep extends ILine {
   primary?: TElement;
   secondary?: TElement;
   stepDirection?: 'row' | 'column';
-  orientation?: 'vertical' | 'horizontal',
+  orientation?: 'vertical' | 'horizontal';
   button?: boolean;
   divider?: boolean;
 

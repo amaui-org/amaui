@@ -172,7 +172,7 @@ export interface IAccordion extends IBaseElement {
 
   ExpandIcon?: TElementReference;
   TransitionComponent?: TElementReference;
-};
+}
 
 const Accordion = React.forwardRef((props_: IAccordion, ref: any) => {
   const theme = useAmauiTheme();

@@ -16,6 +16,7 @@
     "no-unused-expression": false,
     "prefer-for-of": false,
     "no-bitwise": false,
+    "no-empty-interface": false,
     "no-eval": false
   }
 }

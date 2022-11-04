@@ -79,7 +79,7 @@ export interface IStepper extends ILine {
   completed?: boolean;
 
   stepDirection?: 'row' | 'column';
-  orientation?: 'vertical' | 'horizontal',
+  orientation?: 'vertical' | 'horizontal';
   dividerActive?: boolean;
   individualDividers?: boolean;
 

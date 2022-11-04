@@ -5,7 +5,7 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import useMediaQuery from '../useMediaQuery';
 
-import { IBaseElement, staticClassName, TPropsAny, TStyle, valueBreakpoints } from '../utils';
+import { IBaseElement, staticClassName, TPropsAny, TStyle, TValueBreakpoints, valueBreakpoints } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -31,7 +31,7 @@ export interface IParallax extends IBaseElement {
 
   transition?: string;
 
-  disabled?: boolean;
+  disabled?: boolean | Record<TValueBreakpoints, boolean>;
 }
 
 const Parallax = React.forwardRef((props_: IParallax, ref: any) => {
