@@ -5,7 +5,8 @@ import AmauiSubscription from '@amaui/subscription';
 import { classNames, useAmauiTheme, TTransitionsDurationProperties } from '@amaui/style-react';
 
 import KeyframesContext from './KeyframesContext';
-import { reflow } from '../utils';
+
+import { IBaseElement, reflow, TRef } from '../utils';
 
 export type TKeyframesStatus = 'appended' | 'add' | 'adding' | 'added' | 'removed';
 
@@ -14,7 +15,9 @@ export interface IKeyframe {
   timeout: number;
 }
 
-interface IProps {
+export interface IKeyframes extends Omit<IBaseElement, 'className'> {
+  ref?: TRef;
+
   className?: boolean;
 
   prefix?: string;
@@ -37,7 +40,7 @@ interface IProps {
   };
 
   // An all in one method
-  onKeyframe?: (element: HTMLElement, status: TKeyframesStatus) => void;
+  onKeyframes?: (element: HTMLElement, status: TKeyframesStatus) => void;
 
   onAppended?: (element: HTMLElement) => void;
 
@@ -46,11 +49,9 @@ interface IProps {
   onAdded?: (element: HTMLElement) => void;
 
   onRemoved?: (element: HTMLElement) => void;
-
-  [p: string]: any;
 }
 
-function Keyframes(props_: IProps) {
+function Keyframes(props_: IKeyframes) {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiKeyframes?.props?.default }), [props_]);
@@ -75,6 +76,7 @@ function Keyframes(props_: IProps) {
     onRemoved,
 
     className,
+
     children,
 
   } = props;
@@ -264,7 +266,7 @@ function Keyframes(props_: IProps) {
           React.cloneElement(children, {
             ref: item => {
               if (ref) {
-                if (is('function', ref)) ref(item);
+                if (is('function', ref)) (ref as any)(item);
                 else ref.current = item;
               }
 

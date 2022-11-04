@@ -5,7 +5,7 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import Surface from '../Surface';
 
-import { staticClassName } from '../utils';
+import { IBaseElement, staticClassName, TColor, TElement, TPropsAny, TSize, TStyle, TTonal } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -39,7 +39,80 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiLinearMeter' });
 
-const LinearMeter = React.forwardRef((props_: any, ref: any) => {
+export interface ILinearMeter extends IBaseElement {
+  tonal?: TTonal;
+  color?: TColor;
+
+  size?: TSize;
+
+  parts?: number;
+
+  lineCap?: 'inherit' | 'round' | 'square' | 'butt';
+
+  // vertical, horizontal
+  orientation?: 'vertical' | 'horizontal';
+
+  // start, center, end
+  linePosition?: 'start' | 'center' | 'end';
+
+  width?: number;
+  height?: number;
+
+  padding?: number;
+  paddingVertical?: number;
+  paddingHorizontal?: number;
+
+  gap?: number;
+
+  border?: boolean;
+
+  background?: boolean;
+
+  boundaryWidth?: number;
+
+  lineProgress?: boolean;
+
+  linesVisible?: boolean;
+  marksVisible?: boolean;
+  labelsVisible?: boolean;
+
+  marks?: Array<{
+    size?: number;
+    position?: number;
+    padding?: number;
+
+    [property: string]: any;
+  }>;
+
+  markSize?: number;
+  markWidth?: number;
+
+  labels?: Array<{
+    value?: number;
+    position?: number;
+    padding?: number;
+    style?: TStyle;
+
+    [property: string]: any;
+  }>;
+
+  additional?: TElement;
+
+  textProps?: TPropsAny;
+  pathProps?: TPropsAny;
+
+  SvgProps?: TPropsAny;
+  MarkProps?: TPropsAny;
+  LabelProps?: TPropsAny;
+  BackgroundProps?: TPropsAny;
+  BorderProps?: TPropsAny;
+  LineProps?: TPropsAny;
+  LineMainProps?: TPropsAny;
+  LinesProgressProps?: TPropsAny;
+  LineProgressProps?: TPropsAny;
+}
+
+const LinearMeter = React.forwardRef((props_: ILinearMeter, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiLinearMeter?.props?.default }), [props_]);
@@ -71,9 +144,9 @@ const LinearMeter = React.forwardRef((props_: any, ref: any) => {
 
     gap = 0,
 
-    background = false,
-
     border = false,
+
+    background = false,
 
     boundaryWidth = 1,
 

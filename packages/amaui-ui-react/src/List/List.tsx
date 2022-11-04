@@ -6,7 +6,8 @@ import Surface from '../Surface';
 import useMediaQuery from '../useMediaQuery';
 import Line from '../Line';
 
-import { staticClassName } from '../utils';
+import { staticClassName, TElement, TSize } from '../utils';
+import { ISurface } from '../Surface/Surface';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -61,7 +62,19 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiList' });
 
-const List = React.forwardRef((props_: any, ref: any) => {
+export interface IList extends ISurface {
+  size?: TSize;
+
+  menu?: TElement;
+  menuOpen?: boolean;
+
+  noMaxWidth?: boolean;
+  indent?: number;
+  paddingHorizontal?: 'both' | 'start' | 'end' | 'none';
+  paddingVertical?: 'both' | 'start' | 'end' | 'none';
+}
+
+const List = React.forwardRef((props_: IList, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiList?.props?.default }), [props_]);
@@ -83,8 +96,6 @@ const List = React.forwardRef((props_: any, ref: any) => {
     indent,
     paddingHorizontal = 'none',
     paddingVertical = 'both',
-
-    onMenuDesktopClose,
 
     Component = 'ul',
 

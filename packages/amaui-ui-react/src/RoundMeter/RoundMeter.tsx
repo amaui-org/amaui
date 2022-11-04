@@ -60,6 +60,7 @@ export interface IRoundMeter extends IBaseElement {
   color?: TColor;
   size?: TSize;
 
+  // in how many parts boundary is separated in
   parts?: number;
 
   lineCap?: 'inherit' | 'round' | 'square' | 'butt';
@@ -72,7 +73,9 @@ export interface IRoundMeter extends IBaseElement {
 
   background?: boolean;
 
+  // 0.25, 0.5, 0.75 and 1
   boundary?: number;
+
   boundaryWidth?: number;
 
   arcProgress?: boolean;
@@ -144,6 +147,7 @@ const RoundMeter = React.forwardRef((props_: IRoundMeter, ref: any) => {
     background = false,
 
     boundary: boundary_ = 1,
+
     boundaryWidth = 1,
 
     arcProgress = false,

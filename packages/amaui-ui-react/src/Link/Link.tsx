@@ -4,7 +4,8 @@ import { classNames, IColor, style as styleMethod, useAmauiTheme } from '@amaui/
 
 import Type from '../Type';
 
-import { staticClassName } from '../utils';
+import { staticClassName, TColor } from '../utils';
+import { IType } from '../Type/Type';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -88,7 +89,13 @@ const useStyle = styleMethod(theme => ({
   tonal_color_error: { color: theme.methods.palette.color.value('error', 30) }
 }), { name: 'AmauiLink' });
 
-const Link = React.forwardRef((props_: any, ref: any) => {
+export interface ILink extends Omit<IType, 'color'> {
+  color?: TColor;
+
+  underline?: true | 'hover';
+}
+
+const Link = React.forwardRef((props_: ILink, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiLink?.props?.default }), [props_]);
@@ -150,11 +157,11 @@ const Link = React.forwardRef((props_: any, ref: any) => {
   }
 
   if (underline === true && !hover) {
-    styles.root.textDecorationColor = theme.methods.palette.color.value(color, 70, true, palette);
+    styles.root.textDecorationColor = theme.methods.palette.color.value(color as any, 70, true, palette);
   }
 
   if (hover) {
-    styles.root.color = theme.methods.palette.color.value(color, 10, true, palette);
+    styles.root.color = theme.methods.palette.color.value(color as any, 10, true, palette);
   }
 
   return (
