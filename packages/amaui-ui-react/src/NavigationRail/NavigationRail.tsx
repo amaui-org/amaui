@@ -7,8 +7,9 @@ import Line from '../Line';
 import Surface from '../Surface';
 import Divider from '../Divider';
 import NavigationBar from '../NavigationBar';
+import { ISurface } from '../Surface/Surface';
 
-import { staticClassName } from '../utils';
+import { staticClassName, TElement, TPropsAny, TSize } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -57,7 +58,27 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiNavigationRail' });
 
-const NavigationRail = React.forwardRef((props_: any, ref: any) => {
+export interface INavigationRail extends ISurface {
+  size?: TSize;
+
+  value?: any;
+  valueDefault?: any;
+
+  onChange?: (value: any) => any;
+
+  justify?: 'start' | 'center' | 'end';
+
+  border?: boolean;
+
+  header?: TElement;
+
+  fixed?: boolean;
+
+  NavigationBarProps?: TPropsAny;
+  DividerProps?: TPropsAny;
+}
+
+const NavigationRail = React.forwardRef((props_: INavigationRail, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiNavigationRail?.props?.default }), [props_]);
@@ -74,7 +95,7 @@ const NavigationRail = React.forwardRef((props_: any, ref: any) => {
     valueDefault,
     onChange,
 
-    alignment = 'center',
+    justify = 'center',
 
     border,
 
@@ -181,7 +202,7 @@ const NavigationRail = React.forwardRef((props_: any, ref: any) => {
         staticClassName('NavigationRail', theme) && [
           'AmauiNavigationRail-root',
           `AmauiNavigationRail-version-${version}`,
-          `AmauiNavigationRail-alignment-${alignment}`,
+          `AmauiNavigationRail-justify-${justify}`,
           `AmauiNavigationRail-size-${size}`,
           border && `AmauiNavigationRail-border`,
           fixed && `AmauiNavigationRail-fixed`
@@ -223,7 +244,7 @@ const NavigationRail = React.forwardRef((props_: any, ref: any) => {
 
           direction='column'
 
-          justify={alignment}
+          justify={justify}
 
           gap={2}
 

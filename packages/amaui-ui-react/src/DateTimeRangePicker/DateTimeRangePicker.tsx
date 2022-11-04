@@ -18,9 +18,9 @@ import Tab from '../Tab';
 import Line from '../Line';
 import DateRangePicker from '../DateRangePicker';
 import TimeRangePicker from '../TimeRangePicker';
-import { IAdvancedTextField } from '../AdvancedTextField/AdvancedTextField';
+import { IDateTimePicker } from '../DateTimePicker/DateTimePicker';
 
-import { staticClassName, TElement, TElementReference, TPropsAny, valueBreakpoints } from '../utils';
+import { staticClassName, TPropsAny, valueBreakpoints } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -86,62 +86,14 @@ const SEPARATOR = ` ${SEPARATOR_SYMBOL} `;
 
 export type TDateTimeRangePicker = [AmauiDate, AmauiDate];
 
-export interface IDateTimeRangePicker extends Omit<IAdvancedTextField, 'version'> {
-  version?: 'auto' | 'mobile' | 'desktop' | 'static',
-
+export interface IDateTimeRangePicker extends Omit<IDateTimePicker, 'value'> {
   value?: TDateTimeRangePicker;
   valueDefault?: TDateTimeRangePicker;
 
   onChange?: (value: TDateTimeRangePicker) => any;
 
-  label?: TElement;
-
-  now?: boolean;
-
-  validate?: (value: AmauiDate) => boolean;
-
-  min?: number;
-
-  max?: number;
-
-  format?: '12' | '24';
-
-  openMobile?: 'date' | 'time';
-
-  openDesktop?: 'date' | 'time';
-
-  range?: boolean;
-
-  fullScreen?: boolean;
-
-  useHelperText?: boolean;
-
-  onClick?: (event: React.MouseEvent<any>) => any;
-
-  readOnly?: boolean;
-
-  disabled?: boolean;
-
-  year?: boolean;
-  month?: boolean;
-  day?: boolean;
-
-  hour?: boolean;
-  minute?: boolean;
-  second?: boolean;
-
-  Icon?: TElementReference;
-
-  ModalProps?: TPropsAny;
-  TooltipProps?: TPropsAny;
-  AdvancedTextFieldProps?: TPropsAny;
   DateRangePickerProps?: TPropsAny;
   TimeRangePickerProps?: TPropsAny;
-  IconButtonProps?: TPropsAny;
-  ModeDesktopProps?: TPropsAny;
-  ModeMobileProps?: TPropsAny;
-  TabsProps?: TPropsAny;
-  TabProps?: TPropsAny;
 }
 
 const DateTimeRangePicker = React.forwardRef((props__: IDateTimeRangePicker, ref: any) => {
