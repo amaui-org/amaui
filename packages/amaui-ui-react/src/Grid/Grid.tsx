@@ -3,14 +3,14 @@ import React from 'react';
 import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import useMediaQuery from '../useMediaQuery';
 import Line from '../Line';
+import useMediaQuery from '../useMediaQuery';
+import { ILine } from '../Line/Line';
 
-import { staticClassName, valueBreakpoints } from '../utils';
+import { staticClassName, TPropsAny, TValueBreakpoints, valueBreakpoints } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
-    display: 'flex',
     width: '100%',
     flex: '0 1 auto'
   },
@@ -79,7 +79,19 @@ const useStyle = styleMethod(theme => ({
   'columnGap_16': { columnGap: `${16 * theme.space.unit}px` }
 }), { name: 'AmauiGrid' });
 
-const Grid = React.forwardRef((props_: any, ref: any) => {
+export interface IGrid extends ILine {
+  auto?: boolean;
+  line?: boolean;
+
+  columns?: number;
+
+  offsets?: Record<TValueBreakpoints, number>;
+  values?: Record<TValueBreakpoints, number>;
+
+  RootProps?: TPropsAny;
+}
+
+const Grid = React.forwardRef((props_: IGrid, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiGrid?.props?.default }), [props_]);
@@ -96,11 +108,15 @@ const Grid = React.forwardRef((props_: any, ref: any) => {
     auto,
     line,
     wrap = 'wrap',
+
     columns = 10,
+
     gap: gap_,
     rowGap: rowGap_,
     columnGap: columnGap_,
+
     direction: direction_,
+
     offsets,
     values,
 
@@ -166,8 +182,12 @@ const Grid = React.forwardRef((props_: any, ref: any) => {
   if (offset > 0) styles.root.marginInlineStart = `${(offset / columns) * 100}%`;
 
   return (
-    <Component
+    <Line
       ref={ref}
+
+      gap={0}
+
+      direction={direction}
 
       className={classNames([
         staticClassName('Grid', theme) && [
@@ -209,7 +229,7 @@ const Grid = React.forwardRef((props_: any, ref: any) => {
           ...other
         })
       ))}
-    </Component>
+    </Line>
   );
 });
 

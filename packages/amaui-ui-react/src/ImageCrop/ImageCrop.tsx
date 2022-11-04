@@ -5,7 +5,7 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import Tooltip from '../Tooltip';
 
-import { staticClassName, image as imageMethod } from '../utils';
+import { staticClassName, image as imageMethod, IBaseElement, TPropsAny } from '../utils';
 
 const dot = {
   display: 'inline-block',
@@ -288,7 +288,39 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiImageCrop' });
 
-const ImageCrop = React.forwardRef((props_: any, ref: any) => {
+export type TImageCrop = {
+  x?: number;
+  y?: number;
+  width?: number;
+  height?: number;
+};
+
+export interface IImageCrop extends IBaseElement {
+  image?: string | HTMLCanvasElement;
+
+  minWidth?: number;
+  minHeight?: number;
+  maxWidth?: number;
+  maxHeight?: number;
+
+  selectorDefault?: TImageCrop;
+  selector?: TImageCrop;
+  onSelectorChange?: (value: TImageCrop) => any;
+
+  type?: string;
+  quality?: number;
+
+  aspectRatio?: number;
+  gridLines?: boolean;
+  dynamicParent?: boolean;
+
+  onFocus?: (event: React.FocusEvent<any>) => any;
+  onBlur?: (event: React.FocusEvent<any>) => any;
+
+  TooltipProps?: TPropsAny;
+}
+
+const ImageCrop = React.forwardRef((props_: IImageCrop, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiImageCrop?.props?.default }), [props_]);
@@ -319,6 +351,8 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
     onBlur: onBlur_,
 
     TooltipProps,
+
+    Component = 'div',
 
     className,
 
@@ -1243,7 +1277,7 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
   const rect = refs.root.current?.getBoundingClientRect();
 
   return (
-    <div
+    <Component
       ref={item => {
         if (ref) {
           if (is('function', ref)) ref(item);
@@ -1253,7 +1287,7 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
         refs.root.current = item;
       }}
 
-      tabIndex='0'
+      tabIndex={0}
 
       onFocus={onFocus}
 
@@ -1579,7 +1613,7 @@ const ImageCrop = React.forwardRef((props_: any, ref: any) => {
           }}
         />
       </div>
-    </div>
+    </Component>
   );
 });
 

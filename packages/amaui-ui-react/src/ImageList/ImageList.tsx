@@ -4,7 +4,7 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import useMediaQuery from '../useMediaQuery';
 
-import { staticClassName, valueBreakpoints } from '../utils';
+import { IBaseElement, staticClassName, TValueBreakpoints, valueBreakpoints } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -34,7 +34,16 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiImageList' });
 
-const ImageList = React.forwardRef((props_: any, ref: any) => {
+export interface IImageList extends IBaseElement {
+  version?: 'standard' | 'vowen' | 'masonry';
+
+  gap?: number | Record<TValueBreakpoints, number>;
+  rowGap?: number | Record<TValueBreakpoints, number>;
+  columnGap?: number | Record<TValueBreakpoints, number>;
+  columns?: number | Record<TValueBreakpoints, number>;
+}
+
+const ImageList = React.forwardRef((props_: IImageList, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiImageList?.props?.default }), [props_]);

@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, string, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Type from '../Type';
 import Surface from '../Surface';
 
-import { staticClassName } from '../utils';
+import { IBaseElement, staticClassName, TColor, TPropsAny, TTonal } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -103,7 +103,30 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiImage' });
 
-const Image = React.forwardRef((props_: any, ref: any) => {
+export interface IImage extends IBaseElement {
+  tonal?: TTonal;
+  color?: TColor;
+
+  src?: string;
+  sources?: Array<string>;
+  alt?: string;
+  description?: string;
+  alignmentDescription?: 'start' | 'left' | 'center' | 'right' | 'end';
+
+  width?: number;
+  height?: number;
+
+  alignment?: 'start' | 'left' | 'center' | 'right' | 'end';
+  responsive?: boolean;
+  fullWidth?: boolean;
+  maxWidth?: 'xxs' | 'xs' | 'sm' | 'rg' | 'lg' | 'xl' | 'unset';
+
+  loading?: 'eager' | 'lazy';
+
+  DescriptionProps?: TPropsAny;
+}
+
+const Image = React.forwardRef((props_: IImage, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiImage?.props?.default }), [props_]);

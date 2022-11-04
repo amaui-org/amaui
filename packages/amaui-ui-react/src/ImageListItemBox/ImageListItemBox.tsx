@@ -3,6 +3,7 @@ import React from 'react';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import ListItem from '../ListItem';
+import { IListItem } from '../ListItem/ListItem';
 
 import { staticClassName } from '../utils';
 
@@ -26,7 +27,12 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiImageListItemBox' });
 
-const ImageListItemBox = React.forwardRef((props_: any, ref: any) => {
+export interface IImageListItemBox extends IListItem {
+  position?: 'top' | 'bottom';
+  backgroundOpacity?: number;
+}
+
+const ImageListItemBox = React.forwardRef((props_: IImageListItemBox, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiImageListItemBox?.props?.default }), [props_]);

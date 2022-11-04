@@ -5,7 +5,7 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import { Transition, Transitions, TTransitionStatus } from '..';
 
-import { staticClassName } from '../utils';
+import { IBaseElement, staticClassName } from '../utils';
 
 const other = {
   pointerEvents: 'none',
@@ -151,7 +151,22 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiInteraction' });
 
-const Interaction = React.forwardRef((props_: any, ref: any) => {
+export interface IInteraction extends IBaseElement {
+  wave?: boolean;
+  background?: boolean;
+  border?: boolean;
+  pulse?: boolean;
+
+  origin?: 'center';
+  preselected?: boolean;
+  selected?: boolean;
+  dragged?: boolean;
+  wave_version?: 'simple';
+  clear?: any;
+  disabled?: boolean;
+}
+
+const Interaction = React.forwardRef((props_: IInteraction, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiInteraction?.props?.default }), [props_]);
