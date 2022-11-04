@@ -18,8 +18,9 @@ import Tab from '../Tab';
 import Line from '../Line';
 import DateRangePicker from '../DateRangePicker';
 import TimeRangePicker from '../TimeRangePicker';
+import { IAdvancedTextField } from '../AdvancedTextField/AdvancedTextField';
 
-import { staticClassName, valueBreakpoints } from '../utils';
+import { staticClassName, TElement, TElementReference, TPropsAny, valueBreakpoints } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -83,7 +84,67 @@ const SEPARATOR_SYMBOL = `–`;
 
 const SEPARATOR = ` ${SEPARATOR_SYMBOL} `;
 
-const DateTimeRangePicker = React.forwardRef((props__: any, ref: any) => {
+export type TDateTimeRangePicker = [AmauiDate, AmauiDate];
+
+export interface IDateTimeRangePicker extends Omit<IAdvancedTextField, 'version'> {
+  version?: 'auto' | 'mobile' | 'desktop' | 'static',
+
+  value?: TDateTimeRangePicker;
+  valueDefault?: TDateTimeRangePicker;
+
+  onChange?: (value: TDateTimeRangePicker) => any;
+
+  label?: TElement;
+
+  now?: boolean;
+
+  validate?: (value: AmauiDate) => boolean;
+
+  min?: number;
+
+  max?: number;
+
+  format?: '12' | '24';
+
+  openMobile?: 'date' | 'time';
+
+  openDesktop?: 'date' | 'time';
+
+  range?: boolean;
+
+  fullScreen?: boolean;
+
+  useHelperText?: boolean;
+
+  onClick?: (event: React.MouseEvent<any>) => any;
+
+  readOnly?: boolean;
+
+  disabled?: boolean;
+
+  year?: boolean;
+  month?: boolean;
+  day?: boolean;
+
+  hour?: boolean;
+  minute?: boolean;
+  second?: boolean;
+
+  Icon?: TElementReference;
+
+  ModalProps?: TPropsAny;
+  TooltipProps?: TPropsAny;
+  AdvancedTextFieldProps?: TPropsAny;
+  DateRangePickerProps?: TPropsAny;
+  TimeRangePickerProps?: TPropsAny;
+  IconButtonProps?: TPropsAny;
+  ModeDesktopProps?: TPropsAny;
+  ModeMobileProps?: TPropsAny;
+  TabsProps?: TPropsAny;
+  TabProps?: TPropsAny;
+}
+
+const DateTimeRangePicker = React.forwardRef((props__: IDateTimeRangePicker, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props__, ...theme?.ui?.elements?.AmauiDateTimeRangePicker?.props?.default }), [props__]);
@@ -224,7 +285,7 @@ const DateTimeRangePicker = React.forwardRef((props__: any, ref: any) => {
   const touch = useMediaQuery('(pointer: coarse)');
 
   const [open, setOpen] = React.useState(false);
-  const [openVersion, setOpenVersion] = React.useState((touch ? openMobile : openDesktop) || 'date');
+  const [openVersion, setOpenVersion] = React.useState<any>((touch ? openMobile : openDesktop) || 'date');
   const [value, setValue] = React.useState((valueDefault !== undefined ? valueDefault : value_) || (now && [new AmauiDate(), new AmauiDate()]));
   const [values, setValues] = React.useState<any>({
     input: valueToInput(value)
