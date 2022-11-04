@@ -9,8 +9,9 @@ import Type from '../Type';
 import Line from '../Line';
 import Icon from '../Icon';
 import Interaction from '../Interaction';
+import { IFileChoose } from '../FileChoose/FileChoose';
 
-import { staticClassName } from '../utils';
+import { staticClassName, TElement, TVersion } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -58,7 +59,21 @@ const IconMaterialCloudUploadRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
-const DropZone = React.forwardRef((props_: any, ref: any) => {
+export interface IDropZone extends IFileChoose {
+  version?: TVersion;
+
+  start?: TElement;
+
+  onFocus?: (event: React.FocusEvent<any>) => any;
+  onBlur?: (event: React.FocusEvent<any>) => any;
+
+  onDrop?: (event: React.DragEvent<any>) => any;
+  onDragOver?: (event: React.DragEvent<any>) => any;
+  onDragEnter?: (event: React.DragEvent<any>) => any;
+  onDragLeave?: (event: React.DragEvent<any>) => any;
+}
+
+const DropZone = React.forwardRef((props_: IDropZone, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiDropZone?.props?.default }), [props_]);
@@ -82,6 +97,8 @@ const DropZone = React.forwardRef((props_: any, ref: any) => {
     valueDefault,
     value: value_,
 
+    onChange: onChange_,
+
     IconStart = IconMaterialCloudUploadRounded,
 
     onFocus: onFocus_,
@@ -91,8 +108,6 @@ const DropZone = React.forwardRef((props_: any, ref: any) => {
     onDragOver: onDragOver_,
     onDragEnter: onDragEnter_,
     onDragLeave: onDragLeave_,
-
-    onChange: onChange_,
 
     className,
 

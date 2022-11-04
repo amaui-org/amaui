@@ -3,6 +3,7 @@ import React from 'react';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import PieChart from '../PieChart';
+import { IPieChart } from '../PieChart/PieChart';
 
 import { staticClassName } from '../utils';
 
@@ -16,7 +17,11 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiDonutChart' });
 
-const DonutChart = React.forwardRef((props_: any, ref: any) => {
+export interface IDonutChart extends IPieChart {
+
+}
+
+const DonutChart = React.forwardRef((props_: IDonutChart, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiDonutChart?.props?.default }), [props_]);

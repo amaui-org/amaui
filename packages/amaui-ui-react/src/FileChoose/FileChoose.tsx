@@ -10,7 +10,7 @@ import Tree from '../Tree';
 import Line from '../Line';
 import Icon from '../Icon';
 
-import { staticClassName } from '../utils';
+import { IBaseElement, staticClassName, TColor, TElementReference, TPropsAny, TRef, TTonal } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -117,7 +117,42 @@ const IconMaterialFolderOpenRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
-const FileChoose = React.forwardRef((props_: any, ref: any) => {
+export type TFileChooseValue = File | Array<File>;
+
+export interface IFileChoose extends IBaseElement {
+  tonal?: TTonal;
+  color?: TColor;
+
+  inputRef?: TRef;
+
+  max?: number;
+  allowedTypes?: Array<string>;
+
+  files?: Array<File>;
+
+  valueDefault?: TFileChooseValue;
+  value?: TFileChooseValue;
+
+  multiple?: boolean;
+  accept?: string;
+  capture?: boolean | 'user' | 'environment';
+
+  remove?: boolean;
+
+  renderFiles?: (value: TFileChooseValue, onRemove: (index: number) => any) => any;
+
+  onClick?: (event: React.MouseEvent<any>) => any;
+
+  onChange?: (value: TFileChooseValue) => any;
+
+  IconStart?: TElementReference;
+
+  inputProps?: TPropsAny;
+  WrapperProps?: TPropsAny;
+  ComponentProps?: TPropsAny;
+}
+
+const FileChoose = React.forwardRef((props_: IFileChoose, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiFileChoose?.props?.default }), [props_]);
@@ -151,11 +186,11 @@ const FileChoose = React.forwardRef((props_: any, ref: any) => {
 
     IconStart = IconMaterialCloudUploadRounded,
 
-    Component = Button,
-
     inputProps,
     WrapperProps: WrapperProps_,
     ComponentProps: ComponentProps_,
+
+    Component = Button,
 
     className,
     style,
@@ -212,7 +247,7 @@ const FileChoose = React.forwardRef((props_: any, ref: any) => {
   }, []);
 
   const onRemove = (index: number) => {
-    const valueNew = [...value];
+    const valueNew = [...(value as any)];
 
     valueNew.splice(index, 1);
 
@@ -328,7 +363,7 @@ const FileChoose = React.forwardRef((props_: any, ref: any) => {
         {children}
       </Component>
 
-      {files && !!value?.length && (
+      {files && !!(value as any)?.length && (
         is('function', renderFiles) ? renderFiles(value, onRemove) : (
           <Tree
             openDefault
@@ -350,7 +385,7 @@ const FileChoose = React.forwardRef((props_: any, ref: any) => {
               classes.files
             ])}
           >
-            {value.map((item: any, index: number) => (
+            {(value as any).map((item: any, index: number) => (
               <Tree
                 key={index}
 
