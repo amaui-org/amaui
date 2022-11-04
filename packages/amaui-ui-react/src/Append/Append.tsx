@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is, isEnvironment, element as element_, clamp } from '@amaui/utils';
+import { is, isEnvironment, element as element_, clamp, debounce } from '@amaui/utils';
 import { useAmauiTheme } from '@amaui/style-react';
 
 import Portal from '../Portal';
@@ -174,28 +174,16 @@ const Append = (props_: IAppend) => {
   // Anchor element
   React.useEffect(() => {
     // Resize
-    // const observerMutation = new MutationObserver(observerMethod);
+    const observer = new MutationObserver(observerMethod);
 
-    // try {
-    //   if (refs.root.current) {
-    //     observerMutation.observe(refs.root.current, { attributes: true, childList: true, subtree: true });
-    //   }
-    // } catch (error) { }
-
-    let observer: ResizeObserver;
-
-    if (refs.root.current) {
-      observer = new ResizeObserver(observerResizeMethod);
-
-      observer.observe(refs.root.current);
-    }
+    try {
+      if (refs.root.current) {
+        observer.observe(refs.root.current, { attributes: true, childList: true, subtree: true });
+      }
+    } catch (error) { }
 
     return () => {
-      //   if (refs.root.current) {
-      //     observerMutation.disconnect();
-      //   }
-
-      if (observer) {
+      if (refs.root.current) {
         observer.disconnect();
       }
     };
@@ -204,28 +192,16 @@ const Append = (props_: IAppend) => {
   // Element resize
   React.useEffect(() => {
     // Resize
-    // const observerMutation = new MutationObserver(observerMethod);
+    const observer = new MutationObserver(observerMethod);
 
-    // try {
-    //   if (refs.element.current) {
-    //     observerMutation.observe(refs.element.current, { attributes: true, childList: true, subtree: true });
-    //   }
-    // } catch (error) { }
-
-    let observer: ResizeObserver;
-
-    if (refs.element.current) {
-      observer = new ResizeObserver(observerResizeMethod);
-
-      observer.observe(refs.element.current);
-    }
+    try {
+      if (refs.element.current) {
+        observer.observe(refs.element.current, { attributes: true, childList: true, subtree: true });
+      }
+    } catch (error) { }
 
     return () => {
-      // if (refs.element.current) {
-      //   observerMutation.disconnect();
-      // }
-
-      if (observer) {
+      if (refs.element.current) {
         observer.disconnect();
       }
     };
