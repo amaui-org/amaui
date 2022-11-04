@@ -9,7 +9,7 @@ import Fade from '../Fade';
 import Line from '../Line';
 import Tooltip from '../Tooltip';
 
-import { staticClassName } from '../utils';
+import { IBaseElement, staticClassName, TColor, TElement, TElementReference, TPropsAny, TTonal, TVersion } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -124,7 +124,34 @@ const useStyle = styleMethod(theme => ({
 
 // Long press label in tooltip
 
-const NavigationItem = React.forwardRef((props_: any, ref: any) => {
+export interface INavigationItem extends IBaseElement {
+  tonal?: TTonal;
+  color?: TColor;
+  version?: 'regular' | 'auto';
+
+  value?: any;
+  vertical?: boolean;
+  label?: TElement;
+  icon?: TElement;
+  iconSelected?: TElement;
+  selected?: boolean;
+  disabled?: boolean;
+
+  IconWrapperComponent?: TElementReference;
+
+  onFocus?: (event: React.FocusEvent<any>) => any;
+  onBlur?: (event: React.FocusEvent<any>) => any;
+  onKeyDown?: (event: React.KeyboardEvent<any>) => any;
+  onMouseDown?: (event: React.MouseEvent<any>) => any;
+  onMouseEnter?: (event: React.MouseEvent<any>) => any;
+  onMouseLeave?: (event: React.MouseEvent<any>) => any;
+  onTouchStart?: (event: React.TouchEvent<any>) => any;
+
+  TooltipProps?: TPropsAny;
+  IconWrapperProps?: TPropsAny;
+}
+
+const NavigationItem = React.forwardRef((props_: INavigationItem, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiNavigationItem?.props?.default }), [props_]);
@@ -230,7 +257,7 @@ const NavigationItem = React.forwardRef((props_: any, ref: any) => {
     if (is('function', onBlur_)) onBlur_(event);
   }, []);
 
-  const onTouchStart = React.useCallback((event: React.MouseEvent<any>) => {
+  const onTouchStart = React.useCallback((event: React.TouchEvent<any>) => {
     if (!disabled) setMouseDown(true);
 
     if (is('function', onTouchStart)) onTouchStart(event);
@@ -270,7 +297,7 @@ const NavigationItem = React.forwardRef((props_: any, ref: any) => {
   else {
     styles.indicator.color = palette?.main || (color === 'default' ? theme.palette.text.default.primary : (theme.palette.color[color] as any).main);
 
-    styles.icon.color = styles.label.color = theme.methods.palette.color.value(color, 5, true, palette);
+    styles.icon.color = styles.label.color = theme.methods.palette.color.value(color as any, 5, true, palette);
   }
 
   const LabelWrapper = version === 'auto' ? Fade : React.Fragment;
@@ -429,9 +456,9 @@ const NavigationItem = React.forwardRef((props_: any, ref: any) => {
                   classes.icon
                 ])}
               >
-                {React.cloneElement(Icon, {
+                {React.cloneElement(Icon as any, {
                   style: {
-                    ...Icon.props.style,
+                    ...(Icon as any).props.style,
 
                     ...styles.icon
                   }

@@ -3,6 +3,7 @@ import React from 'react';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import DatePicker from '../DatePicker';
+import { IDatePicker } from '../DatePicker/DatePicker';
 
 import { staticClassName } from '../utils';
 
@@ -12,7 +13,11 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiDateRangePicker' });
 
-const DateRangePicker = React.forwardRef((props_: any, ref: any) => {
+export interface IDateRangePicker extends IDatePicker {
+
+}
+
+const DateRangePicker = React.forwardRef((props_: IDateRangePicker, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiDateRangePicker?.props?.default }), [props_]);

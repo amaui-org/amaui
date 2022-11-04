@@ -25,8 +25,9 @@ import { IconDoneAnimated } from '../Buttons/Buttons';
 import Divider from '../Divider';
 import Carousel from '../Carousel';
 import Slide from '../Slide';
+import { ILine } from '../Line/Line';
 
-import { staticClassName, valueBreakpoints } from '../utils';
+import { staticClassName, TColor, TElement, TElementReference, TPropsAny, TTonal, valueBreakpoints } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -1033,7 +1034,114 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
   );
 });
 
-const DatePicker = React.forwardRef((props__: any, ref: any) => {
+export type TDatePickerValue = AmauiDate | [AmauiDate, AmauiDate];
+
+export type TDatePickerCalendar = {
+  previous?: AmauiDate;
+  date?: AmauiDate;
+  move?: 'next' | 'previous';
+  update?: string;
+};
+
+export interface IDatePicker extends ILine {
+  tonal?: TTonal;
+  color?: TColor;
+
+  version?: 'auto' | 'mobile' | 'desktop' | 'static';
+
+  versionStatic?: 'docked' | 'modal' | 'fullScreen';
+
+  value?: TDatePickerValue;
+  valueDefault?: TDatePickerValue;
+
+  onChange?: (value: TDatePickerValue) => any;
+
+  calendar?: TDatePickerCalendar;
+
+  onChangeCalendar?: (value: TDatePickerCalendar) => any;
+
+  calendars?: number;
+
+  now?: boolean;
+
+  today?: boolean;
+
+  label?: TElement;
+
+  labelFrom?: string;
+
+  labelTo?: string;
+
+  min?: number;
+
+  max?: number;
+
+  validate?: (value: AmauiDate) => boolean;
+
+  autoCloseOnPick?: boolean;
+
+  openMobile?: 'input' | 'select';
+
+  modeModalHeadingText?: string;
+
+  selectModeHeadingText?: string;
+
+  inputModeHeadingText?: string;
+
+  useHelperText?: boolean;
+
+  weekStartDay?: 'Monday' | 'Sunday';
+
+  menuCloseOnSelect?: boolean;
+
+  day?: boolean;
+
+  month?: boolean;
+
+  year?: boolean;
+
+  range?: boolean;
+
+  switch?: boolean;
+
+  fullScreen?: boolean;
+
+  readOnly?: boolean;
+
+  disabled?: boolean;
+
+  geMonths?: (value: TDatePickerValue, values: any, calendar: TDatePickerCalendar, props: TPropsAny) => Array<{ value: string }>;
+
+  geYears?: (value: TDatePickerValue, values: any, calendar: TDatePickerCalendar, props: TPropsAny) => Array<{ value: number }>;
+
+  onClick?: (event: React.MouseEvent<any>) => any;
+
+  onClose?: (event: React.MouseEvent<any>) => any;
+
+  onCancel?: (event: React.MouseEvent<any>) => any;
+
+  Icon?: TElementReference;
+  IconPrevious?: TElementReference;
+  IconNext?: TElementReference;
+  IconDropDown?: TElementReference;
+  IconCheck?: TElementReference;
+  IconEnter?: TElementReference;
+  IconClose?: TElementReference;
+
+  ModalProps?: TPropsAny;
+  TooltipProps?: TPropsAny;
+  IconButtonProps?: TPropsAny;
+  AdvancedTextFieldProps?: TPropsAny;
+  ModeDockedProps?: TPropsAny;
+  ModeModalProps?: TPropsAny;
+  ModeFullScreenProps?: TPropsAny;
+  ModeInputProps?: TPropsAny;
+  CalendarProps?: TPropsAny;
+  ButtonProps?: TPropsAny;
+  InputProps?: TPropsAny;
+}
+
+const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props__, ...theme?.ui?.elements?.AmauiDatePicker?.props?.default }), [props__]);
@@ -1268,7 +1376,7 @@ const DatePicker = React.forwardRef((props__: any, ref: any) => {
 
     return is('array', value__) ? value__ : [value__];
   });
-  const [values, setValues] = React.useState<any>(() => value.map((item: any, index: number) => {
+  const [values, setValues] = React.useState<any>(() => (value as any).map((item: any, index: number) => {
     const item_ = valueToValues(item, index);
 
     item_.date = item_.selected = item;
@@ -1614,7 +1722,7 @@ const DatePicker = React.forwardRef((props__: any, ref: any) => {
       if (refs.open.current) {
         switch (event.key) {
           case 'Escape':
-            return onCancel();
+            return onCancel(event as any);
 
           default:
             break;
@@ -1905,12 +2013,12 @@ const DatePicker = React.forwardRef((props__: any, ref: any) => {
     setOpen(!refs.open.current);
   }, [openMobile]);
 
-  const onClose = React.useCallback(() => {
+  const onClose = React.useCallback((event: React.MouseEvent<any>) => {
     setOpenMenu(false);
 
     setOpen(false);
 
-    if (is('function', onClose_)) onClose_();
+    if (is('function', onClose_)) onClose_(event);
   }, [onClose_]);
 
   const onModal = React.useCallback((event: React.MouseEvent<any>) => {
@@ -2011,12 +2119,12 @@ const DatePicker = React.forwardRef((props__: any, ref: any) => {
     updateCalendar(calendar_);
   };
 
-  const onCancel = React.useCallback(() => {
+  const onCancel = React.useCallback((event: React.MouseEvent<any>) => {
     reset();
 
-    onClose();
+    onClose(event);
 
-    if (is('function', onCancel_)) onCancel_();
+    if (is('function', onCancel_)) onCancel_(event);
   }, [onCancel_]);
 
   const move = (next = true, unit: TTimeUnits = 'month') => {
@@ -2460,7 +2568,7 @@ const DatePicker = React.forwardRef((props__: any, ref: any) => {
                 classes.list
               ])}
             >
-              {getMonths(refs.value.current, refs.values.current, refs.calendar.current).map((item: any, index: number) => {
+              {getMonths(refs.value.current, refs.values.current, refs.calendar.current, props).map((item: any, index: number) => {
                 const monthValue = refs.calendar.current.date;
                 const month__ = formatMethod(monthValue, 'MMMM');
 
@@ -2540,7 +2648,7 @@ const DatePicker = React.forwardRef((props__: any, ref: any) => {
                 classes.list
               ])}
             >
-              {getYears(refs.value.current, refs.values.current, refs.calendar.current).map((item: any, index: number) => {
+              {getYears(refs.value.current, refs.values.current, refs.calendar.current, props).map((item: any, index: number) => {
                 const monthValue = refs.calendar.current.date;
                 const year__ = +formatMethod(monthValue, 'YYYY');
 
@@ -2956,7 +3064,7 @@ const DatePicker = React.forwardRef((props__: any, ref: any) => {
                           classes.list_modal
                         ])}
                       >
-                        {getYears(refs.value.current, refs.values.current, refs.calendar.current).map((item: any, index: number) => {
+                        {getYears(refs.value.current, refs.values.current, refs.calendar.current, props).map((item: any, index: number) => {
                           const monthValue = refs.calendar.current.date;
                           const year__ = +formatMethod(monthValue, 'YYYY');
 
@@ -3631,7 +3739,7 @@ const DatePicker = React.forwardRef((props__: any, ref: any) => {
                             classes.list_modal_fullScreen
                           ])}
                         >
-                          {getYears(refs.value.current, refs.values.current, refs.calendar.current).map((item: any, index: number) => {
+                          {getYears(refs.value.current, refs.values.current, refs.calendar.current, props).map((item: any, index: number) => {
                             const monthValue = refs.calendar.current.date;
                             const year__ = +formatMethod(monthValue, 'YYYY');
 

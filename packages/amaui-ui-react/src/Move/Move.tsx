@@ -3,7 +3,7 @@ import React from 'react';
 import { element, is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import { staticClassName } from '../utils';
+import { IBaseElement, staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -11,7 +11,16 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiMove' });
 
-const Move = React.forwardRef((props_: any, ref: any) => {
+export interface IMove extends IBaseElement {
+  manage?: boolean;
+
+  manageLevel?: number;
+
+  onMouseDown?: (event: React.MouseEvent<any>) => any;
+  onTouchStart?: (event: React.TouchEvent<any>) => any;
+}
+
+const Move = React.forwardRef((props_: IMove, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiMove?.props?.default }), [props_]);
@@ -19,12 +28,12 @@ const Move = React.forwardRef((props_: any, ref: any) => {
   const { classes } = useStyle(props);
 
   const {
-    onMouseDown: onMouseDown_,
-    onTouchStart: onTouchStart_,
-
     manage = false,
 
     manageLevel = 0,
+
+    onMouseDown: onMouseDown_,
+    onTouchStart: onTouchStart_,
 
     Component = 'div',
 

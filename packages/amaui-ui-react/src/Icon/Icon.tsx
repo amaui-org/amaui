@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { AmauiTheme, classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { AmauiTheme, classNames, style as styleMethod, TTone, useAmauiTheme } from '@amaui/style-react';
 
-import { iconSizeToFontSize, staticClassName } from '../utils';
+import { IBaseElement, iconSizeToFontSize, staticClassName, TColor, TTonal } from '../utils';
 
 export const rtl_icons = [
   'ArrowForwardIos', 'ArrowBackIos', 'ArrowBack', 'ArrowForward', 'ArrowLeft', 'ArrowRight', 'AssignmentReturn', 'CallMade', 'CallMissedOutgoing', 'ChevronLeft', 'ChevronRight', 'DeviceUnknown', 'FeaturedPlayList', 'FlightLand', 'FormatIndentIncrease', 'Functions', 'Input', 'Label', 'LastPage', 'LiveHelp', 'NavigateBefore', 'Note', 'QueueMusic', 'ReplyAll', 'ShortText', 'StarHalf', 'Toc', 'Undo', 'WrapText', 'FirstPage', 'LastPage', 'NavigateNext', 'NavigateBefore'
@@ -14,7 +14,7 @@ const useStyle = styleMethod(theme => ({
     display: 'inline-flex',
     flexShrink: '0',
     color: 'inherit',
-    fill: 'currentcolor',
+    fill: 'currentColor',
 
     // Make width and height in em unit
     // means it will scale based on parent's font-size
@@ -35,7 +35,24 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiIcon' });
 
-const Icon = React.forwardRef((props_: any, ref: any) => {
+export interface IIcon extends IBaseElement {
+  tonal?: TTonal;
+  color?: TColor;
+  size?: 'very small' | 'small' | 'regular' | 'medium' | 'large' | 'very large' | number;
+
+  tone?: TTone;
+
+  viewBox?: string;
+
+  name?: string;
+  short_name?: string;
+
+  noRtl?: boolean;
+
+  disabled?: boolean;
+}
+
+const Icon = React.forwardRef((props_: IIcon, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiIcon?.props?.default }), [props_]);
@@ -47,7 +64,7 @@ const Icon = React.forwardRef((props_: any, ref: any) => {
     short_name,
 
     tonal,
-    tone = '60',
+    tone = 60,
     color: color_ = 'inherit',
     size = 'regular',
 
@@ -84,13 +101,13 @@ const Icon = React.forwardRef((props_: any, ref: any) => {
 
   const isRtlIcon = rtl_icons.includes(short_name);
 
-  let color = color_;
+  let color: any = color_;
 
   if (!['unset'].includes(color)) {
     if (tonal) {
       const palette: any = color === 'default' ? theme.palette.color.neutral : !theme.palette.color[color] ? theme.methods.color(color) : theme.palette.color[color];
 
-      color = theme.methods.palette.color.value(color, tone, true, palette);
+      color = theme.methods.palette.color.value(color as any, tone, true, palette);
     }
     else color = (color === 'default' ? theme.palette.text.default.primary : (theme.palette.color[color] as any)?.main || color);
   }

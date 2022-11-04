@@ -3,6 +3,7 @@ import React from 'react';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Type from '../Type';
+import { IType } from '../Type/Type';
 
 import { staticClassName } from '../utils';
 
@@ -14,7 +15,11 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiModalText' });
 
-const ModalText = React.forwardRef((props_: any, ref: any) => {
+export interface IModalText extends IType {
+
+}
+
+const ModalText = React.forwardRef((props_: IModalText, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiModalText?.props?.default }), [props_]);

@@ -7,6 +7,7 @@ import Line from '../Line';
 import Surface from '../Surface';
 
 import { staticClassName } from '../utils';
+import { ISurface } from '../Surface/Surface';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -22,7 +23,17 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiNavigationBar' });
 
-const NavigationBar = React.forwardRef((props_: any, ref: any) => {
+export type TNavigationBarValue = Array<string>;
+
+export interface INavigationBar extends ISurface {
+  value?: TNavigationBarValue;
+  valueDefault?: TNavigationBarValue;
+  onChange?: (value: TNavigationBarValue) => any;
+
+  fixed?: boolean;
+}
+
+const NavigationBar = React.forwardRef((props_: INavigationBar, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiNavigationBar?.props?.default }), [props_]);
@@ -102,7 +113,7 @@ const NavigationBar = React.forwardRef((props_: any, ref: any) => {
     styles.icon.color = theme.methods.palette.color.text(palette?.main || background, true, 'light');
   }
   else {
-    styles.icon.color = theme.methods.palette.color.value(color, 5, true, palette);
+    styles.icon.color = theme.methods.palette.color.value(color as any, 5, true, palette);
   }
 
   const children = React.Children

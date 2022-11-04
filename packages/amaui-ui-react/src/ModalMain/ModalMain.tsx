@@ -2,7 +2,7 @@ import React from 'react';
 
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import { staticClassName } from '../utils';
+import { IBaseElement, staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -14,7 +14,11 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiModalMain' });
 
-const ModalMain = React.forwardRef((props_: any, ref: any) => {
+export interface IModalMain extends IBaseElement {
+
+}
+
+const ModalMain = React.forwardRef((props_: IModalMain, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiModalMain?.props?.default }), [props_]);

@@ -2,6 +2,8 @@ import React from 'react';
 
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
+import Line, { ILine, TLineAlign } from '../Line/Line';
+
 import { staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({
@@ -14,7 +16,11 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiModalHeader' });
 
-const ModalHeader = React.forwardRef((props_: any, ref: any) => {
+export interface IModalHeader extends ILine {
+  align?: TLineAlign;
+}
+
+const ModalHeader = React.forwardRef((props_: IModalHeader, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiModalHeader?.props?.default }), [props_]);
@@ -41,8 +47,14 @@ const ModalHeader = React.forwardRef((props_: any, ref: any) => {
   if (React.Children.toArray(children).length > 1) styles.root.alignItems = align !== undefined ? align : 'center';
 
   return (
-    <div
+    <Line
       ref={ref}
+
+      gap={0}
+
+      direction='column'
+
+      align='flex-start'
 
       className={classNames([
         staticClassName('ModalHeader', theme) && [
@@ -63,7 +75,7 @@ const ModalHeader = React.forwardRef((props_: any, ref: any) => {
       {...other}
     >
       {children}
-    </div>
+    </Line>
   );
 });
 
