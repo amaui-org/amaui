@@ -5,8 +5,9 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import Type from '../Type';
 import Line from '../Line';
+import { ILine } from '../Line/Line';
 
-import { staticClassName } from '../utils';
+import { staticClassName, TColor, TElement, TPropsAny, TSize, TTonal, TVersion } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -23,7 +24,27 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiRadios' });
 
-const Radios = React.forwardRef((props_: any, ref: any) => {
+export interface IRadios extends ILine {
+  tonal?: TTonal;
+  color?: TColor;
+  colorUnchecked?: TColor;
+  version?: TVersion;
+  size?: TSize;
+
+  label?: TElement;
+
+  uncheck?: boolean;
+
+  valueDefault?: any;
+  value?: any;
+  onChange?: (value: any) => any;
+
+  disabled?: boolean;
+
+  LabelProps?: TPropsAny;
+}
+
+const Radios = React.forwardRef((props_: IRadios, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiRadios?.props?.default }), [props_]);

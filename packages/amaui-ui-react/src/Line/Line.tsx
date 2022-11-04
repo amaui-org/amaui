@@ -6,7 +6,7 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 import Divider from '../Divider';
 import useMediaQuery from '../useMediaQuery';
 
-import { staticClassName, valueBreakpoints } from '../utils';
+import { IBaseElement, staticClassName, TPropsAny, valueBreakpoints } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -14,11 +14,15 @@ const useStyle = styleMethod(theme => ({
   },
 
   // display
+  display_inherit: { display: 'inherit' },
+
   display_flex: { display: 'flex' },
 
   display_inline_flex: { display: 'inline-flex' },
 
   // wrap
+  wrap_inherit: { flexWrap: 'inherit' },
+
   wrap_nowrap: { flexWrap: 'nowrap' },
 
   wrap_wrap: { flexWrap: 'wrap' },
@@ -26,6 +30,8 @@ const useStyle = styleMethod(theme => ({
   'wrap_wrap-reverse': { flexWrap: 'wrap-reverse' },
 
   // direction
+  direction_inherit: { flexDirection: 'inherit' },
+
   direction_row: { flexDirection: 'row' },
 
   'direction_row-reverse': { flexDirection: 'row-reverse' },
@@ -129,7 +135,27 @@ export type TLineAlign = 'inherit' | 'initial' | 'flex-start' | 'center' | 'flex
 
 export type TLineJustify = 'inherit' | 'initial' | 'flex-start' | 'center' | 'flex-end' | 'space-around' | 'space-between' | 'space-evenly';
 
-const Line = React.forwardRef((props_: any, ref: any) => {
+export type TLineDirection = 'inherit' | 'row' | 'row-reverse' | 'column' | 'column-reverse';
+
+export type TLineWrap = 'inherit' | 'wrap' | 'nowrap' | 'wrap-reverse';
+
+export type TLineDisplay = 'inherit' | 'flex' | 'inline-flex';
+
+export interface ILine extends IBaseElement {
+  display?: TLineDisplay;
+  align?: TLineAlign;
+  justify?: TLineJustify;
+  direction?: TLineDirection;
+  gap?: number;
+  rowGap?: number;
+  columnGap?: number;
+  divider?: boolean;
+  wrap?: TLineWrap;
+
+  DividerProps?: TPropsAny;
+}
+
+const Line = React.forwardRef((props_: ILine, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiLine?.props?.default }), [props_]);
@@ -242,7 +268,7 @@ const Line = React.forwardRef((props_: any, ref: any) => {
       {...other}
     >
       {(
-        React.Children.toArray(children).flatMap((item: any, index: number) => (!divider || index === children.length - 1) ? [item] : [item, Divider_])
+        React.Children.toArray(children).flatMap((item: any, index: number) => (!divider || index === (children as any).length - 1) ? [item] : [item, Divider_])
       )}
     </Component>
   );

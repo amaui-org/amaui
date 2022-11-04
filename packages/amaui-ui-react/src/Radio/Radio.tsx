@@ -4,8 +4,9 @@ import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import IconButton from '../IconButton';
+import { IIconButton } from '../IconButton/IconButton';
 
-import { iconSizeToFontSize, staticClassName } from '../utils';
+import { iconSizeToFontSize, staticClassName, TColor, TRef } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -99,7 +100,19 @@ const IconItem = (props: any) => {
   );
 };
 
-const Radio = React.forwardRef((props_: any, ref: any) => {
+export interface IRadio extends IIconButton {
+  inputRef?: TRef;
+
+  colorUnchecked?: TColor;
+
+  valueDefault?: any;
+  checked?: boolean;
+  onChange?: (value: boolean, event: React.ChangeEvent<any>) => any;
+
+  disabled?: boolean;
+}
+
+const Radio = React.forwardRef((props_: IRadio, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiRadio?.props?.default }), [props_]);
@@ -109,6 +122,8 @@ const Radio = React.forwardRef((props_: any, ref: any) => {
     color = 'primary',
     version = 'text',
 
+    inputRef,
+
     colorUnchecked = 'default',
 
     valueDefault,
@@ -116,8 +131,6 @@ const Radio = React.forwardRef((props_: any, ref: any) => {
     onChange,
 
     disabled,
-
-    inputRef,
 
     Component = 'span',
 

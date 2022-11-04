@@ -5,7 +5,7 @@ import AmauiSubscription from '@amaui/subscription';
 import { classNames, useAmauiTheme, TTransitionsDurationProperties } from '@amaui/style-react';
 
 import TransitionContext from './TransitionContext';
-import { IBaseElement, reflow, TElement, TRef } from '../utils';
+import { IBaseElement, reflow } from '../utils';
 
 export type TTransitionStatus = 'appended' | 'add' | 'adding' | 'added' | 'enter' | 'entering' | 'entered' | 'exit' | 'exiting' | 'exited' | 'removed';
 
@@ -78,7 +78,7 @@ export interface ITransition extends Omit<IBaseElement, 'children' | 'className'
 
   onRemoved?: (element: HTMLElement) => void;
 
-  children?: (status: TTransitionStatus, ref: TRef) => TElement | TElement;
+  children?: any;
 
   [p: string]: any;
 }

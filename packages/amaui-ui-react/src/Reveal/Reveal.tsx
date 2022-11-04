@@ -5,7 +5,7 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import Fade from '../Fade';
 
-import { staticClassName } from '../utils';
+import { IBaseElement, staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -13,7 +13,21 @@ const useStyle = styleMethod(theme => ({
   },
 }), { name: 'AmauiReveal' });
 
-const Reveal = React.forwardRef((props_: any, ref: any) => {
+export interface IReveal extends IBaseElement {
+  inDefault?: boolean;
+
+  offset?: number;
+  offsetReveal?: number;
+  offsetUnreveal?: number;
+
+  unreveal?: boolean;
+
+  addClassName?: string;
+
+  noTransition?: boolean;
+}
+
+const Reveal = React.forwardRef((props_: IReveal, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiReveal?.props?.default }), [props_]);
@@ -160,7 +174,7 @@ const Reveal = React.forwardRef((props_: any, ref: any) => {
     <Component
       {...other}
     >
-      {React.cloneElement(children, {
+      {React.cloneElement(children as any, {
         ref: item => {
           if (ref) {
             if (is('function', ref)) ref(item);

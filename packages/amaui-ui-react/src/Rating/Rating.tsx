@@ -3,7 +3,7 @@ import React from 'react';
 import { clamp, is, valueFromPercentageWithinRange } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import { staticClassName } from '../utils';
+import { IBaseElement, staticClassName, TColor, TElement, TSize, TTonal } from '../utils';
 
 import Icon from '../Icon';
 
@@ -94,7 +94,37 @@ const IconMaterialGradeRoundedFilled = React.forwardRef((props: any, ref) => {
   );
 });
 
-const Rating = React.forwardRef((props_: any, ref: any) => {
+export interface IRating extends IBaseElement {
+  tonal?: TTonal;
+  color?: TColor;
+  colorInactive?: TColor;
+  size?: TSize;
+
+  value?: number;
+  valueDefault?: number;
+  valueActive?: number;
+  valueActiveDefault?: number;
+
+  onChange?: (value: number) => any;
+  onChangeActive?: (value: number) => any;
+
+  values?: number;
+  precision?: number;
+  onlyValue?: boolean;
+  readOnly?: boolean;
+  disabled?: boolean;
+
+  icon?: TElement;
+  icons?: {
+    default?: TElement;
+
+    [property: number | string]: TElement;
+  };
+  iconInactive?: TElement;
+  iconActive?: TElement;
+}
+
+const Rating = React.forwardRef((props_: IRating, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiRating?.props?.default }), [props_]);
@@ -317,9 +347,9 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
   };
 
   const onClear = () => {
-    if (!props.hasOwnProperty('value')) setValue('');
+    if (!props.hasOwnProperty('value')) setValue('' as any);
 
-    if (is('function', onChange)) onChange('');
+    if (is('function', onChange)) onChange('' as any);
 
     setHover(false);
   };
@@ -355,17 +385,17 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
 
           case 'Enter':
             if (value === valueActive) {
-              if (!props.hasOwnProperty('value')) setValue('');
+              if (!props.hasOwnProperty('value')) setValue('' as any);
 
-              if (is('function', onChange)) onChange('');
+              if (is('function', onChange)) onChange('' as any);
             }
 
             return;
 
           case 'Escape':
-            if (!props.hasOwnProperty('value')) setValue('');
+            if (!props.hasOwnProperty('value')) setValue('' as any);
 
-            if (is('function', onChange)) onChange('');
+            if (is('function', onChange)) onChange('' as any);
 
             return;
 
@@ -405,9 +435,9 @@ const Rating = React.forwardRef((props_: any, ref: any) => {
   };
 
   const getIcon = (index: number, inactive = true) => {
-    if (inactive) return icons?.[index]?.iconInactive || icons?.[index]?.icon || icon || iconInactive;
+    if (inactive) return (icons?.[index] as any)?.iconInactive || (icons?.[index] as any)?.icon || icon || iconInactive;
 
-    return icons?.[index]?.iconActive || icons?.[index]?.icon || icon || iconActive;
+    return (icons?.[index] as any)?.iconActive || (icons?.[index] as any)?.icon || icon || iconActive;
   };
 
   const selected = (index: number) => value > index - 1 && value <= index;

@@ -13,7 +13,7 @@ const valuesDefault = {
   init: true
 };
 
-type TArrayTuple = [number, number];
+export type TAppendPadding = Array<number>;
 
 export interface IAppendValue {
   x?: number;
@@ -28,9 +28,9 @@ export interface IAppend {
   accelerated?: boolean;
   anchor?: DOMRect;
   anchorElement?: THTMLElement,
-  offset?: TArrayTuple;
-  padding?: TArrayTuple;
-  paddingUnfollow?: TArrayTuple;
+  offset?: TAppendPadding;
+  padding?: TAppendPadding;
+  paddingUnfollow?: TAppendPadding;
   inset?: boolean;
   position?: 'top' | 'left' | 'bottom' | 'right';
   alignment?: 'start' | 'center' | 'end';
@@ -39,7 +39,7 @@ export interface IAppend {
   unfollow?: boolean;
   style?: TStyle;
   update?: any;
-  element?: (value: { ref: TRef; values: IAppendValue; style: TStyle; }) => any | TElement | Element;
+  element?: any;
   parent?: THTMLElement;
 
   children?: TChildren;

@@ -24,7 +24,7 @@ import Divider from '../Divider';
 import ListItem from '../ListItem';
 import Line from '../Line';
 
-import { print, save, staticClassName } from '../utils';
+import { IBaseElement, print, save, staticClassName, TColor, TElement, TElementReference, TPropsAny, TTonal, TVersion } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -805,7 +805,107 @@ const IconMaterialDrawRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
-const RichTextEditor = React.forwardRef((props__: any, ref: any) => {
+export interface IRichTextEditor extends IBaseElement {
+  tonal?: TTonal;
+  color?: TColor;
+  version?: TVersion;
+
+  value?: string;
+  onChange?: (event: React.ChangeEvent<any>) => any;
+
+  render?: (version: string, props: TPropsAny, value: string, update: (command: string) => any) => TElement;
+
+  miniMenu?: boolean;
+
+  miniMenuInclude?: Array<string>;
+
+  exclude?: Array<string>;
+
+  updates?: boolean;
+
+  actions?: boolean;
+
+  fontFamilies?: Array<{
+    value?: string;
+
+    label?: string;
+  }>;
+
+  addFontFamilies?: Array<{
+    value?: string;
+
+    label?: string;
+  }>;
+
+  // Update
+  IconItalic?: TElementReference;
+  IconUnderline?: TElementReference;
+  IconBold?: TElementReference;
+  IconStrikeLine?: TElementReference;
+
+  IconColor?: TElementReference;
+  IconBackground?: TElementReference;
+
+  IconAlignLeft?: TElementReference;
+  IconAlignCenter?: TElementReference;
+  IconAlignRight?: TElementReference;
+  IconAlignJustify?: TElementReference;
+
+  IconIndent?: TElementReference;
+  IconOutdent?: TElementReference;
+
+  IconSuperscript?: TElementReference;
+  IconSubscript?: TElementReference;
+
+  IconListOrdered?: TElementReference;
+  IconListUnordered?: TElementReference;
+
+  IconHorizontalRule?: TElementReference;
+
+  IconLinkAdd?: TElementReference;
+  IconLinkRemove?: TElementReference;
+
+  IconQuote?: TElementReference;
+  IconImage?: TElementReference;
+  IconVideo?: TElementReference;
+  IconVideoYoutube?: TElementReference;
+  IconTable?: TElementReference;
+  IconCode?: TElementReference;
+  IconDrawing?: TElementReference;
+
+  // Action
+  IconCopy?: TElementReference;
+  IconCut?: TElementReference;
+  IconPaste?: TElementReference;
+
+  IconDelete?: TElementReference;
+
+  IconClear?: TElementReference;
+  IconSelectAll?: TElementReference;
+
+  IconSave?: TElementReference;
+  IconPrint?: TElementReference;
+
+  IconUndo?: TElementReference;
+  IconRedo?: TElementReference;
+
+  AppendProps?: TPropsAny;
+  ToolbarProps?: TPropsAny;
+  ToolbarUpdatesProps?: TPropsAny;
+  ToolbarActionsProps?: TPropsAny;
+  ToggleButtonProps?: TPropsAny;
+  ToggleButtonsProps?: TPropsAny;
+  DividerProps?: TPropsAny;
+  SelectProps?: TPropsAny;
+  ListItemProps?: TPropsAny;
+  TooltipProps?: TPropsAny;
+  MiniMenuProps?: TPropsAny;
+  DrawingProps?: TPropsAny;
+  IconProps?: TPropsAny;
+  ColorTextFieldProps?: TPropsAny;
+}
+
+const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props__, ...theme?.ui?.elements?.AmauiRichTextEditor?.props?.default }), [props__]);
@@ -942,7 +1042,7 @@ const RichTextEditor = React.forwardRef((props__: any, ref: any) => {
   const [selection, setSelection] = React.useState<DOMRect>();
 
   const refs = {
-    value: React.useRef<HTMLElement>(),
+    value: React.useRef<any>(),
     range: React.useRef<any>(),
     inputValues: React.useRef<any>(),
     open: React.useRef<any>(),
@@ -1305,26 +1405,26 @@ const RichTextEditor = React.forwardRef((props__: any, ref: any) => {
   // action toolbar
   const actions_ = actions && (!is('array', exclude) || includes('copy', 'paste', 'cut', 'clear', 'undo', 'redo', 'delete', 'select-all', 'save', 'print'));
 
-  const AppendProps = {
+  const AppendProps: any = {
     padding: [14, 14],
 
     ...AppendProps_
   };
 
-  const DividerProps = {
+  const DividerProps: any = {
     color: 'inherit',
 
     ...DividerProps_,
   };
 
-  const TooltipProps = {
+  const TooltipProps: any = {
     position: 'bottom',
     interactive: false,
 
     ...TooltipProps_,
   };
 
-  const ToggleButtonsProps = {
+  const ToggleButtonsProps: any = {
     tonal,
     color,
     version: 'text',
@@ -1333,13 +1433,13 @@ const RichTextEditor = React.forwardRef((props__: any, ref: any) => {
     ...ToggleButtonsProps_,
   };
 
-  const ToggleButtonProps = {
+  const ToggleButtonProps: any = {
     size: 'small',
 
     ...ToggleButtonProps_,
   };
 
-  const MiniMenuProps = {
+  const MiniMenuProps: any = {
     tonal,
 
     color: refs.props.current.color !== undefined ? refs.props.current.color : 'themed',
@@ -1347,7 +1447,7 @@ const RichTextEditor = React.forwardRef((props__: any, ref: any) => {
     ...MiniMenuProps_
   };
 
-  const SelectProps = {
+  const SelectProps: any = {
     tonal,
 
     color: refs.props.current.color !== undefined ? refs.props.current.color : 'themed',
@@ -1369,7 +1469,7 @@ const RichTextEditor = React.forwardRef((props__: any, ref: any) => {
     ...SelectProps_
   };
 
-  const ListItemProps = {
+  const ListItemProps: any = {
     size: 'small',
 
     PrimaryProps: {
@@ -1381,7 +1481,7 @@ const RichTextEditor = React.forwardRef((props__: any, ref: any) => {
     ...ListItemProps_
   };
 
-  const IconProps = {
+  const IconProps: any = {
     size: 'small',
 
     ...IconProps_

@@ -1,10 +1,15 @@
 import React from 'react';
 
 import { reset } from '@amaui/style-react';
+import { IBaseElement } from '../utils';
 
 const useReset = reset();
 
-const Reset = (props: any) => {
+export interface IReset extends IBaseElement {
+
+}
+
+const Reset = (props: IReset) => {
   const { children } = props;
 
   useReset();

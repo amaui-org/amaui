@@ -5,7 +5,7 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import Surface from '../Surface';
 
-import { angleToCoordinates, staticClassName } from '../utils';
+import { angleToCoordinates, IBaseElement, staticClassName, TColor, TElement, TPropsAny, TSize, TStyle, TTonal } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -55,7 +55,71 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiRoundMeter' });
 
-const RoundMeter = React.forwardRef((props_: any, ref: any) => {
+export interface IRoundMeter extends IBaseElement {
+  tonal?: TTonal;
+  color?: TColor;
+  size?: TSize;
+
+  parts?: number;
+
+  lineCap?: 'inherit' | 'round' | 'square' | 'butt';
+
+  padding?: number;
+
+  gap?: number;
+
+  border?: boolean;
+
+  background?: boolean;
+
+  boundary?: number;
+  boundaryWidth?: number;
+
+  arcProgress?: boolean;
+
+  arcsVisible?: boolean;
+  marksVisible?: boolean;
+  labelsVisible?: boolean;
+
+  marks?: Array<{
+    size?: number;
+    position?: number;
+    padding?: number;
+
+    [property: string]: any;
+  }>;
+
+  markSize?: number;
+  markWidth?: number;
+
+  labels?: Array<{
+    value?: number;
+    position?: number;
+    padding?: number;
+    style?: TStyle;
+
+    [property: string]: any;
+  }>;
+
+  childrenPosition?: 'pre' | 'pre-marks' | 'pre-labels' | 'post';
+
+  additional?: TElement;
+
+  textProps?: TPropsAny;
+  pathProps?: TPropsAny;
+
+  SvgProps?: TPropsAny;
+  MarkProps?: TPropsAny;
+  LabelProps?: TPropsAny;
+  BackgroundProps?: TPropsAny;
+  BorderProps?: TPropsAny;
+  ArcProps?: TPropsAny;
+  ArcMainProps?: TPropsAny;
+  ArcsProgressProps?: TPropsAny;
+  ArcProgressProps?: TPropsAny;
+}
+
+const RoundMeter = React.forwardRef((props_: IRoundMeter, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiRoundMeter?.props?.default }), [props_]);
@@ -815,7 +879,7 @@ const RoundMeter = React.forwardRef((props_: any, ref: any) => {
           'AmauiRoundMeter-root',
           `AmauiRoundMeter-boundary-${String(boundary).replace('.', '')}`,
           `AmauiRoundMeter-size-${size}`,
-          lineCap && `AmauiRoundMeter-line-cap`,
+          lineCap && `AmauiRoundMeter-line-cap-${lineCap}`,
           border && `AmauiRoundMeter-border`,
           background && `AmauiRoundMeter-background`,
           arcProgress && `AmauiRoundMeter-arc-progress`,
