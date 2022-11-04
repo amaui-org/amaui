@@ -41,6 +41,7 @@ export interface IAppend {
   update?: any;
   element?: any;
   parent?: THTMLElement;
+  additional?: (rects: { root: DOMRect; element: DOMRect; }, rectsOffset: { root: DOMRect; element: DOMRect; }) => any;
 
   children?: TChildren;
 
@@ -71,6 +72,7 @@ const Append = (props_: IAppend) => {
     update,
     element,
     parent: parentElement,
+    additional,
 
     children
   } = props;
@@ -85,7 +87,9 @@ const Append = (props_: IAppend) => {
     alignment: React.useRef<any>(),
     position: React.useRef<any>(),
     portal: React.useRef<any>(),
-    props: React.useRef<any>()
+    props: React.useRef<any>(),
+    anchor: React.useRef<any>(),
+    additional: React.useRef<any>()
   };
 
   refs.alignment.current = alignment_;
@@ -93,6 +97,10 @@ const Append = (props_: IAppend) => {
   refs.position.current = position_;
 
   refs.portal.current = portal;
+
+  refs.anchor.current = anchor;
+
+  refs.additional.current = additional;
 
   const anchorElement = (anchorElement_ as any)?.current ? (anchorElement_ as any)?.current : anchorElement_;
 
@@ -107,8 +115,8 @@ const Append = (props_: IAppend) => {
   }, [anchor]);
 
   const observerMethod = React.useCallback((mutations: Array<MutationRecord>) => {
-    for (const mutation of mutations) {
 
+    for (const mutation of mutations) {
       if (
         mutation.target === refs.root.current ?
           // Root attributes or childList
@@ -116,12 +124,16 @@ const Append = (props_: IAppend) => {
           // or subtree's childList
           ['attributes', 'childList'].includes(mutation.type) && [null, undefined, 'style'].includes(mutation.attributeName)
       ) {
-        if (anchor === undefined) make();
+        if (refs.anchor.current === undefined) make();
       }
     }
 
-    // More than 140 frames per second
-  }, [anchor]);
+  }, []);
+
+  const observerResizeMethod = React.useCallback(() => {
+    if (refs.anchor.current === undefined) make();
+
+  }, []);
 
   React.useEffect(() => {
     make();
@@ -162,17 +174,29 @@ const Append = (props_: IAppend) => {
   // Anchor element
   React.useEffect(() => {
     // Resize
-    const observerMutation = new MutationObserver(observerMethod);
+    // const observerMutation = new MutationObserver(observerMethod);
 
-    try {
-      if (refs.root.current) {
-        observerMutation.observe(refs.root.current, { attributes: true, childList: true, subtree: true });
-      }
-    } catch (error) { }
+    // try {
+    //   if (refs.root.current) {
+    //     observerMutation.observe(refs.root.current, { attributes: true, childList: true, subtree: true });
+    //   }
+    // } catch (error) { }
+
+    let observer: ResizeObserver;
+
+    if (refs.root.current) {
+      observer = new ResizeObserver(observerResizeMethod);
+
+      observer.observe(refs.root.current);
+    }
 
     return () => {
-      if (refs.root.current) {
-        observerMutation.disconnect();
+      //   if (refs.root.current) {
+      //     observerMutation.disconnect();
+      //   }
+
+      if (observer) {
+        observer.disconnect();
       }
     };
   }, [anchor, refs.root.current]);
@@ -180,17 +204,29 @@ const Append = (props_: IAppend) => {
   // Element resize
   React.useEffect(() => {
     // Resize
-    const observerMutation = new MutationObserver(observerMethod);
+    // const observerMutation = new MutationObserver(observerMethod);
 
-    try {
-      if (refs.element.current) {
-        observerMutation.observe(refs.element.current, { attributes: true, childList: true, subtree: true });
-      }
-    } catch (error) { }
+    // try {
+    //   if (refs.element.current) {
+    //     observerMutation.observe(refs.element.current, { attributes: true, childList: true, subtree: true });
+    //   }
+    // } catch (error) { }
+
+    let observer: ResizeObserver;
+
+    if (refs.element.current) {
+      observer = new ResizeObserver(observerResizeMethod);
+
+      observer.observe(refs.element.current);
+    }
 
     return () => {
-      if (refs.element.current) {
-        observerMutation.disconnect();
+      // if (refs.element.current) {
+      //   observerMutation.disconnect();
+      // }
+
+      if (observer) {
+        observer.disconnect();
       }
     };
   }, [anchor, refs.element.current]);
@@ -612,10 +648,24 @@ const Append = (props_: IAppend) => {
       }
     }
 
-    // Update
-    setValues({ position: value.position, switch: switched, init: false, ...values_ });
+    refs.values.current = {
+      position: value.position,
+      switch: switched,
+      init: false,
 
-    refs.values.current = { position, switch: switched, init: false, ...values_ };
+      ...values_
+    };
+
+    if (is('function', refs.additional.current)) {
+      refs.values.current = {
+        ...refs.values.current,
+
+        ...additional(rect, rectOffset as any)
+      };
+    }
+
+    // Update
+    setValues(refs.values.current);
   };
 
   let style: React.CSSProperties = {};
@@ -642,7 +692,9 @@ const Append = (props_: IAppend) => {
 
     ...style,
 
-    ...style_
+    ...style_,
+
+    ...values?.style
   };
 
   const PortalComponent = portal ? Portal : React.Fragment;
@@ -650,7 +702,7 @@ const Append = (props_: IAppend) => {
   const PortalComponentProps: any = {};
 
   if (portal) PortalComponentProps.element = window.document.body;
-  console.log(anchor, values);
+
   return (
     <React.Fragment>
       {children && React.cloneElement(children as any, {

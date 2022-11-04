@@ -194,22 +194,18 @@ const Select = React.forwardRef((props_: ISelect, ref: any) => {
   const [open, setOpen] = React.useState(false);
   const [mouseDown, setMouseDown] = React.useState(false);
   const [focus, setFocus] = React.useState(false);
-  const [menuStyle, setMenuStyle] = React.useState<any>({});
 
   const { classes } = useStyle(props);
 
   const refs = {
     root: React.useRef<any>(),
+    menu: React.useRef<any>(),
     input: React.useRef<any>()
   };
 
   const styles: any = {
     root: {
 
-    },
-
-    menu: {
-      ...menuStyle
     }
   };
 
@@ -218,28 +214,10 @@ const Select = React.forwardRef((props_: ISelect, ref: any) => {
       if (event.key === 'Escape') onClose();
     };
 
-    const onResize = () => {
-      if (refs.root.current) {
-        const rect = refs.root.current.getBoundingClientRect();
-
-        if (!autoWidth) setMenuStyle(values => ({
-          ...values,
-
-          minWidth: rect.width
-        }));
-      }
-    };
-
-    const observer = new ResizeObserver(onResize);
-
-    observer.observe(refs.root.current);
-
     window.addEventListener('keydown', method);
 
     return () => {
       // Clean up
-      observer.disconnect();
-
       window.removeEventListener('keydown', method);
     };
   }, []);
@@ -384,12 +362,6 @@ const Select = React.forwardRef((props_: ISelect, ref: any) => {
     ] : [])
   ];
 
-  const rect = refs.root.current?.getBoundingClientRect();
-
-  if (rect && !styles.menu.minWidth) {
-    if (!autoWidth) styles.menu.minWidth = rect.width;
-  }
-
   return (
     <Line
       gap={0}
@@ -515,19 +487,36 @@ const Select = React.forwardRef((props_: ISelect, ref: any) => {
 
       {children && (
         <Menu
+          ref={refs.menu}
+
           open={open}
 
           portal={false}
 
           onClose={() => onClose(false)}
 
-          anchor={rect}
+          anchorElement={refs.root.current}
 
           transformOrigin='center top'
 
           transformOriginSwitch='center bottom'
 
           maxWidth='unset'
+
+          AppendProps={{
+            ...(!autoWidth ? {
+              alignment: 'start',
+
+              additional: (rects: any) => {
+
+                return {
+                  style: {
+                    minWidth: rects?.root?.width
+                  }
+                }
+              }
+            } : undefined)
+          }}
 
           ModalProps={{
             // focus: !MenuProps.portal

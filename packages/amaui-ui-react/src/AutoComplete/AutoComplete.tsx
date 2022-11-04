@@ -264,23 +264,19 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
   const [mouseDown, setMouseDown] = React.useState(false);
   const [options, setOptions] = React.useState(options_);
   const [free, setFree] = React.useState(false);
-  const [menuStyle, setMenuStyle] = React.useState<any>({});
 
   const { classes } = useStyle(props);
 
   const refs = {
     root: React.useRef<any>(),
     value: React.useRef<any>(),
+    menu: React.useRef<any>(),
     input: React.useRef<HTMLInputElement>()
   };
 
   const styles: any = {
     root: {
 
-    },
-
-    menu: {
-      ...menuStyle
     }
   };
 
@@ -293,22 +289,6 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
       }
     };
 
-    const onResize = () => {
-      if (refs.root.current) {
-        const rect = refs.root.current.getBoundingClientRect();
-
-        if (!autoWidth) setMenuStyle(values => ({
-          ...values,
-
-          minWidth: rect.width
-        }));
-      }
-    };
-
-    const observer = new ResizeObserver(onResize);
-
-    observer.observe(refs.root.current);
-
     window.addEventListener('keydown', method);
 
     window.addEventListener('mouseup', onMouseUp as any);
@@ -317,8 +297,6 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
 
     return () => {
       // Clean up
-      observer.disconnect();
-
       window.removeEventListener('mouseup', onMouseUp as any);
 
       window.removeEventListener('keydown', method);
@@ -722,12 +700,6 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
 
   if (mouseDown) refs.input.current.focus();
 
-  const rect = refs.root.current?.getBoundingClientRect();
-
-  if (rect && !styles.menu.minWidth) {
-    if (!autoWidth) styles.menu.minWidth = rect.width;
-  }
-
   return (
     <Line
       gap={0}
@@ -900,6 +872,8 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
 
       {children && (
         <Menu
+          ref={refs.menu}
+
           open={open}
 
           autoSelectOnBlur={autoSelectOnBlur}
@@ -912,7 +886,7 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
 
           onExited={onExited}
 
-          anchor={rect}
+          anchorElement={refs.root.current}
 
           transformOrigin='center top'
 
@@ -920,13 +894,26 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
 
           maxWidth='unset'
 
+          AppendProps={{
+            ...(!autoWidth ? {
+              alignment: 'start',
+
+              additional: (rects: any) => {
+
+                return {
+                  style: {
+                    minWidth: rects?.root?.width
+                  }
+                }
+              }
+            } : undefined)
+          }}
+
           ModalProps={{
             // focus: !MenuProps.portal
 
             freezeScroll: false
           }}
-
-          style={styles.menu}
 
           ListProps={{
             menu: true,
