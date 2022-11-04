@@ -332,9 +332,13 @@ const Checkbox = React.forwardRef((props_: ICheckbox, ref: any) => {
   else {
     if (!theme.palette.light && disabled) styles.iconDone.color = theme.palette.background.default.primary;
     else {
-      if (version === 'filled') styles.iconDone.color = color_ === 'default' ? theme.palette.text.default.primary : (palette || theme.palette.color[color_])?.main;
+      if (version === 'filled') styles.iconDone.color = (palette || theme.palette.color[color_])?.main;
       else styles.iconDone.color = theme.methods.palette.color.text(color_ === 'default' ? theme.palette.text.default.primary : (palette || theme.palette.color[color_])?.main, true, 'light');
     }
+  }
+
+  if (['text', 'filled', undefined].includes(version)) {
+    if (['default', 'inherit', 'inverted', 'themed'].includes(color_)) styles.iconDone.color = theme.palette.background.default.primary;
   }
 
   styles.iconItem.color = styles.iconDone.color;

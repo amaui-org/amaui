@@ -318,12 +318,6 @@ const Select = React.forwardRef((props_: ISelect, ref: any) => {
     }
   };
 
-  if (refs.root.current && !styles.menu.minWidth) {
-    const rect = refs.root.current.getBoundingClientRect();
-
-    if (!autoWidth) styles.menu.minWidth = rect.width;
-  }
-
   const renderValue = (values: any = value) => {
     const item: any = children.find((item_: any) => item_.props?.value === values);
 
@@ -389,6 +383,12 @@ const Select = React.forwardRef((props_: ISelect, ref: any) => {
       </IconButton>
     ] : [])
   ];
+
+  const rect = refs.root.current?.getBoundingClientRect();
+
+  if (rect && !styles.menu.minWidth) {
+    if (!autoWidth) styles.menu.minWidth = rect.width;
+  }
 
   return (
     <Line
@@ -521,7 +521,7 @@ const Select = React.forwardRef((props_: ISelect, ref: any) => {
 
           onClose={() => onClose(false)}
 
-          anchorElement={refs.root.current}
+          anchor={rect}
 
           transformOrigin='center top'
 

@@ -14,14 +14,18 @@ import IconButton from '../IconButton';
 import RoundProgress from '../RoundProgress';
 import ListSubheader from '../ListSubheader';
 import Line from '../Line';
-
-import { staticClassName, TElement, TElementReference, TPropsAny, TVersion } from '../utils';
 import { ITextField } from '../TextField/TextField';
+
+import { staticClassName, TElement, TElementReference, TPropsAny } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
     width: '100%',
-    flex: 'unset'
+    flex: 'unset',
+
+    '& .AmauiTextField-input': {
+      width: 'auto'
+    }
   },
 
   input_: {
@@ -496,12 +500,6 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
     }
   };
 
-  if (refs.root.current && !styles.menu.minWidth) {
-    const rect = refs.root.current.getBoundingClientRect();
-
-    if (!autoWidth) styles.menu.minWidth = rect.width;
-  }
-
   const renderValue = (itemValue: any) => {
     const item: any = children.find((item_: any) => item_.props?.value === itemValue);
 
@@ -724,6 +722,12 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
 
   if (mouseDown) refs.input.current.focus();
 
+  const rect = refs.root.current?.getBoundingClientRect();
+
+  if (rect && !styles.menu.minWidth) {
+    if (!autoWidth) styles.menu.minWidth = rect.width;
+  }
+
   return (
     <Line
       gap={0}
@@ -908,7 +912,7 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
 
           onExited={onExited}
 
-          anchorElement={refs.root.current}
+          anchor={rect}
 
           transformOrigin='center top'
 

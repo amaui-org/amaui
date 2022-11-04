@@ -178,6 +178,7 @@ export interface ITooltip extends Omit<IModal, 'maxWidth'> {
 
   label?: TElement;
 
+  parent?: THTMLElement;
   position?: 'top' | 'left' | 'bottom' | 'right';
   switch?: boolean;
   alignment?: 'start' | 'center' | 'end';
@@ -185,6 +186,7 @@ export interface ITooltip extends Omit<IModal, 'maxWidth'> {
   fullWidth?: boolean;
   maxWidth?: 'xxs' | 'xs' | 'sm' | 'rg' | 'lg' | 'xl' | 'xxl' | 'unset';
   arrow?: boolean;
+  anchor?: DOMRect;
   anchorElement?: THTMLElement;
   noMargin?: string;
   classNameSwitch?: string;
@@ -226,6 +228,7 @@ const Tooltip = React.forwardRef((props_: ITooltip, ref: any) => {
 
     label,
 
+    parent,
     position = 'bottom',
     switch: switch_ = true,
     alignment = 'center',
@@ -233,6 +236,7 @@ const Tooltip = React.forwardRef((props_: ITooltip, ref: any) => {
     fullWidth,
     maxWidth = 'xxs',
     arrow,
+    anchor: anchor_,
     anchorElement,
     noMargin,
     classNameSwitch,
@@ -274,7 +278,7 @@ const Tooltip = React.forwardRef((props_: ITooltip, ref: any) => {
   const [touch, setTouch] = React.useState(false);
   const [focus, setFocus] = React.useState(false);
   const [longPress, setLongPress] = React.useState(false);
-  const [anchor, setAnchor] = React.useState<any>();
+  const [anchor, setAnchor] = React.useState<any>(anchor_);
   const [inProp, setInProp] = React.useState(open_);
 
   const refs = {
@@ -397,6 +401,10 @@ const Tooltip = React.forwardRef((props_: ITooltip, ref: any) => {
   }, []);
 
   React.useEffect(() => {
+    setAnchor(anchor_);
+  }, [anchor_]);
+
+  React.useEffect(() => {
     if (init) {
       refs.open.current = open_;
 
@@ -468,6 +476,8 @@ const Tooltip = React.forwardRef((props_: ITooltip, ref: any) => {
       switch={switch_}
 
       inset={inset}
+
+      parent={parent}
 
       padding={[8, 8]}
 

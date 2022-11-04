@@ -64,6 +64,7 @@ const Menu = React.forwardRef((props_: IMenu, ref: any) => {
     open,
 
     arrow,
+    anchor,
     anchorElement,
     include,
     autoSelect,
@@ -265,6 +266,8 @@ const Menu = React.forwardRef((props_: IMenu, ref: any) => {
         ])}
 
         onMouseLeave={onMouseLeave}
+
+        anchor={anchor}
 
         anchorElement={anchorElement}
 

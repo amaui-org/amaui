@@ -173,7 +173,7 @@ const RoundProgress = React.forwardRef((props_: IRoundProgress, ref: any) => {
     thickness = 2,
     rounded: rounded_ = true,
 
-    pathProps,
+    pathProps = {},
     pathBackgroundProps,
 
     className,

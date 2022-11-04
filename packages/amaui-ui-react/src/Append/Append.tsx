@@ -4,7 +4,7 @@ import { is, isEnvironment, element as element_, clamp } from '@amaui/utils';
 import { useAmauiTheme } from '@amaui/style-react';
 
 import Portal from '../Portal';
-import { TChildren, TElement, THTMLElement, TRef, TStyle } from '../utils';
+import { TChildren, THTMLElement, TStyle } from '../utils';
 
 const valuesDefault = {
   x: 0,
@@ -650,7 +650,7 @@ const Append = (props_: IAppend) => {
   const PortalComponentProps: any = {};
 
   if (portal) PortalComponentProps.element = window.document.body;
-
+  console.log(anchor, values);
   return (
     <React.Fragment>
       {children && React.cloneElement(children as any, {
