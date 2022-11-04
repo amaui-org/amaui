@@ -408,7 +408,7 @@ const Countdown = React.forwardRef((props_: ICountdown, ref: any) => {
   const value_ = status === 'initial' ? '00:00:00' : valueFormat(value);
 
   return (
-    <Line
+    <Surface
       ref={ref}
 
       tonal={tonal}
@@ -421,7 +421,11 @@ const Countdown = React.forwardRef((props_: ICountdown, ref: any) => {
 
       align='center'
 
-      Component={Surface}
+      Component={Line}
+
+      AdditionalProps={{
+        Component
+      }}
 
       className={classNames([
         staticClassName('Countdown', theme) && [
@@ -780,7 +784,7 @@ const Countdown = React.forwardRef((props_: ICountdown, ref: any) => {
           </Fade>
         )}
       </Line>
-    </Line>
+    </Surface>
   );
 });
 

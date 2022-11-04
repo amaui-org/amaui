@@ -13,9 +13,9 @@ import Surface from '../Surface';
 import Line from '../Line';
 import IconButton from '../IconButton';
 import Icon from '../Icon';
+import { ISurface } from '../Surface/Surface';
 
 import { staticClassName, TElementReference, TPropsAny } from '../utils';
-import { ISurface } from '../Surface/Surface';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -321,7 +321,7 @@ const Timer = React.forwardRef((props_: ITimer, ref: any) => {
   const value_ = status === 'initial' ? '00:00.00' : valueFormat(value);
 
   return (
-    <Line
+    <Surface
       ref={ref}
 
       tonal={tonal}
@@ -334,7 +334,11 @@ const Timer = React.forwardRef((props_: ITimer, ref: any) => {
 
       align='center'
 
-      Component={Surface}
+      Component={Line}
+
+      AdditionalProps={{
+        Component
+      }}
 
       className={classNames([
         staticClassName('Timer', theme) && [
@@ -605,7 +609,7 @@ const Timer = React.forwardRef((props_: ITimer, ref: any) => {
           </Fade>
         )}
       </Line>
-    </Line>
+    </Surface>
   );
 });
 

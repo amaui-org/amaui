@@ -3,8 +3,9 @@ import React from 'react';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Line from '../Line';
+import { ILine } from '../Line/Line';
 
-import { IBaseElement, staticClassName, TColor, TElevation, TTonal, TVersion } from '../utils';
+import { staticClassName, TColor, TElevation, TTonal, TVersion } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -12,7 +13,7 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiCardHeader' });
 
-export interface ICardHeader extends IBaseElement {
+export interface ICardHeader extends ILine {
   tonal?: TTonal;
   color?: TColor;
   version?: TVersion;

@@ -4,8 +4,9 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import Divider from '../Divider';
 import Line from '../Line';
+import { ILine } from '../Line/Line';
 
-import { IBaseElement, staticClassName, TColor, TPropsAny, TTonal, TVersion } from '../utils';
+import { staticClassName, TColor, TPropsAny, TTonal, TVersion } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -63,7 +64,7 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiStepper' });
 
-export interface IStepper extends IBaseElement {
+export interface IStepper extends ILine {
   tonal?: TTonal;
   color?: TColor;
   version?: TVersion;

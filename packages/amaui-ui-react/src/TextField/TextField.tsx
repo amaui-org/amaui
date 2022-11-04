@@ -502,7 +502,7 @@ export interface ITextField extends IBaseElement {
 
   valueDefault?: string;
   value?: string;
-  onChange?: (value: string, event?: React.ChangeEvent<HTMLInputElement>) => any;
+  onChange?: (value: any, event?: React.ChangeEvent<HTMLInputElement>) => any;
 
   label?: string;
   align?: 'start' | 'end',
@@ -536,10 +536,10 @@ export interface ITextField extends IBaseElement {
   readOnly?: boolean;
   disabled?: boolean;
 
-  onFocus?: TMethod;
-  onBlur?: TMethod;
-  onMouseEnter?: TMethod;
-  onMouseLeave?: TMethod;
+  onFocus?: (event: React.FocusEvent<any>) => any;
+  onBlur?: (event: React.FocusEvent<any>) => any;
+  onMouseEnter?: (event: React.MouseEvent<any>) => any;
+  onMouseLeave?: (event: React.MouseEvent<any>) => any;
 
   inputProps?: TPropsAny;
   InputWrapperProps?: TPropsAny;

@@ -10,8 +10,9 @@ import PaginationItem from '../PaginationItem';
 import Surface from '../Surface';
 import ListItem from '../ListItem';
 import Line from '../Line';
+import { ILine } from '../Line/Line';
 
-import { IBaseElement, staticClassName, TColor, TElement, TPropsAny, TTonal, TVersion } from '../utils';
+import { staticClassName, TColor, TElement, TPropsAny, TTonal, TVersion } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -91,7 +92,7 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiStep' });
 
-export interface IStep extends IBaseElement {
+export interface IStep extends ILine {
   tonal?: TTonal;
   color?: TColor;
   version?: TVersion;

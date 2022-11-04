@@ -16,8 +16,9 @@ import ImageCrop from '../ImageCrop';
 import Chip from '../Chip';
 import Icon from '../Icon';
 import Line from '../Line';
+import { ILine } from '../Line/Line';
 
-import { staticClassName, image as imageMethod, canvasBrightness, canvasContrast, canvasSaturation, canvasFade, canvasInvert, canvasOldPhoto } from '../utils';
+import { staticClassName, image as imageMethod, canvasBrightness, canvasContrast, canvasSaturation, canvasFade, canvasInvert, canvasOldPhoto, TPropsAny, TElementReference, TTonal, TColor, TElement } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -349,7 +350,84 @@ const IconMaterialNightlightRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
-const ImageEdit = React.forwardRef((props_: any, ref: any) => {
+export type TImageEditFilter = {
+  label?: string;
+  Icon?: TElementReference;
+  value?: string;
+
+  method: (value: number, mainCanvas: HTMLCanvasElement, valueCopy: HTMLCanvasElement) => HTMLCanvasElement;
+
+  renderIconButton: (value: string, selected: boolean, onChangeFilter: TMethod) => TElement;
+
+  renderSlider: (value: string, filterValuesCopy: any, onFilterSliderChange: TMethod) => TElement;
+};
+
+export interface IImageEdit extends ILine {
+  tonal?: TTonal;
+  color?: TColor;
+
+  image?: string | HTMLCanvasElement;
+
+  name?: string;
+  type?: string;
+
+  openDefault?: boolean;
+  openedOptionDefault?: string;
+
+  valueDefault?: HTMLCanvasElement;
+  value?: HTMLCanvasElement;
+
+  valueCopyDefault?: HTMLCanvasElement;
+  valueCopy?: HTMLCanvasElement;
+
+  onChange?: (value: HTMLCanvasElement) => any;
+  onChangeCopy?: (value: HTMLCanvasElement) => any;
+
+  onlyFilters?: Array<string>;
+  filters?: Array<TImageEditFilter>;
+
+  meta?: boolean;
+
+  filtersOption?: boolean;
+  cropOption?: boolean;
+  resizeOption?: boolean;
+  qualityOption?: boolean;
+  downloadOption?: boolean;
+
+  resizeAspectRatio?: boolean;
+
+  renderOption?: (item?: { label: string; value: string; Icon: TElementReference; }, selected?: boolean, openOption?: (value: any) => any) => TElement;
+  renderOptionClear?: (onReset: (imageReset: boolean, valueCopyReset: boolean, resizeReset: boolean) => any) => any;
+  renderSave?: (onSave: () => any) => any;
+  renderCancel?: (onSave: () => any) => any;
+  renderSlider?: (value: string, filterValuesCopy: any, onFilterSliderChange: TMethod) => TElement;
+  renderDownload?: (onDownload: () => any) => any;
+  renderInput?: (value: HTMLCanvasElement, valueCopy: HTMLCanvasElement, resize: Array<number>, onChange: (value: string, ...args: any[]) => any, property?: string) => TElement;
+
+  IconBrightness?: TElementReference;
+  IconContrast?: TElementReference;
+  IconSaturation?: TElementReference;
+  IconFade?: TElementReference;
+  IconInvert?: TElementReference;
+  IconOldPhoto?: TElementReference;
+
+  IconSave?: TElementReference;
+  IconCancel?: TElementReference;
+  IconClear?: TElementReference;
+  IconCrop?: TElementReference;
+  IconFilters?: TElementReference;
+  IconResize?: TElementReference;
+  IconQuality?: TElementReference;
+  IconDownload?: TElementReference;
+
+  ChipProps?: TPropsAny;
+  SliderProps?: TPropsAny;
+  TooltipProps?: TPropsAny;
+  ImageCropProps?: TPropsAny;
+  IconButtonProps?: TPropsAny;
+}
+
+const ImageEdit = React.forwardRef((props_: IImageEdit, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiImageEdit?.props?.default }), [props_]);
@@ -372,6 +450,9 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
     valueCopyDefault,
     valueCopy: valueCopy_,
 
+    onChange: onChange_,
+    onChangeCopy: onChangeCopy_,
+
     onlyFilters,
     filters: filters_,
 
@@ -389,7 +470,6 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
     renderOptionClear,
     renderSave,
     renderCancel,
-    renderFilter,
     renderSlider,
     renderDownload,
     renderInput,
@@ -415,9 +495,6 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
     TooltipProps: TooltipProps_,
     ImageCropProps: ImageCropProps_,
     IconButtonProps: IconButtonProps_,
-
-    onChange: onChange_,
-    onChangeCopy: onChangeCopy_,
 
     className,
 
@@ -1328,34 +1405,34 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
   // Only filters
   if (is('array', onlyFilters)) filters = filters.filter(item => onlyFilters.includes(item.value));
 
-  const ImageCropProps = {
+  const ImageCropProps: any = {
     gridLines: true,
 
     ...ImageCropProps_
   };
 
-  const TooltipProps = {
+  const TooltipProps: any = {
     position: 'bottom',
     interactive: false,
 
     ...TooltipProps_
   };
 
-  const IconButtonProps = {
+  const IconButtonProps: any = {
     tonal,
     color: 'inherit',
 
     ...IconButtonProps_
   };
 
-  const SliderProps = {
+  const SliderProps: any = {
     tonal: false,
     color: 'default',
 
     ...SliderProps_
   };
 
-  const ChipProps = {
+  const ChipProps: any = {
     size: 'small',
 
     ...ChipProps_
@@ -1375,7 +1452,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
   ]
     .filter(Boolean);
 
-  const MetaTypeProps = {
+  const MetaTypeProps: any = {
     version: 'b3'
   };
 
@@ -1587,7 +1664,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
 
                   justify='center'
                 >
-                  {is('function', renderInput) ? renderInput(aspectRatio, aspectRatioCustom, onChangeAspectRatioCustom, 'left') : (
+                  {is('function', renderInput) ? renderInput(value, valueCopy, aspectRatioCustom, onChangeAspectRatioCustom, 'left') : (
                     <NumericTextField
                       tonal={tonal}
 
@@ -1625,7 +1702,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
                     :
                   </Type>
 
-                  {is('function', renderInput) ? renderInput(aspectRatio, aspectRatioCustom, onChangeAspectRatioCustom, 'right') : (
+                  {is('function', renderInput) ? renderInput(value, valueCopy, aspectRatioCustom, onChangeAspectRatioCustom, 'right') : (
                     <NumericTextField
                       tonal={tonal}
 
@@ -1900,7 +1977,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
             justify='flex-start'
           >
             {options.map((item: any, index: number) => (
-              is('function', renderOption) ? renderOption(item, open === item.value, openOption) : (
+              is('function', renderOption) ? renderOption(item, open && (openOption === item.value), openOption) : (
                 <Tooltip
                   key={index}
 
@@ -1911,7 +1988,7 @@ const ImageEdit = React.forwardRef((props_: any, ref: any) => {
                   <IconButton
                     version='outlined'
 
-                    selected={open && openedOption === item.value}
+                    selected={open && (openedOption === item.value)}
 
                     onClick={() => openOption(item.value)}
 

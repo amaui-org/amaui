@@ -55,7 +55,9 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiPieChart' });
 
-export interface IPieChart extends IChart { }
+export interface IPieChart extends IChart {
+
+}
 
 const PieChart = React.forwardRef((props_: IPieChart, ref: any) => {
   const theme = useAmauiTheme();

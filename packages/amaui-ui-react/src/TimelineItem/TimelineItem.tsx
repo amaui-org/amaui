@@ -5,8 +5,9 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 import Surface from '../Surface';
 import Divider from '../Divider';
 import Line from '../Line';
+import { ILine } from '../Line/Line';
 
-import { IBaseElement, staticClassName, TElement, TElementReference, TPropsAny } from '../utils';
+import { staticClassName, TElement, TElementReference, TPropsAny } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -71,7 +72,7 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiTimelineItem' });
 
-export interface ITimelineItem extends IBaseElement {
+export interface ITimelineItem extends ILine {
   orientation?: 'vertical' | 'horizontal';
 
   start?: TElement;

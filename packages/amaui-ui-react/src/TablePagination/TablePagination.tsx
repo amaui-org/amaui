@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { clamp, is } from '@amaui/utils';
-import { classNames, string, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Line from '../Line';
 import Type from '../Type';
@@ -9,8 +9,9 @@ import Select from '../Select';
 import ListItem from '../ListItem';
 import Icon from '../Icon';
 import IconButton from '../IconButton';
+import { ILine } from '../Line/Line';
 
-import { IBaseElement, staticClassName, TColor, TElementReference, TSize, TTonal, TVersion } from '../utils';
+import { staticClassName, TColor, TElementReference, TSize, TTonal, TVersion } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -90,7 +91,7 @@ const IconMaterialNavigateBeforeRounded = React.forwardRef((props: any, ref) => 
   );
 });
 
-export interface ITableRow extends IBaseElement {
+export interface ITableRow extends ILine {
   tonal?: TTonal;
   color?: TColor;
   version?: TVersion;

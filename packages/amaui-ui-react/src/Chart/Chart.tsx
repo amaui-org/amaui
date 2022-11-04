@@ -1504,7 +1504,7 @@ const Chart = React.forwardRef((props_: IChart, ref: any) => {
   };
 
   return (
-    <Line
+    <Surface
       ref={item => {
         if (ref) {
           if (is('function', ref)) ref(item);
@@ -1524,7 +1524,11 @@ const Chart = React.forwardRef((props_: IChart, ref: any) => {
 
       align='center'
 
-      Component={Surface}
+      Component={Line}
+
+      AdditionalProps={{
+        Component
+      }}
 
       className={classNames([
         staticClassName('Chart', theme) && [
@@ -2391,7 +2395,7 @@ const Chart = React.forwardRef((props_: IChart, ref: any) => {
           {...AppendProps}
         />
       )}
-    </Line>
+    </Surface>
   );
 });
 

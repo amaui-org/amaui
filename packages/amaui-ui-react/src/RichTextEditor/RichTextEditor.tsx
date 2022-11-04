@@ -23,8 +23,9 @@ import Surface from '../Surface';
 import Divider from '../Divider';
 import ListItem from '../ListItem';
 import Line from '../Line';
+import { ILine } from '../Line/Line';
 
-import { IBaseElement, print, save, staticClassName, TColor, TElement, TElementReference, TPropsAny, TTonal, TVersion } from '../utils';
+import { print, save, staticClassName, TColor, TElement, TElementReference, TPropsAny, TTonal, TVersion } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -805,7 +806,7 @@ const IconMaterialDrawRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
-export interface IRichTextEditor extends IBaseElement {
+export interface IRichTextEditor extends ILine {
   tonal?: TTonal;
   color?: TColor;
   version?: TVersion;

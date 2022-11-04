@@ -15,7 +15,8 @@ import RoundProgress from '../RoundProgress';
 import ListSubheader from '../ListSubheader';
 import Line from '../Line';
 
-import { staticClassName } from '../utils';
+import { staticClassName, TElement, TElementReference, TPropsAny, TVersion } from '../utils';
+import { ITextField } from '../TextField/TextField';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -136,7 +137,56 @@ const IconMaterialArrowDropDownRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
-const AutoComplete = React.forwardRef((props_: any, ref: any) => {
+export type TAutoCompleteValue = string | Array<string>;
+
+export type TAutoCompleteOption = {
+  label?: string;
+
+  version?: 'text' | 'subheader';
+
+  noOptions?: boolean;
+};
+
+export interface IAutoComplete extends ITextField {
+  valueInput?: TAutoCompleteValue;
+  valueInputDefault?: TAutoCompleteValue;
+  onChangeInput?: (value: TAutoCompleteValue) => any;
+
+  multiple?: boolean;
+  autoWidth?: boolean;
+  readOnly?: boolean;
+  getLabel?: (element: TElement, props: TPropsAny) => TElement;
+  renderValues?: (value: TAutoCompleteValue, onUnselect: (value: string) => any) => TElement;
+  renderChip?: (value: any, props: TPropsAny) => TElement;
+  renderOption?: (item: TAutoCompleteOption, index: number, props: TPropsAny) => TElement;
+  chip?: boolean;
+  optionEqualValue?: (value: string, item: TAutoCompleteOption) => boolean;
+  filter?: (value: string, options: Array<TAutoCompleteOption>) => Array<TAutoCompleteOption>;
+  options?: Array<TAutoCompleteOption>;
+  clear?: boolean;
+  loading?: boolean;
+  autoSelectOnBlur?: boolean;
+  blurOnSelect?: boolean;
+  noOptions?: boolean;
+  openOnFocus?: boolean;
+  closeOnSelect?: boolean;
+  clearOnEscape?: boolean;
+  groupBy?: (value: TAutoCompleteOption) => string;
+  limit?: number;
+  filterOutSelectedOptions?: boolean;
+  selectOnFocus?: boolean;
+  clearOnBlur?: boolean;
+
+  disabled?: boolean;
+
+  IconClear?: TElementReference;
+
+  ChipGroupProps?: TPropsAny;
+  ListProps?: TPropsAny;
+  MenuProps?: TPropsAny;
+}
+
+const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiAutoComplete?.props?.default }), [props_]);
@@ -437,7 +487,7 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
     if (multiple) {
       let values = is('array', value) ? value : [value];
 
-      values = values.filter(item => item !== itemValue);
+      values = (values as any).filter(item => item !== itemValue);
 
       // Inner controlled value
       if (!props.hasOwnProperty('value')) setValue(values);
@@ -462,14 +512,14 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
     return item ? getItemLabel(item, props) : itemValue;
   };
 
-  const renderValues = renderValues_ || (() => {
+  const renderValues = renderValues_ || ((value__ = value, onUnselectMethod = onUnselect) => {
     if (multiple) {
       if (chip) {
-        let values = value;
+        let values = value__;
 
         if (is('number', limit) && !open) values = values.slice(0, limit);
 
-        values = values.map(item => {
+        values = (values as any).map(item => {
           const other_ = {
             key: item,
 
@@ -482,7 +532,7 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
               event.preventDefault();
               event.stopPropagation();
 
-              onUnselect(item);
+              onUnselectMethod(item);
             },
 
             input: true
@@ -499,7 +549,7 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
           );
         });
 
-        if (is('number', limit) && !open && value.length - limit > 0) values.push(
+        if (is('number', limit) && !open && value.length - limit > 0) (values as any).push(
           <Type
             className={classes.limitText}
           >
@@ -510,7 +560,7 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
         return values;
       }
 
-      return value.map(item => renderValue(item)).join(', ');
+      return (value__ as any).map(item => renderValue(item)).join(', ');
     }
 
     return renderValue(value);
@@ -837,11 +887,11 @@ const AutoComplete = React.forwardRef((props_: any, ref: any) => {
               ],
             ])}
           >
-            {renderValues()}
+            {renderValues(value, onUnselect)}
           </div>
         )}
 
-        {multiple && chip && !!value.length && renderValues()}
+        {multiple && chip && !!value.length && renderValues(value, onUnselect)}
       </TextField>
 
       {children && (

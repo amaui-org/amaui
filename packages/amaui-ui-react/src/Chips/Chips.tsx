@@ -3,8 +3,9 @@ import React from 'react';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Line from '../Line';
+import { IChip } from '../Chip/Chip';
 
-import { IBaseElement, staticClassName, TSize } from '../utils';
+import { staticClassName, TSize } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -57,9 +58,7 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiChips' });
 
-export interface IChips extends IBaseElement {
-  size?: TSize;
-
+export interface IChips extends IChip {
   wrap?: boolean;
 }
 

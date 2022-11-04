@@ -315,3 +315,5 @@ export interface IBaseElement {
 }
 
 export type TMethodTransition = (element?: THTMLElement) => any;
+
+export type TValueBreakpoints = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'default';

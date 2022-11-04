@@ -8,8 +8,9 @@ import Icon from '../Icon';
 import Line from '../Line';
 import IconButton from '../IconButton';
 import PaginationItem from '../PaginationItem';
+import { ILine } from '../Line/Line';
 
-import { staticClassName } from '../utils';
+import { staticClassName, TColor, TElement, TElementReference, TSize, TTonal, TVersion } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -98,7 +99,35 @@ const IconMaterialNavigateBeforeRounded = React.forwardRef((props: any, ref) => 
   );
 });
 
-const Pagination = React.forwardRef((props_: any, ref: any) => {
+export interface IPagination extends ILine {
+  tonal?: TTonal;
+  color?: TColor;
+  version?: TVersion;
+  elevation?: boolean;
+  size?: TSize;
+
+  value?: number;
+  valueDefault?: number;
+
+  onChange?: (value: number) => any;
+
+  total?: number;
+  boundary?: number;
+  middle?: number;
+  first?: boolean;
+  before?: boolean;
+  next?: boolean;
+  last?: boolean;
+
+  renderItem?: (value: number, item: string | number, index: number) => TElement;
+
+  IconFirst?: TElementReference;
+  IconBefore?: TElementReference;
+  IconNext?: TElementReference;
+  IconLast?: TElementReference;
+}
+
+const Pagination = React.forwardRef((props_: IPagination, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiPagination?.props?.default }), [props_]);

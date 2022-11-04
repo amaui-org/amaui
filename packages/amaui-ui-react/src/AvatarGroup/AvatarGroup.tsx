@@ -4,8 +4,9 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import Line from '../Line';
 import Avatar from '../Avatar';
+import { IAvatar } from '../Avatar/Avatar';
 
-import { IBaseElement, staticClassName, TColor, TElement, TPropsAny, TSizeAny, TTonal } from '../utils';
+import { staticClassName, TColor, TElement, TPropsAny, TSizeAny, TTonal } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -27,7 +28,7 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiAvatarGroup' });
 
-export interface IAvatarGroup extends IBaseElement {
+export interface IAvatarGroup extends IAvatar {
   tonal?: TTonal;
   color?: TColor;
   size?: TSizeAny;

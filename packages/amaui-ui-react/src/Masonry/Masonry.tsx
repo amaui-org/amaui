@@ -5,8 +5,9 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import useMediaQuery from '../useMediaQuery';
 import Line from '../Line';
+import { ILine } from '../Line/Line';
 
-import { staticClassName, valueBreakpoints } from '../utils';
+import { staticClassName, TValueBreakpoints, valueBreakpoints } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -19,7 +20,13 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiMasonry' });
 
-const Masonry = React.forwardRef((props_: any, ref: any) => {
+
+export interface IMasonry extends Omit<ILine, 'gap'> {
+  gap?: number | Record<TValueBreakpoints, number>;
+  columns?: number | Record<TValueBreakpoints, number>;
+}
+
+const Masonry = React.forwardRef((props_: IMasonry, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiMasonry?.props?.default }), [props_]);

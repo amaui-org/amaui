@@ -5,7 +5,7 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import useMediaQuery from '../useMediaQuery';
 
-import { staticClassName, valueBreakpoints } from '../utils';
+import { IBaseElement, staticClassName, TPropsAny, TStyle, valueBreakpoints } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -13,7 +13,28 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiParallax' });
 
-const Parallax = React.forwardRef((props_: any, ref: any) => {
+export type TParallaxDirection = 'vertical' | 'horizontal';
+
+export interface IParallax extends IBaseElement {
+  value?: number;
+
+  // element
+  root?: Element | DocumentFragment;
+
+  render?: (value: number, root: Element | DocumentFragment, rate: number, scrollDirection: TParallaxDirection, transformDirection: TParallaxDirection, transition: string, props: TPropsAny) => TStyle;
+
+  // value or a method
+  rate?: number | ((value: number) => number);
+
+  scrollDirection?: TParallaxDirection;
+  transformDirection?: TParallaxDirection;
+
+  transition?: string;
+
+  disabled?: boolean;
+}
+
+const Parallax = React.forwardRef((props_: IParallax, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiParallax?.props?.default }), [props_]);
@@ -133,12 +154,12 @@ const Parallax = React.forwardRef((props_: any, ref: any) => {
 
   let styles: any = {};
 
-  if (is('function', render)) styles = { ...render(value, root, rate, scrollDirection, transformDirection, transition, props) };
+  if (is('function', render)) styles = { ...render(value, root, rate as any, scrollDirection, transformDirection, transition, props) };
   else {
     let valueUpdate = 0;
 
-    if (is('function', rate)) valueUpdate = rate(value);
-    else valueUpdate = value * rate;
+    if (is('function', rate)) valueUpdate = (rate as any)(value);
+    else valueUpdate = value * (rate as any);
 
     if (transformDirection === 'vertical') styles.transform = `translate3d(0, ${valueUpdate}%, 0)`;
     else styles.transform = `translate3d(${valueUpdate}%, 0, 0)`;
@@ -148,9 +169,9 @@ const Parallax = React.forwardRef((props_: any, ref: any) => {
 
   return (
     is('function', children) ?
-      children(value, styles, other) :
+      (children as any)(value, styles, other) :
 
-      React.cloneElement(children, {
+      React.cloneElement(children as any, {
         className: classNames([
           staticClassName('Parallax', theme) && [
             `AmauiParallax-root`,
@@ -170,14 +191,14 @@ const Parallax = React.forwardRef((props_: any, ref: any) => {
 
           refs.root.current = item;
 
-          if (children.ref) {
-            if (is('function', children.ref)) children.ref(item);
-            else children.ref.current = item;
+          if ((children as any).ref) {
+            if (is('function', (children as any).ref)) (children as any).ref(item);
+            else (children as any).ref.current = item;
           }
         },
 
         style: {
-          ...children.props.style,
+          ...(children as any).props.style,
 
           ...styles
         },

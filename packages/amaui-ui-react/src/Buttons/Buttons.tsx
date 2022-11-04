@@ -5,9 +5,10 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import Icon from '../Icon';
 import Transition, { TTransitionStatus } from '../Transition';
-
-import { IBaseElement, staticClassName, TColor, TSize, TTonal, TVersion } from '../utils';
 import Line from '../Line';
+import { ILine } from '../Line/Line';
+
+import { staticClassName, TColor, TSize, TTonal, TVersion } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -214,7 +215,7 @@ export const IconDoneAnimated = (props: any) => {
   );
 };
 
-export interface IButtons extends IBaseElement {
+export interface IButtons extends ILine {
   tonal?: TTonal;
   color?: TColor;
   version?: TVersion;

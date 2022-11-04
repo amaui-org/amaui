@@ -7,8 +7,9 @@ import Line from '../Line';
 import Divider from '../Divider';
 import IconButton from '../IconButton';
 import Icon from '../Icon';
+import { ILine } from '../Line/Line';
 
-import { IBaseElement, staticClassName, TColor, TElement, TPropsAny, TTonal } from '../utils';
+import { staticClassName, TColor, TElement, TPropsAny, TTonal } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -125,7 +126,7 @@ const IconMaterialSwapVertRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
-export interface IWindowSplit extends IBaseElement {
+export interface IWindowSplit extends ILine {
   tonal?: TTonal;
   color?: TColor;
 

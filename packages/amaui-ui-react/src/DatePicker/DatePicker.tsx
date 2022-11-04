@@ -471,13 +471,11 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
 
   const {
     color,
-
     tonal,
 
     outside = true,
 
     value,
-
     values,
 
     calendar,

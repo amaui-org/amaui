@@ -3,8 +3,9 @@ import React from 'react';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Line from '../Line';
+import { ILine } from '../Line/Line';
 
-import { IBaseElement, staticClassName } from '../utils';
+import { staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -12,7 +13,7 @@ const useStyle = styleMethod(theme => ({
   },
 }), { name: 'AmauiTimeline' });
 
-export interface ITimeline extends IBaseElement {
+export interface ITimeline extends ILine {
   orientation?: 'vertical' | 'horizontal';
 }
 

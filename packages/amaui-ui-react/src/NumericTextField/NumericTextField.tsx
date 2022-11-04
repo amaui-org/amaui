@@ -6,8 +6,9 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 import AdvancedTextField from '../AdvancedTextField';
 import IconButton from '../IconButton';
 import Icon from '../Icon';
+import { IAdvancedTextField } from '../AdvancedTextField/AdvancedTextField';
 
-import { staticClassName } from '../utils';
+import { staticClassName, TElementReference, TPropsAny } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -47,7 +48,23 @@ const IconMaterialKeyboardArrowDownRounded = React.forwardRef((props: any, ref) 
   );
 });
 
-const NumericTextField = React.forwardRef((props_: any, ref: any) => {
+export interface INumericTextField extends IAdvancedTextField {
+  min?: number
+  max?: number
+
+  increment?: boolean;
+  decrement?: boolean;
+
+  incrementValue?: number;
+  decrementValue?: number;
+
+  IconIncrement?: TElementReference;
+  IconDecrement?: TElementReference;
+
+  IconButtonProps?: TPropsAny;
+}
+
+const NumericTextField = React.forwardRef((props_: INumericTextField, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiNumericTextField?.props?.default }), [props_]);

@@ -9,8 +9,9 @@ import Fab from '../Fab';
 import Icon from '../Icon';
 import Tooltip from '../Tooltip';
 import Line from '../Line';
+import { ILine } from '../Line/Line';
 
-import { IBaseElement, staticClassName, TColor, TElement, TElementReference, TPropsAny, TTonal, TVersion } from '../utils';
+import { staticClassName, TColor, TElement, TElementReference, TPropsAny, TTonal, TVersion } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -136,7 +137,7 @@ const IconWrapper = (props: any) => {
   );
 };
 
-export interface ISpeedDial extends IBaseElement {
+export interface ISpeedDial extends Omit<ILine, 'direction'> {
   tonal?: TTonal;
   color?: TColor;
   version?: TVersion;

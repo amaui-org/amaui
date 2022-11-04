@@ -6,8 +6,9 @@ import { style as styleMethod, classNames, useAmauiTheme } from '@amaui/style-re
 import Line from '../Line';
 import Focus from '../Focus';
 import Fade from '../Fade';
+import { ILine } from '../Line/Line';
 
-import { IBaseElement, staticClassName, TElementReference, TPropsAny } from '../utils';
+import { staticClassName, TElementReference, TPropsAny } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -53,7 +54,7 @@ const backdrop = {
   }
 };
 
-export interface IBackdrop extends IBaseElement {
+export interface IBackdrop extends ILine {
   open?: boolean;
   invisible?: boolean;
 

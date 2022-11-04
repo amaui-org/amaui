@@ -2,7 +2,7 @@ import React from 'react';
 
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import { staticClassName } from '../utils';
+import { IBaseElement, staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -10,7 +10,11 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiPath' });
 
-const Path = React.forwardRef((props_: any, ref: any) => {
+export interface IPath extends IBaseElement {
+  value?: any;
+}
+
+const Path = React.forwardRef((props_: IPath, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiPath?.props?.default }), [props_]);

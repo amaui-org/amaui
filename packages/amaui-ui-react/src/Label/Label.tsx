@@ -6,7 +6,8 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 import Type from '../Type';
 import Line from '../Line';
 
-import { staticClassName } from '../utils';
+import { staticClassName, TColor, TElement, TPropsAny, TSize, TTonal, TVersion } from '../utils';
+import { ILine } from '../Line/Line';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -24,7 +25,29 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiLabel' });
 
-const Label = React.forwardRef((props_: any, ref: any) => {
+export interface ILabel extends ILine {
+  tonal?: TTonal;
+  color?: TColor;
+  colorUnchecked?: TColor;
+  version?: TVersion;
+  size?: TSize;
+
+  position?: 'start' | 'bottom' | 'end';
+
+  input?: TElement;
+
+  label?: TElement;
+
+  valueDefault?: boolean;
+  checked?: boolean;
+  onChange?: (value: boolean, event?: React.ChangeEvent<any>) => any;
+
+  disabled?: boolean;
+
+  TypeProps?: TPropsAny;
+}
+
+const Label = React.forwardRef((props_: ILabel, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiLabel?.props?.default }), [props_]);

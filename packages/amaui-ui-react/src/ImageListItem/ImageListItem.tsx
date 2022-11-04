@@ -5,7 +5,8 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 import Line from '../Line';
 import useMediaQuery from '../useMediaQuery';
 
-import { staticClassName, valueBreakpoints } from '../utils';
+import { staticClassName, TValueBreakpoints, valueBreakpoints } from '../utils';
+import { ILine } from '../Line/Line';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -26,7 +27,13 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiImageListItem' });
 
-const ImageListItem = React.forwardRef((props_: any, ref: any) => {
+export interface IImageListItem extends ILine {
+  rows?: number | Record<TValueBreakpoints, number>;
+  columns?: number | Record<TValueBreakpoints, number>;
+  version?: 'standard' | 'vowen' | 'masonry';
+}
+
+const ImageListItem = React.forwardRef((props_: IImageListItem, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiImageListItem?.props?.default }), [props_]);

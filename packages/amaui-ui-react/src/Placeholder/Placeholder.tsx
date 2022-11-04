@@ -4,7 +4,7 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import Surface from '../Surface';
 
-import { staticClassName } from '../utils';
+import { IBaseElement, staticClassName, TColor } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   '@keyframes move': {
@@ -86,7 +86,17 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiPlaceholder' });
 
-const Placeholder = React.forwardRef((props_: any, ref: any) => {
+export interface IPlaceholder extends Omit<IBaseElement, 'version'> {
+  color?: TColor;
+  version?: 'rounded' | 'circle';
+
+  width?: string | number;
+  height?: string | number;
+  animation?: 'wave' | 'pulse' | boolean;
+  text?: boolean;
+}
+
+const Placeholder = React.forwardRef((props_: IPlaceholder, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiPlaceholder?.props?.default }), [props_]);
