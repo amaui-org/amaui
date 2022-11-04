@@ -3,7 +3,7 @@ import React from 'react';
 import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import { staticClassName } from '../utils';
+import { IBaseElement, staticClassName, TStyle } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -142,7 +142,17 @@ const useStyle = styleMethod(theme => ({
 
 const escapeRegExp = (value: string) => value.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
 
-const Markdown = React.forwardRef((props_: any, ref: any) => {
+export interface IMarkdown extends IBaseElement {
+  value?: string;
+
+  render?: (element: string, className: string, style: string, ...args: any[]) => string;
+
+  elementClassNames?: Record<string, string>;
+
+  elementStyles?: Record<string, TStyle>;
+}
+
+const Markdown = React.forwardRef((props_: IMarkdown, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiMarkdown?.props?.default }), [props_]);

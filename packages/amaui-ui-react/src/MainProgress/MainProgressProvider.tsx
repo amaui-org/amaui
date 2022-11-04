@@ -7,7 +7,8 @@ import Fade from '../Fade';
 import LinearProgress from '../LinearProgress';
 import MainProgressContext from './MainProgressContext';
 
-import { staticClassName } from '../utils';
+import { staticClassName, TElementReference, TPropsAny } from '../utils';
+import { ILinearProress } from '../LinearProgress/LinearProgress';
 
 export interface IMainProgressStartArgument {
   tonal?: boolean;
@@ -47,7 +48,33 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiMainProgressProvider' });
 
-const MainProgressProvider = React.forwardRef((props_: any, ref: any) => {
+export interface IMainProgressProvider extends ILinearProress {
+  min?: number;
+  max?: number;
+
+  firstIncrement?: boolean;
+
+  incrementMin?: number;
+  incrementMax?: number;
+
+  stepMin?: number;
+  stepMax?: number;
+  stepInterval?: number;
+
+  onStart?: () => any;
+  onIncrement?: (value: number) => any;
+  onUpdate?: (value: number) => any;
+  onDone?: () => any;
+
+  fixed?: boolean;
+  position?: 'top' | 'bottom';
+
+  TransitionComponent?: TElementReference;
+
+  TransitionComponentProps?: TPropsAny;
+}
+
+const MainProgressProvider = React.forwardRef((props_: IMainProgressProvider, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiMainProgressProvider?.props?.default }), [props_]);
@@ -74,6 +101,7 @@ const MainProgressProvider = React.forwardRef((props_: any, ref: any) => {
     position = 'top',
 
     TransitionComponent = Fade,
+
     TransitionComponentProps = {},
 
     className,
@@ -91,7 +119,7 @@ const MainProgressProvider = React.forwardRef((props_: any, ref: any) => {
     value: React.useRef<number>(),
     min: React.useRef<number>(),
     max: React.useRef<number>(),
-    firstIncrement: React.useRef<number>(),
+    firstIncrement: React.useRef<boolean>(),
     incrementMin: React.useRef<number>(),
     incrementMax: React.useRef<number>(),
     stepInterval: React.useRef<number>(),

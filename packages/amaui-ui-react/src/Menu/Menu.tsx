@@ -6,8 +6,9 @@ import { style as styleMethod, classNames, useAmauiTheme } from '@amaui/style-re
 import Tooltip from '../Tooltip';
 import ClickListener from '../ClickListener';
 import List from '../List';
+import { ITooltip } from '../Tooltip/Tooltip';
 
-import { staticClassName } from '../utils';
+import { staticClassName, TPropsAny } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -37,7 +38,24 @@ export const MENUS = {
   }
 };
 
-const Menu = React.forwardRef((props_: any, ref: any) => {
+export interface IMenu extends ITooltip {
+  open?: boolean;
+
+  include?: Array<Element>;
+  autoSelect?: boolean;
+  autoSelectOnBlur?: boolean;
+  resetKeyboardNavigation?: boolean;
+  closeOnClickAway?: boolean;
+
+  onSelect?: (value: any) => any;
+
+  onClose?: () => any;
+
+  ListProps?: TPropsAny;
+  ModalProps?: TPropsAny;
+}
+
+const Menu = React.forwardRef((props_: IMenu, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiMenu?.props?.default }), [props_]);
@@ -54,7 +72,7 @@ const Menu = React.forwardRef((props_: any, ref: any) => {
     closeOnClickAway = true,
 
     onSelect,
-    onOpen: onOpen_,
+
     onClose: onClose_,
 
     ListProps,

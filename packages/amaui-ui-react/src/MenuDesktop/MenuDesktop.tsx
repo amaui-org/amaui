@@ -13,7 +13,8 @@ import Type from '../Type';
 import Line from '../Line';
 import Icon from '../Icon';
 
-import { staticClassName } from '../utils';
+import { staticClassName, TColor, TElement, TElementReference, TPropsAny, TStyle, TTonal, TVersion } from '../utils';
+import { ILine } from '../Line/Line';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -157,7 +158,54 @@ const Wrapper = React.forwardRef((props: any, ref: any) => {
   );
 });
 
-const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
+export type TMenuDesktopValue = string | number;
+
+export type TMenuDesktopItem = {
+  value?: TMenuDesktopValue;
+  label?: TElement;
+  menu?: TElement;
+  disabled?: boolean;
+};
+
+export interface IMenuDesktop extends ILine {
+  tonal?: TTonal;
+  color?: TColor;
+  version?: TVersion;
+
+  items?: Array<TMenuDesktopItem>;
+
+  valueDefault?: TMenuDesktopValue;
+  value_?: TMenuDesktopValue;
+
+  openOnHover?: boolean;
+  openOnClick?: boolean;
+  openOnFocus?: boolean;
+
+  renderItem?: (item: TMenuDesktopItem, index: number) => any;
+
+  indicator?: boolean;
+
+  menuTransition?: boolean;
+
+  menuTransitionClassName?: (status: TTransitionStatus, open: TMenuDesktopValue) => string;
+  menuTransitionStyle?: (status: TTransitionStatus, open: TMenuDesktopValue) => TStyle;
+
+  onOpen?: () => any;
+  onClose?: () => any;
+
+  onChange?: (value: TMenuDesktopValue) => any;
+
+  TransitionComponent?: TElementReference;
+  IconIndicator?: TElementReference;
+
+  AppendProps?: TPropsAny;
+  TypeProps?: TPropsAny;
+  ItemProps?: TPropsAny;
+  IconProps?: TPropsAny;
+  TransitionComponentProps?: TPropsAny;
+}
+
+const MenuDesktop = React.forwardRef((props_: IMenuDesktop, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiMenuDesktop?.props?.default }), [props_]);
@@ -192,14 +240,13 @@ const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
     onChange,
 
     TransitionComponent = Grow,
-    TransitionComponentProps,
-
     IconIndicator = IconMaterialExpandMoreRounded,
 
     AppendProps,
     TypeProps,
     ItemProps,
     IconProps,
+    TransitionComponentProps,
 
     className,
 
@@ -248,6 +295,12 @@ const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
     setInProp(false);
   };
 
+  const updateOpenItem = (valueNew: any) => {
+    setOpenItem(valueNew);
+
+    if (is('function', onChange)) onChange(valueNew);
+  };
+
   const updateOpen = (value__: any) => {
     if (!!value__) {
       const item = refs.props.current.items.find(item_ => item_.value === value__);
@@ -263,7 +316,7 @@ const MenuDesktop = React.forwardRef((props_: any, ref: any) => {
       }
     }
 
-    if (value__) setOpenItem(value__);
+    if (value__) updateOpenItem(value__);
 
     if (refs.open.current) {
       refs.previousOpenIndex.current = refs.props.current.items.findIndex(item_ => item_.value === refs.open.current);

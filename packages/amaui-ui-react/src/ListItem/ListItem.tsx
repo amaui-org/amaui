@@ -13,7 +13,8 @@ import List from '../List';
 import Fade from '../Fade';
 import IconButton from '../IconButton';
 
-import { staticClassName } from '../utils';
+import { staticClassName, TColor, TElement, TElementReference, THTMLElement, TPropsAny, TSize } from '../utils';
+import { ISurface } from '../Surface/Surface';
 
 const overflow = {
   width: '100%',
@@ -277,7 +278,70 @@ const IconMaterialArrowRightRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
-const ListItem = React.forwardRef((props_: any, ref: any) => {
+export interface IListItem extends ISurface {
+  colorSelected?: TColor;
+
+  menu?: TElement;
+  menuId?: string;
+
+  menuOpen?: boolean;
+
+  openMenu?: boolean;
+  openMenuDefault?: boolean;
+
+  openList?: boolean;
+  openListDefault?: boolean;
+
+  menuItem?: boolean;
+  list?: TElement;
+  inset?: boolean;
+  primary?: TElement;
+  secondary?: TElement;
+  tertiary?: TElement;
+  preselected?: boolean;
+  selected?: boolean;
+  start?: TElement;
+  startAlign?: 'start' | 'center' | 'end';
+  end?: TElement;
+  endAlign?: 'start' | 'center' | 'end';
+  size?: TSize;
+  noPadding?: boolean;
+  href?: boolean;
+  button?: boolean;
+  shape?: 'round';
+  shapePosition?: 'both' | 'start' | 'end' | 'none';
+  footer?: TElement;
+  include?: Array<THTMLElement>;
+  tabIndex?: string | number;
+  menuCloseOnClick?: boolean;
+  listCloseOnClick?: boolean;
+  noOutline?: boolean;
+  disabled?: boolean;
+
+  onClick?: (event: React.MouseEvent<any>) => any;
+  onFocus?: (event: React.FocusEvent<any>) => any;
+  onBlur?: (event: React.FocusEvent<any>) => any;
+  onMouseEnter?: (event: React.MouseEvent<any>) => any;
+  onMouseLeave?: (event: React.MouseEvent<any>) => any;
+  onClose?: () => any;
+
+  RootComponent?: TElementReference;
+  ExpandIcon?: TElementReference;
+  ListTransitionComponent?: TElementReference;
+
+  WrapperProps?: TPropsAny;
+  ListProps?: TPropsAny;
+  RootProps?: TPropsAny;
+  InteractionProps?: TPropsAny;
+  PrimaryProps?: TPropsAny;
+  SecondaryProps?: TPropsAny;
+  TertiaryProps?: TPropsAny;
+  ListTransitionComponentProps?: TPropsAny;
+  ExpandProps?: TPropsAny;
+  MenuProps?: TPropsAny;
+}
+
+const ListItem = React.forwardRef((props_: IListItem, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiListItem?.props?.default }), [props_]);
@@ -492,13 +556,13 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
     if (menu) setOpenMenu(hover || focus || preselected || selected);
   }, [focus]);
 
-  const onMouseEnter = React.useCallback((event: React.FocusEvent<any>) => {
+  const onMouseEnter = React.useCallback((event: React.MouseEvent<any>) => {
     if (!disabled) setHover(true);
 
     if (is('function', onMouseEnter_)) onMouseEnter_(event);
   }, []);
 
-  const onMouseLeave = React.useCallback((event: React.FocusEvent<any>) => {
+  const onMouseLeave = React.useCallback((event: React.MouseEvent<any>) => {
     if (!disabled) {
       setHover(false);
 
@@ -684,19 +748,19 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
               staticClassName('ListItem', theme) && [
                 'AmauiListItem-aside',
                 'AmauiListItem-start',
-                `AmauiListItem-start-${['AmauiAvatar', 'AmauiIconButton', 'AmauiCheckbox', 'AmauiRadio'].includes(start?.type?.displayName) ? 'button' : ['AmauiSwitch'].includes(start?.type?.displayName) ? 'switch' : 'icon'}`
+                `AmauiListItem-start-${['AmauiAvatar', 'AmauiIconButton', 'AmauiCheckbox', 'AmauiRadio'].includes((start as any)?.type?.displayName) ? 'button' : ['AmauiSwitch'].includes((start as any)?.type?.displayName) ? 'switch' : 'icon'}`
               ],
 
               classes.aside,
               classes.start,
               classes[`align_${startAlign}`],
-              classes[`${menuItem ? 'menuItem_' : ''}start_${['AmauiAvatar', 'AmauiIconButton', 'AmauiCheckbox', 'AmauiRadio'].includes(start?.type?.displayName) ? 'button' : ['AmauiSwitch'].includes(start?.type?.displayName) ? 'switch' : 'icon'}`]
+              classes[`${menuItem ? 'menuItem_' : ''}start_${['AmauiAvatar', 'AmauiIconButton', 'AmauiCheckbox', 'AmauiRadio'].includes((start as any)?.type?.displayName) ? 'button' : ['AmauiSwitch'].includes((start as any)?.type?.displayName) ? 'switch' : 'icon'}`]
             ])}
           >
-            {is('string', start) ? start : React.cloneElement(start, {
-              color: start.props?.color || 'inherit',
+            {is('string', start) ? start : React.cloneElement(start as any, {
+              color: (start as any).props?.color || 'inherit',
 
-              size: start.props?.size !== undefined ? start.props?.size : ['AmauiSwitch'].includes(start?.type?.displayName) ? 'small' : 'regular',
+              size: (start as any).props?.size !== undefined ? (start as any).props?.size : ['AmauiSwitch'].includes((start as any)?.type?.displayName) ? 'small' : 'regular',
 
               disabled
             })}
@@ -809,19 +873,19 @@ const ListItem = React.forwardRef((props_: any, ref: any) => {
               staticClassName('ListItem', theme) && [
                 'AmauiListItem-aside',
                 'AmauiListItem-end',
-                `AmauiListItem-end-${['AmauiAvatar', 'AmauiIconButton', 'AmauiCheckbox', 'AmauiRadio'].includes(end?.type?.displayName) ? 'button' : ['AmauiSwitch'].includes(end?.type?.displayName) ? 'switch' : 'icon'}`
+                `AmauiListItem-end-${['AmauiAvatar', 'AmauiIconButton', 'AmauiCheckbox', 'AmauiRadio'].includes((end as any)?.type?.displayName) ? 'button' : ['AmauiSwitch'].includes((end as any)?.type?.displayName) ? 'switch' : 'icon'}`
               ],
 
               classes.aside,
               classes.end,
               classes[`align_${endAlign}`],
-              classes[`${menuItem ? 'menuItem_' : ''}end_${['AmauiAvatar', 'AmauiIconButton', 'AmauiCheckbox', 'AmauiRadio'].includes(end?.type?.displayName) ? 'button' : ['AmauiSwitch'].includes(end?.type?.displayName) ? 'switch' : 'icon'}`]
+              classes[`${menuItem ? 'menuItem_' : ''}end_${['AmauiAvatar', 'AmauiIconButton', 'AmauiCheckbox', 'AmauiRadio'].includes((end as any)?.type?.displayName) ? 'button' : ['AmauiSwitch'].includes((end as any)?.type?.displayName) ? 'switch' : 'icon'}`]
             ])}
           >
-            {is('string', end) ? end : React.cloneElement(end, {
-              color: end.props?.color || 'inherit',
+            {is('string', end) ? end : React.cloneElement(end as any, {
+              color: (end as any).props?.color || 'inherit',
 
-              size: end.props?.size !== undefined ? end.props?.size : ['AmauiSwitch'].includes(start?.type?.displayName) ? 'small' : 'regular',
+              size: (end as any).props?.size !== undefined ? (end as any).props?.size : ['AmauiSwitch'].includes((end as any)?.type?.displayName) ? 'small' : 'regular',
 
               disabled
             })}

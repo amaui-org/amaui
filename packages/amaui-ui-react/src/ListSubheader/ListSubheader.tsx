@@ -3,6 +3,7 @@ import React from 'react';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import ListItem from '../ListItem';
+import { IListItem } from '../ListItem/ListItem';
 
 import { staticClassName } from '../utils';
 
@@ -16,7 +17,11 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiListSubheader' });
 
-const ListSubheader = React.forwardRef((props_: any, ref: any) => {
+export interface IListSubheader extends IListItem {
+
+}
+
+const ListSubheader = React.forwardRef((props_: IListSubheader, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiListSubheader?.props?.default }), [props_]);
@@ -33,7 +38,7 @@ const ListSubheader = React.forwardRef((props_: any, ref: any) => {
 
   return (
     <ListItem
-      {...other}
+      ref={ref}
 
       secondary={children}
 
@@ -45,6 +50,8 @@ const ListSubheader = React.forwardRef((props_: any, ref: any) => {
         className,
         classes.root
       ])}
+
+      {...other}
     />
   );
 });

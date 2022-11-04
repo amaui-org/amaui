@@ -20,7 +20,6 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiMasonry' });
 
-
 export interface IMasonry extends Omit<ILine, 'gap'> {
   gap?: number | Record<TValueBreakpoints, number>;
   columns?: number | Record<TValueBreakpoints, number>;

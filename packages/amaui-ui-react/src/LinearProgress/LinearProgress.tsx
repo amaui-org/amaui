@@ -3,7 +3,7 @@ import React from 'react';
 import { clamp, is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import { staticClassName } from '../utils';
+import { IBaseElement, staticClassName, TColor, TTonal } from '../utils';
 
 const other_ = {
   position: 'absolute',
@@ -256,7 +256,18 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiLinearProgress' });
 
-const LinearProgress = React.forwardRef((props_: any, ref: any) => {
+export interface ILinearProress extends IBaseElement {
+  tonal?: TTonal;
+  color?: TColor;
+
+  value?: number | { progress?: number; buffer?: number; };
+
+  version?: 'determinate' | 'indeterminate';
+  buffer?: boolean;
+  reverse?: boolean;
+}
+
+const LinearProgress = React.forwardRef((props_: ILinearProress, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiLinearProgress?.props?.default }), [props_]);
@@ -310,14 +321,14 @@ const LinearProgress = React.forwardRef((props_: any, ref: any) => {
     const values = { buffer: !buffer ? 100 : 0, line: 0 };
 
     if (is('object', value)) {
-      if (buffer) values.buffer = clamp(value?.buffer, 0, 100);
+      if (buffer) values.buffer = clamp((value as any)?.buffer, 0, 100);
 
-      values.line = clamp(value?.progress, 0, 100);
+      values.line = clamp((value as any)?.progress, 0, 100);
     }
     else {
-      if (buffer) values.buffer = clamp(value, 0, 100);
+      if (buffer) values.buffer = clamp((value as any), 0, 100);
 
-      values.line = clamp(value, 0, 100);
+      values.line = clamp((value as any), 0, 100);
     }
 
     styles.bufferDots[!reverse ? 'left' : 'right'] = `${values.buffer}%`;

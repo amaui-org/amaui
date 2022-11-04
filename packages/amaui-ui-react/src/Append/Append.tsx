@@ -27,7 +27,7 @@ export interface IAppend {
   portal?: boolean;
   accelerated?: boolean;
   anchor?: DOMRect;
-  anchorElement?: THTMLElement,
+  anchorElement?: THTMLElement;
   offset?: TAppendPadding;
   padding?: TAppendPadding;
   paddingUnfollow?: TAppendPadding;

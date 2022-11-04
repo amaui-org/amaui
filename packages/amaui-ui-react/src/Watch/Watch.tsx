@@ -9,9 +9,9 @@ import Type from '../Type';
 import Surface from '../Surface';
 import RoundMeter from '../RoundMeter';
 import Line from '../Line';
+import { ISurface } from '../Surface/Surface';
 
 import { angleToCoordinates, staticClassName, TElement, TPropsAny, TSize } from '../utils';
-import { ISurface } from '../Surface/Surface';
 
 const useStyle = styleMethod(theme => ({
   root: {

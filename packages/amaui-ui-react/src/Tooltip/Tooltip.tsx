@@ -8,7 +8,7 @@ import Modal from '../Modal';
 import Append from '../Append';
 import Surface from '../Surface';
 
-import { staticClassName, TColor, TElement, TElementReference, TMethodTransition, TPropsAny, TTonal } from '../utils';
+import { staticClassName, TColor, TElement, TElementReference, THTMLElement, TMethodTransition, TPropsAny, TTonal } from '../utils';
 import { IModal } from '../Modal/Modal';
 
 const useStyle = styleMethod(theme => ({
@@ -185,6 +185,7 @@ export interface ITooltip extends Omit<IModal, 'maxWidth'> {
   fullWidth?: boolean;
   maxWidth?: 'xxs' | 'xs' | 'sm' | 'rg' | 'lg' | 'xl' | 'xxl' | 'unset';
   arrow?: boolean;
+  anchorElement?: THTMLElement;
   noMargin?: string;
   classNameSwitch?: string;
   transformOrigin?: string;
