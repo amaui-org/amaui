@@ -251,20 +251,20 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
     transition: theme.methods.transitions.make('opacity', { duration: 'xxs' }),
 
     '&:hover': {
-      opacity: 1
+      opacity: '1'
     }
   },
 
   point_visibility_visible: {
-    opacity: 1
+    opacity: '1'
   },
 
   point_active: {
-    opacity: 1
+    opacity: '1'
   },
 
   point_visibility_hidden: {
-    opacity: 0,
+    opacity: '0',
     pointerEvents: 'none'
   },
 

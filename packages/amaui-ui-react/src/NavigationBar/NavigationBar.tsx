@@ -13,13 +13,13 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
     zIndex: theme.z_index.app_bar,
     width: '100%',
-    padding: 0
+    padding: '0'
   },
 
   fixed: {
     position: 'fixed',
-    insetInline: 0,
-    bottom: 0
+    insetInline: '0',
+    bottom: '0'
   }
 }), { name: 'AmauiNavigationBar' });
 

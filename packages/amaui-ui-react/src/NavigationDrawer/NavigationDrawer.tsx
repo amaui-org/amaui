@@ -16,12 +16,12 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
     '& .AmauiModal-surface': {
       display: 'flex',
       flexDirection: 'column',
-      margin: 0,
+      margin: '0',
       maxHeight: 'unset',
       maxWidth: 'unset',
       minWidth: 'unset',
       flex: '1 0 auto',
-      padding: 0
+      padding: '0'
     }
   },
 
@@ -44,7 +44,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
 
   direction_top: {
     '& .AmauiModal-surface': {
-      top: 0,
+      top: '0',
       width: '100%',
       borderRadius: '0 0 16px 16px'
     }
@@ -52,7 +52,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
 
   direction_left: {
     '& .AmauiModal-surface': {
-      left: 0,
+      left: '0',
       height: '100%',
       borderRadius: '0 16px 16px 0'
     }
@@ -60,7 +60,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
 
   direction_right: {
     '& .AmauiModal-surface': {
-      right: 0,
+      right: '0',
       height: '100%',
       borderRadius: '16px 0 0 16px'
     }
@@ -68,7 +68,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
 
   direction_bottom: {
     '& .AmauiModal-surface': {
-      bottom: 0,
+      bottom: '0',
       width: '100%',
       borderRadius: '16px 16px 0 0'
     }

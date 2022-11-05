@@ -32,7 +32,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   },
 
   fixed: {
-    insetInline: 0,
+    insetInline: '0',
 
     '&.AmauiLinearProgress-root': {
       position: 'fixed'
@@ -40,11 +40,11 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   },
 
   position_top: {
-    top: 0
+    top: '0'
   },
 
   position_bottom: {
-    bottom: 0
+    bottom: '0'
   }
 }), { name: 'AmauiMainProgressProvider' });
 

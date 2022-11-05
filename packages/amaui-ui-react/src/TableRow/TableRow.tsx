@@ -15,11 +15,11 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
     '&::before': {
       content: "''",
       position: 'absolute',
-      inset: 0,
+      inset: '0',
       background: 'currentColor',
-      opacity: 0,
+      opacity: '0',
       transition: theme.methods.transitions.make('opacity', { duration: 'xxs' }),
-      zIndex: 0
+      zIndex: '0'
     }
   },
 

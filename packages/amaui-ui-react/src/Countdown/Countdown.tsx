@@ -46,18 +46,18 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   roundProgress: {
     '&.AmauiRoundedProgress-root': {
       position: 'absolute',
-      inset: 0
+      inset: '0'
     },
 
     '& .AmauiRoundedProgress-svg': {
       width: '100%',
       height: '100%',
-      margin: 0
+      margin: '0'
     },
 
     '& .AmauiRoundedProgress-path-background': {
       stroke: 'currentColor',
-      opacity: 0.24
+      opacity: '0.24'
     },
 
     '& .AmauiRoundedProgress-path, & .AmauiRoundedProgress-path-background': {

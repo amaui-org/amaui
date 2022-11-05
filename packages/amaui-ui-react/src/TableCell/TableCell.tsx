@@ -12,7 +12,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
     display: 'table-cell',
     position: 'relative',
-    zIndex: 1,
+    zIndex: '1',
     ...theme.typography.values.b2,
 
     '& .AmauiDivider-root': {
@@ -37,7 +37,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   },
 
   head: {
-    fontWeight: 500
+    fontWeight: '500'
   },
 
   body: {
@@ -45,7 +45,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   },
 
   noWeight: {
-    fontWeight: 400
+    fontWeight: '400'
   }
 }), { name: 'AmauiTableCell' });
 

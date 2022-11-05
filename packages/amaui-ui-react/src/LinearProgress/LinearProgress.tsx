@@ -7,7 +7,7 @@ import { IBaseElement, staticClassName, TColor, TTonal } from '../utils';
 
 const other_ = {
   position: 'absolute',
-  inset: 0,
+  inset: '0',
   height: '100%',
   transformOrigin: 'inherit'
 };
@@ -238,7 +238,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   buffer: {
     ...other_,
     background: 'currentColor',
-    opacity: 0.24,
+    opacity: '0.24',
     transition: theme.methods.transitions.make('transform')
   },
 
@@ -246,7 +246,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
     ...other_,
     backgroundImage: `radial-gradient(2px 2px at center, currentColor 4px, transparent 4px)`,
     backgroundSize: '10px 4px',
-    opacity: 0.24,
+    opacity: '0.24',
     animation: '$bufferDots .3s infinite linear'
   },
 

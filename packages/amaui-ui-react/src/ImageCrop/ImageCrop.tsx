@@ -20,8 +20,8 @@ const dot = {
 const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
     width: '100%',
-    minHeight: 1,
-    lineHeight: 0,
+    minHeight: '1px',
+    lineHeight: '0',
     userSelect: 'none',
     overflow: 'hidden'
   },
@@ -82,7 +82,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
 
   canvas: {
     position: 'absolute',
-    zIndex: 0
+    zIndex: '0'
   },
 
   canvas_main: {
@@ -97,53 +97,53 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
 
   background: {
     position: 'absolute',
-    inset: 0,
+    inset: '0',
     width: '100%',
     height: '100%',
-    opacity: 0,
+    opacity: '0',
     background: theme.methods.palette.color.colorToRgb(theme.palette.text.default.primary, 44),
     transition: theme.methods.transitions.make('opacity', { duration: 'xxs' }),
-    zIndex: 1
+    zIndex: '1'
   },
 
   background_in: {
-    opacity: 1
+    opacity: '1'
   },
 
   imageSelector_main: {
     position: 'absolute',
-    top: 0,
-    left: 0,
-    width: 0,
-    height: 0,
+    top: '0',
+    left: '0',
+    width: '0',
+    height: '0',
     outline: '2px dashed white',
     background: 'transparent',
     touchAction: 'none',
-    opacity: 0,
-    zIndex: 14,
+    opacity: '0',
+    zIndex: '14',
     userSelect: 'none',
     transition: theme.methods.transitions.make('opacity'),
   },
 
   imageSelector_main_in: {
-    opacity: 1
+    opacity: '1'
   },
 
   imageSelector: {
     position: 'absolute',
-    top: 0,
-    left: 0,
-    width: 0,
-    height: 0,
+    top: '0',
+    left: '0',
+    width: '0',
+    height: '0',
     touchAction: 'none',
     overflow: 'hidden',
     userSelect: 'none',
-    zIndex: 11
+    zIndex: '11'
   },
 
   move: {
     position: 'absolute',
-    inset: 0,
+    inset: '0',
     width: '100%',
     height: '100%',
     cursor: 'grab',
@@ -161,28 +161,28 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
 
   grid_line_top_start: {
     top: '33.3333%',
-    insetInline: 0,
+    insetInline: '0',
     width: '100%',
     height: '1px'
   },
 
   grid_line_top_end: {
     top: '66.6666%',
-    insetInline: 0,
+    insetInline: '0',
     width: '100%',
     height: '1px'
   },
 
   grid_line_left_start: {
     left: '33.3333%',
-    insetBlock: 0,
+    insetBlock: '0',
     width: '1px',
     height: '100%'
   },
 
   grid_line_left_end: {
     left: '66.6666%',
-    insetBlock: 0,
+    insetBlock: '0',
     width: '1px',
     height: '100%'
   },
@@ -225,7 +225,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
 
   border_top: {
     top: '-2px',
-    height: 2,
+    height: '2px',
     width: '100%',
     cursor: 'ns-resize',
 
@@ -273,7 +273,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
 
   border_bottom: {
     bottom: '-2px',
-    height: 2,
+    height: '2px',
     width: '100%',
     cursor: 'ns-resize',
 

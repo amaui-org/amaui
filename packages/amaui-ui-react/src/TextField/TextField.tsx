@@ -11,7 +11,7 @@ const other_ = {
   pointerEvents: 'none',
   borderRadius: 'inherit',
   position: 'absolute',
-  inset: 0,
+  inset: '0',
   width: '100%',
   height: '100%'
 };
@@ -68,14 +68,14 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
 
   inputWrapper: {
     // Reset
-    margin: 0,
-    border: 0,
+    margin: '0',
+    border: '0',
 
     display: 'flex',
     flexDirection: 'row',
     flexWrap: 'wrap',
     alignItems: 'flex-start',
-    opacity: 0,
+    opacity: '0',
     transition: theme.methods.transitions.make('opacity'),
     borderRadius: `${theme.shape.radius.unit}px ${theme.shape.radius.unit}px 0 0`,
     width: '100%',
@@ -84,13 +84,13 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   },
 
   inputWrapper_focus: {
-    opacity: 1
+    opacity: '1'
   },
 
   input: {
     // Reset
-    margin: 0,
-    border: 0,
+    margin: '0',
+    border: '0',
 
     color: theme.palette.text.default.primary,
     background: 'transparent',
@@ -126,16 +126,16 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
 
   input_version_text: {
     '&:not($input_start_icon)': {
-      paddingInline: 0
+      paddingInline: '0'
     }
   },
 
   input_start_icon: {
-    paddingInlineStart: 0
+    paddingInlineStart: '0'
   },
 
   input_end_icon: {
-    paddingInlineEnd: 0
+    paddingInlineEnd: '0'
   },
 
   input_version_outlined_size_small: {
@@ -163,7 +163,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
 
   label: {
     position: 'absolute',
-    top: 0,
+    top: '0',
     insetInlineStart: '16px',
     transformOrigin: 'top left',
     transform: 'translate(0px, 15px) scale(1)',
@@ -179,19 +179,19 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   },
 
   label_version_text_size_small: {
-    insetInlineStart: 0,
+    insetInlineStart: '0',
     top: '8px',
     transform: 'translate(0px, 73%) scale(1)',
   },
 
   label_version_text_size_regular: {
-    insetInlineStart: 0,
+    insetInlineStart: '0',
     top: '10px',
     transform: 'translate(0px, 78%) scale(1)',
   },
 
   label_version_text_size_large: {
-    insetInlineStart: 0,
+    insetInlineStart: '0',
     top: '12px',
     transform: 'translate(0px, 83%) scale(1)',
   },
@@ -299,7 +299,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
     height: 'calc(100% + 5px)',
     borderRadius: `${theme.shape.radius.unit}px`,
     border: '1px solid currentColor',
-    padding: 0,
+    padding: '0',
     paddingInline: '12px 16px',
 
     transition: theme.methods.transitions.make(['border', 'padding'])
@@ -337,7 +337,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   },
 
   footer_version_text: {
-    paddingInline: 0
+    paddingInline: '0'
   },
 
   helperText: {
@@ -445,7 +445,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
     flex: '0 0 auto',
     marginInlineStart: '16px',
     marginInlineEnd: '8px',
-    opacity: 0,
+    opacity: '0',
     transition: theme.methods.transitions.make('opacity'),
   },
 
@@ -454,23 +454,23 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   },
 
   prefix_focus: {
-    opacity: 1
+    opacity: '1'
   },
 
   noPrefixMargin: {
-    marginInlineEnd: 0
+    marginInlineEnd: '0'
   },
 
   sufix: {
     flex: '0 0 auto',
     marginInlineEnd: '16px',
     marginInlineStart: '8px',
-    opacity: 0,
+    opacity: '0',
     transition: theme.methods.transitions.make('opacity'),
   },
 
   sufix_focus: {
-    opacity: 1
+    opacity: '1'
   },
 
   sufix_noEndMargin: {
@@ -478,7 +478,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   },
 
   noSufixMargin: {
-    marginInlineStart: 0
+    marginInlineStart: '0'
   },
 
   fullWidth: {
@@ -486,7 +486,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   },
 
   disabled: {
-    opacity: 0.54,
+    opacity: '0.54',
     pointerEvents: 'none',
     cursor: 'default'
   }

@@ -11,17 +11,17 @@ import { ISurface } from '../Surface/Surface';
 const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
     // Reset
-    margin: 0,
+    margin: '0',
     border: 'none',
 
     display: 'flex',
-    flexShrink: 0,
+    flexShrink: '0',
     opacity: theme.palette.visual_contrast.default.opacity.divider,
     transition: theme.methods.transitions.make('background')
   },
 
   divider_tonal: {
-    opacity: 1
+    opacity: '1'
   },
 
   orientation_vertical: {
@@ -49,14 +49,14 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
 
   rootWithChildren: {
     display: 'flex',
-    opacity: 1,
+    opacity: '1',
     color: theme.palette.text.default.primary,
     background: 'transparent',
 
     // Reset
     height: 'unset',
     width: 'unset',
-    margin: 0,
+    margin: '0',
     border: 'none'
   },
 

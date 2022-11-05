@@ -26,7 +26,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   text: {
     position: 'absolute',
     textAlign: 'center',
-    fontWeight: 500,
+    fontWeight: '500',
     lineHeight: '1'
   },
 
@@ -84,7 +84,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
     position: 'absolute',
     width: '40% !important',
     height: 'auto',
-    zIndex: 4
+    zIndex: '4'
   },
 
   icon_arrangement_regular: {

@@ -10,7 +10,7 @@ import { IBaseElement, staticClassName, TColor, TPropsAny, TTonal } from '../uti
 const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
     display: 'inline-block',
-    lineHeight: 0
+    lineHeight: '0'
   },
 
   root_figure: {

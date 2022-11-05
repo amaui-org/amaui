@@ -26,12 +26,12 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
 
   fixed: {
     position: 'fixed',
-    insetInline: 0,
-    bottom: 0
+    insetInline: '0px',
+    bottom: '0px'
   },
 
   item: {
-    opacity: 0,
+    opacity: '0',
     transform: 'translateY(100%)',
     transition: theme?.methods.transitions.make(['opacity', 'transform'], { duration: 'rg', timing_function: 'standard' }),
 
@@ -67,7 +67,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   },
 
   mainItem: {
-    opacity: 0,
+    opacity: '0',
     transform: 'scale(0.75)',
     transition: theme?.methods.transitions.make(['opacity', 'transform'], { duration: 'rg', timing_function: 'standard' }),
 

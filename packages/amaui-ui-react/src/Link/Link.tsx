@@ -23,11 +23,11 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
       background: 'currentColor',
       width: '100%',
       height: '100%',
-      zIndex: 0,
+      zIndex: '0',
       padding: '0.14em 0.77em',
       borderRadius: `${(theme.shape.radius.unit / 8) * 0.4}em`,
       transition: theme.methods.transitions.make(['opacity', 'background']),
-      opacity: 0
+      opacity: '0'
     }
   },
 

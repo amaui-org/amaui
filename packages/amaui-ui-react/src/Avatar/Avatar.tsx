@@ -15,7 +15,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   },
 
   square: {
-    borderRadius: 0
+    borderRadius: '0px'
   },
 
   imageWrapper: {

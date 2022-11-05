@@ -53,7 +53,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
 
   item: {
     position: 'relative',
-    opacity: 0,
+    opacity: '0',
     transform: 'translateY(100%)',
     transition: theme?.methods.transitions.make(['opacity', 'transform'], { duration: 'rg', timing_function: 'standard' }),
 
@@ -92,7 +92,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
     top: '8px',
     insetInlineEnd: '-8px',
     transform: `translateX(${theme.direction === 'ltr' ? '' : '-'}100%)`,
-    zIndex: 1,
+    zIndex: '1',
 
     '&.AmauiIconButton-root': {
       position: 'absolute'

@@ -15,7 +15,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   badge: {
     position: 'absolute',
     padding: `4px 6px 3px`,
-    lineHeight: 1,
+    lineHeight: '1px',
     borderRadius: `${theme.shape.radius.unit * 1.25}px`,
     transition: theme.methods.transitions.make('transform'),
     pointerEvents: 'none',
@@ -26,15 +26,15 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
 
   // Vertical & horizontal
   horizontal_left: {
-    insetInlineStart: 0
+    insetInlineStart: '0px'
   },
 
   horizontal_right: {
-    insetInlineEnd: 0
+    insetInlineEnd: '0px'
   },
 
   vertical_top: {
-    top: 0
+    top: '0px'
   },
 
   vertical_horizontal_top_right: {
@@ -46,7 +46,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   },
 
   vertical_bottom: {
-    bottom: 0
+    bottom: '0px'
   },
 
   vertical_horizontal_bottom_right: {

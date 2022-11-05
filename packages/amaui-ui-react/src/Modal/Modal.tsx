@@ -14,7 +14,7 @@ import { IBaseElement, staticClassName, TColor, TElementReference, TPropsAny, TR
 const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
     position: 'fixed',
-    inset: 0,
+    inset: '0',
     zIndex: theme.z_index.modal,
     pointerEvents: 'none'
   },
@@ -37,7 +37,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
 
   background: {
     position: 'absolute',
-    inset: 0,
+    inset: '0',
     width: '100%',
     height: '100%',
     background: 'rgba(0, 0, 0, 0.44)',

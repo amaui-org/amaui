@@ -15,29 +15,29 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
 
   '@keyframes pulse': {
     '0%': {
-      opacity: 1
+      opacity: '1'
     },
 
     '50%': {
-      opacity: 0.4
+      opacity: '0.4'
     },
 
     '100%': {
-      opacity: 1
+      opacity: '1'
     }
   },
 
   '@keyframes pulseDark': {
     '0%': {
-      opacity: 1
+      opacity: '1'
     },
 
     '50%': {
-      opacity: 0.7
+      opacity: '0.7'
     },
 
     '100%': {
-      opacity: 1
+      opacity: '1'
     }
   },
 
@@ -48,7 +48,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   },
 
   wrapper: {
-    opacity: theme.palette.light ? 0.07 : 0.14,
+    opacity: theme.palette.light ? '0.07' : '0.14',
     background: 'currentColor',
     width: '100%',
     height: '100%'
@@ -58,7 +58,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
     '&::before': {
       content: "''",
       position: 'absolute',
-      inset: 0,
+      inset: '0',
       background: `linear-gradient(90deg, transparent, ${theme.methods.palette.color.colorToRgb(theme.palette.text.default.primary, 4)}, transparent)`,
       transform: 'translateX(-100%)',
       animation: '$move 2.4s infinite'

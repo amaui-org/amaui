@@ -54,14 +54,14 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
     position: 'absolute',
 
     '&.AmauiDivider-root': {
-      margin: 0,
+      margin: '0',
       transition: theme.methods.transitions.make(['background', 'height'])
     }
   },
 
   divider_orientation_horizontal: {
     top: '20px',
-    right: 0,
+    right: '0',
     transform: 'translate(calc(-50% - 70px), -50%)',
 
     '&.AmauiDivider-root': {
@@ -71,7 +71,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
 
   divider_orientation_vertical: {
     left: '50%',
-    top: 0,
+    top: '0',
     transform: 'translate(-50%, calc(-50% - 16px))',
 
     '&.AmauiDivider-root': {

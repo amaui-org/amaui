@@ -34,8 +34,8 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
 
   input: {
     display: 'inline-flex',
-    margin: 0,
-    border: 0,
+    margin: '0px',
+    border: '0px',
     color: theme.palette.text.default.primary,
     background: 'transparent',
     '-webkit-tap-highlight-color': 'transparent',

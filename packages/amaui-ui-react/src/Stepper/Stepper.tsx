@@ -23,7 +23,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   },
 
   divider: {
-    margin: 0,
+    margin: '0',
 
     '&.AmauiDivider-root': {
       transition: theme.methods.transitions.make(['background', 'width', 'height'])

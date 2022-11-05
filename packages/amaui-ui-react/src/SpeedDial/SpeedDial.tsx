@@ -84,7 +84,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
 
   iconWrapper: {
     position: 'relative',
-    lineHeight: 0,
+    lineHeight: '0',
     transform: 'rotate(-45deg)',
     transition: theme.methods.transitions.make('transform')
   },
@@ -99,7 +99,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
 
   icon_absolute: {
     position: 'absolute',
-    inset: 0
+    inset: '0'
   }
 }), { name: 'AmauiSpeedDial' });
 

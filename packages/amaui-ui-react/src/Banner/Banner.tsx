@@ -13,7 +13,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
     width: '100%',
 
     '&.AmauiListItem-root': {
-      padding: 0
+      padding: '0px'
     }
   },
 

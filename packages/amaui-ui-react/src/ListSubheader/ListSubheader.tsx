@@ -9,10 +9,10 @@ import { staticClassName } from '../utils';
 
 const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
-    top: 0,
+    top: '0',
     position: 'sticky',
-    fontWeight: 500,
-    zIndex: 1,
+    fontWeight: '500',
+    zIndex: '1',
     userSelect: 'none'
   }
 }), { name: 'AmauiListSubheader' });

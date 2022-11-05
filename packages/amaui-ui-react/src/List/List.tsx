@@ -12,7 +12,7 @@ import { ISurface } from '../Surface/Surface';
 const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
     // Reset
-    margin: 0,
+    margin: '0',
     listStyle: 'none',
 
     width: '100%',
@@ -33,7 +33,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   },
 
   padding_vertical_none: {
-    paddingBlock: 0
+    paddingBlock: '0'
   },
 
   padding_horizontal_both: {
@@ -49,7 +49,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   },
 
   padding_horizontal_none: {
-    paddingInline: 0
+    paddingInline: '0'
   },
 
   menu: {

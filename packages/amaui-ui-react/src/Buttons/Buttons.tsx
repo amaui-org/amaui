@@ -90,14 +90,14 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
 
   path: {
     strokeWidth: '2.5px',
-    strokeDasharray: 30,
-    strokeDashoffset: 30,
+    strokeDasharray: '30',
+    strokeDashoffset: '30',
     stroke: 'currentcolor',
     transition: theme.methods.transitions.make('stroke-dashoffset', { duration: 'xxs', timing_function: 'accelerated' })
   },
 
   pathIn: {
-    strokeDashoffset: 0,
+    strokeDashoffset: '0',
     transition: theme.methods.transitions.make('stroke-dashoffset', { duration: 'xxs', delay: 45, timing_function: 'accelerated' })
   },
 
@@ -106,7 +106,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   },
 
   selected: {
-    zIndex: 1
+    zIndex: '1'
   },
 
   disabled: {

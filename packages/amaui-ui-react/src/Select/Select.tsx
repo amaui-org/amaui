@@ -28,10 +28,10 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
 
     '& .AmauiTextField-input': {
       position: 'absolute',
-      left: 0,
-      bottom: 0,
+      left: '0',
+      bottom: '0',
       pointerEvents: 'none',
-      opacity: 0
+      opacity: '0'
     },
 
     '& .AmauiTextField-input-wrapper': {
@@ -61,8 +61,8 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
 
   input: {
     width: '100%',
-    margin: 0,
-    border: 0,
+    margin: '0',
+    border: '0',
     color: theme.palette.text.default.primary,
     background: 'transparent',
     '-webkit-tap-highlight-color': 'transparent',

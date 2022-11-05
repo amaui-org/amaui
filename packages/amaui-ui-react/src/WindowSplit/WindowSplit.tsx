@@ -48,7 +48,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   iconButton: {
     position: 'absolute',
     userSelect: 'none',
-    zIndex: 4
+    zIndex: '4'
   },
 
   iconButton_orientation_horizontal: {
@@ -65,16 +65,16 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
     position: 'absolute',
     userSelect: 'none',
     flex: '0 0 auto',
-    zIndex: 3,
+    zIndex: '3',
 
     '&.AmauiDivider-root': {
-      opacity: 1,
+      opacity: '1',
       margin: '0px'
     }
   },
 
   divider_orientation_horizontal: {
-    insetBlock: 0,
+    insetBlock: '0',
     cursor: 'ew-resize',
     transform: `translateX(${theme.direction === 'rtl' ? '-' : ''}50%)`,
 
@@ -84,7 +84,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   },
 
   divider_orientation_vertical: {
-    insetInline: 0,
+    insetInline: '0',
     cursor: 'ns-resize',
     transform: `translateY(50%)`,
 

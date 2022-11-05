@@ -42,7 +42,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   },
 
   iconWrapper: {
-    lineHeight: 0
+    lineHeight: '0'
   },
 
   iconWrapper_orientation_vertical: {

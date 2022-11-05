@@ -9,7 +9,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
     '& dt': {
       marginTop: '16px',
-      fontWeight: 500
+      fontWeight: '500'
     },
 
     '& dd': {
@@ -133,7 +133,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
     },
 
     '& th': {
-      fontWeight: 500,
+      fontWeight: '500',
       borderBottom: `1px solid ${theme.palette.light ? theme.palette.color.neutral[50] : theme.palette.color.neutral[50]}`
     }
   }

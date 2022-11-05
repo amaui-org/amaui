@@ -74,7 +74,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
 
   // gaps
   // gap
-  gap_0: { gap: 0 },
+  gap_0: { gap: '0' },
 
   'gap_05': { gap: `${0.5 * theme.space.unit}px` },
 
@@ -93,7 +93,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   'gap_16': { gap: `${16 * theme.space.unit}px` },
 
   // rowGap
-  rowGap_0: { rowGap: 0 },
+  rowGap_0: { rowGap: '0' },
 
   'rowGap_05': { rowGap: `${0.5 * theme.space.unit}px` },
 
@@ -112,7 +112,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   'rowGap_16': { rowGap: `${16 * theme.space.unit}px` },
 
   // columnGap
-  columnGap_0: { columnGap: 0 },
+  columnGap_0: { columnGap: '0' },
 
   'columnGap_05': { columnGap: `${0.5 * theme.space.unit}px` },
 

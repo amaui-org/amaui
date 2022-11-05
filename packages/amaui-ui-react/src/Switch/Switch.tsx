@@ -17,12 +17,12 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
 
   input: {
     position: 'absolute',
-    inset: 0,
+    inset: '0',
     width: '100%',
     height: '100%',
-    opacity: 0,
+    opacity: '0',
     cursor: 'inherit',
-    zIndex: 1
+    zIndex: '1'
   },
 
   // Color
@@ -90,7 +90,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   background: {
     display: 'inline-flex',
     position: 'absolute',
-    inset: 0,
+    inset: '0',
     width: '100%',
     height: '100%',
     borderRadius: 'inherit',
@@ -100,7 +100,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   border: {
     display: 'inline-flex',
     position: 'absolute',
-    inset: 0,
+    inset: '0',
     width: '100%',
     height: '100%',
     border: `2px solid`,
@@ -145,7 +145,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
 
   disabled: {
     cursor: 'default',
-    opacity: theme.palette.light ? theme.palette.visual_contrast.default.opacity.disabled : 1,
+    opacity: theme.palette.light ? theme.palette.visual_contrast.default.opacity.disabled : '1',
     pointerEvents: 'none'
   }
 }), { name: 'AmauiSwitch' });

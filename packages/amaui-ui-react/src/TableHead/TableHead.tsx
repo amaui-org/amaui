@@ -14,8 +14,8 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
 
   sticky: {
     position: 'sticky',
-    top: 0,
-    zIndex: 11
+    top: '0',
+    zIndex: '11'
   }
 }), { name: 'AmauiTableHead' });
 

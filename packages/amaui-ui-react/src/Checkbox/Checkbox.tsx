@@ -17,16 +17,16 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
 
   input: {
     position: 'absolute',
-    inset: 0,
+    inset: '0',
     width: '100%',
     height: '100%',
-    opacity: 0,
+    opacity: '0',
     cursor: 'inherit',
-    zIndex: 1
+    zIndex: '1'
   },
 
   icon: {
-    zIndex: 1,
+    zIndex: '1',
     pointerEvents: 'none'
   },
 
@@ -79,10 +79,10 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
     position: 'absolute',
     width: 'calc(100% - 0.3em)',
     height: 'calc(100% - 0.3em)',
-    insetInline: 0,
+    insetInline: '0',
     insetInlineStart: '0.16em',
     top: '0.15em',
-    zIndex: 2,
+    zIndex: '2',
     pointerEvents: 'none',
 
     '&::before': {
@@ -91,10 +91,10 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
       width: '100%',
       height: '100%',
       position: 'absolute',
-      inset: 0,
+      inset: '0',
       background: 'currentColor',
       transform: 'scale(1)',
-      opacity: 0,
+      opacity: '0',
       transition: `${theme.methods.transitions.make('transform', { duration: 'xxs' })}, ${theme.methods.transitions.make('opacity', { duration: 0, delay: 'xxs' })}`
     }
   },
@@ -102,7 +102,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   iconItem_checked: {
     '&::before': {
       transform: 'scale(0)',
-      opacity: 1,
+      opacity: '1',
       transition: `${theme.methods.transitions.make('transform', { duration: 'xxs' })}, ${theme.methods.transitions.make('opacity', { duration: 0 })}`
     }
   },
@@ -116,7 +116,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   iconItem_indeterminate: {
     '&::before': {
       transform: 'scale(0)',
-      opacity: 1,
+      opacity: '1',
       transition: `${theme.methods.transitions.make('transform', { duration: 'xxs' })}, ${theme.methods.transitions.make('opacity', { duration: 0 })}`
     }
   },
@@ -126,10 +126,10 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
     justifyContent: 'center',
     alignItems: 'center',
     position: 'absolute',
-    inset: 0,
+    inset: '0',
     width: '100% !important',
     height: '100%',
-    zIndex: 3,
+    zIndex: '3',
 
     '&:not($indeterminate) > svg': {
       padding: '0.14em'

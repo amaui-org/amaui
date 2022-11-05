@@ -88,8 +88,8 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
 
   fixed: {
     position: 'fixed',
-    insetInline: 0,
-    top: 0
+    insetInline: '0',
+    top: '0'
   }
 }), { name: 'AmauiTopAppBar' });
 

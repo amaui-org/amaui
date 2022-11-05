@@ -14,15 +14,15 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
 
   position_top: {
     position: 'absolute',
-    top: 0,
-    insetInline: 0,
+    top: '0',
+    insetInline: '0',
     borderRadius: `0 0 ${theme.shape.radius.unit * 3}px ${theme.shape.radius.unit * 3}px`
   },
 
   position_bottom: {
     position: 'absolute',
-    bottom: 0,
-    insetInline: 0,
+    bottom: '0',
+    insetInline: '0',
     borderRadius: `${theme.shape.radius.unit * 3}px ${theme.shape.radius.unit * 3}px 0 0`
   }
 }), { name: 'AmauiImageListItemBox' });

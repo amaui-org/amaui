@@ -38,7 +38,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
 
   menu: {
     position: 'absolute',
-    inset: 0,
+    inset: '0',
 
     '&.enter': {
       opacity: '0',
@@ -63,7 +63,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
 
   menu_reverse: {
     position: 'absolute',
-    inset: 0,
+    inset: '0',
 
     '&.enter': {
       opacity: '0',

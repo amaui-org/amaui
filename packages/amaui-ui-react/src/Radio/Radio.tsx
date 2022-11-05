@@ -15,16 +15,16 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
 
   input: {
     position: 'absolute',
-    inset: 0,
+    inset: '0',
     width: '100%',
     height: '100%',
-    opacity: 0,
+    opacity: '0',
     cursor: 'inherit',
-    zIndex: 1
+    zIndex: '1'
   },
 
   icon: {
-    zIndex: 1,
+    zIndex: '1',
     pointerEvents: 'none'
   },
 
@@ -40,12 +40,12 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
     justifyContent: 'center',
     alignItems: 'center',
     position: 'absolute',
-    inset: 0,
+    inset: '0',
     width: '100%',
     height: '100%',
     background: 'currentColor',
     borderRadius: `calc(${theme.shape.radius.unit / 8} * 0.5em)`,
-    zIndex: 3,
+    zIndex: '3',
     transform: 'scale(0)',
     transition: theme.methods.transitions.make('transform', { duration: 'xxs' })
   },

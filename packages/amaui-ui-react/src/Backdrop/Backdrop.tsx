@@ -13,13 +13,13 @@ import { staticClassName, TElementReference, TPropsAny } from '../utils';
 const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
     position: 'fixed',
-    inset: 0,
+    inset: '0px',
     zIndex: theme.z_index.modal
   },
 
   background: {
     position: 'absolute',
-    inset: 0,
+    inset: '0px',
     width: '100%',
     height: '100%',
     background: 'rgba(0, 0, 0, 0.44)',

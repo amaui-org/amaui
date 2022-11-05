@@ -37,19 +37,19 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   },
 
   hidden: {
-    lineHeight: 0,
+    lineHeight: '0',
     visibility: 'hidden'
   },
 
   item: {
-    lineHeight: 0,
+    lineHeight: '0',
     overflow: 'hidden'
   },
 
   start: {
     position: 'absolute',
-    inset: 0,
-    zIndex: 1,
+    inset: '0',
+    zIndex: '1',
 
     '& > *': {
       maxWidth: 'unset !important'
@@ -58,14 +58,14 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
 
   end: {
     position: 'absolute',
-    inset: 0,
-    zIndex: 0
+    inset: '0',
+    zIndex: '0'
   },
 
   iconButton: {
     position: 'absolute',
     userSelect: 'none',
-    zIndex: 4
+    zIndex: '4'
   },
 
   iconButton_manual_orientation_horizontal: {
@@ -87,7 +87,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   divider: {
     position: 'absolute',
     userSelect: 'none',
-    zIndex: 3,
+    zIndex: '3',
 
     '&.AmauiDivider-root': {
       margin: '0px'
@@ -103,7 +103,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   },
 
   divider_orientation_horizontal: {
-    insetBlock: 0,
+    insetBlock: '0',
     transform: `translateX(${theme.direction === 'rtl' ? '-' : ''}50%)`,
 
     '&.AmauiDivider-root': {
@@ -112,7 +112,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   },
 
   divider_orientation_vertical: {
-    insetInline: 0,
+    insetInline: '0',
     transform: `translateY(50%)`,
 
     '&.AmauiDivider-root': {

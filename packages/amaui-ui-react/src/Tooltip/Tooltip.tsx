@@ -29,14 +29,14 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
 
   labelRoot_position_right: { paddingLeft: '16px' },
 
-  labelRoot_noMargin: { padding: 0 },
+  labelRoot_noMargin: { padding: '0' },
 
   label: {
     ...theme.typography.values.b3,
 
     borderRadius: clamp(theme.shape.radius.unit / 2, 0, 8),
     padding: '4px 8px',
-    lineHeight: 1.455
+    lineHeight: '1.455'
   },
 
   arrow: {
@@ -46,7 +46,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
       height: '8px',
       background: 'inherit',
       position: 'absolute',
-      zIndex: 0
+      zIndex: '0'
     }
   },
 
@@ -163,7 +163,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
 
   maxWidth_unset: { maxWidth: `unset` },
 
-  fullWidth: { maxWidth: `${(isEnvironment('browser') ? window.innerWidth : 1400) - +theme.methods.space.value('rg', '', 1)}px` },
+  fullWidth: { maxWidth: `${(isEnvironment('browser') ? window.innerWidth : '1400px') - +theme.methods.space.value('rg', '', 1)}px` },
 
   nowrap: {
     whiteSpace: 'nowrap'

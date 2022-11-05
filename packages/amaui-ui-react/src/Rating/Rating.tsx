@@ -37,14 +37,14 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   active: {
     display: 'inline-flex',
     position: 'absolute',
-    inset: 0,
+    inset: '0',
     overflow: 'hidden',
     height: '100%',
     width: '0px'
   },
 
   inactive: {
-    opacity: theme.palette.light ? 0.24 : 0.4
+    opacity: theme.palette.light ? '0.24' : '0.4'
   },
 
   focus_outline: {

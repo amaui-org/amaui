@@ -45,7 +45,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
     transition: theme.methods.transitions.make(['opacity'], { duration: 'xxs' }),
 
     '&[disabled]': {
-      opacity: 0
+      opacity: '0'
     }
   },
 
@@ -54,29 +54,29 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
     position: 'absolute',
     background: 'currentColor',
     transition: theme.methods.transitions.make(['top', 'left', 'width']),
-    zIndex: 1
+    zIndex: '1'
   },
 
   line_version_primary_orientation_horizontal: {
     height: '3px',
-    bottom: 0,
+    bottom: '0',
     borderRadius: '16px 16px 0 0'
   },
 
   line_version_primary_orientation_vertical: {
     width: '3px',
-    insetInlineEnd: 0,
+    insetInlineEnd: '0',
     borderRadius: '16px 0 0 16px'
   },
 
   line_version_secondary_orientation_horizontal: {
     height: '2px',
-    bottom: 0
+    bottom: '0'
   },
 
   line_version_secondary_orientation_vertical: {
     width: '2px',
-    insetInlineEnd: 0
+    insetInlineEnd: '0'
   },
 
   divider: {
@@ -86,30 +86,30 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
       margin: '0px',
       background: 'currentColor',
       opacity: '0.14',
-      zIndex: 1
+      zIndex: '1'
     }
   },
 
   divider_orientation_horizontal: {
     '&.AmauiDivider-root': {
-      left: 0,
-      right: 0,
-      bottom: 0
+      left: '0',
+      right: '0',
+      bottom: '0'
     }
   },
 
   divider_orientation_vertical: {
     '&.AmauiDivider-root': {
-      top: 0,
-      bottom: 0,
-      insetInlineEnd: 0
+      top: '0',
+      bottom: '0',
+      insetInlineEnd: '0'
     }
   },
 
   fixed: {
     position: 'fixed',
-    top: 0,
-    insetInline: 0
+    top: '0',
+    insetInline: '0'
   }
 }), { name: 'AmauiTabs' });
 

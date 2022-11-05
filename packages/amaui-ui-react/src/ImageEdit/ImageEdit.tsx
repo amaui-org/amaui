@@ -39,7 +39,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   canvas: {
     width: '100%',
     height: 'auto',
-    zIndex: 1
+    zIndex: '1'
   },
 
   inputs: {
@@ -71,7 +71,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
 
   canvasWrapper: {
     position: 'relative',
-    lineHeight: 0
+    lineHeight: '0'
   },
 
   image: {
@@ -86,7 +86,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
 
   imageCrop: {
     position: 'absolute',
-    inset: 0,
+    inset: '0',
     width: '100% !important',
     height: '100% !important'
   },

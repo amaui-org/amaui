@@ -23,7 +23,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   },
 
   imageWrapper: {
-    inset: 0,
+    inset: '0',
     position: 'fixed',
     zIndex: theme.z_index.modal + 11
   }

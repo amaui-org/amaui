@@ -40,11 +40,11 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   },
 
   rail_orientation_horizontal: {
-    insetInline: 0
+    insetInline: '0'
   },
 
   rail_orientation_vertical: {
-    insetBlock: 0
+    insetBlock: '0'
   },
 
   rail_orientation_horizontal_size_small: { height: '3px' },
@@ -64,11 +64,11 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   },
 
   track_orientation_horizontal: {
-    insetInlineStart: 0
+    insetInlineStart: '0'
   },
 
   track_orientation_vertical: {
-    insetBlockEnd: 0
+    insetBlockEnd: '0'
   },
 
   track_orientation_horizontal_size_small: { height: '5px' },
@@ -298,7 +298,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   },
 
   marks: {
-    inset: 0,
+    inset: '0',
     ...rail
   },
 
@@ -324,13 +324,13 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
 
   labels_orientation_horizontal: {
     width: '100%',
-    left: 0,
+    left: '0',
     top: '15px'
   },
 
   labels_orientation_vertical: {
     height: '100%',
-    top: 0,
+    top: '0',
     insetInlineStart: '21px'
   },
 
@@ -368,8 +368,8 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
 
   tooltip: {
     '& .AmauiTooltip-label': {
-      padding: 0,
-      lineHeight: 0,
+      padding: '0',
+      lineHeight: '0',
       minWidth: '30px',
       paddingTop: '100%',
       overflow: 'hidden',

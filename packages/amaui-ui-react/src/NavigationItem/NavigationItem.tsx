@@ -31,7 +31,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
 
   iconWrapper: {
     position: 'absolute',
-    top: 0,
+    top: '0',
     height: '32px',
     width: '64px'
   },
@@ -43,31 +43,31 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   },
 
   iconWrapper_center_selected: {
-    top: 0,
+    top: '0',
     transform: 'translateY(0)'
   },
 
   icon: {
-    lineHeight: 0
+    lineHeight: '0'
   },
 
   labelWrapper: {
     position: 'absolute',
-    bottom: 0
+    bottom: '0'
   },
 
   label: {
     position: 'absolute',
-    bottom: 0
+    bottom: '0'
   },
 
   indicator: {
     position: 'absolute',
-    inset: 0,
+    inset: '0',
     width: '100%',
     height: '100%',
     borderRadius: '100vw',
-    opacity: 0,
+    opacity: '0',
     transform: 'scaleX(0.74)',
     transition: theme.methods.transitions.make(['opacity', 'transform']),
     pointerEvents: 'none',
@@ -80,17 +80,17 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   },
 
   indicator_entering: {
-    opacity: 1,
+    opacity: '1',
     transform: 'scaleX(1)'
   },
 
   indicator_entered: {
-    opacity: 1,
+    opacity: '1',
     transform: 'scaleX(1)'
   },
 
   indicator_exit: {
-    opacity: 1,
+    opacity: '1',
     transform: 'scaleX(1)'
   },
 

@@ -34,7 +34,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   },
 
   active: {
-    opacity: 1
+    opacity: '1'
   },
 
   disabled: {

@@ -104,19 +104,19 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
 
   divider: {
     '&.AmauiDivider-root': {
-      margin: 0
+      margin: '0'
     }
   },
 
   divider_middle: {
     '&.AmauiDivider-root': {
-      opacity: theme.palette.light ? 0.07 : 0.24
+      opacity: theme.palette.light ? '0.07' : '0.24'
     }
   },
 
   divider_end: {
     '&.AmauiDivider-root': {
-      opacity: theme.palette.light ? 0.14 : 0.4
+      opacity: theme.palette.light ? '0.14' : '0.4'
     }
   },
 }), { name: 'AmauiDrawing' });

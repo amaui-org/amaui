@@ -28,8 +28,8 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
 
   fixed: {
     position: 'fixed',
-    insetBlock: 0,
-    insetInlineStart: 0
+    insetBlock: '0',
+    insetInlineStart: '0'
   },
 
   header: {
@@ -48,8 +48,8 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   divider: {
     position: 'absolute',
     height: '100%',
-    insetBlock: 0,
-    insetInlineEnd: 0,
+    insetBlock: '0',
+    insetInlineEnd: '0',
 
     '&.AmauiDivider-root': {
       margin: '0',

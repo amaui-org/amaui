@@ -114,11 +114,11 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
 
   // Icons
   start: {
-    paddingInlineStart: 0
+    paddingInlineStart: '0px'
   },
 
   end: {
-    paddingInlineEnd: 0
+    paddingInlineEnd: '0px'
   },
 
   fullWidth: {
@@ -204,13 +204,13 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
     display: 'inline-flex',
     alignItems: 'center',
     justifyContent: 'center',
-    lineHeight: 0
+    lineHeight: '0'
   },
 
   // Icon element
   Icon: {
     position: 'relative',
-    lineHeight: 0
+    lineHeight: '0'
   },
 
   start_size_small: {

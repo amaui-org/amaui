@@ -23,7 +23,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
         left: '50%',
         transform: 'translateX(-50%)',
         borderRadius: '5px',
-        opacity: 0.4
+        opacity: '0.4'
       }
     },
 

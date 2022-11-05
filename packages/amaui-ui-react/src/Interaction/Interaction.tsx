@@ -11,7 +11,7 @@ const other = {
   pointerEvents: 'none',
   borderRadius: 'inherit',
   position: 'absolute',
-  inset: 0,
+  inset: '0',
   width: '100%',
   height: '100%'
 };
@@ -63,7 +63,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   wave: {
     ...other,
     inset: 'unset',
-    opacity: 0.1,
+    opacity: '0.1',
     transform: 'scale(0)',
     backgroundColor: 'currentColor',
     transition: theme.methods.transitions.make(['opacity', 'transform'], { duration: 'complex', timing_function: 'standard' }),
@@ -85,12 +85,12 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
     },
 
     '&.exiting': {
-      opacity: 0,
+      opacity: '0',
       transform: 'scale(1)',
     },
 
     '&.exited': {
-      opacity: 0,
+      opacity: '0',
       transform: 'scale(1)',
     }
   },
@@ -113,19 +113,19 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
     },
 
     '&.exiting': {
-      opacity: 0,
+      opacity: '0',
       transform: 'scale(0.7)'
     },
 
     '&.exited': {
-      opacity: 0,
+      opacity: '0',
       transform: 'scale(0.7)'
     }
   },
 
   waveSimple: {
     ...other,
-    opacity: 0.1,
+    opacity: '0.1',
     backgroundColor: 'currentcolor',
     transition: theme.methods.transitions.make(['opacity'], { duration: 'complex', timing_function: 'standard' }),
 
@@ -142,11 +142,11 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
     },
 
     '&.exiting': {
-      opacity: 0,
+      opacity: '0',
     },
 
     '&.exited': {
-      opacity: 0,
+      opacity: '0',
     }
   }
 }), { name: 'AmauiInteraction' });

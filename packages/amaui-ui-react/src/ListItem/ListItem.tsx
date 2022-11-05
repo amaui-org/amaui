@@ -12,9 +12,9 @@ import Expand from '../Expand';
 import List from '../List';
 import Fade from '../Fade';
 import IconButton from '../IconButton';
+import { ISurface } from '../Surface/Surface';
 
 import { staticClassName, TColor, TElement, TElementReference, THTMLElement, TPropsAny, TSize } from '../utils';
-import { ISurface } from '../Surface/Surface';
 
 const overflow = {
   width: '100%',
@@ -29,8 +29,8 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
 
   root: {
     // Reset
-    margin: 0,
-    padding: 0,
+    margin: '0',
+    padding: '0',
     '-webkit-appearance': 'none',
     appearance: 'none',
     border: 'none',
@@ -57,7 +57,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   },
 
   shape_round_position_none: {
-    borderRadius: 0
+    borderRadius: '0'
   },
 
   button: {
@@ -124,7 +124,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
     flexDirection: 'column',
 
     // Fix for white-space: nowrap & flex: 1 1 auto
-    minWidth: 0,
+    minWidth: '0',
     alignSelf: 'center'
   },
 
@@ -139,11 +139,11 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   },
 
   text_primary: {
-    opacity: 1
+    opacity: '1'
   },
 
   text_primary_weight: {
-    fontWeight: 500
+    fontWeight: '500'
   },
 
   text_secondary: {
