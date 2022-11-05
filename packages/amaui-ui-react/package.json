@@ -31,7 +31,7 @@
     "prebuild": "rimraf build",
     "build": "yarn lint && yarn type && cross-env ENV=react node ../../utils/js/build.js",
     "release": "yarn test && yarn build && npm publish ./build",
-    "lint": "eslint . --ext tsx",
+    "lint": "tslint -c ../../tslint.json -p tsconfig.json",
     "type": "tsc --noEmit -p tsconfig.json",
     "cov": "cross-env NODE_ENV=test amaui-test",
     "test:pre": "pm2 update && pm2 delete all && pm2 start ../../utils/js/test/app.js && wait-on http://localhost:4000",
@@ -43,7 +43,7 @@
   },
   "dependencies": {
     "@amaui/date": "^1.0.11425",
-    "@amaui/style-react": "^1.0.11144",
+    "@amaui/style-react": "^1.0.1118",
     "@amaui/subscription": "^1.0.11147",
     "@amaui/utils": "^1.0.11444"
   },
@@ -55,5 +55,8 @@
   "engines": {
     "node": ">=12.0.0",
     "yarn": ">=1.22"
+  },
+  "exports": {
+    ".": "./build/index.js"
   }
 }

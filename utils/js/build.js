@@ -130,6 +130,9 @@ async function makePackage() {
     types: './index.d.ts',
   };
 
+  // Bug fix use of exports
+  delete newPackage.exports;
+
   await fse.writeFile(path.resolve(to, './package.json'), JSON.stringify(newPackage, null, 2), 'utf8');
 
   cache['package'] = newPackage;

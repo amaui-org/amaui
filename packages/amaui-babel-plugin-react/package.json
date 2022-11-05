@@ -37,7 +37,7 @@
     "prebuild": "rimraf build",
     "build": "yarn lint && yarn type && cross-env ENV=babel node ../../utils/js/build.js",
     "release": "yarn test && yarn build && npm publish ./build",
-    "lint": "eslint . --ext tsx",
+    "lint": "tslint -c ../../tslint.json -p tsconfig.json",
     "type": "tsc --noEmit -p tsconfig.json",
     "cov": "cross-env NODE_ENV=test amaui-test",
     "test": "yarn lint && yarn type && yarn build && yarn cov"

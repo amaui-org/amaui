@@ -40,21 +40,21 @@ import IconMaterialFiberManualRecordRounded from '@amaui/icons-material-react/bu
 const useStyleA = style(theme => ({
   a: {
     '&.a-enter': {
-      opacity: 0,
+      opacity: '0'
     },
 
     '&.a-entering': {
-      opacity: 1,
+      opacity: '1',
       transition: theme?.methods.transitions.make(['opacity'], { duration: 'rg', timing_function: 'standard' }),
     },
 
     '&.a-exiting': {
-      opacity: 0,
+      opacity: '0',
       transition: theme?.methods.transitions.make(['opacity'], { duration: 'rg', timing_function: 'standard' }),
     },
 
     '&.a-exited': {
-      opacity: 0,
+      opacity: '0',
       transition: theme?.methods.transitions.make(['opacity'], { duration: 'rg', timing_function: 'standard' }),
     },
   }
@@ -90,7 +90,7 @@ const useStyle = style(theme => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-start',
-    gap: 40,
+    gap: '40px',
     padding: '14vw'
   },
   section: {
@@ -99,11 +99,11 @@ const useStyle = style(theme => ({
     width: '100%'
   },
   h1: {
-    fontSize: 15,
-    fontWeight: 300,
+    fontSize: '15px',
+    fontWeight: '300',
     color: theme?.palette.text?.default?.primary,
     cursor: 'pointer',
-    margin: 0,
+    margin: '0',
     userSelect: 'none'
   },
   auto: {
@@ -115,22 +115,22 @@ const useStyle = style(theme => ({
     flexDirection: 'column',
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
-    paddingTop: 24,
-    gap: 24
+    paddingTop: '24px',
+    gap: '24px'
   },
   row: {
     display: 'flex',
     flexDirection: 'row',
     flexWrap: 'wrap',
     width: '100%',
-    gap: 24
+    gap: '24px'
   },
   column: {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-start',
     width: '100%',
-    gap: 24
+    gap: '24px'
   },
   center: {
     alignItems: 'center'
@@ -143,8 +143,8 @@ const useStyle = style(theme => ({
     }
   },
   div: {
-    width: 140,
-    height: 140,
+    width: '140px',
+    height: '140px',
     background: '#fff5dc'
   },
   a: {
@@ -206,7 +206,7 @@ const useStyle = style(theme => ({
   group: {
     display: 'flex',
     flexDirection: 'column',
-    gap: 24
+    gap: '24px'
   },
 
   tooltip: {
@@ -231,315 +231,315 @@ const styled: any = {
   Carousel: sy(Carousel)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   LinearMeter: sy(LinearMeter)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   Path: sy(Path)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   Watch: sy(Watch)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   RoundMeter: sy(RoundMeter)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   Weather: sy(Weather)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   Drawing: sy(Drawing)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   Countdown: sy(Countdown)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   Timer: sy(Timer)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   RichTextEditor: sy(RichTextEditor)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   Markdown: sy(Markdown)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   MenuDesktop: sy(MenuDesktop)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   DropZone: sy(DropZone)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   FileChoose: sy(FileChoose)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   ImageEdit: sy(ImageEdit)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   ImageCrop: sy(ImageCrop)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   Image: sy(Image)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   WindowSplit: sy(WindowSplit)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   ViewSplit: sy(ViewSplit)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   Masonry: sy(Masonry)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   Tree: sy(Tree)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   Timeline: sy(Timeline)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   Tabs: sy(Tabs)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   ScreenCapture: sy(ScreenCapture)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   Stepper: sy(Stepper)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   ImageList: sy(ImageList)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   SpeedDial: sy(SpeedDial)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   Pagination: sy(Pagination)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   Snackbar: sy(Snackbar)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   Placeholder: sy(Placeholder)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   Table: sy(Table)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   Card: sy(Card)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   TopAppBar: sy(TopAppBar)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   BottomAppBar: sy(BottomAppBar)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   BottomSheet: sy(BottomSheet)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   NavigationDrawer: sy(NavigationDrawer)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   NavigationRail: sy(NavigationRail)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   NavigationBar: sy(NavigationBar)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   Accordion: sy(Accordion)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   ToggleButtons: sy(ToggleButtons)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   Slider: sy(Slider)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   Banner: sy(Banner)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   Grid: sy(Grid)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   Line: sy(Line)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   Container: sy(Container)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
@@ -551,175 +551,175 @@ const styled: any = {
   Rating: sy(Rating)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   AutoComplete: sy(AutoComplete)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   Select: sy(Select)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   Tooltip: sy(Tooltip)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   ListItem: sy(ListItem)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   List: sy(List)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   Label: sy(Label)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   TextField: sy(TextField)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   Switch: sy(Switch)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   Radios: sy(Radios)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   Radio: sy(Radio)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   Checkbox: sy(Checkbox)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   Chips: sy(Chips)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   Chip: sy(Chip)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   Avatar: sy(Avatar)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   AvatarGroup: sy(AvatarGroup)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   Badge: sy(Badge)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   Divider: sy(Divider)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   Modal: sy(Modal)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   Surface: sy(Surface)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   Link: sy(Link)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   Type: sy(Type)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   Fab: sy(Fab)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   IconButton: sy(IconButton)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   LinearProgress: sy(LinearProgress)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
@@ -728,28 +728,28 @@ const styled: any = {
       pointerEvents: 'all',
 
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   Buttons: sy(Buttons)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   Button: sy(Button)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
   IconMaterialPottedPlantRounded: sy(IconMaterialPottedPlantRounded)((theme: AmauiTheme) => ({
     root: {
       '&:hover': {
-        opacity: 0.4
+        opacity: '0.4'
       }
     }
   })),
@@ -780,7 +780,7 @@ const Box1 = () => (
         transition: 'opacity .4s',
 
         '&:hover': {
-          opacity: 0.4
+          opacity: '0.4'
         }
       }
     })}
@@ -800,7 +800,7 @@ const BoxStyled = () => (
         transition: 'opacity .4s',
 
         '&:hover': {
-          opacity: 0.4
+          opacity: '0.4'
         }
       }
     })}

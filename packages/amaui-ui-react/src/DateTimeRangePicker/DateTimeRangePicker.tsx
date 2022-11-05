@@ -287,12 +287,12 @@ const DateTimeRangePicker = React.forwardRef((props__: IDateTimeRangePicker, ref
     const [from, to] = valueNew.split(SEPARATOR);
 
     const amauiDates = [from, to].map(item => {
-      // eslint-disable-next-line
+      // tslint:disable-next-line
       let [date, ...time] = valueNew.split(' ');
 
       time = time.join(' ').replace(/ +/, ' ');
 
-      // eslint-disable-next-line
+      // tslint:disable-next-line
       let [day_, month_, year_] = date.split('/');
 
       if (day_ && day_.startsWith('0')) day_ = day_.slice(1);

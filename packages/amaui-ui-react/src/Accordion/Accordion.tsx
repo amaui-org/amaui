@@ -23,13 +23,13 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
     width: '100%',
 
     '&:first-of-type': {
-      marginTop: 0,
+      marginTop: '0px',
       borderTopLeftRadius: `${theme.shape.radius.unit / 2}px`,
       borderTopRightRadius: `${theme.shape.radius.unit / 2}px`
     },
 
     '&:last-of-type': {
-      marginBottom: 0,
+      marginBottom: '0px',
       borderBottomLeftRadius: `${theme.shape.radius.unit / 2}px`,
       borderBottomRightRadius: `${theme.shape.radius.unit / 2}px`
     }
