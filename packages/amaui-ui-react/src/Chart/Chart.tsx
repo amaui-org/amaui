@@ -295,13 +295,15 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   legend_icon: {
     width: '10px',
     height: '10px',
-    borderRadius: '50%'
+    borderRadius: '50%',
+    boxSizing: 'border-box'
   },
 
   append_icon: {
     width: '8px',
     height: '8px',
-    borderRadius: '50%'
+    borderRadius: '50%',
+    boxSizing: 'border-box'
   },
 
   // Guideline

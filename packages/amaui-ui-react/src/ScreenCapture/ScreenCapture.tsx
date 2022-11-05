@@ -19,7 +19,7 @@ import { ISurface } from '../Surface/Surface';
 const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
     padding: '20px 40px 24px',
-    borderRadius: theme.methods.shape.radius.value('rg')
+    borderRadius: theme.methods.shape.radius.value('rg', 'px')
   },
 
   imageWrapper: {

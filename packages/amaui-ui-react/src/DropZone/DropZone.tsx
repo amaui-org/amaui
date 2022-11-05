@@ -37,7 +37,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
       height: '174px',
       outlineStyle: 'dashed',
       outlineWidth: '3px',
-      borderRadius: theme.methods.shape.radius.value('lg'),
+      borderRadius: theme.methods.shape.radius.value('lg', 'px'),
       cursor: 'pointer'
     }
   }

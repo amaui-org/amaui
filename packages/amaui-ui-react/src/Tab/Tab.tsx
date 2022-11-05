@@ -13,6 +13,18 @@ import { ISurface } from '../Surface/Surface';
 
 const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
+    // Reset
+    fontFamily: 'inherit',
+    '-webkit-appearance': 'none',
+    appearance: 'none',
+    background: 'none',
+    border: 'none',
+    fontSize: '100%',
+    lineHeight: '1.15',
+    margin: '0',
+    overflow: 'visible',
+    textTransform: 'none',
+
     position: 'relative',
     flex: '0 0 auto',
     alignSelf: 'stretch',

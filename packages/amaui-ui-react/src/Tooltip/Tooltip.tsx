@@ -7,9 +7,9 @@ import Grow from '../Grow';
 import Modal from '../Modal';
 import Append from '../Append';
 import Surface from '../Surface';
+import { IModal } from '../Modal/Modal';
 
 import { staticClassName, TColor, TElement, TElementReference, THTMLElement, TMethodTransition, TPropsAny, TTonal } from '../utils';
-import { IModal } from '../Modal/Modal';
 
 const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
@@ -34,7 +34,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   label: {
     ...theme.typography.values.b3,
 
-    borderRadius: clamp(theme.shape.radius.unit / 2, 0, 8),
+    borderRadius: `${clamp(theme.shape.radius.unit / 2, 0, 8)}px`,
     padding: '4px 8px',
     lineHeight: '1.455'
   },
@@ -163,7 +163,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
 
   maxWidth_unset: { maxWidth: `unset` },
 
-  fullWidth: { maxWidth: `${(isEnvironment('browser') ? window.innerWidth : '1400px') - +theme.methods.space.value('rg', '', 1)}px` },
+  fullWidth: { maxWidth: `${(isEnvironment('browser') ? window.innerWidth : 1400) - +theme.methods.space.value('rg', '', 1)}px` },
 
   nowrap: {
     whiteSpace: 'nowrap'

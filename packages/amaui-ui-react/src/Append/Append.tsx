@@ -677,7 +677,12 @@ const Append = (props_: IAppend) => {
 
   const PortalComponentProps: any = {};
 
-  if (portal) PortalComponentProps.element = isEnvironment('browser') && window.document.body;
+  if (portal && isEnvironment('browser')) {
+    PortalComponentProps.element = window.document.body;
+
+    // relative
+    window.document.body.style.position = 'relative';
+  }
 
   return (
     <React.Fragment>

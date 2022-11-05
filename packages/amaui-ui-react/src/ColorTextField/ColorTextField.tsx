@@ -10,11 +10,24 @@ import { staticClassName } from '../utils';
 
 const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
-
+    margin: '0',
+    padding: '0',
+    border: '0',
+    outline: 'none',
+    fontSize: '100%',
+    background: 'transparent',
+    boxSizing: 'border-box',
+    touchAction: 'manipulation',
   },
 
   inputColor: {
-    border: 'none',
+    // Reset
+    margin: '0',
+    border: '0',
+    fontFamily: 'inherit',
+    fontSize: '100%',
+    lineHeight: '1.15',
+
     borderRadius: '50%',
     overflow: 'hidden',
     width: '17px',

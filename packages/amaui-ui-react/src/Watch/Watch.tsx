@@ -28,7 +28,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
 
   version_regular: {
     padding: '24px 40px',
-    borderRadius: theme.methods.shape.radius.value('rg')
+    borderRadius: theme.methods.shape.radius.value('rg', 'px')
   },
 
   shadow_version_regular: {

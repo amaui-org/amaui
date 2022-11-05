@@ -103,7 +103,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
     width: '96px',
     padding: '0',
     paddingTop: '3px',
-    borderRadius: theme.methods.shape.radius.value('sm'),
+    borderRadius: theme.methods.shape.radius.value('sm', 'px'),
     cursor: 'pointer',
     userSelect: 'none',
 

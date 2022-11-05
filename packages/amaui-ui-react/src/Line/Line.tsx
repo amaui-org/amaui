@@ -10,7 +10,8 @@ import { IBaseElement, staticClassName, TPropsAny, TValueBreakpoints, valueBreak
 
 const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
-    display: 'flex'
+    display: 'flex',
+    boxSizing: 'border-box'
   },
 
   // display

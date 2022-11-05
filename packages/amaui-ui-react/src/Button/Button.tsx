@@ -13,6 +13,19 @@ import { iconSizeToFontSize, staticClassName, TElement, TElementReference, TProp
 
 const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
+    // Reset
+    fontFamily: 'inherit',
+    '-webkit-appearance': 'none',
+    appearance: 'none',
+    background: 'none',
+    border: 'none',
+    fontSize: '100%',
+    lineHeight: '1.15',
+    padding: '0',
+    margin: '0',
+    overflow: 'visible',
+    textTransform: 'none',
+
     display: 'inline-flex',
     justifyContent: 'space-around',
     alignItems: 'center',
@@ -23,12 +36,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
     verticalAlign: 'middle',
     userSelect: 'none',
 
-    transition: theme.methods.transitions.make(['color']),
-
-    // Reset
-    '-webkit-appearance': 'none',
-    appearance: 'none',
-    border: 'none'
+    transition: theme.methods.transitions.make(['color'])
   },
 
   // Color

@@ -8,7 +8,13 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
     // reset
     margin: '0',
-    padding: '0'
+    padding: '0',
+    border: '0',
+    outline: 'none',
+    fontSize: '100%',
+    background: 'transparent',
+    boxSizing: 'border-box',
+    touchAction: 'manipulation'
   },
 
   color_inherit: { color: 'inherit' },

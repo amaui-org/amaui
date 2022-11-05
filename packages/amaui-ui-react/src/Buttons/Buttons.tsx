@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is, unique } from '@amaui/utils';
-import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Icon from '../Icon';
 import Transition, { TTransitionStatus } from '../Transition';
@@ -10,10 +10,10 @@ import { ILine } from '../Line/Line';
 
 import { staticClassName, TColor, TSize, TTonal, TVersion } from '../utils';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     position: 'relative',
-    borderRadius: theme.methods.space.value('xl', 'px')
+    borderRadius: theme.methods.shape.radius.value('xl', 'px')
   },
 
   orientation_vertical: {

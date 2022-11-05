@@ -55,21 +55,21 @@ const widgets = [
 ];
 
 root.render(
-  <AmauiStyleProvider value={amauiStyle}>
-    <AmauiThemeProvider>
-      <MainProgress>
-        <Confirm>
-          <Snackbars>
-            <Widgets
-              widgets={widgets}
-            >
-              <App />
-            </Widgets>
-          </Snackbars>
-        </Confirm>
-      </MainProgress>
-    </AmauiThemeProvider>
-  </AmauiStyleProvider>
+  // <AmauiStyleProvider value={amauiStyle}>
+  <AmauiThemeProvider>
+    <MainProgress>
+      <Confirm>
+        <Snackbars>
+          <Widgets
+            widgets={widgets}
+          >
+            <App />
+          </Widgets>
+        </Snackbars>
+      </Confirm>
+    </MainProgress>
+  </AmauiThemeProvider>
+  // </AmauiStyleProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

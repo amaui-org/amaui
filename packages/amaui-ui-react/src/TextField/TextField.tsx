@@ -70,6 +70,11 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
     // Reset
     margin: '0',
     border: '0',
+    fontFamily: 'inherit',
+    fontSize: '100%',
+    lineHeight: '1.15',
+    overflow: 'visible',
+    boxSizing: 'border-box',
 
     display: 'flex',
     flexDirection: 'row',
