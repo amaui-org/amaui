@@ -97,6 +97,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
     // Reset
     margin: '0',
     border: '0',
+    outline: 'none',
 
     color: theme.palette.text.default.primary,
     background: 'transparent',
