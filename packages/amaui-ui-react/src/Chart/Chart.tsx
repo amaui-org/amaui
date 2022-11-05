@@ -133,11 +133,13 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   },
 
   label_x: {
-    transform: 'translateX(-50%)'
+    transform: 'translateX(-50%)',
+    top: '0'
   },
 
   label_y: {
-    transform: 'translateY(50%)'
+    transform: 'translateY(50%)',
+    right: '0'
   },
 
   marks: {
@@ -163,12 +165,14 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   mark_x: {
     width: '1px',
     height: '7px',
+    top: '0',
     background: 'currentColor'
   },
 
   mark_y: {
     width: '7px',
     height: '1px',
+    right: '0',
     background: 'currentColor'
   },
 

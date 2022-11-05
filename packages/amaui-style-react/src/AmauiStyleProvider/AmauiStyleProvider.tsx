@@ -25,7 +25,15 @@ export interface IAmauiStyleProvider extends AmauiStyle {
 }
 
 const AmauiStyleProvider = React.forwardRef((props: any, ref: any) => {
-  const { children, value: value_, ...other } = props;
+  const {
+    root = false,
+
+    value: value_,
+
+    children,
+
+    ...other
+  } = props;
 
   const refs = {
     root: React.useRef<HTMLElement>()
@@ -70,8 +78,10 @@ const AmauiStyleProvider = React.forwardRef((props: any, ref: any) => {
   // Update method
   value.updateWithRerender = update;
 
-  return (
-    <AmauiStyleContext.Provider value={value}>
+  if (root) return (
+    <AmauiStyleContext.Provider
+      value={value}
+    >
       <div
         ref={item => {
           refs.root.current = item;
@@ -83,6 +93,14 @@ const AmauiStyleProvider = React.forwardRef((props: any, ref: any) => {
       >
         {children}
       </div>
+    </AmauiStyleContext.Provider>
+  );
+
+  return (
+    <AmauiStyleContext.Provider
+      value={value}
+    >
+      {children}
     </AmauiStyleContext.Provider>
   );
 });

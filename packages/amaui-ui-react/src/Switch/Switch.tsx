@@ -105,6 +105,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
     height: '100%',
     border: `2px solid`,
     borderColor: theme.palette.text.default.secondary,
+    boxSizing: 'border-box',
     borderRadius: 'inherit',
     transition: theme.methods.transitions.make(['opacity'], { duration: 'sm' })
   },

@@ -320,6 +320,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
     display: 'inline-flex',
     height: '11px',
     width: 'auto',
+    padding: '0px',
     maxWidth: '0.001px',
     whiteSpace: 'nowrap',
     visibility: 'hidden',

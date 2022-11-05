@@ -32,7 +32,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
     width: '1em',
     height: '1em',
     border: '0.12em solid currentColor',
-    borderRadius: `calc(${theme.shape.radius.unit / 8} * 0.5em)`
+    borderRadius: `calc(${theme.shape.radius.unit / 8} * 0.75em)`
   },
 
   iconDot: {
@@ -44,7 +44,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
     width: '100%',
     height: '100%',
     background: 'currentColor',
-    borderRadius: `calc(${theme.shape.radius.unit / 8} * 0.5em)`,
+    borderRadius: `calc(${theme.shape.radius.unit / 8} * 0.75em)`,
     zIndex: '3',
     transform: 'scale(0)',
     transition: theme.methods.transitions.make('transform', { duration: 'xxs' })
