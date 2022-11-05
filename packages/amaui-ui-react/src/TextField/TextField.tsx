@@ -1,15 +1,16 @@
 import React from 'react';
 
-import { clamp, is, isEnvironment, TMethod } from '@amaui/utils';
+import { clamp, is, isEnvironment } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import Type from '../Type';
 
-import { IBaseElement, staticClassName, TChildren, TColor, TElement, TElementReference, TPropsAny, TRef, TSize, TStyle, TTonal, TVersion } from '../utils';
+import { IBaseElement, staticClassName, TColor, TElement, TElementReference, TPropsAny, TRef, TSize, TTonal, TVersion } from '../utils';
 
 const other_ = {
   pointerEvents: 'none',
   borderRadius: 'inherit',
+  boxSizing: 'border-box',
   position: 'absolute',
   inset: '0',
   width: '100%',

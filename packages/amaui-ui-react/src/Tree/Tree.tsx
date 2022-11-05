@@ -37,6 +37,14 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   },
 
   main: {
+    // Reset
+    fontFamily: 'inherit',
+    background: 'none',
+    border: 'none',
+    fontSize: '100%',
+    lineHeight: '1.15',
+    margin: '0',
+
     position: 'relative',
     color: 'inherit',
     padding: '2px 8px',
@@ -71,6 +79,19 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   },
 
   button: {
+    // Reset
+    fontFamily: 'inherit',
+    '-webkit-appearance': 'none',
+    appearance: 'none',
+    background: 'none',
+    border: 'none',
+    fontSize: '100%',
+    lineHeight: '1.15',
+    padding: '0',
+    margin: '0',
+    overflow: 'visible',
+    textTransform: 'none',
+
     userSelect: 'none',
     cursor: 'pointer'
   },

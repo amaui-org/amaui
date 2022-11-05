@@ -36,6 +36,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
     border: 'none',
     textDecoration: 'none',
     color: 'inherit',
+    boxSizing: 'border-box',
 
     position: 'relative',
     display: 'inline-flex',
