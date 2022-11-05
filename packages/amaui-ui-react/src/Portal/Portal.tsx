@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { is } from '@amaui/utils';
-import { useAmauiTheme } from '@amaui/style-react';
+import { useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import { IBaseElement } from '../utils';
 
@@ -26,7 +26,7 @@ const Portal = React.forwardRef((props_: IPortal, ref: any) => {
   return (
     ReactDOM.createPortal(
       React.cloneElement(children as any, {
-        ref: item => {
+        ref: (item: any) => {
           if (ref) {
             if (is('function', ref)) ref(item);
             else ref.current = item;

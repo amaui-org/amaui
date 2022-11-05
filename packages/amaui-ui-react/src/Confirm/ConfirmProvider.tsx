@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is, TMethod, setObjectValue } from '@amaui/utils';
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import Button from '../Button';
 import ConfirmContext from './ConfirmContext';
@@ -46,7 +46,7 @@ export interface IConfirmProvider {
   close: (confirmed?: boolean) => void;
 }
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
 
   }

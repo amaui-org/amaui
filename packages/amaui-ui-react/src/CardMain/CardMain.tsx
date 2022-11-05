@@ -1,13 +1,13 @@
 import React from 'react';
 
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import Line from '../Line';
 import { ILine } from '../Line/Line';
 
 import { staticClassName, TColor, TElevation, TTonal, TVersion } from '../utils';
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
     margin: '24px'
   }

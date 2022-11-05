@@ -1,13 +1,13 @@
 import React from 'react';
 
 import { is } from '@amaui/utils';
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import { IBaseElement, staticClassName, TColor, TPropsAny, TSize, TTonal } from '../utils';
 
 const noShrinkStrokeDashOffset = 194;
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   '@keyframes spin': {
     '0%': {
       transform: 'rotate(0deg)'

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is } from '@amaui/utils';
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 import { AmauiDate, format as formatMethod, set, is as isMethod } from '@amaui/date';
 
 import useMediaQuery from '../useMediaQuery';
@@ -22,7 +22,7 @@ import { IAdvancedTextField } from '../AdvancedTextField/AdvancedTextField';
 
 import { staticClassName, TColor, TElement, TElementReference, TPropsAny, TTonal, TValueBreakpoints, valueBreakpoints } from '../utils';
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
 
   },
@@ -303,12 +303,12 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
   };
 
   const updateInput = (valueNew: any) => {
-    // tslint:disable-next-line
+    // eslint-disable-next-line
     let [date, ...time] = valueNew.split(' ');
 
     time = time.join(' ').replace(/ +/, ' ');
 
-    // tslint:disable-next-line
+    // eslint-disable-next-line
     let [day_, month_, year_] = date.split('/');
 
     if (day_ && day_.startsWith('0')) day_ = day_.slice(1);
@@ -317,7 +317,6 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
 
     const [timeValue, dayTime] = time.split(' ');
 
-    // tslint:disable-next-line
     let [hour_, minute_, second_] = timeValue.split(':');
 
     if (hour_ && hour_.startsWith('0')) hour_ = hour_.slice(1);
@@ -386,7 +385,7 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
   }
 
   if (month) {
-    if (!!mask.length) mask.push('/');
+    if (mask.length) mask.push('/');
 
     mask.push(
       { pattern: '[0-1]' },
@@ -398,7 +397,7 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
   }
 
   if (year) {
-    if (!!mask.length) mask.push('/');
+    if (mask.length) mask.push('/');
 
     mask.push(
       { pattern: '[1-2]' },
@@ -752,7 +751,7 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
   }
 
   if (version === 'static') {
-    if (versionStatic !== undefined) return 'desktop' ? <ModeDesktop /> : <ModeMobile />;
+    if (versionStatic !== undefined) return versionStatic === 'desktop' ? <ModeDesktop /> : <ModeMobile />;
 
     if (touch) return <ModeDesktop />;
 

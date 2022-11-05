@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is, clamp, numberWithCommas } from '@amaui/utils';
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import AdvancedTextField from '../AdvancedTextField';
 import IconButton from '../IconButton';
@@ -10,7 +10,7 @@ import { IAdvancedTextField } from '../AdvancedTextField/AdvancedTextField';
 
 import { staticClassName, TElementReference, TPropsAny } from '../utils';
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
 
   }

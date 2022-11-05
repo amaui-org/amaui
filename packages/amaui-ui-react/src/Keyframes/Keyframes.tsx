@@ -2,7 +2,7 @@ import React from 'react';
 
 import { is, wait } from '@amaui/utils';
 import AmauiSubscription from '@amaui/subscription';
-import { classNames, useAmauiTheme, TTransitionsDurationProperties } from '@amaui/style-react';
+import { classNames, useAmauiTheme, TTransitionsDurationProperties, AmauiTheme } from '@amaui/style-react';
 
 import KeyframesContext from './KeyframesContext';
 
@@ -264,7 +264,7 @@ function Keyframes(props_: IKeyframes) {
           children(status, refs.root) :
 
           React.cloneElement(children, {
-            ref: item => {
+            ref: (item: any) => {
               if (ref) {
                 if (is('function', ref)) (ref as any)(item);
                 else ref.current = item;

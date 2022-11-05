@@ -1,11 +1,11 @@
 import React from 'react';
 
 import { TValue } from '@amaui/style';
-import { style as styleMethod, classNames, useAmauiTheme, className as classNameMethod } from '@amaui/style-react';
+import { style as styleMethod, classNames, useAmauiTheme, className as classNameMethod, AmauiTheme } from '@amaui/style-react';
 
 import { IBaseElement, staticClassName } from '../utils';
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
 
   }

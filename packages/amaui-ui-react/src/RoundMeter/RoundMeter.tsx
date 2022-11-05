@@ -1,13 +1,13 @@
 import React from 'react';
 
 import { clamp, is, parse, valueFromPercentageWithinRange } from '@amaui/utils';
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import Surface from '../Surface';
 
 import { angleToCoordinates, IBaseElement, staticClassName, TColor, TElement, TPropsAny, TSize, TStyle, TTonal } from '../utils';
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
     width: '100%'
   },

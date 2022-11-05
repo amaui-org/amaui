@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { clamp, is } from '@amaui/utils';
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import Modal from '../Modal';
 import Slide from '../Slide';
@@ -11,7 +11,7 @@ import { IModal } from '../Modal/Modal';
 
 import { staticClassName, TMethodTransition, TPropsAny } from '../utils';
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
     '& .AmauiModal-surface': {
       display: 'flex',

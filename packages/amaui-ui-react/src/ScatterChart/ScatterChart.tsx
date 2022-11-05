@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is } from '@amaui/utils';
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import Chart from '../Chart';
 import Line from '../Line';
@@ -20,7 +20,7 @@ export interface IItem {
   values: Array<[number, number]>;
 }
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
 
   },
@@ -36,7 +36,9 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiAreaChart' });
 
-export interface IScatterChart extends IChart { }
+export interface IScatterChart extends IChart {
+
+}
 
 const ScatterChart = React.forwardRef((props_: IScatterChart, ref: any) => {
   const theme = useAmauiTheme();

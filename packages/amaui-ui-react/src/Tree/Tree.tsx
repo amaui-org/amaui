@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { clamp, is } from '@amaui/utils';
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import Checkbox from '../Checkbox';
 import Surface from '../Surface';
@@ -14,7 +14,7 @@ import Icon from '../Icon';
 
 import { IBaseElement, staticClassName, TElement, TElementReference, TPropsAny } from '../utils';
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
     position: 'relative'
   },
@@ -230,6 +230,8 @@ const Tree = React.forwardRef((props_: ITree, ref: any) => {
     if (level === 0) {
       let allElements = [];
 
+      let index = 0;
+
       if (['ArrowUp', 'ArrowDown'].includes(event.key)) {
         allElements = Array.from(refs.root.current.querySelectorAll(`[tabindex='0']`));
       }
@@ -237,7 +239,7 @@ const Tree = React.forwardRef((props_: ITree, ref: any) => {
       switch (event.key) {
         case 'ArrowUp':
         case 'ArrowDown':
-          let index = clamp(allElements.findIndex(item => item === window.document.activeElement), 0);
+          index = clamp(allElements.findIndex(item => item === window.document.activeElement), 0);
 
           event.key === 'ArrowDown' ? index++ : index--;
 

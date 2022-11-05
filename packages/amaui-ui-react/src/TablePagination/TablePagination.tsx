@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { clamp, is } from '@amaui/utils';
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import Line from '../Line';
 import Type from '../Type';
@@ -13,7 +13,7 @@ import { ILine } from '../Line/Line';
 
 import { staticClassName, TColor, TElementReference, TSize, TTonal, TVersion } from '../utils';
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
 
   },

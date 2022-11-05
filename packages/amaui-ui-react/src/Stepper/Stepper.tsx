@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import Divider from '../Divider';
 import Line from '../Line';
@@ -8,7 +8,7 @@ import { ILine } from '../Line/Line';
 
 import { staticClassName, TColor, TPropsAny, TTonal, TVersion } from '../utils';
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
 
   },

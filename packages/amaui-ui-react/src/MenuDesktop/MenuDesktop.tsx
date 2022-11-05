@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is } from '@amaui/utils';
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import Grow from '../Grow';
 import Append from '../Append';
@@ -16,7 +16,7 @@ import Icon from '../Icon';
 import { staticClassName, TColor, TElement, TElementReference, TPropsAny, TStyle, TTonal, TVersion } from '../utils';
 import { ILine } from '../Line/Line';
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
     position: 'relative'
   },
@@ -302,7 +302,7 @@ const MenuDesktop = React.forwardRef((props_: IMenuDesktop, ref: any) => {
   };
 
   const updateOpen = (value__: any) => {
-    if (!!value__) {
+    if (value__) {
       const item = refs.props.current.items.find(item_ => item_.value === value__);
 
       if (item) {

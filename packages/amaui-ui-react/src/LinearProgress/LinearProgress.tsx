@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { clamp, is } from '@amaui/utils';
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import { IBaseElement, staticClassName, TColor, TTonal } from '../utils';
 
@@ -13,7 +13,7 @@ const other_ = {
 };
 
 // @keyframes's for line, line1, inner and inner1 source: https://github.com/material-components/material-components-web/blob/master/packages/mdc-linear-progress/_keyframes.scss
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   '@keyframes line': {
     '0%': {
       transform: 'translateX(0)'

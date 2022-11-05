@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is, unique } from '@amaui/utils';
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import Icon from '../Icon';
 import Menu from '../Menu';
@@ -18,7 +18,7 @@ import { ITextField } from '../TextField/TextField';
 
 import { staticClassName, TElement, TElementReference, TPropsAny } from '../utils';
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
     width: '100%',
     flex: 'unset',
@@ -495,7 +495,7 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
 
         if (is('number', limit) && !open) values = values.slice(0, limit);
 
-        values = (values as any).map(item => {
+        values = (values as any).map((item: any, index: number) => {
           const other_ = {
             key: item,
 
@@ -518,6 +518,8 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
 
           return (
             <Chip
+              key={index}
+
               {...other_}
             >
               {renderValue(item)}
@@ -565,7 +567,7 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
 
     optionsToUse = [];
 
-    if (!!Object.keys(groups).length) Object.keys(groups).forEach(item => {
+    if (Object.keys(groups).length) Object.keys(groups).forEach(item => {
       const array = groups[item];
 
       optionsToUse.push({ label: item, version: 'subheader' }, ...array);
@@ -631,7 +633,7 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
   };
 
   const renderList = () => {
-    if (!!Object.keys(groups).length) {
+    if (Object.keys(groups).length) {
       return (
         Object.keys(groups).map((item: any, index: number) => (
           <li
@@ -667,6 +669,8 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
     ...(!readOnly ? [
       ...(loading ? [
         <RoundProgress
+          key={1}
+
           className={classes.roundProgress}
 
           size='small'
@@ -682,6 +686,8 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
       ),
 
       <IconButton
+        key={3}
+
         onClick={onClickArrowDown}
 
         InteractionProps={{
@@ -904,7 +910,7 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
                   style: {
                     minWidth: rects?.root?.width
                   }
-                }
+                };
               }
             } : undefined)
           }}

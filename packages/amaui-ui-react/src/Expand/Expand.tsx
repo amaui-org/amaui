@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is } from '@amaui/utils';
-import { useAmauiTheme } from '@amaui/style-react';
+import { useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import { ITransition, TPropsAny, Transition, TTransitionStatus } from '..';
 
@@ -140,7 +140,7 @@ const Expand = React.forwardRef((props_: IExpand, ref: any) => {
     return allStyles[status];
   };
 
-  const timeout = (status: TTransitionStatus, property: string = 'opacity') => {
+  const timeout = (status: TTransitionStatus, property = 'opacity') => {
     const properties = {
       [prop]: theme.transitions.duration.rg
     };
@@ -182,7 +182,7 @@ const Expand = React.forwardRef((props_: IExpand, ref: any) => {
 
           className,
 
-          ref: item => {
+          ref: (item: any) => {
             refs.root.current = item;
 
             if (ref) {

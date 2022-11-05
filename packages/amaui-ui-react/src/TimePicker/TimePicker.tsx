@@ -2,7 +2,7 @@ import React from 'react';
 
 import { is, unique, getLeadingZerosNumber, clamp } from '@amaui/utils';
 import { AmauiDate, format as formatMethod, set, is as isMethod } from '@amaui/date';
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import Icon from '../Icon';
 import IconButton from '../IconButton';
@@ -24,7 +24,7 @@ import { IAdvancedTextField } from '../AdvancedTextField/AdvancedTextField';
 
 import { staticClassName, TElementReference, TPropsAny, TValueBreakpoints, valueBreakpoints } from '../utils';
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
 
   },
@@ -548,7 +548,7 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
     updateValue(amauiDate);
   };
 
-  const validItem = (item: number | string = '', version__: string = '', values__ = refs.values.current) => {
+  const validItem = (item: number | string = '', version__ = '', values__ = refs.values.current) => {
     const values_ = {
       ...values__
     };
@@ -840,6 +840,8 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
     const buttons = [
       <Button
+        key={0}
+
         {...buttonProps}
 
         selected={refs.values.current.selecting === 'hour'}
@@ -1405,6 +1407,8 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
     const inputs = [
       <AdvancedTextField
+        key={0}
+
         helperText='Hour'
 
         value={refs.values.current.hour}

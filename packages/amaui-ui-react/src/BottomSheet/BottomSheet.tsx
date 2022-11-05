@@ -1,13 +1,13 @@
 import React from 'react';
 
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import NavigationDrawer from '../NavigationDrawer';
 import { INavigationDrawer } from '../NavigationDrawer/NavigationDrawer';
 
 import { staticClassName } from '../utils';
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
     '&.AmauiModal-root .AmauiModal-surface': {
       paddingTop: '50px',
@@ -36,7 +36,9 @@ const useStyle = styleMethod(theme => ({
   },
 }), { name: 'AmauiBottomSheet' });
 
-export interface IBottomSheet extends INavigationDrawer { }
+export interface IBottomSheet extends INavigationDrawer {
+
+}
 
 const BottomSheet = React.forwardRef((props_: IBottomSheet, ref: any) => {
   const theme = useAmauiTheme();

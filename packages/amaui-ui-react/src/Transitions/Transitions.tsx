@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is, unique } from '@amaui/utils';
-import { useAmauiTheme } from '@amaui/style-react';
+import { useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import { STATUS, TPropsAny, TTransitionStatus } from '..';
 

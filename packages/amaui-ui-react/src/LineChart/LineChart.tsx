@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { copy, is, percentageFromValueWithinRange, valueFromPercentageWithinRange } from '@amaui/utils';
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import Chart from '../Chart';
 import Path from '../Path';
@@ -12,7 +12,7 @@ import useMediaQuery from '../useMediaQuery';
 import { controlPoint, staticClassName, valueBreakpoints } from '../utils';
 import { IChart } from '../Chart/Chart';
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
     '& .AmauiChart-legend-icon': {
       width: '11px',
@@ -235,7 +235,7 @@ const LineChart = React.forwardRef((props_: ILineChart, ref: any) => {
 
     // invert y so 0, 0 is at bottom left
     if (refs.rects.current && values) {
-      const { width, height } = refs.rects.current?.wrapper;
+      const { width, height } = refs.rects.current.wrapper;
 
       // Legend
       const legend_ = values.map((item: any) => {

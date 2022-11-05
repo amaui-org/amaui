@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is } from '@amaui/utils';
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import Grow from '../Grow';
 import Icon from '../Icon';
@@ -13,7 +13,7 @@ import Line from '../Line';
 import { IBaseElement, staticClassName, TElement, TElementReference, TPropsAny, TSize } from '../utils';
 import { ISurface } from '../Surface/Surface';
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
     minWidth: '340px',
     minHeight: '50px',

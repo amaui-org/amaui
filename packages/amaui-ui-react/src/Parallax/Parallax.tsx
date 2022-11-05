@@ -1,13 +1,13 @@
 import React from 'react';
 
 import { is, clamp } from '@amaui/utils';
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import useMediaQuery from '../useMediaQuery';
 
 import { IBaseElement, staticClassName, TPropsAny, TStyle, TValueBreakpoints, valueBreakpoints } from '../utils';
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
 
   }
@@ -183,7 +183,7 @@ const Parallax = React.forwardRef((props_: IParallax, ref: any) => {
           classes.root
         ]),
 
-        ref: item => {
+        ref: (item: any) => {
           if (ref) {
             if (is('function', ref)) ref(item);
             else ref.current = item;

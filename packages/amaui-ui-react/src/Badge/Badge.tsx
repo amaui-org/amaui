@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import Surface from '../Surface';
 
 import { IBaseElement, staticClassName, TColor, TTonal } from '../utils';
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
     display: 'inline-flex',
     position: 'relative'

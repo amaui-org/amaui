@@ -1,13 +1,13 @@
 import React from 'react';
 
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import ListItem from '../ListItem';
 import { IListItem } from '../ListItem/ListItem';
 
 import { staticClassName } from '../utils';
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
     top: 0,
     position: 'sticky',

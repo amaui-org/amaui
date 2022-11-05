@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { getID, is } from '@amaui/utils';
-import { style as styleMethod, classNames, useAmauiTheme } from '@amaui/style-react';
+import { style as styleMethod, classNames, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import Tooltip from '../Tooltip';
 import ClickListener from '../ClickListener';
@@ -10,7 +10,7 @@ import { ITooltip } from '../Tooltip/Tooltip';
 
 import { staticClassName, TPropsAny } from '../utils';
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
 
   }

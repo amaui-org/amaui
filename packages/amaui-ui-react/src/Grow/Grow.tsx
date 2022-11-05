@@ -110,7 +110,7 @@ const Grow = React.forwardRef((props_: IGrow, ref: any) => {
     return allStyles[status];
   };
 
-  const timeout = (status: TTransitionStatus, property: string = 'opacity') => {
+  const timeout = (status: TTransitionStatus, property = 'opacity') => {
     const properties = {
       opacity: theme.transitions.duration.sm,
       transform: theme.transitions.duration.xs
@@ -129,7 +129,7 @@ const Grow = React.forwardRef((props_: IGrow, ref: any) => {
         return React.cloneElement(children as any, {
           ...other,
 
-          ref: item => {
+          ref: (item: any) => {
             refs.root.current = item;
 
             if (ref) {

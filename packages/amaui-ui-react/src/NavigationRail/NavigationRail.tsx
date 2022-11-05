@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is } from '@amaui/utils';
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import Line from '../Line';
 import Surface from '../Surface';
@@ -11,7 +11,7 @@ import { ISurface } from '../Surface/Surface';
 
 import { staticClassName, TElement, TPropsAny, TSize } from '../utils';
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
     zIndex: theme.z_index.app_bar,
     height: '100%',

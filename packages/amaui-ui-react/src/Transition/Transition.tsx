@@ -2,7 +2,7 @@ import React from 'react';
 
 import { is, wait } from '@amaui/utils';
 import AmauiSubscription from '@amaui/subscription';
-import { classNames, useAmauiTheme, TTransitionsDurationProperties } from '@amaui/style-react';
+import { classNames, useAmauiTheme, TTransitionsDurationProperties, AmauiTheme } from '@amaui/style-react';
 
 import TransitionContext from './TransitionContext';
 import { IBaseElement, reflow } from '../utils';
@@ -475,7 +475,7 @@ function Transition(props_: ITransition) {
           (children as any)(status, refs.root) :
 
           React.cloneElement(children as any, {
-            ref: item => {
+            ref: (item: any) => {
               if (ref) {
                 if (is('function', ref)) ref(item);
                 else ref.current = item;

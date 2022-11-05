@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is } from '@amaui/utils';
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import FileChoose from '../FileChoose';
 import Surface from '../Surface';
@@ -13,7 +13,7 @@ import { IFileChoose } from '../FileChoose/FileChoose';
 
 import { staticClassName, TElement, TVersion } from '../utils';
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
 
   },

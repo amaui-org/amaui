@@ -1,13 +1,13 @@
 import React from 'react';
 
-import { classNames, IColor, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, IColor, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import Type from '../Type';
 
 import { staticClassName, TColor } from '../utils';
 import { IType } from '../Type/Type';
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
     position: 'relative',
     display: 'inline-flex',

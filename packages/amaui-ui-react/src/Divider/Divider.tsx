@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import Type from '../Type';
 import Surface from '../Surface';
@@ -8,7 +8,7 @@ import Surface from '../Surface';
 import { staticClassName } from '../utils';
 import { ISurface } from '../Surface/Surface';
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
     // Reset
     margin: 0,

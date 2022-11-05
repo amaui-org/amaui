@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import Surface from '../Surface';
 import Divider from '../Divider';
@@ -9,7 +9,7 @@ import { ILine } from '../Line/Line';
 
 import { staticClassName, TElement, TElementReference, TPropsAny } from '../utils';
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
     '&:last-of-type': {
       '& $divider': {

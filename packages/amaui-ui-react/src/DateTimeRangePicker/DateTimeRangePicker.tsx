@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is } from '@amaui/utils';
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 import { AmauiDate, format as formatMethod, set, is as isMethod } from '@amaui/date';
 
 import useMediaQuery from '../useMediaQuery';
@@ -22,7 +22,7 @@ import { IDateTimePicker } from '../DateTimePicker/DateTimePicker';
 
 import { staticClassName, TPropsAny, valueBreakpoints } from '../utils';
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
 
   },
@@ -287,12 +287,12 @@ const DateTimeRangePicker = React.forwardRef((props__: IDateTimeRangePicker, ref
     const [from, to] = valueNew.split(SEPARATOR);
 
     const amauiDates = [from, to].map(item => {
-      // tslint:disable-next-line
+      // eslint-disable-next-line
       let [date, ...time] = valueNew.split(' ');
 
       time = time.join(' ').replace(/ +/, ' ');
 
-      // tslint:disable-next-line
+      // eslint-disable-next-line
       let [day_, month_, year_] = date.split('/');
 
       if (day_ && day_.startsWith('0')) day_ = day_.slice(1);
@@ -373,7 +373,7 @@ const DateTimeRangePicker = React.forwardRef((props__: IDateTimeRangePicker, ref
   }
 
   if (month) {
-    if (!!mask.length) mask.push('/');
+    if (mask.length) mask.push('/');
 
     mask.push(
       { pattern: '[0-1]' },
@@ -385,7 +385,7 @@ const DateTimeRangePicker = React.forwardRef((props__: IDateTimeRangePicker, ref
   }
 
   if (year) {
-    if (!!mask.length) mask.push('/');
+    if (mask.length) mask.push('/');
 
     mask.push(
       { pattern: '[1-2]' },

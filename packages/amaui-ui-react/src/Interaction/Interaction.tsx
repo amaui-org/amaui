@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is, getID, debounce } from '@amaui/utils';
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import { Transition, Transitions, TTransitionStatus } from '..';
 
@@ -16,7 +16,7 @@ const other = {
   height: '100%'
 };
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   '@keyframes pulse': {
     '0%': {
       transform: 'scale(0.77)'
@@ -370,7 +370,7 @@ const Interaction = React.forwardRef((props_: IInteraction, ref: any) => {
     if (refs.pulse.current && !refs.props.current.disabled) {
       // Remove previous wave
       // if there is one
-      if (!!waves.length) removeWaves();
+      if (waves.length) removeWaves();
 
       const root = (refs.root.current.parentNode as any).getBoundingClientRect() as DOMRect;
       const w = root.width;

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is, unique } from '@amaui/utils';
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import SpeedDial from '../SpeedDial';
 import SpeedDialItem from '../SpeedDialItem';
@@ -22,7 +22,7 @@ export interface IWidgetsProvider {
   closeAll: () => void;
 }
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
     width: '100%',
     padding: '0 104px',

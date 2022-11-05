@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is, element, TMethod } from '@amaui/utils';
-import { useAmauiTheme } from '@amaui/style-react';
+import { useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import { IBaseElement, matches, THTMLElement } from '../utils';
 
@@ -95,7 +95,7 @@ const ClickListener = React.forwardRef((props_: IClickListener, ref: any) => {
     <React.Fragment>
       {children && (
         React.cloneElement(children as any, {
-          ref: item => {
+          ref: (item: any) => {
             if (ref) {
               if (is('function', ref)) ref(item);
               else ref.current = item;

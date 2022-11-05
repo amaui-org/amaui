@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is } from '@amaui/utils';
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import Surface from '../Surface';
 import Fade from '../Fade';
@@ -14,7 +14,7 @@ import Type from '../Type';
 
 import { IBaseElement, staticClassName, TColor, TElement, TElementReference, TElevation, TPropsAny, TTonal } from '../utils';
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
     position: 'relative',
     display: 'flex',

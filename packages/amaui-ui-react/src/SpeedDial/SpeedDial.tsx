@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is, clamp } from '@amaui/utils';
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import Zoom from '../Zoom';
 import Fade from '../Fade';
@@ -13,7 +13,7 @@ import { ILine } from '../Line/Line';
 
 import { staticClassName, TColor, TElement, TElementReference, TPropsAny, TTonal, TVersion } from '../utils';
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
     position: 'fixed',
     zIndex: theme.z_index.modal

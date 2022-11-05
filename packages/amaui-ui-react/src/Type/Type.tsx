@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { classNames, style as styleMethod, TTypographyItem, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, TTypographyItem, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import { IBaseElement, staticClassName } from '../utils';
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
     // reset
     margin: '0',

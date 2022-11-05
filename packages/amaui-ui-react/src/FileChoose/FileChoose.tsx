@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is, to } from '@amaui/utils';
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import Type from '../Type';
 import Button from '../Button';
@@ -12,7 +12,7 @@ import Icon from '../Icon';
 
 import { IBaseElement, staticClassName, TColor, TElementReference, TPropsAny, TRef, TTonal } from '../utils';
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
     position: 'relative'
   },

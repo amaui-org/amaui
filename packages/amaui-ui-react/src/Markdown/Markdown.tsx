@@ -1,11 +1,11 @@
 import React from 'react';
 
 import { is } from '@amaui/utils';
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import { IBaseElement, staticClassName, TStyle } from '../utils';
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
     '& dt': {
       marginTop: '16px',
@@ -140,7 +140,7 @@ const useStyle = styleMethod(theme => ({
 
 }), { name: 'AmauiMarkdown' });
 
-const escapeRegExp = (value: string) => value.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+const escapeRegExp = (value: string) => value.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&');
 
 export interface IMarkdown extends IBaseElement {
   value?: string;
@@ -265,14 +265,14 @@ const Markdown = React.forwardRef((props_: IMarkdown, ref: any) => {
 
             return `<hr${addClassName('hr')}${addStyle('hr')}/>`;
           })
-          .replace(/^ *\-{3}$/gm, (match, ...args) => {
+          .replace(/^ *-{3}$/gm, (match, ...args) => {
             const valueRender = is('function', render) ? render('hr', addClassName('hr'), addStyle('hr'), match, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
             return `<hr${addClassName('hr')}${addStyle('hr')}/>`;
           })
-          .replace(/^ *\_{3}$/gm, (match, ...args) => {
+          .replace(/^ *_{3}$/gm, (match, ...args) => {
             const valueRender = is('function', render) ? render('hr', addClassName('hr'), addStyle('hr'), match, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
@@ -342,7 +342,7 @@ const Markdown = React.forwardRef((props_: IMarkdown, ref: any) => {
             return `<h6${addClassName('h6')}${addStyle('h6')}>${a1}</h6>`;
           })
           // tables
-          .replace(/ *\|?([^\|\n]+(\|[^\|\n]+)+ *\|?(\n *\|? *:?\-{3,}:? *(\| *:?\-{3,}:? *)+ *\|?)(\n *\|?([^\|\n]+(\|[^\|\n]+)+) *\|?)*)/g, (match, ...args) => {
+          .replace(/ *\|?([^|\n]+(\|[^|\n]+)+ *\|?(\n *\|? *:?-{3,}:? *(\| *:?-{3,}:? *)+ *\|?)(\n *\|?([^|\n]+(\|[^|\n]+)+) *\|?)*)/g, (match, ...args) => {
             const valueRender = is('function', render) ? render('table', addClassName('table'), addStyle('table'), match, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
@@ -372,7 +372,7 @@ const Markdown = React.forwardRef((props_: IMarkdown, ref: any) => {
 
             return `<ul${addClassName('ul')}${addStyle('ul')}>${list(match, `\\*`)}</ul>`;
           })
-          .replace(/^ *(\- .*(\n+(\- |\s{2}.*).*)*)/gm, (match, ...args) => {
+          .replace(/^ *(- .*(\n+(- |\s{2}.*).*)*)/gm, (match, ...args) => {
             const valueRender = is('function', render) ? render('ul', addClassName('ul'), addStyle('ul'), match, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
@@ -407,7 +407,7 @@ const Markdown = React.forwardRef((props_: IMarkdown, ref: any) => {
             return `<img${addClassName('a')}${addStyle('a')} alt='${a1}' src='${url[1]}' title='${url[3] || ''}' />`;
           })
           // a ref inline
-          .replace(/(?:[^^]*)(\[([^\]]*)\])(?:[^:\[\(]*)/gm, (match, a1, a2, offset, string) => {
+          .replace(/(?:[^^]*)(\[([^\]]*)\])(?:[^:[(]*)/gm, (match, a1, a2, offset, string) => {
             const url = string.match(new RegExp(`\\[${a2}\\]: ([^\\s]*)( "([^"]*)")?`)) || string.match(new RegExp(`\\[${a2.toLowerCase()}\\]: ([^\\s]*)( "([^"]*)")?`));
 
             const valueRender = is('function', render) ? render('a', addClassName('a'), addStyle('a'), url, match, a1, a2, offset, string) : undefined;
@@ -419,7 +419,7 @@ const Markdown = React.forwardRef((props_: IMarkdown, ref: any) => {
             return match.replace(a1, `<a${addClassName('a')}${addStyle('a')} href='${url[1]}' title='${url[3] || ''}' ref='nofollow'>${a2}</a>`);
           })
           // a urls inline
-          .replace(/(?:[^:][\n <])((?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+))(?:>)?/g, (match, a1, ...args) => {
+          .replace(/(?:[^:][\n <])((?:http(s)?:\/\/)?[\w.-]+(?:\.[\w.-]+))(?:>)?/g, (match, a1, ...args) => {
             const valueRender = is('function', render) ? render('a', addClassName('a'), addStyle('a'), match, a1, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
@@ -439,7 +439,7 @@ const Markdown = React.forwardRef((props_: IMarkdown, ref: any) => {
             return `${a1}<pre${addClassName('pre')}${addStyle('pre')}><code${addClassName('code')}${addStyle('code')}>${a3}</code></pre>${a4}`;
           })
           // blockquote
-          .replace(/^ *(>+ (<(a|img|em|strong)|[A-Za-z0-9\[\]\(\)])*.*(\n *>+.*)*)/gm, (match, a1, ...args) => {
+          .replace(/^ *(>+ (<(a|img|em|strong)|[A-Za-z0-9[\]()])*.*(\n *>+.*)*)/gm, (match, a1, ...args) => {
             const valueRender = is('function', render) ? render('blockquote', addClassName('blockquote'), addStyle('blockquote'), match, a1, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
@@ -449,7 +449,7 @@ const Markdown = React.forwardRef((props_: IMarkdown, ref: any) => {
             return `<blockquote${addClassName('blockquote')}${addStyle('blockquote')}>${method(valueAdd)}</blockquote>`;
           })
           // p
-          .replace(/^ *((<(a|img|em|strong)|[A-Za-z0-9\[\]\(\)]).*(\n *(<(a|img|em|strong)|[A-Za-z0-9\[\]\(\)]).*)*)/gm, (match, a1, ...args) => {
+          .replace(/^ *((<(a|img|em|strong)|[A-Za-z0-9[\]()]).*(\n *(<(a|img|em|strong)|[A-Za-z0-9[\]()]).*)*)/gm, (match, a1, ...args) => {
             const valueRender = is('function', render) ? render('p', addClassName('p'), addStyle('p'), match, a1, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
@@ -559,14 +559,14 @@ const Markdown = React.forwardRef((props_: IMarkdown, ref: any) => {
           // a refs clean up
           .replace(/<p.*>\[.*\]:[^<]*<\/p>/g, '')
           // bold
-          .replace(/\_\_([^_]*)\_\_/g, (match, a1, ...args) => {
+          .replace(/__([^_]*)__/g, (match, a1, ...args) => {
             const valueRender = is('function', render) ? render('strong', addClassName('strong'), addStyle('strong'), match, a1, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
             return `<strong${addClassName('strong')}${addStyle('strong')}>${a1}</strong>`;
           })
-          .replace(/\*\*([^\*]*)\*\*/g, (match, a1, ...args) => {
+          .replace(/\*\*([^*]*)\*\*/g, (match, a1, ...args) => {
             const valueRender = is('function', render) ? render('strong', addClassName('strong'), addStyle('strong'), match, a1, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
@@ -574,14 +574,14 @@ const Markdown = React.forwardRef((props_: IMarkdown, ref: any) => {
             return `<strong${addClassName('strong')}${addStyle('strong')}>${a1}</strong>`;
           })
           // italic
-          .replace(/\_([^_]*)\_/g, (match, a1, ...args) => {
+          .replace(/_([^_]*)_/g, (match, a1, ...args) => {
             const valueRender = is('function', render) ? render('italic', addClassName('italic'), addStyle('italic'), match, a1, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
             return `<em${addClassName('em')}${addStyle('em')}>${a1}</em>`;
           })
-          .replace(/\*([^\*]*)\*/g, (match, a1, ...args) => {
+          .replace(/\*([^*]*)\*/g, (match, a1, ...args) => {
             const valueRender = is('function', render) ? render('italic', addClassName('italic'), addStyle('italic'), match, a1, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
@@ -589,7 +589,7 @@ const Markdown = React.forwardRef((props_: IMarkdown, ref: any) => {
             return `<em${addClassName('em')}${addStyle('em')}>${a1}</em>`;
           })
           // del
-          .replace(/\~\~([^~]*)\~\~/g, (match, a1, ...args) => {
+          .replace(/~~([^~]*)~~/g, (match, a1, ...args) => {
             const valueRender = is('function', render) ? render('del', addClassName('del'), addStyle('del'), match, a1, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import Line from '../Line';
 import Avatar from '../Avatar';
@@ -8,7 +8,7 @@ import { IAvatar } from '../Avatar/Avatar';
 
 import { staticClassName, TColor, TElement, TPropsAny, TSizeAny, TTonal } from '../utils';
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
 
   },

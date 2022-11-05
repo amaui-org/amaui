@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { elementToCanvas, is } from '@amaui/utils';
-import { classNames, colors, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, colors, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import Select from '../Select';
 import ListItem from '../ListItem';
@@ -23,7 +23,7 @@ import Icon from '../Icon';
 import { staticClassName, TElement, TElementReference, TPropsAny, TRef } from '../utils';
 import { ISurface } from '../Surface/Surface';
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
     position: 'relative'
   },

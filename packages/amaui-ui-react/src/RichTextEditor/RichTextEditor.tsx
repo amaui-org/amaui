@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is, parse } from '@amaui/utils';
-import { classNames, colors, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, colors, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import Fade from '../Fade';
 import Type from '../Type';
@@ -27,7 +27,7 @@ import { ILine } from '../Line/Line';
 
 import { print, save, staticClassName, TColor, TElement, TElementReference, TPropsAny, TTonal, TVersion } from '../utils';
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
     width: '100%'
   },
@@ -1971,7 +1971,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
 
       const rect = selection_.getRangeAt(0).getBoundingClientRect();
 
-      setSelection(!!Math.round(rect.width) ? rect : '' as any);
+      setSelection(Math.round(rect.width) ? rect : '' as any);
     });
   }, []);
 

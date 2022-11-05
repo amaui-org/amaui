@@ -101,7 +101,7 @@ const Fade = React.forwardRef((props_: IFade, ref: any) => {
     return allStyles[status];
   };
 
-  const timeout = (status: TTransitionStatus, property: string = 'opacity') => {
+  const timeout = (status: TTransitionStatus, property = 'opacity') => {
     const properties = {
       opacity: theme.transitions.duration.sm
     };
@@ -119,7 +119,7 @@ const Fade = React.forwardRef((props_: IFade, ref: any) => {
         return React.cloneElement(children as any, {
           ...other,
 
-          ref: item => {
+          ref: (item: any) => {
             refs.root.current = item;
 
             if (ref) {

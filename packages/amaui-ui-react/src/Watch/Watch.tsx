@@ -2,7 +2,7 @@ import React from 'react';
 
 import { is, unique } from '@amaui/utils';
 import { AmauiDate, format } from '@amaui/date';
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import Path from '../Path';
 import Type from '../Type';
@@ -13,7 +13,7 @@ import { ISurface } from '../Surface/Surface';
 
 import { angleToCoordinates, staticClassName, TElement, TPropsAny, TSize } from '../utils';
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
     userSelect: 'none'
   },

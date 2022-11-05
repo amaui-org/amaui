@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is, getID } from '@amaui/utils';
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import Snackbar from '../Snackbar';
 import SnackbarsContext from './SnackbarsContext';
@@ -16,7 +16,7 @@ export interface ISnackbarsProvider {
   remove: (value: 'first' | 'last' | string) => void;
 }
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
     position: 'fixed',
     zIndex: theme.z_index.modal,
@@ -135,7 +135,7 @@ const SnackbarsProvider = React.forwardRef((props_: ISnackbarsProvider, ref: any
 
       setPreOpen(itemsPreOpen => [...itemsPreOpen].slice(toAdd));
 
-      if (!!itemsToAdd.length) setOpen(() => {
+      if (itemsToAdd.length) setOpen(() => {
         const itemsNew = [...refs.open.current];
 
         if (position === 'top') itemsNew.push(...itemsToAdd);

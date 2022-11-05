@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is } from '@amaui/utils';
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import Type from '../Type';
 import Line from '../Line';
@@ -9,7 +9,7 @@ import Line from '../Line';
 import { staticClassName, TColor, TElement, TPropsAny, TSize, TTonal, TVersion } from '../utils';
 import { ILine } from '../Line/Line';
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
     cursor: 'pointer',
     userSelect: 'none'

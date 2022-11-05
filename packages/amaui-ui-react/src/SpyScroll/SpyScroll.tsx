@@ -1,11 +1,11 @@
 import React from 'react';
 
 import { is, unique } from '@amaui/utils';
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import { IBaseElement, staticClassName, TStyle } from '../utils';
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
 
   },
@@ -196,7 +196,7 @@ const SpyScroll = React.forwardRef((props_: ISpyScroll, ref: any) => {
   return (
     <React.Fragment>
       {React.cloneElement(children as any, {
-        ref: item => {
+        ref: (item: any) => {
           if (ref) {
             if (is('function', ref)) ref(item);
             else ref.current = item;

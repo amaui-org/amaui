@@ -2,7 +2,7 @@ import React from 'react';
 
 import { is, getLeadingZerosNumber, arrayToParts, clamp } from '@amaui/utils';
 import { AmauiDate, format as formatMethod, set, is as isMethod, startOf, endOf, remove, add, TTimeUnits, months as monthsValue } from '@amaui/date';
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import Icon from '../Icon';
 import IconButton from '../IconButton';
@@ -29,7 +29,7 @@ import { ILine } from '../Line/Line';
 
 import { staticClassName, TColor, TElement, TElementReference, TPropsAny, TTonal, TValueBreakpoints, valueBreakpoints } from '../utils';
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
 
   },
@@ -1445,7 +1445,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
   }
 
   if (month) {
-    if (!!mask.length) mask.push('/');
+    if (mask.length) mask.push('/');
 
     mask.push(
       { pattern: '[0-1]' },
@@ -1457,7 +1457,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
   }
 
   if (year) {
-    if (!!mask.length) mask.push('/');
+    if (mask.length) mask.push('/');
 
     mask.push(
       { pattern: '[1-2]' },
@@ -1624,7 +1624,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
     return values_;
   };
 
-  const validItem = (item: number | string = '', version__: string = '', calendar_ = refs.calendar.current, withDate = false) => {
+  const validItem = (item: number | string = '', version__ = '', calendar_ = refs.calendar.current, withDate = false) => {
     const values_ = {
       ...calendar_
     };

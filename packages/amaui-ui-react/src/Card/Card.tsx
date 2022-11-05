@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is } from '@amaui/utils';
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import Surface from '../Surface';
 import Interaction from '../Interaction';
@@ -9,7 +9,7 @@ import Interaction from '../Interaction';
 import { staticClassName, TPropsAny } from '../utils';
 import { ISurface } from '../Surface/Surface';
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
     display: 'inline-block',
     overflow: 'hidden',

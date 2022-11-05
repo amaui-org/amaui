@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { clamp, copy, is, percentageFromValueWithinRange, valueFromPercentageWithinRange } from '@amaui/utils';
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import Chart from '../Chart';
 import Path from '../Path';
@@ -12,7 +12,7 @@ import { IChart } from '../Chart/Chart';
 
 import { staticClassName, valueBreakpoints } from '../utils';
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
     '& .AmauiChart-legend-icon': {
       width: '6px',
@@ -31,7 +31,9 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'AmauiColumnChart' });
 
-export interface IColumnChart extends IChart { }
+export interface IColumnChart extends IChart {
+
+}
 
 const ColumnChart = React.forwardRef((props_: IColumnChart, ref: any) => {
   const theme = useAmauiTheme();
@@ -227,7 +229,7 @@ const ColumnChart = React.forwardRef((props_: IColumnChart, ref: any) => {
 
     // invert y so 0, 0 is at bottom left
     if (refs.rects.current && values) {
-      const { width, height } = refs.rects.current?.wrapper;
+      const { width, height } = refs.rects.current.wrapper;
 
       // Legend
       const legend_ = values.map((item: any) => {

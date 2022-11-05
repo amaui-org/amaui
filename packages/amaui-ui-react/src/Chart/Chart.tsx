@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { castParam, clamp, copy, is, percentageFromValueWithinRange, valueFromPercentageWithinRange } from '@amaui/utils';
-import { classNames, style as styleMethod, TColorValues, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, TColorValues, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import Surface from '../Surface';
 import Line from '../Line';
@@ -13,7 +13,7 @@ import useMediaQuery from '../useMediaQuery';
 
 import { staticClassName, valueBreakpoints, minMaxBetweenNumbers, IBaseElement, TTonal, TColor, TElementAny, TStyle, TElement, TPropsAny, TValueBreakpoints } from '../utils';
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
     width: '100%',
 
@@ -1347,6 +1347,8 @@ const Chart = React.forwardRef((props_: IChart, ref: any) => {
 
         return values_.map((item_, index: number) => (
           <Path
+            key={index}
+
             Component='circle'
 
             r={4}
@@ -1401,7 +1403,7 @@ const Chart = React.forwardRef((props_: IChart, ref: any) => {
       refs.allValues.current.sort((a, b) => a?.normalized[0] - b?.normalized[0]);
 
       // Guidelines
-      const additional_lines_ = additional_lines__ && (additional_lines__ as React.ReactNode[]).map((item: any) => {
+      const additional_lines_ = additional_lines__ && (additional_lines__ as React.ReactNode[]).map((item: any, index: number) => {
         const {
           color: color_,
 
@@ -1428,6 +1430,8 @@ const Chart = React.forwardRef((props_: IChart, ref: any) => {
 
         return (
           <Path
+            key={index}
+
             d={`M ${values_.x1} ${height - values_.y1} L ${values_.x2} ${height - values_.y2}`}
 
             fill='none'

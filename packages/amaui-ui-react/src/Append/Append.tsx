@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is, isEnvironment, element as element_, clamp, debounce } from '@amaui/utils';
+import { is, isEnvironment, element as element_, clamp } from '@amaui/utils';
 import { useAmauiTheme } from '@amaui/style-react';
 
 import Portal from '../Portal';
@@ -682,7 +682,7 @@ const Append = (props_: IAppend) => {
   return (
     <React.Fragment>
       {children && React.cloneElement(children as any, {
-        ref: item => {
+        ref: (item: any) => {
           if ((children as any).ref) {
             if (is('function', (children as any).ref)) (children as any).ref(item);
             else (children as any).ref.current = item;
@@ -702,7 +702,7 @@ const Append = (props_: IAppend) => {
               (element as any)({ ref: refs.element, values, style }) :
 
               React.cloneElement(element as any, {
-                ref: item => {
+                ref: (item: any) => {
                   if ((element as any)?.ref) {
                     if (is('function', (element as any).ref)) (element as any).ref(item);
                     else (element as any).ref.current = item;

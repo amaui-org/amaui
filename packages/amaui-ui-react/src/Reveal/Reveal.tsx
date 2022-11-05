@@ -1,13 +1,13 @@
 import React from 'react';
 
 import { is } from '@amaui/utils';
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import Fade from '../Fade';
 
 import { IBaseElement, staticClassName } from '../utils';
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
 
   },
@@ -175,7 +175,7 @@ const Reveal = React.forwardRef((props_: IReveal, ref: any) => {
       {...other}
     >
       {React.cloneElement(children as any, {
-        ref: item => {
+        ref: (item: any) => {
           if (ref) {
             if (is('function', ref)) ref(item);
             else ref.current = item;

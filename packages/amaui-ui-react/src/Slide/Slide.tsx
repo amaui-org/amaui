@@ -1,7 +1,7 @@
 import React from 'react';
 
 import is from '@amaui/utils/is';
-import { useAmauiTheme } from '@amaui/style-react';
+import { useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import { ITransition, Transition, TTransitionStatus } from '..';
 
@@ -161,7 +161,7 @@ const Slide = React.forwardRef((props_: ISlide, ref: any) => {
     return allStyles[status];
   };
 
-  const timeout = (status: TTransitionStatus, property: string = 'transform') => {
+  const timeout = (status: TTransitionStatus, property = 'transform') => {
     const properties = {
       transform: theme.transitions.duration.xs
     };
@@ -204,7 +204,7 @@ const Slide = React.forwardRef((props_: ISlide, ref: any) => {
         return React.cloneElement(children as any, {
           ...other,
 
-          ref: item => {
+          ref: (item: any) => {
             refs.root.current = item;
 
             if (ref) {

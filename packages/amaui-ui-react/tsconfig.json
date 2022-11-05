@@ -3,7 +3,11 @@
   "compilerOptions": {
     "rootDir": "./src",
     "outDir": "./build",
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "paths": {
+      "@amaui/style-react":["../amaui-style-react/src"],
+      "@amaui/style-react/*":["../amaui-style-react/src/*"]
+    }
   },
   "include": [
     "src/**/*.tsx"

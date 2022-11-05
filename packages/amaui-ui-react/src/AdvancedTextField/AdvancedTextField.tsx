@@ -1,14 +1,14 @@
 import React from 'react';
 
 import { is, numberWithCommas, Try } from '@amaui/utils';
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import TextField from '../TextField';
 
 import { staticClassName, TPropsAny } from '../utils';
 import { ITextField } from '../TextField/TextField';
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
 
   }

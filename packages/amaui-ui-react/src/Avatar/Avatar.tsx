@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import Button from '../Button';
 import Type from '../Type';
@@ -8,7 +8,7 @@ import { IButton } from '../Button/Button';
 
 import { staticClassName, TElevation, TPropsAny } from '../utils';
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
     cursor: 'default',
     overflow: 'hidden'

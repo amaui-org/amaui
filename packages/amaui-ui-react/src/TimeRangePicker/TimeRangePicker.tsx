@@ -2,7 +2,7 @@ import React from 'react';
 
 import { is } from '@amaui/utils';
 import { AmauiDate, format as formatMethod, set } from '@amaui/date';
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import Icon from '../Icon';
 import Modal from '../Modal';
@@ -20,7 +20,7 @@ import { ITimePicker } from '../TimePicker/TimePicker';
 
 import { staticClassName, TPropsAny, valueBreakpoints } from '../utils';
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
 
   },
@@ -71,7 +71,9 @@ const SEPARATOR_SYMBOL = `–`;
 
 const SEPARATOR = ` ${SEPARATOR_SYMBOL} `;
 
-export interface ITimeRangePicker extends ITimePicker {
+export interface ITimeRangePicker extends Omit<ITimePicker, 'versionStatic'> {
+  versionStatic?: 'mobile' | 'desktop';
+
   to?: string;
   from?: string;
 
@@ -517,6 +519,8 @@ const TimeRangePicker = React.forwardRef((props__: ITimeRangePicker, ref: any) =
   const TimePickers = [
     // From
     <TimePicker
+      key={0}
+
       {...mergeProps(FromProps)}
 
       version='static'
@@ -546,6 +550,8 @@ const TimeRangePicker = React.forwardRef((props__: ITimeRangePicker, ref: any) =
 
     // To
     <TimePicker
+      key={1}
+
       {...mergeProps(ToProps)}
 
       version='static'
@@ -695,7 +701,7 @@ const TimeRangePicker = React.forwardRef((props__: ITimeRangePicker, ref: any) =
   }
 
   if (version === 'static') {
-    if (versionStatic !== undefined) return 'desktop' ? <ModeDesktop /> : <ModeMobile />;
+    if (versionStatic !== undefined) return versionStatic === 'desktop' ? <ModeDesktop /> : <ModeMobile />;
 
     if (!touch) return <ModeDesktop />;
 

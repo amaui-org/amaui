@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is } from '@amaui/utils';
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import Line from '../Line';
 import useMediaQuery from '../useMediaQuery';
@@ -9,7 +9,7 @@ import { ILine } from '../Line/Line';
 
 import { staticClassName, TPropsAny, TValueBreakpoints, valueBreakpoints } from '../utils';
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
     width: '100%',
     flex: '0 1 auto'

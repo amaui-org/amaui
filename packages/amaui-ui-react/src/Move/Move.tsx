@@ -1,11 +1,11 @@
 import React from 'react';
 
 import { element, is } from '@amaui/utils';
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import { IBaseElement, staticClassName } from '../utils';
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
     pointerEvents: 'auto'
   }
@@ -96,7 +96,7 @@ const Move = React.forwardRef((props_: IMove, ref: any) => {
 
         const transform = (refs.root.current as HTMLElement).style.transform;
 
-        const [xTransform, yTransform] = (transform?.match(/[\-\+]?\d+/g) || [0, 0]).map(item => Number(item));
+        const [xTransform, yTransform] = (transform?.match(/[-+]?\d+/g) || [0, 0]).map(item => Number(item));
 
         setValues(values_ => ({
           ...values_,

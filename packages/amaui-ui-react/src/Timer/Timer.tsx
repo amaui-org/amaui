@@ -2,7 +2,7 @@ import React from 'react';
 
 import { is, getLeadingZerosNumber } from '@amaui/utils';
 import { AmauiDate, duration } from '@amaui/date';
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import Fade from '../Fade';
 import Expand from '../Expand';
@@ -17,7 +17,7 @@ import { ISurface } from '../Surface/Surface';
 
 import { staticClassName, TElementReference, TPropsAny } from '../utils';
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
     minWidth: '300px',
     padding: '24px 40px',

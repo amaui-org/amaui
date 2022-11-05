@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is, unique, clamp, debounce, equalDeep, TMethod } from '@amaui/utils';
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 import AmauiSubscription from '@amaui/subscription';
 
 import Icon from '../Icon';
@@ -15,7 +15,7 @@ import useMediaQuery from '../useMediaQuery';
 import { staticClassName, TElement, TElementReference, TPropsAny, TValueBreakpoints, valueBreakpoints } from '../utils';
 import { ISurface } from '../Surface/Surface';
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
     position: 'relative',
     width: '100%',

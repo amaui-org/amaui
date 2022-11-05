@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is, clamp, valueFromPercentageWithinRange } from '@amaui/utils';
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import Line from '../Line';
 import Divider from '../Divider';
@@ -11,7 +11,7 @@ import { ILine } from '../Line/Line';
 
 import { staticClassName, TColor, TElement, TPropsAny, TTonal } from '../utils';
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
     position: 'relative',
     color: theme.palette.text.default.primary,

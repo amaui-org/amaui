@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { clamp, equalDeep, is, percentageFromValueWithinRange, valueFromPercentageWithinRange } from '@amaui/utils';
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import IconButton from '../IconButton';
 import Tooltip from '../Tooltip';
@@ -27,7 +27,7 @@ const vertical = {
   transform: 'translateX(-50%)'
 };
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
     position: 'relative',
     display: 'inline-flex',
@@ -940,7 +940,7 @@ const Slider = React.forwardRef((props_: ISlider, ref: any) => {
 
   let marks_ = [];
 
-  if (!!marks) {
+  if (marks) {
     if (is('array', marks)) marks_ = marks;
     else if (marksValue <= 1e3) {
       let markSum = min;
@@ -1036,7 +1036,7 @@ const Slider = React.forwardRef((props_: ISlider, ref: any) => {
 
           classes.rail,
           classes[`orientation_${orientation}`],
-          classes[`rail_orientation_${orientation}`], ,
+          classes[`rail_orientation_${orientation}`],
           classes[`rail_orientation_${orientation}_size_${size}`],
           !inverted ? [
             classes[`rail_color_${color}`]

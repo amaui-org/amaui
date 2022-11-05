@@ -101,7 +101,7 @@ const Zoom = React.forwardRef((props_: IZoom, ref: any) => {
     return allStyles[status];
   };
 
-  const timeout = (status: TTransitionStatus, property: string = 'transform') => {
+  const timeout = (status: TTransitionStatus, property = 'transform') => {
     const properties = {
       transform: theme.transitions.duration.xs
     };
@@ -109,7 +109,7 @@ const Zoom = React.forwardRef((props_: IZoom, ref: any) => {
     return `${((is('simple', timeout) ? timeout : timeout[status]) || properties[property] - (status === 'exiting' ? 30 : 0))}ms`;
   };
 
-  const timingFunction = status => (is('simple', timing_function) ? timing_function : timing_function[status]) || theme.transitions.timing_function.standard;
+  const timingFunction = (status: string) => (is('simple', timing_function) ? timing_function : timing_function[status]) || theme.transitions.timing_function.standard;
 
   return (
     <Transition
@@ -119,7 +119,7 @@ const Zoom = React.forwardRef((props_: IZoom, ref: any) => {
         return React.cloneElement(children as any, {
           ...other,
 
-          ref: item => {
+          ref: (item: any) => {
             refs.root.current = item;
 
             if (ref) {

@@ -1,14 +1,14 @@
 import React from 'react';
 
 import { is } from '@amaui/utils';
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 import Keyframes from '../Keyframes';
 import IconButton from '../IconButton';
 
 import { IBaseElement, staticClassName, TColor, TElementReference, TRef, TSize, TTonal } from '../utils';
 
-const useStyle = styleMethod(theme => ({
+const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
     position: 'relative',
     display: 'inline-flex',
@@ -310,7 +310,7 @@ const Switch = React.forwardRef((props_: ISwitch, ref: any) => {
     ]
   };
 
-  const ltrSign = (item: string = '') => {
+  const ltrSign = (item = '') => {
     if (theme.direction === 'ltr') return item;
 
     return !item ? '-' : '';
