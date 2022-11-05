@@ -13,19 +13,18 @@
     "declaration": false,
     "allowJs": true,
     "paths": {
-      "@amaui/style-react":["./packages/amaui-style-react/src", "../amaui-style-react/src"],
-      "@amaui/style-react/*":["./packages/amaui-style-react/src/*", "../amaui-style-react/src/*"],
+      "@amaui/style-react":["./packages/amaui-style-react/src"],
+      "@amaui/style-react/*":["./packages/amaui-style-react/src/*"],
 
-      "@amaui/icons-material-react":["./packages/amaui-icons-material-react/src", "../amaui-icons-material-react/src"],
-      "@amaui/icons-material-react/*":["./packages/amaui-icons-material-react/src/*", "../amaui-icons-material-react/src/*"],
+      "@amaui/icons-material-react":["./packages/amaui-icons-material-react/src"],
+      "@amaui/icons-material-react/*":["./packages/amaui-icons-material-react/src/*"],
 
-      "@amaui/ui-react":["./packages/amaui-ui-react/src", "../amaui-ui-react/src"],
-      "@amaui/ui-react/*":["./packages/amaui-ui-react/src/*", "../amaui-ui-react/src/*"]
+      "@amaui/ui-react":["./packages/amaui-ui-react/src"],
+      "@amaui/ui-react/*":["./packages/amaui-ui-react/src/*"]
     }
   },
   "exclude": [
     "build",
-    "node_modules",
-    "packages/amaui-icons-material-react/*"
+    "node_modules"
   ]
 }

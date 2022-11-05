@@ -23,6 +23,10 @@ export default function style(value: TValue, options_: IOptions = {}, responses_
     const amauiStyle = useAmauiStyle();
     const amauiTheme = useAmauiTheme();
 
+    const refs = {
+      update: React.useRef<any>()
+    };
+
     const resolve = (theme = amauiTheme) => {
       let valueNew = value;
 
@@ -116,15 +120,23 @@ export default function style(value: TValue, options_: IOptions = {}, responses_
       props = newProps;
     }
 
-    const values = React.useState<IResponse>(() => response.add(props))[0];
+    const [values, setValues] = React.useState<IResponse>(() => response.add(props));
 
     // Add
     React.useEffect(() => {
+      if (!values || ['refresh'].includes(refs.update.current)) setValues(() => {
+        refs.update.current = undefined;
+
+        return response.add(props);
+      });
 
       // Clean up
       return () => {
         // Remove
         response?.remove(values?.ids?.dynamic);
+
+        // Refresh
+        refs.update.current = 'refresh';
 
         // Remove response from the responses
         // if users is 0 in amauiStyleSheetManager

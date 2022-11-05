@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom/client';
 import { Snackbars, Confirm, MainProgress, Widgets, ScreenCapture, Timer, Countdown, Weather, Watch } from '@amaui/ui-react';
 import { AmauiStyle, AmauiStyleProvider, AmauiThemeProvider, valueObject, prefix, rtl, unit } from '@amaui/style-react';
 
-import IconMaterialTimerRounded from '@amaui/icons-material-react/build/IconMaterialTimerRounded';
-import IconMaterialVideocamRounded from '@amaui/icons-material-react/build/IconMaterialVideocamRounded';
-import IconMaterialAvTimerRounded from '@amaui/icons-material-react/build/IconMaterialAvTimerRounded';
-import IconMaterialWeatherRounded from '@amaui/icons-material-react/build/IconMaterialClearDayRounded';
-import IconMaterialNestClockFarsightDigitalRounded from '@amaui/icons-material-react/build/IconMaterialNestClockFarsightDigitalRounded';
-import IconMaterialNestClockFarsightAnalogRounded from '@amaui/icons-material-react/build/IconMaterialNestClockFarsightAnalogRounded';
+import IconMaterialTimerRounded from '@amaui/icons-material-react/IconMaterialTimerRounded';
+import IconMaterialVideocamRounded from '@amaui/icons-material-react/IconMaterialVideocamRounded';
+import IconMaterialAvTimerRounded from '@amaui/icons-material-react/IconMaterialAvTimerRounded';
+import IconMaterialWeatherRounded from '@amaui/icons-material-react/IconMaterialClearDayRounded';
+import IconMaterialNestClockFarsightDigitalRounded from '@amaui/icons-material-react/IconMaterialNestClockFarsightDigitalRounded';
+import IconMaterialNestClockFarsightAnalogRounded from '@amaui/icons-material-react/IconMaterialNestClockFarsightAnalogRounded';
 
 import App from './App';
 import reportWebVitals from './reportWebVitals';

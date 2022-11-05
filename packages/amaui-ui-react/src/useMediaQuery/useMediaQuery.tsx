@@ -1,8 +1,10 @@
 import React from 'react';
 
+import { isEnvironment } from '@amaui/utils';
+
 const useMediaQuery = (props: string) => {
   const [media, setMedia] = React.useState(props);
-  const [mediaQuery, setMediaQuery] = React.useState<MediaQueryList>(window.matchMedia(media));
+  const [mediaQuery, setMediaQuery] = React.useState<MediaQueryList>(isEnvironment('browser') && window.matchMedia(media));
   const [response, setResponse] = React.useState<MediaQueryList | MediaQueryListEvent>(mediaQuery);
 
   const method = React.useCallback((event: MediaQueryListEvent) => setResponse(event), []);

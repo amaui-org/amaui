@@ -18,6 +18,10 @@ export default function pure(value: TValue, options_: IOptions = {}) {
     const amauiStyle = useAmauiStyle();
     const amauiTheme = useAmauiTheme();
 
+    const refs = {
+      update: React.useRef<any>()
+    };
+
     const resolve = (theme = amauiTheme) => {
       let valueNew = value;
 
@@ -111,25 +115,35 @@ export default function pure(value: TValue, options_: IOptions = {}) {
       props = newProps;
     }
 
-    const values = React.useState<IResponse>(() => response.add(props))[0];
+    const [values, setValues] = React.useState<IResponse>(() => response.add(props));
 
     // Add
     React.useEffect(() => {
+      if (!values || ['refresh'].includes(refs.update.current)) setValues(() => {
+        refs.update.current = undefined;
+
+        return response.add(props);
+      });
 
       // Clean up
       return () => {
-        // Unsubscribe
-        if (amauiTheme) amauiTheme.subscriptions.update.unsubscribe(method);
-
         // Remove
         response?.remove(values?.ids?.dynamic);
+
+        // Refresh
+        refs.update.current = 'refresh';
 
         // Remove response from the responses
         // if users is 0 in amauiStyleSheetManager
         if (!response?.amaui_style_sheet_manager?.users) {
           const index = responses.findIndex(item => item.amauiTheme.id === amauiTheme.id);
 
-          if (index > -1) responses.splice(index, 1);
+          if (index > -1) {
+            responses.splice(index, 1);
+
+            // Unsubscribe
+            if (amauiTheme) amauiTheme.subscriptions.update.unsubscribe(method);
+          }
         }
       };
     }, []);
