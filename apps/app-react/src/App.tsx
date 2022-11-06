@@ -1508,7 +1508,7 @@ function App() {
 
   return (
     <div className={classes.root}>
-      {/* <Reset /> */}
+      <Reset />
 
       <Line
         wrap='wrap'

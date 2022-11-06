@@ -50,11 +50,11 @@ const AmauiThemeProvider = React.forwardRef((props: IAmauiThemeProvider, ref: an
 
   const valueParent = useAmauiTheme() as any || {};
 
-  const [value, setValue] = React.useState<IAmauiThemeProviderValue>(() => new AmauiTheme(merge(resolveValue(is('function', valueLocal) ? (valueLocal as any)(valueParent) : valueLocal), resolveValue(valueParent), { copy: true })) as any);
+  const [value, setValue] = React.useState<IAmauiThemeProviderValue>(() => new AmauiTheme(merge(resolveValue(is('function', valueLocal) ? (valueLocal as any)(valueParent) : valueLocal), resolveValue(valueParent), { copy: true }) as any) as any);
 
   React.useEffect(() => {
     if (refs.root.current) {
-      const amauiTheme = new AmauiTheme(value, refs.root.current) as any;
+      const amauiTheme = new AmauiTheme(value as any, refs.root.current) as any;
 
       amauiTheme.id = value.id;
 
@@ -69,9 +69,9 @@ const AmauiThemeProvider = React.forwardRef((props: IAmauiThemeProvider, ref: an
 
   React.useEffect(() => {
     if (init) {
-      value.update(merge(resolveValue(is('function', valueLocal) ? (valueLocal as any)(valueParent) : valueLocal), resolveValue(valueParent), { copy: true }));
+      value.update(merge(resolveValue(is('function', valueLocal) ? (valueLocal as any)(valueParent) : valueLocal), resolveValue(valueParent), { copy: true }) as any);
 
-      const amauiTheme = new AmauiTheme(value, refs.root?.current) as any;
+      const amauiTheme = new AmauiTheme(value as any, refs.root?.current) as any;
 
       amauiTheme.id = value.id;
 
@@ -80,14 +80,14 @@ const AmauiThemeProvider = React.forwardRef((props: IAmauiThemeProvider, ref: an
       // Init
       setValue(amauiTheme);
     }
-  }, [hash(resolveValue(valueLocal)), hash(resolveValue(valueParent))]);
+  }, [hash(resolveValue(valueLocal as any)), hash(resolveValue(valueParent))]);
 
   const update = (updateValue: IAmauiTheme) => {
     if (updateValue !== undefined) {
       // Update
       value.update(updateValue);
 
-      const amauiTheme = new AmauiTheme(value, refs.root?.current || (isEnvironment('browser') && window.document.body)) as any;
+      const amauiTheme = new AmauiTheme(value as any, refs.root?.current || (isEnvironment('browser') && window.document.body)) as any;
 
       amauiTheme.id = value.id;
 

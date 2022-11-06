@@ -4,8 +4,8 @@
   "private": true,
   "dependencies": {
     "@amaui/icons-material-react": "^1.0.1",
-    "@amaui/style-react": "^1.0.1118",
-    "@amaui/ui-react": "^1.0.1112",
+    "@amaui/style-react": "^1.0.1120",
+    "@amaui/ui-react": "^1.0.1117",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
@@ -35,8 +35,5 @@
     ">0.2%",
     "not dead",
     "not op_mini all"
-  ],
-  "devDependencies": {
-    "ts-node": "^10.9.1"
-  }
+  ]
 }
