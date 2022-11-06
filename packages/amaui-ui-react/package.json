@@ -57,6 +57,6 @@
     "yarn": ">=1.22"
   },
   "exports": {
-    ".": ""
+    ".": "./build/index.js"
   }
 }
