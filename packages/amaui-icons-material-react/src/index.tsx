@@ -18854,4 +18854,3 @@ export { default as IconMaterialZoomOutSharpFilled } from './IconMaterialZoomOut
 export { default as IconMaterialZoomOutSharpW100 } from './IconMaterialZoomOutSharpW100'
 export { default as IconMaterialZoomOutSharpW100Filled } from './IconMaterialZoomOutSharpW100Filled'
 export { default as IconMaterialZoomOutTwoTone } from './IconMaterialZoomOutTwoTone'
-export { default as index } from './index'

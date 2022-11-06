@@ -131,7 +131,7 @@ async function method() {
   for (const url of allIcons) {
     const name = path.basename(url).slice(0, -4);
 
-    index += `export { default as ${name} } from './${name}'\n`;
+    index += `export { default as ${name} } from './${name}';\n`;
   }
 
   // Remove previous index
