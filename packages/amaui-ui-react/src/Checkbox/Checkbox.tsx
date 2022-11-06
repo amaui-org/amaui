@@ -12,7 +12,11 @@ import { staticClassName, TColor, TRef } from '../utils';
 
 const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
-    position: 'relative'
+    position: 'relative',
+
+    '& *': {
+      boxSizing: 'border-box'
+    }
   },
 
   input: {

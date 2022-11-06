@@ -681,7 +681,9 @@ const Append = (props_: IAppend) => {
     PortalComponentProps.element = window.document.body;
 
     // relative
-    window.document.body.style.position = 'relative';
+    window.document.body.style.position = window.document.body.style.position || 'relative';
+
+    window.document.body.style.margin = window.document.body.style.margin || '0';
   }
 
   return (
