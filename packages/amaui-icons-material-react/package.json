@@ -1,6 +1,6 @@
 {
   "name": "@amaui/icons-material-react",
-  "version": "1.0.1",
+  "version": "1.0.11",
   "description": "Icons material for React",
   "repository": "https://github.com/amaui-org/amaui.git",
   "author": "Lazar <lazareric.com@gmail.com>",
@@ -29,7 +29,7 @@
   ],
   "scripts": {
     "prebuild": "rimraf build",
-    "build": "cross-env ENV=react VARIANT=icons node ../../utils/js/build.js",
+    "build": "cross-env ENV=react VERSION=icons node ../../utils/js/build.js",
     "release": "yarn test && yarn build && npm publish ./build",
     "lint": "tslint -c ../../tslint.json -p tsconfig.json",
     "type": "tsc --noEmit -p tsconfig.json",
@@ -43,7 +43,7 @@
     "react": "^18.1.0"
   },
   "dependencies": {
-    "@amaui/ui-react": "^1.0.111"
+    "@amaui/ui-react": "^1.0.1121"
   },
   "publishConfig": {
     "access": "public",

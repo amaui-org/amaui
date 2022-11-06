@@ -5,7 +5,7 @@ module.exports = function (api) {
   api.cache(true);
 
   const env = process.env.ENV;
-  const variant = process.env.VARIANT;
+  const version = process.env.VERSION;
 
   const envs = {
     react: {
@@ -36,7 +36,7 @@ module.exports = function (api) {
 
   const other = {};
 
-  if (variant === 'icons') {
+  if (version === 'icons') {
     other['sourceMaps'] = false;
     other['minified'] = true;
   }

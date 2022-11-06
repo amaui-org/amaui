@@ -75,7 +75,7 @@ npm manifest:
       "react": "^18.1.0"
     },
     "dependencies": {
-      "@amaui/style": "^1.0.14305",
+      "@amaui/style": "^1.0.14307",
       "@amaui/utils": "^1.0.11444"
     },
     "publishConfig": {
@@ -224,10 +224,10 @@ Lockfile:
       fast-glob "^3.2.11"
       fs-extra "^10.1.0"
   
-  "@amaui/style@^1.0.14305":
-    version "1.0.14305"
-    resolved "https://registry.yarnpkg.com/@amaui/style/-/style-1.0.14305.tgz#3ece8d83faa3a4e8df17c932cc988a5ba3090022"
-    integrity sha512-DHYrrNyteXtVd3PeKSqf70qZKx54BRNc5ERmqW9WOkkomXbWYKSMZzaItt0/0RfHMwLxnOEtpa/Uj5N7GxxDsQ==
+  "@amaui/style@^1.0.14307":
+    version "1.0.14307"
+    resolved "https://registry.yarnpkg.com/@amaui/style/-/style-1.0.14307.tgz#94a03b1bab3bce45af9c2be4a37161237fc9a5bc"
+    integrity sha512-UWRQ+e90+UxeSEHmh1RHuavvHvyq4emOcOXtllBkQT2DYXY3G48dgny7jGG/DpQQm0dN8BpuIz/A6tOdRBjizg==
     dependencies:
       "@amaui/meta" "^1.0.11141"
       "@amaui/node" "^1.0.11117"
@@ -261,16 +261,6 @@ Lockfile:
       "@babel/runtime" "^7.18.3"
       fast-glob "^3.2.11"
       yargs "^17.5.1"
-  
-  "@amaui/ui-react@^1.0.1112":
-    version "1.0.1115"
-    resolved "https://registry.yarnpkg.com/@amaui/ui-react/-/ui-react-1.0.1115.tgz#1b74602df37ec1ed80f0f6ba16f9d72f094d773b"
-    integrity sha512-vV1XelTthnF0XUe+eYqGnJPMllJ0Oexw3Uo49ep748l214x3IT7QtjXt4BwpL2ktom8sLBRUBdhmw0IpGKWPcg==
-    dependencies:
-      "@amaui/date" "^1.0.11425"
-      "@amaui/style-react" "^1.0.1119"
-      "@amaui/subscription" "^1.0.11147"
-      "@amaui/utils" "^1.0.11444"
   
   "@amaui/utils@^1.0.11411":
     version "1.0.11411"

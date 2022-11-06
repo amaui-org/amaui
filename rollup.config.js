@@ -10,7 +10,7 @@ import json from '@rollup/plugin-json';
 
 const wd = process.cwd();
 const env = process.env.ENV;
-const variant = process.env.VARIANT;
+const version = process.env.VERSION;
 
 let ext = 'ts';
 
@@ -68,7 +68,7 @@ const name = module.split('-').map(item => capitalize(item)).join('');
 
 const other = {};
 
-if (variant === 'icons') other['sourcemap'] = false;
+if (version === 'icons') other['sourcemap'] = false;
 
 export default [
   {
