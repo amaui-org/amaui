@@ -80,8 +80,8 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
     },
 
     '&.AmauiTextField-value .AmauiTextField-label, &.AmauiTextField-focus .AmauiTextField-label': {
-      left: '60%',
-      transform: 'translate(-50%, -16px) scale(0.667)'
+      insetInlineStart: '60%',
+      transform: `translate(${theme.direction === 'ltr' ? '-' : ''}50%, -16px) scale(0.667)`
     },
 
     '& .AmauiTextField-input': {

@@ -40,6 +40,7 @@ const widgets = [
   {
     label: 'Screen Capture',
     Icon: IconMaterialVideocamRounded,
+    move: false,
     element: <ScreenCapture />
   },
   {

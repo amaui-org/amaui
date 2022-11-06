@@ -235,16 +235,6 @@ const WidgetsProvider = React.forwardRef((props_: IWidgetsProvider, ref: any) =>
 
   refs.value.current.closeAll = closeAll;
 
-  const WidgetWrapper = move ? Move : React.Fragment;
-
-  const WidgetWrapperProps = move ? {
-    manage: true,
-
-    manageLevel: 1,
-
-    ...MoveProps
-  } : undefined;
-
   return (
     <WidgetsContext.Provider value={refs.value.current}>
       {(widgets as any)?.length && <>
@@ -322,6 +312,16 @@ const WidgetsProvider = React.forwardRef((props_: IWidgetsProvider, ref: any) =>
           >
             {(widgets as any).map((item: any, index: number) => {
               const valueItem = item.value !== undefined ? item.value : item.label;
+
+              const WidgetWrapper = (move && item.move !== false) ? Move : React.Fragment;
+
+              const WidgetWrapperProps = (move && item.move !== false) ? {
+                manage: true,
+
+                manageLevel: 0,
+
+                ...MoveProps
+              } : undefined;
 
               return (
                 <Transition

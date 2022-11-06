@@ -25,7 +25,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   imageWrapper: {
     inset: '0',
     position: 'fixed',
-    zIndex: theme.z_index.modal + 11
+    zIndex: theme.z_index.modal - 1
   }
 }), { name: 'AmauiScreenCapture' });
 
