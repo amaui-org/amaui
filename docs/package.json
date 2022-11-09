@@ -1,6 +1,6 @@
 {
-  "name": "docs",
-  "version": "0.1.0",
+  "name": "@amaui/docs",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -9,6 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@amaui/icons-material-react": "^1.0.11",
+    "@amaui/style-react": "^1.0.1124",
+    "@amaui/ui-react": "^1.0.1124",
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.8",

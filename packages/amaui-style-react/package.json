@@ -6,7 +6,9 @@
   "author": "Lazar <lazareric2@gmail.com>",
   "license": "MIT",
   "private": false,
-  "main": "./src/index.tsx",
+  "main": "./build/index.js",
+  "module": "./build/esm/index.js",
+  "types": "./build/index.d.ts",
   "keywords": [
     "react",
     "react-style",
@@ -53,6 +55,9 @@
     "access": "public",
     "registry": "https://registry.npmjs.org"
   },
+  "files": [
+    "build"
+  ],
   "sideEffects": false,
   "engines": {
     "node": ">=12.0.0",

@@ -14,11 +14,19 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ]
+    "plugins": [{
+      "name": "next"
+    }],
+    "paths": {
+      "@amaui/style-react": ["../packages/amaui-style-react/src"],
+      "@amaui/style-react/*": ["../packages/amaui-style-react/src/*"],
+
+      "@amaui/icons-material-react": ["../packages/amaui-icons-material-react/src"],
+      "@amaui/icons-material-react/*": ["../packages/amaui-icons-material-react/src/*"],
+
+      "@amaui/ui-react": ["../packages/amaui-ui-react/src"],
+      "@amaui/ui-react/*": ["../packages/amaui-ui-react/src/*"]
+    }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
