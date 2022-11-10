@@ -63,12 +63,18 @@ const useStyle = styleMethod(theme => ({
   main: {
     width: '100%',
     marginTop: '76px',
-    flex: '1 1 auto'
+    flex: '1 1 auto',
+
+    '& > *': {
+      display: 'flex',
+      width: '100%',
+      flex: '1 1 auto'
+    }
   },
 
   footer: {
     width: '100%',
-    padding: '48px 24px 24px',
+    padding: '64px 24px 24px',
     flex: '0 0 auto'
   }
 }), { name: 'root' });
@@ -138,13 +144,15 @@ function Root(props: any) {
       />
 
       {/* Main */}
-      <main
+      <Line
+        Component='main'
+
         className={classNames([
           classes.main
         ])}
       >
         {children}
-      </main>
+      </Line>
 
       {/* Footer */}
       <Line
@@ -168,7 +176,7 @@ function Root(props: any) {
           wrap='wrap'
 
           style={{
-            marginBottom: 8
+            marginBottom: 24
           }}
         >
           <Line

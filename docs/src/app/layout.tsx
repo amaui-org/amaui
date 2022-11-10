@@ -172,11 +172,20 @@ export default function Layout(props: { children: React.ReactNode }) {
 
                   t3: { fontFamily: FONT_FAMILY.primary },
 
-                  l1: { fontFamily: FONT_FAMILY.secondary },
+                  l1: {
+                    fontFamily: FONT_FAMILY.secondary,
+                    fontWeight: 700
+                  },
 
-                  l2: { fontFamily: FONT_FAMILY.secondary },
+                  l2: {
+                    fontFamily: FONT_FAMILY.secondary,
+                    fontWeight: 700
+                  },
 
-                  l3: { fontFamily: FONT_FAMILY.secondary },
+                  l3: {
+                    fontFamily: FONT_FAMILY.secondary,
+                    fontWeight: 700
+                  },
 
                   b1: { fontFamily: FONT_FAMILY.secondary },
 
