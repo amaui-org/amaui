@@ -28,12 +28,16 @@
 
       "@amaui/ui-react": ["../../packages/amaui-ui-react/build"],
       "@amaui/ui-react/*": ["../../packages/amaui-ui-react/build/*"]
-    }
+    },
+    "plugins": [{
+      "name": "next"
+    }]
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    ".next/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"

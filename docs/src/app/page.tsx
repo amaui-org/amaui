@@ -1,8 +1,20 @@
+'use client';
 
+import { style } from '@amaui/style-react'
 
-export default function Home() {
+const useStyle = style(theme => ({
+  root: {
+
+  }
+}), { name: 'root' });
+
+export default function Root(props: any) {
+  const { classes } = useStyle(props);
+
   return (
-    <div>
+    <div
+      className={classes.root}
+    >
       a
     </div>
   )

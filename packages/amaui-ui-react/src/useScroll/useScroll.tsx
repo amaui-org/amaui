@@ -1,16 +1,18 @@
 import React from 'react';
 
+import { isEnvironment } from '@amaui/utils';
+
 export interface IUseScroll {
-  threshold?: number;
+  offset?: number;
   direction?: 'up' | 'down';
   target?: HTMLElement | Window;
 }
 
 const useScroll = (props: IUseScroll) => {
   const {
-    threshold,
+    offset,
     direction = 'down',
-    target = window
+    target = isEnvironment('browser') && window
   } = props;
 
   const [response, setResponse] = React.useState<boolean>(false);
@@ -26,13 +28,13 @@ const useScroll = (props: IUseScroll) => {
     let newResponse = (direction === 'down' && value > refs.previous.current) || (direction === 'up' && value < refs.previous.current);
 
     // Threshold
-    if (threshold !== undefined) newResponse = value > threshold;
+    if (offset !== undefined) newResponse = value > offset;
 
     setResponse(newResponse);
 
     // Previous
     refs.previous.current = value;
-  }, [direction, threshold, target]);
+  }, [direction, offset, target]);
 
   React.useEffect(() => {
     // Add new event listener

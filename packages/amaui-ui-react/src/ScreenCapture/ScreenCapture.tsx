@@ -295,7 +295,9 @@ const ScreenCapture = React.forwardRef((props_: IScreenCapture, ref: any) => {
         }
       });
     }
-    catch (error) { }
+    catch (error) {
+      console.log('onView', error);
+    }
 
     setLoading(items => items.filter(item => item !== 'view'));
 
@@ -324,7 +326,9 @@ const ScreenCapture = React.forwardRef((props_: IScreenCapture, ref: any) => {
         }
       });
     }
-    catch (error) { }
+    catch (error) {
+      console.log('onEntirePage', error);
+    }
 
     setLoading(items => items.filter(item => item !== 'entirePage'));
 
@@ -339,7 +343,7 @@ const ScreenCapture = React.forwardRef((props_: IScreenCapture, ref: any) => {
 
   const onFree = async (event: React.MouseEvent<any>) => {
     setLoading(items => [...items, 'free']);
-
+    console.log('on free start');
     // Update image
     try {
       const canvas = await elementToCanvas(window.document.body, {
@@ -360,10 +364,14 @@ const ScreenCapture = React.forwardRef((props_: IScreenCapture, ref: any) => {
           height: window.innerHeight
         }
       }) as HTMLCanvasElement;
+      console.log(1234, canvas);
 
       setImage(canvas);
     }
-    catch (error) { }
+    catch (error) {
+      console.log('onFree', error);
+    }
+    console.log('on free end');
 
     setLoading(items => items.filter(item => item !== 'free'));
 
@@ -422,7 +430,7 @@ const ScreenCapture = React.forwardRef((props_: IScreenCapture, ref: any) => {
     portal: false,
     interactive: false
   };
-
+  console.log(1114, image);
   return (
     <Surface
       ref={ref}

@@ -86,10 +86,24 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
     marginInlineStart: '12px'
   },
 
-  fixed: {
-    position: 'fixed',
-    insetInline: '0',
-    top: '0'
+  position_relative: {
+    position: 'relative'
+  },
+
+  position_absolute: {
+    position: 'absolute'
+  },
+
+  position_static: {
+    position: 'static'
+  },
+
+  position_fixed: {
+    position: 'fixed'
+  },
+
+  position_unset: {
+    position: 'unset'
   }
 }), { name: 'AmauiTopAppBar' });
 
@@ -100,7 +114,7 @@ export interface ITopAppBar extends Omit<ISurface, 'version'> {
   title?: TElement;
   start?: TElement;
   end?: TElement;
-  fixed?: boolean;
+  position?: 'relative' | 'absolute' | 'static' | 'position' | 'unset';
 }
 
 const TopAppBar = React.forwardRef((props_: ITopAppBar, ref: any) => {
@@ -119,7 +133,7 @@ const TopAppBar = React.forwardRef((props_: ITopAppBar, ref: any) => {
     title: title_,
     start: start_,
     end: end_,
-    fixed,
+    position,
 
     Component = 'div',
 
@@ -168,26 +182,6 @@ const TopAppBar = React.forwardRef((props_: ITopAppBar, ref: any) => {
     version === 'small' && !start.length && classes.title_no_start
   ]);
 
-  const title = is('string', title_) ? (
-    <Type
-      version='t1'
-
-      color='inherit'
-
-      className={classNameTitle}
-    >
-      {title_}
-    </Type>
-  ) : (
-    React.cloneElement(title_ as any, {
-      tonal: (title_ as any).props.tonal !== undefined ? (title_ as any).props.tonal : tonal,
-
-      color: (title_ as any).props.color !== undefined ? (title_ as any).props.color : 'inherit',
-
-      className: classNameTitle
-    })
-  );
-
   const classNameTitleMedium = classNames([
     staticClassName('TopAppBar', theme) && [
       'AmauiTopAppBar-title',
@@ -198,25 +192,52 @@ const TopAppBar = React.forwardRef((props_: ITopAppBar, ref: any) => {
     classes[`title_version_${version}`]
   ]);
 
-  const titleMedium = is('string', title_) ? (
-    <Type
-      version={version === 'medium' ? 'h3' : 'h2'}
+  let title: any;
 
-      color='inherit'
+  if (title_) {
+    if (['small', 'center'].includes(version)) {
+      title = is('simple', title_) ? (
+        <Type
+          version='t1'
 
-      className={classNameTitleMedium}
-    >
-      {title_}
-    </Type>
-  ) : (
-    React.cloneElement(title_ as any, {
-      tonal: (title_ as any).props.tonal !== undefined ? (title_ as any).props.tonal : tonal,
+          color='inherit'
 
-      color: (title_ as any).props.color !== undefined ? (title_ as any).props.color : 'inherit',
+          className={classNameTitle}
+        >
+          {title_}
+        </Type>
+      ) : (
+        title_ && React.cloneElement(title_ as any, {
+          tonal: (title_ as any).props.tonal !== undefined ? (title_ as any).props.tonal : tonal,
 
-      className: classNameTitleMedium
-    })
-  );
+          color: (title_ as any).props.color !== undefined ? (title_ as any).props.color : 'inherit',
+
+          className: classNameTitle
+        })
+      );
+    }
+    else {
+      title = is('simple', title_) ? (
+        <Type
+          version={version === 'medium' ? 'h3' : 'h2'}
+
+          color='inherit'
+
+          className={classNameTitleMedium}
+        >
+          {title_}
+        </Type>
+      ) : (
+        title_ && React.cloneElement(title_ as any, {
+          tonal: (title_ as any).props.tonal !== undefined ? (title_ as any).props.tonal : tonal,
+
+          color: (title_ as any).props.color !== undefined ? (title_ as any).props.color : 'inherit',
+
+          className: classNameTitleMedium
+        })
+      );
+    }
+  }
 
   return (
     <Surface
@@ -243,13 +264,12 @@ const TopAppBar = React.forwardRef((props_: ITopAppBar, ref: any) => {
           `AmauiTopAppBar-size-${size}`,
           start && `AmauiTopAppBar-start`,
           end && `AmauiTopAppBar-end`,
-          fixed && `AmauiTopAppBar-fixed`
+          position && `AmauiTopAppBar-position-${position}`
         ],
 
         className,
         classes.root,
-        classes[`version_${version}_size_${size}`],
-        fixed && classes.fixed
+        position && classes[`position_${position}`]
       ])}
 
       {...other}
@@ -327,7 +347,7 @@ const TopAppBar = React.forwardRef((props_: ITopAppBar, ref: any) => {
 
           gap={0}
         >
-          {titleMedium}
+          {title}
         </Line>
       )}
     </Surface>

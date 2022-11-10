@@ -63,6 +63,12 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
 
   version_b3: { ...theme.typography.values.b3 },
 
+  version_m1: { ...theme.typography.values.m1 },
+
+  version_m2: { ...theme.typography.values.m2 },
+
+  version_m3: { ...theme.typography.values.m3 },
+
   disabled: {
     pointerEvents: 'none',
     userSelect: 'none',
@@ -116,7 +122,7 @@ const Type = React.forwardRef((props_: IType, ref: any) => {
     h3: ['h3'],
     h4: ['h4', 't1', 't2', 't3'],
     h5: ['h5', 'l1', 'l2', 'l3'],
-    p: ['b1', 'b2', 'b3']
+    p: ['b1', 'b2', 'b3', 'm1', 'm2', 'm3']
   };
 
   Object.keys(map).forEach(item => {
