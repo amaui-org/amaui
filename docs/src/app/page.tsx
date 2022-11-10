@@ -1,7 +1,9 @@
 'use client';
 
-import { Line, Type } from '@amaui/ui-react';
-import { classNames, style } from '@amaui/style-react'
+import { Button, Line, Link, Tooltip, Type } from '@amaui/ui-react';
+import { classNames, style } from '@amaui/style-react';
+
+import Logo from '../../public/assets/svg/logo.svg';
 
 const useStyle = style(theme => ({
   root: {
@@ -23,6 +25,13 @@ const useStyle = style(theme => ({
     maxWidth: theme.breakpoints.values?.md,
     textAlign: 'center',
     fontSize: 'clamp(1rem, 4vw, 1.5rem)'
+  },
+
+  library: {
+    '& > svg': {
+      height: '44px',
+      width: 'auto'
+    }
   }
 }), { name: 'root' });
 
@@ -87,11 +96,93 @@ export default function Root(props: any) {
             color='secondary'
 
             style={{
-              marginTop: 24
+              marginTop: 44,
+              marginBottom: 12
             }}
           >
-            Some of the tools
+            amaui libraries
           </Type>
+
+          <Line
+            gap={3}
+
+            direction='row'
+
+            align='center'
+
+            justify='center'
+
+            wrap='wrap'
+          >
+            <Line
+              gap={5}
+
+              direction='row'
+
+              align='center'
+
+              justify='center'
+
+              wrap='wrap'
+            >
+              {[
+                { name: 'UI', desc: 'UI React library, based on Material Design 3', url: 'https://github.com/amaui-org/amaui' },
+                { name: 'Utils', desc: 'Utils for front-end, back-end', url: 'https://github.com/amaui-org/amaui-utils' },
+                { name: 'Style', desc: 'Amaui CSS in JS library', url: 'https://github.com/amaui-org/amaui-style' },
+                { name: 'Date', desc: 'Date & time utils', url: 'https://github.com/amaui-org/amaui-date' },
+                { name: 'Request', desc: 'Request making for front-end, back-end', url: 'https://github.com/amaui-org/amaui-request' },
+                { name: 'Test', desc: 'Test framework for front-end, back-end', url: 'https://github.com/amaui-org/amaui-test' }
+              ].map((item: any, index: number) => (
+                <Tooltip
+                  key={index}
+
+                  label={item.desc}
+                >
+                  <Line
+                    gap={1}
+
+                    align='center'
+
+                    justify='center'
+
+                    color='default'
+
+                    href={item.url}
+
+                    target='_blank'
+
+                    underline={false}
+
+                    Component={Link}
+
+                    className={classNames([
+                      classes.library
+                    ])}
+                  >
+                    <Logo />
+
+                    <Type
+                      version='b2'
+                    >
+                      {item.name}
+                    </Type>
+                  </Line>
+                </Tooltip>
+              ))}
+            </Line>
+
+            <Button
+              color='secondary'
+
+              version='text'
+
+              href='https://github.com/amaui-org'
+
+              target='_blank'
+            >
+              More 24+ libraries
+            </Button>
+          </Line>
         </Line>
       </section>
     </Line>
