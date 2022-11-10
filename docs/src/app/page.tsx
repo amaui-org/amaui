@@ -1,6 +1,6 @@
 'use client';
 
-import { Button, Line, Link, Tooltip, Type } from '@amaui/ui-react';
+import { Button, Line, Link, Surface, Tooltip, Type } from '@amaui/ui-react';
 import { classNames, style } from '@amaui/style-react';
 
 import Logo from '../../public/assets/svg/logo.svg';
@@ -9,11 +9,12 @@ const useStyle = style(theme => ({
   root: {
     width: '100%',
     flex: '1 1 auto',
+    background: 'transparent'
   },
 
   about_wrapper: {
     width: '100%',
-    padding: 'clamp(40px, 4vw, 100px) 24px',
+    padding: 'clamp(40px, 4vw, 100px) 44px',
     background: theme.methods.palette.color.value('primary', 95, true)
   },
 
@@ -39,10 +40,16 @@ export default function Root(props: any) {
   const { classes } = useStyle(props);
 
   return (
-    <Line
+    <Surface
+      tonal
+
+      color='primary'
+
       gap={0}
 
       justify='flex-end'
+
+      Component={Line}
 
       className={classNames([
         classes.root
@@ -84,10 +91,10 @@ export default function Root(props: any) {
               classes.about_text
             ])}
           >
-            I am Lazar Eric, maker of amaui. I made amaui ecosystem of front-end and back-end tools, including Material Design 3 base UI library with 100+ UI elements, all a 100% Open source and free to use, as I want to push our market forward.
+            I am Lazar Eric, maker of amaui. I made amaui ecosystem of front-end & back-end tools, including UI React library with 100+ UI elements, based on newest Material Design 3, all a 100% Open source and free to use, as I want to push our market forward.
             <br /> <br />
 
-            Waste less time on building tools, and more on making modern apps quickly & with quality.
+            Waste less time on building tools, and more on making modern apps quickly, with quality.
           </Type>
 
           <Type
@@ -185,6 +192,6 @@ export default function Root(props: any) {
           </Line>
         </Line>
       </section>
-    </Line>
+    </Surface>
   )
 }
