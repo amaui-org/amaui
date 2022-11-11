@@ -2,8 +2,8 @@
 
 import React from 'react';
 
-import { random } from '@amaui/utils';
-import { AreaChart, Avatar, Button, Fab, Line, Link, Masonry, Surface, Switch, Tab, Tabs, Tooltip, Tree, Type, ViewSplit } from '@amaui/ui-react';
+import { isEnvironment, random } from '@amaui/utils';
+import { AreaChart, Avatar, Button, Card, CardFooter, CardHeader, CardImage, CardMain, Fab, Fade, IconButton, Line, Link, ListItem, Masonry, Surface, Switch, Tab, Tabs, TimePicker, Tooltip, Tree, Type, ViewSplit, Weather } from '@amaui/ui-react';
 import { AmauiThemeProvider, classNames, colors, style, useAmauiTheme } from '@amaui/style-react';
 import AmauiStorage from '@amaui/storage';
 
@@ -15,6 +15,7 @@ import IconMaterialPottedPlantRounded from '@amaui/icons-material-react/build/Ic
 import IconMaterialFolderRounded from '@amaui/icons-material-react/build/IconMaterialFolderRounded';
 import IconMaterialFolderOpenRounded from '@amaui/icons-material-react/build/IconMaterialFolderOpenRounded';
 import IconMaterialFiberManualRecordRounded from '@amaui/icons-material-react/build/IconMaterialFiberManualRecordRoundedFilled';
+import IconMaterialMoreVertRounded from '@amaui/icons-material-react/build/IconMaterialMoreVertRounded';
 
 import Logo from '../../public/assets/svg/logo.svg';
 
@@ -22,7 +23,11 @@ const useStyle = style(theme => ({
   root: {
     width: '100vw',
     flex: '1 1 auto',
-    background: 'transparent'
+    background: 'transparent',
+
+    '& .AmauiTimePicker-mode': {
+      margin: 0
+    }
   },
 
   main_wrapper: {
@@ -99,6 +104,12 @@ const useStyle = style(theme => ({
   viewPresentation: {
     margin: '44px auto 0',
     maxWidth: theme.breakpoints.values?.xl
+  },
+
+  watch: {
+    '& .AmauiRoundMeter-root': {
+      margin: '0 auto'
+    }
   }
 }), { name: 'root' });
 
@@ -111,18 +122,23 @@ export default function Root(props: any) {
     storage: new AmauiStorage({ namespace: 'amaui-docs' })
   };
 
-  const [imageSelected, setImageSelected] = React.useState(refs.storage.get('image-selected') || 'primary');
+  const [imageSelected, setImageSelected] = React.useState((isEnvironment('browser') && refs.storage.get('image-selected')) || 'primary');
   const [values, setValues] = React.useState<any>({
     tree_1: true,
     tree_11: true,
     tree_12: true,
     tree_13: true
   });
+  const [inProp, setInProp] = React.useState(false);
 
   React.useEffect(() => {
     update('image', imageSelected);
 
     update('direction', refs.storage.get('direction'));
+
+    setTimeout(() => {
+      setInProp(true);
+    }, 440);
   }, []);
 
   const updateValue = (value: any, property: string) => {
@@ -224,7 +240,6 @@ export default function Root(props: any) {
         break;
     }
   };
-
 
   const values_: any[] = [
     // Button
@@ -471,11 +486,144 @@ export default function Root(props: any) {
           ]}
 
           style={{
+            height: 404,
             padding: '14px 32px 14px 14px'
           }}
         />
       )
-    }
+    },
+    // Watch
+    // {
+    //   element: (
+    //     <Watch
+    //       version='minimal'
+
+    //       className={classes.watch}
+    //     />
+    //   )
+    // },
+    // TimePicker
+    {
+      element: (
+        <div>
+          <TimePicker
+            version='static'
+
+            versionStatic='select'
+
+            switch={false}
+
+            className={classes.timePicker}
+          />
+        </div>
+      )
+    },
+    // Weather
+    {
+      element: (
+        <Weather
+          temperature={14}
+
+          weather='clear'
+
+          style={{
+            margin: '0 auto'
+          }}
+        />
+      )
+    },
+    // Card
+    {
+      element: (
+        <Card
+          style={{
+            maxWidth: 'unset'
+          }}
+        >
+          <CardHeader>
+            <ListItem
+              tonal
+
+              color='primary'
+
+              primary='Primary text'
+
+              secondary='Secondary text'
+
+              Component='div'
+
+              start={(
+                <Avatar
+                  color='primary'
+                >
+                  A
+                </Avatar>
+              )}
+
+              end={(
+                <IconButton>
+                  <IconMaterialMoreVertRounded />
+                </IconButton>
+              )}
+
+              noPadding
+            />
+          </CardHeader>
+
+          <CardImage
+            alt=''
+
+            image={[undefined, 'primary'].includes(imageSelected) ? '/assets/image/image-orange.jpg' : `/assets/image/${imageSelected}.jpg`}
+
+            shape='all'
+          />
+
+          <CardMain
+            gap={1}
+          >
+            <Type
+              version='h3'
+
+              style={{ marginBottom: '4px' }}
+            >
+              Product
+            </Type>
+
+            <Type
+              version='l1'
+            >
+              Good quality
+            </Type>
+
+            <Type
+              version='b2'
+
+              color='secondary'
+            >
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            </Type>
+          </CardMain>
+
+          <CardFooter>
+            <Button
+              tonal
+
+              version='outlined'
+            >
+              Preview
+            </Button>
+
+            <Button
+              version='filled'
+
+              elevation={false}
+            >
+              Buy
+            </Button>
+          </CardFooter>
+        </Card>
+      )
+    },
   ];
 
   return (
@@ -623,44 +771,63 @@ export default function Root(props: any) {
         </Line>
 
         {/* UI elements */}
-        <ViewSplit
-          color='inverted'
+        <Fade
+          in={inProp}
 
-          version='manual'
-
-          className={classNames([
-            classes.viewPresentation
-          ])}
+          removeOnExited
         >
-          {/* Default */}
-          <AmauiThemeProvider
-            value={{
-              palette: {
-                color: {
-                  primary: {
-                    light: colors.yellow[300],
-                    main: colors.yellow[500],
-                    dark: colors.yellow[700],
-                  },
-                  secondary: {
-                    light: colors.lightgreen[300],
-                    main: colors.lightgreen[500],
-                    dark: colors.lightgreen[700],
-                  },
-                  tertiary: {
-                    light: colors.amber[300],
-                    main: colors.amber[500],
-                    dark: colors.amber[700],
-                  },
-                  quaternary: {
-                    light: colors.cyan[300],
-                    main: colors.cyan[500],
-                    dark: colors.cyan[700],
+          <ViewSplit
+            color='inverted'
+
+            version='manual'
+
+            className={classNames([
+              classes.viewPresentation
+            ])}
+          >
+            {/* Default */}
+            <AmauiThemeProvider
+              value={{
+                palette: {
+                  color: {
+                    primary: {
+                      light: colors.yellow[300],
+                      main: colors.yellow[500],
+                      dark: colors.yellow[700],
+                    },
+                    secondary: {
+                      light: colors.lightgreen[300],
+                      main: colors.lightgreen[500],
+                      dark: colors.lightgreen[700],
+                    },
+                    tertiary: {
+                      light: colors.amber[300],
+                      main: colors.amber[500],
+                      dark: colors.amber[700],
+                    },
+                    quaternary: {
+                      light: colors.cyan[300],
+                      main: colors.cyan[500],
+                      dark: colors.cyan[700],
+                    }
                   }
                 }
-              }
-            }}
-          >
+              }}
+            >
+              <Masonry
+                style={{
+                  width: theme.breakpoints?.values?.xl
+                }}
+              >
+                {values_.map((item: any, index: number) => (
+                  React.cloneElement(item.element, {
+                    key: index
+                  })
+                ))}
+              </Masonry>
+            </AmauiThemeProvider>
+
+            {/* Theme new */}
             <Masonry
               style={{
                 width: theme.breakpoints?.values?.xl
@@ -672,21 +839,8 @@ export default function Root(props: any) {
                 })
               ))}
             </Masonry>
-          </AmauiThemeProvider>
-
-          {/* Theme new */}
-          <Masonry
-            style={{
-              width: theme.breakpoints?.values?.xl
-            }}
-          >
-            {values_.map((item: any, index: number) => (
-              React.cloneElement(item.element, {
-                key: index
-              })
-            ))}
-          </Masonry>
-        </ViewSplit>
+          </ViewSplit>
+        </Fade>
       </section>
 
       {/* About */}

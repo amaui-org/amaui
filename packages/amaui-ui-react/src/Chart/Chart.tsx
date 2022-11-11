@@ -28,7 +28,8 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
 
   append_wrapper: {
     userSelect: 'none',
-    pointerEvents: 'none'
+    pointerEvents: 'none',
+    zIndex: theme.z_index.tooltip
   },
 
   wrapper: {

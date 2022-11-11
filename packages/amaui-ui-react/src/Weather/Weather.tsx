@@ -334,8 +334,8 @@ const Weather = React.forwardRef((props_: IWeather, ref: any) => {
   const [rect, setRect] = React.useState<DOMRect>();
   const [values, setValues] = React.useState(values_ !== undefined ? values_ : {
     dayTime: dayTime_ !== undefined ? dayTime_ : 'day',
-    weather: weather_ !== undefined ? weather_ : '',
-    temperature: temperature_ !== undefined ? temperature_ : ''
+    weather: weather_ !== undefined ? weather_ : 'clear',
+    temperature: temperature_ !== undefined ? temperature_ : '14'
   });
 
   const refs = {

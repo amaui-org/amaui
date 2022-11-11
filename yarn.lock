@@ -112,7 +112,7 @@
     "@amaui/utils" "^1.0.11411"
     "@babel/runtime" "^7.18.3"
 
-"@amaui/style@^1.0.11714", "@amaui/style@^1.0.14313":
+"@amaui/style@^1.0.11714":
   version "1.0.14313"
   resolved "https://registry.yarnpkg.com/@amaui/style/-/style-1.0.14313.tgz#06c7852d306fbcb68f0f10fdc1de444b305bece9"
   integrity sha512-dbiInKP/0aTLtDah6tl9nIN8ZgYk7xz+/9Kq2NLEQzZlSJ3PgH66eNW8fqATy0+n2HR7s68bav5c2jy03THVWg==
@@ -121,6 +121,20 @@
     "@amaui/node" "^1.0.11117"
     "@amaui/subscription" "^1.0.11147"
     "@amaui/utils" "^1.0.11411"
+    "@babel/runtime" "^7.18.3"
+    csstype "^3.1.0"
+    fast-glob "^3.2.11"
+    fs-extra "^10.1.0"
+
+"@amaui/style@^1.0.14314":
+  version "1.0.14314"
+  resolved "https://registry.yarnpkg.com/@amaui/style/-/style-1.0.14314.tgz#d4299d3f197add0b9b6cb94debca8c9f08e95cb8"
+  integrity sha512-qsIUIiyDeH4wNVIk1+KQJyAv/l0xg3KGxUHIy/RIMZAXmHhRxnh5AsRozqx8h7d3XIemIJW9jIH+u4YI6b8Q2Q==
+  dependencies:
+    "@amaui/meta" "^1.0.11141"
+    "@amaui/node" "^1.0.11117"
+    "@amaui/subscription" "^1.0.11147"
+    "@amaui/utils" "^1.0.11445"
     "@babel/runtime" "^7.18.3"
     csstype "^3.1.0"
     fast-glob "^3.2.11"
@@ -150,10 +164,20 @@
     fast-glob "^3.2.11"
     yargs "^17.5.1"
 
-"@amaui/utils@^1.0.11411", "@amaui/utils@^1.0.11444":
+"@amaui/utils@^1.0.11411":
   version "1.0.11444"
   resolved "https://registry.yarnpkg.com/@amaui/utils/-/utils-1.0.11444.tgz#af32c133788f0ee8748db2c2e9d9194fe18c694a"
   integrity sha512-mRz4jLuTRn0iHbT7MwOucP61ex+0Wil2G1/40AWDlX6ADdPqfrv1ijg1S8gjShNQs/pRUsrD26ro/rtqt4YmRg==
+  dependencies:
+    "@babel/runtime" "^7.18.3"
+    crypto-js "^4.1.1"
+    path-to-regexp "^6.2.0"
+    uuid "^8.3.2"
+
+"@amaui/utils@^1.0.11445":
+  version "1.0.11445"
+  resolved "https://registry.yarnpkg.com/@amaui/utils/-/utils-1.0.11445.tgz#f824cdb4c84885a06d9d17a308b9b6f67d2a5308"
+  integrity sha512-okORtkmCSLSZZk6sVGMgDpo+83QLkbe0Nu9S0AuhTbwDuca3VUd7M3HS2rRLF0Lq7O06qMKc9+1synQnHu8dLw==
   dependencies:
     "@babel/runtime" "^7.18.3"
     crypto-js "^4.1.1"

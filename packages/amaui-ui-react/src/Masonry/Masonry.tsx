@@ -190,9 +190,9 @@ const Masonry = React.forwardRef((props_: IMasonry, ref: any) => {
           key: index,
 
           style: {
-            ...item.props.style,
+            ...styles.item,
 
-            ...styles.item
+            ...item.props.style
           }
         })
       ))}

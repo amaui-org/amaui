@@ -23,7 +23,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
     '&::before': {
       content: "''",
       position: 'absolute',
-      left: '-11px',
+      left: '-12px',
       height: '100%',
       width: '2px',
       background: theme.palette.light ? theme.palette.color.neutral['90'] : theme.palette.color.neutral['20']
@@ -55,15 +55,19 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
     '&::before': {
       content: "''",
       position: 'absolute',
-      top: 'calc(50% - 12px)',
-      left: '-11px',
-      width: '8px',
-      height: '10px',
+      top: 'calc(50% - 15px)',
+      left: '-12px',
+      width: '10px',
+      height: '14px',
       borderLeft: '2px solid',
       borderBottom: '2px solid',
       borderColor: theme.palette.light ? theme.palette.color.neutral['90'] : theme.palette.color.neutral['20'],
       borderBottomLeftRadius: '6px'
     }
+  },
+
+  item: {
+    padding: '2px 0'
   },
 
   middle: {
@@ -119,7 +123,7 @@ const IconMaterialExpandMoreRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
-export interface ITree extends IBaseElement {
+export interface ITree extends Omit<IBaseElement, 'children'> {
   open?: boolean;
   openDefault?: boolean;
 
@@ -158,6 +162,8 @@ export interface ITree extends IBaseElement {
 
   IconArrow?: TElementReference;
   TransitionComponent?: TElementReference;
+
+  children: any;
 }
 
 const Tree = React.forwardRef((props_: ITree, ref: any) => {

@@ -15,6 +15,7 @@ import IconMaterialNestClockFarsightDigitalRounded from '@amaui/icons-material-r
 import IconMaterialNestClockFarsightAnalogRounded from '@amaui/icons-material-react/build/IconMaterialNestClockFarsightAnalogRounded';
 
 import Root from './';
+import { isEnvironment } from '@amaui/utils';
 
 const widgets = [
   {
@@ -152,14 +153,14 @@ export default function Layout(props: { children: React.ReactNode }) {
           <AmauiThemeProvider
             value={{
               palette: {
-                light: refs.storage.get('light')
+                light: (isEnvironment('browser') && refs.storage.get('light')) || true
               },
 
               typography: {
                 font_family: {
                   primary: FONT_FAMILY.primary,
                   secondary: FONT_FAMILY.secondary,
-                  // tertiary: FONT_FAMILY.tertiary
+                  tertiary: FONT_FAMILY.tertiary
                 },
 
                 values: {
