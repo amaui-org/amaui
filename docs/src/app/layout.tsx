@@ -4,7 +4,7 @@ import React from 'react';
 
 import { useServerInsertedHTML } from 'next/navigation';
 
-import { Snackbars, Confirm, MainProgress, Widgets, ScreenCapture, Timer, Countdown, Watch, Reset } from '@amaui/ui-react';
+import { Widgets, ScreenCapture, Timer, Countdown, Watch, Reset } from '@amaui/ui-react';
 import { AmauiThemeProvider, valueObject, prefix, rtl, unit, makeClassName, AmauiStyle, AmauiStyleProvider } from '@amaui/style-react';
 
 import IconMaterialTimerRounded from '@amaui/icons-material-react/build/IconMaterialTimerRounded';
@@ -50,8 +50,8 @@ const widgets = [
 ];
 
 const FONT_FAMILY = {
-  primary: ['Montserrat', 'Helvetica', '"Helvetica Neue"', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Arial', '"Apple Color Emoji"', '"Segoe UI Emoji"', '"Segoe UI Symbol"', 'sans-serif'].join(', '),
-  secondary: ['Lato', 'Helvetica', '"Helvetica Neue"', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Arial', '"Apple Color Emoji"', '"Segoe UI Emoji"', '"Segoe UI Symbol"', 'sans-serif'].join(', '),
+  primary: ['Montserrat', 'Helvetica', 'Helvetica Neue', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Arial', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'sans-serif'].join(', '),
+  secondary: ['Lato', 'Helvetica', 'Helvetica Neue', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Arial', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'sans-serif'].join(', '),
   tertiary: ['Roboto Mono', 'monospace'].join(', ')
 };
 
@@ -93,9 +93,9 @@ export default function Layout(props: { children: React.ReactNode }) {
       <>
         <style
           id='amaui-initial-css'
-        >
-          {amauiStyle.css}
-        </style>
+
+          dangerouslySetInnerHTML={{ __html: amauiStyle.css }}
+        />
       </>
     );
   });
@@ -202,21 +202,15 @@ export default function Layout(props: { children: React.ReactNode }) {
               }
             }}
           >
-            <MainProgress>
-              <Confirm>
-                <Snackbars>
-                  <Widgets
-                    widgets={widgets}
-                  >
-                    <Reset />
+            <Widgets
+              widgets={widgets}
+            >
+              <Reset />
 
-                    <Root>
-                      {children}
-                    </Root>
-                  </Widgets>
-                </Snackbars>
-              </Confirm>
-            </MainProgress>
+              <Root>
+                {children}
+              </Root>
+            </Widgets>
           </AmauiThemeProvider>
         </AmauiStyleProvider>
       </body>

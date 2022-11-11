@@ -2,8 +2,8 @@
 
 import React from 'react';
 
-import { classNames, style as styleMethod } from '@amaui/style-react';
 import { IconButton, Line, Link, Tooltip, TopAppBar, Type, useScroll } from '@amaui/ui-react';
+import { classNames, style as styleMethod } from '@amaui/style-react';
 
 import Logo from '../../public/assets/svg/logo.svg';
 
@@ -43,7 +43,7 @@ const useStyle = styleMethod(theme => ({
 
   header_not_top: {
     '&.AmauiTopAppBar-root': {
-      background: theme.palette.light ? theme.palette.background?.primary?.secondary : theme.palette.background?.primary?.tertiary,
+      background: theme.methods.palette.color.colorToRgb((theme.palette.light ? theme.palette.background?.primary?.secondary : theme.palette.background?.primary?.tertiary) as string, 0.97),
       maxWidth: theme.breakpoints?.values?.md,
       boxShadow: theme.shadows?.values?.default?.['2']
     }

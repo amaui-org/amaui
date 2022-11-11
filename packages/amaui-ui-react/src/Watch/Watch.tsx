@@ -27,6 +27,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
   },
 
   version_regular: {
+    minWidth: '204px',
     padding: '24px 40px',
     borderRadius: theme.methods.shape.radius.value('rg', 'px')
   },

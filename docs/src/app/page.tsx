@@ -7,19 +7,39 @@ import Logo from '../../public/assets/svg/logo.svg';
 
 const useStyle = style(theme => ({
   root: {
-    width: '100%',
+    width: '100vw',
     flex: '1 1 auto',
-    background: 'transparent'
+    background: theme.palette.background?.default?.primary
+  },
+
+  main_wrapper: {
+    width: '100%',
+    padding: 'clamp(104px, 14vw, 240px) 44px'
+  },
+
+  main_title: {
+    color: theme.palette.color?.secondary?.[50],
+    textAlign: 'center'
+  },
+
+  main_text: {
+    maxWidth: theme.breakpoints.values?.md,
+    textAlign: 'center',
+    fontSize: 'clamp(2.1rem, 4vw, 4.4rem)'
+  },
+
+  main_text_accent: {
+    color: theme.palette.color?.primary?.[50]
   },
 
   about_wrapper: {
     width: '100%',
-    padding: 'clamp(40px, 4vw, 100px) 44px',
+    padding: 'clamp(40px, 5vw, 104px) 44px',
     background: theme.methods.palette.color.value('primary', 95, true)
   },
 
   about_title: {
-    color: theme.palette.color?.secondary?.[40]
+    color: theme.palette.color?.secondary?.[50]
   },
 
   about_text: {
@@ -47,8 +67,6 @@ export default function Root(props: any) {
 
       gap={0}
 
-      justify='flex-end'
-
       Component={Line}
 
       className={classNames([
@@ -56,6 +74,41 @@ export default function Root(props: any) {
       ])}
     >
       {/* Main */}
+      <section
+        className={classNames([
+          classes.main_wrapper
+        ])}
+      >
+        <Line
+          align='center'
+
+          justify='center'
+
+          className={classNames([
+            classes.main
+          ])}
+        >
+          <Type
+            version='l2'
+
+            className={classNames([
+              classes.main_title
+            ])}
+          >
+            Worlds First 100% Open Source Material Design 3 UI Library
+          </Type>
+
+          <Type
+            version='d1'
+
+            className={classNames([
+              classes.main_text
+            ])}
+          >
+            Make Modern Web & Mobile Apps Quickly <span className={classes.main_text_accent}>100+ UI elements</span>
+          </Type>
+        </Line>
+      </section>
 
       {/* Presentation */}
 
@@ -75,7 +128,7 @@ export default function Root(props: any) {
           ])}
         >
           <Type
-            version='l1'
+            version='t2'
 
             className={classNames([
               classes.about_title
@@ -103,7 +156,7 @@ export default function Root(props: any) {
             color='secondary'
 
             style={{
-              marginTop: 44,
+              marginTop: 54,
               marginBottom: 12
             }}
           >
