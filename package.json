@@ -7,8 +7,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "cd docs && yarn start",
-    "postinstall": "cd docs && yarn install"
+    "start": "cd docs && yarn start"
   },
   "devDependencies": {
     "@amaui/models": "^1.0.11114",
