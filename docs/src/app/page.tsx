@@ -129,6 +129,10 @@ export default function Root(props: any) {
   React.useEffect(() => {
     let imageSelected_ = (isEnvironment('browser') && refs.storage.get('image-selected')) || 'primary';
 
+    const light = refs.storage.get('light');
+
+    if (light !== undefined) update('light', light);
+
     update('image', imageSelected_);
 
     update('direction', refs.storage.get('direction'));
