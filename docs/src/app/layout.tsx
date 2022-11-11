@@ -6,6 +6,7 @@ import { useServerInsertedHTML } from 'next/navigation';
 
 import { Widgets, ScreenCapture, Timer, Countdown, Watch, Reset } from '@amaui/ui-react';
 import { AmauiThemeProvider, valueObject, prefix, rtl, unit, makeClassName, AmauiStyle, AmauiStyleProvider } from '@amaui/style-react';
+import AmauiStorage from '@amaui/storage';
 
 import IconMaterialTimerRounded from '@amaui/icons-material-react/build/IconMaterialTimerRounded';
 import IconMaterialVideocamRounded from '@amaui/icons-material-react/build/IconMaterialVideocamRounded';
@@ -59,6 +60,10 @@ export default function Layout(props: { children: React.ReactNode }) {
   const {
     children
   } = props;
+
+  const refs = {
+    storage: new AmauiStorage({ namespace: 'amaui-docs' })
+  };
 
   const amauiStyle = React.useState(() => {
     const amauiStyle_ = new AmauiStyle();
@@ -146,11 +151,15 @@ export default function Layout(props: { children: React.ReactNode }) {
         >
           <AmauiThemeProvider
             value={{
+              palette: {
+                light: refs.storage.get('light')
+              },
+
               typography: {
                 font_family: {
                   primary: FONT_FAMILY.primary,
                   secondary: FONT_FAMILY.secondary,
-                  tertiary: FONT_FAMILY.tertiary
+                  // tertiary: FONT_FAMILY.tertiary
                 },
 
                 values: {

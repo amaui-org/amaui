@@ -4,6 +4,7 @@ import React from 'react';
 
 import { Avatar, Button, Line, Link, Surface, Switch, Tooltip, Type } from '@amaui/ui-react';
 import { classNames, colors, style, useAmauiTheme } from '@amaui/style-react';
+import AmauiStorage from '@amaui/storage';
 
 import IconMaterialLightModeRounded from '@amaui/icons-material-react/build/IconMaterialLightModeRounded';
 import IconMaterialDarkModeRounded from '@amaui/icons-material-react/build/IconMaterialDarkModeRounded';
@@ -96,7 +97,17 @@ export default function Root(props: any) {
 
   const theme = useAmauiTheme();
 
-  const [imageSelected, setImageSelected] = React.useState('primary');
+  const refs = {
+    storage: new AmauiStorage({ namespace: 'amaui-docs' })
+  };
+
+  const [imageSelected, setImageSelected] = React.useState(refs.storage.get('image-selected') || 'primary');
+
+  React.useEffect(() => {
+    update('image', imageSelected);
+
+    update('direction', refs.storage.get('direction'));
+  }, []);
 
   const update = async (version = 'light', value: any = true) => {
     let values = {};
@@ -109,6 +120,8 @@ export default function Root(props: any) {
           }
         });
 
+        refs.storage.add('light', value);
+
         break;
 
       case 'direction':
@@ -117,6 +130,8 @@ export default function Root(props: any) {
         theme.updateWithRerender({
           direction: value ? 'ltr' : 'rtl'
         });
+
+        refs.storage.add('direction', value);
 
         break;
 
@@ -174,6 +189,8 @@ export default function Root(props: any) {
         theme.updateWithRerender(values);
 
         setImageSelected(value);
+
+        refs.storage.add('image-selected', value);
 
         break;
 
