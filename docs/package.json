@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "yarn next start",
     "lint": "next lint"
   },
   "dependencies": {
@@ -14,7 +14,6 @@
     "@amaui/style-react": "^1.0.1127",
     "@amaui/ui-react": "^1.0.1127",
     "@amaui/utils": "^1.0.11445",
-    "@next/font": "^13.0.2",
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.8",
