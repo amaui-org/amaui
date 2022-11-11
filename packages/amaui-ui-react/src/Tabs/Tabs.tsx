@@ -17,6 +17,7 @@ import { staticClassName, TElementReference, TPropsAny } from '../utils';
 const useStyle = styleMethod((theme: AmauiTheme) => ({
   root: {
     minHeight: '44px',
+    position: 'relative',
     overflow: 'hidden'
   },
 

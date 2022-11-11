@@ -3,7 +3,7 @@
 import React from 'react';
 
 import { random } from '@amaui/utils';
-import { Avatar, Button, Line, Link, Masonry, Surface, Switch, Tooltip, Type, ViewSplit } from '@amaui/ui-react';
+import { AreaChart, Avatar, Button, Fab, Line, Link, Masonry, Surface, Switch, Tab, Tabs, Tooltip, Tree, Type, ViewSplit } from '@amaui/ui-react';
 import { AmauiThemeProvider, classNames, colors, style, useAmauiTheme } from '@amaui/style-react';
 import AmauiStorage from '@amaui/storage';
 
@@ -11,6 +11,10 @@ import IconMaterialLightModeRounded from '@amaui/icons-material-react/build/Icon
 import IconMaterialDarkModeRounded from '@amaui/icons-material-react/build/IconMaterialDarkModeRounded';
 import IconMaterialFormatTextdirectionLToRRounded from '@amaui/icons-material-react/build/IconMaterialFormatTextdirectionLToRRounded';
 import IconMaterialFormatTextdirectionRToLRounded from '@amaui/icons-material-react/build/IconMaterialFormatTextdirectionRToLRounded';
+import IconMaterialPottedPlantRounded from '@amaui/icons-material-react/build/IconMaterialPottedPlantRounded';
+import IconMaterialFolderRounded from '@amaui/icons-material-react/build/IconMaterialFolderRounded';
+import IconMaterialFolderOpenRounded from '@amaui/icons-material-react/build/IconMaterialFolderOpenRounded';
+import IconMaterialFiberManualRecordRounded from '@amaui/icons-material-react/build/IconMaterialFiberManualRecordRoundedFilled';
 
 import Logo from '../../public/assets/svg/logo.svg';
 
@@ -108,6 +112,12 @@ export default function Root(props: any) {
   };
 
   const [imageSelected, setImageSelected] = React.useState(refs.storage.get('image-selected') || 'primary');
+  const [values, setValues] = React.useState<any>({
+    tree_1: true,
+    tree_11: true,
+    tree_12: true,
+    tree_13: true
+  });
 
   React.useEffect(() => {
     update('image', imageSelected);
@@ -115,8 +125,18 @@ export default function Root(props: any) {
     update('direction', refs.storage.get('direction'));
   }, []);
 
+  const updateValue = (value: any, property: string) => {
+    setValues((values_: any) => ({
+      ...values_,
+
+      [property]: value
+    }));
+  };
+
+  const valueArea = React.useMemo(() => Array.from({ length: 7 }).map(() => [random(-40, 400), random(-40, 400)]), []);
+
   const update = async (version = 'light', value: any = true) => {
-    let values = {};
+    let values_ = {};
 
     switch (version) {
       case 'light':
@@ -144,7 +164,7 @@ export default function Root(props: any) {
       case 'image':
         switch (value) {
           case 'primary':
-            values = {
+            values_ = {
               palette: {
                 color: {
                   primary: {
@@ -192,7 +212,7 @@ export default function Root(props: any) {
             break;
         }
 
-        theme.updateWithRerender(values);
+        theme.updateWithRerender(values_);
 
         setImageSelected(value);
 
@@ -205,47 +225,258 @@ export default function Root(props: any) {
     }
   };
 
-  const values = React.useMemo(() => new Array(14).fill(true).map((item: any, index: number) => ({
-    value: random(14, 140)
-  })), []);
 
-  const MasonryItem = React.useCallback(() => {
+  const values_: any[] = [
+    // Button
+    {
+      element: (
+        <Button
+          tonal
+        >
+          Button
+        </Button>
+      )
+    },
+    // Tree
+    {
+      element: (
+        <Tree
+          open={values['tree_1']}
 
-    return (
-      <Masonry
-        style={{
-          width: theme.breakpoints?.values?.xl
-        }}
-      >
-        {values.map((item: any, index: number) => (
-          <Surface
-            key={index}
+          onChange={(value: any) => updateValue(value, 'tree_1')}
 
-            tonal
+          line
 
-            color='primary'
+          middle='src'
 
-            version='filled'
+          icon={<IconMaterialFolderRounded size='small' />}
+          iconOpen={<IconMaterialFolderOpenRounded size='small' />}
 
-            elevation={1}
+          end={(
+            <IconMaterialFiberManualRecordRounded
+              size={12}
 
-            align='center'
+              color='warning'
+            />
+          )}
 
-            justify='center'
+          MiddleProps={{
+            version: 'l2',
+            color: 'primary'
+          }}
 
-            Component={Line}
+          style={{
+            minWidth: 204
+          }}
+        >
+          <Tree
+            open={values['tree_11']}
 
-            style={{
-              height: item.value,
-              borderRadius: '8px'
+            onChange={(value: any) => updateValue(value, 'tree_11')}
+
+            middle='Accordion'
+
+            icon={<IconMaterialFolderRounded size='small' />}
+            iconOpen={<IconMaterialFolderOpenRounded size='small' />}
+
+            MiddleProps={{
+              version: 'l2',
+              color: 'primary'
             }}
           >
-            {index + 1}
-          </Surface>
-        ))}
-      </Masonry>
-    );
-  }, []);
+            <Tree
+              middle='Accordion.jsx'
+
+              icon={<IconMaterialFiberManualRecordRounded
+                size='small'
+
+                color='secondary'
+              />}
+
+              MiddleProps={{
+                version: 'b2',
+                color: 'secondary'
+              }}
+            />
+
+            <Tree
+              middle='index.jsx'
+
+              icon={<IconMaterialFiberManualRecordRounded
+                size='small'
+
+                color='secondary'
+              />}
+
+              MiddleProps={{
+                version: 'b2',
+                color: 'secondary'
+              }}
+            />
+          </Tree>
+
+          <Tree
+            open={values['tree_12']}
+
+            onChange={(value: any) => updateValue(value, 'tree_12')}
+
+            middle='Append'
+
+            icon={<IconMaterialFolderRounded size='small' />}
+            iconOpen={<IconMaterialFolderOpenRounded size='small' />}
+
+            MiddleProps={{
+              version: 'l2',
+              color: 'primary'
+            }}
+          >
+            <Tree
+              middle='Append.jsx'
+
+              icon={<IconMaterialFiberManualRecordRounded
+                size='small'
+
+                color='secondary'
+              />}
+
+              end={(
+                <IconMaterialFiberManualRecordRounded
+                  size={12}
+
+                  color='warning'
+                />
+              )}
+
+              MiddleProps={{
+                version: 'b2',
+                color: 'secondary'
+              }}
+            />
+
+            <Tree
+              middle='index.jsx'
+
+              icon={<IconMaterialFiberManualRecordRounded
+                size='small'
+
+                color='secondary'
+              />}
+
+              MiddleProps={{
+                version: 'b2',
+                color: 'secondary'
+              }}
+            />
+          </Tree>
+
+          <Tree
+            open={values['tree_13']}
+
+            onChange={(value: any) => updateValue(value, 'tree_13')}
+
+            middle='AutoComplete'
+
+            icon={<IconMaterialFolderRounded size='small' />}
+            iconOpen={<IconMaterialFolderOpenRounded size='small' />}
+
+            MiddleProps={{
+              version: 'l2',
+              color: 'primary'
+            }}
+          >
+            <Tree
+              middle='AutoComplete.jsx'
+
+              icon={<IconMaterialFiberManualRecordRounded
+                size='small'
+
+                color='secondary'
+              />}
+
+              MiddleProps={{
+                version: 'b2',
+                color: 'secondary'
+              }}
+            />
+
+            <Tree
+              middle='index.jsx'
+
+              icon={<IconMaterialFiberManualRecordRounded
+                size='small'
+
+                color='secondary'
+              />}
+
+              MiddleProps={{
+                version: 'b2',
+                color: 'secondary'
+              }}
+            />
+          </Tree>
+        </Tree>
+      )
+    },
+    // Tabs
+    {
+      element: (
+        <Tabs
+          value={values['tabs']}
+
+          onChange={(value: any) => updateValue(value, 'tabs')}
+
+          justify='center'
+        >
+          <Tab>Home</Tab>
+          <Tab>Products</Tab>
+          <Tab>About</Tab>
+        </Tabs>
+      )
+    },
+    // Fab
+    {
+      element: (
+        <Fab
+          version='filled'
+        >
+          <IconMaterialPottedPlantRounded /> Fab
+        </Fab>
+      )
+    },
+    // AreaChart
+    {
+      element: (
+        <AreaChart
+          guidelines='both'
+
+          names={{
+            y: 'Amount',
+            x: 'Value'
+          }}
+
+          labelsAutoNumber={5}
+
+          minPaddingY={0.14}
+
+          maxPaddingY={0.14}
+
+          values={[
+            {
+              color: 'primary',
+
+              name: 'a',
+
+              values: valueArea
+            }
+          ]}
+
+          style={{
+            padding: '14px 32px 14px 14px'
+          }}
+        />
+      )
+    }
+  ];
 
   return (
     <Surface
@@ -430,11 +661,31 @@ export default function Root(props: any) {
               }
             }}
           >
-            <MasonryItem />
+            <Masonry
+              style={{
+                width: theme.breakpoints?.values?.xl
+              }}
+            >
+              {values_.map((item: any, index: number) => (
+                React.cloneElement(item.element, {
+                  key: index
+                })
+              ))}
+            </Masonry>
           </AmauiThemeProvider>
 
           {/* Theme new */}
-          <MasonryItem />
+          <Masonry
+            style={{
+              width: theme.breakpoints?.values?.xl
+            }}
+          >
+            {values_.map((item: any, index: number) => (
+              React.cloneElement(item.element, {
+                key: index
+              })
+            ))}
+          </Masonry>
         </ViewSplit>
       </section>
 

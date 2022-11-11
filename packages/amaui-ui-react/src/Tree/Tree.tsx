@@ -23,7 +23,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
     '&::before': {
       content: "''",
       position: 'absolute',
-      left: '-4px',
+      left: '-11px',
       height: '100%',
       width: '2px',
       background: theme.palette.light ? theme.palette.color.neutral['90'] : theme.palette.color.neutral['20']
@@ -56,7 +56,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
       content: "''",
       position: 'absolute',
       top: 'calc(50% - 12px)',
-      left: '-4px',
+      left: '-11px',
       width: '8px',
       height: '10px',
       borderLeft: '2px solid',
