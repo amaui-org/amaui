@@ -27,7 +27,7 @@ const useScroll = (props: IUseScroll) => {
     // Direction
     let newResponse = (direction === 'down' && value > refs.previous.current) || (direction === 'up' && value < refs.previous.current);
 
-    // Threshold
+    // Offset
     if (offset !== undefined) newResponse = value > offset;
 
     setResponse(newResponse);
@@ -39,6 +39,8 @@ const useScroll = (props: IUseScroll) => {
   React.useEffect(() => {
     // Add new event listener
     if (target) target.addEventListener('scroll', method);
+
+    method();
 
     return () => {
       // Remove previous event listener

@@ -3,7 +3,7 @@
 import React from 'react';
 
 import { IconButton, Line, Link, Tooltip, TopAppBar, Type, useScroll } from '@amaui/ui-react';
-import { classNames, style as styleMethod } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Logo from '../../public/assets/svg/logo.svg';
 
@@ -51,7 +51,11 @@ const useStyle = styleMethod(theme => ({
 
   logo: {
     height: '44px',
-    width: 'auto'
+    width: 'auto',
+
+    '& path:nth-child(2)': {
+      fill: theme.palette.light ? theme.palette.background?.default?.primary : theme.palette.color?.primary?.[10]
+    }
   },
 
   icon: {
@@ -83,6 +87,8 @@ function Root(props: any) {
   const {
     children
   } = props;
+
+  const theme = useAmauiTheme();
 
   const notTop = useScroll({ offset: 1 });
 
@@ -201,7 +207,7 @@ function Root(props: any) {
 
               target='_blank'
 
-              color='secondary'
+              color={theme.palette.color?.secondary?.[50]}
             >
               MIT license
             </Link>

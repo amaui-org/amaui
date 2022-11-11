@@ -1,7 +1,14 @@
 'use client';
 
-import { Button, Line, Link, Surface, Tooltip, Type } from '@amaui/ui-react';
-import { classNames, style } from '@amaui/style-react';
+import React from 'react';
+
+import { Avatar, Button, Line, Link, Surface, Switch, Tooltip, Type } from '@amaui/ui-react';
+import { classNames, colors, style, useAmauiTheme } from '@amaui/style-react';
+
+import IconMaterialLightModeRounded from '@amaui/icons-material-react/build/IconMaterialLightModeRounded';
+import IconMaterialDarkModeRounded from '@amaui/icons-material-react/build/IconMaterialDarkModeRounded';
+import IconMaterialFormatTextdirectionLToRRounded from '@amaui/icons-material-react/build/IconMaterialFormatTextdirectionLToRRounded';
+import IconMaterialFormatTextdirectionRToLRounded from '@amaui/icons-material-react/build/IconMaterialFormatTextdirectionRToLRounded';
 
 import Logo from '../../public/assets/svg/logo.svg';
 
@@ -9,7 +16,7 @@ const useStyle = style(theme => ({
   root: {
     width: '100vw',
     flex: '1 1 auto',
-    background: theme.palette.background?.default?.primary
+    background: 'transparent'
   },
 
   main_wrapper: {
@@ -32,6 +39,11 @@ const useStyle = style(theme => ({
     color: theme.palette.color?.primary?.[50]
   },
 
+  presentation_wrapper: {
+    width: '100%',
+    padding: '0px 44px clamp(40px, 5vw, 104px)'
+  },
+
   about_wrapper: {
     width: '100%',
     padding: 'clamp(40px, 5vw, 104px) 44px',
@@ -48,16 +60,127 @@ const useStyle = style(theme => ({
     fontSize: 'clamp(1rem, 4vw, 1.5rem)'
   },
 
+  logo: {
+    '& path:nth-child(2)': {
+      fill: theme.palette.light ? theme.palette.background?.default?.primary : theme.palette.color?.primary?.[10]
+    }
+  },
+
   library: {
     '& > svg': {
       height: '44px',
       width: 'auto'
     }
+  },
+
+  image_option: {
+    transition: theme.methods.transitions.make('transform'),
+
+    '&:active': {
+      transform: 'scale(0.91)'
+    },
+
+    '&.AmauiAvatar-root': {
+      cursor: 'pointer'
+    }
+  },
+
+  image_option_selected: {
+    outline: `1px solid ${theme.palette.text?.default?.primary}`,
+    outlineOffset: 3
   }
 }), { name: 'root' });
 
 export default function Root(props: any) {
   const { classes } = useStyle(props);
+
+  const theme = useAmauiTheme();
+
+  const [imageSelected, setImageSelected] = React.useState('primary');
+
+  const update = async (version = 'light', value: any = true) => {
+    let values = {};
+
+    switch (version) {
+      case 'light':
+        theme.updateWithRerender({
+          palette: {
+            light: value
+          }
+        });
+
+        break;
+
+      case 'direction':
+        window.document.body.dir = value ? 'ltr' : 'rtl';
+
+        theme.updateWithRerender({
+          direction: value ? 'ltr' : 'rtl'
+        });
+
+        break;
+
+      case 'image':
+        switch (value) {
+          case 'primary':
+            values = {
+              palette: {
+                color: {
+                  primary: {
+                    light: colors.yellow[300],
+                    main: colors.yellow[500],
+                    dark: colors.yellow[700],
+                  },
+                  secondary: {
+                    light: colors.lightgreen[300],
+                    main: colors.lightgreen[500],
+                    dark: colors.lightgreen[700],
+                  },
+                  tertiary: {
+                    light: colors.amber[300],
+                    main: colors.amber[500],
+                    dark: colors.amber[700],
+                  },
+                  quaternary: {
+                    light: colors.cyan[300],
+                    main: colors.cyan[500],
+                    dark: colors.cyan[700],
+                  }
+                }
+              }
+            };
+
+            break;
+
+          case 'image-green':
+            await theme.image('/assets/image/image-green.jpg');
+
+            break;
+
+          case 'image-orange':
+            await theme.image('/assets/image/image-orange.jpg');
+
+            break;
+
+          case 'image-pink':
+            await theme.image('/assets/image/image-pink.jpg');
+
+            break;
+
+          default:
+            break;
+        }
+
+        theme.updateWithRerender(values);
+
+        setImageSelected(value);
+
+        break;
+
+      default:
+        break;
+    }
+  };
 
   return (
     <Surface
@@ -111,6 +234,98 @@ export default function Root(props: any) {
       </section>
 
       {/* Presentation */}
+      <section
+        className={classNames([
+          classes.presentation_wrapper
+        ])}
+      >
+        {/* Options */}
+        <Line
+          direction='row'
+
+          align='center'
+
+          justify='center'
+        >
+          <Tooltip
+            label={theme.palette.light ? 'Light theme' : 'Dark theme'}
+          >
+            <Switch
+              tonal
+
+              color='primary'
+
+              OnIcon={<IconMaterialLightModeRounded />}
+
+              OffIcon={<IconMaterialDarkModeRounded />}
+
+              checked={theme.palette.light}
+
+              onChange={(value: boolean) => update('light', value)}
+            />
+          </Tooltip>
+
+          <Tooltip
+            label={theme.direction === 'ltr' ? 'Left to right' : 'Right to left'}
+          >
+            <Switch
+              tonal
+
+              color='primary'
+
+              OnIcon={<IconMaterialFormatTextdirectionLToRRounded />}
+
+              OffIcon={<IconMaterialFormatTextdirectionRToLRounded />}
+
+              checked={theme.direction === 'ltr'}
+
+              onChange={(value: boolean) => update('direction', value)}
+            />
+          </Tooltip>
+
+          <Tooltip
+            label='Default theme'
+          >
+            <Avatar
+              color={colors.yellow[500]}
+
+              onClick={() => update('image', 'primary')}
+
+              className={classNames([
+                classes.image_option,
+                imageSelected === 'primary' && classes.image_option_selected
+              ])}
+            />
+          </Tooltip>
+
+          {[
+            { version: 'image-green', label: 'Green leaves image to theme', image: '/assets/image/image-green.jpg', alt: 'Photo by <a href="https://unsplash.com/@chrisleeiam?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Chris Lee</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>' },
+            { version: 'image-orange', label: 'Oranges image to theme', image: '/assets/image/image-orange.jpg', alt: 'Photo by Karolina Grabowska: https://www.pexels.com/photo/slices-of-fresh-ripe-orange-4022107' },
+            { version: 'image-pink', label: 'Pink Shiba Inu image to theme', image: '/assets/image/image-pink.jpg', alt: 'Photo by Anna Shvets: https://www.pexels.com/photo/portrait-of-shiba-inu-dog-4587979' }
+          ].map((item: any, index: number) => (
+            <Tooltip
+              key={index}
+
+              label={item.label}
+            >
+              <Avatar
+                image={item.image}
+
+                alt={item.alt}
+
+                onClick={() => update('image', item.version)}
+
+                className={classNames([
+                  classes.image_option,
+                  imageSelected === item.version && classes.image_option_selected
+                ])}
+              />
+            </Tooltip>
+          ))}
+        </Line>
+
+        {/* UI elements */}
+      </section>
 
       {/* About */}
       <section
@@ -160,7 +375,7 @@ export default function Root(props: any) {
               marginBottom: 12
             }}
           >
-            amaui libraries
+            amaui made
           </Type>
 
           <Line
@@ -219,7 +434,9 @@ export default function Root(props: any) {
                       classes.library
                     ])}
                   >
-                    <Logo />
+                    <Logo
+                      className={classes.logo}
+                    />
 
                     <Type
                       version='b2'
@@ -232,7 +449,7 @@ export default function Root(props: any) {
             </Line>
 
             <Button
-              color='secondary'
+              color={theme.palette.color?.secondary?.[50]}
 
               version='text'
 
