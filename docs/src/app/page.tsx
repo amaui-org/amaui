@@ -319,7 +319,7 @@ export default function Root(props: any) {
               classes.main_text
             ])}
           >
-            Make Modern Web & Mobile Apps Quickly <span className={classes.main_text_accent}>100+ UI Elements</span>
+            Make Modern Web & Mobile Apps Quickly <span className={classes.main_text_accent}>100+ UI elements</span>
           </Type>
         </Line>
       </section>

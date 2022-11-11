@@ -7,9 +7,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "cd docs && yarn install && yarn build",
     "start": "cd docs && yarn start",
-    "test": "lerna run test",
     "postinstall": "cd docs && yarn install"
   },
   "devDependencies": {
