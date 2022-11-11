@@ -17,7 +17,7 @@ const dot = {
   outline: '1px solid white'
 };
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     width: '100%',
     minHeight: '1px',

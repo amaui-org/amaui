@@ -24,7 +24,7 @@ import { IAdvancedTextField } from '../AdvancedTextField/AdvancedTextField';
 
 import { staticClassName, TElementReference, TPropsAny, TValueBreakpoints, valueBreakpoints } from '../utils';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
 
   },

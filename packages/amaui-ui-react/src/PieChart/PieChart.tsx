@@ -13,7 +13,7 @@ import { IChart } from '../Chart/Chart';
 
 import { angleToCoordinates, staticClassName } from '../utils';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     '& .AmauiChart-wrapper': {
       aspectRatio: '1',

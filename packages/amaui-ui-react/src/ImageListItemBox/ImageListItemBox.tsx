@@ -7,7 +7,7 @@ import { IListItem } from '../ListItem/ListItem';
 
 import { staticClassName } from '../utils';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
 
   },

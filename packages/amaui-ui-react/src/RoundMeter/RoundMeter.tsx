@@ -7,7 +7,7 @@ import Surface from '../Surface';
 
 import { angleToCoordinates, IBaseElement, staticClassName, TColor, TElement, TPropsAny, TSize, TStyle, TTonal } from '../utils';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     width: '100%'
   },

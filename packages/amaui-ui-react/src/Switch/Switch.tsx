@@ -8,7 +8,7 @@ import IconButton from '../IconButton';
 
 import { IBaseElement, staticClassName, TColor, TElementReference, TRef, TSize, TTonal } from '../utils';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     position: 'relative',
     display: 'inline-flex',

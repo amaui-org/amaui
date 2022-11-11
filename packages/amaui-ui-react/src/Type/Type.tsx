@@ -4,7 +4,7 @@ import { classNames, style as styleMethod, TTypographyItem, useAmauiTheme, Amaui
 
 import { IBaseElement, staticClassName } from '../utils';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     // reset
     margin: '0',

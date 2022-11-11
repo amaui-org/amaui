@@ -13,7 +13,7 @@ import useMediaQuery from '../useMediaQuery';
 
 import { staticClassName, valueBreakpoints, minMaxBetweenNumbers, IBaseElement, TTonal, TColor, TElementAny, TStyle, TElement, TPropsAny, TValueBreakpoints } from '../utils';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     width: '100%',
 

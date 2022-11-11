@@ -1,11 +1,11 @@
 import { is, canvasFilterBrightness, canvasFilterContrast, canvasFilterSaturation, canvasFilterFade, canvasFilterInvert, canvasFilterOldPhoto, download, clamp } from '@amaui/utils';
-import { AmauiTheme, TPaletteVersion } from '@amaui/style-react';
+import { TPaletteVersion } from '@amaui/style-react';
 
 export function reflow(element: HTMLElement) {
   element?.offsetHeight;
 }
 
-export const staticClassName = (name: string, theme: AmauiTheme) => {
+export const staticClassName = (name: string, theme: any) => {
   return theme?.ui?.elements?.[`Amaui${name}`]?.className?.static !== undefined ? theme?.ui?.elements?.[`Amaui${name}`]?.className?.static : theme?.ui?.className.static;
 };
 

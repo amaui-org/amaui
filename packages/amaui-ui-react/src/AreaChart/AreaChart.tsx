@@ -12,7 +12,7 @@ import { IChart } from '../Chart/Chart';
 
 import { controlPoint, staticClassName, valueBreakpoints } from '../utils';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     '& .AmauiChart-legend-icon': {
       width: '14px',

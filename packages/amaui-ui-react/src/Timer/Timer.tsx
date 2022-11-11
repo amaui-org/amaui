@@ -17,7 +17,7 @@ import { ISurface } from '../Surface/Surface';
 
 import { staticClassName, TElementReference, TPropsAny } from '../utils';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     minWidth: '300px',
     padding: '24px 40px',

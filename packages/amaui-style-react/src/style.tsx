@@ -3,10 +3,22 @@ import React from 'react';
 import is from '@amaui/utils/is';
 import merge from '@amaui/utils/merge';
 
-import { IMethodResponse, IResponse, style as amauiStyleMethod, TValue, TValueMethod, AmauiTheme } from '@amaui/style';
+import { IMethodResponse, IResponse, style as amauiStyleMethod, AmauiTheme, TValueObjectValue } from '@amaui/style';
 import { IOptions } from '@amaui/style/style';
 
 import { useAmauiStyle, useAmauiTheme } from './';
+
+export type TValueObject = Record<string, TValueObjectValue>;
+
+type RecursiveRequired<T> = {
+  [P in keyof T]-?: T[P] extends Function ? T[P] : RecursiveRequired<T[P]>;
+};
+
+export type AmauiThemeRequired = RecursiveRequired<AmauiTheme>;
+
+export type TValueMethod = (theme: AmauiThemeRequired) => TValueObject;
+
+export type TValue = TValueObject | TValueMethod;
 
 export interface IResponseStyle extends IMethodResponse {
   amauiTheme?: AmauiTheme;
@@ -27,8 +39,8 @@ export default function style(value: TValue, options_: IOptions = {}, responses_
       update: React.useRef<any>()
     };
 
-    const resolve = (theme = amauiTheme) => {
-      let valueNew = value;
+    const resolve = (theme: any = amauiTheme) => {
+      let valueNew: any = value;
 
       if (is('function', value)) valueNew = (value as TValueMethod)(theme);
 
@@ -38,14 +50,14 @@ export default function style(value: TValue, options_: IOptions = {}, responses_
 
         // Add
         if (add) {
-          const object = is('function', add) ? (add as TValueMethod)(amauiTheme) : add;
+          const object = is('function', add) ? (add as any)(theme) : add;
 
           valueNew = merge(object, valueNew, { copy: true });
         }
 
         // Override
         if (override) {
-          const object = is('function', override) ? (override as TValueMethod)(amauiTheme) : override;
+          const object = is('function', override) ? (override as any)(theme) : override;
 
           valueNew = {
             ...valueNew,
@@ -69,7 +81,7 @@ export default function style(value: TValue, options_: IOptions = {}, responses_
 
     const makeResponse = () => {
       // Object
-      let response_ = is('object', value) && responses[0];
+      let response_: any = is('object', value) && responses[0];
 
       if (response_) return response_;
 

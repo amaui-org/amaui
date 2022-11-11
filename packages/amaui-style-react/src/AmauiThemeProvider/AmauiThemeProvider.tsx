@@ -9,9 +9,10 @@ import { IAmauiTheme } from '@amaui/style/amaui-theme';
 
 import AmauiThemeContext from './AmauiThemeContext';
 import useAmauiTheme from './useAmauiTheme';
+import { AmauiThemeRequired } from '../style';
 
-export interface IAmauiThemeProviderValue extends AmauiTheme {
-  updateWithRerender: (value: IAmauiTheme) => AmauiTheme;
+export interface IAmauiThemeProviderValue extends AmauiThemeRequired {
+  updateWithRerender: (value: IAmauiTheme) => AmauiThemeRequired;
 }
 
 const resolveValue = (value: IAmauiTheme) => {

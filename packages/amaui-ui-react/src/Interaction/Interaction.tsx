@@ -16,7 +16,7 @@ const other = {
   height: '100%'
 };
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   '@keyframes pulse': {
     '0%': {
       transform: 'scale(0.77)'

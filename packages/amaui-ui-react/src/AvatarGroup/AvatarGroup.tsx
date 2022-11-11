@@ -8,7 +8,7 @@ import { IAvatar } from '../Avatar/Avatar';
 
 import { staticClassName, TColor, TElement, TPropsAny, TSizeAny, TTonal } from '../utils';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
 
   },

@@ -20,7 +20,7 @@ export interface IItem {
   values: Array<[number, number]>;
 }
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
 
   },

@@ -16,7 +16,7 @@ import Icon from '../Icon';
 import { staticClassName, TColor, TElement, TElementReference, TPropsAny, TStyle, TTonal, TVersion } from '../utils';
 import { ILine } from '../Line/Line';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     position: 'relative'
   },

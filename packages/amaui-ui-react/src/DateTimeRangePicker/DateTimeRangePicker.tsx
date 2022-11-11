@@ -22,7 +22,7 @@ import { IDateTimePicker } from '../DateTimePicker/DateTimePicker';
 
 import { staticClassName, TPropsAny, valueBreakpoints } from '../utils';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
 
   },

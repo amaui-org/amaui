@@ -23,7 +23,7 @@ import Icon from '../Icon';
 import { staticClassName, TElement, TElementReference, TPropsAny, TRef } from '../utils';
 import { ISurface } from '../Surface/Surface';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     position: 'relative'
   },

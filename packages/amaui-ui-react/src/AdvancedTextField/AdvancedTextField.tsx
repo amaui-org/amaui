@@ -8,7 +8,7 @@ import TextField from '../TextField';
 import { staticClassName, TPropsAny } from '../utils';
 import { ITextField } from '../TextField/TextField';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
 
   }

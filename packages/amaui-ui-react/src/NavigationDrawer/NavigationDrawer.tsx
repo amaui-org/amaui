@@ -11,7 +11,7 @@ import { IModal } from '../Modal/Modal';
 
 import { staticClassName, TMethodTransition, TPropsAny } from '../utils';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     '& .AmauiModal-surface': {
       display: 'flex',

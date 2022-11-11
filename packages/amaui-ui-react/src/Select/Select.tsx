@@ -21,7 +21,7 @@ const overflow = {
   textOverflow: 'ellipsis'
 };
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     flex: 'unset',
     minWidth: '140px',

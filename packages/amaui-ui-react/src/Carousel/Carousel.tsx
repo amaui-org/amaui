@@ -15,7 +15,7 @@ import useMediaQuery from '../useMediaQuery';
 import { staticClassName, TElement, TElementReference, TPropsAny, TValueBreakpoints, valueBreakpoints } from '../utils';
 import { ISurface } from '../Surface/Surface';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     position: 'relative',
     width: '100%',

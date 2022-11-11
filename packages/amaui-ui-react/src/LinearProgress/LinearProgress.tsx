@@ -13,7 +13,7 @@ const other_ = {
 };
 
 // @keyframes's for line, line1, inner and inner1 source: https://github.com/material-components/material-components-web/blob/master/packages/mdc-linear-progress/_keyframes.scss
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   '@keyframes line': {
     '0%': {
       transform: 'translateX(0)'

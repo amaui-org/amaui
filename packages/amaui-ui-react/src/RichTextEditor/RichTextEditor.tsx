@@ -27,7 +27,7 @@ import { ILine } from '../Line/Line';
 
 import { print, save, staticClassName, TColor, TElement, TElementReference, TPropsAny, TTonal, TVersion } from '../utils';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     width: '100%'
   },

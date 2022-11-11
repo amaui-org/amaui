@@ -7,7 +7,7 @@ import { IChip } from '../Chip/Chip';
 
 import { staticClassName, TSize } from '../utils';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     width: '100%',
     padding: '1px',

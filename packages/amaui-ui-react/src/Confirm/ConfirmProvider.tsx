@@ -46,7 +46,7 @@ export interface IConfirmProvider {
   close: (confirmed?: boolean) => void;
 }
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
 
   }

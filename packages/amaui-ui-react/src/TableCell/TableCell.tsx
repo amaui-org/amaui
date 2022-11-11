@@ -8,7 +8,7 @@ import { TLineAlign, TLineJustify } from '../Line/Line';
 
 import { IBaseElement, staticClassName, TColor, TPropsAny, TSize, TTonal } from '../utils';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     display: 'table-cell',
     position: 'relative',

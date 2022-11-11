@@ -8,7 +8,7 @@ import Surface from '../Surface';
 import { staticClassName } from '../utils';
 import { ISurface } from '../Surface/Surface';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     // Reset
     margin: '0',

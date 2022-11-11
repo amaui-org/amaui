@@ -6,7 +6,7 @@ import Surface from '../Surface';
 
 import { IBaseElement, staticClassName, TColor, TTonal } from '../utils';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     display: 'inline-flex',
     position: 'relative'

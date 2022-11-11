@@ -16,7 +16,7 @@ export interface ISnackbarsProvider {
   remove: (value: 'first' | 'last' | string) => void;
 }
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     position: 'fixed',
     zIndex: theme.z_index.modal,

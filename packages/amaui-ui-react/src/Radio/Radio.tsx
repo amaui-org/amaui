@@ -8,7 +8,7 @@ import { IIconButton } from '../IconButton/IconButton';
 
 import { iconSizeToFontSize, staticClassName, TColor, TRef } from '../utils';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     position: 'relative',
 

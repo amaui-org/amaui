@@ -7,7 +7,7 @@ import Fade from '../Fade';
 
 import { IBaseElement, staticClassName } from '../utils';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
 
   },

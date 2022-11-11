@@ -7,7 +7,7 @@ import Interaction from '../Interaction';
 
 import { IBaseElement, staticClassName, TPropsAny } from '../utils';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     cursor: 'pointer',
     userSelect: 'none'

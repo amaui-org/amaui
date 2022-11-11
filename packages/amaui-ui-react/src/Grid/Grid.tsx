@@ -9,7 +9,7 @@ import { ILine } from '../Line/Line';
 
 import { staticClassName, TPropsAny, TValueBreakpoints, valueBreakpoints } from '../utils';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     width: '100%',
     flex: '0 1 auto'

@@ -7,7 +7,7 @@ import { INavigationDrawer } from '../NavigationDrawer/NavigationDrawer';
 
 import { staticClassName } from '../utils';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     '&.AmauiModal-root .AmauiModal-surface': {
       paddingTop: '50px',

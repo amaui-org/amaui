@@ -3,11 +3,11 @@ import React from 'react';
 import is from '@amaui/utils/is';
 import merge from '@amaui/utils/merge';
 
-import { IResponse, pure as amauiPureMethod, TValue, TValueMethod } from '@amaui/style';
+import { IResponse, pure as amauiPureMethod, TValueMethod } from '@amaui/style';
 import { IOptions } from '@amaui/style/pure';
 
 import { useAmauiStyle, useAmauiTheme } from '.';
-import { IResponseStyle, propsAreNew } from './style';
+import { IResponseStyle, propsAreNew, TValue } from './style';
 
 export default function pure(value: TValue, options_: IOptions = {}) {
   const responses: Array<IResponseStyle> = [];
@@ -23,9 +23,9 @@ export default function pure(value: TValue, options_: IOptions = {}) {
     };
 
     const resolve = (theme = amauiTheme) => {
-      let valueNew = value;
+      let valueNew: any = value;
 
-      if (is('function', value)) valueNew = (value as TValueMethod)(theme);
+      if (is('function', value)) valueNew = (value as any)(theme);
 
       // Add style add & overrides
       if (amauiTheme.ui?.elements?.[name]?.style) {
@@ -33,14 +33,14 @@ export default function pure(value: TValue, options_: IOptions = {}) {
 
         // Add
         if (add) {
-          const object = is('function', add) ? (add as TValueMethod)(amauiTheme) : add;
+          const object = is('function', add) ? (add as any)(theme) : add;
 
           valueNew = merge(object, valueNew, { copy: true });
         }
 
         // Override
         if (override) {
-          const object = is('function', override) ? (override as TValueMethod)(amauiTheme) : override;
+          const object = is('function', override) ? (override as any)(theme) : override;
 
           valueNew = {
             ...valueNew,
@@ -64,7 +64,7 @@ export default function pure(value: TValue, options_: IOptions = {}) {
 
     const makeResponse = () => {
       // Object
-      let response_ = is('object', value) && responses[0];
+      let response_: any = is('object', value) && responses[0];
 
       if (response_) return response_;
 

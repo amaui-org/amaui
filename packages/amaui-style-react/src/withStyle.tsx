@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { TValue } from '@amaui/style';
 import { IOptions } from '@amaui/style/style';
 
+import { TValue } from './style';
 import { style } from '.';
 
 const withStyle = (Element: any) => (value: TValue, options: IOptions = {}): React.ElementType => {

@@ -4,6 +4,7 @@ import React from 'react';
 
 import { useServerInsertedHTML } from 'next/navigation';
 
+import { isEnvironment, castParam } from '@amaui/utils';
 import { Widgets, ScreenCapture, Timer, Countdown, Watch, Reset } from '@amaui/ui-react';
 import { AmauiThemeProvider, valueObject, prefix, rtl, unit, makeClassName, AmauiStyle, AmauiStyleProvider } from '@amaui/style-react';
 import AmauiStorage from '@amaui/storage';
@@ -15,7 +16,6 @@ import IconMaterialNestClockFarsightDigitalRounded from '@amaui/icons-material-r
 import IconMaterialNestClockFarsightAnalogRounded from '@amaui/icons-material-react/build/IconMaterialNestClockFarsightAnalogRounded';
 
 import Root from './';
-import { isEnvironment } from '@amaui/utils';
 
 const widgets = [
   {
@@ -124,6 +124,13 @@ export default function Layout(props: { children: React.ReactNode }) {
 
         <link rel='manifest' href='/manifest.json' />
 
+        <meta property='og:image' content='/assets/social/image.jpg' />
+        <meta property='og:image:height' content='1257' />
+        <meta property='og:image:width' content='2400' />
+        <meta property='og:description' content='Make Modern Web &amp; Mobile Apps Quickly 100+ UI elements' />
+        <meta property='og:title' content='amaui' />
+        <meta property='og:url' content='https://amaui.me' />
+
         <meta name='HandheldFriendly' content='True' />
         <meta name='MobileOptimized' content='320' />
         <meta name='mobile-web-app-capable' content='yes' />
@@ -153,7 +160,7 @@ export default function Layout(props: { children: React.ReactNode }) {
           <AmauiThemeProvider
             value={{
               palette: {
-                light: (isEnvironment('browser') && refs.storage.get('light')) || true
+                light: isEnvironment('browser') && castParam(refs.storage.get('light'))
               },
 
               typography: {

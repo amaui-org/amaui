@@ -20,7 +20,7 @@ import { ILine } from '../Line/Line';
 
 import { staticClassName, image as imageMethod, canvasBrightness, canvasContrast, canvasSaturation, canvasFade, canvasInvert, canvasOldPhoto, TPropsAny, TElementReference, TTonal, TColor, TElement } from '../utils';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
 
   },

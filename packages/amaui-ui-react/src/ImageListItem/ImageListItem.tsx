@@ -8,7 +8,7 @@ import useMediaQuery from '../useMediaQuery';
 import { staticClassName, TValueBreakpoints, valueBreakpoints } from '../utils';
 import { ILine } from '../Line/Line';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     position: 'relative',
 

@@ -12,7 +12,7 @@ import Icon from '../Icon';
 
 import { IBaseElement, staticClassName, TColor, TElementReference, TPropsAny, TRef, TTonal } from '../utils';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     position: 'relative'
   },

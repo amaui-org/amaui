@@ -10,7 +10,7 @@ import { ISurface } from '../Surface/Surface';
 
 import { staticClassName, TElement, TSize } from '../utils';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     zIndex: theme.z_index.app_bar,
     width: '100%',

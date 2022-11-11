@@ -13,7 +13,7 @@ import { IFileChoose } from '../FileChoose/FileChoose';
 
 import { staticClassName, TElement, TVersion } from '../utils';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
 
   },

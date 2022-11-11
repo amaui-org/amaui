@@ -3,8 +3,8 @@
 import React from 'react';
 
 import { isEnvironment, random } from '@amaui/utils';
-import { AreaChart, Avatar, Button, Card, CardFooter, CardHeader, CardImage, CardMain, Checkbox, ColumnChart, DatePicker, DonutChart, Fab, Fade, IconButton, Line, Link, ListItem, Masonry, Radio, Rating, Slider, Surface, Switch, Tab, Tabs, TextField, TimePicker, Tooltip, Tree, Type, ViewSplit, Watch, Weather } from '@amaui/ui-react';
-import { AmauiThemeProvider, classNames, colors, style, useAmauiTheme } from '@amaui/style-react';
+import { AreaChart, Avatar, Button, Card, CardFooter, CardHeader, CardImage, CardMain, Checkbox, DatePicker, DonutChart, Fab, Fade, IconButton, Line, Link, ListItem, Masonry, Radio, Rating, Slider, Surface, Switch, Tab, Tabs, TimePicker, Tooltip, Tree, Type, Weather } from '@amaui/ui-react';
+import { classNames, colors, style, useAmauiTheme } from '@amaui/style-react';
 import AmauiStorage from '@amaui/storage';
 
 import IconMaterialLightModeRounded from '@amaui/icons-material-react/build/IconMaterialLightModeRounded';
@@ -36,23 +36,23 @@ const useStyle = style(theme => ({
   },
 
   main_title: {
-    color: theme.palette.color?.secondary?.[50],
+    color: theme.palette.color.secondary[50],
     textAlign: 'center'
   },
 
   main_text: {
-    maxWidth: theme.breakpoints.values?.md,
+    maxWidth: theme.breakpoints.values.md,
     textAlign: 'center',
     fontSize: 'clamp(2.1rem, 4vw, 4.4rem)'
   },
 
   main_text_accent: {
-    color: theme.palette.color?.primary?.[50]
+    color: theme.palette.color.primary[50]
   },
 
   presentation_wrapper: {
     width: '100%',
-    padding: '0px 44px clamp(40px, 5vw, 104px)'
+    padding: '0px 24px clamp(40px, 5vw, 104px)'
   },
 
   about_wrapper: {
@@ -62,18 +62,18 @@ const useStyle = style(theme => ({
   },
 
   about_title: {
-    color: theme.palette.color?.secondary?.[50]
+    color: theme.palette.color.secondary[50]
   },
 
   about_text: {
-    maxWidth: theme.breakpoints.values?.md,
+    maxWidth: theme.breakpoints.values.md,
     textAlign: 'center',
     fontSize: 'clamp(1rem, 4vw, 1.5rem)'
   },
 
   logo: {
     '& path:nth-child(2)': {
-      fill: theme.palette.light ? theme.palette.background?.default?.primary : theme.palette.color?.primary?.[10]
+      fill: theme.palette.light ? theme.palette.background.default.primary : theme.palette.color.primary[10]
     }
   },
 
@@ -97,14 +97,14 @@ const useStyle = style(theme => ({
   },
 
   image_option_selected: {
-    outline: `1px solid ${theme.palette.text?.default?.primary}`,
+    outline: `1px solid ${theme.palette.text.default.primary}`,
     outlineOffset: 3
   },
 
   masonry: {
     margin: '44px auto 0',
     width: 'calc(100% - 88px)',
-    maxWidth: theme.breakpoints.values?.xl
+    maxWidth: theme.breakpoints.values.xl
   }
 }), { name: 'root' });
 
@@ -315,7 +315,7 @@ export default function Root(props: any) {
               classes.main_text
             ])}
           >
-            Make Modern Web & Mobile Apps Quickly <span className={classes.main_text_accent}>100+ UI elements</span>
+            Make Modern Web & Mobile Apps Quickly <span className={classes.main_text_accent}>100+ UI Elements</span>
           </Type>
         </Line>
       </section>
@@ -675,9 +675,9 @@ export default function Root(props: any) {
 
                     color='primary'
 
-                    primary='Primary text'
+                    primary='Item'
 
-                    secondary='Secondary text'
+                    secondary='description'
 
                     Component='div'
 
@@ -707,7 +707,7 @@ export default function Root(props: any) {
                   shape='all'
 
                   style={{
-                    backgroundColor: theme.palette.color?.primary?.[50]
+                    backgroundColor: theme.palette.color.primary[50]
                   }}
                 />
 
@@ -765,7 +765,7 @@ export default function Root(props: any) {
               </div>
 
               <Weather
-                temperature={41}
+                temperature={14}
 
                 weather='clear'
 
@@ -958,7 +958,7 @@ export default function Root(props: any) {
             </Line>
 
             <Button
-              color={theme.palette.color?.secondary?.[50]}
+              color={theme.palette.color.secondary[50]}
 
               version='text'
 

@@ -7,7 +7,7 @@ import Type from '../Type';
 import { staticClassName, TColor } from '../utils';
 import { IType } from '../Type/Type';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     position: 'relative',
     display: 'inline-flex',

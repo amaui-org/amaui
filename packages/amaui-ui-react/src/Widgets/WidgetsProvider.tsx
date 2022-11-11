@@ -22,7 +22,7 @@ export interface IWidgetsProvider {
   closeAll: () => void;
 }
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     width: '100%',
     padding: '0 104px',

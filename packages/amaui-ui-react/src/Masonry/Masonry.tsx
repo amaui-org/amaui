@@ -9,7 +9,7 @@ import { ILine } from '../Line/Line';
 
 import { staticClassName, TValueBreakpoints, valueBreakpoints } from '../utils';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     width: '100%',
     position: 'relative'
@@ -197,7 +197,8 @@ const Masonry = React.forwardRef((props_: IMasonry, ref: any) => {
         })
       ))}
 
-      {new Array(columns - 1).fill(true).map((item: any, index: number) => (
+      {/* Line break */}
+      {columns > 1 && new Array(columns - 1).fill(true).map((item: any, index: number) => (
         <div
           key={index}
 

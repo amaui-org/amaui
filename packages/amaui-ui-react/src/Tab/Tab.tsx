@@ -11,7 +11,7 @@ import Interaction from '../Interaction';
 import { staticClassName, TElement, TPropsAny } from '../utils';
 import { ISurface } from '../Surface/Surface';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     // Reset
     fontFamily: 'inherit',

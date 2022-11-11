@@ -7,7 +7,7 @@ import { ISurface } from '../Surface/Surface';
 
 import { staticClassName, TSize } from '../utils';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     display: 'table-row-group'
   }

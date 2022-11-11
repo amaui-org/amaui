@@ -14,7 +14,7 @@ import Icon from '../Icon';
 
 import { IBaseElement, staticClassName, TElement, TElementReference, TPropsAny } from '../utils';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     position: 'relative'
   },
@@ -23,7 +23,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
     '&::before': {
       content: "''",
       position: 'absolute',
-      left: '-12px',
+      insetInlineStart: '-12px',
       height: '100%',
       width: '2px',
       background: theme.palette.light ? theme.palette.color.neutral['90'] : theme.palette.color.neutral['20']
@@ -56,13 +56,14 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
       content: "''",
       position: 'absolute',
       top: 'calc(50% - 15px)',
-      left: '-12px',
+      insetInlineStart: '-12px',
       width: '10px',
       height: '14px',
       borderLeft: '2px solid',
       borderBottom: '2px solid',
       borderColor: theme.palette.light ? theme.palette.color.neutral['90'] : theme.palette.color.neutral['20'],
-      borderBottomLeftRadius: '6px'
+      borderBottomLeftRadius: '6px',
+      transform: `rotateY(${theme.direction === 'ltr' ? 0 : 180}deg)`
     }
   },
 

@@ -11,7 +11,7 @@ import { ILine } from '../Line/Line';
 
 import { staticClassName, TColor, TElement, TPropsAny, TTonal } from '../utils';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     position: 'relative',
     color: theme.palette.text.default.primary,

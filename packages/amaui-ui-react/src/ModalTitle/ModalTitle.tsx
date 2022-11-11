@@ -7,7 +7,7 @@ import { IType } from '../Type/Type';
 
 import { staticClassName } from '../utils';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     display: 'flex',
     flexDirection: 'column',

@@ -10,7 +10,7 @@ import { ILine } from '../Line/Line';
 
 import { staticClassName, TElementReference, TPropsAny } from '../utils';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     position: 'fixed',
     inset: '0px',

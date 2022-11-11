@@ -7,7 +7,7 @@ import { IBaseElement, staticClassName, TColor, TElement, TSize, TTonal } from '
 
 import Icon from '../Icon';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     display: 'inline-flex',
     alignItems: 'flex-start',

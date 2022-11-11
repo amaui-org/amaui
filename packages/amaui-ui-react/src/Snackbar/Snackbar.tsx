@@ -13,7 +13,7 @@ import Line from '../Line';
 import { IBaseElement, staticClassName, TElement, TElementReference, TPropsAny, TSize } from '../utils';
 import { ISurface } from '../Surface/Surface';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     minWidth: '340px',
     minHeight: '50px',

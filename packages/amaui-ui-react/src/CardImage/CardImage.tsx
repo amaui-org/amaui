@@ -4,7 +4,7 @@ import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@am
 
 import { IBaseElement, staticClassName, TColor, TElevation, TTonal, TVersion } from '../utils';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     display: 'block',
     backgroundSize: 'cover',

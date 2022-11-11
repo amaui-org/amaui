@@ -11,7 +11,7 @@ import Tooltip from '../Tooltip';
 
 import { IBaseElement, staticClassName, TColor, TElement, TElementReference, TPropsAny, TTonal, TVersion } from '../utils';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     display: 'inline-flex',
     justifyContent: 'center',

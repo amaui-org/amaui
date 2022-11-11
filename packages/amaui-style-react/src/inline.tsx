@@ -3,9 +3,10 @@ import React from 'react';
 import hash from '@amaui/utils/hash';
 import merge from '@amaui/utils/merge';
 
-import { inline as amauiInlineMethod, TValue } from '@amaui/style';
+import { inline as amauiInlineMethod } from '@amaui/style';
 import { IOptions } from '@amaui/style/inline';
 
+import { TValue } from './style';
 import { useAmauiStyle, useAmauiTheme } from '.';
 
 export default function inline(value_: TValue, props?: any, options_: IOptions = { response: 'json' }) {
@@ -20,7 +21,7 @@ export default function inline(value_: TValue, props?: any, options_: IOptions =
     // Options response value
     options.response = 'json';
 
-    const valueNew = amauiInlineMethod(value_, props, options);
+    const valueNew = amauiInlineMethod(value_ as any, props, options);
 
     if (update_) setValue(valueNew as Record<string, any>);
 

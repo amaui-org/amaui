@@ -16,7 +16,7 @@ import Icon from '../Icon';
 import { staticClassName, TElementReference, TPropsAny } from '../utils';
 import { ISurface } from '../Surface/Surface';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     padding: '20px 40px 24px',
     borderRadius: theme.methods.shape.radius.value('rg', 'px')

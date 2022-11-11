@@ -11,7 +11,7 @@ import useMediaQuery from '../useMediaQuery';
 
 import { IBaseElement, staticClassName, TColor, TElementReference, TPropsAny, TRef, TSize, TTonal } from '../utils';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     position: 'fixed',
     inset: '0',

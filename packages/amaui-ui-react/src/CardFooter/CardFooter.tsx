@@ -7,7 +7,7 @@ import { ILine } from '../Line/Line';
 
 import { staticClassName, TColor, TElevation, TTonal, TVersion } from '../utils';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     margin: '24px'
   }

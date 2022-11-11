@@ -9,7 +9,7 @@ import { ILine } from '../Line/Line';
 
 import { staticClassName, TColor, TElement, TPropsAny, TSize, TTonal, TVersion } from '../utils';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
 
   },

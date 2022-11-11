@@ -7,7 +7,7 @@ import useMediaQuery from '../useMediaQuery';
 
 import { IBaseElement, staticClassName, TPropsAny, TStyle, TValueBreakpoints, valueBreakpoints } from '../utils';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
 
   }

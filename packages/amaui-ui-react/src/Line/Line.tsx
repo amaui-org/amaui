@@ -8,7 +8,7 @@ import useMediaQuery from '../useMediaQuery';
 
 import { IBaseElement, staticClassName, TPropsAny, TValueBreakpoints, valueBreakpoints } from '../utils';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     display: 'flex',
     boxSizing: 'border-box'

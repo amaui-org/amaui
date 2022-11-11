@@ -7,7 +7,7 @@ import { ISurface } from '../Surface/Surface';
 
 import { staticClassName, TElement, TElementReference, TPropsAny, TSize } from '../utils';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     display: 'table',
     borderRadius: `${theme.shape.radius.unit * 2}px`,

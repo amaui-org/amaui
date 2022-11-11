@@ -13,7 +13,7 @@ import { IChart } from '../Chart/Chart';
 
 import { staticClassName, valueBreakpoints } from '../utils';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     '& .AmauiChart-legend-icon': {
       position: 'relative',

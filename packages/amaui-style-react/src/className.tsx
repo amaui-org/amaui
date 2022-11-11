@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { classNames, TValue } from '@amaui/style';
+import { classNames } from '@amaui/style';
 import { IOptions } from '@amaui/style/style';
 
-import style from './style';
+import style, { TValue } from './style';
 
 // May be TValue or a string  as a string value literal
 const responses = {};

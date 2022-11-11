@@ -1,8 +1,9 @@
 import React from 'react';
 
-import { classNames, TValue } from '@amaui/style';
+import { classNames } from '@amaui/style';
 import { IOptions } from '@amaui/style/style';
 
+import { TValue } from './style';
 import { style } from '.';
 
 const styled = (Element: any) => (value: TValue, options: IOptions = {}): React.ElementType => {

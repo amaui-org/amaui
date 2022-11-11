@@ -24,7 +24,7 @@ const overflow = {
   textOverflow: 'ellipsis'
 };
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   wrapper: {
     position: 'relative',
     display: 'inline-flex',

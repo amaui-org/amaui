@@ -9,7 +9,7 @@ import { IButton } from '../Button/Button';
 
 import { staticClassName, TPropsAny } from '../utils';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
 
   },

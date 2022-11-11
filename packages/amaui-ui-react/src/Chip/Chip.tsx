@@ -10,7 +10,7 @@ import { IconDoneAnimated } from '../Buttons/Buttons';
 import { staticClassName } from '../utils';
 import { IButton } from '../Button/Button';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
 
   },

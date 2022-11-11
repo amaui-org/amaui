@@ -7,7 +7,7 @@ import { IBaseElement, staticClassName, TColor, TPropsAny, TSize, TTonal } from 
 
 const noShrinkStrokeDashOffset = 194;
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   '@keyframes spin': {
     '0%': {
       transform: 'rotate(0deg)'

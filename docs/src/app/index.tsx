@@ -13,8 +13,8 @@ const useStyle = styleMethod(theme => ({
   body: {
     '@p': true,
 
-    color: theme?.palette.text?.default?.primary,
-    background: theme.palette.light ? theme.palette.background?.default?.primary : theme.palette.background?.primary?.secondary
+    color: theme.palette.text.default.primary,
+    background: theme.palette.light ? theme.palette.background.default.primary : theme.palette.background.primary.secondary
   },
 
   root: {
@@ -28,7 +28,7 @@ const useStyle = styleMethod(theme => ({
 
     '&.AmauiTopAppBar-root': {
       width: `calc(100% - 48px)`,
-      maxWidth: theme.breakpoints?.values?.lg,
+      maxWidth: theme.breakpoints.values.lg,
       padding: 0,
       background: 'transparent',
       borderRadius: theme.methods.shape.radius.value('xxl', 'px'),
@@ -43,9 +43,9 @@ const useStyle = styleMethod(theme => ({
 
   header_not_top: {
     '&.AmauiTopAppBar-root': {
-      background: theme.methods.palette.color.colorToRgb(theme.palette.color?.primary?.[theme.palette.light ? 99 : 10] as string, 0.97),
-      maxWidth: theme.breakpoints?.values?.md,
-      boxShadow: theme.shadows?.values?.default?.['2']
+      background: theme.methods.palette.color.colorToRgb(theme.palette.color.primary[theme.palette.light ? 99 : 10] as string, 0.97),
+      maxWidth: theme.breakpoints.values.md,
+      boxShadow: theme.shadows.values.default['2']
     }
   },
 
@@ -54,7 +54,7 @@ const useStyle = styleMethod(theme => ({
     width: 'auto',
 
     '& path:nth-child(2)': {
-      fill: theme.palette.light ? theme.palette.background?.default?.primary : theme.palette.color?.primary?.[10]
+      fill: theme.palette.light ? theme.palette.background.default.primary : theme.palette.color.primary[10]
     }
   },
 
@@ -207,7 +207,7 @@ function Root(props: any) {
 
               target='_blank'
 
-              color={theme.palette.color?.secondary?.[50]}
+              color={theme.palette.color.secondary[50]}
             >
               MIT license
             </Link>

@@ -27,7 +27,7 @@ const vertical = {
   transform: 'translateX(-50%)'
 };
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     position: 'relative',
     display: 'inline-flex',

@@ -9,7 +9,7 @@ import Interaction from '../Interaction';
 import { staticClassName, TPropsAny } from '../utils';
 import { ISurface } from '../Surface/Surface';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     display: 'inline-block',
     overflow: 'hidden',

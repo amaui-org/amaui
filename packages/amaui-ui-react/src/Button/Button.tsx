@@ -11,7 +11,7 @@ import { ISurface } from '../Surface/Surface';
 
 import { iconSizeToFontSize, staticClassName, TElement, TElementReference, TPropsAny, TSizeAny } from '../utils';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     // Reset
     fontFamily: 'inherit',

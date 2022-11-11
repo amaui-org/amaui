@@ -12,7 +12,7 @@ import useMediaQuery from '../useMediaQuery';
 import { controlPoint, staticClassName, valueBreakpoints } from '../utils';
 import { IChart } from '../Chart/Chart';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     '& .AmauiChart-legend-icon': {
       width: '11px',

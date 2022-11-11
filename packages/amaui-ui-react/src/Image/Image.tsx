@@ -7,7 +7,7 @@ import Surface from '../Surface';
 
 import { IBaseElement, staticClassName, TColor, TPropsAny, TTonal } from '../utils';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     display: 'inline-block',
     lineHeight: '0'

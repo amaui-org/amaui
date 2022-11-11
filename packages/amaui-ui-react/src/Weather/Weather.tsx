@@ -12,7 +12,7 @@ import { ISurface } from '../Surface/Surface';
 
 import { staticClassName, TElementReference, TPropsAny, TSize } from '../utils';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     position: 'relative',
     aspectRatio: '1',

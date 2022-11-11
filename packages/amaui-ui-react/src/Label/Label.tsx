@@ -9,7 +9,7 @@ import Line from '../Line';
 import { staticClassName, TColor, TElement, TPropsAny, TSize, TTonal, TVersion } from '../utils';
 import { ILine } from '../Line/Line';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     cursor: 'pointer',
     userSelect: 'none'

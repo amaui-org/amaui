@@ -18,7 +18,7 @@ import { ITextField } from '../TextField/TextField';
 
 import { staticClassName, TElement, TElementReference, TPropsAny } from '../utils';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     width: '100%',
     flex: 'unset',

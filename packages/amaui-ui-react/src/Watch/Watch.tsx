@@ -13,7 +13,7 @@ import { ISurface } from '../Surface/Surface';
 
 import { angleToCoordinates, staticClassName, TElement, TPropsAny, TSize } from '../utils';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     userSelect: 'none'
   },

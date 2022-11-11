@@ -8,7 +8,7 @@ import { IButton } from '../Button/Button';
 
 import { staticClassName, TElevation, TPropsAny } from '../utils';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     cursor: 'default',
     overflow: 'hidden'

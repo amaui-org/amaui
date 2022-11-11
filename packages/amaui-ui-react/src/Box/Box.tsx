@@ -5,7 +5,7 @@ import { style as styleMethod, classNames, useAmauiTheme, className as className
 
 import { IBaseElement, staticClassName } from '../utils';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
 
   }

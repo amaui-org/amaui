@@ -7,7 +7,7 @@ import { ILine } from '../Line/Line';
 
 import { staticClassName } from '../utils';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
 
   },

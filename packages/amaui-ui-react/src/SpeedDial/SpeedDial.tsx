@@ -13,7 +13,7 @@ import { ILine } from '../Line/Line';
 
 import { staticClassName, TColor, TElement, TElementReference, TPropsAny, TTonal, TVersion } from '../utils';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     position: 'fixed',
     zIndex: theme.z_index.modal

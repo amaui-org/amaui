@@ -11,7 +11,7 @@ import { IModal } from '../Modal/Modal';
 
 import { staticClassName, TColor, TElement, TElementReference, THTMLElement, TMethodTransition, TPropsAny, TTonal } from '../utils';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   root: {
     inset: '0px auto auto 0px'
   },

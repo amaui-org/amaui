@@ -6,7 +6,7 @@ import Surface from '../Surface';
 
 import { IBaseElement, staticClassName, TColor } from '../utils';
 
-const useStyle = styleMethod((theme: AmauiTheme) => ({
+const useStyle = styleMethod(theme => ({
   '@keyframes move': {
     '100%': {
       transform: 'translateX(100%)'
