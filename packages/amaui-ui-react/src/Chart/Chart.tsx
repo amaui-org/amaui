@@ -1134,7 +1134,7 @@ const Chart = React.forwardRef((props_: IChart, ref: any) => {
 
   React.useEffect(() => {
     make();
-  }, [values, labels__, marks__, grid__, additional_lines__, legend__, visible, (guidelinesAppend && guidelinesPosition), rects]);
+  }, [values, labels__, marks__, grid__, additional_lines__, legend__, visible, (guidelinesAppend && guidelinesPosition), rects, theme]);
 
   const onPointMouseEnter = React.useCallback((values_: any) => {
     if (tooltipIndividually) {
@@ -1226,7 +1226,7 @@ const Chart = React.forwardRef((props_: IChart, ref: any) => {
         </Type>
       </Line>
     );
-  }, []);
+  }, [theme]);
 
   const make = (valueNew = values) => {
     // Make values into x, y, coordinates

@@ -3,7 +3,7 @@
 import React from 'react';
 
 import { isEnvironment, random } from '@amaui/utils';
-import { AreaChart, Avatar, Button, Card, CardFooter, CardHeader, CardImage, CardMain, Fab, Fade, IconButton, Line, Link, ListItem, Masonry, Surface, Switch, Tab, Tabs, TimePicker, Tooltip, Tree, Type, ViewSplit, Weather } from '@amaui/ui-react';
+import { AreaChart, Avatar, Button, Card, CardFooter, CardHeader, CardImage, CardMain, Checkbox, ColumnChart, DatePicker, DonutChart, Fab, Fade, IconButton, Line, Link, ListItem, Masonry, Radio, Rating, Slider, Surface, Switch, Tab, Tabs, TextField, TimePicker, Tooltip, Tree, Type, ViewSplit, Watch, Weather } from '@amaui/ui-react';
 import { AmauiThemeProvider, classNames, colors, style, useAmauiTheme } from '@amaui/style-react';
 import AmauiStorage from '@amaui/storage';
 
@@ -101,15 +101,10 @@ const useStyle = style(theme => ({
     outlineOffset: 3
   },
 
-  viewPresentation: {
+  masonry: {
     margin: '44px auto 0',
+    width: 'calc(100% - 88px)',
     maxWidth: theme.breakpoints.values?.xl
-  },
-
-  watch: {
-    '& .AmauiRoundMeter-root': {
-      margin: '0 auto'
-    }
   }
 }), { name: 'root' });
 
@@ -122,7 +117,7 @@ export default function Root(props: any) {
     storage: new AmauiStorage({ namespace: 'amaui-docs' })
   };
 
-  const [imageSelected, setImageSelected] = React.useState((isEnvironment('browser') && refs.storage.get('image-selected')) || 'primary');
+  const [imageSelected, setImageSelected] = React.useState<any>();
   const [values, setValues] = React.useState<any>({
     tree_1: true,
     tree_11: true,
@@ -132,24 +127,57 @@ export default function Root(props: any) {
   const [inProp, setInProp] = React.useState(false);
 
   React.useEffect(() => {
-    update('image', imageSelected);
+    let imageSelected_ = (isEnvironment('browser') && refs.storage.get('image-selected')) || 'primary';
+
+    update('image', imageSelected_);
 
     update('direction', refs.storage.get('direction'));
 
-    setTimeout(() => {
-      setInProp(true);
-    }, 440);
+    setImageSelected(imageSelected_);
+
+    setInProp(true);
   }, []);
+
+  const valueArea = React.useMemo(() => Array.from({ length: 7 }).map(() => [random(-40, 400), random(-40, 400)]), []);
+
+  const valueDonut = React.useMemo(() => [
+    {
+      color: 'primary',
+
+      name: 'a',
+
+      values: Array.from({ length: 1 }).map(() => random(40, 400))
+    },
+    {
+      color: 'secondary',
+
+      name: 'a1',
+
+      values: Array.from({ length: 1 }).map(() => random(40, 400))
+    },
+    {
+      color: 'tertiary',
+
+      name: 'a14',
+
+      values: Array.from({ length: 1 }).map(() => random(40, 400))
+    },
+    {
+      color: 'quaternary',
+
+      name: 'a114',
+
+      values: Array.from({ length: 1 }).map(() => random(40, 400))
+    }
+  ], []);
 
   const updateValue = (value: any, property: string) => {
     setValues((values_: any) => ({
       ...values_,
 
       [property]: value
-    }));
+    }))
   };
-
-  const valueArea = React.useMemo(() => Array.from({ length: 7 }).map(() => [random(-40, 400), random(-40, 400)]), []);
 
   const update = async (version = 'light', value: any = true) => {
     let values_ = {};
@@ -240,391 +268,6 @@ export default function Root(props: any) {
         break;
     }
   };
-
-  const values_: any[] = [
-    // Button
-    {
-      element: (
-        <Button
-          tonal
-        >
-          Button
-        </Button>
-      )
-    },
-    // Tree
-    {
-      element: (
-        <Tree
-          open={values['tree_1']}
-
-          onChange={(value: any) => updateValue(value, 'tree_1')}
-
-          line
-
-          middle='src'
-
-          icon={<IconMaterialFolderRounded size='small' />}
-          iconOpen={<IconMaterialFolderOpenRounded size='small' />}
-
-          end={(
-            <IconMaterialFiberManualRecordRounded
-              size={12}
-
-              color='warning'
-            />
-          )}
-
-          MiddleProps={{
-            version: 'l2',
-            color: 'primary'
-          }}
-
-          style={{
-            minWidth: 204
-          }}
-        >
-          <Tree
-            open={values['tree_11']}
-
-            onChange={(value: any) => updateValue(value, 'tree_11')}
-
-            middle='Accordion'
-
-            icon={<IconMaterialFolderRounded size='small' />}
-            iconOpen={<IconMaterialFolderOpenRounded size='small' />}
-
-            MiddleProps={{
-              version: 'l2',
-              color: 'primary'
-            }}
-          >
-            <Tree
-              middle='Accordion.jsx'
-
-              icon={<IconMaterialFiberManualRecordRounded
-                size='small'
-
-                color='secondary'
-              />}
-
-              MiddleProps={{
-                version: 'b2',
-                color: 'secondary'
-              }}
-            />
-
-            <Tree
-              middle='index.jsx'
-
-              icon={<IconMaterialFiberManualRecordRounded
-                size='small'
-
-                color='secondary'
-              />}
-
-              MiddleProps={{
-                version: 'b2',
-                color: 'secondary'
-              }}
-            />
-          </Tree>
-
-          <Tree
-            open={values['tree_12']}
-
-            onChange={(value: any) => updateValue(value, 'tree_12')}
-
-            middle='Append'
-
-            icon={<IconMaterialFolderRounded size='small' />}
-            iconOpen={<IconMaterialFolderOpenRounded size='small' />}
-
-            MiddleProps={{
-              version: 'l2',
-              color: 'primary'
-            }}
-          >
-            <Tree
-              middle='Append.jsx'
-
-              icon={<IconMaterialFiberManualRecordRounded
-                size='small'
-
-                color='secondary'
-              />}
-
-              end={(
-                <IconMaterialFiberManualRecordRounded
-                  size={12}
-
-                  color='warning'
-                />
-              )}
-
-              MiddleProps={{
-                version: 'b2',
-                color: 'secondary'
-              }}
-            />
-
-            <Tree
-              middle='index.jsx'
-
-              icon={<IconMaterialFiberManualRecordRounded
-                size='small'
-
-                color='secondary'
-              />}
-
-              MiddleProps={{
-                version: 'b2',
-                color: 'secondary'
-              }}
-            />
-          </Tree>
-
-          <Tree
-            open={values['tree_13']}
-
-            onChange={(value: any) => updateValue(value, 'tree_13')}
-
-            middle='AutoComplete'
-
-            icon={<IconMaterialFolderRounded size='small' />}
-            iconOpen={<IconMaterialFolderOpenRounded size='small' />}
-
-            MiddleProps={{
-              version: 'l2',
-              color: 'primary'
-            }}
-          >
-            <Tree
-              middle='AutoComplete.jsx'
-
-              icon={<IconMaterialFiberManualRecordRounded
-                size='small'
-
-                color='secondary'
-              />}
-
-              MiddleProps={{
-                version: 'b2',
-                color: 'secondary'
-              }}
-            />
-
-            <Tree
-              middle='index.jsx'
-
-              icon={<IconMaterialFiberManualRecordRounded
-                size='small'
-
-                color='secondary'
-              />}
-
-              MiddleProps={{
-                version: 'b2',
-                color: 'secondary'
-              }}
-            />
-          </Tree>
-        </Tree>
-      )
-    },
-    // Tabs
-    {
-      element: (
-        <Tabs
-          value={values['tabs']}
-
-          onChange={(value: any) => updateValue(value, 'tabs')}
-
-          justify='center'
-        >
-          <Tab>Home</Tab>
-          <Tab>Products</Tab>
-          <Tab>About</Tab>
-        </Tabs>
-      )
-    },
-    // Fab
-    {
-      element: (
-        <Fab
-          version='filled'
-        >
-          <IconMaterialPottedPlantRounded /> Fab
-        </Fab>
-      )
-    },
-    // AreaChart
-    {
-      element: (
-        <AreaChart
-          guidelines='both'
-
-          names={{
-            y: 'Amount',
-            x: 'Value'
-          }}
-
-          labelsAutoNumber={5}
-
-          minPaddingY={0.14}
-
-          maxPaddingY={0.14}
-
-          values={[
-            {
-              color: 'primary',
-
-              name: 'a',
-
-              values: valueArea
-            }
-          ]}
-
-          style={{
-            height: 404,
-            padding: '14px 32px 14px 14px'
-          }}
-        />
-      )
-    },
-    // Watch
-    // {
-    //   element: (
-    //     <Watch
-    //       version='minimal'
-
-    //       className={classes.watch}
-    //     />
-    //   )
-    // },
-    // TimePicker
-    {
-      element: (
-        <div>
-          <TimePicker
-            version='static'
-
-            versionStatic='select'
-
-            switch={false}
-
-            className={classes.timePicker}
-          />
-        </div>
-      )
-    },
-    // Weather
-    {
-      element: (
-        <Weather
-          temperature={14}
-
-          weather='clear'
-
-          style={{
-            margin: '0 auto'
-          }}
-        />
-      )
-    },
-    // Card
-    {
-      element: (
-        <Card
-          style={{
-            maxWidth: 'unset'
-          }}
-        >
-          <CardHeader>
-            <ListItem
-              tonal
-
-              color='primary'
-
-              primary='Primary text'
-
-              secondary='Secondary text'
-
-              Component='div'
-
-              start={(
-                <Avatar
-                  color='primary'
-                >
-                  A
-                </Avatar>
-              )}
-
-              end={(
-                <IconButton>
-                  <IconMaterialMoreVertRounded />
-                </IconButton>
-              )}
-
-              noPadding
-            />
-          </CardHeader>
-
-          <CardImage
-            alt=''
-
-            image={[undefined, 'primary'].includes(imageSelected) ? '/assets/image/image-orange.jpg' : `/assets/image/${imageSelected}.jpg`}
-
-            shape='all'
-          />
-
-          <CardMain
-            gap={1}
-          >
-            <Type
-              version='h3'
-
-              style={{ marginBottom: '4px' }}
-            >
-              Product
-            </Type>
-
-            <Type
-              version='l1'
-            >
-              Good quality
-            </Type>
-
-            <Type
-              version='b2'
-
-              color='secondary'
-            >
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-            </Type>
-          </CardMain>
-
-          <CardFooter>
-            <Button
-              tonal
-
-              version='outlined'
-            >
-              Preview
-            </Button>
-
-            <Button
-              version='filled'
-
-              elevation={false}
-            >
-              Buy
-            </Button>
-          </CardFooter>
-        </Card>
-      )
-    },
-  ];
 
   return (
     <Surface
@@ -750,11 +393,11 @@ export default function Root(props: any) {
             { version: 'image-pink', label: 'Pink Shiba Inu image to theme', image: '/assets/image/image-pink.jpg', alt: 'Photo by Anna Shvets: https://www.pexels.com/photo/portrait-of-shiba-inu-dog-4587979' }
           ].map((item: any, index: number) => (
             <Tooltip
-              key={index}
-
               label={item.label}
             >
               <Avatar
+                key={index}
+
                 image={item.image}
 
                 alt={item.alt}
@@ -776,70 +419,420 @@ export default function Root(props: any) {
 
           removeOnExited
         >
-          <ViewSplit
-            color='inverted'
-
-            version='manual'
-
-            className={classNames([
-              classes.viewPresentation
-            ])}
-          >
-            {/* Default */}
-            <AmauiThemeProvider
-              value={{
-                palette: {
-                  color: {
-                    primary: {
-                      light: colors.yellow[300],
-                      main: colors.yellow[500],
-                      dark: colors.yellow[700],
-                    },
-                    secondary: {
-                      light: colors.lightgreen[300],
-                      main: colors.lightgreen[500],
-                      dark: colors.lightgreen[700],
-                    },
-                    tertiary: {
-                      light: colors.amber[300],
-                      main: colors.amber[500],
-                      dark: colors.amber[700],
-                    },
-                    quaternary: {
-                      light: colors.cyan[300],
-                      main: colors.cyan[500],
-                      dark: colors.cyan[700],
-                    }
-                  }
-                }
-              }}
+          <div>
+            <Masonry
+              className={classes.masonry}
             >
-              <Masonry
+              <Button
+                tonal
+              >
+                Button
+              </Button>
+
+              <Tree
+                open={values['tree_1']}
+
+                onChange={(value: any) => updateValue(value, 'tree_1')}
+
+                line
+
+                middle='src'
+
+                icon={<IconMaterialFolderRounded size='small' />}
+
+                iconOpen={<IconMaterialFolderOpenRounded size='small' />}
+
+                end={(
+                  <IconMaterialFiberManualRecordRounded
+                    size={12}
+
+                    color='warning'
+                  />
+                )}
+
+                MiddleProps={{
+                  version: 'l2',
+                  color: 'primary'
+                }}
+
                 style={{
-                  width: theme.breakpoints?.values?.xl
+                  minWidth: 204
                 }}
               >
-                {values_.map((item: any, index: number) => (
-                  React.cloneElement(item.element, {
-                    key: index
-                  })
-                ))}
-              </Masonry>
-            </AmauiThemeProvider>
+                <Tree
+                  open={values['tree_11']}
 
-            {/* Theme new */}
-            <Masonry
-              style={{
-                width: theme.breakpoints?.values?.xl
-              }}
-            >
-              {values_.map((item: any, index: number) => (
-                React.cloneElement(item.element, {
-                  key: index
-                })
-              ))}
+                  onChange={(value: any) => updateValue(value, 'tree_11')}
+
+                  middle='Accordion'
+
+                  icon={<IconMaterialFolderRounded size='small' />}
+
+                  iconOpen={<IconMaterialFolderOpenRounded size='small' />}
+
+                  MiddleProps={{
+                    version: 'l2',
+                    color: 'primary'
+                  }}
+                >
+                  <Tree
+                    middle='Accordion.jsx'
+
+                    icon={<IconMaterialFiberManualRecordRounded
+                      size='small'
+
+                      color='secondary'
+                    />}
+
+                    MiddleProps={{
+                      version: 'b2',
+                      color: 'secondary'
+                    }}
+                  />
+
+                  <Tree
+                    middle='index.jsx'
+
+                    icon={<IconMaterialFiberManualRecordRounded
+                      size='small'
+
+                      color='secondary'
+                    />}
+
+                    MiddleProps={{
+                      version: 'b2',
+                      color: 'secondary'
+                    }}
+                  />
+                </Tree>
+
+                <Tree
+                  open={values['tree_12']}
+
+                  onChange={(value: any) => updateValue(value, 'tree_12')}
+
+                  middle='Append'
+
+                  icon={<IconMaterialFolderRounded size='small' />}
+
+                  iconOpen={<IconMaterialFolderOpenRounded size='small' />}
+
+                  MiddleProps={{
+                    version: 'l2',
+                    color: 'primary'
+                  }}
+                >
+                  <Tree
+                    middle='Append.jsx'
+
+                    icon={<IconMaterialFiberManualRecordRounded
+                      size='small'
+
+                      color='secondary'
+                    />}
+
+                    end={(
+                      <IconMaterialFiberManualRecordRounded
+                        size={12}
+
+                        color='warning'
+                      />
+                    )}
+
+                    MiddleProps={{
+                      version: 'b2',
+                      color: 'secondary'
+                    }}
+                  />
+
+                  <Tree
+                    middle='index.jsx'
+
+                    icon={<IconMaterialFiberManualRecordRounded
+                      size='small'
+
+                      color='secondary'
+                    />}
+
+                    MiddleProps={{
+                      version: 'b2',
+                      color: 'secondary'
+                    }}
+                  />
+                </Tree>
+
+                <Tree
+                  open={values['tree_13']}
+
+                  onChange={(value: any) => updateValue(value, 'tree_13')}
+
+                  middle='AutoComplete'
+
+                  icon={<IconMaterialFolderRounded size='small' />}
+
+                  iconOpen={<IconMaterialFolderOpenRounded size='small' />}
+
+                  MiddleProps={{
+                    version: 'l2',
+                    color: 'primary'
+                  }}
+                >
+                  <Tree
+                    middle='AutoComplete.jsx'
+
+                    icon={<IconMaterialFiberManualRecordRounded
+                      size='small'
+
+                      color='secondary'
+                    />}
+
+                    MiddleProps={{
+                      version: 'b2',
+                      color: 'secondary'
+                    }}
+                  />
+
+                  <Tree
+                    middle='index.jsx'
+
+                    icon={<IconMaterialFiberManualRecordRounded
+                      size='small'
+
+                      color='secondary'
+                    />}
+
+                    MiddleProps={{
+                      version: 'b2',
+                      color: 'secondary'
+                    }}
+                  />
+                </Tree>
+              </Tree>
+
+              <Tabs
+                justify='center'
+              >
+                <Tab>Home</Tab>
+                <Tab>Products</Tab>
+                <Tab>About</Tab>
+              </Tabs>
+
+              <Fab
+                version='filled'
+              >
+                <IconMaterialPottedPlantRounded /> Fab
+              </Fab>
+
+              <AreaChart
+                guidelines='both'
+
+                names={{
+                  y: 'Value',
+                  x: 'Quantity'
+                }}
+
+                labelsAutoNumber={5}
+
+                minPaddingY={0.14}
+
+                maxPaddingY={0.14}
+
+                values={[
+                  {
+                    color: 'primary',
+
+                    name: 'a',
+
+                    values: valueArea
+                  }
+                ]}
+
+                style={{
+                  padding: '14px 32px 0px 14px'
+                }}
+              />
+
+              <div>
+                <TimePicker
+                  version='static'
+
+                  versionStatic='select'
+
+                  switch={false}
+
+                  className={classes.timePicker}
+                />
+              </div>
+
+              <Card
+                style={{
+                  maxWidth: 'unset'
+                }}
+              >
+                <CardHeader>
+                  <ListItem
+                    tonal
+
+                    color='primary'
+
+                    primary='Primary text'
+
+                    secondary='Secondary text'
+
+                    Component='div'
+
+                    start={(
+                      <Avatar
+                        color='primary'
+                      >
+                        A
+                      </Avatar>
+                    )}
+
+                    end={(
+                      <IconButton>
+                        <IconMaterialMoreVertRounded />
+                      </IconButton>
+                    )}
+
+                    noPadding
+                  />
+                </CardHeader>
+
+                <CardImage
+                  alt={imageSelected === 'primary' ? 'Photo by Felix Mittermeier: https://www.pexels.com/photo/trees-with-pathway-1080400' : ''}
+
+                  image={[undefined, 'primary'].includes(imageSelected) ? '/assets/image/image-yellow.jpg' : `/assets/image/${imageSelected}.jpg`}
+
+                  shape='all'
+
+                  style={{
+                    backgroundColor: theme.palette.color?.primary?.[50]
+                  }}
+                />
+
+                <CardMain
+                  gap={1}
+                >
+                  <Type
+                    version='h3'
+
+                    style={{ marginBottom: '4px' }}
+                  >
+                    Product
+                  </Type>
+
+                  <Type
+                    version='l1'
+                  >
+                    Good quality
+                  </Type>
+
+                  <Type
+                    version='b2'
+
+                    color='secondary'
+                  >
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                  </Type>
+                </CardMain>
+
+                <CardFooter>
+                  <Button
+                    tonal
+
+                    version='outlined'
+                  >
+                    Preview
+                  </Button>
+
+                  <Button
+                    version='filled'
+
+                    elevation={false}
+                  >
+                    Buy
+                  </Button>
+                </CardFooter>
+              </Card>
+
+              <div>
+                <DatePicker
+                  version='static'
+
+                  versionStatic='docked'
+                />
+              </div>
+
+              <Weather
+                temperature={41}
+
+                weather='clear'
+
+                style={{
+                  margin: '24px auto'
+                }}
+              />
+
+              <DonutChart
+                values={valueDonut}
+              />
+
+              <Slider
+                tonal
+
+                valueDefault={50}
+
+                tooltip
+
+                style={{
+                  padding: '54px 0'
+                }}
+              />
+
+              <Line
+                align='center'
+
+                justify='center'
+
+                style={{
+                  padding: '24px 0'
+                }}
+              >
+                <Rating
+                  valueDefault={5}
+                />
+              </Line>
+
+              <Line
+                direction='row'
+
+                align='center'
+
+                justify='center'
+
+                style={{
+                  padding: '24px 0'
+                }}
+              >
+                <Switch
+                  tonal
+
+                  valueDefault={true}
+                />
+
+                <Checkbox
+                  tonal
+
+                  valueDefault={true}
+                />
+
+                <Radio
+                  tonal
+                />
+              </Line>
             </Masonry>
-          </ViewSplit>
+          </div>
         </Fade>
       </section>
 

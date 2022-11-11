@@ -245,7 +245,7 @@ const AreaChart = React.forwardRef((props_: IAreaChart, ref: any) => {
         </Type>
       </Line>
     );
-  }, []);
+  }, [theme]);
 
   const make = () => {
     // Make values into x, y, coordinates
@@ -445,7 +445,7 @@ const AreaChart = React.forwardRef((props_: IAreaChart, ref: any) => {
 
   React.useEffect(() => {
     make();
-  }, [values]);
+  }, [values, theme]);
 
   const onUpdateRects = (valueNew: any) => {
     refs.rects.current = valueNew;

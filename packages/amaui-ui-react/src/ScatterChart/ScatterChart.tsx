@@ -224,7 +224,7 @@ const ScatterChart = React.forwardRef((props_: IScatterChart, ref: any) => {
         </Type>
       </Line>
     );
-  }, []);
+  }, [theme]);
 
   const make = () => {
     // Make values into x, y, coordinates
@@ -255,7 +255,7 @@ const ScatterChart = React.forwardRef((props_: IScatterChart, ref: any) => {
 
   React.useEffect(() => {
     make();
-  }, [values]);
+  }, [values, theme]);
 
   const onUpdateRects = (valueNew: any) => {
     refs.rects.current = valueNew;

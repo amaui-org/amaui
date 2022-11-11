@@ -227,7 +227,7 @@ const LineChart = React.forwardRef((props_: ILineChart, ref: any) => {
         </Type>
       </Line>
     );
-  }, []);
+  }, [theme]);
 
   const make = () => {
     // Make values into x, y, coordinates
@@ -334,7 +334,7 @@ const LineChart = React.forwardRef((props_: ILineChart, ref: any) => {
 
   React.useEffect(() => {
     make();
-  }, [values]);
+  }, [values, theme]);
 
   const onUpdateRects = (valueNew: any) => {
     refs.rects.current = valueNew;
