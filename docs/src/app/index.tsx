@@ -226,7 +226,7 @@ function Root(props: any) {
           <Type
             version='m3'
           >
-            Production ready
+            Alpha version
           </Type>
 
           <Type>·</Type>

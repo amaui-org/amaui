@@ -637,6 +637,8 @@ export default function Root(props: any) {
 
                 labelsAutoNumber={5}
 
+                marksAutoNumber={5}
+
                 minPaddingY={0.14}
 
                 maxPaddingY={0.14}
@@ -681,7 +683,7 @@ export default function Root(props: any) {
 
                     primary='Item'
 
-                    secondary='description'
+                    secondary='Description'
 
                     Component='div'
 

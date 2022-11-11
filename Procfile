@@ -1,1 +1,1 @@
-web: yarn --cwd docs start
+web: cd docs && yarn start
