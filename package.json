@@ -7,9 +7,10 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "lerna bootstrap && lerna link && lerna run build",
+    "build": "yarn --cwd docs build",
+    "start": "yarn --cwd docs start",
     "test": "lerna run test",
-    "postinstall": "yarn --prefix docs"
+    "postinstall": "yarn --cwd docs install"
   },
   "devDependencies": {
     "@amaui/models": "^1.0.11114",
