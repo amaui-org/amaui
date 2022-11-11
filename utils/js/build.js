@@ -107,7 +107,9 @@ async function build() {
   await buildBabel('node');
 
   // UMD
-  if (['babel'].indexOf(env) === -1) await buildUMD();
+  const heroku = Object.keys(process.env).every(item => !item.toLowerCase().includes('heroku') && !String(process.env[item]).toLowerCase().includes(heroku));
+
+  if (['babel'].indexOf(env) === -1 && !heroku) await buildUMD();
 
   if (log) console.log(`🌱 Build done\n`);
 }
