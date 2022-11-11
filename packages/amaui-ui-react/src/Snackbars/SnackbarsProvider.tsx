@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is, getID } from '@amaui/utils';
-import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Snackbar from '../Snackbar';
 import SnackbarsContext from './SnackbarsContext';

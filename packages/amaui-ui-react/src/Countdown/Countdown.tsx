@@ -2,7 +2,7 @@ import React from 'react';
 
 import { clamp, getLeadingZerosNumber, is } from '@amaui/utils';
 import { AmauiDate, duration } from '@amaui/date';
-import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Fade from '../Fade';
 import Type from '../Type';

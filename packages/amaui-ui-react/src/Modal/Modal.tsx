@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is, isEnvironment, TMethod } from '@amaui/utils';
-import { style as styleMethod, classNames, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
+import { style as styleMethod, classNames, useAmauiTheme } from '@amaui/style-react';
 
 import Portal from '../Portal';
 import Focus from '../Focus';

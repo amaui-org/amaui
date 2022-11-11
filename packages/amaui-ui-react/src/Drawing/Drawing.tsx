@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { elementToCanvas, is } from '@amaui/utils';
-import { classNames, colors, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
+import { classNames, colors, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Select from '../Select';
 import ListItem from '../ListItem';

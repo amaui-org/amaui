@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is } from '@amaui/utils';
-import { style as styleMethod, classNames, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
+import { style as styleMethod, classNames, useAmauiTheme } from '@amaui/style-react';
 
 import Surface from '../Surface';
 import Line from '../Line';

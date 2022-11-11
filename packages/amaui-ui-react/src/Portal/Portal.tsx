@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { is } from '@amaui/utils';
-import { useAmauiTheme, AmauiTheme } from '@amaui/style-react';
+import { useAmauiTheme } from '@amaui/style-react';
 
 import { IBaseElement } from '../utils';
 

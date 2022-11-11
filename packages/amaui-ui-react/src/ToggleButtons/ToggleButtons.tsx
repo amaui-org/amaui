@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Buttons from '../Buttons';
 import { IButtons } from '../Buttons/Buttons';

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { copy, is, percentageFromValueWithinRange, valueFromPercentageWithinRange } from '@amaui/utils';
-import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Chart from '../Chart';
 import Path from '../Path';

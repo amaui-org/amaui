@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import DatePicker from '../DatePicker';
 import { IDatePicker } from '../DatePicker/DatePicker';

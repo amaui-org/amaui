@@ -2,7 +2,7 @@ import React from 'react';
 
 import { is } from '@amaui/utils';
 import { AmauiDate, format as formatMethod, set } from '@amaui/date';
-import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Icon from '../Icon';
 import Modal from '../Modal';

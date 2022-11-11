@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { clamp, is, isEnvironment } from '@amaui/utils';
-import { style as styleMethod, classNames, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
+import { style as styleMethod, classNames, useAmauiTheme } from '@amaui/style-react';
 
 import Grow from '../Grow';
 import Modal from '../Modal';

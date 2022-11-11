@@ -2,7 +2,7 @@ import React from 'react';
 
 import { is, getLeadingZerosNumber, arrayToParts, clamp } from '@amaui/utils';
 import { AmauiDate, format as formatMethod, set, is as isMethod, startOf, endOf, remove, add, TTimeUnits, months as monthsValue } from '@amaui/date';
-import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Icon from '../Icon';
 import IconButton from '../IconButton';

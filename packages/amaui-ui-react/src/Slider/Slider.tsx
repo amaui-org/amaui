@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { clamp, equalDeep, is, percentageFromValueWithinRange, valueFromPercentageWithinRange } from '@amaui/utils';
-import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import IconButton from '../IconButton';
 import Tooltip from '../Tooltip';

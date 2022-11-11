@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is, element, TMethod } from '@amaui/utils';
-import { useAmauiTheme, AmauiTheme } from '@amaui/style-react';
+import { useAmauiTheme } from '@amaui/style-react';
 
 import { IBaseElement, matches, THTMLElement } from '../utils';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is, to, clamp, debounce, canvasCrop, download as downloadMethod } from '@amaui/utils';
-import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 import { TMethod } from '@amaui/models';
 
 import Type from '../Type';

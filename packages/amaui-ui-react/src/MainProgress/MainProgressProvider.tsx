@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is, wait, random, clamp } from '@amaui/utils';
-import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Fade from '../Fade';
 import LinearProgress from '../LinearProgress';

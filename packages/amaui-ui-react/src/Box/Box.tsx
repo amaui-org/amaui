@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { TValue } from '@amaui/style';
-import { style as styleMethod, classNames, useAmauiTheme, className as classNameMethod, AmauiTheme } from '@amaui/style-react';
+import { style as styleMethod, classNames, useAmauiTheme, className as classNameMethod } from '@amaui/style-react';
 
 import { IBaseElement, staticClassName } from '../utils';
 
@@ -38,7 +38,7 @@ const Box = React.forwardRef((props_: IBox, ref: any) => {
     <Component
       ref={ref}
 
-      className={classNameMethod(styles, props, classNames([
+      className={classNameMethod(styles as any, props, classNames([
         staticClassName('Box', theme) && [
           'AmauiBox-root'
         ],

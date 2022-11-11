@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { castParam, clamp, copy, is, percentageFromValueWithinRange, valueFromPercentageWithinRange } from '@amaui/utils';
-import { classNames, style as styleMethod, TColorValues, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, TColorValues, useAmauiTheme } from '@amaui/style-react';
 
 import Surface from '../Surface';
 import Line from '../Line';

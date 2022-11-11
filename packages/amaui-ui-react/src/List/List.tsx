@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Surface from '../Surface';
 import useMediaQuery from '../useMediaQuery';

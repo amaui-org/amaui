@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { canvasCrop, download, elementToCanvas, is } from '@amaui/utils';
-import { classNames, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Tooltip from '../Tooltip';
 import Surface from '../Surface';

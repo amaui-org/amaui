@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { classNames, string, style as styleMethod, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
+import { classNames, string, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Type from '../Type';
 import Surface from '../Surface';

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { is, wait } from '@amaui/utils';
 import AmauiSubscription from '@amaui/subscription';
-import { classNames, useAmauiTheme, TTransitionsDurationProperties, AmauiTheme } from '@amaui/style-react';
+import { classNames, useAmauiTheme, TTransitionsDurationProperties } from '@amaui/style-react';
 
 import KeyframesContext from './KeyframesContext';
 
