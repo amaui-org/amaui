@@ -2,8 +2,9 @@
 
 import React from 'react';
 
-import { Avatar, Button, Line, Link, Surface, Switch, Tooltip, Type } from '@amaui/ui-react';
-import { classNames, colors, style, useAmauiTheme } from '@amaui/style-react';
+import { random } from '@amaui/utils';
+import { Avatar, Button, Line, Link, Masonry, Surface, Switch, Tooltip, Type, ViewSplit } from '@amaui/ui-react';
+import { AmauiThemeProvider, classNames, colors, style, useAmauiTheme } from '@amaui/style-react';
 import AmauiStorage from '@amaui/storage';
 
 import IconMaterialLightModeRounded from '@amaui/icons-material-react/build/IconMaterialLightModeRounded';
@@ -75,7 +76,7 @@ const useStyle = style(theme => ({
   },
 
   image_option: {
-    transition: theme.methods.transitions.make('transform'),
+    transition: theme.methods.transitions.make('transform', { duration: 'sm' }),
 
     '&:active': {
       transform: 'scale(0.91)'
@@ -89,6 +90,11 @@ const useStyle = style(theme => ({
   image_option_selected: {
     outline: `1px solid ${theme.palette.text?.default?.primary}`,
     outlineOffset: 3
+  },
+
+  viewPresentation: {
+    margin: '44px auto 0',
+    maxWidth: theme.breakpoints.values?.xl
   }
 }), { name: 'root' });
 
@@ -199,6 +205,48 @@ export default function Root(props: any) {
     }
   };
 
+  const values = React.useMemo(() => new Array(14).fill(true).map((item: any, index: number) => ({
+    value: random(14, 140)
+  })), []);
+
+  const MasonryItem = React.useCallback(() => {
+
+    return (
+      <Masonry
+        style={{
+          width: theme.breakpoints?.values?.xl
+        }}
+      >
+        {values.map((item: any, index: number) => (
+          <Surface
+            key={index}
+
+            tonal
+
+            color='primary'
+
+            version='filled'
+
+            elevation={1}
+
+            align='center'
+
+            justify='center'
+
+            Component={Line}
+
+            style={{
+              height: item.value,
+              borderRadius: '8px'
+            }}
+          >
+            {index + 1}
+          </Surface>
+        ))}
+      </Masonry>
+    );
+  }, []);
+
   return (
     <Surface
       tonal
@@ -263,6 +311,8 @@ export default function Root(props: any) {
           align='center'
 
           justify='center'
+
+          wrap='wrap'
         >
           <Tooltip
             label={theme.palette.light ? 'Light theme' : 'Dark theme'}
@@ -342,6 +392,50 @@ export default function Root(props: any) {
         </Line>
 
         {/* UI elements */}
+        <ViewSplit
+          color='inverted'
+
+          version='manual'
+
+          className={classNames([
+            classes.viewPresentation
+          ])}
+        >
+          {/* Default */}
+          <AmauiThemeProvider
+            value={{
+              palette: {
+                color: {
+                  primary: {
+                    light: colors.yellow[300],
+                    main: colors.yellow[500],
+                    dark: colors.yellow[700],
+                  },
+                  secondary: {
+                    light: colors.lightgreen[300],
+                    main: colors.lightgreen[500],
+                    dark: colors.lightgreen[700],
+                  },
+                  tertiary: {
+                    light: colors.amber[300],
+                    main: colors.amber[500],
+                    dark: colors.amber[700],
+                  },
+                  quaternary: {
+                    light: colors.cyan[300],
+                    main: colors.cyan[500],
+                    dark: colors.cyan[700],
+                  }
+                }
+              }
+            }}
+          >
+            <MasonryItem />
+          </AmauiThemeProvider>
+
+          {/* Theme new */}
+          <MasonryItem />
+        </ViewSplit>
       </section>
 
       {/* About */}

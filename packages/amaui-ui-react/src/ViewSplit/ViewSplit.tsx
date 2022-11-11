@@ -88,6 +88,7 @@ const useStyle = styleMethod((theme: AmauiTheme) => ({
     position: 'absolute',
     userSelect: 'none',
     zIndex: '3',
+    borderRadius: theme.methods.shape.radius.value('lg', 'px'),
 
     '&.AmauiDivider-root': {
       margin: '0px'

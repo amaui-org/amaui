@@ -45,8 +45,11 @@ const AmauiThemeProvider = React.forwardRef((props: IAmauiThemeProvider, ref: an
     ...other } = props;
 
   const refs = {
-    root: React.useRef<HTMLElement>()
+    root: React.useRef<HTMLElement>(),
+    init: React.useRef<any>()
   };
+
+  refs.init.current = init;
 
   const valueParent = useAmauiTheme() as any || {};
 
@@ -62,9 +65,9 @@ const AmauiThemeProvider = React.forwardRef((props: IAmauiThemeProvider, ref: an
 
       // Init
       setValue(amauiTheme);
-
-      setInit(true);
     }
+
+    setInit(true);
   }, []);
 
   React.useEffect(() => {
@@ -77,10 +80,9 @@ const AmauiThemeProvider = React.forwardRef((props: IAmauiThemeProvider, ref: an
 
       amauiTheme.subscriptions = value.subscriptions;
 
-      // Init
       setValue(amauiTheme);
     }
-  }, [hash(resolveValue(valueLocal as any)), hash(resolveValue(valueParent))]);
+  }, [hash(resolveValue(valueLocal as any)), valueParent?.palette?.light]);
 
   const update = (updateValue: IAmauiTheme) => {
     if (updateValue !== undefined) {
