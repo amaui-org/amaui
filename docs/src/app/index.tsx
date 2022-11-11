@@ -43,7 +43,7 @@ const useStyle = styleMethod(theme => ({
 
   header_not_top: {
     '&.AmauiTopAppBar-root': {
-      background: theme.methods.palette.color.colorToRgb((theme.palette.light ? theme.palette.background?.primary?.secondary : theme.palette.background?.primary?.tertiary) as string, 0.97),
+      background: theme.methods.palette.color.colorToRgb(theme.palette.color?.primary?.[theme.palette.light ? 99 : 10] as string, 0.97),
       maxWidth: theme.breakpoints?.values?.md,
       boxShadow: theme.shadows?.values?.default?.['2']
     }
