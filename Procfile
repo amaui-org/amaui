@@ -1,1 +1,1 @@
-web: yarn start --prefix docs
+web: yarn --cwd docs start
