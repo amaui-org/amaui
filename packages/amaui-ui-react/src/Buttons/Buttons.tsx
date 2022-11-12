@@ -115,7 +115,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   disabled: {
-    boxShadow: 'none'
+
   }
 }), { name: 'AmauiButtons' });
 

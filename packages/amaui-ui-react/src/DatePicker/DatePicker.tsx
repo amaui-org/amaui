@@ -325,7 +325,7 @@ const useStyle = styleMethod(theme => ({
 
   dayValue: {
     '&:hover': {
-      boxShadow: '0px 0px 0px 1px currentColor'
+      boxShadow: 'inset 0px 0px 0px 1px currentColor'
     }
   },
 
@@ -334,7 +334,7 @@ const useStyle = styleMethod(theme => ({
     height: '36px',
 
     '&:hover': {
-      boxShadow: '0px 0px 0px 1px currentColor'
+      boxShadow: 'inset 0px 0px 0px 1px currentColor'
     }
   },
 
@@ -855,7 +855,7 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
 
                                 style={{
                                   ...(day.today ? {
-                                    boxShadow: `0px 0px 0px 1px ${palette[40]}`
+                                    boxShadow: `inset 0px 0px 0px 1px ${palette[40]}`
                                   } : undefined),
 
                                   ...(day.selected ? {
@@ -1007,7 +1007,7 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
 
                         style={{
                           ...(day.today ? {
-                            boxShadow: `0px 0px 0px 1px ${palette[40]}`
+                            boxShadow: `inset 0px 0px 0px 1px ${palette[40]}`
                           } : undefined),
 
                           ...(day.selected ? {

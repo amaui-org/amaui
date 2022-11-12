@@ -294,346 +294,344 @@ const useStyle = styleMethod(theme => ({
   version_outlined_color_themed: {
     color: theme.palette.text.default.primary,
     backgroundColor: theme.palette.light ? theme.palette.background.default.primary : theme.palette.background.default.quaternary,
-    boxShadow: `0px 0px 0px 1px ${theme.palette.color.neutral[theme.palette.light ? 40 : 60]}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.palette.color.neutral[theme.palette.light ? 40 : 60]}`
   },
 
   version_outlined_color_inverted: {
     color: theme.palette.background.default.primary,
     backgroundColor: theme.palette.light ? theme.palette.background.dark.primary : theme.palette.background.light.primary,
-    boxShadow: `0px 0px 0px 1px ${theme.palette.color.neutral[theme.palette.light ? 60 : 40]}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.palette.color.neutral[theme.palette.light ? 60 : 40]}`
   },
 
   version_outlined_color_default: {
     color: theme.palette.text.default.primary,
     backgroundColor: theme.palette.background.default.primary,
-    boxShadow: `0px 0px 0px 1px ${theme.palette.color.neutral[theme.palette.light ? 40 : 60]}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.palette.color.neutral[theme.palette.light ? 40 : 60]}`
   },
 
   version_outlined_color_neutral: {
     color: theme.methods.palette.color.text(theme.palette.color.neutral.main, true, 'light'),
     backgroundColor: theme.palette.color.neutral.main,
-    boxShadow: `0px 0px 0px 1px ${theme.palette.color.neutral[10]}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.palette.color.neutral[10]}`
   },
 
   version_outlined_color_primary: {
     color: theme.methods.palette.color.text(theme.palette.color.primary.main, true, 'light'),
     backgroundColor: theme.palette.color.primary.main,
-    boxShadow: `0px 0px 0px 1px ${theme.palette.color.primary[10]}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.palette.color.primary[10]}`
   },
 
   version_outlined_color_secondary: {
     color: theme.methods.palette.color.text(theme.palette.color.secondary.main, true, 'light'),
     backgroundColor: theme.palette.color.secondary.main,
-    boxShadow: `0px 0px 0px 1px ${theme.palette.color.secondary[10]}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.palette.color.secondary[10]}`
   },
 
   version_outlined_color_tertiary: {
     color: theme.methods.palette.color.text(theme.palette.color.tertiary.main, true, 'light'),
     backgroundColor: theme.palette.color.tertiary.main,
-    boxShadow: `0px 0px 0px 1px ${theme.palette.color.tertiary[10]}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.palette.color.tertiary[10]}`
   },
 
   version_outlined_color_quaternary: {
     color: theme.methods.palette.color.text(theme.palette.color.quaternary.main, true, 'light'),
     backgroundColor: theme.palette.color.quaternary.main,
-    boxShadow: `0px 0px 0px 1px ${theme.palette.color.quaternary[10]}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.palette.color.quaternary[10]}`
   },
 
   version_outlined_color_info: {
     color: theme.methods.palette.color.text(theme.palette.color.info.main, true, 'light'),
     backgroundColor: theme.palette.color.info.main,
-    boxShadow: `0px 0px 0px 1px ${theme.palette.color.info[10]}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.palette.color.info[10]}`
   },
 
   version_outlined_color_success: {
     color: theme.methods.palette.color.text(theme.palette.color.success.main, true, 'light'),
     backgroundColor: theme.palette.color.success.main,
-    boxShadow: `0px 0px 0px 1px ${theme.palette.color.success[10]}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.palette.color.success[10]}`
   },
 
   version_outlined_color_warning: {
     color: theme.methods.palette.color.text(theme.palette.color.warning.main, true, 'light'),
     backgroundColor: theme.palette.color.warning.main,
-    boxShadow: `0px 0px 0px 1px ${theme.palette.color.warning[10]}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.palette.color.warning[10]}`
   },
 
   version_outlined_color_error: {
     color: theme.methods.palette.color.text(theme.palette.color.error.main, true, 'light'),
     backgroundColor: theme.palette.color.error.main,
-    boxShadow: `0px 0px 0px 1px ${theme.palette.color.error[10]}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.palette.color.error[10]}`
   },
 
   // Tonal
   version_outlined_tonal_color_neutral: {
     color: theme.methods.palette.color.value('neutral', 5),
     backgroundColor: theme.methods.palette.color.value('neutral', 99),
-    boxShadow: `0px 0px 0px 1px ${theme.methods.palette.color.value('neutral', 10)}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.methods.palette.color.value('neutral', 10)}`
   },
 
   version_outlined_tonal_color_primary: {
     color: theme.methods.palette.color.value('primary', 5),
     backgroundColor: theme.methods.palette.color.value('neutral', 99),
-    boxShadow: `0px 0px 0px 1px ${theme.methods.palette.color.value('primary', 10)}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.methods.palette.color.value('primary', 10)}`
   },
 
   version_outlined_tonal_color_secondary: {
     color: theme.methods.palette.color.value('secondary', 5),
     backgroundColor: theme.methods.palette.color.value('secondary', 99),
-    boxShadow: `0px 0px 0px 1px ${theme.methods.palette.color.value('secondary', 10)}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.methods.palette.color.value('secondary', 10)}`
   },
 
   version_outlined_tonal_color_tertiary: {
     color: theme.methods.palette.color.value('tertiary', 5),
     backgroundColor: theme.methods.palette.color.value('tertiary', 99),
-    boxShadow: `0px 0px 0px 1px ${theme.methods.palette.color.value('tertiary', 10)}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.methods.palette.color.value('tertiary', 10)}`
   },
 
   version_outlined_tonal_color_quaternary: {
     color: theme.methods.palette.color.value('quaternary', 5),
     backgroundColor: theme.methods.palette.color.value('quaternary', 99),
-    boxShadow: `0px 0px 0px 1px ${theme.methods.palette.color.value('quaternary', 10)}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.methods.palette.color.value('quaternary', 10)}`
   },
 
   version_outlined_tonal_color_info: {
     color: theme.methods.palette.color.value('info', 5),
     backgroundColor: theme.methods.palette.color.value('info', 99),
-    boxShadow: `0px 0px 0px 1px ${theme.methods.palette.color.value('info', 10)}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.methods.palette.color.value('info', 10)}`
   },
 
   version_outlined_tonal_color_success: {
     color: theme.methods.palette.color.value('success', 5),
     backgroundColor: theme.methods.palette.color.value('success', 99),
-    boxShadow: `0px 0px 0px 1px ${theme.methods.palette.color.value('success', 10)}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.methods.palette.color.value('success', 10)}`
   },
 
   version_outlined_tonal_color_warning: {
     color: theme.methods.palette.color.value('warning', 5),
     backgroundColor: theme.methods.palette.color.value('warning', 99),
-    boxShadow: `0px 0px 0px 1px ${theme.methods.palette.color.value('warning', 10)}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.methods.palette.color.value('warning', 10)}`
   },
 
   version_outlined_tonal_color_error: {
     color: theme.methods.palette.color.value('error', 5),
     backgroundColor: theme.methods.palette.color.value('error', 99),
-    boxShadow: `0px 0px 0px 1px ${theme.methods.palette.color.value('error', 10)}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.methods.palette.color.value('error', 10)}`
   },
 
   version_outlined_tonal_secondary_color_neutral: {
     color: theme.methods.palette.color.value('neutral', 10),
     backgroundColor: theme.methods.palette.color.value('neutral', 95),
-    boxShadow: `0px 0px 0px 1px ${theme.methods.palette.color.value('neutral', 10)}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.methods.palette.color.value('neutral', 10)}`
   },
 
   version_outlined_tonal_secondary_color_primary: {
     color: theme.methods.palette.color.value('primary', 10),
     backgroundColor: theme.methods.palette.color.value('neutral', 95),
-    boxShadow: `0px 0px 0px 1px ${theme.methods.palette.color.value('primary', 10)}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.methods.palette.color.value('primary', 10)}`
   },
 
   version_outlined_tonal_secondary_color_secondary: {
     color: theme.methods.palette.color.value('secondary', 10),
     backgroundColor: theme.methods.palette.color.value('secondary', 95),
-    boxShadow: `0px 0px 0px 1px ${theme.methods.palette.color.value('secondary', 10)}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.methods.palette.color.value('secondary', 10)}`
   },
 
   version_outlined_tonal_secondary_color_tertiary: {
     color: theme.methods.palette.color.value('tertiary', 10),
     backgroundColor: theme.methods.palette.color.value('tertiary', 95),
-    boxShadow: `0px 0px 0px 1px ${theme.methods.palette.color.value('tertiary', 10)}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.methods.palette.color.value('tertiary', 10)}`
   },
 
   version_outlined_tonal_secondary_color_quaternary: {
     color: theme.methods.palette.color.value('quaternary', 10),
     backgroundColor: theme.methods.palette.color.value('quaternary', 95),
-    boxShadow: `0px 0px 0px 1px ${theme.methods.palette.color.value('quaternary', 10)}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.methods.palette.color.value('quaternary', 10)}`
   },
 
   version_outlined_tonal_secondary_color_info: {
     color: theme.methods.palette.color.value('info', 10),
     backgroundColor: theme.methods.palette.color.value('info', 95),
-    boxShadow: `0px 0px 0px 1px ${theme.methods.palette.color.value('info', 10)}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.methods.palette.color.value('info', 10)}`
   },
 
   version_outlined_tonal_secondary_color_success: {
     color: theme.methods.palette.color.value('success', 10),
     backgroundColor: theme.methods.palette.color.value('success', 95),
-    boxShadow: `0px 0px 0px 1px ${theme.methods.palette.color.value('success', 10)}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.methods.palette.color.value('success', 10)}`
   },
 
   version_outlined_tonal_secondary_color_warning: {
     color: theme.methods.palette.color.value('warning', 10),
     backgroundColor: theme.methods.palette.color.value('warning', 95),
-    boxShadow: `0px 0px 0px 1px ${theme.methods.palette.color.value('warning', 10)}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.methods.palette.color.value('warning', 10)}`
   },
 
   version_outlined_tonal_secondary_color_error: {
     color: theme.methods.palette.color.value('error', 10),
     backgroundColor: theme.methods.palette.color.value('error', 95),
-    boxShadow: `0px 0px 0px 1px ${theme.methods.palette.color.value('error', 10)}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.methods.palette.color.value('error', 10)}`
   },
 
   // Outlined without backgroundColor
   'version_outlined-without-background': {
-    outlineWidth: '1px',
-    outlineStyle: 'solid',
-    outlineOffset: '-1px'
+
   },
 
   // Color
   'version_outlined-without-background_color_themed': {
     color: theme.palette.light ? theme.palette.text.default.primary : theme.palette.background.default.secondary,
-    boxShadow: `0px 0px 0px 1px ${theme.palette.light ? theme.palette.text.default.primary : theme.palette.background.default.secondary}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.palette.light ? theme.palette.text.default.primary : theme.palette.background.default.secondary}`
   },
 
   'version_outlined-without-background_color_inverted': {
     color: theme.palette.background.default.primary,
-    boxShadow: `0px 0px 0px 1px ${theme.palette.background.default.primary}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.palette.background.default.primary}`
   },
 
   'version_outlined-without-background_color_default': {
     color: theme.palette.text.default.primary,
-    boxShadow: `0px 0px 0px 1px ${theme.palette.text.default.primary}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.palette.text.default.primary}`
   },
 
   'version_outlined-without-background_color_neutral': {
     color: theme.palette.color.neutral.main,
-    boxShadow: `0px 0px 0px 1px ${theme.palette.color.neutral.main}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.palette.color.neutral.main}`
   },
 
   'version_outlined-without-background_color_primary': {
     color: theme.palette.color.primary.main,
-    boxShadow: `0px 0px 0px 1px ${theme.palette.color.primary.main}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.palette.color.primary.main}`
   },
 
   'version_outlined-without-background_color_secondary': {
     color: theme.palette.color.secondary.main,
-    boxShadow: `0px 0px 0px 1px ${theme.palette.color.secondary.main}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.palette.color.secondary.main}`
   },
 
   'version_outlined-without-background_color_tertiary': {
     color: theme.palette.color.tertiary.main,
-    boxShadow: `0px 0px 0px 1px ${theme.palette.color.tertiary.main}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.palette.color.tertiary.main}`
   },
 
   'version_outlined-without-background_color_quaternary': {
     color: theme.palette.color.quaternary.main,
-    boxShadow: `0px 0px 0px 1px ${theme.palette.color.quaternary.main}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.palette.color.quaternary.main}`
   },
 
   'version_outlined-without-background_color_info': {
     color: theme.palette.color.info.main,
-    boxShadow: `0px 0px 0px 1px ${theme.palette.color.info.main}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.palette.color.info.main}`
   },
 
   'version_outlined-without-background_color_success': {
     color: theme.palette.color.success.main,
-    boxShadow: `0px 0px 0px 1px ${theme.palette.color.success.main}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.palette.color.success.main}`
   },
 
   'version_outlined-without-background_color_warning': {
     color: theme.palette.color.warning.main,
-    boxShadow: `0px 0px 0px 1px ${theme.palette.color.warning.main}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.palette.color.warning.main}`
   },
 
   'version_outlined-without-background_color_error': {
     color: theme.palette.color.error.main,
-    boxShadow: `0px 0px 0px 1px ${theme.palette.color.error.main}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.palette.color.error.main}`
   },
 
   // Tonal
   'version_outlined-without-background_tonal_color_neutral': {
     color: theme.methods.palette.color.value('neutral', 50),
-    boxShadow: `0px 0px 0px 1px ${theme.methods.palette.color.value('neutral', 30)}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.methods.palette.color.value('neutral', 30)}`
   },
 
   'version_outlined-without-background_tonal_color_primary': {
     color: theme.methods.palette.color.value('primary', 50),
-    boxShadow: `0px 0px 0px 1px ${theme.methods.palette.color.value('primary', 30)}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.methods.palette.color.value('primary', 30)}`
   },
 
   'version_outlined-without-background_tonal_color_secondary': {
     color: theme.methods.palette.color.value('secondary', 50),
-    boxShadow: `0px 0px 0px 1px ${theme.methods.palette.color.value('secondary', 30)}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.methods.palette.color.value('secondary', 30)}`
   },
 
   'version_outlined-without-background_tonal_color_tertiary': {
     color: theme.methods.palette.color.value('tertiary', 50),
-    boxShadow: `0px 0px 0px 1px ${theme.methods.palette.color.value('tertiary', 30)}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.methods.palette.color.value('tertiary', 30)}`
   },
 
   'version_outlined-without-background_tonal_color_quaternary': {
     color: theme.methods.palette.color.value('quaternary', 50),
-    boxShadow: `0px 0px 0px 1px ${theme.methods.palette.color.value('quaternary', 30)}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.methods.palette.color.value('quaternary', 30)}`
   },
 
   'version_outlined-without-background_tonal_color_info': {
     color: theme.methods.palette.color.value('info', 50),
-    boxShadow: `0px 0px 0px 1px ${theme.methods.palette.color.value('info', 30)}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.methods.palette.color.value('info', 30)}`
   },
 
   'version_outlined-without-background_tonal_color_success': {
     color: theme.methods.palette.color.value('success', 50),
-    boxShadow: `0px 0px 0px 1px ${theme.methods.palette.color.value('success', 30)}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.methods.palette.color.value('success', 30)}`
   },
 
   'version_outlined-without-background_tonal_color_warning': {
     color: theme.methods.palette.color.value('warning', 50),
-    boxShadow: `0px 0px 0px 1px ${theme.methods.palette.color.value('warning', 30)}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.methods.palette.color.value('warning', 30)}`
   },
 
   'version_outlined-without-background_tonal_color_error': {
     color: theme.methods.palette.color.value('error', 50),
-    boxShadow: `0px 0px 0px 1px ${theme.methods.palette.color.value('error', 30)}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.methods.palette.color.value('error', 30)}`
   },
 
   'version_outlined-without-background_tonal_secondary_color_neutral': {
     color: theme.methods.palette.color.value('neutral', 40),
-    boxShadow: `0px 0px 0px 1px ${theme.methods.palette.color.value('neutral', 20)}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.methods.palette.color.value('neutral', 20)}`
   },
 
   'version_outlined-without-background_tonal_secondary_color_primary': {
     color: theme.methods.palette.color.value('primary', 40),
-    boxShadow: `0px 0px 0px 1px ${theme.methods.palette.color.value('primary', 20)}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.methods.palette.color.value('primary', 20)}`
   },
 
   'version_outlined-without-background_tonal_secondary_color_secondary': {
     color: theme.methods.palette.color.value('secondary', 40),
-    boxShadow: `0px 0px 0px 1px ${theme.methods.palette.color.value('secondary', 20)}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.methods.palette.color.value('secondary', 20)}`
   },
 
   'version_outlined-without-background_tonal_secondary_color_tertiary': {
     color: theme.methods.palette.color.value('tertiary', 40),
-    boxShadow: `0px 0px 0px 1px ${theme.methods.palette.color.value('tertiary', 20)}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.methods.palette.color.value('tertiary', 20)}`
   },
 
   'version_outlined-without-background_tonal_secondary_color_quaternary': {
     color: theme.methods.palette.color.value('quaternary', 40),
-    boxShadow: `0px 0px 0px 1px ${theme.methods.palette.color.value('quaternary', 20)}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.methods.palette.color.value('quaternary', 20)}`
   },
 
   'version_outlined-without-background_tonal_secondary_color_info': {
     color: theme.methods.palette.color.value('info', 40),
-    boxShadow: `0px 0px 0px 1px ${theme.methods.palette.color.value('info', 20)}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.methods.palette.color.value('info', 20)}`
   },
 
   'version_outlined-without-background_tonal_secondary_color_success': {
     color: theme.methods.palette.color.value('success', 40),
-    boxShadow: `0px 0px 0px 1px ${theme.methods.palette.color.value('success', 20)}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.methods.palette.color.value('success', 20)}`
   },
 
   'version_outlined-without-background_tonal_secondary_color_warning': {
     color: theme.methods.palette.color.value('warning', 40),
-    boxShadow: `0px 0px 0px 1px ${theme.methods.palette.color.value('warning', 20)}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.methods.palette.color.value('warning', 20)}`
   },
 
   'version_outlined-without-background_tonal_secondary_color_error': {
     color: theme.methods.palette.color.value('error', 40),
-    boxShadow: `0px 0px 0px 1px ${theme.methods.palette.color.value('error', 20)}`
+    boxShadow: `inset 0px 0px 0px 1px ${theme.methods.palette.color.value('error', 20)}`
   },
 
   // Elevation
   elevation_0: {
-    boxShadow: theme.shadows.values.neutral[0]
+
   },
 
   elevation_1: {
@@ -751,12 +749,12 @@ const Surface = React.forwardRef((props_: ISurface, ref: any) => {
       if (version === 'outlined') {
         styles.root.color = theme.methods.palette.color.value(color as any, tonal === 'secondary' ? 10 : 5, true, palette);
         styles.root.backgroundColor = theme.methods.palette.color.value(color as any, tonal === 'secondary' ? 95 : 99, true, palette);
-        styles.root.boxShadow = `0px 0px 0px 1px ${theme.methods.palette.color.value(color as any, tonal === 'secondary' ? 20 : 10, true, palette)}`;
+        styles.root.boxShadow = `inset 0px 0px 0px 1px ${theme.methods.palette.color.value(color as any, tonal === 'secondary' ? 20 : 10, true, palette)}`;
       }
 
       if (version === 'outlined-without-background') {
         styles.root.color = theme.methods.palette.color.value(color as any, tonal === 'secondary' ? 40 : 50, true, palette);
-        styles.root.boxShadow = `0px 0px 0px 1px ${theme.methods.palette.color.value(color as any, tonal === 'secondary' ? 20 : 30, true, palette)}`;
+        styles.root.boxShadow = `inset 0px 0px 0px 1px ${theme.methods.palette.color.value(color as any, tonal === 'secondary' ? 20 : 30, true, palette)}`;
 
         delete styles.root.backgroundColor;
       }
@@ -768,11 +766,11 @@ const Surface = React.forwardRef((props_: ISurface, ref: any) => {
 
       if (['outlined', 'filled'].includes(version)) styles.root.backgroundColor = palette.main;
 
-      if (version === 'outlined') styles.root.boxShadow = `0px 0px 0px 1px ${palette[10]}`;
+      if (version === 'outlined') styles.root.boxShadow = `inset 0px 0px 0px 1px ${palette[10]}`;
 
       if (version === 'outlined-without-background') {
         styles.root.color = palette[40];
-        styles.root.boxShadow = `0px 0px 0px 1px ${palette[30]}`;
+        styles.root.boxShadow = `inset 0px 0px 0px 1px ${palette[30]}`;
       }
 
       if (version === 'text') styles.root.color = palette.main;
@@ -841,17 +839,17 @@ const Surface = React.forwardRef((props_: ISurface, ref: any) => {
       if (color === 'themed') {
         styles.children.color = theme.palette.text.default.primary;
         styles.children.backgroundColor = theme.palette.light ? theme.palette.background.default.primary : theme.palette.background.default.quaternary;
-        styles.children.boxShadow = `0px 0px 0px 1px ${theme.palette.color.neutral[theme.palette.light ? 40 : 60]}`;
+        styles.children.boxShadow = `inset 0px 0px 0px 1px ${theme.palette.color.neutral[theme.palette.light ? 40 : 60]}`;
       }
       else if (color === 'inverted') {
         styles.children.color = theme.palette.background.default.primary;
         styles.children.backgroundColor = theme.palette.light ? theme.palette.background.dark.primary : theme.palette.background.light.primary;
-        styles.children.boxShadow = `0px 0px 0px 1px ${theme.palette.color.neutral[theme.palette.light ? 60 : 40]}`;
+        styles.children.boxShadow = `inset 0px 0px 0px 1px ${theme.palette.color.neutral[theme.palette.light ? 60 : 40]}`;
       }
       else if (color === 'default') {
         styles.children.color = theme.palette.text.default.primary;
         styles.children.backgroundColor = theme.palette.background.default.primary;
-        styles.children.boxShadow = `0px 0px 0px 1px ${theme.palette.color.neutral[theme.palette.light ? 40 : 60]}`;
+        styles.children.boxShadow = `inset 0px 0px 0px 1px ${theme.palette.color.neutral[theme.palette.light ? 40 : 60]}`;
       }
       else if (color === 'inherit') {
         styles.children.color = 'inherit';
@@ -860,32 +858,32 @@ const Surface = React.forwardRef((props_: ISurface, ref: any) => {
         if (!tonal) {
           styles.children.color = theme.methods.palette.color.text(theme.palette.color.neutral.main, true, 'light');
           styles.children.backgroundColor = theme.palette.color.neutral.main;
-          styles.children.boxShadow = `0px 0px 0px 1px ${theme.palette.color.neutral[10]}`;
+          styles.children.boxShadow = `inset 0px 0px 0px 1px ${theme.palette.color.neutral[10]}`;
         }
         else if (tonal === 'secondary') {
           styles.children.color = theme.methods.palette.color.value(color as any, 10);
           styles.children.backgroundColor = theme.methods.palette.color.value(color as any, 95);
-          styles.children.boxShadow = `0px 0px 0px 1px ${theme.methods.palette.color.value(color as any, 10)}`;
+          styles.children.boxShadow = `inset 0px 0px 0px 1px ${theme.methods.palette.color.value(color as any, 10)}`;
         }
         else {
           styles.children.color = theme.methods.palette.color.value(color as any, 5);
           styles.children.backgroundColor = theme.methods.palette.color.value(color as any, 99);
-          styles.children.boxShadow = `0px 0px 0px 1px ${theme.methods.palette.color.value(color as any, 10)}`;
+          styles.children.boxShadow = `inset 0px 0px 0px 1px ${theme.methods.palette.color.value(color as any, 10)}`;
         }
       }
     }
     else if (version === 'outlined-without-background') {
       if (color === 'themed') {
         styles.children.color = theme.palette.light ? theme.palette.text.default.primary : theme.palette.background.default.secondary;
-        styles.children.boxShadow = `0px 0px 0px 1px ${theme.palette.light ? theme.palette.text.default.primary : theme.palette.background.default.secondary}`;
+        styles.children.boxShadow = `inset 0px 0px 0px 1px ${theme.palette.light ? theme.palette.text.default.primary : theme.palette.background.default.secondary}`;
       }
       else if (color === 'inverted') {
         styles.children.color = theme.palette.background.default.primary;
-        styles.children.boxShadow = `0px 0px 0px 1px ${theme.palette.background.default.primary}`;
+        styles.children.boxShadow = `inset 0px 0px 0px 1px ${theme.palette.background.default.primary}`;
       }
       else if (color === 'default') {
         styles.children.color = theme.palette.text.default.primary;
-        styles.children.boxShadow = `0px 0px 0px 1px ${theme.palette.color.neutral[theme.palette.light ? 40 : 60]}`;
+        styles.children.boxShadow = `inset 0px 0px 0px 1px ${theme.palette.color.neutral[theme.palette.light ? 40 : 60]}`;
       }
       else if (color === 'inherit') {
         styles.children.color = 'inherit';
@@ -893,15 +891,15 @@ const Surface = React.forwardRef((props_: ISurface, ref: any) => {
       else {
         if (!tonal) {
           styles.children.color = theme.palette.text.default.primary;
-          styles.children.boxShadow = `0px 0px 0px 1px ${theme.palette.text.default.primary}`;
+          styles.children.boxShadow = `inset 0px 0px 0px 1px ${theme.palette.text.default.primary}`;
         }
         else if (tonal === 'secondary') {
           styles.children.color = theme.methods.palette.color.value(color, 40);
-          styles.children.boxShadow = `0px 0px 0px 1px ${theme.methods.palette.color.value(color, 20)}`;
+          styles.children.boxShadow = `inset 0px 0px 0px 1px ${theme.methods.palette.color.value(color, 20)}`;
         }
         else {
           styles.children.color = theme.methods.palette.color.value(color, 50);
-          styles.children.boxShadow = `0px 0px 0px 1px ${theme.methods.palette.color.value(color, 30)}`;
+          styles.children.boxShadow = `inset 0px 0px 0px 1px ${theme.methods.palette.color.value(color, 30)}`;
         }
       }
     }
