@@ -18,14 +18,14 @@
       "name": "next"
     }],
     "paths": {
-      "@amaui/style-react": ["../packages/amaui-style-react/build"],
-      "@amaui/style-react/*": ["../packages/amaui-style-react/build/*"],
+      "@amaui/style-react": ["../packages/amaui-style-react/src"],
+      "@amaui/style-react/*": ["../packages/amaui-style-react/src/*"],
 
-      "@amaui/icons-material-react": ["../packages/amaui-icons-material-react/build"],
-      "@amaui/icons-material-react/*": ["../packages/amaui-icons-material-react/build/*"],
+      "@amaui/icons-material-react": ["../packages/amaui-icons-material-react/src"],
+      "@amaui/icons-material-react/*": ["../packages/amaui-icons-material-react/src/*"],
 
-      "@amaui/ui-react": ["../packages/amaui-ui-react/build"],
-      "@amaui/ui-react/*": ["../packages/amaui-ui-react/build/*"]
+      "@amaui/ui-react": ["../packages/amaui-ui-react/src"],
+      "@amaui/ui-react/*": ["../packages/amaui-ui-react/src/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
