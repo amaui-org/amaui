@@ -309,6 +309,12 @@ const useStyle = styleMethod(theme => ({
     boxShadow: `inset 0px 0px 0px 1px ${theme.palette.color.neutral[theme.palette.light ? 40 : 60]}`
   },
 
+  version_outlined_color_inherit: {
+    color: 'inherit',
+    backgroundColor: 'transparent',
+    boxShadow: `inset 0px 0px 0px 1px currentColor`
+  },
+
   version_outlined_color_neutral: {
     color: theme.methods.palette.color.text(theme.palette.color.neutral.main, true, 'light'),
     backgroundColor: theme.palette.color.neutral.main,
@@ -491,6 +497,11 @@ const useStyle = styleMethod(theme => ({
   'version_outlined-without-background_color_default': {
     color: theme.palette.text.default.primary,
     boxShadow: `inset 0px 0px 0px 1px ${theme.palette.text.default.primary}`
+  },
+
+  'version_outlined-without-background_color_inherit': {
+    color: 'inherit',
+    boxShadow: `inset 0px 0px 0px 1px currentColor`
   },
 
   'version_outlined-without-background_color_neutral': {
@@ -853,6 +864,7 @@ const Surface = React.forwardRef((props_: ISurface, ref: any) => {
       }
       else if (color === 'inherit') {
         styles.children.color = 'inherit';
+        styles.children.boxShadow = `inset 0px 0px 0px 1px currentColor`;
       }
       else {
         if (!tonal) {
@@ -887,6 +899,7 @@ const Surface = React.forwardRef((props_: ISurface, ref: any) => {
       }
       else if (color === 'inherit') {
         styles.children.color = 'inherit';
+        styles.children.boxShadow = `inset 0px 0px 0px 1px currentColor`;
       }
       else {
         if (!tonal) {
