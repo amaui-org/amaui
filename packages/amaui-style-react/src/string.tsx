@@ -5,15 +5,15 @@ import { hash, castParam } from '@amaui/utils';
 import style from './style';
 
 // May be TValue or a string  as a string value literal
-const responses = {};
+const responses: any = {};
 
 export default function string(value_: TemplateStringsArray, ...args: any[]): string {
   const valueString = value_.reduce((result, item, index) => result += `${item}${args[index] || ''}`, '');
 
   const valueStringMethod = () => {
-    const rule = {};
+    const rule: any = {};
 
-    valueString.trim().split('\n').filter(Boolean).map(item => item.trim()).forEach(item => {
+    valueString.trim().split('\n').filter(Boolean).map((item: any) => item.trim()).forEach((item: any) => {
       if (item) {
         const items = item.split(':');
 

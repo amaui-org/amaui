@@ -36,7 +36,7 @@ const AmauiStyleProvider = React.forwardRef((props: any, ref: any) => {
   } = props;
 
   const refs = {
-    root: React.useRef<HTMLElement>()
+    root: React.useRef<any>()
   };
 
   const [value, setValue] = React.useState(() => {
@@ -55,7 +55,7 @@ const AmauiStyleProvider = React.forwardRef((props: any, ref: any) => {
       const valueNew = new AmauiStyle();
 
       // Copy over from value
-      Object.keys(value).forEach(prop => valueNew[prop] = value[prop]);
+      Object.keys(value).forEach((prop: any) => valueNew[prop] = value[prop]);
 
       setValue(valueNew);
     }
@@ -65,9 +65,9 @@ const AmauiStyleProvider = React.forwardRef((props: any, ref: any) => {
     if (updateValue !== undefined) {
       const valueNew = new AmauiStyle();
 
-      Object.keys(value).forEach(prop => valueNew[prop] = value[prop]);
+      Object.keys(value).forEach((prop: any) => valueNew[prop] = value[prop]);
 
-      is('object', updateValue) && Object.keys(updateValue).forEach(prop => valueNew[prop] = updateValue[prop]);
+      is('object', updateValue) && Object.keys(updateValue).forEach((prop: any) => valueNew[prop] = updateValue[prop]);
 
       setValue(valueNew);
 
@@ -83,7 +83,7 @@ const AmauiStyleProvider = React.forwardRef((props: any, ref: any) => {
       value={value}
     >
       <div
-        ref={item => {
+        ref={(item: any) => {
           refs.root.current = item;
 
           if (ref?.current) ref.current = item;

@@ -18,9 +18,9 @@ export interface IAmauiThemeProviderValue extends AmauiThemeRequired {
 const resolveValue = (value: IAmauiTheme) => {
   const toFilterOut = ['id', 'element', 'subscriptions'];
 
-  const valueNew = {};
+  const valueNew: any = {};
 
-  Object.keys(value).filter(item => toFilterOut.indexOf(item) === -1).forEach(item => valueNew[item] = value[item]);
+  Object.keys(value).filter((item: any) => toFilterOut.indexOf(item) === -1).forEach((item: any) => valueNew[item] = value[item]);
 
   return valueNew;
 };
@@ -46,7 +46,7 @@ const AmauiThemeProvider = React.forwardRef((props: IAmauiThemeProvider, ref: an
     ...other } = props;
 
   const refs = {
-    root: React.useRef<HTMLElement>(),
+    root: React.useRef<any>(),
     init: React.useRef<any>()
   };
 
@@ -104,7 +104,7 @@ const AmauiThemeProvider = React.forwardRef((props: IAmauiThemeProvider, ref: an
   };
 
   // Update method
-  value.updateWithRerender = update;
+  (value as any).updateWithRerender = update;
 
   if (root) {
     return (
@@ -112,7 +112,7 @@ const AmauiThemeProvider = React.forwardRef((props: IAmauiThemeProvider, ref: an
         value={value}
       >
         <div
-          ref={item => {
+          ref={(item: any) => {
             refs.root.current = item;
 
             if (ref?.current) ref.current = item;

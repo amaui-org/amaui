@@ -117,6 +117,8 @@ function Root(props: any) {
 
         end={[
           <Tooltip
+            key={0}
+
             label='amaui org'
 
             color='inverted'

@@ -23,7 +23,7 @@ export default function inline(value_: TValue, props?: any, options_: IOptions =
 
     const valueNew = amauiInlineMethod(value_ as any, props, options);
 
-    if (update_) setValue(valueNew as Record<string, any>);
+    if (update_) setValue(valueNew as any);
 
     return valueNew;
   };

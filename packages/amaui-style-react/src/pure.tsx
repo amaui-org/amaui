@@ -3,7 +3,7 @@ import React from 'react';
 import is from '@amaui/utils/is';
 import merge from '@amaui/utils/merge';
 
-import { IResponse, pure as amauiPureMethod, TValueMethod } from '@amaui/style';
+import { IResponse, pure as amauiPureMethod } from '@amaui/style';
 import { IOptions } from '@amaui/style/pure';
 
 import { useAmauiStyle, useAmauiTheme } from '.';
@@ -28,8 +28,8 @@ export default function pure(value: TValue, options_: IOptions = {}) {
       if (is('function', value)) valueNew = (value as any)(theme);
 
       // Add style add & overrides
-      if (amauiTheme.ui?.elements?.[name]?.style) {
-        const { add, override } = amauiTheme.ui.elements[name].style;
+      if (amauiTheme.ui?.elements?.[name as any]?.style) {
+        const { add, override } = amauiTheme.ui.elements[name as any].style;
 
         // Add
         if (add) {
@@ -71,12 +71,12 @@ export default function pure(value: TValue, options_: IOptions = {}) {
       // Method
       // If it's a new instance of amauiTheme
       // make a new responses with it
-      response_ = responses.find(item => item.amauiTheme.id === amauiTheme.id);
+      response_ = responses.find((item: any) => item.amauiTheme.id === amauiTheme.id);
 
       if (response_) return response_;
 
       // If there's not add a new response and use it
-      const options = {
+      const options: any = {
         amaui_style: { value: undefined },
         amaui_theme: { value: undefined },
       };
@@ -106,11 +106,11 @@ export default function pure(value: TValue, options_: IOptions = {}) {
     let props = props_;
 
     if (is('object', props)) {
-      const newProps = {};
+      const newProps: any = {};
 
-      const allowed = Object.keys(props).filter(prop => is('array', props[prop]) ? !(props[prop].some(item => React.isValidElement(item))) : !React.isValidElement(props[prop]));
+      const allowed = Object.keys(props).filter((prop: any) => is('array', props[prop]) ? !(props[prop].some((item: any) => React.isValidElement(item))) : !React.isValidElement(props[prop]));
 
-      allowed.forEach(prop => newProps[prop] = props[prop]);
+      allowed.forEach((prop: any) => newProps[prop] = props[prop]);
 
       props = newProps;
     }
@@ -136,7 +136,7 @@ export default function pure(value: TValue, options_: IOptions = {}) {
         // Remove response from the responses
         // if users is 0 in amauiStyleSheetManager
         if (!response?.amaui_style_sheet_manager?.users) {
-          const index = responses.findIndex(item => item.amauiTheme.id === amauiTheme.id);
+          const index = responses.findIndex((item: any) => item.amauiTheme.id === amauiTheme.id);
 
           if (index > -1) {
             responses.splice(index, 1);

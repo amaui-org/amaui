@@ -138,6 +138,7 @@ export default function Root(props: any) {
     setImageSelected(imageSelected_);
 
     setInProp(true);
+    // eslint-disable-next-line
   }, []);
 
   const valueArea = React.useMemo(() => Array.from({ length: 7 }).map(() => [random(-40, 400), random(-40, 400)]), []);
@@ -395,11 +396,11 @@ export default function Root(props: any) {
             { version: 'image-pink', label: 'Pink Shiba Inu image to theme', image: '/assets/image/image-pink.jpg', alt: 'Photo by Anna Shvets: https://www.pexels.com/photo/portrait-of-shiba-inu-dog-4587979' }
           ].map((item: any, index: number) => (
             <Tooltip
+              key={index}
+
               label={item.label}
             >
               <Avatar
-                key={index}
-
                 image={item.image}
 
                 alt={item.alt}
