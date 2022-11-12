@@ -639,6 +639,8 @@ export default function Root(props: any) {
 
                 maxPaddingY={0.14}
 
+                linearGradient
+
                 values={[
                   {
                     color: 'primary',
