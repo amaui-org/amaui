@@ -115,7 +115,7 @@ export default function Root(props: any) {
     storage: new AmauiStorage({ namespace: 'amaui-docs' })
   };
 
-  const [imageSelected, setImageSelected] = React.useState<any>();
+  const [imageSelected, setImageSelected] = React.useState<any>('primary');
   const [values, setValues] = React.useState<any>({
     tree_1: true,
     tree_11: true,
@@ -125,17 +125,21 @@ export default function Root(props: any) {
   const [inProp, setInProp] = React.useState(false);
 
   React.useEffect(() => {
-    let imageSelected_ = (isEnvironment('browser') && refs.storage.get('image-selected')) || 'primary';
-
     const light = refs.storage.get('light');
 
-    if (light !== undefined) update('light', light);
+    if (light !== null) update('light', light);
 
-    update('image', imageSelected_);
+    const imageSelected_ = refs.storage.get('image-selected');
 
-    update('direction', refs.storage.get('direction'));
+    if (imageSelected_ !== null) {
+      update('image', imageSelected_);
 
-    setImageSelected(imageSelected_);
+      setImageSelected(imageSelected_);
+    }
+
+    const direction = refs.storage.get('direction');
+
+    if (direction !== null) update('direction', direction);
 
     setInProp(true);
     // eslint-disable-next-line
