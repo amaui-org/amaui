@@ -1,3 +1,4 @@
+import React from 'react';
 import type { AppProps } from 'next/app';
 
 import { Widgets, ScreenCapture, Timer, Countdown, Watch, Reset } from '@amaui/ui-react';
@@ -51,6 +52,13 @@ const widgets = [
 
 export default function App({ Component, pageProps }: AppProps) {
   const amauiStyle = useAmauiStyle();
+
+  // Clean up
+  React.useEffect(() => {
+    const elements = window.document.querySelectorAll('#amaui-initial-css');
+
+    elements.forEach(element => element.remove());
+  }, []);
 
   amauiStyle.plugins.add = [
     unit,
