@@ -11,11 +11,27 @@ import IconGithub from '../../public/assets/svg/github.svg';
 import Page from './page';
 
 const useStyle = styleMethod(theme => ({
-  body: {
-    '@p': true,
+  '@p': {
+    '*': {
+      margin: '0px',
+      padding: '0px',
+      border: '0px',
+      outline: 'none',
+      fontSize: '100%',
+      background: 'transparent',
+      boxSizing: 'border-box',
+      touchAction: 'manipulation'
+    },
 
-    color: theme.palette.text.default.primary,
-    background: theme.palette.light ? theme.palette.background.default.primary : theme.palette.background.primary.secondary
+    body: {
+      color: theme.palette.text.default.primary,
+      background: theme.palette.light ? theme.palette.background.default.primary : theme.palette.background.primary.secondary,
+
+      fontWeight: 'normal',
+      fontStyle: 'normal',
+      position: 'relative',
+      overflowX: 'hidden',
+    }
   },
 
   root: {
@@ -245,6 +261,10 @@ function Root(props: any) {
           color='secondary'
 
           version='b3'
+
+          style={{
+            textAlign: 'center'
+          }}
         >
           Disclaimer: This is an independent open source project, and is not in any way affiliated with Alphabet Inc., Google Inc. or any of their projects.
         </Type>

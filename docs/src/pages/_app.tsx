@@ -1,5 +1,7 @@
 import React from 'react';
+
 import type { AppProps } from 'next/app';
+import Script from 'next/script';
 
 import { Widgets, ScreenCapture, Timer, Countdown, Watch, Reset } from '@amaui/ui-react';
 import { AmauiStyleProvider, AmauiThemeProvider, valueObject, prefix, rtl, unit, makeClassName, useAmauiStyle } from '@amaui/style-react';
@@ -132,7 +134,27 @@ export default function App({ Component, pageProps }: AppProps) {
     }
   };
 
-  return (
+  return <>
+    {/* Google Analytics */}
+    <Script strategy='afterInteractive' src='https://www.googletagmanager.com/gtag/js?id=G-5XGEPWWXR7' />
+
+    <Script
+      id='google-analytics'
+
+      strategy='afterInteractive'
+
+      dangerouslySetInnerHTML={{
+        __html: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-5XGEPWWXR7');
+        `,
+      }}
+    />
+
+    {/* Website */}
     <AmauiStyleProvider
       value={amauiStyle}
     >
@@ -148,5 +170,5 @@ export default function App({ Component, pageProps }: AppProps) {
         </Widgets>
       </AmauiThemeProvider>
     </AmauiStyleProvider>
-  )
+  </>;
 }
