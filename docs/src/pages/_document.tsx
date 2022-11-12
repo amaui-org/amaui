@@ -46,12 +46,11 @@ export default class CustomDocument extends Document {
           <link rel='mask-icon' href='/assets/favicon/light/safari-pinned-tab.svg' color='#fafa00' />
           <meta name='msapplication-TileColor' content='#ffffff' />
           <meta name='theme-color' content='#fafa00' />
-
-          <meta name='google-site-verification' content='' />
         </Head>
 
         <body>
           <Main />
+
           <NextScript />
         </body>
       </Html>

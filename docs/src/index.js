@@ -23,7 +23,7 @@ const run = async () => {
     app.set('json spaces', 2);
     app.set('subdomain offset', 1);
 
-    app.use(helmet());
+    // app.use(helmet());
     app.use(compression());
     app.use(methodOverride());
     app.use(cors({ origin: '*' }));
