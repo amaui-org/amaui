@@ -281,7 +281,7 @@ const Timer = React.forwardRef((props_: ITimer, ref: any) => {
   };
 
   const TooltipProps = {
-    portal: false,
+    portal: true,
     interactive: false,
 
     ...TooltipProps_

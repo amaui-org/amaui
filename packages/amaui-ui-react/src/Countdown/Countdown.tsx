@@ -347,7 +347,7 @@ const Countdown = React.forwardRef((props_: ICountdown, ref: any) => {
   };
 
   const TooltipProps = {
-    portal: false,
+    portal: true,
     interactive: false,
 
     ...TooltipProps_

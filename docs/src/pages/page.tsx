@@ -773,15 +773,21 @@ export default function Root(props: any) {
                 />
               </div>
 
-              <Weather
-                temperature={14}
+              <Line
+                align='center'
 
-                weather='clear'
+                justify='center'
 
                 style={{
-                  margin: '24px auto'
+                  padding: '24px 0'
                 }}
-              />
+              >
+                <Weather
+                  temperature={14}
+
+                  weather='clear'
+                />
+              </Line>
 
               <DonutChart
                 values={valueDonut}

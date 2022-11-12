@@ -325,8 +325,7 @@ const useStyle = styleMethod(theme => ({
 
   dayValue: {
     '&:hover': {
-      outline: '1px solid currentColor',
-      outlineOffset: '-1px'
+      boxShadow: '0px 0px 0px 1px currentColor'
     }
   },
 
@@ -335,8 +334,7 @@ const useStyle = styleMethod(theme => ({
     height: '36px',
 
     '&:hover': {
-      outline: '1px solid currentColor',
-      outlineOffset: '-1px'
+      boxShadow: '0px 0px 0px 1px currentColor'
     }
   },
 
@@ -857,8 +855,7 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
 
                                 style={{
                                   ...(day.today ? {
-                                    outline: `1px solid ${palette[40]}`,
-                                    outlineOffset: '-1px'
+                                    boxShadow: `0px 0px 0px 1px ${palette[40]}`
                                   } : undefined),
 
                                   ...(day.selected ? {
@@ -1010,8 +1007,7 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
 
                         style={{
                           ...(day.today ? {
-                            outline: `1px solid ${palette[40]}`,
-                            outlineOffset: '-1px'
+                            boxShadow: `0px 0px 0px 1px ${palette[40]}`
                           } : undefined),
 
                           ...(day.selected ? {

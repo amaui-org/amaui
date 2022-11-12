@@ -32,7 +32,8 @@ const useStyle = styleMethod(theme => ({
     position: 'relative',
     display: 'inline-flex',
     borderRadius: `${theme.shape.radius.unit * 0.75}px`,
-    cursor: 'pointer'
+    cursor: 'pointer',
+    touchAction: 'none'
   },
 
   rail: {

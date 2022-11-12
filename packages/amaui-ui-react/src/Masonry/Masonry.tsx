@@ -79,6 +79,7 @@ const Masonry = React.forwardRef((props_: IMasonry, ref: any) => {
       const width = refs.columns.current === 1 ? '100%' : `calc(${100 / refs.columns.current}% - ${(gap * theme.space.unit * (refs.columns.current - 1)) / refs.columns.current}px)`;
 
       const columns__ = {};
+
       const order = {};
 
       for (let i = 1; i < refs.columns.current + 1; i++) columns__[i] = 0;
@@ -98,6 +99,7 @@ const Masonry = React.forwardRef((props_: IMasonry, ref: any) => {
         Object.keys(columns__).forEach(column => {
           if (columns__[column] < lowestValue) {
             lowestColumn = +column;
+
             lowestValue = columns__[column];
           }
         });
@@ -127,7 +129,7 @@ const Masonry = React.forwardRef((props_: IMasonry, ref: any) => {
   const method = React.useCallback(update, []);
 
   React.useEffect(() => {
-    update();
+    setTimeout(update);
 
     const observer = new ResizeObserver(method);
 

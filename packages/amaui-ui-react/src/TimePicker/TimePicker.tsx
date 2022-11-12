@@ -41,6 +41,7 @@ const useStyle = styleMethod(theme => ({
 
   roundMeter: {
     userSelect: 'none',
+    touchAction: 'none',
 
     '& .AmauiRoundMeter-children, & .AmauiRoundMeter-labels': {
       pointerEvents: 'none'

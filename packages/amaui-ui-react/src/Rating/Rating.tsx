@@ -11,7 +11,8 @@ const useStyle = styleMethod(theme => ({
   root: {
     display: 'inline-flex',
     alignItems: 'flex-start',
-    cursor: 'pointer'
+    cursor: 'pointer',
+    touchAction: 'none'
   },
 
   iconWrapper: {

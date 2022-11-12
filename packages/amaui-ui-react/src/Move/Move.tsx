@@ -7,7 +7,8 @@ import { IBaseElement, staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
-    pointerEvents: 'auto'
+    pointerEvents: 'auto',
+    touchAction: 'none'
   }
 }), { name: 'AmauiMove' });
 
@@ -96,7 +97,7 @@ const Move = React.forwardRef((props_: IMove, ref: any) => {
 
         const transform = (refs.root.current as HTMLElement).style.transform;
 
-        const [xTransform, yTransform] = (transform?.match(/[-+]?\d+/g) || [0, 0]).map(item => Number(item));
+        const [xTransform, yTransform] = (transform?.match(/[-+]?\d+.?\d+/g) || [0, 0]).map(item => Number(item));
 
         setValues(values_ => ({
           ...values_,
