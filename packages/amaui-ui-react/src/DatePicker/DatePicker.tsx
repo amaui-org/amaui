@@ -2701,7 +2701,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
         )}
       </Surface>
     );
-  }), [tonal, color, range, weekStartDay]);
+  }), [tonal, color, range, weekStartDay, theme]);
 
   const ModeModal = React.useCallback(React.forwardRef((props_: any, ref_: any) => {
     const month_ = refs.calendar.current?.date;
@@ -3237,7 +3237,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
         </Line>
       </Surface>
     );
-  }), [tonal, color, range, switch_, labelFrom, labelTo, modeModalHeadingText, inputModeHeadingText]);
+  }), [tonal, color, range, switch_, labelFrom, labelTo, modeModalHeadingText, inputModeHeadingText, theme]);
 
   const ModeFullScreen = React.useCallback(React.forwardRef((props_: any, ref_: any) => {
     const month_ = refs.calendar.current?.date;
@@ -3912,7 +3912,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
         </Line>
       </Surface>
     );
-  }), [tonal, color, range, switch_, fullScreen, labelFrom, labelTo, modeModalHeadingText, inputModeHeadingText]);
+  }), [tonal, color, range, switch_, fullScreen, labelFrom, labelTo, modeModalHeadingText, inputModeHeadingText, theme]);
 
   if (version === 'desktop') {
     moreProps.end = (

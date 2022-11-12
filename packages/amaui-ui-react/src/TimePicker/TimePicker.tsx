@@ -1719,7 +1719,7 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
         </Line>
       </Surface>
     );
-  }), [version, format, hour, minute, second, inputModeHeadingText, mode, tonal, color, switch_, InputProps]);
+  }), [version, format, hour, minute, second, inputModeHeadingText, mode, tonal, color, switch_, InputProps, theme]);
 
   const mask: any = [];
 
