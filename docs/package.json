@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "yarn install",
     "build": "next build",
     "start": "NODE_ENV=production node ./src",
     "lint": "next lint"
