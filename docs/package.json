@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "NODE_ENV=production node ./src",
+    "start": "cross-env NODE_ENV=production node ./src",
     "lint": "next lint"
   },
   "dependencies": {

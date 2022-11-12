@@ -9,6 +9,17 @@
   "scripts": {
     "start": "cd docs && yarn start"
   },
+  "dependencies": {
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "express": "^4.18.2",
+    "helmet": "^6.0.0",
+    "method-override": "^3.0.0",
+    "next": "^13.0.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
   "devDependencies": {
     "@amaui/models": "^1.0.11114",
     "@amaui/test": "^1.0.11150",
@@ -30,17 +41,12 @@
     "@types/react-dom": "^18.0.5",
     "@types/vue": "^2.0.0",
     "@vue/babel-plugin-jsx": "^1.1.1",
-    "cors": "^2.8.5",
-    "cross-env": "^7.0.3",
     "dotenv": "^10.0.0",
-    "express": "^4.17.2",
     "fast-glob": "^3.2.7",
     "fs-extra": "^10.0.0",
     "lerna": "^5.1.1",
     "playwright": "1.17.1",
     "pm2": "^5.1.2",
-    "react": "^18.1.0",
-    "react-dom": "^18.2.0",
     "rimraf": "^3.0.2",
     "rollup": "^2.60.2",
     "rollup-plugin-node-globals": "^1.4.0",
