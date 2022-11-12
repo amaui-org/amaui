@@ -628,7 +628,7 @@ export default function Root(props: any) {
 
                 names={{
                   y: 'Value',
-                  x: 'Quantity'
+                  x: 'Quantity',
                 }}
 
                 labelsAutoNumber={5}
