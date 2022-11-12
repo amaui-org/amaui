@@ -275,6 +275,15 @@ export default function Root(props: any) {
     }
   };
 
+  const images = [
+    { version: 'primary', color: colors.yellow[500], label: 'Default theme', image: '/assets/image/image-yellow.jpg', alt: 'Photo by Felix Mittermeier' },
+    { version: 'image-green', label: 'Green leaves image to theme', image: '/assets/image/image-green.jpg', alt: 'Photo by Chris Lee on Unsplash' },
+    { version: 'image-orange', label: 'Oranges image to theme', image: '/assets/image/image-orange.jpg', alt: 'Photo by Karolina Grabowska' },
+    { version: 'image-pink', label: 'Pink Shiba Inu image to theme', image: '/assets/image/image-pink.jpg', alt: 'Photo by Anna Shvets' }
+  ];
+
+  const attribution = (version: string = imageSelected) => images.find(image => image.version === version)?.alt;
+
   return (
     <Surface
       tonal
@@ -378,35 +387,20 @@ export default function Root(props: any) {
             />
           </Tooltip>
 
-          <Tooltip
-            label='Default theme'
-          >
-            <Avatar
-              color={colors.yellow[500]}
-
-              onClick={() => update('image', 'primary')}
-
-              className={classNames([
-                classes.image_option,
-                imageSelected === 'primary' && classes.image_option_selected
-              ])}
-            />
-          </Tooltip>
-
-          {[
-            { version: 'image-green', label: 'Green leaves image to theme', image: '/assets/image/image-green.jpg', alt: 'Photo by Chris Lee on Unsplash' },
-            { version: 'image-orange', label: 'Oranges image to theme', image: '/assets/image/image-orange.jpg', alt: 'Photo by Karolina Grabowska' },
-            { version: 'image-pink', label: 'Pink Shiba Inu image to theme', image: '/assets/image/image-pink.jpg', alt: 'Photo by Anna Shvets' }
-          ].map((item: any, index: number) => (
+          {images.map((item: any, index: number) => (
             <Tooltip
               key={index}
 
               label={item.label}
             >
               <Avatar
-                image={item.image}
+                {...(item.color ? {
+                  color: item.color
+                } : {
+                  image: item.image,
 
-                alt={item.alt}
+                  alt: item.alt
+                })}
 
                 onClick={() => update('image', item.version)}
 
@@ -708,7 +702,7 @@ export default function Root(props: any) {
                 </CardHeader>
 
                 <CardImage
-                  alt={imageSelected === 'primary' ? 'Photo by Felix Mittermeier' : ''}
+                  alt={attribution()}
 
                   image={[undefined, 'primary'].includes(imageSelected) ? '/assets/image/image-yellow.jpg' : `/assets/image/${imageSelected}.jpg`}
 
