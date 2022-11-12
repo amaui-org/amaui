@@ -242,6 +242,14 @@ function Root(props: any) {
         </Line>
 
         <Type
+          color='secondary'
+
+          version='b3'
+        >
+          Disclaimer: This is an independent open source project, and is not in any way affiliated with Alphabet Inc., Google Inc. or any of their projects.
+        </Type>
+
+        <Type
           version='b3'
         >
           Copyright © 2022 Lazar Eric

@@ -311,7 +311,7 @@ export default function Root(props: any) {
               classes.main_title
             ])}
           >
-            Worlds First 100% Open Source Material Design 3 UI Library
+            Worlds First 100% Open Source Material Design 3 Based UI Library
           </Type>
 
           <Type
@@ -394,9 +394,9 @@ export default function Root(props: any) {
           </Tooltip>
 
           {[
-            { version: 'image-green', label: 'Green leaves image to theme', image: '/assets/image/image-green.jpg', alt: 'Photo by <a href="https://unsplash.com/@chrisleeiam?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Chris Lee</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>' },
-            { version: 'image-orange', label: 'Oranges image to theme', image: '/assets/image/image-orange.jpg', alt: 'Photo by Karolina Grabowska: https://www.pexels.com/photo/slices-of-fresh-ripe-orange-4022107' },
-            { version: 'image-pink', label: 'Pink Shiba Inu image to theme', image: '/assets/image/image-pink.jpg', alt: 'Photo by Anna Shvets: https://www.pexels.com/photo/portrait-of-shiba-inu-dog-4587979' }
+            { version: 'image-green', label: 'Green leaves image to theme', image: '/assets/image/image-green.jpg', alt: 'Photo by Chris Lee on Unsplash' },
+            { version: 'image-orange', label: 'Oranges image to theme', image: '/assets/image/image-orange.jpg', alt: 'Photo by Karolina Grabowska' },
+            { version: 'image-pink', label: 'Pink Shiba Inu image to theme', image: '/assets/image/image-pink.jpg', alt: 'Photo by Anna Shvets' }
           ].map((item: any, index: number) => (
             <Tooltip
               key={index}
@@ -708,7 +708,7 @@ export default function Root(props: any) {
                 </CardHeader>
 
                 <CardImage
-                  alt={imageSelected === 'primary' ? 'Photo by Felix Mittermeier: https://www.pexels.com/photo/trees-with-pathway-1080400' : ''}
+                  alt={imageSelected === 'primary' ? 'Photo by Felix Mittermeier' : ''}
 
                   image={[undefined, 'primary'].includes(imageSelected) ? '/assets/image/image-yellow.jpg' : `/assets/image/${imageSelected}.jpg`}
 
