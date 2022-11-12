@@ -95,8 +95,7 @@ const useStyle = style(theme => ({
   },
 
   image_option_selected: {
-    outline: `1px solid ${theme.palette.text.default.primary}`,
-    outlineOffset: 3
+    boxShadow: `0px 0px 0px 1px ${theme.palette.text.default.primary}`
   },
 
   masonry: {
