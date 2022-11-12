@@ -1,6 +1,5 @@
-'use client';
-
 import React from 'react';
+import Head from 'next/head';
 
 import { IconButton, Line, Link, Tooltip, TopAppBar, Type, useScroll } from '@amaui/ui-react';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
@@ -8,6 +7,8 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 import Logo from '../../public/assets/svg/logo.svg';
 
 import IconGithub from '../../public/assets/svg/github.svg';
+
+import Page from './page';
 
 const useStyle = styleMethod(theme => ({
   body: {
@@ -84,17 +85,17 @@ const useStyle = styleMethod(theme => ({
 }), { name: 'root' });
 
 function Root(props: any) {
-  const {
-    children
-  } = props;
-
   const theme = useAmauiTheme();
 
   const notTop = useScroll({ offset: 1 });
 
   const { classes } = useStyle(props);
 
-  return (
+  return <>
+    <Head>
+      <title>amaui docs</title>
+    </Head>
+
     <Line
       gap={0}
 
@@ -157,7 +158,7 @@ function Root(props: any) {
           classes.main
         ])}
       >
-        {children}
+        <Page />
       </Line>
 
       {/* Footer */}
@@ -265,7 +266,7 @@ function Root(props: any) {
         </Line>
       </Line>
     </Line>
-  );
+  </>;
 }
 
 export default Root;

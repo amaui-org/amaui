@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 
 import { isEnvironment, random } from '@amaui/utils';
