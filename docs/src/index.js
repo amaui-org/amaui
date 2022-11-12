@@ -15,51 +15,55 @@ const handle = appNext.getRequestHandler();
 const port = process.env.PORT || 3000;
 
 const run = async () => {
-  await appNext.prepare();
+  try {
+    await appNext.prepare();
 
-  const app = express();
+    const app = express();
 
-  app.set('json spaces', 2);
-  app.set('subdomain offset', 1);
+    app.set('json spaces', 2);
+    app.set('subdomain offset', 1);
 
-  app.use(helmet());
-  app.use(compression());
-  app.use(methodOverride());
-  app.use(cors({ origin: '*' }));
-  app.use(express.json());
+    app.use(helmet());
+    app.use(compression());
+    app.use(methodOverride());
+    app.use(cors({ origin: '*' }));
+    app.use(express.json());
 
-  app.on('error', error => {
-    switch (error.code) {
-      case 'EACCES':
-        console.error(`${port} requires elevated privileges`);
-        return process.exit(1);
+    app.on('error', error => {
+      switch (error.code) {
+        case 'EACCES':
+          console.error(`${port} requires elevated privileges`);
+          return process.exit(1);
 
-      case 'EADDRINUSE':
-        console.error(`${port} is already in use`);
-        return process.exit(1);
+        case 'EADDRINUSE':
+          console.error(`${port} is already in use`);
+          return process.exit(1);
 
-      default:
-        throw error;
-    }
-  });
+        default:
+          throw error;
+      }
+    });
 
-  app.all('*', handle);
+    app.all('*', handle);
 
-  const httpServer = http.createServer(app);
+    const httpServer = http.createServer(app);
 
-  httpServer.listen(port, error => {
-    if (error) throw error;
+    httpServer.listen(port, error => {
+      if (error) throw error;
 
-    console.log(`amaui docs started 🌱 at port ${port}`);
-  });
+      console.log(`amaui docs started 🌱 at port ${port}`);
+    });
 
-  process.on('unhandledRejection', error => {
-    console.log('!! Unhandled Rejection !!', error);
-  });
+    process.on('unhandledRejection', error => {
+      console.log('!! Unhandled Rejection !!', error);
+    });
 
-  process.on('uncaughtException', error => {
-    console.log('!! Uncaught Exception !!', error);
-  });
+    process.on('uncaughtException', error => {
+      console.log('!! Uncaught Exception !!', error);
+    });
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 run();
