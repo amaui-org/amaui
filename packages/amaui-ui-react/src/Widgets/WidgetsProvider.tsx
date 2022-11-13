@@ -313,15 +313,17 @@ const WidgetsProvider = React.forwardRef((props_: IWidgetsProvider, ref: any) =>
             {(widgets as any).map((item: any, index: number) => {
               const valueItem = item.value !== undefined ? item.value : item.label;
 
-              const WidgetWrapper = (move && item.move !== false) ? Move : React.Fragment;
+              const WidgetWrapper = Move;
 
-              const WidgetWrapperProps = (move && item.move !== false) ? {
+              const WidgetWrapperProps = {
                 manage: true,
 
-                manageLevel: 0,
+                manageLevel: 1,
+
+                disabled: !(move && item.move !== false),
 
                 ...MoveProps
-              } : undefined;
+              };
 
               return (
                 <Transition

@@ -33,9 +33,10 @@ const Move = React.forwardRef((props_: IMove, ref: any) => {
 
     manageLevel = 0,
 
+    disabled,
+
     onMouseDown: onMouseDown_,
     onTouchStart: onTouchStart_,
-
     Component = 'div',
 
     className,
@@ -51,7 +52,8 @@ const Move = React.forwardRef((props_: IMove, ref: any) => {
     mouseDown: React.useRef<any>(),
     onMouseDown: React.useRef<any>(),
     onTouchStart: React.useRef<any>(),
-    previousMouseEvent: React.useRef<any>()
+    previousMouseEvent: React.useRef<any>(),
+    disabled: React.useRef<any>()
   };
 
   const [mouseDown, setMouseDown] = React.useState(false);
@@ -62,6 +64,8 @@ const Move = React.forwardRef((props_: IMove, ref: any) => {
   refs.onMouseDown.current = onMouseDown_;
 
   refs.onTouchStart.current = onTouchStart_;
+
+  refs.disabled.current = disabled;
 
   const styles: any = {
     root: {}
@@ -89,7 +93,7 @@ const Move = React.forwardRef((props_: IMove, ref: any) => {
 
   React.useEffect(() => {
     const onMove = (x_: number, y_: number) => {
-      if (refs.mouseDown.current && refs.previousMouseEvent.current) {
+      if (refs.mouseDown.current && refs.previousMouseEvent.current && !refs.disabled.current) {
         const { clientX: xPrevious, clientY: yPrevious } = refs.previousMouseEvent.current;
 
         const x = x_ - xPrevious;
@@ -97,7 +101,7 @@ const Move = React.forwardRef((props_: IMove, ref: any) => {
 
         const transform = (refs.root.current as HTMLElement).style.transform;
 
-        const [xTransform, yTransform] = (transform?.match(/[-+]?\d+.?\d+/g) || [0, 0]).map(item => Number(item));
+        const [xTransform, yTransform] = (transform?.match(/[-+]?\d+\.?\d*/g) || [0, 0]).map((item: any) => Number(item));
 
         setValues(values_ => ({
           ...values_,
@@ -109,7 +113,7 @@ const Move = React.forwardRef((props_: IMove, ref: any) => {
     };
 
     const onMouseMove = (event: MouseEvent) => {
-      if (refs.mouseDown.current) {
+      if (refs.mouseDown.current && !refs.disabled.current) {
         const { clientY, clientX } = event;
 
         onMove(clientX, clientY);
@@ -119,7 +123,7 @@ const Move = React.forwardRef((props_: IMove, ref: any) => {
     };
 
     const onTouchMove = (event: TouchEvent) => {
-      if (refs.mouseDown.current) {
+      if (refs.mouseDown.current && !refs.disabled.current) {
         const { clientY, clientX } = event.touches[0];
 
         onMove(clientX, clientY);
