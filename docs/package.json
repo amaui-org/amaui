@@ -11,7 +11,7 @@
   "dependencies": {
     "@amaui/icons-material-react": "^1.0.11",
     "@amaui/storage": "^1.0.11117",
-    "@amaui/style-react": "^1.0.1127",
+    "@amaui/style-react": "^1.0.1130",
     "@amaui/ui-react": "^1.0.1133",
     "@amaui/utils": "^1.0.11445",
     "@types/node": "18.11.9",
