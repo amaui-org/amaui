@@ -11,8 +11,9 @@ build
 *.production
 
 # yarn
-.yarn
+/.yarn
 yarn.lock
+.yarnrc
 
 # other
 size-snapshot.json
