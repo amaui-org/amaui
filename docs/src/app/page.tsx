@@ -189,7 +189,7 @@ export default function Root(props: any) {
 
   const update = async (version = 'light', value: any = true) => {
     let values_ = {};
-    ;
+
     switch (version) {
       case 'light':
         theme.updateWithRerender({

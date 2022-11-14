@@ -183,7 +183,7 @@ function Root(props: any) {
           classes.main
         ])}
       >
-        {children}
+        <Page />
       </Line>
 
       {/* Footer */}

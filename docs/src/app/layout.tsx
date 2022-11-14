@@ -237,12 +237,12 @@ export default function Layout(props: { children: React.ReactNode }) {
 
           dangerouslySetInnerHTML={{
             __html: `
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
 
-          gtag('config', 'G-5XGEPWWXR7');
-        `,
+              gtag('config', 'G-5XGEPWWXR7');
+          `,
           }}
         />
       </body>
