@@ -49,7 +49,8 @@ const useStyle = styleMethod(theme => ({
       padding: 0,
       background: 'transparent',
       borderRadius: theme.methods.shape.radius.value('xxl', 'px'),
-      transition: theme.methods.transitions.make(['background', 'max-width', 'box-shadow'], { duration: 'complex' })
+      transition: theme.methods.transitions.make(['background', 'max-width', 'box-shadow'], { duration: 'complex' }),
+      zIndex: theme.z_index.tooltip + 14
     },
 
     '& .AmauiTopAppBar-wrapper': {
