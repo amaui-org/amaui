@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import Head from 'next/head';
 
@@ -104,10 +102,6 @@ const useStyle = styleMethod(theme => ({
 }), { name: 'root' });
 
 function Root(props: any) {
-  const {
-    children
-  } = props;
-
   const theme = useAmauiTheme();
 
   const notTop = useScroll({ offset: 1 });
@@ -183,7 +177,7 @@ function Root(props: any) {
           classes.main
         ])}
       >
-        <Page />
+        <Page {...props} />
       </Line>
 
       {/* Footer */}
