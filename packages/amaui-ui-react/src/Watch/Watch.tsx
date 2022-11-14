@@ -54,6 +54,12 @@ const useStyle = styleMethod(theme => ({
     background: 'none'
   },
 
+  version_minimal_label: {
+    '&.AmauiRoundMeter-label': {
+      ...theme.typography.values.t2
+    }
+  },
+
   shadow_version_minimal: {
     '& .AmauiRoundMeter-svg': {
       filter: `drop-shadow(0px 6px 10px rgb(0 0 0 / 4%)) drop-shadow(0px 1px 18px rgb(0 0 0 / 1%)) drop-shadow(0px 3px 5px rgb(0 0 0 / 7%))`
@@ -487,6 +493,8 @@ const Watch = React.forwardRef((props_: IWatch, ref: any) => {
                 arcsVisible={false}
 
                 LabelProps={{
+                  className: classes.version_minimal_label,
+
                   style: {
                     fill: theme.methods.palette.color.value(undefined, 60, true, palette)
                   }
