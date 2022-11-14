@@ -66,7 +66,7 @@ const Avatar = React.forwardRef((props_: IAvatar, ref) => {
     TypeProps,
     InteractionProps,
 
-    Component = 'span',
+    Component = 'button',
 
     className,
 
