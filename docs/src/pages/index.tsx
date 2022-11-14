@@ -177,7 +177,7 @@ function Root(props: any) {
           classes.main
         ])}
       >
-        <Page />
+        <Page {...props} />
       </Line>
 
       {/* Footer */}

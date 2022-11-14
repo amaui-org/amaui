@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { random } from '@amaui/utils';
+import { isEnvironment, random } from '@amaui/utils';
 import { AreaChart, Avatar, Button, Card, CardFooter, CardHeader, CardImage, CardMain, Checkbox, DatePicker, DonutChart, Fab, Fade, IconButton, Line, Link, ListItem, Masonry, Radio, Rating, Slider, Surface, Switch, Tab, Tabs, TimePicker, Tooltip, Tree, Type, Weather } from '@amaui/ui-react';
-import { classNames, colors, style, useAmauiTheme } from '@amaui/style-react';
+import { classNames, colors, style, useAmauiStyle, useAmauiTheme } from '@amaui/style-react';
 import AmauiStorage from '@amaui/storage';
 
 import IconMaterialLightModeRounded from '@amaui/icons-material-react/build/IconMaterialLightModeRounded';
@@ -187,7 +187,7 @@ export default function Root(props: any) {
 
   const update = async (version = 'light', value: any = true) => {
     let values_ = {};
-
+    ;
     switch (version) {
       case 'light':
         theme.updateWithRerender({

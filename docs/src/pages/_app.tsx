@@ -52,8 +52,11 @@ const widgets = [
   }
 ];
 
-export default function App({ Component, pageProps }: AppProps) {
-  const amauiStyle = useAmauiStyle();
+export default function App(props: AppProps) {
+  const {
+    Component,
+    pageProps
+  } = props;
 
   // Clean up
   React.useEffect(() => {
@@ -62,7 +65,9 @@ export default function App({ Component, pageProps }: AppProps) {
     elements.forEach(element => element.remove());
   }, []);
 
-  amauiStyle.plugins.add = [
+  const valueAmauiStyle = useAmauiStyle();
+
+  valueAmauiStyle.plugins.add = [
     unit,
     prefix,
     rtl,
@@ -77,62 +82,65 @@ export default function App({ Component, pageProps }: AppProps) {
     }
   ];
 
-  const valueAmauiTheme: any = {
-    typography: {
-      font_family: {
-        primary: FONT_FAMILY.primary,
-        secondary: FONT_FAMILY.secondary,
-        tertiary: FONT_FAMILY.tertiary
-      },
+  const valueAmauiTheme = React.useMemo(() => {
 
-      values: {
-        d1: { fontFamily: FONT_FAMILY.primary },
-
-        d2: { fontFamily: FONT_FAMILY.primary },
-
-        d3: { fontFamily: FONT_FAMILY.primary },
-
-        h1: { fontFamily: FONT_FAMILY.primary },
-
-        h2: { fontFamily: FONT_FAMILY.primary },
-
-        h3: { fontFamily: FONT_FAMILY.primary },
-
-        t1: { fontFamily: FONT_FAMILY.primary },
-
-        t2: { fontFamily: FONT_FAMILY.primary },
-
-        t3: { fontFamily: FONT_FAMILY.primary },
-
-        l1: {
-          fontFamily: FONT_FAMILY.secondary,
-          fontWeight: 700
+    return {
+      typography: {
+        font_family: {
+          primary: FONT_FAMILY.primary,
+          secondary: FONT_FAMILY.secondary,
+          tertiary: FONT_FAMILY.tertiary
         },
 
-        l2: {
-          fontFamily: FONT_FAMILY.secondary,
-          fontWeight: 700
-        },
+        values: {
+          d1: { fontFamily: FONT_FAMILY.primary },
 
-        l3: {
-          fontFamily: FONT_FAMILY.secondary,
-          fontWeight: 700
-        },
+          d2: { fontFamily: FONT_FAMILY.primary },
 
-        b1: { fontFamily: FONT_FAMILY.secondary },
+          d3: { fontFamily: FONT_FAMILY.primary },
 
-        b2: { fontFamily: FONT_FAMILY.secondary },
+          h1: { fontFamily: FONT_FAMILY.primary },
 
-        b3: { fontFamily: FONT_FAMILY.secondary },
+          h2: { fontFamily: FONT_FAMILY.primary },
 
-        m1: { fontFamily: FONT_FAMILY.tertiary },
+          h3: { fontFamily: FONT_FAMILY.primary },
 
-        m2: { fontFamily: FONT_FAMILY.tertiary },
+          t1: { fontFamily: FONT_FAMILY.primary },
 
-        m3: { fontFamily: FONT_FAMILY.tertiary }
+          t2: { fontFamily: FONT_FAMILY.primary },
+
+          t3: { fontFamily: FONT_FAMILY.primary },
+
+          l1: {
+            fontFamily: FONT_FAMILY.secondary,
+            fontWeight: 700
+          },
+
+          l2: {
+            fontFamily: FONT_FAMILY.secondary,
+            fontWeight: 700
+          },
+
+          l3: {
+            fontFamily: FONT_FAMILY.secondary,
+            fontWeight: 700
+          },
+
+          b1: { fontFamily: FONT_FAMILY.secondary },
+
+          b2: { fontFamily: FONT_FAMILY.secondary },
+
+          b3: { fontFamily: FONT_FAMILY.secondary },
+
+          m1: { fontFamily: FONT_FAMILY.tertiary },
+
+          m2: { fontFamily: FONT_FAMILY.tertiary },
+
+          m3: { fontFamily: FONT_FAMILY.tertiary }
+        }
       }
-    }
-  };
+    };
+  }, []);
 
   return <>
     {/* Google Analytics */}
@@ -154,7 +162,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
     {/* Website */}
     <AmauiStyleProvider
-      value={amauiStyle}
+      value={valueAmauiStyle}
     >
       <AmauiThemeProvider
         value={valueAmauiTheme}
