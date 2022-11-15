@@ -115,7 +115,7 @@ export interface ILinearMeter extends IBaseElement {
 const LinearMeter = React.forwardRef((props_: ILinearMeter, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiLinearMeter?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiLinearMeter?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 

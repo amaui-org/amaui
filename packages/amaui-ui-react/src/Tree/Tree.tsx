@@ -170,10 +170,10 @@ export interface ITree extends Omit<IBaseElement, 'children'> {
 const Tree = React.forwardRef((props_: ITree, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiTree?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiTree?.props?.default, ...props_ }), [props_]);
 
   const {
-    tonal,
+    tonal = true,
     color = 'inherit',
     version = 'text',
 

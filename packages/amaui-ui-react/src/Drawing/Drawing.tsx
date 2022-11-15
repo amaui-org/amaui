@@ -245,7 +245,7 @@ export interface IDrawing extends ISurface {
 const Drawing = React.forwardRef((props__: IDrawing, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props__, ...theme?.ui?.elements?.AmauiDrawing?.props?.default }), [props__]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiDrawing?.props?.default, ...props__ }), [props__]);
 
   const { classes } = useStyle(props);
 

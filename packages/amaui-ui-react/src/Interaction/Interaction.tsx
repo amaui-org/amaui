@@ -169,7 +169,7 @@ export interface IInteraction extends IBaseElement {
 const Interaction = React.forwardRef((props_: IInteraction, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiInteraction?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiInteraction?.props?.default, ...props_ }), [props_]);
 
   const {
     wave = true,

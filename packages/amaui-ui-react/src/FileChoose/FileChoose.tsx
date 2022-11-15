@@ -155,7 +155,7 @@ export interface IFileChoose extends IBaseElement {
 const FileChoose = React.forwardRef((props_: IFileChoose, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiFileChoose?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiFileChoose?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 

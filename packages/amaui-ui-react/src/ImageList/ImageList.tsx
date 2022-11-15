@@ -46,7 +46,7 @@ export interface IImageList extends IBaseElement {
 const ImageList = React.forwardRef((props_: IImageList, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiImageList?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiImageList?.props?.default, ...props_ }), [props_]);
 
   const breakpoints = {};
 

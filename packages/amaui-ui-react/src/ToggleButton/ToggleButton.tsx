@@ -20,7 +20,7 @@ export interface IToggleButton extends IChip {
 const ToggleButton = React.forwardRef((props_: IToggleButton, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiToggleButton?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiToggleButton?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 

@@ -174,7 +174,7 @@ export interface IModal extends IBaseElement {
 const Modal = React.forwardRef((props_: IModal, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiModal?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiModal?.props?.default, ...props_ }), [props_]);
 
   const mobile = useMediaQuery('(max-width: 767px)');
 

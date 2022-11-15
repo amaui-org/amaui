@@ -247,7 +247,7 @@ export interface ITimePicker extends Omit<IAdvancedTextField, 'version'> {
 const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props__, ...theme?.ui?.elements?.AmauiTimePicker?.props?.default }), [props__]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiTimePicker?.props?.default, ...props__ }), [props__]);
 
   const breakpoints = {};
 

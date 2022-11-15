@@ -154,7 +154,7 @@ export interface INavigationItem extends IBaseElement {
 const NavigationItem = React.forwardRef((props_: INavigationItem, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiNavigationItem?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiNavigationItem?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 

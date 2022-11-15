@@ -86,7 +86,7 @@ export interface ITimeRangePicker extends Omit<ITimePicker, 'versionStatic'> {
 const TimeRangePicker = React.forwardRef((props__: ITimeRangePicker, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props__, ...theme?.ui?.elements?.AmauiTimeRangePicker?.props?.default }), [props__]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiTimeRangePicker?.props?.default, ...props__ }), [props__]);
 
   const breakpoints = {};
 

@@ -65,10 +65,10 @@ export interface ITableCell extends IBaseElement {
 const TableCell = React.forwardRef((props_: ITableCell, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiTableCell?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiTableCell?.props?.default, ...props_ }), [props_]);
 
   const {
-    tonal,
+    tonal = true,
     color,
     size = 'regular',
 

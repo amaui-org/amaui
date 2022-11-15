@@ -20,7 +20,7 @@ export interface IModalFooter extends IBaseElement {
 const ModalFooter = React.forwardRef((props_: IModalFooter, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiModalFooter?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiModalFooter?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 

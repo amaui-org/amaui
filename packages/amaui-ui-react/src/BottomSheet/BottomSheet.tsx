@@ -43,7 +43,7 @@ export interface IBottomSheet extends INavigationDrawer {
 const BottomSheet = React.forwardRef((props_: IBottomSheet, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiBottomSheet?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiBottomSheet?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 

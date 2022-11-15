@@ -36,7 +36,7 @@ export interface IImageListItem extends ILine {
 const ImageListItem = React.forwardRef((props_: IImageListItem, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiImageListItem?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiImageListItem?.props?.default, ...props_ }), [props_]);
 
   const breakpoints = {};
 

@@ -112,7 +112,7 @@ export interface IType extends IBaseElement {
 const Type = React.forwardRef((props_: IType, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiType?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiType?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 

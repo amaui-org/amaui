@@ -99,7 +99,7 @@ export interface IPlaceholder extends Omit<IBaseElement, 'version'> {
 const Placeholder = React.forwardRef((props_: IPlaceholder, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiPlaceholder?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiPlaceholder?.props?.default, ...props_ }), [props_]);
 
   const {
     color = 'default',

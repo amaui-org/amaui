@@ -126,7 +126,7 @@ export interface IScreenCapture extends ISurface {
 const ScreenCapture = React.forwardRef((props_: IScreenCapture, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiScreenCapture?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiScreenCapture?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 

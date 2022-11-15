@@ -17,7 +17,7 @@ export interface ISlide extends ITransition {
 const Slide = React.forwardRef((props_: ISlide, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiSlide?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiSlide?.props?.default, ...props_ }), [props_]);
 
   const refs = {
     root: React.useRef<HTMLElement>(),

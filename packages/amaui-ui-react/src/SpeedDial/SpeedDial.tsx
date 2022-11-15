@@ -178,7 +178,7 @@ export interface ISpeedDial extends Omit<ILine, 'direction'> {
 const SpeedDial = React.forwardRef((props_: ISpeedDial, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiSpeedDial?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiSpeedDial?.props?.default, ...props_ }), [props_]);
 
   const {
     tonal = true,

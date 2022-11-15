@@ -38,7 +38,7 @@ export interface IColumnChart extends IChart {
 const ColumnChart = React.forwardRef((props_: IColumnChart, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiColumnChart?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiColumnChart?.props?.default, ...props_ }), [props_]);
 
   const breakpoints = {};
 

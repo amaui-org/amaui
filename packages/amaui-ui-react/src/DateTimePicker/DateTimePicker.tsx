@@ -123,7 +123,7 @@ export interface IDateTimePicker extends Omit<IAdvancedTextField, 'version'> {
 const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props__, ...theme?.ui?.elements?.AmauiDateTimePicker?.props?.default }), [props__]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiDateTimePicker?.props?.default, ...props__ }), [props__]);
 
   const breakpoints = {};
 

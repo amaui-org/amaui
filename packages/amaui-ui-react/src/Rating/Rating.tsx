@@ -128,10 +128,10 @@ export interface IRating extends IBaseElement {
 const Rating = React.forwardRef((props_: IRating, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiRating?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiRating?.props?.default, ...props_ }), [props_]);
 
   const {
-    tonal,
+    tonal = true,
     color = 'primary',
     colorInactive = 'default',
     size = 'regular',

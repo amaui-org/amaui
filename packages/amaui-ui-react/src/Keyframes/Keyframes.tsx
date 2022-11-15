@@ -54,7 +54,7 @@ export interface IKeyframes extends Omit<IBaseElement, 'className'> {
 function Keyframes(props_: IKeyframes) {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiKeyframes?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiKeyframes?.props?.default, ...props_ }), [props_]);
 
   const {
     ref,

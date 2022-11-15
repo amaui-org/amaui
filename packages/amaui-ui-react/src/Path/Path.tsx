@@ -17,7 +17,7 @@ export interface IPath extends IBaseElement {
 const Path = React.forwardRef((props_: IPath, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiPath?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiPath?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 

@@ -55,7 +55,7 @@ export interface IIcon extends IBaseElement {
 const Icon = React.forwardRef((props_: IIcon, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiIcon?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiIcon?.props?.default, ...props_ }), [props_]);
 
   const {
     viewBox = '0 0 24 24',
@@ -63,7 +63,7 @@ const Icon = React.forwardRef((props_: IIcon, ref: any) => {
     name,
     short_name,
 
-    tonal,
+    tonal = true,
     tone = 60,
     color: color_ = 'inherit',
     size = 'regular',

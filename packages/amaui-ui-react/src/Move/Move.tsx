@@ -24,7 +24,7 @@ export interface IMove extends IBaseElement {
 const Move = React.forwardRef((props_: IMove, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiMove?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiMove?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 

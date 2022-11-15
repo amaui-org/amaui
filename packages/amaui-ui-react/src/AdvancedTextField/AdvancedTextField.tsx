@@ -31,7 +31,7 @@ export interface IAdvancedTextField extends ITextField {
 const AdvancedTextField = React.forwardRef((props_: IAdvancedTextField, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiAdvancedTextField?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiAdvancedTextField?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 

@@ -77,7 +77,7 @@ export interface IMainProgressProvider extends ILinearProress {
 const MainProgressProvider = React.forwardRef((props_: IMainProgressProvider, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiMainProgressProvider?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiMainProgressProvider?.props?.default, ...props_ }), [props_]);
 
   const {
     min = 0,

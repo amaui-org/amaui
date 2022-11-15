@@ -909,7 +909,7 @@ export interface IRichTextEditor extends ILine {
 const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props__, ...theme?.ui?.elements?.AmauiRichTextEditor?.props?.default }), [props__]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiRichTextEditor?.props?.default, ...props__ }), [props__]);
 
   const { classes } = useStyle(props);
 

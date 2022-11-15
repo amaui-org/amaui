@@ -98,12 +98,12 @@ export interface ILink extends Omit<IType, 'color'> {
 const Link = React.forwardRef((props_: ILink, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiLink?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiLink?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
   const {
-    tonal,
+    tonal = true,
     color: color_ = 'primary',
 
     version = 'b2',

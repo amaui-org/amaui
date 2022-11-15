@@ -192,10 +192,10 @@ export interface IAutoComplete extends ITextField {
 const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiAutoComplete?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiAutoComplete?.props?.default, ...props_ }), [props_]);
 
   const {
-    tonal,
+    tonal = true,
     color = 'primary',
     size = 'regular',
     version = 'filled',

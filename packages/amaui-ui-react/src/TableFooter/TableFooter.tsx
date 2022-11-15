@@ -32,10 +32,10 @@ export interface ITableFooter extends ISurface {
 const TableFooter = React.forwardRef((props_: ITableFooter, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiTableFooter?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiTableFooter?.props?.default, ...props_ }), [props_]);
 
   const {
-    tonal,
+    tonal = true,
     color = 'themed',
     size = 'regular',
 

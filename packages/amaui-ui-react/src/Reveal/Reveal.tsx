@@ -30,7 +30,7 @@ export interface IReveal extends IBaseElement {
 const Reveal = React.forwardRef((props_: IReveal, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiReveal?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiReveal?.props?.default, ...props_ }), [props_]);
 
   const {
     inDefault,

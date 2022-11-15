@@ -77,7 +77,7 @@ export interface IList extends ISurface {
 const List = React.forwardRef((props_: IList, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiList?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiList?.props?.default, ...props_ }), [props_]);
 
   const mobile = useMediaQuery('(max-width: 767px)');
 

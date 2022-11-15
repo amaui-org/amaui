@@ -22,7 +22,7 @@ export interface IModalText extends IType {
 const ModalText = React.forwardRef((props_: IModalText, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiModalText?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiModalText?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 

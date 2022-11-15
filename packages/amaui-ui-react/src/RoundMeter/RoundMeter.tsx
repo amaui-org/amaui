@@ -125,7 +125,7 @@ export interface IRoundMeter extends IBaseElement {
 const RoundMeter = React.forwardRef((props_: IRoundMeter, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiRoundMeter?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiRoundMeter?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 

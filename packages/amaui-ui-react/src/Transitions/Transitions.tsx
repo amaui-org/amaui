@@ -23,7 +23,7 @@ export interface ITransitions {
 function Transitions(props_: ITransitions) {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiTransitions?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiTransitions?.props?.default, ...props_ }), [props_]);
 
   const {
     mode = 'out-in',

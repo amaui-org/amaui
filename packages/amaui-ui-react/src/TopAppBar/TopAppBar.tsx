@@ -120,7 +120,7 @@ export interface ITopAppBar extends Omit<ISurface, 'version'> {
 const TopAppBar = React.forwardRef((props_: ITopAppBar, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiTopAppBar?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiTopAppBar?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 

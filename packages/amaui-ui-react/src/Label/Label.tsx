@@ -50,12 +50,12 @@ export interface ILabel extends ILine {
 const Label = React.forwardRef((props_: ILabel, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiLabel?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiLabel?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
   const {
-    tonal,
+    tonal = true,
     color,
     colorUnchecked,
     version,

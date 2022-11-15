@@ -40,10 +40,10 @@ export interface ITable extends ISurface {
 const Table = React.forwardRef((props_: ITable, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiTable?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiTable?.props?.default, ...props_ }), [props_]);
 
   const {
-    tonal,
+    tonal = true,
     color = 'themed',
     size = 'regular',
     elevation = 1,

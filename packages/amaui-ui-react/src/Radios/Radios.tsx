@@ -47,12 +47,12 @@ export interface IRadios extends ILine {
 const Radios = React.forwardRef((props_: IRadios, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiRadios?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiRadios?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
   const {
-    tonal,
+    tonal = true,
     color = 'primary',
     colorUnchecked,
     version = 'text',

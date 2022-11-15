@@ -59,7 +59,7 @@ export interface IBanner extends IBaseElement {
 const Banner = React.forwardRef((props_: IBanner, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiBanner?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiBanner?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 

@@ -469,8 +469,8 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
   const { classes } = useStyle(props);
 
   const {
+    tonal = true,
     color,
-    tonal,
 
     outside = true,
 
@@ -1140,7 +1140,7 @@ export interface IDatePicker extends ILine {
 const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props__, ...theme?.ui?.elements?.AmauiDatePicker?.props?.default }), [props__]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiDatePicker?.props?.default, ...props__ }), [props__]);
 
   const breakpoints = {};
 

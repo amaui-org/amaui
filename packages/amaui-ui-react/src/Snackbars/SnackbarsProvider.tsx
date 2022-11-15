@@ -76,7 +76,7 @@ export interface ISnackbarsProvider extends IBaseElement {
 const SnackbarsProvider = React.forwardRef((props_: ISnackbarsProvider, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiSnackbarsProvider?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiSnackbarsProvider?.props?.default, ...props_ }), [props_]);
 
   const {
     max = 4,

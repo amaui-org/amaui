@@ -125,7 +125,7 @@ export interface ITableRow extends ILine {
 const TablePagination = React.forwardRef((props_: ITableRow, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiTablePagination?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiTablePagination?.props?.default, ...props_ }), [props_]);
 
   const {
     tonal = false,

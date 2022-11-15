@@ -119,7 +119,7 @@ export interface ISnackbar extends ISurface {
 const Snackbar = React.forwardRef((props_: ISnackbar, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiSnackbar?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiSnackbar?.props?.default, ...props_ }), [props_]);
 
   const {
     tonal = true,

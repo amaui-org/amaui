@@ -58,7 +58,7 @@ export interface IMenu extends ITooltip {
 const Menu = React.forwardRef((props_: IMenu, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiMenu?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiMenu?.props?.default, ...props_ }), [props_]);
 
   const {
     open,

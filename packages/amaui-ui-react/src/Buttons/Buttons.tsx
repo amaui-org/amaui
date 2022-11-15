@@ -248,10 +248,10 @@ export interface IButtons extends ILine {
 const Buttons = React.forwardRef((props_: IButtons, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiButtons?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiButtons?.props?.default, ...props_ }), [props_]);
 
   const {
-    tonal,
+    tonal = true,
     color = 'primary',
     version = 'outlined',
     colorSelected = props.color,

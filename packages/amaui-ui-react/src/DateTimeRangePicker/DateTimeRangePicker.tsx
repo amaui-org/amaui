@@ -99,7 +99,7 @@ export interface IDateTimeRangePicker extends Omit<IDateTimePicker, 'value'> {
 const DateTimeRangePicker = React.forwardRef((props__: IDateTimeRangePicker, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props__, ...theme?.ui?.elements?.AmauiDateTimeRangePicker?.props?.default }), [props__]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiDateTimeRangePicker?.props?.default, ...props__ }), [props__]);
 
   const breakpoints = {};
 

@@ -233,7 +233,7 @@ const Checkbox = React.forwardRef((props_: ICheckbox, ref: any) => {
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiCheckbox?.props?.default }), [props_]);
 
   const {
-    tonal,
+    tonal = true,
     color = 'primary',
     version = 'text',
 
