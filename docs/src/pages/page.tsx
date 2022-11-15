@@ -359,8 +359,6 @@ export default function Root(props: any) {
             label={theme.palette.light ? 'Light theme' : 'Dark theme'}
           >
             <Switch
-              tonal
-
               color='primary'
 
               OnIcon={<IconMaterialLightModeRounded />}
@@ -377,8 +375,6 @@ export default function Root(props: any) {
             label={theme.direction === 'ltr' ? 'Left to right' : 'Right to left'}
           >
             <Switch
-              tonal
-
               color='primary'
 
               OnIcon={<IconMaterialFormatTextdirectionLToRRounded />}
@@ -675,8 +671,6 @@ export default function Root(props: any) {
               >
                 <CardHeader>
                   <ListItem
-                    tonal
-
                     color='primary'
 
                     primary='Item'
@@ -789,8 +783,6 @@ export default function Root(props: any) {
               />
 
               <Slider
-                tonal
-
                 valueDefault={50}
 
                 tooltip
@@ -826,20 +818,14 @@ export default function Root(props: any) {
                 }}
               >
                 <Switch
-                  tonal
-
                   valueDefault={true}
                 />
 
                 <Checkbox
-                  tonal
-
                   valueDefault={true}
                 />
 
-                <Radio
-                  tonal
-                />
+                <Radio />
               </Line>
             </Masonry>
           </div>

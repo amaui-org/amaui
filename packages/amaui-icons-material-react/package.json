@@ -1,6 +1,6 @@
 {
   "name": "@amaui/icons-material-react",
-  "version": "1.0.11",
+  "version": "1.0.111",
   "description": "Icons material for React",
   "repository": "https://github.com/amaui-org/amaui.git",
   "author": "Lazar <lazareric.com@gmail.com>",
@@ -45,7 +45,7 @@
     "react": "^18.1.0"
   },
   "dependencies": {
-    "@amaui/ui-react": "^1.0.1124"
+    "@amaui/ui-react": "^1.0.1140"
   },
   "publishConfig": {
     "access": "public",
