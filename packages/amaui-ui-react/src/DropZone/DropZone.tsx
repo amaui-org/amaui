@@ -346,8 +346,6 @@ const DropZone = React.forwardRef((props_: IDropZone, ref: any) => {
         <IconStart />
 
         <Type
-          color='inherit'
-
           version='t1'
         >
           Drop files here

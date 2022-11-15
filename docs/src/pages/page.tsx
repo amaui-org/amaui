@@ -34,7 +34,6 @@ const useStyle = style(theme => ({
   },
 
   main_title: {
-    color: theme.palette.color.secondary[50],
     textAlign: 'center'
   },
 
@@ -44,8 +43,14 @@ const useStyle = style(theme => ({
     fontSize: 'clamp(2.1rem, 4vw, 4.4rem)'
   },
 
-  main_text_accent: {
-    color: theme.palette.color.primary[50]
+  text_secondary: {
+    color: theme.palette.color.secondary[50],
+    opacity: 1
+  },
+
+  text_primary: {
+    color: theme.palette.color.primary[50],
+    opacity: 1
   },
 
   presentation_wrapper: {
@@ -57,10 +62,6 @@ const useStyle = style(theme => ({
     width: '100%',
     padding: 'clamp(40px, 5vw, 104px) 44px',
     background: theme.methods.palette.color.value('primary', 95, true)
-  },
-
-  about_title: {
-    color: theme.palette.color.secondary[50]
   },
 
   about_text: {
@@ -316,8 +317,11 @@ export default function Root(props: any) {
           <Type
             version='l2'
 
+            color='secondary'
+
             className={classNames([
-              classes.main_title
+              classes.main_title,
+              classes.text_secondary
             ])}
           >
             Worlds First 100% Open Source Material Design 3 Based UI Library
@@ -330,7 +334,7 @@ export default function Root(props: any) {
               classes.main_text
             ])}
           >
-            Make Modern Web & Mobile Apps Quickly <span className={classes.main_text_accent}>100+ UI elements</span>
+            Make Modern Web & Mobile Apps Quickly <Type version='none' color='primary' Component='span' className={classes.text_primary}>100+ UI elements</Type>
           </Type>
         </Line>
       </section>
@@ -451,8 +455,7 @@ export default function Root(props: any) {
                 )}
 
                 MiddleProps={{
-                  version: 'l2',
-                  color: 'primary'
+                  version: 'l2'
                 }}
 
                 style={{
@@ -471,8 +474,7 @@ export default function Root(props: any) {
                   iconOpen={<IconMaterialFolderOpenRounded size='small' />}
 
                   MiddleProps={{
-                    version: 'l2',
-                    color: 'primary'
+                    version: 'l2'
                   }}
                 >
                   <Tree
@@ -486,7 +488,7 @@ export default function Root(props: any) {
 
                     MiddleProps={{
                       version: 'b2',
-                      color: 'secondary'
+                      priority: 'secondary'
                     }}
                   />
 
@@ -501,7 +503,7 @@ export default function Root(props: any) {
 
                     MiddleProps={{
                       version: 'b2',
-                      color: 'secondary'
+                      priority: 'secondary'
                     }}
                   />
                 </Tree>
@@ -518,8 +520,7 @@ export default function Root(props: any) {
                   iconOpen={<IconMaterialFolderOpenRounded size='small' />}
 
                   MiddleProps={{
-                    version: 'l2',
-                    color: 'primary'
+                    version: 'l2'
                   }}
                 >
                   <Tree
@@ -541,7 +542,7 @@ export default function Root(props: any) {
 
                     MiddleProps={{
                       version: 'b2',
-                      color: 'secondary'
+                      priority: 'secondary'
                     }}
                   />
 
@@ -556,7 +557,7 @@ export default function Root(props: any) {
 
                     MiddleProps={{
                       version: 'b2',
-                      color: 'secondary'
+                      priority: 'secondary'
                     }}
                   />
                 </Tree>
@@ -573,8 +574,7 @@ export default function Root(props: any) {
                   iconOpen={<IconMaterialFolderOpenRounded size='small' />}
 
                   MiddleProps={{
-                    version: 'l2',
-                    color: 'primary'
+                    version: 'l2'
                   }}
                 >
                   <Tree
@@ -588,7 +588,7 @@ export default function Root(props: any) {
 
                     MiddleProps={{
                       version: 'b2',
-                      color: 'secondary'
+                      priority: 'secondary'
                     }}
                   />
 
@@ -603,7 +603,7 @@ export default function Root(props: any) {
 
                     MiddleProps={{
                       version: 'b2',
-                      color: 'secondary'
+                      priority: 'secondary'
                     }}
                   />
                 </Tree>
@@ -735,7 +735,7 @@ export default function Root(props: any) {
                   <Type
                     version='b2'
 
-                    color='secondary'
+                    priority='secondary'
                   >
                     Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                   </Type>
@@ -864,9 +864,9 @@ export default function Root(props: any) {
           <Type
             version='t2'
 
-            className={classNames([
-              classes.about_title
-            ])}
+            color='secondary'
+
+            className={classes.text_secondary}
           >
             About
           </Type>
@@ -887,7 +887,7 @@ export default function Root(props: any) {
           <Type
             version='l1'
 
-            color='secondary'
+            priority='secondary'
 
             style={{
               marginTop: 54,
@@ -939,7 +939,7 @@ export default function Root(props: any) {
 
                     justify='center'
 
-                    color='default'
+                    color='inherit'
 
                     href={item.url}
 

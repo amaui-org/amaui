@@ -353,7 +353,7 @@ const Watch = React.forwardRef((props_: IWatch, ref: any) => {
                     <Type
                       version='b3'
 
-                      color='secondary'
+                      priority='secondary'
                     >
                       {format(new AmauiDate(value), dateFormatString)}
                     </Type>

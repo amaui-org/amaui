@@ -13,16 +13,20 @@ import { staticClassName, TColor, TSize, TTonal, TVersion } from '../utils';
 const useStyle = styleMethod(theme => ({
   root: {
     position: 'relative',
-    borderRadius: theme.methods.shape.radius.value('xl', 'px'),
+    borderRadius: theme.methods.shape.radius.value('xl', 'px')
+  },
 
+  orientation_horizontal: {
     '& > *': {
-      width: '100%',
       height: '100%'
     }
   },
 
   orientation_vertical: {
-    flexDirection: 'column'
+    flexDirection: 'column',
+    '& > *': {
+      width: '100%'
+    }
   },
 
   // Size

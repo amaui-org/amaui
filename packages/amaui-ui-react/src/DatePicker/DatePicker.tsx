@@ -179,7 +179,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   dayName: {
-    width: 'auto',
+    width: '40px',
     height: '40px',
     flex: '1 1 auto',
     userSelect: 'none'
@@ -825,7 +825,7 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
                                 TypeProps={{
                                   version: 'b3',
 
-                                  color: !day.selected ? !day.weekend ? 'primary' : 'secondary' : undefined
+                                  priority: !day.selected ? !day.weekend ? 'primary' : 'secondary' : undefined
                                 }}
 
                                 onClick={() => onDayClick(day.amauiDate)}
@@ -977,7 +977,7 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
                         TypeProps={{
                           version: 'b3',
 
-                          color: !day.selected ? !day.weekend ? 'primary' : 'secondary' : undefined
+                          priority: !day.selected ? !day.weekend ? 'primary' : 'secondary' : undefined
                         }}
 
                         onClick={() => onDayClick(day.amauiDate)}
@@ -3081,7 +3081,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
                               TypeProps={{
                                 version: 'b2',
 
-                                color: !selected ? 'primary' : undefined
+                                tone: !selected ? 'primary' : undefined
                               }}
 
                               onClick={() => onYearClick(item.value)}
@@ -3756,7 +3756,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
                                 TypeProps={{
                                   version: 'b2',
 
-                                  color: !selected ? 'primary' : undefined
+                                  priority: !selected ? 'primary' : undefined
                                 }}
 
                                 onClick={() => onYearClick(item.value)}

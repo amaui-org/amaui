@@ -38,6 +38,8 @@ const ModalText = React.forwardRef((props_: IModalText, ref: any) => {
     <Type
       ref={ref}
 
+      version='b2'
+
       className={classNames([
         staticClassName('ModalText', theme) && [
           'AmauiModalText-root'
@@ -46,8 +48,6 @@ const ModalText = React.forwardRef((props_: IModalText, ref: any) => {
         className,
         classes.root
       ])}
-
-      version='b2'
 
       {...other}
     >

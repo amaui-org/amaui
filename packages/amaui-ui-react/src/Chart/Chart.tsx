@@ -1594,8 +1594,6 @@ const Chart = React.forwardRef((props_: IChart, ref: any) => {
             <Type
               version='t2'
 
-              color='inherit'
-
               {...TypeProps}
 
               {...TitleProps}
@@ -1618,8 +1616,6 @@ const Chart = React.forwardRef((props_: IChart, ref: any) => {
           {is('simple', subtitle) ? (
             <Type
               version='b3'
-
-              color='inherit'
 
               {...TypeProps}
 

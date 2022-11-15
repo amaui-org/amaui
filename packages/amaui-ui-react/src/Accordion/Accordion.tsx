@@ -351,8 +351,6 @@ const Accordion = React.forwardRef((props_: IAccordion, ref: any) => {
               <Type
                 version='b1'
 
-                color='inherit'
-
                 className={classNames([
                   staticClassName('Accordion', theme) && [
                     'AmauiAccordion-primary'
@@ -385,8 +383,6 @@ const Accordion = React.forwardRef((props_: IAccordion, ref: any) => {
               {is('simple', secondary) ? (
                 <Type
                   version='b1'
-
-                  color='inherit'
 
                   className={classNames([
                     staticClassName('Accordion', theme) && [

@@ -200,8 +200,6 @@ const TopAppBar = React.forwardRef((props_: ITopAppBar, ref: any) => {
         <Type
           version='t1'
 
-          color='inherit'
-
           className={classNameTitle}
         >
           {title_}
@@ -220,8 +218,6 @@ const TopAppBar = React.forwardRef((props_: ITopAppBar, ref: any) => {
       title = is('simple', title_) ? (
         <Type
           version={version === 'medium' ? 'h3' : 'h2'}
-
-          color='inherit'
 
           className={classNameTitleMedium}
         >

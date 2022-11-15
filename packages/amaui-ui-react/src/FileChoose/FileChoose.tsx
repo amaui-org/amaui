@@ -432,7 +432,7 @@ const FileChoose = React.forwardRef((props_: IFileChoose, ref: any) => {
                     <Type
                       version='b3'
 
-                      color='secondary'
+                      priority='secondary'
                     >
                       {to(item.size, 'size-format')}
                     </Type>

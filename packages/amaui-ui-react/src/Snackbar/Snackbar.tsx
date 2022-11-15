@@ -334,8 +334,6 @@ const Snackbar = React.forwardRef((props_: ISnackbar, ref: any) => {
           >
             {is('string', primary) ? (
               <Type
-                color='inherit'
-
                 version='b2'
               >
                 {primary}

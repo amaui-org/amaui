@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 
-import { IconButton, Line, Link, Tooltip, TopAppBar, Type, useScroll } from '@amaui/ui-react';
+import { IconButton, Line, Link, Surface, Tooltip, TopAppBar, Type, useScroll } from '@amaui/ui-react';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Logo from '../../public/assets/svg/logo.svg';
@@ -35,7 +35,8 @@ const useStyle = styleMethod(theme => ({
   },
 
   root: {
-    minHeight: '100vh'
+    minHeight: '100vh',
+    background: 'transparent'
   },
 
   header: {
@@ -113,10 +114,16 @@ function Root(props: any) {
       <title>amaui docs</title>
     </Head>
 
-    <Line
+    <Surface
+      tonal
+
+      color='primary'
+
       gap={0}
 
       direction='column'
+
+      Component={Line}
 
       className={classNames([
         classes.root
@@ -259,9 +266,9 @@ function Root(props: any) {
         </Line>
 
         <Type
-          color='secondary'
-
           version='b3'
+
+          priority='secondary'
 
           style={{
             textAlign: 'center'
@@ -284,7 +291,7 @@ function Root(props: any) {
           <Type
             version='b3'
 
-            color='secondary'
+            priority='secondary'
           >
             Made with
           </Type>
@@ -296,7 +303,7 @@ function Root(props: any) {
           </Type>
         </Line>
       </Line>
-    </Line>
+    </Surface>
   </>;
 }
 

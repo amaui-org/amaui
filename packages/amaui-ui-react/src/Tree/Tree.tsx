@@ -174,7 +174,7 @@ const Tree = React.forwardRef((props_: ITree, ref: any) => {
 
   const {
     tonal,
-    color = 'default',
+    color = 'inherit',
     version = 'text',
 
     open: open_,

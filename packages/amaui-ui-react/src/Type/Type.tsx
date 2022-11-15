@@ -2,7 +2,7 @@ import React from 'react';
 
 import { classNames, style as styleMethod, TTypographyItem, useAmauiTheme } from '@amaui/style-react';
 
-import { IBaseElement, staticClassName } from '../utils';
+import { IBaseElement, staticClassName, TColor } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -17,6 +17,7 @@ const useStyle = styleMethod(theme => ({
     touchAction: 'manipulation'
   },
 
+  // Color
   color_inherit: { color: 'inherit' },
 
   color_themed: { color: theme.palette.light ? theme.palette.text.default.primary : theme.palette.text.default.secondary },
@@ -25,14 +26,34 @@ const useStyle = styleMethod(theme => ({
 
   color_default: { color: theme.palette.text.default.primary },
 
-  color_primary: { color: theme.palette.text.default.primary },
+  color_primary: { color: theme.palette.text.primary.primary },
 
-  color_secondary: { color: theme.palette.text.default.secondary },
+  color_secondary: { color: theme.palette.text.secondary.primary },
 
-  color_tertiary: { color: theme.palette.text.default.tertiary },
+  color_tertiary: { color: theme.palette.text.tertiary.primary },
 
-  color_quaternary: { color: theme.palette.text.default.quaternary },
+  color_quaternary: { color: theme.palette.text.quaternary.primary },
 
+  color_success: { color: theme.palette.text.success.primary },
+
+  color_info: { color: theme.palette.text.info.primary },
+
+  color_warning: { color: theme.palette.text.warning.primary },
+
+  color_error: { color: theme.palette.text.error.primary },
+
+  color_neutral: { color: theme.palette.text.neutral.primary },
+
+  // Priority
+  priority_primary: { opacity: theme.palette.visual_contrast.default.opacity.primary },
+
+  priority_secondary: { opacity: theme.palette.visual_contrast.default.opacity.secondary },
+
+  priority_tertiary: { opacity: theme.palette.visual_contrast.default.opacity.tertiary },
+
+  priority_quaternary: { opacity: theme.palette.visual_contrast.default.opacity.quaternary },
+
+  // Version
   version_d1: { ...theme.typography.values.d1 },
 
   version_d2: { ...theme.typography.values.d2 },
@@ -77,8 +98,12 @@ const useStyle = styleMethod(theme => ({
 }), { name: 'AmauiType' });
 
 export interface IType extends IBaseElement {
-  color?: 'inherit' | 'themed' | 'inverted' | 'default' | 'primary' | 'secondary' | 'tertiary' | 'quaternary';
+  color?: TColor;
+
+  priority?: 'primary' | 'secondary' | 'tertiary' | 'quaternary';
+
   version?: TTypographyItem;
+
   size?: string | number;
 
   disabled?: boolean;
@@ -93,7 +118,11 @@ const Type = React.forwardRef((props_: IType, ref: any) => {
 
   const {
     color = 'inherit',
+
+    priority,
+
     version = 'b2',
+
     size,
 
     disabled,
@@ -131,6 +160,10 @@ const Type = React.forwardRef((props_: IType, ref: any) => {
 
   if (!Component) Component = 'p';
 
+  if (!classes[`color_${color}`]) {
+    styles.root.color = color;
+  }
+
   if (size !== undefined) styles.root.fontSize = size;
 
   return (
@@ -142,6 +175,7 @@ const Type = React.forwardRef((props_: IType, ref: any) => {
           'AmauiType-root',
           `AmauiType-version-${version}`,
           `AmauiType-color-${color}`,
+          priority && `AmauiType-priority-${priority}`,
           disabled && `AmauiType-disabled`
         ],
 
@@ -149,6 +183,7 @@ const Type = React.forwardRef((props_: IType, ref: any) => {
         classes.root,
         classes[`version_${version}`],
         classes[`color_${color}`],
+        priority && classes[`priority_${priority}`],
         disabled && classes.disabled
       ])}
 

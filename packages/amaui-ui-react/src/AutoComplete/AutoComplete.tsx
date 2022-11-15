@@ -94,8 +94,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   limitText: {
-    alignSelf: 'center',
-    color: theme.palette.text.default.primary
+    alignSelf: 'center'
   },
 
   roundProgress: {
@@ -529,6 +528,8 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
 
         if (is('number', limit) && !open && value.length - limit > 0) (values as any).push(
           <Type
+            color='default'
+
             className={classes.limitText}
           >
             +{value.length - limit}
