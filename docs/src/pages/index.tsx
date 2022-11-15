@@ -148,7 +148,7 @@ function Root(props: any) {
             color='inverted'
           >
             <IconButton
-              color='default'
+              color='inherit'
 
               Component='a'
 
