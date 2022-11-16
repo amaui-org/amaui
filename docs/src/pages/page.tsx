@@ -128,6 +128,7 @@ export default function Root(props: any) {
     const light = refs.storage.get('light');
 
     if (light !== null) update('light', light);
+    else if (window.matchMedia?.('(prefers-color-scheme: dark)')?.matches) update('light', false);
 
     const imageSelected_ = refs.storage.get('image-selected');
 
