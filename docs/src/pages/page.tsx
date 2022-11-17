@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { random } from '@amaui/utils';
-import { AreaChart, Avatar, Button, Card, CardFooter, CardHeader, CardImage, CardMain, Checkbox, DatePicker, DonutChart, Fab, Fade, IconButton, Line, Link, ListItem, Masonry, Radio, Rating, Slider, Surface, Switch, Tab, Tabs, TimePicker, Tooltip, Tree, Type, Weather } from '@amaui/ui-react';
+import { AreaChart, Avatar, Button, Card, CardFooter, CardHeader, CardImage, CardMain, Checkbox, DatePicker, DonutChart, Fab, Fade, IconButton, Line, Link, ListItem, Masonry, Radio, Rating, Slider, Surface, Switch, Tab, Tabs, TimePicker, Tooltip, Tree, Type, useMediaQuery, Weather } from '@amaui/ui-react';
 import { classNames, colors, style, useAmauiTheme } from '@amaui/style-react';
 import AmauiStorage from '@amaui/storage';
 
@@ -115,6 +115,7 @@ export default function Root(props: any) {
     storage: new AmauiStorage({ namespace: 'amaui-docs' })
   };
 
+  const [init, setInit] = React.useState(false);
   const [imageSelected, setImageSelected] = React.useState<any>('primary');
   const [values, setValues] = React.useState<any>({
     tree_1: true,
@@ -123,12 +124,10 @@ export default function Root(props: any) {
     tree_13: true
   });
   const [inProp, setInProp] = React.useState(false);
+  const light = useMediaQuery('(prefers-color-scheme: light)');
 
   React.useEffect(() => {
-    const light = refs.storage.get('light');
-
-    if (light !== null) update('light', light);
-    else if (window.matchMedia?.('(prefers-color-scheme: dark)')?.matches) update('light', false);
+    if (window.matchMedia?.('(prefers-color-scheme: dark)')?.matches) update('light', false);
 
     const imageSelected_ = refs.storage.get('image-selected');
 
@@ -143,8 +142,16 @@ export default function Root(props: any) {
     if (direction !== null) update('direction', direction);
 
     setInProp(true);
+
+    setInit(true);
     // eslint-disable-next-line
   }, []);
+
+  React.useEffect(() => {
+    if (init) {
+      update('light', light);
+    }
+  }, [light])
 
   const valueArea = React.useMemo(() => Array.from({ length: 7 }).map(() => [random(-40, 400), random(-40, 400)]), []);
 
@@ -189,7 +196,7 @@ export default function Root(props: any) {
 
   const update = async (version = 'light', value: any = true) => {
     let values_ = {};
-    ;
+
     switch (version) {
       case 'light':
         theme.updateWithRerender({
