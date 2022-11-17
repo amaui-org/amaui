@@ -38,14 +38,6 @@ export default class CustomDocument extends Document {
           <meta name='apple-mobile-web-app-capable' content='yes' />
           <meta name='apple-touch-fullscreen' content='yes' />
           <meta name='apple-mobile-web-app-status-bar-style' content='#fafa00' />
-
-          <link rel='apple-touch-icon' sizes='180x180' href='/assets/favicon/light/apple-touch-icon.png' />
-          <link rel='icon' type='image/png' sizes='32x32' href='/assets/favicon/light/favicon-32x32.png' />
-          <link rel='icon' type='image/png' sizes='16x16' href='/assets/favicon/light/favicon-16x16.png' />
-          <link rel='manifest' href='/assets/favicon/light/site.webmanifest' />
-          <link rel='mask-icon' href='/assets/favicon/light/safari-pinned-tab.svg' color='#fafa00' />
-          <meta name='msapplication-TileColor' content='#ffffff' />
-          <meta name='theme-color' content='#fafa00' />
         </Head>
 
         <body>

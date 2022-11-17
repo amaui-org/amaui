@@ -72,8 +72,8 @@ const useStyle = styleMethod(theme => ({
     height: '44px',
     width: 'auto',
 
-    '& path:nth-child(2)': {
-      fill: theme.palette.light ? theme.palette.background.default.primary : theme.palette.color.primary[10]
+    '& path:nth-child(1)': {
+      fill: theme.palette.light ? 'hsl(60deg 100% 49%)' : 'hsl(60deg 100% 15%)'
     }
   },
 
