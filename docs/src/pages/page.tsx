@@ -157,32 +157,34 @@ export default function Root(props: any) {
 
   const valueArea = React.useMemo(() => Array.from({ length: 7 }).map(() => [random(-40, 400), random(-40, 400)]), []);
 
+  // const valueArea = React.useMemo(() => [[0, 20], [40, 140], [60, 50], [104, 104], [140, 15], [170, 70], [240, 40]], []);
+
   const valueDonut = React.useMemo(() => [
     {
       color: 'primary',
 
-      name: 'a',
+      name: 'Sun',
 
       values: Array.from({ length: 1 }).map(() => random(40, 400))
     },
     {
       color: 'secondary',
 
-      name: 'a1',
+      name: 'Vegetables',
 
       values: Array.from({ length: 1 }).map(() => random(40, 400))
     },
     {
       color: 'tertiary',
 
-      name: 'a14',
+      name: 'Trees',
 
       values: Array.from({ length: 1 }).map(() => random(40, 400))
     },
     {
       color: 'quaternary',
 
-      name: 'a114',
+      name: 'Energy',
 
       values: Array.from({ length: 1 }).map(() => random(40, 400))
     }

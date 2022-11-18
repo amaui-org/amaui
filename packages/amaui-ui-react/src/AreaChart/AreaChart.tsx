@@ -102,6 +102,8 @@ const AreaChart = React.forwardRef((props_: IAreaChart, ref: any) => {
     linearGradient,
 
     PathProps,
+    BackgroundProps,
+    BorderProps,
     LegendItemProps,
 
     className,
@@ -396,6 +398,19 @@ const AreaChart = React.forwardRef((props_: IAreaChart, ref: any) => {
 
           element: (
             <g>
+              {/* Background */}
+              <Path
+                d={d.background}
+
+                fill={linearGradient ? `url('#areaChart_id_${name}')` : theme.methods.palette.color.colorToRgb(!theme.palette.color[color_] ? color_ : theme.palette.color[color_][tone], 0.14)}
+
+                stroke='none'
+
+                {...PathProps}
+
+                {...BackgroundProps}
+              />
+
               {/* Border */}
               <Path
                 d={d.border}
@@ -407,17 +422,8 @@ const AreaChart = React.forwardRef((props_: IAreaChart, ref: any) => {
                 strokeWidth='2px'
 
                 {...PathProps}
-              />
 
-              {/* Background */}
-              <Path
-                d={d.background}
-
-                fill={linearGradient ? `url('#areaChart_id_${name}')` : theme.methods.palette.color.colorToRgb(!theme.palette.color[color_] ? color_ : theme.palette.color[color_][tone], 0.14)}
-
-                stroke='none'
-
-                {...PathProps}
+                {...BorderProps}
               />
             </g>
           )
