@@ -215,6 +215,7 @@ const Tree = React.forwardRef((props_: ITree, ref: any) => {
     EndProps,
     IndicatorProps,
     TransitionComponentProps: TransitionComponentProps_ = { add: true },
+    TreeProps,
 
     IconArrow = IconMaterialExpandMoreRounded,
     TransitionComponent: TransitionComponent_ = Fade,
@@ -623,11 +624,14 @@ const Tree = React.forwardRef((props_: ITree, ref: any) => {
 
               role='group'
 
+              {...TreeProps}
+
               className={classNames([
                 staticClassName('Tree', theme) && [
                   'AmauiTree-tree'
                 ],
 
+                TreeProps?.className,
                 classes.tree
               ])}
             >

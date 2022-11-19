@@ -28,9 +28,15 @@ const useStyle = styleMethod(theme => ({
     marginTop: '8px'
   },
 
-  flags: {
+  flags_wrapper: {
     width: '100%',
     paddingTop: '8px'
+  },
+
+  flags: {
+    width: '100%',
+    maxHeight: '170px',
+    overflowY: 'auto'
   },
 
   actions: {
@@ -392,10 +398,10 @@ const Timer = React.forwardRef((props_: ITimer, ref: any) => {
 
         className={classNames([
           staticClassName('Timer', theme) && [
-            'AmauiTimer-flags'
+            'AmauiTimer-flags-wrapper'
           ],
 
-          classes.flags
+          classes.flags_wrapper
         ])}
       >
         <div>
@@ -416,8 +422,14 @@ const Timer = React.forwardRef((props_: ITimer, ref: any) => {
 
                   indicatorPosition='end'
 
-                  style={{
-                    width: '100%'
+                  TreeProps={{
+                    className: classNames([
+                      staticClassName('Timer', theme) && [
+                        'AmauiTimer-flags'
+                      ],
+
+                      classes.flags
+                    ])
                   }}
 
                   {...TreeProps}

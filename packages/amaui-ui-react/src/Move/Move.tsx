@@ -49,6 +49,7 @@ const Move = React.forwardRef((props_: IMove, ref: any) => {
 
   const refs = {
     root: React.useRef<any>(),
+    values: React.useRef<any>(),
     mouseDown: React.useRef<any>(),
     onMouseDown: React.useRef<any>(),
     onTouchStart: React.useRef<any>(),
@@ -58,6 +59,8 @@ const Move = React.forwardRef((props_: IMove, ref: any) => {
 
   const [mouseDown, setMouseDown] = React.useState(false);
   const [values, setValues] = React.useState<any>({});
+
+  refs.values.current = values;
 
   refs.mouseDown.current = mouseDown;
 
@@ -103,12 +106,16 @@ const Move = React.forwardRef((props_: IMove, ref: any) => {
 
         const [xTransform, yTransform] = (transform?.match(/[-+]?\d+\.?\d*/g) || [0, 0]).map((item: any) => Number(item));
 
-        setValues(values_ => ({
-          ...values_,
+        const valuesNew = {
+          ...refs.values.current,
 
           x: x + (xTransform || 0),
           y: y + (yTransform || 0)
-        }));
+        };
+
+        refs.root.current.style.transform = `translate(${valuesNew.x}px, ${valuesNew.y}px)`;
+
+        setValues(valuesNew);
       }
     };
 
@@ -137,6 +144,18 @@ const Move = React.forwardRef((props_: IMove, ref: any) => {
       }
     };
 
+    if (manage && refs.root.current) {
+      const parents = element(refs.root.current).parents();
+
+      const parent = parents[manageLevel || 0] as HTMLElement;
+
+      if (parent && !['HTML', 'html', 'BODY', 'body', 'HEAD', 'head'].includes((parent as HTMLElement).tagName)) {
+        parent.style.pointerEvents = 'none';
+
+        styles.root.pointerEvents = 'auto';
+      }
+    }
+
     window.addEventListener('mouseup', onMouseUp);
 
     window.addEventListener('mousemove', onMouseMove);
@@ -155,23 +174,6 @@ const Move = React.forwardRef((props_: IMove, ref: any) => {
       window.removeEventListener('touchmove', onTouchMove);
     };
   }, []);
-
-  // Update
-  if (values?.x !== undefined && values?.y !== undefined) {
-    styles.root.transform = `translate(${values.x}px, ${values.y}px)`;
-
-    if (manage && refs.root.current) {
-      const parents = element(refs.root.current).parents();
-
-      const parent = parents[manageLevel || 0] as HTMLElement;
-
-      if (parent && !['HTML', 'html', 'BODY', 'body', 'HEAD', 'head'].includes((parent as HTMLElement).tagName)) {
-        parent.style.pointerEvents = 'none';
-
-        styles.root.pointerEvents = 'auto';
-      }
-    }
-  }
 
   return (
     <Component

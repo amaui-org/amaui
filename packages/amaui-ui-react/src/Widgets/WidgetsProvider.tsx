@@ -27,7 +27,7 @@ const useStyle = styleMethod(theme => ({
     width: '100%',
     padding: '0 104px',
     pointerEvents: 'none',
-    zIndex: theme.z_index.modal
+    zIndex: theme.z_index.modal - 1
   },
 
   line: {
