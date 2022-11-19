@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is } from '@amaui/utils';
+import { getID, is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Type from '../Type';
@@ -88,7 +88,10 @@ const Label = React.forwardRef((props_: ILabel, ref: any) => {
   const [value, setValue] = React.useState((valueDefault !== undefined ? valueDefault : checked) || false);
 
   const refs = {
-    value: React.useRef<any>()
+    value: React.useRef<any>(),
+    ids: {
+      label: React.useRef(getID())
+    }
   };
 
   refs.value.current = value;
@@ -138,9 +141,15 @@ const Label = React.forwardRef((props_: ILabel, ref: any) => {
 
       justify={justify}
 
-      Component={Component}
+      role='group'
+
+      aria-labelledby={refs.ids.label.current}
+
+      aria-disabled={disabled}
 
       disabled={disabled}
+
+      Component={Component}
 
       className={classNames([
         staticClassName('Label', theme) && [
@@ -188,6 +197,8 @@ const Label = React.forwardRef((props_: ILabel, ref: any) => {
         <Type
           version={size === 'regular' ? 'b2' : size === 'large' ? 'b1' : 'b3'}
 
+          id={refs.ids.label.current}
+
           {...TypeProps}
 
           className={classNames([
@@ -202,7 +213,9 @@ const Label = React.forwardRef((props_: ILabel, ref: any) => {
         >
           {Text}
         </Type>
-      ) : Text}
+      ) : React.cloneElement(Text, {
+        id: refs.ids.label.current
+      })}
     </Line>
   );
 });

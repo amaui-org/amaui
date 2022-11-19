@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is, clamp, valueFromPercentageWithinRange } from '@amaui/utils';
+import { is, clamp, valueFromPercentageWithinRange, getID } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Line from '../Line';
@@ -189,6 +189,7 @@ const WindowSplit = React.forwardRef((props_: IWindowSplit, ref: any) => {
       version: 'filled',
       elevation: false
     },
+    SeparatorProps: SeparatorProps_,
     DividerProps = {},
 
     className,
@@ -210,7 +211,10 @@ const WindowSplit = React.forwardRef((props_: IWindowSplit, ref: any) => {
     hover: React.useRef<any>(),
     props: React.useRef<any>(),
     orientation: React.useRef<any>(),
-    direction: React.useRef<any>()
+    direction: React.useRef<any>(),
+    ids: {
+      root: React.useRef(getID())
+    }
   };
 
   const { classes } = useStyle(props);
@@ -413,6 +417,24 @@ const WindowSplit = React.forwardRef((props_: IWindowSplit, ref: any) => {
     if (is('function', onChange_)) onChange_(valueNew);
   };
 
+  const SeparatorProps = {
+    ...SeparatorProps_,
+
+    role: 'separator',
+
+    'aria-label': 'Window separator',
+
+    'aria-valuenow': value,
+
+    'aria-valuemin': 0,
+
+    'aria-valuemax': 100,
+
+    'aria-valuetext': `${value}%`,
+
+    'aria-controls': refs.ids.root.current
+  };
+
   const direction = orientation === 'horizontal' ? 'row' : 'column';
 
   // Only 2 children to use
@@ -444,6 +466,10 @@ const WindowSplit = React.forwardRef((props_: IWindowSplit, ref: any) => {
       onBlur={onBlur}
 
       onKeyDown={onKeyDown}
+
+      id={refs.ids.root.current}
+
+      aria-orientation={orientation}
 
       className={classNames([
         staticClassName('WindowSplit', theme) && [
@@ -569,7 +595,9 @@ const WindowSplit = React.forwardRef((props_: IWindowSplit, ref: any) => {
 
             classes.iconButton,
             classes[`iconButton_orientation_${orientation}`]
-          ])
+          ]),
+
+          ...SeparatorProps
         })) ||
 
         <IconButton
@@ -584,6 +612,8 @@ const WindowSplit = React.forwardRef((props_: IWindowSplit, ref: any) => {
 
             if (is('function', IconButtonProps?.onMouseDown)) IconButtonProps.onMouseDown(event);
           }}
+
+          {...SeparatorProps}
 
           {...IconButtonProps}
 

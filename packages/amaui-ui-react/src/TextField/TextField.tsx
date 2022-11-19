@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { clamp, is, isEnvironment } from '@amaui/utils';
+import { clamp, getID, is, isEnvironment } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Type from '../Type';
@@ -648,7 +648,10 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
 
   const refs = {
     input: React.useRef<HTMLInputElement>(),
-    carret: React.useRef<any>()
+    carret: React.useRef<any>(),
+    ids: {
+      label: React.useRef(getID())
+    }
   };
 
   const { classes } = useStyle(props);
@@ -894,6 +897,12 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
 
         onTouchEnd={onMouseLeave}
 
+        role='textbox'
+
+        aria-multiline={multiline}
+
+        aria-labelledby={refs.ids.label.current}
+
         {...ComponentProps}
 
         className={classNames([
@@ -1006,6 +1015,10 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
 
         {label && (
           <Type
+            version='b2'
+
+            id={refs.ids.label.current}
+
             Component='label'
 
             className={classNames([
@@ -1023,8 +1036,6 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
                 classes[`label_version_${version}_icon_start`]
               ]
             ])}
-
-            version='b2'
           >
             {label}{required ? '*' : ''}{optional ? ` (${optionalText})` : ''}
           </Type>

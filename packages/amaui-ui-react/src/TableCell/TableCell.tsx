@@ -94,6 +94,8 @@ const TableCell = React.forwardRef((props_: ITableCell, ref: any) => {
     <Component
       ref={ref}
 
+      role='cell'
+
       className={classNames([
         staticClassName('TableCell', theme) && [
           `AmauiTableCell-root`,

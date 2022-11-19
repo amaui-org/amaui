@@ -246,6 +246,12 @@ const Radio = React.forwardRef((props_: IRadio, ref: any) => {
         />
       )}
 
+      role='radio'
+
+      aria-checked={value}
+
+      aria-disabled={disabled}
+
       disabled={disabled}
 
       Component={Component}

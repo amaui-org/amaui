@@ -182,6 +182,8 @@ const Link = React.forwardRef((props_: ILink, ref: any) => {
 
       version={version}
 
+      role='link'
+
       Component={Component}
 
       className={classNames([

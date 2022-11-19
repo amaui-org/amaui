@@ -755,6 +755,8 @@ const DateTimeRangePicker = React.forwardRef((props__: IDateTimeRangePicker, ref
 
         onClick={onOpen}
 
+        aria-label='Choose date and time range'
+
         disabled={disabled || readOnly}
 
         {...IconButtonProps}
@@ -884,6 +886,8 @@ const DateTimeRangePicker = React.forwardRef((props__: IDateTimeRangePicker, ref
       {version === 'desktop' && (
         <Tooltip
           open={open}
+
+          portal={false}
 
           anchorElement={refs.root.current}
 

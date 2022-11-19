@@ -336,11 +336,21 @@ const LinearProgress = React.forwardRef((props_: ILinearProress, ref: any) => {
     styles.buffer.transform = `translateX(${!reverse ? '-' : ''}${100 - values.buffer}%)`;
 
     styles.line.transform = `translateX(${!reverse ? '-' : ''}${100 - values.line}%)`;
+
+    other['aria-valuenow'] = values.line;
+
+    other['aria-valuemin'] = 0;
+
+    other['aria-valuemax'] = 100;
+
+    other['aria-valuetext'] = `${values.line}%`;
   }
 
   return (
     <Component
       ref={ref}
+
+      role='meter'
 
       className={classNames([
         staticClassName('LinearProgress', theme) && [

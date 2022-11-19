@@ -214,6 +214,14 @@ const RoundProgress = React.forwardRef((props_: IRoundProgress, ref: any) => {
 
     // 0%
     if (styles.circle.strokeDashoffset === 1) styles.circle.strokeDashoffset = 0;
+
+    other['aria-valuenow'] = value;
+
+    other['aria-valuemin'] = 0;
+
+    other['aria-valuemax'] = 100;
+
+    other['aria-valuetext'] = `${value}%`;
   }
 
   return (

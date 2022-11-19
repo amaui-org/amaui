@@ -475,6 +475,10 @@ const Tabs = React.forwardRef((props_: ITabs, ref: any) => {
 
       justify={justify}
 
+      role='tablist'
+
+      aria-orientation={orientation}
+
       Component={Line}
 
       AdditionalProps={{

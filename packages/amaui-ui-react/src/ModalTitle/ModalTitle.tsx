@@ -40,6 +40,8 @@ const ModalTitle = React.forwardRef((props_: IModalTitle, ref: any) => {
 
       version='t1'
 
+      id='amaui-modal-title'
+
       className={classNames([
         staticClassName('ModalTitle', theme) && [
           'AmauiModalTitle-root'

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is } from '@amaui/utils';
+import { getID, is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Surface from '../Surface';
@@ -365,7 +365,10 @@ const Button = React.forwardRef((props_: IButton, ref: any) => {
   const [focus, setFocus] = React.useState(focus_ !== undefined ? focus_ : false);
 
   const refs = {
-    root: React.useRef<any>()
+    root: React.useRef<any>(),
+    ids: {
+      label: React.useRef(getID())
+    }
   };
 
   const { classes } = useStyle(props);
@@ -506,6 +509,12 @@ const Button = React.forwardRef((props_: IButton, ref: any) => {
         refs.root.current = item;
       }}
 
+      tabIndex={!disabled ? 0 : -1}
+
+      type='button'
+
+      role='button'
+
       color={color}
 
       tonal={tonal}
@@ -515,6 +524,14 @@ const Button = React.forwardRef((props_: IButton, ref: any) => {
       elevation={(elevation && !disabled && ['filled', 'tonal'].includes(version)) ? 1 : 0}
 
       backgroundOpacity={backgroundOpacity}
+
+      aria-labelledby={refs.ids.label.current}
+
+      aria-pressed={selected}
+
+      aria-disabled={disabled}
+
+      disabled={disabled}
 
       onFocus={onFocus}
 
@@ -575,8 +592,6 @@ const Button = React.forwardRef((props_: IButton, ref: any) => {
         ...styles.root
       }}
 
-      disabled={disabled}
-
       {...other}
     >
       <Interaction
@@ -636,6 +651,10 @@ const Button = React.forwardRef((props_: IButton, ref: any) => {
         <Type
           {...TypeProps}
 
+          id={refs.ids.label.current}
+
+          Component='span'
+
           className={classNames([
             staticClassName('Button', theme) && [
               'AmauiButton-label'
@@ -646,8 +665,6 @@ const Button = React.forwardRef((props_: IButton, ref: any) => {
             classes[`label_size_${size}`],
             classes[`align_${align}`]
           ])}
-
-          Component='span'
 
           style={{
             ...styles.label,

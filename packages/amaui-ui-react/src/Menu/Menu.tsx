@@ -279,11 +279,15 @@ const Menu = React.forwardRef((props_: IMenu, ref: any) => {
 
             include={refs.include.current}
 
+            role='menu'
+
             {...ListProps}
           >
             {React.Children.toArray(children).map((item: any, index: number) => (
               React.cloneElement(item, {
                 key: item.key || index,
+
+                role: 'menuitem',
 
                 menuId: id,
 

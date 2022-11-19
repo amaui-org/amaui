@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is } from '@amaui/utils';
+import { getID, is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Surface from '../Surface';
@@ -435,7 +435,11 @@ const ListItem = React.forwardRef((props_: IListItem, ref: any) => {
     props: React.useRef<any>(),
     openMenu: React.useRef<any>(),
     openList: React.useRef<any>(),
-    focus: React.useRef<any>()
+    focus: React.useRef<any>(),
+    ids: {
+      primary: React.useRef(getID()),
+      secondary: React.useRef(getID())
+    }
   };
 
   refs.props.current = props;
@@ -652,6 +656,18 @@ const ListItem = React.forwardRef((props_: IListItem, ref: any) => {
 
       onMouseLeave={onMouseLeave}
 
+      role='listitem'
+
+      aria-labelledby={refs.ids.primary.current}
+
+      aria-describedby={refs.ids.secondary.current}
+
+      aria-selected={selected}
+
+      aria-haspopup={!!menu}
+
+      aria-expanded={openMenu}
+
       Component={Component}
 
       className={classNames([
@@ -784,6 +800,8 @@ const ListItem = React.forwardRef((props_: IListItem, ref: any) => {
               <Type
                 version='b2'
 
+                id={refs.ids.primary.current}
+
                 {...PrimaryProps}
 
                 className={classNames([
@@ -806,13 +824,17 @@ const ListItem = React.forwardRef((props_: IListItem, ref: any) => {
               >
                 {primary}
               </Type>
-            ) : primary
+            ) : React.cloneElement(primary as any, {
+              id: refs.ids.primary.current
+            })
           )}
 
           {secondary !== undefined && (
             is('simple', secondary) ? (
               <Type
                 version='b2'
+
+                id={refs.ids.secondary.current}
 
                 {...SecondaryProps}
 
@@ -835,7 +857,9 @@ const ListItem = React.forwardRef((props_: IListItem, ref: any) => {
               >
                 {secondary}
               </Type>
-            ) : secondary
+            ) : React.cloneElement(secondary as any, {
+              id: refs.ids.secondary.current
+            })
           )}
 
           {tertiary !== undefined && (

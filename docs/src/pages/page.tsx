@@ -463,6 +463,8 @@ export default function Root(props: any) {
               </Button>
 
               <Tree
+                color='inherit'
+
                 open={values['tree_1']}
 
                 onChange={(value: any) => updateValue(value, 'tree_1')}

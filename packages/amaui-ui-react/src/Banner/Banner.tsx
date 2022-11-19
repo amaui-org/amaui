@@ -125,6 +125,8 @@ const Banner = React.forwardRef((props_: IBanner, ref: any) => {
     <Component
       ref={ref}
 
+      role='alert'
+
       className={classNames([
         staticClassName('Banner', theme) && [
           'AmauiBanner-root',

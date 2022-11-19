@@ -184,6 +184,9 @@ export * from './ToggleButtons';
 export { default as Accordion } from './Accordion';
 export * from './Accordion';
 
+export { default as Breadcrumbs } from './Breadcrumbs';
+export * from './Breadcrumbs';
+
 export { default as NavigationRail } from './NavigationRail';
 export * from './NavigationRail';
 

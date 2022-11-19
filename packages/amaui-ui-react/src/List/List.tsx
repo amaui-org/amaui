@@ -131,6 +131,8 @@ const List = React.forwardRef((props_: IList, ref: any) => {
 
       align='flex-start'
 
+      role='listbox'
+
       Component={Line}
 
       AdditionalProps={{

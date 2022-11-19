@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is, unique } from '@amaui/utils';
+import { getID, is, unique } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Icon from '../Icon';
@@ -159,6 +159,7 @@ const Select = React.forwardRef((props_: ISelect, ref: any) => {
     valueDefault,
     onChange,
 
+    label,
     multiple,
     prefix,
     sufix,
@@ -200,7 +201,10 @@ const Select = React.forwardRef((props_: ISelect, ref: any) => {
   const refs = {
     root: React.useRef<any>(),
     menu: React.useRef<any>(),
-    input: React.useRef<any>()
+    input: React.useRef<any>(),
+    ids: {
+      list: React.useRef(getID())
+    }
   };
 
   const styles: any = {
@@ -353,6 +357,10 @@ const Select = React.forwardRef((props_: ISelect, ref: any) => {
         fontSize={24}
 
         onClick={onClickArrowDown}
+
+        aria-expanded={open}
+
+        aria-controls={refs.ids.list.current}
       >
         <IconMaterialArrowDropDownRounded
           className={classNames([
@@ -421,6 +429,8 @@ const Select = React.forwardRef((props_: ISelect, ref: any) => {
 
         version={version}
 
+        label={label}
+
         prefix={prefix}
 
         sufix={sufix}
@@ -432,6 +442,20 @@ const Select = React.forwardRef((props_: ISelect, ref: any) => {
         readOnly={readOnly}
 
         endVerticalAlign='center'
+
+        role='combobox'
+
+        aria-multiselectable={multiple}
+
+        aria-controls={refs.ids.list.current}
+
+        aria-expanded={open}
+
+        aria-haspopup='listbox'
+
+        aria-labelledby={label}
+
+        aria-disabled={disabled}
 
         disabled={disabled}
 
@@ -531,6 +555,12 @@ const Select = React.forwardRef((props_: ISelect, ref: any) => {
 
             size,
 
+            role: 'listbox',
+
+            id: refs.ids.list.current,
+
+            'aria-label': label,
+
             ...ListProps
           }}
 
@@ -539,6 +569,8 @@ const Select = React.forwardRef((props_: ISelect, ref: any) => {
           {children.map((item: any, index: number) => (
             React.cloneElement(item, {
               key: index,
+
+              role: 'option',
 
               selected: multiple ? value.includes(item.props?.value) : value === item.props?.value,
 

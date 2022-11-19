@@ -400,6 +400,12 @@ const Checkbox = React.forwardRef((props_: ICheckbox, ref: any) => {
         />
       )}
 
+      role='checkbox'
+
+      aria-checked={indeterminate ? 'mixed' : value}
+
+      aria-disabled={disabled}
+
       disabled={disabled}
 
       Component={Component}

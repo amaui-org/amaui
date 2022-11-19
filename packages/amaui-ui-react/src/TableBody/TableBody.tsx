@@ -46,6 +46,8 @@ const TableBody = React.forwardRef((props_: ITableBody, ref: any) => {
 
       color={color}
 
+      role='rowgroup'
+
       Component={Component}
 
       className={classNames([

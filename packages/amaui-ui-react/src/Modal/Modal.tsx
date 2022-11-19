@@ -326,10 +326,26 @@ const Modal = React.forwardRef((props_: IModal, ref: any) => {
     onKeyDown
   } : {};
 
-  let Main = children;
+  const MainProps: any = {
+    role: 'dialog',
+
+    'aria-labelledby': 'amaui-modal-title',
+
+    'aria-describedby': 'amaui-modal-text',
+
+    'aria-modal': 'true',
+
+    'aria-live': 'assertive'
+  };
+
+  let Main: any = children && React.cloneElement(children as any, {
+    ...MainProps
+  });
 
   if (modalWrapper) Main = (
     <div
+      {...MainProps}
+
       className={classNames([
         staticClassName('Modal', theme) && [
           'AmauiModal-modal-root'

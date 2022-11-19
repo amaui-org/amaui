@@ -56,6 +56,8 @@ const TableHead = React.forwardRef((props_: ITableHead, ref: any) => {
 
       color={color}
 
+      role='rowgroup'
+
       Component={Component}
 
       className={classNames([

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is } from '@amaui/utils';
+import { getID, is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Surface from '../Surface';
@@ -108,7 +108,8 @@ const useStyle = styleMethod(theme => ({
   },
 
   iconButton: {
-    alignSelf: 'flex-start'
+    alignSelf: 'flex-start',
+    flex: '0 0 auto'
   },
 
   noBackground: {
@@ -220,6 +221,12 @@ const Accordion = React.forwardRef((props_: IAccordion, ref: any) => {
   } = props;
 
   const [open, setOpen] = React.useState(openDefault !== undefined ? openDefault : open_);
+  const refs = {
+    ids: {
+      button: React.useRef(getID()),
+      data: React.useRef(getID())
+    }
+  };
 
   const { classes } = useStyle(props);
 
@@ -415,6 +422,14 @@ const Accordion = React.forwardRef((props_: IAccordion, ref: any) => {
           <IconButton
             color='inherit'
 
+            aria-label={primary || secondary}
+
+            aria-controls={refs.ids.data.current}
+
+            aria-expanded={open}
+
+            id={refs.ids.button.current}
+
             {...IconButtonProps}
 
             className={classNames([
@@ -440,6 +455,12 @@ const Accordion = React.forwardRef((props_: IAccordion, ref: any) => {
         in={open}
 
         addValue={addValue * -8}
+
+        role='region'
+
+        aria-labelledby={refs.ids.button.current}
+
+        id={refs.ids.data.current}
 
         {...ExpandProps}
       >

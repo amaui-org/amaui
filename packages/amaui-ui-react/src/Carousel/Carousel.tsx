@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is, unique, clamp, debounce, equalDeep, TMethod } from '@amaui/utils';
+import { is, unique, clamp, debounce, equalDeep, TMethod, getID } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 import AmauiSubscription from '@amaui/subscription';
 
@@ -441,8 +441,8 @@ const Carousel = React.forwardRef((props_: ICarousel, ref: any) => {
     IconNext = IconMaterialNavigateNextRounded,
 
     ArrowProps,
-    ArrowPreviousProps,
-    ArrowNextProps,
+    ArrowPreviousProps: ArrowPreviousProps_,
+    ArrowNextProps: ArrowNextProps_,
     CarouselProps,
     TransitionsProps,
     TransitionComponentProps,
@@ -528,7 +528,10 @@ const Carousel = React.forwardRef((props_: ICarousel, ref: any) => {
     velocity: React.useRef<any>(),
     momentumID: React.useRef<any>(),
     width: React.useRef<any>(),
-    onInit: React.useRef<any>()
+    onInit: React.useRef<any>(),
+    ids: {
+      items: React.useRef(getID())
+    }
   };
 
   const styles: any = {
@@ -1250,6 +1253,22 @@ const Carousel = React.forwardRef((props_: ICarousel, ref: any) => {
     }
   }
 
+  const ArrowPreviousProps: any = {
+    ...ArrowPreviousProps_,
+
+    'aria-label': 'Arrow previous',
+
+    'aria-controls': refs.ids.items.current
+  };
+
+  const ArrowNextProps: any = {
+    ...ArrowNextProps_,
+
+    'aria-label': 'Arrow next',
+
+    'aria-controls': refs.ids.items.current
+  };
+
   const resolveItem = (Item: any) => {
     if (!Item) return null;
 
@@ -1298,6 +1317,10 @@ const Carousel = React.forwardRef((props_: ICarousel, ref: any) => {
       }}
 
       tabIndex='0'
+
+      role='region'
+
+      aria-roledescription='carousel'
 
       tonal={tonal}
 
@@ -1369,6 +1392,10 @@ const Carousel = React.forwardRef((props_: ICarousel, ref: any) => {
 
           onTouchEnd={onMouseUp}
 
+          id={refs.ids.items.current}
+
+          aria-live='polite'
+
           {...CarouselProps}
 
           className={classNames([
@@ -1398,6 +1425,12 @@ const Carousel = React.forwardRef((props_: ICarousel, ref: any) => {
               align='center'
 
               justify='center'
+
+              role='group'
+
+              aria-roledescription='slide'
+
+              aria-label={`${index + 1} out of ${refs.itemsLength.current}`}
 
               {...ItemWrapperProps}
 
@@ -1441,6 +1474,10 @@ const Carousel = React.forwardRef((props_: ICarousel, ref: any) => {
 
           onTouchEnd={onMouseUp}
 
+          id={refs.ids.items.current}
+
+          aria-live='polite'
+
           {...CarouselProps}
 
           className={classNames([
@@ -1475,6 +1512,12 @@ const Carousel = React.forwardRef((props_: ICarousel, ref: any) => {
                   align='center'
 
                   justify='center'
+
+                  role='group'
+
+                  aria-roledescription='slide'
+
+                  aria-label={`${value.index + 1} out of ${refs.itemsLength.current}`}
 
                   className={classNames([
                     staticClassName('Carousel', theme) && [

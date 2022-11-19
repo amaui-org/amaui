@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { clamp, is } from '@amaui/utils';
+import { clamp, getID, is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Checkbox from '../Checkbox';
@@ -130,6 +130,8 @@ export interface ITree extends Omit<IBaseElement, 'children'> {
 
   onChange?: (value: boolean) => any;
 
+  selected?: boolean;
+
   line?: boolean;
   indicator?: boolean;
   arrow?: boolean;
@@ -174,12 +176,14 @@ const Tree = React.forwardRef((props_: ITree, ref: any) => {
 
   const {
     tonal = true,
-    color = 'inherit',
+    color = 'default',
     version = 'text',
 
     open: open_,
     openDefault,
     onChange,
+
+    selected,
 
     line,
     indicator,
@@ -230,7 +234,10 @@ const Tree = React.forwardRef((props_: ITree, ref: any) => {
   const [open, setOpen] = React.useState(openDefault !== undefined ? openDefault : open_);
 
   const refs = {
-    root: React.useRef<any>()
+    root: React.useRef<any>(),
+    ids: {
+      middle: React.useRef(getID())
+    }
   };
 
   const { classes } = useStyle(props);
@@ -417,6 +424,14 @@ const Tree = React.forwardRef((props_: ITree, ref: any) => {
 
       onKeyDown={onKeyDown}
 
+      role={level === 0 ? 'tree' : 'treeitem'}
+
+      aria-labelledby={refs.ids.middle.current}
+
+      aria-expanded={open}
+
+      aria-selected={selected}
+
       Component={Line}
 
       AdditionalProps={{
@@ -470,6 +485,8 @@ const Tree = React.forwardRef((props_: ITree, ref: any) => {
 
         justify='unset'
 
+        role={(button && children) ? 'button' : undefined}
+
         Component={(button && children) ? 'button' : 'div'}
 
         {...MainProps}
@@ -487,6 +504,8 @@ const Tree = React.forwardRef((props_: ITree, ref: any) => {
       >
         {button && (
           <Interaction
+            selected={selected}
+
             pulse={focus}
           />
         )}
@@ -527,6 +546,8 @@ const Tree = React.forwardRef((props_: ITree, ref: any) => {
         {middle && (
           <Line
             gap={0}
+
+            id={refs.ids.middle.current}
 
             Component={is('simple', middle) ? Type : undefined}
 
@@ -599,6 +620,8 @@ const Tree = React.forwardRef((props_: ITree, ref: any) => {
               align='unset'
 
               justify='unset'
+
+              role='group'
 
               className={classNames([
                 staticClassName('Tree', theme) && [

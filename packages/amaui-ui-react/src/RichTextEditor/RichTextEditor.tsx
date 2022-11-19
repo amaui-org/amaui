@@ -3413,6 +3413,10 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
 
               justify='flex-start'
 
+              role='toolbar'
+
+              aria-label='Updates'
+
               {...ToolbarUpdatesProps}
 
               className={classNames([
@@ -3576,6 +3580,10 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
               align='center'
 
               justify='flex-start'
+
+              role='toolbar'
+
+              aria-label='Actions'
 
               {...ToolbarActionsProps}
 
@@ -3853,6 +3861,10 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
                       align='center'
 
                       justify='flex-start'
+
+                      role='toolbar'
+
+                      aria-label='Mini menu'
 
                       Component={Surface}
 

@@ -2,8 +2,8 @@ import React from 'react';
 
 import { is, unique, random, countries } from '@amaui/utils';
 import { AmauiDate, format, add, remove, set } from '@amaui/date';
-import { AmauiTheme, AmauiThemeProvider, classNames, style, sy, useAmauiTheme } from '@amaui/style-react';
-import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Radios, Keyframes, Switch, TextField, Label, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationItem, NavigationRail, NavigationDrawer, BottomSheet, BottomAppBar, TopAppBar, Card, CardImage, CardMain, CardHeader, CardButton, CardFooter, Table, TableHead, TableRow, TableCell, TableHeader, TableFooter, TableBody, Placeholder, Snackbar, useSnackbars, Pagination, TablePagination, SpeedDial, SpeedDialItem, ImageList, ImageListItem, ImageListItemBox, Stepper, Step, Tabs, Tab, Timeline, TimelineItem, Tree, Masonry, Reveal, useConfirm, ViewSplit, WindowSplit, useMainProgress, Image, SpyScroll, AdvancedTextField, NumericTextField, ColorTextField, useWidgets, ImageCrop, ImageEdit, FileChoose, DropZone, MenuDesktop, Markdown, RichTextEditor, ScreenCapture, Timer, Countdown, Drawing, Parallax, Weather, RoundMeter, Path, Watch, LinearMeter, Carousel, TimePicker, TimeRangePicker, DatePicker, DateRangePicker, DateTimePicker, DateTimeRangePicker, LineChart, AreaChart, ScatterChart, BubbleChart, ColumnChart, PieChart, DonutChart } from '@amaui/ui-react';
+import { AmauiThemeProvider, classNames, style, sy, useAmauiTheme } from '@amaui/style-react';
+import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Radios, Keyframes, Switch, TextField, Label, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationItem, NavigationRail, NavigationDrawer, BottomSheet, BottomAppBar, TopAppBar, Card, CardImage, CardMain, CardHeader, CardButton, CardFooter, Table, TableHead, TableRow, TableCell, TableHeader, TableFooter, TableBody, Placeholder, Snackbar, useSnackbars, Pagination, TablePagination, SpeedDial, SpeedDialItem, ImageList, ImageListItem, ImageListItemBox, Stepper, Step, Tabs, Tab, Timeline, TimelineItem, Tree, Masonry, Reveal, useConfirm, ViewSplit, WindowSplit, useMainProgress, Image, SpyScroll, AdvancedTextField, NumericTextField, ColorTextField, useWidgets, ImageCrop, ImageEdit, FileChoose, DropZone, MenuDesktop, Markdown, RichTextEditor, ScreenCapture, Timer, Countdown, Drawing, Parallax, Weather, RoundMeter, Path, Watch, LinearMeter, Carousel, TimePicker, TimeRangePicker, DatePicker, DateRangePicker, DateTimePicker, DateTimeRangePicker, LineChart, AreaChart, ScatterChart, BubbleChart, ColumnChart, PieChart, DonutChart, Breadcrumbs } from '@amaui/ui-react';
 
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
@@ -3449,6 +3449,108 @@ Please sign in again.`}
 
           <IconMaterialPottedPlantRounded color='secondary' />
         </Line>
+      </Accordion>
+
+      <Accordion primary='Breadcrumbs'>
+        <Accordion primary='Breadcrumbs' open>
+          <Breadcrumbs>
+            {Array.from({ length: 4 }).map((item: any, index: number) => (
+              <Type>
+                Item {index + 1}
+              </Type>
+            ))}
+          </Breadcrumbs>
+        </Accordion>
+
+        <Accordion primary='Breadcrumbs separator'>
+          <Breadcrumbs
+            separator='-'
+          >
+            {Array.from({ length: 4 }).map((item: any, index: number) => (
+              <Type>
+                Item {index + 1}
+              </Type>
+            ))}
+          </Breadcrumbs>
+        </Accordion>
+
+        <Accordion primary='Breadcrumbs max'>
+          <Line
+            style={{
+              width: '100%'
+            }}
+          >
+            <Breadcrumbs
+              max={0}
+            >
+              {Array.from({ length: 5 }).map((item: any, index: number) => (
+                <Type>
+                  Item {index + 1}
+                </Type>
+              ))}
+            </Breadcrumbs>
+
+            <Breadcrumbs
+              max={1}
+            >
+              {Array.from({ length: 5 }).map((item: any, index: number) => (
+                <Type>
+                  Item {index + 1}
+                </Type>
+              ))}
+            </Breadcrumbs>
+
+            <Breadcrumbs
+              max={2}
+            >
+              {Array.from({ length: 5 }).map((item: any, index: number) => (
+                <Type>
+                  Item {index + 1}
+                </Type>
+              ))}
+            </Breadcrumbs>
+
+            <Breadcrumbs
+              max={3}
+            >
+              {Array.from({ length: 5 }).map((item: any, index: number) => (
+                <Type>
+                  Item {index + 1}
+                </Type>
+              ))}
+            </Breadcrumbs>
+
+            <Breadcrumbs
+              max={4}
+            >
+              {Array.from({ length: 5 }).map((item: any, index: number) => (
+                <Type>
+                  Item {index + 1}
+                </Type>
+              ))}
+            </Breadcrumbs>
+
+            <Breadcrumbs
+              max={5}
+            >
+              {Array.from({ length: 5 }).map((item: any, index: number) => (
+                <Type>
+                  Item {index + 1}
+                </Type>
+              ))}
+            </Breadcrumbs>
+
+            <Breadcrumbs
+              max={7}
+            >
+              {Array.from({ length: 5 }).map((item: any, index: number) => (
+                <Type>
+                  Item {index + 1}
+                </Type>
+              ))}
+            </Breadcrumbs>
+          </Line>
+        </Accordion>
       </Accordion>
 
       <Accordion primary='DonutChart'>
@@ -16176,6 +16278,8 @@ Markdown 1 | Less | Pretty
               }}
             >
               <Tree
+                selected
+
                 middle='Accordion.jsx'
 
                 icon={<IconMaterialFiberManualRecordRounded

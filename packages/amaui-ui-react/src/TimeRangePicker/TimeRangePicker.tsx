@@ -687,6 +687,8 @@ const TimeRangePicker = React.forwardRef((props__: ITimeRangePicker, ref: any) =
 
         onClick={onMode}
 
+        aria-label='Choose time range'
+
         disabled={disabled || readOnly}
 
         {...IconButtonProps}
@@ -809,6 +811,8 @@ const TimeRangePicker = React.forwardRef((props__: ITimeRangePicker, ref: any) =
       {version === 'desktop' && (
         <Tooltip
           open={open}
+
+          portal={false}
 
           anchorElement={refs.root.current}
 

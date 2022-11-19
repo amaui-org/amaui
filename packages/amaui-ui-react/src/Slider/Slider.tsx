@@ -989,6 +989,18 @@ const Slider = React.forwardRef((props_: ISlider, ref: any) => {
 
       onKeyDown={onKeyDown}
 
+      role='slider'
+
+      aria-orientation={orientation}
+
+      aria-valuenow={valueValue()}
+
+      aria-valuetext={`${valueValue()}%`}
+
+      aria-valuemin={min}
+
+      aria-valuemax={max}
+
       className={classNames([
         staticClassName('Slider', theme) && [
           'AmauiSlider-root',
@@ -1202,6 +1214,14 @@ const Slider = React.forwardRef((props_: ISlider, ref: any) => {
             }}
 
             onMouseDown={(event: any) => onMouseDownButton(event, index)}
+
+            aria-valuenow={valueValue(value__)}
+
+            aria-valuetext={`${valueValue(value__)}%`}
+
+            aria-valuemin={min}
+
+            aria-valuemax={max}
 
             className={classNames([
               staticClassName('Slider', theme) && [

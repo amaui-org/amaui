@@ -582,6 +582,10 @@ const Tooltip = React.forwardRef((props_: ITooltip, ref: any) => {
               {...TransitionComponentProps}
             >
               <div
+                role='tooltip'
+
+                aria-label={is('simple', label) ? label as any : undefined}
+
                 className={classNames([
                   staticClassName('Tooltip', theme) && [
                     'AmauiTooltip-label-root'

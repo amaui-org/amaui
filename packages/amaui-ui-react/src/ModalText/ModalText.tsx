@@ -40,6 +40,8 @@ const ModalText = React.forwardRef((props_: IModalText, ref: any) => {
 
       version='b2'
 
+      id='amaui-modal-text'
+
       className={classNames([
         staticClassName('ModalText', theme) && [
           'AmauiModalText-root'

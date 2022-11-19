@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is } from '@amaui/utils';
+import { getID, is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Type from '../Type';
@@ -86,7 +86,10 @@ const Radios = React.forwardRef((props_: IRadios, ref: any) => {
   const [value, setValue] = React.useState(valueDefault !== undefined ? valueDefault : value_);
 
   const refs = {
-    value: React.useRef<any>()
+    value: React.useRef<any>(),
+    ids: {
+      label: React.useRef(getID())
+    }
   };
 
   refs.value.current = value;
@@ -119,6 +122,10 @@ const Radios = React.forwardRef((props_: IRadios, ref: any) => {
 
       justify={justify}
 
+      role='radiogroup'
+
+      aria-labelledby={refs.ids.label.current}
+
       Component={Component}
 
       className={classNames([
@@ -137,6 +144,8 @@ const Radios = React.forwardRef((props_: IRadios, ref: any) => {
     >
       <Type
         version={size === 'regular' ? 'l2' : size === 'large' ? 'l1' : 'l3'}
+
+        id={refs.ids.label.current}
 
         {...LabelProps}
 

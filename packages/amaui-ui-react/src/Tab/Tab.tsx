@@ -158,6 +158,10 @@ const Tab = React.forwardRef((props_: ITab, ref: any) => {
 
       onFocus={onFocus}
 
+      role='tab'
+
+      aria-selected={active}
+
       Component={Component}
 
       className={classNames([

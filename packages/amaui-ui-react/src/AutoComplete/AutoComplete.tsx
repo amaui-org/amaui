@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is, unique } from '@amaui/utils';
+import { getID, is, unique } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Icon from '../Icon';
@@ -208,6 +208,7 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
     valueDefault,
     onChange,
 
+    label,
     multiple,
     prefix,
     sufix,
@@ -270,7 +271,10 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
     root: React.useRef<any>(),
     value: React.useRef<any>(),
     menu: React.useRef<any>(),
-    input: React.useRef<HTMLInputElement>()
+    input: React.useRef<HTMLInputElement>(),
+    ids: {
+      list: React.useRef(getID())
+    }
   };
 
   const styles: any = {
@@ -623,6 +627,8 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
           <ListItem
             key={index}
 
+            role='option'
+
             preselected={!open ? false : undefined}
 
             {...other_}
@@ -681,6 +687,8 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
       !!(multiple ? value.length : valueInput) && (
         <IconButton
           onClick={onClear}
+
+          aria-label='Input clear'
         >
           <IconClear />
         </IconButton>
@@ -690,6 +698,10 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
         key={3}
 
         onClick={onClickArrowDown}
+
+        aria-expanded={open}
+
+        aria-controls={refs.ids.list.current}
 
         InteractionProps={{
           clear: !!(multiple ? value.length : valueInput)
@@ -781,6 +793,8 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
 
         version={version}
 
+        label={label}
+
         prefix={prefix}
 
         sufix={sufix}
@@ -792,6 +806,22 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
         readOnly={readOnly}
 
         endVerticalAlign='center'
+
+        role='combobox'
+
+        aria-autocomplete='list'
+
+        aria-multiselectable={multiple}
+
+        aria-controls={refs.ids.list.current}
+
+        aria-expanded={open}
+
+        aria-haspopup='listbox'
+
+        aria-labelledby={label}
+
+        aria-disabled={disabled}
 
         disabled={disabled}
 
@@ -928,6 +958,12 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
             paddingVertical: (is('function', groupBy) && !!options.length) ? 'none' : undefined,
 
             size,
+
+            role: 'listbox',
+
+            id: refs.ids.list.current,
+
+            'aria-label': label,
 
             ...ListProps,
 

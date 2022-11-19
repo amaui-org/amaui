@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is, getLeadingZerosNumber, arrayToParts, clamp } from '@amaui/utils';
-import { AmauiDate, format as formatMethod, set, is as isMethod, startOf, endOf, remove, add, TTimeUnits, months as monthsValue } from '@amaui/date';
+import { AmauiDate, format as formatMethod, set, is as isMethod, startOf, endOf, remove, add, TTimeUnits, months as monthsValue, format } from '@amaui/date';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Icon from '../Icon';
@@ -830,6 +830,8 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
 
                                 onClick={() => onDayClick(day.amauiDate)}
 
+                                aria-label={format(day, 'DD-MM-YYYY')}
+
                                 disabled={(
                                   (!day.in && !outside) ||
 
@@ -981,6 +983,8 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
                         }}
 
                         onClick={() => onDayClick(day.amauiDate)}
+
+                        aria-label={format(day, 'DD-MM-YYYY')}
 
                         disabled={(
                           (!day.in && !outside) ||
@@ -2223,6 +2227,8 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
               <IconButton
                 onClick={() => move(false)}
 
+                aria-label='Previous month'
+
                 disabled={refs.openMenu.current}
 
                 {...buttonsProps}
@@ -2265,6 +2271,8 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
                 classes.mode_docked_header_button,
                 refs.openMenu.current === 'year' && classes.open_secondary
               ])}
+
+              aria-label={`Select month, current ${month_}`}
             >
               {month_}
             </Button>
@@ -2274,6 +2282,8 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
             >
               <IconButton
                 onClick={() => move()}
+
+                aria-label='Next month'
 
                 disabled={refs.openMenu.current}
 
@@ -2297,6 +2307,8 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
             >
               <IconButton
                 onClick={() => move(false, 'year')}
+
+                aria-label='Previous year'
 
                 disabled={refs.openMenu.current}
 
@@ -2332,6 +2344,8 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
                 </Fade>
               )}
 
+              aria-label={`Select year, current ${year_}`}
+
               className={classNames([
                 staticClassName('DatePicker', theme) && [
                   'AmauiDatePicker-mode-docked-header-button'
@@ -2349,6 +2363,8 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
             >
               <IconButton
                 onClick={() => move(true, 'year')}
+
+                aria-label='Next year'
 
                 disabled={refs.openMenu.current}
 
@@ -2802,6 +2818,8 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
                     color='inherit'
 
                     onClick={onModeSwitch}
+
+                    aria-label='Enter date'
                   >
                     <IconEnter />
                   </IconButton>
@@ -2840,6 +2858,8 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
                     color='inherit'
 
                     onClick={onModeSwitch}
+
+                    aria-label='Choose date'
                   >
                     <Icon_ />
                   </IconButton>
@@ -2960,6 +2980,8 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
                           onClick={() => move(false, 'month')}
 
+                          aria-label='Previous month'
+
                           disabled={refs.openMenu.current}
                         >
                           <IconPrevious />
@@ -2975,6 +2997,8 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
                           color='inherit'
 
                           onClick={() => move(true, 'month')}
+
+                          aria-label='Next month'
 
                           disabled={refs.openMenu.current}
                         >
@@ -3329,6 +3353,8 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
             <IconButton
               onClick={onClose}
 
+              aria-label='Close'
+
               {...buttonsProps}
             >
               <IconClose />
@@ -3379,6 +3405,8 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
                       color='inherit'
 
                       onClick={onModeSwitch}
+
+                      aria-label='Enter date'
                     >
                       <IconEnter />
                     </IconButton>
@@ -3416,6 +3444,8 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
                       color='inherit'
 
                       onClick={onModeSwitch}
+
+                      aria-label='Select date'
                     >
                       <Icon_ />
                     </IconButton>
@@ -3555,6 +3585,8 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
                             onClick={() => move(false, 'year')}
 
+                            aria-label='Previous year'
+
                             disabled={refs.openMenu.current}
                           >
                             <IconPrevious />
@@ -3570,6 +3602,8 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
                             color='inherit'
 
                             onClick={() => move(true, 'year')}
+
+                            aria-label='Next year'
 
                             disabled={refs.openMenu.current}
                           >
@@ -3927,6 +3961,8 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
         onClick={onMode}
 
+        aria-label={`Choose date${range ? ' range' : ''}`}
+
         disabled={disabled || readOnly}
 
         {...IconButtonProps}
@@ -4057,6 +4093,8 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
       {version === 'desktop' && (
         <Tooltip
           open={open}
+
+          portal={false}
 
           anchorElement={refs.root.current}
 

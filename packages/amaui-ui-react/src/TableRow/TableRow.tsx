@@ -79,6 +79,8 @@ const TableRow = React.forwardRef((props_: ITableRow, ref: any) => {
 
       color={color}
 
+      role='row'
+
       Component={Component}
 
       className={classNames([

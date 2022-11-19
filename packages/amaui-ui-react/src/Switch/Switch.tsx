@@ -677,6 +677,12 @@ const Switch = React.forwardRef((props_: ISwitch, ref: any) => {
     <Component
       ref={ref}
 
+      role='switch'
+
+      aria-checked={value}
+
+      aria-disabled={disabled}
+
       className={classNames([
         staticClassName('Switch', theme) && [
           'AmauiSwitch-root',

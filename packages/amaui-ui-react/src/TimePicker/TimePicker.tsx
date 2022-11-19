@@ -1324,6 +1324,8 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
                   color='inherit'
 
                   onClick={onModeSwitch}
+
+                  aria-label={mode === 'select' ? 'Enter time' : 'Select time'}
                 >
                   {mode === 'select' ? <IconEnter /> : <Icon_ />}
                 </IconButton>
@@ -1674,6 +1676,8 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
                   color='inherit'
 
                   onClick={onModeSwitch}
+
+                  aria-label={mode === 'select' ? 'Enter time' : 'Select time'}
                 >
                   {mode === 'select' ? <IconEnter /> : <Icon_ />}
                 </IconButton>
@@ -1804,6 +1808,8 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
         onClick={onMode}
 
+        aria-label='Choose time'
+
         disabled={disabled || readOnly}
 
         {...IconButtonProps}
@@ -1915,6 +1921,8 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
       {version === 'desktop' && (
         <Tooltip
           open={open}
+
+          portal={false}
 
           anchorElement={refs.root.current}
 

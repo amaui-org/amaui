@@ -143,6 +143,10 @@ const Icon = React.forwardRef((props_: IIcon, ref: any) => {
 
       height='1em'
 
+      focusable='false'
+
+      aria-hidden
+
       style={{
         // Prevents svg fill update on load
         fill: 'currentcolor',
