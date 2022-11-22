@@ -7,7 +7,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "lerna bootstrap --scope='@amaui/docs' --include-dependencies && lerna run build --scope='@amaui/docs' && lerna run build --scope='@amaui/docs' --include-dependencies --stream",
+    "build": "lerna bootstrap --scope='@amaui/docs' --include-dependencies && lerna run build --scope='@amaui/docs' --include-dependencies --stream",
     "start": "cd docs && cross-env NODE_ENV=production node ./src"
   },
   "devDependencies": {
