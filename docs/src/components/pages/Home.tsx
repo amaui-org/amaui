@@ -59,6 +59,7 @@ const useStyle = style(theme => ({
 
   presentation_wrapper: {
     width: '100%',
+    position: 'relative',
     padding: '0px 24px clamp(40px, 5vw, 104px)'
   },
 
@@ -104,7 +105,7 @@ const useStyle = style(theme => ({
   },
 
   masonry: {
-    margin: '44px auto 0',
+    margin: '0 auto',
     width: 'calc(100% - 88px)',
     maxWidth: theme.breakpoints.values.xl
   }
@@ -120,6 +121,7 @@ export default function Root(props: any) {
   };
 
   const [init, setInit] = React.useState(false);
+  const [inProp, setInProp] = React.useState(false);
   const [imageSelected, setImageSelected] = React.useState<any>('primary');
   const [values, setValues] = React.useState<any>({
     tree_1: true,
@@ -127,7 +129,6 @@ export default function Root(props: any) {
     tree_12: true,
     tree_13: true
   });
-  const [inProp, setInProp] = React.useState(false);
   const light = useMediaQuery('(prefers-color-scheme: light)');
 
   React.useEffect(() => {
@@ -443,153 +444,64 @@ export default function Root(props: any) {
           ))}
         </Line>
 
-        <Fade
-          in={init && !inProp}
-
-          removeOnExited
+        <div
+          style={{
+            paddingTop: 44,
+            minHeight: 873
+          }}
         >
-          <Masonry
-            className={classes.masonry}
-          >
-            {placeholders.map((item, index: number) => (
-              <Placeholder
-                key={index}
-
-                height={item}
-
-                width='100%'
-              />
-            ))}
-          </Masonry>
-        </Fade>
-
-        <Fade
-          in={!init}
-
-          removeOnExited
-        >
-          <div
-            style={{
-              height: 873
-            }}
-          />
-        </Fade>
-
-        {/* UI elements */}
-        <Fade
-          in={inProp}
-
-          removeOnExited
-        >
-          <Masonry
-            className={classes.masonry}
-          >
-            <Button
-              tonal
+          {init && !inProp && (
+            <Fade
+              in
             >
-              Button
-            </Button>
+              <div>
+                <Masonry
+                  className={classes.masonry}
+                >
+                  {placeholders.map((item, index: number) => (
+                    <Placeholder
+                      key={index}
 
-            <Tree
-              color='inherit'
+                      height={item}
 
-              open={values['tree_1']}
+                      width='100%'
+                    />
+                  ))}
+                </Masonry>
+              </div>
+            </Fade>
+          )}
 
-              onChange={(value: any) => updateValue(value, 'tree_1')}
+          {/* UI elements */}
+          <Fade
+            in={inProp}
 
-              line
-
-              middle='src'
-
-              icon={<IconMaterialFolderRounded size='small' />}
-
-              iconOpen={<IconMaterialFolderOpenRounded size='small' />}
-
-              end={(
-                <IconMaterialFiberManualRecordRounded
-                  size={12}
-
-                  color='warning'
-                />
-              )}
-
-              MiddleProps={{
-                version: 'l2'
-              }}
-
-              style={{
-                minWidth: 204
-              }}
-            >
-              <Tree
-                open={values['tree_11']}
-
-                onChange={(value: any) => updateValue(value, 'tree_11')}
-
-                middle='Accordion'
-
-                icon={<IconMaterialFolderRounded size='small' />}
-
-                iconOpen={<IconMaterialFolderOpenRounded size='small' />}
-
-                MiddleProps={{
-                  version: 'l2'
-                }}
+            removeOnExited
+          >
+            <div>
+              <Masonry
+                className={classes.masonry}
               >
-                <Tree
-                  middle='Accordion.jsx'
-
-                  icon={<IconMaterialFiberManualRecordRounded
-                    size='small'
-
-                    color='secondary'
-                  />}
-
-                  MiddleProps={{
-                    version: 'b2',
-                    priority: 'secondary'
-                  }}
-                />
+                <Button
+                  tonal
+                >
+                  Button
+                </Button>
 
                 <Tree
-                  middle='index.jsx'
+                  color='inherit'
 
-                  icon={<IconMaterialFiberManualRecordRounded
-                    size='small'
+                  open={values['tree_1']}
 
-                    color='secondary'
-                  />}
+                  onChange={(value: any) => updateValue(value, 'tree_1')}
 
-                  MiddleProps={{
-                    version: 'b2',
-                    priority: 'secondary'
-                  }}
-                />
-              </Tree>
+                  line
 
-              <Tree
-                open={values['tree_12']}
+                  middle='src'
 
-                onChange={(value: any) => updateValue(value, 'tree_12')}
+                  icon={<IconMaterialFolderRounded size='small' />}
 
-                middle='Append'
-
-                icon={<IconMaterialFolderRounded size='small' />}
-
-                iconOpen={<IconMaterialFolderOpenRounded size='small' />}
-
-                MiddleProps={{
-                  version: 'l2'
-                }}
-              >
-                <Tree
-                  middle='Append.jsx'
-
-                  icon={<IconMaterialFiberManualRecordRounded
-                    size='small'
-
-                    color='secondary'
-                  />}
+                  iconOpen={<IconMaterialFolderOpenRounded size='small' />}
 
                   end={(
                     <IconMaterialFiberManualRecordRounded
@@ -600,298 +512,386 @@ export default function Root(props: any) {
                   )}
 
                   MiddleProps={{
-                    version: 'b2',
-                    priority: 'secondary'
+                    version: 'l2'
                   }}
-                />
 
-                <Tree
-                  middle='index.jsx'
-
-                  icon={<IconMaterialFiberManualRecordRounded
-                    size='small'
-
-                    color='secondary'
-                  />}
-
-                  MiddleProps={{
-                    version: 'b2',
-                    priority: 'secondary'
+                  style={{
+                    minWidth: 204
                   }}
-                />
-              </Tree>
-
-              <Tree
-                open={values['tree_13']}
-
-                onChange={(value: any) => updateValue(value, 'tree_13')}
-
-                middle='AutoComplete'
-
-                icon={<IconMaterialFolderRounded size='small' />}
-
-                iconOpen={<IconMaterialFolderOpenRounded size='small' />}
-
-                MiddleProps={{
-                  version: 'l2'
-                }}
-              >
-                <Tree
-                  middle='AutoComplete.jsx'
-
-                  icon={<IconMaterialFiberManualRecordRounded
-                    size='small'
-
-                    color='secondary'
-                  />}
-
-                  MiddleProps={{
-                    version: 'b2',
-                    priority: 'secondary'
-                  }}
-                />
-
-                <Tree
-                  middle='index.jsx'
-
-                  icon={<IconMaterialFiberManualRecordRounded
-                    size='small'
-
-                    color='secondary'
-                  />}
-
-                  MiddleProps={{
-                    version: 'b2',
-                    priority: 'secondary'
-                  }}
-                />
-              </Tree>
-            </Tree>
-
-            <Tabs
-              justify='center'
-            >
-              <Tab>Home</Tab>
-              <Tab>Products</Tab>
-              <Tab>About</Tab>
-            </Tabs>
-
-            <Fab
-              version='filled'
-            >
-              <IconMaterialPottedPlantRounded /> Fab
-            </Fab>
-
-            <AreaChart
-              guidelines='both'
-
-              names={{
-                y: 'Value',
-                x: 'Quantity',
-              }}
-
-              labelsAutoNumber={5}
-
-              marksAutoNumber={5}
-
-              minPaddingY={0.14}
-
-              maxPaddingY={0.14}
-
-              linearGradient
-
-              values={[
-                {
-                  color: 'primary',
-
-                  name: 'a',
-
-                  values: valueArea
-                }
-              ]}
-
-              style={{
-                padding: '14px 32px 0px 14px'
-              }}
-            />
-
-            <div>
-              <TimePicker
-                version='static'
-
-                versionStatic='select'
-
-                switch={false}
-
-                className={classes.timePicker}
-              />
-            </div>
-
-            <Card
-              style={{
-                maxWidth: 'unset'
-              }}
-            >
-              <CardHeader>
-                <ListItem
-                  color='primary'
-
-                  primary='Item'
-
-                  secondary='Description'
-
-                  Component='div'
-
-                  start={(
-                    <Avatar
-                      color='primary'
-                    >
-                      A
-                    </Avatar>
-                  )}
-
-                  end={(
-                    <IconButton>
-                      <IconMaterialMoreVertRounded />
-                    </IconButton>
-                  )}
-
-                  noPadding
-                />
-              </CardHeader>
-
-              <CardImage
-                alt={attribution()}
-
-                image={[undefined, 'primary'].includes(imageSelected) ? '/assets/image/image-yellow.jpg' : `/assets/image/${imageSelected}.jpg`}
-
-                shape='all'
-
-                style={{
-                  backgroundColor: theme.palette.color.primary[50]
-                }}
-              />
-
-              <CardMain
-                gap={1}
-              >
-                <Type
-                  version='h3'
-
-                  style={{ marginBottom: '4px' }}
                 >
-                  Product
-                </Type>
+                  <Tree
+                    open={values['tree_11']}
 
-                <Type
-                  version='l1'
+                    onChange={(value: any) => updateValue(value, 'tree_11')}
+
+                    middle='Accordion'
+
+                    icon={<IconMaterialFolderRounded size='small' />}
+
+                    iconOpen={<IconMaterialFolderOpenRounded size='small' />}
+
+                    MiddleProps={{
+                      version: 'l2'
+                    }}
+                  >
+                    <Tree
+                      middle='Accordion.jsx'
+
+                      icon={<IconMaterialFiberManualRecordRounded
+                        size='small'
+
+                        color='secondary'
+                      />}
+
+                      MiddleProps={{
+                        version: 'b2',
+                        priority: 'secondary'
+                      }}
+                    />
+
+                    <Tree
+                      middle='index.jsx'
+
+                      icon={<IconMaterialFiberManualRecordRounded
+                        size='small'
+
+                        color='secondary'
+                      />}
+
+                      MiddleProps={{
+                        version: 'b2',
+                        priority: 'secondary'
+                      }}
+                    />
+                  </Tree>
+
+                  <Tree
+                    open={values['tree_12']}
+
+                    onChange={(value: any) => updateValue(value, 'tree_12')}
+
+                    middle='Append'
+
+                    icon={<IconMaterialFolderRounded size='small' />}
+
+                    iconOpen={<IconMaterialFolderOpenRounded size='small' />}
+
+                    MiddleProps={{
+                      version: 'l2'
+                    }}
+                  >
+                    <Tree
+                      middle='Append.jsx'
+
+                      icon={<IconMaterialFiberManualRecordRounded
+                        size='small'
+
+                        color='secondary'
+                      />}
+
+                      end={(
+                        <IconMaterialFiberManualRecordRounded
+                          size={12}
+
+                          color='warning'
+                        />
+                      )}
+
+                      MiddleProps={{
+                        version: 'b2',
+                        priority: 'secondary'
+                      }}
+                    />
+
+                    <Tree
+                      middle='index.jsx'
+
+                      icon={<IconMaterialFiberManualRecordRounded
+                        size='small'
+
+                        color='secondary'
+                      />}
+
+                      MiddleProps={{
+                        version: 'b2',
+                        priority: 'secondary'
+                      }}
+                    />
+                  </Tree>
+
+                  <Tree
+                    open={values['tree_13']}
+
+                    onChange={(value: any) => updateValue(value, 'tree_13')}
+
+                    middle='AutoComplete'
+
+                    icon={<IconMaterialFolderRounded size='small' />}
+
+                    iconOpen={<IconMaterialFolderOpenRounded size='small' />}
+
+                    MiddleProps={{
+                      version: 'l2'
+                    }}
+                  >
+                    <Tree
+                      middle='AutoComplete.jsx'
+
+                      icon={<IconMaterialFiberManualRecordRounded
+                        size='small'
+
+                        color='secondary'
+                      />}
+
+                      MiddleProps={{
+                        version: 'b2',
+                        priority: 'secondary'
+                      }}
+                    />
+
+                    <Tree
+                      middle='index.jsx'
+
+                      icon={<IconMaterialFiberManualRecordRounded
+                        size='small'
+
+                        color='secondary'
+                      />}
+
+                      MiddleProps={{
+                        version: 'b2',
+                        priority: 'secondary'
+                      }}
+                    />
+                  </Tree>
+                </Tree>
+
+                <Tabs
+                  justify='center'
                 >
-                  Good quality
-                </Type>
+                  <Tab>Home</Tab>
+                  <Tab>Products</Tab>
+                  <Tab>About</Tab>
+                </Tabs>
 
-                <Type
-                  version='b2'
-
-                  priority='secondary'
-                >
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                </Type>
-              </CardMain>
-
-              <CardFooter>
-                <Button
-                  tonal
-
-                  version='outlined'
-                >
-                  Preview
-                </Button>
-
-                <Button
+                <Fab
                   version='filled'
-
-                  elevation={false}
                 >
-                  Buy
-                </Button>
-              </CardFooter>
-            </Card>
+                  <IconMaterialPottedPlantRounded /> Fab
+                </Fab>
 
-            <div>
-              <DatePicker
-                version='static'
+                <AreaChart
+                  guidelines='both'
 
-                versionStatic='docked'
-              />
+                  names={{
+                    y: 'Value',
+                    x: 'Quantity',
+                  }}
+
+                  labelsAutoNumber={5}
+
+                  marksAutoNumber={5}
+
+                  minPaddingY={0.14}
+
+                  maxPaddingY={0.14}
+
+                  linearGradient
+
+                  values={[
+                    {
+                      color: 'primary',
+
+                      name: 'a',
+
+                      values: valueArea
+                    }
+                  ]}
+
+                  style={{
+                    padding: '14px 32px 0px 14px'
+                  }}
+                />
+
+                <div>
+                  <TimePicker
+                    version='static'
+
+                    versionStatic='select'
+
+                    switch={false}
+
+                    className={classes.timePicker}
+                  />
+                </div>
+
+                <Card
+                  style={{
+                    maxWidth: 'unset'
+                  }}
+                >
+                  <CardHeader>
+                    <ListItem
+                      color='primary'
+
+                      primary='Item'
+
+                      secondary='Description'
+
+                      Component='div'
+
+                      start={(
+                        <Avatar
+                          color='primary'
+                        >
+                          A
+                        </Avatar>
+                      )}
+
+                      end={(
+                        <IconButton>
+                          <IconMaterialMoreVertRounded />
+                        </IconButton>
+                      )}
+
+                      noPadding
+                    />
+                  </CardHeader>
+
+                  <CardImage
+                    alt={attribution()}
+
+                    image={[undefined, 'primary'].includes(imageSelected) ? '/assets/image/image-yellow.jpg' : `/assets/image/${imageSelected}.jpg`}
+
+                    shape='all'
+
+                    style={{
+                      backgroundColor: theme.palette.color.primary[50]
+                    }}
+                  />
+
+                  <CardMain
+                    gap={1}
+                  >
+                    <Type
+                      version='h3'
+
+                      style={{ marginBottom: '4px' }}
+                    >
+                      Product
+                    </Type>
+
+                    <Type
+                      version='l1'
+                    >
+                      Good quality
+                    </Type>
+
+                    <Type
+                      version='b2'
+
+                      priority='secondary'
+                    >
+                      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    </Type>
+                  </CardMain>
+
+                  <CardFooter>
+                    <Button
+                      tonal
+
+                      version='outlined'
+                    >
+                      Preview
+                    </Button>
+
+                    <Button
+                      version='filled'
+
+                      elevation={false}
+                    >
+                      Buy
+                    </Button>
+                  </CardFooter>
+                </Card>
+
+                <div>
+                  <DatePicker
+                    version='static'
+
+                    versionStatic='docked'
+                  />
+                </div>
+
+                <Line
+                  align='center'
+
+                  justify='center'
+
+                  style={{
+                    padding: '24px 0'
+                  }}
+                >
+                  <Weather
+                    temperature={14}
+
+                    weather='clear'
+                  />
+                </Line>
+
+                <DonutChart
+                  values={valueDonut}
+                />
+
+                <Slider
+                  valueDefault={50}
+
+                  tooltip
+
+                  style={{
+                    padding: '54px 0'
+                  }}
+                />
+
+                <Line
+                  align='center'
+
+                  justify='center'
+
+                  style={{
+                    padding: '24px 0'
+                  }}
+                >
+                  <Rating
+                    valueDefault={5}
+                  />
+                </Line>
+
+                <Line
+                  direction='row'
+
+                  align='center'
+
+                  justify='center'
+
+                  style={{
+                    padding: '24px 0'
+                  }}
+                >
+                  <Switch
+                    valueDefault={true}
+                  />
+
+                  <Checkbox
+                    valueDefault={true}
+                  />
+
+                  <Radio />
+                </Line>
+              </Masonry>
             </div>
-
-            <Line
-              align='center'
-
-              justify='center'
-
-              style={{
-                padding: '24px 0'
-              }}
-            >
-              <Weather
-                temperature={14}
-
-                weather='clear'
-              />
-            </Line>
-
-            <DonutChart
-              values={valueDonut}
-            />
-
-            <Slider
-              valueDefault={50}
-
-              tooltip
-
-              style={{
-                padding: '54px 0'
-              }}
-            />
-
-            <Line
-              align='center'
-
-              justify='center'
-
-              style={{
-                padding: '24px 0'
-              }}
-            >
-              <Rating
-                valueDefault={5}
-              />
-            </Line>
-
-            <Line
-              direction='row'
-
-              align='center'
-
-              justify='center'
-
-              style={{
-                padding: '24px 0'
-              }}
-            >
-              <Switch
-                valueDefault={true}
-              />
-
-              <Checkbox
-                valueDefault={true}
-              />
-
-              <Radio />
-            </Line>
-          </Masonry>
-        </Fade>
+          </Fade>
+        </div>
       </section>
 
       {/* About */}

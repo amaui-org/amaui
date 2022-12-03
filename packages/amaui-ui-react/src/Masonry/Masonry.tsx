@@ -48,18 +48,21 @@ const Masonry = React.forwardRef((props_: IMasonry, ref: any) => {
     ...other
   } = props;
 
+  const [init, setInit] = React.useState(false);
+
   const refs = {
     root: React.useRef<any>(),
     gap: React.useRef<any>(),
-    columns: React.useRef<any>()
+    columns: React.useRef<any>(),
+    init: React.useRef<any>()
   };
+
+  refs.init.current = init;
 
   const { classes } = useStyle(props);
 
   const styles: any = {
-    root: {
-
-    },
+    root: {},
     item: {}
   };
 
@@ -123,6 +126,8 @@ const Masonry = React.forwardRef((props_: IMasonry, ref: any) => {
       const height = highestValue + (gap * theme.space.unit);
 
       refs.root.current.style.height = `${height}px`;
+
+      if (!refs.init.current) setInit(true);
     }
   };
 
@@ -150,6 +155,12 @@ const Masonry = React.forwardRef((props_: IMasonry, ref: any) => {
   styles.root.rowGap = `${gap * theme.space.unit}px`;
 
   styles.root.columnGap = `${(gap / 2) * theme.space.unit}px`;
+
+  if (!init) {
+    styles.root.position = 'fixed';
+
+    styles.root.visibility = 'hidden';
+  }
 
   return (
     <Line

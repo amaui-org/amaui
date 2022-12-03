@@ -116,6 +116,7 @@ const Fade = React.forwardRef((props_: IFade, ref: any) => {
       {...props}
     >
       {(status: TTransitionStatus, ref_) => {
+
         return React.cloneElement(children as any, {
           ...other,
 
