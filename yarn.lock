@@ -148,6 +148,14 @@
     "@amaui/utils" "^1.0.11411"
     "@babel/runtime" "^7.18.3"
 
+"@amaui/subscription@^1.0.11150":
+  version "1.0.11150"
+  resolved "https://registry.yarnpkg.com/@amaui/subscription/-/subscription-1.0.11150.tgz#93e4f58976dfc98c8e4e128320200bf5b64f8e53"
+  integrity sha512-HOuvn6lqTbUcPWzXRrrwms7HicZLRvgCTKU3k5jHjOL1ZUE4I9lGW/FYoYK2fjXuAuOtO+qndFfdlDWxYqLvEQ==
+  dependencies:
+    "@amaui/utils" "^1.0.11411"
+    "@babel/runtime" "^7.18.3"
+
 "@amaui/test@^1.0.11150":
   version "1.0.11150"
   resolved "https://registry.yarnpkg.com/@amaui/test/-/test-1.0.11150.tgz#e163aa797ee82393eed2d0609adee1caabc2d051"
@@ -12974,7 +12982,7 @@ react-dev-utils@^12.0.1:
     strip-ansi "^6.0.1"
     text-table "^0.2.0"
 
-react-dom@18.2.0, react-dom@^18.1.0, react-dom@^18.2.0:
+react-dom@18.2.0, react-dom@^18.1.0:
   version "18.2.0"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-18.2.0.tgz#22aaf38708db2674ed9ada224ca4aa708d821e3d"
   integrity sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==

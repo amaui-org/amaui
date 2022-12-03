@@ -19,7 +19,7 @@ import IconMaterialMoreVertRounded from '@amaui/icons-material-react/IconMateria
 
 import Logo from '../../../public/assets/svg/logo.svg';
 
-import { images } from '../../utils';
+import { images, themeImageSub } from '../../utils';
 
 const useStyle = style(theme => ({
   root: {
@@ -117,7 +117,8 @@ export default function Root(props: any) {
   const theme = useAmauiTheme();
 
   const refs = {
-    storage: new AmauiStorage({ namespace: 'amaui-docs' })
+    storage: new AmauiStorage({ namespace: 'amaui-docs' }),
+    imageSelected: React.useRef<string>()
   };
 
   const [init, setInit] = React.useState(false);
@@ -131,18 +132,34 @@ export default function Root(props: any) {
   });
   const light = useMediaQuery('(prefers-color-scheme: light)');
 
+  refs.imageSelected.current = imageSelected;
+
+  const updateImageSelected = (value: string) => {
+    setImageSelected(value);
+
+    themeImageSub.emit(value);
+  };
+
   React.useEffect(() => {
     const imageSelected_ = refs.storage.get('image-selected');
 
     if (imageSelected_ !== null) {
-      setImageSelected(imageSelected_);
+      updateImageSelected(imageSelected_);
     }
+
+    const imageSub = themeImageSub.subscribe((value: string) => {
+      if (value !== refs.imageSelected.current) setImageSelected(value);
+    });
 
     setTimeout(() => {
       setInProp(true);
     }, 700);
 
     setInit(true);
+
+    return () => {
+      imageSub.unsubscribe();
+    };
     // eslint-disable-next-line
   }, []);
 
@@ -274,7 +291,7 @@ export default function Root(props: any) {
 
         theme.updateWithRerender(values_);
 
-        setImageSelected(value);
+        updateImageSelected(value);
 
         refs.storage.add('image-selected', value);
 

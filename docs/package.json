@@ -12,6 +12,7 @@
     "@amaui/icons-material-react": "^1.0.1111",
     "@amaui/storage": "^1.0.11117",
     "@amaui/style-react": "^1.0.1130",
+    "@amaui/subscription": "^1.0.11150",
     "@amaui/ui-react": "^1.0.1151",
     "@amaui/utils": "^1.0.11445",
     "@types/node": "18.11.9",

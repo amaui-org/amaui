@@ -17,7 +17,7 @@ import IconGithub from '../../public/assets/svg/github.svg';
 import Home from '../components/pages/Home';
 import Library from '../components/pages/Library';
 
-import { images, libraries as all_libraries } from '../utils';
+import { images, libraries as all_libraries, themeImageSub } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   '@p': {
@@ -170,6 +170,12 @@ function Root(props: any) {
 
   refs.imageSelected.current = imageSelected;
 
+  const updateImageSelected = (value: string) => {
+    setImageSelected(value);
+
+    themeImageSub.emit(value);
+  };
+
   React.useEffect(() => {
     if (window.matchMedia?.('(prefers-color-scheme: dark)')?.matches) update('light', false);
 
@@ -183,7 +189,15 @@ function Root(props: any) {
 
     if (direction !== null) update('direction', direction);
 
+    const imageSub = themeImageSub.subscribe((value: string) => {
+      if (value !== refs.imageSelected.current) setImageSelected(value);
+    });
+
     setInit(true);
+
+    return () => {
+      imageSub.unsubscribe();
+    };
     // eslint-disable-next-line
   }, []);
 
@@ -272,7 +286,7 @@ function Root(props: any) {
 
         theme.updateWithRerender(values_);
 
-        setImageSelected(value);
+        updateImageSelected(value);
 
         refs.storage.add('image-selected', value);
 

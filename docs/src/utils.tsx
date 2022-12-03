@@ -1,4 +1,5 @@
 import { colors } from '@amaui/style-react';
+import AmauiSubscrption from '@amaui/subscription';
 
 export const libraries = [
   { name: 'UI React', url: '/amaui-ui-react' },
@@ -36,3 +37,5 @@ export const images = [
   { version: 'image-orange', label: 'Oranges image to theme', image: '/assets/image/image-orange.jpg', alt: 'Photo by Karolina Grabowska' },
   { version: 'image-pink', label: 'Pink Shiba Inu image to theme', image: '/assets/image/image-pink.jpg', alt: 'Photo by Anna Shvets' }
 ];
+
+export const themeImageSub = new AmauiSubscrption('primary');
