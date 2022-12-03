@@ -741,7 +741,8 @@ const Chart = React.forwardRef((props_: IChart, ref: any) => {
     guidelinesPosition: React.useRef<any>(),
     guidelinesAppend: React.useRef<any>(),
     hover: React.useRef<any>(),
-    allValues: React.useRef<any>([])
+    allValues: React.useRef<any>([]),
+    theme: React.useRef<any>([])
   };
 
   refs.rects.current = rects;
@@ -755,6 +756,8 @@ const Chart = React.forwardRef((props_: IChart, ref: any) => {
   refs.guidelinesAppend.current = guidelinesAppend;
 
   refs.hover.current = hover;
+
+  refs.theme.current = theme;
 
   const minMax = React.useMemo(() => {
     const values_ = {
@@ -944,7 +947,7 @@ const Chart = React.forwardRef((props_: IChart, ref: any) => {
                   ])}
 
                   style={{
-                    background: !theme.palette.color[group] ? group : theme.palette.color[group][groups[group][0]?.item?.tone || 'main']
+                    background: !refs.theme.current.palette.color[group] ? group : refs.theme.current.palette.color[group][groups[group][0]?.item?.tone || 'main']
                   }}
                 />
 
