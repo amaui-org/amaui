@@ -11,13 +11,17 @@ export default class CustomDocument extends Document {
           <meta charSet='UTF-8' />
           <meta httpEquiv='X-UA-Compatible' content='IE=edge,chrome=1' />
 
-          <meta httpEquiv="Pragma" content="no-cache" />
-          <meta httpEquiv="cache-control" content="no-cache, no-store, must-revalidate" />
+          <meta httpEquiv='Pragma' content='no-cache' />
+          <meta httpEquiv='cache-control' content='no-cache, no-store, must-revalidate' />
 
-          <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin='true' />
+          <link rel='preconnect' href='https://fonts.googleapis.com' />
+          <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin='true' />
 
-          <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@700&family=Roboto+Mono&display=swap" rel="stylesheet" />
+          <link href='https://fonts.googleapis.com/css2?family=Lato:wght@400&family=Roboto+Mono&family=Roboto:wght@400;500&display=swap' rel='stylesheet' />
+
+          <link rel='preload' as='font' type='font/ttf' href='/assets/fonts/Montserrat/Montserrat-Bold.ttf' />
+
+          <link rel='preload' as='font' type='font/ttf' href='/assets/fonts/Lato/Lato-Bold.ttf' />
 
           <link rel='manifest' href='/manifest.json' />
 
@@ -89,9 +93,32 @@ CustomDocument.getInitialProps = async ctx => {
     // Styles fragment is rendered after the app and page rendering finish.
     styles: [
       <style
+        key={0}
+
+        dangerouslySetInnerHTML={{
+          __html: `
+@font-face {
+  font-family: 'Montserrat';
+  src: url('assets/fonts/Montserrat/Montserrat-Bold.ttf');
+  font-weight: 700;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('assets/fonts/Lato/Lato-Bold.ttf');
+  font-weight: 700;
+  font-style: normal;
+  font-display: block;
+}
+` }}
+      />,
+
+      <style
         id='amaui-initial-css'
 
-        key='amaui'
+        key={1}
 
         dangerouslySetInnerHTML={{ __html: amauiStyle.css }}
       />

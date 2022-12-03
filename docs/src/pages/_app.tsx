@@ -20,14 +20,14 @@ const FONT_FAMILY = {
 
 const widgets = [
   {
-    label: 'Regular Clock',
-    Icon: IconMaterialNestClockFarsightDigitalRounded,
-    element: <Watch />
+    label: 'Countdown',
+    Icon: IconMaterialAvTimerRounded,
+    element: <Countdown />
   },
   {
-    label: 'Modern Clock',
-    Icon: IconMaterialNestClockFarsightAnalogRounded,
-    element: <Watch version='minimal' size='small' />
+    label: 'Timer',
+    Icon: IconMaterialTimerRounded,
+    element: <Timer />
   },
   // {
   //   label: 'Weather',
@@ -41,20 +41,21 @@ const widgets = [
     element: <ScreenCapture />
   },
   {
-    label: 'Timer',
-    Icon: IconMaterialTimerRounded,
-    element: <Timer />
+    label: 'Modern Clock',
+    Icon: IconMaterialNestClockFarsightAnalogRounded,
+    element: <Watch version='minimal' size='small' />
   },
   {
-    label: 'Countdown',
-    Icon: IconMaterialAvTimerRounded,
-    element: <Countdown />
+    label: 'Regular Clock',
+    Icon: IconMaterialNestClockFarsightDigitalRounded,
+    element: <Watch />
   }
 ];
 
 export default function App(props: AppProps) {
   const {
     Component,
+
     pageProps
   } = props;
 

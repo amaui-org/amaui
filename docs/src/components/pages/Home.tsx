@@ -3,21 +3,23 @@ import React from 'react';
 import Head from 'next/head';
 
 import { random } from '@amaui/utils';
-import { AreaChart, Avatar, Button, Card, CardFooter, CardHeader, CardImage, CardMain, Checkbox, DatePicker, DonutChart, Fab, Fade, IconButton, Line, Link, ListItem, Masonry, Radio, Rating, Slider, Surface, Switch, Tab, Tabs, TimePicker, Tooltip, Tree, Type, useMediaQuery, Weather } from '@amaui/ui-react';
+import { AreaChart, Avatar, Button, Card, CardFooter, CardHeader, CardImage, CardMain, Checkbox, DatePicker, DonutChart, Fab, Fade, IconButton, Line, Link, ListItem, Masonry, Placeholder, Radio, Rating, Slider, Surface, Switch, Tab, Tabs, TimePicker, Tooltip, Tree, Type, useMediaQuery, Weather } from '@amaui/ui-react';
 import { classNames, colors, style, useAmauiTheme } from '@amaui/style-react';
 import AmauiStorage from '@amaui/storage';
 
-import IconMaterialLightModeRounded from '@amaui/icons-material-react/build/IconMaterialLightModeRounded';
-import IconMaterialDarkModeRounded from '@amaui/icons-material-react/build/IconMaterialDarkModeRounded';
-import IconMaterialFormatTextdirectionLToRRounded from '@amaui/icons-material-react/build/IconMaterialFormatTextdirectionLToRRounded';
-import IconMaterialFormatTextdirectionRToLRounded from '@amaui/icons-material-react/build/IconMaterialFormatTextdirectionRToLRounded';
-import IconMaterialPottedPlantRounded from '@amaui/icons-material-react/build/IconMaterialPottedPlantRounded';
-import IconMaterialFolderRounded from '@amaui/icons-material-react/build/IconMaterialFolderRounded';
-import IconMaterialFolderOpenRounded from '@amaui/icons-material-react/build/IconMaterialFolderOpenRounded';
-import IconMaterialFiberManualRecordRounded from '@amaui/icons-material-react/build/IconMaterialFiberManualRecordRoundedFilled';
-import IconMaterialMoreVertRounded from '@amaui/icons-material-react/build/IconMaterialMoreVertRounded';
+import IconMaterialLightModeRounded from '@amaui/icons-material-react/IconMaterialLightModeRounded';
+import IconMaterialDarkModeRounded from '@amaui/icons-material-react/IconMaterialDarkModeRounded';
+import IconMaterialFormatTextdirectionLToRRounded from '@amaui/icons-material-react/IconMaterialFormatTextdirectionLToRRounded';
+import IconMaterialFormatTextdirectionRToLRounded from '@amaui/icons-material-react/IconMaterialFormatTextdirectionRToLRounded';
+import IconMaterialPottedPlantRounded from '@amaui/icons-material-react/IconMaterialPottedPlantRounded';
+import IconMaterialFolderRounded from '@amaui/icons-material-react/IconMaterialFolderRounded';
+import IconMaterialFolderOpenRounded from '@amaui/icons-material-react/IconMaterialFolderOpenRounded';
+import IconMaterialFiberManualRecordRounded from '@amaui/icons-material-react/IconMaterialFiberManualRecordRoundedFilled';
+import IconMaterialMoreVertRounded from '@amaui/icons-material-react/IconMaterialMoreVertRounded';
 
-import Logo from '../../public/assets/svg/logo.svg';
+import Logo from '../../../public/assets/svg/logo.svg';
+
+import { images } from '../../utils';
 
 const useStyle = style(theme => ({
   root: {
@@ -129,21 +131,15 @@ export default function Root(props: any) {
   const light = useMediaQuery('(prefers-color-scheme: light)');
 
   React.useEffect(() => {
-    if (window.matchMedia?.('(prefers-color-scheme: dark)')?.matches) update('light', false);
-
     const imageSelected_ = refs.storage.get('image-selected');
 
     if (imageSelected_ !== null) {
-      update('image', imageSelected_);
-
       setImageSelected(imageSelected_);
     }
 
-    const direction = refs.storage.get('direction');
-
-    if (direction !== null) update('direction', direction);
-
-    setInProp(true);
+    setTimeout(() => {
+      setInProp(true);
+    }, 1400);
 
     setInit(true);
     // eslint-disable-next-line
@@ -153,7 +149,7 @@ export default function Root(props: any) {
     if (init) {
       update('light', light);
     }
-  }, [light])
+  }, [light]);
 
   const valueArea = React.useMemo(() => Array.from({ length: 7 }).map(() => [random(-40, 400), random(-40, 400)]), []);
 
@@ -288,17 +284,18 @@ export default function Root(props: any) {
     }
   };
 
-  const images = [
-    { version: 'primary', color: colors.yellow[500], label: 'Default theme', image: '/assets/image/image-yellow.jpg', alt: 'Photo by Felix Mittermeier' },
-    { version: 'image-green', label: 'Green leaves image to theme', image: '/assets/image/image-green.jpg', alt: 'Photo by Chris Lee on Unsplash' },
-    { version: 'image-orange', label: 'Oranges image to theme', image: '/assets/image/image-orange.jpg', alt: 'Photo by Karolina Grabowska' },
-    { version: 'image-pink', label: 'Pink Shiba Inu image to theme', image: '/assets/image/image-pink.jpg', alt: 'Photo by Anna Shvets' }
-  ];
-
   const attribution = (version: string = imageSelected) => images.find(image => image.version === version)?.alt;
+
+  const placeholders = [39.5, 232, 49.5, 56, 480, 501, 747.5, 421.5, 228, 276, 108, 72, 88];
 
   return <>
     <Head>
+      <title>amaui</title>
+
+      <meta property='description' content='Make Modern Web &amp; Mobile Apps Quickly 100+ UI elements' />
+
+      <meta property='og:description' content='Make Modern Web &amp; Mobile Apps Quickly 100+ UI elements' />
+
       {light ? <>
         <link rel='apple-touch-icon' sizes='180x180' href='/assets/favicon/light/apple-touch-icon.png' />
         <link rel='icon' type='image/png' sizes='32x32' href='/assets/favicon/light/favicon-32x32.png' />
@@ -445,6 +442,30 @@ export default function Root(props: any) {
             </Tooltip>
           ))}
         </Line>
+
+        {!init && (
+          <div
+            style={{
+              height: 873
+            }}
+          />
+        )}
+
+        {(init && !inProp) && (
+          <Masonry
+            className={classes.masonry}
+          >
+            {placeholders.map((item, index: number) => (
+              <Placeholder
+                key={index}
+
+                height={item}
+
+                width='100%'
+              />
+            ))}
+          </Masonry>
+        )}
 
         {/* UI elements */}
         <Fade
