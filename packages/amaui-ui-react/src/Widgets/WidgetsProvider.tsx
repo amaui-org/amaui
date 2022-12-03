@@ -235,6 +235,8 @@ const WidgetsProvider = React.forwardRef((props_: IWidgetsProvider, ref: any) =>
 
   refs.value.current.closeAll = closeAll;
 
+  const widgetsToUse = [...((widgets || []) as Array<TElement>)].reverse();
+
   return (
     <WidgetsContext.Provider value={refs.value.current}>
       {(widgets as any)?.length && <>
@@ -310,7 +312,7 @@ const WidgetsProvider = React.forwardRef((props_: IWidgetsProvider, ref: any) =>
               classes.line
             ])}
           >
-            {(widgets as any).map((item: any, index: number) => {
+            {widgetsToUse.map((item: any, index: number) => {
               const valueItem = item.value !== undefined ? item.value : item.label;
 
               const WidgetWrapper = Move;
