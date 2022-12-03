@@ -37,7 +37,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   version_analog: {
-    background: 'none',
+    background: 'transparent',
 
     '& .AmauiRoundMeter-marks': {
       opacity: '0.74'
@@ -51,7 +51,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   version_minimal: {
-    background: 'none'
+    background: 'transparent'
   },
 
   version_minimal_label: {
@@ -67,7 +67,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   version_modern: {
-    background: 'none'
+    background: 'transparent'
   },
 
   shadow_version_modern: {

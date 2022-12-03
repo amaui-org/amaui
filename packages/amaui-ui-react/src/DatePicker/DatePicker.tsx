@@ -485,6 +485,8 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
 
     weekStartDay,
 
+    monthName,
+
     onDayClick,
 
     relative = true,

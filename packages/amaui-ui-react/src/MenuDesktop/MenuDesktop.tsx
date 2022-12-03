@@ -12,9 +12,10 @@ import ClickListener from '../ClickListener';
 import Type from '../Type';
 import Line from '../Line';
 import Icon from '../Icon';
+import { ILine } from '../Line/Line';
+import useMediaQuery from '../useMediaQuery';
 
 import { staticClassName, TColor, TElement, TElementReference, TPropsAny, TStyle, TTonal, TVersion } from '../utils';
-import { ILine } from '../Line/Line';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -24,16 +25,12 @@ const useStyle = styleMethod(theme => ({
   menuWrapper: {
     position: 'relative',
     overflow: 'hidden',
-    transition: theme.methods.transitions.make(['width', 'height']),
+    borderRadius: theme.methods.shape.radius.value(1.5, 'px'),
     zIndex: theme.z_index.menu_modal,
 
     '& > *': {
       transition: theme.methods.transitions.make(['width', 'height', 'opacity', 'transform'])
     }
-  },
-
-  menuWrapper_open: {
-    transition: theme.methods.transitions.make(['width', 'height', 'transform'])
   },
 
   menu: {
@@ -57,7 +54,7 @@ const useStyle = styleMethod(theme => ({
 
     '&.exiting': {
       opacity: '0',
-      transform: 'translateX(-100%)'
+      transition: 'none'
     }
   },
 
@@ -82,7 +79,7 @@ const useStyle = styleMethod(theme => ({
 
     '&.exiting': {
       opacity: '0',
-      transform: 'translateX(100%)'
+      transition: 'none'
     }
   },
 
@@ -119,6 +116,7 @@ const IconMaterialExpandMoreRounded = React.forwardRef((props: any, ref) => {
       ref={ref}
 
       name='ExpandMoreRounded'
+
       short_name='ExpandMore'
 
       {...props}
@@ -147,10 +145,9 @@ const Wrapper = React.forwardRef((props: any, ref: any) => {
       onMouseLeave={onMouseLeave}
 
       style={{
-        ...style,
+        zIndex: theme.z_index.menu_modal,
 
-        transition: theme.methods.transitions.make('transform'),
-        zIndex: theme.z_index.menu_modal
+        ...style
       }}
     >
       {props.children}
@@ -253,6 +250,8 @@ const MenuDesktop = React.forwardRef((props_: IMenuDesktop, ref: any) => {
     ...other
   } = props;
 
+  const mobile = useMediaQuery('(pointer: coarse)');
+
   const [init, setInit] = React.useState(false);
   const [open, setOpen] = React.useState<any>();
   const [inProp, setInProp] = React.useState<any>();
@@ -274,7 +273,9 @@ const MenuDesktop = React.forwardRef((props_: IMenuDesktop, ref: any) => {
     menuRects: React.useRef<Array<DOMRect>>([]),
     previousOpen: React.useRef<any>(),
     previousOpenIndex: React.useRef<any>(),
-    anchorElement: React.useRef<HTMLElement>()
+    previousInitial: React.useRef<any>(),
+    anchorElement: React.useRef<HTMLElement>(),
+    wrapper: React.useRef<any>()
   };
 
   refs.open.current = open;
@@ -331,6 +332,10 @@ const MenuDesktop = React.forwardRef((props_: IMenuDesktop, ref: any) => {
 
       if (is('function', onOpen)) onOpen();
     }
+  };
+
+  const updateOpenPure = () => {
+    setInProp(true);
   };
 
   React.useEffect(() => {
@@ -426,7 +431,7 @@ const MenuDesktop = React.forwardRef((props_: IMenuDesktop, ref: any) => {
 
             const index = refs.props.current.items.findIndex(item_ => item_.value === refs.focus.current.value);
 
-            let indexNew;
+            let indexNew: number;
             let i = index;
             let item: any;
 
@@ -588,7 +593,7 @@ const MenuDesktop = React.forwardRef((props_: IMenuDesktop, ref: any) => {
                   onClick: () => onClick(item)
                 })}
 
-                {...((!!item.menu && openOnFocus) && {
+                {...((!!item.menu && !mobile && openOnFocus) && {
                   onFocus: () => onFocus(item),
 
                   onBlur: () => onBlur(item)
@@ -663,116 +668,134 @@ const MenuDesktop = React.forwardRef((props_: IMenuDesktop, ref: any) => {
 
           anchorElement={refs.anchorElement.current}
 
-          onUpdate={(values: any) => {
-            if (values?.y > 0) setMenuOpened(true);
-          }}
-
-          element={(
-            <Wrapper
-              onMouseEnter={() => onMouseEnter(refs.previousOpen.current)}
-
-              onMouseLeave={onMouseLeave}
-
-              style={{
-                ...append
-              }}
-            >
-              <TransitionComponent
-                in={inProp}
-
-                onExited={close}
-
-                add
-
-                addTransition={theme.methods.transitions.make(['width', 'height'])}
-
-                {...TransitionComponentProps}
-              >
-                <Surface
-                  tonal={tonal}
-
-                  color={color}
-
-                  version={version}
-
-                  className={classNames([
-                    staticClassName('MenuDesktop', theme) && [
-                      'AmauiMenuDesktop-menu-wrapper'
-                    ],
-
-                    classes.menuWrapper,
-                    menuOpened && classes.menuWrapper_open
-                  ])}
-
-                  style={{
-                    ...append
-                  }}
-                >
-                  {menu && menuTransition && (
-                    <Transitions switch mode='in-out-follow'>
-                      <Transition key={openItem}>
-                        {(status: TTransitionStatus) => {
-
-                          return (
-                            React.cloneElement(menu, {
-                              // For manual onClose within the element
-                              onMenuDesktopClose: onClose,
-
-                              className: classNames([
-                                staticClassName('MenuDesktop', theme) && [
-                                  'AmauiMenuDesktop-menu',
-
-                                  status
-                                ],
-
-                                ...(is('function', menuTransitionClassName) ? menuTransitionClassName(status, openItem) : []),
-
-                                classes[theme.direction === 'ltr' ?
-                                  ((openIndex <= 0 || openIndex < refs.previousOpenIndex.current) ? 'menu' : 'menu_reverse') :
-                                  ((openIndex <= 0 || openIndex < refs.previousOpenIndex.current) ? 'menu_reverse' : 'menu')
-                                ]
-                              ]),
-
-                              style: {
-                                ...refs.menu.current?.props.style,
-
-                                ...(is('function', menuTransitionStyle) && menuTransitionStyle(status, openItem))
-                              }
-                            })
-                          );
-                        }}
-                      </Transition>
-                    </Transitions>
-                  )}
-
-                  {menu && !menuTransition && (
-                    React.cloneElement(menu, {
-                      // For manual onClose within the element
-                      onMenuDesktopClose: onClose,
-
-                      className: classNames([
-                        staticClassName('MenuDesktop', theme) && [
-                          'AmauiMenuDesktop-menu'
-                        ],
-
-                        classes.menu
-                      ]),
-
-                      style: {
-                        ...refs.menu.current?.style,
-
-                        ...append
-                      }
-                    })
-                  )}
-                </Surface>
-              </TransitionComponent>
-            </Wrapper>
-          )}
-
           position='bottom'
 
           alignment='start'
+
+          element={({ ref: refAppend, values, style: styleAppend }) => {
+            const previousInitial = (!refs.previousInitial.current || refs.previousInitial.current.init);
+
+            refs.previousInitial.current = values;
+
+            if (!previousInitial && refAppend) {
+              setTimeout(() => {
+                refAppend.current.style.transition = theme.methods.transitions.make(['width', 'height', 'transform']);
+              }, 14);
+            }
+
+            return (
+              <Wrapper
+                ref={refAppend}
+
+                onMouseEnter={updateOpenPure}
+
+                onMouseLeave={onMouseLeave}
+
+                style={{
+                  ...append,
+
+                  ...styleAppend
+                }}
+              >
+                <TransitionComponent
+                  in={inProp}
+
+                  onExited={close}
+
+                  add
+
+                  addTransition={theme.methods.transitions.make(['width', 'height'])}
+
+                  {...TransitionComponentProps}
+                >
+                  <Surface
+                    tonal={tonal}
+
+                    color={color}
+
+                    version={version}
+
+                    className={classNames([
+                      staticClassName('MenuDesktop', theme) && [
+                        'AmauiMenuDesktop-menu-wrapper'
+                      ],
+
+                      classes.menuWrapper,
+                      menuOpened && classes.menuWrapper_open
+                    ])}
+
+                    style={{
+                      ...append
+                    }}
+                  >
+                    {menu && menuTransition && (
+                      <Transitions switch mode='in-out-follow'>
+                        <Transition key={openItem}>
+                          {(status: TTransitionStatus) => {
+
+                            return (
+                              React.cloneElement(menu, {
+                                // For manual onClose within the element
+                                onMenuDesktopClose: onClose,
+
+                                className: classNames([
+                                  staticClassName('MenuDesktop', theme) && [
+                                    'AmauiMenuDesktop-menu',
+
+                                    status
+                                  ],
+
+                                  ...(is('function', menuTransitionClassName) ? menuTransitionClassName(status, openItem) : []),
+
+                                  classes[theme.direction === 'ltr' ?
+                                    ((openIndex <= 0 || openIndex < refs.previousOpenIndex.current) ? 'menu' : 'menu_reverse') :
+                                    ((openIndex <= 0 || openIndex < refs.previousOpenIndex.current) ? 'menu_reverse' : 'menu')
+                                  ]
+                                ]),
+
+                                style: {
+                                  position: 'absolute',
+
+                                  ...menu?.props?.style,
+
+                                  ...refs.menu.current?.props.style,
+
+                                  ...(is('function', menuTransitionStyle) && menuTransitionStyle(status, openItem))
+                                }
+                              })
+                            );
+                          }}
+                        </Transition>
+                      </Transitions>
+                    )}
+
+                    {menu && !menuTransition && (
+                      React.cloneElement(menu, {
+                        // For manual onClose within the element
+                        onMenuDesktopClose: onClose,
+
+                        className: classNames([
+                          staticClassName('MenuDesktop', theme) && [
+                            'AmauiMenuDesktop-menu'
+                          ],
+
+                          classes.menu
+                        ]),
+
+                        style: {
+                          ...menu?.props?.style,
+
+                          ...refs.menu.current?.style,
+
+                          ...append
+                        }
+                      })
+                    )}
+                  </Surface>
+                </TransitionComponent>
+              </Wrapper>
+            );
+          }}
 
           {...AppendProps}
         />

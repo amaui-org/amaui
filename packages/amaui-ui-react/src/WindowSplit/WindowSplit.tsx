@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is, clamp, valueFromPercentageWithinRange, getID } from '@amaui/utils';
+import { is, clamp, valueFromPercentageWithinRange } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Line from '../Line';
@@ -213,7 +213,7 @@ const WindowSplit = React.forwardRef((props_: IWindowSplit, ref: any) => {
     orientation: React.useRef<any>(),
     direction: React.useRef<any>(),
     ids: {
-      root: React.useRef(getID())
+      root: React.useId()
     }
   };
 
@@ -432,7 +432,7 @@ const WindowSplit = React.forwardRef((props_: IWindowSplit, ref: any) => {
 
     'aria-valuetext': `${value}%`,
 
-    'aria-controls': refs.ids.root.current
+    'aria-controls': refs.ids.root
   };
 
   const direction = orientation === 'horizontal' ? 'row' : 'column';
@@ -467,7 +467,7 @@ const WindowSplit = React.forwardRef((props_: IWindowSplit, ref: any) => {
 
       onKeyDown={onKeyDown}
 
-      id={refs.ids.root.current}
+      id={refs.ids.root}
 
       aria-orientation={orientation}
 

@@ -97,8 +97,11 @@ const PieChart = React.forwardRef((props_: IPieChart, ref: any) => {
   const [value, setValue] = React.useState<any>();
 
   const refs = {
-    rects: React.useRef<any>()
+    rects: React.useRef<any>(),
+    theme: React.useRef<any>()
   };
+
+  refs.theme.current = theme;
 
   const LegendItem = React.useCallback((props__: any) => {
     const {
@@ -148,7 +151,7 @@ const PieChart = React.forwardRef((props_: IPieChart, ref: any) => {
           ])}
 
           style={{
-            background: !theme.palette.color[color_] ? color_ : theme.palette.color[color_][tone]
+            background: !refs.theme.current.palette.color[color_] ? color_ : refs.theme.current.palette.color[color_][tone]
           }}
         />
 
@@ -289,9 +292,9 @@ const PieChart = React.forwardRef((props_: IPieChart, ref: any) => {
               <Path
                 d={d}
 
-                fill={!theme.palette.color[color_] ? color_ : theme.palette.color[color_][tone]}
+                fill={!refs.theme.current.palette.color[color_] ? color_ : refs.theme.current.palette.color[color_][tone]}
 
-                stroke={gap > 0 ? theme.palette.background.default.primary : 'none'}
+                stroke={gap > 0 ? refs.theme.current.palette.background.default.primary : 'none'}
 
                 strokeWidth={gap}
 
@@ -312,7 +315,7 @@ const PieChart = React.forwardRef((props_: IPieChart, ref: any) => {
                     classes.text
                   ])}
 
-                  fill={theme.methods.palette.color.text(!theme.palette.color[color_] ? color_ : theme.palette.color[color_][tone], true, 'light')}
+                  fill={refs.theme.current.methods.palette.color.text(!refs.theme.current.palette.color[color_] ? color_ : refs.theme.current.palette.color[color_][tone], true, 'light')}
                 >
                   {`${partPercentage.toFixed(1)}%`.replace('.0%', '%')}
                 </text>
@@ -401,7 +404,7 @@ const PieChart = React.forwardRef((props_: IPieChart, ref: any) => {
               ])}
 
               style={{
-                background: !theme.palette.color[color_] ? color_ : theme.palette.color[color_][tone]
+                background: !refs.theme.current.palette.color[color_] ? color_ : refs.theme.current.palette.color[color_][tone]
               }}
             />
 

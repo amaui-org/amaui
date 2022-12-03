@@ -17,7 +17,7 @@ const useStyle = styleMethod(theme => ({
     '& .AmauiChart-legend-icon': {
       width: '14px',
       position: 'relative',
-      background: 'none',
+      background: 'transparent',
       borderTop: '2px solid currentColor',
       borderRadius: 'unset',
       height: 'unset',
@@ -128,8 +128,11 @@ const AreaChart = React.forwardRef((props_: IAreaChart, ref: any) => {
   const refs = {
     rects: React.useRef<any>(),
     minMax: React.useRef<any>(),
-    smooth: React.useRef<any>()
+    smooth: React.useRef<any>(),
+    theme: React.useRef<any>()
   };
+
+  refs.theme.current = theme;
 
   const minMax = React.useMemo(() => {
     const values_ = {
@@ -236,7 +239,7 @@ const AreaChart = React.forwardRef((props_: IAreaChart, ref: any) => {
           ])}
 
           style={{
-            background: !theme.palette.color[color_] ? color_ : theme.palette.color[color_][tone]
+            background: !refs.theme.current.palette.color[color_] ? color_ : refs.theme.current.palette.color[color_][tone]
           }}
         />
 
@@ -378,7 +381,7 @@ const AreaChart = React.forwardRef((props_: IAreaChart, ref: any) => {
             <stop
               offset='0%'
 
-              stopColor={!theme.palette.color[color_] ? color_ : theme.palette.color[color_][tone]}
+              stopColor={!refs.theme.current.palette.color[color_] ? color_ : refs.theme.current.palette.color[color_][tone]}
 
               stopOpacity='0.54'
             />
@@ -386,7 +389,7 @@ const AreaChart = React.forwardRef((props_: IAreaChart, ref: any) => {
             <stop
               offset='74%'
 
-              stopColor={theme.palette.background.default.primary}
+              stopColor={refs.theme.current.palette.background.default.primary}
 
               stopOpacity='0'
             />
@@ -402,7 +405,7 @@ const AreaChart = React.forwardRef((props_: IAreaChart, ref: any) => {
               <Path
                 d={d.background}
 
-                fill={linearGradient ? `url('#areaChart_id_${name}')` : theme.methods.palette.color.colorToRgb(!theme.palette.color[color_] ? color_ : theme.palette.color[color_][tone], 0.14)}
+                fill={linearGradient ? `url('#areaChart_id_${name}')` : refs.theme.current.methods.palette.color.colorToRgb(!refs.theme.current.palette.color[color_] ? color_ : refs.theme.current.palette.color[color_][tone], 0.14)}
 
                 stroke='none'
 
@@ -417,7 +420,7 @@ const AreaChart = React.forwardRef((props_: IAreaChart, ref: any) => {
 
                 fill='none'
 
-                stroke={!theme.palette.color[color_] ? color_ : theme.palette.color[color_][tone]}
+                stroke={!refs.theme.current.palette.color[color_] ? color_ : refs.theme.current.palette.color[color_][tone]}
 
                 strokeWidth='2px'
 

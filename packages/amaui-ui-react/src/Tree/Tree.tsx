@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { clamp, getID, is } from '@amaui/utils';
+import { clamp, is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Checkbox from '../Checkbox';
@@ -39,7 +39,7 @@ const useStyle = styleMethod(theme => ({
   main: {
     // Reset
     fontFamily: 'inherit',
-    background: 'none',
+    background: 'transparent',
     border: 'none',
     fontSize: '100%',
     lineHeight: '1.15',
@@ -88,7 +88,7 @@ const useStyle = styleMethod(theme => ({
     fontFamily: 'inherit',
     '-webkit-appearance': 'none',
     appearance: 'none',
-    background: 'none',
+    background: 'transparent',
     border: 'none',
     fontSize: '100%',
     lineHeight: '1.15',
@@ -237,7 +237,7 @@ const Tree = React.forwardRef((props_: ITree, ref: any) => {
   const refs = {
     root: React.useRef<any>(),
     ids: {
-      middle: React.useRef(getID())
+      middle: React.useId()
     }
   };
 
@@ -427,7 +427,7 @@ const Tree = React.forwardRef((props_: ITree, ref: any) => {
 
       role={level === 0 ? 'tree' : 'treeitem'}
 
-      aria-labelledby={refs.ids.middle.current}
+      aria-labelledby={refs.ids.middle}
 
       aria-expanded={open}
 
@@ -548,7 +548,7 @@ const Tree = React.forwardRef((props_: ITree, ref: any) => {
           <Line
             gap={0}
 
-            id={refs.ids.middle.current}
+            id={refs.ids.middle}
 
             Component={is('simple', middle) ? Type : undefined}
 

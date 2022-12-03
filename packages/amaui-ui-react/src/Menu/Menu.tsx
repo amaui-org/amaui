@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { getID, is } from '@amaui/utils';
+import { is } from '@amaui/utils';
 import { style as styleMethod, classNames, useAmauiTheme } from '@amaui/style-react';
 
 import Tooltip from '../Tooltip';
@@ -86,7 +86,7 @@ const Menu = React.forwardRef((props_: IMenu, ref: any) => {
     ...other
   } = props;
 
-  const id = React.useState(() => getID())[0];
+  const id = React.useId();
 
   const [preselected, setPreselected] = React.useState<any>();
 

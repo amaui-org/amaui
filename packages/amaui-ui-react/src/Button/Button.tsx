@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { getID, is } from '@amaui/utils';
+import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Surface from '../Surface';
@@ -17,7 +17,7 @@ const useStyle = styleMethod(theme => ({
     fontFamily: 'inherit',
     '-webkit-appearance': 'none',
     appearance: 'none',
-    background: 'none',
+    background: 'transparent',
     border: 'none',
     fontSize: '100%',
     lineHeight: '1.15',
@@ -367,7 +367,7 @@ const Button = React.forwardRef((props_: IButton, ref: any) => {
   const refs = {
     root: React.useRef<any>(),
     ids: {
-      label: React.useRef(getID())
+      label: React.useId()
     }
   };
 
@@ -525,7 +525,7 @@ const Button = React.forwardRef((props_: IButton, ref: any) => {
 
       backgroundOpacity={backgroundOpacity}
 
-      aria-labelledby={refs.ids.label.current}
+      aria-labelledby={refs.ids.label}
 
       aria-pressed={selected}
 
@@ -651,7 +651,7 @@ const Button = React.forwardRef((props_: IButton, ref: any) => {
         <Type
           {...TypeProps}
 
-          id={refs.ids.label.current}
+          id={refs.ids.label}
 
           Component='span'
 

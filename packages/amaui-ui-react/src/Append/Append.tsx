@@ -271,7 +271,7 @@ const Append = (props_: IAppend) => {
     value = { position: refs.position.current, alignment: refs.alignment.current, inset: inset_, switch: false },
     values__ = getValues()
   ) => {
-    if (!values__) return;
+    if (!values__ || (values__.rect.element.width === 0 && values__.rect.element.height === 0)) return;
 
     const wrapperRect = (overflow || switch_) && (refs.root.current || refs.element.current).parentElement.getBoundingClientRect();
 
@@ -626,6 +626,7 @@ const Append = (props_: IAppend) => {
 
     refs.values.current = {
       position: value.position,
+      alignment: value.alignment,
       switch: switched,
       init: false,
 

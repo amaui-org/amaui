@@ -316,12 +316,16 @@ const SpeedDial = React.forwardRef((props_: ISpeedDial, ref: any) => {
   }, [disabled]);
 
   let lineDirection = 'row';
-  let lineItemsDirection = 'row-reverse';
+  // Safari bug *-reverse using gap
+  // let lineItemsDirection = 'row-reverse';
+  let lineItemsDirection = 'row';
 
   let directionToUse = direction;
 
   if (position === 'top') {
-    lineDirection = 'column-reverse';
+    // Safari bug *-reverse using gap
+    // lineDirection = 'column-reverse';
+    lineDirection = 'column';
     lineItemsDirection = 'column';
 
     if (alignment === 'left' || (alignment === 'start' && theme.direction === 'ltr') || (alignment === 'end' && theme.direction === 'rtl')) {
@@ -333,7 +337,8 @@ const SpeedDial = React.forwardRef((props_: ISpeedDial, ref: any) => {
 
       if (directionToUse === 'right') {
         TooltipProps.position = 'bottom';
-        lineDirection = 'row-reverse';
+        // Safari bug *-reverse using gap
+        // lineDirection = 'row-reverse';
         lineItemsDirection = 'row';
       }
     }
@@ -356,14 +361,17 @@ const SpeedDial = React.forwardRef((props_: ISpeedDial, ref: any) => {
       if (directionToUse === 'left') {
         TooltipProps.position = 'bottom';
         lineDirection = 'row';
-        lineItemsDirection = 'row-reverse';
+        // Safari bug *-reverse using gap
+        // lineItemsDirection = 'row-reverse';
       }
     }
   }
 
   if (position === 'bottom') {
     lineDirection = 'column';
-    lineItemsDirection = 'column-reverse';
+    // Safari bug *-reverse using gap
+    // lineItemsDirection = 'column-reverse';
+    lineItemsDirection = 'column';
 
     if (alignment === 'left' || (alignment === 'start' && theme.direction === 'ltr') || (alignment === 'end' && theme.direction === 'rtl')) {
       if (!['top', 'right'].includes(direction)) directionToUse = 'top';
@@ -374,7 +382,8 @@ const SpeedDial = React.forwardRef((props_: ISpeedDial, ref: any) => {
 
       if (directionToUse === 'right') {
         TooltipProps.position = 'top';
-        lineDirection = 'row-reverse';
+        // Safari bug *-reverse using gap
+        // lineDirection = 'row-reverse';
         lineItemsDirection = 'row';
       }
     }
@@ -397,7 +406,8 @@ const SpeedDial = React.forwardRef((props_: ISpeedDial, ref: any) => {
       if (directionToUse === 'left') {
         TooltipProps.position = 'top';
         lineDirection = 'row';
-        lineItemsDirection = 'row-reverse';
+        // Safari bug *-reverse using gap
+        // lineItemsDirection = 'row-reverse';
       }
     }
   }
@@ -509,6 +519,10 @@ const SpeedDial = React.forwardRef((props_: ISpeedDial, ref: any) => {
 
         direction={lineItemsDirection}
 
+        align='center'
+
+        justify='center'
+
         onMouseEnter={onMouseEnter}
 
         onMouseLeave={onMouseLeave}
@@ -523,13 +537,13 @@ const SpeedDial = React.forwardRef((props_: ISpeedDial, ref: any) => {
           open && classes.items_open
         ])}
       >
-        {children && (children as any).map((item: any, index: number) => (
+        {React.Children.toArray(children).map((item: any, index: number) => (
           <SpeeDialItemTransitionComponent
             key={index}
 
             in={open}
 
-            delay={(open ? index : (children as any).length - 1 - index) * 30}
+            delay={(open ? (children as any).length - 1 - index : index) * 30}
 
             append
 

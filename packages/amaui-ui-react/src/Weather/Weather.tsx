@@ -19,7 +19,7 @@ const useStyle = styleMethod(theme => ({
     width: '100vw',
 
     '&.AmauiSurface-root': {
-      background: 'none'
+      background: 'transparent'
     }
   },
 

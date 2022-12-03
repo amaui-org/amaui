@@ -130,6 +130,7 @@ const useStyle = styleMethod(theme => ({
   border_tonal_color_error: { borderColor: theme.palette.color['error'][theme.palette.light ? 40 : 20] },
 
   iconButton: {
+    position: 'absolute',
     top: '50%'
   },
 
@@ -233,6 +234,7 @@ const Switch = React.forwardRef((props_: ISwitch, ref: any) => {
     children,
 
     // Other
+    version: version_,
     colorUnchecked,
 
     ...other

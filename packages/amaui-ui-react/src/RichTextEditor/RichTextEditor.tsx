@@ -108,7 +108,7 @@ const useStyle = styleMethod(theme => ({
 
       '& code': {
         padding: '0px',
-        background: 'none'
+        background: 'transparent'
       }
     },
 

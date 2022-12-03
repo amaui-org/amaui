@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { getID, is, unique } from '@amaui/utils';
+import { is, unique } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Icon from '../Icon';
@@ -203,7 +203,7 @@ const Select = React.forwardRef((props_: ISelect, ref: any) => {
     menu: React.useRef<any>(),
     input: React.useRef<any>(),
     ids: {
-      list: React.useRef(getID())
+      list: React.useId()
     }
   };
 
@@ -360,7 +360,7 @@ const Select = React.forwardRef((props_: ISelect, ref: any) => {
 
         aria-expanded={open}
 
-        aria-controls={refs.ids.list.current}
+        aria-controls={refs.ids.list}
       >
         <IconMaterialArrowDropDownRounded
           className={classNames([
@@ -447,7 +447,7 @@ const Select = React.forwardRef((props_: ISelect, ref: any) => {
 
         aria-multiselectable={multiple}
 
-        aria-controls={refs.ids.list.current}
+        aria-controls={refs.ids.list}
 
         aria-expanded={open}
 
@@ -557,7 +557,7 @@ const Select = React.forwardRef((props_: ISelect, ref: any) => {
 
             role: 'listbox',
 
-            id: refs.ids.list.current,
+            id: refs.ids.list,
 
             'aria-label': label,
 

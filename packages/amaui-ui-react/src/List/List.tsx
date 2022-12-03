@@ -1,13 +1,14 @@
 import React from 'react';
 
+import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Surface from '../Surface';
 import useMediaQuery from '../useMediaQuery';
+import { ISurface } from '../Surface/Surface';
 import Line from '../Line';
 
 import { staticClassName, TElement, TSize } from '../utils';
-import { ISurface } from '../Surface/Surface';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -97,6 +98,8 @@ const List = React.forwardRef((props_: IList, ref: any) => {
     paddingHorizontal = 'none',
     paddingVertical = 'both',
 
+    onMenuDesktopClose,
+
     Component = 'ul',
 
     className,
@@ -165,23 +168,27 @@ const List = React.forwardRef((props_: IList, ref: any) => {
       }}
     >
       {React.Children.toArray(children).map((item: any, index: number) => React.cloneElement(item, {
-        ...(['AmauiListItem', 'AmauiListSubheader'].includes(item.type?.displayName) ? {
-          key: index,
+        key: index,
 
-          menuItem: menu,
+        menuItem: menu,
 
-          menuOpen,
+        menuOpen,
 
-          tonal: item.props.tonal !== undefined ? item.props.tonal : tonal,
+        tonal: item.props.tonal !== undefined ? item.props.tonal : tonal,
 
-          color: item.props.color !== undefined ? item.props.color : color,
+        color: item.props.color !== undefined ? item.props.color : color,
 
-          size: item.props.size !== undefined ? item.props.size : size,
+        size: item.props.size !== undefined ? item.props.size : size,
 
-          ...other,
+        ...other,
 
-          ...item.props
-        } : {})
+        ...item.props,
+
+        onClick: (event: React.MouseEvent<any>) => {
+          if (is('function', onMenuDesktopClose) && item.props.menuCloseOnClick) onMenuDesktopClose();
+
+          if (is('function', item.props.onClick)) item.props.onClick(event);
+        }
       }))}
     </Surface>
   );

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is, unique, clamp, debounce, equalDeep, TMethod, getID } from '@amaui/utils';
+import { is, unique, clamp, debounce, equalDeep, TMethod } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 import AmauiSubscription from '@amaui/subscription';
 
@@ -530,7 +530,7 @@ const Carousel = React.forwardRef((props_: ICarousel, ref: any) => {
     width: React.useRef<any>(),
     onInit: React.useRef<any>(),
     ids: {
-      items: React.useRef(getID())
+      items: React.useId()
     }
   };
 
@@ -1258,7 +1258,7 @@ const Carousel = React.forwardRef((props_: ICarousel, ref: any) => {
 
     'aria-label': 'Arrow previous',
 
-    'aria-controls': refs.ids.items.current
+    'aria-controls': refs.ids.items
   };
 
   const ArrowNextProps: any = {
@@ -1266,7 +1266,7 @@ const Carousel = React.forwardRef((props_: ICarousel, ref: any) => {
 
     'aria-label': 'Arrow next',
 
-    'aria-controls': refs.ids.items.current
+    'aria-controls': refs.ids.items
   };
 
   const resolveItem = (Item: any) => {
@@ -1392,7 +1392,7 @@ const Carousel = React.forwardRef((props_: ICarousel, ref: any) => {
 
           onTouchEnd={onMouseUp}
 
-          id={refs.ids.items.current}
+          id={refs.ids.items}
 
           aria-live='polite'
 
@@ -1474,7 +1474,7 @@ const Carousel = React.forwardRef((props_: ICarousel, ref: any) => {
 
           onTouchEnd={onMouseUp}
 
-          id={refs.ids.items.current}
+          id={refs.ids.items}
 
           aria-live='polite'
 

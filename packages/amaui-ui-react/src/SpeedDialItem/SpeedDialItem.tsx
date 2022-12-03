@@ -1,17 +1,21 @@
 import React from 'react';
 
+import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Tooltip from '../Tooltip';
 import IconButton from '../IconButton';
 import { IIconButton } from '../IconButton/IconButton';
 
-import { staticClassName, TElement, TElementReference, TPropsAny, TRef } from '../utils';
+import { staticClassName, TElement, TElementReference, TPropsAny } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
     position: 'relative',
+    lineHeight: '0'
+  },
 
+  no_render: {
     '& .AmauiButton-root': {
       boxShadow: theme.shadows.values.default[6],
 
@@ -23,7 +27,7 @@ const useStyle = styleMethod(theme => ({
         boxShadow: theme.shadows.values.default[8]
       }
     }
-  },
+  }
 }), { name: 'AmauiSpeedDialItem' });
 
 export interface ISpeedDialItem extends IIconButton {
@@ -32,6 +36,13 @@ export interface ISpeedDialItem extends IIconButton {
   label?: TElement;
   tooltipOpen?: boolean;
   closeOnClick?: boolean;
+
+  render?: (values: {
+    onBlur: (event: React.FocusEvent<any>) => any;
+    onFocus: (event: React.FocusEvent<any>) => any;
+    TooltipProps: any;
+    [p: string]: any;
+  }) => TElement;
 
   onBlur?: (event: React.FocusEvent<any>) => any;
   onFocus?: (event: React.FocusEvent<any>) => any;
@@ -54,6 +65,8 @@ const SpeedDialItem = React.forwardRef((props_: ISpeedDialItem, ref: any) => {
     label,
     tooltipOpen,
     closeOnClick,
+
+    render,
 
     onBlur,
     onFocus,
@@ -88,28 +101,37 @@ const SpeedDialItem = React.forwardRef((props_: ISpeedDialItem, ref: any) => {
         ],
 
         className,
-        classes.root
+        classes.root,
+        !is('function', render) && classes.no_render
       ])}
     >
-      <Tooltip
-        label={label}
+      {is('function', render) ?
+        render({
+          onBlur,
+          onFocus,
+          TooltipProps,
+          ...other
+        }) :
+        <Tooltip
+          label={label}
 
-        portal={false}
+          portal={false}
 
-        nowrap
+          nowrap
 
-        {...TooltipProps}
-      >
-        <IconButton
-          onBlur={onBlur}
-
-          onFocus={onFocus}
-
-          {...other}
+          {...TooltipProps}
         >
-          <Icon />
-        </IconButton>
-      </Tooltip>
+          <IconButton
+            onBlur={onBlur}
+
+            onFocus={onFocus}
+
+            {...other}
+          >
+            <Icon />
+          </IconButton>
+        </Tooltip>
+      }
     </Component>
   );
 });

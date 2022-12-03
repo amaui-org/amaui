@@ -264,6 +264,9 @@ const Tooltip = React.forwardRef((props_: ITooltip, ref: any) => {
     ModalProps,
     LabelProps,
 
+    // other
+    elevation,
+
     className,
     style,
 

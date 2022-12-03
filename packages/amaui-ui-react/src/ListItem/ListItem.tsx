@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { getID, is } from '@amaui/utils';
+import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Surface from '../Surface';
@@ -307,7 +307,7 @@ export interface IListItem extends ISurface {
   endAlign?: 'start' | 'center' | 'end';
   size?: TSize;
   noPadding?: boolean;
-  href?: boolean;
+  href?: string;
   button?: boolean;
   shape?: 'round';
   shapePosition?: 'both' | 'start' | 'end' | 'none';
@@ -437,8 +437,8 @@ const ListItem = React.forwardRef((props_: IListItem, ref: any) => {
     openList: React.useRef<any>(),
     focus: React.useRef<any>(),
     ids: {
-      primary: React.useRef(getID()),
-      secondary: React.useRef(getID())
+      primary: React.useId(),
+      secondary: React.useId()
     }
   };
 
@@ -472,13 +472,13 @@ const ListItem = React.forwardRef((props_: IListItem, ref: any) => {
     })
   ));
 
-  const onClick = React.useCallback((event?: React.FocusEvent<any>) => {
+  const onClick = React.useCallback((event?: React.MouseEvent<any>) => {
     if (!refs.props.current.disabled) {
       if (refs.props.current.list) setOpenList(!refs.openList.current);
     }
 
-    if (is('function', refs.props.current.onClick)) refs.props.current.onClick(event);
-  }, []);
+    if (is('function', onClick_)) onClick_(event);
+  }, [onClick_]);
 
   let end = end_;
 
@@ -656,11 +656,9 @@ const ListItem = React.forwardRef((props_: IListItem, ref: any) => {
 
       onMouseLeave={onMouseLeave}
 
-      role='listitem'
+      aria-labelledby={refs.ids.primary}
 
-      aria-labelledby={refs.ids.primary.current}
-
-      aria-describedby={refs.ids.secondary.current}
+      aria-describedby={refs.ids.secondary}
 
       aria-selected={selected}
 
@@ -800,7 +798,7 @@ const ListItem = React.forwardRef((props_: IListItem, ref: any) => {
               <Type
                 version='b2'
 
-                id={refs.ids.primary.current}
+                id={refs.ids.primary}
 
                 {...PrimaryProps}
 
@@ -825,7 +823,7 @@ const ListItem = React.forwardRef((props_: IListItem, ref: any) => {
                 {primary}
               </Type>
             ) : React.cloneElement(primary as any, {
-              id: refs.ids.primary.current
+              id: refs.ids.primary
             })
           )}
 
@@ -834,7 +832,7 @@ const ListItem = React.forwardRef((props_: IListItem, ref: any) => {
               <Type
                 version='b2'
 
-                id={refs.ids.secondary.current}
+                id={refs.ids.secondary}
 
                 {...SecondaryProps}
 
@@ -858,7 +856,7 @@ const ListItem = React.forwardRef((props_: IListItem, ref: any) => {
                 {secondary}
               </Type>
             ) : React.cloneElement(secondary as any, {
-              id: refs.ids.secondary.current
+              id: refs.ids.secondary
             })
           )}
 

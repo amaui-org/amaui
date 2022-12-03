@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { getID, is, unique } from '@amaui/utils';
+import { is, unique } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Icon from '../Icon';
@@ -273,7 +273,7 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
     menu: React.useRef<any>(),
     input: React.useRef<HTMLInputElement>(),
     ids: {
-      list: React.useRef(getID())
+      list: React.useId()
     }
   };
 
@@ -701,7 +701,7 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
 
         aria-expanded={open}
 
-        aria-controls={refs.ids.list.current}
+        aria-controls={refs.ids.list}
 
         InteractionProps={{
           clear: !!(multiple ? value.length : valueInput)
@@ -813,7 +813,7 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
 
         aria-multiselectable={multiple}
 
-        aria-controls={refs.ids.list.current}
+        aria-controls={refs.ids.list}
 
         aria-expanded={open}
 
@@ -961,7 +961,7 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
 
             role: 'listbox',
 
-            id: refs.ids.list.current,
+            id: refs.ids.list,
 
             'aria-label': label,
 

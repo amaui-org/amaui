@@ -107,8 +107,11 @@ const ScatterChart = React.forwardRef((props_: IScatterChart, ref: any) => {
   const refs = {
     rects: React.useRef<any>(),
     minMax: React.useRef<any>(),
-    smooth: React.useRef<any>()
+    smooth: React.useRef<any>(),
+    theme: React.useRef<any>()
   };
+
+  refs.theme.current = theme;
 
   const minMax = React.useMemo(() => {
     const values_ = {
@@ -213,7 +216,7 @@ const ScatterChart = React.forwardRef((props_: IScatterChart, ref: any) => {
           ])}
 
           style={{
-            background: !theme.palette.color[color_] ? color_ : theme.palette.color[color_][tone]
+            background: !refs.theme.current.palette.color[color_] ? color_ : refs.theme.current.palette.color[color_][tone]
           }}
         />
 

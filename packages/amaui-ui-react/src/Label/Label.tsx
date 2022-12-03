@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { getID, is } from '@amaui/utils';
+import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Type from '../Type';
@@ -90,7 +90,7 @@ const Label = React.forwardRef((props_: ILabel, ref: any) => {
   const refs = {
     value: React.useRef<any>(),
     ids: {
-      label: React.useRef(getID())
+      label: React.useId()
     }
   };
 
@@ -143,7 +143,7 @@ const Label = React.forwardRef((props_: ILabel, ref: any) => {
 
       role='group'
 
-      aria-labelledby={refs.ids.label.current}
+      aria-labelledby={refs.ids.label}
 
       aria-disabled={disabled}
 
@@ -197,7 +197,7 @@ const Label = React.forwardRef((props_: ILabel, ref: any) => {
         <Type
           version={size === 'regular' ? 'b2' : size === 'large' ? 'b1' : 'b3'}
 
-          id={refs.ids.label.current}
+          id={refs.ids.label}
 
           {...TypeProps}
 
@@ -214,7 +214,7 @@ const Label = React.forwardRef((props_: ILabel, ref: any) => {
           {Text}
         </Type>
       ) : React.cloneElement(Text, {
-        id: refs.ids.label.current
+        id: refs.ids.label
       })}
     </Line>
   );

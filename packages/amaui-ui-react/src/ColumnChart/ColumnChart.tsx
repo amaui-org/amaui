@@ -104,8 +104,11 @@ const ColumnChart = React.forwardRef((props_: IColumnChart, ref: any) => {
   const refs = {
     rects: React.useRef<any>(),
     minMax: React.useRef<any>(),
-    smooth: React.useRef<any>()
+    smooth: React.useRef<any>(),
+    theme: React.useRef<any>()
   };
+
+  refs.theme.current = theme;
 
   const minMax = React.useMemo(() => {
     const values_ = {
@@ -210,7 +213,7 @@ const ColumnChart = React.forwardRef((props_: IColumnChart, ref: any) => {
           ])}
 
           style={{
-            background: !theme.palette.color[color_] ? color_ : theme.palette.color[color_][tone]
+            background: !refs.theme.current.palette.color[color_] ? color_ : refs.theme.current.palette.color[color_][tone]
           }}
         />
 
@@ -281,7 +284,7 @@ const ColumnChart = React.forwardRef((props_: IColumnChart, ref: any) => {
 
               height={height - value_[1]}
 
-              fill={!theme.palette.color[color_] ? color_ : theme.palette.color[color_][tone]}
+              fill={!refs.theme.current.palette.color[color_] ? color_ : refs.theme.current.palette.color[color_][tone]}
 
               stroke='none'
 

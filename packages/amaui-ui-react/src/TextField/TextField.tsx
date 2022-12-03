@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { clamp, getID, is, isEnvironment } from '@amaui/utils';
+import { clamp, is, isEnvironment } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Type from '../Type';
@@ -650,7 +650,7 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
     input: React.useRef<HTMLInputElement>(),
     carret: React.useRef<any>(),
     ids: {
-      label: React.useRef(getID())
+      label: React.useId()
     }
   };
 
@@ -901,7 +901,7 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
 
         aria-multiline={multiline}
 
-        aria-labelledby={refs.ids.label.current}
+        aria-labelledby={refs.ids.label}
 
         {...ComponentProps}
 
@@ -1017,7 +1017,7 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
           <Type
             version='b2'
 
-            id={refs.ids.label.current}
+            id={refs.ids.label}
 
             Component='label'
 

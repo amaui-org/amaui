@@ -18,7 +18,7 @@ const useStyle = styleMethod(theme => ({
     width: '100%',
 
     '&.AmauiSurface-root': {
-      background: 'none'
+      background: 'transparent'
     }
   },
 
@@ -374,7 +374,7 @@ export interface IChart extends IBaseElement {
   guidelinesAppend?: boolean | Record<TValueBreakpoints, boolean>;
 
   // Additional lines
-  additional_lines?: TElement;
+  additionalLines?: TElement;
 
   // Legend
   legend?: 'auto' | false | TElement | Record<TValueBreakpoints, 'auto' | false | TElement>;
@@ -523,7 +523,7 @@ const Chart = React.forwardRef((props_: IChart, ref: any) => {
     guidelinesAppend: guidelinesAppend_,
 
     // Additional lines
-    additional_lines: additional_lines__,
+    additionalLines: additionalLines__,
 
     // Legend
     legend: legend___,
@@ -1134,7 +1134,7 @@ const Chart = React.forwardRef((props_: IChart, ref: any) => {
 
   React.useEffect(() => {
     make();
-  }, [values, labels__, marks__, grid__, additional_lines__, legend__, visible, (guidelinesAppend && guidelinesPosition), rects, theme]);
+  }, [values, labels__, marks__, grid__, additionalLines__, legend__, visible, (guidelinesAppend && guidelinesPosition), rects, theme]);
 
   const onPointMouseEnter = React.useCallback((values_: any) => {
     if (tooltipIndividually) {
@@ -1410,7 +1410,7 @@ const Chart = React.forwardRef((props_: IChart, ref: any) => {
       refs.allValues.current.sort((a, b) => a?.normalized[0] - b?.normalized[0]);
 
       // Guidelines
-      const additional_lines_ = additional_lines__ && (additional_lines__ as React.ReactNode[]).map((item: any, index: number) => {
+      const additionalLines_ = additionalLines__ && (additionalLines__ as React.ReactNode[]).map((item: any, index: number) => {
         const {
           color: color_,
 
@@ -1475,7 +1475,7 @@ const Chart = React.forwardRef((props_: IChart, ref: any) => {
       setGrid(grid_);
 
       // Guidelines
-      setAdditionalLines(additional_lines_);
+      setAdditionalLines(additionalLines_);
 
       // Update children value
       setPoints(points_);

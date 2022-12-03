@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { getID, is } from '@amaui/utils';
+import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Surface from '../Surface';
@@ -223,8 +223,8 @@ const Accordion = React.forwardRef((props_: IAccordion, ref: any) => {
   const [open, setOpen] = React.useState(openDefault !== undefined ? openDefault : open_);
   const refs = {
     ids: {
-      button: React.useRef(getID()),
-      data: React.useRef(getID())
+      button: React.useId(),
+      data: React.useId()
     }
   };
 
@@ -424,11 +424,11 @@ const Accordion = React.forwardRef((props_: IAccordion, ref: any) => {
 
             aria-label={primary || secondary}
 
-            aria-controls={refs.ids.data.current}
+            aria-controls={refs.ids.data}
 
             aria-expanded={open}
 
-            id={refs.ids.button.current}
+            id={refs.ids.button}
 
             {...IconButtonProps}
 
@@ -458,9 +458,9 @@ const Accordion = React.forwardRef((props_: IAccordion, ref: any) => {
 
         role='region'
 
-        aria-labelledby={refs.ids.button.current}
+        aria-labelledby={refs.ids.button}
 
-        id={refs.ids.data.current}
+        id={refs.ids.data}
 
         {...ExpandProps}
       >

@@ -647,52 +647,52 @@ const useStyle = styleMethod(theme => ({
 
   elevation_1: {
     boxShadow: theme.palette.light ? theme.shadows.values.neutral[1] : undefined,
-    backgroundColorImage: !theme.palette.light ? 'linear-gradient(rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.04))' : undefined,
+    backgroundImage: !theme.palette.light ? 'linear-gradient(rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.04))' : undefined,
   },
 
   elevation_2: {
     boxShadow: theme.palette.light ? theme.shadows.values.neutral[2] : undefined,
-    backgroundColorImage: !theme.palette.light ? 'linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05))' : undefined,
+    backgroundImage: !theme.palette.light ? 'linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05))' : undefined,
   },
 
   elevation_3: {
     boxShadow: theme.palette.light ? theme.shadows.values.neutral[3] : undefined,
-    backgroundColorImage: !theme.palette.light ? 'linear-gradient(rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.07))' : undefined,
+    backgroundImage: !theme.palette.light ? 'linear-gradient(rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.07))' : undefined,
   },
 
   elevation_4: {
     boxShadow: theme.palette.light ? theme.shadows.values.neutral[4] : undefined,
-    backgroundColorImage: !theme.palette.light ? 'linear-gradient(rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.08))' : undefined,
+    backgroundImage: !theme.palette.light ? 'linear-gradient(rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.08))' : undefined,
   },
 
   elevation_6: {
     boxShadow: theme.palette.light ? theme.shadows.values.neutral[6] : undefined,
-    backgroundColorImage: !theme.palette.light ? 'linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1))' : undefined,
+    backgroundImage: !theme.palette.light ? 'linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1))' : undefined,
   },
 
   elevation_8: {
     boxShadow: theme.palette.light ? theme.shadows.values.neutral[8] : undefined,
-    backgroundColorImage: !theme.palette.light ? 'linear-gradient(rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.12))' : undefined,
+    backgroundImage: !theme.palette.light ? 'linear-gradient(rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.12))' : undefined,
   },
 
   elevation_9: {
     boxShadow: theme.palette.light ? theme.shadows.values.neutral[9] : undefined,
-    backgroundColorImage: !theme.palette.light ? 'linear-gradient(rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.13))' : undefined,
+    backgroundImage: !theme.palette.light ? 'linear-gradient(rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.13))' : undefined,
   },
 
   elevation_12: {
     boxShadow: theme.palette.light ? theme.shadows.values.neutral[12] : undefined,
-    backgroundColorImage: !theme.palette.light ? 'linear-gradient(rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.16))' : undefined,
+    backgroundImage: !theme.palette.light ? 'linear-gradient(rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.16))' : undefined,
   },
 
   elevation_16: {
     boxShadow: theme.palette.light ? theme.shadows.values.neutral[16] : undefined,
-    backgroundColorImage: !theme.palette.light ? 'linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2))' : undefined,
+    backgroundImage: !theme.palette.light ? 'linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2))' : undefined,
   },
 
   elevation_24: {
     boxShadow: theme.palette.light ? theme.shadows.values.neutral[24] : undefined,
-    backgroundColorImage: !theme.palette.light ? 'linear-gradient(rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.28))' : undefined,
+    backgroundImage: !theme.palette.light ? 'linear-gradient(rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.28))' : undefined,
   },
 
   noOutline: {

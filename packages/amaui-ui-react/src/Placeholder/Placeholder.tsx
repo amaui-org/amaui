@@ -107,6 +107,7 @@ const Placeholder = React.forwardRef((props_: IPlaceholder, ref: any) => {
 
     width,
     height,
+
     animation = 'pulse',
     text,
 
