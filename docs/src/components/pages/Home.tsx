@@ -470,6 +470,8 @@ export default function Root(props: any) {
           {init && !inProp && (
             <Fade
               in
+
+              enterOnAdd
             >
               <div>
                 <Masonry
