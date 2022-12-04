@@ -473,8 +473,7 @@ const Switch = React.forwardRef((props_: ISwitch, ref: any) => {
           background: 'currentColor'
         },
         unchecked: {
-          opacity: theme.palette.visual_contrast.default.opacity.hover,
-          background: tonal ? 'currentColor' : theme.palette.text.default.primary
+          background: theme.methods.palette.color.value(color as any, 95, true, paletteColor)
         }
       },
 
