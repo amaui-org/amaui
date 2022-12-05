@@ -476,6 +476,8 @@ export default function Root(props: any) {
               <div>
                 <Masonry
                   className={classes.masonry}
+
+                  gap={4}
                 >
                   {placeholders.map((item, index: number) => (
                     <Placeholder
@@ -500,6 +502,8 @@ export default function Root(props: any) {
             <div>
               <Masonry
                 className={classes.masonry}
+
+                gap={4}
               >
                 <Button
                   tonal
@@ -858,10 +862,6 @@ export default function Root(props: any) {
                   />
                 </Line>
 
-                <DonutChart
-                  values={valueDonut}
-                />
-
                 <Slider
                   valueDefault={50}
 
@@ -870,6 +870,10 @@ export default function Root(props: any) {
                   style={{
                     padding: '54px 0'
                   }}
+                />
+
+                <DonutChart
+                  values={valueDonut}
                 />
 
                 <Line
