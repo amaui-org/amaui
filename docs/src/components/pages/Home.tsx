@@ -304,7 +304,7 @@ export default function Root(props: any) {
 
   const attribution = (version: string = imageSelected) => images.find(image => image.version === version)?.alt;
 
-  const placeholders = [39.5, 232, 49.5, 56, 480, 501, 747.5, 421.5, 228, 276, 108, 72, 88];
+  const placeholders = [39.5, 232, 49.5, 56, 480, 501, 747.5, 421.5, 228, 108, 276, 72, 88];
 
   return <>
     <Head>
