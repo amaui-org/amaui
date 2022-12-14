@@ -354,12 +354,7 @@ const LinearProgress = React.forwardRef((props_: ILinearProress, ref: any) => {
 
       className={classNames([
         staticClassName('LinearProgress', theme) && [
-          'AmauiLinearProgress-root',
-          `AmauiLinearProgress-version-${version}`,
-          `AmauiLinearProgress-color-${!theme.palette.color[color] && !['themed', 'inverted', 'default', 'inherit'].includes(color) ? 'new' : color}`,
-          tonal && `AmauiLinearProgress-tonal`,
-          buffer && `AmauiLinearProgress-buffer`,
-          reverse && `AmauiLinearProgress-reverse`
+          'AmauiLinearProgress-root'
         ],
 
         className,

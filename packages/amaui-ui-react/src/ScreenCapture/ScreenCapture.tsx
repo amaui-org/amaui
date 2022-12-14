@@ -25,7 +25,7 @@ const useStyle = styleMethod(theme => ({
   imageWrapper: {
     inset: '0',
     position: 'fixed',
-    zIndex: theme.z_index.modal - 1
+    zIndex: theme.z_index.tooltip + 4
   }
 }), { name: 'AmauiScreenCapture' });
 
@@ -453,10 +453,7 @@ const ScreenCapture = React.forwardRef((props_: IScreenCapture, ref: any) => {
 
       className={classNames([
         staticClassName('ScreenCapture', theme) && [
-          'AmauiScreenCapture-root',
-          view && `AmauiScreenCapture-view`,
-          entirePage && `AmauiScreenCapture-entire-page`,
-          free && `AmauiScreenCapture-free`
+          'AmauiScreenCapture-root'
         ],
 
         className,

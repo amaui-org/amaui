@@ -474,8 +474,6 @@ const WindowSplit = React.forwardRef((props_: IWindowSplit, ref: any) => {
       className={classNames([
         staticClassName('WindowSplit', theme) && [
           'AmauiWindowSplit-root',
-          `AmauiWindowSplit-orientation-${orientation}`,
-          iconButton && `AmauiButton-icon-button`,
           focus && `AmauiButton-focus`,
           mouseDown && `AmauiButton-mouse-down`,
         ],

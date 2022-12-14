@@ -131,7 +131,6 @@ const Radios = React.forwardRef((props_: IRadios, ref: any) => {
       className={classNames([
         staticClassName('Radios', theme) && [
           'AmauiRadios-root',
-          uncheck && `AmauiRadios-uncheck`,
           disabled && `AmauiRadios-disabled`
         ],
 

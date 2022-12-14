@@ -489,12 +489,7 @@ const Tabs = React.forwardRef((props_: ITabs, ref: any) => {
 
       className={classNames([
         staticClassName('Tabs', theme) && [
-          'AmauiTabs-root',
-          `AmauiTabs-orientation-horizontal`,
-          activateOnFocus && `AmauiTabs-activate-on-focus`,
-          arrows && `AmauiTabs-arrows`,
-          arrowsMobile && `AmauiTabs-arrows-mobile`,
-          fixed && `AmauiTabs-fixed`
+          'AmauiTabs-root'
         ],
 
         SurfaceProps?.className,

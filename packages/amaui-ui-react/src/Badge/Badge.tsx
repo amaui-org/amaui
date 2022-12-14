@@ -118,11 +118,7 @@ const Badge = React.forwardRef((props_: IBadge, ref: any) => {
 
       className={classNames([
         staticClassName('Badge', theme) && [
-          'AmauiBadge-root',
-          `AmauiBadge-vertical-${vertical}`,
-          `AmauiBadge-horizontal-${horizontal}`,
-          indicator && `AmauiBadge-indicator`,
-          max !== undefined && `AmauiBadge-max`
+          'AmauiBadge-root'
         ],
 
         className,

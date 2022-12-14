@@ -148,9 +148,7 @@ const Avatar = React.forwardRef((props_: IAvatar, ref) => {
 
       className={classNames([
         staticClassName('Avatar', theme) && [
-          'AmauiAvatar-root',
-          image && 'AmauiAvatar-image',
-          square && 'AmauiAvatar-square'
+          'AmauiAvatar-root'
         ],
 
         className,

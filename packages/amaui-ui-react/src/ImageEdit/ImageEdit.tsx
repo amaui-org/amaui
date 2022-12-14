@@ -1481,14 +1481,7 @@ const ImageEdit = React.forwardRef((props_: IImageEdit, ref: any) => {
 
       className={classNames([
         staticClassName('ImageEdit', theme) && [
-          'AmauiImageEdit-root',
-          meta && `AmauiImageEdit-meta`,
-          filtersOption && `AmauiImageEdit-filters-option`,
-          cropOption && `AmauiImageEdit-crop-option`,
-          resizeOption && `AmauiImageEdit-resize-option`,
-          qualityOption && `AmauiImageEdit-quality-option`,
-          downloadOption && `AmauiImageEdit-download-option`,
-          resizeAspectRatio && `AmauiImageEdit-resize-aspect-ratio`
+          'AmauiImageEdit-root'
         ],
 
         className,

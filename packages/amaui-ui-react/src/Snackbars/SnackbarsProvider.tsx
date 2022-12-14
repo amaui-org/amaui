@@ -240,9 +240,7 @@ const SnackbarsProvider = React.forwardRef((props_: ISnackbarsProvider, ref: any
 
         className={classNames([
           staticClassName('Snackbars', theme) && [
-            `AmauiSnackbars-root`,
-            position && `AmauiSnackbars-position-${position}`,
-            alignment && `AmauiSnackbars-alignment-${alignment}`
+            `AmauiSnackbars-root`
           ],
 
           className,

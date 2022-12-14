@@ -283,9 +283,7 @@ const DropZone = React.forwardRef((props_: IDropZone, ref: any) => {
 
       className={classNames([
         staticClassName('DropZone', theme) && [
-          'AmauiDropZone-root',
-          multiple && `AmauiDropZone-multiple`,
-          dragOver && `AmauiDropZone-drag-over`
+          'AmauiDropZone-root'
         ],
 
         className,

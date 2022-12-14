@@ -279,10 +279,7 @@ const WidgetsProvider = React.forwardRef((props_: IWidgetsProvider, ref: any) =>
 
           className={classNames([
             staticClassName('Widgets', theme) && [
-              `AmauiWidgets-root`,
-              position && `AmauiWidgets-position-${position}`,
-              move && `AmauiWidgets-move`,
-              fixed && `AmauiWidgets-fixed`
+              `AmauiWidgets-root`
             ],
 
             className,

@@ -422,17 +422,6 @@ const Buttons = React.forwardRef((props_: IButtons, ref: any) => {
       className={classNames([
         staticClassName('Buttons', theme) && [
           'AmauiButtons-root',
-          `AmauiButtons-select-${select}`,
-          `AmauiButtons-version-${version}`,
-          `AmauiButtons-color-${!theme.palette.color[color] && !['themed', 'inverted', 'default', 'inherit'].includes(color) ? 'new' : color}`,
-          `AmauiButtons-size-${size}`,
-          `AmauiButtons-orientation-${orientation}`,
-          elevation && !disabled && ['filled', 'tonal'].includes(version) && `AmauiButtons-elevation`,
-          tonal && `AmauiButtons-tonal`,
-          chip && `AmauiButtons-chip`,
-          border && `AmauiButtons-border`,
-          fullWidth && `AmauiButtons-full-width`,
-          noCheckIcon && `AmauiButtons-no-check-icon`,
           disabled && `AmauiButtons-disabled`,
         ],
 

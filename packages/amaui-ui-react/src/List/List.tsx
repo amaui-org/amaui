@@ -144,13 +144,7 @@ const List = React.forwardRef((props_: IList, ref: any) => {
 
       className={classNames([
         staticClassName('List', theme) && [
-          'AmauiList-root',
-          `AmauiList-size-${size}`,
-          `AmauiList-padding-horizontal-${paddingHorizontal}`,
-          `AmauiList-padding-vertical-${paddingVertical}`,
-          menu && `AmauiList-menu`,
-          indent && `AmauiList-indent`,
-          noMaxWidth && `AmauiList-no-max-width`
+          'AmauiList-root'
         ],
 
         className,

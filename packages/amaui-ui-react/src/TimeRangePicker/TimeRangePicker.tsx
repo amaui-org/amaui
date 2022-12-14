@@ -719,22 +719,6 @@ const TimeRangePicker = React.forwardRef((props__: ITimeRangePicker, ref: any) =
       className={classNames([
         staticClassName('TimeRangePicker', theme) && [
           'AmauiTimeRangePicker-root',
-          `AmauiTimeRangePicker-version-${version}`,
-          `AmauiTimeRangePicker-orientation-${orientation}`,
-          `AmauiTimeRangePicker-open-mobile-${openMobile}`,
-          `AmauiTimeRangePicker-open-desktop-${openDesktop}`,
-          `AmauiTimeRangePicker-format-${format}`,
-          now && `AmauiTimeRangePicker-now`,
-          label && `AmauiTimeRangePicker-label`,
-          min && `AmauiTimeRangePicker-min`,
-          max && `AmauiTimeRangePicker-max`,
-          hour && `AmauiTimeRangePicker-hour`,
-          minute && `AmauiTimeRangePicker-minute`,
-          second && `AmauiTimeRangePicker-second`,
-          autoNext && `AmauiTimeRangePicker-auto-next`,
-          autoCloseOnLast && `AmauiTimeRangePicker-auto-close-on-last`,
-          autoValidation && `AmauiTimeRangePicker-auto-validation`,
-          switch_ && `AmauiTimeRangePicker-switch`,
           readOnly && `AmauiTimeRangePicker-read-only`,
           disabled && `AmauiTimeRangePicker-disabled`
         ],

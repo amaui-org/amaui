@@ -157,12 +157,7 @@ const Container = React.forwardRef((props_: IContainer, ref: any) => {
 
       className={classNames([
         staticClassName('Container', theme) && [
-          'AmauiContainer-root',
-          `AmauiContainer-alignment-${alignment}`,
-          `AmauiContainer-max-width-${maxWidth}`,
-          `AmauiContainer-padding-vertical-${paddingVertical}`,
-          `AmauiContainer-padding-horizontal-${paddingHorizontal}`,
-          `AmauiContainer-full-width-${fullWidth}`
+          'AmauiContainer-root'
         ],
 
         className,

@@ -3,39 +3,32 @@ import React from 'react';
 import { isEnvironment } from '@amaui/utils';
 
 const useMediaQuery = (props: string) => {
-  const [media, setMedia] = React.useState(props);
-  const [mediaQuery, setMediaQuery] = React.useState<MediaQueryList>(isEnvironment('browser') && window.matchMedia(media));
-  const [response, setResponse] = React.useState<MediaQueryList | MediaQueryListEvent>(mediaQuery);
+  const [response, setResponse] = React.useState<MediaQueryList | MediaQueryListEvent>();
+
+  const refs = {
+    mediaQuery: React.useRef<MediaQueryList>()
+  };
 
   const method = React.useCallback((event: MediaQueryListEvent) => setResponse(event), []);
 
   // Watch
   React.useEffect(() => {
-    // Add new event listener
-    mediaQuery.addEventListener('change', method);
+    if (refs.mediaQuery.current) refs.mediaQuery.current.removeEventListener('change', method);
 
-    return () => {
-      // Remove previous event listener
-      mediaQuery.removeEventListener('change', method);
-    };
-  }, []);
-
-  // Media
-  React.useEffect(() => {
-    if (props !== media) {
-      // Remove previous event listener
-      mediaQuery.removeEventListener('change', method);
-
-      // Add
-      const mediaQueryNew = window.matchMedia(props);
-
-      setMedia(props);
-      setMediaQuery(mediaQueryNew);
-      setResponse(mediaQueryNew);
+    if (isEnvironment('browser')) {
+      refs.mediaQuery.current = window.matchMedia(props);
 
       // Add new event listener
-      mediaQueryNew.addEventListener('change', method);
+      refs.mediaQuery.current.addEventListener('change', method);
+
+      // Update the response
+      setResponse(refs.mediaQuery.current);
     }
+
+    return () => {
+      // Remove event listener
+      if (refs.mediaQuery.current) refs.mediaQuery.current.removeEventListener('change', method);
+    };
   }, [props]);
 
   return response?.matches;

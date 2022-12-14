@@ -429,9 +429,7 @@ const Countdown = React.forwardRef((props_: ICountdown, ref: any) => {
 
       className={classNames([
         staticClassName('Countdown', theme) && [
-          'AmauiCountdown-root',
-          `AmauiCountdown-version-${version}`,
-          icon && 'AmauiCountdown-icon',
+          'AmauiCountdown-root'
         ],
 
         className,

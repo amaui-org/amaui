@@ -81,8 +81,7 @@ const Table = React.forwardRef((props_: ITable, ref: any) => {
 
       className={classNames([
         staticClassName('Table', theme) && [
-          `AmauiTable-root`,
-          `AmauiTable-size-${size}`
+          `AmauiTable-root`
         ],
 
         className,

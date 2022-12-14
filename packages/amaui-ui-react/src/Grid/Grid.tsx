@@ -187,15 +187,7 @@ const Grid = React.forwardRef((props_: IGrid, ref: any) => {
 
       className={classNames([
         staticClassName('Grid', theme) && [
-          'AmauiGrid-root',
-          `AmauiGrid-wrap-${wrap}`,
-          `AmauiGrid-direction-${direction}`,
-          `AmauiGrid-columns-${columns}`,
-          `AmauiGrid-gap-${gap}`,
-          line && 'AmauiGrid-root-line',
-          auto && 'AmauiGrid-root-auto',
-          rowGap !== undefined && 'AmauiGrid-row-gap-${rowGap',
-          columnGap !== undefined && 'AmauiGrid-column-gap-${columnGap'
+          'AmauiGrid-root'
         ],
 
         className,

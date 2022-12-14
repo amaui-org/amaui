@@ -372,6 +372,7 @@ export interface IChart extends IBaseElement {
   // Guideline
   guidelines?: 'both' | 'vertical' | 'horizontal' | Record<TValueBreakpoints, 'both' | 'vertical' | 'horizontal'>;
   guidelinesAppend?: boolean | Record<TValueBreakpoints, boolean>;
+  guidelinesDisplayInactive?: boolean | Record<TValueBreakpoints, boolean>;
 
   // Additional lines
   additionalLines?: TElement;
@@ -522,6 +523,8 @@ const Chart = React.forwardRef((props_: IChart, ref: any) => {
 
     guidelinesAppend: guidelinesAppend_,
 
+    guidelinesDisplayInactive: guidelinesDisplayInactive_,
+
     // Additional lines
     additionalLines: additionalLines__,
 
@@ -662,6 +665,7 @@ const Chart = React.forwardRef((props_: IChart, ref: any) => {
 
   const guidelines = valueBreakpoints(guidelines_, undefined, breakpoints, theme);
   const guidelinesAppend = valueBreakpoints(guidelinesAppend_, true, breakpoints, theme);
+  const guidelinesDisplayInactive = valueBreakpoints(guidelinesDisplayInactive_, false, breakpoints, theme);
 
   const legend__ = valueBreakpoints(legend___, 'auto', breakpoints, theme);
 
@@ -833,8 +837,10 @@ const Chart = React.forwardRef((props_: IChart, ref: any) => {
 
         open: false
       }));
+
+      if (!guidelinesDisplayInactive) setGuidelineIn(false);
     });
-  }, [tooltipCloseOnMouseLeave]);
+  }, [tooltipCloseOnMouseLeave, guidelinesDisplayInactive]);
 
   const makeGroupTooltip = (x_: number, y_: number) => {
     const items = refs.allValues.current.filter(item => item.normalized[0] === x_);
@@ -1546,22 +1552,7 @@ const Chart = React.forwardRef((props_: IChart, ref: any) => {
 
       className={classNames([
         staticClassName('Chart', theme) && [
-          'AmauiChart-root',
-          tooltip && `AmauiChart-tooltip`,
-          tooltipIndividually && `AmauiChart-tooltip-individually`,
-          elementTooltip && `AmauiChart-element-tooltip`,
-          guidelines && `AmauiChart-guidelines`,
-          additionalLines && `AmauiChart-additional-lines`,
-          (names?.x && nameX) && `AmauiChart-name-x`,
-          (names?.y && nameY) && `AmauiChart-name-y`,
-          legend && `AmauiChart-legend`,
-          legendManageVisibility && `AmauiChart-legend-manage-visibility`,
-          labels && `AmauiChart-labels`,
-          marks && `AmauiChart-marks`,
-          grid && `AmauiChart-grid`,
-          points && `AmauiChart-points`,
-          noMain && `AmauiChart-no-main`
-
+          'AmauiChart-root'
         ],
 
         className,

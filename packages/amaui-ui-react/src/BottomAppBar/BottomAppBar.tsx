@@ -274,9 +274,7 @@ const BottomAppBar = React.forwardRef((props_: IBottomAppBar, ref: any) => {
 
       className={classNames([
         staticClassName('BottomAppBar', theme) && [
-          'AmauiBottomAppBar-root',
-          `AmauiBottomAppBar-size-${size}`,
-          fixed && `AmauiBottomAppBar-fixed`
+          'AmauiBottomAppBar-root'
         ],
 
         className,

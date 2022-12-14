@@ -288,17 +288,6 @@ const Accordion = React.forwardRef((props_: IAccordion, ref: any) => {
       className={classNames([
         staticClassName('Accordion', theme) && [
           'AmauiAccordion-root',
-          `AmauiAccordion-header-padding-vertical-${headerPaddingVertical}`,
-          `AmauiAccordion-header-padding-horizontal-${headerPaddingHorizontal}`,
-          `AmauiAccordion-main-padding-vertical-${mainPaddingVertical}`,
-          `AmauiAccordion-main-padding-horizontal-${mainPaddingHorizontal}`,
-          open && [
-            `AmauiAccordion-expanded-margin-vertical-${expandedMarginVertical}`,
-            `AmauiAccordion-expanded-header-padding-vertical-${expandedHeaderPaddingVertical}`
-          ],
-          noExpandButton && `AmauiAccordion-no-expand-button`,
-          noBackground && `AmauiAccordion-no-background`,
-          noTransition && `AmauiAccordion-no-transition`,
           disabled && `AmauiAccordion-disabled`
         ],
 

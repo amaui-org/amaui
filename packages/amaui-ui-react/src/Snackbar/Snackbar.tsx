@@ -302,12 +302,7 @@ const Snackbar = React.forwardRef((props_: ISnackbar, ref: any) => {
 
         className={classNames([
           staticClassName('Snackbar', theme) && [
-            `AmauiSnackbar-root`,
-            `AmauiSnackbar-position-${position}`,
-            `AmauiSnackbar-alignment-${alignment}`,
-            `AmauiSnackbar-size-${size}`,
-            autoHide && `AmauiSnackbar-auto-hide`,
-            fixed && `AmauiSnackbar-fixed`
+            `AmauiSnackbar-root`
           ],
 
           className,

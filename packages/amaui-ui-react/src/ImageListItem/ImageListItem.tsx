@@ -95,8 +95,7 @@ const ImageListItem = React.forwardRef((props_: IImageListItem, ref: any) => {
 
       className={classNames([
         staticClassName('ImageListItem', theme) && [
-          'AmauiImageListItem-root',
-          `AmauiImageListItem-version-${version}`
+          'AmauiImageListItem-root'
         ],
 
         className,

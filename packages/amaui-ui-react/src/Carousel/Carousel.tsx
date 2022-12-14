@@ -1338,28 +1338,7 @@ const Carousel = React.forwardRef((props_: ICarousel, ref: any) => {
 
       className={classNames([
         staticClassName('Carousel', theme) && [
-          'AmauiCarousel-root',
-          `AmauiCarousel-version-${version}`,
-          `AmauiCarousel-orientation-${orientation}`,
-          `AmauiCarousel-arrows-visibility-${arrowsVisibility}`,
-          `AmauiCarousel-progress-visibility-${progressVisibility}`,
-          autoPlay && `AmauiCarousel-auto-play`,
-          autoHeight && `AmauiCarousel-auto-height`,
-          itemSize && `AmauiCarousel-item-size-${itemSize}`,
-          move && `AmauiCarousel-move`,
-          moveBeyondEdge && `AmauiCarousel-move-beyond-edge`,
-          free && `AmauiCarousel-free`,
-          swipe && `AmauiCarousel-swipe`,
-          background && `AmauiCarousel-background`,
-          pauseOnHover && `AmauiCarousel-pause-on-hover`,
-          round && `AmauiCarousel-round`,
-          arrows && `AmauiCarousel-arrows`,
-          mouseScroll && `AmauiCarousel-mouse-scroll`,
-          momentum && `AmauiCarousel-momentum`,
-          round && `AmauiCarousel-round`,
-          arrowHideOnStartEnd && `AmauiCarousel-arrow-hide-on-start-end`,
-          progress && `AmauiCarousel-progress`,
-          noTransition && `AmauiCarousel-no-transition`
+          'AmauiCarousel-root'
         ],
 
         className,

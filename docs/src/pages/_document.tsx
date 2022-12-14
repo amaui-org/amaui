@@ -20,7 +20,6 @@ export default class CustomDocument extends Document {
           <link href='https://fonts.googleapis.com/css2?family=Lato:wght@400&family=Roboto+Mono&family=Roboto:wght@400;500&display=swap' rel='stylesheet' />
 
           <link rel='preload' as='font' type='font/ttf' crossOrigin='anonymous' href='/assets/fonts/Montserrat/Montserrat-Bold.ttf' />
-
           <link rel='preload' as='font' type='font/ttf' crossOrigin='anonymous' href='/assets/fonts/Lato/Lato-Bold.ttf' />
 
           <link rel='manifest' href='/manifest.json' />
@@ -42,6 +41,8 @@ export default class CustomDocument extends Document {
           <meta name='apple-mobile-web-app-capable' content='yes' />
           <meta name='apple-touch-fullscreen' content='yes' />
           <meta name='apple-mobile-web-app-status-bar-style' content='#fafa00' />
+
+          <script src='https://unpkg.com/@amaui/date@latest/umd/amaui-date.dev.js' />
         </Head>
 
         <body>

@@ -107,6 +107,7 @@ const useStyle = styleMethod(theme => ({
     borderRadius: theme.methods.shape.radius.value('sm', 'px'),
     cursor: 'pointer',
     userSelect: 'none',
+    flex: '1 1',
 
     '& .AmauiButton-label': {
       ...theme.typography.values.d2,
@@ -520,6 +521,25 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
     };
 
     setValues(values_);
+
+    // Add momentary transition to the AmauiRoundMeter-children > *
+    // if selecting value updates
+    if (refs.roundMeter.current && property === 'selecting' && refs.values.current.selecting !== value__) {
+      let elementChildren: any = (refs.roundMeter.current as HTMLElement).getElementsByClassName('AmauiRoundMeter-children')[0];
+      let elementLabels: any = (refs.roundMeter.current as HTMLElement).getElementsByClassName('AmauiRoundMeter-labels')[0];
+
+      if (elementChildren) {
+        elementChildren = Array.from(elementChildren.children);
+        elementLabels = Array.from(elementLabels.children);
+
+        elementChildren.forEach((item: HTMLElement) => item.style.transition = 'transform .3s');
+        elementLabels.forEach((item: HTMLElement) => item.style.transition = 'fill .3s');
+
+        setTimeout(() => {
+          [...elementChildren, ...elementLabels].forEach((item: HTMLElement) => item.style.removeProperty('transition'));
+        }, 300);
+      }
+    }
 
     // Error
     setError(!validItem('', '', property === 'input' ? inputToValues(value__) : values_));
@@ -1838,21 +1858,6 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
       className={classNames([
         staticClassName('TimePicker', theme) && [
           'AmauiTimePicker-root',
-          `AmauiTimePicker-version-${version}`,
-          `AmauiTimePicker-orientation-${orientation}`,
-          `AmauiTimePicker-open-mobile-${openMobile}`,
-          `AmauiTimePicker-open-desktop-${openDesktop}`,
-          `AmauiTimePicker-format-${format}`,
-          now && `AmauiTimePicker-now`,
-          label && `AmauiTimePicker-label`,
-          min && `AmauiTimePicker-min`,
-          max && `AmauiTimePicker-max`,
-          hour && `AmauiTimePicker-hour`,
-          minute && `AmauiTimePicker-minute`,
-          second && `AmauiTimePicker-second`,
-          autoNext && `AmauiTimePicker-auto-next`,
-          autoCloseOnLast && `AmauiTimePicker-auto-close-on-last`,
-          switch_ && `AmauiTimePicker-switch`,
           readOnly && `AmauiTimePicker-read-only`,
           disabled && `AmauiTimePicker-disabled`
         ],

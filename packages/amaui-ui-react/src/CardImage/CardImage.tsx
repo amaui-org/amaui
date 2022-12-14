@@ -93,9 +93,7 @@ const CardImage = React.forwardRef((props_: ICardImage, ref: any) => {
 
       className={classNames([
         staticClassName('CardImage', theme) && [
-          `AmauiCardImage-root`,
-          `AmauiCardImage-shape-${shape}`,
-          marginHorizontal && `AmauiCardImage-margin-horizontal`
+          `AmauiCardImage-root`
         ],
 
         className,

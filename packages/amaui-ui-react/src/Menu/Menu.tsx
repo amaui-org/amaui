@@ -252,13 +252,7 @@ const Menu = React.forwardRef((props_: IMenu, ref: any) => {
         className={classNames([
           staticClassName('Menu', theme) && [
             'AmauiMenu-root',
-            open && `AmauiMenu-open`,
-            arrow && `AmauiMenu-arrow`,
-            anchorElement && `AmauiMenu-anchor-element`,
-            closeOnClickAway && `AmauiMenu-close-on-click-away`,
-            resetKeyboardNavigation && `AmauiMenu-reset-keyboard-navigation`,
-            autoSelect && `AmauiMenu-auto-select`,
-            autoSelectOnBlur && `AmauiMenu-auto-select-on-blur`
+            open && `AmauiMenu-open`
           ],
 
           className,

@@ -206,10 +206,7 @@ const AdvancedTextField = React.forwardRef((props_: IAdvancedTextField, ref: any
 
       className={classNames([
         staticClassName('AdvancedTextField', theme) && [
-          'AmauiAdvancedTextField-root',
-          prefix && `AmauiAdvancedTextField-prefix`,
-          mask && `AmauiAdvancedTextField-mask`,
-          thousand && `AmauiAdvancedTextField-thousand`
+          'AmauiAdvancedTextField-root'
         ],
 
         className,

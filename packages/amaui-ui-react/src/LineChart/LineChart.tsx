@@ -385,8 +385,7 @@ const LineChart = React.forwardRef((props_: ILineChart, ref: any) => {
 
       className={classNames([
         staticClassName('LineChart', theme) && [
-          'AmauiLineChart-root',
-          smooth && `AmauiLineChart-smooth`
+          'AmauiLineChart-root'
         ],
 
         className,

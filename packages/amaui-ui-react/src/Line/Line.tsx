@@ -241,16 +241,7 @@ const Line = React.forwardRef((props_: ILine, ref: any) => {
 
       className={classNames([
         staticClassName('Line', theme) && [
-          'AmauiLine-root',
-          display && `AmauiLine-display-${display}`,
-          wrap && `AmauiLine-wrap-${wrap}`,
-          direction && `AmauiLine-direction-${direction}`,
-          align && `AmauiLine-align-${align}`,
-          justify && `AmauiLine-justify-${justify}`,
-          gap && `AmauiLine-gap-${gap}`,
-          rowGap !== undefined && `AmauiLine-row-gap-${rowGap}`,
-          columnGap !== undefined && `AmauiLine-column-gap-${columnGap}`,
-          divider && `AmauiLine-divider`
+          'AmauiLine-root'
         ],
 
         className,

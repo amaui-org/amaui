@@ -133,40 +133,6 @@ const useStyle = styleMethod(theme => ({
     width: '100%'
   },
 
-  // Elevation
-  elevation: {
-    transition: theme.methods.transitions.make('box-shadow'),
-
-    '&:hover': {
-      boxShadow: theme.shadows.values.neutral[3]
-    }
-  },
-
-  // Disabled
-  disabled: {
-    cursor: 'default',
-    opacity: theme.palette.visual_contrast.default.opacity.disabled
-  },
-
-  disabled_version_text: {
-    '&.AmauiSurface-root': {
-      color: theme.palette.text.default.primary
-    }
-  },
-
-  disabled_version_outlined: {
-    '&.AmauiSurface-root': {
-      color: theme.palette.text.default.primary
-    }
-  },
-
-  disabled_version_filled: {
-    '&.AmauiSurface-root': {
-      color: theme.palette.text.neutral.primary,
-      background: theme.palette.light ? theme.palette.text.divider : theme.palette.text.neutral.quaternary
-    }
-  },
-
   // Label
   label: {
     display: 'inline-flex',
@@ -268,6 +234,40 @@ const useStyle = styleMethod(theme => ({
 
   chip_end_size_large: {
     padding: `0 10px`
+  },
+
+  // Elevation
+  elevation: {
+    transition: theme.methods.transitions.make('box-shadow'),
+
+    '&:hover': {
+      boxShadow: theme.shadows.values.neutral[3]
+    }
+  },
+
+  // Disabled
+  disabled: {
+    cursor: 'default !important',
+    opacity: `${theme.palette.visual_contrast.default.opacity.disabled} !important`
+  },
+
+  disabled_version_text: {
+    '&.AmauiSurface-root': {
+      color: theme.palette.text.default.primary
+    }
+  },
+
+  disabled_version_outlined: {
+    '&.AmauiSurface-root': {
+      color: theme.palette.text.default.primary
+    }
+  },
+
+  disabled_version_filled: {
+    '&.AmauiSurface-root': {
+      color: theme.palette.text.neutral.primary,
+      background: theme.palette.light ? theme.palette.text.divider : theme.palette.text.neutral.quaternary
+    }
   }
 }), { name: 'AmauiButton' });
 
@@ -542,19 +542,11 @@ const Button = React.forwardRef((props_: IButton, ref: any) => {
       className={classNames([
         staticClassName('Button', theme) && [
           `AmauiButton-root`,
-          `AmauiButton-version-${version}`,
-          `AmauiButton-size-${size}`,
-          `AmauiButton-align-${align}`,
-          (elevation && !disabled && ['filled', 'tonal'].includes(version)) && `AmauiButton-elevation`,
           fullWidth && `AmauiButton-full-width`,
           start && `AmauiButton-start`,
           end && `AmauiButton-end`,
           selected && `AmauiButton-selected`,
           loading && `AmauiButton-loading`,
-          icon && `AmauiButton-icon`,
-          fab && `AmauiButton-fab`,
-          chip && `AmauiButton-chip`,
-          noIconRootFontSize && `AmauiButton-no-icon-root-font-size`,
           focus && `AmauiButton-focus`,
           disabled && `AmauiButton-disabled`
         ],

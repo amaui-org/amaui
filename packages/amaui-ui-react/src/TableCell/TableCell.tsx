@@ -98,10 +98,7 @@ const TableCell = React.forwardRef((props_: ITableCell, ref: any) => {
 
       className={classNames([
         staticClassName('TableCell', theme) && [
-          `AmauiTableCell-root`,
-          `AmauiTableCell-position-${position}`,
-          `AmauiTableCell-size-${size}`,
-          noWeight && `AmauiTableCell-no-weight`
+          `AmauiTableCell-root`
         ],
 
         className,

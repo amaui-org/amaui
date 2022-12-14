@@ -259,12 +259,7 @@ const NavigationDrawer = React.forwardRef((props_: INavigationDrawer, ref: any) 
 
       className={classNames([
         staticClassName('NavigationDrawer', theme) && [
-          'AmauiNavigationDrawer-root',
-          `AmauiNavigationDrawer-version-${version}`,
-          `AmauiNavigationDrawer-direction-${direction}`,
-          swipe && `AmauiNavigationDrawer-swipe`,
-          swipeTouchAnywhere && `AmauiNavigationDrawer-swipe-touch-anywhere`,
-          swipeBackgroundFollow && `AmauiNavigationDrawer-swipe-background-follow`
+          'AmauiNavigationDrawer-root'
         ],
 
         className,

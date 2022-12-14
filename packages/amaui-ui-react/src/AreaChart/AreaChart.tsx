@@ -504,9 +504,7 @@ const AreaChart = React.forwardRef((props_: IAreaChart, ref: any) => {
 
       className={classNames([
         staticClassName('AreaChart', theme) && [
-          'AmauiAreaChart-root',
-          smooth && 'AmauiAreaChart-smooth',
-          linearGradient && 'AmauiAreaChart-linear-gradient'
+          'AmauiAreaChart-root'
         ],
 
         className,

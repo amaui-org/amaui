@@ -210,12 +210,9 @@ const Step = React.forwardRef((props_: IStep, ref: any) => {
       className={classNames([
         staticClassName('Step', theme) && [
           'AmauiStep-root',
-          `AmauiStep-orientation-${orientation}`,
-          `AmauiStep-direction-${stepDirection}`,
           active && `AmauiStep-active`,
           completed && `AmauiStep-completed`,
-          (!active && !completed) && `AmauiStep-inactive`,
-          button && `AmauiStep-button`
+          (!active && !completed) && `AmauiStep-inactive`
         ],
 
         className,

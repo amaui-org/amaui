@@ -271,10 +271,7 @@ const MainProgressProvider = React.forwardRef((props_: IMainProgressProvider, re
 
           className={classNames([
             staticClassName('MainProgress', theme) && [
-              `AmauiMainProgress-root`,
-              `AmauiMainProgress-position-${position}`,
-              firstIncrement && `AmauiMainProgress-first-increment`,
-              fixed && `AmauiMainProgress-fixed`
+              `AmauiMainProgress-root`
             ],
 
             className,

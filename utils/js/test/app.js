@@ -36,6 +36,8 @@ const run = async () => {
 
       'https://unpkg.com/@amaui/utils@latest/umd/amaui-utils.dev.js',
 
+      'https://unpkg.com/@amaui/date@latest/umd/amaui-date.dev.js',
+
       'https://unpkg.com/@amaui/style@latest/umd/amaui-style.dev.js'
     );
 

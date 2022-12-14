@@ -96,9 +96,7 @@ const Chips = React.forwardRef((props_: IChips, ref: any) => {
 
       className={classNames([
         staticClassName('Chips', theme) && [
-          'AmauiChips-root',
-          `AmauiChips-size-${size}`,
-          wrap && 'AmauiChips-wrap'
+          'AmauiChips-root'
         ],
 
         className,

@@ -348,8 +348,7 @@ const Timer = React.forwardRef((props_: ITimer, ref: any) => {
 
       className={classNames([
         staticClassName('Timer', theme) && [
-          'AmauiTimer-root',
-          icon && `AmauiTimer-icon`
+          'AmauiTimer-root'
         ],
 
         className,

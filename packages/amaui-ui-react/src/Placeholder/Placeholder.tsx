@@ -139,10 +139,7 @@ const Placeholder = React.forwardRef((props_: IPlaceholder, ref: any) => {
 
       className={classNames([
         staticClassName('Placeholder', theme) && [
-          `AmauiPlaceholder-root`,
-          version && `AmauiPlaceholder-version-${version}`,
-          animation && `AmauiPlaceholder-animation-${animation}`,
-          text && `AmauiPlaceholder-text`
+          `AmauiPlaceholder-root`
         ],
 
         className,

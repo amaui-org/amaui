@@ -687,11 +687,7 @@ const Switch = React.forwardRef((props_: ISwitch, ref: any) => {
       className={classNames([
         staticClassName('Switch', theme) && [
           'AmauiSwitch-root',
-          `AmauiSwitch-color-${!theme.palette.color[color] && !['themed', 'inverted', 'default', 'inherit'].includes(color) ? 'new' : color}`,
-          `AmauiSwitch-size-${size}`,
-          OnIcon && `AmauiSwitch-on-icon`,
-          OffIcon && `AmauiSwitch-off-icon`,
-          tonal && `AmauiSwitch-tonal`,
+          value && `AmauiSwitch-checked`,
           disabled && `AmauiSwitch-disabled`
         ],
 

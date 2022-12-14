@@ -880,16 +880,7 @@ const RoundMeter = React.forwardRef((props_: IRoundMeter, ref: any) => {
 
       className={classNames([
         staticClassName('RoundMeter', theme) && [
-          'AmauiRoundMeter-root',
-          `AmauiRoundMeter-boundary-${String(boundary).replace('.', '')}`,
-          `AmauiRoundMeter-size-${size}`,
-          lineCap && `AmauiRoundMeter-line-cap-${lineCap}`,
-          border && `AmauiRoundMeter-border`,
-          background && `AmauiRoundMeter-background`,
-          arcProgress && `AmauiRoundMeter-arc-progress`,
-          arcsVisible && `AmauiRoundMeter-arcs-visible`,
-          marksVisible && `AmauiRoundMeter-marks-visible`,
-          labelsVisible && `AmauiRoundMeter-labels-visible`
+          'AmauiRoundMeter-root'
         ],
 
         className,

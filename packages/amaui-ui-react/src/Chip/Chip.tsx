@@ -175,8 +175,6 @@ const Chip = React.forwardRef((props_: IChip, ref: any) => {
       className={classNames([
         staticClassName('Chip', theme) && [
           'AmauiChip-root',
-          input && `AmauiChip-selected`,
-          filter && `AmauiChip-filter`,
           selected && `AmauiChip-selected`
         ],
 

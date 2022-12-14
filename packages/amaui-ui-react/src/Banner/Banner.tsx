@@ -129,9 +129,7 @@ const Banner = React.forwardRef((props_: IBanner, ref: any) => {
 
       className={classNames([
         staticClassName('Banner', theme) && [
-          'AmauiBanner-root',
-          `AmauiBanner-size-${size}`,
-          `AmauiBanner-max-width-${maxWidth}`
+          'AmauiBanner-root'
         ],
 
         className,

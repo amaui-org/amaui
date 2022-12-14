@@ -409,10 +409,7 @@ const Select = React.forwardRef((props_: ISelect, ref: any) => {
             'AmauiSelect-root',
             open && `AmauiSelect-open`,
             mouseDown && `AmauiSelect-mouse-down`,
-            focus && `AmauiSelect-focus`,
-            multiple && `AmauiSelect-multiple`,
-            autoWidth && `AmauiSelect-auto-width`,
-            chip && `AmauiSelect-chip`
+            focus && `AmauiSelect-focus`
           ],
 
           className,

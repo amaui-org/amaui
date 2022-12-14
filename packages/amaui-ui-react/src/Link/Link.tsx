@@ -189,9 +189,6 @@ const Link = React.forwardRef((props_: ILink, ref: any) => {
       className={classNames([
         staticClassName('Link', theme) && [
           'AmauiLink-root',
-          `AmauiLink-color-${!theme.palette.color[color] && !['themed', 'inverted', 'default', 'inherit'].includes(color) ? 'new' : color}`,
-          tonal && `AmauiLink-tonal`,
-          underline && `AmauiLink-underline-${underline}`,
           hover && `AmauiLink-hover`,
           focus && `AmauiLink-focus`
         ],

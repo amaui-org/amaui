@@ -62,8 +62,7 @@ const TableHead = React.forwardRef((props_: ITableHead, ref: any) => {
 
       className={classNames([
         staticClassName('TableHead', theme) && [
-          `AmauiTableHead-root`,
-          sticky && `AmauiTableHead-sticky`
+          `AmauiTableHead-root`
         ],
 
         className,

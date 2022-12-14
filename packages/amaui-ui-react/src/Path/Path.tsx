@@ -37,8 +37,7 @@ const Path = React.forwardRef((props_: IPath, ref: any) => {
 
       className={classNames([
         staticClassName('Path', theme) && [
-          'AmauiPath-root',
-          `AmauiPath-component-${Component}`
+          'AmauiPath-root'
         ],
 
         className,

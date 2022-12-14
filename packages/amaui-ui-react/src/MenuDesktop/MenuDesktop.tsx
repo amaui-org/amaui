@@ -544,12 +544,7 @@ const MenuDesktop = React.forwardRef((props_: IMenuDesktop, ref: any) => {
 
         className={classNames([
           staticClassName('MenuDesktop', theme) && [
-            'AmauiMenuDesktop-root',
-            openOnHover && `AmauiMenuDesktop-open-on-hover`,
-            openOnClick && `AmauiMenuDesktop-open-on-click`,
-            openOnFocus && `AmauiMenuDesktop-open-on-focus`,
-            indicator && `AmauiMenuDesktop-indicator`,
-            menuTransition && `AmauiMenuDesktop-menu-transition`
+            'AmauiMenuDesktop-root'
           ],
 
           className,

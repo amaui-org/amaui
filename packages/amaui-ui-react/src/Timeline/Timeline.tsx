@@ -50,8 +50,7 @@ const Timeline = React.forwardRef((props_: ITimeline, ref: any) => {
 
       className={classNames([
         staticClassName('Timeline', theme) && [
-          'AmauiTimeline-root',
-          `AmauiTimeline-orientation-${orientation}`
+          'AmauiTimeline-root'
         ],
 
         className,

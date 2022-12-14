@@ -160,10 +160,7 @@ const Backdrop = React.forwardRef((props_: IBackdrop, ref: any) => {
 
       className={classNames([
         staticClassName('Backdrop', theme) && [
-          'AmauiBackdrop-root',
-          invisible && `AmauiBackdrop-invisible`,
-          disableBackgroundClose && `AmauiBackdrop-disable-background-close`,
-          disableKeyboardClose && `AmauiBackdrop-disable-keyboard-close`
+          'AmauiBackdrop-root'
         ],
 
         className,

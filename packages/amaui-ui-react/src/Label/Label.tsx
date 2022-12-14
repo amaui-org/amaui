@@ -154,9 +154,6 @@ const Label = React.forwardRef((props_: ILabel, ref: any) => {
       className={classNames([
         staticClassName('Label', theme) && [
           'AmauiLabel-root',
-          `AmauiLabel-version-${version}`,
-          `AmauiLabel-position-${position}`,
-          `AmauiLabel-size-${size}`,
           disabled && `AmauiLabel-disabled`
         ],
 

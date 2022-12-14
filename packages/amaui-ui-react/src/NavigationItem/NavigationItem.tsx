@@ -356,14 +356,7 @@ const NavigationItem = React.forwardRef((props_: INavigationItem, ref: any) => {
         className={classNames([
           staticClassName('NavigationItem', theme) && [
             'AmauiNavigationItem-root',
-            `AmauiNavigationItem-version-${version}`,
-            `AmauiNavigationItem-color-${!theme.palette.color[color] && !['themed', 'inverted', 'default', 'inherit'].includes(color) ? 'new' : color}`,
-            label && 'AmauiNavigationItem-label',
-            icon && 'AmauiNavigationItem-icon',
-            iconSelected && 'AmauiNavigationItem-icon-selected',
             selected && 'AmauiNavigationItem-selected',
-            vertical && 'AmauiNavigationItem-vertical',
-            tonal && `AmauiNavigationItem-tonal`,
             hover && `AmauiNavigationItem-hover`,
             mouseDown && `AmauiNavigationItem-mouse-down`,
             focus && `AmauiNavigationItem-focus`,

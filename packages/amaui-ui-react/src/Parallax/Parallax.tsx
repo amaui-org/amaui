@@ -174,9 +174,7 @@ const Parallax = React.forwardRef((props_: IParallax, ref: any) => {
       React.cloneElement(children as any, {
         className: classNames([
           staticClassName('Parallax', theme) && [
-            `AmauiParallax-root`,
-            `AmauiParallax-scroll-direction-${scrollDirection}`,
-            `AmauiParallax-transform-direction-${transformDirection}`
+            `AmauiParallax-root`
           ],
 
           className,

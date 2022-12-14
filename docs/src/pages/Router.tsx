@@ -21,17 +21,6 @@ import { images, libraries as all_libraries, themeImageSub } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   '@p': {
-    '*': {
-      margin: '0px',
-      padding: '0px',
-      border: '0px',
-      outline: 'none',
-      fontSize: '100%',
-      background: 'transparent',
-      boxSizing: 'border-box',
-      touchAction: 'manipulation'
-    },
-
     body: {
       color: theme.palette.text.default.primary,
       background: theme.palette.light ? theme.palette.background.default.primary : theme.palette.background.primary.secondary,
@@ -60,7 +49,7 @@ const useStyle = styleMethod(theme => ({
       background: 'transparent',
       borderRadius: theme.methods.shape.radius.value('xxl', 'px'),
       transition: theme.methods.transitions.make(['background', 'max-width', 'box-shadow'], { duration: 'complex' }),
-      zIndex: theme.z_index.tooltip + 14
+      zIndex: theme.z_index.tooltip + 1
     },
 
     '& .AmauiTopAppBar-wrapper': {

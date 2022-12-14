@@ -133,9 +133,7 @@ const AvatarGroup = React.forwardRef((props_: IAvatarGroup, ref: any) => {
 
       className={classNames([
         staticClassName('AvatarGroup', theme) && [
-          'AmauiAvatarGroup-root',
-          max !== undefined && 'AmauiAvatarGroup-max',
-          total !== undefined && 'AmauiAvatarGroup-total'
+          'AmauiAvatarGroup-root'
         ],
 
         className,

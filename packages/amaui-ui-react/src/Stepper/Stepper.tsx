@@ -138,12 +138,7 @@ const Stepper = React.forwardRef((props_: IStepper, ref: any) => {
 
       className={classNames([
         staticClassName('Stepper', theme) && [
-          'AmauiStepper-root',
-          `AmauiStep-orientation-${orientation}`,
-          `AmauiStep-direction-${stepDirection}`,
-          dividerActive && `AmauiStep-divider-active`,
-          individualDividers && `AmauiStep-individual-dividers`,
-          free && `AmauiStep-free`
+          'AmauiStepper-root'
         ],
 
         className,

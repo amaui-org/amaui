@@ -62,8 +62,7 @@ const ImageListItemBox = React.forwardRef((props_: IImageListItemBox, ref: any) 
 
       className={classNames([
         staticClassName('ImageListItemBox', theme) && [
-          'AmauiImageListItemBox-root',
-          position && `AmauiImageListItemBox-position-${position}`
+          'AmauiImageListItemBox-root'
         ],
 
         className,

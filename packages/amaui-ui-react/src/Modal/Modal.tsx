@@ -425,20 +425,8 @@ const Modal = React.forwardRef((props_: IModal, ref: any) => {
         className={classNames([
           staticClassName('Modal', theme) && [
             'AmauiModal-root',
-            `AmauiModal-size-${size}`,
-            `AmauiModal-min-width-${minWidth}`,
-            `AmauiModal-max-width-${maxWidth}`,
-            open && `AmauiButton-open`,
-            fullScreen && `AmauiButton-full-screen`,
-            fullWidth && `AmauiButton-full-width`,
-            background && `AmauiButton-background`,
-            modalWrapper && `AmauiButton-modal-wrapper`,
-            portal && `AmauiButton-portal`,
-            focus && `AmauiButton-focus`,
-            freezeScroll && `AmauiButton-freeze-scroll`,
-            backgroundInvisible && 'AmauiModal-background-invisible',
-            disableKeyboardClose && `AmauiButton-disable-keyboard-close`,
-            disableBackgroundClose && `AmauiButton-disable-background-close`,
+            open && `AmauiModal-open`,
+            focus && `AmauiModal-focus`
           ],
 
           className,

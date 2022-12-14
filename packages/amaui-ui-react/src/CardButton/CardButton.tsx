@@ -90,7 +90,6 @@ const CardButton = React.forwardRef((props_: ICardButton, ref: any) => {
       className={classNames([
         staticClassName('CardButton', theme) && [
           `AmauiCardButton-root`,
-          href && `AmauiCardButton-href`,
           focus && `AmauiCardButton-focus`,
           disabled && `AmauiCardButton-disabled`
         ],

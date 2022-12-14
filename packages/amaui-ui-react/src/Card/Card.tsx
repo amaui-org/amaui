@@ -144,8 +144,6 @@ const Card = React.forwardRef((props_: ICard, ref: any) => {
         staticClassName('Card', theme) && [
           `AmauiCard-root`,
           focus && `AmauiCard-focus`,
-          href && `AmauiCard-href`,
-          button && `AmauiCard-button`,
           disabled && `AmauiCard-disabled`
         ],
 

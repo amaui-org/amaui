@@ -122,9 +122,6 @@ const Icon = React.forwardRef((props_: IIcon, ref: any) => {
       className={classNames([
         staticClassName('Icon', theme) && [
           'AmauiIcon-root',
-          `AmauiIcon-color-${!theme.palette.color[color] && !['themed', 'inverted', 'default', 'inherit'].includes(color) ? 'new' : color}`,
-          `AmauiIcon-size-${size}`,
-          tonal && `AmauiButton-tonal`,
           (!noRtl && rtl && isRtlIcon) ? 'AmauiIcon-direction-rtl' : 'AmauiIcon-direction-ltr',
           disabled && `AmauiIcon-disabled`
         ],

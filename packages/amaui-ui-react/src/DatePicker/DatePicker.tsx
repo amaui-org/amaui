@@ -846,7 +846,10 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
                                       month: getLeadingZerosNumber(day.amauiDate.month),
                                       year: day.amauiDate.year
                                     }
-                                  )
+                                  ) ||
+
+                                  // not prior to 1970, we may potentially update this in the future
+                                  day.amauiDate.year < 1970
                                 )}
 
                                 className={classNames([
@@ -1506,7 +1509,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
   const getYears = is('function', getYears_) ? getYears_ : React.useCallback(() => {
     const years_ = [];
 
-    for (let i = 0; i < 129; i++) years_.push({ value: 1971 + i });
+    for (let i = 0; i < 130; i++) years_.push({ value: 1970 + i });
 
     return years_;
   }, []);
@@ -2130,35 +2133,41 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
   }, [onCancel_]);
 
   const move = (next = true, unit: TTimeUnits = 'month') => {
-    const calendar_ = ({
-      ...refs.calendar.current,
+    try {
+      const calendar_ = ({
+        ...refs.calendar.current,
 
-      previous: refs.calendar.current.date,
+        previous: refs.calendar.current.date,
 
-      move: next ? 'next' : 'previous',
+        move: next ? 'next' : 'previous',
 
-      update: 'move',
+        update: 'move',
 
-      date: (next ? add : remove)(1, unit, refs.calendar.current.date)
-    });
+        date: (next ? add : remove)(1, unit, refs.calendar.current.date)
+      });
 
-    updateCalendar(calendar_);
+      updateCalendar(calendar_);
+    }
+    catch (error) { }
   };
 
   const moveCalendar = (units = 1, calendarValue: any = refs.calendar.current, next = true, unit: TTimeUnits = 'month') => {
-    const previousCalendar: any = (calendarValue?.move === 'next' ? remove : add)(units - 1, unit, calendarValue.date);
+    try {
+      const previousCalendar: any = (calendarValue?.move === 'next' ? remove : add)(units - 1, unit, calendarValue.date);
 
-    const valueNew: any = (next ? add : remove)(units, unit, calendarValue.date);
+      const valueNew: any = (next ? add : remove)(units, unit, calendarValue.date);
 
-    const calendar_ = ({
-      ...calendarValue,
+      const calendar_ = ({
+        ...calendarValue,
 
-      previous: previousCalendar,
+        previous: previousCalendar,
 
-      date: valueNew
-    });
+        date: valueNew
+      });
 
-    return calendar_;
+      return calendar_;
+    }
+    catch (error) { }
   };
 
   const ModeDocked = React.useCallback(React.forwardRef((props_: any, ref_: any) => {
@@ -2231,7 +2240,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
                 aria-label='Previous month'
 
-                disabled={refs.openMenu.current}
+                disabled={refs.openMenu.current || (+year_ <= 1970 && month_ === 'Jan')}
 
                 {...buttonsProps}
               >
@@ -2287,7 +2296,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
                 aria-label='Next month'
 
-                disabled={refs.openMenu.current}
+                disabled={refs.openMenu.current || (+year_ === 2099 && month_ === 'Dec')}
 
                 {...buttonsProps}
               >
@@ -2312,7 +2321,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
                 aria-label='Previous year'
 
-                disabled={refs.openMenu.current}
+                disabled={refs.openMenu.current || +year_ <= 1970}
 
                 {...buttonsProps}
               >
@@ -2368,7 +2377,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
                 aria-label='Next year'
 
-                disabled={refs.openMenu.current}
+                disabled={refs.openMenu.current || +year_ === 2099}
 
                 {...buttonsProps}
               >
@@ -2984,7 +2993,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
                           aria-label='Previous month'
 
-                          disabled={refs.openMenu.current}
+                          disabled={refs.openMenu.current || (+year_ === 1970 && month_ === 'Jan')}
                         >
                           <IconPrevious />
                         </IconButton>
@@ -3002,7 +3011,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
                           aria-label='Next month'
 
-                          disabled={refs.openMenu.current}
+                          disabled={refs.openMenu.current || (+year_ === 2099 && month_ === 'Dec')}
                         >
                           <IconNext />
                         </IconButton>
@@ -3589,7 +3598,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
                             aria-label='Previous year'
 
-                            disabled={refs.openMenu.current}
+                            disabled={refs.openMenu.current || +year_ === 1970}
                           >
                             <IconPrevious />
                           </IconButton>
@@ -3607,7 +3616,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
                             aria-label='Next year'
 
-                            disabled={refs.openMenu.current}
+                            disabled={refs.openMenu.current || +year_ === 2099}
                           >
                             <IconNext />
                           </IconButton>
@@ -3995,21 +4004,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
       className={classNames([
         staticClassName('DatePicker', theme) && [
           'AmauiDatePicker-root',
-          `AmauiDatePicker-version-${version}`,
-          `AmauiDatePicker-open-mobile-${openMobile}`,
-          `AmauiDatePicker-week-start-day-${weekStartDay}`,
-          versionStatic && `AmauiDatePicker-version-static-${versionStatic}`,
-          calendar && `AmauiDatePicker-calendar`,
-          now && `AmauiDatePicker-now`,
-          today && `AmauiDatePicker-today`,
-          label && `AmauiDatePicker-label`,
-          min && `AmauiDatePicker-min`,
-          max && `AmauiDatePicker-max`,
-          day && `AmauiDatePicker-day`,
-          month && `AmauiDatePicker-month`,
-          year && `AmauiDatePicker-year`,
           range && `AmauiDatePicker-range`,
-          switch_ && `AmauiDatePicker-switch`,
           fullScreen && `AmauiDatePicker-full-screen`,
           readOnly && `AmauiDatePicker-read-only`,
           disabled && `AmauiDatePicker-disabled`

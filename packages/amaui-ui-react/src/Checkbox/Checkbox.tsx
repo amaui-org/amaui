@@ -413,9 +413,8 @@ const Checkbox = React.forwardRef((props_: ICheckbox, ref: any) => {
       className={classNames([
         staticClassName('Checkbox', theme) && [
           'AmauiCheckbox-root',
-          `AmauiCheckbox-color-indeterminate-${(!theme.palette.color[colorIndeterminate] && !['themed', 'inverted', 'default', 'inherit'].includes(colorIndeterminate)) ? 'new' : colorIndeterminate}`,
-          `AmauiCheckbox-color-unchecked-${!theme.palette.color[colorUnchecked] && !['themed', 'inverted', 'default', 'inherit'].includes(colorUnchecked) ? 'new' : colorUnchecked}`,
-          indeterminate && `AmauiCheckbox-indeterminate`
+          value && `AmauiCheckbox-checked`,
+          disabled && `AmauiCheckbox-disabled`
         ],
 
         className,

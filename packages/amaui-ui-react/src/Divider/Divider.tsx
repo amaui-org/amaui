@@ -212,15 +212,7 @@ const Divider = React.forwardRef((props_: IDivider, ref: any) => {
 
       className={classNames([
         staticClassName('Divider', theme) && [
-          'AmauiDivider-root',
-          `AmauiDivider-alignment-${alignment}`,
-          `AmauiDivider-orientation-${orientation}`,
-          flex && `AmauiDivider-flex`,
-          inset && `AmauiDivider-inset`,
-          middle && `AmauiDivider-middle`,
-          padding && `AmauiDivider-padding`,
-          children && `AmauiDivider-children`,
-          color === 'inherit' && `AmauiDivider-color-inherit`
+          'AmauiDivider-root'
         ],
 
         className,

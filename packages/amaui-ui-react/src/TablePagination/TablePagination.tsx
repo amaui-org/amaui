@@ -215,12 +215,7 @@ const TablePagination = React.forwardRef((props_: ITableRow, ref: any) => {
 
       className={classNames([
         staticClassName('TablePagination', theme) && [
-          `AmauiTablePagination-root`,
-          `AmauiTablePagination-size-${size}`,
-          first && `AmauiTablePagination-first`,
-          before && `AmauiTablePagination-before`,
-          next && `AmauiTablePagination-next`,
-          last && `AmauiTablePagination-last`
+          `AmauiTablePagination-root`
         ],
 
         className,

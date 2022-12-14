@@ -230,13 +230,7 @@ const RoundProgress = React.forwardRef((props_: IRoundProgress, ref: any) => {
 
       className={classNames([
         staticClassName('RoundedProgress', theme) && [
-          'AmauiRoundedProgress-root',
-          `AmauiRoundedProgress-version-${version}`,
-          `AmauiRoundedProgress-color-${!theme.palette.color[color] && !['themed', 'inverted', 'default', 'inherit'].includes(color) ? 'new' : color}`,
-          `AmauiRoundedProgress-size-${size}`,
-          rounded && `AmauiRoundedProgress-rounded`,
-          noShrink ? `AmauiRoundedProgress-no-shrink` : `AmauiRoundedProgress-shrink`,
-          tonal && `AmauiRoundedProgress-tonal`
+          'AmauiRoundedProgress-root'
         ],
 
         className,

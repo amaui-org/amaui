@@ -86,8 +86,6 @@ const TableRow = React.forwardRef((props_: ITableRow, ref: any) => {
       className={classNames([
         staticClassName('TableRow', theme) && [
           `AmauiTableRow-root`,
-          `AmauiTableRow-position-${position}`,
-          `AmauiTableRow-size-${size}`,
           (hover && position === 'body') && `AmauiTableRow-hover`,
           selected && `AmauiTableRow-selected`
         ],

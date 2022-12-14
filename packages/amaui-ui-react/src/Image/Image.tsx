@@ -279,14 +279,7 @@ const Image = React.forwardRef((props_: IImage, ref: any) => {
       className={classNames([
         staticClassName('Image', theme) && [
           'AmauiImage-root',
-          `AmauiImage-alignment-${alignment}`,
-          `AmauiImage-alignment-description-${alignmentDescription}`,
-          responsive && `AmauiContainer-responsive`,
-          maxWidth && `AmauiContainer-max-width-${maxWidth}`,
-          fullWidth && `AmauiContainer-full-width-${fullWidth}`,
-          img && `AmauiImage-img`,
-          (picture && !description) && `AmauiImage-picture`,
-          description && `AmauiImage-figure`,
+          (picture && !description) && `AmauiImage-picture`
         ],
 
         className,

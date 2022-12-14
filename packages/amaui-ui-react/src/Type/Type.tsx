@@ -173,9 +173,6 @@ const Type = React.forwardRef((props_: IType, ref: any) => {
       className={classNames([
         staticClassName('Type', theme) && [
           'AmauiType-root',
-          `AmauiType-version-${version}`,
-          `AmauiType-color-${color}`,
-          priority && `AmauiType-priority-${priority}`,
           disabled && `AmauiType-disabled`
         ],
 

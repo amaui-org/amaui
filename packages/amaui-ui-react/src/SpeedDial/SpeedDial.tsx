@@ -493,13 +493,9 @@ const SpeedDial = React.forwardRef((props_: ISpeedDial, ref: any) => {
       className={classNames([
         staticClassName('SpeedDial', theme) && [
           `AmauiSpeedDial-root`,
-          `AmauiSpeedDial-alignment-${alignment}`,
-          `AmauiSpeedDial-position-${position}`,
-          `AmauiSpeedDial-direction-${direction}`,
           open && `AmauiSpeedDial-open`,
           hover && `AmauiSpeedDial-hover`,
           focus && `AmauiSpeedDial-focus`,
-          noRotate && `AmauiSpeedDial-no-rotate`,
           disabled && `AmauiSpeedDial-disabled`
         ],
 

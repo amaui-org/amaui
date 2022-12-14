@@ -167,8 +167,6 @@ const Tab = React.forwardRef((props_: ITab, ref: any) => {
       className={classNames([
         staticClassName('Tab', theme) && [
           'AmauiTab-root',
-          `AmauiTab-icon-position-${iconPosition}`,
-          icon && `AmauiTab-icon`,
           active && `AmauiTab-active`,
           disabled && `AmauiTab-disabled`
         ],

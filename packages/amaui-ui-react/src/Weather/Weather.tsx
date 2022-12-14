@@ -440,12 +440,7 @@ const Weather = React.forwardRef((props_: IWeather, ref: any) => {
 
       className={classNames([
         staticClassName('Weather', theme) && [
-          'AmauiWeather-root',
-          `AmauiWeather-version-${version}`,
-          `AmauiWeather-size-${size}`,
-          dayTime_ && `AmauiWeather-day-time`,
-          `AmauiWeather-weather-${weather_}`,
-          shadow && `AmauiWeather-shadow`
+          'AmauiWeather-root'
         ],
 
         className,

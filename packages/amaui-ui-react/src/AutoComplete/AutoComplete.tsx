@@ -762,20 +762,7 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
               open && `AmauiAutoComplete-open`,
               mouseDown && `AmauiAutoComplete-mouse-down`,
               focus && `AmauiAutoComplete-focus`,
-              chip && `AmauiAutoComplete-chip`,
-              multiple && `AmauiAutoComplete-multiple`,
-              autoWidth && `AmauiAutoComplete-auto-width`,
-              clear && `AmauiAutoComplete-clear`,
-              loading && `AmauiAutoComplete-loading`,
-              autoSelectOnBlur && `AmauiAutoComplete-auto-select-on-blur`,
-              blurOnSelect && `AmauiAutoComplete-blur-on-select`,
-              openOnFocus && `AmauiAutoComplete-open-on-focus`,
-              noOptions && `AmauiAutoComplete-no-options`,
-              closeOnSelect && `AmauiAutoComplete-close-on-select`,
-              clearOnEscape && `AmauiAutoComplete-clear-on-escape`,
-              limit !== undefined && `AmauiAutoComplete-limit`,
-              selectOnFocus && `AmauiAutoComplete-select-on-focus`,
-              clearOnBlur && `AmauiAutoComplete-clear-on-blur`
+              loading && `AmauiAutoComplete-loading`
             ],
 
             className,

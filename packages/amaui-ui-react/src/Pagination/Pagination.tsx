@@ -248,11 +248,7 @@ const Pagination = React.forwardRef((props_: IPagination, ref: any) => {
 
       className={classNames([
         staticClassName('Pagination', theme) && [
-          `AmauiPagination-root`,
-          first && `AmauiPagination-first`,
-          before && `AmauiPagination-before`,
-          next && `AmauiPagination-next`,
-          last && `AmauiPagination-last`
+          `AmauiPagination-root`
         ],
 
         className,

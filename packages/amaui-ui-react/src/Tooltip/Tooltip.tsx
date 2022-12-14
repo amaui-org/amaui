@@ -537,24 +537,11 @@ const Tooltip = React.forwardRef((props_: ITooltip, ref: any) => {
             className={classNames([
               staticClassName('Tooltip', theme) && [
                 'AmauiTooltip-root',
-                `AmauiTooltip-max-width-${maxWidth}`,
-                `AmauiTooltip-position-${position}`,
-                `AmauiTooltip-alignment-${alignment}`,
-                switch_ && `AmauiButton-switch`,
-                portal && `AmauiButton-portal`,
-                anchorElement && `AmauiButton-anchor-element`,
-                fullWidth && `AmauiButton-full-width`,
-                follow && 'AmauiTooltip-follow',
-                interactive && 'AmauiTooltip-interactive',
                 open && `AmauiButton-open`,
                 touch && 'AmauiTooltip-touch',
                 longPress && 'AmauiTooltip-long-press',
                 hover && 'AmauiTooltip-hover',
-                focus && 'AmauiTooltip-focus',
-                inset && 'AmauiTooltip-inset',
-                noMargin && 'AmauiTooltip-no-margin',
-                arrow && `AmauiTooltip-arrow`,
-                nowrap && `AmauiTooltip-nowrap`
+                focus && 'AmauiTooltip-focus'
               ],
 
               className,

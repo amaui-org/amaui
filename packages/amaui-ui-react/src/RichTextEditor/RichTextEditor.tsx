@@ -3362,10 +3362,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
 
       className={classNames([
         staticClassName('RichTextEditor', theme) && [
-          'AmauiRichTextEditor-root',
-          miniMenu && `AmauiRichTextEditor-${miniMenu}`,
-          updates && `AmauiRichTextEditor-${updates}`,
-          actions && `AmauiRichTextEditor-${actions}`
+          'AmauiRichTextEditor-root'
         ],
 
         className,

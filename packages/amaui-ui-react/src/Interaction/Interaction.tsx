@@ -447,15 +447,6 @@ const Interaction = React.forwardRef((props_: IInteraction, ref: any) => {
       className={classNames([
         staticClassName('Interaction', theme) && [
           'AmauiInteraction-root',
-          wave && `AmauiInteraction-wave`,
-          background && `AmauiInteraction-background`,
-          border && `AmauiInteraction-border`,
-          pulse && `AmauiInteraction-pulse`,
-          origin && `AmauiInteraction-origin-${origin}`,
-          preselected && `AmauiInteraction-preselected`,
-          selected && `AmauiInteraction-selected`,
-          dragged && `AmauiInteraction-dragged`,
-          wave_version && `AmauiInteraction-wave-version-${wave_version}`,
           disabled && `AmauiInteraction-disabled`
         ],
 

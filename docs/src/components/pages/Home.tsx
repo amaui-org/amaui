@@ -2,7 +2,7 @@ import React from 'react';
 
 import Head from 'next/head';
 
-import { random } from '@amaui/utils';
+import { isBrowser, random } from '@amaui/utils';
 import { AreaChart, Avatar, Button, Card, CardFooter, CardHeader, CardImage, CardMain, Checkbox, DatePicker, DonutChart, Fab, Fade, IconButton, Line, Link, ListItem, Masonry, Placeholder, Radio, Rating, Slider, Surface, Switch, Tab, Tabs, TimePicker, Tooltip, Tree, Type, useMediaQuery, Weather } from '@amaui/ui-react';
 import { classNames, colors, style, useAmauiTheme } from '@amaui/style-react';
 import AmauiStorage from '@amaui/storage';
@@ -314,7 +314,7 @@ export default function Root(props: any) {
 
       <meta property='og:description' content='Make Modern Web &amp; Mobile Apps Quickly 100+ UI elements' />
 
-      {light ? <>
+      {theme.palette.light ? <>
         <link rel='apple-touch-icon' sizes='180x180' href='/assets/favicon/light/apple-touch-icon.png' />
         <link rel='icon' type='image/png' sizes='32x32' href='/assets/favicon/light/favicon-32x32.png' />
         <link rel='icon' type='image/png' sizes='16x16' href='/assets/favicon/light/favicon-16x16.png' />

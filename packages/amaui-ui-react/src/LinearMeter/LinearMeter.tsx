@@ -668,18 +668,7 @@ const LinearMeter = React.forwardRef((props_: ILinearMeter, ref: any) => {
 
       className={classNames([
         staticClassName('LinearMeter', theme) && [
-          'AmauiLinearMeter-root',
-          `AmauiLinearMeter-orientation-${orientation}`,
-          `AmauiLinearMeter-line-position-${linePosition}`,
-          `AmauiLinearMeter-size-${size}`,
-          `AmauiLinearMeter-parts-${parts}`,
-          `AmauiLinearMeter-line-cap-${lineCap}`,
-          border && `AmauiLinearMeter-border`,
-          background && `AmauiLinearMeter-background`,
-          lineProgress && `AmauiLinearMeter-line-progress`,
-          linesVisible && `AmauiLinearMeter-lines-visible`,
-          marksVisible && `AmauiLinearMeter-marks-visible`,
-          labelsVisible && `AmauiLinearMeter-labels-visible`
+          'AmauiLinearMeter-root'
         ],
 
         className,

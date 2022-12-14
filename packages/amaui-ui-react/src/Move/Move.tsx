@@ -192,8 +192,7 @@ const Move = React.forwardRef((props_: IMove, ref: any) => {
 
       className={classNames([
         staticClassName('Move', theme) && [
-          'AmauiMove-root',
-          manage && `AmauiMove-manage`
+          'AmauiMove-root'
         ],
 
         className,

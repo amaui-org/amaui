@@ -442,19 +442,7 @@ const Tree = React.forwardRef((props_: ITree, ref: any) => {
       className={classNames([
         staticClassName('Tree', theme) && [
           'AmauiTree-root',
-          `AmauiTree-level-${level}`,
-          (level > 0 && line) && `AmauiTree-line`,
           children ? `AmauiTree-children` : `AmauiTree-empty`,
-          indicator && [
-            `AmauiTree-indicator`,
-            `AmauiTree-indicator-position-${indicatorPosition}`
-          ],
-          arrow && `AmauiTree-arrow`,
-          checkbox && `AmauiTree-checkbox`,
-          button && `AmauiTree-button`,
-          noTransition && `AmauiTree-no-transition`,
-          noExpand && `AmauiTree-no-expand`,
-          noPadding && `AmauiTree-no-padding`,
           parentDisabled && `AmauiTree-parent-disabled`,
           disabled && `AmauiTree-disabled`
         ],
